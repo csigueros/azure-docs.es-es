@@ -3,19 +3,17 @@ title: 'Tutorial: Configuración de un entorno de Gen2: Azure Time Series Insigh
 description: 'Tutorial: Aprenda a configurar un entorno en Azure Time Series Insights Gen2.'
 author: riserrad
 ms.author: riserrad
-manager: edett
 ms.workload: big-data
 ms.service: time-series-insights
-services: time-series-insights
 ms.topic: tutorial
 ms.date: 04/23/2021
 ms.custom: seodec18
-ms.openlocfilehash: f3994802e82b126f426a75a26d399f6f86e21797
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: 7a6562592bb7c0ae37784429d6a36eaf4ade4957
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107952027"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123449322"
 ---
 # <a name="tutorial-set-up-an-azure-time-series-insights-gen2-environment"></a>Tutorial: Configuración de un entorno de Azure Time Series Insights Gen2
 
@@ -36,7 +34,7 @@ En este tutorial, aprenderá a:
 
 Regístrese para obtener [suscripción gratuita a Azure](https://azure.microsoft.com/free/), en caso de que no tenga ninguna.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Como mínimo, debe tener el rol **Colaborador** para la suscripción de Azure. Para más información, consulte [Asignación de roles de Azure mediante Azure Portal](../role-based-access-control/role-assignments-portal.md).
 
@@ -228,7 +226,7 @@ En esta sección, aplicará un modelo para estructurar los datos. Para completar
         | **Nombre** | Escriba **Floor**. |
         | **Variante** | Seleccione **Categórico**. |
         | **Valor** | Seleccione un valor preestablecido: Seleccione **Floor (Double)** (Planta [doble]). <br /> Nota: Es posible que el campo de **valor** tarde unos minutos en rellenarse automáticamente después de que Azure Time Series Insights Gen2 comience a recibir eventos.|
-        | **Categorías** | <span style="text-decoration: underline">Etiqueta </span>  - <span style="text-decoration: underline">Valores</span> <br /> Inferior: 1,2,3,4 <br /> Central: 5,6,7,8,9 <br /> Superior: 10,11,12,13,14,15 |
+        | **Categorías** | **Etiqueta**: **Values** <br /> Inferior: 1,2,3,4 <br /> Central: 5,6,7,8,9 <br /> Superior: 10,11,12,13,14,15 |
         | **Categoría predeterminada** | Escriba **Desconocido**. |
 
         [![Adición de variables de tipo.](media/tutorial-set-up-environment/add-type-variables.png)](media/tutorial-set-up-environment/add-type-variables.png#lightbox)

@@ -3,12 +3,12 @@ title: 'Configuración de una puerta de señal para la grabación de vídeo basa
 description: En este artículo se proporcionan instrucciones sobre cómo configurar una puerta de señal en una canalización.
 ms.topic: how-to
 ms.date: 06/01/2021
-ms.openlocfilehash: c0b38005010d2718235700f0ed13575e15119103
-ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
+ms.openlocfilehash: 2da85aa31facbec922eac9ee895cd68d66326a42
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114604071"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123427973"
 ---
 # <a name="configuring-a-signal-gate-for-event-based-video-recording"></a>Configuración de una puerta de señal para la grabación de vídeo basada en eventos
 
@@ -159,7 +159,7 @@ Diagrama de ejemplo:
 
 Las canalizaciones permiten grabar vídeos en la nube o como archivos MP4 en el dispositivo perimetral. Se pueden generar mediante la [grabación continua de vídeo](use-continuous-video-recording.md) o la [grabación de vídeo basada en eventos](record-event-based-live-video.md).
 
-La estructura de nomenclatura recomendada para la grabación en la nube es asignar al recurso de vídeo el nombre "<anytext>-${System.TopologyName}-${System.PipelineName}". Una canalización en directo determinada solo se puede conectar a una cámara IP compatible con RTSP y se debe grabar la entrada de esa cámara en un recurso de vídeo. Por ejemplo, puede establecer el valor de `VideoName` en el receptor de vídeo de la siguiente manera:
+La estructura de nomenclatura recomendada para la grabación en la nube consiste en asignar al recurso de vídeo el nombre `<anytext>-${System.TopologyName}-${System.PipelineName}`. Una canalización en directo determinada solo se puede conectar a una cámara IP compatible con RTSP y se debe grabar la entrada de esa cámara en un recurso de vídeo. Por ejemplo, puede establecer el valor de `VideoName` en el receptor de vídeo de la siguiente manera:
 
 ```
 "VideoName": "sampleVideo-${System.TopologyName}-${System.PipelineName}"

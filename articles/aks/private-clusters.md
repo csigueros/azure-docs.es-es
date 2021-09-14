@@ -4,12 +4,12 @@ description: Aprenda a crear un clúster privado de Azure Kubernetes Service (AK
 services: container-service
 ms.topic: article
 ms.date: 8/30/2021
-ms.openlocfilehash: 39090732df8543fc28d1324882f3817402ad587a
-ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
+ms.openlocfilehash: 69366f82c746d1d436d437e2892b010331ecf967
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123214313"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123429035"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>Creación de un clúster privado de Azure Kubernetes Service
 
@@ -71,15 +71,10 @@ Donde `--enable-private-cluster` es una marca obligatoria para un clúster priva
 Se pueden aprovechar los siguientes parámetros para configurar la zona DNS privada.
 
 - "System", que es también el valor predeterminado. Si se omite el argumento --private-dns-zone, AKS creará una zona DNS privada en el grupo de recursos del nodo.
-- "None" tiene como valor predeterminado un DNS público, lo que significa que AKS no creará una zona de DNS privado (VERSIÓN PRELIMINAR).  
+- "None" tiene como valor predeterminado un DNS público, lo que significa que AKS no creará una zona de DNS privado.  
 - "CUSTOM_PRIVATE_DNS_ZONE_RESOURCE_ID", para lo que es necesario crear una zona DNS privada en este formato para la nube global de Azure: `privatelink.<region>.azmk8s.io`. A partir de ahora, necesitará el identificador de recurso de esa zona DNS privada.  También necesitará una identidad asignada por el usuario o una entidad de servicio que tenga como mínimo los roles `private dns zone contributor` y `vnet contributor`.
   - Si la zona de DNS privado está en una suscripción diferente a la del clúster de AKS, debe registrar Microsoft.ContainerServices en ambas suscripciones.
   - "fqdn-subdomain" solo se puede usar con "CUSTOM_PRIVATE_DNS_ZONE_RESOURCE_ID" para proporcionar capacidades de subdominio a `privatelink.<region>.azmk8s.io`.
-
-### <a name="prerequisites"></a>Requisitos previos
-
-* Versión preliminar 0.5.19 o posterior de AKS
-* Versión 2021-05-01 o posterior de la API
 
 ### <a name="create-a-private-aks-cluster-with-private-dns-zone"></a>Creación de un clúster de AKS privado con zona de DNS privado
 
@@ -94,6 +89,11 @@ az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --lo
 ```
 
 ## <a name="create-a-private-aks-cluster-with-a-public-dns-address"></a>Creación de un clúster de AKS privado con una dirección de DNS público
+
+Requisitos previos:
+
+* CLI de Azure con la extensión aks-preview 0.5.29 o posterior.
+* Si usa ARM o la API REST, la versión de la API de AKS debe ser 2021-05-01 o posterior.
 
 La opción de DNS público se puede aprovechar para simplificar las opciones de enrutamiento de su clúster privado.  
 

@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: resource-graph
 ms.topic: include
-ms.date: 08/31/2021
+ms.date: 09/03/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 716ac7b7d1c3b6577b9eb7290e249b306a617254
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: 263f2be5c13a9086a529271ef8bd03464e20975e
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123304116"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123536430"
 ---
 ### <a name="count-of-os-update-installation-done"></a>Recuento de instalaciones de actualizaciones de SO realizadas
 
@@ -213,7 +213,7 @@ Search-AzGraph -Query "Resources | where type=~ 'microsoft.compute/virtualmachin
 
 ### <a name="list-all-extensions-installed-on-a-virtual-machine"></a>Enumeración de todas las extensiones instaladas en una máquina virtual
 
-En primer lugar, esta consulta usa `extend` en el tipo de recurso de máquinas virtuales para obtener el identificador en mayúsculas (`toupper()` el identificador), el nombre y el tipo del sistema operativo y el tamaño de la máquina virtual. Obtener el identificador de recurso en mayúsculas es una ayuda en la preparación para unirse a otra propiedad. A continuación, la consulta utiliza `join` con _leftouter_ como **tipo** para obtener las extensiones de máquina virtual mediante la coincidencia de una `substring` en mayúsculas del ID. de extensión. La parte del identificador antes de "/extensions/\<ExtensionName\>" tiene el mismo formato que el identificador de las máquinas virtuales, por lo que usamos esta propiedad para `join`. `summarize` se usa entonces con `make_list` en el nombre de la extensión de máquina virtual para combinar el nombre de cada extensión, donde _ID_, _OSName_, _OSType_ y _VMSize_ son iguales en una única propiedad de matriz. Por último, se aplica `order by` a _OSName_ en minúsculas con **asc**. De forma predeterminada, el valor predeterminado de `order by` es descendente.
+En primer lugar, esta consulta usa `extend` en el tipo de recurso de máquinas virtuales para obtener el identificador en mayúsculas (`toupper()` el identificador), el nombre y el tipo del sistema operativo y el tamaño de la máquina virtual. Obtener el identificador de recurso en mayúsculas es una ayuda en la preparación para unirse a otra propiedad. A continuación, la consulta utiliza `join` con _leftouter_ como **tipo** para obtener las extensiones de máquina virtual mediante la coincidencia de una `substring` en mayúsculas del identificador de extensión. La parte del identificador antes de "/extensions/\<ExtensionName\>" tiene el mismo formato que el identificador de las máquinas virtuales, por lo que usamos esta propiedad para `join`. `summarize` se usa entonces con `make_list` en el nombre de la extensión de máquina virtual para combinar el nombre de cada extensión, donde _ID_, _OSName_, _OSType_ y _VMSize_ son iguales en una única propiedad de matriz. Por último, se realiza la operación `order by` para _OSName_ en minúsculas con **asc**. De forma predeterminada, el valor predeterminado de `order by` es descendente.
 
 ```kusto
 Resources

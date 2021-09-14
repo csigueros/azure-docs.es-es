@@ -4,18 +4,18 @@ description: Aprenda a usar Azure Portal, la CLI o Powershell para crear, ver y
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
-ms.date: 02/14/2021
-ms.openlocfilehash: 854867bb6f40bdd8f0fac28e69d936a4027760b5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 09/06/2021
+ms.openlocfilehash: c5f3bd7d5c8e934977955b2b3f253e131cca7111
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101714381"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123539198"
 ---
 # <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>Creación, visualización y administración de alertas de métricas clásicas mediante Azure Monitor
 
 > [!WARNING]
-> En este artículo se describe cómo crear alertas de métrica clásicas más antiguas. Azure Monitor ahora es compatible con [una nueva experiencia de alertas y las más recientes alertas de métrica casi en tiempo real](./alerts-overview.md). Las alertas clásicas se han [retirado](./monitoring-classic-retirement.md) para los usuarios de la nube pública, aunque siguen estando disponibles con uso limitado hasta el **31 de mayo de 2021**. Las alertas clásicas para la nube de Azure Government y Azure China 21Vianet se retirarán el **29 de febrero de 2024**.
+> En este artículo se describe cómo crear alertas de métrica clásicas más antiguas. Azure Monitor ahora es compatible con [una nueva experiencia de alertas y las más recientes alertas de métrica casi en tiempo real](./alerts-overview.md). Las alertas públicas se han [retirado](./monitoring-classic-retirement.md) para los usuarios de la nube pública. Las alertas clásicas para la nube de Azure Government y Azure China 21Vianet se retirarán el **29 de febrero de 2024**.
 >
 
 Las alertas de métricas clásicas en Azure Monitor proporcionan una forma de recibir notificaciones cuando una de sus métricas cruza un umbral. Las alertas de métricas clásicas son una funcionalidad más antigua que permiten enviar alertas solo en métricas no dimensionales. Existe una funcionalidad más reciente existente llamada Alertas de métricas que ha mejorado la funcionalidad de las alertas de métricas clásicas. Puede obtener más información acerca de la nueva funcionalidad de alertas de indicadores en la [información general de las alertas de métricas](./alerts-metric-overview.md). En este artículo describiremos cómo crear, ver y administrar reglas de alerta de métricas clásicas a través de Azure Portal, la CLI de Azure y Powershell.

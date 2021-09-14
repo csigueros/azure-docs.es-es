@@ -4,18 +4,18 @@ description: Obtenga información sobre cómo utilizar una plantilla de Resource
 author: rboucher
 ms.author: robb
 ms.topic: conceptual
-ms.date: 02/14/2021
-ms.openlocfilehash: 15be0be2fc6d00f5a1fde9e716cf00f306537521
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.date: 09/06/2021
+ms.openlocfilehash: 4be599679310e91205b6c95ae27ee5d6f78ad407
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111956401"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123539162"
 ---
 # <a name="create-a-classic-metric-alert-with-a-resource-manager-template"></a>Creación de una alerta de métrica clásica con una plantilla de Resource Manager
 
 > [!WARNING]
-> En este artículo se describe cómo crear alertas de métrica clásicas más antiguas. Azure Monitor ahora es compatible con [una nueva experiencia de alertas y las más recientes alertas de métrica casi en tiempo real](./alerts-overview.md). Las alertas clásicas se han [retirado](./monitoring-classic-retirement.md) para los usuarios de la nube pública, aunque siguen estando disponibles con uso limitado hasta el **31 de mayo de 2021**. Las alertas clásicas para la nube de Azure Government y Azure China 21Vianet se retirarán el **29 de febrero de 2024**.
+> En este artículo se describe cómo crear alertas de métrica clásicas más antiguas. Azure Monitor ahora es compatible con [una nueva experiencia de alertas y las más recientes alertas de métrica casi en tiempo real](./alerts-overview.md). Las alertas públicas se han [retirado](./monitoring-classic-retirement.md) para los usuarios de la nube pública. Las alertas clásicas para la nube de Azure Government y Azure China 21Vianet se retirarán el **29 de febrero de 2024**.
 >
 
 En este artículo se describe cómo se puede utilizar una [plantilla de Azure Resource Manager](../../azure-resource-manager/templates/syntax.md) para configurar alertas de métricas clásicas de Azure. Esto permite configurar automáticamente las alertas en los recursos cuando se crean para asegurarse de que todos los recursos se supervisan correctamente.

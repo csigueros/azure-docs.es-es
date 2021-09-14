@@ -9,12 +9,12 @@ ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: subject-monitoring, devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: f38149e2259dbb6724a81e8139f46bd65a0edff0
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 2fd0e2807697ee417a14d7afa7c07864456a6976
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121749320"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123471235"
 ---
 # <a name="monitoring-azure-blob-storage"></a>Supervisión de Azure Blob Storage
 
@@ -67,7 +67,7 @@ Para recopilar registros de recursos, debe crear una configuración de diagnóst
 
 ## <a name="creating-a-diagnostic-setting"></a>Creación de una configuración de diagnóstico
 
-Puede crear una configuración de diagnóstico mediante Azure Portal, PowerShell, la CLI de Azure, una plantilla de Azure Resource Manager o Azure Policy. 
+Puede crear una configuración de diagnóstico mediante Azure Portal, PowerShell, la CLI de Azure, una plantilla de Azure Resource Manager o Azure Policy. 
 
 Para obtener instrucciones generales, consulte [Creación de una configuración de diagnóstico para recopilar registros y métricas de la plataforma en Azure](../../azure-monitor/essentials/diagnostic-settings.md).
 
@@ -271,7 +271,7 @@ Para ver una plantilla de Azure Resource Manager que crea una configuración de 
 
 ### <a name="azure-policy"></a>[Azure Policy](#tab/policy)
 
-Puede crear una configuración de diagnóstico mediante una definición de directiva. De este modo, puede asegurarse de que se cree una configuración de diagnóstico para cada cuenta creada o actualizada. Vea [Definiciones integradas de Azure Policy para Azure Storage](../common/policy-reference.md).
+Puede crear una configuración de diagnóstico mediante una definición de directiva. De este modo, puede asegurarse de que se crea una configuración de diagnóstico para cada cuenta que se crea o actualiza. Consulte [Definiciones integradas de Azure Policy para Azure Storage](../common/policy-reference.md).
 
 ---
 
@@ -607,6 +607,29 @@ Utilice estas consultas para ayudar a supervisar las cuentas de Azure Storage:
     | sort by count_ desc 
     | render piechart
     ```
+
+## <a name="feature-support"></a>Compatibilidad de características
+
+En esta tabla se muestra cómo se admite esta característica en la cuenta y el impacto en la compatibilidad al habilitar determinadas funcionalidades. 
+
+### <a name="logs-in-azure-monitor"></a>Registros en Azure Monitor
+
+| Tipo de cuenta de almacenamiento                | Blob Storage (compatibilidad predeterminada)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>    
+|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
+| De uso general estándar, v2 | ![Sí](../media/icons/yes-icon.png)  <sup>2</sup> |![Sí](../media/icons/yes-icon.png)  <sup>2</sup>              | ![Sí](../media/icons/yes-icon.png)  <sup>2</sup> | 
+| Blobs en bloques Premium          | ![Sí](../media/icons/yes-icon.png)  <sup>2</sup>|![Sí](../media/icons/yes-icon.png)  <sup>2</sup> | ![Sí](../media/icons/yes-icon.png)  <sup>2</sup> |
+
+### <a name="metrics-in-azure-monitor"></a>Métricas en Azure Monitor
+
+| Tipo de cuenta de almacenamiento                | Blob Storage (compatibilidad predeterminada)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>    
+|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
+| De uso general estándar, v2 | ![Sí](../media/icons/yes-icon.png) |![Sí](../media/icons/yes-icon.png)              | ![Sí](../media/icons/yes-icon.png) | 
+| Blobs en bloques Premium          | ![Sí](../media/icons/yes-icon.png) |![Sí](../media/icons/yes-icon.png)  <sup>2</sup> | ![Sí](../media/icons/yes-icon.png)  <sup>2</sup> |
+
+<sup>1</sup> Data Lake Storage Gen2 y el protocolo Network File System (NFS) 3.0 necesitan una cuenta de almacenamiento con un espacio de nombres jerárquico habilitado.
+
+<sup>2</sup> La característica se admite en el nivel de versión preliminar.
+
 ## <a name="faq"></a>Preguntas más frecuentes
 
 **¿Admite Azure Storage métricas de discos administrados o no administrados?**

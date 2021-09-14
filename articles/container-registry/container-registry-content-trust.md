@@ -2,14 +2,14 @@
 title: Administrar imágenes firmadas
 description: Aprenda a habilitar la confianza en el contenido para Azure Container Registry y a insertar y extraer imágenes firmadas. La confianza en el contenido implementa confianza en el contenido de Docker y es una característica del nivel de servicio Premium.
 ms.topic: how-to
-ms.date: 06/25/2021
+ms.date: 07/26/2021
 ms.custom: subject-rbac-steps
-ms.openlocfilehash: ddaded0ff733ea717a48bfe2bcaac4a84e102ad8
-ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
+ms.openlocfilehash: e6f4eb302d2ac5f6fc711e438a48a064efef0d27
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2021
-ms.locfileid: "112983624"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123450960"
 ---
 # <a name="content-trust-in-azure-container-registry"></a>Confianza en el contenido en Azure Container Registry
 
@@ -76,6 +76,9 @@ Solo los usuarios o sistemas a los que se ha concedido permiso pueden insertar i
 > No se puede conceder permiso de inserción de imágenes de confianza a las siguientes cuentas administrativas: 
 > * la [cuenta de administrador](container-registry-authentication.md#admin-account) de un registro de contenedor de Azure;
 > * una cuenta de usuario de Azure Active Directory con el [rol de administrador del sistema clásico](../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
+
+> [!NOTE]
+> A partir de julio de 2021, el rol `AcrImageSigner` incluye la acción `Microsoft.ContainerRegistry/registries/sign/write` y la acción de datos `Microsoft.ContainerRegistry/registries/trustedCollections/write`.
 
 A continuación, puede ver los detalles de la concesión del rol `AcrImageSigner` en Azure Portal y la CLI de Azure.
 

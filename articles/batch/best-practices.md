@@ -1,14 +1,14 @@
 ---
 title: Procedimientos recomendados
 description: Obtenga información sobre los procedimientos recomendados y sugerencias útiles para desarrollar sus soluciones de Azure Batch.
-ms.date: 04/29/2021
+ms.date: 09/03/2021
 ms.topic: conceptual
-ms.openlocfilehash: db67f91257db1ddb44f7dfb103ac02e49febe562
-ms.sourcegitcommit: 695a33a2123429289ac316028265711a79542b1c
+ms.openlocfilehash: 5227b738ab5d7af19ed2877a1c3d6b37ea08c556
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2021
-ms.locfileid: "113126471"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123535822"
 ---
 # <a name="azure-batch-best-practices"></a>Procedimientos recomendados de Azure Batch
 
@@ -48,6 +48,8 @@ La vigencia del grupo puede variar en función del método de asignación y de l
 - **Recreación del grupo:** de forma similar, evite eliminar y volver a crear los grupos a diario. En su lugar, cree un nuevo grupo y actualice los trabajos existentes para que apunten al nuevo grupo. Cuando se hayan pasado todas las tareas al nuevo grupo, elimine el grupo anterior.
 
 - **Eficacia del grupo y facturación:** Batch en sí no incurre en cargos adicionales, pero se incurre en cargos por los recursos de proceso utilizados. Se le facturará por cada nodo de proceso del grupo, independientemente del estado en el que se encuentre. Esto incluye los cargos necesarios para la ejecución del nodo, como los costos de almacenamiento y de redes. Para más información, consulte [Análisis de costos y presupuestos para Azure Batch](budget.md).
+
+- **Discos de SO efímero**: los grupos de configuración de máquina virtual pueden usar [discos de SO efímeros](create-pool-ephemeral-os-disk.md), que crean el disco de SO en la caché de la máquina virtual o SSD temporal, para evitar costos adicionales asociados a los discos administrados.
 
 ### <a name="pool-allocation-failures"></a>Errores de asignación de grupos
 

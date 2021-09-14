@@ -14,16 +14,28 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/27/2021
 ms.author: phjensen
-ms.openlocfilehash: fd8d4e1bfed60aa8f3eae4d4d3c033247ab1268d
-ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
+ms.openlocfilehash: 0a2a110b483d7f5f5618e5679e4479ebf1d313b8
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110579912"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123438127"
 ---
 # <a name="release-notes-for-azure-application-consistent-snapshot-tool"></a>Notas de la versión de la herramienta Azure Application Consistent Snapshot
 
 En esta página se enumeran los cambios importantes realizados en AzAcSnap para proporcionar una nueva funcionalidad o resolver los defectos.
+
+## <a name="aug-2021"></a>Agosto de 2021
+
+### <a name="azacsnap-v502-build_2021082719086---patch-update-to-v501"></a>AzAcSnap v5.0.2 (Build_20210827.19086): actualización de revisión a v5.0.1
+
+AzAcSnap v5.0.2 (Build_20210827.19086) se proporciona como una actualización de revisión a la rama v5.0 con las siguientes correcciones y mejoras:
+
+- Omitir los códigos de salida 255 del comando `ssh`.  En algunos casos, el comando `ssh`, que se usa para comunicarse con el almacenamiento en Azure Large Instance, emitiría un código de salida 255 cuando no hubiera errores o errores de ejecución (consulte "EXIT STATUS" para el comando `man ssh`). Posteriormente, AzAcSnap lo capturaría como un error y lo anularía.  Esta actualización permite hacer una comprobación adicional para validar la ejecución correcta, lo que incluye el análisis de `ssh` STDOUT y STDERR en busca de errores, además de las comprobaciones habituales de código de salida.
+- Corregir la comprobación de la ruta de origen hdbuserstore del instalador.  El instalador comprobaría la existencia de un directorio de origen incorrecto para la ruta de origen hdbuserstore para el usuario que ejecuta la instalación. Esto se ha corregido para comprobar `~/.hdb`.  Esto afecta a los sistemas (por ejemplo, Azure Large Instance) en los que hdbuserstore se había preconfigurado para el usuario `root` antes de instalar `azacsnap`.
+- El instalador muestra ahora la versión que se instalará o extraerá (si se ejecuta sin argumentos).
+
+Descargue la [versión más reciente](https://aka.ms/azacsnapinstaller) del instalador y revise [cómo empezar](azacsnap-get-started.md).
 
 ## <a name="may-2021"></a>Mayo de 2021
 
@@ -32,8 +44,6 @@ En esta página se enumeran los cambios importantes realizados en AzAcSnap para 
 AzAcSnap v5.0.1 (compilación: 20210524.14837) se proporciona como una actualización de revisión a la rama v5.0 con las siguientes correcciones y mejoras:
 
 - Se ha mejorado el control del código de salida.  En algunos casos, se emitía un código de salida de 0 (cero) incluso cuando se producía un error de ejecución donde debería haber sido distinto de cero.  Los códigos de salida ahora solo deben ser cero cuando `azacsnap` se ejecuta correctamente hasta el final y un número distinto de cero en caso de error.  Además, el control de errores internos de AzAcSnap se ha ampliado para capturar y emitir el código de salida de los comandos externos (por ejemplo, hdbsql, ssh) ejecutados por AzAcSnap, si son la causa del error.
-
-Descargue la [versión más reciente](https://aka.ms/azacsnapdownload) del instalador y revise [cómo empezar](azacsnap-get-started.md).
 
 ## <a name="april-2021"></a>Abril de 2021
 

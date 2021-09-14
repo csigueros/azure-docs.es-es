@@ -4,7 +4,7 @@ description: Obtenga información sobre cómo crear un contenedor de recursos y 
 services: active-directory
 documentationCenter: ''
 author: ajburnle
-manager: daveba
+manager: ''
 editor: HANKI
 ms.service: active-directory
 ms.workload: identity
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 12/23/2020
+ms.date: 8/31/2021
 ms.author: ajburnle
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 32b848f6a34fbd25322c53cd35dc0db600743c88
-ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
+ms.openlocfilehash: f9178daf615b0d3f02188e30e1bdd7c37c628b4c
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2021
-ms.locfileid: "114730215"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123427450"
 ---
 # <a name="create-and-manage-a-catalog-of-resources-in-azure-ad-entitlement-management"></a>Creación y administración de un catálogo de recursos en la administración de derechos de Azure AD
 
@@ -89,7 +89,7 @@ Para incluir recursos en un paquete de acceso, deben estar en un catálogo. Los 
 
 1. Haga clic en un tipo de recurso: **Grupos y equipos**, **Aplicaciones** o **Sitios de SharePoint**.
 
-    Si no ve un recurso que quiere agregar o no puede agregar un recurso, asegúrese de que tiene los roles de administración de derechos y de directorio de Azure AD que se requieren. Es posible que alguien que tenga los roles necesarios tenga que agregar el recurso al catálogo. Para obtener más información, vea [Roles necesarios para agregar recursos a un catálogo](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog).
+    Si no ve un recurso que quiere agregar o no puede agregar un recurso, asegúrese de que tiene los roles de administración de derechos y de directorio de Azure AD necesarios. Es posible que alguien que tenga los roles necesarios tenga que agregar el recurso al catálogo. Para obtener más información, vea [Roles necesarios para agregar recursos a un catálogo](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog).
 
 1. Seleccione uno o varios recursos del tipo que quiera agregar al catálogo.
 
@@ -98,6 +98,57 @@ Para incluir recursos en un paquete de acceso, deben estar en un catálogo. Los 
 1. Cuando haya finalizado, haga clic en **Agregar**.
 
     Ahora, estos recursos se pueden incluir en paquetes de acceso del catálogo.
+
+### <a name="add-resource-attributes-preview-in-the-catalog"></a>Adición de atributos de recursos (versión preliminar) al catálogo
+
+Los atributos son campos obligatorios a los que se pedirá a los solicitantes que respondan antes de enviar su solicitud de acceso. Sus respuestas para estos atributos se mostrarán a los aprobadores y también se marcarán en el objeto de usuario en Azure Active Directory. 
+
+> [!NOTE]
+>Todos los atributos configurados en un recurso necesitarán una respuesta antes de que se pueda enviar una solicitud de un paquete de acceso que contenga ese recurso. Si los solicitantes no proporcionan una respuesta, la solicitud no se procesará.
+
+Para exigir atributos para las solicitudes de acceso, siga estos pasos:
+
+1. Haga clic en **Recursos** en el menú de la izquierda para ver una lista de recursos del catálogo. 
+
+1. Haga clic en los puntos suspensivos situados junto al recurso al que quiera agregar atributos y, después, seleccione **Require attributes (Preview)** (Requerir atributos [versión preliminar]). 
+
+    ![Adición de recursos: selección de Require attributes (Requerir atributos)](./media/entitlement-management-catalog-create/resources-require-attributes.png)
+ 
+1.  Seleccione el tipo de atributo:
+
+    1. **Integrado**: incluye atributos de perfil de usuario de Azure Active Directory.
+    1. **Extensión de esquema de directorio**: proporciona una manera de almacenar datos adicionales en Azure Active Directory en objetos de usuario y otros objetos de directorio. Esto incluye grupos, detalles del inquilino y entidades de servicio. Solo se pueden usar atributos de extensión en objetos de usuario para enviar notificaciones a las aplicaciones.
+    1. Si selecciona **Integrado**, puede elegir un atributo en la lista desplegable. Si elige **Extensión de esquema de directorio**, puede escribir el nombre del atributo en el cuadro de texto.
+
+    > [!NOTE]
+    > El atributo User.mobilePhone solo se puede actualizar para usuarios que no sean administradores. Obtenga más información [aquí](/graph/permissions-reference#remarks-5). 
+
+1.  Seleccione el formato de respuesta en el que desea que los solicitantes respondan. Entre los formatos de respuesta se incluyen: **texto breve**, **opciones múltiples** y **texto largo**.
+
+1.  Si selecciona varias opciones, haga clic en el botón **Edit and localize** (Editar y localizar) para configurar las opciones de respuesta.
+    1. Después de seleccionar Edit and localize (Editar y localizar), se abre el panel **View/edit question** (Ver o editar pregunta).
+    1. Escriba las opciones de respuesta que desea dar al solicitante al responder a la pregunta de los cuadros **Answer values** (Valores de respuesta).
+    1. Seleccione el idioma de la opción de respuesta. Puede localizar las opciones de respuesta si elige idiomas adicionales.
+    1. Escriba tantas respuestas como sea necesario y haga clic en **Save** (Guardar).
+
+1. Si quiere que el valor del atributo se pueda editar durante las asignaciones directas y las solicitudes de autoservicio, seleccione **Sí**.
+
+    > [!NOTE]
+    > ![Adición de recursos, adición de atributos, hacer que los atributos se puedan editar](./media/entitlement-management-catalog-create/attributes-are-editable.png)
+    > - Si selecciona **No** en el campo Attribute value is editable (El valor de atributo es editable) y el valor del atributo **está vacío**, los usuarios podrán escribir el valor de ese atributo. Una vez que se ha guardado, el valor ya no se podrá editar. 
+    > - Si selecciona **No** en el campo Attribute value is editable (El valor de atributo es editable) y el valor del atributo **no está vacío**, los usuarios no podrán editar el valor preexistente, tanto durante las asignaciones directas como durante las solicitudes de autoservicio.
+ 
+    ![Adición de recursos, adición de atributos, preguntas](./media/entitlement-management-catalog-create/add-attributes-questions.png)
+
+1.  Si quiere agregar localización, haga clic en **Add localization** (Agregar localización).
+
+    1. Una vez en el panel **Add localizations for question** (Agregar localizaciones para la pregunta), seleccione el código de idioma para el idioma en el que quiere localizar la pregunta relacionada con el atributo seleccionado.
+    1. En el idioma configurado, escriba la pregunta en el cuadro **Localized Text** (Texto traducido).
+    1. Una vez que haya agregado todas las localizaciones necesarias, haga clic en **Guardar**.
+
+    ![Adición de recursos, adición de atributos, localización](./media/entitlement-management-catalog-create/attributes-add-localization.png)
+
+1.  Cuando se haya completado toda la información de los atributos en la página **Require attributes (Preview)** (Requerir atributos [versión preliminar]), haga clic en **Guardar**.
 
 ### <a name="add-a-multi-geo-sharepoint-site"></a>Incorporación de un sitio de SharePoint con varias ubicaciones geográficas
 
@@ -113,7 +164,7 @@ También puede agregar un recurso a un catálogo mediante Microsoft Graph.  Un u
 
 ## <a name="remove-resources-from-a-catalog"></a>Eliminación de recursos de un catálogo
 
-Puede quitar recursos de un catálogo. Solo se puede quitar un recurso de un catálogo si no se está usando en ninguno de los paquetes de acceso del catálogo.
+Puede quitar recursos de un catálogo. Solo se puede quitar un recurso de un catálogo si no se usa en ninguno de los paquetes de acceso del catálogo.
 
 **Rol necesario:** vea [Roles necesarios para agregar recursos a un catálogo](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog)
 

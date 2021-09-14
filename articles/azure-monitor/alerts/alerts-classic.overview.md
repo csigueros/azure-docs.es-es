@@ -3,17 +3,17 @@ title: Información general de las alertas clásicas en Azure Monitor
 description: Las alertas clásicas están en desuso. Las alertas permiten supervisar los registros, los eventos o las métricas de recursos de Azure y recibir una notificación cuando se cumple una condición especificada.
 ms.topic: conceptual
 ms.date: 02/14/2021
-ms.openlocfilehash: bce29c94c3cbacd5b7e38cf30b699ab5ca57f904
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ad5d9be6c13f272e4e3845093a73c1cc50a38f86
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102045435"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123543824"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>¿Qué son las alertas clásicas en Microsoft Azure?
 
 > [!NOTE]
-> En este artículo se describe cómo crear alertas de métrica clásicas más antiguas. Azure Monitor ahora es compatible con [una nueva experiencia de alertas y las más recientes alertas de métrica casi en tiempo real](./alerts-overview.md). Las alertas clásicas se han [retirado](./monitoring-classic-retirement.md) para los usuarios de la nube pública, aunque siguen estando disponibles con uso limitado hasta el **31 de mayo de 2021**. Las alertas clásicas para la nube de Azure Government y Azure China 21Vianet se retirarán el **29 de febrero de 2024**.
+> En este artículo se describe cómo crear alertas de métrica clásicas más antiguas. Azure Monitor ahora es compatible con [una nueva experiencia de alertas y las más recientes alertas de métrica casi en tiempo real](./alerts-overview.md). Las alertas públicas se han [retirado](./monitoring-classic-retirement.md) para los usuarios de la nube pública. Las alertas clásicas para la nube de Azure Government y Azure China 21Vianet se retirarán el **29 de febrero de 2024**.
 >
 
 Las alertas le permiten configurar las condiciones en los datos y recibir notificaciones cuando las condiciones coinciden con los datos de supervisión más actualizados.

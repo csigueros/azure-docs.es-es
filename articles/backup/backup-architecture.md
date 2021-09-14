@@ -2,13 +2,13 @@
 title: Introducción a la arquitectura
 description: Proporciona información general sobre la arquitectura, los componentes y los procesos usados por el servicio Azure Backup.
 ms.topic: conceptual
-ms.date: 06/23/2021
-ms.openlocfilehash: 532ca138a9f003f38dac9245f4478b81e2d827f7
-ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
+ms.date: 09/01/2021
+ms.openlocfilehash: 2523d0fc9a8e4843fc0d3d41b5ed35c89bace325
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2021
-ms.locfileid: "112541669"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123430385"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Arquitectura y componentes de Azure Backup
 
@@ -81,17 +81,6 @@ La siguiente tabla explica los distintos tipos de copias de seguridad que se uti
 **Copia de seguridad diferencial**: | la copia de seguridad diferencial se basa en la copia de seguridad de datos completa anterior más reciente.<br/><br/> Captura solo los datos que han cambiado desde la copia de seguridad completa. |  A lo sumo, puede desencadenar una copia de seguridad diferencial al día.<br/><br/> No se puede configurar una copia de seguridad completa y una copia de seguridad diferencial en el mismo día.
 **Copia de seguridad del registro de transacciones**: | una copia de seguridad de registros permite realizar la restauración a un momento dado con una precisión de un segundo. | A lo sumo, puede configurar las copias de seguridad del registro de transacciones cada 15 minutos.
 
-### <a name="comparison-of-backup-types"></a>Comparación de tipos de copia de seguridad
-
-El consumo de almacenamiento, el objetivo de tiempo de recuperación (RTO) y el consumo de red varían según el tipo de copia de seguridad. En la siguiente imagen se muestra una comparación de los tipos de copia de seguridad:
-
-- El origen de datos A se compone de 10 bloques de almacenamiento A1-A10, y todos los meses se hace una copia de seguridad de ellos.
-- Los bloques A2, A3, A4 y A9 cambian en el primer mes y el bloque A5 cambia en el siguiente mes.
-- Para las copias de seguridad diferenciales, en el segundo mes se realiza una copia de seguridad de los bloques modificados A2, A3, A4 y A9. En el tercer mes, se vuelve a hacer una copia de seguridad de estos mismos bloques, junto con el bloque A5 modificado. Los bloques modificados se siguen copiando hasta que tiene lugar la siguiente copia de seguridad completa.
-- Para las copias de seguridad incrementales, en el segundo mes los bloques A2, A3, A4 y A9 se marcan como modificados y se transfieren. En el tercer mes, solo el bloque A5 modificado se marca y se transfiere.
-
-![Imagen que muestra las comparaciones de métodos de copia de seguridad](./media/backup-architecture/backup-method-comparison.png)
-
 ## <a name="sap-hana-backup-types"></a>Tipos de copia de seguridad de SAP HANA
 
 En la tabla siguiente se explican los distintos tipos de copias de seguridad que se utilizan para las bases de datos de SAP HANA y con qué frecuencia se usan:
@@ -102,6 +91,17 @@ En la tabla siguiente se explican los distintos tipos de copias de seguridad que
 | **Copia de seguridad diferencial**: | la copia de seguridad diferencial se basa en la copia de seguridad de datos completa anterior más reciente. <br><br> Captura solo los datos que han cambiado desde la copia de seguridad completa anterior. | A lo sumo, puede programar una copia de seguridad diferencial al día.  <br><br> No se puede configurar una copia de seguridad completa y una copia de seguridad diferencial en el mismo día. |
 | **Copia de seguridad incremental** | Una copia de seguridad incremental se basa en la copia de seguridad completa, diferencial o incremental más reciente. <br><br> Captura solo los datos que han cambiado desde esta copia de seguridad de datos anterior. | A lo sumo, puede programar una única copia de seguridad incremental al día. <br><br> No se pueden programar copias de seguridad diferenciales e incrementales en una base de datos, solo se puede programar un tipo de copia de seguridad diferencial. <br><br> No se puede configurar una copia de seguridad completa y una copia de seguridad diferencial en el mismo día. |k
 | **Copia de seguridad del registro de transacciones**: | una copia de seguridad de registros permite realizar la restauración a un momento dado con una precisión de un segundo. | A lo sumo, puede configurar las copias de seguridad del registro de transacciones cada 15 minutos. |
+
+## <a name="comparison-of-backup-types"></a>Comparación de tipos de copia de seguridad
+
+El consumo de almacenamiento, el objetivo de tiempo de recuperación (RTO) y el consumo de red varían según el tipo de copia de seguridad. En la siguiente imagen se muestra una comparación de los tipos de copia de seguridad:
+
+- El origen de datos A se compone de 10 bloques de almacenamiento A1-A10, y todos los meses se hace una copia de seguridad de ellos.
+- Los bloques A2, A3, A4 y A9 cambian en el primer mes y el bloque A5 cambia en el siguiente mes.
+- Para las copias de seguridad diferenciales, en el segundo mes se realiza una copia de seguridad de los bloques modificados A2, A3, A4 y A9. En el tercer mes, se vuelve a hacer una copia de seguridad de estos mismos bloques, junto con el bloque A5 modificado. Los bloques modificados se siguen copiando hasta que tiene lugar la siguiente copia de seguridad completa.
+- Para las copias de seguridad incrementales, en el segundo mes los bloques A2, A3, A4 y A9 se marcan como modificados y se transfieren. En el tercer mes, solo el bloque A5 modificado se marca y se transfiere.
+
+![Diagrama en el que se muestra que el consumo de almacenamiento, el objetivo de tiempo de recuperación (RTO) y el consumo de red varían para cada tipo de copia de seguridad.](./media/backup-architecture/backup-method-comparison.png)
 
 ## <a name="backup-features"></a>Características de copia de seguridad
 

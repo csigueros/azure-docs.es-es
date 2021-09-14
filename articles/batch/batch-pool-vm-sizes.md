@@ -2,24 +2,33 @@
 title: Elección de los tamaños y las imágenes de máquina virtual de los grupos
 description: Cómo elegir uno de los tamaños de máquina virtual y una de las versiones de sistema operativo disponibles para los nodos de proceso en grupos de Azure Batch
 ms.topic: conceptual
-ms.date: 08/10/2021
+ms.date: 09/02/2021
 ms.custom: seodec18
-ms.openlocfilehash: 8a923c2982a632209e659ad663147bff5ff5c20a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 64dc4f11d5b80f0b493ca393f9a04521090c02cb
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121735566"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123437065"
 ---
 # <a name="choose-a-vm-size-and-image-for-compute-nodes-in-an-azure-batch-pool"></a>Selección de un tamaño y una imagen de máquina virtual para nodos de proceso en un grupo de Azure Batch
 
-Cuando seleccione un tamaño de nodo para un grupo de Azure Batch, puede elegir entre casi todas las familias y tamaños de máquinas virtuales disponibles en Azure. Azure ofrece una variedad de tamaños para máquinas virtuales Windows y Linux para diferentes cargas de trabajo.
+Cuando seleccione un tamaño de nodo para un pool de Azure Batch, podrá elegir entre casi todos los tamaños de máquinas virtuales disponibles en Azure. Azure ofrece una variedad de tamaños para máquinas virtuales Windows y Linux para diferentes cargas de trabajo.
 
 ## <a name="supported-vm-series-and-sizes"></a>Series y tamaños de maquina virtual compatibles
 
 ### <a name="pools-in-virtual-machine-configuration"></a>Grupos en la configuración de máquina virtual
 
-Los grupos de Batch en la configuración de máquina virtual son compatibles con casi todos los tamaños de [máquina virtual](../virtual-machines/sizes.md). Consulte la tabla siguiente para más información sobre los tamaños admitidos y las restricciones.
+Los grupos de Batch en la configuración de máquina virtual son compatibles con casi todos los tamaños de [máquina virtual](../virtual-machines/sizes.md). Los tamaños de máquina virtual admitidos en una región se pueden obtener a través de las [API de administración de Batch](batch-apis-tools.md#batch-management-apis), así como las [herramientas de línea de comandos](batch-apis-tools.md#batch-command-line-tools) (cmdlets de PowerShell y CLI de Azure).  Por ejemplo, el [comando de CLI de Azure Batch](/cli/azure/batch/location#az_batch_location_list_skus) para enumerar los tamaños de máquina virtual admitidos en una región es:
+
+```azurecli-interactive
+az batch location list-skus --location
+                            [--filter]
+                            [--maxresults]
+                            [--subscription] 
+```
+
+Para cada serie de máquinas virtuales, en la tabla siguiente también se muestra si Batch admite la serie de máquinas virtuales y los tamaños de máquina virtual.
 
 | Series de máquinas virtuales  | Tamaños admitidos |
 |------------|---------|

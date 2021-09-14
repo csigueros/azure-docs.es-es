@@ -10,12 +10,12 @@ ms.date: 05/19/2021
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
-ms.openlocfilehash: 9c021b8b0aec025458179ffb4859c351572762ee
-ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
+ms.openlocfilehash: c8c2246822cdf9faa06833020cd1951bde9e86a3
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123186990"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123449304"
 ---
 # <a name="transform-data-by-running-a-synapse-notebook"></a>Transformación de datos mediante la ejecución de un cuaderno de Synapse
 
@@ -32,6 +32,10 @@ Puede crear una actividad de cuaderno de Synapse directamente desde el lienzo de
 Arrastre y coloque el **cuaderno de Synapse** hasta **Activities** (Actividades) en el lienzo de la canalización de Synapse. Seleccione el cuadro de actividad del cuaderno de Synapse y configure el contenido del cuaderno para la actividad actual en la **configuración**. Puede seleccionar un cuaderno existente del área de trabajo actual o agregar uno nuevo. 
 
 ![Captura de pantalla que muestra la creación de una actividad de cuaderno](./media/synapse-notebook-activity/create-synapse-notebook-activity.png)
+
+> [!NOTE]
+> La ejecución de cuadernos de Spark en paralelo en canalizaciones de Azure Synapse se pone en cola y se ejecuta de forma FIFO, el orden de los trabajos en la cola lo determina la secuencia de tiempo, el tiempo de expiración de un trabajo en la cola es de 3 días. Tenga en cuenta que la cola de cuadernos solo funciona en la canalización de Synapse.
+
 
 ### <a name="add-a-notebook-to-synapse-pipeline"></a>Adición de un cuaderno a la canalización de Synapse
 

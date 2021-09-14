@@ -3,16 +3,16 @@ title: 'Azure Defender para Resource Manager: ventajas y características'
 description: Obtenga información sobre las ventajas y características de Azure Defender para Resource Manager
 author: memildin
 ms.author: memildin
-ms.date: 07/14/2021
+ms.date: 09/05/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 38eeaa02bf34f27580b29662f75455358c83ccb7
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: fff9c94af2c74612e8c07be1f7e125787265a72d
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121732558"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123541376"
 ---
 # <a name="introduction-to-azure-defender-for-resource-manager"></a>Introducción a Azure Defender para Resource Manager
 
@@ -21,6 +21,15 @@ ms.locfileid: "121732558"
 La capa de administración de la nube es un servicio crucial conectado a todos los recursos en la nube. Ese el motivo por el que es también es un objetivo potencial para los atacantes. Por lo tanto, se recomienda que los equipos de operaciones de seguridad supervisen estrechamente la capa de administración de recursos. 
 
 Azure Defender para Resource Manager supervisa automáticamente las operaciones de administración de recursos de cualquier organización, independientemente de que se realicen a través de Azure Portal, las API REST de Azure, la CLI de Azure u otros clientes de programación de Azure. Azure Defender ejecuta análisis de seguridad avanzados para detectar amenazas y avisarle de cualquier actividad sospechosa.
+
+>[!NOTE]
+> Varios de estos análisis se realizan mediante [Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security). Para beneficiarse de estos análisis, debe activar una licencia de Cloud App Security. Si tiene una licencia de Cloud App Security, estas alertas están habilitadas de forma predeterminada. Para deshabilitar las alertas:
+>
+> 1. En el menú de Security Center, seleccione **Precios y configuración**.
+> 1. Seleccione la suscripción que desea cambiar.
+> 1. Seleccione **Integraciones**.
+> 1. Desactive la opción **Permita que Microsoft Cloud App Security acceda a sus datos** y seleccione **Guardar**.
+
 
 ## <a name="availability"></a>Disponibilidad
 

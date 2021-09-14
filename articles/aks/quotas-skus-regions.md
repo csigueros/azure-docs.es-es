@@ -5,12 +5,12 @@ description: Obtenga información sobre las cuotas predeterminadas, los tamaños
 services: container-service
 ms.topic: conceptual
 ms.date: 03/25/2021
-ms.openlocfilehash: ea32c0e58894fe57a51cd22fccce8b2fb2fb0489
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 6e965bd958b23598f7b11dcf9a12dafb33f26680
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113762307"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123437910"
 ---
 # <a name="quotas-virtual-machine-size-restrictions-and-region-availability-in-azure-kubernetes-service-aks"></a>Cuotas, restricciones de tamaño de máquinas virtuales y disponibilidad de regiones en Azure Kubernetes Service (AKS)
 
@@ -30,6 +30,10 @@ A la infraestructura aprovisionada se le aplican las demás limitaciones de red,
 > Al actualizar un clúster de AKS, se consumen recursos adicionales temporalmente. Estos recursos incluyen las direcciones IP disponibles en una subred de red virtual o una cuota de vCPU de máquina virtual. 
 >
 > En el caso de los contenedores de Windows Server, puede realizar una operación de actualización para aplicar las actualizaciones de nodo más recientes. Si no tiene el espacio de direcciones IP disponible o la cuota de vCPU necesaria para administrar estos recursos temporales, se producirá un error en el proceso de actualización del clúster. Para obtener más información sobre el proceso de actualización del nodo de Windows Server, consulte [Actualización de un grupo de nodos en AKS][nodepool-upgrade].
+
+## <a name="supported-vm-sizes"></a>Tamaños de máquinas virtuales que se admiten
+
+La lista de tamaños de máquina virtual admitidos en AKS está evolucionando con el lanzamiento de nuevas SKU de máquina virtual en Azure. Siga las [Notas de la versión de AKS](https://github.com/Azure/AKS/releases) para mantenerse informado de las nuevas SKU admitidas.
 
 ## <a name="restricted-vm-sizes"></a>Tamaños de VM restringidos
 

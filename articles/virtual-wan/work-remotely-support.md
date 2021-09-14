@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 05/26/2021
 ms.author: cherylmc
-ms.openlocfilehash: c82bce78f82e28d4accc97ec816e6b1edc9346cf
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: ad8a365550b25906c7fb4fabda725b21abe97417
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121746941"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123477769"
 ---
 # <a name="azure-virtual-wan-and-supporting-remote-work"></a>Azure Virtual WAN y compatibilidad para trabajar de forma remota
 
@@ -51,7 +51,7 @@ Virtual WAN Básico solo proporciona una VPN de sitio a sitio. Para que los usua
 
 ## <a name="additional-information"></a><a name="other considerations"></a>Información adicional
 
-Virtual WAN admite varios centros por región o ubicación. Para obtener información de las ubicaciones, consulte el de ubicación, consulte el artículo acerca de los [asociados y ubicaciones de Virtual WAN](virtual-wan-locations-partners.md). Cada centro de conectividad admite un máximo de 10.000 conexiones de usuarios remotos, 1.000 conexiones de ramas, cuatro circuitos de ExpressRoute y un máximo de 500 conexiones de redes virtuales. A medida que escale verticalmente los usuarios remotos, si tiene alguna pregunta, no dude en buscar ayuda enviando un correo electrónico a azurevirtualwan@microsoft.com. Si necesita soporte técnico, asegúrese de abrir una incidencia de soporte técnico en Azure Portal y recibirá ayuda en breve.
+Virtual WAN admite varios centros por región o ubicación. Para obtener información de las ubicaciones, consulte el de ubicación, consulte el artículo acerca de los [asociados y ubicaciones de Virtual WAN](virtual-wan-locations-partners.md). Cada centro de conectividad admite un máximo de 100 000 conexiones de usuarios remotos, 1000 conexiones de ramas, 4 circuitos de ExpressRoute y un máximo de 500 conexiones de red virtual. A medida que escale verticalmente los usuarios remotos, si tiene alguna pregunta, no dude en buscar ayuda enviando un correo electrónico a azurevirtualwan@microsoft.com. Si necesita soporte técnico, asegúrese de abrir una incidencia de soporte técnico en Azure Portal y recibirá ayuda en breve.
 
 ## <a name="faq"></a><a name="faq"></a>P+F
 

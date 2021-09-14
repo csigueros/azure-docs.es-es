@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/04/2021
 ms.service: storage
 ms.subservice: partner
-ms.openlocfilehash: 63796f3e569849227dd4fa9c2396f3b052540586
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: d266f059869bb0f25df10dcc4fad317d3d3da7c3
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122177827"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123426713"
 ---
 # <a name="comparison-matrix"></a>Tabla comparativa
 
@@ -60,12 +60,12 @@ En la siguiente matriz de comparación se muestra la funcionalidad básica de la
 | **Cadena de informes de custodia**            | No  | Sí                        | No  | Sí                            |
 | **Compatibilidad con flujos de datos alternativos**    | No  | Sí                        | Sí | No                             |
 | **Programación de la migración**              | No  | Sí                        | Sí | Sí                            |
-| **Conservación de ACL**                        | No  | Sí                        | Sí | Sí                            |
+| **Conservación de ACL**                        | Sí  | Sí                        | Sí | Sí                            |
 | **Compatibilidad con DACL**                          | Sí | Sí                        | Sí | Sí                            |
 | **Compatibilidad con SACL**                          | Sí | Sí                        | Sí | No                             |
 | **Conservación de la hora de acceso**                | Sí | Sí                        | Sí | Sí                            |
 | **Conservación de la hora de modificación**              | Sí | Sí                        | Sí | Sí                            |
-| **Conservación de la hora de creación**              | No  | Sí                        | Sí | Sí                            |
+| **Conservación de la hora de creación**              | Sí  | Sí                        | Sí | Sí                            |
 | **Compatibilidad con Azure Data Box**       | Sí | Sí                        | No  | No                             |
 | **Ubicación de instantáneas**                | No  | Manual                     | Sí | No                             |
 | **Compatibilidad con los vínculos simbólicos**                 | No  | Sí                        | No  | Sí                            |
@@ -101,6 +101,9 @@ En la siguiente matriz de comparación se muestra la funcionalidad básica de la
 ### <a name="azure-file-sync"></a>Azure File Sync
 
 - Validación de hash interna
+
+> [!TIP]
+> Azure File Sync está diseñado como una solución híbrida permanente para el almacenamiento en caché local o la sincronización de varios recursos compartidos de archivos de Azure. En esa función, proporciona migración a la nube sin tiempo de inactividad. Salvo que tenga previsto almacenar en caché los recursos compartidos de archivos de Azure de forma local, no es recomendable que utilice Azure File Sync como herramienta de migración. Consulte [Información general sobre la migración de recursos compartidos de archivos de Azure](../../../files/storage-files-migration-overview.md) u otras herramientas de asociados que se describen en este artículo.
 
 ### <a name="datadobi-dobimigrate"></a>Datadobi DobiMigrate
 

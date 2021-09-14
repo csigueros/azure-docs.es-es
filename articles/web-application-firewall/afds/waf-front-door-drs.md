@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.date: 07/29/2021
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: d1e6349dd2c809c2a18551037c3bd3a8970f6d68
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 401a6bd003e592d1b53aa91ac24f062688da7a3b
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121729448"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123435751"
 ---
 # <a name="web-application-firewall-drs-rule-groups-and-rules"></a>Reglas y grupos de reglas de DRS de Azure Web Application Firewall
 
@@ -138,19 +138,19 @@ Las reglas y los grupos de reglas siguientes están disponibles cuando se usa We
 
 ## <a name="20-rule-sets"></a><a name="drs20"></a> Conjuntos de reglas 2.0
 
-### <a name="p-x-ms-format-detectionnonegeneralp"></a><a name="general-20"></a> <p x-ms-format-detection="none">General</p>
+### <a name="general"></a><a name="general-20"></a> General
 |Identificador de regla|Descripción|
 |---|---|
 |200002|Error al analizar el cuerpo de la solicitud|
 |200003|Error de validación estricta del cuerpo de la solicitud de varias partes|
 
 
-### <a name="p-x-ms-format-detectionnonemethod-enforcementp"></a><a name="drs911-20"></a> <p x-ms-format-detection="none">METHOD-ENFORCEMENT</p>
+### <a name="method-enforcement"></a><a name="drs911-20"></a> METHOD ENFORCEMENT
 |Identificador de regla|Descripción|
 |---|---|
 |911100|Método no permitido por la directiva|
 
-### <a name="p-x-ms-format-detectionnoneprotocol-enforcementp"></a><a name="drs920-20"></a> <p x-ms-format-detection="none">PROTOCOL-ENFORCEMENT</p>
+### <a name="protocol-enforcement"></a><a name="drs920-20"></a> PROTOCOL-ENFORCEMENT
 |Identificador de regla|Descripción|
 |---|---|
 |920100|Línea de solicitud HTTP no válida|
@@ -187,7 +187,7 @@ Las reglas y los grupos de reglas siguientes están disponibles cuando se usa We
 |920470|Encabezado de tipo de contenido no válido|
 |920480|La directiva no permite el juego de caracteres de tipo de contenido de la solicitud.|
 
-### <a name="p-x-ms-format-detectionnoneprotocol-attackp"></a><a name="drs921-20"></a> <p x-ms-format-detection="none">PROTOCOL-ATTACK</p>
+### <a name="protocol-attack"></a><a name="drs921-20"></a> PROTOCOL-ATTACK
 
 |Identificador de regla|Descripción|
 |---|---|
@@ -199,7 +199,7 @@ Las reglas y los grupos de reglas siguientes están disponibles cuando se usa We
 |921151|Ataque por inyección de encabezado HTTP a través de la carga (Retorno de carro / Avance de línea detectado)|
 |921160|Ataque por inyección de encabezado HTTP a través de la carga (Retorno de carro/Avance de línea y header-name detectados)|
 
-### <a name="p-x-ms-format-detectionnonelfi---local-file-inclusionp"></a><a name="drs930-20"></a> <p x-ms-format-detection="none">LFI: inclusión de archivos locales</p>
+### <a name="lfi---local-file-inclusion"></a><a name="drs930-20"></a> LFI: inclusión de archivos locales
 |Identificador de regla|Descripción|
 |---|---|
 |930100|Ataque punto punto barra (/.. /)|
@@ -207,7 +207,7 @@ Las reglas y los grupos de reglas siguientes están disponibles cuando se usa We
 |930120|Intento de acceso a archivo del sistema operativo|
 |930130|Intento de acceso a archivo restringido|
 
-### <a name="p-x-ms-format-detectionnonerfi---remote-file-inclusionp"></a><a name="drs931-20"></a> <p x-ms-format-detection="none">RFI: inclusión de archivos remotos</p>
+### <a name="rfi---remote-file-inclusion"></a><a name="drs931-20"></a> RFI: inclusión de archivos remotos
 |Identificador de regla|Descripción|
 |---|---|
 |931100|Posible ataque remoto de inclusión de archivos (RFI): el parámetro de dirección URL utiliza una dirección IP|
@@ -215,7 +215,7 @@ Las reglas y los grupos de reglas siguientes están disponibles cuando se usa We
 |931120|Posible ataque remoto de inclusión de archivos (RFI): carga de dirección URL utilizada con carácter de interrogación de cierre (?)|
 |931130|Posible ataque remoto de inclusión de archivos (RFI): referencia o vínculo fuera del dominio|
 
-### <a name="p-x-ms-format-detectionnonerce---remote-command-executionp"></a><a name="drs932-20"></a> <p x-ms-format-detection="none">RCE: ejecución de comandos remotos</p>
+### <a name="rce---remote-command-execution"></a><a name="drs932-20"></a> RCE: ejecución de comandos remotos
 |Identificador de regla|Descripción|
 |---|---|
 |932100|Ejecución de comandos remotos: Inyección de comandos Unix|
@@ -231,7 +231,7 @@ Las reglas y los grupos de reglas siguientes están disponibles cuando se usa We
 |932171|Ejecución de comandos remotos: Shellshock (CVE-2014-6271)|
 |932180|Intento de acceso a archivo restringido|
 
-### <a name="p-x-ms-format-detectionnonephp-attacksp"></a><a name="drs933-20"></a> <p x-ms-format-detection="none">Ataques PHP</p>
+### <a name="php-attacks"></a><a name="drs933-20"></a> Ataques PHP
 |Identificador de regla|Descripción|
 |---|---|
 |933100|Ataque por inyección en PHP: etiqueta de apertura o cierre encontrada|
@@ -249,12 +249,12 @@ Las reglas y los grupos de reglas siguientes están disponibles cuando se usa We
 |933200|Ataque por inyección de PHP: esquema contenedor|
 |933210|Ataque por inyección en PHP: llamada de función de variable encontrada|
 
-### <a name="p-x-ms-format-detectionnonenode-js-attacksp"></a><a name="drs934-20"></a> <p x-ms-format-detection="none">Ataques de Node JS</p>
+### <a name="node-js-attacks"></a><a name="drs934-20"></a> Ataques de Node JS
 |Identificador de regla|Descripción|
 |---|---|
 |934100|Ataque por inyección de Node.js|
 
-### <a name="p-x-ms-format-detectionnonexss---cross-site-scriptingp"></a><a name="drs941-20"></a> <p x-ms-format-detection="none">XSS: scripting entre sitios</p>
+### <a name="xss---cross-site-scripting"></a><a name="drs941-20"></a> XSS: scripting entre sitios
 |Identificador de regla|Descripción|
 |---|---|
 |941100|Ataque XSS detectado mediante libinjection|
@@ -289,7 +289,7 @@ Las reglas y los grupos de reglas siguientes están disponibles cuando se usa We
 |941380|Inserción de plantillas del lado cliente de AngularJS detectada|
 
 
-### <a name="p-x-ms-format-detectionnonesqli---sql-injectionp"></a><a name="drs942-20"></a> <p x-ms-format-detection="none">SQLI: inyección de código SQL</p>
+### <a name="sqli---sql-injection"></a><a name="drs942-20"></a> SQLI: inyección de código SQL
 |Identificador de regla|Descripción|
 |---|---|
 |942100|Ataque por inyección de código SQL detectado mediante libinjection|
@@ -335,14 +335,14 @@ Las reglas y los grupos de reglas siguientes están disponibles cuando se usa We
 |942510|Intento de omisión de SQLI por tics o marcas de seguridad detectado.|
 
 
-### <a name="p-x-ms-format-detectionnonesession-fixationp"></a><a name="drs943-20"></a> <p x-ms-format-detection="none">SESSION-FIXATION</p>
+### <a name="session-fixation"></a><a name="drs943-20"></a> SESSION-FIXATION
 |Identificador de regla|Descripción|
 |---|---|
 |943100|Posible ataque de fijación de sesión: definición de valores de cookies en HTML|
 |943110|Posible ataque de fijación de sesión: nombre del parámetro SessionID con origen de referencia fuera del dominio|
 |943120|Posible ataque de fijación de sesión: nombre del parámetro SessionID con origen de referencia fuera del dominio|
 
-### <a name="p-x-ms-format-detectionnonejava-attacksp"></a><a name="drs944-20"></a> <p x-ms-format-detection="none">Ataques de JAVA</p>
+### <a name="java-attacks"></a><a name="drs944-20"></a> Ataques de JAVA
 |Identificador de regla|Descripción|
 |---|---|
 |944100|Ejecución remota de comandos: Apache Struts, Oracle WebLogic|
@@ -354,26 +354,26 @@ Las reglas y los grupos de reglas siguientes están disponibles cuando se usa We
 |944240|Ejecución remota de comandos: serialización de Java|
 |944250|Ejecución remota de comandos: se detectó un método de Java sospechoso|
 
-### <a name="p-x-ms-format-detectionnonems-threatintel-webshellsp"></a><a name="drs9905-20"></a> <p x-ms-format-detection="none">MS-ThreatIntel-WebShells</p>
+### <a name="ms-threatintel-webshells"></a><a name="drs9905-20"></a> MS-ThreatIntel-WebShells
 |Identificador de regla|Descripción|
 |---|---|
 |99005002|Intento de interacción del shell web (POST)|
 |99005003|Intento de carga de shell web (POST): CHOPPER PHP|
 |99005004|Intento de carga de shell web (POST): CHOPPER ASPX|
 
-### <a name="p-x-ms-format-detectionnonems-threatintel-appsecp"></a><a name="drs9903-20"></a> <p x-ms-format-detection="none">MS-ThreatIntel-AppSec</p>
+### <a name="ms-threatintel-appsec"></a><a name="drs9903-20"></a> MS-ThreatIntel-AppSec
 |Identificador de regla|Descripción|
 |---|---|
 |99030001|Evasión transversal de ruta de acceso en encabezados (/.././../)|
 |99030002|Evasión transversal de ruta de acceso en el cuerpo de la solicitud (/.././../)|
 
-### <a name="p-x-ms-format-detectionnonems-threatintel-sqlip"></a><a name="drs99031-20"></a> <p x-ms-format-detection="none">MS-ThreatIntel-SQLI</p>
+### <a name="ms-threatintel-sqli"></a><a name="drs99031-20"></a> MS-ThreatIntel-SQLI
 |Identificador de regla|Descripción|
 |---|---|
 |99031001|Ataque por inyección de código SQL: Pruebas de inyección de código detectadas|
 |99031002|Secuencia de comentario SQL detectada|
 
-### <a name="p-x-ms-format-detectionnonems-threatintel-cvesp"></a><a name="drs99001-20"></a> <p x-ms-format-detection="none">MS-ThreatIntel-CVEs</p>
+### <a name="ms-threatintel-cves"></a><a name="drs99001-20"></a> MS-ThreatIntel-CVEs
 |Identificador de regla|Descripción|
 |---|---|
 |99001001|Intento de explotación de la API de REST F5 tmui (CVE-2020-5902) con credenciales conocidas|
@@ -382,7 +382,7 @@ Las reglas y los grupos de reglas siguientes están disponibles cuando se usa We
 
 ## <a name="11-rule-sets"></a><a name="drs11"></a> Conjuntos de reglas 1.1
 
-### <a name="p-x-ms-format-detectionnoneprotocol-attackp"></a><a name="drs921-11"></a> <p x-ms-format-detection="none">PROTOCOL-ATTACK</p>
+### <a name="protocol-attack"></a><a name="drs921-11"></a> PROTOCOL-ATTACK
 |Identificador de regla|Descripción|
 |---|---|
 |921110|Ataque de contrabando de solicitudes HTTP|
@@ -393,7 +393,7 @@ Las reglas y los grupos de reglas siguientes están disponibles cuando se usa We
 |921151|Ataque por inyección de encabezado HTTP a través de la carga (Retorno de carro / Avance de línea detectado)|
 |921160|Ataque por inyección de encabezado HTTP a través de la carga (Retorno de carro/Avance de línea y header-name detectados)|
 
-### <a name="p-x-ms-format-detectionnonelfi---local-file-inclusionp"></a><a name="drs930-11"></a> <p x-ms-format-detection="none">LFI: inclusión de archivos locales</p>
+### <a name="lfi---local-file-inclusion"></a><a name="drs930-11"></a> LFI: inclusión de archivos locales
 |Identificador de regla|Descripción|
 |---|---|
 |930100|Ataque punto punto barra (/.. /)|
@@ -401,7 +401,7 @@ Las reglas y los grupos de reglas siguientes están disponibles cuando se usa We
 |930120|Intento de acceso a archivo del sistema operativo|
 |930130|Intento de acceso a archivo restringido|
 
-### <a name="p-x-ms-format-detectionnonerfi---remote-file-inclusionp"></a><a name="drs931-11"></a> <p x-ms-format-detection="none">RFI: inclusión de archivos remotos</p>
+### <a name="rfi---remote-file-inclusion"></a><a name="drs931-11"></a> RFI: inclusión de archivos remotos
 |Identificador de regla|Descripción|
 |---|---|
 |931100|Posible ataque remoto de inclusión de archivos (RFI): el parámetro de dirección URL utiliza una dirección IP|
@@ -409,7 +409,7 @@ Las reglas y los grupos de reglas siguientes están disponibles cuando se usa We
 |931120|Posible ataque remoto de inclusión de archivos (RFI): carga de dirección URL utilizada con carácter de interrogación de cierre (?)|
 |931130|Posible ataque remoto de inclusión de archivos (RFI): referencia o vínculo fuera del dominio|
 
-### <a name="p-x-ms-format-detectionnonerce---remote-command-executionp"></a><a name="drs932-11"></a> <p x-ms-format-detection="none">RCE: ejecución de comandos remotos</p>
+### <a name="rce---remote-command-execution"></a><a name="drs932-11"></a> RCE: ejecución de comandos remotos
 |Identificador de regla|Descripción|
 |---|---|
 |932100|Ejecución de comandos remotos: Inyección de comandos Unix|
@@ -425,7 +425,7 @@ Las reglas y los grupos de reglas siguientes están disponibles cuando se usa We
 |932171|Ejecución de comandos remotos: Shellshock (CVE-2014-6271)|
 |932180|Intento de acceso a archivo restringido|
 
-### <a name="p-x-ms-format-detectionnonephp-attacksp"></a><a name="drs933-11"></a> <p x-ms-format-detection="none">Ataques PHP</p>
+### <a name="php-attacks"></a><a name="drs933-11"></a> Ataques PHP
 |Identificador de regla|Descripción|
 |---|---|
 |933100|Ataque por inyección en PHP: etiqueta de apertura PHP encontrada|
@@ -439,7 +439,7 @@ Las reglas y los grupos de reglas siguientes están disponibles cuando se usa We
 |933170|Ataque por inyección en PHP: Inyección de objetos serializados|
 |933180|Ataque por inyección en PHP: llamada de función de variable encontrada|
 
-### <a name="p-x-ms-format-detectionnonexss---cross-site-scriptingp"></a><a name="drs941-11"></a> <p x-ms-format-detection="none">XSS: scripting entre sitios</p>
+### <a name="xss---cross-site-scripting"></a><a name="drs941-11"></a> XSS: scripting entre sitios
 |Identificador de regla|Descripción|
 |---|---|
 |941100|Ataque XSS detectado mediante libinjection|
@@ -470,7 +470,7 @@ Las reglas y los grupos de reglas siguientes están disponibles cuando se usa We
 |941340|Filtros XSS de IE: ataque detectado|
 |941350|XSS de IE con codificación UTF-7: ataque detectado|
 
-### <a name="p-x-ms-format-detectionnonesqli---sql-injectionp"></a><a name="drs942-11"></a> <p x-ms-format-detection="none">SQLI: inyección de código SQL</p>
+### <a name="sqli---sql-injection"></a><a name="drs942-11"></a> SQLI: inyección de código SQL
 |Identificador de regla|Descripción|
 |---|---|
 |942100|Ataque por inyección de código SQL detectado mediante libinjection|
@@ -511,14 +511,14 @@ Las reglas y los grupos de reglas siguientes están disponibles cuando se usa We
 |942470|Ataque por inyección de código SQL|
 |942480|Ataque por inyección de código SQL|
 
-### <a name="p-x-ms-format-detectionnonesession-fixationp"></a><a name="drs943-11"></a> <p x-ms-format-detection="none">SESSION-FIXATION</p>
+### <a name="session-fixation"></a><a name="drs943-11"></a> SESSION-FIXATION
 |Identificador de regla|Descripción|
 |---|---|
 |943100|Posible ataque de fijación de sesión: definición de valores de cookies en HTML|
 |943110|Posible ataque de fijación de sesión: nombre del parámetro SessionID con origen de referencia fuera del dominio|
 |943120|Posible ataque de fijación de sesión: nombre del parámetro SessionID con origen de referencia fuera del dominio|
 
-### <a name="p-x-ms-format-detectionnonejava-attacksp"></a><a name="drs944-11"></a> <p x-ms-format-detection="none">Ataques de JAVA</p>
+### <a name="java-attacks"></a><a name="drs944-11"></a> Ataques de JAVA
 |Identificador de regla|Descripción|
 |---|---|
 |944100|Ejecución de comandos remotos: clase de Java sospechosa detectada|
@@ -530,26 +530,26 @@ Las reglas y los grupos de reglas siguientes están disponibles cuando se usa We
 |944240|Ejecución de comandos remotos: serialización de Java (CVE-2015-5842)|
 |944250|Ejecución remota de comandos: se detectó un método de Java sospechoso|
 
-### <a name="p-x-ms-format-detectionnonems-threatintel-webshellsp"></a><a name="drs9905-11"></a> <p x-ms-format-detection="none">MS-ThreatIntel-WebShells</p>
+### <a name="ms-threatintel-webshells"></a><a name="drs9905-11"></a> MS-ThreatIntel-WebShells
 |Identificador de regla|Descripción|
 |---|---|
 |99005002|Intento de interacción del shell web (POST)|
 |99005003|Intento de carga de shell web (POST): CHOPPER PHP|
 |99005004|Intento de carga de shell web (POST): CHOPPER ASPX|
 
-### <a name="p-x-ms-format-detectionnonems-threatintel-appsecp"></a><a name="drs9903-11"></a> <p x-ms-format-detection="none">MS-ThreatIntel-AppSec</p>
+### <a name="ms-threatintel-appsec"></a><a name="drs9903-11"></a> MS-ThreatIntel-AppSec
 |Identificador de regla|Descripción|
 |---|---|
 |99030001|Evasión transversal de ruta de acceso en encabezados (/.././../)|
 |99030002|Evasión transversal de ruta de acceso en el cuerpo de la solicitud (/.././../)|
 
-### <a name="p-x-ms-format-detectionnonems-threatintel-sqlip"></a><a name="drs99031-11"></a> <p x-ms-format-detection="none">MS-ThreatIntel-SQLI</p>
+### <a name="ms-threatintel-sqli"></a><a name="drs99031-11"></a> MS-ThreatIntel-SQLI
 |Identificador de regla|Descripción|
 |---|---|
 |99031001|Ataque por inyección de código SQL: Pruebas de inyección de código detectadas|
 |99031002|Secuencia de comentario SQL detectada|
 
-### <a name="p-x-ms-format-detectionnonems-threatintel-cvesp"></a><a name="drs99001-11"></a> <p x-ms-format-detection="none">MS-ThreatIntel-CVEs</p>
+### <a name="ms-threatintel-cves"></a><a name="drs99001-11"></a> MS-ThreatIntel-CVEs
 |Identificador de regla|Descripción|
 |---|---|
 |99001001|Intento de explotación de la API de REST F5 tmui (CVE-2020-5902) con credenciales conocidas|
@@ -558,7 +558,7 @@ Las reglas y los grupos de reglas siguientes están disponibles cuando se usa We
 
 ## <a name="10-rule-sets"></a><a name="drs10"></a> Conjuntos de reglas 1.0
 
-### <a name="p-x-ms-format-detectionnoneprotocol-attackp"></a><a name="drs921-10"></a> <p x-ms-format-detection="none">PROTOCOL-ATTACK</p>
+### <a name="protocol-attack"></a><a name="drs921-10"></a> PROTOCOL-ATTACK
 |Identificador de regla|Descripción|
 |---|---|
 |921110|Ataque de contrabando de solicitudes HTTP|
@@ -569,7 +569,7 @@ Las reglas y los grupos de reglas siguientes están disponibles cuando se usa We
 |921151|Ataque por inyección de encabezado HTTP a través de la carga (Retorno de carro / Avance de línea detectado)|
 |921160|Ataque por inyección de encabezado HTTP a través de la carga (Retorno de carro/Avance de línea y header-name detectados)|
 
-### <a name="p-x-ms-format-detectionnonelfi---local-file-inclusionp"></a><a name="drs930-10"></a> <p x-ms-format-detection="none">LFI: inclusión de archivos locales</p>
+### <a name="lfi---local-file-inclusion"></a><a name="drs930-10"></a> LFI: inclusión de archivos locales
 |Identificador de regla|Descripción|
 |---|---|
 |930100|Ataque punto punto barra (/.. /)|
@@ -577,7 +577,7 @@ Las reglas y los grupos de reglas siguientes están disponibles cuando se usa We
 |930120|Intento de acceso a archivo del sistema operativo|
 |930130|Intento de acceso a archivo restringido|
 
-### <a name="p-x-ms-format-detectionnonerfi---remote-file-inclusionp"></a><a name="drs931-10"></a> <p x-ms-format-detection="none">RFI: inclusión de archivos remotos</p>
+### <a name="rfi---remote-file-inclusion"></a><a name="drs931-10"></a> RFI: inclusión de archivos remotos
 |Identificador de regla|Descripción|
 |---|---|
 |931100|Posible ataque remoto de inclusión de archivos (RFI): el parámetro de dirección URL utiliza una dirección IP|
@@ -585,7 +585,7 @@ Las reglas y los grupos de reglas siguientes están disponibles cuando se usa We
 |931120|Posible ataque remoto de inclusión de archivos (RFI): carga de dirección URL utilizada con carácter de interrogación de cierre (?)|
 |931130|Posible ataque remoto de inclusión de archivos (RFI): referencia o vínculo fuera del dominio|
 
-### <a name="p-x-ms-format-detectionnonerce---remote-command-executionp"></a><a name="drs932-10"></a> <p x-ms-format-detection="none">RCE: ejecución de comandos remotos</p>
+### <a name="rce---remote-command-execution"></a><a name="drs932-10"></a> RCE: ejecución de comandos remotos
 |Identificador de regla|Descripción|
 |---|---|
 |932100|Ejecución de comandos remotos: Inyección de comandos Unix|
@@ -601,7 +601,7 @@ Las reglas y los grupos de reglas siguientes están disponibles cuando se usa We
 |932171|Ejecución de comandos remotos: Shellshock (CVE-2014-6271)|
 |932180|Intento de acceso a archivo restringido|
 
-### <a name="p-x-ms-format-detectionnonephp-attacksp"></a><a name="drs933-10"></a> <p x-ms-format-detection="none">Ataques PHP</p>
+### <a name="php-attacks"></a><a name="drs933-10"></a> Ataques PHP
 |Identificador de regla|Descripción|
 |---|---|
 |933100|Ataque por inyección en PHP: etiqueta de apertura o cierre encontrada|
@@ -617,7 +617,7 @@ Las reglas y los grupos de reglas siguientes están disponibles cuando se usa We
 |933170|Ataque por inyección en PHP: Inyección de objetos serializados|
 |933180|Ataque por inyección en PHP: llamada de función de variable encontrada|
 
-### <a name="p-x-ms-format-detectionnonexss---cross-site-scriptingp"></a><a name="drs941-10"></a> <p x-ms-format-detection="none">XSS: scripting entre sitios</p>
+### <a name="xss---cross-site-scripting"></a><a name="drs941-10"></a> XSS: scripting entre sitios
 |Identificador de regla|Descripción|
 |---|---|
 |941100|Ataque XSS detectado mediante libinjection|
@@ -648,7 +648,7 @@ Las reglas y los grupos de reglas siguientes están disponibles cuando se usa We
 |941340|Filtros XSS de IE: ataque detectado|
 |941350|XSS de IE con codificación UTF-7: ataque detectado|
 
-### <a name="p-x-ms-format-detectionnonesqli---sql-injectionp"></a><a name="drs942-10"></a> <p x-ms-format-detection="none">SQLI: inyección de código SQL</p>
+### <a name="sqli---sql-injection"></a><a name="drs942-10"></a> SQLI: inyección de código SQL
 |Identificador de regla|Descripción|
 |---|---|
 |942100|Ataque por inyección de código SQL detectado mediante libinjection|
@@ -689,14 +689,14 @@ Las reglas y los grupos de reglas siguientes están disponibles cuando se usa We
 |942470|Ataque por inyección de código SQL|
 |942480|Ataque por inyección de código SQL|
 
-### <a name="p-x-ms-format-detectionnonesession-fixationp"></a><a name="drs943-10"></a> <p x-ms-format-detection="none">SESSION-FIXATION</p>
+### <a name="session-fixation"></a><a name="drs943-10"></a> SESSION-FIXATION
 |Identificador de regla|Descripción|
 |---|---|
 |943100|Posible ataque de fijación de sesión: definición de valores de cookies en HTML|
 |943110|Posible ataque de fijación de sesión: nombre del parámetro SessionID con origen de referencia fuera del dominio|
 |943120|Posible ataque de fijación de sesión: nombre del parámetro SessionID con origen de referencia fuera del dominio|
 
-### <a name="p-x-ms-format-detectionnonejava-attacksp"></a><a name="drs944-10"></a> <p x-ms-format-detection="none">Ataques de JAVA</p>
+### <a name="java-attacks"></a><a name="drs944-10"></a> Ataques de JAVA
 |Identificador de regla|Descripción|
 |---|---|
 |944100|Ejecución remota de comandos: Apache Struts, Oracle WebLogic|
@@ -712,19 +712,19 @@ Las reglas y los grupos de reglas siguientes están disponibles cuando se usa We
 
 ## <a name="bot-manager-rule-sets"></a><a name="bot"></a> Conjuntos de reglas del administrador de bots
 
-### <a name="p-x-ms-format-detectionnonebad-botsp"></a><a name="bot100"></a> <p x-ms-format-detection="none">Bots defectuosos</p>
+### <a name="bad-bots"></a><a name="bot100"></a> Bots incorrectos
 |Identificador de regla|Descripción|
 |---|---|
 |Bot100100|Bots malintencionados detectados por inteligencia sobre amenazas|
 |Bot100200|Bots malintencionados que han falsificado su identidad|
 
-### <a name="p-x-ms-format-detectionnonegood-botsp"></a><a name="bot200"></a> <p x-ms-format-detection="none">Bots correctos</p>
+### <a name="good-bots"></a><a name="bot200"></a> Bots correctos
 |Identificador de regla|Descripción|
 |---|---|
 |Bot200100|Rastreadores del motor de búsqueda|
 |Bot200200|Rastreadores del motor de búsqueda no comprobados|
 
-### <a name="p-x-ms-format-detectionnoneunknown-botsp"></a><a name="bot300"></a> <p x-ms-format-detection="none">Bots desconocidos</p>
+### <a name="unknown-bots"></a><a name="bot300"></a> Bots desconocidos
 |Identificador de regla|Descripción|
 |---|---|
 |Bot300100|Identidad no especificada|

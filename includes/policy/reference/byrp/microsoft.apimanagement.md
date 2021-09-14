@@ -2,17 +2,19 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 08/27/2021
+ms.date: 09/03/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 649578b574f6d00964e9489fcbd25e1848ab3323
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 7a47b66ef14069f751efb873858b55a83134a418
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123097940"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123481272"
 ---
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[El servicio API Management debe usar una SKU que admita redes virtuales](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F73ef9241-5d81-4cd4-b483-8443d1730fe5) |Con las SKU compatibles de API Management, el servicio de implementación en una red virtual desbloquea las características avanzadas de seguridad y redes de API Management, lo que proporciona un mayor control sobre la configuración de seguridad de red. Más información en: [https://aka.ms/apimvnet](../../../../articles/api-management/api-management-using-with-vnet.md). |Audit, Deny, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/API%20Management/ApiManagement_AllowedVNETSkus_AuditDeny.json) |
+|[Los servicios de API Management deben deshabilitar el acceso a la red pública.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fdf73bd95-24da-4a4f-96b9-4e8b94b402bd) |Para mejorar la seguridad de los servicios de API Management, asegúrese de que los puntos de conexión no se exponen a la red pública de Internet. Algunos puntos de conexión públicos son expuestos por los servicios de API Management para admitir escenarios de usuario, por ejemplo, el acceso directo a la API de administración, la administración de la configuración mediante Git o la configuración de puertas de enlace autohospedadas. Si no se usa ninguna de esas características, se deben deshabilitar los puntos de conexión correspondientes. |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/API%20Management/ApiManagement_PublicEndpoint_AuditIfNotExist.json) |
 |[Los servicios de API Management deben usar una red virtual](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fef619a2c-cc4d-4d03-b2ba-8c94a834d85b) |La implementación de Azure Virtual Network ofrece una seguridad y aislamiento mejorados, y permite colocar el servicio de API Management en una red enrutable sin conexión a Internet cuyo acceso puede controlar. Estas redes se pueden conectar a las redes locales mediante diversas tecnologías de VPN, lo que permite el acceso a los servicios de back-end dentro de la red o de forma local. El portal para desarrolladores y la puerta de enlace de API pueden configurarse para que sea accesible desde Internet o solo dentro de la red virtual. |Audit, Disabled |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/API%20Management/ApiManagement_VNETEnabled_Audit.json) |
+|[Configure los servicios de API Management para deshabilitar el acceso a la red pública.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7ca8c8ac-3a6e-493d-99ba-c5fa35347ff2) |Para mejorar la seguridad de los servicios de API Management, deshabilite los puntos de conexión públicos. Algunos puntos de conexión públicos son expuestos por los servicios de API Management para admitir escenarios de usuario, por ejemplo, el acceso directo a la API de administración, la administración de la configuración mediante Git o la configuración de puertas de enlace autohospedadas. Si no se usa ninguna de esas características, se deben deshabilitar los puntos de conexión correspondientes. |DeployIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/API%20Management/ApiManagement_PublicEndpoint_DeployIfNotExist.json) |

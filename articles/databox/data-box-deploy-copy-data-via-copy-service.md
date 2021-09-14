@@ -7,14 +7,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 06/18/2019
+ms.date: 08/26/2021
 ms.author: alkohli
-ms.openlocfilehash: e664055893bbdef0f7090811b8a160a1b8a4a1fd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 857b9ece50b4852e4d459915f9fd13477628781a
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92124055"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123429287"
 ---
 # <a name="tutorial-use-the-data-copy-service-to-copy-data-into-azure-data-box-preview"></a>Tutorial: Uso del servicio de copia de datos para copiar datos en Azure Data Box (versión preliminar)
 
@@ -72,7 +72,7 @@ Para copiar datos utilizando el servicio de copia de datos, tendrá que crear un
     |**Tipo de destino**       |Seleccione el tipo de almacenamiento de destino de la lista: **Blob en bloques**, **Blob en páginas** o **Azure Files**.        |
     |**Contenedor o recurso compartido de destino**    |Escriba el nombre del contenedor o el recurso compartido del cual desee cargar datos en la cuenta de almacenamiento de destino. El nombre puede ser un nombre de recurso compartido o de contenedor. Por ejemplo, use `myshare` o `mycontainer`. Además, puede escribir el nombre en el formato `sharename\directory_name` o `containername\virtual_directory_name`.        |
     |**Copiar los archivos que coincidan con el patrón**    | Puede escribir el patrón de coincidencia de nombre de archivo de las siguientes dos maneras:<ul><li>**Uso de expresiones de caracteres comodín:** En las expresiones de caracteres comodín solo se admiten `*` y `?`. Por ejemplo, la expresión `*.vhd` coincide con todos los archivos que tienen la extensión `.vhd`. De forma similar, `*.dl?` coincide con todos los archivos con la extensión `.dl` o que empiezan por `.dl`, como `.dll`. Del mismo modo, `*foo` coincide con todos los archivos cuyos nombres terminan por `foo`.<br>Puede especificar directamente la expresión de caracteres comodín en el campo. De forma predeterminada, el valor especificado en el campo se trata como expresión comodín.</li><li>**Uso de expresiones regulares:** se admiten expresiones regulares basadas en POSIX. Por ejemplo, una expresión regular `.*\.vhd` coincidirá con todos los archivos que tienen la extensión `.vhd`. Para la expresión regular, proporcione el `<pattern>` directamente como `regex(<pattern>)`. Para más información sobre las expresiones regulares, vaya a [Lenguaje de expresiones regulares - Referencia rápida](/dotnet/standard/base-types/regular-expression-language-quick-reference).</li><ul>|
-    |**Optimización de archivos**              |Cuando esta característica está habilitada, se empaquetan los archivos inferiores a 1 MB durante la ingesta. Esto acelera la copia de datos para archivos pequeños. También ahorra un tiempo importante cuando el número de archivos supera el número de directorios.        |
+    |**Optimización de archivos**              |Cuando esta característica está habilitada, se empaquetan los archivos inferiores a 1 MB durante la ingesta. Esto acelera la copia de datos para archivos pequeños. También ahorra un tiempo importante cuando el número de archivos supera el número de directorios.</br>Si usa la optimización de archivos:<ul><li>Después de ejecutar la preparación para el envío, puede [descargar un archivo BOM](data-box-logs.md#inspect-bom-during-prepare-to-ship), que muestra los nombres de archivo originales, para ayudarle a asegurarse de que se copian todos los archivos adecuados.</li><li>No elimine los archivos empaquetados, que se identifican mediante un GUID como nombre de archivo. Si elimina un archivo empaquetado, el archivo original no se cargará durante futuras copias de datos.</li><li>No copie con otros protocolos, como SMB, NFS o API REST, los mismos archivos que copia con el servicio de copia. El uso de protocolos diferentes puede provocar conflictos y errores durante las cargas de datos.</li></ul>    |
  
 4. Seleccione **Inicio**. Se validan las entradas y, si la validación es correcta, se inicia el trabajo. El trabajo puede tardar unos minutos en iniciarse.
 

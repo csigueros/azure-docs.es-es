@@ -10,18 +10,16 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: fcc5c02c4a37e205622470260d3c620ad76d07d8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b0f11be9261785ca332d47a7406133e3106547fd
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97694695"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123471214"
 ---
 # <a name="provide-an-encryption-key-on-a-request-to-blob-storage"></a>Especificación de una clave de cifrado en una solicitud a Blob Storage
 
 Los clientes que realizan solicitudes en Azure Blob Storage tienen la opción de proporcionar una clave de cifrado AES-256 por solicitud. La inclusión de la clave de cifrado en la solicitud proporciona un control detallado sobre la configuración de cifrado para las operaciones de almacenamiento de blobs. Las claves proporcionadas por el cliente se pueden almacenar en Azure Key Vault o en otro almacén de claves.
-
-[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 ## <a name="encrypting-read-and-write-operations"></a>Cifrado de operaciones de lectura y escritura
 
@@ -75,6 +73,17 @@ Para girar una clave de cifrado que se ha usado para cifrar un blob, descargue e
 > Azure Portal no se puede usar para leer o escribir en un contenedor o blob que esté cifrado con una clave proporcionada en la solicitud.
 >
 > Asegúrese de proteger la clave de cifrado que proporcione en una solicitud a Blob Storage en un almacén de claves seguro como Azure Key Vault. Si intenta realizar una operación de escritura en un contenedor o blob sin la clave de cifrado, se producirá un error en la operación y se perderá el acceso al objeto.
+
+## <a name="feature-support"></a>Compatibilidad de características
+
+Esta tabla muestra cómo se utiliza esta característica en la cuenta y el efecto que tiene en términos de compatibilidad al habilitar determinada funcionalidad. 
+
+| Tipo de cuenta de almacenamiento                | Blob Storage (compatibilidad predeterminada)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>    
+|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
+| De uso general estándar, v2 | ![Sí](../media/icons/yes-icon.png) |![No](../media/icons/no-icon.png)              | ![No](../media/icons/no-icon.png) | 
+| Blobs en bloques Premium          | ![Sí](../media/icons/yes-icon.png) |![No](../media/icons/no-icon.png)              | ![No](../media/icons/no-icon.png) |
+
+<sup>1</sup>    Data Lake Storage Gen2 y el protocolo Network File System (NFS) 3.0 necesitan una cuenta de almacenamiento con un espacio de nombres jerárquico habilitado.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

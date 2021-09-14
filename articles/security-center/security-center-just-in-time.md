@@ -6,14 +6,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 07/12/2020
+ms.date: 09/05/2021
 ms.author: memildin
-ms.openlocfilehash: dff90bc02ef9ee20284adb895eb05e765bdfba72
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 5a61ad8addfcb2840bbed1b9d56f37dfbb01b0bf
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121734872"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123541394"
 ---
 # <a name="secure-your-management-ports-with-just-in-time-access"></a>Protección de los puertos de administración con acceso Just-in-Time
 
@@ -36,7 +36,7 @@ Esta página le enseña cómo incluir JIT en el programa de seguridad. Aprender�
 |Estado de la versión:|Disponibilidad general (GA)|
 |Precios:|Requiere [Azure Defender para servidores](defender-for-servers-introduction.md).|
 |Máquinas virtuales admitidas:|:::image type="icon" source="./media/icons/yes-icon.png"::: Máquinas virtuales implementadas por medio de Azure Resource Manager.<br>:::image type="icon" source="./media/icons/no-icon.png"::: Máquinas virtuales con modelos de implementación clásica. [Más información acerca de estos modelos de implementación](../azure-resource-manager/management/deployment-models.md).<br>:::image type="icon" source="./media/icons/no-icon.png"::: Máquinas virtuales que las instancias de Azure Firewall protegen y que [Azure Firewall Manager](../firewall-manager/overview.md) controla|
-|Roles y permisos necesarios:|Los roles **Lector** y **SecurityReader** pueden ver el estado y los parámetros de JIT.<br>Para crear roles personalizados que puedan funcionar con JIT, consulte [¿Cuáles son los permisos necesarios para configurar y usar Just-In-Time?](just-in-time-explained.md#what-permissions-are-needed-to-configure-and-use-jit).<br>Para crear un rol con privilegios mínimos para los usuarios que necesiten solicitar acceso JIT a una máquina virtual y no realizar ninguna otra operación JIT, use el [script Set-JitLeastPrivilegedRole](https://github.com/Azure/Azure-Security-Center/tree/master/Powershell%20scripts/JIT%20Custom%20Role) de las páginas de la comunidad de GitHub de Security Center.|
+|Roles y permisos necesarios:|Los roles **Lector** y **SecurityReader** pueden ver el estado y los parámetros de JIT.<br>Para crear roles personalizados que puedan funcionar con JIT, consulte [¿Cuáles son los permisos necesarios para configurar y usar Just-In-Time?](just-in-time-explained.md#what-permissions-are-needed-to-configure-and-use-jit).<br>Para crear un rol con privilegios mínimos para los usuarios que necesiten solicitar acceso JIT a una máquina virtual y no realizar ninguna otra operación JIT, use el [script Set-JitLeastPrivilegedRole](https://github.com/Azure/Azure-Security-Center/tree/main/Powershell%20scripts/JIT%20Scripts/JIT%20Custom%20Role) de las páginas de la comunidad de GitHub de Security Center.|
 |Nubes:|:::image type="icon" source="./media/icons/yes-icon.png"::: Nubes comerciales<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Nacionales o soberanas (Azure Government, Azure China 21Vianet)|
 |||
 
@@ -68,7 +68,7 @@ Desde Security Center, puede habilitar y configurar el acceso a máquinas virtua
         - el último usuario
     - **No configurado**: máquinas virtuales sin JIT habilitado, pero que pueden admitir JIT. Se recomienda habilitar JIT para estas máquinas virtuales.
     - **No admitido**: máquinas virtuales sin JIT habilitado y que no admiten la característica. Es posible que su máquina virtual esté en esta pestaña por las siguientes razones:
-      - Falta el grupo de seguridad de red (NSG): JIT requiere que se configure un NSG
+      - Falta un grupo de seguridad de red (NSG) o Azure Firewall: JIT requiere que se configure un grupo de seguridad de red o una configuración de firewall (o ambos)
       - Máquina virtual clásica: JIT es compatible con las máquinas virtuales que se implementan a través de Azure Resource Manager, no con la "implementación clásica". [Obtenga más información sobre los modelos de implementación clásica y de Resource Manager](../azure-resource-manager/management/deployment-models.md).
       - Otro: la máquina virtual puede estar en esta pestaña si la solución JIT está deshabilitada en la directiva de seguridad de la suscripción o el grupo de recursos.
 
@@ -333,13 +333,6 @@ Obtenga más información en [Directivas de acceso a redes JIT](/rest/api/securi
 
 ---
 
-
-
-
-
-
-
-
 ## <a name="audit-jit-access-activity-in-security-center"></a>Auditoría de la actividad de acceso JIT en Security Center
 
 Puede usar la búsqueda de registros para obtener información sobre las actividades de las máquinas virtuales. Para ver los registros:
@@ -355,11 +348,6 @@ Puede usar la búsqueda de registros para obtener información sobre las activid
    El registro de actividades proporciona una vista filtrada de las operaciones anteriores para esa máquina virtual, junto con el tiempo, la fecha y la suscripción.
 
 1. Para descargar la información de registro, seleccione **Descargar como CSV**.
-
-
-
-
-
 
 
 

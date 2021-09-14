@@ -9,18 +9,16 @@ ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 37367cc4608c1bfbf9c621388bcbc6ecaabd8aa4
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 0d06e40fc33a713904fb171a3a44ba8e977a254f
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110679328"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123467653"
 ---
 # <a name="change-feed-support-in-azure-blob-storage"></a>Compatibilidad con la fuente de cambios en Azure Blob Storage
 
 El propósito de la fuente de cambios es proporcionar registros de transacciones de todos los cambios que se producen en los blobs y en los metadatos de blobs de la cuenta de almacenamiento. La fuente de cambios proporciona un registro **ordenado**, **garantizado**, **durable**, **inmutable** y de **solo lectura** de estos cambios. Las aplicaciones cliente pueden leer estos registros en cualquier momento, ya sea en streaming o en modo por lotes. La fuente de cambios le permite compilar soluciones eficaces y escalables que procesan los eventos de cambio que se producen en su cuenta de Blob Storage a un bajo costo.
-
-[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 ## <a name="how-the-change-feed-works"></a>Funcionamiento de la fuente de cambios
 
@@ -298,6 +296,17 @@ En esta sección se describen los problemas conocidos y las condiciones de la ve
 - La propiedad `LastConsumable` del archivo segment.json no muestra el primer segmento que la fuente de cambios finaliza. Este problema solo se produce una vez finalizado el primer segmento. Todos los segmentos posteriores después de la primera hora se capturan con precisión en la propiedad `LastConsumable`.
 - Actualmente no puede ver el contenedor **$blobchangefeed** cuando llama a ListContainers API y este no aparece en Azure Portal ni en el Explorador de Storage. Puede ver el contenido llamando directamente a la API de ListBlobs en el contenedor de $blobchangefeed.
 - Las cuentas de almacenamiento que han iniciado anteriormente una [conmutación por error de cuenta](../common/storage-disaster-recovery-guidance.md) pueden tener problemas con el archivo de registro que no aparece. Cualquier conmutación por error de cuentas futuras también puede afectar al archivo de registro.
+
+## <a name="feature-support"></a>Compatibilidad de características
+
+En esta tabla, se muestra cómo se admite esta característica en la cuenta y el impacto en la compatibilidad al habilitar determinadas funcionalidades. 
+
+| Tipo de cuenta de almacenamiento                | Blob Storage (compatibilidad predeterminada)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>    
+|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
+| De uso general estándar, v2 | ![Sí](../media/icons/yes-icon.png) |![No](../media/icons/no-icon.png)              | ![No](../media/icons/no-icon.png) | 
+| Blobs en bloques Premium          | ![No](../media/icons/no-icon.png)|![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+
+<sup>1</sup> Data Lake Storage Gen2 y el protocolo Network File System (NFS) 3.0 necesitan una cuenta de almacenamiento con un espacio de nombres jerárquico habilitado.
 
 ## <a name="faq"></a>Preguntas más frecuentes
 

@@ -1,15 +1,15 @@
 ---
 title: Tipos de recurso de Azure Resource Manager admitidos
 description: Proporcione una lista de los tipos de recurso de Azure Resource Manager admitidos en Azure Resource Graph y el Historial de cambios.
-ms.date: 08/13/2021
+ms.date: 09/03/2021
 ms.topic: reference
 ms.custom: generated
-ms.openlocfilehash: 69b8e4bb3400b04da3986f9e40a1c5b5fba3b750
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
+ms.openlocfilehash: 9dfdd77d400dfa91ec26df23d323f8290dc97da0
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122067600"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123536074"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Referencia de tipo de recurso y tabla de Azure Resource Graph
 
@@ -22,12 +22,17 @@ En [Consultas de ejemplo de Resource Graph para advisorresources](../samples/sam
 - microsoft.advisor/configurations
 - microsoft.advisor/recommendations
   - Consulta de ejemplo: [obtención de un resumen de ahorro de costes de Azure Advisor](../samples/samples-by-category.md#get-cost-savings-summary-from-azure-advisor)
+  - Consulta de ejemplo: [enumeración de los servidores habilitados para Arc que no ejecutan la versión del agente publicada más reciente](../samples/samples-by-category.md#list-arc-enabled-servers-not-running-latest-released-agent-version)
 - microsoft.advisor/recommendations/suppressions
 - microsoft.advisor/suppressions
 
 ## <a name="alertsmanagementresources"></a>alertsmanagementresources
 
 - microsoft.alertsmanagement/alerts
+
+## <a name="desktopvirtualizationresources"></a>desktopvirtualizationresources
+
+- microsoft.desktopvirtualization/hostpools/sessionhosts
 
 ## <a name="extendedlocationresources"></a>extendedlocationresources
 
@@ -45,7 +50,6 @@ En [Consultas de ejemplo de Resource Graph para guestconfigurationresources](../
   - Consulta de ejemplo: [recuento de máquinas en el ámbito de las directivas de configuración de invitado](../samples/samples-by-category.md#count-machines-in-scope-of-guest-configuration-policies)
   - Consulta de ejemplo: [recuento de asignaciones de configuración de invitado no conformes](../samples/samples-by-category.md#count-of-non-compliant-guest-configuration-assignments)
   - Consulta de ejemplo: [búsqueda de todas las razones por las que una máquina no es conforme con asignaciones de configuración de invitado](../samples/samples-by-category.md#find-all-reasons-a-machine-is-non-compliant-for-guest-configuration-assignments)
-  - Consulta de ejemplo: [consulta de detalles de informes de asignaciones de configuración de invitado](../samples/samples-by-category.md#query-details-of-guest-configuration-assignment-reports)
 
 ## <a name="healthresources"></a>healthresources
 
@@ -56,6 +60,15 @@ En [Consultas de ejemplo de Resource Graph para healthresources](../samples/samp
   - Consulta de ejemplo: [enumeración de máquinas virtuales y estados de disponibilidad asociados por Id. de recurso](../samples/samples-by-category.md#list-of-virtual-machines-and-associated-availability-states-by-resource-ids)
   - Consulta de ejemplo: [enumeración de máquinas virtuales por estado de disponibilidad y estado de energía con Ids. de recurso y grupos de recursos](../samples/samples-by-category.md#list-of-virtual-machines-by-availability-state-and-power-state-with-resource-ids-and-resource-groups)
   - Consulta de ejemplo: [enumeración de máquinas virtuales que no están disponibles por Id. de recurso](../samples/samples-by-category.md#list-of-virtual-machines-that-are-not-available-by-resource-ids)
+
+## <a name="iotsecurityresources"></a>iotsecurityresources
+
+- microsoft.iotsecurity/locations/devicegroups/alerts
+- microsoft.iotsecurity/locations/devicegroups/devices
+- microsoft.iotsecurity/locations/devicegroups/recommendations
+- microsoft.iotsecurity/onpremisesensors
+- microsoft.iotsecurity/sensors
+- microsoft.iotsecurity/sites
 
 ## <a name="kubernetesconfigurationresources"></a>kubernetesconfigurationresources
 
@@ -136,6 +149,7 @@ En [Consultas de ejemplo de Resource Graph para resources](../samples/samples-by
 - Citrix.Services/XenDesktopEssentials (Citrix Virtual Desktops Essentials)
 - conexlink.mycloudit/accounts
 - crypteron.datasecurity/apps
+- dynatrace.observability/monitors
 - GitHub.Enterprise/accounts (GitHub AE)
 - gridpro.evops/accounts
 - gridpro.evops/accounts/eventrules
@@ -243,6 +257,7 @@ En [Consultas de ejemplo de Resource Graph para resources](../samples/samples-by
 - Microsoft.CloudTest/images (imágenes de CloudTest)
 - Microsoft.CloudTest/pools (grupos de CloudTest)
 - Microsoft.ClusterStor/nodes (ClusterStors)
+- microsoft.codesigning/codesigningaccounts
 - microsoft.codespaces/plans
 - Microsoft.Cognition/syntheticsAccounts (cuentas de Synthetics)
 - Microsoft.CognitiveServices/accounts (Cognitive Services)
@@ -276,6 +291,7 @@ En [Consultas de ejemplo de Resource Graph para resources](../samples/samples-by
   - Consulta de ejemplo: [recuento de máquinas virtuales por tipo de sistema operativo](../samples/samples-by-category.md#count-virtual-machines-by-os-type)
   - Consulta de ejemplo: [recuento de máquinas virtuales por tipo de sistema operativo con extensión](../samples/samples-by-category.md#count-virtual-machines-by-os-type-with-extend)
   - Consulta de ejemplo: [enumeración de todas las extensiones instaladas en una máquina virtual](../samples/samples-by-category.md#list-all-extensions-installed-on-a-virtual-machine)
+  - Consulta de ejemplo: [enumeración de las máquinas que no se ejecutan y último estado de cumplimiento](../samples/samples-by-category.md#list-machines-that-are-not-running-and-the-last-compliance-status)
   - Consulta de ejemplo: [enumeración de máquinas virtuales por estado de disponibilidad y estado de energía con Ids. de recurso y grupos de recursos](../samples/samples-by-category.md#list-of-virtual-machines-by-availability-state-and-power-state-with-resource-ids-and-resource-groups)
   - Consulta de ejemplo: [enumeración de máquinas virtuales con su interfaz de red y dirección IP pública](../samples/samples-by-category.md#list-virtual-machines-with-their-network-interface-and-public-ip)
   - Consulta de ejemplo: [visualización de todas las máquinas por nombre en orden descendente](../samples/samples-by-category.md#show-all-virtual-machines-ordered-by-name-in-descending-order)
@@ -291,6 +307,8 @@ En [Consultas de ejemplo de Resource Graph para resources](../samples/samples-by
 - Microsoft.Confluent/organizations (organizaciones de Confluent)
 - Microsoft.ConnectedCache/cacheNodes (recursos de caché conectada)
 - Microsoft.ConnectedVehicle/platformAccounts (plataformas de vehículos conectados)
+- microsoft.connectedvmwarevsphere/clusters
+- microsoft.connectedvmwarevsphere/datastores
 - microsoft.connectedvmwarevsphere/resourcepools
 - Microsoft.connectedVMwareVSphere/vCenters (instancias de VMware vCenter)
 - Microsoft.ConnectedVMwarevSphere/VirtualMachines (máquinas virtuales de VMware y AVS)
@@ -307,6 +325,7 @@ En [Consultas de ejemplo de Resource Graph para resources](../samples/samples-by
 - Microsoft.ContainerRegistry/registries/webhooks (webhooks del registro de contenedor)
 - microsoft.containerservice/containerservices
 - Microsoft.ContainerService/managedClusters (servicios de Kubernetes)
+  - Consulta de ejemplo: [enumeración de los recursos afectados al transferir una suscripción de Azure](../samples/samples-by-category.md#list-impacted-resources-when-transferring-an-azure-subscription)
 - microsoft.containerservice/openshiftmanagedclusters
 - microsoft.contoso/clusters
 - microsoft.contoso/employees
@@ -327,6 +346,7 @@ En [Consultas de ejemplo de Resource Graph para resources](../samples/samples-by
 - Microsoft.DataFactory/factories (factorías de datos [V2])
 - Microsoft.DataLakeAnalytics/accounts (Data Lake Analytics)
 - Microsoft.DataLakeStore/accounts (Data Lake Storage Gen1)
+  - Consulta de ejemplo: [enumeración de los recursos afectados al transferir una suscripción de Azure](../samples/samples-by-category.md#list-impacted-resources-when-transferring-an-azure-subscription)
 - microsoft.datamigration/controllers
 - Microsoft.DataMigration/services (instancias de Azure Database Migration Service)
 - Microsoft.DataMigration/services/projects (proyectos de Azure Database Migration)
@@ -335,6 +355,8 @@ En [Consultas de ejemplo de Resource Graph para resources](../samples/samples-by
 - Microsoft.DataProtection/BackupVaults (almacenes de copia de seguridad)
 - Microsoft.DataProtection/resourceGuards (restricciones de recursos, versión preliminar)
 - microsoft.dataprotection/resourceoperationgatekeepers
+- microsoft.datareplication/replicationfabrics
+- microsoft.datareplication/replicationvaults
 - Microsoft.DataShare/accounts (instancias de Data Share)
 - Microsoft.DBforMariaDB/servers (servidores de Azure Database for MariaDB)
 - Microsoft.DBforMySQL/flexibleServers (servidores flexibles de Azure Database for MySQL)
@@ -398,9 +420,10 @@ En [Consultas de ejemplo de Resource Graph para resources](../samples/samples-by
 - microsoft.falcon/namespaces
 - Microsoft.Fidalgo/devcenters (centros de desarrollo de Fidalgo)
 - microsoft.fidalgo/machinedefinitions
+- microsoft.fidalgo/networksettings
 - Microsoft.Fidalgo/projects (proyectos de Fidalgo)
 - Microsoft.Fidalgo/projects/environments (entornos de Fidalgo)
-- Microsoft.FluidRelay/fluidRelayServers (servidores FluidRelay)
+- Microsoft.FluidRelay/fluidRelayServers (Fluid Relay)
 - microsoft.footprintmonitoring/profiles
 - microsoft.gaming/titles
 - Microsoft.Genomics/accounts (cuentas de Genomics)
@@ -410,6 +433,7 @@ En [Consultas de ejemplo de Resource Graph para resources](../samples/samples-by
 - microsoft.hardwaresecuritymodules/dedicatedhsms
 - Microsoft.HDInsight/clusterpools (grupos de clústeres de HDInsight)
 - Microsoft.HDInsight/clusterpools/clusters (clústeres de HDInsight Gen2)
+- microsoft.hdinsight/clusterpools/clusters/sessionclusters
 - Microsoft.HDInsight/clusters (clústeres de HDInsight)
 - Microsoft.HealthBot/healthBots (Azure Health Bot)
 - Microsoft.HealthcareApis/services (Azure API for FHIR)
@@ -421,7 +445,10 @@ En [Consultas de ejemplo de Resource Graph para resources](../samples/samples-by
 - Microsoft.HpcWorkbench/instances (instancias de HPC Workbench, versión preliminar)
 - Microsoft.HybridCompute/machines (servidores - Azure Arc)
   - Consulta de ejemplo: [obtención del recuento y el porcentaje de servidores habilitados para Arc por dominio](../samples/samples-by-category.md#get-count-and-percentage-of-arc-enabled-servers-by-domain)
+  - Consulta de ejemplo: [enumeración de todas las extensiones instaladas en un servidor habilitado para Azure Arc](../samples/samples-by-category.md#list-all-extensions-installed-on-an-azure-arc-enabled-server)
+  - Consulta de ejemplo: [enumeración de los servidores habilitados para Arc que no ejecutan la versión del agente publicada más reciente](../samples/samples-by-category.md#list-arc-enabled-servers-not-running-latest-released-agent-version)
 - microsoft.hybridcompute/machines/extensions
+  - Consulta de ejemplo: [enumeración de todas las extensiones instaladas en un servidor habilitado para Azure Arc](../samples/samples-by-category.md#list-all-extensions-installed-on-an-azure-arc-enabled-server)
 - Microsoft.HybridCompute/privateLinkScopes (ámbitos de Private Link de Azure Arc)
 - Microsoft.HybridData/dataManagers (instancias de StorSimple Data Manager)
 - Microsoft.HybridNetwork/devices (administrador de funciones de red de Azure: dispositivos [versión preliminar])
@@ -440,7 +467,7 @@ En [Consultas de ejemplo de Resource Graph para resources](../samples/samples-by
 - microsoft.insights/alertrules
 - microsoft.insights/autoscalesettings
 - microsoft.insights/components (Application Insights)
-- microsoft.insights/datacollectionendpoints
+- microsoft.insights/datacollectionendpoints (puntos de conexión de recopilación de datos)
 - microsoft.insights/datacollectionrules (reglas de recopilación de datos)
 - microsoft.insights/guestdiagnosticsettings
 - microsoft.insights/metricalerts
@@ -464,6 +491,7 @@ En [Consultas de ejemplo de Resource Graph para resources](../samples/samples-by
 - Microsoft.KeyVault/vaults (almacenes de claves)
   - Consulta de ejemplo: [recuento de recursos de almacén de claves](../samples/samples-by-category.md#count-key-vault-resources)
   - Consulta de ejemplo: [almacenes de claves con el nombre de la suscripción](../samples/samples-by-category.md#key-vaults-with-subscription-name)
+  - Consulta de ejemplo: [enumeración de los recursos afectados al transferir una suscripción de Azure](../samples/samples-by-category.md#list-impacted-resources-when-transferring-an-azure-subscription)
 - Microsoft.Kubernetes/connectedClusters (Kubernetes - Azure Arc)
   - Consulta de ejemplo: [enumeración de todos los clústeres de Kubernetes compatibles con Azure Arc sin la extensión de Azure Monitor](../samples/samples-by-category.md#list-all-azure-arc-enabled-kubernetes-clusters-without-azure-monitor-extension)
   - Consulta de ejemplo: [enumeración de todos los recursos de Kubernetes compatibles con Azure Arc](../samples/samples-by-category.md#list-all-azure-arc-enabled-kubernetes-resources)
@@ -499,6 +527,7 @@ En [Consultas de ejemplo de Resource Graph para resources](../samples/samples-by
 - microsoft.maintenance/maintenancepolicies
 - microsoft.managedidentity/groups
 - Microsoft.ManagedIdentity/userAssignedIdentities (identidades administradas)
+  - Consulta de ejemplo: [enumeración de los recursos afectados al transferir una suscripción de Azure](../samples/samples-by-category.md#list-impacted-resources-when-transferring-an-azure-subscription)
 - microsoft.managednetwork/managednetworkgroups
 - microsoft.managednetwork/managednetworkpeeringpolicies
 - microsoft.managednetwork/managednetworks
@@ -535,7 +564,7 @@ En [Consultas de ejemplo de Resource Graph para resources](../samples/samples-by
 - Microsoft.MobileNetwork/packetCoreControlPlanes (Arc para funciones de red: núcleos de paquetes)
 - microsoft.mobilenetwork/packetcorecontrolplanes/packetcoredataplanes
 - microsoft.mobilenetwork/packetcorecontrolplanes/packetcoredataplanes/attacheddatanetworks
-- microsoft.mobilenetwork/sims
+- Microsoft.MobileNetwork/sims (Sims)
 - microsoft.mobilenetwork/sims/simprofiles
 - Microsoft.NetApp/netAppAccounts (cuentas de NetApp)
 - microsoft.netapp/netappaccounts/backuppolicies
@@ -612,6 +641,7 @@ En [Consultas de ejemplo de Resource Graph para resources](../samples/samples-by
 - microsoft.network/vpngateways
 - microsoft.network/vpnserverconfigurations
 - microsoft.network/vpnsites
+- microsoft.networkfunction/azuretrafficcollectors
 - Microsoft.NotificationHubs/namespaces (espacios de nombres del centro de notificaciones)
 - Microsoft.NotificationHubs/namespaces/notificationHubs (Notification Hubs)
 - microsoft.nutanix/interfaces
@@ -675,6 +705,7 @@ En [Consultas de ejemplo de Resource Graph para resources](../samples/samples-by
 - Microsoft.Search/searchServices (servicios Search)
 - microsoft.security/automations
 - microsoft.security/iotsecuritysolutions
+- microsoft.security/securityconnectors
 - Microsoft.SecurityDetonation/chambers (cámaras de detonación de seguridad)
 - Microsoft.ServiceBus/namespaces (espacios de nombres de Service Bus)
 - Microsoft.ServiceFabric/clusters (clústeres de Service Fabric)
@@ -701,6 +732,7 @@ En [Consultas de ejemplo de Resource Graph para resources](../samples/samples-by
 - Microsoft.Sql/managedInstances/databases (bases de datos administradas)
 - Microsoft.Sql/servers (servidores SQL)
 - Microsoft.Sql/servers/databases (bases de datos SQL)
+  - Consulta de ejemplo: [enumeración de los recursos afectados al transferir una suscripción de Azure](../samples/samples-by-category.md#list-impacted-resources-when-transferring-an-azure-subscription)
   - Consulta de ejemplo: [enumeración de bases de datos SQL y sus grupos elásticos](../samples/samples-by-category.md#list-sql-databases-and-their-elastic-pools)
 - Microsoft.Sql/servers/elasticpools (grupos elásticos SQL)
   - Consulta de ejemplo: [enumeración de bases de datos SQL y sus grupos elásticos](../samples/samples-by-category.md#list-sql-databases-and-their-elastic-pools)
@@ -714,6 +746,7 @@ En [Consultas de ejemplo de Resource Graph para resources](../samples/samples-by
   - Consulta de ejemplo: [búsqueda de cuentas de almacenamiento con una etiqueta concreta que no distingue mayúsculas de minúsculas en el grupo de recursos](../samples/samples-by-category.md#find-storage-accounts-with-a-specific-case-insensitive-tag-on-the-resource-group)
   - Consulta de ejemplo: [búsqueda de cuentas de almacenamiento con una etiqueta concreta que distingue mayúsculas de minúsculas en el grupo de recursos](../samples/samples-by-category.md#find-storage-accounts-with-a-specific-case-sensitive-tag-on-the-resource-group)
   - Consulta de ejemplo: [enumeración de todas las cuentas de almacenamiento con un valor de etiqueta específico](../samples/samples-by-category.md#list-all-storage-accounts-with-specific-tag-value)
+  - Consulta de ejemplo: [enumeración de los recursos afectados al transferir una suscripción de Azure](../samples/samples-by-category.md#list-impacted-resources-when-transferring-an-azure-subscription)
 - microsoft.storagecache/amlfilesystems
 - Microsoft.StorageCache/caches (cachés HPC)
 - Microsoft.StoragePool/diskPools (grupos de discos)
@@ -729,7 +762,7 @@ En [Consultas de ejemplo de Resource Graph para resources](../samples/samples-by
 - Microsoft.Synapse/workspaces (Azure Synapse Analytics)
 - Microsoft.Synapse/workspaces/bigDataPools (grupos de Apache Spark)
 - microsoft.synapse/workspaces/eventstreams
-- Microsoft.Synapse/workspaces/kustopools (grupos de Kusto, versión preliminar)
+- Microsoft.Synapse/workspaces/kustopools (grupos del Explorador de datos (versión preliminar))
 - microsoft.synapse/workspaces/sqldatabases
 - Microsoft.Synapse/workspaces/sqlPools (grupos de SQL dedicados)
 - microsoft.terraformoss/providerregistrations
@@ -772,7 +805,7 @@ En [Consultas de ejemplo de Resource Graph para resources](../samples/samples-by
 - microsoft.web/sites/premieraddons
 - Microsoft.Web/sites/slots (App Service [ranuras])
 - Microsoft.Web/StaticSites (Static Web Apps)
-- microsoft.web/workerapps
+- Microsoft.Web/WorkerApps (Container Apps)
 - Microsoft.WindowsESU/multipleActivationKeys (claves de activación múltiple de Windows)
 - Microsoft.WindowsIoT/DeviceServices (Windows 10 IoT Core Services)
 - microsoft.workloadbuilder/migrationagents
@@ -781,7 +814,7 @@ En [Consultas de ejemplo de Resource Graph para resources](../samples/samples-by
 - NGINX.NGINXPLUS/nginxDeployments (implementación de NGINX)
 - <<<Paraleap.CloudMonix/services (CloudMonix)
 - Pokitdok.Platform/services (plataforma PokitDok)
-- Providers.Test/statefulIbizaEngines (enlazadores de servicios)
+- Providers.Test/statefulIbizaEngines (evaluaciones de aplicación)
 - RavenHq.Db/databases (RavenHQ)
 - Raygun.CrashReporting/apps (Raygun)
 - Sendgrid.Email/accounts (cuentas de SendGrid)

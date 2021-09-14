@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: quickstart
 ms.date: 03/17/2021
 ms.custom: template-quickstart
-ms.openlocfilehash: 601970978dc69aea2a6f0947a26cc0bebc1d999d
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: 4e37be9e121d634e0d4a83fdd5f786805dedf132
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123223023"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123427217"
 ---
 # <a name="set-up-the-azure-percept-dk-device"></a>Configuración del dispositivo de Azure Percept DK
 
@@ -150,7 +150,7 @@ Para comprobar si la cuenta de Azure tiene los roles de "propietario" o "colabor
     - Seleccione un grupo de recursos existente. Si no hay ninguno, seleccione **Crear** y siga las indicaciones.
     - Seleccione la región de Azure más próxima a su ubicación física.
     - Asigne un nombre a la nueva instancia de IoT Hub.
-    - Seleccione el plan de tarifa S1 (estándar).
+    - Seleccione el **plan de tarifa S1 (estándar)** .
 
     > [!NOTE]
     > La implementación de IoT Hub puede tardar unos minutos en completarse. Si necesita un mayor [rendimiento de los mensajes](../iot-hub/iot-hub-scaling.md#message-throughput) para las aplicaciones de IA perimetrales, tiene la posibilidad de [actualizar IoT Hub a un nivel estándar superior](../iot-hub/iot-hub-upgrade.md) en Azure Portal en cualquier momento. Los niveles B y F no admiten Azure Percept.

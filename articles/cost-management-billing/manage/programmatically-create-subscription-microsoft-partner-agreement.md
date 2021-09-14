@@ -5,16 +5,16 @@ author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 06/22/2021
+ms.date: 09/01/2021
 ms.reviewer: andalmia
 ms.author: banders
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 6db488449ad54957ae71f9c53c1a26bda25c6db1
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+ms.openlocfilehash: 985f649d864e0fad250a5b2342b8cb96c049c0ec
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122965965"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123478363"
 ---
 # <a name="programmatically-create-azure-subscriptions-for-a-microsoft-partner-agreement-with-the-latest-apis"></a>Creación de suscripciones de Azure mediante programación para Microsoft Partner Agreement con las API más recientes
 
@@ -387,11 +387,11 @@ Pase el valor *resellerId* copiado en el segundo paso en el cuerpo de la llamada
 
 ---
 
-## <a name="use-arm-template"></a>Uso de una plantilla de Resource Manager
+## <a name="use-arm-template-or-bicep"></a>Uso de una plantilla de ARM o un archivo de Bicep
 
-En la sección anterior se mostró cómo crear una suscripción con PowerShell, la CLI o la API REST. Si necesita automatizar la creación de suscripciones, considere la posibilidad de usar una plantilla de Azure Resource Manager (plantilla de ARM).
+En la sección anterior se mostró cómo crear una suscripción con PowerShell, la CLI o la API REST. Si tiene que automatizar la creación de suscripciones, considere la posibilidad de usar una plantilla de Azure Resource Manager (plantilla de ARM) o un [archivo de Bicep](../../azure-resource-manager/bicep/overview.md).
 
-El ejemplo siguiente crea una suscripción. Para `billingScope`, proporcione el identificador de cliente. La suscripción se crea en el grupo de administración raíz. Después de crear la suscripción, puede moverla a otro grupo de administración.
+La siguiente plantilla de ARM creará una suscripción. Para `billingScope`, proporcione el identificador de cliente. La suscripción se crea en el grupo de administración raíz. Después de crear la suscripción, puede moverla a otro grupo de administración.
 
 ```json
 {
@@ -428,7 +428,29 @@ El ejemplo siguiente crea una suscripción. Para `billingScope`, proporcione el 
 }
 ```
 
-Implemente la plantilla en el [nivel de grupo de administración](../../azure-resource-manager/templates/deploy-to-management-group.md).
+O bien, usar un archivo de Bicep para crear la suscripción.
+
+```bicep
+targetScope = 'managementGroup'
+
+@description('Provide a name for the alias. This name will also be the display name of the subscription.')
+param subscriptionAliasName string
+
+@description('Provide the full resource ID of billing scope to use for subscription creation.')
+param billingScope string
+
+resource subscriptionAlias 'Microsoft.Subscription/aliases@2020-09-01' = {
+  scope: tenant()
+  name: subscriptionAliasName
+  properties: {
+    workload: 'Production'
+    displayName: subscriptionAliasName
+    billingScope: billingScope
+  }
+}
+```
+
+Implemente la plantilla en el [nivel de grupo de administración](../../azure-resource-manager/templates/deploy-to-management-group.md). Los ejemplos siguientes muestran cómo implementar la plantilla de ARM de JSON, pero es posible implementar un archivo de Bicep en su lugar.
 
 ### <a name="rest"></a>[REST](#tab/rest)
 
@@ -483,7 +505,7 @@ az deployment mg create \
 
 ---
 
-Para mover una suscripción a un grupo de administración nuevo, use la plantilla siguiente.
+Para mover una suscripción a un nuevo grupo de administración, use la siguiente plantilla de ARM.
 
 ```json
 {
@@ -514,6 +536,23 @@ Para mover una suscripción a un grupo de administración nuevo, use la plantill
         }
     ],
     "outputs": {}
+}
+```
+
+O bien, este archivo de Bicep.
+
+```bicep
+targetScope = 'managementGroup'
+
+@description('Provide the ID of the management group that you want to move the subscription to.')
+param targetMgId string
+
+@description('Provide the ID of the existing subscription to move.')
+param subscriptionId string
+
+resource subToMG 'Microsoft.Management/managementGroups/subscriptions@2020-05-01' = {
+  scope: tenant()
+  name: '${targetMgId}/${subscriptionId}'
 }
 ```
 

@@ -4,16 +4,16 @@ description: En este artículo se proporciona información de referencia del com
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 07/24/2020
+ms.date: 09/01/2021
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: c08d0f561e743b33720258ce5d6886411f3859f0
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 0d549190558f54137a410808967abc206ed43ad1
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114462529"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123433375"
 ---
 # <a name="azcopy-sync"></a>azcopy sync
 
@@ -135,13 +135,21 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 
 **--check-md5** string: especifica cómo de estrictamente se deben validar los hashes MD5 al descargarse. Esta opción solo está disponible al descargar. Entre los valores disponibles se incluyen: `NoCheck`, `LogOnly`, `FailIfDifferent` y `FailIfDifferentOrMissing`. (El valor predeterminado es `FailIfDifferent`). (`FailIfDifferent` por defecto)
 
+**--cpk-by-name** string La clave proporcionada por el cliente por nombre permite a los clientes que realizan solicitudes en Azure Blob Storage una opción para proporcionar una clave de cifrado por solicitud. El nombre de clave proporcionado se capturará de Azure Key Vault y se usará para cifrar los datos
+
+**--cpk-by-value** La clave proporcionada por el cliente por nombre permite a los clientes que realizan solicitudes en Azure Blob Storage una opción para proporcionar una clave de cifrado por solicitud. La clave proporcionada y su hash se capturarán de las variables de entorno
+
 **--delete-destination** string   Define si se eliminan los archivos adicionales del destino que no están presentes en el origen. Se puede establecer en `true`, `false` o `prompt`. Si se establece en `prompt`, se le formulará al usuario una pregunta antes de programar archivos y blobs para su eliminación. (El valor predeterminado es `false`). (`false` por defecto)
+
+**--dry-run** Imprime la ruta de los archivos que el comando sync copiará o quitará. Esta marca no copia ni quita los archivos reales.
 
 **--exclude-attributes** string (solo Windows): excluye los archivos cuyos atributos coinciden con la lista de atributos. Por ejemplo: `A;S;R`
 
 **--exclude-path** string: excluye estas rutas de acceso al comparar el origen con el destino. Esta opción no permite caracteres comodín (*). Comprueba el prefijo de ruta de acceso relativa (por ejemplo: `myFolder;myFolder/subDirName/file.pdf`).
 
 **--exclude-pattern** string   Excluye los archivos en los que el nombre coincide con la lista de patrones. Por ejemplo: `*.jpg;*.pdf;exactName`
+
+**--exclude-regex** string Se excluye la ruta de acceso relativa de los archivos que coinciden con expresiones regulares. Separe las expresiones regulares con ";".
 
 **--help**: ayuda para la sincronización.
 
@@ -153,15 +161,17 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 
 **--mirror mode** Deshabilita la comparación basada en la hora de última modificación y sobrescribe los archivos y blobs en conflicto en el destino si esta marca está establecida en `true`. El valor predeterminado es `false`.
 
-**--preserve-smb-info** False de manera predeterminada. Conserva la información de las propiedades de SMB (hora de la última escritura, hora de creación, bits de atributo) entre los recursos compatibles con SMB (Windows y Azure Files). Esta marca se aplica tanto a archivos como a carpetas, salvo que se especifique un filtro que solo permita archivos (por ejemplo, include-pattern).  La información transferida a las carpetas es la misma que la transferida a los archivos, excepto la hora de la última escritura, que no se conserva para las carpetas.
+**--preserve-smb-info** True de manera predeterminada. Conserva la información de las propiedades de SMB (hora de la última escritura, hora de creación, bits de atributo) entre los recursos compatibles con SMB (Windows y Azure Files). Esta marca se aplica tanto a archivos como a carpetas, salvo que se especifique un filtro que solo permita archivos (por ejemplo, include-pattern).  La información transferida a las carpetas es la misma que la transferida a los archivos, excepto la hora de la última escritura, que no se conserva para las carpetas.
 
-**--preserve-smb-permissions** False de manera predeterminada. Conserva las listas de control de acceso de SMB entre los recursos compatibles (Windows y Azure Files). Esta marca se aplica tanto a archivos como a carpetas, salvo que se especifique un filtro que solo permita archivos (por ejemplo, `include-pattern`).
+**--preserve-permissions** False de manera predeterminada. Conserva las ACL entre los recursos compatibles (Windows y Azure Files, o bien de Data Lake Storage Gen 2 a Data Lake Storage Gen 2). Para las cuentas que tienen un espacio de nombres jerárquico, necesitará un token de SAS o OAuth de contenedor con permisos Modificar propiedad y Modificar permisos. En el caso de las descargas, también necesitará la marca --backup para restaurar los permisos si el nuevo propietario no será el usuario que ejecute AzCopy. Esta marca se aplica tanto a archivos como a carpetas, salvo que se especifique un filtro de que solo permita archivos (por ejemplo, include-pattern).
 
 **--put-md5**: crea un hash MD5 de cada archivo y lo guarda como la propiedad Content-MD5 del blob o archivo de destino. (De forma predeterminada, NO se crea el hash). Solo está disponible al cargar.
 
 **--recursive**    `True` de forma predeterminada, busca en los subdirectorios de forma recursiva al sincronizar entre directorios. (El valor predeterminado es `True`). 
 
 **--s2s-preserve-access-tier**: conserva el nivel de acceso durante la copia de servicio a servicio. Consulte [Azure Blob Storage: niveles de acceso frecuente, esporádico y de archivo](../blobs/storage-blob-storage-tiers.md) para asegurarse de que la cuenta de almacenamiento de destino admite la configuración del nivel de acceso. En los casos en los que no se admite el establecimiento del nivel de acceso, use s2sPreserveAccessTier=false para omitir la copia del nivel de acceso. (El valor predeterminado es `true`). 
+
+**--s2s-preserve-blob-tags** Se conservan las etiquetas de índice durante la sincronización entre servicios de un almacenamiento de blobs a otro.
 
 ## <a name="options-inherited-from-parent-commands"></a>Opciones heredadas de comandos primarios
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2021
 ms.author: duau
-ms.openlocfilehash: 1e95d3b72af14b151bdd1cbeede4d65deef0f817
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 5d97ebebe19235a54084ec551f3bbcb9e55e3022
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112081522"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123425633"
 ---
 # <a name="tutorial-direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>Tutorial: Dirección del tráfico a puntos de conexión específicos en función de la subred de usuario mediante Traffic Manager
 
@@ -154,7 +154,7 @@ Cree un perfil de Traffic Manager que le permita devolver puntos de conexión es
 
     ![Crear un perfil de Traffic Manager](./media/tutorial-traffic-manager-subnet-routing/create-traffic-manager-profile.png)
 
-    | Configuración                 | Valor                                              |
+    | Configuración                 | Value                                              |
     | ---                     | ---                                                |
     | Nombre                   | Este nombre debe ser único en la zona trafficmanager.net y generará el nombre DNS, trafficmanager.net, que se usa para acceder al perfil de Traffic Manager.                                   |
     | Método de enrutamiento          | Seleccione el método de enrutamiento **Subred**.                                       |
@@ -169,15 +169,15 @@ Agregue las dos máquinas virtuales que se ejecuten en los servidores IIS (*myII
 2. En **Perfil de Traffic Manager**, en la sección **Configuración**, seleccione **Puntos de conexión** y, a continuación, seleccione **Agregar**.
 3. Escriba o seleccione la siguiente información. Acepte los valores predeterminados en los demás valores y seleccione **Aceptar**:
 
-    | Configuración                 | Valor                                              |
+    | Configuración                 | Value                                              |
     | ---                     | ---                                                |
     | Tipo                    | Punto de conexión de Azure                                   |
     | Nombre           | myInternalWebSiteEndpoint                                        |
     | Tipo de recurso de destino           | Dirección IP pública                          |
     | Recurso de destino          | **Elija una dirección IP pública** para mostrar la lista de recursos con direcciones IP públicas en la misma suscripción. En **Recurso**, seleccione la dirección IP pública denominada *myIISVMEastUS-ip*. Se trata de la dirección IP pública de la máquina virtual del servidor IIS en la región Este de EE. UU.|
-    |  Configuración de enrutamiento de subred    |   Agregue la dirección IP de la máquina virtual de prueba *myVMEastUS*. Cualquier consulta de usuario que se origine en esta máquina virtual se dirigirá a *myInternalWebSiteEndpoint*.    |
+    |  Configuración de enrutamiento de subred    |   Agregue la dirección IP de la resolución DNS recursiva utilizada por la máquina virtual de prueba *myVMEastUS*. Cualquier consulta de usuario que se origine en esta máquina virtual se dirigirá a *myInternalWebSiteEndpoint*.    |
 
-4. Repita los pasos 2 y 3 para agregar otro punto de conexión denominado *myProdWebsiteEndpoint* para la dirección IP pública *myIISVMWestEurope-ip* que está asociada la máquina virtual del servidor IIS denominada *myIISVMWestEurope*. En **Configuración de enrutamiento de subred**, agregue la dirección IP de la máquina virtual de prueba *myVMWestEurope*. Cualquier consulta de usuario de esta máquina virtual de prueba se enrutará al punto de conexión *myProdWebsiteEndpoint*.
+4. Repita los pasos 2 y 3 para agregar otro punto de conexión denominado *myProdWebsiteEndpoint* para la dirección IP pública *myIISVMWestEurope-ip* que está asociada la máquina virtual del servidor IIS denominada *myIISVMWestEurope*. En **Configuración de enrutamiento de subred**, agregue la dirección IP de la resolución DNS recursiva utilizada por la máquina virtual de prueba *myVMWestEurope*. Cualquier consulta de usuario que se efectúe desde esta máquina virtual de prueba a través de su resolución DNS se enrutará al punto de conexión *myProdWebsiteEndpoint*.
 5. Cuando termine de agregar ambos puntos de conexión, aparecerán en **Perfil de Traffic Manager** junto con el estado de supervisión como **En línea**.
 
 ## <a name="test-traffic-manager-profile"></a>Prueba del perfil de Traffic Manager

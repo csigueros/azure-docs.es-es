@@ -4,12 +4,12 @@ description: Aprenda a incorporar un cliente a Azure Lighthouse para permitir qu
 ms.date: 08/26/2021
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 9e61fb83af009b96b5781912e2feff8c0c747827
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: 1d060a7e1a6f9b0ae17e90b1094ec0a5da744e5f
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123034245"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123469687"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Incorporación de un cliente a Azure Lighthouse
 
@@ -280,7 +280,7 @@ Transcurridos unos minutos, se mostrará una notificación indicando que la impl
 
 Cuando una suscripción de cliente se incorpora correctamente a Azure Lighthouse, los usuarios del inquilino del proveedor de servicios pueden ver la suscripción y sus recursos (si se les ha concedido acceso a ellos mediante el proceso anterior, ya sea individualmente o como miembro de un grupo de Azure AD con los permisos adecuados). Para confirmarlo, compruebe que la suscripción aparece de una de las siguientes maneras.  
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure Portal
 
 En el inquilino del proveedor de servicios:
 
@@ -332,13 +332,13 @@ Si necesita realizar cambios una vez que el cliente se ha incorporado, puede [ac
 
 Si no puede incorporar correctamente el cliente, o si los usuarios tienen problemas para acceder a los recursos delegados, compruebe las siguientes sugerencias y requisitos e inténtelo de nuevo.
 
+- A los usuarios que necesiten ver los recursos del cliente en Azure Portal se les debe haber asignado el rol [Lector](../../role-based-access-control/built-in-roles.md#reader) (o cualquier otro rol integrado que incluya acceso de lectura) durante el proceso de incorporación.
 - El valor `managedbyTenantId` no debe ser el mismo que el identificador de inquilino de la suscripción que se va a incorporar.
 - No puede tener varias asignaciones en el mismo ámbito con el mismo `mspOfferName`.
 - El proveedor de recursos **Microsoft.ManagedServices** se debe registrar para la suscripción delegada. Esto se debería realizar automáticamente durante la implementación, pero si no es así, puede [registrarlo manualmente](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
 - Las autorizaciones no deben incluir ningún usuario con el rol integrado [Propietario](../../role-based-access-control/built-in-roles.md#owner) ni ningún rol integrado con [DataActions](../../role-based-access-control/role-definitions.md#dataactions).
 - Los grupos se deben crear con [**Tipo de grupo**](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md#group-types) establecido en **Security** y no en **Microsoft 365**.
 - Puede experimentarse un retraso adicional antes de que se habilite el acceso para [grupos anidados](../..//active-directory/fundamentals/active-directory-groups-membership-azure-portal.md).
-- Los usuarios que necesiten ver los recursos de Azure Portal deben tener el rol [Lector](../../role-based-access-control/built-in-roles.md#reader) (o cualquier otro rol integrado que incluya acceso de lectura).
 - Los [roles integrados de Azure](../../role-based-access-control/built-in-roles.md) que se incluyen en las autorizaciones no deben incluir ningún rol en desuso. Si un rol integrado de Azure cae en desuso, los usuarios que se hayan incorporado con ese rol perderán el acceso, y usted no podrá incorporar delegaciones adicionales. Para solucionarlo, actualice la plantilla para usar solo roles integrados admitidos y, a continuación, realice una nueva implementación.
 
 ## <a name="next-steps"></a>Pasos siguientes

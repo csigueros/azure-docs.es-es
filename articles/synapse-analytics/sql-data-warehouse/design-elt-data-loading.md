@@ -11,12 +11,12 @@ ms.date: 11/20/2020
 ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: f23194d46ab8305fa033efe9b9dea8f7a2a69877
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 5111092a804845c829cb44f4be9e123b8c9dcca6
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110477140"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123536768"
 ---
 # <a name="data-loading-strategies-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Estrategias de carga de datos para el grupo de SQL dedicado en Azure Synapse Analytics
 
@@ -171,4 +171,4 @@ Muchos de nuestros asociados tienen soluciones de carga. Para obtener más infor
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener una guía de carga, consulte la [guía para cargar datos](guidance-for-loading-data.md).
+Para obtener instrucciones sobre la carga, vea [Procedimientos recomendados de carga de datos](../sql/data-loading-best-practices.md).

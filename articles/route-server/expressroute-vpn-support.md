@@ -1,27 +1,23 @@
 ---
-title: Compatibilidad de Azure Route Server (versión preliminar) con ExpressRoute y VPN de Azure
+title: Compatibilidad de Azure Route Server con ExpressRoute y VPN de Azure
 description: Obtenga información sobre cómo interactúa Azure Route Server con ExpressRoute y las puertas de enlace de VPN de Azure.
 services: route-server
 author: duongau
 ms.service: route-server
 ms.topic: conceptual
-ms.date: 03/02/2021
+ms.date: 09/01/2021
 ms.author: duau
-ms.openlocfilehash: 6e588c7c0381c6825bcf75cbbe28a1dd6b865940
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aa109544ce890c4a8fae4775010a722791fbe5a7
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101678956"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123426083"
 ---
-# <a name="about-azure-route-server-preview-support-for-expressroute-and-azure-vpn"></a>Compatibilidad de Azure Route Server (versión preliminar) con ExpressRoute y VPN de Azure
+# <a name="about-azure-route-server-support-for-expressroute-and-azure-vpn"></a>Compatibilidad de Azure Route Server con ExpressRoute y VPN de Azure
 
 Azure Route Server admite no solo aplicaciones virtuales de red (NVA) de terceros que se ejecutan en Azure, sino que también se integra perfectamente con ExpressRoute y las puertas de enlace de VPN de Azure. No es necesario configurar ni administrar el emparejamiento de BGP entre la puerta de enlace y Azure Route Server. Puede habilitar el intercambio de rutas entre la puerta de enlace y Azure Route Server con un simple [cambio de configuración](quickstart-configure-route-server-powershell.md#route-exchange).
 
-> [!IMPORTANT]
-> Azure Route Server (versión preliminar) está actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
-> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="how-does-it-work"></a>¿Cómo funciona?
 

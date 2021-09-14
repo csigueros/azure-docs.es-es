@@ -7,13 +7,13 @@ metadata:
   ms.service: azure-education
   ms.subservice: education-hub
   ms.topic: overview
-  ms.date: 06/30/2020
-  ms.openlocfilehash: 7f6d555b1ea72a145c3826ffc1ae9ff7cc8c499a
-  ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+  ms.date: 08/31/2021
+  ms.openlocfilehash: 28972b6c29e14ca453d713e25867b8079e05c3ca
+  ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 06/10/2021
-  ms.locfileid: "111907944"
+  ms.lasthandoff: 09/03/2021
+  ms.locfileid: "123431033"
 title: Preguntas frecuentes sobre el Centro de Education
 summary: En este artículo se tratan preguntas frecuentes sobre Azure for Students, Azure for Students Starter y Azure Dev Tools for Teaching.
 sections:
@@ -22,15 +22,21 @@ sections:
   - question: >
       ¿Qué sucede después de agotar mi crédito de 100 USD o si ya han pasado los 12 meses?
     answer: >
-      Una vez agotado el crédito disponible o si ya ha pasado el período de 12 meses, se deshabilitará la suscripción de Azure. Para seguir usando Azure, puede actualizar a una suscripción de pago por uso en Azure Portal. Para obtener las condiciones de uso detalladas de Azure for Students, visite las [condiciones de la oferta](https://azure.microsoft.com/offers/ms-azr-0170p/).
+      Si agota su crédito disponible antes de los 12 meses y quiere seguir utilizando Azure, puede pasar a una suscripción de pago por uso en Azure Portal.  Si no actualiza, la suscripción de Azure se deshabilita. Si está al final de 12 meses, puede renovar su suscripción si vuelve a suscribirse a la oferta. Para obtener las condiciones de uso detalladas de Azure for Students, visite las [condiciones de la oferta](https://azure.microsoft.com/offers/ms-azr-0170p/).
+  - question: >
+      ¿Quién puede obtener Azure for Students?
+    answer: "Microsoft Azure for Students solo está disponible para los alumnos que cumplan los siguientes requisitos:\n\n- Debe confirmar que tiene 18 años o más y que asiste a una institución educativa de dos o cuatro años, acreditada y que otorga títulos académicos, donde es alumno de tiempo completo. \n- Debe comprobar su estado académico mediante la dirección de correo electrónico de su organización.\n- Consulte la [oferta de Azure for Students](https://azure.microsoft.com/offers/ms-azr-0170p/) para conocer las condiciones de uso detalladas.\n\nEsta oferta no está disponible para su uso en un curso en línea masivo y abierto ni en otros cursos profesionales de organizaciones con ánimo de lucro.\n\nEsta oferta está limitada a una suscripción a Azure for Students por cliente cualificado. No es transferible y no se puede combinar con ninguna otra oferta, a menos que Microsoft lo permita.\n    \n"
   - question: >
       ¿Puedo volver a obtener Azure for Students para el próximo año?
     answer: >
-      Le agradecemos su interés por Azure for Students. Nos complace que haya disfrutado con su uso. En este momento, no hay renovaciones anunciadas. Aquí puede comprobar si hay actualizaciones.
+      Sí.  Puede renovar la suscripción de Microsoft Azure for Students después de un año.  Le enviaremos correos electrónicos recordando que debe renovar justo antes de que pase el año.  Para renovarla, solo tiene que volver a suscribirse a la oferta desde el [sitio web](https://aka.ms/azure4students) de Microsoft Azure for Students.
+  - question: >
+      ¿Por qué he recibido una factura de Microsoft?
+    answer: "Puede recibir una factura de Microsoft que detalla el uso en el que incurrió en el mes anterior mientras estaba en Microsoft Azure for Students.  No se preocupe, no tiene que pagar por ese uso; todo está cubierto por el crédito proporcionado por Microsoft Azure for Students.  Para más información sobre las facturas y cómo funcionan, consulte el [artículo](https://docs.microsoft.com/en-us/azure/cost-management-billing/understand/mca-overview) sobre docs.microsoft.com. \n"
   - question: >
       ¿Cuáles son las suscripciones y cuál es su relación con Azure for Students?
     answer: >
-      Las suscripciones proporcionan acceso a los servicios de Azure. Azure for Students le ofrece un crédito de 100 USD durante 12 meses. Incluye el acceso a más de 25 servicios gratuitos de proceso, red, almacenamiento y bases de datos entre otros. Los cargos en los que se incurra durante este período se deducen del crédito. Para seguir usando los servicios de Azure al final de los 12 meses o después de haber agotado el crédito de 100 USD, lo que ocurra primero, debe actualizar a una suscripción de pago por uso.
+      Las suscripciones proporcionan acceso a los servicios de Azure. Microsoft Azure for Students ofrece un crédito de 100 USD durante 12 meses e incluye acceso a más de 25 servicios gratuitos, incluidos proceso, red, almacenamiento y bases de datos. Los cargos en los que se incurra durante este período se deducen del crédito. Para seguir usando los servicios de Azure después de haber agotado el crédito de 100 USD, debe renovar (si tiene 12 meses) o actualizar a una suscripción de pago por uso.
   - question: >
       ¿Qué pasa con mis servicios de Azure si no actualizo la suscripción?
     answer: >
@@ -42,7 +48,7 @@ sections:
   - question: >
       Cómo descargar las herramientas de desarrollo de software
     answer: >
-      Su suscripción a Azure for Students le proporciona acceso a determinadas herramientas de desarrollo de software. Debe tener una suscripción a Azure for Students actual y activa para acceder a las herramientas de desarrollo de software y descargarlas. Vaya al [Centro de Education](https://ms.portal.azure.com/#blade/Microsoft_Azure_Education/EducationMenuBlade/software) para descargar las herramientas de desarrollo de software mediante su suscripción de Azure for Students.
+      Su suscripción a Azure for Students le proporciona acceso a determinadas herramientas de desarrollo de software. Debe tener una suscripción a Microsoft Azure for Students actual y activa para acceder a las herramientas de desarrollo de software y descargarlas. Vaya al [Centro de Education](https://ms.portal.azure.com/#blade/Microsoft_Azure_Education/EducationMenuBlade/software) para descargar las herramientas de desarrollo de software mediante su suscripción de Azure for Students.
   - question: >
       ¿Qué es Microsoft Learn?
     answer: >

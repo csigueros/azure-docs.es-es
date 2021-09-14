@@ -9,18 +9,18 @@ ms.subservice: monitoring
 ms.date: 11/30/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: 5f9733866e85d79bdb85b8a24d1878e1169c2479
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9666b8c9424b03c34b1ac332ef7ceb2f617c96a3
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97586047"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123542303"
 ---
-# <a name="how-to-use-synapse-studio-to-monitor-your-apache-spark-applications"></a>Uso de Synapse Studio para supervisar sus aplicaciones de Apache Spark
+# <a name="monitor-your-apache-spark-applications-in-synapse-studio"></a>Supervisión de aplicaciones de Apache Spark en Synapse Studio
 
-Con Azure Synapse Analytics, puede usar Spark para ejecutar cuadernos, trabajos y otros tipos de aplicaciones en los grupos de Spark en su área de trabajo.
+Con Azure Synapse Analytics, puede usar Apache Spark para ejecutar cuadernos, trabajos y otros tipos de aplicaciones en los grupos de Apache Spark en su área de trabajo.
 
-En este artículo se explica cómo supervisar las aplicaciones Apache Spark, lo que le permite vigilar el estado más reciente, los problemas y el progreso.
+En este artículo se explica cómo supervisar las aplicaciones de Apache Spark, lo que le permite vigilar el estado más reciente, los problemas y el progreso.
 
 ## <a name="access-apache-spark-applications-list"></a>Acceso a la lista de aplicaciones de Apache Spark
 

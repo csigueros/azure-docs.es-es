@@ -9,20 +9,20 @@ ms.subservice: monitoring
 ms.date: 11/30/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: 8d95897e0c2d58b2a3955918be945800eed9ba56
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c6148f2bd5d3b1555ae61d2da3e922c9cfe632cb
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96465799"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123539666"
 ---
 # <a name="use-synapse-studio-to-monitor-your-apache-spark-pools"></a>Uso de Synapse Studio para supervisar los grupos de Apache Spark
 
-Con Azure Synapse Analytics, puede usar Spark para ejecutar cuadernos, trabajos y otros tipos de aplicaciones en grupos de Spark en su área de trabajo.
+Con Azure Synapse Analytics, puede usar Apache Spark para ejecutar cuadernos, trabajos y otros tipos de aplicaciones en grupos de Apache Spark en el área de trabajo.
 
 En este artículo se explica cómo supervisar los grupos de Apache Spark, lo que le permite vigilar el estado de los grupos, incluido el número de núcleos virtuales que usan los distintos usuarios del área de trabajo.
 
-## <a name="access-spark-pools-list"></a>Acceso a la lista de grupos de Spark
+## <a name="access-apache-spark-pools-list"></a>Acceso a la lista de grupos de Apache Spark
 
 Para ver la lista de grupos de Apache Spark en el área de trabajo, primero [abra Synapse Studio](https://web.azuresynapse.net/) y seleccione el área de trabajo.
 
@@ -36,17 +36,17 @@ Seleccione **grupos de Apache Spark** para ver la lista de grupos de Apache Spar
 
  ![Selección de grupos de Apache Spark](./media/how-to-monitor-spark-pools/monitor-hub-nav-spark-pools.png)
 
-## <a name="filter-your-spark-pools"></a>Filtrado de los grupos de Spark
+## <a name="filter-your-apache-spark-pools"></a>Filtrado de los grupos de Apache Spark
 
-Puede filtrar la lista de grupos de Spark por los que le interesen. Los filtros en la parte superior de la pantalla le permiten especificar un campo por el que desea filtrar.
+Puede filtrar la lista de grupos de Apache Spark por los que le interesen. Los filtros en la parte superior de la pantalla le permiten especificar un campo por el que desea filtrar.
 
-Por ejemplo, puede filtrar la vista para ver solo los grupos de Spark que contienen el nombre "dataprep":
+Por ejemplo, puede filtrar la vista para ver solo los grupos de Apache Spark que contienen el nombre "dataprep":
 
 ![Filtro de ejemplo](./media/how-to-monitor-spark-pools/filter-example.png)
 
-## <a name="view-details-about-a-specific-spark-pool"></a>Visualización de detalles acerca de un grupo de Spark específico
+## <a name="view-details-about-a-specific-apache-spark-pool"></a>Visualización de detalles sobre un grupo de Apache Spark específico
 
-Para ver los detalles acerca de uno de los grupos de Spark, seleccione el grupo de Spark para ver los detalles.
+Para ver los detalles sobre uno de los grupos de Apache Spark, selecciónelo.
 
 ![Detalles del grupo de Apache Spark](./media/how-to-monitor-spark-pools/spark-pool-details.png)
 

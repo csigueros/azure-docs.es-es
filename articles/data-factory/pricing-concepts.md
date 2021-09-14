@@ -7,13 +7,13 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: pricing
 ms.topic: conceptual
-ms.date: 09/14/2020
-ms.openlocfilehash: a5032ce26fcce2dbee2a95385292c5b455904586
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/07/2021
+ms.openlocfilehash: 8044df075fc5c5666bd30af3b7a01ee7e28c958d
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121749898"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123537554"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>Descripción de los precios de Data Factory a través de ejemplos
 
@@ -125,6 +125,16 @@ Para lograr el escenario, es preciso crear una canalización con los siguientes 
   - Actividades de movimiento de datos = 0,166 $ (prorrateo durante 10 minutos de tiempo de ejecución. 0,25 $/hora en Azure Integration Runtime)
   - Actividad de canalización = 0,00003 $ (prorrateo durante 1 minuto de tiempo de ejecución. 0,002 $/hora en Azure Integration Runtime)
   - Actividad de canalización externa = 0,000041 $ (prorrateo durante 10 minutos de tiempo de ejecución. 0,00025 $/hora en Azure Integration Runtime)
+
+## <a name="run-ssis-packages-on-azure-ssis-integration-runtime"></a>Ejecución de paquetes SSIS en Azure-SSIS Integration Runtime
+
+Azure-SSIS Integration Runtime (IR) es un clúster especializado de máquinas virtuales (VM) de Azure para ejecuciones de paquetes SSIS en Azure Data Factory (ADF). Al aprovisionarlo, será dedicado para usted, por lo que se le cobrará igual que cualquier otra máquina virtual de Azure dedicada, siempre y cuando lo mantenga en ejecución, independientemente de si se usa para ejecutar paquetes SSIS o no. Con respecto a su costo de ejecución, verá la estimación por hora en su panel de configuración en el portal de ADF, por ejemplo:  
+
+![Ejemplo de precios de SSIS](media/pricing-concepts/ssis-pricing-example.png)
+
+En el ejemplo anterior, si mantiene Azure-SSIS IR en ejecución durante 2 horas, se le cobrará: **2 (horas) x 1,158 USD/hora = 2,316 USD**.
+
+Para administrar el costo de ejecución de Azure-SSIS IR, puede reducir verticalmente el tamaño de la máquina virtual, reducir horizontalmente el tamaño del clúster, traer su propia licencia de SQL Server mediante la opción Ventaja híbrida de Azure (AHB) que ofrece ahorros significativos (vea [Precios de Azure-SSIS IR](https://azure.microsoft.com/pricing/details/data-factory/ssis/)), e iniciar y detener Azure-SSIS IR siempre que sea conveniente, a petición o justo a tiempo para procesar las cargas de trabajo de SSIS (vea [Reconfiguración de Azure-SSIS IR](manage-azure-ssis-integration-runtime.md#to-reconfigure-an-azure-ssis-ir) y [Programación de Azure-SSIS IR](how-to-schedule-azure-ssis-integration-runtime.md)).
 
 ## <a name="using-mapping-data-flow-debug-for-a-normal-workday"></a>Uso de la depuración del flujo de datos de asignación en un día laboral normal
 

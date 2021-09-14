@@ -3,12 +3,12 @@ title: 'Solución de problemas de Azure Video Analyzer: Azure'
 description: En este artículo se tratan los pasos de solución de problemas de Azure Video Analyzer.
 ms.topic: troubleshooting
 ms.date: 07/15/2021
-ms.openlocfilehash: c3b95936eabfcaefa12b9271b152d196790841c4
-ms.sourcegitcommit: 47ac63339ca645096bd3a1ac96b5192852fc7fb7
+ms.openlocfilehash: 0d3a089fee6d374dd8109f2430cfdb9fec19bc30
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114362652"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123429359"
 ---
 # <a name="troubleshoot-azure-video-analyzer"></a>Solución de problemas de Azure Video Analyzer
 
@@ -39,7 +39,7 @@ Si la infraestructura perimetral está bien, puede comprobar si existen problema
 az iot edge set-modules --hub-name <iot-hub-name> --device-id avasample-iot-edge-device --content <path-to-deployment_manifest.json>
 ```
 
-Si el código JSON no tiene el formato correcto, podría recibir el siguiente error: &nbsp;&nbsp;&nbsp; **No se pudo analizar el código JSON del archivo: '<deployment manifest.json>' para el argumento "content" con la excepción: "Datos adicionales: línea 101, columna 1 (char 5325)"**
+Si el código JSON no tiene el formato correcto, podría recibir el siguiente error: &nbsp;&nbsp;&nbsp; **No se pudo analizar el código JSON del archivo: '\<deployment manifest.json\>' para el argumento "content" con la excepción: "Datos adicionales: línea 101, columna 1 (char 5325)"**
 
 Si se produce este error, se recomienda comprobar en el archivo JSON si faltan corchetes o existe algún otro problema con la estructura del archivo. Puede usar un cliente como [Notepad++ con el complemento del visor de JSON](https://riptutorial.com/notepadplusplus/example/18201/json-viewer) o una herramienta en línea como el [formateador y validador de JSON](https://jsonformatter.curiousconcept.com/) para validar la estructura de archivos.
 
@@ -293,7 +293,7 @@ Hay varias cosas que puede hacer para obtener más información sobre el problem
 - Para probar la conectividad de red, puede ejecutar el siguiente comando desde el dispositivo perimetral.
 
   ```
-  sudo docker exec avaedge /bin/bash -c “apt update; apt install -y telnet; telnet <inference-host> <inference-port>”
+  sudo docker exec avaedge /bin/bash -c "apt update; apt install -y telnet; telnet <inference-host> <inference-port>"
   ```
 
   Si el comando genera una cadena corta de texto desordenado, significa que Telnet pudo abrir correctamente una conexión con el servidor de inferencia y un canal gRPC binario. Si no aparece, Telnet notificará un error de red.

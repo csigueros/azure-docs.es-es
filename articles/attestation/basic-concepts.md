@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
 ms.custom: references_regions
-ms.openlocfilehash: 5ac431f489f279ea09407e1a34c234911d71f12f
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: 82b40680d5f9aa46514273d8a147971b19cae9c8
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123259730"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123438559"
 ---
 # <a name="basic-concepts"></a>Conceptos básicos
 
@@ -139,7 +139,7 @@ Ejemplo de JWT generado para un enclave de SGX:
 
 Algunas de las notificaciones usadas anteriormente se consideran en desuso, pero se admiten por completo.  Se recomienda que todas las herramientas y el código futuros usen los nombres de notificaciones que no estén en desuso. Para más información, consulte las [notificaciones emitidas por Azure Attestation](claim-sets.md).
 
-Las notificaciones siguientes solo aparecerán en el token de atestación generado para las plataformas de servidor basadas en procesadores escalables de Intel® Xeon®. Las notificaciones no aparecerán si el enclave de SGX no está configurado con [Key Separation and Sharing Support](https://github.com/openenclave/openenclave/issues/3054) (Separación de claves y compatibilidad con uso compartido)
+Las notificaciones siguientes solo aparecerán en el token de atestación generado para las plataformas de servidor basadas en procesadores escalables de Intel® Xeon®. Las notificaciones no aparecerán si el enclave de SGX no se ha configurado con [Key Separation and Sharing Support](https://github.com/openenclave/openenclave/issues/3054) (Separación de claves y compatibilidad con uso compartido).
 
 **x-ms-sgx-config-id**
 

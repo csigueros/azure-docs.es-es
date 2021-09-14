@@ -5,12 +5,12 @@ author: mumian
 ms.author: jgao
 ms.topic: conceptual
 ms.date: 06/01/2021
-ms.openlocfilehash: 2b5540d3b45b77cd39e014605780b98b867498fd
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: a367c643ea2780c081250ec35ebcb890fdfec24e
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121744905"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123427013"
 ---
 # <a name="deploy-resources-with-bicep-and-azure-powershell"></a>Implementación de recursos con Bicep y Azure PowerShell
 
@@ -39,7 +39,7 @@ La implementación puede tener como destino un grupo de recursos, una suscripci�
   New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile <path-to-bicep>
   ```
 
-- Para hacer la implementación en una **suscripción**, use [New-AzSubscriptionDeployment](/powershell/module/az.resources/new-azdeployment), que es un alias del cmdlet `New-AzDeployment`:
+- Para realizar la implementación en una **suscripción**, use [New-AzSubscriptionDeployment](/powershell/module/az.resources/new-azdeployment), que es un alias del cmdlet `New-AzDeployment`:
 
   ```azurepowershell
   New-AzSubscriptionDeployment -Location <location> -TemplateFile <path-to-bicep>
@@ -75,7 +75,7 @@ Si va a realizar la implementación en un grupo de recursos que no existe, cree 
 New-AzResourceGroup -Name ExampleGroup -Location "Central US"
 ```
 
-Para implementar un archivo Bicep, use el parámetro `-TemplateFile` en el comando de implementación. 
+Para implementar un archivo Bicep, use el parámetro `-TemplateFile` en el comando de implementación.
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -157,7 +157,7 @@ Antes de implementar el archivo Bicep, puede obtener una vista previa de los cam
 
 ## <a name="deploy-template-specs"></a>Especificaciones de la implementación de la plantilla
 
-Actualmente, Azure PowerShell no admite la creación de especificaciones de plantilla mediante archivos Bicep. Sin embargo, puede crear un archivo Bicep con el recurso [Microsoft.Resources/templateSpecs](/azure/templates/microsoft.resources/templatespecs) para implementar una especificación de plantilla. A continuación, se muestra un [ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/create-template-spec-using-template/azuredeploy.bicep). También puede compilar el archivo Bicep en una plantilla ARM JSON mediante la CLI de Bicep y, a continuación, crear una especificación de plantilla con la plantilla JSON.
+Actualmente, Azure PowerShell no admite la creación de especificaciones de plantilla mediante archivos Bicep. Pero puede crear un archivo de Bicep con el recurso [Microsoft.Resources/templateSpecs](/azure/templates/microsoft.resources/templatespecs) para implementar una especificación de plantilla. En el [ejemplo Creación de una especificación de plantilla](https://github.com/Azure/azure-docs-bicep-samples/blob/main/samples/create-template-spec/azuredeploy.bicep) se muestra cómo crear una especificación de plantilla en un archivo de Bicep. También puede compilar el archivo Bicep en una plantilla ARM JSON mediante la CLI de Bicep y, a continuación, crear una especificación de plantilla con la plantilla JSON.
 
 ## <a name="deployment-name"></a>Nombre de implementación
 

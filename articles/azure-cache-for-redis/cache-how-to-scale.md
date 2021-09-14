@@ -7,12 +7,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 0b76f98da4823341d5ec0f32c1d8f65a1c37fade
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: a1144cd0ccfe6857b88a29ea0f577d760f3addc6
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121739883"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123431673"
 ---
 # <a name="scale-an-azure-cache-for-redis-instance"></a>Escalado de una instancia de Azure Cache for Redis
 
@@ -42,13 +42,13 @@ Para obtener más información sobre cómo determinar el plan de tarifa de cach�
 
 ## <a name="scale-a-cache"></a>Escalado de una caché
 
-Para escalar la memoria caché, [vaya a la caché](cache-configure.md#configure-azure-cache-for-redis-settings) en [Azure Portal](https://portal.azure.com) y seleccione **Escalar** en el menú **Recurso**.
+Para escalar la memoria caché, [vaya a la caché](cache-configure.md#configure-azure-cache-for-redis-settings) en [Azure Portal](https://portal.azure.com) y seleccione **Escalar** en el lado izquierdo.
 
-![Escala](./media/cache-how-to-scale/redis-cache-scale-menu.png)
+:::image type="content" source="media/cache-how-to-scale/scale-a-cache.png" alt-text="Escalado en el menú de recursos":::
 
-A la izquierda, seleccione el plan de tarifa que quiera en **Seleccionar plan de tarifa** y **Seleccionar**.
+Elija un plan de tarifa a la derecha y, a continuación, elija **Seleccionar**.
 
-:::image type="content" source="media/cache-how-to-scale/redis-cache-pricing-tier-blade.png" alt-text="Captura de pantalla del plan de tarifa de Azure Cache for Redis":::
+:::image type="content" source="media/cache-how-to-scale/select-a-tier.png" alt-text="Niveles de Azure Cache for Redis":::
 
 Puede escalar a un plan de tarifa diferente con las siguientes restricciones:
 
@@ -59,9 +59,9 @@ Puede escalar a un plan de tarifa diferente con las siguientes restricciones:
 - No puede escalar de una memoria caché **Básica** directamente a una memoria caché **Premium**. En primer lugar, escale desde **Básica** a **Estándar** en una operación de escalado y, después, desde **Estándar** a **Prémium** en la siguiente operación de escalado.
 - No puede escalar desde un tamaño mayor hasta el tamaño **C0 (250 MB)** . Sin embargo, puede reducir verticalmente a cualquier otro tamaño dentro del mismo plan de tarifa. Por ejemplo, puede reducir verticalmente del estándar C5 al estándar C1.
 
-Durante la operación de escalado de la memoria caché al nuevo plan de tarifa, se muestra el estado **Escalando** a la izquierda de **Azure Cache for Redis**.
+Durante la operación de escalado de la memoria caché al nuevo plan de tarifa, se muestra la notificación **Escalando Redis Cache**.
 
-:::image type="content" source="media/cache-how-to-scale/redis-cache-scaling.png" alt-text="Escalado de Azure Cache for Redis":::
+:::image type="content" source="media/cache-how-to-scale/scaling-notification.png" alt-text="Notificación de escalado":::
 
 Cuando se completa el escalado, el estado cambia de **Escalado** a **En ejecución**.
 
@@ -204,9 +204,3 @@ Por lo general, al escalar una memoria caché sin datos, la operación tarda apr
 ### <a name="how-can-i-tell-when-scaling-is-complete"></a>¿Cómo puedo saber si el escalado ha terminado?
 
 En Azure Portal puede ver la operación de escalado en curso. Cuando se completa el escalado, el estado de la memoria caché cambia de **En ejecución**.
-
-<!-- IMAGES -->
-
-[redis-cache-pricing-tier-blade]: ./media/cache-how-to-scale/redis-cache-pricing-tier-blade.png
-
-[redis-cache-scaling]: ./media/cache-how-to-scale/redis-cache-scaling.png

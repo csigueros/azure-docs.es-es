@@ -1,6 +1,6 @@
 ### YamlMime:FAQ
 metadata:
-  title: Preguntas más frecuentes sobre la ejecución de contenedores integrados
+  title: Peguntas más frecuentes sobre App Service en Linux
   description: Encuentre respuestas a las preguntas más frecuentes sobre los contenedores integrados de Linux en Azure App Service.
   keywords: azure app service, web app, faq, linux, oss, web app for containers, multi-container, multicontainer
   author: msangapu-msft
@@ -9,12 +9,12 @@ metadata:
   ms.date: 10/30/2018
   ms.author: msangapu
   ms.custom: seodec18
-  ms.openlocfilehash: b908a804041d2278be5e9f88b23c7fe160511fe6
-  ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+  ms.openlocfilehash: 7d061a32032fd1edcbe0e2b8dc38290db2664f9d
+  ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 08/17/2021
-  ms.locfileid: "122253236"
+  ms.lasthandoff: 09/07/2021
+  ms.locfileid: "123542584"
 title: Peguntas más frecuentes sobre Azure App Service en Linux
 summary: >
   Con el lanzamiento de App Service en Linux, estamos trabajando en incorporar características y realizar mejoras en nuestra plataforma. Este artículo proporciona respuestas a preguntas que nuestros clientes nos han formulado recientemente.
@@ -112,9 +112,7 @@ sections:
       ```nodejs
 
       const io = require('socket.io')(server,{
-
-        perMessageDeflate :false
-
+        perMessageDeflate :false
       });
 
       ```
@@ -135,7 +133,7 @@ sections:
   - question: >
       Utilizo mi propio contenedor personalizado. Deseo que la plataforma monte un recurso compartido de SMB en el directorio `/home/`.
     answer: >
-      Si el valor de `WEBSITES_ENABLE_APP_SERVICE_STORAGE` no se ha **especificado** o es *true*, el directorio `/home/`**no se compartirá** entre instancias de escala y los archivos que se escriben **no se conservarán** al reiniciar. Establecer de forma explícita `WEBSITES_ENABLE_APP_SERVICE_STORAGE` en *true* habilitará el montaje.
+      Si el valor de `WEBSITES_ENABLE_APP_SERVICE_STORAGE` no se ha **especificado** o es *true*, el directorio `/home/`**no se compartirá** entre instancias de escala y los archivos que se escriben **no se conservarán** al reiniciar. Establecer de forma explícita `WEBSITES_ENABLE_APP_SERVICE_STORAGE` en *true* habilitará el montaje. Una vez que se establece en true, si quiere deshabilitar el montaje, debe establecer `WEBSITES_ENABLE_APP_SERVICE_STORAGE` explícitamente en *false*.
   - question: >
       Mi contenedor personalizado tarda mucho tiempo en iniciarse y la plataforma reinicia el contenedor antes de que finalice el inicio.
     answer: >
@@ -161,19 +159,9 @@ sections:
     answer: >
       El sitio de SCM se ejecuta en un contenedor independiente. no puede comprobar el sistema de archivos o los procesos en ejecución del contenedor de la aplicación.
   - question: >
-      Mi contenedor personalizado escucha en un puerto distinto al puerto 80. ¿Cómo puedo configurar mi aplicación para enrutar las solicitudes hacia ese puerto?
-    answer: >
-      Disponemos de detección automática de puerto. También puede especificar un valor de la aplicación llamado *WEBSITES_PORT* y asignarle el valor del número de puerto esperado. Anteriormente, la plataforma utilizaba el valor de aplicación *PORT*. Tenemos previsto para dejar de utilizar este valor de la aplicación y usar *WEBSITES_PORT* exclusivamente.
-  - question: >
       ¿Es necesario implementar HTTPS en mi contenedor personalizado?
     answer: >
       No, la plataforma controla la terminación HTTPS en los front-end compartidos.
-  - question: >
-      ¿Es necesario usar la variable PORT en el código para contenedores integrados?
-    answer: >
-      No, la variable PORT no es necesaria debido a la detección automática de puertos. Si no se detecta ningún puerto, el valor predeterminado es 80.
-
-      Para configurar manualmente un puerto personalizado, use la instrucción EXPOSE en Dockerfile y la configuración de la aplicación, WEBSITES_PORT, con un valor de puerto para enlazar en el contenedor.
   - question: >
       ¿Es necesario usar WEBSITES_PORT contenedores personalizados?
     answer: >
@@ -226,13 +214,54 @@ sections:
       - El primer contenedor para definir el puerto 80 u 8080
 
       - Si ninguna de las opciones anteriores es true, el primer contenedor definido en el archivo será accesible (expuesto)
+  - question: >
+      ¿Cómo se usa depends_on?
+    answer: >
+      La opción `depends_on` *no se admite* en App Service y se omitirá. Al igual que la [recomendación de inicio y apagado del control de Docker](https://docs.docker.com/compose/startup-order/), las aplicaciones de varios contenedores de App Service deben comprobar las dependencias mediante el código de la aplicación, tanto en el inicio como en la desconexión.
 
+
+      En el código de ejemplo siguiente se muestra una aplicación de Python que comprueba si se ejecuta un contenedor de Redis.
+
+
+      ```python
+
+      import time
+
+
+      import redis
+
+      from flask import Flask
+
+
+      app = Flask(__name__)
+
+      cache = redis.Redis(host='redis', port=6379)
+
+
+      def get_hit_count():
+          retries = 5
+          while True:
+              try:
+                  return cache.incr('hits')
+              except redis.exceptions.ConnectionError as exc:
+                  if retries == 0:
+                      raise exc
+                  retries -= 1
+                  time.sleep(0.5)
+
+      @app.route('/')
+
+      def hello():
+          count = get_hit_count()
+          return 'Hello from Azure App Service team! I have been seen {} times.\n'.format(count)
+
+      if __name__ == "__main__":
+          app.run(host="0.0.0.0", port=80, debug=True)
+      ```
 
       ## <a name="web-sockets"></a>Web Sockets
 
-
       Los sockets web se admiten en aplicaciones Linux.
-
 
       > [!IMPORTANT]
 
@@ -246,9 +275,19 @@ sections:
 - name: Otras preguntas
   questions:
   - question: >
-      ¿Puedo usar una base de datos basada en archivos (como SQLight) con mi aplicación web de Linux?
+      ¿Cómo se especifica el puerto en el contenedor de Linux?
     answer: >
-      El sistema de archivos de la aplicación es un recurso compartido de red montado. Esto es lo que permite escenarios de escalado horizontal en los que el código debe ejecutarse en varios hosts. Desafortunadamente, esto bloquea el uso de proveedores de bases de datos basados en archivos como SQLite, ya que no es posible adquirir bloqueos exclusivos en el archivo de base de datos. Se recomienda usar uno de los servicios de base de datos totalmente administrados de Azure: [Azure SQL](https://azure.microsoft.com/products/azure-sql/), [Azure Database for MySQL](https://azure.microsoft.com/services/mysql/) o [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql/)
+      | Tipo de contenedor | Descripción | Procedimiento para establecer o usar el puerto |
+
+      |----------------|-------------|---------------------|
+
+      | Contenedores integrados | Si selecciona una versión de lenguaje o marco para una aplicación de Linux, se selecciona un contenedor predefinido de forma automática. | Para apuntar el código de la aplicación al puerto correcto, use la variable de entorno PORT. |
+
+      | Contenedores personalizados | Tiene control total sobre el contenedor. | App Service no tiene control sobre el puerto en el que escucha el contenedor. Lo que sí necesita es saber a qué puerto reenviar las solicitudes. Si el contenedor escucha en el puerto 80 u 8080, App Service puede detectarlo automáticamente. Si escucha en cualquier otro puerto, debe establecer la configuración de la aplicación WEBSITES_PORT en el número de puerto y App Service reenvía las solicitudes a ese puerto en el contenedor. La configuración de la aplicación WEBSITES_PORT no tiene ningún efecto dentro del contenedor y no se puede acceder a ella como una variable de entorno dentro del contenedor. |
+  - question: >
+      ¿Se puede usar una base de datos basada en archivos (como SQLite) con la aplicación web de Linux?
+    answer: >
+      El sistema de archivos de la aplicación es un recurso compartido de red montado. Esto habilita escenarios de escalado horizontal en los que el código se debe ejecutar en varios hosts. Desafortunadamente, esto bloquea el uso de proveedores de bases de datos basados en archivos como SQLite, ya que no es posible adquirir bloqueos exclusivos en el archivo de base de datos. Se recomienda un servicio de base de datos administrado: [Azure SQL](https://azure.microsoft.com/products/azure-sql/), [Azure Database for MySQL](https://azure.microsoft.com/services/mysql/) o [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql/)
   - question: >
       ¿Cuáles son los caracteres admitidos en los nombres de configuración de la aplicación?
     answer: >
@@ -257,4 +296,16 @@ sections:
       ¿Dónde puedo solicitar nuevas características?
     answer: >
       Puede enviar su idea en el [foro de comentarios de Web Apps](https://aka.ms/webapps-uservoice). Agregue [Linux] en el título de la idea.
-additionalContent: "\n## <a name=\"next-steps\"></a>Pasos siguientes\n\n- [¿Qué es Azure App Service en Linux?](overview.md#app-service-on-linux)\n- [Configuración de entornos de ensayo en Azure App Service](deploy-staging-slots.md)\n- [Implementación continua con Web App for Containers](./deploy-ci-cd-custom-container.md)\n- [Lo que debe saber: Web Apps y Linux](https://techcommunity.microsoft.com/t5/apps-on-azure/things-you-should-know-web-apps-and-linux/ba-p/392472)\n- [Variables de entorno y configuración de la aplicación en Azure App Service](reference-app-settings.md)"
+additionalContent: >-
+  ## <a name="next-steps"></a>Pasos siguientes
+
+
+  - [¿Qué es Azure App Service en Linux?](overview.md#app-service-on-linux)
+
+  - [Configuración de entornos de ensayo en Azure App Service](deploy-staging-slots.md)
+
+  - [Implementación continua con Web App for Containers](./deploy-ci-cd-custom-container.md)
+
+  - [Lo que debe saber: Web Apps y Linux](https://techcommunity.microsoft.com/t5/apps-on-azure/things-you-should-know-web-apps-and-linux/ba-p/392472)
+
+  - [Variables de entorno y configuración de la aplicación en Azure App Service](reference-app-settings.md)

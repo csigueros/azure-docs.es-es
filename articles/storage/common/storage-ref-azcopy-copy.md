@@ -4,16 +4,16 @@ description: En este artículo se proporciona información de referencia del com
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 03/08/2021
+ms.date: 09/01/2021
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 4f31567068b3b0cf1d11764ce8f609a5889c2e51
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 09994e329072ab0ed67a9cb29c09ff245b288923
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114462597"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123432079"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
 
@@ -249,13 +249,13 @@ Copie un cubo completo en Blob Storage desde Google Cloud Storage mediante una c
 azcopy cp "https://storage.cloud.google.com/[bucket]" "https://[destaccount].blob.core.windows.net/?[SAS]" --recursive=true
 ```
 
-Copie todos los cubos en Blob Storage desde Google Cloud Storage mediante una clave de cuenta de servicio y un token de SAS. En primer lugar, establezca las variables de entorno GOOGLE_APPLICATION_CREDENTIALS y GOOGLE_CLOUD_PROJECT=<project-id> para el origen de GCS.
+Copie todos los cubos en Blob Storage desde Google Cloud Storage mediante una clave de cuenta de servicio y un token de SAS. En primer lugar, establezca las variables de entorno GOOGLE_APPLICATION_CREDENTIALS y GOOGLE_CLOUD_PROJECT=<`project-id`> para el origen de GCS.
 
 ```azcopy
   - azcopy cp "https://storage.cloud.google.com/" "https://[destaccount].blob.core.windows.net/?[SAS]" --recursive=true
 ```
 
-Copie un subconjunto de cubos mediante un símbolo comodín (*) en el nombre del depósito de Google Cloud Storage, con una clave de cuenta de servicio y un token de SAS para el destino. En primer lugar, establezca las variables de entorno GOOGLE_APPLICATION_CREDENTIALS y GOOGLE_CLOUD_PROJECT=<project-id> para el origen de Google Cloud Storage.
+Copie un subconjunto de cubos mediante un símbolo comodín (*) en el nombre del depósito de Google Cloud Storage, con una clave de cuenta de servicio y un token de SAS para el destino. En primer lugar, establezca las GOOGLE_APPLICATION_CREDENTIALS y GOOGLE_CLOUD_PROJECT=<`project-id`> para el origen de Google Cloud Storage.
  
 ```azcopy
 azcopy cp "https://storage.cloud.google.com/[bucket*name]/" "https://[destaccount].blob.core.windows.net/?[SAS]" --recursive=true
@@ -287,7 +287,13 @@ Cadena **--blob-tags**: establece etiquetas en blobs para clasificar los datos d
 
 **--content-type** string Especifica el tipo de contenido del archivo. Implica el uso de no-guess-mime-type. Devuelto al descargar.
 
+**--cpk-by-name** string La clave proporcionada por el cliente por nombre permite a los clientes que realizan solicitudes en Azure Blob Storage una opción para proporcionar una clave de cifrado por solicitud. El nombre de clave proporcionado se capturará de Azure Key Vault y se usará para cifrar los datos.
+
+**--cpk-by-value** La clave proporcionada por el cliente por nombre permite a los clientes que realizan solicitudes en Azure Blob Storage una opción para proporcionar una clave de cifrado por solicitud. La clave proporcionada y su hash se capturarán de las variables de entorno.
+
 **--decompress** Descomprime automáticamente los archivos al realizar la descarga, si el encabezado content-encoding indica que están comprimidos. Los valores de content-encoding admitidos son `gzip` y `deflate`. Las extensiones de archivo de `.gz`,/`.gzip` o `.zz` no son necesarias, pero se quitarán si existen.
+
+**--dry-run** Imprime las rutas de archivo que copiará este comando. Esta marca no copia los archivos reales.
 
 **--disable-auto-decoding** En "False" (desactivado) de manera predeterminada para habilitar la decodificación automática de caracteres no admitidos en Windows. Se puede establecer en `true` para deshabilitar la decodificación automática.
 
@@ -299,6 +305,8 @@ Cadena **--blob-tags**: establece etiquetas en blobs para clasificar los datos d
 
 **--exclude-pattern** string Excluye estos archivos durante el copiado. Esta opción admite caracteres comodín (*).
 
+**--exclude-regex** string Se excluye toda la ruta de acceso relativa de los archivos que se alinean con expresiones regulares. Separe las expresiones regulares con ";".
+
 **--follow-symlinks** Sigue los vínculos simbólicos al cargar desde el sistema de archivos local.
 
 **--force-if-read-only** Al sobrescribir un archivo existente en Windows o Azure Files, fuerza la sobrescritura para que funcione incluso si el archivo existente tiene establecido el atributo de solo lectura.
@@ -307,15 +315,19 @@ Cadena **--blob-tags**: establece etiquetas en blobs para clasificar los datos d
 
 **--help** Ayuda de copy.
 
-**--include-after** string Solo incluye los archivos modificados durante o después de la fecha y hora especificadas. El valor debe estar en el formato ISO8601. Si no se especifica ninguna zona horaria, se supone que el valor se encontrará en la zona horaria local de la máquina que ejecuta AzCopy. Por ejemplo, `2020-08-19T15:04:00Z` para una hora en UTC o `2020-08-19` para la medianoche (00:00) en la zona horaria local. Como en AzCopy 10.5, esta marca solo se aplica a archivos, no a carpetas, por lo que las propiedades de carpeta no se copiarán cuando use esta marca con `--preserve-smb-info` o `--preserve-smb-permissions`.
+**--include-after** string Solo incluye los archivos modificados durante o después de la fecha y hora especificadas. El valor debe estar en el formato ISO8601. Si no se especifica ninguna zona horaria, se supone que el valor se encontrará en la zona horaria local de la máquina que ejecuta AzCopy. Por ejemplo, `2020-08-19T15:04:00Z` para una hora en UTC o `2020-08-19` para la medianoche (00:00) en la zona horaria local. Como en AzCopy 10.5, esta marca solo se aplica a archivos, no a carpetas, por lo que las propiedades de carpeta no se copiarán cuando use esta marca con `--preserve-smb-info` o `--preserve-permissions`.
 
- Cadena **--include-before** Solo incluye los archivos modificados antes o en la fecha y hora especificadas. El valor debe estar en el formato ISO8601. Si no se especifica ninguna zona horaria, se supone que el valor se encontrará en la zona horaria local de la máquina que ejecuta AzCopy. Por ejemplo, `2020-08-19T15:04:00Z` para una hora en UTC o `2020-08-19` para la medianoche (00:00) en la zona horaria local. A partir de AzCopy 10.7, esta marca solo se aplica a archivos, no a carpetas, por lo que las propiedades de carpeta no se copiarán cuando use esta marca con `--preserve-smb-info` o `--preserve-smb-permissions`.
+ Cadena **--include-before** Solo incluye los archivos modificados antes o en la fecha y hora especificadas. El valor debe estar en el formato ISO8601. Si no se especifica ninguna zona horaria, se supone que el valor se encontrará en la zona horaria local de la máquina que ejecuta AzCopy. Por ejemplo, `2020-08-19T15:04:00Z` para una hora en UTC o `2020-08-19` para la medianoche (00:00) en la zona horaria local. A partir de AzCopy 10.7, esta marca solo se aplica a archivos, no a carpetas, por lo que las propiedades de carpeta no se copiarán cuando use esta marca con `--preserve-smb-info` o `--preserve-permissions`.
 
 **--include-attributes** string (solo Windows) Incluye los archivos cuyos atributos coinciden con la lista de atributos. Por ejemplo: A;S;R
 
 **--include-path** string Incluye solo estas rutas de acceso al copiar. Esta opción no permite caracteres comodín (*). Comprueba el prefijo de ruta de acceso relativa (por ejemplo: `myFolder;myFolder/subDirName/file.pdf`).
 
+**--include-directory-stub** False de forma predeterminada para omitir los códigos auxiliares de directorio. Los códigos auxiliares de directorio son blobs con metadatos "hdi_isfolder:true". Si se establece el valor en true, se conservarán los códigos auxiliares de directorio durante las transferencias.
+
 **--include-pattern** string Incluye solo estos archivos al copiar. Esta opción admite caracteres comodín (*). Separe los archivos con `;`.
+
+**--include-regex** string Se incluye solo la ruta de acceso relativa de los archivos que se alinean con expresiones regulares. Separe las expresiones regulares con ";".
 
 Cadena **--list-of-versions** Especifica un archivo en el que cada id. de versión aparece en una línea independiente. Asegúrese de que el origen apunte a un único blob y que todos los id. de versión especificados en el archivo con esta marca solo pertenezcan al blob de origen. AzCopy descargará las versiones especificadas en la carpeta de destino proporcionada. Para obtener más información, consulte [Descarga de versiones anteriores de un blob](./storage-use-azcopy-v10.md#transfer-data).
 
@@ -331,11 +343,12 @@ Cadena **--list-of-versions** Especifica un archivo en el que cada id. de versi�
 
 **--preserve-last-modified-time** Solo está disponible si el destino es un sistema de archivos.
 
-**--preserve-owner** Solo tiene efecto en las descargas y solo cuando se usa `--preserve-smb-permissions`. Si es true (valor predeterminado), el propietario del archivo y el grupo se conservan en las descargas. Si se establece en false, `--preserve-smb-permissions` conservará las listas de control de acceso, pero el propietario y el grupo se basarán en el usuario que ejecuta AzCopy (el valor predeterminado es true).
+**--preserve-owner** Solo tiene efecto en las descargas y solo cuando se usa `--preserve-permissions`. Si es true (valor predeterminado), el propietario del archivo y el grupo se conservan en las descargas. Si se establece en false, `--preserve-permissions` conservará las listas de control de acceso, pero el propietario y el grupo se basarán en el usuario que ejecuta AzCopy (el valor predeterminado es true).
 
-**--preserve-smb-info** False de manera predeterminada. Conserva la información de las propiedades de SMB (hora de la última escritura, hora de creación, bits de atributo) entre los recursos compatibles con SMB (Windows y Azure Files). Solo se transferirán los bits de atributo que admite Azure Files; los restantes se omitirán. Esta marca se aplica tanto a archivos como a carpetas, salvo que se especifique un filtro que solo permita archivos (por ejemplo, include-pattern). La información transferida a las carpetas es la misma que la transferida a los archivos, excepto la hora de la última escritura, que nunca se conserva para las carpetas.
+**--preserve-smb-info** True de manera predeterminada. Conserva la información de las propiedades de SMB (hora de la última escritura, hora de creación, bits de atributo) entre los recursos compatibles con SMB (Windows y Azure Files). Solo se transferirán los bits de atributo que admite Azure Files; los restantes se omitirán. Esta marca se aplica tanto a archivos como a carpetas, salvo que se especifique un filtro que solo permita archivos (por ejemplo, include-pattern). La información transferida a las carpetas es la misma que la transferida a los archivos, excepto la hora de la última escritura, que nunca se conserva para las carpetas.
 
-**--preserve-smb-permissions** False de manera predeterminada. Conserva las listas de control de acceso de SMB entre los recursos compatibles (Windows y Azure Files). En el caso de las descargas, también necesitará la marca `--backup` para restaurar los permisos si el nuevo propietario no será el usuario que ejecuta AzCopy. Esta marca se aplica tanto a archivos como a carpetas, salvo que se especifique un filtro que solo permita archivos (por ejemplo, `include-pattern`).
+**--preserve-permissions** False de manera predeterminada. Conserva las ACL entre los recursos compatibles (Windows y Azure Files, o bien de Data Lake Storage Gen 2 a Data Lake Storage Gen 2). Para las cuentas que tienen un espacio de nombres jerárquico, necesitará un token de SAS o OAuth de contenedor con permisos Modificar propiedad y Modificar permisos. En el caso de las descargas, también necesitará la marca --backup para restaurar los permisos si el nuevo propietario no será el usuario que ejecute AzCopy. Esta marca se aplica tanto a archivos como a carpetas, salvo que se especifique un filtro de que solo permita archivos (por ejemplo, include-pattern).
+
 
 **--put-md5** Crea un hash MD5 de cada archivo y lo guarda como la propiedad Content-MD5 del blob o archivo de destino. (De forma predeterminada, NO se crea el hash). Solo está disponible al cargar.
 
@@ -343,9 +356,11 @@ Cadena **--list-of-versions** Especifica un archivo en el que cada id. de versi�
 
 **--s2s-detect-source-changed** Detecta si el blob o archivo de origen cambia mientras se está leyendo. (Este parámetro solo se aplica a las copias entre servicios, ya que la comprobación correspondiente está habilitada permanentemente para las cargas y descargas).
 
-**--s2s-handle-invalid-metadata** string   Especifica cómo se administran las claves de metadatos no válidas. Opciones disponibles: ExcludeIfInvalid, FailIfInvalid, RenameIfInvalid. (El valor predeterminado es `ExcludeIfInvalid`). (el valor predeterminado es "ExcludeIfInvalid")
+**--s2s-handle-invalid-metadata** string   Especifica cómo se administran las claves de metadatos no válidas. Opciones disponibles: ExcludeIfInvalid, FailIfInvalid, RenameIfInvalid. (El valor predeterminado es `ExcludeIfInvalid`).
 
-**--s2s-preserve-access-tier** Conserva el nivel de acceso durante la copia de servicio a servicio. Consulte [Azure Blob Storage: niveles de acceso frecuente, esporádico y de archivo](../blobs/storage-blob-storage-tiers.md) para asegurarse de que la cuenta de almacenamiento de destino admite la configuración del nivel de acceso. En los casos en los que no se admite la configuración del nivel de acceso, use s2sPreserveAccessTier=false para omitir la copia del nivel de acceso. (El valor predeterminado es `true`).  (el valor predeterminado es "true")
+**--s2s-preserve-access-tier** Conserva el nivel de acceso durante la copia de servicio a servicio. Consulte [Azure Blob Storage: niveles de acceso frecuente, esporádico y de archivo](../blobs/storage-blob-storage-tiers.md) para asegurarse de que la cuenta de almacenamiento de destino admite la configuración del nivel de acceso. En los casos en los que no se admite la configuración del nivel de acceso, use s2sPreserveAccessTier=false para omitir la copia del nivel de acceso. (El valor predeterminado es `true`).
+
+**--s2s-preserve-blob-tags** Se conservan las etiquetas de índice durante la transferencia entre servicios de un almacenamiento de blobs a otro.
 
 **--s2s-preserve-properties** Conserva las propiedades completas durante la copia de servicio a servicio. Para el origen de archivo no único de AWS S3 y Azure Files, la operación de lista no devuelve las propiedades completas de objetos y archivos. Para conservar las propiedades completas, AzCopy debe enviar una solicitud adicional por objeto o archivo. (El valor predeterminado es true)
 

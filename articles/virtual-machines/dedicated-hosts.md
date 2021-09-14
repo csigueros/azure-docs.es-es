@@ -9,14 +9,16 @@ ms.workload: infrastructure
 ms.date: 12/07/2020
 ms.author: cynthn
 ms.reviewer: zivr
-ms.openlocfilehash: e9e233aa5a4d32a1f298889b0a98c3a85d9cf4e5
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 957bc2f34ddbc1af019afe0154d3a27ca6e3e368
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114456323"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123451572"
 ---
 # <a name="azure-dedicated-hosts"></a>Hosts dedicados de Azure
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado uniformes
 
 Azure Dedicated Host es un servicio que proporciona servidores físicos (capaces de hospedar una o varias máquinas virtuales) dedicados a una suscripción a Azure. Los hosts dedicados son los mismos servidores físicos que se usan en nuestros centros de datos y se proporcionan como un recurso. Puede aprovisionar hosts dedicados dentro de una región, zona de disponibilidad y dominio de error. Después, puede colocar las máquinas virtuales directamente en los hosts aprovisionados, en la configuración que más se ajuste a sus necesidades.
 
@@ -174,7 +176,7 @@ Azure supervisa y administra el estado de mantenimiento de los hosts. Al consult
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Puede implementar un host dedicado mediante [Azure PowerShell](./windows/dedicated-hosts-powershell.md), el [portal](./dedicated-hosts-portal.md) y la [CLI de Azure](./linux/dedicated-hosts-cli.md).
+- Para implementar un host dedicado, consulte [Implementación de máquinas virtuales y conjuntos de escalado en hosts dedicados](./dedicated-hosts-how-to.md).
 
 - Hay una [plantilla de ejemplo](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/vm-dedicated-hosts/README.md) en la que se usan zonas y dominios de error para obtener la máxima resistencia en una región.
 

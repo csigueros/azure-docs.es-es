@@ -4,12 +4,12 @@ description: Síntomas, causas y soluciones de errores de Azure Backup relaciona
 ms.topic: troubleshooting
 ms.date: 05/25/2021
 ms.service: backup
-ms.openlocfilehash: 57a0002d353ebb75570dc3b70c55d2f17f70db35
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 72e2ce2c32a1be1e6f116ef5513c1c24a42284bc
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110472480"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123438202"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Solución de problemas de Azure Backup: Problemas con el agente o la extensión
 
@@ -45,7 +45,7 @@ Los errores de copia de seguridad más comunes se pueden resolver automáticamen
 - Asegúrese que se resuelven todos los [problemas de extensiones](../virtual-machines/extensions/overview.md#troubleshoot-extensions) y vuelva a intentar la operación de copia de seguridad.
 - **Asegúrese de que la aplicación del sistema COM+** esté en funcionamiento. Asimismo, compruebe que el **servicio Coordinador de transacciones distribuidas** se ejecute como una **cuenta de servicio de red**. Siga los pasos de este artículo para [solucionar problemas de COM+ y MSDTC](backup-azure-vms-troubleshoot.md#extensionsnapshotfailedcom--extensioninstallationfailedcom--extensioninstallationfailedmdtc---extension-installationoperation-failed-due-to-a-com-error).
 
-### <a name="step-4-check-azure-backup-vm-extension-health"></a>Paso 4: Comprobación del estado de la extensión de la máquina virtual de Azure Backup
+### <a name="step-4-check-azure-backup-extension-health"></a>Paso 4: Comprobación del estado de la extensión de Azure Backup
 
 Azure Backup usa la Extensión de instantánea de máquina virtual para realizar una copia de seguridad coherente con la aplicación de la máquina virtual de Azure. Azure Backup instalará la extensión como parte de la primera copia de seguridad programada que se desencadene después de habilitar la copia de seguridad.
 

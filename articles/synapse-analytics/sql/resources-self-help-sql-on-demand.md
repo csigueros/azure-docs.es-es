@@ -6,15 +6,15 @@ author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql
-ms.date: 05/15/2020
+ms.date: 8/31/2021
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: c3ade548ae31f7f62014d8f41141374aaa73217a
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: 906f6a7a8e64c255c8b87219ef0549a553821783
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123252295"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123536488"
 ---
 # <a name="self-help-for-serverless-sql-pool"></a>Autoayuda para grupos de SQL sin servidor
 
@@ -81,7 +81,9 @@ Si quiere consultar data2.csv en este ejemplo, se necesitan los siguientes permi
 
 Si la consulta no se puede ejecutar y aparece un mensaje de error en el que se indica que la consulta no se puede ejecutar debido a las actuales restricciones de los recursos, significa que el grupo de SQL sin servidor no puede ejecutarla en este momento a causa de las restricciones de recursos: 
 
-- Asegúrese de que se usan tipos de datos de tamaños razonables. Además, especifique el esquema para los archivos Parquet para las columnas de cadenas, ya que serán VARCHAR(8000) de forma predeterminada. 
+- Asegúrese de que se usan tipos de datos de tamaños razonables.  
+
+- Si la consulta se dirige a archivos Parquet, considere la posibilidad de definir tipos explícitos para las columnas de cadena, ya que serán VARCHAR(8000) de forma predeterminada. [Comprobación de los tipos de datos inferidos](./best-practices-serverless-sql-pool.md#check-inferred-data-types)
 
 - Si la consulta se dirige a archivos CSV, considere la posibilidad de [crear estadísticas](develop-tables-statistics.md#statistics-in-serverless-sql-pool). 
 
@@ -503,7 +505,7 @@ La compatibilidad con Delta Lake se encuentra actualmente en versión preliminar
 - Asegúrese de que hace referencia a la carpeta raíz de Delta Lake en la función [OPENROWSET](./develop-openrowset.md) o en la ubicación de la tabla externa.
   - La carpeta raíz debe tener una subcarpeta denominada `_delta_log`. Se producirá un error en la consulta si no hay ninguna carpeta `_delta_log`. Si no ve esa carpeta, significa que hace referencia a archivos Parquet sin formato que se deben [convertir a Delta Lake](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#convert-parquet-to-delta) mediante grupos de Apache Spark.
   - No especifique caracteres comodín para describir el esquema de partición. La consulta de Delta Lake identificará automáticamente las particiones de Delta Lake. 
-- Las tablas de Delta Lake creadas en los grupos de Apache Spark no se sincronizan en el grupo de SQL sin servidor. No se pueden consultar tablas de Delta Lake de grupos de Apache Spark mediante el lenguaje T-SQL.
+- Las tablas de Delta Lake creadas en los grupos de Apache Spark no están disponibles automáticamente en el grupo de SQL sin servidor. Para consultar estas tablas de Delta Lake mediante el lenguaje T-SQL, ejecute la instrucción [CREATE EXTERNAL TABLE](https://docs.microsoft.com/azure/synapse-analytics/sql/create-use-external-tables#delta-lake-external-table) y especifique Delta como formato.
 - Las tablas externas no admiten la creación de particiones. Use [vistas con particiones](create-use-views.md#delta-lake-partitioned-views) en la carpeta de Delta Lake para aprovechar la eliminación de particiones. Consulte a continuación los problemas conocidos y las soluciones alternativas.
 - Los grupos de SQL sin servidor no admiten consultas de viaje en el tiempo. Puede votar por esta característica en el [sitio de comentarios de Azure](https://feedback.azure.com/forums/307516-azure-synapse-analytics/suggestions/43656111-add-time-travel-feature-in-delta-lake). Use grupos de Apache Spark en Azure Synapse Analytics para [leer datos históricos](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#read-older-versions-of-data-using-time-travel).
 - Los grupos de SQL sin servidor no admiten la actualización de archivos de Delta Lake. Puede usar el grupo de SQL sin servidor para consultar la versión más reciente de Delta Lake. Use grupos de Apache Spark en Azure Synapse Analytics para [actualizar Delta Lake](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#update-table-data).

@@ -4,16 +4,16 @@ description: En este artículo se proporciona información de referencia del com
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 07/24/2020
+ms.date: 09/21/2021
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: ca436ee440ad7c1dd2caee3a65790f8b630fd949
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 31bbabd194b2b2ef06266feb39b4d9618bbc0794
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107503293"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123435823"
 ---
 # <a name="azcopy-list"></a>azcopy list
 
@@ -46,6 +46,7 @@ azcopy list [containerURL]
 |-h, --help|Muestra el contenido de la ayuda para el comando list.|
 |--machine-readable|Muestra los tamaños de archivo en bytes.|
 |--mega-units|Muestra las unidades en grupos de 1000, no de 1024.|
+| --properties |   valores separados por un delimitador (;) de las propiedades necesarias en la salida de la lista. |
 |--running-tally|Cuenta el número total de archivos y sus tamaños.|
 
 ## <a name="options-inherited-from-parent-commands"></a>Opciones heredadas de comandos primarios

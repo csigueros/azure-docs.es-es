@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: klaasl
-ms.openlocfilehash: b11fff95543abb4fc74b2087deffe56786998e28
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 7b32e75645c2c930e296bdb4c5448bcb16045d6d
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122179656"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123470569"
 ---
 # <a name="access-tiers-for-azure-blob-storage---hot-cool-and-archive"></a>Niveles de acceso de Azure Blob Storage: frecuente, esporádico y archivo
 
@@ -45,8 +45,6 @@ Las siguientes herramientas y bibliotecas cliente son compatibles con el almacen
 - Biblioteca cliente de Java
 - Biblioteca cliente de Python
 - Biblioteca cliente de Node.js
-
-[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 ## <a name="storage-accounts-that-support-tiering"></a>Cuentas de almacenamiento que admiten niveles
 
@@ -179,6 +177,19 @@ Todas las cuentas de almacenamiento usan un modelo de precios para el almacenami
 ## <a name="availability"></a>Disponibilidad
 
 Los diferentes niveles de acceso, junto con el almacenamiento por niveles de blob, están disponibles en regiones seleccionadas. Para obtener una lista completa, consulte [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/?products=storage).
+
+## <a name="feature-support"></a>Compatibilidad de características
+
+En esta tabla se muestra cómo se admite esta característica en la cuenta y el impacto en la compatibilidad al habilitar determinadas funcionalidades. 
+
+| Tipo de cuenta de almacenamiento                | Blob Storage (compatibilidad predeterminada)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>    
+|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
+| De uso general estándar, v2 | ![Sí](../media/icons/yes-icon.png) |![Sí](../media/icons/yes-icon.png)              | ![Sí](../media/icons/yes-icon.png) | 
+| Blobs en bloques Premium          | ![No](../media/icons/no-icon.png)|![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+
+<sup>1</sup> Data Lake Storage Gen2 y el protocolo Network File System (NFS) 3.0 necesitan una cuenta de almacenamiento con un espacio de nombres jerárquico habilitado.
+
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

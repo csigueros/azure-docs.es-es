@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Supervisión de las métricas de nivel de aplicación de Apache Spark con Prometheus y Grafana'
+title: 'Tutorial: Supervisión de métricas de aplicaciones de Apache Spark con Prometheus y Grafana'
 description: 'Tutorial: Aprenda a implementar la solución de métricas de aplicación de Apache Spark en un clúster de Azure Kubernetes Service (AKS) y obtenga información sobre cómo integrar los paneles de Grafana.'
 services: synapse-analytics
 author: hrasheed-msft
@@ -9,14 +9,14 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 01/22/2021
-ms.openlocfilehash: b32ddb38395d95e1c262c05aef878a1beeddc38c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: eb49c65d3d61e17a8e527016d32d80bcc85894d8
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121734714"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123541232"
 ---
-# <a name="tutorial-monitor-apache-spark-application-level-metrics-with-prometheus-and-grafana"></a>Tutorial: Supervisión de las métricas de nivel de aplicación de Apache Spark con Prometheus y Grafana
+# <a name="monitor-apache-spark-applications-metrics-with-prometheus-and-grafana"></a>Supervisión de métricas de aplicaciones de Apache Spark con Prometheus y Grafana
 
 ## <a name="overview"></a>Información general
 
@@ -129,7 +129,7 @@ Obtenga la dirección IP del servicio, copie y pegue la dirección IP externa en
 
 Busque el panel de Synapse en la esquina superior izquierda de la página Grafana (Inicio -> Área de trabajo de Synapse / Aplicación Synapse), intente ejecutar un código de ejemplo en Synapse Studio y espere unos segundos para la extracción de las métricas.
 
-Además, puede usar los paneles "Área de trabajo de Synapse/Área de trabajo" y "Área de trabajo de Synapse/Grupos de Spark" para obtener información general sobre el área de trabajo y los grupos de Apache Spark.
+Además, puede usar los paneles "Área de trabajo de Synapse/Área de trabajo" y "Área de trabajo de Synapse/Grupos de Apache Spark" para obtener información general sobre el área de trabajo y los grupos de Apache Spark.
 
 ## <a name="uninstall"></a>Desinstalación
 
@@ -157,7 +157,7 @@ El conector Prometheus de Synapse ayuda a conectar el grupo de Apache Spark de A
 2.  Detección de aplicaciones de Apache Spark: cuando se envían aplicaciones en el área de trabajo de destino, el conector Prometheus de Synapse puede detectarlas de forma automática.
 3.  Metadatos de aplicación de Apache Spark: recopila información básica de la aplicación y exporta los datos a Prometheus.
 
-El conecto Prometheus de Synapse se publica como una imagen de Docker hospedada en [Microsoft Container Registry](https://github.com/microsoft/containerregistry). Es de código abierto y se encuentra en las [métricas de aplicación de Spark de Azure Synapse](https://github.com/microsoft/azure-synapse-spark-metrics).
+El conecto Prometheus de Synapse se publica como una imagen de Docker hospedada en [Microsoft Container Registry](https://github.com/microsoft/containerregistry). Es de código abierto y se encuentra en las [métricas de aplicación de Apache Spark de Azure Synapse](https://github.com/microsoft/azure-synapse-spark-metrics).
 
 ### <a name="prometheus-server"></a>Servidor Prometheus
 
@@ -171,12 +171,12 @@ En el panel "Área de trabajo de Synapse / Área de trabajo" se proporciona una 
 
 [![Captura de pantalla del área de trabajo de paneles](./media/monitor-azure-synapse-spark-application-level-metrics/screenshot-dashboard-workspace.png)](./media/monitor-azure-synapse-spark-application-level-metrics/screenshot-dashboard-workspace.png#lightbox)
 
-El panel "Área de trabajo de Synapse / Grupos de Spark" contiene las métricas de aplicaciones de Apache Spark que se ejecutan en el grupo de Apache Spark seleccionado durante el período de tiempo.
+El panel "Área de trabajo de Synapse / Grupos de Apache Spark" contiene las métricas de aplicaciones de Apache Spark que se ejecutan en el grupo de Apache Spark seleccionado durante el período de tiempo.
 
 [![Captura de pantalla del panel de grupos de Spark](./media/monitor-azure-synapse-spark-application-level-metrics/screenshot-dashboard-sparkpool.png)](./media/monitor-azure-synapse-spark-application-level-metrics/screenshot-dashboard-sparkpool.png#lightbox)
 
-El panel "Área de trabajo de Synapse / Aplicación de Spark" contiene la aplicación de Apache Spark seleccionada.
+El panel "Área de trabajo de Synapse / Aplicación de Apache Spark" contiene la aplicación de Apache Spark seleccionada.
 
 [![Captura de pantalla del panel de aplicación](./media/monitor-azure-synapse-spark-application-level-metrics/screenshot-dashboard-application.png)](./media/monitor-azure-synapse-spark-application-level-metrics/screenshot-dashboard-application.png#lightbox)
 
-Las plantillas de panel anteriores son de código abierto en las [métricas de aplicación de Spark de Azure Synapse](https://github.com/microsoft/azure-synapse-spark-metrics/tree/main/helm/synapse-prometheus-operator/grafana_dashboards).
+Las plantillas de panel anteriores son de código abierto en las [métricas de aplicación de Apache Spark de Azure Synapse](https://github.com/microsoft/azure-synapse-spark-metrics/tree/main/helm/synapse-prometheus-operator/grafana_dashboards).

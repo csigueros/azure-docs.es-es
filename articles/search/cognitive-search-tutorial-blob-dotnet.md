@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 01/23/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 93b5d7059c1d19b3e5130a8e6d360655fa210aba
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: a25f2a83fe03b8510e6ec56eb6bdcfedbb0098d8
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111555959"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123538082"
 ---
 # <a name="tutorial-use-net-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Tutorial: Contenido de blobs de Azure con capacidad de búsqueda y generado mediante inteligencia artificial con el SDK de .NET
 
@@ -309,7 +309,7 @@ Para obtener más información sobre los conceptos básicos del conjunto de apti
 
 ### <a name="ocr-skill"></a>Habilidad de OCR
 
-La aptitud **OCR** extrae el texto de las imágenes. Esta aptitud supone que existe un campo normalized_images. Para generar este campo, más adelante en el tutorial también estableceremos la configuración de ```"imageAction"``` en la definición del indexador en ```"generateNormalizedImages"```.
+[`OcrSkill`](/dotnet/api/azure.search.documents.indexes.models.ocrskill) extrae texto de imágenes. Esta aptitud supone que existe un campo normalized_images. Para generar este campo, más adelante en el tutorial también estableceremos la configuración de ```"imageAction"``` en la definición del indexador en ```"generateNormalizedImages"```.
 
 ```csharp
 private static OcrSkill CreateOcrSkill()
@@ -340,7 +340,7 @@ private static OcrSkill CreateOcrSkill()
 
 ### <a name="merge-skill"></a>Aptitud Combinar
 
-En esta sección, creará una aptitud **Combinar** que combina el campo de contenido del documento con el texto que se ha producido con la aptitud de OCR.
+En esta sección, creará una clase [`MergeSkill`](/dotnet/api/azure.search.documents.indexes.models.mergeskill) que combina el campo de contenido del documento con el texto que se ha producido con la aptitud de OCR.
 
 ```csharp
 private static MergeSkill CreateMergeSkill()
@@ -379,7 +379,7 @@ private static MergeSkill CreateMergeSkill()
 
 ### <a name="language-detection-skill"></a>Aptitud Detección de idioma
 
-La aptitud **Detección de idioma** detecta el idioma del texto de entrada e informa de un único código de idioma para cada documento enviado en la solicitud. Vamos a usar la salida de la aptitud **Detección de idioma** como parte de la entrada de la aptitud **División de texto**.
+[`LanguageDetectionSkill`](/dotnet/api/azure.search.documents.indexes.models.languagedetectionskill) detecta el idioma del texto de entrada e informa de un único código de idioma para cada documento enviado en la solicitud. Vamos a usar la salida de la aptitud **Detección de idioma** como parte de la entrada de la aptitud **División de texto**.
 
 ```csharp
 private static LanguageDetectionSkill CreateLanguageDetectionSkill()
@@ -408,7 +408,7 @@ private static LanguageDetectionSkill CreateLanguageDetectionSkill()
 
 ### <a name="text-split-skill"></a>Aptitud División de texto
 
-La aptitud **División** siguiente divide el texto por páginas y limita la longitud de la página a 4000 caracteres, según lo medido por `String.Length`. El algoritmo intentará dividir el texto en fragmentos que tengan un tamaño de `maximumPageLength` como máximo. En este caso, el algoritmo hará todo lo posible por dividir la frase en un límite de oración, por lo que el tamaño del fragmento puede ser ligeramente inferior a `maximumPageLength`.
+[`SplitSkill`](/dotnet/api/azure.search.documents.indexes.models.splitskill) dividirá el texto por páginas y limita la longitud de la página a 4000 caracteres, según lo medido por `String.Length`. El algoritmo intentará dividir el texto en fragmentos que tengan un tamaño de `maximumPageLength` como máximo. En este caso, el algoritmo hará todo lo posible por dividir la frase en un límite de oración, por lo que el tamaño del fragmento puede ser ligeramente inferior a `maximumPageLength`.
 
 ```csharp
 private static SplitSkill CreateSplitSkill()
@@ -444,7 +444,7 @@ private static SplitSkill CreateSplitSkill()
 
 ### <a name="entity-recognition-skill"></a>Aptitud Reconocimiento de entidades
 
-Esta instancia `EntityRecognitionSkill` está configurada para reconocer el tipo de categoría `organization`. La aptitud **Reconocimiento de entidades** también puede reconocer los tipos de categoría `person` y `location`.
+Esta instancia `EntityRecognitionSkill` está configurada para reconocer el tipo de categoría `organization`. [`EntityRecognitionSkill`](/dotnet/api/azure.search.documents.indexes.models.entityrecognitionskill) también puede reconocer los tipos de categoría `person` y `location`.
 
 Tenga en cuenta que el campo "context" se establece en ```"/document/pages/*"``` con un asterisco, lo que significa que se llama al paso de enriquecimiento para cada página en ```"/document/pages"```.
 
@@ -477,7 +477,7 @@ private static EntityRecognitionSkill CreateEntityRecognitionSkill()
 
 ### <a name="key-phrase-extraction-skill"></a>Aptitud Extracción de frases clave
 
-Al igual que la instancia `EntityRecognitionSkill` recién creada, se llama a la aptitud **Extracción de frases clave** para cada página del documento.
+Al igual que la instancia `EntityRecognitionSkill` recién creada, se llama a [`KeyPhraseExtractionSkill`](/dotnet/api/azure.search.documents.indexes.models.keyphraseextractionskill) en cada página del documento.
 
 ```csharp
 private static KeyPhraseExtractionSkill CreateKeyPhraseExtractionSkill()
@@ -511,7 +511,7 @@ private static KeyPhraseExtractionSkill CreateKeyPhraseExtractionSkill()
 
 ### <a name="build-and-create-the-skillset"></a>Compilar y crear el conjunto de aptitudes
 
-Compile `Skillset` con las aptitudes que ha creado.
+Compile [`SearchIndexerSkillset`](/dotnet/api/azure.search.documents.indexes.models.searchindexerskillset) con las aptitudes que ha creado.
 
 ```csharp
 private static SearchIndexerSkillset CreateOrUpdateDemoSkillSet(SearchIndexerClient indexerClient, IList<SearchIndexerSkill> skills,string cognitiveServicesKey)

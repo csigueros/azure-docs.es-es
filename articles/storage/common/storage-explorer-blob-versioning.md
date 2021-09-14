@@ -2,17 +2,17 @@
 title: Guía de control de versiones de blobs del Explorador de Azure Storage | Microsoft Docs
 description: Guía de control de versiones de blobs del Explorador de Azure Storage
 services: storage
-author: chuye
+author: JasonYeMSFT
 ms.service: storage
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: chuye
-ms.openlocfilehash: e20733cb4b93fcfac7606895746645727f12d6c8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ea0b0470c83df147526a145a7c54f7245a72c4c4
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92783834"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123450330"
 ---
 # <a name="azure-storage-explorer-blob-versioning-guide"></a>Guía de control de versiones de blobs del Explorador de Azure Storage
 
@@ -119,3 +119,4 @@ Cada versión de blob tiene su propio nivel de acceso. Para cambiar el nivel de 
 
 * [Control de versiones de blobs](../blobs/versioning-overview.md)
 * [Eliminación temporal para blobs](../blobs/soft-delete-blob-overview.md)
+* [Eliminación temporal del Explorador de Azure Storage](./storage-explorer-soft-delete.md)

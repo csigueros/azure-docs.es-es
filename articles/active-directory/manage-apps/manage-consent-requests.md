@@ -8,19 +8,19 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/27/2019
+ms.date: 08/25/2021
 ms.author: davidmu
 ms.reviewer: phsignor
-ms.openlocfilehash: 7893a73650e90411aa45f35d014b394eab0ad67d
-ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
+ms.openlocfilehash: a6bf1ec1616d45edd08b943b55f2859d7942c908
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113568521"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123425876"
 ---
 # <a name="managing-consent-to-applications-and-evaluating-consent-requests"></a>Administración del consentimiento a las aplicaciones y evaluación de las solicitudes de consentimiento
 
-Microsoft recomienda [restringir el consentimiento del usuario](../../active-directory/manage-apps/configure-user-consent.md) para permitir que los usuarios solo den su consentimiento para las aplicaciones de publicadores comprobados y únicamente para los permisos que usted seleccione. En el caso de las aplicaciones que no cumplan esta directiva, el proceso de toma de decisiones se centralizará en el equipo administrador de identidades y seguridad de la organización.
+Microsoft recomienda [restringir el consentimiento del usuario](../../active-directory/manage-apps/configure-user-consent.md) para permitir que los usuarios solo den su consentimiento para las aplicaciones de publicadores comprobados y únicamente para los permisos que seleccione. En el caso de las aplicaciones que no cumplan esta directiva, el proceso de toma de decisiones se centralizará en el equipo administrador de identidades y seguridad de la organización.
 
 Después de deshabilitar o restringir el consentimiento del usuario final, hay varias consideraciones importantes que se deben tener en cuenta para asegurarse de que la organización se mantiene segura y, al mismo tiempo, se permite el uso de aplicaciones críticas para la empresa. Estos pasos son cruciales para minimizar el impacto en el equipo de soporte técnico y los administradores de TI de la organización, a la vez que se evita el uso de cuentas no administradas en aplicaciones de terceros.
 
@@ -116,9 +116,9 @@ Para deshabilitar todas las operaciones de consentimiento de usuario futuras en 
 1. Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global.**
 2. Abra la **extensión de Azure Active Directory** haciendo clic en **Todos los servicios** en la parte superior del menú de navegación izquierdo principal.
 3. Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
-4. Seleccione **Usuarios y grupos** en el menú de navegación.
-5. Seleccione **Configuración de usuario**.
-6. Deshabilite todas las operaciones de consentimiento de usuario futuras estableciendo la opción **Los usuarios pueden permitir que las aplicaciones accedan a sus datos** en **No**. Después, haga clic en el botón **Guardar**.
+4. Seleccione **Aplicaciones empresariales** y después **Configuración de usuario** en la sección **Administrar**.
+:::image type="content" source="media/manage-consent-requests/disable-user-consent-operations.png" alt-text="Deshabilitación de las operaciones de consentimiento del usuario para todas las aplicaciones.":::
+5. Deshabilite todas las operaciones de consentimiento de usuario futuras; para ello, establezca la opción **Users can consent to apps accessing company data on their behalf** (Los usuarios pueden permitir que las aplicaciones accedan a los datos de la compañía en su nombre) en **No** y haga clic en el botón **Guardar**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -3,12 +3,12 @@ title: 'Funciones de plantilla: implementación'
 description: Se describen las funciones que se pueden usar en una plantilla de Azure Resource Manager para recuperar información de implementación.
 ms.topic: conceptual
 ms.date: 05/13/2021
-ms.openlocfilehash: a51e11a34e9c5dd51b07bfa1f2d64e1b306f5b31
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 27b800510da7bed15d6853683a026704e2b45698
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111959684"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123449079"
 ---
 # <a name="deployment-functions-for-arm-templates"></a>Funciones de implementación para plantillas de ARM
 
@@ -182,6 +182,8 @@ El ejemplo anterior devuelve el objeto siguiente:
   }
 }
 ```
+
+Para una implementación de suscripción, esta [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/deploymentsubscription.json) devuelve el objeto de implementación.
 
 ## <a name="environment"></a>Environment
 

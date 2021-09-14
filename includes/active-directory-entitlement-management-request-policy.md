@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/30/2020
 ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: 9686cce60520895fe4a3ae7fb47e1eb0eca03599
-ms.sourcegitcommit: cd7d099f4a8eedb8d8d2a8cae081b3abd968b827
+ms.openlocfilehash: 252f872dc14a1850f9b73e7769d4a439952b7da6
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2021
-ms.locfileid: "112975219"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123483803"
 ---
 ## <a name="for-users-in-your-directory"></a>para los usuarios del directorio
 
@@ -218,7 +218,7 @@ Por ejemplo, si especificó que Alice y Bob sean los primeros aprobadores, indiq
 
     ![Paquete de acceso: Directiva Habilitar la configuración de la información del solicitante](./media/active-directory-entitlement-management-request-policy/add-requestor-info-question.png)
 
-1. Si quiere encontrar las opciones de preguntas y respuestas, haga clic en **add localization** (Agregar traducción).
+1. Si desea agregar sus propias opciones de localización, haga clic en **Add localization** (Agregar traducción).
     1. Una vez en el panel **Add localizations for question** (Agregar traducciones para la pregunta), seleccione el **código de idioma** para el idioma en el que va a traducir la pregunta.
     1. En el idioma configurado, escriba la pregunta en el cuadro **Localized Text** (Texto traducido).
     1. Una vez que haya agregado todas las traducciones necesarias, haga clic en **Guardar**.
@@ -230,15 +230,18 @@ Por ejemplo, si especificó que Alice y Bob sean los primeros aprobadores, indiq
     ![Paquete de acceso: Directiva Seleccionar ver y editar el formato de respuesta de opciones múltiples](./media/active-directory-entitlement-management-request-policy/answer-format-view-edit.png)
  
 1. Si selecciona varias opciones, haga clic en el botón **edit and localize** (Editar y traducir) para configurar las opciones de respuesta.
-    1. Después de seleccionar la opción para editar y traducir, se abrirá el panel **Edit/localize question** (Editar/traducir pregunta).
+    1. Al seleccionar la opción Ver y editar, se abre el panel **View/edit question** (Ver o editar pregunta).
     1. Escriba las opciones de respuesta que desea dar al solicitante al responder a la pregunta de los cuadros **Answer values** (Valores de respuesta).
-    1. Escriba tantas respuestas como sea necesario.
-    1. Si quiere agregar su propia traducción para las opciones de selección múltiple, seleccione el **código de idioma opcional** para el idioma en el que desea buscar una opción específica.
-    1. En el idioma configurado, escriba la pregunta en el cuadro Localized Text (Texto traducido).
-    1. Una vez que haya agregado todas las traducciones necesarias para cada opción de selección múltiple, haga clic en **Save** (Guardar).
+    1. Seleccione el idioma de la opción de respuesta. Puede localizar las opciones de respuesta si elige idiomas adicionales.
+    1. Escriba tantas respuestas como sea necesario y haga clic en **Save** (Guardar).
     
     ![Paquete de acceso: Directiva Escribir opciones múltiples](./media/active-directory-entitlement-management-request-policy/answer-multiple-choice.png)
   
 1. Para requerir que los solicitantes respondan a esta pregunta al solicitar acceso a un paquete de acceso, haga clic en la casilla situada debajo de **Required** (Obligatorio).
 
-1. Haga clic en Next (Siguiente).
+1. Haga clic en la pestaña secundaria **Atributos (versión preliminar)** para ver los atributos asociados a los recursos agregados al paquete de acceso.
+
+    > [!NOTE]
+    > Para agregar o actualizar atributos para los recursos de un paquete de acceso, vaya a **Catálogos** y busque el catálogo asociado al paquete de acceso. Consulte [Agregar atributos de recursos (versión preliminar) en el catálogo](../articles/active-directory/governance/entitlement-management-catalog-create.md#add-resource-attributes-preview-in-the-catalog) para más información sobre cómo editar la lista de atributos de un recurso de catálogo específico y los roles de los requisitos previos. 
+
+1. Haga clic en **Siguiente**.

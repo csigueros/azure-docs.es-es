@@ -2,17 +2,15 @@
 title: Parámetros de recursos de los libros de Azure Monitor
 description: Obtenga información sobre cómo usar los parámetros de recursos para permitir la selección de recursos de los libros. Use los parámetros de recursos para establecer el ámbito del que se van a obtener los datos.
 services: azure-monitor
-manager: carmonm
-ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
-ms.openlocfilehash: d4a6d04f88544b3a4f9f9c0c0b290d17f5ef148d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dba84320bb753fa162d1c4eced5de5ae79de6f48
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101725584"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123436165"
 ---
 # <a name="workbook-resource-parameters"></a>Parámetros de recursos de libro
 
@@ -100,9 +98,9 @@ Los valores de los selectores de recursos pueden provenir del contexto del libro
 ## <a name="resource-parameter-options"></a>Opciones de parámetros de recursos
 | Parámetro | Explicación | Ejemplo |
 | ------------- |:-------------|:-------------|
-| `{Applications}` | Identificador del recurso seleccionado. | _/subscriptions/<sub-id>/resourceGroups/<resource-group>/providers/<resource-type>/acmeauthentication_ |
+| `{Applications}` | Identificador del recurso seleccionado. | _/subscriptions/\<sub-id\>/resourceGroups/\<resource-group\>/providers/\<resource-type\>/acmeauthentication_ |
 | `{Applications:label}` | Etiqueta del recurso seleccionado. | `acmefrontend` |
-| `{Applications:value}` | Valor del recurso seleccionado. | _'/subscriptions/<sub-id>/resourceGroups/<resource-group>/providers/<resource-type>/acmeauthentication'_ |
+| `{Applications:value}` | Valor del recurso seleccionado. | _"/subscriptions/\<sub-id\>/resourceGroups/\<resource-group\>/providers/\<resource-type\>/acmeauthentication"_ |
 | `{Applications:name}` | Nombre del recurso seleccionado. | `acmefrontend` |
 | `{Applications:resourceGroup}` | Grupo de recursos del recurso seleccionado. | `acmegroup` |
 | `{Applications:resourceType}` | Tipo del recurso seleccionado. | _microsoft.insights/components_ |

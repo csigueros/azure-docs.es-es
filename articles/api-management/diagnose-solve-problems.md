@@ -6,16 +6,16 @@ ms.service: api-management
 ms.topic: article
 ms.date: 02/05/2021
 ms.author: rongzhang
-ms.openlocfilehash: 01b932cf33883f186f9f4ff69bc78869cdb4cb18
-ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
+ms.openlocfilehash: 9dcbd1bf789d199b0561587949a5381027518ca3
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109516585"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123436417"
 ---
 # <a name="azure-api-management-diagnostics-overview"></a>Introducción sobre los diagnósticos de Azure API Management
 
-Cuando crea y administra una API en Azure API Management, quiere estar preparado para cualquier problema que pueda surgir, desde errores "404 No encontrado" a errores "502 Puerta de enlace incorrecta". Los diagnósticos de API Management son una experiencia inteligente e interactiva que le ayuda a solucionar los problemas de la API publicada en APIM sin necesidad de configuración alguna. Cuando surgen problemas con las API publicadas, los diagnósticos de API Management le indicarán lo que pasa y le guiarán a la información correcta de forma que pueda solucionar el problema rápidamente.
+Cuando crea y administra una API en Azure API Management, quiere estar preparado para cualquier problema que pueda surgir, desde errores "404 No encontrado" a errores "502 Puerta de enlace incorrecta". Los diagnósticos de API Management son una experiencia inteligente e interactiva que le ayuda a solucionar los problemas de la API publicada en APIM sin necesidad de configuración alguna. Cuando surgen problemas con las API publicadas, los diagnósticos de API Management le indicarán lo que pasa y le guiarán a la información correcta de forma que pueda solucionar el problema rápidamente.
 
 Aunque esta experiencia es más útil si ha tenido problemas con la API en las últimas 24 horas, todos los gráficos de diagnóstico están siempre disponibles para su análisis.
 

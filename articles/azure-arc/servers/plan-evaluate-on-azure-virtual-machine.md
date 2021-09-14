@@ -1,14 +1,14 @@
 ---
 title: Evaluación de servidores habilitados para Azure Arc con una máquina virtual de Azure
 description: Aprenda a evaluar servidores habilitados para Azure Arc mediante una máquina virtual de Azure.
-ms.date: 07/16/2021
+ms.date: 09/02/2021
 ms.topic: conceptual
-ms.openlocfilehash: 2c981bad00d286860c3759e8266011c6685ff994
-ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
+ms.openlocfilehash: 81c82ad05b715e7d0243585d3bce0abd44f00670
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114392822"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123424391"
 ---
 # <a name="evaluate-arc-enabled-servers-on-an-azure-virtual-machine"></a>Evaluación de servidores habilitados para Arc en una máquina virtual de Azure
 
@@ -79,10 +79,7 @@ Cuando los servidores habilitados para Arc estén configurados en la máquina vi
    sudo ufw --force enable
    sudo ufw deny out from any to 169.254.169.254
    sudo ufw default allow incoming
-   sudo apt-get update
    ```
-
-
    Para realizar una configuración genérica de iptables, ejecute el siguiente comando:
 
    ```bash
@@ -91,6 +88,13 @@ Cuando los servidores habilitados para Arc estén configurados en la máquina vi
 
    > [!NOTE]
    > Esta configuración debe establecerse después de cada reinicio, a menos que se utilice una solución iptables persistente.
+
+   Si la máquina virtual de Azure ejecuta CentOS, Red Hat o SUSE Linux Enterprise Server (SLES), realice los pasos siguientes para configurar firewalld:
+
+   ```bash
+   firewall-cmd --permanent --direct --add-rule ipv4 filter OUTPUT 1 -p tcp -d 169.254.169.254 -j DROP
+   firewall-cmd --reload
+   ```
 
 4. Instale y configure el agente de servidores habilitados para Azure Arc.
 

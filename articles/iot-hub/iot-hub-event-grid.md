@@ -11,12 +11,12 @@ ms.custom:
 - amqp
 - mqtt
 - 'Role: Cloud Development'
-ms.openlocfilehash: d8ddd49202faac6a9fc5ba34ac5b5e8e92d5b704
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: f8d1d3cf8553c768bb2bee015be2f5995214fe62
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121739226"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123478723"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>Reacción a eventos de IoT Hub usando Event Grid para desencadenar acciones
 
@@ -197,7 +197,7 @@ Para recibir eventos de estado de conexión de dispositivo, el dispositivo debe 
 
 El vínculo de dispositivo a nube permanece abierto siempre que el dispositivo envíe datos de telemetría.
 
-Si el estado de conexión del dispositivo cambia continuamente, lo que significa que el dispositivo se conecta y desconecta con frecuencia, IoT Hub no envía todos los estados de conexión, sino que publica el estado de conexión actual tomado en una instantánea periódica de 60 segundos hasta que se queda fijo. Si se recibe el mismo evento de estado de conexión con diferentes números de secuencia, o eventos de estado de conexión distintos, quiere decir que se ha producido un cambio en el estado de conexión del dispositivo.
+Si el dispositivo se conecta y desconecta con frecuencia, IoT Hub no envía todos los estados de conexión, sino que publica el estado de conexión actual tomado en una instantánea periódica de 60 segundos. Si se recibe el mismo evento de estado de conexión con diferentes números de secuencia, o eventos de estado de conexión distintos, quiere decir que se ha producido un cambio en el estado de conexión del dispositivo.
 
 ## <a name="tips-for-consuming-events"></a>Sugerencias para consumir eventos
 

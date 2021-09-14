@@ -11,12 +11,12 @@ author: scoriani
 ms.author: scoriani
 ms.reviewer: mathoma
 ms.date: 12/04/2018
-ms.openlocfilehash: 8656202685db424cd6047e6a8b58191c6293e9ff
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 99d620847c12d194fbd8cd51b53d8820c32dd0c0
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110694338"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123438235"
 ---
 # <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>Implementación de un servicio de división y combinación para mover datos entre bases de datos particionadas
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -185,7 +185,7 @@ Los archivos de script incluidos son:
 4. *ShardManagement.psm1*: script auxiliar que incluye la API de ShardManagement.
 5. *SqlDatabaseHelpers.psm1*: script auxiliar para crear y administrar bases de datos en SQL Database.
 
-   <table style="width:100%">
+   <table width="100%">
      <tr>
        <th>Archivo de PowerShell</th>
        <th>Pasos</th>
@@ -207,7 +207,7 @@ Los archivos de script incluidos son:
        <td>5. Declara la SchemaInfo para la tabla particionada.</td>
      </tr>
    </table>
-   <table style="width:100%">
+   <table width="100%">
      <tr>
        <th>Archivo de PowerShell</th>
        <th>Pasos</th>
@@ -270,7 +270,7 @@ Los archivos de script incluidos son:
     -CertificateThumbprint '0123456789abcdef0123456789abcdef01234567'
     ```
 
-    Si recibe el siguiente error, es muy probable que se trate de un problema con el certificado de su extremo web. Intente conectarse al extremo web con el explorador web de su preferencia y revise si hay un error en el certificado.
+    Si recibe el siguiente error, es muy probable que se trate de un problema con el certificado del punto de conexión web. Intente conectarse al extremo web con el explorador web de su preferencia y revise si hay un error en el certificado.
 
     `Invoke-WebRequest : The underlying connection was closed: Could not establish trust relationship for the SSL/TLSsecure channel.`
 

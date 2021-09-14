@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/13/2020
-ms.openlocfilehash: 9b6cddc32b81f0e1bf915bfa09527a3ef395f744
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 3693fcf7783bd66bebe5b7d792a12eefaad66286
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121735789"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123437155"
 ---
 # <a name="azure-monitor-logs-connector-for-logic-apps-and-power-automate"></a>Conector de Azure Monitor Logs para Logic Apps y Power Automate
 [Azure Logic Apps](../../logic-apps/index.yml) y [Power Automate](https://flow.microsoft.com) le permite crear flujos de trabajo automatizados, con cientos de acciones para diversos servicios. El conector de Azure Monitor Logs le permite crear flujos de trabajo destinados a recuperar datos de un área de trabajo de Log Analytics o de una aplicación Application Insights en Azure Monitor. En este artículo se describen las acciones que se incluyen con el conector y se proporciona un tutorial para crear un flujo de trabajo con estos datos.
@@ -25,7 +25,7 @@ El conector de registros de Azure Monitor tiene estos límites:
 * Tiempo de espera máximo de consulta de 110 segundos.
 * Las visualizaciones de gráficos pueden estar disponibles en la página de registros y faltar en el conector, ya que el conector y la página de registros no usan actualmente las mismas bibliotecas de gráficos.
 
-En función del tamaño de los datos y de la consulta que use, el conector puede alcanzar sus límites y producir un error. Puede solucionar estos casos al ajustar la periodicidad del desencadenador para que se ejecute con más frecuencia y consulte menos datos. Puede usar consultas que agreguen los datos para devolver menos registros y columnas.
+El conector puede alcanzar los límites en función de la consulta que use y del tamaño de los resultados. Normalmente puede evitar estos casos si ajusta la periodicidad del flujo para que se ejecute con más frecuencia en un intervalo de tiempo más pequeño, o bien si agrega datos para reducir el tamaño de los resultados. No se recomiendan consultas frecuentes con intervalos inferiores a 100 segundos debido al almacenamiento en caché.
 
 ## <a name="actions"></a>Acciones
 En la tabla siguiente se describen las acciones incluidas con el conector de Azure Monitor Logs. Ambos le permiten ejecutar una consulta de registro en un área de trabajo de Log Analytics o una aplicación de Application Insights. La diferencia radica en la forma en que se devuelven los datos.

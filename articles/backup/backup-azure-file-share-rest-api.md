@@ -3,12 +3,12 @@ title: Copia de seguridad de recursos compartidos de archivos de Azure con API R
 description: Aprenda a usar la API REST para realizar copias de seguridad de recursos compartidos de archivos de Azure en el almacén de Recovery Services
 ms.topic: conceptual
 ms.date: 02/16/2020
-ms.openlocfilehash: 6a305200feac635c03caa2477a08267c150219b9
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 152613031eb6c3ba7a0c1078d3d53bcf170ce646
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114471411"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123424175"
 ---
 # <a name="backup-azure-file-share-using-azure-backup-via-rest-api"></a>Copia de seguridad de un recurso compartido de archivos de Azure con Azure Backup mediante API REST
 
@@ -89,7 +89,7 @@ Realice el seguimiento de la operación resultante con el encabezado "Location" 
 GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/operationResults/cca47745-12d2-42f9-b3a4-75335f18fdf6?api-version=2016-12-01
 ```
 
-Una vez que se detectan todas las cuentas de almacenamiento de Azure, el comando GET devuelve una respuesta 200 (Sin contenido). El almacén ahora puede detectar cualquier cuenta de almacenamiento con recursos compartidos de archivos de los que se puede realizar una copia de seguridad dentro de la suscripción.
+Una vez que se detectan todas las cuentas de Azure Storage, el comando GET devuelve una respuesta 204 (Sin contenido). El almacén ahora puede detectar cualquier cuenta de almacenamiento con recursos compartidos de archivos de los que se puede realizar una copia de seguridad dentro de la suscripción.
 
 ```http
 HTTP/1.1 200 NoContent

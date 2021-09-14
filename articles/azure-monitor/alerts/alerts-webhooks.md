@@ -4,18 +4,18 @@ description: Obtenga información sobre cómo redirigir las alertas de métrica 
 author: harelbr
 ms.author: harelbr
 ms.topic: conceptual
-ms.date: 02/14/2021
-ms.openlocfilehash: 43cec44d2ff995d6bb96eb4bfb984bebe09195b0
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.date: 09/06/2021
+ms.openlocfilehash: f85a08e67a51d3c0a66ac6d9bbf69de21d3c8275
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110797774"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123539180"
 ---
 # <a name="call-a-webhook-with-a-classic-metric-alert-in-azure-monitor"></a>Llamada a un webhook con una alerta de métrica clásica en Azure Monitor
 
 > [!WARNING]
-> En este artículo se describe cómo usar las alertas de métrica clásicas más antiguas. Azure Monitor ahora es compatible con [una nueva experiencia de alertas y las más recientes alertas de métrica casi en tiempo real](./alerts-overview.md). Las alertas clásicas se han [retirado](./monitoring-classic-retirement.md) para los usuarios de la nube pública, aunque siguen estando disponibles con uso limitado hasta el **31 de mayo de 2021**. Las alertas clásicas para la nube de Azure Government y Azure China 21Vianet se retirarán el **29 de febrero de 2024**.
+> En este artículo se describe cómo usar las alertas de métrica clásicas más antiguas. Azure Monitor ahora es compatible con [una nueva experiencia de alertas y las más recientes alertas de métrica casi en tiempo real](./alerts-overview.md). Las alertas públicas se han [retirado](./monitoring-classic-retirement.md) para los usuarios de la nube pública. Las alertas clásicas para la nube de Azure Government y Azure China 21Vianet se retirarán el **29 de febrero de 2024**.
 >
 
 Puede usar los webhooks para redirigir una notificación de alerta de Azure a otros sistemas para su procesamiento posterior o acciones personalizadas. Puede usar un webhook en una alerta para redirigirla a servicios que envían mensajes SMS, para registrar errores, para notificar a un equipo mediante servicios de chat y mensajería o llevar a cabo otras acciones.

@@ -2,13 +2,13 @@
 title: Obtención de análisis de costos y creación de presupuestos para Azure Batch
 description: Obtenga información sobre cómo obtener un análisis de costos, establecer un presupuesto y reducir los costos para los recursos de proceso subyacentes y las licencias de software que se usan para ejecutar las cargas de trabajo de Batch.
 ms.topic: how-to
-ms.date: 01/29/2021
-ms.openlocfilehash: d1fc2d15a7037e56a8056efa67d2017badb77ffd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 09/03/2021
+ms.openlocfilehash: a590d8687c51b1693494c11d95de720f7f2c7eb0
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99091334"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123538856"
 ---
 # <a name="get-cost-analysis-and-set-budgets-for-azure-batch"></a>Obtención de análisis de costos y creación de presupuestos para Azure Batch
 
@@ -78,11 +78,9 @@ En función de su escenario, puede que desee reducir los costos lo máximo posib
 
 Las [VM de prioridad baja](batch-low-pri-vms.md) disminuyen el costo de las cargas de trabajo de Batch al usar la capacidad de proceso sobrante en Azure. Cuando se especifican máquinas virtuales de prioridad baja en los grupos, Batch usa este excedente para ejecutar la carga de trabajo. Puede lograr grandes ahorros de costos al usar VM de prioridad baja en lugar de VM dedicadas.
 
-### <a name="select-a-standard-virtual-machine-os-disk-type"></a>Selección de un tipo de disco de sistema operativo de máquina virtual estándar
+### <a name="use-ephemeral-os-disks"></a>Uso de discos de SO efímeros
 
-Azure ofrece varios [tipos de discos de sistema operativo de VM](../virtual-machines/disks-types.md). Muchas de las series de máquinas virtuales tienen tamaños que permiten almacenamiento premium y estándar. Cuando se selecciona un tamaño de VM "s" para un grupo, Batch configura discos de SO SSD prémium. Cuando se selecciona un tamaño de VM distinto de "s", se usa el tipo de disco HDD estándar más barato. Por ejemplo, los discos de SO SSD Premium se usan para `Standard_D2s_v3` y los discos de SO HDD estándar se usan para `Standard_D2_v3`.
-
-Los discos de sistema operativo SSD prémium son más caros, pero tienen un mayor rendimiento. Las VM con discos prémium se pueden iniciar ligeramente más rápido que las VM con discos de SO HDD estándar. Con Batch, en general el disco de SO no se usa tanto, ya que las aplicaciones y archivos de tareas se encuentran en el disco SSD temporal de la VM. Por este motivo, a menudo puede seleccionar el tamaño de VM distinto de "s" para evitar el mayor costo para el SSD prémium que se aprovisiona cuando se especifica un tamaño de VM "s".
+Los grupos de configuración de máquina virtual pueden usar [discos de SO efímeros](create-pool-ephemeral-os-disk.md), que crean el disco de SO en la caché de la máquina virtual o SSD temporal, para evitar costos adicionales asociados a los discos administrados.
 
 ### <a name="purchase-reservations-for-virtual-machine-instances"></a>Compra de reservas de instancias de máquina virtual
 

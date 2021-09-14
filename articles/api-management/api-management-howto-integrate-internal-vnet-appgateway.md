@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.author: sasolank
 ms.date: 06/10/2021
 ms.custom: devx-track-azurepowershell,contperf-fy21q4
-ms.openlocfilehash: 734dc2a8a2300f2fcccf5780a7ccbd9dfdcae6d4
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: e7c4583797719ca3b9cbb47d5dead48138d22fe1
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111986379"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123543131"
 ---
 # <a name="integrate-api-management-in-an-internal-virtual-network-with-application-gateway"></a>Integración de API Management en una red virtual interna con Application Gateway
 
@@ -205,7 +205,7 @@ $apimAdminEmail = "admin@contoso.com" # administrator's email address
 $apimService = New-AzApiManagement -ResourceGroupName $resGroupName -Location $location -Name $apimServiceName -Organization $apimOrganization -AdminEmail $apimAdminEmail -VirtualNetwork $apimVirtualNetwork -VpnType "Internal" -Sku "Developer"
 ```
 
-Normalmente, se tarda entre 30 y 40 minutos en crear y activar una instancia del servicio API Management en este nivel. Después de que el comando anterior se ejecute correctamente, consulte [Configuración de DNS requerida para acceder al servicio de API Management de red virtual interna](api-management-using-with-internal-vnet.md#apim-dns-configuration) para confirmar el acceso. 
+Normalmente, se tarda entre 30 y 40 minutos en crear y activar una instancia del servicio API Management en este nivel. Después de que el comando anterior se ejecute correctamente, consulte [Configuración de DNS requerida para acceder al servicio de API Management de red virtual interna](api-management-using-with-internal-vnet.md#dns-configuration) para confirmar el acceso. 
 
 ## <a name="set-up-custom-domain-names-in-api-management"></a>Configuración de nombres de dominio personalizados en API Management
 

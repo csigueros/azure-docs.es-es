@@ -5,15 +5,15 @@ author: Jejiang
 ms.service: synapse-analytics
 ms.subservice: purview
 ms.topic: quickstart
-ms.date: 08/24/2021
+ms.date: 09/02/2021
 ms.author: jejiang
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5cf2149591776b66a2bb646c8de23e0669b31f25
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: b7d729234244302e648a2d3a0bf9c8dc94f10d5a
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123033852"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123450366"
 ---
 # <a name="quickstartconnect-a-synapse-workspace-to-an-azure-purview-account"></a>Inicio rápido: Conectar un área de trabajo de Synapse a una cuenta de Azure Purview
 
@@ -43,6 +43,8 @@ Siga los pasos para conectar una cuenta de Azure Purview:
 3. Puede elegir **A partir de una suscripción de Azure** o **Especificar manualmente**. En **A partir de una suscripción de Azure**, puede seleccionar la cuenta a la que tiene acceso.
 4. Una vez conectado, puede ver el nombre de la cuenta de Purview en la pestaña **Cuenta de Azure Purview**. 
 
+Si la cuenta de Purview está protegida por el firewall, cree los puntos de conexión privados administrados para Purview. Obtenga más información sobre cómo permitir que Azure Synapse [acceda a una cuenta de Purview protegida](how-to-access-secured-purview-account.md). Puede hacerlo durante la conexión inicial o editar una conexión existente más adelante.
+
 La información de conexión de Purview se almacena en el recurso del área de trabajo de Synapse, como se muestra a continuación. Para establecer la conexión mediante programación, puede actualizar el área de trabajo de Synapse y agregar la configuración `purviewConfiguration`.
 
 ```json
@@ -67,7 +69,7 @@ La identidad administrada del área de trabajo de Synapse se usa para autenticar
 
 - En el caso de la cuenta de Purview creada el **18 de agosto de 2021 o después**, conceda el rol **Conservador de datos** de la identidad administrada del área de trabajo de Synapse en la **colección raíz** de Purview. Obtenga más información sobre el [control de acceso en Azure Purview](../../purview/catalog-permissions.md) y la [adición de roles y restricción del acceso mediante colecciones](../../purview/how-to-create-and-manage-collections.md#add-roles-and-restrict-access-through-collections).
 
-    Al conectar el área de trabajo de Synapse a Purview en Synapse Studio, Synapse intenta agregar dicha asignación de roles automáticamente. Si tiene el rol **Administradores de colecciones** en la colección raíz de Purview, esta operación se realiza correctamente.
+    Al conectar el área de trabajo de Synapse a Purview en Synapse Studio, Synapse intenta agregar dicha asignación de roles automáticamente. Si tiene el rol **Administradores de colecciones** en la colección raíz de Purview y tiene acceso a la cuenta de Purview desde la red, esta operación se realiza correctamente.
 
 - Para la cuenta de Purview creada **antes del 18 de agosto de 2021**, conceda el rol integrado de Azure [**Conservador de datos de Purview**](../../role-based-access-control/built-in-roles.md#purview-data-curator) de la identidad administrada del área de trabajo de Synapse en la cuenta de Purview. Obtenga más información sobre el [Control de acceso en Azure Purview: permisos heredados](../../purview/catalog-permissions.md#legacy-permission-guide).
 
@@ -90,6 +92,8 @@ Una vez que conecte el área de trabajo de Synapse a una cuenta de Purview, pued
 [Detección, conexión y exploración de datos en Synapse con Azure Purview](how-to-discover-connect-analyze-azure-purview.md)
 
 [Metadatos y linaje de Azure Synapse Analytics](../../purview/how-to-lineage-azure-synapse-analytics.md)
+
+[Acceso a una cuenta de Azure Purview protegida](how-to-access-secured-purview-account.md)
 
 [Registro y análisis de recursos de Azure Synapse en Azure Purview](../../purview/register-scan-azure-synapse-analytics.md)
 

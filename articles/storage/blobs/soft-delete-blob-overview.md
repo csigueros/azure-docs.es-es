@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/23/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 39dd221210b558a3b6ce59200aebaa4aa2278fb5
-ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
+ms.openlocfilehash: cbc2f30384dc410df56995afd83f7d8c0f964176
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2021
-ms.locfileid: "114688153"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123469615"
 ---
 # <a name="soft-delete-for-blobs"></a>Eliminación temporal para blobs
 
@@ -147,6 +147,19 @@ En la tabla siguiente, se describe el comportamiento esperado de las operaciones
 |[Ruta de acceso: eliminar](/rest/api/storageservices/datalakestoragegen2/path/delete) |Se crea un blob o directorio eliminado temporalmente. El objeto eliminado temporalmente se elimina después del período de retención.|
 |[Delete Blob](/rest/api/storageservices/delete-blob)|Se crea un objeto eliminado temporalmente. El objeto eliminado temporalmente se elimina después del período de retención. No se admite la eliminación temporal para instantáneas y blobs con instantáneas.|
 |[Ruta de acceso: Crear](/rest/api/storageservices/datalakestoragegen2/path/create), que cambia el nombre de un blob o un directorio. | El blob de destino existente o el directorio vacío se eliminarán temporalmente y el origen lo reemplazará. El objeto eliminado temporalmente se elimina después del período de retención.|
+
+## <a name="feature-support"></a>Compatibilidad de características
+
+En esta tabla se muestra cómo se admite esta característica en la cuenta y el impacto en la compatibilidad al habilitar determinadas funcionalidades. 
+
+| Tipo de cuenta de almacenamiento                | Blob Storage (compatibilidad predeterminada)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>    
+|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
+| De uso general estándar, v2 | ![Sí](../media/icons/yes-icon.png) |![Sí](../media/icons/yes-icon.png)  <sup>2</sup>              | ![No](../media/icons/no-icon.png) | 
+| Blobs en bloques Premium          | ![Sí](../media/icons/yes-icon.png) |![Sí](../media/icons/yes-icon.png)  <sup>2</sup>              | ![No](../media/icons/no-icon.png) |
+
+<sup>1</sup> Data Lake Storage Gen2 y el protocolo Network File System (NFS) 3.0 necesitan una cuenta de almacenamiento con un espacio de nombres jerárquico habilitado.
+
+<sup>2</sup> La característica se admite en el nivel de versión preliminar.
 
 ## <a name="pricing-and-billing"></a>Precios y facturación
 

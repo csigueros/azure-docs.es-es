@@ -9,16 +9,19 @@ ms.topic: conceptual
 ms.date: 04/27/2021
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 84cb22956b682a9acb23f4f391faf046eccc47a7
-ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
+ms.openlocfilehash: 1602207c83f8ff4a632428c0308b514c6d552058
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2021
-ms.locfileid: "112378149"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123428261"
 ---
 # <a name="scenario-route-traffic-through-nvas-by-using-custom-settings"></a>Escenario: Enrutamiento del tráfico a través de NVA mediante una configuración personalizada
 
 Al trabajar con el enrutamiento de centros virtuales de Azure Virtual WAN, dispone de varias opciones. Este artículo se centra en el enrutamiento del tráfico a través de una aplicación virtual de red (NVA) para la comunicación entre redes virtuales y ramas, y usar otra NVA para el tráfico vinculado a Internet. Para obtener más información, consulte [Acerca del enrutamiento de centros virtuales](about-virtual-hub-routing.md).
+
+>[!Note]
+> Tenga en cuenta que, para los escenarios de enrutamiento siguientes, el centro de Virtual WAN y la red virtual de radio que contienen la aplicación virtual de red deben estar en la misma región de Azure.
 
 ## <a name="design"></a>Diseño
 

@@ -2,13 +2,13 @@
 title: Restricciones de nomenclatura de recursos
 description: Muestra las reglas y las restricciones de nomenclatura de recursos de Azure.
 ms.topic: conceptual
-ms.date: 07/08/2021
-ms.openlocfilehash: a068f28ada85f73aed339956e242c959d6dcb4d3
-ms.sourcegitcommit: 6f4378f2afa31eddab91d84f7b33a58e3e7e78c1
+ms.date: 09/03/2021
+ms.openlocfilehash: 4af873a5e39286997272a492457374ca86349084
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2021
-ms.locfileid: "113688314"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123478471"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Reglas y restricciones de nomenclatura para los recursos de Azure
 
@@ -40,38 +40,38 @@ En las tablas siguientes, el término carácter alfanumérico se refiere a:
 > | Entidad | Ámbito | Length | Caracteres válidos |
 > | --- | --- | --- | --- |
 > | service | global | 1-50 | Caracteres alfanuméricos y guiones.<br><br>Comience con una letra y termine con un carácter alfanumérico. |
-> | service/apis | service | 1-256 | No puede usar:<br> `*#&+:<>?` |
-> | service/apis/issues | api | 1-256 | No puede usar:<br> `*#&+:<>?` |
-> | service/apis/issues/attachments | issue | 1-256 | No puede usar:<br> `*#&+:<>?` |
-> | service/apis/issues/comments | issue | 1-256 | No puede usar:<br> `*#&+:<>?` |
-> | service/apis/operations | api | 1-256 | No puede usar:<br> `*#&+:<>?` |
-> | service/apis/operations/tags | operation | 1-256 | No puede usar:<br> `*#&+:<>?` |
+> | service/apis | service | 1-80 | Caracteres alfanuméricos y guiones.<br><br>Comience con una letra y termine con un carácter alfanumérico. |
+> | service/apis/issues | api | 1-80 | Caracteres alfanuméricos y guiones.<br><br>Comience con una letra y termine con un carácter alfanumérico. |
+> | service/apis/issues/attachments | issue | 1-80 | Caracteres alfanuméricos y guiones.<br><br>Comience con una letra y termine con un carácter alfanumérico. |
+> | service/apis/issues/comments | issue | 1-80 | Caracteres alfanuméricos y guiones.<br><br>Comience con una letra y termine con un carácter alfanumérico. |
+> | service/apis/operations | api | 1-80 | Caracteres alfanuméricos y guiones.<br><br>Comience con una letra y termine con un carácter alfanumérico. |
+> | service/apis/operations/tags | operation | 1-80 | Caracteres alfanuméricos y guiones.<br><br>Comience con una letra y termine con un carácter alfanumérico. |
 > | service/apis/releases | api | 1-80 | Caracteres alfanuméricos, de subrayado y guiones.<br><br>Comience y termine con un carácter alfanumérico o de subrayado. |
-> | service/apis/schemas | api | 1-256 | No puede usar:<br> `*#&+:<>?` |
-> | service/apis/tagDescriptions | api | 1-256 | No puede usar:<br> `*#&+:<>?` |
-> | service/apis/tags | api | 1-256 | No puede usar:<br> `*#&+:<>?` |
-> | service/api-version-sets | service | 1-256 | No puede usar:<br> `*#&+:<>?` |
-> | service/authorizationServers | service | 1-256 | No puede usar:<br> `*#&+:<>?` |
-> | service/backends | service | 1-256 | No puede usar:<br> `*#&+:<>?` |
-> | service/certificates | service | 1-256 | No puede usar:<br> `*#&+:<>?` |
-> | service/diagnostics | service | 1-256 | No puede usar:<br> `*#&+:<>?` |
-> | service/groups | service | 1-256 | No puede usar:<br> `*#&+:<>?` |
-> | service/groups/users | group | 1-256 | No puede usar:<br> `*#&+:<>?` |
-> | service/identityProviders | service | 1-256 | No puede usar:<br> `*#&+:<>?` |
-> | service/loggers | service | 1-256 | No puede usar:<br> `*#&+:<>?` |
-> | service/notifications | service | 1-256 | No puede usar:<br> `*#&+:<>?` |
-> | service/notifications/recipientEmails | notificación | 1-256 | No puede usar:<br> `*#&+:<>?` |
-> | service/openidConnectProviders | service | 1-256 | No puede usar:<br> `*#&+:<>?` |
-> | service/policies | service | 1-256 | No puede usar:<br> `*#&+:<>?` |
-> | service/products | service | 1-256 | No puede usar:<br> `*#&+:<>?` |
-> | service/products/apis | product | 1-256 | No puede usar:<br> `*#&+:<>?` |
-> | service/products/groups | product | 1-256 | No puede usar:<br> `*#&+:<>?` |
-> | service/products/tags | product | 1-256 | No puede usar:<br> `*#&+:<>?` |
-> | service/properties | service | 1-256 | No puede usar:<br> `*#&+:<>?` |
-> | service/subscriptions | service | 1-256 | No puede usar:<br> `*#&+:<>?` |
-> | service/tags | service | 1-256 | No puede usar:<br> `*#&+:<>?` |
-> | service/templates | service | 1-256 | No puede usar:<br> `*#&+:<>?` |
-> | service/users | service | 1-256 | No puede usar:<br> `*#&+:<>?` |
+> | service/apis/schemas | api | 1-80 | Caracteres alfanuméricos y guiones.<br><br>Comience con una letra y termine con un carácter alfanumérico. |
+> | service/apis/tagDescriptions | api | 1-80 | Caracteres alfanuméricos y guiones.<br><br>Comience con una letra y termine con un carácter alfanumérico. |
+> | service/apis/tags | api | 1-80 | Caracteres alfanuméricos y guiones.<br><br>Comience con una letra y termine con un carácter alfanumérico. |
+> | service/api-version-sets | service | 1-80 | Caracteres alfanuméricos y guiones.<br><br>Comience con una letra y termine con un carácter alfanumérico. |
+> | service/authorizationServers | service | 1-80 | Caracteres alfanuméricos y guiones.<br><br>Comience con una letra y termine con un carácter alfanumérico. |
+> | service/backends | service | 1-80 | Caracteres alfanuméricos y guiones.<br><br>Comience con una letra y termine con un carácter alfanumérico. |
+> | service/certificates | service | 1-80 | Caracteres alfanuméricos y guiones.<br><br>Comience con una letra y termine con un carácter alfanumérico. |
+> | service/diagnostics | service | 1-80 | Caracteres alfanuméricos y guiones.<br><br>Comience con una letra y termine con un carácter alfanumérico. |
+> | service/groups | service | 1-80 | Caracteres alfanuméricos y guiones.<br><br>Comience con una letra y termine con un carácter alfanumérico. |
+> | service/groups/users | group | 1-80 | Caracteres alfanuméricos y guiones.<br><br>Comience con una letra y termine con un carácter alfanumérico. |
+> | service/identityProviders | service | 1-80 | Caracteres alfanuméricos y guiones.<br><br>Comience con una letra y termine con un carácter alfanumérico. |
+> | service/loggers | service | 1-80 | Caracteres alfanuméricos y guiones.<br><br>Comience con una letra y termine con un carácter alfanumérico. |
+> | service/notifications | service | 1-80 | Caracteres alfanuméricos y guiones.<br><br>Comience con una letra y termine con un carácter alfanumérico. |
+> | service/notifications/recipientEmails | notificación | 1-80 | Caracteres alfanuméricos y guiones.<br><br>Comience con una letra y termine con un carácter alfanumérico. |
+> | service/openidConnectProviders | service | 1-80 | Caracteres alfanuméricos y guiones.<br><br>Comience con una letra y termine con un carácter alfanumérico. |
+> | service/policies | service | 1-80 | Caracteres alfanuméricos y guiones.<br><br>Comience con una letra y termine con un carácter alfanumérico. |
+> | service/products | service | 1-80 | Caracteres alfanuméricos y guiones.<br><br>Comience con una letra y termine con un carácter alfanumérico. |
+> | service/products/apis | product | 1-80 | Caracteres alfanuméricos y guiones.<br><br>Comience con una letra y termine con un carácter alfanumérico. |
+> | service/products/groups | product | 1-80 | Caracteres alfanuméricos y guiones.<br><br>Comience con una letra y termine con un carácter alfanumérico. |
+> | service/products/tags | product | 1-80 | Caracteres alfanuméricos y guiones.<br><br>Comience con una letra y termine con un carácter alfanumérico. |
+> | service/properties | service | 1-80 | Caracteres alfanuméricos y guiones.<br><br>Comience con una letra y termine con un carácter alfanumérico. |
+> | service/subscriptions | service | 1-80 | Caracteres alfanuméricos y guiones.<br><br>Comience con una letra y termine con un carácter alfanumérico. |
+> | service/tags | service | 1-80 | Caracteres alfanuméricos y guiones.<br><br>Comience con una letra y termine con un carácter alfanumérico. |
+> | service/templates | service | 1-80 | Caracteres alfanuméricos y guiones.<br><br>Comience con una letra y termine con un carácter alfanumérico. |
+> | service/users | service | 1-80 | Caracteres alfanuméricos y guiones.<br><br>Comience con una letra y termine con un carácter alfanumérico. |
 
 ## <a name="microsoftappconfiguration"></a>Microsoft.AppConfiguration
 
@@ -86,9 +86,9 @@ En las tablas siguientes, el término carácter alfanumérico se refiere a:
 > | Entidad | Ámbito | Length | Caracteres válidos |
 > | --- | --- | --- | --- |
 > | locks | ámbito de asignación | 1-90 | Caracteres alfanuméricos, de subrayado, puntos, guiones y paréntesis.<br><br>No puede terminar con un punto. |
-> | policyAssignments | ámbito de asignación | 1-128 nombre para mostrar<br><br>1-64 nombre de recurso<br><br>1-24 nombre del recurso en el ámbito del grupo de administración | El nombre para mostrar puede contener cualquier carácter.<br><br>El nombre de recurso no puede incluir `%` ni puede terminar con un punto o un espacio. |
-> | policyDefinitions | ámbito de definición | 1-128 nombre para mostrar<br><br>1-64 nombre de recurso | El nombre para mostrar puede contener cualquier carácter.<br><br>El nombre de recurso no puede incluir `%` ni puede terminar con un punto o un espacio. |
-> | policySetDefinitions | ámbito de definición | 1-128 nombre para mostrar<br><br>1-64 nombre de recurso<br><br>1-24 nombre del recurso en el ámbito del grupo de administración | El nombre para mostrar puede contener cualquier carácter.<br><br>El nombre de recurso no puede incluir `%` ni puede terminar con un punto o un espacio.  |
+> | policyAssignments | ámbito de asignación | 1-128 nombre para mostrar<br><br>1-64 nombre de recurso<br><br>1-24 nombre del recurso en el ámbito del grupo de administración | El nombre para mostrar puede contener cualquier carácter.<br><br>El nombre del recurso no puede usar:<br>`<>*%&:\?.+/` ni caracteres de control. <br><br>No puede terminar con un punto ni un espacio. |
+> | policyDefinitions | ámbito de definición | 1-128 nombre para mostrar<br><br>1-64 nombre de recurso | El nombre para mostrar puede contener cualquier carácter.<br><br>El nombre del recurso no puede usar:<br>`<>*%&:\?.+/` ni caracteres de control. <br><br>No puede terminar con un punto ni un espacio. |
+> | policySetDefinitions | ámbito de definición | 1-128 nombre para mostrar<br><br>1-64 nombre de recurso<br><br>1-24 nombre del recurso en el ámbito del grupo de administración | El nombre para mostrar puede contener cualquier carácter.<br><br>El nombre del recurso no puede usar:<br>`<>*%&:\?.+/` ni caracteres de control. <br><br>No puede terminar con un punto ni un espacio. |
 
 ## <a name="microsoftautomation"></a>Microsoft.Automation
 
@@ -96,14 +96,14 @@ En las tablas siguientes, el término carácter alfanumérico se refiere a:
 > | Entidad | Ámbito | Length | Caracteres válidos |
 > | --- | --- | --- | --- |
 > | automationAccounts | grupo de recursos y región <br>(consulte la nota a continuación) | 6-50 | Caracteres alfanuméricos y guiones.<br><br>Comience con una letra y termine con un carácter alfanumérico. |
-> | automationAccounts/certificates | cuenta de Automation | 1-128 | No puede usar:<br> `<>*%&:\?.+/` <br><br>No puede terminar con un espacio.  |
-> | automationAccounts/connections | cuenta de Automation | 1-128 | No puede usar:<br> `<>*%&:\?.+/` <br><br>No puede terminar con un espacio. |
-> | automationAccounts/credentials | cuenta de Automation | 1-128 | No puede usar:<br> `<>*%&:\?.+/` <br><br>No puede terminar con un espacio. |
+> | automationAccounts/certificates | cuenta de Automation | 1-128 | No puede usar:<br> `<>*%&:\?.+/` ni caracteres de control <br><br>No puede terminar con un espacio.  |
+> | automationAccounts/connections | cuenta de Automation | 1-128 | No puede usar:<br> `<>*%&:\?.+/` ni caracteres de control <br><br>No puede terminar con un espacio. |
+> | automationAccounts/credentials | cuenta de Automation | 1-128 | No puede usar:<br> `<>*%&:\?.+/` ni caracteres de control <br><br>No puede terminar con un espacio. |
 > | automationAccounts/runbooks | cuenta de Automation | 1-63 | Caracteres alfanuméricos, de subrayado y guiones.<br><br>Comience con una letra.  |
-> | automationAccounts/schedules | cuenta de Automation | 1-128 | No puede usar:<br> `<>*%&:\?.+/` <br><br>No puede terminar con un espacio. |
-> | automationAccounts/variables | cuenta de Automation | 1-128 | No puede usar:<br> `<>*%&:\?.+/` <br><br>No puede terminar con un espacio. |
+> | automationAccounts/schedules | cuenta de Automation | 1-128 | No puede usar:<br> `<>*%&:\?.+/` ni caracteres de control <br><br>No puede terminar con un espacio. |
+> | automationAccounts/variables | cuenta de Automation | 1-128 | No puede usar:<br> `<>*%&:\?.+/` ni caracteres de control <br><br>No puede terminar con un espacio. |
 > | automationAccounts/watchers | cuenta de Automation | 1-63 |  Caracteres alfanuméricos, de subrayado y guiones.<br><br>Comience con una letra. |
-> | automationAccounts/webhooks | cuenta de Automation | 1-128 | No puede usar:<br> `<>*%&:\?.+/` <br><br>No puede terminar con un espacio. |
+> | automationAccounts/webhooks | cuenta de Automation | 1-128 | No puede usar:<br> `<>*%&:\?.+/` ni caracteres de control <br><br>No puede terminar con un espacio. |
 
 > [!NOTE]
 > Los nombres de la cuenta de Automation son únicos en cada región y grupo de recursos. Es posible que los nombres de las cuentas de Automation eliminadas no estén disponibles de inmediato.
@@ -171,7 +171,7 @@ En las tablas siguientes, el término carácter alfanumérico se refiere a:
 > | Entidad | Ámbito | Length | Caracteres válidos |
 > | --- | --- | --- | --- |
 > | availabilitySets | resource group | 1-80 | Caracteres alfanuméricos, de subrayado, puntos y guiones.<br><br>Comience con un carácter alfanumérico. Termine con un carácter alfanumérico o de subrayado. |
-> | cloudservices | resource group | 1-15 <br><br>Vea la nota siguiente. | No puede usar espacio ni estos caracteres:<br> `~ ! @ # $ % ^ & * ( ) = + _ [ ] { } \ | ; : . ' " , < > / ?`<br><br>No puede comenzar con un carácter de subrayado. No puede terminar con un punto ni un guion. |
+> | cloudservices | resource group | 1-15 <br><br>Vea la nota siguiente. | No se pueden usar espacios, caracteres de control ni estos caracteres:<br> `~ ! @ # $ % ^ & * ( ) = + _ [ ] { } \ | ; : . ' " , < > / ?`<br><br>No puede comenzar con un carácter de subrayado. No puede terminar con un punto ni un guion. |
 > | diskEncryptionSets | resource group | 1-80 | Caracteres alfanuméricos y de subrayado. |
 > | disks | resource group | 1-80 | Caracteres alfanuméricos, de subrayado y guiones. |
 > | galleries | resource group | 1-80 | Caracteres alfanuméricos y puntos.<br><br>Comience y termine con un carácter alfanumérico. |
@@ -181,8 +181,8 @@ En las tablas siguientes, el término carácter alfanumérico se refiere a:
 > | galleries/images/versions | imagen | Entero de 32 bits | Números y puntos. |
 > | images | resource group | 1-80 | Caracteres alfanuméricos, de subrayado, puntos y guiones.<br><br>Comience con un carácter alfanumérico. Termine con un carácter alfanumérico o de subrayado. |
 > | snapshots | resource group | 1-80 | Caracteres alfanuméricos, de subrayado, puntos y guiones.<br><br>Comience con un carácter alfanumérico. Termine con un carácter alfanumérico o de subrayado. |
-> | virtualMachines | resource group | 1-15 (Windows)<br>1-64 (Linux)<br><br>Vea la nota siguiente. | No puede usar espacio ni estos caracteres:<br> `~ ! @ # $ % ^ & * ( ) = + _ [ ] { } \ | ; : . ' " , < > / ?`<br><br>Las máquinas virtuales no pueden incluir ningún punto ni terminar con un guion.<br><br>Las máquinas virtuales Linux no pueden terminar con un punto ni un guion. |
-> | virtualMachineScaleSets | resource group | 1-15 (Windows)<br>1-64 (Linux)<br><br>Vea la nota siguiente. | No puede usar espacio ni estos caracteres:<br> `~ ! @ # $ % ^ & * ( ) = + _ [ ] { } \ | ; : . ' " , < > / ?`<br><br>No puede comenzar con un carácter de subrayado. No puede terminar con un punto ni un guion. |
+> | virtualMachines | resource group | 1-15 (Windows)<br>1-64 (Linux)<br><br>Vea la nota siguiente. | No se pueden usar espacios, caracteres de control ni estos caracteres:<br> `~ ! @ # $ % ^ & * ( ) = + _ [ ] { } \ | ; : . ' " , < > / ?`<br><br>Las máquinas virtuales no pueden incluir ningún punto ni terminar con un guion.<br><br>Las máquinas virtuales Linux no pueden terminar con un punto ni un guion. |
+> | virtualMachineScaleSets | resource group | 1-15 (Windows)<br>1-64 (Linux)<br><br>Vea la nota siguiente. | No se pueden usar espacios, caracteres de control ni estos caracteres:<br> `~ ! @ # $ % ^ & * ( ) = + _ [ ] { } \ | ; : . ' " , < > / ?`<br><br>No puede comenzar con un carácter de subrayado. No puede terminar con un punto ni un guion. |
 
 > [!NOTE]
 > Las máquinas virtuales de Azure tienen dos nombres distintos: el nombre de recurso y el nombre de host. Cuando se crea una máquina virtual en el portal, se usa el mismo valor para ambos nombres. Las restricciones de la tabla anterior son para el nombre de host. El nombre de recurso real puede tener hasta 64 caracteres.
@@ -254,8 +254,8 @@ En las tablas siguientes, el término carácter alfanumérico se refiere a:
 > [!div class="mx-tableFixed"]
 > | Entidad | Ámbito | Length | Caracteres válidos |
 > | --- | --- | --- | --- |
-> | associations | resource group | 1-180 | No puede usar:<br>`%&\\?/`<br><br>No puede terminar con un punto ni un espacio. |
-> | resourceProviders | resource group | 3-64 | No puede usar:<br>`%&\\?/`<br><br>No puede terminar con un punto ni un espacio. |
+> | associations | resource group | 1-180 | No puede usar:<br>`%&\\?/` ni caracteres de control<br><br>No puede terminar con un punto ni un espacio. |
+> | resourceProviders | resource group | 3-64 | No puede usar:<br>`%&\\?/` ni caracteres de control<br><br>No puede terminar con un punto ni un espacio. |
 
 ## <a name="microsoftdatabox"></a>Microsoft.DataBox
 
@@ -277,13 +277,13 @@ En las tablas siguientes, el término carácter alfanumérico se refiere a:
 > | Entidad | Ámbito | Length | Caracteres válidos |
 > | --- | --- | --- | --- |
 > | factories | global | 3-63 | Caracteres alfanuméricos y guiones.<br><br>Comience y termine con un carácter alfanumérico. |
-> | factories/dataflows | fábrica | 1-260 | No puede usar:<br>`<>*#.%&:\\+?/`<br><br>Comience con un carácter alfanumérico. |
-> | factories/datasets | fábrica | 1-260 | No puede usar:<br>`<>*#.%&:\\+?/`<br><br>Comience con un carácter alfanumérico. |
+> | factories/dataflows | fábrica | 1-260 | No puede usar:<br>`<>*#.%&:\\+?/` ni caracteres de control<br><br>Comience con un carácter alfanumérico. |
+> | factories/datasets | fábrica | 1-260 | No puede usar:<br>`<>*#.%&:\\+?/` ni caracteres de control<br><br>Comience con un carácter alfanumérico. |
 > | factories/integrationRuntimes | fábrica | 3-63 | Caracteres alfanuméricos y guiones.<br><br>Comience y termine con un carácter alfanumérico. |
-> | factories/linkedservices | fábrica | 1-260 | No puede usar:<br>`<>*#.%&:\\+?/`<br><br>Comience con un carácter alfanumérico. |
-> | factories/pipelines | fábrica | 1-260 | No puede usar:<br>`<>*#.%&:\\+?/`<br><br>Comience con un carácter alfanumérico. |
-> | factories/triggers | fábrica | 1-260 | No puede usar:<br>`<>*#.%&:\\+?/`<br><br>Comience con un carácter alfanumérico. |
-> | factories/triggers/rerunTriggers | desencadenador | 1-260 | No puede usar:<br>`<>*#.%&:\\+?/`<br><br>Comience con un carácter alfanumérico. |
+> | factories/linkedservices | fábrica | 1-260 | No puede usar:<br>`<>*#.%&:\\+?/` ni caracteres de control<br><br>Comience con un carácter alfanumérico. |
+> | factories/pipelines | fábrica | 1-260 | No puede usar:<br>`<>*#.%&:\\+?/` ni caracteres de control<br><br>Comience con un carácter alfanumérico. |
+> | factories/triggers | fábrica | 1-260 | No puede usar:<br>`<>*#.%&:\\+?/` ni caracteres de control<br><br>Comience con un carácter alfanumérico. |
+> | factories/triggers/rerunTriggers | desencadenador | 1-260 | No puede usar:<br>`<>*#.%&:\\+?/` ni caracteres de control<br><br>Comience con un carácter alfanumérico. |
 
 ## <a name="microsoftdatalakeanalytics"></a>Microsoft.DataLakeAnalytics
 
@@ -413,11 +413,11 @@ En las tablas siguientes, el término carácter alfanumérico se refiere a:
 > [!div class="mx-tableFixed"]
 > | Entidad | Ámbito | Length | Caracteres válidos |
 > | --- | --- | --- | --- |
-> | actionGroups | resource group | 1-260 | No puede usar:<br>`:<>+/&%\?` <br><br>No puede terminar con un espacio ni punto.  |
-> | components | resource group | 1-260 | No puede usar:<br>`%&\?/` <br><br>No puede terminar con un espacio ni punto.  |
-> | scheduledQueryRules | resource group | 1-260 | No puede usar:<br>`*<>%{}&:\\?/#` <br><br>No puede terminar con un espacio ni punto.  |
-> | metricAlerts | resource group | 1-260 | No puede usar:<br>`*#&+:<>?@%{}\/` <br><br>No puede terminar con un espacio ni punto.  |
-> | activityLogAlerts | resource group | 1-260 | No puede usar:<br>`<>*%{}&:\\?+/#` <br><br>No puede terminar con un espacio ni punto.  |
+> | actionGroups | resource group | 1-260 | No puede usar:<br>`:<>+/&%\?` ni caracteres de control <br><br>No puede terminar con un espacio ni punto.  |
+> | components | resource group | 1-260 | No puede usar:<br>`%&\?/` ni caracteres de control <br><br>No puede terminar con un espacio ni punto.  |
+> | scheduledQueryRules | resource group | 1-260 | No puede usar:<br>`*<>%{}&:\\?/#` ni caracteres de control <br><br>No puede terminar con un espacio ni punto.  |
+> | metricAlerts | resource group | 1-260 | No puede usar:<br>`*#&+:<>?@%{}\/` ni caracteres de control <br><br>No puede terminar con un espacio ni punto.  |
+> | activityLogAlerts | resource group | 1-260 | No puede usar:<br>`<>*%{}&:\\?+/#` ni caracteres de control <br><br>No puede terminar con un espacio ni punto.  |
 
 ## <a name="microsoftiotcentral"></a>Microsoft.IoTCentral
 
@@ -467,9 +467,9 @@ En las tablas siguientes, el término carácter alfanumérico se refiere a:
 > [!div class="mx-tableFixed"]
 > | Entidad | Ámbito | Length | Caracteres válidos |
 > | --- | --- | --- | --- |
-> | commitmentPlans | resource group | 1-260 | No puede usar:<br>`<>*%&:?+/\\`<br><br>No puede terminar con un espacio. |
-> | webServices | resource group | 1-260 | No puede usar:<br>`<>*%&:?+/\\`<br><br>No puede terminar con un espacio. |
-> | workspaces | resource group | 1-260 | No puede usar:<br>`<>*%&:?+/\\`<br><br>No puede terminar con un espacio. |
+> | commitmentPlans | resource group | 1-260 | No puede usar:<br>`<>*%&:?+/\\` ni caracteres de control<br><br>No puede terminar con un espacio. |
+> | webServices | resource group | 1-260 | No puede usar:<br>`<>*%&:?+/\\` ni caracteres de control<br><br>No puede terminar con un espacio. |
+> | workspaces | resource group | 1-260 | No puede usar:<br>`<>*%&:?+/\\` ni caracteres de control<br><br>No puede terminar con un espacio. |
 
 ## <a name="microsoftmachinelearningservices"></a>Microsoft.MachineLearningServices
 
@@ -618,7 +618,7 @@ En las tablas siguientes, el término carácter alfanumérico se refiere a:
 > | --- | --- | --- | --- |
 > | deployments | resource group | 1-64 | Caracteres alfanuméricos, de subrayado, puntos, guiones y paréntesis. |
 > | resourcegroups | subscription | 1-90 | Caracteres alfanuméricos, de subrayado, paréntesis, guiones, puntos y caracteres Unicode que coincidan con la [documentación de regex](/rest/api/resources/resourcegroups/createorupdate).<br><br>No puede terminar con un punto. |
-> | tagNames | resource | 1-512 | No puede usar:<br>`<>%&\?/` |
+> | tagNames | resource | 1-512 | No puede usar:<br>`<>%&\?/` ni caracteres de control |
 > | tagNames/tagValues | nombre de etiqueta | 1-256 | Todos los caracteres. |
 > | templateSpecs | resource group | 1-90 | Caracteres alfanuméricos, de subrayado, puntos, guiones y paréntesis. |
 
@@ -660,11 +660,11 @@ En las tablas siguientes, el término carácter alfanumérico se refiere a:
 > | managedInstances | global | 1-63 | Letras minúsculas, números y guiones.<br><br>No puede comenzar ni terminar con un guion. <br><br> No puede contener caracteres especiales, como `@`. |
 > | servers | global | 1-63 | Letras minúsculas, números y guiones.<br><br>No puede comenzar ni terminar con un guion. |
 > | servers/administrators | server |  | Debe ser `ActiveDirectory`. |
-> | servers/databases | server | 1-128 | No puede usar:<br>`<>*%&:\/?`<br><br>No puede terminar con un punto ni un espacio. |
+> | servers/databases | server | 1-128 | No puede usar:<br>`<>*%&:\/?` ni caracteres de control<br><br>No puede terminar con un punto ni un espacio. |
 > | servers/databases/syncGroups | database | 1-150 | Caracteres alfanuméricos, de subrayado y guiones. |
-> | servers/elasticPools | server | 1-128 | No puede usar:<br>`<>*%&:\/?`<br><br>No puede terminar con un punto ni un espacio. |
+> | servers/elasticPools | server | 1-128 | No puede usar:<br>`<>*%&:\/?` ni caracteres de control<br><br>No puede terminar con un punto ni un espacio. |
 > | servers/failoverGroups | global | 1-63 | Letras minúsculas, números y guiones.<br><br>No puede comenzar ni terminar con un guion. |
-> | servers/firewallRules | server | 1-128 | No puede usar:<br>`<>*%&:;\/?`<br><br>No puede terminar con un punto. |
+> | servers/firewallRules | server | 1-128 | No puede usar:<br>`<>*%&:;\/?` ni caracteres de control<br><br>No puede terminar con un punto. |
 
 ## <a name="microsoftstorage"></a>Microsoft.Storage
 
@@ -712,9 +712,9 @@ En las tablas siguientes, el término carácter alfanumérico se refiere a:
 > [!div class="mx-tableFixed"]
 > | Entidad | Ámbito | Length | Caracteres válidos |
 > | --- | --- | --- | --- |
-> | environments | resource group | 1-90 | No puede usar:<br>`'<>%&:\?/#` |
-> | environments/accessPolicies | Environment | 1-90 | No puede usar:<br> `'<>%&:\?/#` |
-> | environments/eventSources | Environment | 1-90 | No puede usar:<br>`'<>%&:\?/#` |
+> | environments | resource group | 1-90 | No puede usar:<br>`'<>%&:\?/#` ni caracteres de control |
+> | environments/accessPolicies | Environment | 1-90 | No puede usar:<br> `'<>%&:\?/#` ni caracteres de control |
+> | environments/eventSources | Environment | 1-90 | No puede usar:<br>`'<>%&:\?/#` ni caracteres de control |
 > | environments/referenceDataSets | Environment | 3-63 | Caracteres alfanuméricos |
 
 ## <a name="microsoftweb"></a>Microsoft.Web

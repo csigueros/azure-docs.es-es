@@ -8,12 +8,12 @@ ms.subservice: integration-runtime
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/16/2021
-ms.openlocfilehash: f4ae3d0653ce99be2017b1ef08ca0645c599ee10
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: fd0fb07ad96d9897859281ef368452c96798d542
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121740988"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123428657"
 ---
 # <a name="azure-private-link-for-azure-data-factory"></a>Azure Private Link para Azure Data Factory
 
@@ -75,8 +75,8 @@ En el ejemplo anterior, los registros de recursos DNS de Data Factory "DataFacto
 
 | Nombre | Tipo | Value |
 | ---------- | -------- | --------------- |
-| DataFactoryA.{region}.datafactory.azure.net | CNAME   | DataFactoryA.{region}.privatelink.datafactory.azure.net |
-| DataFactoryA.{region}.privatelink.datafactory.azure.net | CNAME   | < punto de conexión público del servicio de factoría de datos > |
+| DataFactoryA.{region}.datafactory.azure.net | CNAME   | DataFactoryA.{region}.datafactory.azure.net |
+| DataFactoryA.{region}.datafactory.azure.net | CNAME   | < punto de conexión público del servicio de factoría de datos > |
 | < punto de conexión público del servicio de factoría de datos >  | A | < dirección IP pública del servicio de factoría de datos > |
 
 Los registros de recursos DNS para DataFactoryA, cuando se resuelvan en la instancia de VNet que hospeda el punto de conexión privado, serán:
@@ -86,7 +86,7 @@ Los registros de recursos DNS para DataFactoryA, cuando se resuelvan en la insta
 | DataFactoryA.{region}.datafactory.azure.net | CNAME   | DataFactoryA.{region}.privatelink.datafactory.azure.net |
 | DataFactoryA.{region}.privatelink.datafactory.azure.net   | A | < dirección IP del punto de conexión privado > |
 
-Si va a usar un servidor DNS personalizado en la red, los clientes deben ser capaces de resolver el FQDN del punto de conexión de Data Factory en la dirección IP del punto de conexión privado. Debería configurar el servidor DNS para delegar el subdominio del vínculo privado en la zona DNS privada de la red virtual o configurar los registros A para "DataFactoryA.{region}.privatelink.datafactory.azure.net" con la dirección IP del punto de conexión privado.
+Si va a usar un servidor DNS personalizado en la red, los clientes deben ser capaces de resolver el FQDN del punto de conexión de Data Factory en la dirección IP del punto de conexión privado. Debería configurar el servidor DNS para delegar el subdominio del vínculo privado en la zona DNS privada de la red virtual, o bien configurar los registros A para "DataFactoryA.{región}.datafactory.azure.net" con la dirección IP del punto de conexión privado.
 
 Para más información sobre cómo configurar su propio servidor DNS para que admita puntos de conexión privados, consulte los siguientes artículos:
 - [Resolución de nombres de recursos en redes virtuales de Azure](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)
@@ -152,7 +152,7 @@ También debe crear o asignar una máquina virtual para ejecutar el entorno de e
    
 2. En **Crear una máquina virtual**, escriba o seleccione los valores en la pestaña **Básico**:
 
-    | Configuración | Valor                                          |
+    | Configuración | Value                                          |
     |-----------------------|----------------------------------|
     | **Detalles del proyecto** |  |
     | Suscripción | Selección de su suscripción a Azure |
@@ -173,7 +173,7 @@ También debe crear o asignar una máquina virtual para ejecutar el entorno de e
   
 4. En la pestaña Redes, seleccione o escriba:
 
-    | Configuración | Valor |
+    | Configuración | Value |
     |-|-|
     | **Interfaz de red** |  |
     | Virtual network | Seleccione la red virtual que creó anteriormente. |

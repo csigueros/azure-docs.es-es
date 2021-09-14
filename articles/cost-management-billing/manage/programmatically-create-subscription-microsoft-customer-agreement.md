@@ -5,16 +5,16 @@ author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 06/22/2021
+ms.date: 09/01/2021
 ms.reviewer: andalmia
 ms.author: banders
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 1b30172e03ab273be053182f57cca43de7eff530
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: ea619824223e5f424b7a2edd88c9adb826ea7927
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121733128"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123478759"
 ---
 # <a name="programmatically-create-azure-subscriptions-for-a-microsoft-customer-agreement-with-the-latest-apis"></a>Creación de suscripciones de Azure mediante programación para el Contrato de cliente de Microsoft con las API más recientes
 
@@ -392,7 +392,7 @@ Un estado en curso se devuelve como estado `Accepted` en `provisioningState`.
 
 Para instalar la versión más reciente del módulo que contiene el cmdlet `New-AzSubscriptionAlias`, ejecute `Install-Module Az.Subscription`. Para instalar una versión reciente de PowerShellGet, consulte [Obtención del módulo PowerShellGet](/powershell/scripting/gallery/installing-psget).
 
-Ejecute el siguiente comando [New-AzSubscriptionAlias](/powershell/module/az.subscription/new-azsubscription) y el ámbito de facturación `"/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx"`. 
+Ejecute el siguiente comando [New-AzSubscriptionAlias](/powershell/module/az.subscription/new-azsubscriptionalias) y el ámbito de facturación `"/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx"`. 
 
 ```azurepowershell
 New-AzSubscriptionAlias -AliasName "sampleAlias" -SubscriptionName "Dev Team Subscription" -BillingScope "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx" -Workload "Production"
@@ -438,9 +438,9 @@ Se obtiene subscriptionId como parte de la respuesta del comando.
 
 ---
 
-## <a name="use-arm-template"></a>Uso de una plantilla de Resource Manager
+## <a name="use-arm-template-or-bicep"></a>Uso de una plantilla de ARM o Bicep
 
-En la sección anterior se mostró cómo crear una suscripción con PowerShell, la CLI o la API REST. Si necesita automatizar la creación de suscripciones, considere la posibilidad de usar una plantilla de Azure Resource Manager (plantilla de ARM).
+En la sección anterior se mostró cómo crear una suscripción con PowerShell, la CLI o la API REST. Si tiene que automatizar la creación de suscripciones, considere la posibilidad de usar una plantilla de Azure Resource Manager (plantilla de ARM) o un [archivo de Bicep](../../azure-resource-manager/bicep/overview.md).
 
 El ejemplo siguiente crea una suscripción. Para `billingScope`, proporcione el identificador de la sección de la factura. La suscripción se crea en el grupo de administración raíz. Después de crear la suscripción, puede moverla a otro grupo de administración.
 
@@ -479,7 +479,29 @@ El ejemplo siguiente crea una suscripción. Para `billingScope`, proporcione el 
 }
 ```
 
-Implemente la plantilla en el [nivel de grupo de administración](../../azure-resource-manager/templates/deploy-to-management-group.md).
+O bien, use un archivo de Bicep para crear la suscripción.
+
+```bicep
+targetScope = 'managementGroup'
+
+@description('Provide a name for the alias. This name will also be the display name of the subscription.')
+param subscriptionAliasName string
+
+@description('Provide the full resource ID of billing scope to use for subscription creation.')
+param billingScope string
+
+resource subscriptionAlias 'Microsoft.Subscription/aliases@2020-09-01' = {
+  scope: tenant()
+  name: subscriptionAliasName
+  properties: {
+    workload: 'Production'
+    displayName: subscriptionAliasName
+    billingScope: billingScope
+  }
+}
+```
+
+Implemente la plantilla en el [nivel de grupo de administración](../../azure-resource-manager/templates/deploy-to-management-group.md). En los ejemplos siguientes se muestra la implementación de la plantilla de ARM de JSON, pero puede implementar un archivo de Bicep en su lugar.
 
 ### <a name="rest"></a>[REST](#tab/rest)
 
@@ -534,7 +556,7 @@ az deployment mg create \
 
 ---
 
-Para mover una suscripción a un grupo de administración nuevo, use la plantilla siguiente.
+Para mover una suscripción a un grupo de administración nuevo, use la plantilla de ARM siguiente.
 
 ```json
 {
@@ -565,6 +587,23 @@ Para mover una suscripción a un grupo de administración nuevo, use la plantill
         }
     ],
     "outputs": {}
+}
+```
+
+O bien, el archivo de Bicep siguiente.
+
+```bicep
+targetScope = 'managementGroup'
+
+@description('Provide the ID of the management group that you want to move the subscription to.')
+param targetMgId string
+
+@description('Provide the ID of the existing subscription to move.')
+param subscriptionId string
+
+resource subToMG 'Microsoft.Management/managementGroups/subscriptions@2020-05-01' = {
+  scope: tenant()
+  name: '${targetMgId}/${subscriptionId}'
 }
 ```
 

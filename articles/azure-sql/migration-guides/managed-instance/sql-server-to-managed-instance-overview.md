@@ -9,13 +9,13 @@ ms.topic: how-to
 author: mokabiru
 ms.author: mokabiru
 ms.reviewer: cawrites
-ms.date: 02/18/2020
-ms.openlocfilehash: 345ef497ecb14279c117932bd2c9a1cf7b42ba1d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/07/2021
+ms.openlocfilehash: 8c44d6e92f2943f3c565e80d42d9d0c474fddd4f
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121743659"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123542258"
 ---
 # <a name="migration-overview-sql-server-to-azure-sql-managed-instance"></a>Información general sobre la migración: de SQL Server a Azure SQL Managed Instance
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -86,6 +86,7 @@ Se recomiendan las siguientes herramientas de migración:
 
 |Technology | Descripción|
 |---------|---------|
+|[Extensión Azure SQL Migration para Azure Data Studio](../../../dms/migration-using-azure-data-studio.md)  | La extensión Azure SQL Migration para Azure Data Studio proporciona las funcionalidades de valoración y migración de SQL Server en Azure Data Studio. Admite migraciones en los modos en línea (para las que necesitan un tiempo de inactividad mínimo) o sin conexión (para aquellas migraciones en las que el tiempo de inactividad persiste mientras dura la migración). |
 | [Azure Migrate](../../../migrate/how-to-create-azure-sql-assessment.md) | Este servicio de Azure le ayuda a detectar y evaluar su patrimonio de datos de SQL a escala en VMware. Proporciona recomendaciones de implementación de Azure SQL, el tamaño de destino y las estimaciones mensuales. | 
 |[Azure Database Migration Service](../../../dms/tutorial-sql-server-to-managed-instance.md)  | Este servicio de Azure admite la migración en el modo sin conexión para las aplicaciones que pueden permitirse un tiempo de inactividad durante el proceso de migración. A diferencia de la migración continua en el modo en línea, la migración en el modo sin conexión ejecuta una restauración única de una copia de seguridad completa de la base de datos del origen al destino. | 
 |[Copia de seguridad y restauración nativa](../../managed-instance/restore-sample-database-quickstart.md) | SQL Managed Instance admite la restauración de copias de seguridad de bases de datos de SQL Server nativas (archivos. bak). Es la opción de migración más sencilla para aquellos clientes que pueden proporcionar copias de seguridad de bases de datos completas para Azure Storage. También se admiten copias de seguridad completas y diferenciales, que se documentan en la [sección de recursos de migración](#migration-assets) más adelante en este artículo.| 
@@ -109,6 +110,7 @@ En la tabla siguiente se comparan las opciones de migración recomendadas:
 
 |Opción de migración  |Cuándo se usa  |Consideraciones  |
 |---------|---------|---------|
+|[Extensión Azure SQL Migration para Azure Data Studio](../../../dms/migration-using-azure-data-studio.md) | - Migración de bases de datos únicas o de varias bases de datos a escala. </br> - Se puede ejecutar en los modos en línea (tiempo de inactividad mínimo) y sin conexión (tiempo de inactividad aceptable). </br> </br> Orígenes compatibles: </br> - SQL Server (2005 - 2019) local o VM de Azure </br> - AWS EC2 </br> - AWS RDS </br> - VM con SQL Server de GCP Compute |  - Fácil de configurar y empezar a usar. </br> - Es necesario configurar el entorno de ejecución de integración autohospedado para acceder a las copias de seguridad y las instancias de SQL Server locales. </br> - Incluye funcionalidades mejoradas de valoración y migración. |
 |[Azure Database Migration Service](../../../dms/tutorial-sql-server-to-managed-instance.md) | - Migración de bases de datos únicas o de varias bases de datos a escala. </br> - Puede admitir tiempo de inactividad durante el proceso de migración. </br> </br> Orígenes compatibles: </br> - SQL Server (2005 - 2019) local o VM de Azure </br> - AWS EC2 </br> - AWS RDS </br> - VM con SQL Server de GCP Compute |  - Las migraciones a escala se pueden automatizar a través de [PowerShell](../../../dms/howto-sql-server-to-azure-sql-managed-instance-powershell-offline.md). </br> - El tiempo para completar la migración depende del tamaño de la base de datos y se ve afectado por el tiempo de la copia de seguridad y la restauración. </br> - Es posible que se requiera tiempo de inactividad suficiente. |
 |[Copia de seguridad y restauración nativa](../../managed-instance/restore-sample-database-quickstart.md) | - Migración de bases de datos individuales de la aplicación de línea de negocio.  </br> - Migración rápida y fácil sin necesidad de una herramienta o un servicio de migración independiente.  </br> </br> Orígenes compatibles: </br> - SQL Server (2005 - 2019) local o VM de Azure </br> - AWS EC2 </br> - AWS RDS </br> - VM con SQL Server de GCP Compute | - La copia de seguridad de base de datos usa varios subprocesos para optimizar la transferencia de datos a Azure Blob Storage, pero el ancho de banda de asociado y el tamaño de la base de datos pueden afectar la velocidad de transferencia. </br> - El tiempo de inactividad debe permitir el tiempo necesario para realizar una operación de copia de seguridad y restauración completa (que es un tamaño de operación de datos).| 
 |[Servicio de reproducción de registros](../../managed-instance/log-replay-service-migrate.md) | - Migración de bases de datos individuales de la aplicación de línea de negocio.  </br> -Se necesita más control para las migraciones de bases de datos.  </br> </br> Orígenes compatibles: </br> - SQL Server (2008 - 2019) local o máquina virtual de Azure </br> - AWS EC2 </br> - AWS RDS </br> - VM con SQL Server de GCP Compute | -La migración conlleva realizar copias de seguridad completas de la base de datos en SQL Server y copiar los archivos de copia de seguridad en Azure Blob Storage. El Servicio de reproducción de registros se usa para restaurar archivos de copia de seguridad de Azure Blob Storage a SQL Managed Instance. </br> -Las bases de datos que se restauran durante el proceso de migración estarán en modo de restauración y no se pueden usar para leer o escribir hasta que el proceso haya finalizado.| 

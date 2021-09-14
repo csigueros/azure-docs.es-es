@@ -3,12 +3,12 @@ title: Creación y administración de usuarios
 description: Cree y administre usuarios de los sensores y de la consola de administración local. A los usuarios se les puede asignar el rol Administrador, Analista de seguridad o Usuario de solo lectura.
 ms.date: 05/20/2021
 ms.topic: article
-ms.openlocfilehash: 256b97f08f687b444375135d0b809423b8a73796
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: fa10961218d536faf09a1f7062c8a8c77dc99ce4
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113020754"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123434041"
 ---
 # <a name="about-defender-for-iot-console-users"></a>Acerca de los usuarios de la consola de Defender para IoT
 
@@ -135,20 +135,24 @@ Para deshabilitar la característica, cambie `infinity_session_expiration = true
 
 Para actualizar los períodos de recuento de cierre de sesión, ajuste el valor de `= <number>` al tiempo necesario.
 
-## <a name="track-user-activity"></a>Seguimiento de la actividad del usuario 
+## <a name="track-user-activity"></a>Seguimiento de la actividad del usuario
 
 Puede realizar un seguimiento de la actividad del usuario en la escala de tiempo de los eventos en cada sensor. La escala de tiempo muestra el evento o el dispositivo afectado y la fecha y la hora en la que el usuario realizó la actividad.
 
 **Para ver la actividad del usuario**:
 
 1. Inicie sesión en el sensor.
-1. En la escala de tiempo del evento, habilite la opción **User Operations** (Operaciones del usuario). 
+
+1. En la escala de tiempo del evento, habilite la opción **User Operations** (Operaciones del usuario).
 
     :::image type="content" source="media/how-to-create-azure-for-defender-users-and-roles/User-login-attempts.png" alt-text="Ver la actividad de un usuario.":::
 
-## <a name="integrate-with-active-directory-servers"></a>Integración con servidores de Active Directory 
+## <a name="integrate-with-active-directory-servers"></a>Integración con servidores de Active Directory
 
 Configure el sensor o la consola de administración local para trabajar con Active Directory. Esto permite a los usuarios de Active Directory acceder a las consolas de Defender para IoT con sus credenciales de Active Directory.
+
+> [!Note]
+> Se admite LDAP v3.
 
 Se admiten dos tipos de autenticación basada en LDAP:
 
@@ -166,20 +170,20 @@ Puede asociar los grupos de Active Directory definidos aquí con niveles de perm
 
     :::image type="content" source="media/how-to-setup-active-directory/ad-system-settings-v2.png" alt-text="Ver la configuración del sistema de Active Directory.":::
 
-2. En el panel **System Settings** (Configuración del sistema), seleccione **Active Directory**.
+1. En el panel **System Settings** (Configuración del sistema), seleccione **Active Directory**.
 
     :::image type="content" source="media/how-to-setup-active-directory/ad-configurations-v2.png" alt-text="Editar las configuraciones de Active Directory.":::
 
-3. En el cuadro de diálogo **Edit Active Directory Configuration** (Editar configuración de Active Directory), seleccione **Active Directory Integration Enabled** > **Save** (Integración de Active Directory habilitada > Guardar). El cuadro de diálogo **Edit Active Directory Configuration** (Editar configuración de Active Directory) se expande y ahora puede escribir los parámetros para configurar Active Directory.
+1. En el cuadro de diálogo **Edit Active Directory Configuration** (Editar configuración de Active Directory), seleccione **Active Directory Integration Enabled** > **Save** (Integración de Active Directory habilitada > Guardar). El cuadro de diálogo **Edit Active Directory Configuration** (Editar configuración de Active Directory) se expande y ahora puede escribir los parámetros para configurar Active Directory.
 
     :::image type="content" source="media/how-to-setup-active-directory/ad-integration-enabled-v2.png" alt-text="Escribir los parámetros para configurar Active Directory.":::
 
-    > [!NOTE]
-    > - Debe definir aquí los parámetros de LDAP exactamente como aparecen en Active Directory.
-    > - Utilice únicamente minúsculas para todos los parámetros de Active Directory. Utilice minúsculas incluso cuando las configuraciones de Active Directory usen mayúsculas.
-    > - No puede configurar LDAP y LDAPS para el mismo dominio. Sin embargo, puede usar ambos para dominios diferentes al mismo tiempo.
+> [!NOTE]
+> - Debe definir aquí los parámetros de LDAP exactamente como aparecen en Active Directory.
+> - Utilice únicamente minúsculas para todos los parámetros de Active Directory. Utilice minúsculas incluso cuando las configuraciones de Active Directory usen mayúsculas.
+> - No puede configurar LDAP y LDAPS para el mismo dominio. Sin embargo, puede usar ambos para dominios diferentes al mismo tiempo.
 
-4. Establezca los parámetros del servidor de Active Directory como se indica a continuación:
+1. Establezca los parámetros del servidor de Active Directory como se indica a continuación:
 
    | Parámetros de servidor | Descripción |
    |--|--|
@@ -195,7 +199,7 @@ Si va a crear grupos de Active Directory para los usuarios de la consola de admi
 
 1. Seleccione **Guardar**.
 
-2. Para agregar un servidor de confianza, seleccione **Add Server** (Agregar servidor) y configure otro servidor.
+1. Para agregar un servidor de confianza, seleccione **Add Server** (Agregar servidor) y configure otro servidor.
 
 ## <a name="change-a-users-password"></a>Cambia la contraseña de un usuario
 

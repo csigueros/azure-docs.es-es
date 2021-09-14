@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 03/26/2021
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 85409230565c9311621faa18b5c8834c57c33c99
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: 80c60f0bf875a49f184dab1d5d02f34a3d211350
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112459917"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123428099"
 ---
 # <a name="app-service-networking-features"></a>Características de redes de App Service
 
@@ -103,7 +103,7 @@ Para obtener información sobre cómo establecer una dirección en la aplicació
 
 Las restricciones de acceso le permiten filtrar las solicitudes *entrantes*. La acción de filtrado tiene lugar en los roles de front-end, que están en un nivel superior al de los roles de trabajo en los que se ejecutan las aplicaciones. Ya que los roles de front-end están en un nivel superior al de los roles de trabajo, puede pensar en las restricciones de acceso como una protección de nivel de red para las aplicaciones. 
 
-Esta característica le permite crear una lista de reglas permitidas y denegadas que se evalúan en orden de prioridad. Es similar a la característica Grupo de seguridad de red (NSG) de las redes de Azure. Puede usar esta característica en un entorno de ASE o en el servicio multiinquilino. Cuando la usa con un ASE de ILB o punto de conexión privado, puede restringir el acceso desde bloques de direcciones privadas.
+Esta característica le permite crear una lista de reglas permitidas y denegadas que se evalúan en orden de prioridad. Es similar a la característica Grupo de seguridad de red (NSG) de las redes de Azure. Puede usar esta característica en un entorno de ASE o en el servicio multiinquilino. Cuando se usa con un entorno de ASE de ILB, puede restringir el acceso desde bloques de direcciones privadas.
 > [!NOTE]
 > Se pueden configurar hasta 512 reglas de restricción de acceso por cada aplicación. 
 

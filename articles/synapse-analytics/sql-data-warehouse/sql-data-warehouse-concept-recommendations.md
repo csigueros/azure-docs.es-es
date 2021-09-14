@@ -11,12 +11,12 @@ ms.date: 06/26/2020
 ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: b418b46199c524ca92d60dece6031073938e159b
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: e747c6ab94f76411cf727bc46637798e903772b6
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107568427"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123537695"
 ---
 # <a name="azure-advisor-recommendations-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Recomendaciones de Azure Advisor para el grupo de SQL dedicado en Azure Synapse Analytics
 
@@ -73,4 +73,4 @@ El rendimiento de las consultas puede reducirse si hay una gran contención de t
 
 ## <a name="data-loading-misconfiguration"></a>Error de configuración de la carga de datos
 
-Debe cargar siempre los datos desde una cuenta de almacenamiento que esté en la misma región que el grupo de SQL dedicado para minimizar la latencia. Use la [instrucción COPY para la ingesta de datos de alto rendimiento](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) y divida los archivos preconfigurados en la cuenta de almacenamiento para maximizar el rendimiento. Si no puede usar la instrucción COPY, puede usar la API SqlBulkCopy o bcp con un tamaño de lote alto para mejorar el rendimiento. Para obtener instrucciones adicionales sobre la carga de datos, consulte la siguiente [documentación](./guidance-for-loading-data.md).
+Debe cargar siempre los datos desde una cuenta de almacenamiento que esté en la misma región que el grupo de SQL dedicado para minimizar la latencia. Use la [instrucción COPY para la ingesta de datos de alto rendimiento](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) y divida los archivos preconfigurados en la cuenta de almacenamiento para maximizar el rendimiento. Si no puede usar la instrucción COPY, puede usar la API SqlBulkCopy o bcp con un tamaño de lote alto para mejorar el rendimiento. Consulte [Procedimientos recomendados para la carga de datos](../sql/data-loading-best-practices.md) para obtener instrucciones adicionales sobre la carga de datos.

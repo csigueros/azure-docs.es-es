@@ -1,21 +1,21 @@
 ---
 title: Archivo de inclusión
-description: archivo de inclusión
+description: Archivo de inclusión
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 08/03/2021
+ms.date: 09/03/2021
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 6d7d9389e00b3b0f23d590563a242ae0c12e2463
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 78721aa407977262747c43be90001da2343322aa
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121740096"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123485165"
 ---
-De momento, solo los discos Ultra Disks y SSD Premium pueden habilitar discos compartidos. Los distintos tamaños de disco pueden tener un límite de `maxShares` diferente, que no se puede superar al establecer el valor de `maxShares`. En el caso de los discos SSD Premium, los tamaños de disco que admiten el uso compartido de discos son P15 y superiores.
+De momento, solo los discos Ultra, los discos SSD prémium y los discos SSD estándar pueden permitir discos compartidos. Los distintos tamaños de disco pueden tener un límite de `maxShares` diferente, que no se puede superar al establecer el valor de `maxShares`. En el caso de los discos SSD Premium, los tamaños de disco que admiten el uso compartido de discos son P15 y superiores.
 
 Para cada disco, puede definir un valor de `maxShares` que represente el número máximo de nodos que puede compartir el disco simultáneamente. Por ejemplo, si planea configurar un clúster de conmutación por error de dos nodos, debe establecer `maxShares=2`. El valor máximo es un límite superior. Los nodos pueden unirse al clúster, o salir de él (montaje o desmontaje del disco) siempre que el número de nodos sea inferior al valor de `maxShares` especificado.
 

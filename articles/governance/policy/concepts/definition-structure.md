@@ -1,14 +1,14 @@
 ---
 title: Detalles de la estructura de definición de directivas
 description: Describe cómo se usan las definiciones de directiva para establecer convenciones para los recursos de Azure de su organización.
-ms.date: 08/17/2021
+ms.date: 09/01/2021
 ms.topic: conceptual
-ms.openlocfilehash: b09d11e6f1c5ea8f4882021530dc4d06d2d2f350
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: e285ca8c47d73f8b9a23c005be8c8b88d38db879
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122324881"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123436111"
 ---
 # <a name="azure-policy-definition-structure"></a>Estructura de definición de Azure Policy
 
@@ -105,7 +105,7 @@ Se recomienda que establezca **mode** en `all` en la mayoría de los casos. Toda
 
 El siguiente modo del proveedor de recursos es totalmente compatible:
 
-- `Microsoft.Kubernetes.Data` para administrar los clústeres de Kubernetes en o fuera de Azure. Las definiciones que utilizan este modo del proveedor de recursos usan los efectos _auditoría_, _denegar_ y _deshabilitado_. El uso del efecto [EnforceOPAConstraint](./effects.md#enforceopaconstraint) está _en desuso_.
+- `Microsoft.Kubernetes.Data` para administrar los clústeres de Kubernetes en o fuera de Azure. Las definiciones que utilizan este modo del proveedor de recursos usan los efectos _auditoría_, _denegar_ y _deshabilitado_. Este modo admite definiciones personalizadas como una _versión preliminar pública_. Vea [Creación de una definición de directiva a partir de una plantilla de restricción](../how-to/extension-for-vscode.md) para crear una definición de directiva personalizada a partir de una [plantilla de restricción](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraint-templates) GateKeeper v3 de [Open Policy Agent](https://www.openpolicyagent.org/) (OPA). El uso del efecto [EnforceOPAConstraint](./effects.md#enforceopaconstraint) está _en desuso_.
 
 Actualmente se admiten los siguientes modos del proveedor de recursos como **versión preliminar**:
 
@@ -113,7 +113,7 @@ Actualmente se admiten los siguientes modos del proveedor de recursos como **ver
 - `Microsoft.KeyVault.Data` para administrar almacenes y certificados en [Azure Key Vault](../../../key-vault/general/overview.md). Para más información sobre estas definiciones de directiva, consulte [Integrar Azure Key Vault con Azure Policy](../../../key-vault/general/azure-policy.md).
 
 > [!NOTE]
-> Los modos del proveedor de recursos solo admiten definiciones de directivas integradas y no admiten [exenciones](./exemption-structure.md).
+> Los modos del proveedor de recursos solo admiten definiciones de directivas integradas y no admiten [exenciones](./exemption-structure.md) si no se indican de forma explícita.
 
 ## <a name="metadata"></a>Metadatos
 

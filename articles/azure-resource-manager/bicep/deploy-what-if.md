@@ -3,14 +3,14 @@ title: what-if de implementación de Bicep
 description: Determine qué cambios se realizarán en los recursos antes de implementar un archivo Bicep.
 author: tfitzmac
 ms.topic: conceptual
-ms.date: 06/01/2021
+ms.date: 09/02/2021
 ms.author: tomfitz
-ms.openlocfilehash: 42e4198f2597ca3708e58bbc7a25545eab96b8c6
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
+ms.openlocfilehash: 70151d70c884432c92f49e0f4b3e5e3f873b57ac
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122634591"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123429341"
 ---
 # <a name="bicep-deployment-what-if-operation"></a>Operación what-if de implementación de Bicep
 
@@ -196,7 +196,11 @@ Los resultados siguientes muestran los dos formatos de salida diferentes:
 
 ### <a name="set-up-environment"></a>Configuración de entorno
 
-Para ver cómo funciona, vamos a ejecutar algunas pruebas. En primer lugar, [implemente un archivo Bicep que cree una red virtual](https://github.com/Azure/azure-docs-bicep-samples/blob/main/bicep/what-if/what-if-before.bicep). Usará esta red virtual para probar cómo se registran los cambios con what-if. Descargue una copia del archivo Bicep.
+Para ver cómo funciona, vamos a ejecutar algunas pruebas. En primer lugar, implemente un archivo Bicep que cree una red virtual. Usará esta red virtual para probar cómo se registran los cambios con what-if. Descargue una copia del archivo Bicep.
+
+:::code language="bicep" source="~/azure-docs-bicep-samples/samples/deploy-what-if/what-if-before.bicep":::
+
+Para implementar el archivo de Bicep, use lo siguiente:
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -224,7 +228,11 @@ az deployment group create \
 
 ### <a name="test-modification"></a>Modificación de prueba
 
-Una vez finalizada la implementación, está listo para probar la operación hipotética. Esta vez se implementa un [archivo Bicep que cambia la red virtual](https://github.com/Azure/azure-docs-bicep-samples/blob/main/bicep/what-if/what-if-after.bicep). Falta una de las etiquetas originales, se ha quitado una subred y el prefijo de dirección ha cambiado. Descargue una copia del archivo Bicep.
+Una vez finalizada la implementación, está listo para probar la operación hipotética. Esta vez se implementa un archivo Bicep que cambia la red virtual. Falta una de las etiquetas originales, se ha quitado una subred y el prefijo de dirección ha cambiado. Descargue una copia del archivo Bicep.
+
+:::code language="bicep" source="~/azure-docs-bicep-samples/samples/deploy-what-if/what-if-after.bicep":::
+
+Para ver los cambios, use lo siguiente:
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -374,6 +382,24 @@ Are you sure you want to execute the deployment?
 ```
 
 Verá los cambios esperados y puede confirmar que desea que se ejecute la implementación.
+
+## <a name="clean-up-resources"></a>Limpieza de recursos
+
+Cuando ya no necesite los recursos de ejemplo, use la CLI de Azure o Azure PowerShell para eliminar el grupo de recursos.
+
+# <a name="cli"></a>[CLI](#tab/CLI)
+
+```azurecli
+az group delete --name ExampleGroup
+```
+
+# <a name="powershell"></a>[PowerShell](#tab/PowerShell)
+
+```azurepowershell
+Remove-AzResourceGroup -Name ExampleGroup
+```
+
+---
 
 ## <a name="sdks"></a>SDK
 

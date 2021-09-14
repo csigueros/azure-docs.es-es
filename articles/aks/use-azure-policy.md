@@ -3,14 +3,14 @@ title: Uso de Azure Policy para proteger el clúster
 description: Use Azure Policy para proteger un clúster de Azure Kubernetes Service (AKS).
 ms.service: container-service
 ms.topic: how-to
-ms.date: 02/17/2021
+ms.date: 09/01/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 6462c2987155925b7df5241d8fb6aa13c1e37b89
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: a5eef5304c8bceac2bd26d6ccf0e90974641a9ff
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107777732"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123433006"
 ---
 # <a name="secure-your-cluster-with-azure-policy"></a>Protección del clúster con Azure Policy
 
@@ -35,6 +35,24 @@ Para aplicar una definición o iniciativa de directiva, use Azure Portal.
 1. Establezca el valor de **Ámbito** en el grupo de recursos del clúster de AKS con el complemento de Azure Policy habilitado.
 1. Seleccione la página **Parámetros** y actualice **Efecto** de `audit` a `deny` para impedir que las nuevas implementaciones infrinjan la iniciativa de línea de base. También puede agregar espacios de nombres adicionales para excluirlos de la evaluación. En este ejemplo, conserve los valores predeterminados.
 1. Seleccione **Revisar y crear** y, luego, **Crear** para enviar la asignación de directiva.
+
+## <a name="create-and-assign-a-custom-policy-definition-preview"></a>Creación y asignación de una definición de directiva personalizada (versión preliminar)
+
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+
+Las directivas personalizadas permiten definir reglas para usar Azure. Por ejemplo, puede aplicar:
+- Prácticas de seguridad
+- Administración de costos
+- Reglas específicas de la organización (como nombres o ubicaciones)
+
+Antes de crear una directiva personalizada, compruebe la [lista de patrones y ejemplos comunes][azure-policy-samples] para ver si ya incluye su caso.
+
+Las definiciones de directivas personalizadas se escriben en JSON. Para más información sobre cómo crear una directiva personalizada, consulte [Estructura de definición de Azure Policy][azure-policy-definition-structure] y [Creación de una definición de directiva personalizada][custom-policy-tutorial-create].
+
+> [!NOTE]
+> Azure Policy usa ahora una nueva propiedad conocida como *templateInfo* que permite a los usuarios definir el tipo de origen para la plantilla de restricción. Mediante la definición de *templateInfo* en las definiciones de directivas, los usuarios no tienen que definir las propiedades *constraintTemplate* ni *constraint*. No obstante, los usuarios tienen que definir *apiGroups* y *kinds*. Para más información, consulte [Descripción de los efectos de Azure Policy][azure-policy-effects-audit].
+
+Una vez creada la definición de directiva personalizada, consulte [Asignación de una definición de directiva][azure-policy-tutorial-assign] para ver un tutorial detallado sobre la asignación de la directiva al clúster de Kubernetes.
 
 ## <a name="validate-a-azure-policy-is-running"></a>Validación de que se ejecuta Azure Policy
 
@@ -174,6 +192,11 @@ Para más información sobre cómo funciona Azure Policy, consulte:
 [azure-policy]: ../governance/policy/overview.md
 [azure-policy-addon]: ../governance/policy/concepts/policy-for-kubernetes.md#install-azure-policy-add-on-for-aks
 [azure-policy-addon-remove]: ../governance/policy/concepts/policy-for-kubernetes.md#remove-the-add-on-from-aks
-[azure-policy-assign-policy]: ../governance/policy/concepts/policy-for-kubernetes.md#assign-a-built-in-policy-definition
+[azure-policy-assign-policy]: ../governance/policy/concepts/policy-for-kubernetes.md#assign-a-policy-definition
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
 [kubernetes-policy-reference]: ../governance/policy/concepts/policy-for-kubernetes.md
+[azure-policy-effects-audit]: ../governance/policy/concepts/effects.md#audit-properties
+[custom-policy-tutorial-create]: ../governance/policy/tutorials/create-custom-policy-definition.md
+[custom-policy-tutorial-assign]: https://docs.microsoft.com/en-us/azure/governance/policy/concepts/policy-for-kubernetes.md#assign-a-policy-definition
+[azure-policy-samples]: ../governance/policy/samples/index.md
+[azure-policy-definition-structure]: ../governance/policy/concepts/definition-structure.md

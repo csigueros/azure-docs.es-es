@@ -10,14 +10,14 @@ metadata:
   ms.subservice: domain-services
   ms.workload: identity
   ms.topic: how-to
-  ms.date: 06/18/2021
+  ms.date: 09/01/2021
   ms.author: justinha
-  ms.openlocfilehash: 287613213a565f475515e3034fd3897d29c1fff0
-  ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
+  ms.openlocfilehash: f11d8198c04cc93587591e41359fe9e359d350d6
+  ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 07/27/2021
-  ms.locfileid: "114707899"
+  ms.lasthandoff: 09/03/2021
+  ms.locfileid: "123433143"
 title: Preguntas más frecuentes (P+F) sobre Azure Active Directory (AD) Domain Services
 summary: Esta página responde a las preguntas más frecuentes acerca de Azure Active Directory Domain Services.
 sections:
@@ -77,9 +77,9 @@ sections:
       ¿Se puede crear una confianza de bosque de dos vías entre un bosque de recursos y un bosque local?
     answer: "No. Un bosque de recursos de dominio administrado admite hasta cinco bosques de salida unidireccionales en los bosques locales. \n"
   - question: >
-      ¿Puedo trasladar un dominio administrado existente de Azure AD Domain Services a otra suscripción, grupo de recursos, región o red virtual?
+      ¿Puedo trasladar un dominio administrado existente de Azure AD Domain Services a otra suscripción, grupo de recursos, región, red virtual o subred?
     answer: >
-      No. Después de crear un dominio administrado de Azure AD Domain Services, no puede trasladar el dominio administrado a otro grupo de recursos, red virtual, suscripción, etc. Tenga cuidado a la hora de seleccionar la suscripción, el grupo de recursos, la región y la red virtual más adecuados al implementar el dominio administrado.
+      No. Después de crear un dominio administrado de Azure AD Domain Services, no puede trasladar el dominio administrado a otra suscripción, grupo de recursos, región, red virtual o subred. Tenga cuidado a la hora de seleccionar la suscripción, el grupo de recursos, la región, la red virtual y la subred más adecuados al implementar el dominio administrado.
   - question: >
       ¿Puedo cambiar el nombre de un dominio de Azure AD Domain Services?
     answer: >

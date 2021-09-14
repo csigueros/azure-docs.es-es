@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
-ms.openlocfilehash: e3710613b0a2622b20329ed383d5f818b01f6fee
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 429702adaccf5731292192f1b3cb6a7d42859a00
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121744640"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867584"
 ---
 # <a name="ddos-protection-reference-architectures"></a>Arquitecturas de referencia de DDoS Protection
 
@@ -90,7 +90,7 @@ Para más información acerca de esta arquitectura de referencia, consulte [Exte
 
 
 > [!NOTE]
-> Azure App Service Environment para PowerApps o API Management en redes con direcciones IP públicas no se admiten de forma nativa.
+> Azure App Service Environment para Power Apps o API Management en una red virtual con IP públicas no se admiten de forma nativa.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

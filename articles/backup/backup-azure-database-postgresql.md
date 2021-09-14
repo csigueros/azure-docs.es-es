@@ -2,14 +2,14 @@
 title: Copia de seguridad de Azure Database for PostgreSQL
 description: Más información sobre la copia de seguridad de Azure Database for PostgreSQL con retención a largo plazo (versión preliminar)
 ms.topic: conceptual
-ms.date: 04/12/2021
+ms.date: 09/01/2021
 ms.custom: references_regions , devx-track-azurecli
-ms.openlocfilehash: 8c3540ee686eb69304f95e31126a1a29a48aeea8
-ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
+ms.openlocfilehash: ac7790cd823bbca4ca7580bc5b3c5edee6f45f96
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113213910"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123432691"
 ---
 # <a name="azure-database-for-postgresql-backup-with-long-term-retention-preview"></a>Copia de seguridad de Azure Database for PostgreSQL con retención a largo plazo (versión preliminar)
 
@@ -306,6 +306,9 @@ Consulte [este documento](https://download.microsoft.com/download/7/4/d/74d689aa
 ### <a name="usererrormissingnetworksecuritypermissions"></a>UserErrorMissingNetworkSecurityPermissions
 
 Habilite la marca **Permitir el acceso a servicios de Azure** para establecer la línea de visión de la red. En la vista de servidor, en el panel **Seguridad de la conexión**, establezca la marca **Permitir el acceso a servicios de Azure** en **Sí**.
+
+>[!Note]
+>Antes de habilitar esta marca, asegúrese de establecer la marca **Denegar acceso a la red pública** en **No**.
 
 ![Permitir el acceso a servicios de Azure](./media/backup-azure-database-postgresql/allow-access-to-azure-services.png)
 

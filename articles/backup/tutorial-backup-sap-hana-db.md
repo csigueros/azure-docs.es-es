@@ -2,13 +2,13 @@
 title: 'Tutorial: Copia de seguridad de bases de datos de SAP HANA en máquinas virtuales de Azure'
 description: En este tutorial, aprenderá a hacer una copia de seguridad de una base de datos de SAP HANA que se ejecuta en una máquina virtual de Azure en un almacén de Azure Backup Recovery Services.
 ms.topic: tutorial
-ms.date: 02/24/2020
-ms.openlocfilehash: 00109de349c1fdfdbaff9de30d18f64d8b986a59
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 09/01/2021
+ms.openlocfilehash: 3cfbd89e9df6cf2d0d30d744ee8e437e3c364094
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104587651"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123434257"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Tutorial: Copia de seguridad de bases de datos de SAP HANA en una máquina virtual de Azure
 
@@ -37,7 +37,8 @@ Asegúrese de seguir estos pasos antes de configurar copias de seguridad:
   * En el caso de MDC, la clave debe apuntar al puerto SQL de **NAMESERVER**. En el caso de SDC, debe apuntar al puerto SQL de **INDEXSERVER**.
   * Debe tener credenciales para agregar y eliminar usuarios.
   * Tenga en cuenta que esta clave se puede eliminar después de que el script de registro previo correctamente se registre correctamente.
-* Ejecute el script de configuración de la copia de seguridad de SAP HANA (script de registro previo) en la máquina virtual donde está instalado HANA como usuario raíz. [Este script](https://aka.ms/scriptforpermsonhana) prepara el sistema HANA para la copia de seguridad. Consulte la sección [Qué hace el script de registro previo](#what-the-pre-registration-script-does) para comprender mejor el script de registro previo.
+* También puede optar por crear una clave para el usuario de HANA SYSTSEM existente en **hdbuserstore** en lugar de una clave personalizada como se indica en el paso anterior.
+* Ejecute el script de configuración de la copia de seguridad de SAP HANA (script de registro previo) en la máquina virtual donde está instalado HANA como usuario raíz. [Este script](https://aka.ms/scriptforpermsonhana) prepara el sistema HANA para la copia de seguridad y requiere que la clave creada en los pasos anteriores se transfiera como entrada. Para comprender cómo esta entrada se pasa en forma de parámetro al script, consulte la sección [Qué hace el script de registro previo](#what-the-pre-registration-script-does). También se describe lo que hace el script de registro previo.
 * Si la configuración de HANA usa puntos de conexión privados, ejecute el [script de registro previo](https://aka.ms/scriptforpermsonhana) con el parámetro *-sn* o *--skip-network-checks*.
 
 >[!NOTE]
@@ -103,7 +104,7 @@ Al hacer una copia de seguridad de una base de datos SAP HANA que se ejecuta en 
 
 Las copias de seguridad (tanto del registro como las que no son del registro) en máquinas virtuales de Azure de SAP HANA proporcionadas mediante Backint son flujos de datos a almacenes de Azure Recovery Services y, por tanto, es importante comprender esta metodología de streaming.
 
-El componente Backint de HANA proporciona las "canalizaciones" (una canalización para leer y una canalización para escribir), conectadas a los discos subyacentes en los que residen los archivos de base de datos, que el servicio Azure Backup lee y transporta al almacén de Azure Recovery Services. El servicio Azure Backup también realiza una suma de comprobación para validar los flujos de datos, además de las comprobaciones de validación nativas de Backint. Estas validaciones garantizarán que los datos presentes en el almacén de Azure Recovery Services son realmente confiables y recuperables.
+El componente Backint de HANA proporciona las "canalizaciones" (una canalización para leer y una canalización para escribir), conectadas a los discos subyacentes en los que residen los archivos de base de datos, que el servicio Azure Backup lee y transporta al almacén de Azure Recovery Services. El servicio Azure Backup también hace una suma de comprobación para validar los flujos de datos, además de las comprobaciones de validación nativas de Backint. Estas validaciones garantizarán que los datos presentes en el almacén de Azure Recovery Services son realmente confiables y recuperables.
 
 Dado que los flujos de datos tratan principalmente con discos, debe comprender el rendimiento del disco para medir el rendimiento de la copia de seguridad y la restauración. Consulte [este artículo](../virtual-machines/disks-performance.md) para obtener una descripción detallada del rendimiento de los discos en máquinas virtuales de Azure. También es de aplicación para el rendimiento de las copias de seguridad y la restauración.
 
@@ -145,17 +146,22 @@ La ejecución del script de registro previo realiza las funciones siguientes:
 
 * Según la distribución de Linux, el script instala o actualiza los paquetes necesarios que necesita el agente de Azure Backup.
 * Realiza comprobaciones de conectividad de red saliente con los servidores de Azure Backup y servicios dependientes, como Azure Active Directory y Azure Storage.
-* Inicia sesión en el sistema HANA con la clave de usuario que se enumera como parte de los [requisitos previos](#prerequisites). Esta clave se usa para crear un usuario de copia de seguridad (AZUREWLBACKUPHANAUSER) en el sistema HANA y **se puede eliminar después de que el script de registro previo se ejecute correctamente**.
+* Inicia sesión en el sistema HANA con la clave de usuario personalizada o la clave de usuario SYSTEM mencionada en los [requisitos previos](#prerequisites). Esta clave de usuario se usa para crear un usuario de Azure Backup (AZUREWLBACKUPHANAUSER) en el sistema HANA y se puede eliminar después de que el script de registro previo se ejecute correctamente. _Tenga en cuenta que la clave de usuario SYSTEM no se debe eliminar_.
 * A AZUREWLBACKUPHANAUSER se le asignan estos roles y permisos necesarios:
   * Para MDC: DATABASE ADMIN y BACKUP ADMIN (desde HANA 2.0 SPS05 en adelante): para crear nuevas bases de datos durante la restauración.
   * Para SDC: BACKUP ADMIN: para crear nuevas bases de datos durante la restauración.
   * CATALOG READ: para leer el catálogo de copia de seguridad.
   * SAP_INTERNAL_HANA_SUPPORT: para acceder a algunas tablas privadas. Solo es necesario para las versiones de SDC y MDC anteriores a HANA 2.0 SPS04 rev. 46. Esto no es necesario para HANA 2.0 SPS04 rev. 46 y versiones posteriores, ya que vamos a obtener la información necesaria de las tablas públicas ahora con la corrección del equipo de HANA.
 * El script agrega una clave a **hdbuserstore** para que el complemento de copias de seguridad de HANA, AZUREWLBACKUPHANAUSER, controle todas las operaciones (consultas de base de datos, operaciones de restauración, configuración y ejecución de copias de seguridad).
+* Como alternativa, puede crear su propio usuario de copia de seguridad personalizado. Asegúrese de asignar a este usuario los siguientes roles y permisos necesarios:
+  * Para MDC: DATABASE ADMIN y BACKUP ADMIN (desde HANA 2.0 SPS05 en adelante): para crear nuevas bases de datos durante la restauración.
+  * Para SDC: BACKUP ADMIN: para crear nuevas bases de datos durante la restauración.
+  * CATALOG READ: para leer el catálogo de copia de seguridad.
+  * SAP_INTERNAL_HANA_SUPPORT: para acceder a algunas tablas privadas. Solo es necesario para las versiones de SDC y MDC anteriores a HANA 2.0 SPS04 rev. 46. No es un requisito para HANA 2.0 SPS04 rev. 46 y las versiones posteriores, ya que la información necesaria se obtendrá de las tablas públicas que ahora incorporan la corrección del equipo de HANA.
+* Después se agrega una clave a hdbuserstore para que el usuario de Azure Backup del complemento de copias de seguridad de HANA se encargue de todas las operaciones (consultas de base de datos, operaciones de restauración, configuración y ejecución de copias de seguridad). Pase esta clave de usuario personalizada de Azure Backup al script en forma de parámetro: `-bk CUSTOM_BACKUP_KEY_NAME` o `-backup-key CUSTOM_BACKUP_KEY_NAME`.  _Tenga en cuenta que la expiración de la contraseña de esta clave de copia de seguridad personalizada podría provocar errores de copia de seguridad y restauración._
 
 >[!NOTE]
-> Puede pasar explícitamente la clave de usuario que se muestra como parte de los [requisitos previos](#prerequisites) como parámetro al script anterior al registro: `-sk SYSTEM_KEY_NAME, --system-key SYSTEM_KEY_NAME` <br><br>
->Para saber qué otros parámetros acepta el script, use el comando `bash msawb-plugin-config-com-sap-hana.sh --help`.
+> Para saber qué otros parámetros acepta el script, use el comando `bash msawb-plugin-config-com-sap-hana.sh --help`.
 
 Para confirmar la creación de la clave, ejecute el comando HDBSQL en la máquina HANA con credenciales SIDADM:
 
@@ -168,7 +174,7 @@ La salida de comandos debe mostrar la tecla {SID}{DBNAME}, con el usuario como A
 >[!NOTE]
 > Asegúrese de que tiene un conjunto único de archivos SSFS en `/usr/sap/{SID}/home/.hdb/`. Solo debería haber una carpeta en esta ruta de acceso.
 
-A continuación se muestra un resumen de los pasos necesarios para completar la ejecución del script previo al registro.
+A continuación se ofrece un resumen de los pasos necesarios para ejecutar el script previo al registro. Tenga en cuenta que en este flujo se proporciona la clave de usuario SYSTEM como parámetro de entrada al script de registro previo.
 
 |Quién  |De  |Qué ejecutar  |Comentarios  |
 |---------|---------|---------|---------|

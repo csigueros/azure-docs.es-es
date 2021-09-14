@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: troubleshooting
 ms.date: 05/7/2020
 ms.author: anavin
-ms.openlocfilehash: 71472a89b2aa3138c83dac1f5c2dfc5649c9b9ce
-ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
+ms.openlocfilehash: e51a74ef4f01bda57e7cdef026aed9aa85111ca3
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112583174"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123437407"
 ---
 # <a name="troubleshooting-outbound-connections-failures"></a><a name="obconnecttsg"></a> Solución de errores de conexiones salientes
 
@@ -71,7 +71,7 @@ Si se escala horizontalmente al siguiente nivel de grupo de back-end de mayor ta
 ## <a name="use-keepalives-to-reset-the-outbound-idle-timeout"></a><a name="idletimeout"></a>Uso de conexiones persistentes para restablecer el tiempo de espera de inactividad saliente
 Las conexiones salientes tienen un tiempo de espera de inactividad de 4 minutos. Este tiempo de espera se ajusta desde [Reglas de salida](outbound-rules.md). Pero también puede usar conexiones persistentes de transporte (por ejemplo, TCP) o de capa de aplicación para actualizar un flujo de inactividad y restablecer este tiempo de espera de inactividad en caso necesario.  
 
-Al utilizar conexiones persistentes de TCP, es suficiente con habilitarlas en un lado de la conexión. Por ejemplo, es suficiente habilitarlas solo en el servidor para restablecer el temporizador de inactividad del flujo y no se necesita para ambos lados en conexiones persistentes de TCP iniciadas.  Existen conceptos similares existen para la capa de aplicación, incluidas las configuraciones de cliente/servidor de base de datos.  Compruebe el lado del servidor para ver qué opciones existen para las conexiones persistentes específicas de la aplicación.
+Al utilizar conexiones persistentes de TCP, es suficiente con habilitarlas en un lado de la conexión. Por ejemplo, es suficiente habilitarlas solo en el lado servidor para restablecer el temporizador de inactividad del flujo y no se necesita para que ambos lados inicien conexiones persistentes de TCP iniciadas.  Existen conceptos similares existen para la capa de aplicación, incluidas las configuraciones de cliente/servidor de base de datos.  Compruebe el lado del servidor para ver qué opciones existen para las conexiones persistentes específicas de la aplicación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Siempre buscamos mejorar la experiencia de nuestros clientes. Si tiene problemas con la conectividad saliente que no aparecen o no se resuelven en este artículo, envíe sus comentarios a través de GitHub desde la parte inferior de la página y abordaremos sus comentarios lo antes posible.

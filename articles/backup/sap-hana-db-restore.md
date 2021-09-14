@@ -2,13 +2,13 @@
 title: Restauración de bases de datos de SAP HANA en máquinas virtuales de Azure
 description: En este artículo se describe cómo restaurar bases de datos de SAP HANA que se ejecutan en máquinas virtuales de Azure. También puede usar la restauración entre regiones para restaurar las bases de datos en una región secundaria.
 ms.topic: conceptual
-ms.date: 08/06/2021
-ms.openlocfilehash: c6ad108cc0377411c144fade97b3fec2c5a8b633
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/01/2021
+ms.openlocfilehash: 7bf9734cafa003132fdef97026c76c8bdf8b329d
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121727090"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123426497"
 ---
 # <a name="restore-sap-hana-databases-on-azure-vms"></a>Restauración de bases de datos de SAP HANA en máquinas virtuales de Azure
 
@@ -127,6 +127,9 @@ Para realizar la restauración, necesita los siguientes permisos:
 1. En **Seleccionar punto de restauración**, seleccione **Registros (a un momento dado)** a [Restauración a un momento dado](#restore-to-a-specific-point-in-time). O bien, seleccione **Completa y diferencial** para [restaurar a un punto de recuperación específico](#restore-to-a-specific-recovery-point).
 
 ### <a name="restore-as-files"></a>Restaurar como archivos
+
+>[!Note]
+>La restauración como archivos no funciona en el recurso compartido CIFS, pero funciona para NFS.
 
 Para restaurar datos de copia de seguridad como archivos en lugar de una base de datos, seleccione **Restaurar como archivos**. Cuando los archivos se vuelcan en una ruta de acceso especificada, puede llevar estos archivos a cualquier máquina de SAP HANA en la que quiera restaurarlos como base de datos. Dado que puede mover estos archivos a cualquier máquina, ahora puede restaurar los datos entre suscripciones y regiones.
 

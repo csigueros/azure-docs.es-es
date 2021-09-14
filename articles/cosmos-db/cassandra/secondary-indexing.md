@@ -5,15 +5,15 @@ author: TheovanKraay
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
-ms.date: 04/04/2020
+ms.date: 09/03/2021
 ms.author: thvankra
 ms.reviewer: sngun
-ms.openlocfilehash: b31c351159ccba0718293dad5b81247d973ea275
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: a3ac64590c2978ccd052a9dd294cf3ce49bb847e
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121780100"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123479460"
 ---
 # <a name="secondary-indexing-in-azure-cosmos-db-cassandra-api"></a>Indexación secundaria en Cassandra API de Azure Cosmos DB
 [!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
@@ -30,6 +30,9 @@ No se recomienda crear un índice en una columna que se actualiza con frecuencia
 > - tipos de datos como tipos de colección inmovilizados, decimales y tipos Variant.
 > - Columnas estáticas
 > - Claves de agrupación en clústeres
+
+> [!WARNING]
+> Si tiene una [clave principal compuesta](cassandra-partitioning.md#compound-primary-key) en la tabla y *solo* quiere filtrar por el elemento de valor de clave de partición de la clave principal compuesta, asegúrese de *agregar explícitamente un índice secundario en la clave de partición*. Azure Cosmos DB Cassandra API no aplica índices a las claves de partición de forma predeterminada, y el índice de este escenario puede mejorar significativamente el rendimiento de las consultas. Revise nuestro artículo sobre [creación de particiones](cassandra-partitioning.md) para obtener más información.
 
 ## <a name="indexing-example"></a>Ejemplo de indexación
 
@@ -72,6 +75,8 @@ Debe saber cuál es el nombre del índice para eliminarlo. Ejecute el comando `d
 ```shell
 drop index sampleks.t1_lastname_idx;
 ```
+
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Más información sobre cómo funciona la [indexación automática](../index-overview.md) en Azure Cosmos DB.

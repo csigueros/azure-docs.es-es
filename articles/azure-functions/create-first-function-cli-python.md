@@ -11,12 +11,12 @@ adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./create-first-function-cli-python-uiex
-ms.openlocfilehash: 8bba5cbfe0496c773625a164e3e3e2ef002e03b1
-ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
+ms.openlocfilehash: cd67f81868d43ece3638d3d46ed07d4044642b19
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122829967"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123468355"
 ---
 # <a name="quickstart-create-a-python-function-in-azure-from-the-command-line"></a>Inicio rápido: Creación de una función de Python en Azure desde la línea de comandos
 
@@ -259,7 +259,7 @@ Utilice los comandos siguientes para crear los elementos. Se admiten las CLI de 
     az functionapp create --consumption-plan-location westeurope --runtime python --runtime-version 3.8 --functions-version 3 --name <APP_NAME> --os-type linux
     ```
     
-    El comando [az functionapp create](/cli/azure/functionapp#az_functionapp_create) crea la aplicación de funciones en Azure. Si usa Python 3.7 o 3.6, cambie `--runtime-version` a `3.7` o `3.6`, respectivamente.
+    El comando [az functionapp create](/cli/azure/functionapp#az_functionapp_create) crea la aplicación de funciones en Azure. Si usa Python 3.7 o 3.6, cambie `--runtime-version` a `3.7` o `3.6`, respectivamente. Debe proporcionar `--os-type linux` porque las funciones de Python no se pueden ejecutar en Windows, que es el valor predeterminado.
     
     # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
     

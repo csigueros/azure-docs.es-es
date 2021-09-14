@@ -3,12 +3,12 @@ title: Configuración de la red
 description: Obtenga información sobre la arquitectura de la solución, la preparación de la red, los requisitos previos y otra información necesaria para asegurarse de que ha configurado correctamente la red para que funcione con dispositivos de Azure Defender para IoT.
 ms.date: 07/25/2021
 ms.topic: how-to
-ms.openlocfilehash: 196474c368ee5683a5fb7a25343faba17da0fa18
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 7dc9e41b3bfdcbeab86aaabbdf0c97b0339b3df3
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121745418"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123434095"
 ---
 # <a name="about-azure-defender-for-iot-network-setup"></a>Acerca de la configuración de red de Azure Defender para IoT
 
@@ -32,7 +32,11 @@ Entre las tareas de implementación del sitio se incluyen las siguientes:
 
 - [Preparación de una estación de trabajo de configuración](#prepare-a-configuration-workstation)
 
-- [Planificación de la instalación del bastidor](#planning-rack-installation)
+- [Configuración de certificados](#set-up-certificates)
+
+- [Preparación de una estación de trabajo de configuración](#prepare-a-configuration-workstation)
+
+- [Planificación de la instalación del bastidor](#plan-rack-installation)
 
 ### <a name="collect-site-information"></a>Recopilación de información del sitio
 
@@ -90,6 +94,10 @@ Los exploradores siguientes son compatibles con las aplicaciones web de los sens
 
 Para más información acerca de los exploradores admitidos, consulte [Exploradores recomendados](../../azure-portal/azure-portal-supported-browsers-devices.md#recommended-browsers).
 
+### <a name="set-up-certificates"></a>Configurar los certificados
+
+Tras la instalación del sensor y la consola de administración local, se genera un certificado autofirmado local que se usa para acceder a la aplicación web del sensor. Al iniciar sesión por primera vez en Defender para IoT, se les solicita a los usuarios administradores que proporcionen un certificado SSL/TLS. Además, se habilita automáticamente una opción para validar este certificado, así como otros certificados del sistema. Vea [Acerca de los certificados](how-to-deploy-certificates.md) para obtener más información.
+
 ### <a name="network-access-requirements"></a>Requisitos de acceso a la red
 
 Compruebe que la directiva de seguridad de la organización permite el acceso a lo siguiente:
@@ -111,7 +119,7 @@ Compruebe que la directiva de seguridad de la organización permite el acceso a 
 | Protocolo de túnel | TCP | IN | 9000 <br /><br />- Además del puerto 443 <br /><br />Del usuario final a la consola de administración local. <br /><br />- Puerto 22 del sensor a la consola de administración local  | monitoring | Protocolo de túnel | Sensor | Consola de administración local |
 | HTTP| TCP | OUT | 80 | Validación de certificados  | Descarga del archivo CRL | Sensor | Servidor CRL |
 
-### <a name="planning-rack-installation"></a>Planificación de la instalación del bastidor
+### <a name="plan-rack-installation"></a>Planificación de la instalación del bastidor
 
 Para planificar la instalación del bastidor, realice lo siguiente:
 
@@ -121,7 +129,7 @@ Para planificar la instalación del bastidor, realice lo siguiente:
 
 1. Tenga disponible alimentación de CA para el dispositivo.
 1. Prepare el cable de LAN para conectar la administración al conmutador de red.
-1. Prepare los cables de LAN para conectar los puertos de SPAN (reflejo) del conmutador y los TAP de red al dispositivo de Defender para IoT. 
+1. Prepare los cables de LAN para conectar los puertos de SPAN (reflejo) del conmutador y los TAP de red al dispositivo de Defender para IoT.
 1. Configure, conecte y valide los puertos SPAN en los conmutadores reflejados, tal y como se describe en la sesión de revisión de arquitectura.
 1. Conecte el puerto SPAN configurado a un equipo que ejecute Wireshark y compruebe que el puerto está configurado correctamente.
 1. Abra todos los puertos de firewall pertinentes.
@@ -138,7 +146,7 @@ En las secciones siguientes se describen los niveles de Purdue.
 
 :::image type="content" source="media/how-to-set-up-your-network/purdue-model.png" alt-text="Diagrama del modelo de Purdue.":::
 
-####  <a name="level-0-cell-and-area"></a>Nivel 0: celda y área  
+#### <a name="level-0-cell-and-area"></a>Nivel 0: celda y área  
 
 El nivel 0 consta de una amplia variedad de sensores, accionadores y dispositivos implicados en el proceso de fabricación básico. Estos dispositivos realizan las funciones básicas del sistema de control y automatización industrial, como las siguientes:
 
@@ -234,7 +242,7 @@ Estas son algunas recomendaciones para la implementación de varios sensores:
 
 #### <a name="traffic-mirroring"></a>Creación de reflejo del tráfico  
 
-A fin de ver solo la información pertinente para el análisis del tráfico, debe conectar la plataforma de Defender para IoT a un puerto de creación de reflejo en un conmutador o un TAP que incluya solo el tráfico industrial de ICS y SCADA. 
+A fin de ver solo la información pertinente para el análisis del tráfico, debe conectar la plataforma de Defender para IoT a un puerto de creación de reflejo en un conmutador o un TAP que incluya solo el tráfico industrial de ICS y SCADA.
 
 :::image type="content" source="media/how-to-set-up-your-network/switch.jpg" alt-text="Use este conmutador para la instalación.":::
 

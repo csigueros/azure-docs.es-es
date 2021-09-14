@@ -10,12 +10,12 @@ ms.author: normesta
 ms.reviewer: dineshm
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 83e6cfa8589e7ba2df4d6d8452496cf7680cf5c6
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 391541569f237b98c46f001b511c86c17f00e058
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110676290"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123468139"
 ---
 # <a name="map-a-custom-domain-to-an-azure-blob-storage-endpoint"></a>Asignación de un dominio personalizado a un punto de conexión de Azure Blob Storage
 
@@ -413,6 +413,19 @@ Si no necesita que los usuarios accedan al contenido de su blob o web mediante H
    * [Redireccionamiento de HTTP a HTTPS con Azure CDN](../../cdn/cdn-storage-custom-domain-https.md#http-to-https-redirection).
 
    * [Precios y facturación cuando se usa Blob Storage con Azure CDN](../../cdn/cdn-storage-custom-domain-https.md#pricing-and-billing).
+
+## <a name="feature-support"></a>Compatibilidad de características
+
+En esta tabla, se muestra cómo se admite esta característica en la cuenta y el impacto en la compatibilidad al habilitar determinadas funcionalidades. 
+
+| Tipo de cuenta de almacenamiento                | Blob Storage (compatibilidad predeterminada)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>    
+|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
+| De uso general estándar, v2 | ![Sí](../media/icons/yes-icon.png) | ![Sí](../media/icons/yes-icon.png)  <sup>2</sup> | ![Sí](../media/icons/yes-icon.png)  <sup>2</sup> | 
+| Blobs en bloques Premium          | ![Sí](../media/icons/yes-icon.png) | ![Sí](../media/icons/yes-icon.png)  <sup>2</sup> | ![Sí](../media/icons/yes-icon.png)  <sup>2</sup> |
+
+<sup>1</sup> Data Lake Storage Gen2 y el protocolo Network File System (NFS) 3.0 necesitan una cuenta de almacenamiento con un espacio de nombres jerárquico habilitado.
+
+<sup>2</sup> La característica se admite en el nivel de versión preliminar.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

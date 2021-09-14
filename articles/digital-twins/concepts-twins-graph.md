@@ -4,15 +4,15 @@ titleSuffix: Azure Digital Twins
 description: Comprenda el concepto de un gemelo digital y cómo sus relaciones forman un grafo.
 author: baanders
 ms.author: baanders
-ms.date: 6/1/2021
+ms.date: 8/26/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 1145525fe3d2e7c42204aa675153d4eb099cccce
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.openlocfilehash: 42cce83683df789aeaabe53ca170f17319ec3603
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122254243"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123224847"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>Explicación del concepto de gemelos digitales y su grafo gemelo
 
@@ -25,7 +25,7 @@ En una solución de Azure Digital Twins, las entidades del entorno se representa
 
 Para poder crear un gemelo digital en la instancia de Azure Digital Twins, debe tener un *modelo* cargado en el servicio. Un modelo describe el conjunto de propiedades, los mensajes de telemetría y las relaciones que puede tener un gemelo determinado, entre otras cosas. Para conocer los tipos de información que se definen en un modelo, vea [Modelos personalizados](concepts-models.md).
 
-Después de crear y cargar un modelo, la aplicación cliente puede crear una instancia del tipo, que es un gemelo digital. Por ejemplo, después de crear un modelo de Floor, puede crear uno o varios gemelos digitales que usen este tipo (como un gemelo de tipo Floor denominado GroundFloor, otro denominado Floor2, etc.).
+Después de crear y cargar un modelo, su aplicación cliente puede crear una instancia del tipo, que es un gemelo digital. Por ejemplo, después de crear un modelo de Floor, puede crear uno o varios gemelos digitales que usen este tipo (como un gemelo de tipo Floor denominado "GroundFloor", otro denominado "Floor2", etc.).
 
 [!INCLUDE [digital-twins-versus-device-twins](../../includes/digital-twins-versus-device-twins.md)]
 
@@ -43,13 +43,13 @@ El resultado de este proceso es un conjunto de nodos (los gemelos digitales) con
 
 ## <a name="create-with-the-apis"></a>Creación con las API
 
-En esta sección se muestra en qué se basa la creación de gemelos digitales y relaciones desde una aplicación cliente. Contiene ejemplos de código de .NET que usan las [API de DigitalTwins](/rest/api/digital-twins/dataplane/twins), para proporcionar contexto adicional sobre lo que sucede dentro de cada uno de estos conceptos.
+En esta sección se muestra en qué se basa la creación de gemelos digitales y relaciones desde una aplicación cliente. Contiene ejemplos de código de .NET que usan las [API de DigitalTwins](/rest/api/digital-twins/dataplane/twins) para proporcionar más contexto sobre lo que sucede dentro de cada uno de estos conceptos.
 
 ### <a name="create-digital-twins"></a>Creación de gemelos digitales
 
 A continuación se muestra un fragmento de código de cliente que usa las [API de DigitalTwins](/rest/api/digital-twins/dataplane/twins) para crear una instancia de un gemelo de tipo Room con un elemento `twinId` que se define durante dicha creación.
 
-Puede inicializar las propiedades de un gemelo cuando se crea o hacerlo más adelante. Para crear un gemelo con propiedades inicializadas, cree un documento JSON que proporcione los valores de inicialización necesarios.
+Puede inicializar las propiedades de un gemelo cuando se crea o más adelante. Para crear un gemelo con propiedades inicializadas, cree un documento JSON que proporcione los valores de inicialización necesarios.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="CreateTwin_noHelper":::
 
@@ -60,13 +60,13 @@ También puede usar una clase auxiliar denominada `BasicDigitalTwin` para almace
 
 ### <a name="create-relationships"></a>Crear relaciones
 
-Este es un ejemplo de código de cliente que usa las [API de DigitalTwins](/rest/api/digital-twins/dataplane/twins) para crear una relación entre un gemelo digital (el gemelo de "origen") y otro gemelo digital (el gemelo de "destino").
+A continuación figura un ejemplo de código de cliente que usa las [API de DigitalTwins](/rest/api/digital-twins/dataplane/twins) para crear una relación entre dos gemelos digitales (el gemelo de "origen" y el de "destino").
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_other.cs" id="CreateRelationship_short":::
 
 ## <a name="json-representations-of-graph-elements"></a>Representaciones JSON de elementos de grafo
 
-Los datos de gemelos digitales y los datos de relaciones se almacenan en formato JSON. Esto significa que, cuando [consulte el grafo de gemelos](how-to-query-graph.md) en la instancia de Azure Digital Twins, el resultado será una representación JSON de los gemelos digitales y las relaciones que ha creado.
+Los datos de gemelos digitales y los de relaciones se almacenan en formato JSON, es decir, cuando [consulte el grafo de gemelos](how-to-query-graph.md) en la instancia de Azure Digital Twins, el resultado será una representación JSON de los gemelos digitales y las relaciones que ha creado.
 
 ### <a name="digital-twin-json-format"></a>Formato JSON de gemelo digital
 
@@ -89,7 +89,7 @@ Si se representa como un objeto JSON, un gemelo digital mostrará los campos sig
 | `<component-name>.<property-name>` | Valor de la propiedad del componente en formato JSON (`string`, tipo de número u objeto). |
 | `<component-name>.$metadata` | Información de metadatos del componente, similar al nivel de raíz `$metadata`. |
 
-A continuación se muestra un ejemplo de gemelo digital formateado como un objeto JSON:
+A continuación se muestra un ejemplo de gemelo digital formateado como objeto JSON:
 
 ```json
 {
@@ -148,7 +148,7 @@ Si se representa como un objeto JSON, una relación de un gemelo digital mostrar
 | `$relationshipName` | Nombre de la relación. |
 | `<property-name>` | [Opcional] Valor de una propiedad de esta relación en formato JSON (`string`, tipo de número u objeto). |
 
-A continuación se muestra un ejemplo de relación formateada como un objeto JSON:
+A continuación se muestra un ejemplo de relación formateada como objeto JSON:
 
 ```json
 {

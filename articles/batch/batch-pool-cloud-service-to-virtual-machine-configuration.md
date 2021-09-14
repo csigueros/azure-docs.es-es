@@ -2,13 +2,13 @@
 title: Migración de la configuración del grupo de Batch de Cloud Services a Virtual Machines
 description: Obtenga información acerca de cómo actualizar la configuración del grupo a la configuración más reciente y recomendada.
 ms.topic: how-to
-ms.date: 03/11/2021
-ms.openlocfilehash: a176c4df1737a340a546b4ab7926447cd821350d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 09/03/2021
+ms.openlocfilehash: 9d4ce46c5291333f161f260c3b4706ea9dcf9a24
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103200558"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123538892"
 ---
 # <a name="migrate-batch-pool-configuration-from-cloud-services-to-virtual-machine"></a>Migración de la configuración del grupo de Batch de Cloud Services a la máquina virtual
 
@@ -36,7 +36,7 @@ Algunas de las diferencias principales entre las dos configuraciones son las sig
 - Los nodos del grupo "virtualMachineConfiguration" usan discos de sistema operativo administrados. El [tipo de disco administrado](../virtual-machines/disks-types.md) que se usa para cada nodo depende del tamaño de máquina virtual elegido para el grupo. Si se especifica un tamaño de máquina virtual "s" para el grupo, por ejemplo, "Standard_D2s_v3", se usa una SSD Premium. Si se especifica un tamaño de máquina virtual "no s", por ejemplo, "Standard_D2_v3", se usa una HDD estándar.
 
    > [!IMPORTANT]
-   > Al igual que con Virtual Machines y Virtual Machine Scale Sets, el disco administrado del SO que se usa para cada nodo conlleva un costo, que es adicional al costo de las máquinas virtuales. No hay nada de espacio en el disco del SO para los nodos "cloudServiceConfiguration", ya que el disco del SO se crea en el SSD local de los nodos.
+   > Al igual que con Virtual Machines y Virtual Machine Scale Sets, el disco administrado del SO que se usa para cada nodo conlleva un costo, que es adicional al costo de las máquinas virtuales. Los grupos "virtualMachineConfiguration" pueden usar [discos de SO efímeros](create-pool-ephemeral-os-disk.md), que crean el disco de SO en la caché de máquinas virtuales o SSD temporal, para evitar costos adicionales asociados a los discos administrados. No hay ningún costo de disco de SO para los nodos "cloudServiceConfiguration", ya que el disco de SO se crea en la SSD local de los nodos.
 
 ## <a name="azure-data-factory-custom-activity-pools"></a>Grupos de actividades personalizadas de Azure Data Factory
 

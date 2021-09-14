@@ -3,12 +3,12 @@ title: Acerca de Azure DevTest Labs | Microsoft Docs
 description: Aprenda cómo DevTest Labs puede facilitar la creación, la administración y la supervisión de máquinas virtuales de Azure
 ms.topic: article
 ms.date: 08/20/2021
-ms.openlocfilehash: 2d15bfd34e37036e95e06529e6c14588da15b34d
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+ms.openlocfilehash: 5ef1aabb861b90679fbb36e46b837d6567f122d4
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122969868"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123468049"
 ---
 # <a name="about-azure-devtest-labs"></a>Acerca de Azure DevTest Labs
 Azure DevTest Labs permite a los desarrolladores de los equipos administrar automáticamente y de forma eficaz las máquinas virtuales (VM) y los recursos PaaS sin esperar a las aprobaciones.
@@ -40,11 +40,11 @@ DevTest Labs proporciona las siguientes capacidades a desarrolladores que trabaj
 - Selección de una lista mantenida de plantilla de Resource Manager, que están configuradas y autorizadas por el responsable de equipo o el departamento de TI central.
 - Puesta en marcha de un grupo de recursos vacío (sandbox) mediante una plantilla de Resource Manager para explorar Azure en el contexto de un laboratorio.
 
-DevTest Labs también permite al departamento de TI central controlar los residuos, optimizar los costos en recursos y ceñirse a los presupuestos realizando las siguientes tareas:  
+DevTest Labs también permite al departamento de TI central controlar los residuos, optimizar los costos de los recursos y ceñirse a los presupuestos realizando las tareas siguientes:  
 
-- Establecer programaciones de inicio y apagado automáticos en las máquinas virtuales.
-- Establecimiento de directivas en el número de máquinas virtuales que los usuarios pueden crear.
-- Establecimiento de directivas sobre imágenes de la galería y tamaños de la máquina virtual que los usuarios pueden elegir.
+- Establecimiento de programaciones de inicio y apagado automáticos en las máquinas virtuales.
+- Establecimiento de directivas sobre el número de máquinas virtuales que los usuarios pueden crear.
+- Establecimiento de directivas sobre imágenes de la galería y tamaños de máquina virtual que los usuarios pueden elegir.
 - Seguimiento de costos y configuración de objetivos en los laboratorios.
 - Notificación de costos elevados previstos para laboratorios de manera que pueda realizar las acciones necesarias.
 

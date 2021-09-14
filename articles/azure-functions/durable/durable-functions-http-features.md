@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 05/11/2021
 ms.author: azfuncdf
-ms.openlocfilehash: 67a28bccf3353ed7e33826b0ef5b82fc1cc5f981
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 8f661ea1462ad00cdf0ddc5caa802b53d5d8fc20
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110376888"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123480451"
 ---
 # <a name="http-features"></a>Características de HTTP
 
@@ -277,7 +277,8 @@ La capacidad de usar API HTTP directamente desde las funciones de orquestador re
 La API "llamar a HTTP" puede implementar automáticamente el lado cliente del patrón de sondeo del consumidor. Si una API llamada devuelve una respuesta HTTP 202 con un encabezado de ubicación, la función de orquestador sondea automáticamente el recurso de ubicación hasta recibir una respuesta distinta de 202. Esta respuesta será la que se devuelva al código de la función de orquestador.
 
 > [!NOTE]
-> Las funciones de orquestador también admiten de forma nativa el patrón de sondeo del consumidor en el lado servidor, tal y como se describe en [Seguimiento de operaciones asincrónicas](#async-operation-tracking). Esta compatibilidad significa que las orquestaciones en una aplicación de función pueden coordinar fácilmente las funciones del orquestador en las demás aplicaciones de función. Esto es similar al concepto de [suborquestación](durable-functions-sub-orchestrations.md), pero con compatibilidad para la comunicación entre aplicaciones. Esta compatibilidad es especialmente útil para el desarrollo de aplicaciones del estilo microservicio.
+> 1. Las funciones de orquestador también admiten de forma nativa el patrón de sondeo del consumidor en el lado servidor, tal y como se describe en [Seguimiento de operaciones asincrónicas](#async-operation-tracking). Esta compatibilidad significa que las orquestaciones en una aplicación de función pueden coordinar fácilmente las funciones del orquestador en las demás aplicaciones de función. Esto es similar al concepto de [suborquestación](durable-functions-sub-orchestrations.md), pero con compatibilidad para la comunicación entre aplicaciones. Esta compatibilidad es especialmente útil para el desarrollo de aplicaciones del estilo microservicio.
+> 2. Debido a una limitación temporal, el patrón de sondeo HTTP integrado no está disponible actualmente en JavaScript, TypeScript y Python.
 
 ### <a name="managed-identities"></a>Identidades administradas
 

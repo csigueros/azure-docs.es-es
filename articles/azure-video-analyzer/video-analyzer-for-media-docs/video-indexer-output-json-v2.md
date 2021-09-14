@@ -1,5 +1,5 @@
 ---
-title: 'Examen de la salida de Azure Video Analyzer for Media (anteriormente, Video Indexer) producida por la API v2: Azure'
+title: Examen de la salida de la API v2 de Azure Video Analyzer for Media (anteriormente, Video Indexer)
 titleSuffix: Azure Video Analyzer for Media
 description: En este tema se examina la salida de Azure Video Analyzer for Media (anteriormente, Video Indexer) producida por la API v2.
 services: azure-video-analyzer
@@ -9,12 +9,12 @@ ms.topic: article
 ms.subservice: azure-video-analyzer-media
 ms.date: 11/16/2020
 ms.author: juliako
-ms.openlocfilehash: 11fcc36ec8ad6d5feb030d00be4fbf470237634f
-ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
+ms.openlocfilehash: b60eb67b734bfc6d180153e88144282a431f0f6f
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/15/2021
-ms.locfileid: "112115256"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123431357"
 ---
 # <a name="examine-the-video-analyzer-for-media-output"></a>Examen de la salida de Video Analyzer for Media
 
@@ -855,7 +855,7 @@ Video Analyzer for Media realiza la inferencia de los temas principales de las t
 |Nombre|Descripción|
 |---|---|
 |id|Id. del orador.|
-|name|Nombre del orador en forma de "Speaker # *<number>* ", por ejemplo: "Speaker #1".|
+|name|Nombre del orador en forma de "Speaker # *\<number\>* ", por ejemplo: "Speaker #1".|
 |instances |Lista de los intervalos de tiempo donde apareció este orador.|
 
 ```json

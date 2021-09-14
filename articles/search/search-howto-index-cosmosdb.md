@@ -7,12 +7,12 @@ ms.author: magottei
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/14/2021
-ms.openlocfilehash: 29a6041206496d7970e3ea58deed1754c062b663
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 389ecc550fd2b9e0fa41b7437b47aa5b40af3712
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121746287"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123450924"
 ---
 # <a name="index-data-from-azure-cosmos-db-using-sql-or-mongodb-apis"></a>Indexación de datos de Azure Cosmos DB mediante las API SQL y MongoDB
 
@@ -29,10 +29,6 @@ El indizador de Cosmos DB en Azure Cognitive Search puede rastrear [elementos d
 + Para [SQL API](../cosmos-db/sql-query-getting-started.md), que está disponible con carácter general, puede usar el [portal](#cosmos-indexer-portal), la [API REST](/rest/api/searchservice/indexer-operations), el [SDK de .NET](/dotnet/api/azure.search.documents.indexes.models.searchindexer) u otro SDK de Azure para crear el origen de datos y el indizador.
 
 + Para [MongoDB API (versión preliminar)](../cosmos-db/mongodb-introduction.md) puede usar el [portal](#cosmos-indexer-portal) o la [API REST, versión 2020-06-30-Preview](search-api-preview.md) para crear el origen de datos y el indexador.
-
-> [!Note]
-> En UserVoice puede votar por [Table API](https://feedback.azure.com/forums/263029-azure-search/suggestions/32759746-azure-search-should-be-able-to-index-cosmos-db-tab) si desea que se admita en Azure Cognitive Search.
->
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -59,7 +55,7 @@ Asegúrese de que la base de datos de Cosmos DB contiene datos. El [Asistente pa
 
 También puede [iniciar el asistente](search-import-data-portal.md) desde la barra de comandos de la página del servicio Azure Cognitive Search, o bien, si se va a conectar a SQL API de Cosmos DB, puede hacer clic en **Add Azure Cognitive Search** (Agregar Azure Cognitive Search) en la sección **Configuración** del panel de navegación izquierdo de la cuenta de Cosmos DB.
 
-   ![Comando de importación de datos en el portal](./media/search-import-data-portal/import-data-cmd2.png "Inicio del Asistente para la importación de datos")
+   :::image type="content" source="media/search-import-data-portal/import-data-cmd.png" alt-text="Captura de pantalla del comando para importar datos" border="true":::
 
 ### <a name="step-3---set-the-data-source"></a>Paso 3: configuración del origen de datos
 
@@ -185,7 +181,7 @@ El cuerpo de la solicitud contiene la definición del origen de datos, que debe 
 Puede especificar una consulta de SQL para eliminar el formato de las propiedades o matrices anidadas y de las propiedades JSON del proyecto, y para filtrar los datos que se van a indexar. 
 
 > [!WARNING]
-> No se admiten consultas personalizadas para **MongoDB API**: el parámetro `container.query` se debe establecer en NULL u omitirse. Si tiene que usar una consulta personalizada, háganoslo saber en [User Voice](https://feedback.azure.com/forums/263029-azure-search).
+> No se admiten consultas personalizadas para **MongoDB API**: el parámetro `container.query` se debe establecer en NULL u omitirse. 
 
 Documento de ejemplo:
 

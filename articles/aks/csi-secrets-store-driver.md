@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: how-to
 ms.date: 03/30/2021
 ms.custom: template-how-to, devx-track-azurecli
-ms.openlocfilehash: fd6ebf1534869fa96fe6249d302406583fe55e59
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 6b971849501eb4229dd4db8a58f7fc59843aef4b
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121733593"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123429053"
 ---
 # <a name="use-the-secrets-store-csi-driver-for-kubernetes-in-an-azure-kubernetes-service-aks-cluster-preview"></a>Uso del controlador Secrets Store CSI para Kubernetes en un clúster de Azure Kubernetes Service (AKS) (versión preliminar)
 
@@ -23,6 +23,10 @@ El controlador Secrets Store CSI para Kubernetes permite la integración de Azur
 - Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
 - Antes de empezar, instale la versión más reciente de la [CLI de Azure](/cli/azure/install-azure-cli-windows) y la extensión *aks-preview*.
+
+### <a name="supported-kubernetes-versions"></a>Versiones de Kubernetes compatibles en Azure Kubernetes Service (AKS).
+
+La versión mínima recomendada de Kubernetes para esta característica es la 1.18. 
 
 ## <a name="features"></a>Características
 

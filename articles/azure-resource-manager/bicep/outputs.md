@@ -2,13 +2,13 @@
 title: Salidas en Bicep
 description: Se describe cómo definir variables de salida en Bicep.
 ms.topic: conceptual
-ms.date: 06/01/2021
-ms.openlocfilehash: 25691bb31fbec0b00144619b97db019e13295661
-ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
+ms.date: 09/02/2021
+ms.openlocfilehash: 4cdf21eddcf14f5563c0c638f962585ad021e8ed
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "112201093"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123428765"
 ---
 # <a name="outputs-in-bicep"></a>Salidas en Bicep
 
@@ -18,9 +18,7 @@ El formato de cada valor de salida debe resolverse como uno de los [tipos de dat
 
 ## <a name="define-output-values"></a>Definición de valores de salida
 
-En el ejemplo siguiente se muestra cómo usar la palabra clave `output` para devolver una propiedad desde un recurso implementado.
-
-En el ejemplo siguiente, `publicIP` es el identificador (nombre simbólico) de una dirección IP pública implementada en el archivo de Bicep. El valor de salida obtiene el nombre de dominio completo de la dirección IP pública.
+En el ejemplo siguiente se muestra cómo usar la palabra clave `output` para devolver una propiedad desde un recurso implementado. En el ejemplo, `publicIP` es el identificador (nombre simbólico) de una dirección IP pública implementada en el archivo de Bicep. El valor de salida obtiene el nombre de dominio completo de la dirección IP pública.
 
 ```bicep
 output hostname string = publicIP.properties.dnsSettings.fqdn
@@ -35,6 +33,11 @@ var user = {
 
 output stringOutput string = user['user-name']
 ```
+
+En el ejemplo siguiente se muestra cómo devolver salidas de distintos tipos.
+
+:::code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/outputs/output.bicep":::
+
 
 ## <a name="conditional-output"></a>Salida condicional
 
@@ -105,14 +108,6 @@ publicIPAddress: {
   id: publicIP.outputs.resourceID
 }
 ```
-
-## <a name="example-template"></a>Plantilla de ejemplo
-
-La plantilla siguiente no implementa ningún recurso. Muestra algunas formas de devolver salidas de tipos diferentes.
-
-Actualmente, Bicep no admite bucles.
-
-:::code language="bicep" source="~/resourcemanager-templates/azure-resource-manager/outputs.bicep":::
 
 ## <a name="get-output-values"></a>Obtención de valores de salida
 

@@ -6,18 +6,18 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 02/14/2021
 ms.author: yalavi
-ms.openlocfilehash: bfa92a2fc58d479edd328dba9bf02d57ec66c0c9
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 64e9c454bfe8df9b65176fe344999e88204720d0
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102041100"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123539126"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>Alertas y supervisión unificadas de Azure Monitor reemplaza a alertas y supervisión clásicas
 
 Azure Monitor es una pila de supervisión unificada que admite "métricas unificadas" y "alertas unificadas" en los recursos de Azure. Para obtener más información, vea esta [entrada de blog](https://azure.microsoft.com/blog/new-full-stack-monitoring-capabilities-in-azure-monitor/). Las nuevas plataformas de supervisión y generación de alertas de Azure se han creado para ser más rápidas, inteligentes y extensibles (con lo que se sigue el ritmo de la creciente expansión de la informática en la nube y la línea de la filosofía de Microsoft Intelligent Cloud).
 
-Con la nueva plataforma de supervisión y alertas de Azure, se retiran las alertas clásicas de Azure Monitor para los usuarios de la nube pública, aunque se seguirán usando de forma limitada hasta el **31 de mayo de 2021**. Las alertas clásicas para la nube de Azure Government y Azure China 21Vianet se retirarán el **29 de febrero de 2024**.
+Con la nueva plataforma de supervisión y alertas de Azure, se han retirado las alertas clásicas de Azure Monitor para los usuarios de la nube pública. Las alertas clásicas para la nube de Azure Government y Azure China 21Vianet se retirarán el **29 de febrero de 2024**.
 
  ![Alerta clásica en Azure Portal](media/monitoring-classic-retirement/monitor-alert-screen2.png) 
 

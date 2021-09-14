@@ -8,12 +8,12 @@ ms.date: 02/25/2020
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: b197d91893cc419913ace60fe30beca88484bfd2
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
+ms.openlocfilehash: 65d8ad19426aca491260035364c4e99bfc1b5179
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111590961"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123469651"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2"></a>Introducción a Azure Data Lake Storage Gen2
 
@@ -70,9 +70,9 @@ A continuación, se muestran las entidades equivalentes, tal como se describen e
 
 ## <a name="supported-blob-storage-features"></a>Características de Blob Storage compatibles
 
-Las características de Blob Storage, como el [registro de diagnóstico](../common/storage-analytics-logging.md), los [niveles de acceso](storage-blob-storage-tiers.md) y las [directivas de administración del ciclo de vida de Blob Storage](storage-lifecycle-management-concepts.md) están disponibles en su cuenta. 
+Las características de Blob Storage, como el [registro de diagnóstico](../common/storage-analytics-logging.md), los [niveles de acceso](storage-blob-storage-tiers.md) y las [directivas de administración del ciclo de vida de Blob Storage](storage-lifecycle-management-concepts.md) están disponibles en su cuenta. La mayoría de las características de Blob Storage son totalmente compatibles, pero algunas solo se admiten en el nivel de versión preliminar o aún no se admiten.  
 
-Para ver una lista de las funciones de Blob Storage admitidas, consulte el artículo acerca de las [características de Blob Storage disponibles en Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md).
+Para ver cómo se admite cada característica de Blob Storage con Data Lake Storage Gen2, consulte [Compatibilidad con características de Blob Storage en cuentas de Azure Storage](storage-feature-support-in-storage-accounts.md).
 
 ## <a name="supported-azure-service-integrations"></a>Integraciones de servicios de Azure admitidos
 

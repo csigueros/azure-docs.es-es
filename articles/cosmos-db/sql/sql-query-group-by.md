@@ -5,19 +5,22 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 07/30/2021
+ms.date: 09/01/2021
 ms.author: tisande
-ms.openlocfilehash: 2aa08f0d2cf0ccb78d231e30e7c60cde47ba4c86
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 50d30ac0636f74715b3472c35b2801ac6452b624
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122206732"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123428819"
 ---
 # <a name="group-by-clause-in-azure-cosmos-db"></a>Cláusula GROUP BY en Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 La cláusula GROUP BY divide los resultados de la consulta de acuerdo con los valores de una o más propiedades especificadas.
+
+> [!NOTE]
+> La cláusula GROUP BY no se admite en el SDK de Python de Azure Cosmos DB.
 
 ## <a name="syntax"></a>Sintaxis
 
@@ -44,7 +47,7 @@ La cláusula GROUP BY divide los resultados de la consulta de acuerdo con los va
   Cuando una consulta utiliza una cláusula GROUP BY, la cláusula SELECT solo puede contener el subconjunto de propiedades y las funciones del sistema incluidas en la cláusula GROUP BY. Una excepción son las [funciones de agregado](sql-query-aggregate-functions.md), que pueden aparecer en la cláusula SELECT sin que se incluyan en la cláusula GROUP BY. También puede incluir siempre valores literales en la cláusula SELECT.
 
   La cláusula GROUP BY debe estar después de las cláusulas SELECT, FROM y WHERE y antes de la cláusula OFFSET LIMIT. Actualmente no se puede usar GROUP BY con una cláusula ORDER BY, si bien está previsto que sea posible hacerlo en el futuro.
-
+  
   La cláusula GROUP BY no permite nada de lo siguiente:
   
 - Propiedades de alias o funciones del sistema de alias (el alias sigue estando permitido en la cláusula SELECT)

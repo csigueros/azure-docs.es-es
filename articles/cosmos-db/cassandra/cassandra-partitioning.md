@@ -6,13 +6,13 @@ ms.author: thvankra
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
-ms.date: 05/20/2020
-ms.openlocfilehash: f3b6c41006c18e1b5e211b36756250dba28ae1d8
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/03/2021
+ms.openlocfilehash: 192d18349b783cccb8548dc0983c6d3e386f39e9
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121780477"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123468337"
 ---
 # <a name="partitioning-in-azure-cosmos-db-cassandra-api"></a>Creación de particiones en Cassandra API de Azure Cosmos DB
 [!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
@@ -86,9 +86,20 @@ Cuando se devuelven datos, se ordenan por la clave de agrupación en clústeres,
 
 :::image type="content" source="./media/cassandra-partitioning/select-from-pk.png" alt-text="Captura de pantalla que muestra los datos devueltos ordenados por la clave de agrupación en clústeres.":::
 
+> [!WARNING]
+> Al consultar datos, si *solo* quiere filtrar por el elemento de valor de clave de partición de una clave principal compuesta (como en el caso anterior), asegúrese de *agregar explícitamente un índice secundario en la clave de partición*:
+>
+>    ```shell
+>    CREATE INDEX ON uprofile.user (user);
+>    ```
+>
+> Azure Cosmos DB Cassandra API no aplica índices a las claves de partición de forma predeterminada, y el índice de este escenario puede mejorar significativamente el rendimiento de las consultas. Revise nuestro artículo sobre [indexación secundaria](secondary-indexing.md) para obtener más información.
+
 Con los datos modelados de esta manera, se pueden asignar varios registros a cada partición, agrupados por usuario. Por tanto, se puede emitir una consulta que se enrute de forma eficaz mediante el elemento `partition key` (en este caso, `user`) para obtener todos los mensajes de un usuario determinado. 
 
 :::image type="content" source="./media/cassandra-partitioning/cassandra-partitioning2.png" alt-text="Diagrama que muestra cómo se pueden asignar varios registros a cada partición, agrupados por usuario." border="false":::
+
+
 
 
 ## <a name="composite-partition-key"></a>Clave de partición compuesta

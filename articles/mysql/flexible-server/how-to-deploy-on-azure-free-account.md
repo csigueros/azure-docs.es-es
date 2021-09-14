@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 08/16/2021
 ms.custom: template-how-to
-ms.openlocfilehash: e8f678db8b5df57ec716d80c9bde04a2ecc2b7a3
-ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
+ms.openlocfilehash: 8d0de4a365d7eab09330371baa40b3f427348d29
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122868670"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123540431"
 ---
 # <a name="use-an-azure-free-account-to-try-azure-database-for-mysql---flexible-server-for-free"></a>Uso de una cuenta gratuita de Azure para probar gratis Azure Database for MySQL: servidor flexible
 
@@ -24,7 +24,7 @@ En este artículo se muestra cómo crear y usar un servidor flexible de forma gr
 
 
 > [!IMPORTANT]
-> Actualmente, Azure Database for MySQL: servidor flexible se encuentra en versión preliminar pública.
+> Actualmente, Azure Database for MySQL: Servidor flexible se encuentra en versión preliminar pública.
 
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -63,7 +63,7 @@ Para completar este tutorial, necesita:
 
     |Configuración    |Valor sugerido    |Descripción  |
     |---------|---------|---------|
-    |Subscription    |Su suscripción    |Seleccione la suscripción de evaluación gratuita de Azure.|
+    |Suscripción    |Su suscripción    |Seleccione la suscripción de evaluación gratuita de Azure.|
     |Resource group    |Su grupo de recursos    |Escriba un nuevo grupo de recursos o uno existente de la suscripción.|
     |Nombre de servidor    |mydemoserver-mysql    |Especifique un nombre único para identificar el servidor flexible. El nombre de dominio mysql.database.azure.com se anexa al nombre del servidor proporcionado. El nombre del servidor solo puede contener letras minúsculas, números y el carácter de guion (-). Debe contener entre 3 y 63 caracteres.|
     |Region    |Región más cercana a los usuarios    |Seleccione una ubicación de la lista, preferiblemente la ubicación más cercana a los usuarios.|
@@ -109,7 +109,7 @@ Para completar este tutorial, necesita:
     :::image type="content" source="media/how-to-deploy-on-azure-free-account/review-and-create.png" alt-text="Captura de pantalla que muestra la hoja Revisar y crear.":::
 
     >[!IMPORTANT]
-    >Siempre que use su cuenta gratuita de Azure y el uso del servicio gratuito esté dentro de los límites mensuales (para ver la información de uso, consulte la sección [**Supervisión y seguimiento del uso de servicios gratuitos**](#monitor-and-track-free-services-usage) a continuación), no se le cobrará por el servicio. Actualmente estamos trabajando para mejorar la experiencia de **resumen de costos** para los servicios gratuitos. 
+    >Al crear la instancia de servidor flexible a partir de la cuenta gratuita de Azure, verá un **costo estimado al mes** en la hoja **Proceso y almacenamiento: Resumen del costo** y la pestaña **Revisar y crear**. Sin embargo, siempre que use su cuenta gratuita de Azure y el uso del servicio gratuito esté dentro de los límites mensuales (para ver la información de uso, consulte la sección [**Supervisión y seguimiento del uso de los servicios gratuitos**](#monitor-and-track-free-services-usage) a continuación), no se le cobrará por el servicio. Actualmente estamos trabajando para mejorar la experiencia de **resumen de costos** para los servicios gratuitos. 
     
 1. Seleccione **Crear** para realizar el aprovisionamiento del servidor. 
  

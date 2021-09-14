@@ -6,12 +6,12 @@ ms.subservice: process-automation
 ms.date: 04/19/2020
 ms.topic: tutorial
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 45c7bb19e3f48fedf93fbb147a3014e09914a475
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: c0efb162b624cd6bc1ca2266c51506b49bb07f2b
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107831283"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123480289"
 ---
 # <a name="tutorial-create-a-powershell-workflow-runbook"></a>Tutorial: Creación de un runbook de flujo de trabajo de PowerShell
 
@@ -227,9 +227,7 @@ Actualmente, el runbook inicia la máquina virtual que ha codificado en el runbo
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para obtener más información sobre PowerShell, incluidos los módulos de referencia de lenguaje y aprendizaje, consulte la [documentación de PowerShell](/powershell/scripting/overview).
-* Para ver una referencia de los cmdlets de PowerShell, consulte [Az.Automation](/powershell/module/az.automation).
-* Para empezar a trabajar con runbooks gráficos, consulte [Creación de un runbook gráfico](automation-tutorial-runbook-graphical.md).
-* Para empezar a trabajar con Runbooks de PowerShell, consulte [Creación de un runbook de PowerShell](automation-tutorial-runbook-textual-powershell.md).
-* Para aprender más sobre los tipos de runbook, sus ventajas y sus limitaciones, consulte [Tipos de runbooks de Azure Automation](../automation-runbook-types.md).
-* Para más información sobre las características de compatibilidad con scripts de PowerShell, consulte [Anuncio de compatibilidad con scripts de PowerShell nativo en Azure Automation](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/).
+En este tutorial, ha creado un runbook de flujo de trabajo de PowerShell. Para examinar los runbooks de Python 3, consulte:
+
+> [!div class="nextstepaction"]
+> [Tutorial: Creación de un runbook de Python 3 (versión preliminar)](automation-tutorial-runbook-textual-python-3.md)

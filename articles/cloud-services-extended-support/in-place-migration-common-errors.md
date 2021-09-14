@@ -9,12 +9,12 @@ ms.author: hirshah
 ms.reviewer: mimckitt
 ms.date: 2/08/2021
 ms.custom: ''
-ms.openlocfilehash: cdfb7dd5d09d6925de23be70df18037165776a18
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: ce0c3bb4386e2fcc48ca57a1cd53978fc684d98c
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121751116"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123540962"
 ---
 # <a name="common-errors-and-known-issues-when-migration-to-azure-cloud-services-extended-support"></a>Errores comunes y problemas conocidos al migrar a Azure Cloud Services (soporte extendido)
 
@@ -69,6 +69,8 @@ Errores de migración comunes y pasos de mitigación.
 | XrpVirtualNetworkMigrationError: Error de migración de la red virtual. | Use [Microsoft Q&A](/answers/topics/azure-cloud-services-extended-support.html) o póngase en contacto con el soporte técnico. | 
 | La implementación {0} de HostedService {1} pertenece a la red virtual {2}. Migre la red virtual {2} para migrar este HostedService {1}. | Consulte [Migración de redes virtuales](in-place-migration-technical-details.md#virtual-network-migration). | 
 | La cuota actual para el nombre de recurso en Azure Resource Manager es insuficiente para completar la migración. La cuota actual es de {0}, el adicional necesario es de {1}. Genere una solicitud de soporte técnico para aumentar la cuota y vuelva a intentar la migración una vez que se haya aumentado la cuota.    | Siga los canales adecuados para solicitar un aumento de la cuota: <br>[Aumento de la cuota de recursos de red](../azure-portal/supportability/networking-quota-requests.md) <br>[Aumento de cuota de recursos de proceso](../azure-portal/supportability/per-vm-quota-requests.md) | 
+|XrpPaaSMigrationCscfgCsdefValidationMismatch: no se ha podido completar la migración en la implementación "nombre_de_implementación" en el servicio hospedado "nombre_del_servicio" porque los metadatos de la implementación están obsoletos. Anule la migración y actualice la implementación antes de reintentar la migración. Mensaje de validación: el nombre del servicio "nombre_del_servicio" en el archivo de definición de servicio no coincide con el nombre "nombre_del_servicio_en_el_archivo de configuración" en el archivo de configuración del servicio|coincide con los nombres de servicio en los archivos .csdef y .cscfg|
+|NetworkingInternalOperationError al implementar un recurso de servicio en la nube (compatibilidad ampliada)| El problema se puede producir si el nombre del servicio es el mismo que el nombre del rol. La corrección recomendada consiste en usar nombres diferentes para el servicio y los roles|
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información sobre los requisitos de la migración, consulte [Detalles técnicos de la migración a Azure Cloud Services (soporte extendido)](in-place-migration-technical-details.md).

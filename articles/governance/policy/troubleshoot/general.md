@@ -1,14 +1,14 @@
 ---
 title: Solución de errores comunes
 description: Aprenda a solucionar problemas relacionados con la creación de definiciones de directivas, los diversos SDK y el complemento para Kubernetes.
-ms.date: 06/29/2021
+ms.date: 09/01/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: 45c5b420ddd4eab70e381f31e7c46eeeb380b2b5
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 0ab4319a7a0d515b51c8bbe259ad0ea49ed2b940
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113087097"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123433609"
 ---
 # <a name="troubleshoot-errors-with-using-azure-policy"></a>Solución de errores mediante Azure Policy
 
@@ -79,6 +79,7 @@ Para solucionar los problemas de la definición de directiva, haga lo siguiente:
 1. En el caso de los recursos no compatibles que se espera que sean compatibles, consulte [Determinación de las razones del no cumplimiento](../how-to/determine-non-compliance.md). La comparación de la definición con el valor de propiedad evaluado indica por qué un recurso no era compatible.
    - Si el **valor de destino** es incorrecto, revise la definición de la directiva.
    - Si el **valor actual** es incorrecto, valide la carga de recursos a través de `resources.azure.com`.
+1. Para una definición de [modo de proveedor de recursos](../concepts/definition-structure.md#resource-provider-modes) que admita un parámetro de cadena de expresión regular (como `Microsoft.Kubernetes.Data` y la definición integrada "Las imágenes de contenedor solo deben implementarse desde registros de confianza"), compruebe que el parámetro [Cadena de expresión regular](/dotnet/standard/base-types/regular-expression-language-quick-reference) es correcto.
 1. Para otros problemas y soluciones comunes, consulte [Solución de problemas: La aplicación no es la esperada](#scenario-enforcement-not-as-expected).
 
 Si todavía tiene un problema con la definición de la directiva integrada duplicada y personalizada, o la definición personalizada, cree una incidencia de soporte técnico en **Creación de una directiva** para dirigir el problema correctamente.
@@ -153,7 +154,7 @@ Se muestra un mensaje de error en la página de cumplimiento de Azure Portal al 
 
 El número de suscripciones en los ámbitos seleccionados en la solicitud ha superado el límite de 5000 suscripciones. Los resultados del cumplimiento pueden mostrarse parcialmente.
 
-#### <a name="resolution"></a>Resolución
+#### <a name="resolution"></a>Solución
 
 Para ver los resultados completos, seleccione un ámbito más granular con menos suscripciones secundarias.
 
@@ -327,6 +328,26 @@ Este error significa que la suscripción se determinó como problemática y se a
 #### <a name="resolution"></a>Solución
 
 Para investigar y resolver este problema, [póngase en contacto con el equipo de características](mailto:azuredg@microsoft.com).
+
+### <a name="scenario-definitions-in-category-guest-configuration-cannot-be-duplicated-from-azure-portal"></a>Escenario: las definiciones de la categoría "Configuración de invitado" no se pueden duplicar desde Azure Portal
+
+#### <a name="issue"></a>Problema
+
+Al intentar crear una definición de directiva personalizada desde la página de definiciones de directiva en Azure Portal, seleccione el botón "Duplicar definición". Después de asignar la directiva, encontrará máquinas que son _NonCompliant_ debido a que no existe ningún recurso de asignación de configuración de invitado.
+
+#### <a name="cause"></a>Causa
+
+La configuración de invitado se basa en metadatos personalizados agregados a las definiciones de directiva al crear recursos de asignación de configuración de invitado. La actividad "Duplicar definición" de Azure Portal no copia metadatos personalizados.
+
+#### <a name="resolution"></a>Solución
+
+En lugar de usar el portal, duplique la definición de directiva mediante la API Policy Insights. En el siguiente ejemplo de PowerShell se proporciona una opción.
+
+```powershell
+# duplicates the built-in policy which audits Windows machines for pending reboots
+$def = Get-AzPolicyDefinition -id '/providers/Microsoft.Authorization/policyDefinitions/4221adbc-5c0f-474f-88b7-037a99e6114c' | % Properties
+New-AzPolicyDefinition -name (new-guid).guid -DisplayName "$($def.DisplayName) (Copy)" -Description $def.Description -Metadata ($def.Metadata | convertto-json) -Parameter ($def.Parameters | convertto-json) -Policy ($def.PolicyRule | convertto-json -depth 15)
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

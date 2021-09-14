@@ -5,21 +5,21 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 06/11/2021
+ms.date: 09/01/2021
 ms.author: victorh
-ms.openlocfilehash: f28092c050e58c6ef90a3faf07034be21198008a
-ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
+ms.openlocfilehash: 1aaea272e83bf39f2f4aa7e373b26ae28aadbda0
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112017206"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123430331"
 ---
 # <a name="use-fqdn-filtering-in-network-rules"></a>Uso del filtrado de FQDN en reglas de red
 
 Un nombre de dominio completo (FQDN) representa un nombre de dominio de un host o una o varias direcciones IP. Puede usar FQDN en reglas de red basadas en la resolución DNS en la directiva de firewall y Azure Firewall. Esta funcionalidad permite filtrar el tráfico saliente con cualquier protocolo TCP/UDP (incluidos NTP, SSH, RDP y mucho más). Debe habilitar el proxy DNS para usar FQDN en sus reglas de red. Para obtener más información, consulte [Configuración DNS de Azure Firewall](dns-settings.md).
 
 > [!NOTE]
-> Por diseño, el filtrado de FQDN no admite caracteres comodín.
+> Por diseño, el filtrado de FQDN en reglas de red no admite caracteres comodín.
 
 ## <a name="how-it-works"></a>Funcionamiento
 

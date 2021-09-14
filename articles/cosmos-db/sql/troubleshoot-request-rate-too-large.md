@@ -4,16 +4,16 @@ description: Aprenda a diagnosticar y corregir las excepciones de tasa de solici
 author: j82w
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.date: 07/13/2020
+ms.date: 08/25/2021
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: b6cc09868b65cc6ea71904973904f35a03e8eb21
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 44ecb59508b93347ba57fb40a88c274adfedd320
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123114221"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123434059"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-request-rate-too-large-429-exceptions"></a>Diagnóstico y solución de problemas de las excepciones de tasa de solicitudes demasiado grande (429) en Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -56,10 +56,10 @@ En general, para una carga de trabajo de producción, si ve entre el 1 y el 5 %
 Una partición de nivel de acceso frecuente surge cuando una o varias claves de partición lógica consumen una cantidad desproporcionada del total de RU/s debido a un mayor volumen de solicitudes. Esto puede deberse a un diseño de clave de partición que no distribuye uniformemente las solicitudes. Como resultado, muchas solicitudes se dirigen a un pequeño subconjunto de particiones lógicas (lo que implica a las físicas) que pasan a ser de "nivel de acceso frecuente". Dado que todos los datos de una partición lógica residen en una partición física y el total de RU/s se distribuye uniformemente entre las particiones físicas, una partición de nivel de acceso frecuente puede dar lugar a errores 429 y a un uso ineficaz del rendimiento. 
 
 Estos son algunos ejemplos de estrategias de creación de particiones que conducen a particiones de nivel de acceso frecuente:
-- Tiene un contenedor que almacena datos de dispositivo IoT para una carga de trabajo con mucha escritura que se particiona por fecha. Todos los datos de una sola fecha residirán en la misma partición lógica y física. Dado que todos los datos escritos cada día tienen la misma fecha, dará lugar a una partición de nivel de acceso frecuente todos los días. 
-    - En su lugar, para este escenario, una clave de partición como un identificador (ya sea un GUID o un id. de dispositivo) o una [clave de partición sintética](./synthetic-partition-keys.md) que combine el identificador y la fecha produciría una mayor cardinalidad de valores y una mejor distribución del volumen de solicitudes.
-- Tiene un escenario multiinquilino con un contenedor particionado por tenantId. Si un inquilino está considerablemente más activo que los demás, se produce una partición de nivel de acceso frecuente. Por ejemplo, si el inquilino más grande tiene 100 000 usuarios, pero la mayoría de los inquilinos tienen menos de 10 usuarios, tendrá una partición de nivel de acceso frecuente cuando se particione por tenantID. 
-    - En el escenario anterior, considere la posibilidad de tener un contenedor dedicado para el inquilino más grande, particionado por una propiedad más granular, como UserId. 
+- Tiene un contenedor que almacena datos de dispositivo IoT para una carga de trabajo con mucha escritura que se particiona por `date`. Todos los datos de una sola fecha residirán en la misma partición lógica y física. Dado que todos los datos escritos cada día tienen la misma fecha, dará lugar a una partición de nivel de acceso frecuente todos los días. 
+    - En su lugar, para este escenario, una clave de partición como `id` (ya sea un GUID o un id. de dispositivo), o una [clave de partición sintética](./synthetic-partition-keys.md) que combine `id` y `date` produciría una mayor cardinalidad de valores y una mejor distribución del volumen de solicitudes.
+- Tiene un escenario multiinquilino con un contenedor particionado por `tenantId`. Si un inquilino está considerablemente más activo que los demás, se produce una partición de nivel de acceso frecuente. Por ejemplo, si el inquilino más grande tiene 100 000 usuarios, pero la mayoría de los inquilinos tienen menos de 10 usuarios, tendrá una partición de nivel de acceso frecuente cuando se particione por `tenantID`. 
+    - En el escenario anterior, considere la posibilidad de tener un contenedor dedicado para el inquilino más grande, particionado por una propiedad más granular, como `UserId`. 
     
 #### <a name="how-to-identify-the-hot-partition"></a>Identificación de la partición de nivel de acceso frecuente
 
@@ -95,7 +95,7 @@ Esta salida de ejemplo muestra que, en un minuto determinado, la clave de partic
 Revise las instrucciones sobre [cómo elegir una buena clave de partición](../partitioning-overview.md#choose-partitionkey).
 
 Si hay un alto porcentaje de solicitudes con limitación de tasa y no hay ninguna partición de nivel de acceso frecuente:
-- Puede [aumentar las RU/s](../set-throughput.md) en la base de datos o el contenedor mediante los SDK de cliente, Azure Portal, PowerShell, la CLI o la plantilla de ARM.  
+- Puede [aumentar las RU/s](../set-throughput.md) en la base de datos o el contenedor mediante los SDK de cliente, Azure Portal, PowerShell, la CLI o la plantilla de ARM. Siga los [procedimientos recomendados para escalar el rendimiento aprovisionado (RU/s)](../scaling-provisioned-throughput-best-practices.md) a fin de determinar las RU/s adecuadas que se deben establecer.
 
 Si hay un alto porcentaje de solicitudes con limitación de tasa y hay una partición de nivel de acceso frecuente subyacente:
 -  A largo plazo, para obtener el mejor costo y rendimiento, considere la posibilidad de **cambiar la clave de partición**. La clave de partición no se puede actualizar localmente, por lo que es necesario migrar los datos a un nuevo contenedor con una clave de partición diferente. Azure Cosmos DB admite una [herramienta de migración de datos en directo](https://devblogs.microsoft.com/cosmosdb/how-to-change-your-partition-key/) para este propósito.

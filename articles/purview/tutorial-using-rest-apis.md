@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/03/2020
-ms.openlocfilehash: bfb808c634ba946e1a4825d7828db6df8963352c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: de49c820100140f0822149bba84f7a38f034323b
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98951249"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123473287"
 ---
 # <a name="tutorial-use-the-rest-apis"></a>Tutorial: Uso de las API REST
 
@@ -79,20 +79,22 @@ Para configurar Azure Purview para que confíe en la nueva entidad de servicio:
 
 1. Vaya a la cuenta de Purview.
 
-1. En la página **Purview account** (Cuenta de Purview), seleccione la pestaña **Access control (IAM)** (Control de acceso [IAM]).
+1. En la página de la **cuenta de Purview**, abra **Purview Studio**.
 
-1. Haga clic en **+Agregar**.
+1. Seleccione **Data Map** (Mapa de datos) en el menú izquierdo.
 
-1. Seleccione **Agregar asignación de roles**.
+1. Seleccione **Collections** (Colecciones).
 
-1. Para el tipo de rol en **Purview Data Curator** (Administrador de datos de Purview)
+1. Seleccione la colección raíz en el menú de colecciones. Es la colección superior de la lista y tendrá el mismo nombre que la cuenta de Purview.
+
+1. Seleccione la pestaña **Asignaciones de roles**.
+
+1. Desplácese hacia abajo hasta **Data curators** (Seleccionadores de datos) y seleccione el botón **+** (Usuario).
 
     > [!Note]
-    > Para más información sobre los permisos del catálogo de datos de Azure Purview, consulte [Permisos del catálogo](catalog-permissions.md). Por ejemplo, si necesita permiso para desencadenar el examen, el tipo de rol debe ser **Administrador del origen de datos de Purview**.
+    > Solo los administradores de colecciones pueden editar los permisos de una colección. Si no es un administrador de colecciones, póngase en contacto con uno de los administradores que aparecen en la colección raíz. Para más información, consulte la [página de permisos de Purview](catalog-permissions.md).
 
-1. En **Assign access to** (Asignar acceso a), deje el valor predeterminado, **User, group, or service principal** (Usuario, grupo o entidad de servicio).
-
-1. En **Select** (Seleccionar), escriba el nombre de la entidad de servicio creada anteriormente que desee asignar y haga clic en su nombre en el panel de resultados.
+1. Busque el nombre de la entidad de servicio creada anteriormente que desee asignar y haga clic en su nombre en el panel de resultados.
 
 1. Haga clic en **Guardar**.
 

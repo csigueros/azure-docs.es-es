@@ -7,13 +7,13 @@ author: mgottein
 ms.author: magottei
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/27/2021
-ms.openlocfilehash: 49aad9132d57c07022fd5515cbc07c32d94a5132
-ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
+ms.date: 09/07/2021
+ms.openlocfilehash: 650f5f40bf8b8fc0909b4fec85ef6b5724a2e3c7
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2021
-ms.locfileid: "112982900"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123539831"
 ---
 # <a name="indexer-troubleshooting-guidance-for-azure-cognitive-search"></a>Solución de problemas comunes con el indizador en Azure Cognitive Search
 
@@ -61,6 +61,12 @@ En tales casos, la máquina virtual de Azure o la instancia administrada de SQL 
 La etiqueta de servicio `AzureCognitiveSearch` se puede usar directamente en las [reglas de NSG](../virtual-network/manage-network-security-group.md#work-with-security-rules) de entrada sin necesidad de buscar su intervalo de direcciones IP.
 
 Se describen más detalles sobre el acceso a los datos en una instancia administrada de SQL [aquí](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md).
+
+## <a name="azure-sql-database-serverless-indexing-error-code-40613"></a>Indexación de Azure SQL Database sin servidor (código de error 40613)
+
+Si la base de datos SQL está en un [nivel de proceso sin servidor](../azure-sql/database/serverless-tier-overview.md), asegúrese de que la base de datos se está ejecutando (y no está en pausa) cuando el indexador se conecta a ella.
+
+Si la base de datos está en pausa, el primer inicio de sesión del servicio de búsqueda reanudará automáticamente la base de datos, pero también devolverá un error que indica que la base de datos no está disponible con el código de error 40613. Una vez ejecutada la base de datos, vuelva a intentar el inicio de sesión para establecer la conectividad.
 
 ## <a name="sharepoint-online-conditional-access-policies"></a>Directivas de acceso condicional de SharePoint Online
 

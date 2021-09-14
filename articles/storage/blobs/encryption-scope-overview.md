@@ -9,20 +9,18 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 0d8f1a7e0312ea350a5a34c13d8389b240c14476
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 9c73d8865b2cd019e940a753425d13b67567b39b
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114472475"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123471215"
 ---
 # <a name="encryption-scopes-for-blob-storage"></a>Ámbitos de cifrado para Blob Storage
 
 Los ámbitos de cifrado permiten administrar el cifrado con una clave cuyo ámbito es un contenedor o un blob individual. Se pueden usar ámbitos de cifrado para crear límites seguros entre los datos que residen en la misma cuenta de almacenamiento, pero que pertenecen a clientes distintos.
 
 Para obtener más información acerca de cómo trabajar con ámbitos de cifrado, consulte [Creación y administración de ámbitos de cifrado](encryption-scope-manage.md).
-
-[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 ## <a name="how-encryption-scopes-work"></a>Funcionamiento de los ámbitos de cifrado
 
@@ -82,7 +80,16 @@ Tenga en cuenta que las claves administradas por el cliente están protegidas po
 > [!IMPORTANT]
 > No es posible eliminar un ámbito de cifrado.
 
+## <a name="feature-support"></a>Compatibilidad de características
 
+En esta tabla, se muestra cómo se admite esta característica en la cuenta y el impacto en la compatibilidad al habilitar determinadas funcionalidades. 
+
+| Tipo de cuenta de almacenamiento                | Blob Storage (compatibilidad predeterminada)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>    
+|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
+| De uso general estándar, v2 | ![Sí](../media/icons/yes-icon.png) |![No](../media/icons/no-icon.png)              | ![No](../media/icons/no-icon.png) | 
+| Blobs en bloques Premium          | ![Sí](../media/icons/yes-icon.png) |![No](../media/icons/no-icon.png)              | ![No](../media/icons/no-icon.png) |
+
+<sup>1</sup> Data Lake Storage Gen2 y el protocolo Network File System (NFS) 3.0 necesitan una cuenta de almacenamiento con un espacio de nombres jerárquico habilitado.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

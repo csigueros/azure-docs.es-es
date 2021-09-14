@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 07/12/2021
 ms.author: cherylmc
 ms.custom: contperf-fy2q1-portal
-ms.openlocfilehash: f23a21bdba5602dad2e38ee931a5e754f0607cde
-ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
+ms.openlocfilehash: fe1cc48b3106d4874e151ed8be114e6a98e51720
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2021
-ms.locfileid: "114730600"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123434202"
 ---
 # <a name="what-is-azure-bastion"></a>¿Qué es Azure Bastion?
 
@@ -28,7 +28,7 @@ Bastion proporciona conectividad segura de RDP y SSH a todas las máquinas virtu
 * **RDP y SSH directamente en Azure Portal:** puede ir directamente a la sesión RDP y SSH en Azure Portal con un solo clic y sin problemas.
 * **Sesión remota a través de TLS y recorrido del firewall para RDP/SSH:** Azure Bastion usa un cliente web basado en HTML5 que se transmite automáticamente al dispositivo local. Obtiene la sesión RDP/SSH a través de TLS en el puerto 443, lo que le permite recorrer firewalls corporativos de forma segura.
 * **No se requiere ninguna dirección IP pública en la máquina virtual de Azure:** Azure Bastion abre la conexión RDP/SSH a la máquina virtual de Azure con la dirección IP privada en la máquina virtual. No necesita una dirección IP pública en su máquina virtual.
-* **No hay problemas de administración de los NSG:** Azure Bastion es un servicio PaaS de Azure de plataforma totalmente administrada que se refuerza internamente para proporcionar una conexión RDP/SSH segura. No es necesario que aplique ningún NSG en la subred de Azure Bastion. Dado que Azure Bastion se conecta a las máquinas virtuales a través de la dirección IP privada, puede configurar los NSG para permitir RDP o SSH solo desde Azure Bastion. De este modo se evita tener que administrar los NSG cada vez que necesite conectarse de forma segura a las máquinas virtuales.
+* **No hay problemas de administración de los grupos de seguridad de red (NSG)** : Azure Bastion es un servicio PaaS de Azure de plataforma totalmente administrada que se refuerza internamente para proporcionar una conectividad RDP/SSH segura. No es necesario que aplique ningún NSG en la subred de Azure Bastion. Dado que Azure Bastion se conecta a las máquinas virtuales a través de la dirección IP privada, puede configurar los NSG para permitir RDP o SSH solo desde Azure Bastion. De este modo se evita tener que administrar los NSG cada vez que necesite conectarse de forma segura a las máquinas virtuales. Para más información sobre los grupos de seguridad de red, consulte [Grupos de seguridad de red](../virtual-network/network-security-groups-overview.md#security-rules).
 * **Protección contra la exploración de puertos:** ya que no es necesario exponer las máquinas virtuales a Internet pública, las máquinas virtuales están protegidas contra la exploración de puertos por parte de usuarios malintencionados o no autorizados que se encuentran fuera de la red virtual.
 * **Protección frente a explotaciones de día cero. Protección en un solo lugar:** Azure Bastion es un servicio PaaS totalmente administrado de plataforma. Dado que se encuentra en el perímetro de la red virtual, no es necesario preocuparse por proteger cada una de las máquinas virtuales de la red virtual. La plataforma de Azure protege contra ataques de día cero manteniendo automáticamente el servicio Azure Bastion protegido y siempre actualizado.
 

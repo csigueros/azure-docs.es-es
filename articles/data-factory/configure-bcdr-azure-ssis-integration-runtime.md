@@ -13,12 +13,12 @@ ms.reviewer: douglasl
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/05/2021
-ms.openlocfilehash: 453f1db3e0f80a63c058c7e0ea21ab9282295de6
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 71e85c44c951e7ce556e920a1316fe9a029c892c
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121735421"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123428808"
 ---
 # <a name="configure-azure-ssis-integration-runtime-for-business-continuity-and-disaster-recovery-bcdr"></a>Configuración de Azure-SSIS Integration Runtime para continuidad empresarial y recuperación ante desastres (BCDR) 
 
@@ -68,19 +68,7 @@ Para configurar un par de Azure-SSIS IR en espera dual que funcione en sincroni
 
    Al [seleccionar usar SSISDB](./create-azure-ssis-integration-runtime.md#creating-ssisdb) en la página **Configuración de la implementación** del panel **Configuración de Integration Runtime**, active también la casilla **Use dual standby Azure-SSIS Integration Runtime pair with SSISDB failover** (Usar el par de Azure-SSIS Integration Runtime en modo de espera dual con conmutación por error de SSISDB). En **Dual standby pair name** (Nombre de par en espera dual), escriba el mismo nombre para identificar el par de Azure-SSIS IR principal y secundario. Al completar la creación de la instancia de Azure-SSIS IR secundaria, se iniciará y adjuntará a la SSISDB secundaria.
 
-1. Azure SQL Managed Instance puede proteger la información confidencial de las bases de datos, como SSISDB, si los cifra mediante la clave maestra de base de datos (DMK). DMK a su vez se cifra mediante la clave maestra de servicio (SMK) de forma predeterminada. En el momento de la escritura, el grupo de conmutación por error de Azure SQL Managed Instance no replica la SMK desde la instancia administrada principal de Azure SQL, por lo que la DMK y, a su vez, SSISDB, no se pueden descifrar en la instancia administrada de Azure SQL secundaria después de que se produzca la conmutación por error. Para solucionarlo, puede agregar un cifrado de contraseña para que la DMK se descifre en la instancia administrada de Azure SQL secundaria. Complete los pasos siguientes con SSMS.
-
-   1. Ejecute el comando siguiente para SSISDB en la instancia administrada de Azure SQL principal a fin de agregar una contraseña para cifrar la DMK.
-
-      ```sql
-      ALTER MASTER KEY ADD ENCRYPTION BY PASSWORD = 'YourPassword'
-      ```
-   
-   1. Ejecute el comando siguiente para SSISDB en las instancias administradas de Azure SQL principal y secundaria a fin de agregar una contraseña nueva para descifrar la DMK.
-
-      ```sql
-      EXEC sp_control_dbmasterkey_password @db_name = N'SSISDB', @password = N'YourPassword', @action = N'add'
-      ```
+1. Azure SQL Managed Instance puede proteger la información confidencial de las bases de datos, como SSISDB, si los cifra mediante la clave maestra de base de datos (DMK). DMK a su vez se cifra mediante la clave maestra de servicio (SMK) de forma predeterminada. Desde septiembre de 2021, SMK se replica desde la instancia principal de Azure SQL Managed Instance a la secundaria durante la creación del grupo de conmutación por error. Si el grupo de conmutación por error se creó antes, elimine todas las bases de datos de usuario, incluida SSISDB, de la instancia secundaria de Azure SQL Managed Instance y vuelva a crear el grupo de conmutación por error.
 
 1. Si quiere tener un tiempo de inactividad prácticamente nulo cuando se produzca la conmutación por error de SSISDB, mantenga las instancias de Azure-SSIS IR en ejecución. Solo la instancia de Azure-SSIS IR principal puede acceder a la SSISDB principal para capturar y ejecutar paquetes, así como escribir registros de ejecución de paquetes, mientras que la instancia de Azure-SSIS IR secundaria solo puede hacer lo mismo para los paquetes implementados en otra parte, por ejemplo, en Azure Files.
 

@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 47400f8e359f8f5f7a05119eb91106b318a0e798
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: 3a19493657e368bf65921f4be7bdd5c9154b77a4
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113729585"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123536786"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Preguntas más frecuentes (P+F) sobre Azure Files
 [Azure Files](storage-files-introduction.md) le ofrece recursos compartidos de archivos en la nube totalmente administrados, a los que se puede obtener acceso mediante el protocolo [Bloque de mensajes del servidor (SMB)](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) estándar y el [protocolo Network File System (NFS)](https://en.wikipedia.org/wiki/Network_File_System) (versión preliminar). Los recursos compartidos de archivos de Azure se pueden montar simultáneamente en implementaciones de Windows, Linux y macOS en la nube o locales. También puede almacenar en caché recursos compartidos de archivos de Azure en máquinas con Windows Server mediante Azure File Sync para tener un acceso rápido cerca de donde se usan los datos.
@@ -105,6 +105,23 @@ En este artículo se responden las preguntas más frecuentes sobre las caracter�
    **¿Cuánto tiempo tarda Azure File Sync en cargar 1 TB de datos?**
   
     El rendimiento variará en función de la configuración del entorno, la configuración y si se trata de una sincronización inicial o de una en curso. Para más información, vea [Métricas de rendimiento de Azure File Sync](storage-files-scale-targets.md#azure-file-sync-performance-metrics).
+
+* <a id="afs-initial-upload"></a>
+   **¿Qué es la carga inicial de datos para Azure File Sync?**
+  
+    **Sincronización inicial de datos de Windows Server con un recurso compartido de archivos de Azure**: muchas implementaciones de Azure File Sync comienzan con un recurso compartido de archivos de Azure vacío porque todos los datos están en el servidor de Windows. En estos casos, la enumeración inicial de cambios en la nube es rápida y la mayor parte del tiempo se dedica a sincronizar los cambios de Windows Server con los recursos compartidos de archivos de Azure.
+
+Mientras la sincronización carga los datos en el recurso compartido de archivos de Azure, no hay tiempo de inactividad en el servidor de archivos local y los administradores pueden configurar los límites de red para restringir la cantidad de ancho de banda que se usa para la carga de datos en segundo plano.
+
+La sincronización inicial suele estar limitada por la velocidad de carga inicial de 20 archivos por segundo/por grupo de sincronización. Los clientes pueden calcular el tiempo de carga de todos sus datos en Azure con las siguientes fórmulas para obtener el tiempo en días:
+
+**Tiempo (en días) para la carga de archivos en un grupo de sincronización = (número de objetos en el punto de conexión del servidor)/(20*60*60*24)**
+
+* <a id="afs-initial-upload-server-restart"></a>
+   **¿Cuál es el impacto si el servidor se detiene y se reinicia durante la carga inicial?** No hay ningún impacto. Azure File Sync se reanudará de la sincronización una vez que se reinicie el servidor desde el punto en que haya parado
+
+* <a id="afs-initial-upload-server-changes"></a>
+   **¿Cuál es el impacto si se realizan cambios en los datos en el punto de conexión del servidor durante la carga inicial?** No hay ningún impacto. Azure File Sync conciliará los cambios realizados en el punto de conexión del servidor para asegurarse de que el punto de conexión en la nube y el punto de conexión del servidor están sincronizados
 
 * <a id="afs-conflict-resolution"></a>**Si se cambia el mismo archivo en dos servidores aproximadamente al mismo tiempo, ¿qué sucede?**  
     Azure File Sync usa una estrategia simple de resolución de conflictos: conservamos los cambios realizados en los archivos que se modifican en dos puntos de conexión al mismo tiempo. El cambio de escritura más reciente mantiene el nombre de archivo original. El archivo antiguo (según lo establecido por LastWriteTime) tiene el nombre del punto de conexión y el número de conflicto anexado al nombre de archivo. En el caso de los puntos de conexión de servidor, el nombre del punto de conexión es el nombre del servidor. Para los puntos de conexión de nube, el nombre del punto de conexión es **Cloud**. El nombre sigue esta taxonomía: 
@@ -226,6 +243,9 @@ En este artículo se responden las preguntas más frecuentes sobre las caracter�
  **¿Qué directivas de cumplimiento de datos admite Azure Files?**  
 
    Azure Files se ejecuta sobre la misma arquitectura de almacenamiento que se usa en otros servicios de almacenamiento de Azure Storage. Azure Files aplica las mismas directivas de cumplimiento de datos que se usan en otros servicios de Azure Storage. Para obtener más información sobre el cumplimiento de datos de Azure Storage, puede consultar [Ofertas de cumplimiento de Azure Storage](../common/storage-compliance-offerings.md) e ir al [Centro de confianza de Microsoft](https://microsoft.com/trustcenter/default.aspx).
+
+* <a id="afs-power-outage"></a>
+   **¿Cuál es el impacto en Azure File Sync si hay un corte de energía que apaga el punto de conexión del servidor?** No hay ningún impacto. Azure File Sync conciliará los cambios realizados en el punto de conexión del servidor para asegurarse de que el punto de conexión en la nube y el punto de conexión del servidor están sincronizados cuando el punto de conexión del servidor vuelva a estar en línea
 
 * <a id="file-auditing"></a>
  **¿Cómo se pueden auditar tanto el acceso a los archivos como los cambios que se realicen en ellos en Azure Files?**
@@ -440,9 +460,7 @@ En este artículo se responden las preguntas más frecuentes sobre las caracter�
 
 * <a id="share-snapshot-price"></a>
  **¿Cuánto cuestan las instantáneas de recurso compartido?**  
-     Durante la versión preliminar, no hay ningún cargo por la característica de instantánea de recurso compartido. Se seguirá aplicando la salida de almacenamiento estándar y los costos de transacción. Después de la disponibilidad general, se cobrará a las suscripciones la capacidad y las transacciones en las instantáneas de recurso compartido.
-     
-     Las instantáneas de recurso compartido son de naturaleza incremental. La instantánea de recurso compartido de base es el mismo recurso compartido. Todas las instantáneas de recurso compartido siguientes son incrementales y solo almacenan la diferencia de la instantánea de recurso compartido anterior. Se le facturará únicamente por el contenido cambiado. Si tiene un recurso compartido con 100 GB de datos, pero solo se han cambiado 5 GB desde la última instantánea de recurso compartido, esa instantánea de recurso compartido consumirá solo 5 GB adicionales y se le facturarán por tanto 105 GB. Para obtener más información sobre los cargos de salida estándar y de transacciones, vea la [página de precios](https://azure.microsoft.com/pricing/details/storage/files/).
+    Las instantáneas de recurso compartido son de naturaleza incremental. La instantánea de recurso compartido de base es el mismo recurso compartido. Todas las instantáneas de recurso compartido siguientes son incrementales y solo almacenan la diferencia de la instantánea de recurso compartido anterior. Se le facturará únicamente por el contenido cambiado. Si tiene un recurso compartido con 100 GB de datos, pero solo se han cambiado 5 GB desde la última instantánea de recurso compartido, esa instantánea de recurso compartido consumirá solo 5 GB adicionales y se le facturarán por tanto 105 GB. Para obtener más información sobre los cargos de salida estándar y de transacciones, vea la [página de precios](https://azure.microsoft.com/pricing/details/storage/files/).
 
 ## <a name="scale-and-performance"></a>Escala y rendimiento
 * <a id="files-scale-limits"></a>

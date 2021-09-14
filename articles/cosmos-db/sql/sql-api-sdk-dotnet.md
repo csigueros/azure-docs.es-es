@@ -9,14 +9,14 @@ ms.topic: reference
 ms.date: 06/18/2021
 ms.author: anfeldma
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: c4f637c00eb0e5c031debeb23538346c540b186d
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: ad4e9f32c943a11f8c8728f955de2238e240c6bb
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123113713"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123472045"
 ---
-# <a name="azure-cosmos-db-net-sdk-v2-for-sql-api-download-and-release-notes"></a>SDK de Azure Cosmos DB para .NET v2 para SQL API: descarga y notas de la versión
+# <a name="azure-cosmos-db-net-sdk-v2-for-sql-api-download-and-release-notes-deprecated"></a>SDK de Azure Cosmos DB para .NET v2 para SQL API: descarga y notas de la versión (en desuso)
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
@@ -25,7 +25,7 @@ ms.locfileid: "123113713"
 > * [SDK de .NET Core v2](sql-api-sdk-dotnet-core.md)
 > * [SDK de fuente de cambios de .NET, versión 2](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.js](sql-api-sdk-node.md)
-> * [SDK de Java v4](sql-api-sdk-java-v4.md)
+> * [SDK para Java v4](sql-api-sdk-java-v4.md)
 > * [Versión 2 del SDK de Java asincrónico](sql-api-sdk-async-java.md)
 > * [SDK de Java v2 sincrónico](sql-api-sdk-java.md)
 > * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
@@ -47,6 +47,11 @@ ms.locfileid: "123113713"
 |**Introducción**|[Introducción al SDK para .NET de Azure Cosmos DB](sql-api-get-started.md)|
 |**Tutorial de la aplicación web**|[Desarrollo de aplicaciones web con Azure Cosmos DB](sql-api-dotnet-application.md)|
 |**Plataforma admitida actualmente**|[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)|
+
+[!IMPORTANT]
+> El 31 de agosto de 2024 se retirará el SDK v2.x para .NET de Azure Cosmos DB; el SDK y todas las aplicaciones que lo usan seguirán funcionando; Azure Cosmos DB simplemente dejará de proporcionar mantenimiento y soporte técnico para este SDK. 
+> Se recomienda seguir estas instrucciones para migrar a la versión más reciente del SDK v3 para .NET.
+> 
 
 > [!NOTE]
 > Si usa .NET Framework, consulte la versión 3.x más reciente del [SDK de .NET](sql-api-sdk-dotnet-standard.md), que tiene como destino .NET Standard.

@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/26/2021
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 4f56571fb96f6d9baf28a119a978f2658de5616c
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: 834feed476c307bc1a16bf95719b630389e58511
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121860540"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123430799"
 ---
 # <a name="use-external-tables-with-synapse-sql"></a>Uso de tablas externas con Synapse SQL
 
@@ -297,6 +297,7 @@ CREATE EXTERNAL TABLE { database_name.schema_name.table_name | schema_name.table
         LOCATION = 'folder_or_filepath',  
         DATA_SOURCE = external_data_source_name,  
         FILE_FORMAT = external_file_format_name
+        [, TABLE_OPTIONS = N'{"READ_OPTIONS":["ALLOW_INCONSISTENT_READS"]}' ]
     )  
 [;]  
 
@@ -320,6 +321,8 @@ CREATE EXTERNAL TABLE admite la capacidad de configurar el nombre de columna, el
 
 Al leer archivos con formato Parquet, solo puede especificar las columnas que desea leer y omitir el resto.
 
+#### <a name="location"></a>LOCATION
+
 LOCATION = '*folder_or_filepath*'
 
 Especifica la carpeta o la ruta de acceso del archivo y el nombre de archivo de los datos reales en Azure Blob Storage. La ubicación empieza desde la carpeta raíz. La carpeta raíz es la ubicación de datos especificada en el origen de datos externo.
@@ -330,9 +333,15 @@ A diferencia de las tablas externas de Hadoop, las tablas externas nativas no de
  
 Tanto Hadoop como las tablas externas nativas omitirán los archivos con nombres que comiencen por un subrayado (_) o un punto (.).
 
+#### <a name="data_source"></a>DATA_SOURCE
+
 DATA_SOURCE = *external_data_source_name*: especifica el nombre del origen de datos externo que contiene la ubicación de los datos externos. Para crear un origen de datos externo, use[CREATE EXTERNAL DATA SOURCE](#create-external-data-source).
 
 FILE_FORMAT = *external_file_format_name*: especifica el nombre del objeto de formato de archivo externo que almacena el tipo de archivo y el método de compresión de los datos externos. Para crear un formato de archivo externo, use [CREATE EXTERNAL FILE FORMAT](#create-external-file-format).
+
+#### <a name="table_options"></a>OPCIONES DE TABLA
+
+TABLE_OPTIONS = *json options*. Especifica el conjunto de opciones que describen cómo leer los archivos subyacentes. Actualmente, la única opción disponible es `"READ_OPTIONS":["ALLOW_INCONSISTENT_READS"]`, que indica a la tabla externa que ignore las actualizaciones realizadas en los archivos subyacentes, aunque esto pueda provocar algunas operaciones de lectura incoherentes. Use esta opción solo en casos especiales en los que haya anexado archivos frecuentemente. Esta opción está disponible en el grupo de SQL sin servidor para el formato CSV.
 
 ### <a name="permissions-create-external-table"></a>Permisos de CREATE EXTERNAL TABLE
 

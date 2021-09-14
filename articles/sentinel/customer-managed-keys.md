@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/01/2021
 ms.author: yelevin
-ms.openlocfilehash: 66b9f5a2e4a0c62ab6847b9e851f8d04b1dbd0f8
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.openlocfilehash: d9f6ce8b85aae451fbab318b85f50fb0da7919a6
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122252884"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123541304"
 ---
 # <a name="set-up-azure-sentinel-customer-managed-key"></a>Configuración de claves administradas por el cliente en Azure Sentinel
 
@@ -27,7 +27,7 @@ En este artículo se proporciona información general y pasos para configurar un
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- La funcionalidad de CMK requiere un clúster dedicado de Log Analytics con al menos un nivel de compromiso de 1 TB/día. Varias áreas de trabajo se pueden vincular al mismo clúster dedicado; todas compartirán la misma clave administrada por el cliente.
+- La funcionalidad de CMK requiere un clúster dedicado de Log Analytics con al menos un nivel de compromiso de 500 GB/día. Se pueden vincular varias áreas de trabajo al mismo clúster dedicado; todas compartirán la misma clave administrada por el cliente.
 
 - Después de completar los pasos de esta guía y antes de usar el área de trabajo, para la confirmación de incorporación, póngase en contacto con el [grupo de productos de Azure Sentinel](mailto:azuresentinelCMK@microsoft.com).
 

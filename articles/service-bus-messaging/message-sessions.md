@@ -2,24 +2,24 @@
 title: Sesiones de mensajes de Azure Service Bus | Microsoft Docs
 description: En este artículo se explica cómo usar sesiones de para habilitar la administración ordenada y conjunta de secuencias sin enlace de mensajes relacionados.
 ms.topic: article
-ms.date: 04/19/2021
-ms.openlocfilehash: f3b6eae7b7f4d609df5067187595230aa6b86dba
-ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
+ms.date: 09/01/2021
+ms.openlocfilehash: 98430d7b9db857de6dc3dfb37e61908b236591f2
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107987171"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123433447"
 ---
 # <a name="message-sessions"></a>Sesiones de mensajes
-Las sesiones de Microsoft Azure Service Bus permiten la administración ordenada y conjunta de secuencias sin enlace de mensajes relacionados. Se pueden usar sesiones en patrones **FIFO (primero en entrar, primero en salir)** y de **solicitud-respuesta**. En este artículo se muestra cómo usar sesiones para implementar estos patrones al utilizar Service Bus. 
+Las sesiones de Azure Service Bus permiten la administración ordenada y conjunta de secuencias sin enlace de mensajes relacionados. Se pueden usar sesiones en patrones **FIFO (primero en entrar, primero en salir)** y de **solicitud-respuesta**. En este artículo se muestra cómo usar sesiones para implementar estos patrones al utilizar Service Bus. 
 
 > [!NOTE]
 > El nivel Básico de Service Bus no admite sesiones. Los niveles Estándar y Premium admiten sesiones. Para conocer las diferencias entre estos niveles, consulte [Precios de Service Bus](https://azure.microsoft.com/pricing/details/service-bus/).
 
 ## <a name="first-in-first-out-fifo-pattern"></a>Patrón FIFO (primero en entrar, primero en salir)
-Para realizar una garantía FIFO en Service Bus, use sesiones. Service Bus no prescribe con respecto a la naturaleza de la relación entre los mensajes, y tampoco define un modelo en particular para determinar dónde comienza o termina una secuencia de mensajes.
+Para realizar una garantía FIFO en Service Bus, use sesiones. Service Bus no prescribe la naturaleza de la relación entre los mensajes, y tampoco define un modelo concreto para determinar dónde comienza o termina una secuencia de mensajes.
 
-Cualquier remitente puede crear una sesión al enviar mensajes en un tema o una cola si se establece la propiedad **Id. de sesión** en algún identificador definido por la aplicación que sea único para la sesión. En el nivel de protocolo AMQP 1.0, este valor se asigna a la propiedad *group-id*.
+Cualquier remitente puede crear una sesión al enviar mensajes a un tema o una cola si se establece la propiedad **Id. de sesión** en algún identificador definido por la aplicación que sea único para la sesión. En el nivel de protocolo **AMQP 1.0**, este valor se asigna a la propiedad **group-id**.
 
 En las colas o suscripciones basadas en sesiones, las sesiones existen cuando hay al menos un mensaje con el id. sesión. Una vez que una sesión existe, no hay ningún tiempo o API definidos para cuando la sesión expira o desaparece. En teoría, se puede recibir un mensaje para una sesión hoy y el siguiente mensaje en un año, pero si el id. de sesión coincide, la sesión será la misma desde la perspectiva de Service Bus.
 
@@ -40,7 +40,7 @@ Las sesiones proporcionan la demultiplexación simultánea de flujos de mensajes
 
 El cliente que acepta una sesión crea un receptor de sesión. Cuando un cliente acepta y conserva la sesión, el cliente mantiene un bloqueo exclusivo sobre todos los mensajes con ese **id. de sesión** en la cola o suscripción. También mantendrá bloqueos exclusivos sobre todos los mensajes con el **id. de sesión** lleguen más adelante.
 
-El bloqueo se libera cuando se llama a los métodos relacionados con el cierre en el receptor o cuando expira el bloqueo. También hay métodos en el receptor para renovar los bloqueos. En su lugar, puede usar la característica de renovación automática de bloqueos, donde puede especificar el tiempo durante el que desea seguir renovando el bloqueo. El bloqueo de sesión debe tratarse como un bloqueo exclusivo en un archivo, lo que significa que la aplicación debería cerrar la sesión en cuanto ya no lo necesite o no espere ningún otro mensaje.
+El bloqueo se libera cuando se llama a los métodos de cierre en el receptor o cuando expira el bloqueo. También hay métodos en el receptor para renovar los bloqueos. En su lugar, puede usar la característica de renovación automática de bloqueos, donde puede especificar el tiempo durante el que desea seguir renovando el bloqueo. El bloqueo de sesión debe tratarse como un bloqueo exclusivo en un archivo, lo que significa que la aplicación debería cerrar la sesión en cuanto ya no lo necesite o no espere ningún otro mensaje.
 
 Cuando varios receptores simultáneos se extraen de la cola, los mensajes que pertenecen a una sesión determinada se envían al receptor específico que actualmente mantiene el bloqueo en esa sesión. Con esa operación, una secuencia de mensajes intercalados en una cola o suscripción se demultiplexa limpiamente en receptores diferentes, y esos receptores también pueden encontrarse en distintas máquinas cliente, puesto que la administración del bloqueo tiene lugar en el servidor, dentro de Service Bus.
 

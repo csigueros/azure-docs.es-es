@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: cfce86e74a5e32f266dd0bbad84a179d8158a687
-ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
+ms.openlocfilehash: 35a56131c55549cc5d33989579514fec3a0184c8
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2021
-ms.locfileid: "113303695"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123428243"
 ---
 # <a name="create-and-use-native-external-tables-using-sql-pools-in-azure-synapse-analytics"></a>Creación y uso de tablas externas nativas mediante grupos de SQL en Azure Synapse Analytics
 
@@ -127,6 +127,35 @@ Puede especificar el patrón que deben seguir los archivos para que la tabla ext
 
 > [!NOTE]
 > La tabla se crea en una estructura de carpetas con particiones, pero no se pueden eliminar algunas de estas particiones. Si desea mejorar el rendimiento omitiendo los archivos que no cumplen algunos criterios (como un año o un mes específicos), utilice las [vistas de datos externos](create-use-views.md#partitioned-views).
+
+## <a name="external-table-on-appendable-files"></a>Tabla externa en archivos anexables
+
+Los archivos a los que hace referencia una tabla externa no deben cambiarse mientras se ejecuta la consulta. En una consulta de ejecución larga, el grupo de SQL puede reintentar lecturas, leer partes de los archivos o incluso leer el archivo varias veces. Los cambios en el contenido del archivo provocarían resultados incorrectos. Por lo tanto, el grupo de SQL genera un error en la consulta si detecta que cambia la hora de modificación de algún archivo durante la ejecución de la consulta.
+En algunos escenarios, es posible que desee crear una tabla de los archivos que se anexan constantemente. Para evitar los errores de consulta debidos a archivos que se anexan constantemente, puede especificar que la tabla externa debe omitir las lecturas potencialmente incoherentes con el valor `TABLE_OPTIONS`.
+
+
+```sql
+CREATE EXTERNAL TABLE populationExternalTable
+(
+    [country_code] VARCHAR (5) COLLATE Latin1_General_BIN2,
+    [country_name] VARCHAR (100) COLLATE Latin1_General_BIN2,
+    [year] smallint,
+    [population] bigint
+)
+WITH (
+    LOCATION = 'csv/population/population.csv',
+    DATA_SOURCE = sqlondemanddemo,
+    FILE_FORMAT = QuotedCSVWithHeaderFormat,
+    TABLE_OPTIONS = N'{"READ_OPTIONS":["ALLOW_INCONSISTENT_READS"]}'
+);
+```
+
+La opción de lectura `ALLOW_INCONSISTENT_READS` deshabilitará la comprobación de la hora de modificación de los archivos durante el ciclo de vida de la consulta y leerá lo que esté disponible en los archivos a los que hace referencia la tabla externa. En los archivos anexables, el contenido existente no se actualiza y solo se agregan nuevas filas. Por lo tanto, se reduce la probabilidad de resultados incorrectos en comparación con los archivos actualizables. Esta opción podría permitirle leer los archivos anexados con frecuencia sin necesidad de administrar los errores.
+
+Esta opción solo está disponible en las tablas externas creadas con el formato de archivo CSV.
+
+> [!NOTE]
+> Como el nombre de la opción implica, el creador de la tabla acepta el riesgo de que los resultados no sean coherentes. En los archivos anexables, es posible que se obtengan resultados incorrectos si se fuerzan varias lecturas de los archivos subyacentes mediante la autocombinación de la tabla. En la mayoría de las consultas "clásicas", la tabla externa simplemente omitirá algunas filas anexadas mientras se estaba ejecutando la consulta.
 
 ## <a name="delta-lake-external-table"></a>Tabla externa de Delta Lake
 

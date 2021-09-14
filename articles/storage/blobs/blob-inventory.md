@@ -10,12 +10,12 @@ ms.author: normesta
 ms.reviewer: klaasl
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: 771a2f6ba2206394162f767e9ad8d139fdb9cdd4
-ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
+ms.openlocfilehash: bc827d0a4221e582054b297f7287fcb55f4142a8
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122270976"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123470695"
 ---
 # <a name="azure-storage-blob-inventory"></a>Inventario de blobs de Azure Storage
 
@@ -325,6 +325,19 @@ Si una regla contiene un prefijo que se superpone con otro de cualquier otra reg
 Las instantáneas y versiones de un blob también se tienen en cuenta en la facturación aunque haya establecido los filtros `includeSnapshots` y `includeVersions` en `false`. Dichos valores de filtro no afectan a la facturación. Solo se pueden usar para filtrar lo que aparece en el informe.
 
 Para obtener más información sobre los precios de los inventarios de blobs de Azure Storage, consulte la página [Precios de Azure Blob Storage](https://azure.microsoft.com/pricing/details/storage/blobs/).
+
+## <a name="feature-support"></a>Compatibilidad de características
+
+En esta tabla se muestra cómo se admite esta característica en la cuenta y el impacto en la compatibilidad al habilitar determinadas funcionalidades. 
+
+| Tipo de cuenta de almacenamiento                | Blob Storage (compatibilidad predeterminada)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>    
+|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
+| De uso general estándar, v2 | ![Sí](../media/icons/yes-icon.png) |![Sí](../media/icons/yes-icon.png)  <sup>2</sup>              | ![Sí](../media/icons/yes-icon.png)  <sup>2</sup> | 
+| Blobs en bloques Premium          | ![Sí](../media/icons/yes-icon.png)|![Sí](../media/icons/yes-icon.png)  <sup>2</sup> | ![Sí](../media/icons/yes-icon.png)  <sup>2</sup> |
+
+<sup>1</sup> Data Lake Storage Gen2 y el protocolo Network File System (NFS) 3.0 necesitan una cuenta de almacenamiento con un espacio de nombres jerárquico habilitado.
+
+<sup>2</sup> La característica se admite en el nivel de versión preliminar.
 
 ## <a name="known-issues"></a>Problemas conocidos
 

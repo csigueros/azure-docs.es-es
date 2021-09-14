@@ -11,12 +11,12 @@ author: jhirono
 ms.date: 08/04/2021
 ms.topic: how-to
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, security
-ms.openlocfilehash: 071306d550422f60f8bf8d6e8b442badce221287
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 2ed3e7d1525c750c698e853921900e6d39feb83e
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121739133"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123480361"
 ---
 # <a name="secure-an-azure-machine-learning-workspace-with-virtual-networks"></a>Protección de un área de trabajo de Azure Machine Learning con redes virtuales
 
@@ -27,8 +27,8 @@ En este artículo, aprenderá a proteger un área de trabajo de Azure Machine Le
 >
 > * [Información general sobre redes virtuales](how-to-network-security-overview.md)
 > * [Protección del entorno de entrenamiento](how-to-secure-training-vnet.md)
-> * [Protección del entorno de inferencia](how-to-secure-inferencing-vnet.md)
-> * [Habilitación de la función de Studio](how-to-enable-studio-virtual-network.md)
+> * [Protección de un entorno de inferencia](how-to-secure-inferencing-vnet.md)
+> * [Habilitación de Azure Machine Learning Studio en una red virtual](how-to-enable-studio-virtual-network.md)
 > * [Uso de un DNS personalizado](how-to-custom-dns.md)
 > * [Uso de un firewall](how-to-access-azureml-behind-firewall.md)
 >
@@ -67,6 +67,10 @@ En este artículo aprenderá a habilitar los siguientes recursos de áreas de tr
 * El área de trabajo de Azure Machine Learning debe contener un [clúster de proceso de Azure Machine Learning](how-to-create-attach-compute-cluster.md).
 
 ## <a name="limitations"></a>Limitaciones
+
+### <a name="azure-storage-account"></a>Cuenta de Azure Storage
+
+Si el área de trabajo de Azure Machine Learning y la cuenta de Azure Storage usan un punto de conexión privado para conectarse a la red virtual, las dos deben estar dentro de la misma subred.
 
 ### <a name="azure-container-registry"></a>Azure Container Registry
 
@@ -260,18 +264,22 @@ validate=False)
 
 ## <a name="securely-connect-to-your-workspace"></a>Conexión segura al área de trabajo
 
-Para conectarse al área de trabajo segura se pueden usar los métodos siguientes:
+Se pueden usar los métodos siguientes para conectarse al área de trabajo segura:
 
-* [Azure VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md): conecta redes locales a la red virtual a través de una conexión privada. La conexión se realiza a través de la red pública de Internet. Hay dos tipos de puertas de enlace de VPN que puede usar:
+* [Azure VPN Gateway:](../vpn-gateway/vpn-gateway-about-vpngateways.md) conecta redes locales a la VNet mediante una conexión privada. La conexión se realiza mediante la red pública de Internet. Hay dos tipos de puertas de enlace de VPN que puede usar:
 
     * [De punto a sitio](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md): cada equipo cliente usa un cliente VPN para conectarse a la red virtual.
     * [De sitio a sitio](../vpn-gateway/tutorial-site-to-site-portal.md): un dispositivo VPN conecta la red virtual a la red local.
 
-* [ExpressRoute](https://azure.microsoft.com/services/expressroute/): conecta redes locales a la nube a través de una conexión privada. La conexión se realiza mediante un proveedor de conectividad.
-* [Azure Bastion](../bastion/bastion-overview.md): en este escenario, se crea una máquina virtual de Azure (a veces denominada jumpbox) dentro de la red virtual. Después, conéctese a la máquina virtual con Azure Bastion. Bastion permite conectarse a la máquina virtual mediante una sesión RDP o SSH desde el explorador web local. Luego, se usa el jumpbox como entorno de desarrollo. Puesto que está dentro de la red virtual, puede acceder directamente al área de trabajo. Para obtener un ejemplo de cómo usar un jumpbox, vea [Tutorial: Creación de un área de trabajo segura](tutorial-create-secure-workspace.md).
+* [ExpressRoute:](https://azure.microsoft.com/services/expressroute/) conecta redes locales a la nube mediante una conexión privada. La conexión se realiza mediante un proveedor de conectividad.
+* [Azure Bastion:](../bastion/bastion-overview.md) en este escenario, se crea una máquina virtual de Azure (a veces denominada "jump box") dentro de la VNet. A continuación, se conecta a la máquina virtual mediante Azure Bastion. Bastion permite conectarse a la máquina virtual mediante una sesión RDP o SSH desde el explorador web local. A continuación, use la jump box como entorno de desarrollo. Puesto que está dentro de la VNet, puede acceder directamente al área de trabajo. Para obtener un ejemplo de cómo usar un jumpbox, vea [Tutorial: Creación de un área de trabajo segura](tutorial-create-secure-workspace.md).
 
 > [!IMPORTANT]
 > Al usar una __puerta de enlace de VPN__ o __ExpressRoute__, deberá planear cómo funciona la resolución de nombres entre los recursos locales y los de la red virtual. Para obtener más información, vea [Creación de un servidor DNS personalizado](how-to-custom-dns.md).
+
+## <a name="workspace-diagnostics"></a>Diagnóstico del área de trabajo
+
+[!INCLUDE [machine-learning-workspace-diagnostics](../../includes/machine-learning-workspace-diagnostics.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -279,7 +287,7 @@ Este artículo forma parte de una serie sobre la protección de un flujo de trab
 
 * [Información general sobre redes virtuales](how-to-network-security-overview.md)
 * [Protección del entorno de entrenamiento](how-to-secure-training-vnet.md)
-* [Protección del entorno de inferencia](how-to-secure-inferencing-vnet.md)
-* [Habilitación de la función de Studio](how-to-enable-studio-virtual-network.md)
+* [Protección de un entorno de inferencia](how-to-secure-inferencing-vnet.md)
+* [Habilitación de Azure Machine Learning Studio en una red virtual](how-to-enable-studio-virtual-network.md)
 * [Uso de un DNS personalizado](how-to-custom-dns.md)
 * [Uso de un firewall](how-to-access-azureml-behind-firewall.md)

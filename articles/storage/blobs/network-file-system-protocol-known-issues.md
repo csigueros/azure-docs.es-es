@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/21/2021
 ms.author: normesta
 ms.reviewer: yzheng
-ms.openlocfilehash: 8af0b4a5c26d70f9fdedc30d07c8953bfee76fb4
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: 9d54072c49fd0ce1571ebbcfced76d74ce18ea7a
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113727137"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123471109"
 ---
 # <a name="known-issues-with-network-file-system-nfs-30-protocol-support-in-azure-blob-storage"></a>Problemas conocidos con el protocolo Network File System (NFS) 3.0 en Azure Blob Storage
 
@@ -49,26 +49,9 @@ El cliente Windows para NFS aún no es compatible
 
 ## <a name="blob-storage-features"></a>Característica de Blob Storage
 
-Las siguientes características de Blob Storage aún no se admiten.
+Al habilitar la compatibilidad con el protocolo NFS 3.0, algunas características de Blob Storage serán totalmente compatibles, pero es posible que otras solo se admitan en el nivel de versión preliminar o que todavía no se admitan en absoluto.  
 
-- [Seguridad de Azure Active Directory (AD).](../common/authorize-data-access.md?toc=/azure/storage/blobs/toc.json)
-- [Integración de Azure Backup](../../backup/blob-backup-overview.md)
-- [Registro de Azure Storage Analytics](../common/storage-analytics-logging.md?toc=/azure/storage/blobs/toc.json)
-- [Etiquetas de índice de blobs](storage-blob-index-how-to.md)
-- [Eventos de Blob Storage](storage-blob-event-overview.md)
-- [Control de versiones de blobs](versioning-enable.md)
-- [Fuente de cambios](storage-blob-change-feed.md)
-- [Conmutación por error de cuenta administrada por el cliente](../common/storage-disaster-recovery-guidance.md?toc=/azure/storage/blobs/toc.json)
-- [Claves proporcionadas por el cliente para el cifrado de Azure Storage](encryption-customer-provided-keys.md) 
-- [Ámbitos de cifrado](encryption-scope-overview.md)
-- [Seguimiento de la hora del último acceso para la administración del ciclo de vida](storage-lifecycle-management-concepts.md#move-data-based-on-last-accessed-date-preview)
-- [Replicación de objetos para blobs en bloques](object-replication-overview.md)
-- [Blobs en páginas](storage-blobs-introduction.md#blobs)
-- [Restauración a un momento dado para blobs en bloques](point-in-time-restore-overview.md)
-- [Eliminación temporal para blobs](soft-delete-blob-overview.md)
-- [Eliminación temporal de contenedores](soft-delete-container-overview.md)
-- [Instantáneas de blob](snapshots-overview.md)
-- [Hospedaje de sitios web estáticos](storage-blob-static-website.md)
+Para ver cómo se admite cada característica de Blob Storage en cuentas que tienen habilitada la compatibilidad con NFS 3.0, vea [Compatibilidad con características de Blob Storage en cuentas de Azure Storage](storage-feature-support-in-storage-accounts.md).
 
 ## <a name="blob-storage-apis"></a>API de Blob Storage
 

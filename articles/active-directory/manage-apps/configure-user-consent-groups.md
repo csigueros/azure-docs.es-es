@@ -8,20 +8,28 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/19/2020
+ms.date: 08/31/2021
 ms.author: davidmu
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 1ce7254f92c4cc3d2a7dcf77885be88eda37099b
-ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
+ms.openlocfilehash: babc9da622fdca1365d5b963191775881ad992e8
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113567997"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123431935"
 ---
 # <a name="configure-group-owner-consent-to-apps-accessing-group-data"></a>Configuración del consentimiento del propietario del grupo para las aplicaciones que acceden a los datos del grupo
 
 Los propietarios de grupos y equipos pueden dar permiso a aplicaciones tales como las aplicaciones que publican otros proveedores, para obtener acceso a los datos de la organización asociados al grupo. Por ejemplo, el propietario de un equipo de Microsoft Teams puede permitir que una aplicación lea todos los mensajes de Teams del equipo o bien mostrar el perfil básico de los miembros de un grupo. Consulte [Consentimiento específico de recursos en Microsoft Teams](/microsoftteams/resource-specific-consent) para obtener más información.
+
+## <a name="prerequisites"></a>Requisitos previos
+
+Necesita lo siguiente para completar las tareas de esta guía:
+
+- Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Un rol de administrador global.
+- Configure Azure AD PowerShell. Vea [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/)
 
 ## <a name="manage-group-owner-consent-to-apps"></a>Administración del consentimiento del propietario del grupo para las aplicaciones
 

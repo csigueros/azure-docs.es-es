@@ -1,24 +1,24 @@
 ---
-title: Procedimientos recomendados para la carga de datos
-description: Recomendaciones y optimizaciones del rendimiento para cargar datos en un grupo de SQL dedicado en Azure Synapse Analytics.
+title: Procedimientos recomendados para la carga de datos para un grupo de SQL dedicado
+description: Recomendaciones y optimizaciones de rendimiento para cargar datos en un grupo de SQL dedicado en Azure Synapse Analytics.
 services: synapse-analytics
 author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql
-ms.date: 04/15/2020
+ms.date: 08/26/2021
 ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: a04bf8a1805fa55afac3d51a2d4f3ba353edf03c
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: ee3be53c6a52f0bc0a8ceab0424a7a6c99a0f441
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121860244"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123539594"
 ---
-# <a name="best-practices-for-loading-data-into-a-dedicated-sql-pool-azure-synapse-analytics"></a>Procedimientos recomendados para cargar datos en un grupo de SQL dedicado en Azure Synapse Analytics
+# <a name="best-practices-for-loading-data-into-a-dedicated-sql-pool-in-azure-synapse-analytics"></a>Procedimientos recomendados para cargar datos en un grupo de SQL dedicado en Azure Synapse Analytics
 
 En este artículo, encontrará recomendaciones y optimizaciones de rendimiento para la carga de datos.
 
@@ -40,27 +40,46 @@ Para una velocidad de carga más rápida, ejecute solo una carga de trabajo de c
 
 Para ejecutar cargas con recursos de proceso adecuados, cree usuarios de carga designados para ejecutar cargas. Asigne cada usuario de carga a un grupo de cargas de trabajo o una clase de recurso específicos. Para ejecutar una carga, inicie sesión como uno de los usuarios de carga y, a continuación, ejecute la carga. La carga se ejecuta con la clase de recurso del usuario.  Este método es más sencillo que intentar cambiar la clase de recursos de un usuario para que se ajuste a la necesidad actual de clase de recurso.
 
+
 ### <a name="create-a-loading-user"></a>Creación de un usuario de carga
 
-En este ejemplo se crea un usuario de carga para la clase de recurso staticrc20. El primer paso consiste en **conectarse al servidor principal** y crear un inicio de sesión.
+En este ejemplo se crea un usuario de carga clasificado en un grupo de cargas de trabajo específico. El primer paso consiste en **conectarse al servidor principal** y crear un inicio de sesión.
 
 ```sql
    -- Connect to master
-   CREATE LOGIN LoaderRC20 WITH PASSWORD = 'a123STRONGpassword!';
+   CREATE LOGIN loader WITH PASSWORD = 'a123STRONGpassword!';
 ```
 
-Conéctese al almacenamiento de datos y cree un usuario. El código siguiente da por supuesto que está conectado a la base de datos denominada mySampleDataWarehouse. Muestra cómo crear un usuario llamado LoaderRC20 y concederle el permiso de control de usuario en una base de datos. A continuación, agrega el usuario como miembro del rol de base de datos staticrc20.  
+Conéctese al grupo de SQL dedicado y cree un usuario. El código siguiente da por supuesto que está conectado a la base de datos llamada mySampleDataWarehouse. Muestra cómo crear un usuario llamado cargador y concede al usuario permisos para crear tablas y cargar mediante la [instrucción COPY](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true). A continuación, clasifica el usuario en el grupo de cargas de trabajo de DataLoads con un máximo de recursos. 
 
 ```sql
-   -- Connect to the database
-   CREATE USER LoaderRC20 FOR LOGIN LoaderRC20;
-   GRANT CONTROL ON DATABASE::[mySampleDataWarehouse] to LoaderRC20;
-   EXEC sp_addrolemember 'staticrc20', 'LoaderRC20';
+   -- Connect to the dedicated SQL pool
+   CREATE USER loader FOR LOGIN loader;
+   GRANT ADMINISTER DATABASE BULK OPERATIONS TO loader;
+   GRANT INSERT ON <yourtablename> TO loader;
+   GRANT SELECT ON <yourtablename> TO loader;
+   GRANT CREATE TABLE TO loader;
+   GRANT ALTER ON SCHEMA::dbo TO loader;
+   
+   CREATE WORKLOAD GROUP DataLoads
+   WITH ( 
+       MIN_PERCENTAGE_RESOURCE = 0
+       ,CAP_PERCENTAGE_RESOURCE = 100
+       ,REQUEST_MIN_RESOURCE_GRANT_PERCENT = 100
+    );
+
+   CREATE WORKLOAD CLASSIFIER [wgcELTLogin]
+   WITH (
+         WORKLOAD_GROUP = 'DataLoads'
+       ,MEMBERNAME = 'loader'
+   );
 ```
 
-Para ejecutar una carga con recursos de las clases de recursos staticRC20, inicie sesión como LoaderRC20 y ejecute la carga.
+<br><br>
+>[!IMPORTANT] 
+>Este es un ejemplo extremo de asignación del 100 % de los recursos del grupo de SQL a una sola carga. Esto le proporcionará una simultaneidad máxima de 1. Tenga en cuenta que esto solo debe usarse para la carga inicial, donde tendrá que crear grupos de cargas de trabajo adicionales con sus propias configuraciones para equilibrar los recursos en las cargas de trabajo. 
 
-Ejecute cargas en clases de recursos estáticas en lugar de dinámicas. El uso de clases de recursos estáticas garantiza los mismos recursos independientemente de las [unidades de almacenamiento de datos](resource-consumption-models.md). Si utiliza una clase de recursos dinámica, los recursos varían según el nivel de servicio. Para las clases dinámicas, un nivel de servicio inferior significa que probablemente necesita usar una clase de recursos más grande para el usuario de carga.
+Para ejecutar una carga con recursos para el grupo de cargas de trabajo de carga, inicie sesión como cargador y ejecute la carga. 
 
 ## <a name="allow-multiple-users-to-load"></a>Posibilidad de que varios usuarios realicen cargas
 
@@ -90,13 +109,17 @@ Los índices de almacén de columnas necesitan mucha memoria para comprimir los 
 
 ## <a name="increase-batch-size-when-using-sqlbulkcopy-api-or-bcp"></a>Aumento del tamaño de lote al usar SQLBulkCopy API o BCP
 
-Como se ha mencionado anteriormente, la carga con PolyBase proporcionará el mayor rendimiento con el grupo de SQL de Synapse. Si no puede usar PolyBase para la carga y debe emplear SQLBulkCopy API (o BCP), considere la posibilidad de aumentar el tamaño del lote para mejorar el rendimiento; se recomienda un tamaño de lote entre 100 000 y 1 millón de filas.
+
+La carga con la instrucción COPY proporcionará el mayor rendimiento con el grupo de SQL dedicado. Si no puede usar COPY para la carga y debe usar [SqLBulkCopy API](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) o [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true), considere la posibilidad de aumentar el tamaño del lote para mejorar el rendimiento.
+
+> [!TIP]
+> Un tamaño de lote entre 100 000 filas y 1 millón de filas es la línea de base recomendada para determinar la capacidad de tamaño de lote óptima. 
 
 ## <a name="manage-loading-failures"></a>Administración de errores al cargar
 
 Una carga que utiliza una tabla externa puede producir el error *"Consulta anulada: se alcanzó el umbral de rechazo máximo al leer desde un origen externo"* . Este mensaje indica que sus datos externos contienen registros con modificaciones. Un registro de datos se considera "con modificaciones" si los tipos de datos y l número de columnas no coincide con las definiciones de columna de la tabla externa o si los datos no se ajustan al formato de archivo externo especificado.
 
-Para corregir estos registros, asegúrese de que la tabla externa y las definiciones de formato de archivo externos son correctas y que los datos externos se ajustan a estas definiciones. En el caso de que un subconjunto de registros de datos externos contenga registros con modificaciones, puede rechazar estos registros para sus consultas mediante las opciones de rechazo en CREATE EXTERNAL TABLE.
+Para corregir estos registros, asegúrese de que la tabla externa y las definiciones de formato de archivo externos son correctas y que los datos externos se ajustan a estas definiciones. En el caso de que un subconjunto de registros de datos externos contenga registros con modificaciones, puede rechazar estos registros para sus consultas mediante las opciones de rechazo en [CREATE EXTERNAL TABLE](/sql/t-sql/statements/create-external-table-transact-sql?view=azure-sqldw-latest&preserve-view=true).
 
 ## <a name="insert-data-into-a-production-table"></a>Inserción de datos en una tabla de producción
 

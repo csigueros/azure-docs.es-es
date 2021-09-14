@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: dineshm
-ms.openlocfilehash: f07c249e3b7cb54283959df410d51ca18998f2cf
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 0194fcc344acfe6bc0d6c8731c2095d3938bd6e6
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102181523"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123471037"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Reacción ante eventos de Blob Storage
 
@@ -29,7 +29,7 @@ Si quiere probar los eventos de Blob Storage, consulte cualquiera de estos artí
 
 |Si desea utilizar esta herramienta:    |Consulte este artículo: |
 |--|-|
-|Azure portal    |[Inicio rápido: Enrutamiento de eventos de Blob Storage a un punto de conexión web personalizado con Azure Portal](../../event-grid/blob-event-quickstart-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|Portal de Azure    |[Inicio rápido: Enrutamiento de eventos de Blob Storage a un punto de conexión web personalizado con Azure Portal](../../event-grid/blob-event-quickstart-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |PowerShell    |[Inicio rápido: Enrutamiento de eventos de almacenamiento a un punto de conexión web con PowerShell](./storage-blob-event-quickstart-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Azure CLI    |[Inicio rápido: Enrutamiento de eventos de almacenamiento a un punto de conexión web con la CLI de Azure](./storage-blob-event-quickstart.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 
@@ -39,7 +39,7 @@ Para ver ejemplos detallados de cómo reaccionar a los eventos de Blob Storage m
 - [Tutorial: Automatización del cambio de tamaño de imágenes cargadas mediante Event Grid](../../event-grid/resize-images-on-storage-blob-upload-event.md?tabs=dotnet)
 
 >[!NOTE]
-> Solo las cuentas de almacenamiento de tipo **StorageV2 (uso general v2)** , **BlockBlobStorage** y **BlobStorage** admiten la integración de eventos. **Storage (uso general v1)** *no* admite la integración con Event Grid.
+> **Storage (uso general v1)** *no* admite la integración con Event Grid.
 
 ## <a name="the-event-model"></a>Modelo de evento
 
@@ -104,6 +104,16 @@ Las aplicaciones que controlan los eventos de Blob Storage deben seguir algunas 
 > * Ignore los campos que no comprenda. Esta práctica le ayudará a mantenerse resistente a las nuevas características que puedan agregarse en el futuro.
 > * Si desea asegurarse de que el evento **Microsoft.Storage.BlobCreated** se desencadena únicamente cuando un blob en bloques está completamente confirmado, filtre el evento para las llamadas de API REST `CopyBlob`, `PutBlob`, `PutBlockList` o `FlushWithClose`. Estas llamadas API desencadenan el evento **Microsoft.Storage.BlobCreated** únicamente después de que los datos se hayan confirmado en un blob en bloques. Para información sobre cómo crear un filtro, consulte [Filtrado de eventos para Event Grid](../../event-grid/how-to-filter-events.md).
 
+## <a name="feature-support"></a>Compatibilidad de características
+
+En esta tabla, se muestra cómo se admite esta característica en la cuenta y el impacto en la compatibilidad al habilitar determinadas funcionalidades. 
+
+| Tipo de cuenta de almacenamiento                | Blob Storage (compatibilidad predeterminada)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>    
+|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
+| De uso general estándar, v2 | ![Sí](../media/icons/yes-icon.png) |![Sí](../media/icons/yes-icon.png)              | ![No](../media/icons/no-icon.png) | 
+| Blobs en bloques Premium          | ![Sí](../media/icons/yes-icon.png) |![Sí](../media/icons/yes-icon.png)              | ![No](../media/icons/no-icon.png) |
+
+<sup>1</sup> Data Lake Storage Gen2 y el protocolo Network File System (NFS) 3.0 necesitan una cuenta de almacenamiento con un espacio de nombres jerárquico habilitado.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

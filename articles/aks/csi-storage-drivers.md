@@ -3,14 +3,14 @@ title: Habilitar los controladores de interfaz de almacenamiento de contenedores
 description: Aprenda a habilitar los controladores de interfaz de almacenamiento de contenedores (CSI) para discos de Azure y Azure Files en un clúster de Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
-ms.date: 08/27/2020
+ms.date: 08/31/2021
 author: palma21
-ms.openlocfilehash: 7aad80816a7bf8f6a1c55c8a4f1de1d4761fc523
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 7fe0aa073cf1ecb959bc7999ba59a2486c65b7e1
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121733597"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123429017"
 ---
 # <a name="enable-container-storage-interface-csi-drivers-for-azure-disks-and-azure-files-on-azure-kubernetes-service-aks"></a>Habilitación de los controladores de Container Storage Interface (CSI) para discos de Azure y Azure Files en Azure Kubernetes Service (AKS)
 
@@ -22,7 +22,9 @@ La compatibilidad con el controlador de almacenamiento CSI en AKS permite el uso
 
 > [!IMPORTANT]
 > A partir de la versión 1.21 de Kubernetes, Kubernetes solo usará controladores CSI de forma predeterminada. Estos controladores son el futuro de la compatibilidad con el almacenamiento en Kubernetes.
->
+> 
+> Quite los controladores CSI de Azure Disk y Azure File instalados manualmente antes de actualizar a AKS 1.21.
+> 
 > Los *controladores en árbol* hacen referencia a los controladores de almacenamiento actuales que forman parte del código principal de Kubernetes frente a los nuevos controladores CSI, que son complementos.
 
 ## <a name="limitations"></a>Limitaciones

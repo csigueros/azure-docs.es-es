@@ -9,12 +9,12 @@ metadata:
   ms.service: cognitive-search
   ms.topic: conceptual
   ms.date: 04/10/2020
-  ms.openlocfilehash: 70fe8e6f82d51ddb55b1763556f4684ef6244ddc
-  ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+  ms.openlocfilehash: 2bfa41d8a68d9640995ae6989ebd79a4b44c7c24
+  ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 06/22/2021
-  ms.locfileid: "112468108"
+  ms.lasthandoff: 09/03/2021
+  ms.locfileid: "123449090"
 title: 'Azure Cognitive Search: preguntas más frecuentes (P+F)'
 summary: Encuentre respuestas a preguntas habituales sobre conceptos, código y escenarios relacionados con Azure Cognitive Search.
 sections:
@@ -32,7 +32,7 @@ sections:
   questions:
   - question: >
       ¿Índices de copia de seguridad, restauración y movimiento o instantáneas de índices?
-    answer: "Durante la fase de desarrollo, es posible que quiera mover el índice entre los servicios de búsqueda. Por ejemplo, puede usar un plan de tarifa Básico o Gratis para desarrollar el índice y, después, puede que quiera moverlo al nivel Estándar o a uno más alto para usar en producción. \n\nO puede que quiera realizar una copia de seguridad de una instantánea de índice que se pueda usar para restaurarla más tarde. \n\nPuede realizar todas estas acciones con el ejemplo de código **index-backup-restore** de este [repositorio de ejemplo .NET de Azure Cognitive Search](https://github.com/Azure-Samples/azure-search-dotnet-samples). \n\nTambién puede [obtener una definición de índice](/rest/api/searchservice/get-index) en cualquier momento mediante la API REST de Azure Cognitive Search.\n\nActualmente no hay ninguna característica de extracción de índices, instantáneas o restauración de copias de seguridad en Azure Portal. Sin embargo, estamos considerando la opción de agregar la funcionalidad de restauración y copia de seguridad en una futura versión. Si quiere mostrar su apoyo para esta característica, vote en [User Voice](https://feedback.azure.com/forums/263029-azure-search/suggestions/8021610-backup-snapshot-of-index).\n"
+    answer: "Durante la fase de desarrollo, es posible que quiera mover el índice entre los servicios de búsqueda. Por ejemplo, puede usar un plan de tarifa Básico o Gratis para desarrollar el índice y, después, puede que quiera moverlo al nivel Estándar o a uno más alto para usar en producción. \n\nO puede que quiera realizar una copia de seguridad de una instantánea de índice que se pueda usar para restaurarla más tarde. \n\nPuede realizar todas estas acciones con el ejemplo de código **index-backup-restore** de este [repositorio de ejemplo .NET de Azure Cognitive Search](https://github.com/Azure-Samples/azure-search-dotnet-samples). \n\nTambién puede [obtener una definición de índice](/rest/api/searchservice/get-index) en cualquier momento mediante la API REST de Azure Cognitive Search.\n         \n"
   - question: >
       ¿Puedo restaurar mi índice o servicio una vez que los he eliminado?
     answer: "No, si elimina un servicio o índice de Azure Cognitive Search, no se puede recuperar. Cuando elimina un servicio de Azure Cognitive Search, se eliminarán permanentemente todos los índices en el servicio. Si elimina un grupo de recursos de Azure que contiene uno o varios servicios de Azure Cognitive Search, se eliminarán permanentemente todos los servicios.  \n\nPara volver a crear recursos, como índices, indexadores, orígenes de datos y conjuntos de habilidades, es necesario volver a crearlos desde el código. \n\nPara volver a crear un índice, debe volver a indexar los datos de orígenes externos. Por este motivo, se recomienda conservar una copia maestra o copia de seguridad de los datos originales en otro almacén de datos, como Azure SQL Database o Cosmos DB.\n\nTambién puede usar el ejemplo de código **index-backup-restore** de este [repositorio de ejemplo .NET de Azure Cognitive Search](https://github.com/Azure-Samples/azure-search-dotnet-samples) para realizar la copia de seguridad de una definición de índice e indexar instantáneas en una serie de archivos JSON. Más tarde, puede usar la herramienta y los archivos para restaurar el índice, en caso de que sea necesario.  \n"
@@ -49,7 +49,7 @@ sections:
   - question: >
       ¿Se puede restringir el acceso al índice de búsqueda según la identidad del usuario?
     answer: >
-      Puede implementar [filtros de seguridad](./search-security-trimming-for-azure-search.md) con el filtro `search.in()`. El filtro se integra bien con [servicios de administración de identidades como Azure Active Directory (AAD)](./search-security-trimming-for-azure-search-with-aad.md) para recortar los resultados de la búsqueda en función de la pertenencia a un grupo de usuarios definido.
+      Puede implementar [filtros de seguridad](./search-security-trimming-for-azure-search.md) con el filtro `search.in()`. El filtro se integra bien con [servicios de administración de identidades como Azure Active Directory (AAD)](./search-security-trimming-for-azure-search-with-aad.md) para recortar los resultados de la búsqueda en función de la pertenencia a un grupo de usuarios definido. También se puede registrar para el [acceso basado en roles](search-security-rbac.md), actualmente en versión preliminar pública.
   - question: >
       ¿Por qué hay cero coincidencias en términos que sé que son válidos?
     answer: >
@@ -83,4 +83,4 @@ sections:
       ¿Cuál es el mejor método para implementar la búsqueda localizada?
     answer: >
       La mayoría de los clientes eligen campos dedicados en una colección cuando se trata de admitir distintas configuraciones regionales (idiomas) en el mismo índice. Los campos específicos de la configuración regional permiten asignar un analizador adecuado. Por ejemplo, asignar Microsoft French Analyzer a un campo que contiene cadenas en francés. También simplifica el filtrado. Si sabe que una consulta se inicia en una página fr-fr, puede limitar los resultados de búsqueda a este campo. O bien, puede crear un [perfil de puntuación](/rest/api/searchservice/add-scoring-profiles-to-a-search-index) para dar al campo más peso relativo. Azure Cognitive Search admite más de [50 analizadores de lenguaje](./search-language-support.md) entre los que puede elegir.
-additionalContent: "\n## <a name=\"next-steps\"></a>Pasos siguientes\n   ¿Es su pregunta acerca de una característica o funcionalidad que falta? Solicite la característica en el [sitio web de User Voice](https://feedback.azure.com/forums/263029-azure-search).\n        \n## <a name=\"see-also\"></a>Consulte también\n   [StackOverflow: Azure Cognitive Search](https://stackoverflow.com/questions/tagged/azure-search)   \n   [Funcionamiento de la búsqueda de texto completo en Azure Cognitive Search](search-lucene-query-architecture.md)  \n   [¿Qué es Azure Cognitive Search?](search-what-is-azure-search.md)"
+additionalContent: "\n## <a name=\"see-also\"></a>Consulte también\n   [StackOverflow: Azure Cognitive Search](https://stackoverflow.com/questions/tagged/azure-search)   \n   [Funcionamiento de la búsqueda de texto completo en Azure Cognitive Search](search-lucene-query-architecture.md)  \n   [¿Qué es Azure Cognitive Search?](search-what-is-azure-search.md)"

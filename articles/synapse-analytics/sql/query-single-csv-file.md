@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 6744970ec7aadfc4a9cb967c479307b441f4fb1b
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 71f7bde0dcae54916c9657b724290778bb01652b
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114453057"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123430079"
 ---
 # <a name="query-csv-files"></a>Consulta de archivo CSV
 
@@ -336,6 +336,24 @@ WITH (
     --[population] bigint
 ) AS [r]
 ```
+
+## <a name="querying-appendable-files"></a>Consulta de archivos anexables
+
+Los archivos CSV que se usan en la consulta no deben cambiarse mientras esta se ejecuta. En una consulta de ejecución larga, el grupo de SQL puede reintentar lecturas, leer partes de los archivos o incluso leer el archivo varias veces. Los cambios en el contenido del archivo provocarían resultados incorrectos. Por lo tanto, el grupo de SQL genera un error en la consulta si detecta que cambia la hora de modificación de algún archivo durante la ejecución de la consulta.
+
+En algunos escenarios, es posible que desee leer los archivos que se anexan constantemente. Para evitar los errores de consulta debidos a archivos que se anexan constantemente, puede permitir que la función `OPENROWSET` omita las lecturas potencialmente incoherentes mediante el valor `ROWSET_OPTIONS`.
+
+```sql
+select top 10 *
+from openrowset(
+    bulk 'https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/ecdc_cases/latest/ecdc_cases.csv',
+    format = 'csv',
+    parser_version = '2.0',
+    firstrow = 2,
+    ROWSET_OPTIONS = '{"READ_OPTIONS":["ALLOW_INCONSISTENT_READS"]}') as rows
+```
+
+La opción de lectura `ALLOW_INCONSISTENT_READS` deshabilitará la comprobación de la hora de modificación de los archivos durante el ciclo de vida de la consulta y leerá lo que esté disponible en el archivo. En los archivos anexables, el contenido existente no se actualiza y solo se agregan nuevas filas. Por lo tanto, se reduce la probabilidad de resultados incorrectos en comparación con los archivos actualizables. Esta opción podría permitirle leer los archivos anexados con frecuencia sin necesidad de administrar los errores. En la mayoría de los escenarios, el grupo de SQL simplemente omitirá algunas filas que se anexaron a los archivos durante la ejecución de la consulta.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

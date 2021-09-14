@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/13/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: f70b876bd76eaf2fb7f8ca18cf3dabb7e66bf9b5
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: 5338c3173d84d3a72d17876dfec259f6769acf65
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113734021"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123481153"
 ---
 # <a name="authorize-access-to-blobs-using-azure-active-directory"></a>Autorice el acceso a blobs con Azure Active Directory
 
@@ -32,13 +32,13 @@ Cuando una entidad de seguridad (un usuario, un grupo o una aplicación) intenta
 
 El paso de autenticación exige que una aplicación solicite un token de acceso de OAuth 2.0 en tiempo de ejecución. Si una aplicación se ejecuta desde una entidad de Azure como una máquina virtual de Azure, un conjunto de escalado de máquinas virtuales o una aplicación de Azure Functions, puede usar una [identidad administrada](../../active-directory/managed-identities-azure-resources/overview.md) para acceder a los datos de blobs. Para más información sobre cómo autorizar solicitudes realizadas por una identidad administrada a Azure Blob service, consulte [Autorización del acceso a blobs con Azure Active Directory e identidades administradas para los recursos de Azure](../common/storage-auth-aad-msi.md).
 
-El paso de autorización exige que se asignen uno o varios roles de Azure a la entidad de seguridad. Azure Storage proporciona roles de Azure que abarcan conjuntos comunes de permisos para datos de blobs. Los roles que se asignan a una entidad de seguridad determinan los permisos que tiene esa entidad de seguridad. Para más información sobre la asignación de roles de Azure para acceder a blobs, consulte [Asignación de un rol de Azure para acceder a datos de blobs](../blobs/assign-azure-role-data-access.md).
+El paso de la autorización exige que se asignen uno o varios roles de Azure a la entidad de seguridad. Azure Storage proporciona roles de Azure que abarcan conjuntos comunes de permisos para datos de blobs. Los roles que se asignan a una entidad de seguridad determinan los permisos que tiene esa entidad de seguridad. Para más información sobre la asignación de roles de Azure para acceder a blobs, consulte [Asignación de un rol de Azure para acceder a datos de blobs](../blobs/assign-azure-role-data-access.md).
 
 Las aplicaciones nativas y las aplicaciones web que realizan solicitudes a Azure Blob service también pueden autorizar el acceso con Azure AD. Para información sobre cómo solicitar un token de acceso y usarlo para autorizar solicitudes de datos de blobs, consulte [Autorizar acceso a Azure Storage mediante Azure AD desde una aplicación de Azure Storage](../common/storage-auth-aad-app.md).
 
 ## <a name="assign-azure-roles-for-access-rights"></a>Asignación de roles de Azure para derechos de acceso
 
-Azure Active Directory (Azure AD) autoriza derechos de acceso a recursos protegidos mediante el [control de acceso basado en rol de Azure (RBAC de Azure)](../../role-based-access-control/overview.md). Azure Storage define un conjunto de roles integrados de Azure que abarca conjuntos comunes de permisos utilizados para acceder a los datos de blobs. También puede definir roles personalizados para el acceso a datos de blobs.
+Azure Active Directory (Azure AD) autoriza derechos de acceso a recursos protegidos mediante el [control de acceso basado en rol de Azure (Azure RBAC)](../../role-based-access-control/overview.md). Azure Storage define un conjunto de roles integrados de Azure que abarcan conjuntos comunes de permisos utilizados para acceder a los datos de blob. También puede definir roles personalizados para el acceso a datos de blobs.
 
 Cuando un rol de Azure se asigna a una entidad de seguridad de Azure AD, Azure concede a esa entidad de seguridad acceso a esos recursos. Una entidad de seguridad de Azure AD puede ser un usuario, un grupo, una entidad de servicio de aplicación o una [identidad de servicio administrada para recursos de Azure](../../active-directory/managed-identities-azure-resources/overview.md).
 
@@ -100,6 +100,17 @@ PowerShell y la CLI de Azure admiten el inicio de sesión con credenciales de Az
 
 - [Distintas formas de autorizar el acceso a datos en blobs con la CLI de Azure](authorize-data-operations-cli.md)
 - [Ejecución de comandos de PowerShell con credenciales de Azure AD para acceder a los datos de blob](authorize-data-operations-powershell.md)
+
+## <a name="feature-support"></a>Compatibilidad de características
+
+En esta tabla se muestra cómo se admite esta característica en la cuenta y el impacto en la compatibilidad al habilitar determinadas funcionalidades. 
+
+| Tipo de cuenta de almacenamiento                | Blob Storage (compatibilidad predeterminada)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>    
+|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
+| De uso general estándar, v2 | ![Sí](../media/icons/yes-icon.png) |![Sí](../media/icons/yes-icon.png)              | ![No](../media/icons/no-icon.png) | 
+| Blobs en bloques Premium          | ![Sí](../media/icons/yes-icon.png) | ![Sí](../media/icons/yes-icon.png)| ![No](../media/icons/no-icon.png) |
+
+<sup>1</sup> Data Lake Storage Gen2 y el protocolo Network File System (NFS) 3.0 necesitan una cuenta de almacenamiento con un espacio de nombres jerárquico habilitado.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

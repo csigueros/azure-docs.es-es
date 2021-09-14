@@ -12,12 +12,12 @@ ms.custom:
 - devx-track-python
 - devx-track-azurecli
 zone_pivot_groups: postgres-server-options
-ms.openlocfilehash: a5e57cf8ac41c6452116d4a88a5892d1779e6519
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 7daa8e8e1fa8ba268211afb9b3cdddde218f3310
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114439113"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123426551"
 ---
 # <a name="tutorial-deploy-a-django-web-app-with-postgresql-in-azure-app-service"></a>Tutorial: Implementación de una aplicación web de Django de Python con PostgreSQL en Azure App Service
 
@@ -467,9 +467,9 @@ Pruebe la aplicación localmente con los pasos siguientes:
 
 1. Vaya a `http://localhost:8000` en un explorador, que debería mostrar un mensaje que indica que no hay sondeos disponibles. 
 
-1. Vaya a `http:///localhost:8000/admin` e inicie sesión con el usuario administrador que creó previamente. En **Sondeos**, vuelva a seleccionar **Agregar** junto a **Preguntas** y cree una pregunta de sondeo con opciones. 
+1. Vaya a `http://localhost:8000/admin` e inicie sesión con el usuario administrador que creó previamente. En **Sondeos**, vuelva a seleccionar **Agregar** junto a **Preguntas** y cree una pregunta de sondeo con opciones. 
 
-1. Vaya a *http:\//localhost: 8000* de nuevo y responda la pregunta para probar la aplicación. 
+1. Vaya a `http://localhost:8000` de nuevo y responda a la pregunta para probar la aplicación. 
 
 1. Detenga el servidor de Django presionando **CTRL**+**C**.
 

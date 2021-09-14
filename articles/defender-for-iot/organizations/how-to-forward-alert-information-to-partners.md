@@ -1,14 +1,14 @@
 ---
 title: Reenvío de la información de las alertas
 description: Puede enviar información de alertas a los sistemas asociados mediante las reglas de reenvío.
-ms.date: 07/12/2021
+ms.date: 08/29/2021
 ms.topic: how-to
-ms.openlocfilehash: 8bad8461435d2ff223fe39d1bd4257cdf0948a4d
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 2136a58a383bb623edca69cb03c1c9c5530a107f
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114446844"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123432406"
 ---
 # <a name="forward-alert-information"></a>Reenvío de la información de las alertas
 
@@ -26,21 +26,36 @@ Los administradores de Defender para IoT tienen permiso para usar reglas de reen
 
 Las alertas proporcionan información acerca de una amplia gama de eventos operativos y de seguridad. Por ejemplo:
 
-  - Fecha y hora de la alerta
+- Fecha y hora de la alerta
 
-  - Motor que detectó el evento
+- Motor que detectó el evento
 
-  - Título de la alerta y mensaje descriptivo
+- Título de la alerta y mensaje descriptivo
 
-  - Gravedad de la alerta
+- Gravedad de la alerta
 
-  - Nombre y dirección IP del origen y destino
+- Nombre y dirección IP del origen y destino
 
-  - Tráfico sospechoso detectado
+- Tráfico sospechoso detectado
 
 :::image type="content" source="media/how-to-work-with-alerts-sensor/address-scan-detected-screen.png" alt-text="Se detectó un análisis de direcciones.":::
 
 La información pertinente se envía a los sistemas asociados cuando se han creado reglas de reenvío.
+
+## <a name="about-forwarding-rules-and-certificates"></a>Acerca de las reglas de reenvío y los certificados
+
+Algunas reglas de reenvío permiten el cifrado y la validación de certificados entre el sensor o la consola de administración local, y el agente del proveedor integrado.
+
+En estos casos, el sensor o la consola de administración local es el cliente e iniciador de la sesión.  Los certificados se reciben normalmente del servidor, o bien usan el cifrado asimétrico, donde se proporcionará un certificado específico para configurar la integración.
+
+El sistema Defender para IoT se ha configurado para validar certificados o omitir la validación de certificados.  Vea [Acerca de la validación de certificados](how-to-deploy-certificates.md#about-certificate-validation) para información sobre cómo habilitar y deshabilitar la validación.
+
+Si la validación está habilitada y no se puede comprobar el certificado, se detendrá la comunicación entre Defender para IoT y el servidor.  El sensor mostrará un mensaje de error que indica el error de validación.  Si la validación está deshabilitada y el certificado no es válido, se seguirá llevando a cabo la comunicación.
+
+Las siguientes reglas de reenvío permiten el cifrado y la validación de certificados:
+- Syslog CEF
+- Azure Sentinel
+- QRadar
 
 ## <a name="create-forwarding-rules"></a>Creación de reglas de reenvío
 
@@ -54,7 +69,7 @@ La información pertinente se envía a los sistemas asociados cuando se han crea
 
    :::image type="content" source="media/how-to-work-with-alerts-sensor/create-forwarding-rule-screen.png" alt-text="Icono para crear una regla de reenvío.":::
 
-1. Escriba el nombre de la regla de reenvío. 
+1. Escriba el nombre de la regla de reenvío.
 
 1. Seleccione el nivel de gravedad.
 
@@ -74,7 +89,7 @@ La información pertinente se envía a los sistemas asociados cuando se han crea
 
 1. Agregue otra acción si lo desea.
 
-1. Seleccione **Enviar**.
+1. Seleccione **Submit** (Enviar).
 
 ### <a name="email-address-action"></a>Acción de dirección de correo electrónico
 
@@ -111,7 +126,7 @@ Escriba los siguientes parámetros:
 - Zona horaria para la marca de tiempo de la detección de alertas en SIEM.
 
 - Archivo de certificado de cifrado TLS y archivo de clave para los servidores CEF (opcional).
-    
+
 :::image type="content" source="media/how-to-work-with-alerts-sensor/configure-encryption.png" alt-text="Configuración del cifrado para la regla de reenvío.":::
 
 | Campos de salida del mensaje de texto de syslog | Descripción |
@@ -122,34 +137,32 @@ Escriba los siguientes parámetros:
 | Protocolo | TCP o UDP |
 | Message | Sensor: el nombre del sensor.<br /> Alerta: el título de la alerta.<br /> Escriba:  el tipo de la alerta. Puede ser **infracción del protocolo**, **infracción de la directiva**, **malware**, **anomalía** u **operativa**.<br /> Gravedad: Gravedad de la alerta. Puede ser **advertencia**, **leve**, **grave** o **crítica**.<br /> Origen: el nombre del dispositivo de origen.<br /> IP de origen: la dirección IP del dispositivo de origen.<br /> Destino: el nombre del dispositivo de destino.<br /> IP de destino: la dirección IP del dispositivo de destino.<br /> Mensaje: el mensaje de la alerta.<br /> Grupo de alertas: el grupo de alertas asociado a la alerta. |
 
-
 | Salida del objeto syslog | Descripción |
 |--|--|
-| Fecha y hora |   Fecha y hora en que el equipo servidor de syslog recibió la información. |  
-| Priority |    User.Alert | 
-| Hostname |    Dirección IP del sensor | 
+| Fecha y hora | Fecha y hora en que el equipo servidor de syslog recibió la información. |  
+| Priority | User.Alert |
+| Hostname | Dirección IP del sensor |
 | Message | Nombre del sensor: el nombre del dispositivo. <br /> Hora de la alerta: el momento en que se detectó la alerta: puede variar en función de la hora de la máquina del servidor de syslog y depende de la configuración de zona horaria de la regla de reenvío. <br /> Título de la alerta: el título de la alerta. <br /> Mensaje de alerta: el mensaje de la alerta. <br /> Gravedad de la alerta: la gravedad de la alerta: **Advertencia**, **leve**, **grave** o **crítica**. <br /> Tipo de alerta: **Infracción del protocolo**, **infracción de la directiva**, **malware**, **anomalía** u **operativa**. <br /> Protocolo: el protocolo de la alerta.  <br /> **Source_MAC**: dirección IP, nombre, proveedor o sistema operativo del dispositivo de origen. <br /> Destination_MAC: dirección IP, nombre, proveedor o sistema operativo del destino. Si faltan datos, el valor será **N/D**. <br /> alert_group: el grupo de alertas asociado a la alerta. |
-
 
 | Formato de salida CEF de syslog | Descripción |
 |--|--|
 | Fecha y hora | Fecha y hora en que el equipo servidor de syslog recibió la información. |
-| Priority | User.Alert | 
+| Priority | User.Alert |
 | Hostname | Dirección IP del sensor |
 | Message | CEF:0 <br />Azure Defender para IoT <br />Nombre del sensor: el nombre del dispositivo de sensor. <br />Versión del sensor <br />Título de la alerta: el título de la alerta. <br />msg: el mensaje de la alerta. <br />protocol: el protocolo de la alerta. <br />severity:  **advertencia**, **leve**, **grave** o **crítica**. <br />type:  **infracción del protocolo**, **infracción de la directiva**, **malware**, **anomalía** u **operativa**. <br /> start: el momento en que se detectó la alerta. <br />Puede variar en función de la hora de la máquina del servidor de syslog y depende de la configuración de zona horaria de la regla de reenvío. <br />src_ip: dirección IP del dispositivo de origen.  <br />dst_ip: dirección IP del dispositivo de destino.<br />cat: el grupo de alertas asociado a la alerta.  |
 
 | Formato de salida LEEF de syslog | Descripción |
 |--|--|
-| Fecha y hora |   Fecha y hora en que el equipo servidor de syslog recibió la información. |  
-| Priority |    User.Alert | 
-| Hostname |    Dirección IP del sensor |
+| Fecha y hora | Fecha y hora en que el equipo servidor de syslog recibió la información. |  
+| Priority | User.Alert |
+| Hostname | Dirección IP del sensor |
 | Message | Nombre del sensor: el nombre del dispositivo de Azure Defender para IoT. <br />LEEF:1.0 <br />Azure Defender para IoT <br />Sensor  <br />Versión del sensor <br />Alerta de Azure Defender para IoT <br />título: el título de la alerta. <br />msg: el mensaje de la alerta. <br />protocol: el protocolo de la alerta.<br />severity:  **advertencia**, **leve**, **grave** o **crítica**. <br />type: el tipo de la alerta: **Infracción del protocolo**, **infracción de la directiva**, **malware**, **anomalía** u **operativa**. <br />start: la hora de la alerta.Puede ser diferente de la hora en la máquina del servidor de syslog. (Esto depende de la configuración de zona horaria). <br />src_ip: dirección IP del dispositivo de origen.<br />dst_ip: dirección IP del dispositivo de destino. <br />cat: el grupo de alertas asociado a la alerta. |
 
 Después de escribir la información, seleccione **Enviar**.
 
 ### <a name="webhook-server-action"></a>Acción del servidor de webhooks
 
-Envíe información de alertas a un servidor de webhooks. El trabajo con servidores de webhooks permite configurar integraciones que se suscriben a eventos de alerta con Defender para IoT. Cuando se desencadena un evento de alerta, la consola de administración envía una carga HTTP POST a la dirección URL configurada del webhook. Los webhooks se pueden usar para actualizar un sistema SIEM externo, sistemas SOAR, sistemas de administración de incidentes, etc.   
+Envíe información de alertas a un servidor de webhooks. El trabajo con servidores de webhooks permite configurar integraciones que se suscriben a eventos de alerta con Defender para IoT. Cuando se desencadena un evento de alerta, la consola de administración envía una carga HTTP POST a la dirección URL configurada del webhook. Los webhooks se pueden usar para actualizar un sistema SIEM externo, sistemas SOAR, sistemas de administración de incidentes, etc.
 
 **Para definir en una acción de webhook:**
 
@@ -162,6 +175,58 @@ Envíe información de alertas a un servidor de webhooks. El trabajo con servido
 1. En los campos **Clave** y **Valor**, personalice el encabezado HTTP con una definición de clave y valor. Las claves solo pueden contener letras, números, guiones y subrayados. Los valores solo pueden contener un espacio inicial o uno final.
 
 1. Seleccione **Guardar**.
+
+### <a name="webhook-extended"></a>Webhook extendido
+
+Webhook extendido se puede usar para enviar datos adicionales al punto de conexión. La característica extendida incluye toda la información de la alerta de webhook y agrega la información siguiente al informe:
+
+- sensorID
+- sensorName
+- zoneID
+- zoneName
+- siteID
+- siteName
+- sourceDeviceAddress
+- destinationDeviceAddress
+- remediationSteps
+- handled
+- additionalInformation
+
+**Para definir una acción extendida de webhook**:
+
+1. En la consola de administración, seleccione **Reenviar** en el panel de la izquierda.
+
+1. Seleccione el botón :::image type="icon" source="media/how-to-forward-alert-information-to-partners/add-icon.png" border="false"::: para agregar una regla de reenvío.
+
+1. Agregue un nombre descriptivo para la alerta de reenvío.
+
+1. Seleccione un nivel de gravedad
+
+1. Seleccione **Agregar**.
+
+1. En la ventana desplegable Seleccionar tipo seleccione **Webhook Extended** (Webhook extendido).
+
+   :::image type="content" source="media/how-to-forward-alert-information-to-partners/webhook-extended.png" alt-text="Selección de la opción webhook extended (webhook extendido) en el menú desplegable de opciones Seleccionar tipo.":::
+
+1. Agregue la dirección URL de datos del punto de conexión en el campo URL.
+
+1. (Opcional) Personalice el encabezado HTTP con una definición de clave y valor. Seleccione el botón :::image type="icon" source="media/how-to-forward-alert-information-to-partners/add-header.png" border="false"::: para agregar encabezados adicionales.
+
+1. Seleccione **Guardar**.
+
+Una vez que se configura la regla de reenvío Webhook extendido, puede probar la alerta desde la pantalla Reenvío de la consola de administración.
+
+**Para probar la regla de reenvío Webhook extendido**:
+
+1. En la consola de administración, seleccione **Reenviar** en el panel de la izquierda.
+
+1. Seleccione el botón **ejecutar** para probar la alerta.
+
+    :::image type="content" source="media/how-to-forward-alert-information-to-partners/run-button.png" alt-text="Selección del botón ejecutar para probar la regla de reenvío.":::
+
+Sabrá que la regla de reenvío funciona si ve que aparece la notificación Correcto.
+
+:::image type="content" source="media/how-to-forward-alert-information-to-partners/success.png" alt-text="La alerta ha funcionado correctamente si aparece la notificación Correcto.":::
 
 ### <a name="netwitness-action"></a>Acción de NetWitness
 

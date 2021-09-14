@@ -8,12 +8,12 @@ ms.date: 01/04/2021
 ms.author: chhenk
 ms.reviewer: azmetadatadev
 ms.custom: references_regions
-ms.openlocfilehash: 29f5e96c18220f0bbdec5f91107c9220fc2fba0b
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: 2900eb3ddf1411b80920869932724f76a22c9802
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123355162"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123453881"
 ---
 Azure Instance Metadata Service (IMDS) le proporciona información sobre las instancias de máquina virtual que se ejecutan actualmente. Puede usarlo para administrar y configurar las máquinas virtuales.
 Esta información incluye las SKU, almacenamiento, configuraciones de red y próximos eventos de mantenimiento. Para ver una lista completa de los datos disponibles, consulte el [resumen de categorías de los puntos de conexión](#endpoint-categories).
@@ -1007,7 +1007,7 @@ El documento descodificado contiene estos campos:
 | `timestamp.expiresOn` | La marca de tiempo UTC para el momento en que expira el documento firmado | 2018-10-01
 | `vmId` | [Identificador único](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) para la máquina virtual. | 2018-10-01
 | `subscriptionId` | Suscripción de Azure para la máquina virtual | 2019-04-30
-| `sku` | SKU específica de la imagen de VM | 2019-11-01
+| `sku` | SKU específica para la imagen de máquina virtual (se pone en correlación con la propiedad `compute/sku` del punto de conexión de Instance Metadata \[`/metadata/instance`\]) | 2019-11-01
 
 > [!NOTE]
 > En el caso de las máquinas virtuales clásicas (no de Azure Resource Manager), solo se garantiza que se rellena vmId.

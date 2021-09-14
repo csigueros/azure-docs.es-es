@@ -8,15 +8,15 @@ ms.topic: include
 ms.date: 4/05/2021
 ms.author: fauhse
 ms.custom: include file
-ms.openlocfilehash: 52e1accfb5f5bb762cc2833a19e1caa3daa4a03d
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 8b425646e9b416129d951cc78db3d05c26b0e6e8
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114462203"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123484536"
 ---
 ```console
-robocopy /MT:128 /R:1 /W:1 /MIR /IT /COPY:DATSO /DCOPY:DAT /NP /NFL /NDL /UNILOG:<FilePathAndName> <SourcePath> <Dest.Path> 
+robocopy /MT:128 /R:1 /W:1 /B /MIR /IT /COPY:DATSO /DCOPY:DAT /NP /NFL /NDL /UNILOG:<FilePathAndName> <SourcePath> <Dest.Path> 
 ```
 
 | Conmutador                | Significado |
@@ -37,3 +37,6 @@ robocopy /MT:128 /R:1 /W:1 /MIR /IT /COPY:DATSO /DCOPY:DAT /NP /NFL /NDL /UNILOG
 | `/LFSM`               | **Solo para destinos con almacenamiento en capas** </br>Especifica que Robocopy funciona en "modo de espacio libre bajo". Este conmutador solo es útil para destinos con almacenamiento en capas que pueden quedarse sin capacidad local antes de que Robocopy finalice. Se agregó específicamente para su uso con un destino habilitado de nube por niveles de Azure File Sync. Se puede usar con independencia de Azure File Sync. En este modo, Robocopy se pondrá en pausa siempre que una copia de archivo haga que el espacio disponible del volumen de destino se sitúe por debajo de un valor de "suelo". El formato `/LFSM:n` de la marca puede especificar este valor. El parámetro `n` se especifica en la base 2: `nKB`, `nMB` o `nGB`. Si `/LFSM` se especifica sin ningún valor floor explícito, floor se establece en el 10 por ciento del tamaño del volumen de destino. El modo de espacio libre bajo no es compatible con `/MT`, `/EFSRAW`, `/B` o `/ZB`. |
 | `/Z`                  | **Usar con cautela** </br>Copia los archivos en modo de reinicio. Este conmutador solo se recomienda en un entorno de red inestable. Reduce significativamente el rendimiento de la copia debido al registro adicional. |
 | `/ZB`                 | **Usar con cautela** </br>Usa el modo de reinicio. Si se deniega el acceso, esta opción utiliza el modo de copia de seguridad. Esta opción reduce significativamente el rendimiento de la copia debido a los puntos de control. |
+
+> [!IMPORTANT]
+> Use Windows Server 2019 con al menos la [actualización del sistema operativo KB5005103](https://support.microsoft.com/topic/august-26-2021-kb5005103-os-build-18363-1766-preview-4e23362c-5e43-4d8f-95e5-9fdade60605f) del 26 de agosto de 2021. Contiene correcciones importantes para determinados escenarios de RoboCopy.

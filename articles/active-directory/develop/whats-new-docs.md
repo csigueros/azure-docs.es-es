@@ -5,22 +5,39 @@ description: Documentación nueva y actualizada de la plataforma de identidad de
 services: active-directory
 author: mmacy
 manager: CelesteDG
-ms.date: 07/01/2021
+ms.date: 09/01/2021
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: reference
 ms.workload: identity
 ms.author: marsma
-ms.openlocfilehash: 37e382b9d547f911d2df47b1297cb967e1c12f12
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.custom: has-adal-ref
+ms.openlocfilehash: 1e639cfe0b3c86e2a2f422250979a292020e7fbf
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121725747"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123433132"
 ---
 # <a name="microsoft-identity-platform-docs-whats-new"></a>Documentos de la plataforma de identidad de Microsoft: Novedades
 
 Estas son las novedades de la documentación de la Plataforma de identidad de Microsoft. En este artículo se enumeran los documentos nuevos que se han agregado y los que han tenido actualizaciones importantes en los últimos tres meses.
+
+## <a name="august-2021"></a>Agosto de 2021
+
+### <a name="new-articles"></a>Artículos nuevos
+
+- [Conceptos básicos de autorización](authorization-basics.md)
+- [Creación de un certificado público autofirmado para autenticar la aplicación](howto-create-self-signed-certificate.md)
+
+### <a name="updated-articles"></a>Artículos actualizados
+
+- [Obtención de una lista completa de aplicaciones que usan ADAL en el inquilino](howto-get-list-of-all-active-directory-auth-library-apps.md)
+- [Complemento Microsoft Enterprise SSO para dispositivos Apple (versión preliminar)](apple-sso-plugin.md)
+- [Ejemplos de código de la plataforma de identidad de Microsoft](sample-v2-code.md)
+- [Migración de aplicaciones a la Biblioteca de autenticación de Microsoft (MSAL)](msal-migration.md)
+- [Restricciones y limitaciones del identificador URI de redirección (dirección URL de respuesta)](reply-url.md)
+- [Serialización de la caché de tokens en MSAL.NET](msal-net-token-cache-serialization.md)
 
 ## <a name="july-2021"></a>Julio de 2021
 
@@ -37,7 +54,6 @@ Estas son las novedades de la documentación de la Plataforma de identidad de Mi
 - [Permisos y consentimiento en la plataforma de identidad de Microsoft](v2-permissions-and-consent.md)
 - [API web protegida: Comprobación de ámbitos y roles de aplicación](scenario-protected-web-api-verification-scope-app-roles.md)
 - [Inicio rápido: Adición del inicio de sesión con Microsoft en una aplicación web de ASP.NET Core](quickstart-v2-aspnet-core-webapp.md)
-
 
 ## <a name="june-2021"></a>Junio de 2021
 
@@ -57,25 +73,3 @@ Estas son las novedades de la documentación de la Plataforma de identidad de Mi
 - [Migración de aplicaciones a MSAL.NET o Microsoft.Identity.Web](msal-net-migration.md)
 - [Serialización de la caché de tokens en MSAL.NET](msal-net-token-cache-serialization.md)
 - [Novedades en la autenticación](reference-breaking-changes.md)
-
-## <a name="may-2021"></a>Mayo de 2021
-
-### <a name="new-articles"></a>Artículos nuevos
-
-- [Desafíos de notificaciones, solicitudes de notificaciones y funcionalidades de cliente](claims-challenge.md)
-- [Instrucciones para desarrolladores sobre el contexto de autenticación del acceso condicional](developer-guide-conditional-access-authentication-context.md)
-- [Tokens de actualización de la plataforma de identidad de Microsoft](refresh-tokens.md)
-- [Plataforma de identidad de Microsoft y flujo de aserción de portador SAML de OAuth 2.0](v2-saml-bearer-assertion.md)
-- [Tutorial: Inicio de sesión de usuarios y llamada a Microsoft Graph API desde una aplicación de página única (SPA) de React mediante el flujo de código de autorización](tutorial-v2-react.md)
-- [Tutorial: Inicio de sesión de usuarios y llamada a Microsoft Graph API desde una aplicación de página única (SPA) de Angular mediante el uso del flujo de código de autenticación](tutorial-v2-angular-auth-code.md)
-
-### <a name="updated-articles"></a>Artículos actualizados
-
-- [Instrucciones para desarrolladores sobre el contexto de autenticación del acceso condicional](developer-guide-conditional-access-authentication-context.md)
-- [Procedimiento: Incorporación de roles de aplicación a una aplicación y su recepción en el token](howto-add-app-roles-in-azure-ad-apps.md)
-- [Migración de una aplicación Node.js de ADAL a MSAL](msal-node-migration.md)
-- [Tokens de id. de la plataforma de identidad de Microsoft](id-tokens.md)
-- [Inicio rápido: Inicie sesión de los usuarios y llame a Microsoft Graph API desde una aplicación de Android](quickstart-v2-android.md)
-- [Inicio rápido: Registro de una aplicación en la plataforma de identidad de Microsoft](quickstart-register-app.md)
-- [Inicio rápido: Llamada a una instancia de ASP.NET Web API protegida por una plataforma de identidad de Microsoft](quickstart-v2-dotnet-native-aspnet.md)
-- [Tutorial: Inicio de sesión de los usuarios y llamada a Microsoft Graph API desde una aplicación de Android](tutorial-v2-android.md)

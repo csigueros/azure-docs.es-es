@@ -4,16 +4,16 @@ description: En este artículo se proporciona información de referencia del com
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 07/24/2020
+ms.date: 09/21/2021
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: bd221215d6be3c14ce1200e8bd374a97cb7608a0
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 8556dc719aa8abcfa1506b4d1147c29959b32746
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107503021"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123427631"
 ---
 # <a name="azcopy-remove"></a>azcopy remove
 
@@ -88,11 +88,15 @@ azcopy rm "https://[account].dfs.core.windows.net/[container]/[path/to/directory
 
 **--delete-snapshots string** De forma predeterminada, se producirá un error en la operación de eliminación si un blob tiene instantáneas. Especifique `include` para quitar el blob raíz y todas sus instantáneas; también puede especificar `only` para quitar solo las instantáneas pero conservar el blob raíz.
 
+**--dry-run** Imprime la ruta de los archivos que el comando quitará. Esta marca no desencadena la eliminación de los archivos.
+
 **--exclude-path** string   Excluye estas rutas de acceso al quitar. Esta opción no permite caracteres comodín (*). Comprueba el prefijo de ruta de acceso relativa. Por ejemplo: `myFolder;myFolder/subDirName/file.pdf`
 
 **--exclude-pattern** string   Excluye los archivos en los que el nombre coincide con la lista de patrones. Por ejemplo: `*.jpg`;`*.pdf`;`exactName`
 
 **--force-if-read-only**   Al eliminar un archivo o una carpeta de Azure Files, fuerce la eliminación para que funcione incluso si el objeto existente tiene establecido el atributo de solo lectura.
+
+**--from-to** string Opcionalmente, especifica la combinación de destino y origen. Por ejemplo: BlobTrash, FileTrash, BlobFSTrash
 
 **--help**   Ayuda para la eliminación.
 

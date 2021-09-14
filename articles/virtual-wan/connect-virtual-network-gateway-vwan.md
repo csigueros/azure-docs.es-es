@@ -5,14 +5,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 04/27/2021
+ms.date: 09/01/2021
 ms.author: cherylmc
-ms.openlocfilehash: 6d8420f0138dc26e2f265ac7c4f48e646a6bfe69
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 51b254c42f06c3ae6a0609a05e6f36056106139b
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108165126"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123432043"
 ---
 # <a name="connect-a-vpn-gateway-virtual-network-gateway-to-virtual-wan"></a>Conexión de una VPN Gateway (puerta de enlace de red virtual) a una Virtual WAN
 
@@ -45,7 +45,7 @@ En la página **Configuración** de la puerta de enlace de red virtual, habilite
 
 ### <a name="bgp-setting"></a><a name="BGP"></a>Configuración de BGP
 
-En la página **Configuración** de la puerta de enlace de red virtual, puede configurar **ASN BGP**. Cambie el ASN BGP. El ASN del protocolo de puerta de enlace de borde (BGP) no puede ser 65515. Azure Virtual WAN usará 65515.
+En la página **Configuración** de la puerta de enlace de red virtual, puede (opcionalmente) seleccionar **Configurar el ASN de BGP**. Si configura BGP, cambie el ASN del valor predeterminado que se muestra en el portal. Para esta configuración, el ASN de GBP no puede ser 65515. Azure Virtual WAN usará 65515.
 
 ![Captura de pantalla que muestra la página Configuración de una puerta de enlace de red virtual con la opción Configurar ASN BGP seleccionada.](./media/connect-virtual-network-gateway-vwan/bgp.png "bgp")
 
@@ -95,6 +95,7 @@ En esta sección, creará dos puertas de enlace de red local de Azure VPN Gatewa
 
    * **Dirección IP**: Use la dirección IP de Instance0 que se muestra para *gatewayconfiguration* del archivo de configuración.
    * **BGP**: Si la conexión es a través de BGP, seleccione **Configurar los valores de BGP** y escriba el ASN '65515'. Escriba la dirección IP del mismo nivel BGP. Use 'Instance0 BgpPeeringAddresses' para *gatewayconfiguration* del archivo de configuración.
+   * **Espacio de direcciones** Si la conexión no se realiza mediante BGP, asegúrese de que la opción **Configurar BGP** permanece desactivada.  Escriba los espacios de direcciones que va a anunciar desde la puerta de enlace de red virtual. Puede agregar varios intervalos de espacios de direcciones. Asegúrese de que los intervalos que especifique aquí no se superpongan con los de otras redes a las que quiera conectarse. 
    * **Suscripción, Grupo de recursos y Ubicación** son los mismos para el centro de conectividad Virtual WAN.
 2. Revise y cree la puerta de enlace de red local. La puerta de enlace de red local debe ser similar a la de este ejemplo.
 

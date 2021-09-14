@@ -6,48 +6,41 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/11/2021
+ms.date: 09/02/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: d061b766a973f8c867fb97da6d42c625589d2f27
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: b53f861dc361463a44202874820955c9bdb5d0f6
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109783412"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123472945"
 ---
 # <a name="configure-object-replication-for-block-blobs"></a>Configuración de la replicación de objetos para blobs en bloques
 
-La replicación de objetos copia asincrónicamente los blobs en bloques entre una cuenta de almacenamiento de origen y una de destino. Para obtener más información sobre la replicación de objetos, vea [Replicación de objetos](object-replication-overview.md).
+La replicación de objetos copia asincrónicamente los blobs en bloques entre una cuenta de almacenamiento de origen y una de destino. Al configura la replicación de objetos, se crea una política de replicación que especifica la cuenta de almacenamiento de origen y la cuenta de destino. Una directiva de replicación incluye una o más reglas que especifican un contenedor de origen y un contenedor de destino e indican qué blob en bloques del contenedor de origen se replicarán. Para obtener más información sobre la replicación de objetos, vea [Replicación de objetos para blobs en bloques](object-replication-overview.md).
 
-Al configurar la replicación de objetos, crea una política de replicación que especifica las cuentas de almacenamiento de origen y destino. Una directiva de replicación incluye una o más reglas que especifican un contenedor de origen y uno de destino e indican qué blobs en bloques del contenedor de origen se replicarán.
+En este artículo se describe cómo configurar una directiva de replicación de objetos mediante Azure Portal, PowerShell o la CLI de Azure. También puede usar una de las bibliotecas cliente del proveedor de recursos de Azure Storage para configurar la replicación de objetos.
 
-En este artículo se describe cómo configurar la replicación de objetos para la cuenta de almacenamiento mediante Azure Portal, PowerShell o la CLI de Azure. También puede usar una de las bibliotecas cliente del proveedor de recursos de Azure Storage para configurar la replicación de objetos.
+## <a name="prerequisites"></a>Prerrequisitos
 
-[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
-
-## <a name="create-a-replication-policy-and-rules"></a>Creación de una directiva de replicación y reglas
-
-Antes de configurar la replicación de objetos, cree las cuentas de almacenamiento de origen y destino si aún no existen. Ambas cuentas de almacenamiento deben ser de uso general v2. Para obtener más información, consulte [Creación de una cuenta de Azure Storage](../common/storage-account-create.md).
+Antes de configurar la replicación de objetos, cree las cuentas de almacenamiento de origen y destino si aún no existen. Las cuentas de origen y destino pueden ser cuentas de almacenamiento de uso general v2 o cuentas de blob en bloques Premium (versión preliminar). Para obtener más información, consulte [Creación de una cuenta de Azure Storage](../common/storage-account-create.md).
 
 La replicación de objetos requiere que el control de versiones de blobs esté habilitado para la cuenta de origen y de destino, y que la fuente de cambios del blob esté habilitada para la cuenta de origen. Para más información sobre el control de versiones de blobs, consulte [Control de versiones de blobs](versioning-overview.md). Para más información sobre la fuente de cambios, consulte [Compatibilidad con la fuente de cambios en Azure Blob Storage](storage-blob-change-feed.md). Tenga en cuenta que la habilitación de estas características puede generar costes adicionales.
 
-Una cuenta de almacenamiento puede servir como cuenta de origen para un máximo dos cuentas de destino. Las cuentas de origen y de destino pueden estar en la misma región o en regiones diferentes. También pueden residir en diferentes suscripciones y en distintos inquilinos de Azure Active Directory (Azure AD). Solo se puede crear una directiva de replicación para cada par de cuentas.
-
-Al configurar la replicación de objetos, se crea una directiva de replicación en la cuenta de destino a través del proveedor de recursos de Azure Storage. Una vez creada la directiva de replicación, Azure Storage le asigna un identificador de directiva. A continuación, debe asociar esa directiva de replicación con la cuenta de origen mediante el identificador de directiva. El identificador de directiva de las cuentas de origen y de destino debe ser el mismo para que tenga lugar la replicación.
-
 Para configurar una directiva de replicación de objetos para una cuenta de almacenamiento, debe tener asignado el rol **Colaborador** de Azure Resource Manager, cuyo ámbito es el nivel de la cuenta de almacenamiento o superior. Para obtener más información, consulte [Roles integrados de Azure](../../role-based-access-control/built-in-roles.md) en la documentación del control de acceso basado en rol de Azure (RBAC de Azure).
 
-### <a name="configure-object-replication-when-you-have-access-to-both-storage-accounts"></a>Configuración de la replicación de objetos cuando se tiene acceso a ambas cuentas de almacenamiento
+> [!IMPORTANT]
+> La replicación de objetos para las cuentas de blob en bloques Premium se encuentra actualmente en **versión preliminar**. Consulte [Términos de uso complementarios para las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para conocer los términos legales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado para que estén disponibles con carácter general.
 
-Si tiene acceso a las cuentas de almacenamiento de origen y de destino, puede configurar la directiva de replicación de objetos en ambas cuentas.
+## <a name="configure-object-replication-with-access-to-both-storage-accounts"></a>Configuración de la replicación de objetos con acceso a las dos cuentas de almacenamiento
 
-Antes de configurar la replicación de objetos en Azure Portal, cree los contenedores de origen y destino en sus cuentas de almacenamiento respectivas, si aún no existen. Asimismo, habilite el control de versiones de blobs y la fuente de cambios en la cuenta de origen, y el control de versiones de blobs en la cuenta de destino.
+Si tiene acceso a las cuentas de almacenamiento de origen y de destino, puede configurar la directiva de replicación de objetos en ambas cuentas. En los ejemplos siguientes se muestra cómo configurar la replicación de objetos con Azure Portal, PowerShell o la CLI de Azure.
 
-# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+### <a name="azure-portal"></a>[Azure Portal](#tab/portal)
 
-Azure Portal crea automáticamente la directiva en la cuenta de origen después de configurarla para la cuenta de destino.
+Al configurar la replicación de objetos en Azure Portal, solo tiene que configurar la directiva en la cuenta de origen. Azure Portal crea automáticamente la directiva en la cuenta de destino después de configurarla para la cuenta de origen.
 
 Para crear una directiva de replicación en Azure Portal, siga estos pasos:
 
@@ -79,11 +72,11 @@ Después de configurar la replicación de objetos, Azure Portal muestra la direc
 
 :::image type="content" source="media/object-replication-configure/object-replication-policies-portal.png" alt-text="Captura de pantalla que muestra la directiva de replicación de objetos en Azure Portal":::
 
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
+### <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 Para crear una directiva de replicación con PowerShell, primero instale la versión [2.5.0](https://www.powershellgallery.com/packages/Az.Storage/2.5.0) o posterior del módulo Az.Storage de PowerShell. Para más información sobre cómo instalar Azure PowerShell, consulte [Instalación de Azure PowerShell con PowerShellGet](/powershell/azure/install-az-ps).
 
-En el ejemplo siguiente se muestra cómo crear una directiva de replicación en las cuentas de origen y destino. No olvide reemplazar los valores entre corchetes angulares por sus propios valores:
+En el ejemplo siguiente se muestra cómo crear una directiva de replicación primero en la cuenta de destino y luego en la de origen. No olvide reemplazar los valores entre corchetes angulares por sus propios valores:
 
 ```powershell
 # Sign in to your Azure account.
@@ -131,7 +124,7 @@ $rule1 = New-AzStorageObjectReplicationPolicyRule -SourceContainer $srcContainer
     -PrefixMatch b
 $rule2 = New-AzStorageObjectReplicationPolicyRule -SourceContainer $srcContainerName2 `
     -DestinationContainer $destContainerName2  `
-    -MinCreationTime 2020-05-10T00:00:00Z
+    -MinCreationTime 2021-09-01T00:00:00Z
 
 # Create the replication policy on the destination account.
 $destPolicy = Set-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
@@ -146,7 +139,7 @@ Set-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
     -InputObject $destPolicy
 ```
 
-# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
 Para crear una directiva de replicación con la CLI de Azure, instale primero la versión 2.11.1 de la CLI de Azure, o una posterior. Para más información, consulte [Introducción a la CLI de Azure](/cli/azure/get-started-with-azure-cli).
 
@@ -185,7 +178,7 @@ az storage container create \
     --auth-mode login
 az storage container create \
     --account-name <dest-storage-account> \
-    --name dest-container-1 \
+    --name dest-container-2 \
     --auth-mode login
 ```
 
@@ -199,7 +192,7 @@ az storage account or-policy create \
     --destination-account <dest-storage-account> \
     --source-container source-container-1 \
     --destination-container dest-container-1 \
-    --min-creation-time '2020-09-10T00:00:00Z' \
+    --min-creation-time '2021-09-01T00:00:00Z' \
     --prefix-match a
 
 ```
@@ -230,43 +223,14 @@ az storage account or-policy show \
 
 ---
 
-### <a name="configure-object-replication-when-you-have-access-only-to-the-destination-account"></a>Configuración de la replicación de objetos cuando solo se tiene acceso a la cuenta de destino
+## <a name="configure-object-replication-with-access-to-only-the-destination-account"></a>Configuración de la replicación de objetos con acceso solo a la cuenta de destino
 
 Si no tiene permisos para la cuenta de almacenamiento de origen, puede configurar la replicación de objetos en la cuenta de destino y proporcionar un archivo JSON que contenga la definición de la directiva a otro usuario para crear la misma directiva en la cuenta de origen. Por ejemplo, si la cuenta de origen está en un inquilino de Azure AD diferente de la cuenta de destino, puede usar este enfoque para configurar la replicación de objetos.
 
-Tenga en cuenta que debe tener asignado el rol **Colaborador** de Azure Resource Manager en el ámbito del nivel de la cuenta de almacenamiento de destino o superior para crear la directiva. Para obtener más información, consulte [Roles integrados de Azure](../../role-based-access-control/built-in-roles.md) en la documentación del control de acceso basado en rol de Azure (RBAC de Azure).
+> [!NOTE]
+> La replicación de objetos entre inquilinos está permitida de forma predeterminada para una cuenta de almacenamiento. Para evitar la replicación entre inquilinos, puede establecer la propiedad **AllowCrossTenantReplication** (versión preliminar) para no permitir la replicación de objetos entre inquilinos para las cuentas de almacenamiento. Para obtener más información, vea [Impedir la replicación de objetos entre inquilinos de Azure Active Directory](object-replication-prevent-cross-tenant-policies.md).
 
-En la tabla siguiente se resumen los valores que se deben usar para el identificador de directiva y los identificadores de regla en el archivo JSON en cada escenario.
-
-| Al crear el archivo JSON para esta cuenta... | Establezca el id. de la directiva en este valor | Establezca los id. de regla en este valor |
-|-|-|-|
-| Cuenta de destino | Valor de cadena *predeterminado*. Azure Storage creará el id. de directiva automáticamente. | Una cadena vacía. Azure Storage creará los valores de id. de regla automáticamente. |
-| Cuenta de origen | Los valores de id. de directiva devueltos al descargar la directiva definida en la cuenta de destino como un archivo JSON. | Los valores de los id. de regla devueltos al descargar la directiva definida en la cuenta de destino como un archivo JSON. |
-
-En el ejemplo siguiente se define una directiva de replicación en la cuenta de destino con una única regla que coincide con el prefijo *b* y se establece el tiempo de creación mínimo para los blobs que se van a replicar. No olvide reemplazar los valores entre corchetes angulares por sus propios valores:
-
-```json
-{
-  "properties": {
-    "policyId": "default",
-    "sourceAccount": "<source-account>",
-    "destinationAccount": "<dest-account>",
-    "rules": [
-      {
-        "ruleId": "",
-        "sourceContainer": "<source-container>",
-        "destinationContainer": "<destination-container>",
-        "filters": {
-          "prefixMatch": [
-            "b"
-          ],
-          "minCreationTime": "2020-08-028T00:00:00Z"
-        }
-      }
-    ]
-  }
-}
-```
+En los ejemplos de esta sección se muestra cómo configurar la directiva de replicación de objetos en la cuenta de destino y, después, obtener el archivo JSON para esa directiva que otro usuario puede utilizar para configurar la directiva en la cuenta de origen.
 
 # <a name="azure-portal"></a>[Azure Portal](#tab/portal)
 
@@ -310,7 +274,9 @@ $destPolicy = Get-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
 $destPolicy | ConvertTo-Json -Depth 5 > c:\temp\json.txt
 ```
 
-Para usar el archivo JSON para definir la directiva de replicación en la cuenta de origen con PowerShell, recupere el archivo local y realice la conversión de JSON a un objeto. Después, llame al comando [Set-AzStorageObjectReplicationPolicy](/powershell/module/az.storage/set-azstorageobjectreplicationpolicy) para configurar la directiva en la cuenta de origen, tal y como se muestra en el ejemplo siguiente. No olvide reemplazar los valores entre corchetes angulares y la ruta de acceso del archivo por sus propios valores:
+Para usar el archivo JSON para definir la directiva de replicación en la cuenta de origen con PowerShell, recupere el archivo local y realice la conversión de JSON a un objeto. Después, llame al comando [Set-AzStorageObjectReplicationPolicy](/powershell/module/az.storage/set-azstorageobjectreplicationpolicy) para configurar la directiva en la cuenta de origen, tal y como se muestra en el ejemplo siguiente.
+
+Al ejecutar el ejemplo, asegúrese de establecer el parámetro `-ResourceGroupName` en el grupo de recursos de la cuenta de origen y el parámetro `-StorageAccountName` en el nombre de la cuenta de origen. Además, no olvide reemplazar los valores entre corchetes angulares y la ruta del archivo por valores propios:
 
 ```powershell
 $object = Get-Content -Path C:\temp\json.txt | ConvertFrom-Json
@@ -443,6 +409,7 @@ az storage account or-policy delete \
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Información general sobre la replicación de objetos](object-replication-overview.md)
+- [Replicación de objetos para blobs en bloques](object-replication-overview.md)
+- [Impedir la replicación de objetos entre inquilinos de Azure Active Directory](object-replication-prevent-cross-tenant-policies.md)
 - [Habilitar y administrar las versiones de blob](versioning-enable.md)
 - [Procesamiento de la fuente de cambios en Azure Blob Storage](storage-blob-change-feed-how-to.md)

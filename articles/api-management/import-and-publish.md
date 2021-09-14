@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 09/30/2020
 ms.author: apimpm
-ms.openlocfilehash: 9ff64f57e61002101b4e2c560bdcd91863cc461e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0187a1c15315835c1606913acfd52dc930e92443
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91626982"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123538658"
 ---
 # <a name="tutorial-import-and-publish-your-first-api"></a>Tutorial: Importación y publicación de la primera API
 
@@ -53,7 +53,7 @@ Esta sección explica cómo importar y publicar una API de back-end de especific
 
    |Configuración|Value|Descripción|
    |-------|-----|-----------|
-   |**Especificación OpenAPI**|*https:\//conferenceapi.azurewebsites.net?format=json*|Servicio que implementa la API. API Management reenvía las solicitudes a esta dirección.|
+   |**Especificación OpenAPI**|*https:\//conferenceapi.azurewebsites.net?format=json*|Servicio que implementa la API. API Management reenvía las solicitudes a esta dirección. El servicio debe hospedarse en una dirección de Internet de acceso público. |
    |**Nombre para mostrar**|Después de escribir la dirección URL del servicio anterior, API Management rellena este campo según el código JSON.|El nombre se muestra en el [portal para desarrolladores](api-management-howto-developer-portal.md).|
    |**Nombre**|Después de escribir la dirección URL del servicio anterior, API Management rellena este campo según el código JSON.|Nombre único para la API.|
    |**Descripción**|Después de escribir la dirección URL del servicio anterior, API Management rellena este campo según el código JSON.|Descripción opcional de la API.|

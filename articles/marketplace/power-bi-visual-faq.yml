@@ -1,0 +1,123 @@
+### YamlMime:FAQ
+metadata:
+  title: Preguntas frecuentes sobre cómo trasladar ofertas de objetos visuales de Power BI de la Tienda Office al marketplace comercial.
+  description: Preguntas frecuentes sobre cómo trasladar ofertas de objetos visuales de Power BI de la Tienda Office al marketplace comercial.
+  ms.service: marketplace
+  ms.subservice: partnercenter-marketplace-publisher
+  ms.topic: conceptual
+  ms.date: 09/03/2021
+  author: posurnis
+  ms.author: pooja.surnis
+  ms.reviewer: pooja.surnis
+  ms.openlocfilehash: a86d692daa794aed6130e7e1e4f84b74f04285a6
+  ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 09/07/2021
+  ms.locfileid: "123544741"
+title: Preguntas frecuentes sobre objetos visuales de Power BI
+summary: Las ofertas de objetos visuales de Power BI se trasladarán al marketplace comercial dentro del Centro de partners para simplificar la administración de ofertas. Se podrá acceder a todas las ofertas de objetos visuales de Power BI nuevas y existentes después del traslado por parte de Microsoft en septiembre de 2021. En este artículo se abordan las preguntas frecuentes sobre el traslado y las mejoras en la administración de ofertas.
+sections:
+- name: Omitido
+  questions:
+  - question: >
+      ¿Qué significa para mí el traslado al marketplace comercial?
+    answer: >
+      | Área | Cambios |
+
+      | --- | --- |
+
+      | Cuenta | Para administrar las ofertas de objetos visuales existentes y nuevos de Power BI, es preciso estar inscrito en el marketplace comercial. Si aún no está inscrito, deberá firmar el contrato de publicación del programa de marketplace comercial e inscribirse con su dirección de correo electrónico de empresa o trabajo. Obtenga más información en [Administración de la cuenta de marketplace comercial en el Centro de partners](manage-account.md). |
+
+      | Experiencia de administración y publicación de ofertas | En septiembre de 2021, moveremos su oferta de la Tienda Office al marketplace comercial. Después del traslado, administrará las ofertas en el marketplace comercial (en lugar de la Tienda Office), que ofrece una mejor experiencia del usuario y un proceso simplificado de envío de paquetes. Aprenda a [actualizar las ofertas existentes en el marketplace comercial](update-existing-offer.md). |
+
+      | Disponibilidad de las ofertas en el Centro de partners | Sin cambios. Si la oferta está en estado de borrador o publicado en la Tienda de Office, seguirá estando en el mismo estado después del traslado al marketplace comercial. |
+
+      | Adquisiciones e implementaciones | Sin cambios. Los clientes pueden seguir detectando, descargando e implementando las ofertas sin interrupciones. |
+
+      | Análisis | El panel de **información de Marketplace** del Centro de partners se mejorará para mostrar información sobre los clics de consentimiento y la plataforma (sitio web y cliente) para las ofertas de objetos visuales de Power BI. Use esta información para conocer los orígenes que impulsan el tráfico, los clics y las conversiones de las ofertas. |
+
+      |
+  - question: >
+      ¿Es necesario crear una cuenta para administrar las ofertas en el Centro de partners?
+    answer: >
+      Si su misma cuenta de la Tienda Office está inscrita en el marketplace comercial, no es necesario realizar ninguna otra acción. Una vez completado el traslado, inicie sesión en el Centro de partners con la misma cuenta y verá los objetos visuales de Power BI en el marketplace comercial.
+
+
+      Si su cuenta de la Tienda Office no está inscrita en el marketplace comercial, póngase en contacto con el propietario de la cuenta para inscribirla. Para evitar la creación de otra cuenta o identificador de vendedor para el marketplace comercial, esta inscripción la debe realizar el *propietario*. Obtenga más información sobre cómo buscar su identificador de vendedor en [Administración de la cuenta de marketplace comercial en el Centro de partners](manage-account.md).
+
+
+      Si su cuenta de la Tienda Office no está inscrita en el marketplace comercial, pero su organización está inscrita en el marketplace comercial con otro identificador de vendedor, es aconsejable que se inscriba en el marketplace comercial con la cuenta que usó para la inscripción a la Tienda Office.
+
+
+      Si crea una cuenta para la inscripción en el marketplace comercial con un identificador de vendedor diferente del de la Tienda Office, las ofertas de objetos visuales de Power BI no se moverán automáticamente al marketplace comercial. Póngase en contacto con el [soporte técnico](https://partner.microsoft.com/support/?stage=2&topicid=dfd204c3-8357-c8d6-4dff-186bd183058c) y proporcione el nuevo identificador de vendedor. Asignaremos la oferta de objeto visual de Power BI existente a la nueva cuenta una vez completado el traslado y nuestro equipo de ingeniería moverá la oferta de objeto visual de Power BI al nuevo identificador de vendedor.
+  - question: >
+      ¿Qué páginas del Centro de partners corresponden a las páginas que usaba en la Tienda Office?
+    answer: >
+      En la tabla siguiente se muestra la correlación entre páginas antiguas y las nuevas. Si ha guardado como favoritos los vínculos de la Tienda Office, le interesará actualizarlos.
+
+
+      | Nombre de la página en Tienda Office | Nombre de la página en Centro de partners |
+
+      | --- | --- |
+
+      | Información general del producto | Información general de la oferta |
+
+      | Configuración del producto | Configuración de la oferta |
+
+      | Paquetes | Configuración técnica |
+
+      | Propiedades | Propiedades |
+
+      | Anuncios de Marketplace | Descripción de la oferta |
+
+      | Disponibilidad | Disponibilidad |
+
+      | Administración de productos | Administración de ofertas |
+
+      |
+  - question: >
+      ¿Qué ocurre con las ofertas publicadas en Tienda Office?
+    answer: >
+      Podrá acceder a las ofertas de objetos visuales de Power BI que se hayan trasladado al marketplace comercial cuando inicie sesión en el marketplace comercial. Si la oferta se publicó en Tienda Office y estaba activa en ella, lo seguirá estando y los clientes la podrán detectar, adquirir y descargar sin interrupciones.
+  - question: >
+      ¿Se van a mover todas mis ofertas de Tienda Office al marketplace comercial durante este traslado?
+    answer: >
+      Solo vamos a trasladar sus ofertas de objetos visuales de Power BI al marketplace comercial. Se seguirá pudiendo acceder a las ofertas de Tienda Office en **complementos de Office**, **solución de SharePoint** y **aplicaciones de Teams** en Tienda Office.
+
+
+      Se trasladarán todas las ofertas de objetos visuales de Power BI que se admiten en Tienda Office independientemente de su estado: Borrador o Activa. Las ofertas de objetos visuales de Power BI se bloquearán para su edición en Tienda Office después de moverlas.
+  - question: >
+      ¿Por qué no encuentro mis ofertas de objetos visuales de Power BI en el Centro de partners?
+    answer: >
+      Después de mover las ofertas al marketplace comercial, no podrá acceder a ellas desde la Tienda Office. Lo que ve en el Centro de partners depende de los programas en los que esté inscrito, las cuentas a las que pertenezca y los roles de usuario y permisos que se le hayan asignado. Hay muchos programas del Centro de partners disponibles y puede inscribirse en varios de ellos. También puede acceder a varias cuentas con las mismas credenciales de usuario.
+
+
+      Las ofertas de objetos visuales de Power BI que creó en Tienda Office estarán disponibles en el marketplace comercial con la misma cuenta usada para crear las ofertas originales. Para asegurarse de que ve el programa y la cuenta correctos, siga los pasos que se indican a continuación. Para obtener otras sugerencias de solución de problemas, vea [Administración de la cuenta del Centro de partners](/partner-center/partner-center-account-setup).
+
+
+      **Acceso al programa correcto en el Centro de partners**
+
+
+      1. Inicie sesión en el [Centro de partners](https://go.microsoft.com/fwlink/?linkid=2166002) con las mismas credenciales de antes. El menú de navegación de la izquierda (menú de navegación izquierdo) muestra las opciones asociadas a los programas en que está inscrito, como el programa MPN, la Tienda Office y el marketplace comercial.
+
+
+      1. Seleccione **Marketplace comercial** > **Información general** para acceder a las ofertas (si no ve el marketplace comercial en el menú de navegación izquierdo, es posible que esté en la cuenta incorrecta):
+
+         :::image type="content" source="media/power-bi-visual/overview-tab.png" alt-text="Muestra la pestaña Información general del Centro de partners.":::
+
+      **Acceso a la cuenta correcta en el Centro de partners**
+
+
+      Si tiene varias cuentas, el Centro de partners muestra un botón selector de cuentas en el menú de navegación izquierdo. Selecciónelo para ver las cuentas a las que pertenece. Seleccione una cuenta a la que cambiarse y ver todos los programas e información correspondientes que pertenezcan a ella. Si no ve ningún botón selector de cuenta en el menú de navegación, significa que solo tiene una cuenta.
+
+
+      :::image type="content" source="media/power-bi-visual/account-picker.png" alt-text="Muestra el botón selector de cuenta en el menú de navegación izquierdo del Centro de partners.":::
+  - question: >
+      ¿Dónde están las instrucciones para usa el Centro de partners?
+    answer: >
+      Vaya a la [página principal](https://aka.ms/MigrationFAQs) del marketplace comercial y expanda la sección **Creación y administración de ofertas**.
+  - question: >
+      ¿Cuáles son las diferencias de administración de publicación y ofertas?
+    answer: "Estas son las principales diferencias entre la publicación de una oferta de un objeto visual de Power BI en la Tienda Office y en el marketplace comercial:\n\n1. **Proceso simplificado de envío de paquetes**\n\n   En cualquier nueva oferta que envíe al marketplace comercial en el Centro de partners, puede cargar directamente los dos archivos de paquete, `.pbix` y `.pbiviz`, en la página **Technical configuration** (Configuración técnica). Ya no es necesario trabajar con el equipo de soporte técnico de PBI para el archivo de manifiesto XML. El uso de un archivo XML para el envío de ofertas ya no es necesario. Este proceso de envío simplificado reduce el tiempo necesario para preparar y enviar una oferta de objeto visual de Power BI.\n\n   :::image type=\"content\" source=\"media/power-bi-visual/technical-config.png\" alt-text=\"Muestra la página de configuración técnica del Centro de partners.\":::\n\n1. **Opciones de vista previa mejoradas**\n\n   Marketplace comercial proporciona una característica de comparación con opciones de filtrado mejoradas que permiten ver los cambios antes de publicar la oferta y compararla con lo que ya está en versión preliminar o disponible para los clientes. Las actualizaciones que no publique se guardan como borradores. Puede encontrar más información sobre la característica **Compare** (Comparar) en [Actualización de ofertas existentes en el Marketplace comercial](update-existing-offer.md#compare-changes-to-your-offer)\n\n   :::image type=\"content\" source=\"media/power-bi-visual/enhanced-preview.png\" lightbox=\"media/power-bi-visual/enhanced-preview.png\" alt-text=\"Muestra la página de comparación de ofertas en el Centro de partners.\":::\n\n1. **Cambios de personalización de marca y navegación**\n\n   Observará algunos cambios en la personalización de marca. Por ejemplo, la marca de los **productos** se personaliza como **ofertas** en el marketplace comercial:\n\n   :::image type=\"content\" source=\"media/power-bi-visual/branding-navigation.png\" alt-text=\"Muestra la página de información general de la oferta en el Centro de partners.\":::\n\n1. **Analytics**\n\n   - El panel de **información de Marketplace** del Centro de partners recibirá las siguientes mejoras:\n\n     - Tendencia de Llamadas a la acción\n\n       - Adición de análisis de Clics de consentimiento. Clics de consentimiento representa el número de todos los clics de consentimiento realizados en la página de descripción de la oferta. Aparecen cuando un usuario ha hecho clic en un botón de **Llamada a la acción**: *Obtener ahora*, *Prueba gratuita*, *Contacto* o *Versión de prueba*.\n\n         :::image type=\"content\" source=\"media/power-bi-visual/analytics-graphs.png\" alt-text=\"Muestra el grafo de análisis de clics de consentimiento en el Centro de partners.\":::\n\n     - Visitas a la página y llamadas a la acción\n     \n     - Se modifican los datos tabulares\n\n       - Incorporación de la columna de **clics de consentimiento**. Use esta información para conocer las tasas de conversión de sus ofertas.\n\n       - Incorporación de la columna **Plataforma** a la vista por dominio de referencia. Esta información se usa para saber cómo varían las vistas de página, las llamadas a la acción y los clics de consentimiento de las ofertas en el sitio web y las plataformas de cliente insertadas.\n\n       - Adición de la **vista de embudo** para mostrar las tasas de conversión de las vistas de página a los clics de consentimiento\n\n         :::image type=\"content\" source=\"media/power-bi-visual/funnel-view.png\" alt-text=\"Muestra el grafo de análisis de la vista de embudo en el Centro de partners.\":::\n\n   - Análisis en la página de Tienda de Office\n\n     - Los análisis de Tienda de Office mostrará la telemetría de adquisición solo para el almacén del cliente. El análisis de la tienda web se mostrará en el informe de Información de Marketplace del marketplace comercial después de migrar las ofertas.\n     \n"
+additionalContent: "\n## <a name=\"next-steps\"></a>Pasos siguientes\n\n- Si necesita ayuda adicional, póngase en contacto con el [soporte técnico](https://partner.microsoft.com/support/?stage=2&topicid=dfd204c3-8357-c8d6-4dff-186bd183058c).\n\n<!--\n- [Create a Power BI visual offer in Partner Center](marketplace-power-bi-visual.md) -->"

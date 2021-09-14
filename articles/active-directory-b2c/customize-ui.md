@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/27/2021
+ms.date: 09/06/2021
 ms.custom: project-no-code, b2c-support
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: cf4e674e1aca47b0f1ea4fa05aae110f8270b721
-ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
+ms.openlocfilehash: f227c63ef837b0de60ee72e2f33084e744f2f96f
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2021
-ms.locfileid: "114688890"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123535606"
 ---
 # <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Personalización de la interfaz de usuario en Azure Active Directory B2C
 
@@ -210,10 +210,9 @@ Tenga en cuenta las siguientes cuestiones a la hora de configurar la personaliza
 * El logotipo del banner aparece en los mensajes de correo electrónico de verificación que se envían a los usuarios cuando inician un flujo de usuario de inicio de sesión.
 
 
+::: zone pivot="b2c-user-flow"
 
 ## <a name="enable-company-branding-in-user-flow-pages"></a>Habilitación de la personalización de marca de empresa en las páginas del flujo de usuario
-
-::: zone pivot="b2c-user-flow"
 
 Después de configurar la personalización de marca de la empresa, habilítela en los flujos de usuario.
 
@@ -231,6 +230,8 @@ Si desea personalizar la marca de todas las páginas del flujo de usuario, estab
 ::: zone-end
 
 ::: zone pivot="b2c-custom-policy"
+
+## <a name="enable-company-branding-in-custom-policy-pages"></a>Habilitación de la personalización de marca de empresa en páginas de directivas personalizadas
 
 Después de configurar la personalización de marca de la empresa, habilítela en la directiva personalizada. Configure la [versión de diseño de página](contentdefinitions.md#migrating-to-page-layout) con la versión `contract` de página para *todas* las definiciones de contenido de la directiva personalizada. El formato del valor debe contener la palabra `contract`: _urn:com:microsoft:aad:b2c:elements:**contract**:page-name:version_. Para especificar un diseño de página en las directivas personalizadas que utilizan un valor de **DataUri** anterior. Para más información, aprenda a [migrar al diseño de página](contentdefinitions.md#migrating-to-page-layout) con la versión de la página.
 

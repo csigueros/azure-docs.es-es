@@ -4,15 +4,15 @@ description: Procedimiento para actualizar sin problemas la versión del protoco
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
-ms.date: 03/19/2021
+ms.date: 08/26/2021
 author: gahl-levy
 ms.author: gahllevy
-ms.openlocfilehash: 751b5546313247b80d6e6701aa6945938cc40a50
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 2880bc5fc9c367a5ab3cb02db3e3d5901861d789
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121779911"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123439387"
 ---
 # <a name="upgrade-the-api-version-of-your-azure-cosmos-db-api-for-mongodb-account"></a>Actualización de la versión de API de la cuenta de API de Azure Cosmos DB para MongoDB
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
@@ -62,6 +62,8 @@ Para la actualización desde la versión 3.2, el sufijo del punto de conexión 
 
 Si está actualizando desde la versión 3.2, tendrá que reemplazar el punto de conexión existente en las aplicaciones y los controladores que se conectan con esta cuenta de base de datos. **Solo las conexiones que usan el nuevo punto de conexión tendrán acceso a las características de la nueva versión de API**. El punto de conexión 3.2 anterior debe tener el sufijo `.documents.azure.com`.
 
+Al actualizar de la versión 3.2 a versiones más recientes, los [índices compuestos](mongodb-indexing.md) ahora son necesarios para realizar operaciones de ordenación en varios campos que garanticen un rendimiento estable y alto de estas consultas. Asegúrese de que se crean estos índices compuestos para que la ordenación de varios campos se realice correctamente. 
+
 >[!Note]
 > Es posible que este punto de conexión tenga ligeras diferencias si la cuenta se ha creado en una nube de Azure soberana, gubernamental o restringida.
 
@@ -102,3 +104,6 @@ Si ha actualizado de la versión 3.2 a la (4.0 o 3.6) y desea cambiar de nuevo 
 - Obtenga información sobre las [características admitidas y no admitidas de la versión 4.0 de MongoDB](feature-support-40.md).
 - Obtenga información sobre las [características admitidas y no admitidas de la versión 3.6 de MongoDB](feature-support-36.md).
 - Para más información, consulte las [características de la versión 3.6 de Mongo](https://devblogs.microsoft.com/cosmosdb/azure-cosmos-dbs-api-for-mongodb-now-supports-server-version-3-6/)
+- ¿Intenta planear la capacidad de una migración a Azure Cosmos DB? Para ello, puede usar información sobre el clúster de base de datos existente.
+    - Si lo único que sabe es el número de núcleos virtuales y servidores del clúster de bases de datos existente, lea este artículo sobre el [cálculo de unidades de solicitud mediante núcleos o CPU virtuales](../convert-vcore-to-request-unit.md). 
+    - Si conoce las velocidades de solicitud típicas de la carga de trabajo de la base de datos actual, lea sobre el [cálculo de unidades de solicitud mediante la herramienta de planeamiento de capacidad de Azure Cosmos DB](estimate-ru-capacity-planner.md).

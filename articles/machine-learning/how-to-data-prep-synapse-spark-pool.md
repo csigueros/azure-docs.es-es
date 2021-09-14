@@ -11,12 +11,12 @@ author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 03/02/2021
 ms.custom: devx-track-python, data4ml, synapse-azureml, contperf-fy21q4
-ms.openlocfilehash: 424e1908df6d3e92d365e2dd3e10a42f7d1ddb2a
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 3cd6a3243b4bfb4441f6be82f3957c325ceec3d2
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114296405"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123433573"
 ---
 # <a name="data-wrangling-with-apache-spark-pools-preview"></a>Limpieza y transformación de datos con grupos de Apache Spark (versión preliminar) 
 
@@ -62,7 +62,7 @@ Para comenzar la preparación de datos con el grupo de Apache Spark, especifique
 ![obtener el nombre de proceso asociado](media/how-to-data-prep-synapse-spark-pool/attached-compute.png)
 
 > [!IMPORTANT]
-> Para seguir usando el grupo de Apache Spark, debe indicar qué recurso de proceso se va a utilizar en las tareas de limpieza y transformación de datos, con `%synapse` para líneas de código únicas y `%%synapse` para varias líneas. 
+> Para seguir usando el grupo de Apache Spark, debe indicar qué recurso de proceso se va a utilizar en las tareas de limpieza y transformación de datos, con `%synapse` para líneas de código únicas y `%%synapse` para varias líneas. [Más información sobre el comando magic %synapse](/python/api/azureml-synapse/azureml.synapse.magics.remotesynapsemagics(class)).
 
 ```python
 %synapse start -c SynapseSparkPoolAlias

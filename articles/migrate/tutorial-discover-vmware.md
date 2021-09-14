@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 07/28/2021
 ms.custom: mvc
-ms.openlocfilehash: 973d6f9450d0cb58df5b1e8dcd208990806abc54
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+ms.openlocfilehash: 520b75e38d7ccf33c3f900c0b30bfd68e6184720
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122967336"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123542411"
 ---
 # <a name="tutorial-discover-servers-running-in-a-vmware-environment-with-azure-migrate"></a>Tutorial: Detección de los servidores que se ejecutan en un entorno de VMware con Azure Migrate
 
@@ -103,12 +103,15 @@ En el cliente web de VMware vSphere, configure una cuenta de solo lectura que se
 > [!NOTE]
 > Puede establecer el ámbito de la cuenta de vCenter Server para limitar la detección a los centros de datos, los clústeres, los hosts, una carpeta de clústeres o de hosts, o servidores individuales de vCenter Server. Obtenga información sobre cómo [establecer el ámbito de la cuenta de usuario de vCenter Server](set-discovery-scope.md).
 
+> [!NOTE]
+> Azure Migrate no detectará recursos de vCenter conectados a través de Linked-Mode al servidor vCenter especificado para la detección. Se debe implementar un dispositivo de Azure Migrate para cada entorno de vCenter que desee detectar.
+
 ### <a name="create-an-account-to-access-servers"></a>Creación de una cuenta para acceder a los servidores
 
 La cuenta de usuario de los servidores debe tener los permisos necesarios para iniciar la detección de aplicaciones instaladas, el análisis de dependencias sin agente y la detección de aplicaciones web, instancias y bases de datos de SQL Server. Puede proporcionar la información de la cuenta de usuario en el administrador de configuración del dispositivo. El dispositivo no instala ningún agente en los servidores.
 
 * Para los servidores Windows y la detección de aplicaciones web, cree una cuenta (local o de dominio) que tenga permisos administrativos en los servidores. Para detectar instancias y bases de datos de SQL Server, la cuenta de Windows o de SQL Server debe ser miembro del rol de servidor sysadmin. Obtenga información sobre cómo [asignar el rol requerido a la cuenta de usuario](/sql/relational-databases/security/authentication-access/server-level-roles).
-* En los servidores Linux, cree una cuenta con privilegios raíz. O bien, puede crear una cuenta que tenga los permisos CAP_DAC_READ_SEARCH y CAP_SYS_PTRACE en los archivos /bin/netstat y /bin/ls.
+* En el caso de los servidores Linux, especifique los detalles de la cuenta de usuario raíz o cree una cuenta que tenga los permisos CAP_DAC_READ_SEARCH y CAP_SYS_PTRACE en los archivos /bin/netstat y /bin/ls.
 
 > [!NOTE]
 > Puede agregar varias credenciales de servidor en el administrador de configuración del dispositivo de Azure Migrate para iniciar la detección de las aplicaciones instaladas, el análisis de dependencias sin agente y la detección de aplicaciones web, instancias y bases de datos de SQL Server. Puede agregar varias credenciales de autenticación de dominio, de Windows (no de dominio), de Linux (no de dominio) o de SQL Server. Obtenga información sobre cómo [agregar credenciales de servidor](add-server-credentials.md).

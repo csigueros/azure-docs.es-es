@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: f8149be4e7e22366cf5d2ce130d3b6ec596ac782
-ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
+ms.openlocfilehash: 79248c8d389fa004bab0dfc55c3f6fce193c6feb
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122272006"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123473953"
 ---
 # <a name="configure-anonymous-public-read-access-for-containers-and-blobs"></a>Configuración de acceso de lectura público anónimo a contenedores y blobs
 
@@ -296,6 +296,17 @@ $ctx = $storageAccount.Context
 
 Get-AzStorageContainer -Context $ctx | Select Name, PublicAccess
 ```
+
+## <a name="feature-support"></a>Compatibilidad de características
+
+En esta tabla se muestra cómo se admite esta característica en la cuenta y el impacto en la compatibilidad al habilitar determinadas funcionalidades. 
+
+| Tipo de cuenta de almacenamiento                | Blob Storage (compatibilidad predeterminada)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>    
+|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
+| De uso general estándar, v2 | ![Sí](../media/icons/yes-icon.png) |![Sí](../media/icons/yes-icon.png)              | ![Sí](../media/icons/yes-icon.png) | 
+| Blobs en bloques Premium          | ![Sí](../media/icons/yes-icon.png)| ![Sí](../media/icons/yes-icon.png) | ![Sí](../media/icons/yes-icon.png) |
+
+<sup>1</sup> Data Lake Storage Gen2 y el protocolo Network File System (NFS) 3.0 necesitan una cuenta de almacenamiento con un espacio de nombres jerárquico habilitado.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

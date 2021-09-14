@@ -9,14 +9,16 @@ ms.topic: how-to
 ms.service: virtual-machines
 ms.subervice: image-builder
 ms.colletion: windows
-ms.openlocfilehash: 2a847d44f1c178aa5756b81e54ebdf6e961ab1d8
-ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
+ms.openlocfilehash: 256ae289b86ec2c16b850f16d379700dc69c2f6f
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2021
-ms.locfileid: "113594686"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123424643"
 ---
 # <a name="create-a-windows-vm-with-azure-image-builder"></a>Creación de una máquina virtual Windows con Azure Image Builder
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Windows 
 
 En este artículo se muestra cómo puede crear una imagen personalizada de Windows mediante el generador de imágenes de máquina virtual de Azure. En el ejemplo de este artículo se usan [personalizadores](../linux/image-builder-json.md#properties-customize) para personalizar la imagen:
 - PowerShell (ScriptUri): para descargar y ejecutar un [script de PowerShell](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/testPsScript.ps1).
@@ -29,7 +31,7 @@ En este artículo se muestra cómo puede crear una imagen personalizada de Windo
 - identity: proporcione una identidad para que Azure Image Builder la use durante la compilación.
 
 
-También puede especificar un valor de `buildTimeoutInMinutes`. El valor predeterminado es de 240 minutos, y puede aumentar el tiempo de compilación para permitir compilaciones de larga duración.
+También puede especificar un valor de `buildTimeoutInMinutes`. El valor predeterminado es de 240 minutos, y puede aumentar el tiempo de compilación para permitir compilaciones de larga duración. El valor mínimo permitido es 6 minutos; los valores más cortos provocarán errores.
 
 Se usará una plantilla .json de ejemplo para configurar la imagen. El archivo .json que se usa aquí es: [helloImageTemplateWin.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/0_Creating_a_Custom_Windows_Managed_Image/helloImageTemplateWin.json). 
 
@@ -82,10 +84,10 @@ runOutputName=aibWindows
 imageName=aibWinImage
 ```
 
-Cree una variable para el id. de suscripción. Puede obtenerlo mediante `az account show | grep id`.
+Cree una variable para el id. de suscripción.
 
 ```azurecli-interactive
-subscriptionID=<Your subscription ID>
+subscriptionID=$(az account show --query id --output tsv)
 ```
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 Este grupo de recursos se usa para almacenar el artefacto de la plantilla de configuración de la imagen y la imagen misma.
@@ -101,14 +103,14 @@ Image Builder usará la [identidad de usuario](../../active-directory/managed-id
 ## <a name="create-user-assigned-managed-identity-and-grant-permissions"></a>Creación de una identidad administrada asignada por el usuario y concesión de permisos 
 ```bash
 # create user assigned identity for image builder to access the storage account where the script is located
-idenityName=aibBuiUserId$(date +'%s')
-az identity create -g $imageResourceGroup -n $idenityName
+identityName=aibBuiUserId$(date +'%s')
+az identity create -g $imageResourceGroup -n $identityName
 
 # get identity id
-imgBuilderCliId=$(az identity show -g $imageResourceGroup -n $idenityName | grep "clientId" | cut -c16- | tr -d '",')
+imgBuilderCliId=$(az identity show -g $imageResourceGroup -n $identityName --query clientId -o tsv)
 
 # get the user identity URI, needed for the template
-imgBuilderId=/subscriptions/$subscriptionID/resourcegroups/$imageResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/$idenityName
+imgBuilderId=/subscriptions/$subscriptionID/resourcegroups/$imageResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/$identityName
 
 # download preconfigured role definition example
 curl https://raw.githubusercontent.com/azure/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json -o aibRoleImageCreation.json
@@ -186,7 +188,7 @@ Si el servicio informa de un error durante el envío de la plantilla de configur
 az resource delete \
     --resource-group $imageResourceGroup \
     --resource-type Microsoft.VirtualMachineImages/imageTemplates \
-    -n helloImageTemplateLinux01
+    -n helloImageTemplateWin01
 ```
 
 ## <a name="start-the-image-build"></a>Iniciar la generación de imágenes

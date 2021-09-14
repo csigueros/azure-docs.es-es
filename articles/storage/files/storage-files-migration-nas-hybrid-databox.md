@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 03/5/2021
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 7f60c2e03b666c51769473120097034830f599b4
-ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
+ms.openlocfilehash: fb7132e0a7b9dc59ac6b047d431acf0e740aba0a
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/15/2021
-ms.locfileid: "114462292"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123430835"
 ---
 # <a name="use-data-box-to-migrate-from-network-attached-storage-nas-to-a-hybrid-cloud-deployment-by-using-azure-file-sync"></a>Uso de Data Box para migrar de un almacenamiento conectado a la red (NAS) a una implementación de nube híbrida con Azure File Sync
 
@@ -53,7 +53,7 @@ En las secciones siguientes se describen detalladamente las fases del proceso de
 > [!TIP]
 > Si vuelve a este artículo, use la navegación del lado derecho de la pantalla para saltar a la fase de migración en la que se quedó.
 
-## <a name="phase-1-determine-how-many-azure-file-shares-you-need"></a>Fase 1: Determinación del número de recursos compartidos de archivos de Azure que necesita
+## <a name="phase-1-determine-how-many-azure-file-shares-you-need"></a>Fase 1: Determinación del número de recursos compartidos de archivos de Azure que necesita
 
 [!INCLUDE [storage-files-migration-namespace-mapping](../../../includes/storage-files-migration-namespace-mapping.md)]
 
@@ -65,27 +65,27 @@ En esta fase, consulte la tabla de asignación de la fase 1 y úsela para aprov
 
 ## <a name="phase-3-determine-how-many-azure-data-box-appliances-you-need"></a>Fase 3: Determinación del número de dispositivos de Azure Data Box que necesita
 
-Inicie este paso solo después de haber finalizado la fase anterior. Los recursos de almacenamiento de Azure Storage (cuentas de almacenamiento y recursos compartidos de archivos) se deben crear en este momento. Al solicitar su Data Box, debe especificar las cuentas de almacenamiento a las que se mueven los datos de Data Box.
+Inicie este paso solo después de haber finalizado la fase anterior. Los recursos de almacenamiento de Azure Storage (cuentas de almacenamiento y recursos compartidos de archivos) se deben crear en este momento. Al solicitar su Data Box, debe especificar las cuentas de almacenamiento a las que Data Box se mueve.
 
 En esta fase, debe asignar los resultados del plan de migración de la fase anterior a los límites de las opciones de Data Box disponibles. Estas consideraciones le ayudarán a crear un plan para las opciones de Data Box que se van a elegir, así como cuántas necesitará para mover los recursos compartidos de NAS a recursos compartidos de archivos de Azure.
 
 Para determinar el número de dispositivos que necesita y sus tipos, tenga en cuenta estos límites importantes:
 
 * Cualquier dispositivo de Azure Data Box puede mover datos a un máximo de 10 cuentas de almacenamiento. 
-* Cada opción de Data Box viene con su propia capacidad utilizable. Consulte [Opciones de Data Box](#data-box-options).
+* Cada opción de Data Box viene con su propia capacidad utilizable. Consulte [opciones de Data Box](#data-box-options).
 
 Consulte el plan de migración para encontrar el número de cuentas de almacenamiento que ha decidido crear y los recursos compartidos en cada una de ellas. A continuación, examine el tamaño de cada uno de los recursos compartidos de NAS. La combinación de esta información le permitirá optimizar y decidir qué dispositivo debe enviar datos a las cuentas de almacenamiento. Dos dispositivos de Data Box pueden trasladar los archivos a la misma cuenta de almacenamiento, pero no divida el contenido de un solo recurso compartido de archivos en dos instancias de Data Box.
 
 ### <a name="data-box-options"></a>Opciones de Data Box
 
-Para una migración estándar, elija una de las siguientes opciones de Data Box (o una combinación de estas): 
+Para una migración estándar, elija una combinación de estas opciones de Data Box: 
 
 * **Data Box Disk**.
-  Microsoft le enviará entre uno y cinco discos SSD con una capacidad de 8 TiB cada uno, con un total de 40 TiB como máximo. La capacidad utilizable es aproximadamente un 20 % menor debido al cifrado y la sobrecarga del sistema de archivos. Para más información, consulte la [documentación de Data Box Disk](../../databox/data-box-disk-overview.md).
+  Data Box Disks: Microsoft le enviará entre uno y cinco discos SSD con una capacidad de 8 TiB cada uno, con un total de 40 TiB como máximo. La capacidad utilizable es aproximadamente un 20 % menor debido al cifrado y la sobrecarga del sistema de archivos. Para más información, consulte la [documentación de Data Box Disk](../../databox/data-box-disk-overview.md).
 * **Data Box**.
   Esta opción es la más común. Microsoft le enviará un dispositivo de Data Box resistente que funciona de forma similar a un NAS. Tiene una capacidad utilizable de 80 TiB. Para más información, consulte la [documentación de Data Box](../../databox/data-box-overview.md).
 * **Data Box Heavy**.
-  Esta opción presenta un dispositivo Data Box resistente con ruedas, que funciona de forma similar a un NAS. Tiene una capacidad de 1 PiB. La capacidad utilizable es aproximadamente un 20 % menor debido al cifrado y la sobrecarga del sistema de archivos. Para más información, consulte la [documentación de Data Box Heavy](../../databox/data-box-heavy-overview.md).
+  Esta opción presenta un dispositivo Data Box resistente en ruedas, que funciona de forma similar a un NAS. Tiene una capacidad de 1 PiB. La capacidad utilizable es aproximadamente un 20 % menor debido al cifrado y la sobrecarga del sistema de archivos. Para más información, consulte la [documentación de Data Box Heavy](../../databox/data-box-heavy-overview.md).
 
 ## <a name="phase-4-provision-a-suitable-windows-server-instance-on-premises"></a>Fase 4: Aprovisionamiento de una instancia de Windows Server adecuada en el entorno local
 
@@ -103,13 +103,13 @@ La configuración de recursos (de proceso y RAM) de la instancia de Windows Ser
 
 ## <a name="phase-5-copy-files-onto-your-data-box"></a>Fase 5: Copia de archivos en el dispositivo Data Box
 
-Cuando llegue el dispositivo Data Box, debe colocarlo en la línea de visión del dispositivo NAS. Siga la documentación de configuración del tipo de Data Box que solicitó:
+Cuando llegue el dispositivo Data Box, debe colocarlo en la línea de visión del dispositivo NAS. Siga la documentación de establecimiento del tipo de Data Box que solicitó:
 
 * [Configuración de Data Box](../../databox/data-box-quickstart-portal.md).
 * [Configuración de Data Box Disk](../../databox/data-box-disk-quickstart-portal.md).
 * [Configuración de Data Box Heavy](../../databox/data-box-heavy-quickstart-portal.md).
 
-En función del tipo de Data Box, podría haber disponibles herramientas de copia de Data Box. En este punto, no se recomiendan para las migraciones a recursos compartidos de archivos de Azure porque no copian los archivos en el dispositivo Data Box con total fidelidad. En su lugar, use Robocopy.
+Dependiendo del tipo de Data Box, las herramientas de copia de Data Box podrían estar disponibles. En este punto, no se recomiendan para las migraciones a recursos compartidos de archivos de Azure porque no copian los archivos en el dispositivo Data Box con total fidelidad. En su lugar, use RoboCopy.
 
 Cuando llegue el dispositivo Data Box, tendrá recursos compartidos de SMB aprovisionados previamente disponibles para cada cuenta de almacenamiento que especificó cuando lo solicitó.
 
@@ -120,7 +120,7 @@ Siga los pasos descritos en la documentación de Azure Data Box:
 
 1. [Conexión a un dispositivo Data Box](../../databox/data-box-deploy-copy-data.md).
 1. Copia de datos a un dispositivo Data Box.
-1. [Preparación del dispositivo Data Box para cargarlo en Azure](../../databox/data-box-deploy-picked-up.md).
+1. [Preparación del dispositivo Data Box para cargarlo en Azure.](../../databox/data-box-deploy-picked-up.md)
 
 La documentación vinculada de Data Box especifica un comando Robocopy. Ese comando no es adecuado para conservar la fidelidad completa de archivos y carpetas. En su lugar, use este comando:
 
@@ -146,7 +146,7 @@ La instancia registrada de Windows Server local debe estar preparada y conectad
 Active la característica de nube por niveles y seleccione **Namespace only** (Solo espacio de nombres) en la sección de descarga inicial.
 
 > [!IMPORTANT]
-> La nube por niveles es la característica de Azure File Sync que permite al servidor local tener menos capacidad de almacenamiento de la que está almacenada en la nube, pero disponer de todo el espacio de nombres. Los datos de interés local también se almacenan en caché para conseguir un rendimiento de acceso rápido. La nube por niveles es opcional. Puede establecerla individualmente para cada punto de conexión de servidor de Azure File Sync. Debe usar esta característica si no tiene suficiente capacidad de disco local en una instancia de Windows Server para contener todos los datos en la nube y si quiere evitar la descarga de todos los datos de la nube.
+> La nube por niveles es la característica de Azure File Sync que permite al servidor local tener menos capacidad de almacenamiento de la que está almacenada en la nube pero disponer de todo el espacio de nombres. Los datos de interés local también se almacenan en caché para conseguir un rendimiento de acceso rápido. La nube por niveles es opcional. Puede establecerla individualmente para cada punto de conexión de Azure File Sync servidor. Debe usar esta característica si no tiene suficiente capacidad de disco local en una instancia de Windows Server para contener todos los datos en la nube y si quiere evitar la descarga de todos los datos de la nube.
 
 Para todos los recursos compartidos de archivos de Azure o las ubicaciones de servidor que necesita configurar para la sincronización, repita los pasos para crear grupos de sincronización y agregar las carpetas de servidor correspondientes como puntos de conexión de servidor. Espere hasta que se complete la sincronización del espacio de nombres. En la sección siguiente se explica cómo puede asegurarse de que la sincronización se haya completado.
 
@@ -218,6 +218,20 @@ Cree un recurso compartido en la carpeta de Windows Server y, eventualmente, aju
 Ha completado la migración de un recurso compartido o un grupo de recursos compartidos a una raíz o un volumen común (en función de la asignación de la fase 1).
 
 Puede intentar ejecutar algunas de estas copias en paralelo. Se recomienda procesar el ámbito de un recurso compartido de archivos de Azure de cada vez.
+
+## <a name="deprecated-option-offline-data-transfer"></a>Opción en desuso: "transferencia de datos sin conexión"
+
+Antes de la publicación del agente de Azure File Sync versión 13, la integración con Data Box se realizaba mediante un proceso denominado "transferencia de datos sin conexión". Este proceso está en desuso. Con la versión 13 del agente, se ha reemplazado por los pasos mucho más sencillos y rápidos que se describen en este artículo. Si sabe que quiere usar la funcionalidad de "transferencia de datos sin conexión" en desuso, todavía puede hacerlo. Sigue disponible mediante un [módulo de PowerShell de AFS anterior](https://www.powershellgallery.com/packages/Az.StorageSync/1.4.0) concreto:
+
+```powershell
+Install-Module Az.StorageSync -RequiredVersion 1.4.0
+Import-module Az.StorageSync -RequiredVersion 1.4.0
+# Verify the specific version is loaded:
+Get-module Az.StorageSync
+```
+Después, puede continuar con la creación de un punto de conexión de servidor con el mismo módulo de PowerShell y especificar un recurso compartido de almacenamiento provisional en el proceso.
+Si tiene una migración en curso con el proceso de transferencia de datos sin conexión, la migración continuará según lo previsto y todavía tendrá que deshabilitar esta configuración una vez que se complete la migración.
+La capacidad de iniciar nuevas migraciones con este proceso en desuso se quitará con una próxima versión del agente.
 
 ## <a name="troubleshooting"></a>Solución de problemas
 

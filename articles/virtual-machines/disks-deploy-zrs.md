@@ -1,25 +1,25 @@
 ---
-title: Implementación de un disco administrado ZRS (versión preliminar)
+title: Implementación de un disco administrado de ZRS
 description: Obtenga información sobre cómo implementar un disco administrado que use almacenamiento con redundancia de zona (ZRS).
 author: roygara
 ms.author: rogarana
-ms.date: 07/12/2021
+ms.date: 09/01/2021
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurepowershell
-ms.openlocfilehash: 7afa1a5416651dc7e93ff354e63fefb259ea81b4
-ms.sourcegitcommit: aaaa6ee55f5843ed69944f5c3869368e54793b48
+ms.openlocfilehash: 23629a5a15603697eb1feb6e964e63754fbed14c
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2021
-ms.locfileid: "113667352"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123426742"
 ---
-# <a name="deploy-a-managed-disk-that-uses-zone-redundant-storage-preview"></a>Implementación de un disco administrado que use almacenamiento con redundancia de zona (versión preliminar)
+# <a name="deploy-a-managed-disk-that-uses-zone-redundant-storage"></a>Implementación de un disco administrado que usa almacenamiento con redundancia de zona
 
-En este artículo, se explica cómo implementar un disco que use almacenamiento con redundancia de zona (ZRS) como opción de redundancia (versión preliminar). ZRS replica el disco administrado de Azure de forma sincrónica en tres zonas de disponibilidad de Azure en la región seleccionada. Cada zona de disponibilidad es una ubicación física individual con alimentación, refrigeración y redes independientes.
+En este artículo, se explica cómo implementar un disco que usa almacenamiento con redundancia de zona (ZRS) como opción de redundancia. ZRS replica el disco administrado de Azure de forma sincrónica en tres zonas de disponibilidad de Azure en la región seleccionada. Cada zona de disponibilidad es una ubicación física individual con alimentación, refrigeración y redes independientes.
 
-Para obtener información conceptual sobre ZRS, consulte [Almacenamiento con redundancia de zona para discos administrados (versión preliminar)](disks-redundancy.md#zone-redundant-storage-for-managed-disks-preview).
+Para obtener información conceptual sobre ZRS, vea [Almacenamiento con redundancia de zona para discos administrados](disks-redundancy.md#zone-redundant-storage-for-managed-disks).
 
 ## <a name="limitations"></a>Limitaciones
 

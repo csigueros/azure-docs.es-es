@@ -9,12 +9,12 @@ metadata:
   ms.reviewer: mimckitt
   ms.date: 10/13/2020
   ms.custom: references_regions
-  ms.openlocfilehash: 4b8cd236bad28c93949610dd26f45042bc0debc7
-  ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+  ms.openlocfilehash: bb2ee07d3d5c603df11d5b17b6afea496f4b31c8
+  ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 07/22/2021
-  ms.locfileid: "114481774"
+  ms.lasthandoff: 09/03/2021
+  ms.locfileid: "123424103"
 title: Preguntas más frecuentes sobre Azure Cloud Services (soporte extendido)
 summary: En este artículo se tratan las preguntas frecuentes relacionadas con Azure Cloud Services (soporte extendido).
 sections:
@@ -29,7 +29,7 @@ sections:
   - question: >
       ¿Qué ubicaciones están disponibles para implementar Cloud Services (soporte extendido)?
     answer: >
-      Cloud Services (soporte extendido) está disponible en todas las regiones de la nube pública.
+      Cloud Services (soporte extendido) está disponible en todas las regiones de la nube pública y soberana.
   - question: "¿Cómo cambia mi cuota? \n"
     answer: >
       Los clientes tendrán que solicitar la cuota usando los mismos procesos que para cualquier otro producto de Azure Resource Manager. La cuota de Azure Resource Manager es regional y se necesitará una solicitud de cuota distinta para cada región.

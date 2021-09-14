@@ -6,15 +6,15 @@ author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 07/22/2021
+ms.date: 08/26/2021
 ms.author: alkohli
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: dc06c5646f85fda4b4100805be4a9566d0917e2a
-ms.sourcegitcommit: 6f21017b63520da0c9d67ca90896b8a84217d3d3
+ms.openlocfilehash: 489182db34366a910a26ad358d9ef60ae4244530
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114652999"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123468753"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Tutorial: Realización de pedidos de Azure Data Box
 
@@ -214,214 +214,7 @@ Para información detallada sobre cómo iniciar sesión en Azure con Windows Pow
 
 # <a name="portal"></a>[Portal](#tab/portal)
 
-Para solicitar un dispositivo, realice los pasos siguientes en Azure Portal.
-
-1. Use sus credenciales de Microsoft Azure para iniciar sesión en esta dirección URL: [https://portal.azure.com](https://portal.azure.com).
-2. Seleccione **+ Crear un recurso** y busque *Azure Data Box*. Seleccione **Azure Data Box**.
-
-   ![Captura de pantalla de la sección Nuevo, con Azure Data Box en el campo de búsqueda.](media/data-box-deploy-ordered/select-data-box-import-02.png)
-
-3. Seleccione **Crear**.
-
-   ![Captura de pantalla de la sección Azure Data Box, con la opción Crear seleccionada.](media/data-box-deploy-ordered/select-data-box-import-03.png)
-
-4. Compruebe si el servicio Data Box está disponible en su región. Escriba o seleccione la siguiente información y seleccione **Aplicar**.
-
-    |Configuración  |Value  |
-    |---------|---------|
-    |Tipo de transferencia     | Seleccione **Importar en Azure**.        |
-    |Subscription     | Seleccione una suscripción patrocinada por EA, CSP o Azure para el servicio Data Box. <br> La suscripción está vinculada a la cuenta de facturación.       |
-    |Grupo de recursos | Seleccione un grupo de recursos existente. Un grupo de recursos es un contenedor lógico para los recursos que se pueden administrar o implementar conjuntamente. |
-    |País o región de origen    |    Seleccione el país o región en que residen los datos actualmente.         |
-    |Región de Azure de destino     |     Seleccione la región de Azure a la que desea transferir los datos. <br> Para más información, vaya a [Disponibilidad por región](data-box-overview.md#region-availability).            |
-
-    [ ![Inicio de un pedido de importación de Azure Data Box](media/data-box-deploy-ordered/select-data-box-import-04-b.png) ](media/data-box-deploy-ordered/select-data-box-import-04-b.png#lightbox)
-
-5. Seleccione **Data Box**. La capacidad máxima utilizable para un solo pedido es de 80 TB. Para tamaños de datos mayores puede crear varios pedidos.
-
-    ![Tamaños de datos disponibles: Data Box Disk, 40 terabytes; Data Box, 100 terabytes; Data Box Heavy, 1000 terabytes; Enviar sus propios discos, 1 terabyte.](media/data-box-deploy-ordered/select-data-box-import-05.png)
-
-6. En **Pedido**, vaya a la pestaña **Datos básicos**. Escriba o seleccione la siguiente información y seleccione **Siguiente: destino de los datos>** .
-
-    |Configuración  |Value  |
-    |---------|---------|
-    |Suscripción      | La suscripción se rellena automáticamente según la selección anterior.|
-    |Resource group    | Grupo de recursos especificado anteriormente. |
-    |Nombre del pedido de importación | Especifique un nombre descriptivo para hacer un seguimiento del pedido. <br> El nombre puede tener entre 3 y 24 caracteres que pueden ser letras, números y guiones. <br> El nombre debe empezar y terminar con una letra o un número.    |
-
-    ![Asistente para pedidos de importación de Data Box, pantalla Aspectos básicos, con la información correcta rellena](media/data-box-deploy-ordered/select-data-box-import-06.png)
-
-7. En la pantalla **Destino de datos**, seleccione el **destino de los datos**, ya sea Cuentas de almacenamiento o Discos administrados.
-
-    Si elige **Cuentas de almacenamiento** como destino de almacenamiento, aparecerá la siguiente pantalla:
-
-    ![Asistente para pedidos de importación de Data Box, pantalla de destino de datos, con cuentas de almacenamiento seleccionadas](media/data-box-deploy-ordered/select-data-box-import-07.png)
-
-    En función de la región de Azure especificada, seleccione una o varias cuentas de almacenamiento en la lista filtrada de las cuentas de almacenamiento existentes. Data Box se puede vincular con un máximo de diez cuentas de almacenamiento. También puede crear una nueva **cuenta de uso general v1**, **cuenta de uso general v2** o **cuenta de almacenamiento de blobs**.
-
-   > [!NOTE]
-   > - Si selecciona cuentas de Azure Premium FileStorage, la cuota aprovisionada en el recurso compartido de la cuenta de almacenamiento aumentará hasta el tamaño de los datos que se copian en los recursos compartidos de archivos. Una vez que aumenta la cuota, no se vuelve a ajustar si, por ejemplo, por alguna razón Data Box no puede copiar los datos.
-   > - Esta cuota se utiliza para la facturación. Una vez cargados los datos en el centro de datos, debe ajustar la cuota a sus necesidades. Para más información, consulte [Descripción de la facturación](../../articles/storage/files/understanding-billing.md).
-
-    Se admiten cuentas de almacenamiento con redes virtuales. Para permitir que el servicio de Data Box trabaje con cuentas de almacenamiento seguro, habilite los servicios de confianza dentro de la configuración de firewall de la red de la cuenta de almacenamiento. Para obtener más información, vea cómo [agregar Azure Data Box como un servicio de confianza](../storage/common/storage-network-security.md#exceptions).
-
-    Si usa Data Box para crear **discos administrados** desde los discos duros virtuales locales (VHD), también tendrá que proporcionar la siguiente información:
-
-    |Configuración  |Value  |
-    |---------|---------|
-    |Grupos de recursos     | Cree grupos de recursos si pretende crear discos administrados desde los discos duros virtuales locales. Puede usar un grupo de recursos existente solo si ese grupo se creó anteriormente, al crear un pedido de Data Box para discos administrados por el servicio Data Box. <br> Especifique varios grupos de recursos separados por punto y coma. Se admite un máximo de 10 grupos de recursos.|
-
-    ![Asistente para pedidos de importación de Data Box, pantalla de destino de datos, con Managed Disks seleccionado](media/data-box-deploy-ordered/select-data-box-import-07-b.png)
-
-    La cuenta de almacenamiento especificada para los discos administrados se usa como una cuenta de almacenamiento provisional. El servicio Data Box carga los discos duros virtuales como blob en páginas en la cuenta de almacenamiento provisional y, a continuación, los convierte en discos administrados y los mueve a los grupos de recursos. Para más información, vea [Comprobación de la carga de datos en Azure](data-box-deploy-picked-up.md#verify-data-upload-to-azure).
-
-   > [!NOTE]
-   > Si un blob en páginas no se convierte correctamente en un disco administrado, permanece en la cuenta de almacenamiento y se le cobra por el almacenamiento.
-
-8. Seleccione **Siguiente: Seguridad** para continuar.
-
-    La pantalla **Seguridad** le permite usar su propia clave de cifrado y sus propias contraseñas de dispositivo y recurso compartido, así como elegir usar el cifrado doble.
-
-    Todos los valores de la pantalla **Security** (Seguridad) son opcionales. Si no cambia ninguna configuración, se aplicará la configuración predeterminada.
-
-    ![Pantalla de seguridad del Asistente para pedidos de importación de Data Box](media/data-box-deploy-ordered/select-data-box-import-security-01.png)
-
-9. Si quiere usar su propia clave administrada por el cliente para proteger la clave de paso de desbloqueo del nuevo recurso, expanda **Tipo de cifrado**.
-
-    La configuración de una clave administrada por el cliente para Azure Data Box es opcional. De manera predeterminada, Data Box usa una clave administrada por Microsoft para proteger la clave de paso de desbloqueo.
-
-    Una clave administrada por el cliente no afecta a cómo se cifran los datos del dispositivo. Esa clave solo se usa para cifrar la clave de paso de desbloqueo del dispositivo.
-
-    Si no desea usar una clave administrada por el cliente, vaya al paso 15.
-
-   ![Pantalla de seguridad que muestra la configuración del tipo de cifrado](./media/data-box-deploy-ordered/customer-managed-key-01.png)
-
-10. Seleccione **Clave administrada por el cliente** como tipo de clave. Elija **Seleccione un almacén de claves y una clave**.
-   
-    ![Pantalla de seguridad con la configuración de una clave administrada por el cliente](./media/data-box-deploy-ordered/customer-managed-key-02.png)
-
-11. En la hoja **Seleccionar clave en Azure Key Vault**, la suscripción se rellena automáticamente.
-
-    - Para **Almacén de claves**, puede seleccionar un almacén de claves existente de la lista desplegable.
-
-      ![Pantalla Seleccione clave de Azure Key Vault](./media/data-box-deploy-ordered/customer-managed-key-03.png)
-
-    - También puede seleccionar **Crear nuevo** para crear un nuevo almacén de claves. En la pantalla **Crear almacén de claves**, indique el grupo de recursos y el nombre del almacén de claves. Asegúrese de que estén habilitadas las opciones **Eliminación temporal** y **Protección de purga**. Acepte los restantes valores predeterminados y seleccione **Revisar y crear**.
-
-      ![Configuración de la creación de un nuevo almacén de claves](./media/data-box-deploy-ordered/customer-managed-key-04.png)
-
-      Revise la información del almacén de claves y seleccione **Crear**. Espere un par de minutos hasta que se complete la creación del almacén de claves.
-
-      ![Pantalla de revisión del nuevo almacén de claves](./media/data-box-deploy-ordered/customer-managed-key-05.png)
-
-12. En **Seleccione clave de Azure Key Vault**, puede seleccionar una clave existente del almacén de claves.
-
-    ![Seleccionar una clave existente en Azure Key Vault](./media/data-box-deploy-ordered/customer-managed-key-06.png)
-
-    Si quiere crear una clave nueva, seleccione **Crear nuevo**. Debe usar una clave RSA. El tamaño puede ser de 2048 o superior. Escriba un nombre para la clave nueva, acepte los otros valores predeterminados y seleccione **Crear**.
-
-      ![Opción para crear una nueva clave](./media/data-box-deploy-ordered/customer-managed-key-07.png)
-
-      Recibirá una notificación cuando se haya creado la clave en el almacén de claves.
-
-13. Seleccione el valor de **Versión** de la clave que va a usar y, a continuación, elija **Seleccionar**.
-
-      ![Nueva clave creada en el almacén de claves](./media/data-box-deploy-ordered/customer-managed-key-08.png)
-
-    Si desea crear una nueva versión de la clave, seleccione **Crear nuevo**.
-
-    ![Abrir un cuadro de diálogo para crear una nueva versión de la clave](./media/data-box-deploy-ordered/customer-managed-key-08-a.png)
-
-    Elija la configuración de la nueva versión de la clave y seleccione **Crear**.
-
-    ![Creación de una nueva versión de la clave](./media/data-box-deploy-ordered/customer-managed-key-08-b.png)
-
-    La configuración de **Tipo de cifrado** en la pantalla **Seguridad** muestra el almacén de claves y la clave.
-
-    ![Clave y almacén de claves de una clave administrada por el cliente](./media/data-box-deploy-ordered/customer-managed-key-09.png)
-
-14. Seleccione una identidad de usuario que vaya a usar para administrar el acceso a este recurso. Elija **Select a user identity** (Seleccione una identidad de usuario). En el panel de la derecha, seleccione la suscripción y la identidad administrada que se va a usar. Luego, elija **Seleccionar**.
-
-    Una identidad administrada asignada por el usuario es un recurso independiente de Azure que se puede usar para administrar varios recursos. Para más información, consulte [Tipos de identidad administrada](../active-directory/managed-identities-azure-resources/overview.md).  
-
-    Si necesita crear una identidad administrada, siga la guía que se proporciona en [Creación, enumeración, eliminación o asignación de un rol a una identidad administrada asignada por el usuario mediante Azure Portal](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
-    
-    ![Seleccionar una identidad de usuario](./media/data-box-deploy-ordered/customer-managed-key-10.png)
-
-    La identidad del usuario se muestra en la configuración de **Tipo de cifrado**.
-
-    ![Se muestra una identidad de usuario seleccionada en la configuración de Tipo de cifrado](./media/data-box-deploy-ordered/customer-managed-key-11.png)
-
-15. Si no desea usar las contraseñas generadas por el sistema que Azure Data Box utiliza de manera predeterminada, expanda **Bring your own password** (Aportar su propia contraseña) en la pantalla **Seguridad**.
-
-    Las contraseñas generadas por el sistema son seguras y se recomiendan a menos que su organización lo requiera de otro modo.
-
-    ![Opciones expandidas de Bring your own password (Aportar su propia contraseña) para un pedido para importación con Data Box.](media/data-box-deploy-ordered/select-data-box-import-security-02.png) 
-
-   - Para usar su propia contraseña para el nuevo dispositivo, para **Set preference for the device password** (Establecer preferencia para la contraseña del dispositivo), seleccione **Use your own password** (Usar su propia contraseña) y escriba una contraseña que cumpla los requisitos de seguridad.
-     
-     La contraseña debe ser alfanumérica y contener entre 12 y 15 caracteres, con al menos una letra mayúscula, una letra minúscula, un carácter especial y un número. 
-
-     - Caracteres especiales permitidos: @ # - $ % ^ ! + = ; : _ ( )
-     - Caracteres no permitidos: I i L o O 0
-   
-     ![Opciones para usar su propia contraseña de dispositivo en la pantalla Seguridad de un pedido de importación de Data Box](media/data-box-deploy-ordered/select-data-box-import-security-03.png)
-
- - Para usar sus propias contraseñas para recursos compartidos:
-
-   1. En **Set preference for share passwords** (Establecer preferencia para las contraseñas de los recursos compartidos), seleccione **Use your own passwords** (Usar sus propias contraseñas) y, a continuación, seleccione **Select passwords for the shares** (Seleccionar contraseñas para los recursos compartidos).
-     
-       ![Opciones para usar sus propias contraseñas compartidas en la pantalla Seguridad de un pedido de importación de Data Box](media/data-box-deploy-ordered/select-data-box-import-security-04.png)
-
-    1. Escriba una contraseña para cada cuenta de almacenamiento del pedido. La contraseña se utilizará en todos los recursos compartidos de la cuenta de almacenamiento.
-    
-       La contraseña debe ser alfanumérica y contener entre 12 y 64 caracteres, con al menos una letra mayúscula, una letra minúscula, un carácter especial y un número.
-
-       - Caracteres especiales permitidos: @ # - $ % ^ ! + = ; : _ ( )
-       - Caracteres no permitidos: I i L o O 0
-     
-    1. Para utilizar la misma contraseña para todas las cuentas de almacenamiento, seleccione **Copy to all** (Copiar en todas). 
-
-    1. Cuando termine, seleccione **Save** (Guardar).
-     
-       ![Pantalla para escribir las contraseñas de recurso compartido para un pedido de importación con Data Box](media/data-box-deploy-ordered/select-data-box-import-security-05.png)
-
-    En la pantalla **Seguridad**, puede usar **View or change passwords** (Ver o cambiar contraseñas) para cambiar las contraseñas.
-
-16. En **Security** (Seguridad), si quiere habilitar el cifrado doble basado en software, expanda **Double-encryption (For high-security environments)** (Cifrado doble [para entornos de alta seguridad]) y seleccione **Enable double encryption for the order** (Habilitar el cifrado doble para el pedido).
-
-    ![Pantalla de seguridad para la importación con Data Box en la que se habilita el cifrado basado en software para un pedido de Data Box](media/data-box-deploy-ordered/select-data-box-import-security-07.png)
-
-    El cifrado basado en software se realiza junto con el cifrado AES de 256 bits de los datos en Data Box.
-
-    > [!NOTE]
-    > La habilitación de esta opción puede hacer que el procesamiento de pedidos y la copia de datos tarden más. Esta opción no se puede cambiar después de crear el pedido.
-
-    Seleccione **Siguiente: Detalles de contacto** para continuar.
-
-17. En **Detalles de contacto**, seleccione **+ Agregar dirección de envío**.
-
-    ![En la pantalla Detalles de contacto, agregue direcciones de envío al pedido de importación de Azure Data Box.](media/data-box-deploy-ordered/select-data-box-import-08-a.png)
-
-18. En **Dirección de envío**, escriba su nombre y apellidos, el nombre y la dirección postal de la empresa y un número de teléfono válido. Seleccione **Validar la dirección**. El servicio valida la dirección de envío para conocer la disponibilidad del servicio. Si el servicio está disponible para la dirección de envío especificada, recibirá una notificación al respecto.
-
-    ![Captura de pantalla del cuadro de diálogo Agregar dirección de envío, con las opciones Enviar con y la opción Agregar dirección de envío seleccionadas.](media/data-box-deploy-ordered/select-data-box-import-10.png)
-
-    Si ha seleccionado el envío autoadministrado, recibirá una notificación por correo electrónico una vez que se haya realizado correctamente el pedido. Para obtener más información sobre el envío autoadministrado, consulte [Uso del envío autoadministrado](data-box-portal-customer-managed-shipping.md).
-
-19. Seleccione **Agregar dirección de envío** una vez que se haya comprobado que los detalles sean correctos. Volverá a la pestaña **Detalles de contacto**.
-
-20. De nuevo en **Contact details** (Detalles de contacto), agregue una o varias direcciones de correo electrónico. El servicio envía notificaciones por correo electrónico si se produce cualquier actualización en el estado del pedido a las direcciones de correo electrónico especificadas.
-
-    Es aconsejable usar un correo electrónico de grupo, con el fin de que siga recibiendo notificaciones aunque algún administrador deje el grupo.
-
-    ![Sección de correo electrónico de los detalles de contacto en el Asistente para pedidos](media/data-box-deploy-ordered/select-data-box-import-08-c.png)
-
-21. Examine la información de **Revisar y pedir** del pedido, el contacto, la notificación y los términos de privacidad. Active la casilla correspondiente a contrato acuerdo con los términos de privacidad.
-
-22. Seleccione **Pedido**. El pedido tarda unos minutos en crearse.
-
-    ![Pantalla Review and Order (Revisar y realizar pedido) del Asistente para pedidos](media/data-box-deploy-ordered/select-data-box-import-11.png)
+[!INCLUDE [order-data-box-via-portal](../../includes/data-box-order-portal.md)]
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
@@ -450,7 +243,7 @@ Realice los pasos siguientes con la CLI de Azure para solicitar un dispositivo:
    |help| Mostrar información de ayuda para este comando. | --help -h |
    |only-show-errors| Mostrar solo los errores y suprimir las advertencias. | --only-show-errors |
    |output -o| Establece el formato de salida.  Valores permitidos: json, jsonc, none, table, tsv, yaml, yamlc. El valor predeterminado es json. | --output "json" |
-   |Query| Cadena de consulta de JMESPath. Para más información, consulte [JMESPath](http://jmespath.org/). | --query <string>|
+   |Query| Cadena de consulta de JMESPath. Para más información, consulte [JMESPath](http://jmespath.org/). | --query &lt;cadena&gt;|
    |verbose| Incluir registro detallado. | --verbose |
 
 2. En el símbolo del sistema que haya elegido o en el terminal, ejecute [az data box job create](/cli/azure/databox/job#az_databox_job_create) para crear el pedido de Azure Data Box.
@@ -565,7 +358,7 @@ Realice los pasos siguientes con Azure PowerShell para pedir un dispositivo:
     |CountryCode [obligatorio]| País al que se enviará el dispositivo. | "Estados Unidos" |
     |PostalCode [obligatorio]| Código postal asociado a la dirección de envío.| "98052"|
     |CompanyName| El nombre de la empresa para la que trabaja.| "Contoso, LTD" |
-    |StorageAccountResourceId [obligatorio]| Identificador de la cuenta de Azure Storage desde la que desea importar los datos.| <AzStorageAccount>.id |
+    |StorageAccountResourceId [obligatorio]| Identificador de la cuenta de Azure Storage desde la que desea importar los datos.| &lt;AzstorageAccount&gt;.id |
 
 3. En el símbolo del sistema que haya elegido o en el terminal, use [New-AzDataBoxJob](/powershell/module/az.databox/New-AzDataBoxJob) para crear el pedido de Azure Data Box.
 
@@ -637,7 +430,7 @@ Para obtener información de seguimiento de un único pedido de Azure Data Box q
    |help| Mostrar información de ayuda para este comando. | --help -h |
    |only-show-errors| Mostrar solo los errores y suprimir las advertencias. | --only-show-errors |
    |output -o| Establece el formato de salida.  Valores permitidos: json, jsonc, none, table, tsv, yaml, yamlc. El valor predeterminado es json. | --output "json" |
-   |Query| Cadena de consulta de JMESPath. Para más información, consulte [JMESPath](http://jmespath.org/). | --query <string>|
+   |Query| Cadena de consulta de JMESPath. Para más información, consulte [JMESPath](http://jmespath.org/). | --query &lt;cadena&gt;|
    |verbose| Incluir registro detallado. | --verbose |
 
    Este es un ejemplo del comando con el formato de salida establecido en "table":
@@ -678,7 +471,7 @@ En la tabla siguiente se muestra la información de parámetros de `az databox j
    |help| Mostrar información de ayuda para este comando. | --help -h |
    |only-show-errors| Mostrar solo los errores y suprimir las advertencias. | --only-show-errors |
    |output -o| Establece el formato de salida.  Valores permitidos: json, jsonc, none, table, tsv, yaml, yamlc. El valor predeterminado es json. | --output "json" |
-   |Query| Cadena de consulta de JMESPath. Para más información, consulte [JMESPath](http://jmespath.org/). | --query <string>|
+   |Query| Cadena de consulta de JMESPath. Para más información, consulte [JMESPath](http://jmespath.org/). | --query &lt;cadena&gt;|
    |verbose| Incluir registro detallado. | --verbose |
 
    Este es un ejemplo del comando con el formato de salida establecido en "table":
@@ -799,7 +592,7 @@ Para cancelar un pedido de Azure Data Box, ejecute [`az databox job cancel`](/cl
    |help| Mostrar información de ayuda para este comando. | --help -h |
    |only-show-errors| Mostrar solo los errores y suprimir las advertencias. | --only-show-errors |
    |output -o| Establece el formato de salida.  Valores permitidos: json, jsonc, none, table, tsv, yaml, yamlc. El valor predeterminado es json. | --output "json" |
-   |Query| Cadena de consulta de JMESPath. Para más información, consulte [JMESPath](http://jmespath.org/). | --query <string>|
+   |Query| Cadena de consulta de JMESPath. Para más información, consulte [JMESPath](http://jmespath.org/). | --query &lt;cadena&gt;|
    |verbose| Incluir registro detallado. | --verbose |
 
    Este es un ejemplo del comando con el resultado:
@@ -836,7 +629,7 @@ Si ha cancelado un pedido de Azure Data Box, puede ejecutar [`az databox job del
    |help| Mostrar información de ayuda para este comando. | --help -h |
    |only-show-errors| Mostrar solo los errores y suprimir las advertencias. | --only-show-errors |
    |output -o| Establece el formato de salida.  Valores permitidos: json, jsonc, none, table, tsv, yaml, yamlc. El valor predeterminado es json. | --output "json" |
-   |Query| Cadena de consulta de JMESPath. Para más información, consulte [JMESPath](http://jmespath.org/). | --query <string>|
+   |Query| Cadena de consulta de JMESPath. Para más información, consulte [JMESPath](http://jmespath.org/). | --query &lt;cadena&gt;|
    |verbose| Incluir registro detallado. | --verbose |
 
 Este es un ejemplo del comando con el resultado:

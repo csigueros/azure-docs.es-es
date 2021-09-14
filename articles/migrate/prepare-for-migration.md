@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 06/08/2020
-ms.openlocfilehash: d88c02f261052f0cf3e29ef210d8a8af15733d7f
-ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
+ms.openlocfilehash: 05f82c055a0c98423fb7096a019d7d9d80932142
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114720264"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123542042"
 ---
 # <a name="prepare-on-premises-machines-for-migration-to-azure"></a>Preparación de las máquinas locales para la migración a Azure
 
@@ -80,16 +80,17 @@ Revise las tablas para identificar los cambios que debe realizar.
 
 ### <a name="windows-machines"></a>Máquinas de Windows
 
-En la tabla se resumen los cambios necesarios.
+Los cambios realizados se resumen en la tabla.
 
 **Acción** | **VMware (migración sin agente)** | **VMware (basada en agente)/máquinas físicas** | **Windows en Hyper-V**
 --- | --- | --- | ---
-**Configurar la directiva de SAN como Todo en línea**<br/><br/> | Se establece automáticamente para máquinas que ejecutan Windows Server 2008 R2 o posterior.<br/><br/> Configure la opción manualmente para sistemas operativos anteriores. | Se establece automáticamente en la mayoría de los casos. | Configure de forma manual.
+**Configurar la directiva de SAN como Todo en línea**<br/><br/> | Se establece automáticamente para máquinas que ejecutan Windows Server 2008 R2 o posterior.<br/><br/> Configure la opción manualmente para sistemas operativos anteriores. | Se establece automáticamente en la mayoría de los casos. | Se establece automáticamente para máquinas que ejecutan Windows Server 2008 R2 o posterior.
 **Instalar la integración de invitado de Hyper-V** | [Instale manualmente](prepare-windows-server-2003-migration.md#install-on-vmware-vms) en máquinas que ejecutan Windows Server 2003. | [Instale manualmente](prepare-windows-server-2003-migration.md#install-on-vmware-vms) en máquinas que ejecutan Windows Server 2003. | [Instale manualmente](prepare-windows-server-2003-migration.md#install-on-hyper-v-vms) en máquinas que ejecutan Windows Server 2003.
-**Habilitar la consola serie de Azure**.<br/><br/>[Habilite la consola](/troubleshoot/azure/virtual-machines/serial-console-windows) en las máquinas virtuales de Azure para ayudar en la solución de problemas. No es necesario reiniciar la máquina virtual. La máquina virtual de Azure se iniciará mediante la imagen de disco. El arranque desde la imagen de disco equivale a un reinicio de la nueva máquina virtual. | Habilitar manualmente | Habilitar manualmente | Habilitar manualmente
+**Habilitación de la consola serie de Azure** <br/><br/>[Habilite la consola](/troubleshoot/azure/virtual-machines/serial-console-windows) en las máquinas virtuales de Azure para ayudar en la solución de problemas. No es necesario reiniciar la máquina virtual. La máquina virtual de Azure se iniciará mediante la imagen de disco. El arranque desde la imagen de disco equivale a un reinicio de la nueva máquina virtual. | Habilitar manualmente | Habilitar manualmente | Habilitar manualmente
+**Instalación del agente invitado de Windows Azure** <br/><br/> El agente de máquina virtual (agente de VM) es un proceso ligero y seguro que administra la interacción de máquinas virtuales (VM) con el controlador de tejido de Azure. El agente de máquina virtual tiene un rol principal en la habilitación y ejecución de extensiones de máquina virtual de Azure que permiten una configuración posterior a la implementación de la máquina virtual como, por ejemplo, la instalación y configuración del software. |  Se establece automáticamente para máquinas que ejecutan Windows Server 2008 R2 o posterior. <br/> Configure la opción manualmente para sistemas operativos anteriores. | Se establece automáticamente para máquinas que ejecutan Windows Server 2008 R2 o posterior. | Se establece automáticamente para máquinas que ejecutan Windows Server 2008 R2 o posterior.
 **Conectarse después de la migración**<br/><br/> Para conectarse después de la migración, hay que realizar una serie de pasos antes de la migración. | [Configure](#prepare-to-connect-to-azure-windows-vms) manualmente. | [Configure](#prepare-to-connect-to-azure-windows-vms) manualmente. | [Configure](#prepare-to-connect-to-azure-windows-vms) manualmente.
 
- [Más información](./prepare-for-agentless-migration.md#changes-performed-on-windows-servers) sobre los cambios realizados en servidores Windows
+[Obtenga más información](/prepare-for-agentless-migration#changes-performed-on-windows-servers) sobre los cambios realizados en servidores Windows para migraciones de VMware sin agente.
 
 #### <a name="configure-san-policy"></a>Configuración de la directiva de SAN
 
@@ -114,7 +115,7 @@ Azure Migrate completa automáticamente estas acciones para estas versiones
 
 - Red Hat Enterprise Linux 8, 7.9, 7.8, 7.7, 7.6, 7.5, 7.4, 7.0 y  6.x (el agente de máquina virtual con Linux de Azure también se instala automáticamente durante la migración)
 - Cent OS 8, 7.7, 7.6, 7.5, 7.4 y 6.x (el agente de máquina virtual Linux de Azure también se instala automáticamente durante la migración)
-- SUSE Linux Enterprise Server 15 SP0, 15 SP1, 12, 11
+- SUSE Linux Enterprise Server 15 SP0, 15 SP1, 12
 - Ubuntu 20.04, 19.04, 19.10, 18.04LTS, 16.04LTS, 14.04LTS (el agente de máquina virtual Linux de Azure también se instala automáticamente durante la migración)
 - Debian 9, 8, 7
 - Oracle Linux 6, 7.7, 7.7-CI y 7.8
@@ -131,25 +132,27 @@ Para otras versiones, prepare las máquinas como se resume en la tabla.
 **Eliminar regla udev** | Elimine las reglas udev que reserven los nombres de interfaz en función de la dirección MAC, etc. | Elimínelas de forma manual para todas las versiones excepto las mencionadas anteriormente.
 **Actualizar las interfaces de red** | Actualice las interfaces de red para recibir direcciones IP basadas en DHCP. | Actualícelo manualmente para todas las versiones excepto las mencionadas anteriormente.
 **Habilitar SSH** | Asegúrese de que SSH está habilitado y de que el servicio sshd está configurado para iniciarse automáticamente al reiniciar.<br/><br/> Asegúrese de que las solicitudes de conexión SSH entrantes no estén bloqueadas por el firewall del sistema operativo o las reglas que admiten scripts.| Habilite la opción manualmente para todas las versiones excepto las mencionadas anteriormente.
+**Instalará el agente invitado de Linux de Azure** | El agente Linux de Microsoft Azure (waagent) es un proceso ligero y seguro que administra el aprovisionamiento de Linux y FreeBSD, y la interacción de las máquinas virtuales con el controlador de tejido de Azure.| Habilite la opción manualmente para todas las versiones excepto las mencionadas anteriormente.  <br> Siga las instrucciones para [instalar el agente de Linux manualmente](/azure/virtual-machines/extensions/agent-linux#installation) para otras versiones del sistema operativo. Revise la lista de [paquetes necesarios](/azure/virtual-machines/extensions/agent-linux#requirements) para instalar el agente de máquina virtual Linux. 
 
-[Más información](./prepare-for-agentless-migration.md#changes-performed-on-linux-servers) sobre los cambios realizados en servidores Linux
+[Obtenga más información](/azure/migrate/prepare-for-agentless-migration#changes-performed-on-linux-servers) sobre los cambios realizados en servidores Linux para migraciones de VMware sin agente.
 
 En la tabla siguiente se resumen los pasos que se realizan automáticamente para los sistemas operativos enumerados anteriormente.
 
 
-| Acción                                      | Migración de \-VMware basada en el agente | Migración de VMware sin agente | Hyper\-V   |
+| Acción                                      | Migración de \-VMware basada en el agente | Migración de VMware sin agente | Migración de Hyper\-V sin agente   |
 |---------------------------------------------|-------------------------------|----------------------------|------------|
-| Instalación de los servicios de integración de Linux de Hyper-V\- | Sí                           | Sí                        | No es necesario |
-| Habilitación del registro de la consola serie de Azure         | Sí                           | Sí                        | No         |
+| Actualice la imagen del kernel con los servicios de integración de Linux de Hyper\-V. <br> (Los controladores LIS deben estar presentes en el kernel). | Sí                           | Sí                        | Sí |
+| Habilitación del registro de la consola serie de Azure         | Sí                           | Sí                        | Sí        |
 | Actualizar el archivo de asignación de dispositivos                      | Sí                           | No                         | No         |
-| Actualizar las entradas de fstab                        | Sí                           | Sí                        | No         |
-| Eliminar reglas udev                            | Sí                           | Sí                        | No         |
-| Actualizar las interfaces de red                   | Sí                           | Sí                        | No         |
-| Habilitar SSH                                  | No                            | No                         | No         |
+| Actualizar las entradas de fstab                        | Sí                           | Sí                        | Sí        |
+| Eliminar reglas udev                            | Sí                           | Sí                        | Sí        |
+| Actualizar las interfaces de red                   | Sí                           | Sí                        | Sí        |
+| Habilitar SSH                                  | No                            | No                         | No         |    
+| Instalación del agente linux de máquina virtual de Azure                | Sí                           | Sí                        | Sí        |
 
 Más información sobre los pasos para [ejecutar una máquina virtual Linux en Azure](../virtual-machines/linux/create-upload-generic.md) y obtenga instrucciones para algunas de las distribuciones de Linux más populares.
 
-Revise la lista de [paquetes necesarios](../virtual-machines/extensions/agent-linux.md#requirements) para instalar el agente de máquina virtual Linux. Azure Migrate instala el agente de máquina virtual Linux automáticamente para RHEL6, RHEL7, CentOS7 (6 debe ser compatible de forma similar a RHEL), Ubuntu 14.04, Ubuntu 16.04, Ubuntu 18.04, Ubuntu 19.04, Ubuntu 19.10 y Ubuntu 20.04 cuando se usa el método sin agente para la migración de VMware.
+Revise la lista de [paquetes necesarios](../virtual-machines/extensions/agent-linux.md#requirements) para instalar el agente de máquina virtual Linux. Azure Migrate instala de forma automática el agente de máquina virtual Linux para RHEL 8/7/6, CentOS 8/7/6, Ubuntu 14.04/16.04/18.04/19.04/19.10/20.04, SUSE 15 SP0/15 SP1/12, Debian 9/8/7 y Oracle 7 cuando se usa el método de migración de VMware sin agente.
 
 ## <a name="check-azure-vm-requirements"></a>Comprobación de los requisitos de la máquina virtual de Azure
 
@@ -204,6 +207,6 @@ En máquinas virtuales de VMware, Server Migration admite la [migración con age
 - **VM de Hyper-V**: Compruebe los [requisitos y el soporte técnico necesarios para la migración](migrate-support-matrix-hyper-v-migration.md) de las máquinas virtuales de Hyper-V.
 - **Máquinas físicas**: compruebe los [requisitos y el soporte técnico necesarios para la migración](migrate-support-matrix-physical-migration.md) de máquinas físicas locales y otros servidores virtualizados.
 
-## <a name="learn-more"></a>Más información
+## <a name="learn-more"></a>Saber más
 
 - [Prepárese para la migración sin agente de VMware con Azure Migrate.](./prepare-for-agentless-migration.md)

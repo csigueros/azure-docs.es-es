@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f7fb48f71a891493220440d56a50e3c72510892
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 249332f680bd0550d99a38a200ce95d32e6f95d7
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121744016"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123473611"
 ---
 # <a name="manage-emergency-access-accounts-in-azure-ad"></a>Administración de cuentas de acceso de emergencia en Azure AD
 
@@ -44,9 +44,9 @@ Cree dos o más cuentas de acceso de emergencia. Estas deben ser cuentas que est
 Al configurarlas, deben cumplirse los siguientes requisitos:
 
 - Las cuentas de acceso de emergencia no se deberían asociar a ningún usuario individual de la organización. Asegúrese de que las cuentas no están conectadas a ningún teléfono móvil suministrado por un empleado, ni a tokens de hardware que viajen con empleados individuales ni con otras credenciales específicas de un empleado. Esta precaución debe incluir también los casos en los que un empleado individual pueda no estar disponible cuando se necesiten las credenciales. Es importante garantizar que todos los dispositivos registrados se almacenen en una ubicación conocida y segura que tenga varias formas de comunicarse con Azure AD.
-- El mecanismo de autenticación usado para una cuenta de acceso de emergencia debe ser distinto del que se utiliza para otras cuentas administrativas, incluidas otras cuentas de acceso de emergencia.  Por ejemplo, si el inicio de sesión de administrador normal es a través de una instancia de MFA local, Azure AD MFA sería un mecanismo diferente.  Sin embargo, si Azure AD MFA es la parte principal de la autenticación para las cuentas administrativas, considere un enfoque diferente para estas, como el uso de acceso condicional con un proveedor MFA de terceros a través de Controles personalizado.
+- Use la autenticación sólida para las cuentas de acceso de emergencia y asegúrese de que no utiliza los mismos métodos de autenticación que en las otras cuentas administrativas. Por ejemplo, si la cuenta de administrador normal usa la aplicación Microsoft Authenticator para la autenticación sólida, use una clave de seguridad FIDO2 para las cuentas de emergencia. Tenga en cuenta las [dependencias de varios métodos de autenticación](../fundamentals/resilience-in-credentials.md) para evitar agregar requisitos externos al proceso de autenticación.
 - El dispositivo o la credencial no deben expirar ni estar en el ámbito de una limpieza automatizada debido a la falta de uso.  
-- Debe convertir la asignación del rol de Administrador global en permanente para las cuentas de acceso de emergencia. 
+- En Azure AD Privileged Identity Management, debe hacer que la asignación de roles Administrador global sea permanente en lugar de ser apta para las cuentas de acceso de emergencia. 
 
 ### <a name="exclude-at-least-one-account-from-phone-based-multi-factor-authentication"></a>Exclusión de al menos una cuenta de autenticación multifactor basada en teléfono
 
@@ -56,11 +56,11 @@ Sin embargo, al menos una de sus cuentas de acceso de emergencia no debe tener e
 
 ### <a name="exclude-at-least-one-account-from-conditional-access-policies"></a>Exclusión de al menos una cuenta de las directivas de acceso condicional
 
-Durante una emergencia, no quiere que una directiva pueda bloquear el acceso para corregir un problema. Por eso, debe excluirse por lo menos una cuenta de acceso de emergencia de todas las directivas de acceso condicional.
+Durante una emergencia, no quiere que una directiva pueda bloquear el acceso para corregir un problema. Si usa el acceso condicional, al menos una cuenta de acceso de emergencia debe excluirse de todas las directivas de acceso condicional.
 
 ## <a name="federation-guidance"></a>Guía de federación
 
-Algunas organizaciones usan AD Domain Services y ADFS o un proveedor de identidades similar para federar a Azure AD. [No debe haber ninguna cuenta local con privilegios administrativos](../fundamentals/protect-m365-from-on-premises-attacks.md). La autenticación de procesamiento y abastecimiento de cuentas con privilegios administrativos fuera de Azure AD agrega riesgos innecesarios en caso de que se produzca una interrupción de esos sistemas o se comprometa su seguridad.
+Algunas organizaciones usan AD Domain Services y AD FS o un proveedor de identidades similar para realizar la federación en Azure AD. El acceso de emergencia para los sistemas locales y para los servicios en la nube debe ser independiente, sin dependencias de uno del otro. La autenticación de procesamiento y abastecimiento para cuentas con privilegios de acceso de emergencia desde otros sistemas agrega riesgos innecesarios en caso de que se produzca una interrupción de esos sistemas.
 
 ## <a name="store-account-credentials-safely"></a>Almacenamiento seguro de las credenciales de cuenta
 
@@ -72,7 +72,7 @@ Si usa contraseñas, asegúrese de que las cuentas tengan contraseñas seguras y
 
 Las organizaciones deben supervisar la actividad de registro de auditoría e inicio de sesión de las cuentas de emergencia y desencadenar el envío de notificaciones a otros administradores. Al supervisar la actividad en las cuentas de emergencia, puede comprobar que estas cuentas solo se usen para pruebas o emergencias reales. Puede usar Azure Log Analytics para supervisar los registros de inicio de sesión y desencadenar alertas por SMS y correo electrónico a los administradores cuando las cuentas de emergencia inicien sesión.
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerrequisitos
 
 1. [Envíe registros de inicio de sesión de Azure AD](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) a Azure Monitor.
 

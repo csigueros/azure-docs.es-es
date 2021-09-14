@@ -8,14 +8,14 @@ ms.service: role-based-access-control
 ms.devlang: na
 ms.topic: how-to
 ms.workload: identity
-ms.date: 07/14/2021
+ms.date: 09/04/2021
 ms.author: rolyon
-ms.openlocfilehash: 64f164c7d5e60e92e30986f8a39b34e92b1fdce4
-ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
+ms.openlocfilehash: 19e9d6c76e30828b0aac0fba139963ff25ae2cba
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114202485"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123542321"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory"></a>Transferencia de una suscripción de Azure a otro directorio de Azure AD
 
@@ -89,6 +89,8 @@ Varios recursos de Azure tienen una dependencia de una suscripción o un directo
 
 > [!WARNING]
 > Si usa el cifrado en reposo para un recurso, como una cuenta de almacenamiento o una base de datos SQL, que tiene una dependencia de un almacén de claves que **no** está en la misma suscripción que se transfiere, puede provocar un escenario irrecuperable. Si tiene esta situación, debe seguir los pasos necesarios para usar un almacén de claves diferente o deshabilitar temporalmente las claves administradas por el cliente para evitar este escenario irrecuperable.
+
+Para obtener una lista de algunos de los recursos de Azure que se verán afectados al transferir una suscripción, también puede ejecutar una consulta en [Azure Resource Graph](../governance/resource-graph/overview.md). Para obtener una consulta de ejemplo, consulte [Enumeración de los recursos afectados al transferir una suscripción de Azure](../governance/resource-graph/samples/samples-by-category.md#list-impacted-resources-when-transferring-an-azure-subscription).
 
 ## <a name="prerequisites"></a>Requisitos previos
 

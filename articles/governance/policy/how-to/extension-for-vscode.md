@@ -1,14 +1,14 @@
 ---
 title: Extensión de Azure Policy para Visual Studio Code
 description: Obtenga información acerca de cómo usar la extensión de Azure Policy para Visual Studio Code para buscar alias de Azure Resource Manager.
-ms.date: 08/17/2021
+ms.date: 09/01/2021
 ms.topic: how-to
-ms.openlocfilehash: 870559a2f3d36257cb1246e340163f25ef016eb2
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 93b59114c6a89e9219389341d541d7850a90ccc7
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122323174"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123433699"
 ---
 # <a name="use-azure-policy-extension-for-visual-studio-code"></a>Use la extensión de Azure Policy para Visual Studio Code
 
@@ -195,6 +195,20 @@ Los resultados de la evaluación proporcionan información sobre la definición 
 > La extensión de VS Code solo admite la evaluación de propiedades del modo de Resource Manager. Para más información sobre los modos, consulte las [definiciones de modo](../concepts/definition-structure.md#mode).
 >
 > La característica de evaluación no funciona en instalaciones de macOS y Linux de la extensión.
+
+### <a name="create-policy-definition-from-constraint-template"></a>Creación de una definición de directiva a partir de una plantilla de restricción
+
+La extensión VS Code puede crear una definición de directiva a partir de una [plantilla de restricción](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraint-templates) GateKeeper v3 de [Open Policy Agent](https://www.openpolicyagent.org/) (OPA) existente. El archivo YAML debe estar abierto en VS Code para que la paleta de comandos sea una opción.
+
+1. Abra un archivo YAML de plantilla de restricción OPA GateKeeper v3 válido.
+
+1. En la barra de menús, vaya a **Ver** > **Paleta de comandos** y escriba **Azure Policy para Kubernetes: Crear definición de directiva a partir de la plantilla de restricción**.
+
+1. Seleccione el valor _sourceType_ adecuado.
+
+1. Rellene las partes `/* EDIT HERE */` del código JSON de la definición de directiva.
+
+Aunque la extensión genera el código JSON de una definición de directiva, no crea la definición en Azure. Una vez que haya rellenado los campos "editar aquí" adecuados, use el código JSON de la definición de directiva completado y Azure Portal o el SDK o compatible para crear la definición de directiva en el entorno de Azure.
 
 ### <a name="sign-out"></a>Cerrar sesión
 

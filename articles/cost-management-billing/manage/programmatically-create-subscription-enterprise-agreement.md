@@ -5,16 +5,16 @@ author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 06/22/2021
+ms.date: 09/01/2021
 ms.reviewer: andalmia
 ms.author: banders
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: b30856b5fe84f8c66e4029714e4bf39fca0470a9
-ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
+ms.openlocfilehash: 45bc6066152fbb83f5124b5ee157e6b16efa9bf9
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2021
-ms.locfileid: "112541309"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123475177"
 ---
 # <a name="programmatically-create-azure-enterprise-agreement-subscriptions-with-the-latest-apis"></a>Creación de suscripciones de Contrato Enterprise de Azure mediante programación con las API más recientes
 
@@ -168,6 +168,13 @@ Los valores para un ámbito de facturación y `id` son lo mismo. El `id` de la c
 
 En el ejemplo siguiente se crea una suscripción denominada *Dev Team Subscription* en la cuenta de inscripción seleccionada en el paso anterior. 
 
+Con uno de los métodos siguientes, creará un nombre de alias de suscripción. Se recomienda que, al crear el nombre de alias, haga lo siguiente:
+
+- Use caracteres alfanuméricos y guiones
+- Comience con una letra y termine con un carácter alfanumérico
+- No use puntos
+
+
 ### <a name="rest"></a>[REST](#tab/rest)
 
 Llame a PUT API para crear una solicitud de creación de suscripción o un alias.
@@ -278,11 +285,11 @@ Se obtiene subscriptionId como parte de la respuesta del comando.
 
 ---
 
-## <a name="use-arm-template"></a>Uso de una plantilla de Resource Manager
+## <a name="use-arm-template-or-bicep"></a>Uso de una plantilla de ARM o Bicep
 
-En la sección anterior se mostró cómo crear una suscripción con PowerShell, la CLI o la API REST. Si necesita automatizar la creación de suscripciones, considere la posibilidad de usar una plantilla de Azure Resource Manager (plantilla de ARM).
+En la sección anterior se mostró cómo crear una suscripción con PowerShell, la CLI o la API REST. Si tiene que automatizar la creación de suscripciones, considere la posibilidad de usar una plantilla de Azure Resource Manager (plantilla de ARM) o un [archivo de Bicep](../../azure-resource-manager/bicep/overview.md).
 
-El ejemplo siguiente crea una suscripción. Para `billingScope`, proporcione el identificador de la cuenta de inscripción. La suscripción se crea en el grupo de administración raíz. Después de crear la suscripción, puede moverla a otro grupo de administración.
+La plantilla de ARM siguiente crea una suscripción. Para `billingScope`, proporcione el identificador de la cuenta de inscripción. La suscripción se crea en el grupo de administración raíz. Después de crear la suscripción, puede moverla a otro grupo de administración.
 
 ```json
 {
@@ -319,7 +326,29 @@ El ejemplo siguiente crea una suscripción. Para `billingScope`, proporcione el 
 }
 ```
 
-Implemente la plantilla en el [nivel de grupo de administración](../../azure-resource-manager/templates/deploy-to-management-group.md).
+O bien, use un archivo de Bicep para crear la suscripción.
+
+```bicep
+targetScope = 'managementGroup'
+
+@description('Provide a name for the alias. This name will also be the display name of the subscription.')
+param subscriptionAliasName string
+
+@description('Provide the full resource ID of billing scope to use for subscription creation.')
+param billingScope string
+
+resource subscriptionAlias 'Microsoft.Subscription/aliases@2020-09-01' = {
+  scope: tenant()
+  name: subscriptionAliasName
+  properties: {
+    workload: 'Production'
+    displayName: subscriptionAliasName
+    billingScope: billingScope
+  }
+}
+```
+
+Implemente la plantilla en el [nivel de grupo de administración](../../azure-resource-manager/templates/deploy-to-management-group.md). En los ejemplos siguientes se muestra la implementación de la plantilla de ARM de JSON, pero puede implementar un archivo de Bicep en su lugar.
 
 ### <a name="rest"></a>[REST](#tab/rest)
 
@@ -374,7 +403,7 @@ az deployment mg create \
 
 ---
 
-Para mover una suscripción a un grupo de administración nuevo, use la plantilla siguiente.
+Para mover una suscripción a un grupo de administración nuevo, use la plantilla de ARM siguiente.
 
 ```json
 {
@@ -405,6 +434,23 @@ Para mover una suscripción a un grupo de administración nuevo, use la plantill
         }
     ],
     "outputs": {}
+}
+```
+
+O bien, el archivo de Bicep siguiente.
+
+```bicep
+targetScope = 'managementGroup'
+
+@description('Provide the ID of the management group that you want to move the subscription to.')
+param targetMgId string
+
+@description('Provide the ID of the existing subscription to move.')
+param subscriptionId string
+
+resource subToMG 'Microsoft.Management/managementGroups/subscriptions@2020-05-01' = {
+  scope: tenant()
+  name: '${targetMgId}/${subscriptionId}'
 }
 ```
 

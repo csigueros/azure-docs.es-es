@@ -2,14 +2,14 @@
 title: Registro de roles y permisos
 description: Use el control de acceso basado en roles (Azure RBAC) de Azure y la administración de identidades y acceso (IAM) para proporcionar la personalización avanzada de permisos a los recursos de una instancia de Azure Container Registry.
 ms.topic: article
-ms.date: 06/07/2021
+ms.date: 09/02/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6923e356f60916e34325b9b6815dbae8aeaf5c51
-ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
+ms.openlocfilehash: 494373a299eb0f4d2bb100e71a1e1000336d1613
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111854799"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123451644"
 ---
 # <a name="azure-container-registry-roles-and-permissions"></a>Roles y permisos de Azure Container Registry
 
@@ -89,7 +89,7 @@ Como con otros recursos de Azure, puede crear [roles personalizados](../role-bas
 
 Para determinar los permisos que se van a aplicar a un rol personalizado, consulte la lista de [acciones](../role-based-access-control/resource-provider-operations.md#microsoftcontainerregistry) de Microsoft.ContainerRegistry, revise las acciones permitidas de los [roles de ACR integrados](../role-based-access-control/built-in-roles.md) o ejecute el siguiente comando:
 
-### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
 ```azurecli
 az provider operation show --namespace Microsoft.ContainerRegistry
@@ -97,16 +97,19 @@ az provider operation show --namespace Microsoft.ContainerRegistry
 
 Para definir un rol personalizado, consulte [Pasos para crear un rol personalizado](../role-based-access-control/custom-roles.md#steps-to-create-a-custom-role).
 
-> [!IMPORTANT]
-> En un rol personalizado, Azure Container Registry no admite actualmente caracteres comodín como `Microsoft.ContainerRegistry/*` o `Microsoft.ContainerRegistry/registries/*` que conceden acceso a todas las acciones coincidentes. Especifique cualquier acción necesaria individualmente en el rol.
+> [!NOTE]
+> En los inquilinos configurados con el [vínculo privado de Azure Resource Manager](../azure-resource-manager/management/create-private-link-access-portal.md), Azure Container Registry admite acciones con caracteres comodín como `Microsoft.ContainerRegistry/*/read` o `Microsoft.ContainerRegistry/registries/*/write` en roles personalizados, concediendo acceso a todas las acciones correspondientes. En un inquilino sin un vínculo privado de ARM, especifique todas las acciones del Registro necesarias individualmente en un rol personalizado.
 
-### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 Get-AzProviderOperation -OperationSearchString Microsoft.ContainerRegistry/*
 ```
 
 Para definir un rol personalizado, consulte [Pasos para crear un rol personalizado](../role-based-access-control/custom-roles.md#steps-to-create-a-custom-role).
+
+> [!NOTE]
+> En los inquilinos configurados con el [vínculo privado de Azure Resource Manager](../azure-resource-manager/management/create-private-link-access-portal.md), Azure Container Registry admite acciones con caracteres comodín como `Microsoft.ContainerRegistry/*/read` o `Microsoft.ContainerRegistry/registries/*/write` en roles personalizados, concediendo acceso a todas las acciones correspondientes. En un inquilino sin un vínculo privado de ARM, especifique todas las acciones del Registro necesarias individualmente en un rol personalizado.
 
 ---
 

@@ -10,18 +10,16 @@ ms.date: 05/10/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1742679fbca38b878325bd56fa01fc2efebf4f82
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: 0641a7357a334847bc52c3089eb4cf36cc3e3175
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113733707"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123467617"
 ---
 # <a name="blob-versioning"></a>Control de versiones de blobs
 
 Puede habilitar el control de versiones de almacenamiento de blobs para conservar automáticamente las versiones anteriores de un objeto. Cuando el control de versiones de blobs está habilitado, puede restaurar una versión anterior de un blob para recuperar los datos si se modifican o eliminan por error.
-
-[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 ## <a name="recommended-data-protection-configuration"></a>Configuración de protección de datos recomendada
 
@@ -297,6 +295,17 @@ En la tabla siguiente se describe el comportamiento de facturación de un blob q
 |-|-|
 | Si la eliminación temporal de blobs y el control de versiones están habilitados | Todas las versiones existentes en la longitud del contenido completo independientemente del nivel. |
 | Si la eliminación temporal de blobs está habilitada, pero el control de versiones está deshabilitado | Todas las instantáneas de eliminación temporal existentes con una longitud de contenido completo independientemente del nivel. |
+
+## <a name="feature-support"></a>Compatibilidad de características
+
+En esta tabla, se muestra cómo se admite esta característica en la cuenta y el impacto en la compatibilidad al habilitar determinadas funcionalidades. 
+
+| Tipo de cuenta de almacenamiento                | Blob Storage (compatibilidad predeterminada)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>    
+|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
+| De uso general estándar, v2 | ![Sí](../media/icons/yes-icon.png) |![No](../media/icons/no-icon.png)              | ![No](../media/icons/no-icon.png) | 
+| Blobs en bloques Premium          | ![Sí](../media/icons/yes-icon.png) |![No](../media/icons/no-icon.png)              | ![No](../media/icons/no-icon.png) |
+
+<sup>1</sup> Data Lake Storage Gen2 y el protocolo Network File System (NFS) 3.0 necesitan una cuenta de almacenamiento con un espacio de nombres jerárquico habilitado.
 
 ## <a name="see-also"></a>Consulte también
 

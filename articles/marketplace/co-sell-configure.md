@@ -4,16 +4,16 @@ description: Los equipos de ventas de Microsoft usan la información que se prop
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: palanis-MSFT
-ms.author: palanis
+author: sharath-satish-msft
+ms.author: shsatish
 ms.reviewer: stmummer
-ms.date: 07/13/2021
-ms.openlocfilehash: d010d079aaeded441fa7b846435cdaef0dfedd74
-ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
+ms.date: 09/03/2021
+ms.openlocfilehash: 39212b2e9ef5456ecc4f1343cc51fd83064a8840
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114389124"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123535660"
 ---
 # <a name="configure-co-sell-for-a-commercial-marketplace-offer"></a>Configuración de la venta conjunta para una oferta del marketplace comercial
 
@@ -25,7 +25,7 @@ La opción de venta conjunta está disponible para los siguientes tipos de ofert
 - Contenedor de Azure
 - Máquina virtual de Azure
 - Servicios de consultoría
-- Dynamics 365 for Customer Engagement y Power Apps
+- Dynamics 365 for Customer Engagement & Power Apps
 - Dynamics 365 for Operations
 - Dynamics 365 Business Central
 - Módulo IoT Edge
@@ -79,11 +79,11 @@ Los tipos de solución ayudan a definir los escenarios para los que está diseñ
 
 ### <a name="select-solution-areas"></a>Selección de áreas de solución
 
-Las áreas de solución ayudan a definir aún más la solución. Esto ayuda a los equipos de ventas de Microsoft a encontrar y comprender la propuesta de valor de la solución. Debe seleccionar entre una y tres áreas de solución para su oferta. Para cada área de solución, puede elegir, además, hasta dos subáreas de solución.
+Las áreas de solución ayudan a definir aún más la solución. Esto ayuda a los equipos de ventas de Microsoft a encontrar y comprender la propuesta de valor de la solución. Debe seleccionar entre una y cinco áreas de solución para su oferta. Para cada área de solución, puede elegir, además, hasta cinco subáreas de solución.
 
-1. Seleccione el vínculo **+ Agregar área de soluciones (tres como máximo)** .
+1. Seleccione el vínculo **+ Agregar área de soluciones (cinco como máximo)** .
 1. Seleccione un área de solución en la lista desplegable que aparece.
-1. Seleccione al menos una y hasta dos subáreas de solución. Para seleccionar varias subáreas, use la tecla `Ctrl` (en Windows) o la tecla `Command` (en macOS).
+1. Seleccione al menos una y hasta cinco subáreas de solución. Para seleccionar varias subáreas, use la tecla `Ctrl` (en Windows) o la tecla `Command` (en macOS).
 1. Para agregar otra área de solución, repita los pasos 1 a 3.
 
 ## <a name="upload-documents"></a>Cargar documentos

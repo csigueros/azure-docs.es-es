@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 435b27255ce58a3541d6b0d3a76bdf4080aa3962
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 70230b5324d94065e414e0bc76d7e2f092369ba9
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101648787"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123431989"
 ---
 # <a name="troubleshooting-for-hybrid-deployments-of-fido2-security-keys-in-azure-ad"></a>Solución de problemas de implementaciones híbridas de claves de seguridad FIDO2 en Azure AD 
 
@@ -145,7 +145,7 @@ El primer conjunto de propiedades procede de los objetos del entorno de AD DS l
 | Identificador                 | *Identificador* único del objeto de controlador de dominio de AD DS. |
 | DomainDnsName      | El nombre de dominio DNS del dominio de AD DS. |
 | ComputerAccount    | Objeto de cuenta de equipo del objeto de servidor Kerberos de Azure AD (controlador de dominio). |
-| UserAccount        | Objeto de cuenta de usuario deshabilitado que contiene la clave de cifrado del TGT del servidor Kerberos de Azure AD. El nombre de dominio de esta cuenta es *CN=krbtgt_AzureAD,CN=Users,<Domain-DN>* . |
+| UserAccount        | Objeto de cuenta de usuario deshabilitado que contiene la clave de cifrado del TGT del servidor Kerberos de Azure AD. El DN de esta cuenta es *CN=krbtgt_AzureAD,CN=Users,\<Domain-DN\>* |
 | KeyVersion         | Versión de la clave de cifrado del TGT del servidor Kerberos de Azure AD. La versión se asigna cuando se crea la clave. Luego se incrementa cada vez que se rota la clave. Los incrementos se basan en los metadatos de replicación y probablemente serán mayores que uno.<br /><br /> Por ejemplo, el valor inicial de *KeyVersion* podría ser *192272*. La primera vez que se gira la clave, la versión podría avanzar hasta *212621*.<br /><br /> Lo importante es comprobar que el valor de *KeyVersion* del objeto local y el valor de *CloudKeyVersion* del objeto de nube sean los mismos. |
 | KeyUpdatedOn       | Fecha y hora en que se actualizó o creó la clave de cifrado del TGT del servidor Kerberos de Azure AD. |
 | KeyUpdatedFrom     | Controlador de dominio en el que se actualizó por última vez la clave de cifrado del TGT del servidor Kerberos de Azure AD. |

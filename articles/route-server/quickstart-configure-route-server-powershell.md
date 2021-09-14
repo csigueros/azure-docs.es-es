@@ -4,27 +4,22 @@ description: En esta guía de inicio rápido, aprenderá a crear y configurar un
 services: route-server
 author: duongau
 ms.author: duau
-ms.date: 8/23/2021
+ms.date: 09/01/2021
 ms.topic: quickstart
 ms.service: route-server
 ms.custom: devx-track-azurepowershell - mode-api
-ms.openlocfilehash: a4b4d739f4a45dbce74dfb9eafaacb6c10ff8187
-ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
+ms.openlocfilehash: 65f5957d52dcf510601f4a4773cde4c8a477dc97
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123215390"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123475627"
 ---
 # <a name="quickstart-create-and-configure-route-server-using-azure-powershell"></a>Inicio rápido: Creación y configuración de una instancia de Route Server mediante Azure PowerShell
 
 Este artículo le ayuda a configurar Azure Route Server para su emparejamiento con una aplicación virtual de red (NVA) en su red virtual mediante Azure PowerShell. Route Server aprenderá las rutas de la NVA y las programará en las máquinas virtuales de la red virtual. Azure Route Server también anunciará las rutas de la red virtual a la NVA. Para más información, consulte [Azure Route Server](overview.md).
 
 :::image type="content" source="media/quickstart-configure-route-server-portal/environment-diagram.png" alt-text="Diagrama del entorno de implementación de Route Server mediante Azure PowerShell." border="false":::
-
-> [!IMPORTANT]
-> Azure Route Server (versión preliminar) está actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
-> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -107,7 +102,7 @@ $virtualnetwork | Set-AzVirtualNetwork
 
 ## <a name="create-bgp-peering-with-an-nva"></a>Creación del emparejamiento de BGP con una NVA
 
-Para establecer el emparejamiento BGP desde el servidor de rutas a la aplicación virtual de red, use [New-AzRouteServerPeer](/powershell/module/az.network/new-azrouteserverpeer):
+Para establecer el emparejamiento BGP desde el servidor de rutas a la aplicación virtual de red, use [Add-AzRouteServerPeer](/powershell/module/az.network/add-azrouteserverpeer):
 
 "your_nva_ip" es la dirección IP de la red virtual asignada a la NVA. "your_nva_asn" es el número de sistema autónomo (ASN) configurado en la NVA. El ASN puede ser cualquier número de 16 bits que no se encuentre en el intervalo del 65515 al 65520. Este intervalo de ASN está reservado por Microsoft.
 

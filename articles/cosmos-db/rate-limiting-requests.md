@@ -4,16 +4,17 @@ description: En este artículo se proporciona a los desarrolladores una metodolo
 author: plasne
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 05/07/2021
+ms.date: 08/26/2021
 ms.author: pelasne
-ms.openlocfilehash: f9130808da0f833246e013e56f081b92fa461ac9
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 0677a3f4180ab429dc51a4e40c969e32e6e8f655
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121724464"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123098145"
 ---
 # <a name="optimize-your-azure-cosmos-db-application-using-rate-limiting"></a>Optimización de cualquier aplicación de Azure Cosmos DB mediante la limitación de velocidad
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 En este artículo se proporciona a los desarrolladores una metodología para limitar la velocidad de las solicitudes a Azure Cosmos DB. La implementación de este patrón puede reducir los errores y mejorar el rendimiento general de las cargas de trabajo que superan el rendimiento aprovisionado de la base de datos o el contenedor de destino.
 
@@ -160,3 +161,6 @@ Para más información, consulte [Patrón Materialized View](/azure/architecture
 * Obtenga más información sobre la [creación de particiones y el escalado horizontal](partitioning-overview.md) en Azure Cosmos DB.
 * Obtenga información sobre las [directivas de indexación](index-policy.md) de Azure Cosmos DB.
 * Obtenga información sobre la [escalabilidad](provision-throughput-autoscale.md) en Azure Cosmos DB.
+* ¿Intenta planear la capacidad de una migración a Azure Cosmos DB? Para ello, puede usar información sobre el clúster de bases de datos existente.
+    * Si lo único que sabe es el número de núcleos virtuales y servidores del clúster de bases de datos existente, obtenga información sobre cómo [calcular unidades de solicitud mediante núcleos o CPU virtuales](convert-vcore-to-request-unit.md). 
+    * Si conoce las tasas de solicitudes típicas de la carga de trabajo de la base de datos actual, obtenga información sobre cómo [calcular unidades de solicitud mediante la herramienta de planeamiento de capacidad de Azure Cosmos DB](estimate-ru-with-capacity-planner.md).

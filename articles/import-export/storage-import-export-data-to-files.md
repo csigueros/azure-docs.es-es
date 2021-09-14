@@ -5,16 +5,16 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/03/2021
+ms.date: 09/02/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3
-ms.openlocfilehash: 9c13ffc597349cdd2b304889d142ca7c2f89c713
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: e06c5adc37e4c7ea73e3b86db61160c51d060f71
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107861542"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123449196"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Uso del servicio Azure Import/Export para importar datos a Azure Files
 
@@ -108,7 +108,7 @@ Para preparar las unidades, realice los pasos siguientes:
 6. Se crea un archivo de diario con el nombre proporcionado con el parámetro `/j:` para cada ejecución de la línea de comandos. Cada unidad que prepare tiene un archivo de diario que se tiene que cargar cuando se crea el trabajo de importación. Las unidades sin archivos de diario no se procesan.
 
     > [!IMPORTANT]
-    > - No modifique los datos de las unidades de disco o el archivo de diario después de completar la preparación del disco.
+    > No modifique los archivos de diario ni los datos de las unidades de disco y no vuelva a formatear ningún disco después de completar la preparación del disco.
 
 Para ejemplos adicionales, vaya a [Ejemplos para archivos de diario](#samples-for-journal-files).
 
@@ -154,7 +154,7 @@ Siga estos pasos para crear un trabajo de importación en Azure Portal.
 
    Seleccione **Siguiente: Envío >** para continuar.
 
-4. En **Envío**:
+6. En **Envío**:
 
     1. Seleccione el transportista en la lista desplegable. Si desea usar una empresa de mensajería que no sea FedEx o DHL, elija una de las opciones de la lista desplegable. Póngase en contacto con el equipo de operaciones de Azure Data Box en `adbops@microsoft.com` e indíqueles el transportista que quiere usar.
     1. Escriba un número válido de cuenta de transportista que haya creado con ese transportista. Microsoft usa esta cuenta para devolverle las unidades una vez que haya finalizado el trabajo de importación.
@@ -167,7 +167,7 @@ Siga estos pasos para crear un trabajo de importación en Azure Portal.
 
    Seleccione **Revisar y crear** para continuar.
 
-5. En el resumen del pedido:
+7. En el resumen del pedido:
 
    1. Revise los **Términos** y, luego, seleccione "Reconozco que toda la información proporcionada es correcta y estoy de acuerdo con los términos y las condiciones anteriores". A continuación, se realiza la validación.
    1. Revise la información de trabajo proporcionada en el resumen. Anote el nombre del trabajo y la dirección de envío del centro de datos Azure para enviar discos a Azure. Esta información se utiliza posteriormente en la etiqueta de envío.

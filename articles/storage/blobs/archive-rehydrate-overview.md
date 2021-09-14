@@ -4,17 +4,17 @@ description: Mientras un blob se encuentra en el nivel de acceso de archivo, se 
 services: storage
 author: tamram
 ms.author: tamram
-ms.date: 08/24/2021
+ms.date: 08/31/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: fryu
-ms.openlocfilehash: 33f29c44e32f1deed0c21e3695e61457a31c7f65
-ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
+ms.openlocfilehash: be4c00596e0d058dad50ae5f535ac56334b305ea
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122829681"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123436525"
 ---
 # <a name="overview-of-blob-rehydration-from-the-archive-tier"></a>Introducción a la rehidratación de blobs desde el nivel de archivo
 
