@@ -13,12 +13,12 @@ ms.topic: reference
 ms.date: 07/01/2021
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: 567c9172317a15ef2b3bd18e46909fb444d34c65
-ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
+ms.openlocfilehash: 52de257461c796f7a477091801f4bdc52f46f5c8
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113214638"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123101538"
 ---
 # <a name="claims-mapping-policy-type"></a>Tipo de directiva de asignación de notificaciones
 
@@ -270,6 +270,9 @@ Establezca el elemento Source (Origen) en uno de los valores siguientes:
 Si el origen es una transformación, debe incluirse también el elemento **TransformationID** en la definición de esta notificación.
 
 El elemento ID identifica la propiedad en el origen que proporciona el valor de la notificación. En la tabla siguiente se muestran los valores de ID válidos para cada valor de Source.
+
+> [!WARNING]
+> Actualmente, los únicos orígenes de notificación multivalor disponibles en un objeto de usuario son atributos de extensión multivalor que se han sincronizado desde AADConnect.  Otras propiedades, como OtherMails y etiquetas, tienen varios valores, pero solo se emite un valor cuando se selecciona como origen.
 
 #### <a name="table-3-valid-id-values-per-source"></a>Tabla 3: Valores de Id. válidos por origen
 

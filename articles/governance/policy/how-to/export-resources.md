@@ -4,12 +4,12 @@ description: Obtenga más información sobre cómo exportar recursos de Azure Po
 ms.date: 08/17/2021
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 7eb7cbfcd568eeebcb03979c51d26e8f6231298f
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 170c619d41a416ac337edabcf3d4c0e0b5f24d4e
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122325014"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122965152"
 ---
 # <a name="export-azure-policy-resources"></a>Exportación de recursos de Azure Policy
 
@@ -17,7 +17,10 @@ En este artículo se ofrece información sobre cómo exportar los recursos de Az
 
 ## <a name="export-with-azure-portal"></a>Exportación con Azure Portal
 
-Para exportar una definición de directiva de Azure Portal, siga estos pasos:
+> [!NOTE]
+> La exportación de recursos de Azure Policy desde Azure Portal no está disponible para nubes soberanas de Azure.
+
+Para exportar una definición de directiva desde Azure Portal, siga estos pasos:
 
 1. Inicie el servicio Azure Policy en Azure Portal. Para ello, haga clic en **Todos los servicios** y, a continuación, busque y seleccione **Directiva**.
 

@@ -10,12 +10,12 @@ ms.date: 01/29/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 904def8328fbd7e23812b7ca325beda7722c5189
-ms.sourcegitcommit: 0ab53a984dcd23b0a264e9148f837c12bb27dac0
+ms.openlocfilehash: 7e2d71c1f388786c05052e773ea621caab92185e
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2021
-ms.locfileid: "113504700"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122445878"
 ---
 # <a name="perform-a-point-in-time-restore-on-block-blob-data"></a>Habilitación y administración de la restauración a un momento dado para blobs en bloques
 
@@ -128,7 +128,7 @@ Solo se restauran los blobs en bloques. Los blobs en páginas y los blobs en ane
 >
 > Asimismo, las operaciones de lectura de la ubicación secundaria pueden continuar durante la operación de restauración si la cuenta de almacenamiento tiene replicación geográfica.
 >
-> El tiempo que se tarda en restaurar un conjunto de datos se basa en el número de operaciones de escritura y eliminación realizadas durante el período de restauración. Por ejemplo, una cuenta con un millón de objetos con 3000 objetos agregados al día y 1000 objetos eliminados al día requerirá aproximadamente dos horas para restaurar a un período de 30 días determinado del pasado. No se recomendarían un período de retención ni una restauración superiores a 90 días en el pasado para una cuenta con esta tasa de cambio.
+> El tiempo que se tarda en restaurar un conjunto de datos se basa en el número de operaciones de escritura y eliminación realizadas durante el período de restauración después de hasta una hora para que se seleccione el trabajo de restauración. Por ejemplo, una cuenta con un millón de objetos con 3000 objetos agregados al día y 1000 objetos eliminados al día requerirá aproximadamente dos o tres horas para restaurarse a un punto situado 30 días en el pasado. Una restauración con un número de cambios pequeño requeriría un máximo de una hora. No se recomendarían un período de retención ni una restauración superiores a 90 días en el pasado para una cuenta con esta tasa de cambio.
 
 ### <a name="restore-all-containers-in-the-account"></a>Restaurar todos los contenedores de la cuenta
 

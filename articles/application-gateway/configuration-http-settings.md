@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 09/09/2020
 ms.author: surmb
-ms.openlocfilehash: 77f30c26b500f98429039710d84f77b87fb6a654
-ms.sourcegitcommit: 0beea0b1d8475672456da0b3a4485d133283c5ea
+ms.openlocfilehash: f2fb9d2f6221928f093895914b8fc0082573a8b2
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2021
-ms.locfileid: "112992214"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122866270"
 ---
 # <a name="application-gateway-http-settings-configuration"></a>Configuración HTTP de Application Gateway
 
@@ -20,9 +20,12 @@ La puerta de enlace de aplicaciones enrutará el tráfico a los servidores back-
 
 ## <a name="cookie-based-affinity"></a>Afinidad basada en cookies
 
-Azure Application Gateway usa cookies administradas por la puerta de enlace para mantener las sesiones de usuario. Cuando un usuario envía la primera solicitud a Application Gateway, establece una cookie de afinidad en la respuesta con un valor de hash que contiene los detalles de la sesión, de modo que las solicitudes posteriores que lleven la cookie de afinidad se enrutarán al mismo servidor back-end para mantener la adherencia. 
+Azure Application Gateway usa cookies administradas por la puerta de enlace para mantener las sesiones de usuario. Cuando un usuario envía la primera solicitud a Application Gateway, establece una cookie de afinidad en la respuesta con un valor de hash que contiene los detalles de la sesión, de modo que las solicitudes posteriores que lleven la cookie de afinidad se enrutarán al mismo servidor back-end para mantener la adherencia.
 
 Esta característica es útil cuando se desea mantener una sesión de usuario en el mismo servidor y cuando el estado de la sesión se guarda localmente en el servidor para una sesión de usuario. Si la aplicación no puede administrar la afinidad basada en cookies, no podrá usar esta característica. Para poder utilizarla, asegúrese de que los clientes admiten cookies.
+> [!NOTE]
+> Algunos exámenes de vulnerabilidades pueden marcar la cookie de afinidad de Applicaton Gateway porque las marcas Secure o HttpOnly no están establecidas. Estos exámenes no tienen en cuenta que los datos de la cookie se generan mediante un hash unidireccional. La cookie no contiene ninguna información de usuario y se usa exclusivamente para el enrutamiento. 
+
 
 La [actualización v80](https://chromiumdash.appspot.com/schedule) del [explorador Chromium](https://www.chromium.org/Home) establece un mandato por el que las cookies HTTP sin el atributo [SameSite](https://tools.ietf.org/id/draft-ietf-httpbis-rfc6265bis-03.html#rfc.section.5.3.7) se tratan como SameSite=Lax. En el caso de las solicitudes CORS (uso compartido de recursos entre orígenes), si la cookie tiene que enviarse en un contexto de terceros, debe usar los atributos *SameSite=None; Secure* y solo debe enviarse utilizando HTTPS. De lo contrario, en un escenario en que solo se utilice HTTP, el explorador no enviará las cookies en el contexto de terceros. El objetivo de esta actualización de Chrome es mejorar la seguridad y evitar los ataques de falsificación de solicitudes entre sitios (CSRF). 
 

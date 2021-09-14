@@ -4,12 +4,12 @@ description: En este artículo se explica el proceso para que una aplicación de
 ms.topic: article
 ms.date: 12/09/2019
 ms.custom: subject-rbac-steps
-ms.openlocfilehash: 7f49a3f97862c3a141ea9376d0ffc9bf510d3e6f
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: ac383c3d517bbbab2b25c12dc4a06b4fe63e1b89
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110782968"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122865051"
 ---
 # <a name="granting-a-service-fabric-applications-managed-identity-access-to-azure-resources"></a>Concesión de acceso a recursos de Azure para la identidad administrada de una aplicación de Service Fabric
 
@@ -98,5 +98,6 @@ Y para las identidades administradas asignadas por el usuario:
 Para obtener más información, consulte [Almacenes: actualización de la directiva de acceso](/rest/api/keyvault/vaults/updateaccesspolicy).
 
 ## <a name="next-steps"></a>Pasos siguientes
+* [Implementación de una aplicación de Service Fabric con una identidad administrada en un clúster administrado](how-to-managed-cluster-application-managed-identity.md)
 * [Implementación de una aplicación de Azure Service Fabric con una identidad administrada asignada por el sistema](./how-to-deploy-service-fabric-application-system-assigned-managed-identity.md)
 * [Implementación de una aplicación de Azure Service Fabric con una identidad administrada asignada por el usuario](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)

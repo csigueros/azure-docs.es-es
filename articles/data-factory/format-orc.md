@@ -9,12 +9,12 @@ ms.custom: synapse
 ms.topic: conceptual
 ms.date: 09/28/2020
 ms.author: jianleishen
-ms.openlocfilehash: 2f4cf0464dd63510208bc29b87b1f131b1e3cc56
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 72c81c2e8eec02be96512ce4100e3b9c48b96318
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122637897"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123252976"
 ---
 # <a name="orc-format-in-azure-data-factory"></a>Formato ORC en Azure Data Factory
 
@@ -22,7 +22,7 @@ ms.locfileid: "122637897"
 
 Siga este artículo cuando quiera **analizar los archivos ORC o escribir los datos en formato ORC**. 
 
-El formato ORC es compatible con los siguientes conectores: [Amazon S3](connector-amazon-simple-storage-service.md), [Amazon S3 Compatible Storage](connector-amazon-s3-compatible-storage.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md), [Oracle Cloud Storage](connector-oracle-cloud-storage.md) y [SFTP](connector-sftp.md).
+El formato JSON se admite para los conectores siguientes: [Amazon S3](connector-amazon-simple-storage-service.md), [Amazon S3 Compatible Storage](connector-amazon-s3-compatible-storage.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure Files](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md), [Oracle Cloud Storage](connector-oracle-cloud-storage.md) y [SFTP](connector-sftp.md).
 
 ## <a name="dataset-properties"></a>Propiedades del conjunto de datos
 

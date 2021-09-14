@@ -5,32 +5,42 @@ description: Descripción de las restricciones y limitaciones del formato del id
 author: SureshJa
 ms.author: sureshja
 manager: CelesteDG
-ms.date: 06/23/2021
+ms.date: 08/06/2021
 ms.topic: conceptual
 ms.subservice: develop
 ms.custom: contperf-fy21q4-portal, aaddev
 ms.service: active-directory
 ms.reviewer: marsma, lenalepa, manrath
-ms.openlocfilehash: b9484973e724246db76ccc927437fccf2c4c7be1
-ms.sourcegitcommit: cd8e78a9e64736e1a03fb1861d19b51c540444ad
+ms.openlocfilehash: 96fe21b4f1df662e72ec88abc68d74db25257de1
+ms.sourcegitcommit: c2f0d789f971e11205df9b4b4647816da6856f5b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2021
-ms.locfileid: "112966471"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122662042"
 ---
 # <a name="redirect-uri-reply-url-restrictions-and-limitations"></a>Restricciones y limitaciones del identificador URI de redirección (dirección URL de respuesta)
 
 Un identificador URI de redirección, o dirección URL de respuesta, es la ubicación a la que el servidor de autorización envía al usuario una vez que se haya autorizado correctamente a la aplicación y se haya concedido un código de autorización o un token de acceso. El servidor de autorización envía el código o el token al identificador URI de redirección, por lo que es importante que registre la ubicación correcta como parte del proceso de registro de la aplicación.
 
- Las siguientes restricciones se aplican a los URI de redireccionamiento:
+El modelo de aplicación de Azure Active Directory (Azure AD) especifica estas restricciones de los URI de redirección:
 
-* El identificador URI de redirección debe comenzar con el esquema `https`. Hay algunas [excepciones](#localhost-exceptions) para los URI de redirección de localhost.
+* Los identificadores URI de redirección debe comenzar con el esquema `https`. Hay algunas [excepciones](#localhost-exceptions) para los URI de redirección de localhost.
 
-* El identificador URI de redirección distingue entre mayúsculas y minúsculas. Sus mayúsculas o minúsculas deben coincidir con las de la ruta de acceso de la dirección URL de la aplicación en ejecución. Por ejemplo, si la aplicación incluye como parte de su ruta de acceso `.../abc/response-oidc`, no especifique `.../ABC/response-oidc` en el identificador URI de redirección. Dado que el explorador web tiene en cuenta las mayúsculas y minúsculas de la ruta de acceso, se pueden excluir las cookies asociadas con `.../abc/response-oidc` si se redirigen a la dirección URL `.../ABC/response-oidc` con mayúsculas y minúsculas no coincidentes.
+* Los URI de redirección distinguen mayúsculas de minúsculas y deben coincidir con el caso de la ruta de acceso de la dirección URL de la aplicación en ejecución. Por ejemplo, si la aplicación incluye como parte de su ruta de acceso `.../abc/response-oidc`, no especifique `.../ABC/response-oidc` en el identificador URI de redirección. Dado que el explorador web tiene en cuenta las mayúsculas y minúsculas de la ruta de acceso, se pueden excluir las cookies asociadas con `.../abc/response-oidc` si se redirigen a la dirección URL `.../ABC/response-oidc` con mayúsculas y minúsculas no coincidentes.
 
-* Un URI de redirección sin un segmento de ruta de acceso anexa una barra diagonal al final del URI de la respuesta. Por ejemplo, los URI https://contoso.com y http://localhost:7071 devuelven https://contoso.com/ y http://localhost:7071/ respectivamente. Esto ocurre únicamente cuando el modo de respuesta es query o fragment.
+* Los URI de redirección que *no* están configurados con un segmento de ruta de acceso se devuelven con una barra diagonal final ("`/`") en la respuesta. Esto solo se aplica cuando el modo de respuesta es `query` o `fragment`.
 
-* Los URI de redirección que contienen el segmento de ruta de acceso no anexan una barra diagonal al final. En el ejemplo https://contoso.com/abc, se usará https://contoso.com/abc/response-oidc tal cual en la respuesta.
+    Ejemplos:
+
+    * `https://contoso.com` se devuelve como `https://contoso.com/`
+    * `http://localhost:7071` se devuelve como `http://localhost:7071/`
+
+* Los URI de redirección que contienen un segmento de ruta de acceso *no* se anexan con una barra diagonal final en la respuesta.
+
+    Ejemplos:
+
+    * `https://contoso.com/abc` se devuelve como `https://contoso.com/abc`
+    * `https://contoso.com/abc/response-oidc` se devuelve como `https://contoso.com/abc/response-oidc`
 
 ## <a name="maximum-number-of-redirect-uris"></a>Número máximo de URI de redireccionamiento
 
@@ -47,11 +57,20 @@ Puede usar un máximo de 256 caracteres para cada identificador URI de redirecc
 
 ## <a name="supported-schemes"></a>Esquemas admitidos
 
-En la actualidad, el modelo de aplicación de Azure Active Directory (Azure AD) admite esquemas HTTP y HTTPS para las aplicaciones que inician sesión en cuentas profesionales o educativas de Microsoft en el inquilino de Azure AD de cualquier organización. Estos tipos de cuenta se especifican mediante los valores `AzureADMyOrg` y `AzureADMultipleOrgs` en el campo `signInAudience` del manifiesto de aplicación. En el caso de las aplicaciones que inician sesión en cuentas personales de Microsoft (MSA) *y* en cuentas profesionales y educativas (es decir, que el elemento `signInAudience` está establecido en `AzureADandPersonalMicrosoftAccount`), solo se permite el esquema HTTPS.
+**HTTPS**: el esquema HTTPS (`https://`) es compatible con todos los URI de redirección basados en HTTP.
 
-Para agregar identificadores URI de redirección con un esquema HTTP a los registros de aplicaciones que la inician sesión de cuentas profesionales o educativas, use el editor de manifiestos de aplicación en [Registros de aplicaciones](https://go.microsoft.com/fwlink/?linkid=2083908) en Azure Portal. Sin embargo, aunque es posible establecer un identificador URI de redirección basado en HTTP mediante el editor de manifiestos, *se recomienda* usar el esquema HTTPS para los identificadores URI de redirección.
+**HTTP**: el esquema HTTP (`http://`) *solo* es compatible con los URI de *localhost* y solo se debe usar durante el desarrollo y las pruebas de aplicaciones locales activas.
 
-## <a name="localhost-exceptions"></a>Excepciones de localhost
+| URI de redirección de ejemplo                    | Validez |
+|-----------------------------------------|----------|
+| `https://contoso.com`                   | Válido    |
+| `https://contoso.com/abc/response-oidc` | Válido    |
+| `https://localhost`                     | Válido    |
+| `http://contoso.com/abc/response-oidc`  | No válida  |
+| `http://localhost`                      | Válido    |
+| `http://localhost/abc`                  | Válido    |
+
+### <a name="localhost-exceptions"></a>Excepciones de localhost
 
 Según las [secciones 8.3](https://tools.ietf.org/html/rfc8252#section-8.3) y [7.3 de RFC 8252](https://tools.ietf.org/html/rfc8252#section-7.3), los URI de redireccionamiento de "bucle invertido" o "localhost" incluyen dos consideraciones especiales:
 

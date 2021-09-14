@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/30/2021
 ms.author: mjbrown
-ms.openlocfilehash: 53e6ef24ba7f9df42ce15d62d11cf4f455825caa
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: ee5b5421ea0cb43371f790eecc31f22cc4ae7142
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123439459"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123257919"
 ---
 # <a name="security-in-azure-cosmos-db---overview"></a>Seguridad en Azure Cosmos DB: introducción
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -151,7 +151,7 @@ El proceso de rotación y regeneración de claves es sencillo. En primer lugar, 
 
 1. Vuelva a Azure Portal y desencadene la regeneración de la clave principal.
 
-    :::image type="content" source="./media/database-security/regenerate-primary-key-mongo.png" alt-text="Captura de pantalla de Azure Portal en la que se muestra cómo regenerar la clave principal" border="true":::
+    :::image type="content" source="./media/database-security/regenerate-primary-key-mongo.png" alt-text="Captura de pantalla de Azure Portal en la que muestra se cómo regenerar la clave principal" border="true":::
 
 #### <a name="if-your-application-is-currently-using-the-secondary-key"></a>Si la aplicación usa actualmente la clave secundaria
 
@@ -169,7 +169,7 @@ El proceso de rotación y regeneración de claves es sencillo. En primer lugar, 
 
     :::image type="content" source="./media/database-security/regenerate-secondary-key-mongo.png" alt-text="Captura de pantalla de Azure Portal en la que muestra se cómo regenerar la clave secundaria" border="true":::
 
-# <a name="cassandra-api"></a>[Cassandra API](#tab/cassandra-api)
+# <a name="cassandra-api"></a>[Cassandra API](#tab/Cassandra-api)
 
 #### <a name="if-your-application-is-currently-using-the-primary-key"></a>Si la aplicación usa actualmente la clave principal
 

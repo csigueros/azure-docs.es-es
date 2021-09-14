@@ -7,13 +7,13 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 11/06/2020
-ms.openlocfilehash: 4b06a8808826c5b11ecc2c54824db65f37d3b50f
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+ms.date: 08/13/2021
+ms.openlocfilehash: 082b943aef3f82898b80d23d33a90d3f5ec3ebc6
+ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113431409"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122515130"
 ---
 # <a name="plan-an-azure-managed-application-for-an-azure-application-offer"></a>Planeamiento de una aplicación administrada de Azure para una oferta de Aplicación de Azure
 
@@ -39,6 +39,28 @@ Uso de una Aplicación de Azure: Plan de aplicación administrada en las siguien
 
 > [!NOTE]
 > Las aplicaciones administradas se deben poder implementar desde Azure Marketplace. Si la comunicación con el cliente es una preocupación, póngase en contacto con los clientes interesados después de habilitar el uso compartido de clientes potenciales.
+
+## <a name="usage-of-azure-kubernetes-service-aks-and-containers-in-managed-application"></a>Uso de Azure Kubernetes Service (AKS) y contenedores en la aplicación administrada
+
+### <a name="azure-application-offers-fall-into-two-categories"></a>Las ofertas de aplicaciones de Azure se dividen en dos categorías
+
+- Plantilla de solución: el publicador no puede acceder.
+- Aplicación administrada: el publicador puede acceder a través de una autorización predefinida que concede el cliente en el momento de la implementación.
+
+**Plantillas de solución:** el publicador no puede cambiar las ofertas de la plantilla de solución después de la implementación del cliente. Por lo tanto, los recursos de Azure Kubernetes Service (AKS) y los contenedores no se permiten actualmente en esta categoría de oferta.
+
+**Aplicaciones administradas:** las ofertas de aplicaciones administradas permiten al publicador obtener acceso a los recursos creados durante la implementación en la suscripción del cliente y controlarlos. Por lo tanto, los recursos de Azure Kubernetes Service (AKS) y los contenedores *<u>están provisionalmente permitidos</u>* en esta categoría de oferta.
+
+### <a name="rules-and-known-issues-for-aks-and-containers-in-managed-applications"></a>Reglas y problemas conocidos de AKS y contenedores en aplicaciones administradas
+
+- El grupo de recursos del nodo de AKS no hereda las asignaciones de denegación como parte de la aplicación administrada de Azure. Esto significa que el cliente tendrá acceso completo al grupo de recursos de nodo de AKS que crea el recurso de AKS cuando se incluye en la aplicación administrada, mientras que el grupo de recursos administrados tendrá las asignaciones de denegación adecuadas.
+ 
+- El publicador puede incluir gráficos de Helm y otros scripts como parte de la aplicación administrada de Azure. Sin embargo, la oferta se tratará como una implementación de una aplicación administrada normal y no habrá ningún procesamiento automático específico del contenedor ni instalación de gráficos de Helm en el momento de la implementación. Es responsabilidad del publicador ejecutar los scripts pertinentes, ya sea en el momento de la implementación mediante las técnicas habituales (como la extensión de script personalizado de la máquina virtual o los scripts de implementación de Azure), o después de la implementación.
+ 
+- Igual que con la aplicación administrada de Azure normal, es responsabilidad del publicador asegurarse de que la solución se implementa de forma adecuada y de que todos los componentes están correctamente configurados, protegidos y operativos. Por ejemplo, los publicadores pueden usar su propio registro de contenedor como origen de las imágenes, pero son completamente responsables de la seguridad del contenedor y del examen de vulnerabilidades en curso.
+
+> [!NOTE]
+> La compatibilidad con AKS y los contenedores en la oferta de aplicación administrada de Azure puede retirarse cuando un tipo de oferta de aplicación contenedora oficial esté disponible en Marketplace. En ese momento, la publicación de todas las ofertas futuras con el nuevo tipo de oferta podría ser un requisito y es posible que las ofertas existentes deban migrarse al nuevo tipo de oferta y retirarse.
 
 ## <a name="deployment-package"></a>Paquete de implementación
 

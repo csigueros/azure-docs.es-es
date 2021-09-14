@@ -1,24 +1,26 @@
 ---
 title: Copia y transformación de datos en Snowflake
-description: Aprenda cómo copiar y transformar datos en Snowflake mediante Data Factory.
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Aprenda cómo copiar y transformar datos en Snowflake mediante Data Factory o Azure Synapse Analytics.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 03/16/2021
-ms.openlocfilehash: a412af3020012844a633d01c1b5b928ec4a4758f
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.custom: synapse
+ms.date: 08/30/2021
+ms.openlocfilehash: 8df5c60881ad449d8733abaf4f0eb7bcde6dde9a
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110535053"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123307670"
 ---
-# <a name="copy-and-transform-data-in-snowflake-by-using-azure-data-factory"></a>Copia y transformación de datos en Snowflake mediante Azure Data Factory
+# <a name="copy-and-transform-data-in-snowflake-using-azure-data-factory-or-azure-synapse-analytics"></a>Copia y transformación de datos en Snowflake mediante Azure Data Factory o Azure Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-En este artículo se explica cómo usar la actividad de copia de Azure Data Factory para copiar datos de y en Snowflake, y el uso de Data Flow para transformar datos en Snowflake. Para más información sobre Data Factory, consulte el [artículo de introducción](introduction.md).
+En este artículo se explica cómo usar la actividad de copia en las canalizaciones de Azure Data Factory y Azure Synapse para copiar datos desde y hacia Snowflake, y también cómo usar Data Flow para transformar datos en Snowflake. Para obtener más información, vea el artículo introductorio de [Data Factory](introduction.md) o [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md).
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
@@ -38,7 +40,31 @@ Para la actividad de copia, este conector Snowflake admite las siguientes funcio
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
-En las secciones siguientes se proporcionan detalles sobre las propiedades que definen entidades de Data Factory específicas del conector de Snowflake.
+## <a name="create-a-linked-service-to-snowflake-using-ui"></a>Creación de un servicio vinculado en mediante la interfaz de usuario
+
+Siga estos pasos para crear un servicio vinculado en Snowflake en la interfaz de usuario de Azure Portal.
+
+1. Vaya a la pestaña Administrar del área de trabajo de Azure Data Factory o Synapse y seleccione Servicios vinculados; luego haga clic en Nuevo:
+
+    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Captura de pantalla de la creación de un nuevo servicio vinculado con la interfaz de usuario de Azure Data Factory.":::
+
+    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Captura de pantalla de la creación de un nuevo servicio vinculado con la interfaz de usuario de Azure Synapse.":::
+
+2. Busque Snowflake y seleccione el conector de Snowflake.
+
+    :::image type="content" source="media/connector-snowflake/snowflake-connector.png" alt-text="Captura de pantalla del conector de Snowflake.":::    
+
+1. Configure los detalles del servicio, pruebe la conexión y cree el nuevo servicio vinculado.
+
+    :::image type="content" source="media/connector-snowflake/configure-snowflake-linked-service.png" alt-text="Captura de pantalla de la configuración del servicio vinculado de Snowflake.":::
+
+## <a name="connector-configuration-details"></a>Detalles de configuración del conector
+
+En las secciones siguientes se proporcionan detalles sobre las propiedades que definen entidades específicas de un conector de Snowflake.
 
 ## <a name="linked-service-properties"></a>Propiedades del servicio vinculado
 
@@ -103,8 +129,8 @@ Las siguientes propiedades son compatibles con el conjunto de datos de Snowflake
 | Propiedad  | Descripción                                                  | Obligatorio                    |
 | :-------- | :----------------------------------------------------------- | :-------------------------- |
 | type      | La propiedad type del conjunto de datos se debe establecer en **SnowflakeTable**. | Sí                         |
-| esquema | Nombre del esquema. Tenga en cuenta que el nombre del esquema distingue mayúsculas de minúsculas en ADF. |No para el origen, sí para el receptor  |
-| table | Nombre de la tabla o vista. Tenga en cuenta que el nombre de la tabla distingue mayúsculas de minúsculas en ADF. |No para el origen, sí para el receptor  |
+| esquema | Nombre del esquema. Observe que el nombre del esquema distingue mayúsculas de minúsculas. |No para el origen, sí para el receptor  |
+| table | Nombre de la tabla o vista. Observe que el nombre de la tabla distingue mayúsculas de minúsculas. |No para el origen, sí para el receptor  |
 
 **Ejemplo**:
 
@@ -142,7 +168,7 @@ Para copiar datos desde Snowflake, en la sección **source** de la actividad de 
 | :--------------------------- | :----------------------------------------------------------- | :------- |
 | type                         | La propiedad type del origen de la actividad de copia debe establecerse en **SnowflakeSource**. | Sí      |
 | Query          | Especifica la consulta SQL para leer datos de Snowflake. Si los nombres del esquema, la tabla y las columnas contienen minúsculas, indique el identificador de objeto en la consulta, por ejemplo, `select * from "schema"."myTable"`.<br>No se admite la ejecución de procedimientos almacenados. | No       |
-| exportSettings | Configuración avanzada utilizada para recuperar datos de Snowflake. Se pueden configurar los parámetros que admite el comando COPY into que Data Factory pasará al invocar la instrucción. | No       |
+| exportSettings | Configuración avanzada utilizada para recuperar datos de Snowflake. Se pueden configurar los parámetros que admite el comando COPY into que el servicio pasará al invocar la instrucción. | No       |
 | ***En`exportSettings`:*** |  |  |
 | type | El tipo de comando de exportación, establecido en **SnowflakeExportCopyCommand**. | Sí |
 | additionalCopyOptions | Opciones de copia adicionales, proporcionadas como un diccionario de pares clave-valor. Ejemplos: MAX_FILE_SIZE, OVERWRITE. Para obtener más información consulte el documento sobre las [opciones de copia de Snowflake](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#copy-options-copyoptions). | No |
@@ -150,7 +176,7 @@ Para copiar datos desde Snowflake, en la sección **source** de la actividad de 
 
 #### <a name="direct-copy-from-snowflake"></a>Copia directa desde Snowflake
 
-Si el almacén de datos y el formulario del receptor cumplen los criterios descritos en esta sección, puede usar la actividad de copia para copiar directamente de Snowflake al receptor. Data Factory comprueba la configuración y produce un error en la ejecución de la actividad de copia si no se cumplen los siguientes criterios:
+Si el almacén de datos y el formulario del receptor cumplen los criterios descritos en esta sección, puede usar la actividad de copia para copiar directamente de Snowflake al receptor. El servicio comprueba la configuración y produce un error en la ejecución de la actividad de copia si no se cumplen los siguientes criterios:
 
 - El **servicio vinculado al receptor** es [**Azure Blob Storage**](connector-azure-blob-storage.md) con la autenticación de la **firma de acceso de recurso compartido**. Si quiere copiar los datos directamente en Azure Data Lake Storage Gen2 en el siguiente formato admitido, puede crear un servicio vinculado de blobs de Azure con la autenticación de SAS en la cuenta de ADLS Gen2, para evitar el uso de una [copia almacenada provisionalmente desde Snowflake](#staged-copy-from-snowflake).
 
@@ -213,7 +239,7 @@ Si el almacén de datos y el formulario del receptor cumplen los criterios descr
 
 #### <a name="staged-copy-from-snowflake"></a>Copia almacenada provisionalmente desde Snowflake
 
-Cuando el formato o el almacén de datos receptor no sea compatible de forma nativa con el comando COPY de Snowflake, como se mencionó en la última sección, habilite la copia preconfigurada de Azure BLOB Storage con una instancia intermedia de almacenamiento de blobs de Azure. La característica de copia almacenada provisionalmente también proporciona un mejor rendimiento. Data Factory exporta datos de Snowflake al almacenamiento provisional, copia los datos en el receptor y, por último, limpia los datos temporales del almacenamiento provisional. Consulte [Copia almacenada provisionalmente](copy-activity-performance-features.md#staged-copy) para obtener más información sobre cómo copiar datos mediante el almacenamiento provisional.
+Cuando el formato o el almacén de datos receptor no sea compatible de forma nativa con el comando COPY de Snowflake, como se mencionó en la última sección, habilite la copia preconfigurada de Azure BLOB Storage con una instancia intermedia de almacenamiento de blobs de Azure. La característica de copia almacenada provisionalmente también proporciona un mejor rendimiento. El servicio exporta datos de Snowflake al almacenamiento provisional, copia los datos en el receptor y, por último, limpia los datos temporales del almacenamiento provisional. Consulte [Copia almacenada provisionalmente](copy-activity-performance-features.md#staged-copy) para obtener más información sobre cómo copiar datos mediante el almacenamiento provisional.
 
 Para utilizar esta característica, cree un [servicio vinculado de Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) que haga referencia a la cuenta de Azure Storage como almacenamiento provisional temporal. Luego especifique las propiedades `enableStaging` y `stagingSettings` en la actividad de copia.
 
@@ -272,7 +298,7 @@ Para copiar datos a Snowflake, se admiten las siguientes propiedades en la secci
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
 | type              | La propiedad type del receptor de la actividad de copia se establece en **SnowflakeSink**. | Sí                                           |
 | preCopyScript     | Especifique una consulta SQL para que la actividad de copia se ejecute antes de escribir datos en Snowflake en cada ejecución. Esta propiedad se usa para limpiar los datos cargados previamente. | No                                            |
-| importSettings | Configuración avanzada utilizada para escribir datos en Snowflake. Se pueden configurar los parámetros que admite el comando COPY into que Data Factory pasará al invocar la instrucción. | No |
+| importSettings | Configuración avanzada utilizada para escribir datos en Snowflake. Se pueden configurar los parámetros que admite el comando COPY into que el servicio pasará al invocar la instrucción. | No |
 | ***En`importSettings`:*** |                                                              |  |
 | type | El tipo de comando de importación, establecido en **SnowflakeImportCopyCommand**. | Sí |
 | additionalCopyOptions | Opciones de copia adicionales, proporcionadas como un diccionario de pares clave-valor. Ejemplos: ON_ERROR, FORCE, LOAD_UNCERTAIN_FILES. Para obtener más información, consulte el documento sobre las [opciones de copia de Snowflake](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#copy-options-copyoptions). | No |
@@ -280,7 +306,7 @@ Para copiar datos a Snowflake, se admiten las siguientes propiedades en la secci
 
 #### <a name="direct-copy-to-snowflake"></a>Copia directa a Snowflake
 
-Si el almacén de datos y el formulario de origen cumplen los criterios descritos en esta sección, puede usar la actividad de copia para copiar directamente desde el origen a Snowflake. Azure Data Factory comprueba la configuración y devuelve un error en la ejecución de la actividad de copia si no se cumplen los siguientes criterios:
+Si el almacén de datos y el formulario de origen cumplen los criterios descritos en esta sección, puede usar la actividad de copia para copiar directamente desde el origen a Snowflake. El servicio comprueba la configuración y produce un error en la ejecución de la actividad de copia si no se cumplen los siguientes criterios:
 
 - El **servicio vinculado al origen** es [**Azure Blob Storage**](connector-azure-blob-storage.md) con la autenticación de la **firma de acceso de recurso compartido**. Si quiere copiar los datos directamente desde Azure Data Lake Storage Gen2 en el siguiente formato admitido, puede crear un servicio vinculado de blobs de Azure con la autenticación de SAS en la cuenta de ADLS Gen2, para evitar el uso de una [copia almacenada provisionalmente en Snowflake](#staged-copy-to-snowflake).
 
@@ -347,7 +373,7 @@ Si el almacén de datos y el formulario de origen cumplen los criterios descrito
 
 #### <a name="staged-copy-to-snowflake"></a>Copia almacenada provisionalmente en Snowflake
 
-Cuando el formato o el almacén de datos de origen no sea compatible de forma nativa con el comando COPY de Snowflake, como se mencionó en la última sección, habilite la copia preconfigurada con una instancia intermedia de Azure Blob Storage. La característica de copia almacenada provisionalmente también proporciona un mejor rendimiento. Data Factory convierte automáticamente los datos para satisfacer los requisitos del formato de datos de Snowflake. A continuación, invoca el comando COPY para cargar datos en Snowflake. Por último, limpia los datos temporales del almacenamiento de blobs. Consulte [Copia almacenada provisionalmente](copy-activity-performance-features.md#staged-copy) para obtener más información sobre cómo copiar datos con el almacenamiento provisional.
+Cuando el formato o el almacén de datos de origen no sea compatible de forma nativa con el comando COPY de Snowflake, como se mencionó en la última sección, habilite la copia preconfigurada con una instancia intermedia de Azure Blob Storage. La característica de copia almacenada provisionalmente también proporciona un mejor rendimiento. El servicio convierte automáticamente los datos para satisfacer los requisitos del formato de datos de Snowflake. A continuación, invoca el comando COPY para cargar datos en Snowflake. Por último, limpia los datos temporales del almacenamiento de blobs. Consulte [Copia almacenada provisionalmente](copy-activity-performance-features.md#staged-copy) para obtener más información sobre cómo copiar datos con el almacenamiento provisional.
 
 Para utilizar esta característica, cree un [servicio vinculado de Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) que haga referencia a la cuenta de Azure Storage como almacenamiento provisional temporal. Luego especifique las propiedades `enableStaging` y `stagingSettings` en la actividad de copia.
 
@@ -477,4 +503,4 @@ Para más información sobre las propiedades, consulte [Actividad de búsqueda](
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte los [formatos y almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver una lista de los almacenes de datos que la actividad de copia de Data Factory admite como orígenes y receptores.
+Consulte los [formatos y almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver una lista de los almacenes de datos que la actividad de copia admite como orígenes y receptores.

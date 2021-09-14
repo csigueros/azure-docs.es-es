@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/18/2021
 ms.custom: seo-nov-2020
-ms.openlocfilehash: 55899fc38652462f0f98b4ad2d916cf10f203458
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 628cba9c515b58e23c984c6dcd34fa35ff63c78a
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110470977"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123028628"
 ---
 # <a name="create-azure-cosmos-containers-and-databases-with-autoscale-throughput"></a>Creación de contenedores y bases de datos de Azure Cosmos con rendimiento de escalabilidad automática
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -86,5 +86,8 @@ Para más información, consulte esta [documentación](how-to-choose-offer.md) s
 * Obtenga información acerca de cómo [elegir entre el rendimiento manual y de escalabilidad automática](how-to-choose-offer.md).
 * Obtenga información sobre el [aprovisionamiento del rendimiento de escalabilidad automática en una base de datos o un contenedor de Azure Cosmos](how-to-provision-autoscale-throughput.md).
 * Más información sobre la [creación de particiones](partitioning-overview.md) en Azure Cosmos DB.
+* ¿Intenta planear la capacidad de una migración a Azure Cosmos DB? Para ello, puede usar información sobre el clúster de base de datos existente.
+    * Si lo único que sabe es el número de núcleos virtuales y servidores del clúster de bases de datos existente, lea sobre el [cálculo de unidades de solicitud mediante núcleos o CPU virtuales](convert-vcore-to-request-unit.md). 
+    * Si conoce las tasas de solicitudes típicas de la carga de trabajo de la base de datos actual, lea sobre el [cálculo de unidades de solicitud mediante la herramienta de planeamiento de capacidad de Azure Cosmos DB](estimate-ru-with-capacity-planner.md).
 
 

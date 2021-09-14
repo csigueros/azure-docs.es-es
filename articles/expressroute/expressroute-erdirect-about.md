@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 03/17/2021
 ms.author: duau
-ms.openlocfilehash: fd890c8e8d72609d109fa466e260dd7315fd553b
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.openlocfilehash: c6f06df11e0e17f37d7cfcbba6ed4fb8c224f824
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111441229"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123029867"
 ---
 # <a name="about-expressroute-direct"></a>Acerca de ExpressRoute Direct
 
@@ -48,7 +48,7 @@ Una vez inscrito, compruebe que el proveedor de recursos **Microsoft.Network** e
 
 1. En la suscripción, en **Proveedores de recursos**, compruebe que el proveedor **Microsoft.Network** muestra un estado **Registrado**. Si el proveedor de recursos Microsoft.Network no aparece incluido en la lista de proveedores registrados, agréguelo.
 
-Si empieza a usar ExpressRoute Direct y observa que no hay ningún puerto disponible en la ubicación de emparejamiento seleccionada, envíe un correo electrónico a ExpressRouteDirect@microsoft.com para solicitar más inventario.
+Si empieza a usar ExpressRoute Direct y observa que no hay ningún puerto disponible en la ubicación de emparejamiento seleccionada, envíe una solicitud de soporte técnico para solicitar más inventario.
 
 ## <a name="expressroute-using-a-service-provider-and-expressroute-direct"></a>ExpressRoute con un proveedor de servicios y ExpressRoute Direct
 

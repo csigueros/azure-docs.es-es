@@ -2,15 +2,15 @@
 title: Configuración de un contenedor personalizado
 description: Aprenda a configurar un contenedor personalizado en Azure App Service. En este artículo se muestran las tareas de configuración más comunes.
 ms.topic: article
-ms.date: 02/23/2021
+ms.date: 08/25/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 22a953058084b4f828160cc9ba99c14a5313c9fb
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: b812495d1046ffc1b9435c0dc2684dd61af89beb
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121747781"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122865078"
 ---
 # <a name="configure-a-custom-container-for-azure-app-service"></a>Configuración de un contenedor de Linux personalizado para Azure App Service
 
@@ -34,8 +34,8 @@ Esta guía incluye conceptos clave e instrucciones para la creación de contened
 
 Si desea utilizar una imagen de Windows personalizada, debe elegir la [imagen principal (imagen base)](https://docs.docker.com/develop/develop-images/baseimages/) adecuada para la plataforma que desee:
 
-- Para implementar aplicaciones de .NET Framework, use una imagen principal basada en la versión del [Canal de mantenimiento a largo plazo (LTSC)](/windows-server/get-started-19/servicing-channels-19#long-term-servicing-channel-ltsc) de Windows Server Core. 
-- Para implementar aplicaciones de .NET Core, use una imagen principal basada en la versión del [Canal de servicio semestral (SAC)](/windows-server/get-started-19/servicing-channels-19#semi-annual-channel) de Windows Server Nano. 
+- Para implementar aplicaciones de .NET Framework, use una imagen primaria basada en la versión del [Canal de mantenimiento a largo plazo (LTSC)](/windows-server/get-started/servicing-channels-comparison#long-term-servicing-channel-ltsc) de Windows Server 2019 Core. 
+- Para implementar aplicaciones de .NET Core, use una imagen primaria basada en la versión del [Canal de servicio semestral (SAC)](/windows-server/get-started/servicing-channels-comparison#semi-annual-channel) de Windows Server 2019 Nano. 
 
 La descarga de una imagen primaria tarda un tiempo en completarse durante el inicio de la aplicación. Sin embargo, puede reducir el tiempo de inicio mediante una de las siguientes imágenes primarias que ya están almacenadas en caché en Azure App Service:
 

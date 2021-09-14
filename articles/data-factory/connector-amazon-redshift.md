@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 12/09/2020
-ms.openlocfilehash: ed0129bb5651e0835e252235fb69b4a05907af7c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 08/30/2021
+ms.openlocfilehash: e341ab94cbc54c420489d501ae62c00660759788
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122638183"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123315718"
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Copia de datos de Amazon Redshift mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -47,6 +47,30 @@ En concreto, este conector de Amazon Redshift admite la recuperación de datos d
 ## <a name="getting-started"></a>Introducción
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
+
+## <a name="create-a-linked-service-to-amazon-redshift-using-ui"></a>Creación de un servicio vinculado a Amazon Redshift mediante la interfaz de usuario
+
+Siga estos pasos para crear un servicio vinculado a Amazon Redshift en la interfaz de usuario de Azure Portal.
+
+1. Vaya a la pestaña Administrar del área de trabajo de Azure Data Factory o Synapse y seleccione Servicios vinculados; luego haga clic en Nuevo:
+
+    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Creación de un servicio vinculado con la interfaz de usuario de Azure Data Factory.":::
+
+    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Creación de un servicio vinculado con la interfaz de usuario de Azure Synapse.":::
+
+2. Busque Amazon y seleccione el conector Amazon Redshift.
+
+    :::image type="content" source="media/connector-amazon-redshift/amazon-redshift-connector.png" alt-text="Selección del conector Amazon Redshift.":::    
+
+1. Configure los detalles del servicio, pruebe la conexión y cree el servicio vinculado.
+
+    :::image type="content" source="media/connector-amazon-redshift/configure-amazon-redshift-linked-service.png" alt-text="Configuración de un servicio vinculado a Amazon Redshift.":::
+
+## <a name="connector-configuration-details"></a>Detalles de configuración del conector
 
 En las secciones siguientes se proporcionan detalles sobre las propiedades que se usan para definir entidades de Data Factory específicas del conector de Amazon Redshift.
 

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 05/11/2021
-ms.openlocfilehash: 6f9af57ad381604ffdf3882602a5dfa4163b8b25
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 3d7a37565b46137a95f0dd30a3e29b750bed3afe
+ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113090590"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122515568"
 ---
 # <a name="faq-about-azure-purview-private-endpoints"></a>Preguntas más frecuentes sobre los puntos de conexión privados de Azure Purview
 
@@ -74,11 +74,11 @@ Azure Key Vault o entidad de servicio.
 
 ### <a name="what-private-dns-zones-are-required-for-azure-purview-for-a-private-endpoint"></a>¿Qué zonas DNS privadas son necesarias para Azure Purview en un punto de conexión privado?
 
-Para un recurso de Azure Purview:
+Para la _cuenta_ de Azure Purview y los puntos de conexión privados del _portal_:
 
 - `privatelink.purview.azure.com`
 
-Para los recursos administrados de Azure Purview:
+Para los puntos de conexión privados de _ingesta_ de Azure Purview:
 
 - `privatelink.blob.core.windows.net`
 - `privatelink.queue.core.windows.net`

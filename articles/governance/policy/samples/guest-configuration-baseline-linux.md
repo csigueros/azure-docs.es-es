@@ -1,21 +1,21 @@
 ---
 title: 'Referencia: Línea base de configuración de invitados de Azure Policy para Linux'
 description: Detalles de la línea base de Linux en Azure implementada a través de la configuración de invitados de Azure Policy.
-ms.date: 08/03/2021
+ms.date: 08/24/2021
 ms.topic: reference
 ms.custom: generated
-ms.openlocfilehash: 4fe3e374b39c880940fa61b84342d2d8cbf94d12
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 5d3b360a3a87c08e457e02829d1938193631e74f
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121731349"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122779327"
 ---
 # <a name="linux-security-baseline"></a>Línea base de seguridad de Linux
 
 En este artículo se detallan los valores de configuración de los invitados de Linux según corresponda en las siguientes implementaciones:
 
-- **\[Versión preliminar\] Las máquinas Windows deben cumplir los requisitos de la línea base de seguridad de Azure Compute** Definición de la configuración de invitados de Azure Policy
+- **\[Versión preliminar\] Las máquinas Linux deben cumplir los requisitos de la línea de base de seguridad de Azure Compute** Definición de la configuración de invitados de Azure Policy
 - **Se deben corregir las vulnerabilidades en la configuración de seguridad de las máquinas** en Azure Security Center
 
 Para obtener más información, consulte [Configuración de invitados de Azure Policy](../concepts/guest-configuration.md) e [Información general sobre Azure Security Benchmark (V2)](../../../security/benchmarks/overview.md).

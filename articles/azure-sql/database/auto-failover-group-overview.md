@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: BustosMSFT
 ms.author: robustos
 ms.reviewer: mathoma
-ms.date: 05/10/2021
-ms.openlocfilehash: 1bbbf7266fdcac552972f563e0d958bf035de984
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 08/30/2021
+ms.openlocfilehash: 68c657b7e8e045b8756bc2db8de2b4024b7530b8
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121751349"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123256501"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Uso de grupos de conmutación por error automática para permitir la conmutación por error de varias bases de datos de manera transparente y coordinada
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -411,7 +411,7 @@ Tenga en cuenta las siguientes limitaciones:
 - No se pueden crear grupos de conmutación por error entre dos servidores o instancias en las mismas regiones de Azure.
 - No se puede cambiar el nombre de los grupos de conmutación por error. Tendrá que eliminar el grupo y volver a crearlo con un nombre diferente.
 - No se admiten los cambios de nombre de base de datos para las instancias del grupo de conmutación por error. Tendrá que eliminar temporalmente el grupo de conmutación por error para poder cambiar el nombre a una base de datos.
-- Las bases de datos del sistema no se replican en la instancia secundaria de un grupo de conmutación por error. Por lo tanto, los escenarios que dependen de objetos de las bases de datos del sistema serán imposibles en la instancia secundaria, a menos que los objetos se creen manualmente en la secundaria.
+- Las bases de datos del sistema no se replican en la instancia secundaria de un grupo de conmutación por error. Por lo tanto, los escenarios que dependen de objetos de las bases de datos del sistema necesitan que estos se creen manualmente en las instancias secundarias y también que se mantengan sincronizados manualmente después de los cambios realizados en la instancia principal. La única excepción es la clave maestra de servicio (SMK) de SQL Managed Instance, que se replica automáticamente en la instancia secundaria durante la creación del grupo de conmutación por error. Sin embargo, los cambios posteriores de SMK en la instancia principal no se replicarán en la instancia secundaria.
 
 ## <a name="programmatically-managing-failover-groups"></a>Administración mediante programación de grupos de conmutación por error
 

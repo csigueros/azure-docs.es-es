@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/17/2021
 ms.author: bagol
-ms.openlocfilehash: 965de895cbe7e030ff009ba11a0947048ce8b4c1
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.openlocfilehash: f2f99e7c9a901b6e76b3d4bbe87967527f836d1b
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122252607"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122864349"
 ---
 # <a name="recovering-from-systemic-identity-compromise"></a>Recuperación de un riesgo de identidad sistemático
 
@@ -157,7 +157,7 @@ Revise los derechos administrativos tanto en el entorno local como de nube. Por 
 |**Todos los entornos de nube**    |       - Revise los derechos de acceso con privilegios en la nube y quite los permisos innecesarios.<br>    - Implemente Privileged Identity Management (PIM).<br>    - Configure directivas de acceso condicional para limitar el acceso administrativo durante la protección.      |
 |**Todos los entornos locales**     |       - Revise el acceso con privilegios en el entorno local y quite los permisos innecesarios.<br>   - Reduzca la pertenencia a grupos integrados.<br>    - Compruebe las delegaciones de Active Directory.<br>    - Proteja el entorno de nivel 0 y limite quién tiene acceso a los recursos de este nivel.      |
 |**Todas las aplicaciones empresariales**     | Revise los permisos delegados y las concesiones de consentimiento que permitan cualquiera de las siguientes acciones: <br><br>  - Modificación de usuarios y roles con privilegios <br>- Lectura o acceso a todos los buzones <br>- Envío o reenvío de correo electrónico en nombre de otros usuarios <br>- Acceso a todo el contenido del sitio de OneDrive o SharePoint <br>- Adición de entidades de servicio que puedan leer y escribir en el directorio      |
-|**Entornos de Microsoft 365**     |Revise las opciones de acceso y configuración del entorno de Microsoft 365, entre las que se incluyen: <br>- Uso compartido de SharePoint Online <br>- Microsoft Teams <br>- PowerApps <br>- Microsoft OneDrive para la Empresa          |
+|**Entornos de Microsoft 365**     |Revise las opciones de acceso y configuración del entorno de Microsoft 365, entre las que se incluyen: <br>- Uso compartido de SharePoint Online <br>- Microsoft Teams <br>- Power Apps <br>- Microsoft OneDrive para la Empresa          |
 | **Revisión de las cuentas de usuario en los entornos**   |- Revise y quite las cuentas de usuario invitado que ya no son necesarias. <br>- Revise las configuraciones de correo electrónico para delegados, permisos de carpeta de buzones, registros de dispositivos móviles de ActiveSync, reglas de bandeja de entrada y las opciones de Outlook en la web. <br>- Revise los derechos de ApplicationImpersonation y reduzca cualquier uso de la autenticación heredada tanto como sea posible. <br>- Compruebe que se aplica MFA y que la información de contacto de MFA y del autoservicio de restablecimiento de contraseña (SSPR) de todos los usuarios es correcta.         |
 |     |         |
 

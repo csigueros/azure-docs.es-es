@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/28/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 32ec83fb1c8de16f589d6a172a7612e5e5866647
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 871cb72c163472dbe3409738199e710300c5057d
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113768232"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867332"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Objetivos de escalabilidad y rendimiento de Azure Files
 [Azure Files](storage-files-introduction.md) ofrece recursos compartidos de archivos en la nube totalmente administrados a los que se puede acceder mediante los protocolos SMB y del sistema de archivos NFS. En este artículo se explican los objetivos de escalabilidad y rendimiento de Azure Files y Azure File Sync.
@@ -78,8 +78,8 @@ Azure admite varios tipos de cuentas de almacenamiento para los distintos escena
 |-|-|-|
 | Tamaño de archivo máximo | 4 TiB | 4 TiB |
 | Velocidad máxima de solicitudes simultáneas | 1000 IOPS | Hasta 8000<sup>1</sup> |
-| Entrada máxima de un archivo | 60 MiB/s | 200 MiB/s (hasta 1 GiB/s con la versión preliminar de SMB multicanal)<sup>2</sup>|
-| Salida máxima de un archivo | 60 MiB/s | 300 MiB/s (hasta 1 GiB/s con la versión preliminar de SMB multicanal)<sup>2</sup> |
+| Entrada máxima de un archivo | 60 MiB/s | 200 MiB/s (hasta 1 GiB/s con SMB multicanal)<sup>2</sup>|
+| Salida máxima de un archivo | 60 MiB/s | 300 MiB/s (hasta 1 GiB/s con SMB multicanal)<sup>2</sup> |
 | Identificadores simultáneos máximos | 2000 identificadores | 2000 identificadores  |
 
 <sup>1 Se aplica a entradas y salidas de lectura y escritura (normalmente tamaños de E/S menores o iguales que 64 KiB). Las operaciones de metadatos, que no sean lecturas ni escrituras, pueden ser más lentas.</sup>

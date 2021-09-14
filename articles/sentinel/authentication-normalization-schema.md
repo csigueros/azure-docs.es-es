@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 06/22/2021
 ms.author: bagol
-ms.openlocfilehash: 3372dd6c76cbc4e1e232832966474c4b383f2d76
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: b2eeec44054f57857e0da08134f6bada3aaf24f6
+ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121731070"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122514769"
 ---
 # <a name="azure-sentinel-authentication-normalization-schema-reference-public-preview"></a>Referencia del esquema de normalización de la autenticación de Azure Sentinel (versión preliminar pública)
 
@@ -33,9 +33,10 @@ Los eventos de autenticación incluyen eventos de sistemas que se centran en la 
 Para obtener más información sobre la normalización en Azure Sentinel, consulte [Normalización en Azure Sentinel](normalization.md).
 
 > [!IMPORTANT]
-> El esquema de normalización de autenticación está actualmente en versión preliminar pública.
-> Esta característica se ofrece sin contrato de nivel de servicio y no se recomienda para cargas de trabajo de producción.
-> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> El esquema de normalización de autenticación está actualmente en VERSIÓN PRELIMINAR. Esta característica se ofrece sin contrato de nivel de servicio y no se recomienda para cargas de trabajo de producción.
+>
+> En la página [Términos de uso complementarios para las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) se incluyen términos legales adicionales que se aplican a las características de Azure que se encuentran en versión beta, versión preliminar o que todavía no se han publicado para su disponibilidad general.
+>
 
 ## <a name="parsers"></a>Analizadores
 
@@ -47,19 +48,21 @@ Azure Sentinel proporciona los siguientes analizadores de eventos de autenticaci
 - **Inicios de sesión de AWS**, recopilados mediante el conector de AWS CloudTrail.
 - **Autenticación de Okta**, recopilada mediante el conector de Okta.
 
-Para usar los analizadores independientes del origen que unifiquen todos los analizadores enumerados y asegurarse de realizar análisis en todos los orígenes configurados, use **imAuthentication** como nombre de tabla en las consultas.
+Para usar el analizador independiente del origen, que unifica todos los analizadores enumerados asegurándose de que analiza los datos en todos los orígenes configurados, use **imAuthentication** como nombre de tabla en la consulta.
 
-Implemente los [analizadores independientes del origen y específicos del origen](normalization.md#parsers) desde el [repositorio de GitHub de Azure Sentinel](https://aka.ms/AzSentinelAuth).
+Implemente los [analizadores independientes del origen y específicos del origen](normalization-about-parsers.md) desde el [repositorio de GitHub de Azure Sentinel](https://aka.ms/AzSentinelAuth).
 
 
 
 ## <a name="normalized-content"></a>Contenido normalizado
 
-La compatibilidad con el esquema de normalización de autenticación también incluye compatibilidad con las siguientes reglas de análisis integradas con analizadores de autenticación normalizados:
+La compatibilidad con el esquema de ASIM de autenticación también incluye compatibilidad con las siguientes reglas de análisis integradas con analizadores de autenticación normalizados. Aunque a continuación se proporcionan vínculos al repositorio de GitHub de Azure Sentinel como referencia, también puede encontrar estas reglas en la [galería de reglas de Azure Sentinel Analytics](detect-threats-built-in.md). Use las páginas de GitHub vinculadas para copiar las consultas de búsqueda pertinentes para las reglas indicadas.
 
-- Inicio de sesión de usuario de distintos países en un plazo de 3 horas (usa la normalización de autenticación)
-- Posible ataque de restablecimiento de contraseña (usa la normalización de autenticación)
-- Ataque por fuerza bruta contra las credenciales de usuario (usa la normalización de autenticación)
+- [Posible ataque de difusión de contraseña (usa la normalización de autenticación)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimAuthentication/imAuthPasswordSpray.yaml)
+ - [Ataque por fuerza bruta contra las credenciales de usuario (usa la normalización de autenticación)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimAuthentication/imAuthBruteForce.yaml)
+ - [Inicio de sesión de usuario de distintos países en un plazo de 3 horas (usa la normalización de autenticación)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimAuthentication/imAuthSigninsMultipleCountries.yaml)
+ - [Inicios de sesión desde direcciones IP que intentan iniciar sesión en cuentas deshabilitadas (usa la normalización de autenticación)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimAuthentication/imSigninAttemptsByIPviaDisabledAccounts.yaml)
+
 
 Las reglas de analítica de autenticación normalizadas son únicas, ya que detectan ataques entre orígenes. Por ejemplo, si un usuario ha iniciado sesión en sistemas diferentes y no relacionados, de distintos países, Azure Sentinel detectará esta amenaza.
 
@@ -67,7 +70,7 @@ Las reglas de analítica de autenticación normalizadas son únicas, ya que dete
 
 El modelo de información de autenticación se alinea con el [esquema de entidad de inicio de sesión de OSSEM](https://github.com/OTRF/OSSEM/blob/master/docs/cdm/entities/logon.md).
 
-En las tablas siguientes, *Tipo* se refiere al tipo lógico. Para obtener más información, consulte [Tipos lógicos](normalization.md#logical-types).
+En las tablas siguientes, *Tipo* se refiere al tipo lógico. Para obtener más información, consulte [Tipos lógicos](normalization-about-schemas.md#logical-types).
 
 ### <a name="log-analytics-fields"></a>Campos de Log Analytics
 
@@ -110,7 +113,7 @@ Los campos de evento son comunes a todos los esquemas y describen la propia acti
 | <a name ="dvcipaddr"></a>**DvcIpAddr**           | Recomendado | Dirección IP |         La dirección IP del dispositivo en el que se produjo el evento de proceso.  <br><br>Ejemplo: `45.21.42.12`  <br><br>**Nota**: Si hay un identificador disponible pero no se conoce el tipo, no use este campo. Para obtener más información, consulte [Dvc](#dvc).  |
 | <a name ="dvchostname"></a>**DvcHostname**         | Recomendado | Nombre de host   |               Nombre de host del dispositivo en el que se produjo el evento. <br><br>Ejemplo: `ContosoDc.Contoso.Azure`      <br><br>**Nota**: Si hay un identificador disponible pero no se conoce el tipo, no use este campo. Para obtener más información, consulte [Dvc](#dvc).          |
 | <a name ="dvcid"></a>**DvcId**               | Opcional    | String     |  Identificador único del dispositivo en el que se produjo el evento de proceso. <br><br>Ejemplo: `41502da5-21b7-48ec-81c9-baeea8d7d669`   |
-| **AdditionalFields**    | Opcional    | Dinámica    | Si el origen proporciona información adicional que merece la pena preservar, consérvela con los nombres de campo originales o cree el campo dinámico **AdditionalFields** y agréguele la información adicional como pares clave-valor.    |
+| **AdditionalFields**    | Opcionales    | Dinámica    | Si el origen proporciona información adicional que merece la pena preservar, consérvela con los nombres de campo originales o cree el campo dinámico **AdditionalFields** y agréguele la información adicional como pares clave-valor.    |
 | | | | |
 
 
@@ -135,45 +138,45 @@ Un **actor**, que ejecuta una *aplicación que actúa* (**ActingApp**) en un *di
 |---------------|--------------|------------|-----------------|
 |**LogonMethod** |Opcional |String |Método utilizado para realizar la autenticación. <br><br>Ejemplo: `Username & Password` |
 |**LogonProtocol** |Opcional |String |Protocolo utilizado para realizar la autenticación. <br><br>Ejemplo: `NTLM` |
-| <a name="actoruserid"></a>**ActorUserId**    | Opcional  | UserId     |   Representación única, alfanumérica y legible del actor. Para obtener más información, consulte [Entidad de usuario](normalization.md#the-user-entity).  <br><br>Ejemplo: `S-1-12-1-4141952679-1282074057-627758481-2916039507`    |
-| **ActorUserIdType**| Opcional  | UserIdType     |  Tipo del identificador almacenado en el campo [ActorUserId](#actoruserid). Para obtener más información, consulte [Entidad de usuario](normalization.md#the-user-entity).         |
-| <a name="actorusername"></a>**ActorUsername**  | Opcional    | Nombre de usuario     | Nombre de usuario del actor, incluida la información de dominio cuando esté disponible. Para obtener más información, consulte [Entidad de usuario](normalization.md#the-user-entity).<br><br>Ejemplo: `AlbertE`     |
-| **ActorUsernameType**              | Opcional    | UsernameType |   Especifica el tipo de nombre de usuario almacenado en el campo [ActorUsername](#actorusername). Para obtener más información, consulte [Entidad de usuario](normalization.md#the-user-entity). <br><br>Ejemplo: `Windows`       |
+| <a name="actoruserid"></a>**ActorUserId**    | Opcionales  | UserId     |   Representación única, alfanumérica y legible del actor. Para obtener más información, consulte [Entidad de usuario](normalization-about-schemas.md#the-user-entity).  <br><br>Ejemplo: `S-1-12-1-4141952679-1282074057-627758481-2916039507`    |
+| **ActorUserIdType**| Opcionales  | UserIdType     |  Tipo del identificador almacenado en el campo [ActorUserId](#actoruserid). Para obtener más información, consulte [Entidad de usuario](normalization-about-schemas.md#the-user-entity).         |
+| <a name="actorusername"></a>**ActorUsername**  | Opcionales    | Nombre de usuario     | Nombre de usuario del actor, incluida la información de dominio cuando esté disponible. Para obtener más información, consulte [Entidad de usuario](normalization-about-schemas.md#the-user-entity).<br><br>Ejemplo: `AlbertE`     |
+| **ActorUsernameType**              | Opcionales    | UsernameType |   Especifica el tipo de nombre de usuario almacenado en el campo [ActorUsername](#actorusername). Para obtener más información, consulte [Entidad de usuario](normalization-about-schemas.md#the-user-entity). <br><br>Ejemplo: `Windows`       |
 | **ActorUserType** | Opcional | String | Tipo del actor. <br><br>Por ejemplo: `Guest` |
 | **ActorSessionId** | Opcional     | String     |   Identificador único de la sesión de inicio de sesión del actor.  <br><br>Ejemplo: `102pTUgC3p8RIqHvzxLCHnFlg`  |
 | **ActingAppId** | Opcional | String | Identificador de la aplicación que se autoriza en nombre del actor, incluido un proceso, un explorador o un servicio. <br><br>Por ejemplo: `0x12ae8` |
 | **ActiveAppName** | Opcional | String | Nombre de la aplicación que se autoriza en nombre del actor, incluido un proceso, un explorador o un servicio. <br><br>Por ejemplo: `C:\Windows\System32\svchost.exe` |
-| **ActingAppType** | Opcional | Enumerated | Tipo de la aplicación que actúa. Los valores admitidos son: <br> <br>- `Process` <br>- `Browser` <br>- `Resource` <br>- `Other` |
+| **ActingAppType** | Opcionales | Enumerated | Tipo de la aplicación que actúa. Los valores admitidos son: <br> <br>- `Process` <br>- `Browser` <br>- `Resource` <br>- `Other` |
 | **HttpUserAgent** |   Opcional    | String |  Cuando se realiza la autenticación a través de HTTP o HTTPS, el valor de este campo es el encabezado HTTP user_agent proporcionado por la aplicación que actúa al realizar la autenticación.<br><br>Por ejemplo: `Mozilla/5.0 (iPhone; CPU iPhone OS 12_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.0 Mobile/15E148 Safari/604.1` |
-|<a name="targetuserid"></a> **TargetUserId**   | Opcional | UserId     | Representación única, alfanumérica y legible del usuario de destino. Para obtener más información, consulte [Entidad de usuario](normalization.md#the-user-entity).            <br><br> Ejemplo: `00urjk4znu3BcncfY0h7`    |
-| **TargetUserIdType**               | Opcional | UserIdType     | Tipo del identificador de usuario almacenado en el campo [TargetUserId](#targetuserid). Para obtener más información, consulte [Entidad de usuario](normalization.md#the-user-entity).            <br><br> Ejemplo: `SID`  |
-| <a name="targetusername"></a>**TargetUsername** | Opcional | Nombre de usuario     | El nombre de usuario de destino, incluida la información de dominio cuando esté disponible. Para obtener más información, consulte [Entidad de usuario](normalization.md#the-user-entity).  <br><br>Ejemplo:   `MarieC`      |
-| **TargetUsernameType**             |Opcional  | UsernameType | Especifica el tipo de nombre de usuario almacenado en el campo [TargetUsername](#targetusername). Para obtener más información, consulte [Entidad de usuario](normalization.md#the-user-entity).          |
+|<a name="targetuserid"></a> **TargetUserId**   | Opcionales | UserId     | Representación única, alfanumérica y legible del usuario de destino. Para obtener más información, consulte [Entidad de usuario](normalization-about-schemas.md#the-user-entity).            <br><br> Ejemplo: `00urjk4znu3BcncfY0h7`    |
+| **TargetUserIdType**               | Opcionales | UserIdType     | Tipo del identificador de usuario almacenado en el campo [TargetUserId](#targetuserid). Para obtener más información, consulte [Entidad de usuario](normalization-about-schemas.md#the-user-entity).            <br><br> Ejemplo: `SID`  |
+| <a name="targetusername"></a>**TargetUsername** | Opcionales | Nombre de usuario     | El nombre de usuario de destino, incluida la información de dominio cuando esté disponible. Para obtener más información, consulte [Entidad de usuario](normalization-about-schemas.md#the-user-entity).  <br><br>Ejemplo:   `MarieC`      |
+| **TargetUsernameType**             |Opcionales  | UsernameType | Especifica el tipo de nombre de usuario almacenado en el campo [TargetUsername](#targetusername). Para obtener más información, consulte [Entidad de usuario](normalization-about-schemas.md#the-user-entity).          |
 | **TargetUserType** | Opcional | String | Tipo del usuario de destino. <br><br>Por ejemplo: `Member` |
 | **TargetSessionId** | Opcional | String | Identificador de sesión de inicio de sesión de TargetUser en el dispositivo de origen. |
 | **User**           | Alias        |     String       | Alias para [TargetUsername](#targetusername) o [TargetUserId](#targetuserid) si [TargetUsername](#targetusername) o está definido. <br><br>Ejemplo: `CONTOSO\dadmin`     |
 |**SrcDvcId** |Opcional |String |Identificador del dispositivo de origen tal y como se muestra en el registro. <br><br>Por ejemplo: `ac7e9755-8eae-4ffc-8a02-50ed7a2216c3` |
-| <a name="srcdvchostname"></a>**SrcDvcHostname** |Opcional | Nombre de host| Nombre de host del dispositivo de origen, incluida la información de dominio cuando está disponible. Para obtener más información, consulte [Entidad de dispositivo](normalization.md#the-device-entity). <br><br>Ejemplo: `Constoso\DESKTOP-1282V4D`|
-| **SrcDvcHostnameType**|Opcional |HostnameType |El tipo de [SrcDvcHostname](#srcdvchostname), si se conoce. Para obtener más información, consulte [Entidad de dispositivo](normalization.md#the-device-entity). |
-|**SrcDvcType** |Opcional |Enumerated |Tipo del dispositivo de origen. Los valores posibles son: <br><br>- `Computer`<br>- `Mobile Device` <br>- `IOT Device` <br>- `Other` |
+| <a name="srcdvchostname"></a>**SrcDvcHostname** |Opcionales | Nombre de host| Nombre de host del dispositivo de origen, incluida la información de dominio cuando está disponible. Para obtener más información, consulte [Entidad de dispositivo](normalization-about-schemas.md#the-device-entity). <br><br>Ejemplo: `Constoso\DESKTOP-1282V4D`|
+| **SrcDvcHostnameType**|Opcionales |HostnameType |El tipo de [SrcDvcHostname](#srcdvchostname), si se conoce. Para obtener más información, consulte [Entidad de dispositivo](normalization-about-schemas.md#the-device-entity). |
+|**SrcDvcType** |Opcionales |Enumerated |Tipo del dispositivo de origen. Los valores posibles son: <br><br>- `Computer`<br>- `Mobile Device` <br>- `IOT Device` <br>- `Other` |
 |**SrcDvcIpAddr**|Recomendado |Dirección IP |Dirección IP del dispositivo de origen. <br><br>Ejemplo: `185.175.35.214` |
 | **SrcDvcOs**|Opcional |String |Sistema operativo del dispositivo de origen. <br><br>Ejemplo: `Windows 10` |
 |**SrcIsp** | Opcional|String |Proveedor de servicios de Internet (ISP) usado por el dispositivo de origen para conectarse a Internet. <br><br>Ejemplo: `corpconnect` |
-| **SrcGeoCountry**|Opcional |País |Ejemplo: `Canada` <br><br>Para obtener más información, consulte [Tipos lógicos](normalization.md#logical-types). |
-| **SrcGeoCity**|Opcional |City (Ciudad) |Ejemplo: `Montreal` <br><br>Para obtener más información, consulte [Tipos lógicos](normalization.md#logical-types). |
-|**SrcGeoRegion** | Opcional|Region | Ejemplo: `Quebec` <br><br>Para obtener más información, consulte [Tipos lógicos](normalization.md#logical-types).|
-| **SrcGeoLongtitude**|Opcional |Longitud  | Ejemplo: `-73.614830` <br><br>Para obtener más información, consulte [Tipos lógicos](normalization.md#logical-types).|
-| **SrcGeoLatitude**|Opcional |Latitud |Ejemplo: `45.505918` <br><br>Para obtener más información, consulte [Tipos lógicos](normalization.md#logical-types). |
+| **SrcGeoCountry**|Opcionales |País |Ejemplo: `Canada` <br><br>Para obtener más información, consulte [Tipos lógicos](normalization-about-schemas.md#logical-types). |
+| **SrcGeoCity**|Opcionales |City |Ejemplo: `Montreal` <br><br>Para obtener más información, consulte [Tipos lógicos](normalization-about-schemas.md#logical-types). |
+|**SrcGeoRegion** | Opcionales|Region | Ejemplo: `Quebec` <br><br>Para obtener más información, consulte [Tipos lógicos](normalization-about-schemas.md#logical-types).|
+| **SrcGeoLongtitude**|Opcionales |Longitud  | Ejemplo: `-73.614830` <br><br>Para obtener más información, consulte [Tipos lógicos](normalization-about-schemas.md#logical-types).|
+| **SrcGeoLatitude**|Opcionales |Latitud |Ejemplo: `45.505918` <br><br>Para obtener más información, consulte [Tipos lógicos](normalization-about-schemas.md#logical-types). |
 |**TargetAppId** |Opcional | String| Identificador de la aplicación a la que se requiere la autorización, a menudo asignado por el dispositivo de informes. <br><br>Ejemplo: `89162` |
 |<a name="targetappname"></a>**TargetAppName** |Opcional |String |Nombre de la aplicación para la que se requiere la autorización, incluido un servicio, una dirección URL o una aplicación SaaS. <br><br>Ejemplo: `Saleforce` |
 | **TargetAppType**|Opcional |String |Tipo de la aplicación que se autoriza en nombre del actor. Los valores admitidos son:  <br><br>- `Process` <br>- `Service` <br>- `Resource` <br>- `URL` <br>- `SaaS application` <br>- `Other`|
 |**TargetUrl** |Opcional |String |Dirección URL asociada a la aplicación de destino. <br><br>Ejemplo: `https://console.aws.amazon.com/console/home?fromtb=true&hashArgs=%23&isauthcode=true&nc2=h_ct&src=header-signin&state=hashArgsFromTB_us-east-1_7596bc16c83d260b` |
 |**LogonTarget**| Alias| |Alias para [TargetAppName](#targetappname), *URL* o [TargetDvcHostname](#targetdvchostname), el campo que mejor describa el objetivo de autenticación. |
 |**TargetDvcId** |Opcional | String|Identificador del dispositivo de destino tal como se muestra en el registro. <br><br> Ejemplo: `2739` |
-|<a name="targetdvchostname"></a>**TargetDvcHostname** | Recomendado| String|Nombre de host del dispositivo de destino, incluida la información de dominio cuando esté disponible. Para obtener más información, consulte [Entidad de dispositivo](normalization.md#the-device-entity). |
-| **TargetDvcHostnameType**|Recomendado | String|El tipo de [TargetDvcHostname](#targetdvchostname). Para obtener más información, consulte [Entidad de dispositivo](normalization.md#the-device-entity). |
-|**TargetDvcType** |Opcional | Enumerated|Tipo del dispositivo de destino. Los valores admitidos son: <br><br>- `Computer`<br>- `Mobile Device` <br>- `IOT Device` <br>- `Other` |
-|<a name="targetdvcipaddr"></a>**TargetDvcIpAddr** |Opcional | Dirección IP|Dirección IP del dispositivo de destino. <br><br>Ejemplo: `2.2.2.2` |
+|<a name="targetdvchostname"></a>**TargetDvcHostname** | Recomendado| String|Nombre de host del dispositivo de destino, incluida la información de dominio cuando esté disponible. Para obtener más información, consulte [Entidad de dispositivo](normalization-about-schemas.md#the-device-entity). |
+| **TargetDvcHostnameType**|Recomendado | String|El tipo de [TargetDvcHostname](#targetdvchostname). Para obtener más información, consulte [Entidad de dispositivo](normalization-about-schemas.md#the-device-entity). |
+|**TargetDvcType** |Opcionales | Enumerated|Tipo del dispositivo de destino. Los valores admitidos son: <br><br>- `Computer`<br>- `Mobile Device` <br>- `IOT Device` <br>- `Other` |
+|<a name="targetdvcipaddr"></a>**TargetDvcIpAddr** |Opcionales | Dirección IP|Dirección IP del dispositivo de destino. <br><br>Ejemplo: `2.2.2.2` |
 |**TargetDvc** |Alias | |   Identificador único del dispositivo de destino. <br><br>Seleccione esta opción para agregar un alias al valor más adecuado para el origen específico: [TargetDvcHostname](#targetdvchostname), [TargetDvcIpAddr](#targetdvcipaddr) o un identificador diferente si es más adecuado. |
 | **TargetDvcOs**| Opcional| String| Sistema operativo del dispositivo de destino. <br><br>Ejemplo: `Windows 10`|
 | **TargetPortNumber**|Opcional |Entero |Puerto del dispositivo de destino.|

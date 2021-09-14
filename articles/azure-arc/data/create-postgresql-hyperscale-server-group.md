@@ -9,14 +9,14 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: 24e81f9d83212b674b50acdb24042b6d29a9c266
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: c9987e82fe64dd30584f3ceb8dbacfc857d27ab8
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121741500"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122779390"
 ---
-# <a name="create-an-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Creación de un grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc
+# <a name="create-an-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Creación de un grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc
 
 En este documento se describen los pasos para crear un grupo de servidores Hiperescala de PostgreSQL en Azure Arc.
 
@@ -47,7 +47,7 @@ oc adm policy add-scc-to-user arc-data-scc -z <server-group-name> -n <namespace 
 Para obtener más detalles sobre las SCC en OpenShift, consulte la [documentación de OpenShift](https://docs.openshift.com/container-platform/4.2/authentication/managing-security-context-constraints.html). Ahora puede implementar el paso siguiente.
 
 
-## <a name="create-an-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Creación de un grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc
+## <a name="create-an-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Creación de un grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc
 
 Para crear un grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc en el controlador de datos de Arc, usará el comando `az postgres arc-server create` al que pasará varios parámetros.
 
@@ -67,12 +67,12 @@ Los parámetros principales que debe tener en cuenta son:
 
 |Necesita:   |Forma del grupo de servidores que se va a implementar   |Parámetro -w que se usará   |Nota   |
 |---|---|---|---|
-|Un formulario de Postgres escalado horizontalmente para satisfacer las necesidades de escalabilidad de las aplicaciones.   |3 o más instancias de Postgres, 1 es el coordinador, n son los trabajos con n >=2.   |Use -w n, con n>=2.   |Se carga la extensión Citus que proporciona la funcionalidad de Hiperescala.   |
-|Un formulario básico de Hiperescala de Postgres para que realice la validación funcional de la aplicación con un costo mínimo. No es válido para la validación de rendimiento y escalabilidad. Para ello, debe usar el tipo de implementaciones descritas anteriormente.   |1 instancia de Postgres que es el coordinador y el trabajo.   |Use -w 0 y cargue la extensión Citus. Use los parámetros siguientes si realiza la implementación desde la línea de comandos: -w 0 --extensions Citus.   |Se carga la extensión Citus que proporciona la funcionalidad de Hiperescala.   |
+|Una forma de Postgres de escalado horizontal para satisfacer las necesidades de escalabilidad de las aplicaciones.   |3 o más instancias de Postgres, 1 es el coordinador, n son los trabajos con n >=2.   |Use -w n, con n>=2.   |Se carga la extensión Citus que proporciona la funcionalidad de Hiperescala.   |
+|Una forma básica de Hiperescala de Postgres para que realice la validación funcional de la aplicación con un coste mínimo. No es válido para la validación del rendimiento y la escalabilidad. Para ello, debe usar el tipo de implementaciones descritas anteriormente.   |1 instancia de Postgres que es el coordinador y el trabajo.   |Use -w 0 y cargue la extensión Citus. Use los parámetros siguientes si realiza la implementación desde la línea de comandos: -w 0 --extensions Citus.   |Se carga la extensión Citus que proporciona la funcionalidad de Hiperescala.   |
 |Una instancia sencilla de Postgres que está lista para escalar horizontalmente cuando la necesite.   |1 instancia de Postgres. Todavía no es consciente de la semántica para el coordinador y el trabajo. Para escalarla horizontalmente después de la implementación, edite la configuración, aumente el número de nodos de trabajo y distribuya los datos.   |Use -w 0 o no especifique -w.   |La extensión Citus que proporciona la funcionalidad Hiperescala está presente en la implementación, pero aún no está cargada.   |
 |   |   |   |   |
 
-Aunque el uso de -w 1 funciona, no se recomienda usarlo. Esta implementación no le proporcionará mucho valor. Con ella, se obtienen 2 instancias de Postgres: 1 coordinador y 1 trabajador. Con esta configuración, realmente no se escalan horizontalmente los datos desde que se implementa un único trabajo. Por lo tanto, no verá un mayor nivel de rendimiento y escalabilidad. Quitaremos la compatibilidad de esta implementación en una versión futura.
+Aunque el uso de -w 1 funciona, no se recomienda usarlo. Esta implementación no le proporcionará mucho valor. Con ella, se obtienen 2 instancias de Postgres: 1 coordinador y 1 trabajo. Con esta configuración, los datos no se escalan horizontalmente en realidad, ya que se implementa un único trabajo. Por lo tanto, no verá un aumento del nivel de rendimiento y escalabilidad. Quitaremos la compatibilidad de esta implementación en una versión futura.
 
 - **las clases de almacenamiento** que quiere que use el grupo de servidores. Es importante que establezca la clase de almacenamiento justo en el momento de implementar un grupo de servidores, ya que no se puede cambiar después. Si va a cambiar la clase de almacenamiento después de la implementación, deberá extraer los datos, eliminar el grupo de servidores, crear otro grupo de servidores e importar los datos. Puede especificar las clases de almacenamiento que se usarán para los datos, los registros y las copias de seguridad. De forma predeterminada, si no indica las clases de almacenamiento, se usarán las clases de almacenamiento del controlador de datos.
     - Para establecer la clase de almacenamiento para los datos, indique el parámetro `--storage-class-data` o `-scd` seguido del nombre de la clase de almacenamiento.
@@ -94,7 +94,7 @@ az postgres arc-server create -n postgres01 --workers 2 --k8s-namespace <namespa
 
  En este ejemplo se da por hecho que el grupo de servidores está hospedado en un clúster de Azure Kubernetes Service (AKS). En este ejemplo se usa azurefile-premium como nombre de la clase de almacenamiento. Puede ajustar el ejemplo siguiente para que coincida con su entorno. Tenga en cuenta que **AccessModes ReadWriteMany es necesario** para esta configuración.  
 
-En primer lugar, cree un archivo YAML que contenga la descripción siguiente del PVC de copia de seguridad y asígnele el nombre CreateBackupPVC.yml, por ejemplo:
+En primer lugar, cree un archivo YAML que contenga la descripción siguiente del PVC (notificación de volumen persistente) de copia de seguridad y asígnele el nombre CreateBackupPVC.yml, por ejemplo:
 ```console
 apiVersion: v1
 kind: PersistentVolumeClaim

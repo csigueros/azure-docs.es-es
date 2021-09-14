@@ -6,14 +6,14 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 08/05/2020
+ms.date: 08/20/2021
 ms.author: banders
-ms.openlocfilehash: b038ab5a937105d3fb625f6b17dd71b0073b7080
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 3b6f6a0700915263187f4f31b60a4d2d8b72d9fd
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121726985"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122634207"
 ---
 # <a name="automatically-renew-reservations"></a>Renovación automática de reservas
 
@@ -36,7 +36,7 @@ Vaya a Azure Portal > **Reservations**.
 
 ## <a name="if-you-dont-renew"></a>Si no se realiza la renovación
 
-Los servicios siguen funcionando con normalidad. Cuando la reserva expira, se le cobran las tarifas de pago por uso.
+Los servicios siguen funcionando con normalidad. Cuando la reserva expira, se le cobran las tarifas de pago por uso. Si la reserva no se configuró para renovarse automáticamente antes de la expiración, no puede renovar una reserva expirada. Para seguir recibiendo ahorros, puede comprar una nueva reserva.
 
 ## <a name="required-renewal-permissions"></a>Permisos necesarios para la renovación
 

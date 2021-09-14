@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/11/2021
+ms.date: 08/25/2021
 ms.author: tamram
 ms.reviewer: fryu
 ms.custom: devx-track-azurepowershell
 ms.subservice: blobs
-ms.openlocfilehash: bdafee650ae6162e3943120fc9a9b460fd9e698a
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: c033920b88f2863d34f43bf0affe4b9165995a3a
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122206628"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123258783"
 ---
 # <a name="rehydrate-an-archived-blob-to-an-online-tier"></a>Rehidratación de un blob archivado en un nivel en línea
 
@@ -121,7 +121,7 @@ $ctx = (Get-AzStorageAccount `
 
 # Change the blob’s access tier to hot with standard priority.
 $blob = Get-AzStorageBlob -Container $containerName -Blob $blobName -Context $ctx
-$blob.ICloudBlob.SetStandardBlobTier("Hot", "Standard")
+$blob.BlobClient.SetAccessTier("Hot", $null, "High")
 ```
 
 ### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
@@ -129,16 +129,20 @@ $blob.ICloudBlob.SetStandardBlobTier("Hot", "Standard")
 Para cambiar el nivel de un blob de archivo a frecuente o esporádico con la CLI de Azure, llame al comando [az storage blob set-tier](/cli/azure/storage/blob#az_storage_blob_set_tier). No olvide reemplazar los valores de los marcadores de posición entre corchetes angulares por los suyos propios:
 
 ```azurecli
-az storage blob set-tier /
-    --container-name <container> /
-    --name <archived-blob> /
-    --tier Hot /
-    --account-name <account-name> /
-    --rehydrate-priority High /
+az storage blob set-tier \
+    --container-name <container> \
+    --name <archived-blob> \
+    --tier Hot \
+    --account-name <account-name> \
+    --rehydrate-priority High \
     --auth-mode login
 ```
 
 ---
+
+## <a name="rehydrate-a-large-number-of-blobs"></a>Rehidratación de un gran número de blobs
+
+Para rehidratar un gran número de blobs a la vez, llame a la operación [Blob Batch](/rest/api/storageservices/blob-batch) para llamar a [Set Blob Tier](/rest/api/storageservices/set-blob-tier) como una operación masiva. Para ver un ejemplo de código que muestra cómo realizar la operación por lotes, consulte [AzBulkSetBlobTier](/samples/azure/azbulksetblobtier/azbulksetblobtier/).
 
 ## <a name="check-the-status-of-a-rehydration-operation"></a>Comprobación del estado de una operación de rehidratación
 
@@ -158,12 +162,12 @@ Una vez completada la rehidratación, puede ver que aparece ahora el blob totalm
 
 ### <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-Para comprobar el estado y la prioridad de una operación de rehidratación pendiente con PowerShell, llame al comando [Get-AzStorageBlob](/powershell/module/az.storage/get-azstorageblob) y compruebe las propiedades **RehydrateStatus** y **RehydratePriority** del blob. Si la rehidratación es una operación de copia, compruebe estas propiedades en el blob de destino. No olvide reemplazar los valores de los marcadores de posición entre corchetes angulares por los suyos propios:
+Para comprobar el estado y la prioridad de una operación de rehidratación pendiente con PowerShell, llame al comando [Get-AzStorageBlob](/powershell/module/az.storage/get-azstorageblob) y compruebe las propiedades **ArchiveStatus** y **RehydratePriority** del blob. Si la rehidratación es una operación de copia, compruebe estas propiedades en el blob de destino. No olvide reemplazar los valores de los marcadores de posición entre corchetes angulares por los suyos propios:
 
 ```powershell
 $rehydratingBlob = Get-AzStorageBlob -Container $containerName -Blob $blobName -Context $ctx
+$rehydratingBlob.BlobProperties.ArchiveStatus
 $rehydratingBlob.BlobProperties.RehydratePriority
-$rehydratingBlob.ICloudBlob.Properties.RehydrationStatus
 ```
 
 ### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)

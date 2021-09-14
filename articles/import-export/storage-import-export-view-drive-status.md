@@ -5,16 +5,16 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/04/2021
+ms.date: 08/24/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: contperf-fy21q3
-ms.openlocfilehash: 8ef18ea663f3a77589d61ed89c50df38f5cf0d0e
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: ad107daa5d1a90e3416777375f47640359f10f37
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102176154"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867273"
 ---
 # <a name="view-the-status-of-azure-importexport-jobs"></a>Visualización del estado de los trabajos de Azure Import/Export
 
@@ -43,7 +43,7 @@ Verá uno de los siguientes estados de trabajo en función de la fase del proces
 |:--- |:--- |
 | Creating | Cuando se crea un trabajo, su estado se establece en **Creating**. Mientras el trabajo se encuentra en el estado **Creating**, el servicio Import/Export asume que las unidades no se han enviado al centro de datos. Un trabajo puede permanecer en este estado hasta un máximo de dos semanas, pasado este tiempo el servicio lo elimina automáticamente. |
 | Envío | Después de enviar el paquete, debe actualizar la información de seguimiento en Azure Portal.  Esto cambia el estado del trabajo a **Shipping**. El trabajo permanecerá en el estado **Shipping** durante un máximo de dos semanas. 
-| Received | Una vez recibidas todas las unidades en el centro de datos, el estado del trabajo se establecerá en **Received**. |
+| Received | Una vez recibidas todas las unidades en el centro de datos, el estado del trabajo se establecerá en **Received**.</br>El estado del trabajo puede cambiar de 1 a 3 días laborables después de que el operador entregue el dispositivo, cuando el procesamiento del pedido se complete en el centro de datos. |
 | Transferring | Cuando se haya iniciado el procesamiento de al menos una unidad, el estado del trabajo se establecerá en **Transferring**. Para más información, vaya a [Estados de la unidad](#view-drive-status). |
 | Packaging | Cuando todas las unidades hayan terminado el procesamiento, el trabajo pasará al estado **Packaging** hasta que se le devuelvan las unidades. |
 | Completed | Cuando todas las unidades se le hayan devuelto, si el trabajo se ha completado sin errores, se establecerá en el estado **Completed**. El trabajo se elimina automáticamente después de 90 días en el estado **Completed**. |

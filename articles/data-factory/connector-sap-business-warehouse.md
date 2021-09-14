@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/04/2019
-ms.openlocfilehash: 29f73bc445e7cf84e5ff160779c56ce599e85daf
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 08/30/2021
+ms.openlocfilehash: 9adeff6f440f65d8bcfdf7bb16fff8f23aad856e
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122638850"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123316803"
 ---
 # <a name="copy-data-from-sap-business-warehouse-using-azure-data-factory"></a>Copia de datos desde SAP Business Warehouse mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -57,6 +57,30 @@ Para usar este conector SAP Business Warehouse, necesita hacer lo siguiente:
 ## <a name="getting-started"></a>Introducción
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
+
+## <a name="create-a-linked-service-to-sap-bw-using-ui"></a>Creación de un servicio vinculado a SAP BW mediante la interfaz de usuario
+
+Siga estos pasos para crear un servicio vinculado a SAP BW en la interfaz de usuario de Azure Portal.
+
+1. Vaya a la pestaña Administrar del área de trabajo de Azure Data Factory o Synapse y seleccione Servicios vinculados; luego haga clic en Nuevo:
+
+    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Creación de un servicio vinculado con la interfaz de usuario de Azure Data Factory.":::
+
+    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Creación de un servicio vinculado con la interfaz de usuario de Azure Synapse.":::
+
+2. Busque SAP y seleccione SAP BW a través del conector MDX.
+
+    :::image type="content" source="media/connector-sap-business-warehouse/sap-business-warehouse-connector.png" alt-text="Selección de SAP BW a través del conector MDX.":::    
+
+1. Configure los detalles del servicio, pruebe la conexión y cree el servicio vinculado.
+
+    :::image type="content" source="media/connector-sap-business-warehouse/configure-sap-business-warehouse-linked-service.png" alt-text="Configuración de un servicio vinculado a SAP BW.":::
+
+## <a name="connector-configuration-details"></a>Detalles de configuración del conector
 
 Las secciones siguientes proporcionan detalles sobre las propiedades que se usan para definir entidades de Data Factory específicas del conector SAP Business Warehouse.
 

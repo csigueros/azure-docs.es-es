@@ -1,18 +1,20 @@
 ---
 title: Copia de datos desde la API de Azure Cosmos DB para MongoDB
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Obtenga información sobre cómo copiar datos de almacenes de datos de origen compatibles desde o hacia la API de Azure Cosmos DB para MongoDB para almacenes de receptor admitidos mediante Data Factory.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 11/20/2019
-ms.openlocfilehash: 4a40ed7f9b5fd2b39e617ef40becf5f979a22eea
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.custom: synapse
+ms.date: 08/30/2021
+ms.openlocfilehash: 0147782482308ac8b625926e51c59315f084237d
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110072179"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123304675"
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-dbs-api-for-mongodb-by-using-azure-data-factory"></a>Copia de datos desde o hacia la API de Azure Cosmos DB para MongoDB mediante Azure Data Factory
 
@@ -37,6 +39,30 @@ Puede usar el conector de la API de Azure Cosmos DB para MongoDB para:
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
+## <a name="create-a-linked-service-to-azure-cosmos-dbs-api-for-mongodb-using-ui"></a>Creación de un servicio vinculado a la API de Azure Cosmos DB para MongoDB mediante la interfaz de usuario
+
+Siga estos pasos para crear un servicio vinculado a la API de Azure Cosmos DB para MongoDB en la interfaz de usuario de Azure Portal.
+
+1. Vaya a la pestaña Administrar del área de trabajo de Azure Data Factory o Synapse y seleccione Servicios vinculados; luego haga clic en Nuevo:
+
+    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Creación de un nuevo servicio vinculado con la interfaz de usuario de Azure Data Factory.":::
+
+    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Creación de un nuevo servicio vinculado con la interfaz de usuario de Azure Synapse.":::
+
+2. Busque Cosmos y seleccione la API de Azure Cosmos DB para el conector de MongoDB.
+
+    :::image type="content" source="media/connector-azure-cosmos-db-mongodb-api/azure-cosmos-db-mongodb-api-connector.png" alt-text="Selección de la API de Azure Cosmos DB para conector de MongoDB.":::    
+
+1. Configure los detalles del servicio, pruebe la conexión y cree el servicio vinculado.
+
+    :::image type="content" source="media/connector-azure-cosmos-db-mongodb-api/configure-azure-cosmos-db-mongodb-api-linked-service.png" alt-text="Configuración de un servicio vinculado a la API de Azure Cosmos DB para MongoDB.":::
+
+## <a name="connector-configuration-details"></a>Detalles de configuración del conector
+
 En las secciones siguientes, se proporcionan detalles sobre las propiedades que puede usar para definir entidades de Data Factory específicas de la API de Azure Cosmos DB para MongoDB.
 
 ## <a name="linked-service-properties"></a>Propiedades del servicio vinculado
@@ -46,8 +72,9 @@ Las siguientes propiedades son compatibles con el servicio vinculado de la API d
 | Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
 | type | La propiedad **type** tiene que establecerse en **CosmosDbMongoDbApi**. | Sí |
-| connectionString |Especifique la cadena de conexión para la API de Azure Cosmos DB para MongoDB. La encontrará en Azure Portal -> su hoja de Cosmos DB -> cadena de conexión principal o secundaria, con el patrón de `mongodb://<cosmosdb-name>:<password>@<cosmosdb-name>.documents.azure.com:10255/?ssl=true&replicaSet=globaldb`. <br/><br />También puede establecer una contraseña en Azure Key Vault y extraer la configuración de `password` de la cadena de conexión. Consulte el artículo [Almacenamiento de credenciales en Azure Key Vault](store-credentials-in-key-vault.md) para obtener información detallada.|Sí |
+| connectionString |Especifique la cadena de conexión para la API de Azure Cosmos DB para MongoDB. La encontrará en Azure Portal -> su hoja de Cosmos DB -> cadena de conexión principal o secundaria. <br/>Para la versión 3.2 del servidor, el patrón de cadena es `mongodb://<cosmosdb-name>:<password>@<cosmosdb-name>.documents.azure.com:10255/?ssl=true&replicaSet=globaldb`. <br/>Para la versión 3.6 y superior del servidor, el patrón de cadena es `mongodb://<cosmosdb-name>:<password>@<cosmosdb-name>.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@<cosmosdb-name>@`.<br/><br />También puede establecer una contraseña en Azure Key Vault y extraer la configuración de `password` de la cadena de conexión. Consulte el artículo [Almacenamiento de credenciales en Azure Key Vault](store-credentials-in-key-vault.md) para obtener información detallada.|Sí |
 | database | Nombre de la base de datos a la que desea acceder. | Sí |
+| isServerVersionAbove32 | Especifique si la versión del servidor es superior a la 3.2. Los valores permitidos son **true** y **false** (predeterminado). Esta elección determinará el controlador que se va a usar en el servicio. | Sí |
 | connectVia | Instancia de [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Se puede usar Azure Integration Runtime o un entorno de ejecución de integración autohospedado (si el almacén de datos se encuentra en una red privada). Si no se especifica esta propiedad, se usa el valor predeterminado de Azure Integration Runtime. |No |
 
 **Ejemplo**
@@ -59,7 +86,8 @@ Las siguientes propiedades son compatibles con el servicio vinculado de la API d
         "type": "CosmosDbMongoDbApi",
         "typeProperties": {
             "connectionString": "mongodb://<cosmosdb-name>:<password>@<cosmosdb-name>.documents.azure.com:10255/?ssl=true&replicaSet=globaldb",
-            "database": "myDatabase"
+            "database": "myDatabase",
+            "isServerVersionAbove32": "false"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",

@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 10/21/2020
 ms.author: alkohli
-ms.openlocfilehash: 7deba32eb9d0e098b75f98cc81fac2c01b8bb7f8
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 4740a4b4aac59ac2e0e57797f39c489c6beaf75c
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105567260"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123252180"
 ---
 # <a name="azure-stack-edge-blob-storage-requirements"></a>Requisitos del almacenamiento de blobs de Azure Stack Edge
 
@@ -25,12 +25,12 @@ Se recomienda que revise cuidadosamente la información antes de conectarse al a
 
 |     Característica                                             |     Azure Storage                                     |     Almacenamiento de blobs de Azure Stack Edge |
 |---------------------------------------------------------|-------------------------------------------------------|---------------------------|
-|    Almacenamiento de archivos de Azure                                   |    Recursos compartidos de archivos SMB basado en la nube admitidos              |    No compatible      |
+|    Azure Files                                   |    Se admiten recursos compartidos de archivos SMB y NFS basados en la nube              |    No compatible      |
 |    Tipo de cuenta de almacenamiento                                 |    Cuentas de Azure Blob Storage y de uso general    |    Solo de uso general v1|
 |    Nombre de blob                                            |    1 024 caracteres (2 048 bytes)                     |    880 caracteres (1 760 bytes)|
-|    Tamaño máximo del blob en bloques                              |    4,75 TB (100 MB x 50 000 bloques)                   |    4,75 TB (100 MB x 50 000 bloques) para Azure Stack Edge|
-|    Tamaño máximo del blob en páginas                               |    8 TB                                               |    1 TB                   |
-|    Tamaño de página de blob en página                                  |    512 bytes                                          |    4 KB                   |
+|    Tamaño máximo del blob en bloques                              |    4,75 TiB (100 MiB X 50 000 bloques)                   |    4,75 TiB (100 MiB x 50 000 bloques) para Azure Stack Edge|
+|    Tamaño máximo del blob en páginas                               |    8 TiB                                               |    1 TiB                   |
+|    Tamaño de página de blob en página                                  |    512 bytes                                          |    4 KiB                   |
 
 ## <a name="supported-api-versions"></a>Versiones de API admitidas
 

@@ -11,12 +11,12 @@ ms.date: 05/17/2021
 ms.topic: how-to
 ms.reviewer: larryfr
 ms.custom: deploy, devx-track-azurecli
-ms.openlocfilehash: 894b95b1fb00402f9cfed2614639b29ac5412f4b
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: d1f45c5501395ff486101f7270212c8fb333aede
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114446447"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123436975"
 ---
 # <a name="high-performance-serving-with-triton-inference-server-preview"></a>Servicio de alto rendimiento con Triton Inference Server (versión preliminar) 
 
@@ -200,6 +200,16 @@ az ml service delete -n triton-densenet-onnx
 [!notebook-python[] (~/Azureml-examples-main/python-sdk/experimental/deploy-triton/1.bidaf-ncd-local.ipynb?name=delete-service)]
 
 ---
+
+## <a name="how-to-use-azure-machine-learning-triton-inference-server-container-image"></a>Uso de la imagen de contenedor Triton Inference Server en Azure Machine Learning
+
+Aprenda a usar la imagen de contenedor Triton Inference Server en Azure Machine Learning con la nueva [CLI(v2)](/cli/azure/ml?view=azure-cli-latest&preserve-view=true). En los ejemplos siguientes se usa el concepto de [punto de conexión en línea e implementaciones](concept-endpoints.md#what-are-online-endpoints-preview). 
+
+1. [Implementación de un solo modelo Triton](https://github.com/Azure/azureml-examples/blob/main/cli/deploy-triton-managed-online-endpoint.sh).
+1. [Implementación de varios modelos Triton](https://github.com/Azure/azureml-examples/blob/main/cli/deploy-triton-multiple-models-online-endpoint.sh).
+1. [Implementación del modelo de ensamblado de Triton](https://github.com/Azure/azureml-examples/blob/main/cli/deploy-triton-ensemble-managed-online-endpoint.sh).
+1. Consulte los [ejemplos de Triton](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/triton).
+
 ## <a name="troubleshoot"></a>Solución de problemas
 
 * [Solucione problemas de una implementación con errores](how-to-troubleshoot-deployment.md) y obtenga información sobre cómo solucionar errores comunes que puede experimentar al implementar un modelo.
