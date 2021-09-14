@@ -16,7 +16,7 @@
       href: tutorial-expressroute-global-reach-private-cloud.md
     - name: 4 - Instalación del conector de VMware HCX
       href: install-vmware-hcx.md
-    - name: 5- Configuración del conector de VMware HCX local
+    - name: 5 - Configuración del conector HCX local
       href: configure-vmware-hcx.md
 - name: Tutoriales
   items:
@@ -108,12 +108,16 @@
           href: configure-l2-stretched-vmware-hcx-networks.md
         - name: Configuración de reenviador de DNS
           href: configure-dns-azure-vmware-solution.md
+        - name: Configuración de la extensión de red HCX
+          href: configure-hcx-network-extension.md
         - name: Configurar la creación de reflejo del puerto
           href: configure-port-mirroring-azure-vmware-solution.md
-        - name: Habilitación del acceso a través de una red de Internet pública
-          href: enable-public-internet-access.md
         - name: Configuración de una VPN de sitio a sitio en vWAN
           href: configure-site-to-site-vpn-gateway.md
+        - name: Habilitación del acceso a través de una red de Internet pública
+          href: enable-public-internet-access.md
+        - name: Guía de redes optimizadas para movilidad (MON) de HCX
+          href: vmware-hcx-mon-guidance.md
     - name: Configuración de directivas de almacenamiento
       href: configure-storage-policy.md
     - name: Configurar los clústeres de conmutación por error de Windows Server
@@ -122,10 +126,6 @@
       href: connect-multiple-private-clouds-same-region.md
     - name: Implementación de la recuperación ante desastres
       items:
-        - name: Implementación de la recuperación ante desastres de JetStream
-          href: deploy-disaster-recovery-using-jetstream.md
-        - name: Implementación de recuperación ante desastres de Zerto
-          href: deploy-zerto-disaster-recovery.md
         - name: Implementación de VMware HCX para la recuperación ante desastres
           href: deploy-disaster-recovery-using-vmware-hcx.md
         - name: Implementación de VMware SRM para la recuperación ante desastres
@@ -150,6 +150,8 @@
           href: ecosystem-migration-vms.md
     - name: Soluciones de VMware
       items:
+        - name: Configuración de la extensión de red HCX
+          href: configure-hcx-network-extension.md
         - name: Configuración de operaciones de vRealize
           href: vrealize-operations-for-azure-vmware-solution.md
         - name: Implementación de VMware Horizon

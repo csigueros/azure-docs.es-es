@@ -9,12 +9,12 @@ ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
 ms.date: 04/16/2021
-ms.openlocfilehash: 51711cbbd66e52ccf0b47c4e1db5ecc5883ff959
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: e37a6dcd6cd536e3702294e45a1aa3ffd2c75a24
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122637831"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123099375"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>Modo de depuración de flujos de datos de asignación
 
@@ -28,7 +28,7 @@ El modo de depuración de flujos de datos de asignación de Azure Data Factory p
 
 ![Captura de pantalla que muestra dónde está el control deslizante Depurar 2](media/data-flow/debug-button-4.png)
 
-Cuando active el control deslizante, se le pedirá que seleccione la configuración del entorno de ejecución de integración que quiere usar. Si se elige AutoResolveIntegrationRuntime, se desarrollará un clúster con ocho núcleos de proceso general con un período de vida predeterminado de 60 minutos. Si desea permitir un equipo más inactivo antes de que se agote el tiempo de espera de la sesión, puede elegir un valor de TTL superior. Para más información sobre los entornos de ejecución de integración del flujo de datos, consulte [Rendimiento de flujo de datos](concepts-data-flow-performance.md#ir).
+Cuando active el control deslizante, se le pedirá que seleccione la configuración del entorno de ejecución de integración que quiere usar. Si se elige AutoResolveIntegrationRuntime, se desarrollará un clúster con ocho núcleos de proceso general con un período de vida predeterminado de 60 minutos. Si desea permitir un equipo más inactivo antes de que se agote el tiempo de espera de la sesión, puede elegir un valor de TTL superior. Para obtener más información sobre los entornos de ejecución de integración de flujo de datos, vea [Rendimiento de Microsoft Integration Runtime](concepts-integration-runtime-performance.md).
 
 ![Selección del IR de depuración](media/data-flow/debug-new-1.png "Selección del IR de depuración")
 

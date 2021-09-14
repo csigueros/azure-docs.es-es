@@ -18,13 +18,15 @@
       displayName: 'firewall, proxy, open ports'
       href: quickstart-system-prerequisites.md
     - name: Introducción a Azure Defender para IoT
-      displayName: 'getting started, registration, onboarding, activation, threat intelligence'
+      displayName: 'getting started, registration, onboarding, activation, threat intelligence, trial, free, subscription'
       href: getting-started.md
 - name: Tutorial
   expanded: false
   items:
     - name: Configuración de la evaluación gratuita de Azure Defender para IoT
       href: tutorial-onboarding.md
+    - name: Integración de Qradar
+      href: tutorial-qradar.md
     - name: Integración de Splunk
       href: tutorial-splunk.md
     - name: Integración de ServiceNow
@@ -33,6 +35,9 @@
   items:
     - name: Conceptos clave
       href: concept-key-concepts.md
+    - name: Protocolos admitidos
+      displayName: 'protocol, Horizon, horizon, SCADA, OT, Industrial IoT, proprietary'
+      href: concept-supported-protocols.md
 - name: Guías paso a paso
   items:
     - name: Preparación de la red
@@ -186,8 +191,6 @@
           href: integration-fortinet.md
         - name: Integración de Palo Alto
           href: integration-palo-alto.md
-        - name: Integración de Qradar
-          href: integration-qradar.md
 - name: Referencia
   items:
     - name: Uso de las API de Defender para IoT

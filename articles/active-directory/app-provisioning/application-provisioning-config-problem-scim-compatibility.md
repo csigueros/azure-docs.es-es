@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: reference
-ms.date: 05/11/2021
+ms.date: 08/25/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: f74e9a4f99523e26feb703f5ed2bedf33366f8d6
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 9cf7fd49562f83976a10150d953a0afc8b994ed4
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121738939"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123102798"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Problemas conocidos y soluciones con el cumplimiento de protocolo SCIM 2.0 del servicio de aprovisionamiento de usuarios de Azure AD
 
@@ -43,12 +43,12 @@ En la tabla siguiente, cualquier elemento marcado como Corregido significa que s
 | Los atributos de extensión utilizan la notación de punto "." antes de los nombres de atributo en lugar de la notación de dos puntos ":". |  Sí  | 18 de diciembre de 2018  | cambiar a una versión anterior: customappSSO |
 | Las solicitudes de revisión para los atributos multivalor tienen una sintaxis de filtro de ruta no válida. | Sí  |  18 de diciembre de 2018  | cambiar a una versión anterior: customappSSO |
 | Las solicitudes de creación de grupos contienen un URI de esquema no válido. | Sí  |  18 de diciembre de 2018  |  cambiar a una versión anterior: customappSSO |
-| Actualización del comportamiento de las revisiones para garantizar el cumplimiento (por ejemplo, activo como booleano y eliminación de las pertenencia a grupos adecuadas) | No | TBD| usar marca en versión preliminar |
+| Actualización del comportamiento de las revisiones para garantizar el cumplimiento (por ejemplo, activo como booleano y eliminación de las pertenencia a grupos adecuadas) | No | TBD| uso de marca de características |
 
 ## <a name="flags-to-alter-the-scim-behavior"></a>Marcas para modificar el comportamiento de SCIM
 Utilice las marcas siguientes en la dirección URL del inquilino de la aplicación para cambiar el comportamiento predeterminado del cliente de SCIM.
 
-:::image type="content" source="media/application-provisioning-config-problem-scim-compatibility/scim-flags.jpg" alt-text="Marcas de SCIM para modificar el comportamiento.":::
+:::image type="content" source="media/application-provisioning-config-problem-scim-compatibility/scim-flags.png" alt-text="Marcas de SCIM para modificar el comportamiento.":::
 
 Use la siguiente dirección URL para actualizar el comportamiento de las revisiones para garantizar el cumplimiento de SCIM. La marca modificará los comportamientos siguientes:                
 - Solicitudes realizadas para deshabilitar usuarios
@@ -56,7 +56,7 @@ Use la siguiente dirección URL para actualizar el comportamiento de las revisio
 - Solicitudes para reemplazar varios atributos
 - Solicitudes para quitar un miembro del grupo        
                                                                                      
-Actualmente, este comportamiento solo está disponible cuando se usa la marca, pero se convertirá en el comportamiento predeterminado durante los próximos meses. Tenga en cuenta que esta marca de vista previa no funciona actualmente con el aprovisionamiento a petición. 
+Actualmente, este comportamiento solo está disponible cuando se usa la marca, pero se convertirá en el comportamiento predeterminado durante los próximos meses. Tenga en cuenta que esta marca de característica no funciona actualmente con el aprovisionamiento a petición. 
   * **Dirección URL (compatible con SCIM):** aadOptscim062020
   * **Referencias de RFC de SCIM:** 
     * https://tools.ietf.org/html/rfc7644#section-3.5.2    
@@ -275,7 +275,7 @@ En los pasos siguientes se eliminará el trabajo customappsso existente y se cre
 10. Ejecute el comando siguiente para crear un nuevo trabajo de aprovisionamiento que tenga las correcciones del servicio más recientes.
 
  `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs`
- `{   templateId: "scim"   }`
+ `{   "templateId": "scim"   }`
    
 11. En los resultados del último paso, copie la cadena "ID" completa que comienza con "scim". Si lo desea, vuelva a aplicar las asignaciones de atributos anteriores; para ello, ejecute el comando siguiente, reemplace [new-job-id] por el nuevo identificador de trabajo que ha copiado y escriba la salida JSON del paso 7 como cuerpo de la solicitud.
 

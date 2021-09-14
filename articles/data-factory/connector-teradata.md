@@ -7,14 +7,14 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 01/22/2021
+ms.date: 08/30/2021
 ms.author: jianleishen
-ms.openlocfilehash: 2c8665217aa1f6bcf73caa59e6b7e35ffe193699
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 26ac697767be4023b166b8d751bdbac331dde6a6
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122638968"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123304238"
 ---
 # <a name="copy-data-from-teradata-vantage-by-using-azure-data-factory"></a>Copia de datos de Teradata Vantage mediante Azure Data Factory
 
@@ -51,6 +51,30 @@ Si utiliza el entorno de ejecución de integración autohospedado, tenga en cuen
 ## <a name="getting-started"></a>Introducción
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
+
+## <a name="create-a-linked-service-to-teradata-using-ui"></a>Creación de un servicio vinculado en Teradata mediante la interfaz de usuario
+
+Siga estos pasos para crear un servicio vinculado en Teradata en la interfaz de usuario de Azure Portal.
+
+1. Vaya a la pestaña Administrar del área de trabajo de Azure Data Factory o Synapse y seleccione Servicios vinculados; luego haga clic en Nuevo:
+
+    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Creación de un servicio vinculado con la interfaz de usuario de Azure Data Factory.":::
+
+    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Creación de un servicio vinculado con la interfaz de usuario de Azure Synapse.":::
+
+2. Busque Teradata y seleccione el conector de Teradata.
+
+    :::image type="content" source="media/connector-teradata/teradata-connector.png" alt-text="Seleccione el conector de Teradata.":::    
+
+1. Configure los detalles del servicio, pruebe la conexión y cree el nuevo servicio vinculado.
+
+    :::image type="content" source="media/connector-teradata/configure-teradata-linked-service.png" alt-text="Configuración de un servicio vinculado en Teradata.":::
+
+## <a name="connector-configuration-details"></a>Detalles de configuración del conector
 
 Las secciones siguientes proporcionan detalles sobre las propiedades que se usan para definir entidades de Data Factory específicas del conector de Teradata.
 

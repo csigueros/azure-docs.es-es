@@ -146,7 +146,7 @@
       items:
         - name: Recursos de Cosmos DB
           items:
-            - name: Portal de Azure
+            - name: Azure Portal
               href: sql/create-cosmosdb-resources-portal.md
             - name: Plantilla ARM
               displayName: Resource Manager
@@ -1323,19 +1323,17 @@
           href: ./table/how-to-use-python.md
     - name: Tutoriales
       items:
-        - name: 1 - Creación y administración de datos
-          href: table/tutorial-develop-table-dotnet.md
-        - name: 2 - Migración de los datos
+        - name: 1 - Migración de datos
           displayName: import
           href: table/table-import.md
-        - name: 3 - Consulta de datos
+        - name: 2 - Consulta de datos
           href: table/tutorial-query-table.md
-        - name: 4 - Distribución de datos global
+        - name: 3 - Distribución global de datos
           href: table/tutorial-global-distribution-table.md
     - name: Ejemplos
       items:
         - name: .NET
-          href: ./table/tutorial-develop-table-dotnet.md
+          href: 'https://github.com/Azure-Samples/msdocs-azure-tables-sdk-dotnet.git'
         - name: Java
           href: table/how-to-use-java.md
         - name: Node.js
@@ -1374,15 +1372,13 @@
     - name: Referencia
       items:
         - name: .NET
-          href: table/dotnet-sdk.md
-        - name: .NET Standard
-          href: table/dotnet-standard-sdk.md
+          href: /dotnet/api/overview/azure/data.tables-readme-pre
         - name: Java
-          href: table/java-sdk.md
+          href: /java/api/overview/azure/data-tables-readme
         - name: Node.js
-          href: table/nodejs-sdk.md
+          href: /javascript/api/overview/azure/data-tables-readme
         - name: Python
-          href: table/python-sdk.md
+          href: /python/api/azure-data-tables/azure.data.tables
         - name: PowerShell
           href: /powershell/module/az.cosmosdb/#cosmos-db&preserve-view=true
         - name: API de REST de Table Storage

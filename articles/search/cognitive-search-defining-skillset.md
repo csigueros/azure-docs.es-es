@@ -7,12 +7,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/15/2021
-ms.openlocfilehash: 5f47eef6d3aeecd64cb3777b1d0858b4904d137d
-ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
+ms.openlocfilehash: 4425a4b7c29bc0f4bc237c021610087c933631d8
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122228860"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123224029"
 ---
 # <a name="create-a-skillset-in-azure-cognitive-search"></a>Creación de un conjunto de aptitudes en Azure Cognitive Search
 
@@ -227,6 +227,14 @@ Después de ejecutar el indexador, puede usar el [Explorador de búsqueda](searc
 En el ejemplo siguiente se muestran los resultados de una aptitud de reconocimiento de entidades que detectó personas, ubicaciones, organizaciones y otras entidades en un fragmento de texto. Ver los resultados en el Explorador de búsqueda puede ayudarle a determinar si una aptitud agrega valor a la solución.
 
 :::image type="content" source="media/cognitive-search-defining-skillset/doc-in-search-explorer.png" alt-text="Captura de pantalla de un documento en el Explorador de búsqueda.":::
+
+## <a name="tips-for-a-first-skillset"></a>Sugerencias para un primer conjunto de aptitudes
+
++ Ensamblar un ejemplo representativo del contenido en Blob Storage u otro origen de datos de indexador admitido y ejecutar el asistente para **importación de datos** para crear el conjunto de aptitudes, el índice, el indizador y el objeto de origen de datos. 
+
+  El asistente automatiza varios pasos que pueden ser difíciles por primera vez, incluida la definición de los campos de un índice, la definición de asignaciones de salida en un indizador y proyecciones en un almacén de conocimiento si se usa uno. Para algunas aptitudes, como OCR o análisis de imágenes, el asistente agregará aptitudes de utilidad que combinan el contenido de imagen y texto que se separó durante el descifrar el documento.
+
++ Como alternativa, puede importar colecciones Postman de aptitudes que proporcionan ejemplos completos de todas las definiciones de objeto necesarias para evaluar una aptitud, desde el conjunto de aptitudes a un índice que puede consultar para ver los resultados de una transformación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -3,12 +3,12 @@ title: Traslado del registro contenedor a otra región
 description: Traslade manualmente la configuración y los datos del registro de contenedor de Azure a otra región de Azure.
 ms.topic: article
 ms.date: 06/08/2021
-ms.openlocfilehash: 4e0afb418fbb0b33330c3fb82fd04370f0c3ee99
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: e2bc00287923a95e2e4d3698b22c4c2ca65bebc6
+ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114286312"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122835894"
 ---
 # <a name="manually-move-a-container-registry-to-another-region"></a>Traslado manual de un registro de contenedor a otra región
 
@@ -20,7 +20,6 @@ Aunque [Azure Resource Mover](../resource-mover/overview.md) actualmente no se p
 * Uso de la plantilla para implementar un registro en otra región de Azure
 * Importación del contenido del registro a partir del registro de origen al de destino
 
-
 [!INCLUDE [container-registry-geo-replication-include](../../includes/container-registry-geo-replication-include.md)]
 
 ## <a name="prerequisites"></a>Prerrequisitos
@@ -31,8 +30,10 @@ Azure CLI
 
 ## <a name="considerations"></a>Consideraciones
 
-* Siga los pasos de este artículo para trasladar el registro a otra región de la misma suscripción. Se necesita más configuración para trasladar un registro a otra suscripción de Azure o al inquilino de Active Directory. 
-* Exportar y usar una plantilla de Resource Manager puede ayudar a volver a crear muchas configuraciones del registro. Puede editar la plantilla para configurar opciones adicionales o actualizar el registro de destino después de la creación.
+* Siga los pasos de este artículo para trasladar el registro a otra región de la misma suscripción. Es posible que se necesite más configuración para trasladar un registro a otra suscripción de Azure en el mismo inquilino de Active Directory.
+* Exportar y usar una plantilla de Resource Manager puede ayudar a volver a crear muchas configuraciones del registro. Puede editar la plantilla para configurar más opciones o actualizar el registro de destino después de la creación.
+* Actualmente, Azure Container Registry no admite un traslado del registro a otro inquilino de Active Directory. Esta limitación se aplica a ambos registros cifrados con una [clave administrada por el cliente](container-registry-customer-managed-keys.md) y registros sin cifrar.
+* Si no puede trasladar un registro que se describa en este artículo, cree un nuevo registro, vuelva a crear manualmente la configuración e [importe el contenido del registro en el registro de destino](#import-registry-content-in-target-registry).
 
 ## <a name="export-template-from-source-registry"></a>Exportación de una plantilla desde el registro de origen 
 
@@ -106,7 +107,7 @@ Después de crear el registro en la región de destino, use el comando [az acr i
 * Use los comandos de la CLI de Azure [az acr repository list](/cli/azure/acr/repository#az_acr_repository_list) y [az acr repository show-tags](/cli/azure/acr/repository#az_acr_repository_show_tags), o equivalentes de Azure PowerShell, para ayudar a enumerar el contenido del registro de origen.
 * Ejecute el comando de importación para artefactos individuales o cree un script para ejecutarlo en una lista de artefactos.
 
-En el ejemplo siguiente, el script de la CLI de Azure enumera los repositorios y etiquetas de origen y, a continuación, importa los artefactos a un registro de destino. Modifique según sea necesario para importar etiquetas o repositorios específicos.
+En el ejemplo siguiente, el script de la CLI de Azure de ejemplo enumera los repositorios y etiquetas de origen y, a continuación, importa los artefactos a un registro de destino de la misma suscripción a Azure. Modifique según sea necesario para importar etiquetas o repositorios específicos. Para importar desde un registro de otra suscripción o inquilino, consulte los ejemplos de [Importación de imágenes de contenedor a un registro de contenedor](container-registry-import-images.md).
 
 ```azurecli
 #!/bin/bash
@@ -127,6 +128,8 @@ for repo in $REPO_LIST; do
     done
 done
 ```
+
+
 
 ## <a name="verify-target-registry"></a>Comprobación del registro de destino
 

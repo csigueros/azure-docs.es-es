@@ -4,14 +4,14 @@ description: Vea cómo migrar a Azure Managed Instance for Apache Cassandra usan
 author: TheovanKraay
 ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
-ms.topic: overview
-ms.date: 06/02/2021
-ms.openlocfilehash: c2529f355e7d39c22bf5f3d703cb33c59101a5f8
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.topic: tutorial
+ms.date: 08/17/2021
+ms.openlocfilehash: 03862b42fb181adcf1a6c4edbed66ce61ee49e73
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121749465"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123426137"
 ---
 # <a name="live-migration-to-azure-managed-instance-for-apache-cassandra-by-using-a-dual-write-proxy"></a>Migración en vivo a Azure Managed Instance for Apache Cassandra mediante un proxy de doble escritura
 
@@ -22,7 +22,7 @@ ms.locfileid: "121749465"
 
 Siempre que sea posible, se recomienda usar la funcionalidad nativa de Apache Cassandra para migrar datos de un clúster a Azure Managed Instance for Apache Cassandra mediante la configuración de un [clúster híbrido](configure-hybrid-cluster.md). Esta funcionalidad utiliza el protocolo gossip de Apache Cassandra para replicar datos de un centro de datos de origen en un nuevo centro de datos de instancia administrada de forma fluida. Sin embargo, puede haber algunos escenarios en los que la versión de la base de datos de origen no sea compatible, o donde una configuración de clúster híbrido no sea factible. 
 
-En este artículo, se describe cómo migrar datos en vivo a Azure Managed Instance for Apache Cassandra mediante un [proxy de doble escritura](https://github.com/Azure-Samples/cassandra-proxy) y Apache Spark. Las ventajas de este enfoque son:
+En este tutorial se describe cómo migrar datos en vivo a Azure Managed Instance for Apache Cassandra mediante un [proxy de doble escritura](https://github.com/Azure-Samples/cassandra-proxy) y Apache Spark. Las ventajas de este enfoque son:
 
 - **Cambios mínimos en las aplicaciones**. El proxy puede aceptar conexiones desde el código de las aplicaciones con pocos o ningún cambio de configuración. Enrutará todas las solicitudes a la base de datos de origen y, de forma asincrónica, enrutará las operaciones de escritura hacia un destino secundario. 
 - **Dependencia del protocolo de transferencia del cliente**. Puesto que este enfoque no depende de recursos de back-end ni protocolos internos, se puede usar con cualquier sistema Cassandra de origen o destino que implemente el protocolo de transferencia de Apache Cassandra.

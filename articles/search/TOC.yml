@@ -126,6 +126,8 @@
   items:
     - name: Búsqueda de texto completo
       href: search-lucene-query-architecture.md
+    - name: Analizadores
+      href: search-analyzers.md
     - name: Búsqueda semántica
       href: semantic-search-overview.md
     - name: Puntuación de relevancia
@@ -182,8 +184,6 @@
           href: search-manage-azure-cli.md
         - name: Movimiento de servicios entre regiones
           href: search-howto-move-across-regions.md
-        - name: Solución de problemas relacionados con la creación de recursos compartidos de Private Link
-          href: troubleshoot-shared-private-link-resources.md
     - name: Seguridad
       items:
         - name: Cifrado de datos
@@ -202,6 +202,8 @@
               href: service-configure-firewall.md
             - name: Creación de un punto de conexión privado
               href: service-create-private-endpoint.md
+            - name: Solución de problemas de conexiones privadas
+              href: troubleshoot-shared-private-link-resources.md
         - name: Seguridad de salida (indizadores)
           items:
             - name: Acceso a los datos a través de un intervalo IP
@@ -266,8 +268,6 @@
           href: index-sql-relational-data.md
     - name: Analizadores
       items:
-        - name: Adición de analizadores
-          href: search-analyzers.md
         - name: Adición de un analizador de idioma
           href: index-add-language-analyzers.md
         - name: Adición de un analizador personalizado
@@ -302,7 +302,7 @@
               href: search-howto-managed-identities-data-sources.md
             - name: Azure Storage
               href: search-howto-managed-identities-storage.md
-            - name: Azure Cosmos DB
+            - name: "Azure Cosmos\_DB"
               href: search-howto-managed-identities-cosmos-db.md
             - name: SQL Database
               href: search-howto-managed-identities-sql.md

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/13/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 5e1bbd56d3fcfd087e294cb55c66edd2f22bd939
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 06b82bf78c7a4d66e2c4da6d053f8ab77c400e00
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113765612"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123258708"
 ---
 # <a name="cloud-tiering-overview"></a>Información general de nube por niveles
 La nube por niveles, una característica opcional de Azure File Sync, reduce la cantidad de almacenamiento local necesario al tiempo que mantiene el rendimiento de un servidor de archivos local.
@@ -29,7 +29,7 @@ Cuando se habilita la nube por niveles, hay dos directivas que se pueden configu
 #### <a name="volume-free-space-policy"></a>Directiva de espacio disponible del volumen
 La **directiva de espacio disponible del volumen** indica a Azure File Sync que organice por niveles los archivos pasivos en la nube cuando se ocupa una determinada cantidad de espacio en el disco local. 
 
-Por ejemplo, si la capacidad del disco local es de 200 GB y quiere que al menos 40 GB de la capacidad del disco local permanezcan siempre libres, debe establecer la directiva de espacio disponible del volumen en un 20 %. El espacio disponible en el volumen se aplica con respecto al volumen, y no a los directorios individuales o a los puntos de conexión de servidor. 
+Por ejemplo, si la capacidad del disco local es de 200 GiB y quiere que al menos 40 permanezcan siempre libres, debe establecer la directiva de espacio disponible del volumen en un 20 %. El espacio disponible en el volumen se aplica con respecto al volumen, y no a los directorios individuales o a los puntos de conexión de servidor. 
 
 #### <a name="date-policy"></a>Directiva de fecha
 Con la **directiva de fecha**, los archivos pasivos se organizan por niveles en la nube si no se ha tenido acceso a ellos (es decir, no se han leído ni se ha escrito en ellos) durante un número de días x. Por ejemplo, si observa que los archivos a los que no se ha accedido hace más de 15 días son normalmente archivos de archivado, debe establecer la directiva de fecha en 15 días. 

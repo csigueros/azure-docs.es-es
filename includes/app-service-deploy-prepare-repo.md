@@ -1,5 +1,5 @@
 ---
-title: archivo de inclusión
+title: Archivo de inclusión
 description: archivo de inclusión
 services: app-service
 author: cephalin
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/12/2019
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: 93bfb515c46413400ecd47105de378c7b677cecd
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 44601c97a873138bcd152de2450fe6d98be814df
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102564972"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122423303"
 ---
 ## <a name="prepare-your-repository"></a>Preparación del repositorio
 
@@ -34,6 +34,6 @@ Para obtener compilaciones automáticas del servidor de compilación de Azure Ap
 Para personalizar la implementación, puede incluir un archivo *.deployment* en la raíz del repositorio. Para más información, consulte el artículo sobre la [personalización de las implementaciones](https://github.com/projectkudu/kudu/wiki/Customizing-deployments) y el artículo sobre el [script de implementación personalizado](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script).
 
 > [!NOTE]
-> Si desarrolla en Visual Studio, deje que [Visual Studio cree un repositorio en su lugar](/azure/devops/repos/git/creatingrepo?tabs=visual-studio). El proyecto está listo inmediatamente para su implementación mediante GIT.
+> Si usa Visual Studio, deje que [Visual Studio cree un repositorio automáticamente](/azure/devops/repos/git/creatingrepo?tabs=visual-studio). El proyecto está listo inmediatamente para su implementación por medio de Git.
 >
 

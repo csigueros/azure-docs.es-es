@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 03/11/2021
 ms.custom: mvc
-ms.openlocfilehash: 0878911bdd3caa2202ef993142aa89e4eabfe33c
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: f925eb888c1955212a762eb46c63300afd17d77d
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114464884"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123427737"
 ---
 # <a name="tutorial-discover-physical-servers-with-azure-migrate-discovery-and-assessment"></a>Tutorial: Detección de servidores físicos con Azure Migrate: Discovery and assessment
 
@@ -40,9 +40,12 @@ Antes de empezar este tutorial, compruebe que dispone de estos requisitos previo
 
 **Requisito** | **Detalles**
 --- | ---
-**Dispositivo** | Necesita un servidor en el que se ejecute el dispositivo de Azure Migrate. El servidor debe tener:<br/><br/> - Windows Server 2016 instalado.<br/> _(Actualmente, la implementación del dispositivo solo se admite en Windows Server 2016)._<br/><br/> - 16 GB de RAM, 8 vCPU, alrededor de 80 GB de almacenamiento en disco<br/><br/> - Una dirección IP estática o dinámica, con acceso a Internet, ya sea directamente o mediante un proxy.
+**Dispositivo** | Necesita un servidor en el que se ejecute el dispositivo de Azure Migrate. El servidor debe tener:<br/><br/> - Windows Server 2016 instalado.<br/> _(Actualmente, la implementación del dispositivo solo se admite en Windows Server 2016)._<br/><br/> - 16 GB de RAM, 8 vCPU, alrededor de 80 GB de almacenamiento en disco<br/><br/> - Una dirección IP estática o dinámica, con acceso a Internet, ya sea directamente o mediante un proxy.<br/><br/> - Conectividad saliente a Internet a las [direcciones URL](migrate-appliance.md#url-access) necesarias desde el dispositivo.
 **Servidores Windows** | Permita las conexiones entrantes en el puerto WinRM 5985 (HTTP), para que el dispositivo pueda extraer los metadatos de configuración y rendimiento.
 **Servidores Linux** | Permita las conexiones entrantes en el puerto 22 (TCP).
+
+> [!NOTE]
+> No se admite la instalación de Azure Migrate Appliance en un servidor que tenga instalados el [dispositivo de replicación](migrate-replication-appliance.md) o el agente de Mobility Service.  Asegúrese de que el servidor del dispositivo no se haya usado previamente para configurar el dispositivo de replicación o que tenga instalado el agente de Mobility Service en el servidor.
 
 ## <a name="prepare-an-azure-user-account"></a>Preparación de una cuenta de usuario de Azure
 

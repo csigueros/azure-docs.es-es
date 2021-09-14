@@ -12,16 +12,16 @@ ms.date: 01/16/2020
 ms.author: jhakulin
 zone_pivot_groups: programming-languages-set-two
 ROBOTS: NOINDEX
-ms.openlocfilehash: 0aee0030937a6e11860907e27b775c2671137f71
-ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
+ms.openlocfilehash: 507ade69fc257b52a3fe632fcf652dcd5660d819
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2021
-ms.locfileid: "108331113"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123104247"
 ---
 # <a name="configure-openssl-for-linux"></a>Configuración de OpenSSL para Linux
 
-Cuando usa cualquier versión del SDK de Voz anterior a la 1.9.0, [OpenSSL](https://www.openssl.org) se configura dinámicamente en la versión del sistema host. En versiones posteriores del SDK de Voz, OpenSSL (versión [1.1.1 b](https://mta.openssl.org/pipermail/openssl-announce/2019-February/000147.html)) se vincula estáticamente a la biblioteca principal del SDK de Voz.
+Cuando usa cualquier versión del SDK de Voz anterior a la 1.9.0, [OpenSSL](https://www.openssl.org) se configura dinámicamente en la versión del sistema host. En versiones posteriores del SDK de Voz, OpenSSL se vincula estáticamente a la biblioteca principal del SDK de Voz. En el SDK de Voz se usan las versiones 1.9.0 a 1.16.0 de [OpenSSL, versión 1.1.1b](https://mta.openssl.org/pipermail/openssl-announce/2019-February/000147.html). A partir de la versión 1.17.0 del SDK de Voz, se usa [Open SSL versión 1.1.1k](https://mta.openssl.org/pipermail/openssl-announce/2021-March/000197.html).
 
 Para garantizar la conectividad, compruebe que se han instalado los certificados de OpenSSL en el sistema. Ejecute un comando:
 ```bash
@@ -87,7 +87,7 @@ config.setProperty("OPENSSL_CONTINUE_ON_CRL_DOWNLOAD_FAILURE", "true");
 ::: zone pivot="programming-language-python"
 
 ```Python
-speech_config.set_property_by_name("OPENSSL_CONTINUE_ON_CRL_DOWNLOAD_FAILURE", "true")?
+speech_config.set_property_by_name("OPENSSL_CONTINUE_ON_CRL_DOWNLOAD_FAILURE", "true")
 ```
 
 ::: zone-end
@@ -129,7 +129,7 @@ config.setProperty("OPENSSL_DISABLE_CRL_CHECK", "true");
 ::: zone pivot="programming-language-python"
 
 ```Python
-speech_config.set_property_by_name("OPENSSL_DISABLE_CRL_CHECK", "true")?
+speech_config.set_property_by_name("OPENSSL_DISABLE_CRL_CHECK", "true")
 ```
 
 ::: zone-end

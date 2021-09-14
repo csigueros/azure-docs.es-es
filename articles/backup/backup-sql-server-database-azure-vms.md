@@ -2,13 +2,13 @@
 title: Copia de seguridad de varias máquinas virtuales con SQL Server desde el almacén
 description: En este artículo, aprenderá a realizar copias de seguridad de bases de datos de SQL Server en máquinas virtuales de Azure con Azure Backup desde el almacén de Recovery Services.
 ms.topic: conceptual
-ms.date: 05/28/2021
-ms.openlocfilehash: 3a6792fe5146df9babc906edec1fc12aa4b3e1cb
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.date: 08/20/2021
+ms.openlocfilehash: 834737c9773b9efead12ef8033852d25ae706062
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110672329"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123099099"
 ---
 # <a name="back-up-multiple-sql-server-vms-from-the-recovery-services-vault"></a>Copia de seguridad de varias VM con SQL Server desde el almacén de Recovery Services
 
@@ -30,6 +30,8 @@ Para poder realizar copias de seguridad de la base de datos de SQL Server, prime
 
 1. Identifique o cree un [almacén de Recovery Services](backup-sql-server-database-azure-vms.md#create-a-recovery-services-vault) en la misma región y suscripción que la máquina virtual que hospeda la instancia de SQL Server.
 1. Compruebe que la máquina virtual tenga [conectividad de red](backup-sql-server-database-azure-vms.md#establish-network-connectivity).
+1. Asegúrese de que el [agente de máquina virtual de Azure](../virtual-machines/extensions/agent-windows.md) esté instalado en la máquina virtual.
+1. Asegúrese de que la versión de .NET 4.5.2 o posterior esté instalada en la máquina virtual.
 1. Asegúrese de que las bases de datos de SQL Server siguen las [directrices de nomenclatura de bases de datos para Azure Backup](#database-naming-guidelines-for-azure-backup).
 1. Asegúrese de que la longitud combinada del nombre de VM con SQL Server y el nombre del grupo de recursos no supere los 84 caracteres en el caso de las máquinas virtuales de Azure Resource Manager o los 77 caracteres en el caso de las máquinas virtuales clásicas. Esta limitación se debe a que algunos caracteres están reservados por el servicio.
 1. Compruebe que no dispone de otras soluciones de copia de seguridad habilitadas para la base de datos. Deshabilite todas las demás copias de seguridad de SQL Server antes de hacer una copia de seguridad de la base de datos.
@@ -96,18 +98,22 @@ Cuando hace copia de seguridad de una base de datos de SQL Server en una máquin
 
 ### <a name="database-naming-guidelines-for-azure-backup"></a>Instrucciones de nomenclatura de la base de datos para Azure Backup
 
-Evite el uso de los elementos siguientes en los nombres de las bases de datos:
+- Evite el uso de los elementos siguientes en los nombres de las bases de datos:
 
-* Espacios iniciales o finales
-* Signos de exclamación (!)
-* Corchetes de cierre (])
-* Punto y coma ';'
-* Barra diagonal '/'
+  - Espacios iniciales o finales
+  - Signos de exclamación (!)
+  - Corchetes de cierre (])
+  - Punto y coma (;)
+  - Barra diagonal (/)
 
-El establecimiento de alias está permitido para los caracteres no admitidos, pero se recomienda evitarlos. Para obtener más información, consulte [Descripción del modelo de datos del servicio Tabla](/rest/api/storageservices/understanding-the-table-service-data-model).
+- El establecimiento de alias está permitido para los caracteres no admitidos, pero se recomienda evitarlos. Para obtener más información, consulte [Descripción del modelo de datos del servicio Tabla](/rest/api/storageservices/understanding-the-table-service-data-model).
+
+- No se admiten varias bases de datos en la misma instancia de SQL con diferencia en el uso de mayúsculas y minúsculas.
+
+-   No se admite el cambio del uso de mayúsculas y minúsculas de una base de datos SQL después de configurar la protección.
 
 >[!NOTE]
->La operación **Configurar protección** no se admite en bases de datos con caracteres especiales, como "+" o "&" en su nombre. Puede cambiar el nombre de la base de datos o habilitar la opción **Auto Protection** (Protección automática), que le permitirá proteger correctamente estas bases de datos.
+>La operación **Configurar protección** no se admite en bases de datos con caracteres especiales, como "+" o "&", en su nombre. Puede cambiar el nombre de la base de datos o habilitar la **protección automática**, que puede proteger correctamente estas bases de datos.
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 

@@ -4,12 +4,12 @@ description: Describe cómo realizar una copia de seguridad y llevar a cabo la r
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 44dc53100e44d6d10179b65e0ccd221199661836
-ms.sourcegitcommit: ef950cf37f65ea7a0f583e246cfbf13f1913eb12
+ms.openlocfilehash: 89514bad58633727b5189c7d0daecccf5372efea
+ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111421749"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123214985"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Copia de seguridad y restauración de máquinas virtuales de con PowerShell
 
@@ -523,11 +523,11 @@ Use el cmdlet [Wait-AzRecoveryServicesBackupJob](/powershell/module/az.recoverys
 Wait-AzRecoveryServicesBackupJob -Job $restorejob -Timeout 43200
 ```
 
-Una vez que se haya completado el trabajo de recuperación, use el cmdlet [Get-AzRecoveryServicesBackupJobDetails](/powershell/module/az.recoveryservices/wait-azrecoveryservicesbackupjob) para obtener los detalles de la operación de restauración. La propiedad JobDetails tiene la información necesaria para recompilar la máquina virtual.
+Una vez que se haya completado el trabajo de restauración, use el cmdlet [Get-AzRecoveryServicesBackupJobDetail](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjobdetail) para obtener los detalles de la operación de restauración. La propiedad JobDetails tiene la información necesaria para recompilar la máquina virtual.
 
 ```powershell
 $restorejob = Get-AzRecoveryServicesBackupJob -Job $restorejob -VaultId $targetVault.ID
-$details = Get-AzRecoveryServicesBackupJobDetails -Job $restorejob -VaultId $targetVault.ID
+$details = Get-AzRecoveryServicesBackupJobDetail -Job $restorejob -VaultId $targetVault.ID
 ```
 
 #### <a name="restore-selective-disks"></a>Restauración selectiva de discos

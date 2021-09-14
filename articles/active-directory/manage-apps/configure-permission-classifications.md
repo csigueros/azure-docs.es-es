@@ -8,20 +8,28 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/01/2020
+ms.date: 08/31/2021
 ms.author: davidmu
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 6d0432c93a0ab3f47b68e071026301c49e8c670c
-ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
+ms.openlocfilehash: f42f258383e1ca76be7fa45c79b11b3c18e900a7
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113567984"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123425846"
 ---
 # <a name="configure-permission-classifications"></a>Configuración de las clasificaciones de los permisos
 
 Las clasificaciones de permisos permiten identificar el impacto que tienen los distintos permisos según las evaluaciones de riesgo y las directivas de la organización. Por ejemplo, puede usar las clasificaciones de permisos en las directivas de consentimiento para identificar el conjunto de permisos a los que los usuarios pueden dar su consentimiento.
+
+## <a name="prerequisites"></a>Prerrequisitos
+
+Necesita lo siguiente para completar las tareas de esta guía:
+
+- Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Un rol de administrador global.
+- Configure Azure AD PowerShell. Consulte [Documentación de Azure PowerShell](https://docs.microsoft.com/powershell/azure/).
 
 ## <a name="manage-permission-classifications"></a>Administración de las clasificaciones de los permisos
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/16/2019
 ms.author: victorh
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 5187f30bd1de87e930e1a2d28ab9c68ec861cff6
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 5bdae2055f46f6f933325c95b86d427951c6cfbc
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108321526"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123222656"
 ---
 # <a name="create-application-gateway-custom-error-pages"></a>Creación de páginas de error personalizadas de Application Gateway
 
@@ -41,9 +41,9 @@ Para crear una página de error personalizada, debe tener:
 - un blob de Azure Storage públicamente accesible para la ubicación.
 - un tipo de extensión *.htm o *.html. 
 
-El tamaño de la página de error debe ser inferior a 1 MB. Si hay imágenes vinculadas en la página de error, deben ser accesibles públicamente mediante direcciones URL absolutas o bien puede codificar en base 64 la imagen insertada en la página de error personalizada. Actualmente no se admiten vínculos relativos con imágenes en la misma ubicación del blob. 
+El tamaño de la página de error debe ser inferior a 1 MB. Puede hacer referencia a imágenes o CSS internas o externas para este archivo HTML. Para los recursos a los que se hace referencia externamente, use direcciones URL absolutas a las que se pueda acceder públicamente. Tenga en cuenta el tamaño del archivo HTML al usar imágenes internas (imagen insertada codificada en Base64) o CSS. Actualmente no se admiten vínculos relativos con archivos en la misma ubicación del blob.
 
-Después de especificar una página de error, la puerta de enlace de la aplicación lo descarga desde la ubicación de Blob Storage y lo guarda en la memoria caché de la puerta de enlace de aplicaciones local. A continuación, la página de error se sirve directamente desde la puerta de enlace de la aplicación. Para modificar una página de error personalizada existente, debe apuntar a una ubicación de blob distinta en la configuración de la puerta de enlace de aplicaciones. La puerta de enlace de aplicaciones no comprueba periódicamente la ubicación del blob para recuperar las nuevas versiones.
+Después de especificar una página de error, la puerta de enlace de la aplicación lo descarga desde la ubicación de Blob Storage y lo guarda en la memoria caché de la puerta de enlace de aplicaciones local. A continuación, la puerta de enlace de aplicaciones proporciona esa página HTML, mientras que el cliente captura directamente los recursos a los que se hace referencia externamente. Para modificar una página de error personalizada existente, debe apuntar a una ubicación de blob distinta en la configuración de la puerta de enlace de aplicaciones. La puerta de enlace de aplicaciones no comprueba periódicamente la ubicación del blob para recuperar las nuevas versiones.
 
 ## <a name="portal-configuration"></a>Configuración del portal
 

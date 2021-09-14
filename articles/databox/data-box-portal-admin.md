@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 12/18/2020
+ms.date: 08/23/2021
 ms.author: alkohli
-ms.openlocfilehash: 46a18cb2b6e1682427d5674be28b240f35b120fe
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 796c9563de794b22d47dacee4c93e7bfde73fb2a
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97678651"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123221806"
 ---
 # <a name="use-the-azure-portal-to-administer-your-azure-data-box-and-azure-data-box-heavy"></a>Use Azure Portal para administrar Azure Data Box y Azure Data Box Heavy
 
@@ -255,8 +255,18 @@ Si usa el envío autoadministrado, una vez completada la copia y antes de recibi
 |Listo para recibir en el centro de datos de Azure     |El dispositivo está listo para recibirse en el centro de datos de Azure.        |
 |Received     |El dispositivo se ha recibido en el centro de datos de Azure.      |
 
+## <a name="get-device-password"></a>Obtención de la contraseña del dispositivo
 
+Al pedir el dispositivo, puede elegir usar la contraseña predeterminada del dispositivo generada por el sistema o su propia contraseña. En cualquier caso, la contraseña del dispositivo se establece de fábrica y no se puede cambiar. 
 
+Para averiguar la contraseña del dispositivo, consulte el pedido en Azure Portal.
+
+[!INCLUDE [data-box-get-device-password](../../includes/data-box-get-device-password.md)]
+
+> [!NOTE]
+> Después de varios intentos de inicio de sesión erróneos con una contraseña incorrecta, la cuenta de administrador se bloqueará fuera del dispositivo. El bloqueo de la cuenta se borrará después de unos minutos y podrá volver a conectarse.  
+> - Data Box 4.1 y versiones posteriores: la cuenta se bloquea durante 15 minutos después de cinco intentos de inicio de sesión con errores. 
+> - Data Box 4.0 y versiones anteriores: la cuenta se bloquea durante 30 minutos después de tres intentos de inicio de sesión con errores.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

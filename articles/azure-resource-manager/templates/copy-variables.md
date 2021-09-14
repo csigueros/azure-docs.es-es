@@ -3,12 +3,12 @@ title: Definición de varias instancias de una variable
 description: Utilice la operación de copia en una plantilla de Azure Resource Manager para realizar varias iteraciones al crear una variable.
 ms.topic: conceptual
 ms.date: 02/13/2020
-ms.openlocfilehash: 5f6459335fa3f059a76128edde4ee7096790fe13
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: bf04a93d8ec6626bfbb2083789dbd6db08e2af51
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111957952"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123452184"
 ---
 # <a name="variable-iteration-in-arm-templates"></a>Iteración de variables en las plantillas de ARM
 
@@ -318,6 +318,7 @@ En los ejemplos siguientes, se muestran escenarios comunes en los que se crean v
 |---------|---------|
 |[Variables de copia](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) |Muestra las diferentes maneras de efectuar una iteración en las variables. |
 |[Varias reglas de seguridad](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) |Implementa varias reglas de seguridad en un grupo de seguridad de red. Crea las reglas de seguridad a partir de un parámetro. Para el parámetro, consulte el [archivo de parámetros de varios grupos de seguridad de red](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json). |
+|[Copia del almacenamiento con variables](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystoragewithvariables.json) | Ejemplo de cómo recorrer en iteración una variable y crear varias cuentas de almacenamiento. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

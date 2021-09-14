@@ -12,12 +12,12 @@ ms.date: 06/21/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 36e0b286cc073f5c6843f1bab59af5a811cbf281
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: 33389224bcc4abf05ffbb261e23409eb95896781
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112452933"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123220866"
 ---
 # <a name="developer-notes-for-azure-active-directory-b2c"></a>Notas para desarrolladores sobre Azure Active Directory B2C
 
@@ -74,7 +74,7 @@ En la tabla siguiente se resumen los flujos de autenticación de aplicaciones de
 |Característica  |Flujo de usuario  |Directiva personalizada  |Notas  |
 |---------|:---------:|:---------:|---------|
 [Iniciado por SP](saml-service-provider.md) | N/D | GA | Enlaces POST y de redirección. |
-[Iniciado por IDP](saml-service-provider-options.md#identity-provider-initiated-flow) | N/D | GA | Donde el proveedor de identidades de inicio es Azure AD B2C.  |
+[Iniciado por IDP](saml-service-provider-options.md#configure-idp-initiated-flow) | N/D | GA | Donde el proveedor de identidades de inicio es Azure AD B2C.  |
 
 ## <a name="user-experience-customization"></a>Personalización de la experiencia del usuario
 
@@ -123,7 +123,7 @@ En la tabla siguiente se resumen los flujos de autenticación de aplicaciones de
 |[OAuth2](oauth2-technical-profile.md) | N/D | GA | Por ejemplo, [Google](identity-provider-google.md), [GitHub](identity-provider-github.md) y [Facebook](identity-provider-facebook.md).|
 |[OAuth1](oauth1-technical-profile.md) | N/D | GA | Por ejemplo, [Twitter](identity-provider-twitter.md). |
 |[OpenID Connect](openid-connect-technical-profile.md) | GA | GA | Por ejemplo, [Azure AD](identity-provider-azure-ad-single-tenant.md).  |
-|[SAML2](identity-provider-generic-saml.md) | N/D | GA | Por ejemplo, [Salesforce](identity-provider-salesforce-saml.md) y [AD-FS].(identity-provider-adfs.md) |
+|[SAML2](identity-provider-generic-saml.md) | N/D | GA | Por ejemplo, [Salesforce](identity-provider-salesforce-saml.md) y [AD-FS](identity-provider-adfs.md). |
 | WSFED | N/D | N/D | |
 
 ### <a name="api-connectors"></a>Conectores de API
@@ -185,5 +185,5 @@ Los desarrolladores que utilizan el conjunto de características de directivas p
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Consulte las [Operaciones de Microsoft Graph disponibles para Azure AD B2C](microsoft-graph-operations.md).
+- Consulte las [Operaciones de Microsoft Graph disponibles para Azure AD B2C](microsoft-graph-operations.md).
 - Obtenga más información sobre las [directivas personalizadas y las diferencias con los flujos de usuario](custom-policy-overview.md).

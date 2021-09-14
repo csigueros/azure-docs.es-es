@@ -12,12 +12,12 @@ ms.custom:
 - 'Role: Operations'
 - 'Role: Technical Support'
 - contperf-fy21q4
-ms.openlocfilehash: f0c07da859ae34a030058ee2c99d2c7b72378f5d
-ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
+ms.openlocfilehash: 2e39a2dcdf0f6e3b56665ca7be415c567ca770e8
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2021
-ms.locfileid: "113135634"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122866298"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referencia: Cuotas y limitación de IoT Hub
 
@@ -111,6 +111,7 @@ IoT Hub exige otros límites operativos:
 | Implementaciones automáticas de IoT Edge<sup>1</sup> | 50 módulos por implementación. 100 implementaciones (incluidas las implementaciones superpuestas) por centro de SKU de pago. 10 implementaciones por centro de SKU gratis. |
 | Gemelos<sup>1</sup> | Tamaño máximo de las secciones de propiedades deseadas y propiedades notificadas son de 32 KB cada una. El tamaño máximo de la sección de etiquetas es de 8 KB. |
 | Directivas de acceso compartido | El número máximo de directivas de acceso compartido es 16. |
+| Restricción del acceso de red saliente | El número máximo de FQDN permitidos es 20. |
 | Certificados de entidad de certificación x509 | El número máximo de certificados de entidad de certificación x509 que se pueden registrar en una instancia de IoT Hub es 25. |
 
 <sup>1</sup>Esta característica no está disponible en el nivel básico de IoT Hub. Para más información, consulte [Elección de la instancia de IoT Hub correcta](iot-hub-scaling.md).

@@ -11,12 +11,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: mathoma
 ms.date: 7/8/2021
-ms.openlocfilehash: ca9bfaa6155c2d0f4600ed56bf5a3cab3880274c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: bd5a9d64b237fe8c6591cac841b13f96a9c16f1d
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121722905"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122864457"
 ---
 # <a name="hyperscale-service-tier"></a>Nivel de servicio Hiperescala
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -141,6 +141,11 @@ El siguiente comando de T-SQL traslada una base de datos al nivel de servicio Hi
 ALTER DATABASE [DB2] MODIFY (EDITION = 'Hyperscale', SERVICE_OBJECTIVE = 'HS_Gen5_4');
 GO
 ```
+
+> [!NOTE]
+> Para trasladar una base de datos que forma parte de una relación de [replicación geográfica](active-geo-replication-overview.md), ya sea como principal o como secundaria, a Hiperescala, debe detener la replicación. Las bases de datos de [un grupo de conmutación por error](auto-failover-group-overview.md) deben quitarse primero del grupo.
+>
+> Una vez que se ha trasladado una base de datos a Hiperescala, puede crear una nueva replicación geográfica de Hiperescala de esa base de datos. La replicación geográfica en Hiperescala está en versión preliminar con ciertas [limitaciones](active-geo-replication-overview.md).
 
 ## <a name="database-high-availability-in-hyperscale"></a>Alta disponibilidad de la base de datos en Hiperescala
 

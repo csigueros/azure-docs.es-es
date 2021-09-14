@@ -170,7 +170,7 @@
               href: restore-azure-encrypted-virtual-machines.md
             - name: Restauración de la clave y el secreto para máquinas virtuales cifradas
               href: backup-azure-restore-key-secret.md
-        - name: Administrar
+        - name: Administración
           items:
             - name: Administración de copias de seguridad de máquinas virtuales de Azure
               href: backup-azure-manage-vms.md
@@ -186,7 +186,7 @@
           items:
             - name: Copia de seguridad de varias máquinas virtuales con SQL Server desde el almacén
               href: backup-sql-server-database-azure-vms.md
-            - name: Copia de seguridad de grupo de disponibilidad de SQL
+            - name: Copia de seguridad de un grupo de disponibilidad de SQL Server
               href: backup-sql-server-on-availability-groups.md
             - name: Copia de seguridad de una máquina virtual con SQL Server desde el panel de la máquina virtual
               href: backup-sql-server-vm-from-vm-pane.md
@@ -198,6 +198,8 @@
       items:
         - name: Backup
           href: backup-azure-database-postgresql.md
+        - name: Administración
+          href: manage-azure-database-postgresql.md
     - name: Copia de seguridad de Windows mediante el agente de MARS
       items:
         - name: Información general
@@ -236,6 +238,8 @@
               href: backup-managed-disks.md
             - name: Restauración
               href: restore-managed-disks.md
+            - name: Administración
+              href: manage-azure-managed-disks.md
         - name: Con PowerShell
           items:
             - name: Copia de seguridad
@@ -288,7 +292,7 @@
               href: backup-afs.md
             - name: Restauración
               href: restore-afs.md
-            - name: Administrar
+            - name: Administración
               href: manage-afs-backup.md
         - name: Con la CLI de Azure
           items:
@@ -296,7 +300,7 @@
               href: backup-afs-cli.md
             - name: Restauración
               href: restore-afs-cli.md
-            - name: Administrar
+            - name: Administración
               href: manage-afs-backup-cli.md
         - name: Con PowerShell
           items:
@@ -549,15 +553,15 @@
       href: /dotnet/api/microsoft.azure.management.recoveryservices.backup
     - name: Azure CLI
       href: /cli/azure/backup
-    - name: 'Protección de datos de Azure: CLI'
+    - name: 'Azure Data Protection: CLI'
       href: /cli/azure/dataprotection?view=azure-cli-latest&preserve-view=true
     - name: Azure PowerShell
       href: /powershell/module/az.recoveryservices
-    - name: 'Protección de datos de Azure: PowerShell'
+    - name: 'Azure Data Protection: PowerShell'
       href: /powershell/module/az.dataprotection/?view=azps-6.1.0&preserve-view=true
     - name: 'PowerShell: agente de Azure Backup'
       href: /powershell/module/msonlinebackup/?view=msonlinebackup-ps
-    - name: 'REST: protección de datos de Azure'
+    - name: 'REST: Azure Data Protection'
       href: /rest/api/dataprotection/
     - name: 'REST: Backup'
       href: /rest/api/backup/

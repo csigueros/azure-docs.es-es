@@ -7,12 +7,12 @@ ms.date: 09/22/2020
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
 keywords: powershell, runbook, json, azure automation
-ms.openlocfilehash: 7ea0e8209d244ad2b95e201ec7eb1e84f2038887
-ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
+ms.openlocfilehash: cb075d0ad59af211d80443a5e208509ea60c08ed
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113587776"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123251822"
 ---
 # <a name="deploy-an-azure-resource-manager-template-in-a-powershell-runbook"></a>Implementación de una plantilla de Azure Resource Manager en un runbook de PowerShell
 
@@ -87,9 +87,9 @@ En un editor de texto, copie el texto siguiente:
 
 Guarde el archivo localmente como **TemplateTest.json**.
 
-## <a name="save-the-resource-manager-template-in-azure-storage"></a>Guarde la plantilla de Resource Manager en Azure Storage.
+## <a name="save-the-resource-manager-template-in-azure-files"></a>Guardado de la plantilla de Resource Manager en Azure Files
 
-Ahora, usaremos PowerShell para crear un recurso compartido de archivos de Azure Storage y cargaremos el archivo **TemplateTest.json**. Para obtener instrucciones sobre cómo crear un recurso compartido de archivos y cargar un archivo en Azure Portal, consulte [Introducción a Azure File Storage en Windows](../storage/files/storage-dotnet-how-to-use-files.md).
+Ahora se va a usar PowerShell para crear un recurso compartido de archivos de Azure y cargar el archivo **TemplateTest.json**. Para obtener instrucciones sobre cómo crear un recurso compartido de archivos y cargar un archivo en Azure Portal, vea [Introducción a Azure Files en Windows](../storage/files/storage-files-quick-create-use-windows.md).
 
 Inicie PowerShell en la máquina local y ejecute los comandos siguientes para crear un recurso compartido de archivos y cargar la plantilla de Resource Manager en él.
 

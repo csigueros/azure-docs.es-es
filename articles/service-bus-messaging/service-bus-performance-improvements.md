@@ -2,14 +2,13 @@
 title: Procedimientos recomendados para mejorar el rendimiento mediante Azure Service Bus
 description: Describe cómo usar Service Bus para optimizar el rendimiento al intercambiar mensajes asincrónicos.
 ms.topic: article
-ms.date: 03/09/2021
-ms.custom: devx-track-csharp
-ms.openlocfilehash: 2171ccd6657bcda2df25e76f48cee23d0f8a48a7
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.date: 08/30/2021
+ms.openlocfilehash: d7bd692809504bb16607a431e879f0abfff953cb
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111886689"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123225250"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Procedimientos recomendados para mejorar el rendimiento mediante la mensajería de Service Bus
 
@@ -114,7 +113,7 @@ Los objetos de cliente de Service Bus, como `QueueClient` o `MessageSender`, se 
 La siguiente nota se aplica a todos los SDK:
 
 > [!NOTE]
-> Establecer una conexión es una operación costosa que puede evitar si vuelve a usar la misma factoría y los mismos objetos de cliente para varias operaciones. Puede utilizar estos objetos de cliente para operaciones asincrónicas simultáneas y desde varios subprocesos.
+> Establecer una conexión es una operación costosa que puede evitar si vuelve a usar la misma factoría o los mismos objetos de cliente para varias operaciones. Puede utilizar estos objetos de cliente para operaciones asincrónicas simultáneas y desde varios subprocesos.
 
 ## <a name="concurrent-operations"></a>Operaciones simultáneas
 Las operaciones como enviar, recibir, eliminar, etc., tardan algún tiempo. Este tiempo incluye el que tarda el servicio Service Bus en procesar la operación y la latencia de la solicitud y la respuesta. Para aumentar el número de operaciones por tiempo, las operaciones deberán ejecutarse simultáneamente.

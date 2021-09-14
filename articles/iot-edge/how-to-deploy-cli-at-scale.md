@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: 4e7302cda688d92e19d147f0bfa1a482823b2623
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 790e677a313762d8b4ac9c1ae55473c2b55e058c
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121750791"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123471685"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-cli"></a>Implementar y supervisar módulos de IoT Edge a escala, mediante la CLI de Azure
 
@@ -155,6 +155,11 @@ Este es un manifiesto de implementación superpuesta básico con un módulo como
   }
 }
 ```
+>[!NOTE]
+> Tenga en cuenta que este manifiesto de implementación en capas tiene un formato ligeramente diferente al de un manifiesto de implementación estándar. Las propiedades deseadas de los módulos en tiempo de ejecución se contraen mediante la notación de puntos. Este formato es necesario para que Azure Portal reconozca una implementación en capas. Por ejemplo:
+>
+>  - `properties.desired.modules.<module_name>`
+>  - `properties.desired.routes.<route_name>`
 
 En el ejemplo anterior se mostraba una implementación superpuesta que establecía `properties.desired` para un módulo. Si esta implementación superpuesta se dirigiera a un dispositivo en el que ya se aplicó el mismo módulo, se sobrescribirían las propiedades deseadas existentes. Para actualizar, en lugar de sobrescribir, las propiedades deseadas, puede definir una nueva subsección. Por ejemplo:
 
@@ -166,6 +171,24 @@ En el ejemplo anterior se mostraba una implementación superpuesta que establec�
   }
 }
 ```
+
+También se puede expresar lo mismo con:
+
+```json
+"SimulatedTEmperatureSensor": {
+  "properties.desired.layeredProperties.SendData" : true,
+  "properties.desired.layeredProperties.SendInterval": 5
+}
+```
+
+>[!NOTE]
+>Actualmente, todas las implementaciones en capas deben incluir un objeto edgeAgent para que se considere válida. Incluso si una implementación en capas solo actualiza las propiedades del módulo, incluya un objeto vacío. Por ejemplo, `"$edgeAgent":{}`. Una implementación en capas con un objeto edgeAgent vacío se mostrará como **destino** en el módulo gemelo edgeAgent, no se **aplicará**.
+
+En resumen, para crear una implementación en capas:
+
+- Debe agregar la marca `--layered` al comando create de la CLI de Azure.
+- Puede que no contenga módulos del sistema.
+- Debe usar la "notación de puntos" completa en `$edgeAgent` y `$edgeHub`.
 
 Para obtener más información sobre la configuración de los módulos gemelos en implementaciones superpuestas, consulte [Implementación superpuesta](module-deployment-monitoring.md#layered-deployment).
 

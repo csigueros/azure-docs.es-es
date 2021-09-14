@@ -176,8 +176,8 @@
           href: v2-supported-account-types.md
         - name: Flujo de inicio de sesión de aplicaciones
           href: app-sign-in-flow.md
-        - name: Aplicación de página única
-          displayName: SPA
+        - name: Aplicación de página única (SPA)
+          displayName: 'SPA, angular, react'
           items:
             - name: Información general
               href: scenario-spa-overview.md
@@ -256,7 +256,19 @@
             - name: Configuración del código
               href: scenario-desktop-app-configuration.md
             - name: Adquisición de un token
-              href: scenario-desktop-acquire-token.md
+              items:
+                - name: Información general
+                  href: scenario-desktop-acquire-token.md
+                - name: 'interactivamente,'
+                  href: scenario-desktop-acquire-token-interactive.md
+                - name: Interactivo con WAM
+                  href: scenario-desktop-acquire-token-wam.md
+                - name: Autenticación de Windows integrada
+                  href: scenario-desktop-acquire-token-integrated-windows-authentication.md
+                - name: Nombre de usuario/contraseña
+                  href: scenario-desktop-acquire-token-username-password.md
+                - name: Flujo de código de dispositivo
+                  href: scenario-desktop-acquire-token-device-code-flow.md
             - name: Llamada a una API de web
               href: scenario-desktop-call-api.md
             - name: Paso a producción
@@ -353,6 +365,8 @@
                   href: msal-net-migration.md
                 - name: Migración de aplicaciones cliente confidenciales a MSAL.NET
                   href: msal-net-migration-confidential-client.md
+                - name: Migración de aplicaciones cliente públicas a MSAL.NET
+                  href: msal-net-migration-public-client.md
                 - name: Migración de una aplicación Android de Xamarin mediante un agente a MSAL.NET
                   href: msal-net-migration-android-broker.md
                 - name: Migración de una aplicación iOS de Xamarin mediante un agente a MSAL.NET

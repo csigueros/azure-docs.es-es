@@ -167,7 +167,7 @@
         - name: Visualización de los datos recopilados
           href: get-visibility.md
         - name: Uso de libros de Azure Monitor
-          href: /azure/sentinel/monitor-your-data
+          href: ./monitor-your-data.md
     - name: Detección de amenazas y análisis de datos
       items:
         - name: Uso de roles integrados
@@ -283,11 +283,13 @@
             - name: Esquema de normalización de eventos de archivo
               href: file-event-normalization-schema.md
             - name: Esquema de normalización de la red
-              href: normalization-schema.md
+              href: network-normalization-schema.md
             - name: Esquema de normalización de eventos de procesamiento
               href: process-events-normalization-schema.md
             - name: Esquema de normalización de eventos de registro
               href: registry-event-normalization-schema.md
+            - name: Esquema de normalización de una red heredada
+              href: normalization-schema-v1.md
     - name: Referencias de detección y análisis
       items:
         - name: Principales libros de Azure Sentinel

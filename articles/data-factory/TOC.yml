@@ -688,9 +688,21 @@ items:
           - name: Supervisión visual
             href: monitor-visually.md
           - name: Supervisión con Azure Monitor
-            href: monitor-using-azure-monitor.md
-          - name: Supervisión de SSIS con Azure Monitor
-            href: monitor-using-azure-monitor.md#monitor-ssis-operations-with-azure-monitor
+            items:
+              - name: Información general
+                href: monitor-using-azure-monitor.md
+              - name: Métricas y alertas de Azure Data Factory
+                href: monitor-metrics-alerts.md
+              - name: Configuración de diagnósticos y del área de trabajo
+                href: monitor-configure-diagnostics.md
+              - name: Configuración de los registros de diagnóstico mediante la API REST de Azure Monitor
+                href: monitor-logs-rest.md
+              - name: Supervisión de operaciones de SSIS con Azure Monitor
+                href: monitor-ssis.md
+              - name: Esquema de registros y eventos
+                href: monitor-schema-logs-events.md
+              - name: Instalación de la solución Azure Data Factory Analytics desde Azure Marketplace
+                href: monitor-install-analytics.md
           - name: Supervisar con SDK
             href: monitor-programmatically.md
           - name: Supervisión de Integration Runtime

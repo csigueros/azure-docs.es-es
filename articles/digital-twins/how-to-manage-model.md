@@ -4,15 +4,15 @@ titleSuffix: Azure Digital Twins
 description: Vea cómo crear, editar y eliminar un modelo en Azure Digital Twins.
 author: baanders
 ms.author: baanders
-ms.date: 8/13/2021
+ms.date: 8/30/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: c5614ce350a4690aa49268e8598bfc9eb2996d6a
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.openlocfilehash: 2e5c137ceb08bd89dc70026639c6191b1c61f42d
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122253198"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123223246"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Administración de modelos de Azure Digital Twins
 
@@ -53,15 +53,17 @@ Siguiendo este método, puede continuar con la definición de modelos para las s
 
 Una vez creados los modelos, puede cargarlos en la instancia de Azure Digital Twins.
 
-Cuando esté listo para cargar un modelo, puede usar el fragmento de código siguiente:
+Cuando esté listo para cargar un modelo, puede usar el fragmento de código siguiente para el [SDK de .NET](/dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet&preserve-view=true):
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/model_operations.cs" id="CreateModel":::
 
-Observe que el método `CreateModels` acepta varios archivos en una sola transacción. Este es un ejemplo ilustrativo:
+También puede cargar varios modelos en una sola transacción. 
+
+Si usa el SDK, puede cargar varios archivos de modelo con el método `CreateModels` de esta manera:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/model_operations.cs" id="CreateModels_multi":::
 
-Los archivos de modelo pueden contener más de un modelo. En este caso, los modelos deben colocarse en una matriz JSON. Por ejemplo:
+Si usa las [API REST](/rest/api/azure-digitaltwins/) o [CLI de Azure](/cli/azure/dt?view=azure-cli-latest&preserve-view=true), también puede cargar varios modelos colocando varias definiciones de modelo en un único archivo JSON para cargarlos juntos. En este caso, los modelos deben colocarse en una matriz JSON dentro del archivo, como en el ejemplo siguiente:
 
 :::code language="json" source="~/digital-twins-docs-samples/models/Planet-Moon.json":::
 
@@ -254,7 +256,7 @@ Incluso si un modelo cumple los requisitos para eliminarlo inmediatamente, es po
 5. Espere unos minutos para asegurarse de que los cambios se han aplicado.
 6. Eliminación del modelo 
 
-Para eliminar un modelo, puede usar la llamada del SDK [DeleteModel]/dotnet/api/azure.digitaltwins.core.digitaltwinsclient.deletemodel?view=azure-dotnet&preserve-view=true):
+Para eliminar un modelo, puede usar la llamada al SDK [deleteModel:](/dotnet/api/azure.digitaltwins.core.digitaltwinsclient.deletemodel?view=azure-dotnet&preserve-view=true).
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/model_operations.cs" id="DeleteModel":::
 

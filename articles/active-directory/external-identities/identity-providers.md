@@ -5,23 +5,25 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 07/26/2021
+ms.date: 08/30/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f867e0091d792ef88b79f1c1bb7f4272a35e928
-ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
+ms.openlocfilehash: ca0592741018f054640b1d695f643695e4782518
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114721367"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123222146"
 ---
 # <a name="identity-providers-for-external-identities"></a>Proveedores de identidades para External Identities
 
 Un *proveedor de identidades* crea, mantiene y administra la información de identidad al tiempo que proporciona servicios de autenticación a las aplicaciones. Al compartir aplicaciones y recursos con usuarios externos, Azure AD es el proveedor de identidades predeterminado para el uso compartido. Esto significa que, al invitar a usuarios externos que ya tienen una cuenta de Azure AD o de Microsoft, estos pueden iniciar sesión automáticamente sin tener que realizar ninguna configuración adicional.
 
-Además de cuentas de Azure AD, External Identities ofrece una variedad de proveedores de identidades.
+External Identities ofrece una variedad de proveedores de identidades.
+
+- **Cuentas de Azure Active Directory**: los usuarios invitados pueden usar sus cuentas profesionales o educativas de Azure AD para canjear las invitaciones de colaboración B2B o completar los flujos de usuario de registro. [Azure Active Directory](azure-ad-account.md) es uno de los proveedores de identidades permitidos de forma predeterminada. Para que este proveedor de identidades esté disponible para los flujos de usuario, no es necesario realizar ninguna configuración adicional.
 
 - **Cuentas Microsoft**: los usuarios invitados pueden usar su propia cuenta Microsoft (MSA) personal para canjear las invitaciones de colaboración B2B. Al configurar un flujo de usuarios de registro de autoservicio, puede agregar la [Cuenta Microsoft](microsoft-account.md) como uno de los proveedores de identidades permitidos. Para que este proveedor de identidades esté disponible para los flujos de usuario, no es necesario realizar ninguna configuración adicional.
 
@@ -30,8 +32,8 @@ Además de cuentas de Azure AD, External Identities ofrece una variedad de prov
 - **Google**: La federación de Google permite a usuarios externos canjear invitaciones que les haya enviado si inician sesión en sus aplicaciones con sus propias cuentas de Gmail. La federación de Google también se puede usar en los flujos de usuario de registro de autoservicio. Consulte cómo [agregar Google como proveedor de identidades](google-federation.md).
    > [!IMPORTANT]
    >
-   > - **A partir del 12 de julio de 2021**, si los clientes de Azure AD B2B configuran nuevas integraciones de Google para usarlas con el registro de autoservicio para sus aplicaciones personalizadas o de línea de negocio, la autenticación con identidades de Google no funcionará hasta que las autenticaciones se trasladen a las vistas web del sistema. [Más información](google-federation.md#deprecation-of-web-view-sign-in-support).
-   > - **A partir del 30 de septiembre de 2021**, Google [retira la compatibilidad con el inicio de sesión en la vista web insertada](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). Si sus aplicaciones autentican a los usuarios con una vista web insertada y va a usar la federación de Google con [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md) o Azure AD B2B para las [invitaciones de usuarios externos](google-federation.md) o el registro de autoservicio, los usuarios de Google Gmail no podrán autenticarse. [Más información](google-federation.md#deprecation-of-web-view-sign-in-support).
+   > - **A partir del 12 de julio de 2021**, si los clientes de Azure AD B2B configuran nuevas integraciones de Google para usarlas con registro de autoservicio para sus aplicaciones personalizadas o de línea de negocio, la autenticación con identidades de Google no funcionará hasta que las autenticaciones se trasladen a las vistas web del sistema. [Más información](google-federation.md#deprecation-of-web-view-sign-in-support).
+   > - **A partir del 30 de septiembre de 2021,** Google [retira la compatibilidad con el inicio de sesión en la vista web insertada](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). Si sus aplicaciones autentican a los usuarios con una vista web insertada y va a usar la federación de Google con [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md) o Azure AD B2B para las [invitaciones de usuarios externos](google-federation.md) o el registro de autoservicio, los usuarios de Google Gmail no podrán autenticarse. [Más información](google-federation.md#deprecation-of-web-view-sign-in-support).
 
 
 - **Facebook**: al compilar una aplicación, puede configurar el registro de autoservicio y habilitar la federación de Facebook para que los usuarios puedan suscribirse a la aplicación con sus propias cuentas de Facebook. Facebook solo se puede usar para flujos de usuario de registro de autoservicio y no está disponible como una opción de inicio de sesión cuando los usuarios canjean las invitaciones que les envíe. Consulte cómo [agregar Facebook como proveedor de identidades](facebook-federation.md).

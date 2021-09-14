@@ -7,12 +7,12 @@ ms.author: karler
 author: karlerickson
 ms.date: 10/18/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: 123cc401d03a802c0a390f88cfc727893f165364
-ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
+ms.openlocfilehash: 0de08976f0391c995004265ac1b1a33cf4a5c491
+ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122015453"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122835792"
 ---
 # <a name="set-up-a-spring-cloud-config-server-instance-for-your-service"></a>Configuración de una instancia de Config Server en Spring Cloud para su servicio
 
@@ -101,10 +101,11 @@ A continuación se enumeran todas las propiedades configurables que se usan para
 | `default-label` | No     | La etiqueta predeterminada del repositorio de Git debe ser el *nombre de rama*, el *nombre de etiqueta* o el  *identificador de confirmación* del repositorio. |
 | `search-paths`  | No     | Matriz de cadenas que se usa para buscar en subdirectorios del repositorio de Git. |
 | `username`      | No     | El nombre de usuario que se utiliza para acceder al servidor del repositorio de Git; _se requiere_ cuando el servidor del repositorio de GIT admite `Http Basic Authentication`. |
-| `password`      | No     | La contraseña que se utiliza para acceder al servidor del repositorio de Git; _se requiere_ cuando el servidor del repositorio de GIT admite `Http Basic Authentication`. |
+| `password`      | No     | La contraseña o el token de acceso personal que se emplea para acceder al servidor del repositorio de Git; _se requiere_ cuando el servidor del repositorio de Git admite `Http Basic Authentication`. |
 
 > [!NOTE]
-> Muchos servidores de repositorio de `Git` admiten el uso de tokens, en lugar de contraseñas, para la autenticación HTTP básica. En algunos repositorios, como GitHub, se permite que los tokens se conserven indefinidamente. Sin embargo, algunos servidores de repositorio de Git, incluido Azure DevOps, obligan a que los tokens expiren en unas horas. Los repositorios que hacen que los tokens expiren no deben usar la autenticación basada en tokens con Azure Spring Cloud.
+> Muchos servidores de repositorio de `Git` admiten el uso de tokens, en lugar de contraseñas, para la autenticación HTTP básica. Algunos repositorios permiten que los tokens se conserven indefinidamente. Pero algunos servidores de repositorio de Git, incluido Azure DevOps Server, obligan a que los tokens expiren en unas horas. Los repositorios que hacen que los tokens expiren no deben usar la autenticación basada en tokens con Azure Spring Cloud.
+> Github ha eliminado la compatibilidad con la autenticación de contraseña, por lo que debe usar un token de acceso personal en lugar de la autenticación de contraseña en GitHub. Para obtener más información, vea [Autenticación de token](https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/).
 
 ### <a name="git-repositories-with-pattern"></a>Repositorios de Git con patrón
 
@@ -122,7 +123,7 @@ A continuación se enumeran todas las propiedades configurables que se usan para
 | `repos."default-label"`            | No             | La etiqueta predeterminada del repositorio de Git debe ser el *nombre de rama*, el *nombre de etiqueta* o el  *identificador de confirmación* del repositorio. |
 | `repos."search-paths`"             | No             | Matriz de cadenas que se usa para buscar en subdirectorios del repositorio de Git. |
 | `repos."username"`                 | No             | El nombre de usuario que se utiliza para acceder al servidor del repositorio de Git; _se requiere_ cuando el servidor del repositorio de GIT admite `Http Basic Authentication`. |
-| `repos."password"`                 | No             | La contraseña que se utiliza para acceder al servidor del repositorio de Git; _se requiere_ cuando el servidor del repositorio de GIT admite `Http Basic Authentication`. |
+| `repos."password"`                 | No             | La contraseña o el token de acceso personal que se emplea para acceder al servidor del repositorio de Git; _se requiere_ cuando el servidor del repositorio de Git admite `Http Basic Authentication`. |
 | `repos."private-key"`              | No             | La clave privada de SSH para acceder al repositorio de Git, _se requiere_ cuando el identificador URI comienza por *git@* o *ssh://* . |
 | `repos."host-key"`                 | No             | La clave de host del servidor de repositorio de Git no debe incluir el prefijo del algoritmo, tal y como se describe en `host-key-algorithm`. |
 | `repos."host-key-algorithm"`       | No             | El algoritmo de la clave de host debe ser *ssh-dss*, *ssh-rsa*, *ecdsa-sha2-nistp256*, *ecdsa-sha2-nistp384* o *ecdsa-sha2-nistp521*. *Se requiere* solo si `host-key` existe. |
@@ -167,7 +168,8 @@ Una vez que los archivos de configuración se han guardado en un repositorio, es
     ![Autenticación básica en el panel Editar autenticación](media/spring-cloud-tutorial-config-server/basic-auth.png)
 
     > [!CAUTION]
-    > Algunos servidores de repositorio de Git, como GitHub, usan un *token personal* o un *token de acceso* a modo de contraseña para la **autenticación básica**. Esos tipos de token se pueden usar como contraseña en Azure Spring Cloud, ya que nunca expiran. Pero en el caso de otros servidores de repositorio de Git, como Bitbucket y Azure DevOps, el *token de acceso* expira en una o dos horas. Esto significa que la opción no es viable cuando se usan estos servidores de repositorio con Azure Spring Cloud.
+    > Algunos servidores de repositorio de Git usan un *token personal* o un *token de acceso*, como una contraseña, para la **autenticación básica**. Esos tipos de token se pueden usar como contraseña en Azure Spring Cloud, ya que nunca expiran. Pero en el caso de otros servidores de repositorio de Git, como Bitbucket y Azure DevOps Server, el *token de acceso* expira en una o dos horas. Esto significa que la opción no es viable cuando se usan estos servidores de repositorio con Azure Spring Cloud.
+    > Github ha eliminado la compatibilidad con la autenticación de contraseña, por lo que debe usar un token de acceso personal en lugar de la autenticación de contraseña en GitHub. Para obtener más información, vea [Autenticación de token](https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/).
 
     * **SSH**: en la sección **Default repository** (Repositorio predeterminado), en el cuadro **URI**, pegue el identificador URI del repositorio y, después, seleccione el botón de **autenticación** (icono de "lápiz"). En el panel **Edit Authentication** (Editar autenticación), en la lista desplegable **Authentication type** (Tipo de autenticación), seleccione **SSH** y, después, escriba su **clave privada**. También puede especificar los valores de **Host key** (Clave de host) y **Host key algorithm** (Algoritmo de claves de host). Asegúrese de incluir la clave pública en el repositorio de Config Server. Seleccione **OK** (Aceptar) y **Apply** (Aplicar) para terminar de configurar la instancia de Config Server.
 

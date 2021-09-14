@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/07/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:UWP
-ms.openlocfilehash: 88fd6260df0039e960ac87b4b83d43ea497a58b0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5f142cf84e0e7e75d2ed61fbad9896d89e2364a0
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104658516"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123436543"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Inicio rápido: Llamar a Microsoft Graph API desde una aplicación de la Plataforma universal de Windows (UWP)
 
@@ -26,7 +26,7 @@ En este inicio rápido descargará y ejecutará un código de ejemplo que muestr
 Para ilustrar este tema, consulte el apartado en el que se explica el [funcionamiento del ejemplo](#how-the-sample-works).
 
 > [!div renderon="docs"]
-> ## <a name="prerequisites"></a>Requisitos previos
+> ## <a name="prerequisites"></a>Prerrequisitos
 >
 > * Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 > * [Visual Studio 2019](https://visualstudio.microsoft.com/vs/)
@@ -103,9 +103,8 @@ Para ilustrar este tema, consulte el apartado en el que se explica el [funcionam
 > 1. Cree y seleccione un certificado de prueba autofirmado para el paquete:
 >     1. En el **Explorador de soluciones**, haga doble clic en archivo *Package.appxmanifest*.
 >     1. Seleccione **Empaquetado** > **Elegir certificado...**  > **Crear...**
->     1. Escriba una contraseña y seleccione **Aceptar**.
->     1. Seleccione **Seleccionar de archivo...** y el archivo *Native_UWP_V2_TemporaryKey.pfx* que acaba de crear; después, seleccione **Aceptar**.
->     1. Cierre el archivo *Package.appxmanifest* (seleccione **Aceptar** si se le pide que lo guarde).
+>     1. Escriba una contraseña y seleccione **Aceptar**. Se crea un certificado que se llama *Native_UWP_V2_TemporaryKey.pfx*. 
+>     1. Seleccione **Aceptar** para descartar el cuadro de diálogo **Elegir un certificado** y compruebe que ve *Native_UWP_V2_TemporaryKey.pfx* en el Explorador de soluciones.
 >     1. En el **Explorador de soluciones**, haga clic con el botón derecho en el proyecto **Native_UWP_V2** y seleccione **Propiedades**.
 >     1. Seleccione **Signing** (Firma) y el archivo .pfx creado en el menú desplegable **Elija un archivo de nombre de clave seguro**.
 

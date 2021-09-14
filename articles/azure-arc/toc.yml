@@ -8,11 +8,11 @@
   items:
     - name: Consultas de Azure Resource Graph
       href: ./resource-graph-samples.md
-- name: "Servidores habilitados para Arc\_>"
+- name: Servidores habilitados para Azure Arc >
   href: ./servers/overview.md
-- name: "Kubernetes habilitado para Arc\_>"
+- name: Kubernetes habilitado para Azure Arc >
   href: ./kubernetes/overview.md
-- name: Servicios de datos habilitados para Arc  >
+- name: "Servicios de datos habilitados para Azure\_Arc >"
   href: ./data/overview.md
 - name: "SQL\_Server en servidores habilitados para Azure\_Arc >"
   href: /sql/sql-server/azure-arc/overview

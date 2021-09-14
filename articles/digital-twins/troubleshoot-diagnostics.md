@@ -4,19 +4,19 @@ titleSuffix: Azure Digital Twins
 description: Vea cómo habilitar el registro con la configuración de diagnóstico y cómo consultar los registros para verlos de forma inmediata.
 author: baanders
 ms.author: baanders
-ms.date: 2/24/2021
+ms.date: 8/24/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: ced6f28bb7174bc3510de9025569646210e87782
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 1479e2b6b715e8f80ea9e02b0b57a3995da2bfd9
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110475712"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123219705"
 ---
 # <a name="troubleshooting-azure-digital-twins-diagnostics-logging"></a>Solución de problemas de Azure Digital Twins: Registro de diagnóstico
 
-Azure Digital Twins puede recopilar los registros de una instancia de servicio para supervisar su rendimiento, acceso y otros datos. Estos registros se pueden usar para hacerse una idea de lo que ocurre en una instancia de Azure Digital Twins y realizar un análisis de la causa principal de los problemas sin necesidad de ponerse en contacto con el soporte técnico de Azure.
+Azure Digital Twins puede recopilar los registros de una instancia de servicio para supervisar su rendimiento, acceso y otros datos. Estos registros se pueden usar para hacerse una idea de lo que ocurre en una instancia de Azure Digital Twins y analizar las causas principales de los problemas sin necesidad de ponerse en contacto con el soporte técnico de Azure.
 
 En este artículo se muestra cómo [configurar los valores de diagnóstico](#turn-on-diagnostic-settings) en [Azure Portal](https://portal.azure.com) para empezar a recopilar registros de una instancia de Azure Digital Twins. También se puede especificar la ubicación en que se deben almacenar los registros (como Log Analytics o la cuenta de almacenamiento que se prefiera).
 
@@ -70,7 +70,7 @@ Aquí encontrará más detalles sobre las categorías de registros que recopila 
 | ADTEventRoutesOperation | Registra todas las llamadas API relativas a rutas de eventos, así como la salida de eventos de Azure Digital Twins a un servicio de punto de conexión como Event Grid, Event Hubs y Service Bus. |
 | ADTDigitalTwinsOperation | Registra todas las llamadas API que pertenecen a gemelos individuales. |
 
-Cada categoría de registro consta de operaciones de escritura, lectura, eliminación y acción.  Estas se asignan a las llamadas API REST de la siguiente manera:
+Cada categoría de registro consta de operaciones de escritura, lectura, eliminación y acción. Estas se asignan a las llamadas API REST de la siguiente manera:
 
 | Tipo de evento | Operaciones de API REST |
 | --- | --- |
@@ -108,7 +108,7 @@ Cada categoría de registro tiene un esquema que define cómo se notifican los e
 
 ### <a name="api-log-schemas"></a>Esquemas de registro de API
 
-Este esquema de registro es coherente para `ADTDigitalTwinsOperation`, `ADTModelsOperation` y `ADTQueryOperation`. También se usa el mismo esquema para `ADTEventRoutesOperation`, con la **excepción** del nombre de operación `Microsoft.DigitalTwins/eventroutes/action` (para obtener más información sobre el esquema, consulte la sección siguiente, [Esquemas de registro de salida](#egress-log-schemas)).
+Este esquema de registro es coherente para `ADTDigitalTwinsOperation`, `ADTModelsOperation` y `ADTQueryOperation`. También se usa el mismo esquema para `ADTEventRoutesOperation`, **excepto** el nombre de operación `Microsoft.DigitalTwins/eventroutes/action` (para obtener más información sobre el esquema, consulte la sección siguiente, [Esquemas de registro de salida](#egress-log-schemas)).
 
 El esquema contiene información pertinente para las llamadas a API para una instancia de Azure Digital Twins.
 
@@ -279,7 +279,7 @@ Este es un ejemplo de cuerpo JSON de un objeto `ADTEventRoutesOperation` que **n
 
 ### <a name="egress-log-schemas"></a>Esquemas de registro de salida
 
-Este es el esquema para los registros `ADTEventRoutesOperation` específicos del nombre de operación `Microsoft.DigitalTwins/eventroutes/action`. Contienen detalles relativos a las excepciones y las operaciones de API en torno a los puntos de conexión de salida conectados a una instancia de Azure Digital Twins.
+Este es el esquema para los registros `ADTEventRoutesOperation` específicos del nombre de operación `Microsoft.DigitalTwins/eventroutes/action`. Contienen detalles relacionados con las excepciones y las operaciones de API en torno a los puntos de conexión de salida conectados a una instancia de Azure Digital Twins.
 
 |Nombre del campo | Tipo de datos | Descripción |
 |-----|------|-------------|

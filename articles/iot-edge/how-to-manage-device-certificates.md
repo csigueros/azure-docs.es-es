@@ -3,16 +3,16 @@ title: 'Administración de certificados de dispositivo: Azure IoT Edge | Microso
 description: Cree certificados de prueba, instálelos y adminístrelos en un dispositivo Azure IoT Edge para preparar la implementación de producción.
 author: kgremban
 ms.author: kgremban
-ms.date: 03/01/2021
+ms.date: 08/24/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: fa643753aa7f916fbd79850af352c37746357693
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 3866217f0aa90cd3450d0f74e35eaa68cea3c559
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121722013"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122866549"
 ---
 # <a name="manage-certificates-on-an-iot-edge-device"></a>Administración de certificados en un dispositivo IoT Edge
 
@@ -66,59 +66,77 @@ Para ver un ejemplo de estos certificados, revise los scripts que crean los cert
 
 Instale la cadena de certificados en el dispositivo IoT Edge y configure el entorno de ejecución de IoT Edge para que haga referencia a los nuevos certificados.
 
-Copie los tres archivos de certificado y clave en el dispositivo IoT Edge. Puede usar un servicio como [Azure Key Vault](../key-vault/index.yml) o una función como [Protocolo de copia segura](https://www.ssh.com/ssh/scp/) para mover los archivos de certificado. Si ha generado los certificados en el propio dispositivo IoT Edge, puede omitir este paso y usar la ruta de acceso al directorio de trabajo.
+Copie los tres archivos de certificado y clave en el dispositivo IoT Edge. 
 
-Si usa IoT Edge para Linux en Windows, debe utilizar la clave SSH que se encuentra en el archivo `id_rsa` de Azure IOT Edge para autenticar las transferencias de archivos entre el sistema operativo host y la máquina virtual Linux. Puede realizar un SCP autenticado con el siguiente comando:
-
-   ```powershell-interactive
-   C:\WINDOWS\System32\OpenSSH\scp.exe -i 'C:\Program Files\Azure IoT Edge\id_rsa' <PATH_TO_SOURCE_FILE> iotedge-user@<VM_IP>:<PATH_TO_FILE_DESTINATION>
-   ```
-
-   >[!NOTE]
-   >La dirección IP de la máquina virtual Linux se puede consultar con el comando `Get-EflowVmAddr`.
-
-Si ha usado los scripts de ejemplo para [crear certificados de demostración](how-to-create-test-certificates.md), copie los siguientes archivos en el dispositivo IoT Edge:
+Si ha usado los scripts de ejemplo para [crear certificados de demostración](how-to-create-test-certificates.md), los tres archivos de certificado y clave se encuentran en las rutas de acceso siguientes:
 
 * Certificado de entidad de certificación del dispositivo: `<WRKDIR>\certs\iot-edge-device-MyEdgeDeviceCA-full-chain.cert.pem`
 * Clave privada de entidad de certificación del dispositivo: `<WRKDIR>\private\iot-edge-device-MyEdgeDeviceCA.key.pem`
 * Entidad de certificación raíz: `<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem`
 
+Puede usar un servicio como [Azure Key Vault](../key-vault/index.yml) o una función como [Protocolo de copia segura](https://www.ssh.com/ssh/scp/) para mover los archivos de certificado. Si ha generado los certificados en el propio dispositivo IoT Edge, puede omitir este paso y usar la ruta de acceso al directorio de trabajo.
+
+Si usa IoT Edge para Linux en Windows, debe utilizar la clave SSH que se encuentra en el archivo `id_rsa` de Azure IOT Edge para autenticar las transferencias de archivos entre el sistema operativo host y la máquina virtual Linux. Recupere la dirección IP de la máquina virtual Linux mediante el comando `Get-EflowVmAddr`. Luego, puede realizar un SCP autenticado con el siguiente comando:
+
+   ```powershell
+   C:\WINDOWS\System32\OpenSSH\scp.exe -i 'C:\Program Files\Azure IoT Edge\id_rsa' <PATH_TO_SOURCE_FILE> iotedge-user@<VM_IP>:<PATH_TO_FILE_DESTINATION>
+   ```
+
+### <a name="configure-iot-edge-with-the-new-certificates"></a>Configuración de IoT Edge con los nuevos certificados
+
 <!-- 1.1 -->
 :::moniker range="iotedge-2018-06"
 
-1. Abra el archivo de configuración del demonio de seguridad de IoT Edge.
+# <a name="linux-containers"></a>[Contenedores de Linux](#tab/linux)
 
-   * Linux e IoT Edge para Linux en Windows: `/etc/iotedge/config.yaml`
-
-   * Windows con contenedores de Windows: `C:\ProgramData\iotedge\config.yaml`
+1. Abra el archivo de configuración del demonio de seguridad de IoT Edge: `/etc/iotedge/config.yaml`
 
 1. Establezca las propiedades de **certificado** de config.yaml en la ruta de acceso del URI de archivo de los archivos de certificado y de clave del dispositivo IoT Edge. Elimine el carácter `#` antes de las propiedades de certificado para quitar la marca de comentario de las cuatro líneas. Asegúrese de que la línea **certificates:** no tiene ningún espacio en blanco delante y de que los elementos anidados muestran una sangría de dos espacios. Por ejemplo:
 
-   * Linux e IoT Edge para Linux en Windows:
+   ```yaml
+   certificates:
+      device_ca_cert: "file:///<path>/<device CA cert>"
+      device_ca_pk: "file:///<path>/<device CA key>"
+      trusted_ca_certs: "file:///<path>/<root CA cert>"
+   ```
 
-      ```yaml
-      certificates:
-        device_ca_cert: "file:///<path>/<device CA cert>"
-        device_ca_pk: "file:///<path>/<device CA key>"
-        trusted_ca_certs: "file:///<path>/<root CA cert>"
-      ```
-
-   * Windows con contenedores de Windows:
-
-      ```yaml
-      certificates:
-        device_ca_cert: "file:///C:/<path>/<device CA cert>"
-        device_ca_pk: "file:///C:/<path>/<device CA key>"
-        trusted_ca_certs: "file:///C:/<path>/<root CA cert>"
-      ```
-
-1. En los dispositivos Linux, asegúrese de que el usuario **iotedge** tiene permisos de lectura para el directorio que contiene los certificados.
+1. Asegúrese de que el usuario **iotedge** tiene permisos de lectura para el directorio que contiene los certificados.
 
 1. Si anteriormente ha usado cualquier otro certificado para IoT Edge en el dispositivo, elimine los archivos de los dos directorios siguientes antes de iniciar o reiniciar IoT Edge:
 
-   * Linux e IoT Edge para Linux en Windows: `/var/lib/iotedge/hsm/certs` y `/var/lib/iotedge/hsm/cert_keys`
+   * `/var/lib/iotedge/hsm/certs`
+   * `/var/lib/iotedge/hsm/cert_keys`
 
-   * Windows con contenedores de Windows: `C:\ProgramData\iotedge\hsm\certs` y `C:\ProgramData\iotedge\hsm\cert_keys`
+1. Reinicie IoT Edge.
+
+   ```bash
+   sudo iotedge system restart
+   ```
+
+# <a name="windows-containers"></a>[Contenedores de Windows](#tab/windows)
+
+1. Abra el archivo de configuración del demonio de seguridad de IoT Edge: `C:\ProgramData\iotedge\config.yaml`
+
+1. Establezca las propiedades de **certificado** de config.yaml en la ruta de acceso del URI de archivo de los archivos de certificado y de clave del dispositivo IoT Edge. Elimine el carácter `#` antes de las propiedades de certificado para quitar la marca de comentario de las cuatro líneas. Asegúrese de que la línea **certificates:** no tiene ningún espacio en blanco delante y de que los elementos anidados muestran una sangría de dos espacios. Por ejemplo:
+
+   ```yaml
+   certificates:
+      device_ca_cert: "file:///C:/<path>/<device CA cert>"
+      device_ca_pk: "file:///C:/<path>/<device CA key>"
+      trusted_ca_certs: "file:///C:/<path>/<root CA cert>"
+   ```
+
+1. Si anteriormente ha usado cualquier otro certificado para IoT Edge en el dispositivo, elimine los archivos de los dos directorios siguientes antes de iniciar o reiniciar IoT Edge:
+
+   * `C:\ProgramData\iotedge\hsm\certs`
+   * `C:\ProgramData\iotedge\hsm\cert_keys`
+
+1. Reinicie IoT Edge.
+
+   ```powershell
+   Restart-Service iotedge
+   ```
+---
 
 :::moniker-end
 <!-- end 1.1 -->
@@ -142,19 +160,26 @@ Si ha usado los scripts de ejemplo para [crear certificados de demostración](ho
    pk = "file:///<path>/<device CA key>"
    ```
 
-1. Asegúrese de que el usuario **iotedge** tiene permisos de lectura para el directorio que contiene los certificados.
+1. Asegúrese de que el servicio tenga permisos de lectura para los directorios que contiene los certificados y las claves.
 
-1. Si anteriormente ha usado cualquier otro certificado para IoT Edge en el dispositivo, elimine los archivos de los dos directorios siguientes antes de iniciar o reiniciar IoT Edge:
+   * El archivo de clave privada debe ser propiedad del grupo **aziotks**.
+   * Los archivos de certificado deben ser propiedad del grupo **aziotcs**.
+
+   >[!TIP]
+   >Si el certificado es de solo lectura, lo que significa que lo ha creado y no quiere que el servicio IoT Edge lo rote, establezca el archivo de clave privada en el modo 0440 y el archivo de certificado en el modo 0444. Si ha creado los archivos iniciales y luego ha configurado el servicio de certificado para rotar el certificado en el futuro, establezca el archivo de clave privada en el modo 0660 y el archivo de certificado en el modo 0664.
+
+1. Si anteriormente ha usado cualquier otro certificado para IoT Edge en el dispositivo, elimine los archivos del directorio siguiente. IoT Edge los vuelve a crear con el nuevo certificado de CA que ha proporcionado.
 
    * `/var/lib/aziot/certd/certs`
-   * `/var/lib/aziot/keyd/keys`
+
+1. Aplique los cambios en la configuración.
+
+   ```bash
+   sudo iotedge config apply
+   ```
 
 :::moniker-end
 <!-- end 1.2 -->
-
-<!-- 1.1. -->
-<!-- Temporarily, customizable certificate lifetime not available in 1.2. Update before GA. -->
-:::moniker range="iotedge-2018-06"
 
 ## <a name="customize-certificate-lifetime"></a>Personalizar vigencia del certificado
 
@@ -165,12 +190,17 @@ IoT Edge genera automáticamente certificados en el dispositivo en varios casos,
 
 Para obtener más información sobre la función de los distintos certificados en un dispositivo IoT Edge, consulte [Información sobre los certificados de Azure IoT Edge](iot-edge-certs.md).
 
-En el caso de estos dos certificados generados automáticamente, tiene la opción de establecer la marca **auto_generated_ca_lifetime_days** en el archivo de configuración para configurar el número de días para la vigencia de los certificados.
+En el caso de estos dos certificados generados automáticamente, tiene la opción de establecer una marca en el archivo de configuración para configurar el número de días para la vigencia de los certificados.
 
 >[!NOTE]
->Hay un tercer certificado generado automáticamente que crea el administrador de seguridad de IoT Edge, el **certificado de servidor del centro de IoT Edge**. Este certificado siempre tiene una vigencia de 90 días, pero siempre se renueva automáticamente antes de expirar. El valor **auto_generated_ca_lifetime_days** no afecta a este certificado.
+>Hay un tercer certificado generado automáticamente que crea el administrador de seguridad de IoT Edge, el **certificado de servidor del centro de IoT Edge**. Este certificado siempre tiene una vigencia de 90 días, pero siempre se renueva automáticamente antes de expirar. El valor de duración de CA generado automáticamente establecido en el archivo de configuración no afecta a este certificado.
 
 Al expirar una vez transcurrido el número de días especificado, IoT Edge debe reiniciarse para volver a generar el certificado de CA del dispositivo. El certificado de CA del dispositivo no se renovará automáticamente.
+
+<!-- 1.1. -->
+:::moniker range="iotedge-2018-06"
+
+# <a name="linux-containers"></a>[Contenedores de Linux](#tab/linux)
 
 1. Para configurar la expiración de certificados en un valor distinto a los 90 días predeterminados, agregue el valor en días a la sección **certificates** del archivo de configuración.
 
@@ -187,19 +217,44 @@ Al expirar una vez transcurrido el número de días especificado, IoT Edge debe 
 
 1. Elimine el contenido de la carpeta `hsm` para quitar los certificados generados previamente.
 
-   * Linux e IoT Edge para Linux en Windows: `/var/lib/iotedge/hsm/certs` y `/var/lib/iotedge/hsm/cert_keys`
-
-   * Windows con contenedores de Windows: `C:\ProgramData\iotedge\hsm\certs` y `C:\ProgramData\iotedge\hsm\cert_keys`
+   * `/var/lib/iotedge/hsm/certs`
+   * `/var/lib/iotedge/hsm/cert_keys`
 
 1. Reinicie el servicio IoT Edge.
-
-   * Linux e IoT Edge para Linux en Windows:
 
    ```bash
    sudo systemctl restart iotedge
    ```
 
-   * Windows con contenedores de Windows:
+1. Confirme el valor de vigencia.
+
+   ```bash
+   sudo iotedge check --verbose
+   ```
+
+   Compruebe la salida de la comprobación **preparación de producción: certificados**, que muestra el número de días hasta la expiración de los certificados de CA del dispositivo generados automáticamente.
+
+# <a name="windows-containers"></a>[Contenedores de Windows](#tab/windows)
+
+1. Para configurar la expiración de certificados en un valor distinto a los 90 días predeterminados, agregue el valor en días a la sección **certificates** del archivo de configuración.
+
+   ```yaml
+   certificates:
+     device_ca_cert: "<ADD URI TO DEVICE CA CERTIFICATE HERE>"
+     device_ca_pk: "<ADD URI TO DEVICE CA PRIVATE KEY HERE>"
+     trusted_ca_certs: "<ADD URI TO TRUSTED CA CERTIFICATES HERE>"
+     auto_generated_ca_lifetime_days: <value>
+   ```
+
+   > [!NOTE]
+   > Actualmente, una limitación en libiothsm impide el uso de certificados que expiran el 1 de enero de 2038 o en una fecha posterior.
+
+1. Elimine el contenido de la carpeta `hsm` para quitar los certificados generados previamente.
+
+   * `C:\ProgramData\iotedge\hsm\certs`
+   * `C:\ProgramData\iotedge\hsm\cert_keys`
+
+1. Reinicie el servicio IoT Edge.
 
    ```powershell
    Restart-Service iotedge
@@ -207,55 +262,44 @@ Al expirar una vez transcurrido el número de días especificado, IoT Edge debe 
 
 1. Confirme el valor de vigencia.
 
-   * Linux e IoT Edge para Linux en Windows:
-
-   ```bash
-   sudo iotedge check --verbose
-   ```
-
-   * Windows con contenedores de Windows:
-
    ```powershell
    iotedge check --verbose
    ```
 
    Compruebe la salida de la comprobación **preparación de producción: certificados**, que muestra el número de días hasta la expiración de los certificados de CA del dispositivo generados automáticamente.
 
+---
+
 :::moniker-end
 <!-- end 1.1 -->
 
-<!-- 
-<!-- 1.2 --
+<!-- 1.2 -->
 :::moniker range=">=iotedge-2020-11"
 
-1. To configure the certificate expiration to something other than the default 90 days, add the value in days to the **certificates** section of the config file.
+1. Para configurar la expiración del certificado en un valor distinto a los 90 días predeterminados, agregue el valor en días a la sección **Certificado de CA de Edge (inicio rápido)** del archivo de configuración.
 
    ```toml
-   [certificates]
-   device_ca_cert = "<ADD URI TO DEVICE CA CERTIFICATE HERE>"
-   device_ca_pk = "<ADD URI TO DEVICE CA PRIVATE KEY HERE>"
-   trusted_ca_certs = "<ADD URI TO TRUSTED CA CERTIFICATES HERE>"
-   auto_generated_ca_lifetime_days = <value>
+   [edge_ca]
+   auto_generated_edge_ca_expiry_days = <value>
    ```
 
-1. Delete the contents of the `certd` and `keyd` folders to remove any previously generated certificates: `/var/lib/aziot/certd/certs` `/var/lib/aziot/keyd/keys`
+1. Elimine el contenido de las carpetas `certd` y `keyd` para quitar los certificados generados previamente: `/var/lib/aziot/certd/certs` `/var/lib/aziot/keyd/keys`
 
-1. Restart IoT Edge.
+1. Aplique los cambios en la configuración.
 
    ```bash
-   sudo iotedge system restart
+   sudo iotedge config apply
    ```
 
-1. Confirm the new lifetime setting.
+1. Confirme el nuevo valor de vigencia.
 
    ```bash
    sudo iotedge check --verbose
    ```
 
-   Check the output of the **production readiness: certificates** check, which lists the number of days until the automatically generated device CA certificates expire.
+   Compruebe la salida de la comprobación **preparación de producción: certificados**, que muestra el número de días hasta la expiración de los certificados de CA del dispositivo generados automáticamente.
 :::moniker-end
-<!-- end 1.2 --
--->
+<!-- end 1.2 -->
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -10,16 +10,16 @@ ms.date: 08/31/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: ed7a8fb4420108ea76e21e30f14897e5857c0445
-ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
+ms.openlocfilehash: 01ea434081b83065f510a246591af2d05a8d7276
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123273202"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123469597"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>Almacenamiento de datos de blobs críticos para la empresa con almacenamiento inmutable
 
-El almacenamiento inmutable para Azure Blob Storage permite a los usuarios almacenar los datos críticos para la empresa en un estado WORM (escribir una vez, leer muchas). Mientras los datos se encuentran en un estado WORM, no se pueden modificar ni eliminar durante un intervalo especificado por el usuario. Al configurar directivas de inmutabilidad para los datos de blobs, puede proteger los datos frente a sobrescrituras y eliminaciones.
+El almacenamiento inmutable para Azure Blob Storage permite a los usuarios almacenar los datos críticos para la empresa en un estado WORM (escribir una vez, leer muchas). Mientras los datos se encuentran en estado WORM, no se pueden modificar ni eliminar durante un intervalo especificado por el usuario. Al configurar directivas de inmutabilidad para los datos de blobs, puede proteger los datos frente a sobrescrituras y eliminaciones.
 
 El almacenamiento inmutable para Azure Blob Storage admite dos tipos de directivas de inmutabilidad:
 
@@ -163,10 +163,23 @@ La creación, modificación o eliminación de una directiva de retención con du
 
 Si no paga la factura y su cuenta tiene en vigor una directiva de retención con duración definida activa, las directivas de retención de datos normales se aplicarán según lo previsto en los términos y condiciones del contrato con Microsoft. Para obtener información general, consulte [Administración de datos en Microsoft](https://www.microsoft.com/trust-center/privacy/data-management).
 
+## <a name="feature-support"></a>Compatibilidad de características
+
+En esta tabla se muestra cómo se admite esta característica en la cuenta y el impacto en la compatibilidad al habilitar determinadas funcionalidades. 
+
+| Tipo de cuenta de almacenamiento                | Blob Storage (compatibilidad predeterminada)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>    
+|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
+| De uso general estándar, v2 | ![Sí](../media/icons/yes-icon.png) |![Sí](../media/icons/yes-icon.png)  <sup>2</sup>              | ![Sí](../media/icons/yes-icon.png)  <sup>2</sup> | 
+| Blobs en bloques Premium          | ![Sí](../media/icons/yes-icon.png) |![Sí](../media/icons/yes-icon.png)  <sup>2</sup> | ![Sí](../media/icons/yes-icon.png)  <sup>2</sup> |
+
+<sup>1</sup> Data Lake Storage Gen2 y el protocolo Network File System (NFS) 3.0 necesitan una cuenta de almacenamiento con un espacio de nombres jerárquico habilitado.
+
+<sup>2</sup> La característica se admite en el nivel de versión preliminar.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Información general sobre la protección de datos](data-protection-overview.md)
-- [Directivas de retención de duración definida para datos de blobs inmutables](immutable-time-based-retention-policy-overview.md)
+- [Directivas de retención con duración definida para datos de blobs inmutables](immutable-time-based-retention-policy-overview.md)
 - [Retenciones legales para datos de blob inmutables](immutable-legal-hold-overview.md)
 - [Configuración de directivas de inmutabilidad para versiones de blobs (versión preliminar)](immutable-policy-configure-version-scope.md)
 - [Configuración de directivas de inmutabilidad para contenedores](immutable-policy-configure-container-scope.md)

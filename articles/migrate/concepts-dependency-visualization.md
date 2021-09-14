@@ -6,12 +6,12 @@ author: vineetvikram
 ms.author: vivikram
 ms.manager: abhemraj
 ms.date: 03/18/2021
-ms.openlocfilehash: 184c8099c0e86d8f8744948137b344c732bbf7b8
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 240f87a6b3154995340830e1861c8a76e6e3557f
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104778396"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123259663"
 ---
 # <a name="dependency-analysis"></a>Análisis de dependencias
 
@@ -71,7 +71,7 @@ La diferencia entre la visualización sin agente y la visualización basada en a
 
 **Requisito** | **Sin agente** | **Basado en agente**
 --- | --- | ---
-**Soporte técnico** | En versión preliminar solo para servidores en VMware. [Revise](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) los sistemas operativos compatibles. | En disponibilidad general (GA).
+**Soporte técnico** | Disponible solo para servidores en VMware. [Revise](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) los sistemas operativos compatibles. | En disponibilidad general (GA).
 **Agent** | No se requiere ningún agente en los servidores que desea analizar. | Se requieren agentes en cada servidor local que quiera analizar.
 **Log Analytics** | No se requiere. | Azure Migrate usa la solución [Service Map](../azure-monitor/vm/service-map.md) de los [registros de Azure Monitor](../azure-monitor/logs/log-query-overview.md) para el análisis de dependencias.<br/><br/> Puede asociar un área de trabajo de Log Analytics con un proyecto. El área de trabajo debe residir en las regiones Este de EE. UU., Sudeste Asiático u Oeste de Europa. El área de trabajo debe estar en una región en la que [se admita Service Map](../azure-monitor/vm/vminsights-configure-workspace.md#supported-regions).
 **Proceso** | Captura datos de conexión TCP. Después de la detección, recopila datos en intervalos de cinco minutos. | Los agentes de Service Map instalados en un servidor recopilan datos acerca de los procesos de TCP, así como de las conexiones de entrada o salida de cada proceso.

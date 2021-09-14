@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: deanwe
-ms.openlocfilehash: 8ada2b5dbf58791da7bfbd11201a683c6a060f94
-ms.sourcegitcommit: d2738669a74cda866fd8647cb9c0735602642939
+ms.openlocfilehash: 68269b511d101f7c2c346a4bee45aef86bda8fe3
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2021
-ms.locfileid: "113649609"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123223120"
 ---
 # <a name="azure-automanage-for-machines-best-practices---windows-server"></a>Procedimientos recomendados de Azure Automanage para máquinas: Windows Server
 
@@ -28,7 +28,6 @@ Automanage es compatible con las siguientes versiones de Windows Server:
 - Windows Server 2012/R2
 - Windows Server 2016
 - Windows Server 2019
-- Windows Server 2019 Azure Edition
 - Windows Server 2022
 - Windows Server 2022 Azure Edition
 
@@ -42,8 +41,9 @@ Automanage es compatible con las siguientes versiones de Windows Server:
 |[Microsoft Antimalware](../security/fundamentals/antimalware.md)    |Microsoft Antimalware para Azure es una protección gratuita en tiempo real que ayuda a identificar y eliminar virus, spyware y otro software malintencionado. Genera alertas cuando software no deseado o malintencionado intenta instalarse o ejecutarse en los sistemas de Azure. **Nota:** Microsoft Antimalware requiere que no haya ningún otro software antimalware instalado o puede que no funcione.  [Más información](../security/fundamentals/antimalware.md). |Producción, desarrollo/pruebas    |Sí    |
 |[Administración de actualizaciones](../automation/update-management/overview.md)    |Puede usar Update Management en Azure Automation para administrar las actualizaciones del sistema operativo de las máquinas. Puede evaluar rápidamente el estado de las actualizaciones disponibles en todas las máquinas agente y administrar el proceso de instalación de las actualizaciones necesarias para los servidores. [Más información](../automation/update-management/overview.md).    |Producción, desarrollo/pruebas    |No    |
 |[Change Tracking e inventario](../automation/change-tracking/overview.md) |Change Tracking e Inventario combina funciones de inventario y seguimiento de cambios que le permiten realizar un seguimiento de los cambios en la infraestructura de servidores y máquinas virtuales. El servicio admite el seguimiento de cambios en el registro, servicios, demonios, software y archivos del entorno para ayudarle a diagnosticar cambios no deseados y generar alertas. La compatibilidad con inventario le permite consultar recursos de los invitados para obtener una visualización de las aplicaciones instaladas y otros elementos de configuración.  [Más información](../automation/change-tracking/overview.md).    |Producción, desarrollo/pruebas    |No    |
-|[Configuración de invitado de Azure](../governance/policy/concepts/guest-configuration.md) | La directiva de configuración de invitado se usa para supervisar la configuración y notificar sobre el cumplimiento de la máquina. El servicio de Automanage instalará las [líneas base de seguridad de Windows](/windows/security/threat-protection/windows-security-baselines) con la extensión de configuración de invitado. En el caso de las máquinas Windows, el servicio de configuración de invitado volverá a aplicar automáticamente la configuración de la base de referencia si no son compatibles. [Más información](../governance/policy/concepts/guest-configuration.md).    |Producción, desarrollo/pruebas    |No    |
+|[Configuración de invitado](../governance/policy/concepts/guest-configuration.md) | La directiva de configuración de invitado se usa para supervisar la configuración y notificar sobre el cumplimiento de la máquina. El servicio Automanage instala las [Líneas de base de seguridad de Windows](/windows/security/threat-protection/windows-security-baselines) con la extensión de configuración de invitado. En el caso de las máquinas Windows, el servicio de configuración de invitado volverá a aplicar automáticamente la configuración de la base de referencia si no son compatibles. [Más información](../governance/policy/concepts/guest-configuration.md).    |Producción, desarrollo/pruebas    |No    |
 |[Diagnósticos de arranque](../virtual-machines/boot-diagnostics.md)    | Diagnósticos de arranque es una característica de depuración para máquinas virtuales (VM) de Azure que permite el diagnóstico de errores de arranque de la máquina virtual. Los diagnósticos de arranque permiten a un usuario observar el estado de la máquina virtual cuando está arrancando mediante la recopilación de información de registro serie y capturas de pantallas. Esta característica solo se habilitará en las máquinas que usan discos administrados. |Producción, desarrollo/pruebas    |No    |
+|[Windows Admin Center](/windows-server/manage/windows-admin-center/azure/manage-vm)    | Use Windows Admin Center (versión preliminar) en Azure Portal para administrar el sistema operativo Windows Server dentro de una máquina virtual de Azure. Esto solo se admite para las máquinas que usan Windows Server 2016 o superior. Automanage configura Windows Admin Center a través de una dirección IP privada. Si desea conectarse con Windows Admin Center a través de una dirección IP pública, abra una regla de puerto de entrada para el puerto 6516. Automanage incorpora a Windows Admin Center para el perfil de desarrollo/pruebas de forma predeterminada. Use las preferencias para habilitar o deshabilitar Windows Admin Center para los entornos de producción y desarrollo/pruebas. |Producción, desarrollo/pruebas    |Sí    |
 |[Cuenta de Azure Automation](../automation/automation-create-standalone-account.md)    |Azure Automation permite la administración de la infraestructura y las aplicaciones a lo largo de su ciclo de vida. [Más información](../automation/automation-intro.md).    |Producción, desarrollo/pruebas    |No    |
 |[Área de trabajo de Log Analytics](../azure-monitor/logs/log-analytics-overview.md) |Azure Monitor almacena los datos de registro en un área de trabajo de Log Analytics, que es un recurso de Azure y un contenedor en el que los datos se recopilan y se agregan, y que sirve como límite administrativo. [Más información](../azure-monitor/logs/design-logs-deployment.md).    |Producción, desarrollo/pruebas    |No    |
 

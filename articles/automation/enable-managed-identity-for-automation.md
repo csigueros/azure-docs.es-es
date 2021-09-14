@@ -3,15 +3,15 @@ title: Uso de una identidad administrada asignada por el sistema para una cuenta
 description: En este artículo se describe cómo configurar la identidad administrada para las cuentas de Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 07/24/2021
+ms.date: 08/12/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6d381abcc13a5b91d32b4e444e01909c83300e7b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 882a55d017ed23dc7abbc9096e38f70abb41c425
+ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121737194"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123214286"
 ---
 # <a name="using-a-system-assigned-managed-identity-for-an-azure-automation-account-preview"></a>Uso de una identidad administrada asignada por el sistema para una cuenta de Azure Automation (versión preliminar)
 
@@ -256,6 +256,8 @@ Lleve a cabo los siguiente pasos.
 Una cuenta de Automation puede utilizar su identidad administrada asignada por el sistema para obtener tokens para acceder a otros recursos protegidos por Azure AD, como Azure Key Vault. Estos tokens no representan a ningún usuario específico de la aplicación, sino que representan la aplicación que accede al recurso. En este caso, por ejemplo, el token representa una cuenta de Automation.
 
 Para poder usar la identidad administrada asignada por el sistema para la autenticación, configure el acceso para esa identidad en el recurso de Azure en el que planea usar la identidad. Para completar esta tarea, asigne el rol adecuado a esa identidad en el recurso de Azure de destino.
+
+Siga la entidad de seguridad con menos privilegios y asigne cuidadosamente solo los permisos necesarios para ejecutar el runbook. Por ejemplo, si la cuenta de Automation solo es necesaria para iniciar o detener una VM de Azure, los permisos asignados a la cuenta de ejecución o a la identidad administrada solo deben ser para iniciar o detener la VM. De forma similar, si un runbook lee desde Blob Storage, asigne permisos de solo lectura. En este ejemplo, se usa Azure PowerShell para mostrar cómo asignar el colaborador.
 
 En este ejemplo se usa Azure PowerShell para mostrar cómo asignar el rol Colaborador en la suscripción al recurso de Azure de destino. El rol Colaborador se usa como ejemplo y puede ser necesario o no en su caso.
 

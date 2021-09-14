@@ -4,12 +4,12 @@ description: En este artículo de referencia se explica cómo agregar un widget 
 ms.service: azure-video-analyzer
 ms.topic: reference
 ms.date: 06/01/2021
-ms.openlocfilehash: 6896ea43b480c973daa87576ddf9fc8ea5d7cda2
-ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
+ms.openlocfilehash: b70bfc9a10e357c6f1e64c1737fdb4c049b505f5
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122272077"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123037449"
 ---
 # <a name="use-the-azure-video-analyzer-player-widget"></a>Uso del widget de reproductor de Azure Video Analyzer
 
@@ -77,7 +77,7 @@ La aplicación se compila y se ejecuta. Una vez compilada, crea un certificado a
 
 - `Issuer`, `Audience`, `Key Type`, `Algorithm`, `Key Id`, `RSA Key Modulus`, `RSA Key Exponent`, `Token`
 
-Asegúrese de copiar estos valores para usarlos posteriormente.
+**Asegúrese de copiar y guardar estos valores para usarlos posteriormente.**
 
 ## <a name="create-an-access-policy"></a>Creación de una directiva de acceso
 

@@ -4,19 +4,19 @@ titleSuffix: Azure Digital Twins
 description: Conozca el conjunto de comandos de la CLI de Azure Digital Twins.
 author: baanders
 ms.author: baanders
-ms.date: 04/30/2021
+ms.date: 8/25/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: d3e081d4a60b5e4f26e5163d55f2df682b042bca
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 087a7bc7fda1c54e0a9e2c7f896b06dda78fa11e
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110066528"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123221156"
 ---
 # <a name="azure-digital-twins-cli-command-set"></a>Conjunto de comandos de la CLI de Azure Digital Twins
 
-Además de administrar la instancia de Azure Digital Twins en Azure Portal, Azure Digital Twins tiene un conjunto de comandos para la [CLI de Azure](/cli/azure/what-is-azure-cli) que puede usar para realizar la mayoría de las acciones principales con el servicio, entre las que se incluyen:
+Además de administrar la instancia de Azure Digital Twins en Azure Portal, Azure Digital Twins tiene un conjunto de comandos para la [CLI de Azure](/cli/azure/what-is-azure-cli) que puede usar para hacer la mayoría de las acciones principales con el servicio, entre las que se incluyen:
 * Administración de una instancia de Azure Digital Twins
 * Administración de modelos
 * Administración de gemelos digitales
@@ -39,7 +39,7 @@ Los comandos de Azure Digital Twins forman parte de la [extensión de Azure IoT 
 
 ### <a name="cli-version-requirements"></a>Requisitos de versión de la CLI
 
-Si usa la CLI de Azure con PowerShell, el paquete de extensión requiere que la versión de la CLI de Azure sea la **2.3.1** o superior.
+Si usa la CLI de Azure con PowerShell, la versión de la CLI de Azure debe ser la **2.3.1** o superior como un requisito del paquete de extensión.
 
 Puede comprobar la versión de la CLI de Azure con este comando de la CLI:
 ```azurecli
@@ -52,7 +52,7 @@ Para obtener instrucciones sobre cómo instalar o actualizar la CLI de Azure a u
 
 La CLI de Azure le solicitará automáticamente que instale la extensión la primera vez que use algún comando que la necesite.
 
-Como alternativa, puede usar el siguiente comando para instalar la extensión usted mismo en cualquier momento (o actualizarla si tiene una versión anterior). El comando se puede ejecutar en [Azure Cloud Shell](../cloud-shell/overview.md) o en una [CLI de Azure local](/cli/azure/install-azure-cli).
+Si no, puede usar el siguiente comando para instalar la extensión usted mismo en cualquier momento (o actualizarla si tiene una versión anterior). El comando se puede ejecutar en [Azure Cloud Shell](../cloud-shell/overview.md) o en una [CLI de Azure local](/cli/azure/install-azure-cli).
 
 ```azurecli-interactive
 az extension add --upgrade --name azure-iot

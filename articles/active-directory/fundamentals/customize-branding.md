@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: kexia
 ms.custom: it-pro, seodec18, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47815bcca9c6630392cb86284d8e8c3cf4d08e67
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: 39855746d6cfc52ada19850d6bc9650b3e95a54a
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113733203"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123437371"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Incorporación de la personalización de marca en la página de inicio de sesión de Azure Active Directory de la organización
 Use el logotipo de la organización y combinaciones de colores personalizadas para proporcionar un aspecto coherente en las páginas de inicio de sesión de Azure Active Directory (Azure AD). Las páginas de inicio de sesión aparecen cuando los usuarios inician sesión en las aplicaciones web de su organización, como Microsoft 365, que usan Azure AD como proveedor de identidades.
@@ -88,6 +88,9 @@ La personalización de marca no aparecerá inmediatamente cuando los usuarios te
             La imagen no puede tener más de 240 x 240 píxeles de tamaño y el tamaño de archivo debe ser inferior a 10 KB. Se recomienda usar una imagen transparente, ya que el fondo podría no coincidir con el fondo del logotipo. También se recomienda no agregar relleno alrededor de la imagen, ya que podría reducir la apariencia del logotipo.
     
         - **Logotipo cuadrado, tema oscuro**. Igual que la imagen de logotipo cuadrado anterior. Esta imagen de logotipo ocupa el lugar de la imagen de logotipo cuadrado cuando se usa con un fondo oscuro, como con las pantallas unidas a Azure AD de Windows 10 en la configuración rápida (OOBE).  Si el logotipo se ve bien en un fondo blanco, azul oscuro o negro, no es necesario agregar esta imagen. 
+        
+            >[!IMPORTANT]
+            > Los logotipos transparentes se admiten con la imagen de logotipo cuadrado. Sin embargo, la paleta de colores que se usa en el logotipo transparente podría estar en conflicto con los fondos (por ejemplo, blanco, gris claro, gris oscuro y negro) que se usan en las aplicaciones y los servicios de Microsoft 365 que consumen la imagen de logotipo cuadrado. Es posible que sea necesario usar fondos de color sólido para asegurarse de que el logotipo de la imagen cuadrada se representa correctamente en todas las situaciones.
         
         - **Visualización de la opción para seguir conectado**. Puede optar por permitir que los usuarios permanezcan con la sesión iniciada en Azure AD hasta que cierren sesión explícitamente. Si elige **No**, esta opción se oculta y los usuarios deberán iniciar sesión cada vez que el explorador se cierre y se vuelva a abrir.
 

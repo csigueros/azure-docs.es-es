@@ -93,7 +93,7 @@
       items:
         - name: Línea de base de seguridad
           href: /security/benchmark/azure/baselines/virtual-wan-security-baseline?toc=/azure/virtual-wan/TOC.json
-    - name: Conceptos de los precios
+    - name: Precios explicados
       href: pricing-concepts.md
     - name: Acerca de NVA en un centro virtual
       href: about-nva-hub.md

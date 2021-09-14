@@ -1,25 +1,27 @@
 ---
-title: Conectores administrados para Azure Logic Apps
+title: Operaciones de conectores administrados
 description: Use acciones y desencadenadores administrados por Microsoft para crear flujos de trabajo automatizados que integren otras aplicaciones, datos, servicios y sistemas mediante Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
 ms.date: 05/16/2021
-ms.openlocfilehash: 9461baebfad58f848b27fe689ed8dbd26c9dd07e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: c3010cb1d972bb898fd8346266166bb632191ead
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121727092"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123259088"
 ---
-# <a name="managed-connectors-for-logic-apps"></a>Conectores administrados para Logic Apps
+# <a name="managed-connectors-in-azure-logic-apps"></a>Conectores administrados en Azure Logic Apps
 
 Los [conectores administrados](apis-list.md) proporcionan maneras de obtener acceso a otros servicios y sistemas en los que los [desencadenadores y las acciones integrados](built-in.md) no están disponibles. Puede usar estos desencadenadores y acciones para crear flujos de trabajo que integren datos, aplicaciones, servicios basados en la nube y sistemas locales. En comparación con los desencadenadores y las acciones integrados, estos conectores suelen estar vinculados a un servicio o sistema específico, como Azure Blob Storage, Office 365, SQL, Salesforce o los servidores SFTP. Administrados por Microsoft y hospedados en Azure, los conectores administrados normalmente requieren que primero se cree una conexión desde el flujo de trabajo y autentique su identidad. Tanto los desencadenadores basados en la periodicidad como los basados en un webhook están disponibles, por lo que si usa un desencadenador basado en la periodicidad, revise la [Información general sobre el comportamiento de la periodicidad](apis-list.md#recurrence-behavior).
 
-Para una menor cantidad de servicios, sistemas y protocolos, como Azure Service Bus, Azure Functions, Azure Blob, Azure App Services, Azure API Management, SQL y AS2, entre otros, Logic Apps también proporciona operaciones integradas. El número y el intervalo varían en función de si crea una aplicación lógica multiinquilino o una aplicación lógica de un solo inquilino. En algunos casos, una versión integrada y una versión del conector administrado están disponibles. En cambio, en la mayoría de los casos, la versión integrada proporciona un mejor rendimiento, funcionalidades y precios, entre otras cosas. Por ejemplo, para [intercambiar mensajes B2B mediante el protocolo AS2](../logic-apps/logic-apps-enterprise-integration-as2.md), seleccione la versión integrada a menos que necesite usar funcionalidades de seguimiento, puesto que solo están disponibles en la versión del conector administrado (en desuso).
+Para un pequeño número de servicios, sistemas y protocolos, Azure Logic Apps proporciona operaciones integradas junto con sus [versiones de conector administrado](managed.md). El número y el intervalo disponibles varían en función de si se crea un recurso de aplicación lógica basado en el plan de consumo que se ejecute en Azure Logic Apps multiinquilino o un recurso de aplicación lógica basado en planes estándar que se ejecute en Azure Logic Apps de un solo inquilino. Para obtener más información, revise [Entorno de servicio de integración (ISE): inquilino único o multiinquilino](../logic-apps/single-tenant-overview-compare.md). En cambio, en la mayoría de los casos, la versión integrada proporciona un mejor rendimiento, funcionalidades y precios, entre otras cosas.
 
-Algunos conectores administrados para Logic Apps pertenecen a varias subcategorías. Por ejemplo, el conector SAP es tanto un [conector empresarial](#enterprise-connectors) como un [conector local](#on-premises-connectors).
+Por ejemplo, si crea una aplicación lógica de un solo inquilino, las operaciones integradas están disponibles para Azure Service Bus, Azure Event Hubs, SQL Server y MQ. En algunos casos, una versión integrada y una versión del conector administrado están disponibles. En cambio, en la mayoría de los casos, la versión integrada proporciona un mejor rendimiento, funcionalidades y precios, entre otras cosas. Si crea una aplicación lógica multiinquilino, las operaciones integradas están disponibles para Azure Functions, Azure App Services y Azure API Management.
+
+Algunos conectores administrados de Azure Logic Apps pertenecen a varias subcategorías. Por ejemplo, el conector SAP es tanto un [conector empresarial](#enterprise-connectors) como un [conector local](#on-premises-connectors).
 
 * Los [conectores estándar](#standard-connectors) proporcionan acceso a servicios como Azure Blob Storage, Office 365, SharePoint, Salesforce, Power BI, OneDrive y muchos más.
 * Los [conectores empresariales](#enterprise-connectors) proporcionan acceso a sistemas empresariales como SAP, IBM MQ e IBM 3270.
@@ -31,11 +33,9 @@ Algunos conectores administrados para Logic Apps pertenecen a varias subcategor�
 
 Azure Logic Apps proporciona estos conectores estándar populares para crear flujos de trabajo automatizados mediante estos servicios y sistemas. Algunos conectores estándar también admiten [sistemas locales](#on-premises-connectors) o [cuentas de integración](#integration-account-connectors).
 
-Algunos conectores estándar de Logic Apps también admiten [sistemas locales](#on-premises-connectors) o [cuentas de integración](#integration-account-connectors).
-
 :::row:::
     :::column:::
-        [![Icono del conector administrado de Azure Service Bus en Logic Apps][azure-service-bus-icon]][azure-service-bus-doc]
+        [![Icono de Azure Service Bus][azure-service-bus-icon]][azure-service-bus-doc]
         \
         \
         [**Azure Service Bus**][azure-service-bus-doc]
@@ -44,7 +44,7 @@ Algunos conectores estándar de Logic Apps también admiten [sistemas locales](#
         Administre mensajes asincrónicos, sesiones y suscripciones a temas con el conector más usado en Logic Apps.
     :::column-end:::
     :::column:::
-        [![Icono del conector administrado de SQL Server en Logic Apps][sql-server-icon]][sql-server-doc]
+        [![Icono de SQL Server][sql-server-icon]][sql-server-doc]
         \
         \
         [**SQL Server**][sql-server-doc]
@@ -53,7 +53,7 @@ Algunos conectores estándar de Logic Apps también admiten [sistemas locales](#
         Conéctese a SQL Server en el entorno local o a una base de datos de Azure SQL Database en la nube para poder administrar los registros, ejecutar procedimientos almacenados o realizar consultas.
     :::column-end:::
     :::column:::
-        [![Icono del conector administrado de Azure Blob Storage en Logic Apps][azure-blob-storage-icon]][azure-blob-storage-doc]
+        [![Icono de Azure Blob Storage][azure-blob-storage-icon]][azure-blob-storage-doc]
         \
         \
         [**Azure Blob Storage**][azure-blob-storage-doc]
@@ -62,7 +62,7 @@ Algunos conectores estándar de Logic Apps también admiten [sistemas locales](#
         Conéctese a su cuenta de Azure Storage para crear y administrar el contenido de los blobs.
     :::column-end:::
     :::column:::
-        [![Icono del conector administrado de Office 365 Outlook en Logic Apps][office-365-outlook-icon]][office-365-outlook-doc]
+        [![Icono de Office 365 Outlook][office-365-outlook-icon]][office-365-outlook-doc]
         \
         \
         [**Office 365 Outlook**][office-365-outlook-doc]
@@ -73,7 +73,7 @@ Algunos conectores estándar de Logic Apps también admiten [sistemas locales](#
 :::row-end:::
 :::row:::
     :::column:::
-        [![Icono del conector administrado de STFP-SSH en Logic Apps][sftp-ssh-icon]][sftp-ssh-doc]
+        [![Icono de STFP-SSH][sftp-ssh-icon]][sftp-ssh-doc]
         \
         \
         [**STFP-SSH**][sftp-ssh-doc]
@@ -82,7 +82,7 @@ Algunos conectores estándar de Logic Apps también admiten [sistemas locales](#
         Conéctese a servidores SFTP accesibles desde internet mediante SSH para trabajar con archivos y carpetas.
     :::column-end:::
     :::column:::
-        [![Icono del conector administrado de SharePoint Online en Logic Apps][sharepoint-online-icon]][sharepoint-online-doc]
+        [![Icono de SharePoint Online][sharepoint-online-icon]][sharepoint-online-doc]
         \
         \
         [**SharePoint Online**][sharepoint-online-doc]
@@ -91,8 +91,8 @@ Algunos conectores estándar de Logic Apps también admiten [sistemas locales](#
         Conéctese a SharePoint Online para administrar archivos, datos adjuntos, carpetas y mucho más.
     :::column-end:::
     :::column:::
-        [![Icono del conector administrado de Azure Queues en Logic Apps][azure-queues-icon]][azure-queues-doc]
-        \
+        [![Icono de Azure Queues
+    ][azure-queues-icon]][azure-queues-doc]    \
         \
         [**Azure Queues**][azure-queues-doc]
         \
@@ -100,7 +100,7 @@ Algunos conectores estándar de Logic Apps también admiten [sistemas locales](#
         Conéctese a su cuenta de Azure Storage para poder crear y administrar colas y mensajes.
     :::column-end:::
     :::column:::
-        [![Icono del conector administrado de FTP en Logic Apps][ftp-icon]][ftp-doc]
+        [![Icono de FTP][ftp-icon]][ftp-doc]
         \
         \
         [**FTP**][ftp-doc]
@@ -111,7 +111,7 @@ Algunos conectores estándar de Logic Apps también admiten [sistemas locales](#
 :::row-end:::
 :::row:::
     :::column:::
-        [![Icono del conector administrado del Sistema de archivos en Logic Apps][file-system-icon]][file-system-doc]
+        [![Icono de sistema de archivos][file-system-icon]][file-system-doc]
         \
         \
         [**Sistema de archivos**][file-system-doc]
@@ -120,7 +120,7 @@ Algunos conectores estándar de Logic Apps también admiten [sistemas locales](#
         Conéctese al recurso compartido de archivos local para crear y administrar archivos.
     :::column-end:::
     :::column:::
-        [![Icono del conector administrado de Azure Event Hubs en Logic Apps][azure-event-hubs-icon]][azure-event-hubs-doc]
+        [![Icono de Azure Event Hubs][azure-event-hubs-icon]][azure-event-hubs-doc]
         \
         \
         [**Azure Event Hubs**][azure-event-hubs-doc]
@@ -129,7 +129,7 @@ Algunos conectores estándar de Logic Apps también admiten [sistemas locales](#
         Consuma y publique eventos en un centro de eventos. Por ejemplo, obtenga una salida de su aplicación lógica con Event Hubs y enviarla luego a un proveedor de análisis en tiempo real.
     :::column-end:::
     :::column:::
-        [![Icono del conector administrado de Azure Event Grid en Logic Apps][azure-event-grid-icon]][azure-event-grid-doc]
+        [![Icono de Azure Event Grid][azure-event-grid-icon]][azure-event-grid-doc]
         \
         \
         [**Azure Event Grid**][azure-event-grid-doc]
@@ -138,7 +138,7 @@ Algunos conectores estándar de Logic Apps también admiten [sistemas locales](#
         Supervise los eventos publicados por Event Grid, por ejemplo, cuando cambian los recursos de Azure o los recursos de terceros.
     :::column-end:::
     :::column:::
-        [![Icono del conector administrado de Salesforce en Logic Apps][salesforce-icon]][salesforce-doc]
+        [![Icono de Salesforce][salesforce-icon]][salesforce-doc]
         \
         \
         [**Salesforce**][salesforce-doc]
@@ -150,31 +150,31 @@ Algunos conectores estándar de Logic Apps también admiten [sistemas locales](#
 
 ## <a name="on-premises-connectors"></a>Conectores locales
 
-Para poder crear una conexión a un sistema local, primero debe [descargar, instalar y configurar una puerta de enlace de datos local][gateway-doc]. Esta puerta de enlace proporciona un canal de comunicación seguro sin tener que configurar la infraestructura de red necesaria. 
+Para poder crear una conexión a un sistema local, primero debe [descargar, instalar y configurar una puerta de enlace de datos local][gateway-doc]. Esta puerta de enlace proporciona un canal de comunicación seguro sin tener que configurar la infraestructura de red necesaria.
 
-Los siguientes conectores suelen ser los [conectores estándar](#standard-connectors) más usados que proporciona Logic Apps para acceder a datos y recursos en sistemas locales. Consulte la lista de conectores locales en [Orígenes de datos admitidos](../logic-apps/logic-apps-gateway-connection.md#supported-connections).
+Los siguientes conectores suelen ser los [conectores estándar](#standard-connectors) más usados que proporciona Azure Logic Apps para acceder a datos y recursos en sistemas locales. Consulte la lista de conectores locales en [Orígenes de datos admitidos](../logic-apps/logic-apps-gateway-connection.md#supported-connections).
 
 :::row:::
     :::column:::
-        [![Icono del conector local de Biztalk Server en Logic Apps][biztalk-server-icon]][biztalk-server-doc]
+        [![Icono de Biztalk Server][biztalk-server-icon]][biztalk-server-doc]
         \
         \
         [**Biztalk Server**][biztalk-server-doc]
     :::column-end:::
     :::column:::
-        [![Icono del conector local del Sistema de archivos en Logic Apps][file-system-icon]][file-system-doc]
+        [![Icono de sistema de archivos][file-system-icon]][file-system-doc]
         \
         \
         [**Sistema de archivos**][file-system-doc]
     :::column-end:::
     :::column:::
-        [![Icono del conector local de IBM Db2 en Logic Apps][ibm-db2-icon]][ibm-db2-doc]
+        [![Icono de IBM DB2][ibm-db2-icon]][ibm-db2-doc]
         \
         \
-        [**IBM Db2**][ibm-db2-doc]
+        [**IBM DB2**][ibm-db2-doc]
     :::column-end:::
     :::column:::
-        [![Icono del conector local de IBM Informix en Logic Apps][ibm-informix-icon]][ibm-informix-doc]
+        [![Icono de IBM Informix][ibm-informix-icon]][ibm-informix-doc]
         \
         \
         [**IBM Informix**][ibm-informix-doc]
@@ -182,25 +182,25 @@ Los siguientes conectores suelen ser los [conectores estándar](#standard-connec
 :::row-end:::
 :::row:::
     :::column:::
-        [![Icono del conector local de MySQL en Logic Apps][mysql-icon]][mysql-doc]
+        [![Icono de MySQL][mysql-icon]][mysql-doc]
         \
         \
         [**MySQL**][mysql-doc]
     :::column-end:::
     :::column:::
-        [![Icono del conector local de Oracle DB en Logic Apps][oracle-db-icon]][oracle-db-doc]
+        [![Icono de Oracle DB][oracle-db-icon]][oracle-db-doc]
         \
         \
         [**Oracle DB**][oracle-db-doc]
     :::column-end:::
     :::column:::
-        [![Icono del conector local de PostgreSQL en Logic Apps][postgre-sql-icon]][postgre-sql-doc]
+        [![Icono de PostgreSQL][postgre-sql-icon]][postgre-sql-doc]
         \
         \
         [**PostgreSQL**][postgre-sql-doc]
     :::column-end:::
     :::column:::
-        [![Icono del conector local de SharePoint Server en Logic Apps][sharepoint-server-icon]][sharepoint-server-doc]
+        [![Icono de SharePoint Server][sharepoint-server-icon]][sharepoint-server-doc]
         \
         \
         [**SharePoint Server**][sharepoint-server-doc]
@@ -208,13 +208,13 @@ Los siguientes conectores suelen ser los [conectores estándar](#standard-connec
 :::row-end:::
 :::row:::
     :::column:::
-        [![Icono del conector local de SQL Server en Logic Apps][sql-server-icon]][sql-server-doc]
+        [![Icono de SQL Server][sql-server-icon]][sql-server-doc]
         \
         \
         [**SQL Server**][sql-server-doc]
     :::column-end:::
     :::column:::
-        [![Icono del conector local de Teradata en Logic Apps][teradata-icon]][teradata-doc]
+        [![Icono de Teradata][teradata-icon]][teradata-doc]
         \
         \
         [**Teradata**][teradata-doc]
@@ -225,6 +225,8 @@ Los siguientes conectores suelen ser los [conectores estándar](#standard-connec
     :::column-end:::
 :::row-end:::
 
+<a name="integration-account-connectors"></a>
+
 ## <a name="integration-account-connectors"></a>Conectores de la cuenta de integración
 
 Los conectores de cuentas de integración admiten específicamente [escenarios de comunicación de negocio a negocio (B2B)](../logic-apps/logic-apps-enterprise-integration-overview.md) en Azure Logic Apps. Después de [crear una cuenta de integración](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) y definir los artefactos B2B, como asociados comerciales, acuerdos, mapas y esquemas, puede usar los conectores de las cuentas de integración para codificar y descodificar mensajes, transformar contenido, etc.
@@ -232,85 +234,44 @@ Los conectores de cuentas de integración admiten específicamente [escenarios d
 Por ejemplo, si usa Microsoft BizTalk Server, puede crear una conexión desde el flujo de trabajo mediante el [conector local de BizTalk Server](#on-premises-connectors). A continuación, puede ampliar o realizar operaciones de BizTalk en el flujo de trabajo mediante los conectores de la cuenta de integración.
 
 > [!NOTE]
-> Para poder usar conectores de la cuenta de integración, debe [vincular la aplicación lógica a una cuenta de integración.](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)
-
+> Para poder usar conectores de cuenta de integración en una instancia de Azure Logic Apps multiinquilino basada en planes de consumo, debe [vincular el recurso de la aplicación lógica a una cuenta de integración](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md). 
 
 :::row:::
     :::column:::
-        [![Icono de la acción de descodificación de AS2 en Logic Apps][as2-icon]][as2-doc]
+        [![Icono de descodificación de AS2][as2-icon]][as2-doc]
         \
         \
         [**descodificación de AS2**][as2-doc]
     :::column-end:::
     :::column:::
-        [![Icono de la acción de codificación de AS2 en Logic Apps][as2-icon]][as2-doc]
+        [![Icono de codificación de AS2][as2-icon]][as2-doc]
         \
         \
         [**Codificación de AS2**][as2-doc]
     :::column-end:::
     :::column:::
-        [![Icono de la acción de descodificación de EDIFACT en Logic Apps][edifact-icon]][edifact-decode-doc]
+        [![Icono de descodificación de EDIFACT][edifact-icon]][edifact-decode-doc]
         \
         \
         [**Descodificación de EDIFACT**][edifact-decode-doc]
     :::column-end:::
     :::column:::
-        [![Icono de la acción de codificación de EDIFACT en Logic Apps][edifact-icon]][edifact-encode-doc]
+        [![Icono de codificación de EDIFACT][edifact-icon]][edifact-encode-doc]
         \
         \
         [**Codificación de EDIFACT**][edifact-encode-doc]
     :::column-end:::
-:::row-end:::
-:::row:::
     :::column:::
-        [![Icono de la acción de descodificación de archivos planos en Logic Apps][flat-file-decode-icon]][flat-file-decode-doc]
-        \
-        \
-        [**Descodificación de archivos planos**][flat-file-decode-doc]
-    :::column-end:::
-    :::column:::
-        [![Icono de la acción de codificación de archivos planos en Logic Apps][flat-file-encode-icon]][flat-file-encode-doc]
-        \
-        \
-        [**Codificación de archivos planos**][flat-file-encode-doc]
-    :::column-end:::
-    :::column:::
-        [![Icono de acción de la cuenta de integración en Logic Apps][integration-account-icon]][integration-account-doc]
-        \
-        \
-        [**Cuenta de integración**][integration-account-doc]
-    :::column-end:::
-    :::column:::
-        [![Icono de acción de transformaciones líquidas en Logic Apps][liquid-icon]][json-liquid-transform-doc]
-        \
-        \
-        [**Transformaciones líquidas**][json-liquid-transform-doc]
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column:::
-        [![Icono de la acción de descodificación de X12 en Logic Apps][x12-icon]][x12-decode-doc]
+        [![Icono de descodificación de X12][x12-icon]][x12-decode-doc]
         \
         \
         [**Descodificación de X12**][x12-decode-doc]
     :::column-end:::
     :::column:::
-        [![Icono de la acción de codificación de X12 en Logic Apps][x12-icon]][x12-encode-doc]
+        [![Icono de codificación de X12][x12-icon]][x12-encode-doc]
         \
         \
         [**Codificación de X12**][x12-encode-doc]
-    :::column-end:::
-    :::column:::
-        [![Icono de acción de transformaciones XML en Logic Apps][xml-transform-icon]][xml-transform-doc]
-        \
-        \
-        [**Transformaciones XML**][xml-transform-doc]
-    :::column-end:::
-    :::column:::
-        [![Icono de acción de validaciones XML en Logic Apps][xml-validate-icon]][xml-validate-doc]
-        \
-        \
-        [**Validaciones XML**][xml-validate-doc]
     :::column-end:::
 :::row-end:::
 
@@ -320,27 +281,26 @@ Los conectores siguientes proporcionan acceso a los sistemas empresariales por u
 
 :::row:::
     :::column:::
-        [![Icono del conector empresarial IBM 3270 en Logic Apps][ibm-3270-icon]][ibm-3270-doc]
+        [![Icono de IBM 3270][ibm-3270-icon]][ibm-3270-doc]
         \
         \
-        [**Conector empresarial** IBM 3270][ibm-3270-doc]
+        [**IBM 3270**][ibm-3270-doc]
     :::column-end:::
     :::column:::
-        [![Icono del conector empresarial IBM MQ en Logic Apps][ibm-mq-icon]][ibm-mq-doc]
+        [![Icono de IBM MQ][ibm-mq-icon]][ibm-mq-doc]
         \
         \
-        [**Conector empresarial** IBM MQ][ibm-mq-doc]
+        [**IBM MQ**][ibm-mq-doc]
     :::column-end:::
     :::column:::
-        [![Icono del conector empresarial SAP en Logic Apps][sap-icon]][sap-connector-doc]
+        [![Icono de SAP][sap-icon]][sap-connector-doc]
         \
         \
-        [**Conector empresarial** SAP][sap-connector-doc]
+        [**SAP**][sap-connector-doc]
     :::column-end:::
     :::column:::
     :::column-end:::
 :::row-end:::
-
 
 ## <a name="ise-connectors"></a>Conectores del ISE
 
@@ -351,25 +311,25 @@ En un entorno deL servicio de integración (ISE), estos conectores administrados
 
 :::row:::
     :::column:::
-        [![Icono del conector ISE de AS2 ISE en Logic Apps][as2-icon]][as2-doc]
+        [![Icono de ISE de AS2][as2-icon]][as2-doc]
         \
         \
         [**ISE de** AS2][as2-doc]
     :::column-end:::
     :::column:::
-        [![Icono del conector ISE de Azure Automation en Logic Apps][azure-automation-icon]][azure-automation-doc]
+        [![Icono de ISE de Azure Automation][azure-automation-icon]][azure-automation-doc]
         \
         \
         [**ISE de** Azure Automation][azure-automation-doc]
     :::column-end:::
     :::column:::
-        [![Icono del conector ISE de Azure Blob Storage en Logic Apps][azure-blob-storage-icon]][azure-blob-storage-doc]
+        [![Icono de ISE de Azure Blob Storage][azure-blob-storage-icon]][azure-blob-storage-doc]
         \
         \
         [**ISE de** Azure Blob Storage][azure-blob-storage-doc]
     :::column-end:::
     :::column:::
-        [![Icono del conector ISE de Azure Cosmos DB en Logic Apps][azure-cosmos-db-icon]][azure-cosmos-db-doc]
+        [![Icono de ISE de Azure Cosmos DB][azure-cosmos-db-icon]][azure-cosmos-db-doc]
         \
         \
         [**ISE de** Azure Cosmos DB][azure-cosmos-db-doc]
@@ -377,25 +337,25 @@ En un entorno deL servicio de integración (ISE), estos conectores administrados
 :::row-end:::
 :::row:::
     :::column:::
-        [![Icono del conector ISE de Azure Event Hubs en Logic Apps][azure-event-hubs-icon]][azure-event-hubs-doc]
+        [![Icono de ISE de Azure Event Hubs][azure-event-hubs-icon]][azure-event-hubs-doc]
         \
         \
         [**ISE de** Azure Event Hubs][azure-event-hubs-doc]
     :::column-end:::
     :::column:::
-        [![Icono del conector ISE de Azure Event Grid en Logic Apps][azure-event-grid-icon]][azure-event-grid-doc]
+        [![Icono de ISE de Azure Event Grid][azure-event-grid-icon]][azure-event-grid-doc]
         \
         \
         [**ISE de** Azure Event Grid][azure-event-grid-doc]
     :::column-end:::
     :::column:::
-        [![Icono del conector ISE de Azure File Storage en Logic Apps][azure-file-storage-icon]][azure-file-storage-doc]
+        [![Icono de ISE de Azure Files][azure-file-storage-icon]][azure-file-storage-doc]
         \
         \
-        [**ISE de** Azure File Storage][azure-file-storage-doc]
+        [**ISE de**  Azure Files][azure-file-storage-doc]
     :::column-end:::
     :::column:::
-        [![Icono del conector ISE de Azure Key Vault en Logic Apps][azure-key-vault-icon]][azure-key-vault-doc]
+        [![Icono de ISE de Azure Key Vault][azure-key-vault-icon]][azure-key-vault-doc]
         \
         \
         [**ISE de** Azure Key Vault][azure-key-vault-doc]
@@ -403,25 +363,25 @@ En un entorno deL servicio de integración (ISE), estos conectores administrados
 :::row-end:::
 :::row:::
     :::column:::
-        [![Icono del conector ISE de los registros de Azure Monitor en Logic Apps][azure-monitor-logs-icon]][azure-monitor-logs-doc]
+        [![Icono de ISE de registros de Azure Monitor][azure-monitor-logs-icon]][azure-monitor-logs-doc]
         \
         \
         [**ISE de** registros de Azure Monitor][azure-monitor-logs-doc]
     :::column-end:::
     :::column:::
-        [![Icono del conector ISE de Azure Service Bus en Logic Apps][azure-service-bus-icon]][azure-service-bus-doc]
+        [![Icono de ISE de Azure Service Bus][azure-service-bus-icon]][azure-service-bus-doc]
         \
         \
         [**ISE de** Azure Service Bus][azure-service-bus-doc]
     :::column-end:::
     :::column:::
-        [![Icono del conector ISE de Azure Synapse Analytics en Logic Apps][azure-sql-data-warehouse-icon]][azure-sql-data-warehouse-doc]
+        [![Icono de ISE de Azure Synapse Analytics][azure-sql-data-warehouse-icon]][azure-sql-data-warehouse-doc]
         \
         \
         [**ISE de** Azure Synapse Analytics][azure-sql-data-warehouse-doc]
     :::column-end:::
     :::column:::
-        [![Icono del conector ISE de Azure Table Storage en Logic Apps][azure-table-storage-icon]][azure-table-storage-doc]
+        [![Icono de ISE de Azure Table Storage][azure-table-storage-icon]][azure-table-storage-doc]
         \
         \
         [**ISE de** Azure Table Storage][azure-table-storage-doc]
@@ -429,51 +389,51 @@ En un entorno deL servicio de integración (ISE), estos conectores administrados
 :::row-end:::
 :::row:::
     :::column:::
-        [![Icono del conector ISE de Azure Queues en Logic Apps][azure-queues-icon]][azure-queues-doc]
+        [![Icono de ISE de Azure Queues][azure-queues-icon]][azure-queues-doc]
         \
         \
         [**ISE de** Azure Queues][azure-queues-doc]
     :::column-end:::
     :::column:::
-        [![Icono del conector ISE de EDIFACT en Logic Apps][edifact-icon]][edifact-doc]
+        [![Icono de ISE de EDIFACT][edifact-icon]][edifact-doc]
         \
         \
         [**ISE de** EDIFACT][edifact-doc]
     :::column-end:::
     :::column:::
-        [![Icono del conector ISE del Sistema de archivos en Logic Apps][file-system-icon]][file-system-doc]
+        [![Icono de ISE del sistema de archivos][file-system-icon]][file-system-doc]
         \
         \
         [**ISE del** Sistema de archivos][file-system-doc]
     :::column-end:::
     :::column:::
-        [![Icono del conector ISE de FTP en Logic Apps][ftp-icon]][ftp-doc]
+        [![Icono de ISE de FTP][ftp-icon]][ftp-doc]
         \
         \
         [**ISE de** FTP][ftp-doc]
     :::column-end:::
-:::row-end:::   
+:::row-end:::
 :::row:::
     :::column:::
-        [![Icono del conector ISE de IBM 3270 en Logic Apps][ibm-3270-icon]][ibm-3270-doc]
+        [![Icono de ISE de IBM 3270][ibm-3270-icon]][ibm-3270-doc]
         \
         \
         [**ISE de** IBM 3270][ibm-3270-doc]
     :::column-end:::
     :::column:::
-        [![Icono del conector ISE de IBM DB2 en Logic Apps][ibm-db2-icon]][ibm-db2-doc]
+        [![Icono de ISE de IBM DB2][ibm-db2-icon]][ibm-db2-doc]
         \
         \
         [**ISE de** IBM DB2][ibm-db2-doc]
     :::column-end:::
     :::column:::
-        [![Icono del conector ISE de IBM MQ en Logic Apps][ibm-mq-icon]][ibm-mq-doc]
+        [![Icono de ISE de IBM MQ][ibm-mq-icon]][ibm-mq-doc]
         \
         \
         [**ISE de** IBM MQ][ibm-mq-doc]
     :::column-end:::
     :::column:::
-        [![Icono del conector ISE de SAP en Logic Apps][sap-icon]][sap-connector-doc]
+        [![Icono de ISE de SAP][sap-icon]][sap-connector-doc]
         \
         \
         [**ISE de** SAP][sap-connector-doc]
@@ -481,25 +441,25 @@ En un entorno deL servicio de integración (ISE), estos conectores administrados
 :::row-end:::
 :::row:::
     :::column:::
-        [![Icono del conector ISE de SFTP-SSH en Logic Apps][sftp-ssh-icon]][sftp-ssh-doc]
+        [![Icono de ISE de SFTP-SSH][sftp-ssh-icon]][sftp-ssh-doc]
         \
         \
         [**ISE de** SFTP-SSH][sftp-ssh-doc]
     :::column-end:::
     :::column:::
-        [![Icono del conector ISE de SMTP en Logic Apps][smtp-icon]][smtp-doc]
+        [![Icono de ISE de SMTP][smtp-icon]][smtp-doc]
         \
         \
         [**ISE de** SMTP][smtp-doc]
     :::column-end:::
     :::column:::
-        [![Icono del conector ISE de SQL Server en Logic Apps][sql-server-icon]][sql-server-doc]
+        [![Icono de ISE de SQL Server][sql-server-icon]][sql-server-doc]
         \
         \
         [**ISE de** SQL Server][sql-server-doc]
     :::column-end:::
     :::column:::
-        [![Icono del conector ISE de X12 en Logic Apps][x12-icon]][x12-doc]
+        [![Icono de ISE de X12][x12-icon]][x12-doc]
         \
         \
         [**ISE de** X12][x12-doc]
@@ -595,7 +555,6 @@ Para más información, consulte los temas siguientes:
 [wordpress-icon]: ./media/apis-list/wordpress.png
 [youtube-icon]: ./media/apis-list/youtube.png
 
-
 <!--Managed connector doc links-->
 [azure-automation-doc]: /connectors/azureautomation/ "Creación y administración de trabajos de Automation para su infraestructura local y en la nube"
 [azure-blob-storage-doc]: ./connectors-create-api-azureblobstorage.md "Administrar archivos del contenedor de blobs con el conector de Azure Blob Storage"
@@ -646,59 +605,16 @@ Para más información, consulte los temas siguientes:
 <!--Integration account connector icons -->
 [as2-icon]: ./media/apis-list/as2.png
 [edifact-icon]: ./media/apis-list/edifact.png
-[flat-file-encode-icon]: ./media/apis-list/flat-file-encoding.png
-[flat-file-decode-icon]: ./media/apis-list/flat-file-decoding.png
-[integration-account-icon]: ./media/apis-list/integration-account.png
-[liquid-icon]: ./media/apis-list/liquid-transform.png
 [x12-icon]: ./media/apis-list/x12.png
-[xml-validate-icon]: ./media/apis-list/xml-validation.png
-[xml-transform-icon]: ./media/apis-list/xsl-transform.png
 
 <!-- Integration account connector docs -->
-
 [as2-doc]: ../logic-apps/logic-apps-enterprise-integration-as2.md "Codificar y descodificar mensajes que usan el protocolo AS2"
 [edifact-doc]: ../logic-apps/logic-apps-enterprise-integration-edifact.md "Codificar y descodificar mensajes que usan el protocolo EDIFACT"
 [edifact-decode-doc]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-decode.md "Descodificar mensajes que usan el protocolo EDIFACT"
 [edifact-encode-doc]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-encode.md "Codificar mensajes que usan el protocolo EDIFACT"
-[flat-file-decode-doc]:../logic-apps/logic-apps-enterprise-integration-flatfile.md "Más información sobre archivos planos para integración empresarial"
-[flat-file-encode-doc]:../logic-apps/logic-apps-enterprise-integration-flatfile.md "Más información sobre archivos planos para integración empresarial"
-[integration-account-doc]: ../logic-apps/logic-apps-enterprise-integration-metadata.md "Administrar metadatos de artefactos para cuentas de integración"
-[json-liquid-transform-doc]: ../logic-apps/logic-apps-enterprise-integration-liquid-transform.md "Transformar JSON mediante plantillas de Liquid"
 [x12-doc]: ../logic-apps/logic-apps-enterprise-integration-x12.md "Codificar y descodificar mensajes que usan el protocolo X12"
 [x12-decode-doc]: ../logic-apps/logic-apps-enterprise-integration-X12-decode.md "Descodificar mensajes que usan el protocolo X12"
 [x12-encode-doc]: ../logic-apps/logic-apps-enterprise-integration-X12-encode.md "Codificar mensajes que usan el protocolo X12"
-[xml-transform-doc]: ../logic-apps/logic-apps-enterprise-integration-transform.md "Transformar mensajes XML"
-[xml-validate-doc]: ../logic-apps/logic-apps-enterprise-integration-xml-validation.md "Validar mensajes XML"
-
 
 <!--Other doc links-->
 [gateway-doc]: ../logic-apps/logic-apps-gateway-connection.md "Conexión a orígenes de datos locales desde aplicaciones lógicas con una puerta de enlace de datos local"
-
-
-
-<!--Integration account connector icons -->
-[as2-icon]: ./media/apis-list/as2.png
-[edifact-icon]: ./media/apis-list/edifact.png
-[flat-file-encode-icon]: ./media/apis-list/flat-file-encoding.png
-[flat-file-decode-icon]: ./media/apis-list/flat-file-decoding.png
-[integration-account-icon]: ./media/apis-list/integration-account.png
-[liquid-icon]: ./media/apis-list/liquid-transform.png
-[x12-icon]: ./media/apis-list/x12.png
-[xml-validate-icon]: ./media/apis-list/xml-validation.png
-[xml-transform-icon]: ./media/apis-list/xsl-transform.png
-
-<!-- Integration account connector docs -->
-
-[as2-doc]: ../logic-apps/logic-apps-enterprise-integration-as2.md "Codificar y descodificar mensajes que usan el protocolo AS2"
-[edifact-doc]: ../logic-apps/logic-apps-enterprise-integration-edifact.md "Codificar y descodificar mensajes que usan el protocolo EDIFACT"
-[edifact-decode-doc]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-decode.md "Descodificar mensajes que usan el protocolo EDIFACT"
-[edifact-encode-doc]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-encode.md "Codificar mensajes que usan el protocolo EDIFACT"
-[flat-file-decode-doc]:../logic-apps/logic-apps-enterprise-integration-flatfile.md "Más información sobre archivos planos para integración empresarial"
-[flat-file-encode-doc]:../logic-apps/logic-apps-enterprise-integration-flatfile.md "Más información sobre archivos planos para integración empresarial"
-[integration-account-doc]: ../logic-apps/logic-apps-enterprise-integration-metadata.md "Administrar metadatos de artefactos para cuentas de integración"
-[json-liquid-transform-doc]: ../logic-apps/logic-apps-enterprise-integration-liquid-transform.md "Transformar JSON mediante plantillas de Liquid"
-[x12-doc]: ../logic-apps/logic-apps-enterprise-integration-x12.md "Codificar y descodificar mensajes que usan el protocolo X12"
-[x12-decode-doc]: ../logic-apps/logic-apps-enterprise-integration-X12-decode.md "Descodificar mensajes que usan el protocolo X12"
-[x12-encode-doc]: ../logic-apps/logic-apps-enterprise-integration-X12-encode.md "Codificar mensajes que usan el protocolo X12"
-[xml-transform-doc]: ../logic-apps/logic-apps-enterprise-integration-transform.md "Transformar mensajes XML"
-[xml-validate-doc]: ../logic-apps/logic-apps-enterprise-integration-xml-validation.md "Validar mensajes XML"

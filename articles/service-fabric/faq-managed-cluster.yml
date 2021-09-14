@@ -6,14 +6,14 @@ metadata:
   ms.author: micraft
   author: craftyhouse
   ms.service: service-fabric
-  ms.date: 7/14/2021
+  ms.date: 8/23/2021
   ms.custom: references_regions
-  ms.openlocfilehash: 6b77924cd499eec27175eba1f690c2429420c625
-  ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+  ms.openlocfilehash: de8cf3599c35ed9069800353a38c46d353eab53a
+  ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 08/17/2021
-  ms.locfileid: "122253386"
+  ms.lasthandoff: 08/25/2021
+  ms.locfileid: "122864988"
 title: Preguntas más frecuentes sobre los clústeres administrados de Service Fabric
 summary: Aquí encontrará algunas preguntas frecuentes y sus respuestas sobre los clústeres administrados de Service Fabric.
 sections:
@@ -42,7 +42,7 @@ sections:
   - question: >
       ¿Cuál es la diferencia entre un clúster de SKU Básico y Estándar?
     answer: >
-      Un clúster de SKU Básico supone que la mayoría de las configuraciones las proporciona el proveedor de recursos de Service Fabric. Los clústeres de SKU Básico están diseñados para usarse en entornos de prueba y preproducción. Un clúster de SKU Estándar permite a los usuarios configurar el clúster para satisfacer sus necesidades de forma específica. Para más información, consulte [SKU de clúster administrado de Service Fabric](./overview-managed-cluster.md#service-fabric-managed-cluster-skus).
+      Los clústeres de SKU Básico están diseñados para usarse en entornos de prueba y preproducción con soporte técnico para un cambio de configuración mínimo. Un clúster de SKU Estándar permite a los usuarios configurar el clúster para satisfacer sus necesidades de forma específica. Para más información, consulte [SKU de clúster administrado de Service Fabric](./overview-managed-cluster.md#service-fabric-managed-cluster-skus).
   - question: >
       ¿Dónde puedo ver características planeadas o sugerir una?
     answer: "Vea el proyecto de GitHub sobre [clústeres administrados](https://github.com/microsoft/service-fabric/projects/17)      \n"
@@ -55,11 +55,18 @@ sections:
   - question: >
       Quiero tener un equilibrador de carga solo interno, ¿es posible?
     answer: >
-      Actualmente no es posible tener un equilibrador de carga solo interno. Se recomienda consolidar las reglas del grupo de seguridad de red (NSG) para bloquear el tráfico entrante o saliente no deseado.
+      Se permite con la versión 2021-07-01-preview. Vea [Configuración de la red para clústeres administrados de Service Fabric](./how-to-managed-cluster-networking.md#byolb)
+  - question: >
+      Quiero habilitar IPv6, ¿es posible?
+    answer: >
+      Se permite con la versión 2021-07-01-preview. Vea [Configuración de la red para clústeres administrados de Service Fabric](./how-to-managed-cluster-networking.md#ipv6)
+  - question: >
+      Quiero usar una red virtual existente para un clúster administrado de Service Fabric, ¿puedo hacerlo?
+    answer: >
+      Se permite con la versión 2021-07-01-preview. Vea [Configuración de la red para clústeres administrados de Service Fabric](./how-to-managed-cluster-networking.md#byolb)
   - question: >
       ¿Puedo escalar mi clúster automáticamente?
-    answer: >
-      Actualmente no se admite la escalabilidad automática.
+    answer: "El escalado automático no está disponible actualmente. Vea el proyecto de GitHub sobre [clústeres administrados](https://github.com/microsoft/service-fabric/projects/17) para obtener más detalles. \n"
   - question: >
       ¿Puedo implementar mi clúster en zonas de disponibilidad?
     answer: >

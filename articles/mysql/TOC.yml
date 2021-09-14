@@ -5,7 +5,7 @@
   items:
     - name: ¿Qué es Azure DB para MySQL?
       href: overview.md
-    - name: ¿Qué opción de MySQL debo elegir?
+    - name: Selección del tipo de implementación de MySQL correcto
       href: select-right-deployment-type.md
     - name: Novedades del servidor único
       href: single-server-whats-new.md
@@ -103,7 +103,7 @@
               displayName: firewall
         - name: Configuración de parámetros del servidor
           items:
-            - name: Portal de Azure
+            - name: Azure Portal
               href: howto-server-parameters.md
               displayName: server parameters
             - name: Azure CLI
@@ -428,7 +428,7 @@
           href: flexible-server/how-to-connect-tls-ssl.md
         - name: Configuración de parámetros del servidor
           items:
-            - name: Portal de Azure
+            - name: Azure Portal
               href: flexible-server/how-to-configure-server-parameters-portal.md
               displayName: server parameters
             - name: Azure CLI
@@ -509,7 +509,7 @@
           items:
             - name: Administración de un servicio
               items:
-                - name: Portal de Azure
+                - name: Azure Portal
                   href: flexible-server/how-to-manage-server-portal.md
                 - name: CLI de Azure
                   href: flexible-server/how-to-manage-server-cli.md
@@ -521,7 +521,7 @@
                   href: flexible-server/how-to-restart-stop-start-server-cli.md
             - name: Reinicio del servidor
               items:
-                - name: Portal de Azure
+                - name: Azure Portal
                   href: flexible-server/how-to-restart-server-portal.md
                 - name: CLI de Azure
                   href: flexible-server/how-to-restart-stop-start-server-cli.md
@@ -580,7 +580,7 @@
           items:
             - name: Restauración de un servidor
               items:
-                - name: Portal de Azure
+                - name: Azure Portal
                   href: flexible-server/how-to-restore-server-portal.md
                 - name: CLI de Azure
                   href: flexible-server/how-to-restore-server-cli.md
@@ -608,7 +608,10 @@
       displayName: 'import , migrate, export'
     - name: Migración de datos de RDS MySQL con MySQL Workbench
       href: how-to-migrate-rds-mysql-workbench.md
-      displayName: 'import , migrate, export'
+      displayName: 'migrate, rds, workbench'
+    - name: Migración de datos de RDS MySQL mediante la replicación de datos de entrada
+      href: how-to-migrate-rds-mysql-data-in-replication.md
+      displayName: 'migrate, rds, data-in replication'
     - name: "Migración de Azure\_DB for MySQL con servidor único a Azure DB for MySQL con servidor flexible"
       href: howto-migrate-single-flexible-minimum-downtime.md
       displayName: 'migrate, Single to Flexible'

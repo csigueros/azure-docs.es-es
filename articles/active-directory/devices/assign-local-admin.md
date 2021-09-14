@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a21505fc37ad3b7fb47af8c6b79262ebb654d800
-ms.sourcegitcommit: 92dd25772f209d7d3f34582ccb8985e1a099fe62
+ms.openlocfilehash: 15b15b91e08ba404eac0fb2c30df924d2f84731b
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114228040"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122866666"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Administración del grupo de administradores locales en dispositivos unidos a Azure AD
 
@@ -62,6 +62,7 @@ Los administradores de dispositivos se asignan a todos los dispositivos unidos a
 
 - Han pasado hasta cuatro horas para que Azure AD emita un nuevo token de actualización principal con los privilegios adecuados. 
 - El usuario cierra sesión y la vuelve a iniciar, sin bloquear o desbloquear, para actualizar su perfil.
+- Los usuarios no aparecen en el grupo de administradores locales, los permisos se reciben por medio del token de actualización principal. 
 
 > [!NOTE]
 > Las acciones anteriores no se aplican a los usuarios que no han iniciado sesión en el dispositivo pertinente previamente. En este caso, los privilegios de administrador se aplican inmediatamente después de su primer inicio de sesión en el dispositivo. 

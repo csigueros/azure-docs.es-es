@@ -15,12 +15,12 @@ ms.date: 11/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c350d91e04ea284ed91c3afb6912d76ed1e39ab0
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 6b2066ef94cb87a9ab9c000615c018938cbeddb1
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112079704"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123220621"
 ---
 # <a name="register-multiple-sql-vms-in-azure-with-the-sql-iaas-agent-extension"></a>Registro de varias máquinas virtuales con SQL en Azure con la extensión Agente de IaaS de SQL
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -30,9 +30,12 @@ En este artículo se describe cómo registrar de forma masiva máquinas virtuale
 
 En este artículo se explica cómo registrar máquinas virtuales con SQL Server manualmente de forma masiva. Como alternativa, puede registrar [todas las VM con SQL Server automáticamente](sql-agent-extension-automatic-registration-all-vms.md) o [VM con SQL Server individuales manualmente](sql-agent-extension-manually-register-single-vm.md). 
 
+> [!NOTE]
+> A partir de septiembre de 2021, ya no es necesario reiniciar el servicio SQL Server al registrarse con la extensión IaaS de SQL en modo completo. 
+
 ## <a name="overview"></a>Introducción
 
-El cmdlet `Register-SqlVMs` se puede usar para registrar todas las máquinas virtuales en una lista determinada de suscripciones, grupos de recursos o una lista de máquinas virtuales específicas. El cmdlet registrará las máquinas virtuales en el modo de administración [ligero](sql-server-iaas-agent-extension-automate-management.md#management-modes) y luego generará un [informe y un archivo de registro](#output-description). 
+El cmdlet `Register-SqlVMs` se puede usar para registrar todas las máquinas virtuales en una lista determinada de suscripciones, grupos de recursos o una lista de máquinas virtuales específicas. El cmdlet registrará las máquinas virtuales en el [modo de administración ligero](sql-server-iaas-agent-extension-automate-management.md#management-modes) y luego generará un [informe y un archivo de registro](#output-description). 
 
 El proceso de registro no conlleva ningún riesgo, no tiene ningún tiempo de inactividad y no reiniciará el servicio SQL Server ni la máquina virtual. 
 
@@ -40,7 +43,7 @@ El proceso de registro no conlleva ningún riesgo, no tiene ningún tiempo de in
 
 Para registrar una máquina virtual con SQL Server con la extensión, necesita lo siguiente: 
 
-- Una [suscripción de Azure](https://azure.microsoft.com/free/) que se ha [registrado con el **proveedor Microsoft.SqlVirtualMachine**](sql-agent-extension-manually-register-single-vm.md#register-subscription-with-resource-provider) y que contiene máquinas virtuales con SQL Server no registradas. 
+- Una [suscripción de Azure](https://azure.microsoft.com/free/) que se ha [registrado con el proveedor de recursos **proveedor Microsoft.SqlVirtualMachine** ](sql-agent-extension-manually-register-single-vm.md#register-subscription-with-rp)y que contiene máquinas virtuales con SQL Server no registradas. 
 - Las credenciales de cliente que se usan para registrar las máquinas virtuales existen en cualquiera de los siguientes roles de Azure: **colaborador de la máquina virtual**, **colaborador** o **propietario**. 
 - La versión más reciente de [Az PowerShell (5.0 como mínimo)](/powershell/azure/new-azureps-module-az). 
 

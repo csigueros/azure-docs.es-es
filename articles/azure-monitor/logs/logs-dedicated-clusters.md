@@ -6,12 +6,12 @@ author: rboucher
 ms.author: robb
 ms.date: 07/29/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: e9385787dd48e3354d3359cf7991492b8f813f0c
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: 447836fa8a7468b9bf2a76fdfd81c899f7105ed0
+ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122445211"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123187782"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>Clústeres dedicados de registros de Azure Monitor
 
@@ -24,9 +24,8 @@ Las funcionalidades que requieren clústeres dedicados son las siguientes:
 - **[Claves administradas por el cliente](../logs/customer-managed-keys.md)** : cifre los datos del clúster mediante las claves proporcionadas y controladas por el cliente.
 - **[Caja de seguridad](../logs/customer-managed-keys.md#customer-lockbox-preview)** : permite controlar las solicitudes de acceso a sus datos de los ingenieros de soporte técnico de Microsoft.
 - **[Cifrado doble](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption)** : protege en caso de que uno de los algoritmos o claves de cifrado puedan estar en peligro. En este caso, la capa adicional de cifrado también protege los datos.
-- **[Zonas de disponibilidad](../../availability-zones/az-overview.md)** : proteja los datos de los errores del centro de datos con Availability Zones en un clúster dedicado. Las zonas de disponibilidad son centros de datos en ubicaciones físicas independientes y están equipadas con alimentación, refrigeración y redes independientes. Esta infraestructura independiente y la separación física de zonas hace que un incidente sea mucho menos probable, ya que el área de trabajo puede depender de los recursos de cualquiera de las zonas.
+- **[Zonas de disponibilidad](./availability-zones.md)** : proteja los datos de los errores del centro de datos con Availability Zones en un clúster dedicado. Las zonas de disponibilidad son centros de datos en ubicaciones físicas independientes y están equipadas con alimentación, refrigeración y redes independientes. Esta infraestructura independiente y la separación física de zonas hace que un incidente sea mucho menos probable, ya que el área de trabajo puede depender de los recursos de cualquiera de las zonas.
 - **[Varias áreas de trabajo](../logs/cross-workspace-query.md)** : si un cliente usa más de un área de trabajo para producción, puede que tenga sentido usar un clúster dedicado. Las consultas entre áreas de trabajo se ejecutarán más rápido si todas las áreas de trabajo están en el mismo clúster. Puede ser más rentable también usar un clúster dedicado, ya que los niveles de compromiso asignados tienen en cuenta toda la ingesta del clúster y se aplican a todas sus áreas de trabajo, incluso si algunas de ellas son pequeñas y no son válidas para el descuento de nivel de compromiso.
-
 
 
 ## <a name="management"></a>Administración 
@@ -93,10 +92,18 @@ Puede tener hasta dos clústeres activos por suscripción por región. Si se eli
 
 La cuenta de usuario que crea los clústeres debe tener el permiso de creación de recursos de Azure estándar (`Microsoft.Resources/deployments/*`) y el permiso de escritura de clúster (`Microsoft.OperationalInsights/clusters/write`) teniendo en sus asignaciones de roles esta acción específica, `Microsoft.OperationalInsights/*` o `*/write`.
 
+**CLI**
+```azurecli
+az monitor log-analytics cluster create --no-wait --resource-group "resource-group-name" --name "cluster-name" --location "region-name" --sku-capacity "daily-ingestion-gigabyte"
+
+# Wait for job completion
+az resource wait --created --ids /subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.operationalinsights/clusters/cluster-name --include-response-body true
+```
+
 **PowerShell**
 
 ```powershell
-New-AzOperationalInsightsCluster -ResourceGroupName {resource-group-name} -ClusterName {cluster-name} -Location {region-name} -SkuCapacity {daily-ingestion-gigabyte} -AsJob
+New-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -Location "region-name" -SkuCapacity "daily-ingestion-gigabyte" -AsJob
 
 # Check when the job is done
 Get-Job -Command "New-AzOperationalInsightsCluster*" | Format-List -Property *
@@ -130,28 +137,28 @@ Content-type: application/json
 
 Debe ser 202 (Aceptado) y un encabezado.
 
-
-
 ### <a name="check-cluster-provisioning-status"></a>Comprobación del estado de aprovisionamiento del clúster
 
-El aprovisionamiento del clúster de Log Analytics tarda un tiempo en completarse. Use uno de los métodos siguientes para comprobar el estado de aprovisionamiento:
+El aprovisionamiento del clúster de Log Analytics tarda un tiempo en completarse. Use alguno de los métodos siguientes para comprobar la propiedad *ProvisioningState*. El valor es *ProvisioningAccount* mientras se realiza el aprovisionamiento y *Succeeded* una vez que se completa.
+
+**CLI**
+
+```azurecli
+az monitor log-analytics cluster show --resource-group "resource-group-name" --name "cluster-name"
+```
 
 **PowerShell**
 
-Ejecute *Get-AzOperationalInsightsCluster* con el nombre del grupo de recursos y compruebe la propiedad *ProvisioningState*. El valor es *ProvisioningAccount* mientras se realiza el aprovisionamiento y *Succeeded* una vez que se completa. Copie el valor de la dirección URL de Azure-AsyncOperation de la respuesta y siga la comprobación del estado de operaciones asincrónicas.
-
-
-  ```powershell
-  Get-AzOperationalInsightsCluster -ResourceGroupName {resource-group-name} 
-  ```
-
+```powershell
+Get-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name"
+```
  
 **REST API**
 
 Envíe una solicitud GET en el recurso de clúster y examine el valor de *provisioningState*. El valor es *ProvisioningAccount* mientras se realiza el aprovisionamiento y *Succeeded* una vez que se completa.
 
   ```rest
-  GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2021-06-01
+  GET https://management.azure.com/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.OperationalInsights/clusters/cluster-name?api-version=2021-06-01
   Authorization: Bearer <token>
   ```
 
@@ -193,7 +200,6 @@ El GUID *principalId* se genera desde el servicio de identidad administrada al c
 ---
 
 
-
 ## <a name="link-a-workspace-to-a-cluster"></a>Vinculación del área de trabajo a un clúster
 
 Cuando un área de trabajo de Log Analytics está vinculada a un clúster dedicado, los nuevos datos que se ingieren en el área de trabajo se enrutan al nuevo clúster, mientras que los datos existentes permanecen en el clúster existente. Si el clúster dedicado se cifra mediante claves administradas por el cliente (CMK), solo se cifrarán los datos nuevos con la clave. El sistema deduce esta diferencia, por lo que puede consultar el área de trabajo como de costumbre mientras el sistema realiza consultas entre clústeres en segundo plano.
@@ -214,17 +220,27 @@ Vincular un área de trabajo puede realizarse una vez completado el aprovisionam
 > [!WARNING]
 > Vincular un área de trabajo a un clúster requiere sincronizar varios componentes de back-end y garantizar la hidratación de la memoria caché. Dado que esta operación puede tardar hasta dos horas en completarse, debe ejecutarla de forma asincrónica.
 
+Use los comandos siguientes para vincular un área de trabajo a un clúster:
+
+**CLI**
+```azurecli
+# Find cluster resource ID
+$clusterResourceId = az monitor log-analytics cluster list --resource-group "resource-group-name" --query "[?contains(name, "cluster-name")]" --query [].id --output table
+
+az monitor log-analytics workspace linked-service create --no-wait --name cluster --resource-group "resource-group-name" --workspace-name "workspace-name" --write-access-resource-id $clusterResourceId
+
+# Wait for job completion
+az resource wait --created --ids /subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.operationalinsights/clusters/cluster-name --include-response-body true
+```
 
 **PowerShell**
 
-Use el comando de PowerShell siguiente para vincular un clúster:
-
 ```powershell
 # Find cluster resource ID
-$clusterResourceId = (Get-AzOperationalInsightsCluster -ResourceGroupName {resource-group-name} -ClusterName {cluster-name}).id
+$clusterResourceId = (Get-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name").id
 
 # Link the workspace to the cluster
-Set-AzOperationalInsightsLinkedService -ResourceGroupName {resource-group-name} -WorkspaceName {workspace-name} -LinkedServiceName cluster -WriteAccessResourceId $clusterResourceId -AsJob
+Set-AzOperationalInsightsLinkedService -ResourceGroupName "resource-group-name" -WorkspaceName "workspace-name" -LinkedServiceName cluster -WriteAccessResourceId $clusterResourceId -AsJob
 
 # Check when the job is done
 Get-Job -Command "Set-AzOperationalInsightsLinkedService" | Format-List -Property *
@@ -265,6 +281,7 @@ Cuando un clúster se configura con claves administradas por el cliente, los dat
 ```azurecli
 az monitor log-analytics workspace show --resource-group "resource-group-name" --workspace-name "workspace-name"
 ```
+
 **PowerShell**
 
 ```powershell
@@ -339,6 +356,7 @@ Después de crear el recurso de clúster y de que esté totalmente aprovisionado
 ```azurecli
 az monitor log-analytics cluster list --resource-group "resource-group-name"
 ```
+
 **PowerShell**
 
 ```powershell
@@ -430,9 +448,8 @@ Cuando cambie el volumen de datos en las áreas de trabajo vinculadas con el tie
 
 **CLI**
 
-
 ```azurecli
-az monitor log-analytics cluster update --name "cluster-name" --resource-group "resource-group-name" --sku-capacity 500
+az monitor log-analytics cluster update --resource-group "resource-group-name" --name "cluster-name"  --sku-capacity 500
 ```
 
 ### <a name="powershell"></a>PowerShell
@@ -459,7 +476,6 @@ Content-type: application/json
 ```
 
 ---
-
 
 
 ### <a name="update-billingtype-in-cluster"></a>Actualización de billingType en el clúster
@@ -489,7 +505,9 @@ Content-type: application/json
 Puede desvincular un área de trabajo de un clúster. Después de desvincular un área de trabajo del clúster, los nuevos datos asociados a esta área de trabajo no se envían al clúster dedicado. Además, la facturación del área de trabajo ya no se realiza a través del clúster. Los datos antiguos del área de trabajo desvinculada podrían quedar en el clúster. Si estos datos están cifrados mediante claves administradas por el cliente (CMK), se conservan los secretos de Key Vault. El sistema abstrae este cambio de los usuarios de Log Analytics. Los usuarios pueden simplemente consultar el área de trabajo como de costumbre. El sistema realiza consultas entre clústeres en el back-end según sea necesario sin indicarlo a los usuarios.  
 
 > [!WARNING] 
-> Hay un límite de dos operaciones de vinculación para un área de trabajo específica dentro de un mes. Dedique tiempo a analizar y planear las acciones de desvinculación en consecuencia.
+> Hay un límite de dos operaciones de vinculación por área de trabajo determinada al mes. Dedique tiempo a analizar y planear las acciones de desvinculación en consecuencia.
+
+Use los comandos siguientes para desvincular un área de trabajo del clúster:
 
 **CLI**
 
@@ -499,16 +517,12 @@ az monitor log-analytics workspace linked-service delete --resource-group "resou
 
 **PowerShell**
 
-Use el comando de PowerShell siguiente para desvincular un área de trabajo de un clúster:
-
 ```powershell
 # Unlink a workspace from cluster
-Remove-AzOperationalInsightsLinkedService -ResourceGroupName {resource-group-name} -WorkspaceName {workspace-name} -LinkedServiceName cluster
+Remove-AzOperationalInsightsLinkedService -ResourceGroupName "resource-group-name" -WorkspaceName {workspace-name} -LinkedServiceName cluster
 ```
 
 ---
-
-
 
 
 ## <a name="delete-cluster"></a>Eliminación de clúster
@@ -524,9 +538,14 @@ Dentro de los 14 días posteriores a la eliminación, el nombre del recurso de 
 > [!WARNING] 
 > Hay un límite de tres clústeres por suscripción. Dentro de este recuento se incluyen los clústeres activos y los eliminados temporalmente. Los clientes no deben crear procedimientos recurrentes que creen y eliminen clústeres. Esta acción tiene un impacto significativo en los sistemas de back-end de Log Analytics.
 
-**PowerShell**
+Use los comandos siguientes para eliminar un clúster:
 
-Use el comando de PowerShell siguiente para eliminar un clúster:
+**CLI**
+```azurecli
+az monitor log-analytics cluster delete --resource-group "resource-group-name" --name $clusterName
+```
+
+**PowerShell**
 
 ```powershell
 Remove-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name"

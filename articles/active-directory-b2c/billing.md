@@ -7,20 +7,29 @@ manager: celestedg
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 05/28/2021
+ms.date: 08/26/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 623799b894846034dcf3f58a4bd6e53c56d526df
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 7b0b5a35a85a8b0564112d62401c722e65505f2e
+ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110690490"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123186234"
 ---
 # <a name="billing-model-for-azure-active-directory-b2c"></a>Modelo de facturación para Azure Active Directory B2C
 
 Los precios de Azure Active Directory B2C (Azure AD B2C) se basan en los usuarios activos mensuales (MAU), que es el recuento de usuarios únicos con actividad de autenticación dentro de un mes natural. Este modelo de facturación se aplica tanto a los inquilinos de Azure AD B2C como a la [colaboración de usuarios invitados (B2B) de Azure AD](../active-directory/external-identities/external-identities-pricing.md). La facturación de MAU le ayuda a reducir los costos al ofrecer un nivel gratis y precios flexibles y predecibles. En este artículo obtendrá información sobre la facturación MAU, la vinculación de los inquilinos de Azure AD B2C a una suscripción y el cambio de plan de tarifa.
+
+## <a name="mau-overview"></a>Información general sobre MAU
+
+Un usuario activo mensual (MAU) es un usuario único que realiza una autenticación en un mes determinado. Un usuario que se autentica varias veces en un mes determinado se cuenta como un MAU. Los clientes no se cobran por las autenticaciones posteriores de MAU durante el mes ni por los usuarios inactivos. Las autenticaciones pueden incluir:
+
+- Un inicio de sesión activo e interactivo por el usuario, por ejemplo mediante el [registro o inicio de sesión](add-sign-up-and-sign-in-policy.md), [autoservicio de restablecimiento de contraseña](add-password-reset-policy.md), [edición de perfiles](add-profile-editing-policy.md) o cualquier tipo de [flujo de usuario](user-flow-overview.md) o [directiva personalizada](custom-policy-overview.md).
+- Inicio de sesión pasivo no interactivo, como el [inicio de sesión único (SSO)](session-behavior.md), o cualquier tipo de adquisición de tokens, como el flujo de código de autorización, la actualización de tokens o las [credenciales de contraseña del propietario del recurso (ROPC)](add-ropc-policy.md).
+
+Si decide proporcionar mayores niveles de garantía mediante Multi-Factor Authentication (MFA) para voz y SMS, se le seguirá cobrando una tarifa plana mundial por cada intento de MFA de ese mes, independientemente de si el inicio de sesión se ha realizado correctamente o no. 
 
 > [!IMPORTANT]
 > Este artículo no contiene detalles de precios. Para conocer la información más reciente sobre la facturación del uso y los precios, consulte [Precios de Azure Active Directory B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/). Consulte también [Azure AD B2C: Disponibilidad de región y residencia de datos](data-residency.md) para obtener más información sobre dónde está disponible el servicio Azure AD B2C y dónde se almacenan los datos de usuario.

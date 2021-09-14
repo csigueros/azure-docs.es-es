@@ -2,13 +2,13 @@
 title: ¿Qué es Relay de Azure? | Microsoft Docs
 description: En este artículo se proporciona información general sobre el servicio Azure Relay que le permite desarrollar aplicaciones en la nube que consumen servicios locales que se ejecutan en la red corporativa sin necesidad de abrir una conexión de firewall ni realizar cambios molestos en la infraestructura de red.
 ms.topic: conceptual
-ms.date: 06/23/2021
-ms.openlocfilehash: 8bb6028598602506474b1082bb517d29e2408c10
-ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
+ms.date: 09/02/2021
+ms.openlocfilehash: 8d51ecc2f840054dae94e2436d179b4e68d758ec
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2021
-ms.locfileid: "114668705"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123452202"
 ---
 # <a name="what-is-azure-relay"></a>¿Qué es Relay de Azure?
 El servicio Azure Relay le permite exponer de forma segura servicios que se ejecutan en la red corporativa en la nube pública. Eso se puede hacer sin tener que abrir un puerto en el firewall y sin realizar cambios molestos en la infraestructura de la red corporativa. 
@@ -34,7 +34,7 @@ En el patrón de transferencia de datos, los pasos básicos son:
 Relay de Azure tiene dos características:
 
 - [Conexiones híbridas](#hybrid-connections): usa los sockets web de estándar abierto, con lo que se admiten escenarios multiplataforma.
-- Retransmisiones de WCF: usa Windows Communication Foundation (WCF) para habilitar las llamadas a procedimientos remotos. WCF Relay es la oferta de Relay heredada que muchos clientes ya pueden utilizar con sus modelos de programación de WCF.
+- [Retransmisiones de WCF](#wcf-relay): usa Windows Communication Foundation (WCF) para habilitar las llamadas a procedimientos remotos. WCF Relay es la oferta de Relay heredada que muchos clientes ya pueden utilizar con sus modelos de programación de WCF.
 
 ## <a name="hybrid-connections"></a>conexiones híbridas
 
@@ -45,8 +45,25 @@ Para más información sobre el protocolo de Conexiones híbridas, consulte [Gu�
 > [!NOTE]
 > Conexiones híbridas de Azure Relay reemplaza a la anterior característica Conexiones híbridas de BizTalk Services. La característica Conexiones híbridas de BizTalk Services se basaba en Azure Service Bus WCF Relay. La funcionalidad Conexiones híbridas de Azure Relay complementa la característica WCF Relay que ya existía anteriormente. Estas dos funcionalidades del servicio (WCF Relay y Conexiones híbridas) coexisten en el servicio Azure Relay. Aunque comparten una puerta de enlace común, se trata de implementaciones diferentes.
 
+Para empezar a usar conexiones híbridas en Azure Relay, consulte los siguientes inicios rápidos: 
+
+- [Introducción a WebSockets de Conexiones híbridas de Relay en .NET](relay-hybrid-connections-dotnet-get-started.md)
+- [Introducción a WebSockets de Conexiones híbridas de Relay en Node.js](relay-hybrid-connections-node-get-started.md)
+- [Introducción a las solicitudes HTTP de Conexiones híbridas de Relay en .NET](relay-hybrid-connections-http-requests-dotnet-get-started.md)
+- [Introducción a las solicitudes HTTP de Conexiones híbridas de Relay en Node](relay-hybrid-connections-http-requests-node-get-started.md)
+
+Para más ejemplos, consulte [Azure Relay: ejemplos de conexiones híbridas en GitHub](https://github.com/Azure/azure-relay/tree/master/samples/hybrid-connections).
+
 ## <a name="wcf-relay"></a>Retransmisión de WCF
-WCF Relay es totalmente compatible con .NET Framework y WCF. Puede crear una conexión entre el servicio local y el servicio de retransmisión mediante un conjunto de enlaces de “retransmisión” WCF. Los enlaces de retransmisión se asignan a nuevos elementos de enlace de transporte diseñados para crear componentes de canal WCF que se integran con Service Bus en la nube. Para más información, consulte [Introducción a WCF Relay](service-bus-relay-tutorial.md).
+WCF Relay es totalmente compatible con .NET Framework y WCF. Puede crear una conexión entre el servicio local y el servicio de retransmisión mediante un conjunto de enlaces de “retransmisión” WCF. Los enlaces de retransmisión se asignan a nuevos elementos de enlace de transporte diseñados para crear componentes de canal WCF que se integran con Service Bus en la nube.
+
+Para empezar a usar WCF Relay, consulte los siguientes inicios rápidos: 
+
+- [Exposición de un servicio WCF local a una aplicación web en la nube con Azure Relay](service-bus-dotnet-hybrid-app-using-service-bus-relay.md)
+- [Exposición de un servicio WCF local en un cliente WCF fuera de la red](service-bus-relay-tutorial.md)
+- [Exposición de un servicio WCF REST local en un cliente fuera de la red](service-bus-relay-rest-tutorial.md)
+
+Para más ejemplos,consulte [Azure Relay: ejemplos de WCF Relay en GitHub](https://github.com/Azure/azure-relay/tree/master/samples/wcf-relay).
 
 ## <a name="hybrid-connections-vs-wcf-relay"></a>Conexiones híbridas en comparación con Retransmisión de WCF
 Conexiones híbridas y WCF Relay habilitan una conexión segura a los recursos de dentro de una red corporativa. El uso de una u otra depende de sus necesidades particulares que se detallan en la siguiente tabla:
@@ -76,9 +93,17 @@ El siguiente diagrama muestra el control de las solicitudes de transmisión entr
 9. La puerta de enlace reenvía cualquier mensaje del cliente de envío al cliente de escucha.  
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Introducción a los WebSockets de .NET](relay-hybrid-connections-dotnet-get-started.md)
-* [Introducción a las solicitudes HTTP de .NET](relay-hybrid-connections-http-requests-dotnet-get-started.md)
-* [Introducción a los WebSockets de Node](relay-hybrid-connections-node-get-started.md)
-* [Introducción a las solicitudes HTTP de Node](relay-hybrid-connections-http-requests-node-get-started.md)
-* [Preguntas más frecuentes acerca de Relay](relay-faq.yml)
+Siga uno o varios de los siguientes inicios rápidos o consulte [Ejemplos de Azure Relay en GitHub](https://github.com/Azure/azure-relay/tree/master/samples).
+
+- conexiones híbridas
+    - [Introducción a WebSockets de Conexiones híbridas de Relay en .NET](relay-hybrid-connections-dotnet-get-started.md)
+    - [Introducción a WebSockets de Conexiones híbridas de Relay en Node.js](relay-hybrid-connections-node-get-started.md)
+    - [Introducción a las solicitudes HTTP de Conexiones híbridas de Relay en .NET](relay-hybrid-connections-http-requests-dotnet-get-started.md)
+    - [Introducción a las solicitudes HTTP de Conexiones híbridas de Relay en Node](relay-hybrid-connections-http-requests-node-get-started.md)
+- Retransmisión de WCF
+    - [Exposición de un servicio WCF local a una aplicación web en la nube con Azure Relay](service-bus-dotnet-hybrid-app-using-service-bus-relay.md)
+    - [Exposición de un servicio WCF local en un cliente WCF fuera de la red](service-bus-relay-tutorial.md)
+    - [Exposición de un servicio WCF REST local en un cliente fuera de la red](service-bus-relay-rest-tutorial.md)
+
+Para obtener una lista de las preguntas más frecuentes y sus respuestas, consulte [Preguntas frecuentes sobre Azure Relay](relay-faq.yml).
 

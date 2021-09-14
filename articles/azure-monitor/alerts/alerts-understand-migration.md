@@ -2,19 +2,19 @@
 title: Descripción de la migración para las alertas de Azure Monitor
 description: Comprenda el funcionamiento de la migración de alertas y solucione problemas.
 ms.topic: conceptual
-ms.date: 02/14/2021
+ms.date: 09/06/2021
 ms.author: yalavi
 author: yalavi
-ms.openlocfilehash: 88b75c46898e1a74b33051d8996af96201f639c7
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 2167e0ea05206bc9c991353d6518090773934635
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102037717"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123543662"
 ---
 # <a name="understand-migration-options-to-newer-alerts"></a>Descripción de las opciones de migración para las alertas más recientes
 
-Las alertas clásicas se [retiran](./monitoring-classic-retirement.md) para los usuarios de la nube pública, aunque siguen en uso limitado hasta el **31 de mayo de 2021**. Las alertas clásicas para la nube de Azure Government y Azure China 21Vianet se retirarán el **29 de febrero de 2024**.
+Las alertas públicas se han [retirado](./monitoring-classic-retirement.md) para los usuarios de la nube pública. Las alertas clásicas para la nube de Azure Government y Azure China 21Vianet se retirarán el **29 de febrero de 2024**.
 
 En este artículo se explica cómo funcionan las herramientas de migración manual y de migración voluntaria, que se usarán para migrar las reglas de alertas restantes. También se describen soluciones para algunos problemas comunes.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/17/2021
 ms.author: yelevin
-ms.openlocfilehash: 5fbe518e894cf6b1dad1407edcc241dc141ef546
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 6c3e4de61d59841f2856af2194ec22a63b407b5c
+ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114284162"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123185442"
 ---
 # <a name="authenticate-playbooks-to-azure-sentinel"></a>Autenticación de cuadernos de estrategias en Azure Sentinel
 
@@ -55,7 +55,11 @@ El conector de Azure Sentinel en Logic Apps y sus acciones y desencadenadores de
 
 Este método de autenticación permite conceder permisos directamente al cuaderno de estrategias (un recurso de flujo de trabajo de Logic Apps), de modo que las acciones del conector de Azure Sentinel realizadas por el cuaderno de estrategias funcionen en nombre del cuaderno de estrategias, como si fuera un objeto independiente con sus propios permisos en Azure Sentinel. El uso de este método reduce el número de identidades que tiene que administrar. 
 
+> [!NOTE]
+> Para conceder a una identidad administrada acceso a otros recursos (como el área de trabajo de Azure Sentinel), el usuario que ha iniciado sesión debe tener un rol con permisos para escribir asignaciones de roles, como Propietario o Administrador de acceso de usuario del área de trabajo de Azure Sentinel.
+
 Para autenticar con una identidad administrada:
+
 
 1. [Habilite la identidad administrada](../logic-apps/create-managed-service-identity.md#enable-system-assigned-identity-in-azure-portal) en el recurso de flujo de trabajo de Logic Apps. En resumen:
 
@@ -63,10 +67,24 @@ Para autenticar con una identidad administrada:
 
     - Ahora, la aplicación lógica puede usar la identidad asignada por el sistema, que se registra con Azure AD y se representa mediante un identificador de objeto.
 
-1. [Proporcione ese acceso de identidad](../logic-apps/create-managed-service-identity.md#give-identity-access-to-resources) al área de trabajo de Azure Sentinel asignándole el rol [Colaborador de Azure Sentinel](../role-based-access-control/built-in-roles.md#azure-sentinel-contributor).
-
-    Obtenga más información sobre los [roles disponibles en Azure Sentinel](./roles.md).
-
+1. [Dé acceso a esa identidad](../logic-apps/create-managed-service-identity.md#give-identity-access-to-resources) al área de trabajo de Azure Sentinel: 
+    1. En el menú de navegación de Azure Sentinel, seleccione **Configuración**.
+    1. Seleccione la pestaña **Configuración del área de trabajo**. En el menú del área de trabajo, seleccione **Control de acceso (IAM)** .
+   1. En la parte superior, seleccione **Agregar** y elija **Agregar asignación de roles**. Si la opción **Agregar asignación de roles** está deshabilitada, no tiene permisos para asignar roles.
+    1. En el nuevo panel que aparece, asigne el rol adecuado:
+    
+        | Role | Situación |
+        | --- | --- |
+        | [**Respondedor de Azure Sentinel**](../role-based-access-control/built-in-roles.md#azure-sentinel-responder) | El cuaderno de estrategias tiene pasos que actualizan incidentes o listas de reproducción. |
+        | [**Lector de Azure Sentinel**](../role-based-access-control/built-in-roles.md#azure-sentinel-reader) | El cuaderno de estrategias solo recibe incidentes. |
+        |
+        
+        Obtenga más información sobre los [roles disponibles en Azure Sentinel](./roles.md).
+    1. En **Asignar acceso a**, elija **Aplicación lógica**.
+    1. Elija la suscripción a la que pertenece el cuaderno de estrategias y seleccione el nombre del cuaderno de estrategias.
+    1. Seleccione **Guardar**.
+    
+    
 1. Habilite el método de autenticación de identidad administrada en el conector de Logic Apps de Azure Sentinel:
 
     1. En el diseñador de Logic Apps, agregue un paso del conector de Logic Apps de Azure Sentinel. Si el conector ya está habilitado para una conexión existente, haga clic en el vínculo **Cambiar conexión**.

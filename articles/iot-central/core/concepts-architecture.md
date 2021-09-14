@@ -3,16 +3,16 @@ title: Conceptos de arquitectura en Azure IoT Central | Microsoft Docs
 description: En este artículo se presentan conceptos clave relacionados con la arquitectura de Azure IoT Central
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/19/2020
+ms.date: 08/31/2021
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 46b8cdc7fa33c8ddd382decb49eaa148093c99fe
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 37e4224ae1347647d15959a55d19d2c6487935d7
+ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121742262"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123273220"
 ---
 # <a name="azure-iot-central-architecture"></a>Arquitectura de Azure IoT Central
 
@@ -29,71 +29,11 @@ En Azure IoT Central, los datos que un dispositivo puede intercambiar con la apl
 
 Para obtener más información sobre cómo se conectan los dispositivos a la aplicación de Azure IoT Central, consulte [Device connectivity](concepts-get-connected.md) (Conectividad de dispositivos).
 
-## <a name="azure-iot-edge-devices"></a>Dispositivos de Azure IoT Edge
+### <a name="azure-iot-edge-devices"></a>Dispositivos de Azure IoT Edge
 
-Además de los dispositivos creados con el [SDK de IoT de Azure](https://github.com/Azure/azure-iot-sdks), también puede conectar [dispositivos Azure IoT Edge](../../iot-edge/about-iot-edge.md) a una aplicación IoT Central. IoT Edge permite ejecutar la inteligencia de nube y la lógica personalizada directamente en dispositivos IoT administrados por IoT Central. El tiempo de ejecución de IoT Edge permite:
+Además de los dispositivos creados con el [SDK de IoT de Azure](https://github.com/Azure/azure-iot-sdks), también puede conectar [dispositivos Azure IoT Edge](../../iot-edge/about-iot-edge.md) a una aplicación IoT Central. IoT Edge permite ejecutar la inteligencia de nube y la lógica personalizada directamente en dispositivos IoT administrados por IoT Central. También puede usar IoT Edge como puerta de enlace para permitir que otros dispositivos de nivel inferior se conecten a IoT Central.
 
-- Instalación y actualización de las cargas de trabajo en el dispositivo.
-- Mantenimiento de los estándares de seguridad de IoT Edge en el dispositivo.
-- Garantía de que los módulos de IoT Edge están siempre en ejecución.
-- Notificación del mantenimiento del módulo a la nube para la supervisión remota.
-- Administración de la comunicación entre los dispositivos hoja descendentes y un dispositivo IoT Edge, entre los módulos de un dispositivo IoT Edge y entre un dispositivo IoT Edge y la nube.
-
-![Azure IoT Central con Azure IoT Edge](./media/concepts-architecture/iotedge.png)
-
-IoT Central habilita las funcionalidades siguientes para los dispositivos IoT Edge:
-
-- Plantillas de dispositivos para describir las funcionalidades de un dispositivo IoT Edge, como:
-  - Funcionalidad de carga del manifiesto de implementación, que ayuda a administrar un manifiesto para una flota de dispositivos.
-  - Módulos que se ejecutan en el dispositivo IoT Edge.
-  - Telemetría que envía cada módulo.
-  - Propiedades que notifica cada módulo.
-  - Comandos a los que responde cada módulo.
-  - Relaciones entre el dispositivo de puerta de enlace IoT Edge y el dispositivo de nivel inferior.
-  - Propiedades de la nube que no están almacenadas en el dispositivo IoT Edge.
-  - Personalizaciones que cambian la forma en que la interfaz de usuario muestra las funcionalidades del dispositivo.
-  - Vistas y formularios de dispositivos.
-
-  Para obtener más información, consulte el artículo [Conexión de dispositivos de Azure IoT Edge a una aplicación de Azure IoT Central](./concepts-iot-edge.md).
-
-- La capacidad de aprovisionar dispositivos IoT Edge a escala mediante el servicio de aprovisionamiento de dispositivos Azure IoT.
-- Reglas y acciones.
-- Análisis y paneles personalizados.
-- Exportación de datos continua de telemetría desde dispositivos IoT Edge.
-
-### <a name="iot-edge-device-types"></a>Tipos de dispositivos IoT Edge
-
-IoT Central clasifica los tipos de dispositivo IoT Edge de la manera siguiente:
-
-- Dispositivos hoja. Un dispositivo IoT Edge puede tener dispositivos hoja de nivel inferior, pero estos dispositivos no se aprovisionan en IoT Central.
-- Dispositivos de puerta de enlace con dispositivos de nivel inferior. Tanto el dispositivo de puerta de enlace como los dispositivos de nivel inferior se aprovisionan en IoT Central.
-
-![Introducción a IoT Central con IoT Edge](./media/concepts-architecture/gatewayedge.png)
-
-> [!NOTE]
-> IoT Central actualmente no admite la conexión de un dispositivo IoT Edge como un dispositivo de bajada a una puerta de enlace de IoT Edge. Esto se debe a que todos los dispositivos que se conectan a IoT Central se aprovisionan mediante Device Provisioning Service (DPS) y DPS no admite escenarios de IoT Edge anidados.
-
-### <a name="iot-edge-patterns"></a>Patrones de IoT Edge
-
-IoT Central admite estos patrones de dispositivos IoT Edge:
-
-#### <a name="iot-edge-as-leaf-device"></a>IoT Edge como dispositivo hoja
-
-![IoT Edge como dispositivo hoja](./media/concepts-architecture/edgeasleafdevice.png)
-
-El dispositivo IoT Edge se aprovisiona en IoT Central y todos los dispositivos de nivel inferior y su telemetría se representan como provenientes del dispositivo IoT Edge. Los dispositivos de nivel inferior conectados al dispositivo IoT Edge no se aprovisionan en IoT Central.
-
-#### <a name="iot-edge-gateway-device-connected-to-downstream-devices-with-identity"></a>Dispositivo de puerta de enlace IoT Edge conectado a dispositivos de nivel inferior con identidad
-
-![IoT Edge con identidad del dispositivo de nivel inferior](./media/concepts-architecture/edgewithdownstreamdeviceidentity.png)
-
-El dispositivo IoT Edge se aprovisiona en IoT Central junto con los dispositivos de nivel inferior conectados al dispositivo IoT Edge. Actualmente, no se admite la compatibilidad en tiempo de ejecución para aprovisionar dispositivos de nivel inferior a través de la puerta de enlace.
-
-#### <a name="iot-edge-gateway-device-connected-to-downstream-devices-with-identity-provided-by-the-iot-edge-gateway"></a>Dispositivo de puerta de enlace de IoT Edge conectado a dispositivos de nivel inferior con la identidad proporcionada por la puerta de enlace IoT Edge
-
-![IoT Edge con dispositivo de nivel inferior sin identidad](./media/concepts-architecture/edgewithoutdownstreamdeviceidentity.png)
-
-El dispositivo IoT Edge se aprovisiona en IoT Central junto con los dispositivos de nivel inferior conectados al dispositivo IoT Edge. La compatibilidad en tiempo de ejecución de la puerta de enlace que proporciona la identidad a los dispositivos de nivel inferior y el aprovisionamiento de dispositivos de nivel inferior no se admite actualmente. Si aporta su propio módulo de traducción de identidades, IoT Central puede admitir este patrón.
+Para obtener más información, consulte [Conexión de dispositivos de Azure IoT Edge a una aplicación de Azure IoT Central](concepts-iot-edge.md).
 
 ## <a name="cloud-gateway"></a>Puerta de enlace en la nube
 
@@ -128,7 +68,7 @@ En una aplicación de Azure IoT Central, puede [crear y ejecutar trabajos](howto
 
 ## <a name="role-based-access-control-rbac"></a>Control de acceso basado en roles (RBAC)
 
-Cada aplicación de IoT Central tiene su propio sistema RBAC integrado. Un [administrador puede definir reglas de acceso](howto-manage-users-roles.md) para una aplicación de Azure IoT Central con uno de los roles predefinidos o creando un rol personalizado. Los roles determinan las áreas de la aplicación a las que los usuarios tienen acceso y las acciones que pueden realizar.
+Cada aplicación de IoT Central tiene su propio sistema RBAC integrado. Un [administrador puede definir reglas de acceso](howto-manage-users-roles.md) para una aplicación de Azure IoT Central con uno de los roles predefinidos o creando un rol personalizado. Los roles determinan las áreas de la aplicación a las que los usuarios tienen acceso y qué pueden hacer.
 
 ## <a name="security"></a>Seguridad
 

@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 05/04/2021
+ms.date: 08/26/2021
 ms.author: tisande
-ms.openlocfilehash: 00b119d993b549340467bf3892f3ffc5cf7b76dd
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 8228c3cedf58b389b93a516c4a372a38b33c0e4d
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108755449"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123028545"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Indexación en Azure Cosmos DB: introducción
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -392,3 +392,6 @@ Obtenga más información acerca de la indexación en los siguientes artículos:
 
 - [Directiva de indexación](index-policy.md)
 - [Cómo administrar la directiva de indexación](how-to-manage-indexing-policy.md)
+- ¿Intenta planear la capacidad de una migración a Azure Cosmos DB? Para ello, puede usar información sobre el clúster de bases de datos existente.
+    - Si lo único que sabe es el número de núcleos virtuales y servidores del clúster de bases de datos existente, lea sobre el [cálculo de unidades de solicitud mediante núcleos o CPU virtuales](convert-vcore-to-request-unit.md). 
+    - Si conoce las tasas de solicitudes típicas de la carga de trabajo de la base de datos actual, obtenga información sobre el [cálculo de unidades de solicitud mediante la herramienta de planeamiento de capacidad de Azure Cosmos DB](estimate-ru-with-capacity-planner.md).

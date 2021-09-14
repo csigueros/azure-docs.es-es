@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 07/15/2021
+ms.date: 08/25/2021
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 3e05dd70ab0919ca4429cee15ecfc9d6ac9ee627
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: 6a8a503f5357ec69a1bab007f4ae2849582fed3b
+ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122262414"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122835604"
 ---
 La configuración de claves administradas por el cliente para los discos requerirá la creación de recursos en un orden determinado, si lo hace por primera vez. En primer lugar, tendrá que crear y configurar una instancia de Azure Key Vault.
 
@@ -60,11 +60,8 @@ Ahora que ha creado el almacén de Azure Key Vault y una clave, debe agregar un 
 
 1. Busque **conjuntos de cifrado de disco** y seleccione la opción.
 1. En el panel **Conjuntos de cifrado de disco**, seleccione **+Crear**.
-
-    ![Captura de pantalla de la pantalla principal del portal de cifrado de discos. Resaltado del botón Agregar](./media/virtual-machines-disk-encryption-portal/sever-side-encryption-create-disk-encryption-set.png)
-
 1. Seleccione el grupo de recursos, asigne un nombre al conjunto de cifrado y seleccione la misma región que el almacén de claves.
-1. En **Tipo de cifrado**, seleccione **Cifrado en reposo con una clave administrada por el cliente**.
+1. En **SSE Encryption type** (Tipo de cifrado SSE), seleccione **Cifrado en reposo con una clave administrada por el cliente**.
 
     > [!NOTE]
     > Una vez que cree un conjunto de cifrado de disco con un tipo de cifrado en particular, no se puede cambiar. Si desea usar otro tipo de cifrado, debe crear un nuevo conjunto de cifrado de disco.
@@ -72,6 +69,7 @@ Ahora que ha creado el almacén de Azure Key Vault y una clave, debe agregar un 
 1. Seleccione **Hacer clic para seleccionar una clave**.
 1. Seleccione el almacén de claves y la clave que creó anteriormente, así como la versión.
 1. Haga clic en **Seleccionar**.
+1. Si quiere habilitar la [rotación automática de claves administradas por el cliente](../articles/virtual-machines/disk-encryption.md#automatic-key-rotation-of-customer-managed-keys), seleccione **Auto key rotation** (Rotación automática de claves).
 1. Seleccione **Revisar y crear** y, a continuación, **Crear**.
 
-    ![Captura de pantalla del panel de creación del cifrado de disco. Se muestra la suscripción, el grupo de recursos, el nombre del conjunto de cifrado de disco, la región y el selector de claves y de almacenes de claves.](./media/virtual-machines-disk-encryption-portal/server-side-encryption-disk-set-blade.png)
+    :::image type="content" source="media/virtual-machines-disk-encryption-portal/server-side-encryption-disk-set-blade.png" alt-text="Captura de pantalla del panel de creación de cifrado de disco. Muestra la suscripción, el grupo de recursos, el nombre del conjunto de cifrado de disco, la región y el selector de claves y de almacenes de claves." lightbox="media/virtual-machines-disk-encryption-portal/server-side-encryption-disk-set-blade.png":::
