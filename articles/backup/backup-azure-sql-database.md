@@ -2,13 +2,13 @@
 title: Copia de seguridad de bases de datos de SQL Server en Azure
 description: En este artículo se explica cómo realizar una copia de seguridad de SQL Server en Azure. En este tutorial también se explica cómo se realiza la recuperación de SQL Server.
 ms.topic: conceptual
-ms.date: 06/18/2019
-ms.openlocfilehash: b6daf631248958948e799b20284d84a1e59e5dfe
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.date: 08/20/2021
+ms.openlocfilehash: aae8493579c96607c5623bb04495ec21c99cf667
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107518871"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123101445"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Acerca de la copia de seguridad de SQL Server en máquinas virtuales de Azure
 
@@ -18,6 +18,9 @@ ms.locfileid: "107518871"
 2. Objetivo de punto de recuperación (RPO) de 15 minutos con copias de seguridad frecuentes de registros
 3. Recuperación a un momento dado en un segundo preciso
 4. Copia de seguridad y restauración individuales a nivel de base de datos
+
+>[!Note]
+>La copia de seguridad basada en instantáneas para bases de datos SQL en una máquina virtual de Azure está ahora en versión preliminar. Esta oferta única combina las ventajas de las instantáneas, por lo que proporciona un mejor RTO y un bajo impacto en el servidor, y las de las copias de seguridad de registros frecuentes, por lo que también proporciona un RPO bajo. Para cualquier consulta o acceso, escríbanos a [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com).
 
 Para ver los escenarios de copia de seguridad y restauración que se admiten en la actualidad, consulte la [matriz de compatibilidad](sql-support-matrix.md#scenario-support).
 
@@ -91,7 +94,7 @@ Agregue los inicios de sesión **NT AUTHORITY\SYSTEM** y **Service\AzureWLBackup
 
 1. Vaya a la instancia de SQL Server en el Explorador de objetos.
 2. Vaya a Seguridad -> Inicios de sesión.
-3. Haga clic con el botón derecho en Inicios de sesión y seleccione *Nuevo inicio de sesión*.
+3. Haga clic con el botón derecho en "Inicios de sesión" y seleccione *Nuevo inicio de sesión…* .
 
     ![Nuevo inicio de sesión mediante SSMS](media/backup-azure-sql-database/sql-2k8-new-login-ssms.png)
 
