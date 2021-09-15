@@ -3,13 +3,13 @@ title: 'Cambio del dispositivo de replicación de Azure Site Recovery: versión 
 description: 'En este artículo se describe cómo cambiar entre diferentes dispositivos de replicación mientras se replican máquinas virtuales de VMware para Azure en Azure Site Recovery: versión preliminar'
 ms.service: site-recovery
 ms.topic: article
-ms.date: 08/19/2021
-ms.openlocfilehash: f95ed991833a9f6ed1b0635a8678e393f152cb56
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.date: 09/01/2021
+ms.openlocfilehash: 3cf8fa8c761419a73e6bca5dac34d8b1e63cbd04
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122446739"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123537902"
 ---
 # <a name="switch-azure-site-recovery-replication-appliance"></a>Creación del dispositivo de replicación de Azure Site Recovery
 
@@ -57,7 +57,7 @@ Por ejemplo, este es el escenario en el que el dispositivo de replicación 1 (R
    ![Selección del dispositivo de replicación que se va a cambiar](./media/switch-replication-appliance-preview/select-switch-appliance.png)
 
 
-3. En **Seleccionar máquinas**, seleccione las máquinas que desea conmutar por error a otro dispositivo de replicación (RA2). Seleccione **Siguiente**.
+3. En **Seleccionar máquinas**, seleccione las máquinas que desea conmutar por error a otro dispositivo de replicación (RA2). Seleccione **Next** (Siguiente).
 
    >[!NOTE]
    > Solo aquellas máquinas protegidas por el dispositivo actual estarán visibles en la lista. Las máquinas con conmutación por error no estarán presentes aquí  
@@ -78,4 +78,4 @@ Por ejemplo, este es el escenario en el que el dispositivo de replicación 1 (R
    Una vez completada la resincronización, el estado de replicación se vuelve correcto para las máquinas virtuales que se mueven a un nuevo dispositivo.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Configure la recuperación ante desastres en Azure para [máquinas virtuales VMware](vmware-azure-tutorial.md).
+Configure la recuperación ante desastres en Azure para [máquinas virtuales VMware](vmware-azure-set-up-replication-tutorial-preview.md).

@@ -6,13 +6,13 @@ ms.author: nandab
 ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
-ms.date: 10/20/2019
-ms.openlocfilehash: 71d16e08501a345fcc6ae8435f0609660be9a18a
-ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
+ms.date: 08/17/2021
+ms.openlocfilehash: 70ea24b64a1173d2a397d9603d020506f53be37e
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122195304"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123434671"
 ---
 # <a name="tutorial-deploy-and-walk-through-the-digital-distribution-center-application-template"></a>Tutorial: Implementación y recorrido por la plantilla de aplicación del centro de distribución digital
 
@@ -65,7 +65,7 @@ Cree la aplicación mediante los pasos siguientes:
 
 1. Seleccione **Crear aplicación** en el **centro de distribución digital**.
 
-Para más información, consulte [Creación de una aplicación de Azure IoT Central](../core/howto-create-iot-central-application.md).
+Para obtener más información, vea [Creación de una aplicación de Azure IoT Central](../core/howto-create-iot-central-application.md).
 
 ## <a name="walk-through-the-application"></a>Recorrido por la aplicación. 
 
