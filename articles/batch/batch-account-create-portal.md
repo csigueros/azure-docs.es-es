@@ -2,14 +2,14 @@
 title: Creación de una cuenta en Azure Portal
 description: Aprenda a crear una cuenta de Azure Batch en Azure Portal para ejecutar cargas de trabajo en paralelo a gran escala en la nube.
 ms.topic: how-to
-ms.date: 07/01/2021
+ms.date: 08/31/2021
 ms.custom: subject-rbac-steps
-ms.openlocfilehash: 745a2fc2e1279d05fa380b7bc053171d20a3fa4c
-ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
+ms.openlocfilehash: 037ada644f60eabf498c59047513f4ad8292f239
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113213280"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123308702"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Creación de una cuenta de Batch con Azure Portal
 
@@ -85,7 +85,7 @@ Al crear la primera cuenta de Batch en el modo de suscripción de usuario, tiene
 
 1. Vuelva a la página **Suscripción** y, a continuación, seleccione **Control de acceso (IAM)** .
 
-1. Asigne a Batch API el rol **Colaborador** o **Propietario**. Para encontrar esta cuenta, busque **Microsoft Azure Batch** o **MicrosoftAzureBatch**. (El identificador de objeto de Batch API es **f520d84c-3fd3-4cc8-88d4-2ed25b00d27a** y el identificador de aplicación es **ddbf3205-c6bd-46ae-8127-60eb93363864**).
+1. Asigne a Batch API el rol **Colaborador** o **Propietario**. Para localizar esta cuenta, busque **Microsoft Azure Batch**. El identificador de aplicación de esta cuenta es **ddbf3205-c6bd-46ae-8127-60eb93363864**.
 
    Para asignar roles, consulte [Asignación de roles de Azure mediante Azure Portal](../role-based-access-control/role-assignments-portal.md).
 

@@ -5,12 +5,12 @@ author: emaher
 ms.topic: article
 ms.date: 03/30/2021
 ms.author: enewman
-ms.openlocfilehash: 9d59e8eab9aff857991a886838cc1063a36de00c
-ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
+ms.openlocfilehash: dc0f2a4f51fb12c61d0e1e16cb23d030a5dc9cc6
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/15/2021
-ms.locfileid: "112120109"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122969280"
 ---
 # <a name="use-external-file-storage-in-lab-services"></a>Uso de almacenamiento de archivos externo en Lab Services
 
@@ -51,11 +51,11 @@ Si está usando un punto de conexión privado al recurso compartido de Azure Fil
 Siga estos pasos para crear una máquina virtual conectada a un recurso compartido de archivos de Azure.
 
 1. Cree una [cuenta de Azure Storage](../storage/files/storage-how-to-create-file-share.md). En la página **Método de conectividad**, elija **punto de conexión público** o **punto de conexión privado**.
-2. Si opta por el método privado, cree un [punto de conexión privado](../private-link/tutorial-private-endpoint-storage-portal.md) para que los recursos compartidos de archivos sean accesibles desde la red virtual. Cree una [zona DNS privada](../dns/private-dns-privatednszone.md) o use una existente. Las zonas de Azure DNS privadas proporcionan la resolución de nombres dentro de una red virtual.
-3. Cree un [recurso compartido de archivos de Azure](../storage/files/storage-how-to-create-file-share.md). El recurso compartido de archivos es accesible mediante el nombre de host público de la cuenta de almacenamiento.
+2. Si opta por el método privado, cree un [punto de conexión privado](../private-link/tutorial-private-endpoint-storage-portal.md) para que los recursos compartidos de archivos sean accesibles desde la red virtual.
+3. Cree un [recurso compartido de archivos de Azure](../storage/files/storage-how-to-create-file-share.md). El recurso compartido de archivos es accesible mediante el nombre de host público de la cuenta de almacenamiento.  El recurso compartido de archivos es accesible mediante la dirección IP privada si se usa un punto de conexión privado.  
 4. Montaje del recurso compartido de archivos de Azure en la plantilla de máquina virtual:
     - [Windows](../storage/files/storage-how-to-use-files-windows.md)
-    - [Linux](../storage/files/storage-how-to-use-files-linux.md). Para evitar problemas de montaje en las máquinas virtuales de los alumnos, consulte la sección siguiente.
+    - [Linux](../storage/files/storage-how-to-use-files-linux.md). Para evitar problemas de montaje en las máquinas virtuales de alumnos, consulte la sección sobre el [uso de Azure Files con Linux](#use-azure-files-with-linux).
 5. [Publicación](how-to-create-manage-template.md#publish-the-template-vm) de la plantilla de máquina virtual.
 
 > [!IMPORTANT]
@@ -65,6 +65,7 @@ Siga estos pasos para crear una máquina virtual conectada a un recurso comparti
 
 Si usa las instrucciones predeterminadas para montar un recurso compartido de Azure Files, parecerá que el recurso compartido de archivos desaparece en las máquinas virtuales de los alumnos después de publicar la plantilla. El siguiente script modificado soluciona este problema.  
 
+En el caso de un recurso compartido de archivos con un punto de conexión público:
 ```bash
 #!/bin/bash
 
@@ -88,6 +89,34 @@ fi
 sudo chmod 600 /etc/smbcredentials/$storage_account_name.cred
 
 sudo bash -c "echo ""//$storage_account_name.file.core.windows.net/$fileshare_name /$mount_directory/$fileshare_name cifs nofail,vers=3.0,credentials=/etc/smbcredentials/$storage_account_name.cred,dir_mode=0777,file_mode=0777,serverino"" >> /etc/fstab"
+sudo mount -t cifs //$storage_account_name.file.core.windows.net/$fileshare_name /$mount_directory/$fileshare_name -o vers=3.0,credentials=/etc/smbcredentials/$storage_account_name.cred,dir_mode=0777,file_mode=0777,serverino
+```
+
+En el caso de un recurso compartido de archivos con un punto de conexión privado:
+```bash
+#!/bin/bash
+
+# Assign variables values for your storage account and file share
+storage_account_name=""
+storage_account_ip=""
+storage_account_key=""
+fileshare_name=""
+
+# Do not use 'mnt' for mount directory.
+# Using ‘mnt’ will cause issues on student VMs.
+mount_directory="prm-mnt" 
+
+sudo mkdir /$mount_directory/$fileshare_name
+if [ ! -d "/etc/smbcredentials" ]; then
+    sudo mkdir /etc/smbcredentials
+fi
+if [ ! -f "/etc/smbcredentials/$storage_account_name.cred" ]; then
+    sudo bash -c "echo ""username=$storage_account_name"" >> /etc/smbcredentials/$storage_account_name.cred"
+    sudo bash -c "echo ""password=$storage_account_key"" >> /etc/smbcredentials/$storage_account_name.cred"
+fi
+sudo chmod 600 /etc/smbcredentials/$storage_account_name.cred
+
+sudo bash -c "echo ""//$storage_account_ip/$fileshare_name /$mount_directory/$fileshare_name cifs nofail,vers=3.0,credentials=/etc/smbcredentials/$storage_account_name.cred,dir_mode=0777,file_mode=0777,serverino"" >> /etc/fstab"
 sudo mount -t cifs //$storage_account_name.file.core.windows.net/$fileshare_name /$mount_directory/$fileshare_name -o vers=3.0,credentials=/etc/smbcredentials/$storage_account_name.cred,dir_mode=0777,file_mode=0777,serverino
 ```
 

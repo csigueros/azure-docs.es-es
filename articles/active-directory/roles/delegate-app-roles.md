@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26373d9bfb0c946f412358c16b97f882e2cfba53
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 2cd749289b9a389b495481517a56b2652fb2026f
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114439130"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122444535"
 ---
 # <a name="delegate-app-registration-permissions-in-azure-active-directory"></a>Delegación de permisos de registro de aplicaciones en Azure Active Directory
 
@@ -46,32 +46,11 @@ De manera predeterminada, en Azure AD, todos los usuarios pueden registrar aplic
 
 ### <a name="grant-individual-permissions-to-create-and-consent-to-applications-when-the-default-ability-is-disabled"></a>Concesión de permisos individuales para crear y dar consentimiento a las aplicaciones cuando la capacidad predeterminada está deshabilitada
 
-Asigne el rol Desarrollador de aplicaciones para conceder la capacidad de crear registros de aplicación cuando el valor **Los usuarios pueden registrar aplicaciones** está establecido en No. Esta función también concede permiso para dar consentimiento en nombre propio cuando la opción **Los usuarios pueden permitir que las aplicaciones accedan a los datos de la compañía en su nombre** está establecida en No. Como comportamiento del sistema, cuando un usuario crea un nuevo registro de aplicación, se agrega automáticamente como primer propietario. Los permisos de propiedad proporcionan al usuario la posibilidad de administrar todos los aspectos de un registro de aplicación o de una aplicación empresarial de su propiedad.
+Asigne el rol Desarrollador de aplicaciones para conceder la capacidad de crear registros de aplicación cuando el valor **Los usuarios pueden registrar aplicaciones** está establecido en No. Esta función también concede permiso para dar consentimiento en nombre propio cuando la opción **Los usuarios pueden permitir que las aplicaciones accedan a los datos de la compañía en su nombre** está establecida en No.
 
 ## <a name="assign-application-owners"></a>Asignación de propietarios de la aplicación
 
-La asignación de propietarios es una manera sencilla de conceder la posibilidad de administrar todos los aspectos de la configuración de Azure AD para un registro de aplicación o aplicación empresarial específicos. Como comportamiento del sistema, cuando un usuario crea un nuevo registro de aplicación, se agrega automáticamente como primer propietario. Los permisos de propiedad proporcionan al usuario la posibilidad de administrar todos los aspectos de un registro de aplicación o de una aplicación empresarial de su propiedad. Se puede eliminar el propietario original y agregar otros propietarios.
-
-### <a name="enterprise-application-owners"></a>Propietarios de aplicaciones empresariales
-
-Como propietario, un usuario puede administrar la configuración de la aplicación empresarial que es específica de la organización, como la configuración del inicio de sesión único, el aprovisionamiento y las asignaciones de usuarios. Un propietario también puede agregar o quitar otros propietarios. A diferencia de los administradores globales, los propietarios solo pueden administrar las aplicaciones empresariales que poseen.
-
-En algunos casos, las aplicaciones empresariales creadas desde la galería de aplicaciones incluyen una aplicación empresarial y un registro de aplicación. Cuando esto es así, al agregar un propietario a la aplicación empresarial, se agrega automáticamente el propietario al registro de aplicación correspondiente como propietario.
-
-### <a name="to-assign-an-owner-to-an-enterprise-application"></a>Para asignar un propietario a una aplicación empresarial
-
-1. Inicie sesión en su [organización de Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) con una cuenta que sea válida para el administrador de aplicaciones o el administrador de aplicaciones en la nube de la organización.
-1. En la [página Aplicaciones empresariales](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) de la organización, seleccione una aplicación para abrir su página Información general.
-1. Seleccione **Propietarios** para ver la lista de los propietarios de la aplicación.
-1. Seleccione **Agregar** para seleccionar uno o varios propietarios para agregar a la aplicación.
-
-> [!NOTE]
-> Si la opción de configuración del usuario [Restringir el acceso al portal de administración de Azure AD](../fundamentals/users-default-permissions.md) está establecida en Sí, los usuarios que no sean administradores no podrán usar Azure Portal para administrar las aplicaciones de su propiedad.
-
-> [!IMPORTANT]
-> Los usuarios y las entidades de servicio pueden ser propietarios de registros de aplicaciones. Solo los usuarios pueden ser propietarios de aplicaciones empresariales. No se pueden asignar grupos como propietarios en ninguno de los dos casos.
->
-> Los propietarios pueden agregar credenciales a una aplicación y usarlas para suplantar la identidad de la aplicación. La aplicación puede tener más permisos que el propietario y, por tanto, se trataría de una elevación de privilegios con respecto a lo que el propietario tiene acceso como usuario o entidad de servicio. Un propietario de aplicación podría crear o actualizar usuarios u otros objetos durante la suplantación de la aplicación, según los permisos de la aplicación.
+La asignación de propietarios es una manera sencilla de conceder la posibilidad de administrar todos los aspectos de la configuración de Azure AD para un registro de aplicación o aplicación empresarial específicos. Para más información, consulte [Asignación de propietarios de aplicaciones empresariales](../manage-apps/assign-app-owners.md).
 
 ## <a name="assign-built-in-application-admin-roles"></a>Asignación de roles de administrador de aplicaciones integrados
 

@@ -6,15 +6,15 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 08/16/2021
+ms.date: 08/24/2021
 ms.author: jianleishen
 ms.custom: has-adal-ref, synapse
-ms.openlocfilehash: 02bb677438a4139fb67b335b9e6cbbf43f8a2600
-ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
+ms.openlocfilehash: 27e9f92f7ea2be3ebdafbf973c4d1def179d5636
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122271443"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122864151"
 ---
 # <a name="troubleshoot-azure-data-factory-and-azure-synapse-analytics-connectors"></a>Solución de problemas relacionados con conectores en Azure Data Factory y Azure Synapse Analytics
 
@@ -67,7 +67,7 @@ En este artículo se exploran las formas más comunes de solucionar problemas co
 
 - **Causa**: se producen varias solicitudes de escritura simultáneas, lo que provoca conflictos en el contenido del archivo.
 
-## <a name="azure-cosmos-db"></a>Azure Cosmos DB
+## <a name="azure-cosmos-db"></a>Azure Cosmos DB
 
 ### <a name="error-message-request-size-is-too-large"></a>Mensaje de error: Request size is too large (El tamaño de la solicitud es demasiado grande)
 
@@ -639,59 +639,18 @@ En este artículo se exploran las formas más comunes de solucionar problemas co
  
  - **Mensaje**: `Failed to connect to Dynamics: %message;` 
  
- - **Causa**: está viendo `ERROR REQUESTING ORGS FROM THE DISCOVERY SERVERFCB 'EnableRegionalDisco' is disabled.` o, en caso contrario, `Unable to Login to Dynamics CRM, message:ERROR REQUESTING Token FROM THE Authentication context - USER intervention required but not permitted by prompt behavior AADSTS50079: Due to a configuration change made by your administrator, or because you moved to a new location, you must enroll in multi-factor authentication to access '00000007-0000-0000-c000-000000000000'`, si el caso de uso cumple **todas** las condiciones siguientes:
-    - Se va a conectar a Dynamics 365, Common Data Service o Dynamics CRM.
-    - Va a usar la autenticación de Office365.
-    - El inquilino y el usuario están configurados en Azure Active Directory para el [acceso condicional](../active-directory/conditional-access/overview.md), o bien si la autenticación multifactor es necesaria (consulte este [vínculo](/powerapps/developer/data-platform/authenticate-office365-deprecation) para ver la documentación de Dataverse).
-    
-    En estas circunstancias, la conexión que se use funcionará correctamente hasta el 8/6/2021.
-    A partir del 9/6/2021, la conexión comenzará a producir un error debido al desuso del servicio de detección regional (consulte este [vínculo](/power-platform/important-changes-coming#regional-discovery-service-is-deprecated)).
- 
- -  **Recomendación:**  
-    El inquilino y el usuario están configurados en Azure Active Directory para el [acceso condicional](../active-directory/conditional-access/overview.md), o bien, si la autenticación multifactor es necesaria deberá utilizar "Azure AD service-principal" para autenticarse después del 8/6/2021. Consulte este [vínculo](./connector-dynamics-crm-office-365.md#prerequisites) para obtener pasos detallados.
+ - **Causas y recomendaciones**: diversas causas pueden provocar este error. Busque en la lista siguiente el análisis de las posibles causas y la recomendación relacionada.
 
+    | Análisis de las causas                                               | Recomendación                                               |
+    | :----------------------------------------------------------- | :----------------------------------------------------------- |
+    | Aparece `ERROR REQUESTING ORGS FROM THE DISCOVERY SERVERFCB 'EnableRegionalDisco' is disabled.` o, en caso contrario, `Unable to Login to Dynamics CRM, message:ERROR REQUESTING Token FROM THE Authentication context - USER intervention required but not permitted by prompt behavior AADSTS50079: Due to a configuration change made by your administrator, or because you moved to a new location, you must enroll in multi-factor authentication to access '00000007-0000-0000-c000-000000000000'`, si el caso de uso cumple **todas** las condiciones siguientes: <br/> 1. Se va a conectar a Dynamics 365, Common Data Service o Dynamics CRM.<br/>  2. Va a usar la autenticación de Office365.<br/>  3. El inquilino y el usuario están configurados en Azure Active Directory para el [acceso condicional](../active-directory/conditional-access/overview.md), o bien si la autenticación multifactor es necesaria (consulte este [vínculo](/powerapps/developer/data-platform/authenticate-office365-deprecation) para ver la documentación de Dataverse).<br/>  En estas circunstancias, la conexión que se use funcionará correctamente hasta el 8/6/2021. A partir del 9/6/2021, la conexión comenzará a producir un error debido al desuso del servicio de detección regional (consulte este [vínculo](/power-platform/important-changes-coming#regional-discovery-service-is-deprecated)).| Si el inquilino y el usuario están configurados en Azure Active Directory para el [acceso condicional](../active-directory/conditional-access/overview.md), o bien, si la autenticación multifactor es necesaria, deberá utilizar una "entidad de servicio de Azure AD" para autenticarse después del 8/6/2021. Consulte este [vínculo](./connector-dynamics-crm-office-365.md#prerequisites) para obtener pasos detallados.|
+    |Si aparece `Office 365 auth with OAuth failed` en el mensaje de error, es posible que el servidor tenga algunas configuraciones no compatibles con OAuth.| 1. Para obtener ayuda, póngase en contacto con el equipo de soporte técnico de Dynamics con el mensaje de error detallado. <br/> 2. Use la autenticación de entidad de servicio; puede consultar este artículo: [Ejemplo: Dynamics en línea con la entidad de servicio de Azure AD y la autenticación de certificados](./connector-dynamics-crm-office-365.md#example-dynamics-online-using-azure-ad-service-principal-and-certificate-authentication). 
+    |Si aparece `Unable to retrieve authentication parameters from the serviceUri` en el mensaje de error, puede que haya escrito una dirección URL de servicio de Dynamics incorrecta o aplicado un proxy o firewall para interceptar el tráfico. |1. Asegúrese de haber indicado el identificador URI de servicio correcto en el servicio vinculado.<br/> 2. Si usa IR autohospedado, asegúrese de que el firewall o proxy no intercepten las solicitudes al servidor de Dynamics. |
+    |Si aparece `An unsecured or incorrectly secured fault was received from the other party` en el mensaje de error, se han obtenido respuestas inesperadas del lado servidor.  | 1. Asegúrese de que el nombre de usuario y la contraseña sean correctos si usa la autenticación de Office 365. <br/> 2. Asegúrese de haber escrito el identificador URI de servicio correcto. <br/> 3. Si usa la dirección URL de CRM regional (la dirección URL tiene un número después de "crm"), asegúrese de usar el identificador regional correcto.<br/> 4. Para obtener ayuda, póngase en contacto con el equipo de soporte técnico de Dynamics. |
+    |Si aparece `No Organizations Found` en el mensaje de error, el nombre de la organización es incorrecto o ha usado un identificador de región de CRM incorrecto en la dirección URL del servicio.|1. Asegúrese de haber escrito el identificador URI de servicio correcto.<br/>2. Si usa la dirección URL de CRM regional (la dirección URL tiene un número después de "crm"), asegúrese de usar el identificador regional correcto. <br/> 3. Para obtener ayuda, póngase en contacto con el equipo de soporte técnico de Dynamics. |
+    | Si aparece `401 Unauthorized` y un mensaje de error relacionado con AAD, hay un problema con la entidad de servicio. |Siga las instrucciones del mensaje de error para corregir el problema de la entidad de servicio. |
+   |Para otros errores, el problema suele encontrarse en el lado servidor. |Use [XrmToolBox](https://www.xrmtoolbox.com/) para establecer la conexión. Si el error persiste, póngase en contacto con el equipo de soporte técnico de Dynamics para obtener ayuda. |
 
- - **Causa**: Si ve `Office 365 auth with OAuth failed` en el mensaje de error, es posible que el servidor tenga algunas configuraciones no compatibles con OAuth. 
- 
- - **Recomendación:** 
-    1. Para obtener ayuda, póngase en contacto con el equipo de soporte técnico de Dynamics con el mensaje de error detallado.  
-    1. Use la autenticación de la entidad de servicio, puede consultar este artículo: [Ejemplo: Dynamics en línea con la entidad de servicio de Azure AD y la autenticación de certificados](./connector-dynamics-crm-office-365.md#example-dynamics-online-using-azure-ad-service-principal-and-certificate-authentication). 
- 
-
- - **Causa**: Si ve `Unable to retrieve authentication parameters from the serviceUri` en el mensaje de error, puede que haya escrito una dirección URL de servicio de Dynamics incorrecta o aplicado un proxy o firewall para interceptar el tráfico. 
- 
- - **Recomendación:**
-    1. Asegúrese de haber indicado el URI de servicio correcto en el servicio vinculado. 
-    1. Si usa el IR autohospedado, asegúrese de que el firewall o proxy no intercepten las solicitudes al servidor de Dynamics. 
-   
- 
- - **Causa**: Si ve `An unsecured or incorrectly secured fault was received from the other party` en el mensaje de error, se han obtenido respuestas inesperadas del lado servidor. 
- 
- - **Recomendación:** 
-    1. Asegúrese de que el nombre de usuario y la contraseña sean correctos si usa la autenticación de Office 365. 
-    1. Asegúrese de haber escrito el URI de servicio correcto. 
-    1. Si usa la dirección URL de CRM regional (la dirección URL tiene un número después de "crm"), asegúrese de usar el identificador regional correcto.
-    1. Para obtener ayuda, póngase en contacto con el equipo de soporte técnico de Dynamics. 
- 
-
- - **Causa**: Si ve `No Organizations Found` en el mensaje de error, el nombre de la organización es incorrecto o ha usado un identificador de región de CRM incorrecto en la dirección URL del servicio. 
- 
- - **Recomendación:** 
-    1. Asegúrese de haber escrito el URI de servicio correcto.
-    1. Si usa la dirección URL de CRM regional (la dirección URL tiene un número después de "crm"), asegúrese de usar el identificador regional correcto. 
-    1. Para obtener ayuda, póngase en contacto con el equipo de soporte técnico de Dynamics. 
-
- 
- - **Causa**: Si ve `401 Unauthorized` y un mensaje de error relacionado con AAD, hay un problema con la entidad de servicio. 
-
- - **Recomendación**: Siga la guía del mensaje de error para corregir el problema de la entidad de servicio.  
- 
- 
- - **Causa**: Para otros errores, el problema suele encontrarse en el lado servidor. 
-
- - **Recomendación**: Use [XrmToolBox](https://www.xrmtoolbox.com/) para establecer la conexión. Si el error persiste, póngase en contacto con el equipo de soporte técnico de Dynamics para obtener ayuda. 
- 
- 
 ### <a name="error-code-dynamicsoperationfailed"></a>Código de error: DynamicsOperationFailed 
  
 - **Mensaje**: `Dynamics operation failed with error code: %code;, error message: %message;.` 
@@ -1416,7 +1375,7 @@ En este artículo se exploran las formas más comunes de solucionar problemas co
 Para obtener ayuda para solucionar problemas, pruebe estos recursos:
 
 *  [Blog de Data Factory](https://azure.microsoft.com/blog/tag/azure-data-factory/)
-*  [Solicitud de características de Data Factory](https://feedback.azure.com/forums/270578-data-factory)
+*  [Solicitud de características de Data Factory](/answers/topics/azure-data-factory.html)
 *  [Vídeos de Azure](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [Página de preguntas y respuestas de Microsoft](/answers/topics/azure-data-factory.html)
 *  [Foro de Stack Overflow para Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)

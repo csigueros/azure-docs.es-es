@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 06/24/2021
 ms.topic: conceptual
-ms.openlocfilehash: 2e9b10206a28072d37668207993007dc29320f04
-ms.sourcegitcommit: 16580bb4fbd8f68d14db0387a3eee1de85144367
+ms.openlocfilehash: de148858ba5c88e8dbbf2693dadc818b8c66e833
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112679029"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122768333"
 ---
 # <a name="how-to-deploy-updates-and-review-results"></a>Implementación de actualizaciones y revisión de los resultados
 
@@ -48,19 +48,19 @@ Para programar una implementación de actualizaciones nueva, siga estos pasos. E
 
    * Si seleccionó su cuenta de Automation, vaya a **Update Management** en **Update Management** y, luego, seleccione **Programar implementación de actualizaciones**.
    * Si seleccionó una VM de Azure, vaya a **Actualizaciones de invitado y host** y, luego, seleccione **Ir a Update Management**.
-   * Si seleccionó un servidor habilitado para Arc, vaya a **Update Management** y, luego, seleccione **Programar implementación de actualizaciones**.
+   * Si seleccionó un servidor habilitado para Arc, vaya a **Update Management** y seleccione **Programar implementación de actualizaciones**.
 
 3. En **Nueva implementación de la actualización**, utilice el campo **Nombre** para escribir un nombre único para la implementación.
 
 4. Seleccione el sistema operativo para la implementación de actualizaciones.
 
     > [!NOTE]
-    > Esta opción no está disponible si seleccionó una VM de Azure o un servidor habilitado para Arc. El sistema operativo se identifica automáticamente.
+    > Esta opción no está disponible si seleccionó una máquina virtual de Azure o un servidor habilitado para Arc. El sistema operativo se identifica automáticamente.
 
 5. En la región **Grupos para actualizar**, defina una consulta que combine una suscripción, grupos de recursos, ubicaciones y etiquetas con el fin de crear un grupo dinámico de VM de Azure e incluirlo en su implementación. Para más información, consulte [Uso de grupos dinámicos con Update Management](configure-groups.md).
 
     > [!NOTE]
-    > Esta opción no está disponible si seleccionó una VM de Azure o un servidor habilitado para Arc. La máquina se establece automáticamente como el destino de la implementación programada.
+    > Esta opción no está disponible si seleccionó una máquina virtual de Azure o un servidor habilitado para Arc. La máquina se establece automáticamente como el destino de la implementación programada.
 
    > [!IMPORTANT]
    > Al crear un grupo dinámico de máquinas virtuales de Azure, Update Management solo admite un máximo de 500 consultas que combinen suscripciones o grupos de recursos en el ámbito del grupo.
@@ -68,7 +68,7 @@ Para programar una implementación de actualizaciones nueva, siga estos pasos. E
 6. En el área **Máquinas para actualizar**, seleccione una búsqueda guardada, un grupo importado, o bien la opción **Máquinas** del menú desplegable, y elija máquinas específicas. Mediante esta opción, puede ver el grado de preparación del agente de Log Analytics para cada máquina. Para más información sobre los distintos métodos de creación de grupos de equipos en los registros de Azure Monitor, consulte el artículo sobre los [grupos de equipos en los registros de Azure Monitor](../../azure-monitor/logs/computer-groups.md). Es posible incluir hasta un máximo de 1000 máquinas en una implementación de actualizaciones programada.
 
     > [!NOTE]
-    > Esta opción no está disponible si seleccionó una VM de Azure o un servidor habilitado para Arc. La máquina se establece automáticamente como el destino de la implementación programada.
+    > Esta opción no está disponible si seleccionó una máquina virtual de Azure o un servidor habilitado para Arc. La máquina se establece automáticamente como el destino de la implementación programada.
 
 7. Use el área **Clasificaciones de actualizaciones** para especificar [clasificaciones de actualizaciones](view-update-assessments.md#work-with-update-classifications) para productos. En cada producto, anule la selección de todas las clasificaciones de actualizaciones compatibles, salvo las que se incluirán en la implementación de actualizaciones.
 

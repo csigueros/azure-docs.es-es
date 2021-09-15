@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: sumi
-ms.openlocfilehash: a5eeb8fbadda24a811893a02f42b428a8365c5aa
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: 50d918cb6cb096674dc5b79d478d37d65422106e
+ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113110266"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123186018"
 ---
 # <a name="what-is-azure-private-link-service"></a>¿Qué es el servicio Azure Private Link?
 
@@ -97,7 +97,7 @@ Alias completo:  *Prefix*. {GUID}.*region*.azure.privatelinkservice
 
 El servicio Private Link le proporciona tres opciones en el valor **Visibilidad** para controlar la exposición del servicio. La configuración de visibilidad determina si un consumidor se puede conectar al servicio. Estas son las opciones de configuración de visibilidad, desde las más restrictivas a las menos restrictivas:
  
-- **Solo control de acceso basado en rol**: si el servicio es para consumo privado desde diferentes redes virtuales de su propiedad, puede usar RBAC como mecanismo de control de acceso dentro de las suscripciones que están asociadas al mismo inquilino de Active Directory. 
+- **Solo control de acceso basado en rol**: si el servicio es para consumo privado desde diferentes redes virtuales de su propiedad, puede usar RBAC como mecanismo de control de acceso dentro de las suscripciones que están asociadas al mismo inquilino de Active Directory. Nota: La visibilidad entre inquilinos se permite mediante RBAC.
 - **Restringido por suscripción**: si el servicio se consumirá en distintos inquilinos, puede restringir la exposición a un conjunto limitado de suscripciones en las que confíe. Las autorizaciones se pueden aprobar previamente.
 - **Cualquier usuario con su alias**: si quiere que el servicio sea público y permitir que cualquier usuario con su alias de servicio Private Link solicite una conexión, seleccione esta opción. 
 

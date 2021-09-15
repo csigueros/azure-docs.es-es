@@ -3,18 +3,18 @@ title: Administración del portal del Contrato Enterprise de Azure
 description: En este artículo se explican las tareas comunes que un administrador lleva a cabo en el portal del Contrato Enterprise de Azure.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/22/2021
+ms.date: 08/25/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: a973fc9dc9cf4b4fe514ddf987fd2052c46a6e6b
-ms.sourcegitcommit: 096e7972e2a1144348f8d648f7ae66154f0d4b39
+ms.openlocfilehash: bf887ad515f8c4349fcff54d25be1c70a30d018f
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2021
-ms.locfileid: "112519754"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123098325"
 ---
 # <a name="azure-ea-portal-administration"></a>Administración del portal del Contrato Enterprise de Azure
 
@@ -143,9 +143,11 @@ Para confirmar la propiedad de la cuenta:
 
 ## <a name="change-azure-subscription-or-account-ownership"></a>Cambio de la propiedad de la cuenta o de la suscripción de Azure
 
-Esta sección solo se aplica cuando cambia un propietario de la suscripción. El cambio de la propiedad de una suscripción no requiere una incidencia de soporte técnico de Azure. Los administradores de empresa pueden usar Azure Enterprise Portal para transferir la propiedad de la cuenta de todas las suscripciones de una inscripción, o solo de algunas de ellas. También tienen la opción de cambiar el directorio (inquilino) de la suscripción. 
+Esta sección solo se aplica cuando cambia un propietario de la suscripción. Para cambiar la titularidad de una suscripción no es necesario crear una incidencia de soporte técnico de Azure. Los administradores de empresa pueden usar Azure Enterprise Portal para transferir la propiedad de la cuenta de todas las suscripciones de una inscripción, o solo de algunas de ellas. También tienen la opción de cambiar el directorio (inquilino) de la suscripción. 
 
 Sin embargo, un administrador de EA no puede transferir una cuenta de una inscripción a otra. Para hacer esta transferencia, se requiere una solicitud de soporte técnico. Para obtener información sobre cómo transferir una cuenta de una inscripción a otra, consulte [Transferencia de una cuenta empresarial a una nueva inscripción](ea-transfers.md#transfer-an-enterprise-account-to-a-new-enrollment).
+
+Los administradores de suscripciones de pago por uso también pueden transferir la titularidad de la cuenta de sus suscripciones a una inscripción de EA mediante este mismo proceso.
 
 Cuando se completa la transferencia de una suscripción o de la propiedad de una cuenta, Microsoft actualiza el propietario de la cuenta.
 

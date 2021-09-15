@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 06/27/2021
+ms.date: 08/31/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ee0fbab517a34f6986d20ea3271cb4325bf6aabd
-ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
+ms.openlocfilehash: 2a935e88f1127f27e3f779fb88447466c470fd32
+ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2021
-ms.locfileid: "112981023"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123271924"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -113,12 +113,7 @@ El elemento **OrchestrationStep** puede contener los siguientes elementos:
 
 Los pasos de orquestación se pueden ejecutar de forma condicional en función de las condiciones previas definidas en el paso de orquestación. El elemento `Preconditions` contiene una lista de condiciones previas que se deben evaluar. Cuando se cumple la evaluación de la condición previa, el paso de orquestación asociado pasa al siguiente paso de orquestación. 
 
-Cada condición previa evalúa una única notificación. Hay dos tipos de condiciones previas:
- 
-- **Claims exist** (Existen notificaciones): especifica que las acciones deben realizarse si las notificaciones especificadas existen en el conjunto de notificaciones actual del usuario.
-- **Claim equals** (La notificación es igual a): especifica que las acciones deben realizarse si la notificación especificada existe y su valor es igual al valor especificado. La comprobación realiza una comparación ordinal con distinción entre mayúsculas y minúsculas. Al comprobar el tipo de notificación booleano, use `True` o `False`.
-
-Azure AD B2C evalúa las condiciones previas en orden de lista. Las condiciones previas basadas en orden permiten establecer el orden en el que se aplican las condiciones previas. La primera condición previa que se cumple invalida todas las siguientes. El paso de orquestación solo se ejecuta si no se cumplen todas las condiciones previas. 
+Azure AD B2C evalúa las condiciones previas en orden de lista. Los requisitos previos basados en la ordenación permiten establecer el orden en el que se aplican las condiciones previas. La primera condición previa que se cumple invalida todas las siguientes. El paso de orquestación solo se ejecuta si no se cumplen todas las condiciones previas. 
 
 El elemento **Preconditions** contiene el elemento siguiente:
 
@@ -141,6 +136,31 @@ El elemento **Precondition** contiene los siguientes elementos:
 | ------- | ----------- | ----------- |
 | Valor | 1:2 | Identificador de un tipo de notificación. La notificación ya se ha definido en la sección del esquema de notificaciones del archivo de directiva o del archivo de directiva primario. Cuando la condición previa es de tipo `ClaimEquals`, un segundo elemento `Value` contiene el valor que se va a comprobar. |
 | Acción | 1:1 | Acción que se debe realizar si la se cumple la evaluación de la condición previa. Valor posible: `SkipThisOrchestrationStep`. El paso de orquestación asociado pasa al siguiente. |
+  
+Cada condición previa evalúa una única notificación. Hay dos tipos de condiciones previas:
+ 
+- **ClaimsExist**: especifica que las acciones deben realizarse si las notificaciones especificadas existen en el conjunto de notificaciones actual del usuario.
+- **ClaimEquals**: especifica que las acciones deben realizarse si la notificación especificada existe y su valor es igual al valor especificado. La comprobación realiza una comparación ordinal con distinción entre mayúsculas y minúsculas. Al comprobar el tipo de notificación booleano, use `True` o `False`. 
+
+    Si la notificación es NULL o No inicializado, se omite la condición previa, independientemente de si `ExecuteActionsIf` es `true` o `false`. Como procedimiento recomendado, compruebe si la notificación existe y si es igual a un valor.
+
+Un escenario de ejemplo sería motivar al usuario para que use MFA si tiene `MfaPreference` establecido en `Phone`. Para realizar esta lógica condicional, compruebe si la notificación `MfaPreference` existe y compruebe también que el valor de la notificación sea igual a `Phone`. En el XML siguiente se muestra cómo implementar esta lógica con condiciones previas. 
+  
+```xml
+<Preconditions>
+  <!-- Skip this orchestration step if MfaPreference doesn't exist. -->
+  <Precondition Type="ClaimsExist" ExecuteActionsIf="false">
+    <Value>MfaPreference</Value>
+    <Action>SkipThisOrchestrationStep</Action>
+  </Precondition>
+  <!-- Skip this orchestration step if MfaPreference doesn't equal to Phone. -->
+  <Precondition Type="ClaimEquals" ExecuteActionsIf="false">
+    <Value>MfaPreference</Value>
+    <Value>Phone</Value>
+    <Action>SkipThisOrchestrationStep</Action>
+  </Precondition>
+</Preconditions>
+```
 
 #### <a name="preconditions-examples"></a>Ejemplos de condiciones previas
 

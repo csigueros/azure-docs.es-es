@@ -1,5 +1,5 @@
 ---
-title: 'Envío de notificaciones por correo electrónico en PIM: Azure Active Directory | Microsoft Docs'
+title: 'Notificaciones de correo electrónico en Privileged Identity Management (PIM): Azure Active Directory | Microsoft Docs'
 description: Se describen las notificaciones por correo electrónico en Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -11,17 +11,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: pim
-ms.date: 06/30/2021
+ms.date: 08/24/2021
 ms.author: curtand
 ms.reviewer: hanki
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 18aa1e49ad3f87ab3e222f250354c2bc5e2aca16
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 68fac3501cd13dd4766c519185459c9ef89b6299
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121749081"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123311220"
 ---
 # <a name="email-notifications-in-pim"></a>Notificaciones por correo electrónico en PIM
 
@@ -38,6 +38,21 @@ Estos mensajes de correo electrónico incluyen un prefijo **PIM** en la línea d
 
 - PIM: a Alain Charon se le ha asignado el rol de lector de copias de seguridad de forma permanente
 
+## <a name="email-timing-for-activation-approvals"></a>Temporización del correo electrónico en las aprobaciones de activación
+
+Cuando los usuarios activan su rol y la configuración de este requiere aprobación, los aprobadores recibirán dos correos electrónicos para cada aprobación:
+
+- Solicitud para aprobar o denegar la solicitud de activación del usuario (enviada por el motor de aprobación de solicitudes)
+- Se ha aprobado la solicitud del usuario (enviada por el motor de aprobación de solicitudes)
+
+Además, los administradores globales y los administradores de roles con privilegios reciben un correo electrónico para cada aprobación:
+
+- Se ha activado el rol del usuario (enviado por Privileged Identity Management)
+
+Los dos primeros correos electrónicos enviados por el motor de aprobación de solicitudes pueden enviarse con retraso. Actualmente, el 90 % de los mensajes de correo electrónico tardan entre tres y diez minutos, pero en un 1 % de los clientes este tiempo puede alargarse hasta quince minutos.
+
+Si se acepta una solicitud de aprobación en Azure Portal antes de que se envíe el primer correo electrónico, este ya no se desencadenará y los demás aprobadores ya no recibirán por correo electrónico la solicitud de aprobación. Esto podría aparecer como no hubieran recibido un correo electrónico, pero es el comportamiento esperado.
+
 ## <a name="notifications-for-azure-ad-roles"></a>Notificaciones para roles de Azure AD
 
 Privileged Identity Management envía mensajes de correo electrónico cuando se producen los eventos siguientes para roles de Azure AD:
@@ -46,7 +61,7 @@ Privileged Identity Management envía mensajes de correo electrónico cuando se 
 - Cuando se completa una solicitud de activación de roles con privilegios
 - Cuando se habilita Azure AD Privileged Identity Management
 
-El destinatario de estos correos electrónicos para roles de Azure AD depende de su rol, el evento y las notificaciones de configuración:
+El destinatario de estos correos electrónicos para roles de Azure AD depende del rol que tenga, el evento y la configuración de notificaciones.
 
 | Usuario | La activación de roles está pendiente de aprobación | La solicitud de activación de roles está completa | PIM está habilitado |
 | --- | --- | --- | --- |
@@ -77,22 +92,7 @@ En el correo electrónico se incluye lo siguiente:
 
 En la sección **Información general de los roles principales** figuran los cinco principales roles en la organización según el número total de administradores permanentes y aptos para cada rol. El vínculo **Realizar acción** abre [Detección e información](pim-security-wizard.md) donde puede convertir administradores permanentes en administradores aptos en lotes.
 
-## <a name="email-timing-for-activation-approvals"></a>Temporización del correo electrónico en las aprobaciones de activación
-
-Cuando los usuarios activan su rol y la configuración de este requiere aprobación, los aprobadores recibirán dos correos electrónicos para cada aprobación:
-
-- Solicitud para aprobar o denegar la solicitud de activación del usuario (enviada por el motor de aprobación de solicitudes)
-- Se ha aprobado la solicitud del usuario (enviada por el motor de aprobación de solicitudes)
-
-Además, los administradores globales y los administradores de roles con privilegios reciben un correo electrónico para cada aprobación:
-
-- Se ha activado el rol del usuario (enviado por Privileged Identity Management)
-
-Los dos primeros correos electrónicos enviados por el motor de aprobación de solicitudes pueden enviarse con retraso. Actualmente, el 90 % de los mensajes de correo electrónico tardan entre tres y diez minutos, pero en un 1 % de los clientes este tiempo puede alargarse hasta quince minutos.
-
-Si se acepta una solicitud de aprobación en Azure Portal antes de que se envíe el primer correo electrónico, este ya no se desencadenará y los demás aprobadores ya no recibirán por correo electrónico la solicitud de aprobación. Esto podría aparecer como no hubieran recibido un correo electrónico, pero es el comportamiento esperado.
-
-## <a name="pim-emails-for-azure-resource-roles"></a>Correos electrónicos de PIM para roles de recursos de Azure
+## <a name="notifications-for-azure-resource-roles"></a>Notificaciones para roles de recursos de Azure
 
 Privileged Identity Management envía mensajes de correo electrónico a los propietarios y administradores de acceso de usuario cuando se producen los siguientes eventos para los roles de recursos de Azure:
 
@@ -113,6 +113,25 @@ Privileged Identity Management envía mensajes de correo electrónico a los usua
 Este es un correo electrónico de ejemplo que se envía cuando se asigna a un usuario un rol de recursos de Azure para la organización ficticia Contoso.
 
 ![Nuevo correo electrónico de Privileged Identity Management para roles de recursos de Azure](./media/pim-email-notifications/email-resources-new.png)
+
+## <a name="notifications-for-privileged-access-groups"></a>Notificaciones para grupos de acceso con privilegios
+
+Privileged Identity Management envía correos electrónicos a los propietarios solo cuando se producen los siguientes eventos para las asignaciones de grupos de acceso con privilegios:
+
+- Cuando una asignación de roles de propietario o miembro está pendiente de aprobación
+- Cuando se asigna un rol de propietario o miembro
+- Cuando un rol de propietario o miembro está a punto de expirar
+- Cuando un rol de propietario o miembro se puede ampliar
+- Cuando un usuario final renueva un rol de propietario o miembro
+- Cuando se completa una solicitud de activación de rol de propietario o miembro
+
+Privileged Identity Management envía correos electrónicos a los usuarios finales cuando se producen los siguientes eventos para las asignaciones de roles de grupo de acceso con privilegios:
+
+- Cuando se asigna un rol de propietario o miembro al usuario
+- Cuando el rol de propietario o miembro de un usuario ha expirado
+- Cuando se amplía el rol de propietario o miembro de un usuario
+- Cuando se completa una solicitud de activación de rol de propietario o miembro de un usuario
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/27/2021
-ms.openlocfilehash: bba8329075ecb47d367fc04afa1f2df0b4fcf721
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: fccbd763818facfa429451ce0c53d74ee8f6b8a4
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121742097"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122609271"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>¿Qué es una instancia de proceso de Azure Machine Learning?
 
@@ -47,7 +47,7 @@ Una instancia de proceso es una estación de trabajo totalmente administrada bas
 * La instancia de proceso también es un destino de proceso de entrenamiento seguro similar a los clústeres de proceso, pero es un solo nodo.
 * Puede [crear una instancia de proceso](how-to-create-manage-compute-instance.md?tabs=python#create) o bien un administrador puede **[crear una instancia de proceso en su nombre](how-to-create-manage-compute-instance.md?tabs=python#on-behalf)** .
 * También puede **[usar un script de configuración (versión preliminar)](how-to-create-manage-compute-instance.md#setup-script)** para disponer de una manera automatizada de personalizar y configurar la instancia de proceso según sus necesidades.
-* Para ahorrar costos, **[cree una programación (versión preliminar)](how-to-create-manage-compute-instance.md#schedule)** para iniciar y detener automáticamente la instancia de proceso (versión preliminar).
+* Para ahorrar costos, **[cree una programación (versión preliminar)](how-to-create-manage-compute-instance.md#schedule)** para iniciar y detener automáticamente la instancia de proceso.
 
 ## <a name="tools-and-environments"></a><a name="contents"></a>Herramientas y entornos
 
@@ -131,7 +131,7 @@ Una instancia de proceso:
 * Tiene una cola de trabajo.
 * Ejecuta trabajos de forma segura en un entorno de red virtual, sin necesidad de que las empresas abran el puerto SSH. El trabajo se ejecuta en un entorno en contenedor y empaqueta las dependencias del modelo en un contenedor de Docker.
 * Puede ejecutar varios trabajos pequeños en paralelo (versión preliminar).  Se pueden ejecutar dos trabajos por núcleo en paralelo mientras el resto de los trabajos se ponen en cola.
-* Admite trabajos de entrenamiento distribuidos con varias GPU de un solo nodo.
+* Admite trabajos de [entrenamiento distribuido](how-to-train-distributed-gpu.md) con varias GPU de un solo nodo.
 
 Puede usar la instancia de proceso como destino de implementación de inferencia local para escenarios de prueba o depuración.
 

@@ -16,12 +16,12 @@ ms.date: 12/14/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 389bf4438fa31b0c1174441cd62f814f18b271d2
-ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
+ms.openlocfilehash: 5c7439263f15a99a7b717bac1dc48e06a77bb66b
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2021
-ms.locfileid: "114729522"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123257123"
 ---
 # <a name="change-resource-roles-for-an-access-package-in-azure-ad-entitlement-management"></a>Modificación de los roles de recurso de un paquete de acceso en la administración de derechos de Azure AD
 
@@ -49,7 +49,7 @@ Si necesita agregar recursos a un paquete de acceso, debe comprobar si los recur
 
 ## <a name="add-resource-roles"></a>Agregar roles de recursos
 
-Un rol de recursos es una colección de permisos asociados a un recurso. Para hacer que los usuarios puedan solicitar los recursos es necesario agregar roles de recursos al paquete de acceso. Puede agregar roles de recursos de grupos, equipos, aplicaciones y sitios de SharePoint.
+Un rol de recursos es una colección de permisos asociados a un recurso. La formad de hacer que los usuarios estén disponibles para que los usuarios los soliciten consiste en agregar roles para cada uno de los recursos del catálogo al paquete de acceso. Puede agregar roles de recursos por grupos, equipos, aplicaciones y sitios de SharePoint.
 
 **Rol necesario:** Administrador global, administrador de usuarios, propietario del catálogo o administrador de paquetes de acceso.
 
@@ -121,6 +121,8 @@ Una vez que un rol de aplicación es parte de un paquete de acceso:
 Estas son algunas opciones a tener en cuenta cuando seleccione una aplicación:
 
 - Las aplicaciones también pueden tener, además, grupos asignados a sus roles.  Puede elegir agregar un grupo en lugar de un rol de aplicación en un paquete de acceso, pero entonces la aplicación no será visible para el usuario como parte del paquete de acceso en el portal Mi acceso.
+- Azure Portal también puede mostrar entidades de servicios que no se puedan seleccionar como aplicaciones.  En concreto, **Exchange Online** y **SharePoint Online** son servicios, no aplicaciones que tengan roles de recursos en el directorio, por lo que no pueden incluirse en un paquete de acceso.  En su lugar, use las licencias de grupo para establecer una licencia adecuada para un usuario que necesite acceder a esos servicios.
+- Las aplicaciones que solo admiten usuarios de cuentas personales de Microsoft para la autenticación, y no admiten cuentas organizativas en el directorio, no tienen roles de aplicación y no se pueden agregar a los catálogos de paquetes de acceso.
 
 1. En la página **Agregar roles de recursos al paquete de acceso**, haga clic en **Aplicaciones** para abrir el panel Seleccionar aplicaciones.
 

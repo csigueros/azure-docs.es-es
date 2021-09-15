@@ -6,12 +6,12 @@ ms.author: andbrown
 ms.date: 2/25/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 51ec14ff1df2c8fb450804c22b3211904e5f3a37
-ms.sourcegitcommit: 4f185f97599da236cbed0b5daef27ec95a2bb85f
+ms.openlocfilehash: ea9f57364d6b7cca884f87c36623a73bbcb37ae6
+ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2021
-ms.locfileid: "112371578"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123186882"
 ---
 # <a name="importing-updates-into-device-update-for-iot-hub---schema-and-other-information"></a>Importación de actualizaciones a Device Update para IoT Hub: esquema y otra información
 Si quiere importar una actualización a Device Update para IoT Hub, asegúrese de revisar primero los [conceptos](import-concepts.md) y la [guía paso a paso](import-update.md). Si le interesan los detalles del esquema que se usa al construir un manifiesto de importación, así como la información sobre los objetos relacionados, vea las secciones que se presentan a continuación.
@@ -81,6 +81,77 @@ Si usa la salida del manifiesto de importación de ejemplo de la página [Adici�
     },
   ]
 }
+```
+
+## <a name="oauth-authorization-when-calling-import-apis"></a>Autorización de OAuth al llamar a las API de importación
+
+**azure_auth**
+
+Azure Active Directory OAuth2 Flow Type: oauth2 Flow: any 
+
+URL de autorización: https://login.microsoftonline.com/common/oauth2/authorize
+
+**Ámbitos**
+
+| Nombre | Descripción |
+| --- | --- |
+| `https://api.adu.microsoft.com/user_impersonation` | Suplantación de su cuenta de usuario |
+| `https://api.adu.microsoft.com/.default`  | Flujos de credenciales del cliente |
+
+
+**Permisos**
+
+Si se usa una aplicación de Azure AD para iniciar la sesión del usuario, el ámbito debe contener /user_impersonation. 
+
+Tendrá que agregar permisos a la aplicación de Azure AD (en la pestaña de permisos de API de la vista de aplicación de Azure AD) para usar la API de Azure Device Update. Solicite el permiso de API para Azure Device Update, que se encuentra en "APIs my organization uses" (API usadas en mi organización), y conceda el permiso delegado user_impersonation.
+
+ADU acepta tokens que adquieren tokens mediante cualquiera de los flujos admitidos por Azure AD para usuarios, aplicaciones o identidades administradas. Sin embargo, algunos de los flujos requieren pasos adicionales de configuración para la aplicación de Azure AD: 
+
+* En el caso de los flujos de cliente públicos, asegúrese de habilitar los flujos móviles y de escritorio.
+* En el caso de los flujos implícitos, asegúrese de agregar una plataforma web y seleccione "Tokens de acceso" para el punto de conexión de autorización.
+
+**Ejemplo con la CLI de Azure:**
+
+```azurecli
+az login
+
+az account get-access-token --resource 'https://api.adu.microsoft.com/'
+```
+
+**Ejemplos para adquirir un token mediante la biblioteca MSAL de PowerShell:**
+
+_Uso con las credenciales de usuario_ 
+
+```powershell
+$clientId = '<app_id>’
+$tenantId = '<tenant_id>’
+$authority = "https://login.microsoftonline.com/$tenantId/v2.0"
+$Scope = 'https://api.adu.microsoft.com/user_impersonation'
+
+Get-MsalToken -ClientId $clientId -TenantId $tenantId -Authority $authority -Scopes $Scope
+```
+
+_Uso con las credenciales de usuario y el código de dispositivo_
+
+```powershell
+$clientId = '<app_id>’
+$tenantId = '<tenant_id>’
+$authority = "https://login.microsoftonline.com/$tenantId/v2.0"
+$Scope = 'https://api.adu.microsoft.com/user_impersonation'
+
+Get-MsalToken -ClientId $clientId -TenantId $tenantId -Authority $authority -Scopes $Scope -Interactive -DeviceCode
+```
+
+_Uso con las credenciales de la aplicación_
+
+```powershell
+$clientId = '<app_id>’
+$tenantId = '<tenant_id>’
+$cert = '<client_certificate>'
+$authority = "https://login.microsoftonline.com/$tenantId/v2.0"
+$Scope = 'https://api.adu.microsoft.com/.default'
+
+Get-MsalToken -ClientId $clientId -TenantId $tenantId -Authority $authority -Scopes $Scope -ClientCertificate $cert
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

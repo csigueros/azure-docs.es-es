@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: b670c244c502049cc9eb419aa6570ad40e5aafa7
-ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
+ms.openlocfilehash: 0873d6f0bfff73fc0bdc44ce90b322af23d4df28
+ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2021
-ms.locfileid: "114689933"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122835738"
 ---
 # <a name="manage-digital-twins"></a>Administración de Digital Twins
 
@@ -167,7 +167,10 @@ Este es un ejemplo de código de revisión de JSON. En este documento se reempla
 
 :::code language="json" source="~/digital-twins-docs-samples/models/patch.json":::
 
-Las llamadas de actualización de los gemelos y las relaciones usan la estructura de [revisión de JSON](http://jsonpatch.com/). Puede crear revisiones mediante [JsonPatchDocument](/dotnet/api/azure.jsonpatchdocument?view=azure-dotnet&preserve-view=true) del SDK para .NET de Azure. A continuación se muestra un ejemplo:
+>[!NOTE]
+> En este ejemplo se muestra la operación `replace` de la revisión de JSON, que reemplaza el valor de una propiedad existente. Para obtener una lista completa de las operaciones de la revisión de JSON que se pueden usar, como `add` y `remove`, consulte las [operaciones de la revisión de JSON](http://jsonpatch.com/#operations). 
+
+Al actualizar un gemelo a partir de un proyecto de código mediante el SDK de .NET, puede crear revisiones de JSON mediante la clase [JsonPatchDocument](/dotnet/api/azure.jsonpatchdocument?view=azure-dotnet&preserve-view=true) del SDK de .NET para Azure. A continuación se muestra un ejemplo:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="UpdateTwin":::
 

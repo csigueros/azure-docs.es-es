@@ -1,5 +1,5 @@
 ---
-title: Conexión de orígenes de datos a Azure Sentinel| Microsoft Docs
+title: Conectores de datos de Azure Sentinel | Microsoft Docs
 description: Obtenga información sobre cómo conectar orígenes de datos como Microsoft 365 Defender (anteriormente Protección contra amenazas de Microsoft), Microsoft 365 y Office 365, Azure AD, ATP y Cloud App Security a Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -9,120 +9,87 @@ editor: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
-ms.topic: how-to
+ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/17/2021
+ms.date: 08/15/2021
 ms.author: yelevin
-ms.openlocfilehash: c9bce99f26d7d23d2bf655719373f43e78b5a8cb
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 4efc7411fe3755e7cbe14769ff061d2a2b6efa98
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121749366"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123252395"
 ---
-# <a name="connect-data-sources"></a>Conexión con orígenes de datos
+# <a name="azure-sentinel-data-connectors"></a>Conectores de datos de Azure Sentinel
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
-Tras habilitar Azure Sentinel, lo primero que debe hacer es conectar los orígenes de datos. Azure Sentinel incluye varios conectores para productos de Microsoft, que están disponibles inmediatamente y proporcionan integración en tiempo real. Por ejemplo, los conectores de servicio a servicio incluyen conectores de Microsoft 365 Defender y orígenes de Microsoft 365, como Office 365, Azure Active Directory (Azure AD), Microsoft Defender for Identity y Microsoft Cloud App Security.
+Después de incorporar Azure Sentinel al área de trabajo, conecte los orígenes de datos para empezar a ingerir los datos en Azure Sentinel. Azure Sentinel incluye varios conectores para productos de Microsoft, que están disponibles inmediatamente y proporcionan integración en tiempo real. Por ejemplo, los conectores de servicio a servicio incluyen conectores de Microsoft 365 Defender y orígenes de Microsoft 365, como Office 365, Azure Active Directory (Azure AD), Microsoft Defender for Identity y Microsoft Cloud App Security.
 
 También puede habilitar conectores integrados en el amplio ecosistema de seguridad para productos que no son de Microsoft. Por ejemplo, puede usar [Syslog](#syslog), el [formato de evento común (CEF)](#common-event-format-cef) o las [API de REST](#rest-api-integration) para conectar los orígenes de datos a Azure Sentinel.
 
-Para obtener más información, consulte [Conectores de datos de asociados de Azure Sentinel](partner-data-connectors.md) y el [catálogo de soluciones de Azure Sentinel](sentinel-solutions-catalog.md).
+La página **Conectores de datos**, accesible desde el menú de navegación de Azure Sentinel, muestra la lista completa de conectores que proporciona Azure Sentinel y su estado en el área de trabajo. Seleccione el conector al que desea conectarse y, después, seleccione **Abrir la página del conector**.
+
+![Galería de conectores de datos](./media/collect-data/collect-data-page.png)
+
+En este artículo, se describen los métodos de conexión de datos admitidos. Para más información, consulte [Búsqueda del conector de datos de Azure Sentinel](data-connectors-reference.md) y [Catálogo de soluciones de Azure Sentinel](sentinel-solutions-catalog.md).
+
+
+<a name="agent-options"></a>
+<a name="data-connection-methods"></a>
+<a name="map-data-types-with-azure-sentinel-connection-options"></a>
 
 ## <a name="enable-a-data-connector"></a>Habilitación de un conector de datos
 
-Para habilitar un conector de datos en Azure Sentinel:
+La página **Conectores de datos**, accesible desde el menú de navegación de Azure Sentinel, muestra la lista completa de conectores que proporciona Azure Sentinel y su estado. Seleccione el conector al que desea conectarse y, después, seleccione **Abrir la página del conector**.
 
-1. En el menú de navegación izquierdo de Azure Sentinel, seleccione **Conectores de datos**. En la página **Conectores de datos** se muestra la lista completa de los conectores que Azure Sentinel proporciona, y su estado. Seleccione el conector al que desea conectarse y, después, seleccione **Abrir la página del conector**. 
+![Galería de conectores de datos](./media/collect-data/collect-data-page.png)
 
-   ![Galería de conectores de datos](./media/collect-data/collect-data-page.png)
-   
-   Para obtener más información, consulte [Integración de servicio a servicio](#service-to-service-integration) y [Conectores de datos de asociados de Azure Sentinel](partner-data-connectors.md).
-   
+Tendrá que haber cumplido todos los requisitos previos y verá instrucciones completas en la página del conector para ingerir los datos en Azure Sentinel. Los datos pueden tardar algún tiempo en empezar a llegar. Después de conectarse, verá un resumen de los datos en el gráfico **Datos recibidos**, y el estado de conectividad de los tipos de datos.
 
-1. En la página del conector, asegúrese de que cumple todos los requisitos previos y siga las instrucciones para conectar los datos a Azure Sentinel. Los registros pueden tardar algún tiempo en iniciar la sincronización con Azure Sentinel. Después de conectarse, verá un resumen de los datos en el gráfico **Datos recibidos**, y el estado de conectividad de los tipos de datos.
+![Configuración de conectores de datos](./media/collect-data/opened-connector-page.png)
 
-   ![Configuración de conectores de datos](./media/collect-data/opened-connector-page.png)
-  
-1. Seleccione la pestaña **Siguientes pasos** para ver el contenido que Azure Sentinel proporciona para el tipo de datos específico.
+En la pestaña **Pasos siguientes**, verá el contenido adicional que proporciona Azure Sentinel para el tipo de datos específico: consultas de ejemplo, libros de visualización y plantillas de reglas de análisis para ayudarle a detectar e investigar amenazas.
 
-   ![Pasos siguientes para los conectores](./media/collect-data/data-insights.png)
+![Pasos siguientes para los conectores](./media/collect-data/data-insights.png)
 
-<a name="agent-options"></a>
-## <a name="data-connection-methods"></a>Métodos de conexión de datos
-<a name="map-data-types-with-azure-sentinel-connection-options"></a>
+Para más información, consulte la sección pertinente para el conector de datos en [Búsqueda del conector de datos de Azure Sentinel](data-connectors-reference.md).
 
-Azure Sentinel admite los siguientes métodos de conexión de datos:
-
-### <a name="service-to-service-integration"></a>Integración de servicio a servicio
-
-Azure Sentinel usa la base de Azure para proporcionar compatibilidad integrada de servicio a servicio con los siguientes servicios de Microsoft y Amazon Web Services:
-
-- [Amazon Web Services: CloudTrail](connect-aws.md)
-- [Azure Active Directory](connect-azure-active-directory.md), incluidos los registros de auditoría y registros de inicio de sesión
-- [Azure Active Directory Identity Protection](connect-azure-ad-identity-protection.md)
-- [Azure Activity](connect-azure-activity.md) (Actividad de Azure)
-- [Azure DDoS Protection](connect-azure-ddos-protection.md)
-- Alertas de [Azure Defender](connect-azure-security-center.md) desde Azure Security Center
-- [Azure Defender para IoT](connect-asc-iot.md) (anteriormente conocido como Azure Security Center para IoT)
-- [Azure Firewall](connect-azure-firewall.md)
-- [Azure Information Protection](connect-azure-information-protection.md). Para más información, consulte [Modificación de informes y creación de consultas personalizadas](/azure/information-protection/reports-aip#how-to-modify-the-reports-and-create-custom-queries).
-- [Azure Key Vault](connect-azure-key-vault.md)
-- [Azure Kubernetes Service (AKS)](connect-azure-kubernetes-service.md)
-- [Azure SQL Database](connect-azure-sql-logs.md)
-- [Cuenta de Azure Storage](connect-azure-storage-account.md)
-- [Azure Web Application Firewall (WAF)](connect-azure-waf.md) (anteriormente conocido como Microsoft WAF)
-- [Servidor de nombres de dominio](connect-dns.md)
-- [Dynamics 365](connect-dynamics-365.md)
-- [Microsoft 365 Defender](connect-microsoft-365-defender.md), incluidos los incidentes de Microsoft 365 Defender y los datos sin procesar de Microsoft 365 Defender para punto de conexión
-- [Microsoft Cloud App Security (MCAS)](connect-cloud-app-security.md)
-- [Microsoft Defender para Endpoint](connect-microsoft-defender-advanced-threat-protection.md) (anteriormente Protección contra amenazas avanzada de Microsoft)
-- [Microsoft Defender for Identity](connect-azure-atp.md) (anteriormente Azure ATP)
-- [Microsoft Defender para Office 365](connect-office-365-advanced-threat-protection.md) (anteriormente conocido como Protección contra amenazas avanzada de Office 365)
-- [Office 365](connect-office-365.md), incluido Microsoft Teams
-- [Eventos de seguridad (de Windows)](connect-windows-security-events.md). Para obtener más información, consulte [Configuración de libros de protocolos poco seguros](./get-visibility.md#use-built-in-workbooks).
-- [Firewall de Windows](connect-windows-firewall.md)
-
-### <a name="rest-api-integration"></a>Integración de API REST
+## <a name="rest-api-integration"></a>Integración de API REST
 
 Muchas tecnologías de seguridad proporcionan un conjunto de API para recuperar archivos de registro y algunos orígenes de datos pueden usar esas API para conectarse a Azure Sentinel.
 
 Los conectores de datos que usan API se integran desde el lado del proveedor o se integran mediante Azure Functions, como se describe en las secciones siguientes.
 
-Para obtener una lista completa e información sobre estos conectores, consulte [Conectores de datos de asociados de Azure Sentinel](partner-data-connectors.md).
+Para obtener una lista completa e información sobre estos conectores, consulte [Búsqueda del conector de datos de Azure Sentinel](data-connectors-reference.md).
 
-#### <a name="rest-api-integration-on-the-provider-side"></a>Integración de la API de REST en el lado del proveedor
+### <a name="rest-api-integration-on-the-provider-side"></a>Integración de la API de REST en el lado del proveedor
 
 Una integración de la API creada por el proveedor se conecta con los orígenes de datos del proveedor e inserta los datos en las tablas de registro personalizadas de Azure Sentinel mediante la [API de recopilador de datos de Azure Monitor](../azure-monitor/logs/data-collector-api.md).
 
-Para obtener más información sobre cómo configurar estos conectores de datos para enviar registros a Azure Sentinel, consulte la documentación del proveedor pertinente. 
+Para más información, consulte la documentación del proveedor y [Conexión del origen de datos a Data Collector API de Azure Sentinel para ingerir datos](connect-rest-api-template.md).
 
-#### <a name="rest-api-integration-using-azure-functions"></a>Integración de la API de REST mediante Azure Functions
+### <a name="rest-api-integration-using-azure-functions"></a>Integración de la API de REST mediante Azure Functions
 
 Las integraciones que usan [Azure Functions](../azure-functions/index.yml) para conectarse con una API de proveedor dan formato primero a los datos y, a continuación, los envían a las tablas de registro personalizadas de Azure Sentinel mediante la [API de recopilador de datos de Azure Monitor](../azure-monitor/logs/data-collector-api.md).
 
-Para obtener más información sobre cómo configurar estos conectores de datos para conectarse con la API del proveedor y recopilar registros en Azure Sentinel, siga los pasos que se muestran para cada conector de datos en Azure Sentinel.
+Para configurar estos conectores de datos para conectarse con la API del proveedor y recopilar registros en Azure Sentinel, siga los pasos que se muestran para cada conector de datos en Azure Sentinel.
 
-Las integraciones que usan Azure Functions también tienen un botón **Implementar en Azure** en su página del conector de datos de Azure Sentinel. Para estas integraciones, haga lo siguiente a fin de simplificar la configuración:
-
-1. Seleccione **Implementar en Azure**.
-1. Escriba los valores de parámetro para conectarse con la API del proveedor.
-1. Escriba el identificador de área de trabajo de Azure Sentinel y la clave para conectarse con Log Analytics, y envíe los datos a Azure Sentinel.
+Para más información, consulte [Uso de Azure Functions para conectar Azure Sentinel a un origen de datos](connect-azure-functions-template.md).
 
 > [!IMPORTANT]
 > Las integraciones que usan Azure Functions pueden incurrir en costos de ingesta de datos adicionales, ya que hospeda Azure Functions en el inquilino de Azure. Para más información, consulte la [página de precios de Azure Functions](https://azure.microsoft.com/pricing/details/functions/).
 
-### <a name="agent-based-integration"></a>Integración basada en agente
+## <a name="agent-based-integration"></a>Integración basada en agente
 
 Azure Sentinel puede usar el protocolo Syslog para conectarse a través de un agente a cualquier origen de datos que pueda realizar el streaming de registros en tiempo real. Por ejemplo, la mayoría de los orígenes de datos locales se conectan a través de la integración basada en agente.
 En las secciones siguientes se describen los distintos tipos de conectores de datos basados en agente de Azure Sentinel. Siga los pasos descritos en cada página del conector de datos de Azure Sentinel para configurar las conexiones mediante mecanismos basados en agente.
 
-Para obtener una lista completa de firewalls, servidores proxy y puntos de conexión que se conecten a Azure Sentinel a través de CEF o Syslog, consulte [Conectores de datos de asociados de Azure Sentinel](partner-data-connectors.md).
+Para obtener una lista completa de firewalls, servidores proxy y puntos de conexión que se conecten a Azure Sentinel mediante CEF o Syslog, consulte [Búsqueda del conector de datos de Azure Sentinel](data-connectors-reference.md).
 
-#### <a name="syslog"></a>syslog
+### <a name="syslog"></a>syslog
 
 Puede transmitir eventos de dispositivos compatibles con Syslog basados en Linux a Azure Sentinel mediante el agente de Log Analytics para Linux, anteriormente conocido como agente de OMS. El agente de Log Analytics es compatible con cualquier dispositivo que le permita instalar el agente de Log Analytics directamente en el dispositivo.
 
@@ -132,7 +99,7 @@ Dependiendo del tipo de dispositivo, el agente se instala directamente en el dis
 
 Para obtener más información, consulte [Conexión de los dispositivos basados en Syslog a Azure Sentinel](connect-syslog.md). 
 
-#### <a name="common-event-format-cef"></a>Formato de evento común (CEF)
+### <a name="common-event-format-cef"></a>Formato de evento común (CEF)
 
 Los formatos de registro varían, pero muchos orígenes admiten el formato basado en CEF. El agente de Azure Sentinel, que es realmente el agente de Log Analytics, convierte los registros con formato CEF en un formato que Log Analytics puede ingerir.
 
@@ -140,14 +107,25 @@ En el caso de los orígenes de datos que emiten datos en CEF, configure el agent
 
 Para obtener más información, consulte [Conexión de los dispositivos basados en CEF a Azure Sentinel](connect-common-event-format.md).
 
-#### <a name="custom-logs"></a>Registros personalizados
+### <a name="custom-logs"></a>Registros personalizados
 
 Algunos orígenes de datos tienen registros disponibles para su recopilación como archivos en Windows o Linux. Puede recopilar estos registros mediante el agente de recopilación de registros personalizados de Log Analytics.
 
 Siga los pasos descritos en cada página del conector de datos de Azure Sentinel para conectarse mediante el agente de recopilación de registros personalizados de Log Analytics. Después de una configuración correcta, los datos aparecen en tablas personalizadas.
 
-Para obtener más información, consulte [Recopilación de registros personalizados con el agente de Log Analytics](../azure-monitor/agents/data-sources-custom-logs.md).
+Para más información, consulte [Recopilación de datos en formatos de registro personalizados para Azure Sentinel con el agente de Log Analytics](connect-custom-logs.md).
 
+## <a name="service-to-service-integration"></a>Integración de servicio a servicio
+
+Azure Sentinel usa la base de Azure para proporcionar compatibilidad integrada de servicio a servicio con los servicios de Microsoft y Amazon Web Services.
+
+Para más información, consulte [Conexión de Azure Sentinel a servicios de Azure, Windows, Microsoft y Amazon](connect-azure-windows-microsoft-services.md) y [Búsqueda del conector de datos de Azure Sentinel](data-connectors-reference.md).
+
+## <a name="deploy-as-part-of-a-solution"></a>Implementación como parte de una solución
+
+Las [soluciones de Azure Sentinel](sentinel-solutions.md) proporcionan paquetes de contenido de seguridad, incluidos conectores de datos, libros, reglas de análisis, cuadernos de estrategias, etc. Al implementar una solución con un conector de datos, se obtiene el conector de datos junto con el contenido relacionado en la misma implementación. 
+
+Para más información, consulte [Detección e implementación de soluciones de Azure Sentinel](sentinel-solutions-deploy.md) y [Catálogo de soluciones de Azure Sentinel](sentinel-solutions-catalog.md).
 ## <a name="data-connector-support"></a>Soporte técnico de los conectores de datos
 
 Tanto Microsoft como otras organizaciones crean conectores de datos de Azure Sentinel. Cada conector de datos tiene uno de los siguientes tipos de soporte técnico:
@@ -163,16 +141,14 @@ Tanto Microsoft como otras organizaciones crean conectores de datos de Azure Sen
 Para encontrar la información de contacto del soporte técnico para un conector de datos:
 
 1. En el menú izquierdo de Azure Sentinel, seleccione **Conectores de datos**.
-   
+
 1. Seleccione el conector para el que desea encontrar información de soporte técnico.
-   
+
 1. Consulte el campo **Compatible con** en el panel lateral del conector de datos.
-   
+
    ![Captura de pantalla que muestra el campo Compatible con de un conector de datos en Azure Sentinel.](./media/collect-data/connectors.png)
-   
+
    El campo **Compatible con** tiene un vínculo de contacto de soporte técnico que puede usar para acceder al soporte técnico y mantenimiento para el conector de datos seleccionado.
-
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

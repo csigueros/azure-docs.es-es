@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/16/2021
+ms.date: 08/30/2021
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: ae74589dbbde2402d3acd916f2c5c1f58a7a5c7c
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 15f62d7d0fa05a925878683af1b41ca3421d1765
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114464137"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123222688"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Flujo con derechos delegados de OAuth 2.0 y Plataforma de identidad de Microsoft
 
@@ -66,7 +66,7 @@ Cuando se utiliza un secreto compartido, una solicitud de token de acceso entre 
 | --- | --- | --- |
 | `grant_type` | Obligatorio | Tipo de la solicitud de token. Para una solicitud mediante un JWT, el valor debe ser `urn:ietf:params:oauth:grant-type:jwt-bearer`. |
 | `client_id` | Obligatorio | El identificador de aplicación (cliente) que la página [Azure Portal: Registros de aplicaciones](https://go.microsoft.com/fwlink/?linkid=2083908) asignó a la aplicación. |
-| `client_secret` | Obligatorio | El secreto de cliente que generó para la aplicación en la página Azure Portal: Registros de aplicaciones. |
+| `client_secret` | Obligatorio | El secreto de cliente que generó para la aplicación en la página Azure Portal: Registros de aplicaciones.  También se admite el patrón de autenticación Básico de proporcionar credenciales en el encabezado de autorización, conforme a [RFC 6749](https://datatracker.ietf.org/doc/html/rfc6749#section-2.3.1). |
 | `assertion` | Obligatorio | Token de acceso que se envió a la API de nivel intermedio.  Este token debe tener una notificación de audiencia (`aud`) de la aplicación que realiza esta solicitud delegada (la aplicación indicada por el campo `client-id`). Las aplicaciones no pueden canjear un token por una aplicación diferente (por ejemplo, si un cliente envía a una API un token diseñado para MS Graph, la API no puede canjearlo mediante la delegación.  De lo contrario, debe rechazar el token).  |
 | `scope` | Obligatorio | Lista de ámbitos separados por un espacio para la solicitud de token. Para obtener más información, vea [Ámbitos](v2-permissions-and-consent.md). |
 | `requested_token_use` | Obligatorio | Especifica cómo se debe procesar la solicitud. En el flujo OBO, el valor se debe establecer en `on_behalf_of`. |
@@ -203,7 +203,7 @@ Una solicitud de servicio a servicio para una aserción SAML contiene los siguie
 | grant_type |requerido | Tipo de la solicitud de token. En el caso de una solicitud que usa un JWT, el valor debe ser **urn:ietf:params:oauth:grant-type:jwt-bearer**. |
 | Aserción |requerido | Valor del token de acceso usado en la solicitud.|
 | client_id |requerido | Identificador de aplicación asignado al servicio de llamada durante el registro con Azure AD. Para buscar el identificador de la aplicación en Azure Portal, seleccione **Active Directory**, elija el directorio y, por último, seleccione el nombre de la aplicación. |
-| client_secret |requerido | La clave registrada para el servicio de llamada de Azure AD. Este valor debe haberse anotado en el momento del registro. |
+| client_secret |requerido | La clave registrada para el servicio de llamada de Azure AD. Este valor debe haberse anotado en el momento del registro.  También se admite el patrón de autenticación Básico de proporcionar credenciales en el encabezado de autorización, conforme a [RFC 6749](https://datatracker.ietf.org/doc/html/rfc6749#section-2.3.1). |
 | scope |requerido | Lista de ámbitos separados por un espacio para la solicitud de token. Para obtener más información, vea [Ámbitos](v2-permissions-and-consent.md). Por ejemplo, "https://testapp.contoso.com/user_impersonation openid" |
 | requested_token_use |requerido | Especifica cómo se debe procesar la solicitud. En el "flujo en nombre de", el valor debe ser **on_behalf_of**. |
 | requested_token_type | requerido | Especifica el tipo de token solicitado. El valor puede ser **urn:ietf:params:oauth:token-type:saml2** o **urn:ietf:params:oauth:token-type:saml1**, en función de los requisitos del recurso al que se accede. |

@@ -8,12 +8,12 @@ author: shashankbarsin
 ms.author: shasb
 description: Describe el programa de validación de Arc para distribuciones de Kubernetes
 keywords: Kubernetes, Arc, Azure, K8s, validación
-ms.openlocfilehash: 5d8e48a6e9dc5d8d95dacb649fb0748e4ae4daa5
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 6ebce59a16c994c676cfe81df4df4e9433d1fb70
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121742676"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122966253"
 ---
 # <a name="azure-arc-enabled-kubernetes-validation"></a>Validación de Kubernetes habilitado para Azure Arc
 
@@ -37,6 +37,7 @@ Los siguientes proveedores y sus distribuciones de Kubernetes correspondientes h
 | Canonical    | [Charmed Kubernetes](https://ubuntu.com/kubernetes) | [1.19](https://ubuntu.com/kubernetes/docs/1.19/components) |
 | SUSE Rancher      | [Rancher Kubernetes Engine](https://rancher.com/products/rke/) | Versión de la CLI de RKE: [v1.2.4](https://github.com/rancher/rke/releases/tag/v1.2.4); versiones de Kubernetes: [1.19.6](https://github.com/kubernetes/kubernetes/releases/tag/v1.19.6), [1.18.14](https://github.com/kubernetes/kubernetes/releases/tag/v1.18.14), [1.17.16](https://github.com/kubernetes/kubernetes/releases/tag/v1.17.16)  |
 | Nutanix      | [Karbon](https://www.nutanix.com/products/karbon)    | Versión 2.2.1 |
+| Platform9      | [Platform9 Managed Kubernetes (PMK)](https://platform9.com/managed-kubernetes/)    | Versión de PMK: [5.3.0](https://platform9.com/docs/kubernetes/release-notes#platform9-managed-kubernetes-version-53-release-notes); versiones de Kubernetes: v1.20.5, v1.19.6 y v1.18.10 |
 
 El equipo de Azure Arc también ha realizado las pruebas de conformidad y se ha asegurado de los escenarios de Kubernetes habilitado para Azure Arc en los siguientes proveedores de nube pública:
 

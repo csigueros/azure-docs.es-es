@@ -9,12 +9,12 @@ ms.subservice: blobs
 ms.topic: how-to
 ms.reviewer: klaasl
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0814f2896ec429650668a08590ffe7165fb120a3
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 682f855232ef021b10d148b3ede71a35dbaee760
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112282032"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867656"
 ---
 # <a name="use-blob-index-tags-to-manage-and-find-data-on-azure-blob-storage"></a>Uso de etiquetas de índice de blobs para administrar y buscar datos en Azure Blob Storage
 
@@ -191,6 +191,9 @@ static async Task BlobIndexTagsExample()
 ## <a name="filter-and-find-data-with-blob-index-tags"></a>Filtrado y búsqueda de datos con etiquetas de índice de blobs
 
 Esta tarea puede realizarla un [propietario de datos de Storage Blob](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) o una entidad de seguridad a la que se haya concedido permiso para la [operación de proveedor de recursos de Azure](../../role-based-access-control/resource-provider-operations.md#microsoftstorage) `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action` a través de un rol personalizado de Azure.
+
+> [!NOTE]
+> No se pueden utilizar etiquetas de índice para recuperar versiones anteriores. Las etiquetas de las versiones anteriores no se pasan al motor de índices de blobs. Para más información, consulte [Condiciones y problemas conocidos](storage-manage-find-blobs.md#conditions-and-known-issues).
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 

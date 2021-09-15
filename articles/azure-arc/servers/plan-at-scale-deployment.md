@@ -1,14 +1,14 @@
 ---
 title: Planificación e implementación de servidores habilitados para Azure Arc
 description: Aprenda a habilitar un gran número de máquinas en servidores habilitados para Azure Arc a fin de simplificar la configuración de las funcionalidades esenciales de seguridad, administración y supervisión de Azure.
-ms.date: 07/16/2021
+ms.date: 08/27/2021
 ms.topic: conceptual
-ms.openlocfilehash: c37b6dbe4233afd691c0da7743973b5956f2f720
-ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
+ms.openlocfilehash: 0a31a886d4eb687c92d73c39617a6993e4b3f835
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114391750"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123104925"
 ---
 # <a name="plan-and-deploy-arc-enabled-servers"></a>Planificación e implementación de servidores habilitados para Arc
 
@@ -26,6 +26,10 @@ Para que la implementación se lleve a cabo sin problemas, el plan debe incluir 
 * ¿Cuál es la ruta de escalación cuando se produce un problema importante?
 
 El propósito de este artículo es asegurarse de que está preparado para una implementación correcta de servidores habilitados para Azure Arc en varios servidores físicos o máquinas virtuales de producción en el entorno.
+
+Para más información sobre nuestras recomendaciones de implementación a escala, también puede consultar este vídeo.
+
+> [!VIDEO https://www.youtube.com/embed/Cf1jUPOB_vs]
 
 ## <a name="prerequisites"></a>Requisitos previos
 

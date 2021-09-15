@@ -2,13 +2,13 @@
 title: Introducción a la seguridad
 description: Información de seguridad sobre los servidores habilitados para Azure Arc.
 ms.topic: conceptual
-ms.date: 07/16/2021
-ms.openlocfilehash: 113eaaf779409cd77e66b253074146dfaa0ff0ab
-ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
+ms.date: 08/30/2021
+ms.openlocfilehash: 84f3b7cae576f1bedc6de57f94623936cbb0a51c
+ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114390225"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123214245"
 ---
 # <a name="azure-arc-for-servers-security-overview"></a>Introducción a la seguridad de Azure Arc para servidores
 
@@ -16,7 +16,7 @@ En este artículo se describen la configuración y consideraciones de seguridad 
 
 ## <a name="identity-and-access-control"></a>Control de identidades y acceso
 
-Cada servidor habilitado para Azure Arc tiene una identidad administrada como parte de un grupo de recursos dentro de una suscripción a Azure. Esta identidad representa al servidor que se ejecuta en el entorno local o en otro entorno de nube. El acceso a este recurso se controla mediante el [control de acceso basado en roles de Azure](../../role-based-access-control/overview.md) estándar. En la página [**Access Control (IAM)** ](../../role-based-access-control/role-assignments-portal.md) de Azure Portal, puede comprobar quién tiene acceso a su servidor habilitado para Azure Arc.
+Cada servidor habilitado para Azure Arc tiene una identidad administrada como parte de un grupo de recursos dentro de una suscripción de Azure. Esa identidad representa el servidor que se ejecuta localmente o en otro entorno en la nube. El acceso a este recurso se controla mediante el [control de acceso basado en roles de Azure](../../role-based-access-control/overview.md) estándar. En la página [**Access Control (IAM)** ](../../role-based-access-control/role-assignments-portal.md) de Azure Portal, puede comprobar quién tiene acceso a su servidor habilitado para Azure Arc.
 
 :::image type="content" source="./media/security-overview/access-control-page.png" alt-text="Control de acceso del servidor habilitado para Azure Arc" border="false" lightbox="./media/security-overview/access-control-page.png":::
 
@@ -28,7 +28,7 @@ Cuando los usuarios son miembros del rol **Administrador de recursos de Azure Co
 
 ## <a name="agent-security-and-permissions"></a>Seguridad y permisos del agente
 
-Para administrar el agente de Azure Connected Machine (azcmagent) en Windows, la cuenta de usuario debe ser miembro del grupo local de administradores. En el caso de Linux, debe tener permisos de acceso raíz.
+Para administrar el agente de Azure Connected Machine (azcmagent) en Windows, la cuenta de usuario debe pertenecer al grupo local de administradores. En el caso de Linux, debe tener permisos de acceso raíz.
 
 El agente de Azure Connected Machine se compone de tres servicios que se ejecutan en su equipo.
 
@@ -42,13 +42,17 @@ Los servicios de la extensión y configuración de invitados se ejecutan como si
 
 ## <a name="using-a-managed-identity-with-arc-enabled-servers"></a>Uso de una identidad administrada con servidores habilitados para Arc
 
-De manera predeterminada, la identidad asignada por el sistema de Azure Active Directory que usa Arc solo se puede emplear para actualizar el estado del servidor habilitado para Arc en Azure. Por ejemplo, el *último* estado de latido. También puede asignar roles adicionales a la identidad si una aplicación en el servidor usa la identidad asignada por el sistema para acceder a otros servicios de Azure.
+De manera predeterminada, la identidad asignada por el sistema de Azure Active Directory que usa Arc solo se puede emplear para actualizar el estado del servidor habilitado para Arc en Azure. Por ejemplo, el *último* estado de latido. Como alternativa, puede asignar otros roles a la identidad si una aplicación del servidor usa la identidad asignada por el sistema para acceder a otros servicios de Azure. Para más información sobre cómo configurar una identidad administrada asignada por el sistema para acceder a los recursos de Azure, consulte [Autenticación en recursos de Azure con servidores habilitados para Arc](managed-identity-authentication.md). 
 
 Mientras que todas las aplicaciones que se ejecutan en el equipo pueden acceder a Hybrid Instance Metadata Service, solo las aplicaciones autorizadas pueden solicitar un token de Azure AD para la identidad asignada por el sistema. En el primer intento de acceder al URI del token, el servicio generará un blob criptográfico generado de forma aleatoria en una ubicación del sistema de archivos que solo puedan leer los autores de llamada de confianza. A continuación, el autor de la llamada debe leer el archivo (al demostrar que tiene el permiso adecuado) y reintentar la solicitud con el contenido del archivo en el encabezado de autorización para recuperar correctamente un token de Azure AD.
 
 * En Windows, el autor de la llamada debe ser miembro del grupo local **Administradores** o del grupo **Aplicaciones de la extensión de agente híbrido** para leer el blob.
 
 * En Linux, el autor de la llamada debe ser miembro del grupo **himds** para leer el blob.
+
+Para más información sobre cómo usar una identidad administrada con servidores habilitados para Arc con fines de autenticación y acceso a los recursos de Azure, consulte el vídeo siguiente.
+
+> [!VIDEO https://www.youtube.com/embed/4hfwxwhWcP4]
 
 ## <a name="using-disk-encryption"></a>Uso del cifrado de disco
 

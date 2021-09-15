@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 06/30/2021
 ms.author: cherylmc
-ms.openlocfilehash: 25e12ce4fd361cb053eae8b0d9992031a91d4616
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: d3cffbe9ebaa71ca5c4dfd8681159f83ff06eb38
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114469022"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122821469"
 ---
 # <a name="monitoring-virtual-wan"></a>Supervisión de Virtual WAN
 
@@ -34,16 +34,42 @@ Las métricas de Azure Monitor son valores numéricos que describen algunos aspe
 
 Las siguientes métricas están disponibles para las puertas de enlace de VPN de sitio a sitio de Azure:
 
+#### <a name="tunnel-packet-drop-metrics"></a>Métricas de descarte de paquetes del túnel
+| Métrica | Descripción|
+| --- | --- |
+| **Tunnel Egress Packet Drop Count** | Recuento de los paquetes salientes descartados por el túnel.|
+| **Tunnel Ingress Packet Drop Count** | Recuento de los paquetes entrantes descartados por el túnel.|
+| **Paquetes NAT de túnel descartados** | Número de paquetes con NAT en un túnel descartados por tipo de eliminación y regla NAT.|
+| **Colocación de paquetes con error de coincidencia del selector de tráfico de túnel de salida** | Recuento de colocación de paquetes de salida con error de coincidencia del selector de tráfico de un túnel.|
+| **Colocación de paquetes con error de coincidencia del selector de tráfico de túnel de entrada** | Recuento de colocación de paquetes de entrada con error de coincidencia del selector de tráfico de un túnel.|
+
+#### <a name="ipsec-metrics"></a>Métricas de IPSEC
+| Métrica | Descripción|
+| --- | --- |
+| **Tunnel MMSA Count** | Número de MMSA que se crean o se eliminan.|
+| **Tunnel QMSA Count** | Número de QMSA de IPSEC que se crean o se eliminan.|
+
+#### <a name="routing-metrics"></a>Métricas de enrutamiento
+| Métrica | Descripción|
+| --- | --- |
+| **BGP Peer Status** | Estado de conectividad del protocolo de puerta de enlace de borde por pares y por instancias.|
+| **BGP Routes Advertised** | Número de rutas anunciadas por pares y por instancias.|
+| **BGP Routes Learned** | Número de rutas aprendidas por pares y por instancias.|
+| **VNET Address Prefix Count** | Número de prefijos de dirección de red virtual que usa o anuncia la puerta de enlace.|
+
+Puede revisar las métricas por pares e instancias si selecciona **Aplicar división** y elige el valor preferido. 
+
+#### <a name="traffic-flow-metrics"></a>Métricas de flujo de tráfico
 | Métrica | Descripción|
 | --- | --- |
 | **Ancho de banda de puerta de enlace** | Ancho de banda del agregado de sitio a sitio medio de una puerta de enlace en bytes por segundo.|
 | **Ancho de banda de túnel** | Media de ancho de banda de un túnel en bytes por segundo.|
 | **Bytes de salida de túnel** | Bytes de salida de un túnel. |
 | **Paquetes de salida de túnel** | Recuento de paquetes de salida de un túnel. |
-| **Colocación de paquetes con error de coincidencia del selector de tráfico de túnel de salida** | Recuento de colocación de paquetes de salida con error de coincidencia del selector de tráfico de un túnel.|
 | **Bytes de salida de túnel** | Bytes de entrada de un túnel.|
 | **Paquete de entrada de túnel** | Recuento de paquetes de entrada de un túnel.|
-| **Colocación de paquetes con error de coincidencia del selector de tráfico de túnel de entrada** | Recuento de colocación de paquetes de entrada con error de coincidencia del selector de tráfico de un túnel.|
+| **Tunnel Peak PPS** | Número de paquetes por segundo por conexión de vínculo en el último minuto.|
+| **Tunnel Flow Count** | Número de flujos distintos creados por conexión de vínculo.|
 
 ### <a name="point-to-site-vpn-gateways"></a>Puertas de enlace de VPN de punto a sitio
 
@@ -53,6 +79,7 @@ Las siguientes métricas están disponibles para puertas de enlace de VPN de pun
 | --- | --- |
 | **Ancho de banda P2S de puerta de enlace** | Ancho de banda del agregado de punto a sitio medio de una puerta de enlace en bytes por segundo. |
 | **Recuento de conexiones P2S** |Recuento de conexiones de punto a sitio de una puerta de enlace. Recuento de conexiones de punto a sitio de una puerta de enlace. Para asegurarse de que está viendo métricas precisas en Azure Monitor, seleccione **Aggregation Type** (Tipo de agregación) para **P2S Connection Count** (Recuento de conexiones P2S) como **Sum** (Suma). También puede seleccionar **Máximo** si divide por **Instancia**. |
+| **User VPN Routes Count** | Número de rutas VPN de usuario configuradas en VPN Gateway. Esta métrica se puede dividir en rutas **estáticas** y **dinámicas**.
 
 ### <a name="azure-expressroute-gateways"></a>Puertas de enlace de Azure ExpressRoute
 

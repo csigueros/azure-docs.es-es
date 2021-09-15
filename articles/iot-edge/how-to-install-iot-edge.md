@@ -8,12 +8,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/28/2021
 ms.author: kgremban
-ms.openlocfilehash: 0f0cf8f4ce8f82964a69635debacea772c4310da
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 5ed9768f8cb1a6279eeb97a73d508a41984ef160
+ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121750763"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123214331"
 ---
 # <a name="install-or-uninstall-azure-iot-edge-for-linux"></a>Instalación o desinstalación de Azure IoT Edge para Linux
 
@@ -416,6 +416,8 @@ Vea todos los módulos que se ejecutan en el dispositivo IoT Edge. Cuando el ser
    ```bash
    sudo iotedge list
    ```
+
+Al crear un nuevo dispositivo IoT Edge, se mostrará el código de estado `417 -- The device's deployment configuration is not set` en Azure Portal. Este estado es normal y significa que el dispositivo está listo para recibir una implementación de módulo.
 
 ## <a name="offline-or-specific-version-installation-optional"></a>Instalación sin conexión o de una versión específica (opcional)
 

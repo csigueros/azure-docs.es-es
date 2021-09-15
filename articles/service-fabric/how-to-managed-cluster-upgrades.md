@@ -2,21 +2,21 @@
 title: Actualización de clústeres administrados de Azure Service Fabric
 description: Más información sobre las opciones para actualizar el clúster administrado de Azure Service Fabric
 ms.topic: how-to
-ms.date: 06/16/2021
-ms.openlocfilehash: 50af042be1dc69f39e61447901d4d5f07da2a1e7
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.date: 08/23/2021
+ms.openlocfilehash: b30f240325eda83428a19377e63d5a7f37f88169
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112290096"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122865060"
 ---
 # <a name="manage-service-fabric-managed-cluster-upgrades"></a>Administración de actualizaciones del clúster administrado de Service Fabric
 
-Un clúster de Azure Service Fabric es un recurso de su propiedad, pero que está parcialmente administrado por Microsoft. Aquí se muestra cuándo y cómo Microsoft actualiza el clúster administrado de Azure Service Fabric.
+Un clúster de Azure Service Fabric es un recurso de su propiedad, pero que está parcialmente administrado por Microsoft. Aquí se muestra cuándo y cómo Microsoft actualiza el entorno de ejecución de clúster administrado de Azure Service Fabric.
 
 ## <a name="set-upgrade-mode"></a>Establecimiento del modo de actualización
 
-Los clústeres administrados de Azure Service Fabric se han configurado de manera predeterminada para recibir las actualizaciones automáticas de Service Fabric a medida que Microsoft las publica mediante una estrategia de [implementación por oleadas](#wave-deployment-for-automatic-upgrades). Como alternativa, puede configurar las actualizaciones de modo manual y elegir entre una lista de las versiones admitidas actualmente. Puede configurar estas opciones mediante el control *Actualizaciones de Fabric* de Azure Portal o mediante la opción `ClusterUpgradeMode` de la plantilla de implementación del clúster.
+Los clústeres administrados de Azure Service Fabric se han configurado de manera predeterminada para recibir las actualizaciones automáticas de Service Fabric a medida que Microsoft las publica mediante una estrategia de [implementación por oleadas](#wave-deployment-for-automatic-upgrades). Como alternativa, puede configurar las actualizaciones en modo manual y elegir entre una lista de las versiones compatibles actualmente. Puede configurar estas opciones mediante el control *Actualizaciones de Fabric* de Azure Portal o mediante la opción `ClusterUpgradeMode` de la plantilla de implementación del clúster.
 
 ## <a name="wave-deployment-for-automatic-upgrades"></a>Implementación por oleadas para actualizaciones automáticas
 
@@ -28,8 +28,8 @@ Con la implementación por oleadas, puede crear una canalización para actualiza
 Para seleccionar una implementación por oleadas para la actualización automática, determine primero la oleada que asignará al clúster:
 
 * **Oleada 0** (`Wave0`): los clústeres se actualizan en cuanto se publica una nueva compilación de Service fabric.
-* **Oleada 1** (`Wave1`): los clústeres se actualizan después de la oleada 0 para permitir un tiempo de simulación mediante "bake". Esto sucede después de un mínimo de 7 días después de la oleada 0
-* **Oleada 2** (`Wave2`): los clústeres se actualizan en último lugar para permitir un mayor tiempo de simulación mediante "bake". Esto sucede después de un mínimo de 14 días después de la oleada 0
+* **Oleada 1** (`Wave1`): los clústeres se actualizan después de la oleada 0 para permitir un tiempo de simulación mediante "bake". La oleada 1 se produce al menos 7 días después de la oleada 0.
+* **Oleada 2** (`Wave2`): los clústeres se actualizan en último lugar para permitir un mayor tiempo de simulación mediante "bake". La oleada 2 se produce al menos 14 días después de la oleada 0.
 
 ## <a name="set-the-wave-for-your-cluster"></a>Configuración de las oleadas del clúster
 
@@ -70,7 +70,7 @@ Si se produce una reversión, debe corregir los problemas que provocaron la reve
 
 #### <a name="automatic-upgrade-with-wave-deployment"></a>Actualización automática con implementación por oleadas
 
-Para configurar las actualizaciones automáticas y la implementación por oleadas solo tiene que agregar o comprobar que `ClusterUpgradeMode` está establecido en `Automatic` y que la propiedad `upgradeWave` está definida con uno de los valores de oleada enumerados anteriormente en la plantilla de Resource Manager.
+Para configurar las actualizaciones automáticas y la implementación por oleadas solo tiene que agregar o comprobar que `ClusterUpgradeMode` está establecido en `Automatic` y que la propiedad `clusterUpgradeCadence` está definida con uno de los valores de oleada enumerados anteriormente en la plantilla de Resource Manager.
 
 ```json
 {
@@ -78,12 +78,12 @@ Para configurar las actualizaciones automáticas y la implementación por oleada
 "type": "Microsoft.ServiceFabric/managedClusters",
 "properties": {
         "ClusterUpgradeMode": "Automatic",
-        "upgradeWave": "Wave1",
+        "clusterUpgradeCadence": "Wave1",
         }  
 }
 ```
 
-Una vez que implemente la plantilla actualizada, el clúster se inscribirá en la oleada especificada en el siguiente período de actualización y con posterioridad a este.
+Una vez que implemente la plantilla actualizada, el clúster se inscribirá en la oleada especificada para actualizaciones automáticas.
 
 ## <a name="query-for-supported-cluster-versions"></a>Consulta de las versiones de clúster compatibles
 

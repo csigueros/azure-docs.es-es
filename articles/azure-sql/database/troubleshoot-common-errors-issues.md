@@ -9,13 +9,13 @@ ms.custom: seo-lt-2019, OKR 11/2019, sqldbrb=1
 author: ramakoni1
 ms.author: ramakoni
 ms.reviewer: mathoma,vanto
-ms.date: 01/14/2021
-ms.openlocfilehash: 804c59409ec1acea44cf650e6ccc032b50fcd26c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 08/20/2021
+ms.openlocfilehash: 1e656227387bebc9806ad06574084bd01fcc0b35
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121743705"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122603802"
 ---
 # <a name="troubleshooting-connectivity-issues-and-other-errors-with-azure-sql-database-and-azure-sql-managed-instance"></a>Solución de problemas de conectividad y otros errores con Azure SQL Database y Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -30,6 +30,7 @@ La infraestructura de Azure ofrece la posibilidad de volver a configurar dinámi
 
 | Código de error | severity | Descripción |
 | ---:| ---:|:--- |
+| 926 |14 |La base de datos "replicatedmaster" no se puede abrir. Tiene la marca SUSPECT para recuperación. Para obtener más información, vea el registro de errores de SQL Server.<br/><br/>Este error puede incluirse en el registro de errores de SQL Managed Instance, por un breve período de tiempo, durante la última fase de una reconfiguración, mientras la antigua base de datos principal cierra su registro.<br/>Otros escenarios no transitorios que implican este mensaje de error se describen en la [documentación de errores de MSSQL](/sql/relational-databases/errors-events/mssqlserver-926-database-engine-error).|
 | 4060 |16 |No se puede abrir la base de datos "%.&#x2a;ls" solicitada por el inicio de sesión. Error de inicio de sesión. Para obtener más información, consulte [los errores de 4000 a 4999](/sql/relational-databases/errors-events/database-engine-events-and-errors#errors-4000-to-4999).|
 | 40197 |17 |Error en el servicio al procesar la solicitud. Inténtelo de nuevo. Código de error %d.<br/><br/>Recibirá este error cuando el servicio esté inactivo debido a actualizaciones de software o hardware, errores de hardware u otros problemas de conmutación por error. El código de error (%d) incrustado en el mensaje de error 40197 proporciona información adicional sobre el tipo de error o conmutación por error que se ha producido. Algunos ejemplos de los códigos de error que se incrustan dentro del mensaje de error 40197 son 40020, 40143, 40166 y 40540.<br/><br/>Al volver a conectarse, se conectará automáticamente a una copia correcta de su base de datos. La aplicación debe detectar el error 40197, registrar el código de error incrustado (%d) dentro del mensaje para solucionar problemas y volver a conectarse a SQL Database hasta que los recursos estén disponibles; entonces, la conexión se establecerá de nuevo. Para obtener más información, vea [Errores transitorios](troubleshoot-common-connectivity-issues.md#transient-errors-transient-faults).|
 | 40501 |20 |El servicio está ocupado actualmente. Vuelva a intentar la solicitud después de 10 segundos. Identificador de incidente: %ls. Código: %d. Para más información, consulte: <br/>&bull; &nbsp;[Límites de recursos de servidores SQL lógicos](resource-limits-logical-server.md)<br/>&bull; &nbsp;[Niveles de servicio en el modelo de compra basado en DTU](service-tiers-dtu.md)<br/>&bull; &nbsp;[Límites de recursos para grupos elásticos que usan el modelo de compra de DTU](resource-limits-dtu-elastic-pools.md)<br/>&bull; &nbsp;[Límites de recursos para bases de datos únicas que usan el modelo de compra en núcleos virtuales](resource-limits-vcore-single-databases.md)<br/>&bull; &nbsp;[Límites de recursos para grupos elásticos que usan el modelo de compra de núcleo virtual](resource-limits-vcore-elastic-pools.md)<br/>&bull; &nbsp;[Límites de recursos de Instancia administrada de Azure SQL](../managed-instance/resource-limits.md)|
@@ -43,7 +44,7 @@ La infraestructura de Azure ofrece la posibilidad de volver a configurar dinámi
 
 1. Compruebe el [panel de Estado de Microsoft Azure](https://azure.microsoft.com/status) para comprobar si hay interrupciones conocidas que se hayan producido durante el tiempo en el que la aplicación informó de los errores.
 2. Para las aplicaciones que se conectan a un servicio en la nube, como Azure SQL Database, se deben prever eventos periódicos de reconfiguración e implementar la lógica de reintento para gestionar estos errores en lugar de mostrar los errores de la aplicación a los usuarios.
-3. Conforme una base de datos se acerca a sus límites de recursos, puede parecer un problema de conectividad transitorio. Consulte [Límites de los recursos](resource-limits-logical-server.md#what-happens-when-database-resource-limits-are-reached).
+3. Conforme una base de datos se acerca a sus límites de recursos, puede parecer un problema de conectividad transitorio. Consulte [Límites de los recursos](resource-limits-logical-server.md#what-happens-when-resource-limits-are-reached).
 4. Si los problemas de conectividad continúan, si el tiempo de detección del error por parte de la aplicación supera los 60 segundos o si el error se repite varias veces en un día determinado, realice una solicitud de soporte técnico a Azure; para ello, seleccione **Obtener soporte** en el sitio [Soporte técnico de Azure](https://azure.microsoft.com/support/options) .
 
 #### <a name="implementing-retry-logic"></a>Implementar lógica de reintento

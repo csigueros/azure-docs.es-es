@@ -3,15 +3,15 @@ title: Ejecución de runbooks de Azure Automation en una instancia de Hybrid Run
 description: En este artículo se describe cómo ejecutar runbooks en máquinas del centro de datos local o en otro proveedor de nube con la instancia de Hybrid Runbook Worker.
 services: automation
 ms.subservice: process-automation
-ms.date: 07/27/2021
+ms.date: 08/12/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ef4c688fbe41db046b77d45090d77200d1c782cf
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 5f27f9366b388c090ca689a2011c777973b8a894
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121725684"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122968059"
 ---
 # <a name="run-runbooks-on-a-hybrid-runbook-worker"></a>Ejecución de runbooks en Hybrid Runbook Worker
 
@@ -27,7 +27,12 @@ La habilitación de Azure Firewall en [Azure Storage](../storage/common/storage-
 
 Azure Automation controla los trabajos en Hybrid Runbook Worker de forma diferente a los trabajos que se ejecutan en espacios aislados de Azure. Si tiene un runbook de larga ejecución, asegúrese de que sea resistente a posibles reinicios. Para obtener detalles del comportamiento del trabajo, consulte [Trabajos de Hybrid Runbook Worker](automation-hybrid-runbook-worker.md#hybrid-runbook-worker-jobs).
 
-Los trabajos de instancias de Hybrid Runbook Worker se ejecutan en la cuenta del **sistema** local en Windows o en la cuenta **nxautomation** en Linux. En el caso de Linux, compruebe que la cuenta **nxautomation** tiene acceso a la ubicación en la que se almacenan los módulos del runbook. Cuando use el cmdlet [Install-Module](/powershell/module/powershellget/install-module), asegúrese de especificar AllUsers para el parámetro `Scope` a fin de asegurarse de que la cuenta **nxautomation** tiene acceso. Para obtener más información sobre PowerShell en Linux, consulte [Problemas conocidos de PowerShell en plataformas que no son de Windows](/powershell/scripting/whats-new/what-s-new-in-powershell-70).
+Los trabajos de instancias de Hybrid Runbook Worker se ejecutan en la cuenta del **sistema** local en Windows o en la cuenta **nxautomation** en Linux. En el caso de Linux, compruebe que la cuenta **nxautomation** tiene acceso a la ubicación en la que se almacenan los módulos del runbook. Para garantizar el acceso a la cuenta **nxautomation**:
+
+- Cuando use el cmdlet [Install-Module](/powershell/module/powershellget/install-module), asegúrese de especificar `AllUsers` para el parámetro `Scope`.
+- Cuando use `pip install`, `apt install` u otro método para instalar paquetes en Linux, asegúrese de que el paquete se instale para todos los usuarios. Por ejemplo, `sudo -H pip install <package_name>`.
+
+Para obtener más información sobre PowerShell en Linux, consulte [Problemas conocidos de PowerShell en plataformas que no son de Windows](/powershell/scripting/whats-new/what-s-new-in-powershell-70).
 
 ## <a name="configure-runbook-permissions"></a>Configuración de permisos de runbooks
 
@@ -315,7 +320,7 @@ Cuando haya configurado la validación de firmas, use el siguiente comando de GP
 gpg --clear-sign <runbook name>
 ```
 
-El runbook firmado se llama **<runbook name>.asc**.
+El runbook firmado se llama **\<runbook name>.asc**.
 
 El runbook firmado ahora se puede cargar en Azure Automation y se puede ejecutar como un runbook normal.
 

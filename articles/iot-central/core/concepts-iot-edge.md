@@ -3,19 +3,19 @@ title: Azure IoT Edge y Azure IoT Central | Microsoft Docs
 description: Aprenda a usar Azure IoT Edge con una aplicación de IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 02/19/2021
+ms.date: 08/31/2021
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom:
 - device-developer
 - iot-edge
-ms.openlocfilehash: 0b1cf7d0dbf7456d01f6530355e6943c8ead54db
-ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
+ms.openlocfilehash: 15d6da6b5fe458e34847469faf230222f20efb38
+ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122014924"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123273178"
 ---
 # <a name="connect-azure-iot-edge-devices-to-an-azure-iot-central-application"></a>Conexión de dispositivos de Azure IoT Edge a una aplicación de Azure IoT Central
 
@@ -23,6 +23,7 @@ Azure IoT Edge mueve el análisis en la nube y la lógica de negocios personaliz
 
 En este artículo se describe:
 
+* Patrones de puerta de enlace de IoT Edge con IoT Central.
 * Procedimiento para conectar dispositivos IoT Edge a una aplicación de IoT Central.
 * Procedimiento para usar IoT Central para administrar los dispositivos IoT Edge.
 
@@ -30,33 +31,72 @@ Para obtener más información acerca de IoT Edge, consulte [¿Qué es Azure IoT
 
 ## <a name="iot-edge"></a>IoT Edge
 
+![Azure IoT Central con Azure IoT Edge](./media/concepts-iot-edge/iotedge.png)
+
 IoT Edge está formado por tres componentes:
 
 * Los *módulos de IoT Edge* son contenedores que ejecutan servicios de Azure, de asociados o código propio del usuario. Los módulos se implementan en los dispositivos de IoT Edge y se ejecutan de forma local en ellos. Para obtener más información, consulte [Información sobre los módulos Azure IoT Edge](../../iot-edge/iot-edge-modules.md).
 * El *entorno en tiempo de ejecución de IoT Edge* se ejecuta en todos los dispositivos de IoT Edge y administra los módulos que se implementan en cada dispositivo. El tiempo de ejecución consta de dos módulos de IoT Edge: *agente de IoT Edge* y *centro de IoT Edge*. Para obtener más información, consulte [Información del entorno de ejecución de Azure IoT Edge y su arquitectura](../../iot-edge/iot-edge-runtime.md).
 * Una *interfaz basada en la nube* permite supervisar y administrar los dispositivos de IoT Edge de forma remota. IoT Central es un ejemplo de una interfaz en la nube.
 
+IoT Central habilita las funcionalidades siguientes para los dispositivos IoT Edge:
+
+* Plantillas de dispositivos para describir las funcionalidades de un dispositivo IoT Edge, como:
+  * Funcionalidad de carga del manifiesto de implementación, que ayuda a administrar un manifiesto para una flota de dispositivos.
+  * Módulos que se ejecutan en el dispositivo IoT Edge.
+  * Telemetría que envía cada módulo.
+  * Propiedades que notifica cada módulo.
+  * Comandos a los que responde cada módulo.
+  * Relaciones entre el dispositivo de puerta de enlace IoT Edge y el dispositivo de nivel inferior.
+  * Propiedades de la nube que no están almacenadas en el dispositivo IoT Edge.
+  * Personalizaciones que cambian la forma en la que la interfaz de usuario muestra las funcionalidades del dispositivo.
+  * Vistas y formularios de dispositivos.
+* La capacidad de aprovisionar dispositivos IoT Edge a gran escala mediante el servicio de aprovisionamiento de dispositivos de Azure IoT.
+* Reglas y acciones.
+* Análisis y paneles personalizados.
+* Exportación de datos continua de telemetría desde dispositivos IoT Edge.
+
 Un dispositivo IoT Edge puede ser:
 
 * un dispositivo independiente compuesto por módulos;
 * un *dispositivo de puerta de enlace* con dispositivos de nivel inferior que se conectan a él.
 
-## <a name="iot-edge-as-a-gateway"></a>IoT Edge como puerta de enlace
+![Introducción a IoT Central con IoT Edge](./media/concepts-iot-edge/gatewayedge.png)
 
-Un dispositivo IoT Edge puede funcionar como una puerta de enlace que proporciona una conexión entre otros dispositivos de nivel inferior en la red y la aplicación de IoT Central.
+Un dispositivo de puerta de enlace puede ser:
 
-Hay dos patrones de puerta de enlace:
-
-* En el patrón de *puerta de enlace transparente*, el módulo del centro de IoT Edge se comporta como IoT Central y controla las conexiones de los dispositivos registrados en IoT Central. Los mensajes pasan de los dispositivos de nivel inferior a IoT Central como si no hubiera ninguna puerta de enlace entre ellos.
+* Una *puerta de enlace transparente*, en la que el módulo del centro de IoT Edge se comporta como IoT Central y controla las conexiones de los dispositivos registrados en IoT Central. Los mensajes pasan de los dispositivos de nivel inferior a IoT Central como si no hubiera ninguna puerta de enlace entre ellos.
 
     > [!NOTE]
     > IoT Central actualmente no admite la conexión de un dispositivo IoT Edge como dispositivo de bajada a una puerta de enlace transparente de IoT Edge. Esto se debe a que todos los dispositivos que se conectan a IoT Central se aprovisionan mediante Device Provisioning Service (DPS) y DPS no admite escenarios de IoT Edge anidados.
 
-* En el patrón de la *puerta de enlace de traducción*, los dispositivos que no se pueden conectar a IoT Central por su cuenta, se conectan a un módulo de IoT Edge personalizado. El módulo del dispositivo IoT Edge procesa los mensajes entrantes del dispositivo de nivel inferior y, a continuación, los reenvía a IoT Central.
+* Una *puerta de enlace de traducción*, en la que los dispositivos que no se pueden conectar a IoT Central por su cuenta, se conectan a un módulo IoT Edge personalizado. El módulo del dispositivo IoT Edge procesa los mensajes entrantes del dispositivo de nivel inferior y, a continuación, los reenvía a IoT Central.
 
-Los patrones de puerta de enlace transparente y de traducción no se excluyen mutuamente. Un solo dispositivo IoT Edge puede funcionar como puerta de enlace transparente y como puerta de enlace de traducción.
+Un solo dispositivo IoT Edge puede funcionar como puerta de enlace transparente y como puerta de enlace de traducción.
 
 Para obtener más información acerca de los patrones de puerta de enlace de IoT Edge, consulte [Uso de un dispositivo IoT Edge como puerta de enlace](../../iot-edge/iot-edge-as-gateway.md).
+
+## <a name="iot-edge-patterns"></a>Patrones de IoT Edge
+
+IoT Central admite estos patrones de dispositivos IoT Edge:
+
+### <a name="iot-edge-as-leaf-device"></a>IoT Edge como dispositivo hoja
+
+![IoT Edge como dispositivo hoja](./media/concepts-iot-edge/edgeasleafdevice.png)
+
+El dispositivo IoT Edge se aprovisiona en IoT Central y todos los dispositivos de nivel inferior y su telemetría se representan como provenientes del dispositivo IoT Edge. Los dispositivos de nivel inferior conectados al dispositivo IoT Edge no se aprovisionan en IoT Central.
+
+### <a name="iot-edge-gateway-device-connected-to-downstream-devices-with-identity"></a>Dispositivo de puerta de enlace IoT Edge conectado a dispositivos de nivel inferior con identidad
+
+![IoT Edge con identidad del dispositivo de nivel inferior](./media/concepts-iot-edge/edgewithdownstreamdeviceidentity.png)
+
+El dispositivo IoT Edge se aprovisiona en IoT Central junto con los dispositivos de nivel inferior conectados al dispositivo IoT Edge. Actualmente, no se admite la compatibilidad en tiempo de ejecución para aprovisionar dispositivos de nivel inferior a través de la puerta de enlace.
+
+### <a name="iot-edge-gateway-device-connected-to-downstream-devices-with-identity-provided-by-the-iot-edge-gateway"></a>Dispositivo de puerta de enlace de IoT Edge conectado a dispositivos de nivel inferior con la identidad proporcionada por la puerta de enlace IoT Edge
+
+![IoT Edge con dispositivo de nivel inferior sin identidad](./media/concepts-iot-edge/edgewithoutdownstreamdeviceidentity.png)
+
+El dispositivo IoT Edge se aprovisiona en IoT Central junto con los dispositivos de nivel inferior conectados al dispositivo IoT Edge. Actualmente, IoT Central no tiene compatibilidad en tiempo de ejecución para que una puerta de enlace proporcione una identidad y aprovisione dispositivos del flujo descendente. Si aporta su propio módulo de traducción de identidades, IoT Central puede admitir este patrón.
 
 ### <a name="downstream-device-relationships-with-a-gateway-and-modules"></a>Relaciones de dispositivo de nivel inferior con una puerta de enlace y módulos
 

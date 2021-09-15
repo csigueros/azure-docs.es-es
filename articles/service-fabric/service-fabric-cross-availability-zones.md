@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 05/24/2021
 ms.author: pepogors
-ms.openlocfilehash: ad760cb50e2719d3eb910f597e1fe9377580176e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: aaf5be101320a5b8cccb24b89908c788996fc494
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121737510"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122445799"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-across-availability-zones"></a>Implementación de un clúster de Azure Service Fabric en Availability Zones
 
@@ -233,7 +233,7 @@ El tipo de nodo de Service Fabric debe estar habilitado para admitir varias zona
 >[!IMPORTANT]
 >La versión de API del recurso de clúster de Service Fabric debe ser la 2020-12-01 (versión preliminar) o superior.
 >
->La versión del código del clúster debe ser 8.0.536 o posterior.
+>La versión del código del clúster debe ser 8.1.321 o posterior.
 
 ```json
 {

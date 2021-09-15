@@ -5,29 +5,29 @@ author: lobrien
 ms.service: machine-learning
 services: machine-learning
 ms.topic: include
-ms.date: 07/21/2021
+ms.date: 08/27/2021
 ms.author: larryfr
 ms.custom: include file
-ms.openlocfilehash: b0b46da23de802d9f26e53d7b3acc96f166e78d0
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 18d6da8c9156a66a16be7590603ae71b85abb9a4
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114443400"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123105513"
 ---
 Azure Machine Learning requiere acceso entrante y saliente a la red pública de Internet. En las tablas siguientes se proporciona información general sobre qué acceso es necesario el acceso y para qué lo es. El __protocolo__ de todos los elementos es __TCP__. En el caso de las etiquetas de servicio que terminan en `.region`, reemplace `region` por la región de Azure que contiene el área de trabajo. Por ejemplo, `Storage.westus`:
 
 | Dirección | Puertos | Etiqueta de servicio | Propósito |
 | ----- |:-----:| ----- | ----- |
-| Entrada | 29876-29877 | BatchNodeManagement | Instancia de proceso y clúster de proceso de Azure Machine Learning. |
-| Entrada | 44224 | AzureMachineLearning | Instancia de proceso de Azure Machine Learning. |
-| Salida | * | AzureActiveDirectory | Autenticación de Azure Active Directory. |
-| Salida | 443 | AzureMachineLearning | Azure Machine Learning. |
-| Salida | 443 | AzureResourceManager | Azure Resource Manager. |
-| Salida | 443 | Storage.region | Cuenta de Azure Storage. |
-| Salida | 443 | AzureFrontDoor.FrontEnd</br>* No es necesario en Azure China. | Azure Front Door. | 
-| Salida | 443 | ContainerRegistry.region | Azure Container Registry. Solo es necesario cuando se usan imágenes de Docker personalizadas. Se incluyen pequeñas modificaciones (como paquetes adicionales) en las imágenes base que proporciona Microsoft. |
-| Salida | 443 | MicrosoftContainerRegistry.region | Solo es necesario si se usan imágenes de Docker proporcionadas por Microsoft y se habilitan las dependencias administradas por el usuario. |
+| Entrada | 29876-29877 | BatchNodeManagement | Crear, actualizar y eliminar una instancia y un clúster de proceso de Azure Machine Learning. |
+| Entrada | 44224 | AzureMachineLearning | Crear, actualizar y eliminar una instancia de proceso de Azure Machine Learning. |
+| Salida | * | AzureActiveDirectory | Efectuar la autenticación mediante Azure AD. |
+| Salida | 443 | AzureMachineLearning | Usar los servicios de Azure Machine Learning. |
+| Salida | 443 | AzureResourceManager | Crear recursos de Azure con Azure Machine Learning. |
+| Salida | 443 | Storage.region | Acceder a los datos almacenados en la cuenta de Azure Storage para el servicio Azure Batch. |
+| Salida | 443 | AzureFrontDoor.FrontEnd</br>* No es necesario en Azure China. | Establecer un punto de entrada global para [Estudio de Azure Machine Learning](https://ml.azure.com). | 
+| Salida | 443 | ContainerRegistry.region | Acceder a las imágenes de Docker proporcionadas por Microsoft. |
+| Salida | 443 | MicrosoftContainerRegistry.region | Acceder a las imágenes de Docker proporcionadas por Microsoft. Configurar el enrutador de Azure Machine Learning para Azure Kubernetes Service. |
 
 > [!TIP]
 > Si necesita las direcciones IP, en lugar de etiquetas de servicio, use una de las siguientes opciones:
@@ -49,3 +49,9 @@ También es posible que tenga que permitir el tráfico __saliente__ a Visual Stu
 | **\*.tensorflow.org** | Se usa en algunos ejemplos basados en TensorFlow. |
 | **update.code.visualstudio.com**</br></br>**\*.vo.msecnd.net** | Se usa para recuperar bits de servidor de VS Code que se instalan en la instancia de proceso por medio de un script de instalación.|
 | **raw.githubusercontent.com/microsoft/vscode-tools-for-ai/master/azureml_remote_websocket_server/\*** | Se usa para recuperar bits de servidor de WebSocket que se instalan en la instancia de proceso. El servidor de WebSocket se usa para transmitir solicitudes desde el cliente de Visual Studio Code (aplicación de escritorio) al servidor de Visual Studio Code que se ejecuta en la instancia de proceso.|
+
+Al usar Azure Kubernetes Service (AKS) con Azure Machine Learning, habilite el tráfico siguiente a la red virtual de AKS:
+
+* Requisitos generales de entrada y salida para AKS, tal como se describe en el artículo [Restricción del tráfico de salida en Azure Kubernetes Service](/azure/aks/limit-egress-traffic).
+* __Tráfico de salida__ a mcr.microsoft.com.
+* Al implementar un modelo en un clúster de AKS, use las instrucciones del artículo [Implementación de modelos de ML en Azure Kubernetes Service](/azure/machine-learning/how-to-deploy-azure-kubernetes-service#connectivity).

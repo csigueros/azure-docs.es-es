@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/28/2021
-ms.openlocfilehash: a620d1cbd9ae0f9a4f03e6bf744cf2febd8ac240
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 67d28d7f218debde1bd29abf0e4bbdaa0c7c49dd
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121736521"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867602"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Implementación de un modelo en un clúster de Azure Kubernetes Service
 
@@ -60,6 +60,9 @@ En Azure Kubernetes Service, la implementación se realiza en un clúster de AKS
 - Un clúster de Azure Kubernetes Service conectado al área de trabajo. Para obtener más información, consulte [Creación y conexión de un clúster de Azure Kubernetes Service](how-to-create-attach-kubernetes.md).
 
     - Si quiere implementar modelos en nodos de GPU o en nodos de FPGA (o en cualquier SKU específica), debe crear un clúster con la SKU específica. No se admite la creación de un grupo de nodos secundarios en un clúster existente ni la implementación de modelos en el grupo de nodos secundarios.
+
+> [!IMPORTANT]
+> Actualmente, Azure Machine Learning no admite la implementación de modelos en la versión **1.21.x** de Azure Kubernetes Service.
 
 ## <a name="understand-the-deployment-processes"></a>Comprender los procesos de implementación
 
@@ -166,6 +169,7 @@ Para implementar un modelo en Azure Kubernetes Service, cree una __configuració
 ```python
 from azureml.core.webservice import AksWebservice, Webservice
 from azureml.core.model import Model
+from azureml.core.compute import AksCompute
 
 aks_target = AksCompute(ws,"myaks")
 # If deploying to a cluster configured for dev/test, ensure that it was created with enough

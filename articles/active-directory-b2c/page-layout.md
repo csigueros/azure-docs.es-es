@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 08/03/2021
+ms.date: 08/25/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3eeed53c16bbd6b2c1170512606472ac5329b126
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: aa60cf86a8bc59b9eed2adc8ac0ba2cfb89be584
+ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121733764"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122835615"
 ---
 # <a name="page-layout-versions"></a>Versiones de diseño de página
 
@@ -155,6 +155,7 @@ El diseño de página de Azure AD B2C usa las siguientes versiones de la [bibl
 
 - Se ha agregado compatibilidad con varios vínculos de registro.
 - Se ha agregado compatibilidad con la validación de entradas de usuario según las reglas de predicado definidas en la directiva.
+- Cuando la [opción de inicio de sesión](sign-in-options.md) se ha establecido como Correo electrónico, el encabezado de inicio de sesión muestra "Sign in with your sign in name" (Iniciar sesión con su nombre de inicio de sesión). El campo de nombre de usuario muestra "Sign in name" (Nombre de inicio de sesión). Para obtener más información, consulte las cadenas de [localización](localization-string-ids.md#sign-up-or-sign-in-page-elements).
 
 **1.2.0**
 

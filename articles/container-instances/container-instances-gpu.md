@@ -3,12 +3,12 @@ title: Implementación de una instancia de contenedor habilitada para GPU
 description: Aprenda a implementar instancias de contenedor de Azure para ejecutar aplicaciones de contenedor de uso intensivo de proceso utilizando recursos de GPU.
 ms.topic: article
 ms.date: 07/22/2020
-ms.openlocfilehash: cff887f434230fbc24dfbe27b1f14a463d00cf5d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: fd9441f0ba92f4753271df4daba88ed690c9ee30
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121728909"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123108384"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>Implementación de instancias de contenedor que usan recursos de GPU
 
@@ -73,6 +73,9 @@ Al implementar recursos de GPU, establezca los recursos de CPU y memoria apropia
 ## <a name="yaml-example"></a>Ejemplo de YAML
 
 Una forma de agregar los recursos de GPU es implementar un grupo de contenedores mediante una [archivo YAML](container-instances-multi-container-yaml.md). Copie el siguiente archivo YAML en un nuevo archivo denominado *gpu-deploy-aci.yaml* y, después, guárdelo. Este archivo YAML crea un grupo de contenedores denominado *gpucontainergroup* en el que se especifica una instancia de contenedor con una GPU K80. La instancia ejecuta una aplicación de adición de vector CUDA de ejemplo. Las solicitudes de recursos son suficientes para ejecutar la carga de trabajo.
+
+ > [!NOTE]
+  > En el ejemplo siguiente se usa una imagen de contenedor público. Para mejorar la confiabilidad, importe y administre la imagen en un registro de contenedor privado de Azure y actualice el archivo YAML para usar la imagen base administrada de forma privada. [Más información sobre cómo trabajar con imágenes públicas](../container-registry/buffer-gate-public-content.md).
 
 ```YAML
 additional_properties: {}

@@ -11,12 +11,12 @@ ms.author: jhirono
 author: jhirono
 ms.date: 08/04/2021
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1
-ms.openlocfilehash: 913fb8f782872a2a8651d19de8c918595cdecfeb
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: b4b7f35173b4f1d6d83d9b7ffd937704750f5502
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121739145"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122603978"
 ---
 # <a name="secure-an-azure-machine-learning-training-environment-with-virtual-networks"></a>Protección de un entorno de entrenamiento de Azure Machine Learning con redes virtuales
 
@@ -68,7 +68,7 @@ En este artículo aprenderá a proteger los siguientes recursos de proceso de en
 * Si tiene previsto proteger la red virtual restringiendo el tráfico, vea la sección [Acceso obligatorio a una red de Internet pública](#required-public-internet-access).
 * La subred que se usa para implementar la instancia o el clúster de proceso no se debe delegar a ningún otro servicio. Por ejemplo, no debe delegarse a ACI.
 
-### <a name="azure-databricks"></a>Azure Databricks
+### <a name="azure-databricks"></a>Azure Databricks
 
 * La red virtual debe estar en la misma suscripción y región que el área de trabajo de Azure Machine Learning.
 * Si las cuentas de Azure Storage del área de trabajo también están protegidas en una red virtual, deben estar en la misma red virtual que el clúster de proceso de Azure Databricks.
@@ -88,7 +88,7 @@ En este artículo aprenderá a proteger los siguientes recursos de proceso de en
 
         :::image type="content" source="./media/how-to-secure-training-vnet/compute-instance-cluster-network-security-group.png" alt-text="Captura de pantalla de un NSG":::
 
-    * Una dirección IP pública. Si tiene una directiva de Azure que prohíbe la creación de la dirección IP pública, se producirá un error en la implementación del clúster o de las instancias.
+    * Una dirección IP pública. Si tiene asignaciones de Azure Policy que prohíben la creación de la dirección IP pública, se producirá un error en la implementación del clúster o de las instancias.
     * Un equilibrador de carga
 
     En el caso de los clústeres de proceso, estos recursos se eliminan cada vez que se reduce el clúster verticalmente hasta 0 nodos y se crean al escalar verticalmente.
@@ -96,7 +96,7 @@ En este artículo aprenderá a proteger los siguientes recursos de proceso de en
     En el caso de una instancia de proceso, estos recursos se mantienen hasta que se elimina la instancia. Detener la instancia no hace que se quiten los recursos. 
 
     > [!IMPORTANT]
-    > Estos recursos están limitados por las [cuotas de recursos](../azure-resource-manager/management/azure-subscription-service-limits.md) de la suscripción. Si el grupo de recursos de red virtual está bloqueado, se producirá un error en la eliminación de la instancia o el clúster de proceso. No se puede eliminar el equilibrador de carga hasta que se elimine la instancia o el clúster de proceso. Asegúrese también de que no haya ninguna directiva de Azure que prohíba la creación de grupos de seguridad de red.
+    > Estos recursos están limitados por las [cuotas de recursos](../azure-resource-manager/management/azure-subscription-service-limits.md) de la suscripción. Si el grupo de recursos de red virtual está bloqueado, se producirá un error en la eliminación de la instancia o el clúster de proceso. No se puede eliminar el equilibrador de carga hasta que se elimine la instancia o el clúster de proceso. Asegúrese también de que no haya ninguna asignación de Azure Policy que prohíba la creación de grupos de seguridad de red.
 
 * Si las cuentas de Azure Storage del área de trabajo también están en la red virtual, use las instrucciones siguientes sobre las limitaciones de subred:
 
@@ -122,7 +122,7 @@ En este artículo aprenderá a proteger los siguientes recursos de proceso de en
 
     Instrucciones como el uso de reglas de NSG, rutas definidas por el usuario y requisitos de entrada/salida, se aplican de la forma habitual cuando se usa una región diferente a la del área de trabajo.
 
-### <a name="azure-databricks"></a>Azure Databricks
+### <a name="azure-databricks"></a>Azure Databricks
 
 * Además de las subredes __databricks-private__ y __databricks-public__ utilizadas por Azure Databricks, también se requiere la subred __predeterminada__ creada para la red virtual.
 * Azure Databricks no usa un punto de conexión privado para comunicarse con la red virtual.
@@ -216,7 +216,7 @@ Cuando finaliza el proceso de creación, el modelo se entrena mediante el clúst
 
 A fin de obtener más información sobre los requisitos de tráfico de entrada y salida para Azure Machine Learning, vea [Uso de un área de trabajo detrás de un firewall](how-to-access-azureml-behind-firewall.md).
 
-## <a name="azure-databricks"></a>Azure Databricks
+## <a name="azure-databricks"></a>Azure Databricks
 
 Para obtener información específica sobre el uso de Azure Databricks con una red virtual, consulte [Implementar Azure Databricks en su red virtual de Azure](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject).
 

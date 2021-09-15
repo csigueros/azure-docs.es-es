@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 06/16/2021
 ms.topic: how-to
 ms.custom: deploy, devplatv2
-ms.openlocfilehash: 74c4bc6079c9045679842b071b6ab315ff1e4d47
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 3804839ba5c641d7ed563a0593005f89f0b91812
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114446620"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122418408"
 ---
 # <a name="deploy-a-tensorflow-model-served-with-tf-serving-using-a-custom-container-in-a-managed-online-endpoint-preview"></a>Implementación de un modelo de TensorFlow servido con TF Serving mediante un contenedor personalizado en un punto de conexión en línea administrado (versión preliminar)
 
@@ -31,7 +31,7 @@ Las implementaciones de contenedores personalizados pueden usar servidores web d
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Instale y configure la CLI de Azure y la extensión de Machine Learning. Para más información, consulte [Instalación, configuración y uso de la CLI 2.0 (versión preliminar)](how-to-configure-cli.md). 
+* Instale y configure la CLI de Azure y la extensión de Machine Learning. Para más información, consulte [Instalación, configuración y uso de la CLI v2 (versión preliminar)](how-to-configure-cli.md). 
 
 * Debe tener un grupo de recursos de Azure, en el que usted (o la entidad de servicio que use) necesita tener acceso de `Contributor`. Tendrá un grupo de recursos de este tipo si configuró la extensión de Machine Learning según el artículo anterior. 
 

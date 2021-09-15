@@ -13,14 +13,14 @@ ms.date: 06/23/2021
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, zachowd
 ms.custom: contperf-fy21q4, aaddev
-ms.openlocfilehash: 43fef26f3006120cb62676bfd5675c1e79b849d4
-ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
+ms.openlocfilehash: 7cf9918216c70bcbabf9c64c9b0ebf91c02b45fd
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112579979"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123029248"
 ---
-# <a name="how-to-configure-an-applications-publisher-domain"></a>Procedimientos: Configuración del dominio de editor de una aplicación
+# <a name="configure-an-applications-publisher-domain"></a>Configuración del dominio de editor de una aplicación
 
 El dominio de editor de una aplicación se muestra a los usuarios en la [petición de consentimiento de la aplicación](application-consent-experience.md) para que los usuarios sepan dónde se envía su información. Las aplicaciones multiinquilino registradas después del 21 de mayo de 2019 que no tengan un dominio de editor se muestran como **no verificadas**. Las aplicaciones multiinquilino son aquellas que admiten cuentas ajenas a un único directorio organizativo; por ejemplo, admiten todas las cuentas de Azure AD o admiten todas las cuentas de Azure AD y las cuentas personales de Microsoft.
 
@@ -61,7 +61,7 @@ Para establecer el dominio de editor de la aplicación, siga estos pasos.
 
 Si la aplicación está registrada en un inquilino, verá dos pestañas en que podrá seleccionar entre: **Seleccionar un dominio verificado** y **Verificar un dominio nuevo**.
 
-Si la aplicación no está registrada en un inquilino, solo verá la opción para verificar un dominio nuevo para la aplicación.
+Si su dominio no está registrada en el inquilino, solo verá la opción para verificar un dominio nuevo para su aplicación.
 
 ### <a name="to-verify-a-new-domain-for-your-app"></a>Para verificar un dominio nuevo para la aplicación
 

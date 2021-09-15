@@ -3,12 +3,12 @@ title: Migración de servidores habilitados para Azure Arc a Azure
 description: Obtenga información sobre cómo migrar a Azure servidores habilitados para Azure Arc que se ejecutan en el entorno local u otro entorno en la nube.
 ms.date: 07/16/2021
 ms.topic: conceptual
-ms.openlocfilehash: 9dd7baa2466f4acd3e4106c3cec5a0d7e7afe05c
-ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
+ms.openlocfilehash: 5433c859389722884df525ab7ac885ae013f9e59
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114390242"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122768279"
 ---
 # <a name="migrate-your-on-premises-or-other-cloud-arc-enabled-server-to-azure"></a>Migración de un servidor local o en la nube habilitado para Arc a Azure
 
@@ -42,7 +42,7 @@ Enumere las asignaciones de roles para el recurso de servidores habilitados para
 
 Si usa una identidad administrada para una aplicación o un proceso que se ejecutan en un servidor habilitado para Arc, tiene que asegurarse de que la VM de Azure tenga asignada una identidad administrada. Para ver la asignación de roles para una identidad administrada, puede usar el cmdlet `Get-AzADServicePrincipal` de Azure PowerShell. Para más información, consulte [Lista de asignaciones de roles para una identidad administrada](../../role-based-access-control/role-assignments-list-powershell.md#list-role-assignments-for-a-managed-identity). 
 
-También se usa una identidad administrada por el sistema cuando se usa Azure Policy para auditar la configuración dentro de una máquina o servidor. Con los servidores habilitados para Arc, se incluye el agente de Guest Configuration y se realiza la validación de la configuración de auditoría. Después de la migración, consulte [Requisitos de implementación de Azure Virtual Machines](../../governance/policy/concepts/guest-configuration.md#deploy-requirements-for-azure-virtual-machines) para obtener información sobre cómo configurar la VM de Azure manualmente o con la directiva con la extensión de Guest Configuration.
+También se usa una identidad administrada por el sistema cuando se usa Azure Policy para auditar o configurar opciones en una máquina o un servidor. Con los servidores habilitados para Arc, se incluye el servicio de agente de configuración de invitado y se realiza la validación de la configuración de auditoría. Después de la migración, consulte [Requisitos de implementación de Azure Virtual Machines](../../governance/policy/concepts/guest-configuration.md#deploy-requirements-for-azure-virtual-machines) para información sobre cómo configurar la máquina virtual de Azure manualmente o con la directiva con la extensión de configuración de invitado.
 
 Actualice la asignación de roles con los recursos a los que tiene acceso la identidad administrada para permitir que la nueva identidad de VM de Azure se autentique en esos servicios. Consulte a continuación para obtener información sobre [cómo funcionan las identidades administradas en los recursos de Azure para una máquina virtual (VM) de Azure](../../active-directory/managed-identities-azure-resources/how-managed-identities-work-vm.md).
 
@@ -70,7 +70,7 @@ Antes de continuar con la migración con Azure Migration, revise el artículo [P
 
 Después de la migración y de completar todos los pasos de configuración posteriores a la migración, puede implementar las extensiones de VM de Azure en función de las extensiones de VM instaladas originalmente en el servidor habilitado para Arc. Revise [Características y extensiones de las máquinas virtuales de Azure](../../virtual-machines/extensions/overview.md) para ayudar a planificar la implementación de las extensiones. 
 
-Para reanudar el uso de la configuración de auditoría dentro de una máquina definiciones de la directiva de Guest Configuration de Azure Policy, consulte [Habilitar configuración de invitado](../../governance/policy/concepts/guest-configuration.md#enable-guest-configuration).
+Para reanudar el uso de la configuración de auditoría dentro de una máquina definiciones de la directiva de configuración de invitado, consulte [Habilitar configuración de invitado](../../governance/policy/concepts/guest-configuration.md#enable-guest-configuration).
 
 Si la extensión de VM de Log Analytics o la extensión de VM de Dependency Agent se implementaron mediante Azure Policy y la [iniciativa VM Insights](../../azure-monitor/vm/vminsights-enable-policy.md), quite la [exclusión](../../governance/policy/tutorials/create-and-manage.md#remove-a-non-compliant-or-denied-resource-from-the-scope-with-an-exclusion) que creó anteriormente. Para usar Azure Policy para habilitar las máquinas virtuales de Azure, consulte [Implementación de Azure Monitor a escala mediante Azure Policy](../../azure-monitor/deploy-scale.md#vm-insights). 
 

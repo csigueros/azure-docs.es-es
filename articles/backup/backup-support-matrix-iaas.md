@@ -2,14 +2,14 @@
 title: Matriz de compatibilidad para copias de seguridad de máquinas virtuales de Azure
 description: Proporciona un resumen de opciones de compatibilidad y limitaciones para realizar copias de seguridad de máquinas virtuales de Azure con el servicio Azure Backup.
 ms.topic: conceptual
-ms.date: 08/06/2021
+ms.date: 08/23/2021
 ms.custom: references_regions
-ms.openlocfilehash: af008e8f14e3df60f0ce48a23cb32d45716645d0
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 9244b7c5a62be57b1f8ec9ea0f27918c7aa62457
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121728916"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122770982"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de compatibilidad para copias de seguridad de máquinas virtuales de Azure
 
@@ -174,6 +174,7 @@ Almacenamiento compartido| No se admite la copia de seguridad de máquinas virtu
 Discos SSD Ultra | No compatible. Para obtener más información, consulte estas [limitaciones](selective-disk-backup-restore.md#limitations).
 [Discos temporales](../virtual-machines/managed-disks-overview.md#temporary-disk) | Azure Backup no realiza copias de seguridad de los discos temporales.
 NVMe/[discos efímeros](../virtual-machines/ephemeral-os-disks.md) | No compatible.
+Restauración de [ReFS](/windows-server/storage/refs/refs-overview) | Compatible. El Servicio de instantáneas de volumen también admite copias de seguridad coherentes con la aplicación en ReFS, como NFS.
 
 ## <a name="vm-network-support"></a>Compatibilidad con red de VM
 

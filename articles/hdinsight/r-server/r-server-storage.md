@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 01/02/2020
 ROBOTS: NOINDEX
-ms.openlocfilehash: 2ed4e27fb680c14ed5bbae0585d89152c1999b97
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 56b7181cafc9a17c2fdb468e1a47d664499dcdcc
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112295874"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123252921"
 ---
 # <a name="azure-storage-solutions-for-ml-services-on-azure-hdinsight"></a>Soluciones de Azure Storage para ML Services en Azure HDInsight
 
@@ -20,9 +20,9 @@ ML Services en HDInsight puede usar diversas soluciones para almacenar datos, c�
 
 - [Almacenamiento de blobs de Azure](https://azure.microsoft.com/services/storage/blobs/)
 - [Azure Data Lake Storage Gen1](https://azure.microsoft.com/services/storage/data-lake-storage/)
-- [Azure File Storage](https://azure.microsoft.com/services/storage/files/)
+- [Archivos de Azure](https://azure.microsoft.com/services/storage/files/)
 
-También tiene la opción de acceder a varias cuentas o contenedores de Azure Storage con el clúster de HDInsight. Azure File Storage constituye una práctica opción de almacenamiento de datos para usar en el nodo perimetral que le permite montar un recurso compartido de archivos de Azure Storage en, por ejemplo, el sistema de archivos Linux. Pero los recursos compartidos de Azure File se pueden montar y utilizar en cualquier sistema que tenga un sistema operativo compatible, como Windows o Linux.
+También tiene la opción de acceder a varias cuentas o contenedores de Azure Storage con el clúster de HDInsight. El servicio Azure Files ofrece una manera práctica de almacenar datos para su uso en el nodo perimetral y le permite montar un recurso compartido de archivos de Azure Storage en el sistema de archivos Linux, por ejemplo. Pero los recursos compartidos de archivos de Azure se pueden montar y utilizar en cualquier sistema que tenga un sistema operativo compatible, como Windows o Linux.
 
 Cuando se crea un clúster de Apache Hadoop en HDInsight, se especifica una cuenta de **Azure Blob Storage** o **Data Lake Storage Gen1**. Un contenedor de almacenamiento específico de esa cuenta conserva el sistema de archivos para el clúster creado (por ejemplo, el Sistema de archivos distribuido de Hadoop). Para más información e instrucciones, consulte:
 
@@ -164,14 +164,14 @@ hadoop fs -copyFromLocal /usr/lib64/R Server-7.4.1/library/RevoScaleR/SampleData
 hadoop fs –ls adl://rkadl1.azuredatalakestore.net/share
 ```
 
-## <a name="use-azure-file-storage-with-ml-services-on-hdinsight"></a>Uso de Azure File Storage con ML Services en HDInsight
+## <a name="use-azure-files-with-ml-services-on-hdinsight"></a>Uso de Azure Files con ML Services en HDInsight
 
 También hay una opción de almacenamiento de datos adecuada para su uso en el nodo perimetral llamada [Azure Files](https://azure.microsoft.com/services/storage/files/). Con esta opción podrá montar un recurso compartido de archivos de Azure Storage en el sistema de archivos de Linux. Esta opción puede resultar práctica para almacenar archivos de datos, scripts de R y objetos de resultado que podría necesitar más adelante, en especial cuando sea conveniente usar el sistema de archivos nativo en el nodo perimetral en lugar de HDFS.
 
 Una ventaja importante de Archivos de Azure es que los recursos compartidos de archivos se pueden montar y utilizar en cualquier sistema que tenga un sistema operativo compatible, como Windows o Linux. Por ejemplo, puede utilizarse con otro clúster de HDInsight que sea suyo o de alguien de su equipo, con una máquina virtual de Azure, o incluso con un sistema local. Para más información, consulte:
 
-- [Uso de Azure File Storage con Linux](../../storage/files/storage-how-to-use-files-linux.md)
-- [Uso de Azure File Storage en Windows](../../storage/files/storage-dotnet-how-to-use-files.md)
+- [Uso de Azure Files con Linux](../../storage/files/storage-how-to-use-files-linux.md)
+- [Uso de Azure Files en Windows](../../storage/files/storage-dotnet-how-to-use-files.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

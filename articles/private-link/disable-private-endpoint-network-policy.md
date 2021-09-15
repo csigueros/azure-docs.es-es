@@ -1,37 +1,43 @@
 ---
-title: Deshabilitar las directivas de red de puntos de conexión privados
+title: Administración de directivas de red de puntos de conexión privados
 titleSuffix: Azure Private Link
-description: Obtenga información sobre cómo deshabilitar las directivas de red de puntos de conexión privados.
+description: Información sobre cómo deshabilitar las directivas de red de puntos de conexión privados
 services: private-link
 author: asudbring
 ms.service: private-link
 ms.topic: how-to
-ms.date: 07/14/2021
+ms.date: 08/26/2021
 ms.author: allensu
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 41cdefd340ace93d5a068c9a74543965834d01ca
-ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
+ms.openlocfilehash: c06ad374e46e9900ba99a95708e19a63498719ec
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114221360"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123101553"
 ---
-# <a name="disable-network-policies-for-private-endpoints"></a>Deshabilitar las directivas de red de puntos de conexión privados
+# <a name="manage-network-policies-for-private-endpoints"></a>Administración de directivas de red de puntos de conexión privados
 
-Las directivas de red como, por ejemplo, los grupos de seguridad de red no se admiten para los puntos de conexión privados. Para implementar un punto de conexión privado en una subred dada, es necesario un valor de deshabilitación explícito en dicha subred. Este valor solo se puede aplicar al punto de conexión privado. Para otros recursos de la subred, el acceso se controla en función de las reglas de seguridad del grupos de seguridad de red.
- 
+Las directivas de red, como los grupos de seguridad de red (NSG), no eran compatibles con los puntos de conexión privados. Para implementar un punto de conexión privado en una determinada subred, se necesitaba un valor de desactivación explícito en dicha subred. Este valor solo se puede aplicar al punto de conexión privado. Para otros recursos de la subred, el acceso se controla en función de las reglas de seguridad del grupos de seguridad de red.
+
+> [!IMPORTANT]
+> La compatibilidad de NSG y UDR con puntos de conexión privados se encuentra en versión preliminar pública.
+> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 Al usar el portal para crear un punto de conexión privado, el valor `PrivateEndpointNetworkPolicies` se deshabilita automáticamente como parte del proceso de creación. La implementación mediante otros clientes requiere un paso adicional para cambiar este valor. 
 
-El valor se puede deshabilitar mediante:
+El valor se puede deshabilitar y habilitar mediante los siguientes recursos:
 
 * Cloud Shell, desde Azure Portal.
 * Azure PowerShell
 * Azure CLI
 * Plantillas del Administrador de recursos de Azure
  
-En los siguientes ejemplos se describe cómo deshabilitar `PrivateEndpointNetworkPolicies` para una red virtual llamada **myVNet** con una subred **predeterminada** hospedada en un grupo de recursos llamado **myResourceGroup**.
+En los siguientes ejemplos se describe cómo deshabilitar y habilitar `PrivateEndpointNetworkPolicies` para una red virtual llamada **myVNet** con una subred **predeterminada** hospedada en un grupo de recursos llamado **myResourceGroup**.
 
 ## <a name="azure-powershell"></a>Azure PowerShell
+
+### <a name="disable-network-policy"></a>Deshabilitar la directiva de red
 
 En esta sección se describe cómo deshabilitar directivas de punto de conexión privado de subred mediante Azure PowerShell. Use [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) y [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork) para deshabilitar la directiva.
 
@@ -42,11 +48,30 @@ $net =@{
 }
 $vnet = Get-AzVirtualNetwork @net
 
-($vnet | Select -ExpandProperty subnets).PrivateEndpointNetworkPolicies = "Disabled"
+($vnet | Select -ExpandProperty subnets | Where-Object {$_.Name -eq 'default'}).PrivateEndpointNetworkPolicies = "Disabled"
+
+$vnet | Set-AzVirtualNetwork
+```
+
+### <a name="enable-network-policy"></a>Habilitar la directiva de red
+
+En esta sección se describe cómo habilitar directivas de punto de conexión privado de subred mediante Azure PowerShell. Use [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) y [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork) para habilitar la directiva.
+
+```azurepowershell
+$net =@{
+    Name = 'myVNet'
+    ResourceGroupName = 'myResourceGroup'
+}
+$vnet = Get-AzVirtualNetwork @net
+
+($vnet | Select -ExpandProperty subnets | Where-Object {$_.Name -eq 'default'}).PrivateEndpointNetworkPolicies = "Enabled"
 
 $vnet | Set-AzVirtualNetwork
 ```
 ## <a name="azure-cli"></a>Azure CLI
+
+### <a name="disable-network-policy"></a>Deshabilitar la directiva de red
+
 En esta sección se describe cómo deshabilitar directivas de punto de conexión privado de subred mediante la CLI de Azure. Use [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update) para deshabilitar la directiva.
 
 ```azurecli
@@ -57,7 +82,23 @@ az network vnet subnet update \
   --vnet-name myVirtualNetwork \ 
   
 ```
+
+### <a name="enable-network-policy"></a>Habilitar la directiva de red
+
+En esta sección se describe cómo habilitar directivas de punto de conexión privado de subred mediante la CLI de Azure. Use [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update) para habilitar la directiva.
+
+```azurecli
+az network vnet subnet update \ 
+  --disable-private-endpoint-network-policies false \
+  --name default \ 
+  --resource-group myResourceGroup \ 
+  --vnet-name myVirtualNetwork \ 
+  
+```
 ## <a name="resource-manager-template"></a>Plantilla de Resource Manager
+
+### <a name="disable-network-policy"></a>Deshabilitar la directiva de red
+
 En esta sección se describe cómo deshabilitar directivas de punto de conexión privado de subred mediante una plantilla de Azure Resource Manager.
 
 ```json
@@ -78,6 +119,35 @@ En esta sección se describe cómo deshabilitar directivas de punto de conexión
                                 "properties": { 
                                     "addressPrefix": "10.0.0.0/24", 
                                     "privateEndpointNetworkPolicies": "Disabled" 
+                                 } 
+                         } 
+                  ] 
+          } 
+} 
+```
+
+### <a name="enable-network-policy"></a>Habilitar la directiva de red
+
+En esta sección se describe cómo habilitar directivas de punto de conexión privado de subred mediante una plantilla de Azure Resource Manager.
+
+```json
+{ 
+          "name": "myVirtualNetwork", 
+          "type": "Microsoft.Network/virtualNetworks", 
+          "apiVersion": "2019-04-01", 
+          "location": "WestUS", 
+          "properties": { 
+                "addressSpace": { 
+                     "addressPrefixes": [ 
+                          "10.0.0.0/16" 
+                        ] 
+                  }, 
+                  "subnets": [ 
+                         { 
+                                "name": "default", 
+                                "properties": { 
+                                    "addressPrefix": "10.0.0.0/24", 
+                                    "privateEndpointNetworkPolicies": "Enabled" 
                                  } 
                          } 
                   ] 

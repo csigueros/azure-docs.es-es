@@ -16,12 +16,12 @@ ms.author: madhukan
 ms.custom:
 - H1Hack27Feb2017
 - contperf-fy21q4
-ms.openlocfilehash: 3c77fe23b7ce058f31a216c5991b7129c3ac99fe
-ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
+ms.openlocfilehash: 4d0977cd408c0a8fdcff16ad01c4c72203e72c40
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112579835"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122969720"
 ---
 # <a name="monitor-sap-hana-large-instances-on-azure"></a>Supervisión de SAP HANA (instancias grandes) en Azure
 
@@ -75,7 +75,7 @@ tar  -czvf health_check_logs.tar.gz /var/log/health_check
 
 ## <a name="azure-monitor-for-sap-solutions"></a>Azure Monitor para soluciones de SAP
 
-Puede usar Azure Monitor para soluciones de SAP a fin de supervisar todos los recursos enumerados anteriormente y muchos más. Azure Monitor para soluciones de SAP es nativo de Azure. Permite recopilar datos de la infraestructura y las bases de datos de Azure en una sola ubicación y poner en correlación visualmente los datos para acelerar la solución de problemas. Para obtener más información, vea [Azure Monitor para soluciones de SAP](../../../virtual-machines/workloads/sap/azure-monitor-overview.md).
+Puede usar Azure Monitor para soluciones de SAP a fin de supervisar todos los recursos enumerados anteriormente y muchos más. Azure Monitor para soluciones de SAP es nativo de Azure. Permite recopilar datos de la infraestructura y las bases de datos de Azure en una sola ubicación y poner en correlación visualmente los datos para acelerar la solución de problemas. Para más información, consulte [Supervisión de SAP en Azure](../../../virtual-machines/workloads/sap/monitor-sap-on-azure.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

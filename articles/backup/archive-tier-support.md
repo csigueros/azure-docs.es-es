@@ -2,14 +2,14 @@
 title: Compatibilidad con el nivel de archivo
 description: Conozca más sobre la compatibilidad del nivel de acceso de archivo para Azure Backup.
 ms.topic: conceptual
-ms.date: 08/04/2021
+ms.date: 08/31/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ccb85c42685f962da3c9faf098d7847a93f4de74
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 228ab85a0cde5ed37156a5821ad3ac2acd6a7209
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121722741"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123260783"
 ---
 # <a name="archive-tier-support"></a>Compatibilidad con el nivel de archivo
 
@@ -37,7 +37,7 @@ Clientes compatibles:
 - La funcionalidad se proporciona mediante PowerShell
 
 >[!Note]
->La compatibilidad con el nivel de archivo en servidores SQL Server en máquinas virtuales de Azure ya está disponible con carácter general en Norte de Europa, Centro de la India, Sudeste de Asia y Este de Australia. Para obtener una lista detallada de las regiones admitidas, consulte la [matriz de compatibilidad](#support-matrix).    <br><br>    En el caso de las regiones restantes de servidores SQL Server en máquinas virtuales de Azure, la compatibilidad con el nivel de archivo está en versión preliminar pública limitada. La compatibilidad con el nivel de archivo en Azure Virtual Machines también está en versión preliminar pública limitada. Si quiere registrarse para obtener una versión preliminar pública limitada, use este [vínculo](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR463S33c54tEiJLEM6Enqb9UNU5CVTlLVFlGUkNXWVlMNlRPM1lJWUxLRy4u).
+>La compatibilidad con el nivel de archivo para instancias de SQL Server en máquinas virtuales de Azure está disponible con carácter general en varias regiones. Para obtener una lista detallada de las regiones admitidas, consulte la [matriz de compatibilidad](#support-matrix).    <br><br>    En el caso de las regiones restantes de servidores SQL Server en máquinas virtuales de Azure, la compatibilidad con el nivel de archivo está en versión preliminar pública limitada. La compatibilidad con el nivel de archivo en Azure Virtual Machines también está en versión preliminar pública limitada. Si quiere registrarse para obtener una versión preliminar pública limitada, use este [vínculo](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR463S33c54tEiJLEM6Enqb9UNU5CVTlLVFlGUkNXWVlMNlRPM1lJWUxLRy4u).
 
 ## <a name="get-started-with-powershell"></a>Introducción a PowerShell
 
@@ -211,8 +211,8 @@ La detención de la protección y la eliminación de los datos eliminan todos lo
 
 | Cargas de trabajo | Vista previa | Disponibilidad general |
 | --- | --- | --- |
-| SQL Server en VM de Azure | Este de EE. UU., Este de EE. UU. 2, Centro de EE. UU., Centro-sur de EE. UU., Oeste de EE. UU., Oeste de EE. UU. 2, Centro-oeste de EE. UU., Centro-norte de EE. UU., Sur de Brasil, Este de Canadá, Centro de Canadá, Oeste de Europa, Sur de Reino Unido, Oeste de Reino Unido, Este de Asia, Este de Japón, Sur de la India | Este de Australia, Centro de la India, Norte de Europa, Sudeste de Asia |
-| Azure Virtual Machines | Este de EE. UU., Este de EE. UU. 2, Centro de EE. UU., Centro-sur de EE. UU., Oeste de EE. UU., Oeste de EE. UU. 2, Centro-oeste de EE. UU., Centro-norte de EE. UU., Sur de Brasil, Este de Canadá, Centro de Canadá, Oeste de Europa, Sur de Reino Unido, Oeste de Reino Unido, Este de Asia, Este de Japón, Sur de la India, Sudeste de Asia, Este de Australia, Centro de la India, Norte de Europa | Ninguno |
+| SQL Server en VM de Azure | Este de EE. UU., Centro-sur de EE. UU., Centro-norte de EE. UU., Oeste de Europa | Este de Australia, Centro de la India, Norte de Europa, Sudeste Asiático, Este de Asia, Sudeste de Australia, Centro de Canadá, Sur de Brasil, Este de Canadá, Centro de Francia, Sur de Francia, Este de Japón, Oeste de Japón, Centro de Corea del Sur, Sur de Corea del Sur, Sur de la India, Oeste de Reino Unido, Sur de Reino Unido, Centro de EE. UU., Este de EE. UU. 2, Oeste de EE. UU., Oeste de EE. UU. 2, Centro-oeste de EE. UU. |
+| Azure Virtual Machines | Este de EE. UU., Este de EE. UU. 2, Centro-sur de EE. UU., Oeste de EE. UU., Oeste de EE. UU. 2, Centro-oeste de EE. UU., Centro-norte de EE. UU., Sur de Brasil, Este de Canadá, Centro de Canadá, Oeste de Europa, Sur de Reino Unido, Oeste de Reino Unido, Este de Asia, Este de Japón, Sur de la India, Sudeste de Asia, Este de Australia, Centro de la India, Norte de Europa, Sudeste de Australia, Centro de Francia, Sur de Francia, Oeste de Japón, Centro de Corea del Sur, Sur de Corea del Sur | Ninguno |
 
 ## <a name="error-codes-and-troubleshooting-steps"></a>Códigos de error y pasos de solución de problemas
 

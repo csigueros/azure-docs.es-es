@@ -8,12 +8,12 @@ ms.date: 03/29/2021
 ms.author: rogarana
 ms.subservice: files
 services: storage
-ms.openlocfilehash: 023320d29eac767e62e07c58de4f8fa6ac61b61f
-ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
+ms.openlocfilehash: a7841fcafff49dab43d944cfa6fd84e9b7119080
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/15/2021
-ms.locfileid: "112117839"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123260011"
 ---
 # <a name="prevent-accidental-deletion-of-azure-file-shares"></a>Evitar la eliminación accidental de recursos compartidos de archivos de Azure
 Azure Files ofrece eliminación temporal para los recursos compartidos de archivos. La eliminación temporal permite recuperar el recurso compartido de archivos cuando una aplicación u otro usuario de la cuenta de almacenamiento lo ha eliminado por error.
@@ -50,7 +50,7 @@ El período de retención es la cantidad de tiempo durante el que los recursos c
 
 Los recursos compartidos de archivos Estándar y Premium se facturan según la capacidad usada cuando se han eliminado temporalmente, en lugar de la capacidad aprovisionada. Además, los recursos compartidos de archivos Premium se facturan según la tasa de instantáneas mientras se encuentran en el estado de eliminación temporal. Los recursos compartidos de archivos Estándar se facturan según la tasa habitual mientras se encuentran en el estado de eliminación temporal. Los datos que se eliminen permanentemente después del período de retención configurado no se cobrarán.
 
-Para obtener más información sobre los precios de Azure File Storage en general, vea la [página de precios de Azure File Storage](https://azure.microsoft.com/pricing/details/storage/files/).
+Para más información sobre los precios de Azure Files en general, consulte la [página de precios de Azure Files](https://azure.microsoft.com/pricing/details/storage/files/).
 
 Cuando se habilita inicialmente la eliminación temporal, se recomienda usar un período de retención pequeño para comprender mejor cómo afecta la característica a la facturación.
 

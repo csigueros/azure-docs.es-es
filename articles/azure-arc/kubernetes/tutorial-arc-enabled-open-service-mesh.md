@@ -7,12 +7,12 @@ ms.date: 07/23/2021
 ms.topic: article
 author: mayurigupta13
 ms.author: mayg
-ms.openlocfilehash: ebf73d6a79048a7cd08b0995e98da229f9df46ca
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
+ms.openlocfilehash: c8a10873f420b5aba75596a4377bfa4f0b37d4f7
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122068223"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122606898"
 ---
 # <a name="azure-arc-enabled-open-service-mesh-preview"></a>Open Service Mesh habilitado para Azure Arc (versión preliminar)
 
@@ -23,9 +23,10 @@ OSM ejecuta un plano de control basado en Envoy en Kubernetes, se puede configur
 ### <a name="support-limitations-for-arc-enabled-open-service-mesh"></a>Limitaciones de compatibilidad para Open Service Mesh habilitado para Arc
 
 - Solo se puede implementar una instancia de Open Service Mesh en un clúster de Kubernetes conectado a Arc.
-- La versión preliminar pública está disponible para Open Service Mesh versión 0.8.4 y posteriores. Consulte la versión más reciente [aquí](https://github.com/Azure/osm-azure/releases).
+- La versión preliminar pública está disponible para Open Service Mesh versión 0.8.4 y posteriores. Consulte la versión más reciente [aquí](https://github.com/Azure/osm-azure/releases). Las versiones admitidas se anexan con notas. No tenga en cuenta las etiquetas asociadas a las versiones intermedias. 
 - Actualmente se admiten las siguientes distribuciones de Kubernetes
     - Motor de AKS
+    - AKS en HCI
     - Cluster API de Azure
     - Google Kubernetes Engine
     - Distribución Canonical Kubernetes
@@ -204,7 +205,7 @@ Ahora, debería poder ver los recursos de OSM y usar la extensión OSM en el cl�
 
 ## <a name="validate-the-arc-enabled-open-service-mesh-installation"></a>Validación de la instalación de Open Service Mesh habilitado para Arc
 
-Ejecute el siguiente comando.
+Ejecute el siguiente comando:
 
 ```azurecli-interactive
 az k8s-extension show --cluster-type connectedClusters --cluster-name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --name osm
@@ -393,24 +394,23 @@ Azure Monitor y Azure Application Insights ayudan a maximizar la disponibilidad 
 
 Open Service Mesh habilitado para Arc tendrá integraciones profundas en ambos servicios de Azure y proporcionará una experiencia de Azure aparentemente ininterrumpida para ver los KPI críticos proporcionados por las métricas de OSM y para responder a ellos. Siga los pasos que se indican a continuación para permitir que Azure Monitor extraiga puntos de conexión de Prometheus para recopilar métricas de la aplicación. 
 
-1. Asegúrese de que prometheus_scraping se haya establecido en true en `osm-mesh-config`.
+1. Asegúrese de que los espacios de nombres de la aplicación que quiere supervisar están incorporados en la malla. Siga las instrucciones [disponibles en este vínculo](#onboard-namespaces-to-the-service-mesh).
 
-2. Asegúrese de que los espacios de nombres de la aplicación que quiere supervisar están incorporados en la malla. Siga las instrucciones [disponibles en este vínculo](#onboard-namespaces-to-the-service-mesh).
-
-3. Exponga los puntos de conexión de Prometheus para los espacios de nombres de la aplicación.
+2. Exponga los puntos de conexión de Prometheus para los espacios de nombres de la aplicación.
     ```azurecli-interactive
     osm metrics enable --namespace <namespace1>
     osm metrics enable --namespace <namespace2>
     ```
+    En el caso de la versión v0.8.4, asegúrese de que `prometheus_scraping` está establecido en `true` en el elemento ConfigMap `osm-config`.
 
-4. Instale la extensión de Azure Monitor con las instrucciones disponibles [aquí](../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json).
+3. Instale la extensión de Azure Monitor con las instrucciones disponibles [aquí](../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json).
 
-5. Agregue los espacios de nombres que quiere supervisar en container-azm-ms-osmconfig ConfigMap. Descargue ConfigMap desde [aquí](https://github.com/microsoft/Docker-Provider/blob/ci_prod/kubernetes/container-azm-ms-osmconfig.yaml).
+4. Agregue los espacios de nombres que quiere supervisar en container-azm-ms-osmconfig ConfigMap. Descargue ConfigMap desde [aquí](https://github.com/microsoft/Docker-Provider/blob/ci_prod/kubernetes/container-azm-ms-osmconfig.yaml).
     ```azurecli-interactive
     monitor_namespaces = ["namespace1", "namespace2"]
     ```
 
-6. Ejecute el siguiente comando de kubectl
+5. Ejecute el siguiente comando de kubectl
     ```azurecli-interactive
     kubectl apply -f container-azm-ms-osmconfig.yaml
     ```

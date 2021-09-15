@@ -8,12 +8,12 @@ ms.topic: reference
 ms.custom: mvc
 ms.date: 07/21/2021
 ms.subservice: azure-sentinel
-ms.openlocfilehash: f2a634aa73cf9b9cb2b379887f9a677a79c39b57
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: a1511581e3cc80d5f2f71bb82dc1bcb0ba639acb
+ms.sourcegitcommit: deb5717df5a3c952115e452f206052737366df46
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121745055"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122681519"
 ---
 # <a name="azure-sentinel-sap-solution-logs-reference-public-preview"></a>Referencia sobre de los registros de la solución Azure Sentinel para SAP (versión preliminar pública)
 
@@ -620,6 +620,7 @@ Para más información, consulte:
 
 - [Implementación de la solución Azure Sentinel para SAP](sap-deploy-solution.md)
 - [Requisitos detallados de SAP para la solución Azure Sentinel SAP](sap-solution-detailed-requirements.md)
+- [Implementación del conector de datos de SAP de Azure Sentinel con SNC](sap-solution-deploy-snc.md)
 - [Opciones de configuración de expertos, implementación local y orígenes de registro de SAPControl](sap-solution-deploy-alternate.md)
 - [Azure Sentinel para SAP: contenido de seguridad integrado](sap-solution-security-content.md)
 - [Solución de problemas de implementación de la solución SAP de Azure Sentinel](sap-deploy-troubleshoot.md)

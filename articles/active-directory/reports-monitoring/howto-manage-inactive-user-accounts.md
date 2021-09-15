@@ -17,12 +17,12 @@ ms.date: 05/06/2021
 ms.author: markvi
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 032a8fddb836146a5e902b168ab5aea9763bdc31
-ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
+ms.openlocfilehash: a5fbc6789fe83f07e0a22239e93a08eb9bd8cf4f
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2021
-ms.locfileid: "112376617"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122830770"
 ---
 # <a name="how-to-manage-inactive-user-accounts-in-azure-ad"></a>Instrucciones: Administración de cuentas de usuario inactivas en Azure AD
 
@@ -61,6 +61,9 @@ En esta sección se enumera lo que necesita saber sobre la propiedad lastSignInD
 ### <a name="how-can-i-access-this-property"></a>¿Cómo se puede acceder a esta propiedad?
 
 La propiedad **lastSignInDateTime** se expone por el tipo de recurso [signInActivity](/graph/api/resources/signinactivity?view=graph-rest-beta&preserve-view=true) de [Microsoft Graph API REST](/graph/overview#whats-in-microsoft-graph).   
+
+> [!NOTE]
+> El punto de conexión de Graph API signInActivity aún no es compatible con entornos de administración pública GCC High.
 
 ### <a name="is-the-lastsignindatetime-property-available-through-the-get-azureaduser-cmdlet"></a>¿La propiedad lastSignInDateTime está disponible a través del cmdlet Get-AzureAdUser?
 

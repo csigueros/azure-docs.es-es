@@ -16,12 +16,12 @@ ms.date: 07/01/2021
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4fcd11f88cb25ef3afb199b147856d0a0140e44c
-ms.sourcegitcommit: bc29cf4472118c8e33e20b420d3adb17226bee3f
+ms.openlocfilehash: 4ea285c078061ed6009aff8dfd1c17b1f0528b9a
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2021
-ms.locfileid: "113491990"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122967255"
 ---
 # <a name="change-request-settings-for-an-access-package-in-azure-ad-entitlement-management"></a>Cambio de la configuración de solicitud de un paquete de acceso en la administración de derechos de Azure AD
 
@@ -158,6 +158,9 @@ Siga estos pasos si quiere omitir las solicitudes de acceso y permitir a los adm
     Después de crear el paquete de acceso, puede asignar directamente usuarios internos y externos específicos al paquete de acceso. Si especifica un usuario externo, se creará una cuenta de usuario invitado en su directorio. Para información sobre la asignación directa de un usuario, consulte [Visualización, incorporación y eliminación de asignaciones en un paquete de acceso](entitlement-management-access-package-assignments.md).
 
 1. Vaya a la sección [Habilitación de solicitudes](#enable-requests).
+
+> [!NOTE]
+> Al asignar usuarios a un paquete de acceso, los administradores tendrán que comprobar que los usuarios cumplen los requisitos de la directiva existente para ese paquete de acceso. De lo contrario, los usuarios no se podrán asignar correctamente al paquete de acceso. Si el paquete de acceso contiene una directiva que requiere que la aprobación de las solicitudes de usuario, no se podrán asignar usuarios directamente al paquete sin las aprobaciones necesarias de los aprobadores designados.
 
 
 ## <a name="open-and-edit-an-existing-policy-of-request-settings"></a>Apertura y edición de una directiva existente de configuración de solicitud

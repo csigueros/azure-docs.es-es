@@ -1,5 +1,5 @@
 ---
-title: Entrenamiento de modelos (crear trabajos) con la CLI 2.0
+title: Entrenamiento de modelos (crear trabajos) con la CLI (v2)
 titleSuffix: Azure Machine Learning
 description: Aprenda a entrenar modelos (crear trabajos) mediante la extensión de la CLI de Azure para Machine Learning.
 services: machine-learning
@@ -11,21 +11,18 @@ ms.author: copeters
 ms.date: 06/18/2021
 ms.reviewer: laobri
 ms.custom: devx-track-azurecli, devplatv2
-ms.openlocfilehash: dda9c6dee04d724d27668cb8bbe5e189b774433d
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 9f3a91f9abc472f285139bfac04af7dff5c63e9f
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114457770"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122444559"
 ---
-# <a name="train-models-create-jobs-with-the-20-cli-preview"></a>Entrenamiento de modelos (crear trabajos) con la CLI 2.0 (versión preliminar)
+# <a name="train-models-create-jobs-with-the-cli-v2"></a>Entrenamiento de modelos (crear trabajos) con la CLI (v2)
 
-La extensión de la CLI de Azure 2.0 para Machine Learning (versión preliminar) permite acelerar el proceso de entrenamiento de modelos durante el escalado vertical y horizontalmente de un proceso de Azure, y el ciclo de vida se audita y se hace un seguimiento de él.
+La CLI de Azure Machine Learning (v2) es una extensión de la CLI de Azure que permite acelerar el entrenamiento de modelos durante el escalado vertical y horizontal de un proceso de Azure, así como auditar el ciclo de vida y realizar su seguimiento.
 
 El entrenamiento de un modelo de aprendizaje automático habitualmente es un proceso iterativo. Las herramientas modernas facilitan más que nunca el entrenamiento de modelos mayor en más datos es con más rapidez. Los procesos manuales que anteriormente eran tediosos, como el ajuste de hiperparámetros, e incluso la selección de algoritmos, a menudo se automatizan. Con la CLI de Azure Machine Learning puede realizar un seguimiento de los trabajos (y modelos) en un [área de trabajo](concept-workspace.md) con barridos de hiperparámetros, realizar un escalado vertical de proceso de Azure de alto rendimiento y un escalado horizontal mediante el entrenamiento distribuido.
-
-> [!TIP]
-> Si desea un entorno de desarrollo completo, use Visual Studio Code y la [extensión de Azure Machine Learning](how-to-setup-vs-code.md) para [administrar los recursos de Azure Machine Learning](how-to-manage-resources-vscode.md) y [entrenar modelos de Machine Learning](tutorial-train-deploy-image-classification-model-vscode.md).
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
@@ -33,16 +30,35 @@ El entrenamiento de un modelo de aprendizaje automático habitualmente es un pro
 
 - Para usar la CLI, debe tener una suscripción de Azure. Si no tiene una suscripción de Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning](https://azure.microsoft.com/free/).
 - [Instalación y configuración de la extensión de la CLI de Azure para Machine Learning](how-to-configure-cli.md)
-- Clone el repositorio de ejemplos:
 
-    ```azurecli-interactive
-    git clone https://github.com/Azure/azureml-examples --depth 1
-    cd azureml-examples/cli
-    ```
+> [!TIP]
+> Si desea un entorno de desarrollo completo, use Visual Studio Code y la [extensión de Azure Machine Learning](how-to-setup-vs-code.md) para [administrar los recursos de Azure Machine Learning](how-to-manage-resources-vscode.md) y [entrenar modelos de Machine Learning](tutorial-train-deploy-image-classification-model-vscode.md).
+
+### <a name="clone-examples-repository"></a>Clonación del repositorio de ejemplos
+
+Para ejecutar los ejemplos de entrenamiento, primero clone el repositorio de ejemplos y cambie al directorio `cli`:
+
+:::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="git_clone":::
+
+Tenga en cuenta que `--depth 1` solo clona la confirmación más reciente en el repositorio, lo cual reduce el tiempo para completar la operación.
+
+### <a name="create-compute"></a>Creación del proceso
+
+Puede crear un clúster de proceso de Azure Machine Learning desde la línea de comandos. Por ejemplo, los siguientes comandos crearán un clúster denominado `cpu-cluster` y otro denominado `gpu-cluster`.
+
+:::code language="azurecli" source="~/azureml-examples-main/cli/create-compute.sh" id="create_computes":::
+
+Tenga en cuenta que no se le cobra por el proceso en este momento, ya que `cpu-cluster` y `gpu-cluster` permanecerá en 0 nodos hasta que se envíe un trabajo. Más información sobre cómo [administrar y optimizar el costo de AmlCompute](how-to-manage-optimize-cost.md#use-azure-machine-learning-compute-cluster-amlcompute).
+
+En los siguientes trabajos de ejemplo de este artículo se usa `cpu-cluster` o `gpu-cluster`. Cambie el nombre de los clústeres según proceda.
+
+Use `az ml compute create -h` para más detalles sobre las opciones de creación de proceso.
+
+[!INCLUDE [arc-enabled-kubernetes](../../includes/machine-learning-create-arc-enabled-training-computer-target.md)]
 
 ## <a name="introducing-jobs"></a>Introducción a los trabajos
 
-En el caso de la CLI Azure Machine Learning, los trabajos se crean en formato YAML. Un trabajo agrega:
+En el caso de la CLI de Azure Machine Learning (v2), los trabajos se crean en formato YAML. Un trabajo agrega:
 
 - Qué ejecutar
 - Cómo ejecutarlo
@@ -50,9 +66,13 @@ En el caso de la CLI Azure Machine Learning, los trabajos se crean en formato YA
 
 El trabajo "hola mundo" tiene los tres elementos:
 
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/hello-world.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/misc/hello-world.yml":::
 
-Se trata simplemente de un trabajo de ejemplo que lo único que genera es una línea en el archivo de registro. Lo habitual es que se desee generar artefactos adicionales, como archivos binarios de un modelo y los metadatos que los acompañan, además de los registros generados por el sistema.
+Que puede ejecutar:
+
+:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="hello_world":::
+
+Sin embargo, se trata simplemente de un trabajo de ejemplo que lo único que genera es una línea en el archivo de registro. Lo habitual es que se desee generar artefactos adicionales, como archivos binarios de un modelo y los metadatos que los acompañan, además de los registros generados por el sistema.
 
 Azure Machine Learning captura los artefactos siguientes de forma automática:
 
@@ -73,43 +93,17 @@ Por ejemplo, examine el directorio del proyecto `jobs/train/lightgbm/iris` en el
 
 Este directorio contiene dos archivos de trabajo y un subdirectorio de código fuente `src`. Aunque este ejemplo tiene un único archivo en `src`, todo el subdirectorio se carga de forma recursiva y está disponible para su uso en el trabajo.
 
-El trabajo del comando básico se configura a través de `job.yml`:
+El trabajo del comando se configura con `job.yml`:
 
 :::code language="yaml" source="~/azureml-examples-main/cli/jobs/train/lightgbm/iris/job.yml":::
 
-Este trabajo se puede crear y ejecutar mediante `az ml job create`, y para ello se usa el parámetro `--file/-f`. Sin embargo, el trabajo tiene como destino un proceso denominado `cpu-cluster` que aún no existe. Para ejecutar primero el trabajo localmente, puede reemplazar el destino de proceso por `--set`:
+Que puede ejecutar:
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="lightgbm_iris_local":::
-
-Aunque la ejecución local de este trabajo es más lenta que la ejecución de `python main.py` en un entorno de Python local con los paquetes necesarios, lo anterior le permite:
-
-- Guardar el historial de ejecución en el Estudio de Azure Machine Learning
-- Reproducir la ejecución en destinos de proceso remotos (escalar verticalmente, escalar horizontalmente, hiperparámetros de barrido)
-- Seguir los detalles de envío de la ejecución, incluidos el repositorio git del código fuente y la confirmación
-- Realizar un seguimiento de las métricas, los metadatos y los artefactos del modelo
-- Evitar la instalación y administración de paquetes en el entorno local
-
-> [!IMPORTANT]
-> [Docker](https://docker.io) debe instalarse y ejecutarse localmente. Python debe instalarse en el entorno del trabajo. En el caso de las ejecuciones locales que usan `inputs`, el paquete de Python `azureml-dataprep` debe instalarse en el entorno del trabajo.
-
-> [!TIP]
-> Esto tardará algunos minutos en extraer la imagen base de Docker. Use imágenes de Docker precompiladas para evitar el tiempo de compilación de la imagen.
-
-## <a name="create-compute"></a>Creación del proceso
-
-Puede crear un clúster de proceso de Azure Machine Learning desde la línea de comandos. Por ejemplo, los siguientes comandos crearán un clúster denominado `cpu-cluster` y otro denominado `gpu-cluster`.
-
-:::code language="azurecli" source="~/azureml-examples-main/cli/create-compute.sh" id="create_computes":::
-
-Tenga en cuenta que no se le cobra por el proceso en este momento, ya que `cpu-cluster` y `gpu-cluster` permanecerá en 0 nodos hasta que se envíe un trabajo. Más información sobre cómo [administrar y optimizar el costo de AmlCompute](how-to-manage-optimize-cost.md#use-azure-machine-learning-compute-cluster-amlcompute).
-
-Use `az ml compute create -h` para más detalles sobre las opciones de creación de proceso.
-
-[!INCLUDE [arc-enabled-kubernetes](../../includes/machine-learning-create-arc-enabled-training-computer-target.md)]
+:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="lightgbm_iris":::
 
 ## <a name="basic-python-training-job"></a>Trabajo de entrenamiento de Python básico
 
-Con `cpu-cluster` creado, puede ejecutar el trabajo de entrenamiento básico, que genera un modelo y los metadatos que le acompañan. Vamos a revisar el archivo YAML del trabajo en detalle:
+Vamos a revisar el archivo YAML del trabajo en detalle:
 
 :::code language="yaml" source="~/azureml-examples-main/cli/jobs/train/lightgbm/iris/job.yml":::
 

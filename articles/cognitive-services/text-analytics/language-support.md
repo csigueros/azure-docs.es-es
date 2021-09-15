@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 07/06/2021
 ms.author: aahi
-ms.openlocfilehash: 105f88499367857d1133ab24a88372db747727bf
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 917a2206d59ef145beb2c5355002827069b86e92
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121741101"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867314"
 ---
 # <a name="text-analytics-api-v3-language-support"></a>Idiomas admitidos en Text Analytics API v3 
 
@@ -140,7 +140,7 @@ ms.locfileid: "121741101"
 
 | Idioma | Código de lenguaje |  Compatibilidad con v3.x | A partir de la versión del modelo de la versión 3: | Notas |
 |:---------|:-------------:|:----------:|:-----------------------------------------:|:-----:|
-| Inglés  |     `en`      |     ✓      |                Punto de conexión de API: 2019-10-01 <br> Contenedor: 2020-04-16                |       |
+| Inglés  |     `en`      |     ✓      |                Punto de conexión de API: 2020-11-01 <br> Contenedor: 2020-04-16                |       |
 
 #### <a name="personally-identifiable-information-pii"></a>[Información de identificación personal](#tab/pii)
 

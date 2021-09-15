@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 01/11/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: fa59db40f88824bdbec6fbaae8cf3664ae825846
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 4935b42efa6e6fd17d66ddfba744ae36653ed952
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121727786"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122419217"
 ---
 # <a name="azure-active-directory-b2c-isv-partners"></a>Asociados ISV de Azure Active Directory B2C
 
@@ -93,6 +93,7 @@ Microsoft se asocia con los siguientes ISV para Web Application Firewall (WAF).
 | Asociado ISV | Descripción y tutoriales de integración |
 |:-------------------------|:--------------|
 |  ![Captura de pantalla del logotipo de Akamai](./media/partner-gallery/akamai-logo.png) | El [firewall de aplicaciones web de Akamai](./partner-akamai.md) permite la manipulación detallada del tráfico para proteger la infraestructura de identidad frente a ataques malintencionados.  |
+|  ![Captura de pantalla del logotipo de Azure WAF](./media/partner-gallery/azure-web-application-firewall-logo.png) | [Azure WAF](./partner-azure-web-application-firewall.md) ofrece una protección centralizada de las aplicaciones web contra las vulnerabilidades de seguridad comunes.  |
 ![Captura de pantalla del logotipo de Cloudflare](./media/partner-gallery/cloudflare-logo.png) | [Cloudflare](./partner-cloudflare.md) es un proveedor de WAF que ayuda a su organización a protegerse contra ataques malintencionados que tienen como objetivo explotar vulnerabilidades como SQL y XSS. |
 
 

@@ -7,20 +7,21 @@ ms.topic: conceptual
 ms.date: 04/05/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 63892e4ed71ec435a7068c9c68b9981a71205fb1
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 869b28c8c65c402936dcb7b7641a6e4af8db3f47
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121725468"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123100958"
 ---
 # <a name="how-to-meet-data-residency-requirements-in-azure-cosmos-db"></a>Cumplimiento de los requisitos de residencia de datos en Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 En Azure Cosmos DB, puede configurar los datos y las copias de seguridad para que permanezcan en una sola región para cumplir los[ requisitos de residencia.](https://azure.microsoft.com/global-infrastructure/data-residency/)
 
 ## <a name="residency-requirements-for-data"></a>Requisitos de residencia para los datos
 
-En Azure Cosmos DB, debe configurar explícitamente la replicación de datos entre regiones. Obtenga información sobre cómo configurar la replicación geográfica mediante [Azure Portal](how-to-manage-database-account.md#addremove-regions-from-your-database-account) y la [CLI de Azure](scripts/cli/common/regions.md). Para cumplir los requisitos de residencia de datos, puede crear una directiva de Azure que permita que regiones concretas impidan la replicación de datos en las regiones no deseadas.
+En Azure Cosmos DB, debe configurar explícitamente la replicación de datos entre regiones. Obtenga información sobre cómo configurar la replicación geográfica mediante [Azure Portal](how-to-manage-database-account.md#addremove-regions-from-your-database-account) y la [CLI de Azure](scripts/cli/common/regions.md). Para cumplir los requisitos de residencia de datos, puede crear una definición de Azure Policy que permita que determinadas regiones impidan la replicación de datos en regiones no deseadas.
 
 ## <a name="residency-requirements-for-backups"></a>Requisitos de residencia para las copias de seguridad
 

@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 05/25/2021
+ms.date: 08/30/2021
 ms.author: tisande
-ms.openlocfilehash: 7cc6acc29cf8019bf65d3495cfd8a00a87da11bc
-ms.sourcegitcommit: fd83264abadd9c737ab4fe85abdbc5a216467d8b
+ms.openlocfilehash: 8c253abdfc8ded8ab5507d482640d78e6d4469c8
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2021
-ms.locfileid: "112914254"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123226597"
 ---
 # <a name="azure-cosmos-db-dedicated-gateway---overview-preview"></a>Puerta de enlace dedicada de Azure Cosmos DB: información general (versión preliminar)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -67,7 +67,7 @@ Diagrama de conexión del modo de puerta de enlace con una puerta de enlace dedi
 
 Un clúster de puerta de enlace dedicada se puede aprovisionar en cuentas de API Core (SQL). Un clúster de puerta de enlace dedicada puede tener hasta cinco nodos, y se pueden agregar o quitar nodos en cualquier momento. Todos los nodos de puerta de enlace dedicada de la cuenta [comparten la misma cadena de conexión](how-to-configure-integrated-cache.md#configuring-the-integrated-cache).
 
-Los nodos de puerta de enlace dedicada son independientes entre sí. Al aprovisionar varios nodos de puerta de enlace dedicada, cualquier nodo único puede enrutar cualquier solicitud determinada. Además, cada nodo tiene una caché independiente de los demás. Los datos en caché dentro de cada nodo dependen de los datos que se han [escrito o leído](integrated-cache.md#item-cache) recientemente a través de ese nodo específico. En otras palabras, si un elemento o una consulta se almacenan en caché en un nodo, no necesariamente se almacena en caché en los demás.
+Los nodos de puerta de enlace dedicada son independientes entre sí. Al aprovisionar varios nodos de puerta de enlace dedicada, cualquier nodo único puede enrutar cualquier solicitud determinada. Además, cada nodo tiene una caché integrada e independiente del resto. Los datos en caché dentro de cada nodo dependen de los datos que se han [escrito o leído](integrated-cache.md#item-cache) recientemente a través de ese nodo específico. En otras palabras, si un elemento o una consulta se almacenan en caché en un nodo, no necesariamente se almacena en caché en los demás.
 
 Para el desarrollo, se recomienda empezar con un nodo, pero para producción, debe aprovisionar tres o más nodos para alta disponibilidad. [Aprenda a aprovisionar un clúster de puerta de enlace dedicada con una caché integrada](how-to-configure-integrated-cache.md). El aprovisionamiento de varios nodos de puerta de enlace dedicada permite que el clúster de puerta de enlace dedicada siga enrutando las solicitudes y sirviendo los datos almacenados en caché, incluso cuando uno de los nodos de puerta de enlace dedicada no está disponible.
 
@@ -100,6 +100,28 @@ La puerta de enlace dedicada tiene las siguientes limitaciones durante la versi�
 - Las puertas de enlace dedicadas solo se admiten en cuentas de API de SQL.
 - No se puede aprovisionar una puerta de enlace dedicada en las cuentas de Azure Cosmos DB con [firewalls de IP](how-to-configure-firewall.md) o [Private Link](how-to-configure-private-endpoints.md) configurados.
 - No se puede aprovisionar una puerta de enlace dedicada en las cuentas de Azure Cosmos DB con [zonas de disponibilidad](high-availability.md#availability-zone-support) habilitadas.
+- No se puede usar el [control de acceso basado en roles (RBAC)](how-to-setup-rbac.md) paraautenticar las solicitudes del plano de datos enrutadas a través de la puerta de enlace dedicada.
+
+## <a name="supported-regions"></a>Regiones admitidas
+
+La puerta de enlace dedicada se encuentra en versión preliminar pública y aún no es compatible con todas las regiones de Azure. A lo largo de la versión preliminar pública, se agregará más capacidad. No habrá restricciones de región cuando la puerta de enlace dedicada esté disponible con carácter general.
+
+Lista actual de regiones de Azure admitidas:
+
+| **América** | **Europa y África**  | **Asia Pacífico**  |
+| ------------ | -------- | ----------- | 
+| Sur de Brasil      | Centro de Francia    | Centro de Australia |
+| Centro de Canadá  | Sur de Francia    | Centro de Australia 2 |
+| Este de Canadá     | Norte de Alemania   | Sudeste de Australia |
+| Centro de EE. UU.     | Centro-oeste de Alemania   | Centro de la India |
+| Este de EE. UU.     | Norte de Europa   | Este de Asia |
+| Este de EE. UU. 2     | Norte de Suiza   | Japón Occidental |
+| Centro-Norte de EE. UU     | Sur de Reino Unido   | Centro de Corea del Sur |
+| Centro-sur de EE. UU.     | Oeste de Reino Unido   | Corea del Sur |
+| Centro-Oeste de EE. UU.     | Oeste de Europa   | Sudeste de Asia |
+| Oeste de EE. UU.     |   | Centro de Emiratos Árabes Unidos |
+| Oeste de EE. UU. 2     |    | Oeste de la India |
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -108,3 +130,6 @@ Obtenga más información sobre el uso de la puerta de enlace dedicada en los ar
 - [Caché integrada](integrated-cache.md)
 - [Configuración de la memoria caché integrada](how-to-configure-integrated-cache.md)
 - [Preguntas más frecuentes sobre la caché integrada](integrated-cache-faq.md)
+- ¿Intenta planear la capacidad de una migración a Azure Cosmos DB? Puede usar información sobre el clúster de bases de datos existente para planear la capacidad.
+    - Si lo único que sabe es el número de núcleos virtuales y servidores del clúster de bases de datos existente, lea sobre el [cálculo de unidades de solicitud mediante núcleos o CPU virtuales](convert-vcore-to-request-unit.md). 
+    - Si conoce las velocidades de solicitud típicas de la carga de trabajo de la base de datos actual, lea sobre el [cálculo de unidades de solicitud mediante la herramienta de planeamiento de capacidad de Azure Cosmos DB](estimate-ru-with-capacity-planner.md).

@@ -4,12 +4,12 @@ description: En este artículo, aprenderá a recuperar archivos y carpetas desde
 ms.topic: conceptual
 ms.date: 03/12/2020
 ms.custom: references_regions
-ms.openlocfilehash: dd1a5ff9fbf85fbce4c4ae7a79b745589b3596e1
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 3fc896daef7e42c1574f8ba92ead76ddb1b7205e
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121728932"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122966067"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperación de archivos desde una copia de seguridad de máquina virtual de Azure
 
@@ -142,6 +142,9 @@ Si lo hace en un equipo con acceso restringido, asegúrese de que hay acceso a l
 - Resolución de DNS público en el puerto 53 (saliente)
 
 > [!NOTE]
+> Es posible que los servidores proxy no admitan el protocolo iSCSI ni proporcionen acceso al puerto 3260. Por lo tanto, es muy recomendable ejecutar este script en máquinas que tengan acceso directo, como se exigía anteriormente, y no en las máquinas que redirigen al proxy.
+
+> [!NOTE]
 >
 > En caso de que el sistema operativo de la VM de la que se ha hecho una copia de seguridad sea Windows, el nombre geográfico se mencionará en la contraseña generada.<br><br>
 > Por ejemplo, si la contraseña generada es *ContosoVM_wcus_GUID*, el nombre geográfico es wcus y la dirección URL sería: <https://pod01-rec2.wcus.backup.windowsazure.com><br><br>
@@ -187,10 +190,10 @@ Si el proceso de recuperación de archivos se bloquea después de ejecutar el sc
     ![Cambios en las claves del Registro](media/backup-azure-restore-files-from-vm/iscsi-reg-key-changes.png)
 
 ```registry
-- HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Disk\TimeOutValue – change this from 60 to 1200
-- HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Class\{4d36e97b-e325-11ce-bfc1-08002be10318}\0003\Parameters\SrbTimeoutDelta – change this from 15 to 1200
+- HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Disk\TimeOutValue – change this from 60 to 1200 secs.
+- HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Class\{4d36e97b-e325-11ce-bfc1-08002be10318}\0003\Parameters\SrbTimeoutDelta – change this from 15 to 1200 secs.
 - HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Class\{4d36e97b-e325-11ce-bfc1-08002be10318}\0003\Parameters\EnableNOPOut – change this from 0 to 1
-- HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Class\{4d36e97b-e325-11ce-bfc1-08002be10318}\0003\Parameters\MaxRequestHoldTime - change this from 60 to 1200
+- HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Class\{4d36e97b-e325-11ce-bfc1-08002be10318}\0003\Parameters\MaxRequestHoldTime - change this from 60 to 1200 secs.
 ```
 
 ### <a name="for-linux"></a>Para Linux

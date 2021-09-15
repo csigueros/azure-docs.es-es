@@ -1,5 +1,5 @@
 ---
-title: Creación de un trabajo de entrenamiento desde la interfaz de usuario
+title: Creación de un trabajo de entrenamiento con la interfaz de usuario de creación de trabajos
 titleSuffix: Azure Machine Learning
 description: Aprenda a usar la interfaz de usuario de creación de trabajos en Azure Machine Learning Studio para crear un trabajo de entrenamiento.
 services: machine-learning
@@ -11,16 +11,16 @@ author: wenxwei
 ms.author: wenxwei
 ms.date: 06/22/2021
 ms.reviewer: laobri
-ms.openlocfilehash: f3199158dd5a156192fafa87531c1d92a4262170
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 4da4cb933f24a0ca172c6b0fd6b8b9827d615859
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114448381"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122823467"
 ---
 # <a name="create-a-training-job-with-the-job-creation-ui-preview"></a>Creación de un trabajo de entrenamiento con la interfaz de usuario de creación de trabajos (versión preliminar)
 
-Hay muchas maneras de crear un trabajo de entrenamiento con Azure Machine Learning. Puede usar la CLI (consulte [Entrenamiento de modelos [crear trabajos] con la CLI 2.0 [versión preliminar]](how-to-train-cli.md)), la API REST (consulte [Entrenamiento de modelos con REST [versión preliminar]](how-to-train-with-rest.md)) o usar directamente la interfaz de usuario. En este artículo, aprenderá a usar sus propios datos y código para entrenar un modelo de Machine Learning con la interfaz de usuario de creación de trabajos en Azure Machine Learning Studio.
+Hay muchas maneras de crear un trabajo de entrenamiento con Azure Machine Learning. Puede usar la CLI (consulte [Entrenamiento de modelos [crear trabajos] con la CLI [v2]](how-to-train-cli.md)), la API REST (consulte [Entrenamiento de modelos con REST [versión preliminar]](how-to-train-with-rest.md)) o, directamente, la interfaz de usuario para crear un trabajo de entrenamiento. En este artículo, aprenderá a usar sus propios datos y código para entrenar un modelo de Machine Learning con la interfaz de usuario de creación de trabajos en Azure Machine Learning Studio.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -146,11 +146,11 @@ Hay dos formas de realizar el enlace de entrada:
 >[!NOTE] 
 >En el **comando para iniciar el trabajo**, debe agregar un punto en el valor de la **ruta de acceso en proceso**. Por ejemplo, `/data/wikitext-2` se convierte en `./data/wikitext-2`.
 
-## <a name="review-and-create"></a>Elija Revisar y crear. 
+## <a name="review-and-create"></a>Revisión y creación 
 
 Una vez que haya configurado el trabajo, seleccione **Siguiente** para ir a la página **Revisar**. Para modificar una opción, seleccione el icono de lápiz y realice el cambio. 
 
-Puede elegir **ver la especificación de YAML** para revisar y descargar el archivo yaml generado por esta configuración de trabajo. Este archivo yaml de trabajo se puede usar para enviar el trabajo desde la CLI 2.0. Consulte [Entrenamiento de modelos (crear trabajos) con la CLI 2.0 (versión preliminar)](how-to-train-cli.md). [![Visualización de la especificación de yaml](media/how-to-train-with-ui/view-yaml.png)](media/how-to-train-with-ui/view-yaml.png)
+Puede elegir **ver la especificación de YAML** para revisar y descargar el archivo yaml generado por esta configuración de trabajo. Este archivo yaml del trabajo se puede usar para enviar el trabajo desde la CLI (v2). (Consulte [Entrenamiento de modelos [crear trabajos] con la CLI [v2]](how-to-train-cli.md)). [![Visualización de la especificación de yaml](media/how-to-train-with-ui/view-yaml.png)](media/how-to-train-with-ui/view-yaml.png)
 [![Especificación de yaml](media/how-to-train-with-ui/yaml-spec.png)](media/how-to-train-with-ui/yaml-spec.png)
 
 Para iniciar el trabajo, seleccione **Crear**. Una vez que se haya creado el trabajo, Azure le mostrará la página de detalles de ejecución, donde puede supervisar y administrar el trabajo de entrenamiento. 
@@ -159,4 +159,4 @@ Para iniciar el trabajo, seleccione **Crear**. Una vez que se haya creado el tra
 
 * [Implementación y puntuación de un modelo de aprendizaje automático con un punto de conexión en línea administrado (versión preliminar)](how-to-deploy-managed-online-endpoints.md)
 
-* [Entrenamiento de modelos (crear trabajos) con la CLI 2.0 (versión preliminar)](how-to-train-cli.md)
+* [Entrenamiento de modelos (crear trabajos) con la CLI (v2)](how-to-train-cli.md)

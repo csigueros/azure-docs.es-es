@@ -12,12 +12,12 @@ ms.date: 02/05/2021
 ms.author: davidmu
 ms.reviewer: alamaral
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 365283ebc45c0f85a56d27d4cc90807de9a88fb4
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 6f8ee443f12ce4c28e5bb883be686a4610eeec38
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121742877"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122768909"
 ---
 # <a name="migrate-application-authentication-to-azure-active-directory"></a>Migración de la autenticación de las aplicaciones a Azure Active Directory
 
@@ -575,7 +575,7 @@ Los usuarios pueden descargar un **explorador administrado de Intune**:
 
 **Permita que los usuarios abran las aplicaciones desde una extensión del navegador.**
 
-Los usuarios pueden [descargar la extensión de inicio de sesión seguro de Mis aplicaciones](https://www.microsoft.com/p/my-apps-secure-sign-in-extension/9pc9sckkzk84?rtc=1&activetab=pivot%3Aoverviewtab) en [Chrome](https://chrome.google.com/webstore/detail/my-apps-secure-sign-in-ex/ggjhpefgjjfobnfoldnjipclpcfbgbhl), [Firefox](https://addons.mozilla.org/firefox/addon/access-panel-extension/) o [Microsoft Edge](https://www.microsoft.com/p/my-apps-secure-sign-in-extension/9pc9sckkzk84?rtc=1&activetab=pivot%3Aoverviewtab) y pueden iniciar las aplicaciones directamente desde la barra del explorador para:
+Los usuarios pueden [descargar la extensión de inicio de sesión seguro de Mis aplicaciones](https://www.microsoft.com/p/my-apps-secure-sign-in-extension/9pc9sckkzk84?rtc=1&activetab=pivot%3Aoverviewtab) en [Chrome](https://chrome.google.com/webstore/detail/my-apps-secure-sign-in-ex/ggjhpefgjjfobnfoldnjipclpcfbgbhl) o [Microsoft Edge](https://www.microsoft.com/p/my-apps-secure-sign-in-extension/9pc9sckkzk84?rtc=1&activetab=pivot%3Aoverviewtab) y pueden iniciar las aplicaciones directamente desde la barra del explorador para:
 
 - **Buscar sus aplicaciones y hacer que se muestren sus aplicaciones usadas más recientemente**.
 

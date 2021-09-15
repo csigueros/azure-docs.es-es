@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 06/22/2021
-ms.openlocfilehash: 39e720f35a591ac7075b5723f3e577151e698371
-ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
+ms.openlocfilehash: dbb29fea5253bbd00e66f0ed3d123ddc38533b8e
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114605163"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123256444"
 ---
 # <a name="register-and-scan-azure-files"></a>Registro y examen de Azure Files
 
@@ -33,7 +33,7 @@ Para los tipos de archivo como csv, tsv, psv y ssv, el esquema se extrae cuando 
 
 ## <a name="setting-up-authentication-for-a-scan"></a>Configuración de la autenticación para un examen
 
-Actualmente solo hay una manera de configurar la autenticación para el almacenamiento de archivos de Azure:
+Actualmente solo hay una forma de configurar la autenticación para los recursos compartidos de archivos de Azure:
 
 - Clave de cuenta
 

@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 8/4/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 7e581925928276ebaddb6b3af9d5f549067a29c0
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 8dc18662431e750301db7e3d2c4e56d5fbaea674
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114457559"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122770937"
 ---
 # <a name="troubleshooting-azure-digital-twins-metrics"></a>Solución de problemas de Azure Digital Twins: Métricas
 
-Las métricas descritas en este artículo ofrecen información sobre el estado de los recursos de Azure Digital Twins en la suscripción de Azure. Las métricas de Azure Digital Twins le ayudan a evaluar el estado general del servicio Azure Digital Twins y los recursos conectados a él. Estas estadísticas orientadas al usuario ayudan a ver lo que está ocurriendo con su instancia de Azure Digital Twins y a realizar el análisis de la causa raíz de los problemas sin necesidad de ponerse en contacto con el soporte técnico de Azure.
+Las métricas descritas en este artículo ofrecen información sobre el estado de los recursos de Azure Digital Twins en la suscripción de Azure. Las métricas de Azure Digital Twins le ayudan a evaluar el estado general del servicio Azure Digital Twins y los recursos conectados a él. Estas estadísticas orientadas al usuario ayudan a ver lo que está ocurriendo con su instancia de Azure Digital Twins y a analizar las causas raíz de los problemas sin necesidad de ponerse en contacto con el Soporte técnico de Azure.
 
 Las métricas están habilitadas de forma predeterminada. Puede ver las métricas de Azure Digital Twins desde [Azure Portal](https://portal.azure.com).
 
@@ -53,12 +53,12 @@ En las tablas siguientes se describen las métricas de las que las instancias de
 
 Puede configurar estas métricas para que realicen un seguimiento cuando se acerque al [límite del servicio publicado](reference-service-limits.md#functional-limits) en algún aspecto de la solución. 
 
-Para configurar esta opción, use la característica de [alertas](troubleshoot-alerts.md) de Azure Monitor. Asimismo, puede definir los umbrales de estas métricas para recibir una alerta cuando una métrica alcance un determinado porcentaje de su límite publicado.
+Para configurar este seguimiento, use la característica de [alertas](troubleshoot-alerts.md) de Azure Monitor. Asimismo, puede definir los umbrales de estas métricas para recibir una alerta cuando una métrica alcance un determinado porcentaje de su límite publicado.
 
 | Métrica | Nombre para mostrar de la métrica | Unidad | Tipo de agregación| Descripción | Dimensions |
 | --- | --- | --- | --- | --- | --- |
-| TwinCount | Recuento de gemelos (versión preliminar) | Count | Total | Número total de gemelos de una instancia de Azure Digital Twins. Use esta métrica para determinar si se está aproximando al [límite del servicio](reference-service-limits.md#functional-limits) para el número máximo de gemelos permitido por instancia. |  None |
-| ModelCount | Recuento de modelos (versión preliminar) | Count | Total | Número total de modelos de una instancia de Azure Digital Twins. Use esta métrica para determinar si se está aproximando al [límite del servicio](reference-service-limits.md#functional-limits) para el número máximo de modelos permitido por instancia. | None |
+| TwinCount | Recuento de gemelos (versión preliminar) | Count | Total | Número total de gemelos de una instancia de Azure Digital Twins. Use esta métrica para determinar si se está aproximando al [límite del servicio](reference-service-limits.md#functional-limits) respecto al número máximo de gemelos permitido por instancia. |  None |
+| ModelCount | Recuento de modelos (versión preliminar) | Count | Total | Número total de modelos de una instancia de Azure Digital Twins. Use esta métrica para determinar si se está aproximando al [límite del servicio](reference-service-limits.md#functional-limits) respecto al número máximo de modelos permitido por instancia. | None |
 
 #### <a name="api-request-metrics"></a>Métricas de solicitud de API
 
@@ -68,7 +68,7 @@ Métricas relacionadas con las solicitudes de API:
 | --- | --- | --- | --- | --- | --- |
 | ApiRequests | Solicitudes de API | Count | Total | Número de solicitudes de API realizadas para las operaciones de lectura, escritura, eliminación y consulta de Digital Twins. |  Autenticación, <br>operación, <br>protocolo, <br>código de estado, <br>clase de código de estado, <br>Texto de estado |
 | ApiRequestsFailureRate | Tasa de errores de solicitudes de API | Percent | Average | Porcentaje de solicitudes de API que el servicio recibe para la instancia que proporciona un código de respuesta de error interno (500) para las operaciones de lectura, escritura, eliminación y consulta de Digital Twins. | Autenticación, <br>operación, <br>protocolo, <br>código de estado, <br>clase de código de estado, <br>Texto de estado
-| ApiRequestsLatency | Latencia de solicitudes de API | Milisegundos | Average | Tiempo de respuesta de las solicitudes de API. Hace referencia a la hora desde la que Azure Digital Twins recibe la solicitud hasta que el servicio envía un resultado de éxito o error para las operaciones de lectura, escritura, eliminación y consulta Digital Twins. | Autenticación, <br>operación, <br>Protocolo |
+| ApiRequestsLatency | Latencia de solicitudes de API | Milisegundos | Average | Tiempo de respuesta de las solicitudes de API. Este valor hace referencia a la hora desde la que Azure Digital Twins recibe la solicitud hasta que el servicio envía un resultado de éxito o error para las operaciones de lectura, escritura, eliminación y consulta de Digital Twins. | Autenticación, <br>operación, <br>Protocolo |
 
 #### <a name="billing-metrics"></a>Métricas de facturación
 
@@ -77,10 +77,10 @@ Métricas relacionadas con la facturación:
 | Métrica | Nombre para mostrar de la métrica | Unidad | Tipo de agregación| Descripción | Dimensions |
 | --- | --- | --- | --- | --- | --- |
 | BillingApiOperations | Operaciones de la API de facturación | Count | Total | Métrica de facturación para el recuento de todas las solicitudes de API realizadas en el servicio Azure Digital Twins. | Meter ID |
-| BillingMessagesProcessed | Mensajes de facturación procesados | Count | Total | Métrica de facturación para el número de mensajes enviados desde Azure Digital Twins a puntos de conexión externos.<br><br>Para que se considere un solo mensaje para su facturación, una carga no debe ser superior a 1 KB. Las cargas superiores a este se contarán como mensajes adicionales en incrementos de 1 KB (por lo que un mensaje de entre 1 y 2 KB se contará como dos mensajes, entre 2 y 3 KB serán tres mensajes, etc.).<br>Esta restricción también se aplica a las respuestas, por lo que una llamada que devuelve 1,5 KB en el cuerpo de la respuesta, por ejemplo, se facturará como dos operaciones. | Meter ID |
-| BillingQueryUnits | Facturación de unidades de consulta | Count | Total | Número de unidades de consulta, una medida del uso de recursos de servicio calculada internamente, que se consume para ejecutar consultas. También hay una API auxiliar disponible para medir las unidades de consulta: [Clase de QueryChargeHelper](/dotnet/api/azure.digitaltwins.core.querychargehelper?view=azure-dotnet&preserve-view=true) | Meter ID |
+| BillingMessagesProcessed | Mensajes de facturación procesados | Count | Total | Métrica de facturación para el número de mensajes enviados desde Azure Digital Twins a puntos de conexión externos.<br><br>Para que se considere un solo mensaje para su facturación, una carga no debe ser superior a 1 KB. Las cargas mayores que este límite se contarán como mensajes adicionales en incrementos de 1 KB (por lo que un mensaje de entre 1 y 2 KB se contará como dos mensajes; otro de entre 2 y 3 KB serán tres mensajes, etc.).<br>Esta restricción también se aplica a las respuestas, por lo que una llamada que devuelve 1,5 KB en el cuerpo de la respuesta, por ejemplo, se facturará como dos operaciones. | Meter ID |
+| BillingQueryUnits | Facturación de unidades de consulta | Count | Total | Número de unidades de consulta, una medida del uso de recursos de servicio calculada internamente, que se consume para ejecutar consultas. También hay una API auxiliar disponible para medir las unidades de consulta: [clase QueryChargeHelper](/dotnet/api/azure.digitaltwins.core.querychargehelper?view=azure-dotnet&preserve-view=true). | Meter ID |
 
-Para obtener más información sobre la forma en que se factura Azure Digital Twins, consulte [Precios de Azure Digital Twins](https://azure.microsoft.com/pricing/details/digital-twins/).
+Para más información sobre la forma en que se factura Azure Digital Twins, consulte [Precios de Azure Digital Twins](https://azure.microsoft.com/pricing/details/digital-twins/).
 
 #### <a name="ingress-metrics"></a>Métricas de entrada
 

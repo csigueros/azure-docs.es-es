@@ -4,15 +4,15 @@ description: En este artículo se explica cómo configurar cuentas de Azure Cosm
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 07/21/2021
+ms.date: 08/30/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 7cb5c8fe924a2634627533203ed8f11969f0b432
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 56e9bfe95a78c8bf0771acdc98c761df9994a708
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121733191"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123221068"
 ---
 # <a name="configure-azure-cosmos-db-account-with-periodic-backup"></a>Configuración de una cuenta de Azure Cosmos DB con copia de seguridad periódica
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -49,7 +49,7 @@ Los datos de copia de seguridad de Azure Cosmos DB se replican tres veces en la
 * **Almacenamiento de copia de seguridad con redundancia local**: esta opción copia los datos de forma asincrónica tres veces dentro de una única ubicación física en la región primaria.
 
 > [!NOTE]
-> El almacenamiento con redundancia de zona solo está disponible actualmente en [regiones específicas](high-availability.md#availability-zone-support). En función de la región seleccionada; esta opción no estará disponible para las cuentas nuevas o existentes.
+> El almacenamiento con redundancia de zona solo está disponible actualmente en [regiones específicas](high-availability.md#availability-zone-support). Dependiendo de la región que seleccione para una nueva cuenta o de la región que tenga para una cuenta existente, la opción con redundancia de zona no estará disponible.
 >
 > La actualización de la redundancia del almacenamiento de copia de seguridad no afectará a los precios del almacenamiento de copia de seguridad.
 

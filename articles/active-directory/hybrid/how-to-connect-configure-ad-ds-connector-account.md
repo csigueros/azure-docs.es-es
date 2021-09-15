@@ -7,17 +7,17 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/21/2021
+ms.date: 08/20/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e2acad2519fbf29aec72b97095318b4131207f91
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 76f765a8255f47215cb03426d139a88aa5d31544
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114464554"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123305147"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: Configurar los permisos de cuenta del conector de AD DS 
 
@@ -36,7 +36,7 @@ En la siguiente tabla se proporciona un resumen de los permisos necesarios en lo
 | Característica | Permisos |
 | --- | --- |
 | característica ms-DS-ConsistencyGuid |Permisos de lectura y escritura para el atributo ms-DS-ConsistencyGuid documentado en [Conceptos de diseño: Uso de ms-DS-ConsistencyGuid como sourceAnchor](plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor). | 
-| Sincronización de hash de contraseñas |<li>Replicación de cambios de directorio</li>  <li>Replicación de todos los cambios de directorio |
+| Sincronización de hash de contraseñas |<li>Replicación de cambios de directorio, necesarios para el nivel básico de solo lectura</li>  <li>Replicación de todos los cambios de directorio |
 | Implementación híbrida de Exchange |Permisos de lectura y escritura en los atributos que se documentan en [Escritura diferida híbrida de Exchange](reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback) para usuarios, grupos y contactos. |
 | Carpeta pública de correo de Exchange |Permisos de lectura para los atributos que se documentan en [carpetas públicas de correo electrónico de Exchange](reference-connect-sync-attributes-synchronized.md#exchange-mail-public-folder) para las carpetas públicas. | 
 | escritura diferida de contraseñas |Permisos de lectura y escritura en los atributos que se documentan en [Introducción a la administración de contraseñas](../authentication/tutorial-enable-sspr-writeback.md) para los usuarios. |
@@ -146,6 +146,7 @@ Este cmdlet establecerá los siguientes permisos:
 |Allow |Cuenta del conector de AD DS |Lectura de todas las propiedades |Objetos del grupo descendientes| 
 |Allow |Cuenta del conector de AD DS |Lectura de todas las propiedades |Objetos del usuario descendientes| 
 |Allow |Cuenta del conector de AD DS |Lectura de todas las propiedades |Objetos del contacto descendiente| 
+|Allow|Cuenta del conector de AD DS|Replicación de los cambios de directorio|Solo este objeto (raíz del dominio)|
 
  
 ### <a name="configure-ms-ds-consistency-guid-permissions"></a>Configurar los permisos de MS-DS-Consistency-Guid 
@@ -253,7 +254,7 @@ Este cmdlet establecerá los siguientes permisos:
 |Allow |Cuenta del conector de AD DS |Lectura y escritura de todas las propiedades |Objetos del grupo descendientes| 
 |Allow |Cuenta del conector de AD DS |Lectura y escritura de todas las propiedades |Objetos del contacto descendiente| 
 
-### <a name="permissions-for-exchange-mail-public-folders-preview"></a>Permisos para carpetas públicas de correo de Exchange (versión preliminar) 
+### <a name="permissions-for-exchange-mail-public-folders"></a>Permisos para carpetas públicas de correo de Exchange
 Para establecer los permisos de la cuenta del conector de AD DS cuando se usa la característica de las carpetas públicas de correo de Exchange, ejecute lo siguiente: 
 
 ``` powershell

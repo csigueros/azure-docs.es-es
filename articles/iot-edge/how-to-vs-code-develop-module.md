@@ -5,16 +5,16 @@ services: iot-edge
 keywords: ''
 author: kgremban
 ms.author: kgremban
-ms.date: 08/11/2021
+ms.date: 08/24/2021
 ms.topic: conceptual
 ms.service: iot-edge
 ms.custom: devx-track-js
-ms.openlocfilehash: cb0c6bd32c2bb1087635ee9ae61c0c569d3575f2
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: 6c204308cff285860c0e887d41eca56ecc220226
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121862224"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123039060"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Uso de Visual Studio Code para desarrollar y depurar módulos para Azure IoT Edge
 
@@ -109,7 +109,7 @@ Hay cuatro elementos dentro de la solución:
 
 - Un archivo **.env** enumera las variables de entorno. Si Azure Container Registry es su registro, tendrá en él un nombre de usuario y una contraseña de Azure Container Registry.
 
-  En escenarios de producción, se recomienda usar entidades de servicio para proporcionar acceso al registro de contenedor en lugar del archivo .env. Para obtener más información, vea [Administración del acceso al registro de contenedor](production-checklist.md#manage-access-to-your-container-registry).
+  En escenarios de producción, se recomienda usar entidades de servicio para proporcionar acceso al registro de contenedor en lugar del archivo .env. Para más información, consulte [Administración del acceso al registro de contenedor](production-checklist.md#manage-access-to-your-container-registry).
 
   > [!NOTE]
   > Solo se crea el archivo de entorno si proporciona un repositorio de imágenes para el módulo. Si aceptó los valores predeterminados de localhost para probar y depurar localmente, no es necesario declarar las variables de entorno.
@@ -117,6 +117,18 @@ Hay cuatro elementos dentro de la solución:
 - Un archivo **deployment.template.json** muestra el nuevo módulo junto con un módulo **SimulatedTemperatureSensor** de ejemplo que simula los datos que puede usar para las pruebas. Para más información sobre cómo funcionan los manifiestos de implementación, consulte [cómo usar los manifiestos de implementación para implementar módulos y establecer rutas](module-composition.md).
 
 Para ver cómo funciona el módulo de temperatura simulada, vea el [código fuente de SimulatedTemperatureSensor.csproj](https://github.com/Azure/iotedge/tree/master/edge-modules/SimulatedTemperatureSensor).
+
+### <a name="set-iot-edge-runtime-version"></a>Establecimiento de la versión del entorno de ejecución de IoT Edge
+
+La extensión de IoT Edge adopta como predeterminada la versión estable más reciente del entorno de ejecución de IoT Edge cuando crea los recursos de implementación. Actualmente, la versión estable más reciente es la versión 1.2. Si va a desarrollar módulos para dispositivos que ejecutan la versión de compatibilidad a largo plazo 1.1 o la versión 1.0 anterior, actualice la versión del entorno de ejecución de IoT Edge en Visual Studio Code para que coincidan.
+
+1. Seleccione **Ver** > **Paleta de comandos**.
+
+1. En la paleta de comandos, escriba el comando **Azure IoT Edge: Set default IoT Edge runtime version** (Azure IoT Edge: Establecer la versión predeterminada del entorno de ejecución de IoT Edge) y ejecútelo.
+
+1. En la lista, elija la versión del entorno de ejecución que ejecutan los dispositivos IoT Edge.
+
+Después de seleccionar una nueva versión del entorno de ejecución, el manifiesto de implementación se actualiza dinámicamente para reflejar el cambio en las imágenes del módulo del entorno de ejecución.
 
 ## <a name="add-additional-modules"></a>Agregar módulos adicionales
 

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 02/03/2021
-ms.openlocfilehash: 2c1f967e596b4ba19d121f3c0332259b92f78d06
-ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
+ms.openlocfilehash: 1b2748664046c97258ee3414b741075627064bbc
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2021
-ms.locfileid: "114730617"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867485"
 ---
 # <a name="create-and-manage-a-self-hosted-integration-runtime"></a>Creación y administración de un entorno de ejecución de integración autohospedado
 
@@ -20,6 +20,9 @@ En este artículo se describe cómo crear y administrar un entorno de ejecución
 
 > [!NOTE]
 > Integration Runtime de Purview no se puede compartir con una instancia de Integration Runtime de Azure Data Factory o Azure Synapse Analytics en la misma máquina. Debe instalarse en una máquina independiente.
+
+> [!IMPORTANT]
+> Si ha creado la cuenta de Azure Purview después del 18 de agosto de 2021, asegúrese de descargar e instalar la versión más reciente del entorno de ejecución de integración autohospedado desde el [Centro de descarga de Microsoft](https://www.microsoft.com/download/details.aspx?id=39717).
 
 ## <a name="create-a-self-hosted-integration-runtime"></a>Creación de una instancia de Integration Runtime autohospedada
 
@@ -77,10 +80,18 @@ Estos son los dominios y puertos que se deben permitir por medio de firewalls co
 | `*.frontend.clouddatahub.net` | 443            | Infraestructura global que usa Purview para ejecutar sus exámenes. Se necesita un carácter comodín, ya que no hay ningún recurso dedicado. |
 | `<managed Purview storage account>.core.windows.net`          | 443            | Lo usa el entorno de ejecución de integración autohospedado para conectarse a la cuenta de almacenamiento de Azure administrada.|
 | `<managed Purview storage account>.queue.core.windows.net` | 443            | Colas que usa Purview para ejecutar el proceso de examen. |
-| `<your Key Vault Name>.vault.azure.net` | 443           | Obligatorio si alguna credencial se almacena en Azure Key Vault. |
 | `download.microsoft.com` | 443           | Opcional para las actualizaciones de SHIR. |
+
+En función de los orígenes, es posible que también tenga que permitir los dominios de otros orígenes externos o de Azure. A continuación, se proporcionan algunos ejemplos, así como el dominio de Azure Key Vault, si se va a conectar a las credenciales almacenadas en el almacén de claves.
+
+| Nombres de dominio                  | Puertos de salida | Descripción                              |
+| ----------------------------- | -------------- | ---------------------------------------- |
+| `<storage account>.core.windows.net`          | 443            | Opcional, para conectarse a una cuenta de Azure Storage. |
+| `*.database.windows.net`      | 1433           | Opcional, para conectarse a Azure SQL Database o Azure Synapse Analytics. |
+| `*.azuredatalakestore.net`<br>`login.microsoftonline.com/<tenant>/oauth2/token`    | 443            | Opcional, para conectarse a Azure Data Lake Store Gen 1. |
+| `<datastoragename>.dfs.core.windows.net`    | 443            | Opcional, para conectarse a Azure Data Lake Store Gen 2. |
+| `<your Key Vault Name>.vault.azure.net` | 443           | Obligatorio si alguna credencial se almacena en Azure Key Vault. |
 | Varios dominios | Dependiente          | Dominios para cualquier otro origen al que se conectará SHIR. |
-  
   
 > [!IMPORTANT]
 > En la mayoría de los entornos, también tendrá que confirmar que el DNS está configurado correctamente. Para confirmarlo, puede usar **nslookup** desde la máquina SHIR a fin de comprobar la conectividad a cada uno de los dominios anteriores. Cada operación nslookup debe devolver la dirección IP del recurso. Si usa [puntos de conexión privados](catalog-private-link.md), se debe devolver la dirección IP privada y no la dirección IP pública. Si no se devuelve ninguna dirección IP, o si al usar puntos de conexión privados se devuelve la dirección IP pública, tendrá que solucionar la asociación entre DNS y VNET, o el emparejamiento entre el punto de conexión privado y la red virtual.
@@ -97,4 +108,6 @@ Para eliminar un entorno de ejecución de integración autohospedado, vaya a **I
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Cómo detectan los exámenes los recursos eliminados](concept-detect-deleted-assets.md)
+- [Cómo detectan los exámenes los recursos eliminados](concept-scans-and-ingestion.md#how-scans-detect-deleted-assets)
+
+- [Uso de puntos de conexión privados con Purview](catalog-private-link.md)

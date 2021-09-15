@@ -1,22 +1,22 @@
 ---
-title: Creación de una oferta de Dynamics 365 for Customer Engagement & Power Apps en Microsoft AppSource (Azure Marketplace).
-description: Creación de una oferta de Dynamics 365 for Customer Engagement & Power Apps en Microsoft AppSource (Azure Marketplace).
+title: Cree una oferta de Dynamics 365 for Customer Engagement & Power Apps en Microsoft AppSource (Azure Marketplace).
+description: Cree una oferta de Dynamics 365 for Customer Engagement & Power Apps en Microsoft AppSource (Azure Marketplace).
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
 ms.date: 04/30/2021
-ms.openlocfilehash: ea640bc4f5b191c3b01ed2a00ecb1d247f1a602d
-ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
+ms.openlocfilehash: 1a4bd560603b16a1a2b9fe0a66bc4f1adce25a73
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "112240273"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867476"
 ---
-# <a name="how-to-create-a-dynamics-365-for-customer-engagement--powerapps-offer"></a>Creación de una oferta de Dynamics 365 for Customer Engagement and Power Apps
+# <a name="how-to-create-a-dynamics-365-for-customer-engagement--power-apps-offer"></a>Creación de una oferta de Dynamics 365 for Customer Engagement & Power Apps
 
-En este artículo se explica cómo crear una oferta de Dynamics 365 for Customer Engagement and Power Apps. Todas las ofertas de Dynamics 365 deben pasar por nuestro proceso de certificación. La experiencia de evaluación permite a los usuarios implementar la solución en un entorno de Dynamics 365 en vivo.
+En este artículo se explica cómo crear una oferta de Dynamics 365 for Customer Engagement & Power Apps. Todas las ofertas de Dynamics 365 deben pasar por nuestro proceso de certificación. La experiencia de evaluación permite a los usuarios implementar la solución en un entorno de Dynamics 365 en vivo.
 
 Antes de empezar, cree una cuenta de marketplace comercial en el [Centro de partners](./create-account.md) y asegúrese de que esté inscrita en el programa del marketplace comercial.
 

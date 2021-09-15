@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 08/09/2021
-ms.openlocfilehash: 63c7a2c79ca5f0d241ddc3727d006bb2befb8163
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.date: 08/23/2021
+ms.openlocfilehash: e83ea29b4894827ac68af6b243ce0e19842f2d87
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121860814"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122769818"
 ---
 # <a name="usage-metering-billing-and-pricing-models-for-azure-logic-apps"></a>Modelos medición, facturación y precios de uso de Azure Logic Apps
 
@@ -42,7 +42,7 @@ En la tabla siguiente se resume cómo el modelo de consumo controla la medición
 
 Excepto por el número inicial de ejecuciones de operaciones integradas gratuitas, por suscripción de Azure, que puede ejecutar un flujo de trabajo, el modelo de consumo mide y factura una operación en función de *cada ejecución*, con independencia de si el flujo de trabajo global se ejecuta correctamente, finaliza o incluso se crea una instancia de él. Normalmente, una operación realiza una única ejecución [a menos que tenga habilitados los reintentos](#other-operation-behavior). A su vez, una ejecución normalmente realiza una sola llamada [a menos que la operación admita y permita la fragmentación o paginación para obtener grandes cantidades de datos](logic-apps-handle-large-messages.md). Si está habilitada la fragmentación o paginación, es posible que una ejecución de la operación tenga que realizar varias llamadas. El modelo de consumo mide y factura una operación *por ejecución, no por llamada*.
 
-Por ejemplo, suponga que un flujo de trabajo comienza con un desencadenador de sondeo que obtiene registros mediante la realización regular de llamadas salientes a un punto de conexión. La llamada saliente se mide y se factura como una sola ejecución, independientemente de si el desencadenador se activa o se omite. El estado del desencadenador controla si la instancia de flujo de trabajo se crea y ejecuta. Ahora, supongamos que la operación también admite, y tiene habilitada, la fragmentación o la paginación. Si la operación tiene que realizar 10 llamadas para terminar de obtener todos los datos, la operación todavía se mide y se factura como una *sola ejecución*, a pesar de realizar varias llamadas.
+Por ejemplo, suponga que un flujo de trabajo comienza con un desencadenador de sondeo que obtiene registros mediante la realización regular de llamadas salientes a un punto de conexión. La llamada saliente se mide y se factura como ejecución única, independientemente de si el desencadenador se activa o se omite, como cuando un desencadenador comprueba un punto de conexión pero no encuentra datos ni eventos. El estado del desencadenador controla si la instancia de flujo de trabajo se crea y ejecuta. Ahora, supongamos que la operación también admite, y tiene habilitada, la fragmentación o la paginación. Si la operación tiene que realizar 10 llamadas para terminar de obtener todos los datos, la operación todavía se mide y se factura como una *sola ejecución*, a pesar de realizar varias llamadas.
 
 En la tabla siguiente se resume cómo el modelo de consumo controla la medición y la facturación de los siguientes tipos de operación cuando se usa con una aplicación lógica y un flujo de trabajo en Azure Logic Apps multiinquilino:
 

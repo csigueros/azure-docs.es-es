@@ -4,12 +4,12 @@ description: Aprenda a configurar Iniciar sesión con Apple como un proveedor de
 ms.topic: article
 ms.date: 11/19/2020
 ms.reviewer: mikarmar
-ms.openlocfilehash: 01216b7527fd6479f43c3bf0b9d4abeb60d06435
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 4b123b0711954e45108b934622f0fabab5be15e0
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113093056"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123259336"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-sign-in-using-a-sign-in-with-apple-provider-preview"></a>Configuración de la aplicación de App Service o Azure Functions para iniciar sesión mediante un proveedor de Iniciar sesión con Apple (versión preliminar)
 
@@ -81,7 +81,7 @@ Puede encontrar más información sobre la generación y validación de tokens e
 ### <a name="sign-the-client-secret-jwt"></a>Firma del JWT del secreto de cliente
 Usará el archivo `.p8` que descargó anteriormente para firmar el JWT del secreto de cliente. Este es un [archivo PCKS#8](https://en.wikipedia.org/wiki/PKCS_8) que contiene la clave de firma privada en formato PEM. Hay muchas bibliotecas que pueden crear y firmar el JWT por usted. 
 
-Hay diferentes tipos de bibliotecas de código abierto disponibles en línea para crear y firmar tokens JWT. Para obtener más información sobre cómo generar tokens JWT, consulte jwt.io. Por ejemplo, una forma de generar el secreto de cliente es importar el [paquete NuGet Microsoft.IdentityModel.Tokens](https://www.nuget.org/packages/Microsoft.IdentityModel.Tokens/) y ejecutar una pequeña cantidad del código C# que se muestra a continuación.
+Hay diferentes tipos de bibliotecas de código abierto disponibles en línea para crear y firmar tokens JWT. Para obtener más información sobre cómo generar tokens JWT, consulte [JSON Web Token (JWT)](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims). Por ejemplo, una forma de generar el secreto de cliente es importar el [paquete NuGet Microsoft.IdentityModel.Tokens](https://www.nuget.org/packages/Microsoft.IdentityModel.Tokens/) y ejecutar una pequeña cantidad del código C# que se muestra a continuación.
 
 ```csharp
 using Microsoft.IdentityModel.Tokens;

@@ -8,18 +8,18 @@ ms.author: mbaldwin
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 1acfd3d1a4c358e22b3371960ff358f647afe339
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.openlocfilehash: efc0626c0c5f2c9333e5459d7fb7ce6aa2865cc4
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112063661"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123105189"
 ---
 # <a name="overview-of-managed-disk-encryption-options"></a>Introducción a las opciones de cifrado de discos administrados
 
 Hay varios tipos de cifrado disponibles para los discos administrados, incluidos Azure Disk Encryption (ADE), el cifrado del lado servidor (SSE) y el cifrado en el host.
 
-- **Azure Disk Encryption** ayuda a custodiar y proteger sus datos con el fin de satisfacer los compromisos de cumplimiento y seguridad de su organización. ADE ofrece cifrado de volumen para los discos de datos y del sistema operativo en las máquinas virtuales de Azure mediante el uso de la característica de Linux o la característica [BitLocker](https://en.wikipedia.org/wiki/BitLocker) de Windows. ADE está integrado con Azure Key Vault para ayudarle a controlar y administrar los secretos y las claves de cifrado de discos.  Para obtener más información, consulte [Azure Disk Encryption para máquinas virtuales Linux](./linux/disk-encryption-overview.md) o [Azure Disk Encryption para máquinas virtuales Windows](./windows/disk-encryption-overview.md).
+- **Azure Disk Encryption** ayuda a custodiar y proteger sus datos con el fin de satisfacer los compromisos de cumplimiento y seguridad de su organización. ADE ofrece cifrado de volumen para los discos de datos y del sistema operativo en las máquinas virtuales de Azure mediante el uso de la característica [DM-Crypt](https://wikipedia.org/wiki/Dm-crypt) de Linux o la característica [BitLocker](https://wikipedia.org/wiki/BitLocker) de Windows. ADE está integrado con Azure Key Vault para ayudarle a controlar y administrar los secretos y las claves de cifrado de discos.  Para obtener más información, consulte [Azure Disk Encryption para máquinas virtuales Linux](./linux/disk-encryption-overview.md) o [Azure Disk Encryption para máquinas virtuales Windows](./windows/disk-encryption-overview.md).
 
 - El **cifrado del lado servidor**(también denominado cifrado en reposo o cifrado de Azure Storage) cifra automáticamente los datos almacenados en discos administrados de Azure (discos de datos y del sistema operativo) al guardarlos en la nube.  Para obtener más información, consulte [Cifrado del lado servidor de Azure Disk Storage](./disk-encryption.md).
 

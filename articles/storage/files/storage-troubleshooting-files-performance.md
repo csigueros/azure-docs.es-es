@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 07/06/2021
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 65b703a4f193e6b1197c3c8f2cb03ffbc349471b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 03fb94571e5e41a99688bf912cab36fa10edd2a4
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121741856"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867530"
 ---
 # <a name="troubleshoot-azure-file-shares-performance-issues"></a>Solución de problemas de rendimiento de recursos compartidos de archivos de Azure
 
@@ -118,7 +118,7 @@ Una posible causa es la ausencia de compatibilidad multicanal de SMB para recurs
 
 ### <a name="workaround"></a>Solución alternativa
 
-- En el caso de recursos compartidos de archivos Premium, [habilite SMB multicanal en una cuenta de FileStorage](storage-files-enable-smb-multichannel.md).
+- En el caso de los recursos compartidos de archivos prémium, [habilite SMB multicanal](files-smb-protocol.md#smb-multichannel).
 - Obtener una máquina virtual con un núcleo más grande puede ayudar a mejorar el rendimiento.
 - Ejecutar la aplicación cliente desde varias máquinas virtuales aumentará el rendimiento.
 - Siempre que sea posible, use las API de REST.
@@ -201,16 +201,6 @@ Latencia mayor a la esperada al acceder a los recursos compartidos de Azure para
 ### <a name="workaround"></a>Solución alternativa
 
 - Instale la [revisión](https://support.microsoft.com/help/3114025/slow-performance-when-you-access-azure-files-storage-from-windows-8-1) disponible.
-
-## <a name="smb-multichannel-option-not-visible-under-file-share-settings"></a>Opción SMB multicanal no visible en la configuración de recurso compartido de archivos. 
-
-### <a name="cause"></a>Causa
-
-La suscripción no está registrada para la característica, o no se admite el tipo de región y cuenta.
-
-### <a name="solution"></a>Solución
-
-Asegúrese de que su suscripción está registrada para la característica SMB multicanal. Consulte [Introducción](storage-files-enable-smb-multichannel.md#getting-started) y asegúrese de que el tipo de cuenta es FileStorage (cuenta de archivo Premium) en la página información general de la cuenta. 
 
 ## <a name="smb-multichannel-is-not-being-triggered"></a>No se desencadena SMB multicanal.
 

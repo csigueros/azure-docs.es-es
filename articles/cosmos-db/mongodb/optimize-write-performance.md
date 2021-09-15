@@ -5,14 +5,14 @@ author: gahl-levy
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
-ms.date: 06/25/2021
+ms.date: 08/26/2021
 ms.author: gahllevy
-ms.openlocfilehash: 1b25211f3b25d2878ca5edee05c1c723a30d97db
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 2e04953e766c76275079731751cb006fe46712e7
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121744617"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123039558"
 ---
 # <a name="optimize-write-performance-in-azure-cosmos-db-api-for-mongodb"></a>Optimización del rendimiento de escritura en la API de Azure Cosmos DB para MongoDB
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
@@ -60,3 +60,6 @@ Si escribe más de 1000 documentos a la vez por proceso o subproceso, las funci
 * Más información sobre la [indexación en la API para MongoDB](../mongodb-indexing.md)
 * Más información sobre la [creación de particiones en Azure Cosmos DB](../partitioning-overview.md)
 * Más información sobre la [solución de problemas comunes](error-codes-solutions.md)
+* ¿Intenta planear la capacidad de una migración a Azure Cosmos DB? Puede usar la información sobre el clúster de bases de datos existente para el planeamiento de capacidad.
+    * Si lo único que sabe es el número de núcleos virtuales y servidores del clúster de bases de datos existente, lea sobre el [cálculo de unidades de solicitud mediante núcleos o CPU virtuales](../convert-vcore-to-request-unit.md). 
+    * Si conoce las tasas de solicitudes típicas de la carga de trabajo de la base de datos actual, obtenga información sobre el [cálculo de unidades de solicitud mediante la herramienta de planeamiento de capacidad de Azure Cosmos DB](estimate-ru-capacity-planner.md).

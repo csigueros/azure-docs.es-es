@@ -4,7 +4,7 @@ metadata:
   description: En este artículo se ofrecen respuestas a las preguntas frecuentes sobre Azure Media Services.
   services: media-services
   documentationcenter: ''
-  author: IngridAtMicrosoft
+  author: jiayali-ms
   manager: femila
   editor: ''
   ms.service: media-services
@@ -12,14 +12,14 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: article
-  ms.date: 03/10/2021
+  ms.date: 08/24/2021
   ms.author: inhenkel
-  ms.openlocfilehash: e8dd8205cc42c4f8ec3946eccdd0f6244e11e7ec
-  ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+  ms.openlocfilehash: 79fba437747c2c9039c0bc8189266fc7b044aa38
+  ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 06/17/2021
-  ms.locfileid: "112306075"
+  ms.lasthandoff: 08/25/2021
+  ms.locfileid: "122835220"
 title: Preguntas más frecuentes sobre Media Services v2
 summary: >
   [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
@@ -36,8 +36,7 @@ sections:
     answer: >
       Agregue la ruta "(format=m3u8-aapl)" a la parte "/Manifest" de la dirección URL para indicar al servidor de origen de streaming que devuelva el contenido HLS para su consumo en dispositivos Apple iOS nativos (para obtener más información, vea [entrega de contenido](media-services-deliver-content-overview.md)).
   - question: ¿Cómo se escala la indización?
-    answer: >
-      Las unidades reservadas son las mismas para las tareas de Encoding y de indización. Siga las instrucciones de [Escalado de unidades reservadas de Encoding](media-services-scale-media-processing-overview.md). **Tenga en cuenta** que el rendimiento del indexador no se ve afectado por el tipo de unidad reservada.
+    answer: "AMS se usa para utilizar unidades reservadas de multimedia para el escalado. No se admite ya esta característica. \n"
   - question: He cargado, codificado y publicado un vídeo. ¿Cuál es el motivo por el que el vídeo no se reproduce cuando intento transmitirlo?
     answer: Uno de los motivos más habituales es que no tiene el punto de conexión de streaming desde el que está intentando reproducir en estado **Running** (en ejecución).
   - question: ¿Puedo realizar una composición en una secuencia en directo?

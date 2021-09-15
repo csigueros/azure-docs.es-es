@@ -6,13 +6,13 @@ ms.author: shwetn
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
-ms.date: 06/29/2021
-ms.openlocfilehash: 437dd6f1b47694d9abb32d4e72ecc23a175d9337
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 08/26/2021
+ms.openlocfilehash: 3af5168a664fe18f9fc57877aee864f89ffa4d03
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121780551"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123029917"
 ---
 # <a name="migrate-data-from-mongodb-to-an-azure-cosmos-db-api-for-mongodb-account-by-using-azure-databricks"></a>Migración de datos desde MongoDB a una cuenta de Azure Cosmos DB API para MongoDB mediante Azure Databricks
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
@@ -171,8 +171,13 @@ Es posible que vea un código de error 16500 para las operaciones en la base de
 
 Después de migrar los datos, puede conectarse a Azure Cosmos DB y administrarlos. También puede seguir otros pasos posteriores a la migración, como optimizar la directiva de indexación, actualizar el nivel de coherencia predeterminado o configurar la distribución global de la cuenta de Azure Cosmos DB. Para más información, consulte el artículo [Optimización posterior a la migración](post-migration-optimization.md).
 
+## <a name="additional-resources"></a>Recursos adicionales
+
+* ¿Intenta planear la capacidad de una migración a Azure Cosmos DB?
+    * Si lo único que sabe es el número de núcleos virtuales y servidores del clúster de bases de datos existente, lea sobre el [cálculo de unidades de solicitud mediante núcleos o CPU virtuales](../convert-vcore-to-request-unit.md). 
+    * Si conoce las tasas de solicitudes típicas de la carga de trabajo de la base de datos actual, obtenga información sobre el [cálculo de unidades de solicitud mediante la herramienta de planeamiento de capacidad de Azure Cosmos DB](estimate-ru-capacity-planner.md).
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Administración de la indexación en la API de Azure Cosmos DB para MongoDB](mongodb-indexing.md)
-
 * [Búsqueda del cargo por unidad de solicitud para las operaciones](find-request-unit-charge-mongodb.md)

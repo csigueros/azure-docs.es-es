@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2021
 ms.author: yelevin
-ms.openlocfilehash: 51650ad1a9d72611d694e5514dca1036937a2a13
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: e1f6a508e72277fcc596a5217b0c5a061758e131
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121730992"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123253571"
 ---
 # <a name="connect-your-threat-intelligence-platform-to-azure-sentinel"></a>Conexión de la plataforma de inteligencia sobre amenazas a Azure Sentinel
 
@@ -40,7 +40,7 @@ Obtenga más información sobre la [inteligencia sobre amenazas](understand-thre
 
 - Debe tener permisos de lectura y escritura en el área de trabajo de Azure Sentinel para almacenar los indicadores de amenazas.
 
-## <a name="instructions"></a>Instructions
+## <a name="instructions"></a>Instrucciones
 
 Siga estos pasos para importar indicadores de amenazas a Azure Sentinel desde su TIP integrada o solución de inteligencia sobre amenazas personalizada:
 1.  Obtenga un id. de la aplicación y un secreto de cliente en Azure Active Directory
@@ -77,7 +77,7 @@ Puede obtener esta información de su instancia de Azure Active Directory a trav
 
 1. Seleccione **Registros de aplicaciones** en el menú y la aplicación recién registrada.
 
-1. Seleccione **Permisos de API** en el menú y haga clic en el botón **Agregar un permiso**.
+1. Seleccione **Permisos de API** en el menú y seleccione el botón **Agregar un permiso**.
 
 1. En la página **Seleccionar una API**, seleccione **Microsoft Graph** API y elija de una lista de permisos de Microsoft Graph.
 
@@ -101,11 +101,11 @@ Ahora que se ha registrado la aplicación y que se han concedido permisos, puede
 
 1. Seleccione **Registros de aplicaciones** en el menú y la aplicación recién registrada.
 
-1. Seleccione **Certificados y secretos** en el menú y haga clic en el botón **Nuevo secreto de cliente** para recibir un secreto (clave de API) para la aplicación.
+1. Seleccione **Certificados y secretos** en el menú y seleccione el botón **Nuevo secreto de cliente** para recibir un secreto (clave de API) para la aplicación.
 
     :::image type="content" source="media/connect-threat-intelligence-tip/threat-intel-client-secret.png" alt-text="Obtenga el secreto de cliente":::
 
-1. Haga clic en el botón **Agregar** y **copie el secreto de cliente**.
+1. Seleccione el botón **Agregar** y **copie el secreto de cliente**.
 
     > [!IMPORTANT]
     > Debe copiar el **secreto de cliente** antes de salir de esta pantalla. No puede recuperar este secreto de nuevo si sale de esta página. Necesitará este valor al configurar su TIP o solución personalizada.
@@ -134,9 +134,9 @@ El último paso del proceso de integración es habilitar el conector **Plataform
 
 1. Elija el **área de trabajo** al que desea importar los indicadores de amenazas enviados desde su TIP o solución personalizada.
 
-1. Seleccione **Conectores de datos** en el menú, seleccione **Plataformas de inteligencia sobre amenazas** en la galería de conectores y haga clic en el botón **Open connector page** (Abrir página del conector).
+1. Seleccione **Conectores de datos** en el menú, seleccione **Plataformas de inteligencia sobre amenazas** en la galería de conectores y seleccione el botón **Abrir página del conector**.
 
-1. Como ya ha completado el registro de aplicaciones y configurado su TIP o solución personalizada para enviar indicadores de amenazas, el único paso que queda es hacer clic en el botón **Conectar**.
+1. Como ya ha completado el registro de aplicaciones y configurado su TIP o solución personalizada para enviar indicadores de amenazas, el único paso que queda es seleccionar el botón **Conectar**.
 
 En cuestión de minutos, los indicadores de amenazas deberían empezar a fluir en esta área de trabajo de Azure Sentinel. Puede encontrar los nuevos indicadores en la hoja **Inteligencia sobre amenazas**, a la que se puede acceder desde el menú de navegación de Azure Sentinel.
 

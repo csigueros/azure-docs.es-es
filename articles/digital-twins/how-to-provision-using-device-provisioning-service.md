@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/21/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: c611194819255b4d986f4cfa57d15a2e0d73cd42
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 7078c136ebb072b3834af07e69fbd7d3c3d82a2b
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121739377"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122771660"
 ---
 # <a name="auto-manage-devices-in-azure-digital-twins-using-device-provisioning-service-dps"></a>Administración automática de dispositivos en Azure Digital Twins mediante Device Provisioning Service (DPS)
 
@@ -24,12 +24,12 @@ Para más información sobre las etapas de _aprovisionamiento_ y _retirada_ y pa
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Antes de que pueda configurar el aprovisionamiento, debe configurar lo que se indica a continuación:
+Antes de configurar el aprovisionamiento, debe configurar los recursos siguientes:
 * una **instancia de Azure Digital Twins**. Siga las instrucciones que se indican en [Configuración de una instancia de Azure Digital Twins y autenticación (portal)](how-to-set-up-instance-portal.md) para crear una instancia de gemelos digitales de Azure. Recopile el nombre de **_host_** de la instancia en el Azure portal ([instrucciones](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)).
 * un **centro de IoT**. Para obtener instrucciones, consulte la sección Creación de una instancia de IoT Hub del [inicio rápido de IoT Hub](../iot-hub/quickstart-send-telemetry-cli.md).
 * una [función de Azure](../azure-functions/functions-overview.md) que actualiza la información de doble digital basada en datos de IOT Hub. Siga las instrucciones de [Ingesta de datos de IoT Hub](how-to-ingest-iot-hub-data.md) para crear esta función de Azure. Recopile el **_nombre_** de la función para usarlo en este artículo.
 
-En este ejemplo también se usa un **simulador de dispositivos** que incluye el aprovisionamiento mediante Device Provisioning Service. El simulador de dispositivos se encuentra aquí: [Ejemplo de integración de Azure Digital Twins e IoT Hub](/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/). Para obtener el proyecto de ejemplo en la máquina, vaya al vínculo del ejemplo y seleccione el botón **Examinar código** situado debajo del título. Esto le llevará al repositorio de GitHub de los ejemplos, que puede descargar como un archivo .zip al seleccionar el botón **Código** y **Descargar archivo ZIP**. 
+En este ejemplo también se usa un **simulador de dispositivos** que incluye el aprovisionamiento mediante Device Provisioning Service. El simulador de dispositivos se encuentra aquí: [Ejemplo de integración de Azure Digital Twins e IoT Hub](/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/). Para obtener el proyecto de ejemplo en la máquina, vaya al vínculo del ejemplo y seleccione el botón **Examinar código** situado debajo del título. Este botón le llevará al repositorio de GitHub del ejemplo, que puede descargar como archivo .zip si selecciona el botón **Código** y **Descargar archivo ZIP**. 
 
 :::image type="content" source="media/how-to-provision-using-device-provisioning-service/download-repo-zip.png" alt-text="Captura de pantalla del repositorio digital-twins-iothub-integration en GitHub, donde están resaltados los pasos necesarios para descargarlo en forma de archivo ZIP." lightbox="media/how-to-provision-using-device-provisioning-service/download-repo-zip.png":::
 
@@ -55,7 +55,7 @@ Este artículo se divide en dos secciones, y cada una de ellas se centra en una 
 
 ## <a name="auto-provision-device-using-device-provisioning-service"></a>Aprovisionamiento automático de un dispositivo mediante Device Provisioning Service
 
-En esta sección, va a conectar Device Provisioning Service a Azure Digital Twins para aprovisionar automáticamente los dispositivos a través de la ruta de acceso siguiente. Este es un extracto de la arquitectura completa que se ha mostrado [anteriormente](#solution-architecture).
+En esta sección, va a conectar Device Provisioning Service a Azure Digital Twins para aprovisionar automáticamente los dispositivos a través de la ruta de acceso siguiente. Este diagrama es un extracto de la arquitectura completa que se ha mostrado [anteriormente](#solution-architecture).
 
 :::image type="content" source="media/how-to-provision-using-device-provisioning-service/provision.png" alt-text="Diagrama de flujo de aprovisionamiento: un extracto del diagrama de la arquitectura de la solución que sigue los datos de un termostato en Azure Digital Twins." lightbox="media/how-to-provision-using-device-provisioning-service/provision.png":::
 
@@ -87,7 +87,7 @@ En el proyecto de la aplicación de funciones que creó en la [sección de requi
 
 Para empezar, abra el proyecto de aplicación de función en Visual Studio en el equipo y siga estos pasos.
 
-1. Primero, cree una función de tipo *HTTP-trigger* en el proyecto de aplicación de función en Visual Studio. Para obtener instrucciones sobre cómo hacerlo, consulte [Desarrollo de Azure Functions con Visual Studio](../azure-functions/functions-develop-vs.md#add-a-function-to-your-project).
+1. Primero, cree una función de tipo *HTTP-trigger* en el proyecto de aplicación de función en Visual Studio. Para instrucciones sobre cómo crear esta función, consulte [Desarrollo de Azure Functions con Visual Studio](../azure-functions/functions-develop-vs.md#add-a-function-to-your-project).
 
 2. Agregue un nuevo paquete de NuGet al proyecto: [Microsoft.Azure.Devices.Provisioning.Service](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/). Es posible que también tenga que agregar más paquetes al proyecto si los paquetes usados en el código ya no forman parte del proyecto.
 
@@ -95,16 +95,16 @@ Para empezar, abra el proyecto de aplicación de función en Visual Studio en el
 
     :::code language="csharp" source="~/digital-twins-docs-samples-dps/functions/DpsAdtAllocationFunc.cs":::
 
-4. Publique el proyecto con la función *DpsAdtAllocationFunc.cs* en la aplicación de funciones en Azure. Para obtener instrucciones sobre cómo hacerlo, consulte [Desarrollo de Azure Functions con Visual Studio](../azure-functions/functions-develop-vs.md#publish-to-azure).
+4. Publique el proyecto con la función *DpsAdtAllocationFunc.cs* en la aplicación de funciones en Azure. Para instrucciones sobre cómo publicar el proyecto, consulte [Desarrollo de Azure Functions con Visual Studio](../azure-functions/functions-develop-vs.md#publish-to-azure).
 
 > [!IMPORTANT]
 > La primera vez que se crea la aplicación de funciones en la [sección de requisitos previos](#prerequisites), es posible que ya se haya asignado un rol de acceso para la función y se haya configurado la aplicación para que acceda a la instancia de Azure Digital Twins. Estos deben realizarse una vez para toda la aplicación de función, por lo que debe comprobar que se han completado en la aplicación antes de continuar. Puede encontrar instrucciones en la sección [Configuración de la aplicación publicada](how-to-authenticate-client.md#configure-published-app) del artículo *Escritura de código de autenticación de aplicaciones*.
 
 ### <a name="create-device-provisioning-enrollment"></a>Creación de una inscripción de Device Provisioning Service
 
-A continuación, deberá crear una inscripción en Device Provisioning Service mediante una **función de asignación personalizada**. Siga las instrucciones para hacerlo en la sección [creación de la inscripción](../iot-dps/how-to-use-custom-allocation-policies.md#create-the-enrollment) del artículo directivas de asignación personalizadas en la documentación del servicio aprovisionamiento de dispositivos.
+A continuación, deberá crear una inscripción en Device Provisioning Service mediante una **función de asignación personalizada**. Para crear una inscripción, siga las instrucciones de la sección [Creación de la inscripción](../iot-dps/how-to-use-custom-allocation-policies.md#create-the-enrollment) del artículo directivas de asignación personalizadas de la documentación del servicio aprovisionamiento de dispositivos.
 
-Al pasar por ese flujo, asegúrese de seleccionar las opciones siguientes para vincular la inscripción a la función que acaba de crear.
+Al pasar por ese flujo, asegúrese de seleccionar las opciones siguientes para vincular la inscripción a la función que ha creado.
 
 * **Seleccione cómo quiere asignar los dispositivos a los centros**: Personalizado (usar una función de Azure).
 * **Seleccione los centros de IOT a los que se puede asignar este grupo:** Elija el nombre del centro de IoT o seleccione el botón *vincular un nuevo centro de IOT* y elija su instancia de IOT Hub en la lista desplegable.
@@ -131,7 +131,7 @@ El simulador de dispositivos es un dispositivo de tipo termostato que usa el mod
 
 [!INCLUDE [digital-twins-thermostat-model-upload.md](../../includes/digital-twins-thermostat-model-upload.md)]
 
-Para obtener más información sobre los modelos, consulte [Administración de modelos](how-to-manage-model.md#upload-models).
+Para más información sobre los modelos, consulte [Administración de modelos](how-to-manage-model.md#upload-models).
 
 #### <a name="configure-and-run-the-simulator"></a>Configuración y ejecución del simulador
 
@@ -149,7 +149,7 @@ A continuación, en el directorio del simulador de dispositivos, copie el archiv
 
 * PROVISIONING_REGISTRATION_ID: puede elegir un identificador de registro para el dispositivo.
 * ADT_MODEL_ID: `dtmi:contosocom:DigitalTwins:Thermostat;1`
-* PROVISIONING_SYMMETRIC_KEY: se trata de la clave principal de la inscripción que configuró anteriormente. Para obtener este valor de nuevo, vaya al servicio de aprovisionamiento de dispositivos en el Azure Portal, seleccione *administrar inscripciones* y, luego, seleccione el grupo de inscripción que creó anteriormente y copie la *clave principal*.
+* PROVISIONING_SYMMETRIC_KEY: esta variable de entorno es la clave principal de la inscripción que configuró anteriormente. Para obtener este valor de nuevo, vaya al servicio de aprovisionamiento de dispositivos en el Azure Portal, seleccione *administrar inscripciones* y, luego, seleccione el grupo de inscripción que creó anteriormente y copie la *clave principal*.
 
     :::image type="content" source="media/how-to-provision-using-device-provisioning-service/sas-primary-key.png" alt-text="Captura de pantalla de la vista de Azure Portal de la página de inscripciones de administración de Device Provisioning Service que resalta el valor de la clave principal de SAS." lightbox="media/how-to-provision-using-device-provisioning-service/sas-primary-key.png":::
 
@@ -178,7 +178,7 @@ Debería ver que el dispositivo se registra y se conecta a IoT Hub y, a continua
 
 ### <a name="validate"></a>Validación
 
-Como resultado del flujo que ha configurado en este artículo, el dispositivo se registrará automáticamente en Azure Digital Twins. Use el siguiente comando de la [CLI de Azure Digital Twins](/cli/azure/dt/twin?view=azure-cli-latest&preserve-view=true#az_dt_twin_show) para buscar el gemelo del dispositivo de la instancia de Azure Digital Twins que ha creado.
+El flujo que ha configurado en este artículo derivará en el registro automático del dispositivo en Azure Digital Twins. Use el siguiente comando de la [CLI de Azure Digital Twins](/cli/azure/dt/twin?view=azure-cli-latest&preserve-view=true#az_dt_twin_show) para buscar el gemelo del dispositivo de la instancia de Azure Digital Twins que ha creado.
 
 ```azurecli-interactive
 az dt twin show --dt-name <Digital-Twins-instance-name> --twin-id "<Device-Registration-ID>"
@@ -189,7 +189,7 @@ Debería ver el gemelo del dispositivo que se encuentra en la instancia de Azure
 
 ## <a name="auto-retire-device-using-iot-hub-lifecycle-events"></a>Retirada automática del dispositivo mediante eventos de ciclo de vida de IoT Hub
 
-En esta sección, va a asociar los eventos de ciclo de vida de IoT Hub a Azure Digital Twins para retirar automáticamente los dispositivos a través de la ruta de acceso siguiente. Este es un extracto de la arquitectura completa que se ha mostrado [anteriormente](#solution-architecture).
+En esta sección va a asociar los eventos de ciclo de vida de IoT Hub a Azure Digital Twins para retirar automáticamente los dispositivos mediante la ruta de acceso siguiente. Este diagrama es un extracto de la arquitectura completa que se ha mostrado [anteriormente](#solution-architecture).
 
 :::image type="content" source="media/how-to-provision-using-device-provisioning-service/retire.png" alt-text="Diagrama del flujo de retirada de dispositivo: un extracto del diagrama de la arquitectura de la solución, que sigue los datos de la eliminación de un dispositivo en Azure Digital Twins." lightbox="media/how-to-provision-using-device-provisioning-service/retire.png":::
 
@@ -212,8 +212,8 @@ En la captura de pantalla siguiente se muestra la creación del centro de evento
 #### <a name="create-sas-policy-for-your-event-hub"></a>Creación de una directiva SAS para el centro de eventos
 
 A continuación, deberá crear una directiva de [firma de acceso compartido (SAS)](../event-hubs/authorize-access-shared-access-signature.md) para configurar el centro de eventos con la aplicación de función.
-Para ello:
-1. Navegue hasta el centro de eventos que acaba de crear en el Azure Portal y seleccione **directivas de acceso compartido** en las opciones de menú de la izquierda.
+Para crear la directiva de SAS:
+1. Vaya al centro de eventos que ha creado en Azure Portal y seleccione **Directivas de acceso compartido** en las opciones de menú de la izquierda.
 2. Seleccione **Agregar**. En la ventana *Agregar Directiva SAS* que se abre, escriba un nombre de directiva de su elección y active la casilla *escuchar*.
 3. Seleccione **Crear**.
     
@@ -221,9 +221,9 @@ Para ello:
 
 #### <a name="configure-event-hub-with-function-app"></a>Configurar el centro de eventos con la aplicación de funciones
 
-Después, configure la aplicación de funciones de Azure que configuró en la [sección de requisitos previos](#prerequisites) para trabajar con el nuevo centro de eventos. Para ello, establezca una variable de entorno dentro de la aplicación de función con la cadena de conexión del centro de eventos.
+Después, configure la aplicación de funciones de Azure que configuró en la [sección de requisitos previos](#prerequisites) para trabajar con el nuevo centro de eventos. La función se configura al establecer una variable de entorno dentro de la aplicación de funciones con la cadena de conexión del centro de eventos.
 
-1. Abra la Directiva que acaba de crear y copie el valor **de cadena de conexión: clave principal**.
+1. Abra la directiva que ha creado y copie el valor de **Cadena de conexión: clave principal**.
 
     :::image type="content" source="media/how-to-provision-using-device-provisioning-service/event-hub-sas-policy-connection-string.png" alt-text="Captura de pantalla de Azure Portal que muestra cómo copiar la cadena de conexión: clave principal." lightbox="media/how-to-provision-using-device-provisioning-service/event-hub-sas-policy-connection-string.png":::
 
@@ -241,7 +241,7 @@ Para más información sobre los eventos de ciclo de vida, consulte [Eventos que
 
 Para empezar, abra el proyecto de aplicación de función en Visual Studio en el equipo y siga estos pasos.
 
-1. Primero, cree una función de tipo *Desencadenador del centro de eventos* en el proyecto de aplicación de funciones en Visual Studio. Para obtener instrucciones sobre cómo hacerlo, consulte [Desarrollo de Azure Functions con Visual Studio](../azure-functions/functions-develop-vs.md#add-a-function-to-your-project).
+1. Primero, cree una función de tipo *Desencadenador del centro de eventos* en el proyecto de aplicación de funciones en Visual Studio. Para instrucciones sobre cómo crear esta función, consulte [Desarrollo de Azure Functions con Visual Studio](../azure-functions/functions-develop-vs.md#add-a-function-to-your-project).
 
 2. Agregue un nuevo paquete de NuGet al proyecto: [Microsoft.Azure.Devices.Provisioning.Service](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/). Es posible que también tenga que agregar más paquetes al proyecto si los paquetes usados en el código ya no forman parte del proyecto.
 
@@ -249,14 +249,14 @@ Para empezar, abra el proyecto de aplicación de función en Visual Studio en el
 
     :::code language="csharp" source="~/digital-twins-docs-samples-dps/functions/DeleteDeviceInTwinFunc.cs":::
 
-4. Publique el proyecto con la función *DeleteDeviceInTwinFunc.cs* en una aplicación de funciones en Azure. Para obtener instrucciones sobre cómo hacerlo, consulte [Desarrollo de Azure Functions con Visual Studio](../azure-functions/functions-develop-vs.md#publish-to-azure).
+4. Publique el proyecto con la función *DeleteDeviceInTwinFunc.cs* en una aplicación de funciones en Azure. Para instrucciones sobre cómo publicar el proyecto, consulte [Desarrollo de Azure Functions con Visual Studio](../azure-functions/functions-develop-vs.md#publish-to-azure).
 
 > [!IMPORTANT]
 > La primera vez que se crea la aplicación de funciones en la [sección de requisitos previos](#prerequisites), es posible que ya se haya asignado un rol de acceso para la función y se haya configurado la aplicación para que acceda a la instancia de Azure Digital Twins. Estos deben realizarse una vez para toda la aplicación de función, por lo que debe comprobar que se han completado en la aplicación antes de continuar. Puede encontrar instrucciones en la sección [Configuración de la aplicación publicada](how-to-authenticate-client.md#configure-published-app) del artículo *Escritura de código de autenticación de aplicaciones*.
 
 ### <a name="create-an-iot-hub-route-for-lifecycle-events"></a>Creación de una ruta de IoT Hub para eventos de ciclo de vida
 
-Ahora configurará una ruta de IoT Hub para enrutar los eventos de ciclo de vida del dispositivo. En este caso, escuchará específicamente los eventos de eliminación de dispositivos, que se identifican mediante `if (opType == "deleteDeviceIdentity")`. Esto desencadenará la eliminación del elemento gemelo digital, finalizando la retirada del dispositivo y de su gemelo digital.
+Ahora configurará una ruta de IoT Hub para enrutar los eventos de ciclo de vida del dispositivo. En este caso, escuchará específicamente los eventos de eliminación de dispositivos, que se identifican mediante `if (opType == "deleteDeviceIdentity")`. Este evento desencadenará la eliminación del elemento gemelo digital, finalizando la retirada del dispositivo y de su gemelo digital.
 
 En primer lugar, deberá crear un punto de conexión del centro de eventos en el centro de IoT. A continuación, agregará una ruta en IoT hub para enviar eventos de ciclo de vida a este punto de conexión del centro de eventos.
 Siga estos pasos para crear un punto de conexión del centro de eventos:
@@ -292,16 +292,16 @@ A continuación, agregará una ruta que se conecta al punto de conexión que cre
 
     :::image type="content" source="media/how-to-provision-using-device-provisioning-service/lifecycle-route.png" alt-text="Captura de pantalla de la ventana de Azure Portal que muestra cómo agregar una ruta a los eventos de ciclo de vida de envío." lightbox="media/how-to-provision-using-device-provisioning-service/lifecycle-route.png":::
 
-Una vez que haya pasado por este flujo, todo está listo para la completa retirada de los dispositivos.
+Una vez que haya pasado por este flujo, todo estará listo para la completa retirada de los dispositivos.
 
 ### <a name="validate"></a>Validación
 
 Para desencadenar el proceso de retirada, debe eliminar manualmente el dispositivo de IoT Hub.
 
-Puede hacerlo con un [comando CLI de Azure](/cli/azure/iot/hub/module-identity#az_iot_hub_module_identity_delete) o en el Azure Portal. Siga los siguientes pasos para eliminar el dispositivo en Azure Portal:
+Puede eliminar manualmente el dispositivo desde IoT Hub con un [comando de la CLI de Azure](/cli/azure/iot/hub/module-identity#az_iot_hub_module_identity_delete) o desde Azure Portal. Siga los siguientes pasos para eliminar el dispositivo en Azure Portal:
 
 1. Vaya a IoT Hub y elija **dispositivos IoT** en las opciones de menú de la izquierda. 
-2. Verá un dispositivo con el identificador de registro de dispositivo que eligió en la [primera mitad de este artículo](#auto-provision-device-using-device-provisioning-service). Como alternativa, puede elegir cualquier otro dispositivo que desee eliminar, siempre que tenga un gemela en Azure digital gemelos, de modo que pueda comprobar que el gemelo se elimina automáticamente después de eliminar el dispositivo.
+2. Verá un dispositivo con el identificador de registro de dispositivo que eligió en la [primera mitad de este artículo](#auto-provision-device-using-device-provisioning-service). También puede elegir cualquier otro dispositivo que desee eliminar, siempre que tenga un gemelo en Azure Digital Twins, de modo que pueda comprobar que el gemelo se elimina automáticamente después de eliminar el dispositivo.
 3. Seleccione el dispositivo y elija **Eliminar**.
 
 :::image type="content" source="media/how-to-provision-using-device-provisioning-service/delete-device-twin.png" alt-text="Captura de pantalla del Azure Portal que muestra cómo eliminar el dispositivo gemelo de los dispositivos IoT." lightbox="media/how-to-provision-using-device-provisioning-service/delete-device-twin.png":::
@@ -322,7 +322,7 @@ Debería ver que el gemelo del dispositivo ya no se encuentra en la instancia de
 
 Cuando ya no necesite los recursos creados en este artículo, siga estos pasos para eliminarlos.
 
-Con Azure Cloud Shell o la CLI de Azure local, puede eliminar todos los recursos de Azure de un grupo de recursos mediante el comando [az group delete](/cli/azure/group?view=azure-cli-latest&preserve-view=true#az_group_delete). Esto permite eliminar el grupo de recursos, la instancia de Azure Digital Twins, el centro de IoT y el registro del dispositivo del centro, el tema de Event Grid y las suscripciones asociadas, así como el espacio de nombres de los centros de eventos y ambas aplicaciones de Azure Functions, incluidos los recursos asociados, como el almacenamiento.
+Con Azure Cloud Shell o la CLI de Azure local, puede eliminar todos los recursos de Azure de un grupo de recursos mediante el comando [az group delete](/cli/azure/group?view=azure-cli-latest&preserve-view=true#az_group_delete). Este comando permite eliminar el grupo de recursos, la instancia de Azure Digital Twins, el centro de IoT y el registro del dispositivo del centro de conectividad, el tema de Event Grid y las suscripciones asociadas, y el espacio de nombres de los centros de eventos y ambas aplicaciones de Azure Functions, incluidos los recursos asociados, como el almacenamiento.
 
 > [!IMPORTANT]
 > La eliminación de un grupo de recursos es irreversible. El grupo de recursos y todos los recursos contenidos en él se eliminan permanentemente. Asegúrese de no eliminar por accidente el grupo de recursos o los recursos equivocados. 
@@ -343,7 +343,7 @@ Para más información sobre cómo usar solicitudes HTTP con funciones de Azure,
 
 * [Desencadenador de solicitud HTTP de Azure para Azure Functions](../azure-functions/functions-bindings-http-webhook-trigger.md)
 
-Puede escribir la lógica personalizada para proporcionar automáticamente esta información con los datos del modelo y del gráfico ya almacenados en Azure Digital Twins. Para más información sobre cómo administrar, actualizar y recuperar información del grafo de gemelos, consulte lo siguiente:
+Puede escribir la lógica personalizada para proporcionar automáticamente esta información con los datos del modelo y del gráfico ya almacenados en Azure Digital Twins. Para más información sobre cómo administrar, actualizar y recuperar información del grafo de gemelos, consulte las guías paso a paso siguientes:
 
 * [Administración de un gemelo digital](how-to-manage-twin.md)
 * [Consulta del grafo de gemelos](how-to-query-graph.md)

@@ -8,12 +8,12 @@ ms.topic: reference
 ms.service: iot-edge
 services: iot-edge
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: a5af992bdfe3bb97383d3c8ed1ccd0e57dd1efb7
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 8429ed368e8465c45137e555444a18b8a66769dd
+ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121732859"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123271960"
 ---
 # <a name="powershell-functions-for-iot-edge-for-linux-on-windows"></a>Funciones de PowerShell para IoT Edge para Linux en Windows
 
@@ -81,7 +81,7 @@ El comando **Deploy-Eflow** es el método de implementación principal. El coman
 | acceptOptionalTelemetry | **Sí** o **No**. |  Acceso directo para aceptar o denegar la telemetría opcional y omitir el mensaje de telemetría. |
 | cpuCount | Valor entero entre 1 y el número de núcleos de CPU del dispositivo |  Número de núcleos de CPU para la VM.<br><br>**Valor predeterminado**: 1 núcleo virtual. |
 | memoryInMB | Valor entero entre 1024 y la cantidad máxima de memoria libre del dispositivo |Memoria asignada para la VM.<br><br>**Valor predeterminado**: 1024 MB. |
-| vmDiskSize | Entre 8 y 256 GB. | Tamaño de disco máximo del disco duro virtual de expansión dinámica.<br><br>**Valor predeterminado**: 16 GB. |
+| vmDiskSize | Entre 8 y 256 GB. | Tamaño de disco máximo del disco duro virtual de expansión dinámica.<br><br>**Valor predeterminado**: 10 GB. |
 | vswitchName | Nombre del conmutador virtual |  Nombre del conmutador virtual asignado a la VM EFLOW. |
 | vswitchType | **Interno** o **externo** | Tipo del conmutador virtual asignado a la VM EFLOW. |
 | ip4Address | Dirección IPv4 en el intervalo del ámbito del servidor DCHP | Dirección IPv4 estática de la VM EFLOW. _NOTA: Solo se admite con el conmutador de ICS predeterminado_. |
@@ -176,7 +176,7 @@ Los siguientes parámetros opcionales se pueden usar para especificar el comando
 
 | Parámetro | Valores aceptados | Comentarios |
 | --------- | --------------- | -------- |
-| . | String | Comando que se va a ejecutar en la VM. |
+| command | String | Comando que se va a ejecutar en la VM. |
 | ignoreError | Ninguno |  Si esta marca está presente, ignore los errores del comando. |
 
 Para obtener más información, use el comando `Get-Help Invoke-EflowVmCommand -full`.

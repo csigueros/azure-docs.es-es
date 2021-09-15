@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 76832f02f1c1337a705f33d26de97b0b5823c2c1
-ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
+ms.openlocfilehash: 0a3312559ee46b70b97a99a5dae16e4a26cad273
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2021
-ms.locfileid: "112981116"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123031847"
 ---
 # <a name="customize-the-user-interface-with-html-templates-in-azure-active-directory-b2c"></a>Personalización de la interfaz de usuario con plantillas HTML en Azure Active Directory B2C
 
@@ -75,7 +75,8 @@ Al utilizar sus propios archivos HTML y CSS para personalizar la interfaz de usu
 
 - Use una dirección URL absoluta al incluir recursos externos como archivos multimedia, CSS y JavaScript en el archivo HTML.
 - Con la [versión de diseño de página](page-layout.md) 1.2.0 y posterior, puede agregar el atributo `data-preload="true"` en las etiquetas HTML para controlar el orden de carga de CSS y JavaScript. Con `data-preload="true"`, la página se construye antes de que se muestre al usuario. Este atributo ayuda a evitar que la página "parpadee" al cargar previamente el archivo CSS, sin que el HTML sin estilo se muestre al usuario. El siguiente fragmento de código HTML muestra el uso de la etiqueta `data-preload`.
-  ```HTML
+
+  ```html
   <link href="https://path-to-your-file/sample.css" rel="stylesheet" type="text/css" data-preload="true"/>
   ```
 - Se recomienda comenzar con el contenido de la página predeterminada y compilar sobre él.
@@ -90,11 +91,41 @@ Al utilizar sus propios archivos HTML y CSS para personalizar la interfaz de usu
 
 ## <a name="localize-content"></a>Localización del contenido
 
-Puede localizar el contenido HTML si habilita la [personalización de idioma](language-customization.md) en su inquilino de Azure AD B2C. Al habilitar esta característica, Azure AD B2C puede reenviar el parámetro `ui_locales` de OpenID Connect al punto de conexión. El servidor de contenido puede usar este parámetro para proporcionar páginas HTML específicas del idioma.
+Puede localizar el contenido HTML si habilita la [personalización de idioma](language-customization.md) en su inquilino de Azure AD B2C. Habilitar esta característica permite Azure AD B2C establecer el atributo de lenguaje de página HTML y pasar el parámetro `ui_locales` de OpenID Connect al punto de conexión.
+
+#### <a name="single-template-approach"></a>Enfoque de plantilla única
+
+Al cargar la página, Azure AD B2C establece el atributo de lenguaje de página HTML con el idioma actual. Por ejemplo, `<html lang="en">`. Para representar diferentes estilos según el lenguaje actual, use el selector de CSS `:lang`, junto con la definición de CSS.
+
+En el ejemplo siguiente se definen estas clases:
+
+* `imprint-en`: se usa cuando el idioma actual es inglés.
+* `imprint-de`: se usa cuando el idioma actual es alemán.
+* `imprint`: es la clase predeterminada que se usa cuando el idioma actual no es ni inglés ni alemán.
+
+```css
+.imprint-en:lang(en),
+.imprint-de:lang(de) {
+    display: inherit !important;
+}
+.imprint {
+    display: none;
+}
+```
+
+Los siguientes elementos HTML se mostrarán u ocultarán según el idioma de la página:
+
+```html
+<a class="imprint imprint-en" href="Link EN">Imprint</a>
+<a class="imprint imprint-de" href="Link DE">Impressum</a>
+```
+
+#### <a name="multi-template-approach"></a>Enfoque de varias plantillas
+
+Al habilitar esta característica, Azure AD B2C permite reenviar el parámetro `ui_locales` de OpenID Connect al punto de conexión. El servidor de contenido puede usar este parámetro para proporcionar páginas HTML específicas del idioma.
 
 > [!NOTE]
-> Azure AD B2C no pasa parámetros de OpenID Connect, como `ui_locales` a las [páginas de excepción](page-layout.md#exception-page-globalexception).
-
+> Azure AD B2C no pasa parámetros de OpenID Connect, como `ui_locales`, a las [páginas de excepción](page-layout.md#exception-page-globalexception).
 
 Como alternativa, puede extraer contenido de distintos lugares, según la configuración regional que use. En el punto de conexión habilitado para CORS, puede configurar una estructura de carpetas para hospedar contenido de idiomas concretos. Se llamará al adecuado si usa el valor de carácter comodín `{Culture:RFC5646}`.
 

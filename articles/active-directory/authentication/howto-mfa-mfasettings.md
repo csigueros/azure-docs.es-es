@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: 340c9f549d1d60a19867ea4de58834d921871854
-ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
+ms.openlocfilehash: d5aa2a2eba1cf6123d81813cab00d2ac7c5309b4
+ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122015347"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122835372"
 ---
 # <a name="configure-azure-ad-multi-factor-authentication-settings"></a>Configuración de Azure AD Multi-Factor Authentication
 
@@ -151,11 +151,9 @@ Los usuarios pueden tener una combinación de hasta cinco tokens de hardware OAT
 
 Si los usuarios reciben llamadas telefónicas de solicitudes de MFA, puede configurar su experiencia, como el identificador del autor de la llamada o el saludo de voz que escuchan.
 
-En Estados Unidos, si no ha configurado el identificador del autor de la llamada de MFA, las llamadas de voz de Microsoft proceden de los números siguientes. Si usa filtros de correo no deseado, asegúrese de excluir estos números:
+En Estados Unidos, si no ha configurado el identificador del autor de la llamada de MFA, las llamadas de voz de Microsoft proceden del número siguiente. Si usa filtros de correo no deseado, asegúrese de excluir este número:
 
-* *+1 (866) 539 4191*
 * *+1 (855) 330 8653*
-* *+1 (877) 668 6536*
 
 > [!NOTE]
 > A veces, cuando las llamadas de Azure AD Multi-Factor Authentication se realizan mediante la red telefónica pública, se enrutan a través de un operador que no admite el id. del autor de la llamada. Por este motivo, el id. del autor de la llamada no se garantiza, aunque Azure AD Multi-Factor Authentication lo envíe siempre. Esto se aplica a las llamadas de teléfono y a los mensajes de texto proporcionados por Azure AD Multi-Factor Authentication. Si tiene que validar que un mensaje de texto procede de Azure AD Multi-Factor Authentication, vea [¿Qué códigos cortos de SMS se usan para enviar mensajes?](multi-factor-authentication-faq.yml#what-sms-short-codes-are-used-for-sending-sms-messages-to-my-users-)

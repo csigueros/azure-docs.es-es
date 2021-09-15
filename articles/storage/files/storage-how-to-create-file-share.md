@@ -9,12 +9,12 @@ ms.date: 07/27/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli, references_regions, devx-track-azurepowershell
-ms.openlocfilehash: 442eef44f727ce7ef6059fa0bdfbf440c0345a09
-ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
+ms.openlocfilehash: f1eae19bda4fae0744483a647eed47104e366e52
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2021
-ms.locfileid: "114727158"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867053"
 ---
 # <a name="create-an-azure-file-share"></a>Creación de un recurso compartido de archivos de Azure
 Para crear un recurso compartido de archivos de Azure, debe responder a tres preguntas sobre cómo lo usará:
@@ -180,7 +180,7 @@ Antes de crear un recurso compartido de archivos de Azure en una cuenta existent
 1. Seleccione **Información general** y elija **Actualizar**.
 1. Seleccione **Capacidad del recurso compartido** y, a continuación, seleccione **100 TiB** y **Guardar**.
 
-    :::image type="content" source="media/storage-files-how-to-create-large-file-share/files-enable-large-file-share-existing-account.png" alt-text="Captura de pantalla de la hoja Recursos compartidos de archivos de la cuenta de almacenamiento de Azure, con recursos compartidos de 100 TiB resaltados.":::
+    :::image type="content" source="media/storage-files-how-to-create-large-file-share/files-enable-large-file-share-existing-account.png" alt-text="Captura de pantalla de la hoja Recursos compartidos de archivos de la cuenta de almacenamiento, con recursos compartidos de 100 TiB resaltados.":::
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 Para habilitar recursos compartidos de archivos grandes en una cuenta existente, use el siguiente comando. Reemplace `<yourStorageAccountName>` y `<yourResourceGroup>` por su propia información.
@@ -231,7 +231,7 @@ Seleccione **Crear** para terminar de crear el nuevo recurso compartido de archi
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 Puede crear un recurso compartido de archivos con el cmdlet [`New-AzRmStorageShare`](/powershell/module/az.storage/New-AzRmStorageShare). Los siguientes comandos de PowerShell suponen que ha establecido las variables `$resourceGroupName` y `$storageAccountName` como se ha definido anteriormente en la sección sobre la creación de una cuenta de almacenamiento con Azure PowerShell. 
 
-En el siguiente ejemplo se muestra la creación de un recurso compartido de archivos con un nivel explícito mediante el parámetro `-AccessTier`. Esto requiere el uso de la versión preliminar del módulo Az.Storage como se indica en el ejemplo. Si no se especifica un nivel, ya sea porque se está usando el módulo Az.Storage en disponibilidad general, o porque no se incluyó este comando, el nivel predeterminado para los recursos compartidos de archivos estándar será optimizado para transacciones.
+En el siguiente ejemplo se muestra la creación de un recurso compartido de archivos con un nivel explícito mediante el parámetro `-AccessTier`. Si no se especifica un nivel, el nivel predeterminado para los recursos compartidos de archivos Estándar está optimizado para transacciones.
 
 > [!Important]  
 > En el caso de los recursos compartidos de archivos prémium, el parámetro `-QuotaGiB` hace referencia al tamaño aprovisionado del recurso compartido de archivos. El tamaño aprovisionado del recurso compartido de archivos es la cantidad que se facturará, independientemente del uso. Los recursos compartidos de archivos estándar se facturan en función del uso en lugar de basarse en el tamaño aprovisionado.

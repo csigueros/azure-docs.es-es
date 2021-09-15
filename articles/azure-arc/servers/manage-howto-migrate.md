@@ -3,12 +3,12 @@ title: Migración de servidores habilitados para Azure Arc entre regiones
 description: Aprenda a migrar un servidor habilitado para Azure Arc de una región a otra.
 ms.date: 07/16/2021
 ms.topic: conceptual
-ms.openlocfilehash: 9635bcf4f2f557c1f4b32a15c9cd936e5b5f02fe
-ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
+ms.openlocfilehash: d0e909b789e3e0dcee4d39e22067de26daace548
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114387120"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122609653"
 ---
 # <a name="how-to-migrate-azure-arc-enabled-servers-across-regions"></a>Migración de servidores habilitados para Azure Arc entre regiones
 
@@ -30,7 +30,7 @@ Para migrar un servidor habilitado para Azure Arc de una región de Azure a otra
 
 3. Vuelva a registrar el agente de Connected Machine en los servidores habilitados para Arc de la otra región. Ejecute la herramienta `azcmagent` con el parámetro [Connect](manage-agent.md#connect) para completar este paso.
 
-4. Vuelva a implementar las extensiones de máquina virtual que se implementaron originalmente en la máquina desde los servidores habilitados para Arc. Si ha implementado el agente de Azure Monitor para VM (conclusiones) o el agente de Log Analytics mediante una directiva de Azure, los agentes se vuelven a implementar después del siguiente [ciclo de evaluación](../../governance/policy/how-to/get-compliance-data.md#evaluation-triggers).
+4. Vuelva a implementar las extensiones de máquina virtual que se implementaron originalmente en la máquina desde los servidores habilitados para Arc. Si ha implementado el agente de Azure Monitor para VM (conclusiones) o el agente de Log Analytics mediante una definición de Azure Policy, los agentes se vuelven a implementar después del siguiente [ciclo de evaluación](../../governance/policy/how-to/get-compliance-data.md#evaluation-triggers).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

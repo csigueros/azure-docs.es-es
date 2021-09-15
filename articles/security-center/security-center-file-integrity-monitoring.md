@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 07/01/2021
+ms.date: 08/19/2021
 ms.author: memildin
-ms.openlocfilehash: 0632389800c4c524623314bcc50bb21a375e3855
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 8757ed6631d688248efe7efa873e344b44119bad
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121734875"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122446287"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Supervisión de la integridad de los archivos en Azure Security Center
 Aprenda a configurar la supervisión de la integridad de los archivos (FIM) en Azure Security Center mediante este tutorial.
@@ -23,7 +23,7 @@ Aprenda a configurar la supervisión de la integridad de los archivos (FIM) en A
 |Aspecto|Detalles|
 |----|:----|
 |Estado de la versión:|Disponibilidad general (GA)|
-|Precios:|Requiere [Azure Defender para servidores](defender-for-servers-introduction.md).<br>FIM carga datos en el área de trabajo de Log Analytics. Se aplican cargos de datos, según la cantidad de datos que cargue. Para más información, consulte [Precios de Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).|
+|Precios:|Requiere [Azure Defender para servidores](defender-for-servers-introduction.md).<br>Con el agente de Log Analytics, FIM carga datos en el área de trabajo de Log Analytics. Se aplican cargos de datos, según la cantidad de datos que cargue. Para más información, consulte [Precios de Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).|
 |Roles y permisos necesarios:|El **propietario del área de trabajo** puede habilitar o deshabilitar FIM (para obtener más información, consulte [Roles de Azure para Log Analytics](/services-hub/health/azure-roles#azure-roles)).<br>El **lector** puede ver los resultados.|
 |Nubes:|:::image type="icon" source="./media/icons/yes-icon.png"::: Nubes comerciales<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Nacionales o soberanas (Azure Government y Azure China 21Vianet)<br>Solo se admite en las regiones en las que está disponible la solución de seguimiento de cambios de Azure Automation.<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Dispositivos habilitados para [Azure Arc](../azure-arc/servers/overview.md).<br>Consulte [Regiones admitidas para el área de trabajo de Log Analytics vinculada](../automation/how-to/region-mappings.md).<br>[Más información sobre el seguimiento de cambios](../automation/change-tracking/overview.md).|
 |||
@@ -48,7 +48,7 @@ En este tutorial, aprenderá a:
 
 ## <a name="how-does-fim-work"></a>¿Cómo funciona FIM?
 
-Al comparar el estado actual de estos elementos con el estado durante el examen anterior, FIM le informa si se han realizado modificaciones sospechosas.
+El agente de Log Analytics carga datos en el área de trabajo de Log Analytics. Al comparar el estado actual de estos elementos con el estado durante el examen anterior, FIM le informa si se han realizado modificaciones sospechosas.
 
 FIM emplea la solución Azure Change Tracking para realizar el seguimiento de los cambios e identificarlos en su entorno. Cuando la supervisión de la integridad de los archivos está habilitada, tendrá un recurso **Change Tracking** de tipo **Solución**. Para obtener detalles sobre la frecuencia de recopilación de datos, consulte [Detalles de la recopilación de datos de Change Tracking](../automation/change-tracking/overview.md#change-tracking-and-inventory-data-collection).
 

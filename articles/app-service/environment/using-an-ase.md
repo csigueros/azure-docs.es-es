@@ -4,19 +4,19 @@ description: Aprenda a crear, publicar y escalar aplicaciones en Azure App Servi
 author: ccompy
 ms.assetid: a22450c4-9b8b-41d4-9568-c4646f4cf66b
 ms.topic: article
-ms.date: 9/22/2020
+ms.date: 8/5/2021
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 6f49bcba81594fa2992c07cad1efb2d6235b0270
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+ms.openlocfilehash: da32a2bbd4824e589a6673b043551dce67c32e70
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113432939"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122446323"
 ---
 # <a name="use-an-app-service-environment"></a>Uso de una instancia de App Service Environment
 > [!NOTE]
-> En este artículo se aborda App Service Environment v2, que se usa con planes de App Service aislados.
+> En este artículo se aborda App Service Environment v2, que se usa con planes de App Service aislados
 > 
 
 Un entorno App Service Environment (ASE) es una implementación de Azure App Service en una subred de una instancia de Azure Virtual Network (VNet) de un cliente. Una instancia de ASE se compone de:
@@ -210,22 +210,15 @@ Para crear una alerta sobre los registros, siga las instrucciones de [Creación,
 
 ## <a name="upgrade-preference"></a>Preferencia de actualización
 
-Si tiene varias instancias de ASE, es posible que prefiera que unas se actualicen antes que otras. En el objeto **HostingEnvironment del ASE de Resource Manager**, puede establecer un valor en **upgradePreference**. El valor de **upgradePreference** se puede configurar utilizando una plantilla, ARMClient o https://resources.azure.com. Estos son los tres valores posibles:
+Si tiene varias instancias de ASE, es posible que prefiera que unas se actualicen antes que otras. Este comportamiento se puede habilitar mediante el portal de ASE.  En **Configuración**, tiene la opción de establecer la **preferencia de actualización**. Estos son los tres valores posibles:
 
 - **Ninguna**: Azure actualizará la instancia de ASE en alguno de los lotes. Este es el valor predeterminado.
 - **Early**: la instancia de ASE se actualizará durante la primera mitad de las actualizaciones de App Service.
 - **Late**: la instancia de ASE se actualizará durante la segunda mitad de las actualizaciones de App Service.
 
-Si utiliza https://resources.azure.com, siga estos pasos para establecer el valor **upgradePreferences**:
+Seleccione el valor deseado y seleccione **Guardar**.  El valor predeterminado de cualquier ASE es **Ninguno**.
 
-1. Vaya a resources.azure.com e inicie sesión con su cuenta de Azure.
-1. Recorra los recursos hasta subscriptions\/\[nombre de suscripción\]\/resourceGroups\/\[nombre del grupo de recursos\]\/providers\/Microsoft.Web\/hostingEnvironments\/\[nombre de ASE\].
-1. Seleccione **Lectura y escritura** en la parte superior.
-1. Seleccione **Editar**.
-1. Establezca **upgradePreference** en cualquiera de los tres valores que desee.
-1. Seleccione **Revisión**.
-
-![Pantalla de recursos de azure.com][5]
+![Portal de configuración de ASE][5]
 
 Tiene más sentido utilizar la característica **upgradePreferences** cuando hay varias instancias de ASE, porque las que estén configuradas con el valor "Early" (Pronto) se actualizarán antes de las que tienen el valor "Late" (Tarde). Si tiene varias instancias de ASE, los entornos de ASE de desarrollo y pruebas deben establecerse en "Early", mientras que los entornos de ASE de producción deben establecerse en "Late".
 

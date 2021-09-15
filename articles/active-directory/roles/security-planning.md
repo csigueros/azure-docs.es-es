@@ -14,12 +14,12 @@ ms.subservice: roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e45240d9d1a957765dfd362bf612ae2ea93919c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: eeba1c933d049e67e45204ad62d71a0eb52a930d
+ms.sourcegitcommit: c2f0d789f971e11205df9b4b4647816da6856f5b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121744014"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122662436"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Protección del acceso con privilegios para las implementaciones híbridas y en la nube en Azure AD
 
@@ -178,7 +178,7 @@ Azure AD Identity Protection es una herramienta de supervisión y generación d
 
 #### <a name="obtain-your-microsoft-365-secure-score-if-using-microsoft-365"></a>Obtención de la puntuación de seguridad de Microsoft 365 (si se usa Microsoft 365)
 
-La puntuación de seguridad examina la configuración y las actividades de los servicios de Microsoft 365 que usa, y las compara con una base de referencia establecida por Microsoft. Obtendrá una puntuación que se basa en su grado de alineación con los procedimientos de seguridad. Cualquiera que tenga permisos de administrador en una suscripción de Microsoft 365 Business Standard o Enterprise puede acceder a la Puntuación de seguridad en [https://securescore.office.com](https://securescore.office.com/).
+La puntuación de seguridad examina la configuración y las actividades de los servicios de Microsoft 365 que usa, y las compara con una base de referencia establecida por Microsoft. Obtendrá una puntuación que se basa en su grado de alineación con los procedimientos de seguridad. Cualquiera que tenga permisos de administrador en una suscripción de Microsoft 365 Business Standard o Enterprise puede acceder a la Puntuación de seguridad en `https://securescore.office.com`.
 
 #### <a name="review-the-microsoft-365-security-and-compliance-guidance-if-using-microsoft-365"></a>Revisión de la guía de seguridad y cumplimiento de Microsoft 365 (si usa Microsoft 365)
 

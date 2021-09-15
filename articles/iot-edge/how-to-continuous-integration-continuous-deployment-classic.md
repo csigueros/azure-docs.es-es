@@ -3,22 +3,22 @@ title: 'Integración e implementación continuas en dispositivos Azure IoT Edge 
 description: 'Configuración de la integración e implementación continuas mediante el editor clásico: Azure IoT Edge con Azure DevOps, Azure Pipelines'
 author: kgremban
 ms.author: kgremban
-ms.date: 08/26/2020
+ms.date: 08/26/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 757ae7f71e5b03a5dc38b6e5438cdf22a0083965
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 5af2216423e625d2ba9545a37e58bb08529ebd55
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121740683"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123032030"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge-devices-classic-editor"></a>Integración e implementación continuas en dispositivos Azure IoT Edge (editor clásico)
 
 [!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
-Puede adoptar fácilmente DevOps con las aplicaciones de Azure IoT Edge con las tareas integradas de Azure IoT Edge en Azure Pipelines. En este artículo se muestra cómo puede usar las características de integración e implementación continuas de Azure Pipelines para compilar, probar e implementar aplicaciones de forma rápida y eficaz en su instancia de Azure IoT Edge mediante el editor clásico. Como alternativa, puede usar [YAML](how-to-continuous-integration-continuous-deployment.md).
+Azure Pipelines incluye una tarea integrada de Azure IoT Edge que le ayuda a adoptar un enfoque DevOps con sus aplicaciones de Azure IoT Edge. En este artículo se muestra cómo usar las características de integración e implementación continuas de Azure Pipelines para crear, probar e implementar aplicaciones de forma rápida y eficaz en Azure IoT Edge mediante el editor clásico. Como alternativa, puede usar [YAML](how-to-continuous-integration-continuous-deployment.md).
 
 ![Diagrama: ramas CI y CD para desarrollo y producción](./media/how-to-continuous-integration-continuous-deployment-classic/model.png)
 
@@ -31,7 +31,7 @@ En este artículo, aprenderá a usar las [tareas integradas de Azure IoT Edge](/
  | Generar el manifiesto de implementación | Usa el archivo deployment.template.json y sus variables para generar el archivo final de manifiesto de implementación de IoT Edge. |
  | Implementación en dispositivos de IoT Edge | Crea implementaciones de IoT Edge en uno o varios dispositivos IoT Edge. |
 
-A menos que se especifique lo contrario, los procedimientos descritos en este artículo no exploran toda la funcionalidad disponible mediante parámetros de tarea. Para obtener más información, consulte los siguientes recursos:
+A menos que se especifique lo contrario, los procedimientos descritos en este artículo no exploran toda la funcionalidad disponible mediante parámetros de tarea. Para obtener más información, vea los siguientes recursos:
 
 * [Versión de tarea](/azure/devops/pipelines/process/tasks?tabs=classic#task-versions)
 * **Avanzada**: si se aplica, especifique los módulos que no quiera compilar.
@@ -86,21 +86,21 @@ En esta sección, creará una nueva canalización de compilación. Configurará 
 
    En la descripción de la canalización, elija la especificación del agente correcta a partir de la plataforma de destino:
 
-   * Si quiere compilar los módulos en la plataforma amd64 para contenedores Linux, elija **ubuntu-16.04**.
+   * Si quiere compilar los módulos en la plataforma amd64 para contenedores Linux, elija **ubuntu-18.04**.
 
    * Si quiere compilar los módulos en la plataforma amd64 para contenedores de Windows 1809, deberá [configurar un agente autohospedado en Windows](/azure/devops/pipelines/agents/v2-windows).
 
    * Si quiere compilar los módulos en la plataforma arm32v7 o arm64 para contenedores de Linux, deberá [configurar un agente autohospedado en Linux](https://devblogs.microsoft.com/iotdev/setup-azure-iot-edge-ci-cd-pipeline-with-arm-agent).
 
-    ![Configuración de la especificación del agente de compilación](./media/how-to-continuous-integration-continuous-deployment-classic/configure-env.png)
+   :::image type="content" source="./media/how-to-continuous-integration-continuous-deployment-classic/configure-env.png" alt-text="Configuración de la especificación del agente de compilación":::
 
 6. La canalización viene preconfigurada con un trabajo denominado **Trabajo del agente 1**. Seleccione el signo de más ( **+** ) para agregar cuatro tareas al trabajo: **Azure IoT Edge** dos veces, **Copiar archivos** una vez y **Publicar los artefactos de la compilación** una vez. Busque cada tarea y mantenga el mouse sobre el nombre de la tarea para ver el botón **Agregar**.
 
-   ![Agregar la tarea Azure IoT Edge](./media/how-to-continuous-integration-continuous-deployment-classic/add-iot-edge-task.png)
+   :::image type="content" source="./media/how-to-continuous-integration-continuous-deployment-classic/add-iot-edge-task.png" alt-text="Incorporación de la tarea Azure IoT Edge":::
 
    Cuando se hayan agregado las cuatro tareas, el Trabajo del agente se verá similar al ejemplo siguiente:
 
-   ![Cuatro tareas de la canalización de compilación](./media/how-to-continuous-integration-continuous-deployment-classic/add-tasks.png)
+   :::image type="content" source="./media/how-to-continuous-integration-continuous-deployment-classic/add-tasks.png" alt-text="Cuatro tareas en la canalización de compilación":::
 
 7. Seleccione la primera tarea **Azure IoT Edge** para editarla. Esta tarea compila todos los módulos de la solución con la plataforma de destino que se especificó. Edite la tarea con los valores siguientes:
 
@@ -114,9 +114,9 @@ En esta sección, creará una nueva canalización de compilación. Configurará 
 
    Para más información sobre esta tarea y sus parámetros, consulte [Tarea de Azure IoT Edge](/azure/devops/pipelines/tasks/build/azure-iot-edge).
 
-   Estas configuraciones usan el repositorio de imágenes y la etiqueta que se definen en el archivo `module.json` para asignar un nombre a la imagen del módulo y etiquetarla. **Compilar imágenes del módulo** también ayuda a reemplazar las variables por el valor exacto que defina en el archivo `module.json`. En Visual Studio o Visual Studio Code, está especificando el valor real en un archivo `.env`. En Azure Pipelines, el valor se establece en la pestaña **Variables de canalización**. Seleccione la pestaña **Variables** en el menú del editor de la canalización y configure el nombre y el valor de la siguiente manera:
+   Estas configuraciones usan el repositorio de imágenes y la etiqueta que se definen en el archivo `module.json` para asignar un nombre a la imagen del módulo y etiquetarla. **Compilar imágenes del módulo** también ayuda a reemplazar las variables por el valor exacto que defina en el archivo `module.json`. En Visual Studio o Visual Studio Code, el valor real se especifica en un archivo `.env`. En Azure Pipelines, el valor se establece en la pestaña **Variables de canalización**. Seleccione la pestaña **Variables** en el menú del editor de la canalización y configure el nombre y el valor de la siguiente manera:
 
-   * **ACR_ADDRESS**: Valor del **servidor de inicio de sesión** de Azure Container Registry. Puede recuperar el valor de servidor de inicio de sesión de la página de información general del registro de contenedor en Azure Portal.
+   * **ACR_ADDRESS**: Valor del **servidor de inicio de sesión** de Azure Container Registry. El valor del servidor de inicio de sesión está disponible en la página de información general del registro de contenedor en Azure Portal.
 
    Si tiene otras variables en el proyecto, puede especificar el nombre y el valor en esta pestaña. **Build module images** (Compilar imágenes del módulo) solo reconoce las variables que están en formato `${VARIABLE}`. Asegúrese de usar este formato en los archivos de `**/module.json`.
 

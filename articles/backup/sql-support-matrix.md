@@ -2,14 +2,14 @@
 title: Matriz de compatibilidad de Azure Backup para la copia de seguridad de SQL Server en VM de Azure
 description: Proporciona un resumen de opciones de compatibilidad y limitaciones para realizar copias de seguridad de SQL Server en VM de Azure con el servicio Azure Backup.
 ms.topic: conceptual
-ms.date: 06/07/2021
+ms.date: 08/20/2021
 ms.custom: references_regions
-ms.openlocfilehash: 678a3e63205d986681016fe64971e9bd874f9c71
-ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
+ms.openlocfilehash: 78dace2a60ff566af3485e6be0b7d9efc42d8654
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/15/2021
-ms.locfileid: "112119940"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123103884"
 ---
 # <a name="support-matrix-for-sql-server-backup-in-azure-vms"></a>Matriz de compatibilidad para la copia de seguridad de SQL Server en VM de Azure
 
@@ -24,6 +24,7 @@ Puede usar Azure Backup para realizar copias de seguridad de bases de datos de S
 **Sistemas operativos compatibles** | Windows Server 2019, Windows Server 2016, Windows Server 2012, Windows Server 2008 R2 SP1 <br/><br/> Linux no se admite actualmente.
 **Versiones admitidas de SQL Server** | SQL Server 2019, SQL Server 2017 tal como se detalla en la [página de búsqueda del ciclo de vida del producto](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202017), SQL Server 2016 y los SP tal como se detalla en la [página de búsqueda del ciclo de vida del producto](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202016%20service%20pack), SQL Server 2014, SQL Server 2012, SQL Server 2008 R2, SQL Server 2008 <br/><br/> Enterprise, Standard, Web, Developer, Express.<br><br>No se admiten las versiones de base de datos local rápidas.
 **Versiones de .NET compatibles** | .NET Framework 4.5.2 o posterior instalado en la máquina virtual
+**Implementaciones admitidas** | Se admiten máquinas virtuales de Azure del Marketplace de SQL y que no son de Marketplace (SQL Server instalado manualmente). La compatibilidad con instancias independientes siempre está en los [grupos de disponibilidad](backup-sql-server-on-availability-groups.md).
 
 ## <a name="feature-considerations-and-limitations"></a>Consideraciones y limitaciones de las características
 
@@ -43,55 +44,6 @@ _*El límite de tamaño de la base de datos depende no solo de la velocidad de t
 * Se admite la copia de seguridad de base de datos habilitada para TDE. Para restaurar una base de datos cifrada TDE en otra de SQL Server, primero debe [restaurar el certificado en el servidor de destino](/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server). Está disponible la compresión de copia de seguridad para las bases de datos habilitadas para TDE para SQL Server 2016 y las versiones más recientes, pero con un tamaño de transferencia inferior, tal y como se explica [aquí](https://techcommunity.microsoft.com/t5/sql-server/backup-compression-for-tde-enabled-databases-important-fixes-in/ba-p/385593).
 * No se admiten operaciones de copia de seguridad y restauración de bases de datos reflejadas ni de instantáneas de bases de datos.
 * La **instancia del clúster de conmutación por error (FCI)** de SQL Server no se admite.
-* Si se usa más de una solución para realizar copias de seguridad de una instancia de SQL Server independiente o de un grupo de disponibilidad Always On de SQL, se pueden producir errores en la copia de seguridad. Se aconseja no hacerlo. La realización de una copia de seguridad de dos nodos de un grupo de disponibilidad individualmente con las mismas soluciones o soluciones diferentes, también puede dar lugar a errores en la copia de seguridad.
-* Si los grupos de disponibilidad están configurados, las copias de seguridad se realizan de los distintos nodos en función de una serie de factores. A continuación, se resume el comportamiento del proceso de copia de seguridad en un grupo de disponibilidad.
-
-### <a name="back-up-behavior-with-always-on-availability-groups"></a>Comportamiento del proceso de copia de seguridad con los grupos de disponibilidad Always On
-
-Se recomienda que la copia de seguridad se configure en un único nodo de un grupo de disponibilidad. Configure siempre la copia de seguridad en la misma región que el nodo principal. En otras palabras, siempre es necesario que el nodo principal esté presente en la región en la que se configura la copia de seguridad. Si todos los nodos del grupo de disponibilidad están en la misma región donde se configura la copia de seguridad, no hay ningún problema.
-
-#### <a name="for-cross-region-ag"></a>Para los grupos de disponibilidad con varias regiones
-
-* Independientemente de la preferencia de copia de seguridad, las copias de seguridad solo se ejecutarán desde los nodos que estén en la misma región donde se configure la copia de seguridad. Esto se debe a que no se admiten las copias de seguridad entre regiones. Si tiene solo dos nodos y el secundario está en la otra región, las copias de seguridad se seguirán ejecutando desde el nodo principal (a menos que su preferencia de copia de seguridad sea "solo secundaria").
-* Si se produce una conmutación por error de un nodo en una región diferente de aquella en la que se configura la copia de seguridad, las copias de seguridad no se realizarán correctamente en los nodos de la región conmutada por error.
-
-En función de las preferencias relativas a la copia de seguridad y de los tipos de copia de seguridad (completa, diferencial, de registros, y solo copia completa), se toman las copias de seguridad de un nodo concreto (principal o secundario).
-
-#### <a name="backup-preference-primary"></a>Preferencia de copia de seguridad: Principal
-
-**Tipo de copia de seguridad** | **Node**
---- | ---
-Completo | Principal
-Diferencial | Principal
-Log |  Principal
-Solo copia completa |  Principal
-
-#### <a name="backup-preference-secondary-only"></a>Preferencia de copia de seguridad: solo secundaria
-
-**Tipo de copia de seguridad** | **Node**
---- | ---
-Completo | Principal
-Diferencial | Principal
-Log |  Secundario
-Solo copia completa |  Secundario
-
-#### <a name="backup-preference-secondary"></a>Preferencia de copia de seguridad: Secundario
-
-**Tipo de copia de seguridad** | **Node**
---- | ---
-Completo | Principal
-Diferencial | Principal
-Log |  Secundario
-Solo copia completa |  Secundario
-
-#### <a name="no-backup-preference"></a>Sin preferencia de copia de seguridad
-
-**Tipo de copia de seguridad** | **Node**
---- | ---
-Completo | Principal
-Diferencial | Principal
-Log |  Secundario
-Solo copia completa |  Secundario
 
 ## <a name="backup-throughput-performance"></a>Rendimiento de la copia de seguridad
 

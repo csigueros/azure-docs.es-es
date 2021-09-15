@@ -7,13 +7,13 @@ ms.topic: conceptual
 ms.author: susabat
 author: ssabat
 ms.custom: seo-lt-2019
-ms.date: 06/04/2021
-ms.openlocfilehash: bfd63e048d2783d84dbc37710851492134b6d0e1
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 08/24/2021
+ms.openlocfilehash: 5d07ecedbc8fe4ff0670c9e8aa96fdf2a92359d3
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121736987"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123098955"
 ---
 # <a name="templates"></a>Plantillas
 
@@ -27,15 +27,15 @@ Puede empezar a crear una canalización de Data Factory a partir de una plantill
 
 1.  Seleccione **Plantillas de canalización** en la sección **Discover more** (Más información) de la página principal de Data Factory para abrir la galería de plantillas.
 
-    ![Abrir la galería de plantillas desde la página de información general](media/doc-common-process/home-page-pipeline-templates-tile.png)
+    ![Captura de pantalla que muestra cómo abrir la galería de plantillas desde la página principal de Data Factory.](media/doc-common-process/home-page-pipeline-templates-tile.png)
 
-1.  En la pestaña de autor en el Explorador de recursos, seleccione **+** , a continuación, **Pipeline from template** (Canalización a partir de la plantilla) para abrir la galería de plantillas.
+1.  En la pestaña Author (Crear) del Explorador de recursos, seleccione **+** y, a continuación, seleccione **Pipeline from template** (Canalización a partir de una plantilla) para abrir la galería de plantillas.
 
-    ![Abrir la galería de plantillas desde la pestaña de autor](media/solution-templates-introduction/templates-intro-image2.png)
+    ![Captura de pantalla que muestra cómo abrir la galería de plantillas desde la pestaña Crear.](media/solution-templates-introduction/templates-introduction-image-2.png)
 
 ## <a name="template-gallery"></a>Galería de plantillas
 
-![La galería de plantillas](media/solution-templates-introduction/templates-intro-image3.png)
+![Captura de pantalla que muestra la página Galería de plantillas.](media/solution-templates-introduction/templates-introduction-image-3.png)
 
 ### <a name="out-of-the-box-data-factory-templates"></a>Plantillas listas para usar de Data Factory
 
@@ -81,11 +81,11 @@ Data Factory usa plantillas de Azure Resource Manager para guardar las plantilla
 
 También puede guardar una canalización como plantilla seleccionando **Guardar como plantilla** en la pestaña de la canalización.
 
-![Guardar la canalización como plantilla](media/solution-templates-introduction/templates-intro-image4.png)
+![Captura de pantalla que muestra cómo guardar una canalización como plantilla.](media/solution-templates-introduction/templates-introduction-image-4.png)
 
-Puede ver las canalizaciones guardadas como plantillas en la sección **Mis plantillas** de la galería de plantillas. También puede verlas en la sección **Plantillas** del Explorador de recursos.
+Después de marcar la casilla **My templates** (Mis plantillas) en la página **Template gallery** (Galería de plantillas), puede ver las canalizaciones guardadas como plantillas en el panel derecho de esta página. 
 
-![Mis plantillas](media/solution-templates-introduction/templates-intro-image5.png)
+![Captura de pantalla que muestra el panel Mis plantillas.](media/solution-templates-introduction/templates-introduction-image-5.png)
 
 > [!NOTE]
 > Para usar la característica Mis plantillas, tendrá que habilitar la integración de GIT. Se admiten Azure DevOps GIT y GitHub.

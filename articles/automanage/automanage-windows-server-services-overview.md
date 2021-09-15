@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 07/09/2021
 ms.author: niwashbu
-ms.openlocfilehash: 475ea083a6412f38093f601ce34da8775357fa3e
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 09b011d76a570aaed1a9ea8c0b9bdc74e80eca53
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114286450"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122772191"
 ---
 # <a name="automanage-for-windows-server-services-preview"></a>Automanage para servicios de Windows Server (versión preliminar)
 
@@ -27,9 +27,11 @@ Automanage para servicios de Windows Server aporta nuevas funcionalidades espec�
 > Esta versión preliminar se ofrece sin contrato de nivel de servicio y no es aconsejable usarla para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
 > Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
+> [!NOTE]
+> La revisión en caliente se puede evaluar en _Windows Server 2022 Datacenter: Azure Edition (Core) Preview_.  La revisión en caliente en _Windows Server 2019 Datacenter: Azure Edition Preview_ ya no está disponible para evaluar.
+
 Las funcionalidades de Automanage para Windows Server se pueden encontrar en una o varias de estas imágenes de _Windows Server Azure Edition_: 
 
-- Windows Server 2019 Datacenter: Azure Edition (Core)
 - Windows Server 2022 Datacenter: Azure Edition (Desktop Experience)
 - Windows Server 2022 Datacenter: Azure Edition (Core)
 
@@ -41,7 +43,6 @@ Las funcionalidades varían según la imagen; para más detalles, consulte la se
 
 La revisión en caliente está disponible en versión preliminar pública en las siguientes imágenes:
 
-- Windows Server 2019 Datacenter: Azure Edition (Core)
 - Windows Server 2022 Datacenter: Azure Edition (Core)
 
 La revisión en caliente le ofrece la posibilidad de aplicar actualizaciones de seguridad a una máquina virtual sin necesidad de reiniciarla.  Además, Automanage para Windows Server automatiza la incorporación, configuración y orquestación de las revisiones en caliente.  Para más información, consulte el artículo sobre [revisión en caliente](automanage-hotpatch.md).  
@@ -73,7 +74,6 @@ Es importante tener en cuenta por adelantado qué funcionalidades de Automanage 
 
 |Imagen|Funcionalidades|
 |--|--|
-| Windows Server 2019 Datacenter: Azure Edition (Core) | Revisiones en caliente | 
 |Windows Server 2022 Datacenter: Azure Edition (Desktop Experience) | SMB a través de QUIC, red extendida | 
 | Windows Server 2022 Datacenter: Azure Edition (Core) | Revisión en caliente, SMB a través de QUIC, red extendida | 
 

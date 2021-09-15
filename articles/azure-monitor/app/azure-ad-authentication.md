@@ -3,15 +3,15 @@ title: Autenticación de Azure Active Directory para Application Insights (vers
 description: Aprenda a habilitar la autenticación de Azure Active Directory (Azure AD) para asegurarse de que solo se ingiera telemetría autenticada en los recursos de Application Insights.
 ms.topic: conceptual
 ms.date: 08/02/2021
-ms.openlocfilehash: 3b50948d5dcc408595ccc8434d7fb29c07c68ab0
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 9d93da1a8567a7c50dac43c29e3a962652ceee33
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121747686"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123111474"
 ---
 # <a name="azure-ad-authentication-for-application-insights-preview"></a>Autenticación de Azure Active Directory para Application Insights (versión preliminar)
-Application Insights ahora admite la autenticación de Azure Active Directory (Azure AD). Mediante Azure AD, ahora puede asegurarse de que solo se ingiere la telemetría autenticada en los recursos de Application Insights. 
+Application Insights ahora admite la autenticación de Azure Active Directory (Azure AD). Mediante Azure AD, puede asegurarse de que solo se ingieren los datos de telemetría autenticados en los recursos de Application Insights. 
 
 Normalmente, el uso de varios sistemas de autenticación puede ser complicado y suponer un riesgo, ya que es difícil administrar las credenciales a gran escala. Ahora puede optar por excluirse de la autenticación local y asegurarse de que solo la telemetría que se autentica exclusivamente mediante [identidades administradas](../../active-directory/managed-identities-azure-resources/overview.md) y [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md) se ingiera en el recurso de Application Insights. Esta característica es un paso para mejorar la seguridad y fiabilidad de la telemetría que se usa para tomar decisiones empresariales y operativas críticas (alertas, escalado automático, etc.).
 
@@ -138,7 +138,7 @@ appInsights.defaultClient.aadTokenCredential = credential;
 1. [Configure la aplicación con el agente de Java.](java-in-process-agent.md#quickstart)
 
     > [!IMPORTANT]
-    > Use la cadena de conexión completa que incluye “IngestionEndpoint” al configurar la aplicación con el agente de Java. Por ejemplo: `InstrumentationKey=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX;IngestionEndpoint=https://XXXX.applicationinsights.azure.com/`.
+    > Use la cadena de conexión completa que incluye “IngestionEndpoint” al configurar la aplicación con el agente de Java. Por ejemplo, `InstrumentationKey=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX;IngestionEndpoint=https://XXXX.applicationinsights.azure.com/`.
 
     > [!NOTE]
     >  Para obtener más información sobre cómo migrar desde el SDK 2.X al agente de Java 3.X, consulte [Actualización del SDK de Java de Application Insights 2.x](java-standalone-upgrade-from-2x.md).
@@ -274,7 +274,7 @@ tracer = Tracer(
 
 Después de habilitar la autenticación de Azure AD, puede optar por deshabilitar la autenticación local. Esto le permitirá ingerir telemetría autenticada exclusivamente mediante Azure AD y afectará al acceso a los datos (por ejemplo, a través de claves de API). 
 
-Puede deshabilitar la autenticación local mediante Azure Portal, la directiva de Azure o mediante programación.
+Puede deshabilitar la autenticación local mediante Azure Portal, Azure Policy o mediante programación.
 
 ### <a name="azure-portal"></a>Azure portal
 
@@ -292,9 +292,9 @@ Puede deshabilitar la autenticación local mediante Azure Portal, la directiva d
 
 ### <a name="azure-policy"></a>Azure Policy 
 
-La directiva de Azure para "DisableLocalAuth" denegará a los usuarios la creación de un nuevo recurso de Application Insights sin esta configuración de propiedad en "true". El nombre de la directiva es "Los componentes de Application Insights deben bloquear la ingesta de autenticación que no es de ADD".
+Azure Policy para "DisableLocalAuth" denegará a los usuarios la creación de un recurso de Application Insights si esta propiedad no está configurada en "true". El nombre de la directiva es "Los componentes de Application Insights deben bloquear la ingesta de autenticación que no es de ADD".
 
-Para aplicar esta directiva a la suscripción, [cree una nueva asignación de directiva y asigne la directiva](../..//governance/policy/assign-policy-portal.md).
+Para aplicar esta definición de directiva a la suscripción, [cree una nueva asignación de directiva y asigne la directiva](../../governance/policy/assign-policy-portal.md).
 
 A continuación se muestra la definición de la plantilla de directiva:
 ```JSON

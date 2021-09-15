@@ -2,13 +2,13 @@
 title: Implementación de la recuperación ante desastres con VMware Site Recovery Manager
 description: Implemente la recuperación ante desastres con VMware Site Recovery Manager (SRM) en la nube privada de Azure VMware Solution.
 ms.topic: how-to
-ms.date: 07/22/2021
-ms.openlocfilehash: e026083a14dc9ae5b84b03943224b687f34cfab5
-ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
+ms.date: 08/18/2021
+ms.openlocfilehash: 7c4f518623801e8cb489452dbeb3be76e1104e62
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114604636"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122608070"
 ---
 # <a name="deploy-disaster-recovery-with-vmware-site-recovery-manager"></a>Implementación de la recuperación ante desastres con VMware Site Recovery Manager
 
@@ -49,6 +49,7 @@ Puede usar SRM para implementar diferentes tipos de recuperación, como los sigu
 >- Grupos de protección de vVol 
 >- Personalización de IP de SRM mediante herramientas de línea de comandos de SRM
 >- Topología de tipo uno a varios y varios a uno 
+>- Identificador de complemento de SRM personalizado o identificador de extensión
 
 
 ## <a name="deployment-workflow"></a>Flujo de trabajo de implementación
@@ -218,19 +219,19 @@ Aunque Microsoft pretende simplificar la instalación de VMware SRM y vSphere Re
 
 ## <a name="scale-limitations"></a>Limitaciones de escala
 
+Las limitaciones de escala dependen de la nube privada.
+
 | Configuración | Límite |
 | --- | --- |
 | Número de máquinas virtuales protegidas  | 1000  |
 | Número de máquinas virtuales por plan de recuperación  | 1000  |
 | Número de grupos de protección por plan de recuperación  | 250  |
-| Valores de RPO  | 5 min, 30 min, 60 min, 90 min, 120 min  |
-| Número total de máquinas virtuales por grupo de protección  | 4  |
+| Valores de RPO  | 5 minutos o más*  |
+| Número total de máquinas virtuales por grupo de protección  | 500  |
 | Número total de planes de recuperación  | 250  |
-| Número de máquinas virtuales con RPO de 5 minutos  | 100  |
-| Número de máquinas virtuales con RPO de 30 minutos  | 300  |
-| Número de máquinas virtuales con RPO de 60 minutos  | 300  |
-| Número de máquinas virtuales con RPO de 90 minutos  | 200  |
-| Número de máquinas virtuales con RPO de 120 minutos  | 100  |
+
+\* Para información sobre el objetivo de punto de recuperación (RPO) de menos de 15 minutos, consulte [Funcionamiento del objetivo de punto de recuperación de 5 minutos](https://docs.vmware.com/en/vSphere-Replication/8.3/com.vmware.vsphere.replication-admin.doc/GUID-9E17D567-A947-49CD-8A84-8EA2D676B55A.html) en la _guía de administración de la replicación de vSphere_.
+
 
 
 ## <a name="srm-licenses"></a>Licencias de SRM

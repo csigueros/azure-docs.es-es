@@ -11,16 +11,16 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 07/22/2021
 ms.author: shermanouko
-ms.custom: aaddev
+ms.custom: aaddev, has-adal-ref
 ms.reviewer: aiwang, marsma
-ms.openlocfilehash: 7f4dfaaaaae39245c54c8ee3fc7879fd58b8ea9e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 07f6c7f481e815e788b22782f01ad9369bd2c9f6
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121725756"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123039702"
 ---
-# <a name="how-to-get-a-complete-list-of-apps-using-adal-in-your-tenant"></a>Procedimiento: obtención de una lista completa de aplicaciones que usan ADAL en el inquilino
+# <a name="get-a-complete-list-of-apps-using-adal-in-your-tenant"></a>Obtención de una lista completa de aplicaciones que usan ADAL en el inquilino
 
 La compatibilidad con la Biblioteca de autenticación de Active Directory (ADAL) finalizará el 30 de junio de 2022. Las aplicaciones que usan ADAL en las versiones existentes del sistema operativo seguirán funcionando, pero no recibirán soporte técnico ni actualizaciones de seguridad. Sin actualizaciones de seguridad continuadas, las aplicaciones que usan ADAL se volverán cada vez más vulnerables a los patrones de ataque de seguridad más recientes. En este artículo se proporcionan instrucciones sobre cómo usar libros de Azure Monitor para obtener una lista de todas las aplicaciones que usan ADAL en el inquilino.
 

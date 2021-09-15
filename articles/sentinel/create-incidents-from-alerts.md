@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: acc47d8744b59a175b37eb571646ae5ef3a42454
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 621e2829f8c28ced39c3ed70b1dee974a5fcd36d
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121749337"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123251418"
 ---
 # <a name="automatically-create-incidents-from-microsoft-security-alerts"></a>Creación automática de incidentes a partir de alertas de seguridad de Microsoft
 
@@ -42,7 +42,7 @@ Use las reglas integradas disponibles en Azure Sentinel para elegir qué solucio
 
     ![Plantillas de reglas](media/incidents-from-alerts/rule-templates.png)
 
-1. Seleccione la plantilla de la regla de análisis de **seguridad de Microsoft** que quiere usar y haga clic en **Crear regla**.
+1. Seleccione la plantilla de la regla de análisis de **seguridad de Microsoft** que quiere usar y seleccione **Crear regla**.
 
     ![Regla de análisis de seguridad](media/incidents-from-alerts/security-analytics-rule.png)
 

@@ -9,12 +9,12 @@ ms.date: 06/21/2021
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 7173477e01faddb3c8aa3c18dc2781ef21dee012
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 61f57e0ee0f1df5b66526a190e583c72ecde7151
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121740159"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122965389"
 ---
 # <a name="mount-blob-storage-by-using-the-network-file-system-nfs-30-protocol"></a>Montaje de Blob Storage con el protocolo Network File System (NFS) 3.0
 
@@ -106,6 +106,7 @@ Cree un directorio en el sistema Linux y, a continuación, monte un contenedor e
 |`EROFS ("Read-only file system"`) |Este error puede aparecer cuando un cliente intenta lo siguiente:<li>Escribir en un blob o eliminar un blob que tiene una concesión activa.<li>Escribir en un blob o eliminar un blob en un contenedor que tiene una directiva WORM (una sola escritura/varias lecturas) activa. |
 |`NFS3ERR_IO/EIO ("Input/output error"`) |Este error puede aparecer cuando un cliente intenta leer, escribir o establecer atributos en blobs almacenados en el nivel de acceso de archivo. |
 |`OperationNotSupportedOnSymLink` con error| Este error se puede devolver durante una operación de escritura a través de una API de Blob o de Azure Data Lake Storage Gen2. No se permite el uso de estas API para escribir o eliminar vínculos simbólicos creados mediante NFS 3.0. Asegúrese de usar el punto de conexión NFS v3 para trabajar con vínculos simbólicos. |
+|`mount: /mnt/test: bad option;`| Instale el programa del asistente de NFS mediante **sudo apt install nfs-common**.|
 
 ## <a name="see-also"></a>Vea también
 

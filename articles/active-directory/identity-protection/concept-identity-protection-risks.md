@@ -5,22 +5,22 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 07/16/2021
+ms.date: 08/30/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0b222c604cf565b03d3148e1bd1b6df876ba1353
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: df7ec7aa9fe6fb73cd7d6871fe9b6a698e324899
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121727654"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123219690"
 ---
 # <a name="what-is-risk"></a>¿Qué es el riesgo?
 
-Las detecciones de riesgo en Azure AD Identity Protection incluyen todas las acciones sospechosas identificadas, relacionadas con las cuentas de usuario en el directorio.
+Las detecciones de riesgo en Azure AD Identity Protection incluyen todas las acciones sospechosas identificadas, relacionadas con las cuentas de usuario en el directorio. Las detecciones de riesgo (vinculadas tanto al usuario como al inicio de sesión) contribuyen a la puntuación de riesgo general del usuario que se encuentra en el informe Usuarios de riesgo.
 
 Identity Protection proporciona a las organizaciones el acceso a recursos eficaces, para ver y responder rápidamente a estas acciones sospechosas. 
 
@@ -31,13 +31,13 @@ Identity Protection proporciona a las organizaciones el acceso a recursos eficac
 
 ## <a name="risk-types-and-detection"></a>Tipos de riesgo y detección
 
-Hay dos tipos de riesgo, **Usuario** e **Inicio de sesión** y dos tipos de detección o cálculo **Tiempo real** y **Sin conexión**.
+El riesgo se puede detectar a nivel de **Usuario** y de **Inicio de sesión**; además, existen dos tipos de detección o cálculo: **Tiempo real** y **Sin conexión**.
 
 Es posible que las detecciones en tiempo real no se muestren en los informes durante un tiempo comprendido entre cinco y diez minutos. Es posible que las detecciones sin conexión no se muestren en los informes durante un tiempo comprendido entre dos y veinticuatro horas.
 
-### <a name="user-risk"></a>Riesgo de usuario
+### <a name="user-linked-detections"></a>Detecciones vinculadas al usuario
 
-Un riesgo de usuario representa la probabilidad de que una identidad o cuenta determinada esté en peligro. 
+Se puede detectar una actividad de riesgo para un usuario que no está vinculada a un inicio de sesión malintencionado específico, sino al propio usuario. La detección de estos riesgos se calcula sin conexión, con orígenes de inteligencia sobre amenazas internas y externas de Microsoft, incluidos los investigadores de seguridad, los profesionales de los cuerpos de seguridad, los equipos de seguridad de Microsoft y otros orígenes de confianza.
 
 Estos riesgos se calculan sin conexión, usando orígenes de inteligencia sobre amenazas internas y externas de Microsoft, incluidos los investigadores de seguridad, los profesionales de la aplicación de la ley, los equipos de seguridad de Microsoft y otros orígenes de confianza.
 
@@ -56,8 +56,8 @@ Estos riesgos se pueden calcular en tiempo real o sin conexión, usando orígene
 | --- | --- | --- |
 | Dirección IP anónima | Tiempo real | Este tipo de detección de riesgos indica inicios de sesión desde una dirección IP anónima (por ejemplo, el explorador Tor o redes VPN anónimas). Estas direcciones IP normalmente las usan actores que quieren ocultar su telemetría de inicio de sesión (dirección IP, ubicación, dispositivo, etc.) con fines potencialmente malintencionados. |
 | Viaje atípico | Sin conexión | Este tipo de detección de riesgos identifica dos inicios de sesión procedentes de ubicaciones geográficamente distantes, donde al menos una de las ubicaciones puede también ser inusual para el usuario, según su comportamiento anterior. Entre otros factores, este algoritmo de aprendizaje automático tiene en cuenta el tiempo entre los dos inicios de sesión y el tiempo que habría necesitado el usuario para viajar de la primera ubicación a la segunda, lo que indica que otro usuario utiliza las mismas credenciales. <br><br> Este algoritmo omite "falsos positivos" obvios que contribuyen a una condición de viaje imposible, como las VPN y las ubicaciones que usan con regularidad otros usuarios de la organización. El sistema tiene un período de aprendizaje inicial de 14 días o 10 inicios de sesión, lo que ocurra primero, durante el cual aprende el comportamiento de inicio de sesión del nuevo usuario. |
-| Token anómalo | Sin conexión | Esta detección indica que hay características anómalas en el token, como el tiempo activo y la autenticación desde una dirección IP desconocida. |
-| Anomalía del emisor de tokens | Sin conexión | Esta detección de riesgos indica que hay una actividad inusual en los patrones de ataque conocidos, por ejemplo, se está actualizando la configuración de federación de dominios de confianza o se está cambiando un certificado de firma. |
+| Token anómalo | Sin conexión | Esta detección indica que hay características anómalas en el token, como una duración inusual del token o un token que se reproduce desde una ubicación desconocida. Esta detección abarca los tokens de sesión y los tokens de actualización. |
+| Anomalía del emisor de tokens | Sin conexión |Esta detección de riesgo indica que el emisor del token SAML asociado puede estar en peligro. Las notificaciones incluidas en el token son inusuales o coinciden con patrones de atacante conocidos. |
 | Dirección IP vinculada al malware | Sin conexión | Este tipo de detección de riesgos indica inicios de sesión desde direcciones IP infectadas con malware, que se sabe que se comunican activamente con un servidor bot. Esta detección se determina mediante la correlación de direcciones IP del dispositivo del usuario con direcciones IP que han estado en contacto con un servidor bot mientras este último estaba activo. |
 | Explorador sospechoso | Sin conexión | La detección sospechosa del explorador indica un comportamiento anómalo basado en la actividad de inicio de sesión sospechosa en varios inquilinos de distintos países en el mismo explorador. |
 | Propiedades de inicio de sesión desconocidas | Tiempo real | Este tipo de detección de riesgos tiene en cuenta el historial de inicio de sesión anterior (dirección IP, latitud/longitud y ASN) para determinar inicios de sesión anómalos. El sistema almacena información acerca de las ubicaciones anteriores que ha utilizado un usuario y considera estas ubicaciones "conocidas". La detección de riesgos se desencadena cuando el inicio de sesión se produce desde una ubicación que no está en la lista de ubicaciones conocidas. Los usuarios recién creados estarán en "modo de aprendizaje" durante un período de tiempo, en el que las detecciones de riesgo de las propiedades de inicio de sesión desconocidas estarán desactivadas mientras nuestros algoritmos aprenden el comportamiento del usuario. La duración del modo de aprendizaje es dinámica y depende de cuánto tiempo tarde el algoritmo en recopilar información suficiente sobre los patrones de inicio de sesión del usuario. La duración mínima es de cinco días. Un usuario puede volver al modo de aprendizaje tras un largo período de inactividad. El sistema también ignora los inicios de sesión desde dispositivos conocidos y ubicaciones geográficamente cercanas a una ubicación conocida. <br><br> También se ejecuta esta detección para una autenticación básica o para protocolos heredados. Dado que estos protocolos no tienen propiedades modernas como el identificador de cliente, hay una telemetría limitada para reducir los falsos positivos. Se recomienda que los clientes realicen la migración a la autenticación moderna. |
