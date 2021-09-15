@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2021
 ms.author: yelevin
-ms.openlocfilehash: d83672894f511696cfc2520aaee3e7932508b6c2
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 133d5e01de4f5fe511677fc5226eb0aede258eab
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122322888"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123252291"
 ---
 # <a name="connect-to-windows-servers-to-collect-security-events"></a>Conexión a servidores Windows para recopilar eventos de seguridad
 
@@ -103,7 +103,7 @@ Para recopilar los eventos de seguridad de Windows en Azure Sentinel, haga lo si
 
 # <a name="log-analytics-agent-legacy"></a>[Agente de Log Analytics (heredado)](#tab/LAA)
 
-1. En el menú de navegación de Azure Sentinel, seleccione **Data connectors** (Conectores de datos). En la lista de conectores, haga clic en **Eventos de seguridad** y, a continuación, en el botón **Open connector page** (Abrir página del conector) en la parte inferior derecha. A continuación, siga las instrucciones en pantalla debajo de la pestaña **Instrucciones**, tal como se describe en el resto de esta sección.
+1. En el menú de navegación de Azure Sentinel, seleccione **Data connectors** (Conectores de datos). En la lista de conectores, seleccione **Eventos de seguridad** y, a continuación, **Open connector page** (Abrir página del conector) en el panel de detalles. A continuación, siga las instrucciones en pantalla debajo de la pestaña **Instrucciones**, tal como se describe en el resto de esta sección.
 
 1. Compruebe que tiene los permisos adecuados, tal como se describe en la sección **Requisitos previos** de la página del conector.
 
@@ -111,13 +111,13 @@ Para recopilar los eventos de seguridad de Windows en Azure Sentinel, haga lo si
 
     Para las máquinas virtuales de Azure:
     
-    1. Haga clic en **Install agent on Azure Windows Virtual Machine** (Instalar el agente en la máquina virtual de Windows de Azure) y, después, en el vínculo que aparece a continuación.
-    1. Haga clic en el nombre de cada máquina virtual que quiera conectar en la lista que aparece a la derecha y, a continuación, haga clic en **Conectar**.
+    1. Haga clic en **Install agent on Azure Windows Virtual Machine** (Instalar el agente en una máquina virtual Windows de Azure) y, después, en el vínculo que aparece a continuación.
+    1. Seleccione el nombre de cada máquina virtual que quiera conectar en la lista que aparece a la derecha y, después, seleccione **Conectar**.
 
     Para las máquinas Windows que no son de Azure (físicas, virtuales locales o virtuales en otra nube):
 
-    1. Haga clic en **Install agent on non-Azure Windows Machine** (Instalar el agente en una máquina de Windows que no es de Azure) y, después, en el vínculo que aparece a continuación.
-    1. Haga clic en los vínculos de descarga correspondientes que aparecen a la derecha, debajo de **Equipos Windows**.
+    1. Seleccione **Install agent on non-Azure Windows Machine** (Instalar el agente en una máquina Windows que no es de Azure) y, después, en el vínculo que aparece a continuación.
+    1. Seleccione los vínculos de descarga correspondientes que aparecen a la derecha, debajo de **Equipos Windows**.
     1. Con el archivo ejecutable descargado, instale el agente en los sistemas Windows que quiera y configúrelo con el **Id. y las claves de área de trabajo** que aparecen debajo de los vínculos de descarga mencionados anteriormente.
 
     > [!NOTE]
@@ -130,13 +130,13 @@ Para recopilar los eventos de seguridad de Windows en Azure Sentinel, haga lo si
 
 1. Seleccione el conjunto de eventos (todos, común o mínimo) que quiere transmitir. Consulte las [listas de los identificadores de eventos incluidos](#event-id-reference) en los conjuntos de eventos mínimos y comunes.
 
-1. Haga clic en **Update**(Actualizar).
+1. Seleccione **Actualizar**.
 
 1. Para usar el esquema correspondiente en Log Analytics para encontrar los eventos de seguridad de Windows, escriba `SecurityEvent` en la ventana de consulta.
 
 # <a name="azure-monitor-agent-new"></a>[Agente de Azure Monitor (nuevo)](#tab/AMA)
 
-1. En el menú de navegación de Azure Sentinel, seleccione **Conectores de datos**. En la lista de conectores, haga clic en **Eventos de seguridad de Windows (versión preliminar)** (Windows Security Events [Preview]) y, a continuación, en el botón **Open connector page** (Abrir página del conector) en la parte inferior derecha. A continuación, siga las instrucciones en pantalla debajo de la pestaña **Instrucciones**, tal como se describe en el resto de esta sección.
+1. En el menú de navegación de Azure Sentinel, seleccione **Conectores de datos**. En la lista de conectores, seleccione **Eventos de seguridad de Windows (versión preliminar)** (Windows Security Events [Preview]) y, a continuación, en el botón **Open connector page** (Abrir página del conector) en la parte inferior derecha. A continuación, siga las instrucciones en pantalla debajo de la pestaña **Instrucciones**, tal como se describe en el resto de esta sección.
 
 1. Compruebe que tiene los permisos adecuados, tal como se describe en la sección **Requisitos previos** de la página del conector.
 
@@ -252,7 +252,7 @@ Azure Sentinel puede aplicar aprendizaje automático (ML) a los datos de eventos
 
 1. Debe recopilar los datos de inicio de sesión de RDP (identificador de evento 4624) mediante los conector de datos de **eventos de seguridad** o de **eventos de seguridad de Windows**. Asegúrese de que ha seleccionado un [conjunto de eventos](#event-id-reference) que no sea "Ninguno" o que ha creado una regla de recopilación de datos que incluye este identificador de evento para la transmisión a Azure Sentinel.
 
-1. En el portal de Azure Sentinel, haga clic en **Analytics** (Análisis) y, después, haga clic en la pestaña **Rule templates** (Plantillas de reglas). Seleccione la regla **(Preview) Anomalous RDP Login Detection** [(Versión preliminar) Detección de inicio de sesión RDP anómalo] y mueva el regulador **Status** (Estado) a **Enabled** (Habilitado).
+1. En el portal de Azure Sentinel, seleccione **Analytics** (Análisis) y, después, seleccione la pestaña **Rule templates** (Plantillas de reglas). Seleccione la regla **(Preview) Anomalous RDP Login Detection** [(Versión preliminar) Detección de inicio de sesión RDP anómalo] y mueva el regulador **Status** (Estado) a **Enabled** (Habilitado).
 
     > [!NOTE]
     > Dado que el algoritmo de aprendizaje automático requiere datos de 30 días para crear un perfil de base de referencia del comportamiento de los usuarios, debe permitir que se recopilen los datos de eventos de seguridad de Windows de 30 días antes de que se puedan detectar incidentes.

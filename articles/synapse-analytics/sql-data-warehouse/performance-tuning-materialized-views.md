@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 08/17/2021
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick; azure-synapse
-ms.openlocfilehash: 1eb42cc923ea5acd23165e9dfa778e35748e4d2e
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: ce3f7b923cec3dec28043f43babbaa86a0c6d92e
+ms.sourcegitcommit: c2f0d789f971e11205df9b4b4647816da6856f5b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122323594"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122662073"
 ---
 # <a name="performance-tune-with-materialized-views"></a>Optimización del rendimiento con vistas materializadas
 
@@ -54,10 +54,13 @@ Las vistas materializadas implementadas en el grupo de SQL dedicado también pro
 
 En comparación con otros proveedores de almacenamiento de datos, las vistas materializadas implementadas en el grupo de SQL dedicado también proporcionan las siguientes ventajas:
 
+- Amplia compatibilidad con funciones de agregado. Consulte [CREATE MATERIALIZED VIEW AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql).
+- Compatibilidad con la recomendación de vista materializada específica de la consulta.  Consulte [EXPLAIN (Transact-SQL)](/sql/t-sql/queries/explain-transact-sql).
 - Actualización automática y sincrónica de los datos con los cambios de los datos de las tablas base. No se requiere ninguna acción del usuario.
-- Amplia compatibilidad con funciones de agregado. Consulte [CREATE MATERIALIZED VIEW AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=azure-sqldw-latest).
-- Compatibilidad con la recomendación de vista materializada específica de la consulta.  Consulte [EXPLAIN (Transact-SQL)](/sql/t-sql/queries/explain-transact-sql?view=azure-sqldw-latest).
+>[!note] 
+> Una vista materializada creada con expresiones CASE almacena valores que cumplen los criterios CASE solo en el momento de la creación de la vista.  La vista materializada no refleja los cambios de datos incrementales resultantes de las expresiones CASE después de crear la vista.   
 
+ 
 ## <a name="common-scenarios"></a>Escenarios frecuentes  
 
 Las vistas materializadas se suelen usar en los siguientes escenarios:

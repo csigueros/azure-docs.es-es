@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 07/15/2021
 ms.author: allensu
-ms.openlocfilehash: 2e4d8824037b93dd557d1e57e9caf54a682ad3d7
-ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
+ms.openlocfilehash: f816ae15ddba9f56f1b504b2e4ccc52efdc09249
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122397479"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123099981"
 ---
 # <a name="what-is-azure-private-endpoint"></a>¿Qué es un punto de conexión privado de Azure?
 
@@ -81,11 +81,11 @@ Un recurso de vínculo privado es el destino de un punto de conexión privado de
 | **Azure Event Grid** | Microsoft.EventGrid/domains | dominio |
 | **Azure Event Grid** | Microsoft.EventGrid/topics  | Tema de Event Grid |
 | **Centro de eventos de Azure** | Microsoft.EventHub/namespaces | espacio de nombres |
-| **Azure API for FHIR** | Microsoft.HealthcareApis/services | servicio |
+| **Azure API for FHIR** | Microsoft.HealthcareApis/services | service |
 | **Azure Keyvault HSM** | Microsoft.Keyvault/managedHSMs | HSM |
 | **Azure Key Vault** | Microsoft.KeyVault/vaults | almacén |
 | **Azure Machine Learning** | Microsoft.MachineLearningServices/workspaces | amlworkspace |
-| **Azure Migrate** | Microsoft.Migrate/assessmentProjects | proyecto |
+| **Azure Migrate** | Microsoft.Migrate/assessmentProjects | project |
 | **Application Gateway** | Microsoft.Network/applicationgateways | puerta de enlace de aplicación |
 | **Servicio Private Link** (su propio servicio) |  Microsoft.Network/privateLinkServices | empty |
 | **Power BI** | Microsoft.PowerBI/privateLinkServicesForPowerBI | Power BI |
@@ -137,18 +137,19 @@ Al conectarse a un recurso de vínculo privado mediante un nombre de dominio com
 La interfaz de red asociada con el punto de conexión privado contiene el conjunto completo de información necesaria para configurar el DNS, incluidos el FQDN y las direcciones IP privadas dadas para un recurso de vínculo privado. 
 
 Para obtener información detallada y completa acerca de las recomendaciones para configurar DNS para puntos de conexión privados, consulte [Configuración de DNS para puntos de conexión privados](private-endpoint-dns.md).
-
-
-
  
 ## <a name="limitations"></a>Limitaciones
  
 En la tabla siguiente se incluye una lista de las limitaciones conocidas al usar puntos de conexión privados: 
 
+| Limitación | Descripción |Mitigación |
+| --------- | --------- | --------- |
+| El tráfico destinado a un punto de conexión privado mediante una ruta definida por el usuario puede ser asimétrico. | El tráfico devuelto desde un punto de conexión privado omite una NVA e intenta volver a la máquina virtual de origen. | Para todo el tráfico destinado a un punto de conexión privado a través de una UDR, se recomienda el tráfico SNAT en la NVA para garantizar el enrutamiento simétrico.  |
 
-|Limitación |Descripción |Mitigación  |
-|---------|---------|---------|
-|Las reglas de grupo de seguridad de red (NSG) y las rutas definidas por el usuario no se aplican al punto de conexión privado.    | El grupo de seguridad de red no se admite en puntos de conexión privados. Si bien las subredes que contienen el punto de conexión privado pueden tener un grupo de seguridad de red asociado, las reglas no serán efectivas en el tráfico procesado por el punto de conexión privado. Debe tener la [aplicación de directivas de red deshabilitada](disable-private-endpoint-network-policy.md) para implementar puntos de conexión privados en una subred. El grupo de seguridad de red se sigue aplicando en otras cargas de trabajo hospedadas en la misma subred. Las rutas de cualquier subred de cliente utilizarán un prefijo /32, lo que cambia el comportamiento de enrutamiento predeterminado requiere un UDR similar.  | Controle el tráfico mediante el uso de reglas del grupo de seguridad de red para el tráfico saliente en los clientes de origen. Implementación de rutas individuales con un prefijo /32 para invalidar rutas de punto de conexión privado. Todavía se admiten los registros de flujo de NSG y la información de supervisión de las conexiones salientes y se pueden usar.        |
+> [!IMPORTANT]
+> La compatibilidad de NSG y UDR con puntos de conexión privados se encuentra en versión preliminar pública.
+> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 
 ## <a name="next-steps"></a>Pasos siguientes

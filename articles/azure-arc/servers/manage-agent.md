@@ -3,12 +3,12 @@ title: Administración del agente de servidores habilitados para Azure Arc
 description: En este artículo se describen las diferentes tareas de administración que normalmente realizará durante el ciclo de vida del agente de Connected Machine de los servidores habilitados para Azure Arc.
 ms.date: 08/17/2021
 ms.topic: conceptual
-ms.openlocfilehash: 9573d18b25b5795d4a6ea6d4448b46ebe4b4faa3
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 5e80d240c9b5ce8795de8baee3214d256d180e0f
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122323906"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122769854"
 ---
 # <a name="managing-and-maintaining-the-connected-machine-agent"></a>Administración y mantenimiento del agente de Connected Machine
 
@@ -58,7 +58,7 @@ En el caso de los servidores habilitados para Arc, antes de cambiar el nombre de
 
 5. Vuelva a registrar el agente de Connected Machine con los servidores habilitados para Azure Arc. Ejecute la herramienta `azcmagent` con el parámetro [Connect](manage-agent.md#connect) para completar este paso.
 
-6. Vuelva a implementar las extensiones de máquina virtual que se implementaron originalmente en la máquina desde los servidores habilitados para Azure Arc. Si ha implementado el agente de Azure Monitor para VM (conclusiones) o el agente de Log Analytics mediante una directiva de Azure, los agentes se vuelven a implementar después del siguiente [ciclo de evaluación](../../governance/policy/how-to/get-compliance-data.md#evaluation-triggers).
+6. Vuelva a implementar las extensiones de máquina virtual que se implementaron originalmente en la máquina desde los servidores habilitados para Azure Arc. Si ha implementado el agente de Azure Monitor para VM (conclusiones) o el agente de Log Analytics mediante una definición de Azure Policy, los agentes se vuelven a implementar después del siguiente [ciclo de evaluación](../../governance/policy/how-to/get-compliance-data.md#evaluation-triggers).
 
 ## <a name="upgrading-agent"></a>Actualizar el agente
 
@@ -199,7 +199,7 @@ Puede realizar una operación **Connect** y **Disconnect** manualmente mientras 
 
 Este parámetro especifica un recurso en Azure Resource Manager que representa la máquina que se crea en Azure. El recurso está en la suscripción y en el grupo de recursos solicitado, y los datos sobre la máquina se almacenan en la región de Azure especificada por la opción `--location`. El nombre predeterminado del recurso es el nombre de host de la máquina, si no se especifica.
 
-Un certificado correspondiente a la identidad asignada por el sistema de esta máquina se descarga entonces y se almacena localmente. Una vez que este paso se completa, el agente de configuración de invitados y Metadata Service de Azure Connected Machine comienzan a sincronizarse con los servidores habilitados para Azure Arc.
+Un certificado correspondiente a la identidad asignada por el sistema de esta máquina se descarga entonces y se almacena localmente. Una vez que este paso se completa, el servicio de agente de configuración de invitados y Metadata Service de Azure Connected Machine comienzan a sincronizarse con los servidores habilitados para Azure Arc.
 
 Para conectarse con una entidad de servicio, ejecute el siguiente comando:
 

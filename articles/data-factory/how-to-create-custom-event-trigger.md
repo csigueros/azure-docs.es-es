@@ -8,12 +8,12 @@ ms.author: chez
 ms.reviewer: jburchel
 ms.topic: conceptual
 ms.date: 05/07/2021
-ms.openlocfilehash: 2a454f2f81e048511725e7a9f3269bdd9b5bcd49
-ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
+ms.openlocfilehash: 046d94202769845f58c7f528bddb37e29e0c312a
+ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122396638"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122514429"
 ---
 # <a name="create-a-custom-event-trigger-to-run-a-pipeline-in-azure-data-factory"></a>Creación de un desencadenador de eventos personalizado para ejecutar una canalización en Azure Data Factory
 
@@ -135,7 +135,7 @@ En la tabla siguiente se proporciona información general acerca de los elemento
 |---|----------------------------|---|---|---|
 | `scope` | El identificador de recursos de Azure Resource Manager del tema de cuadrícula del evento. | String | Identificador de Azure Resource Manager | Sí |
 | `events` | El tipo de eventos que provocan la activación de este desencadenador. | Matriz de cadenas    |  | Sí, se espera al menos un valor. |
-| `subjectBeginsWith` | El campo `subject` debe comenzar con el patrón proporcionado para que se active el desencadenador. Por ejemplo, *factories solo activa el desencadenador para los asuntos de eventos que comienzan por *factories*. | String   | | No |
+| `subjectBeginsWith` | El campo `subject` debe comenzar con el patrón proporcionado para que se active el desencadenador. Por ejemplo, _factories_ solo activa el desencadenador para los asuntos de eventos que comienzan por *factories*. | String   | | No |
 | `subjectEndsWith` | El campo `subject` debe terminar con el patrón proporcionado para que se active el desencadenador. | String   | | No |
 | `advancedFilters` | Lista de blobs de JSON, donde cada uno especifica una condición de filtro. Cada blob especifica `key`, `operatorType` y `values`. | Lista de blobs de JSON | | No |
 

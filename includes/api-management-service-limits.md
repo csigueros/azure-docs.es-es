@@ -6,17 +6,17 @@ author: vladvino
 ms.assetid: 1b813833-39c8-46be-8666-fd0960cfbf04
 ms.service: api-management
 ms.topic: include
-ms.date: 07/07/2021
+ms.date: 08/20/2021
 ms.author: vlvinogr
 ms.custom: include file
-ms.openlocfilehash: 053f1372067284e2b2d10bac508156b6ef38e4af
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: d3317bafa2ff03e83bd79e9a3efa0ecfaffd4124
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122014628"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122752880"
 ---
-| Recurso | Límite |
+| Resource | Límite |
 | ---------------------------------------------------------------------- | -------------------------- |
 | Número máximo de unidades de escalado | 12 por región<sup>1</sup> |
 | Tamaño de memoria caché | 5 GiB por unidad<sup>2</sup> |
@@ -33,10 +33,10 @@ ms.locfileid: "122014628"
 | Duración total máxima de la solicitud<sup>8</sup> | 30 segundos |
 | Tamaño máximo de carga de solicitud<sup>8</sup> | 1 GiB |
 | Tamaño máximo de carga útil en búfer<sup>8</sup> | 2 MiB |
-| Tamaño máximo de la dirección URL de la solicitud<sup>9</sup> | 4096 bytes |
+| Tamaño máximo de la dirección URL de la solicitud<sup>9</sup> | 16384 bytes |
 | Longitud máxima del segmento de la ruta de acceso de la dirección URL<sup>10</sup> | 260 caracteres |
 | Tamaño máximo del esquema de API usado por la [directiva de validación](../articles/api-management/validation-policies.md)<sup>10</sup> | 4 MB |
-| Tamaño máximo del cuerpo de solicitud o respuesta en la [directiva de validación de contenido](../articles/api-management/validation-policies.md#validate-content) | 100 KB |
+| Tamaño máximo del cuerpo de solicitud o respuesta en la [directiva de validación de contenido](../articles/api-management/validation-policies.md#validate-content)<sup>10</sup> | 100 KB |
 | Número máximo de puertas de enlace autohospedadas<sup>11</sup> | 25 |
 
 <sup>1</sup>Los límites de escalado dependen del plan de tarifa. Para ver los planes de tarifa y sus límites de escalado, consulte [Precios de API Management](https://azure.microsoft.com/pricing/details/api-management/).<br/>

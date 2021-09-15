@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 08/17/2021
 ms.author: b-juche
-ms.openlocfilehash: 824f2c9d8259e04790d89428c4a4f7384d02ec9a
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: bf38602fdbc2c6fb1f7beba5a374c641963651a0
+ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122322233"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122429551"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Creación de un volumen de SMB para Azure NetApp Files
 
@@ -166,7 +166,7 @@ Puede establecer permisos para un archivo o carpeta con la pestaña **Seguridad*
 * [Montaje o desmontaje de un volumen para máquinas virtuales Windows o Linux](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 * [Límites de recursos para Azure NetApp Files](azure-netapp-files-resource-limits.md)
 * [Configuración de ADDS LDAP sobre TLS para Azure NetApp Files](configure-ldap-over-tls.md) 
-* [Conversión de volúmenes SMB existentes para usar la disponibilidad continua](convert-smb-continuous-availability.md)
+* [Habilitación de la disponibilidad continua en volúmenes de SMB existentes](enable-continuous-availability-existing-SMB.md)
 * [Cifrado de SMB](azure-netapp-files-smb-performance.md#smb-encryption)
 * [Solución de problemas de SMB o de volúmenes de dos protocolos](troubleshoot-dual-protocol-volumes.md)
 * [Obtenga información sobre la integración de redes virtuales para los servicios de Azure](../virtual-network/virtual-network-for-azure-services.md)

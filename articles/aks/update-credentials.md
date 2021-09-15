@@ -5,12 +5,12 @@ description: Aprenda a actualizar o restablecer las credenciales de la entidad d
 services: container-service
 ms.topic: article
 ms.date: 03/11/2019
-ms.openlocfilehash: 128e2d38b002369381c860dbd94dbd93b278682d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 72cc0c6ab369b035df8c4a29c89be74fa9102cc5
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121743928"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123101523"
 ---
 # <a name="update-or-rotate-the-credentials-for-azure-kubernetes-service-aks"></a>Actualización o modificación de las credenciales de un clúster de Azure Kubernetes Service (AKS)
 
@@ -97,7 +97,7 @@ Ahora, vaya a la sección [Actualización del clúster de AKS con nuevas credenc
 ## <a name="update-aks-cluster-with-new-service-principal-credentials"></a>Actualización del clúster de AKS con nuevas credenciales de la entidad de servicio
 
 > [!IMPORTANT]
-> En el caso de los clústeres de gran tamaño, la actualización del clúster de AKS con una entidad de servicio nueva puede tardar mucho tiempo en completarse.
+> En el caso de los clústeres de gran tamaño, la actualización del clúster de AKS con una entidad de servicio nueva puede tardar mucho tiempo en completarse. Considere la posibilidad de revisar y personalizar la [configuración de actualización de sobrecarga de nodo][node-surge-upgrade] para minimizar la interrupción durante las actualizaciones y actualizaciones del clúster.
 
 Independientemente de si decide actualizar las credenciales de la entidad de servicio existente o de si crea una entidad de servicio, debe actualizar de nuevo el clúster de AKS con sus credenciales mediante el comando [az aks update-credentials][az-aks-update-credentials]. Las variables para los valores de *--service-principal* y *--client-secret* se usan de la siguiente manera:
 
@@ -142,3 +142,4 @@ En este artículo, lo que se ha actualizado es la propia entidad de servicio del
 [az-ad-sp-credential-list]: /cli/azure/ad/sp/credential#az_ad_sp_credential_list
 [az-ad-sp-credential-reset]: /cli/azure/ad/sp/credential#az_ad_sp_credential_reset
 [node-image-upgrade]: ./node-image-upgrade.md
+[node-surge-upgrade]: upgrade-cluster.md#customize-node-surge-upgrade

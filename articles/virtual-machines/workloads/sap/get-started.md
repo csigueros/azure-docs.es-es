@@ -13,15 +13,15 @@ ms.assetid: ad8e5c75-0cf6-4564-ae62-ea1246b4e5f2
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/17/2021
+ms.date: 08/26/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f219825a7d0ec47125c5518da76ad014f809c3ef
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 305f7b964bfd084bf1fa245d436c431cde1b9104
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122322292"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123110334"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Uso de Azure para hospedar y ejecutar escenarios de carga de trabajo de SAP
 
@@ -80,10 +80,12 @@ En esta sección encontrará información sobre cómo configurar el inicio de se
 En esta sección encontrará documentos sobre la integración de Microsoft Power BI en orígenes de datos de SAP, así como la integración de Azure Data Factory en SAP BW.
 
 ## <a name="change-log"></a>Registro de cambios
+- 26 de agosto de 2021: cambio en la [configuración de Pacemaker en RHEL en Azure](./high-availability-guide-rhel-pacemaker.md) y en la [configuración de Pacemaker en SLES en Azure](./high-availability-guide-suse-pacemaker.md) para corregir el JSON de definición de roles para el agente de barrera de Azure.
 - 17 de agosto de 2021: cambios en la [implementación de DBMS de Azure Virtual Machines de IBM Db2 para cargas de trabajo de SAP](./dbms_guide_ibm.md), en los [tipos de Azure Storage para una carga de trabajo de SAP](./planning-guide-storage.md) y en la [carga de trabajo de SAP en escenarios admitidos en máquinas virtuales de Azure](./sap-planning-supported-configurations.md) para introducir compatibilidad con IBM Db2 mediante el uso de volúmenes de NFS hospedados en ANF.
 - 2 de agosto de 2021: cambios en la [alta disponibilidad de SAP NW en las VM de Azure en SLES para aplicaciones de SAP](./high-availability-guide-suse.md), en la [alta disponibilidad de SAP NW en las VM de Azure en SLES con ANF](./high-availability-guide-suse-netapp-files.md), en la [alta disponibilidad de SAP NW en las VM de Azure en RHEL para aplicaciones de SAP](./high-availability-guide-rhel.md) y en la [alta disponibilidad de SAP NW en las VM de Azure en RHEL con ANF](./high-availability-guide-rhel-netapp-files.md) para aclarar el comportamiento (ENSA1/ENSA2) en un escenario de prueba que simula un error en el servidor de puesta en cola.     
-- 2 de agosto de 2021: cambios en la [alta disponibilidad de SAP NW en las VM de Azure en RHEL para aplicaciones de SAP](./high-availability-guide-rhel.md), en la [alta disponibilidad de SAP NW en las VM de Azure en RHEL con ANF](./high-availability-guide-rhel-netapp-files.md) y en la [alta disponibilidad de SAP NW en las VM de Azure en RHEL con varios SID](./high-availability-guide-rhel-multi-sid.md) para ajustar la adherencia de los recursos de clúster, los umbrales de migración y las restricciones de ordenación.  
-- 2 de agosto de 2021: publicación de la [guía de implementación de Nearline Storage (NLS) de SAP BW con SAP IQ en Azure](./sap-iq-deployment-guide.md). 
+- 11 de agosto de 2021: cambios en la [alta disponibilidad de SAP NW en las VM de Azure en RHEL para aplicaciones de SAP](./high-availability-guide-rhel.md), en la [alta disponibilidad de SAP NW en las VM de Azure en RHEL con ANF](./high-availability-guide-rhel-netapp-files.md) y en la [alta disponibilidad de SAP NW en las VM de Azure en RHEL con varios SID](./high-availability-guide-rhel-multi-sid.md) para ajustar la adherencia de los recursos de clúster, los umbrales de migración y las restricciones de ordenación.  
+- 11 de agosto de 2021: publicación de la [guía de implementación de Nearline Storage (NLS) de SAP BW con SAP IQ en Azure](./sap-iq-deployment-guide.md). 
+- 29 de julio de 2021: introducción del clúster Windows de dos nodos combinado para ASCS/SCS y DBMS en [Alta disponibilidad para SAP NetWeaver en máquinas virtuales de Azure en Windows con Azure NetApp Files(SMB) para aplicaciones SAP](./high-availability-guide-windows-netapp-files-smb.md) y [Clúster de una instancia de ASCS/SCS de SAP en un clúster de conmutación por error de Windows mediante un disco compartido de clúster en Azure](./sap-high-availability-guide-wsfc-shared-disk.md). 
 - 26 de julio de 2021: cambios en la [configuración de Pacemaker en RHEL en Azure](./high-availability-guide-rhel-pacemaker.md) y en la [configuración de Pacemaker en SLES en Azure](./high-availability-guide-suse-pacemaker.md) para reemplazar las instrucciones de asignación de roles por vínculos a la documentación de RBAC en las secciones que describen la configuración del agente de barrera de Azure.
 - 22 de julio de 2021: cambios en la [alta disponibilidad de SAP NW en las VM de Azure en RHEL para aplicaciones de SAP](./high-availability-guide-rhel.md), en la [alta disponibilidad de SAP NW en las VM de Azure en RHEL con ANF](./high-availability-guide-rhel-netapp-files.md) y en la [alta disponibilidad de SAP NW en las VM de Azure en RHEL con varios SID](./high-availability-guide-rhel-multi-sid.md) para eliminar `failure-timeout` del recurso de clúster de ASCS (solo ENSA2).
 - 16 de julio de 2021: reestructuración de la tabla de contenido de la documentación de SAP en Azure para una navegación más simplificada.
@@ -158,7 +160,7 @@ En esta sección encontrará documentos sobre la integración de Microsoft Powe
 - 4 de agosto de 2020: Cambio en [Instalación de alta disponibilidad para SAP NetWeaver en un clúster de conmutación por error de Windows y un recurso compartido de archivos para instancias de SAP ASCS/SCS](./sap-high-availability-installation-wsfc-file-share.md), [Instalación de alta disponibilidad para SAP NetWeaver en un clúster de conmutación por error de Windows y un disco compartido para una instancia de ASCS/SCS de SAP en Azure](./sap-high-availability-installation-wsfc-shared-disk.md), [Alta disponibilidad para SAP NetWeaver en máquinas virtuales de Azure](./high-availability-guide.md), [Alta disponibilidad para SAP NetWeaver en máquinas virtuales de Azure en SUSE Linux Enterprise Server para SAP Applications](./high-availability-guide-suse.md), [Alta disponibilidad de SAP NetWeaver en VM de Azure en SUSE Linux Enterprise Server con Azure NetApp Files para las aplicaciones de SAP](./high-availability-guide-suse-netapp-files.md), [Alta disponibilidad para SAP NetWeaver en máquinas virtuales de Azure en SUSE Linux Enterprise Server para SAP Applications: guía de varios SID](./high-availability-guide-suse-multi-sid.md), [Alta disponibilidad de Azure Virtual Machines para SAP NetWeaver en Red Hat Enterprise Linux](./high-availability-guide-rhel.md), [Alta disponibilidad de Azure Virtual Machines para SAP NetWeaver en Red Hat Enterprise Linux con Azure NetApp Files para aplicaciones SAP](./high-availability-guide-rhel-netapp-files.md) y [Alta disponibilidad para SAP NetWeaver en VM de Azure en Red Hat Enterprise Linux para SAP Applications: guía de varios SID](./high-availability-guide-rhel-multi-sid.md) para aclarar el uso del parámetro `enque/encni/set_so_keepalive`.
 - 23 de julio de 2020: Se ha agregado el artículo [Ahorre en SAP HANA (instancias grandes) con una reserva de Azure](../../../cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity.md), en el que se explica lo que debe saber antes de comprar una reserva SAP HANA (instancias grandes) y cómo hacer la compra.
 - 16 de julio de 2020: descripción del uso de Azure PowerShell para instalar la nueva extensión de máquina virtual para SAP en la [guía de implementación](deployment-guide.md).
-- 4 de julio de 2020: lanzamiento de [Azure Monitor para soluciones de SAP (versión preliminar)](./azure-monitor-overview.md)
+- 4 de julio de 2020: lanzamiento de [Azure Monitor para soluciones de SAP (versión preliminar)](./monitor-sap-on-azure.md).
 - 1 de julio de 2020: sugerencia de una configuración de almacenamiento menos costosa basada en la función de ráfaga del almacenamiento premium de Azure en el documento [Configuraciones de almacenamiento de máquinas virtuales de Azure en SAP HANA](./hana-vm-operations-storage.md). 
 - 24 de junio de 2020: cambio en [Configuración de Pacemaker en SLES en Azure](./high-availability-guide-suse-pacemaker.md) para lanzar una nueva versión mejorada del agente de barrera de Azure y una configuración de STONITH más resistente para dispositivos, basada en el agente de barrera de Azure. 
 - 24 de junio de 2020: cambio en [Configuración de Pacemaker en RHEL en Azure](./high-availability-guide-rhel-pacemaker.md) para lanzar una configuración de STONITH más resistente.

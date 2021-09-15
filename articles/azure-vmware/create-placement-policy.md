@@ -2,13 +2,13 @@
 title: Creación de una directiva de selección de ubicación (versión preliminar)
 description: Aprenda a crear una directiva de selección de ubicación en Azure VMware Solution para controlar la selección de máquinas virtuales (VM) en hosts dentro de un clúster mediante Azure Portal.
 ms.topic: how-to
-ms.date: 8/16/2021
-ms.openlocfilehash: 267c58382e0272ba6121ae762f48b1ef08973c61
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.date: 8/18/2021
+ms.openlocfilehash: 85146ce86dea0d3cfa7397cdaae6fefc8cf4a23b
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122323312"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122967549"
 ---
 # <a name="create-a-placement-policy-in-azure-vmware-solution-preview"></a>Creación de una directiva de selección de ubicación en Azure VMware Solution (versión preliminar)
 
@@ -17,7 +17,7 @@ ms.locfileid: "122323312"
 
 En Azure VMware Solution, los clústeres de una nube privada son un recurso administrado. Como resultado, el rol cloudadmin no puede realizar determinados cambios en el clúster desde vSphere Client, incluida la administración de reglas de Distributed Resource Scheduler (DRS).
 
-Las directivas de selección de ubicación en Azure VMware Solution le permiten controlar la selección de máquinas virtuales (VM) en hosts dentro de un clúster mediante Azure Portal. Al crear una directiva de selección de ubicación, esta incluye una regla de DRS en el clúster de vSphere especificado. También incluye lógica adicional para la interoperabilidad con operaciones de Azure VMware Solution.
+La característica de directiva de selección de ubicación está disponible en todas las regiones de Azure VMware Solution.  Las directivas de selección de ubicación le permiten controlar la selección de máquinas virtuales (VM) en hosts dentro de un clúster mediante Azure Portal. Al crear una directiva de selección de ubicación, esta incluye una regla de DRS en el clúster de vSphere especificado. También incluye lógica adicional para la interoperabilidad con operaciones de Azure VMware Solution.
 
 Una directiva de selección de ubicación tiene al menos cinco componentes necesarios: 
 
@@ -63,11 +63,7 @@ Además de elegir un nombre y un clúster para la directiva, una directiva de **
 - Las directivas de **antiafinidad de VM-host** indican a DRS que intente ejecutar las máquinas virtuales especificadas en hosts distintos de los definidos.
 
 
-
-
 ## <a name="considerations"></a>Consideraciones
-
-
 
 ### <a name="cluster-scale-in"></a>Reducción horizontal de clústeres
 
@@ -84,7 +80,9 @@ Si se detectan conflictos de reglas de DRS a la hora de crear una directiva de V
 
 
 
-## <a name="create-a-placement-policy"></a>Creación de una directiva de selección de ubicación
+## <a name="create-a-placement-policy"></a>Creación de una directiva de colocación
+
+No hay un límite definido para el número de directivas que se crean. Sin embargo, cuanto más restricciones de selección de ubicación cree, más difícil será para vSphere DRS mover máquinas virtuales de forma eficaz dentro del clúster y proporcionar los recursos necesarios para las cargas de trabajo.      
 
 Asegúrese de revisar primero los requisitos de cada [tipo de directiva](#placement-policy-types).
 
@@ -105,18 +103,22 @@ Asegúrese de revisar primero los requisitos de cada [tipo de directiva](#placem
    >[!WARNING]
    >Si deshabilita la directiva, se crearán la directiva y la regla de DRS subyacente, pero las acciones de la directiva se omitirán hasta que esta se habilite. 
 
-   :::image type="content" source="media/placement-policies/create-placement-policy-vm-vm-affinity-1.png" alt-text="Captura de pantalla en la que se muestran las opciones de la directiva de selección de ubicación." lightbox="media/placement-policies/create-placement-policy-vm-vm-affinity-1.png":::   
+   :::image type="content" source="media/placement-policies/create-placement-policy-vm-host-affinity-1.png" alt-text="Captura de pantalla en la que se muestran las opciones de la directiva de selección de ubicación." lightbox="media/placement-policies/create-placement-policy-vm-host-affinity-1.png":::   
 
-1. Si selecciona los tipos de directiva de **afinidad de VM-host** o **antiafinidad de VM-host**, es necesario que seleccione un host para la directiva. Seleccione **+ Agregar host** y los hosts que se incluirán en la directiva. Puede seleccionar varios hosts.
+1. Si selecciona los tipos **afinidad de vm-host** o **antiafinidad de vm-host**, seleccione **+ Agregar host** y los hosts que se incluirán en la directiva. Puede seleccionar varios hosts.
 
-   :::image type="content" source="media/placement-policies/create-placement-policy-vm-host-affinity-2.png" alt-text="Captura de pantalla en la que se muestra la lista de hosts que se pueden seleccionar.":::
+   >[!NOTE]
+   >El panel Seleccionar hosts muestra cuántas directivas de VM-host están asociadas con el host y el número total de máquinas virtuales que contienen esas directivas asociadas.
+   >
+   >:::image type="content" source="media/placement-policies/hosts-associated-policies-vms.png" alt-text="Captura de pantalla que muestra el número directivas VM-host asociadas al host junto con el número de máquinas virtuales contenidas en esas directivas asociadas.":::
+
 
 1. Seleccione **+ Agregar máquina virtual** y las máquinas virtuales que se incluirán en la directiva. Puede seleccionar varias máquinas virtuales.
 
    :::image type="content" source="media/placement-policies/create-placement-policy-vm-vm-affinity-2.png" alt-text="Captura de pantalla en la que se muestra la lista de máquinas virtuales que se pueden seleccionar.":::
-
+   
    >[!NOTE]
-   >El panel Seleccionar hosts muestra cuántas directivas de VM-host están asociadas con el host y el número total de máquinas virtuales que contienen esas directivas asociadas.
+   >El panel Seleccionar hosts muestra cuántas directivas de VM-host están asociadas con el host y el número total de máquinas virtuales que contienen esas directivas asociadas. 
 
 1. Cuando haya terminado de agregar las máquinas virtuales que quiera, seleccione **Agregar máquinas virtuales**. 
 
@@ -166,7 +168,7 @@ Puede agregar nuevos recursos, como una máquina virtual o un host, a una direct
 
    :::image type="content" source="media/placement-policies/edit-placement-policy.png" alt-text="Captura de pantalla en la que se muestra cómo editar los recursos de una directiva de selección de ubicación." lightbox="media/placement-policies/edit-placement-policy.png":::
 
-   - Para quitar un recurso existente, seleccione el recurso o los recursos que quiere quitar. Después, seleccione **Cancelar asignación** para quitar el recurso o los recursos de la lista.
+   - Para quitar un recurso existente, seleccione uno o más recursos que quiera quitar y seleccione **Quitar asignación**. 
 
       :::image type="content" source="media/placement-policies/edit-placement-policy-unassign.png" alt-text="Captura de pantalla en la que se muestra cómo quitar un recurso existente de una directiva de selección de ubicación.":::
 
@@ -199,3 +201,25 @@ Use vSphere Client para supervisar el funcionamiento de la regla de DRS correspo
 Como titular del rol cloudadmin, puede ver, pero no editar, las reglas de DRS creadas por una directiva de selección de ubicación en la pestaña Configurar del clúster en Reglas de host/máquina virtual. Desde aquí, puede ver información adicional, por ejemplo, si las reglas de DRS están en conflicto.
 
 Además, puede supervisar varias operaciones de reglas de DRS, como recomendaciones y errores, desde la pestaña Supervisar del clúster.
+
+
+## <a name="faqs"></a>Preguntas más frecuentes
+
+### <a name="are-these-the-same-as-drs-affinity-rules"></a>¿Son iguales que las reglas de afinidad de DRS?
+Sí y no. Aunque vSphere DRS implementa el conjunto actual de directivas, hemos simplificado la experiencia. La modificación de grupos de máquinas virtuales y grupos host es una operación complicada, especialmente porque los hosts son efímeros por naturaleza y podrían reemplazarse en un entorno de nube. A medida que los hosts se reemplazan en el inventario de vSphere en un entorno local, el administrador de vSphere debe modificar el grupo host para asegurarse de que las restricciones de selección de ubicación de VM-host deseadas permanecen en vigor. Las directivas de selección en Azure VMware Solution actualizan los grupos host cuando se rota o cambia un host. De forma similar, si escala en un clúster, el grupo host se actualiza automáticamente, según corresponda. Esto elimina la sobrecarga de administrar los grupos host para el cliente.
+
+
+### <a name="as-this-is-an-existing-functionality-available-in-vcenter-why-cant-i-use-it-directly"></a>Ya que se trata de una funcionalidad existente disponible en vCenter, ¿por qué no puedo usarla directamente? 
+
+Azure VMware Solution proporciona una nube privada de VMware en Azure. En esta infraestructura de VMware administrada, Microsoft administra los clústeres, hosts, almacenes de datos y conmutadores virtuales distribuidos en la nube privada. Al mismo tiempo, el inquilino es responsable de administrar las cargas de trabajo implementadas en la nube privada. Como resultado, el inquilino que administra la nube privada [no tiene el mismo conjunto de privilegios](concepts-identity.md) que el administrador de VMware disponible en una implementación local. 
+
+Además, la falta de la granularidad deseada en los privilegios de vSphere presenta algunos desafíos al administrar la ubicación de las cargas de trabajo en la nube privada. Por ejemplo, las reglas de DRS de vSphere que se usan normalmente en el entorno local para definir reglas de afinidad y antiafinidad no se pueden usar tal y como están en un entorno de VMware Cloud, ya que algunas de esas reglas pueden bloquear el funcionamiento diario de la nube privada. Las directivas de selección de ubicación proporcionan una manera de definir esas reglas mediante el portal de Azure VMware Solution, lo que evita la necesidad de usar reglas de DRS. Además de una experiencia simplificada, también garantizan que las reglas no afecten a las actividades diarias de mantenimiento y operación de la infraestructura. 
+
+
+###  <a name="what-caveats-should-i-know-about"></a>¿Qué advertencias debo conocer?
+
+Las reglas **MUST** de VM-host no se admiten porque bloquean las operaciones de mantenimiento. 
+
+Las reglas **SHOULD** de VM-host son preferentes, donde DRS de vSphere intenta dar cabida a las reglas en la medida de lo posible. En ocasiones, DRS de vSphere puede tener máquinas virtuales de vMotion sujetas a las reglas **SHOULD** de VM-host para asegurarse de que las cargas de trabajo obtienen los recursos que necesitan. Es un comportamiento estándar de DRS de vSphere y la característica de directivas de selección de ubicación no cambia el comportamiento subyacente de DRS de vSphere.
+
+Si crea reglas en conflicto, esos conflictos pueden aparecer en vCenter y es posible que las reglas recién definidas no tengan efecto. Se trata de un comportamiento estándar de DRS de vSphere, cuyos registros se pueden observar en vCenter.

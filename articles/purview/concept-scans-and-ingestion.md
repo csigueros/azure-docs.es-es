@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 08/18/2021
-ms.openlocfilehash: 140e87f4e03081825fe75ba73b7c5ebd33b20ada
-ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
+ms.openlocfilehash: 85509f1500936dfaa0d308b01912ce927f3f380f
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122398134"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122825231"
 ---
 # <a name="scans-and-ingestion-in-azure-purview"></a>Exámenes e ingesta en Azure Purview
 
@@ -36,7 +36,19 @@ Un conjunto de reglas de examen determina los tipos de información que buscará
 
 Ya hay [conjuntos de reglas de examen del sistema](create-a-scan-rule-set.md#system-scan-rule-sets) disponibles para muchos tipos de orígenes de datos, pero también puede [crear sus propios conjuntos de reglas de examen](create-a-scan-rule-set.md) para adaptar los exámenes a su organización.
 
-## <a name="ingestion"></a>Ingesta de datos
+### <a name="how-scans-detect-deleted-assets"></a>Cómo detectan los exámenes los recursos eliminados
+
+Un catálogo de Azure Purview conoce el estado de un almacén de datos solo cuando lo examina. Para que el catálogo determine si se ha eliminado un archivo, una tabla o un contenedor, compara la última salida del examen con la salida del examen actual. Por ejemplo, supongamos que la última vez que examinó una cuenta de Azure Data Lake Storage Gen2, incluía una carpeta llamada *carpeta1*. Al volver a examinar la misma cuenta, *folder1* ya no está. Por lo tanto, el catálogo supone que la carpeta se ha eliminado.
+
+#### <a name="detecting-deleted-files"></a>Detección de archivos eliminados
+
+La lógica para detectar archivos que faltan funciona para varios exámenes realizados por el mismo usuario y también por distintos usuarios. Por ejemplo, supongamos que un usuario ejecuta un examen puntual en un almacén de datos Data Lake Storage Gen2 en las carpetas A, B y C. Más adelante, otro usuario en la misma cuenta ejecuta un examen puntual en las carpetas C, D y E del mismo almacén de datos. Dado que la carpeta C se ha examinado dos veces, el catálogo la comprueba para detectar posibles eliminaciones. Sin embargo, las carpetas A, B, D y E solo se han examinado una vez y el catálogo no las comprobará para determinar si hay recursos eliminados.
+
+Para mantener los archivos eliminados fuera del catálogo, es importante realizar exámenes periódicamente. El intervalo entre exámenes es importante, ya que el catálogo no puede detectar recursos eliminados hasta que se ejecute otro examen. Por lo tanto, si ejecuta exámenes una vez al mes en un almacén determinado, el catálogo no podrá detectar recursos de datos eliminados en ese almacén hasta que ejecute el siguiente examen un mes más tarde.
+
+Al enumerar almacenes de datos de gran tamaño, como Data Lake Storage Gen2, es posible que se omita información de varias maneras (como errores de enumeración y eventos eliminados). Un examen determinado podría pasar por alto un archivo creado o eliminado. Por lo tanto, a menos que el catálogo tenga la seguridad de que se ha eliminado un archivo, no lo eliminará del catálogo. Esta estrategia implica que podría haber errores cuando un archivo que no existe en el almacén de datos examinado todavía existe en el catálogo. En algunos casos, es posible que sea necesario examinar un almacén de datos dos o tres veces antes de que se detecten determinados recursos eliminados.
+
+## <a name="ingestion"></a>Ingesta
 
 Los metadatos o las clasificaciones técnicos identificados en el proceso de examen se envían a ingesta. El proceso de ingesta es responsable de rellenar el mapa de datos y lo administra Purview.  La ingesta analiza la entrada del examen, [aplica patrones de conjunto de recursos](concept-resource-sets.md#how-azure-purview-detects-resource-sets), rellena la información de [linaje](concept-data-lineage.md) disponible y, luego, carga automáticamente el mapa de datos. Los recursos o esquemas solo se pueden detectar o mantener una vez completada la ingesta. Por lo tanto, si el examen se ha completado, pero no ha visto los recursos en el mapa o el catálogo de datos, tendrá que esperar a que finalice el proceso de ingesta.
 

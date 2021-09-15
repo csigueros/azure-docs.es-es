@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 08/17/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 34de5fbfbccd84c716684d1f98a16c4d0a5e6344
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 4e63e2603b6625c7eaee602b107c2d01c40a8ac8
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122322141"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122830671"
 ---
 # <a name="ibm-db2-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Implementación de DBMS de Azure Virtual Machines de IBM Db2 para carga de trabajo de SAP
 
@@ -55,11 +55,15 @@ Para más información de los tipos de máquina virtual de Azure y los productos
 
 ## <a name="ibm-db2-for-linux-unix-and-windows-configuration-guidelines-for-sap-installations-in-azure-vms"></a>Instrucciones de configuración de IBM Db2 para Linux, UNIX y Windows para instalaciones de SAP en máquinas virtuales de Azure
 ### <a name="storage-configuration"></a>Configuración de almacenamiento
-Para obtener información general sobre los tipos de Azure Storage para la carga de trabajo de SAP, consulte el artículo [Tipos de Azure Storage para una carga de trabajo de SAP](./planning-guide-storage.md). Todos los archivos de base de datos deben almacenarse en discos montados de almacenamiento en bloque de Azure (Windows: NFFS; Linux: xfs o ext3). **NINGÚN** tipo de unidad de red o recurso compartido remoto, como los siguientes servicios de Azure, es compatible con archivos de bases de datos: 
+Para obtener información general sobre los tipos de Azure Storage para la carga de trabajo de SAP, consulte el artículo [Tipos de Azure Storage para una carga de trabajo de SAP](./planning-guide-storage.md). Todos los archivos de base de datos deben almacenarse en discos montados de almacenamiento en bloque de Azure (Windows: NFFS; Linux: xfs o ext3). Los volúmenes compartidos remotos como los servicios de Azure en los escenarios enumerados **NO** son compatibles con los archivos de base de datos db2: 
 
-* [Servicio Microsoft Azure Files](/archive/blogs/windowsazurestorage/introducing-microsoft-azure-file-service)
+* [Microsoft Azure File Service](/archive/blogs/windowsazurestorage/introducing-microsoft-azure-file-service) para todos los sistemas operativos invitados
 
-* [Azure NetApp Files](https://azure.microsoft.com/services/netapp/)
+* [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) para db2 que se ejecuta en el sistema operativo invitado Windows. 
+
+Los volúmenes compartidos remotos como los servicios de Azure en los escenarios enumerados son compatibles con los archivos de base de datos db2: 
+ 
+* Se admite el hospedaje de archivos de datos y de registro db2 basados en el sistema operativo invitado Linux en recursos compartidos de NFS hospedados Azure NetApp Files.
 
 Si se usan discos basados en Azure Page BLOB Storage o Managed Disks, las afirmaciones realizadas en [Consideraciones para la implementación de DBMS de Azure Virtual Machines para la carga de trabajo de SAP](dbms_guide_general.md) también se aplican a las implementaciones con el DBMS de Db2.
 
@@ -90,7 +94,7 @@ A continuación, se facilita una configuración de línea de base para varios ta
 | Nombre/tamaño de la máquina virtual |Punto de montaje de Db2 |Disco Premium de Azure |Número de discos |E/S |Rendimiento [MB/s] |Tamaño [GB] |IOPS de ráfaga |Rendimiento de ráfaga [GB] | Stripe size (Tamaño de las franjas) | Almacenamiento en memoria caché |
 | --- | --- | --- | :---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 |E4ds_v4 |/db2 |P6 |1 |240  |50  |64  |3500  |170  ||  |
-|vCPU: 4 |/db2/```<SID>```/sapdata |P10 |2 |1,000  |200  |256  |7000  |340  |256 KB |ReadOnly |
+|vCPU: 4 |/db2/```<SID>```/sapdata |P10 |2 |1,000  |200  |256  |7000  |340  |256 KB |ReadOnly |
 |RAM: 32 GiB |/db2/```<SID>```/saptmp |P6 |1 |240  |50  |128  |3500  |170  | ||
 | |/db2/```<SID>```/log_dir |P6 |2 |480  |100  |128  |7000  |340  |64 KB ||
 | |/db2/```<SID>```/offline_log_dir |P10 |1 |500  |100  |128  |3500  |170  || |
@@ -99,7 +103,7 @@ A continuación, se facilita una configuración de línea de base para varios ta
 | Nombre/tamaño de la máquina virtual |Punto de montaje de Db2 |Disco Premium de Azure |Número de discos |E/S |Rendimiento [MB/s] |Tamaño [GB] |IOPS de ráfaga |Rendimiento de ráfaga [GB] | Stripe size (Tamaño de las franjas) | Almacenamiento en memoria caché |
 | --- | --- | --- | :---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 |E16ds_v4 |/db2 |P6 |1 |240  |50  |64  |3500  |170  || |
-|vCPU: 16 |/db2/```<SID>```/sapdata |P15 |4 |4400  |500  |1024  |14 000  |680  |256 KB |ReadOnly |
+|vCPU: 16 |/db2/```<SID>```/sapdata |P15 |4 |4400  |500  |1024  |14 000  |680  |256 KB |ReadOnly |
 |RAM: 128 GB |/db2/```<SID>```/saptmp |P6 |2 |480  |100  |128  |7000  |340  |128 KB ||
 | |/db2/```<SID>```/log_dir |P15 |2 |2200  |250  |512  |7000  |340  |64 KB ||
 | |/db2/```<SID>```/offline_log_dir |P10 |1 |500  |100  |128  |3500  |170  ||| 
@@ -108,7 +112,7 @@ A continuación, se facilita una configuración de línea de base para varios ta
 | Nombre/tamaño de la máquina virtual |Punto de montaje de Db2 |Disco Premium de Azure |Número de discos |E/S |Rendimiento [MB/s] |Tamaño [GB] |IOPS de ráfaga |Rendimiento de ráfaga [GB] | Stripe size (Tamaño de las franjas) | Almacenamiento en memoria caché |
 | --- | --- | --- | :---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 |E32ds_v4 |/db2 |P6 |1 |240  |50  |64  |3500  |170  || |
-|vCPU: 32 |/db2/```<SID>```/sapdata |P30 |2 |10 000  |400  |2048  |10 000  |400  |256 KB |ReadOnly |
+|vCPU: 32 |/db2/```<SID>```/sapdata |P30 |2 |10 000  |400  |2048  |10 000  |400  |256 KB |ReadOnly |
 |RAM: 256 GiB |/db2/```<SID>```/saptmp |P10 |2 |1,000  |200  |256  |7000  |340  |128 KB ||
 | |/db2/```<SID>```/log_dir |P20 |2 |4600  |300  |1024  |7000  |340  |64 KB ||
 | |/db2/```<SID>```/offline_log_dir |P15 |1 |1 100  |125  |256  |3500  |170  ||| 
@@ -117,7 +121,7 @@ A continuación, se facilita una configuración de línea de base para varios ta
 | Nombre/tamaño de la máquina virtual |Punto de montaje de Db2 |Disco Premium de Azure |Número de discos |E/S |Rendimiento [MB/s] |Tamaño [GB] |IOPS de ráfaga |Rendimiento de ráfaga [GB] | Stripe size (Tamaño de las franjas) | Almacenamiento en memoria caché |
 | --- | --- | --- | :---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 |E64ds_v4 |/db2 |P6 |1 |240  |50  |64  |3500  |170  || |
-|vCPU: 64 |/db2/```<SID>```/sapdata |P30 |4 |20 000  |800  |4.096  |20 000  |800  |256 KB |ReadOnly |
+|vCPU: 64 |/db2/```<SID>```/sapdata |P30 |4 |20 000  |800  |4.096  |20 000  |800  |256 KB |ReadOnly |
 |RAM: 504 GiB |/db2/```<SID>```/saptmp |P15 |2 |2200  |250  |512  |7000  |340  |128 KB ||
 | |/db2/```<SID>```/log_dir |P20 |4 |9200  |600  |2048  |14 000  |680  |64 KB ||
 | |/db2/```<SID>```/offline_log_dir |P20 |1 |2,300  |150  |512  |3500  |170  || |
@@ -126,7 +130,7 @@ A continuación, se facilita una configuración de línea de base para varios ta
 | Nombre/tamaño de la máquina virtual |Punto de montaje de Db2 |Disco Premium de Azure |Número de discos |E/S |Rendimiento [MB/s] |Tamaño [GB] |IOPS de ráfaga |Rendimiento de ráfaga [GB] | Stripe size (Tamaño de las franjas) | Almacenamiento en memoria caché |
 | --- | --- | --- | :---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 |M128s |/db2 |P10 |1 |500  |100  |128  |3500  |170  || |
-|vCPU: 128 |/db2/```<SID>```/sapdata |P40 |4 |30,000  |1000  |8192  |30,000  |1000  |256 KB |ReadOnly |
+|vCPU: 128 |/db2/```<SID>```/sapdata |P40 |4 |30,000  |1000  |8192  |30,000  |1000  |256 KB |ReadOnly |
 |RAM:  2048 GiB |/db2/```<SID>```/saptmp |P20 |2 |4600  |300  |1024  |7000  |340  |128 KB ||
 | |/db2/```<SID>```/log_dir |P30 |4 |20 000  |800  |4.096  |20 000  |800  |64 KB |WriteAccelerator |
 | |/db2/```<SID>```/offline_log_dir |P30 |1 |5\.000  |200  |1024  |5\.000  |200  || |

@@ -4,20 +4,20 @@ description: Aprenda a configurar la programación de la aplicación de revisió
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 01/21/2020
-ms.openlocfilehash: 636caf592baa4df771f7cc50095911d0337456d0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 08/30/2021
+ms.openlocfilehash: 10ab6462096bbdabee0730e6ef60e07d8d51b438
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98939381"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123223569"
 ---
 # <a name="configure-the-os-patching-schedule-for-linux-based-hdinsight-clusters"></a>Configuración de la programación de aplicación de revisiones del SO para clústeres de HDInsight basado en Linux
 
 > [!IMPORTANT]
 > Las imágenes de Ubuntu estarán disponibles para la creación del clúster de HDInsight tres meses después de publicarse. Los clústeres en ejecución no se revisan automáticamente. Los clientes deben usar acciones de script u otros mecanismos para revisar un clúster en ejecución. Como procedimiento recomendado, puede ejecutar estas acciones de script y aplicar las actualizaciones de seguridad justo después de crear el clúster.
 
-HDInsight permite realizar tareas comunes en el clúster, como instalar revisiones del sistema operativo, aplicar actualizaciones de seguridad y reiniciar nodos. Estas tareas se realizan mediante los dos scripts siguientes que se pueden ejecutar como [acciones de script](hdinsight-hadoop-customize-cluster-linux.md) y que se pueden configurar con parámetros:
+HDInsight le permite realizar tareas comunes en su clúster, como instalar revisiones y actualizaciones del sistema operativo y reiniciar nodos. Estas tareas se realizan mediante los dos scripts siguientes que se pueden ejecutar como [acciones de script](hdinsight-hadoop-customize-cluster-linux.md) y que se pueden configurar con parámetros:
 
 - `schedule-reboots.sh` - Realice un reinicio inmediato o programe un reinicio en los nodos de clúster.
 - `install-updates-schedule-reboots.sh` - Instale todas las actualizaciones, solo las actualizaciones del kernel más las de seguridad o solo las actualizaciones del kernel.

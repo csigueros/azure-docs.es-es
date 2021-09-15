@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0eff0705208442c09b859c09ac975e044528f833
-ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
+ms.openlocfilehash: 4415e7ce86d2beb9e2903f23d0b6fa9ac7d3ec04
+ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122397759"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122597838"
 ---
 # <a name="migrate-from-azure-mfa-server-to-azure-multi-factor-authentication"></a>Migración de Servidor Multi-Factor Authentication de Azure a Azure Multi-Factor Authentication
 
@@ -112,7 +112,7 @@ Existen limitaciones al usar NPS con clientes RADIUS y se recomienda evaluar los
 - Los usuarios deben registrarse en Azure AD MFA antes de usar la extensión NPS. De lo contrario, la extensión no podrá autenticar al usuario, lo que puede generar llamadas al departamento de soporte técnico.
 - Cuando la extensión NPS invoca MFA, la solicitud MFA se envía al método MFA predeterminado del usuario. 
   - Dado que el inicio de sesión se produce en aplicaciones de terceros, es poco probable que el usuario vea una notificación visual de que se requiere MFA y que se ha enviado una solicitud a su dispositivo.
-  - Durante el requisito de MFA, el usuario debe tener acceso a su método de autenticación predeterminado para completar el requisito de MFA. 
+  - Durante el requisito de MFA, el usuario debe tener acceso a su método de autenticación predeterminado para completar el requisito de MFA. No pueden elegir un método alternativo. Su método de autenticación predeterminado se usará incluso si se ha deshabilitado en los métodos de autenticación de inquilinos y las directivas de MFA.
   - Los usuarios pueden cambiar su método de MFA predeterminado en la página Información de seguridad (aka.ms/mysecurityinfo).
 - Los métodos MFA disponibles para los clientes RADIUS se controlan mediante los sistemas cliente que envían las solicitudes de acceso RADIUS.
   - Los métodos MFA que requieren la entrada del usuario después de escribir una contraseña solo se pueden usar con sistemas que admiten respuestas de desafío de acceso con RADIUS. Los métodos de entrada pueden incluir OTP, tokens OATH de hardware o la aplicación Microsoft Authenticator.

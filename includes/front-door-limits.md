@@ -5,15 +5,15 @@ services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: include
-ms.date: 06/25/2021
+ms.date: 08/24/2021
 ms.author: duau
 ms.custom: include file
-ms.openlocfilehash: a7035cff720b7eee4467f355a533a19f059c4baa
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: b64cf919c0197ccc8e7128a045db0eee27356c78
+ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122014625"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123355462"
 ---
 | Recurso | Límite |
 | --- | --- |
@@ -27,7 +27,7 @@ ms.locfileid: "122014625"
 | Reglas de firewall de aplicación web personalizadas por directiva | 100 |
 | Directiva del firewall de aplicaciones web por suscripción | 100 |
 | Condiciones de coincidencia del firewall de aplicaciones web por regla personalizada | 10 |
-| Intervalos de direcciones IP del firewall de aplicaciones web por condición de coincidencia | 600 |
+| Intervalos de direcciones IP del firewall de aplicaciones web por regla personalizada | 600 |
 | Valores de coincidencia de la cadena del firewall de aplicaciones web por condición de coincidencia | 10 |
 | Longitud del valor de coincidencia de la cadena del firewall de aplicaciones web | 256 |
 | Longitud del nombre del parámetro del cuerpo POST del firewall de aplicaciones web | 256 |
@@ -55,7 +55,7 @@ ms.locfileid: "122014625"
 | Direcciones URL en una sola llamada de purga de la caché | 100 | 100 |
 | Reglas de firewall de aplicación web personalizadas por directiva | 100 | 100 |
 | Condiciones de coincidencia del firewall de aplicaciones web por regla personalizada | 10 | 10 |
-| Intervalos de direcciones IP del firewall de aplicaciones web por condición de coincidencia | 600 | 600 |
+| Intervalos de direcciones IP del firewall de aplicaciones web por regla personalizada | 600 | 600 |
 | Valores de coincidencia de la cadena del firewall de aplicaciones web por condición de coincidencia | 10 | 10 |
 | Longitud del valor de coincidencia de la cadena del firewall de aplicaciones web | 256 | 256 |
 | Longitud del nombre del parámetro del cuerpo POST del firewall de aplicaciones web | 256 | 256 |
