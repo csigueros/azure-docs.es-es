@@ -8,12 +8,12 @@ ms.subservice: purview-data-map
 ms.topic: conceptual
 ms.date: 08/18/2021
 ms.custom: template-concept
-ms.openlocfilehash: 14890cfe7d7cd7d84642a24f1527c0732fb58622
-ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
+ms.openlocfilehash: 80706316490cde805ef19b0f1c90f2870dc195ab
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122398132"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122445793"
 ---
 # <a name="elastic-data-map-in-azure-purview"></a>Mapa de datos elástico en Azure Purview
 
@@ -27,7 +27,7 @@ Todas las cuentas de Azure Purview tienen un servicio Mapa de datos que puede cr
 
 El servicio Mapa de datos elástico incluye componentes de almacenamiento y rendimiento de operación que se representan como unidad de capacidad (CU). De forma predeterminada, todas las cuentas de Azure Purview, se proporcionan con una unidad de capacidad y aumentan elásticamente en función del uso. Cada unidad de capacidad de Mapa de datos incluye un rendimiento de 25 operaciones por segundo y 2 GB de límite de almacenamiento de metadatos.  
 
-### <a name="operations"></a>Operaciones
+### <a name="operations"></a>Operations
 
 Las operaciones son la medida de rendimiento de Mapa de datos de Purview. Incluyen las operaciones Crear, Leer, Escribir, Actualizar y Eliminar en los metadatos almacenados en Mapa de datos. A continuación se enumeran algunos ejemplos de operaciones:
 
@@ -52,7 +52,7 @@ Los metadatos técnicos incluyen el esquema, el tipo de datos, las columnas, etc
 
 ## <a name="scenario"></a>Escenario
 
-Claudia es una administradora de Azure en Contoso que quiere aprovisionar una nueva cuenta de Azure Purview desde Azure Portal. Durante el aprovisionamiento, no conoce el tamaño necesario de Purview DataMap para admitir el estado futuro de la plataforma. Sin embargo, sabe que Mapa de datos de Purview se factura por unidades de capacidad, lo que se ve afectado por el rendimiento del almacenamiento y las operaciones. Quiere aprovisionar el servicio Mapa de datos más pequeño para mantener el costo bajo y aumentar el tamaño de dicho servicio de forma elástica en función del consumo.  
+Claudia es una administradora de Azure en Contoso que quiere aprovisionar una nueva cuenta de Azure Purview desde Azure Portal. Durante el aprovisionamiento, no conoce el tamaño necesario del Mapa de datos de Purview para admitir el estado futuro de la plataforma. Sin embargo, sabe que Mapa de datos de Purview se factura por unidades de capacidad, lo que se ve afectado por el rendimiento del almacenamiento y las operaciones. Quiere aprovisionar el servicio Mapa de datos más pequeño para mantener el costo bajo y aumentar el tamaño de dicho servicio de forma elástica en función del consumo.  
 
 Puede crear una cuenta de Purview con el tamaño predeterminado del servicio de Mapa de datos de 1 unidad de capacidad que se puede escalar y reducir verticalmente automáticamente. La característica de escalado automático también permite optimizar la capacidad en función de ráfagas de datos intermitentes o planeadas durante períodos específicos. Claudia sigue los pasos que se indican a continuación en la experiencia de aprovisionamiento para definir la configuración de red y completa el aprovisionamiento.  
 
@@ -62,7 +62,7 @@ En la página de métricas de Azure Monitor, Claudia puede ver el consumo de alm
 
 A los clientes se les factura una unidad de capacidad (25 operaciones por segundo y 2 GB) y la facturación adicional se basa en el consumo de cada unidad de capacidad adicional que se acumula a la hora. Las operaciones de Mapa de datos se escalan en incrementos de 25 operaciones por segundo y el almacenamiento de metadatos se escala en incrementos de 2 GB de tamaño. Mapa de datos de Purview puede escalarse y reducirse verticalmente de forma automática dentro de la ventana de elasticidad ([compruebe los límites actuales](how-to-manage-quotas.md)). Sin embargo, para obtener el siguiente nivel de ventana de elasticidad, es necesario crear una incidencia de soporte técnico.
 
-La unidad de capacidad de Mapa de datos incluye un extremo en el rendimiento de las operaciones y el almacenamiento. Si el almacenamiento supera la unidad de capacidad actual, se cobra a los clientes por la siguiente unidad de capacidad, incluso si no se usa el rendimiento de las operaciones. En la tabla siguiente se muestran los intervalos de la unidad de capacidad de Mapa de datos. Póngase en contacto con el soporte técnico si la unidad de capacidad de Mapa de datos supera las 100 unidades de capacidad.
+Las unidades de capacidad de Mapa de datos incluyen un extremo en el rendimiento de las operaciones y el almacenamiento. Si el almacenamiento supera la unidad de capacidad actual, se cobra a los clientes por la siguiente unidad de capacidad, incluso si no se usa el rendimiento de las operaciones. En la tabla siguiente se muestran los intervalos de la unidad de capacidad de Mapa de datos. Póngase en contacto con el soporte técnico si la unidad de capacidad de Mapa de datos supera las 100 unidades de capacidad.
 
 |Unidad de capacidad de Mapa de datos  |Rendimiento de operaciones por segundo   |Capacidad de almacenamiento en GB|
 |----------|-----------|------------|

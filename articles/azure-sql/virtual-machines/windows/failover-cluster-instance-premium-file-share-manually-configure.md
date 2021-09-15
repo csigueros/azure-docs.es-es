@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/18/2020
 ms.author: mathoma
-ms.openlocfilehash: fa70dce0e245f706e5278e7274ac17855b50622f
-ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
+ms.openlocfilehash: e757dac8cb7b81c5a1a24a7008f3eb453a7f977d
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122396901"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123221569"
 ---
 # <a name="create-an-fci-with-a-premium-file-share-sql-server-on-azure-vms"></a>Creación de una FCI con un recurso compartido de archivos Premium (SQL Server en VM de Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -191,7 +191,7 @@ Después de haber configurado el clúster de conmutación por error, puede crear
 
 ## <a name="register-with-the-sql-vm-rp"></a>Registro con el proveedor de recursos de máquina virtual con SQL
 
-Para administrar la VM con SQL Server desde el portal, regístrela con la extensión Agente de IaaS de SQL en [modo de administración ligera](sql-agent-extension-manually-register-single-vm.md#lightweight-management-mode); actualmente, es el único modo que se admite con FCI y SQL Server en las VM de Azure. 
+Para administrar la VM con SQL Server desde el portal, regístrela con la extensión Agente de IaaS de SQL en [modo de administración ligera](sql-agent-extension-manually-register-single-vm.md#lightweight-mode); actualmente, es el único modo que se admite con FCI y SQL Server en las VM de Azure. 
 
 Registre una máquina virtual con SQL Server en modo ligero con PowerShell ((-LicenseType puede ser `PAYG` o `AHUB`):
 
@@ -214,7 +214,8 @@ Puede configurar un nombre de red virtual o un nombre de red distribuida para un
 - La secuencia de archivos no se admite en los clústeres de conmutación por error con un recurso compartido de archivos Premium. Para usar la secuencia de archivos, implemente el clúster con [Espacios de almacenamiento directo](failover-cluster-instance-storage-spaces-direct-manually-configure.md) o [discos compartidos de Azure](failover-cluster-instance-azure-shared-disks-manually-configure.md) en su lugar.
 - Solo se admite el registro con la extensión Agente de IaaS de SQL en [modo de administración ligero](sql-server-iaas-agent-extension-automate-management.md#management-modes). 
 - Las instantáneas de base de datos no se admiten actualmente en [Azure Files debido a las limitaciones de archivos dispersos](/rest/api/storageservices/features-not-supported-by-the-azure-file-service).
-- Actualmente no se admite la ejecución de DBCC CHECKDB, ya que no se pueden crear instantáneas de base de datos. 
+- Puesto que no se admiten instantáneas de base de datos, CHECKDB para bases de datos de usuario vuelve a CHECKDB WITH TABLOCK. TABLOCK limita las comprobaciones que se llevan a cabo; DBCC CHECKCATALOG no se ejecuta en la base de datos y los datos de Service Broker no se validan.
+- No se admite CHECKDB en la base de datos MASTER y MSDB. 
 - Las bases de datos que usan la característica OLTP en memoria no se admiten en una instancia de clúster de conmutación por error implementada con un recurso compartido de archivos prémium. Si su empresa requiere OLTP en memoria, considere la posibilidad de implementar la instancia de clúster de conmutación por error con [discos compartidos de Azure](failover-cluster-instance-azure-shared-disks-manually-configure.md) o [Espacios de almacenamiento directo](failover-cluster-instance-storage-spaces-direct-manually-configure.md).
 
 ## <a name="next-steps"></a>Pasos siguientes

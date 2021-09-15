@@ -1,20 +1,22 @@
 ---
 title: Copia de datos hacia o desde Azure Data Lake Storage Gen1
-description: Aprenda a copiar datos desde almacenes de datos de origen compatibles a Azure Data Lake Store o desde Data Lake Store a almacenes de receptores compatibles mediante Data Factory.
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Obtenga información sobre cómo copiar datos desde almacenes de datos de origen compatibles en Azure Data Lake Store, o bien desde esta plataforma en canalizaciones de Azure Data Factory o Azure Synapse Analytics.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 03/17/2021
-ms.openlocfilehash: 1a73fc3a48576ca39435d65449fc557fd5c93c43
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.custom: synapse
+ms.date: 08/30/2021
+ms.openlocfilehash: e1ec23300f5bccfea161ec967702e65152bc658f
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109480444"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123314625"
 ---
-# <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-using-azure-data-factory"></a>Copia de datos con Azure Data Lake Storage Gen1 como origen o destino mediante Azure Data Factory
+# <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-using-azure-data-factory-or-azure-synapse-analytics"></a>Copia de datos con Azure Data Lake Storage Gen1 como origen o destino mediante Azure Data Factory o Azure Synapse Analytics
 
 > [!div class="op_single_selector" title1="Seleccione la versión de Azure Data Factory que usa:"]
 >
@@ -23,7 +25,7 @@ ms.locfileid: "109480444"
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-En este artículo se explica cómo copiar datos con Azure Data Lake Storage Gen1 como origen o destino. Para información sobre Azure Data Factory, lea el [artículo de introducción](introduction.md).
+En este artículo se explica cómo copiar datos con Azure Data Lake Storage Gen1 como origen o destino. Para obtener más información, consulte el artículo de introducción de [Azure Data Factory](introduction.md) o [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md).
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
@@ -51,7 +53,31 @@ En concreto, con este conector, puede hacer lo siguiente:
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
-En las secciones siguientes se proporciona información acerca de las propiedades que se usan para definir entidades de Data Factory específicas para Azure Data Lake Store.
+## <a name="create-a-linked-service-to-azure-data-lake-storage-gen1-using-ui"></a>Creación de un servicio vinculado a Azure Data Lake Storage Gen1 mediante la interfaz de usuario
+
+Siga estos pasos para crear un servicio vinculado a Azure Data Lake Storage Gen1 en la interfaz de usuario de Azure Portal.
+
+1. Vaya a la pestaña "Administrar" de su área de trabajo de Azure Data Factory o Synapse y seleccione "Servicios vinculados"; a continuación, haga clic en "Nuevo":
+
+    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Captura de pantalla de la creación de un servicio vinculado con la interfaz de usuario de Azure Data Factory":::
+
+    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Captura de pantalla de la creación de un servicio vinculado con la interfaz de usuario de Azure Synapse":::
+
+2. Busque y seleccione el conector de Azure Data Lake Storage Gen1.
+
+    :::image type="content" source="media/connector-azure-data-lake-store/azure-data-lake-store-connector.png" alt-text="Captura de pantalla del conector de Azure Data Lake Storage Gen1":::    
+
+1. Configure los detalles del servicio, pruebe la conexión y cree el servicio vinculado.
+
+    :::image type="content" source="media/connector-azure-data-lake-store/configure-azure-data-lake-store-linked-service.png" alt-text="Captura de pantalla de la configuración del servicio vinculado de Azure Data Lake Storage Gen1":::
+
+## <a name="connector-configuration-details"></a>Detalles de configuración del conector
+
+En las siguientes secciones se proporciona información sobre las propiedades que se usan para definir entidades específicas de Azure Data Lake Store Gen 1.
 
 ## <a name="linked-service-properties"></a>Propiedades del servicio vinculado
 
@@ -85,9 +111,9 @@ Se admiten las siguientes propiedades:
 | Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
 | servicePrincipalId | Especifique el id. de cliente de la aplicación. | Sí |
-| servicePrincipalKey | Especifique la clave de la aplicación. Marque este campo como `SecureString`para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
+| servicePrincipalKey | Especifique la clave de la aplicación. Marque este campo como `SecureString` para almacenarlo de forma segura, o bien [haga referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
 | tenant | Especifique la información del inquilino, como el nombre de dominio o identificador de inquilino, en el que reside la aplicación. Para recuperarlo, mantenga el puntero del mouse en la esquina superior derecha de Azure Portal. | Sí |
-| azureCloudType | Para la autenticación de la entidad de servicio, especifique el tipo de entorno de nube de Azure en el que está registrada la aplicación de Azure Active Directory. <br/> Los valores permitidos son **AzurePublic**, **AzureChina**, **AzureUsGovernment** y **AzureGermany**. De forma predeterminada, se usa el entorno de nube de la factoría de datos. | No |
+| azureCloudType | Para la autenticación de la entidad de servicio, especifique el tipo de entorno de nube de Azure en el que está registrada la aplicación de Azure Active Directory. <br/> Los valores permitidos son **AzurePublic**, **AzureChina**, **AzureUsGovernment** y **AzureGermany**. De manera predeterminada, se usa el entorno de nube del servicio. | No |
 
 **Ejemplo**:
 
@@ -115,20 +141,20 @@ Se admiten las siguientes propiedades:
 }
 ```
 
-### <a name="use-managed-identities-for-azure-resources-authentication"></a><a name="managed-identity"></a> Uso de identidades administradas para la autenticación de recursos de Azure
+### <a name="use-system-assigned-managed-identity-authentication"></a><a name="managed-identity"></a> Uso de la autenticación de identidad administrada asignada por el sistema
 
-Una factoría de datos se puede asociar con una [identidad administrada para recursos de Azure](data-factory-service-identity.md), que representa esa factoría de datos concreta. Puede usar directamente esta identidad administrada para la autenticación en Data Lake Store, de forma similar a como usa su propia entidad de servicio. Permite que esta fábrica designada acceda a datos los copie a o desde Data Lake Store.
+Un área de trabajo de Data Factory o de Synapse se puede asociar con una [identidad administrada asignada por el sistema](data-factory-service-identity.md), que representa el servicio para la autenticación. Puede usar directamente esta identidad administrada asignada por el sistema para la autenticación en Data Lake Store, de forma similar a como usa su propia entidad de servicio. Permite que este recurso designado acceda a datos y los con Data Lake Store como origen o destino.
 
-Para usar identidades administradas en la autenticación de recursos de Azure, siga estos pasos.
+Para usar la autenticación de identidad administrada asignada por el sistema, siga estos pasos.
 
-1. [Recupere la información de la identidad administrada de Data Factory](data-factory-service-identity.md#retrieve-managed-identity) mediante la copia del valor de "Id. de la aplicación de identidad de servicio" que se ha generado junto con la factoría.
+1. [Recupere la información de identidad administrada asignada por el sistema](data-factory-service-identity.md#retrieve-managed-identity); para ello, copie el valor del Id. de aplicación de identidad de servicio que se ha generado junto con su área de trabajo de Data Factory o Synapse.
 
-2. Conceda a la identidad administrada acceso a Data Lake Store. Consulte ejemplos sobre el funcionamiento del permiso en Data Lake Storage Gen1 en [Control de acceso en Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-access-control.md#common-scenarios-related-to-permissions).
+2. Conceda a la identidad administrada asignada por el sistema acceso a Data Lake Store. Consulte ejemplos sobre el funcionamiento del permiso en Data Lake Storage Gen1 en [Control de acceso en Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-access-control.md#common-scenarios-related-to-permissions).
 
     - **Como origen**: en el **Explorador de datos** > **Acceso**, conceda al menos permiso de **ejecución** para TODAS las carpetas de nivel superior incluida la raíz, junto con el permiso de **lectura** para los archivos que se van a copiar. Puede elegir agregarlo a **Esta carpeta y todos los elementos secundarios** si desea que sea recursivo y agregarlo como **un permiso de acceso y una entrada de permiso predeterminada**. No hay ningún requisito en el control de acceso de nivel de cuenta (IAM).
     - **Como receptor**: en el **Explorador de datos** > **Acceso**, conceda al menos permiso de **ejecución** para TODAS las carpetas de nivel superior incluida la raíz, junto con el permiso de **escritura** para la carpeta del receptor. Puede elegir agregarlo a **Esta carpeta y todos los elementos secundarios** si desea que sea recursivo y agregarlo como **un permiso de acceso y una entrada de permiso predeterminada**.
 
-En Azure Data Factory no es necesario especificar ninguna propiedad, más allá de la información general de Data Lake Store, en el servicio vinculado.
+No es necesario que especifique ninguna propiedad, más allá de la información general de Data Lake Store en el servicio vinculado.
 
 **Ejemplo**:
 
@@ -142,6 +168,48 @@ En Azure Data Factory no es necesario especificar ninguna propiedad, más allá 
             "subscriptionId": "<subscription of ADLS>",
             "resourceGroupName": "<resource group of ADLS>"
         },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### <a name="use-user-assigned-managed-identity-authentication"></a>Uso de la autenticación de identidad administrada asignada por el usuario
+
+Una factoría de datos se puede asignar con una o varias [identidades administradas asignadas por el usuario](data-factory-service-identity.md). Puede usar esta identidad administrada asignada por el usuario para la autenticación de Blob Storage, lo que permite acceder a datos y copiarlos con Data Lake Storage como origen o destino. Para obtener más información sobre las identidades administradas para recursos de Azure, consulte [Identidades administradas para recursos de Azure](../active-directory/managed-identities-azure-resources/overview.md)
+
+Para usar la autenticación de identidad administrada asignada por el usuario, siga estos pasos:
+
+1. [Cree una o varias identidades administradas asignadas por el usuario](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) y conceda acceso a Azure Data Lake Storage. Consulte ejemplos sobre el funcionamiento del permiso en Data Lake Storage Gen1 en [Control de acceso en Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-access-control.md#common-scenarios-related-to-permissions).
+
+    - **Como origen**: en el **Explorador de datos** > **Acceso**, conceda al menos permiso de **ejecución** para TODAS las carpetas de nivel superior incluida la raíz, junto con el permiso de **lectura** para los archivos que se van a copiar. Puede elegir agregarlo a **Esta carpeta y todos los elementos secundarios** si desea que sea recursivo y agregarlo como **un permiso de acceso y una entrada de permiso predeterminada**. No hay ningún requisito en el control de acceso de nivel de cuenta (IAM).
+    - **Como receptor**: en el **Explorador de datos** > **Acceso**, conceda al menos permiso de **ejecución** para TODAS las carpetas de nivel superior incluida la raíz, junto con el permiso de **escritura** para la carpeta del receptor. Puede elegir agregarlo a **Esta carpeta y todos los elementos secundarios** si desea que sea recursivo y agregarlo como **un permiso de acceso y una entrada de permiso predeterminada**.
+    
+2. Asigne una o varias identidades administradas asignadas por el usuario a la factoría de datos y [cree credenciales](data-factory-service-identity.md#credentials) para cada identidad. 
+
+Se admite la siguiente propiedad:
+
+| Propiedad | Descripción | Requerido |
+|:--- |:--- |:--- |
+| credentials | Especifique la identidad administrada asignada por el usuario como objeto de credencial. | Sí |
+
+**Ejemplo**:
+
+```json
+{
+    "name": "AzureDataLakeStoreLinkedService",
+    "properties": {
+        "type": "AzureDataLakeStore",
+        "typeProperties": {
+            "dataLakeStoreUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
+            "subscriptionId": "<subscription of ADLS>",
+            "resourceGroupName": "<resource group of ADLS>",
+            "credential": {
+                "referenceName": "credential1",
+                "type": "CredentialReference"
+            },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
             "type": "IntegrationRuntimeReference"
@@ -205,8 +273,8 @@ Las propiedades siguientes se admiten para Azure Data Lake Store Gen1 en la conf
 | type                     | La propiedad type de `storeSettings` se debe establecer en **AzureDataLakeStoreReadSettings**. | Sí                                          |
 | ***Buscar los archivos que se van a copiar:*** |  |  |
 | OPCIÓN 1: ruta de acceso estática<br> | Copia de la ruta de acceso de archivo o carpeta especificada en el conjunto de datos. Si quiere copiar todos los archivos de una carpeta, especifique también `wildcardFileName` como `*`. |  |
-| OPCIÓN 2: intervalo de nombres<br>- listAfter | Recupera las carpetas o los archivos cuyo nombre aparece después de este valor por orden alfabético (exclusivo). Usa el filtro del lado de servicio para ADLS Gen1, que proporciona un mejor rendimiento que un filtro de caracteres comodín. <br/>La factoría de datos aplica este filtro a la ruta de acceso definida en el conjunto de datos, y solo se admite un nivel de entidad. Consulte más ejemplos en [Ejemplos de filtros de intervalos de nombres](#name-range-filter-examples). | No |
-| OPCIÓN 2: intervalo de nombres<br/>- listBefore | Recupera las carpetas o los archivos cuyo nombre aparece antes de este valor por orden alfabético (inclusivo). Usa el filtro del lado de servicio para ADLS Gen1, que proporciona un mejor rendimiento que un filtro de caracteres comodín.<br>La factoría de datos aplica este filtro a la ruta de acceso definida en el conjunto de datos, y solo se admite un nivel de entidad. Consulte más ejemplos en [Ejemplos de filtros de intervalos de nombres](#name-range-filter-examples). | No |
+| OPCIÓN 2: intervalo de nombres<br>- listAfter | Recupera las carpetas o los archivos cuyo nombre aparece después de este valor por orden alfabético (exclusivo). Usa el filtro del lado de servicio para ADLS Gen1, que proporciona un mejor rendimiento que un filtro de caracteres comodín. <br/>El servicio aplica este filtro a la ruta de acceso definida en el conjunto de datos, y solo se admite un nivel de entidad. Consulte más ejemplos en [Ejemplos de filtros de intervalos de nombres](#name-range-filter-examples). | No |
+| OPCIÓN 2: intervalo de nombres<br/>- listBefore | Recupera las carpetas o los archivos cuyo nombre aparece antes de este valor por orden alfabético (inclusivo). Usa el filtro del lado de servicio para ADLS Gen1, que proporciona un mejor rendimiento que un filtro de caracteres comodín.<br>El servicio aplica este filtro a la ruta de acceso definida en el conjunto de datos, y solo se admite un nivel de entidad. Consulte más ejemplos en [Ejemplos de filtros de intervalos de nombres](#name-range-filter-examples). | No |
 | OPCIÓN 3: carácter comodín<br>- wildcardFolderPath | Ruta de acceso de carpeta con caracteres comodín para filtrar las carpetas de origen. <br>Los caracteres comodín permitidos son: `*` (coincide con cero o más caracteres) y `?` (coincide con cero o carácter individual); use `^` para el escape si el nombre real de la carpeta tiene un carácter comodín o este carácter de escape dentro. <br>Ver más ejemplos en [Ejemplos de filtros de carpetas y archivos](#folder-and-file-filter-examples). | No                                            |
 | OPCIÓN 3: carácter comodín<br>- wildcardFileName | Nombre de archivo con caracteres comodín en la propiedad folderPath o wildcardFolderPath indicada para filtrar los archivos de origen. <br>Los caracteres comodín permitidos son: `*` (coincide con cero o más caracteres) y `?` (coincide con cero o carácter individual); use `^` para el escape si el nombre real del archivo tiene un carácter comodín o este carácter de escape dentro.  Ver más ejemplos en [Ejemplos de filtros de carpetas y archivos](#folder-and-file-filter-examples). | Sí |
 | OPCIÓN 4: una lista de archivos<br>- fileListPath | Indica que se copie un conjunto de archivos determinado. Apunte a un archivo de texto que incluya una lista de los archivos que quiere copiar, con un archivo por línea, que sea la ruta de acceso relativa a la ruta de acceso configurada en el conjunto de datos.<br/>Al utilizar esta opción, no especifique el nombre de archivo en el conjunto de datos. Ver más ejemplos en [Ejemplos de lista de archivos](#file-list-examples). |No |
@@ -311,7 +379,7 @@ Las propiedades siguientes se admiten para Azure Data Lake Store Gen1 en la conf
 
 En esta sección se describe el comportamiento resultante de los filtros de intervalos de nombres.
 
-| Estructura de origen de ejemplo | Configuración de ADF | Resultado |
+| Estructura de origen de ejemplo | Configuración | Resultado |
 |:--- |:--- |:--- |
 |root<br/>&nbsp;&nbsp;&nbsp;&nbsp;a<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;file.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;ax<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;file2.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;ax.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;b<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;file3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;bx.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;c<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;file4.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;cx.csv| **En el conjunto de datos:**<br>- Ruta de acceso a la carpeta: `root`<br><br>**En origen de la actividad de copia:**<br>- Enumerar después de: `a`<br>- Enumerar antes de: `b`| A continuación, se copiarán los siguientes archivos:<br><br>root<br/>&nbsp;&nbsp;&nbsp;&nbsp;ax<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;file2.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;ax.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;b<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;file3.csv |
 
@@ -332,7 +400,7 @@ En esta sección se describe el comportamiento resultante de usar la ruta de acc
 
 Suponga que tiene la siguiente estructura de carpetas de origen y quiere copiar los archivos en negrita:
 
-| Estructura de origen de ejemplo                                      | Contenido de FileListToCopy.txt                             | Configuración de ADF                                            |
+| Estructura de origen de ejemplo                                      | Contenido de FileListToCopy.txt                             | Configuración |
 | ------------------------------------------------------------ | --------------------------------------------------------- | ------------------------------------------------------------ |
 | root<br/>&nbsp;&nbsp;&nbsp;&nbsp;FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Metadatos<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FileListToCopy.txt | File1.csv<br>Subfolder1/File3.csv<br>Subfolder1/File5.csv | **En el conjunto de datos:**<br>- Ruta de acceso a la carpeta: `root/FolderA`<br><br>**En origen de la actividad de copia:**<br>- Ruta de acceso de la lista de archivos: `root/Metadata/FileListToCopy.txt` <br><br>La ruta de acceso de la lista de archivos apunta a un archivo de texto en el mismo almacén de datos que incluye una lista de archivos que se quiere copiar, un archivo por línea con la ruta de acceso relativa a la ruta de acceso configurada en el conjunto de datos. |
 
@@ -352,7 +420,7 @@ En esta sección se describe el comportamiento resultante de la operación de co
 ## <a name="preserve-acls-to-data-lake-storage-gen2"></a>Conservación de ACL en Data Lake Storage Gen2
 
 >[!TIP]
->Para copiar datos desde Azure Data Lake Storage Gen1 en Gen2 en general, consulte [Copia de datos de Azure Data Lake Storage Gen1 en Gen2 con Azure Data Factory](load-azure-data-lake-storage-gen2-from-gen1.md) para ver un tutorial y los procedimientos recomendados.
+>Si desea copiar datos desde Azure Data Lake Storage Gen1 en Gen2 en general, consulte [Copia de datos desde Azure Data Lake Storage Gen1 a Gen2](load-azure-data-lake-storage-gen2-from-gen1.md) para ver un tutorial y los procedimientos recomendados.
 
 Si quiere replicar las listas de control de acceso (ACL) junto con los archivos de datos cuando se actualiza desde Data Lake Storage Gen1 a Data Lake Storage Gen2, consulte [Conservar las ACL de Data Lake Storage Gen1](copy-activity-preserve-metadata.md#preserve-acls).
 
@@ -373,7 +441,7 @@ En la transformación de origen, puede leer de un contenedor, una carpeta o un a
 
 ![Opciones de origen](media/data-flow/sourceOptions1.png "Opciones de origen")
 
-**Ruta de acceso de comodín:** El uso de un patrón de caracteres comodín indicará a ADF que recorra todos los archivos y carpetas que coincidan en una única transformación del origen. Se trata de una manera eficaz de procesar varios archivos en un único flujo. Agregue varios patrones de coincidencia de caracteres comodín con el signo + que aparece al desplazar el puntero sobre el patrón de caracteres comodín existente.
+**Ruta de acceso con carácter comodín:** el uso de un patrón de caracteres comodín indicará al servicio que recorra todos los archivos y carpetas que coincidan en una única transformación de origen. Se trata de una manera eficaz de procesar varios archivos en un único flujo. Agregue varios patrones de coincidencia de caracteres comodín con el signo + que aparece al desplazar el puntero sobre el patrón de caracteres comodín existente.
 
 En el contenedor de origen, elija una serie de archivos que coincidan con un patrón. Solo se puede especificar un contenedor en el conjunto de datos. La ruta de acceso con carácter comodín, por tanto, también debe incluir la ruta de acceso de la carpeta de la carpeta raíz.
 
@@ -395,7 +463,7 @@ En primer lugar, establezca un comodín que incluya todas las rutas de acceso qu
 
 ![Configuración del archivo de origen de partición](media/data-flow/partfile2.png "Configuración del archivo de partición")
 
-Use el valor de Partition Root Path (Ruta de acceso de la raíz de la partición) para definir cuál es el nivel superior de la estructura de carpetas. Cuando vea el contenido de los datos mediante una vista previa, verá que ADF agregará las particiones resueltas que se encuentran en cada uno de los niveles de las carpetas.
+Use el valor de Partition Root Path (Ruta de acceso de la raíz de la partición) para definir cuál es el nivel superior de la estructura de carpetas. Cuando consulte el contenido de los datos mediante una vista previa, verá que el servicio agrega las particiones resueltas encontradas en cada uno de los niveles de carpeta.
 
 ![Ruta de acceso raíz de la partición](media/data-flow/partfile1.png "Vista previa de la ruta de acceso raíz de la partición")
 
@@ -458,7 +526,7 @@ Para información detallada sobre las propiedades, consulte [Actividad de elimin
 ## <a name="legacy-models"></a>Modelos heredados
 
 >[!NOTE]
->Estos modelos siguen siendo compatibles con versiones anteriores. Se recomienda usar el nuevo modelo mencionado en la sección anterior de ahora en adelante; además, la interfaz de usuario de creación de ADF ha pasado a generar el nuevo modelo.
+>Estos modelos siguen siendo compatibles con versiones anteriores. Se recomienda usar de ahora en adelante el nuevo modelo que se menciona en las secciones anteriores; además, la interfaz de usuario de creación ha pasado a generar el nuevo modelo.
 
 ### <a name="legacy-dataset-model"></a>Modelo de conjunto de datos heredado
 
@@ -587,4 +655,4 @@ Para información detallada sobre las propiedades, consulte [Actividad de elimin
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte los [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver la lista de almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores.
+Para obtener una lista de los almacenes de datos que admite la actividad de copia como orígenes y receptores, consulte [Almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats).

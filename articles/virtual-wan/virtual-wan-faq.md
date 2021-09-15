@@ -5,14 +5,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: troubleshooting
-ms.date: 08/17/2021
+ms.date: 08/18/2021
 ms.author: cherylmc
-ms.openlocfilehash: c63954123af949c02d578d7acc604d7a8528caf3
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 7b0045ccfd54d956ef8ae7fd2eb1b38705aafd31
+ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122322213"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122514970"
 ---
 # <a name="virtual-wan-faq"></a>Preguntas más frecuentes sobre Virtual WAN
 
@@ -94,9 +94,13 @@ Hay dos opciones para agregar servidores DNS para los clientes de P2S. Se prefie
 
 ### <a name="for-user-vpn-point-to-site--how-many-clients-are-supported"></a>En el caso de la red privada virtual de usuario (de punto a sitio), ¿cuántos clientes se admiten?
 
-Cada puerta de enlace de VPN de punto a sitio de usuario tiene dos instancias. Cada instancia admite un número determinado de conexiones a medida que cambia la unidad de escalado. La unidad de escalado 1-3 admite 500 conexiones, la unidad de escalado 4-6 admite 1000 conexiones, la unidad de escalado 7-12 admite 5000 conexiones y la unidad de escalado 13-18 admite hasta 10 000 conexiones.
+Cada puerta de enlace de VPN de punto a sitio de usuario tiene dos instancias. Cada instancia admite un número determinado de conexiones a medida que cambian las unidades de escalado. La unidad de escalado 1-3 admite 500 conexiones, la unidad de escalado 4-6 admite 1000 conexiones, la unidad de escalado 7-12 admite 5000 conexiones y la unidad de escalado 13-18 admite hasta 10 000 conexiones.
 
 Como ejemplo, supongamos que el usuario elige 1 unidad de escalado. Cada unidad de escalado implica una puerta de enlace activo-activo implementada, y cada una de las instancias (2, en este caso) admitiría hasta 500 conexiones. Dado que puede obtener 500 conexiones x 2 por puerta de enlace, no significa que tenga previstas 1000 en lugar de 500 para esta unidad de escalado. Es posible que se deban atender las instancias en que la conectividad de las 500 conexiones adicionales pueda sufrir interrupciones si supera el recuento de conexiones recomendado. Además, asegúrese de planear el tiempo de inactividad en caso de que decida escalar o reducir verticalmente en la unidad de escalado o cambiar la configuración de punto a sitio en VPN Gateway.
+
+### <a name="what-are-virtual-wan-gateway-scale-units"></a>¿Qué son las unidades de escalado de puerta de enlace de Virtual WAN?
+
+Una unidad de escalado es una unidad definida para obtener un rendimiento agregado de una puerta de enlace de un centro de conectividad virtual. 1 unidad de escalado de VPN = 500 Mbps. 1 unidad de escalado de ExpressRoute = 2 Gbps. Ejemplo: 10 unidades de escalado de VPN significarían 500 Mbps * 10 = 5 Gbps
 
 ### <a name="what-is-the-difference-between-an-azure-virtual-network-gateway-vpn-gateway-and-an-azure-virtual-wan-vpn-gateway"></a>¿Cuál es la diferencia entre una puerta de enlace de Azure Virtual Network (VPN Gateway) y una instancia de VPN Gateway de Azure Virtual WAN?
 
@@ -110,12 +114,7 @@ Una VPN de puerta de enlace de red virtual se limita a 30 túneles. En las conex
 
 ### <a name="what-is-the-recommended-packets-per-second-limit-per-ipsec-tunnel"></a>¿Cuál es el límite recomendado de paquetes por segundo por túnel IPsec?
 
-Se recomienda enviar alrededor de 95 000 paquetes por segundo (PPS) con el algoritmo GCMAES256 para el cifrado y la integridad IPsec para lograr un rendimiento óptimo. Aunque el tráfico no se bloquea si se envían más de 95 000 PPS, esto puede dar lugar a una degradación del rendimiento, como la pérdida de paquetes y de latencia. Cree túneles adicionales si se requiere más PPS.
-
-
-### <a name="what-is-a-virtual-wan-gateway-scale-unit"></a>¿Qué es una unidad de escalado de puerta de enlace de Virtual WAN?
-
-Una unidad de escalado es una unidad definida para obtener un rendimiento agregado de una puerta de enlace de un centro de conectividad virtual. 1 unidad de escalado de VPN = 500 Mbps. 1 unidad de escalado de ExpressRoute = 2 Gbps. Ejemplo: 10 unidades de escalado de VPN significarían 500 Mbps * 10 = 5 Gbps
+Recomendamos enviar alrededor de 95 000 paquetes por segundo (PPS) con el algoritmo GCMAES256 para el cifrado y la integridad IPsec para lograr un rendimiento óptimo. Aunque el tráfico no se bloquea si se envían más de 95 000 PPS, esto puede dar lugar a una degradación del rendimiento, como la pérdida de paquetes y de latencia. Cree túneles adicionales si se requiere más PPS.
 
 ### <a name="which-device-providers-virtual-wan-partners-are-supported"></a>¿Qué proveedores de dispositivos (asociados de Virtual WAN) se admiten?
 
@@ -277,7 +276,11 @@ Por algún motivo, si la conexión VPN se convierte en el medio principal por el
 
 ### <a name="when-two-hubs-hub-1-and-2-are-connected-and-there-is-an-expressroute-circuit-connected-as-a-bow-tie-to-both-the-hubs-what-is-the-path-for-a-vnet-connected-to-hub-1-to-reach-a-vnet-connected-in-hub-2"></a>Cuando dos centros de conectividad (1 y 2) están conectados y hay un circuito ExpressRoute conectado como un lazo para ambos centros de conectividad, ¿cuál es la ruta de acceso de una red virtual conectada al centro de conectividad 1 para llegar a una red virtual conectada en el centro de conectividad 2?
 
-El comportamiento actual es preferir la ruta de acceso del circuito ExpressRoute frente a una conexión entre centros para la conectividad de red virtual a red virtual. Sin embargo, esto no se recomienda en una configuración de Virtual WAN. El equipo de Virtual WAN está trabajando en una corrección para permitir la preferencia de centro de conectividad a centro de conectividad frente a la ruta de acceso de ExpressRoute. La recomendación es para que varios circuitos ExpressRoute (proveedores distintos) se conecten a un centro de conectividad y usen la conectividad entre centros de conectividad que proporciona Virtual WAN para los flujos de tráfico entre regiones.
+El comportamiento actual es preferir la ruta de acceso del circuito ExpressRoute frente a una conexión entre centros para la conectividad de red virtual a red virtual. Sin embargo, esto no se recomienda en una configuración de Virtual WAN. Para resolver esto, puede realizar una de estas dos acciones:
+
+ * Configure varios circuitos ExpressRoute (proveedores distintos) para que se conecten a un centro de conectividad y usen la conectividad entre centros de conectividad que proporciona Virtual WAN para los flujos de tráfico entre regiones.
+
+ * Póngase en contacto con el equipo del producto para participar en la versión preliminar pública. En esta versión preliminar, el tráfico entre los dos centros atraviesa el enrutador de Azure Virtual WAN en cada centro y usa una ruta de acceso de centro a centro en lugar de la ruta de acceso de ExpressRoute (que atraviesa los enrutadores perimetrales de Microsoft/MSEE). Para usar esta característica durante la versión preliminar, envíe un correo electrónico **previewpreferh2h@microsoft.com** con los Virtual WAN, el identificador de suscripción y la región de Azure. Espere una respuesta en un plazo de 48 horas laborables (de lunes a viernes) con la confirmación de que la característica está habilitada.
 
 ### <a name="can-hubs-be-created-in-different-resource-group-in-virtual-wan"></a>¿Se pueden crear concentradores en un grupo de recursos diferente en Virtual WAN?
 
@@ -317,11 +320,11 @@ Sí. Para obtener una lista de soluciones de proveedores de servicios administra
 
 Azure Route Server proporciona un servicio de emparejamiento de Protocolo de puerta de enlace de borde (BGP) que las aplicaciones virtuales de red pueden usar para aprender las rutas desde el servidor de enrutamiento en una red virtual del centro de conectividad de implementación personal. El enrutamiento de WAN virtual ofrece varias funcionalidades, entre las que se incluyen el enrutamiento de tránsito entre redes virtuales, el enrutamiento personalizado, la asociación y propagación de rutas personalizadas y un servicio de centro de conectividad con malla completa y sin interacción, junto con los servicios de conectividad de ExpressRoute, VPN de sitio, VPN de punto a sitio a gran escala y de usuarios remotos, así como funcionalidades de centro seguro (Azure Firewall). Al establecer un emparejamiento BGP entre la aplicación virtual de red y Azure Route Server, puede anunciar las direcciones IP de su aplicación virtual a la red virtual. En todas las funcionalidades de enrutamiento avanzadas, como el enrutamiento de tránsito, el enrutamiento personalizado, etc., puede usar el enrutamiento de Virtual WAN.
 
-### <a name="if-i-am-using-a-third-party-security-provider-zscalar-iboss-or-checkpoint-to-secure-my-internet-traffic-why-dont-i-see-the-vpn-site-associated-to-the-third-party-security-provider-in-azure-portal"></a>Si uso un proveedor de seguridad de terceros (ZScalar, iBoss o Checkpoint) para proteger el tráfico de Internet, ¿por qué no veo el sitio VPN asociado al proveedor de seguridad de terceros en Azure Portal?
+### <a name="if-i-am-using-a-third-party-security-provider-zscalar-iboss-or-checkpoint-to-secure-my-internet-traffic-why-dont-i-see-the-vpn-site-associated-to-the-third-party-security-provider-in-the-azure-portal"></a>Si uso un proveedor de seguridad de terceros (ZScalar, iBoss o Checkpoint) para proteger el tráfico de Internet, ¿por qué no veo el sitio VPN asociado al proveedor de seguridad de terceros en Azure Portal?
 
 Cuando decide implementar un proveedor de seguridad asociado para proteger el acceso a Internet para sus usuarios, el proveedor de seguridad de terceros crea un sitio VPN en su nombre. Este sitio de VPN no aparece en Azure Portal porque el proveedor crea automáticamente el proveedor de seguridad de terceros y no es un sitio VPN creado por el usuario.
 
-Para obtener más información sobre las opciones disponibles de proveedores de seguridad de terceros y cómo configurarlas, consulte este [documento](../firewall-manager/deploy-trusted-security-partner.md).
+Para obtener más información sobre las opciones disponibles de proveedores de seguridad de terceros y cómo configurarlas, consulte [Implementación de un proveedor de seguridad asociado](../firewall-manager/deploy-trusted-security-partner.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

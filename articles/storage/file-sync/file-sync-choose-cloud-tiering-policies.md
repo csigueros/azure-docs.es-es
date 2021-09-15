@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/13/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: daa13c090ad9c10dbc21c082871f02ee1cc9f241
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 40715f8076ac112ea6479fb4a134933d90b3dbf9
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122323065"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123252264"
 ---
 # <a name="choose-cloud-tiering-policies"></a>Selección de directivas de nube por niveles
 
@@ -25,22 +25,22 @@ En este artículo se proporciona una guía para los usuarios que van a seleccion
 
 ### <a name="minimum-file-size-for-a-file-to-tier"></a>Tamaño mínimo de archivo mejorado para almacenar un archivo por niveles
 
-En las versiones del agente 9 y más recientes, el tamaño de archivo mínimo para organizar un archivo por niveles se basa en el tamaño del clúster del sistema de archivos. El tamaño mínimo del archivo que se selecciona para la realizar agrupación en niveles en la nube se calcula en función del doble del tamaño del clúster y en un mínimo de 8 KB. En la tabla siguiente se muestran los tamaños de archivo mínimos que se pueden organizar por niveles, en función del tamaño del clúster del volumen:
+En las versiones del agente 9 y más recientes, el tamaño de archivo mínimo para organizar un archivo por niveles se basa en el tamaño del clúster del sistema de archivos. El tamaño mínimo del archivo que se selecciona para la realizar agrupación en niveles en la nube se calcula en función del doble del tamaño del clúster y en un mínimo de 8 KiB. En la tabla siguiente se muestran los tamaños de archivo mínimos que se pueden organizar por niveles, en función del tamaño del clúster del volumen:
 
-|Tamaño del clúster del volumen (bytes) |Los archivos de este tamaño o mayores se pueden organizar por niveles  |
+|Tamaño del clúster del volumen  |Los archivos de este tamaño o mayores se pueden organizar por niveles  |
 |----------------------------|---------|
-|4 KB o más pequeño (4096)      | 8 KB    |
-|8 KB (8192)                 | 16 KB   |
-|16 KB (16384)               | 32 KB   |
-|32 KB (32768)               | 64 KB   |
-|64 KB (65536)    | 128 KB  |
-|128 KB (131072) | 256 KB |
-|256 KB (262144) | 512 KB |
-|512 KB (524288) | 1 MB |
-|1 MB (1048576) | 2 MB |
-|2 MB (2097152) | 4 MB |
+|4 KiB o más pequeños (4096 bytes)      | 8 KiB    |
+|8 KiB (8192 bytes)                 | 16 KiB   |
+|16 KiB (16384 bytes)               | 32 KiB   |
+|32 KiB (32768 bytes)               | 64 KiB   |
+|64 KiB (65536 bytes)    | 128 KiB  |
+|128 KiB (131072 bytes) | 256 KiB |
+|256 KiB (262144 bytes) | 512 KiB |
+|512 KiB (524288 bytes) | 1 MiB |
+|1 MiB (1048576 bytes) | 2 MiB |
+|2 MiB (2097152 bytes) | 4 MiB |
 
-Los tamaños de clúster de hasta 2 MB son compatibles con la versión 12 del agente de Azure File Sync pero, para tamaños mayores, la nube por niveles no funciona.
+Los tamaños de clúster de hasta 2 MiB son compatibles con la versión 12 del agente de Azure File Sync pero, para tamaños mayores, la nube por niveles no funciona.
 
 Todos los sistemas de archivos que usa Windows organizan el disco duro en función del tamaño del clúster (lo que también se conoce como tamaño de la unidad de asignación). El tamaño del clúster representa la cantidad más pequeña de espacio en disco que se puede usar para conservar un archivo. Cuando los tamaños de archivo no son un múltiplo par del tamaño del clúster, se debe usar espacio adicional para conservar el archivo (hasta el siguiente múltiplo del tamaño del clúster).
 
@@ -48,21 +48,13 @@ Azure File Sync se admite en volúmenes NTFS con Windows Server 2012 R2 y versio
 
 |Tamaño del volumen    |Windows Server 2019             |
 |---------------|--------------------------------|
-|7 MB – 16 TB   | 4 KB                |
-|16 TB – 32 TB   | 8 KB                |
-|32 TB – 64 TB   | 16 KB               |
-|64 TB – 128 TB  | 32 KB               |
-|128 TB – 256 TB | 64 KB (máx. anterior) |
-|256 TB - 512 TB| 128 KB              |
-|512 TB - 1 PB  | 256 KB              |
-|1 PB - 2 PB    | 512 KB              |
-|2 PB - 4 PB    | 1024 KB             |
-|4 PB - 8 PB    | 2048 KB (tamaño máx.)  |
-|> 8 PB         | no admitido       |
+|7 MiB – 16 TiB   | 4 KiB                |
+|16 TiB – 32 TiB   | 8 KiB                |
+|32 TiB – 64 TiB   | 16 KiB               |
 
-Es posible que, después de crear el volumen, se le haya aplicado formato manualmente con otro tamaño de clúster. Si el volumen procede de una versión anterior de Windows, los tamaños de clúster predeterminados también pueden diferir. [En este artículo se ofrecen más detalles sobre los tamaños de clúster predeterminados.](https://support.microsoft.com/help/140365/default-cluster-size-for-ntfs-fat-and-exfat) Incluso si elige un tamaño de clúster inferior a 4 KB, se seguirá aplicando un límite de 8 KB como el tamaño de archivo más pequeño que se puede organizar en niveles. (Aunque el tamaño doble del clúster técnicamente sea menor que 8 KB).
+Es posible que, después de crear el volumen, se le haya aplicado formato manualmente con otro tamaño de clúster. Si el volumen procede de una versión anterior de Windows, los tamaños de clúster predeterminados también pueden diferir. [En este artículo se ofrecen más detalles sobre los tamaños de clúster predeterminados.](https://support.microsoft.com/help/140365/default-cluster-size-for-ntfs-fat-and-exfat) Incluso si elige un tamaño de clúster inferior a 4 KiB, se seguirá aplicando un límite de 8 KiB como el tamaño de archivo más pequeño que se puede organizar en niveles. (Aunque el tamaño doble del clúster técnicamente sea menor que 8 KiB).
 
-El motivo del mínimo absoluto se encuentra en la forma en que NTFS almacena archivos extremadamente pequeños; por ejemplo, de 1 KB a 4 KB de tamaño. En función de otros parámetros del volumen, es posible que los archivos pequeños no se almacenen en un clúster del disco. Igualmente, es posible que sea más eficaz almacenar dichos archivos directamente en la tabla de archivos maestros del volumen o en "Registro de MFT". El punto de reanálisis de los niveles de la nube siempre se almacena en el disco y toma exactamente un clúster. La organización en niveles de estos pequeños archivos podría hacer que acabe sin espacio libre. Los casos extremos pueden incluso acabar usando más espacio con la opción de organizar la nube por niveles habilitada. Para evitar esto, el tamaño mínimo de un archivo que la nube por niveles distribuirá en niveles es de 8 KB en un clúster de 4 KB o inferior. 
+El motivo del mínimo absoluto se encuentra en la forma en que NTFS almacena archivos extremadamente pequeños; por ejemplo, de 1 KiB a 4 KiB de tamaño. En función de otros parámetros del volumen, es posible que los archivos pequeños no se almacenen en un clúster del disco. Igualmente, es posible que sea más eficaz almacenar dichos archivos directamente en la tabla de archivos maestros del volumen o en "Registro de MFT". El punto de reanálisis de los niveles de la nube siempre se almacena en el disco y toma exactamente un clúster. La organización en niveles de estos pequeños archivos podría hacer que acabe sin espacio libre. Los casos extremos pueden incluso acabar usando más espacio con la opción de organizar la nube por niveles habilitada. Para evitar esto, el tamaño mínimo de un archivo que la nube por niveles distribuirá en niveles es de 8 KiB en un clúster de 4 KiB o inferior. 
 
 ## <a name="selecting-your-initial-policies"></a>Selección de las directivas iniciales
 
@@ -78,7 +70,7 @@ Si la cantidad de archivos que se recuperan constantemente de Azure es mayor de 
 
 Mantener más datos locales conlleva menores costos de salida, ya que se recuperarán menos archivos de Azure, pero también requiere una mayor cantidad de almacenamiento local, que tiene su propio costo. 
 
-Al ajustar la directiva de espacio disponible del volumen, la cantidad de datos que se deben mantener de forma local viene determinada por los siguientes factores: el ancho de banda, el patrón de acceso del conjunto de datos y el presupuesto. Si tiene una conexión con un ancho de banda bajo, sería conveniente mantener más datos en el entorno local para garantizar retrasos mínimos para los usuarios. En caso contrario, puede basarlo en la tasa de renovación durante un período determinado. Por ejemplo, si sabe que accede activamente al 10 % del conjunto de datos de 1 TB cada mes, o que este porcentaje de datos cambia, le interesa mantener en el entorno local 100 GB para no tener que recuperar archivos con frecuencia. Si el volumen es de 2 TB, será mejor mantener el 5 % (o 100 GB) en el entorno local, lo que significa que el 95 % restante es el porcentaje de espacio disponible en el volumen. No obstante, debería agregar un búfer de cara a los períodos de mayor renovación, es decir, comenzar con un porcentaje de espacio disponible en el volumen más grande y ajustarlo posteriormente si es necesario.
+Al ajustar la directiva de espacio disponible del volumen, la cantidad de datos que se deben mantener de forma local viene determinada por los siguientes factores: el ancho de banda, el patrón de acceso del conjunto de datos y el presupuesto. Si tiene una conexión con un ancho de banda bajo, sería conveniente mantener más datos en el entorno local para garantizar retrasos mínimos para los usuarios. En caso contrario, puede basarlo en la tasa de renovación durante un período determinado. Por ejemplo, si sabe que accede activamente al 10 % del conjunto de datos de 1 TiB cada mes, o que este porcentaje de datos cambia, le interesa mantener en el entorno local 100 GiB para no tener que recuperar archivos con frecuencia. Si el volumen es de 2 TiB, será mejor mantener el 5 % (o 100 GiB) en el entorno local, lo que significa que el 95 % restante es el porcentaje de espacio disponible en el volumen. No obstante, debería agregar un búfer de cara a los períodos de mayor renovación, es decir, comenzar con un porcentaje de espacio disponible en el volumen más grande y ajustarlo posteriormente si es necesario.
 
 ## <a name="standard-operating-procedures"></a>Procedimientos operativos estándar
 

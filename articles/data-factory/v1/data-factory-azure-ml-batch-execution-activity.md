@@ -1,20 +1,20 @@
 ---
 title: Creación de canalizaciones de datos predictivas con Azure Data Factory
-description: Describe cómo crear canalizaciones predictivas con Azure Data Factory y ML Studio (clásico)
+description: Aquí se explica cómo crear canalizaciones predictivas con Azure Data Factory y Machine Learning Studio (clásico)
 author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: a613a48f1787c456885aabb0012efb4d71829aae
-ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
+ms.openlocfilehash: d4a930677f4760ae5f2d77dd4f148097ae67f465
+ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122396852"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122598019"
 ---
-# <a name="create-predictive-pipelines-using-ml-studio-classic-and-azure-data-factory"></a>Creación de canalizaciones predictivas con ML Studio (clásico) y Azure Data Factory
+# <a name="create-predictive-pipelines-using-machine-learning-studio-classic-and-azure-data-factory"></a>Creación de canalizaciones predictivas con Machine Learning Studio (clásico) y Azure Data Factory
 
 > [!div class="op_single_selector" title1="Actividades de transformación"]
 > * [Actividad de Hive](data-factory-hive-activity.md)
@@ -32,7 +32,7 @@ ms.locfileid: "122396852"
 > [!NOTE]
 > Este artículo se aplica a la versión 1 de Data Factory. Si usa la versión actual del servicio Data Factory, consulte el artículo acerca de la [transformación de datos mediante el aprendizaje automático en Data Factory](../transform-data-using-machine-learning.md).
 
-### <a name="ml-studio-classic"></a>ML Studio (clásico)
+### <a name="machine-learning-studio-classic"></a>Machine Learning Studio (clásico)
 [ML Studio (clásico)](https://azure.microsoft.com/documentation/services/machine-learning/) permite compilar, probar e implementar soluciones de análisis predictivo. Desde una perspectiva general, esto se realiza en tres pasos:
 
 1. **Crear un experimento de entrenamiento**. Este paso se lleva a cabo mediante ML Studio (clásico). Studio (clásico) es un entorno de desarrollo visual de colaboración que se emplea para entrenar y probar un modelo de análisis predictivo con datos de entrenamiento.

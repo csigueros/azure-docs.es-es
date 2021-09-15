@@ -5,19 +5,19 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 08/17/2021
+ms.date: 08/20/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 252eb72358f93b72ca31dd834b704b0044713854
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 10489579d95628399e94bad5dcab256a3df4bf74
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122323120"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123309880"
 ---
 # <a name="integrate-your-existing-network-policy-server-nps-infrastructure-with-azure-ad-multi-factor-authentication"></a>Integración de la infraestructura existente de Servidor de directivas de redes (NPS) con Azure AD Multi-Factor Authentication
 
@@ -32,7 +32,9 @@ Cuando se usa la extensión NPS para Azure AD Multi-Factor Authentication, el f
 1. **Servidor NAS/VPN** recibe solicitudes de los clientes VPN y las convierte en solicitudes RADIUS para servidores NPS.
 2. **Servidor NPS** se conecta a Active Directory Domain Services para realizar la autenticación principal para las solicitudes RADIUS y, cuando se realiza correctamente, pasa la solicitud a todas las extensiones instaladas.  
 3. La **extensión NPS** desencadena una solicitud a Azure AD Multi-Factor Authentication para la autenticación secundaria. Una vez que la extensión recibe la respuesta y, si el desafío de MFA se realiza correctamente, se completa la solicitud de autenticación proporcionando al servidor NPS tokens de seguridad que incluyen una notificación de MFA, emitidos por Azure STS.
-4. **Azure AD MFA** se comunica con Azure Active Directory (Azure AD) para recuperar los detalles del usuario y realiza la autenticación secundaria con un método de verificación configurado para el usuario.
+   >[!NOTE]
+   >Los usuarios deben tener acceso a su método de autenticación predeterminado para completar el requisito de MFA. No pueden elegir un método alternativo. Su método de autenticación predeterminado se usará incluso si se ha deshabilitado en los métodos de autenticación de inquilinos y las directivas de MFA.
+1. **Azure AD MFA** se comunica con Azure Active Directory (Azure AD) para recuperar los detalles del usuario y realiza la autenticación secundaria con un método de verificación configurado para el usuario.
 
 El diagrama siguiente ilustra este flujo de solicitud de autenticación de alto nivel:
 
