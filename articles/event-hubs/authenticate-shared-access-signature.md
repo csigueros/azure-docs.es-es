@@ -4,12 +4,12 @@ description: En este artículo se muestra cómo autenticar el acceso a recursos 
 ms.topic: conceptual
 ms.date: 07/26/2021
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: f647dd21db2920bff01ac5929c527e66f8d7350b
-ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
+ms.openlocfilehash: 18b338f42ecd0f12e361aaf1defcfed22e0aaad7
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114708538"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123307114"
 ---
 # <a name="authenticate-access-to-event-hubs-resources-using-shared-access-signatures-sas"></a>Autenticación del acceso a recursos de Event Hubs mediante firmas de acceso compartido (SAS)
 La firma de acceso compartido (SAS) le ofrece un control pormenorizado sobre el tipo de acceso que se concede a los clientes que la tienen. Estos son algunos de los controles que puede establecer en una SAS: 
@@ -59,13 +59,13 @@ SHA-256('https://<yournamespace>.servicebus.windows.net/'+'\n'+ 1438205742)
 
 El token contiene los valores sin el hash para que el destinatario pueda volver a calcular el hash con los mismos parámetros y verificar que el emisor posee una clave de firma válida.
 
-El URI de recurso es el URI completo del recurso de Service Bus al que se solicita el acceso. Por ejemplo, http://<namespace>.servicebus.windows.net/<entityPath> o `sb://<namespace>.servicebus.windows.net/<entityPath>;`, es decir, `http://contoso.servicebus.windows.net/eh1`.
+El URI de recurso es el URI completo del recurso de Service Bus al que se solicita el acceso. Por ejemplo, `http://<namespace>.servicebus.windows.net/<entityPath>` o `sb://<namespace>.servicebus.windows.net/<entityPath>`; es decir, `http://contoso.servicebus.windows.net/eh1`.
 
 El URI debe estar codificado por porcentaje.
 
 La regla de autorización de acceso compartido usada para firmar debe configurarse en la entidad especificada por este URI, o uno de sus primarios jerárquicos. Por ejemplo, `http://contoso.servicebus.windows.net/eh1` o `http://contoso.servicebus.windows.net` en el ejemplo anterior.
 
-Un token SAS es válido en todos los recursos con el prefijo <resourceURI> usado en la cadena de firma.
+Un token SAS es válido en todos los recursos con el prefijo `<resourceURI>` usado en la cadena de firma.
 
 > [!NOTE]
 > El token de acceso para Event Hubs se genera mediante la directiva de acceso compartido. Para más información, consulte [Directiva de autorización de acceso compartido](authorize-access-shared-access-signature.md#shared-access-authorization-policies).
