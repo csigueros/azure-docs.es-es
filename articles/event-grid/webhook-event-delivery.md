@@ -2,13 +2,13 @@
 title: Entrega de eventos de WebHook
 description: En este artículo se describe la entrega de eventos de webhook y la validación de puntos de conexión al usar webhooks.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 42ba36a21d307ca85d9cdae850c0c9a991e4f30e
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.date: 09/02/2021
+ms.openlocfilehash: 04ae18ca6aab01331bdc1005498820177dfec56d
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105968006"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123450204"
 ---
 # <a name="webhook-event-delivery"></a>Entrega de eventos de webhook
 Los webhooks son una de las muchas maneras de recibir eventos de Azure Event Grid. Cuando un nuevo evento está preparado, el servicio EventGrid publica una solicitud HTTP en el punto de conexión configurado con el evento en el cuerpo de la solicitud.
@@ -38,13 +38,13 @@ Si utiliza cualquier otro tipo de punto de conexión, como una función de Azure
 ### <a name="validation-details"></a>Detalles de la validación
 
 - En el momento de crear o actualizar la suscripción a eventos, Event Grid publica un evento de validación de suscripción en el punto de conexión de destino.
-- El evento contiene un valor de encabezado "aeg-event-type: SubscriptionValidation".
+- El evento contiene un valor de encabezado `aeg-event-type: SubscriptionValidation`.
 - El cuerpo del evento tiene el mismo esquema que otros eventos de Event Grid.
-- La propiedad eventType del evento es `Microsoft.EventGrid.SubscriptionValidationEvent`.
-- La propiedad de datos del evento incluye una propiedad `validationCode` con una cadena generada aleatoriamente. Por ejemplo, "validationCode: acb13…".
+- La propiedad `eventType` del evento es `Microsoft.EventGrid.SubscriptionValidationEvent`.
+- La propiedad `data` del evento incluye una propiedad `validationCode` con una cadena generada aleatoriamente. Por ejemplo, `validationCode: acb13…`.
 - Los datos del evento también incluyen una propiedad `validationUrl` con una dirección URL para validar manualmente la suscripción.
 - La matriz contiene solo el evento de validación. Otros eventos se envían en una solicitud aparte después de devolver el código de validación.
-- Los SDK de EventGrid DataPlane tienen clases que corresponden a los datos de evento de validación de suscripción y a la respuesta de validación de suscripción.
+- Los SDK del plano de datos de EventGrid tienen clases que corresponden a los datos de eventos de validación de suscripción y a la respuesta de validación de suscripción.
 
 En el siguiente ejemplo se muestra un evento SubscriptionValidationEvent de ejemplo:
 
@@ -56,17 +56,17 @@ En el siguiente ejemplo se muestra un evento SubscriptionValidationEvent de ejem
     "subject": "",
     "data": {
       "validationCode": "512d38b6-c7b8-40c8-89fe-f46f9e9622b6",
-      "validationUrl": "https://rp-eastus2.eventgrid.azure.net:553/eventsubscriptions/estest/validate?id=512d38b6-c7b8-40c8-89fe-f46f9e9622b6&t=2018-04-26T20:30:54.4538837Z&apiVersion=2018-05-01-preview&token=1A1A1A1A"
+      "validationUrl": "https://rp-eastus2.eventgrid.azure.net:553/eventsubscriptions/myeventsub/validate?id=0000000000-0000-0000-0000-00000000000000&t=2021-09-01T20:30:54.4538837Z&apiVersion=2018-05-01-preview&token=1A1A1A1A"
     },
     "eventType": "Microsoft.EventGrid.SubscriptionValidationEvent",
-    "eventTime": "2018-01-25T22:12:19.4556811Z",
+    "eventTime": "2021-00-01T22:12:19.4556811Z",
     "metadataVersion": "1",
     "dataVersion": "1"
   }
 ]
 ```
 
-Para comprobar la propiedad del punto de conexión, devuelva el código de validación en la propiedad validationResponse, como se muestra en el siguiente ejemplo:
+Para comprobar la propiedad del punto de conexión, devuelva el código de validación en la propiedad `validationResponse`, como se muestra en el siguiente ejemplo:
 
 ```json
 {
@@ -74,14 +74,14 @@ Para comprobar la propiedad del punto de conexión, devuelva el código de valid
 }
 ```
 
-Debe devolver un código de estado de respuesta HTTP 200 OK. HTTP 202 Aceptado no se reconoce como una respuesta válida de validación de suscripción a Event Grid. La solicitud HTTP debe completarse en 30 segundos. Si la operación no finaliza en 30 segundos, se cancelará y puede que se vuelva a intentar pasados cinco segundos. Si se producen errores en todos los intentos, se tratará como un error de protocolo de enlace de validación.
+Debe devolver un código de estado de respuesta **HTTP 200 OK**. **HTTP 202 Aceptado** no se reconoce como una respuesta válida de validación de suscripción a Event Grid. La solicitud HTTP debe completarse en 30 segundos. Si la operación no finaliza en 30 segundos, se cancelará y puede que se vuelva a intentar pasados cinco segundos. Si se producen errores en todos los intentos, se tratará como un error de protocolo de enlace de validación.
 
 O bien, puede enviar una solicitud GET a la dirección URL de validación para validar la suscripción manualmente. La suscripción a eventos permanece en estado pendiente hasta que se valida. La dirección URL de validación usa el puerto 553. Si las reglas de firewall bloquean el puerto 553, puede que sea necesario actualizarlas para aplicar el protocolo de enlace manual de forma satisfactoria.
 
 Para ver un ejemplo del tratamiento del protocolo de enlace de validación de suscripción, consulte un [ejemplo de C#](https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/blob/master/EventGridConsumer/EventGridConsumer/Function1.cs).
 
 ## <a name="endpoint-validation-with-cloudevents-v10"></a>Validación de puntos de conexión con CloudEvents v1.0
-Si ya está familiarizado con Event Grid, es posible que conozca el protocolo de enlace de validación de punto de conexión de Event Grid para evitar el uso inapropiado. CloudEvents v1.0 implementa su propia [semántica de protección contra abusos](webhook-event-delivery.md) mediante el método HTTP OPTIONS. Puede leer más sobre este tema [aquí](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#4-abuse-protection). Al usar el esquema de CloudEvents para la salida, Event Grid lo hace con la protección contra abusos de CloudEvents v1.0 en lugar del mecanismo de eventos de validación de Event Grid.
+CloudEvents v1.0 implementa su propia [semántica de protección contra abusos](webhook-event-delivery.md) mediante el método **HTTP OPTIONS**. Puede leer más sobre este tema [aquí](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#4-abuse-protection). Al usar el esquema de CloudEvents para la salida, Event Grid lo hace con la protección contra abusos de CloudEvents v1.0 en lugar del mecanismo de eventos de validación de Event Grid.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte el siguiente artículo para saber cómo solucionar problemas con las validaciones de suscripciones a eventos: 

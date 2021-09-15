@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 08/25/2021
-ms.openlocfilehash: 31ac845591387ec0c7061945e3324cd5249d7b23
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: 40b1652bec99844675e030cfd12ef8ff28a0f01f
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123037803"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123435463"
 ---
 # <a name="how-to-connect-azure-data-factory-and-azure-purview"></a>Cómo conectar Azure Data Factory y Azure Purview
 
@@ -102,6 +102,10 @@ La integración entre Data Factory y Purview solo admite un subconjunto de los s
 ### <a name="execute-ssis-package-support"></a>Compatibilidad de ejecución de paquetes SSIS
 
 Consulte los [almacenes de datos admitidos](how-to-lineage-sql-server-integration-services.md#supported-data-stores).
+
+## <a name="access-secured-azure-purview-account"></a>Acceso a cuenta de Azure Purview protegida
+      
+Si la cuenta de Purview está protegida por el firewall, aprenda a permitir que Data Factory [acceda a una cuenta de Purview protegida](../data-factory/how-to-access-secured-purview-account.md) mediante puntos de conexión privados de Purview.
 
 ## <a name="bring-data-factory-lineage-into-purview"></a>Inserción del linaje de Data Factory en Purview
 

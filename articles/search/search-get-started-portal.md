@@ -1,5 +1,5 @@
 ---
-title: Creación de un índice de búsqueda en Azure Portal
+title: 'Inicio rápido: Creación de un índice de búsqueda en Azure Portal'
 titleSuffix: Azure Cognitive Search
 description: Use el asistente para la importación de datos para crear, cargar y consultar su primer índice de búsqueda en Azure Portal. En este inicio rápido se usa un conjunto de datos de hoteles ficticios como datos de ejemplo.
 manager: nitinme
@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 03/02/2021
-ms.openlocfilehash: 1be165bfe7cca44e8a928933c3c8fe926ad7d4c9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 08/24/2021
+ms.openlocfilehash: 9bb3bdc7254fb3f9da62936df6429d8cba6b3bd5
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101694842"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123450077"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>Inicio rápido: Creación de un índice de Azure Cognitive Search en Azure Portal
 
@@ -47,7 +47,7 @@ En este tutorial, se usa un conjunto de datos de ejemplo integrado que se puede 
 
 1. [Busque su servicio de búsqueda](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) y, en la página de información general, haga clic en **Importar datos** en la barra de comandos para crear y rellenar un índice de búsqueda.
 
-   :::image type="content" source="media/search-get-started-portal/import-data-cmd.png" alt-text="Comando de importación de datos":::
+   :::image type="content" source="media/search-import-data-portal/import-data-cmd.png" alt-text="Captura de pantalla del comando para importar datos" border="true":::
 
 1. En el asistente, haga clic en **Conectar a los datos** > **Ejemplos** > **hotels-sample**. Este origen de datos está integrado. Si creó su propio origen de datos, deberá especificar un nombre, el tipo y la información de conexión. Una vez creado, se convierte en un "origen de datos existente" que se puede reutilizar en otras operaciones de importación.
 

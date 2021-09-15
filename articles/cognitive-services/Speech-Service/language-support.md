@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/07/2021
 ms.author: lajanuar
 ms.custom: references_regions
-ms.openlocfilehash: f718ba81cf122b747652bf66d840dd8935897019
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.openlocfilehash: 7066a001d27376be6f9b8464beafc0cad2b54437
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122253820"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122419236"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Compatibilidad con idiomas y voces en el servicio de voz
 
@@ -358,7 +358,7 @@ Para más información sobre cómo configurar y ajustar las voces neuronales, po
 > La voz `en-US-JessaNeural` ha cambiado a `en-US-AriaNeural`. Si usaba "Jessa" antes, conviértalo a "Aria".
 
 > [!TIP]
-> Puede seguir usando la asignación de nombre completo de servicio, como "Microsoft Server Speech Text to Speech Voice (en-US, AriaNeural)", en sus solicitudes de síntesis de voz.
+> Puede seguir usando la asignación de nombre completo de servicio, como "Microsoft Server Speech Text to Speech Voice (en-US, ChristopherNeural)", en sus solicitudes de síntesis de voz.
 
 ### <a name="standard-voices"></a>Voces estándar
 
@@ -575,7 +575,7 @@ Consulte la tabla siguiente para ver los idiomas compatibles con las distintas A
 
 | Idioma | Configuración regional (BCP-47) | Comprobación dependiente del texto | Comprobación independiente del texto | Identificación independiente del texto |
 |----|----|----|----|----|
-|Inglés (EE.UU.)  |  es-ES  |  sí  |  Sí  |  sí |
+|Inglés (EE.UU.)  |  es-ES  |  sí  |  sí  |  sí |
 |Chino (mandarín, simplificado) | zh-CN     |     N/D |     sí |     sí|
 |Inglés (Australia)     | en-AU     | N/D     | sí     | sí|
 |Inglés (Canadá)     | en-CA     | N/D |     sí |     sí|

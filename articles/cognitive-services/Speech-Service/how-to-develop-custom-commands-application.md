@@ -3,19 +3,19 @@ title: 'Procedimiento: Desarrollo de aplicaciones de Comandos personalizados: se
 titleSuffix: Azure Cognitive Services
 description: Obtenga información sobre cómo desarrollar y personalizar aplicaciones de Comandos personalizados. Estas aplicaciones de comandos de voz son más adecuadas para escenarios de realización de tareas o de comando y control.
 services: cognitive-services
-author: laujan
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/15/2020
-ms.author: lajanuar
-ms.openlocfilehash: cb97e41740997e35445cdf6dfb7281e54c3a5c16
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
+ms.author: pafarley
+ms.openlocfilehash: 7b5f32e50e4bcb256d5580edccaf083dad39b98c
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122069022"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123542636"
 ---
 # <a name="develop-custom-commands-applications"></a>Desarrollo de aplicaciones de Comandos personalizados
 
@@ -97,7 +97,7 @@ Para obtener más información sobre las reglas y las reglas de finalización, v
     | ---------- | ---------------------------------------- | -------------------------------------------------- |
     | **Nombre**       | `ConfirmationResponse`                  | Nombre que describe el propósito de la regla.          |
     | **Condiciones** | None                                     | Condiciones que determinan cuándo se puede ejecutar la regla.    |
-    | **Acciones**    | **Send speech response (Enviar respuesta de voz)**  > **Simple editor (Editor sencillo)**  > **First variation (Primera variación)**  > `Ok, turning the tv on` | Acción que se realizará cuando la condición de la regla sea true. |
+    | **Acciones**    | **Send speech response (Enviar respuesta de voz)**  > **Simple editor (Editor sencillo)**  > `Ok, turning the tv on` | Acción que se realizará cuando la condición de la regla sea true. |
 
    > [!div class="mx-imgBorder"]
    > ![Captura de pantalla que muestra dónde crear una respuesta de voz.](media/custom-commands/create-speech-response-action.png)
@@ -167,9 +167,9 @@ En esta sección, obtendrá información sobre cómo agregar parámetros a los c
 Empiece por editar el comando `TurnOn` existente para activar y desactivar varios dispositivos.
 
 1. Ahora que el comando controlará los escenarios de encendido y apagado, cambie el nombre del comando a *TurnOnOff*.
-   1. En el panel de la izquierda, seleccione el comando **TurnOn**. A continuación, junto a **Nuevo comando** en la parte superior del panel, seleccione el botón de puntos suspensivos ( **...** ).
+   1. En el panel de la izquierda, seleccione el comando **TurnOn**. Luego, junto a **Nuevo comando** en la parte superior del panel, seleccione el botón de edición.
 
-   1. Seleccione **Rename** (Cambiar nombre). En la ventana **Rename command** (Cambiar nombre del comando), cambie el nombre a *TurOnOff*.
+   1. En la ventana **Rename command** (Cambiar nombre del comando), cambie el nombre a *TurOnOff*.
 
 1. Agregue un parámetro nuevo al comando. El parámetro representa si el usuario quiere encender o apagar el dispositivo.
    1. En la parte superior del panel, seleccione **Agregar**. En el menú desplegable, seleccione **Parámetro**.
@@ -186,7 +186,6 @@ Empiece por editar el comando `TurnOn` existente para activar y desactivar vario
        | Configuración      | Valor sugerido     | Descripción                                                      |
        | ------------------ | ----------------| ---------------------------------------------------------------------|
        | **Nombre**               | `OnOff`           | Nombre descriptivo del parámetro.                                                                           |
-       | **Is Global** (Es global)          | No seleccionado       | Casilla que indica si el valor de este parámetro se aplica globalmente a todos los comandos de la aplicación.|
        | **Obligatorio**           | Seleccionado         | Casilla que indica si es obligatorio especificar un valor para este parámetro antes de finalice el comando. |
        | **Respuesta para el parámetro requerido**      |**Simple editor (Editor sencillo)**  > `On or Off?`      | Mensaje que pregunta el valor de este parámetro cuando no se conoce. |
        | **Tipo**               | **String**          | Tipo de parámetro; por ejemplo, Number, String, Date Time o Geography.   |
@@ -209,7 +208,6 @@ Empiece por editar el comando `TurnOn` existente para activar y desactivar vario
     | Configuración            | Valor sugerido       |
     | ------------------ | --------------------- |
     | **Nombre**               | `SubjectDevice`         |
-    | **Is Global** (Es global)          | No seleccionado             |
     | **Obligatorio**           | Seleccionado               |
     | **Respuesta para el parámetro requerido**     | **Simple editor (Editor sencillo)**  > `Which device do you want to control?`    | 
     | **Tipo**               | **String**                |     
@@ -276,11 +274,11 @@ Cuando finalice el entrenamiento, seleccione **Probar**. Aparece una ventana **T
 
 Modifique el comando `SetTemperature` para que pueda establecer la temperatura según las indicaciones del usuario.
 
-Agregue un parámetro `Temperature`. Use la configuración siguiente:
+Agregue un parámetro `TemperatureValue`. Use la configuración siguiente:
 
 | Configuración      | Valor sugerido     |
 | ------------------ | ----------------|
-| **Nombre**               | `Temperature`           |
+| **Nombre**               | `TemperatureValue`           |
 | **Obligatorio**           | Seleccionado         |
 | **Respuesta para el parámetro requerido**      | **Simple editor (Editor sencillo)**  > `What temperature would you like?`
 | **Type**               | `Number`          |
@@ -289,8 +287,8 @@ Agregue un parámetro `Temperature`. Use la configuración siguiente:
 Edite las expresiones de ejemplo para usar los siguientes valores.
 
 ```
-set the temperature to {Temperature} degrees
-change the temperature to {Temperature}
+set the temperature to {TemperatureValue} degrees
+change the temperature to {TemperatureValue}
 set the temperature
 change the temperature
 ```
@@ -299,8 +297,8 @@ Edite las reglas de finalización existentes. Use la configuración siguiente.
 
 | Configuración      | Valor sugerido     |
 | ------------------ | ----------------|
-| **Condiciones**         | **Parámetro obligatorio** > **Temperatura**           |
-| **Acciones**           | **Send speech response (Enviar respuesta de voz)**  > `Ok, setting temperature to {Temperature} degrees` |
+| **Condiciones**         | **Parámetro obligatorio** > **TemperatureValue**           |
+| **Acciones**           | **Send speech response (Enviar respuesta de voz)**  > `Ok, setting temperature to {TemperatureValue} degrees` |
 
 ### <a name="configure-parameters-for-a-setalarm-command"></a>Configuración de parámetros para un comando SetAlarm
 
@@ -462,26 +460,26 @@ Para agregar una confirmación, use el comando `SetTemperature`. Para conseguir 
 
     1. Modifique la regla de interacción **Confirm Command** (Confirmar comando) mediante la configuración siguiente:
         1. Cambie el nombre a **Confirm temperature** (Confirmar temperatura).
-        1. Agregue una condición nueva: **Parámetros requeridos** > **Temperatura**.
-        1. Agregue una nueva acción: **Tipo** > **Send speech response (Enviar respuesta de voz)**  > **Are you sure you want to set the temperature as {Temperature} degrees?** (¿Está seguro de que quiere definir la temperatura en {Temperature} grados?)
+        1. La condición **All required parameters** (Todos los parámetros obligatorios) ya se ha agregado.
+        1. Agregue una nueva acción: **Tipo** > **Send speech response (Enviar respuesta de voz)**  > **Are you sure you want to set the temperature as {TemperatureValue} degrees?** (¿Está seguro de que quiere definir la temperatura en {TemperatureValue} grados?)
         1. En la sección **Expectations** (Expectativas), deje el valor predeterminado de **Expecting confirmation from user** (A la espera de confirmación del usuario).
 
          > [!div class="mx-imgBorder"]
-         > ![Captura de pantalla que muestra cómo crear la respuesta de parámetro necesario.](media/custom-speech-commands/add-validation-set-temperature.png)
+         > ![Captura de pantalla que muestra cómo crear la respuesta de parámetro necesario.](media/custom-speech-commands/add-confirmation-set-temperature.png)
 
 
     1. Modifique la regla de interacción **Confirmation succeeded** (Confirmación correcta) para controlar una confirmación correcta (el usuario dijo sí).
 
           1. Cambie el nombre a **Confirmation temperature succeeded** (Confirmación de temperatura correcta).
           1. Deje la condición **Confirmation was successful** (La confirmación se realizó correctamente) existente.
-          1. Agregue una condición nueva: **Tipo** > **Parámetros requeridos** > **Temperatura**.
+          1. Agregue una nueva condición: **Tipo** > **Parámetros obligatorios** > **Temperature** (Temperatura).
           1. Deje el valor predeterminado de **Post-execution state** (Estado posterior a la ejecución) como **Execute completion rules** (Ejecutar reglas de finalización).
 
     1. Modifique la regla de interacción **Confirmation denied** (Confirmación denegada) para controlar los escenarios en los que se deniega la confirmación (el usuario dijo que no).
 
           1. Cambie el nombre a **Confirmation temperature denied** (Confirmación de temperatura denegada).
           1. Deje la condición **Confirmation was denied** (La confirmación se denegó) existente.
-          1. Agregue una condición nueva: **Tipo** > **Parámetros requeridos** > **Temperatura**.
+          1. Agregue una nueva condición: **Tipo** > **Parámetros obligatorios** > **Temperature** (Temperatura).
           1. Agregue una nueva acción: **Tipo** > **Send speech response (Enviar respuesta de voz)**  > **No problem (No hay problema). What temperature then?** (Entonces, ¿qué temperatura?).
           1. Cambie el valor predeterminado de **Post-execution state** (Estado posterior a la ejecución) a **Wait for user's input** (Esperar la entrada del usuario).
 
@@ -587,7 +585,6 @@ Use el comando `TurnOnOff` para agregar un nuevo parámetro. Use la configuraci�
 | Configuración            | Valor sugerido       |
 | ------------------ | --------------------- |
 | **Nombre**               | `SubjectContext`         |
-| **Is Global** (Es global)          | No seleccionado             |
 | **Obligatorio**           | No seleccionado               |
 | **Tipo**               | **String**                |
 | **Valor predeterminado**      | `all` |

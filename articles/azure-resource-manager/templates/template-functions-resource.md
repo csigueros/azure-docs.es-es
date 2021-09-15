@@ -2,14 +2,14 @@
 title: 'Funciones de plantillas: recursos'
 description: Describe las funciones para usar en una plantilla de Azure Resource Manager (plantilla de ARM) para recuperar valores sobre recursos.
 ms.topic: conceptual
-ms.date: 08/16/2021
+ms.date: 08/31/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 5fb365b1b0a1a77f93f627986902d4ede2752850
-ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
+ms.openlocfilehash: 889ff813a72c3ebdc1cca9fa83e7c1dfde367eb6
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122228901"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123450276"
 ---
 # <a name="resource-functions-for-arm-templates"></a>Funciones de recursos para plantillas de ARM
 
@@ -18,6 +18,7 @@ Resource Manager ofrece las siguientes funciones para obtener valores de recurso
 * [extensionResourceId](#extensionresourceid)
 * [list*](#list)
 * [pickZones](#pickzones)
+* [providers (en desuso)](#providers)
 * [reference](#reference)
 * [resourceGroup](#resourcegroup)
 * [resourceId](#resourceid)
@@ -29,7 +30,7 @@ Para obtener valores de parámetro, variables o la implementación actual, consu
 
 ## <a name="extensionresourceid"></a>extensionResourceId
 
-`extensionResourceId(resourceId, resourceType, resourceName1, [resourceName2], ...)`
+`extensionResourceId(baseResourceId, resourceType, resourceName1, [resourceName2], ...)`
 
 Devuelve el identificador de recurso de un [recurso de extensión](../management/extension-resource-types.md), que es un tipo de recurso que se aplica a otro recurso para agregarlo a sus capacidades.
 
@@ -37,9 +38,9 @@ Devuelve el identificador de recurso de un [recurso de extensión](../management
 
 | Parámetro | Obligatorio | Tipo | Descripción |
 |:--- |:--- |:--- |:--- |
-| resourceId |Sí |string |El identificador de recurso para el recurso al que se aplica el recurso de extensión. |
-| resourceType |Sí |string |Tipo de recurso, incluido el espacio de nombres del proveedor de recursos. |
-| resourceName1 |Sí |string |Nombre del recurso. |
+| baseResourceId |Sí |string |El identificador de recurso para el recurso al que se aplica el recurso de extensión. |
+| resourceType |Sí |string |Tipo de recurso de extensión, incluido el espacio de nombres del proveedor de recursos. |
+| resourceName1 |Sí |string |Nombre del recurso de extensión. |
 | resourceName2 |No |string |Segmento con el nombre del siguiente segmento, si es necesario. |
 
 Siga agregando nombres de recursos como parámetros cuando el tipo de recurso incluya más segmentos.
@@ -52,7 +53,7 @@ El formato básico del identificador de recurso devuelto por esta función es:
 {scope}/providers/{extensionResourceProviderNamespace}/{extensionResourceType}/{extensionResourceName}
 ```
 
-El segmento de ámbito varía según el recurso que se está ampliando.
+El segmento de ámbito varía según el recurso base que se está ampliando. Por ejemplo, el identificador de una suscripción tiene segmentos diferentes a los del identificador de un grupo de recursos.
 
 Cuando el recurso de extensión se aplica a un **recurso**, el identificador de recurso se devuelve en el formato siguiente:
 
@@ -60,23 +61,27 @@ Cuando el recurso de extensión se aplica a un **recurso**, el identificador de 
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{baseResourceProviderNamespace}/{baseResourceType}/{baseResourceName}/providers/{extensionResourceProviderNamespace}/{extensionResourceType}/{extensionResourceName}
 ```
 
-Cuando el recurso de extensión se aplica a un **grupo de recursos**, el formato es:
+Cuando el recurso de extensión se aplica a un **grupo de recursos**, el formato devuelto es:
 
 ```json
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{extensionResourceProviderNamespace}/{extensionResourceType}/{extensionResourceName}
 ```
 
-Cuando el recurso de extensión se aplica a una **suscripción**, el formato es:
+En la sección siguiente se muestra un ejemplo del uso de esta función con un grupo de recursos.
+
+Cuando el recurso de extensión se aplica a una **suscripción**, el formato devuelto es:
 
 ```json
 /subscriptions/{subscriptionId}/providers/{extensionResourceProviderNamespace}/{extensionResourceType}/{extensionResourceName}
 ```
 
-Cuando el recurso de extensión se aplica a un **grupo de administración**, el formato es:
+Cuando el recurso de extensión se aplica a un **grupo de administración**, el formato devuelto es:
 
 ```json
 /providers/Microsoft.Management/managementGroups/{managementGroupName}/providers/{extensionResourceProviderNamespace}/{extensionResourceType}/{extensionResourceName}
 ```
+
+En la sección siguiente se muestra un ejemplo del uso de esta función con un grupo de administración.
 
 ### <a name="extensionresourceid-example"></a>Ejemplo de extensionResourceId
 
@@ -463,6 +468,10 @@ En el siguiente ejemplo se muestra cómo usar la función pickZones con el fin d
 ]
 ```
 
+## <a name="providers"></a>providers
+
+**La función providers está en desuso.** Por tanto, no se recomienda utilizarla. Si usó esta función para obtener una versión de la API para el proveedor de recursos, se recomienda proporcionar una versión de API específica en la plantilla. El uso de una versión de API devuelta dinámicamente puede interrumpir la plantilla si las propiedades cambian entre versiones.
+
 ## <a name="reference"></a>reference
 
 `reference(resourceName or resourceIdentifier, [apiVersion], ['Full'])`
@@ -787,6 +796,8 @@ El ejemplo anterior devuelve un objeto en el formato siguiente:
   }
 }
 ```
+
+Esta [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/resourceGroupName.json) genera una propiedad de grupo de recursos específica.
 
 ## <a name="resourceid"></a>resourceId
 

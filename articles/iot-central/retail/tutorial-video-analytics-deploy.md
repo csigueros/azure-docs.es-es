@@ -1,23 +1,43 @@
 ---
-title: 'Tutorial: Implementación de la plantilla de la aplicación Video analytics - object and motion detection de Azure IoT Central'
-description: 'Tutorial: en esta guía se resumen los pasos necesarios para implementar una aplicación de Azure IoT Central mediante la plantilla de aplicación de detección de movimiento y objetos de análisis de vídeo.'
+title: 'Tutorial: Análisis de vídeo de Azure IoT: detección de movimiento y objetos | Microsoft Docs'
+description: En este tutorial se muestra cómo implementar y usar la plantilla de aplicación de detección de objetos y movimiento en el análisis de vídeo para IoT Central.
 services: iot-central
 ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
-ms.date: 07/31/2020
-ms.openlocfilehash: c578da7e83a39f84e72b550038bd87dde3c61d28
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 09/02/2021
+ms.openlocfilehash: 026c1794f678c5d194b0e5174986f9f962508647
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101727471"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123473755"
 ---
-# <a name="tutorial-how-to-deploy-an-iot-central-application-using-the-video-analytics---object-and-motion-detection-application-template"></a>Tutorial: Implementación de una aplicación de IoT Central mediante la plantilla de la aplicación Video analytics - object and motion detection
+# <a name="tutorial-deploy-and-walk-through-the-video-analytics---object-and-motion-detection-application-template"></a>Tutorial: Implementación y tutorial de la plantilla de aplicación de detección de objetos y movimiento en el análisis de vídeo
 
-Para información general sobre los componentes de la aplicación clave *Video analytics - object and motion detection*, consulte [Arquitectura de la aplicación Video analytics - object and motion detection](architecture-video-analytics.md).
+Para obtener información general de la aplicación de *detección de objetos y movimiento para el análisis de vídeo*. La plantilla de aplicación de **detección de objetos y movimiento para el análisis de vídeo** permite compilar soluciones de IoT, entre las que se incluyen las funcionalidades de análisis de vídeo en directo.
+
+:::image type="content" source="media/architecture-video-analytics/architecture.png" alt-text="Diagrama de información general sobre los componentes de detección de movimiento y objetos de análisis de vídeo.":::
+
+Los componentes clave de la solución de análisis de vídeo incluyen:
+
+### <a name="live-video-analytics-lva"></a>Live Video Analytics (LVA)
+
+LVA ofrece una plataforma para compilar aplicaciones de vídeo inteligentes que abarquen el entorno perimetral y la nube. La plataforma permite compilar aplicaciones de vídeo inteligentes que abarquen el perímetro y la nube. La plataforma ofrece la funcionalidad de capturar, grabar, analizar vídeo en directo y publicar los resultados, que podrían ser análisis de vídeo o vídeo, en los servicios de Azure. Los servicios de Azure podrían ejecutarse en la nube o en el dispositivo perimetral. La plataforma se puede usar para mejorar las soluciones de IoT con análisis de vídeo.
+
+Para más información, consulte [Live Video Analytics](https://github.com/Azure/live-video-analytics) en GitHub.
+
+### <a name="iot-edge-lva-gateway-module"></a>Módulo de la puerta de enlace para LVA de IoT Edge
+
+El módulo de la puerta de enlace para LVA de IoT Edge crea instancias de las cámaras como dispositivos nuevos y los conecta directamente a IoT Central mediante el SDK de cliente de dispositivo IoT.
+
+En esta implementación de referencia, los dispositivos se conectan a la solución mediante claves simétricas del dispositivo perimetral. Para más información sobre la conectividad de los dispositivos, consulte [Conexión a Azure IoT Central](../core/concepts-get-connected.md).
+
+### <a name="media-graph"></a>Grafo multimedia
+
+El grafo multimedia permite definir dónde se debe capturar el contenido multimedia, cómo procesarlo y dónde se entregan los resultados. Conecte componentes o nodos de la manera deseada para configurar este grafo multimedia. Para más información, consulte [Grafos multimedia](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph) en GitHub.
 
 En el siguiente vídeo se ofrece un tutorial sobre cómo usar la _plantilla de aplicación de análisis de vídeo y detección de movimiento y objetos_ para implementar una solución IoT Central:
 
@@ -32,7 +52,8 @@ En este conjunto de tutoriales, aprenderá:
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-Se recomienda una suscripción de Azure. Como alternativa, puede usar una versión de prueba gratuita de 7 días. Si no tiene una suscripción de Azure, puede crear una en la [página de suscripción a Azure](https://aka.ms/createazuresubscription).
+* No se necesitan requisitos previos específicos para implementar esta aplicación.
+* Puede usar el plan gratuito o una suscripción de Azure.
 
 ## <a name="deploy-the-application"></a>Implementación de la aplicación
 

@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/16/2017
+ms.date: 08/31/2021
 ms.author: davidmu
 ms.reviewer: alamaral
-ms.openlocfilehash: 2dc66adcce209b29579bb88184272fd2bda1353c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 584437c13168303630585c67ee853b135a2c09a5
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121738751"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123435229"
 ---
 # <a name="managing-access-to-apps"></a>Administración del acceso a las aplicaciones
 
@@ -40,13 +40,20 @@ Con estos dos modos de asignación, los administradores pueden conseguir cualqui
 
 ### <a name="requiring-user-assignment-for-an-app"></a>Requerir la asignación del usuario a una aplicación
 
-Con algunos tipos de aplicaciones, existe la opción de [requerir que los usuarios estén asignados a la aplicación](assign-user-or-group-access-portal.md#configure-an-application-to-require-user-assignment). Al hacerlo, se impide que todos los usuarios puedan iniciar sesión, salvo aquellos que se asignen expresamente a la aplicación. Los siguientes tipos de aplicaciones admiten esta opción:
+Con algunos tipos de aplicaciones, existe la opción de requerir que los usuarios estén asignados a la aplicación. Al hacerlo, se impide que todos los usuarios puedan iniciar sesión, salvo aquellos que se asignen expresamente a la aplicación. Los siguientes tipos de aplicaciones admiten esta opción:
 
 * Aplicaciones configuradas para el inicio de sesión único (SSO) federado con autenticación basada en SAML
 * Aplicaciones de proxy de aplicación que usan la autenticación previa de Azure Active Directory
 * Aplicaciones integradas en la plataforma de aplicaciones de Azure AD que usan la autenticación de OAuth 2.0 u OpenID Connect después de que un usuario o un administrador han dado su consentimiento a esa aplicación. Algunas aplicaciones empresariales ofrecen un control adicional sobre quién puede iniciar sesión.
 
-Cuando la asignación de usuarios *no es necesaria*, los usuarios sin asignar no ven la aplicación en su página Aplicaciones, pero sí pueden iniciar sesión en la aplicación propiamente dicha (esto se conoce también como inicio de sesión iniciado por SP). Otra opción es usar la dirección que aparece en **URL de acceso de usuario** en la página **Propiedades** de la aplicación (esto se conoce también como inicio de sesión iniciado por IDP).
+Cuando se requiere la asignación de usuarios, solo podrán iniciar sesión los usuarios que se asignen a la aplicación (ya sea a través de una asignación directa de usuarios o según la pertenencia a grupos). Estos pueden acceder a la aplicación desde su página Mis aplicaciones o a través de un vínculo directo.
+
+Cuando la asignación de usuarios no es necesaria, los usuarios sin asignar no ven la aplicación en su página Aplicaciones, pero sí pueden iniciar sesión en la aplicación propiamente dicha (esto se conoce también como inicio de sesión iniciado por SP). Otra opción es usar la dirección que aparece en **URL de acceso de usuario** en la página **Propiedades** de la aplicación (esto se conoce también como inicio de sesión iniciado por IDP).
+
+Esto no afecta a si una aplicación aparece o no en Aplicaciones. Las aplicaciones aparecen en los paneles de acceso Mis aplicaciones de los usuarios en el momento en que un usuario o un grupo se asigna a la aplicación en cuestión.
+
+> [!NOTE]
+> Cuando en una aplicación se necesita la asignación, no se permite el consentimiento del usuario para esa aplicación. Esto es así incluso si los usuarios hubieran dado su consentimiento para esa aplicación. Asegúrese de conceder [consentimiento de administrador en todo el inquilino](../manage-apps/grant-admin-consent.md) a las aplicaciones en las que sea necesaria la asignación.
 
 En algunas aplicaciones, la opción para requerir la asignación de usuarios no está disponible en las propiedades de la aplicación. En estos casos, puede usar PowerShell para establecer la propiedad appRoleAssignmentRequired en la entidad de servicio.
 
@@ -76,7 +83,7 @@ Con Azure AD, las aplicaciones como Salesforce se pueden configurar previamente 
 
 En este caso, todos los usuarios asignados se aprovisionarían automáticamente a Salesforce, ya que como se agregan a diferentes grupos, su asignación de roles se actualizaría en Salesforce. Los usuarios podrán detectar Salesforce y acceder a esta aplicación mediante la página Aplicaciones, los clientes web de Office, o incluso navegando a su página de inicio de sesión organizativa de Salesforce. Los administradores podrán ver fácilmente el estado de uso y asignación mediante los informes de Azure AD.
 
-Los administradores pueden emplear el [acceso condicional de Azure AD](../conditional-access/concept-conditional-access-users-groups.md) para establecer directivas de acceso para roles específicos. Estas directivas pueden incluir si se permite el acceso fuera del entorno corporativo e incluso los requisitos de Multi-Factor Authentication o de los dispositivo para obtener acceso en diversos casos.
+Los administradores pueden emplear el [acceso condicional de Azure AD](../conditional-access/concept-conditional-access-users-groups.md) para establecer directivas de acceso para roles específicos. Estas directivas pueden incluir si se permite el acceso fuera del entorno corporativo e incluso los requisitos de la autenticación multifactor o de los dispositivo para obtener acceso en diversos casos.
 
 ## <a name="access-to-microsoft-applications"></a>Acceso a aplicaciones de Microsoft
 

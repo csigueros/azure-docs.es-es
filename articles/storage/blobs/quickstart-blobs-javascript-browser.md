@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: bc02f9c526ec9b0826bbe640efc4b474794f30ae
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: f253be6bbcea46baa6c86f33223504bfba3ab198
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106278497"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123475987"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -38,9 +38,6 @@ Recursos adicionales:
     * [Debugger for Microsoft Edge](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-edge)
     * [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome)
     * [Debugger for Firefox](https://marketplace.visualstudio.com/items?itemName=firefox-devtools.vscode-firefox-debug)
-
-
-[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 ## <a name="object-model"></a>Modelo de objetos
 
@@ -94,7 +91,7 @@ La firma de acceso compartido (SAS) la usa el código que se ejecuta en el explo
 Siga estos pasos para obtener la dirección URL de SAS de Blob service:
 
 1. En Azure Portal, seleccione la cuenta de almacenamiento.
-2. Vaya a la sección **Configuración** y seleccione **Firma de acceso compartido**.
+2. Vaya a la sección **Seguridad y redes** y seleccione **Firma de acceso compartido**.
 3. Desplácese hacia abajo y haga clic en el botón **Generar la cadena de conexión y SAS**.
 4. Desplácese más hacia abajo y busque el campo **URL de SAS de Blob service**.
 5. Haga clic en el botón **Copiar en el portapapeles** en el extremo derecho del campo **URL de SAS de Blob service**.

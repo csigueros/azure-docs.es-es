@@ -6,12 +6,12 @@ title: Arquitectura de referencia de Azure Spring Cloud
 ms.author: akaleshian
 ms.service: spring-cloud
 description: Esta arquitectura de referencia es una base que usa un diseño empresarial típico de concentrador y radio (hub-and-spoke) para el uso de Azure Spring Cloud.
-ms.openlocfilehash: f0cc7a1345ff15a63c7cb9b0ebca51863fdf2791
-ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
+ms.openlocfilehash: d3124f9e9eac913a333e4ab186c871297e955d1e
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122271215"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123469093"
 ---
 # <a name="azure-spring-cloud-reference-architecture"></a>Arquitectura de referencia de Azure Spring Cloud
 
@@ -28,7 +28,7 @@ Azure Spring Cloud requiere dos subredes dedicadas:
 * Entorno de ejecución del servicio
 * Aplicaciones de Spring Boot
 
-Cada una de estas subredes requiere un clúster dedicado. Varios clústeres no pueden compartir las mismas subredes. El tamaño mínimo de cada subred es /28. El número de instancias de la aplicación que Azure Spring Cloud puede admitir varía en función del tamaño de la subred. Puede encontrar los requisitos detallados de la red virtual (Vnet) en la sección [Requisitos de red virtual][11] de [Implementación de Azure Spring Cloud en una red virtual][17].
+Cada una de estas subredes requiere un clúster dedicado de Azure Spring Cloud. Varios clústeres no pueden compartir las mismas subredes. El tamaño mínimo de cada subred es /28. El número de instancias de la aplicación que Azure Spring Cloud puede admitir varía en función del tamaño de la subred. Puede encontrar los requisitos detallados de la red virtual (Vnet) en la sección [Requisitos de red virtual][11] de [Implementación de Azure Spring Cloud en una red virtual][17].
 
 > [!WARNING]
 > El tamaño de subred seleccionado no puede superponerse con el espacio de direcciones de la red virtual existente, y no debe superponerse con ningún intervalo de direcciones de subred emparejada ni local.
@@ -37,8 +37,8 @@ Cada una de estas subredes requiere un clúster dedicado. Varios clústeres no p
 
 Los usos habituales de esta arquitectura incluyen:
 
-* Aplicaciones internas implementadas en entornos de nube híbrida
-* Aplicaciones orientadas al exterior
+* Aplicaciones privadas: aplicaciones internas implementadas en entornos de nube híbrida
+* Aplicaciones públicas: aplicaciones orientadas al exterior
 
 Estos casos de uso son similares, excepto en lo que refiere a la seguridad y las reglas de tráfico de red. Esta arquitectura está diseñada para admitir los matices de cada uno.
 
@@ -46,20 +46,20 @@ Estos casos de uso son similares, excepto en lo que refiere a la seguridad y las
 
 En la lista siguiente se describen los requisitos de infraestructura para las aplicaciones privadas. Estos requisitos son habituales en entornos altamente regulados.
 
-* No hay una salida directa a la red pública de Internet, excepto por el tráfico del plano de control.
-* El tráfico de salida debe viajar a través de una aplicación virtual de red (NVA) central (por ejemplo, Azure Firewall).
+* Una subred solo debe tener una instancia de Azure Spring Cloud.
+* Debe cumplirse al menos una prueba comparativa de seguridad.
+* Los registros del servicio de nombres de dominio (DNS) del host de aplicación se deben almacenar en el DNS privado de Azure.
+* Las dependencias de los servicios de Azure se deben comunicar a través de puntos de conexión de servicio o Private Link.
 * Los datos en reposo deben estar cifrados.
 * Los datos en tránsito deben estar cifrados.
 * Se pueden usar canalizaciones de implementación de DevOps (por ejemplo, Azure DevOps) y requerir conectividad de red a Azure Spring Cloud.
+* El tráfico de salida debe viajar a través de una aplicación virtual de red (NVA) central (por ejemplo, Azure Firewall).
+* Si se usa [Config Server de Azure Spring Cloud][8] para cargar las propiedades de configuración desde un repositorio, el repositorio debe ser privado.
 * El enfoque de seguridad de Confianza cero de Microsoft requiere que los secretos, los certificados y las credenciales se conserven en un almacén seguro. El servicio recomendado es Azure Key Vault.
-* Los registros del servicio de nombres de dominio (DNS) del host de aplicación se deben almacenar en el DNS privado de Azure.
 * La resolución de nombres de hosts en el entorno local y en la nube debe ser bidireccional.
-* Debe cumplirse al menos una prueba comparativa de seguridad.
-* Las dependencias de los servicios de Azure se deben comunicar a través de puntos de conexión de servicio o Private Link.
+* No hay una salida directa a la red pública de Internet, excepto por el tráfico del plano de control.
 * Los grupos de recursos administrados por la implementación de Azure Spring Cloud no se deben modificar.
 * Las subredes administradas por la implementación de Azure Spring Cloud no se deben modificar.
-* Una subred solo debe tener una instancia de Azure Spring Cloud.
-* Si se usa [Config Server de Azure Spring Cloud][8] para cargar las propiedades de configuración desde un repositorio, el repositorio debe ser privado.
 
 En la lista siguiente se muestran los componentes que componen el diseño:
 
@@ -67,24 +67,24 @@ En la lista siguiente se muestran los componentes que componen el diseño:
   * Servicio de nombres de dominio (DNS)
   * Puerta de enlace
 * Suscripción al centro
-  * Subred de Azure Firewall
   * Subred de Application Gateway
+  * Subred de Azure Firewall
   * Subred de servicios compartidos
 * Suscripción conectada
-  * Redes virtuales del mismo nivel
   * Subred de Azure Bastion
+  * Redes virtuales del mismo nivel
 
 En la lista siguiente se describen los servicios de Azure en esta arquitectura de referencia:
-
-* [Azure Spring Cloud][1]: Servicio administrado diseñado y optimizado específicamente para aplicaciones de Spring Boot basadas en Java y aplicaciones de [Steeltoe][9] basadas en .NET.
 
 * [Azure Key Vault][2]: Servicio de administración de credenciales con respaldo de hardware, que tiene una estrecha integración con los servicios de identidad de Microsoft y los recursos de proceso.
 
 * [Azure Monitor][3]: Conjunto de servicios de supervisión global para aplicaciones que se implementan en Azure y en el entorno local.
 
+* [Azure Pipelines][5]: Servicio completo de integración continua y desarrollo continuo (CI/CD) que puede implementar automáticamente aplicaciones de Spring Boot actualizadas en Azure Spring Cloud.
+
 * [Azure Security Center][4]: Sistema unificado de protección contra amenazas y administración de seguridad para cargas de trabajo en entornos locales, varias nubes y Azure.
 
-* [Azure Pipelines][5]: Servicio completo de integración continua y desarrollo continuo (CI/CD) que puede implementar automáticamente aplicaciones de Spring Boot actualizadas en Azure Spring Cloud.
+* [Azure Spring Cloud][1]: Servicio administrado diseñado y optimizado específicamente para aplicaciones de Spring Boot basadas en Java y aplicaciones de [Steeltoe][9] basadas en .NET.
 
 El siguiente diagrama representa un diseño de concentrador y radio bien diseñado que aborda los requisitos anteriores:
 
@@ -92,24 +92,24 @@ El siguiente diagrama representa un diseño de concentrador y radio bien diseña
 
 ## <a name="public-applications"></a>Aplicaciones públicas
 
-En la lista siguiente se describen los requisitos de infraestructura para las aplicaciones públicas. Estos requisitos son habituales en entornos altamente regulados.
+En la lista siguiente se describen los requisitos de infraestructura para las aplicaciones públicas. Estos requisitos son habituales en entornos altamente regulados. Estos requisitos son un superconjunto de los de la sección anterior. Los elementos adicionales se indican en cursiva.
 
-* El tráfico de entrada debe estar administrado por al menos Application Gateway o Azure Front Door.
-* Debe estar habilitada la versión Estándar de Azure DDoS Protection.
-* No hay una salida directa a la red pública de Internet, excepto por el tráfico del plano de control.
-* El tráfico de salida debe atravesar una aplicación virtual de red (NVA) central (por ejemplo, Azure Firewall).
+* Una subred solo debe tener una instancia de Azure Spring Cloud.
+* Debe cumplirse al menos una prueba comparativa de seguridad.
+* Los registros del servicio de nombres de dominio (DNS) del host de aplicación se deben almacenar en el DNS privado de Azure.
+* _Debe estar habilitada la versión Estándar de Azure DDoS Protection._
+* Las dependencias de los servicios de Azure se deben comunicar a través de puntos de conexión de servicio o Private Link.
 * Los datos en reposo deben estar cifrados.
 * Los datos en tránsito deben estar cifrados.
 * Se pueden usar canalizaciones de implementación de DevOps (por ejemplo, Azure DevOps) y requerir conectividad de red a Azure Spring Cloud.
+* El tráfico de salida debe viajar a través de una aplicación virtual de red (NVA) central (por ejemplo, Azure Firewall).
+* _El tráfico de entrada debe estar administrado por al menos Application Gateway o Azure Front Door._
+* _Las direcciones enrutables a Internet deben almacenarse en el DNS público de Azure._
 * El enfoque de seguridad de Confianza cero de Microsoft requiere que los secretos, los certificados y las credenciales se conserven en un almacén seguro. El servicio recomendado es Azure Key Vault.
-* Los registros del DNS del host de aplicación se deben almacenar en el DNS privado de Azure.
-* Las direcciones enrutables a Internet deben almacenarse en el DNS público de Azure.
 * La resolución de nombres de hosts en el entorno local y en la nube debe ser bidireccional.
-* Debe cumplirse al menos una prueba comparativa de seguridad.
-* Las dependencias de los servicios de Azure se deben comunicar a través de puntos de conexión de servicio o Private Link.
+* No hay una salida directa a la red pública de Internet, excepto por el tráfico del plano de control.
 * Los grupos de recursos administrados por la implementación de Azure Spring Cloud no se deben modificar.
 * Las subredes administradas por la implementación de Azure Spring Cloud no se deben modificar.
-* Una subred solo debe tener una instancia de Azure Spring Cloud.
 
 En la lista siguiente se muestran los componentes que componen el diseño:
 
@@ -117,30 +117,30 @@ En la lista siguiente se muestran los componentes que componen el diseño:
   * Servicio de nombres de dominio (DNS)
   * Puerta de enlace
 * Suscripción al centro
-  * Subred de Azure Firewall
   * Subred de Application Gateway
+  * Subred de Azure Firewall
   * Subred de servicios compartidos
 * Suscripción conectada
-  * Redes virtuales del mismo nivel
   * Subred de Azure Bastion
+  * Redes virtuales del mismo nivel
 
 En la lista siguiente se describen los servicios de Azure en esta arquitectura de referencia:
 
-* [Azure Spring Cloud][1]: Servicio administrado diseñado y optimizado específicamente para aplicaciones de Spring Boot basadas en Java y aplicaciones de [Steeltoe][9] basadas en .NET.
+* _[Firewall de aplicaciones de Azure][7]: característica de Azure Application Gateway que proporciona a las aplicaciones una protección centralizada contra vulnerabilidades de seguridad comunes._
+
+* _[Azure Application Gateway][6]: equilibrador de carga responsable del tráfico de las aplicaciones con la descarga de Seguridad de la capa de transporte (TLS) en funcionamiento en el nivel 7._
 
 * [Azure Key Vault][2]: Servicio de administración de credenciales con respaldo de hardware, que tiene una estrecha integración con los servicios de identidad de Microsoft y los recursos de proceso.
 
 * [Azure Monitor][3]: Conjunto de servicios de supervisión global para aplicaciones que se implementan en Azure y en el entorno local.
 
-* [Azure Security Center][4]: Sistema unificado de protección contra amenazas y administración de seguridad para cargas de trabajo en entornos locales, varias nubes y Azure.
-
 * [Azure Pipelines][5]: Servicio completo de integración continua y desarrollo continuo (CI/CD) que puede implementar automáticamente aplicaciones de Spring Boot actualizadas en Azure Spring Cloud.
 
-* [Azure Application Gateway][6]: Equilibrador de carga responsable del tráfico de aplicaciones con la descarga de Seguridad de la capa de transporte (TLS) en el nivel 7.
+* [Azure Security Center][4]: Sistema unificado de protección contra amenazas y administración de seguridad para cargas de trabajo en entornos locales, varias nubes y Azure.
 
-* [Azure Application Firewall][7]: Característica de Azure Application Gateway que proporciona a las aplicaciones una protección centralizada contra vulnerabilidades de seguridad comunes.
+* [Azure Spring Cloud][1]: Servicio administrado diseñado y optimizado específicamente para aplicaciones de Spring Boot basadas en Java y aplicaciones de [Steeltoe][9] basadas en .NET.
 
-El siguiente diagrama representa un diseño de concentrador y radio bien diseñado que aborda los requisitos anteriores:
+En el siguiente diagrama se representa un diseño tipo hub-and-spoke bien estructurado que aborda los requisitos anteriores.  Tenga en cuenta que solo la red virtual del centro se comunica con Internet:
 
 ![Diagrama de arquitectura de referencia para aplicaciones públicas](./media/spring-cloud-reference-architecture/architecture-public.png)
 
@@ -172,13 +172,13 @@ Azure Spring Cloud aborda varios aspectos de la excelencia operativa. Puede comb
 
 ### <a name="reliability"></a>Confiabilidad
 
-Azure Spring Cloud está diseñado con AKS como componente fundamental. Aunque AKS proporciona un nivel de resistencia a través de la agrupación en clústeres, esta arquitectura de referencia incorpora servicios y consideraciones arquitectónicas para aumentar la disponibilidad de la aplicación si se produce un error en el componente.
+Azure Spring Cloud se basa en AKS. Aunque AKS proporciona un nivel de resistencia mediante la agrupación en clústeres, esta arquitectura de referencia va más allá, ya que incorpora servicios y consideraciones arquitectónicas para aumentar la disponibilidad de la aplicación si se produce un error en el componente.
 
 Al basarse en un diseño de concentrador y radio bien definido, la base de esta arquitectura garantiza que se puede implementar en varias regiones. En el caso de uso de las aplicaciones privadas, la arquitectura utiliza DNS privado de Azure para garantizar la disponibilidad continuada durante un error geográfico. Para el caso de uso de las aplicaciones públicas, Azure Front Door y Azure Application Gateway garantizan la disponibilidad.
 
 ### <a name="security"></a>Seguridad
 
-La seguridad de esta arquitectura se aborda por su cumplimiento de los controles y pruebas comparativas definidos por el sector. Los controles de esta arquitectura provienen de [Cloud Controls Matrix][19] (CCM) de [Cloud Security Alliance][18] (CSA) y [Microsoft Azure Foundations Benchmark][20] (MAFB) de [Center for Internet Security][21] (CIS). En los controles aplicados, el enfoque se centra en los principios de diseño de seguridad principales relativos a la gobernanza, las conexiones de red y seguridad de las aplicaciones. Es su responsabilidad administrar los principios de diseño de identidad, administración de acceso y almacenamiento, en la medida en que se relacionen con su infraestructura de destino.
+La seguridad de esta arquitectura se aborda por su cumplimiento de los controles y pruebas comparativas definidos por el sector. En este contexto, «control» significa un procedimiento recomendado conciso y bien definido, como «Emplear el principio de privilegios mínimos al implementar el acceso al sistema de información». IAM-05" Los controles de esta arquitectura provienen de [Cloud Controls Matrix][19] (CCM) de [Cloud Security Alliance][18] (CSA) y [Microsoft Azure Foundations Benchmark][20] (MAFB) de [Center for Internet Security][21] (CIS). En los controles aplicados, el enfoque se centra en los principios de diseño de seguridad principales relativos a la gobernanza, las conexiones de red y seguridad de las aplicaciones. Es su responsabilidad administrar los principios de diseño de identidad, administración de acceso y almacenamiento, en la medida en que se relacionen con su infraestructura de destino.
 
 #### <a name="governance"></a>Gobernanza
 
@@ -192,7 +192,7 @@ En la siguiente lista se muestra el control que aborda la seguridad del centro d
 
 #### <a name="network"></a>Red
 
-El diseño de red que admite esta arquitectura se obtiene del modelo tradicional de concentrador y radio. Esta decisión garantiza que el aislamiento de red sea una construcción fundamental. El control IV-06 de CCM recomienda que el tráfico entre las redes y las máquinas virtuales esté restringido y supervisado entre los entornos de confianza y los que no son de confianza. Esta arquitectura adopta el control mediante la implementación de los NSG para el tráfico de Este a Oeste, y Azure Firewall para el tráfico de Norte a Sur. El control IPY-04 de CCM recomienda que la infraestructura use protocolos de red seguros para el intercambio de datos entre servicios. Todos los servicios de Azure que admiten esta arquitectura usan protocolos seguros estándar, como TLS para HTTP y SQL.
+El diseño de red que admite esta arquitectura se obtiene del modelo tradicional de concentrador y radio. Esta decisión garantiza que el aislamiento de red sea una construcción fundamental. El control IV-06 de CCM recomienda que el tráfico entre las redes y las máquinas virtuales esté restringido y supervisado entre los entornos de confianza y los que no son de confianza. Esta arquitectura adopta el control mediante la implementación de los NSG para el tráfico de este a oeste (dentro del "centro de datos"), y Azure Firewall para el tráfico de norte a sur (fuera del "centro de datos"). El control IPY-04 de CCM recomienda que la infraestructura use protocolos de red seguros para el intercambio de datos entre servicios. Todos los servicios de Azure que admiten esta arquitectura usan protocolos seguros estándar, como TLS para HTTP y SQL.
 
 En la siguiente lista se muestran los controles de CCM que abordan la seguridad de red en esta referencia:
 

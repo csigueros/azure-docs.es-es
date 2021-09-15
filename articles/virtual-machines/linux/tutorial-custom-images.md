@@ -10,14 +10,16 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
 ms.reviewer: mimckitt
-ms.openlocfilehash: 64c80ec32b0fe151daa24628a22c27fce4c5f21b
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 8bf4c2842f6ec3cecc6e6cc014bb225115a1655f
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108768236"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123450420"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-the-azure-cli"></a>Tutorial: Creación de una imagen personalizada de una máquina virtual de Azure con la CLI de Azure
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Conjuntos de escalado flexibles 
 
 Las imágenes personalizadas son como las imágenes de Marketplace, pero las puede crear usted mismo. Las imágenes personalizadas pueden usarse para configuraciones de arranque como la carga previa de aplicaciones, configuraciones de aplicaciones y otras configuraciones del sistema operativo. En este tutorial, creará su propia imagen personalizada de una máquina virtual de Azure. Aprenderá a:
 
@@ -41,7 +43,7 @@ Shared Image Gallery le permite compartir sus imágenes de máquina virtual pers
 
 La característica de galería de imágenes compartidas tiene varios tipos de recursos:
 
-[!INCLUDE [virtual-machines-shared-image-gallery-resources](../../../includes/virtual-machines-shared-image-gallery-resources.md)]
+[!INCLUDE [virtual-machines-shared-image-gallery-resources](../includes/virtual-machines-shared-image-gallery-resources.md)]
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
@@ -156,7 +158,7 @@ az vm create --resource-group myResourceGroup \
 
 ## <a name="share-the-gallery"></a>Uso compartido de la galería
 
-Puede compartir imágenes entre suscripciones mediante el control de acceso basado en rol (Azure RBAC) de Azure. Puede compartir imágenes en el nivel de la galería, la definición de imagen o la versión de imagen. Cualquier usuario que tenga permisos de lectura para una versión de la imagen, incluso entre suscripciones, podrá implementar una máquina virtual con la versión de la imagen.
+Puede compartir imágenes entre suscripciones mediante el control de acceso basado en rol (Azure RBAC) de Azure. Puede compartir imágenes en el nivel de la galería, la definición de imagen o la versión de imagen. Cualquier usuario que tenga permisos de lectura para una versión de la imagen, incluso entre suscripciones, podrá implementar una VM con la versión de la imagen.
 
 Se recomienda que el uso compartido con otros usuarios se realice en el nivel de la galería. Para obtener el identificador de objeto de la galería, use [az sig show](/cli/azure/sig#az_sig_show).
 

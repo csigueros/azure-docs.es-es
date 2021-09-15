@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 06/04/2021
 ms.author: aahi
-ms.openlocfilehash: 3c03a6a712190e972347b1e40c5583b5dc74792f
-ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
+ms.openlocfilehash: dfd5edc2444b3aa56dce556766013370a08ba846
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122429779"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123475969"
 ---
 # <a name="quickstart-create-a-cognitive-services-resource-using-the-azure-portal"></a>Inicio rápido: Creación de un recurso de Cognitive Services con Azure Portal
 
@@ -25,7 +25,7 @@ Azure Cognitive Services es un conjunto de servicios en la nube con API de REST 
 
 [!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Una suscripción a Azure válida: [cree una de manera gratuita](https://azure.microsoft.com/free/cognitive-services/).
 * [!INCLUDE [contributor-requirement](./includes/quickstarts/contributor-requirement.md)]
@@ -41,7 +41,7 @@ El recurso multiservicio se denomina **Cognitive Services** en el portal. [Cree 
 
 En este momento, el recurso multiservicio permite el acceso a los siguientes servicios de Cognitive Services:
 
-* **Visión**: Computer Vision, Custom Vision, Form Recognizer, Face
+* **Vision**: Computer Vision, Custom Vision, Face
 * **Voz**: Voz
 * **Idioma**: Language Understanding (LUIS), Text Analytics, Translator
 * **Decisión**: Content Moderator
@@ -55,7 +55,7 @@ Use los vínculos siguientes si desea crear un recurso para los servicios de Cog
 | [Computer Vision](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision)         | [Servicios de Voz](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices)     | [Lector inmersivo](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesImmersiveReader)              | [Anomaly Detector](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector) | 
 | [Servicio Custom Vision](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesCustomVision) |  | [Language Understanding (LUIS)](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne) | [Content Moderator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator) | 
 | [Face](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFace)                    |                         | [QnA Maker](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker)                     | [Personalizer](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer)     |
-| [Form Recognizer](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer)        |                         | [Text Analytics](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics)                |  [Metrics Advisor](https://go.microsoft.com/fwlink/?linkid=2142156)                    |
+|        |                         | [Text Analytics](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics)                |  [Metrics Advisor](https://go.microsoft.com/fwlink/?linkid=2142156)                    |
 | | | [Traductor](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) | |
 
 ---

@@ -8,12 +8,12 @@ ms.author: srahaman
 ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: a5181a5a95c3e6eb33eb084d41674746096dd8c2
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: 7b0ac0fdb6ee5b734d642612c1fea16665e07684
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123259129"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123435517"
 ---
 # <a name="best-practices-azure-communication-services-calling-sdks"></a>Procedimientos recomendados: SDK de llamada de Azure Communication Services
 En este artículo se proporciona información sobre los procedimientos recomendados relativos a los SDK de llamada de Azure Communication Services (ACS).
@@ -44,6 +44,16 @@ Las aplicaciones de Communication Services deben eliminar `VideoStreamRendererVi
 
 ### <a name="hang-up-the-call-on-onbeforeunload-event"></a>Colgar la llamada con un evento onbeforeunload
 La aplicación debe invocar `call.hangup` cuando se emite el evento `onbeforeunload`.
+
+### <a name="handling-multiple-calls-on-multiple-tabs-on-mobile"></a>Control de varias llamadas en varias pestañas en dispositivos móviles
+La aplicación no debe conectarse a llamadas desde varias pestañas del explorador simultáneamente, ya que esto puede provocar un comportamiento indefinido debido a la asignación de recursos para el micrófono y la cámara en el dispositivo. Se recomienda a los desarrolladores que siempre cuelguen las llamadas cuando se completen en segundo plano antes de iniciar una nueva.
+```JavaScript 
+document.addEventListener("visibilitychange", function() {
+    if (document.visibilityState != 'visible') {
+            // call.hangUp
+    }
+});
+ ```
 
 ### <a name="hang-up-the-call-on-microphonemuteunexpectedly-ufd"></a>Colgar la llamada con un evento UFD microphoneMuteUnexpectedly
 Cuando un usuario de iOS/Safari recibe una llamada RTC, Azure Communication Services pierde el acceso al micrófono. Azure Communication Services emitirá el evento de diagnóstico de llamada `microphoneMuteUnexpectedly` y, en este momento, Communication Services no podrá recuperar el acceso al micrófono.

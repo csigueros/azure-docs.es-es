@@ -5,20 +5,22 @@ author: cynthn
 ms.service: virtual-machines
 ms.subservice: imaging
 ms.topic: how-to
-ms.date: 10/08/2018
+ms.date: 08/27/2021
 ms.author: cynthn
 ms.custom: legacy, devx-track-azurecli
 ms.collection: linux
-ms.openlocfilehash: 23623d6ddd337c42b56d0c3c26aa7c3a720369d4
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 3645e36c89debc1e9bc032f4df5b7feaa7b6a720
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121741793"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123449772"
 ---
 # <a name="how-to-create-a-managed-image-of-a-virtual-machine-or-vhd"></a>Creación de una imagen administrada de una máquina virtual o un disco duro virtual
 
-Para crear varias copias de una máquina virtual para usarla en Azure para desarrollo y prueba, capture una imagen administrada de la máquina virtual o del disco duro virtual del sistema operativo. Para crear, almacenar y compartir imágenes a gran escala, consulte [Instancias de Shared Image Gallery](../shared-images-cli.md).
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Conjuntos de escalado flexibles 
+
+Para crear varias copias de una máquina virtual para usarla en Azure para desarrollo y prueba, capture una imagen administrada de la máquina virtual o del disco duro virtual del sistema operativo. Para crear, almacenar y compartir imágenes a gran escala, consulte [Instancias de Shared Image Gallery](../create-gallery.md).
 
 Una sola imagen administrada admite hasta 20 implementaciones simultáneas. Cuando se intentan crear más de 20 máquinas virtuales simultáneamente, desde una misma imagen administrada, se pueden producir tiempos de espera de aprovisionamiento debido a las limitaciones de rendimiento de almacenamiento de un solo VHD. Para crear más de 20 máquinas virtuales simultáneamente, use una imagen de la [galería de imágenes compartidas](../shared-image-galleries.md) configurada con una réplica por cada 20 implementaciones simultáneas de máquina virtual.
 
@@ -140,4 +142,4 @@ az vm show \
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para crear, almacenar y compartir imágenes a gran escala, consulte [Instancias de Shared Image Gallery](../shared-images-cli.md).
+Para crear, almacenar y compartir imágenes a gran escala, consulte [Instancias de Shared Image Gallery](../create-gallery.md).

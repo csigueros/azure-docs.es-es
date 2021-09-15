@@ -1,5 +1,5 @@
 ---
-title: Creación de un almacén de conocimiento en Azure Portal
+title: 'Inicio rápido: Creación de un almacén de conocimiento en Azure Portal'
 titleSuffix: Azure Cognitive Search
 description: Use el Asistente para la importación de datos a fin de crear un almacén de información utilizado para conservar el contenido enriquecido. Conéctese a un almacén de información para el análisis desde otras aplicaciones o envíe contenido enriquecido a los procesos de nivel inferior.
 author: HeidiSteen
@@ -7,19 +7,19 @@ ms.author: heidist
 manager: nitinme
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 11/17/2020
-ms.openlocfilehash: 3225013f09abd326c619b67caf77918889a64859
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 08/10/2021
+ms.openlocfilehash: d7af6f2ad8e3a45041a22a6268efdbfee32377df
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94741814"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122768169"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-knowledge-store-in-the-azure-portal"></a>Inicio rápido: Creación de un almacén de conocimiento de Azure Cognitive Search en Azure Portal
 
-El almacén de conocimiento es una característica de Azure Cognitive Search que conserva la salida de una canalización de procesamiento de contenido para su procesamiento o análisis posteriores. 
+El almacén de conocimiento es una característica de Azure Cognitive Search que conserva la salida de una [canalización de enriquecimiento con IA](cognitive-search-concept-intro.md) para realizar análisis posteriores o procesos de nivel inferior. 
 
-Una canalización acepta contenido de imágenes y texto no estructurado, aplica inteligencia artificial mediante Cognitive Services (como OCR y procesamiento de lenguaje natural) y genera nuevas estructuras e información que no existían anteriormente. Uno de los artefactos físicos creados por una canalización es un [almacén de conocimiento](knowledge-store-concept-intro.md), al que se puede acceder mediante herramientas para analizar y explorar el contenido.
+Una canalización acepta contenido de imágenes y texto no estructurado, aplica inteligencia artificial mediante Cognitive Services (como análisis de sentimiento y traducción de texto) y genera nuevas estructuras e información que no existían anteriormente. Uno de los artefactos físicos creados por una canalización es un [almacén de conocimiento](knowledge-store-concept-intro.md), al que se accede mediante herramientas para analizar y explorar el contenido de Azure Storage.
 
 En este inicio rápido, combinará servicios y datos en la nube de Azure para crear un almacén de conocimiento. Una vez que todo esté en su lugar, ejecutará el **Asistente para la importación de datos** en el portal para extraerlo todo junto. El resultado final es el contenido de texto original, además del contenido generado mediante inteligencia artificial que se puede ver en el portal ([Explorador de Storage](knowledge-store-view-storage-explorer.md)).
 
@@ -158,9 +158,9 @@ Ahora que ha enriquecido los datos con Cognitive Services y ha proyectado los re
 
 Puede ver el contenido en Explorador de Storage o realizar un paso más allá con Power BI para obtener información mediante la visualización.
 
-> [!div class="nextstepaction"]
-> [Vista con Explorador de Storage](knowledge-store-view-storage-explorer.md)
-> [Conectar con Power BI](knowledge-store-connect-power-bi.md)
++ [Visualización con el Explorador de Storage](knowledge-store-view-storage-explorer.md)
+
++[Conexión con Power BI](knowledge-store-connect-power-bi.md)
 
 > [!Tip]
 > Si desea repetir este ejercicio o realizar otro tutorial de enriquecimiento de inteligencia artificial, elimine el indexador *hotel-reviews-idxr*. La eliminación del indexador restablece el contador de transacciones diarias gratis a cero para el procesamiento de Cognitive Services.

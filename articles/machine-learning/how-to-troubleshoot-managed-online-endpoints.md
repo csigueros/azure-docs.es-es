@@ -11,12 +11,12 @@ ms.reviewer: laobri
 ms.date: 05/13/2021
 ms.topic: troubleshooting
 ms.custom: devplatv2
-ms.openlocfilehash: 9f50fd0ff60f819717dbcb1e3878b4caf56c563b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 71570e00f77626edc82db0e45e7815d1c40bd06d
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121729784"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123430151"
 ---
 # <a name="troubleshooting-managed-online-endpoints-deployment-and-scoring-preview"></a>Solución de problemas de implementación y puntuación de puntos de conexión en línea administrados (versión preliminar)
 
@@ -36,7 +36,7 @@ En la sección [Códigos de estado HTTP](#http-status-codes) se explica cómo se
 
 * Una **suscripción de Azure**. Pruebe la [versión gratuita o de pago de Azure Machine Learning](https://azure.microsoft.com/free/).
 * La[CLI de Azure](/cli/azure/install-azure-cli).
-* El artículo [Instalación, configuración y uso de la CLI 2.0 (versión preliminar)](how-to-configure-cli.md).
+* El artículo [Instalación, configuración y uso de la CLI v2 (versión preliminar)](how-to-configure-cli.md).
 
 ## <a name="deploy-locally"></a>Implementación local
 
@@ -175,7 +175,7 @@ az ml endpoint get-logs
 
 Para ejecutar el archivo `score.py` proporcionado como parte de la implementación, Azure crea un contenedor que incluye todos los recursos que necesita `score.py` y ejecuta el script de puntuación en ese contenedor.  El error en este escenario es que este contenedor se bloquea al ejecutarse, lo que significa que no se pudo puntuar. Este error se produce en los casos siguientes:
 
-- Hay un error en `score.py`. Utilice `get--logs` para ayudar a diagnosticar los problemas comunes:
+- Hay un error en `score.py`. Utilice `get-logs` para ayudar a diagnosticar los problemas comunes:
     - Un paquete que se importó pero no está en el entorno de Conda
     - Un error de sintaxis
     - Un error en el método `init()`

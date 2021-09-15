@@ -1,27 +1,27 @@
 ---
 title: Creación de un almacén de conocimiento mediante REST
 titleSuffix: Azure Cognitive Search
-description: Use la API REST y Postman para crear un almacén de conocimiento de Azure Cognitive Search y conservar los enriquecimientos de una canalización de enriquecimiento de inteligencia artificial.
+description: Use la API REST y Postman para crear un almacén de conocimiento de Azure Cognitive Search y conservar los enriquecimientos de IA del conjunto de aptitudes.
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 11/18/2020
-ms.openlocfilehash: 69b9fa867159e5bd475d37194422a4fd21bfe9ab
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.date: 08/10/2021
+ms.openlocfilehash: 0f52fe37e7eadabaefbd35e6ca2c600b53ad3b0c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111557256"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121724198"
 ---
 # <a name="create-a-knowledge-store-using-rest-and-postman"></a>Creación de un almacén de conocimiento mediante REST y Postman
 
-Un almacén de conocimiento contiene la salida de una canalización de enriquecimiento de Azure Cognitive Search para su posterior análisis o procesamiento de nivel inferior. Una canalización enriquecida de inteligencia artificial acepta archivos de imagen o de texto no estructurados, los indexa mediante Azure Cognitive Search, aplica los enriquecimientos de inteligencia artificial de Cognitive Services (como el análisis de imágenes y el procesamiento de lenguaje natural) y guarda los resultados en un almacén de conocimiento en Azure Storage. Puede usar herramientas como Power BI o el Explorador de Storage de Azure Portal para explorar el almacén de conocimiento.
+Un almacén de conocimiento contiene la salida de una canalización de enriquecimiento de Azure Cognitive Search para su posterior análisis o procesamiento de nivel inferior. Una canalización enriquecida de IA acepta archivos de imagen o archivos de texto no estructurados, aplica los enriquecimientos de IA de Cognitive Services (como el análisis de imágenes y el procesamiento de lenguaje natural) y, a continuación, guarda la salida en un almacén de conocimiento en Azure Storage. Puede usar herramientas como Power BI o el Explorador de Storage de Azure Portal para explorar el almacén de conocimiento.
 
-En este artículo se usa la interfaz de API REST para ingerir, indexar y aplicar los enriquecimientos de inteligencia artificial a un conjunto de reseñas sobre hoteles. Las reseñas sobre hoteles se importan en Azure Blob Storage. Los resultados se guardan como almacén de conocimiento en Azure Table Storage.
+En este artículo, usará la API REST para ingerir, enriquecer y explorar un conjunto de reseñas de clientes de estancias en hoteles. Para que el conjunto de datos inicial esté disponible, las reseñas de hotel se importan primero a Azure Blob Storage. Después del procesamiento, los resultados se guardan como almacén de conocimiento en Azure Table Storage.
 
-Después de crear el almacén de conocimiento, puede aprender a acceder a este mediante el [Explorador de Storage](knowledge-store-view-storage-explorer.md) o [Power BI](knowledge-store-connect-power-bi.md).
+Una vez creado el almacén de conocimiento, explore su contenido mediante el [Explorador de Storage](knowledge-store-view-storage-explorer.md) o [Power BI](knowledge-store-connect-power-bi.md).
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -30,9 +30,9 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="create-services-and-load-data"></a>Creación de servicios y carga de datos
 
-Este inicio rápido utiliza Azure Cognitive Search, Azure Blob Storage y [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) para la inteligencia artificial. 
+Este ejercicio utiliza Azure Cognitive Search, Azure Blob Storage y [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) para IA. 
 
-Dado que la carga de trabajo es tan pequeña, Cognitive Services se aprovecha en segundo plano para proporcionar el procesamiento gratuito de hasta 20 transacciones al día. Como el conjunto de datos es tan pequeño, puede omitir la creación o asociación de un recurso de Cognitive Services.
+Dado que la carga de trabajo es tan pequeña, Cognitive Services se aprovecha en segundo plano para proporcionar el procesamiento gratuito de hasta 20 transacciones al día. Una carga de trabajo pequeña significa que puede omitir la creación o la asociación de un recurso de Cognitive Services.
 
 1. [Descarga de HotelReviews_Free.csv](https://knowledgestoredemo.blob.core.windows.net/hotel-reviews/HotelReviews_Free.csv?sp=r&st=2019-11-04T01:23:53Z&se=2025-11-04T16:00:00Z&spr=https&sv=2019-02-02&sr=b&sig=siQgWOnI%2FDamhwOgxmj11qwBqqtKMaztQKFNqWx00AY%3D). Estos datos son las reseñas del hotel guardadas en un archivo CSV (procede de Kaggle.com) y contiene 19 fragmentos de comentarios de clientes sobre un solo hotel. 
 
@@ -90,10 +90,12 @@ Para obtener el valor de `admin-key`, vaya al servicio Azure Cognitive Search y 
 
 ### <a name="review-the-request-collection-in-postman"></a>Revisión de la colección de solicitudes en Postman
 
+Los almacenes de conocimiento se definen en conjuntos de aptitudes que, a su vez, se adjuntan a los indexadores. La creación de un almacén de conocimiento requiere que cree todos los objetos ascendentes, incluido un índice, un origen de datos, un conjunto de aptitudes y un indexador. Aunque un índice no está relacionado con un almacén de conocimiento, un indexador lo requiere para su ejecución, por lo que creará uno como requisito previo del indexador.
+
 Al crear un almacén de información, debe emitir cuatro solicitudes HTTP: 
 
-- **Una solicitud PUT para crear el índice**: este índice contiene los datos que usa y devuelve Azure Cognitive Search.
-- **Una solicitud POST para crear el origen de datos**: este origen de datos conecta el comportamiento de Azure Cognitive Search con los datos y la cuenta de almacenamiento del almacén de conocimiento. 
+- **Solicitud PUT para crear el índice**: este índice contiene los datos que Azure Cognitive Search usa y devuelve en las solicitudes de consulta.
+- **Solicitud POST para solicitar crear el origen de datos**: este origen de datos se conecta a su cuenta de Azure Storage. 
 - **Una solicitud PUT para crear el conjunto de aptitudes**: El conjunto de aptitudes especifica las características enriquecidas que se aplican a los datos y a la estructura del almacén de conocimiento.
 - **Una solicitud PUT para crear el indexador**: Al ejecutar el indexador, se leen los datos, se aplica el conjunto de aptitudes y se almacenan los resultados. Debe ejecutar esta solicitud en último lugar.
 
@@ -102,7 +104,7 @@ El [código fuente](https://github.com/Azure-Samples/azure-search-postman-sample
 ![Captura de pantalla que muestra la interfaz de Postman para los encabezados](media/knowledge-store-create-rest/postman-headers-ui.png)
 
 > [!Note]
-> Debe establecer los encabezados `api-key` y `Content-type` en todas las solicitudes. Si Postman reconoce una variable, esta aparece en texto naranja, como `{{admin-key}}` en la captura de pantalla anterior. Si la variable está mal escrita, aparece en texto rojo.
+> Todas las solicitudes del conjunto de recopilación `api-key` y encabezados `Content-type`, que son obligatorios. Si Postman reconoce una variable, esta aparece en texto naranja, como `{{admin-key}}` en la captura de pantalla anterior. Si la variable está mal escrita, aparece en texto rojo.
 >
 
 ## <a name="create-an-azure-cognitive-search-index"></a>Creación de un índice de Azure Cognitive Search
@@ -144,9 +146,11 @@ Establezca la estructura del índice de Azure Cognitive Search en el cuerpo de l
 
 ```
 
-Esta definición de índice es una combinación de los datos que le gustaría presentar al usuario (el nombre del hotel, contenido de la reseña, la fecha), los metadatos de búsqueda y los datos de mejora de inteligencia artificial (opinión, frases clave e idioma).
+Esta definición de índice es una combinación de los datos que le gustaría presentar al usuario (el nombre del hotel, el contenido de la reseña, la fecha), los metadatos de búsqueda y los datos de mejora de IA (opinión, frases clave e idioma).
 
 Seleccione **Enviar** para emitir la solicitud PUT. Debería ver el estado `201 - Created`. Si ve un estado diferente, en el panel **Body** (Cuerpo), busque una respuesta JSON que contenga un mensaje de error. 
+
+El índice se crea, pero no se carga. La importación de documentos se produce más adelante, cuando se ejecuta el indexador. 
 
 ## <a name="create-the-datasource"></a>Creación del origen de datos
 
@@ -306,7 +310,7 @@ Para generar el conjunto de aptitudes, seleccione el botón **Send** (Enviar) de
 
 El último paso es crear el indexador. Este lee los datos y activa el conjunto de aptitudes. En Postman, seleccione la solicitud **Create Indexer** (Crear indexador) y revise el cuerpo de esta. La definición del indexador hace referencia a otros recursos que ya ha creado: el origen de datos, el índice y el conjunto de aptitudes. 
 
-El objeto `parameters/configuration` controla cómo ingiere el indexador los datos. En este caso, los datos de entrada se encuentran en un único documento con una línea de encabezado y valores separados por comas. La clave del documento es un identificador único de este. Antes de la codificación, la clave del documento es la dirección URL del documento de origen. Por último, los valores de salida del conjunto de aptitudes, como el código de idioma, la opinión y las frases clave, se asignan a sus ubicaciones correspondientes en el documento. Aunque hay un valor único para `Language`, se aplica `Sentiment` a cada elemento de la matriz de `pages`. `Keyphrases` es una matriz y también se aplica a cada elemento de la matriz `pages`.
+El objeto `parameters/configuration` controla cómo ingiere el indexador los datos. En este caso, los datos de entrada se encuentran en un único archivo .csv con una línea de encabezado y valores separados por comas. La clave del documento es un identificador único de este. Antes de la codificación, la clave del documento es la dirección URL del documento de origen. Por último, los valores de salida del conjunto de aptitudes, como el código de idioma, la opinión y las frases clave, se asignan a sus ubicaciones correspondientes en el documento. Aunque hay un valor único para `Language`, se aplica `Sentiment` a cada elemento de la matriz de `pages`. `Keyphrases` es una matriz y también se aplica a cada elemento de la matriz `pages`.
 
 Después de establecer los encabezados `api-key` y `Content-type`, y de confirmar que el cuerpo de la solicitud es similar al código fuente siguiente, seleccione **Send** (Enviar) en Postman. Postman envía una solicitud PUT a `https://{{search-service-name}}.search.windows.net/indexers/{{indexer-name}}?api-version={{api-version}}`. Azure Cognitive Search crea y ejecuta el índice. 
 
@@ -342,6 +346,14 @@ Después de establecer los encabezados `api-key` y `Content-type`, y de confirma
 ## <a name="run-the-indexer"></a>Ejecución del indexador 
 
 En Azure Portal, vaya a la página **Información general** del servicio Azure Cognitive Search. Seleccione la pestaña **Indexadores** y **hotel-reviews-ixr**. Si el indexador todavía no se ha ejecutado, seleccione **Ejecutar**. La tarea de indexación podría generar algunas advertencias relacionadas con el reconocimiento de idioma. Los datos incluyen algunas reseñas escritas en idiomas que las aptitudes cognitivas todavía no admiten. 
+
+## <a name="clean-up"></a>Limpieza
+
+Cuando trabaje con su propia suscripción, es una buena idea al final de un proyecto identificar si todavía se necesitan los recursos que ha creado. Los recursos que se dejan en ejecución pueden costarle mucho dinero. Puede eliminar los recursos de forma individual o eliminar el grupo de recursos para eliminar todo el conjunto de recursos.
+
+Puede encontrar y administrar recursos en el portal, mediante el vínculo **Todos los recursos** o **Grupos de recursos** en el panel de navegación izquierdo.
+
+Si está usando un servicio gratuito, recuerde que está limitado a tres índices, indexadores y orígenes de datos. Puede eliminar elementos individuales en el portal para mantenerse por debajo del límite.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

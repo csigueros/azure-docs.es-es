@@ -6,15 +6,15 @@ ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, daviburg, azla
-ms.topic: conceptual
-ms.date: 08/16/2021
+ms.topic: how-to
+ms.date: 08/31/2021
 tags: connectors
-ms.openlocfilehash: 35922d20eda51d2a94748ac3a2b9fb135c993836
-ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
+ms.openlocfilehash: 32f51d110f1ebb8d7b0a39a3183665c65d2b1367
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122271753"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123469561"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Conexión a sistemas SAP desde Azure Logic Apps
 
@@ -66,7 +66,7 @@ En este artículo, se explica cómo acceder a los recursos de SAP desde Azure Lo
 
   * Si usa este desencadenador de SAP con el parámetro **Formato de IDOC** establecido en **FlatFile** junto con la [acción Descodificación de archivos planos](logic-apps-enterprise-integration-flatfile.md), tendrá que usar la propiedad `early_terminate_optional_fields` en el esquema de archivo plano estableciendo el valor en `true`.
 
-    Este requisito es necesario porque el registro de datos IDOC de archivo plano que envía SAP en la llamada a tRFC `IDOC_INBOUND_ASYNCHRONOUS` no se agrega a la longitud completa del campo SDATA. Azure Logic Apps proporciona los datos originales de IDOC de archivo plano sin relleno tal y como se reciben de SAP. Además, al combinar este desencadenador de SAP con la acción Descodificación de archivos planos, el esquema que se proporciona a la acción debe coincidir.
+    Este requisito es necesario porque el registro de datos IDoc de archivo plano que envía SAP en la llamada a tRFC `IDOC_INBOUND_ASYNCHRONOUS` no se agrega a la longitud completa del campo SDATA. Azure Logic Apps proporciona los datos originales de IDoc de archivo plano sin relleno tal y como se reciben de SAP. Además, al combinar este desencadenador de SAP con la acción Descodificación de archivos planos, el esquema que se proporciona a la acción debe coincidir.
 
   > [!NOTE]
   > Este desencadenador de SAP utiliza la misma ubicación de URI para renovar y cancelar una suscripción de webhook. La operación de renovación usa el método `PATCH` de HTTP, mientras que la operación de cancelación usa el método `DELETE` de HTTP. Este comportamiento puede provocar que una operación de renovación aparezca como una operación de cancelación en el historial del desencadenador, pero la operación sigue siendo una renovación porque el desencadenador usa `PATCH` como método HTTP, no `DELETE`.
@@ -122,20 +122,20 @@ El conector de SAP administrado se integra con los sistemas SAP locales a travé
   > Si tiene problemas con la puerta de enlace, intente [actualizar a la versión más reciente](https://aka.ms/on-premises-data-gateway-installer), que puede incluir actualizaciones para resolver el problema.
 
 1. [Descargue e instale la biblioteca cliente de SAP más actualizada](#sap-client-library-prerequisites) en el mismo equipo local que la puerta de enlace de datos local.
-   
+
 1. Configure los nombres de host de red y la resolución de nombres de servicio para la máquina host donde instaló la puerta de enlace de datos local.
 
   Si tiene previsto usar nombres de host o nombres de servicio para la conexión desde Azure Logic Apps, debe configurar cada aplicación, mensaje y servidor de puerta de enlace de SAP junto con sus servicios para la resolución de nombres. La resolución de nombres de host de red se configura en el archivo `%windir%\System32\drivers\etc\hosts` o en el servidor DNS que está disponible para el equipo host de puerta de enlace de datos local. La resolución de nombres de servicio se configura en `%windir%\System32\drivers\etc\services`. Si no piensa usar nombres de host de red o nombres de servicio para la conexión, puede usar direcciones IP de host y números de puerto de servicio en su lugar.
-   
+
    Si no tiene una entrada DNS para el sistema SAP, en el ejemplo siguiente se muestra una entrada de ejemplo para el archivo de hosts:
-   
+
    ```text
    10.0.1.9           sapserver                   # SAP single-instance system host IP by simple computer name
    10.0.1.9           sapserver.contoso.com       # SAP single-instance system host IP by fully qualified DNS name
    ```
-   
+
    Un conjunto de entradas de ejemplo para los archivos de servicios es:
-   
+
    ```text
    sapdp00            3200/tcp              # SAP system instance 00 dialog (application) service port
    sapgw00            3300/tcp              # SAP system instance 00 gateway service port
@@ -475,7 +475,7 @@ A continuación, cree una acción para enviar el mensaje de IDoc a SAP cuando se
 
 1. Guarde el flujo de trabajo de la aplicación lógica. En la barra de herramientas del diseñador, seleccione **Save** (Guardar).
 
-#### <a name="send-flat-file-idocs"></a>Envío de IDoc de archivos planos
+### <a name="send-flat-file-idocs"></a>Envío de IDoc de archivos planos
 
 Puede usar documentos IDoc con un esquema de archivo plano ajustándolos en un sobre XML. Para enviar un IDoc de archivo plano, use las instrucciones genéricas para [crear una acción de SAP para enviar el mensaje de IDoc](#create-sap-action-to-send-message) con los siguientes cambios.
 
@@ -616,7 +616,7 @@ Ahora, agregue una acción de respuesta al flujo de trabajo de la aplicación l�
 
 1. Guarde el flujo de trabajo de la aplicación lógica.
 
-#### <a name="create-rfc-request-response"></a>Creación de una solicitud-respuesta de RFC
+### <a name="create-rfc-request-response"></a>Creación de una solicitud-respuesta de RFC
 
 Debe crear un patrón de solicitud y respuesta si necesita recibir respuestas mediante una llamada de función remota (RFC) a Azure Logic Apps de ABAP para SAP. Para recibir IDoc en el flujo de trabajo de la aplicación lógica, debe hacer que la primera acción del flujo de trabajo sea una [acción de respuesta](../connectors/connectors-native-reqres.md#add-a-response-action) con un código de estado de `200 OK` y ningún contenido. Este paso recomendado completa la transferencia asincrónica de la Unidad lógica de trabajo (LUW) para SAP a través de tRFC inmediatamente, lo que deja la conversación de CPIC para SAP de nuevo disponible. Después, puede agregar otras acciones en el flujo de trabajo de la aplicación lógica para procesar el IDoc recibido sin bloquear más transferencias adicionales.
 
@@ -636,7 +636,7 @@ En el ejemplo siguiente, se genera un patrón de solicitud y respuesta desde el 
   <RESPTEXT>Azure Logic Apps @{utcNow()}</RESPTEXT>
 ```
 
-### <a name="test-your-logic-app-workflow"></a>Comprobación del flujo de trabajo de la aplicación lógica 
+### <a name="test-your-logic-app-workflow"></a>Comprobación del flujo de trabajo de la aplicación lógica
 
 1. Si la aplicación lógica no está aún habilitada, en el menú de la aplicación lógica, elija **Información general**. En la barra de herramientas, seleccione **Enable** (Habilitar).
 
@@ -712,7 +712,7 @@ En este ejemplo se usa un flujo de trabajo de la aplicación lógica que se dese
 
    * Para recibir IDocs como un archivo plano con el mismo desencadenador de SAP, agregue y establezca el parámetro **Formato de IDOC** en **FlatFile**. Cuando también se usa la [acción Descodificación de archivo plano](logic-apps-enterprise-integration-flatfile.md), en el esquema de archivo plano, debe usar la propiedad `early_terminate_optional_fields` y establecer el valor en `true`.
 
-     Este requisito es necesario porque el registro de datos IDOC de archivo plano que envía SAP en la llamada a tRFC `IDOC_INBOUND_ASYNCHRONOUS` no se agrega a la longitud completa del campo SDATA. Azure Logic Apps proporciona los datos originales de IDOC de archivo plano sin relleno tal y como se reciben de SAP. Además, al combinar este desencadenador de SAP con la acción Descodificación de archivos planos, el esquema que se proporciona a la acción debe coincidir.
+     Este requisito es necesario porque el registro de datos IDoc de archivo plano que envía SAP en la llamada a tRFC `IDOC_INBOUND_ASYNCHRONOUS` no se agrega a la longitud completa del campo SDATA. Azure Logic Apps proporciona los datos originales de IDoc de archivo plano sin relleno tal y como se reciben de SAP. Además, al combinar este desencadenador de SAP con la acción Descodificación de archivos planos, el esquema que se proporciona a la acción debe coincidir.
 
    * Para [filtrar los mensajes que recibe desde el servidor SAP, especifique una lista de acciones de SAP](#filter-with-sap-actions).
 
@@ -775,7 +775,7 @@ Es posible que reciba un error similar cuando el nombre del servidor de aplicaci
 10.0.1.9 SAPDBSERVER01.someguid.xx.xxxxxxx.cloudapp.net # SAP System Server VPN IP by fully qualified computer name
 ```
 
-#### <a name="parameters"></a>Parámetros
+### <a name="parameters"></a>Parámetros
 
 Junto con entradas de cadena y número simples, el conector de SAP acepta estos parámetros de tabla (entradas `Type=ITAB`):
 
@@ -785,9 +785,9 @@ Junto con entradas de cadena y número simples, el conector de SAP acepta estos 
 
 * Parámetros de tabla jerárquica
 
-#### <a name="filter-with-sap-actions"></a>Filtrado con acciones de SAP
+### <a name="filter-with-sap-actions"></a>Filtrado con acciones de SAP
 
-Opcionalmente, puede filtrar los mensajes que el flujo de trabajo de la aplicación lógica recibe del servidor SAP proporcionando una lista o una matriz, con una o varias acciones de SAP. De forma predeterminada, esta matriz está vacía, lo que significa que la aplicación lógica recibe todos los mensajes del servidor SAP sin filtrar. 
+Opcionalmente, puede filtrar los mensajes que el flujo de trabajo de la aplicación lógica recibe del servidor SAP proporcionando una lista o una matriz, con una o varias acciones de SAP. De forma predeterminada, esta matriz está vacía, lo que significa que la aplicación lógica recibe todos los mensajes del servidor SAP sin filtrar.
 
 Al configurar el filtro de matriz, el desencadenador solo recibe mensajes de los tipos de acción de SAP especificados y rechaza todos los demás mensajes del servidor SAP. Sin embargo, este filtro no afecta al establecimiento de tipos de la carga recibida, que puede ser flexible o inflexible.
 
@@ -795,7 +795,7 @@ Cualquier filtrado de acciones de SAP se produce en el nivel del adaptador de SA
 
 Si no puede enviar paquetes de IDoc desde SAP al desencadenador del flujo de trabajo de la aplicación lógica, consulte el mensaje de rechazo de llamada de RFC transaccional (tRFC) en el cuadro de diálogo tRFC de SAP (código T SM58). En la interfaz de SAP, puede recibir los siguientes mensajes de error, que se recortan debido a los límites de subcadena del campo **Status Text** (Texto de estado).
 
-##### <a name="the-requestcontext-on-the-ireplychannel-was-closed-without-a-reply-being-sent"></a>Se cerró el elemento RequestContext en la interfaz IReplyChannel sin que se enviara una respuesta
+#### <a name="the-requestcontext-on-the-ireplychannel-was-closed-without-a-reply-being-sent"></a>Se cerró el elemento RequestContext en la interfaz IReplyChannel sin que se enviara una respuesta
 
 Este mensaje de error indica errores inesperados cuando el controlador comodín del canal finaliza el canal debido a un error y vuelve a generar el canal para procesar otros mensajes.
 
@@ -813,7 +813,7 @@ Si recibe este mensaje de error y experimenta errores intermitentes al llamar a 
 
 1. Guarde los cambios. Reinicie su puerta de enlace de datos local.
 
-##### <a name="the-segment-or-group-definition-e2edk36001-was-not-found-in-the-idoc-meta"></a>No se encontró el segmento o la definición de grupo E2EDK36001 en los metadatos del IDoc
+#### <a name="the-segment-or-group-definition-e2edk36001-was-not-found-in-the-idoc-meta"></a>No se encontró el segmento o la definición de grupo E2EDK36001 en los metadatos del IDoc
 
 Este mensaje de error indica que se produjeron errores esperados con otros errores. Por ejemplo, el error de generación de una carga XML de IDoc porque SAP no lanza sus segmentos. Como resultado, faltan los metadatos de tipo de segmento necesarios para la conversión.
 
@@ -821,7 +821,7 @@ Para que SAP publique estos segmentos, póngase en contacto con el ingeniero de 
 
 ### <a name="asynchronous-request-reply-for-triggers"></a>Solicitud-respuesta asincrónica para los desencadenadores
 
-El conector de SAP es compatible con el [patrón de solicitud-respuesta asincrónico](/azure/architecture/patterns/async-request-reply) de Azure para los desencadenadores de Azure Logic Apps. Puede usar este patrón para crear solicitudes correctas que podrían no realizarse con el patrón de solicitud-respuesta sincrónico predeterminado. 
+El conector de SAP es compatible con el [patrón de solicitud-respuesta asincrónico](/azure/architecture/patterns/async-request-reply) de Azure para los desencadenadores de Azure Logic Apps. Puede usar este patrón para crear solicitudes correctas que podrían no realizarse con el patrón de solicitud-respuesta sincrónico predeterminado.
 
 > [!TIP]
 > En flujos de trabajo de aplicaciones lógicas con varias acciones de respuesta, todas las acciones de respuesta deben usar el mismo patrón de solicitud-respuesta. Por ejemplo, si el flujo de trabajo de la aplicación lógica usa un control de cambio con varias acciones de respuesta posibles, debe configurar todas las acciones de respuesta para usar el mismo patrón de solicitud-respuesta, ya sea sincrónico o asincrónico.
@@ -842,29 +842,27 @@ Para configurar un patrón de solicitud-respuesta asincrónico para el flujo de 
 
 ## <a name="find-extended-error-logs"></a>Búsqueda de registros de errores ampliados
 
-Para ver los mensajes de error completos, recurra a los registros ampliados del adaptador de SAP. También puede [habilitar un archivo de registro ampliado para el conector de SAP](#extended-sap-logging-in-on-premises-data-gateway).
+Para ver los mensajes de error completos, compruebe los registros ampliados del adaptador de SAP. También puede [habilitar un archivo de registro ampliado para el conector de SAP](#extended-sap-logging-in-on-premises-data-gateway).
 
-En el caso de las versiones de puerta de enlace de datos local de junio de 2020 y posteriores, puede [habilitar los registros de puerta de enlace en la configuración de la aplicación](/data-integration/gateway/service-gateway-tshoot#collect-logs-from-the-on-premises-data-gateway-app).
+* En el caso de las versiones de puerta de enlace de datos local de abril de 2020 y anteriores, los registros están deshabilitados de forma predeterminada.
 
-* El nivel de registro predeterminado es **Advertencia**.
+* En el caso de las versiones de puerta de enlace de datos local de junio de 2020 y posteriores, puede [habilitar los registros de puerta de enlace en la configuración de la aplicación](/data-integration/gateway/service-gateway-tshoot#collect-logs-from-the-on-premises-data-gateway-app).
 
-* Si habilita **Registro adicional** en la configuración de **Diagnóstico** de la aplicación de puerta de enlace de datos local, el nivel de registro aumenta a **Informativo**.
+  * El nivel de registro predeterminado es **Advertencia**.
 
-* Para aumentar el nivel de registro a **Detallado**, actualice el siguiente valor en el archivo de configuración:
+  * Si habilita **Registro adicional** en la configuración de **Diagnóstico** de la aplicación de puerta de enlace de datos local, el nivel de registro aumenta a **Informativo**.
 
-  ```xml
-  <setting name="SapTraceLevel" serializeAs="String">
-     <value>Verbose</value>
-  </setting>
-  ```
+  * Para aumentar el nivel de registro a **Detallado**, actualice el siguiente valor en el archivo de configuración. Normalmente el archivo de configuración se encuentra en `C:\Program Files\On-premises data gateway\Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config`.
 
-  Normalmente el archivo de configuración se encuentra en `C:\Program Files\On-premises data gateway\Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config`.
-
-En el caso de las versiones de puerta de enlace de datos local de abril de 2020 y anteriores, los registros están deshabilitados de forma predeterminada.
+    ```xml
+    <setting name="SapTraceLevel" serializeAs="String">
+       <value>"Verbose"</value>
+    </setting>
+    ```
 
 ### <a name="extended-sap-logging-in-on-premises-data-gateway"></a>Registro de SAP ampliado en la puerta de enlace de datos local
 
-Si usa una [puerta de enlace de datos local para Azure Logic Apps](../logic-apps/logic-apps-gateway-install.md), puede configurar un archivo de registro ampliado para el conector de SAP. Puede usar la puerta de enlace de datos local para redirigir los eventos de Seguimiento de eventos para Windows (ETW) en los archivos de registro giratorios que se incluyen en los archivos .zip de registro de la puerta de enlace. 
+Si usa una [puerta de enlace de datos local para Azure Logic Apps](../logic-apps/logic-apps-gateway-install.md), puede configurar un archivo de registro ampliado para el conector de SAP. Puede usar la puerta de enlace de datos local para redirigir los eventos de Seguimiento de eventos para Windows (ETW) en los archivos de registro giratorios que se incluyen en los archivos .zip de registro de la puerta de enlace.
 
 Puede [exportar todos los registros de configuración y servicio de la puerta de enlace](/data-integration/gateway/service-gateway-tshoot#collect-logs-from-the-on-premises-data-gateway-app) a un archivo .zip en desde la configuración de la aplicación de puerta de enlace.
 
@@ -885,17 +883,17 @@ Opcionalmente, los usuarios avanzados pueden capturar eventos ETW directamente. 
 
 1. Una vez que haya reproducido el problema o recopilado suficientes datos de análisis, seleccione **Detener recopilación**.
 
-Para compartir los datos con otra entidad, como los ingenieros de Soporte técnico de Azure, comprima el archivo ETL.
+1. Para compartir los datos con otra entidad, como los ingenieros de Soporte técnico de Azure, comprima el archivo ETL.
 
-Para ver el contenido del seguimiento:
+1. Para ver el contenido del seguimiento:
 
-1. En PerfView, seleccione **Archivo** &gt; **Abrir** y, a continuación, seleccione el archivo ETL que acaba de generar.
+   1. En PerfView, seleccione **Archivo** &gt; **Abrir** y, a continuación, seleccione el archivo ETL que acaba de generar.
 
-1. En la barra lateral de PerfView, en la sección **Eventos** del archivo ETL.
+   1. En la barra lateral de PerfView, en la sección **Eventos** del archivo ETL.
 
-1. En **Filtro**, filtre por `Microsoft-LobAdapter` para ver solo los eventos y procesos de puerta de enlace pertinentes.
+   1. En **Filtro**, filtre por `Microsoft-LobAdapter` para ver solo los eventos y procesos de puerta de enlace pertinentes.
 
-### <a name="test-your-logic-app-workflow"></a>Comprobación del flujo de trabajo de la aplicación lógica
+### <a name="test-your-workflow"></a>Prueba del flujo de trabajo
 
 1. Para desencadenar el flujo de trabajo de la aplicación lógica, envíe un mensaje desde el sistema SAP.
 
@@ -931,10 +929,10 @@ Para enviar IDoc desde SAP al flujo de trabajo de la aplicación lógica, necesi
 1. Seleccione **TCP/IP Connections** > **Create** (Conexiones TCP/IP > Crear).
 
 1. Cree un nuevo destino RFC con la siguiente configuración:
-    
+
     1. En **RFC Destination** (Destino RFC), escriba un nombre.
-    
-    1. En la pestaña **Technical Settings** (Configuración técnica), en **Activation Type** (Tipo de activación), seleccione **Registered Server Program** (Programa de servidor registrado). 
+
+    1. En la pestaña **Technical Settings** (Configuración técnica), en **Activation Type** (Tipo de activación), seleccione **Registered Server Program** (Programa de servidor registrado).
 
     1. En **Program ID** (Id. de programa), escriba un valor. En SAP, el desencadenador del flujo de trabajo de la aplicación lógica se registrará con este identificador.
 
@@ -945,14 +943,14 @@ Para enviar IDoc desde SAP al flujo de trabajo de la aplicación lógica, necesi
        > * **No se admite el cliente RFC que no sea ABAP (tipo de socio).**
        >
        > Para más información de SAP, consulte las notas siguientes (inicio de sesión necesario):
-       > 
+       >
        > * [https://launchpad.support.sap.com/#/notes/2399329](https://launchpad.support.sap.com/#/notes/2399329)
        > * [https://launchpad.support.sap.com/#/notes/353597](https://launchpad.support.sap.com/#/notes/353597)
 
     1. En la pestaña **Unicode**, para **Communication Type with Target System** (Tipo de comunicación con sistema de destino), seleccione **Unicode**.
 
        > [!NOTE]
-       > Las bibliotecas de cliente .NET de SAP solo admiten la codificación de caracteres Unicode. Si recibe el error `Non-ABAP RFC client (partner type ) not supported` al enviar IDOC desde SAP a Azure Logic Apps, compruebe que el valor de **Tipo de comunicación con sistema de destino** está establecido en **Unicode**.
+       > Las bibliotecas de cliente .NET de SAP solo admiten la codificación de caracteres Unicode. Si recibe el error `Non-ABAP RFC client (partner type ) not supported` al enviar IDoc desde SAP a Azure Logic Apps, compruebe que el valor de **Tipo de comunicación con sistema de destino** esté establecido en **Unicode**.
 
 1. Guarde los cambios.
 
@@ -990,7 +988,7 @@ Para enviar IDoc desde SAP al flujo de trabajo de la aplicación lógica, necesi
 
 #### <a name="create-sender-port"></a>Creación de un puerto remitente
 
-1.  Para abrir la configuración **Ports In IDOC processing** (Procesamiento de puertos en IDoc), en la interfaz de SAP, use el código de transacción (código T) **we21** con el prefijo **/n**.
+1. Para abrir la configuración **Ports In IDOC processing** (Procesamiento de puertos en IDoc), en la interfaz de SAP, use el código de transacción (código T) **we21** con el prefijo **/n**.
 
 1. Seleccione **Ports** > **Transactional RFC** > **Create** (Puertos > RFC transaccional > Crear).
 
@@ -1058,7 +1056,7 @@ En entornos de producción, debe crear dos perfiles de socio. El primer perfil e
 
 1. Para iniciar el procesamiento de IDoc de salida, seleccione **Continue** (Continuar). Una vez finalizado el procesamiento, aparece el mensaje **IDoc sent to SAP system or external program** (IDoc enviado a sistema SAP o programa externo).
 
-1.  Para comprobar si hay errores de procesamiento, use el código de transacción (código T) **sm58** con el prefijo **/n**.
+1. Para comprobar si hay errores de procesamiento, use el código de transacción (código T) **sm58** con el prefijo **/n**.
 
 ## <a name="receive-idoc-packets-from-sap"></a>Recepción de paquetes IDoc de SAP
 
@@ -1170,6 +1168,9 @@ El ejemplo siguiente es una llamada de RFC con un parámetro de tabla. Esta llam
    </TCPICDAT>
 </STFC_WRITE_TO_TCPIC>
 ```
+
+> [!NOTE]
+> Observe el resultado de RFC **STFC_WRITE_TO_TCPIC** con el explorador de datos del inicio de sesión de SAP (T-Code SE16). Use el nombre de tabla **TCPIC**.
 
 El ejemplo siguiente es una llamada de RFC con un parámetro de tabla que tiene un campo anónimo. Un campo anónimo es cuando el campo no tiene asignado ningún nombre. Los tipos complejos se declaran en un espacio de nombres independiente, en el que la declaración establece un nuevo valor predeterminado para el nodo actual y todos sus elementos secundarios. En el ejemplo se usa el código hexadecimal `x002F` como carácter de escape para el símbolo */* , porque este símbolo está reservado en el nombre de campo de SAP.
 
@@ -1426,7 +1427,7 @@ El ejemplo siguiente es un método alternativo para establecer el identificador 
 
 De forma predeterminada, se usa el establecimiento inflexible de tipos para comprobar si hay valores no válidos, para lo cual se realiza la validación de XML con respecto al esquema. Este comportamiento puede ayudarlo a detectar problemas con antelación. La opción **Escritura segura** está disponible para la compatibilidad con versiones anteriores y solo comprueba la longitud de cadena. Más información sobre la opción [Escritura segura](#safe-typing).
 
-### <a name="test-your-logic-app-workflow"></a>Comprobación del flujo de trabajo de la aplicación lógica
+### <a name="test-your-workflow"></a>Prueba del flujo de trabajo
 
 1. En la barra de herramientas del diseñador, elija **Ejecutar** para desencadenar una ejecución del flujo de trabajo de la aplicación lógica.
 
@@ -1469,7 +1470,7 @@ Si lo desea, puede descargar o almacenar los esquemas generados en repositorios,
 
 1. Guarde el flujo de trabajo de la aplicación lógica. En la barra de herramientas del diseñador, seleccione **Save** (Guardar).
 
-### <a name="test-your-logic-app-workflow"></a>Comprobación del flujo de trabajo de la aplicación lógica
+### <a name="test-your-workflow"></a>Prueba del flujo de trabajo
 
 1. En la barra de herramientas del diseñador, elija **Ejecutar** para desencadenar manualmente el flujo de trabajo de la aplicación lógica.
 
@@ -1546,6 +1547,171 @@ Cuando se envían mensajes con **Escritura segura** habilitada, la respuesta DAT
 <DATE>99991231</DATE>
 <TIME>235959</TIME>
 ```
+
+## <a name="send-sap-telemetry-foron-premises-data-gateway-to-azure-application-insights"></a>Envío de datos de telemetría de SAP sobre la puerta de enlace de datos local a Azure Application Insights
+
+Con la actualización de agosto de 2021 para la puerta de enlace de datos local, las operaciones del conector de SAP pueden enviar datos de telemetría desde la biblioteca cliente de SAP y seguimientos desde el adaptador de SAP de Microsoft a [Application Insights](../azure-monitor/app/app-insights-overview.md), que es una funcionalidad de Azure Monitor. Estos datos de telemetría incluyen principalmente los datos siguientes:
+
+* Métricas y seguimientos basados en métricas y monitores de SAP NCo.
+
+* Seguimientos del adaptador de SAP de Microsoft.
+
+### <a name="metrics-and-traces-from-sap-client-library"></a>Métricas y seguimientos de la biblioteca cliente de SAP
+
+Las *métricas* son valores numéricos que pueden o no variar durante un período de tiempo, en función del uso y la disponibilidad de los recursos en la puerta de enlace de datos local. Puede usar estas métricas para comprender mejor el estado del sistema y crear alertas sobre las actividades siguientes:
+
+* Si el estado del sistema está en declive.
+
+* Eventos inusuales.
+
+* Carga pesada en el sistema.
+
+Esta información se envía a la tabla de Application Insights, `customMetrics`. De manera predeterminada, las métricas se envían a intervalos de 30 segundos.
+
+Las métricas y los seguimientos de SAP NCo se basan en métricas de SAP NCo, específicamente en las siguientes clases de NCo:
+
+* RfcDestinationMonitor.
+
+* RfcConnectionMonitor.
+
+* RfcServerMonitor.
+
+* RfcRepositoryMonitor.
+
+Para más información sobre las métricas que proporciona cada clase, revise la [documentación de SAP NCo (se requiere inicio de sesión)](https://support.sap.com/en/product/connectors/msnet.html#section_512604546).
+
+Los *seguimientos* incluyen información de texto que se usa con las métricas. Esta información se envía a la tabla de Application Insights, llamada `traces`. De manera predeterminada, los seguimientos se envían a intervalos de 10 minutos.
+
+### <a name="set-up-sap-telemetry-for-application-insights"></a>Configuración de la telemetría de SAP para Application Insights​
+
+Para poder enviar datos de telemetría de SAP sobre la instalación de la puerta de enlace a Application Insights, debe haber creado y configurado el recurso de Application Insights. Para más información, revise la siguiente documentación:
+
+* [Creación de un recurso de Application Insights (clásico)](../azure-monitor/app/create-new-resource.md)
+
+* [Recursos de Application Insights basados en áreas de trabajo](../azure-monitor/app/create-workspace-resource.md)
+
+Para habilitar el envío de datos de telemetría de SAP a Application Insights, siga estos pasos:
+
+1. Descargue el paquete NuGet para **Microsoft.ApplicationInsights.EventSourceListener.dll** desde esta ubicación: [https://www.nuget.org/packages/Microsoft.ApplicationInsights.EventSourceListener/2.14.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EventSourceListener/2.14.0).
+
+1. Agregue el archivo descargado al directorio de instalación de la puerta de enlace de datos local.
+
+1. En el directorio de instalación de la puerta de enlace de datos local, compruebe que el archivo **Microsoft.ApplicationInsights.dll** tenga el mismo número de versión que el archivo **Microsoft.ApplicationInsights.EventSourceListener.dll** que agregó. Actualmente, la puerta de enlace usa la versión 2.14.0.
+
+1. En el archivo **ApplicationInsights.config**, agregue la [clave de instrumentación de Application Insights](../azure-monitor/app/app-insights-overview.md#how-does-application-insights-work); para ello, quite la marca de comentario de la línea que tiene el elemento `<InstrumentationKey></Instrumentation>`. Reemplace el marcador de posición, *your-Application-Insights-instrumentation-key*, por la clave, por ejemplo:
+
+      ```xml
+      <?xml version="1.0" encoding="utf-8"?>
+      <ApplicationInsights schemaVersion="2014-05-30" xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings">
+         <!-- Uncomment this element and insert your Application Insights key to receive ETW telemetry about your gateway <InstrumentationKey>*your-instrumentation-key-placeholder*</InstrumentationKey> -->
+         <TelemetryModules>
+            <Add Type="Microsoft.ApplicationInsights.Extensibility.Implementation.Tracing.DiagnosticsTelemetryModule, Microsoft.ApplicationInsights">
+               <IsHeartbeatEnabled>false</IsHeartbeatEnabled>
+            </Add>
+            <Add Type="Microsoft.ApplicationInsights.EventSourceListener.EventSourceTelemetryModule, Microsoft.ApplicationInsights.EventSourceListener">
+               <Sources>
+                  <Add Name="Microsoft-LobAdapter" Level="Verbose" />
+               </Sources>
+            </Add>
+         </TelemetryModules>
+      </ApplicationInsights>
+      ```
+
+1. En el archivo **ApplicationInsights.config**, puede cambiar el valor de `Level` en los seguimientos necesarios para las operaciones del conector de SAP según sus requisitos, por ejemplo:
+
+   ```xml
+   <Add Type="Microsoft.ApplicationInsights.EventSourceListener.EventSourceTelemetryModule, Microsoft.ApplicationInsights.EventSourceListener">
+      <Sources>
+         <Add Name="Microsoft-LobAdapter" Level="Verbose" />
+      </Sources>
+   </Add>
+   ```
+
+   Para más información, revise la siguiente documentación:
+
+   * Valores de `Level`: [enumeración EventLevel](/dotnet/api/system.diagnostics.tracing.eventlevel)
+
+   * [Seguimiento de EventSource](../azure-monitor/app/configuration-with-applicationinsights-config.md#eventsource-tracking)
+
+   * [Eventos EventSource](../azure-monitor/app/asp-net-trace-logs.md#use-eventsource-events)
+
+1. Después de aplicar los cambios, reinicie el servicio de la puerta de enlace de datos local.
+
+### <a name="review-metrics-in-application-insights"></a>Revisión de métricas en Application Insights
+
+Después de ejecutar las operaciones de SAP en el flujo de trabajo de la aplicación lógica, puede revisar los datos de telemetría que se enviaron a Application Insights.
+
+1. Abra el recurso de Application Insights en Azure Portal.
+
+1. En el menú de recursos, en **Supervisión**, seleccione **Registros**.
+
+   En la captura de pantalla siguiente se muestra Azure Portal con Application Insights, que está abierto en el panel **Registros**:
+
+   [![Captura de pantalla que muestra Azure Portal con Application Insights abierto en el panel "Registros" para crear consultas.](./media/logic-apps-using-sap-connector/application-insights-query-panel.png)](./media/logic-apps-using-sap-connector/application-insights-query-panel.png#lightbox)
+
+1. En el panel **Registros**, puede crear una [consulta](/azure/data-explorer/kusto/query/) mediante el [lenguaje de consulta de Kusto (KQL)](/azure/data-explorer/kusto/concepts/) que se base en sus requisitos específicos.
+
+   Puede usar un patrón de consulta similar a la consulta de ejemplo siguiente:
+
+   ```Kusto
+   customMetrics
+   | extend DestinationName = tostring(customDimensions["DestinationName"])
+   | extend MetricType = tostring(customDimensions["MetricType"])
+   | where customDimensions contains "RfcDestinationMonitor"
+   | where name contains "MaxUsedCount"
+   ```
+
+1. Después de ejecutar la consulta, revise los resultados.
+
+   En la captura de pantalla siguiente, se muestra la tabla de resultados de métricas de la consulta de ejemplo:
+
+   [![Captura de pantalla que muestra Application Insights con la tabla de resultados de métricas.](./media/logic-apps-using-sap-connector/application-insights-metrics.png)](./media/logic-apps-using-sap-connector/application-insights-metrics.png#lightbox)
+
+   * **MaxUsedCount** es "el número máximo de conexiones de cliente que el destino supervisado usó simultáneamente", como se describe en la [documentación de SAP NCo (se requiere inicio de sesión)](https://support.sap.com/en/product/connectors/msnet.html#section_512604546). Puede usar este valor para conocer el número de conexiones abiertas simultáneamente.
+
+   * La columna **valueCount** muestra **2** para cada lectura, porque las métricas se generan a intervalos de 30 segundos y Application Insights agrega estas métricas por minuto.
+
+   * La columna **DestinationName** contiene una cadena de caracteres que es el nombre interno del adaptador de SAP de Microsoft.
+
+     Para comprender mejor este destino de llamada de función remota (RFC), use este valor con `traces`, por ejemplo:
+
+     ```Kusto
+     customMetrics
+     | extend DestinationName = tostring(customDimensions["DestinationName"])
+     | join kind=inner (traces
+        | extend DestinationName = tostring(customDimensions["DestinationName"]),
+        AppServerHost = tostring(customDimensions["AppServerHost"]),
+        SncMode = tostring(customDimensions["SncMode"]),
+        SapClient = tostring(customDimensions["Client"])
+        | where customDimensions contains "RfcDestinationMonitor"
+        )
+        on DestinationName , $left.DestinationName == $right.DestinationName
+     | where customDimensions contains "RfcDestinationMonitor"
+     | where name contains "MaxUsedCount"
+     | project AppServerHost, SncMode, SapClient, name, valueCount, valueSum, valueMin, valueMax
+     ```
+
+También puede crear gráficos o alertas de métricas mediante esas funcionalidades en Application Insights, por ejemplo:
+
+[![Captura de pantalla que muestra Application Insights con los resultados en formato de gráfico.](./media/logic-apps-using-sap-connector/application-insights-metrics-chart.png)](./media/logic-apps-using-sap-connector/application-insights-metrics-chart.png#lightbox)
+
+### <a name="traces-from-microsoft-sap-adapter"></a>Seguimientos del adaptador de SAP de Microsoft
+
+Puede usar los seguimientos enviados desde el adaptador de SAP de Microsoft para el análisis posterior al problema y para encontrar los errores internos del sistema existentes que podrían o no aparecer en las operaciones del conector de SAP. Estos seguimientos tienen el elemento `message` establecido en `"n\a"` porque proceden de un marco de origen de eventos que es anterior a Application Insights, por ejemplo:
+
+```Kusto
+traces
+| where message == "n/a"
+| where severityLevel > 0
+| extend ActivityId = tostring(customDimensions["ActivityId"])
+| extend fullMessage = tostring(customDimensions["fullMessage"])
+| extend shortMessage = tostring(customDimensions["shortMessage"])
+| where ActivityId contains "8ad5952b-371e-4d80-b355-34e28df9b5d1"
+```
+
+En la captura de pantalla siguiente, se muestra la tabla de resultados de seguimientos de la consulta de ejemplo:
+
+[![Captura de pantalla que muestra Application Insights con la tabla de resultados de seguimientos.](./media/logic-apps-using-sap-connector/application-insights-traces.png)](./media/logic-apps-using-sap-connector/application-insights-traces.png#lightbox)
 
 ## <a name="advanced-scenarios"></a>Escenarios avanzados
 
@@ -1640,13 +1806,13 @@ Si experimenta un problema con IDoc duplicados que se envían a SAP desde el flu
 
 ## <a name="known-issues-and-limitations"></a>Limitaciones y problemas conocidos
 
-Estos son los problemas y limitaciones actualmente conocidos para el conector de SAP (que no sea ISE) administrado: 
+Estos son los problemas y limitaciones actualmente conocidos para el conector de SAP (que no sea ISE) administrado:
 
 * En general, el desencadenador de SAP no admite los clústeres de puerta de enlace de datos. En algunos casos de conmutación por error, el nodo de puerta de enlace de datos que se comunica con el sistema SAP puede diferir del nodo activo, lo que produce un comportamiento inesperado.
 
-  * En los escenarios de envío, se admiten clústeres de puerta de enlace de datos en modo de conmutación por error. 
+  * En los escenarios de envío, se admiten clústeres de puerta de enlace de datos en modo de conmutación por error.
 
-  * Los clústeres de puerta de enlace de datos en modo de equilibrio de carga no se admiten con las [acciones de SAP](#actions) con estado. Estas acciones incluyen **\[BAPI - RFC] Crear sesión con estado**, **\[BAPI] Confirmar transacción**, **\[BAPI] Revertir transacción**, **\[BAPI - RFC] Cerrar sesión con estado**, y todas las acciones que especifican un valor de **Id. de sesión**. Las comunicaciones con estado deben permanecer en el mismo nodo de clúster de puerta de enlace de datos. 
+  * Los clústeres de puerta de enlace de datos en modo de equilibrio de carga no se admiten con las [acciones de SAP](#actions) con estado. Estas acciones incluyen **\[BAPI - RFC] Crear sesión con estado**, **\[BAPI] Confirmar transacción**, **\[BAPI] Revertir transacción**, **\[BAPI - RFC] Cerrar sesión con estado**, y todas las acciones que especifican un valor de **Id. de sesión**. Las comunicaciones con estado deben permanecer en el mismo nodo de clúster de puerta de enlace de datos.
 
   * En el caso de las acciones de SAP con estado, use la puerta de enlace de datos en modo no clúster o en un clúster configurado solo para la conmutación por error.
 
@@ -1654,7 +1820,7 @@ Estos son los problemas y limitaciones actualmente conocidos para el conector de
 
 * En el caso de las [aplicaciones lógicas de un entorno de servicio de integración (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), la versión con la etiqueta ISE de este conector usa en su lugar los [límites de mensajes de ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits).
 
-## <a name="connector-reference"></a>Referencia de conectores 
+## <a name="connector-reference"></a>Referencia de conectores
 
 Para obtener más información sobre el conector de SAP, consulte la [referencia del conector](/connectors/sap/). Puede encontrar detalles sobre los límites, parámetros y devoluciones del conector, los desencadenadores y las acciones de SAP.
 
@@ -1665,7 +1831,7 @@ Para obtener más información sobre el conector de SAP, consulte la [referencia
         [**Cuando se recibe un mensaje de SAP**](/connectors/sap/#when-a-message-is-received)
     :::column-end:::
     :::column span="3":::
-        Cuando se reciba un mensaje de SAP, hace algo. 
+        Cuando se reciba un mensaje de SAP, hace algo.
     :::column-end:::
 :::row-end:::
 
@@ -1706,7 +1872,7 @@ Para obtener más información sobre el conector de SAP, consulte la [referencia
         **Parámetros de BAPI de entrada** (`body`), en los que se llama al documento XML que contiene los valores de parámetro de entrada del método BAPI para la llamada, o al URI de Storage Blob que contiene los parámetros de BAPI.
         \
         \
-        Para obtener ejemplos detallados de cómo usar la acción **[BAPI] Call method in SAP** (Llamar al método en SAP [BAPI]), consulte los [Ejemplos XML para solicitudes de BAPI](#xml-samples-for-bapi-requests). 
+        Para obtener ejemplos detallados de cómo usar la acción **[BAPI] Call method in SAP** (Llamar al método en SAP [BAPI]), consulte los [Ejemplos XML para solicitudes de BAPI](#xml-samples-for-bapi-requests).
         \
         Si usa el diseñador de flujo de trabajo para editar la solicitud de BAPI, puede usar las siguientes funciones de búsqueda:     \
         \
@@ -1769,7 +1935,7 @@ Para obtener más información sobre el conector de SAP, consulte la [referencia
         **Tipo de IDoc con extensión opcional** (`idocType`), que es un menú desplegable que permite búsquedas.
         \
         \
-        **Mensaje de IDoc de entrada** (`body`), en el que se llama al documento XML que contiene la carga de IDoc, o al URI de Storage Blob que contiene el documento XML de IDoc. Este documento debe cumplir el esquema XML de IDoc de SAP de acuerdo con la documentación de IDoc WE60 o el esquema generado para el URI de acción de IDoc de SAP coincidente.
+        **Mensaje de IDoc de entrada** (`body`), en el que se llama al documento XML que contiene la carga de IDoc, o al URI de Storage Blob que contiene el documento XML de IDoc. Este documento debe cumplir el esquema XML de IDoc de SAP de acuerdo con la documentación de IDoc WE60 o el esquema generado para el identificador URI de acción de IDoc de SAP coincidente.
         \
         \
         El parámetro opcional de **versión de lanzamiento de SAP** (`releaseVersion`) rellena los valores después de seleccionar el tipo de IDoc y depende del tipo de IDoc seleccionado.
@@ -1786,7 +1952,7 @@ Para obtener más información sobre el conector de SAP, consulte la [referencia
         [ **[RFC] Add RFC to transaction**](/connectors/sap/#[rfc]-add-rfc-to-transaction-(preview)) (Agregar RFC a la transacción)
     :::column-end:::
     :::column span="3":::
-        Permite agregar una llamada de RFC a la transacción. 
+        Permite agregar una llamada de RFC a la transacción.
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -1810,7 +1976,7 @@ Para obtener más información sobre el conector de SAP, consulte la [referencia
         [ **[RFC] Crear transacción**](/connectors/sap/#[rfc]-create-transaction-(preview))
     :::column-end:::
     :::column span="3":::
-        Permite crear una nueva transacción por identificador o nombre de cola. Si la transacción existe, obtenga los detalles. 
+        Permite crear una nueva transacción por identificador o nombre de cola. Si la transacción existe, obtenga los detalles.
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -1850,4 +2016,4 @@ Para obtener más información sobre el conector de SAP, consulte la [referencia
 
 * [Conéctese a sistemas locales](logic-apps-gateway-connection.md) desde Azure Logic Apps.
 * Aprenda a validar, transformar y usar otras operaciones de mensaje con [Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md).
-* Conozca otros [conectores de Logic Apps](../connectors/apis-list.md).
+* Obtenga más información sobre otros [conectores de Logic Apps](../connectors/apis-list.md)

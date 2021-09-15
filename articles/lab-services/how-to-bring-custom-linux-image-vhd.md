@@ -3,12 +3,12 @@ title: 'Azure Lab Services: Cómo transportar una imagen personalizada de Linu
 description: Describe cómo transportar una imagen personalizada de Linux desde el entorno de laboratorio físico.
 ms.date: 07/27/2021
 ms.topic: how-to
-ms.openlocfilehash: 919505e31526c3d17d42bd29d9cef3b46758c959
-ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
+ms.openlocfilehash: afaaf1d28043a7b88e627f730a619daf46c59e0d
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122831400"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123451698"
 ---
 # <a name="bring-a-linux-custom-image-from-your-physical-lab-environment"></a>Transporte de una imagen personalizada de Linux desde un entorno de laboratorio físico
 
@@ -76,7 +76,7 @@ Para redimensionar el VHD y convertirlo en un VHDX, también puede usar los sigu
     Utilice la pestaña **Tamaño y rendimiento** del disco administrado en Azure Portal para cambiar el tamaño del disco. Como se mencionó anteriormente, el tamaño *no* debe ser superior a 128 GB.
 
 1. En una galería de imágenes compartidas, cree una definición y una versión de una imagen:
-    1. [Cree la definición de una imagen](../virtual-machines/windows/shared-images-portal.md#create-an-image-definition):
+    1. [Cree la definición de una imagen](../virtual-machines/image-version.md):
         - Elija **Gen 1** para la **generación de máquinas virtuales**.
         - Elija **Linux** para el **Sistema operativo**.
         - Elija **Generalizado** para el **Estado del sistema operativo**.
@@ -85,7 +85,7 @@ Para redimensionar el VHD y convertirlo en un VHDX, también puede usar los sigu
     
     También puede elegir usar una definición de imagen existente y crear una nueva versión para la imagen personalizada.
     
-1. [Cree la versión de una imagen](../virtual-machines/windows/shared-images-portal.md#create-an-image-version):
+1. [Cree la versión de una imagen](../virtual-machines/image-version.md):
    - La propiedad **Número de versión** usa el formato siguiente: *MajorVersion.MinorVersion.Patch*. Cuando se usa Lab Services para crear un laboratorio y elegir una imagen personalizada, se usa automáticamente la versión más reciente de la imagen. La versión más reciente se elige en función del valor más alto de MajorVersion, luego MinorVersion y, por último, Patch.
     - En **Origen**, seleccione **Discos y/o instantáneas** en la lista desplegable.
     - Para la propiedad **Disco de SO**, elija el disco que ha creado en los pasos anteriores.

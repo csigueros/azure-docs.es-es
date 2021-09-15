@@ -3,19 +3,19 @@ title: Desarrollo de dispositivos para Azure IoT Central | Microsoft Docs
 description: Azure IoT Central es una plataforma de aplicaciones de IoT que simplifica la creación de soluciones de IoT. En este artículo se proporciona una introducción al desarrollo de dispositivos para conectarse a la aplicación IoT Central. Los dispositivos usan la telemetría para enviar los datos de streaming y las propiedades para informar sobre el estado de un dispositivo. IOT central puede establecer el estado de un dispositivo mediante las propiedades grabables y llamar a los comandos en un dispositivo.
 author: dominicbetts
 ms.author: dobett
-ms.date: 05/05/2020
+ms.date: 08/30/2021
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom:
 - mvc
 - device-developer
-ms.openlocfilehash: e7ec54a85c2b5f964327d7d60c9f856e70320225
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: f2131ec5a0b939172097494dcd457b9d661614ad
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114467869"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123473503"
 ---
 # <a name="iot-central-device-development-guide"></a>Guía de desarrollo de dispositivos IoT Central
 
@@ -85,7 +85,7 @@ Para más información sobre los procedimientos recomendados para editar un mode
 
 Cada modelo tiene un _identificador de modelo de dispositivo gemelo_ (DTMI) único, como `dtmi:com:example:Thermostat;1`. Cuando un dispositivo se conecta a IoT Central, envía el DTMI del modelo que implementa. A continuación, IoT Central puede asociar la plantilla de dispositivo correcta con el dispositivo.
 
-[IoT Plug and Play](../../iot-develop/overview-iot-plug-and-play.md) define un conjunto de convenciones que un dispositivo debe seguir cuando implementa un modelo DTDL.
+[IoT Plug and Play](../../iot-develop/overview-iot-plug-and-play.md) define un conjunto de [convenciones](../../iot-develop/concepts-convention.md) que un dispositivo debe seguir cuando implementa un modelo DTDL.
 
 Los [SDK de dispositivos IoT de Azure](#languages-and-sdks) incluyen compatibilidad con las convenciones de IoT Plug and Play.
 

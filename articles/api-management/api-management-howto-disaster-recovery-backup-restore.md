@@ -3,23 +3,18 @@ title: Implementación de la recuperación ante desastres mediante copias de seg
 titleSuffix: Azure API Management
 description: Obtenga información acerca de cómo usar las tareas de copias de seguridad y restauración para llevar a cabo la recuperación ante desastres en Azure API Management.
 services: api-management
-documentationcenter: ''
 author: mikebudzynski
-manager: erikre
-editor: ''
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 12/05/2020
+ms.date: 08/20/2021
 ms.author: apimpm
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8148cbd1fa4e34610c4b27609910821323a2acea
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 9d0845d2b54f2ce9d69772b6f1fcfe6fd3704a78
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121732214"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123538676"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Procedimiento para implementar la recuperación ante desastres mediante copias de seguridad y restauración del servicio en Azure API Management
 
@@ -57,40 +52,34 @@ Todas las tareas que se realizan en los recursos mediante Azure Resource Manager
 ### <a name="create-an-azure-active-directory-application"></a>Creación de una aplicación de Azure Active Directory
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-2. Mediante la suscripción que contiene la instancia del servicio API Management, vaya a la pestaña **Registros de aplicaciones** de **Azure Active Directory** (Azure Active Directory > Administrar/Registros de aplicaciones).
-
+1. Mediante la suscripción que contiene la instancia de servicio de API Management, vaya a [Azure Portal - Registros de aplicaciones](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) para registrar una aplicación en Active Directory.
     > [!NOTE]
     > Si el directorio predeterminado de Azure Active Directory no está visible en su cuenta, póngase en contacto con el administrador de la suscripción de Azure para que le conceda los permisos necesarios para su cuenta.
+1. Seleccione **+ Nuevo registro**.
+1. En la página **Registrar una aplicación**, establezca los valores de la manera siguiente:
+    
+    * Establezca **Nombre** en un nombre con sentido;
+    * Establezca **Tipos de cuenta admitidos** en **Solo las cuentas de este directorio organizativo**. 
+    * En **URI de redirección**, escriba una dirección URL de marcador de posición, como `https://resources`. Aunque es un campo obligatorio, el valor no se usa más adelante. 
+    * Seleccione **Registrar**.
 
-3. Haga clic en **Nuevo registro de aplicaciones**.
+### <a name="add-permissions"></a>Adición de permisos
 
-    Aparecerá la ventana **Crear** a la derecha. Es donde debe especificar la información pertinente de la aplicación de AAD.
-
-4. Escriba un nombre para la aplicación.
-5. En el tipo de aplicación, seleccione **Nativa**.
-6. Escriba una dirección URL de marcador de posición como `http://resources` para el **URI de redireccionamiento**, ya que es un campo obligatorio, pero el valor no se utiliza más adelante. Haga clic en la casilla para guardar la aplicación.
-7. Haga clic en **Crear**.
-
-### <a name="add-an-application"></a>Adición de una aplicación
-
-1. Una vez creada la aplicación, haga clic en **Permisos de API**.
-2. Haga clic en **+ Agregar un permiso**.
-4. Presione **Select Microsoft APIs** (Seleccionar API de Microsoft).
-5. Elija **Azure Service Management** (Administración de servicios de Azure).
-6. Haga clic en **Seleccionar**.
+1. Una vez creada la aplicación, seleccione **Permisos de la API** >  **+ Agregar un permiso**.
+1. Seleccione **API de Microsoft**.
+1. Seleccione **Administración de servicio de Azure**.
 
     :::image type="content" source="./media/api-management-howto-disaster-recovery-backup-restore/add-app-permission.png" alt-text="Captura de pantalla que muestra cómo agregar permisos de aplicación":::. 
 
-7. Haga clic en **Permisos delegados** al lado de la aplicación recién agregada, active la casilla **Access Azure Service Management (preview)** [Acceso a Azure Service Management (versión preliminar)].
+1. Haga clic en **Permisos delegados** al lado de la aplicación recién agregada y active la casilla **Acceso a la administración de servicios de Azure como usuarios de la organización (versión preliminar)** .
 
     :::image type="content" source="./media/api-management-howto-disaster-recovery-backup-restore/delegated-app-permission.png" alt-text="Captura de pantalla que muestra la incorporación de permisos de aplicación delegados":::.
 
-8. Haga clic en **Seleccionar**.
-9. Haga clic en **Agregar permisos**.
+1. Seleccione **Agregar permisos**.
 
-### <a name="configuring-your-app"></a>Configuración de la aplicación
+### <a name="configure-your-app"></a>Configurar la aplicación
 
-Antes de llamar a las API que generan la copia de seguridad y la restauran, debe obtener un token. En el ejemplo siguiente se utiliza el paquete de NuGet [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) para recuperar el token.
+Antes de llamar a las API que generan la copia de seguridad y restauran, debe obtener un token. En el ejemplo siguiente se utiliza el paquete de NuGet [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) para recuperar el token.
 
 ```csharp
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
@@ -137,6 +126,9 @@ Reemplace `{tenant id}`, `{application id}` y `{redirect uri}` mediante las sigu
 
 Las API REST son [servicio API Management: Copia de seguridad](/rest/api/apimanagement/2020-12-01/api-management-service/backup) y [servicio API Management: Restauración](/rest/api/apimanagement/2020-12-01/api-management-service/restore).
 
+> [!NOTE]
+> También se pueden realizar operaciones de copia de seguridad y restauración con los comandos [_Backup-AzApiManagement_](/powershell/module/az.apimanagement/backup-azapimanagement) y [_Restore-AzApiManagement_](/powershell/module/az.apimanagement/restore-azapimanagement) de PowerShell, respectivamente.
+
 Antes de llamar a las operaciones de "copia de seguridad y restauración" descritas en las secciones siguientes, establezca el encabezado de solicitud de autorización para la llamada REST.
 
 ```csharp
@@ -156,7 +148,7 @@ donde:
 -   `subscriptionId`: identificador de la suscripción que contiene el servicio API Management del que intenta crear una copia de seguridad
 -   `resourceGroupName` : nombre del grupo de recursos del servicio Azure API Management
 -   `serviceName` : el nombre del servicio API Management del que desea crear una copia de seguridad que se especificó durante su creación
--   `api-version`: reemplazar por `2020-12-01`
+-   `api-version`: reemplace por una versión compatible de la API REST, como `2020-12-01`
 
 En el cuerpo de la solicitud, especifique el nombre de la copia de seguridad, el nombre del contenedor de blobs, la clave de acceso y el nombre de la cuenta de almacenamiento de Azure de destino:
 
@@ -208,14 +200,8 @@ La restauración es una operación de larga duración que puede tardar 30 minuto
 >
 > Los **cambios** que se realicen en la configuración del servicio (por ejemplo, en la API, las directivas o la apariencia del portal para desarrolladores) con la operación de restauración en curso **pueden sobrescribirse**.
 
-<!-- Dummy comment added to suppress markdown lint warning -->
-
-> [!NOTE]
-> También se pueden realizar operaciones de copia de seguridad y restauración con los comandos [_Backup-AzApiManagement_](/powershell/module/az.apimanagement/backup-azapimanagement) y [_Restore-AzApiManagement_](/powershell/module/az.apimanagement/restore-azapimanagement) de PowerShell, respectivamente.
-
 ## <a name="constraints-when-making-backup-or-restore-request"></a>Restricciones al realizar una solicitud de copia de seguridad o restauración
 
--   El **contenedor** que se especifique en el cuerpo de la solicitud **debe ser real**.
 -   Mientras la copia de seguridad esté en curso, **evite hacer cambios de administración en el servicio**, como una actualización o un cambio a una versión anterior de una SKU, el cambio en un nombre de dominio, etc.
 -   La restauración de una **copia de seguridad se garantiza solo durante 30 días** a partir del momento en que esta se crea.
 -   Es posible que los **cambios** que se realicen en la configuración del servicio (por ejemplo, las API, las directivas y la apariencia del portal para desarrolladores) mientras se está realizando la operación de copia de seguridad **no se incluyan en la copia de seguridad y se pierdan**.
@@ -255,5 +241,5 @@ Consulte los recursos siguientes para ver distintos tutoriales del proceso de co
 [api-management-aad-resources]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-aad-resources.png
 [api-management-arm-token]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-arm-token.png
 [api-management-endpoint]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-endpoint.png
-[control-plane-ip-address]: api-management-using-with-vnet.md#control-plane-ips
+[control-plane-ip-address]: api-management-using-with-vnet.md#control-plane-ip-addresses
 [azure-storage-ip-firewall]: ../storage/common/storage-network-security.md#grant-access-from-an-internet-ip-range

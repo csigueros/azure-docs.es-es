@@ -9,14 +9,16 @@ ms.topic: reference
 ms.service: virtual-machines
 ms.subservice: image-builder
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d9ac06d7863ae08e380532f0b737dafc57ab666e
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 703c2023103d9225e5dfad5bd0d288164350122f
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114469161"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123450348"
 ---
 # <a name="create-an-azure-image-builder-template"></a>Creación de una plantilla de Azure Image Builder 
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Conjuntos de escalado flexibles 
 
 Azure Image Builder utiliza un archivo .json para trasladar la información al servicio Image Builder. En este artículo analizaremos las secciones del archivo json, para que pueda compilar su propio archivo. Para ver ejemplos de archivos .json completos, consulte el [GitHub de Azure Image Builder](https://github.com/Azure/azvmimagebuilder/tree/main/quickquickstarts).
 
@@ -88,7 +90,7 @@ La ubicación es la región donde se creará la imagen personalizada. Se admiten
 El servicio Azure VM Image Builder no almacena ni procesa los datos de los clientes fuera de las regiones que tienen requisitos estrictos de residencia de datos de una sola región cuando un cliente solicita una compilación en esa región. En caso de una interrupción del servicio para las regiones que tienen requisitos de residencia de datos, deberá crear plantillas en una región y una ubicación geográfica diferentes.
 
 ### <a name="zone-redundancy"></a>Redundancia de zona
-La distribución admite redundancia de zona, los discos duros virtuales se distribuyen a una cuenta de almacenamiento con redundancia de zona de forma predeterminada y la versión de Shared Image Gallery admitirá un [tipo de almacenamiento ZRS](../disks-redundancy.md#zone-redundant-storage-for-managed-disks-preview) si se especifica.
+La distribución admite redundancia de zona, los discos duros virtuales se distribuyen a una cuenta de almacenamiento con redundancia de zona de forma predeterminada y la versión de Shared Image Gallery admitirá un [tipo de almacenamiento ZRS](../disks-redundancy.md#zone-redundant-storage-for-managed-disks) si se especifica.
  
 ## <a name="vmprofile"></a>vmProfile
 ## <a name="buildvm"></a>buildVM
@@ -253,6 +255,8 @@ Si no se especifica un valor de buildTimeoutInMinutes o se establece en 0, se us
 
 Si necesita más tiempo para que se completen las personalizaciones, establezca el valor en lo que crea que necesita, con una pequeña sobrecarga. Pero no lo establezca demasiado alto, ya que es posible que tenga que esperar a que se agote el tiempo de espera antes de ver un error. 
 
+> [!NOTE]
+> Si no establece el valor en 0, el valor mínimo admitido es 6 minutos. Se producirá un error al usar los valores del 1 al 5.
 
 ## <a name="properties-customize"></a>Propiedades: personalización
 
@@ -603,7 +607,7 @@ Una galería de imágenes compartidas tiene los siguientes componentes:
 - Definiciones de imagen: una agrupación conceptual para las imágenes. 
 - Versiones de las imágenes: se trata de un tipo de imagen usado para implementar una máquina virtual o un conjunto de escalado. Las versiones de las imágenes se pueden replicar a otras regiones en las que deban implementarse máquinas virtuales.
  
-Antes de poder distribuir a la Galería de imágenes, debe crear una galería y una definición de imagen; para ello, consulte [Imágenes compartidas](../shared-images-cli.md). 
+Antes de poder distribuir a la Galería de imágenes, debe crear una galería y una definición de imagen; para ello, consulte [Imágenes compartidas](../create-gallery.md). 
 
 ```json
 {

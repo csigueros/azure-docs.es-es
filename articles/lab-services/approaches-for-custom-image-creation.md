@@ -3,12 +3,12 @@ title: 'Azure Lab Services: Enfoques recomendados para crear imágenes personali
 description: En este artículo se describen los enfoques para crear imágenes personalizadas para laboratorios.
 ms.date: 07/27/2021
 ms.topic: article
-ms.openlocfilehash: 94a86ab6668300d736d17e52aaeaa0e615adf637
-ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
+ms.openlocfilehash: 621456c910b5137ed14a77d8d2cfeb9664910fa9
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122829195"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123450653"
 ---
 # <a name="recommended-approaches-for-creating-custom-images"></a>Enfoques recomendados para crear imágenes personalizadas
 En este artículo se describen estos enfoques recomendados para crear una imagen personalizada:
@@ -36,7 +36,7 @@ Hay algunos puntos clave que debe tener en cuenta con este enfoque:
 
 Puede usar una máquina virtual de plantilla de laboratorio para crear imágenes personalizadas de Windows o Linux. Para más información, consulte [Guardar una imagen en la galería de imágenes compartidas](how-to-use-shared-image-gallery.md#save-an-image-to-the-shared-image-gallery).
 
-## <a name="bring-a-custom-image-from-an-azure-vm"></a>Obtención de una imagen personalizada de una máquina virtual de Azure
+## <a name="bring-a-custom-image-from-an-azure-vm"></a>Traslado de una imagen personalizada desde una máquina virtual de Azure
 
 Otro enfoque es usar una máquina virtual de Azure para configurar una imagen personalizada. Cuando haya terminado de configurar la imagen, puede guardarla en una galería de imágenes compartidas para que usted y sus colegas puedan usarla para crear laboratorios nuevos.
 
@@ -52,8 +52,9 @@ Estos son los pasos de alto nivel para traer una imagen personalizada desde una 
 
 1. Cree una [máquina virtual de Azure](https://azure.microsoft.com/services/virtual-machines/) con una imagen de Marketplace de Windows o Linux.
 1. Conéctese a la máquina virtual de Azure e instale más software. También puede realizar otras personalizaciones necesarias para el laboratorio.
-1. Cuando termine de configurar la imagen de la máquina virtual, [guárdela en una galería de imágenes compartidas](../virtual-machines/image-version-vm-powershell.md). Como parte de este paso, también deberá crear la definición y la versión de la imagen.
+1. Cuando termine de configurar la imagen de la máquina virtual, [guárdela en una galería de imágenes compartidas](../virtual-machines/image-version.md). Como parte de este paso, también deberá crear la definición y la versión de la imagen.
 1. Una vez guardada la imagen personalizada en la galería, podrá usarla para crear laboratorios. 
+
 
 Los pasos varían en función de si va a crear una imagen personalizada en Windows o Linux. Lea estos artículos para conocer los pasos detallados:
 

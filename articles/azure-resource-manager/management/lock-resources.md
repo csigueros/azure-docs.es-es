@@ -4,12 +4,12 @@ description: Impida que los usuarios actualicen o eliminen recursos de Azure apl
 ms.topic: conceptual
 ms.date: 07/01/2021
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 27ab9d607f3b8fad669682e980bc0178e8dfad42
-ms.sourcegitcommit: 47491ce44b91e546b608de58e6fa5bbd67315119
+ms.openlocfilehash: fe644c740f5c96f9a7864850fe4760151e1c6f87
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122202067"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123449898"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Bloqueo de recursos para impedir cambios inesperados
 
@@ -236,7 +236,7 @@ resource createRgLock 'Microsoft.Authorization/locks@2016-09-01' = {
 
 Al aplicar un bloqueo a un **recurso** dentro del grupo de recursos, agregue la propiedad de ámbito. Configure el ámbito en el nombre del recurso que va a bloquear.
 
-En el ejemplo siguiente se muestra una plantilla que crea un plan de App Service, un sitio web y un bloqueo en el sitio web. El ámbito del bloqueo se establece en el sitio web.
+En el siguiente [ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/lock.json) se muestra una plantilla que crea un plan de App Service, un sitio web y un bloqueo en el sitio web. El ámbito del bloqueo se establece en el sitio web.
 
 # <a name="json"></a>[JSON](#tab/json)
 

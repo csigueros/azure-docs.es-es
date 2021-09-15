@@ -1,21 +1,21 @@
 ---
-title: Creación de un conjunto de aptitudes en Azure Portal
+title: 'Inicio rápido: Creación de un conjunto de aptitudes en Azure Portal'
 titleSuffix: Azure Cognitive Search
-description: En este inicio rápido del portal, aprenda a usar el Asistente para importar datos para agregar aptitudes cognitivas a una canalización de indexación en Azure Cognitive Search. Las aptitudes incluyen el reconocimiento óptico de caracteres (OCR) y el procesamiento de lenguaje natural.
+description: En este inicio rápido del portal, usará el Asistente para importar datos para agregar aptitudes cognitivas a una canalización de indexación en Azure Cognitive Search. Las aptitudes incluyen el reconocimiento óptico de caracteres (OCR) y el procesamiento de lenguaje natural.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 03/21/2021
-ms.openlocfilehash: 6a0ce57af076644072545356c0b225c4d639b9d5
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.date: 08/17/2021
+ms.openlocfilehash: d29f434e1ac8b5fa8b96dcf4ad4f1125c20eb4db
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111559221"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123451770"
 ---
-# <a name="quickstart-create-an-azure-cognitive-search-cognitive-skillset-in-the-azure-portal"></a>Inicio rápido: Creación de un conjunto de aptitudes cognitivas de Azure Cognitive Search en Azure Portal
+# <a name="quickstart-create-an-azure-cognitive-search-skillset-in-the-azure-portal"></a>Inicio rápido: Creación de un conjunto de aptitudes de Azure Cognitive Search en Azure Portal
 
 En esta guía de inicio rápido se muestra la compatibilidad con habilidades en el portal, que muestra cómo se puede usar el reconocimiento óptico de caracteres (OCR) y el reconocimiento de entidades para crear contenido de texto de búsqueda a partir de imágenes y archivos de aplicación.
 
@@ -34,7 +34,7 @@ Antes de comenzar, tiene que cumplir los siguientes requisitos previos:
 + Una cuenta de Azure Storage con [Blob Storage](../storage/blobs/index.yml).
 
 > [!NOTE]
-> En esta guía de inicio rápido también se usa [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) para la inteligencia artificial. Dado que la carga de trabajo es tan pequeña, Cognitive Services se aprovecha en segundo plano del procesamiento gratuito de hasta 20 transacciones. Esto significa que puede completar este ejercicio sin tener que crear un recurso de Cognitive Services adicional.
+> En este inicio rápido también se usa [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) para la inteligencia artificial. Dado que la carga de trabajo es tan pequeña, Cognitive Services se aprovecha en segundo plano del procesamiento gratuito de hasta 20 transacciones. Esto significa que puede completar este ejercicio sin tener que crear un recurso de Cognitive Services adicional.
 
 ## <a name="set-up-your-data"></a>Configuración de los datos
 
@@ -62,11 +62,11 @@ Ahora ya está preparado para continuar con el Asistente para la importación de
 
 1. [Busque su servicio de búsquedas](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) y, en la página de información general, haga clic en **Importar datos** en la barra de comandos para configurar el enriquecimiento cognitivo en cuatro pasos.
 
-   :::image type="content" source="media/cognitive-search-quickstart-blob/import-data-cmd2.png" alt-text="Comando de importación de datos" border="false":::
+   :::image type="content" source="media/search-import-data-portal/import-data-cmd.png" alt-text="Captura de pantalla del comando para importar datos" border="true":::
 
 ### <a name="step-1---create-a-data-source"></a>Paso 1: Creación de un origen de datos
 
-1. En **Conectarse a los datos**, elija **Azure Blob Storage** y seleccione la cuenta de Storage y el contenedor que creó. Asigne un nombre al origen de datos y use los valores predeterminados para el resto. 
+1. En **Conectarse a los datos propios**, elija **Azure Blob Storage** y seleccione la cuenta de Storage y el contenedor que creó. Asigne un nombre al origen de datos y use los valores predeterminados para el resto. 
 
    :::image type="content" source="media/cognitive-search-quickstart-blob/blob-datasource.png" alt-text="Configuración de blobs de Azure" border="false":::
 
@@ -108,9 +108,9 @@ En esta guía de inicio rápido, el asistente realiza un trabajo remarcable a la
 
 Observe el tachado y el signo de interrogación en el atributo **Retrievable** (Recuperable) del campo `content`. En el caso de los documentos blob con mucho texto, el campo `content` contiene la mayor parte del archivo, posiblemente con miles de líneas. Un campo como este no es manejable en los resultados de la búsqueda y se debe excluir para esta demostración. 
 
-Sin embargo, si tiene que pasar el contenido del archivo al código de cliente, asegúrese de que el atributo **Retrievable** (Recuperable) sigue seleccionado. De lo contrario, considere la posibilidad de borrar este atributo en `content` si los elementos extraídos (como `people`, `organizations`, `locations`, etc.) son suficientes.
+Sin embargo, si tiene que pasar el contenido del archivo al código de cliente, asegúrese de que el atributo **Recuperable** sigue seleccionado para permitir que el motor de búsqueda devuelva ese archivo.
 
-Marcar un campo como **Retrievable** no significa que el campo *debe* esté presente en los resultados de búsqueda. Puede controlar con precisión la composición de los resultados de búsqueda si usa el parámetro de consulta **$select** para especificar qué campos desea incluir. En el caso de campos con mucho texto como `content`, el parámetro **$select** es la solución para proporcionar resultados de búsqueda fáciles de administrar a los usuarios de la aplicación, al tiempo que se asegura de que el código de cliente tenga acceso a toda la información que necesita a través del atributo **Retrievable**.
+Marcar un campo como **Retrievable** no significa que el campo *debe* esté presente en los resultados de búsqueda. Puede controlar con precisión la composición de los resultados de búsqueda si usa el parámetro de consulta **$select** para especificar qué campos desea incluir. En el caso de campos con mucho texto como `content`, el parámetro **$select** es la solución para moldear resultados de búsqueda fáciles de administrar para los usuarios de la aplicación, mientras se garantiza que el código de cliente tenga acceso a toda la información que necesita a través del atributo **Recuperable**.
   
 Continúe en la siguiente página.
 

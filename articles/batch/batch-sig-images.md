@@ -4,12 +4,12 @@ description: Los grupos de imágenes personalizadas son una manera eficaz de con
 ms.topic: conceptual
 ms.date: 03/04/2021
 ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: a9ff30f52ae19e3d6a7bc58ca81eabeb91d21146
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ab3affbfff9039689354763080abfb1dc5b15af2
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105024071"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123450240"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-image-pool"></a>Uso de Shared Image Gallery para crear un grupo de imágenes personalizadas
 
@@ -89,7 +89,7 @@ Para crear una imagen administrada a partir de una instantánea, use las herrami
 
 ### <a name="create-a-shared-image-gallery"></a>Creación de una instancia de Shared Image Gallery
 
-Una vez que haya creado correctamente la imagen administrada, debe crear una instancia de Shared Image Gallery para que la imagen personalizada esté disponible. Para más información acerca de cómo crear una instancia de Shared Image Gallery para sus imágenes, consulte [Creación de una imagen de Shared Image Gallery con la CLI de Azure](../virtual-machines/shared-images-cli.md) o [Creación de una imagen de Shared Image Gallery mediante Azure Portal](../virtual-machines/linux/shared-images-portal.md).
+Una vez que haya creado correctamente la imagen administrada, debe crear una instancia de Shared Image Gallery para que la imagen personalizada esté disponible. Para aprender a crear una Galería de imágenes compartida para sus imágenes, consulte [Creación de una instancia de Shared Image Gallery](../virtual-machines/create-gallery.md).
 
 ## <a name="create-a-pool-from-a-shared-image-using-the-azure-cli"></a>Creación de un grupo a partir de una imagen de Shared Image con la CLI de Azure
 

@@ -3,12 +3,12 @@ title: Administración de la consola de administración local
 description: Obtenga información sobre las opciones de la consola de administración local, como la copia de seguridad y la restauración, la definición del nombre de host y la configuración de un proxy en sensores.
 ms.date: 1/12/2021
 ms.topic: article
-ms.openlocfilehash: b1853b8c22e576bade68823ae206a48c443eb231
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: 369bd751d2b21fc9cdf824b2bd56f20b47f2819d
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113019785"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122444565"
 ---
 # <a name="manage-the-on-premises-management-console"></a>Administración de la consola de administración local
 
@@ -396,6 +396,8 @@ Para restablecer la contraseña:
 ## <a name="update-the-software-version"></a>Actualización de la versión de software
 
 En el procedimiento siguiente se describe cómo actualizar la versión de software de la consola de administración local. El proceso de actualización tarda aproximadamente 30 minutos.
+
+Si está trabajando con una consola de administración local y sensores administrados, **actualice primero la consola de administración**.
 
 1. Vaya a [Azure Portal](https://portal.azure.com/).
 

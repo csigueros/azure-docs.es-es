@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: mathoma, wiassaf, danil
-ms.date: 07/20/2021
-ms.openlocfilehash: 4b7b17ab75f2614a99d791118dc908cd1f7c3b97
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.date: 08/28/2021
+ms.openlocfilehash: 2a6213a0359daf58d0ef34986d1bf3edbd4e1c9a
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121862661"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123424424"
 ---
 # <a name="automated-backups---azure-sql-database--azure-sql-managed-instance"></a>Copias de seguridad automatizadas: Azure SQL Database y Azure SQL Managed Instance
 
@@ -97,7 +97,7 @@ Para llevar a cabo una restauración, vea [Recuperación de una base de datos me
 
 | Operación | Azure portal | Azure PowerShell |
 |---|---|---|
-| **Cambio del período de retención de copia de seguridad** | [SQL Database](automated-backups-overview.md?tabs=single-database#change-the-pitr-backup-retention-period-by-using-the-azure-portal) <br/> [Instancia administrada de SQL](automated-backups-overview.md?tabs=managed-instance#change-the-pitr-backup-retention-period-by-using-the-azure-portal) | [SQL Database](automated-backups-overview.md#change-the-pitr-backup-retention-period-by-using-powershell) <br/>[Instancia administrada de SQL](/powershell/module/az.sql/set-azsqlinstancedatabasebackupshorttermretentionpolicy) |
+| **Cambio del período de retención de copia de seguridad** | [SQL Database](#change-the-short-term-retention-policy-using-the-azure-portal) <br/> [Instancia administrada de SQL](#change-the-short-term-retention-policy-using-the-azure-portal) | [SQL Database](#change-the-short-term-retention-policy-using-powershell) <br/>[Instancia administrada de SQL](#change-the-short-term-retention-policy-using-powershell) |
 | **Cambio del período de retención de copia de seguridad a largo plazo** | [SQL Database](long-term-backup-retention-configure.md#configure-long-term-retention-policies)<br/> [Instancia administrada de SQL](../managed-instance/long-term-backup-retention-configure.md#using-the-azure-portal) | [SQL Database](long-term-backup-retention-configure.md)<br/>[Instancia administrada de SQL](../managed-instance/long-term-backup-retention-configure.md#using-powershell)  |
 | **Restauración de una base de datos desde un momento dado** | [SQL Database](recovery-using-backups.md#point-in-time-restore)<br>[Instancia administrada de SQL](../managed-instance/point-in-time-restore.md) | [SQL Database](/powershell/module/az.sql/restore-azsqldatabase) <br/> [Instancia administrada de SQL](/powershell/module/az.sql/restore-azsqlinstancedatabase) |
 | **Restauración de una base de datos eliminada** | [SQL Database](recovery-using-backups.md)<br>[Instancia administrada de SQL](../managed-instance/point-in-time-restore.md#restore-a-deleted-database) | [SQL Database](/powershell/module/az.sql/get-azsqldeleteddatabasebackup) <br/> [Instancia administrada de SQL](/powershell/module/az.sql/get-azsqldeletedinstancedatabasebackup)|
@@ -138,7 +138,7 @@ En el caso de las bases de datos de núcleo virtual, el almacenamiento que consu
 
 No se cobra el consumo de almacenamiento de copia de seguridad hasta el tamaño máximo de los datos de una base de datos. El exceso de consumo del almacenamiento de copia de seguridad dependerá de la carga de trabajo y del tamaño máximo de las bases de datos individuales. Considere la posibilidad de poner en marcha algunas de las siguientes técnicas de optimización para reducir el consumo de almacenamiento de copia de seguridad:
 
-- Reduzca el [período de retención de copias de seguridad](#change-the-pitr-backup-retention-period-by-using-the-azure-portal) al mínimo posible para sus necesidades.
+- Reduzca el [período de retención de copias de seguridad](#change-the-short-term-retention-policy-using-the-azure-portal) al mínimo posible para sus necesidades.
 - Evite realizar operaciones de escritura de gran tamaño (como recompilaciones de índices) con más frecuencia de la debida.
 - En el caso de las operaciones de carga de datos de gran tamaño, considere la posibilidad de usar [índices de almacén de columnas agrupados](/sql/relational-databases/indexes/columnstore-indexes-overview), siga los [procedimientos recomendados](/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance) relacionados, o bien reduzca el número de índices no agrupados.
 - En el nivel de servicio De uso general, el almacenamiento de datos aprovisionado es más económico que el precio del almacenamiento de copia de seguridad. Si los costos de exceso de almacenamiento de copia de seguridad siempre son elevados, le conviene valorar aumentar el almacenamiento de datos para ahorrar en almacenamiento de copia de seguridad.
@@ -147,7 +147,16 @@ No se cobra el consumo de almacenamiento de copia de seguridad hasta el tamaño 
 
 ## <a name="backup-retention"></a>Retención de copias de seguridad
 
-En el caso de todas las bases de datos nuevas, restauradas y copiadas, Azure SQL Database y Azure SQL Managed Instance conservan copias de seguridad suficientes para permitir PITR de forma predeterminada en los últimos siete días. A excepción de las bases de datos de nivel básico y de hiperescala, puede [cambiar el período de retención de la copia de seguridad](#change-the-pitr-backup-retention-period) por cada base de datos activa en el intervalo de 1 a 35 días. Como se describe en [Consumo de almacenamiento de copia de seguridad](#backup-storage-consumption), las copias de seguridad almacenadas para habilitar PITR pueden ser anteriores al período de retención. Solo para Azure SQL Managed Instance, es posible establecer la tasa de retención de copia de seguridad de recuperación a un momento dado una vez que se haya eliminado una base de datos en el intervalo de 0 a 35 días. 
+Azure SQL Database y Azure SQL Managed Instance proporciona retención de copias de seguridad a corto y largo plazo. La retención de copias de seguridad a corto plazo permite la restauración a un momento dado (PITR) en el período de retención de la base de datos, mientras que la retención a largo plazo proporciona copias de seguridad para varios requisitos de cumplimiento.  
+
+### <a name="short-term-retention"></a>Retención a corto plazo
+
+En el caso de todas las bases de datos nuevas, restauradas y copiadas, Azure SQL Database y Azure SQL Managed Instance conservan copias de seguridad suficientes para permitir PITR de forma predeterminada en los últimos siete días. Se toman copias de seguridad completas, diferenciales y de registro periódicas para garantizar que las bases de datos se pueden restaurar a cualquier momento dado dentro del período de retención definido para la base de datos o la instancia administrada. Además, para las bases de datos de Azure SQL, las copias de seguridad diferenciales se pueden configurar para una frecuencia de 12 horas (valor predeterminado) o de 24 horas. 
+
+> [!NOTE]
+> Una frecuencia de copia de seguridad diferencial de 24 horas puede aumentar el tiempo necesario para restaurar la base de datos. 
+
+A excepción de las bases de datos de nivel básico y de hiperescala, puede [cambiar el período de retención de la copia de seguridad](#change-the-short-term-retention-policy) por cada base de datos activa en el intervalo de 1 a 35 días. Como se describe en [Consumo de almacenamiento de copia de seguridad](#backup-storage-consumption), las copias de seguridad almacenadas para habilitar PITR pueden ser anteriores al período de retención. Solo para Azure SQL Managed Instance, es posible establecer la tasa de retención de copia de seguridad de recuperación a un momento dado una vez que se haya eliminado una base de datos en el intervalo de 0 a 35 días. 
 
 Si elimina una base de datos, el sistema conserva las copias de seguridad de la misma manera que en una base de datos en línea con su período de retención específico. No se puede cambiar el período de retención de copia de seguridad de una base de datos eliminada.
 
@@ -247,13 +256,13 @@ Todas las copias de seguridad de base de datos se llevan a cabo con la opción C
 
 ## <a name="compliance"></a>Cumplimiento normativo
 
-Al migrar la base de datos de un nivel de servicio basado en DTU a un nivel de servicio basado en núcleos virtuales, se conserva la retención PITR para garantizar que la directiva de recuperación de datos de la aplicación no se ponga en peligro. Si el período de retención predeterminado no satisface los requisitos de cumplimiento, puede cambiar el período de retención PITR. Para más información, vea [Cambio del período de retención de copia de seguridad PITR](#change-the-pitr-backup-retention-period).
+Al migrar la base de datos de un nivel de servicio basado en DTU a un nivel de servicio basado en núcleos virtuales, se conserva la retención PITR para garantizar que la directiva de recuperación de datos de la aplicación no se ponga en peligro. Si el período de retención predeterminado no satisface los requisitos de cumplimiento, puede cambiar el período de retención PITR. Para más información, vea [Cambio del período de retención de copia de seguridad PITR](#change-the-short-term-retention-policy).
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
-## <a name="change-the-pitr-backup-retention-period"></a>Cambio del período de retención de copia de seguridad PITR
+## <a name="change-the-short-term-retention-policy"></a>Cambio de la directiva de retención a corto plazo
 
-Puede cambiar el período de retención predeterminado de copia de seguridad PITR usando Azure Portal, PowerShell o la API REST. En los ejemplos siguientes se muestra cómo cambiar la retención PITR a 28 días.
+Puede cambiar el período de retención predeterminado de copia de seguridad PITR y la frecuencia de copia de seguridad diferencial usando Azure Portal, PowerShell o la API de REST. En los siguientes ejemplos se muestra cómo cambiar la retención PITR a 28 días y las copias de seguridad diferenciales a un intervalo de 24 horas.
 
 > [!WARNING]
 > Si reduce el período de retención actual, perderá la capacidad de restaurar a puntos en el tiempo más antiguos que el nuevo período de retención. Se eliminan las copias de seguridad que ya no son necesarias para proporcionar PITR dentro del nuevo período de retención. Si aumenta el período de retención actual, no obtendrá de forma inmediata la capacidad de restaurar a puntos en el tiempo más antiguos dentro del nuevo período de retención. Obtiene esa capacidad a lo largo del tiempo, ya que el sistema empieza a conservar las copias de seguridad durante más tiempo.
@@ -261,9 +270,9 @@ Puede cambiar el período de retención predeterminado de copia de seguridad PIT
 > [!NOTE]
 > Estas API afectan únicamente al período de retención PITR. Si ha configurado LTR para la base de datos, no se verá afectada. Para más información sobre cómo cambiar los períodos de retención LTR, vea [Retención de copias de seguridad a largo plazo](long-term-retention-overview.md).
 
-### <a name="change-the-pitr-backup-retention-period-by-using-the-azure-portal"></a>Cambio del período de retención de copia de seguridad PITR con Azure Portal
+### <a name="change-the-short-term-retention-policy-using-the-azure-portal"></a>Cambiar la directiva de retención a corto plazo mediante Azure Portal
 
-Para cambiar el período de retención de copia de seguridad de recuperación a un momento dado para bases de datos activas mediante Azure Portal, vaya al servidor o a la instancia administrada con las bases de datos cuyo período de retención quiera cambiar. Seleccione **Copias de seguridad** en el panel izquierdo y, luego, elija la pestaña **Directivas de retención**. Seleccione las bases de datos en las que quiere cambiar la retención de copia de seguridad de la recuperación a un momento dado. Luego, seleccione **Configurar retención** en la barra de acciones.
+Para cambiar el período de retención de copia de seguridad PITR o la frecuencia copia de seguridad diferencial para bases de datos activas mediante Azure Portal, vaya al servidor o a la instancia administrada con las bases de datos cuyo período de retención quiera cambiar. Seleccione **Copias de seguridad** en el panel izquierdo y, luego, elija la pestaña **Directivas de retención**. Seleccione las bases de datos en las que quiere cambiar la retención de copia de seguridad de la recuperación a un momento dado. Luego, seleccione **Configurar retención** en la barra de acciones.
 
 #### <a name="sql-database"></a>[SQL Database](#tab/single-database)
 
@@ -275,7 +284,7 @@ Para cambiar el período de retención de copia de seguridad de recuperación a 
 
 ---
 
-### <a name="change-the-pitr-backup-retention-period-by-using-powershell"></a>Cambio del período de retención de copia de seguridad PITR con PowerShell
+### <a name="change-the-short-term-retention-policy-using-powershell"></a>Cambie la directiva de retención a corto plazo mediante PowerShell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 > [!IMPORTANT]
@@ -283,12 +292,18 @@ Para cambiar el período de retención de copia de seguridad de recuperación a 
 
 #### <a name="sql-database"></a>[SQL Database](#tab/single-database)
 
-A fin de cambiar la retención de copia de seguridad de recuperación a un momento dado para las bases de datos de Azure SQL Database activas, use el ejemplo siguiente de PowerShell.
+A fin de cambiar la retención de copia de seguridad de PITR y la frecuencia de copia de seguridad diferencial para las bases de datos de Azure SQL Database activas, use el siguiente ejemplo de PowerShell.
 
 ```powershell
 # SET new PITR backup retention period on an active individual database
 # Valid backup retention must be between 1 and 35 days
 Set-AzSqlDatabaseBackupShortTermRetentionPolicy -ResourceGroupName resourceGroup -ServerName testserver -DatabaseName testDatabase -RetentionDays 28
+```
+
+```powershell
+# SET new PITR differental backup frequency on an active individual database
+# Valid differential backup frequency must be ether 12 or 24. 
+Set-AzSqlDatabaseBackupShortTermRetentionPolicy -ResourceGroupName resourceGroup -ServerName testserver -DatabaseName testDatabase -RetentionDays 28 -DiffBackupIntervalInHours 24
 ```
 
 #### <a name="sql-managed-instance"></a>[Instancia administrada de SQL](#tab/managed-instance)
@@ -330,7 +345,48 @@ Una vez que se ha reducido la retención de copia de seguridad de recuperación 
 
 ---
 
-### <a name="change-the-pitr-backup-retention-period-by-using-the-rest-api"></a>Cambio del período de retención de copia de seguridad PITR con la API de REST
+### <a name="change-the-short-term-retention-policy-using-the-rest-api"></a>Cambio de la directiva de retención a corto plazo mediante la API de REST
+
+La siguiente solicitud actualiza el período de retención a 28 días y también establece la frecuencia de copia de seguridad diferencial en 24 horas.
+
+
+#### <a name="sql-database"></a>[SQL Database](#tab/single-database)
+
+#### <a name="sample-request"></a>Solicitud de ejemplo
+
+```http
+PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup/providers/Microsoft.Sql/servers/testserver/databases/testDatabase/backupShortTermRetentionPolicies/default?api-version=2021-02-01-preview
+```
+
+#### <a name="request-body"></a>Cuerpo de la solicitud
+
+```json
+{ 
+    "properties":{
+        "retentionDays":28
+        "diffBackupIntervalInHours":24
+  }
+}
+```
+
+#### <a name="sample-response"></a>Respuesta de ejemplo: 
+
+```json
+{ 
+  "id": "/subscriptions/00000000-1111-2222-3333-444444444444/providers/Microsoft.Sql/resourceGroups/resourceGroup/servers/testserver/databases/testDatabase/backupShortTermRetentionPolicies/default",
+  "name": "default",
+  "type": "Microsoft.Sql/resourceGroups/servers/databases/backupShortTermRetentionPolicies",
+  "properties": {
+    "retentionDays": 28
+    "diffBackupIntervalInHours":24
+  }
+}
+```
+
+
+Para más información, consulte [API REST de retención de Backup](/rest/api/sql/backupshorttermretentionpolicies).
+
+#### <a name="sql-managed-instance"></a>[Instancia administrada de SQL](#tab/managed-instance)
 
 #### <a name="sample-request"></a>Solicitud de ejemplo
 
@@ -365,38 +421,7 @@ Código de estado: 200
 
 Para más información, consulte [API REST de retención de Backup](/rest/api/sql/backupshorttermretentionpolicies).
 
-#### <a name="sample-request"></a>Solicitud de ejemplo
-
-```http
-PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup/providers/Microsoft.Sql/servers/testserver/databases/testDatabase/backupShortTermRetentionPolicies/default?api-version=2017-10-01-preview
-```
-
-#### <a name="request-body"></a>Cuerpo de la solicitud
-
-```json
-{
-  "properties":{
-    "retentionDays":28
-  }
-}
-```
-
-#### <a name="sample-response"></a>Respuesta de muestra
-
-Código de estado: 200
-
-```json
-{
-  "id": "/subscriptions/00000000-1111-2222-3333-444444444444/providers/Microsoft.Sql/resourceGroups/resourceGroup/servers/testserver/databases/testDatabase/backupShortTermRetentionPolicies/default",
-  "name": "default",
-  "type": "Microsoft.Sql/resourceGroups/servers/databases/backupShortTermRetentionPolicies",
-  "properties": {
-    "retentionDays": 28
-  }
-}
-```
-
-Para más información, consulte [API REST de retención de Backup](/rest/api/sql/backupshorttermretentionpolicies).
+---
 
 ## <a name="configure-backup-storage-redundancy"></a>Configuración de la redundancia del almacenamiento de copia de seguridad
 

@@ -10,14 +10,16 @@ ms.service: virtual-machines
 ms.subervice: image-builder
 ms.colletion: windows
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 03ae984a5950a026fc9bc5c30ee1951e1c17b909
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 6206401d41662724e2c44851e930373b7f90030d
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121734577"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123436435"
 ---
 # <a name="create-a-windows-image-and-distribute-it-to-a-shared-image-gallery"></a>Creación de una imagen de Windows y distribución en una galería de imágenes compartidas 
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Windows 
 
 En este artículo se muestra cómo puede usar Azure Image Builder y Azure PowerShell para crear una versión de una imagen en una instancia de [Shared Image Gallery](../shared-image-galleries.md) y después distribuirla globalmente. También puede hacerlo mediante la [CLI de Azure](../linux/image-builder-gallery.md).
 
@@ -214,7 +216,7 @@ La plantilla debe enviarse al servicio, se descargarán todos los artefactos dep
 New-AzResourceGroupDeployment `
    -ResourceGroupName $imageResourceGroup `
    -TemplateFile $templateFilePath `
-   -apiversion "2020-02-14" `
+   -ApiVersion "2020-02-14" `
    -imageTemplateName $imageTemplateName `
    -svclocation $location
 ```

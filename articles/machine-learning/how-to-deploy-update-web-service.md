@@ -10,12 +10,12 @@ ms.author: gopalv
 author: gvashishtha
 ms.date: 07/31/2020
 ms.custom: deploy
-ms.openlocfilehash: 1bb38c45203b0356444d0eb115a8c75e0f1c465d
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 7d080297dd32ad137e11cb692b820f4b9f6b3521
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122324347"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123428459"
 ---
 # <a name="update-a-deployed-web-service"></a>Actualización de un servicio web implementado
 
@@ -37,6 +37,14 @@ Consulte [Método de actualización del servicio de ACI.](/python/api/azureml-co
 > Cuando crea una nueva versión del modelo, debe actualizar manualmente cada servicio que quiera que la use.
 >
 > No puede usar el SDK para actualizar un servicio web publicado desde el diseñador de Azure Machine Learning.
+
+> [!IMPORTANT]
+> Azure Kubernetes Service usa el [controlador Blobfuse FlexVolume](https://github.com/Azure/kubernetes-volume-drivers/blob/master/flexvolume/blobfuse/README.md) en las versiones hasta la 1.16 y el [controlador Blob CSI](https://github.com/kubernetes-sigs/blob-csi-driver/blob/master/README.md), en las versiones a partir de la 1.17. 
+>
+> Por eso es importante que, después de actualizar el clúster, se vuelva a implementar o a actualizar el servicio web para implementar en el método blobfuse adecuado a la versión del clúster.
+
+> [!NOTE]
+> Cuando una operación ya está en curso, cualquier operación nueva en ese mismo servicio web responderá con un error de conflicto 409. Por ejemplo, si la operación de creación o actualización del servicio web está en curso y desencadena una nueva operación de eliminación, se producirá un error.
 
 **Uso del SDK**
 
@@ -86,7 +94,7 @@ az ml service update -n myservice --model-metadata-file modelinfo.json
 >
 > Para actualizar el servicio de modo que use un nuevo entorno o script de entrada, cree un [archivo de configuración de inferencia](./reference-azure-machine-learning-cli.md#inference-configuration-schema) y especifíquelo con el parámetro `ic`.
 
-Para más información, consulte la documentación de [az ml service update](/cli/azure/ml(v1)/service?view=azure-cli-latest#az_ml_v1__service_update).
+Para más información, consulte la documentación de [az ml service update](/cli/azure/ml(v1)/service?view=azure-cli-latest#az_ml_v1__service_update&preserve-view=true).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

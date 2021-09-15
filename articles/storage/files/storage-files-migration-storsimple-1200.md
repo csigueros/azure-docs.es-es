@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 03/09/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 96cc983cba992452882a8f3307974e83683c39a9
-ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
+ms.openlocfilehash: 1208beab46a9ceb29abd75eec587dc7628e07801
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/15/2021
-ms.locfileid: "114462198"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123435391"
 ---
 # <a name="storsimple-1200-migration-to-azure-file-sync"></a>Migración de StorSimple 1200 a Azure File Sync
 
@@ -28,9 +28,6 @@ StorSimple serie 1200 alcanzará el [final de su ciclo de vida](https://support.
 | Recursos compartidos de archivos Premium (FileStorage), LRS/ZRS | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 
 ## <a name="azure-file-sync&quot;></a>Azure File Sync
-
-> [!IMPORTANT]
-> Microsoft se compromete a ayudar a los clientes en su migración. Envíe un correo electrónico a AzureFilesMigration@microsoft.com si desea obtener un plan de migración personalizado o ayuda durante la migración.
 
 Azure File Sync es un servicio en la nube de Microsoft, que se basa en dos componentes principales:
 
@@ -173,6 +170,12 @@ También puede experimentar otros problemas de Azure File Sync.
 Aunque es improbable, si se da el caso, utilice el **vínculo de la guía de solución de problemas de Azure File Sync**.
 
 [!INCLUDE [storage-files-migration-robocopy-optimize](../../../includes/storage-files-migration-robocopy-optimize.md)]
+
+---
+
+> [!NOTE]
+> ¿Todavía tiene preguntas o ha detectado algún problema?</br>
+> Estamos aquí para ayudar: :::image type="content" source="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-migration-email.png" alt-text="dirección de correo electrónico en una sola palabra: migración de Azure Files en microsoft punto com":::
 
 ## <a name="relevant-links"></a>Vínculos pertinentes
 

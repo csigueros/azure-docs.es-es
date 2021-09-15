@@ -2,7 +2,6 @@
 title: Creación de imágenes de máquina virtual Linux de Azure compartidas mediante el portal
 description: Aprenda a usar Azure Portal para crear y compartir imágenes de máquina virtual Linux.
 author: cynthn
-tags: azure-resource-manager
 ms.service: virtual-machines
 ms.subservice: shared-image-gallery
 ms.collection: linux
@@ -10,15 +9,16 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 06/21/2021
 ms.author: cynthn
-ms.reviewer: akjosh
-ms.openlocfilehash: 254fb1b4c21f8dd956c271e75ddf29f25c2bce15
-ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
+ms.openlocfilehash: 908d4ae4a18ac75577ea567f6aba37c9ea2e49fe
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114204454"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123450501"
 ---
 # <a name="create-a-shared-image-gallery-using-the-portal"></a>Creación de un servicio Shared Image Gallery mediante el portal
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Conjuntos de escalado flexibles **Se aplica a:** :heavy_check_mark: :heavy_check_mark: Conjuntos de escalado uniformes 
 
 Una [galería de imágenes compartidas](../shared-image-galleries.md) simplifica el uso compartido de imágenes personalizadas en toda una organización. Las imágenes personalizadas son como las imágenes de Marketplace, pero las puede crear usted mismo. Las imágenes personalizadas se pueden usar para realizar tareas de implementación de arranque, como la carga previa de aplicaciones, configuraciones de aplicaciones y otras configuraciones del sistema operativo. 
 
@@ -29,7 +29,7 @@ La galería es un recurso de nivel superior que proporciona control de acceso ba
 La característica de galería de imágenes compartidas tiene varios tipos de recursos. En este artículo, usaremos o crearemos los siguientes elementos:
 
 
-[!INCLUDE [virtual-machines-shared-image-gallery-resources](../../../includes/virtual-machines-shared-image-gallery-resources.md)]
+[!INCLUDE [virtual-machines-shared-image-gallery-resources](../includes/virtual-machines-shared-image-gallery-resources.md)]
 
 <br>
 

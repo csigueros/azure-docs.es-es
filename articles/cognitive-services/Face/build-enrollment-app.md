@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: pafarley
-ms.openlocfilehash: ad79bbd166e12c24339e13f38b4e10ca9ea2b549
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: db6ee292a088d530ea858d75e6649684e03d92b6
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111966618"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123540485"
 ---
 # <a name="build-a-react-app-to-add-users-to-a-face-service"></a>Creación de una aplicación de React para agregar usuarios a un servicio de Face
 
@@ -65,14 +65,15 @@ Por ejemplo, es posible que desee agregar información específica de la situaci
 > [!div class="mx-imgBorder"]
 > ![página de consentimiento de la aplicación](./media/enrollment-app/1-consent-1.jpg)
 
-El servicio proporciona comprobaciones de calidad de la imagen para ayudarle a elegir si la imagen tiene una calidad suficiente para agregar al cliente o intentar el reconocimiento facial. Esta aplicación muestra cómo acceder a los fotogramas de la cámara del dispositivo, seleccionar los fotogramas de mayor calidad y agregar la cara detectada en el servicio Face API. 
-
 Muchos de los problemas de reconocimiento facial se deben a la baja calidad de las imágenes de referencia. Los siguientes son algunos de los factores que pueden degradar el rendimiento del modelo:
 * Tamaño de la cara (caras alejadas de la cámara)
 * Orientación de la cara (caras giradas o inclinadas con respecto a la cámara)
 * Condiciones de iluminación deficientes (poca luz o contraluz) que hacen que la imagen pueda quedar mal expuesta o tener demasiado ruido
 * Oclusión (caras parcialmente ocultas u obstruidas), incluidos accesorios como sombreros o gafas gruesas
 * Desenfoque (por ejemplo, por un rápido movimiento de la cara al tomar la fotografía). 
+
+El servicio proporciona comprobaciones de calidad de la imagen para ayudarle a elegir si la imagen tiene una calidad suficiente en base a los factores previamente mencionados para agregar al cliente o intentar el reconocimiento facial. Esta aplicación muestra cómo acceder a fotogramas desde la cámara del dispositivo, detectar la calidad y mostrar mensajes de la interfaz de usuario al usuario para ayudarle a capturar una imagen de mayor calidad, seleccionar los fotogramas de mayor calidad y agregar la cara detectada al servicio Face API. 
+
 
 > [!div class="mx-imgBorder"]
 > ![página de instrucciones de captura de imagen de la aplicación](./media/enrollment-app/4-instruction.jpg)

@@ -10,12 +10,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 09/21/2020
 ms.reviewer: ''
-ms.openlocfilehash: ef8c2756d6e11dc38ac488abb0ed6d8ae8e9a78b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 2a0a104b4ad76c94d467c01fe8be421e5b96c435
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121745850"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123541684"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>Cuaderno de estrategias para abordar requisitos de seguridad comunes con Azure SQL Database y Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -647,7 +647,7 @@ La protección de amenazas avanzada le permite detectar posibles amenazas y resp
 
 **Procedimientos recomendados**:
 
-- configure [Azure Defender for SQL](azure-defender-for-sql.md)  para un servidor o una instancia administrada concretos. También puede configurarlo para todos los servidores y las instancias administradas de una suscripción. Para ello, cambie al [nivel estándar de Azure Security Center](../../security-center/security-center-pricing.md).
+- configure [Azure Defender for SQL](azure-defender-for-sql.md)  para un servidor o una instancia administrada concretos. También puede configurar Azure Defender para SQL para todos los servidores y las instancias administradas de una suscripción. Para ello, habilite [Azure Defender](../../security-center/security-center-pricing.md).
 
 - Para obtener una experiencia de investigación completa, se recomienda habilitar  [SQL Database Auditing](../../azure-sql/database/auditing-overview.md). Con la auditoría, puede realizar un seguimiento de los eventos de base de datos y escribirlos en un registro de auditoría en una cuenta de Azure Storage o en el área de trabajo de Azure Log Analytics.
 

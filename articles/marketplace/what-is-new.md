@@ -6,12 +6,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/06/2021
-ms.openlocfilehash: a1efbf3cdd90b26b8abdfe9dfa7b380d5dd4badb
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: bab6b3afccb16f49384ec6fd90410e44a4edf268
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121746336"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122634180"
 ---
 # <a name="whats-new-in-the-microsoft-commercial-marketplace"></a>Novedades de marketplace comercial de Microsoft
 
@@ -43,6 +43,7 @@ Obtenga información sobre actualizaciones importantes en el programa de marketp
 
 | Category | Descripción | Date |
 | ------------ | ------------- | ------------- |
+| Ofertas | El tema [Capacidades de transacción de marketplace comercial](/azure/marketplace/marketplace-commercial-transaction-capabilities-and-considerations) ahora incluye un diagrama de flujo que le ayudará a determinar el tipo de oferta comercializable y el plan de precios adecuados para vender el software en el marketplace comercial. | 18-08-2021 |
 | Directiva | Se ha actualizado la directiva de [certificación](/legal/marketplace/certification-policies?context=/azure/marketplace/context/context); vea [Historial de cambios](/legal/marketplace/offer-policies-change-history). | 06-08-2021 |
 | Venta conjunta | Información agregada para el programa MACC, incluidos los requisitos, la frecuencia de actualización del estado de MACC y las definiciones de Inscritos y No inscritos. Para obtener más información, vea [Inscripción en Compromiso de consumo de Azure](./azure-consumption-commitment-enrollment.md) o [Información general sobre la venta conjunta de los equipos de ventas de Microsoft y los asociados](./co-sell-overview.md). | 03-06-2021 |
 | Ofertas | Información adicional sobre las descripciones y las opciones de precios de las máquinas virtuales. Para obtener más información, vea [Planeamiento de una oferta de SaaS en el marketplace comercial](./plan-saas-offer.md). | 25 de mayo de 2021|

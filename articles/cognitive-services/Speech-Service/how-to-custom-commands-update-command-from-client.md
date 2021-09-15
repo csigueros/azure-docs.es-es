@@ -1,21 +1,21 @@
 ---
-title: Actualización de comandos desde una aplicación cliente
+title: Actualizar un parámetro de comando desde una aplicación cliente
 titleSuffix: Azure Cognitive Services
 description: Aprenda actualizar comandos desde una aplicación cliente.
 services: cognitive-services
-author: laujan
+author: PatrickFarley
 manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/20/2020
-ms.author: lajanuar
-ms.openlocfilehash: 1f8607ec7094ecafe69f60e8f8972e04ec813adb
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
+ms.author: pafarley
+ms.openlocfilehash: c5314e659379fb56aca1eea0f1834985fc303c86
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122067523"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123541034"
 ---
 # <a name="update-a-command-from-a-client-app"></a>Actualización de un comando desde una aplicación cliente
 
@@ -53,7 +53,8 @@ Examinemos los atributos clave de esta actividad:
 
 | Atributo | Explicación |
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| **type** | La actividad es de tipo `"event"` y el nombre del evento debe ser `"RemoteUpdate"`. |
+| **type** | El tipo de la actividad es `"event"`. |
+| **name** | El nombre del evento debe ser `"RemoteUpdate"`. |
 | **value** | El atributo `"value"` contiene los atributos necesarios para actualizar el comando actual. |
 | **updatedCommand** | El atributo `"updatedCommand"` contiene el nombre del comando. Dentro de ese atributo, `"updatedParameters"` es un mapa con los nombres de los parámetros y sus valores actualizados. |
 | **cancel** | Si es necesario cancelar el comando en curso, establezca el atributo `"cancel"` en `true`. |

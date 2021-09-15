@@ -3,12 +3,12 @@ title: Detección de Bicep en Microsoft Learn
 description: Proporciona información general sobre las unidades de Bicep que hay disponibles en Microsoft Learn.
 ms.topic: conceptual
 ms.date: 08/26/2021
-ms.openlocfilehash: 81da3d239a49f716a684c7a3c8deb8a74bc0aa7d
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 47ac7f6915453502b40b5ad5417a5d060e2ecd3e
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123099541"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123430349"
 ---
 # <a name="bicep-on-microsoft-learn"></a>Bicep en Microsoft Learn
 
@@ -22,13 +22,13 @@ Estas dos rutas de aprendizaje le ayudarán a empezar a trabajar:
 :::column:::
 <img src="media/learn-bicep/bicep-deploy-manage.svg" width="101" height="120" alt="The trophy for the Deploy and manage resources in Azure by using Bicep learning path." role="presentation"></img>
 
-[Parte 1: Implementación y administración de recursos en Azure mediante Bicep](/learn/paths/bicep-deploy/)
+[Parte 1: Implementación y administración de recursos en Azure mediante Bicep](/learn/paths/bicep-deploy/)
 
 :::column-end:::
 :::column:::
 <img src="media/learn-bicep/bicep-collaborate.svg" width="101" height="120" alt="The trophy for the Build Azure infrastructure in a team environment by using Bicep learning path." role="presentation"></img>
 
-[Parte 2: Creación de infraestructura de Azure en un entorno de equipo mediante Bicep](/learn/paths/bicep-collaborate/)
+[Parte 2: Creación de infraestructura de Azure en un entorno de equipo mediante Bicep](/learn/paths/bicep-collaborate/)
 
 :::column-end:::
 :::row-end:::
@@ -40,7 +40,7 @@ Además de las rutas de aprendizaje anteriores, los módulos siguientes contiene
 | Módulo de Learn | Descripción |
 | ------------ | ----------- |
 | [Cree la primera canalización de implementación de Bicep mediante Azure Pipelines](/learn/modules/build-first-bicep-deployment-pipeline-using-azure-pipelines/) | Cree una canalización de implementación básica para el código de Bicep. Use una conexión de servicio para identificar de forma segura la canalización en Azure. Configure cuándo se debe ejecutar la canalización mediante desencadenadores. |
-| [Creación de su primer flujo de trabajo de implementación de Bicep con Acciones de GitHub](/learn/modules/build-first-bicep-deployment-workflow-using-github-actions/) | Cree un flujo de trabajo de implementación básico para el código de Bicep. Use un secreto para identificar de forma segura el flujo de trabajo de Acciones de GitHub en Azure y, a continuación, establezca cuándo se ejecuta el flujo de trabajo mediante desencadenadores y programaciones. |
+| [Creación de su primer flujo de trabajo de implementación de Bicep con Acciones de GitHub](/learn/modules/build-first-bicep-deployment-pipeline-using-github-actions/) | Cree un flujo de trabajo de implementación básico para el código de Bicep. Use un secreto para identificar de forma segura el flujo de trabajo de Acciones de GitHub en Azure y, a continuación, establezca cuándo se ejecuta el flujo de trabajo mediante desencadenadores y programaciones. |
 | [Autenticación de la canalización de implementación de Azure mediante entidades de servicio](/learn/modules/authenticate-azure-deployment-pipeline-service-principals/) | Las entidades de servicio permiten que las canalizaciones de implementación se autentiquen de forma segura con Azure. En este módulo, aprenderá qué son las entidades de servicio, cómo funcionan y cómo crearlas. También aprenderá a concederles permiso a los recursos de Azure para que las canalizaciones puedan implementar los archivos de Bicep. |
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -5,14 +5,14 @@ services: route-server
 author: duongau
 ms.service: route-server
 ms.topic: quickstart
-ms.date: 03/03/2021
+ms.date: 08/17/2021
 ms.author: duau
-ms.openlocfilehash: 8e7572f5f39655cd6fae8a6528cacd2e074a002b
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: b5d4017c60a831b90b21527bbf8ecca4282bdd73
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107950413"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122322961"
 ---
 # <a name="quickstart-create-and-configure-route-server-using-the-azure-portal"></a>Inicio rápido: Creación y configuración de una instancia de Route Server mediante Azure Portal
 
@@ -56,6 +56,7 @@ Desde un explorador, navegue al [Portal de Azure](https://portal.azure.com) e in
     | Region | Seleccione la región en la que se creará el servidor de rutas. Seleccione la misma región de la red virtual que creó anteriormente para ver la red virtual en la lista desplegable. |
     | Virtual Network | Seleccione la red virtual en la que se creará el servidor de rutas. Puede crear una red virtual o usar una existente. Si usa una red virtual existente, asegúrese de que la red virtual existente tenga suficiente espacio para un mínimo de una subred /27 para cumplir con los requisitos de subred del servidor de rutas. Si no ve la red virtual en la lista desplegable, asegúrese de que ha seleccionado el grupo de recursos y la región correctos. |
     | Subnet | Una vez que cree o seleccione una red virtual, aparecerá el campo subred. Esta subred está dedicada únicamente a Route Server. Seleccione **Manage subnet configuration** (Administrar configuración de subred) y cree la subred de Azure Route Server. Seleccione **+ Subnet** (+ Subred) y cree una subred con las siguientes directrices:</br><br>- La subred debe tener el nombre *RouteServerSubnet*.</br><br>- La subred debe ser un mínimo de /27 o mayor.</br> |
+    | Dirección IP pública | Cree un recurso de dirección IP pública estándar o seleccione uno existente para asignarlo a Route Server. Para garantizar la conectividad con el servicio back-end que administra la configuración de Route Server, se requiere una dirección IP pública. |
 
 1. Seleccione **Review + create** (Revisar y crear), revise el resumen y, después, seleccione **Create** (Crear). 
 

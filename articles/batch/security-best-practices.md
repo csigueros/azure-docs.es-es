@@ -1,14 +1,14 @@
 ---
 title: Procedimientos recomendados de seguridad y cumplimiento de Azure Batch
 description: Obtenga información sobre los procedimientos recomendados y sugerencias útiles para mejorar la seguridad de las soluciones de Azure Batch.
-ms.date: 12/18/2020
+ms.date: 09/01/2021
 ms.topic: conceptual
-ms.openlocfilehash: 6ec4a1d89ebaa9318986fc0d51e832652ba51683
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f9bfbeb7a89e3ca1bc71001b173926302548a988
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98723819"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123435553"
 ---
 # <a name="batch-security-and-compliance-best-practices"></a>Procedimientos recomendados de seguridad y cumplimiento de Azure Batch
 
@@ -32,13 +32,13 @@ Muchas características de seguridad solo están disponibles para los grupos con
 
 El acceso a la cuenta de Batch admite dos métodos de autenticación: clave compartida y [Azure Active Directory (Azure AD)](batch-aad-auth.md).
 
-Se recomienda usar Azure AD para la autenticación de la cuenta de Batch. Algunas funcionalidades de Batch requieren este método de autenticación, incluidas muchas de las características relacionadas con la seguridad que se describen aquí.
+Se recomienda usar Azure AD para la autenticación de la cuenta de Batch. Algunas funcionalidades de Batch requieren este método de autenticación, incluidas muchas de las características relacionadas con la seguridad que se describen aquí. El mecanismo de autenticación de API de servicio para una cuenta de Batch puede restringirse solo a Azure AD mediante la propiedad [allowedAuthenticationModes](/rest/api/batchmanagement/batch-account/create). Cuando se establece esta propiedad, se rechazarán las llamadas API que usan la autenticación de clave compartida.
 
 ### <a name="batch-account-pool-allocation-mode"></a>Modo de asignación de grupos de la cuenta de Batch
 
 Al crear una cuenta de Batch, puede elegir entre dos [modos de asignación de grupos](accounts.md#batch-accounts):
 
-- **Servicio Batch**: es la opción predeterminada, en la que los recursos del conjunto de escalado de máquinas virtuales o el servicio en la nube subyacentes que se usan para asignar y administrar los nodos de grupo se crean en suscripciones internas y no están directamente visibles en Azure Portal. Solo están visibles los grupos de Batch y los nodos. 
+- **Servicio Batch**: es la opción predeterminada, en la que los recursos del conjunto de escalado de máquinas virtuales o el servicio en la nube subyacentes que se usan para asignar y administrar los nodos de grupo se crean en suscripciones internas y no están directamente visibles en Azure Portal. Solo están visibles los grupos de Batch y los nodos.
 - **Suscripción de usuario**: los recursos subyacentes del conjunto de escalado de máquinas virtuales o el servicio en la nube se crean en la misma suscripción que la cuenta de Batch. Por lo tanto, estos recursos están visibles en la suscripción, además de los recursos de Batch correspondientes.
 
 En el modo de suscripción de usuario, las máquinas virtuales de Batch y otros recursos se crean directamente en la suscripción cuando se crea un grupo. El modo de suscripción de usuario es necesario si desea crear grupos de Batch con Azure Reserved VM Instances, usar Azure Policy en los recursos del conjunto de escalado de máquinas virtuales o administrar la cuota de núcleos de la suscripción (compartida entre todas las cuentas de Batch de la suscripción). Para crear una cuenta de Batch en modo de suscripción de usuario, también debe registrar su suscripción a Azure Batch y asociar la cuenta a una instancia de Azure Key Vault.
@@ -143,13 +143,13 @@ Para mayor seguridad, cifre estos discos con una de estas funcionalidades de Azu
 
 ## <a name="securely-access-services-from-compute-nodes"></a>Acceso seguro a los servicios desde los nodos de ejecución
 
-Los nodos de Batch pueden [acceder de forma segura a las credenciales y los secretos](credential-access-key-vault.md) que se almacenan en [Azure Key Vault](../key-vault/general/overview.md), que las aplicaciones de las tareas pueden utilizar para acceder a otros servicios. Se usa un certificado para conceder acceso a Key Vault a los nodos del grupo.
+Los nodos de Batch pueden acceder de forma segura a las credenciales que se almacenan en [Azure Key Vault](../key-vault/general/overview.md), que las aplicaciones de las tareas pueden utilizar para acceder a otros servicios. Se usa un certificado para conceder acceso a Key Vault a los nodos del grupo. Al [habilitar la rotación automática de certificados en el grupo de Batch](automatic-certificate-rotation.md), las credenciales se renovarán automáticamente. Esta es la opción recomendada para que los nodos de Batch accedan a las credenciales almacenadas en Azure Key Vault, aunque también puede [configurar nodos de Batch para acceder de forma segura a credenciales y secretos con un certificado](credential-access-key-vault.md) sin rotación automática de certificados.
 
 ## <a name="governance-and-compliance"></a>Gobernanza y cumplimiento
 
 ### <a name="compliance"></a>Cumplimiento
 
-Para ayudar a los clientes a cumplir sus propias obligaciones de cumplimiento en los sectores y mercados regulados de todo el mundo, Azure mantiene una [amplia cartera de ofertas de cumplimiento](https://azure.microsoft.com/overview/trusted-cloud/compliance). 
+Para ayudar a los clientes a cumplir sus propias obligaciones de cumplimiento en los sectores y mercados regulados de todo el mundo, Azure mantiene una [amplia cartera de ofertas de cumplimiento](https://azure.microsoft.com/overview/trusted-cloud/compliance).
 
 Estas ofertas se basan en varios tipos de controles, como certificaciones oficiales, atestaciones, validaciones, autorizaciones y evaluaciones generadas por empresas de auditoría de terceros independientes, así como enmiendas contractuales, autoevaluaciones y documentos de instrucciones para el cliente generados por Microsoft. Revise la [información general completa de las ofertas de cumplimiento](https://aka.ms/AzureCompliance) para determinar cuáles pueden ser adecuadas para sus soluciones de Batch.
 

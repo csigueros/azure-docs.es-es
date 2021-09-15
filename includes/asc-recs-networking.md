@@ -2,15 +2,15 @@
 author: memildin
 ms.service: security-center
 ms.topic: include
-ms.date: 07/25/2021
+ms.date: 09/05/2021
 ms.author: memildin
 ms.custom: generated
-ms.openlocfilehash: 1dfca36c845e6491de250cd803de0f853fbd8011
-ms.sourcegitcommit: 98e126b0948e6971bd1d0ace1b31c3a4d6e71703
+ms.openlocfilehash: 0c2db657979bd2f464200bedfbb434c826c37da2
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2021
-ms.locfileid: "114675205"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123536887"
 ---
 Hay **14** recomendaciones en esta categoría.
 
@@ -29,5 +29,5 @@ Hay **14** recomendaciones en esta categoría.
 |[Las máquinas virtuales sin conexión a Internet deben protegerse con grupos de seguridad de red](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/a9341235-9389-42f0-a0bf-9bfb57960d44) |Para proteger de posibles amenazas a cualquier máquina virtual a la que no se pueda acceder desde Internet, limite el acceso a ella con un grupo de seguridad de red (NSG). Los grupos de seguridad de red contienen reglas de la lista de control de acceso (ACL) que permiten o deniegan el tráfico de red a la máquina virtual desde otras instancias, independientemente de que se encuentren en la misma subred o fuera de ella.<br>Tenga en cuenta que para mantener la máquina tan protegida como sea posible, se debe restringir su acceso a Internet y se debe habilitar un grupo de seguridad de red en la subred.<br />(Directiva relacionada: [las máquinas virtuales sin conexión a Internet deben protegerse con grupos de seguridad de red](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fbb91dfba-c30d-4263-9add-9c2384e659a6)) |Bajo |
 |[Se debe habilitar la transferencia segura a las cuentas de almacenamiento](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/1c5de8e1-f68d-6a17-e0d2-ec259c42768c) |La transferencia segura es una opción que obliga a la cuenta de almacenamiento a aceptar solamente solicitudes de conexiones seguras (HTTPS). El uso de HTTPS garantiza la autenticación entre el servidor y el servicio, y protege los datos en tránsito de ataques de nivel de red, como "man in-the-middle", interceptación y secuestro de sesión.<br />(Directiva relacionada: [se debe habilitar la transferencia segura a las cuentas de almacenamiento](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f404c3081-a854-4457-ae30-26a93ef643f9)) |Alto |
 |[Las subredes deben estar asociadas con un grupo de seguridad de red](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/eade5b56-eefd-444f-95c8-23f29e5d93cb) |Proteja la subred de posibles amenazas mediante la restricción del acceso con un grupo de seguridad de red (NSG). Estos grupos contienen las reglas de la lista de control de acceso (ACL) que permiten o deniegan el tráfico de red a la subred. Cuando un grupo de seguridad de red está asociado a una subred, las reglas de ACL se aplican tanto a todas las instancias de la máquina virtual como a los servicios integrados de esa subred, pero no se aplican al tráfico interno de la subred. Para proteger los recursos de la misma subred entre sí, habilite el grupo de seguridad de red directamente en los recursos.<br />(Directiva relacionada: [las subredes deben estar asociadas con un grupo de seguridad de red](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fe71308d3-144b-4262-b144-efdc3cc90517)) |Bajo |
-|[Azure Firewall debe proteger las redes virtuales](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/f67fb4ed-d481-44d7-91e5-efadf504f74a) |Algunas de sus redes virtuales no están protegidas con un firewall. Use Azure Firewall para restringir el acceso a sus redes virtuales y evitar posibles amenazas. Para más información acerca de Azure Firewall, <br> haga clic <a href="https://azure.microsoft.com/pricing/details/azure-firewall">aquí</a><br />(Directiva relacionada: [todo el tráfico de Internet debe enrutarse mediante la instancia de Azure Firewall implementada](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2ffc5e4038-4584-4632-8c85-c0448d374b2c)) |Bajo |
+|[Azure Firewall debe proteger las redes virtuales](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/f67fb4ed-d481-44d7-91e5-efadf504f74a) |Algunas de sus redes virtuales no están protegidas con un firewall. Use Azure Firewall para restringir el acceso a sus redes virtuales y evitar posibles amenazas. Para más información acerca de Azure Firewall, <br> consulte [Precios de Azure Firewall](https://azure.microsoft.com/pricing/details/azure-firewall)<br />(Directiva relacionada: [todo el tráfico de Internet debe enrutarse mediante la instancia de Azure Firewall implementada](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2ffc5e4038-4584-4632-8c85-c0448d374b2c)) |Bajo |
 |||

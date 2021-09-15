@@ -7,12 +7,12 @@ ms.date: 08/16/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 2ee6c615556946fa3c28212bc3cf1917c4ef7f2f
-ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
+ms.openlocfilehash: 1a664ac69ba05cc44aba9d18ffc436a98dbab154
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122228853"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123431122"
 ---
 # <a name="how-to-use-analytics-to-analyze-device-data"></a>Cómo usar análisis para analizar los datos del dispositivo
 
@@ -22,7 +22,7 @@ Azure IoT Central ofrece funcionalidad de análisis enriquecida para analizar 
 
 La interfaz de usuario de Analytics consta de tres componentes principales:
 
-- **Panel de configuración de datos:** en el panel de configuración de datos, seleccione el grupo de dispositivos cuyos datos quiere analizar. A continuación, seleccione la telemetría que quiere analizar y el método de agregación para cada telemetría. El control **Split By** (Dividir por) ayuda a agrupar los datos al usar las propiedades del dispositivo como dimensiones.
+- **Panel de configuración de datos:** en el panel de configuración de datos, seleccione el grupo de dispositivos cuyos datos quiere analizar. A continuación, seleccione la telemetría que quiere analizar y el método de agregación para cada telemetría. El control **Group By** (Agrupar por) ayuda a agrupar los datos al usar las propiedades del dispositivo como dimensiones.
 
 - **Time control** (Control de tiempo): utilice el control de tiempo para seleccionar la duración para la que desea analizar los datos. Puede arrastrar cualquier extremo del control deslizante de tiempo para seleccionar el intervalo de tiempo. El control de tiempo también tiene un control deslizante de **Tamaño de intervalo** que controla el cubo o el tamaño del intervalo usado para agregar los datos.
 
@@ -41,10 +41,10 @@ Para empezar, elija un **Grupo de dispositivos** y, a continuación, la telemetr
     > [!NOTE]
     > Los puntos de datos históricos solo se muestran cuando se cumplen las condiciones de la consulta. Por ejemplo, supongamos que ayer se actualizó un dispositivo de **Template1** a **Template2**. Si consulta hoy grupos de dispositivos que contengan **Template1**, verá los datos de dispositivos de ayer y anteriores. Si consulta grupos de dispositivos que contengan **Template2**, verá el dispositivo y los datos desde el momento de la actualización en adelante.
 
-- **Split by** (Dividir por): el control **Split by** (Dividir por) ayuda a agrupar los datos al usar las propiedades del dispositivo como dimensiones. La telemetría y las propiedades del dispositivo se combinan con las propiedades de la nube cuando el dispositivo envía datos. Si la propiedad de la nube o del dispositivo se ha actualizado, verá la telemetría agrupada por diferentes valores en el gráfico.
+- **Group by** (Agrupar por): el control **Group by** (Agrupar por) ayuda a agrupar los datos al usar las propiedades del dispositivo como dimensiones. La telemetría y las propiedades del dispositivo se combinan con las propiedades de la nube cuando el dispositivo envía datos. Si la propiedad de la nube o del dispositivo se ha actualizado, verá la telemetría agrupada por diferentes valores en el gráfico.
 
     > [!TIP]
-    > Para ver los datos de cada dispositivo por separado, seleccione **id. de dispositivo** en el control **Split by** (Dividir por).
+    > Para ver los datos de cada dispositivo por separado, seleccione **id. de dispositivo** en el control **Group by** (Agrupar por).
 
 ## <a name="interact-with-your-data"></a>Interactúe con los datos
 
@@ -67,7 +67,7 @@ Cuando haya consultado los datos, podrá comenzar a visualizarlos en el gráfico
   > [!TIP]
   > El tamaño del intervalo se determina dinámicamente según el intervalo de tiempo seleccionado. Los intervalos de tiempo más pequeños permiten agregar los datos en intervalos muy pormenorizados de hasta unos segundos.
 
-- **Leyenda de gráfico**: la leyenda de gráfico muestra la telemetría seleccionada en el gráfico. Deslice el mouse sobre un elemento de la leyenda para destacarlo en el gráfico. Cuando se usa **Split by** (Dividir por), la telemetría se agrupa por los valores de la dimensión seleccionada. Puede alternar la visibilidad de cada tipo de telemetría o hacer clic en el nombre del grupo para alternar la visibilidad del grupo.  
+- **Leyenda de gráfico**: la leyenda de gráfico muestra la telemetría seleccionada en el gráfico. Deslice el mouse sobre un elemento de la leyenda para destacarlo en el gráfico. Cuando se usa **Group by** (Agrupar por), la telemetría se agrupa por los valores de la dimensión seleccionada. Puede alternar la visibilidad de cada tipo de telemetría o hacer clic en el nombre del grupo para alternar la visibilidad del grupo.  
 
 - **Control de formato del eje Y:** el modo del eje Y recorre las opciones disponibles de la vista del eje Y. Este control solo está disponible cuando se visualizan varios tipos de telemetría. Los tres modos son:
 

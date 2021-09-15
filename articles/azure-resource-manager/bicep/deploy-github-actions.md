@@ -4,14 +4,14 @@ description: Describe cómo implementar archivos de Bicep mediante Acciones de G
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 06/01/2021
+ms.date: 08/23/2021
 ms.custom: github-actions-azure
-ms.openlocfilehash: 808c196ba5ae58e37889ef4b23da64be0eea4d81
-ms.sourcegitcommit: b59e0afdd98204d11b7f9b6a3e55f5a85d8afdec
+ms.openlocfilehash: 005ad729eed380b6684ef06ddca6341dce8b16da
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114371443"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122695222"
 ---
 # <a name="deploy-bicep-files-by-using-github-actions"></a>Implementación de archivos de Bicep mediante Acciones de GitHub
 
@@ -87,7 +87,7 @@ Debe crear secretos para las credenciales de Azure, el grupo de recursos y las s
 Agregue un archivo de Bicep al repositorio de GitHub. El siguiente archivo de Bicep crea una cuenta de almacenamiento:
 
 ```url
-https://raw.githubusercontent.com/mumian/azure-docs-json-samples/master/get-started-with-templates/add-variable/azuredeploy.bicep
+https://raw.githubusercontent.com/Azure/azure-docs-bicep-samples/main/get-started-with-bicep-files/add-variable/azuredeploy.bicep
 ```
 
 El archivo de Bicep toma un parámetro denominado **storagePrefix** que tiene entre tres y once caracteres.
@@ -160,4 +160,4 @@ Cuando el repositorio y el grupo de recursos ya no sean necesarios, limpie los r
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Módulo de aprendizaje: Automatización de la implementación de plantillas de ARM mediante Acciones de GitHub](/learn/modules/deploy-templates-command-line-github-actions/)
+> [Módulo de aprendizaje: Compilación del primer flujo de trabajo de implementación de Bicep mediante Acciones de GitHub](/learn/modules/build-first-bicep-deployment-pipeline-using-github-actions/)

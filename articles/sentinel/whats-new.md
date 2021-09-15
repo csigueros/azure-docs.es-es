@@ -8,12 +8,12 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 08/09/2021
-ms.openlocfilehash: 7c4a2958f8629b224cecf1e92fd0efcff6b1fdd6
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: ebb1ddeea3c19ae87320c6156a5a6af60c7a2d9c
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122182182"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123434545"
 ---
 # <a name="whats-new-in-azure-sentinel"></a>Novedades de Azure Sentinel
 
@@ -32,6 +32,46 @@ Si busca elementos de más de 6 meses, puede encontrarlos en las [Archivo de nov
 >
 > Usted también puede contribuir. Únase a nosotros en la [comunidad de GitHub de cazadores de amenazas de Azure Sentinel](https://github.com/Azure/Azure-Sentinel/wiki).
 >
+
+## <a name="september-2021"></a>Septiembre de 2021
+
+- [Novedad de la documentación: ampliación de la documentación del conector de datos](#new-in-docs-scaling-data-connector-documentation)
+- [Cambios que afectan al conector de la cuenta de Azure Storage](#azure-storage-account-connector-changes)
+
+### <a name="new-in-docs-scaling-data-connector-documentation"></a>Novedad de la documentación: ampliación de la documentación del conector de datos
+
+A medida que agregamos cada vez más conectores de datos integrados para Azure Sentinel, hemos reorganizado la documentación del conector de datos para reflejar este ampliación de la documentación.
+
+Para la mayoría de los conectores de datos, hemos reemplazado los artículos detallados que describen un conector individual con una serie de procedimientos genéricos y una referencia detallada de todos los conectores admitidos actualmente.
+
+Consulte la [referencia los conectores de Azure Sentinel](data-connectors-reference.md) para conocer los detalles sobre su conector, incluidas las referencias al procedimiento genérico pertinente, así como la información adicional y las configuraciones necesarias.
+
+Para más información, consulte:
+
+- **Información conceptual**: [Conexión con orígenes de datos](connect-data-sources.md)
+
+- **Artículos de procedimientos genéricos**:
+
+   - [Conexión a servicios de Azure, Windows, Microsoft y Amazon](connect-azure-windows-microsoft-services.md)
+   - [Conexión del origen de datos a Data Collector API de Azure Sentinel para ingerir datos](connect-rest-api-template.md)
+   - [Obtención de registros con formato CEF del dispositivo en Azure Sentinel](connect-common-event-format.md)
+   - [Recopilación de datos de orígenes basados en Linux mediante Syslog](connect-syslog.md)
+   - [Recopilación de datos en formatos de registro personalizados para Azure Sentinel con el agente de Log Analytics](connect-custom-logs.md)
+   - [Uso de Azure Functions para conectar el origen de datos a Azure Sentinel](connect-azure-functions-template.md)
+   - [Recursos para crear conectores personalizados de Azure Sentinel](create-custom-connector.md)
+
+### <a name="azure-storage-account-connector-changes"></a>Cambios que afectan al conector de la cuenta de Azure Storage
+
+Debido a algunos cambios realizados en la propia configuración de recursos de la cuenta de Azure Storage, el conector también debe volver a configurarse.
+El recurso de cuenta de almacenamiento (primario) contiene otros recursos (secundarios) para cada tipo de almacenamiento: archivos, tablas, colas y blobs.
+
+Al configurar diagnósticos para una cuenta de almacenamiento, debe seleccionar y configurar lo siguiente, por orden:
+- El recurso de la cuenta primaria, y exportar la métrica **Transacción**.
+- Cada uno de los recursos de tipo de almacenamiento secundario, y exportar todos los registros y las métricas (vea la tabla anterior).
+
+Solo verá los tipos de almacenamiento para los que realmente ha definido recursos.
+
+:::image type="content" source="media/whats-new/storage-diagnostics.png" alt-text="Captura de pantalla de la configuración de diagnósticos de Azure Storage.":::
 
 ## <a name="august-2021"></a>Agosto de 2021
 
@@ -105,8 +145,8 @@ Para más información, consulte:
 - [Requisitos previos para la implementación de Azure Sentinel](prerequisites.md)
 - [Procedimientos recomendados para Azure Sentinel](best-practices.md)
 - [Procedimientos recomendados de arquitectura de áreas de trabajo de Azure Sentinel](best-practices-workspace-architecture.md)
-- [Diseño de una arquitectura de áreas de trabajo de Azure Sentinel](design-your-workspace-architecture.md)
-- [Diseños de ejemplo de áreas de trabajo de Azure Sentinel](sample-workspace-designs.md)
+- [Diseño de una arquitectura de áreas de trabajo de Azure Sentinel](design-your-workspace-architecture.md)
+- [Diseños de ejemplo de áreas de trabajo de Azure Sentinel](sample-workspace-designs.md)
 - [Procedimientos recomendados para la recopilación de datos](best-practices-data.md)
 
 > [!TIP]
@@ -399,114 +439,6 @@ Por ejemplo:
 :::image type="content" source="media/tutorial-investigate-cases/incident-timeline.png" alt-text="Pestaña de escala de tiempo del incidente":::
 
 Para más información, consulte el [Tutorial: Investigación de incidentes con Azure Sentinel](investigate-cases.md).
-
-## <a name="march-2021"></a>Marzo de 2021
-
-- [Configurar los libros para que se actualicen automáticamente en modo de vista](#set-workbooks-to-automatically-refresh-while-in-view-mode)
-- [Nuevas detecciones para Azure Firewall](#new-detections-for-azure-firewall)
-- [Reglas de automatización y cuadernos de estrategias desencadenados por incidentes (versión preliminar pública)](#automation-rules-and-incident-triggered-playbooks-public-preview), que incluye documentación de los nuevos cuadernos de estrategias.
-- [Nuevos enriquecimientos de alertas: asignación de entidades mejorada y detalles personalizados (versión preliminar pública)](#new-alert-enrichments-enhanced-entity-mapping-and-custom-details-public-preview)
-- [Imprimir los libros de Azure Sentinel o guardarlos como PDF](#print-your-azure-sentinel-workbooks-or-save-as-pdf)
-- [Los filtros de incidentes y las preferencias de ordenación ahora se guardan en la sesión (versión preliminar pública)](#incident-filters-and-sort-preferences-now-saved-in-your-session-public-preview)
-- [Integración de incidentes de Microsoft 365 Defender (versión preliminar pública)](#microsoft-365-defender-incident-integration-public-preview)
-- [Nuevos conectores de servicio de Microsoft con Azure Policy](#new-microsoft-service-connectors-using-azure-policy)
-
-### <a name="set-workbooks-to-automatically-refresh-while-in-view-mode"></a>Configurar los libros para que se actualicen automáticamente en modo de vista
-
-Los usuarios de Azure Sentinel ahora pueden usar la nueva [funcionalidad de Azure Monitor](https://techcommunity.microsoft.com/t5/azure-monitor/azure-workbooks-set-it-to-auto-refresh/ba-p/2228555) para actualizar automáticamente los datos del libro durante una sesión de visualización.
-
-En cada libro o plantilla de libro, seleccione :::image type="icon" source="media/whats-new/auto-refresh-workbook.png" border="false"::: **Actualización automática** para mostrar las opciones de intervalo. Seleccione la opción que quiera usar para la sesión de visualización actual y, luego, seleccione **Aplicar**.
-
-- Los intervalos de actualización admitidos oscilan entre los **cinco minutos** y **un día**.
-- De manera predeterminada, la actualización automática está desactivada. Para optimizar el rendimiento, la actualización automática también se desactiva cada vez que se cierra un libro, y no se ejecuta en segundo plano. Vuelva a activar la actualización automática según sea necesario la próxima vez que abra el libro.
-- La actualización automática se pausa mientras edita un libro y los intervalos de actualización automática se reinician cada vez que pasa al modo de vista desde el modo de edición.
-
-    También se reinician los intervalos si actualiza manualmente el libro al seleccionar el botón :::image type="icon" source="media/whats-new/manual-refresh-button.png" border="false"::: **Actualizar**.
-
-Para obtener más información, vea [Visualización y supervisión de los datos](monitor-your-data.md) y la [documentación de Azure Monitor](../azure-monitor/visualize/workbooks-overview.md).
-
-### <a name="new-detections-for-azure-firewall"></a>Nuevas detecciones para Azure Firewall
-
-Se han agregado varias detecciones integradas para Azure Firewall al área de [Análisis](./understand-threat-intelligence.md) en Azure Sentinel. Estas nuevas detecciones permiten a los equipos de seguridad recibir alertas si las máquinas de la red interna intentan consultar o conectarse a nombres de dominio de Internet o direcciones IP asociadas a indicadores de riesgo conocidos, tal como se define en la consulta de la regla de detección.
-
-Las nuevas detecciones incluyen:
-
-- [Señal de red Solorigate](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/Solorigate-Network-Beacon.yaml)
-- [Códigos hash y dominios GALLIUM conocidos](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/GalliumIOCs.yaml)
-- [Known IRIDIUM IP (Dirección IP de IRIDIUM conocida)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/IridiumIOCs.yaml)
-- [IP/dominios de grupo de Phosphorus conocidos](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/PHOSPHORUSMarch2019IOCs.yaml)
-- [Dominios de THALLIUM incluidos en el ataque de DCU](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/ThalliumIOCs.yaml)
-- [Código de hash de maldoc relacionado con ZINC conocido](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/ZincJan272021IOCs.yaml)
-- [Dominios de grupo de STRONTIUM conocidos](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/STRONTIUMJuly2019IOCs.yaml)
-- [NOBELIUM, indicadores de riesgo de dominio e IP: marzo de 2021](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/NOBELIUM_DomainIOCsMarch2021.yaml)
-
-
-Las detecciones de Azure Firewall se agregan continuamente a la galería de plantillas integrada. Para recibir las detecciones más recientes de Azure Firewall, en **Plantillas de reglas**, filtre **Orígenes de datos** por **Azure Firewall**:
-
-:::image type="content" source="media/whats-new/new-detections-analytics-efficiency-workbook.jpg" alt-text="Nuevas detecciones en el libro de eficiencia de Análisis":::
-
-Para obtener más información, consulte [Nuevas detecciones para Azure Firewall en Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-network-security/new-detections-for-azure-firewall-in-azure-sentinel/ba-p/2244958).
-
-### <a name="automation-rules-and-incident-triggered-playbooks-public-preview"></a>Reglas de automatización y cuadernos de estrategias desencadenados por incidentes (versión preliminar pública)
-
-Las reglas de automatización son un nuevo concepto de Azure Sentinel que permite administrar de forma centralizada la automatización del control de incidentes. Además de permitirle asignar cuadernos de estrategias a incidentes (no solo a las alertas, como hasta ahora), las reglas de automatización también permiten automatizar las respuestas de varias reglas de análisis a la vez, etiquetar, asignar o cerrar incidentes automáticamente sin necesidad de cuadernos de estrategias y controlar el orden de las acciones que se ejecutan. Las reglas de automatización agilizarán el uso de la automatización en Azure Sentinel y le permitirán simplificar flujos de trabajo complejos de los procesos de orquestación de incidentes.
-
-Consulte esta [explicación completa de las reglas de automatización](automate-incident-handling-with-automation-rules.md) para obtener más información.
-
-Como hemos mencionado anteriormente, los cuadernos de estrategias ahora se pueden activar con el desencadenador de incidentes además del desencadenador de alertas. El desencadenador de incidentes proporciona a los cuadernos de estrategias un conjunto mayor de entradas con las que trabajar (ya que el incidente incluye también todos los datos de la entidad y la alerta), lo que ofrece más capacidad y flexibilidad en los flujos de trabajo de respuesta. Los cuadernos de estrategias desencadenados por incidentes se activan con una llamada desde las reglas de automatización.
-
-Obtenga más información sobre las [funcionalidades mejoradas de los cuadernos de estrategias](automate-responses-with-playbooks.md) y descubra cómo [diseñar un flujo de trabajo de respuesta](tutorial-respond-threats-playbook.md) al combinar los cuadernos de estrategias y las reglas de automatización.
-
-### <a name="new-alert-enrichments-enhanced-entity-mapping-and-custom-details-public-preview"></a>Nuevos enriquecimientos de alertas: asignación de entidades mejorada y detalles personalizados (versión preliminar pública)
-
-Puede enriquecer las alertas de dos formas nuevas para que sean más informativas y más fáciles de usar.
-
-Comience por llevar la asignación de entidades al siguiente nivel. Ahora puede asignar casi 20 tipos de entidades, usuarios, hosts y direcciones IP a archivos y procesos, a buzones de correo, a recursos de Azure y a dispositivos IoT. También puede usar varios identificadores para cada entidad y fortalecer así su identificación única. Esto le ofrece un conjunto de datos mucho más completo en los incidentes, proporciona una correlación más amplia y una investigación más eficaz. [Conozca la nueva forma de asignar entidades](map-data-fields-to-entities.md) en las alertas.
-
-[Obtenga más información sobre las entidades](entities-in-azure-sentinel.md) y consulte la [lista completa de entidades disponibles y sus identificadores](entities-reference.md).
-
-Mejore aún más sus funcionalidades de investigación y respuesta mediante la personalización de las alertas para mostrar los detalles de los eventos sin procesar. Ahora puede visibilizar el contenido del evento en los incidentes y aumentar de este modo su capacidad y flexibilidad para investigar amenazas de seguridad y responder a ellas. [Obtenga información sobre cómo exponer los detalles personalizados](surface-custom-details-in-alerts.md) en las alertas.
-
-
-
-### <a name="print-your-azure-sentinel-workbooks-or-save-as-pdf"></a>Imprimir los libros de Azure Sentinel o guardarlos como PDF
-
-Ahora puede imprimir los libros de Azure Sentinel, exportarlos a archivos PDF y guardarlos de forma local o compartida.
-
-En el libro, seleccione el menú de opciones > :::image type="icon" source="media/whats-new/print-icon.png" border="false"::: **Imprimir contenido**. A continuación, seleccione la impresora o elija **Guardar como PDF**, según necesite.
-
-:::image type="content" source="media/whats-new/print-workbook.png" alt-text="Imprima el libro o guárdelo como PDF.":::
-
-Para obtener más información, consulte [Visualización y supervisión de los datos](monitor-your-data.md).
-
-### <a name="incident-filters-and-sort-preferences-now-saved-in-your-session-public-preview"></a>Los filtros de incidentes y las preferencias de ordenación ahora se guardan en la sesión (versión preliminar pública)
-
-Ahora los filtros y la ordenación de incidentes se guardan en la sesión de Azure Sentinel, incluso si navega a otras áreas del producto.
-Si no cambia de sesión, cuando regrese al área [Incidentes](investigate-cases.md) de Azure Sentinel se mostrarán los filtros y la ordenación tal como los dejó.
-
-> [!NOTE]
-> Los filtros y la ordenación de incidentes no se guardan si sale de Azure Sentinel o si actualiza el explorador.
-
-### <a name="microsoft-365-defender-incident-integration-public-preview"></a>Integración de incidentes de Microsoft 365 Defender (versión preliminar pública)
-
-La integración de incidentes de [Microsoft 365 Defender (M365D)](/microsoft-365/security/mtp/microsoft-threat-protection) de Azure Sentinel le permite transmitir todos los incidentes de M365D a Azure Sentinel y mantenerlos sincronizados entre ambos portales. Los incidentes de M365D (anteriormente conocidos como Protección contra amenazas de Microsoft o MTP) incluyen todas las alertas, entidades e información pertinente asociadas, lo que le proporciona un contexto suficiente para realizar la evaluación de errores y una investigación preliminar en Azure Sentinel. Una vez en Sentinel, los incidentes permanecerán sincronizados de manera bidireccional con M365D, lo que le permite aprovechar las ventajas de ambos portales en su investigación de los incidentes.
-
-El uso conjunto de Azure Sentinel y Microsoft 365 Defender ofrece lo mejor de ambos mundos. Consigue la amplitud de detalles que proporciona un sistema SIEM en todo el ámbito de los recursos de información de la organización, así como la profundidad de la potencia investigadora personalizada y adaptada que ofrece un sistema XDR para proteger los recursos de Microsoft 365, y todo ello coordinado y sincronizado para lograr un funcionamiento sin problemas del centro de operaciones de seguridad.
-
-Para más información, consulte [Integración de Microsoft 365 Defender en Azure Sentinel](microsoft-365-defender-sentinel-integration.md).
-
-### <a name="new-microsoft-service-connectors-using-azure-policy"></a>Nuevos conectores de servicio de Microsoft con Azure Policy
-
-[Azure Policy](../governance/policy/overview.md) es un servicio de Azure que permite usar directivas para aplicar y controlar las propiedades de un recurso. El uso de directivas garantiza que los recursos sigan siendo compatibles con los estándares de gobernanza de TI.
-
-Entre las propiedades de los recursos que se pueden controlar con directivas están la creación y control de los registros de diagnóstico y auditoría. Ahora, Azure Sentinel usa Azure Policy para que pueda aplicar un conjunto común de valores de registros de diagnóstico a todos los recursos (actuales y futuros) de un tipo determinado cuyos registros quiera ingerir en Azure Sentinel. Gracias a Azure Policy, ya no tendrá que establecer la configuración de registros de diagnóstico para cada recurso.
-
-Los conectores basados en Azure Policy ahora están disponibles para los siguientes servicios de Azure:
-- [Azure Key Vault](connect-azure-key-vault.md) (versión preliminar pública)
-- [Azure Kubernetes Service](connect-azure-kubernetes-service.md) (versión preliminar pública)
-- [Servidores e instancias de Azure SQL Database](connect-azure-sql-logs.md) (disponibilidad general)
-
-Los clientes podrán seguir enviando manualmente los registros de instancias específicas y no tendrán que usar el motor de directivas.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

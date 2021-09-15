@@ -1,5 +1,5 @@
 ---
-title: 'Azure Policy: extensión de configuración de invitado'
+title: Extensión Guest Configuration
 description: Obtenga información sobre la extensión que se usa para auditar o configurar valores dentro de las máquinas virtuales.
 ms.topic: article
 ms.service: virtual-machines
@@ -8,14 +8,14 @@ author: mgreenegit
 ms.author: migreene
 ms.date: 04/15/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e12bcc3a1c1589baf5ab8fcc0f2b3e264d1953eb
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 88d9ceedffffc3b1ab1b4c00e04f6fbbfe2654a7
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121751664"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123433249"
 ---
-# <a name="overview-of-the-azure-policy-guest-configuration-extension"></a>Información general sobre la extensión Guest Configuration de Azure Policy
+# <a name="overview-of-the-guest-configuration-extension"></a>Información general de la extensión Guest Configuration
 
 La extensión Guest Configuration es un componente de Azure Policy que realiza operaciones de auditoría y configuración dentro de las máquinas virtuales.
 Las directivas, como las definiciones de línea de base de seguridad para [Linux](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffc9b3da7-8347-4380-8e70-0a0361d8dedd) y [Windows](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F72650e9f-97bc-4b2a-ab5f-9781a9fcecbc), no pueden comprobar la configuración dentro de las máquinas hasta que se instale la extensión.
@@ -93,7 +93,7 @@ Para implementar la extensión en Linux:
 {
   "type": "Microsoft.Compute/virtualMachines/extensions",
   "name": "[concat(parameters('VMName'), '/AzurePolicyforLinux')]",
-  "apiVersion": "2019-07-01",
+  "apiVersion": "2020-12-01",
   "location": "[parameters('location')]",
   "dependsOn": [
     "[concat('Microsoft.Compute/virtualMachines/', parameters('VMName'))]"
@@ -115,7 +115,7 @@ Para implementar la extensión en Windows:
 {
   "type": "Microsoft.Compute/virtualMachines/extensions",
   "name": "[concat(parameters('VMName'), '/AzurePolicyforWindows')]",
-  "apiVersion": "2019-07-01",
+  "apiVersion": "2020-12-01",
   "location": "[parameters('location')]",
   "dependsOn": [
     "[concat('Microsoft.Compute/virtualMachines/', parameters('VMName'))]"
@@ -127,6 +127,50 @@ Para implementar la extensión en Windows:
     "autoUpgradeMinorVersion": true,
     "settings": {},
     "protectedSettings": {}
+  }
+}
+```
+
+### <a name="bicep"></a>Bicep
+
+Para implementar la extensión en Linux:
+
+```bicep
+resource virtualMachine 'Microsoft.Compute/virtualMachines@2021-03-01' existing = {
+  name: 'VMName'
+}
+resource windowsVMGuestConfigExtension 'Microsoft.Compute/virtualMachines/extensions@2020-12-01' = {
+  parent: virtualMachine
+  name: 'AzurePolicyforLinux'
+  location: resourceGroup().location
+  properties: {
+    publisher: 'Microsoft.GuestConfiguration'
+    type: 'ConfigurationforLinux'
+    typeHandlerVersion: '1.0'
+    autoUpgradeMinorVersion: true
+    settings: {}
+    protectedSettings: {}
+  }
+}
+```
+
+Para implementar la extensión en Windows:
+
+```bicep
+resource virtualMachine 'Microsoft.Compute/virtualMachines@2021-03-01' existing = {
+  name: 'VMName'
+}
+resource windowsVMGuestConfigExtension 'Microsoft.Compute/virtualMachines/extensions@2020-12-01' = {
+  parent: virtualMachine
+  name: 'AzurePolicyforWindows'
+  location: resourceGroup().location
+  properties: {
+    publisher: 'Microsoft.GuestConfiguration'
+    type: 'ConfigurationforWindows'
+    typeHandlerVersion: '1.0'
+    autoUpgradeMinorVersion: true
+    settings: {}
+    protectedSettings: {}
   }
 }
 ```
@@ -166,7 +210,7 @@ El agente recupera toda esta información de los recursos de [asignación de con
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para obtener más información sobre Guest Configuration de Azure Policy, consulte [Información sobre Guest Configuration de Azure Policy](../../governance/policy/concepts/guest-configuration.md).
+* Para obtener más información sobre Guest Configuration en Azure Policy, consulte [Información sobre Guest Configuration de Azure Policy](../../governance/policy/concepts/guest-configuration.md).
 * Para obtener más información sobre cómo funcionan las extensiones y el agente de Linux, vea [Características y extensiones de VM de Azure para Linux](features-linux.md).
 * Para más información sobre cómo funcionan las extensiones de Windows y Windows Guest Agent, consulte [Características y extensiones de VM de Azure para Windows](features-windows.md).  
 * Para instalar Windows Guest Agent, vea [Información general del agente de máquina virtual de Azure](agent-windows.md).  
