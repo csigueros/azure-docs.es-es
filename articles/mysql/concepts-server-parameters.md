@@ -6,12 +6,12 @@ ms.author: bahusse
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 1/26/2021
-ms.openlocfilehash: 8220afc8020e5a6a4ba77c46a98ee3c220c3f37e
-ms.sourcegitcommit: 98e126b0948e6971bd1d0ace1b31c3a4d6e71703
+ms.openlocfilehash: 709732e996e0ffda7c3ae7f2f1199522c0b22e51
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2021
-ms.locfileid: "114675322"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123256622"
 ---
 # <a name="server-parameters-in-azure-database-for-mysql"></a>Parámetros del servidor en Azure Database for MySQL
 
@@ -119,7 +119,7 @@ Consulte la [documentación de MySQL](https://dev.mysql.com/doc/refman/5.7/en/se
 |**Plan de tarifa**|**Núcleos virtuales**|**Valor predeterminado (bytes)**|**Valor mínimo (bytes)**|**Valor máximo (bytes)**|
 |---|---|---|---|---|
 |Básico|1|No se puede configurar en el nivel Básico|N/D|N/D|
-|Básica|2|No se puede configurar en el nivel Básico|N/D|N/D|
+|Básico|2|No se puede configurar en el nivel Básico|N/D|N/D|
 |De uso general|2|262 144|128|268435455|
 |De uso general|4|262 144|128|536870912|
 |De uso general|8|262 144|128|1073741824|
@@ -136,8 +136,8 @@ Consulte la [documentación de MySQL](https://dev.mysql.com/doc/refman/5.7/en/se
 
 |**Plan de tarifa**|**Núcleos virtuales**|**Valor predeterminado**|**Valor mínimo**|**Valor máximo**|
 |---|---|---|---|---|
-|Básica|1|50|10|50|
-|Básica|2|100|10|100|
+|Básico|1|50|10|50|
+|Básico|2|100|10|100|
 |De uso general|2|300|10|600|
 |De uso general|4|625|10|1250|
 |De uso general|8|1250|10|2.500|
@@ -168,7 +168,7 @@ Consulte la [documentación de MySQL](https://dev.mysql.com/doc/refman/5.7/en/se
 |**Plan de tarifa**|**Núcleos virtuales**|**Valor predeterminado (bytes)**|**Valor mínimo (bytes)**|**Valor máximo (bytes)**|
 |---|---|---|---|---|
 |Básico|1|No se puede configurar en el nivel Básico|N/D|N/D|
-|Básica|2|No se puede configurar en el nivel Básico|N/D|N/D|
+|Básico|2|No se puede configurar en el nivel Básico|N/D|N/D|
 |De uso general|2|16777216|16384|268435455|
 |De uso general|4|16777216|16384|536870912|
 |De uso general|8|16777216|16384|1073741824|
@@ -193,7 +193,7 @@ Consulte la [documentación de MySQL](https://dev.mysql.com/doc/refman/5.7/en/se
 |**Plan de tarifa**|**Núcleos virtuales**|**Valor predeterminado (bytes)**|**Valor mínimo (bytes)**|**Valor máximo **|
 |---|---|---|---|---|
 |Básico|1|No se puede configurar en el nivel Básico|N/D|N/D|
-|Básica|2|No se puede configurar en el nivel Básico|N/D|N/D|
+|Básico|2|No se puede configurar en el nivel Básico|N/D|N/D|
 |De uso general|2|0|0|16777216|
 |De uso general|4|0|0|33554432|
 |De uso general|8|0|0|67108864|
@@ -231,7 +231,7 @@ Consulte la [documentación de MySQL](https://dev.mysql.com/doc/refman/5.7/en/se
 |**Plan de tarifa**|**Núcleos virtuales**|**Valor predeterminado (bytes)**|**Valor mínimo (bytes)**|**Valor máximo (bytes)**|
 |---|---|---|---|---|
 |Básico|1|No se puede configurar en el nivel Básico|N/D|N/D|
-|Básica|2|No se puede configurar en el nivel Básico|N/D|N/D|
+|Básico|2|No se puede configurar en el nivel Básico|N/D|N/D|
 |De uso general|2|524 288|32 768|4 194 304|
 |De uso general|4|524 288|32 768|8388608|
 |De uso general|8|524 288|32 768|16777216|
@@ -251,7 +251,7 @@ Consulte la [documentación de MySQL](https://dev.mysql.com/doc/refman/5.7/en/se
 |**Plan de tarifa**|**Núcleos virtuales**|**Valor predeterminado (bytes)**|**Valor mínimo (bytes)**|**Valor máximo (bytes)**|
 |---|---|---|---|---|
 |Básico|1|No se puede configurar en el nivel Básico|N/D|N/D|
-|Básica|2|No se puede configurar en el nivel Básico|N/D|N/D|
+|Básico|2|No se puede configurar en el nivel Básico|N/D|N/D|
 |De uso general|2|16777216|1024|67108864|
 |De uso general|4|16777216|1024|134217728|
 |De uso general|8|16777216|1024|268435456|
@@ -279,6 +279,13 @@ Para guardar el estado del grupo de búferes al cerrar el servidor, establezca e
 ### <a name="time_zone"></a>time_zone
 
 Tras la implementación inicial, un servidor de Azure para MySQL incluye tablas de sistemas para la información de zona horaria, pero estas tablas no se rellenan. Las tablas de la zona horaria se pueden rellenar mediante una llamada al procedimiento almacenado `mysql.az_load_timezone` desde una herramienta como la línea de comandos de MySQL o MySQL Workbench. Vea los artículos de [Azure Portal](howto-server-parameters.md#working-with-the-time-zone-parameter) o de la [CLI de Azure](howto-configure-server-parameters-using-cli.md#working-with-the-time-zone-parameter) sobre cómo llamar al procedimiento almacenado y establecer las zonas horarias globales o de nivel de sesión.
+
+### <a name="binlog_expire_logs_seconds"></a>binlog_expire_logs_seconds 
+
+En Azure Database for MySQL, este parámetro especifica el número de segundos que el servicio espera antes de purgar el archivo de registro binario.
+
+El registro binario contiene "eventos" que describen los cambios de la base de datos, como las operaciones de creación de tablas o los cambios en los datos de la tabla. También contiene eventos para instrucciones que puedan haber realizado cambios. El registro binario se usa con dos finalidades principalmente: las operaciones de replicación y de recuperación de datos.  Normalmente, los registros binarios se purgan en cuanto el identificador queda libre del servicio, de la copia de seguridad o del conjunto de réplicas. En el caso de varias réplicas, espera a que la réplica más lenta lea los cambios antes de purgarse. Si quiere conservar los registros binarios durante más tiempo, puede configurar el parámetro binlog_expire_logs_seconds. Si binlog_expire_logs_seconds se establece en 0, que es el valor predeterminado, se purgará en cuanto se libere el identificador para el registro binario. Si el valor de binlog_expire_logs_seconds es > 0, se esperaría durante los segundos configurados antes de purgar. En Azure Database for MySQL, las características administradas, como la copia de seguridad y la purga de réplicas de lectura de archivos binarios, se controlan internamente. Si se replican los datos fuera del servicio Azure Database for MySQL, este parámetro debe establecerse como primario para evitar la purga de registros binarios antes de que la réplica lea los cambios del elemento primario. Si binlog_expire_logs_seconds se establece en un valor superior, los registros binarios no se purgarán con suficiente antelación, lo que puede provocar un aumento en la facturación del almacenamiento. 
+
 
 ## <a name="non-configurable-server-parameters"></a>Parámetros no configurables del servidor
 

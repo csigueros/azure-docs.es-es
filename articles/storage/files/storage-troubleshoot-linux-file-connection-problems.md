@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 2eb87704d8cb967bb58a0fd1302b6f0f8225af72
-ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
+ms.openlocfilehash: db5cb2f6bc8b4ca3eed802552fe86830b9f1723f
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/15/2021
-ms.locfileid: "112117646"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123259581"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux-smb"></a>Solución de problemas de Azure Files en Linux (SMB)
 
@@ -235,7 +235,7 @@ Actualice el kernel de Linux a las siguientes versiones que tengan una solución
 ## <a name="cannot-create-symbolic-links---ln-failed-to-create-symbolic-link-t-operation-not-supported"></a>No se pueden crear vínculos simbólicos. En: No se pudo crear un vínculo simbólico "t": Operación no admitida
 
 ### <a name="cause"></a>Causa
-De forma predeterminada, el montaje de recursos compartidos de archivos de Azure en Linux mediante CIFS no permite la compatibilidad con vínculos simbólicos (symlinks). Verá un error como este:
+De manera predeterminada, el montaje de recursos compartidos de archivos de Azure en Linux mediante CIFS no posibilita la compatibilidad con vínculos simbólicos (symlinks). Verá un error como este:
 ```
 ln -s linked -n t
 ln: failed to create symbolic link 't': Operation not supported

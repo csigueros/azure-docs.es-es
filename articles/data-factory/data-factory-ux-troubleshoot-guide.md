@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 06/01/2021
 ms.author: ceespino
 ms.reviewer: susabat
-ms.openlocfilehash: 99d6116a69e6aabe080d8e46bb90f90a125d7122
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: a6d2a05e5f461a9ccf2f5e6a3cea0ba92c461b15
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122637805"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123260436"
 ---
 # <a name="troubleshoot-azure-data-factory-ux-issues"></a>Solución de problemas con la experiencia de usuario de Azure Data Factory
 
@@ -103,7 +103,7 @@ El conjunto de datos con formato de archivo se puede usar con todos los conector
 
 En la interfaz de usuario de creación de ADF, cuando se utiliza un conjunto de datos con formato de archivo en una actividad (incluidas las actividades Copia, Búsqueda, GetMetadata y Eliminar), y en el conjunto de archivos que desea apuntar a un servicio vinculado de tipo diferente del actual (por ejemplo, cambiar de sistema de archivos a ADLS Gen2), verá el siguiente mensaje de advertencia. Para asegurarse de que se trata de un cambio limpio, según su consentimiento, las canalizaciones y las actividades, que hacen referencia a este conjunto de datos, se modificarán para usar el nuevo tipo también, y cualquier configuración del almacén de datos existente, que es incompatible con el nuevo tipo, se borrará cuando ya no se aplique.
 
-Para obtener más información sobre la configuración del almacén de datos admitida para cada conector, puede ir al artículo del conector correspondiente -> propiedades de la actividad de copia para ver la lista de propiedades detallada. Consulte [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md) y [SFTP](connector-sftp.md).
+Para obtener más información sobre la configuración del almacén de datos admitida para cada conector, puede ir al artículo del conector correspondiente -> propiedades de la actividad de copia para ver la lista de propiedades detallada. Consulte [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure Files](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md) y [SFTP](connector-sftp.md).
 
 ![Mensaje de advertencia](media/data-factory-ux-troubleshoot-guide/warning-message.png)
 
@@ -124,7 +124,7 @@ La solución es corregir los archivos JSON al principio y, a continuación, volv
 Para obtener ayuda para solucionar problemas, pruebe estos recursos:
 
 * [Blog de Data Factory](https://azure.microsoft.com/blog/tag/azure-data-factory/)
-* [Solicitud de características de Data Factory](https://feedback.azure.com/forums/270578-data-factory)
+* [Solicitud de características de Data Factory](/answers/topics/azure-data-factory.html)
 * [Foro de Stack Overflow para Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 * [Información de Twitter sobre Data Factory](https://twitter.com/hashtag/DataFactory)
 * [Vídeos de Azure](https://azure.microsoft.com/resources/videos/index/)

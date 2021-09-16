@@ -5,13 +5,13 @@ author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/28/2019
-ms.openlocfilehash: 4b2bb3659d68ec5c4a4ed7d21f39542d1329452b
-ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
+ms.date: 08/26/2021
+ms.openlocfilehash: 781fb98b1b71e70f07291f04d89fbfb8fed17759
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2021
-ms.locfileid: "108331635"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123028588"
 ---
 # <a name="azure-cosmos-db-nosql-migration-and-application-development-partners"></a>Asociados de desarrollo de aplicaciones y migración NoSQL de Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -51,6 +51,10 @@ Desde la migración NoSQL hasta el desarrollo de aplicaciones, puede elegir entr
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para obtener más información sobre algunos de los demás asociados de Microsoft, vea el [sitio de asociados de Microsoft](https://partner.microsoft.com/).
+
+¿Intenta planear la capacidad de una migración a Azure Cosmos DB?
+* Si lo único que sabe es el número de núcleos virtuales y servidores del clúster de bases de datos existente, lea este artículo para [calcular las unidades de solicitud utilizando núcleos o CPU virtuales](convert-vcore-to-request-unit.md). 
+* Si conoce las tasas de solicitudes típicas de la carga de trabajo de la base de datos actual, obtenga información sobre el [cálculo de unidades de solicitud mediante la herramienta de planeamiento de capacidad de Azure Cosmos DB](estimate-ru-with-capacity-planner.md).
 
 <!--Image references-->
 [2]: ./media/partners-migration-cosmosdb/striim_logo.png

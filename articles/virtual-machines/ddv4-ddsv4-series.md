@@ -9,14 +9,16 @@ ms.service: virtual-machines
 ms.subservice: vm-sizes-general
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: 936e26aa82d963a906cf134aeab83d4876a5c4fd
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: b29fb382e51a351291868e4417a819e969a1d249
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121738989"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123097557"
 ---
 # <a name="ddv4-and-ddsv4-series"></a>Series Ddv4 y Ddsv4
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles :heavy_check_mark: Conjuntos de escalado uniformes
 
 Las máquinas virtuales de las series Ddv4 y Ddsv4 se ejecutan en los procesadores Intel &reg;Xeon&reg; Platinum 8272CL (Cascade Lake) en una configuración con tecnología Hyper-Threading, lo que proporciona una mejor propuesta de valor para la mayoría de las cargas de trabajo de uso general. Presenta una velocidad de reloj turbo de todos los núcleos de 3,4 GHz, las tecnologías [Intel&reg; Turbo Boost 2.0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [Intel&reg; Hyper-Threading](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) y las extensiones de vector avanzadas 512 de [Intel&reg; (Intel &reg;AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html). También admiten [Intel&reg; Deep Learning Boost](https://software.intel.com/content/www/us/en/develop/topics/ai/deep-learning-boost.html). Estos nuevos tamaños de máquina virtual tendrán un almacenamiento local del 50 % más grande, así como una mayor E/S por segundo del disco local para lectura y escritura, en comparación con los tamaños [Dv3/Dsv3](./dv3-dsv3-series.md) con [máquinas virtuales de segunda generación](./generation-2.md).
 
@@ -38,7 +40,7 @@ Los nuevos tamaños de máquinas virtuales Ddv4 incluyen almacenamiento SSD loca
 [Discos de sistema operativo efímero](ephemeral-os-disks.md): Compatible <br>
 <br> 
 
-| Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | <sup>**</sup> Rendimiento máximo de almacenamiento temporal y en caché: IOPS/Mbps | Nº máx. NIC|Ancho de banda de red esperado (Mbps) |
+| Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | <sup>**</sup> Rendimiento máximo de almacenamiento temporal: IOPS/Mbps | Nº máx. NIC|Ancho de banda de red esperado (Mbps) |
 |---|---|---|---|---|---|---|---|
 | Standard_D2d_v4<sup>1</sup> | 2 | 8 | 75 | 4 | 19000/120 | 2|1000 |
 | Standard_D4d_v4 | 4 | 16 | 150 | 8 | 38500/242 | 2|2000 |
@@ -70,7 +72,7 @@ Los nuevos tamaños de máquinas virtuales Ddsv4 incluyen almacenamiento SSD loc
 [Discos de sistema operativo efímero](ephemeral-os-disks.md): Compatible <br>
 <br> 
 
-| Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | <sup>**</sup> Rendimiento máximo de almacenamiento temporal y en caché: IOPS/Mbps (tamaño de caché en GiB) | Rendimiento máximo del disco sin almacenamiento en la caché: IOPS/Mbps |  Rendimiento máximo del disco sin almacenamiento en la caché expandido: IOPS/MBps<sup>1</sup> | Nº máx. NIC|Ancho de banda de red esperado (Mbps) |
+| Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | <sup>**</sup> Rendimiento máximo de almacenamiento temporal: IOPS/Mbps (tamaño de caché en GiB) | Rendimiento máximo del disco sin almacenamiento en la caché: IOPS/Mbps |  Rendimiento máximo del disco sin almacenamiento en la caché expandido: IOPS/MBps<sup>1</sup> | Nº máx. NIC|Ancho de banda de red esperado (Mbps) |
 |---|---|---|---|---|---|---|---|---|---|
 | Standard_D2ds_v4<sup>2</sup> | 2 | 8 | 75 | 4 | 19000/120(50) | 3200/48 | 4000/200 | 2|1000 |
 | Standard_D4ds_v4 | 4 | 16 | 150 | 8 | 38500/242(100) | 6400/96 | 8000/200 | 2|2000 |

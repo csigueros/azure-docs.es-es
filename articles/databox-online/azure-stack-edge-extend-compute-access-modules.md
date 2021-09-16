@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 05/17/2019
 ms.author: alkohli
-ms.openlocfilehash: dbbd43d07bbb07e13f2e0301e15d73ee727a86fd
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 2b4b509e359976fcf8ff0c47270c814a203fcbdd
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110461245"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123108339"
 ---
 # <a name="enable-compute-network-on-your-azure-stack-edge-pro"></a>Habilitación de la red de proceso en Azure Stack Edge Pro
 
@@ -62,7 +62,7 @@ Siga estos pasos para agregar un módulo de aplicaciones de servidor web al disp
 3. En la hoja de los **módulos personalizados de IoT Edge**:
 
     1. Especifique un **nombre** para el módulo de aplicaciones del servidor web que quiera implementar.
-    2. Proporcione un **URI de imagen** para la imagen del módulo. Se recuperará un módulo que coincide con el nombre proporcionado y las etiquetas. En ese caso, `nginx:stable` extraerá una imagen nginx estable (etiquetada como estable) del [repositorio público de Docker](https://hub.docker.com/_/nginx/).
+    2. Proporcione un **URI de imagen** para la imagen del módulo. Se recuperará un módulo que coincide con el nombre proporcionado y las etiquetas. En este caso, `mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine` extraerá una imagen nginx (etiquetada como 1.15.5-alpine) del registro `mcr.microsoft.com` público.
     3. En el cuadro **Opciones de creación del contenedor**, puede pegar el ejemplo de código siguiente:  
 
         ```

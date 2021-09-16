@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/24/2020
 ms.author: damaerte
-ms.openlocfilehash: 7aa866706a181014e104f7f9e7f8cded520f4ac9
-ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
+ms.openlocfilehash: a554a58c8cb94fb4ec1f86b433050f440330918b
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114711832"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123252617"
 ---
 # <a name="persist-files-in-azure-cloud-shell"></a>Persistencia de archivos en Azure Cloud Shell
-Cloud Shell utiliza Azure File Storage para conservar los archivos entre sesiones. En el primer inicio, Cloud Shell le pedirá que asocie un recurso compartido de archivos nuevo o existente para conservar los archivos entre sesiones.
+Cloud Shell utiliza Azure Files para conservar los archivos entre sesiones. En el primer inicio, Cloud Shell le pedirá que asocie un recurso compartido de archivos nuevo o existente para conservar los archivos entre sesiones.
 
 > [!NOTE]
 > Bash y PowerShell comparten el mismo recurso compartido de archivos. Solo un recurso compartido de archivos se puede asociar con el montaje automático en Cloud Shell.

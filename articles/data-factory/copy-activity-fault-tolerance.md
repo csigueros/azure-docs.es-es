@@ -9,12 +9,12 @@ ms.custom: synapse
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: yexu
-ms.openlocfilehash: 55d8c089bd73a3e85666208ed6edc13c654c24bb
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 544d298616c8021991fedb1ee47d452cfbc427f3
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122637905"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123255038"
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Tolerancia a errores de la actividad de copia en Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -91,12 +91,12 @@ path | Ruta de acceso de los archivos de registro. | Especifique la ruta de acce
 > A continuación se indican los requisitos previos de la habilitación de la tolerancia a errores en la actividad de copia al copiar archivos binarios.
 > Para omitir archivos concretos cuando se eliminan del almacén de origen:
 > - Los conjuntos de datos de origen y de receptor deben tener un formato binario y no se puede especificar el tipo de compresión. 
-> - Los tipos de almacén de datos admitidos son Azure Blob Storage, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure File Storage, Sistema de archivos, FTP, SFTP, Amazon S3, Google Cloud Storage y HDFS.
+> - Los tipos de almacén de datos admitidos son Azure Blob Storage, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure Files, Sistema de archivos, FTP, SFTP, Amazon S3, Google Cloud Storage y HDFS.
 > - Solo si se especifican varios archivos en el conjunto de datos de origen, que puede ser una carpeta, un carácter comodín o una lista de archivos, la actividad de copia puede omitir los archivos de error concretos. Si se especifica un solo archivo en el conjunto de datos de origen que se va a copiar en el destino, en el caso de que se produzca algún error en la actividad de copia, esta no se llevará a cabo.
 >
 > Para omitir archivos concretos cuando su acceso está prohibido desde el almacén de origen:
 > - Los conjuntos de datos de origen y de receptor deben tener un formato binario y no se puede especificar el tipo de compresión. 
-> - Los tipos de almacén de datos admitidos son Azure Blob Storage, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure File Storage, SFTP, Amazon S3 y HDFS.
+> - Los tipos de almacén de datos admitidos son Azure Blob Storage, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure Files, SFTP, Amazon S3 y HDFS.
 > - Solo si se especifican varios archivos en el conjunto de datos de origen, que puede ser una carpeta, un carácter comodín o una lista de archivos, la actividad de copia puede omitir los archivos de error concretos. Si se especifica un solo archivo en el conjunto de datos de origen que se va a copiar en el destino, en el caso de que se produzca algún error en la actividad de copia, esta no se llevará a cabo.
 >
 > Para omitir archivos concretos cuando se compruebe que no son coherentes entre el almacén de origen y el de destino:
