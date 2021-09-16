@@ -11,12 +11,12 @@ author: NikaKinska
 ms.author: nnikolic
 ms.reviewer: mathoma, wiassaf
 ms.date: 06/03/2019
-ms.openlocfilehash: 7216978845921e4b35c4cb3485379054cbf5cfff
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
+ms.openlocfilehash: 8e1c8288317ee5d0424ee633a14431d87a78175f
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111591823"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122866360"
 ---
 # <a name="email-notifications-for-automatic-tuning"></a>Notificaciones por correo electrónico para el ajuste automático
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -32,7 +32,7 @@ Las recomendaciones de ajuste automático de Azure SQL Database pueden verse en 
 
 ## <a name="automate-email-notifications-for-automatic-tuning-recommendations"></a>Automatización de las notificaciones por correo electrónico para las recomendaciones del ajuste automático
 
-La siguiente solución automatiza el envío de notificaciones por correo electrónico que contienen recomendaciones sobre el ajuste automático. La solución descrita consiste en automatizar la ejecución de un script de PowerShell para recuperar las recomendaciones de ajustes mediante [Azure Automation](../../automation/automation-intro.md), y automatizar el trabajo de programación de la entrega de correos electrónicos mediante [Microsoft Flow](https://flow.microsoft.com).
+La siguiente solución automatiza el envío de notificaciones por correo electrónico que contienen recomendaciones sobre el ajuste automático. La solución descrita consiste en automatizar la ejecución de un script de PowerShell para recuperar las recomendaciones de ajustes mediante [Azure Automation](../../automation/automation-intro.md), y automatizar el trabajo de programación de la entrega de correos electrónicos mediante [Microsoft Power Automate](https://flow.microsoft.com).
 
 ## <a name="create-azure-automation-account"></a>Creación de una cuenta de Azure Automation
 
@@ -181,17 +181,17 @@ Asegúrese de ajustar el contenido. Para ello, personalice el script de PowerShe
 
 Con los pasos anteriores, el script de PowerShell para recuperar las recomendaciones de ajuste automático se carga en Azure Automation. El siguiente paso consiste en automatizar y programar el trabajo de entrega de correos electrónicos.
 
-## <a name="automate-the-email-jobs-with-microsoft-flow"></a>Automatización de las tareas de correo electrónico con Microsoft Flow
+## <a name="automate-the-email-jobs-with-microsoft-power-automate"></a>Automatización de los trabajos de correo electrónico con Microsoft Power Automate
 
-Para completar la solución, como último paso, cree un flujo de automatización en Microsoft Flow que conste de tres acciones (trabajos):
+Para completar la solución, como último paso, cree en Microsoft Power Automate un flujo de automatización que conste de tres acciones (trabajos):
 
 - "**Azure Automation - Crear trabajo**": se usa para ejecutar el script de PowerShell a fin de recuperar las recomendaciones de ajuste automático del runbook de Azure Automation.
 - "**Azure Automation - Obtener resultado del trabajo**": se usa para recuperar la salida del script de PowerShell ejecutado.
 - "**Office 365 Outlook - Enviar un correo electrónico**": se usa para enviar correos electrónicos. Los correos electrónicos se envían mediante la cuenta profesional o educativa de la persona que crea el flujo.
 
-Para obtener más información sobre las funcionalidades de Microsoft Flow, consulte [Introducción a Microsoft Flow](/flow/getting-started).
+Para obtener más información sobre las funcionalidades de Microsoft Power Automate, consulte [Introducción a Microsoft Power Automate](/power-automate/getting-started).
 
-El requisito previo para este paso es registrarse para obtener una cuenta de [Microsoft Flow](https://flow.microsoft.com) e iniciar sesión. Una vez dentro de la solución, siga estos pasos para configurar un **flujo nuevo**:
+El requisito previo para este paso es registrarse para obtener una cuenta de [Microsoft Power Automate](https://flow.microsoft.com) e iniciar sesión en ella. Una vez dentro de la solución, siga estos pasos para configurar un **flujo nuevo**:
 
 1. Acceda al elemento de menú "**Mis flujos**".
 1. Dentro de Mis flujos, seleccione el vínculo " **+Crear desde cero**" en la parte superior de la página.

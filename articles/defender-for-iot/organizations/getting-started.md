@@ -3,12 +3,12 @@ title: 'Inicio rápido: Introducción'
 description: En este inicio rápido, aprenderá a usar el flujo de trabajo básico para la implementación de Defender para IoT.
 ms.topic: quickstart
 ms.date: 06/06/2021
-ms.openlocfilehash: c0d8406f842e182c6c129ba32f38dd11fdfbd46c
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: cae5b1db400cebe341463dbc752fe5559b779380
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113011532"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123437676"
 ---
 # <a name="quickstart-get-started-with-defender-for-iot"></a>Inicio rápido: Introducción a Defender para IoT
 
@@ -32,21 +32,28 @@ En la tabla siguiente se describen los permisos de acceso de usuarios para las h
 | Permiso | Lector de seguridad | Administrador de seguridad | Colaborador de la suscripción | Propietario de la suscripción |
 |--|--|--|--|--|
 | Visualización de detalles y acceso a software, archivos de activación y paquetes de inteligencia sobre amenazas  | ✓ | ✓ | ✓ | ✓ |
-| Incorporación de sensores  |  |  ✓ | ✓ | ✓ |
-| Actualizar precios  |  |  ✓ | ✓ | ✓ |
-| Recuperar contraseña  | ✓  |  ✓ | ✓ | ✓ |
+| Sensores incorporados  |  |  ✓ | ✓ | ✓ |
+| Incorporación de suscripciones y actualización de dispositivos confirmados  |  |  | ✓ | ✓ |
+| Recuperación de contraseñas  | ✓  |  ✓ | ✓ | ✓ |
 
 ## <a name="identify-the-solution-infrastructure"></a>Identificación de la infraestructura de la solución
 
 **Aclaración de las necesidades de configuración de red**
 
-Investigue la arquitectura de redes, el ancho de banda supervisado y otros detalles de la red. Para más información, vea [Acerca de la configuración de red de Azure Defender para IoT](how-to-set-up-your-network.md).
+Investigue lo siguiente:
+
+- Arquitectura de red
+- Ancho de banda supervisado
+- Requisitos para crear certificados
+- Otros detalles de la red.
+
+Para más información, vea [Acerca de la configuración de red de Azure Defender para IoT](how-to-set-up-your-network.md).
 
 **Aclaración de qué sensores y dispositivos de la consola de administración son necesarios para controlar la carga de red**
 
 Azure Defender para IoT admite implementaciones físicas y virtuales. En el caso de las implementaciones físicas, puede comprar varios dispositivos certificados. Para más información, vea [Identificación de los dispositivos necesarios](how-to-identify-required-appliances.md).
 
-Se recomienda calcular el número aproximado de dispositivos que se van a supervisar. Más adelante, cuando registre su suscripción de Azure en el portal, se le pedirá que escriba este número. Los números se pueden agregar en intervalos de 1000 segundos. El número de dispositivos supervisados se denomina *dispositivos confirmados*.
+Se recomienda calcular el número aproximado de dispositivos que se van a supervisar. Más adelante, cuando registre su suscripción de Azure en el portal, se le pedirá que escriba este número. Los números se pueden agregar en intervalos de 1000; por ejemplo, 1000, 2000, 3000, etc. El número de dispositivos supervisados se denomina *dispositivos confirmados*.
 
 ## <a name="register-with-azure-defender-for-iot"></a>Registro en Azure Defender para IoT
 

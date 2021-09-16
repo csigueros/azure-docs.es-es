@@ -2,17 +2,17 @@
 title: 'Tutorial: Compilación y ejecución de una imagen personalizada en Azure App Service'
 description: Una guía paso a paso para crear una imagen personalizada de Linux o Windows, insertarla en Azure Container Registry y, a continuación, implementarla en Azure App Service. Obtenga información sobre cómo migrar software personalizado a App Service en un contenedor personalizado.
 ms.topic: tutorial
-ms.date: 07/16/2021
+ms.date: 08/04/2021
 ms.author: msangapu
 keywords: azure app service, web app, linux, windows, docker, container
 ms.custom: devx-track-csharp, mvc, seodec18, devx-track-python, devx-track-azurecli
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 97246083b783fe98b4021a6f9bb882d40e79d449
-ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
+ms.openlocfilehash: 1574464f4f6f4c4abe8a3fc45247f28b7b97bd96
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114387007"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123428081"
 ---
 # <a name="migrate-custom-software-to-azure-app-service-using-a-custom-container"></a>Migración de software personalizado a Azure App Service mediante un contenedor personalizado
 
@@ -458,19 +458,19 @@ Para implementar un contenedor en Azure App Service, primero debe crear una apli
 1. Configure la aplicación para que use la identidad administrada para la extracción de Azure Container Registry.
 
     ```azurecli-interactive
-    az resource update --ids /subscriptions/<subscription-id>/resourceGroups/myResourceGroup/providers/Microsoft.Web/sites/<registry-name>/config/web --set properties.acrUseManagedIdentityCreds=True
+    az resource update --ids /subscriptions/<subscription-id>/resourceGroups/myResourceGroup/providers/Microsoft.Web/sites/<app-name>/config/web --set properties.acrUseManagedIdentityCreds=True
     ```
     
     Reemplace los siguientes valores:
     - `<subscription-id>` por el id. de suscripción recuperado en el comando `az account show`.
-    - `<registry-name>` por el nombre del registro de contenedor.
+    - `<app-name>` por el nombre de la aplicación web.
 
     > [!TIP]
     > Si la aplicación usa una [identidad administrada asignada por el usuario](overview-managed-identity.md#add-a-user-assigned-identity), establezca una propiedad `AcrUserManagedIdentityID` adicional para especificar su id. de cliente:
     >
     > ```azurecli-interactive
     > clientId=$(az identity show --resource-group <group-name> --name <identity-name> --query clientId --output tsv)
-    > az resource update --ids /subscriptions/<subscription-id>/resourceGroups/myResourceGroup/providers/Microsoft.Web/sites/<registry-name>/config/web --set properties.AcrUserManagedIdentityID=$clientId
+    > az resource update --ids /subscriptions/<subscription-id>/resourceGroups/myResourceGroup/providers/Microsoft.Web/sites/<app-name>/config/web --set properties.AcrUserManagedIdentityID=$clientId
     > ```
 
 ## <a name="deploy-the-image-and-test-the-app"></a>Implementación de la imagen y prueba de la aplicación
@@ -579,7 +579,7 @@ En esta sección, realizará un cambio en el código de la aplicación web, reco
 1. Actualice el número de versión de la etiqueta de la imagen a v1.0.1:
 
     ```bash
-    docker tag appsvc-tutorial-custom-image <registry-name>.azurecr.io/appsvc-tutorial-custom-image:latest
+    docker tag appsvc-tutorial-custom-image <registry-name>.azurecr.io/appsvc-tutorial-custom-image:v1.0.1
     ```
 
     Reemplace `<registry-name>` por el nombre del registro.
@@ -587,7 +587,7 @@ En esta sección, realizará un cambio en el código de la aplicación web, reco
 1. Inserte la imagen en el registro:
 
     ```bash
-    docker push <registry-name>.azurecr.io/appsvc-tutorial-custom-image:latest
+    docker push <registry-name>.azurecr.io/appsvc-tutorial-custom-image:v1.0.1
     ```
 
 1. Una vez completada la inserción de la imagen, el webhook notifica a App Service la inserción y App Service intenta extraer la imagen actualizada. Espere unos minutos y, a continuación, compruebe que la actualización se ha implementado. Para ello, vaya a `https://<app-name>.azurewebsites.net`.
@@ -611,6 +611,7 @@ RUN apt-get update \
 
 > [!NOTE]
 > Esta configuración no permite realizar conexiones externas al contenedor. SSH solo está disponible en el sitio de Kudu/SCM. El sitio de Kudu/SCM se autentica con la cuenta de Azure.
+> root:Docker! no se debe modificar SSH. SCM/KUDU usará las credenciales de Azure Portal. Al cambiar este valor, se producirá un error al usar SSH.
 
 El archivo *Dockerfile* también copia el archivo *sshd_config*  en la carpeta */etc/ssh/* y expone el puerto 2222 en el contenedor:
 
