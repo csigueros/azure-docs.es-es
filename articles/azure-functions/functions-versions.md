@@ -4,12 +4,12 @@ description: Azure Functions admite varias versiones del runtime. Conozca las di
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 05/19/2021
-ms.openlocfilehash: 18f37bba5996e7d376684e8cee646dd705ab966c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 901297e34f259f9246b79ace2cc914f46b7d3b45
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121725649"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123251486"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Introducción a las versiones de tiempo de ejecución de Azure Functions
 
@@ -112,7 +112,7 @@ Se han quitado, actualizado o reemplazado algunas características después de l
 
 En la versión 2.x se han realizado los siguientes cambios:
 
-* Las claves para llamar a los puntos de conexión HTTP siempre se almacenan cifradas en Azure Blob Storage. En la versión 1.x, se almacenaban en Azure File Storage de manera predeterminada. Al actualizar una aplicación de la versión 1.x a la versión 2.x, los secretos existentes que se encuentran en el almacenamiento de archivos se restablecen.
+* Las claves para llamar a los puntos de conexión HTTP siempre se almacenan cifradas en Azure Blob Storage. En la versión 1.x, se almacenaban en Azure Files de manera predeterminada. Al actualizar una aplicación de la versión 1.x a la 2.x, se restablecen los secretos existentes que se encuentran en Azure Files.
 
 * La versión 2.x del entorno de ejecución no incluye compatibilidad integrada con proveedores de webhooks. Este cambio se realizó para mejorar el rendimiento. Todavía puede usar desencadenadores HTTP como puntos de conexión para los webhooks.
 

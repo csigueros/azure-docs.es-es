@@ -6,12 +6,12 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.date: 03/18/2021
-ms.openlocfilehash: bcd455590e804ad337f25afbd38d729f03ef3dc4
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 5ad806603ea64f643122ebc1f753e52b9d9e4225
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121743236"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123251433"
 ---
 # <a name="set-up-an-appliance-with-a-script"></a>Configuración de un dispositivo con un script
 
@@ -61,14 +61,17 @@ Compruebe que el archivo comprimido es seguro, antes de implementarlo.
 
     **Descargar** | **Valor del código hash**
     --- | ---
-    [La versión más reciente](https://go.microsoft.com/fwlink/?linkid=2116601) | b4668be44c05836bf0f2ac1c8b1f48b7a9538afcf416c5212c7190629e3683b2
+    [La versión más reciente](https://go.microsoft.com/fwlink/?linkid=2116601) | CA8CEEE4C7AC13328ECA56AE9EB35137336CD3D73B1F867C4D736286EF61A234
 
 > [!NOTE]
 > Se puede usar el mismo script para configurar el dispositivo de VMware para la nube pública de Azure o la nube de Azure Government.
 
 ### <a name="run-the-script"></a>Ejecute el script.
 
-1. Extraiga el archivo comprimido en la carpeta del servidor que hospedará el dispositivo.  No ejecute el script en un servidor con un dispositivo de Azure Migrate existente.
+1. Extraiga el archivo comprimido en la carpeta del servidor que hospedará el dispositivo.
+> [!NOTE]
+> No ejecute el script en un servidor con un dispositivo de Azure Migrate existente. Al ejecutar el script en el dispositivo de Azure Migrate, la configuración de trabajo se eliminará y se reemplazará por la que se acaba de definir.
+
 2. Inicie PowerShell en el servidor anterior con privilegios administrativos (elevados).
 3. Cambie el directorio de PowerShell a la carpeta en la que se ha extraído el contenido del archivo comprimido descargado.
 4. Ejecute el script denominado **AzureMigrateInstaller.ps1** ejecutando el comando siguiente:
@@ -76,7 +79,7 @@ Compruebe que el archivo comprimido es seguro, antes de implementarlo.
     
     ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> .\AzureMigrateInstaller.ps1 ```
 
-5. Seleccione entre las opciones de escenario, nube y conectividad para implementar un dispositivo con la configuración deseada. Por ejemplo, la selección que se muestra a continuación configura un dispositivo para detectar, evaluar y migrar **servidores que se ejecutan en el entorno de VMware** a un proyecto de Azure Migrate con **conectividad predeterminada** (punto de conexión público) en la **nube pública de Azure**.
+5. Seleccione entre las opciones de escenario, nube y conectividad para implementar un dispositivo con la configuración deseada. Por ejemplo, la selección que se muestra a continuación configura un dispositivo para detectar, evaluar y migrar **servidores que se ejecutan en el entorno de VMware** a un proyecto de Azure Migrate con **conectividad predeterminada _(punto de conexión público)_** en la **nube pública de Azure**.
 
     :::image type="content" source="./media/deploy-appliance-script/script-vmware-default-inline.png" alt-text="Captura de pantalla que muestra cómo configurar un dispositivo para VMware con la configuración deseada." lightbox="./media/deploy-appliance-script/script-vmware-default-expanded.png":::
 
@@ -118,14 +121,17 @@ Compruebe que el archivo comprimido es seguro, antes de implementarlo.
 
     **Descargar** | **Valor del código hash**
     --- | ---
-    [La versión más reciente](https://go.microsoft.com/fwlink/?linkid=2116657) | b4668be44c05836bf0f2ac1c8b1f48b7a9538afcf416c5212c7190629e3683b2
+    [La versión más reciente](https://go.microsoft.com/fwlink/?linkid=2116657) | CA8CEEE4C7AC13328ECA56AE9EB35137336CD3D73B1F867C4D736286EF61A234
 
 > [!NOTE]
 > Se puede usar el mismo script para configurar el dispositivo de Hyper-V para la nube pública de Azure o la nube de Azure Government.
 
 ### <a name="run-the-script"></a>Ejecute el script.
 
-1. Extraiga el archivo comprimido en la carpeta del servidor que hospedará el dispositivo.  No ejecute el script en un servidor con un dispositivo de Azure Migrate existente.
+1. Extraiga el archivo comprimido en la carpeta del servidor que hospedará el dispositivo.
+> [!NOTE]
+> No ejecute el script en una aplicación de Azure Migrate existente. Al ejecutar el script en el dispositivo de Azure Migrate, la configuración de trabajo se eliminará y se reemplazará por la que se acaba de definir.
+
 2. Inicie PowerShell en el servidor anterior con privilegios administrativos (elevados).
 3. Cambie el directorio de PowerShell a la carpeta en la que se ha extraído el contenido del archivo comprimido descargado.
 4. Ejecute el script denominado **AzureMigrateInstaller.ps1** ejecutando el comando siguiente:
@@ -133,7 +139,7 @@ Compruebe que el archivo comprimido es seguro, antes de implementarlo.
     
     ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> .\AzureMigrateInstaller.ps1 ```
 
-5. Seleccione entre las opciones de escenario, nube y conectividad para implementar un dispositivo con la configuración deseada. Por ejemplo, la selección que se muestra a continuación configura un dispositivo para detectar y evaluar **servidores que se ejecutan en el entorno de Hyper-V** a un proyecto de Azure Migrate con **conectividad predeterminada** (punto de conexión público) en la **nube pública de Azure**.
+5. Seleccione entre las opciones de escenario, nube y conectividad para implementar un dispositivo con la configuración deseada. Por ejemplo, la selección que se muestra a continuación configura un dispositivo para detectar y evaluar **servidores que se ejecutan en el entorno de Hyper-V** a un proyecto de Azure Migrate con **conectividad predeterminada _(punto de conexión público)_ en la** **nube pública de Azure**.
 
     :::image type="content" source="./media/deploy-appliance-script/script-hyperv-default-inline.png" alt-text="Captura de pantalla que muestra cómo configurar un dispositivo de Hyper-V con la configuración deseada." lightbox="./media/deploy-appliance-script/script-hyperv-default-expanded.png":::
 

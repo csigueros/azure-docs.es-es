@@ -1,6 +1,6 @@
 ---
 title: 'Administración de identidades administradas asignadas por el usuario: Azure AD'
-description: Creación de identidades administradas asignadas por el usuario
+description: Cree identidades administradas asignadas por el usuario.
 services: active-directory
 author: barclayn
 manager: daveba
@@ -13,102 +13,114 @@ ms.workload: identity
 ms.date: 06/08/2021
 ms.author: barclayn
 zone_pivot_groups: identity-mi-methods
-ms.openlocfilehash: 46f6b6354bed2ef0e2fc531f00b8380b04f6f0b9
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 83f47dbbdd0968a845871b106be9142fd67f9967
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111758295"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "122651622"
 ---
 # <a name="manage-user-assigned-managed-identities"></a>Administración de identidades administradas asignadas por el usuario
 
 
-Las identidades administradas para los recursos de Azure eliminan la necesidad de administrar las credenciales en el código. Permiten obtener un token de Azure Active Directory que las aplicaciones pueden usar al acceder a los recursos que admiten la autenticación de Azure Active Directory. Azure administra la identidad para que usted no tenga que hacerlo. Hay dos tipos de identidades administradas: asignadas por el sistema y asignadas por el usuario. La diferencia principal entre los dos tipos es que las identidades administradas asignadas por el sistema tienen un ciclo de vida vinculado al recurso donde se usan. Las identidades administradas asignadas por el usuario se pueden usar en varios recursos. Puede obtener más información al respecto en la [introducción](overview.md) a las identidades administradas. 
+
+Las identidades administradas para los recursos de Azure eliminan la necesidad de administrar las credenciales en el código. Puede usarlas para obtener un token de Azure Active Directory (Azure AD), que sus aplicaciones podrán usar al acceder a recursos que admitan autenticación de este servicio. Azure administra la identidad para que usted no tenga que hacerlo.
+
+Hay dos tipos de identidades administradas: asignadas por el sistema y asignadas por el usuario. La diferencia principal entre los dos tipos es que las identidades administradas asignadas por el sistema tienen un ciclo de vida vinculado al recurso donde se usan. Las identidades administradas asignadas por el usuario se pueden usar en varios recursos. Para obtener más información sobre las identidades administradas, consulte [¿Qué son las identidades administradas para los recursos de Azure?](overview.md).
 
 ::: zone pivot="identity-mi-methods-azp"
-
-En este artículo aprenderá a crear, enumerar, eliminar y asignar un rol a una identidad administrada asignada por el usuario mediante Azure Portal.
+En este artículo obtendrá información sobre cómo usar Azure Portal para crear y eliminar una identidad administrada asignada por el usuario, obtener una lista de sus identidades, y concederles un rol.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Si no está familiarizado con las identidades administradas de los recursos de Azure, consulte la [sección de introducción](overview.md). **No olvide revisar la [diferencia entre una identidad administrada asignada por el sistema y una identidad administrada asignada por el usuario](overview.md#managed-identity-types)** .
-- Si aún no tiene una cuenta de Azure, [regístrese para una cuenta gratuita](https://azure.microsoft.com/free/) antes de continuar.
+- Si no está familiarizado con las identidades administradas de los recursos de Azure, consulte la [sección de introducción](overview.md). No olvide revisar la [diferencia entre una identidad administrada asignada por el sistema y una identidad administrada asignada por el usuario](overview.md#managed-identity-types) .
+- Si aún no tiene una, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de continuar.
+
 
 ## <a name="create-a-user-assigned-managed-identity"></a>Crear una identidad administrada asignada por el usuario
 
 Para crear una identidad administrada asignada por el usuario, la cuenta requiere la asignación del rol [Colaborador de identidades administradas](../../role-based-access-control/built-in-roles.md#managed-identity-contributor).
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta asociada a la suscripción de Azure para crear la identidad administrada asignada por el usuario.
-2. En el cuadro de búsqueda, escriba *Identidades administradas* y en **Servicios**, haga clic en **Identidades administradas**.
-3. Haga clic en **Agregar** y escriba valores en los campos siguientes del panel **Crear identidad administrada asignada por el usuario**:
+1. En el cuadro de búsqueda, escriba **Identidades administradas**. En **Servicios**, seleccione **Identidades administradas**.
+1. Seleccione **Agregar** y escriba valores en los siguientes cuadros del panel **Crear identidad administrada asignada por el usuario**:
     - **Suscripción**: elija la suscripción donde crear la identidad administrada asignada por el usuario.
-    - **Grupo de recursos**: elija un grupo de recursos en el que crear la identidad administrada asignada por el usuario o haga clic en **Crear nuevo** para crear un nuevo grupo de recursos.
-    - **Región**: elija una región para implementar la identidad administrada asignada por el usuario, por ejemplo, **Oeste de EE. UU.** .
-    - **Name**: este es el nombre de la identidad administrada asignada por el usuario, por ejemplo, UAI1.
-    ![Creación de una identidad administrada asignada por el usuario](media/how-to-manage-ua-identity-portal/create-user-assigned-managed-identity-portal.png)
-4. Haga clic en **Revisar y crear** para revisar los cambios.
-5. Haga clic en **Crear**.
+    - **Grupo de recursos:** elija un grupo de recursos en el que crear la identidad administrada asignada por el usuario, o bien seleccione **Crear nuevo** para crear un grupo.
+    - **Región:** elija una región para implementar la identidad administrada asignada por el usuario, por ejemplo, **Oeste de EE. UU.**
+    - **Nombre:** especifique el nombre de la identidad administrada asignada por el usuario, por ejemplo, "UAI1".
+  
+[!INCLUDE [ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
+  
+   ![Captura de pantalla en la que se muestra el panel "Crear identidad administrada asignada por el usuario"](media/how-to-manage-ua-identity-portal/create-user-assigned-managed-identity-portal.png)
+1. Seleccione **Revisar y crear** para revisar los cambios.
+1. Seleccione **Crear**.
 
 ## <a name="list-user-assigned-managed-identities"></a>Enumerar identidades administradas asignadas por el usuario
 
-Para crear o leer una identidad administrada asignada por el usuario, la cuenta requiere la asignación del rol [Operador de identidades administradas ](../../role-based-access-control/built-in-roles.md#managed-identity-operator) o [Colaborador de identidades administradas](../../role-based-access-control/built-in-roles.md#managed-identity-contributor).
+Para visualizar o leer una identidad administrada asignada por el usuario, es necesario que se asignen a su cuenta los roles [Operador de identidades administradas ](../../role-based-access-control/built-in-roles.md#managed-identity-operator) o [Colaborador de identidades administradas](../../role-based-access-control/built-in-roles.md#managed-identity-contributor).
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta asociada a la suscripción de Azure para enumerar las identidades administradas asignadas por el usuario.
-2. En el cuadro de búsqueda, escriba *Identidades administradas* y en Servicios, haga clic en **Identidades administradas**.
-3. Se devuelve una lista de las identidades administradas asignadas por el usuario de la suscripción.  Para ver los detalles de una identidad administrada asignada por el usuario, haga clic en su nombre.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta asociada a la suscripción de Azure para obtener una lista de las identidades administradas asignadas por el usuario.
+1. En el cuadro de búsqueda, escriba **Identidades administradas**. En **Servicios**, seleccione **Identidades administradas**.
+1. Se devuelve una lista de las identidades administradas asignadas por el usuario de la suscripción. Para ver los detalles de una identidad administrada asignada por el usuario, seleccione el nombre.
 
-![Enumerar identidades administradas asignadas por el usuario](media/how-to-manage-ua-identity-portal/list-user-assigned-managed-identity-portal.png)
+   ![Captura de pantalla en la que se muestra la lista de identidades administradas asignadas por el usuario](media/how-to-manage-ua-identity-portal/list-user-assigned-managed-identity-portal.png)
 
 ## <a name="delete-a-user-assigned-managed-identity"></a>Eliminar una identidad administrada asignada por el usuario
 
 Para eliminar una identidad administrada asignada por el usuario, la cuenta requiere la asignación del rol [Colaborador de identidades administradas](../../role-based-access-control/built-in-roles.md#managed-identity-contributor).
 
-La eliminación de una identidad asignada por el usuario no la quita de ninguna VM o recurso a la que estuviera asignada.  Para quitar la identidad asignada por el usuario desde una máquina virtual, consulte [Eliminación de una identidad administrada asignada por el usuario de una VM](qs-configure-portal-windows-vm.md#remove-a-user-assigned-managed-identity-from-a-vm).
+Al eliminar una identidad asignada por el usuario, no se elimina de ninguna VM ni ningún recurso a los que estuviera asignada. Para eliminar la identidad asignada por el usuario de una VM, consulte [Eliminación de una identidad administrada asignada por el usuario de una VM](qs-configure-portal-windows-vm.md#remove-a-user-assigned-managed-identity-from-a-vm).
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta asociada a la suscripción de Azure para eliminar una identidad administrada asignada por el usuario.
-2. Seleccione la identidad administrada asignada por el usuario y haga clic en **Eliminar**.
-3. En el cuadro de confirmación, elija **Sí**.
+1. Seleccione la identidad administrada asignada por el usuario y haga clic en **Eliminar**.
+1. En el cuadro de confirmación, seleccione **SÍ**.
 
-![Eliminar una identidad administradas asignada por el usuario](media/how-to-manage-ua-identity-portal/delete-user-assigned-managed-identity-portal.png)
+   ![Captura de pantalla en la que se muestra la eliminación de identidades administradas asignadas por el usuario](media/how-to-manage-ua-identity-portal/delete-user-assigned-managed-identity-portal.png)
 
 ## <a name="assign-a-role-to-a-user-assigned-managed-identity"></a>Asignación de un rol a una identidad administrada asignada por el usuario 
 
 Para asignar un rol a una identidad administrada asignada por el usuario, la cuenta requiere la asignación del rol [Administrador de acceso de usuario](../../role-based-access-control/built-in-roles.md#user-access-administrator).
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta asociada a la suscripción de Azure para enumerar las identidades administradas asignadas por el usuario.
-2. En el cuadro de búsqueda, escriba *Identidades administradas* y en Servicios, haga clic en **Identidades administradas**.
-3. Se devuelve una lista de las identidades administradas asignadas por el usuario de la suscripción.  Seleccione la identidad administrada asignada por el usuario a la que desea asignar un rol.
-4. Seleccione **Control de acceso (IAM)** y después **Agregar asignación de rol**.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta asociada a la suscripción de Azure para obtener una lista de las identidades administradas asignadas por el usuario.
+1. En el cuadro de búsqueda, escriba **Identidades administradas**. En **Servicios**, seleccione **Identidades administradas**.
+1. Se devuelve una lista de las identidades administradas asignadas por el usuario de la suscripción. Seleccione la identidad administrada asignada por el usuario a la que desea asignar un rol.
+1. Seleccione **Control de acceso (IAM)** y después **Agregar asignación de rol**.
 
-   ![Inicio de Identidad administrada asignada por el usuario](media/how-to-manage-ua-identity-portal/assign-role-screenshot1.png)
+   ![Captura de pantalla en la que se muestra el inicio de una identidad administrada asignada por el usuario](media/how-to-manage-ua-identity-portal/assign-role-screenshot1.png)
 
-5. En la hoja Agregar asignación de roles, configure los siguientes valores y después, haga clic en **Guardar**:
-   - **Rol**: el rol que se va a asignar
-   - **Asignar acceso a**: el recurso al que se asigna la identidad administrada asignada por el usuario
-   - **Seleccionar**: el miembro al que se asigna acceso
+1. En el panel **Agregar asignación de roles**, configure los siguientes valores y, a continuación, seleccione **Guardar**:
+   - **Rol:** : rol que se va a asignar.
+   - **Asignar acceso a:** recurso al que se va a asignar la identidad administrada asignada por el usuario.
+   - **Seleccionar:** miembro al que se va a conceder acceso.
    
-   ![IAM de identidad administrada asignada por el usuario](media/how-to-manage-ua-identity-portal/assign-role-screenshot2.png)
+   ![Captura de pantalla en la que se muestra la IAM de identidades administradas asignadas por el usuario](media/how-to-manage-ua-identity-portal/assign-role-screenshot2.png)
 
 
 
 ::: zone-end
 
+
+
 ::: zone pivot="identity-mi-methods-azcli"
 
-En este artículo aprenderá a crear, enumerar, eliminar y asignar un rol a una identidad administrada asignada por el usuario mediante la CLI de Azure.
+En este artículo obtendrá información sobre cómo usar la CLI de Azure para crear y eliminar una identidad administrada asignada por el usuario, obtener una lista de sus identidades, y concederles un rol.
 
 ## <a name="prerequisites"></a>Requisitos previos
+
+- Si no está familiarizado con las identidades administradas de los recursos de Azure, consulte la [sección de introducción](overview.md). *No olvide revisar la [diferencia entre una identidad administrada asignada por el sistema y una identidad administrada asignada por el usuario](overview.md#managed-identity-types)* .
+- Si aún no tiene una, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de continuar.
+
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 > [!IMPORTANT]  
-> A fin de modificar los permisos de usuario al usar una entidad de servicio de aplicación mediante la CLI, debe proporcionar los permisos adicionales de la entidad de servicio en Graph API de Azure AD como partes de la CLI, realice solicitudes GET en Graph API. De lo contrario, puede acabar recibiendo el mensaje "No tiene privilegios suficientes para completar la operación". Para ello, tendrá que entrar en el Registro de aplicación en Azure Active Directory, seleccionar la aplicación, hacer clic en Permisos de API, desplazarse hacia abajo y seleccionar Azure Active Directory Graph. Desde allí, seleccione Permisos de la aplicación y, a continuación, agregue los permisos adecuados. 
+> Con el fin de modificar los permisos de usuario al usar una entidad de servicio de aplicación mediante la CLI, debe proporcionar más permisos a la entidad de servicio en Graph API de Azure Active Directory, ya que partes de la CLI realizan solicitudes GET a Graph API. De lo contrario, puede acabar recibiendo el mensaje "No tiene privilegios suficientes para completar la operación". Para completar este paso, vaya al **registro de aplicaciones** en Azure AD, seleccione **Permisos de API**, desplácese hacia abajo y seleccione **Azure Active Directory Graph**. Allí, seleccione **Permisos de la aplicación** y, a continuación, agregue los permisos correspondientes. 
 
 ## <a name="create-a-user-assigned-managed-identity"></a>Crear una identidad administrada asignada por el usuario 
 
 Para crear una identidad administrada asignada por el usuario, la cuenta requiere la asignación del rol [Colaborador de identidades administradas](../../role-based-access-control/built-in-roles.md#managed-identity-contributor).
 
-Use el comando [az identity create](/cli/azure/identity#az_identity_create) para crear una identidad administrada asignada por el usuario. El parámetro `-g` especifica el grupo de recursos donde se creará la identidad administrada asignada por el usuario, mientras que el parámetro `-n` especifica su nombre. Reemplace los valores de los parámetros `<RESOURCE GROUP>` y `<USER ASSIGNED IDENTITY NAME>` con sus propios valores:
+Use el comando [az identity create](/cli/azure/identity#az_identity_create) para crear una identidad administrada asignada por el usuario. El parámetro `-g` especifica el grupo de recursos donde se debe crear la identidad administrada asignada por el usuario. El parámetro `-n` especifica su nombre. Reemplace los valores de parámetro `<RESOURCE GROUP>` y `<USER ASSIGNED IDENTITY NAME>` por sus propios valores.
 
 [!INCLUDE [ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
@@ -117,15 +129,15 @@ az identity create -g <RESOURCE GROUP> -n <USER ASSIGNED IDENTITY NAME>
 ```
 ## <a name="list-user-assigned-managed-identities"></a>Enumerar identidades administradas asignadas por el usuario
 
-Para crear o leer una identidad administrada asignada por el usuario, la cuenta requiere la asignación del rol [Operador de identidades administradas ](../../role-based-access-control/built-in-roles.md#managed-identity-operator) o [Colaborador de identidades administradas](../../role-based-access-control/built-in-roles.md#managed-identity-contributor).
+Para visualizar o leer una identidad administrada asignada por el usuario, es necesario que se asignen a su cuenta los roles [Operador de identidades administradas ](../../role-based-access-control/built-in-roles.md#managed-identity-operator) o [Colaborador de identidades administradas](../../role-based-access-control/built-in-roles.md#managed-identity-contributor).
 
-Para enumerar las identidades administradas asignadas por el usuario, use el comando [az identity list](/cli/azure/identity#az_identity_list). Reemplace `<RESOURCE GROUP>` por su propio valor:
+Para enumerar las identidades administradas asignadas por el usuario, use el comando [az identity list](/cli/azure/identity#az_identity_list). Reemplace el valor `<RESOURCE GROUP>` por su propio valor.
 
 ```azurecli-interactive
 az identity list -g <RESOURCE GROUP>
 ```
 
-En la respuesta JSON, a las identidades administradas asignadas por el usuario se devuelve el valor `"Microsoft.ManagedIdentity/userAssignedIdentities"` para la clave `type`.
+En la respuesta JSON, las identidades administradas asignadas por el usuario obtienen el valor `"Microsoft.ManagedIdentity/userAssignedIdentities"` para la clave `type`.
 
 `"type": "Microsoft.ManagedIdentity/userAssignedIdentities"`
 
@@ -133,42 +145,44 @@ En la respuesta JSON, a las identidades administradas asignadas por el usuario s
 
 Para eliminar una identidad administrada asignada por el usuario, la cuenta requiere la asignación del rol [Colaborador de identidades administradas](../../role-based-access-control/built-in-roles.md#managed-identity-contributor).
 
-Para eliminar una identidad administrada asignada por el usuario, use el comando [az identity delete](/cli/azure/identity#az_identity_delete).  El parámetro -n especifica el nombre, y el parámetro -g especifica el grupo de recursos donde se creó la identidad administrada asignada por el usuario. Reemplace los valores de los parámetros `<USER ASSIGNED IDENTITY NAME>` y `<RESOURCE GROUP>` con sus propios valores:
+Para eliminar una identidad administrada asignada por el usuario, use el comando [az identity delete](/cli/azure/identity#az_identity_delete). El parámetro -n especifica su nombre. El parámetro -g especifica el grupo de recursos donde se creó la identidad administrada asignada por el usuario. Reemplace los valores de parámetro `<USER ASSIGNED IDENTITY NAME>` y `<RESOURCE GROUP>` por sus propios valores.
 
 ```azurecli-interactive
 az identity delete -n <USER ASSIGNED IDENTITY NAME> -g <RESOURCE GROUP>
 ```
 > [!NOTE]
-> El proceso de eliminación de una identidad administrada asignada por el usuario no quitará la referencia de ningún recurso al que se haya asignado. Quite esas máquinas virtuales y VMSS con el comando `az vm/vmss identity remove`.
+> Al eliminar una identidad administrada asignada por el usuario, no se eliminará la referencia de ningún recurso al que se haya asignado. Para eliminarlos de una máquina virtual o un conjunto de escalado de máquinas virtuales, use el comando `az vm/vmss identity remove`.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para obtener una lista completa de comandos de identidad de la CLI de Azure, consulte [az identity](/cli/azure/identity).
 
-Para obtener información sobre cómo asignar una identidad administrada asignada por el usuario a una VM de Azure, consulte [Configure managed identities for Azure resources on an Azure VM using Azure CLI](qs-configure-cli-windows-vm.md#user-assigned-managed-identity) (Configuración de identidades administradas de recursos de Azure en una VM de Azure con la CLI de Azure).
+Para obtener información sobre cómo asignar una identidad administrada asignada por el usuario a una VM de Azure, consulte [Configuración de identidades administradas para recursos de Azure en una VM de Azure mediante la CLI de Azure](qs-configure-cli-windows-vm.md#user-assigned-managed-identity).
 
 
 ::: zone-end
 
 ::: zone pivot="identity-mi-methods-powershell"
 
-En este artículo, aprenderá a crear, enumerar y eliminar una identidad administrada asignada por el usuario con PowerShell.
+En este artículo obtendrá información sobre cómo usar PowerShell para crear y eliminar una identidad administrada asignada por el usuario, obtener una lista de sus identidades, y concederles un rol.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Si no está familiarizado con las identidades administradas de los recursos de Azure, consulte la [sección de introducción](overview.md). **No olvide revisar la [diferencia entre una identidad administrada asignada por el sistema y una identidad administrada asignada por el usuario](overview.md#managed-identity-types)** .
-- Si aún no tiene una cuenta de Azure, [regístrese para una cuenta gratuita](https://azure.microsoft.com/free/) antes de continuar.
+- Si no está familiarizado con las identidades administradas de los recursos de Azure, consulte la [sección de introducción](overview.md). *No olvide revisar la [diferencia entre una identidad administrada asignada por el sistema y una identidad administrada asignada por el usuario](overview.md#managed-identity-types)* .
+- Si aún no tiene una, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de continuar.
 - Para ejecutar los scripts de ejemplo, tiene dos opciones:
-    - Use [Azure Cloud Shell](../../cloud-shell/overview.md), que puede abrir mediante el botón **Probar** en la esquina superior derecha de los bloques de código.
+    - Use [Azure Cloud Shell](../../cloud-shell/overview.md), que puede abrir mediante el botón **Probar**, ubicado en la esquina superior derecha de los bloques de código.
     - Ejecute los scripts localmente con Azure PowerShell, tal como se describe en la sección siguiente.
+
+En este artículo obtendrá información sobre cómo usar PowerShell para crear y eliminar una identidad administrada asignada por el usuario, y obtener una lista de sus identidades.
 
 ### <a name="configure-azure-powershell-locally"></a>Configuración de Azure PowerShell de forma local
 
-Para usar Azure PowerShell de forma local en este artículo (en lugar de usar Cloud Shell), complete los pasos siguientes:
+Para usar Azure PowerShell localmente con este artículo en lugar de usar Cloud Shell:
 
 1. Instale [la versión más reciente de Azure PowerShell](/powershell/azure/install-az-ps) si aún no lo ha hecho.
 
-1. Inicie de sesión en Azure:
+1. Inicie sesión en Azure.
 
     ```azurepowershell
     Connect-AzAccount
@@ -180,9 +194,9 @@ Para usar Azure PowerShell de forma local en este artículo (en lugar de usar Cl
     Install-Module -Name PowerShellGet -AllowPrerelease
     ```
 
-    Es posible que necesite `Exit` fuera de la sesión de PowerShell actual después de ejecutar este comando para el paso siguiente.
+    Es posible que necesite `Exit` fuera de la sesión de PowerShell actual después de ejecutar este comando para el siguiente paso.
 
-1. Instale la versión preliminar del módulo `Az.ManagedServiceIdentity` con el fin de realizar las operaciones de identidad administrada que haya asignado el usuario, y que se indican en este artículo.
+1. Instale la versión preliminar del módulo `Az.ManagedServiceIdentity` con el fin de realizar las operaciones con identidades administradas asignadas por el usuario que se indican en este artículo.
 
     ```azurepowershell
     Install-Module -Name Az.ManagedServiceIdentity -AllowPrerelease
@@ -192,7 +206,7 @@ Para usar Azure PowerShell de forma local en este artículo (en lugar de usar Cl
 
 Para crear una identidad administrada asignada por el usuario, la cuenta requiere la asignación del rol [Colaborador de identidades administradas](../../role-based-access-control/built-in-roles.md#managed-identity-contributor).
 
-Para crear una identidad administrada asignada por el usuario, use el comando `New-AzUserAssignedIdentity`. El parámetro `ResourceGroupName` especifica el grupo de recursos donde se creará la identidad administrada asignada por el usuario, mientras que el parámetro `-Name` especifica su nombre. Reemplace los valores de los parámetros `<RESOURCE GROUP>` y `<USER ASSIGNED IDENTITY NAME>` con sus propios valores:
+Para crear una identidad administrada asignada por el usuario, use el comando `New-AzUserAssignedIdentity`. El parámetro `ResourceGroupName` especifica el grupo de recursos donde se debe crear la identidad administrada asignada por el usuario. El parámetro `-Name` especifica su nombre. Reemplace los valores de parámetro `<RESOURCE GROUP>` y `<USER ASSIGNED IDENTITY NAME>` por sus propios valores.
 
 [!INCLUDE [ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
@@ -202,15 +216,15 @@ New-AzUserAssignedIdentity -ResourceGroupName <RESOURCEGROUP> -Name <USER ASSIGN
 
 ## <a name="list-user-assigned-managed-identities"></a>Enumerar identidades administradas asignadas por el usuario
 
-Para crear o leer una identidad administrada asignada por el usuario, la cuenta requiere la asignación del rol [Operador de identidades administradas ](../../role-based-access-control/built-in-roles.md#managed-identity-operator) o [Colaborador de identidades administradas](../../role-based-access-control/built-in-roles.md#managed-identity-contributor).
+Para visualizar o leer una identidad administrada asignada por el usuario, es necesario que se asignen a su cuenta los roles [Operador de identidades administradas ](../../role-based-access-control/built-in-roles.md#managed-identity-operator) o [Colaborador de identidades administradas](../../role-based-access-control/built-in-roles.md#managed-identity-contributor).
 
-Para enumerar las identidades administradas asignadas por el usuario, use el comando [Get-AzUserAssigned].  El parámetro `-ResourceGroupName` especifica el grupo de recursos donde se creó la identidad administrada asignada por el usuario. Reemplace `<RESOURCE GROUP>` por su propio valor:
+Para enumerar las identidades administradas asignadas por el usuario, use el comando [Get-AzUserAssigned]. El parámetro `-ResourceGroupName` especifica el grupo de recursos donde se creó la identidad administrada asignada por el usuario. Reemplace el valor `<RESOURCE GROUP>` por su propio valor.
 
 ```azurepowershell-interactive
 Get-AzUserAssignedIdentity -ResourceGroupName <RESOURCE GROUP>
 ```
 
-En la respuesta, las identidades administradas asignadas por el usuario reciben el valor `"Microsoft.ManagedIdentity/userAssignedIdentities"` para la clave `Type`.
+En la respuesta, las identidades administradas asignadas por el usuario obtienen el valor `"Microsoft.ManagedIdentity/userAssignedIdentities"` para la clave `Type`.
 
 `Type :Microsoft.ManagedIdentity/userAssignedIdentities`
 
@@ -218,14 +232,14 @@ En la respuesta, las identidades administradas asignadas por el usuario reciben 
 
 Para eliminar una identidad administrada asignada por el usuario, la cuenta requiere la asignación del rol [Colaborador de identidades administradas](../../role-based-access-control/built-in-roles.md#managed-identity-contributor).
 
-Para eliminar una identidad administrada asignada por el usuario, use el comando `Remove-AzUserAssignedIdentity`.  El parámetro `-ResourceGroupName` especifica el grupo de recursos donde se creó la identidad asignada por el usuario, mientras que el parámetro `-Name` especifica su nombre. Reemplace los valores de los parámetros `<RESOURCE GROUP>` y `<USER ASSIGNED IDENTITY NAME>` con sus propios valores:
+Para eliminar una identidad administrada asignada por el usuario, use el comando `Remove-AzUserAssignedIdentity`. El parámetro `-ResourceGroupName` especifica el grupo de recursos donde se creó la identidad asignada por el usuario. El parámetro `-Name` especifica su nombre. Reemplace los valores de parámetro `<RESOURCE GROUP>` y `<USER ASSIGNED IDENTITY NAME>` por sus propios valores.
 
 ```azurepowershell-interactive
 Remove-AzUserAssignedIdentity -ResourceGroupName <RESOURCE GROUP> -Name <USER ASSIGNED IDENTITY NAME>
 ```
 
 > [!NOTE]
-> El proceso de eliminación de una identidad administrada asignada por el usuario no quitará la referencia de ningún recurso al que se haya asignado. Las asignaciones de identidad deben quitarse por separado.
+> Al eliminar una identidad administrada asignada por el usuario, no se eliminará la referencia de ningún recurso al que se haya asignado. Las asignaciones de identidad deben eliminarse por separado.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -237,32 +251,32 @@ Para obtener una lista completa y más detalles sobre las identidades administra
 
 ::: zone pivot="identity-mi-methods-arm"
 
-En este artículo creará una identidad administrada asignada por el usuario mediante Azure Resource Manager.
+En este artículo va a crear una identidad administrada asignada por el usuario mediante Azure Resource Manager.
 
-No es posible enumerar y eliminar una identidad administrada asignada por el usuario mediante una plantilla de Azure Resource Manager.  Consulte los artículos siguientes para crear y enumerar una identidad administrada asignada por el usuario:
+## <a name="prerequisites"></a>Requisitos previos
+
+- Si no está familiarizado con las identidades administradas de los recursos de Azure, consulte la [sección de introducción](overview.md). *No olvide revisar la [diferencia entre una identidad administrada asignada por el sistema y una identidad administrada asignada por el usuario](overview.md#managed-identity-types)* .
+- Si aún no tiene una, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de continuar.
+
+No se puede visualizar ni eliminar una identidad administrada asignada por el usuario mediante una plantilla de Resource Manager. Consulte los artículos siguientes para crear y enumerar una identidad administrada asignada por el usuario:
 
 - [Enumeración de identidades administradas asignadas por el usuario](how-to-manage-ua-identity-cli.md#list-user-assigned-managed-identities)
 - [Eliminación de identidades administradas asignadas por el usuario](how-to-manage-ua-identity-cli.md#delete-a-user-assigned-managed-identity)
 
-## <a name="prerequisites"></a>Requisitos previos
-
-- Si no está familiarizado con las identidades administradas para recursos de Azure, consulte la [sección de introducción](overview.md). **No olvide revisar la [diferencia entre una identidad administrada asignada por el sistema y una identidad administrada asignada por el usuario](overview.md#managed-identity-types)** .
-- Si aún no tiene una cuenta de Azure, [regístrese para una cuenta gratuita](https://azure.microsoft.com/free/) antes de continuar.
-
 ## <a name="template-creation-and-editing"></a>Creación y edición de una plantilla
 
-Como con Azure Portal y los scripts, las plantillas de Azure Resource Manager proporcionan la capacidad de implementar recursos nuevos o modificados definidos con un grupo de recursos de Azure. Existen varias opciones para la edición e implementación de plantillas, tanto localmente como basadas en el portal, incluidas:
+Al igual que con Azure Portal y los scripts, las plantillas de Azure Resource Manager proporcionan la capacidad de implementar recursos nuevos o modificados que estén definidos por un grupo de recursos de Azure. Hay disponibles varias opciones para editar e implementar plantillas, tanto locales como basadas en el portal. Puede:
 
-- Usar una [plantilla personalizada de Azure Marketplace](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template), que permite crear una plantilla desde cero, o bien basada en una plantilla común existente o en una [plantilla de inicio rápido](https://azure.microsoft.com/documentation/templates/).
-- Derivar a partir de un grupo de recursos existente, exportando una plantilla de [la implementación original](../../azure-resource-manager/management/manage-resource-groups-portal.md#export-resource-groups-to-templates) o del [estado actual de la implementación](../../azure-resource-manager/management/manage-resource-groups-portal.md#export-resource-groups-to-templates).
-- Usar un [editor de JSON (por ejemplo, VS Code)](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md) local y, a continuación, cargarla e implementarla con PowerShell o la CLI.
-- Usar el [proyecto del grupo de recursos de Azure](../../azure-resource-manager/templates/create-visual-studio-deployment-project.md) de Visual Studio tanto para crear como para implementar una plantilla. 
+- Usar una [plantilla personalizada de Azure Marketplace](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template) para crear otra desde cero o basarla en una plantilla común ya existente o [de inicio rápido](https://azure.microsoft.com/resources/templates/).
+- Obtenerla a partir de un grupo de recursos existente, exportando una plantilla de [la implementación original](../../azure-resource-manager/management/manage-resource-groups-portal.md#export-resource-groups-to-templates) o del [estado actual de la implementación](../../azure-resource-manager/management/manage-resource-groups-portal.md#export-resource-groups-to-templates).
+- Usar un [editor de JSON (por ejemplo, VS Code)](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md) localmente y, a continuación, cargarla e implementarla con PowerShell o la CLI de Azure.
+- Usar el [proyecto del grupo de recursos de Azure](../../azure-resource-manager/templates/create-visual-studio-deployment-project.md) de Visual Studio para crear e implementar una plantilla. 
 
 ## <a name="create-a-user-assigned-managed-identity"></a>Crear una identidad administrada asignada por el usuario 
 
 Para crear una identidad administrada asignada por el usuario, la cuenta requiere la asignación del rol [Colaborador de identidades administradas](../../role-based-access-control/built-in-roles.md#managed-identity-contributor).
 
-Para crear una identidad administrada asignada por el usuario, use la siguiente plantilla. Reemplace el valor de `<USER ASSIGNED IDENTITY NAME>` por sus propios valores:
+Para crear una identidad administrada asignada por el usuario, use la siguiente plantilla. Reemplace el valor de `<USER ASSIGNED IDENTITY NAME>` por sus propios valores.
 
 [!INCLUDE [ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
@@ -296,7 +310,7 @@ Para crear una identidad administrada asignada por el usuario, use la siguiente 
 ```
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener información sobre cómo asignar una identidad administrada asignada por el usuario a una VM de Azure mediante una plantilla de Azure Resource Manager, consulte [Configure managed identities for Azure resources on an Azure VM using a template](qs-configure-template-windows-vm.md) (Configuración de identidades administradas de recursos de Azure en una VM de Azure mediante una plantilla).
+Para obtener información sobre cómo asignar una identidad administrada asignada por el usuario a una VM de Azure mediante una plantilla de Resource Manager, consulte [Configuración de identidades administradas para recursos de Azure en una VM de Azure mediante una plantilla](qs-configure-template-windows-vm.md).
 
 
 
@@ -306,25 +320,29 @@ Para obtener información sobre cómo asignar una identidad administrada asignad
 
 ::: zone pivot="identity-mi-methods-rest"
 
-En este artículo, aprenderá a crear, enumerar y eliminar una identidad administrada asignada por el usuario mediante CURL para hacer llamadas a la API REST.
+En este artículo obtendrá información sobre cómo usar REST para crear y eliminar una identidad administrada asignada por el usuario, y obtener una lista de sus identidades.
+
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Si no está familiarizado con las identidades administradas de los recursos de Azure, consulte la [sección de introducción](overview.md). **No olvide revisar la [diferencia entre una identidad administrada asignada por el sistema y una identidad administrada asignada por el usuario](overview.md#managed-identity-types)** .
-- Si aún no tiene una cuenta de Azure, [regístrese para una cuenta gratuita](https://azure.microsoft.com/free/) antes de continuar.
+- Si no está familiarizado con las identidades administradas de los recursos de Azure, consulte la [sección de introducción](overview.md). *No olvide revisar la [diferencia entre una identidad administrada asignada por el sistema y una identidad administrada asignada por el usuario](overview.md#managed-identity-types)* .
+- Si aún no tiene una, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de continuar.
 - Puede ejecutar todos los comandos de este artículo, ya sea en la nube o localmente:
-    - Para ejecutar en la nube, use [Azure Cloud Shell](../../cloud-shell/overview.md).
+    - Para ejecutarlos en la nube, use [Azure Cloud Shell](../../cloud-shell/overview.md).
     - Para ejecutar localmente, instale [curl](https://curl.haxx.se/download.html) y la [CLI de Azure](/cli/azure/install-azure-cli).
+
+
+En este artículo obtendrá información sobre cómo usar CURL para realizar llamadas API, con el fin de crear y eliminar una identidad administrada asignada por el usuario, y obtener una lista de sus identidades.
 
 ## <a name="obtain-a-bearer-access-token"></a>Obtención de un token de acceso de portador
 
-1. Si se ejecuta localmente, inicie sesión en Azure a través de la CLI de Azure:
+1. Si se ejecuta localmente, inicie sesión en Azure a través de la CLI.
 
     ```
     az login
     ```
 
-1. Obtenga un token de acceso mediante [az account get-access-token](/cli/azure/account#az_account_get_access_token)
+1. Para obtener un token de acceso, use [az account get-access-token](/cli/azure/account#az_account_get_access_token).
 
     ```azurecli-interactive
     az account get-access-token
@@ -358,11 +376,11 @@ s/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<U
 
 |Nombre  |Descripción  |
 |---------|---------|
-|ubicación     | Necesario. Ubicación del recurso        |
+|Location     | Necesario. Ubicación del recurso        |
 
 ## <a name="list-user-assigned-managed-identities"></a>Enumerar identidades administradas asignadas por el usuario
 
-Para crear o leer una identidad administrada asignada por el usuario, la cuenta requiere la asignación del rol [Operador de identidades administradas ](../../role-based-access-control/built-in-roles.md#managed-identity-operator) o [Colaborador de identidades administradas](../../role-based-access-control/built-in-roles.md#managed-identity-contributor).
+Para visualizar o leer una identidad administrada asignada por el usuario, es necesario que se asignen a su cuenta los roles [Operador de identidades administradas ](../../role-based-access-control/built-in-roles.md#managed-identity-operator) o [Colaborador de identidades administradas](../../role-based-access-control/built-in-roles.md#managed-identity-contributor).
 
 ```bash
 curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities?api-version=2015-08-31-preview' -H "Authorization: Bearer <ACCESS TOKEN>"
@@ -382,7 +400,7 @@ GET https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/
 Para eliminar una identidad administrada asignada por el usuario, la cuenta requiere la asignación del rol [Colaborador de identidades administradas](../../role-based-access-control/built-in-roles.md#managed-identity-contributor).
 
 > [!NOTE]
-> La eliminación de una identidad administrada asignada por el usuario no quitará la referencia de ningún recurso al que se haya asignado. Para quitar una identidad administrada asignada por el usuario desde una máquina virtual mediante CURL, consulte [Eliminar una identidad asignada por el usuario de una máquina virtual de Azure](qs-configure-rest-vm.md#remove-a-user-assigned-managed-identity-from-an-azure-vm).
+> Al eliminar una identidad administrada asignada por el usuario, no se eliminará la referencia de ningún recurso al que se haya asignado. Para eliminar una identidad administrada asignada por el usuario de una máquina virtual mediante CURL, consulte [Eliminación de una identidad asignada por el usuario de una máquina virtual de Azure](qs-configure-rest-vm.md#remove-a-user-assigned-managed-identity-from-an-azure-vm).
 
 ```bash
 curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
@@ -399,7 +417,9 @@ DELETE https://management.azure.com/subscriptions/80c696ff-5efa-4909-a64d-f1b616
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información sobre cómo asignar una identidad asignada por el usuario a una máquina virtual o a un conjunto de escalado de máquinas virtuales de Azure mediante CURL, consulte cómo [configurar las identidades administradas para los recursos de Azure en una máquina virtual de Azure mediante las llamadas a API REST](qs-configure-rest-vm.md#user-assigned-managed-identity) y cómo [configurar las identidades administradas para los recursos de Azure en un conjunto de escalado de máquinas virtuales mediante las llamadas a API REST](qs-configure-rest-vmss.md#user-assigned-managed-identity).
+Para obtener información sobre cómo usar CURL para asignar una identidad administrada asignada por el usuario a una máquina virtual de Azure o un conjunto de escalado de máquinas virtuales, consulte los siguientes artículos:
+- [Configuración de identidades administradas de recursos de Azure en una VM de Azure mediante llamadas a la API de REST](qs-configure-rest-vm.md#user-assigned-managed-identity) 
+- [Configuración de identidades administradas de recursos de Azure en un conjunto de escalado de máquinas virtuales mediante llamadas a la API REST](qs-configure-rest-vmss.md#user-assigned-managed-identity)
 
 ::: zone-end
 
