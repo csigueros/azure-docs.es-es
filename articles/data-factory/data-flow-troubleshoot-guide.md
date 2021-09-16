@@ -5,14 +5,15 @@ ms.author: makromer
 author: kromerm
 ms.reviewer: daperlov
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: troubleshooting
-ms.date: 04/22/2021
-ms.openlocfilehash: 82f6d69629f397cb5222a82677bf27ed880aa20f
-ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
+ms.date: 08/18/2021
+ms.openlocfilehash: 9925875f45f5715343ef50fff018b436966bb4c0
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107988017"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123099621"
 ---
 # <a name="troubleshoot-mapping-data-flows-in-azure-data-factory"></a>Solución de problemas de los flujos de datos de asignación en Azure Data Factory
 
@@ -67,7 +68,7 @@ En este artículo se exploran métodos comunes de solución de problemas de fluj
 - **Recomendación**: Póngase en contacto con el equipo del producto de Microsoft para obtener más detalles sobre este problema.
 
 ### <a name="error-code-df-executor-partitiondirectoryerror"></a>Código de error: DF-Executor-PartitionDirectoryError
-- **Mensaje**: la ruta de origen especificada tiene varios directorios con particiones (por ejemplo, <Source Path>/<Directorio raíz de la partición 1>/a=10/b=20, <Source Path>/<Directorio raíz de la partición 2>/c=10/d=30) o un directorio con particiones con otro archivo o directorio sin particiones (por ejemplo, <Source Path>/<Directorio raíz con particiones 1>/a=10/b=20, <Source Path>/Directorio 2/archivo1). Quite el directorio raíz con particiones de la ruta de origen y léalo a través de una transformación de origen independiente.
+- **Mensaje:** la ruta de acceso de origen especificada tiene varios directorios con particiones (por ejemplo, &lt;Ruta de acceso de origen&gt;/<Directorio raíz de la partición 1>/a=10/b=20, &lt;Ruta de acceso de origen&gt;/&lt;Directorio raíz de la partición 2&gt;/c=10/d=30) o un directorio con particiones con otro archivo o directorio sin particiones (por ejemplo, &lt;&gt;/&lt;Directorio raíz con particiones 1&gt;/a=10/b=20, &lt;Ruta de acceso de origen&gt;/Directorio 2/archivo1). Quite el directorio raíz con particiones de la ruta de origen y léalo a través de una transformación de origen independiente.
 - **Causa**: La ruta de origen tiene varios directorios con particiones o un directorio con particiones que tiene otro archivo o directorio sin particiones.
 - **Recomendación**: Quite el directorio raíz con particiones de la ruta de origen y léalo a través de una transformación de origen independiente.
 
@@ -117,7 +118,7 @@ En este artículo se exploran métodos comunes de solución de problemas de fluj
  ### <a name="error-code-df-executor-storeisnotdefined"></a>Código de error: DF-Executor-StoreIsNotDefined
 - **Mensaje**: The store configuration is not defined. This error is potentially caused by invalid parameter assignment in the pipeline (La configuración del almacén no está definida. Este error se puede deber a una asignación de parámetros no válida en la canalización).
 - **Causa**: se proporcionó una configuración de almacén no válida.
-- **Recomendación**: Compruebe la asignación de valores de parámetros en la canalización. Una expresión de parámetros puede contener caracteres no válidos.
+- **Recomendación:** compruebe la asignación de valores de parámetro en la canalización. Una expresión de parámetro puede contener caracteres no válidos.
 
 
 ### <a name="error-code-4502"></a>Código de error: 4502
@@ -125,6 +126,10 @@ En este artículo se exploran métodos comunes de solución de problemas de fluj
 - **Causa**: Un gran número de ejecuciones de actividad de flujo de datos se producen simultáneamente en el entorno de ejecución de integración. Para más información, consulte [Límites de Data Factory](../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits).
 - **Recomendación**: Si desea ejecutar más actividades de flujo de datos en paralelo, distribúyalas en varios entornos de ejecución de integración.
 
+### <a name="error-code-4510"></a>Código de error: 4510
+- **Mensaje:** Error inesperado durante la ejecución. 
+- **Causa:** dado que los clústeres de depuración funcionan de forma diferente a los de trabajo, un número excesivo de ejecuciones de depuración podría desgastar el clúster con el tiempo, lo que a su vez podría provocar problemas de memoria y reinicios bruscos.
+- **Recomendación:** reinicie el clúster de depuración. Si va a ejecutar varios flujos de datos durante la sesión de depuración, use ejecuciones de actividad en su lugar, ya que la ejecución de nivel de actividad crea una sesión independiente sin comprometer al clúster de depuración principal.
 
 ### <a name="error-code-invalidtemplate"></a>Código de error: InvalidTemplate
 - **Mensaje**: no se puede evaluar la expresión de canalización.
@@ -243,7 +248,7 @@ En este artículo se exploran métodos comunes de solución de problemas de fluj
 - **Recomendación**: actualice la configuración de almacenamiento provisional de Snowflake para asegurarse de que solo se usa el servicio vinculado de Azure Blob.
 
 ### <a name="error-code-df-snowflake-invalidstageconfiguration"></a>Código de error: DF-Snowflake-InvalidStageConfiguration
-- **Mensaje**: Las propiedades del almacenamiento temporal de Snowflake deben especificarse con la autenticación azure blob + sas.
+- **Mensaje:** Deben especificarse las propiedades del almacenamiento temporal de Snowflake con la autenticación de Azure Blob + SAS.
 - **Causa**: se proporcionó una configuración de almacenamiento provisional no válida en Snowflake.
 - **Recomendación**: asegúrese de que solo se especifique la autenticación de Azure Blob y de SAS en la configuración de almacenamiento provisional de Snowflake.
 
@@ -397,19 +402,19 @@ En este artículo se exploran métodos comunes de solución de problemas de fluj
 
 ### <a name="error-code-df-cosmos-deletedatafailed"></a>Código de error: DF-Cosmos-DeleteDataFailed
 - **Mensaje**: no se pudieron eliminar los datos de Cosmos después de tres reintentos.
-- **Causa**: el rendimiento de la colección de Cosmos es pequeño y conduce a la limitación o a que los datos de fila no existan en Cosmos.
+- **Causa:** el rendimiento de la colección de Cosmos es bajo y provoca que no haya datos de fila o limitación en Cosmos.
 - **Recomendación**: tome las siguientes medidas para resolver este problema:
-    1. Si el error es 404, asegúrese de que los datos de fila relacionados existen en la colección de Cosmos. 
+    1. Si el error es 404, asegúrese de que los datos de fila relacionados existan en la colección de Cosmos. 
     1. Si el error está relacionado con la limitación, aumente el rendimiento de la colección de Cosmos o establézcalo en la escala automática.
+    1. Si está relacionado con el tiempo de espera de la solicitud, establezca "Tamaño de lote" en el receptor Cosmos con un valor menor, por ejemplo, 1000.
 
 ### <a name="error-code-df-sqldw-errorrowsfound"></a>Código de error: DF-SQLDW-ErrorRowsFound
-- **Mensaje**: se encontraron filas de error o no válidas al escribir en el receptor de SQL. Las filas de error o no válidas se escriben en la ubicación de almacenamiento de datos rechazada si están configuradas.
-- **Causa**: se encontraron filas de error o no válidas al escribir en el receptor de SQL.
+- **Causa:** se han encontrado filas de error o no válidas al escribir en el receptor de Azure Synapse Analytics.
 - **Recomendación**: busque las filas de error en la ubicación de almacenamiento de datos rechazada si está configurada.
 
 ### <a name="error-code-df-sqldw-exporterrorrowfailed"></a>Código de error: DF-SQLDW-ExportErrorRowFailed
 - **Mensaje**: se ha producido una excepción al escribir filas de error en el almacenamiento.
-- **Mensaje**: se ha producido una excepción al escribir filas de error en el almacenamiento.
+- **Mensaje:** Se ha producido una excepción al escribir filas de error en el almacenamiento.
 - **Recomendación**: compruebe la configuración del servicio vinculado de datos rechazados.
 
 ### <a name="error-code-df-executor-fieldnotexist"></a>Código de error: DF-Executor-FieldNotExist
@@ -478,9 +483,93 @@ En este artículo se exploran métodos comunes de solución de problemas de fluj
 - **Recomendación**: actualice la configuración de AdobeIntegration para que el tipo de partición sea RoundRobin.
 
 ### <a name="error-code-df-adobeintegration-invalidprivacyregulation"></a>Código de error: DF-AdobeIntegration-InvalidPrivacyRegulation
-- **Mensaje**: Actualmente, el RGPD es la única norma de privacidad admitida.
+- **Mensaje:** Actualmente, el RGPD es el único reglamento de privacidad admitido.
 - **Causa**: se proporcionaron configuraciones de privacidad no válidas.
 - **Recomendación**: actualice la configuración de AdobeIntegration mientras solo se admite la privacidad "RGPD".
+
+### <a name="error-code-df-executor-remoterpcclientdisassociated"></a>Código de error: DF-Executor-RemoteRPCClientDisassociated
+- **Mensaje:** Cliente RPC remoto desasociado. Probablemente se deba a los contenedores que superan los umbrales o a problemas de red.
+- **Causa:** se ha producido un error en las ejecuciones de actividad de flujo de datos debido a un problema de red transitorio o porque un nodo del clúster de Spark se ha quedado sin memoria.
+- **Recomendación:** aplique una de las siguientes opciones para solucionar este problema:
+  - Opción 1: Use un clúster potente (los nodos de unidad y ejecutor tienen suficiente memoria para controlar los macrodatos) para ejecutar canalizaciones de flujo de datos con la opción "Tipo de proceso" establecida en "Optimizado para memoria". La configuración se muestra en la siguiente imagen:
+        
+      :::image type="content" source="media/data-flow-troubleshoot-guide/configure-compute-type.png" alt-text="Captura de pantalla en la que se muestra la configuración del tipo de proceso":::   
+
+  - Opción 2: Use un tamaño de clúster mayor (por ejemplo, 48 núcleos) para ejecutar las canalizaciones de flujo de datos. Para obtener más información sobre el tamaño del clúster, consulte [este documento](./concepts-integration-runtime-performance.md#cluster-size).
+  
+  - Opción 3: Vuelva a particionar los datos de entrada. Para la tarea que se ejecuta en el clúster de Spark de flujo de datos, una partición es una tarea que se ejecuta en un solo nodo. Si los datos de una partición son demasiado grandes, la tarea relacionada que se ejecuta en el nodo debe consumir más memoria que el propio nodo, lo que provoca un error. Por lo tanto, puede usar la nueva partición para evitar una asimetría de datos y garantizar que el tamaño de los datos de cada partición sea el promedio y que el consumo de memoria no sea demasiado elevado.
+    
+      :::image type="content" source="media/data-flow-troubleshoot-guide/configure-partition.png" alt-text="Captura de pantalla en la que se muestra la configuración de las particiones":::
+
+    > [!NOTE]
+    >  Evalúe el tamaño de los datos o el número de datos de entrada de la partición y, a continuación, establezca un número de partición razonable en "Optimizar". Por ejemplo, el clúster que se usa en la ejecución de la canalización de flujo de datos tiene ocho núcleos, cada uno con 20 GB de memoria, pero los datos de entrada ocupan 1000 GB con diez particiones. Si ejecuta directamente el flujo de datos, se producirá el problema de memoria insuficiente porque 1000 GB/10 > 20 GB, por lo que es mejor establecer el número de nuevas particiones en 100 (1000 GB/100 < 20 GB).
+    
+  - Opción 4: Ajuste y optimice la configuración de origen, receptor o transformación. Por ejemplo, pruebe a copiar todos los archivos en un solo contenedor y no use el patrón de carácter comodín. Para obtener información más detallada, consulte [Guía de optimización y rendimiento de flujos de datos de asignación](./concepts-data-flow-performance.md).
+
+### <a name="error-code-df-mssql-errorrowsfound"></a>Código de error: DF-MSSQL-ErrorRowsFound
+- **Causa:** se han encontrado filas de error o no válidas al escribir en el receptor de Azure SQL Database.
+- **Recomendación:** busque las filas de error en la ubicación de almacenamiento de datos rechazada si está configurada.
+
+### <a name="error-code-df-mssql-exporterrorrowfailed"></a>Código de error: DF-MSSQL-ExportErrorRowFailed
+- **Mensaje**: se ha producido una excepción al escribir filas de error en el almacenamiento.
+- **Mensaje:** Se ha producido una excepción al escribir filas de error en el almacenamiento.
+- **Recomendación:** compruebe la configuración del servicio vinculado de datos rechazados.
+
+### <a name="error-code-df-synapse-invaliddatabasetype"></a>Código de error: DF-Synapse-InvalidDatabaseType
+- **Mensaje:** No se admite este tipo de base de datos.
+- **Causa:** no se admite el tipo de base de datos.
+- **Recomendación:** compruebe el tipo de base de datos y cámbielo por el correcto.
+
+### <a name="error-code-df-synapse-invalidformat"></a>Código de error: DF-Synapse-InvalidFormat
+- **Mensaje_** No se admite el formato.
+- **Causa:** no se admite el formato. 
+- **Recomendación:** compruebe el formato y cámbielo por el correcto.
+
+### <a name="error-code-df-synapse-invalidtabledbname"></a>Código de error: DF-Synapse-InvalidTableDBName
+- **Causa:** el nombre de la base de datos o tabla no es válido.
+- **Recomendación:** especifique un nombre válido para la tabla o base de datos. Solo se admiten nombres con caracteres alfabéticos, números y `_`.
+
+### <a name="error-code-df-synapse-invalidoperation"></a>Código de error: DF-Synapse-InvalidOperation
+- **Causa:** no se admite la operación.
+- **Recomendación:** cambie la operación no válida.
+
+### <a name="error-code-df-synapse-dbnotexist"></a>Código de error: DF-Synapse-DBNotExist
+- **Causa:** la base de datos no existe.
+- **Recomendación:** compruebe si la base de datos existe.
+
+### <a name="error-code-df-synapse-storedprocedurenotsupported"></a>Código de error: DF-Synapse-StoredProcedureNotSupported
+- **Mensaje:** Use "Procedimiento almacenado", ya que el origen no es compatible con un grupo sin servidor (a petición).
+- **Causa:** el grupo sin servidor tiene limitaciones.
+- **Recomendación:** vuelva a intentar usar "query" como origen o guardar el procedimiento almacenado como una vista y, a continuación, use "table" como origen para leer directamente desde la vista.
+
+### <a name="error-code-df-executor-broadcastfailure"></a>Código de error: DF-Executor-BroadcastFailure
+- **Mensaje:** Error de ejecución del flujo de datos durante el intercambio de difusión. Entre las posibles causas pueden estar conexiones mal configuradas en los orígenes o un error de tiempo de espera para unirse a la difusión. Para garantizar que los orígenes estén configurados correctamente, pruebe la conexión o ejecute una vista previa de datos de origen en una sesión de depuración de flujo de datos. Con el fin de evitar que se agote el tiempo de espera para unirse a la difusión, puede elegir la opción de difusión "Desactivado" en las transformaciones join/exists/lookup. Si tiene previsto usar la opción de difusión para mejorar el rendimiento, asegúrese de que la secuencia de difusión pueda generar datos en un plazo de 60 segundos en ejecuciones de depuración y de 300 en ejecuciones de trabajos. Si el problema continúa, póngase en contacto con soporte al cliente.
+
+- **Causa**:  
+    1. El error de conexión o configuración de origen podría provocar un error de difusión en transformaciones join/exists/lookup.
+    2. La difusión tiene un tiempo de espera predeterminado de 60 segundos en ejecuciones de depuración y de 300 en ejecuciones de trabajos. En la transformación join, la secuencia elegida para la difusión parece demasiado grande para generar datos dentro de este límite. Si no se usa una transformación join, la difusión predeterminada realizada por un flujo de entrada puede alcanzar el mismo límite.
+
+- **Recomendación:**
+    1. obtenga una vista previa de los datos en los orígenes para confirmar que están bien configurados. 
+    1. Desactive la opción de difusión o evite difundir flujos de datos de gran tamaño que puedan tardar más de 60 segundos en procesarse. En su lugar, elija un flujo más pequeño para difundir. 
+    1. Las tablas SQL o Data Warehouse y los archivos de código de fuente de gran tamaño suelen ser malos candidatos. 
+    1. En ausencia de una combinación de difusión, use un clúster más grande si se presenta el error. 
+    1. Si el problema continúa, póngase en contacto con el servicio de atención al cliente.
+
+### <a name="error-code-df-cosmos-shorttypenotsupport"></a>Código de error: DF-Cosmos-ShortTypeNotSupport
+- **Mensaje:** El tipo de datos short no se admite en Cosmos DB.
+- **Causa:** el tipo de datos short no se admite en Azure Cosmos DB.
+- **Recomendación:** agregue una transformación derivada para convertir las columnas relacionadas de short a integer antes de usarlas en el receptor de Cosmos.
+
+### <a name="error-code-df-blob-functionnotsupport"></a>Código de error: DF-Blob-FunctionNotSupport
+- **Mensaje:** Este punto de conexión no admite BlobStorageEvents, SoftDelete o AutomaticSnapshot. Deshabilite estas características de cuenta si desea usar este punto de conexión.
+- **Causa:** no se admiten los eventos de Azure Blob Storage, la eliminación temporal o la instantánea automática en flujos de datos si el servicio vinculado de Azure Blob Storage se crea con autenticación de entidad de servicio o identidad administrada.
+- **Recomendación:** deshabilite los eventos de Azure Blob Storage, la eliminación temporal o la característica de instantánea automática en la cuenta de Azure Blob, o bien use la autenticación de clave para crear el servicio vinculado.
+
+### <a name="error-code-df-cosmos-invalidaccountkey"></a>Código de error: DF-Cosmos-InvalidAccountKey
+- **Mensaje:** El token de autorización de entrada no puede atender la solicitud. Compruebe que la carga esperada se compila según el protocolo y compruebe la clave que se está usando.
+- **Causa:** no hay permisos suficientes para leer o escribir datos de Azure Cosmos DB.
+- **Recomendación:** use la clave de lectura y escritura para acceder a Azure Cosmos DB.
 
 ## <a name="miscellaneous-troubleshooting-tips"></a>Consejos de solución de problemas varios
 - **Problema**: Se produjo una excepción inesperada y un error en la ejecución.
@@ -521,7 +610,7 @@ Es posible que encuentre los siguientes problemas antes de realizar la mejora, p
 
  Antes de realizar la mejora, el delimitador de filas predeterminado `\n` se puede usar inesperadamente para analizar archivos de texto delimitados, ya que cuando la configuración de varias líneas está establecida en "true", se invalida la configuración del delimitador de filas y este se detecta automáticamente en función de los primeros 128 caracteres. Si no detecta el delimitador de filas real, se revertiría a `\n`.  
 
- Después de realizar la mejora, debe trabajar con cualquiera de estos tres delimitadores de fila: `\r`, `\n`, `\r\n`.
+ Después de realizar la mejora, debería funcionar cualquiera de los tres delimitadores de fila: `\r`, `\n` o `\r\n`.
  
  En el ejemplo siguiente se muestra un cambio de comportamiento en la canalización después de realizar la mejora:
 
@@ -609,13 +698,34 @@ Es posible que encuentre los siguientes problemas antes de realizar la mejora, p
  Después de realizar la mejora, el resultado de la columna analizada debe ser:<br/>
   `A "" (empty string) B "" (empty string)`<br/>
 
+###  <a name="internal-server-errors"></a>Errores internos del servidor
+
+A continuación se muestran los escenarios específicos que pueden provocar errores internos del servidor.
+
+#### <a name="scenario-1-not-choosing-the-appropriate-compute-sizetype-and-other-factors"></a>Escenario 1: No elegir el tamaño o tipo de proceso adecuados y otros factores
+
+  La ejecución correcta de flujos de datos depende de muchos factores, como el tamaño y el tipo de proceso, el número de orígenes o receptores que se van a procesar, la especificación de la partición, las transformaciones implicadas, el tamaño de los conjuntos de datos, la asimetría de los datos, etc.<br/>
+  
+  Para obtener más información, consulte [Rendimiento de Integration Runtime](concepts-integration-runtime-performance.md).
+
+#### <a name="scenario-2-using-debug-sessions-with-parallel-activities"></a>Escenario 2: Uso de sesiones de depuración con actividades paralelas
+
+  Al desencadenar una ejecución mediante la sesión de depuración de flujo de datos con construcciones como ForEach en la canalización, pueden enviarse varias ejecuciones paralelas al mismo clúster. Esta situación puede provocar errores del clúster durante la ejecución, debido a problemas de recursos, como una memoria insuficiente.<br/>
+  
+  Para enviar una ejecución con la configuración apropiada de IR definida en la actividad de la canalización tras publicar los cambios, seleccione **Desencadenar ahora** o **Depurar** > **Usar tiempo de ejecución de actividad**.
+
+#### <a name="scenario-3-transient-issues"></a>Escenario 3: Errores transitorios
+
+  Los problemas transitorios con microservicios implicados en la ejecución pueden provocar un error en la ejecución.<br/>
+  
+  La configuración de reintentos en la actividad de canalización puede contribuir a resolver los problemas provocados por errores transitorios. Para más información, consulte [Directiva de actividad](concepts-pipelines-activities.md#activity-json).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para obtener más ayuda para solucionar problemas, consulte estos recursos:
 
 *  [Blog de Data Factory](https://azure.microsoft.com/blog/tag/azure-data-factory/)
-*  [Solicitud de características de Data Factory](https://feedback.azure.com/forums/270578-data-factory)
+*  [Solicitud de características de Data Factory](/answers/topics/azure-data-factory.html)
 *  [Vídeos de Azure](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [Foro de Stack Overflow para Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [Información de Twitter sobre Data Factory](https://twitter.com/hashtag/DataFactory)
