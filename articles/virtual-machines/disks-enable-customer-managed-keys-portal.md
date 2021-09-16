@@ -2,24 +2,23 @@
 title: 'Azure Portal: Habilitación de claves administradas por el cliente con SSE para discos administrados'
 description: Habilite las claves administradas por el cliente en los discos administrados con Azure Portal.
 author: roygara
-ms.date: 06/29/2021
+ms.date: 08/31/2021
 ms.topic: how-to
 ms.author: rogarana
 ms.service: storage
 ms.subservice: disks
-ms.openlocfilehash: 99a6a94405978cf183c717f2fed34f7eb24d9299
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+ms.openlocfilehash: 2117fc6d425233ee2de4954173981ad5cfda5f18
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113361376"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123318479"
 ---
 # <a name="use-the-azure-portal-to-enable-server-side-encryption-with-customer-managed-keys-for-managed-disks"></a>Uso de Azure Portal para habilitar el cifrado del lado servidor con claves administradas por el cliente para los discos administrados
 
-Azure Disk Storage le permite administrar sus propias claves al usar el cifrado del lado servidor (SSE) para discos administrados, si así lo decide. Para obtener información conceptual sobre SSE con claves administradas por el cliente, así como otros tipos de cifrado de discos administrados, consulte la sección **Claves administradas por el cliente** de nuestro artículo sobre el cifrado de discos:
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: 
 
-- Para Linux: [Claves administradas por el cliente](./disk-encryption.md#customer-managed-keys)
-- Para Windows: [Claves administradas por el cliente](./disk-encryption.md#customer-managed-keys)
+Azure Disk Storage le permite administrar sus propias claves al usar el cifrado del lado servidor (SSE) para discos administrados, si así lo decide. Para obtener información conceptual sobre SSE con claves administradas por el cliente, así como otros tipos de cifrado de discos administrados, consulte la sección **Claves administradas por el cliente** de nuestro [artículo sobre el cifrado de discos](disk-encryption.md#customer-managed-keys).
 
 ## <a name="restrictions"></a>Restricciones
 
@@ -79,6 +78,12 @@ El proceso de implementación de VM es similar al proceso de implementación est
 
 > [!IMPORTANT]
 > Las claves administradas por el cliente dependen de identidades administradas para los recursos de Azure, una característica de Azure Active Directory (Azure AD). Al configurar claves administradas por el cliente, se asigna automáticamente una identidad administrada a los recursos en segundo plano. Si posteriormente mueve la suscripción, el grupo de recursos o el disco administrado de un directorio de Azure AD a otro, la identidad administrada asociada a los discos administrados no se transfiere al nuevo inquilino, por lo que es posible que las claves administradas por el cliente dejen de funcionar. Para obtener más información, consulte [Transferencia de una suscripción entre directorios de Azure AD](../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).
+
+### <a name="enable-automatic-key-rotation-on-an-existing-disk-encryption-set"></a>Habilitación de la rotación automática de claves en un conjunto de cifrado de disco existente
+
+1. Vaya al conjunto de cifrado de disco en el que desee habilitar la [rotación automática de claves](disk-encryption.md#automatic-key-rotation-of-customer-managed-keys).
+1. En **Configuración**, seleccione **Clave**.
+1. Seleccione **Rotación automática de claves** y, a continuación, **Guardar**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

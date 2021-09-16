@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/08/2021
 ms.author: robinsh
-ms.openlocfilehash: abbef6e0e244f7cfc937f738c7c2d0acd89549dd
-ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
+ms.openlocfilehash: ccbf43eaf10b68f5d23cae5895324dd095932b5e
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114205206"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122830068"
 ---
 # <a name="automatic-iot-device-and-module-management-using-the-azure-cli"></a>Administración automática de dispositivos y módulos IoT mediante la CLI de Azure
 
@@ -50,7 +50,7 @@ Las configuraciones automáticas de módulos requieren el uso de módulos gemelo
 
 ## <a name="use-tags-to-target-twins"></a>Uso de etiquetas para identificar los gemelos
 
-Antes de crear una configuración, debe especificar a qué dispositivos o módulos quiere que se aplique. Azure IoT Hub identifica dispositivos mediante etiquetas en el dispositivo gemelo e identifica módulos mediante etiquetas en el módulo gemelo. Cada dispositivo o módulo puede tener varias etiquetas, y puede definirlas de cualquier manera que tenga sentido para su solución. Por ejemplo, si administra dispositivos en distintas ubicaciones, agregue las siguientes etiquetas a un dispositivo gemelo:
+Antes de crear una configuración, debe especificar a qué dispositivos o módulos quiere que se aplique. Azure IoT Hub identifica dispositivos mediante etiquetas en el dispositivo gemelo e identifica módulos mediante etiquetas en el módulo gemelo. Cada dispositivo o módulo puede tener varias etiquetas, las cuales puede definir de acuerdo con las necesidades de su solución. Por ejemplo, si administra dispositivos en distintas ubicaciones, agregue las siguientes etiquetas a un dispositivo gemelo:
 
 ```json
 "tags": {
@@ -63,7 +63,7 @@ Antes de crear una configuración, debe especificar a qué dispositivos o módul
 
 ## <a name="define-the-target-content-and-metrics"></a>Definir el contenido de destino y las métricas
 
-El contenido de destino y las consultas de métricas se especifican como documentos JSON que describen las propiedades deseadas del dispositivo o módulo gemelo que quiere establecer y las propiedades notificadas que se van a medir.  Para crear una configuración automática mediante la CLI de Azure, guarde el contenido y las métricas de destino de forma local como archivos .txt. Usará las rutas de acceso de los archivos en una sección posterior en la que ejecutará el comando para aplicar la configuración al dispositivo.
+El contenido de destino y las consultas de métricas se especifican como documentos JSON que describen las propiedades deseadas del dispositivo o módulo gemelo que quiere establecer y las propiedades notificadas que se van a medir. Para crear una configuración automática mediante la CLI de Azure, guarde el contenido y las métricas de destino de forma local como archivos .txt. Usará las rutas de acceso de los archivos en una sección posterior en la que ejecutará el comando para aplicar la configuración al dispositivo.
 
 A continuación se muestra un ejemplo básico de contenido de destino para una configuración automática de dispositivos:
 

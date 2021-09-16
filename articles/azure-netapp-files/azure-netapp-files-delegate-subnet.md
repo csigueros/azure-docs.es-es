@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/28/2020
+ms.date: 08/25/2021
 ms.author: b-juche
-ms.openlocfilehash: bb3d1fd49c2623ff6dcbe8a19ae8c8ca3b46425a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cdb184d4b96e4cfee2b5450f35c947efb768da9b
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96006583"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122866981"
 ---
 # <a name="delegate-a-subnet-to-azure-netapp-files"></a>Delegación de una subred en Azure NetApp Files 
 
@@ -27,8 +27,8 @@ Debe delegar una subred en Azure NetApp Files.   Cuando se crea un volumen, debe
 
 ## <a name="considerations"></a>Consideraciones
 
-* El asistente para crear una nueva subred se establece de manera predeterminada en una máscara de red /24, que ofrece 251 direcciones IP disponibles. Con una máscara de red /28, que ofrece 11 direcciones IP utilizables, es suficiente para el servicio.
-* En cada red virtual de Azure (VNet), solo puede delegarse una subred a Azure NetApp Files.   
+* El asistente para crear una nueva subred se establece de manera predeterminada en una máscara de red /24, que ofrece 251 direcciones IP disponibles. En la mayoría de los casos de uso, basta con una máscara de red /28, que ofrece 11 direcciones IP utilizables. Considere la posibilidad de usar una subred mayor (por ejemplo, una máscara de red /26) en escenarios como SAP HANA, donde se prevén muchos volúmenes y puntos de conexión de almacenamiento. También puede mantener la máscara de red predeterminada /24 que propone el asistente si no necesita reservar muchas direcciones IP de cliente o máquina virtual en Azure Virtual Network (VNet). Tenga presente que la máscara de la red delegada no se puede cambiar después de la creación inicial. 
+* En cada red virtual, solo puede delegarse una subred a Azure NetApp Files.   
    Azure permite crear varias subredes delegadas en una red virtual.  Sin embargo, si usa más de una subred delegada, todos los intentos de crear un nuevo volumen darán error.  
    Solo puede tener una única subred delegada en una red virtual. Una cuenta de NetApp puede implementar volúmenes en varias redes virtuales, cada una de las cuales tiene su propia subred delegada.  
 * No se puede designar un grupo de seguridad de red o punto de conexión de servicio en la subred delegada. Si lo hace, se producirá un error en la delegación de subred.
