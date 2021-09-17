@@ -5,19 +5,20 @@ author: cynthn
 ms.collection: linux
 ms.service: virtual-machines
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 04/20/2021
 ms.author: cynthn
-ms.openlocfilehash: 5365bad5fdea2a8213defc103f0cdd966ebe50a5
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: ec73bc6c6f7563f1513f4575b5ee3c9b4a244e7c
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107816357"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122699004"
 ---
 # <a name="tutorial-install-a-lamp-stack-on-an-azure-linux-vm"></a>Tutorial: Instalación de una pila LAMP en una máquina virtual Linux en Azure
+
+**Se aplica a:** :heavy_check_mark: máquinas virtuales Linux 
 
 En este artículo se ofrecen instrucciones paso a paso para implementar un servidor web Apache, MySQL y PHP (la pila LAMP) en una máquina virtual de Ubuntu en Azure. Para ver el servidor LAMP en acción, si lo desea, puede instalar y configurar un sitio de WordPress. En este tutorial, aprenderá a:
 

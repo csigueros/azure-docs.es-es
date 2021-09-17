@@ -11,12 +11,12 @@ ms.author: tracych
 ms.reviewer: laobri
 ms.date: 8/11/2021
 ms.custom: how-to, devplatv2
-ms.openlocfilehash: bd5d5eba2d5da4cd0f920d4c6287e779d83ac293
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: b68ba3f0221aa97307e746d192de65b2915d2e4b
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121739118"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122419554"
 ---
 # <a name="use-batch-endpoints-preview-for-batch-scoring"></a>Uso de puntos de conexión por lotes (versión preliminar) para la puntuación por lotes
 
@@ -64,7 +64,7 @@ Agregue y configure la extensión Azure ML:
 az extension add -n ml
 ```
 
-Para más información sobre cómo configurar la extensión ML, consulte [Instalación, configuración y uso de la CLI 2.0 (versión preliminar)](how-to-configure-cli.md).
+Para obtener más información sobre cómo configurar la extensión ML, vea [Instalación, configuración y uso de la CLI (v2) (versión preliminar)](how-to-configure-cli.md).
 
 * Repositorio de ejemplo
 

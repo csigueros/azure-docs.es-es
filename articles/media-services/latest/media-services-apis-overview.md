@@ -10,9 +10,11 @@ ms.service: media-services ms.workload: ms.topic: conceptual ms.date: 10/23/2020
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-Como desarrollador, puede usar la [API de REST](/rest/api/media/) de Media Services o bibliotecas de cliente que le permitan interactuar con la API de REST para crear, administrar y mantener fácilmente flujos de trabajo multimedia personalizados. La API de [Media Services v3](https://aka.ms/ams-v3-rest-sdk) se basa en la especificación OpenAPI (anteriormente conocida como Swagger).
+Como desarrollador, puede usar las bibliotecas cliente para .NET, Python, Node.js, Java, Go y Ruby, que le permitan interactuar con la API REST para crear, administrar y mantener fácilmente flujos de trabajo multimedia personalizados. La API de [Media Services v3](https://aka.ms/ams-v3-rest-sdk) se basa en la especificación OpenAPI (anteriormente conocida como Swagger).
 
 En este artículo se analizan las reglas que se aplican a las entidades y las API cuando se desarrolla con Media Services v3.
+
+[!INCLUDE [warning-rest-api-retry-policy.md](./includes/warning-rest-api-retry-policy.md)]
 
 ## <a name="accessing-the-azure-media-services-api"></a>Acceso a la API de Azure Media Services
 
@@ -51,12 +53,11 @@ En la ilustración siguiente, los números representan el flujo de las solicitud
 ### <a name="samples"></a>Ejemplos
 
 Consulte los siguientes ejemplos que muestran cómo conectarse con la entidad de servicio de Azure AD:
-
-* [Conexión con REST](setup-postman-rest-how-to.md)  
-* [Conexión con Java](configure-connect-java-howto.md)
 * [Conexión con .NET](configure-connect-dotnet-howto.md)
 * [Conexión con Node.js](configure-connect-nodejs-howto.md)
 * [Conexión con Python](configure-connect-python-howto.md)
+* [Conexión con Java](configure-connect-java-howto.md)
+* [Conexión con REST](setup-postman-rest-how-to.md)  
 
 ## <a name="naming-conventions"></a>Convenciones de nomenclatura
 
@@ -128,7 +129,7 @@ AMSE es un proyecto de código abierto en el que el soporte técnico lo facilita
 
 ## <a name="filtering-ordering-paging-of-media-services-entities"></a>Filtrado, ordenación y paginación de entidades de Media Services
 
-Consulte [Filtrado, ordenación y paginación de entidades de Azure Media Services](filter-order-page-entitites-how-to.md).
+Consulte [Filtrado, ordenación y paginación de entidades de Azure Media Services](filter-order-page-entities-how-to.md).
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>Formule preguntas, realice comentarios y obtenga actualizaciones
 

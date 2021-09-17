@@ -5,19 +5,19 @@ author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
-ms.date: 04/04/2021
+ms.date: 08/16/2021
 ms.author: robinsh
 ms.custom:
 - mvc
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
 - devx-track-azurecli
-ms.openlocfilehash: 965738a735052947940ec3763c664e5e90909ee1
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.openlocfilehash: 1805213d64a7d6feb47033940c3c479713acd688
+ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108278301"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122397256"
 ---
 # <a name="tutorial-use-the-azure-cli-and-azure-portal-to-configure-iot-hub-message-routing"></a>Tutorial: Uso de la CLI de Azure y Azure Portal para configurar el enrutamiento de mensajes de IoT Hub
 
@@ -135,91 +135,96 @@ Ahora, configure el enrutamiento de la cuenta de almacenamiento. Vaya al panel d
 
 [!INCLUDE [iot-hub-include-blob-storage-format](../../includes/iot-hub-include-blob-storage-format.md)]
 
+Ahora, configure la configuración del enrutamiento de mensajes para Azure Storage.
+
 1. En [Azure Portal](https://portal.azure.com), seleccione **Grupos de recursos** y el grupo de recursos. En este tutorial se usa **ContosoResources**.
 
 2. Seleccione la instancia de IoT Hub en la lista de recursos. En este tutorial se usa **ContosoTestHub**.
 
-3. Seleccione **Enrutamiento de mensajes**. En el panel **Enrutamiento de mensajes**, seleccione +**Agregar**. En el panel **Agregar una ruta**, seleccione +**Agregar punto de conexión**, junto al campo Punto de conexión, para mostrar los puntos de conexión admitidos, tal como se muestra en la siguiente imagen:
+3. Seleccione **Enrutamiento de mensajes** en la columna central que dice **_Mensajería_*. Seleccione +** Agregar** para ver el panel **Agregar una ruta**. Seleccione +**Agregar punto de conexión** junto al campo Punto de conexión y, a continuación, seleccione **Storage**. Verá el panel **Agregar un punto de conexión de almacenamiento**.
 
-   ![Empezar a agregar un punto de conexión para una ruta](./media/tutorial-routing/message-routing-add-a-route-with-storage-endpoint-ver2.png)
+   ![Empezar a agregar un punto de conexión para una ruta](./media/tutorial-routing/01-add-a-route-to-storage.png)
 
-4. Seleccione **Storage**. Verá el panel **Agregar un punto de conexión de almacenamiento**.
+4. Escriba el nombre del punto de conexión. En este tutorial se usa **ContosoStorageEndpoint**.
 
-   ![Adición de un punto de conexión](./media/tutorial-routing/message-routing-add-storage-endpoint-ver2.png)
+   ![Nombre del punto de conexión](./media/tutorial-routing/02-add-a-storage-endpoint.png)
 
-5. Escriba el nombre del punto de conexión. En este tutorial se usa **ContosoStorageEndpoint**.
+5. Seleccione **Seleccionar un contenedor**. Esto le llevará a una lista donde podrá ver las cuentas de almacenamiento. Seleccione la que ha configurado en los pasos de preparación. En este tutorial, se usa **contosostorage**. Muestra una lista de contenedores en esa cuenta de almacenamiento. **Seleccione** el contenedor que configuró en los pasos de preparación. En este tutorial se usa **contosoresults**. A continuación, haga clic en **Seleccionar** en la parte inferior de la pantalla. Se le dirige a otro panel **Agregar un punto de conexión de almacenamiento**. Verá la dirección URL del contenedor seleccionado. 
 
-6. Seleccione **Seleccionar un contenedor**. Esto le llevará a una lista donde podrá ver las cuentas de almacenamiento. Seleccione la que configuró en los pasos de preparación. En este tutorial se usa **contosostorage**. Muestra una lista de contenedores en esa cuenta de almacenamiento. **Seleccione** el contenedor que configuró en los pasos de preparación. En este tutorial se usa **contosoresults**. Vuelva al panel **Agregar un punto de conexión de almacenamiento** y visualice las selecciones realizadas.
-
-7. Establezca la codificación en JSON o AVRO. Para este tutorial, use los valores predeterminados para el resto de los campos. Este campo se atenuará si la región seleccionada no es compatible con la codificación JSON.
+6. Establezca la codificación en JSON o AVRO. Para este tutorial, use los valores predeterminados para el resto de los campos. Este campo se atenuará si la región seleccionada no es compatible con la codificación JSON. Establezca el formato de nombre de archivo. 
 
    > [!NOTE]
-   > Puede establecer el formato del nombre de blob mediante **Formato de nombre de archivo del blob**. El valor predeterminado es `{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}`. El formato debe contener {iothub}, {partición}, {AAAA}, {MM}, {DD}, {HH} y {mm} en cualquier orden.
+   > Establezca el formato del nombre de blob mediante la opción **Formato de nombre de archivo del blob**. El valor predeterminado es `{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}`. El formato debe contener {iothub}, {partición}, {AAAA}, {MM}, {DD}, {HH} y {mm} en cualquier orden.
    >
    > Por ejemplo, con el formato de nombre de archivo del blob predeterminado, si el nombre del centro es ContosoTestHub y la fecha y hora es el 30 de octubre de 2018 a las 10:56 a.m., el nombre del blob tendrá este aspecto: `ContosoTestHub/0/2018/10/30/10/56`.
    > 
    > De manera predeterminada, los blobs se escriben en el formato AVRO.
    >
 
-8. Seleccione **Crear** para crear el punto de conexión de almacenamiento y agregarlo a la ruta. Volverá al panel **Agregar una ruta**.
+7. Seleccione **Crear** en la parte inferior de la página para crear el punto de conexión de almacenamiento y agregarlo a la ruta. Volverá al panel **Agregar una ruta**. 
 
-9. Ahora, complete el resto de la información de la consulta de enrutamiento. En esta consulta se especifican los criterios para enviar mensajes al contenedor de almacenamiento que acaba de agregar como punto de conexión. Rellene los campos de la pantalla.
+8. Complete el resto de la información de la consulta de enrutamiento. En esta consulta se especifican los criterios para enviar mensajes al contenedor de almacenamiento que acaba de agregar como punto de conexión. Rellene los campos de la pantalla.
 
-   **Name**: escriba el nombre de la consulta de enrutamiento. En este tutorial se usa **ContosoStorageRoute**.
+9. Rellene el resto de los campos.
 
-   **Punto de conexión**: seleccione el punto de conexión que acaba de configurar.
-
-   **Origen de datos**: seleccione **Mensajes de telemetría del dispositivo** en la lista desplegable.
-
-   **Habilitar ruta**: asegúrese de que este campo se establece en `enabled`.
+   - **Nombre**: escriba el nombre de la ruta. En este tutorial se usa **ContosoStorageRoute**. A continuación, especifique el punto de conexión para el almacenamiento. En este tutorial se usa ContosoStorageEndpoint.
    
-   **Consulta de enrutamiento**: escriba `level="storage"` como cadena de consulta.
+   - Especificar **Origen de datos**: seleccione **Mensajes de telemetría del dispositivo** en la lista desplegable.   
 
-   ![Creación de una consulta de enrutamiento para la cuenta de almacenamiento](./media/tutorial-routing/message-routing-finish-route-storage-ep.png)  
+   - Seleccione **Habilitar ruta**: asegúrese de que este campo esté establecido en `enabled`.
 
-   Seleccione **Guardar**. Al terminar, vuelve al panel Enrutamiento de mensajes, donde podrá ver la nueva consulta de enrutamiento del almacenamiento. Cierre el panel Rutas, lo que le devolverá a la página Grupo de recursos.
+   - **Consulta de enrutamiento**: escriba `level="storage"` como cadena de consulta.
+
+   ![Guardar la información de la consulta de enrutamiento](./media/tutorial-routing/04-save-storage-route.png)
+  
+10.  Seleccione **Guardar**. Al terminar, vuelve al panel Enrutamiento de mensajes, donde podrá ver la nueva consulta de enrutamiento del almacenamiento. Cierre el panel Enrutamiento de mensajes, lo que le devolverá al panel Grupo de recursos.
+
 
 ### <a name="route-to-a-service-bus-queue"></a>Ruta a una cola de Service Bus
 
-Ahora, configure el enrutamiento de la cola de Service Bus. Vaya al panel de enrutamiento de mensajes y agregue una ruta. Al agregar la ruta, defina un nuevo punto de conexión para la misma. Después de realizar la configuración de la ruta, los mensajes en los que la propiedad **level** está establecida en **critical** se escriben en la cola de Service Bus, lo que desencadena una aplicación lógica, que, posteriormente, envía un correo electrónico con la información.
+Ahora, configure el enrutamiento de la cola de Service Bus. Vaya al panel de enrutamiento de mensajes y agregue una ruta. Al agregar la ruta, defina una cola de Service Bus como punto de conexión para la ruta. Después de realizar la configuración de la ruta, los mensajes en los que la propiedad **level** está establecida en **critical** se escriben en la cola de Service Bus, lo que desencadena una aplicación lógica, que, posteriormente, envía un correo electrónico con la información.
 
 1. En la página Grupo de recursos, seleccione IoT Hub y **Enrutamiento de mensajes**.
 
-2. En el panel **Enrutamiento de mensajes**, seleccione +**Agregar**.
+2. En el panel **Enrutamiento de mensajes**, seleccione **+ Agregar**.
 
-3. En el panel **Agregar una ruta**, seleccione +**Agregar** junto al campo de punto de conexión. Seleccione la **cola de Service Bus**. Verá el panel **Add Service Bus Endpoint**  (Agregar punto de conexión de Service Bus).
+3. En el panel **Agregar una ruta**, seleccione **+ Agregar** junto a **+Punto de conexión**. Seleccione la **cola de Service Bus**. Verá el panel **Add Service Bus Endpoint**  (Agregar punto de conexión de Service Bus).
 
-   ![Incorporación de un punto de conexión de Service Bus](./media/tutorial-routing/message-routing-add-sbqueue-ep.png)
+   ![Incorporación del primer punto de conexión de Service Bus](./media/tutorial-routing/05-setup-sbq-endpoint.png)
 
-4. Rellene los campos:
+4. Rellene el resto de los campos:
 
-   **Nombre del punto de conexión**: Escriba el nombre del punto de conexión. En este tutorial se usa **ContosoSBQueueEndpoint**.
+   **Nombre del punto de conexión**: Escriba el nombre del punto de conexión. En este tutorial, se usa **ContosoSBQEndpoint**.
    
    **Espacio de nombres de Service Bus**: Use la lista desplegable para seleccionar el espacio de nombres de Service Bus que configuró en los pasos de preparación. En este tutorial se usa **ContosoSBNamespace**.
 
    **Cola de Service Bus**: use la lista desplegable para seleccionar la cola de Service Bus. En este tutorial se usa **contososbqueue**.
 
-5. Seleccione **Crear** para agregar el punto de conexión de cola de Service Bus. Volverá al panel **Agregar una ruta**.
+5. Seleccione **Crear** para agregar el primer punto de conexión de cola de Service Bus. Volverá al panel **Agregar una ruta**.
 
-6. Ahora, complete el resto de la información de la consulta de enrutamiento. En esta consulta se especifican los criterios para enviar mensajes a la cola de Service Bus que acaba de agregar como punto de conexión. Rellene los campos de la pantalla. 
+   ![Incorporación del segundo punto de conexión de Service Bus](./media/tutorial-routing/06-save-sbq-endpoint.png)
 
-   **Name**: escriba el nombre de la consulta de enrutamiento. En este tutorial se usa **ContosoSBQueueRoute**. 
+6. Ahora, complete el resto de la información de la consulta de enrutamiento. En esta consulta, se especifican los criterios para enviar mensajes a la cola de Service Bus que acaba de agregar como punto de conexión. Rellene los campos de la pantalla. 
+
+   **Nombre**: escriba el nombre de la ruta. En este tutorial se usa **ContosoSBQueueRoute**. 
 
    **Punto de conexión**: seleccione el punto de conexión que acaba de configurar.
 
    **Origen de datos**: seleccione **Mensajes de telemetría del dispositivo** en la lista desplegable.
 
-   **Consulta de enrutamiento**: escriba `level="critical"` como cadena de consulta. 
+   **Habilitar ruta**: establezca este campo en `enable`.
 
-   ![Creación de una consulta de enrutamiento para la cola de Service Bus](./media/tutorial-routing/message-routing-finish-route-sbq-ep.png)
+   **Consulta de enrutamiento**: escriba `level="critical"` como la consulta de enrutamiento. 
 
-7. Seleccione **Guardar**. Al regresar al panel Rutas, se ven las dos nuevas rutas, tal como se muestra aquí.
+   ![Creación de una consulta de enrutamiento para la cola de Service Bus](./media/tutorial-routing/07-save-servicebusqueue-route.png)
 
-   ![Rutas recién configuradas](./media/tutorial-routing/message-routing-show-both-routes.png)
+7. Seleccione **Guardar**. Al regresar al panel Rutas, se ven las dos nuevas rutas.
+
+   ![Rutas recién configuradas](./media/tutorial-routing/08-show-both-routes.png)
 
 8. Para ver los puntos de conexión personalizados que configuró, seleccione la pestaña **Puntos de conexión personalizados**.
 
-   ![Punto de conexión recién configurado](./media/tutorial-routing/message-routing-show-custom-endpoints.png)
+   ![Puntos de conexión recién configurados](./media/tutorial-routing/09-show-custom-endpoints.png)
 
 9. Cierre el panel Enrutamiento de mensajes, lo que le devolverá al panel Grupo de recursos.
 

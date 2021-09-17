@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 05/18/2020
 ms.author: pafarley
-ms.openlocfilehash: ae49a8738ba711ac6c77f2e299852ad61f70be56
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e001e268a5e805fbab7cc84e7248750bd58e911e
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "92912912"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122822865"
 ---
 # <a name="learn-text-moderation-concepts"></a>Información sobre los conceptos de moderación de texto
 
@@ -129,7 +129,7 @@ El siguiente es un ejemplo de respuesta:
 
 ## <a name="auto-correction"></a>Corrección automática
 
-Imagine que el texto de entrada es el siguiente ("lzay" y "f0x" se han escrito así a propósito):
+Imagine que el texto de entrada es (los valores "qu!ck", "f0x" e "lzay" son intencionados):
 
 > The qu!ck brown f0x jumps over the lzay dog.
 

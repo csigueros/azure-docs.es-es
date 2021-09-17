@@ -3,12 +3,12 @@ title: Guía y procedimientos recomendados
 description: Descubra los procedimientos recomendados y las instrucciones para realizar copias de seguridad en la nube de las cargas de trabajo locales y en la nube.
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: 7b507fec6c3f9cd53dd5b775dff2ca43c4dcfd1f
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: e2d65f256a69b397486675dc71efb71ce3e4263d
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111965490"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122605038"
 ---
 # <a name="backup-cloud-and-on-premises-workloads-to-cloud"></a>Copia de seguridad en la nube de cargas de trabajo locales y en la nube
 
@@ -184,7 +184,7 @@ Azure Backup requiere el traslado de los datos de la carga de trabajo al almacé
 
 Un [punto de conexión privado](../private-link/private-endpoint-overview.md) de Azure es una interfaz de red que le conecta de forma privada y segura a un servicio con la tecnología de Azure Private Link. Azure Backup permite realizar copias de seguridad de los datos y restaurarlos de forma segura desde los almacenes de Recovery Services mediante puntos de conexión privados.
 
-* Cuando habilita puntos de conexión privados para el almacén, solo se usan para la copia de seguridad y restauración de las cargas de trabajo de SQL y SAP HANA en una máquina virtual de Azure y en las copias de seguridad del agente MARS.  También puede usar el almacén para realizar copias de seguridad de otras cargas de trabajo (si bien no requerirán los puntos de conexión privados). Además de la copia de seguridad de las cargas de trabajo de SQL y SAP HANA y de las copias de seguridad mediante el agente MARS, los puntos de conexión privados también se usan para realizar la recuperación de archivos en el caso de la copia de seguridad de máquinas virtuales de Azure. [Obtenga más información aquí](private-endpoints.md#recommended-and-supported-scenarios).
+* Cuando habilita puntos de conexión privados para el almacén, solo se usan para la copia de seguridad y restauración de las cargas de trabajo de SQL y SAP HANA en una máquina virtual de Azure y en las copias de seguridad del agente MARS.  También puede usar el almacén para realizar copias de seguridad de otras cargas de trabajo (si bien no requerirán los puntos de conexión privados). Además de la copia de seguridad de las cargas de trabajo de SQL y SAP HANA y de las copias de seguridad mediante el agente MARS, los puntos de conexión privados también se usan para realizar la recuperación de archivos en el caso de la copia de seguridad de máquinas virtuales de Azure. [Obtenga más información aquí](private-endpoints-overview.md#recommended-and-supported-scenarios).
 
 * Actualmente, Azure Active Directory no admite puntos de conexión privados. Por tanto, las direcciones IP y los nombres de dominio completos que se necesiten en Azure Active Directory tendrán que disponer de acceso de salida desde la red protegida cuando se realicen copias de seguridad de bases de datos en máquinas virtuales de Azure y copias de seguridad mediante el agente MARS. También puede usar etiquetas NSG y etiquetas de Azure Firewall para permitir el acceso a Azure AD, según corresponda. [Obtenga más información sobre los requisitos previos aquí](./private-endpoints.md#before-you-start).
 

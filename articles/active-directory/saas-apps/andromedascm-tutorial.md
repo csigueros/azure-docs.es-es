@@ -9,39 +9,38 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/28/2020
+ms.date: 08/12/2021
 ms.author: jeedes
-ms.openlocfilehash: 45d7939840f1fd3055f29d3aee677e105890a94d
-ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
+ms.openlocfilehash: 88336401fa7e351791ecddbaf0b9caf5b3a54bd3
+ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108802097"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122272190"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-andromeda"></a>Tutorial: Integración de Azure Active Directory con Andromeda
 
-En este tutorial, aprenderá a integrar Andromeda con Azure Active Directory (Azure AD).
-La integración de Andromeda con Azure AD proporciona las siguientes ventajas:
+En este tutorial, aprenderá a integrar Andromeda con Azure Active Directory (Azure AD). Al integrar Andromeda con Azure AD, puede hacer lo siguiente:
 
-- Puede controlar en Azure AD quién tiene acceso a Andromeda.
-- Puede permitir que los usuarios inicien sesión automáticamente en Andromeda (inicio de sesión único) con sus cuentas de Azure AD.
-- Puede administrar sus cuentas en una ubicación central: Azure Portal.
+* Controlar en Azure AD quién tiene acceso a Andromeda.
+* Permitir que los usuarios inicien sesión automáticamente en Andromeda con sus cuentas de Azure AD.
+* Administrar las cuentas desde una ubicación central (Azure Portal).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Para configurar la integración de Azure AD con Andromeda, se necesitan los siguientes elementos:
 
-- Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener [una cuenta gratuita](https://azure.microsoft.com/free/)
-- Una suscripción que permita el inicio de sesión único en Andromeda
+* Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener [una cuenta gratuita](https://azure.microsoft.com/free/).
+* Una suscripción habilitada para el inicio de sesión único de Andromeda.
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
 En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-- Andromeda admite el inicio de sesión único iniciado por **SP e IDP**
-- Andromeda admite el aprovisionamiento de usuarios **Just-In-Time**.
+* Andromeda admite el inicio de sesión único iniciado por **SP e IDP**.
+* Andromeda admite el aprovisionamiento de usuarios **Just-In-Time**.
 
-## <a name="adding-andromeda-from-the-gallery"></a>Adición de Andromeda desde la galería
+## <a name="add-andromeda-from-the-gallery"></a>Adición de Andromeda desde la galería
 
 Para configurar la integración de Andromeda en Azure AD, será preciso que agregue Andromeda desde la galería a la lista de aplicaciones SaaS administradas.
 
@@ -75,15 +74,13 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-1. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en modo iniciado por **IDP**, escriba los valores de los siguientes campos:
+1. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en modo iniciado por **IDP**, realice los siguientes pasos: 
 
    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://<tenantURL>.ngcxpress.com/`
 
    b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<tenantURL>.ngcxpress.com/SAMLConsumer.aspx`
 
 1. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
-
-   ![Captura de pantalla que muestra Establecer direcciones U R L adicionales donde puede escribir una U R L de inicio de sesión.](common/metadata-upload-additional-signon.png)
 
    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<tenantURL>.ngcxpress.com/SAMLLogon.aspx`
 
@@ -92,9 +89,9 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. La aplicación Andromeda espera las aserciones de SAML en un formato específico. Configure las siguientes notificaciones para esta aplicación. Puede administrar los valores de estos atributos en la sección **Atributos de usuario** de la página de integración de aplicaciones. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el botón **Editar** para abrir el cuadro de diálogo **Atributos de usuario**.
 
-   ![Captura de pantalla que muestra User Attributes (Atributos de usuario) con atributos como emailaddress user.mail y givenname user.givenname.](common/edit-attribute.png)
+   ![Captura de pantalla que muestra los atributos de usuario.](common/edit-attribute.png)
 
-   > [!Important]
+   > [!NOTE]
    > Desactive las definiciones de espacio de nombres al realizar esta configuración.
 
 1. En la sección **Notificaciones del usuario** del cuadro de diálogo **Atributos de usuario**, edite las notificaciones mediante el **icono Editar** o agregue notificaciones mediante **Agregar nueva notificación** para configurar el atributo Token SAML como muestra la imagen anterior y realice los siguientes pasos:
@@ -164,15 +161,15 @@ En esta sección, va a permitir que B.Simon acceda a Andromeda mediante el inici
 
 2. En la parte superior de la barra de menús, haga clic en **Admin** (Administrador) y vaya a **Administration** (Administración).
 
-   ![Administración de Andromeda](./media/andromedascm-tutorial/tutorial_andromedascm_admin.png)
+   ![Administración de Andromeda.](./media/andromedascm-tutorial/admin.png)
 
 3. En el lado izquierdo de la barra de herramientas, en la sección **Interfaces** (Interfaces), haga clic en **SAML Configuration** (Configuración de SAML).
 
-   ![SAML de Andromeda](./media/andromedascm-tutorial/tutorial_andromedascm_saml.png)
+   ![SAML de Andromeda.](./media/andromedascm-tutorial/interface.png)
 
 4. En la página **SAML Configuration** (Configuración de SAML), realice los siguientes pasos:
 
-   ![Configuración de Andromeda](./media/andromedascm-tutorial/tutorial_andromedascm_config.png)
+   ![Configuración de Andromeda.](./media/andromedascm-tutorial/configure.png)
 
    a. Marque **Enable SSO with SAML** (Habilitar SSO con SAML).
 
@@ -188,9 +185,9 @@ En esta sección, va a permitir que B.Simon acceda a Andromeda mediante el inici
 
    g. Abra el **certificado codificado en Base64** descargado desde Azure Portal en el Bloc de notas y péguelo en el cuadro de texto **X 509 Certificate** (Certificado X509).
 
-   h. Asigne los siguientes atributos con su respectivo valor para facilitar el inicio de sesión único desde Azure AD. El atributo **User ID** (Id. de usuario) es necesario para iniciar sesión. Para el aprovisionamiento, es necesario proporcionar los valores **Email** (Correo electrónico), **Company** (Compañía), **UserType** (Tipo de usuario) y **Role** (Rol). En esta sección, se define la asignación de atributos (nombre y valores) que se corresponden con los que se establecen en Azure Portal.
+   h. Asigne los siguientes atributos con su respectivo valor para facilitar el inicio de sesión único desde Azure AD. El atributo **User ID** (Id. de usuario) es necesario para iniciar sesión. Para el aprovisionamiento, es necesario proporcionar los valores **Email** (Correo electrónico), **Company** (Compañía), **UserType** (Tipo de usuario) y **Role** (Rol). En esta sección, se define la asignación de atributos (nombre y valores) que se corresponden con los que se definen en Azure Portal.
 
-   ![Asignación de atributos de Andromeda](./media/andromedascm-tutorial/tutorial_andromedascm_attbmap.png)
+   ![Atributos de Andromeda.](./media/andromedascm-tutorial/mapping.png)
 
    i. Haga clic en **Save**(Guardar).
 
@@ -204,15 +201,15 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 #### <a name="sp-initiated"></a>Iniciado por SP:
 
-- Haga clic en **Probar esta aplicación** en Azure Portal. Esta acción le redirigirá a la dirección URL de inicio de sesión de Andromeda, donde puede iniciar el flujo de inicio de sesión.
+* Haga clic en **Probar esta aplicación** en Azure Portal. Esta acción le redirigirá a la dirección URL de inicio de sesión de Andromeda, donde puede iniciar el flujo de inicio de sesión.
 
-- Vaya directamente a la dirección URL de inicio de sesión de Andromeda e inicie el flujo de inicio de sesión desde allí.
+* Vaya directamente a la dirección URL de inicio de sesión de Andromeda e inicie el flujo de inicio de sesión desde allí.
 
 #### <a name="idp-initiated"></a>Iniciado por IDP:
 
-- Haga clic en **Probar esta aplicación** en Azure Portal; debería iniciar sesión automáticamente en la instancia de Andromeda para la que ha configurado el inicio de sesión único.
+* Haga clic en **Probar esta aplicación** en Azure Portal; debería iniciar sesión automáticamente en la instancia de Andromeda para la que ha configurado el inicio de sesión único.
 
-También puede usar Aplicaciones de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de Andromeda en Mis aplicaciones, si se ha configurado en modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para comenzar el flujo de inicio de sesión; y si se ha configurado en modo IDP, debería iniciar sesión automáticamente en la instancia de Andromeda para la que ha configurado el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+* También puede usar Aplicaciones de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de Andromeda en Mis aplicaciones, si se ha configurado en modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para comenzar el flujo de inicio de sesión; y si se ha configurado en modo IDP, debería iniciar sesión automáticamente en la instancia de Andromeda para la que ha configurado el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

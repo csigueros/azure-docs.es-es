@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/16/2020
 ms.author: sebansal
-ms.openlocfilehash: 50cc8f2454aa18dd9a0f1365490fadedcbb623b7
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: a0ae17c5108a4af15245d833f4f2636f9a330138
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108140684"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121862255"
 ---
 # <a name="tutorial-configure-certificate-auto-rotation-in-key-vault"></a>Tutorial: Configuración de la rotación automática de certificados en Key Vault
 
@@ -46,7 +46,7 @@ Cree una instancia de Azure Key Vault mediante [Azure Portal](../general/quick-c
 
 ## <a name="create-a-certificate-in-key-vault"></a>Creación de un certificado en Key Vault
 
-Cree un certificado o impórtelo en el almacén de claves (consulte los [pasos para crear un certificado en Key Vault](../secrets/quick-create-portal.md)). En este caso, trabajaremos en un certificado llamado **ExampleCertificate**.
+Cree un certificado o impórtelo en el almacén de claves (consulte los [pasos para crear un certificado en Key Vault](../certificates/quick-create-portal.md)). En este caso, trabajaremos en un certificado llamado **ExampleCertificate**.
 
 ## <a name="update-certificate-lifecycle-attributes"></a>Actualización de atributos del ciclo de vida del certificado
 

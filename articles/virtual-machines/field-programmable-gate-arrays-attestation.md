@@ -7,14 +7,16 @@ ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 04/01/2021
 ms.author: vikancha
-ms.openlocfilehash: a0c0c04d33c994279fe15a8fe7f677b2c25a55de
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 034acde1f99409ef7d541d7705bb995e0db00d3b
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108166044"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122689107"
 ---
 # <a name="fpga-attestation-for-azure-np-series-vms-preview"></a>Atestación de FPGA para las máquinas virtuales de Azure de la serie NP (versión preliminar)
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles :heavy_check_mark: Conjuntos de escalado uniformes
 
 El servicio de atestación de FPGA realiza una serie de validaciones en un archivo de punto de comprobación de diseño (llamado "netlist") generado por el conjunto de herramientas de Xilinx y genera un archivo que contiene la imagen validada (llamada "bitstream") que se puede cargar en la tarjeta FPGA Xilinx U250 en una máquina virtual de la serie NP.  
 

@@ -1,25 +1,29 @@
 ---
-title: Solución de problemas en Azure Data Box y Azure Data Box Heavy
-description: Describe cómo solucionar problemas que se producen en Azure Data Box y Azure Data Box Heavy al copiar datos en estos dispositivos.
+title: Solución de problemas durante las copias de datos en Azure Data Box y Azure Data Box Heavy
+description: Describe cómo solucionar problemas que se producen al copiar datos en dispositivos Azure Data Box y Azure Data Box Heavy.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: troubleshooting
-ms.date: 07/14/2021
+ms.date: 08/11/2021
 ms.author: alkohli
-ms.openlocfilehash: 06f0408587cc7c5533bdb852f7ad4f59094a33da
-ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
+ms.openlocfilehash: e3921e8b326be2163981eacc089e16e6fcf6f1bc
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114220265"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122772416"
 ---
-# <a name="troubleshoot-issues-related-to-azure-data-box-and-azure-data-box-heavy"></a>Solucionar problemas relacionados con Azure Data Box y Azure Data Box Heavy
+# <a name="troubleshoot-data-copy-issues-on-azure-data-box-and-azure-data-box-heavy"></a>Solución de problemas de copia de datos relacionados con Azure Data Box y Azure Data Box Heavy
 
-En este artículo se detalla información sobre cómo solucionar problemas que puede observar al usar Azure Data Box y Azure Data Box Heavy en los pedidos de importación. En el artículo se incluye la lista de posibles errores que aparecen cuando se copian datos en Data Box o cuando se cargan datos desde Data Box para un pedido de importación.
+En este artículo se describe cómo solucionar problemas que se producen al realizar copias o cargas de datos para un pedido de importación de Azure Data Box o Azure Data Box Heavy. En el artículo se incluye la lista de posibles errores que aparecen cuando se copian datos en un dispositivo Data Box o se cargan datos de él.
 
-La información de este artículo no se aplica a los pedidos de exportación creados para Data Box.
+Para obtener ayuda sobre cómo solucionar problemas relacionados con el acceso a los recursos compartidos en el dispositivo, consulte [Solución de problemas de errores de conexión de recursos compartidos durante la copia de datos en Azure Data Box](data-box-troubleshoot-share-access.md).
+
+
+> [!NOTE]
+> La información de este artículo se aplica solo a los pedidos de importación.
 
 ## <a name="error-classes"></a>Clases de error
 

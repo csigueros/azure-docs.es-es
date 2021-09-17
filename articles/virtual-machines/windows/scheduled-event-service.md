@@ -7,14 +7,16 @@ ms.subservice: scheduled-events
 ms.date: 08/20/2019
 ms.author: sarn
 ms.topic: how-to
-ms.openlocfilehash: 866522da162d22621bd37bf9d2f2fa6838206e17
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b8e13f8a8bd577e3e872d3fc59b099e34fd495d1
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101674700"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122694216"
 ---
 # <a name="monitor-scheduled-events-for-your-azure-vms"></a>Supervisión de los eventos programados para las máquinas virtuales de Azure
+
+**Se aplica a:** Máquinas virtuales :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles :heavy_check_mark: Conjuntos de escalado uniformes
 
 Las actualizaciones se aplican a diferentes partes de Azure cada día, para que los servicios que se ejecutan en ellas sean seguros y estén actualizados. Además de las actualizaciones planeadas, también se pueden producir eventos no planeados. Por ejemplo, si se detecta algún error o degradación del hardware, es posible que los servicios de Azure necesiten realizar un mantenimiento no planeado. Con la migración en vivo, la conservación de actualizaciones en la memoria y al mantener de forma general un control estricto acerca del impacto de las actualizaciones, en la mayoría de los casos estos eventos son casi transparentes para los clientes y no tienen ningún impacto o, como máximo, causan unos segundos de inmovilización en la máquina virtual. Sin embargo, para algunas aplicaciones, incluso unos pocos segundos de inmovilización en las máquinas virtuales podría tener un impacto. Es importante conocer por adelantado el próximo mantenimiento de Azure para garantizar la mejor experiencia para esas aplicaciones. El [servicio Scheduled Events](scheduled-events.md) proporciona una interfaz de programación para recibir notificaciones sobre el próximo mantenimiento y le permite administrar correctamente el mantenimiento. 
 

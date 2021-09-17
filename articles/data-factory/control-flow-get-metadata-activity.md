@@ -1,23 +1,26 @@
 ---
-title: Actividad de obtención de metadatos en Azure Data Factory
-description: Obtenga información sobre cómo usar la actividad de obtención de metadatos en una canalización de Data Factory.
+title: Actividad de obtención de metadatos
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Obtenga información sobre cómo usar la actividad de obtención de metadatos en una canalización de Azure Data Factory o Azure Synapse Analytics.
 author: jianleishen
 ms.service: data-factory
+ms.subservice: orchestration
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 02/25/2021
+ms.date: 08/24/2021
 ms.author: jianleishen
-ms.openlocfilehash: 6c375143217379b7ec795778f8947d88b70aa4bc
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 4f619266d225e4dd36bb68ca9ebcaaae366891cb
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110062819"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122821901"
 ---
-# <a name="get-metadata-activity-in-azure-data-factory"></a>Actividad de obtención de metadatos en Azure Data Factory
+# <a name="get-metadata-activity-in-azure-data-factory-or-azure-synapse-analytics"></a>Actividad de obtención de metadatos de Azure Data Factory o Azure Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-La actividad de obtención de metadatos se puede usar para recuperar metadatos de cualquier dato en Azure Data Factory. Puede usar la salida de la actividad de obtención de metadatos en expresiones condicionales para realizar la validación o consumir los metadatos en actividades posteriores.
+La actividad de obtención de metadatos se puede usar para recuperar los metadatos de cualquier dato en una canalización de Azure Data Factory o Synapse. Puede usar la salida de la actividad de obtención de metadatos en expresiones condicionales para realizar la validación o consumir los metadatos en actividades posteriores.
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
@@ -224,7 +227,7 @@ Los resultados de la obtención de metadatos se muestran en la salida de la acti
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte otras actividades de flujo de control compatibles con Data Factory:
+Obtenga información sobre otras actividades de flujo de control admitidas:
 
 - [Actividad de ejecución de canalización](control-flow-execute-pipeline-activity.md)
 - [Actividad ForEach](control-flow-for-each-activity.md)

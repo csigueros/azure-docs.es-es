@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: tutorial
 ms.date: 08/18/2021
 ms.author: cherylmc
-ms.openlocfilehash: dbc48719f2897c22717319e1e07b5b3b3146fe84
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
+ms.openlocfilehash: 544275ce4c9ab31fa65fe17351eed495895569e2
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122638231"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123432169"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>Tutorial: Creación de una conexión de sitio a sitio mediante Azure Virtual WAN
 
@@ -22,8 +22,8 @@ En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
 > * Creación de una instancia de Virtual WAN
-> * Crear un concentrador
-> * Crear una puerta de enlace de VPN de sitio a sitio
+> * Establecer la configuración básica del centro de conectividad
+> * Establecer la configuración de puerta de enlace de VPN de sitio a sitio
 > * Crear un sitio
 > * Conectar un sitio a un centro de conectividad
 > * Conectar un sitio VPN a un centro de conectividad
@@ -47,7 +47,7 @@ Antes de comenzar con la configuración, compruebe que se cumplen los criterios 
 
 [!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-create-vwan-include.md)]
 
-## <a name="create-hub"></a><a name="hub"></a>Creación de un centro de conectividad
+## <a name="configure-hub-settings"></a><a name="hub"></a>Configuración de las opciones del centro de conectividad
 
 Un centro de conectividad es una red virtual que puede contener puertas de enlace para las funcionalidades de sitio a sitio, ExpressRoute o de punto a sitio. Para este tutorial, comenzará rellenando la pestaña **Aspectos básicos** del centro de conectividad virtual y, a continuación, continuará con la pestaña de sitio a sitio en la sección siguiente. Tenga en cuenta que es posible crear un centro de conectividad vacío (un centro que no contenga ninguna puerta de enlace) y, más adelante, agregar puertas de enlace (S2S, P2S, ExpressRoute, etc.). Una vez que haya creado el centro de conectividad, se le facturará, aunque no lo conecte a ningún sitio ni cree ninguna puerta de enlace en él.
 

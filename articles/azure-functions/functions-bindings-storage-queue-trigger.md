@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, cc996988-fb4f-47, devx-track-python
-ms.openlocfilehash: 8f9f6c18e75b0c8238583742a2a99d0e365edbd0
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 85422b8bc587c858fc219379e553d1705e5aaabe
+ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108166368"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122429228"
 ---
 # <a name="azure-queue-storage-trigger-for-azure-functions"></a>Desencadenador de Azure Queue Storage para Azure Functions
 
@@ -439,9 +439,21 @@ El desencadenador de cola proporciona varias [propiedades de metadatos](./functi
 
 ## <a name="poison-messages"></a>Mensajes dudosos
 
-Si se produce un error en una función del desencadenador de cola, Azure Functions volverá a intentar esa función hasta cinco veces para un determinado mensaje en la cola, incluido el primer intento. Si se produce un error en los cinco intentos, Functions agregará un mensaje a la cola denominada *&lt;nombreDeColaOriginal>-poison*. Puede escribir una función para procesar los mensajes desde la cola de mensajes dudosos registrándolos o enviando una notificación indicando que se necesita atención manual.
+Si se produce un error en una función del desencadenador de cola, Azure Functions volverá a intentar esa función hasta cinco veces para un determinado mensaje en la cola, incluido el primer intento. Si los cinco intentos son infructuosos, Functions agregará un mensaje a la cola denominada *&lt;originalqueuename&gt;-poison*. Puede escribir una función para procesar los mensajes desde la cola de mensajes dudosos registrándolos o enviando una notificación indicando que se necesita atención manual.
 
 Para controlar manualmente los mensajes dudosos, compruebe el elemento [dequeueCount](#message-metadata) del mensaje de la cola.
+
+
+## <a name="peek-lock"></a>Inspección y bloqueo
+El patrón de inspección y bloqueo se produce automáticamente en los desencadenadores de cola. A medida que los mensajes se van quitando de la cola, se marcan como invisibles y se asocian a un tiempo de espera administrado por el servicio de Storage.
+
+Cuando la función se inicia, comienza a procesar un mensaje bajo las siguientes condiciones.
+
+- Si la función es correcta, termina de ejecutarse y el mensaje se elimina.
+- Si la función no es correcta, se restablece la visibilidad del mensaje y, tras ello, el mensaje vuelve a procesarse la próxima vez que la función solicite un nuevo mensaje.
+- Si la función nunca se completa debido a un bloqueo, la visibilidad del mensaje expira y el mensaje vuelve a aparecer en la cola.
+
+Todas las mecánicas de visibilidad se controlan mediante el servicio de Storage, no el runtime de Functions.
 
 ## <a name="polling-algorithm"></a>Algoritmo de sondeo
 
@@ -449,14 +461,15 @@ El desencadenador de cola implementa un algoritmo de interrupción exponencial a
 
 El algoritmo utiliza la siguiente lógica:
 
-- Cuando se encuentra un mensaje, el entorno de ejecución espera dos segundos y, a continuación, busca otro mensaje.
-- Si no encuentra ningún mensaje, espera unos cuatro segundos antes de volver a intentarlo.
+- Cuando se encuentra un mensaje, el runtime espera 100 milisegundos y, después, busca otro mensaje.
+- Si no encuentra ninguno, espera unos 200 milisegundos antes de volver a intentarlo.
 - Después de varios intentos fallidos para obtener un mensaje de la cola, el tiempo de espera sigue aumentando hasta que alcanza el tiempo de espera máximo, predeterminado en un minuto.
 - El tiempo de espera máximo se configura mediante la propiedad `maxPollingInterval` en el [archivo host.json](functions-host-json-v1.md#queues).
 
 En el desarrollo local, el intervalo máximo de sondeo predeterminado es de dos segundos.
 
-En lo que respecta a la facturación, el tiempo dedicado al sondeo por el entorno de ejecución es "gratuito" y no se incluye en la cuenta.
+> [!NOTE]
+> Respecto a la facturación al hospedar aplicaciones de función en el plan de consumo, no se le cobrará por el tiempo empleado en el sondeo del runtime.
 
 ## <a name="concurrency"></a>Simultaneidad
 

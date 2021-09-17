@@ -2,13 +2,14 @@
 title: Configuración de una cuenta de laboratorio con Azure Lab Services | Microsoft Docs
 description: Aprenda a configurar una cuenta de laboratorio con Azure Lab Services, a agregar un creador de laboratorios y a especificar las imágenes de Marketplace que van a usar los laboratorios en la cuenta de laboratorio.
 ms.topic: tutorial
-ms.date: 06/26/2020
-ms.openlocfilehash: fba4dbc5386407bd796606d86a5b7bdc7c10fd61
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 07/26/2021
+ms.custom: subject-rbac-steps
+ms.openlocfilehash: d6107c1a70b22682636b63c0fb0f7374a0d96873
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85445073"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122634019"
 ---
 # <a name="tutorial-set-up-a-lab-account-with-azure-lab-services"></a>Tutorial: Configuración de una cuenta de laboratorio con Azure Lab Services
 En Azure Lab Services, una cuenta de laboratorio sirve como cuenta central en la que se administran los laboratorios de una organización. En su cuenta de laboratorio, puede conceder permiso a otros usuarios para crear laboratorios y establecer las directivas que se aplican a todos los laboratorios de la cuenta de laboratorio. En este tutorial, aprenderá a crear una cuenta de laboratorio. 
@@ -50,17 +51,25 @@ Los pasos siguientes muestran cómo usar Azure Portal para crear una cuenta de l
     ![Página de la cuenta de laboratorio](./media/tutorial-setup-lab-account/lab-account-page.png)
 
 ## <a name="add-a-user-to-the-lab-creator-role"></a>Incorporación de un usuario al rol Creador de laboratorio
-Para configurar un laboratorio de clase en una cuenta de laboratorio, el usuario debe ser miembro del rol **Creador de laboratorio** en la cuenta de laboratorio. Para proporcionar a los educadores el permiso para crear laboratorios para sus clases agréguelos al rol **Creador de laboratorios**:
+Para configurar un laboratorio de clase en una cuenta de laboratorio, el usuario debe ser miembro del rol **Creador de laboratorio** en la cuenta de laboratorio. Para proporcionar a los educadores el permiso para crear laboratorios para sus clases agréguelos al rol **Creador de laboratorios**. Para obtener los pasos detallados, consulte [Asignación de roles de Azure mediante Azure Portal](../role-based-access-control/role-assignments-portal.md).
 
 > [!NOTE]
 > La cuenta que usó para crear la cuenta de laboratorio se agrega automáticamente a este rol. Si pretende usar la misma cuenta de usuario para crear un laboratorio de clase en este tutorial, puede omitir este paso. 
 
-1. En la página de la **cuenta de laboratorio**, seleccione **Control de acceso (IAM)** , **+ Agregar** en la barra de herramientas y, después, seleccione **+ Agregar asignación de roles** en la barra de herramientas. 
 
-    ![Control de acceso -> botón Agregar asignación de roles](./media/tutorial-setup-lab-account/add-role-assignment-button.png)
-1. En la página **Agregar asignación de roles**, seleccione **Creador de laboratorio** en **Rol**, seleccione el usuario que quiere agregar al rol Creador de laboratorio y seleccione **Guardar**. 
+1. En la página **Cuenta de laboratorio**, seleccione **Control de acceso (IAM)** .
 
-    ![Incorporación del creador de laboratorio](./media/tutorial-setup-lab-account/add-lab-creator.png)
+1. Seleccione **Agregar** > **Agregar asignación de roles (versión preliminar)** .
+
+    ![Página Control de acceso (IAM) con el menú Agregar asignación de roles abierto.](../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png)
+
+1. En la pestaña **Rol**, seleccione el rol **Creador de laboratorios**.
+
+    ![Página Agregar asignación de roles con la pestaña Rol seleccionada.](../../includes/role-based-access-control/media/add-role-assignment-role-generic.png)
+
+1. En la pestaña **Miembros**, seleccione el usuario que quiere agregar al rol Creador de laboratorios.
+
+1. En la pestaña **Revisión y asignación**, seleccione **Revisión y asignación** para asignar el rol.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -8,12 +8,12 @@ ms.service: media-services
 ms.topic: conceptual
 ms.date: 03/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: f480f7821ea3443c76c551f45ac74d136f417060
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 7c4db2326ab8e325dfdfa759ec7f5fdc71f17df1
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106277307"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122633726"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Streaming en vivo con Azure Media Services v3
 
@@ -118,6 +118,6 @@ El recurso en el que se está archivando la salida en directo, se convierte auto
 - [Estados y facturación](live-event-states-billing-concept.md)
 - [Latency](live-event-latency-reference.md)
 
-## <a name="live-streaming-questions"></a>Preguntas sobre streaming en vivo
+## <a name="live-streaming-faq"></a>Preguntas más frecuentes sobre streaming en vivo
 
-Consulte el artículo [preguntas sobre streaming en vivo](questions-collection.md#live-streaming).
+Consulte [las preguntas sobre streaming en vivo en las preguntas más frecuentes](frequently-asked-questions.yml).

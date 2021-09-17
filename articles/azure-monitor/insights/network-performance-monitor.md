@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 02/20/2018
-ms.openlocfilehash: fab7a613a040a57b65ecb8cb2372fff37f35c84a
-ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
+ms.openlocfilehash: bd0fb0720218b938b8c10454afeafba85887fa2c
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114392567"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122779129"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Solución Network Performance Monitor en Azure
 
@@ -123,7 +123,7 @@ El script crea las claves del Registro que requiere la solución. También crea 
 
 ### <a name="configure-the-solution"></a>Configuración de la solución 
 
-1. Agregue la solución Network Performance Monitor al área de trabajo desde [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/solarwinds.solarwinds-orion-network-performance-monitor?tab=Overview). También puede usar el proceso que se describe en cómo [agregar soluciones de Azure Monitor desde la Galería de soluciones](./solutions.md). 
+1. Agregue la solución Network Performance Monitor al área de trabajo mediante el proceso descrito en [Incorporación de soluciones de Azure Monitor desde la galería de soluciones](./solutions.md#install-a-monitoring-solution). Esto es necesario si quiere trabajar con puntos de conexión que no son de Azure dentro de Connection Monitor.
 2. Abra el área de trabajo de Log Analytics y seleccione el icono **Overview** (Información general). 
 3. Seleccione el icono denominado **Network Performance Monitor** con el mensaje *La solución necesita una configuración adicional*.
 

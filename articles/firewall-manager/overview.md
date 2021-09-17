@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 06/21/2021
+ms.date: 08/03/2021
 ms.author: victorh
-ms.openlocfilehash: c5ba8ed36bc59b9b26dc854a0c1a1757f1c47266
-ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
+ms.openlocfilehash: 9a6e6a0713179295379e758f454617484c75b9a2
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2021
-ms.locfileid: "113595334"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122779163"
 ---
 # <a name="what-is-azure-firewall-manager"></a>¿Qué es Azure Firewall Manager?
 
@@ -87,6 +87,8 @@ Azure Firewall Manager presenta los siguientes problemas conocidos:
 |Error en la incorporación en masa de direcciones IP|El firewall del centro de conectividad seguro pasa al estado con errores si se agregan varias direcciones IP públicas.|Agregue incrementos menores de direcciones IP públicas. Por ejemplo, agréguelas de 10 en 10.|
 |La versión Estándar de DDoS Protection no es compatible con los centros virtuales protegidos|La versión Estándar de DDoS Protection no se integra con las vWAN.|Investigando|
 |Los registros de actividad no son totalmente compatibles|La directiva de firewall no admite actualmente registros de actividad.|Investigando|
+|Descripción de reglas no totalmente compatibles|La directiva de firewall no muestra la descripción de las reglas en una exportación de ARM.|Investigando|
+|Azure Firewall Manager sobrescribe las rutas estáticas y personalizadas, lo que provoca tiempos de inactividad en el centro de conectividad de Virtual WAN.|No debe utilizar Azure Firewall Manager para administrar la configuración en implementaciones configuradas con rutas personalizadas o estáticas. Las actualizaciones de Firewall Manager pueden sobrescribir la configuración de la ruta estática o personalizada.|Si utiliza rutas estáticas o personalizadas, use la página Virtual WAN para administrar la configuración de seguridad y evitar la configuración mediante Azure Firewall Manager.<br><br>Para más información, consulte [Escenario: Azure Firewall: personalizado](../virtual-wan/scenario-route-between-vnets-firewall.md).|
 
 ## <a name="next-steps"></a>Pasos siguientes
 

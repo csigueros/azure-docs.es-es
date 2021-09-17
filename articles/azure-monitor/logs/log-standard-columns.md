@@ -4,13 +4,13 @@ description: Describe las columnas que son comunes a varios tipos de datos en lo
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 02/25/2021
-ms.openlocfilehash: 5b906bdbd07d59d2acc88f6b30f0db6b6cbc961a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 08/16/2021
+ms.openlocfilehash: 909c02c53f753579d6788933277bca8f75f53859
+ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103562253"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122514869"
 ---
 # <a name="standard-columns-in-azure-monitor-logs"></a>Columnas estándar en registros de Azure Monitor
 Los datos de los registros de Azure Monitor se [almacenan como un conjunto de registros en un área de trabajo de Log Analytics o una aplicación de Application Insights](../logs/data-platform-logs.md), cada uno con un tipo de datos determinado que tiene un conjunto singular de columnas. Muchos tipos de datos tendrán columnas estándar que son comunes entre varios tipos. En este artículo se describen estas columnas y se proporcionan ejemplos de cómo puede usarlas en las consultas.
@@ -24,10 +24,13 @@ Las aplicaciones basadas en el área de trabajo de Application Insights almacena
 ## <a name="tenantid"></a>TenantId
 La columna **TenantId** contiene el identificador del área de trabajo de Log Analytics.
 
-## <a name="timegenerated-and-timestamp"></a>TimeGenerated y timestamp
-Las columnas **TimeGenerated** (área de trabajo de Log Analytics) y **timestamp** (aplicación de Application Insights) contienen la fecha y hora en que el origen de datos creó el registro. Consulte [Tiempo de la ingesta de datos de registro en Azure Monitor](../logs/data-ingestion-time.md) para más detalles.
+## <a name="timegenerated"></a>TimeGenerated
+La columna **TimeGenerated** contiene la fecha y la hora en que el origen de datos creó el registro. Consulte [Tiempo de la ingesta de datos de registro en Azure Monitor](../logs/data-ingestion-time.md) para más detalles.
 
-**TimeGenerated** y **timestamp** proporcionan una columna común para filtrar o resumir por tiempo. Cuando se selecciona un intervalo de tiempo para una vista o panel en Azure Portal, se usa TimeGenerated o timestamp para filtrar los resultados. 
+**TimeGenerated** proporciona una columna común para filtrar o resumir por tiempo. Cuando se selecciona un intervalo de tiempo para una vista o panel en Azure Portal, se utiliza **TimeGenerated** para filtrar los resultados. 
+
+> [!NOTE]
+> Las tablas que admiten recursos de Application Insights clásicos usan la columna **timestamp** en lugar de la columna **TimeGenerated**.
 
 ### <a name="examples"></a>Ejemplos
 
@@ -40,16 +43,6 @@ Event
 | summarize count() by bin(TimeGenerated, 1day) 
 | sort by TimeGenerated asc 
 ```
-
-La consulta siguiente devuelve el número de excepciones creados para cada día de la semana anterior.
-
-```Kusto
-exceptions
-| where timestamp between(startofweek(ago(7days))..endofweek(ago(7days))) 
-| summarize count() by bin(TimeGenerated, 1day) 
-| sort by timestamp asc 
-```
-
 ## <a name="_timereceived"></a>\_TimeReceived
 La columna **\_TimeReceived** contiene la fecha y hora en que el punto de ingesta de Azure Monitor recibió el registro en la nube de Azure. Esto puede resultar útil para identificar problemas de latencia entre el origen de datos y la nube. Un ejemplo sería un error de red que genere un retraso con los datos que se envían desde un agente. Consulte [Tiempo de la ingesta de datos de registro en Azure Monitor](../logs/data-ingestion-time.md) para más detalles.
 
@@ -68,8 +61,11 @@ Event
 | summarize avg(AgentLatency), avg(TotalLatency) by bin(TimeGenerated,1hr)
 ``` 
 
-## <a name="type-and-itemtype"></a>Type e itemType
-Las columnas **Type** (área de trabajo de Log Analytics) e **itemType** (aplicación de Application Insights) contienen el nombre de la tabla de la que se recuperó el registro, que también se puede considerar como el tipo de registro. Esta columna es útil en las consultas que combinan registros de varias tablas, como las que utilizan el operador `search`, para distinguir entre registros de diferentes tipos. **$table** puede utilizarse en lugar de **Type** en algunos lugares.
+## <a name="type"></a>Tipo
+La columna **Type** contiene el nombre de la tabla de la que se recuperó el registro, que puede considerarse también como el tipo de registro. Esta columna es útil en las consultas que combinan registros de varias tablas, como las que utilizan el operador `search`, para distinguir entre registros de diferentes tipos. En algunas consultas se puede usar **$table** en lugar de **Type**.
+
+> [!NOTE]
+> Las tablas que admiten recursos de Application Insights clásicos usan la columna **itemType** en lugar de la columna **Type**.
 
 ### <a name="examples"></a>Ejemplos
 La siguiente consulta devuelve el número de registros por tipo recopilados durante la última hora.
@@ -145,7 +141,7 @@ La siguiente consulta examina los datos de rendimiento de los equipos de una sus
 ```Kusto
 Perf 
 | where TimeGenerated > ago(24h) and CounterName == "memoryAllocatableBytes"
-| where _SubscriptionId == "57366bcb3-7fde-4caf-8629-41dc15e3b352"
+| where _SubscriptionId == "ebb79bc0-aa86-44a7-8111-cabbe0c43993"
 | summarize avgMemoryAllocatableBytes = avg(CounterValue) by Computer
 ```
 

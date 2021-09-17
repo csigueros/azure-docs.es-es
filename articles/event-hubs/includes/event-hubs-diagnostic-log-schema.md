@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/11/2021
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 0d39961e1c56bdd6159fdb0d14cc0901aab6bc0e
-ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
+ms.openlocfilehash: ad25ce992dec7165e2b936e5642e8c3a209ce6a5
+ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2021
-ms.locfileid: "112413464"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122516330"
 ---
 Event Hubs captura los registros de diagnóstico de las siguientes categorías:
 
@@ -182,7 +182,7 @@ Las cadenas JSON del evento de conexión de red virtual (VNet) de Event Hubs con
 | `Count` | Número de repeticiones de una acción dada. |
 | `ResourceId` | Identificador de recursos de Azure Resource Manager. |
 
-Los registros de red virtual solo se generan si el espacio de nombres permite el acceso desde **redes seleccionadas** o desde **direcciones IP específicas** (reglas de filtro de IP). Si no quiere restringir el acceso al espacio de nombres mediante estas características y quiere obtener registros de red virtual para realizar el seguimiento de las direcciones IP de los clientes que se conectan al espacio de nombres de Event Hubs, puede usar la siguiente alternativa. [Habilite el filtrado de IP](../event-hubs-ip-filtering.md) y agregue el intervalo IPv4 direccionable total (1.0.0.0/1 - 255.0.0.0/1). El filtrado de IP de Event Hubs no admite intervalos IPv6. Tenga en cuenta que puede ver las direcciones de un punto de conexión privado en formato IPv6 en el registro. 
+Los registros de red virtual solo se generan si el espacio de nombres permite el acceso desde **redes seleccionadas** o desde **direcciones IP específicas** (reglas de filtro de IP). Si no quiere restringir el acceso al espacio de nombres mediante estas características y quiere obtener registros de red virtual para realizar el seguimiento de las direcciones IP de los clientes que se conectan al espacio de nombres de Event Hubs, puede usar la siguiente alternativa. [Habilite el filtrado de IP](../event-hubs-ip-filtering.md) y agregue el intervalo IPv4 direccionable total (1.0.0.0/1 - 255.0.0.0/1). El filtrado de IP de Event Hubs no admite intervalos IPv6. Puede ver las direcciones de un punto de conexión privado en formato IPv6 en el registro. 
 
 #### <a name="example"></a>Ejemplo
 
@@ -204,11 +204,58 @@ Las cadenas JSON del registro de usuario de claves administradas por el cliente 
 
 | Nombre | Descripción |
 | ---- | ----------- | 
-| `Category` | Tipo de categoría de un mensaje. Corresponde a uno de los siguientes valores: **error** e **info** |
+| `Category` | Tipo de categoría de un mensaje. Corresponde a uno de los siguientes valores: **error** e **info**. Por ejemplo, si la clave del almacén de claves se va a deshabilitar, sería una categoría de información, o si no se puede desencapsular una clave, podría tratarse de un error.|
 | `ResourceId` | Identificador de recurso interno, que incluye el identificador de suscripción y el nombre del espacio de nombres de Azure. |
 | `KeyVault` | Nombre del recurso de Key Vault. |
-| `Key` | Nombre de la clave de Key Vault. |
-| `Version` | Versión de la clave de Key Vault. |
-| `Operation` | El nombre de una operación realizada para atender solicitudes. |
-| `Code` | Código de estado |
+| `Key` | Nombre de la clave de Key Vault que se usa para cifrar el espacio de nombres de Event Hubs. |
+| `Version` | Versión de la clave de Key Vault.|
+| `Operation` | La operación que se realiza en la clave en el almacén de claves. Por ejemplo, deshabilitar o habilitar la clave, encapsular o desencapsular. |
+| `Code` | Código asociado a la operación. Ejemplo: Código de error; 404 indica que no se ha encontrado la clave. |
 | `Message` | Mensaje, que proporciona detalles sobre un error o un mensaje informativo. |
+
+El siguiente es un ejemplo del registro de una clave administrada por el cliente:
+
+```json
+{
+   "TaskName": "CustomerManagedKeyUserLog",
+   "ActivityId": "11111111-1111-1111-1111-111111111111",
+   "category": "error"
+   "resourceId": "/SUBSCRIPTIONS/11111111-1111-1111-1111-11111111111/RESOURCEGROUPS/DEFAULT-EVENTHUB-CENTRALUS/PROVIDERS/MICROSOFT.EVENTHUB/NAMESPACES/FBETTATI-OPERA-EVENTHUB",
+   "keyVault": "https://mykeyvault.vault-int.azure-int.net",
+   "key": "mykey",
+   "version": "1111111111111111111111111111111",
+   "operation": "wrapKey",
+   "code": "404",
+   "message": "Key not found: ehbyok0/111111111111111111111111111111",
+}
+
+
+
+{
+   "TaskName": "CustomerManagedKeyUserLog",
+   "ActivityId": "11111111111111-1111-1111-1111111111111",
+   "category": "info"
+   "resourceId": "/SUBSCRIPTIONS/111111111-1111-1111-1111-11111111111/RESOURCEGROUPS/DEFAULT-EVENTHUB-CENTRALUS/PROVIDERS/MICROSOFT.EVENTHUB/NAMESPACES/FBETTATI-OPERA-EVENTHUB",
+   "keyVault": "https://mykeyvault.vault-int.azure-int.net",
+   "key": "mykey",
+   "version": "111111111111111111111111111111",
+   "operation": "disable" | "restore",
+   "code": "",
+   "message": "",
+}
+```
+
+A continuación se muestran los códigos de error comunes que buscar cuando está habilitado el cifrado de BYOK.
+
+| Acción | Código de error | Estado resultante de los datos |
+| ------ | ---------- | ----------------------- | 
+| Quitar el permiso de encapsular/desencapsular de un almacén de claves | 403 |    Inaccessible |
+| Quitar la pertenencia al rol de AAD de una entidad de seguridad de AAD que concedió el permiso de encapsular/desencapsular | 403 |  Inaccessible |
+| Eliminar una clave de cifrado del almacén de claves | 404 | Inaccessible |
+| Eliminar el almacén de claves | 404 | Inaccesible (se da por supuesto que la eliminación temporal está habilitada, al ser una opción obligatoria) |
+| Cambiar el período de expiración de la clave de cifrado para que ya haya expirado | 403 |   Inaccessible  |
+| Cambiar el valor NBF (no antes), de modo que la clave de cifrado de clave no esté activa | 403 | Inaccessible  |
+| Seleccionar la opción **Allow MSFT Services** (Permitir servicios MSFT) para el firewall del almacén de claves o bloquear el acceso de red al almacén de claves que tiene la clave de cifrado | 403 | Inaccessible |
+| Mover el almacén de claves a un inquilino diferente | 404 | Inaccessible |  
+| Problema de red intermitente o interrupción de DNS/AAD/MSI |  | Accesible mediante clave de cifrado de datos en caché |
+

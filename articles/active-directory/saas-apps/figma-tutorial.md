@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/23/2021
 ms.author: jeedes
-ms.openlocfilehash: 4dc5cf7b6a583f63e75c366c5fb2bc7857bd45dc
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: ef637225d516ccaf2eaf06ace1803874299d3312
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111896061"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122178498"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-figma"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Figma
 
@@ -38,6 +38,7 @@ Para empezar, necesita los siguientes elementos:
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
 * Figma admite el inicio de sesión único iniciado por **SP e IDP**.
+* Figma admite el [aprovisionamiento y desaprovisionamiento **automatizados** de usuarios](figma-provisioning-tutorial.md) (recomendado).
 * Figma admite el aprovisionamiento de usuarios **Just-In-Time**.
 
 ## <a name="add-figma-from-the-gallery"></a>Agregar Figma desde la galería

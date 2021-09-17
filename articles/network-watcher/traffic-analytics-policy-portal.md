@@ -12,20 +12,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2021
 ms.author: moagra
-ms.openlocfilehash: d55a3090e9f7c8af73f854074a5823b7fe6eba1e
-ms.sourcegitcommit: 6f4378f2afa31eddab91d84f7b33a58e3e7e78c1
+ms.openlocfilehash: 3be6d5b30d270c9687b7100c07ee675268cee5c0
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2021
-ms.locfileid: "113688566"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122609153"
 ---
 # <a name="deploy-and-manage-traffic-analytics-using-azure-policy"></a>Implementación y administración del Análisis de tráfico mediante Azure Policy 
 
 Azure Policy ayuda a aplicar los estándares de la organización y a evaluar el cumplimiento a escala. Entre los casos de uso comunes de Azure Policy se incluye la implementación de la gobernanza para la coherencia de los recursos, el cumplimiento normativo, la seguridad, el costo y la administración. En este artículo, veremos tres directivas integradas disponibles en el [Análisis de tráfico](./traffic-analytics.md) para administrar la configuración.
 
-Si va a crear una directiva de Azure por primera vez, puede leer lo siguiente: 
+Si va a crear una definición de Azure Policy por primera vez, puede leer lo siguiente: 
 - [Introducción a Azure Policy](../governance/policy/overview.md). 
-- [Tutorial para crear directivas](../governance/policy/assign-policy-portal.md#create-a-policy-assignment).
+- [Tutorial para crear una asignación de Azure Policy](../governance/policy/assign-policy-portal.md#create-a-policy-assignment).
 
 
 ## <a name="locate-the-policies"></a>Búsqueda de las directivas

@@ -8,14 +8,16 @@ ms.author: rogarana
 ms.service: storage
 ms.subservice: disks
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c5d0bf7f209683668ddbffff7be11f932f3eeaee
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+ms.openlocfilehash: d5de598c71cda0010869da709e8f6290ccdf03cc
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113359039"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122772001"
 ---
 # <a name="azure-powershell---enable-customer-managed-keys-with-server-side-encryption---managed-disks"></a>Azure PowerShell - Habilitación de claves administradas por el cliente con el cifrado del lado servidor - discos administrados
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Windows 
 
 Azure Disk Storage le permite administrar sus propias claves al usar el cifrado del lado servidor (SSE) para discos administrados, si así lo decide. Para obtener información conceptual sobre SSE con claves administradas por el cliente y otros tipos de cifrado de discos administrados, consulte la sección [Claves administradas por el cliente](../disk-encryption.md#customer-managed-keys) de nuestro artículo sobre el cifrado de discos.
 
@@ -27,53 +29,12 @@ Por ahora, las claves administradas por el cliente tienen las siguientes restric
     Si necesita encontrar una solución alternativa, debe [copiar todos los datos](disks-upload-vhd-to-managed-disk-powershell.md#copy-a-managed-disk) en un disco administrado totalmente diferente que no use claves administradas por el cliente.
 [!INCLUDE [virtual-machines-managed-disks-customer-managed-keys-restrictions](../../../includes/virtual-machines-managed-disks-customer-managed-keys-restrictions.md)]
 
-## <a name="set-up-an-azure-key-vault-and-diskencryptionset-without-automatic-key-rotation"></a>Configuración de Azure Key Vault and DiskEncryptionSet sin rotación de claves automática
+## <a name="set-up-an-azure-key-vault-and-diskencryptionset-optionally-with-automatic-key-rotation"></a>Configuración de Azure Key Vault and DiskEncryptionSet opcionalmente con rotación de claves automática
 
 Para usar claves administradas por el cliente con SSE, debe configurar un almacén de Azure Key Vault y un recurso DiskEncryptionSet.
 
 [!INCLUDE [virtual-machines-disks-encryption-create-key-vault-powershell](../../../includes/virtual-machines-disks-encryption-create-key-vault-powershell.md)]
 
-## <a name="set-up-an-azure-key-vault-and-diskencryptionset-with-automatic-key-rotation-preview"></a>Configuración de Azure Key Vault and DiskEncryptionSet con rotación de claves automática (versión preliminar)
-
-1. Asegúrese de haber instalado la [versión más reciente de Azure PowerShell](/powershell/azure/install-az-ps) y de haber iniciado sesión en una cuenta de Azure con `Connect-AzAccount`.
-1. Cree una instancia de Azure Key Vault y la clave de cifrado.
-
-    Al crear la instancia de Key Vault, debe habilitar la protección contra purgas. La protección de purgas garantiza que una clave eliminada no se puede eliminar permanentemente hasta que transcurra el período de retención. Esta configuración evita la pérdida de datos debido a una eliminación accidental y es obligatoria para cifrar discos administrados.
-    
-    ```powershell
-    $ResourceGroupName="yourResourceGroupName"
-    $LocationName="westcentralus"
-    $keyVaultName="yourKeyVaultName"
-    $keyName="yourKeyName"
-    $keyDestination="Software"
-    $diskEncryptionSetName="yourDiskEncryptionSetName"
-
-    $keyVault = New-AzKeyVault -Name $keyVaultName -ResourceGroupName $ResourceGroupName -Location $LocationName -EnablePurgeProtection
-
-    $key = Add-AzKeyVaultKey -VaultName $keyVaultName -Name $keyName -Destination $keyDestination  
-    ```
-
-1.  Cree DiskEncryptionSet mediante la versión de la API `2020-12-01` y establezca la propiedad `rotationToLatestKeyVersionEnabled` en true a través de la plantilla de Azure Resource Manager [CreateDiskEncryptionSetWithAutoKeyRotation.json](https://raw.githubusercontent.com/Azure-Samples/managed-disks-powershell-getting-started/master/AutoKeyRotation/CreateDiskEncryptionSetWithAutoKeyRotation.json)
-    
-    ```powershell
-    New-AzResourceGroupDeployment -ResourceGroupName $ResourceGroupName `
-    -TemplateUri "https://raw.githubusercontent.com/Azure-Samples/managed-disks-powershell-getting-started/master/AutoKeyRotation/CreateDiskEncryptionSetWithAutoKeyRotation.json" `
-    -diskEncryptionSetName $diskEncryptionSetName `
-    -keyVaultId $($keyVault.ResourceId) `
-    -keyVaultKeyUrl $($key.Key.Kid) `
-    -encryptionType "EncryptionAtRestWithCustomerKey" `
-    -region $LocationName
-    ```
-
-1.  Conceda al recurso DiskEncryptionSet acceso al almacén de claves.
-
-    > [!NOTE]
-    > Azure puede tardar unos minutos en crear la identidad del elemento DiskEncryptionSet en Azure Active Directory. Si recibe un error similar a "No se encuentra el objeto en Active Directory" al ejecutar el siguiente comando, espere unos minutos y vuelva a intentarlo.
-
-    ```powershell
-    $des=Get-AzDiskEncryptionSet -Name $diskEncryptionSetName -ResourceGroupName $ResourceGroupName
-    Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -ObjectId $des.Identity.PrincipalId -PermissionsToKeys wrapkey,unwrapkey,get
-    ```
 
 ## <a name="examples"></a>Ejemplos
 

@@ -6,12 +6,12 @@ ms.author: lle
 ms.service: data-factory
 ms.topic: tutorial
 ms.date: 05/06/2021
-ms.openlocfilehash: bb29c7712bdbe629ff3aa8704c0c4654404f0da3
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: a04371fcba573be41fd5c2275371e0c590b82c08
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111971846"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121736886"
 ---
 # <a name="tutorial-how-to-access-on-premises-sql-server-from-data-factory-managed-vnet-using-private-endpoint"></a>Tutorial: Acceso a SQL Server local desde una VNet administrada por Data Factory mediante un punto de conexión privado
 
@@ -167,7 +167,7 @@ En esta sección, va a crear un servicio Private Link detrás de un equilibrador
 1. En la parte superior izquierda del portal, seleccione **Crear un recurso > Proceso > Máquina virtual**.
 2. En **Crear una máquina virtual**, escriba o seleccione los valores en la pestaña **Básico**:
 
-    |Configuración |Value|
+    |Parámetro |Value|
     |---------|--------|
     |**Detalles del proyecto**||
     |Suscripción |Seleccione su suscripción a Azure.|
@@ -190,7 +190,7 @@ En esta sección, va a crear un servicio Private Link detrás de un equilibrador
 3. Seleccione la pestaña **Redes** o seleccione **Siguiente: Discos** y, después, **Siguiente: Redes**.
 4. En la pestaña Redes, seleccione o escriba:
 
-    | Configuración |Value|
+    | Parámetro |Value|
     |---------|--------|
     |**Interfaz de red**||
     |Virtual network |Seleccione la red virtual.|
@@ -239,11 +239,9 @@ En esta sección, va a crear un servicio Private Link detrás de un equilibrador
 4. Seleccione + **New** (Nuevo) en **Managed private endpoints** (Puntos de conexión privados administrados).
 5. Seleccione el icono del **servicio Private Link** de la lista y seleccione **Continue** (Continuar).
 6. Escriba el nombre del punto de conexión privado y seleccione **myPrivateLinkService** en la lista de servicios Private Link.
-7. Agregue el FQDN de la instancia de SQL Server local de destino y las direcciones IP de NAT del servicio Private Link.
-    
-    :::image type="content" source="./media/tutorial-managed-virtual-network/link-service-nat-ip.png" alt-text="Captura de pantalla que muestra la dirección IP de NAT en el servicio vinculado." lightbox="./media/tutorial-managed-virtual-network/link-service-nat-ip-expanded.png":::
+7. Agregue el FQDN de su servidor SQL Server local de destino.
 
-    :::image type="content" source="./media/tutorial-managed-virtual-network/private-endpoint.png" alt-text="Captura de pantalla que muestra la configuración del punto de conexión privado.":::
+    :::image type="content" source="./media/tutorial-managed-virtual-network/private-endpoint-6.png" alt-text="Captura de pantalla que muestra la configuración del punto de conexión privado.":::
 
 8. Cree un punto de conexión privado.
 

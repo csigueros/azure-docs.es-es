@@ -9,14 +9,17 @@ ms.workload: infrastructure-services
 ms.date: 04/08/2021
 ms.author: cynthn
 ms.reviewer: davberg
-ms.openlocfilehash: fd2ab3926cfe8357bdb3a28fd833bfd6e91d5da0
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: f83a2a8aab4f1daf9fe4317491b2ed3591ec227d
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107479566"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122689714"
 ---
 # <a name="compute-benchmark-scores-for-windows-vms"></a>Puntuaciones de pruebas comparativas de proceso para máquinas virtuales Windows
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles 
+
 Las siguientes puntuaciones de pruebas comparativas CoreMark muestran el rendimiento de proceso para máquinas virtuales específicas que ejecutan Windows Server 2019. Las puntuaciones de pruebas comparativas de proceso también están disponibles para las [máquinas virtuales Linux](../linux/compute-benchmark-scores.md).
 
 | Tipo | Familias |

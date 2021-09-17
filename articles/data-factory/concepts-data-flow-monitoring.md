@@ -1,24 +1,28 @@
 ---
 title: Supervisión de flujos de datos de asignación
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Cómo supervisar visualmente los flujos de datos de asignación en Azure Data Factory
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 06/11/2021
-ms.openlocfilehash: 18481a24bb9e8d5624cb52c9b02833204d4f403d
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.custom: synapse
+ms.date: 06/18/2021
+ms.openlocfilehash: b64ed4b59c2aba13640dec2f19dfa4e42696ce59
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112076619"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122638929"
 ---
 # <a name="monitor-data-flows"></a>Supervisión de flujos de datos
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Después de haber completado la compilación y depuración del flujo de datos, desea programarlo para ejecutarse según una programación en el contexto de una canalización. Puede programar la canalización de Azure Data Factory mediante desencadenadores. También puede usar la opción Desencadenar ahora desde el generador de canalización de Azure Data Factory para ejecutar una sola ejecución con el fin de probar el flujo de datos dentro del contexto de canalización.
+Después de haber completado la compilación y depuración del flujo de datos, desea programarlo para ejecutarse según una programación en el contexto de una canalización. Puede programar la canalización de Azure Data Factory mediante desencadenadores. Para probar y depurar el flujo de datos desde una canalización, puede usar el botón Depurar de la cinta de opciones de la barra de herramientas o la opción Desencadenar ahora del Generador de canalizaciones de Azure Data Factory para comenzar una ejecución única para probar el flujo de datos dentro del contexto de canalización.
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4P5pV]
 
 Cuando se ejecuta la canalización, puede supervisar la canalización y todas las actividades contenidas en la canalización, incluida la actividad de Data Flow. Haga clic en el icono de supervisión en el panel izquierdo de la interfaz de usuario de Azure Data Factory. Puede ver una pantalla similar a la siguiente. Los iconos resaltados permiten profundizar en las actividades de la canalización, incluidas las actividades de Data Flow.
 
@@ -28,7 +32,7 @@ Se muestran estadísticas en este nivel, así como los tiempos de ejecución y e
 
 ![Captura de pantalla que muestra el icono de las gafas para ver los detalles de la ejecución del flujo de datos.](media/data-flow/monitoring-details.png "Supervisión de Data Flow")
 
-En la vista de supervisión del nodo gráfico, puede ver una versión simplificada de solo lectura del gráfico de flujo de datos.
+En la vista de supervisión del nodo gráfico, puede ver una versión simplificada de solo lectura del gráfico de flujo de datos. Para ver la vista de detalles con nodos de gráfico más grandes que incluyen etiquetas de la fase de transformación, use el control deslizante de zoom en el lado derecho del lienzo. También puede usar el botón de búsqueda del lado derecho para buscar partes de la lógica de flujo de datos en el gráfico.
 
 ![Captura de pantalla que muestra la versión de solo lectura del gráfico.](media/data-flow/mon003.png "Supervisión de Data Flow")
 
@@ -41,6 +45,12 @@ Cuando se ejecuta Data Flow en Spark, Azure Data Factory determina las rutas de 
 * Al seleccionar el espacio abierto de la ventana de supervisión, las estadísticas del panel inferior muestran los recuentos de filas y el tiempo de cada receptor y las transformaciones que dieron lugar a los datos de receptor de linaje de transformación.
 
 * Cuando se seleccionan transformaciones individuales, recibe más comentarios en el panel derecho que muestra estadísticas de partición, recuentos de columna, sesgo (con qué uniformidad se distribuyen los datos entre particiones) y curtosis (cuántos picos tienen los datos).
+
+* Ordenar por *tiempo de procesamiento* le ayudará a identificar qué fases del flujo de datos tardaron más tiempo.
+
+* Para buscar qué transformaciones dentro de cada fase tardaron más tiempo, ordene por *tiempo de procesamiento más alto*.
+
+* Las *filas escritas* también se pueden ordenar como manera de identificar qué secuencias dentro del flujo de datos escriben la mayoría de los datos.
 
 * Al seleccionar el receptor en la vista del nodo, puede ver el linaje de columna. Hay tres métodos diferentes que las columnas acumulan a lo largo de su flujo de datos para colocarse en el receptor. Son las siguientes:
 

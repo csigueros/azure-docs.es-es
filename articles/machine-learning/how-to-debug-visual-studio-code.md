@@ -9,12 +9,12 @@ ms.topic: how-to
 author: luisquintanilla
 ms.author: luquinta
 ms.date: 08/11/2021
-ms.openlocfilehash: 517577fd7a9383ede62df5403c52ccfa219ba5eb
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 4488670a5dfbedf22fa2880d6e4093c4fbfa52b9
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121751974"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122419158"
 ---
 # <a name="interactive-debugging-with-visual-studio-code"></a>Depuración interactiva con Visual Studio Code
 
@@ -29,7 +29,7 @@ Use la extensión de Azure Machine Learning para validar, ejecutar y depurar los
 * Extensión de Azure Machine Learning para VS Code (versión preliminar) Para más información, consulte [Configuración de la extensión de Azure Machine Learning para VS Code](how-to-setup-vs-code.md).
 
     > [!IMPORTANT]
-    > La extensión Azure Machine Learning para VS Code usa la CLI 2.0 de forma predeterminada. En las instrucciones de esta guía se usa la CLI 1.0. Para cambiar a la experiencia de la CLI 1.0, defina la opción `azureML.CLI Compatibility Mode` en Visual Studio Code como `1.0`. Para más información sobre cómo modificar la configuración en Visual Studio, consulte la [documentación de la configuración de usuario y área de trabajo](https://code.visualstudio.com/docs/getstarted/settings).
+    > La extensión Azure Machine Learning para VS Code usa la CLI (v2) de manera predeterminada. En las instrucciones de esta guía se usa la CLI 1.0. Para cambiar a la experiencia de la CLI 1.0, defina la opción `azureML.CLI Compatibility Mode` en Visual Studio Code como `1.0`. Para más información sobre cómo modificar la configuración en Visual Studio, consulte la [documentación de la configuración de usuario y área de trabajo](https://code.visualstudio.com/docs/getstarted/settings).
 
 * [Docker](https://www.docker.com/get-started)
   * Docker Desktop para Mac y Windows

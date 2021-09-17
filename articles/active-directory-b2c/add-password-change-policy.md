@@ -12,12 +12,12 @@ ms.date: 05/03/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: f359595a136a356938194f2df728935c80059008
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: a0f5376574dd0329641ebc68b906bc5342437be8
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108742884"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122777707"
 ---
 # <a name="configure-password-change-using-custom-policies-in-azure-active-directory-b2c"></a>Configuración del cambio de contraseñas con directivas personalizadas en Azure Active Directory B2C
 
@@ -148,13 +148,14 @@ En Azure Active Directory B2C (Azure AD B2C), puede permitir que los usuari
 ## <a name="upload-and-test-the-policy"></a>Cargue y pruebe la directiva.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
-2. Asegúrese de usar el directorio que contiene el inquilino de Azure AD B2C. Para ello, seleccione el filtro **Directorio y suscripción** en el menú superior y luego el directorio que contiene el inquilino.
-3. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C**.
-4. Seleccione **Marco de experiencia de identidad**.
-5. En la página Directivas personalizadas, haga clic en **Cargar directiva**.
-6. Seleccione **Sobrescribir la directiva, si existe** y busque y seleccione el archivo *TrustframeworkExtensions.xml*.
-7. Haga clic en **Cargar**.
-8. Repita los pasos 5 a 7 para el archivo del usuario de confianza, como *ProfileEditPasswordChange.xml*.
+1. Asegúrese de usar el directorio que contiene el inquilino de Azure AD B2C. Para ello, seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
+1. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C**.
+1. Seleccione **Marco de experiencia de identidad**.
+1. En la página Directivas personalizadas, haga clic en **Cargar directiva**.
+1. Seleccione **Sobrescribir la directiva, si existe** y busque y seleccione el archivo *TrustframeworkExtensions.xml*.
+1. Haga clic en **Cargar**.
+1. Repita los pasos 5 a 7 para el archivo del usuario de confianza, como *ProfileEditPasswordChange.xml*.
 
 ### <a name="run-the-policy"></a>Ejecución de la directiva
 

@@ -17,12 +17,12 @@ ms.date: 04/05/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d0428f73c4df3d97002def03823ff8cced1d647
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 6570e378aa75843c525cb21ed58c9da5fd4fb574
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106552638"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122445855"
 ---
 # <a name="license-requirements-to-use-privileged-identity-management"></a>Requisitos de licencia para usar Privileged Identity Management
 
@@ -30,7 +30,7 @@ Para Azure Active Directory (Azure AD) Privileged Identity Management (PIM), un 
 
 ## <a name="valid-licenses"></a>Licencias válidas
 
-Necesitará [!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)] para usar PIM y toda su configuración. Actualmente, se puede limitar el ámbito de una revisión de acceso a las entidades de servicio con acceso a Azure AD y roles de recursos de Azure (versión preliminar) con una edición de Azure Active Directory Premium P2 activa en el inquilino. El modelo de licencia de las entidades de servicio finalizará con la disponibilidad general de esta característica y es posible que se requieran licencias adicionales.
+Para usar PIM y todas sus opciones de configuración, se necesita una licencia de Azure AD. Actualmente, se puede limitar el ámbito de una revisión de acceso a las entidades de servicio con acceso a Azure AD y roles de recursos de Azure (versión preliminar) con una edición de Azure Active Directory Premium P2 activa en el inquilino. El modelo de licencia de las entidades de servicio finalizará con la disponibilidad general de esta característica y es posible que se requieran licencias adicionales. [!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
 
 ## <a name="licenses-you-must-have"></a>Licencias que debe tener
 

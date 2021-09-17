@@ -2,13 +2,13 @@
 title: Conexión de grupos de discos a hosts de Azure VMware Solution (versión preliminar)
 description: Obtenga información sobre cómo conectar un grupo de discos que se muestra a través de un destino iSCSI como el almacén de datos de VMware de una nube privada de Azure VMware Solution. Una vez configurado el almacén de datos, puede crear volúmenes en él y adjuntarlos a la instancia de VMware.
 ms.topic: how-to
-ms.date: 07/13/2021
-ms.openlocfilehash: fefb014f221a121259c0b8d6411de362e11a63c0
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 08/20/2021
+ms.openlocfilehash: 2487e26d887935f0d66f13d51ce7894edb2b2b6e
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121745649"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122769305"
 ---
 # <a name="attach-disk-pools-to-azure-vmware-solution-hosts-preview"></a>Conexión de grupos de discos a hosts de Azure VMware Solution (versión preliminar)
 
@@ -53,83 +53,83 @@ Puede conectar un grupo de discos que se muestra a través de un destino iSCSI, 
 >[!IMPORTANT]
 >Mientras se encuentre en la **Versión preliminar pública**, conecte solo un grupo de discos a un clúster de prueba o que no sea de producción.
 
-1. Compruebe si la suscripción está registrada en `Microsoft.AVS`:
+1. Compruebe si la suscripción está registrada en `Microsoft.AVS`.
 
    ```azurecli
    az provider show -n "Microsoft.AVS" --query registrationState
    ```
 
-   Si todavía no está registrada, regístrela:
+   Si todavía no está registrada, regístrela.
 
    ```azurecli
    az provider register -n "Microsoft.AVS"
    ```
 
-1. Compruebe si la suscripción está registrada en `CloudSanExperience` AFEC in Microsoft.AVS:
+2. Compruebe si la suscripción está registrada en `CloudSanExperience` AFEC en Microsoft.AVS.
 
    ```azurecli
    az feature show --name "CloudSanExperience" --namespace "Microsoft.AVS"
    ```
 
-   - Si todavía no está registrada, regístrela:
+   - Si todavía no está registrada, regístrela.
 
       ```azurecli
       az feature register --name "CloudSanExperience" --namespace "Microsoft.AVS"
       ```
 
-      El registro puede tardar aproximadamente 15 minutos en completarse y puede comprobar el estado actual:
+      El registro puede tardar aproximadamente 15 minutos en completarse y puede comprobar el estado actual.
       
       ```azurecli
       az feature show --name "CloudSanExperience" --namespace "Microsoft.AVS" --query properties.state
       ```
 
       >[!TIP]
-      >Si el registro queda bloqueado en un estado intermedio durante más de 15 minutos antes de completarse, anule el registro y vuelva a registrar la marca:
+      >Si el registro queda bloqueado en un estado intermedio durante más de 15 minutos antes de completarse, anule el registro y vuelva a registrar la marca.
       >
       >```azurecli
       >az feature unregister --name "CloudSanExperience" --namespace "Microsoft.AVS"
       >az feature register --name "CloudSanExperience" --namespace "Microsoft.AVS"
       >```
 
-1. Compruebe si está instalada la `vmware `extensión: 
+3. Compruebe si la extensión `vmware ` está instalada. 
 
    ```azurecli
    az extension show --name vmware
    ```
 
-   - Si la extensión ya está instalada, compruebe si la versión es **3.0.0**. Si hay instalada una versión anterior, actualice la extensión:
+   - Si la extensión ya está instalada, compruebe si la versión es **3.0.0**. Si hay instalada una versión anterior, actualice la extensión.
 
       ```azurecli
       az extension update --name vmware
       ```
 
-   - Si todavía no está instalada, instálela:
+   - Si todavía no está instalada, instálela.
 
       ```azurecli
       az extension add --name vmware
       ```
 
-3. Cree y adjunte un almacén de datos iSCSI en el clúster de la nube privada de Azure VMware Solution mediante el destino iSCSI proporcionado `Microsoft.StoragePool`:
+4. Cree y adjunte un almacén de datos iSCSI en el clúster de la nube privada de Azure VMware Solution mediante el destino iSCSI proporcionado `Microsoft.StoragePool`. El grupo de discos se conecta a una red virtual por medio de una subred delegada, que se crea con el proveedor de recursos Microsoft.StoragePool/diskPools.  Si la subred no está delegada, se produce un error en la implementación.
 
    ```bash
    az vmware datastore disk-pool-volume create --name iSCSIDatastore1 --resource-group MyResourceGroup --cluster Cluster-1 --private-cloud MyPrivateCloud --target-id /subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/ResourceGroup1/providers/Microsoft.StoragePool/diskPools/mpio-diskpool/iscsiTargets/mpio-iscsi-target --lun-name lun0
    ```
 
    >[!TIP]
-   >Puede mostrar la ayuda en los almacenes de datos:
+   >Puede mostrar la ayuda en los almacenes de datos.
    >
    >   ```azurecli
    >   az vmware datastore -h
    >   ```
    
 
-4. Muestre los detalles de un almacén de datos iSCSI en un clúster de nube privada:
+5. Muestre los detalles de un almacén de datos iSCSI en un clúster de nube privada.
    
    ```azurecli
    az vmware datastore show --name MyCloudSANDatastore1 --resource-group MyResourceGroup --cluster -Cluster-1 --private-cloud MyPrivateCloud
    ```
 
-5. Enumere todos los almacenes de datos de un clúster de nube privada:
+6. Enumere todos los almacenes de datos de un clúster de nube privada.
 
    ```azurecli
    az vmware datastore list --resource-group MyResourceGroup --cluster Cluster-1 --private-cloud MyPrivateCloud
@@ -147,7 +147,7 @@ Al eliminar un almacén de datos de nube privada, los recursos del grupo de disc
 
    - Instantáneas
 
-2. Elimine el almacén de datos de nube privada:
+2. Elimine el almacén de datos de nube privada.
 
    ```azurecli
    az vmware datastore delete --name MyCloudSANDatastore1 --resource-group MyResourceGroup --cluster Cluster-1 --private-cloud MyPrivateCloud
@@ -157,7 +157,7 @@ Al eliminar un almacén de datos de nube privada, los recursos del grupo de disc
 
 Ahora que ha conectado un grupo de discos a los hosts de Azure VMware Solution, puede que quiera obtener información sobre:
 
-- [Administración de un grupo de discos de Azure](../virtual-machines/disks-pools-manage.md ).  Una vez que haya implementado un grupo de discos, hay varias acciones de administración disponibles. Puede agregar o quitar un disco en un grupo de discos, actualizar la asignación de LUN iSCSI o agregar ACL.
+- [Administración de un grupo de discos de Azure](../virtual-machines/disks-pools-manage.md).  Una vez que haya implementado un grupo de discos, hay varias acciones de administración disponibles. Puede agregar o quitar un disco en un grupo de discos, actualizar la asignación de LUN iSCSI o agregar ACL.
 
 - [Eliminación de un grupo de discos](../virtual-machines/disks-pools-deprovision.md#delete-a-disk-pool). Cuando se elimina un grupo de discos, también se eliminan todos los recursos del grupo de recursos administrados.
 

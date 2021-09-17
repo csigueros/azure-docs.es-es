@@ -12,12 +12,12 @@ ms.date: 01/29/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 2cde44ddb49ede8002b8a25ab47ae92ccd602a9d
-ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
+ms.openlocfilehash: a296babaafdee7939d462a356b9a3087e5e8990f
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107226377"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122777779"
 ---
 # <a name="track-user-behavior-in-azure-ad-b2c-by-using-application-insights"></a>Seguimiento del comportamiento del usuario en Azure Active Directory B2C mediante Application Insights
 
@@ -58,7 +58,8 @@ Al usar Application Insights, tenga en cuenta lo siguiente:
 Cuando usa Application Insights con Azure AD B2C, todo lo que necesita hacer es crear un recurso y obtener la clave de instrumentación. Para más información, vea [Creación de recursos en Application Insights](../azure-monitor/app/create-new-resource.md).
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
-1. Asegúrese de que está usando el directorio que tiene su suscripción de Azure. Seleccione el filtro **Directorio y suscripciones** en el menú superior y elija el directorio que contiene su suscripción de Azure. Este inquilino no es el inquilino de Azure AD B2C.
+1. Asegúrese de que usa el directorio que tiene la suscripción de Azure AD y no el de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD que tiene la suscripción en la lista **Nombre de directorio** y seleccione **Cambiar**.
 1. Elija **Crear un recurso** en la esquina superior izquierda de Azure Portal y, a continuación, busque y seleccione **Application Insights**.
 1. Seleccione **Crear**.
 1. En **Nombre**, escriba un nombre para el recurso.

@@ -12,20 +12,44 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 07/12/2021
+ms.date: 08/18/2021
 ms.author: b-juche
-ms.openlocfilehash: a50b8eee5a45fdd496aa0e063272c1c32cf0e5a7
-ms.sourcegitcommit: aaaa6ee55f5843ed69944f5c3869368e54793b48
+ms.openlocfilehash: 0bf972cd5b597d4cf0fb608eee8481cb72080425
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2021
-ms.locfileid: "113664456"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122769348"
 ---
 # <a name="whats-new-in-azure-netapp-files"></a>Novedades de Azure NetApp Files
 
 Azure NetApp Files se actualiza periódicamente. En este artículo se proporciona un resumen de las nuevas características y mejoras más recientes. 
 
-## <a name="june-2021"></a>Junio de 2021
+## <a name="august-2021"></a>Agosto de 2021
+
+* Admite la [habilitación de la disponibilidad continua en volúmenes de SMB existentes](enable-continuous-availability-existing-SMB.md).
+
+    Puede habilitar la característica de disponibilidad continua (CA) de SMB al [crear un nuevo volumen SMB](azure-netapp-files-create-volumes-smb.md#continuous-availability). Ahora también puede habilitar CA de SMB en un volumen SMB existente. Consulte [Habilitación de la disponibilidad continua en volúmenes de SMB existentes](enable-continuous-availability-existing-SMB.md).
+
+* La [directiva de instantáneas](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies) ahora está disponible con carácter general (GA)  
+
+    La característica de directiva de instantáneas ya está disponible con carácter general. Ya no es necesario registrar la característica antes de usarla.
+
+* Directiva de exportación de [NFS `Chown Mode` y permisos de exportación de UNIX](configure-unix-permissions-change-ownership-mode.md) (versión preliminar)   
+
+    Ahora puede establecer los permisos de Unix y las opciones del modo de cambio de propiedad (`Chown Mode`) en volúmenes NFS de Azure NetApp Files o volúmenes de protocolo dual con el estilo de seguridad de Unix. Puede especificar esta configuración durante la creación del volumen o después de la creación del volumen.   
+
+    La funcionalidad de modo de cambio de propiedad (`Chown Mode`) permite establecer las funcionalidades de administración de propiedad de archivos y directorios. Puede especificar o modificar la configuración en la directiva de exportación de un volumen. Hay dos opciones disponibles para `Chown Mode`: *Restringido* (valor predeterminado), donde solo el usuario raíz puede cambiar la propiedad de los archivos y directorios, y *Sin restricciones*, donde los usuarios no raíz pueden cambiar la propiedad de los archivos y directorios que  poseen.   
+
+    La funcionalidad de permisos de Unix de Azure NetApp Files permite especificar permisos de cambio para la ruta de acceso de montaje. 
+
+    Estas nuevas características proporcionan opciones para mover el control de acceso de determinados archivos y directorios a manos del usuario de datos en lugar del operador de servicio.   
+
+* [Volumen de protocolo doble (NFSv4 y SMB)](create-volumes-dual-protocol.md) (versión preliminar)   
+
+    Azure NetApp Files ya admite el acceso de protocolo dual a volúmenes NFSv3 y SMB a partir de [julio de 2020](#july-2020). Ahora puede crear un volumen de Azure NetApp Files que permite el acceso simultáneo con protocolo doble (NFSv4 y SMB) con compatibilidad con la asignación de usuarios LDAP. Esta característica permite casos de uso en los que podría tener una carga de trabajo basada en Linux mediante NFSv4.1 para su acceso, y la carga de trabajo genera y almacena datos en un volumen de Azure NetApp Files. Al mismo tiempo, el personal debe usar clientes y software basados en Windows para analizar los datos recién generados desde el mismo volumen de Azure NetApp Files. La característica de acceso simultáneo con protocolo doble elimina la necesidad de copiar los datos generados por la carga de trabajo en un volumen independiente con un protocolo diferente para el análisis posterior, lo que supone un ahorro en los costos y en el tiempo de funcionamiento. Esta característica es gratuita (se sigue aplicando el costo de almacenamiento de Azure NetApp Files normal) y está disponible con carácter general. Más información en la documentación de [acceso simultáneo con protocolo doble NFSv4.1/SMB](create-volumes-dual-protocol.md).
+
+## <a name="june-2021"></a>Junio de 2021  
 
 * [Complementos del servicio de almacenamiento de Azure NetApp Files](storage-service-add-ons.md)
 
@@ -86,11 +110,11 @@ Azure NetApp Files se actualiza periódicamente. En este artículo se proporcion
 
     Los usuarios han solicitado control directo sobre la capacidad aprovisionada. Quieren controlar y equilibrar la capacidad de almacenamiento y la utilización. También quieren controlar el costo y obtener visibilidad tanto para las aplicaciones como para el cliente de la capacidad y rendimiento disponibles, utilizados y aprovisionados de los volúmenes de sus aplicaciones. Con este nuevo comportamiento, se ha habilitado toda esta funcionalidad.
 
-* [Compatibilidad con recursos compartidos de disponibilidad continua (CA) de SMB para contenedores de perfiles de usuario de FSLogix](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume) (versión preliminar)  
+* [Compatibilidad con recursos compartidos de disponibilidad continua (CA) de SMB para contenedores de perfiles de usuario de FSLogix](azure-netapp-files-create-volumes-smb.md#continuous-availability) (versión preliminar)  
 
-    [FSLogix](/fslogix/overview) es un conjunto de soluciones que mejoran, habilitan y simplifican los entornos informáticos de Windows no persistentes. Las soluciones FSLogix son adecuadas para entornos virtuales en nubes tanto públicas como privadas. Las soluciones de FSLogix también se pueden usar para crear sesiones informáticas más portables al usar dispositivos físicos. FSLogix se puede usar para proporcionar acceso dinámico a contenedores de perfiles de usuario persistentes almacenados en un almacenamiento en red compartido SMB, incluido Azure NetApp Files. Para mejorar aún más la resistencia de FSLogix a los eventos de mantenimiento del servicio de almacenamiento, Azure NetApp Files ha ampliado la compatibilidad con la conmutación por error transparente de SMB mediante [recursos compartidos de disponibilidad continua (CA) de SMB en Azure NetApp Files](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume) para contenedores de perfiles de usuario. Consulte [Soluciones de infraestructura de escritorio virtual](azure-netapp-files-solution-architectures.md#windows-virtual-desktop) de Azure NetApp Files para obtener información adicional.  
+    [FSLogix](/fslogix/overview) es un conjunto de soluciones que mejoran, habilitan y simplifican los entornos informáticos de Windows no persistentes. Las soluciones FSLogix son adecuadas para entornos virtuales en nubes tanto públicas como privadas. Las soluciones de FSLogix también se pueden usar para crear sesiones informáticas más portables al usar dispositivos físicos. FSLogix se puede usar para proporcionar acceso dinámico a contenedores de perfiles de usuario persistentes almacenados en un almacenamiento en red compartido SMB, incluido Azure NetApp Files. Para mejorar aún más la resistencia de FSLogix a los eventos de mantenimiento del servicio de almacenamiento, Azure NetApp Files ha ampliado la compatibilidad con la conmutación por error transparente de SMB mediante [recursos compartidos de disponibilidad continua (CA) de SMB en Azure NetApp Files](azure-netapp-files-create-volumes-smb.md#continuous-availability) para contenedores de perfiles de usuario. Consulte las [soluciones de Azure Virtual Desktop](azure-netapp-files-solution-architectures.md#windows-virtual-desktop) de Azure NetApp Files para obtener información adicional.  
 
-* [Cifrado del protocolo SMB3](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume) (versión preliminar) 
+* [Cifrado del protocolo SMB3](azure-netapp-files-create-volumes-smb.md#smb3-encryption) (versión preliminar) 
 
     Ahora puede habilitar el cifrado del protocolo SMB3 en Azure NetApp Files SMB y volúmenes de protocolo dual. Esta característica facilita el cifrado de datos SMB3 sobre la marcha mediante las conexiones de los [algoritmos AES-CCM en SMB 3.0 y AES-GCM en SMB 3.1.1](/windows-server/storage/file-server/file-server-smb-overview#features-added-in-smb-311-with-windows-server-2016-and-windows-10-version-1607). Los clientes SMB que no usen el cifrado SMB3 no podrán acceder a este volumen. Los datos en reposo se cifrarán al margen de esta configuración. El cifrado SMB refuerza la seguridad. Sin embargo, podría afectar al cliente (sobrecarga de la CPU al cifrar y descifrar mensajes). También puede afectar al uso de los recursos de almacenamiento (disminución del rendimiento). Antes de implementar cargas de trabajo en producción, debería comprobar el efecto del cifrado en el rendimiento de las aplicaciones.
 
@@ -138,7 +162,7 @@ Azure NetApp Files se actualiza periódicamente. En este artículo se proporcion
 
     En un grupo de capacidad de QoS manual, puede asignar la capacidad y el rendimiento de un volumen de forma independiente. El rendimiento total de todos los volúmenes creados con un grupo de capacidad de QoS manual está limitado por el rendimiento total del grupo. Viene determinado por la combinación del tamaño del grupo y el rendimiento del nivel de servicio. También, el [tipo de QoS](azure-netapp-files-understand-storage-hierarchy.md#qos_types) de un grupo de capacidad puede ser automático (auto), que es el valor predeterminado. En un grupo de capacidad de QoS automático, el rendimiento se asigna automáticamente a los volúmenes del grupo, de forma proporcional a la cuota de tamaño asignada a los volúmenes.
 
-* [Firma LDAP](azure-netapp-files-create-volumes-smb.md) (versión preliminar)   
+* [Firma LDAP](create-active-directory-connections.md#create-an-active-directory-connection) (versión preliminar)   
 
     Azure NetApp Files admite ahora la firma LDAP para proteger las búsquedas de LDAP entre el servicio Azure NetApp Files y los controladores de dominio de Active Directory Domain Services especificados por el usuario. Esta funcionalidad actualmente está en su versión preliminar.
 

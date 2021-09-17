@@ -13,18 +13,18 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 1c7d4eeaf7df1764b021cd5914d6f4f4a88a9a1c
-ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
+ms.openlocfilehash: ddf46df1af8dc41e4f50c92eee527ac25e77b08a
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113213478"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122777590"
 ---
 # <a name="set-up-a-password-reset-flow-in-azure-active-directory-b2c"></a>Configuración de un flujo de restablecimiento de contraseña en Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
-## <a name="overview"></a>Introducción
+## <a name="overview"></a>Información general
 
 En un [recorrido de registro e inicio de sesión](add-sign-up-and-sign-in-policy.md), los usuarios pueden restablecer su propia contraseña mediante el vínculo **¿Ha olvidado la contraseña?** El flujo de autoservicio de restablecimiento de contraseña se aplica a las cuentas locales de Azure AD B2C que usan una [dirección de correo electrónico](sign-in-options.md#email-sign-in) o un [nombre de usuario](sign-in-options.md#username-sign-in) con una contraseña para el inicio de sesión.
 
@@ -73,7 +73,8 @@ La experiencia de autoservicio de restablecimiento de contraseña se puede confi
 Para habilitar el autoservicio de restablecimiento de contraseña para el flujo de usuario de registro o inicio de sesión:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-1. Seleccione el icono **Directorio y suscripción** en la barra de herramientas del portal y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
+1. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
 1. En Azure Portal, busque y seleccione **Azure AD B2C**.
 1. Seleccione **Flujos de usuario**.
 1. Seleccione un flujo de usuario de registro o inicio de sesión (de tipo **recomendado**) que quiera personalizar.
@@ -271,7 +272,8 @@ Es posible que la aplicación deba detectar si el usuario inició sesión median
 ### <a name="upload-the-custom-policy"></a>Carga de la directiva personalizada
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-1. Seleccione el icono **Directorio y suscripción** en la barra de herramientas del portal y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
+1. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
 1. En Azure Portal, busque y seleccione **Azure AD B2C**.
 1. En **Directivas**, seleccione **Identity Experience Framework**.
 1. Seleccione **Cargar directiva personalizada** y, luego, cargue los dos archivos de directiva modificados en el orden siguiente:

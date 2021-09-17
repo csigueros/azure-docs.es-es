@@ -3,12 +3,12 @@ title: 'Tutorial: Implementación de una nube privada de Azure VMware Solution'
 description: Aprenda a crear y administrar una nube privada de Azure VMware Solution.
 ms.topic: tutorial
 ms.date: 06/11/2021
-ms.openlocfilehash: 5d882098c29db7fb0272bb503eae42a244113b5b
-ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
+ms.openlocfilehash: d91e9fe9261aa4a04f5e5dffd3505742d9886623
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112021382"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121730355"
 ---
 # <a name="tutorial-deploy-an-azure-vmware-solution-private-cloud"></a>Tutorial: Implementación de una nube privada de Azure VMware Solution
 
@@ -21,7 +21,7 @@ Se usa vSphere y NSX-T Manager para administrar la mayoría de los otros aspecto
 >[!TIP]
 >Si necesita aumentar el número de implementación inicial, siempre puede extender el clúster y agregar clústeres adicionales más adelante.
 
-Dado que Azure VMware Solution no permite administrar su nube privada mediante la instancia local de vCenter durante el inicio, se necesita una configuración adicional. Estos procedimientos y los requisitos previos relacionados se tratan en este tutorial.
+Dado que Azure VMware Solution no permite administrar la nube privada con la instancia local de vCenter en el inicio, deberá seguir pasos adicionales en la configuración.  En este tutorial se tratan estos pasos y los requisitos previos relacionados.
 
 En este tutorial, aprenderá a:
 
@@ -32,9 +32,9 @@ En este tutorial, aprenderá a:
 ## <a name="prerequisites"></a>Prerrequisitos
 
 - Permisos y derechos administrativos adecuados para crear una nube privada. Debe tener como mínimo un nivel de colaborador en la suscripción.
-- Consulte la información recopilada en el artículo de [planeación](production-ready-deployment-steps.md) para implementar Azure VMware Solution.
+- Consulte la información recopilada en el tutorial de [planeamiento](plan-private-cloud-deployment.md) para implementar Azure VMware Solution.
 - Asegúrese de tener correctamente configuradas las opciones de red, tal y como se describe en la [lista de comprobación del planeamiento de red](tutorial-network-checklist.md).
-- Los hosts se han aprovisionado y [se ha registrado el proveedor de recursos](deploy-azure-vmware-solution.md#step-1-register-the-microsoftavs-resource-provider) Microsoft.AVS.
+- Los hosts se han aprovisionado y [se ha registrado el proveedor de recursos](deploy-azure-vmware-solution.md#register-the-microsoftavs-resource-provider) Microsoft.AVS.
 
 ## <a name="create-a-private-cloud"></a>Creación de una nube privada
 
@@ -49,7 +49,7 @@ En este tutorial, ha aprendido cómo:
 > * Comprobar la nube privada implementada
 > * Eliminación de una nube privada de Azure VMware Solution
 
-Continúe con el siguiente tutorial para aprender a crear un jumpbox. Use el jumpbox para conectarse a su entorno para que pueda administrar la nube privada localmente.
+Continúe con el siguiente tutorial para aprender a crear un jumpbox. Use el jumpbox para conectarse a su entorno y administrar la nube privada localmente.
 
 
 > [!div class="nextstepaction"]

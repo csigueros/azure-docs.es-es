@@ -2,23 +2,31 @@
 title: Componentes integrados y preinstalados en Azure-SSIS Integration Runtime
 description: Enumera todos los componentes integrados y preinstalados, como clientes, controladores, proveedores, administradores de conexiones, orígenes/destinos/transformaciones de datos y tareas en Azure-SSIS Integration Runtime.
 ms.service: data-factory
+ms.subservice: integration-services
 ms.topic: conceptual
 author: swinarko
 ms.author: sawinark
 ms.custom: seo-lt-2019
 ms.date: 05/14/2020
-ms.openlocfilehash: 2f5ad8deb702e312f7dd7275128e8ca8098ab90c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 73b1bbd29cf7b418c4eb9df3b5dd6d296154f051
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100393792"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122418642"
 ---
 # <a name="built-in-and-preinstalled-components-on-azure-ssis-integration-runtime"></a>Componentes integrados y preinstalados en Azure-SSIS Integration Runtime
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 En este artículo se enumeran todos los componentes integrados y preinstalados, como clientes, controladores, proveedores, administradores de conexiones, orígenes/destinos/transformaciones de datos y tareas en SSIS Integration Runtime (IR) en Azure Data Factory (ADF).  Para aprovisionar SSIS IR en ADF, siga las instrucciones de [Aprovisionamiento de Azure-SSIS IR](./tutorial-deploy-ssis-packages-azure.md).
+
+## <a name="os-and-net-framework-on-azure-ssis-ir"></a>Sistema operativo y .NET Framework en Azure-SSIS IR
+
+| Nombre | Versión |
+|------|---------|
+| **Windows** | Windows Server 2019 |
+| **.NET Framework** | 4.7.2 |
 
 ## <a name="built-in-and-preinstalled-clients-drivers-and-providers-on-azure-ssis-ir"></a>Clientes, controladores y proveedores integrados y preinstalados en Azure-SSIS IR
 

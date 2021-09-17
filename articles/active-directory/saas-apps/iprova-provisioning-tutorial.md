@@ -11,16 +11,16 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/29/2019
 ms.author: thwimmer
-ms.openlocfilehash: c48f5bace8c19d2bbf64668eedf60ae811e5398d
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: e3ff62f4099e4098c2ca695d0e7c07bbc5c08b0a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113726939"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121746098"
 ---
 # <a name="tutorial-configure-iprova-for-automatic-user-provisioning"></a>Tutorial: Configuración de iProva para el aprovisionamiento automático de usuarios
 
-El objetivo de este tutorial es mostrar los pasos que se deben realizar en iProva y Azure Active Directory (Azure AD) a fin de configurar Azure AD para aprovisionar y desaprovisionar automáticamente usuarios o grupos en [iProva](https://www.iProva.com/). Para obtener información importante acerca de lo que hace este servicio, cómo funciona y ver preguntas frecuentes al respecto, consulte [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](../app-provisioning/user-provisioning.md). 
+El objetivo de este tutorial es mostrar los pasos que se deben realizar en iProva y Azure Active Directory (Azure AD) a fin de configurar Azure AD para aprovisionar y desaprovisionar automáticamente usuarios o grupos en [iProva](https://www.iProva.com/). Para obtener información importante acerca de lo que hace este servicio, cómo funciona y ver preguntas frecuentes al respecto, consulte [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](../app-provisioning/user-provisioning.md). Antes de intentar usar este tutorial, asegúrese de que conoce y cumple todos los requisitos. Si tiene alguna duda, póngase en contacto con Infoland.
 
 > [!NOTE]
 > Este conector está actualmente en versión preliminar pública. Para más información sobre los términos de uso generales de Microsoft Azure para las características en versión preliminar, consulte [Términos de uso complementarios para las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -29,7 +29,7 @@ El objetivo de este tutorial es mostrar los pasos que se deben realizar en iProv
 ## <a name="capabilities-supported"></a>Funcionalidades admitidas
 > [!div class="checklist"]
 > * Crear usuarios en iProva
-> * Quitar usuarios de iProva cuando ya no necesiten acceso
+> * Quitar o deshabilitar usuarios de iProva cuando ya no necesiten acceso
 > * Mantener los atributos de usuario sincronizados entre Azure AD e iProva
 > * Aprovisionar grupos y pertenencias a grupos en iProva
 > * [Inicio de sesión único](./iprova-tutorial.md) en iProva (recomendado)
@@ -102,7 +102,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
-5. En la sección **Credenciales de administrador**, escriba los valores de **URL base de SCIM 2.0 y token permanente** que recuperó anteriormente en los campos **URL de inquilino** y **Token secreto** respectivamente. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a iProva. Si la conexión no se establece, asegúrese de que la cuenta de iProva tiene permisos de administrador y pruebe otra vez.
+5. En la sección **Credenciales de administrador**, escriba los valores de **URL base de SCIM 2.0 y token permanente** que recuperó anteriormente en los campos **URL de inquilino** y agregue /scim/. Agregue también el **token secreto**. Puede generar un token secreto en iProva mediante el botón de **token permanente**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a iProva. Si la conexión no se establece, asegúrese de que la cuenta de iProva tiene permisos de administrador y pruebe otra vez. 
 
     ![URL de inquilino + Token](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -120,32 +120,12 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
    |---|---|
    |active|Boolean|
    |DisplayName|String|
-   |title|String|
    |emails[type eq "work"].value|String|
    |preferredLanguage|String|
    |userName|String|
-   |addresses[type eq "work"].country|String|
-   |addresses[type eq "work"].locality|String|
-   |addresses[type eq "work"].postalCode|String|
-   |addresses[type eq "work"].formatted|String|
-   |addresses[type eq "work"].region|String|
-   |addresses[type eq "work"].streetAddress|String|
-   |addresses[type eq "other"].formatted|String|
-   |name.givenName|String|
-   |name.familyName|String|
-   |name.formatted|String|
-   |phoneNumbers[type eq "fax"].value|String|
-   |phoneNumbers[type eq "mobile"].value|String|
    |phoneNumbers[type eq "work"].value|String|
    |externalId|String|
-   |roles[primary eq "True"].display|String|
-   |roles[primary eq "True"].type|String|
-   |roles[primary eq "True"].value|String|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|String|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:costCenter|String|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:organization|String|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|String|
+
 
 
 10. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Groups to iProva** (Sincronizar grupos de Azure Active Directory con iProva).
@@ -156,6 +136,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
       |---|---|
       |DisplayName|String|
       |members|Referencia|
+      |externalId|String|
 
 12. Para configurar filtros de ámbito, consulte las siguientes instrucciones, que se proporcionan en el artículo [Aprovisionamiento de aplicaciones basado en atributos con filtros de ámbito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 

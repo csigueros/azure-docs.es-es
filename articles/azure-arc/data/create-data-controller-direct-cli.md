@@ -7,20 +7,19 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 07/13/2021
+ms.date: 07/30/2021
 ms.topic: overview
-ms.openlocfilehash: 467547b3a7aa9b1c0e728282ab8208134911d9b0
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: 042d7fd04ca3a41016e67481f81237a56e0dfc8d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113734085"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121737177"
 ---
 #  <a name="create-azure-arc-data-controller-in-direct-connectivity-mode-using-cli"></a>Creación del controlador de datos de Azure Arc en modo de conexión directa mediante la CLI
 
 En este artículo se describe cómo crear el controlador de datos de Azure Arc en modo de conectividad **directa** mediante la CLI, durante la versión preliminar actual de esta característica. 
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## <a name="complete-prerequisites"></a>Realización de los requisitos previos
 
@@ -105,7 +104,7 @@ Puede comprobar si se ha creado la extensión de servicios de datos habilitados 
 #### <a name="azure-portal"></a>Portal de Azure
 1. Inicie sesión en Azure Portal y vaya al grupo de recursos donde se encuentra el recurso del clúster conectado de Kubernetes.
 1. Seleccione el clúster de Kubernetes habilitado para Arc (tipo = "Kubernetes: Azure Arc") donde se implementó la extensión.
-1. En el panel de navegación de la izquierda, en **Configuración**, seleccione "Extensiones (versión preliminar)".
+1. En el panel de navegación de la izquierda, en **Configuración**, seleccione "Extensiones".
 1. Debería ver la extensión que se acaba de crear anteriormente en estado "Instalado".
 
 :::image type="content" source="media/deploy-data-controller-direct-mode-prerequisites/dc-extensions-dashboard.png" alt-text="Panel Extensiones":::

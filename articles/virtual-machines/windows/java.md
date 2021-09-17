@@ -9,14 +9,16 @@ ms.topic: how-to
 ms.date: 07/17/2017
 ms.custom: devx-track-java
 ms.author: cynthn
-ms.openlocfilehash: 4f1523c58a8ca26bbab516383d59e7e8dd009466
-ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
+ms.openlocfilehash: ec738d2f2765cd97c518b79081675c197ead6466
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/04/2021
-ms.locfileid: "113288310"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122697209"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-java"></a>Creación y administración de máquinas virtuales Windows en Azure mediante Java
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Windows 
 
 Las [máquinas virtuales de Azure](overview.md) necesitan varios recursos de Azure compatibles. En este artículo se trata la creación, la administración y la eliminación de recursos de máquina virtual con Java. Aprenderá a:
 

@@ -12,12 +12,12 @@ ms.date: 04/21/2021
 ms.topic: how-to
 ms.custom: devx-track-python, deploy, devx-track-azurecli, contperf-fy21q2, contperf-fy21q4
 adobe-target: true
-ms.openlocfilehash: 6fc1fbb6a665d03e250beec85c66178feaa55189
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: 22161ee49c2527b92b11b4c1fe197fa06d48fcb9
+ms.sourcegitcommit: c2f0d789f971e11205df9b4b4647816da6856f5b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121862261"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122661986"
 ---
 # <a name="deploy-machine-learning-models-to-azure"></a>Implementación de modelos de aprendizaje automático en Azure 
 
@@ -180,7 +180,10 @@ Una configuración de inferencia describe el contenedor de Docker y los archivos
 
 La configuración de inferencia siguiente especifica que la implementación del aprendizaje automático usará el archivo `echo_score.py` del directorio `./source_dir` para procesar las solicitudes entrantes y que usará la imagen de Docker con los paquetes de Python especificados en el entorno `project_environment`.
 
-Puede usar cualquier [entorno mantenido de Azure Machine Learning](./resource-curated-environments.md) como imagen base de Docker al crear el entorno del proyecto. Instalaremos las dependencias necesarias en la parte superior y almacenaremos la imagen de Docker resultante en el repositorio asociado al área de trabajo.
+Puede usar cualquier [entorno mantenido de inferencia de Azure Machine Learning](concept-prebuilt-docker-images-inference.md#list-of-prebuilt-docker-images-for-inference) como imagen base de Docker al crear el entorno del proyecto. Instalaremos las dependencias necesarias en la parte superior y almacenaremos la imagen de Docker resultante en el repositorio asociado al área de trabajo.
+
+> [!NOTE]
+> La carga del [directorio de origen de inferencia](/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py#constructor&preserve-view=true) de Azure Machine Learning no respeta **.gitignore** ni **.amlignore**.
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azcli)
 

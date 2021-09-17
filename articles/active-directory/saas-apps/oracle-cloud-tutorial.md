@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/04/2020
 ms.author: jeedes
-ms.openlocfilehash: 914858471432979e5516a1f075ed4fcbb8061a5d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 02ba974aa430bd75848c3fcf2b762453d99e27fe
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96181864"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122183611"
 ---
 # <a name="tutorial-integrate-oracle-cloud-infrastructure-console-with-azure-active-directory"></a>Tutorial: Integración de Oracle Cloud Infrastructure Console con Azure Active Directory
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar Oracle Cloud Infrastructure Console con 
 * Permitir que los usuarios inicien sesión automáticamente en Oracle Cloud Infrastructure Console con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -38,6 +38,7 @@ Para empezar, necesita los siguientes elementos:
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
 * Oracle Cloud Infrastructure Console admite inicio de sesión único iniciado por **SP**.
+* Oracle Cloud Infrastructure Console admite el [aprovisionamiento y desaprovisionamiento **automatizado** de usuarios](oracle-cloud-infrastructure-console-provisioning-tutorial.md) (se recomienda).
 
 ## <a name="adding-oracle-cloud-infrastructure-console-from-the-gallery"></a>Adición de Oracle Cloud Infrastructure Console desde la galería
 

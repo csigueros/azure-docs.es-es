@@ -5,24 +5,22 @@ services: notification-hubs
 documentationcenter: .net
 author: sethmanheim
 manager: femila
-editor: jwargo
-ms.assetid: fd0ee230-132c-4143-b4f9-65cef7f463a1
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/07/2020
+ms.date: 08/23/2021
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 04/08/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7807d28da459656938acb399eb8c621e4c292372
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7a2e9d19c3847c5f2c7153580e463ce1e4d1d657
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89001576"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122768774"
 ---
 # <a name="registration-management"></a>Administración de registros
 
@@ -96,6 +94,9 @@ Los registros y las instalaciones deben contener un controlador PNS válido para
 > La API Installations no admite el servicio de Baidu (si bien la API Registrations sí lo hace). 
 
 ### <a name="templates"></a>Plantillas
+
+> [!NOTE]
+> El servicio de notificaciones push de Microsoft (MPNS) está en desuso y ya no se admite.
 
 Si desea usar [Plantillas](notification-hubs-templates-cross-platform-push-messages.md), la instalación de dispositivo también contiene todas las plantillas asociadas con ese dispositivo en un formato JSON (consulte el ejemplo anterior). Los nombres de las plantillas ayudan a dirigirse a distintas plantillas para el mismo dispositivo.
 

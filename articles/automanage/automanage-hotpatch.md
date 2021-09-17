@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: jushiman
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 2f7af8ebc054b49df03a7f03c512db08a5098f2b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 5de4c52015a8282591edeee6de9fd27aae042324
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121723020"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122770667"
 ---
 # <a name="hotpatch-for-new-virtual-machines-preview"></a>Revisión en caliente para nuevas máquinas virtuales (versión preliminar)
 
@@ -24,7 +24,7 @@ ms.locfileid: "121723020"
 > Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 > [!NOTE]
-> Las funcionalidades de revisión en caliente se pueden encontrar en una de estas imágenes de _Windows Server Azure Edition_: Windows Server 2019 Datacenter: Azure Edition (Core), Windows Server 2022 Datacenter: Azure Edition (Core)
+> La revisión en caliente se puede evaluar en _Windows Server 2022 Datacenter: Azure Edition (Core) Preview_.  La revisión en caliente en _Windows Server 2019 Datacenter: Azure Edition Preview_ ya no está disponible para evaluar.
 
 La aplicación de revisiones en caliente es una nueva manera de instalar actualizaciones en nuevas máquinas virtuales (VM) de _Windows Server Azure Edition_ admitidas que no es necesario reiniciar después de la instalación. En este artículo se ofrece información sobre la revisión en caliente de VM de _Windows Server Azure Edition_ admitidas, que presentan las siguientes ventajas:
 * Impacto reducido sobre la carga de trabajo con menos reinicios
@@ -218,7 +218,7 @@ Existen algunas consideraciones importantes a la hora de ejecutar una VM de _Win
 
 ### <a name="can-i-upgrade-from-my-existing-windows-server-os"></a>¿Se pueden realizar actualizaciones desde el sistema operativo Windows Server existente?
 
-* Se admite la actualización desde versiones existentes de Windows Server (es decir, ediciones de Windows Server 2016 o 2019 que no son de Azure) a _Windows Server 2022 Datacenter: Azure Edition_. No se admite la actualización a _Windows Server 2019 Datacenter: Azure Edition_.
+* Sí, se admite la actualización desde versiones existentes de Windows Server (como Windows Server 2016 o Windows Server 2019) a _Windows Server 2022 Datacenter: Azure Edition_. 
 
 ### <a name="can-i-use-hotpatch-for-production-workloads-during-the-preview"></a>¿Puedo usar Hotpatch con las cargas de trabajo de producción durante la versión preliminar?
 

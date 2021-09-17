@@ -9,14 +9,16 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 01/18/2019
 ms.author: cynthn
-ms.openlocfilehash: a93ab207960133ecbf5a68927c5d16a6daf94fd4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 98054eef10be7b8e4b4a2928ca29fe7b285cbe7e
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102562221"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122693468"
 ---
 # <a name="create-a-vm-from-a-vhd-by-using-the-azure-portal"></a>Creación de una máquina virtual a partir de un VHD mediante Azure Portal
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Windows 
 
 Hay varias maneras de crear una máquina virtual en Azure: 
 

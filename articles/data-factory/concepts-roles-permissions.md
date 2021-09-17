@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.subservice: security
 author: nabhishek
 ms.author: abnarain
-ms.openlocfilehash: e5c598555cdfabbb250216b9e6a97e7222410c49
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 285b4c4fb9fae46ed7549352a93553b15a518e36
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121739547"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122419307"
 ---
 # <a name="roles-and-permissions-for-azure-data-factory"></a>Roles y permisos para Azure Data Factory
 
@@ -23,7 +23,7 @@ Este artículo describe los roles necesarios para crear y administrar recursos d
 
 ## <a name="roles-and-requirements"></a>Roles y requisitos
 
-Para crear instancias de Data Factory, la cuenta de usuario que use para iniciar sesión en Azure debe ser miembro de los roles *colaborador* o *propietario*, o ser *administrador* de la suscripción de Azure. En Azure Portal, seleccione su nombre de usuario en la esquina superior derecha y, después, seleccione **Permisos** para ver los permisos que tiene en la suscripción. Si tiene acceso a varias suscripciones, elija la correspondiente. 
+Para crear instancias de Data Factory, la cuenta de usuario que use para iniciar sesión en Azure debe ser miembro de los roles *colaborador* o *propietario*, o ser *administrador* de la suscripción de Azure. Para ver los permisos que tiene en la suscripción, en Azure Portal, seleccione su nombre de usuario en la esquina superior derecha y, después, seleccione **Mis permisos**. Si tiene acceso a varias suscripciones, elija la correspondiente. 
 
 Para crear y administrar recursos secundarios para Data Factory incluidos los conjuntos de datos, servicios vinculados, canalizaciones, desencadenadores y entornos de ejecución de integración, se aplican los siguientes requisitos:
 - Para crear y administrar recursos secundarios en Azure Portal, debe pertenecer al rol **Colaborador de Data Factory** en el nivel de **grupo de recursos** u otro nivel superior.

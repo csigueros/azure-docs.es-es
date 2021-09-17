@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 04/19/2021
+ms.date: 08/12/2021
 ms.author: alkohli
-ms.openlocfilehash: cdb87e691828db23e8c441fe9933204556fb8417
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: 890270bf5594c9ea7dfc35e38b135c20ea671461
+ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109734151"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122429657"
 ---
 # <a name="what-is-the-azure-stack-edge-mini-r"></a>¿Qué es Azure Stack Edge Mini R?
 
@@ -40,6 +40,7 @@ Azure Stack Edge Mini R presenta las siguientes funcionalidades:
 |Actualización de datos     | Capacidad para actualizar los archivos locales con la versión más reciente de la nube.|
 |Cifrado doble    | El uso de la unidad de cifrado automático proporciona la primera capa de cifrado. VPN proporciona la segunda capa de cifrado. Compatibilidad con BitLocker para cifrar los datos localmente y proteger las transferencias de datos en la nube mediante *HTTPS*.|
 |Límite de ancho de banda| Limite el uso de ancho de banda durante las horas punta.|
+|Pedidos sencillos| Pedidos masivos y seguimiento del dispositivo mediante Azure Edge Hardware Center (versión preliminar).|
 
 ## <a name="use-cases"></a>Casos de uso
 
@@ -64,6 +65,10 @@ La solución Azure Stack Edge Mini R consta de un recurso Azure Stack Edge, un d
 
     ![Dispositivo Azure Stack Edge Mini R](media/azure-stack-edge-mini-r-overview/perspective-view-1.png)
 
+    [!INCLUDE [azure-stack-edge-gateway-edge-hardware-center-overview](../../includes/azure-stack-edge-gateway-edge-hardware-center-overview.md)]    
+
+    Para más información, vaya a [Creación de un pedido para el dispositivo Azure Stack Edge Mini R](azure-stack-edge-mini-r-deploy-prep.md#create-a-new-resource).
+
 * **Recurso Azure Stack Edge**: recurso de Azure Portal que le permite administrar un dispositivo Azure Stack Edge Mini R resistente desde una interfaz web a la cual puede acceder desde diferentes ubicaciones geográficas. Use el recurso Azure Stack Edge para crear y administrar recursos, ver y administrar dispositivos y alertas y administrar recursos compartidos.  
 
 * **Interfaz de usuario web local de Azure Stack Edge Mini R**: una interfaz de usuario web local basada en explorador que se encuentra en su dispositivo Azure Stack Edge Mini R y cuya finalidad principal es la configuración inicial del dispositivo. Además, use la interfaz de usuario web local para ejecutar diagnósticos, apagar y reiniciar el dispositivo de Azure Stack Edge Pro, ver registros de copia y ponerse en contacto con el Soporte técnico de Microsoft para realizar una solicitud de servicio.
@@ -81,6 +86,8 @@ El dispositivo físico Azure Stack Edge Mini R, el recurso de Azure y la cuenta 
 - **Cuentas de almacenamiento de destino**: las cuentas de almacenamiento que almacenan los datos están disponibles en todas las regiones de Azure. Las regiones en las que las cuentas de almacenamiento almacenan los datos de Azure Stack Edge Mini R deben estar cerca de dónde se encuentra el dispositivo a fin de obtener un rendimiento óptimo. Una cuenta de almacenamiento que se encuentra lejos del dispositivo causa latencias largas y un rendimiento más lento.
 
 El servicio Azure Stack Edge es un servicio no regional. Para obtener más información, consulte [Regiones y zonas de disponibilidad en Azure](../availability-zones/az-overview.md). El servicio Azure Stack Edge no depende de una región específica de Azure, lo que lo hace más resistentes a las interrupciones en toda la zona, así como a interrupciones en toda la región.
+
+Para obtener una explicación de las consideraciones para elegir una región para el servicio Azure Stack Edge, el dispositivo y el almacenamiento de datos, consulte [Elección de una región para Azure Stack Edge](azure-stack-edge-gpu-regions.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

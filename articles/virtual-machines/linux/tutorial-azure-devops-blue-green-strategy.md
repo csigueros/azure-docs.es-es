@@ -1,25 +1,26 @@
 ---
-title: 'Tutorial: Configuración de implementaciones controladas para Azure Linux Virtual Machines'
-description: En este tutorial, aprenderá a configurar una canalización de implementación continua (CD). Esta canalización actualiza un grupo de máquinas virtuales Linux en Azure con la estrategia de implementación azul-verde.
+title: Configuración de implementaciones controladas para máquinas virtuales Linux en Azure
+description: Aprenda a configurar una canalización de implementación continua (CD). Esta canalización actualiza un grupo de máquinas virtuales Linux en Azure con la estrategia de implementación azul-verde.
 author: moala
 tags: azure-devops-pipelines
-ms.assetid: ''
 ms.service: virtual-machines
 ms.collection: linux
-ms.topic: tutorial
+ms.topic: how-to
 ms.tgt_pltfrm: azure-pipelines
 ms.workload: infrastructure
 ms.date: 4/10/2020
 ms.author: moala
 ms.custom: devops
-ms.openlocfilehash: 4545891cce926f049673cd2c2380a8309f2e71a1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a455950e1637dbcef63acc52de139c5d0a9a2e10
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102552594"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122690971"
 ---
-# <a name="tutorial---configure-the-blue-green-deployment-strategy-for-azure-linux-virtual-machines"></a>Tutorial: Configuración de la estrategia de implementación azul-verde para Azure Linux Virtual Machines
+# <a name="configure-the-blue-green-deployment-strategy-for-azure-linux-virtual-machines"></a>Configuración de la estrategia de implementación azul-verde para máquinas virtuales Linux en Azure
+
+**Se aplica a:** :heavy_check_mark: máquinas virtuales Linux 
 
 ## <a name="infrastructure-as-a-service-iaas---configure-cicd"></a>Infraestructura como servicio (IaaS): configuración de CI/CD
 

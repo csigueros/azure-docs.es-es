@@ -8,12 +8,12 @@ ms.date: 04/13/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 7803d14a46978c21d5fea65211abe0506c4cc1c8
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 6af10befe614ecd353bd5bd2185fcd9c7097f058
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110677068"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122445076"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Configuración del proxy y el firewall de Azure File Sync
 Azure File Sync conecta los servidores locales a Azure Files, lo que permite sincronizar las características de niveles de nube y de sincronización multisitio. Por lo tanto, un servidor local debe estar conectado a Internet. Un administrador de TI tiene que decidir cuál es la mejor ruta de acceso para que el servidor acceda a los servicios en la nube de Azure.
@@ -137,7 +137,7 @@ En la tabla siguiente se describen los dominios necesarios para la comunicación
 
 Si &ast;.afs.azure.net o &ast;.one.microsoft.com es demasiado larga, puede limitar la comunicación del servidor al permitir solo la comunicación con instancias regionales explícitas del servicio Azure Files Sync. La elección de las instancias dependerá de la región del servicio de sincronización de almacenamiento en el que haya implementado y registrado el servidor. Esa región se denomina "Dirección URL del punto de conexión principal" en la tabla siguiente.
 
-Por razones de continuidad empresarial y recuperación ante desastres (BCDR), es posible que haya especificado los recursos compartidos de archivos de Azure en una cuenta de almacenamiento globalmente redundante (GRS). Si es así, los recursos compartidos de archivos de Azure conmutarán por error a la región emparejada en caso de una interrupción regional duradera. Azure File Sync usa los mismos emparejamientos regionales que el almacenamiento. Por lo tanto, si usa cuentas de almacenamiento GRS, deberá habilitar direcciones URL adicionales para permitir que el servidor se comunique con la región emparejada para Azure File Sync. En la tabla siguiente, se denomina "Región emparejada". Además, hay una dirección URL del perfil de Traffic Manager que debe habilitarse también. Esto asegurará que el tráfico de red se pueda redirigir sin problemas a la región emparejada en caso de que se produzca una conmutación por error y se denomina "URL de detección" en la tabla siguiente.
+Por motivos de continuidad empresarial y recuperación ante desastres, es posible que haya creado los recursos compartidos de archivo de Azure en una cuenta de almacenamiento configurada para el almacenamiento con redundancia geográfica (GRS), en cuyo caso los recursos compartidos de archivos de Azure conmutarán por error a la región emparejada en caso de una interrupción regional duradera. Azure File Sync usa los mismos emparejamientos regionales que el almacenamiento. Por lo tanto, si usa cuentas de almacenamiento GRS, deberá habilitar direcciones URL adicionales para permitir que el servidor se comunique con la región emparejada para Azure File Sync. En la tabla siguiente, se denomina "Región emparejada". Además, hay una dirección URL del perfil de Traffic Manager que debe habilitarse también. Esto asegurará que el tráfico de red se pueda redirigir sin problemas a la región emparejada en caso de que se produzca una conmutación por error y se denomina "URL de detección" en la tabla siguiente.
 
 | Nube  | Region | Dirección URL del punto de conexión principal | Región emparejada | Dirección URL de detección |
 |--------|--------|----------------------|---------------|---------------|
@@ -173,9 +173,9 @@ Por razones de continuidad empresarial y recuperación ante desastres (BCDR), es
 | Government | US Gov: Arizona | https:\//usgovarizona01.afs.azure.us | US Gov Texas | https:\//tm-usgovarizona01.afs.azure.us |
 | Government | US Gov Texas | https:\//usgovtexas01.afs.azure.us | US Gov: Arizona | https:\//tm-usgovtexas01.afs.azure.us |
 
-- Si utiliza cuentas de almacenamiento con redundancia local (LRS) o de almacenamiento con redundancia de zona (ZRS), solo tiene que habilitar la URL que aparece en "Dirección URL del punto de conexión principal".
+- Si usa una cuenta de almacenamiento configurada para almacenamiento con redundancia local (LRS) o almacenamiento con redundancia de zona (ZRS), solo será necesario habilitar la dirección URL que aparece como dirección URL del punto de conexión principal.
 
-- Si usa cuentas de almacenamiento con redundancia geográfica (GRS), habilite tres direcciones URL.
+- Si usa una cuenta de almacenamiento configurada para GRS, habilite tres direcciones URL.
 
 **Ejemplo**: Implemente un servicio de sincronización de almacenamiento en `"West US"` y registre el servidor allí. Las direcciones URL que permiten que el servidor se comunique en este caso son:
 

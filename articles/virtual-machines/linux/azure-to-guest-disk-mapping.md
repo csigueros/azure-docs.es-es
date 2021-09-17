@@ -9,14 +9,16 @@ ms.topic: how-to
 ms.date: 11/17/2020
 ms.author: tibasham
 ms.collection: linux
-ms.openlocfilehash: bc6c6273ab3d1a4403763e4ed0a8c491995fb2df
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ca606d2c73952316a269d5ac8663823ffb249bf4
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102556730"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122692244"
 ---
 # <a name="how-to-map-azure-disks-to-linux-vm-guest-disks"></a>Asignación de discos de Azure a discos invitados de una máquina virtual Linux
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Conjuntos de escalado flexibles 
 
 Es posible que tenga que determinar los discos de Azure que respaldan a los discos invitados de una máquina virtual. En algunos escenarios, puede comparar el tamaño del disco o del volumen con el tamaño de los discos de Azure conectados. En los escenarios en que hay varios discos de Azure del mismo tamaño conectados a la máquina virtual, debe usar el número de unidad lógica (LUN) de los discos de datos. 
 

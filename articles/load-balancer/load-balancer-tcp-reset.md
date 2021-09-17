@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/07/2020
 ms.author: allensu
-ms.openlocfilehash: 9b555d7972e88df85e08dbcb1737231755c21361
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 9d18f5e674a5d30049b93a4273df1ecc8a37595c
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106448855"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122634870"
 ---
 # <a name="load-balancer-tcp-reset-and-idle-timeout"></a>Tiempo de espera de inactividad y restablecimiento de TCP de Load Balancer
 
@@ -59,6 +59,7 @@ TCP keep-alive funciona en escenarios donde la batería no supone una restricci�
 
 - El restablecimiento de TCP solo se envía durante la conexión TCP en el estado ESTABLECIDO.
 - El tiempo de espera de inactividad de TCP no afecta a las reglas de equilibrio de carga en el protocolo UDP.
+- El restablecimiento de TCP no es compatible con puertos de alta disponibilidad de ILB cuando hay una aplicación virtual de red en la ruta de acceso. Una solución alternativa podría ser usar una regla de salida con el restablecimiento de TCP desde la aplicación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

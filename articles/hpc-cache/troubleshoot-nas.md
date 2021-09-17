@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: troubleshooting
 ms.date: 03/18/2020
 ms.author: v-erkel
-ms.openlocfilehash: ed31a2202a0eacbdc257e127e111d21215c27de4
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: a8fb169db79281240e2aab854bc6079a60054625
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107258204"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122771450"
 ---
 # <a name="troubleshoot-nas-configuration-and-nfs-storage-target-issues"></a>Solución de problemas de configuración de NAS y destinos de almacenamiento NFS
 
@@ -146,4 +146,4 @@ En el caso de los sistemas que usan ACL, Azure HPC Cache debe realizar un seguim
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si tiene un problema que no se haya tratado en este artículo, [abra una incidencia de soporte técnico](hpc-cache-support-ticket.md) para obtener ayuda de expertos.
+Si tiene un problema que no se haya tratado en este artículo, [póngase en contacto con soporte técnico](hpc-cache-support-ticket.md) para obtener ayuda de expertos.

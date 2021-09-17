@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/08/2021
 ms.author: jeedes
-ms.openlocfilehash: 06f4ddff9c897858eec27f97f8e45a3d656e951d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d317adf207360c7e513bbd5239f45e4955b50782
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101650794"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122182962"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-mondaycom"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con monday.com
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar monday.com con Azure Active Directory 
 * Permitir que los usuarios puedan iniciar sesión automáticamente en monday.com con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -38,6 +38,7 @@ Para empezar, necesita los siguientes elementos:
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
 * monday.com admite el inicio de sesión único que inician **SP e IDP**.
+* monday.com admite el [aprovisionamiento y desaprovisionamiento de usuarios **automatizado**](mondaycom-provisioning-tutorial.md) (recomendado).
 * monday.com admite el aprovisionamiento de usuarios **Just-In-Time**.
 
 ## <a name="add-mondaycom-from-the-gallery"></a>Adición de monday.com desde la galería

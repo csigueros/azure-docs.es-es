@@ -5,20 +5,20 @@ services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, logicappspm
+ms.reviewer: estfan, azla
 ms.topic: article
 ms.date: 10/08/2020
-ms.openlocfilehash: 39109292b29c526b036774bb757158f317c932d9
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: 699bc3b15c47e1dc80dbb8a4defd27adad298ba0
+ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112456623"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122514687"
 ---
 # <a name="exchange-as2-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Intercambio de mensajes AS2 para la integración empresarial B2B en Azure Logic Apps con Enterprise Integration Pack
 
 > [!IMPORTANT]
-> El conector AS2 original está en desuso, por lo que, a menos que necesite funcionalidades de seguimiento, use mejor el conector **AS2 (v2)** . Excepto seguimiento, el conector v2 proporciona las mismas funcionalidades que la versión original, es nativo del entorno de ejecución de Logic Apps y presenta importantes mejoras de rendimiento en cuanto al tamaño de los mensajes, la capacidad de proceso y la latencia. Además, el conector v2 no requiere la creación de una conexión a la cuenta de integración. En su lugar, tal y como se describe en los requisitos previos, asegúrese de vincular la cuenta de integración a la aplicación lógica donde planea usar el conector.
+> El conector AS2 original está en desuso, por lo que, a menos que necesite funcionalidades de seguimiento, use mejor el conector **AS2 (v2)** . Excepto para el seguimiento, el conector v2 proporciona mejor rendimiento, las mismas funcionalidades que la versión original, es nativo del entorno de ejecución de Azure Logic Apps y presenta importantes mejoras de rendimiento en cuanto al tamaño de los mensajes, la capacidad de proceso y la latencia. Además, el conector v2 no requiere la creación de una conexión a la cuenta de integración. En su lugar, tal y como se describe en los requisitos previos, asegúrese de vincular la cuenta de integración a la aplicación lógica donde planea usar el conector.
 
 Para trabajar con mensajes AS2 en Azure Logic Apps, puede usar el conector AS2, que proporciona los desencadenadores y acciones que admiten y administran las comunicaciones AS2 (versión 1.2). Por ejemplo, para garantizar la seguridad y confiabilidad al transmitir mensajes, puede utilizar estas acciones:
 

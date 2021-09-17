@@ -3,12 +3,12 @@ title: Restauración y copia de seguridad periódicas de Azure Service Fabric
 description: Use la característica de copia de seguridad periódica y restauración de Service Fabric para habilitar la copia de seguridad periódica de los datos de su aplicación.
 ms.topic: conceptual
 ms.date: 5/24/2019
-ms.openlocfilehash: dbbeac5e5efad4e19561ba5f812e29d029de8317
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 6a9eef80b78f95a4941b3795f86b44511ee8a50b
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110059777"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122444962"
 ---
 # <a name="periodic-backup-and-restore-in-an-azure-service-fabric-cluster"></a>Restauración y copia de seguridad periódicas en un clúster de Azure Service Fabric
 > [!div class="op_single_selector"]
@@ -119,7 +119,12 @@ Primero debe habilitar el _servicio de copia de seguridad y restauración_ en el
     }
     ```
 
-4. Una vez actualizada la plantilla del clúster con los cambios anteriores, aplíquelos y deje que se complete la actualización o la implementación. Cuando haya terminado, el _servicio de copia de seguridad y restauración_ empezará a ejecutarse en el clúster. El URI de este servicio es `fabric:/System/BackupRestoreService` y el servicio puede estar ubicado en la sección de servicio del sistema de Service Fabric Explorer.
+    > [!NOTE]
+    > \[Thumbprint\] debe reemplazarse por la huella digital de certificado válida que se usará en el cifrado.
+    >
+    
+4. Una vez actualizada la plantilla del clúster con los cambios anteriores, aplíquelos y deje que se complete la actualización o la implementación. Cuando haya terminado, el _servicio de copia de seguridad y restauración_ empezará a ejecutarse en el clúster. El URI de este servicio es `fabric:/System/BackupRestoreService` y el servicio puede estar ubicado en la sección de servicio del sistema de Service Fabric Explorer. 
+
 
 ## <a name="enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors"></a>Habilitación de la copia de seguridad periódica del servicio de confianza con estado y Reliable Actors
 Vamos a examinar los pasos para habilitar la copia de seguridad periódica del servicio de confianza con estado y Reliable Actors. Con estos pasos se asume que:

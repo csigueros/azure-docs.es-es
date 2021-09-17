@@ -9,14 +9,16 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/28/2020
 ms.author: banders
-ms.openlocfilehash: 2f90d3698156e27780bc57e0ac9355b6811d20d3
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 464ffc8b5d4d04aeb7e4013f5b25d240d5ee9b06
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104607422"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122688968"
 ---
 # <a name="save-costs-with-azure-dedicated-host-reservations"></a>Ahorro de costos con las reservas de Azure Dedicated Host
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles :heavy_check_mark: Conjuntos de escalado uniformes
 
 Al confirmar una instancia reservada de Azure Dedicated Host, puede ahorrar dinero. El descuento de la reserva se aplica automáticamente el número de hosts dedicados en ejecución que coinciden con el ámbito y los atributos de la reserva. No es necesario asignar una reserva a un host dedicado para obtener los descuentos. La compra de una instancia reservada cubre solo la parte de proceso de su uso e incluye los costos de licencia de software. Consulte [Información general de Azure Dedicated Host para máquinas virtuales](./dedicated-hosts.md).
 

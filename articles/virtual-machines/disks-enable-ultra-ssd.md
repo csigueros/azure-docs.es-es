@@ -8,14 +8,16 @@ ms.date: 08/17/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: fb6180754be5e94091e5ff1ca21823b85c8a6e6d
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 5ea12e47b67f79ab2d5aa559f3afc1db587e1a55
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122322014"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122695918"
 ---
 # <a name="using-azure-ultra-disks"></a>Uso de discos Ultra de Azure
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles :heavy_check_mark: Conjuntos de escalado uniformes
 
 En este artículo se explica cómo implementar y usar un disco Ultra; para obtener información conceptual sobre Ultra Disks, vea [¿Qué tipos de discos están disponibles en Azure?](disks-types.md#ultra-disk).
 

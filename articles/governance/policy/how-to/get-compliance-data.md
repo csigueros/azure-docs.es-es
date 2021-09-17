@@ -3,12 +3,12 @@ title: Obtención de datos de cumplimiento de directiva
 description: Las evaluaciones y los efectos de Azure Policy determinan el cumplimiento. Obtenga información sobre cómo obtener los detalles de cumplimiento de los recursos de Azure.
 ms.date: 06/29/2021
 ms.topic: how-to
-ms.openlocfilehash: 547128d56eb2577a416ad2dae419d58ffe8b645b
-ms.sourcegitcommit: 40dfa64d5e220882450d16dcc2ebef186df1699f
+ms.openlocfilehash: 38811d67c54bf87476d1015ab6b45497094d12ca
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113038379"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122767847"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Obtención de datos de cumplimiento de los recursos de Azure
 
@@ -42,7 +42,7 @@ Las evaluaciones de directivas asignadas e iniciativas se producen como resultad
 
 - Ciclo de evaluación de cumplimiento estándar. Una vez cada 24 horas, las asignaciones se vuelven a evaluar automáticamente. Una directiva o iniciativa grande de muchos recursos puede tardar bastante tiempo, por lo que no hay una predicción de cuándo se completará el ciclo de evaluación. Una vez completado, los resultados de cumplimiento actualizados están disponibles en el portal y en los SDK.
 
-- Un recurso administrado actualiza el proveedor de recursos [Configuración de invitado](../concepts/guest-configuration.md) con detalles de cumplimiento.
+- Un recurso administrado actualiza el proveedor de recursos [Configuración de invitado](../concepts/guest-configuration.md) con los detalles de cumplimiento.
 
 - Examen a petición
 

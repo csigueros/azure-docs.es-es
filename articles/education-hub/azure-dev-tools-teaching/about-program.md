@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 06/30/2020
 ms.service: azure-education
 ms.subservice: education-hub
-ms.openlocfilehash: 680e22974aa85ae2d179f0b927a44b3471b4939d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a106f6f4a9a539b8139c6a423d70d78faa97e769
+ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87101199"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122229036"
 ---
 # <a name="what-is-azure-dev-tools-for-teaching"></a>Azure Dev Tools for Teaching
 
@@ -37,6 +37,9 @@ Azure Dev Tools for Teaching está disponible en más de 140 países o regiones
 Todo el software al que se pueda acceder a través de un [Centro de Education](https://azureforeducation.microsoft.com/devtools) (integrado en [Azure Portal](https://portal.azure.com/)) que aloje todos los productos y servicios disponibles para los usuarios académicos. Los alumnos acceden al software con solo iniciar sesión en Azure Portal con las mismas credenciales que usan para acceder a su suscripción a Imagine.
 
 Los alumnos no necesitan registrar una suscripción a Azure para acceder a sus ventajas de software. Sin embargo, Microsoft ofrece un 100 USD en crédito de Azure y acceso a los servicios gratuitos de Azure para los alumnos; estos pueden registrarse en la [oferta Microsoft Azure for Students](azure-students-program.md) sin necesidad de una tarjeta de crédito.
+
+## <a name="why-cant-i-purchase-azure-dev-tools-for-teaching"></a>¿Por qué no puedo comprar Azure Dev Tools for Teaching?
+Azure Dev Tools for Teaching ahora solo está disponible para canjear si tiene un contrato de licencias por volumen (VL) con Microsoft.  Si tiene un contrato de VL con Microsoft y sigue teniendo problemas para canjear, póngase en contacto con el equipo de soporte técnico.  Para más información sobre las licencias por volumen para educación, visite https://aka.ms/ees.
 
 ## <a name="getting-help"></a>Ayuda
 

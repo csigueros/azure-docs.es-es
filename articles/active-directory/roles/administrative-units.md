@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f0cdaefcc92a1a690ae3e3e222053976c3aa3178
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: 26b91b216c6a813270cf3b30cde0d8450f964668
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113730809"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121734485"
 ---
 # <a name="administrative-units-in-azure-active-directory"></a>Unidades administrativas en Azure Active Directory
 
@@ -33,9 +33,9 @@ Puede resultar útil para restringir el ámbito administrativo mediante el uso d
 
 Un administrador central podría:
 
-- Crear un rol con permisos administrativos solo sobre los usuarios de Azure AD de la unidad administrativa de la Escuela de negocios.
 - Crear una unidad administrativa para la Escuela de negocios.
-- Rellenar la unidad administrativa solo con los alumnos y el personal de la Escuela de negocios.
+- Rellene la unidad administrativa solo con los alumnos y el personal de la Escuela de negocios.
+- Cree un rol con permisos administrativos solo sobre los usuarios de Azure AD en la unidad administrativa de la Escuela de negocios.
 - Agregar el equipo de TI de la Escuela de negocios al rol, junto con su ámbito.
 
 ## <a name="license-requirements"></a>Requisitos de licencia

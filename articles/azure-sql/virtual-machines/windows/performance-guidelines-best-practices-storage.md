@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/25/2021
 ms.author: dpless
 ms.reviewer: jroth
-ms.openlocfilehash: d7d33fe4bc94de3d1fdca3d2b2e99d0663e39c97
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 86db0ce090c68f1a610aae6c69ed74dcf303416a
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112289862"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122635207"
 ---
 # <a name="storage-performance-best-practices-for-sql-server-on-azure-vms"></a>Almacenamiento: procedimientos recomendados de rendimiento de SQL Server en VM de Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -193,10 +193,12 @@ En la tabla siguiente se proporciona un resumen de las directivas de almacenamie
 |---------|---------|
 | **Disco de datos** | Habilite el almacenamiento en caché `Read-only` para los discos que hospedan archivos de datos de SQL Server. <br/> Las lecturas de la caché serán más rápidas que las lecturas no almacenadas en caché del disco de datos. <br/> El IOPS y el rendimiento sin almacenamiento en caché más el rendimiento y el IOPS en caché producirán el rendimiento total posible disponible desde la máquina virtual dentro de los límites de las VM, pero el rendimiento real variará en función de la capacidad de la carga de trabajo para usar la memoria caché (proporción de aciertos de la caché). <br/>|
 |**Disco del registro de transacciones**|Establezca la directiva de almacenamiento en caché en `None` para los discos que hospedan el registro de transacciones.  La habilitación del almacenamiento en caché para el disco del registro de transacciones no supone ninguna ventaja de rendimiento y, de hecho, tener el almacenamiento en caché de `Read-only` o `Read/Write` habilitado en la unidad de registro puede reducir el rendimiento de las opciones de escritura en la unidad y reducir la cantidad de almacenamiento en caché disponible para las lecturas en la unidad de datos.  |
-|**Disco del SO operativo** | La directiva de almacenamiento en caché predeterminada podría ser `Read-only` o `Read/write` para la unidad del sistema operativo. <br/> No se recomienda cambiar el nivel de almacenamiento en caché de la unidad del sistema operativo.  |
+|**Disco del SO operativo** | La directiva de almacenamiento en caché predeterminada es `Read/write` para la unidad del sistema operativo. <br/> No se recomienda cambiar el nivel de almacenamiento en caché de la unidad del sistema operativo.  |
 | **tempdb**| Si tempdb no se puede colocar en la unidad efímera `D:\` debido a razones de capacidad, cambie el tamaño de la máquina virtual para obtener una unidad efímera más grande o coloque el archivo tempdb en una unidad de datos independiente con el almacenamiento en caché de `Read-only` configurado. <br/> La memoria caché de la máquina virtual y la unidad efímera usan el SSD local, por lo que debe tener esto en cuenta al ajustar la E/S de tempdb en los límites de la máquina virtual de IOPS y rendimiento almacenados en la memoria caché cuando se hospedan en la unidad efímera.| 
 | | | 
 
+> [!IMPORTANT]
+> Al cambiar la configuración de caché de un disco de Azure, se desasocia y se vuelve a asociar el disco de destino. Al cambiar la configuración de almacenamiento en caché de un disco que hospeda los datos, registros o archivos de aplicación de SQL Server, asegúrese de detener el servicio SQL Server junto con cualquier otro servicio relacionado para evitar daños en los datos.
 
 Para obtener más información, consulte [Almacenamiento en caché de discos](../../../virtual-machines/premium-storage-performance.md#disk-caching). 
 

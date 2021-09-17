@@ -4,12 +4,12 @@ description: En este artículo se describe cómo solucionar y resolver problemas
 services: automation
 ms.date: 02/11/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: 43bc367be9ad9bb32f33f94df774acb3e808182a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8112b7637fc2737a80ab9235b962b2adef6d1b19
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100651126"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122607800"
 ---
 # <a name="troubleshoot-feature-deployment-issues"></a>Solución de incidencias en la implementación de características
 
@@ -27,7 +27,7 @@ Un nodo se registra en Azure Automation y después se modifica el nombre del equ
 
 Cuando se modifica el nombre de los nodos registrados, no se actualiza el nombre del nodo de Azure Automation.
 
-#### <a name="resolution"></a>Solución
+#### <a name="resolution"></a>Resolución
 
 Anule el registro del nodo en State Configuration de Azure Automation y después vuelva a registrarlo. Los informes publicados en el servicio antes de ese momento ya no estarán disponibles.
 
@@ -41,7 +41,7 @@ Al conectarse con un proxy que finaliza el tráfico HTTPS y, después, vuelve a 
 
 Azure Automation no permite volver a firmar los certificados usados para cifrar el tráfico.
 
-#### <a name="resolution"></a>Solución
+#### <a name="resolution"></a>Resolución
 
 Actualmente, no hay ninguna solución alternativa para este problema.
 
@@ -65,7 +65,7 @@ The solution cannot be enabled on this VM because the permission to read the wor
 
 Este error se produce porque faltan permisos para la VM, el área de trabajo o el usuario, o porque los permisos son incorrectos.
 
-#### <a name="resolution"></a>Solución
+#### <a name="resolution"></a>Resolución
 
 Asegúrese de que tiene los [permisos de implementación de características](../automation-role-based-access-control.md#feature-setup-permissions) correctos y, a continuación, intente implementar la característica de nuevo. Si recibe el mensaje de error `The solution cannot be enabled on this VM because the permission to read the workspace is missing`, consulte la siguiente [información de solución de problemas](update-management.md#failed-to-enable-error).
 
@@ -83,7 +83,7 @@ Failed to configure automation account for diagnostic logging
 
 Este error puede producirse si el plan de tarifa no coincide con el modelo de facturación de la suscripción. Para más información, consulte [Supervisión del uso y costos estimados en Azure Monitor](../../azure-monitor//usage-estimated-costs.md).
 
-#### <a name="resolution"></a>Solución
+#### <a name="resolution"></a>Resolución
 
 Cree manualmente el área de trabajo de Log Analytics y repita el proceso de implementación de características para seleccionar el área de trabajo creada.
 
@@ -97,7 +97,7 @@ Este código de error significa que la consulta de búsqueda guardada del grupo 
 
 Es posible que haya modificado la consulta o que lo haya hecho el sistema.
 
-#### <a name="resolution"></a>Solución
+#### <a name="resolution"></a>Resolución
 
 Puede eliminar la consulta de la característica y volver a habilitar la característica, lo que creará de nuevo la consulta. La consulta se encuentra en la opción **Búsquedas guardadas** del área de trabajo. El nombre de la consulta es **MicrosoftDefaultComputerGroup** y la categoría de la consulta es el nombre de la característica asociada. Si hay varias características habilitadas, la consulta **MicrosoftDefaultComputerGroup** aparecerá varias veces en **Búsquedas guardadas**.
 
@@ -105,20 +105,20 @@ Puede eliminar la consulta de la característica y volver a habilitar la caracte
 
 #### <a name="issue"></a>Problema
 
-Este código de error indica que no se pudo realizar la implementación debido a la infracción de una o varias directivas.
+Este código de error indica que no se pudo realizar la implementación debido a la infracción de una o varias asignaciones de Azure Policy.
 
 #### <a name="cause"></a>Causa 
 
-Una directiva impide que se complete la operación.
+Una asignación de Azure Policy está bloqueando la finalización de la operación.
 
-#### <a name="resolution"></a>Solución
+#### <a name="resolution"></a>Resolución
 
-Para implementar correctamente la característica, debe considerar la posibilidad de modificar la directiva indicada. Como se pueden definir muchos tipos diferentes de directivas, los cambios necesarios dependerán de la directiva que se haya infringido. Por ejemplo, si se ha definido una directiva en un grupo de recursos que deniega el permiso para cambiar el contenido de algunos recursos incluidos, puede elegir una de estas correcciones:
+Para implementar correctamente la característica, debe considerar la posibilidad de modificar la definición de la directiva indicada. Como se pueden establecer muchos tipos diferentes de definiciones de directivas, los cambios necesarios dependerán de la definición de la directiva que se haya infringido. Por ejemplo, si se ha asignado una definición de directiva a un grupo de recursos que deniega el permiso para cambiar el contenido de algunos recursos incluidos, puede elegir una de estas correcciones:
 
-* Eliminar por completo la directiva.
+* Quite la asignación de la directiva por completo.
 * Intente habilitar la característica para otro grupo de recursos.
-* Cambiar el destino de la directiva a un recurso específico; por ejemplo, una cuenta de Automation.
-* Revisar el conjunto de recursos que la directiva debe denegar según la configuración.
+* Cambie el destino de la asignación de la directiva a un recurso específico; por ejemplo, una cuenta de Automation.
+* Revise el conjunto de recursos que la definición de la directiva debe denegar según la configuración.
 
 Consulte las notificaciones en la esquina superior derecha de Azure Portal o desplácese hasta el grupo de recursos que contiene la cuenta de Automation y seleccione **Implementaciones** en **Configuración** para ver la implementación en la que se han producido errores. Para más información acerca de Azure Policy, consulte [Introducción a Azure Policy](../../governance/policy/overview.md?toc=%2fazure%2fautomation%2ftoc.json).
 
@@ -136,7 +136,7 @@ The link cannot be updated or deleted because it is linked to Update Management 
 
 Este error se produce cuando todavía dispone de características activas en el área de trabajo de Log Analytics que dependen de que su cuenta de Automation y el área de trabajo de Log Analytics estén vinculadas.
 
-### <a name="resolution"></a>Solución
+### <a name="resolution"></a>Resolución
 
 Quite los recursos de las siguientes características del área de trabajo si las usa:
 
@@ -181,7 +181,7 @@ Algunas de las posibles causas de este error son:
 * Un servidor proxy configurado en la VM solo permite puertos específicos.
 * Una configuración de firewall ha bloqueado el acceso a los puertos y las direcciones necesarios.
 
-#### <a name="resolution"></a>Solución
+#### <a name="resolution"></a>Resolución
 
 Asegúrese de que los puertos y las direcciones adecuados están abiertos para la comunicación. Para obtener una lista de direcciones y puertos, consulte este artículo sobre el [planeamiento de red](../automation-hybrid-runbook-worker.md#network-planning).
 
@@ -212,7 +212,7 @@ Algunas de las posibles causas de este error son:
 * Hay otra instalación en curso.
 * El sistema se desencadenó para reiniciarse durante la implementación de plantillas.
 
-#### <a name="resolution"></a>Solución
+#### <a name="resolution"></a>Resolución
 
 Este error es transitorio por naturaleza. Vuelva a intentar la implementación para instalar la extensión.
 
@@ -232,7 +232,7 @@ Install failed for plugin (name: Microsoft.EnterpriseCloud.Monitoring.MicrosoftM
 
 Este tipos de error se produce porque la VM se somete a una carga pesada durante la instalación.
 
-### <a name="resolution"></a>Solución
+### <a name="resolution"></a>Resolución
 
 Intente instalar la extensión del agente de Log Analytics para Windows cuando la VM esté sometida a una carga menor.
 

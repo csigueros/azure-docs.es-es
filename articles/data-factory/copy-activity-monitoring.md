@@ -1,39 +1,50 @@
 ---
 title: Supervisión de la actividad de copia
-description: Conozca cómo supervisar la ejecución de la actividad de copia en Azure Data Factory.
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Conozca cómo supervisar la ejecución de la actividad de copia en Azure Data Factory y Azure Synapse Analytics.
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 03/22/2021
+ms.date: 08/24/2021
 ms.author: jianleishen
-ms.openlocfilehash: 1382d92b09bef59a7b9e79a758c41c6bbaec7343
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: b8f3de9a986c491de6bfd2b507755abe4face534
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109482640"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122822405"
 ---
-# <a name="monitor-copy-activity"></a>Supervisión de la actividad de copia
+# <a name="monitor-copy-activity"></a>Supervisión de actividad de copia
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-En este artículo se describe cómo supervisar la ejecución de la actividad de copia en Azure Data Factory. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
+En este artículo se describe cómo supervisar la ejecución de la actividad de copia en las canalizaciones de Azure Data Factory y Synapse. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
 
 ## <a name="monitor-visually"></a>Supervisión visual
 
-Una vez que haya creado y publicado una canalización en Azure Data Factory, puede asociarla a un desencadenador o iniciar manualmente una ejecución ad hoc. Puede supervisar todas las ejecuciones de la canalización de forma nativa en la experiencia de usuario de Azure Data Factory. Obtenga información general sobre la supervisión en Azure Data Factory en el artículo sobre [supervisión visual de Azure Data Factory](monitor-visually.md).
+Una vez que haya creado y publicado una canalización, puede asociarla a un desencadenador o iniciar manualmente una ejecución ad hoc. Puede supervisar todas las ejecuciones de la canalización de forma nativa en la experiencia de usuario. Obtenga información general sobre la supervisión en [Supervisión visual de canalizaciones de Azure Data Factory y Synapse](monitor-visually.md).
 
-Para supervisar la ejecución de la actividad de copia, vaya a la opción **Author & Monitor** (Crear y supervisar) de la interfaz de usuario de su factoría de datos. En la pestaña **Monitor** (Supervisión), verá una lista de ejecuciones de canalización; haga clic en el vínculo del **nombre de canalización** para acceder a la lista de ejecuciones de actividad en la ejecución de canalización.
+Para supervisar la ejecución de la actividad de copia, vaya a la interfaz de usuario de **Data Factory Studio** o **Azure Synapse Studio** para su instancia de servicio. En la pestaña **Monitor** (Supervisión), verá una lista de ejecuciones de canalización; haga clic en el vínculo del **nombre de canalización** para acceder a la lista de ejecuciones de actividad en la ejecución de canalización.
+
+# <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
 
 ![Supervisar ejecución de canalización](./media/copy-activity-overview/monitor-pipeline-run.png)
+
+# <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+![Supervisar ejecución de canalización](./media/copy-activity-overview/monitor-pipeline-run-synapse.png)
+
+---
 
 En este nivel, puede ver vínculos a la entrada, la salida y los errores (si se produce un error en la ejecución de la actividad de copia) de la actividad de copia, así como estadísticas tales como la duración y el estado. Al hacer clic en el botón de **detalles** (gafas) junto al nombre de la actividad de copia, obtendrá información más detallada sobre la ejecución de la actividad de copia. 
 
 ![Supervisión de la ejecución de la actividad de copia](./media/copy-activity-overview/monitor-copy-activity-run.png)
 
-En esta vista gráfica de supervisión, Azure Data Factory presenta la información sobre la ejecución de la actividad de copia, entre la que se incluye el volumen de datos leídos y escritos, el número de archivos y filas de datos copiados del origen al receptor, el rendimiento, las configuraciones aplicadas para el escenario de copia, los pasos de la actividad de copia con las duraciones y los detalles correspondientes, etc. Consulte en [esta tabla](#monitor-programmatically) cada métrica posible y su descripción detallada. 
+En esta vista gráfica de supervisión, el servicio presenta la información sobre la ejecución de la actividad de copia, entre la que se incluye el volumen de datos leídos y escritos, el número de archivos y filas de datos copiados del origen al receptor, el rendimiento, las configuraciones aplicadas para el escenario de copia, los pasos de la actividad de copia con las duraciones y los detalles correspondientes, etc. Consulte en [esta tabla](#monitor-programmatically) cada métrica posible y su descripción detallada. 
 
-En algunos casos, cuando se ejecuta una actividad de copia en Data Factory, se ve el mensaje **"Performance tuning tips"** (Sugerencias para la optimización del rendimiento) en la parte superior de la vista de supervisión de la actividad de copia, como se muestra en el ejemplo siguiente. Las sugerencias indican el cuello de botella identificado por ADF para la ejecución específica de la copia, junto con recomendaciones sobre aquellos elementos que puede cambiar para aumentar el rendimiento de la copia. Obtenga más información sobre [sugerencias de optimización automática del rendimiento](copy-activity-performance-troubleshooting.md#performance-tuning-tips).
+En algunos casos, cuando se ejecuta una actividad de copia, se ve el mensaje **"Performance tuning tips"** (Sugerencias para la optimización del rendimiento) en la parte superior de la vista de supervisión de la actividad de copia, como se muestra en el ejemplo siguiente. Las sugerencias indican el cuello de botella identificado por el servicio para la ejecución específica de la copia, junto con recomendaciones sobre aquellos elementos que puede cambiar para aumentar el rendimiento de la copia. Obtenga más información sobre [sugerencias de optimización automática del rendimiento](copy-activity-performance-troubleshooting.md#performance-tuning-tips).
 
 En la parte inferior, los **detalles y duraciones de la ejecución** describen los pasos clave por los que pasa la actividad de copia, algo que resulta especialmente útil para solucionar problemas de rendimiento de la copia. El cuello de botella de la ejecución de copia corresponde a la que tiene mayor duración. Consulte en [Solución de problemas de rendimiento de la actividad de copia](copy-activity-performance-troubleshooting.md) qué representa cada fase y la guía detallada de solución de problemas.
 
@@ -43,7 +54,7 @@ En la parte inferior, los **detalles y duraciones de la ejecución** describen l
 
 ## <a name="monitor-programmatically"></a>Supervisión mediante programación
 
-Los detalles de la ejecución de la actividad de copia y las características de rendimiento también se devuelven en la sección **Copy Activity run result** > **Output** (Resultado de la ejecución de la actividad de copia -> Salida), que se utiliza para representar la vista de supervisión en la interfaz de usuario. A continuación se muestra una lista completa de las propiedades que pueden devolverse. Solo verá las propiedades que se aplican a su escenario de copia. Para información sobre cómo supervisar las ejecuciones de la actividad mediante programación en general, consulte [Supervisión mediante programación de una factoría de datos de Azure](monitor-programmatically.md).
+Los detalles de la ejecución de la actividad de copia y las características de rendimiento también se devuelven en la sección **Copy Activity run result** > **Output** (Resultado de la ejecución de la actividad de copia -> Salida), que se utiliza para representar la vista de supervisión en la interfaz de usuario. A continuación se muestra una lista completa de las propiedades que pueden devolverse. Solo verá las propiedades que se aplican a su escenario de copia. Para información sobre cómo supervisar las ejecuciones de la actividad mediante programación en general, consulte [Supervisión mediante programación de una canalización de Azure Data Factory o Synapse](monitor-programmatically.md).
 
 | Nombre de propiedad  | Descripción | Unidad en la salida |
 |:--- |:--- |:--- |

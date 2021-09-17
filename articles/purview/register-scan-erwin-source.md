@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 7/16/2021
-ms.openlocfilehash: 55ec355cf28f08618b1c51670b876f93dee69cc8
-ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
+ms.openlocfilehash: 2b6c9f621c4c18a172e12bc93387eb75451cb851
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114393744"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121736336"
 ---
 # <a name="register-and-scan-erwin-mart-server-preview"></a>Registro de un servidor de Erwin Mart y configuración de un examen (versión preliminar)
 
@@ -54,12 +54,12 @@ La única autenticación admitida para un origen de Erwin Mart es la **autentica
 
 Para registrar una nueva instancia de Erwin Mart en el catálogo de datos, haga lo siguiente:
 
-1.  Vaya a la cuenta de Purview.
-2.  Seleccione **Sources** (Orígenes) en el panel de navegación izquierdo.
-3.  Seleccione **Registrar.**
-4.  En Register sources (Registrar orígenes), seleccione **Erwin**. Seleccione **Continue** (Continuar).
-    :::image type="content" source="media/register-scan-erwin-source/register-sources.png" alt-text="Registro de un origen de Erwin" border="true":::
-    
+1. Vaya a la cuenta de Purview.
+1. Seleccione **Data Map** (Mapa de datos) en el panel de navegación izquierdo.
+1. Seleccione **Registrar**.
+1. En Register sources (Registrar orígenes), seleccione **Erwin**. Seleccione **Continue** (Continuar).
+    :::image type="content" source="media/register-scan-erwin-source/register-sources.png" alt-text="registrar orígenes erwin" border="true":::
+
 En la pantalla Register sources (Erwin) (Registrar orígenes [Erwin]), haga lo siguiente:
 
 1.  Escriba un **Name** (Nombre) con el que se muestre el origen de datos en el catálogo.
@@ -124,7 +124,7 @@ Para crear y ejecutar un nuevo examen, siga estos pasos:
     :::image type="content" source="media/register-scan-erwin-source/setup-scan.png" alt-text="Desencadenar examen" border="true":::
    
 
-6.  Haga clic en **Test connection** (Probar la conexión).
+6.  Haga clic en **Probar la conexión**.
 
 7.  Haga clic en **Continuar**.
 

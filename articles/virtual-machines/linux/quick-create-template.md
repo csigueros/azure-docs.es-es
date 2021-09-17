@@ -9,14 +9,16 @@ ms.workload: infrastructure
 ms.date: 06/04/2020
 ms.author: cynthn
 ms.custom: subject-armqs
-ms.openlocfilehash: 4a7bd76a6b7536a6bbc117d52fb2c0770145ab9d
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 173adbaa32444a2eb28c050266a503c9f448f927
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112078715"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122693936"
 ---
 # <a name="quickstart-create-an-ubuntu-linux-virtual-machine-using-an-arm-template"></a>Inicio rápido: Creación de una máquina virtual Ubuntu Linux mediante una plantilla de Resource Manager
+
+**Se aplica a:** :heavy_check_mark: máquinas virtuales Linux 
 
 En este inicio rápido se muestra como usar una plantilla de Azure Resource Manager para implementar una máquina virtual Ubuntu Linux en Azure.
 
@@ -26,7 +28,7 @@ Si su entorno cumple los requisitos previos y está familiarizado con el uso de 
 
 [![Implementación en Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.compute%2fvm-simple-linux%2fazuredeploy.json)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 

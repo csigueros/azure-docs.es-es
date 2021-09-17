@@ -1,18 +1,20 @@
 ---
-title: Transformación Columna derivada en Asignación de Data Flow
-description: Aprenda a transformar datos a escala en Azure Data Factory con la transformación Columna derivada en Asignación de Data Flow.
+title: Transformación Columna derivada en flujos de datos de asignación
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Aprenda a transformar datos a gran escala en Azure Data Factory y Azure Synapse Analytics con la transformación Columna derivada del flujo de datos de asignación.
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 09/14/2020
-ms.openlocfilehash: 2e90a8779322cf8967ca9a194c6cc760f7c8b8f5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: synapse
+ms.date: 08/24/2021
+ms.openlocfilehash: 815410030ffbfece39f5f92a4d6783abb8991eb6
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90532022"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122822846"
 ---
 # <a name="derived-column-transformation-in-mapping-data-flow"></a>Transformación Columna derivada en Asignación de Data Flow
 
@@ -85,7 +87,7 @@ Para hacer referencia al conjunto local de una columna derivada, haga clic en é
 
 El ejemplo siguiente es una columna derivada denominada `CleanData` que toma un flujo entrante `MoviesYear` y crea dos columnas derivadas. La primera columna derivada reemplaza la columna `Rating` por el valor de clasificación como un tipo entero. La segunda columna derivada es un patrón que coincide con cada columna cuyo nombre empieza con "movies". Para cada columna coincidente, crea una columna `movie` que es igual al valor de la columna coincidente con el prefijo "movie_". 
 
-En la experiencia de usuario de Data Factory, esta transformación es similar a la siguiente imagen:
+En la interfaz de usuario, esta transformación es similar a la siguiente imagen:
 
 ![Ejemplo de derivación](media/data-flow/derive-script.png "Ejemplo de derivación")
 

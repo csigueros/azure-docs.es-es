@@ -11,12 +11,12 @@ ms.date: 04/13/2021
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: ab94a83a64ca9770f0c216ddf42145b262629c6d
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
+ms.openlocfilehash: 8a05599efd58acb71534bef41a881de9170811af
+ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107598999"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122428811"
 ---
 # <a name="performance-tuning-with-ordered-clustered-columnstore-index"></a>Optimización del rendimiento con el índice de almacén de columnas agrupado ordenado  
 
@@ -59,7 +59,6 @@ La mejora del rendimiento de una consulta desde un CCI ordenado depende de los p
 Las consultas con todos estos patrones suelen ejecutarse más rápido con CCI ordenado.  
 1. Las consultas tienen predicados de igualdad, desigualdad o intervalo.
 1. Las columnas de predicado y las columnas de CCI ordenado son las mismas.  
-1. Las columnas de predicado se usan en el mismo orden que el índice de columna de las columnas de CCI ordenado.  
  
 En este ejemplo, la tabla T1 tiene un índice de almacén de columnas en clúster ordenado en la secuencia Col_C, Col_B y Col_A.
 
@@ -70,7 +69,7 @@ ORDER (Col_C, Col_B, Col_A);
 
 ```
 
-El rendimiento de la consulta 1 puede beneficiarse más del CCI ordenado que las otras tres consultas. 
+El rendimiento de la consulta 1 y la consulta 2 puede beneficiarse más del CCI ordenado que las demás consultas, ya que hacen referencia a todas las columnas de CCI ordenadas. 
 
 ```sql
 -- Query #1: 

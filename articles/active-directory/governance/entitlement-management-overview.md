@@ -17,12 +17,12 @@ ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: a0e4bb393e522d54bb259e1a85c645fe7f3f5e48
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: dcbc2f726d4c7c935462743578f863efc8762f79
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109786364"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121749205"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>¿Qué es la administración de derechos de Azure AD?
 
@@ -159,9 +159,9 @@ Las licencias de Azure AD Premium P2 **no** son necesarias para las tareas sigu
 
 - No se requiere ninguna licencia para usuarios con el rol de administrador global que configuran los catálogos iniciales, paquetes de acceso y directivas, y delegan tareas administrativas en otros usuarios.
 - No se requiere ninguna licencia para usuarios en los que se han delegado tareas administrativas, como el creador de catálogos, el propietario de catálogos y el administrador de paquetes de acceso.
-- No se requiere ninguna licencia para invitados que **pueden** solicitar paquetes de acceso, pero **no** solicitan un paquete de acceso.
+- No se necesitan licencias para los invitados que tengan un **privilegio para solicitar paquetes de acceso**, pero que **no eligen** solicitarlos.
 
-Para más información sobre las licencias, consulte [Asignación o eliminación de licencias mediante el portal de Azure Active Directory](../fundamentals/license-users-groups.md).
+Para más información sobre las licencias, vea [Asignación o eliminación de licencias mediante el portal de Azure Active Directory](../fundamentals/license-users-groups.md).
 
 ### <a name="example-license-scenarios"></a>Escenarios de licencia de ejemplo
 

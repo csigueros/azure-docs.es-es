@@ -7,12 +7,12 @@ manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/04/2021
-ms.openlocfilehash: 240ed5ed7aefb31503047f124d34e99d738da687
-ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
+ms.openlocfilehash: e065aa7d3d269632c77a810917ec913c43e518db
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "112236866"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122605277"
 ---
 # <a name="what-are-security-policies-initiatives-and-recommendations"></a>¿Qué son las directivas de seguridad, las iniciativas y las recomendaciones?
 
@@ -21,7 +21,7 @@ Security Center aplica iniciativas de seguridad a las suscripciones. Estas inici
 
 ## <a name="what-is-a-security-policy"></a>¿Qué es una directiva de seguridad?
 
-Una definición de directiva de Azure, creada en Azure Policy, es una regla sobre condiciones de seguridad específicas que quiere controlar. Las definiciones integradas incluyen elementos como el control del tipo de recursos que se pueden implementar o la aplicación del uso de etiquetas en todos los recursos. También puede crear su propia definición de directiva personalizada.
+Una definición de Azure Policy, creada en Azure Policy, es una regla sobre condiciones de seguridad específicas que quiere controlar. Las definiciones integradas incluyen elementos como el control del tipo de recursos que se pueden implementar o la aplicación del uso de etiquetas en todos los recursos. También puede crear su propia definición de directiva personalizada.
 
 Para implementar estas definiciones de directiva (tanto integradas como personalizadas), será preciso asignarlas. Puede asignar cualquiera de estas directivas a través de Azure Portal, PowerShell o la CLI de Azure.
 
@@ -29,7 +29,7 @@ Hay diferentes tipos de directivas en Azure Policy. Security Center utiliza prin
 
 ## <a name="what-is-a-security-initiative"></a>¿Qué es una iniciativa de seguridad?
 
-Una iniciativa de Azure es una colección de definiciones de directivas de Azure, o reglas, agrupadas para satisfacer un objetivo o propósito concreto. Las iniciativas de Azure simplifican la administración de las directivas al agrupar conjuntos de directivas, de manera lógica, en un único elemento.
+Una iniciativa de Azure Policy es una colección de definiciones de Azure Policy, o reglas, agrupadas para satisfacer un objetivo o propósito concreto. Las iniciativas de Azure simplifican la administración de las directivas al agrupar conjuntos de directivas, de manera lógica, en un único elemento.
 
 Una iniciativa de seguridad define la configuración deseada de las cargas de trabajo y le ayuda a garantizar el cumplimiento de los requisitos de seguridad normativos o corporativos.
 

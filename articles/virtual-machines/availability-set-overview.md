@@ -6,14 +6,16 @@ ms.author: mimckitt
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/18/2021
-ms.openlocfilehash: b4e9f106354915fe40a4bcf9b60bc35443345202
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: f1580c69a4fc1671d4dbe86ede05392b32534db6
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107530590"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122693683"
 ---
 # <a name="availability-sets-overview"></a>Información general sobre los conjuntos de disponibilidad
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows
 
 En este artículo proporciona una visión general de las características de disponibilidad de las máquinas virtuales (VM) de Azure.
 

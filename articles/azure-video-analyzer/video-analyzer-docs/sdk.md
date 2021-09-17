@@ -5,12 +5,12 @@ author: bennage
 ms.author: christb
 ms.topic: reference
 ms.date: 06/01/2021
-ms.openlocfilehash: 63f0ad6642dca449479a36d6e7503f9eaa2219fc
-ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
+ms.openlocfilehash: d350c757ec977f743cdcc921770a670863dc9577
+ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114601897"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122515380"
 ---
 # <a name="azure-video-analyzer-sdks"></a>SDK de Azure Video Analyzer
 
@@ -35,6 +35,10 @@ Se admiten las siguientes plataformas:
 - [.NET](https://aka.ms/ava/sdk/client/net)
 - [Python](https://aka.ms/ava/sdk/client/python)
 - [Java](https://aka.ms/ava/sdk/client/java)
+
+## <a name="see-also"></a>Consulte también
+
+- También puede consultar las [API de Azure Video Analyzer](https://docs.microsoft.com/rest/api/videoanalyzer/).
 
 <!-- links -->
 [docs-direct-methods]: direct-methods.md

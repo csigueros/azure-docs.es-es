@@ -10,12 +10,12 @@ ms.topic: sample
 ms.date: 02/23/2021
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: cec466fc420e435159e2882d7b39ef6d03eeea7c
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: c53686338ae45971519735edce0ac62a0544ac2e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101733489"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121744781"
 ---
 # <a name="use-the-headpose-attribute"></a>Uso del atributo HeadPose
 
@@ -29,7 +29,7 @@ La aplicación de ejemplo [Cognitive Services Face WPF](https://github.com/Azure
 
 ### <a name="explore-the-sample-code"></a>Exploración del código de ejemplo
 
-El atributo HeadPose permite girar mediante programación el rectángulo de cara. Si especifica este atributo cuando se detectan caras (consulte el artículo sobre [cómo detectar caras](HowtoDetectFacesinImage.md)), podrá realizar consultas en él más adelante. El siguiente método de la aplicación [Cognitive Services Face WPF](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/Cognitive-Services-Face-WPF) recibe una lista de objetos **DetectedFace** y devuelve una lista de objetos **[Face](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/app-samples/Cognitive-Services-Face-WPF/Sample-WPF/Controls/Face.cs)**. Aquí **Face** es una clase personalizada que almacena datos de cara, incluidas las coordenadas del rectángulo actualizado. Se calculan nuevos valores para **top**, **left**, **width** y **height** y un nuevo campo **FaceAngle** especifica el giro.
+El atributo HeadPose permite girar mediante programación el rectángulo de cara. Si especifica este atributo cuando se detectan caras (consulte [Llamada a la API de detección](HowtoDetectFacesinImage.md)), podrá realizar consultas en él más adelante. El siguiente método de la aplicación [Cognitive Services Face WPF](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/Cognitive-Services-Face-WPF) recibe una lista de objetos **DetectedFace** y devuelve una lista de objetos **[Face](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/app-samples/Cognitive-Services-Face-WPF/Sample-WPF/Controls/Face.cs)**. Aquí **Face** es una clase personalizada que almacena datos de cara, incluidas las coordenadas del rectángulo actualizado. Se calculan nuevos valores para **top**, **left**, **width** y **height** y un nuevo campo **FaceAngle** especifica el giro.
 
 ```csharp
 /// <summary>

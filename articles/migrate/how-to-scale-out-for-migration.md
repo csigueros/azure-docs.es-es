@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 03/02/2021
-ms.openlocfilehash: 5c8858e50707209b47eb61d554a8e4f7313c92c8
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 56f79028b2424d8383a0a4a3cb27639f3924ff90
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121731189"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122779624"
 ---
 # <a name="scale-agentless-migration-of-vmware-virtual-machines-to-azure"></a>Escalado de la migración sin agentes de máquinas virtuales de VMware a Azure
 
@@ -70,7 +70,7 @@ En **Descargar el dispositivo de Azure Migrate**, haga clic en **Descargar**. De
 > 2. Ejecute el siguiente comando para generar el código hash para el archivo ZIP:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Ejemplo de uso: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
-> 3. Descargue la versión más reciente del instalador del dispositivo de escalabilidad horizontal desde el portal si el código hash calculado no coincide con esta cadena: b4668be44c05836bf0f2ac1c8b1f48b7a9538afcf416c5212c7190629e3683b2
+> 3. Descargue la versión más reciente del instalador del dispositivo de escalabilidad horizontal desde el portal si el código hash calculado no coincide con esta cadena: CA8CEEE4C7AC13328ECA56AE9EB35137336CD3D73B1F867C4D736286EF61A234
 
 ### <a name="3-run-the-azure-migrate-installer-script"></a>3. Ejecución del script del instalador de Azure Migrate
 
@@ -81,7 +81,7 @@ En **Descargar el dispositivo de Azure Migrate**, haga clic en **Descargar**. De
 
     ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> .\AzureMigrateInstaller.ps1 ```
 
-5. Seleccione las opciones de escenario, nube, configuración y conectividad para implementar el dispositivo deseado. Por ejemplo, la selección que se muestra a continuación configura un dispositivo de **escalabilidad horizontal** para iniciar replicaciones simultáneas en los servidores que se ejecutan en el entorno de VMware a un proyecto de Azure Migrate con **conectividad predeterminada** (punto de conexión público) en la **nube pública de Azure**.
+5. Seleccione las opciones de escenario, nube, configuración y conectividad para implementar el dispositivo deseado. Por ejemplo, la selección que se muestra a continuación configura un dispositivo de **escalabilidad horizontal** para iniciar replicaciones simultáneas en los servidores que se ejecutan en el entorno de VMware a un proyecto de Azure Migrate con **conectividad predeterminada _(punto de conexión público)_** en la **nube pública de Azure**.
 
     :::image type="content" source="./media/how-to-scale-out-for-migration/script-vmware-scaleout-inline.png" alt-text="Captura de pantalla que muestra cómo configurar el escalado horizontal de los dispositivos." lightbox="./media/how-to-scale-out-for-migration/script-vmware-scaleout-expanded.png":::
 

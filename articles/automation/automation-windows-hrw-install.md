@@ -6,16 +6,16 @@ ms.subservice: process-automation
 ms.date: 04/02/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 865d82caebe72a0eba916a9d6d5f2e76ecd552ba
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: f79fddb5f3855afd27152945a571840f5680be0f
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110536471"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122769404"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Implementación de Hybrid Runbook Worker en Windows
 
-Puede usar la característica Hybrid Runbook Worker de usuario de Azure Automation para ejecutar runbooks directamente en una máquina de Azure o que no es de Azure, incluidos los servidores registrados con [servidores habilitados para Azure Arc](../azure-arc/servers/overview.md). En la máquina o servidor que hospeda el rol, puede ejecutar runbooks directamente en él y en los recursos del entorno para administrar esos recursos locales.
+Puede usar la característica Hybrid Runbook Worker de usuario de Azure Automation para ejecutar runbooks directamente en una máquina, sea de Azure o no, incluidos servidores registrados con [otros habilitados para Azure Arc](../azure-arc/servers/overview.md). En la máquina o servidor que hospeda el rol, puede ejecutar runbooks directamente en él y en los recursos del entorno para administrar esos recursos locales.
 
 Azure Automation almacena y administra los runbooks y, después, los entrega a una o más máquinas designadas. En este artículo se describe cómo implementar una instancia de Hybrid Runbook Worker de usuario en una máquina Windows, cómo quitar el trabajo y cómo quitar un grupo de instancias de Hybrid Runbook Worker.
 
@@ -33,7 +33,7 @@ Si no tiene ningún área de trabajo de Log Analytics de Azure Monitor, revise l
 
 ### <a name="log-analytics-agent"></a>Agente de Log Analytics
 
-El rol de Hybrid Runbook Worker requiere el [agente de Log Analytics](../azure-monitor/agents/log-analytics-agent.md) para el sistema operativo Windows compatible. En el caso de servidores o máquinas hospedados fuera de Azure, puede instalar el agente de Log Analytics con [servidores habilitados para Azure Arc](../azure-arc/servers/overview.md).
+El rol de Hybrid Runbook Worker requiere el [agente de Log Analytics](../azure-monitor/agents/log-analytics-agent.md) para el sistema operativo Windows compatible. En el caso de servidores o máquinas que estén hospedados fuera de Azure, puede instalar el agente de Log Analytics con [servidores habilitados para Azure Arc](../azure-arc/servers/overview.md).
 
 ### <a name="supported-windows-operating-system"></a>Sistemas operativos Windows compatibles
 
@@ -169,13 +169,13 @@ Para instalar y configurar una instancia de Hybrid Runbook Worker para Windows, 
 
 1. Implemente el agente de Log Analytics en la máquina de destino.
 
-    * En el caso de las máquinas virtuales de Azure, instale el agente de Log Analytics para Windows mediante la [extensión de máquina virtual para Windows](../virtual-machines/extensions/oms-windows.md). La extensión instala el agente de Log Analytics en Azure Virtual Machines e inscribe las máquinas virtuales en un área de trabajo de Log Analytics. Puede usar una plantilla de Azure Resource Manager, PowerShell o Azure Policy para asignar la directiva integrada [Implementar el agente de Log Analytics para las VM *Linux* o *Windows*](../governance/policy/samples/built-in-policies.md#monitoring). Una vez instalado el agente, la máquina se puede agregar a un grupo de Hybrid Runbook Worker de su cuenta de Automation.
+    * En el caso de las máquinas virtuales de Azure, instale el agente de Log Analytics para Windows mediante la [extensión de máquina virtual para Windows](../virtual-machines/extensions/oms-windows.md). La extensión instala el agente de Log Analytics en Azure Virtual Machines e inscribe las máquinas virtuales en un área de trabajo de Log Analytics. Puede usar una plantilla de Azure Resource Manager, PowerShell o Azure Policy para asignar la definición de directiva integrada [Implementación del agente de Log Analytics para máquinas virtuales *Linux* o *Windows*](../governance/policy/samples/built-in-policies.md#monitoring). Una vez instalado el agente, la máquina se puede agregar a un grupo de Hybrid Runbook Worker de su cuenta de Automation.
     
-    * En el caso de máquinas que no son de Azure, puede instalar el agente de Log Analytics mediante [servidores habilitados para Azure Arc](../azure-arc/servers/overview.md). Los servidores habilitados para Arc admiten la implementación del agente de Log Analytics mediante los métodos siguientes:
+    * En el caso de máquinas que no sean de Azure, puede instalar el agente de Log Analytics mediante [servidores habilitados para Azure Arc](../azure-arc/servers/overview.md). Los servidores habilitados para Arc admiten la implementación del agente de Log Analytics con los métodos siguientes:
     
         - Uso del marco de extensiones de VM.
         
-            Esta característica de los servidores habilitados para Azure Arc le permite implementar la extensión de VM del agente de Log Analytics en un servidor de Windows o Linux que no sea de Azure. Las extensiones de VM se pueden administrar con los siguientes métodos en las máquinas híbridas o servidores administrados por servidores habilitados para Arc:
+            Esta característica de los servidores habilitados para Azure Arc le permite implementar la extensión de máquina virtual del agente de Log Analytics en un servidor Windows o Linux que no sea de Azure. Las extensiones de máquina virtual se pueden administrar con los siguientes métodos en las máquinas híbridas o en servidores administrados por otros habilitados para Arc:
         
             - [Azure Portal](../azure-arc/servers/manage-vm-extensions-portal.md)
             - La [CLI de Azure](../azure-arc/servers/manage-vm-extensions-cli.md)
@@ -184,7 +184,7 @@ Para instalar y configurar una instancia de Hybrid Runbook Worker para Windows, 
         
         - Uso de Azure Policy.
         
-            Con este enfoque, puede usar la directiva integrada [Implementación del agente de Log Analytics en máquinas de Azure Arc de Linux o de Windows](../governance/policy/samples/built-in-policies.md#monitoring) de Azure Policy para auditar si el servidor habilitado para Arc tiene instalado el agente de Log Analytics. Si el agente no está instalado, lo implementa automáticamente mediante una tarea de corrección. Como alternativa, si planea supervisar las máquinas con Azure Monitor para VM, puede usar en su lugar la iniciativa [Habilitar Azure Monitor para VM](../governance/policy/samples/built-in-initiatives.md#monitoring) para instalar y configurar el agente de Log Analytics.
+            Con este enfoque, puede usar la definición de directiva integrada [Implementación del agente de Log Analytics en máquinas de Azure Arc Linux o Windows](../governance/policy/samples/built-in-policies.md#monitoring) de Azure Policy para auditar si el servidor habilitado para Arc tiene instalado el agente de Log Analytics. Si el agente no está instalado, lo implementa automáticamente mediante una tarea de corrección. Como alternativa, si planea supervisar las máquinas con Azure Monitor para VM, puede usar en su lugar la iniciativa [Habilitar Azure Monitor para VM](../governance/policy/samples/built-in-initiatives.md#monitoring) para instalar y configurar el agente de Log Analytics.
 
     Se recomienda instalar el agente de Log Analytics para Windows o Linux con Azure Policy.
 

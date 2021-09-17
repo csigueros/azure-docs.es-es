@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/15/2021
 ms.author: jeedes
-ms.openlocfilehash: fdca04c645e1bb956c8e9f294c702b639c8e2f74
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0b5d0e406186156e1983f0008b973aa0448092d1
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98726407"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122181222"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-adobe-identity-management"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Adobe Identity Management
 
@@ -38,6 +38,7 @@ Para empezar, necesita los siguientes elementos:
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
 * Adobe Identity Management admite el inicio de sesión único (SSO) iniciado por **SP**.
+* Adobe Identity Management admite el [aprovisionamiento y desaprovisionamiento **automático** de usuarios](adobe-identity-management-provisioning-tutorial.md) (se recomienda).
 
 ## <a name="adding-adobe-identity-management-from-the-gallery"></a>Adición de Adobe Identity Management desde la galería
 

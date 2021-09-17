@@ -5,14 +5,14 @@ services: static-web-apps
 author: scubaninja
 ms.service: static-web-apps
 ms.topic: tutorial
-ms.date: 03/23/2021
+ms.date: 08/17/2021
 ms.author: apedward
-ms.openlocfilehash: 17a41bd64f1bba4a5ae4d6d9d497c03afae037e7
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 9df037177aac3dd909795f18c6e903eedd1c98a6
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114444233"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122608876"
 ---
 # <a name="tutorial-publish-azure-static-web-apps-with-azure-devops"></a>Tutorial: Publicación de aplicaciones web estáticas de Azure con Azure DevOps
 
@@ -34,6 +34,9 @@ En este tutorial, aprenderá a:
 
   > [!NOTE]
   > Si tiene una aplicación existente en el repositorio, puede ir directamente a la sección siguiente.
+  
+  > [!NOTE]
+  > La aplicación debe tener como destino .NET Core 3.1 para que la canalización se lleve a cabo correctamente.
 
 1. Vaya al repositorio en Azure Repos.
 
@@ -57,15 +60,28 @@ En este tutorial, aprenderá a:
 
 1. Seleccione **Crear**.
 
-1. En _Detalles de la implementación_, asegúrese de que selecciona **Otro**. Esto le permite usar el código en Azure Repos.
+1. Cree una nueva aplicación web estática con los valores siguientes.
 
-    :::image type="content" source="media/publish-devops/create-resource.png" alt-text="Detalles de la implementación - Otro":::
+    :::image type="content" source="media/publish-devops/azure-portal-static-web-apps-devops.png" alt-text="Detalles de la implementación - Otro":::
 
-1. Una vez que la implementación se haya realizado correctamente, vaya al nuevo recurso de aplicaciones web estáticas.
+    | Parámetro | Value |
+    |---|---|
+    | Suscripción | El nombre de la suscripción de Azure. |
+    | Grupo de recursos | Seleccione un nombre de grupo existente o cree uno nuevo. |
+    | Nombre | Escriba **myDevOpsApp**. |
+    | Tipo de plan de hospedaje | Seleccione **Gratis**. |
+    | Region | Seleccione la región más cercana a la suya. |
+    | Source | Seleccione **Otros**. |
+
+1. Seleccionar **Revisar y crear**.
+
+1. Seleccione **Crear**.
+
+1. Una vez que la implementación sea correcta, seleccione **Ir al grupo de recursos**.
 
 1. Seleccione **Manage deployment token** (Administrar token de implementación).
 
-1. Copie el **token de implementación** y péguelo en un editor de texto para usarlo en otra pantalla.
+1. Copie el **token de implementación** y pegue el valor del token de implementación en un editor de texto para usarlo en otra pantalla.
 
     > [!NOTE]
     > Este valor se reserva ahora porque copiará y pegará más valores en los pasos siguientes.
@@ -76,15 +92,15 @@ En este tutorial, aprenderá a:
 
 1. Vaya al repositorio de Azure Repos que se creó anteriormente.
 
-1. Seleccione **Configurar la compilación**.
+2. Seleccione **Configurar la compilación**.
 
     :::image type="content" source="media/publish-devops/azdo-build.png" alt-text="Canalización de compilación":::
 
-1. En la pantalla *Configurar la canalización*, seleccione **Canalización inicial**.
+3. En la pantalla *Configurar la canalización*, seleccione **Canalización inicial**.
 
     :::image type="content" source="media/publish-devops/configure-pipeline.png" alt-text="Configurar canalización":::
 
-1. Copie y pegue el siguiente YAML en la canalización.
+4. Copie el siguiente código YAML y reemplace la configuración generada en la canalización por este código.
 
     ```yaml
     trigger:
@@ -98,9 +114,9 @@ En este tutorial, aprenderá a:
         submodules: true
       - task: AzureStaticWebApp@0
         inputs:
-          app_location: '/'
+          app_location: '/src'
           api_location: 'api'
-          output_location: ''
+          output_location: '/src'
           azure_static_web_apps_api_token: $(deployment_token)
     ```
 
@@ -111,35 +127,44 @@ En este tutorial, aprenderá a:
 
     El valor `azure_static_web_apps_api_token` es autoadministrado y se configura manualmente.
 
-2. Seleccione **Variables**.
+5. Seleccione **Variables**.
 
-3. Cree una nueva variable.
+6. Seleccione **Nueva variable**.
 
-4. Asigne a la variable el nombre **deployment_token** (que coincide con el nombre del flujo de trabajo).
+7. Asigne a la variable el nombre **deployment_token** (que coincide con el nombre del flujo de trabajo).
 
-5. Copie el token de implementación que pegó anteriormente en un editor de texto.
+8. Copie el token de implementación que pegó anteriormente en un editor de texto.
 
-6. Pegue el token de implementación en el cuadro _Valor_.
+9. Pegue el token de implementación en el cuadro _Valor_.
 
     :::image type="content" source="media/publish-devops/variable-token.png" alt-text="Token de variable":::
 
-7. Seleccione **Mantener este valor como secreto**.
+10. Seleccione **Mantener este valor como secreto**.
 
-8. Seleccione **Aceptar**.
+11. Seleccione **Aceptar**.
 
-9. Seleccione **Guardar** para volver al archivo YAML de la canalización.
+12. Seleccione **Guardar** para volver al archivo YAML de la canalización.
 
-10. Seleccione **Guardar y ejecutar** para que se abra el cuadro de diálogo del mismo nombre.
+13. Seleccione **Guardar y ejecutar** para que se abra el cuadro de diálogo del mismo nombre.
 
     :::image type="content" source="media/publish-devops/save-and-run.png" alt-text="Canalización":::
 
-11. Seleccione **Guardar y ejecutar** para ejecutar la canalización.
+14. Seleccione **Guardar y ejecutar** para ejecutar la canalización.
 
-12. Una vez que la implementación se haya realizado correctamente, vaya a la página de **información general** de Azure Static Web Apps, que incluye vínculos a la configuración de implementación. Observe cómo el vínculo de _origen_ apunta ahora a la rama y ubicación del repositorio de Azure DevOps.
+15. Una vez que la implementación se haya realizado correctamente, vaya a la página de **información general** de Azure Static Web Apps, que incluye vínculos a la configuración de implementación. Observe cómo el vínculo de _origen_ apunta ahora a la rama y ubicación del repositorio de Azure DevOps.
 
-13. Seleccione la **dirección URL** para ver el sitio web recién implementado.
+16. Seleccione la **dirección URL** para ver el sitio web recién implementado.
 
     :::image type="content" source="media/publish-devops/deployment-location.png" alt-text="Ubicación de implementación":::
+
+## <a name="clean-up-resources"></a>Limpieza de recursos
+
+Limpie los recursos que implementó eliminando el grupo de recursos.
+
+1. En Azure Portal, seleccione **Grupos de recursos** en el menú de la izquierda.
+2. Escriba el nombre del grupo de recursos en el campo **Filtrar por nombre**.
+3. Seleccione el nombre del grupo de recursos que ha utilizado en este tutorial.
+4. Seleccione **Eliminar grupo de recursos** del menú superior.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

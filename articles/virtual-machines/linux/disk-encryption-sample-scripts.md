@@ -9,16 +9,18 @@ ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: 120ef18c0796f56b083bcbbc51c82ab0f17afac5
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 41b449e9d4216d591a76815ba7c930b5c23fdfc6
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112285020"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122695671"
 ---
 # <a name="azure-disk-encryption-sample-scripts-for-linux-vms"></a>Scripts de ejemplo de Azure Disk Encryption para máquinas virtuales Linux
 
-En este artículo se proporcionan scripts de ejemplo tanto para preparar los discos duros virtuales previamente cifrados como para realizar otras tareas.
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Conjuntos de escalado flexibles 
+
+En este artículo se proporcionan scripts de ejemplo tanto para preparar los discos duros virtuales previamente cifrados como para realizar otras tareas.  
 
 > [!NOTE]
 > Todos los scripts hacen referencia a la versión más reciente de ADE que no sea de AAD, excepto donde se indique lo contrario.
@@ -88,7 +90,7 @@ En la siguiente tabla se muestran los parámetros que se pueden usar en el scrip
 * La máquina virtual debe usar una distribución compatible con el cifrado del disco del sistema operativo, como se muestra en el artículo [Sistemas operativos compatibles con Azure Disk Encryption](disk-encryption-overview.md#supported-vms)
 * La máquina virtual debe crearse a partir de la imagen de Marketplace en Azure Resource Manager.
 * La máquina virtual de Azure con al menos 4 GB de RAM (el tamaño recomendado es 7 GB).
-* (Para RHEL y CentOS) Deshabilite SELinux. Para deshabilitar SELinux, consulte "4.4.2. Disabling SELinux" (Deshabilitar SELinux) en el documento [SELinux User's and Administrator's Guide](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/SELinux_Users_and_Administrators_Guide/sect-Security-Enhanced_Linux-Working_with_SELinux-Changing_SELinux_Modes.html#sect-Security-Enhanced_Linux-Enabling_and_Disabling_SELinux-Disabling_SELinux) (Guía del administrador y del usuario de SELinux) en la máquina virtual.
+* (Para RHEL y CentOS) Deshabilite SELinux. Para deshabilitar SELinux, consulte "4.4.2. Disabling SELinux" (Deshabilitar SELinux) en el documento [SELinux User's and Administrator's Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/selinux_users_and_administrators_guide/sect-security-enhanced_linux-working_with_selinux-changing_selinux_modes#sect-Security-Enhanced_Linux-Enabling_and_Disabling_SELinux-Disabling_SELinux) (Guía del administrador y del usuario de SELinux) en la máquina virtual.
 * Después de deshabilitar SELinux, reinicie la máquina virtual al menos una vez.
 
 ### <a name="steps"></a>Pasos

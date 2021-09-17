@@ -8,26 +8,28 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 11/19/2020
+ms.date: 04/07/2021
 ms.author: aahi
 ms.reviewer: chtufts
-ms.openlocfilehash: 9ba9fe7ca73e874fb55c228e22b884a86de736cf
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: b583caa4fdb2a1e72833d4e24c317282be041513
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98661466"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122822142"
 ---
 # <a name="data-and-rate-limits-for-the-text-analytics-api"></a>Límites de datos y velocidad de la API Text Analytics
 <a name="data-limits"></a>
 
-Use este artículo para encontrar los límites de tamaño y las velocidades a las que se pueden enviar datos a la API Text Analytics. Tenga en cuenta que los límites de datos o de velocidad no afectan al precio. Los precios están sujetos a los [detalles de precios](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) del recurso de Text Analytics.
+Use este artículo para encontrar los límites de tamaño y las velocidades a las que se pueden enviar datos a la API Text Analytics.
 
 ## <a name="data-limits"></a>Límites de datos
 
 > [!NOTE]
-> * Si necesita analizar documentos con un tamaño superior al límite, puede dividir el texto en fragmentos más pequeños antes de enviarlos a la API. 
-> * Un documento es una sola cadena de caracteres de texto.  
+> * Los límites de datos o velocidad no afectan a los precios. Estos se basan en el número de registros de texto que se envían a la API y dependen de los [detalles de precio](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) del recurso de Text Analytics.
+>   * Cada registro de texto tiene 1000 caracteres. 
+> * Los límites de datos y velocidad se basan en el número de documentos que se envían a la API. Si necesita analizar documentos con un tamaño superior al límite, puede dividir el texto en fragmentos más pequeños antes de enviarlos a la API. 
+>   * Un documento es una sola cadena de caracteres de texto.  
 
 | Límite | Value |
 |------------------------|---------------|
@@ -88,6 +90,8 @@ El límite de velocidad variará en función del [plan de tarifa](https://azure.
 
 Los índices de solicitudes se miden por separado para cada característica de Text Analytics. Puede enviar el número máximo de solicitudes correspondiente al plan de tarifa a cada característica, al mismo tiempo. Por ejemplo, si se encuentra en el nivel de `S` y envía 1000 solicitudes a la vez, no podrá enviar ninguna otra solicitud durante 59 segundos.
 
+
+Los niveles S0-S4 han quedado en desuso y se recomienda cambiar al nivel S.
 
 ## <a name="see-also"></a>Consulte también
 

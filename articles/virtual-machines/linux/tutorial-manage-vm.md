@@ -1,8 +1,6 @@
 ---
 title: 'Tutorial: Creación y administración de máquinas virtuales Linux con la CLI de Azure'
 description: En este tutorial, aprenderá a usar la CLI de Azure para crear y administrar máquinas virtuales Linux en Azure
-services: virtual-machines
-documentationcenter: virtual-machines
 author: cynthn
 ms.service: virtual-machines
 ms.collection: linux
@@ -10,14 +8,16 @@ ms.topic: tutorial
 ms.date: 03/23/2018
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: fb70f11e8815b078bccd4ed1cd294c961904579d
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: 4a9eea52f7b58368c17f7edb6f5b217fbf8c777e
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107816609"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122698962"
 ---
 # <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli"></a>Tutorial: Creación y administración de máquinas virtuales Linux con la CLI de Azure
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Conjuntos de escalado flexibles 
 
 Las máquinas virtuales de Azure proporcionan un entorno informático completamente configurable y flexible. En este tutorial se tratan elementos básicos de la implementación de máquinas virtuales de Azure, como la selección de su tamaño, la selección de una imagen de máquina virtual y la implementación de una máquina virtual. Aprenderá a:
 

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/09/2021
+ms.date: 08/20/2021
 ms.author: jeedes
-ms.openlocfilehash: ee9b326a43adb9c96fe6013eeecaabf955c78d45
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: 98b8b3c1de7879301d82356bbb23e2d2d19ff9cc
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111986397"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122768439"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-4me"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con 4me
 
@@ -42,6 +42,7 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 
 * 4me admite SSO iniciado por **SP**.
 * 4me admite el aprovisionamiento de usuarios **Just-In-Time**.
+* 4me admite el [aprovisionamiento automatizado de usuarios](4me-provisioning-tutorial.md).
 
 ## <a name="add-4me-from-the-gallery"></a>Adición de 4me desde la galería
 

@@ -10,12 +10,12 @@ ms.author: laobri
 author: lobrien
 ms.date: 02/26/2021
 ms.custom: devx-track-python
-ms.openlocfilehash: 57f5da06909436e0cbce92559c29c309ca9e20e3
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: caa9d95d57cb8ef6bfe6223a09376614bd254336
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107819239"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122604036"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>¿Qué son las canalizaciones de Azure Machine Learning?
 
@@ -55,7 +55,7 @@ En resumen, las canalizaciones pueden ayudar con todas las tareas complejas del 
 
 Muchos ecosistemas de programación tienen herramientas que organizan las dependencias de recursos, bibliotecas o compilaciones. Por lo general, estas herramientas usan marcas de tiempo de archivo para calcular las dependencias. Cuando se cambia un archivo, solo se actualiza el archivo y sus elementos dependientes (se descargan, recompilan o empaquetan). Las canalizaciones de Azure Machine Learning amplían este concepto. Al igual que las herramientas de compilación tradicionales, las canalizaciones calculan las dependencias entre los pasos y solo realizan los recálculos necesarios. 
 
-El análisis de dependencias de las canalizaciones de Azure Machine Learning es más sofisticado que una simple marca de tiempo. Cada paso puede ejecutarse en un entorno de hardware y software diferente. La preparación de los datos puede ser un proceso lento, pero no es necesario ejecutarlo en hardware con GPU eficaces, es posible que algunos pasos requieran software específico del sistema operativo, puede que quiera usar entrenamiento distribuido, etc. 
+El análisis de dependencias de las canalizaciones de Azure Machine Learning es más sofisticado que una simple marca de tiempo. Cada paso puede ejecutarse en un entorno de hardware y software diferente. La preparación de los datos puede ser un proceso lento, pero no es necesario ejecutarlo en hardware con GPU eficaces, es posible que algunos pasos requieran software específico del sistema operativo, puede que quiera usar [entrenamiento distribuido](how-to-train-distributed-gpu.md), etc. 
 
 Azure Machine Learning organiza automáticamente todas las dependencias entre los pasos de la canalización. Esta orquestación podría incluir la rotación de imágenes de Docker, la asociación y desasociación de recursos de proceso y el movimiento de datos entre los pasos de manera coherente y automática.
 

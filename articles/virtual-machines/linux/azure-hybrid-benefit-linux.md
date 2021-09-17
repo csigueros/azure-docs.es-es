@@ -12,14 +12,16 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: mathapli
-ms.openlocfilehash: 72bf18bee387dc0602f543161afc20c73c2e4144
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: c794d3e18eaf25241cb9c55c14a32e4e5c9ff7b0
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121741800"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122692262"
 ---
 # <a name="how-azure-hybrid-benefit-applies-for-linux-virtual-machines"></a>Aplicación de la Ventaja híbrida de Azure en máquinas virtuales Linux
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Conjuntos de escalado flexibles 
 
 La Ventaja híbrida de Azure es una ventaja de licencia que ayuda a disminuir considerablemente los costos de ejecutar máquinas virtuales (VM) Red Hat Enterprise Linux (RHEL) y SUSE Linux Enterprise Server (SLES) en la nube. Con esta ventaja, solo paga los costos de infraestructura de la VM, ya que el precio del software incluye la suscripción de RHEL o SLES. La ventaja está disponible para todas las imágenes de pago por uso (PAYG) de Marketplace de RHEL y SLES.
 

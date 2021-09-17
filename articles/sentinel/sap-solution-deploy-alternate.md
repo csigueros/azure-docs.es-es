@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.custom: mvc
 ms.date: 05/19/2021
 ms.subservice: azure-sentinel
-ms.openlocfilehash: ba0457bef8ad4e732cffe229e850272f68a6d30f
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 0dbdc6be4eb5dd61545bbf761d1805824690ebc7
+ms.sourcegitcommit: deb5717df5a3c952115e452f206052737366df46
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121723437"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122681373"
 ---
 # <a name="expert-configuration-options-on-premises-deployment-and-sapcontrol-log-sources"></a>Opciones de configuración de expertos, implementación local y orígenes de registro de SAPControl
 
@@ -30,7 +30,7 @@ En este artículo se describe cómo implementar el conector de datos Azure Senti
 
 Los requisitos previos básicos para implementar el conector Azure Sentinel SAP son los mismos, independientemente del método de implementación.
 
-Antes de empezar, asegúrese de que el sistema cumple los requisitos previos que se documentan en el [tutorial principal de implementación del conector de datos de SAP](sap-deploy-solution.md#prerequisites).
+Antes de empezar, asegúrese de que el sistema cumple los requisitos previos que se documentan en el [procedimiento principal de implementación del conector de datos de SAP](sap-deploy-solution.md#prerequisites).
 
 Para más información, consulte [Requisitos de SAP detallados de la solución Azure Sentinel SAP (versión preliminar pública)](sap-solution-detailed-requirements.md).
 
@@ -335,7 +335,7 @@ Esta sección le permite configurar los parámetros siguientes:
 
 Para ingerir todos los registros de ABAP en Azure Sentinel, incluidos los registros basados en NW RFC y SAP Control Web Service, configure los siguientes detalles de ABAP SAP Control:
 
-|Configuración  |Descripción  |
+|Parámetro  |Descripción  |
 |---------|---------|
 |**javaappserver**     |Especifique el host del servidor de ABAP de SAP Control. <br>Por ejemplo: `contoso-erp.appserver.com`         |
 |**javainstance**     |Especifique el número de instancia de ABAP de SAP Control. <br>Por ejemplo: `00`         |
@@ -362,6 +362,7 @@ Para más información, consulte [Implementación de la solución SAP](sap-deplo
 
 Para más información, consulte:
 
+- [Implementación del conector de datos de SAP de Azure Sentinel con SNC](sap-solution-deploy-snc.md)
 - [Requisitos detallados de SAP para la solución Azure Sentinel SAP](sap-solution-detailed-requirements.md)
 - [Referencia sobre los registros de la solución Azure Sentinel SAP](sap-solution-log-reference.md)
 - [Solución Azure Sentinel SAP: referencia al contenido de seguridad](sap-solution-security-content.md)

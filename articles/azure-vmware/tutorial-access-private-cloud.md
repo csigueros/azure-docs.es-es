@@ -2,29 +2,29 @@
 title: 'Tutorial: Acceso a la nube privada'
 description: Aprenda a acceder a una nube privada de Azure VMware Solution.
 ms.topic: tutorial
-ms.date: 03/13/2021
-ms.openlocfilehash: 81927e9ad0362ba340bb704d2d7e8b9c0927efbe
-ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
+ms.date: 08/13/2021
+ms.openlocfilehash: 6b4798bf5257be82475986c040b04b63ff5a483b
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114605407"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122070795"
 ---
 # <a name="tutorial-access-an-azure-vmware-solution-private-cloud"></a>Tutorial: Acceso a una nube privada de Azure VMware Solution
 
-Azure VMware Solution no permite administrar la nube privada con la instancia local de vCenter. Tendrá que conectarse a la instancia de vCenter de Azure VMware Solution a través de un jumpbox. 
+Azure VMware Solution no permite administrar la nube privada con la instancia local de vCenter. En lugar de eso, tendrá que conectarse a la instancia de vCenter de Azure VMware Solution a través de un jumpbox. 
 
 En este tutorial, creará un jumpbox en el grupo de recursos que creó en el [tutorial anterior](tutorial-configure-networking.md) e iniciará sesión en vCenter de Azure VMware Solution. Este jumpbox es una máquina virtual (VM) de Windows que se encuentra en la misma red virtual que creó.  Proporciona acceso tanto a vCenter como a NSX Manager. 
 
 En este tutorial aprenderá a:
 
 > [!div class="checklist"]
-> * Crear una máquina virtual Windows para acceder a vCenter de Azure VMware Solution.
-> * Iniciar sesión en vCenter desde esta máquina virtual.
+> * Crear una VM Windows para acceder a vCenter de Azure VMware Solution
+> * Iniciar sesión en vCenter desde esta VM
 
 ## <a name="create-a-new-windows-virtual-machine"></a>Creación de una nueva máquina virtual Windows.
 
-1. En el grupo de recursos, seleccione **+ Agregar**, busque y seleccione **Microsoft Windows 10** y, a continuación, seleccione **Crear**.
+1. En el grupo de recursos, seleccione **Agregar**, busque **Microsoft Windows 10**, y selecciónelo. Seleccione **Crear**.
 
    :::image type="content" source="media/tutorial-access-private-cloud/ss8-azure-w10vm-create.png" alt-text="Captura de pantalla que muestra cómo agregar una nueva máquina virtual Windows 10 para un jumpbox.":::
 
@@ -45,7 +45,7 @@ En este tutorial aprenderá a:
    | **Nombre de usuario** | Escriba el nombre de usuario para iniciar sesión en la máquina virtual. |
    | **Contraseña** | Escriba la contraseña para iniciar sesión en la máquina virtual. |
    | **Confirmar contraseña** | Escriba la contraseña para iniciar sesión en la máquina virtual. |
-   | **Puertos de entrada públicos** | Seleccione **Ninguno**. Si selecciona Ninguno, puede usar el [acceso JIT](../security-center/security-center-just-in-time.md#jit-configure) para controlar el acceso a la máquina virtual solo cuando desee acceder a ella. Como alternativa, puede usar [Azure Bastion](../bastion/tutorial-create-host-portal.md) si quiere tener acceso al servidor de jumpbox de forma segura desde Internet sin exponer ningún puerto de red.  |
+   | **Puertos de entrada públicos** | Seleccione **Ninguno**. <ul><li>Puede usar el [acceso JIT](../security-center/security-center-just-in-time.md#jit-configure) para controlar el acceso a la VM solo cuando quiera acceder a ella.</li><li>Para acceder de forma segura al servidor jumpbox desde Internet sin exponer ningún puerto de red, use una instancia de [Azure Bastion](../bastion/tutorial-create-host-portal.md).</li></ul>  |
 
 
 1. Una vez superada la validación, seleccione **Crear** para iniciar el proceso de creación de la máquina virtual.
@@ -64,9 +64,9 @@ En este tutorial aprenderá a:
 
    Si necesita ayuda para conectarse a la máquina virtual, consulte [Conexión a una máquina virtual](../virtual-machines/windows/connect-logon.md#connect-to-the-virtual-machine) para los detalles.
 
-1. En la máquina virtual Windows, abra un explorador y vaya a las direcciones URL del administrador de NSX-T y vCenter en dos pestañas. 
+1. En la VM Windows, abra un explorador y vaya a las direcciones URL del administrador de NSX-T y vCenter en dos pestañas. 
 
-1. En la pestaña de vCenter, escriba las credenciales del usuario `cloudadmin@vmcp.local` del paso anterior.
+1. En la pestaña de vCenter, escriba las credenciales del usuario `cloudadmin@vsphere.local` del paso anterior.
 
    :::image type="content" source="media/tutorial-access-private-cloud/ss5-vcenter-login.png" alt-text="Captura de pantalla que la página de inicio de sesión de VMware vSphere." border="true":::
 
@@ -80,11 +80,11 @@ En este tutorial aprenderá a:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha aprendido cómo:
+En este tutorial, ha aprendido a:
 
 > [!div class="checklist"]
-> * Crear una máquina virtual Windows para conectarse a vCenter
-> * Iniciar sesión en vCenter desde la máquina virtual
+> * Crear una VM Windows para conectarse a vCenter
+> * Iniciar sesión en vCenter desde la VM
 
 Continúe con el siguiente tutorial para aprender a crear una red virtual a fin de configurar la administración local de los clústeres de nube privada.
 

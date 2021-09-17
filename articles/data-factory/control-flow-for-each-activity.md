@@ -1,23 +1,26 @@
 ---
-title: Actividad ForEach en Azure Data Factory
-description: La actividad ForEach define un flujo de control repetido en la canalización. Se usa para iterar una colección y ejecuta actividades especificadas.
+title: Actividad ForEach
+titleSuffix: Azure Data Factory & Azure Synapse
+description: La actividad ForEach define un flujo de control recurrente en una canalización de Azure Data Factory o Azure Synapse Analytics. La actividad ForEach se usa para iterar en una colección con el fin de ejecutar acciones en cada uno de sus elementos por separado.
 author: chez-charlie
 ms.author: chez
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: orchestration
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 01/23/2019
-ms.openlocfilehash: 28c67640a65e44fb9c6d6791229796c614993fa1
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.date: 08/24/2021
+ms.openlocfilehash: 5325999fc844a23aeea3795527396709d2e7a730
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107906303"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122825085"
 ---
-# <a name="foreach-activity-in-azure-data-factory"></a>Actividad ForEach en Azure Data Factory
+# <a name="foreach-activity-in-azure-data-factory-and-azure-synapse-analytics"></a>Actividad ForEach de Azure Data Factory y Azure Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-La actividad ForEach define un flujo de control repetido en la canalización. Esta actividad se usa para iterar una colección y ejecuta las actividades especificadas en un bucle. La implementación del bucle de esta actividad es similar a la estructura de bucle ForEach de los lenguajes de programación.
+La actividad ForEach define un flujo de control recurrente en una canalización de Azure Data Factory o Synapse. Esta actividad se usa para iterar una colección y ejecuta las actividades especificadas en un bucle. La implementación del bucle de esta actividad es similar a la estructura de bucle ForEach de los lenguajes de programación.
 
 ## <a name="syntax"></a>Sintaxis
 Las propiedades se describen más adelante en este artículo. La propiedad items es la colección y cada elemento de la colección se reconoce por usar `@item()`, como se muestra en la sintaxis siguiente:  
@@ -70,13 +73,13 @@ Propiedad | Descripción | Valores permitidos | Obligatorio
 -------- | ----------- | -------------- | --------
 name | Nombre de la actividad for-each. | String | Sí
 type | Se debe establecer en **ForEach** | String | Sí
-isSequential | Especifica si el bucle se debe ejecutar en secuencia o en paralelo.  Se puede ejecutar un máximo de 20 iteraciones de bucle a la vez en paralelo. Por ejemplo, si tiene una actividad ForEach que itera una actividad de copia con 10 conjuntos de datos de origen y receptor distintos con **isSequential** establecido en False, todas las copias se ejecutan a la vez. El valor predeterminado es False. <br/><br/> Si "isSequential" está establecido en False, asegúrese de que haya una configuración correcta para ejecutar varios archivos ejecutables. De lo contrario, esta propiedad se debe usar con precaución para no incurrir en conflictos de escritura. Para más información, consulte la sección [Ejecución en paralelo](#parallel-execution). | Boolean | No. El valor predeterminado es False.
+isSequential | Especifica si el bucle se debe ejecutar en secuencia o en paralelo.  Se pueden ejecutar un máximo de 50 iteraciones de bucle a la vez en paralelo. Por ejemplo, si tiene una actividad ForEach que itera una actividad de copia con 10 conjuntos de datos de origen y receptor distintos con **isSequential** establecido en False, todas las copias se ejecutan a la vez. El valor predeterminado es False. <br/><br/> Si "isSequential" está establecido en False, asegúrese de que haya una configuración correcta para ejecutar varios archivos ejecutables. De lo contrario, esta propiedad se debe usar con precaución para no incurrir en conflictos de escritura. Para más información, consulte la sección [Ejecución en paralelo](#parallel-execution). | Boolean | No. El valor predeterminado es False.
 batchCount | Número de lotes que se usará para controlar el número de la ejecución en paralelo (cuando isSequential está establecido en false). Este es el límite de simultaneidad superior, pero la actividad for-each no siempre se ejecutará en este número. | Entero (50 como máximo) | No. El valor predeterminado es 20.
 Elementos | Una expresión que devuelve una matriz JSON que se iterará. | Expresión (que devuelve una matriz JSON) | Sí
 Actividades | Las actividades que se ejecutarán. | Lista de actividades | Sí
 
 ## <a name="parallel-execution"></a>Ejecución en paralelo
-Si **isSequential** está establecido en false, la actividad itera en paralelo con un máximo de 20 iteraciones simultáneas. Esta configuración se debe usar con precaución. Si las iteraciones simultáneas escriben en la misma carpeta pero en distintos archivos, este enfoque es correcto. Si las iteraciones simultáneas escriben al mismo tiempo exactamente en el mismo archivo, es más probable que este enfoque provoque un error. 
+Si **isSequential** está establecido en "false", la actividad itera en paralelo con un máximo de 50 iteraciones simultáneas. Esta configuración se debe usar con precaución. Si las iteraciones simultáneas escriben en la misma carpeta pero en distintos archivos, este enfoque es correcto. Si las iteraciones simultáneas escriben al mismo tiempo exactamente en el mismo archivo, es más probable que este enfoque provoque un error. 
 
 ## <a name="iteration-expression-language"></a>Lenguaje de expresión de iteración
 En la actividad ForEach, proporcione una matriz que se iterará para la propiedad **items**. Use `@item()` para iterar una sola enumeración en la actividad ForEach. Por ejemplo, si la propiedad **items** es una matriz: [1, 2, 3], `@item()` devuelve 1 en la primera iteración, 2 en la segunda y 3 en la tercera. También puede usar `@range(0,10)` como expresión para iterar diez veces comenzando con 0 y terminando con 9.
@@ -487,7 +490,7 @@ A continuación se indican algunas de las limitaciones de la actividad ForEach y
 | | |
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte otras actividades de flujo de control compatibles con Data Factory: 
+Consulte otras actividades de flujo de control admitidas: 
 
 - [Actividad de ejecución de canalización](control-flow-execute-pipeline-activity.md)
 - [Actividad GetMetadata](control-flow-get-metadata-activity.md)

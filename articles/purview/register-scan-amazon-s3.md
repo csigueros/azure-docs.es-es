@@ -1,5 +1,5 @@
 ---
-title: Examen de cubos de Amazon S3
+title: Multi-Cloud Scanning Connector de Amazon S3 para Azure Purview
 description: En esta guía de procedimientos se describen los detalles sobre cómo examinar cubos de Amazon S3.
 author: batamig
 ms.author: bagol
@@ -8,20 +8,24 @@ ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 06/17/2021
 ms.custom: references_regions
-ms.openlocfilehash: 181e0ae76dccf763d23fb648a5e6553ed352655a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: ad62ff0c7d3e6249ecb8497953501466b5152265
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121748140"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122445735"
 ---
-# <a name="azure-purview-connector-for-amazon-s3"></a>Conector de Azure Purview para Amazon S3
+# <a name="amazon-s3-multi-cloud-scanning-connector-for-azure-purview"></a>Multi-Cloud Scanning Connector de Amazon S3 para Azure Purview
 
-En esta guía de procedimientos se ofrece una explicación de cómo usar Azure Purview para examinar los datos no estructurados almacenados actualmente en cubos estándar de Amazon S3 y detectar qué tipo de información confidencial existe en los datos. En esta guía de procedimientos también se describe cómo identificar los cubos de Amazon S3 en los que los datos están almacenados actualmente para facilitar la protección de la información y el cumplimiento de datos.
+Multi-Cloud Scanning Connector para Azure Purview permite explorar los datos de la organización entre proveedores de nube, incluidos Amazon Web Services además de los servicios de almacenamiento de Azure.
 
-Para este servicio, use Purview para proporcionar un cuenta Microsoft con acceso seguro a AWS, donde se ejecutará el examen de Purview. El examen de Purview usa este acceso a los cubos de Amazon S3 para leer los datos y, a continuación, notifica los resultados del examen, solo con los metadatos y la clasificación, de nuevo a Azure. Use los informes de clasificación y etiquetado de Purview para analizar y revisar los resultados del examen de los datos.
+En este artículo se describe cómo usar Azure Purview para examinar los datos no estructurados almacenados actualmente en cubos estándar de Amazon S3 y detectar qué tipos de información confidencial existen en los datos. En esta guía de procedimientos también se describe cómo identificar los cubos de Amazon S3 en los que los datos están almacenados actualmente para facilitar la protección de la información y el cumplimiento de datos.
 
-En esta guía de procedimientos, aprenderá a agregar cubos de Amazon S3 como recursos de Purview y a crear un examen para los datos de Amazon S3.
+Para este servicio, use Purview a fin de proporcionar una cuenta Microsoft con acceso seguro a AWS, donde se ejecutará Multi-Cloud Scanning Connector para Azure Purview. Multi-Cloud Scanning Connector para Azure Purview usa este acceso a los cubos de Amazon S3 para leer los datos y, después, notifica a Azure los resultados del examen, solo con los metadatos y la clasificación. Use los informes de clasificación y etiquetado de Purview para analizar y revisar los resultados del examen de los datos.
+
+> [!IMPORTANT]
+> Multi-Cloud Scanning Connector para Azure Purview es un complemento independiente de Azure Purview. Los términos y condiciones de Multi-Cloud Scanning Connector para Azure Purview se incluyen en el contrato por el que ha obtenido Microsoft Azure Services. Para obtener más información, vea Información legal de Microsoft Azure en https://azure.microsoft.com/support/legal/.
+>
 
 ## <a name="purview-scope-for-amazon-s3"></a>Ámbito de Purview para Amazon S3
 

@@ -8,13 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: En este artículo se proporciona información general de Kubernetes habilitado para Azure Arc.
 keywords: Kubernetes, Arc, Azure, containers
-ms.custom: references_regions
-ms.openlocfilehash: d2e71b61210baf93950cb9e8fb2270320f882404
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 80d1b741c4a3a1d60cc44e3afdeac22a61a7db4b
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111967161"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122768295"
 ---
 # <a name="what-is-azure-arc-enabled-kubernetes"></a>¿Qué es Kubernetes habilitado para Azure Arc?
 
@@ -47,26 +46,11 @@ Kubernetes habilitado para Azure Arc admite los siguientes escenarios:
 
 * Aplicación de la protección contra amenazas con Azure Defender para Kubernetes.
 
-* Aplicación de directivas mediante Azure Policy para Kubernetes.
+* Aplicación de las definiciones de directiva mediante Azure Policy para Kubernetes.
 
 * Cree [ubicaciones personalizadas](./custom-locations.md) como ubicaciones de destino para implementar Data Services habilitado para Azure Arc, [App Services en Azure Arc](../../app-service/overview-arc-integration.md) (incluido web, funciones y aplicaciones lógicas) y [Event Grid en Kubernetes](../../event-grid/kubernetes/overview.md).
 
 [!INCLUDE [azure-lighthouse-supported-service](../../../includes/azure-lighthouse-supported-service.md)]
-
-## <a name="supported-regions"></a>Regiones admitidas 
-
-Kubernetes habilitado para Azure Arc se admite actualmente en estas regiones: 
-
-* Este de EE. UU.
-* Oeste de Europa
-* Centro-Oeste de EE. UU.
-* Centro-sur de EE. UU.
-* Sudeste de Asia
-* Sur de Reino Unido
-* Oeste de EE. UU. 2
-* Este de Australia
-* Este de EE. UU. 2
-* Norte de Europa
 
 ## <a name="next-steps"></a>Pasos siguientes
 

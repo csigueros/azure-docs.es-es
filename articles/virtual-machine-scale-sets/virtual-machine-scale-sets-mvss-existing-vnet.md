@@ -9,14 +9,16 @@ ms.subservice: networking
 ms.date: 03/30/2021
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: f15fddc54f4b7c5a03843da1bcc11d1991b70d02
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 13e8cf6b95394cd879c1e86e1e0b6dd7dfac7ccd
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106076673"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122692893"
 ---
 # <a name="reference-an-existing-virtual-network-in-an-azure-scale-set-template"></a>Referencia a una red virtual existente en una plantilla de conjunto de escalado de Azure
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado uniformes
 
 En este artículo se muestra cómo modificar la [plantilla de conjunto de escalado básico](virtual-machine-scale-sets-mvss-start.md) para realizar la implementación en una red virtual existente en lugar de crear una nueva.
 

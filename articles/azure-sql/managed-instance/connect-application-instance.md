@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: mathoma, bonova, vanto
-ms.date: 07/08/2021
-ms.openlocfilehash: fd2616b6de5c1c3955139ec7869c1903d68729f6
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 08/20/2021
+ms.openlocfilehash: 3acd77d986d22af08ac7042da751a6aa8c7fc24b
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121751265"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122607584"
 ---
 # <a name="connect-your-application-to-azure-sql-managed-instance"></a>Conexión de la aplicación a Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -28,9 +28,13 @@ Puede elegir hospedar la aplicación en la nube mediante Azure App Service o alg
 
 Sea cual sea su opción, puede conectarla a Instancia administrada de Azure SQL. 
 
+En este artículo se describe cómo conectar una aplicación a Azure SQL Managed Instance en varios escenarios de aplicación diferentes desde dentro de la red virtual. 
+
+> [!IMPORTANT]
+> También puede habilitar el acceso de datos a su instancia administrada desde fuera de una red virtual. Puede acceder a la instancia administrada desde servicios de Azure multiinquilino (como Power BI, Azure App Service o una red local) que no estén conectados a una VPN usando el punto de conexión público de una instancia administrada. Deberá habilitar el punto de conexión público en la instancia administrada y permitir el tráfico del punto de conexión en el grupo de seguridad de red asociado a la subred de la instancia. Para obtener más información, consulte [Configuración de un punto de conexión público en Azure SQL Managed Instance](./public-endpoint-configure.md). 
+
 ![Alta disponibilidad](./media/connect-application-instance/application-deployment-topologies.png)
 
-En este artículo se describe cómo conectar una aplicación a Instancia administrada de Azure SQL en varios escenarios de aplicación diferentes. 
 
 ## <a name="connect-inside-the-same-vnet"></a>Conexión dentro de la misma red virtual
 
@@ -52,7 +56,7 @@ El emparejamiento es la opción preferida porque se usa la red troncal de Micros
 
 ## <a name="connect-from-on-premises"></a>Conexión desde el entorno local 
 
-También puede conectar la aplicación local a Instancia administrada de SQL. El acceso a esta opción solo se puede realizar mediante una dirección IP privada. Para hacerlo desde el entorno local, debe establecer una conexión de sitio a sitio entre la aplicación y la red virtual de Instancia administrada de SQL.
+También puede conectar su aplicación local a SQL Managed Instance a través de una red virtual (dirección IP privada). Para hacerlo desde el entorno local, debe establecer una conexión de sitio a sitio entre la aplicación y la red virtual de Instancia administrada de SQL. Para obtener acceso de datos a la instancia administrada desde fuera de una red virtual, consulte [Configuración de un punto de conexión público en Azure SQL Managed Instance](./public-endpoint-configure.md).
 
 Hay dos opciones para conectarse de forma local a una red virtual de Azure:
 
@@ -63,7 +67,9 @@ Si ha establecido una conexión local a Azure correctamente y no puede establece
 
 ## <a name="connect-the-developer-box"></a>Conexión del cuadro de desarrollador
 
-También es posible conectar el cuadro de desarrollador a Instancia administrada de SQL. El acceso a Instancia administrada de SQL solo se puede realizar mediante una dirección IP privada, por ello, para hacerlo desde el cuadro de desarrollador, primero debe realizar una conexión entre el cuadro de desarrollador y la red virtual de Instancia administrada de SQL. Para ello, configure una conexión de punto a sitio a una red virtual mediante la autenticación de certificados de Azure nativa. Para más información, consulte [Configuración de una conexión de punto a sitio para conectarse a Instancia administrada de Azure SQL desde el equipo local](point-to-site-p2s-configure.md).
+También es posible conectar el cuadro de desarrollador a Instancia administrada de SQL. Para acceder al servicio desde su cuadro de desarrollador a través de una red virtual, primero debe establecer una conexión entre el cuadro y el servicio. Para ello, configure una conexión de punto a sitio a una red virtual mediante la autenticación de certificados de Azure nativa. Para obtener más información, consulte [Configuración de una conexión de punto a sitio para conectarse a Azure SQL Managed Instance desde un equipo local](point-to-site-p2s-configure.md).
+
+Para obtener acceso de datos a la instancia administrada desde fuera de una red virtual, consulte [Configuración de un punto de conexión público en Azure SQL Managed Instance](./public-endpoint-configure.md).
 
 ## <a name="connect-with-vnet-peering"></a>Conexión con emparejamiento de red virtual
 
@@ -78,9 +84,9 @@ Una vez configurada la infraestructura básica, deberá modificar alguna configu
 
 ## <a name="connect-azure-app-service"></a>Conexión de Azure App Service 
 
-También puede conectar una aplicación hospedada por Azure App Service. El acceso a Instancia administrada de SQL se puede realizar únicamente mediante una dirección IP privada, por ello, para hacerlo desde Azure App Service, primero debe realizar una conexión entre la aplicación y la red virtual de Instancia administrada de SQL. Consulte [Integración de aplicaciones con una red virtual de Azure](../../app-service/web-sites-integrate-with-vnet.md).  
+También puede conectar una aplicación hospedada por Azure App Service. Para acceder a ella desde Azure App Service a través de una red virtual, primero debe establecer una conexión entre la aplicación y la red virtual de SQL Managed Instance. Consulte [Integración de aplicaciones con una red virtual de Azure](../../app-service/web-sites-integrate-with-vnet.md). Para obtener acceso de datos a la instancia administrada desde fuera de una red virtual, consulte [Configuración de un punto de conexión público en Azure SQL Managed Instance](./public-endpoint-configure.md). 
 
-Para solucionar problemas, consulte [Solución de problemas con redes virtuales y aplicaciones](../../app-service/web-sites-integrate-with-vnet.md#troubleshooting). Si no se puede establecer una conexión, intente [sincronizar la configuración de red](azure-app-sync-network-configuration.md).
+Para solucionar problemas con el acceso de Azure App Service a través de una red virtual, consulte [Solución de problemas con redes virtuales y aplicaciones](../../app-service/web-sites-integrate-with-vnet.md#troubleshooting). Si no se puede establecer una conexión, intente [sincronizar la configuración de red](azure-app-sync-network-configuration.md).
 
 Un caso especial de conexión de Azure App Service a Instancia administrada de SQL es cuando se integra Azure App Service en una red emparejada a una red virtual de Instancia administrada de SQL. Ese caso requiere la siguiente configuración:
 

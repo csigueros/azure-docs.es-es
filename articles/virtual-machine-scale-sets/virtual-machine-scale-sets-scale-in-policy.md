@@ -10,14 +10,16 @@ ms.subservice: scale-in-policy
 ms.date: 02/26/2020
 ms.reviewer: avverma
 ms.custom: avverma, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: af2293e9a9c5d3dcbed5dc737ad7785be9221913
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: af1aa7ceb0784b58f9878befeae7c6ee26742061
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110673845"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122696640"
 ---
 # <a name="use-custom-scale-in-policies-with-azure-virtual-machine-scale-sets"></a>Uso de directivas personalizadas de reducción horizontal con conjuntos de escalado de máquinas virtuales de Azure
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado uniformes
 
 Una implementación de conjuntos de escalado de máquinas virtuales se puede escalar horizontalmente o reducir horizontalmente en función de una matriz de métricas, incluidas las métricas personalizadas de la plataforma y las definidas por el usuario. Mientras que una escalabilidad horizontal crea nuevas máquinas virtuales basadas en el modelo de conjuntos de escalado, una reducción horizontal afecta a las máquinas virtuales en ejecución que pueden tener diferentes configuraciones o funciones a medida que evoluciona la carga de trabajo del conjunto de escalado. 
 

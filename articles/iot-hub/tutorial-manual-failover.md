@@ -6,17 +6,17 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
-ms.date: 07/24/2019
+ms.date: 08/10/2021
 ms.author: robinsh
 ms.custom:
 - mvc
 - mqtt
-ms.openlocfilehash: 3b6bc972f5c26c78ffff81f5bab8c2812cf2cb11
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 898cc8dcb634ed9beab26c0a0d5de9a9fdda068c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98622919"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121732870"
 ---
 # <a name="tutorial-perform-manual-failover-for-an-iot-hub"></a>Tutorial: Realización de una conmutación por error manual de una instancia de IoT Hub
 
@@ -41,35 +41,14 @@ Para obtener más información sobre la conmutación por error manual y la conmu
 
 ## <a name="create-an-iot-hub"></a>Crear un centro de IoT
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com). 
-
-2. Haga clic en **+ Crear un recurso**, seleccione **Internet de las cosas** y, después, **Centro de IoT**.
-
-   ![Captura de pantalla que muestra cómo se crea un centro de IoT](./media/tutorial-manual-failover/create-hub-01.png)
-
-3. Seleccione la pestaña **Datos básicos**. Rellene los siguientes campos.
-
-    **Suscripción**: seleccione la suscripción de Azure que desea usar.
-
-    **Grupo de recursos**: haga clic en **Crear nuevo** y especifique **ManlFailRG** como nombre del grupo de recursos.
-
-    En **Región**, seleccione una región cercana. En este tutorial se usa `West US 2`. Las conmutaciones por error solo se pueden realizar entre regiones de Azure emparejadas geográficamente. La región emparejada geográficamente con Oeste de EE. UU. 2 es WestCentralUS.
-    
-   **IoT Hub Name** (Nombre del centro de IoT): especifique el nombre del centro de IoT. Dicho nombre debe ser único globalmente. 
-
-   ![Captura de pantalla que muestra el panel Basics (Datos básicos) para crear un centro de IoT](./media/tutorial-manual-failover/create-hub-02-basics.png)
-
-   Haga clic en **Revisar + crear**. (usa los valores predeterminados para el tamaño y la escala). 
-
-4. Revise la información y haga clic en **Create** (Crear) para crear el centro de IoT. 
-
-   ![Captura de pantalla que muestra el paso final para crear un centro de IoT](./media/tutorial-manual-failover/create-hub-03-create.png)
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
 ## <a name="perform-a-manual-failover"></a>Realización de una conmutación por error manual
 
-Tenga en cuenta que hay un límite de dos conmutaciones por error y dos conmutaciones por recuperación al día en un centro de IoT.
+> [!NOTE]
+> Hay un límite de dos conmutaciones por error y dos conmutaciones por recuperación al día en un centro de IoT.
 
-1. Haga clic en **Grupos de recursos** y seleccione el grupo **ManlFailRG**. En la lista de recursos, haga clic en su centro. 
+1. Haga clic en **Grupos de recursos** y, a continuación, seleccione el grupo de recursos. Este tutorial usa **ManlFailRG**. En la lista de recursos, haga clic en su centro. 
 
 1. En **Configuración** en el panel de IoT Hub, haga clic en **Conmutación por error**.
 
@@ -99,7 +78,7 @@ Tenga en cuenta que hay un límite de dos conmutaciones por error y dos conmutac
 
    ![Captura de pantalla que muestra la conmutación por error finalizada](./media/tutorial-manual-failover/trigger-failover-06-finished.png)
 
-   En la página de información general también se muestra un banner que indica que la conmutación por error se ha completado y que IoT Hub se está ejecutando en `West Central US`.
+   En la página de información general también se muestra un aviso que indica que la conmutación por error se ha completado y que IoT Hub se está ejecutando en `West Central US`.
 
    ![Captura de pantalla que muestra la conmutación por error completada en la página de información general](./media/tutorial-manual-failover/trigger-failover-06-finished-overview.png)
 
@@ -116,7 +95,7 @@ Las conmutaciones por recuperación se realizan de la misma forma que las conmut
 
 3. En la parte superior del panel de conmutación por error manual, haga clic en **Iniciar conmutación por error**. 
 
-4. En el panel de confirmación, escriba el nombre de la instancia de IoT Hub para confirmar que es el que quiere conmutar por recuperación. Para iniciar la conmutación por recuperación, haga clic en Aceptar. 
+4. En el panel de confirmación, escriba el nombre de la instancia de IoT Hub para confirmar que es el que quiere conmutar por recuperación. Para iniciar la conmutación por recuperación, haga clic en **Aceptar**. 
 
    ![Captura de pantalla de solicitud de conmutación por recuperación manual](./media/tutorial-manual-failover/trigger-failover-03-confirm.png)
 
@@ -143,7 +122,7 @@ En este tutorial, ha aprendido a configurar y realizar una conmutación por erro
 > * Realizar una conmutación por recuperación para devolver las operaciones del centro de IoT a la ubicación principal. 
 > * Confirmar que el concentrador se ejecuta adecuadamente en la ubicación correcta.
 
-En el siguiente tutorial aprender a administrar el estado de un dispositivo IoT. 
+Avance al siguiente tutorial para aprender a configurar el dispositivo desde un servicio de back-end. 
 
 > [!div class="nextstepaction"]
-> [Administración del estado de un dispositivo IoT](tutorial-device-twins.md)
+> [Configuración de los dispositivos](tutorial-device-twins.md)

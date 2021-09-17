@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 5/17/2021
-ms.openlocfilehash: c289ab60973c0e907deb97c0e8520f8b608099eb
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 0a7d8a22cf8f9dcdaac9d3fe07bd6ab006e61818
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114467088"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121751907"
 ---
 # <a name="register-and-scan-hive-metastore-database"></a>Registro y examen de la base de datos de metastore de Hive
 
@@ -36,7 +36,7 @@ El origen de metastore de Hive admite un examen completo para extraer metadatos 
     > [!Note]
     > Todas las cuentas de la máquina virtual deben poder acceder al controlador. No lo instale en una cuenta de usuario.
 
-5.  Las versiones admitidas de Hive son de la 2.x a la 3.x.
+5.  Las versiones admitidas de Hive son de la 2.x a la 3.x. Las versiones admitidas de Databricks son 8.0 y posteriores. 
 
 ## <a name="setting-up-authentication-for-a-scan"></a>Configuración de la autenticación para un examen
 
@@ -48,9 +48,9 @@ Para registrar una base de datos de metastore de Hive en el catálogo de datos, 
 
 1.  Vaya a la cuenta de Purview.
 
-2.  Seleccione **Sources** (Orígenes) en el panel de navegación izquierdo.
+2.  Seleccione **Data Map** (Mapa de datos) en el panel de navegación izquierdo.
 
-3.  Seleccione **Registrar.**
+3.  Seleccione **Registrar**.
 
 4.  En Registrar orígenes, seleccione **Metastore de Hive**. Seleccione **Continue** (Continuar).
 

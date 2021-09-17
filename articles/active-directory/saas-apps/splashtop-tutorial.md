@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/19/2021
 ms.author: jeedes
-ms.openlocfilehash: dc22571c2b66767d38e3cf663633db8060251678
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 1622868d0f7209f2aa612c1b612f13be3c19549f
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110455350"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122183918"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-splashtop"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Splashtop
 
@@ -38,6 +38,7 @@ Para empezar, necesita los siguientes elementos:
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
 * Splashtop admite el SSO iniciado por **SP**.
+* Splashtop admite el [aprovisionamiento y desaprovisionamiento **automático** de usuarios](splashtop-provisioning-tutorial.md) (recomendado).
 
 > [!NOTE]
 > El identificador de esta aplicación es un valor de cadena fijo, por lo que solo se puede configurar una instancia en un inquilino.

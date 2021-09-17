@@ -8,14 +8,16 @@ ms.workload: infrastructure-services
 ms.date: 11/11/2020
 ms.author: cynthn
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ed1201bf90a7178d59a6f7e287dd144c14790838
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 78edd5c62c4f7abe78e70ae90e1b1e7ce3a5dc65
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110668082"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122695339"
 ---
 # <a name="how-to-tag-a-virtual-machine-in-azure-using-powershell"></a>Etiquetado de una máquina virtual en Azure con PowerShell
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles :heavy_check_mark: Conjuntos de escalado uniformes
 
 En este artículo se describe cómo etiquetar una máquina virtual en Azure mediante PowerShell. Las etiquetas son pares clave-valor definidos por el usuario que se pueden colocar directamente en un recurso o un grupo de recursos. Actualmente, Azure admite un máximo de 50 etiquetas por recurso y grupo de recursos. Las etiquetas se pueden colocar en un recurso en el momento de su creación, o bien se pueden agregar a un recurso existente. Si quiere etiquetar una máquina virtual con la CLI de Azure, consulte [Etiquetado de una máquina virtual Linux en Azure](tag-cli.md).
 

@@ -7,14 +7,17 @@ ms.date: 06/29/2021
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: disks
-ms.openlocfilehash: 64b535c717d446957e06464a7b3393565a4e250e
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+ms.openlocfilehash: 2e3bf032cad39887250c0d0a3cf148e24dc2397a
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113362312"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122695855"
 ---
 # <a name="virtual-machine-and-disk-performance"></a>Rendimiento de la máquina virtual y del disco
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles :heavy_check_mark: Conjuntos de escalado uniformes
+
 [!INCLUDE [VM and Disk Performance](../../includes/virtual-machine-disk-performance.md)]
 
 ## <a name="virtual-machine-uncached-vs-cached-limits"></a>Límites de almacenamiento en caché frente a sin caché para máquinas virtuales

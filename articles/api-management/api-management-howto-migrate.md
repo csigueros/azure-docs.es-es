@@ -2,49 +2,76 @@
 title: Migración de Azure API Management entre regiones
 description: Aprenda a migrar una instancia de API Management de una región a otra.
 services: api-management
-documentationcenter: ''
 author: miaojiang
-manager: erikre
-editor: ''
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 08/26/2019
+ms.topic: how-to
+ms.date: 08/20/2021
 ms.author: apimpm
-ms.openlocfilehash: 0eed2328aca78402c5f4691bb9b3d07d4f36472e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: subject-moving-resources
+ms.openlocfilehash: 4958cc4684cc1ecc8ed43de987246c435b4982eb
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86250233"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122698611"
 ---
-# <a name="how-to-migrate-azure-api-management-across-regions"></a>Migración de Azure API Management entre regiones
-Para migrar instancias de API Management de una región de Azure a otra, puede usar la característica de [copia de seguridad y restauración](api-management-howto-disaster-recovery-backup-restore.md). Debe elegir el mismo plan de tarifa de API Management en las regiones de origen y de destino. 
+# <a name="how-to-move-azure-api-management-across-regions"></a>Migración de Azure API Management entre regiones
+
+En este artículo se explica cómo migrar una instancia de API Management a otra región de Azure. Una instancia se puede migrar a otra región por muchas razones. Por ejemplo:
+
+* Buscar la instancia más cercana a los consumidores de API
+* Implementar características disponibles solo en regiones determinadas
+* Cumplir requisitos internos de gobernanza y directivas
+
+Para migrar instancias de API Management de una región de Azure a otra, use las operaciones de [copia de seguridad y restauración](api-management-howto-disaster-recovery-backup-restore.md) del servicio. Puede usar un nombre de instancia de API Management diferente o el existente. 
 
 > [!NOTE]
-> La copia de seguridad y restauración no funcionarán si la migración se realiza entre distintos tipos de nube. Si ese es el caso, deberá exportar el recurso [como una plantilla](../azure-resource-manager/management/manage-resource-groups-portal.md#export-resource-groups-to-templates). Después, adapte la plantilla exportada a la región de Azure de destino y vuelva a crear el recurso. 
+> API Management además admite la [implementación en varias regiones](api-management-howto-deploy-multi-region.md), que distribuye un único servicio de Azure API Management entre varias regiones de Azure. La implementación en varias regiones ayuda a reducir la latencia de las solicitudes que perciben los consumidores de API distribuidos geográficamente, y mejora la disponibilidad del servicio en caso de que una región se quede sin conexión.
 
-## <a name="option-1-use-a-different-api-management-instance-name"></a>Opción 1: Usar un nombre de instancia de API Management diferente
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-1. En la región de destino, cree una nueva instancia de API Management con el mismo plan de tarifa que la instancia de API Management de origen. La nueva instancia debe tener un nombre diferente. 
-1. Realice una copia de seguridad de la instancia de API Management existente en una cuenta de almacenamiento.
-1. Restaure la copia de seguridad creada en el paso 2 en la nueva instancia de API Management creada en la nueva región en el paso 1.
+## <a name="considerations"></a>Consideraciones
+
+* Elija el mismo plan de tarifa de API Management en las regiones de origen y de destino. 
+* La copia de seguridad y la restauración no funcionan al migrar entre distintos tipos de nube. En ese caso, exporte el recurso [como una plantilla](../azure-resource-manager/management/manage-resource-groups-portal.md#export-resource-groups-to-templates). Después, adapte la plantilla exportada a la región de Azure de destino y vuelva a crear el recurso. 
+
+## <a name="prerequisites"></a>Requisitos previos
+
+* Revise los requisitos y las limitaciones de las operaciones de [copia de seguridad y restauración](api-management-howto-disaster-recovery-backup-restore.md) de API Management. 
+* Vea [De lo que no se hace una copia de seguridad](api-management-howto-disaster-recovery-backup-restore.md#what-is-not-backed-up). Registre la configuración y los datos que va a tener que volver a crear manualmente después de migrar la instancia.
+* Cree una [cuenta de almacenamiento](../storage/common/storage-account-create.md?tabs=azure-portal) en la región de origen. La va a usar para hacer una copia de seguridad de la instancia de origen. 
+
+## <a name="prepare-and-move"></a>Preparación y traslado
+
+### <a name="option-1-use-a-different-api-management-instance-name"></a>Opción 1: Usar un nombre de instancia de API Management diferente
+
+1. En la región de destino, cree una nueva instancia de API Management con el mismo plan de tarifa que la instancia de API Management de origen. Use otro nombre para la nueva instancia.
+1. [Realice una copia de seguridad](api-management-howto-disaster-recovery-backup-restore.md#-back-up-an-api-management-service) de la instancia de API Management existente en la cuenta de almacenamiento. 
+1. [Restaure](api-management-howto-disaster-recovery-backup-restore.md#-restore-an-api-management-service) la copia de seguridad de la instancia de origen en la nueva instancia de API Management.
 1. Si tiene un dominio personalizado que apunta a la instancia de API Management de la región de origen, actualice el CNAME del dominio personalizado para que apunte a la nueva instancia de API Management. 
 
+### <a name="option-2-use-the-same-api-management-instance-name"></a>Opción 2: Usar el mismo nombre para la instancia de API Management
 
-## <a name="option-2-use-the-same-api-management-instance-name"></a>Opción 2: Usar el mismo nombre para la instancia de API Management
+> [!WARNING]
+> Esta opción elimina la instancia de API Management original y genera tiempo de inactividad durante la migración. Asegúrese de que tiene una copia de seguridad válida antes de eliminar la instancia de origen.
 
-> [!NOTE]
-> Esta opción producirá un tiempo de inactividad durante la migración.
-
-1. Realice una copia de seguridad de la instancia de API Management de la región de origen en una cuenta de almacenamiento.
+1. [Realice una copia de seguridad](api-management-howto-disaster-recovery-backup-restore.md#-back-up-an-api-management-service) de la instancia de API Management existente en la cuenta de almacenamiento. 
 1. Elimine la instancia de API Management en la región de origen. 
 1. Cree una nueva instancia de API Management en la región de destino con el mismo nombre que el de la región de origen.
-1. Restaure la copia de seguridad creada en el paso 1 en la nueva instancia de API Management de la región de destino.  
+1. [Restaure](api-management-howto-disaster-recovery-backup-restore.md#-restore-an-api-management-service) la copia de seguridad de la instancia de origen en la nueva instancia de API Management de la región de destino.  
 
+## <a name="verify"></a>Comprobación
 
-## <a name="next-steps"></a><a name="next-steps"> </a>Pasos siguientes
+1. Asegúrese de que la operación de restauración se completa correctamente antes de acceder a la instancia de API Management en la región de destino.
+1. Configure las opciones que no se migren automáticamente durante la operación de restauración. Ejemplos: configuración de red virtual, identidades administradas, contenido del portal para desarrolladores, certificados de dominio personalizados y entidades de certificación personalizadas.
+1. Acceda a los puntos de conexión de API Management en la región de destino. Por ejemplo, pruebe las API o acceda al portal para desarrolladores.
+
+## <a name="clean-up-source-resources"></a>Limpieza de los recursos de origen
+
+Si ha migrado la instancia de API Management mediante la opción 1, después de restaurar y configurar correctamente la instancia de destino, puede eliminar la instancia de origen.
+
+## <a name="next-steps"></a>Pasos siguientes
+
 * Para más información sobre la característica de copia de seguridad y restauración, consulte [Implementación de la recuperación ante desastres](api-management-howto-disaster-recovery-backup-restore.md).
-* Para más información sobre la migración de recursos, consulte la [guía para migración entre regiones de Azure](https://github.com/Azure/Azure-Migration-Guidance).
+* Para obtener más información sobre la migración de recursos de Azure, vea la [guía para la migración entre regiones de Azure](https://github.com/Azure/Azure-Migration-Guidance).
 * [Optimice y ahorre en el gasto en la nube](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).

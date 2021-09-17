@@ -1,19 +1,19 @@
 ---
 title: Red virtual administrada
 description: En este artículo se explica la red virtual administrada en Azure Synapse Analytics.
-author: RonyMSFT
+author: ashinMSFT
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: security
-ms.date: 01/18/2021
-ms.author: ronytho
-ms.reviewer: jrasnick
-ms.openlocfilehash: f55251932c8aa8f632bd3b498943ac722f006dee
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 08/16/2021
+ms.author: seshin
+ms.reviewer: wiassaf
+ms.openlocfilehash: 9866a2c773193cc20bd6b9e193e025fa65eddcc6
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98569930"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122446211"
 ---
 # <a name="azure-synapse-analytics-managed-virtual-network"></a>Red virtual administrada de Azure Synapse Analytics
 
@@ -50,25 +50,23 @@ Si deja la casilla desactivada, el área de trabajo no tendrá asociada ninguna 
 >[!IMPORTANT]
 >En un área de trabajo que tenga una red virtual de área de trabajo administrada solo se pueden usar vínculos privados.
 
-![Habilitar una red virtual de área de trabajo administrada](./media/synapse-workspace-managed-vnet/enable-managed-vnet-1.png)
+:::image type="content" source="./media/synpase-workspace-ip-firewall/azure-synapse-analytics-networking-managed-virtual-network-outbound-traffic.png" lightbox="./media/synpase-workspace-ip-firewall/azure-synapse-analytics-networking-managed-virtual-network-outbound-traffic.png" alt-text="Captura de pantalla de la página de redes de Crear área de trabajo de Synapse, con la opción Red virtual administrada habilitada y la opción Permitir el tráfico de datos saliente solo a destinos aprobados establecida en Sí.":::
 
 Después de elegir asociar una red virtual de área de trabajo administrada con el área de trabajo, puede permitir la conectividad de salida desde dicha red solo a destinos aprobados mediante [puntos de conexión privados administrados](./synapse-workspace-managed-private-endpoints.md) con el fin de protegerse contra la filtración de datos. Seleccione **Sí** para limitar el tráfico saliente de la red virtual de área de trabajo administrada hacia los destinos mediante puntos de conexión privados administrados. 
 
 
->[!IMPORTANT]
->Metastore está deshabilitada en las áreas de trabajo de Synapse que tienen una red virtual administrada con la protección contra la filtración de datos habilitada. En estas áreas de trabajo, no podrá usar Spark SQL.
 
-![Tráfico saliente con puntos de conexión privados administrados](./media/synapse-workspace-managed-vnet/select-outbound-connectivity.png)
+:::image type="content" source="./media/synpase-workspace-ip-firewall/azure-synapse-workspace-managed-virtual-network-allow-outbound-traffic.png" lightbox="./media/synpase-workspace-ip-firewall/azure-synapse-workspace-managed-virtual-network-allow-outbound-traffic.png" alt-text="Captura de pantalla de la página Red virtual administrada, con la opción Permitir el tráfico de datos salientes solo a los destinos aprobados establecida en Sí.":::
 
 Seleccione **No** para permitir el tráfico saliente desde el área de trabajo a cualquier destino.
 
 También puede controlar los destinos en los que se crean puntos de conexión privados administrados desde el área de trabajo de Azure Synapse. De forma predeterminada, se permiten los puntos de conexión privados administrados a los recursos del mismo inquilino de AAD a los que pertenezca su suscripción. Si quiere crear un punto de conexión privado administrado a un recurso de un inquilino de AAD diferente de aquel al que pertenece la suscripción, puede agregar ese inquilino de AAD mediante **+ Agregar**. Puede seleccionar el inquilino de AAD de la lista desplegable o escribir manualmente el identificador de inquilino de AAD.
 
-![Adición de inquilinos de AAD adicionales](./media/synapse-workspace-managed-vnet/add-additional-azure-active-directory-tenants.png)
+:::image type="content" source="./media/synpase-workspace-ip-firewall/azure-synapse-workspace-managed-virtual-network-private-endpoints-azure-ad.png" lightbox="./media/synpase-workspace-ip-firewall/azure-synapse-workspace-managed-virtual-network-private-endpoints-azure-ad.png" alt-text="Captura de pantalla de la página Red virtual administrada, con el botón Agregar para inquilinos de Azure resaltado.":::
 
 Después de crear el área de trabajo, puede comprobar si el área de trabajo de Azure Synapse está asociada a una red virtual de área de trabajo administrada; para ello, seleccione **Información general** en Azure Portal.
 
-![Introducción al área de trabajo en Azure Portal](./media/synapse-workspace-managed-vnet/enable-managed-vnet-2.png)
+:::image type="content" source="./media/synpase-workspace-ip-firewall/azure-synapse-analytics-overview-managed-virtual-network-enabled.png" lightbox="./media/synpase-workspace-ip-firewall/azure-synapse-analytics-overview-managed-virtual-network-enabled.png" alt-text="Captura de pantalla de la información general del área de trabajo de Azure Synapse que indica que está habilitada una red virtual administrada.":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

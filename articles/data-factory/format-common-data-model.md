@@ -1,17 +1,20 @@
 ---
 title: Formato Common Data Model
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Transformación de datos mediante el sistema de metadatos de Common Data Model
 author: kromerm
 ms.service: data-factory
+ms.subservice: data-flows
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 02/04/2021
 ms.author: makromer
-ms.openlocfilehash: 45f5334ebee3365c17bfa52c8d47ed75b82bdfa1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 612faa714f6a31bb464d30cc5b30766734782d41
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100387706"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122637754"
 ---
 # <a name="common-data-model-format-in-azure-data-factory"></a>Formato de Common Data Model en Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -84,7 +87,7 @@ Al asignar columnas de flujo de datos a las propiedades de entidad en la transfo
 2. Busque las propiedades partitions.Location 
 3. Cambie "blob.core.windows.net" a "dfs.core.windows.net"
 4. Corrija cualquier codificación "% 2F" de la dirección URL a "/"
-5. Si usa flujos de datos de ADF, los caracteres especiales de la ruta de acceso del archivo de partición deben reemplazarse por valores alfanuméricos o cambiar a flujos de datos de Synapse.
+5. Si usa flujos de datos de ADF, los caracteres especiales de la ruta de acceso del archivo de partición deben reemplazarse por valores alfanuméricos o cambiar a flujos de datos de Azure Synapse.
 
 ### <a name="cdm-source-data-flow-script-example"></a>Ejemplo de script de flujo de datos del origen de CDM
 

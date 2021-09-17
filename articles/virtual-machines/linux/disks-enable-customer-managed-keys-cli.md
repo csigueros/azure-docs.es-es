@@ -7,14 +7,16 @@ ms.topic: how-to
 ms.author: rogarana
 ms.service: storage
 ms.subservice: disks
-ms.openlocfilehash: 21f2aaeea730d183fa42cbde03769aeaf75297ab
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+ms.openlocfilehash: e1c79ee87861124b669ad3cd8507085631a199a8
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113356894"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122825042"
 ---
 # <a name="use-the-azure-cli-to-enable-server-side-encryption-with-customer-managed-keys-for-managed-disks"></a>Uso de la CLI de Azure para habilitar el cifrado del lado servidor con claves administradas por el cliente para los discos administrados
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Conjuntos de escalado flexibles 
 
 Azure Disk Storage le permite administrar sus propias claves al usar el cifrado del lado servidor (SSE) para discos administrados, si así lo decide. Para obtener información conceptual sobre SSE con claves administradas por el cliente, así como otros tipos de cifrado de discos administrados, consulte la sección [Claves administradas por el cliente](../disk-encryption.md#customer-managed-keys) de nuestro artículo sobre el cifrado de discos.
 
@@ -26,7 +28,7 @@ Por ahora, las claves administradas por el cliente tienen las siguientes restric
     Si necesita encontrar una solución alternativa, debe [copiar todos los datos](disks-upload-vhd-to-managed-disk-cli.md#copy-a-managed-disk) en un disco administrado totalmente diferente que no use claves administradas por el cliente.
 [!INCLUDE [virtual-machines-managed-disks-customer-managed-keys-restrictions](../../../includes/virtual-machines-managed-disks-customer-managed-keys-restrictions.md)]
 
-## <a name="set-up-your-azure-key-vault-and-diskencryptionset"></a>Configuración de Azure Key Vault y DiskEncryptionSet
+## <a name="set-up-your-azure-key-vault-and-diskencryptionset-optionally-with-automatic-key-rotation"></a>Configuración de Azure Key Vault y DiskEncryptionSet opcionalmente con rotación de claves automática
 
 En primer lugar, debe configurar una instancia de Azure Key Vault y un recurso diskencryptionset.
 

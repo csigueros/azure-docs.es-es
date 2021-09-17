@@ -1,19 +1,22 @@
 ---
 title: Actividad Data Flow
-description: Cómo ejecutar flujos de datos desde una canalización de factoría de datos.
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Cómo ejecutar flujos de datos desde dentro de una canalización de Azure Data Factory o Azure Synapse Analytics.
 author: kromerm
 ms.service: data-factory
+ms.subservice: data-flows
+ms.custom: synapse
 ms.topic: conceptual
 ms.author: makromer
-ms.date: 05/20/2021
-ms.openlocfilehash: 3793fb3495ca9df9ab8ed408090a8f285f6488b0
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.date: 08/24/2021
+ms.openlocfilehash: b5fdb41c84d97c5a4ba544c299eb183c704fa3d8
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110464653"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122822216"
 ---
-# <a name="data-flow-activity-in-azure-data-factory"></a>Actividad de Data Flow en Azure Data Factory
+# <a name="data-flow-activity-in-azure-data-factory-and-azure-synapse-analytics"></a>Actividad Flujo de datos de Azure Data Factory y Azure Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -71,7 +74,7 @@ traceLevel | Establecimiento del nivel de registro de la ejecución de actividad
 Las propiedades Recuento de núcleos y Tipo de proceso se pueden configurar dinámicamente para ajustarse al tamaño de los datos de origen entrantes en tiempo de ejecución. Use actividades de canalización como Búsqueda u Obtener metadatos para averiguar el tamaño de los datos del conjunto de datos de origen. Tras ello, use Agregar contenido dinámico en las propiedades de la actividad del flujo de datos.
 
 > [!NOTE]
-> Al elegir núcleos de nodo de trabajo y controlador en flujos de datos de Synapse, siempre se utilizará un mínimo de 3 nodos.
+> Al elegir núcleos de nodo de trabajo y controlador en flujos de datos de Azure Synapse, siempre se emplea un mínimo de tres nodos.
 
 ![Flujo de datos dinámicos](media/data-flow/dyna1.png "Flujo de datos dinámicos")
 
@@ -79,7 +82,7 @@ Las propiedades Recuento de núcleos y Tipo de proceso se pueden configurar din�
 
 ### <a name="data-flow-integration-runtime"></a>Entorno de ejecución de integración de Data Flow
 
-Seleccione el entorno de ejecución de integración que desee usar con la ejecución de la actividad de Data Flow. De forma predeterminada, Data Factory usará la función de resolución automática de Azure Integration Runtime con cuatro núcleos de trabajo. Este entorno de ejecución de integración tendrá un tipo de proceso de uso general y se ejecutará en la misma región que la fábrica. En el caso de canalizaciones operativizadas, se recomienda encarecidamente crear sus propias instancias de Azure Integration Runtime que definan regiones específicas, el tipo de proceso, los recuentos de núcleos y el TTL para la ejecución de actividades del flujo de datos.
+Seleccione el entorno de ejecución de integración que desee usar con la ejecución de la actividad de Data Flow. De manera predeterminada, el servicio usa la resolución automática de Azure Integration Runtime con cuatro núcleos de trabajo. Este IR tiene un tipo de proceso de uso general y se ejecuta en la misma región que la instancia de servicio. En el caso de canalizaciones operativizadas, se recomienda encarecidamente crear sus propias instancias de Azure Integration Runtime que definan regiones específicas, el tipo de proceso, los recuentos de núcleos y el TTL para la ejecución de actividades del flujo de datos.
 
 Un tipo de proceso mínimo de uso general (no se recomienda la optimización para proceso en cargas de trabajo grandes) con una configuración de 8+8 (16 núcleos virtuales en total) y de 10 minutos es la recomendación mínima para la mayoría de las cargas de trabajo de producción. Al establecer un valor de TTL pequeño, Azure IR puede mantener un clúster semiactivo que no empleará los minutos de tiempo de inicio que un clúster en frío necesita. Puede acelerar aún más la ejecución de los flujos de datos si selecciona "Quick re-use" (Reutilización rápida) en las configuraciones de flujo de datos de Azure IR. Para más información, consulte [Azure Integration Runtime](concepts-integration-runtime.md).
 
@@ -94,13 +97,13 @@ Si utiliza Azure Synapse Analytics como origen o receptor, debe elegir una ubica
 
 ## <a name="logging-level"></a>Nivel de registro
 
-Si no es necesario que cada ejecución de canalización de las actividades de flujo de datos anote completamente todos los registros de telemetría detallados, tiene la opción de establecer el nivel de registro en "básico" o "ninguno". Al ejecutar los flujos de datos en modo "detallado" (valor predeterminado), está solicitando a ADF que registre la actividad por completo en cada nivel de partición individual durante la transformación de los datos. Esta puede ser una operación costosa; por tanto, habilitar solo el modo detallado al solucionar problemas puede mejorar el flujo de datos y el rendimiento de la canalización en general. El modo "básico" solo registrará las duraciones de las transformaciones, mientras que "ninguno" solo proporcionará un resumen de las duraciones.
+Si no es necesario que cada ejecución de canalización de las actividades de flujo de datos anote completamente todos los registros de telemetría detallados, tiene la opción de establecer el nivel de registro en "básico" o "ninguno". Al ejecutar los flujos de datos en modo "detallado" (valor predeterminado), está solicitando al servicio que registre la actividad por completo en cada nivel de partición individual durante la transformación de los datos. Esta puede ser una operación costosa; por tanto, habilitar solo el modo detallado al solucionar problemas puede mejorar el flujo de datos y el rendimiento de la canalización en general. El modo "básico" solo registrará las duraciones de las transformaciones, mientras que "ninguno" solo proporcionará un resumen de las duraciones.
 
 ![Nivel de registro](media/data-flow/logging.png "Establecimiento del nivel de registro")
 
 ## <a name="sink-properties"></a>Propiedades del receptor
 
-La característica de agrupación de los flujos de datos permite establecer el orden de ejecución de los receptores y agruparlos con el mismo número de grupo. Para facilitar la administración de los grupos, puede pedir a ADF que ejecute los receptores, en el mismo grupo, en paralelo. También puede establecer que el grupo de receptores continúe incluso después de que uno de los receptores encuentre un error.
+La característica de agrupación de los flujos de datos permite establecer el orden de ejecución de los receptores y agruparlos con el mismo número de grupo. Para facilitar la administración de los grupos, puede pedir al servicio que ejecute los receptores, en el mismo grupo, en paralelo. También puede establecer que el grupo de receptores continúe incluso después de que uno de los receptores encuentre un error.
 
 El comportamiento predeterminado de los receptores de flujo de datos es ejecutar cada receptor de forma secuencial, en serie, y producir un error en el flujo de datos cuando se encuentra un error en el receptor. Además, todos los receptores se establecen de forma predeterminada en el mismo grupo, a menos que vaya a las propiedades del flujo de datos y establezca otras prioridades para los receptores.
 
@@ -120,7 +123,7 @@ Si el flujo de datos utiliza conjuntos de datos con parámetros, establezca los 
 
 ### <a name="parameterized-data-flows"></a>Flujos de datos con parámetros
 
-Si el flujo de datos tiene parámetros, establezca los valores dinámicos de los parámetros de flujo de datos en la pestaña **Parámetros**. Puede usar el lenguaje de expresiones de canalización de ADF o el lenguaje de expresión de Data Flow para asignar valores dinámicos o literales a los parámetros. Para más información, consulte [Parámetros de Data Flow](parameters-data-flow.md).
+Si el flujo de datos tiene parámetros, establezca los valores dinámicos de los parámetros de flujo de datos en la pestaña **Parámetros**. Puede usar el lenguaje de expresiones de canalización o el lenguaje de expresiones de flujo de datos para asignar valores de parámetros dinámicos o literales. Para más información, consulte [Parámetros de Data Flow](parameters-data-flow.md).
 
 ### <a name="parameterized-compute-properties"></a>Propiedades de proceso con parámetros.
 
@@ -179,7 +182,7 @@ Para obtener el número de filas leídas de un origen denominado "source1" que s
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte las actividades de flujo de control compatibles con Data Factory: 
+Vea actividades de flujo de control admitidas: 
 
 - [Actividad If Condition](control-flow-if-condition-activity.md)
 - [Actividad de ejecución de canalización](control-flow-execute-pipeline-activity.md)

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/28/2020
 ms.author: jeedes
-ms.openlocfilehash: 81a7efea268600e661981b35f79149fe814ef084
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3de204c960a6369589ee0c52bb6f5770a2cee407
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96180683"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122179954"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-8x8"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con 8x8
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar 8x8 con Azure Active Directory (Azure 
 * Permitir que los usuarios inicien sesión automáticamente en 8x8 con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -41,6 +41,7 @@ Para empezar, necesita los siguientes elementos:
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
 * 8x8 admite el inicio de sesión único iniciado por **SP e IDP**.
+* 8x8 admite el [aprovisionamiento y desaprovisionamiento **automático** de usuarios](8x8-provisioning-tutorial.md) (recomendado).
 
 > [!NOTE]
 > El identificador de esta aplicación es un valor de cadena fijo, por lo que solo se puede configurar una instancia en un inquilino.

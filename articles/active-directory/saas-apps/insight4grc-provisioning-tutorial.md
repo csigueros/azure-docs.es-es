@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/04/2020
 ms.author: thwimmer
-ms.openlocfilehash: d3172f571afbcdbac83a527ef1de5e56283b7438
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: d8fbdff34ea84685366c04ee956473b4165a4cd2
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113766949"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122444588"
 ---
 # <a name="tutorial-configure-insight4grc-for-automatic-user-provisioning"></a>Tutorial: Configuración de Insight4GRC para el aprovisionamiento automático de usuarios
 
@@ -100,11 +100,12 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
 9. Revise los atributos de usuario que se sincronizan entre Azure AD e Insight4GRC en la sección **Asignación de atributos**. Los atributos seleccionados como propiedades **Matching** se usan para buscar coincidencias con las cuentas de usuario de Insight4GRC con el objetivo de realizar operaciones de actualización. Si decide cambiar el [atributo de destino coincidente](../app-provisioning/customize-application-attributes.md), deberá asegurarse de que la API de Insight4GRC admite el filtrado de usuarios por ese atributo. Seleccione el botón **Guardar** para confirmar los cambios.
 
-   |Atributo|Tipo|
-   |---|---|
-   |userName|String|
-   |externalId|String|
+   |Atributo|Tipo|Compatible con el filtrado|
+   |---|---|--|
+   |userName|String|&check;
+   |externalId|String|&check;
    |active|Boolean|
+   urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|String|
    |title|String|
    |name.givenName|String|
    |name.familyName|String|
@@ -143,6 +144,10 @@ Una vez configurado el aprovisionamiento, use los recursos siguientes para super
 * Use los [registros de aprovisionamiento](../reports-monitoring/concept-provisioning-logs.md) para determinar qué usuarios se han aprovisionado correctamente y los que no.
 * Consulte la [barra de progreso](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) para ver el estado del ciclo de aprovisionamiento y cuánto falta para que finalice.
 * Si la configuración de aprovisionamiento parece estar en mal estado, la aplicación pasará a estar en cuarentena. Más información sobre los estados de cuarentena [aquí](../app-provisioning/application-provisioning-quarantine-status.md).
+
+## <a name="change-log"></a>Registro de cambios
+
+* 19/08/2021: se ha agregado el atributo de usuario de la extensión de empresa **manager**.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

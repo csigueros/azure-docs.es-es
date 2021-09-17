@@ -8,14 +8,16 @@ author: bobbytreed
 ms.author: robreed
 ms.date: 05/02/2018
 ms.topic: how-to
-ms.openlocfilehash: 3ed0766067e50ac8199890afdd7c7627aeecbdb9
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: 1b0f47f11f72a4fa26a15bc96e04052b460d5729
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112455057"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122688210"
 ---
 # <a name="run-scripts-in-your-linux-vm"></a>Ejecución de scripts en una máquina virtual Linux
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Conjuntos de escalado flexibles 
 
 Para automatizar las tareas o solucionar los problemas, es posible que deba ejecutar comandos en una máquina virtual. El artículo siguiente ofrece una breve introducción a las características disponibles para ejecutar scripts y comandos dentro de las máquinas virtuales.
 

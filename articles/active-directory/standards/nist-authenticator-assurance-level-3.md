@@ -13,12 +13,12 @@ ms.reviewer: martinco
 ms.date: 4/26/2021
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 210213321dfba3bf734af498db6567cf1c6b4281
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: d95bfadd23e1a8e0d2db70952c81667d24dc4230
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111889713"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122771027"
 ---
 # <a name="achieve-nist-authenticator-assurance-level-3-by-using-azure-active-directory"></a>Cómo alcanzar el nivel 3 de garantía del autenticador de NIST con Azure Active Directory
 
@@ -44,7 +44,7 @@ Microsoft ofrece métodos de autenticación que le permiten satisfacer los tipos
 
 Recomendamos utilizar un autenticador de hardware criptográfico multifactor para alcanzar el nivel AAL3. La autenticación sin contraseña elimina la mayor superficie de ataque (la contraseña) y ofrece a los usuarios un método simplificado de autenticación. Si su organización se basa completamente en la nube, se recomienda usar claves de seguridad FIDO2.
 
-Tenga en cuenta que las claves FIDO2 y Windows Hello para empresas no se han validado en el nivel de seguridad de FIPS 140 requerido. Por ese motivo, los clientes federales deberán realizar la evaluación de riesgos antes de aceptar estos autenticadores como AAL3.
+Tenga presente que Windows Hello para empresas no se ha validado en el nivel de seguridad FIPS 140 necesario y que, por tanto, los clientes federales tendrían que realizar una evaluación y valoración de riesgos antes de aceptarlo como AAL3. .
 
 Para consultar instrucciones detalladas, vea [Planeamiento de una implementación de autenticación sin contraseña en Azure Active Directory](../authentication/howto-authentication-passwordless-deployment.md).
 

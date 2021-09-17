@@ -8,14 +8,16 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 07/17/2017
 ms.author: cynthn
-ms.openlocfilehash: 55c7d8389aa349d7605fdd12e3cbc478bcf9419e
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: a99450a5762e619c167913ce22b126a2be13f8c4
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108768146"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122694844"
 ---
 # <a name="common-powershell-commands-for-azure-virtual-networks"></a>Comandos comunes de PowerShell para Azure Virtual Network
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows 
 
 Si desea crear una máquina virtual, debe crear una [red virtual](../../virtual-network/virtual-networks-overview.md) o conocer una red virtual existente en la que pueda agregar la máquina virtual. Normalmente, cuando se crea una máquina virtual, también hay que plantearse crear los recursos que se describen en este artículo.
 

@@ -8,14 +8,16 @@ ms.topic: how-to
 ms.author: kaib
 ms.date: 03/11/2020
 ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 04654672cc5806465ec9f75b695772dcb2037eab
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6808d7dc2c2addcf6639c75dfd870ac7fe62d262
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102564142"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122696973"
 ---
 # <a name="verify-encryption-status-for-linux"></a>Comprobación del estado de cifrado para Linux 
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Conjuntos de escalado flexibles 
 
 El ámbito de este artículo es comprobar el estado de cifrado de una máquina virtual mediante distintos métodos: Azure Portal, PowerShell, la CLI de Azure o el sistema operativo de la máquina virtual (VM). 
 

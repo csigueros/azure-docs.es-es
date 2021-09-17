@@ -4,12 +4,12 @@ description: Residencia de datos e información sobre los servidores habilitados
 ms.topic: reference
 ms.date: 08/05/2021
 ms.custom: references_regions
-ms.openlocfilehash: 1b32cb56658020f4464522db621155ebe03c5583
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 05dbea8ce3d91e46bbb566f9d9989dec648c9853
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121734412"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122770973"
 ---
 # <a name="azure-arc-enabled-servers-data-residency"></a>Servidores habilitados para Azure Arc: residencia de datos
 
@@ -32,7 +32,7 @@ También se recopila información de metadatos sobre la máquina conectada. Conc
 * Latido del agente de Connected Machine
 * Versión del agente Connected Machine
 * Clave pública para la identidad administrada
-* Estado y detalles de cumplimiento de las directivas (si usa directivas de configuración de invitado de Azure Policy)
+* Estado y detalles de cumplimiento de las directivas (si usa directivas de configuración de invitado)
 
 Los servidores habilitados para Arc permiten especificar la región en la que se almacenan los datos. Microsoft puede replicar en otras regiones para obtener resistencia de datos, pero no replica ni mueve datos fuera de la geografía. Estos datos se almacenan en la región donde se ha configurado el recurso de máquina de Azure Arc. Por ejemplo, si la máquina se registra en Arc en la región Este de EE. UU., estos datos se almacenan en la región de EE. UU.
 

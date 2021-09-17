@@ -10,14 +10,16 @@ ms.date: 05/01/2020
 ms.author: cynthn
 ms.reviewer: mimckitt
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 7f3680af94e8ae36a1d2a2b356d717fcc25b575e
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 361ea49a9ab740cc981beac3952301a137e629af
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112028026"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122691245"
 ---
 # <a name="create-a-scale-set-using-a-specialized-image-version-with-the-azure-cli"></a>Creación de un conjunto de escalado mediante una versión de imagen especializada con la CLI de Azure
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado uniformes
 
 Cree un conjunto de escalado a partir de una [versión de imagen especializada](../virtual-machines/shared-image-galleries.md#generalized-and-specialized-images) que esté almacenada en una instancia de Shared Image Gallery. Si quiere crear un conjunto de escalado con una versión de imagen generalizada, consulte [Creación de u conjunto de escalado a partir de una imagen generalizada](instance-generalized-image-version-cli.md).
 

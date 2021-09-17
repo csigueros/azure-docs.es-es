@@ -10,12 +10,12 @@ ms.subservice: automanage
 ms.workload: infrastructure
 ms.custom:
 - mode-portal
-ms.openlocfilehash: e8347e2f4a46e420f8beb6a966e60345456213f8
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: faf51735ae6805f0ff7db98416e9b05731c08642
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122768358"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123426461"
 ---
 # <a name="quickstart-enable-azure-automanage-for-virtual-machines-in-the-azure-portal"></a>Inicio rápido: Habilitación de la administración automática para máquinas virtuales en Azure Portal
 
@@ -37,21 +37,7 @@ Si no tiene una suscripción a Azure, [cree una cuenta](https://azure.microsoft.
 
 Inicie sesión en [Azure Portal](https://aka.ms/AutomanagePortal-Ignite21).
 
-## <a name="enable-automanage-for-a-single-machine"></a>Habilitación de Automanage para una sola máquina
-
-1. Vaya a la máquina virtual que desea habilitar.
-
-2. Haga clic en la entrada **Automanage (versión preliminar)** de la tabla de contenido que encontrará en **Operaciones**.
-
-3. Seleccione **Comenzar**.
-
-    :::image type="content" source="media\quick-create-virtual-machine-portal\vmmanage-getstartedbutton.png" alt-text="Primeros pasos con una única máquina virtual.":::
-
-4. Elija la configuración de Automanage (entorno, preferencias, cuenta de Automanage) y seleccione **Habilitar**.
-
-    :::image type="content" source="media\quick-create-virtual-machine-portal\vmmanage-enablepane.png" alt-text="Habilitar en una única máquina virtual.":::
-
-## <a name="enable-automanage-for-multiple-machines"></a>Habilitación de Automanage para varias máquinas
+## <a name="enable-automanage-on-existing-machines"></a>Habilitación de Automanage en máquinas existentes
 
 1. En la barra de búsqueda, busque y seleccione **Automanage: procedimientos recomendados para máquinas de Azure**.
 

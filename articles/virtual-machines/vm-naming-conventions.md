@@ -8,14 +8,16 @@ ms.topic: conceptual
 ms.date: 7/22/2020
 ms.author: mimckitt
 ms.custom: sttsinar
-ms.openlocfilehash: 9c0fcd7923d03ed4086e424e3a8ec86fc74df4af
-ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
+ms.openlocfilehash: 931a80078c4e808ac394bdd226fb972807ed4563
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2021
-ms.locfileid: "111526963"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122697245"
 ---
 # <a name="azure-virtual-machine-sizes-naming-conventions"></a>Convenciones de nomenclatura de los tamaños de las máquinas virtuales de Azure
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles :heavy_check_mark: Conjuntos de escalado uniformes
 
 En esta página se explican las convenciones de nomenclatura que se usan para las máquinas virtuales de Azure. Las máquinas virtuales usan estas convenciones de nomenclatura para indicar distintas características y especificaciones.
 

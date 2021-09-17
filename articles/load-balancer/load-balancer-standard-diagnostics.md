@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2021
 ms.author: allensu
-ms.openlocfilehash: d66b9cb314ee9cf200a18949f774ff8a8b4a1f6b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: d044ddbde293721e26ed491e237aa5b89075f72a
+ms.sourcegitcommit: d01c2b2719e363178720003b67b968ac2a640204
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121725302"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122455839"
 ---
 # <a name="standard-load-balancer-diagnostics-with-metrics-alerts-and-resource-health"></a>Diagnóstico de Standard Load Balancer con métricas, alertas y estado de los recursos
 
@@ -65,6 +65,8 @@ Para ver las métricas de los recursos de Load Balancer Estándar:
 
   >[!NOTE] 
   >La agregación de tiempo es importante cuando se interpretan ciertas métricas, ya que los datos se muestrean una vez cada minuto. Si la agregación de tiempo se establece en cinco minutos y se usa el tipo de agregación de métricas Suma en métricas como la de asignación de SNAT, el gráfico mostrará cinco veces el total de puertos SNAT asignados. 
+  >
+  >Recomendación: Al analizar el tipo de agregación de métricas Sum y Count, se recomienda usar un valor de agregación de tiempo superior a un minuto.
 
 ![Métricas para Standard Load Balancer](./media/load-balancer-standard-diagnostics/lbmetrics1anew.png)
 

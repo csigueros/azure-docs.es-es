@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 1bfe50bc80e3aa2a8c924002efdba2a020dbe9ef
-ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
+ms.openlocfilehash: 71784aa5e40cc7af96faa60d0779a779e99f3425
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "112198771"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122777851"
 ---
 # <a name="set-up-a-sign-in-flow-in-azure-active-directory-b2c"></a>Configuración de un flujo de inicio de sesión en Azure Active Directory B2C
 
@@ -46,7 +46,8 @@ Si todavía no lo ha hecho, [registre una aplicación web en Azure Active Direct
 Para agregar la directiva de inicio de sesión:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-1. Seleccione el icono **Directorio y suscripción** en la barra de herramientas del portal y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
+1. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
 1. En Azure Portal, busque y seleccione **Azure AD B2C**.
 1. En **Directivas**, seleccione **Flujos de usuario** y **Nuevo flujo de usuario**.
 1. En la página **Crear un flujo de usuario**, seleccione el flujo de usuario **Iniciar sesión**.
@@ -116,7 +117,8 @@ El perfil técnico **SelfAsserted-LocalAccountSignin-Email** es [autoafirmado](s
 ## <a name="update-and-test-your-policy"></a>Carga y prueba de la directiva
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD. Para ello, seleccione el filtro **Directorio y suscripción** que se encuentra en el menú superior y elija el directorio que contiene el inquilino de Azure AD.
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD. Para ello, seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD en la lista **Nombre de directorio** y, después, seleccione **Cambiar**.
 1. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Registros de aplicaciones**.
 1. Seleccione **Marco de experiencia de identidad**.
 1. Seleccione **Cargar directiva personalizada** y cargue el archivo de la directiva que ha modificado, *TrustFrameworkExtensions.xml*.

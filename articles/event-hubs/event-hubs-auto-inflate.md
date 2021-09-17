@@ -3,12 +3,12 @@ title: Escalado vertical automático de las unidades de procesamiento de Azure E
 description: Habilite el inflado automático en un espacio de nombres para escalar verticalmente las unidades de procesamiento (nivel estándar).
 ms.topic: article
 ms.date: 05/26/2021
-ms.openlocfilehash: f7653618aa40c98c9647b9503d2da66681bb25f5
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 05ea9a76ec5ece9bf522679c85f3671d600d41e8
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121735262"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122444101"
 ---
 # <a name="automatically-scale-up-azure-event-hubs-throughput-units-standard-tier"></a>Escalado vertical automático de unidades de procesamiento de Azure Event Hubs (nivel estándar) 
 Azure Event Hubs es una plataforma de streaming de datos muy escalable. Por lo tanto, el uso de Event Hubs suele aumentar después de empezar a utilizar el servicio. Tal uso requiere el aumento de las [unidades de procesamiento (TU)](event-hubs-scalability.md#throughput-units) para escalar Event Hubs y administrar velocidades de transferencia más elevadas. La característica de **inflado automático** de Event Hubs realiza el escalado vertical de forma automática mediante el aumento del número de unidades de procesamiento para responder a las necesidades de uso. Al aumentar las TU, se evitan escenarios de limitación en los que nos encontramos con:
@@ -27,6 +27,9 @@ El tráfico de Event Hubs se controla mediante unidades de procesamiento (nivel 
 - Un mecanismo de escalado eficaz para empezar poco a poco y escalar verticalmente a medida que aumente el tráfico.
 - Escalado automático hasta el límite superior especificado sin problemas de limitación.
 - Más control sobre el escalado, ya que se puede controlar el momento y la cantidad que se escala.
+
+> [!NOTE]
+> El inflado automático no reduce verticalmente *automáticamente* el número de TU cuando las tasas de entrada o salida bajan por debajo de los límites. 
 
  ## <a name="enable-auto-inflate-on-a-namespace"></a>Habilitación del inflado automático en un espacio de nombres
 Puede habilitar o deshabilitar el inflado automático en un espacio de nombres de Event Hubs de nivel estándar mediante [Azure Portal](https://portal.azure.com) o una [plantilla de Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.eventhub/eventhubs-create-namespace-and-enable-inflate).

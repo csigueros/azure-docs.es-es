@@ -6,12 +6,12 @@ author: bwren
 ms.author: bwren
 ms.date: 01/19/2021
 ms.custom: references_region
-ms.openlocfilehash: 83ad2245ec010bd91907ae27e077f86b4d6b1d5e
-ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
+ms.openlocfilehash: 7dca96e05860bb399435ac95ed81107c268ebc5c
+ms.sourcegitcommit: c2f0d789f971e11205df9b4b4647816da6856f5b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/15/2021
-ms.locfileid: "112122394"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122662232"
 ---
 # <a name="data-collection-rules-in-azure-monitor"></a>Reglas de recopilación de datos en Azure Monitor
 Las reglas de recopilación de datos (DCR) definen los datos que entran en Azure Monitor y especifican dónde se deben enviar los datos o almacenarlos. En este artículo se proporciona información general sobre las reglas de recopilación de datos, incluido su contenido y su estructura, y cómo puede crearlas y trabajar con ellas.
@@ -53,8 +53,10 @@ Cada origen de datos tiene un tipo de origen de datos. Cada tipo define un conju
 ## <a name="limits"></a>Límites
 Para obtener información sobre los límites que se aplican a cada regla de recopilación de datos, consulte los [límites de servicio de Azure Monitor](../service-limits.md#data-collection-rules).
 
-## <a name="data-residency"></a>Residencia de datos 
+## <a name="data-resiliency-and-high-availability"></a>Resistencia de datos y alta disponibilidad
 Las reglas de recopilación de datos como servicio se implementan de forma regional. Una regla se crea y se almacena en la región que se especifica, y se hace una copia de seguridad en la [región emparejada](../../best-practices-availability-paired-regions.md#azure-regional-pairs) dentro de la misma geoárea.  
+Además, el servicio se implementa en las tres [zonas de disponibilidad](../../availability-zones/az-overview.md#availability-zones) de la región, lo que lo convierte en un **servicio con redundancia de zona** que se agrega a la alta disponibilidad.
+
 
 **Residencia de datos en una sola región**: la característica en versión preliminar que permite almacenar los datos de clientes en una única región solo está disponible actualmente en la región de Sudeste Asiático (Singapur) de la geoárea Asia Pacífico y en la región Sur de Brasil (Estado de São Paulo) de la geoárea Brasil. La residencia en una sola región está habilitada de forma predeterminada en estas regiones.
 

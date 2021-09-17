@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: travisw
-ms.openlocfilehash: e4ae8a09a554afe232091b68888af17dfa096771
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: db0f78f2f3aef3295837d921d7d70866ed8b8769
+ms.sourcegitcommit: d01c2b2719e363178720003b67b968ac2a640204
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102426476"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122455815"
 ---
 # <a name="what-is-custom-commands"></a>¿Qué es Comandos personalizados?
 
@@ -23,10 +23,7 @@ Las aplicaciones de voz, como los [asistentes de voz](voice-assistants.md), escu
 
 Los **comandos personalizados** facilitan la creación de aplicaciones de comandos de voz enriquecidas y optimizadas para las experiencias de interacción que priorizan la voz. Proporcionan una experiencia de creación unificada, un modelo de hospedaje automático y una complejidad relativamente inferior, lo que ayuda a centrarse en la creación de la mejor solución para sus escenarios de comandos de voz.
 
-Comandos personalizados resulta más adecuado para la finalización de tareas o los escenarios de comando y control, especialmente los que coinciden con los dispositivos de Internet de las cosas (IoT), así como los dispositivos de ambiente y sin periféricos. Entre los ejemplos se incluyen soluciones para la industria de la hostelería, el comercio minorista y la automoción, lo que permite crear las mejores experiencias controladas por voz para sus invitados, administrar el inventario en su tienda y controlar la funcionalidad del automóvil mientras se desplaza.
-
-> [!TIP]
-> Consulte nuestras demostraciones de ejemplo en la página de aterrizaje en [https://speech.microsoft.com/customcommands](https://speech.microsoft.com/customcommands).
+Comandos personalizados resulta más adecuado para la finalización de tareas o los escenarios de comando y control, y encaja bien con dispositivos de Internet de las cosas (IoT), así como con dispositivos de ambiente y sin periféricos. Entre los ejemplos se incluyen soluciones para los sectores hotelero, minorista y de la automoción, donde se quieren experiencias controladas por voz para huéspedes, la administración de inventarios en la tienda o la funcionalidad en el automóvil.
 
 Si está interesado en crear aplicaciones de conversación complejas, se recomienda que pruebe Bot Framework con la [solución de asistente virtual](/azure/bot-service/bot-builder-enterprise-template-overview). Puede agregar voz a cualquier bot de Bot Framework mediante Direct Line Speech.
 

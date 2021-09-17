@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 07/29/2021
+ms.date: 08/23/2021
 ms.author: bwren
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a334e537c306071c8ee48e7369566a490e504f30
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 9967eaa374116ac28bd0db830eed6a4fc2becfa0
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121727248"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122771795"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Administrar el uso y los costos con los registros de Azure Monitor    
 
@@ -34,17 +34,16 @@ En este artículo se revisa cómo puede supervisar de forma proactiva el crecimi
 
 Los precios predeterminados de Log Analytics corresponden a un modelo de **Pago por uso**, que se basa en el volumen de datos ingeridos y, opcionalmente, permite prolongar la retención de datos. El volumen de datos se mide como el tamaño de los datos que se almacenarán, en GB (10^9 bytes). Cada área de trabajo de Log Analytics se cobra como un servicio independiente y contribuye a la factura de la suscripción a Azure. La cantidad de ingesta de datos puede ser considerable dependiendo de los factores siguientes: 
 
-  - Número de soluciones de administración habilitadas y su configuración
-  - Número de máquinas virtuales (VM) supervisadas
-  - Tipo de datos recopilados de cada máquina virtual supervisada 
+  - Conjunto de soluciones de administración habilitadas y su configuración
+  - Número y tipo de recursos supervisados
+  - Tipo de datos recopilados de cada recurso supervisado
   
 Además del modelo de Pago por uso, Log Analytics tiene **niveles de compromiso** que le permiten ahorrar hasta un 30 % en comparación con el precio de Pago por uso. Con los precios del nivel de compromiso se puede comprometer a comprar ingesta de datos a partir de 100 GB al día por un precio inferior al de Pago por uso. Cualquier uso que supere el nivel de compromiso (uso por encima del límite) se facturará a ese mismo precio por GB según lo provisto por el nivel de compromiso actual. Los niveles de compromiso tienen un período de compromiso de 31 días. Durante el período de compromiso, puede cambiar a un nivel de compromiso de nivel superior (lo que reinicia el período de compromiso de 31 días), pero no podrá volver a la versión de Pago por uso o a un nivel de compromiso inferior hasta que el período de compromiso finalice. La facturación de los niveles de compromiso se realiza a diario. [Más información](https://azure.microsoft.com/pricing/details/monitor/) sobre los precios de Pago por uso y de nivel de compromiso de Log Analytics. 
 
 > [!NOTE]
-> A partir del 2 de junio de 2021, las **reservas de capacidad** se denominan **niveles de compromiso**. Ahora, los datos recopilados por encima del nivel de compromiso (uso por encima del límite) se facturan con el mismo precio por GB que el nivel de compromiso actual, lo que disminuye los costos en comparación con el antiguo método de facturación con la tarifa de Pago por uso y reduce la necesidad de los usuarios con grandes volúmenes de datos de ajustar su nivel de compromiso. También se han agregado tres nuevos niveles de compromiso mayores: 1000, 2000 y 5000 GB al día. 
+> A partir del 2 de junio de 2021, las **reservas de capacidad** se denominan **niveles de compromiso**. Ahora, los datos recopilados por encima del nivel de compromiso (uso por encima del límite) se facturan con el mismo precio por GB que el nivel de compromiso actual, lo que disminuye los costos en comparación con el antiguo método de facturación con la tarifa de Pago por uso y reduce la necesidad de los usuarios con grandes volúmenes de datos de ajustar su nivel de compromiso. También se agregaron tres nuevos niveles de compromiso: 1000, 2000 y 5000 GB/día. 
 
-En todos los planes de tarifa, el tamaño de los datos de un evento se calcula a partir de una representación de cadena de las propiedades que se almacenan en Log Analytics para ese evento, independientemente de si los datos se envían desde un agente o si se agregan durante el proceso de ingesta. Esto incluye cualquier [campo personalizado](custom-fields.md) que se agregue a medida que se recopilan datos y luego se almacenan en Log Analytics. Varias propiedades comunes a todos los tipos de datos, incluidas algunas [propiedades estándar de Log Analytics](./log-standard-columns.md), se excluyen del cálculo del tamaño del evento. Esto incluye `_ResourceId`, `_SubscriptionId`, `_ItemId`, `_IsBillable`, `_BilledSize` y `Type`. Todas las demás propiedades almacenadas en Log Analytics se incluyen en el cálculo del tamaño del evento. Algunos tipos de datos están libres de los cargos de ingesta de datos; por ejemplo, los tipos [AzureActivity](/azure/azure-monitor/reference/tables/azureactivity), [Latido](/azure/azure-monitor/reference/tables/heartbeat), [Uso](/azure/azure-monitor/reference/tables/usage) y [Operación](/azure/azure-monitor/reference/tables/operation). Para determinar si un evento se ha excluido de la facturación relacionada con la ingesta de datos, puede usar la propiedad [_IsBillable](log-standard-columns.md#_isbillable), como se muestra [más adelante](#data-volume-for-specific-events). El uso se informa en GB (1,0E9 bytes). 
-
+En todos los planes de tarifa, el tamaño de los datos de un evento se calcula a partir de una representación de cadena de las propiedades que se almacenan en Log Analytics para ese evento, independientemente de si los datos se envían desde un agente o si se agregan durante el proceso de ingesta. Esto incluye cualquier [campo personalizado](custom-fields.md) que se agregue a medida que se recopilan datos y luego se almacenan en Log Analytics. Varias propiedades comunes a todos los tipos de datos, incluidas algunas [propiedades estándar de Log Analytics](./log-standard-columns.md), se excluyen del cálculo del tamaño del evento. Esto incluye `_ResourceId`, `_SubscriptionId`, `_ItemId`, `_IsBillable`, `_BilledSize` y `Type`. Todas las demás propiedades almacenadas en Log Analytics se incluyen en el cálculo del tamaño del evento. Algunos tipos de datos están libres de los cargos de ingesta de datos; por ejemplo, los tipos [AzureActivity](/azure/azure-monitor/reference/tables/azureactivity), [Latido](/azure/azure-monitor/reference/tables/heartbeat), [Uso](/azure/azure-monitor/reference/tables/usage) y [Operación](/azure/azure-monitor/reference/tables/operation). Algunas soluciones tienen más directivas específicas de la solución sobre la ingesta gratuita de datos; por ejemplo, [Azure Migrate](https://azure.microsoft.com/pricing/details/azure-migrate/) libra de cargos los datos de visualización de dependencias durante los 180 primeros días de Server Assessment. Para determinar si un evento se ha excluido de la facturación relacionada con la ingesta de datos, puede usar la propiedad [_IsBillable](log-standard-columns.md#_isbillable), como se muestra [más adelante](#data-volume-for-specific-events). El uso se notifica en GB (10^9 bytes). 
 
 Además, algunas soluciones como [Azure Defender (Security Center)](https://azure.microsoft.com/pricing/details/azure-defender/), [Azure Sentinel](https://azure.microsoft.com/pricing/details/azure-sentinel/) y [Administración de configuración](https://azure.microsoft.com/pricing/details/automation/) tienen sus propios modelos de precios. 
 
@@ -54,7 +53,7 @@ Los [clústeres dedicados de Log Analytics](logs-dedicated-clusters.md) son cole
 
 El nivel de compromiso del clúster se configura mediante programación con Azure Resource Manager usando el parámetro `Capacity` en `Sku`. `Capacity` se especifica en unidades de GB y puede tener valores de 500, 1000, 2000 o 5000 GB/día. Cualquier uso que supere el nivel de compromiso (uso por encima del límite) se facturará a ese mismo precio por GB según lo provisto por el nivel de compromiso actual.  Para más información, consulte [Clave administrada por el cliente de Azure Monitor](customer-managed-keys.md).
 
-Hay dos modos de facturación para el uso en un clúster. El parámetro `billingType` puede especificarlos cuando [se crea un clúster](logs-dedicated-clusters.md#creating-a-cluster) o pueden establecerse después de la creación. Los dos modos son: 
+Hay dos modos de facturación para el uso en un clúster. El parámetro `billingType` puede especificarlos cuando [se crea un clúster](logs-dedicated-clusters.md#create-a-dedicated-cluster) o pueden establecerse después de la creación. Los dos modos son: 
 
 - **Clúster**: en este caso (que es el modo predeterminado), la facturación de los datos ingeridos se realiza en el nivel de clúster. Las cantidades de datos ingeridas desde cada área de trabajo asociada a un clúster se suman para calcular la factura diaria del clúster. Las asignaciones por nodo de [Azure Defender (Security Center)](../../security-center/index.yml) se aplican en el nivel de área de trabajo antes de esta agregación de datos agregados en todas las áreas de trabajo del clúster. 
 
@@ -64,9 +63,7 @@ En las opciones de facturación del clúster, la retención de datos se factura 
 
 ## <a name="estimating-the-costs-to-manage-your-environment"></a>Estimación de los costos de administración del entorno 
 
-Si aún no usa los registros de Azure Monitor, puede usar la [calculadora de precios de Azure Monitor](https://azure.microsoft.com/pricing/calculator/?service=monitor) para calcular el costo del uso de Log Analytics. Comience por escribir "Azure Monitor" en el cuadro **Buscar** y haga clic en el icono de Azure Monitor resultante. Desplácese hacia abajo en la página hasta **Azure Monitor** y seleccione **Log Analytics** en la lista desplegable **Tipo**. Aquí puede especificar el número de máquinas virtuales y el número de gigabytes de datos que espera recopilar de cada VM. Normalmente se ingieren de 1 GB a 3 GB de datos al mes de una máquina virtual típica de Azure. Si ya está evaluando los registros de Azure Monitor, puede usar las estadísticas de datos de su propio entorno. Consulte a continuación cómo determinar el [número de máquinas virtuales supervisadas](#understanding-nodes-sending-data) y el [volumen de los datos que ingiere el área de trabajo](#understanding-ingested-data-volume). 
-
-Si aún no está ejecutando Log Analytics, estas son algunas instrucciones para calcular los volúmenes de datos:
+Si aún no usa los registros de Azure Monitor, puede usar la [calculadora de precios de Azure Monitor](https://azure.microsoft.com/pricing/calculator/?service=monitor) para calcular el costo del uso de Log Analytics. Comience por escribir "Azure Monitor" en el cuadro **Buscar** y haga clic en el icono de Azure Monitor resultante. Desplácese hacia abajo en la página hasta **Azure Monitor** y expanda la sección **Log Analytics**. Aquí puede especificar los GB de datos que espera recopilar. Si ya está evaluando los registros de Azure Monitor, puede usar las estadísticas de datos de su propio entorno. Consulte a continuación cómo determinar el [número de máquinas virtuales supervisadas](#understanding-nodes-sending-data) y el [volumen de los datos que ingiere el área de trabajo](#understanding-ingested-data-volume). Si aún no está ejecutando Log Analytics, estas son algunas instrucciones para calcular los volúmenes de datos:
 
 1. **Supervisión de VM:** con la supervisión típica habilitada, se ingieren de 1 GB a 3 GB de datos al mes por VM supervisada. 
 2. **Supervisión de clústeres de Azure Kubernetes Service (AKS):** los detalles sobre los volúmenes de datos esperados para supervisar un clúster de AKS típico están disponibles [aquí](../containers/container-insights-cost.md#estimating-costs-to-monitor-your-aks-cluster). Siga estos [procedimientos recomendados](../containers/container-insights-cost.md#controlling-ingestion-to-reduce-cost) para controlar los costos de supervisión del clúster de AKS. 
@@ -152,7 +149,7 @@ Los cargos del plan de tarifa por nodo y por VM supervisada (nodo) en una granul
 > [!TIP]
 > Si el área de trabajo tiene acceso al plan de tarifa **Por nodo**, pero se pregunta si sería menos costoso un plan de tarifa de Pago por uso, puede [usar la siguiente consulta](#evaluating-the-legacy-per-node-pricing-tier) para obtener fácilmente una recomendación. 
 
-Las áreas de trabajo creadas antes de abril de 2016 también tienen acceso a los planes de tarifa **Estándar** y **Premium** originales, que tienen una retención de datos fija de 30 y 365 días, respectivamente. No se pueden crear áreas de trabajo en los planes de tarifa **Estándar** o **Premium** y, si un área de trabajo se saca de estos niveles, no puede regresar a ellos. Los medidores de ingesta de datos para estos niveles heredados se denominan "Datos analizados".
+Las áreas de trabajo creadas antes de abril de 2016 pueden seguir usando los planes de tarifa **Estándar** y **Premium** originales, que tienen una retención de datos fija de 30 y 365 días, respectivamente. No se pueden crear áreas de trabajo en los planes de tarifa **Estándar** o **Premium** y, si un área de trabajo se saca de estos niveles, no puede regresar a ellos. Los medidores de ingesta de datos en la factura de Azure para estos niveles heredados se denominan "Datos analizados".
 
 También hay algunos comportamientos entre el uso de los niveles de Log Analytics heredados y cómo se factura el uso en [Azure Defender (Security Center)](../../security-center/index.yml). 
 

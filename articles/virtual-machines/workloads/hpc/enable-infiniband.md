@@ -8,14 +8,16 @@ ms.topic: article
 ms.date: 04/28/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 6f2a9502074543272b69f01b567da89b421f6fa6
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.openlocfilehash: 563cbf412fa8bb522b835fe41849f8358f5303fb
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108227765"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122689246"
 ---
 # <a name="enable-infiniband"></a>Habilitar InfiniBand
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles :heavy_check_mark: Conjuntos de escalado uniformes
 
 Las máquinas virtuales de [serie H](../../sizes-hpc.md) y [serie N](../../sizes-gpu.md) [compatibles con RDMA](../../sizes-hpc.md#rdma-capable-instances) se comunican a través de la red InfiniBand de baja latencia y ancho de banda alto. La funcionalidad de RDMA sobre dicha interconexión es crítica para potenciar la escalabilidad y el rendimiento de las cargas de trabajo de inteligencia artificial y HPC de nodos distribuidos. Las máquinas virtuales de las series H y S habilitadas con InfiniBand se conectan en una estructura de árbol grueso sin bloqueos y con poco diámetro para lograr un rendimiento de RDMA coherente y optimizado.
 

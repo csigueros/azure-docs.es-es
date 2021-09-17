@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/21/2021
+ms.date: 07/26/2021
 ms.author: jeedes
-ms.openlocfilehash: 407a6284c46eb6eef4057d98cef0f5e86a38bcea
-ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
+ms.openlocfilehash: 6e19b051378bb068172d6356397ee16761611bae
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114601830"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121732234"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cloudtamerio"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con cloudtamer.io
 
@@ -74,6 +74,8 @@ Para configurar y probar el SSO de Azure AD con cloudtamer.io, siga estos pasos
 
     ![Captura de pantalla de la creación de IDMS.](./media/cloudtamer-io-tutorial/idms-creation.png)
 
+1. Seleccione **SAML 2.0** como el tipo de IDMS.
+
 1. Deje esta pantalla abierta y copie los valores de esta pantalla en la configuración de Azure AD.
 
 ## <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
@@ -88,16 +90,13 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en modo iniciado por **IDP**, escriba los valores de los siguientes campos:
 
-    a. En el cuadro de texto **Identificador**, pegue el valor de **IDENTITY PROVIDER ISSUER (ENTITY ID)** (EMISOR DE PROVEEDOR DE IDENTIDADES [ID DE ENTIDAD]) de cloudtamer.io en este cuadro.
+    a. En el cuadro de texto **Identificador**, pegue el valor de **SERVICE PROVIDER ISSUER (ENTITY ID)** (EMISOR DE PROVEEDOR DE SERVICIO [ID DE ENTIDAD]) de cloudtamer.io en este cuadro.
 
     b. En el cuadro de texto **URL de respuesta**, pegue el valor de **SERVICE PROVIDER ACS URL** (URL DEL ACS DEL PROVEEDOR DE SERVICIO) de cloudtamer.io en este cuadro.
 
 1. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
 
-    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<CUSTOMERDOMAIN>.<EXTENSION>/login`
-
-    > [!NOTE]
-    > Este valor no es real. Actualícelo con la dirección URL de inicio de sesión real. Puede consultar los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+    En el cuadro de texto **URL de inicio de sesión**, pegue el valor de **SERVICE PROVIDER ACS URL** (URL DEL ACS DEL PROVEEDOR DE SERVICIO) de cloudtamer.io en este cuadro.
 
 1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **XML de metadatos de federación** y seleccione **Descargar** para descargar el certificado y guardarlo en su equipo.
 
@@ -137,19 +136,17 @@ En esta sección, va a permitir que B.Simon use el inicio de sesión único de A
 
     ![Captura de pantalla de la adición de IDMS.](./media/cloudtamer-io-tutorial/configuration.png)
 
-    a. Seleccione **SAML2.0** como **IDMS TYPE** (TIPO DE IDMS) en el menú desplegable.
+    a. En **IDMS Name** (Nombre de IDMS) asigne un nombre que los usuarios reconocerán en la pantalla Inicio de sesión.
 
-    b. En **IDMS Name** (Nombre de IDMS) asigne un nombre que los usuarios reconocerán en la pantalla Inicio de sesión.
+    b. En el cuadro de texto **IDENTITY PROVIDER ISSUER (ENTITY ID)** (EMISOR DE PROVEEDOR DE IDENTIDADES [ID DE ENTIDAD]), pegue el valor de **Identificador** que ha copiado en Azure Portal.
 
-    c. En el cuadro de texto **IDENTITY PROVIDER ISSUER (ENTITY ID)** (EMISOR DE PROVEEDOR DE IDENTIDADES [ID DE ENTIDAD]), pegue el valor de **Identificador** que ha copiado en Azure Portal.
+    c. Abra el archivo **XML de metadatos de federación** descargado de Azure Portal en el Bloc de notas y pegue el contenido en el cuadro de texto **IDENTITY PROVIDER METADATA** (METADATOS DEL PROVEEDOR DE IDENTIDADES).
 
-    d. Abra el archivo **XML de metadatos de federación** descargado de Azure Portal en el Bloc de notas y pegue el contenido en el cuadro de texto **IDENTITY PROVIDER METADATA** (METADATOS DEL PROVEEDOR DE IDENTIDADES).
+    d. Copie el valor de **IDENTITY PROVIDER ISSUER (ENTITY ID)** (EMISOR DE PROVEEDOR DE IDENTIDADES [ID DE ENTIDAD]) y péguelo en el cuadro de texto **Identificador** de la sección Configuración básica de SAML en Azure Portal.
 
-    e. Copie el valor de **IDENTITY PROVIDER ISSUER (ENTITY ID)** (EMISOR DE PROVEEDOR DE IDENTIDADES [ID DE ENTIDAD]) y péguelo en el cuadro de texto **Identificador** de la sección Configuración básica de SAML en Azure Portal.
+    e. Copie el valor de **SERVICE PROVIDER ACS URL** (URL DEL ACS DEL PROVEEDOR DE SERVICIO) y péguelo en el cuadro de texto **URL de respuesta** de la sección Configuración básica de SAML de Azure Portal.
 
-    f. Copie el valor de **SERVICE PROVIDER ACS URL** (URL DEL ACS DEL PROVEEDOR DE SERVICIO) y péguelo en el cuadro de texto **URL de respuesta** de la sección Configuración básica de SAML de Azure Portal.
-
-    g. En la asignación de aserciones, escriba los valores siguientes:
+    f. En la asignación de aserciones, escriba los valores siguientes:
 
     | Campo | Value |
     |-----------|-------|

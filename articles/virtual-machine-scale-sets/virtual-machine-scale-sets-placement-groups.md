@@ -9,14 +9,17 @@ ms.subservice: management
 ms.date: 06/25/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: ffa2a3a921e988b92ad90831041a6fb4d321bc42
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c3171b9ffd15fe7dd9e13b3fdde1a3394efb6327
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92747818"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122697380"
 ---
 # <a name="working-with-large-virtual-machine-scale-sets"></a>Uso de grandes conjuntos de escalado de máquinas virtuales
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado uniformes
+
 Ahora puede crear [conjuntos de escalado de máquinas virtuales](./index.yml) de Azure con una capacidad de hasta 1000 máquinas virtuales. En este documento, un _conjunto de escalado de máquinas virtuales grande_ se define como un conjunto de escalado capaz de escalar a más de 100 máquinas virtuales. Esta funcionalidad se establece con una propiedad de conjunto de escalado (_singlePlacementGroup=False_). 
 
 Algunos aspectos de los grandes conjuntos de escalado, como los dominios de error y el equilibrio de carga, se comportan de manera diferente a los de un conjunto de escalado estándar. En este documento se explican las características de los grandes conjuntos de escalado y se describe lo que se necesita saber para usarlos correctamente en las aplicaciones. 

@@ -7,14 +7,17 @@ ms.topic: conceptual
 ms.date: 07/19/2021
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 0d0330996629ec087022e592cc862a428bc02807
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 461d8c7ae29c56a80b8863b2900c051158add918
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114454585"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122689383"
 ---
 # <a name="disk-performance-metrics"></a>Métricas de rendimiento de discos
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles :heavy_check_mark: Conjuntos de escalado uniformes
+
 Azure dispone de métricas en Azure Portal que proporcionan información sobre el funcionamiento de las máquinas virtuales (VM) y los discos. Estas métricas también se pueden recuperar con una llamada API. Este artículo está estructurado en tres secciones:
 
 - **Métricas de entrada y salida de disco, rendimiento y profundidad de cola**: estas métricas le permiten ver el rendimiento del almacenamiento desde la perspectiva de un disco y una máquina virtual.

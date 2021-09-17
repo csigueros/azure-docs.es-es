@@ -11,14 +11,16 @@ ms.workload: infrastructure
 ms.date: 04/20/2021
 ms.author: cynthn
 ms.custom: mvc, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 191eb1338533cf1a5f81f4d04c5dfc6fd5cc569c
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: 33be1136005d6a8e54906372056bed0a96978453
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107818753"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122698984"
 ---
 # <a name="tutorial-load-balance-vms-for-high-availability"></a>Tutorial: Equilibrio de carga de máquinas virtuales para conseguir alta disponibilidad
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Conjuntos de escalado flexibles 
 
 El equilibrio de carga proporciona un mayor nivel de disponibilidad al distribuir las solicitudes entrantes entre varias máquinas virtuales. En este tutorial, aprenderá sobre los distintos componentes de Azure Load Balancer que distribuyen el tráfico y proporcionan una alta disponibilidad. Aprenderá a:
 

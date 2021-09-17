@@ -9,14 +9,16 @@ ms.subservice: networking
 ms.date: 06/25/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurepowershell
-ms.openlocfilehash: 452d24d95fc0c43d8301e29b2304b9f0baa3cb25
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 85a4305abf1708d45627f775a583ae219db22b8e
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110673931"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122693992"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Redes para conjuntos de escalado de máquinas virtuales de Azure
+
+**Se aplica a:** :heavy_check_mark: Conjuntos de escalado uniformes
 
 Al implementar el conjunto de escalado de máquinas virtuales de Azure a través del portal, algunas propiedades de red se establecen de forma predeterminada, por ejemplo, una instancia de Azure Load Balancer mediante reglas NAT de entrada. En este artículo se describe cómo utilizar algunas de las características más avanzadas de redes que puede configurar con conjuntos de escalado.
 
@@ -516,6 +518,24 @@ En el ejemplo siguiente se muestra cómo agregar una segunda configuración de I
     }
     ```
 
+
+## <a name="explicit-network-outbound-connectivity-for-flexible-scale-sets"></a>Conectividad de salida de red explícita para conjuntos de escalado flexibles 
+
+Para mejorar la seguridad de red predeterminada, los [conjuntos de escalado de máquinas virtuales con orquestación flexible](..\virtual-machines\flexible-virtual-machine-scale-sets.md) exigen que las instancias creadas de manera implícita por medio del perfil de escalado automático tengan conectividad de salida definida de forma explícita gracias a alguno de los métodos siguientes: 
+
+- En la mayoría de los escenarios, se recomienda [NAT Gateway adjunto a la subred](../virtual-network/nat-gateway/tutorial-create-nat-gateway-portal.md).
+- En escenarios con requisitos de seguridad elevados, o si se usa Azure Firewall o Network Virtual Appliance (NVA), puede especificar una ruta definida por el usuario personalizada como próximo salto a través del firewall. 
+- Las instancias están en el grupo de back-end de una instancia de Azure Load Balancer de SKU estándar. 
+- Adjunte una dirección IP pública a la interfaz de red de la instancia. 
+
+Con máquinas virtuales de instancia única y conjuntos de escalado de máquinas virtuales con orquestación uniforme, la conectividad de salida se proporciona automáticamente. 
+
+Entre los escenarios comunes que requieren conectividad de salida explícita se incluyen: 
+
+- La activación de una máquina virtual Windows requiere que se haya definido la conectividad de salida desde la instancia de máquina virtual al Servicio de administración de claves (KMS) de activación de Windows. Vea [Solución de problemas de activación de máquinas virtuales Windows](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/troubleshoot-activation-problems) para obtener más información.  
+- Acceda a cuentas de almacenamiento o Key Vault. La conectividad con los servicios de Azure también se puede establecer por medio de [Private Link](../private-link/private-link-overview.md). 
+
+Vea [Acceso de salida predeterminado en Azure](https://aka.ms/defaultoutboundaccess) para obtener más detalles sobre cómo definir conexiones de salida seguras.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

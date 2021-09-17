@@ -1,19 +1,19 @@
 ---
-title: Creación de una aplicación de demostración en Azure Portal
+title: 'Inicio rápido: Creación de una aplicación de demostración en Azure Portal'
 titleSuffix: Azure Cognitive Search
-description: Ejecute el Asistente para crear aplicaciones de demostración (versión preliminar) para generar páginas HTML y scripts para una aplicación web operativa. Las páginas incluyen una barra de búsqueda, un área de resultados, una barra lateral y compatibilidad con la escritura anticipada.
+description: Ejecute el Asistente para crear aplicaciones de demostración para generar páginas HTML y scripts para una aplicación web operativa. Las páginas incluyen una barra de búsqueda, un área de resultados, una barra lateral y compatibilidad con la escritura anticipada.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 01/23/2021
-ms.openlocfilehash: 590afe4c396942c5179826cd831908e37f48c3e4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 08/24/2021
+ms.openlocfilehash: f9ce6f3c7898a492400f6a8cec62e65ab8777e15
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98745757"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122770872"
 ---
 # <a name="quickstart-create-a-demo-app-in-the-portal-azure-cognitive-search"></a>Inicio rápido: Creación de una aplicación de demostración en el portal (Azure Cognitive Search)
 

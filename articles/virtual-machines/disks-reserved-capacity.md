@@ -7,14 +7,16 @@ ms.date: 06/29/2021
 ms.topic: how-to
 ms.service: storage
 ms.subservice: disks
-ms.openlocfilehash: 60ccfe222b06e9c250eab3b8fa568cc4e5a925b2
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+ms.openlocfilehash: 4ec7c3640a242212010de68a9f08c4d6e3e27300
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113356188"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122694324"
 ---
 # <a name="reduce-costs-with-azure-disks-reservation"></a>Reducción de costos con la reserva de discos de Azure
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles :heavy_check_mark: Conjuntos de escalado uniformes
 
 Ahorre en el uso de Azure Disk Storage con capacidad reservada. Las reservas de Azure Disk Storage combinadas con Azure Reserved Virtual Machine Instances permiten reducir el costo total de la máquina virtual. El descuento de reserva se aplica automáticamente a los discos coincidentes en el ámbito de reserva seleccionado. Debido a esta aplicación automática, no es necesario asignar una reserva a un disco administrado para obtener los descuentos.
 

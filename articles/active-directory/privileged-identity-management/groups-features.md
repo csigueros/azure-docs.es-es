@@ -1,5 +1,5 @@
 ---
-title: Administración de grupos de Azure AD con privilegios en Privileged Identity Management (PIM) | Microsoft Docs
+title: Administración de grupos de acceso con privilegios en Privileged Identity Management (PIM) | Microsoft Docs
 description: Cómo administrar miembros y propietarios de grupos de acceso con privilegios en Privileged Identity Management (PIM)
 services: active-directory
 documentationcenter: ''
@@ -16,16 +16,16 @@ ms.date: 12/01/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 83aa5f4527885fbb0a02c70857cdd8409f0fa554
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: f2b68492dfd5c25199b00f6b5f68dc154ae767c8
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111892731"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121736136"
 ---
-# <a name="management-capabilities-for-privileged-access-azure-ad-groups-preview"></a>Funcionalidades de administración de grupos de Azure AD de acceso con privilegios (versión preliminar)
+# <a name="management-capabilities-for-privileged-access-groups-preview"></a>Funcionalidades de administración de grupos de acceso con privilegios (versión preliminar)
 
-En Privileged Identity Management (PIM), ya se pueden asignar la idoneidad para pertenecer a grupos de acceso con privilegios o poseerlos. A partir de esta versión preliminar, es posible asignar roles integrados de Azure Active Directory (Azure AD) a grupos en la nube y usar PIM para administrar la idoneidad y la activación tanto de los propietarios como de los miembros de los grupos. Para más información sobre los grupos a los que se puede asignar roles en Azure AD, consulte el artículo sobre el [uso de grupos en la nube para administrar las asignaciones de roles en Azure Active Directory (versión preliminar)](../roles/groups-concept.md).
+En Privileged Identity Management (PIM), ya se pueden asignar la idoneidad para pertenecer a grupos de acceso con privilegios o poseerlos. A partir de esta versión preliminar, es posible asignar roles integrados de Azure Active Directory (Azure AD) a grupos en la nube y usar PIM para administrar la idoneidad y la activación tanto de los propietarios como de los miembros de los grupos. Para más información sobre los grupos de roles asignables en Azure AD, consulte [Uso de grupos de Azure AD para administrar las asignaciones de roles](../roles/groups-concept.md).
 
 >[!Important]
 > Para asignar un grupo de acceso con privilegios a un rol para el acceso administrativo a Exchange, Centro de seguridad y cumplimiento, o SharePoint, use la experiencia **Roles y administradores** del portal de Azure AD y no de la experiencia Grupos de acceso con privilegios para que el usuario o el grupo sean válidos para la activación en el grupo.

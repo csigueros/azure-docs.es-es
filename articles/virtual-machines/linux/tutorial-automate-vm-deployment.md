@@ -1,7 +1,6 @@
 ---
 title: 'Tutorial: Personalización de una máquina virtual Linux con cloud-init en Azure'
 description: En este tutorial, aprenderá a usar cloud-init y Key Vault para personalizar las máquinas virtuales Linux la primera vez que arrancan en Azure
-documentationcenter: virtual-machines
 author: cynthn
 ms.service: virtual-machines
 ms.collection: linux
@@ -9,14 +8,16 @@ ms.topic: tutorial
 ms.date: 09/12/2019
 ms.author: cynthn
 ms.custom: mvc, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 461a52bca90040279ceaf2bab0bb1361336f355e
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: 98723a6390958f38acec4909d6635adadc65ff13
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107816321"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122692060"
 ---
 # <a name="tutorial---how-to-use-cloud-init-to-customize-a-linux-virtual-machine-in-azure-on-first-boot"></a>Tutorial: Uso de cloud-init para personalizar una máquina virtual Linux en Azure durante el primer arranque
+
+**Se aplica a:** :heavy_check_mark: máquinas virtuales Linux :heavy_check_mark: conjuntos de escalado flexibles 
 
 En un tutorial anterior, ha aprendido cómo acceder mediante SSH a una máquina virtual y a instalar NGINX de forma manual. Para crear máquinas virtuales de manera rápida y coherente, alguna forma de automatización suele ser deseable. Un enfoque común para personalizar una máquina virtual en el primer arranque es usar el comando [cloud-init](https://cloudinit.readthedocs.io). En este tutorial, aprenderá a:
 

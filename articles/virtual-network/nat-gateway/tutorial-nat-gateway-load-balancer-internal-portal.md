@@ -7,14 +7,14 @@ ms.author: allensu
 ms.service: virtual-network
 ms.subservice: nat
 ms.topic: tutorial
-ms.date: 03/19/2021
+ms.date: 08/04/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: f25266f5a969514ca515e8cbbec959404428d6fb
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+ms.openlocfilehash: 4f523c41a38fa458d8d29cc6b644cdaaa4e9676f
+ms.sourcegitcommit: 47491ce44b91e546b608de58e6fa5bbd67315119
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113438868"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122201683"
 ---
 # <a name="tutorial-integrate-a-nat-gateway-with-an-internal-load-balancer-using-the-azure-portal"></a>Tutorial: Integración de una puerta de enlace NAT con un equilibrador de carga interno mediante Azure Portal
 
@@ -57,13 +57,13 @@ En esta sección, creará una red virtual y una subred.
     | Grupo de recursos   | Seleccione **Crear nuevo**. Escriba **TutorIntLBNAT-rg**. </br> Seleccione **Aceptar**. |
     | **Detalles de instancia** |                                                                 |
     | Nombre             | Escriba **myVNet**.                                    |
-    | Region           | Seleccione **Este de EE. UU**. |
+    | Region           | Seleccione **(EE.UU.) Este de EE. UU.** |
 
 4. Seleccione la pestaña **Direcciones IP** o el botón **Siguiente: Direcciones IP** situado en la parte inferior de la página.
 
 5. En la pestaña **Direcciones IP**, especifique esta información:
 
-    | Configuración            | Value                      |
+    | Parámetro            | Value                      |
     |--------------------|----------------------------|
     | Espacio de direcciones IPv4 | Escriba **10.1.0.0/16**. |
 
@@ -95,110 +95,86 @@ En esta sección, creará una red virtual y una subred.
 
 ## <a name="create-load-balancer"></a>Creación de un equilibrador de carga
 
-En esta sección, creará una instancia de Azure Standard Load Balancer. 
+En esta sección, va a crear un equilibrador de carga que equilibra la carga de las máquinas virtuales.
 
-1. Seleccione **Crear un recurso**. 
+Durante la creación del equilibrador de carga, configurará:
 
-2. En el cuadro de búsqueda, escriba **Equilibrador de carga**. Seleccione **Equilibrador de carga** en los resultados de la búsqueda.
+* Dirección IP del front-end
+* Grupo back-end
+* Reglas de equilibrio de carga de entrada
 
-3. En la página **Equilibrador de carga**, seleccione **Crear**.
-4. En la página **Crear equilibrador de carga**, especifique o seleccione la siguiente información: 
+1. En el cuadro de búsqueda que aparece en la parte superior del portal, escriba **Load Balancer**. Seleccione **Equilibradores de carga** en los resultados de la búsqueda.
+
+2. En la página **Equilibrador de carga**, seleccione **Crear**.
+
+3. En la pestaña **Conceptos básicos** de la página **Crear equilibrador de carga**, escriba o seleccione la siguiente información: 
 
     | Configuración                 | Value                                              |
     | ---                     | ---                                                |
     | **Detalles del proyecto** |   |
     | Suscripción               | Seleccione su suscripción.    |    
-    | Resource group         | Seleccione **TutorIntLBNAT-rg**.|
-    | **Detalles de instancia** |    |
+    | Resource group         | Seleccione **TutorIntLBNAT-rg**. |
+    | **Detalles de instancia** |   |
     | Nombre                   | Escriba **myLoadBalancer**.                                   |
     | Region         | Seleccione **(EE. UU.) Este de EE. UU.** .                                        |
     | Tipo          | seleccione **Interno**.                                        |
     | SKU           | Deje el valor predeterminado **Estándar**. |
-    | **Configurar la red virtual** |    |
-    | Virtual network | Seleccione **myVNet**. |
-    | Subnet | Seleccione **myBackendSubnet**. |
-    | Asignación de dirección IP | seleccione **Dinámico**. |
-    | Zona de disponibilidad | Seleccione **Con redundancia de zona** para crear un equilibrador de carga resistente. </br> Para crear una instancia de Load Balancer de zona, seleccione una zona específica entre 1, 2 o 3. |
-    
 
-5. Acepte los valores predeterminados en los demás valores y seleccione **Revisar y crear**.
+4. Seleccione **Siguiente: Configuración de IP de front-end** en la parte inferior de la página.
 
-6. En la pestaña **Revisar + crear**, seleccione **Crear**.
+5. En **Configuración de IP de front-end**, seleccione **+ Agregar una IP de front-end**.
 
-## <a name="create-load-balancer-resources"></a>Creación de recursos del equilibrador de carga
+6. Escriba **LoadBalancerFrontEnd** en **Nombre**.
 
-En esta sección, va a configurar:
+7. Seleccione **myBackendSubnet** en **Subred**.
 
-* Las opciones del equilibrador de carga para un grupo de direcciones de back-end.
-* Un sondeo de estado.
-* Una regla de equilibrador de carga.
+8. Seleccione **Dinámica** para **Asignación**.
 
-### <a name="create-a-backend-pool"></a>Creación de un grupo de back-end
+9. Seleccione **Con redundancia de zona** en **Zona de disponibilidad**.
 
-Un grupo de direcciones de back-end contiene las direcciones IP de las tarjetas de interfaz de red virtuales conectadas al equilibrador de carga. 
+    > [!NOTE]
+    > En las regiones con [Availability Zones](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones), tiene la opción de seleccionar Ninguna zona (opción predeterminada), una zona específica o redundancia de zona. La elección dependerá de los requisitos de error de dominio específicos. En regiones sin Availability Zones, este campo no aparecerá. </br> Para más información sobre las zonas de disponibilidad, consulte [Introducción a las zonas de disponibilidad](../../availability-zones/az-overview.md).
 
-Cree el grupo de direcciones de back-end **myBackendPool** para incluir máquinas virtuales para el tráfico de Internet de equilibrio de carga.
+10. Seleccione **Agregar**.
 
-1. Seleccione **Todos los servicios** en el menú de la izquierda, **Todos los recursos** y, después, en la lista de recursos, **myLoadBalancer**.
+11. Seleccione **Siguiente: Grupos de back-end** en la parte inferior de la página.
 
-2. En **Configuración**, seleccione **Grupos de back-end** y, a continuación, seleccione **Agregar**.
+12. En la pestaña **Grupos de back-end**, seleccione **+ Agregar un grupo de back-end**.
 
-3. En la página **Agregar un grupo de back-end**, escriba **myBackendPool** como nombre del grupo de back-end y, después, seleccione **Agregar**.
+13. Escriba **myBackendPool** como **Nombre** en **Agregar un grupo de back-end**.
 
-### <a name="create-a-health-probe"></a>Creación de un sondeo de estado
+14. Seleccione **NIC** o **Dirección IP** en **Configuración del grupo de back-end**.
 
-El equilibrador de carga supervisa el estado de la aplicación con un sondeo de estado. 
+15. Seleccione **IPv4** o **IPv6** para **Versión de IP**.
 
-El sondeo de estado agrega o quita las máquinas virtuales del equilibrador de carga a partir de su respuesta a las comprobaciones de estado. 
+16. Seleccione **Agregar**.
 
-Cree un sondeo de mantenimiento llamado **myHealthProbe** para supervisar el mantenimiento de las máquinas virtuales.
+17. Seleccione el botón **Siguiente: Reglas de entrada** situado en la parte inferior de la página.
 
-1. Seleccione **Todos los servicios** en el menú de la izquierda, **Todos los recursos** y, después, en la lista de recursos, **myLoadBalancer**.
+18. En **Regla de equilibrio de carga** de la pestaña **Reglas de entrada**, seleccione **+ Agregar regla de equilibrio de carga**.
 
-2. En **Configuración**, seleccione **Sondeos de estado** y, a continuación, seleccione **Agregar**.
-    
-    | Configuración | Value |
-    | ------- | ----- |
-    | Nombre | Escriba **myHealthProbe**. |
-    | Protocolo | seleccione **TCP**. |
-    | Port | Escriba **80**.|
-    | Intervalo | Escriba **15** como número de **Intervalo**, en segundos, entre los intentos de sondeo. |
-    | Umbral incorrecto | Seleccione **2** como número de **Umbral incorrecto** o errores de sondeo consecutivos que deben producirse para que una máquina virtual se considere que no funciona de manera correcta.|
-   
-3. Deje el resto de los valores predeterminados y seleccione **Agregar**.
+19. En **Agregar regla de equilibrio de carga**, escriba o seleccione la siguiente información:
 
-### <a name="create-a-load-balancer-rule"></a>Creación de una regla de equilibrador de carga
-
-Las reglas de equilibrador de carga se utilizan para definir cómo se distribuye el tráfico a las máquinas virtuales. Defina la configuración IP del front-end para el tráfico entrante y el grupo de direcciones IP de back-end para recibir el tráfico. Los puertos de origen y de destino se definen en la regla. 
-
-En esta sección va a crear una regla de equilibrador de carga:
-
-* Llamada **myHTTPRule**.
-* En el front-end llamado **LoadBalancerFrontEnd**.
-* A la escucha en el **puerto 80**.
-* Dirige el tráfico con equilibrio de carga al back-end llamado **myBackendPool** en el **puerto 80**.
-
-1. Seleccione **Todos los servicios** en el menú de la izquierda, **Todos los recursos** y, después, en la lista de recursos, **myLoadBalancer**.
-
-2. En **Configuración**, seleccione **Reglas de equilibrio de carga** y, a continuación, seleccione **Agregar**.
-
-3. Use estos valores para configurar la regla de equilibrio de carga:
-    
-    | Configuración | Value |
+    | Parámetro | Value |
     | ------- | ----- |
     | Nombre | Escriba **myHTTPRule**. |
-    | Versión de la dirección IP | Seleccione **IPv4**. |
-    | Dirección IP del front-end | Seleccione **LoadBalancerFrontEnd**. |
+    | Versión de la dirección IP | Seleccione **IPv4** o **IPv6** en función de sus requisitos. |
+    | Dirección IP del front-end | Seleccione **LoadBalancerFrontend**. |
     | Protocolo | seleccione **TCP**. |
-    | Port | Escriba **80**.|
+    | Port | Escriba **80**. |
     | Puerto back-end | Escriba **80**. |
-    | Grupo back-end | Seleccione **MyBackendPool**.|
-    | Sondeo de mantenimiento | Seleccione **myHealthProbe**. |
-    | Tiempo de espera de inactividad (minutos) | Escriba **15** minutos. |
+    | Grupo back-end | Seleccione **MyBackendPool**. |
+    | Sondeo de mantenimiento | Seleccione **Crear nuevo**. </br> En **Nombre**, escriba **myHealthProbe**. </br> Seleccione **HTTP** en **Protocolo**. </br> Deje el resto de los valores predeterminados y seleccione **Aceptar**. |
+    | Persistencia de la sesión | Seleccione **Ninguno**. |
+    | Tiempo de espera de inactividad (minutos) | Escriba o seleccione **15**. |
     | Restablecimiento de TCP | Seleccione **Habilitado**. |
+    | Dirección IP flotante | Seleccione **Deshabilitado**. |
 
-4. Deje el resto de valores predeterminados y después seleccione **Aceptar**.
+20. Seleccione **Agregar**.
 
+21. Seleccione el botón azul **Revisar y crear** en la parte inferior de la página.
+
+22. Seleccione **Crear**.
 
 ## <a name="create-virtual-machines"></a>Creación de máquinas virtuales
 
@@ -210,14 +186,14 @@ Estas máquinas virtuales se agregan al grupo de back-end del equilibrador de ca
    
 2. En **Crear una máquina virtual**, escriba o seleccione los valores en la pestaña **Básico**:
 
-    | Configuración | Value                                          |
+    | Parámetro | Value                                          |
     |-----------------------|----------------------------------|
     | **Detalles del proyecto** |  |
     | Suscripción | Selección de su suscripción a Azure |
     | Grupo de recursos | Seleccione **TutorIntLBNAT-rg**. |
     | **Detalles de instancia** |  |
     | Nombre de la máquina virtual | Escriba **myVM1**. |
-    | Region | Seleccione **Este de EE. UU**. |
+    | Region | Seleccione **(EE.UU.) Este de EE. UU.** |
     | Opciones de disponibilidad | Seleccione **Zonas de disponibilidad**. |
     | Zona de disponibilidad | Seleccione **1**. |
     | Imagen | Seleccione **Windows Server 2019 Datacenter**. |
@@ -234,14 +210,14 @@ Estas máquinas virtuales se agregan al grupo de back-end del equilibrador de ca
   
 4. En la pestaña Redes, seleccione o escriba:
 
-    | Configuración | Value |
+    | Parámetro | Value |
     |-|-|
     | **Interfaz de red** |  |
     | Virtual network | **myVNet** |
     | Subnet | **myBackendSubnet** |
     | Dirección IP pública | Seleccione **Ninguno**. |
     | Grupo de seguridad de red de NIC | Seleccione **Avanzado**.|
-    | Configuración del grupo de seguridad de red | Seleccione **Crear nuevo**. </br> En la página **Crear grupo de seguridad de red**, escriba **myNSG** en **Nombre**. </br> En **Reglas de entrada**, seleccione **+Agregar una regla de entrada**. </br> En **Intervalos de puertos de destino**, escriba **80**. </br> En **Prioridad**, escriba **100**. </br> En **Nombre**, escriba **myHTTPRule**. </br> Seleccione **Agregar**. </br> Seleccione **Aceptar**. |
+    | Configuración del grupo de seguridad de red | Seleccione **Crear nuevo**. </br> En la página **Crear grupo de seguridad de red**, escriba **myNSG** en **Nombre**. </br> En **Reglas de entrada**, seleccione **+Agregar una regla de entrada**. </br> En **Intervalos de puertos de destino**, escriba **80**. </br> En **Prioridad**, escriba **100**. </br> En **Nombre**, escriba **myNSGRule**. </br> Seleccione **Agregar**. </br> Seleccione **Aceptar**. |
     | **Equilibrio de carga**  |
     | ¿Quiere colocar esta máquina virtual detrás de una solución de equilibrio de carga existente? | Active la casilla. |
     | **Configuración de equilibrio de carga** |
@@ -253,7 +229,7 @@ Estas máquinas virtuales se agregan al grupo de back-end del equilibrador de ca
   
 6. Revise la configuración y, a continuación, seleccione **Crear**.
 
-7. Siga los pasos 1 a 7 para crear una máquina virtual con los siguientes valores y el resto de la configuración igual que la de **myVM1**:
+7. Siga los pasos 1 a 6 para crear una máquina virtual con los siguientes valores y el resto de la configuración igual que la de **myVM1**:
 
     | Configuración | VM 2 |
     | ------- | ----- |
@@ -288,7 +264,7 @@ En esta sección, creará una puerta de enlace NAT y la asignará a la subred de
 
     | **Configuración** | **Valor** |
     | ----------- | --------- |
-    | Direcciones IP públicas | Seleccione **Crear una dirección IP pública**. </br> En **Nombre**, escriba **myPublicIP-NAT**. </br> Seleccione **Aceptar**. |
+    | Direcciones IP públicas | Seleccione **Crear una dirección IP pública**. </br> Escriba **myNATgatewayIP** en **Nombre**. </br> Seleccione **Aceptar**. |
 
 6. Seleccione la pestaña **Subred** o elija el botón **Next: Subnet** (Siguiente: Subred) situado en la parte inferior de la página.
 

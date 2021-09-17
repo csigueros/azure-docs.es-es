@@ -7,12 +7,12 @@ ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/06/2021
-ms.openlocfilehash: 804166beebf4f12e246a27122bd44c611972a488
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.openlocfilehash: 03d29f6f6265c214427e208de4bc9177659bb473
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111438007"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122823908"
 ---
 # <a name="tips-for-better-performance-in-azure-cognitive-search"></a>Sugerencias para mejorar el rendimiento en Azure Cognitive Search
 
@@ -67,7 +67,9 @@ Los tipos de consultas que envía son uno de los factores más importantes para 
 
 + **Uso de búsquedas de términos parciales.** Las [búsquedas de términos parciales](search-query-partial-matching.md), como la búsqueda de prefijos, la búsqueda aproximada y la búsqueda de expresiones regulares, son más costosas desde el punto de vista computacional que las búsquedas de palabras clave típicas, ya que requieren exámenes de índice completos para generar resultados.
 
-+ **Número de facetas.** Agregar facetas a las consultas requiere agregaciones para cada consulta. En general, agregue solo las facetas que planea representar en la aplicación.
++ **Número de facetas.** Agregar facetas a las consultas requiere agregaciones para cada consulta. La solicitud de un "recuento" superior para una faceta también requiere trabajo adicional por parte del servicio. En general, agregue solo las facetas que piensa representar en la aplicación y evite solicitar un recuento alto de facetas a menos que sea necesario.
+
++ **Valores de omisión altos.** El establecimiento del parámetro $skip en un valor alto (por ejemplo, en miles) aumenta la latencia de búsqueda porque el motor recupera y clasifica un volumen mayor de documentos para cada solicitud. Por motivos de rendimiento, es mejor evitar los valores $skip altos y usar otras técnicas en su lugar, como el filtrado, para recuperar un gran número de documentos.
 
 + **Limitar los campos de alta cardinalidad.**  Un *campo de alta cardinalidad* hace referencia a un campo clasificable o filtrable que tiene un número significativo de valores únicos y, como resultado, consume recursos importantes al procesar los resultados. Por ejemplo, el establecimiento de un campo de identificador de producto o de descripción como filtrable y clasificable contaría como alta cardinalidad ya que la mayoría de los valores de un documento a otro son únicos.
 

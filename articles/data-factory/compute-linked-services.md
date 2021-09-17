@@ -1,18 +1,20 @@
 ---
 title: Entornos de proceso compatibles con Azure Data Factory
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Entornos de proceso que se pueden usar con las canalizaciones de Azure Data Factory (como Azure HDInsight) para transformar o procesar datos.
 ms.service: data-factory
+ms.subservice: concepts
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
 ms.date: 05/08/2019
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d6e75efac274a456c3759edae2d5c62ae26467c8
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.custom: devx-track-azurepowershell, synapse
+ms.openlocfilehash: 55b089b7deea167ca14a83a21e7c8d166edc519b
+ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110675181"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122598069"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Entornos de proceso compatibles con Azure Data Factory
 
@@ -26,7 +28,7 @@ En la tabla siguiente se proporciona una lista de entornos de proceso compatible
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | [Clúster de HDInsight a petición](#azure-hdinsight-on-demand-linked-service) o [clúster HDInsight propio](#azure-hdinsight-linked-service) | [Hive](transform-data-using-hadoop-hive.md), [Pig](transform-data-using-hadoop-pig.md), [Spark](transform-data-using-spark.md), [MapReduce](transform-data-using-hadoop-map-reduce.md), [Hadoop Streaming](transform-data-using-hadoop-streaming.md) |
 | [Azure Batch](#azure-batch-linked-service)                   | [Personalizada](transform-data-using-dotnet-custom-activity.md)     |
-| [Azure Machine Learning Studio (clásico)](#azure-machine-learning-studio-classic-linked-service) | [Actividades de Machine Learning Studio (clásico): ejecución de lotes y recurso de actualización](transform-data-using-machine-learning.md) |
+| [ML Studio (clásico)](#ml-studio-classic-linked-service) | [Actividades de ML Studio (clásico): ejecución de lotes y recurso de actualización](transform-data-using-machine-learning.md) |
 | [Azure Machine Learning](#azure-machine-learning-linked-service) | [Ejecución de canalización de Azure Machine Learning](transform-data-machine-learning-service.md) |
 | [Análisis con Azure Data Lake](#azure-data-lake-analytics-linked-service) | [U-SQL de análisis con Data Lake](transform-data-using-data-lake-analytics.md) |
 | [Azure SQL](#azure-sql-database-linked-service), [Azure Synapse Analytics](#azure-synapse-analytics-linked-service), [SQL Server](#sql-server-linked-service) | [Procedimiento almacenado](transform-data-using-stored-procedure.md) |
@@ -367,8 +369,8 @@ Consulte los artículos siguientes si no está familiarizado con el servicio Azu
 | linkedServiceName | Nombre del servicio vinculado de Azure Storage asociado a este servicio vinculado de Azure Batch. Este servicio vinculado se usa para los archivos de almacenamiento provisional necesarios para ejecutar la actividad. | Sí      |
 | connectVia        | Integration Runtime que se utilizará para enviar las actividades a este servicio vinculado. Puede usar Azure Integration Runtime o Integration Runtime autohospedado. Si no se especifica, se usará Azure Integration Runtime. | No       |
 
-## <a name="azure-machine-learning-studio-classic-linked-service"></a>Servicio vinculado de Azure Machine Learning Studio (clásico)
-Un servicio vinculado de Azure Machine Learning Studio (clásico) se crea para registrar un punto de conexión de puntuación por lotes de Machine Learning Studio (clásico) en una factoría de datos.
+## <a name="ml-studio-classic-linked-service"></a>Servicio vinculado de ML Studio (clásico)
+Puede crear un servicio vinculado de ML Studio (clásico) para registrar un punto de conexión de puntuación por lotes de Machine Learning Studio (clásico) a una factoría de datos.
 
 ### <a name="example"></a>Ejemplo
 
@@ -398,7 +400,7 @@ Un servicio vinculado de Azure Machine Learning Studio (clásico) se crea para r
 | Tipo                   | La propiedad type se debe establecer en: **AzureML**. | Sí                                      |
 | mlEndpoint             | La dirección URL de puntuación por lotes.                   | Sí                                      |
 | apiKey                 | API del modelo de área de trabajo publicado.     | Sí                                      |
-| updateResourceEndpoint | Dirección URL de recursos de actualización de un punto de conexión de servicio web de Azure Machine Learning Studio (clásico) empleada para actualizar el servicio web predictivo con el archivo de modelo entrenado. | No                                       |
+| updateResourceEndpoint | Dirección URL de recursos de actualización para un punto de conexión de servicio web de ML Studio (clásico) utilizado para actualizar el servicio web predictivo con el archivo del modelo entrenado. | No                                       |
 | servicePrincipalId     | Especifique el id. de cliente de la aplicación.     | Obligatorio si se especifica updateResourceEndpoint |
 | servicePrincipalKey    | Especifique la clave de la aplicación.           | Obligatorio si se especifica updateResourceEndpoint |
 | tenant                 | Especifique la información del inquilino (nombre de dominio o identificador de inquilino) en el que reside la aplicación. Para recuperarlo, mantenga el puntero del mouse en la esquina superior derecha de Azure Portal. | Obligatorio si se especifica updateResourceEndpoint |

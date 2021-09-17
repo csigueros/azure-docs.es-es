@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: larryfr
 author: BlackMist
 ms.date: 11/16/2020
-ms.openlocfilehash: 52ba4eaf018c7f738df8c32f4c4cc07717aa1f03
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 2364f0c029b57649ed56fa9ba93ed3978db2ca41
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114291028"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122444702"
 ---
 # <a name="what-are-azure-machine-learning-environments"></a>¿Qué son los entornos de Azure Machine Learning?
 
@@ -102,9 +102,11 @@ En el siguiente diagrama se muestran tres definiciones de entorno. Dos de ellas 
 ![Diagrama del almacenamiento en caché del entorno como imágenes de Docker](./media/concept-environments/environment-caching.png)
 
 >[!IMPORTANT]
-> Si crea un entorno con una dependencia de paquete desanclada (por ejemplo, ```numpy```), ese entorno seguirá usando la versión del paquete instalada _en el momento de la creación del entorno_. Además, cualquier entorno futuro con una definición coincidente seguirá usando la versión anterior. 
-
-Para actualizar el paquete, especifique un número de versión para forzar la recompilación de la imagen; por ejemplo, ```numpy==1.18.1```. Se instalarán nuevas dependencias, incluidas las anidadas, que podrían estropear un escenario que anteriormente funcionaba. 
+> * Si se crea un entorno con una dependencia de paquete desanclada (por ejemplo, `numpy`), dicho entorno usa la versión de paquete que hubiera *instalada cuando se creó el entorno*. Además, cualquier entorno futuro que use una definición coincidente usará la versión original. 
+>
+>   Para actualizar el paquete, especifique un número de versión para forzar la recompilación de la imagen, por ejemplo, `numpy==1.18.1`. Se instalarán nuevas dependencias, incluidas las anidadas, lo que podría estropear un escenario que anteriormente funcionaba.
+>
+> * Usar una imagen base desanclada como `mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04` en la definición de entorno tiene como resultado que el entorno vuelve a generarse cada vez que la etiqueta más reciente se actualiza. Se da por hecho que su intención es mantenerse al día con la versión más reciente por diversos motivos, como vulnerabilidades, actualizaciones del sistema y revisiones. 
 
 > [!WARNING]
 >  El método [Environment.build](/python/api/azureml-core/azureml.core.environment.environment#build-workspace--image-build-compute-none-) recompilará la imagen almacenada en caché, con el posible efecto secundario de que se actualicen los paquetes sin especificar y que todas las definiciones de entorno correspondientes a esa imagen almacenada en caché ya no puedan reproducirse.

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 22e61ea767d781dc9da54d61143c1b2524e06e94
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 759dcafe3d1c98b73d9ddcaf079cba952b9a95ca
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99584421"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122777905"
 ---
 # <a name="desktop-app-that-calls-web-apis-move-to-production"></a>Aplicación de escritorio que llama a las API web: Paso a producción
 
@@ -110,7 +110,7 @@ En el caso de los usuarios de cuentas personales de Microsoft, el comportamiento
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para probar ejemplos adicionales, consulte [Aplicaciones de escritorio y móviles de cliente público](sample-v2-code.md#desktop-and-mobile-public-client-apps).
+Para probar ejemplos adicionales, consulte [Aplicaciones cliente públicas de escritorio](sample-v2-code.md#desktop).
 
 
 

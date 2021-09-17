@@ -1,14 +1,14 @@
 ---
 title: Crear y usar archivos de recursos
 description: Aprenda a crear archivos de recursos de Azure Batch desde diversos orígenes de entrada. En este artículo se abordan algunos métodos comunes para crear archivos de recursos y colocarlos en una máquina virtual.
-ms.date: 05/25/2021
+ms.date: 08/18/2021
 ms.topic: how-to
-ms.openlocfilehash: 1ef8cde8c345cebeb166cddd67a1951d71eea810
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: a4939cc6c60d226d8b75569ab08447973968735a
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110467699"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122446572"
 ---
 # <a name="creating-and-using-resource-files"></a>Crear y usar archivos de recursos
 
@@ -33,7 +33,9 @@ Existen diversas opciones disponibles para generar archivos de recursos, cada un
 
 El uso de una dirección URL de contenedor de almacenamiento conlleva que se puede acceder a los archivos de cualquier contenedor de almacenamiento de Azure, si se tienen los permisos correctos.
 
-En este ejemplo de C#, los archivos ya se han cargado en un contenedor de almacenamiento de Azure como Blob Storage. Para acceder a los datos necesarios para crear un archivo de recursos, primero hay que acceder al contenedor de almacenamiento.
+En este ejemplo de C#, los archivos ya se han cargado en un contenedor de almacenamiento de Azure como Blob Storage. Para acceder a los datos necesarios para crear un archivo de recursos, primero hay que acceder al contenedor de almacenamiento. Esto se puede llevar a cabo de varias maneras.
+
+#### <a name="shared-access-signature"></a>Firma de acceso compartido
 
 Cree un URI de firma de acceso compartido (SAS) con los permisos correctos para acceder al contenedor de almacenamiento. Establezca la fecha de vencimiento y los permisos de la SAS. En este caso, no se especifica ninguna fecha de inicio, por lo que la SAS entrará en vigor inmediatamente y expirará dos horas después de que se genere.
 
@@ -65,7 +67,19 @@ Si lo desea, puede usar la propiedad [blobPrefix](/dotnet/api/microsoft.azure.ba
 ResourceFile inputFile = ResourceFile.FromStorageContainerUrl(containerSasUrl, blobPrefix = yourPrefix);
 ```
 
-Otra forma de generar una dirección URL de SAS consiste en habilitar el acceso de lectura anónimo y público a un contenedor y sus blobs en Azure Blob Storage. Al hacerlo, puede conceder acceso de solo lectura a estos recursos sin compartir la clave de cuenta y sin necesidad de una SAS. El acceso de lectura público se suele usar en escenarios donde se quiere que ciertos blobs estén siempre disponibles para el acceso de lectura anónimo. Si este escenario encaja con su solución, vea el artículo [Administración del acceso de lectura anónimo a contenedores y blobs](../storage/blobs/anonymous-read-access-configure.md) para obtener más información sobre cómo administrar el acceso a los datos de blob.
+#### <a name="managed-identity"></a>Identidad administrada
+
+Cree una [identidad administrada asignada por el usuario](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity) y asígnele el rol de `Storage Blob Data Reader` para el contenedor de Azure Storage. A continuación, [asigne la identidad administrada al grupo](managed-identity-pools.md) para que las máquinas virtuales puedan acceder a la identidad. Por último, puede acceder a los archivos del contenedor especificando la identidad de Batch que se va a usar.
+
+```csharp
+CloudBlobContainer container = blobClient.GetContainerReference(containerName);
+
+ResourceFile inputFile = ResourceFile.FromStorageContainerUrl(container.Uri, identityReference: new ComputeNodeIdentityReference() { ResourceId = "/subscriptions/SUB/resourceGroups/RG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity-name" });
+```
+
+#### <a name="public-access"></a>Acceso público
+
+Otra forma de generar una dirección URL de SAS o usar una identidad administrada consiste en habilitar el acceso de lectura anónimo y público a un contenedor y sus blobs en Azure Blob Storage. Al hacerlo, puede conceder acceso de solo lectura a estos recursos sin compartir la clave de cuenta y sin necesidad de una SAS. El acceso público se suele usar en escenarios donde se quiere que ciertos blobs estén siempre disponibles para el acceso de lectura anónimo. Si este escenario encaja con su solución, vea el artículo [Configuración de acceso de lectura público anónimo a contenedores y blobs](../storage/blobs/anonymous-read-access-configure.md) para obtener más información sobre cómo administrar el acceso a los datos de blob.
 
 ### <a name="storage-container-name-autostorage"></a>Nombre del contenedor de almacenamiento (almacenamiento automático)
 
@@ -100,6 +114,18 @@ También puede usar una cadena que defina como una dirección URL (o una combina
 ```csharp
 ResourceFile inputFile = ResourceFile.FromUrl(yourDomain + yourFile, filePath);
 ```
+
+Si el archivo está en Azure Storage, puede usar una identidad administrada en lugar de generar una firma de acceso compartido para el archivo de recursos.
+
+```csharp
+ResourceFile inputFile = ResourceFile.FromUrl(yourURLFromAzureStorage, 
+    identityReference: new ComputeNodeIdentityReference() { ResourceId = "/subscriptions/SUB/resourceGroups/RG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity-name"},
+    filePath: filepath
+);
+```
+
+> [!Note]
+> La autenticación de identidad administrada solo funcionará con archivos de Azure Storage. La identidad administrada necesita la asignación de roles `Storage Blob Data Reader` para el contenedor en el que se encuentra el archivo y también debe [asignarse al grupo de Batch](managed-identity-pools.md).
 
 ## <a name="tips-and-suggestions"></a>Recomendaciones y sugerencias
 

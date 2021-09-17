@@ -10,12 +10,12 @@ ms.devlang: python
 ms.custom:
 - devx-track-python
 - mode-api
-ms.openlocfilehash: 46c15f932f55883be66745d415820767089ae0f1
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: 99d2f7a67ede762f84e5f6d9abf5af78c5751d22
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112462008"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122444973"
 ---
 # <a name="quickstart-create-an-app-showing-github-star-count-with-azure-functions-and-signalr-service-using-python"></a>Inicio rápido: Creación de una aplicación en la que se muestre el número de estrellas de GitHub con Azure Functions y SignalR Service mediante Python
 
@@ -65,7 +65,30 @@ Inicie sesión en Azure Portal en <https://portal.azure.com/> con su cuenta de A
         ```bash
         func new -n index -t HttpTrigger
         ```
-        
+        Abra `index/function.json` y copie los códigos JSON siguientes:
+
+        ```json
+        {
+          "bindings": [
+            {
+              "authLevel": "anonymous",
+              "type": "httpTrigger",
+              "direction": "in",
+              "name": "req",
+              "methods": [
+                "get",
+                "post"
+              ]
+            },
+            {
+              "type": "http",
+              "direction": "out",
+              "name": "res"
+            }
+          ]
+        }
+        ```
+
         Abra `index/__init__.py` y copie los códigos siguientes.
 
         ```javascript
@@ -92,7 +115,7 @@ Inicie sesión en Azure Portal en <https://portal.azure.com/> con su cuenta de A
           "scriptFile": "__init__.py",
           "bindings": [
             {
-              "authLevel": "function",
+              "authLevel": "anonymous",
               "type": "httpTrigger",
               "direction": "in",
               "name": "req",
@@ -133,9 +156,9 @@ Inicie sesión en Azure Portal en <https://portal.azure.com/> con su cuenta de A
         # install requests
         pip install requests
         ```
-    
+
         Abra `broadcast/function.json` y copie los códigos siguientes.
-    
+
         ```json
         {
           "scriptFile": "__init__.py",
@@ -177,7 +200,7 @@ Inicie sesión en Azure Portal en <https://portal.azure.com/> con su cuenta de A
             }))
         ```
 
-3. La interfaz de cliente de este ejemplo es una página web. Si se lee contenido HTML de `content/index.html` en la función `index`, cree un archivo `index.html` en el directorio `content`. Y copie el contenido siguiente.
+3. La interfaz de cliente de este ejemplo es una página web. Si se lee contenido HTML de `content/index.html` en la función `index`, cree un archivo `index.html` en el directorio `content` bajo la carpeta raíz del proyecto. Y copie el contenido siguiente.
 
     ```html
     <html>
@@ -211,14 +234,14 @@ Inicie sesión en Azure Portal en <https://portal.azure.com/> con su cuenta de A
 
         ![Búsqueda del nombre de la instancia del servicio SignalR](media/signalr-quickstart-azure-functions-csharp/signalr-quickstart-search-instance.png)
 
-    1. Seleccione **Claves** para ver las cadenas de conexión para la instancia del servicio SignalR.
+    2. Seleccione **Claves** para ver las cadenas de conexión para la instancia del servicio SignalR.
     
         ![Captura de pantalla que resalta la cadena de conexión principal.](media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-keys.png)
 
-    1. Copie la cadena de conexión principal. Ejecute el comando siguiente.
+    3. Copie la cadena de conexión principal. Ejecute el comando siguiente.
     
         ```bash
-        func settings add AzureSignalRConnectionString '<signalr-connection-string>'
+        func settings add AzureSignalRConnectionString "<signalr-connection-string>"
         ```
     
 5. Ejecute la función de Azure en el entorno local:
@@ -227,7 +250,7 @@ Inicie sesión en Azure Portal en <https://portal.azure.com/> con su cuenta de A
     func start
     ```
 
-    Después de que la función de Azure se ejecute en el entorno local. Use el explorador para visitar `http://localhost:7071/api/index` y ver el recuento de estrellas actual. Y si asigna estrellas o las quita en GitHub, obtendrá un recuento de estrellas que se actualiza cada pocos segundos.
+    Después de que la función de Azure se ejecute en el entorno local. Use el explorador para visitar `http://localhost:7071/api/index` y ver el número de estrellas actual. Y si asigna estrellas o las quita en GitHub, obtendrá un número de estrellas que se actualiza cada pocos segundos.
 
     > [!NOTE]
     > Para el enlace de SignalR se necesita Azure Storage, pero puede usar el emulador de almacenamiento local cuando la función se ejecuta localmente.

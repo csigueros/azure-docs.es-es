@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/09/2020
-ms.openlocfilehash: cb4f074cb9487c22fc340b2e7b2941cd7b69ca98
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 272c146c71e9caf6d7ba6a1ba165a6157f5b6de0
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110459059"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122445849"
 ---
 # <a name="log-queries-in-azure-monitor"></a>Consultas de registro en Azure Monitor
 Los registros de Azure Monitor se basan en Azure Data Explorer y las consultas de registros se escriben con el mismo lenguaje de consulta de Kusto (KQL). Se trata de un lenguaje enriquecido que se ha diseñado para ser fácil de leer y de crear, por lo que debería poder empezar a escribir consultas con las instrucciones básicas.
@@ -22,7 +22,7 @@ Las áreas de Azure Monitor donde usará las consultas incluyen lo siguiente:
 - [Libros](../visualize/workbooks-overview.md). Incluyen los resultados de las consultas de registros mediante diferentes visualizaciones de informes visuales interactivos en Azure Portal.
 - [Paneles de Azure](../visualize/tutorial-logs-dashboards.md). Con ellos puede anclar los resultados de cualquier consulta en un panel de Azure, que le permitirá visualizar los datos de registros y métricas en conjunto y, opcionalmente, compartirlos con otros usuarios de Azure.
 - [Logic Apps](../logs/logicapp-flow-connector.md).  Puede usar los resultados de una consulta de registro en un flujo de trabajo automatizado mediante Logic Apps.
-- [PowerShell](/powershell/module/az.operationalinsights/get-azoperationalinsightssearchresult). Use los resultados de una consulta de registro en un script de PowerShell desde una línea de comandos o un runbook de Azure Automation que use Get-AzOperationalInsightsSearchResults.
+- [PowerShell](/powershell/module/az.operationalinsights/invoke-azoperationalinsightsquery). Use los resultados de una consulta de registro en un script de PowerShell desde una línea de comandos o un runbook de Azure Automation que use Invoke-AzOperationalInsightsQuery.
 - [API de registros de Azure Monitor](https://dev.loganalytics.io). Recupere los datos de registro del área de trabajo desde cualquier cliente de API de REST.  La solicitud de API incluye una consulta que se ejecuta en Azure Monitor para determinar los datos que se van a recuperar.
 
 ## <a name="getting-started"></a>Introducción

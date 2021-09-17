@@ -8,19 +8,28 @@ ms.subservice: core
 ms.topic: reference
 ms.author: larryfr
 author: BlackMist
-ms.date: 02/18/2021
-ms.openlocfilehash: 354bc77283949f46ce5f1f1e972e7917855634b1
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 08/18/2021
+ms.openlocfilehash: 1f3ed6e3c661e0238b6a29284a2da7254edab6c4
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121742137"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122824844"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de la versión de Azure Machine Learning
 
 En este artículo conocerá las versiones de Azure Machine Learning.  Para obtener el contenido completo de referencia del SDK, visite la página de referencia del [**SDK principal para Python**](/python/api/overview/azure/ml/intro) de Azure Machine Learning.
 
 __Fuente RSS__: reciba notificaciones cuando esta página se actualice copiando y pegando la siguiente dirección URL en su lector de fuentes: `https://docs.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
+
+## <a name="2021-08-18"></a>18-08-2021
+
+### <a name="azure-machine-learning-experimentation-user-interface"></a>Interfaz de usuario de Experimentación de Azure Machine Learning
+  + **Nombre para mostrar de la ejecución**
+    + El nombre para mostrar de la ejecución es un nombre para mostrar nuevo, modificable y opcional que se puede asignar a una ejecución. 
+    + Este nombre puede ayudar a realizar un seguimiento más eficaz, organizar y detectar las ejecuciones. 
+    + El formato predeterminado del nombre para mostrar de la ejecución es adjetivo_nombre_guid (ejemplo: awesome_watch_2i3uns). 
+    + Este nombre predeterminado se puede editar por otro más personalizable. Se puede editar desde la página Detalles de ejecución de la interfaz de Estudio de Azure Machine Learning.   
 
 ## <a name="2021-08-02"></a>02/08/2021
 
@@ -120,7 +129,7 @@ __Fuente RSS__: reciba notificaciones cuando esta página se actualice copiando 
 
 ## <a name="2021-05-25"></a>25 de mayo de 2021
 
-### <a name="announcing-the-20-cli-preview-for-azure-machine-learning"></a>Anuncio de la CLI 2.0 (versión preliminar) para Azure Machine Learning
+### <a name="announcing-the-cli-v2-preview-for-azure-machine-learning"></a>Anuncio de la CLI (v2) (versión preliminar) para Azure Machine Learning
 
 La extensión `ml` de la CLI de Azure es la interfaz de próxima generación de Azure Machine Learning. Permite entrenar e implementar modelos desde la línea de comandos, e incluye características que aceleran el escalado vertical y horizontal de la ciencia de datos al tiempo que se hace un seguimiento del ciclo de vida del modelo. [Instalación e introducción](how-to-configure-cli.md).
 
@@ -2358,7 +2367,7 @@ En el momento en que se publica este artículo, se admiten los siguientes explor
   + El rendimiento de `read_parquet` ha mejorado cuando se ejecuta en Spark.
   + Se ha corregido un problema en que se producía un error `column_type_builder` en el caso de una sola columna con formatos de fecha ambiguos.
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure Portal
 + **Característica en vista previa**
   + El streaming de archivos de registro y de salida ahora está disponible para las páginas de detalles de la ejecución. Los archivos transmitirán las actualizaciones en tiempo real cuando se active la alternancia de la vista previa.
   + Se ofrece en versión preliminar la capacidad de establecer la cuota en el nivel de área de trabajo. Las cuotas de AmlCompute se asignan en el nivel de suscripción, pero ahora puede distribuir esa cuota entre las áreas de trabajo y asignarla con el fin de conseguir un uso compartido y una gobernanza equitativos. Solo tiene que hacer clic en la hoja **Usages+Quotas** (Usos y cuotas) de la barra de navegación izquierda del área de trabajo y seleccionar la pestaña **Configure Quotas** (Configurar cuotas). Debe ser administrador de la suscripción para poder establecer cuotas en el nivel de área de trabajo, ya que se trata de una operación entre áreas de trabajo.
@@ -2637,7 +2646,7 @@ SDK de Azure Machine Learning para Python v1.0.30.
 
 ## <a name="2019-04-15"></a>2019-04-15
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure Portal
   + Ahora puede volver a enviar un ciclo de script existente de un clúster de proceso remoto existente.
   + Ahora puede ejecutar una canalización publicada con parámetros nuevos en la pestaña Canalizaciones.
   + Los detalles de la ejecución ahora admiten un nuevo visor de archivos de instantánea. Puede ver una instantánea del directorio cuando envió una ejecución concreta. También puede descargar el cuaderno que se envió para iniciar la ejecución.
@@ -2695,7 +2704,7 @@ SDK de Azure Machine Learning para Python v1.0.30.
 + **Mejoras y correcciones de errores**
   + Se ha agregado compatibilidad en las canalizaciones de Azure Machine Learning con el establecimiento de la propiedad source_directory_data_store en un almacén de datos deseado (como un almacenamiento de blobs) en [RunConfigurations](/python/api/azureml-core/azureml.core.runconfig.runconfiguration) que se suministran a [PythonScriptStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep). De forma predeterminada los pasos utilizan el almacén de Azure File como el almacén de datos de respaldo, lo que provocar problemas de limitación cuando un gran número de pasos se ejecutan simultáneamente.
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure Portal
 
 + **Nuevas características:**
   + Nueva experiencia de arrastrar y soltar el editor de tablas en informes. Los usuarios pueden arrastrar una columna desde el cuadro al área de la tabla en la que se mostrará una vista previa de la tabla. Las columnas se pueden reorganizar.

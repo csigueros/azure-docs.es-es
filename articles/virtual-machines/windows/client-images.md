@@ -8,14 +8,17 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: mimckitt
-ms.openlocfilehash: 7879e355573d2b9952728828bd3780094a919fe3
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 1fc0b3b628256f5ecbc0361ee2294e70e1619160
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104869062"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122698352"
 ---
 # <a name="use-windows-client-in-azure-for-devtest-scenarios"></a>Uso del cliente Windows en Azure para escenarios de desarrollo y pruebas
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Windows 
+
 Puede usar Windows 7, Windows 8 o Windows 10 Enterprise (x64) en Azure para escenarios de desarrollo y pruebas siempre que tenga una suscripción adecuada a Visual Studio (anteriormente MSDN). 
 
 Para ejecutar Windows 10 en un entorno de producción, consulte [Implementación de Windows 10 en Azure con derechos de hospedaje multiinquilino](windows-desktop-multitenant-hosting-deployment.md).

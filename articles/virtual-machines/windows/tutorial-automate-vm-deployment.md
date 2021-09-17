@@ -9,14 +9,15 @@ ms.workload: infrastructure
 ms.date: 11/29/2018
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 2ffef6ee99bc7e5de589a52c71a6c7bc4656d655
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 1ed110618b81c5aa074b5003a2fbbac67073a4dc
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110677568"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122692309"
 ---
 # <a name="tutorial---deploy-applications-to-a-windows-virtual-machine-in-azure-with-the-custom-script-extension"></a>Tutorial: Implementación de aplicaciones en una máquina virtual Windows en Azure con la extensión de script personalizado
+**Se aplica a:** :heavy_check_mark: Windows :heavy_check_mark: conjuntos de escalado flexibles :heavy_check_mark: conjuntos de escalado uniformes
 
 Para configurar las máquinas virtuales (VM) de una manera rápida y coherente, puede usar la [extensión de script personalizado para Windows](../extensions/custom-script-windows.md). En este tutorial, aprenderá a:
 

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/19/2021
+ms.date: 07/30/2021
 ms.author: jeedes
-ms.openlocfilehash: ac70d5ae65e07673ffdd68c1659ca3c342f1f29c
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 13211d4b22470291fcee84a075a0305ba1e29718
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114479693"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121739917"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-directprintio-cloud-print-administration"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con directprint.io Cloud Print Administration
 
@@ -38,6 +38,8 @@ Para empezar, necesita los siguientes elementos:
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
 * directprint.io Cloud Print Administration admite el SSO iniciado por **IDP**.
+
+* directprint.io Cloud Print Administration admite el aprovisionamiento de usuarios **Just In Time**.
 
 ## <a name="add-directprintio-cloud-print-administration-from-the-gallery"></a>Adición de directprint.io Cloud Print Administration desde la galería
 
@@ -75,9 +77,9 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. En la sección **Configuración básica de SAML**, la aplicación está preconfigurada en el modo iniciado por IDP y las direcciones URL necesarias ya se han rellenado previamente con Azure. El usuario debe guardar la configuración, para lo que debe hacer clic en el botón **Guardar**.
 
-1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **Certificado (Base64)** y seleccione **Descargar** para descargarlo y guardarlo en el equipo.
+1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en el botón de copia para copiar la **Dirección URL de metadatos de federación de aplicación** y guárdela en su equipo.
 
-    ![Vínculo de descarga del certificado](common/certificatebase64.png)
+    ![Vínculo de descarga del certificado](common/copy-metadataurl.png)
 
 1. En la sección **Configurar directprint.io Cloud Print Administration**, copie las direcciones URL adecuadas según sus necesidades.
 
@@ -109,11 +111,11 @@ En esta sección, para permitir que B.Simon use el inicio de sesión único de A
 
 ## <a name="configure-directprintio-cloud-print-administration-sso"></a>Configuración del i inicio de sesión único de directprint.io Cloud Print Administration
 
-Para configurar el inicio de sesión único en **directprint.io Cloud Print Administration**, debe enviar el **certificado (Base64)** descargado y las direcciones URL correspondientes copiadas de Azure Portal al [equipo de soporte técnico de directprint.io Cloud Print Administration](mailto:support@directprint.io). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+Para configurar el inicio de sesión único en **directprint.io Cloud Print Administration**, debe enviar la **URL de metadatos de federación de aplicación** correspondiente al [equipo de soporte técnico de directprint.io Cloud Print Administration](mailto:support@directprint.io). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 ### <a name="create-directprintio-cloud-print-administration-test-user"></a>Creación del usuario de prueba de directprint.io Cloud Print Administration
 
-En esta sección, creará un usuario llamado Britta Simon en directprint.io Cloud Print Administration. Trabaje con el [equipo de soporte técnico de directprint.io Cloud Print Administration](mailto:support@directprint.io) para agregar los usuarios a la plataforma de directprint.io Cloud Print Administration. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará un usuario llamado B.Simon en directprint.io Cloud Print Administration. directprint.io Cloud Print Administration admite el aprovisionamiento de usuarios Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Si un usuario deja de existir en directprint.io Cloud Print Administration, se crea otro después de la autenticación.
 
 ## <a name="test-sso"></a>Prueba de SSO 
 

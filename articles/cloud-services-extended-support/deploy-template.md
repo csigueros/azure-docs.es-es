@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 10ebb60caed4bb42bb8e8d8351b465d692eaaf0a
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: de46eb9fca550d95caa8aa5d42449ab10d1bb9a2
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114445100"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121741116"
 ---
 # <a name="deploy-a-cloud-service-extended-support-using-arm-templates"></a>Implementación de una instancia de Cloud Service (soporte extendido) mediante plantillas de ARM
 
@@ -109,7 +109,30 @@ En este tutorial se explica cómo crear la implementación de una instancia de C
           ] 
     ```
  
-3. Cree un objeto de perfil de red y asocie la dirección IP pública al front-end del equilibrador de carga. La plataforma crea automáticamente un equilibrador de carga.
+3. Cree un objeto de servicio en la nube (compatibilidad ampliada) y agregue las referencias `dependsOn` adecuadas si va a implementar redes virtuales o direcciones IP públicas dentro de la plantilla. 
+
+    ```json
+    {
+      "apiVersion": "2021-03-01",
+      "type": "Microsoft.Compute/cloudServices",
+      "name": "[variables('cloudServiceName')]",
+      "location": "[parameters('location')]",
+      "tags": {
+        "DeploymentLabel": "[parameters('deploymentLabel')]",
+        "DeployFromVisualStudio": "true"
+      },
+      "dependsOn": [
+        "[concat('Microsoft.Network/virtualNetworks/', parameters('vnetName'))]",
+        "[concat('Microsoft.Network/publicIPAddresses/', parameters('publicIPName'))]"
+      ],
+      "properties": {
+        "packageUrl": "[parameters('packageSasUri')]",
+        "configurationUrl": "[parameters('configurationSasUri')]",
+        "upgradeMode": "[parameters('upgradeMode')]"
+      }
+    }
+    ```
+4. Cree un objeto de perfil de red para el servicio en la nube y asocie la dirección IP pública al front-end del equilibrador de carga. La plataforma crea automáticamente un equilibrador de carga. 
 
     ```json
     "networkProfile": { 
@@ -135,7 +158,7 @@ En este tutorial se explica cómo crear la implementación de una instancia de C
     ```
  
 
-4. Agregue la referencia al almacén de claves en la sección `OsProfile` de la plantilla de ARM. Key Vault se usa para almacenar certificados asociados a Cloud Services (soporte extendido). Agregue los certificados a la instancia de Key Vault y haga referencia a las huellas digitales del certificado en el archivo de configuración de servicio (.cscfg). También debe habilitar "Directivas de acceso" en "Azure Virtual Machines para la implementación" en Key Vault, de modo que el recurso de Cloud Services (soporte extendido) pueda recuperar el certificado almacenado como secretos de Key Vault. El almacén de claves debe estar ubicado en la misma región y suscripción que el servicio en la nube, y debe tener un nombre único. Para más información, consulte [Uso de certificados con Cloud Services (soporte extendido)](certificates-and-key-vault.md).
+5. Agregue la referencia al almacén de claves en la sección `OsProfile` de la plantilla de ARM. Key Vault se usa para almacenar certificados asociados a Cloud Services (soporte extendido). Agregue los certificados a la instancia de Key Vault y haga referencia a las huellas digitales del certificado en el archivo de configuración de servicio (.cscfg). También debe habilitar "Directivas de acceso" en "Azure Virtual Machines para la implementación" en Key Vault, de modo que el recurso de Cloud Services (soporte extendido) pueda recuperar el certificado almacenado como secretos de Key Vault. El almacén de claves debe estar ubicado en la misma región y suscripción que el servicio en la nube, y debe tener un nombre único. Para más información, consulte [Uso de certificados con Cloud Services (soporte extendido)](certificates-and-key-vault.md).
      
     ```json
     "osProfile": { 
@@ -159,7 +182,7 @@ En este tutorial se explica cómo crear la implementación de una instancia de C
     > - Para encontrar el objeto certificateUrl, vaya al certificado en el almacén de claves etiquetado como **Identificador secreto**.  
    >  - El objeto certificateUrl debe tener el formato https://{keyvault-endpoin}/secrets/{secretname}/{secret-id}.
 
-5. Cree un perfil de rol. Asegúrese de que el número de roles, nombres de roles, número de instancias de cada rol y tamaños sea el mismo en la sección de configuración del servicio (.cscfg), definición de servicio (.csdef) y de perfil de rol de la plantilla de ARM.
+6. Cree un perfil de rol. Asegúrese de que el número de roles, nombres de roles, número de instancias de cada rol y tamaños sea el mismo en la sección de configuración del servicio (.cscfg), definición de servicio (.csdef) y de perfil de rol de la plantilla de ARM.
     
     ```json
     "roleProfile": {
@@ -184,7 +207,7 @@ En este tutorial se explica cómo crear la implementación de una instancia de C
     }   
     ```
 
-6. Si lo desea, cree un objeto de perfil de extensión que desee agregar al servicio en la nube. En este ejemplo, vamos a agregar el escritorio remoto y la extensión de diagnósticos de Windows Azure.
+7. Si lo desea, cree un objeto de perfil de extensión que desee agregar al servicio en la nube. En este ejemplo, vamos a agregar el escritorio remoto y la extensión de diagnósticos de Windows Azure.
    > [!Note] 
    > La contraseña del escritorio remoto debe tener una longitud de entre 8 y 123 caracteres, y debe cumplir al menos 3 de los siguientes requisitos de complejidad de contraseña: 1) Contener un carácter en mayúsculas. 2) Contener un carácter en minúsculas. 3) Contener un dígito numérico. 4) Contener un carácter especial. 5) No se permiten los caracteres de control.
 
@@ -220,7 +243,7 @@ En este tutorial se explica cómo crear la implementación de una instancia de C
         }
     ```
 
-7. Revise la plantilla completa.
+8. Revise la plantilla completa.
 
     ```json
     {
@@ -448,7 +471,7 @@ En este tutorial se explica cómo crear la implementación de una instancia de C
     }
     ```
 
-8. Implemente la plantilla y el archivo de parámetros (definiendo parámetros en el archivo de plantilla) para crear la implementación de Cloud Services (soporte extendido). Consulte estas [plantillas de ejemplo](https://github.com/Azure-Samples/cloud-services-extended-support) según sea necesario.
+9. Implemente la plantilla y el archivo de parámetros (definiendo parámetros en el archivo de plantilla) para crear la implementación de Cloud Services (soporte extendido). Consulte estas [plantillas de ejemplo](https://github.com/Azure-Samples/cloud-services-extended-support) según sea necesario.
 
     ```powershell
     New-AzResourceGroupDeployment -ResourceGroupName "ContosOrg" -TemplateFile "file path to your template file" -TemplateParameterFile "file path to your parameter file"

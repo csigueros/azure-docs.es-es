@@ -1,14 +1,14 @@
 ---
 title: 'Tutorial: Creación de directivas para aplicar el cumplimiento'
-description: En este tutorial, utilizará directivas para aplicar estándares, controlar los costos, mantener la seguridad e imponer principios de diseño para toda la empresa.
-ms.date: 05/01/2021
+description: En este tutorial, se utilizan directivas para aplicar estándares, controlar los costos, mantener la seguridad e imponer principios de diseño para toda la empresa.
+ms.date: 08/17/2021
 ms.topic: tutorial
-ms.openlocfilehash: 8f5b68190691651855bae31bae2885f80a16111f
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: f7c8b2c84f2aa0c4186fbdf69d5a579033904bca
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108752244"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122324726"
 ---
 # <a name="tutorial-create-and-manage-policies-to-enforce-compliance"></a>Tutorial: Creación y administración de directivas para aplicar el cumplimiento
 

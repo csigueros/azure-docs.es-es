@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/27/2020
+ms.date: 08/02/2021
 ms.author: jeedes
-ms.openlocfilehash: 1a1e155974b66dce9a036a20cdebe19ded81fed5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dac7582f772beaf62a60661869f829018770538b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98727088"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121751628"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-hana"></a>Tutorial: Integración de Azure Active Directory con SAP HANA
 
@@ -47,7 +47,7 @@ Para probar los pasos de este tutorial, siga estas recomendaciones:
 
 En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-* SAP HANA admite SSO iniciado por **IDP**
+* SAP HANA admite el inicio de sesión único iniciado por **IDP**.
 * SAP HANA admite el aprovisionamiento de usuarios **Just-In-Time**.
 
 > [!NOTE]
@@ -192,10 +192,10 @@ Si tiene que crear manualmente un usuario, siga los pasos siguientes:
 
 3. Seleccione **Agregar** para agregar el proveedor de identidades de SAML.  Seleccione el proveedor de identidades de SAML adecuado y, después, seleccione **Aceptar**.
 
-4. Agregue la **Identidad externa** (en este caso, BrittaSimon) o elija **Cualquiera**. Después, seleccione **Aceptar**.
+4. Agregue el valor de **External Identity** (Identidad externa) (en este caso, B.Simmon). Después, seleccione **Aceptar**.
 
    > [!Note]
-   > Si no está seleccionada la casilla **Cualquiera**, el nombre de usuario en HANA debe coincidir exactamente con el nombre del usuario en UPN antes del sufijo de dominio. (Por ejemplo, BrittaSimon@contoso.com se convierte en BrittaSimon en HANA.)
+   > Tiene que rellenar el campo **External Identity** (Identidad externa) del usuario, que debe coincidir con el campo **NameID** del token SAML de Azure AD. La casilla **Cualquiera** no se debe activar, ya que esta opción requiere que el IDP envíe la propiedad SPProvderID al campo NameID, lo cual no es compatible actualmente con Azure AD. Consulte [este](https://help.sap.com/viewer/b3ee5778bc2e4a089d3299b82ec762a7/2.0.05/en-US/db6db355bb571014b56eb25057daec5f.html) documento para más detalles.
 
 5. Para realizar pruebas, asigne todos los roles de **XS** para el usuario.
 

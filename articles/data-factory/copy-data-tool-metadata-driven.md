@@ -6,12 +6,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 06/19/2021
 ms.author: yexu
-ms.openlocfilehash: ab17ad8c47f7cc49588e5caf556282c40a9c0a76
-ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
+ms.openlocfilehash: e2263db67214fb6fea91c8a8cefa65a981475ec3
+ms.sourcegitcommit: deb5717df5a3c952115e452f206052737366df46
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122271986"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122681602"
 ---
 # <a name="build-large-scale-data-copy-pipelines-with-metadata-driven-approach-in-copy-data-tool-preview"></a>Creación de canalizaciones de copia de datos a gran escala con un enfoque basado en metadatos en la herramienta de copia de datos (versión preliminar)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -135,13 +135,13 @@ Cada fila de la tabla de control contiene una configuración de conexión para e
 | Nombre | Nombre de la conexión parametrizada en la tabla de control principal. |
 | ConnectionSettings | La configuración de la conexión. Puede ser, por ejemplo, el nombre de la base de datos, el nombre del servidor, etc. |
 
-## <a name="pipelines"></a>Procesos
+## <a name="pipelines"></a>Canalizaciones
 Verá que la herramienta de copia de datos genera tres niveles de canalizaciones.
 
 ### <a name="metadatadrivencopytask_xxx_toplevel"></a>MetadataDrivenCopyTask_xxx_TopLevel
 Esta canalización calculará el número total de objetos (tablas, etc.) necesarios para copiarse en esta ejecución, aparecerá el número de lotes secuenciales en función de la tarea de copia simultánea máxima permitida y, a continuación, ejecutará otra canalización para copiar distintos lotes secuencialmente. 
 
-#### <a name="parameters"></a>Parameters
+#### <a name="parameters"></a>Parámetros
 | Nombre del parámetro | Descripción | 
 |:--- |:--- |
 | MaxNumberOfConcurrentTasks | Siempre puede cambiar el número máximo de actividades de copia simultáneas que se ejecutan antes de la ejecución de la canalización. El valor predeterminado será el que se introduce en la herramienta de copia de datos. |
@@ -161,7 +161,7 @@ Esta canalización calculará el número total de objetos (tablas, etc.) necesar
 ### <a name="metadatadrivencopytask_xxx_-middlelevel"></a>MetadataDrivenCopyTask_xxx_ MiddleLevel
 Esta canalización copiará un lote de objetos. Los objetos que pertenecen a este lote se copiarán en paralelo. 
 
-#### <a name="parameters"></a>Parameters
+#### <a name="parameters"></a>Parámetros
 | Nombre del parámetro | Descripción | 
 |:--- |:--- |
 | MaxNumberOfObjectsReturnedFromLookupActivity | Para evitar alcanzar el límite de la actividad de búsqueda de salida, hay una manera de definir el número máximo de objetos devueltos por la actividad de búsqueda.  En la mayoría de los casos, no es necesario cambiar el valor predeterminado.  | 
@@ -184,7 +184,7 @@ Esta canalización copiará un lote de objetos. Los objetos que pertenecen a est
 ### <a name="metadatadrivencopytask_xxx_-bottomlevel"></a>MetadataDrivenCopyTask_xxx_ BottomLevel
 Esta canalización copiará objetos de un grupo. Los objetos que pertenecen a este lote se copiarán en paralelo.  
 
-#### <a name="parameters"></a>Parameters
+#### <a name="parameters"></a>Parámetros
 | Nombre del parámetro | Descripción | 
 |:--- |:--- |
 | ObjectsPerGroupToCopy | Número de objetos que se copian en el grupo actual. | 
@@ -195,16 +195,16 @@ Esta canalización copiará objetos de un grupo. Los objetos que pertenecen a es
 | Nombre de la actividad | Tipo de actividad | Descripción |
 |:--- |:--- |:--- |
 | ListObjectsFromOneGroup | ForEach | Enumera los objetos de un grupo e itera cada uno de ellos en actividades de nivel inferior. |
-| RouteJobsBasedOnLoadingBehavior | Switch | Compruebe el comportamiento de carga de cada objeto. Si es el caso predeterminado o FullLoad, realice la carga completa. Si se trata del caso DeltaLoad, realice una carga incremental a través de la columna de marca de agua para identificar los cambios. |
+| RouteJobsBasedOnLoadingBehavior | Conmutador | Compruebe el comportamiento de carga de cada objeto. Si es el caso predeterminado o FullLoad, realice la carga completa. Si se trata del caso DeltaLoad, realice una carga incremental a través de la columna de marca de agua para identificar los cambios. |
 | FullLoadOneObject | Copiar | Tome una instantánea completa en este objeto y cópiela en el destino. |
 | DeltaLoadOneObject | Copiar | Copie los datos modificados solo desde la última vez mediante la comparación del valor de la columna de marca de agua para identificar los cambios. |
 | GetMaxWatermarkValue | Búsqueda | Consulte el objeto de origen para obtener el valor máximo de la columna de marca de agua. |
 | UpdateWatermarkColumnValue | StoreProcedure | Reescriba el nuevo valor de marca de agua en la tabla de control que se usará la próxima vez. |
 
-### <a name="known-limitations"></a>Limitaciones conocidas
+### <a name="known-limitations"></a>Restricciones conocidas
 - La herramienta copiar datos no admite la ingesta controlada por metadatos para copiar incrementalmente archivos nuevos solo actualmente. Pero puede traer sus propias canalizaciones parametrizadas para lograrlo.
 - El nombre de IR, el tipo de base de datos y el tipo de formato de archivo no se pueden parametrizar en ADF. Por ejemplo, si desea ingerir datos de Oracle Server y SQL Server, necesitará dos canalizaciones con parámetros diferentes. Sin embargo, dos conjuntos de canalizaciones pueden compartir la tabla de control única. 
-
+- OPENJSON se usa en scripts SQL generados por la herramienta Copiar datos. Si usa SQL Server para hospedar la tabla de control, debe ser SQL Server 2016 (13.x) y versiones posteriores para admitir la función OPENJSON.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

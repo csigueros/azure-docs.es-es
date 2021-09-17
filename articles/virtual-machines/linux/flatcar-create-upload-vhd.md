@@ -9,14 +9,16 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 07/16/2020
 ms.reviewer: cynthn
-ms.openlocfilehash: 5d8be9493b7a312270301e3520f301f797fe2167
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7df838cdc036e482bc97d9ca0bb76dd648eb0a46
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102565298"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122695577"
 ---
 # <a name="using-a-prebuilt-flatcar-image-for-azure"></a>Uso de una imagen de Flatcar precompilada para Azure
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Conjuntos de escalado flexibles 
 
 Puede descargar imágenes de disco duro virtual de Azure precompiladas de Flatcar Container Linux para cada uno de los canales de Flatcar admitidos:
 

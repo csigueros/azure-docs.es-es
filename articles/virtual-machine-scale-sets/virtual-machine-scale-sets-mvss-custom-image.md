@@ -8,14 +8,16 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: shared-image-gallery
 ms.date: 04/26/2018
 ms.reviewer: mimckitt
-ms.openlocfilehash: 56e27c7978ef95ad49e6db7592fe3c755af2b0ab
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 6508935cc104f2eac46f8e61b50850c45e6856cc
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108756150"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122697398"
 ---
 # <a name="add-a-custom-image-to-an-azure-scale-set-template"></a>Incorporación de una imagen personalizada a una plantilla de un conjunto de escalado de Azure
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado uniformes
 
 Este artículo le enseña cómo modificar la [plantilla de conjunto de escalado básico](virtual-machine-scale-sets-mvss-start.md) para implementarla a partir de una imagen personalizada.
 

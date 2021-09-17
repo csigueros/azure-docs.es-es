@@ -10,14 +10,16 @@ ms.workload: infrastructure
 ms.date: 06/22/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 048afc8997f4e2b3f1d9a9cf6aea67be63c659ee
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 4da68df884eae4e0ae0f8e929d5ee58d4e782db8
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112027150"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122691748"
 ---
 # <a name="bringing-and-creating-linux-images-in-azure"></a>Creación y uso de imágenes de Linux en Azure
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Conjuntos de escalado flexibles :heavy_check_mark: Conjuntos de escalado uniformes 
 
 En esta introducción se tratan los conceptos básicos de la creación de imágenes y cómo compilar y usar correctamente imágenes de Linux en Azure. Antes de incluir una imagen personalizada en Azure, es preciso conocer qué tipos de imágenes hay disponibles, así como las distintas opciones.
 

@@ -2,7 +2,6 @@
 title: 'Tutorial: Prueba de la capacidad de los certificados X.509 para autenticar dispositivos en una instancia de Azure IoT Hub | Microsoft Docs'
 description: 'Tutorial: Prueba de los certificados X.509 para autenticarse en Azure IoT Hub'
 author: v-gpettibone
-manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
@@ -12,12 +11,12 @@ ms.custom:
 - mvc
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
-ms.openlocfilehash: 7d1900782fce6b84ed79014e985393f3626d171b
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 8e5e7efcf5b09c8b8785e32f6fb4b459531d5567
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107379441"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122444945"
 ---
 # <a name="tutorial-testing-certificate-authentication"></a>Tutorial: Prueba de la autenticación de certificados
 
@@ -28,6 +27,9 @@ Puede usar el siguiente ejemplo de código C# para comprobar si el certificado p
 * Demuestre que posee el certificado de la entidad de certificación.
 * Agregue un dispositivo a la instancia de IoT Hub.
 * Cree un certificado de dispositivo con el mismo identificador de dispositivo que el dispositivo.
+
+>[!IMPORTANT]
+>El proceso de autenticación comprueba que el dispositivo esté asociado con el nombre de IoT Hub correcto. 
 
 ## <a name="code-example"></a>Ejemplo de código
 

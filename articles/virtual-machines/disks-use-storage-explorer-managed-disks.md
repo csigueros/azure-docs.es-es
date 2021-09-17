@@ -7,14 +7,16 @@ ms.date: 09/25/2019
 ms.topic: how-to
 ms.service: storage
 ms.subservice: disks
-ms.openlocfilehash: aba38411be9502fd8592e293580a3c816fc9b55b
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+ms.openlocfilehash: 1ef24210e033c5e0af623dfa6f3cd79146732640
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113362276"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122692298"
 ---
 # <a name="use-azure-storage-explorer-to-manage-azure-managed-disks"></a>Uso del Explorador de Azure Storage para administrar discos administrados de Azure
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles :heavy_check_mark: Conjuntos de escalado uniformes
 
 Explorador de Storage 1.10.0 permite a los usuarios cargar, descargar y copiar discos administrados, así como crear instantáneas. Debido a estas capacidades adicionales, puede usar Explorador de Storage para migrar datos desde una ubicación local a Azure y migrar datos entre regiones de Azure.
 

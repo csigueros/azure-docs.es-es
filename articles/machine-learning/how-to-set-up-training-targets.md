@@ -8,15 +8,15 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 09/28/2020
+ms.date: 06/18/2021
 ms.topic: how-to
 ms.custom: devx-track-python, contperf-fy21q1
-ms.openlocfilehash: 1b4394c7338aabb63654a1462a97518aaff9ada3
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: e08823861e0b1a197313c8311cc13ac972d61a25
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111408522"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122603713"
 ---
 # <a name="configure-and-submit-training-runs"></a>Configuración y envío de ejecuciones de entrenamiento
 
@@ -28,7 +28,7 @@ Todo lo que debe hacer es definir el entorno de cada destino de proceso con una 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Si no tiene una suscripción de Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
+* Si no tiene una suscripción de Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning](https://azure.microsoft.com/free/).
 * El [SDK de Azure Machine Learning para Python](/python/api/overview/azure/ml/install) (>= 1.13.0)
 * Un [área de trabajo de Azure Machine Learning](how-to-manage-workspace.md), `ws`
 * Un destino de proceso, `my_compute_target`.  [Creación de un destino de proceso](how-to-create-attach-compute-studio.md) 
@@ -77,7 +77,9 @@ Seleccione el destino de proceso en el que se ejecutará el script de entrenamie
 El código de ejemplo de este artículo da por sentado que ya ha creado un destino de proceso `my_compute_target` en la sección "Requisitos previos".
 
 >[!Note]
->Azure Databricks no se admite como destino de proceso para el entrenamiento de modelos. Puede usar Azure Databricks para la preparación de datos y las tareas de implementación. 
+>Azure Databricks no se admite como destino de proceso para el entrenamiento de modelos. Puede usar Azure Databricks para la preparación de datos y las tareas de implementación.
+
+[!INCLUDE [arc-enabled-kubernetes](../../includes/machine-learning-create-arc-enabled-training-computer-target.md)]
 
 ## <a name="create-an-environment"></a>Creación de un entorno
 Los [entornos](concept-environments.md) de Azure Machine Learning son una encapsulación del entorno en el que se produce el entrenamiento del aprendizaje automático. Especifican los paquetes, la imagen de Docker, las variables de entorno y la configuración de software de Python en torno a los scripts de entrenamiento y puntuación. También especifican los entornos de ejecución (Python, Spark o Docker).
@@ -133,7 +135,7 @@ Si tiene argumentos de la línea de comandos que desea pasar al script de entren
 Si desea invalidar el tiempo máximo predeterminado permitido para la ejecución, puede hacerlo a través del parámetro **`max_run_duration_seconds`** . El sistema intentará cancelar automáticamente la ejecución si tarda más que este valor.
 
 ### <a name="specify-a-distributed-job-configuration"></a>Especificación de una configuración del trabajo distribuida
-Si desea ejecutar un trabajo de aprendizaje distribuido, proporcione la configuración específica del trabajo distribuido al parámetro **`distributed_job_config`** . Entre los tipos de configuración admitidos se incluyen [MpiConfiguration](/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration), [TensorflowConfiguration](/python/api/azureml-core/azureml.core.runconfig.tensorflowconfiguration) y [PyTorchConfiguration](/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration). 
+En casi de que quiera ejecutar un trabajo de [entrenamiento distribuido](how-to-train-distributed-gpu.md), indique la configuración específica del trabajo distribuido en cuestión al parámetro **`distributed_job_config`** . Entre los tipos de configuración admitidos se incluyen [MpiConfiguration](/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration), [TensorflowConfiguration](/python/api/azureml-core/azureml.core.runconfig.tensorflowconfiguration) y [PyTorchConfiguration](/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration). 
 
 Para obtener más información y ejemplos sobre la ejecución de trabajos Horovod, TensorFlow y PyTorch distribuidos, consulte:
 

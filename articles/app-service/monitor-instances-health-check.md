@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/19/2021
 ms.author: msangapu
 ms.custom: contperf-fy22q1
-ms.openlocfilehash: 571f273d54989b0ea2f014294cd570c26b5e6931
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 3efac96949d701bbc0147abf8712d4995f781d47
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121741545"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122771849"
 ---
 # <a name="monitor-app-service-instances-using-health-check"></a>Supervisión de instancias de App Service mediante la comprobación de estado
 
@@ -99,6 +99,10 @@ Imagine que tiene dos aplicaciones (o una aplicación con una ranura) con la com
 ### <a name="what-if-all-my-instances-are-unhealthy"></a>¿Qué ocurre si todas mis instancias tienen un estado incorrecto?
 
 En el escenario en el que todas las instancias de la aplicación tienen un estado incorrecto, App Service quitará las instancias del equilibrador de carga hasta el porcentaje especificado en `WEBSITE_HEALTHCHECK_MAXUNHEALTHYWORKERPERCENT`. En este escenario, quitar todas las instancias de aplicación en estado incorrecto de la rotación del equilibrador de carga provocaría una interrupción de la aplicación.
+
+### <a name="does-health-check-work-on-app-service-environments"></a>¿Funciona la comprobación de estado en instancias de App Service Environment?
+
+Sí, en App Service Environments (ASE), la plataforma hará ping a las instancias en la ruta de acceso especificada y quitará las instancias incorrectas del equilibrador de carga para que las solicitudes no se enruten a ellas. Sin embargo, actualmente estas instancias incorrectas no se reemplazarán por nuevas instancias si permanecen en estado incorrecto durante 1 hora.
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Creación de una alerta de registro de actividades para supervisar todas las operaciones del motor de escalado automático en su suscripción](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/monitor-autoscale-alert)

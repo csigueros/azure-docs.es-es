@@ -7,14 +7,16 @@ ms.collection: linux
 ms.topic: how-to
 ms.date: 07/31/2020
 ms.author: cynthn
-ms.openlocfilehash: 9d888de78432558cda8e08c3de91be9673231b47
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 38a35aacb8123d66b76d8ebc25be660612cccfe6
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102554724"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122689912"
 ---
 # <a name="detailed-steps-create-and-manage-ssh-keys-for-authentication-to-a-linux-vm-in-azure"></a>Pasos detallados: crear y administrar claves SSH para la autenticación en una VM Linux en Azure
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Conjuntos de escalado flexibles 
 
 Con un par de claves SSH puede crear una máquina virtual Linux que use claves SSH para la autenticación. En este artículo se muestra cómo crear y usar rápidamente un par de archivos de claves pública-privada RSA SSH para conexiones cliente SSH.
 

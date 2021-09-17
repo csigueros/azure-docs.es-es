@@ -8,14 +8,16 @@ ms.collection: linux
 ms.topic: how-to
 ms.date: 08/03/2020
 ms.author: cynthn
-ms.openlocfilehash: 8def06990b72d6e08127e8c4f16e0dfd87905d4f
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: 4492eb9a346d89789f1527bf80b46a08cc74fe92
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107565192"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122696093"
 ---
 # <a name="download-a-linux-vhd-from-azure"></a>Descarga de un VHD de Linux desde Azure
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Conjuntos de escalado flexibles 
 
 En este artículo aprenderá a descargar un archivo de disco duro virtual (VHD) de Linux desde Azure mediante Azure Portal. 
 
@@ -36,19 +38,19 @@ Para parar la VM:
 
 Tome una instantánea del disco para descargarla.
 
-1. Seleccione la VM en el [portal](https://portal.azure.com).
+1. Seleccione la máquina virtual en el [portal](https://portal.azure.com).
 2. Seleccione **Discos** en el menú izquierdo y, a continuación, seleccione el disco del que quiera crear una instantánea. Se mostrarán los detalles del disco.  
 3. En el menú de la parte superior de la página, seleccione **Crear instantánea**. Se abrirá la página **Crear instantánea**.
 4. En **Nombre**, escriba un nombre para la instantánea. 
 5. En **Tipo de instantánea**, seleccione **Completo** o **Incremental**.
 6. Cuando haya terminado, seleccione **Revisar y crear**.
 
-La instantánea se creará en breve y, a continuación, se puede usar para descargar o crear otra VM.
+La instantánea se creará en breve y, a continuación, se puede usar para descargar o crear otra máquina virtual.
 
 > [!NOTE]
-> Si no detiene primero la VM, la instantánea no estará limpia. La instantánea estará en el mismo estado que si la VM se hubiera encendido o se bloqueara en el momento en que se realizó la instantánea.  Aunque normalmente es seguro, esto podría causar problemas si las aplicaciones que se ejecutan a la hora no son resistentes a bloqueos.
+> Si no detiene primero la máquina virtual, la instantánea no estará limpia. La instantánea estará en el mismo estado que si la máquina virtual se hubiera encendido o se bloqueara en el momento en que se realizó la instantánea.  Aunque normalmente es seguro, esto podría causar problemas si las aplicaciones que se ejecutan a la hora no son resistentes a bloqueos.
 >  
-> Este método solo se recomienda para las VM con un único disco del sistema operativo. Las VM con uno o varios discos de datos deben detenerse antes de la descarga o antes de crear una instantánea del disco del sistema operativo y de cada disco de datos.
+> Este método solo se recomienda para las máquinas virtuales con un único disco del sistema operativo. Las VM con uno o varios discos de datos deben detenerse antes de la descarga o antes de crear una instantánea del disco del sistema operativo y de cada disco de datos.
 
 ## <a name="generate-sas-url"></a>Generación de dirección URL de SAS
 

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/09/2020
+ms.date: 07/27/2021
 ms.author: jeedes
-ms.openlocfilehash: 7f0e9d0c97b9325a30de3cb8c6ce10a3ba8489f4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a49dec3b7a87eebebbb6d4737618a387c80e4f1a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92454120"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121742858"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-elium"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Elium
 
@@ -40,10 +40,10 @@ Para empezar, necesita los siguientes elementos:
 
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-* Elium admite el inicio de sesión único iniciado por **SP e IDP**
-* Elium admite el aprovisionamiento de usuarios **Just-In-Time**
+* Elium admite el inicio de sesión único iniciado por **SP e IDP**.
+* Elium admite el aprovisionamiento de usuarios **Just-In-Time**.
 
-## <a name="adding-elium-from-the-gallery"></a>Adición de Elium desde la galería
+## <a name="add-elium-from-the-gallery"></a>Adición de Elium desde la galería
 
 Para configurar la integración de Elium en Azure AD, deberá agregar Elium desde la galería a la lista de aplicaciones SaaS administradas.
 
@@ -58,13 +58,13 @@ Para configurar la integración de Elium en Azure AD, deberá agregar Elium desd
 
 Configure y pruebe el inicio de sesión único de Azure AD con Elium mediante un usuario de prueba llamado **B.Simon**. Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Elium.
 
-Para configurar y probar el inicio de sesión único de Azure AD con Elium, es preciso completar los siguientes bloques de creación:
+Para configurar y probar el inicio de sesión único de Azure AD con Elium, lleve a cabo los siguientes pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    * **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
-    * **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en Elium](#configure-elium-sso)**: para configurar los valores de inicio de sesión único en la aplicación.
-    * **[Creación de un usuario de prueba en Elium](#create-elium-test-user)**: para tener un homólogo de B.Simon en Elium vinculado a la representación del usuario en Azure AD.
+    1. **[Creación de un usuario de prueba en Elium](#create-elium-test-user)**: para tener un homólogo de B.Simon en Elium vinculado a la representación del usuario en Azure AD.
 1. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
@@ -73,11 +73,11 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. En Azure Portal, en la página de integración de la aplicación **Elium**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
 1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
-1. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
+1. En la página **Configuración del inicio de sesión único con SAML**, haga clic en el icono de lápiz de **Configuración básica de SAML** para editar la configuración.
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-1. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en modo iniciado por **IDP**, escriba los valores de los siguientes campos:
+1. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en modo iniciado por **IDP**, realice los siguientes pasos:
 
     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://<platform-domain>.elium.com/login/saml2/metadata`
 
@@ -153,20 +153,20 @@ En esta sección va a permitir que B.Simon acceda a Elium mediante el inicio de 
 
 1. Haga clic en el **perfil de usuario** en la esquina superior derecha y, a continuación, seleccione **Settings** (Configuración).
 
-    ![Configuración de inicio de sesión único de Elium 01](./media/elium-tutorial/elium-01.png)
+    ![Configure el perfil de inicio de sesión único.](./media/elium-tutorial/profile.png)
 
 1. Seleccione **Security** (Seguridad) en **Advanced** (Avanzado).
 
-    ![Configuración de inicio de sesión único de Elium 02](./media/elium-tutorial/elium-02.png)
+    ![Configure el inicio de sesión único avanzado.](./media/elium-tutorial/security.png)
 
 1. Desplácese a la sección **Single sign-on (SSO)** (Inicio de sesión único [SSO]) y realice los pasos siguientes:
 
-    ![Configuración de inicio de sesión único de Elium 02](./media/elium-tutorial/elium-03.png)
+    ![Configure el inicio de sesión único.](./media/elium-tutorial/configuration.png)
 
     a. Copie el valor de **Verify that SAML2 authentication works for your account** (Verificar que la autenticación de SAML2 funciona para su cuenta) y péguelo en el cuadro de texto **Dirección URL de inicio de sesión** de la sección **Configuración básica de SAML** de Azure Portal.
 
     > [!NOTE]
-    > Después de configurar el inicio de sesión único, siempre puede acceder a la página de inicio de sesión remoto predeterminada en la siguiente dirección URL: `https://<platform_domain>/login/regular/login` 
+    > Después de configurar el inicio de sesión único, siempre puede acceder a la página de inicio de sesión remoto predeterminada en la siguiente dirección URL: `https://<platform_domain>/login/regular/login`. 
 
     b. Active la casilla **Enable SAML2 federation** (Habilitar la federación de SAML2).
 
@@ -176,11 +176,11 @@ En esta sección va a permitir que B.Simon acceda a Elium mediante el inicio de 
 
     e. Busque **entityID** en el archivo de **metadatos de SP**, copie el valor de **entityID** y péguelo en el cuadro de texto **Identificador** de la sección **Configuración básica de SAML**  de Azure Portal. 
 
-    ![Configuración de inicio de sesión único de Elium 04](./media/elium-tutorial/elium-04.png)
+    ![Establezca la configuración de inicio de sesión único.](./media/elium-tutorial/metadata.png)
 
     f. Busque **AssertionConsumerService** en el archivo de **metadatos de SP**, copie el valor de **Location** (Ubicación) y péguelo en el cuadro de texto **Dirección URL de respuesta** de la sección **Configuración básica de SAML** de Azure Portal.
 
-    ![Configuración de inicio de sesión único de Elium 05](./media/elium-tutorial/elium-05.png)
+    ![Configure AssertionConsumerService de inicio de sesión único.](./media/elium-tutorial/service.png)
 
     g. Abra el archivo de metadatos descargado de Azure Portal en el Bloc de notas, copie el contenido y péguelo en el cuadro de texto **IdP Metadata** (Metadatos del IdP).
 
@@ -207,7 +207,7 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
  
 * Haga clic en **Probar esta aplicación** en Azure Portal y debería iniciar sesión automáticamente en la instancia de Elium para la que configuró el inicio de sesión único. 
  
-También puede usar el Panel de acceso de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de Elium en el Panel de acceso, si está configurado en modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para iniciar el flujo de inicio de sesión y, si está configurado en modo IDP, debería iniciar sesión automáticamente en la instancia de Elium para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
+También puede usar Aplicaciones de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de Elium en Aplicaciones, si está configurado en modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para iniciar el flujo de inicio de sesión y, si está configurado en modo IDP, debería iniciar sesión automáticamente en la instancia de Elium para la que configuró el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

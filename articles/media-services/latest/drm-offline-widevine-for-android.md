@@ -9,12 +9,12 @@ ms.workload: media
 ms.topic: conceptual
 ms.date: 05/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: c5d8d5d5dbbe8e79591c735e4a6fa77f47ff9b2f
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: a753115db7ae0f0ff3c9939ef4d90018b15b064f
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110793361"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122633753"
 ---
 # <a name="offline-widevine-streaming-for-android-with-media-services-v3"></a>Streaming de Widevine sin conexión para Android con Media Services v3
 
@@ -154,6 +154,6 @@ La aplicación de PWA de código abierto anterior se creó en Node.js. Si desea 
 
 ## <a name="more-information"></a>Más información
 
-Para más información, consulte [Widevine en la colección de preguntas](questions-collection.md#widevine-streaming-for-android).
+Para obtener más información, vea [Content Protection en las preguntas más frecuentes](frequently-asked-questions.yml).
 
 Widevine es un servicio que ofrece Google Inc. y que está sujeto a los términos del servicio y la directiva de privacidad de Google, Inc.

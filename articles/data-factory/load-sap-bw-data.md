@@ -1,18 +1,20 @@
 ---
 title: Carga de datos de SAP Business Warehouse
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Use Azure Data Factory para copiar datos desde SAP Business Warehouse (BW)
 author: linda33wj
 ms.author: jingwang
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/22/2019
-ms.openlocfilehash: 3dabb6d5df0a74cc7ae2fb8b381ad9e0dfe04e63
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 08/04/2021
+ms.openlocfilehash: 7f6a17d6596ce07c593ee83ad54cc856b2b1b592
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100370706"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122638566"
 ---
 # <a name="copy-data-from-sap-business-warehouse-by-using-azure-data-factory"></a>Copia de datos desde SAP Business Warehouse mediante Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -43,17 +45,15 @@ Este artículo muestra el uso de Azure Data Factory para copiar datos en Azure D
 
 ## <a name="do-a-full-copy-from-sap-bw-open-hub"></a>Realización de una copia completa de Open Hub para SAP BW
 
-En Azure Portal, vaya a la factoría de datos. Seleccione **Author & Monitor** (Creación y supervisión) para abrir la interfaz de usuario de Data Factory en una pestaña independiente.
+En Azure Portal, vaya a la factoría de datos. Seleccione **Abrir** en el mosaico **Abrir Azure Data Factory Studio** para abrir la interfaz de usuario de Data Factory en una pestaña independiente.
 
-1. En la página **Let's get started** (Introducción), seleccione **Copy Data** (Copiar datos) para iniciar la herramienta Copiar datos.
+1. En la página principal, seleccione **Ingerir** para iniciar la herramienta Copiar datos.
 
-2. En la página **Propiedades**, especifique **Nombre de tarea** y seleccione **Siguiente**.
+2. En la página **Propiedades**, elija **Built-in copy task** (Tarea de copia integrada) en **Tipo de tarea** y elija **Run once now** (Ejecutar una vez ahora) en **Task cadence or task schedule** (Cadencia de tareas o programación de tareas). A continuación, seleccione **Siguiente**.
 
-3. En la página **Almacén de datos de origen**, haga clic en **+ Crear una conexión nueva**. Seleccione **SAP BW Open Hub** en la galería de conectores, y después seleccione **Continuar**. Para filtrar los conectores puede escribir **SAP** en el cuadro de búsqueda.
+3. En la página **Almacén de datos de origen**, haga clic en **+ Nueva conexión**. Seleccione **SAP BW Open Hub** en la galería de conectores, y después seleccione **Continuar**. Para filtrar los conectores puede escribir **SAP** en el cuadro de búsqueda.
 
-4. En la página **Specify SAP BW Open Hub connection** (Especificar conexión de Open Hub para SAP BW), siga estos pasos para crear una nueva conexión.
-
-   ![Página de creación de servicio vinculado de Open Hub para SAP BW](media/load-sap-bw-data/create-sap-bw-open-hub-linked-service.png)
+4. En la página **Nueva conexión (SAP BW Open Hub)** , siga estos pasos para crear una nueva conexión.
 
    1. Desde la lista **Connect via integration runtime** (Conectar a través del entorno de ejecución de integración), seleccione un IR autohospedado existente. O si no tiene ninguno, seleccione la creación de uno.
 
@@ -63,60 +63,59 @@ En Azure Portal, vaya a la factoría de datos. Seleccione **Author & Monitor** (
 
    2. Rellene los datos de **Nombre del servidor**, **Número del sistema**, **Id. de cliente,** **Idioma** (si no es **EN**), **Nombre de usuario** y **Contraseña** de SAP BW.
 
-   3. Seleccione **Probar conexión** para validar la configuración y, después, seleccione **Finalizar**.
+   3. Seleccione **Probar conexión** para validar la configuración y, después, seleccione **Crear**.
 
-   4. Se crea una nueva conexión. Seleccione **Next** (Siguiente).
+   ![Página de creación de servicio vinculado de Open Hub para SAP BW](media/load-sap-bw-data/create-sap-bw-open-hub-linked-service.png)
 
-5. En la página **Select Open Hub Destinations** (Seleccionar destinos de Open Hub), busque los destinos de Open Hub que están disponibles en su SAP BW. Seleccione el destino de Open Hub para copiar los datos y, a continuación, seleccione **Siguiente**.
+   4. En la página **Almacén de datos de origen**, seleccione la conexión recién creada en el bloque **Conexión**.
 
-   ![Tabla de selección de destinos de Open Hub para SAP BW](media/load-sap-bw-data/select-sap-bw-open-hub-table.png)
+   5. En la sección de selección de los destinos de Open, explore los destinos de Open Hub que están disponibles en su SAP BW. Para obtener una vista previa de los datos de cada destino, puede seleccionar el botón de vista previa al final de cada fila. Seleccione el destino de Open Hub para copiar los datos y, a continuación, seleccione **Siguiente**.
+   
+   :::image type="content" source="./media/load-sap-bw-data/source-data-store-page.png" alt-text="Captura de pantalla que muestra la página Almacén de datos de origen.":::
 
-6. Especifique un filtro, si lo necesita. Si el destino de Open Hub solo contiene datos de una única ejecución de un proceso de transferencia de datos (DTP) con un identificador de solicitud único, o está seguro de que el proceso de transferencia de datos ha finalizado y quiere copiar los datos, desactive la casilla **Exclude Last Request** (Excluir la última solicitud).
+5. Especifique un filtro, si lo necesita. Si el destino de Open Hub solo contiene datos de una única ejecución de un proceso de transferencia de datos (DTP) con un identificador de solicitud único, o está seguro de que el proceso de transferencia de datos ha finalizado y quiere copiar los datos, desactive la casilla **Exclude Last Request** (Excluir la última solicitud) en la sección **Opciones avanzadas**. Para obtener una vista previa de los datos, puede seleccionar el botón **Vista previa de los datos**.
 
-   Más información acerca de estos valores en la sección [Configuraciones de destino de Open Hub para SAP BW](#sap-bw-open-hub-destination-configurations) de este artículo. Seleccione **Validar** para comprobar qué datos se devolverán. Luego, seleccione **Siguiente**.
+   Más información acerca de estos valores en la sección [Configuraciones de destino de Open Hub para SAP BW](#sap-bw-open-hub-destination-configurations) de este artículo. Luego, seleccione **Siguiente**.
 
    ![Configuración del filtro de Open Hub para SAP BW](media/load-sap-bw-data/configure-sap-bw-open-hub-filter.png)
 
-7. En la página **Almacén de datos de destino**, seleccione **+ Crear una conexión nueva** > **Azure Data Lake Storage Gen2** > **Continuar**.
+6. En la página **Almacén de datos de destino**, seleccione **+ Nueva conexión** > **Azure Data Lake Storage Gen2** > **Continuar**.
 
-8. En la página **Specify Azure Data Lake Storage connection** (Especificar conexión de Azure Data Lake Storage), siga estos pasos para crear una nueva conexión.
+7. En la página **Nueva conexión (Azure Data Lake Storage Gen2)** , siga estos pasos para crear una conexión.
+   1. Seleccione la cuenta habilitada para Data Lake Storage Gen2 en la lista desplegable **Nombre**.
+   2. Seleccione **Create** (Crear) para crear la conexión.
 
    ![Página de creación de servicio vinculado de ADLS Gen2](media/load-sap-bw-data/create-adls-gen2-linked-service.png)
 
-   1. Seleccione la cuenta habilitada para Data Lake Storage Gen2 en la lista desplegable **Nombre**.
-   2. Seleccione **Finalizar** para crear la conexión. Luego, seleccione **Siguiente**.
+8. En la página **Almacén de datos de destino**, seleccione la conexión recién creada en la sección **Conexión**, y escriba **copyfromopenhub** como nombre de la carpeta de salida. Luego, seleccione **Siguiente**.
 
-9. En la página **Choose the output file or folder** (Elegir archivo o carpeta de salida) escriba **copyfromopenhub** como nombre de la carpeta de salida. Luego, seleccione **Siguiente**.
+   :::image type="content" source="./media/load-sap-bw-data/destination-data-store-page.png" alt-text="Captura de pantalla que muestra la página Almacén de datos de destino.":::
 
-   ![Elija la página de la carpeta de salida](media/load-sap-bw-data/choose-output-folder.png)
-
-10. En la página **File format setting** (Configuración del formato de archivo), seleccione **Next** (Siguiente) para usar la configuración predeterminada.
+9. En la página **File format setting** (Configuración del formato de archivo), seleccione **Next** (Siguiente) para usar la configuración predeterminada.
 
     ![Página de especificación del formato de receptor](media/load-sap-bw-data/specify-sink-format.png)
 
-11. En la página **Settings** (Configuración), haga clic en **Performance settings** (Configuración de rendimiento). Escriba un valor para **Degree of copy parallelism** (Grado de paralelismo de la copia) como por ejemplo 5 para cargar desde SAP BW en paralelo. Luego, seleccione **Siguiente**.
+10. En la página **Configuración**, especifique **Nombre de tarea** y seleccione **Opciones avanzadas**. Escriba un valor para **Degree of copy parallelism** (Grado de paralelismo de la copia) como por ejemplo 5 para cargar desde SAP BW en paralelo. Luego, seleccione **Siguiente**.
 
     ![Configuración de la copia](media/load-sap-bw-data/configure-copy-settings.png)
 
-12. Revise la configuración en la página **Summary** (Resumen). Luego, seleccione **Siguiente**.
+11. Revise la configuración en la página **Summary** (Resumen). Luego, seleccione **Siguiente**.
 
-13. En la página **Deployment** (Implementación), seleccione **Monitor** (Supervisión) para supervisar la canalización.
+    :::image type="content" source="./media/load-sap-bw-data/summary-page.png" alt-text="Captura de pantalla de la página Resumen.":::
 
-    ![Página Deployment (Implementación)](media/load-sap-bw-data/deployment.png)
+12. En la página **Deployment** (Implementación), seleccione **Monitor** (Supervisión) para supervisar la canalización.
 
-14. Observe que la pestaña **Monitor** (Supervisión) a la izquierda de la página, se selecciona automáticamente. La columna **Actions** (Acciones) incluye los vínculos para ver los detalles de la ejecución de actividad y volver a ejecutar la canalización.
+13. Observe que la pestaña **Monitor** (Supervisión) a la izquierda de la página, se selecciona automáticamente. Puede usar los vínculos de la columna **Nombre de la canalización** en la página **Ejecuciones de canalización** para ver los detalles de la actividad y volver a ejecutar la canalización.
 
-    ![Vista de supervisión de la canalización](media/load-sap-bw-data/pipeline-monitoring.png)
-
-15. Para ver las ejecuciones de actividad asociadas con la ejecución de canalización, seleccione el vínculo **View Activity Runs** (Ver ejecuciones de actividad) en la columna **Actions** (Acciones). Como solo hay una actividad (actividad de copia) en la canalización, solo verá una entrada. Para volver a la vista de ejecuciones de canalización, seleccione el vínculo **Pipelines** (Canalizaciones) de la parte superior. Seleccione **Refresh** (Actualizar) para actualizar la lista.
+14. Para ver las ejecuciones de actividad asociadas a la ejecución de la canalización, seleccione los vínculos en la columna **Nombre de canalización**. Como solo hay una actividad (actividad de copia) en la canalización, solo verá una entrada. Para volver a la vista de ejecuciones de canalización, seleccione el vínculo **Todas las ejecuciones de la canalización** al comienzo. Seleccione **Refresh** (Actualizar) para actualizar la lista.
 
     ![Pantalla de supervisión de actividades](media/load-sap-bw-data/activity-monitoring.png)
 
-16. Para supervisar los detalles de la ejecución de cada actividad de copia, seleccione el vínculo con un icono de gafas **Details** (Detalles) debajo de **Actions** (Acciones) en la vista de supervisión de la actividad. Los detalles disponibles incluyen el volumen de datos copiados del origen al receptor, el rendimiento de los datos, los pasos de ejecución y su duración y las configuraciones utilizadas.
+15. Para supervisar los detalles de la ejecución de cada actividad de copia, seleccione el vínculo **Detalles**, que es un icono de gafas, en la misma fila de cada actividad de copia en la vista de supervisión de la actividad. Los detalles disponibles incluyen el volumen de datos copiados del origen al receptor, el rendimiento de los datos, los pasos de ejecución y su duración y las configuraciones utilizadas.
 
     ![Detalles de la supervisión de la actividad](media/load-sap-bw-data/activity-monitoring-details.png)
 
-17. Para ver el **identificador de solicitud máxima**, vuelva a la vista de supervisión de actividades **Output** (Salida) en **Actions** (Acciones).
+16. Para ver el **identificador de solicitud máxima** de cada actividad de copia, vuelva a la vista de supervisión de actividades y seleccione **Salida** en la misma fila de cada actividad de copia.
 
     ![Pantalla de salida de la actividad](media/load-sap-bw-data/activity-output.png)
 
@@ -133,7 +132,7 @@ La copia incremental utiliza un mecanismo de "límite máximo" que se basa en el
 
 ![Diagrama del flujo de trabajo de copia incremental](media/load-sap-bw-data/incremental-copy-workflow.png)
 
-En la página **Let's get started** (Introducción) de la factoría de datos, seleccione **Create pipeline from template** (Creación de una canalización a partir de una plantilla) para usar la plantilla integrada.
+En la página principal de la factoría de datos, seleccione **Plantillas de canalización** en la sección **Más información** para usar la plantilla integrada.
 
 1. Busque **SAP BW** para encontrar y seleccionar la plantilla **Incremental copy from SAP BW to Azure Data Lake Storage Gen2** (Copia incremental de SAP BW en Azure Data Lake Storage Gen2). Esta plantilla copia los datos en Azure Data Lake Storage Gen2. Puede usar un flujo de trabajo similar para copiar a otros tipos de receptor.
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/27/2021
-ms.openlocfilehash: a3c52783cf88e9890ffa1a96feb3a332e43c5e1c
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: bb7baa20b5bc7e47e231e3e15937dde941ac0e03
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121860826"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122608263"
 ---
 # <a name="what-are-compute-targets-in-azure-machine-learning"></a>¿Qué son los destinos de proceso en Azure Machine Learning?
 
@@ -23,14 +23,14 @@ Un *destino de proceso* es un entorno o recurso de proceso designado en el que s
 En un ciclo de vida de desarrollo de modelos típico, puede:
 
 1. Comenzar desarrollando y experimentando con una pequeña cantidad de datos. En esta etapa, use su entorno local, como un equipo local o una máquina virtual (VM) basada en la nube, como destino de proceso.
-1. Escalar verticalmente a datos más grandes o realizar un entrenamiento distribuido mediante el uso de uno de estos [destinos de proceso de entrenamiento](#train).
+1. Escalar verticalmente a datos más grandes o realizar un [entrenamiento distribuido](how-to-train-distributed-gpu.md) mediante el uso de uno de estos [destinos de proceso de entrenamiento](#train).
 1. Después de que el modelo esté listo, impleméntelo en un entorno de hospedaje web con uno de estos [destinos de proceso de implementación](#deploy).
 
 Los recursos de proceso que use para los destinos de proceso están asociados a un [área de trabajo](concept-workspace.md). Los usuarios del área de trabajo comparten los recursos de proceso que no sean el equipo local.
 
 ## <a name="training-compute-targets"></a><a name="train"></a> Entrenamiento de destinos de proceso
 
-Azure Machine Learning tiene distintas modalidades de soporte técnico en los diferentes destinos de proceso. Un ciclo de vida de desarrollo de modelos típico comienza con el desarrollo o la experimentación en una pequeña cantidad de datos. En esta etapa, use un entorno local, como el equipo local o una máquina virtual basada en la nube. Si escala verticalmente el entrenamiento a conjuntos de datos grandes o realiza el entrenamiento distribuido, use un proceso de Azure Machine Learning para crear un clúster con uno o varios nodos que se escala automáticamente cada vez que se envía una ejecución. También puede adjuntar su propio recurso de proceso, aunque el soporte técnico para escenarios distintos puede variar.
+Azure Machine Learning tiene distintas modalidades de soporte técnico en los diferentes destinos de proceso. Un ciclo de vida de desarrollo de modelos típico comienza con el desarrollo o la experimentación en una pequeña cantidad de datos. En esta etapa, use un entorno local, como el equipo local o una máquina virtual basada en la nube. A medida que escala verticalmente el entrenamiento a conjuntos de datos grandes o realiza el [entrenamiento distribuido](how-to-train-distributed-gpu.md), use un proceso de Azure Machine Learning para crear un clúster con uno o varios nodos que se escala automáticamente cada vez que se envía una ejecución. También puede adjuntar su propio recurso de proceso, aunque el soporte técnico para escenarios distintos puede variar.
 
 [!INCLUDE [aml-compute-target-train](../../includes/aml-compute-target-train.md)]
 

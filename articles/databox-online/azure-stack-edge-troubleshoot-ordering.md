@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: troubleshooting
 ms.date: 06/21/2021
 ms.author: alkohli
-ms.openlocfilehash: 1d84d6b8bd2978f58f5fb44c0ee1d003db89b7da
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 46a7d0ed41b8f10874c19c8d70ddc5d8c5d7f197
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121746524"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122608290"
 ---
 # <a name="troubleshoot-your-azure-stack-edge-ordering-issues"></a>Solución de problemas de pedidos de Azure Stack Edge
 
@@ -74,7 +74,7 @@ Para obtener más información, consulte [Registro del proveedor de recursos](az
 
 *Resource &lt;nombre del recurso&gt; was disallowed by policy. (Código: RequestDisallowedByPolicy). Initiative: Deny generally unwanted Resource Types. Directiva: Not allowed resource types* (La directiva no permite el recurso <nombre del recurso>. [Código: RequestDisallowedByPolicy]. Iniciativa: Denegar los tipos de recursos normalmente no deseados. Directiva: Tipos de recursos no permitidos).
 
-**Solución propuesta:** Este error se produce debido a una directiva de Azure existente que bloquea la creación de recursos. El administrador del sistema de una organización establece las directivas de Azure para garantizar el cumplimiento al usar o crear recursos de Azure. Si alguna de estas directivas bloquea la creación de recursos de Azure Stack Edge, póngase en contacto con el administrador del sistema para editar su directiva de Azure.
+**Solución propuesta:** Este error se produce debido a una asignación de Azure Policy existente que bloquea la creación de recursos. El administrador del sistema de una organización establece las definiciones y asignaciones de Azure Policy para garantizar el cumplimiento al usar o crear recursos de Azure. Si alguna de estas asignaciones de directiva bloquea la creación de recursos de Azure Stack Edge, póngase en contacto con el administrador del sistema para editar la definición de Azure Policy.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

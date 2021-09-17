@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: deli, logicappspm
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: 02d9852f6615c3926a02294e0e7eca50f2fbe9a5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f13ffe10ed9ade4e6fe8767ef61b6709747b7d2a
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92310032"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122606253"
 ---
 # <a name="block-connections-created-by-connectors-in-azure-logic-apps"></a>Bloqueo de conexiones creadas por conectores en Azure Logic Apps
 
@@ -150,7 +150,7 @@ Para bloquear la creación de una conexión en una aplicación lógica, siga est
     }
     ```
 
-   | Propiedad | Valor | Descripción |
+   | Propiedad | Value | Descripción |
    |----------|-------|-------------|
    | `mode` | `All` | Modo que determina los tipos de recursos que evalúa la directiva. <p><p>En este escenario se establece `mode` en `All`, que aplica la directiva a los grupos de recursos, las suscripciones y todos los tipos de recursos de Azure. <p><p>Para obtener más información, vea [Estructura de definición de Azure Policy: modo](../governance/policy/concepts/definition-structure.md#mode). |
    | `if` | `{condition-to-evaluate}` | La condición que determina cuándo aplicar la regla de directiva. <p><p>En este escenario, `{condition-to-evaluate}` determina si el valor de `api.id` en `Microsoft.Web/connections/api.id` coincide con `*managedApis/{connector-name}`, que especifica un valor de carácter comodín (*). <p><p>Para obtener más información, vea [Estructura de definición de Azure Policy: regla de directiva](../governance/policy/concepts/definition-structure.md#policy-rule). |
@@ -222,7 +222,7 @@ Para bloquear la creación de una conexión en una aplicación lógica, siga est
 
 Para obtener más información sobre las definiciones de Azure Policy, consulte estos temas:
 
-* [Definición de estructura de Policy](../governance/policy/concepts/definition-structure.md)
+* [Estructura de definición de Azure Policy](../governance/policy/concepts/definition-structure.md)
 * [Tutorial: Creación y administración de directivas para aplicar el cumplimiento](../governance/policy/tutorials/create-and-manage.md)
 * [Definiciones de directivas integradas de Azure Policy en Azure Logic Apps](./policy-reference.md)
 
@@ -271,7 +271,7 @@ Cuando se crea una conexión dentro de una aplicación lógica, dicha conexión 
     }
     ```
 
-   | Propiedad | Valor | Descripción |
+   | Propiedad | Value | Descripción |
    |----------|-------|-------------|
    | `mode` | `All` | Modo que determina los tipos de recursos que evalúa la directiva. <p><p>En este escenario se establece `mode` en `All`, que aplica la directiva a los grupos de recursos, las suscripciones y todos los tipos de recursos de Azure. <p><p>Para obtener más información, vea [Estructura de definición de Azure Policy: modo](../governance/policy/concepts/definition-structure.md#mode). |
    | `if` | `{condition-to-evaluate}` | Condición que determina cuándo aplicar la regla de directiva. <p><p>En este escenario, `{condition-to-evaluate}` determina si la salida de la cadena de `[string(field('Microsoft.Logic/workflows/parameters'))]` contiene la cadena `{connector-name}`. <p><p>Para obtener más información, vea [Estructura de definición de Azure Policy: regla de directiva](../governance/policy/concepts/definition-structure.md#policy-rule). |
@@ -309,7 +309,7 @@ Cuando se crea una conexión dentro de una aplicación lógica, dicha conexión 
 
 Para obtener más información sobre las definiciones de Azure Policy, consulte estos temas:
 
-* [Definición de estructura de Policy](../governance/policy/concepts/definition-structure.md)
+* [Estructura de definición de Azure Policy](../governance/policy/concepts/definition-structure.md)
 * [Tutorial: Creación y administración de directivas para aplicar el cumplimiento](../governance/policy/tutorials/create-and-manage.md)
 * [Definiciones de directivas integradas de Azure Policy en Azure Logic Apps](./policy-reference.md)
 

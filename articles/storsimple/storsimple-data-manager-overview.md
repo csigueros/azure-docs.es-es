@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/11/2021
+ms.date: 08/17/2021
 ms.author: alkohli
-ms.openlocfilehash: 81a906e6d1a5630ed7b40092d997ba0f81c7220b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 66c9394c446f5fa74662fb39815a4cd6d121c008
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121750608"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122821576"
 ---
 # <a name="storsimple-data-manager-solution-overview"></a>Introducción a la solución StorSimple Data Manager
 
@@ -65,7 +65,7 @@ Este conjunto es mayor porque la implementación de recursos en cualquiera de la
 ## <a name="choosing-a-region"></a>Elección de una región
 
 Es recomendable que:
- - La cuenta de almacenamiento de origen (la asociada con el dispositivo de StorSimple) y la cuenta de almacenamiento de destino (donde quiere los datos en formato nativo) estén en la misma región de Azure.
+ - La cuenta de almacenamiento de origen (la asociada con el dispositivo de StorSimple) y la de destino (donde quiere los datos en formato nativo) estén en la misma región de Azure.
  - Incorpore Data Manager y la definición del trabajo en la región que contiene la cuenta de almacenamiento de StorSimple. Si esto no es posible, incorpore Data Manager en la región de Azure más próxima y, a continuación, cree la definición del trabajo en la misma región que la cuenta de almacenamiento de StorSimple. 
 
     Si la cuenta de almacenamiento de StorSimple no está en una de las 26 regiones que admiten la creación de la definición de trabajo, se recomienda que no ejecute StorSimple Data Manager, puesto que tendrá largas latencias y cargos de salida potenciales.
@@ -88,15 +88,21 @@ Si la región de Data Manager es diferente de la región de la definición del t
 
 StorSimple Data Manager no recopila ni muestra información personal. Para obtener más información, revise la directiva de privacidad de Microsoft en el [Centro de confianza](https://www.microsoft.com/trustcenter).
 
-## <a name="known-limitations"></a>Limitaciones conocidas
+## <a name="known-limitations"></a>Restricciones conocidas
 
-Actualmente el servicio tiene las siguientes limitaciones:
-- StorSimple Data Manager actualmente no funciona con los volúmenes que están cifrados con BitLocker. Si intenta ejecutar el servicio con una unidad cifrada, verá errores en el trabajo.
+StorSimple Data Manager tiene las siguientes limitaciones:
+- El servicio no funciona con volúmenes cifrados mediante BitLocker. Si intenta ejecutar el servicio con una unidad cifrada, verá errores en el trabajo.
+- El servicio no puede copiar datos si la instantánea de StorSimple está dañada.
 - No se puede habilitar un firewall en la cuenta de almacenamiento donde se almacenan las copias de seguridad de StorSimple. Si habilita un firewall en la cuenta de almacenamiento, se producirá un error en los trabajos. 
 - No se conservarán algunos metadatos de archivos (como las ACL) en los datos transformados.
 - Este servicio solo funciona con volúmenes NTFS.
 - StorSimple Data Manager no admite la migración de discos duros virtuales (VHD). Para migrar discos duros virtuales, puede usar Azure Data Box o el servicio Azure File Sync.
 - Las longitudes de ruta de acceso de archivo deben contener menos de 256 caracteres, de lo contrario se producirá un error en el trabajo.
+- Limitaciones de transferencia de blobs:
+  - El tamaño máximo de archivo admitido para un blob es de 4,7 TiB.
+  - Se usará el conjunto de copia de seguridad disponible más reciente.
+  - Los metadatos de archivos no se cargan con el contenido del archivo.
+  - Los blobs cargados son del tipo blob en bloques. Por lo tanto, no se puede usar ningún VHD cargado en Azure Virtual Machines.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

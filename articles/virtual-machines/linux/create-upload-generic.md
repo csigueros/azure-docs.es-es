@@ -7,14 +7,16 @@ ms.collection: linux
 ms.topic: how-to
 ms.date: 10/08/2018
 ms.author: guybo
-ms.openlocfilehash: 5a62bae8881f20eb7778f179cbecce77f102f6e8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c0ab2da9f6e301f1a39ee1dde65e9e0cb6a5d05b
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102554639"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122689840"
 ---
 # <a name="information-for-non-endorsed-distributions"></a>Información para las distribuciones no aprobadas
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Conjuntos de escalado flexibles 
 
 El Acuerdo de Nivel de Servicio de la plataforma Azure se aplica a máquinas virtuales que ejecutan el SO Linux solo cuando cuentan con una de las [distribuciones aprobadas](endorsed-distros.md). En estas distribuciones aprobadas, las imágenes de Linux preconfiguradas se proporcionan en Azure Marketplace.
 

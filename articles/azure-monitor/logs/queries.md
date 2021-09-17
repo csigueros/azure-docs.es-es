@@ -6,12 +6,12 @@ ms.topic: article
 author: bwren
 ms.author: bwren
 ms.date: 05/20/2021
-ms.openlocfilehash: 552e79a11da001d7834cb9640bb77c08f9491f99
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 004196117512282ee960ed275dd970b472cde918
+ms.sourcegitcommit: c2f0d789f971e11205df9b4b4647816da6856f5b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110483460"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122662322"
 ---
 # <a name="using-queries-in-azure-monitor-log-analytics"></a>Uso de consultas en Log Analytics de Azure Monitor
 Al abrir Log Analytics, tiene acceso a las consultas de registro existentes. Puede ejecutar estas consultas tal y como están o usarlas como punto de partida para crear las suyas propias. Las consultas disponibles incluyen ejemplos proporcionados por Azure Monitor y las consultas guardadas por su organización. En este artículo se describen las consultas disponibles y cómo puede detectarlas y usarlas.
@@ -69,6 +69,7 @@ Cada consulta tiene varias propiedades que le ayudan a agruparlas y encontrarlas
 - **Categoría**: un tipo de información como *Seguridad* o *Auditoría*. Las categorías son idénticas a las que se definen en el panel lateral Tablas. Para obtener una lista completa de las categorías, vea la [ referencia de tabla de Azure Monitor](/azure/azure-monitor/reference/tables/tables-category).  
 - **Solución**: una solución de Azure Monitor asociada a las consultas
 - **Tema**: el tema de la consulta de ejemplo, como *Registros de actividad* o *Registros de aplicación*. La propiedad de tema es exclusiva de las consultas de ejemplo y puede diferir según el tipo de recurso específico.
+- - **Tipo de consulta**: define el tipo de la consulta. Tipo de consulta puede ser Consultas de ejemplo, Consultas de paquete de consultas o Consultas heredadas.
 - **Marcas**: etiquetas personalizadas que puede definir y asignar al [guardar su propia consulta](save-query.md).
 - **Etiquetas**: propiedades personalizadas que se pueden definir al [crear un paquete de consulta](query-packs.md). Las etiquetas permiten a su organización crear sus propias taxonomías para organizar las consultas.
 
@@ -83,6 +84,8 @@ La interfaz de consulta se rellena con los siguientes tipos de consultas:
 **Paquetes de consultas:** un [paquete de consultas](query-packs.md) contiene una colección de consultas de registro, incluidas las que guarda usted mismo. Esto incluye el [paquete de consultas predeterminado](query-packs.md#default-query-pack) y cualquier otro paquete de consultas que la organización pueda haber creado en la suscripción.
 
 **Consultas heredadas:** consultas de registros guardadas anteriormente en la experiencia del explorador de consultas y soluciones de Azure de consultas que están instaladas en el área de trabajo. Se muestran en el cuadro de diálogo de consulta en **Legacy queries** (Consultas heredadas).
+>[!TIP]
+> Las consultas heredadas solo están disponibles en un área de trabajo de Log Analytics.
 
 ## <a name="effect-of-query-scope"></a>Efecto del ámbito de consulta
 El [ámbito de consulta actual ](scope.md) determina las consultas que están disponibles al abrir Log Analytics.

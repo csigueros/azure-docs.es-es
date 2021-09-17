@@ -4,15 +4,16 @@ description: Este tutorial contiene los procedimientos recomendados para escribi
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: seo-lt-2021
-ms.date: 04/01/2021
-ms.openlocfilehash: 8010f3f95c9358714b659df5821a375bd8488ad8
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.date: 06/04/2021
+ms.openlocfilehash: 91eb5d1072f1385c025d9d93b89466aaa9320ecd
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106582100"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122638535"
 ---
 # <a name="best-practices-for-writing-to-files-to-data-lake-with-data-flows"></a>Procedimientos recomendados para escribir en archivos en un lago de datos con flujos de datos
 
@@ -52,9 +53,9 @@ En este paso, creará una factoría de datos y abrirá la interfaz de usuario de
 
 En este paso, creará una canalización que contiene una actividad de flujo de datos.
 
-1. En la página **Let's get started** (Introducción) seleccione **Create pipeline** (Crear canalización).
+1. En la página principal de Azure Data Factory, seleccione **Orchestrate** (Organizar).
 
-   ![Creación de una canalización](./media/doc-common-process/get-started-page.png)
+   ![Captura de pantalla que muestra la página principal de ADF.](./media/doc-common-process/get-started-page.png)
 
 1. En la pestaña **General** de la canalización, escriba **DeltaLake** en el campo **Nombre** de la canalización.
 1. En la barra superior de Data Factory, deslice el control deslizante **Depuración de Data Flow** para activarlo. El modo de depuración permite realizar pruebas interactivas de la lógica de transformación en un clúster de Spark activo. Los clústeres de Data Flow tardan de 5 a 7 minutos en prepararse y se recomienda que los usuarios activen primero la depuración si planean realizar el desarrollo de Data Flow. Para más información, consulte [Modo de depuración](concepts-data-flow-debug-mode.md).

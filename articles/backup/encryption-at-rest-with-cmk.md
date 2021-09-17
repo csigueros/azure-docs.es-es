@@ -2,14 +2,14 @@
 title: Cifrado de datos de copia de seguridad mediante claves administradas por el cliente
 description: Obtenga información sobre el modo en que Azure Backup le permite cifrar los datos de copia de seguridad mediante claves administradas por el cliente.
 ms.topic: conceptual
-ms.date: 05/12/2021
+ms.date: 08/24/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 5a036d7808a365e7f4332d380246bfa17be8e6c8
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: f16974d00f4801f288180814daf9ff5ed4558748
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121722657"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122778724"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Cifrado de datos de copia de seguridad mediante claves administradas por el cliente
 
@@ -37,6 +37,7 @@ En este artículo se tratan los temas siguientes:
 - El almacén de Recovery Services solo se puede cifrar con las claves almacenadas en un almacén de Azure Key Vault ubicado en la **misma región**. Además, las claves deben ser solo **claves de RSA** y deben estar en estado **habilitado**.
 
 - Actualmente no se admite la migración del almacén de Recovery Services cifrado de CMK entre grupos de recursos y suscripciones.
+- Los almacenes de Recovery Services cifrados con claves administradas por el cliente no admiten la restauración entre regiones de instancias de copia de seguridad.
 - Al trasladar un almacén de Recovery Services ya cifrado con claves administradas por el cliente a un nuevo inquilino, deberá actualizar el almacén de Recovery Services para volver a crear y configurar la identidad administrada del almacén y la clave administrada por el cliente (que debe estar en el nuevo inquilino). Si no lo hace, las operaciones de copia de seguridad y restauración comenzarán a generar errores. Además, los permisos de control de acceso basado en rol (RBAC) configurados en la suscripción deberán volver a configurarse.
 
 - Esta característica se puede configurar mediante Azure Portal y PowerShell.
@@ -112,7 +113,11 @@ TenantId    : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 Type        : SystemAssigned
 ```
 
-### <a name="assign-user-assigned-managed-identity-to-the-vault"></a>Asignación de una identidad administrada asignada por el usuario al almacén
+### <a name="assign-user-assigned-managed-identity-to-the-vault-in-preview"></a>Asignación de una identidad administrada asignada por el usuario al almacén (en versión preliminar)
+
+>[!Note]
+>- Los almacenes que usan identidades administradas asignadas por el usuario para el cifrado de CMK no admiten el uso de puntos de conexión privados para Backup.
+>- Aún no se admite el uso conjunto de almacenes de Azure Key Vault que limitan el acceso a redes específicas e identidades administradas asignadas por el usuario para el cifrado de CMK.
 
 Para asignar una identidad administrada asignada por el usuario al almacén de Recovery Services, realice los siguientes pasos:
 

@@ -11,16 +11,17 @@ ms.topic: article
 ms.date: 09/28/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: ee09191069c05ae67eb84ee15d739cd101de8ef0
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: d695f01daa4b30a6e88607929f67a0453b06edf0
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114460476"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122691461"
 ---
 # <a name="hbv2-series-virtual-machine-overview"></a>Introducción a las máquinas virtuales de la serie HBv2 
 
- 
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles :heavy_check_mark: Conjuntos de escalado uniformes
+
 Maximizar el rendimiento de la aplicación de proceso de alto rendimiento (HPC) en AMD EPYC requiere un enfoque bien meditado con respecto a la ubicación de los procesos y de la memoria. A continuación se describen la arquitectura de AMD EPYC y nuestra implementación de la misma en Azure para aplicaciones HPC. Vamos a utilizar el término **pNUMA** para referirnos a un dominio físico de NUMA y **vNUMA** para referirnos a un dominio virtualizado de NUMA. 
 
 Físicamente, los servidores de la [serie HBv2](../../hbv2-series.md) tienen dos CPU EPYC 7742 con 64 núcleos cada una, lo que hace un total de 128 núcleos físicos. Estos 128 núcleos se dividen en 32 dominios de pNUMA (16 por socket), cada uno de los cuales tiene cuatro núcleos y AMD lo denomina **Complejo de núcleo** (Core Complex, o **CCX**). Cada CCX tiene su propia memoria caché L3, que es el modo en que un sistema operativo verá un límite pNUMA/vNUMA. Cuatro CCX adyacentes comparten acceso a dos canales de DRAM física. 

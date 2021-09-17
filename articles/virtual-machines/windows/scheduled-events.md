@@ -11,14 +11,16 @@ ms.date: 06/01/2020
 ms.author: ericrad
 ms.reviwer: mimckitt
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 08b6e72d6b4cb1352a203008e3f20ae39333ec02
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
+ms.openlocfilehash: f39cefa300b334c3df433461fa5ea1bb2c84eb8a
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111592293"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122698658"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Azure Metadata Service: Scheduled Events para máquinas virtuales Windows
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles :heavy_check_mark: Conjuntos de escalado uniformes
 
 Scheduled Events es un servicio de Azure Metadata Service que proporciona el tiempo de aplicación para prepararse para el mantenimiento de la máquina virtual. Da información sobre los eventos de mantenimiento próximos (por ejemplo, un reinicio) para que la aplicación pueda prepararlos y así limitar las interrupciones. Está disponible para todos los tipos de máquina virtual de Azure, incluidos IaaS y PaaS, tanto en Windows como en Linux. 
 
@@ -83,7 +85,7 @@ El servicio Scheduled Events tiene versiones. Las versiones son obligatorias; la
 | 2019-01-01 | Disponibilidad general | All | <li> Compatibilidad agregada con conjuntos de escalado de máquinas virtuales EventType "Terminate" |
 | 01-11-2017 | Disponibilidad general | All | <li> Se agregó compatibilidad para la expulsión de la máquina virtual de Azure Spot EventType 'Preempt'<br> | 
 | 2017-08-01 | Disponibilidad general | All | <li> Se quitó el guion bajo antepuesto de los nombres de recursos en las máquinas virtuales de IaaS<br><li>Se aplicó el requisito de encabezado de metadatos para todas las solicitudes | 
-| 2017-03-01 | Vista previa | All | <li>Versión inicial |
+| 2017-03-01 | Versión preliminar | All | <li>Versión inicial |
 
 
 > [!NOTE] 
@@ -144,7 +146,7 @@ En caso de que haya eventos programados, la respuesta contiene una matriz de eve
 | NotBefore| Hora a partir de la que puede iniciarse este evento. <br><br> Ejemplo: <br><ul><li> Lunes, 19 de septiembre de 2016, 18:29:47 GMT  |
 | Descripción | Descripción de este evento. <br><br> Ejemplo: <br><ul><li> El servidor host está en mantenimiento. |
 | EventSource | Iniciador del evento. <br><br> Ejemplo: <br><ul><li> `Platform`: la plataforma inicia este evento. <li>`User`: el usuario inicia este evento. |
-| DurationInSeconds | La duración que se espera de la interrupción causada por el evento. <br><br> Ejemplo: <br><ul><li> `9`: la interrupción causada por el evento durará nueve segundos. <li>`-1`: valor predeterminado que se usa si la duración del impacto se desconoce o no es aplicable. |
+| DurationInSeconds | Duración que se espera de la interrupción causada por el evento. <br><br> Ejemplo: <br><ul><li> `9`: la interrupción causada por el evento durará 9 segundos. <li>`-1`: valor predeterminado que se usa si la duración del impacto se desconoce o no es aplicable. |
 
 ### <a name="event-scheduling"></a>Programación de eventos
 Cada evento se programa una cantidad mínima de tiempo en el futuro en función de su tipo. Este tiempo se refleja en la propiedad `NotBefore` de un evento. 

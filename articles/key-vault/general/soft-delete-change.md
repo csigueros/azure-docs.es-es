@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 03/31/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 7e1b2ee95864affa6e5e72e1f8354767dc95bdb1
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 45eea8f8809e97f7e424a988140bcf76b47d5947
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107753333"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122609289"
 ---
 # <a name="soft-delete-will-be-enabled-on-all-key-vaults"></a>La eliminación temporal se habilitará en todos los almacenes de claves
 
@@ -55,7 +55,7 @@ Si la aplicación supone que la eliminación temporal no está habilitada y espe
 
 A las entidades de seguridad que necesitan acceso para eliminar secretos de forma permanente se les deben conceder más permisos de directiva de acceso para purgar estos secretos y el almacén de claves.
 
-Deshabilite cualquier directiva de Azure en los almacenes de claves que exija que la eliminación temporal esté desactivada. Es posible que necesite escalar este problema a un administrador que controle las directivas de Azure que se aplican a su entorno. Si no se deshabilita esta directiva, puede perder la capacidad de crear nuevos almacenes de claves en el ámbito de la directiva aplicada.
+Deshabilite cualquier asignación de Azure Policy en los almacenes de claves que exija que la eliminación temporal esté desactivada. Es posible que tenga que escalar este problema a un administrador que controle las asignaciones de Azure Policy que se aplican a su entorno. Si no se deshabilita esta asignación de directivas, puede perder la capacidad de crear nuevos almacenes de claves en el ámbito de la asignación de directivas aplicada.
 
 Si su organización está sujeta a requisitos legales de cumplimiento normativo y no puede permitir que los almacenes de claves y secretos eliminados permanezcan en un estado recuperable durante un período de tiempo prolongado, tendrá que ajustar el período de retención de la eliminación temporal para cumplir los estándares de su organización. Puede configurar el período de retención para que dure de 7 a 90 días.
 

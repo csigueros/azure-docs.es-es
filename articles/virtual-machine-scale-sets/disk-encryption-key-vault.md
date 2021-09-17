@@ -8,17 +8,19 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: disks
 ms.date: 10/10/2019
 ms.reviewer: mimckitt
-ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: d0b35b0976b46dd22bbf7f15ebb1def3ec721b5d
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.custom: mimckitt
+ms.openlocfilehash: 904a78d9c8fcdc83b7fa837d744cf955ceda8d2b
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107891471"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122691392"
 ---
 # <a name="create-and-configure-a-key-vault-for-azure-disk-encryption"></a>Creación y configuración de un almacén de claves para Azure Disk Encryption
 
-Azure Disk Encryption usa Azure Key Vault para controlar y administrar las claves y los secretos de cifrado de discos.  Para más información sobre los almacenes de claves, consulte la [introducción a Azure Key Vault](../key-vault/general/overview.md) y las [características de seguridad de Azure Key Vault](../key-vault/general/security-features.md).
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado uniformes
+
+Azure Disk Encryption usa Azure Key Vault para controlar y administrar las claves y los secretos de cifrado de discos.  Para más información sobre los almacenes de claves, consulte [Introducción a Azure Key Vault](../key-vault/general/overview.md) y [Protección de un almacén de claves](../key-vault/general/secure-your-key-vault.md).
 
 La creación y configuración de un almacén de claves para su uso con Azure Disk Encryption conlleva estos tres pasos:
 
@@ -53,3 +55,4 @@ Connect-AzAccount
 - [Introducción a Azure Disk Encryption](disk-encryption-overview.md)
 - [Cifrado de conjuntos de escalado de máquinas virtuales mediante la CLI de Azure](disk-encryption-cli.md)
 - [Cifrado de conjuntos de escalado de máquinas virtuales mediante Azure PowerShell](disk-encryption-powershell.md)
+

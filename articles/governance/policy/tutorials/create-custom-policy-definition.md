@@ -1,14 +1,14 @@
 ---
 title: 'Tutorial: Creación de una definición de directiva personalizada'
 description: En este tutorial, creará una definición de directiva personalizada para Azure Policy para aplicar reglas de negocio personalizadas a los recursos de Azure.
-ms.date: 03/31/2021
+ms.date: 08/17/2021
 ms.topic: tutorial
-ms.openlocfilehash: 51b1f71985bde3a405b56514078e905042340321
-ms.sourcegitcommit: 47ac63339ca645096bd3a1ac96b5192852fc7fb7
+ms.openlocfilehash: ee7939461c6d655447ebbd32079ec2e1345a89ad
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114362159"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122323622"
 ---
 # <a name="tutorial-create-a-custom-policy-definition"></a>Tutorial: Creación de una definición de directiva personalizada
 
@@ -44,7 +44,7 @@ Antes de crear la definición de directiva, es importante entender su intención
 
 Los requisitos deben identificar claramente los estados de los recursos "será" y "no será".
 
-Aunque se ha definido el estado esperado del recurso, no se ha definido aún lo que se quiere hacer con los recursos no compatibles. Azure Policy admite una serie de [efectos](../concepts/effects.md). En este tutorial, el requisito empresarial se define de este modo: impedir la creación de recursos si no son compatibles con las reglas de negocio. Para alcanzar este objetivo, se usará el efecto [Denegar](../concepts/effects.md#deny). También se desea la opción para suspender la directiva en el caso de asignaciones específicas. Por lo tanto, se usará el efecto [Deshabilitado](../concepts/effects.md#disabled) y el efecto se convertirá en un [parámetro](../concepts/definition-structure.md#parameters) en la definición de directiva.
+Aunque se ha definido el estado esperado del recurso, no se ha definido aún lo que se quiere hacer con los recursos no compatibles. Azure Policy admite muchos [efectos](../concepts/effects.md). En este tutorial, el requisito empresarial se define de este modo: impedir la creación de recursos si no son compatibles con las reglas de negocio. Para alcanzar este objetivo, se usará el efecto [Denegar](../concepts/effects.md#deny). También se desea la opción para suspender la directiva en el caso de asignaciones específicas. Por lo tanto, se usará el efecto [Deshabilitado](../concepts/effects.md#disabled) y el efecto se convertirá en un [parámetro](../concepts/definition-structure.md#parameters) en la definición de directiva.
 
 ## <a name="determine-resource-properties"></a>Determinación de las propiedades de recursos
 
@@ -268,8 +268,8 @@ Aunque no se ha usado un parámetro para cambiar la evaluación, no queremos usa
 
 Elaborar la [regla de directiva](../concepts/definition-structure.md#policy-rule) es el paso final en la creación de la definición de directiva personalizada. Se han identificado dos instrucciones con las que realizar la prueba:
 
-- Que el **tipo** de la cuenta de almacenamiento es **Microsoft.Storage/storageAccounts**
-- Que la propiedad **supportsHttpsTrafficOnly** de la cuenta de almacenamiento no es **true**
+- El **tipo** de cuenta de almacenamiento es **Microsoft.Storage/storageAccounts**
+- La cuenta de almacenamiento **Microsoft.Storage/storageAccounts** no es **true**
 
 Como es necesario que ambas instrucciones sean true, se va a usar el [operador lógico](../concepts/definition-structure.md#logical-operators) **allOf**. Se pasará el parámetro **effectType** al efecto en lugar de realizar una declaración estática. La regla finalizada se parece a la de este ejemplo:
 

@@ -8,24 +8,18 @@ ms.service: media-services
 ms.topic: overview
 ms.date: 03/24/2021
 ms.author: inhenkel
-ms.openlocfilehash: abdaafbaf03e76c9de466fa8fb264c3ab5cc00d3
-ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
+ms.openlocfilehash: 6dd82d635199e4aa47a07e09b3c4649dbc4ef7cd
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113216322"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "122643649"
 ---
 # <a name="media-services-v3-samples"></a>Ejemplos de Media Services v3
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Este artículo contiene una lista de todos los ejemplos disponibles para Media Services organizados por método y SDK.  Entre los ejemplos se incluyen .NET, Node.JS (Typescript), Python y Java, así como REST con Postman.
-
-## <a name="rest-postman-collection"></a>Colección de Postman para REST
-
-Los ejemplos de [Postman para REST](https://github.com/Azure-Samples/media-services-v3-rest-postman) incluyen un entorno y una colección de Postman para que los importe en el cliente de Postman. Los ejemplos de la colección de Postman se recomiendan para familiarizarse con la estructura de la API y cómo funciona con Azure Resource Manager (ARM), así como la estructura de las llamadas desde los SDK de cliente. 
-
-En el caso de las cargas de trabajo de producción, debe usar los SDK de cliente que encapsulan esta API REST, ya que admiten directivas de reintento definidas por la puerta de enlace de Azure Resource Manager. Si decide implementar llamadas a la API REST directamente, debe tener en cuenta que hay casos en los que se requieren reintentos para lograr mayores SLA.
 
 ## <a name="samples-by-sdk"></a>Ejemplos por SDK
 
@@ -50,7 +44,7 @@ Encontrará la descripción y los vínculos a los ejemplos que puede encontrar e
 | [ContentProtection/OfflinePlayReadyAndWidevine](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/ContentProtection/OfflinePlayReadyAndWidevine)|En este ejemplo, se muestra cómo cifrar dinámicamente el contenido con DRM de PlayReady y Widevine y reproducir el contenido sin solicitar una licencia al servicio de licencias. Cómo crear una transformación con un valor preestablecido de AdaptiveStreaming integrado, enviar un trabajo, crear un elemento ContentKeyPolicy con restricciones abiertas y la configuración persistente de PlayReady y Widevine, asociar el elemento ContentKeyPolicy con un objeto StreamingLocator e imprimir una dirección URL para la reproducción.|
 | [Streaming/AssetFilters](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/Streaming/AssetFilters)|En este ejemplo, se muestra cómo crear una transformación con valores preestablecidos de AdaptiveStreaming integrados, enviar un trabajo, crear un filtro de recursos y un filtro de cuentas, asociar los filtros a los localizadores de streaming e imprimir direcciones URL para la reproducción.|
 | [Streaming/StreamHLSAndDASH](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/Streaming/StreamHLSAndDASH)|En este ejemplo, se muestra cómo crear una transformación con un valor preestablecido de AdaptiveStreaming integrado, enviar un trabajo y publicar un recurso de salida para la transmisión HLS y DASH.|
-| [HighAvailabilityEncodingStreaming](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/HighAvailabilityEncodingStreaming/) | En este ejemplo, se proporcionan instrucciones y procedimientos recomendados para un sistema de producción con codificación o análisis a petición. Los lectores deben comenzar por el artículo complementario [Alta disponibilidad con Media Services y Vídeo bajo demanda (VOD)](media-services-high-availability-encoding.md). Se proporciona un archivo de solución independiente para el ejemplo [HighAvailabilityEncodingStreaming](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/HighAvailabilityEncodingStreaming/Readme.md). |
+| [HighAvailabilityEncodingStreaming](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/HighAvailabilityEncodingStreaming/) | En este ejemplo, se proporcionan instrucciones y procedimientos recomendados para un sistema de producción con codificación o análisis a petición. Los lectores deben comenzar por el artículo complementario [Alta disponibilidad con Media Services y Vídeo bajo demanda (VOD)](architecture-high-availability-encoding-concept.md). Se proporciona un archivo de solución independiente para el ejemplo [HighAvailabilityEncodingStreaming](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/main/HighAvailabilityEncodingStreaming/README.md). |
 
 ## <a name="nodejs"></a>[Node.JS](#tab/node/)
 
@@ -59,7 +53,7 @@ Encontrará la descripción y los vínculos a los ejemplos que puede encontrar e
 |[Hola mundo: enumeración de recursos](https://github.com/Azure-Samples/media-services-v3-node-tutorials/blob/main/AMSv3Samples/HelloWorld-ListAssets/list-assets.ts)|Ejemplo básico sobre cómo conectarse y enumerar los recursos |
 |[Streaming en directo](https://github.com/Azure-Samples/media-services-v3-node-tutorials/tree/main/AMSv3Samples/Live/index.ts)| Ejemplo básico de streaming en vivo. **ADVERTENCIA**: asegúrese de comprobar que todos los recursos se han limpiado y ya no se facturan en el portal al usar en producción.|
 |[Carga y transmitir con HLS y DASH](https://github.com/Azure-Samples/media-services-v3-node-tutorials/tree/main/AMSv3Samples/StreamFilesSample/index.ts)| Ejemplo básico para cargar un archivo local o codificación de una dirección URL de origen. En el ejemplo se muestra cómo usar el SDK de Storage para descargar contenido y se muestra cómo transmitir a un reproductor. |
-|[Carga y transmisión mediante HLS y DASH con DRM de Playready y Widevine](https://github.com/Azure-Samples/media-services-v3-node-tutorials/tree/main/AMSv3Samples/StreamFilesWithDRMSample/index.ts)| Muestra cómo codificar y transmitir mediante DRM de Widevine y PlayReady. |
+|[Carga y transmisión mediante HLS y DASH con DRM de PlayReady y Widevine](https://github.com/Azure-Samples/media-services-v3-node-tutorials/tree/main/AMSv3Samples/StreamFilesWithDRMSample/index.ts)| Muestra cómo codificar y transmitir mediante DRM de Widevine y PlayReady. |
 |[Carga y uso de IA para indexar vídeos y audio](https://github.com/Azure-Samples/media-services-v3-node-tutorials/tree/main/AMSv3Samples/VideoIndexerSample/index.ts)| Ejemplo de uso de los valores preestablecidos del analizador de vídeo y audio para generar metadatos e información a partir de un archivo de vídeo o audio. |
 
 ## <a name="python"></a>[Python](#tab/python)
@@ -92,3 +86,9 @@ Encontrará la descripción y los vínculos a los ejemplos que puede encontrar e
 |[EncodingWithMESPredefinedPreset](https://github.com/Azure-Samples/media-services-v3-java/tree/master/VideoEncoding/EncodingWithMESPredefinedPreset)|Cómo enviar un trabajo mediante un valor preestablecido integrado y una entrada de dirección URL HTTP, publicar un recurso de salida para la transmisión y descargar los resultados para su comprobación.|
 
 ---
+
+## <a name="rest-postman-collection"></a>Colección de Postman para REST
+
+Los ejemplos de [Postman para REST](https://github.com/Azure-Samples/media-services-v3-rest-postman) incluyen un entorno y una colección de Postman para que los importe en el cliente de Postman. Los ejemplos de la colección de Postman se recomiendan para familiarizarse con la estructura de la API y cómo funciona con Azure Resource Manager (ARM), así como la estructura de las llamadas desde los SDK de cliente. 
+
+[!INCLUDE [warning-rest-api-retry-policy.md](./includes/warning-rest-api-retry-policy.md)]

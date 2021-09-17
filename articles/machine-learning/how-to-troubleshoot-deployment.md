@@ -10,12 +10,12 @@ ms.author: gopalv
 ms.date: 11/25/2020
 ms.topic: troubleshooting
 ms.custom: contperf-fy20q4, devx-track-python, deploy, contperf-fy21q2
-ms.openlocfilehash: cef99e06eaafda41022d4c8937a4a624267b1e1d
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: 2fddb83123f22a99e0b65363f52c2b8c3bbfbfc3
+ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112454427"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122597999"
 ---
 # <a name="troubleshooting-remote-model-deployment"></a>Solución de problemas de una implementación de modelo remota 
 
@@ -213,9 +213,11 @@ Realice estas acciones para los siguientes errores:
 
 |Error  | Resolución  |
 |---------|---------|
+| Error de conflicto 409| Cuando una operación ya está en curso, cualquier operación nueva en ese mismo servicio web responderá con un error de conflicto 409. Por ejemplo, si la operación de creación o actualización del servicio web está en curso y desencadena una nueva operación de eliminación, se producirá un error. |
 |Error de creación de imágenes al implementar el servicio web     |  Agregar "pynacl==1.2.1" como una dependencia pip al archivo de Conda para la configuración de la imagen.       |
 |`['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`     |   Cambie la SKU de las máquinas virtuales usadas en la implementación por otra que tenga más memoria. |
 |Error de FPGA     |  No podrá implementar modelos en FPGA hasta que haya solicitado y se haya aprobado para la cuota FPGA. Para solicitar acceso, rellene el formulario de solicitud de cuota: https://aka.ms/aml-real-time-ai       |
+
 
 ## <a name="advanced-debugging"></a>Depuración avanzada
 

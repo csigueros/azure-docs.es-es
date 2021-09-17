@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/08/2021
 ms.author: jeedes
-ms.openlocfilehash: 62cd714fc20cb7620def8a1aaa3cbccba0b13d57
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 6ca4bda03a5696406682898eef62da9825c65214
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108144118"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122181677"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clarizen-one"></a>Tutorial: Integración de Azure Active Directory con Clarizen One
 
@@ -38,6 +38,7 @@ Para empezar, necesita los siguientes elementos:
 En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
 * Clarizen One admite inicio de sesión único iniciado por **IDP**.
+* Clarizen One admite el [aprovisionamiento y desaprovisionamiento **automático** de usuarios](clarizen-one-provisioning-tutorial.md) (se recomienda).
 
 > [!NOTE]
 > El identificador de esta aplicación es un valor de cadena fijo, por lo que solo se puede configurar una instancia en un inquilino.

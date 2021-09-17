@@ -4,12 +4,12 @@ description: Este inicio rápido le guiará por los pasos necesarios para empeza
 ms.service: azure-video-analyzer
 ms.topic: quickstart
 ms.date: 06/01/2021
-ms.openlocfilehash: dd342d1aaf8cf93bfcf518342315ad022e52f4f9
-ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
+ms.openlocfilehash: e3d118f2651e7b680b85bbb41bb6ecc3d7106bba
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114604024"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121745684"
 ---
 # <a name="quickstart-azure-video-analyzer-visual-studio-code-extension"></a>Inicio rápido: Uso de la extensión de Visual Studio Code para Azure Video Analyzer
 
@@ -25,7 +25,7 @@ Después de completar los pasos de la configuración, podrá ejecutar la secuenc
 * Una cuenta de Azure que incluya una suscripción activa. [Cree una cuenta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) gratuita, en caso de que aún no lo haya hecho.
 
 * [Visual Studio Code](https://code.visualstudio.com/) con las siguientes extensiones:
-    * [Video Analyzer](https://go.microsoft.com/fwlink/?linkid=2163332)
+    * [Video Analyzer](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.azure-video-analyzer)
 
 * Si no ha completado el inicio rápido [Introducción: Azure Video Analyzer](./get-started-detect-motion-emit-events.md), asegúrese de [configurar los recursos de Azure](#set-up-azure-resources).    
 
@@ -58,7 +58,7 @@ A la izquierda, ahora verá el dispositivo conectado con el módulo subyacente. 
 
 Las topologías de canalización son el bloque de creación básico que Video Analyzer usa para definir cómo se produce el trabajo.  Puede obtener más información sobre las [topologías de canalización aquí](./pipeline.md).  En esta sección, implementará una topología de canalización que es una plantilla y, a continuación, creará una instancia de la topología o canalización activa. La canalización activa está conectada a la secuencia de vídeo real.
 
-1.  A la izquierda, en `Modules`, haga clic con el botón derecho en `Pipeline topologies` y seleccione "Create pipeline topology" (Crear topología de canalización).
+1.  A la izquierda, en `Modules`, haga clic con el botón derecho en `Pipeline topologies` y seleccione `Create pipeline topology`.
 1.  En la parte superior, en `Try sample topologies`, en `Motion Detection`, seleccione `Publish motion events to IoT Hub`.  Cuando se le solicite, haga clic en `Proceed`.
 1.  Haga clic en `Save` en la parte superior derecha.
 
@@ -67,9 +67,9 @@ Ahora debería ver una entrada en la lista `Pipeline topologies` de la izquierda
 1.  A la izquierda, en `Pipeline topologies`, haga clic con el botón derecho en `MotionDetection` y seleccione `Create live pipeline`.
 1.  En `Live pipeline name`, escriba `mdpipeline1`.
 1.  En la sección `Parameters`:
-    - En "rtspPassword", escriba "testuser".
+    - En “rtspPassword”, esccriba “testpassword”.
     - En "rtspUrl", escriba "rtsp://rtspsim:554/media/camera-300s.mkv".
-    - En "rtspUserName", escriba "testpassword".
+    - En “rtspUserName”, escriba “testuser”.
 1.  En la parte superior derecha, haga clic en "Guardar y activar".
 
 Esto le permite obtener una topología inicial implementada y una canalización activa en funcionamiento en el dispositivo perimetral.  Si tiene instalada la extensión de Azure IoT Hub desde el inicio rápido Introducción, puede supervisar el punto de conexión integrado en la extensión de Visual Studio Code para Azure IoT Hub para supervisar esto como se indica en la sección [Observación de resultados](./get-started-detect-motion-emit-events.md#observe-results).

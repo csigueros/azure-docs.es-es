@@ -2,13 +2,13 @@
 title: Configuración de identidades administradas en grupos de Batch
 description: Obtenga información sobre cómo habilitar identidades administradas asignadas por el usuario en grupos de Batch y cómo usar identidades administradas en los nodos.
 ms.topic: conceptual
-ms.date: 05/25/2021
-ms.openlocfilehash: f8946575497a7453ca729d9334b90977efd906d9
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.date: 08/18/2021
+ms.openlocfilehash: 903e173a6028e6bb574dfba618661da802702c2d
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121862241"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122444807"
 ---
 # <a name="configure-managed-identities-in-batch-pools"></a>Configuración de identidades administradas en grupos de Batch
 
@@ -71,7 +71,14 @@ var pool = await managementClient.Pool.CreateWithHttpMessagesAsync(
 
 ## <a name="use-user-assigned-managed-identities-in-batch-nodes"></a>Uso de identidades administradas asignadas por el usuario en nodos de Batch
 
-Después de crear los grupos, las identidades administradas asignadas por el usuario pueden acceder a los nodos del grupo a través de Secure Shell (SSH) o Escritorio remoto (RDP). También puede configurar las tareas para que las identidades administradas puedan acceder directamente a [los recursos de Azure que admiten identidades administradas](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md).
+Muchas de las tecnologías de Azure Batch que acceden a otros recursos de Azure, como Azure Storage o Azure Container Registry, admiten identidades administradas. Para obtener más información sobre cómo usar las identidades administradas con Azure Batch, consulte los siguientes vínculos:
+
+- [Archivos de recursos](resource-files.md)
+- [archivos de salida](batch-task-output-files.md#specify-output-files-using-managed-identity)
+- [Azure Container Registry](batch-docker-container-workloads.md#managed-identity-support-for-acr)
+- [Sistema de archivos de contenedor de blobs de Azure](virtual-file-mount.md#azure-blob-container)
+
+También puede configurar las tareas manualmente para que las identidades administradas puedan acceder directamente a los [recursos de Azure que admiten identidades administradas](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md).
 
 En los nodos de Batch, puede obtener tokens de identidades administradas y usarlos para autenticarse a través de la autenticación de Azure AD a través de [Azure Instance Metadata Service](../virtual-machines/windows/instance-metadata-service.md).
 

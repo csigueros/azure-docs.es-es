@@ -8,14 +8,17 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 06/01/2018
 ms.author: cynthn
-ms.openlocfilehash: 86d3e67b121bf7d66651e1e823e5f137e918a171
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2df6c65b3065d2d5e733b7ced8f2caf1cb622697
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102550797"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122697639"
 ---
 # <a name="move-a-windows-vm-from-amazon-web-services-aws-to-an-azure-virtual-machine"></a>Migración de una máquina virtual Windows de Amazon Web Services (AWS) a una máquina virtual Azure
+
+**Se aplica a:** :heavy_check_mark: máquinas virtuales Windows 
+
 
 Si va a evaluar las máquinas virtuales de Azure para hospedar las cargas de trabajo, puede exportar una instancia existente de la máquina virtual Windows de Amazon Web Services (AWS) EC2 y cargar el disco duro virtual (VHD) en Azure. Una vez cargado el disco duro virtual, puede crear una nueva máquina virtual en Azure desde el disco duro virtual. 
 

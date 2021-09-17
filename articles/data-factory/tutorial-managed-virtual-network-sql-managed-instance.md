@@ -6,12 +6,12 @@ ms.author: lle
 ms.service: data-factory
 ms.topic: tutorial
 ms.date: 05/06/2021
-ms.openlocfilehash: 5c9396cdfe8296b4869f6713ff0022bc896dc733
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: faa08121bde07f82a24fad24ca49b2fe2d0ea618
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111957233"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121731457"
 ---
 # <a name="tutorial-how-to-access-sql-managed-instance-from-data-factory-managed-vnet-using-private-endpoint"></a>Tutorial: Acceso a SQL Managed Instance desde una VNET administrada de Data Factory mediante un punto de conexión privado
 
@@ -45,9 +45,9 @@ Use el portal para crear un equilibrador de carga interno estándar.
 1. En la parte superior izquierda de la pantalla, seleccione **Crear un recurso > Redes > Load Balancer**.
 2. En la pestaña **Conceptos básicos** de la página **Crear equilibrador de carga**, escriba o seleccione la siguiente información:
 
-    | Configuración | Valor |
+    | Configuración | Value |
     |:--- |:--- |
-    |Subscription|Seleccione su suscripción.|
+    |Suscripción|Seleccione su suscripción.|
     |Resource group|Seleccione el grupo de recursos que necesite.|
     |Nombre|Escriba **myLoadBalancer**.|
     |Region|Seleccione **Este de EE. UU**.|
@@ -86,7 +86,7 @@ Cree un sondeo de mantenimiento llamado **myHealthProbe** para supervisar el man
 1. Seleccione **Todos los servicios** en el menú de la izquierda, **Todos los recursos** y, después, en la lista de recursos, **myLoadBalancer**.
 2. En **Configuración**, seleccione **Sondeos de estado** y, a continuación, seleccione **Agregar**.
 
-    | Configuración | Valor |
+    | Configuración | Value |
     |:--- |:--- |
     |Nombre|Escriba **myHealthProbe**.|
     |Protocolo|seleccione **TCP**.|
@@ -106,7 +106,7 @@ En esta sección va a crear una regla de equilibrador de carga:
 2. En **Configuración**, seleccione **Reglas de equilibrio de carga** y, a continuación, seleccione **Agregar**.
 3. Use estos valores para configurar la regla de equilibrio de carga:
 
-    |Configuración |Valor |
+    |Configuración |Value |
     |:--- |:--- |
     |Nombre|Escriba **myRule**.|
     |Versión de la dirección IP|Seleccione **IPv4**.|
@@ -134,7 +134,7 @@ En esta sección, va a crear un servicio Private Link detrás de un equilibrador
     |Configuración |Value|
     |---------|--------|
     |**Detalles del proyecto**||
-    |Subscription |Seleccione su suscripción.|
+    |Suscripción |Seleccione su suscripción.|
     |Grupo de recursos |Seleccione el grupo de recursos que necesite.|
     |**Detalles de instancia**||
     |Nombre  |Escriba **myPrivateLinkService**.|
@@ -164,10 +164,10 @@ En esta sección, va a crear un servicio Private Link detrás de un equilibrador
 1. En la parte superior izquierda del portal, seleccione **Crear un recurso > Proceso > Máquina virtual**.
 2. En **Crear una máquina virtual**, escriba o seleccione los valores en la pestaña **Básico**:
 
-    |Configuración |Value|
+    |Parámetro |Value|
     |---------|--------|
     |**Detalles del proyecto**||
-    |Subscription |Seleccione su suscripción a Azure.|
+    |Suscripción |Seleccione su suscripción a Azure.|
     |Grupo de recursos |Seleccione el grupo de recursos que necesite.|
     |**Detalles de instancia**||
     |Nombre de la máquina virtual  |Escriba **myVM1**.|
@@ -187,7 +187,7 @@ En esta sección, va a crear un servicio Private Link detrás de un equilibrador
 3. Seleccione la pestaña **Redes** o seleccione **Siguiente: Discos** y, después, **Siguiente: Redes**.
 4. En la pestaña Redes, seleccione o escriba:
 
-    | Configuración |Valor|
+    | Parámetro |Value|
     |---------|--------|
     |**Interfaz de red**||
     |Virtual network |Seleccione la red virtual.|
@@ -235,13 +235,12 @@ En esta sección, va a crear un servicio Private Link detrás de un equilibrador
 4. Seleccione + **New** (Nuevo) en **Managed private endpoints** (Puntos de conexión privados administrados).
 5. Seleccione el icono del **servicio Private Link** de la lista y seleccione **Continue** (Continuar).
 6. Escriba el nombre del punto de conexión privado y seleccione **myPrivateLinkService** en la lista de servicios Private Link.
-7. Agregue un nombre de dominio completo de las IP de NAT y de SQL Managed Instance de destino del servicio Private Link.
+7. Agregue FQDN de su instancia administrada de SQL de destino.
     
     :::image type="content" source="./media/tutorial-managed-virtual-network/sql-mi-host.png" alt-text="Captura de pantalla que muestra el host de SQL MI." lightbox="./media/tutorial-managed-virtual-network/sql-mi-host-expanded.png":::
 
-    :::image type="content" source="./media/tutorial-managed-virtual-network/link-service-nat-ip.png" alt-text="Captura de pantalla que muestra la dirección IP de NAT en el servicio vinculado." lightbox="./media/tutorial-managed-virtual-network/link-service-nat-ip-expanded.png":::
 
-    :::image type="content" source="./media/tutorial-managed-virtual-network/private-endpoint-2.png" alt-text="Captura de pantalla que muestra la configuración del punto de conexión privado.":::
+    :::image type="content" source="./media/tutorial-managed-virtual-network/private-endpoint-5.png" alt-text="Captura de pantalla que muestra la configuración del punto de conexión privado.":::
 
 8. Cree un punto de conexión privado.
 

@@ -8,14 +8,14 @@ ms.author: roastala
 ms.reviewer: larryfr
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 03/09/2020
+ms.date: 08/24/2021
 ms.topic: how-to
-ms.openlocfilehash: b934a5b5d7781465d01b0e16927bf213f9fa23df
-ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
+ms.openlocfilehash: 397f22711eadc38c82625a8b6a899f6485d798cf
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107897043"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122778238"
 ---
 # <a name="use-authentication-credential-secrets-in-azure-machine-learning-training-runs"></a>Uso de secretos de credenciales de autenticación en ejecuciones de entrenamiento de Azure Machine Learning
 
@@ -49,6 +49,11 @@ keyvault.set_secret(name="mysecret", value = my_secret)
 No ponga el valor del secreto en código Python porque no es seguro almacenarlo en un archivo como texto no cifrado. En su lugar, obtenga el valor del secreto de una variable de entorno, por ejemplo, el secreto de compilación de Azure DevOps, o de la entrada interactiva del usuario.
 
 Puede enumerar los nombres de secreto mediante el método [`list_secrets()`](/python/api/azureml-core/azureml.core.keyvault.keyvault#list-secrets--). También hay una versión de lote, [set_secrets ()](/python/api/azureml-core/azureml.core.keyvault.keyvault#set-secrets-secrets-batch-), que le permite establecer varios secretos a la vez.
+
+> [!IMPORTANT]
+> Cuando se usa `list_secrets()`, solo se enumeran los secretos creados por medio de `set_secret()` o `set_secrets()` con el SDK de Azure ML. No se enumeran los secretos creados por un medio distinto al SDK. Por ejemplo, no se enumera un secreto creado con Azure Portal o Azure PowerShell.
+> 
+> Puede usar [`get_secret()`](#get-secrets) para obtener un valor de secreto del almacén de claves, independientemente de cómo se haya creado. Así, puede recuperar secretos que `list_secrets()` no enumera.
 
 ## <a name="get-secrets"></a>Obtención de secretos
 

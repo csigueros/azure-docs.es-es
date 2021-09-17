@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions, devx-track-azurecli, subject-rbac-steps
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 972929f93737342942ed22f103598bc55dbb57fc
-ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
+ms.openlocfilehash: 1cac67a60f5ebcd0b7075d9caa6c453209ce0121
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2021
-ms.locfileid: "114688614"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122606014"
 ---
 # <a name="preview-login-to-a-linux-virtual-machine-in-azure-with-azure-active-directory-using-ssh-certificate-based-authentication"></a>Versión preliminar: Inicio de sesión en una máquina virtual con Linux en Azure con Azure Active Directory mediante la autenticación basada en certificados SSH
 
@@ -380,7 +380,7 @@ Para los clientes que usan la versión anterior del inicio de sesión de Azure 
       ```
 ## <a name="using-azure-policy-to-ensure-standards-and-assess-compliance"></a>Uso de Azure Policy para garantizar estándares y evaluar el cumplimiento
 
-Use Azure Policy para asegurarse de que el inicio de sesión de Azure AD está habilitado para las máquinas virtuales Linux nuevas y existentes, y evaluar el cumplimiento de su entorno a escala en el panel de cumplimiento de directivas de Azure. Con esta funcionalidad, puede usar muchos niveles de aplicación: puede marcar las VM Linux nuevas y existentes dentro de su entorno que no tengan habilitado el inicio de sesión Azure AD. También puede usar Azure Policy para implementar la extensión de Azure AD en nuevas VM Linux que no tengan habilitado el inicio de sesión de Azure AD, así como corregir las VM Linux existentes con el mismo estándar. Además de estas funcionalidades, también puede usar la directiva para detectar y marcar las VM Linux que tienen cuentas locales no aprobadas creadas en sus máquinas. Para más información, revise [Azure Policy](https://www.aka.ms/AzurePolicy).
+Use Azure Policy para asegurarse de que el inicio de sesión de Azure AD está habilitado para las máquinas virtuales Linux nuevas y existentes, y evaluar el cumplimiento de su entorno a escala en el panel de cumplimiento de Azure Policy. Con esta funcionalidad, puede usar muchos niveles de aplicación: puede marcar las VM Linux nuevas y existentes dentro de su entorno que no tengan habilitado el inicio de sesión Azure AD. También puede usar Azure Policy para implementar la extensión de Azure AD en nuevas VM Linux que no tengan habilitado el inicio de sesión de Azure AD, así como corregir las VM Linux existentes con el mismo estándar. Además de estas funcionalidades, también puede usar Azure Policy para detectar y marcar las VM Linux que tienen cuentas locales no aprobadas creadas en sus máquinas. Para más información, consulte [Azure Policy](../../governance/policy/overview.md).
 
 ## <a name="troubleshoot-sign-in-issues"></a>Solución de problemas con el inicio de sesión
 

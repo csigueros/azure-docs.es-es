@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/09/2021
 ms.author: jeedes
-ms.openlocfilehash: 3a950727034d4be822e0b9554424074a1aaebf33
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 44286f0f5a0d5f367cd3934ff61653eb4772c1fd
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101649927"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122182470"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-oracle-fusion-erp"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Oracle Fusion ERP
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar Oracle Fusion ERP con Azure Active Direc
 * Permitir que los usuarios inicien sesión automáticamente en Oracle Fusion ERP con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -38,6 +38,7 @@ Para empezar, necesita los siguientes elementos:
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
 * Oracle Fusion ERP admite el inicio de sesión único iniciado por **SP**.
+* Oracle Fusion ERP admite el [aprovisionamiento y desaprovisionamiento **automatizados** de usuarios](oracle-fusion-erp-provisioning-tutorial.md) (se recomienda).
 
 ## <a name="add-oracle-fusion-erp-from-the-gallery"></a>Adición de Oracle Fusion ERP desde la galería
 

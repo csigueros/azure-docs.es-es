@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/09/2020
+ms.date: 08/11/2021
 ms.author: jeedes
-ms.openlocfilehash: 36740e7b135309524b70a74e0f92ceb7e2ac1238
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: 5e655177f37ecafea407899c4512d803ba2295ad
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112461846"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122252807"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cisco-anyconnect"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Cisco AnyConnect
 
@@ -37,7 +37,7 @@ Para empezar, necesita los siguientes elementos:
 
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-* Cisco AnyConnect admite SSO iniciado por **IDP**.
+* Cisco AnyConnect admite el inicio de sesión único iniciado por **IDP**.
 
 ## <a name="adding-cisco-anyconnect-from-the-gallery"></a>Incorporación de Cisco AnyConnect desde la galería
 
@@ -76,10 +76,10 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 1. En la página **Configurar el inicio de sesión único con SAML**, escriba los valores de los siguientes campos (distinguen mayúsculas de minúsculas):
 
    1. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente:  
-      `https://*.YourCiscoServer.com/saml/sp/metadata/TGTGroup`
+      `https://<SUBDOMAIN>.YourCiscoServer.com/saml/sp/metadata/<Tunnel_Group_Name>`
 
    1. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón:  
-      `https://YOUR_CISCO_ANYCONNECT_FQDN/+CSCOE+/saml/sp/acs?tgname=TGTGroup`
+      `https://<YOUR_CISCO_ANYCONNECT_FQDN>/+CSCOE+/saml/sp/acs?tgname=<Tunnel_Group_Name>`
 
     > [!NOTE]
     > Para aclarar estos valores, póngase en contacto con el soporte técnico de Cisco TAC. Actualice estos valores con los valores reales de identificador y URL de respuesta proporcionados por Cisco TAC. Póngase en contacto con el [equipo de soporte técnico de clientes de Cisco AnyConnect](https://www.cisco.com/c/en/us/support/index.html) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
@@ -170,7 +170,7 @@ En esta sección, va a permitir que B. Simon acceda a Cisco AnyConnect mediante
     ```
 
     > [!NOTE]
-    > Hay una característica con la configuración de IdP de SAML: si realiza cambios en la configuración de IdP, deberá quitar la configuración del proveedor de identidades de SAML del grupo de túnel y volver a aplicarla para que los cambios surtan efecto.
+    > Hay un trabajo con la configuración del IdP de SAML. Si realiza cambios en la configuración de IdP, deberá quitar la configuración del proveedor de identidades de SAML del grupo de túnel y volver a aplicarla para que los cambios surtan efecto.
 
 ### <a name="create-cisco-anyconnect-test-user"></a>Creación de un usuario de prueba de Cisco AnyConnect
 

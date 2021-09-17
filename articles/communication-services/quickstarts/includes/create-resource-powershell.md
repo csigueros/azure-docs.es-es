@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: a04d7dde8b6f2a492538d2012de5222686fd7fcf
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 6f7a0d8169fed92564437166c74255743ea61a7f
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113762348"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122820765"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -13,7 +13,15 @@ ms.locfileid: "113762348"
 
 ## <a name="create-azure-communication-services-resource"></a>Creación de un recurso de Azure Communication Services
 
-Para crear un recurso de Azure Communication Services, [inicie sesión en la CLI de Azure](/cli/azure/authenticate-azure-cli). Esto puede hacerlo mediante el terminal con el comando ```Connect-AzAccount``` y proporcionando sus credenciales. Ejecute el siguiente comando para crear el recurso:
+Para crear un recurso de Azure Communication Services, [inicie sesión en la CLI de Azure](/cli/azure/authenticate-azure-cli). Esto puede hacerlo mediante el terminal con el comando ```Connect-AzAccount``` y proporcionando sus credenciales.
+
+En primer lugar, asegúrese de instalar el módulo Azure Communication Services ```Az.Communication``` con el siguiente comando.
+
+```PowerShell
+PS C:\> Install-Module Az.Communication
+```
+
+Ejecute el siguiente comando para crear el recurso:
 
 ```PowerShell
 PS C:\> New-AzCommunicationService -ResourceGroupName ContosoResourceProvider1 -Name ContosoAcsResource1 -DataLocation UnitedStates -Location Global

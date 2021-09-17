@@ -8,16 +8,16 @@ ms.date: 4/8/2021
 ms.topic: conceptual
 ms.service: digital-twins
 ms.custom: contperf-fy21q4
-ms.openlocfilehash: e403ed4778e87e42ad4abb2e6d45923e420ca0c4
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: d008888968f05641786cdfcb73afac1d540b7596
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114438639"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122769872"
 ---
 # <a name="event-notifications"></a>Notificaciones de eventos
 
-Los distintos eventos de Azure Digital Twins generan **notificaciones**, que permiten que el back-end de solución sepa que están ocurriendo distintas acciones. A continuación, se [enrutan](concepts-route-events.md) a distintas ubicaciones dentro y fuera de Azure Digital Twins que pueden usar esta información para tomar medidas.
+Los distintos eventos de Azure Digital Twins generan **notificaciones**, que permiten que el back-end de solución sepa que están ocurriendo distintas acciones. A continuación, estas notificaciones se [enrutan](concepts-route-events.md) a distintas ubicaciones dentro y fuera de Azure Digital Twins que pueden usar esta información para tomar medidas.
 
 Son varios los tipos de notificaciones que se pueden generar y los mensajes de notificación pueden tener un aspecto distinto en función del tipo de evento que los generó. En este artículo se proporcionan detalles sobre los diferentes tipos de mensajes y su aspecto.
 
@@ -47,11 +47,11 @@ Los atributos de extensión de los encabezados se agregarán como propiedades en
 
 ### <a name="event-notification-bodies"></a>Cuerpos de las notificaciones de eventos
 
-Los cuerpos de los mensajes de notificación se describen aquí en JSON. En función de la serialización deseada para el cuerpo del mensaje (por ejemplo, con JSON, CBOR, Protobuf, etc.), el cuerpo del mensaje se puede serializar de forma distinta.
+Los cuerpos de los mensajes de notificación se describen aquí en JSON. En función del tipo de serialización deseado para el cuerpo del mensaje (por ejemplo, con JSON, CBOR, Protobuf, etc.), el cuerpo se puede serializar de forma distinta.
 
 El conjunto de campos que contiene el cuerpo varía con los distintos tipos de notificación.
 
-En las siguientes secciones se explican con más detalle los distintos tipos de notificaciones que emite IoT Hub y Azure Digital Twins (u otros servicios de Azure IoT). Aprenderá qué desencadena cada tipo de notificación y el conjunto de campos incluido en cada tipo de cuerpo de notificación.
+En las siguientes secciones se explican con más detalle los distintos tipos de notificaciones que emite IoT Hub y Azure Digital Twins (u otros servicios de Azure IoT). Conocerá qué desencadena cada tipo de notificación y el conjunto de campos incluido en cada tipo de cuerpo de notificación.
 
 ## <a name="digital-twin-change-notifications"></a>Notificaciones de cambios de gemelo digital
 
@@ -103,11 +103,11 @@ Los datos de la notificación correspondiente (si la ejecuta sincrónicamente el
   }
 ```
 
-Esta es la información que aparecerá en el campo `data` del mensaje de notificación del ciclo de vida.
+Estos datos son la información que aparecerá en el campo `data` del mensaje de notificación del ciclo de vida.
 
 ## <a name="digital-twin-lifecycle-notifications"></a>Notificaciones de ciclo de vida de los gemelos digitales
 
-Todos los [gemelos digitales](concepts-twins-graph.md) emiten notificaciones, independientemente de si representan [dispositivos de IoT Hub en Azure Digital Twins](how-to-ingest-iot-hub-data.md) o no. Esto se debe a las **notificaciones del ciclo de vida**, que son sobre el propio gemelo digital.
+Los [gemelos digitales](concepts-twins-graph.md) emiten notificaciones, independientemente de si representan [dispositivos de IoT Hub en Azure Digital Twins](how-to-ingest-iot-hub-data.md) o no. El motivo son las **notificaciones del ciclo de vida**, que guardan relación con el propio gemelo digital.
 
 Las notificaciones del ciclo de vida se desencadenan cuando:
 * Se crea un gemelo digital
@@ -131,7 +131,7 @@ Estos son los campos del cuerpo de una notificación del ciclo de vida.
 
 ### <a name="body-details"></a>Detalles del cuerpo
 
-Este es un ejemplo de un mensaje de notificación del ciclo de vida: 
+A continuación figura un ejemplo de mensaje de notificación del ciclo de vida: 
 
 ```json
 {
@@ -153,11 +153,11 @@ Este es un ejemplo de un mensaje de notificación del ciclo de vida:
 }
 ```
 
-Dentro del mensaje, el campo `data` contiene los datos del gemelo digital afectado, representados en formato JSON. El esquema para esto es *Recurso de Digital Twins 7.1*.
+Dentro del mensaje, el campo `data` contiene los datos del gemelo digital afectado, representados en formato JSON. El esquema para este campo `data`es *Recurso de Digital Twins 7.1*.
 
 En el caso de los eventos de creación, la carga de `data` refleja el estado del gemelo una vez creado el recurso, por lo que debe incluir todos los elementos generados por el sistema tal como una llamada `GET`.
 
-Este es un ejemplo de los datos para un dispositivo [IoT Plug and Play](../iot-develop/overview-iot-plug-and-play.md), con componentes y sin propiedades de nivel superior. Se deben omitir las propiedades que no tienen sentido para los dispositivos (como las propiedades notificadas). Esta es la información que aparecerá en el campo `data` del mensaje de notificación del ciclo de vida.
+A continuación figura un ejemplo de los datos de un dispositivo [IoT Plug and Play](../iot-develop/overview-iot-plug-and-play.md), con componentes y sin propiedades de nivel superior. Se deben omitir las propiedades que no tienen sentido para los dispositivos (como las propiedades notificadas). El siguiente objeto JSON es la información que aparecerá en el campo `data` del mensaje de notificación del ciclo de vida:
 
 ```json
 {
@@ -190,7 +190,7 @@ Este es un ejemplo de los datos para un dispositivo [IoT Plug and Play](../iot-d
 }
 ```
 
-Este es otro ejemplo de los datos del gemelo digital. Se basa en un [modelo](concepts-models.md) y no admite componentes:
+A continuación figura otro ejemplo de datos de gemelo digital. Este se basa en un [modelo](concepts-models.md) y no admite componentes:
 
 ```json
 {
@@ -242,7 +242,7 @@ Estos son los campos del cuerpo de una notificación de cambio de relación.
 
 Dentro del mensaje, el campo `data` contiene la carga de una relación, en formato JSON. Usa el mismo formato como una solicitud `GET` para una relación a través de la [API DigitalTwins](/rest/api/digital-twins/dataplane/twins). 
 
-Este es un ejemplo de los datos de una notificación de relación de actualización. "Actualizar una relación" significa que las propiedades de la relación han cambiado, por lo que los datos muestran la propiedad actualizada y su nuevo valor. Esta es la información que aparecerá en el campo `data` del mensaje de notificación de la relación de los gemelos digitales.
+A continuación figura un ejemplo de los datos de una notificación de relación de actualización. "Actualizar una relación" significa que las propiedades de la relación han cambiado, por lo que los datos muestran la propiedad actualizada y su nuevo valor. El siguiente objeto JSON es la información que aparecerá en el campo `data` del mensaje de notificación de relación de gemelo digital.
 
 ```json
 {
@@ -257,7 +257,7 @@ Este es un ejemplo de los datos de una notificación de relación de actualizaci
   }
 ```
 
-Este es un ejemplo de los datos de una notificación de creación o eliminación de una relación. Para `Relationship.Delete`, el cuerpo es el mismo que la solicitud `GET` y obtiene el estado más reciente antes de la eliminación.
+A continuación figura un ejemplo de los datos de una notificación de creación o eliminación de relación. Para `Relationship.Delete`, el cuerpo es el mismo que la solicitud `GET` y obtiene el estado más reciente antes de la eliminación.
 
 ```json
 {
@@ -292,7 +292,7 @@ Estos son los campos del cuerpo de un mensaje de telemetría.
 
 El cuerpo contiene la medida de telemetría junto con información contextual sobre el dispositivo.
 
-Este es un cuerpo del mensaje de telemetría de ejemplo: 
+A continuación figura un ejemplo de cuerpo de mensaje de datos de telemetría: 
 
 ```json
 {

@@ -7,14 +7,16 @@ ms.date: 06/29/2021
 ms.topic: how-to
 ms.service: storage
 ms.subservice: disks
-ms.openlocfilehash: a6e156350be0de13b6c6bfea3f8d220830c3480e
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+ms.openlocfilehash: c57047cdaf848bc27805d8819be515636d492676
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113360782"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122687556"
 ---
 # <a name="benchmark-a-disk"></a>Realización de pruebas comparativas de un disco
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles :heavy_check_mark: Conjuntos de escalado uniformes
 
 Las pruebas comparativas consisten en el proceso de simular cargas de trabajo diferentes en la aplicación y medir el rendimiento de las aplicaciones para cada carga de trabajo. Mediante los pasos descritos en el artículo sobre el [diseño con alto rendimiento](premium-storage-performance.md), recopiló los requisitos de rendimiento de las aplicaciones. Al ejecutar las herramientas de pruebas comparativas en las máquinas virtuales en las que se hospeda la aplicación, puede determinar los niveles de rendimiento que la aplicación puede lograr con discos SSD prémium. En este artículo, se proporcionan ejemplos de pruebas comparativas realizadas con una máquina virtual Standard_D8ds_v4 aprovisionada con discos SSD prémium de Azure.
 

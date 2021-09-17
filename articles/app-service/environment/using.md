@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/06/2021
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 1d51fff9739ecb928ff2f11f53b58b190122d69d
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+ms.openlocfilehash: 131c8d2abc21e046a96488a602b831361f64dcf4
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113432831"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122446226"
 ---
 # <a name="using-an-app-service-environment"></a>Uso de App Service Environment
 
@@ -163,13 +163,17 @@ Esta función cifrará el tráfico de red interno en el ASE entre los servidores
 
 ## <a name="upgrade-preference"></a>Preferencia de actualización
 
-Si tiene varias instancias de ASE, es posible que prefiera que unas se actualicen antes que otras. En el objeto **HostingEnvironment del ASE de Resource Manager**, puede establecer un valor en **upgradePreference**. El valor de **upgradePreference** se puede configurar utilizando una plantilla, ARMClient o https://resources.azure.com. Estos son los tres valores posibles:
+Si tiene varias instancias de ASE, es posible que prefiera que unas se actualicen antes que otras. Este comportamiento se puede habilitar a través del portal de ASE.  En **Configuración**, tiene la opción de establecer la **preferencia de actualización**. Estos son los tres valores posibles:
 
 - **Ninguna**: Azure actualizará la instancia de ASE en alguno de los lotes. Este es el valor predeterminado.
 - **Early**: la instancia de ASE se actualizará durante la primera mitad de las actualizaciones de App Service.
 - **Late**: la instancia de ASE se actualizará durante la segunda mitad de las actualizaciones de App Service.
 
-Para configurar las preferencias de actualización, vaya a la interfaz de usuario de **configuración** del ASE. Tiene más sentido utilizar la característica **upgradePreferences** cuando hay varias instancias de ASE, porque las que estén configuradas con el valor "Early" (Pronto) se actualizarán antes de las que tienen el valor "Late" (Tarde). Si tiene varias instancias de ASE, los entornos de ASE de desarrollo y pruebas deben establecerse en "Early", mientras que los entornos de ASE de producción deben establecerse en "Late".
+Seleccione el valor deseado y seleccione **Guardar**.  El valor predeterminado de cualquier ASE es **Ninguno**.
+
+![Portal de configuración de ASE][5]
+
+Tiene más sentido utilizar la característica **upgradePreferences** cuando hay varias instancias de ASE, porque las que estén configuradas con el valor "Early" (Pronto) se actualizarán antes de las que tienen el valor "Late" (Tarde). Si tiene varias instancias de ASE, los entornos de ASE de desarrollo y pruebas deben establecerse en "Early", mientras que los entornos de ASE de producción deben establecerse en "Late".
 
 ## <a name="delete-an-ase"></a>Eliminar un entorno ASE
 
@@ -179,6 +183,16 @@ Para eliminar un entorno ASE:
 1. Escriba el nombre de su ASE para confirmar que desea eliminarlo. Cuando se elimina un entorno ASE, también se elimina todo su contenido.
 ![Eliminación de ASE][3]
 1. Seleccione **Aceptar**.
+
+## <a name="pricing"></a>Precios 
+
+ASEv3 aplica un modelo de precios distinto en función del tipo de implementación de ASE que tenga. A continuación se indican los tres modelos de precios: 
+
+- **ASEv3**: si ASE está vacío, se aplica un cargo como si tuviera un ASP con una instancia de Windows I1v2. El cargo de única instancia no es adicional, solo se aplica si el ASE está vacío.
+- **ASEv3 de zona de disponibilidad**: hay un cargo mínimo por nueve instancias de Windows I1v2. No hay ningún cargo adicional por compatibilidad con zonas de disponibilidad si tiene nueve o más instancias de plan de App Service. Todos los planes de App Service en una instancia de AZ ASEv3 también tienen tres instancias como mínimo para asegurarse de que hay una instancia en cada zona de disponibilidad. A medida que los planes se escalan horizontalmente, se reparten entre las zonas de disponibilidad. 
+- **ASEv3 de host dedicado**: con una implementación de host dedicado, se le cobran dos hosts dedicados según nuestros precios al crear una instancia de ASEv3 y, a continuación, un pequeño porcentaje de la tarifa del plan Aislado V2 por núcleo a medida que escala.
+
+Los precios de instancias reservadas para Isolated v2 están disponibles y se describen en [Cómo se aplican los descuentos de reserva a Azure App Service][reservedinstances]. Los precios, junto con los precios de las instancias reservadas, están disponibles en [Precios de App Service][pricing] del **plan Aislado v2**. 
 
 <!--Image references-->
 
@@ -206,3 +220,5 @@ Para eliminar un entorno ASE:
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../web-application-firewall/ag/ag-overview.md
 [logalerts]: ../../azure-monitor/alerts/alerts-log.md
+[reservedinstances]: https://docs.microsoft.com/azure/cost-management-billing/reservations/reservation-discount-app-service#how-reservation-discounts-apply-to-isolated-v2-instances
+[pricing]: https://azure.microsoft.com/pricing/details/app-service/windows/

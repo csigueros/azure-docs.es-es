@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/04/2021
+ms.date: 07/30/2021
 ms.author: jeedes
-ms.openlocfilehash: 91f6db79b7d18dc8b34ba1712d74a92000d63528
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 362b2108fb76716b0ad8f81aa2cca4215a97a570
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104953687"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121746976"
 ---
 # <a name="tutorial-azure-active-directory-sso-integration-with-kemp-loadmaster-azure-ad-integration"></a>Tutorial: Integración del inicio de sesión único de Azure Active Directory con Kemp LoadMaster
 
@@ -26,12 +26,15 @@ En este tutorial, aprenderá a integrar Kemp LoadMaster con Azure Active Directo
 * Permitir que los usuarios inicien sesión automáticamente en Kemp LoadMaster con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
 * Una suscripción de Azure AD. Si no tiene una suscripción, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/).
 * Una suscripción habilitada para el inicio de sesión único en Kemp LoadMaster.
+
+> [!NOTE]
+> Esta integración también está disponible para usarse desde el entorno de la nube del gobierno de EE. UU de Azure AD. Puede encontrar esta aplicación en la galería de aplicaciones de la nube del gobierno de EE. UU. de Azure AD y configurarla de la misma manera que en la nube pública.
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
@@ -251,7 +254,7 @@ Vaya a Manage SSO (Administrar SSO) en Virtual Services (Servicios virtuales).
 
 ### <a name="set-authentication"></a>Establecimiento de la autenticación  
  
-En la consola web de Kemp LoadMaster:
+En la consola web de Kemp LoadMaster.
 
 1. Haga clic en Virtual Services (Servicios virtuales).
 

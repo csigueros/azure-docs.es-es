@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto, emlisa
-ms.date: 10/26/2020
-ms.openlocfilehash: 084f9aae16cfbf495f05c90c8244b2b9b71cf624
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.date: 08/23/2021
+ms.openlocfilehash: 9326797e16190b3570ed6faca4d724bec432bc86
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107812991"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122767919"
 ---
 # <a name="an-overview-of-azure-sql-database-and-sql-managed-instance-security-capabilities"></a>Información general sobre las capacidades de seguridad de Azure SQL Database e Instancia administrada de SQL
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -69,9 +69,9 @@ La autenticación es el proceso por el cual se demuestra que el usuario es quien
 
 ## <a name="authorization"></a>Authorization
 
-La autorización hace referencia a los permisos asignados a un usuario dentro de una base de datos de Azure SQL Database o Instancia administrada de Azure SQL, y determina qué puede hacer el usuario. Los permisos se controlan mediante la adición de cuentas de usuario a [roles de base de datos](/sql/relational-databases/security/authentication-access/database-level-roles) y la asignación de permisos de nivel de base de datos a estos roles o concediendo al usuario determinados [permisos de nivel de objeto](/sql/relational-databases/security/permissions-database-engine). Para más información, consulte [Inicios de sesión y usuarios](logins-create-manage.md).
+La autorización hace referencia al control del acceso en los recursos y comandos dentro de una base de datos. Esto se realiza mediante la asignación de permisos a un usuario dentro de una base de datos en Azure SQL Database o Azure SQL Managed Instance. Los permisos se administran idealmente mediante la adición de cuentas de usuario a [roles de base de datos](/sql/relational-databases/security/authentication-access/database-level-roles) y la asignación de permisos de nivel de base de datos a estos roles. Como alternativa, también se pueden conceder determinados [permisos de nivel de objeto](/sql/relational-databases/security/permissions-database-engine) a un usuario individual. Para más información, consulte [Inicios de sesión y usuarios](logins-create-manage.md).
 
-Como procedimiento recomendado, cree roles personalizados cuando sea necesario. Agregue usuarios al rol con los privilegios mínimos necesarios para realizar su función de trabajo. No asigne permisos directamente a los usuarios. La cuenta de administrador del servidor es un miembro del rol db_owner integrado, que tiene amplios permisos y se debe conceder solo a pocos usuarios con responsabilidades administrativas. En las aplicaciones, use [EXECUTE AS](/sql/t-sql/statements/execute-as-clause-transact-sql) para especificar el contexto de ejecución del módulo llamado o use [Roles de la aplicación](/sql/relational-databases/security/authentication-access/application-roles) con permisos limitados. Esta práctica garantiza que la aplicación que se conecta a la base de datos tenga los privilegios mínimos necesarios para la aplicación. Seguir estos procedimientos recomendados también fomenta la separación de responsabilidades.
+Como procedimiento recomendado, cree roles personalizados cuando sea necesario. Agregue usuarios al rol con los privilegios mínimos necesarios para realizar su función de trabajo. No asigne permisos directamente a los usuarios. La cuenta de administrador del servidor es un miembro del rol db_owner integrado, que tiene amplios permisos y se debe conceder solo a pocos usuarios con responsabilidades administrativas. Para limitar aún más el ámbito de lo que un usuario puede hacer, se puede usar [EJECUTAR COMO](/sql/t-sql/statements/execute-as-clause-transact-sql) para especificar el contexto de ejecución del módulo llamado. Seguir estos procedimientos recomendados también es un paso fundamental hacia la separación de obligaciones.
 
 ### <a name="row-level-security"></a>Seguridad de nivel de fila
 
@@ -140,7 +140,7 @@ La [evaluación de vulnerabilidades](sql-vulnerability-assessment.md) es un serv
 
 ### <a name="data-discovery-and-classification"></a>Clasificación y detección de datos
 
-La clasificación y detección de datos (actualmente en versión preliminar) proporciona capacidades avanzadas integradas en Azure SQL Database e Instancia administrada de SQL para detectar, clasificar, etiquetar y proteger los datos confidenciales de las bases de datos. Las funciones de detección y clasificación de la información confidencial más importante (empresarial, financiera, médica, personal, etc.) desempeñan un rol fundamental en el modo en que se protege la información de su organización. Puede servir como infraestructura para lo siguiente:
+La clasificación y detección de datos (actualmente en versión preliminar) proporciona capacidades básicas integradas en Azure SQL Database y SQL Managed Instance para detectar, clasificar y etiquetar los datos confidenciales de las bases de datos. Las funciones de detección y clasificación de la información confidencial más importante (empresarial, financiera, médica, personal, etc.) desempeñan un rol fundamental en el modo en que se protege la información de su organización. Puede servir como infraestructura para lo siguiente:
 
 - Varios escenarios de seguridad, como la supervisión (auditoría) y las alertas relacionadas con accesos anómalos a información confidencial.
 - Controlar el acceso y mejorar la seguridad de las bases de datos que contienen información altamente confidencial.

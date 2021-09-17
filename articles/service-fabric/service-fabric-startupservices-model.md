@@ -3,15 +3,17 @@ title: Definición de la configuración de servicio de StartupServices.xml para 
 description: Aprenda a usar StartupServices.xml para separar la configuración de nivel de servicio de ApplicationManifest.xml.
 ms.topic: conceptual
 ms.date: 05/05/2021
-ms.openlocfilehash: 2b11e1dfdfec357d48ee95cabb35c87e71123bc8
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 69ec795bab910f8f2b030ab5758698d3fdbae824
+ms.sourcegitcommit: deb5717df5a3c952115e452f206052737366df46
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110483067"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122681382"
 ---
 # <a name="introducing-startupservicesxml-in-service-fabric-application"></a>Introducción a StartupServices.xml en una aplicación de Service Fabric
-Esta característica presenta el archivo StartupServices.xml en un diseño de aplicación de Service Fabric. Este archivo hospeda la sección DefaultServices de ApplicationManifest.xml. Con esta implementación, los parámetros DefaultServices y relacionados con la definición de servicio se mueven del archivo ApplicationManifest.xml existente a este nuevo archivo denominado StartupServices.xml. Este archivo se usa en cada funcionalidad (Compilar/Recompilar/F5/Ctrl+F5/Publicar) de Visual Studio.
+Esta característica presenta el archivo StartupServices.xml en un diseño de aplicación de Service Fabric. Este archivo hospeda la sección DefaultServices de ApplicationManifest.xml. Con esta implementación, los parámetros DefaultServices y relacionados con la definición de servicio se mueven del archivo ApplicationManifest.xml existente a este nuevo archivo denominado StartupServices.xml. Este archivo se usa en cada función (Compilación/Recompilación/F5/Ctrl+F5/Publicación) en Visual Studio.
+
+Nota: StartupServices.xml solo está pensado para implementaciones de Visual Studio y tiene como finalidad garantizar que los paquetes implementados con Visual Studio (con StartupServices.xml) no tengan conflictos con los servicios implementados mediante ARM. StartupServices.xml no forma parte de un paquete de aplicación. No se admite en una canalización de DevOps, y el cliente debe implementar cada servicio en la aplicación, ya sea a través de ARM o mediante cmdlets con la configuración deseada.
 
 ## <a name="existing-service-fabric-application-design"></a>Diseño de aplicación de Service Fabric existente
 En cada aplicación de Service Fabric, ApplicationManifest.xml es el origen de toda la información relacionada con el servicio de la aplicación. ApplicationManifest.xml consta de todas las secciones: Parameters, ServiceManifestImport y DefaultServices. Los parámetros de configuración se mencionan en Cloud.xml/Local1Node.xml/Local5Node.xml en ApplicationParameters.

@@ -1,21 +1,21 @@
 ---
 title: Solución de problemas con consultas de diagnóstico avanzadas para Cassandra API
 titleSuffix: Azure Cosmos DB
-description: Obtenga información sobre cómo consultar registros de diagnóstico para solucionar problemas de los datos almacenados en Azure Cosmos DB para Cassandra API.
+description: Aprenda a consultar registros de diagnóstico para solucionar problemas de los datos almacenados en Azure Cosmos DB para Cassandra API.
 author: StefArroyo
 services: cosmos-db
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/12/2021
 ms.author: esarroyo
-ms.openlocfilehash: edb0dd88ef9e4d3578357b3b64ab0d0b061e1d7b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 87fcbdff81f8885fd2c173193660aeb5aec2cf9c
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121780415"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122609662"
 ---
-# <a name="troubleshoot-issues-with-advanced-diagnostics-queries-for-cassandra-api"></a>Solución de problemas con consultas de diagnóstico avanzadas para Cassandra API
+# <a name="troubleshoot-issues-with-advanced-diagnostics-queries-for-the-cassandra-api"></a>Solución de problemas con consultas de diagnóstico avanzadas para Cassandra API
 
 [!INCLUDE[appliesto-all-apis-except-table](../includes/appliesto-all-apis-except-table.md)]
 
@@ -26,15 +26,20 @@ ms.locfileid: "121780415"
 > * [Gremlin API](../queries-gremlin.md)
 
 
-En este artículo, explicaremos cómo escribir consultas más avanzadas para ayudar a solucionar problemas relacionados con la cuenta de Azure Cosmos DB mediante registros de diagnóstico enviados a las tablas **AzureDiagnostics (heredada)** y **específicas del recurso (versión preliminar)** .
+En este artículo, se explicará cómo escribir consultas más avanzadas para ayudar a solucionar problemas relacionados con la cuenta de Azure Cosmos DB mediante registros de diagnóstico enviados a las tablas de **Azure Diagnostics (heredado)** y **específicas del recurso (versión preliminar)** .
 
-En el caso de las tablas de Azure Diagnostics, todos los datos se escriben en una sola tabla y los usuarios tendrán que especificar la categoría que desean consultar. Si quiere ver la consulta de texto completo de la solicitud, [siga este artículo](../cosmosdb-monitor-resource-logs.md#full-text-query) para aprender cómo habilitar esta característica.
+Para las tablas de Azure Diagnostics, todos los datos se escriben en una única tabla. Los usuarios especifican qué categoría quieren consultar. Si quiere ver la consulta de texto completo de la solicitud, vea [Supervisión de datos de Azure Cosmos DB mediante la configuración de diagnóstico en Azure](../cosmosdb-monitor-resource-logs.md#full-text-query) para obtener información sobre cómo habilitar esta característica.
 
-En el caso de las [tablas específicas del recurso](../cosmosdb-monitor-resource-logs.md#create-setting-portal), los datos se escriben en tablas individuales para cada categoría del recurso. Recomendamos este modo, ya que facilita el trabajo con los datos, proporciona una mejor detectabilidad de los esquemas y mejora el rendimiento tanto en la latencia de ingesta como en los tiempos de consulta.
+En el caso de las [tablas específicas del recurso](../cosmosdb-monitor-resource-logs.md#create-setting-portal), los datos se escriben en tablas individuales para cada categoría del recurso. Se recomienda este modo porque:
+
+- Facilita considerablemente el trabajo con los datos. 
+- Proporciona una mejor detectabilidad de los esquemas.
+- Mejora el rendimiento tanto de la latencia de ingesta como de los tiempos de consulta.
 
 ## <a name="common-queries"></a>Consultas comunes
+Las consultas comunes se muestran en las tablas específicas del recurso y de Azure Diagnostics.
 
-- Principales N(10) RU que consumen solicitudes o consultas en un período de tiempo determinado
+### <a name="top-n10-request-unit-ru-consuming-requests-or-queries-in-a-specific-time-frame"></a>Principales N(10) unidades de solicitud (RU) que consumen solicitudes o consultas en un período de tiempo específico
 
 # <a name="resource-specific"></a>[Específico del recurso](#tab/resource-specific)
 
@@ -66,7 +71,7 @@ En el caso de las [tablas específicas del recurso](../cosmosdb-monitor-resource
    ```    
 ---
 
-- Solicitudes limitadas (statusCode = 429) en un período de tiempo determinado 
+### <a name="requests-throttled-statuscode--429-in-a-specific-time-window"></a>Solicitudes limitadas (statusCode = 429) en un período de tiempo determinado 
 
 # <a name="resource-specific"></a>[Específico del recurso](#tab/resource-specific)
 
@@ -95,7 +100,7 @@ En el caso de las [tablas específicas del recurso](../cosmosdb-monitor-resource
    ```    
 ---
 
-- Consultas con longitudes de respuesta largas (tamaño de la carga de la respuesta del servidor)
+### <a name="queries-with-large-response-lengths-payload-size-of-the-server-response"></a>Consultas con longitudes de respuesta largas (tamaño de la carga de la respuesta del servidor)
 
 # <a name="resource-specific"></a>[Específico del recurso](#tab/resource-specific)
 
@@ -126,7 +131,7 @@ En el caso de las [tablas específicas del recurso](../cosmosdb-monitor-resource
    ```    
 ---
 
-- Consumo de RU por partición física (en todas las réplicas del conjunto de réplicas)
+### <a name="ru-consumption-by-physical-partition-across-all-replicas-in-the-replica-set"></a>Consumo de RU por partición física (en todas las réplicas del conjunto de réplicas)
 
 # <a name="resource-specific"></a>[Específico del recurso](#tab/resource-specific)
 
@@ -156,7 +161,7 @@ En el caso de las [tablas específicas del recurso](../cosmosdb-monitor-resource
    ```    
 ---
 
-- Consumo de RU por partición lógica (en todas las réplicas del conjunto de réplicas)
+### <a name="ru-consumption-by-logical-partition-across-all-replicas-in-the-replica-set"></a>Consumo de RU por partición lógica (en todas las réplicas del conjunto de réplicas)
 
 # <a name="resource-specific"></a>[Específico del recurso](#tab/resource-specific)
    ```Kusto
@@ -186,6 +191,5 @@ En el caso de las [tablas específicas del recurso](../cosmosdb-monitor-resource
 ---
 
 ## <a name="next-steps"></a>Pasos siguientes 
-* Para obtener más información sobre cómo crear una configuración de diagnóstico para Cosmos DB, consulte el artículo sobre cómo [crear una configuración de diagnóstico](../cosmosdb-monitor-resource-logs.md).
-
-* Para obtener información detallada sobre cómo crear una configuración de diagnóstico mediante Azure Portal, la CLI o PowerShell, consulte el artículo [Creación de una configuración de diagnóstico para recopilar registros de plataforma y métricas en Azure](../../azure-monitor/essentials/diagnostic-settings.md).
+* Para obtener más información sobre cómo crear una configuración de diagnóstico para Azure Cosmos DB, vea [Creación de una configuración de diagnóstico](../cosmosdb-monitor-resource-logs.md).
+* Para obtener más información sobre cómo crear una configuración de diagnóstico mediante Azure Portal, la CLI de Azure o PowerShell, vea [Creación de una configuración de diagnóstico para recopilar los registros y las métricas de la plataforma en Azure](../../azure-monitor/essentials/diagnostic-settings.md).

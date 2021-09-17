@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 07/23/2021
 ms.author: inhenkel
-ms.openlocfilehash: 9b45671496f114eaf708aad92def220a3b81349e
-ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
+ms.openlocfilehash: 079575148585c508224b6767b2eba61a16463fa0
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2021
-ms.locfileid: "114690219"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121732742"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---net"></a>Tutorial: Codificación de un archivo remoto según una dirección URL y transmisión del vídeo: .NET
 
@@ -33,12 +33,12 @@ Al final del tutorial, podrá transmitir un vídeo en streaming.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Instale [Visual Studio Code para Windows, macOS o Linux](https://code.visualstudio.com/) o [Visual Studio 2019 para Windows o Mac](https://visualstudio.microsoft.com/).
 - Instale el [SDK para .NET 5.0](https://dotnet.microsoft.com/download).
 - [Cree una cuenta de Media Services](./account-create-how-to.md). Asegúrese de copiar los detalles de **acceso a la API** en formato JSON o de almacenar los valores necesarios para conectarse a la cuenta de Media Services en el formato de archivo *.env* que se usa en este ejemplo.
-- Siga los pasos que se indican en [Acceso a la API de Azure Media Services con la CLI de Azure](./access-api-howto.md) y guarde las credenciales. Las necesitará para acceder a la API de este ejemplo, o bien deberá especificarlas en el formato de archivo *.env*.
+- Siga los pasos que se indican en [Acceso a la API de Azure Media Services con la CLI de Azure](./access-api-howto.md). Asegúrese de *guardar las credenciales*. Las necesitará para acceder a la API de este ejemplo, o bien deberá especificarlas en el formato de archivo *.env*.
 
 ## <a name="download-and-configure-the-sample"></a>Descarga y configuración del ejemplo
 
@@ -48,7 +48,7 @@ Clone un repositorio GitHub que contenga el ejemplo de .NET de streaming en la m
  git clone https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts.git
  ```
 
-El ejemplo se encuentra en la carpeta [EncodeAndStreamFiles](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/tree/master/AMSV3Quickstarts/EncodeAndStreamFiles).
+El ejemplo se encuentra en la carpeta [EncodeAndStreamFiles](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/tree/master/AMSV3Quickstarts/EncodeAndStreamFiles), en EncodeAndStreamFiles.
 
 [!INCLUDE [appsettings or .env file](./includes/note-appsettings-or-env-file.md)]
 
@@ -68,8 +68,9 @@ Para obtener una explicación sobre qué hace cada función en el ejemplo, exami
 
 Al ejecutar la aplicación, se muestran las direcciones URL que se pueden usar para reproducir el vídeo con diferentes protocolos. 
 
-1. Presione Control + F5 para ejecutar la aplicación *EncodeAndStreamFiles*.
-2. Elija el protocolo **HLS** de Apple (termina por *manifest(format=m3u8-aapl)* ) y copie la dirección URL del streaming desde la consola.
+1. Abra AMSV3Quickstarts en VSCode.
+2. Presione Control + F5 para ejecutar la aplicación *EncodeAndStreamFiles* con .NET. Esta operación puede tardar unos minutos.
+3. La aplicación mostrará tres direcciones URL. Usará estas direcciones URL para probar la secuencia en el paso siguiente.
 
 ![Captura de pantalla de la salida de la aplicación EncodeAndStreamFiles en Visual Studio que muestra tres direcciones URL de streaming para su uso en Azure Media Player.](./media/stream-files-tutorial-with-api/output.png)
 
@@ -86,7 +87,7 @@ Para probar el streaming, este artículo usa Azure Media Player.
 2. En el cuadro **Dirección URL:** , pegue uno de los valores de la dirección URL de streaming que se obtuvo al ejecutar la aplicación. 
  
      Puede pegar la dirección URL en formato HLS, Dash o Smooth y Azure Media Player cambiará automáticamente a un protocolo de streaming adecuado en su dispositivo.
-3. Presione **Actualizar Player**.
+3. Presione **Actualizar Player**. Esto debería empezar a reproducir el archivo de vídeo en el repositorio.
 
 Azure Media Player puede usarse para realizar pruebas, pero no debe usarse en un entorno de producción. 
 

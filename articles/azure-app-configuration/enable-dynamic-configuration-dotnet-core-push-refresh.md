@@ -14,12 +14,12 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 07/25/2020
 ms.author: jken
-ms.openlocfilehash: f330e69d37ac36e2a374e81fbffc6235c86feedd
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 4ad0f2c20c0d704b2c101f975d1b62fc7dc71aca
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105625728"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121750346"
 ---
 # <a name="tutorial-use-dynamic-configuration-using-push-refresh-in-a-net-core-app"></a>Tutorial: Uso de la configuración dinámica mediante una actualización de inserción en una aplicación de .NET Core
 
@@ -76,7 +76,7 @@ Una vez creados los recursos, agregue las siguientes variables de entorno. Se us
 
 1. Haga clic en `Create` (Crear) para crear la suscripción de eventos.
 
-1. Haga clic en `Event Subscriptions` (Suscripciones de eventos) en el panel `Events` (Eventos) para validar que la suscripción se ha creado correctamente.
+1. Haga clic en `Event Subscriptions` (Suscripciones de eventos) en el panel `Events` (Eventos) para asegurarse de que la suscripción se haya creado correctamente.
 
     ![Suscripciones de eventos de App Configuration](./media/event-subscription-view.png)
 

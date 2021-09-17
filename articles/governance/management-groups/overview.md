@@ -1,15 +1,14 @@
 ---
 title: 'Organización de los recursos con grupos de administración: Servicios de gobernanza de Azure'
 description: Más información sobre los grupos de administración, el funcionamiento de sus permisos y cómo utilizarlos.
-ms.date: 04/28/2021
+ms.date: 08/17/2021
 ms.topic: overview
-ms.custom: contperf-fy21q1
-ms.openlocfilehash: b3624500632d0f02d4b255aef6b836ee0491ff83
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 541ac526ba7105322cb00a7fd26f1c7075af0a60
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108733627"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122323007"
 ---
 # <a name="what-are-azure-management-groups"></a>¿Qué son los grupos de administración de Azure?
 
@@ -190,6 +189,10 @@ Si va a realizar la acción de movimiento, necesitará lo siguiente:
 **Excepción**: Si el grupo de administración primario existente o de destino es el grupo de administración raíz, no se aplican los requisitos de permisos. Puesto que el grupo de administración raíz es la zona de aterrizaje predeterminada de todos los nuevos grupos de administración y suscripciones, no necesita permisos sobre él para mover un elemento.
 
 Si el rol de propietario de la suscripción se hereda del grupo de administración actual, los destinos de movimiento están limitados. Solo puede mover la suscripción a otro grupo de administración en el que tenga el rol de propietario. No puede moverla a un grupo de administración en el que sea colaborador porque perdería la propiedad de la suscripción. Si se le asigna directamente el rol de propietario de la suscripción (no se hereda del grupo de administración), puede moverlo a cualquier grupo de administración donde sea colaborador.
+
+> [!IMPORTANT]
+> Azure Resource Manager almacena en caché los detalles de la jerarquía del grupo de administración durante un máximo de 30 minutos.
+> Como resultado, es posible que al mover un grupo de administración no se refleje inmediatamente en Azure Portal. 
 
 ## <a name="audit-management-groups-using-activity-logs"></a>Auditoría de los grupos de administración mediante registros de actividad
 

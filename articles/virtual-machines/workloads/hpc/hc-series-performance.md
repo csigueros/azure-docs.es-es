@@ -8,14 +8,16 @@ ms.topic: article
 ms.date: 09/10/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 177a58090303a70491d9a9226eca40d0bb371764
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 40cdd0ffeafe9e55444eb6ac4836a335aacbacc1
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104722266"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122687502"
 ---
 # <a name="hc-series-virtual-machine-sizes"></a>Tamaños de las máquinas virtuales de la serie HC
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles :heavy_check_mark: Conjuntos de escalado uniformes
 
 Se han realizado varias pruebas de rendimiento en los distintos tamaños de la serie HC. Estos son algunos de los resultados de esta prueba.
 

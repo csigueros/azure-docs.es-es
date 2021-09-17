@@ -1,28 +1,30 @@
 ---
-title: Ejecución y desencadenadores de canalización en Azure Data Factory
-description: En este artículo se indica cómo ejecutar una canalización de Azure Data Factory a petición o mediante la creación de un desencadenador.
+title: Ejecución y desencadenadores de canalización
+titleSuffix: Azure Data Factory & Azure Synapse
+description: En este artículo se proporciona información sobre cómo ejecutar una canalización en Azure Data Factory o Azure Synapse Analytics, ya sea a petición o creando un desencadenador.
 author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: orchestration
 ms.topic: conceptual
-ms.date: 07/05/2018
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e0696d648fa176314c4ed73eb68f4edbd73c32a2
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.date: 08/24/2021
+ms.custom: devx-track-azurepowershell, synapse
+ms.openlocfilehash: b0fda7e6376cd7adb302db2c0f3aac39da38b407
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110675147"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122821514"
 ---
-# <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Ejecución y desencadenadores de canalización en Azure Data Factory
+# <a name="pipeline-execution-and-triggers-in-azure-data-factory-or-azure-synapse-analytics"></a>Ejecución y desencadenadores de canalizaciones en Azure Data Factory o Azure Synapse Analytics
 
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
 > * [Versión 1](v1/data-factory-scheduling-and-execution.md)
 > * [Versión actual](concepts-pipeline-execution-triggers.md)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Una _ejecución de canalización_ en Azure Data Factory define una instancia de dicha ejecución. Por ejemplo, supongamos que tiene una canalización que se ejecuta las 8:00 a. m., 9:00 a. m. y 10:00 a. m. En este caso, hay tres ejecuciones independientes de la canalización o ejecuciones de canalización. Cada canalización ejecutar tiene un identificador de canalización único. El identificador de ejecución es un GUID que define de forma exclusiva una ejecución de canalización concreta.
+Una _ejecución de canalización_ en Azure Data Factory y Azure Synapse Analytics define una instancia de dicha ejecución. Por ejemplo, supongamos que tiene una canalización que se ejecuta las 8:00 a. m., 9:00 a. m. y 10:00 a. m. En este caso, hay tres ejecuciones independientes de la canalización o ejecuciones de canalización. Cada canalización ejecutar tiene un identificador de canalización único. El identificador de ejecución es un GUID que define de forma exclusiva una ejecución de canalización concreta.
 
 Normalmente las instancias de ejecuciones de canalización se crean al pasar argumentos a parámetros que se definen en las canalizaciones. Puede ejecutar una canalización manualmente o mediante un _desencadenador_. En este artículo se proporcionan detalles sobre ambas maneras de ejecutar una canalización.
 
@@ -133,11 +135,11 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
 Para obtener un ejemplo completo, vea [Inicio rápido: Creación de una factoría de datos y una canalización con SDK de .NET](quickstart-create-data-factory-dot-net.md).
 
 > [!NOTE]
-> Puede utilizar el SDK de .NET para invocar las canalizaciones de Data Factory desde Azure Functions o de sus servicios web, entre otros.
+> Puede utilizar el SDK de .NET para invocar canalizaciones desde Azure Functions, desde sus servicios web, etc.
 
 ## <a name="trigger-execution"></a>Ejecución del desencadenador
 
-Los desencadenadores son otra forma de realizar una ejecución de canalización. Los desencadenadores representan una unidad de procesamiento que determina cuándo es necesario poner en marcha una ejecución de canalización. Actualmente, Data Factory admite tres tipos de desencadenadores:
+Los desencadenadores son otra forma de realizar una ejecución de canalización. Los desencadenadores representan una unidad de procesamiento que determina cuándo es necesario poner en marcha una ejecución de canalización. Actualmente, el servicio admite tres tipos de desencadenadores:
 
 - Desencadenador de programación: un desencadenador que invoca una canalización en una programación de reloj.
 

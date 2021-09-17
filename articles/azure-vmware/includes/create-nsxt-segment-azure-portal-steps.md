@@ -3,12 +3,15 @@ title: Incorporación de un segmento de red de NSX-T en Azure VMware Solution
 description: Pasos para agregar un segmento de red de NSX-T para Azure VMware Solution en Azure Portal.
 ms.topic: include
 ms.date: 07/16/2021
-ms.openlocfilehash: 7744884da7e1e6d46428bb00b52f88772c866760
-ms.sourcegitcommit: 92dd25772f209d7d3f34582ccb8985e1a099fe62
+author: shortpatti
+ms.author: v-patsho
+ms.service: azure-vmware
+ms.openlocfilehash: 4b153d95ad339d3a71d5b227e0f794675014a28c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114229342"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121734197"
 ---
 <!-- Used in configure-dhcp-azure-vmware-solution.md and tutorial-nsx-t-network-segment.md -->
 
@@ -26,7 +29,7 @@ ms.locfileid: "114229342"
 
    - **Subnet gateway** (Puerta de enlace de subred): dirección IP de la puerta de enlace de la subred del segmento con una máscara de subred. Las máquinas virtuales están conectadas a un segmento lógico y todas las máquinas virtuales que se conectan a este segmento pertenecen a la misma subred.  Además, todas las máquinas virtuales conectadas a este segmento lógico deben llevar una dirección IP del mismo segmento.
 
-   - **DHCP** (opcional): intervalos DHCP para un segmento lógico. Para consumir DHCP en segmentos, se debe configurar un [servidor DHCP o una retransmisión DHCP](../configure-dhcp-azure-vmware-solution.md).  
+   - **DHCP** (opcional): intervalos DHCP para un segmento lógico. Para consumir DHCP en segmentos, debe configurar un [servidor DHCP o una retransmisión DHCP](../configure-dhcp-azure-vmware-solution.md).    
 
    >[!NOTE]
    >**Connected gateway** (Puerta de enlace conectada): se selecciona de manera predeterminada y es de solo lectura.  Muestra la puerta de enlace de nivel 1 y el tipo de información del segmento. 

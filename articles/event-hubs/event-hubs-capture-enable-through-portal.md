@@ -3,12 +3,12 @@ title: 'Event Hubs: Capturar eventos de streaming mediante Azure Portal'
 description: En este artículo se describe cómo habilitar la captura de eventos que se transmiten en secuencias a través de Azure Event Hubs mediante Azure Portal.
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: 8c89a6e56c2d0bc7b7ff09d5fd63737009239eb9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b603af17ca4e46b8004b7b2550cddd87164da157
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100653958"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122253642"
 ---
 # <a name="enable-capturing-of-events-streaming-through-azure-event-hubs"></a>Habilitación de la captura de eventos que se transmiten por streaming mediante Azure Event Hubs
 
@@ -34,7 +34,7 @@ La ventana de tiempo predeterminada es cinco minutos. El valor mínimo es 1 y el
 
 ## <a name="capture-data-to-azure-data-lake-storage-gen-2"></a>Captura de datos para Azure Data Lake Storage Gen2 
 
-1. Siga los pasos del artículo [Crear una cuenta de almacenamiento](../storage/common/storage-account-create.md?tabs=azure-portal#create-a-storage-account) para crear una cuenta de Azure Storage. Establezca **Espacio de nombres jerárquico** en **Habilitado** en la pestaña **Opciones avanzadas** para convertirlo en una cuenta de Azure Data Lake Storage Gen2.
+1. Siga los pasos del artículo [Crear una cuenta de almacenamiento](../storage/common/storage-account-create.md?tabs=azure-portal#create-a-storage-account) para crear una cuenta de Azure Storage. Establezca **Espacio de nombres jerárquico** en **Habilitado** en la pestaña **Opciones avanzadas** para convertirlo en una cuenta de Azure Data Lake Storage Gen2. La cuenta de Azure Storage debe encontrarse en la misma suscripción que el centro de eventos.
 2. Al crear un centro de eventos, siga estos pasos: 
 
     1. Seleccione **Activar** para **Capture**. 

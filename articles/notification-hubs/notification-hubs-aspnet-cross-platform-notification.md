@@ -11,17 +11,17 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: multiple
 ms.topic: article
-ms.date: 09/14/2020
+ms.date: 08/23/2021
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 10/02/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3f8f9357fff4773467dd93046ece8533514eb444
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 01d6d1cffaa0ae9928c24015570f882036b1e783
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92313902"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122771441"
 ---
 # <a name="send-cross-platform-notifications-with-azure-notification-hubs"></a>Envío de notificaciones entre plataformas con Azure Notification Hubs
 
@@ -36,6 +36,9 @@ En este artículo se muestra cómo aprovechar las plantillas para enviar una not
 > Con Notification Hubs, un dispositivo puede registrar varias plantillas con la misma etiqueta. En este caso, un mensaje entrante dirigido a esa etiqueta da lugar a que se entreguen varias notificaciones al dispositivo, una por cada plantilla. Este proceso le permite mostrar el mismo mensaje en varias notificaciones visuales, como distintivo y como notificación del sistema en una aplicación de la Tienda Windows.
 
 ## <a name="send-cross-platform-notifications-using-templates"></a>Envío de notificaciones entre plataformas mediante plantillas
+
+> [!NOTE]
+> El Servicio de notificaciones push de Microsoft (MPNS) está en desuso y ya no se admite.
 
 En esta sección se usa el código de ejemplo que se creó en el tutorial [Envío de notificaciones a usuarios concretos mediante Azure Notification Hubs]. Puede [descargar el ejemplo completo de GitHub](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/NotifyUsers).
 

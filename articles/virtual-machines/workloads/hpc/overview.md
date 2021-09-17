@@ -8,14 +8,16 @@ ms.subservice: hpc
 ms.topic: overview
 ms.date: 04/09/2021
 ms.reviewer: cynthn
-ms.openlocfilehash: 8017b3e84c80acc71fca1442c4493bd1ec239175
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 2b9f89126f49b75f5e232521f807f6db3ba9d4e9
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108141224"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122693394"
 ---
 # <a name="high-performance-computing-on-infiniband-enabled-h-series-and-n-series-vms"></a>Informática de alto rendimiento en máquinas virtuales de las series H y N habilitadas con InfiniBand
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles :heavy_check_mark: Conjuntos de escalado uniformes
 
 Las máquinas virtuales de las series H y N habilitadas con InfiniBand de Azure están diseñadas para ofrecer rendimiento de primer nivel, escalabilidad de la interfaz de paso de mensajes (MPI) y rentabilidad para diversas cargas de trabajo de HPC e inteligencia artificial del mundo real. Estas máquinas virtuales optimizadas de informática de alto rendimiento (HPC) se usan para resolver algunos de los problemas de la ciencia e ingeniería que hacen un uso más intensivo de la informática, como la dinámica de fluidos, el modelado terrestre o las simulaciones meteorológicas.
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2021
 ms.author: bagol
-ms.openlocfilehash: b2e2e1dad8d8fca6ce809e7e76a7ba8021420561
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: b0a0b8cb4d3ff5ce10348608d66a451517b60016
+ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122182523"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122514740"
 ---
 # <a name="resources-for-creating-azure-sentinel-custom-connectors"></a>Recursos para crear conectores personalizados de Azure Sentinel
 
@@ -198,11 +198,13 @@ Puede usar la técnica de análisis integrada del conector personalizado para ex
 Por ejemplo:
 
 - **Si ha usado Logstash**, use el complemento de filtro [Grok](https://www.elastic.co/guide/en/logstash/current/plugins-filters-grok.html) para analizar los datos.
-- **Si ha usado una instancia de Azure Functions**, analice los datos con código. Para obtener más información, consulte los [Analizadores](normalization.md#parsers).
+- **Si ha usado una instancia de Azure Functions**, analice los datos con código.
 
-Azure Sentinel admite el análisis en el tiempo de consulta. El análisis en tiempo de consulta permite introducir datos en el formato original y, a continuación, analizar a petición, cuando sea necesario.
+Azure Sentinel admite el análisis en el tiempo de consulta. El análisis en tiempo de consulta permite introducir datos en el formato original y, a continuación, analizar a petición, cuando sea necesario. 
 
 El análisis en el tiempo de consulta también significa que no es necesario conocer la estructura exacta de los datos con anterioridad, cuando se crea el conector personalizado, incluso tampoco la información que tiene que extraer. En su lugar, analice los datos en cualquier momento, incluso durante una investigación.
+
+Para más información sobre el análisis en tiempo de consulta, vea [Analizadores](normalization-about-parsers.md).
 
 > [!NOTE]
 > La actualización del analizador también se aplica a los datos que ya ha ingerido en Azure Sentinel.

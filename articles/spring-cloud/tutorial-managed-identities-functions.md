@@ -1,24 +1,23 @@
 ---
 title: 'Tutorial: Uso de la identidad administrada para invocar Azure Functions'
 description: Uso de la identidad administrada para invocar Azure Functions desde una aplicación de Azure Spring Cloud
-author: markjgardner
+author: karlerickson
 ms.author: margard
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/10/2020
-ms.openlocfilehash: 05cf92d74b229226258f8e8d2986cbe6a9f2bb1f
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 46efd49a809d8e13fe24045b7575b37f3aff3173
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110663522"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122015376"
 ---
 # <a name="tutorial-use-a-managed-identity-to-invoke-azure-functions-from-an-azure-spring-cloud-app"></a>Tutorial: Uso de una identidad administrada para invocar Azure Functions desde una aplicación de Azure Spring Cloud
 
 En este artículo se describe cómo crear una identidad administrada para una aplicación de Azure Spring Cloud y cómo usarla para invocar funciones desencadenadas por HTTP.
 
-Tanto Azure Functions como App Services tienen compatibilidad integrada para la autenticación de Azure Active Directory (Azure AD). Al aprovechar esta funcionalidad de autenticación integrada junto con las identidades administradas de Azure Spring Cloud, se pueden invocar servicios RESTful con la semántica moderna de OAuth. Este método no requiere almacenar secretos en el código y proporciona controles más pormenorizados del acceso a los recursos externos. 
-
+Tanto Azure Functions como App Services tienen compatibilidad integrada para la autenticación de Azure Active Directory (Azure AD). Al aprovechar esta funcionalidad de autenticación integrada junto con las identidades administradas de Azure Spring Cloud, se pueden invocar servicios RESTful con la semántica moderna de OAuth. Este método no requiere almacenar secretos en el código y proporciona controles más pormenorizados del acceso a los recursos externos.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -27,33 +26,32 @@ Tanto Azure Functions como App Services tienen compatibilidad integrada para la 
 * [Instalación de Maven 3.0, o cualquier versión superior](https://maven.apache.org/download.cgi)
 * [Instalación de la versión 3.0.2009 de Azure Functions Core Tools o una posterior](../azure-functions/functions-run-local.md#install-the-azure-functions-core-tools)
 
-
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
+
 Un grupo de recursos es un contenedor lógico en el que se implementan y se administran los recursos de Azure. Cree un grupo de recursos que contenga tanto la aplicación de funciones como Spring Cloud mediante el comando [az group create](/cli/azure/group#az_group_create):
 
-```azurecli-interactive
+```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-
 ## <a name="create-a-function-app"></a>Creación de una aplicación de funciones
+
 Para crear una aplicación de funciones, primero debe crear la cuenta de almacenamiento subyacente; para ello, use el comando [az storage account create](/cli/azure/storage/account#az_storage_account_create):
 
 > [!Important]
-> Las aplicaciones de funciones y las cuentas de almacenamiento deben tener nombres únicos. En los ejemplos siguientes, reemplace <nombreDeLaAplicaciónDeFunciones> por el nombre de la aplicación de funciones y <nombreDeLaCuentaDeAlmacenamiento> por el nombre de la cuenta de almacenamiento.
+> Las aplicaciones de funciones y las cuentas de almacenamiento deben tener nombres únicos. En los ejemplos siguientes, reemplace *\<your-functionapp-name>* por el nombre de la aplicación de funciones y *\<your-storageaccount-name>* por el nombre de la cuenta de almacenamiento.
 
-```azurecli-interactive
+```azurecli
 az storage account create --name <your-storageaccount-name> --resource-group myResourceGroup --location eastus --sku Standard_LRS
 ```
 
 Una vez creada la cuenta de almacenamiento, podrá crear la aplicación de funciones.
 
-```azurecli-interactive
+```azurecli
 az functionapp create --name <your-functionapp-name> --resource-group myResourceGroup --consumption-plan-location eastus --os-type windows --runtime node --storage-account <your-storageaccount-name> --functions-version 3
 ```
 
-Tome nota del valor de **hostNames** devuelto, que tendrá el formato "https://<nombreDeLaAplicaciónDeFunciones>.azurewebsites.net". Se usará en un paso posterior.
-
+Anote el valor de **hostNames** que se devuelve, que tendrá el formato *https://\<your-functionapp-name>.azurewebsites.net*. Se usará en un paso posterior.
 
 ## <a name="enable-azure-active-directory-authentication"></a>Habilitación de la autenticación de Azure Active Directory
 
@@ -67,7 +65,6 @@ En Proveedores de autenticación, seleccione Azure Active Directory para configu
 
 Una vez guardada la configuración, la aplicación de funciones se reiniciará y todas las solicitudes posteriores deberán iniciar sesión mediante Azure AD. Para probar que las solicitudes no autenticadas se están rechazando, vaya a la dirección URL raíz de la aplicación de funciones (que se devuelve en la salida **hostNames** en el paso anterior). Se le redirigirá a la pantalla de inicio de sesión de Azure AD de su organización.
 
-
 ## <a name="create-an-http-triggered-function"></a>Creación de una función desencadenada mediante HTTP
 
 En un directorio local vacío, cree una aplicación de funciones y agregue una función desencadenada mediante HTTP.
@@ -77,9 +74,9 @@ func init --worker-runtime node
 func new --template HttpTrigger --name HttpTrigger
 ```
 
-De forma predeterminada, las funciones usan la autenticación basada en claves para proteger los puntos de conexión HTTP. Como vamos a habilitar la autenticación de Azure AD para proteger el acceso a las funciones, queremos [establecer el nivel de autenticación en las funciones como anónimo](../azure-functions/functions-bindings-http-webhook-trigger.md#secure-an-http-endpoint-in-production).
+De forma predeterminada, las funciones usan la autenticación basada en claves para proteger los puntos de conexión HTTP. Como vamos a habilitar la autenticación de Azure AD para proteger el acceso a las funciones, queremos [establecer el nivel de autenticación en las funciones como anónimo](../azure-functions/functions-bindings-http-webhook-trigger.md#secure-an-http-endpoint-in-production) en el archivo *functions.json*.
 
-```json function.json
+```json
 {
   "bindings": [
     {
@@ -107,11 +104,11 @@ Functions in <your-functionapp-name>:
         Invoke url: https://<your-functionapp-name>.azurewebsites.net/api/httptrigger
 ```
 
-
 ## <a name="create-azure-spring-cloud-service-and-app"></a>Creación de una aplicación y un servicio de Azure Spring Cloud
-Después de instalar la extensión spring-cloud, cree una instancia de Azure Spring Cloud con el comando de la CLI de Azure `az spring-cloud create`. 
 
-```azurecli-interactive
+Después de instalar la extensión spring-cloud, cree una instancia de Azure Spring Cloud con el comando de la CLI de Azure `az spring-cloud create`.
+
+```azurecli
 az extension add --name spring-cloud
 az spring-cloud create --name mymsispringcloud --resource-group myResourceGroup --location eastus
 ```
@@ -126,13 +123,13 @@ az spring-cloud app create --name "msiapp" --service "mymsispringcloud" --resour
 
 En este ejemplo se invocará la función desencadenada por HTTP; para ello, primero se solicita un token de acceso desde el [punto de conexión de MSI](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md#get-a-token-using-http) y, después, ese token se usa para autenticar la solicitud HTTP de la función.
 
-1. Clone el proyecto de ejemplo. 
+1. Clone el proyecto de ejemplo.
 
-    ```console
+    ```bash
     git clone https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples.git
     ```
 
-2. Especifique el URI de la función y el nombre del desencadenador en las propiedades de la aplicación. 
+2. Especifique el URI de la función y el nombre del desencadenador en las propiedades de la aplicación.
 
     ```bash
     cd Azure-Spring-Cloud-Samples/managed-identity-function
@@ -141,34 +138,35 @@ En este ejemplo se invocará la función desencadenada por HTTP; para ello, prim
 
     Para usar la identidad administrada para las aplicaciones de Azure Spring Cloud, agregue propiedades con el siguiente contenido a *src/main/resources/application.properties*.
 
-    ```
+    ```properties
     azure.function.uri=https://<your-functionapp-name>.azurewebsites.net
     azure.function.triggerPath=httptrigger
     ```
 
-3. Empaquete la aplicación de ejemplo. 
+3. Empaquete la aplicación de ejemplo.
 
-    ```console
+    ```bash
     mvn clean package
     ```
 
-4. Ahora implemente la aplicación en Azure con el comando `az spring-cloud app deploy` de la CLI de Azure. 
+4. Ahora implemente la aplicación en Azure con el comando `az spring-cloud app deploy` de la CLI de Azure.
 
     ```azurecli
     az spring-cloud app deploy  --name "msiapp" --service "mymsispringcloud" --resource-group "myResourceGroup" --jar-path target/sc-managed-identity-function-sample-0.1.0.jar
     ```
 
-5. Acceda al punto de conexión público o al punto de conexión de prueba para probar la aplicación. 
+5. Acceda al punto de conexión público o al punto de conexión de prueba para probar la aplicación.
 
-    ```console
+    ```bash
     curl https://mymsispringcloud-msiapp.azuremicroservices.io/func/springcloud
     ```
 
     Verá el siguiente mensaje devuelto en el cuerpo de la respuesta.
+
     ```output
     Function Response: Hello, springcloud. This HTTP triggered function executed successfully.
     ```
-    
+
     Cambie el parámetro path para intentar pasar valores diferentes a la función.
 
 ## <a name="next-steps"></a>Pasos siguientes

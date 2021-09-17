@@ -1,23 +1,26 @@
 ---
-title: Actividad de búsqueda en Azure Data Factory
-description: Más información sobre cómo usar la actividad de búsqueda para buscar un valor desde un origen externo. Además, las actividades posteriores pueden hacer referencia a esta salida.
+title: Actividad de búsqueda
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Aprenda a usar la actividad Búsqueda de Azure Data Factory y Azure Synapse Analytics para buscar un valor desde un origen externo. Además, las actividades posteriores pueden hacer referencia a esta salida.
 author: jianleishen
 ms.author: jianleishen
 ms.service: data-factory
+ms.subservice: orchestration
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 02/25/2021
-ms.openlocfilehash: 14ab6295717777f40677e0bdcd63a46821683658
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.date: 08/24/2021
+ms.openlocfilehash: a9a1918496d3832aea736b8a024a15f62f72edad
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109480192"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122824556"
 ---
-# <a name="lookup-activity-in-azure-data-factory"></a>Actividad de búsqueda en Azure Data Factory
+# <a name="lookup-activity-in-azure-data-factory-and-azure-synapse-analytics"></a>Actividad Búsqueda de Azure Data Factory y Azure Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-La actividad de búsqueda puede recuperar un conjunto de datos de cualquiera de los orígenes de datos compatible con Azure Data Factory. Puede usarla para determinar de forma dinámica los objetos en los que operar en una actividad posterior, en lugar de codificar de forma rígida el nombre del objeto. Algunos ejemplos de objeto son los archivos y las tablas.
+La actividad Búsqueda puede recuperar un conjunto de datos desde cualquiera de los orígenes de datos admitidos por las canalizaciones de Synapse y Data Factory. Puede usarla para determinar de forma dinámica los objetos en los que operar en una actividad posterior, en lugar de codificar de forma rígida el nombre del objeto. Algunos ejemplos de objeto son los archivos y las tablas.
 
 La actividad de búsqueda lee y devuelve el contenido de una tabla o un archivo de configuración. También devuelve el resultado de ejecutar una consulta o un procedimiento almacenado. La salida puede ser un valor singleton o una matriz de atributos, que se puede utilizar en una copia posterior, una transformación o actividades de flujo de control como la actividad ForEach.
 
@@ -108,7 +111,7 @@ El resultado de la búsqueda se devuelve en la sección `output` del resultado d
 
 En este ejemplo, la canalización tiene dos actividades: **búsqueda** y **copia**. La actividad de copia realiza una copia de los datos de una tabla SQL de la instancia de Azure SQL Database en Azure Blob Storage. El nombre de la tabla SQL se almacena en un archivo JSON en Blob Storage. La actividad de búsqueda busca el nombre de la tabla en entorno de tiempo de ejecución. JSON se modifica de forma dinámica con este enfoque. No es necesario volver a implementar canalizaciones ni conjuntos de datos. 
 
-En este ejemplo se muestra solo la búsqueda de la primera fila. Para la búsqueda de todas las filas y encadenar los resultados con la actividad ForEach, consulte los ejemplos en [Copia de varias tablas en bloque mediante Azure Data Factory](tutorial-bulk-copy.md).
+En este ejemplo se muestra solo la búsqueda de la primera fila. Para la búsqueda de todas las filas y el encadenamiento de los resultados con la actividad ForEach, vea los ejemplos de [Copia masiva de varias tablas](tutorial-bulk-copy.md).
 
 
 ### <a name="pipeline"></a>Canalización
@@ -389,7 +392,7 @@ A continuación se indican algunas de las limitaciones de la actividad de búsqu
 | | |
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte otras actividades de flujo de control compatibles con Data Factory: 
+Vea otras actividades de flujo de control compatibles con las canalizaciones de Azure Data Factory y Synapse: 
 
 - [Actividad de ejecución de canalización](control-flow-execute-pipeline-activity.md)
 - [Actividad ForEach](control-flow-for-each-activity.md)

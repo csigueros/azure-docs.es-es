@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: overview
 ms.date: 07/20/2021
 ms.custom: references_regions
-ms.openlocfilehash: 3c44db5c17d1179df03985515acc9133feca198e
-ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
+ms.openlocfilehash: b3c84a46e19e4cf24459424458340233869ea683
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114711058"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121736296"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Novedades de Azure Cognitive Search
 
@@ -111,7 +111,7 @@ Conozca las novedades del servicio. Marque esta página para mantenerse actualiz
 |Noviembre | [Aptitud de extracción de documentos (versión preliminar)](cognitive-search-skill-document-extraction.md) | Aptitud cognitiva para extraer el contenido de un archivo desde un conjunto de aptitudes.|
 |Noviembre | [Aptitud de traducción de texto](cognitive-search-skill-text-translation.md) | Habilidad cognitiva utilizada durante la indexación que analiza y traduce el texto. Disponible con carácter general.|
 |Noviembre | [Plantillas de Power BI](https://github.com/Azure-Samples/cognitive-search-templates/blob/master/README.md) | Plantilla para visualizar el contenido en el almacén de conocimiento |
-|Noviembre | [Azure Data Lake Storage Gen2 (versión preliminar)](search-howto-index-azure-data-lake-storage.md), [Gremlin API de Cosmos DB (versión preliminar)](search-howto-index-cosmosdb.md) y [Cassandra API de Cosmos DB (versión preliminar)](search-howto-index-cosmosdb.md) | Nuevos orígenes de datos de indexador en la versión preliminar pública. |
+|Noviembre | [Azure Data Lake Storage Gen2 (versión preliminar)](search-howto-index-azure-data-lake-storage.md) y [Gremlin API de Cosmos DB (versión preliminar)](search-howto-index-cosmosdb.md) | Nuevos orígenes de datos de indexador en la versión preliminar pública. |
 |Julio | [Compatibilidad con la nube de Azure Government](https://azure.microsoft.com/global-infrastructure/services/?regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&products=search) | Disponible con carácter general.|
 
 <a name="new-service-name"></a>

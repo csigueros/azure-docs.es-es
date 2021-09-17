@@ -8,14 +8,16 @@ ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn
 ms.subservice: cloud-init
-ms.openlocfilehash: fa4381aa21b1565e29db026b43dbc70b457daf5d
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: b9a113c4c7f54bfb47d10795325f163cd6f35429
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109783214"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122687932"
 ---
 # <a name="troubleshooting-vm-provisioning-with-cloud-init"></a>Solución de problemas de aprovisionamiento de VM con cloud-init
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Conjuntos de escalado flexibles 
 
 Si ha creado imágenes personalizadas generalizadas con cloud-init para el aprovisionamiento, pero ha descubierto que la VM no se creó correctamente, deberá solucionar los problemas de las imágenes personalizadas.
 

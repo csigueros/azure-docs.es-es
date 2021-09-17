@@ -1,20 +1,22 @@
 ---
-title: Configuración de la recuperación ante desastres de máquinas virtuales de VMware en Azure con Azure Site Recovery
-description: Aprenda a configurar la recuperación ante desastres para máquinas virtuales de VMware locales en Azure con Azure Site Recovery.
+title: Configuración de la recuperación ante desastres de máquinas virtuales de VMware en Azure con Azure Site Recovery (clásico)
+description: Aprenda a configurar la recuperación ante desastres para máquinas virtuales de VMware locales en Azure con Azure Site Recovery (clásico).
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 11/12/2019
 ms.custom: MVC
-ms.openlocfilehash: 6044de81253b9069631ff3cdae687d90a0287fea
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.openlocfilehash: 8f53f7598b58e46e8020275cdf96e339c69c857a
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106580569"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122446446"
 ---
-# <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Configurar la recuperación ante desastres para máquinas virtuales de VMware locales en Azure
+# <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms---classic"></a>Configurar la recuperación ante desastres para máquinas virtuales de VMware locales en Azure (clásico)
 
-En este artículo, se describe cómo habilitar la replicación de máquinas virtuales de VMware locales para la recuperación ante desastres en Azure mediante el servicio [Azure Site Recovery](site-recovery-overview.md).
+En este artículo, se describe cómo habilitar la replicación de máquinas virtuales de VMware locales para la recuperación ante desastres en Azure mediante el servicio [Azure Site Recovery](site-recovery-overview.md) (clásico).
+
+Para obtener información sobre la recuperación ante desastres Azure Site Recovery versión preliminar, consulte [este artículo](vmware-azure-set-up-replication-tutorial-preview.md).
 
 Este es el tercer tutorial de una serie que muestra cómo configurar la recuperación ante desastres en Azure para máquinas virtuales locales de VMware. En el tutorial anterior, hemos [preparado el entorno de VMware local](vmware-azure-tutorial-prepare-on-premises.md) para la recuperación ante desastres en Azure.
 

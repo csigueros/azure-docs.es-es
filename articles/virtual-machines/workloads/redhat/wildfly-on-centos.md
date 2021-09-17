@@ -11,14 +11,16 @@ ms.subservice: redhat
 ms.custom:
 - mode-api
 ms.collection: linux
-ms.openlocfilehash: 1f7bc4bcefe7535e531fcd8288a6dce0e93696e0
-ms.sourcegitcommit: 0fd913b67ba3535b5085ba38831badc5a9e3b48f
+ms.openlocfilehash: b2903ebbbeee8a33a0acfe37ada7c8f9cc13a85e
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113486128"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122696740"
 ---
 # <a name="quickstart-wildfly-on-centos-8"></a>Inicio rápido: WildFly en CentOS 8
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux 
 
 En esta guía de inicio rápido se muestra cómo implementar el nodo independiente de WildFly de la máquina virtual de CentOS 8. Es perfecto para el desarrollo y las pruebas de aplicaciones Java empresariales en Azure. La suscripción de servidor de aplicaciones no es necesaria para implementar este inicio rápido.
 

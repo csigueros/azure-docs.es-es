@@ -6,12 +6,12 @@ author: bwren
 ms.author: bwren
 ms.date: 11/12/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 96d9e64a7b3443b4c2e835bfe824bd7d9197cb1c
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: 0af9aeb9efe3b652f52b01e3b45307253e810742
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109752164"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122418654"
 ---
 # <a name="move-a-log-analytics-workspace-to-different-subscription-or-resource-group"></a>Trasladar un área de trabajo de Log Analytics a otro grupo de recursos o suscripción
 
@@ -44,7 +44,7 @@ Las suscripciones de origen y destino del área de trabajo deben existir dentro 
 > - Si ya ha movido el área de trabajo, deshabilite todas las reglas activas en **Análisis** y vuelva a habilitarlas después de cinco minutos. Esto debe ser una solución efectiva en la mayoría de los casos; sin embargo, cabe reiterar que no se admite y se realiza bajo su responsabilidad.
 > 
 > **Nueva creación de alertas**
-> - Todas las alertas deben volver a crearse después de una operación de cambio de nombre o de movimiento de área de trabajo, ya que los permisos se basan en el id. de recurso de Azure del área de trabajo, que cambia durante el movimiento del área de trabajo o cambio de nombre de recurso.
+> - Todas las alertas deben volver a crearse, ya que los permisos se basan en el identificador de recurso del área de trabajo, que cambia durante el movimiento del área de trabajo o el cambio de nombre del recurso. Las alertas en áreas de trabajo creadas después del 1 de junio de 2019 o en áreas de trabajo que se [actualizaron de la API heredada de alertas de Log Analytics a scheduledQueryRules API](../alerts/alerts-log-api-switch.md) se pueden exportar en la plantilla e implementarse después del traslado. Puede [comprobar si scheduledQueryRules API se usa para las alertas del área de trabajo](../alerts/alerts-log-api-switch.md#check-switching-status-of-workspace). Como alternativa, puede configurar alertas manualmente en el área de trabajo de destino.
 >
 > **Actualización de las rutas de acceso a los recursos**
 > - Después de un movimiento del área de trabajo, los recursos externos o de Azure que apunten al área de trabajo deben revisarse y actualizarse para que apunten a la nueva ruta de acceso de destino del recurso.
@@ -98,7 +98,7 @@ Use el siguiente procedimiento para desvincular la cuenta de Automation del áre
 
 ## <a name="move-your-workspace"></a>Trasladar su área de trabajo
 
-### <a name="azure-portal"></a>Portal de Azure
+### <a name="azure-portal"></a>Azure Portal
 Use el siguiente procedimiento para trasladar su área de trabajo con Azure Portal:
 
 1. Abra el menú **Áreas de trabajo de Log Analytics** y luego seleccione su área de trabajo.

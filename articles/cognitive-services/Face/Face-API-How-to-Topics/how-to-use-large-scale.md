@@ -11,16 +11,16 @@ ms.topic: sample
 ms.date: 05/01/2019
 ms.author: sbowles
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b35b66615bd5c577dd73faca77d3ea20468442f8
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: cd0623303b34c9d461a2fbd7c2d9e364ec032374
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913524"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121742579"
 ---
 # <a name="example-use-the-large-scale-feature"></a>Ejemplo: Usar la característica a gran escala
 
-Esta guía es un artículo avanzado sobre cómo escalar verticalmente a partir de los objetos existentes PersonGroup y FaceList a los objetos LargePersonGroup y LargeFaceList, respectivamente. En esta guía se muestra el proceso de migración. Se presuponen conocimientos básicos de los objetos PersonGroup y FaceList, de la operación [Train](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599ae2d16ac60f11b48b5aa4) y de las funciones de reconocimiento facial. Para más información sobre estos temas, consulte la guía conceptual [Reconocimiento facial](../concepts/face-recognition.md).
+Esta guía es un artículo avanzado sobre cómo escalar verticalmente a partir de los objetos existentes PersonGroup y FaceList a los objetos LargePersonGroup y LargeFaceList, respectivamente. En esta guía se muestra el proceso de migración. Se presuponen conocimientos básicos de los objetos PersonGroup y FaceList, de la operación [Train](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599ae2d16ac60f11b48b5aa4) y de las funciones de reconocimiento facial. Para más información sobre estos temas, consulte la guía conceptual de [reconocimiento facial](../concepts/face-recognition.md).
 
 LargePersonGroup y LargeFaceList se conocen colectivamente como operaciones a gran escala. LargePersonGroup puede contener hasta un millón de personas, cada una de las cuales con un máximo de 248 caras. LargeFaceList puede contener hasta un millón de caras. Las operaciones a gran escala son similares a las de PersonGroup y FaceList convencionales, pero tienen algunas diferencias debido a la arquitectura nueva. 
 

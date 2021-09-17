@@ -1,23 +1,24 @@
 ---
 title: Guía de escalabilidad y rendimiento de la actividad de copia
-description: Conozca los factores más importantes que afectan al rendimiento del movimiento de datos en Azure Data Factory cuando se usa la actividad de copia.
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Conozca los factores más importantes que afectan al rendimiento del movimiento de datos en canalizaciones de Azure Data Factory y Azure Synapse Analytics cuando se usa la actividad de copia.
 services: data-factory
 documentationcenter: ''
 ms.author: jianleishen
 author: jianleishen
 manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
+ms.subservice: data-movement
 ms.workload: data-services
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 09/15/2020
-ms.openlocfilehash: 473f0c2c33fff48f945079ad1bd948c35c0826c4
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.custom: synapse
+ms.date: 08/24/2021
+ms.openlocfilehash: 2a2708c3d84dd83b752db2a0ae56843ae068aabe
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109482604"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122822432"
 ---
 # <a name="copy-activity-performance-and-scalability-guide"></a>Guía de escalabilidad y rendimiento de la actividad de copia
 
@@ -29,27 +30,27 @@ ms.locfileid: "109482604"
 
 A veces, desea realizar una migración de datos a gran escala desde el lago de datos o el almacenamiento de datos empresariales (EDW) a Azure. Otras veces quiere ingerir grandes cantidades de datos, desde distintos orígenes en Azure, para el análisis de macrodatos. En cada caso, es fundamental lograr un rendimiento y una escalabilidad óptimos.
 
-Azure Data Factory (ADF) proporciona un mecanismo para ingerir datos. ADF tiene las ventajas siguientes:
+Las canalizaciones de Azure Data Factory y Azure Synapse Analytics proporcionan un mecanismo para ingerir datos, con las siguientes ventajas:
 
 * Administra grandes cantidades de datos
 * Tiene un alto rendimiento
 * Es rentable
 
-Estas ventajas hacen de ADF una buena opción para aquellos ingenieros de datos que desean crear canalizaciones de ingesta de datos escalables con un alto rendimiento.
+Estas ventajas hacen representan una excelente opción para aquellos ingenieros de datos que desean crear canalizaciones de ingesta de datos escalables con un alto rendimiento.
 
 Después de leer este artículo, podrá responder a las siguientes preguntas:
 
-* ¿Qué nivel de rendimiento y escalabilidad puedo conseguir si uso la actividad de copia de ADF para escenarios de migración de datos y de ingesta de datos?
-* ¿Qué pasos se deben seguir para optimizar el rendimiento de la actividad de copia de ADF?
-* ¿Qué mecanismos de optimización del rendimiento de ADF puedo utilizar para optimizar el rendimiento de una única ejecución de la actividad de copia?
-* ¿Qué otros factores ajenos a ADF se deben tener en cuenta al optimizar el rendimiento de la copia?
+* ¿Qué nivel de rendimiento y escalabilidad puedo lograr mediante la actividad de copia para escenarios de migración de datos e ingesta de datos?
+* ¿Qué pasos debo seguir para optimizar el rendimiento de la actividad de copia?
+* ¿Qué optimizaciones de rendimiento puedo usar para una única ejecución de actividad de copia?
+* ¿Qué otros factores externos se deben tener en cuenta al optimizar el rendimiento de las copia?
 
 > [!NOTE]
 > Si no está familiarizado con la actividad de copia en general, consulte la [información general de la actividad de copia](copy-activity-overview.md) antes de leer este artículo.
 
-## <a name="copy-performance-and-scalability-achievable-using-adf"></a>Rendimiento y escalabilidad de copia que pueden lograrse mediante ADF
+## <a name="copy-performance-and-scalability-achievable-using-azure-data-factory-and-synapse-pipelines"></a>Rendimiento y escalabilidad de copia factibles mediante canalizaciones de Azure Data Factory y Synapse
 
-ADF ofrece una arquitectura sin servidor que permite el paralelismo en diferentes niveles.
+Las canalizaciones de Azure Data Factory y Synapse ofrecen una arquitectura sin servidor que permite el paralelismo en distintos niveles.
 
 Esta arquitectura hace posible el desarrollo de canalizaciones que maximizan el rendimiento del movimiento de datos para su entorno. Estas canalizaciones hacen un uso completo de los siguientes recursos:
 
@@ -65,7 +66,7 @@ Este uso completo significa que puede calcular el rendimiento general midiendo e
 En la siguiente tabla se muestra el cálculo de la duración del movimiento de datos. La duración de cada celda se calcula en función de un determinado ancho de banda de red y almacén de datos y de un determinado tamaño de carga de datos.
 
 > [!NOTE]
-> La duración proporcionada a continuación está pensada para representar un rendimiento factible en una solución de integración de datos de un extremo a otro que se haya implementado mediante ADF, usando una o varias de las técnicas de optimización del rendimiento descritas en [Características de optimización del rendimiento de la actividad de copia](#copy-performance-optimization-features). Entre estas técnicas se incluye el uso de ForEach para crear particiones y generar varias actividades de copia simultáneas. Se recomienda seguir el procedimiento descrito en [Pasos de optimización del rendimiento](#performance-tuning-steps) con el fin de optimizar el rendimiento de la actividad de copia para su conjunto de datos y su configuración del sistema en particular. Debe usar los números obtenidos en las pruebas de optimización del rendimiento con relación al planeamiento de la implementación de producción, el planeamiento de la capacidad y la proyección de facturación.
+> La duración proporcionada a continuación está pensada para representar un rendimiento factible en una solución de integración de datos de un extremo a otro, usando una o varias de las técnicas de optimización del rendimiento descritas en [Características de optimización del rendimiento de la actividad de copia](#copy-performance-optimization-features). Entre estas técnicas se incluye el uso de ForEach para crear particiones y generar varias actividades de copia simultáneas. Se recomienda seguir el procedimiento descrito en [Pasos de optimización del rendimiento](#performance-tuning-steps) con el fin de optimizar el rendimiento de la actividad de copia para su conjunto de datos y su configuración del sistema en particular. Debe usar los números obtenidos en las pruebas de optimización del rendimiento con relación al planeamiento de la implementación de producción, el planeamiento de la capacidad y la proyección de facturación.
 
 &nbsp;
 
@@ -81,11 +82,11 @@ En la siguiente tabla se muestra el cálculo de la duración del movimiento de d
 | **10 PB**                   | 647,3 meses   | 323,6 meses  | 64,7 meses   | 31,6 meses  | 6,5 meses   | 3,2 meses   | 0,6 meses    |
 | | |  | | |  | | |
 
-La copia de ADF puede escalarse en diferentes niveles:
+La copia puede escalarse en diferentes niveles:
 
-![Cómo se escala la copia de ADF](media/copy-activity-performance/adf-copy-scalability.png)
+![Escalado de la copia](media/copy-activity-performance/adf-copy-scalability.png)
 
-* El flujo de control de ADF puede iniciar varias actividades de copia en paralelo, por ejemplo, mediante un [bucle ForEach](control-flow-for-each-activity.md).
+* El flujo de control puede iniciar varias actividades de copia en paralelo, por ejemplo, mediante un [bucle ForEach](control-flow-for-each-activity.md).
 
 * Una sola actividad de copia puede aprovechar los recursos de proceso escalables.
   * Al usar el entorno de ejecución de integración de Azure, puede especificar [hasta 256 unidades de integración de datos (DIU)](#data-integration-units) para cada actividad de copia sin servidor.
@@ -97,7 +98,7 @@ La copia de ADF puede escalarse en diferentes niveles:
 
 ## <a name="performance-tuning-steps"></a>Pasos de optimización del rendimiento
 
-Para optimizar el rendimiento del servicio Azure Data Factory con la actividad de copia, siga estos pasos:
+Para optimizar el rendimiento del servicio con la actividad de copia, siga estos pasos:
 
 1. **Seleccione un conjunto de datos de prueba y establezca una línea de base**.
 
@@ -127,7 +128,7 @@ Para optimizar el rendimiento del servicio Azure Data Factory con la actividad d
 
 3. **Cómo maximizar el rendimiento agregado mediante la ejecución de varias copias simultáneamente:**
 
-    Ahora ha maximizado el rendimiento de una única actividad de copia. Si aún no ha llegado a los límites superiores de rendimiento de su entorno, puede ejecutar varias actividades de copia en paralelo. Puede ejecutar en paralelo mediante construcciones de flujo de control de ADF. Una de estas construcciones el [bucle For Each](control-flow-for-each-activity.md). Para obtener más información, consulte los siguientes artículos sobre las plantillas de solución:
+    Ahora ha maximizado el rendimiento de una única actividad de copia. Si aún no ha llegado a los límites superiores de rendimiento de su entorno, puede ejecutar varias actividades de copia en paralelo. Puede ejecutar en paralelo mediante construcciones de flujo de control. Una de estas construcciones el [bucle For Each](control-flow-for-each-activity.md). Para obtener más información, consulte los siguientes artículos sobre las plantillas de solución:
 
     * [Copia de archivos de varios contenedores](solution-template-copy-files-multiple-containers.md)
     * [Migración de datos de Amazon S3 a ADLS Gen2](solution-template-migration-s3-azure.md)
@@ -139,11 +140,11 @@ Para optimizar el rendimiento del servicio Azure Data Factory con la actividad d
 
 ## <a name="troubleshoot-copy-activity-performance"></a>Solución de problemas de rendimiento de la actividad de copia
 
-Siga los [pasos de optimización del rendimiento](#performance-tuning-steps) para planear y realizar la prueba de rendimiento de su escenario. Y aprenda a solucionar los problemas de rendimiento de la ejecución de la actividad de copia en Azure Data Factory desde [Solución de problemas de rendimiento de la actividad de copia](copy-activity-performance-troubleshooting.md).
+Siga los [pasos de optimización del rendimiento](#performance-tuning-steps) para planear y realizar la prueba de rendimiento de su escenario. Y aprenda a solucionar los problemas de rendimiento de la ejecución de la actividad de copia desde [Solución de problemas de rendimiento de la actividad de copia](copy-activity-performance-troubleshooting.md).
 
 ## <a name="copy-performance-optimization-features"></a>Características de optimización del rendimiento
 
-Azure Data Factory proporciona las siguientes características de optimización del rendimiento:
+El servicio proporciona las siguientes características de optimización del rendimiento:
 
 * [Unidades de integración de datos](#data-integration-units)
 * [Escalabilidad del entorno de ejecución de integración autohospedado](#self-hosted-integration-runtime-scalability)
@@ -152,7 +153,7 @@ Azure Data Factory proporciona las siguientes características de optimización 
 
 ### <a name="data-integration-units"></a>Unidades de integración de datos
 
-Una unidad de integración de datos (DIU) es una medida que representa la potencia de una sola unidad en Azure Data Factory. La potencia es una combinación de CPU, memoria y asignación de recursos de red. La DIU solo se aplica al [entorno de ejecución de integración de Azure](concepts-integration-runtime.md#azure-integration-runtime). La DIU no se aplica al [entorno de ejecución de integración autohospedado](concepts-integration-runtime.md#self-hosted-integration-runtime). [Obtenga más información aquí](copy-activity-performance-features.md#data-integration-units).
+Una unidad de integración de datos (DIU) es una medida que representa la potencia de una sola unidad en canalizaciones de Azure Data Factory y Synapse. La potencia es una combinación de CPU, memoria y asignación de recursos de red. La DIU solo se aplica al [entorno de ejecución de integración de Azure](concepts-integration-runtime.md#azure-integration-runtime). La DIU no se aplica al [entorno de ejecución de integración autohospedado](concepts-integration-runtime.md#self-hosted-integration-runtime). [Obtenga más información aquí](copy-activity-performance-features.md#data-integration-units).
 
 ### <a name="self-hosted-integration-runtime-scalability"></a>Escalabilidad del entorno de ejecución de integración autohospedado
 

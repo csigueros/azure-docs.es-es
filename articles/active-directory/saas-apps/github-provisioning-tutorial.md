@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Aprovisionamiento de usuarios para GitHub: Azure AD'
-description: Obtenga información sobre cómo configurar Azure Active Directory para aprovisionar y cancelar automáticamente el aprovisionamiento de cuentas de usuario de GitHub.
+description: Obtenga información sobre cómo configurar Azure Active Directory para aprovisionar y cancelar automáticamente el aprovisionamiento de la pertenencia de la organización de GitHub Enterprise Cloud.
 services: active-directory
 author: twimmers
 manager: CelesteDG
@@ -10,16 +10,16 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/21/2020
 ms.author: thwimmer
-ms.openlocfilehash: f82d8108292404c3efab3a46cf3635cb19e9f5a2
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: b8de34165c327d335bff399319852ef035a7094e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113733725"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121728219"
 ---
 # <a name="tutorial-configure-github-for-automatic-user-provisioning"></a>Tutorial: Configuración de GitHub para aprovisionar usuarios automáticamente
 
-El objetivo de este tutorial es explicar los pasos que hay que realizar en GitHub y Azure AD para aprovisionar y cancelar automáticamente el aprovisionamiento de cuentas de usuario de Azure AD en GitHub.
+El objetivo de este tutorial es mostrar los pasos que debe realizar en GitHub y Azure AD para automatizar el aprovisionamiento de la pertenencia de la organización de GitHub Enterprise Cloud.
 
 > [!NOTE]
 > La integración del aprovisionamiento de Azure AD se basa en la [API de GitHub SCIM](https://developer.github.com/v3/scim/), que está disponible para los clientes de la [nube de GitHub Enterprise](https://help.github.com/articles/github-s-products/#github-enterprise) en el [plan de facturación de GitHub Enterprise](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations).
@@ -44,17 +44,17 @@ Azure Active Directory usa un concepto que se denomina "asignaciones" para deter
 
 Antes de configurar y habilitar el servicio de aprovisionamiento, debe decidir qué usuarios o grupos de Azure AD representan a los usuarios que necesitan acceso a la aplicación GitHub. Una vez decidido, puede asignar estos usuarios a la aplicación de GitHub siguiendo estas instrucciones:
 
-[Asignar un usuario o grupo a una aplicación empresarial](../manage-apps/assign-user-or-group-access-portal.md)
+Para más información, consulte [Asignar un usuario o grupo a una aplicación empresarial](../manage-apps/assign-user-or-group-access-portal.md).
 
 ### <a name="important-tips-for-assigning-users-to-github"></a>Sugerencias importantes para asignar usuarios a GitHub
 
-* Se recomienda asignar un único usuario de Azure AD a GitHub para probar la configuración de aprovisionamiento. Más tarde, se pueden asignar otros usuarios o grupos.
+* Se recomienda asignar un único usuario de Azure AD a GitHub para probar la configuración de aprovisionamiento. Más tarde, se pueden asignar otros usuarios o grupos.
 
 * Al asignar un usuario a GitHub, debe seleccionar el rol **Usuario** u otro válido específico de la aplicación (si está disponible) en el cuadro de diálogo de asignación. El rol **Acceso predeterminado** no funciona para realizar el aprovisionamiento y estos usuarios se omiten.
 
 ## <a name="configuring-user-provisioning-to-github"></a>Configuración del aprovisionamiento de usuarios en GitHub
 
-Esta sección lo guía a través de los pasos necesarios para conectar la API de aprovisionamiento de cuentas de usuario de GitHub, así como para configurar el servicio de aprovisionamiento con el fin de crear, actualizar y deshabilitar cuentas de usuario asignadas en GitHub en función de la asignación de grupos y usuarios de Azure AD.
+Esta sección le guía a través de la conexión Azure AD a la API de aprovisionamiento SCIM de GitHub para automatizar el aprovisionamiento de la organización de GitHub. Esta integración, que aprovecha una [aplicación de OAuth](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/authorizing-oauth-apps#oauth-apps-and-organizations), agrega, administra y quita automáticamente el acceso de los miembros a una organización de GitHub Enterprise Cloud en función de la asignación de usuarios y grupos en Azure AD. Cuando los usuarios se [aprovisionan en una organización de GitHub mediante SCIM](https://docs.github.com/en/free-pro-team@latest/rest/reference/scim#provision-and-invite-a-scim-user), se envía una invitación por correo electrónico a la dirección de correo electrónico del usuario.
 
 ### <a name="configure-automatic-user-account-provisioning-to-github-in-azure-ad"></a>Configuración del aprovisionamiento de cuentas de usuario automático para GitHub en Azure AD
 
@@ -66,17 +66,17 @@ Esta sección lo guía a través de los pasos necesarios para conectar la API de
 
 4. Establezca el **modo de aprovisionamiento** en **Automático**.
 
-    ![Aprovisionamiento de GitHub](./media/github-provisioning-tutorial/GitHub1.png)
+   ![Aprovisionamiento de GitHub](./media/github-provisioning-tutorial/github1.png)
 
 5. En **Credenciales de administrador**, haga clic en **Autorizar**. Con esta operación se abre un cuadro de diálogo de autorización de GitHub en una nueva ventana del explorador. Tenga en cuenta que debe asegurarse de que está aprobado para autorizar el acceso. Siga las instrucciones descritas [aquí](https://help.github.com/github/setting-up-and-managing-organizations-and-teams/approving-oauth-apps-for-your-organization).
 
 6. En esa nueva ventana, inicie sesión en GitHub con su cuenta de administrador. En el cuadro de diálogo de autorización que aparece, seleccione el equipo de GitHub para el que desea habilitar el aprovisionamiento y, luego, seleccione **Autorizar**. Cuando termina, vuelva a Azure Portal para completar la configuración de aprovisionamiento.
 
-    ![Captura de pantalla que muestra la página de inicio de sesión de GitHub.](./media/github-provisioning-tutorial/GitHub2.png)
+   ![Captura de pantalla que muestra la página de inicio de sesión de GitHub.](./media/github-provisioning-tutorial/github2.png)
 
 7. En Azure Portal, escriba la **dirección URL del inquilino** y haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a la aplicación de GitHub. Si la conexión no se establece, asegúrese de que la cuenta de GitHub tenga permisos de administrador y de que la **dirección URL del inquilino** se haya escrito correctamente; luego repita el paso "Autorizar" (puede constituir la **dirección URL de inquilino** con la regla: `https://api.github.com/scim/v2/organizations/<Organization_name>`, puede encontrar las organizaciones en la cuenta de GitHub: **Configuración** > **Organizaciones**).
 
-    ![Captura de pantalla que muestra la página Organizaciones en GitHub.](./media/github-provisioning-tutorial/GitHub3.png)
+   ![Captura de pantalla que muestra la página Organizaciones en GitHub.](./media/github-provisioning-tutorial/github3.png)
 
 8. Escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento en el campo **Correo electrónico de notificación** y active la casilla "Enviar una notificación por correo electrónico cuando se produzca un error".
 
@@ -84,13 +84,13 @@ Esta sección lo guía a través de los pasos necesarios para conectar la API de
 
 10. En la sección Asignaciones, seleccione **Synchronize Azure Active Directory Users to GitHub** (Sincronizar usuarios de Azure Active Directory con GitHub).
 
-11. En la sección **Attribute Mappings** (Asignaciones de atributos), revise los atributos de usuario que se sincronizan entre Azure AD y GitHub. Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con las cuentas de usuario de GitHub con el objetivo de realizar operaciones de actualización. Seleccione el botón Guardar para confirmar los cambios.
+11. En la sección **Attribute Mappings** (Asignaciones de atributos), revise los atributos de usuario que se sincronizan entre Azure AD y GitHub. Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con las cuentas de usuario de GitHub con el objetivo de realizar operaciones de actualización. No habilite la configuración de **precedencia de coincidencia** para los demás atributos predeterminados en la sección **Aprovisionamiento** porque pueden producirse errores. Para confirmar los cambios, seleccione **Guardar**.
 
-12. Para habilitar el servicio de aprovisionamiento de Azure AD para GitHub, cambie el **Estado de aprovisionamiento** a **Activado** en la sección **Configuración**.
+12. Para habilitar el servicio de aprovisionamiento de Azure AD para GitHub, cambie el **estado de aprovisionamiento** a **Activado** en la sección **Configuración**.
 
 13. Haga clic en **Save**(Guardar).
 
-Esta operación inicia la sincronización inicial de todos los usuarios y grupos asignados a GitHub en la sección Usuarios y grupos. La sincronización inicial tarda más tiempo en realizarse que las posteriores, que se producen aproximadamente cada 40 minutos si se está ejecutando el servicio. Puede usar la sección **Detalles de sincronización** para supervisar el progreso y hacer clic en los vínculos a los registros de actividad de aprovisionamiento, que describen todas las acciones que ha llevado a cabo el servicio de aprovisionamiento.
+Esta operación inicia la sincronización inicial de todos los usuarios y grupos asignados a GitHub en la sección Usuarios y grupos. La sincronización inicial tarda más tiempo en realizarse que las posteriores, que se producen aproximadamente cada 40 minutos si se está ejecutando el servicio. Puede usar la sección **Detalles de sincronización** para supervisar el progreso y hacer clic en los vínculos a los registros de actividad de aprovisionamiento, que describen todas las acciones que ha llevado a cabo el servicio de aprovisionamiento. 
 
 Para más información sobre cómo leer los registros de aprovisionamiento de Azure AD, consulte el tutorial de [Creación de informes sobre el aprovisionamiento automático de cuentas de usuario](../app-provisioning/check-status-user-account-provisioning.md).
 

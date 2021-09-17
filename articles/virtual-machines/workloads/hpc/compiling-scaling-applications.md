@@ -8,14 +8,16 @@ ms.topic: article
 ms.date: 04/16/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 8012702e9004361c8b19797bf0ca66553d307dce
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: c6396eab9cb7a2224d660e0e034f8592a879510d
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108138200"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122688463"
 ---
 # <a name="scaling-hpc-applications"></a>Escalado de aplicaciones de HPC
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles :heavy_check_mark: Conjuntos de escalado uniformes
 
 Para que el rendimiento tanto de la escalabilidad vertical como de la horizontal de las aplicaciones de HPC sea óptimo en Azure es preciso realizar experimentos para lograr ajustar el rendimiento y optimizarlas para la carga de trabajo específica. Tanto esta sección como las páginas específicas de la serie de las máquinas virtuales ofrecen una guía general para escalar las aplicaciones.
 

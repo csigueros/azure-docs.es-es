@@ -10,13 +10,13 @@ ms.custom:
 - iot-p0-scenario
 ms.author: timlt
 author: timlt
-ms.date: 11/12/2019
-ms.openlocfilehash: d46a014f79b5743e82d758a50ab533ff9ee7b102
-ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
+ms.date: 08/24/2021
+ms.openlocfilehash: 0f0eae49b3f108d1bb2e812fd8b466da243293c8
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122195606"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123428628"
 ---
 # <a name="tutorial-customize-the-dashboard-and-manage-devices-in-azure-iot-central"></a>Tutorial: Personalización del panel y administración de dispositivos en Azure IoT Central
 
@@ -25,7 +25,6 @@ En este tutorial aprenderá a personalizar el panel en una aplicación de análi
 En este tutorial, aprenderá a:
 > [!div class="checklist"]
 
-> * Cambiar el nombre del panel
 > * Personalizar iconos de imagen en el panel
 > * Organizar iconos para modificar el diseño
 > * Agregar iconos de telemetría para mostrar las condiciones
@@ -46,17 +45,12 @@ Para personalizar el panel, tiene que editar el panel predeterminado en la aplic
 
 1. Abra la aplicación de supervisión de condiciones que creó en el tutorial [Creación de una aplicación de análisis en tienda en Azure IoT Central](./tutorial-in-store-analytics-create-app.md).
 
-1. Seleccione **Edit** (Edición) en la barra de herramientas del panel. En el modo de edición, puede personalizar la apariencia, el diseño y el contenido del panel.
+1. Seleccione **Configuración del panel** y escriba el **Nombre** del panel y seleccione **Guardar**. 
 
     :::image type="content" source="media/tutorial-in-store-analytics-customize-dashboard/dashboard-edit.png" alt-text="Edición del panel de Azure IoT Central":::
 
-1. Si lo desea, puede ocultar el panel izquierdo. Al hacerlo, se ampliará el área de trabajo para editar el panel.
+    :::image type="content" source="media/tutorial-in-store-analytics-customize-dashboard/new-dashboard.png" alt-text="Nuevo panel de Azure IoT Central":::
 
-1. Escriba un nombre descriptivo para el panel en **Dashboard name** (Nombre del panel). En este tutorial se utiliza una compañía ficticia llamada Contoso y el nombre del panel de ejemplo es *Contoso dashboard*. 
-
-1. Seleccione **Guardar**. Los cambios se guardan en el panel y el modo de edición está deshabilitado.
-
-    :::image type="content" source="media/tutorial-in-store-analytics-customize-dashboard/dashboard-change-name.png" alt-text="Cambio de nombre del panel de Azure IoT Central":::
 
 ## <a name="customize-image-tiles-on-the-dashboard"></a>Personalizar iconos de imagen en el panel
 
@@ -78,7 +72,7 @@ Para personalizar un icono de imagen que muestra una imagen de marca en el panel
 
 1. Opcionalmente, especifique una dirección URL para la imagen.
 
-1. Seleccione **Update configuration** (Actualización de la configuración). El botón **Update configuration** (Actualización de la configuración) guarda los cambios en el panel y deja habilitado el modo de edición.
+1. Seleccione **Update** (Actualizar).
 
     :::image type="content" source="media/tutorial-in-store-analytics-customize-dashboard/brand-image-save.png" alt-text="Guardado de la imagen de marca en Azure IoT Central":::
 
@@ -90,15 +84,11 @@ Para personalizar un icono de imagen que muestra un mapa de las zonas de sensore
 
 1. Seleccione **Image** (Imagen) y use el cuadro de diálogo para cargar una imagen personalizada de un mapa de zonas de la tienda. 
 
-1. Seleccione **Update configuration** (Actualización de la configuración).
+1. Seleccione **Actualizar**.
 
     :::image type="content" source="media/tutorial-in-store-analytics-customize-dashboard/store-map-save.png" alt-text="Guardado del mapa de tiendas en Azure IoT Central":::
 
     En el mapa de la tienda de Contoso de ejemplo se muestran cuatro zonas: dos zonas de cajas, una zona para prendas y productos de cuidado personal y otra para comestibles. En este tutorial, asociará sensores con estas zonas para proporcionar datos de telemetría.
-
-    :::image type="content" source="media/tutorial-in-store-analytics-customize-dashboard/store-zones.png" alt-text="Zonas de tienda en Azure IoT Central":::
-
-1. Seleccione **Guardar**.
 
 ## <a name="arrange-tiles-to-modify-the-layout"></a>Organizar iconos para modificar el diseño
 
@@ -110,21 +100,12 @@ Para quitar los iconos que no tenga previsto usar en la aplicación:
 
 1. Seleccione **Edit** (Edición) en la barra de herramientas del panel. 
 
-1. Seleccione **X** (Eliminar) para quitar los iconos siguientes: **Back to all zones** (Volver a todas las zonas), **Visit store dashboard** (Visitar panel de tienda), **Wait time** (Tiempo de espera) y los tres iconos asociados con **Checkout 3** (Caja 3). El panel de la tienda de Contoso no usa estos iconos. 
+1. Seleccione **puntos suspensivos** y **Eliminar** para quitar los mosaicos siguientes: **Back to all zones** (Volver a todas las zonas), **Visit store dashboard** (Visitar panel de la tienda), **Occupancy** (Ocupación), **Warm-up checkout zone** (Subir temperatura de zona de cajas), **Cool-down checkout zone** (Bajar temperatura de zona de cajas), **Occupancy sensor settings** (Configuración de sensores de ocupación), **Thermostat sensor settings** (Configuración de sensor de termostato), **Environment conditions** (Condiciones ambientales) y los tres mosaicos asociados con **Checkout 3** (Zona de cajas 3). El panel de la tienda de Contoso no usa estos iconos. 
 
     :::image type="content" source="media/tutorial-in-store-analytics-customize-dashboard/delete-tiles.png" alt-text="Eliminación de iconos en Azure IoT Central":::
 
-1. Desplácese para mostrar los restantes iconos del panel.
-
-1. Seleccione **X** (Eliminar) para quitar los iconos siguientes: **Warm-up checkout zone** (Subir temperatura de zona de cajas), **Cool-down checkout zone** (Bajar temperatura de zona de cajas), **Occupancy sensor settings** (Configuración de sensores de ocupación), **Thermostat sensor settings** (Configuración de sensor de termostato) y **Environment conditions** (Condiciones ambientales). 
-
-    :::image type="content" source="media/tutorial-in-store-analytics-customize-dashboard/delete-tiles-2.png" alt-text="Eliminación de iconos restantes en Azure IoT Central":::
 
 1. Seleccione **Guardar**. Al quitar los iconos sin usar se libera espacio en la página de edición y se simplifica la vista del panel para los operadores.
-
-1. Vea los cambios en el panel.
-
-    :::image type="content" source="media/tutorial-in-store-analytics-customize-dashboard/after-delete-tiles.png" alt-text="Azure IoT Central después de eliminar iconos":::
 
 Después de quitar los iconos sin usar, reorganice los iconos restantes para crear un diseño organizado. El nuevo diseño incluye espacio para los iconos que agregue en un paso posterior.
 

@@ -5,12 +5,12 @@ author: msangapu-msft
 ms.author: msangapu
 ms.topic: tutorial
 ms.date: 06/20/2020
-ms.openlocfilehash: d45a8b8f426df32b9f5ac6f64237107083e0f9ab
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 907ae75b17bcb7496c2ad3e76a8e4da1bd44b1fa
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100586284"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121728116"
 ---
 # <a name="tutorial-troubleshoot-an-app-service-app-with-azure-monitor"></a>Tutorial: Solución de problemas de una aplicación de App Service con Azure Monitor
 
@@ -43,15 +43,18 @@ Para completar este tutorial, necesita:
 
 ## <a name="create-azure-resources"></a>Creación de recursos de Azure
 
-En primer lugar, se ejecutarán varios comandos de forma local para configurar una aplicación de ejemplo para usarla con este tutorial. Los comandos clonan una aplicación de ejemplo, crean recursos de Azure, crean un usuario de implementación e implementan la aplicación en Azure. Se le pedirá la contraseña que proporcionó como parte de la creación del usuario de implementación. 
+En primer lugar, se ejecutarán varios comandos de forma local para configurar una aplicación de ejemplo para usarla con este tutorial. Los comandos crean recursos de Azure, crean un usuario de implementación e implementan la aplicación de ejemplo en Azure. Se le pedirá la contraseña que proporcionó como parte de la creación del usuario de implementación. 
 
 ```bash
-git clone https://github.com/Azure-Samples/App-Service-Troubleshoot-Azure-Monitor
 az group create --name myResourceGroup --location "South Central US"
 az webapp deployment user set --user-name <username> --password <password>
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku B1 --is-linux
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --runtime "PHP|7.3" --deployment-local-git
-git remote add azure <url_from_previous_step>
+az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings DEPLOYMENT_BRANCH='main'
+git clone https://github.com/Azure-Samples/App-Service-Troubleshoot-Azure-Monitor
+cd App-Service-Troubleshoot-Azure-Monitor
+git branch -m main
+git remote add azure <url-from-app-webapp-create>
 git push azure main
 ```
 

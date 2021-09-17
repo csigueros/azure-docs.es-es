@@ -9,14 +9,16 @@ ms.workload: infrastructure
 ms.date: 03/15/2021
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: c37017269eb8989102353b079f61c104f5061749
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 87d3518b59bd5297bed4af25b11d7a47b7021a58
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112074933"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122692466"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-in-the-azure-portal"></a>Inicio rápido: Creación de una máquina virtual de Windows en Azure Portal
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Windows 
 
 Las máquinas virtuales de Azure pueden crearse mediante Azure Portal. Este método proporciona una interfaz de usuario basada en explorador para crear máquinas virtuales y sus recursos asociados. En esta guía de inicio rápido se muestra cómo usar Azure Portal para implementar una máquina virtual (VM) en Azure que ejecuta Windows Server 2019. Para ver la máquina virtual en acción, conéctese a la máquina virtual mediante RDP e instale al servidor web IIS.
 
@@ -30,7 +32,7 @@ Inicie sesión en Azure Portal en https://portal.azure.com.
 
 1. Escriba **máquinas virtuales** en la búsqueda.
 1. En **Servicios**, seleccione **Máquinas virtuales**.
-1. En la página **Máquinas virtuales**, seleccione **Agregar** y, después, **Máquina virtual**. 
+1. En la página **Máquinas virtuales**, seleccione **Crear** y, después, **Máquina virtual**. 
 1. En la pestaña **Aspectos básicos**, en **Detalles del proyecto**, asegúrese de que esté seleccionada la suscripción correcta y luego elija **Crear nuevo** grupo de recursos. Escriba *myResourceGroup* para el nombre. 
 
     ![Captura de pantalla de la sección Detalles del proyecto en la que se muestra dónde se selecciona la suscripción de Azure y el grupo de recursos de la máquina virtual](./media/quick-create-portal/project-details.png)

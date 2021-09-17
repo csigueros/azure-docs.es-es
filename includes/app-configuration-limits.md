@@ -2,21 +2,21 @@
 author: tfitzmac
 ms.service: azure-app-configuration
 ms.topic: include
-ms.date: 09/02/2020
+ms.date: 08/19/2021
 ms.author: tomfitz
-ms.openlocfilehash: ba42b60ce1e168cbf07daf0c302e6f11e2ff2532
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3b04007ef7329231da7de31ec465de2c1585c7e4
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89421207"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122752865"
 ---
-| Resource | Límite |
-| --- | --- |
-| Almacenes de configuración: nivel Gratis | 1 por suscripción |
-| Almacenes de configuración: nivel Estándar | ilimitado para cada suscripción |
-| Solicitudes del almacén de configuración: nivel Gratis | 1000 solicitudes por día  |
-| Solicitudes del almacén de configuración: nivel Estándar | La limitación comienza en las 20 000 solicitudes por hora  |
-| Almacenamiento: nivel Gratis | 10 MB |
-| Almacenamiento: nivel Estándar | 1 GB |
-| Claves y valores | 10 KB para un único elemento clave-valor |
+| Resource | Límite | Comentario |
+| --- | --- | ---|
+| Almacenes de configuración para el nivel Gratis | 1 almacén por suscripción |
+| Almacenes de configuración para el nivel Estándar | Almacenes ilimitados por suscripción | 
+| Solicitudes del almacén de configuración para el nivel Gratis | 1000 solicitudes por día  | Una vez agotada la cuota, se devolverá el código de estado HTTP 429 para todas las solicitudes hasta que finalice el día. |
+| Solicitudes del almacén de configuración para el nivel Estándar | 30 000 por hora  |Una vez agotada la cuota, las solicitudes pueden devolver el código de estado HTTP 429, que indica que hay demasiadas solicitudes hasta que finalice la hora.|  
+| Almacenamiento para el nivel gratis | 10 MB |
+| Almacenamiento para el nivel Estándar | 1 GB |
+| Claves y valores | 10 kB  | Para un único elemento clave-valor, incluidos todos los metadatos

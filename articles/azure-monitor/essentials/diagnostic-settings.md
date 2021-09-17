@@ -6,12 +6,12 @@ ms.author: bwren
 services: azure-monitor
 ms.topic: conceptual
 ms.date: 06/09/2021
-ms.openlocfilehash: 90b9ee4be63bc1773751ae505701ea196cf1f483
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 0a161c2341137abc047d81b408058ca56e192526
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121742614"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122444836"
 ---
 # <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>Creación de una configuración de diagnóstico para enviar los registros y las métricas de la plataforma a diferentes destinos
 Los [registros de plataforma](./platform-logs-overview.md) de Azure, como los registros de recursos y los registros de actividad de Azure, proporcionan información de diagnóstico y auditoría detallada sobre los recursos de Azure y la plataforma de Azure de la que dependen. Las [métricas de plataforma](./data-platform-metrics.md) se recopilan de forma predeterminada y suelen almacenarse en la base de datos de métricas de Azure Monitor. En este artículo, se explica cómo crear y establecer la configuración de diagnóstico para enviar métricas y registros de plataforma a diferentes destinos.
@@ -51,7 +51,7 @@ Los registros y las métricas de plataforma se pueden enviar a los destinos de l
 
 ### <a name="destination-requirements"></a>Requisitos de destino
 
-Se deben crear todos los destinos para la configuración de diagnóstico antes de crear la configuración de diagnóstico. El destino no tiene que estar en la misma suscripción que el recurso que envía los registros, siempre que el usuario que realice la configuración tenga el acceso de Azure RBAC adecuado a ambas suscripciones. En la tabla siguiente se proporcionan los requisitos únicos para cada destino, incluidas las restricciones regionales.
+Se deben crear todos los destinos para la configuración de diagnóstico antes de crear la configuración de diagnóstico. El destino no tiene que estar en la misma suscripción que el recurso que envía los registros, siempre que el usuario que realice la configuración tenga el acceso de Azure RBAC adecuado a ambas suscripciones. Con Azure Lighthouse, también se puede enviar una configuración de diagnóstico a un área de trabajo de otro inquilino de Azure Active Directory. En la tabla siguiente se proporcionan los requisitos únicos para cada destino, incluidas las restricciones regionales.
 
 | Destination | Requisitos |
 |:---|:---|

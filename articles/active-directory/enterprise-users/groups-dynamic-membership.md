@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: overview
-ms.date: 02/18/2021
+ms.date: 08/06/2021
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d93acbfa8ae89b459fafb69411d35706b18fcbb
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: 9551906dc3a80a07597fc8406228a5869688d317
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111982995"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121750562"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Reglas de pertenencia dinámica a grupos de Azure Active Directory
 
@@ -176,25 +176,25 @@ David se evalúa como true, Da como false.
 
 Los valores utilizados en una expresión pueden ser de varios tipos, incluidos:
 
-* Cadenas
-* Valor booleano: true, false
-* Números
-* Matrices: matriz numérica, matriz de cadenas
+- Cadenas
+- Valor booleano: true, false
+- Números
+- Matrices: matriz numérica, matriz de cadenas
 
 Al especificar un valor dentro de una expresión es importante utilizar la sintaxis correcta para evitar errores. Algunas sugerencias de sintaxis son:
 
-* Las comillas dobles son opcionales a menos que el valor sea una cadena.
-* Las operaciones de cadena y regex no distinguen mayúsculas de minúsculas.
-* Cuando un valor de cadena contiene comillas dobles, se debe utilizar \` como carácter de escape de ambas. Por ejemplo, user.department -eq \`"Sales\`" es la sintaxis correcta cuando "Sales" es el valor.
-* También puede realizar comprobaciones null, usando null como valor, por ejemplo, `user.department -eq null`.
+- Las comillas dobles son opcionales a menos que el valor sea una cadena.
+- Las operaciones de cadena y regex no distinguen mayúsculas de minúsculas.
+- Cuando un valor de cadena contiene comillas dobles, se debe utilizar \` como carácter de escape de ambas. Por ejemplo, user.department -eq \`"Sales\`" es la sintaxis correcta cuando "Sales" es el valor. Hay que agregar dos comillas simples cada vez, en lugar de una, como carácter de escape a las comillas simples.
+- También puede realizar comprobaciones null, usando null como valor, por ejemplo, `user.department -eq null`.
 
 ### <a name="use-of-null-values"></a>Uso de valores nulos
 
 Para especificar un valor nulo en una regla, puede usar el valor *null*. 
 
-* Use -eq o -ne al comparar el valor *null* de una expresión.
-* Use comillas alrededor de la palabra *null* solo si desea que se interprete como un valor de cadena literal.
-* El operador -not no se puede usar como operador comparativo con valores null. Si lo hace, recibirá un error tanto si usa null como si usa $null.
+- Use -eq o -ne al comparar el valor *null* de una expresión.
+- Use comillas alrededor de la palabra *null* solo si desea que se interprete como un valor de cadena literal.
+- El operador -not no se puede usar como operador comparativo con valores null. Si lo hace, recibirá un error tanto si usa null como si usa $null.
 
 La manera correcta de hacer referencia al valor null es como sigue:
 
@@ -241,9 +241,9 @@ Los paréntesis son necesarios solo si la precedencia no cumple sus requisitos. 
 
 Una regla de pertenencia puede constar de expresiones complejas donde las propiedades, los operadores y los valores pueden adoptar formas más complejas. Las expresiones se consideran complejas cuando se cumple alguna de las siguientes condiciones:
 
-* La propiedad consta de una colección de valores, especialmente las propiedades con varios valores
-* Las expresiones usan los operadores -any y -all
-* El valor de la expresión puede incluir por sí mismo una o varias expresiones
+- La propiedad consta de una colección de valores, especialmente las propiedades con varios valores
+- Las expresiones usan los operadores -any y -all
+- El valor de la expresión puede incluir por sí mismo una o varias expresiones
 
 ## <a name="multi-value-properties"></a>Propiedades de varios valores
 
@@ -258,8 +258,8 @@ Las propiedades de varios valores son colecciones de objetos del mismo tipo. Se 
 
 Puede usar los operadores -any y -all para aplicar una condición a uno o todos los elementos de la colección, respectivamente.
 
-* -any (se satisface cuando al menos un elemento de la colección coincide con la condición)
-* -all (se satisface cuando todos los elementos de la colección coinciden con la condición)
+- -any (se satisface cuando al menos un elemento de la colección coincide con la condición)
+- -all (se satisface cuando todos los elementos de la colección coinciden con la condición)
 
 #### <a name="example-1"></a>Ejemplo 1
 
@@ -357,8 +357,8 @@ Las reglas de pertenencia dinámica admiten los atributos de extensión y las pr
 
 Las [propiedades de extensión personalizadas](../hybrid/how-to-connect-sync-feature-directory-extensions.md) se sincronizan desde una instancia de Windows Server AD local o desde una aplicación SaaS conectada y presentan el formato `user.extension_[GUID]_[Attribute]`, donde:
 
-* [GUID] es el identificador único de Azure AD para la aplicación que creó la propiedad en Azure AD
-* [Attribute] es el nombre de la propiedad tal y como se creó
+- [GUID] es el identificador único de Azure AD para la aplicación que creó la propiedad en Azure AD
+- [Attribute] es el nombre de la propiedad tal y como se creó
 
 Un ejemplo de una regla que utiliza una propiedad de extensión personalizada es:
 

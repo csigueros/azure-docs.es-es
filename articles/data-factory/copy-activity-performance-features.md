@@ -1,30 +1,32 @@
 ---
 title: Características de optimización del rendimiento de la actividad de copia
-description: Conozca las características clave que le ayudarán a optimizar el rendimiento de la actividad de copia en Azure Data Factory.
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Conozca las características clave que le ayudarán a optimizar el rendimiento de la actividad de copia en canalizaciones de Azure Data Factory y Azure Synapse Analytics.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 09/24/2020
-ms.openlocfilehash: e161ddbeaad0f9e366baa1265622bede93d5b567
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.custom: synapse
+ms.date: 08/24/2021
+ms.openlocfilehash: 9be8ef1772da6259441a8de4c85fa44d54945c7d
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109482622"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122821820"
 ---
 # <a name="copy-activity-performance-optimization-features"></a>Características de optimización del rendimiento de la actividad de copia
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-En este artículo se describen las características de optimización del rendimiento de la actividad de copia que puede aprovechar en Azure Data Factory.
+En este artículo se describen las características de optimización del rendimiento de la actividad de copia que puede usar en canalizaciones de Azure Data Factory y Azure Synapse Analytics.
 
 ## <a name="data-integration-units"></a>Unidades de integración de datos
 
-Una unidad de integración de datos es una medida que representa la eficacia (una combinación de CPU, memoria y asignación de recursos de red) de una única unidad en Azure Data Factory. Una unidad de integración de datos solo se aplica a [Azure Integration Runtime](concepts-integration-runtime.md#azure-integration-runtime), pero no a [Integration Runtime autohospedado](concepts-integration-runtime.md#self-hosted-integration-runtime).
+Una unidad de integración de datos es una medida que representa la potencia (una combinación de CPU, memoria y asignación de recursos de red) de una única unidad en el servicio. Una unidad de integración de datos solo se aplica a [Azure Integration Runtime](concepts-integration-runtime.md#azure-integration-runtime), pero no a [Integration Runtime autohospedado](concepts-integration-runtime.md#self-hosted-integration-runtime).
 
-El número permitido de DIU para impulsar la ejecución de una actividad de copia se encuentra **entre 2 y 256**. Si no se especifica o elige "automático" en la interfaz de usuario, Data Factory aplicará dinámicamente la configuración de DIU óptima según el modelo de datos y el par origen-receptor. En la tabla siguiente se enumeran los intervalos de unidades de integración de datos (DIU) admitidos y el comportamiento predeterminado en diferentes escenarios de copia:
+El número permitido de DIU para impulsar la ejecución de una actividad de copia se encuentra **entre 2 y 256**. Si no se especifica o elige "automático" en la interfaz de usuario, el servicio aplicará dinámicamente el valor óptimo de DIU según el par origen-receptor y el patrón de datos. En la tabla siguiente se enumeran los intervalos de unidades de integración de datos (DIU) admitidos y el comportamiento predeterminado en diferentes escenarios de copia:
 
 | Escenario de copia | Intervalo de DIU admitido | DIU predeterminadas que determina el servicio |
 |:--- |:--- |---- |
@@ -77,10 +79,10 @@ Puede establecer la copia en paralelo (propiedad `parallelCopies`) en la activid
 
 La copia en paralelo es ortogonal para [unidades de integración de datos](#data-integration-units) o [nodos de IR autohospedado](#self-hosted-integration-runtime-scalability); es decir, se cuenta para todas las unidades de integración de datos o todos los nodos de IR autohospedado.
 
-En cada ejecución de actividad de copia y de forma predeterminada, Azure Data Factory aplica dinámicamente la configuración de copia en paralelo óptima según el par origen-receptor y el patrón de datos. 
+En cada ejecución de actividad de copia y de forma predeterminada, el servicio aplica dinámicamente el valor óptimo de copia en paralelo según el par origen-receptor y el patrón de datos. 
 
 > [!TIP]
-> El comportamiento predeterminado de la copia en paralelo suele proporcionar la mejor capacidad de proceso, que ADF determina automáticamente en función del par origen-receptor, el patrón de datos y el número de unidades de integración de datos o el recuento de CPU/memoria/nodos del entorno de ejecución de integración autohospedado. Consulte [Solución de problemas de rendimiento de la actividad de copia](copy-activity-performance-troubleshooting.md) para conocer cuándo se debe ajustar la copia en paralelo.
+> El comportamiento predeterminado de la copia en paralelo suele proporcionar el mejor rendimiento, que el servicio determina automáticamente en función del par origen-receptor, el patrón de datos y el número de unidades de integración de datos o el recuento de CPU/memoria/nodos del entorno de ejecución de integración autohospedado. Consulte [Solución de problemas de rendimiento de la actividad de copia](copy-activity-performance-troubleshooting.md) para conocer cuándo se debe ajustar la copia en paralelo.
 
 En la tabla siguiente se muestra el comportamiento de la copia en paralelo:
 
@@ -131,7 +133,7 @@ Al copiar datos de un almacén de datos de origen a un almacén de datos recepto
 
 ### <a name="how-staged-copy-works"></a>Funcionamiento de las copias almacenadas provisionalmente
 
-Al activar la característica de almacenamiento provisional, primero se copian los datos desde el almacén de datos de origen al almacenamiento provisional (aporte su propio Azure Blob o Azure Data Lake Storage Gen2). A continuación, los datos se copian desde el almacén de datos provisional al almacén de datos receptor. La actividad de copia de Azure Data Factory administra automáticamente el flujo de dos fases y también limpia los datos temporales del almacenamiento provisional una vez completado el movimiento de datos.
+Al activar la característica de almacenamiento provisional, primero se copian los datos desde el almacén de datos de origen al almacenamiento provisional (aporte su propio Azure Blob o Azure Data Lake Storage Gen2). A continuación, los datos se copian desde el almacén de datos provisional al almacén de datos receptor. La actividad de copia administra automáticamente el flujo de dos fases y también borra los datos temporales del almacenamiento provisional una vez completado el movimiento de datos.
 
 ![copia almacenada provisionalmente](media/copy-activity-performance/staged-copy.png)
 

@@ -3,16 +3,16 @@ title: 'Tutorial: Supervisión de una máquina híbrida con VM Insights de Azure
 description: Aprenda a recopilar y analizar los datos de una máquina híbrida en Azure Monitor.
 ms.topic: tutorial
 ms.date: 04/21/2021
-ms.openlocfilehash: f59ad448440110e2c5e6dd1fa1b2858d9cf42e91
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 8ab801885e86ed90d5f28c2ce90a994828b358a0
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107834271"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122772630"
 ---
 # <a name="tutorial-monitor-a-hybrid-machine-with-vm-insights"></a>Tutorial: Supervisión de una máquina híbrida con VM Insights
 
-[Azure Monitor](../../../azure-monitor/overview.md) puede recopilar datos directamente de las máquinas híbridas en un área de trabajo de Log Analytics para lograr una correlación y un análisis detallados. Normalmente, esto implicaría la instalación del [agente de Log Analytics](../../../azure-monitor/agents/agents-overview.md#log-analytics-agent) en la máquina mediante un script, un método manual o automatizado, según los estándares de administración de la configuración. Los servidores habilitados para Arc han incorporado recientemente compatibilidad para instalar las [extensiones de VM](../manage-vm-extensions.md) del agente de Log Analytics y de Dependency Agent para Windows y Linux, lo que permite a [VM Insights](../../../azure-monitor/vm/vminsights-overview.md) recopilar datos de máquinas virtuales que no son de Azure.
+[Azure Monitor](../../../azure-monitor/overview.md) puede recopilar datos directamente de las máquinas híbridas en un área de trabajo de Log Analytics para lograr una correlación y un análisis detallados. Normalmente, esto implicaría la instalación del [agente de Log Analytics](../../../azure-monitor/agents/agents-overview.md#log-analytics-agent) en la máquina mediante un script, un método manual o automatizado, según los estándares de administración de la configuración. Los servidores habilitados para Arc han incorporado recientemente compatibilidad para instalar las [extensiones de VM](../manage-vm-extensions.md) del agente de Log Analytics y de Dependency para Windows y Linux, lo que permite que [VM Insights](../../../azure-monitor/vm/vminsights-overview.md) recopile datos de máquinas virtuales que no son de Azure.
 
 En este tutorial se muestra cómo configurar y recopilar datos de máquinas Linux o Windows mediante la habilitación de VM Insights siguiendo un conjunto simplificado de pasos, lo que optimiza la experiencia y exige un tiempo menor.  
 

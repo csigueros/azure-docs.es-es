@@ -8,25 +8,27 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 07/13/2021
+ms.date: 07/30/2021
 ms.topic: overview
-ms.openlocfilehash: cb905bd3e8ceb7012415a65bda1928b25da3037b
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 5a2bd61c2e59e5933361cc5d64462ba50a12d836
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113760991"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121737114"
 ---
-# <a name="what-are-azure-arc-enabled-data-services-preview"></a>¿Qué son los servicios de datos habilitados para Azure Arc (versión preliminar)?
+# <a name="what-are-azure-arc-enabled-data-services"></a>¿Qué son los servicios de datos habilitados para Azure Arc?
 
 Azure Arc permite ejecutar servicios de datos de Azure en el entorno local, en el perímetro y en nubes públicas con Kubernetes y la infraestructura de su elección.
 
-Actualmente, los siguientes servicios de datos habilitados para Azure Arc están disponibles en versión preliminar:
+Actualmente están disponibles los siguientes servicios de datos habilitados para Azure Arc: 
 
 - Instancia administrada de SQL
-- Hiperescala de PostgreSQL
+- Hiperescala de PostgreSQL (versión preliminar)
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
+Para ver una introducción a cómo Servicios de datos habilitados para Azure Arc admiten entornos de trabajo híbridos, consulte este vídeo:
+
+> [!VIDEO https://channel9.msdn.com/Shows//Inside-Azure-for-IT/Choose-the-right-data-solution-for-your-hybrid-environment/player?format=ny]
 
 ## <a name="always-current"></a>Siempre actual
 
@@ -43,6 +45,8 @@ Azure Arc también proporciona otras ventajas en la nube, como la implementació
 ## <a name="unified-management"></a>Administración unificada
 
 Gracias a herramientas conocidas como Azure Portal, Azure Data Studio y la CLI de Azure (`az`) con la extensión `arcdata`, ahora puede obtener una vista unificada de todos los recursos de datos implementados con Azure Arc. No solo puede ver y administrar una variedad de bases de datos relacionales en todo el entorno y Azure, sino que también puede obtener registros y datos de telemetría de las API de Kubernetes para analizar la capacidad y el estado de la infraestructura subyacente. Además de contar con la supervisión del rendimiento y el análisis de registros localizados, ahora puede aprovechar Azure Monitor para obtener información operativa completa en todo el estado.
+
+[!INCLUDE [use-insider-azure-data-studio](includes/use-insider-azure-data-studio.md)]
 
 ## <a name="disconnected-scenario-support"></a>Compatibilidad con los escenarios sin conexión
 

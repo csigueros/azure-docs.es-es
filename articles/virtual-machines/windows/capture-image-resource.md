@@ -9,14 +9,18 @@ ms.topic: how-to
 ms.date: 09/27/2018
 ms.author: cynthn
 ms.custom: legacy
-ms.openlocfilehash: aa377267fb522de03ee181db99963498b5075fc4
-ms.sourcegitcommit: ca38027e8298c824e624e710e82f7b16f5885951
+ms.collection: windows
+ms.openlocfilehash: 3fb298dc8e01c50b562e3891f02227b416596a04
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112574351"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122695258"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Captura de una imagen administrada de una máquina virtual generalizada en Azure
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Windows 
+
 
 Se puede crear un recurso de imagen administrado a partir de una máquina virtual (VM) generalizada que se almacena como un disco administrado o como un disco no administrado en una cuenta de almacenamiento. A partir de ese momento, la imagen se puede utilizar para crear varias máquinas virtuales. Para obtener información sobre cómo se facturan las imágenes administradas, consulte [Precios de Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks/). 
 

@@ -10,12 +10,12 @@ ms.devlang: java
 ms.custom:
 - devx-track-java
 - mode-api
-ms.openlocfilehash: fdcc8b9355556804b2f13fccd206eb13ac7c0cb6
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: c5f363ce78724ed569ec3ab24cd6c1fa640954e2
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112462062"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122444436"
 ---
 # <a name="quickstart-use-java-to-create-an-app-showing-github-star-count-with-azure-functions-and-signalr-service"></a>Inicio rápido: Uso de Java para crear una aplicación en la que se muestre el número de estrellas de GitHub con Azure Functions y SignalR Service
 
@@ -140,7 +140,7 @@ Inicie sesión en Azure Portal en <https://portal.azure.com/> con su cuenta de A
             HttpResponse<String> res = client.send(req, BodyHandlers.ofString());
             Gson gson = new Gson();
             GitResult result = gson.fromJson(res.body(), GitResult.class);
-            return new SignalRMessage("newMessage", "Current start count of https://github.com/Azure/azure-signalr is:".concat(result.stargazers_count));
+            return new SignalRMessage("newMessage", "Current star count of https://github.com/Azure/azure-signalr is:".concat(result.stargazers_count));
         }
     
         class GitResult {
@@ -228,9 +228,9 @@ Inicie sesión en Azure Portal en <https://portal.azure.com/> con su cuenta de A
     1. Copie la cadena de conexión principal. Ejecute el comando siguiente.
     
         ```bash
-        func settings add AzureSignalRConnectionString '<signalr-connection-string>'
+        func settings add AzureSignalRConnectionString "<signalr-connection-string>"
         # Also we need to set AzureWebJobsStorage as Azure Function's requirement
-        func settings add AzureWebJobsStorage 'UseDevelopmentStorage=true'
+        func settings add AzureWebJobsStorage "UseDevelopmentStorage=true"
         ```
     
 6. Ejecute la función de Azure en el entorno local:
@@ -240,7 +240,7 @@ Inicie sesión en Azure Portal en <https://portal.azure.com/> con su cuenta de A
     mvn azure-functions:run
     ```
 
-    Después de que la función de Azure se ejecute en el entorno local. Use el explorador para visitar `http://localhost:7071/api/index` y ver el recuento de estrellas actual. Y si asigna estrellas o las quita en GitHub, obtendrá un recuento de estrellas que se actualiza cada pocos segundos.
+    Después de que la función de Azure se ejecute en el entorno local. Use el explorador para visitar `http://localhost:7071/api/index` y ver el número de estrellas actual. Y si asigna estrellas o las quita en GitHub, obtendrá un número de estrellas que se actualiza cada pocos segundos.
 
     > [!NOTE]
     > Para el enlace de SignalR se necesita Azure Storage, pero puede usar el emulador de almacenamiento local cuando la función se ejecuta localmente.

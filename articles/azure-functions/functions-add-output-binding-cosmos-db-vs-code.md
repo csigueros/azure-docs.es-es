@@ -2,16 +2,16 @@
 title: Conexión de Azure Functions a Azure Cosmos DB mediante Visual Studio Code
 description: Aprenda a conectar Azure Functions a una cuenta de Azure Cosmos DB mediante la incorporación de un enlace de salida al proyecto de Visual Studio Code.
 author: ThomasWeiss
-ms.date: 03/23/2021
+ms.date: 08/17/2021
 ms.topic: quickstart
 ms.author: thweiss
 zone_pivot_groups: programming-languages-set-functions-temp
-ms.openlocfilehash: 884ed08dc6dc6587b4f464c18e8231a7f5342422
-ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
+ms.openlocfilehash: 9fbc67f14d6d67393b62129f2b4e9269fb6c6f52
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "112234555"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122446279"
 ---
 # <a name="connect-azure-functions-to-azure-cosmos-db-using-visual-studio-code"></a>Conexión de Azure Functions a Azure Cosmos DB mediante Visual Studio Code
 
@@ -33,44 +33,47 @@ Antes de empezar, asegúrese de instalar la [extensión Azure Databases](https:/
 ## <a name="create-your-azure-cosmos-db-account"></a>Creación de una cuenta de Azure Cosmos DB
 
 > [!IMPORTANT]
-> [Azure Cosmos DB sin servidor](../cosmos-db/serverless.md) está actualmente disponible en versión preliminar. Este modo basado en el consumo hace que Azure Cosmos DB sea una opción segura para las cargas de trabajo sin servidor. Para usar Azure Cosmos DB en modo sin servidor, elija **Sin servidor** en **Capacity mode** (Modo de capacidad) al crear la cuenta.
+> [Azure Cosmos DB sin servidor](../cosmos-db/serverless.md) ahora está disponible con carácter general. Este modo basado en el consumo hace que Azure Cosmos DB sea una opción segura para las cargas de trabajo sin servidor. Para usar Azure Cosmos DB en modo sin servidor, elija **Sin servidor** en **Capacity mode** (Modo de capacidad) al crear la cuenta.
 
-1. En una nueva ventana del explorador, inicie sesión en [Azure Portal](https://portal.azure.com/).
+1. En Visual Studio Code, haga clic con el botón derecho en la suscripción de Azure en la que creó la aplicación de funciones en el [artículo anterior](./create-first-function-vs-code-csharp.md) y seleccione **Crear servidor...** .
 
-2. Haga clic en **Crear un recurso** > **Bases de datos** > **Azure Cosmos DB**.
-   
-    :::image type="content" source="../cosmos-db/includes/media/cosmos-db-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png" alt-text="El panel de las bases de datos de Azure Portal" border="true":::
+    :::image type="content" source="./media/functions-add-output-binding-cosmos-db-vs-code/create-account.png" alt-text="Creación de una nueva cuenta de Azure Cosmos DB desde Visual Studio Code" border="true":::
 
-3. En la página **Create Azure Cosmos DB Account** (Creación de una cuenta de Azure Cosmos DB), especifique la configuración de la nueva cuenta de Azure Cosmos DB. 
- 
-    Configuración|Value|Descripción
-    ---|---|---
-    Subscription|*Su suscripción*|Elija la suscripción de Azure en la que creó la instancia de Function App en el [artículo anterior](./create-first-function-vs-code-csharp.md).
-    Grupo de recursos|*El grupo de recursos*|Elija el grupo de recursos en el que creó la instancia de Function App en el [artículo anterior](./create-first-function-vs-code-csharp.md).
-    Nombre de cuenta|*Escriba un nombre único*|Escriba un nombre único para identificar la cuenta de Azure Cosmos DB.<br><br>El nombre de la cuenta solo puede utilizar letras minúsculas, números y guiones (-), y debe tener entre 3 y 31 caracteres de longitud.
-    API|Core (SQL)|Seleccione **Core (SQL)** para crear una base de datos de documentos en la que se puedan realizar consultas mediante una sintaxis de SQL. [Más información sobre la SQL API de Azure Cosmos DB](../cosmos-db/introduction.md).|
-    Location|*Seleccione la región más cercana a su ubicación*|Seleccione una ubicación geográfica para hospedar la cuenta de Azure Cosmos DB. Use la ubicación que esté más cercana a usted o a los usuarios para obtener el acceso más rápido a los datos.
-    Capacity mode (Modo de capacidad)|Rendimiento aprovisionado o sin servidor|Seleccione **Serverless** (Sin servidor) para crear una cuenta en modo [sin servidor](../cosmos-db/serverless.md). Seleccione **Provisioned throughput** (Rendimiento aprovisionado) para crear una cuenta en modo de [rendimiento aprovisionado](../cosmos-db/set-throughput.md).<br><br>Elija sin **Serverless** (Sin servidor) si va a empezar a trabajar con Azure Cosmos DB.
+1. Escriba la siguiente información cuando se le indique:
 
-4. Haga clic en **Revisar y crear**. Puede omitir las secciones **Red** y **Etiquetas**. 
+    + **Seleccionar un servidor de bases de datos de Azure**: elija `Core (SQL)` para crear una base de datos de documentos en la que se puedan realizar consultas mediante una sintaxis de SQL. [Más información sobre la SQL API de Azure Cosmos DB](../cosmos-db/introduction.md).
 
-5. Revise la información de resumen y haga clic en **Crear**. 
+    + **Nombre de cuenta**: escriba un nombre único para identificar la cuenta de Azure Cosmos DB. El nombre de la cuenta solo puede utilizar letras minúsculas, números y guiones (-), y debe tener entre 3 y 31 caracteres de longitud.
 
-6. Espere hasta que se cree una base de datos de Azure Cosmos DB y seleccione **Go to resource** (Ir al recurso).
+    + **Seleccionar un modelo de capacidad**: seleccione **servidor** para crear una cuenta en modo [sin servidor](../cosmos-db/serverless.md). Seleccione **Provisioned throughput** (Rendimiento aprovisionado) para crear una cuenta en modo de [rendimiento aprovisionado](../cosmos-db/set-throughput.md). Se recomienda elegir **Sin servidor** si va a empezar a trabajar con Azure Cosmos DB.
 
-    :::image type="content" source="../cosmos-db/media/create-cosmosdb-resources-portal/azure-cosmos-db-account-deployment-successful.png" alt-text="Se ha completado la creación de la cuenta de Azure Cosmos DB" border="true":::
+    + **Seleccionar un grupo de recursos para los nuevos recursos**: elija el grupo de recursos en el que creó la aplicación de funciones en el [artículo anterior](./create-first-function-vs-code-csharp.md).
+
+    + **Seleccionar una ubicación para los nuevos recursos**: seleccione una ubicación geográfica para hospedar la cuenta de Azure Cosmos DB. Use la ubicación que esté más cercana a usted o a los usuarios para obtener el acceso más rápido a los datos.
 
 ## <a name="create-an-azure-cosmos-db-database-and-container"></a>Creación de un contenedor y una base de datos de Azure Cosmos DB
 
-En la cuenta de Azure Cosmos DB, seleccione **Explorador de datos** y luego **Nuevo contenedor**. Cree una base de datos denominada *my-database*, un contenedor denominado *my-container* y elija `/id` como [clave de partición](../cosmos-db/partitioning-overview.md).
+1. Una vez creada la nueva cuenta de Azure Cosmos DB, haga clic con el botón derecho en su nombre y seleccione **Crear base de datos...** .
 
-:::image type="content" source="./media/functions-add-output-binding-cosmos-db-vs-code/create-container.png" alt-text="Creación de un contenedor de Azure Cosmos DB desde Azure Portal" border="true":::
+    :::image type="content" source="./media/functions-add-output-binding-cosmos-db-vs-code/create-database.png" alt-text="Creación de una nueva base de datos de Azure Cosmos DB desde Visual Studio Code" border="true":::
+
+1. Cuando se le solicite, escriba `my-database` como **Nombre de la base de datos**.
+
+1. Una vez creada la base de datos, haga clic con el botón derecho en su nombre y seleccione **Crear colección...** .
+
+    :::image type="content" source="./media/functions-add-output-binding-cosmos-db-vs-code/create-container.png" alt-text="Creación de un nuevo contenedor de Azure Cosmos DB desde Visual Studio Code" border="true":::
+
+1. Escriba la siguiente información cuando se le indique:
+
+    + **Escriba un identificador para la colección**: `my-container`
+
+    + **Escriba la [clave de partición](../cosmos-db/partitioning-overview.md) de la colección**: `id`
 
 ## <a name="update-your-function-app-settings"></a>Actualización de la configuración de la aplicación de funciones
 
 En el [artículo del inicio rápido anterior](./create-first-function-vs-code-csharp.md), creó una aplicación de funciones en Azure. En este artículo, se actualiza una instancia de Function App para escribir documentos JSON en el contenedor de Azure Cosmos DB que ha creado anteriormente. Para conectarse a una cuenta de Azure Cosmos DB, debe agregar su cadena de conexión a la configuración de la aplicación. Después, descargue la nueva configuración en el archivo local.settings.json para que pueda conectarse a su cuenta de Azure Cosmos DB cuando realice la ejecución en un entorno local.
 
-1. En Visual Studio Code, busque la cuenta de Azure Cosmos DB que acaba de crear. Haga clic con el botón derecho en su nombre y seleccione **Copy Connection String** (Copiar cadena de conexión).
+1. En Visual Studio Code, haga clic con el botón derecho en la cuenta de Azure Cosmos DB y seleccione **Copiar cadena de conexión**.
 
     :::image type="content" source="./media/functions-add-output-binding-cosmos-db-vs-code/copy-connection-string.png" alt-text="Copia de la cadena de conexión de Azure Cosmos DB" border="true":::
 
@@ -129,7 +132,7 @@ Abra el archivo de proyecto *HttpExample.cs* y agregue el parámetro siguiente a
     ConnectionStringSetting = "CosmosDbConnectionString")]IAsyncCollector<dynamic> documentsOut,
 ```
 
-El parámetro `documentsOut` es del tipo IAsyncCollector<T>, que representa una colección de documentos JSON que se escribirán en el contenedor de Azure Cosmos DB cuando finaliza la función. Atributos específicos especifica el nombre del contenedor y el nombre de su base de datos primaria. La cadena de conexión de la cuenta de Azure Cosmos DB la establece `ConnectionStringSettingAttribute`.
+El parámetro `documentsOut` es del tipo `IAsyncCollector<T>`, que representa una colección de documentos JSON que se escribirán en el contenedor de Azure Cosmos DB cuando finalice la función. Atributos específicos especifica el nombre del contenedor y el nombre de su base de datos primaria. La cadena de conexión de la cuenta de Azure Cosmos DB la establece `ConnectionStringSettingAttribute`.
 
 La definición del método Run debe ahora parecerse a la siguiente:  
 

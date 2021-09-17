@@ -1,141 +1,154 @@
 ---
-title: Cómo crear definiciones de directivas de configuración de invitado a partir de la directiva de grupo línea de base para Windows
-description: Obtenga información sobre cómo convertir una directiva de grupo de la línea base de seguridad de Windows Server 2019 en una definición de directiva.
+title: Creación de una directiva de configuración de invitado a partir de una directiva de grupo
+description: Obtenga información sobre cómo convertir una directiva de grupo en una definición de directiva.
 ms.date: 03/31/2021
 ms.topic: how-to
-ms.openlocfilehash: fa6012702bf00ee062b4d9d46f47bb673bb460ef
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 12bd1c905c254f16da170cde4a4426a2aa0cb263
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108763008"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122772299"
 ---
-# <a name="how-to-create-guest-configuration-policy-definitions-from-group-policy-baseline-for-windows"></a>Cómo crear definiciones de directivas de configuración de invitado a partir de la directiva de grupo línea de base para Windows
+# <a name="how-to-create-a-guest-configuration-policy-from-group-policy"></a>Creación de una directiva de configuración de invitado a partir de una directiva de grupo
 
-Antes de crear definiciones de directivas personalizadas, es conveniente leer la información conceptual general en [Información sobre Guest Configuration de Azure Policy](../concepts/guest-configuration.md). Para obtener información sobre cómo crear definiciones de directivas de configuración de invitado personalizadas para Linux, consulte la página [Cómo crear una directiva de configuración de invitados para Linux](./guest-configuration-create-linux.md). Para obtener información sobre cómo crear definiciones de directivas de configuración de invitado personalizadas para Windows, consulte la página [Cómo crear una directiva de configuración de invitados para Windows](./guest-configuration-create.md).
-
-Durante la auditoría en Windows, Configuración de invitado usa un módulo de recursos [Desired State Configuration](/powershell/scripting/dsc/overview/overview) (DSC) para crear el archivo de configuración. La configuración de DSC define la condición en la que debe estar la máquina. Si la evaluación de la configuración es **no compatible**, se desencadena el efecto *auditIfNotExists* de la directiva.
-La [configuración de invitado de Azure Policy](../concepts/guest-configuration.md) solo realiza la auditoría de la configuración dentro de máquinas.
+Antes de comenzar, es aconsejable leer la página de información general de la [configuración de invitado](../concepts/guest-configuration.md) y los detalles sobre los efectos de la directiva de configuración de invitado en [Opciones de corrección para la configuración de invitado](../concepts/guest-configuration-policy-effects.md).
 
 > [!IMPORTANT]
-> La extensión de configuración de invitado es necesaria para realizar auditorías en las máquinas virtuales de Azure. Para implementar la extensión a gran escala en todas las máquinas Windows, asigne las siguientes definiciones de directiva:
-> - [Implemente los requisitos previos para habilitar la directiva de configuración de invitado en VM de Windows.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0ecd903d-91e7-4726-83d3-a229d7f2e293)
+> La conversión de una directiva de grupo en una configuración de invitado se encuentra **en versión preliminar**. No todos los tipos de configuración de directiva de grupo tienen los recursos de DSC correspondientes disponibles para PowerShell 7.
+>
+> Todos los comandos de esta página deben ejecutarse en **Windows PowerShell 5.1**.
+> Los archivos MOF de salida resultantes se deben empaquetar usando el módulo `GuestConfiguration` de PowerShell 7.1.3 o una versión posterior.
+> 
+> Las definiciones de directiva de configuración de invitado personalizadas que usan **AuditIfNotExists** están disponibles con carácter general, pero las definiciones que usan **DeployIfNotExists** con la configuración de invitado están en **versión preliminar**.
+> 
+> Se requiere la extensión de configuración de invitado para máquinas virtuales de Azure. Para implementar la extensión a gran escala en todas las máquinas, asigne la siguiente iniciativa de directiva: `Deploy prerequisites to enable guest configuration policies on
+> virtual machines`
 >
 > No use secretos ni información confidencial en paquetes de contenido personalizado.
 
-La comunidad de DSC ha publicado el [módulo BaselineManagement](https://github.com/microsoft/BaselineManagement) para convertir las plantillas exportadas de la directiva de grupo al formato DSC. Junto con el cmdlet GuestConfiguration, el módulo BaselineManagement crea el paquete de configuración de invitado de Azure Policy para Windows a partir del contenido de directiva de grupo. Para obtener más información sobre el uso del módulo BaselineManagement, consulte el artículo [Inicio rápido: Conversión de directiva de grupo en DSC](/powershell/scripting/dsc/quickstarts/gpo-quickstart).
+La comunidad de código abierto ha publicado el módulo [BaselineManagement](https://github.com/microsoft/BaselineManagement) para convertir las plantillas exportadas de [directiva de grupo](/support/windows-server/group-policy/group-policy-overview) al formato DSC de PowerShell. Junto con el módulo `GuestConfiguration`, puede crear un paquete de configuración de invitado para Windows a partir de objetos de directiva de grupo exportados. Posteriormente, el paquete de configuración de invitado se puede usar para auditar o configurar servidores usando una directiva local, aunque no estén unidos a un dominio.
 
-En esta guía, recorremos el proceso de creación de un paquete de configuración de invitado de Azure Policy a partir de un objeto de directiva de grupo (GPO). Aunque en el tutorial se describe la conversión de la línea base de seguridad de Windows Server 2019, se puede aplicar el mismo proceso a otros GPO.
+En esta guía se recorre el proceso de creación de un paquete de configuración de invitado de Azure Policy a partir de un objeto de directiva de grupo (GPO).
 
-## <a name="download-windows-server-2019-security-baseline-and-install-related-powershell-modules"></a>Descargue la línea de base de seguridad de Windows Server 2019 e instale los módulos de PowerShell relacionados
+## <a name="download-required-powershell-modules"></a>Descarga de los módulos de PowerShell necesarios
 
-Para instalar el **DSC**, **GuestConfiguration**, **administración de línea de base** y los módulos de Azure relacionados en PowerShell:
+Para instalar todos los módulos necesarios en PowerShell:
 
-1. En una secuencia de comandos de PowerShell, ejecute el siguiente comando:
+```powershell
+Install-Module guestconfiguration
+Install-Module baselinemanagement
+```
 
-   ```azurepowershell-interactive
-   # Install the BaselineManagement module, Guest Configuration DSC resource module, and relevant Azure modules from PowerShell Gallery
-   Install-Module az.resources, az.policyinsights, az.storage, guestconfiguration, gpregistrypolicyparser, securitypolicydsc, auditpolicydsc, baselinemanagement -scope currentuser -Repository psgallery -AllowClobber
-   ```
+Para realizar una copia de seguridad de objetos de directiva de grupo (GPO) desde un entorno de Active Directory, necesita los comandos de PowerShell disponibles en las Herramientas de instalación remota del servidor (RSAT).
 
-1. Cree un directorio y descargue la línea base de seguridad de Windows Server 2019 desde el kit de herramientas de cumplimiento de seguridad de Windows.
+Con el fin de habilitar las RSAT para la Consola de administración de directivas de grupo en Windows 10:
 
-   ```azurepowershell-interactive
-   # Download the 2019 Baseline files from https://docs.microsoft.com/windows/security/threat-protection/security-compliance-toolkit-10
-   New-Item -Path 'C:\git\policyfiles\downloads' -Type Directory
-   Invoke-WebRequest -Uri 'https://download.microsoft.com/download/8/5/C/85C25433-A1B0-4FFA-9429-7E023E7DA8D8/Windows%2010%20Version%201909%20and%20Windows%20Server%20Version%201909%20Security%20Baseline.zip' -Out C:\git\policyfiles\downloads\Server2019Baseline.zip
-   ```
+```powerShell
+Add-WindowsCapability -Online -Name 'Rsat.GroupPolicy.Management.Tools~~~~0.0.1.0'
+Add-WindowsCapability -Online -Name 'Rsat.ActiveDirectory.DS-LDS.Tools~~~~0.0.1.0'
+```
 
-1. Desbloquee y expanda la línea de base de la instancia de Server 2019 descargada.
+## <a name="export-and-convert-group-policy-to-guest-configuration"></a>Exportación de una directiva de grupo y conversión en una configuración de invitado
 
-   ```azurepowershell-interactive
-   Unblock-File C:\git\policyfiles\downloads\Server2019Baseline.zip
-   Expand-Archive -Path C:\git\policyfiles\downloads\Server2019Baseline.zip -DestinationPath C:\git\policyfiles\downloads\
-   ```
+Hay tres opciones para exportar archivos de directiva de grupo y convertirlos a DSC con el fin de usarlos en una configuración de invitado:
 
-1. Valide el contenido de línea de base de Server 2019 mediante **MapGuidsToGpoNames.ps1**.
+- Exportar un único objeto de directiva de grupo.
+- Exportar los objetos de directiva de grupo combinados para una UO.
+- Exportar los objetos de directiva de grupo combinados desde dentro de una máquina.
 
-   ```azurepowershell-interactive
-   # Show content details of downloaded GPOs
-   C:\git\policyfiles\downloads\Scripts\Tools\MapGuidsToGpoNames.ps1 -rootdir C:\git\policyfiles\downloads\GPOs\ -Verbose
-   ```
+### <a name="single-group-policy-object"></a>Un único objeto de directiva de grupo
 
-## <a name="convert-from-group-policy-to-azure-policy-guest-configuration"></a>Conversión de directiva de grupo a configuración de invitado de Azure Policy
+Identifique el GUID del objeto de directiva de grupo que se exportará usando los comandos del módulo `Group Policy`. En un entorno de gran tamaño, considere la posibilidad de canalizar la salida a `where-object` y filtrar por el nombre.
 
-Después, convierta la línea de base de la instancia de Server 2019 descargada en un paquete de configuración de invitado mediante los módulos configuración de invitado y administración de línea de base.
+Ejecute cada uno de los siguientes en un entorno **Windows PowerShell 5.1**, en una máquina Windows **unida a un dominio**:
 
-1. Convierta la directiva de grupo a Desired State Configuration mediante el módulo de administración de línea de base.
+```powershell
+# List all Group Policy Objects
+Get-GPO -all
+```
 
-   ```azurepowershell-interactive
-   ConvertFrom-GPO -Path 'C:\git\policyfiles\downloads\GPOs\{3657C7A2-3FF3-4C21-9439-8FDF549F1D68}\' -OutputPath 'C:\git\policyfiles\' -OutputConfigurationScript -Verbose
-   ```
+Realice una copia de seguridad de la directiva de grupo en archivos. El comando también acepta un parámetro "Name", pero el GUID de la directiva es menos propenso a errores cuando se usa.
 
-1. Renombre, reformatee y ejecute los scripts convertidos antes de crear un paquete de contenido de directivas.
+```powershell
+Backup-GPO -Guid 'f0cf623e-ae29-4768-9bb4-406cce1f3cff' -Path C:\gpobackup\
+```
 
-   ```azurepowershell-interactive
-   Rename-Item -Path C:\git\policyfiles\DSCFromGPO.ps1 -NewName C:\git\policyfiles\Server2019Baseline.ps1
-   (Get-Content -Path C:\git\policyfiles\Server2019Baseline.ps1).Replace('DSCFromGPO', 'Server2019Baseline') | Set-Content -Path C:\git\policyfiles\Server2019Baseline.ps1
-   (Get-Content -Path C:\git\policyfiles\Server2019Baseline.ps1).Replace('PSDesiredStateConfiguration', 'PSDscResources') | Set-Content -Path C:\git\policyfiles\Server2019Baseline.ps1
-   C:\git\policyfiles\Server2019Baseline.ps1
-   ```
+```
 
-1. Cree un paquete de contenido de configuración de invitado de Azure Policy.
+The output of the command returns the details of the files.
 
-   ```azurepowershell-interactive
-   New-GuestConfigurationPackage -Name Server2019Baseline -Configuration c:\git\policyfiles\localhost.mof -Verbose
-   ```
+ConfigurationScript                   Configuration                   Name
+-------------------                   -------------                   ----
+C:\convertfromgpo\myCustomPolicy1.ps1 C:\convertfromgpo\localhost.mof myCustomPolicy1
+```
 
-## <a name="create-azure-policy-guest-configuration"></a>Creación de configuración de invitado de Azure Policy
+Revise el script exportado de PowerShell para asegurarse de que se hayan rellenado todos los valores y no se hayan escrito mensajes de error. Cree un paquete de configuración mediante el archivo MOF siguiendo las instrucciones de la página [Creación de artefactos de paquetes de configuración de invitado personalizados](./guest-configuration-create.md).
+Los pasos para crear y probar el paquete de configuración de invitado deben ejecutarse en un entorno PowerShell 7.
 
-1. El siguiente paso consiste en publicar el archivo en Azure Blob Storage. El comando `Publish-GuestConfigurationPackage` requiere el módulo `Az.Storage`.
+### <a name="merged-group-policy-objects-for-an-ou"></a>Objetos de directiva de grupo combinados para una UO
 
-   ```azurepowershell-interactive
-   Publish-GuestConfigurationPackage -Path ./AuditBitlocker.zip -ResourceGroupName  myResourceGroupName -StorageAccountName myStorageAccountName
-   ```
+Exporte la combinación combinada de objetos de directiva de grupo (similar a un conjunto resultante de directivas) en una unidad organizativa especificada. La operación de combinación tiene en cuenta el estado del vínculo, el cumplimiento y el acceso, pero no los filtros WMI.
 
-1. Una vez que se ha creado y cargado un paquete de directivas personalizadas de Configuración de invitado, cree la definición de la directiva de Configuración de invitado. Use el cmdlet `New-GuestConfigurationPolicy` para crear la configuración de invitado.
+```powershell
+Merge-GPOsFromOU -Path C:\mergedfromou\ -OUDistinguishedName 'OU=mySubOU,OU=myOU,DC=mydomain,DC=local' -OutputConfigurationScript
+```
 
-   ```azurepowershell-interactive
-   $NewGuestConfigurationPolicySplat = @{
-        ContentUri = $Uri
-        DisplayName = 'Server 2019 Configuration Baseline'
-        Description 'Validation of using a completely custom baseline configuration for Windows VMs'
-        Path = 'C:\git\policyfiles\policy'  
-        Platform = Windows
-   }
-   New-GuestConfigurationPolicy @NewGuestConfigurationPolicySplat
-   ```
+La salida del comando devuelve los detalles de los archivos.
 
-1. Publique las definiciones de directivas con el cmdlet `Publish-GuestConfigurationPolicy`. El cmdlet solo tiene el parámetro **Path** que apunta a la ubicación de los archivos JSON que creó `New-GuestConfigurationPolicy`. Para ejecutar el comando Publish, necesita acceso para crear definiciones de directivas en Azure. Los requisitos de autorización específicos se documentan en la página [Información general de Azure Policy](../overview.md#getting-started). El mejor rol integrado es **Colaborador de la directiva de recursos**.
+```powershell
+Configuration                                Name    ConfigurationScript
+-------------                                ----    -------------------
+C:\mergedfromou\mySubOU\output\localhost.mof mySubOU C:\mergedfromou\mySubOU\output\mySubOU.ps1
+```
 
-   ```azurepowershell-interactive
-   Publish-GuestConfigurationPolicy -Path C:\git\policyfiles\policy\ -Verbose
-   ```
+### <a name="merged-group-policy-objects-from-within-a-machine"></a>Objetos de directiva de grupo combinados desde dentro de una máquina
 
-## <a name="assign-guest-configuration-policy-definition"></a>Asignación de la definición de directiva de configuración de invitado
+También puede combinar las directivas aplicadas a una máquina específica ejecutando el comando `Merge-GPOs` desde Windows PowerShell. Los filtros WMI solo se evalúan si se combinan desde dentro de una máquina.
 
-Con la directiva creada en Azure, el último paso es asignar la iniciativa. Consulte cómo puede asignar la iniciativa con el [portal](../assign-policy-portal.md), la [CLI de Azure](../assign-policy-azurecli.md) y [Azure PowerShell](../assign-policy-powershell.md).
+```powershell
+Merge-GPOs -OutputConfigurationScript -Path c:\mergedgpo
+```
 
-> [!IMPORTANT]
-> Las definiciones de directivas de configuración de invitados **siempre** se deben asignar mediante la iniciativa que combina las directivas _AuditIfNotExists_ y _DeployIfNotExists_. Si solo se asigna la directiva _AuditIfNotExists_, los requisitos previos no se implementan y la directiva siempre muestra que los servidores "0" son compatibles.
+La salida del comando devuelve los detalles de los archivos.
 
-La asignación de una definición de directiva con el efecto _DeployIfNotExists_ requiere un nivel de acceso adicional. Para conceder el privilegio mínimo, puede crear una definición de rol personalizada que amplíe **Colaborador de la directiva de recursos**. En el ejemplo siguiente se crea un rol denominado **Resource Policy Contributor DINE** con el permiso adicional _Microsoft.Authorization/roleAssignments/write_.
+```powershell
+Configuration              Name                  ConfigurationScript                    PolicyDetails
+-------------              ----                  -------------------                    -------------
+C:\mergedgpo\localhost.mof MergedGroupPolicy_ws1 C:\mergedgpo\MergedGroupPolicy_ws1.ps1 {@{Name=myEnforcedPolicy; Ap...
+```
 
-   ```azurepowershell-interactive
-   $subscriptionid = '00000000-0000-0000-0000-000000000000'
-   $role = Get-AzRoleDefinition "Resource Policy Contributor"
-   $role.Id = $null
-   $role.Name = "Resource Policy Contributor DINE"
-   $role.Description = "Can assign Policies that require remediation."
-   $role.Actions.Clear()
-   $role.Actions.Add("Microsoft.Authorization/roleAssignments/write")
-   $role.AssignableScopes.Clear()
-   $role.AssignableScopes.Add("/subscriptions/$subscriptionid")
-   New-AzRoleDefinition -Role $role
-   ```
+## <a name="optional-download-sample-group-policy-files-for-testing"></a>OPCIONAL: Descarga de archivos de directiva de grupo de ejemplo para pruebas
+
+Si todavía no desea exportar archivos de directiva de grupo desde un entorno Active Directory, puede descargar la línea de base de seguridad de Windows Server desde el kit de herramientas de cumplimiento de seguridad de Windows.
+
+Cree un directorio y descargue la línea base de seguridad de Windows Server 2019 desde el kit de herramientas de cumplimiento de seguridad de Windows.
+
+```azurepowershell-interactive
+# Download the 2019 Baseline files from https://docs.microsoft.com/windows/security/threat-protection/security-compliance-toolkit-10
+New-Item -Path 'C:\git\policyfiles\downloads' -Type Directory
+Invoke-WebRequest -Uri 'https://download.microsoft.com/download/8/5/C/85C25433-A1B0-4FFA-9429-7E023E7DA8D8/Windows%2010%20Version%201909%20and%20Windows%20Server%20Version%201909%20Security%20Baseline.zip' -Out C:\git\policyfiles\downloads\Server2019Baseline.zip
+```
+
+Desbloquee y expanda la línea de base de la instancia de Server 2019 descargada.
+
+```azurepowershell-interactive
+Unblock-File C:\git\policyfiles\downloads\Server2019Baseline.zip
+Expand-Archive -Path C:\git\policyfiles\downloads\Server2019Baseline.zip -DestinationPath C:\git\policyfiles\downloads\
+```
+
+Valide el contenido de línea de base de Server 2019 mediante **MapGuidsToGpoNames.ps1**.
+
+```azurepowershell-interactive
+# Show content details of downloaded GPOs
+C:\git\policyfiles\downloads\Scripts\Tools\MapGuidsToGpoNames.ps1 -rootdir C:\git\policyfiles\downloads\GPOs\ -Verbose
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtenga información sobre la auditoría de VM con la [configuración de invitados](../concepts/guest-configuration.md).
-- Obtenga información acerca de cómo se pueden [crear directivas mediante programación](./programmatically-create.md).
-- Obtenga información sobre cómo [obtener datos de cumplimiento](./get-compliance-data.md).
+- [Cree un artefacto de paquete](./guest-configuration-create.md) para la configuración de invitado.
+- [Pruebe el artefacto de paquete](./guest-configuration-create-test.md) desde el entorno de desarrollo.
+- [Publique el artefacto del paquete](./guest-configuration-create-publish.md) para que puedan acceder a él sus máquinas.
+- Use el módulo `GuestConfiguration` con el fin de [crear una definición de Azure Policy](./guest-configuration-create-definition.md) para la administración a gran escala de su entorno.
+- [Asigne su definición de directiva personalizada](../assign-policy-portal.md) mediante Azure Portal.
+- Obtenga información sobre cómo ver los [detalles de cumplimiento de asignaciones de directivas de configuración de invitado](./determine-non-compliance.md#compliance-details-for-guest-configuration).

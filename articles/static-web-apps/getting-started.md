@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 06/16/2021
 ms.author: cshoe
-ms.openlocfilehash: 3ec36a06dafb8622f97ded317f8ab2617e96662a
-ms.sourcegitcommit: d137460f55a38a0e8f8b9e6594e480d5e5f662ed
+ms.openlocfilehash: b543831ceead6d386de0617b02db93a99d9507a6
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112428837"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122609133"
 ---
 # <a name="quickstart-building-your-first-static-site-with-azure-static-web-apps"></a>Inicio rápido: creación del primer sitio estático con Azure Static Web Apps
 
@@ -46,6 +46,9 @@ Después, abra Visual Studio Code y vaya a **Archivo > Abrir carpeta** para abr
 1. En la etiqueta _Static Web Apps_, seleccione el **signo más**.
 
     :::image type="content" source="media/getting-started/extension-create-button.png" alt-text="Nombre de la aplicación":::
+    
+    > [!NOTE]
+    > La extensión Azure Static Web Apps Visual Studio Code simplifica el proceso de creación mediante una serie de valores predeterminados. Si desea tener un control preciso del proceso de creación, abra la paleta de comandos y seleccione **Azure Static Web Apps: Crear aplicación web estática... (Avanzado)** .
 
 1. La paleta de comandos se abre en la parte superior del editor y le pide que seleccione un nombre de suscripción.
 
@@ -65,11 +68,11 @@ Después, abra Visual Studio Code y vaya a **Archivo > Abrir carpeta** para abr
 
     :::image type="content" source="media/getting-started/extension-presets-no-framework.png" alt-text="Valores preestablecidos de la aplicación: Ningún marco":::
 
-    Escriba **./** como ubicación de los archivos de la aplicación y presione <kbd>Entrar</kbd>.
+    Escriba **./src** como ubicación de los archivos de la aplicación y presione <kbd>Entrar</kbd>.
 
     :::image type="content" source="media/getting-started/extension-build-location.png" alt-text="Ubicación de la salida de la compilación de aplicación":::
 
-    Escriba **./** como la ubicación de la salida de compilación y presione <kbd>Entrar</kbd>.
+    Escriba **./src** como ubicación de salida de la compilación y presione <kbd>Entrar</kbd>.
 
     # <a name="angular"></a>[Angular](#tab/angular)
 

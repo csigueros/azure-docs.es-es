@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/03/2021
-ms.openlocfilehash: 713d2216029fb88716d157d9db7b2010d3f32720
-ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
+ms.date: 08/24/2021
+ms.openlocfilehash: 4a77ca4a3318e9ea583bd113d373815860e8d591
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2021
-ms.locfileid: "111526279"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122767838"
 ---
 # <a name="create-an-azure-cognitive-search-service-in-the-portal"></a>Creación de un servicio Azure Cognitive Search en el portal
 
@@ -28,16 +28,20 @@ Puede crear un servicio de búsqueda desde [Azure Portal](https://portal.azure.c
 Las siguientes propiedades de servicio son fijas para la vigencia del servicio y su cambio requiere un nuevo servicio. Dado que son fijas, tenga en cuenta las implicaciones de uso al rellenar cada propiedad:
 
 + El nombre del servicio pasa a formar parte del punto de conexión de la dirección URL ([examine las sugerencias](#name-the-service) para elegir nombres de servicio útiles).
-+ El [nivel de servicio](search-sku-tier.md) afecta a la facturación y establece un límite superior en la capacidad. Algunas características no están disponibles en el nivel gratuito.
++ El [nivel de servicio](search-sku-tier.md) (Básico, Estándar, etc.) determina las características del hardware físico subyacente. Como tal, la elección del nivel afecta a la facturación y establece un límite ascendente en la capacidad. Algunas características no están disponibles en el nivel gratuito.
 + La región del servicio puede determinar la disponibilidad de ciertos escenarios. Si necesita [características de alta seguridad](search-security-overview.md) o [enriquecimiento con IA](cognitive-search-concept-intro.md), será preciso que cree Azure Cognitive Search en la misma región que los restantes servicios, o bien en aquellas regiones que proporcionen la característica en cuestión. 
 
 ## <a name="subscribe-free-or-paid"></a>Suscripción (gratuita o de pago)
 
-[Abra una cuenta gratuita de Azure ](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) y use créditos gratuitos para probar servicios de pago de Azure. Cuando se consuman los créditos, mantenga la cuenta y siga usando servicios de Azure gratuitos, como Websites. No se le realizará ningún cargo en su tarjeta de crédito a menos que cambie explícitamente la configuración y lo solicite.
+Para intentar buscar gratis, tiene dos opciones:
 
-Opcionalmente, [puede activar los beneficios de suscriptores de MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). Una suscripción a MSDN le proporciona créditos todos los meses que puede usar para servicios de Azure de pago. 
++ [Abra una cuenta gratuita de Azure ](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) y use créditos gratuitos para probar servicios de pago de Azure. Cuando se consuman los créditos, mantenga la cuenta y siga usando servicios de Azure gratuitos, como Websites. No se le realizará ningún cargo en su tarjeta de crédito a menos que cambie explícitamente la configuración y lo solicite.
 
-## <a name="find-azure-cognitive-search"></a>Búsqueda de Azure Cognitive Search
++ Como alternativa, [active los créditos de Azure en una suscripción de Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). Una suscripción a Visual Studio le proporciona créditos todos los meses que puede usar para servicios de Azure de pago. 
+
+La búsqueda de pago (o facturable) se hace efectiva cuando elige un nivel facturable (Básico o superior) y crea el recurso.
+
+## <a name="find-the-azure-cognitive-search-offering"></a>Búsqueda de la oferta de Azure Cognitive Search
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 

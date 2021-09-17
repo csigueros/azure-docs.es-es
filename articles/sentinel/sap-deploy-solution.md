@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.custom: mvc
 ms.date: 07/06/2021
 ms.subservice: azure-sentinel
-ms.openlocfilehash: 7bddb61bbbab008fad4e538400bbe4396ac744b4
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 555bc5c14a769c6e2ec309347fd40e4e9aa9e1e3
+ms.sourcegitcommit: deb5717df5a3c952115e452f206052737366df46
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121723465"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122681413"
 ---
 #  <a name="deploy-sap-continuous-threat-monitoring-public-preview"></a>Implementación de la supervisión de amenazas continua de SAP (versión preliminar pública)
 
@@ -35,13 +35,16 @@ Para ingerir registros de SAP en Azure Sentinel, debe tener instalado el conecto
 
 Una vez implementado el conector de datos de SAP, implemente el contenido de seguridad de la solución de SAP para obtener información fácilmente sobre el entorno de SAP de su organización y mejorar la funcionalidad de todas las operaciones de seguridad relacionadas.
 
-En este tutorial, aprenderá:
+En este artículo, aprenderá lo siguiente:
 
 > [!div class="checklist"]
 > * Preparar el sistema SAP para la implementación del conector de datos correspondiente
 > * Usar un contenedor de Docker y una máquina virtual de Azure para implementar el conector de datos de SAP
 > * Implementar el contenido de seguridad de la solución SAP en Azure Sentinel
 
+> [!NOTE]
+> Se requieren pasos adicionales para implementar el conector de datos de SAP a través de una conexión SNC segura. Para más información, consulte [Implementación del conector de datos SAP de Azure Sentinel con SNC](sap-solution-deploy-snc.md).
+>
 ## <a name="prerequisites"></a>Requisitos previos
 
 Para implementar el contenido de seguridad de Azure Sentinel y el conector de datos de SAP, tal y como se describe en este tutorial, debe cumplir los siguientes requisitos previos:
@@ -83,7 +86,7 @@ En este procedimiento se describe cómo asegurarse de que el sistema SAP tenga i
     |- 700 a 702<br>- 710 a 711, 730, 731 y 740<br>- 750 a 752     | 2502336: CD (documento de cambios): RSSCD100: solo lectura desde el archivo, no desde la base de datos        |
     |     |         |
 
-    Las versiones posteriores no necesitan las notas adicionales. Para obtener más información, vea el [sitio de Launchpad de compatibilidad con SAP](https://support.sap.com/en/index.html), donde se inicia sesión con una cuenta de usuario de SAP.
+    Las versiones posteriores no requieren las notas adicionales. Para más información, consulte el [sitio de Launchpad de compatibilidad con SAP](https://support.sap.com/en/index.html), donde se inicia sesión con una cuenta de usuario de SAP.
 
 1. Descargue e instale una de las siguientes solicitudes de cambio de SAP desde el repositorio de GitHub de Azure Sentinel, en https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/CR:
 
@@ -299,7 +302,20 @@ Si ya tiene un contenedor de Docker en ejecución con una versión anterior del 
     ./ sapcon-instance-update.sh
     ```
 
-El contenedor de Docker del conector de datos de SAP en la máquina está actualizado.
+1. Reinicie el contenedor de Docker:
+
+    ```bash
+    docker restart sapcon-[SID]
+    ```
+
+El contenedor de Docker del conector de datos de SAP en la máquina está actualizado. 
+
+Asegúrese de comprobar si hay otras actualizaciones disponibles:
+
+- Solicitudes de cambio de SAP pertinentes, en el [repositorio de GitHub de Azure Sentinel](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/CR).
+- Contenido de seguridad de SAP de Azure Sentinel, en la solución **Azure Sentinel Continuous Threat Monitoring for SAP**
+- Listas de reproducción pertinentes, en el [repositorio de GitHub de Azure Sentinel](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/Analytics/Watchlists)
+
 
 ## <a name="collect-sap-hana-audit-logs"></a>Recopilación de registros de auditoría de SAP HANA
 
@@ -336,6 +352,7 @@ Si ha configurado registros de auditoría de base de datos de SAP HANA con Sysl
 
 Obtenga más información sobre las soluciones de Azure Sentinel para SAP:
 
+- [Implementación del conector de datos de SAP de Azure Sentinel con SNC](sap-solution-deploy-snc.md)
 - [Opciones de configuración de expertos, implementación local y orígenes de registro de SAPControl](sap-solution-deploy-alternate.md)
 - [Requisitos detallados de SAP para la solución Azure Sentinel SAP](sap-solution-detailed-requirements.md)
 - [Referencia sobre los registros de la solución Azure Sentinel para SAP](sap-solution-log-reference.md)

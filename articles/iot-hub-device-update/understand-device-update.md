@@ -6,12 +6,12 @@ ms.author: vimeht
 ms.date: 2/11/2021
 ms.topic: overview
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 69bc44fcffd760b0c98264c43c02f8dfffd8b853
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 3a7ed9fbb30ab770cd7069ebbd97faa41b12cd34
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114448467"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122606842"
 ---
 # <a name="device-update-for-iot-hub-preview-overview"></a>Introducción a Device Update para IoT Hub (versión preliminar)
 
@@ -24,12 +24,12 @@ Para sacar el máximo partido de la transformación digital habilitada para IoT,
 ## <a name="support-for-a-wide-range-of-iot-devices"></a>Compatibilidad con una amplia gama de dispositivos de IoT
 
 
-Device Update para IoT Hub se ha diseñado para ofrecer no solo una implementación de actualizaciones optimizada, sino también operaciones simplificadas mediante la integración con [Azure IoT Hub](https://azure.microsoft.com/en-us/services/iot-hub/). Esta integración facilita la adopción de Device Update en cualquier solución existente. Proporciona una solución hospedada en la nube para conectar prácticamente cualquier dispositivo. Device Update es compatible con una amplio conjunto de sistemas operativos de IoT, entre los que se incluyen Linux y [Azure RTOS](https://azure.microsoft.com/en-us/services/rtos/) (sistema operativo en tiempo real), y se puede ampliar a través de código abierto. Estamos desarrollando de forma conjunta Device Update para las ofertas de IoT Hub con nuestros asociados del sector de los semiconductores, entre los que se incluyen STMicroelectronics, NXP, Renesas y Microchip. Consulte los [ejemplos](https://github.com/azure-rtos/samples/tree/PublicPreview/ADU) de paneles clave de evaluación de semiconductores que incluyen las guías introductorias para aprender a configurar, crear e implementar las actualizaciones inalámbricas en dispositivos de clase MCU. 
+Device Update para IoT Hub se ha diseñado para ofrecer no solo una implementación de actualizaciones optimizada, sino también operaciones simplificadas mediante la integración con [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/). Esta integración facilita la adopción de Device Update en cualquier solución existente. Proporciona una solución hospedada en la nube para conectar prácticamente cualquier dispositivo. Device Update es compatible con una amplio conjunto de sistemas operativos de IoT, entre los que se incluyen Linux y [Azure RTOS](https://azure.microsoft.com/services/rtos/) (sistema operativo en tiempo real), y se puede ampliar a través de código abierto. Estamos desarrollando de forma conjunta Device Update para las ofertas de IoT Hub con nuestros asociados del sector de los semiconductores, entre los que se incluyen STMicroelectronics, NXP, Renesas y Microchip. Consulte los [ejemplos](https://github.com/azure-rtos/samples/tree/PublicPreview/ADU) de paneles clave de evaluación de semiconductores que incluyen las guías introductorias para aprender a configurar, crear e implementar las actualizaciones inalámbricas en dispositivos de clase MCU. 
 
 Se proporcionan un archivo binario del simulador de Device Update Agent e imágenes Yocto de referencia de Raspberry Pi.
 Device Update para IoT Hub también admite la actualización de dispositivos de Azure IoT Edge. Se proporciona Device Update Agent para la plataforma Ubuntu Server 18.04 (amd64). Device Update para IoT Hub también proporciona código de código abierto si no se ejecuta una de las plataformas anteriores, También puede portar el agente a la distribución que se ejecuta.
 
-Device Update funciona con IoT Plug and Play (PnP) y puede administrar cualquier dispositivo compatible con las interfaces PnP necesarias. Para más información, consulte [Device Update para IoT Hub e IoT Plug and Play](device-update-plug-and-play.md).
+Device Update funciona con IoT Plug and Play y puede administrar cualquier dispositivo compatible con las interfaces IoT Plug and Play necesarias. Para más información, consulte [Device Update para IoT Hub e IoT Plug and Play](device-update-plug-and-play.md).
 
 ## <a name="support-for-a-wide-range-of-update-artifacts"></a>Compatibilidad con un amplio conjunto de artefactos de actualización
 

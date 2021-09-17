@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 01/22/2021
+ms.date: 08/09/2021
 ms.author: alkohli
-ms.openlocfilehash: 7042d3ede872c5dc854675334b964430671d1306
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: b99247bf0aefb8052d4f6f04446a5f66dff7b88a
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106065658"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122324479"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-mini-r"></a>Tutorial: Preparación de la implementación de Azure Stack Edge Mini R
 
@@ -83,26 +83,55 @@ Antes de comenzar, asegúrese de que:
 
 Si ya tiene un recurso de Azure Stack Edge para administrar el dispositivo físico, omita este paso y vaya a [Obtención de la clave de activación](#get-the-activation-key).
 
-### <a name="portal"></a>[Portal](#tab/azure-portal)
+---
+
+### <a name="azure-edge-hardware-center-preview"></a>[Azure Edge Hardware Center (versión preliminar)](#tab/azure-edge-hardware-center)
+
+Azure Edge Hardware Center (versión preliminar) es un nuevo servicio que le permite explorar y pedir una variedad de hardware de la cartera híbrida de Azure, incluidos los dispositivos Azure Stack Edge Pro.
+
+Cuando realiza un pedido mediante Azure Edge Hardware Center, puede solicitar varios dispositivos para que se envíen a más de una dirección y puede reutilizar el envío para direcciones de otros pedidos.
+
+La realización de un pedido mediante Azure Edge Hardware Center creará un recurso de Azure que contendrá toda la información relacionada con el pedido. Se creará un recurso para cada una de las unidades solicitadas. Tendrá que crear un recurso de Azure Stack Edge después de recibir el dispositivo para activarlo y administrarlo.
+
+[!INCLUDE [Create order in Azure Edge Hardware Center](../../includes/azure-edge-hardware-center-new-order.md)]
+
+#### <a name="create-a-management-resource-for-each-device"></a>Creación de un recurso de administración para cada dispositivo
+
+Para administrar los dispositivos que se piden mediante Azure Edge Hardware Center, creará un recurso de administración para cada dispositivo en Azure Stack Edge. Cuando se activa el dispositivo, el recurso de administración se asocia a un elemento del pedido. Podrá abrir el elemento del pedido desde el recurso de administración y abrir el recurso de administración desde el elemento del pedido. 
+
+Una vez entregado un dispositivo, se agrega el vínculo **Configurar hardware** al detalle del elemento del pedido, lo que le proporciona una manera directa de abrir un asistente para crear un recurso de administración. También puede usar la opción **Crear recurso de administración** en Azure Stack Edge.
+
+[!INCLUDE [Create management resource](../../includes/azure-edge-hardware-center-create-management-resource.md)]
+
+### <a name="portal-classic"></a>[Portal (clásico)](#tab/azure-portal)
 
 Siga estos pasos en Azure Portal para crear un recurso de Azure Stack Edge.
 
 1. Use sus credenciales de Microsoft Azure para iniciar sesión en Azure Portal, en esta dirección URL: [https://portal.azure.com](https://portal.azure.com).
 
+2. En **Servicios de Azure**, busque y seleccione **Azure Stack Edge**. A continuación, seleccione **+ Crear**. 
 
-2. En el panel izquierdo, seleccione **+ Crear un recurso**. Busque y seleccione **Azure Stack Edge o Data Box Gateway**. Seleccione **Crear**. 
+3. En **Manage Azure Stack Edge devices** (Administrar dispositivos Azure Stack Edge), seleccione el vínculo **Try Azure Edge Hardware Center** (Probar Azure Edge Hardware Center).
 
-3. Seleccione la suscripción que quiere usar para el dispositivo de Azure Stack Edge Pro. Seleccione el país al que desea enviar el dispositivo físico. Seleccione **Mostrar dispositivos**.
+    ![Captura de la pantalla "Administrar dispositivos Azure Stack Edge", que se abre con el botón Más Crear. El vínculo "Probar Azure Edge Hardware Center" está resaltado.](media/azure-stack-edge-mini-r-deploy-prep/classic-order-experience-1.png)
 
-    ![Creación de un recurso 1](media/azure-stack-edge-mini-r-deploy-prep/create-resource-1.png)
+    Se abrirá la pantalla **Get started** (Comenzar) para crear un pedido en Azure Edge Hardware Center. 
+
+4. Si no desea realizar el pedido mediante Hardware Center, seleccione **Order using classic ordering experience** (Realizar el pedido mediante la experiencia de pedidos clásica) en la pantalla **Get started** (Comenzar).
+
+   ![Captura de pantalla de la pantalla Comenzar en Azure Stack Edge. El vínculo "Realizar el pedido mediante la experiencia de pedidos clásica" está resaltado.](media/azure-stack-edge-mini-r-deploy-prep/classic-order-experience-2.png)
+
+5. Seleccione la suscripción que quiere usar para el dispositivo de Azure Stack Edge Pro. Seleccione el país al que desea enviar el dispositivo físico. Seleccione **Mostrar dispositivos**.
+
+    ![Captura de pantalla de la pantalla "Seleccionar tipo de dispositivo" para seleccionar una suscripción y enviar a la región para un recurso Azure Stack Edge dispositivo. El botón Mostrar dispositivos está resaltado.](media/azure-stack-edge-mini-r-deploy-prep/create-resource-1.png)
 
 
-4. Seleccione el tipo de dispositivo. En **Azure Stack Edge**, elija **Azure Stack Edge Mini R** y, a continuación, elija **Seleccionar**. Si ve algún problema o no puede seleccionar el tipo de dispositivo, vaya a [Solución de problemas de pedidos](azure-stack-edge-troubleshoot-ordering.md).
+6. Seleccione el tipo de dispositivo. En **Azure Stack Edge**, elija **Azure Stack Edge Mini R** y, a continuación, elija **Seleccionar**. Si ve algún problema o no puede seleccionar el tipo de dispositivo, vaya a [Solución de problemas de pedidos](azure-stack-edge-troubleshoot-ordering.md).
 
-    [![Creación de un recurso 2](media/azure-stack-edge-mini-r-deploy-prep/create-resource-2.png)](media/azure-stack-edge-mini-r-deploy-prep/create-resource-2.png#lightbox)
+    [![Captura de la pantalla "Seleccionar tipo de dispositivo" para seleccionar un tipo de dispositivo para un recurso de Azure Stack Edge. El botón Seleccionar correspondiente a un tipo de dispositivo está resaltado.](media/azure-stack-edge-mini-r-deploy-prep/create-resource-2.png)](media/azure-stack-edge-mini-r-deploy-prep/create-resource-2.png)
 
 
-5. En la pestaña **Datos básicos**, escriba o seleccione los siguientes **detalles del proyecto**.
+7. En la pestaña **Datos básicos**, escriba o seleccione los siguientes **detalles del proyecto**.
     
     |Configuración  |Value  |
     |---------|---------|
@@ -110,41 +139,41 @@ Siga estos pasos en Azure Portal para crear un recurso de Azure Stack Edge.
     |Resource group  |Cree un nuevo grupo o seleccione uno existente.<br>Más información sobre los [grupos de recursos de Azure](../azure-resource-manager/management/overview.md).     |
 
 
-6. Escriba o seleccione los siguientes **detalles de la instancia**.
+8. Escriba o seleccione los siguientes **detalles de la instancia**.
 
     |Configuración  |Value  |
     |---------|---------|
     |Nombre   | Nombre descriptivo que identifique el recurso.<br>El nombre tiene entre 2 y 50 caracteres, que incluyen letras, números y guiones.<br> El nombre comienza y termina con una letra o un número.        |
     |Region     |Para una lista de todas las regiones en las que está disponible el recurso de Azure Stack Edge, consulte [Productos de Azure disponibles por región](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Si usa Azure Government, todas las regiones de gobierno están disponibles como se muestra en las [regiones de Azure](https://azure.microsoft.com/global-infrastructure/regions/).<br> Elija la ubicación más cercana a la región geográfica donde quiera implementar el dispositivo.|
 
-    ![Creación de un recurso 4](media/azure-stack-edge-mini-r-deploy-prep/create-resource-4.png)
+    ![Captura de pantalla de la pestaña Aspectos básicos del Asistente para crear un recurso y solicitar un dispositivo para Azure Stack Edge. La pestaña Aspectos básicos y el botón Siguiente: Dirección de envío están resaltados.](media/azure-stack-edge-mini-r-deploy-prep/create-resource-4.png)
 
 
-7. Seleccione **Siguiente: Dirección de envío**.
+9. Seleccione **Siguiente: Dirección de envío**.
 
    - Si ya tiene un dispositivo, seleccione el cuadro combinado **Ya tengo un dispositivo**.
 
-     ![Creación de un recurso 5](media/azure-stack-edge-mini-r-deploy-prep/create-resource-5.png)
+     ![Captura de pantalla de la pestaña "Dirección de envío" con la opción "Ya tengo una dirección de envío para el dispositivo" seleccionada en el Asistente para crear un recurso para Azure Stack Edge.](media/azure-stack-edge-mini-r-deploy-prep/create-resource-5.png)
 
    - Si este es el pedido del nuevo dispositivo, escriba el nombre de contacto, la empresa, la dirección para enviar el dispositivo y la información de contacto.
 
-     ![Creación de un recurso 6](media/azure-stack-edge-mini-r-deploy-prep/create-resource-6.png)
+     ![Captura de pantalla de la pestaña "Dirección de envío" del Asistente para crear un recurso al crear un nuevo recurso Azure Stack Edge.](media/azure-stack-edge-mini-r-deploy-prep/create-resource-6.png)
 
-8. Seleccione **Siguiente: Etiquetas**. También tiene la opción de proporcionar etiquetas para clasificar los recursos y consolidar la facturación. Seleccione **Siguiente: Review + create** (Revisar y crear).
+10. Seleccione **Siguiente: Etiquetas**. También tiene la opción de proporcionar etiquetas para clasificar los recursos y consolidar la facturación. Seleccione **Siguiente: Review + create** (Revisar y crear).
 
-9. En la pestaña **Revisar y crear**, revise la información de **Detalles de precios**, **Términos de uso** y los detalles de su recurso. Seleccione el cuadro combinado **I have reviewed the privacy terms** (He revisado los términos de privacidad).
+11. En la pestaña **Revisar y crear**, revise la información de **Detalles de precios**, **Términos de uso** y los detalles de su recurso. Seleccione el cuadro combinado **I have reviewed the privacy terms** (He revisado los términos de privacidad).
 
-    ![Creación de un recurso 7](media/azure-stack-edge-mini-r-deploy-prep/create-resource-7.png)
+    ![Captura de pantalla de la pestaña Revisar y crear para un pedido de Azure Stack Edge.](media/azure-stack-edge-mini-r-deploy-prep/create-resource-7.png)
 
     También se le notifica que, durante la creación de recursos, se habilita una identidad de servicio administrada (MSI) que le permite autenticarse en los servicios en la nube. Esta identidad existe mientras exista el recurso.
 
-10. Seleccione **Crear**.
+12. Seleccione **Crear**.
 
     Se tarda unos minutos en crear el recurso. También se crea una MSI que permite al dispositivo Azure Stack Edge comunicarse con el proveedor de recursos en Azure.
     
     Cuando el recurso se haya creado e implementado correctamente, recibirá una notificación. Haga clic en **Go to resource** (Ir al recurso).
     
-    ![Ir al recurso de Azure Stack Edge Pro](media/azure-stack-edge-mini-r-deploy-prep/azure-stack-edge-resource-1.png)
+    ![Captura de pantalla del panel Información general de un pedido de Azure Stack Edge que se ha creado correctamente.](media/azure-stack-edge-mini-r-deploy-prep/azure-stack-edge-resource-1.png)
     
 Tras realizar el pedido, Microsoft lo revisa y se pone en contacto con usted (por correo electrónico) para indicarle los detalles del envío.
 
@@ -204,7 +233,7 @@ Cuando el recurso de Azure Stack Edge esté en funcionamiento, tendrá que obten
 
 1. Seleccione el recurso que ha creado y, a continuación, **Información general**.
 
-   ![Selección de instalación del dispositivo](media/azure-stack-edge-mini-r-deploy-prep/azure-stack-edge-resource-2.png)
+   ![Captura de pantalla del panel Información general de un pedido de Azure Stack Edge.](media/azure-stack-edge-mini-r-deploy-prep/azure-stack-edge-resource-2.png)
 
 2. En el icono **Activar**, proporcione un nombre para la instancia de Azure Key Vault o acepte el nombre predeterminado. El nombre puede tener entre 3 y 24 caracteres. 
 
@@ -212,7 +241,7 @@ Cuando el recurso de Azure Stack Edge esté en funcionamiento, tendrá que obten
 
     Una vez que haya especificado un nombre de almacén de claves, seleccione **Generar clave de activación** para crear una clave de activación.
 
-    [![Obtención de la clave de activación](media/azure-stack-edge-mini-r-deploy-prep/azure-stack-edge-resource-3.png)](media/azure-stack-edge-mini-r-deploy-prep/azure-stack-edge-resource-3.png#lightbox)
+    [![Captura de pantalla del panel Información general del recurso de Azure Stack Edge recién creado, con una entrada de nombre del almacén de claves. La entrada y el botón Generar clave de activación están resaltados.](media/azure-stack-edge-mini-r-deploy-prep/azure-stack-edge-resource-3.png)](media/azure-stack-edge-mini-r-deploy-prep/azure-stack-edge-resource-3.png#lightbox)
 
     Espere unos minutos a que se creen el almacén de claves y la clave de activación. Seleccione el icono de copia para copiar la clave y guárdela para su uso posterior.
 

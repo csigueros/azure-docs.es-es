@@ -1,14 +1,14 @@
 ---
 title: Administración de extensiones de VM con servidores habilitados para Azure Arc
 description: Los servidores habilitados para Azure Arc pueden administrar la implementación de extensiones de máquina virtual que proporcionan tareas de automatización y configuración posteriores a la implementación con VM que no son de Azure.
-ms.date: 08/11/2021
+ms.date: 08/24/2021
 ms.topic: conceptual
-ms.openlocfilehash: 20ae8b6cbb29a9a0b43592c3b242707bb2d3add6
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: b09a5ecc2121d2ff1cc377bde7619b834a58e474
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121727324"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122824646"
 ---
 # <a name="virtual-machine-extension-management-with-azure-arc-enabled-servers"></a>Administración de extensiones de máquina virtual con servidores habilitados para Azure Arc
 
@@ -52,7 +52,7 @@ Para obtener información sobre el paquete del agente de Azure Connected Machine
 > [!NOTE]
 > Recientemente se quitó la compatibilidad con la extensión de VM de DSC de los servidores habilitados para Arc. Como alternativa, se recomienda usar la extensión de script personalizado para administrar la configuración posterior a la implementación del servidor o la máquina.
 
-Los servidores habilitados para Arc admiten el movimiento de máquinas con una o varias extensiones de VM instaladas entre grupos de recursos u otra suscripción de Azure sin experimentar ningún impacto en su configuración. Las suscripciones de origen y destino deben existir en el mismo [inquilino de Azure Active Directory](../../active-directory/develop/quickstart-create-new-tenant.md). Para obtener más información sobre el movimiento de recursos y las consideraciones a tener en cuenta antes de continuar, consulte [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](../../azure-resource-manager/management/move-resource-group-and-subscription.md).
+Los servidores habilitados para Arc admiten el movimiento de máquinas con una o varias extensiones de VM instaladas entre grupos de recursos u otra suscripción de Azure sin experimentar ningún impacto en su configuración. Las suscripciones de origen y destino deben existir en el mismo [inquilino de Azure Active Directory](../../active-directory/develop/quickstart-create-new-tenant.md). Esta compatibilidad está habilitada a partir de la versión **1.8.21197.005** del agente de Connected Machine. Para obtener más información sobre el movimiento de recursos y las consideraciones a tener en cuenta antes de continuar, consulte [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](../../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
 ### <a name="windows-extensions"></a>Extensiones de Windows
 

@@ -1,18 +1,21 @@
 ---
 title: Transformación Aplanar en el flujo de datos de asignación
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Desnormalice los datos jerárquicos mediante la transformación Aplanar.
 author: kromerm
 ms.author: makromer
 ms.review: daperlov
 ms.service: data-factory
+ms.subservice: data-flows
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.openlocfilehash: a0e75957a0ab49394dab56f2b7fb847dee4b43cb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e632260e8af6e4bac9fac9ec43f25bf636b98b4d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "81413676"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122638355"
 ---
 # <a name="flatten-transformation-in-mapping-data-flow"></a>Transformación Aplanar en el flujo de datos de asignación
 
@@ -39,6 +42,28 @@ De forma predeterminada, la transformación Aplanar expande una matriz sobre la 
 De forma similar a la transformación de selección, elija la proyección de la nueva estructura a partir de los campos de entrada y la matriz desnormalizada. Si se asigna una matriz desnormalizada, la columna de salida tendrá el mismo tipo de datos que la matriz. Si la matriz de expansión es una matriz de objetos complejos que contiene submatrices, la asignación de un elemento de dicha submatriz producirá una matriz.
 
 Consulte la pestaña de inspección y la vista previa de los datos para comprobar la salida de la asignación.
+
+## <a name="rule-based-mapping"></a>Asignación basada en reglas
+
+La transformación de aplanamiento admite la asignación basada en reglas, lo que permite crear transformaciones dinámicas y flexibles que aplanarán matrices según reglas y estructuras planas basadas en niveles de jerarquía.
+
+![Patrón de aplanamiento](media/data-flow/flatten-pattern.png "Patrones de aplanamiento")
+
+### <a name="matching-condition"></a>Condición de coincidencia
+
+Escriba una condición de coincidencia de patrones para la o las columnas que quiera aplanar mediante coincidencias exactas o patrones. Ejemplo: ```like(name,'cust%')```
+
+### <a name="deep-column-traversal"></a>Recorrido de columna profundo
+
+Valor opcional que indica a ADF que controle todas las subcolumnas de un objeto complejo individualmente en lugar de controlar el objeto complejo como una columna completa.
+
+### <a name="hierarchy-level"></a>Nivel de jerarquía
+
+Elija el nivel de la jerarquía que quiere expandir.
+
+### <a name="name-matches-regex"></a>Coincidencias de nombres (regex)
+
+De manera opcional, elija expresar la coincidencia de nombres como una expresión regular en este cuadro, en lugar de usar la condición de coincidencia anterior.
 
 ## <a name="examples"></a>Ejemplos
 

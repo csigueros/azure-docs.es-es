@@ -14,12 +14,12 @@ ms.date: 06/25/2021
 ms.author: curtand
 ms.custom: pim,azuread-video-2020,contperf-fy21q3-portal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 225abadef26388f3befce0c1a683898d3c2d7818
-ms.sourcegitcommit: cd7d099f4a8eedb8d8d2a8cae081b3abd968b827
+ms.openlocfilehash: 697dd72ba72924a14501a1410255a817f50f6789
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2021
-ms.locfileid: "112963481"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121738704"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>¿Qué es Azure AD Privileged Identity Management?
 
@@ -120,7 +120,7 @@ Privileged Identity Management admite los siguientes escenarios:
 
 ## <a name="managing-privileged-access-azure-ad-groups-preview"></a>Administración de grupos de Azure AD de acceso con privilegios (versión preliminar)
 
-En Privileged Identity Management (PIM), ya se pueden asignar la idoneidad para pertenecer a grupos de acceso con privilegios o poseerlos. A partir de esta versión preliminar, es posible asignar roles integrados de Azure Active Directory (Azure AD) a grupos en la nube y usar PIM para administrar la idoneidad y la activación tanto de los propietarios como de los miembros de los grupos. Para más información sobre los grupos a los que se puede asignar roles en Azure AD, consulte el artículo sobre el [uso de grupos en la nube para administrar las asignaciones de roles en Azure Active Directory (versión preliminar)](../roles/groups-concept.md).
+En Privileged Identity Management (PIM), ya se pueden asignar la idoneidad para pertenecer a grupos de acceso con privilegios o poseerlos. A partir de esta versión preliminar, es posible asignar roles integrados de Azure Active Directory (Azure AD) a grupos en la nube y usar PIM para administrar la idoneidad y la activación tanto de los propietarios como de los miembros de los grupos. Para más información sobre los grupos de roles asignables en Azure AD, consulte [Uso de grupos de Azure AD para administrar las asignaciones de roles](../roles/groups-concept.md).
 
 >[!Important]
 > Para asignar un grupo de acceso con privilegios a un rol para el acceso administrativo a Exchange, Centro de seguridad y cumplimiento, o SharePoint, use la experiencia **Roles y administradores** del portal de Azure AD y no de la experiencia Grupos de acceso con privilegios para que el usuario o el grupo sean válidos para la activación en el grupo.

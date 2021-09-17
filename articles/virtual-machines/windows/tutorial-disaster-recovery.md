@@ -9,14 +9,15 @@ ms.topic: tutorial
 ms.date: 05/18/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: e76245c9ad08a9a826e1d0431c2dd01b61a6b860
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: a79a3d87fb7937c01896a30076385e86c65ad4bc
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110077579"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122691728"
 ---
 # <a name="tutorial-enable-disaster-recovery-for-windows-vms"></a>Tutorial: Habilitación de la recuperación ante desastres para máquinas virtuales Windows
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles 
 
 En este tutorial se muestra cómo configurar la recuperación ante desastres para las máquinas virtuales de Azure que utilizan Windows. En este artículo, aprenderá a:
 
@@ -78,7 +79,7 @@ Opcionalmente, puede habilitar la recuperación ante desastres al crear una máq
 
 7. En **Opciones de disponibilidad**, especifique si la máquina virtual se implementa como independiente, en una zona de disponibilidad o en un conjunto de disponibilidad.
 
-    :::image type="content" source=":::./media/tutorial-disaster-recovery/create-vm.png" alt-text="Habilitación de la replicación en la página de propiedades de administración de máquinas virtuales":::.
+    :::image type="content" source="./media/tutorial-disaster-recovery/create-vm.png" alt-text="Habilitación de la replicación en la página de propiedades de administración de máquinas virtuales".
 
 8. Termine de crear la máquina virtual.
 

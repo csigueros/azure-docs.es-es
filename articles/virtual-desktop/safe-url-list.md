@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/04/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: da8cc0ea77de3b544b4bcb97d2ed699c74329e68
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 95081b661d4f33577df07420ab194ec48488221a
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113757645"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122768090"
 ---
 # <a name="required-url-list"></a>Lista de direcciones URL requeridas
 
@@ -42,7 +42,7 @@ Para usar la herramienta comprobación de direcciones URL requeridas, hay que cu
 Para usar la herramienta, siga estos pasos:
 
 1. Abra un símbolo del sistema como administrador en la máquina virtual.
-2. Ejecute el siguiente comando para cambiar el directorio a la misma carpeta que el agente de compilación:
+2. Ejecute el siguiente comando para cambiar el directorio a la misma carpeta que el agente de compilación actual (RDAgent_1.0.2944.1200 en este ejemplo):
 
     ```console
     cd C:\Program Files\Microsoft RDInfra\RDAgent_1.0.2944.1200

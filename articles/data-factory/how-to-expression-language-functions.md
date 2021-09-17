@@ -5,14 +5,15 @@ author: ssabat
 ms.author: susabat
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: orchestration
 ms.topic: conceptual
 ms.date: 03/08/2020
-ms.openlocfilehash: c9e1abc5fb6f66981f56bc262319587d9fc4265e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 41689a842bff067fb36dd97f980c10b71e533f8d
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105566666"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122446214"
 ---
 # <a name="how-to-use-parameters-expressions-and-functions-in-azure-data-factory"></a>Procedimientos para usar parámetros, expresiones y funciones en Azure Data Factory
 
@@ -25,7 +26,7 @@ En este documento, nos centraremos principalmente en aprender conceptos fundamen
 
 ## <a name="azure-data-factory-ui-and-parameters"></a>Interfaz de usuario y parámetros de Azure Data Factory
 
-Si no está familiarizado con el uso de parámetros de Azure Data Factory en la interfaz de usuario de ADF, revise [Interfaz de usuario de Data Factory para los servicios vinculados con parámetros](./parameterize-linked-services.md#data-factory-ui) e [Interfaz de usuario de Data Factory para la canalización controlada por metadatos con parámetros](./how-to-use-trigger-parameterization.md#data-factory-ui) para obtener una explicación visual.
+Si no está familiarizado con el uso de parámetros de Azure Data Factory en la interfaz de usuario de ADF, revise [Interfaz de usuario de Data Factory para los servicios vinculados con parámetros](./parameterize-linked-services.md#ui-experience) e [Interfaz de usuario de Data Factory para la canalización controlada por metadatos con parámetros](./how-to-use-trigger-parameterization.md#data-factory-ui) para obtener una explicación visual.
 
 ## <a name="parameter-and-expression-concepts"></a>Conceptos de parámetros y expresiones 
 

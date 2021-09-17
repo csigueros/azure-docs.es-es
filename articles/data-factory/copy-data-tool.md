@@ -1,17 +1,20 @@
 ---
 title: Herramienta Copiar datos en Azure Data Factory
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Se proporciona información sobre la herramienta Copy Data en la interfaz de usuario de Azure Data Factory.
 author: dearandyxu
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 06/01/2021
+ms.date: 06/04/2021
 ms.author: yexu
-ms.openlocfilehash: 68bfa62817d971ce8c8127f44f43576431a499fc
-ms.sourcegitcommit: eb20dcc97827ef255cb4ab2131a39b8cebe21258
+ms.openlocfilehash: 165d799e6bc2cc6a5f7e064b909ca7e80f819c42
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/03/2021
-ms.locfileid: "111372010"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122637802"
 ---
 # <a name="copy-data-tool-in-azure-data-factory"></a>Herramienta Copy Data en Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -30,10 +33,11 @@ En la tabla siguiente se proporcionan instrucciones sobre cuándo usar la herram
 | Quiere crear fácilmente una tarea de carga de datos sin saber nada sobre las entidades de Azure Data Factory (servicios vinculados, conjuntos de datos, canalizaciones, etc.) | Quiere implementar una lógica compleja y flexible para cargar datos en Data Lake. |
 | Quiere cargar rápidamente un gran número de artefactos de datos en una instancia de Data Lake. | Quiere encadenar la actividad de copia con las actividades posteriores de limpieza o de procesamiento de los datos. |
 
-Para iniciar la herramienta Copy Data, haga clic en el icono **Copy Data** de la página principal de la factoría de datos.
+Para iniciar la herramienta Copiar datos, haga clic en el icono **Copiar datos** de la página principal de la factoría de datos.
 
-![Página de inicio: vínculo a la herramienta Copy Data](./media/doc-common-process/get-started-page.png)
+![Captura de pantalla que muestra el vínculo a la herramienta Copiar datos en la página principal](./media/doc-common-process/get-started-page.png)
 
+Tras abrir la herramienta Copiar datos, verá dos tipos de tareas: una es una **tarea de copia integrada** y la otra, una **tarea de copia basada en metadatos**. Con la tarea de copia integrada se crea una canalización en cinco minutos para replicar datos sin tener que conocer ninguna entidad de Azure Data Factory.  Por su parte, la tarea de copia basada en metadatos simplifica el proceso de creación de canalizaciones parametrizadas y de una tabla de control externa que permitan controlar las operaciones de copia de grandes cantidades de objetos (por ejemplo, miles de tablas) a escala. Encontrará más detalles al respecto en [Creación de canalizaciones de copia de datos a gran escala con un enfoque basado en metadatos](copy-data-tool-metadata-driven.md).
 
 ## <a name="intuitive-flow-for-loading-data-into-a-data-lake"></a>Flujo intuitivo para cargar datos en una instancia de Data Lake
 Esta herramienta le permite mover fácilmente datos de una amplia variedad de orígenes a destinos en cuestión de minutos con un flujo intuitivo:  

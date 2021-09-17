@@ -5,12 +5,12 @@ services: container-service
 ms.topic: tutorial
 ms.date: 05/24/2021
 ms.custom: mvc, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: dcf45e90198cec208720ba69e4366650ed00a821
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 731c656020629b857a19a215027b5c48dca435e4
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110697898"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121741621"
 ---
 # <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>Tutorial: Implementación de un clúster de Azure Kubernetes Service (AKS)
 
@@ -117,6 +117,12 @@ Import-AzAksCredential -ResourceGroupName myResourceGroup -Name myAKSCluster
 ---
 
 Para comprobar la conexión al clúster, use ejecute el comando [kubectl get nodes][kubectl-get] para devolver una lista de los nodos del clúster:
+
+```azurecli-interactive
+kubectl get nodes
+```
+
+En la salida de ejemplo siguiente, se muestra la lista de nodos del clúster.
 
 ```
 $ kubectl get nodes

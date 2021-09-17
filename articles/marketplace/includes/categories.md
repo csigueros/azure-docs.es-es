@@ -9,93 +9,33 @@ ms.date: 07/30/2020
 ms.custom: include file
 author: anbene
 ms.author: mingshen
-ms.openlocfilehash: 763ee108e1e2899bb2268ae5e6236f74a73e4b44
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ca1f1cd1f3af3760122a1eb6f644132fea3be57a
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87498060"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122635225"
 ---
-| [**Azure Marketplace**](https://azuremarketplace.microsoft.com/marketplace/apps)  | [**AppSource**](https://appsource.microsoft.com/marketplace/apps) |
+| [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps) | [Microsoft AppSource](https://appsource.microsoft.com/marketplace/apps) |
 | :------------------- |:----------------|
-|**Analytics** | **Analytics** |
-| &nbsp;&nbsp;Conclusiones cognitivas sobre los datos | &nbsp;&nbsp;Análisis avanzado  |
-| &nbsp;&nbsp;Análisis de datos |  &nbsp;&nbsp;Visualización e informes |
-| &nbsp;&nbsp;Macrodatos | **Inteligencia artificial y aprendizaje automático**  |
-| &nbsp;&nbsp;Análisis predictivo | &nbsp;&nbsp;Inteligencia artificial para empresas |
-| &nbsp;&nbsp;Análisis en tiempo real/streaming | &nbsp;&nbsp;Aplicaciones de bot |
-| **Inteligencia artificial y aprendizaje automático** | **Colaboración** |
-| &nbsp;&nbsp;Bot Service | &nbsp;&nbsp;Contacto y personas |
-| &nbsp;&nbsp;Cognitive Services | &nbsp;&nbsp;Administración de reuniones |
-| &nbsp;&nbsp;Servicio de ML | &nbsp;&nbsp;Administración y diseño de sitios |
-| &nbsp;&nbsp;Machine Learning automatizado | &nbsp;&nbsp;Administración de proyectos y tareas |
-| &nbsp;&nbsp;Automatización de procesos empresariales o robóticos | &nbsp;&nbsp;Conferencia de voz o videoconferencia |
-| &nbsp;&nbsp;Etiquetado de datos | **Cumplimiento y legalidad** |
-| &nbsp;&nbsp;Preparación de datos | &nbsp;&nbsp;Auditoría e impuestos |
-| &nbsp;&nbsp;Minería de conocimiento | &nbsp;&nbsp;Legal |
-| &nbsp;&nbsp;Operaciones de ML | &nbsp;&nbsp;Datos, gobernanza y privacidad |
-| **Blockchain**  | &nbsp;&nbsp;Salud y seguridad |
-| &nbsp;&nbsp;Aceleradores de aplicación | **Servicio de atención al cliente**  |
-| &nbsp;&nbsp;Libro de contabilidad de nodo único | &nbsp;&nbsp;Centro de contacto |
-| &nbsp;&nbsp;Libro de contabilidad de varios nodos | &nbsp;&nbsp;Servicio presencial |
-| &nbsp;&nbsp;Herramientas | &nbsp;&nbsp;Área de operaciones y servicio para empleados |
-| **Proceso**  | &nbsp;&nbsp;Administración de caso y de conocimiento |
-| &nbsp;&nbsp;Infraestructura de la aplicación | &nbsp;&nbsp;Redes sociales e interacción omnicanal |
-| &nbsp;&nbsp;Sistemas operativos | **Sector financiero** |
-| &nbsp;&nbsp;Caché | &nbsp;&nbsp;Contabilidad |
-| **Contenedores**  | &nbsp;&nbsp;Administración de recursos |
-| &nbsp;&nbsp;Introducción a los contenedores | &nbsp;&nbsp;Análisis, consolidación e informes |
-| &nbsp;&nbsp;Aplicaciones de contenedor | &nbsp;&nbsp;Colecciones y crédito |
-| &nbsp;&nbsp;Imágenes de contenedor | &nbsp;&nbsp;Administración de riesgos y cumplimiento |
-| **Bases de datos**  | **Geolocalización** |
-| &nbsp;&nbsp;Bases de datos NoSQL | &nbsp;&nbsp;Maps |
-| &nbsp;&nbsp;Bases de datos relacionales | &nbsp;&nbsp;Noticias y el tiempo |
-| &nbsp;&nbsp;Bases de datos de cadena de bloques o libro de contabilidad | **Recursos humanos** |
-| &nbsp;&nbsp;Lagos de datos | &nbsp;&nbsp;Adquisición de Talent |
-| &nbsp;&nbsp;Almacenamiento de datos | &nbsp;&nbsp;Administración de Talent |
-| **Herramientas para desarrolladores**  | &nbsp;&nbsp;Operaciones de recursos humanos |
-| &nbsp;&nbsp;Herramientas | &nbsp;&nbsp;Análisis y planeamiento de recursos |
-| &nbsp;&nbsp;Scripts | **Herramientas de administración y TI** |
-| &nbsp;&nbsp;Servicio de desarrolladores | &nbsp;&nbsp;Soluciones de administración |
-| **DevOps**  | &nbsp;&nbsp;Business Applications |
-| **Integración**  | **Internet de las cosas** |
-| &nbsp;&nbsp;Mensajería | &nbsp;&nbsp;Operaciones y administración de recursos |
-| **Herramientas de administración y TI**  | &nbsp;&nbsp;Productos conectados |
-| &nbsp;&nbsp;Soluciones de administración | &nbsp;&nbsp;Cadena de suministro inteligente |
-| &nbsp;&nbsp;Business Applications | &nbsp;&nbsp;Mantenimiento predictivo |
-| **Identidad**  | &nbsp;&nbsp;Supervisión remota |
-| &nbsp;&nbsp;Administración de acceso | &nbsp;&nbsp;Seguridad y protección |
-| **Internet de las cosas**  | &nbsp;&nbsp;Recursos e infraestructuras inteligentes |
-| &nbsp;&nbsp;Conectividad de IoT | &nbsp;&nbsp;Vehículos y movilidad |
-| &nbsp;&nbsp;Servicios de IoT Core | **Marketing** |
-| &nbsp;&nbsp;Módulos de IoT Edge | &nbsp;&nbsp;Anuncio |
-| &nbsp;&nbsp;Soluciones de IoT | &nbsp;&nbsp;Analytics |
-| &nbsp;&nbsp;Visualización y análisis de datos | &nbsp;&nbsp;Automatización y administración de campañas |
-| **Elementos multimedia**  | &nbsp;&nbsp;Marketing por correo electrónico |
-| &nbsp;&nbsp;Media Services | &nbsp;&nbsp;Administración de recursos y eventos |
-| &nbsp;&nbsp;Content Protection | &nbsp;&nbsp;Investigación y análisis |
-| &nbsp;&nbsp;Streaming a petición y en directo | &nbsp;&nbsp;Redes sociales |
-| **Supervisión y diagnósticos**  | **Cadena de operaciones y suministros** |
-| **Migración**  | &nbsp;&nbsp;Administración de producción y recursos |
-| &nbsp;&nbsp;Migración de datos | &nbsp;&nbsp;Previsión de la demanda |
-| **Realidad mixta**  | &nbsp;&nbsp;Conectividad y administración de la información |
-| **Redes**  | &nbsp;&nbsp;Planeamiento, compra e informe |
-| &nbsp;&nbsp;Administradores de dispositivos | &nbsp;&nbsp;Administración de servicios y calidad |
-| &nbsp;&nbsp;Conectividad | &nbsp;&nbsp;Administración de pedidos y ventas |
-| &nbsp;&nbsp;Firewalls | &nbsp;&nbsp;Administración de transporte y almacén |
-| &nbsp;&nbsp;Equilibradores de carga | **Productividad** |
-| **Seguridad**  | &nbsp;&nbsp;Administración y creación de contenido |
-| &nbsp;&nbsp;Administración de identidad y acceso | &nbsp;&nbsp;Administración de documentos |
-| &nbsp;&nbsp;Protección contra amenazas | &nbsp;&nbsp;Administración de correo electrónico |
-| &nbsp;&nbsp;Information Protection | &nbsp;&nbsp;Idioma y traducción |
-| **Storage**  | &nbsp;&nbsp;Búsqueda y referencia |
-| &nbsp;&nbsp;Copia de seguridad y recuperación | &nbsp;&nbsp;Ludificación |
-| &nbsp;&nbsp;Almacenamiento híbrido empresarial | **Ventas** |
-| &nbsp;&nbsp;Uso compartido de archivos | &nbsp;&nbsp;Televentas |
-| &nbsp;&nbsp;Administración del ciclo de vida de los datos | &nbsp;&nbsp;Configuración, precio, oferta (CPQ) |
-| **Web**  | &nbsp;&nbsp;Administración de contratos |
-| &nbsp;&nbsp;Blogs y CMS | &nbsp;&nbsp;CRM |
-| &nbsp;&nbsp;Aplicaciones web de Starter | &nbsp;&nbsp;Comercio electrónico |
-| &nbsp;&nbsp;Comercio electrónico | &nbsp;&nbsp;Enriquecimiento de datos empresariales  |
-| &nbsp;&nbsp;Marcos para aplicaciones web | &nbsp;&nbsp;Habilitación de ventas  |
-| &nbsp;&nbsp;Web Apps |  |
+| Análisis<ul><li>Data Insights<li>Análisis de datos<li>Datos de gran tamaño<li>Análisis predictivo<li>Análisis de streaming/en tiempo real | Análisis<ul><li>Análisis avanzado<li>Visualización e informes |
+| IA y Machine Learning<ul><li>Servicio de bots<li>Cognitive Services<li>ML Service<li>Machine Learning Automatizado<li>Automatización de procesos empresariales o robóticos<li>Etiquetado de datos<li>Preparación de los datos<li>Minería de conocimientos<li>Operaciones de ML | IA y Machine Learning<ul><li>Inteligencia artificial para empresas<li>Aplicaciones de bot |
+| Cadena de bloques<ul><li>Aceleradores de aplicación<li>Libro de contabilidad de nodo único<li>Libro de contabilidad de varios nodos<li>Herramientas | Colaboración<ul><li>Contacto y personas<li>Administración de reuniones<li>Administración y diseño de sitios<li>Administración de proyectos y tareas<li>Conferencia de voz o videoconferencia |
+| Compute<ul><li>Infraestructura de la aplicación<li>Sistemas operativos<li>instancias y claves | Cumplimiento y aspectos legales<ul><li>Impuestos y auditoría<li>Información legal<li>Datos, gobernanza y privacidad<li>Estado y seguridad |
+| Contenedores<ul><li>Introducción a los contenedores<li>Aplicaciones de contenedor<li>Imágenes de contenedor | Customer Service<ul><li>Centro de contacto<li>Servicio presencial<li>Área de operaciones y servicio para empleados<li>Administración de casos y conocimientos<li>Redes sociales e interacción omnicanal |
+| Bases de datos<ul><li>Bases de datos NoSQL<li>Bases de datos relacionales<li>Bases de datos de cadena de bloques o libro de contabilidad<li>Lagos de datos<li>almacenamiento de datos | Finance<ul><li>Control<li>Administración de recursos<li>Análisis, consolidación e informes<li>Crédito y colecciones<li>Administración de riesgos y cumplimiento |
+| Herramientas de desarrollo<ul><li>Herramientas<li>Scripts<li>Servicio para desarrolladores | Geolocalización<ul><li>Maps<li>Noticias y meteorología |
+| DevOps | Recursos humanos<ul><li>Adquisición de talentos<li>Administración de talentos<li>Operaciones de recursos humanos<li>Análisis y planeamiento de personal |
+| Integración<ul><li>Mensajería | Herramientas de administración y TI<ul><li>Soluciones de administración<li>Aplicaciones empresariales |
+| Herramientas de administración y TI<ul><li>Soluciones de administración<li>Aplicaciones empresariales | Internet de las cosas<ul><li>Administración y operaciones de recursos<li>Productos conectados<li>Cadena de suministro inteligente<li>Mantenimiento predictivo<li>Supervisión remota<li>Seguridad<li>Recursos e infraestructuras inteligentes<li>Vehículos y movilidad |
+| Identidad<ul><li>Administración de acceso | Marketing<ul><li>Anuncio<li>Análisis<li>Automatización y administración de campañas<li>Marketing por correo electrónico<li>Administración de recursos y eventos<li>Investigación y análisis<li>Medios sociales |
+| Internet de las cosas<ul><li>Conectividad de IoT<li>Servicios de IoT Core<li>Módulos de IoT Edge<li>Soluciones de IoT<li>Visualizaciones y análisis de datos | Operaciones y cadena de suministros<ul><li>Administración de producción y recursos<li>Previsión de la demanda<li>Conectividad y administración de la información<li>Planeamiento, compra e informes<li>Administración de servicios y calidad<li>Administración de pedidos y ventas<li>Administración de transporte y almacén |
+| Medios<ul><li>Media Services<li>Content Protection<li>Streaming en vivo y a petición | Productividad<ul><li>Creación y administración de contenido<li>Administración de documentos<li>Administración del correo electrónico<li>Idioma y traducción<li>Búsqueda y referencia<li>Ludificación |
+| Supervisión y diagnóstico | Sales<ul><li>Televentas<li>Configuración, precio, oferta (CPQ)<li>Administración de contratos<li>CRM<li>Comercio electrónico<li>Enriquecimiento de datos empresariales<li>Habilitación de ventas |
+| Migración<ul><li>Migración de datos | (las celdas restantes de esta columna están en blanco) |
+| Mixed Reality<ul> | |
+| Redes<ul><li>Administradores de dispositivos<li>Conectividad<li>Firewalls<li>Equilibradores de carga | |
+| Seguridad<ul><li>Administración de identidades y acceso<li>Protección contra amenazas<li>Information Protection | |
+| Almacenamiento<ul><li>Copia de seguridad y recuperación<li>Almacenamiento híbrido empresarial<li>Uso compartido de archivos<li>Administración del ciclo de vida de datos | |
+| Web<ul><li>Blogs y CMS<li>Aplicaciones web de Starter<li>Comercio electrónico<li>Marcos para aplicaciones web<li>Web Apps |
+|

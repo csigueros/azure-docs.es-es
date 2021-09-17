@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 2/12/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: d432ff03290c3ce26346b99c428cd89c853ed6b7
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: d95e9e6ed85e170efeb570fa46f634a9071c687c
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114472151"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122772398"
 ---
 # <a name="convert-industry-standard-ontologies-to-dtdl-for-azure-digital-twins"></a>Conversión de ontologías estándar del sector a DTDL para Azure Digital Twins
 
@@ -37,7 +37,7 @@ La tabla siguiente es un ejemplo de cómo se pueden asignar las construcciones R
 
 En el siguiente fragmento de código en C# se muestra cómo se carga un archivo de modelo de RDF en un grafo y se convierte a DTDL, mediante la biblioteca [dotNetRDF](https://www.dotnetrdf.org/). 
 
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/convertRDF.cs":::
+:::code language="csharp" source="~/digital-twins-docs-samples/other/csharp/convertRDF.cs":::
 
 ## <a name="converter-samples"></a>Ejemplos de convertidor
 

@@ -9,14 +9,17 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 07/29/2021
 ms.author: srijangupta
-ms.openlocfilehash: be1bf712d91aaaff460ff2dcc4a899f8b8a089be
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 1e62653a7b48ac22f4482974696ad14c13b39a88
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121741764"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122698860"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Compatibilidad con cloud-init para máquinas virtuales en Azure
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Conjuntos de escalado flexibles 
+
 En este artículo se explica la compatibilidad que existe para [cloud-init](https://cloudinit.readthedocs.io) para configurar una máquina virtual (VM) o conjuntos de escalado de máquinas virtuales en el momento del aprovisionamiento en Azure. Estas configuraciones de cloud-init se ejecutan durante el primer arranque una vez que Azure ha aprovisionado los recursos.  
 
 El aprovisionamiento de máquinas virtuales es el proceso en el que Azure pasará los valores de los parámetros de creación de la máquina virtual, como nombre de host, nombre de usuario, contraseña, etc., y los pone a disposición de la máquina virtual cuando se inicia. Un "agente de aprovisionamiento" consumirá esos valores, configurará la máquina virtual y devolverá una notificación cuando se complete. 
@@ -45,8 +48,8 @@ Hay dos fases para que cloud-init esté disponible para el sistema operativo de 
 ### <a name="rhel"></a>RHEL
 | Publicador o versión| Oferta | SKU | Versión | Imagen preparada para cloud-init | compatibilidad con paquetes de cloud-init en Azure|
 |:--- |:--- |:--- |:--- |:--- |:--- |
-|Red Hat 7 |RHEL |7.7, 7.8 y 7_9 |latest |sí | Sí |
-|RedHat 8 |RHEL |8.1, 8.2, 8_3 y 8_4 |latest |sí | Sí |
+|Red Hat 7 |RHEL |7.7, 7.8 y 7_9 |latest |sí | sí |
+|RedHat 8 |RHEL |8.1, 8.2, 8_3 y 8_4 |latest |sí | sí |
 
 * Todas las demás SKU de RedHat a partir de RHEL 7 (versión 7.7) y RHEL 8 (versión 8.1), incluidas las imágenes Gen1 y Gen2, se aprovisionan mediante cloud-init. Las imágenes de RHEL 6 no admiten cloud-init. 
 
@@ -54,8 +57,8 @@ Hay dos fases para que cloud-init esté disponible para el sistema operativo de 
 ### <a name="centos"></a>CentOS
  Publicador o versión| Oferta | SKU | Versión | Imagen preparada para cloud-init | compatibilidad con paquetes de cloud-init en Azure|
 |:--- |:--- |:--- |:--- |:--- |:--- |
-|OpenLogic 7 |CentOS |7.7, 7.8 y 7.9 |latest |sí | Sí |
-|OpenLogic 8 |CentOS |8.1, 8.2 y 8.3 |latest |sí | Sí |
+|OpenLogic 7 |CentOS |7.7, 7.8 y 7.9 |latest |sí | sí |
+|OpenLogic 8 |CentOS |8.1, 8.2 y 8.3 |latest |sí | sí |
 
 * Todas las demás SKU de CentOS a partir de CentOS 7 (versión 7.7) y CentOS 8 (versión 8.1), incluidas las imágenes Gen1 y Gen2, se aprovisionan mediante cloud-init. Las imágenes de CentOS 6.10, 7.4, 7.5 y 7.6 no admiten cloud-init. 
 
@@ -68,8 +71,8 @@ Hay dos fases para que cloud-init esté disponible para el sistema operativo de 
 
  Publicador o versión| Oferta | SKU | Versión | Imagen preparada para cloud-init | compatibilidad con paquetes de cloud-init en Azure|
 |:--- |:--- |:--- |:--- |:--- |:--- |
-|Oracle 7 |Oracle Linux |77, 78 y ol79 |latest |sí | Sí |
-|Oracle 8 |Oracle Linux |81, ol82, ol83-lvm y ol84-lvm |latest |sí | Sí |
+|Oracle 7 |Oracle Linux |77, 78 y ol79 |latest |sí | sí |
+|Oracle 8 |Oracle Linux |81, ol82, ol83-lvm y ol84-lvm |latest |sí | sí |
 
 * Todas las demás SKU de Oracle a partir de Oracle 7 (versión 7.7) y Oracle 8 (versión 8.1), incluidas las imágenes Gen1 y Gen2, se aprovisionan mediante cloud-init.
 
@@ -78,8 +81,8 @@ Hay dos fases para que cloud-init esté disponible para el sistema operativo de 
 
  Publicador o versión| Oferta | SKU | Versión | Imagen preparada para cloud-init | compatibilidad con paquetes de cloud-init en Azure|
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| SUSE 15 |SLES (SUSE Linux Enterprise Server) |sp1, sp2 y sp3 |latest |sí | Sí |
-|SUSE 12 |SLES (SUSE Linux Enterprise Server) |sp5 |latest |sí | Sí |
+| SUSE 15 |SLES (SUSE Linux Enterprise Server) |sp1, sp2 y sp3 |latest |sí | sí |
+|SUSE 12 |SLES (SUSE Linux Enterprise Server) |sp5 |latest |sí | sí |
 
 * Todas las demás SKU de SUSE a partir de SLES 15 (sp1) y SLES 12 (sp5), incluidas las imágenes Gen1 y Gen2, se aprovisionan mediante cloud-init.
 * Además, estas imágenes también se aprovisionan con cloud-init:

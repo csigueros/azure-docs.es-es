@@ -1,27 +1,30 @@
 ---
-title: Expresiones y funciones en Azure Data Factory
-description: En este artículo se proporciona información sobre las expresiones y las funciones que se pueden usar al crear entidades de Data Factory.
+title: Expresiones y funciones
+titleSuffix: Azure Data Factory & Azure Synapse
+description: En este artículo se proporciona información sobre las expresiones y funciones que puede usar para crear entidades de canalización de Azure Data Factory y Azure Synapse Analytics.
 author: minhe-msft
 ms.author: hemin
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: orchestration
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 04/28/2021
-ms.openlocfilehash: 275c77107faf8fd639d714b92828ab8efe623f26
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.date: 08/24/2021
+ms.openlocfilehash: aaca4774f6f56d38624b4811375a6661299161cc
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108164910"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122821775"
 ---
-# <a name="expressions-and-functions-in-azure-data-factory"></a>Expresiones y funciones de Azure Data Factory
+# <a name="expressions-and-functions-in-azure-data-factory-and-azure-synapse-analytics"></a>Expresiones y funciones en Azure Data Factory y Azure Synapse Analytics
 
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
 > * [Versión 1](v1/data-factory-functions-variables.md)
-> * [Versión actual](control-flow-expression-language-functions.md)
+> * [Versión actual/Versión de Synapse](control-flow-expression-language-functions.md)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-En este artículo se proporciona información detallada sobre las expresiones y las funciones compatibles con Azure Data Factory. 
+En este artículo se proporcionan detalles sobre las expresiones y funciones compatibles con Azure Data Factory y Azure Synapse Analytics. 
 
 ## <a name="expressions"></a>Expresiones
 
@@ -60,12 +63,28 @@ Las expresiones pueden aparecer en cualquier lugar de un valor de cadena JSON y 
 |"\@concat('Answer is: ', string(pipeline().parameters.myNumber))"| Devuelve la cadena `Answer is: 42`.|  
 |"Answer is: \@\@{pipeline().parameters.myNumber}"| Devuelve la cadena `Answer is: @{pipeline().parameters.myNumber}`.|  
 
+En las actividades de flujo de control, como la actividad ForEach, puede proporcionar una matriz para recorrer en iteración para los elementos de propiedad y usar @item() para recorrer en iteración una sola enumeración en la actividad ForEach. Por ejemplo, si la propiedad items es una matriz: [1, 2, 3], @item(), devuelve 1 en la primera iteración, 2 en la segunda y 3 en la tercera. También puede usar @range(0,10) como expresión para iterar diez veces comenzando con 0 y terminando con 9.
+
+Puede usar @activity ("nombre de la actividad") para capturar la salida de la actividad y tomar decisiones. Considere una actividad web denominada Web1. Para colocar la salida de la primera actividad en el cuerpo de la segunda, la expresión suele parecerse a : @activity('Web1').output o @activity('Web1').output.data o algo similar en función del aspecto de la salida de la primera actividad. 
+
 ## <a name="examples"></a>Ejemplos
 
 ### <a name="complex-expression-example"></a>Ejemplo de expresión compleja
-En el ejemplo siguiente se muestra un ejemplo complejo que hace referencia a un subcampo profundo de la salida de la actividad. Para hacer referencia a un parámetro de canalización que se evalúa como un subcampo, use la sintaxis [] en lugar del operador punto (.) (como en el caso de subfield1 y subfield2)
+En el ejemplo siguiente se muestra un ejemplo complejo que hace referencia a un subcampo profundo de la salida de la actividad. Para hacer referencia a un parámetro de canalización que se evalúa como un subcampo, use la sintaxis [] en lugar del operador punto (.) (como en el caso de subfield1 y subfield2), como parte de la salida de una actividad.
 
 `@activity('*activityName*').output.*subfield1*.*subfield2*[pipeline().parameters.*subfield3*].*subfield4*`
+
+La creación dinámica de archivos y su nomenclatura es un patrón común. Vamos a explorar algunos ejemplos de nomenclatura de archivos dinámicos.
+
+  1. Anexar fecha a un nombre de archivo: `@concat('Test_',  formatDateTime(utcnow(), 'yyyy-dd-MM'))` 
+  
+  2. Anexar fecha y hora en la zona horaria del cliente: `@concat('Test_',  convertFromUtc(utcnow(), 'Pacific Standard Time'))`
+  
+  3. Anexar tiempo de desencadenador: ` @concat('Test_',  pipeline().TriggerTime)`
+  
+  4. Generar un nombre de archivo personalizado en un flujo de datos de asignación al emitir la salida en un solo archivo con fecha: `'Test_' + toString(currentDate()) + '.csv'`
+
+En los casos anteriores, se crean cuatro nombres de archivo dinámicos a partir de Test_. 
 
 ### <a name="dynamic-content-editor"></a>Editor de contenido dinámico
 
@@ -186,8 +205,7 @@ Baba's book store
 ```
 
 ### <a name="tutorial"></a>Tutorial
-En este [tutorial](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-data-factory-passing-parameters/Azure%20data%20Factory-Whitepaper-PassingParameters.pdf) se le guiará a lo largo del proceso de pasar parámetros entre una canalización y una actividad, así como entre actividades.
-
+En este [tutorial](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-data-factory-passing-parameters/Azure%20data%20Factory-Whitepaper-PassingParameters.pdf) se le guiará a lo largo del proceso de pasar parámetros entre una canalización y una actividad, así como entre actividades.  El tutorial muestra específicamente los pasos para una Azure Data Factory, aunque los pasos para un área de trabajo de Synapse son casi equivalentes, pero con una interfaz de usuario ligeramente diferente.
   
 ## <a name="functions"></a>Functions
 

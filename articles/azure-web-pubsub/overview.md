@@ -6,12 +6,12 @@ ms.author: yajin1
 ms.service: azure-web-pubsub
 ms.topic: overview
 ms.date: 01/27/2021
-ms.openlocfilehash: 920c55746ab78f9479c37027b479af7cf6604865
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: ed48335b0417cacce9a1e408de06c0c2a9ec9b44
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108167081"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121751120"
 ---
 # <a name="what-is-azure-web-pubsub-service"></a>¿Qué es el servicio Azure Web PubSub? 
 
@@ -23,7 +23,7 @@ En este artículo se proporciona una introducción a Azure Web PubSub.
 
 Cualquier escenario que requiera mensajería de publicación y suscripción en tiempo real entre el servidor y los clientes o entre clientes, puede usar el servicio Azure Web PubSub. Las características tradicionales en tiempo real que a menudo requieren tener que sondear desde el servidor o enviar solicitudes HTTP, también pueden usar el servicio Azure Web PubSub.
 
-Azure Web PubSub se ha utilizado en una amplia variedad de sectores, para cualquier tipo de aplicación que requiera actualizaciones de contenido en tiempo real. A continuación se enumeran algunos ejemplos en los que conviene usar Azure Web PubSub:
+El servicio Azure Web PubSub se puede usar con cualquier tipo de aplicación que requiera actualizaciones de contenido en tiempo real. A continuación se enumeran algunos ejemplos en los que conviene usar Azure Web PubSub:
 
 * **Actualizaciones de datos de alta frecuencia:** juegos, votos, sondeos, subastas.
 * **Paneles activos y supervisión:** panel de empresas, datos de mercados financieros, actualización instantánea de ventas, panel de líderes de juegos multijugador y supervisión de IoT.
@@ -44,14 +44,14 @@ Azure Web PubSub está diseñado para aplicaciones en tiempo real a gran escala.
 
 **Compatibilidad con una amplia variedad de SDK de cliente y lenguajes de programación:**
 
-El servicio Azure Web PubSub funciona con una amplia gama de clientes, como los exploradores móviles y web, las aplicaciones de escritorio, las aplicaciones móviles, el proceso de servidor, los dispositivos IoT y las consolas de juegos. Dado que este servicio admite WebSocket sin procesar con un patrón de publicación y suscripción, es fácil usar cualquier SDK de cliente de WebSocket estándar en distintos lenguajes con este servicio. 
+El servicio Azure Web PubSub funciona con una amplia gama de clientes, como los exploradores móviles y web, las aplicaciones de escritorio, las aplicaciones móviles, el proceso de servidor, los dispositivos IoT y las consolas de juegos. Dado que este servicio admite la conexión WebSocket estándar con un patrón de publicación y suscripción, es fácil usar cualquier SDK de cliente de WebSocket estándar en distintos lenguajes con este servicio. 
 
 **Se ofrecen API enriquecidas para diferentes patrones de mensajes:**
 
 El servicio Azure Web PubSub es un servicio de mensajería bidireccional que permite que se usen diferentes patrones de mensajería entre el servidor y los clientes, por ejemplo:
 
-* El servidor envía mensajes a una conexión concreta, a todas las conexiones o a un subconjunto de conexiones que pertenecen a un usuario específico o que se han colocado en un grupo arbitrario. 
-* El cliente envía mensajes a una conexión concreta, a todas las conexiones o a un subconjunto de conexiones que pertenecen a un usuario específico o que se han colocado en un grupo arbitrario.
+* El servidor envía mensajes a un cliente concreto, todos los clientes o un subconjunto de clientes que pertenece a un usuario específico o que se han colocado en un grupo arbitrario. 
+* El cliente envía mensajes a los clientes que pertenecen a un grupo arbitrario.
 * Los clientes envían mensajes al servidor.
 
 
@@ -60,4 +60,6 @@ El servicio Azure Web PubSub es un servicio de mensajería bidireccional que per
 Hay muchas maneras diferentes de programar con el servicio Azure Web PubSub, como algunas de las muestras enumeradas aquí:
 
 - **Compilar aplicaciones en tiempo real sin servidor**: use la integración de Azure Functions con Azure Web PubSub para crear aplicaciones en tiempo real sin servidor en lenguajes como JavaScript, C#, Java y Python. 
+- **Use el subprotocolo WebSocket para realizar solo el servicio Pub/Sub del lado cliente**: el servicio Azure Web PubSub proporciona subprotocolos WebSocket para que los clientes autorizados puedan publicar en otros clientes cómodamente.
+- **Use los SDK proporcionados para administrar las conexiones de WebSocket en servidores de aplicaciones autohospedadas**: el servicio Azure Web PubSub proporciona SDK en C#, JavaScript, Java y Python para administrar fácilmente las conexiones de WebSocket, incluidos los mensajes de difusión a las conexiones, agregar conexiones a algunos grupos o cerrar las conexiones, etc.
 - **Enviar mensajes desde el servidor a los clientes a través de la API REST**: Azure Web PubSub proporciona la API REST para permitir que las aplicaciones envíen mensajes a los clientes conectados, en cualquier lenguaje de programación compatible con REST.

@@ -9,12 +9,12 @@ ms.subservice: custom-vision
 ms.topic: how-to
 ms.date: 09/08/2020
 ms.author: pafarley
-ms.openlocfilehash: 3938f7f5dae00a3628e2c9e2fec21a364efac95d
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: d546726e03420b41b4ff445418e30274904c6e5c
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110084707"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122635063"
 ---
 # <a name="copy-and-move-your-custom-vision-projects"></a>Copia y traslado de los proyectos de Custom Vision
 
@@ -103,6 +103,9 @@ Obtendrá una respuesta `200/OK` con metadatos sobre el proyecto exportado y una
   "token": "string"
 }
 ```
+
+> [!TIP]
+> Si recibe un error de "Token no válido" al importar el proyecto, podría deberse a que la cadena de dirección URL del token no está codificada en web. Puede codificar el token mediante un [codificador de direcciones URL](https://meyerweb.com/eric/tools/dencoder/).
 
 ## <a name="import-the-project"></a>Importación del proyecto
 

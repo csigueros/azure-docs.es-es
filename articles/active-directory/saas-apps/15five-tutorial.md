@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/27/2021
+ms.date: 08/20/2021
 ms.author: jeedes
-ms.openlocfilehash: b463460fe649034d4e0175e46154e41cd401689d
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: 9d39d65ca7ec64587bd619cecbeebdfdf58a42a8
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111555288"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122771937"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-15five"></a>Tutorial: integración de Azure Active Directory con 15Five
 
@@ -38,6 +38,7 @@ Para empezar, necesita los siguientes elementos:
 En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
 * 15Five admite inicio de sesión único iniciado por **SP**.
+* 15Five admite el [aprovisionamiento automático de usuarios](15five-provisioning-tutorial.md).
 
 ## <a name="add-15five-from-the-gallery"></a>Adición de 15Five desde la galería
 

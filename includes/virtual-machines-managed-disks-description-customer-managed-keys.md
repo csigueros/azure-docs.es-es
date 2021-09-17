@@ -1,5 +1,5 @@
 ---
-title: archivo de inclusión
+title: Archivo de inclusión
 description: archivo de inclusión
 services: virtual-machines
 author: roygara
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/02/2021
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 76ee3371134c66d6dcc5b4b07436e5c30a15f144
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.openlocfilehash: 7c06903720db4315bad04e88dfdb9c7cad604697
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111449823"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122820788"
 ---
 Puede optar por administrar el cifrado en el nivel de cada disco administrado, con sus propias claves. El cifrado del lado servidor de discos administrados con claves administradas por el cliente ofrece una experiencia integrada con Azure Key Vault. Puede importar [las claves RSA](../articles/key-vault/keys/hsm-protected-keys.md) a su instancia de Key Vault o generar nuevas claves RSA en Azure Key Vault. 
 
@@ -42,6 +42,6 @@ En la lista siguiente se explica el diagrama más detalladamente:
 
 Para revocar el acceso a las claves administradas por el cliente, vea [PowerShell de Azure Key Vault](/powershell/module/azurerm.keyvault/) y [CLI de Azure Key Vault](/cli/azure/keyvault). La revocación del acceso bloquea de manera eficaz el acceso a todos los datos de la cuenta de almacenamiento, ya que Azure Storage no puede acceder a la clave de cifrado.
 
-#### <a name="automatic-key-rotation-of-customer-managed-keys-preview"></a>Rotación automática de claves administradas por el cliente (versión preliminar)
+#### <a name="automatic-key-rotation-of-customer-managed-keys"></a>Rotación automática de claves administradas por el cliente
 
-Puede optar por habilitar la rotación automática de claves para la versión más reciente de la clave. Los discos hacen referencia a las claves a través de su conjunto de cifrado de disco. Al habilitar la rotación automática de un conjunto de cifrado de disco, el sistema actualiza automáticamente todos los discos administrados, instantáneas e imágenes que hagan referencia a él para usar la nueva versión de la clave en una hora. La característica está actualmente disponible en versión preliminar en algunas regiones. Puede consultar la disponibilidad regional en [Regiones admitidas](#supported-regions).
+Puede optar por habilitar la rotación automática de claves para la versión más reciente de la clave. Los discos hacen referencia a las claves a través de su conjunto de cifrado de disco. Al habilitar la rotación automática de un conjunto de cifrado de disco, el sistema actualiza automáticamente todos los discos administrados, instantáneas e imágenes que hagan referencia a él para usar la nueva versión de la clave en una hora. Para obtener información sobre cómo habilitar las claves administradas por el cliente con la rotación automática de claves, consulte [Configuración de Azure Key Vault y DiskEncryptionSet con rotación de claves automática](../articles/virtual-machines/windows/disks-enable-customer-managed-keys-powershell.md#set-up-an-azure-key-vault-and-diskencryptionset-optionally-with-automatic-key-rotation).

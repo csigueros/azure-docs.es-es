@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 06/01/2021
-ms.openlocfilehash: 666dfb22036c3d7f1d88515f4b8118eaf133db8c
-ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
+ms.openlocfilehash: cba8ba5c8c5ff300fe585d75aab98fd4003a475d
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2021
-ms.locfileid: "113594971"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122608236"
 ---
 # <a name="configure-a-managed-application-plan"></a>Configuración de un plan de una aplicación administrada
 
@@ -178,7 +178,7 @@ Puede configurar un máximo de cinco directivas y solo una instancia de cada opc
 
 1. En **Configuración de directiva**, seleccione el vínculo **+ Agregar directiva (máx. 5)** .
 1. En el cuadro **Nombre**, escriba el nombre de la asignación de directiva (límite de 50 caracteres).
-1. En el cuadro de lista **Directivas**, seleccione la directiva de Azure que se aplicará a los recursos creados por la aplicación administrada en la suscripción del cliente.
+1. En el cuadro de lista **Directivas**, seleccione la definición de Azure Policy que se aplicará a los recursos creados por la aplicación administrada en la suscripción del cliente.
 1. En el cuadro **Parámetros de la directiva**, proporcione el parámetro en el que se deben aplicar las directivas de configuración de auditoría y diagnóstico.
 1. En el cuadro de lista **SKU de directiva**, seleccione el tipo de SKU de directiva.
 

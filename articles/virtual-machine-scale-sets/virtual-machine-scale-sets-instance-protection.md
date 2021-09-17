@@ -9,14 +9,15 @@ ms.subservice: instance-protection
 ms.date: 02/26/2020
 ms.reviewer: jushiman
 ms.custom: avverma, devx-track-azurepowershell
-ms.openlocfilehash: 1b54a1be03aca62cacf6afe7361028a42ea7f84c
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 60d7b1c2a869d22e3d8220e0f3537b2882ea0db4
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110673911"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122690428"
 ---
 # <a name="instance-protection-for-azure-virtual-machine-scale-set-instances"></a>Protección de las instancias del conjunto de escalado de máquinas virtuales de Azure
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles :heavy_check_mark: Conjuntos de escalado uniformes
 
 Los conjuntos de escalado de máquinas virtuales de Azure permiten una mejor elasticidad para las cargas de trabajo mediante [Escalabilidad automática](virtual-machine-scale-sets-autoscale-overview.md), de manera que puede realizar configuraciones cuando la infraestructura se escala horizontalmente y cuando se reduce horizontalmente. Los conjuntos de escalado permiten administrar, configurar y actualizar de manera central una gran cantidad de máquinas virtuales mediante distintas configuraciones de [directiva de actualización](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model). Puede configurar una actualización en el modelo del conjunto de escalado y la nueva configuración se aplica automáticamente a cada instancia del conjunto de escalado si se ha configurado la directiva de actualización en Automática o Revirtiendo.
 

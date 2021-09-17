@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 4/23/2021
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: a06a488473264a992d947ef78ad69c61776d34ae
-ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
+ms.openlocfilehash: 11f8c7ddd7e06e9cc4c27173d5bb8f9dd14cbd42
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122271210"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122768477"
 ---
 # <a name="virtual-network-service-tags"></a>Etiquetas de servicio de red virtual
 <a name="network-service-tags"></a>
@@ -87,6 +87,7 @@ De forma predeterminada, las etiquetas de servicio reflejan los intervalos de to
 | **AzureSignalR** | Azure SignalR. | Salida | No | No |
 | **AzureSiteRecovery** | Azure Site Recovery.<br/><br/>*Nota:* Esta etiqueta presenta dependencia con las etiquetas **AzureActiveDirectory**, **AzureKeyVault**, **EventHub**, **GuestAndHybridManagement** y **Storage**. | Salida | No | No |
 | **AzureTrafficManager** | Direcciones IP de sondeo de Azure Traffic Manager.<br/><br/>En [Preguntas más frecuentes sobre Azure Traffic Manager](../traffic-manager/traffic-manager-faqs.md), puede encontrar más información acerca de las direcciones IP de sondeo de Traffic Manager. | Entrada | No | Sí |  
+| **AzureUpdateDelivery** | Para acceder a Windows Update. <br/><br/>*Nota:* Esta etiqueta brinda acceso a los servicios de metadatos de Windows Update. Para descargar correctamente las actualizaciones, también debe habilitar la etiqueta de servicio **AzureFrontDoor.FirstParty** y configurar las reglas de seguridad de salida con el protocolo y el puerto definidos de la siguiente manera: <ul><li>AzureUpdateDelivery: TCP, puerto 443</li><li>AzureFrontDoor.FirstParty: TCP, puerto 80</li></ul>*Esta etiqueta no se puede configurar actualmente mediante Azure Portal*| Salida | No | No |  
 | **BatchNodeManagement** | Tráfico de administración para implementaciones dedicadas de Azure Batch. | Ambos | No | Sí |
 | **CognitiveServicesManagement** | Los intervalos de direcciones para el tráfico para Azure Cognitive Services. | Ambos | No | No |
 | **DataFactory**  | Azure Data Factory | Ambos | No | No |
@@ -110,6 +111,7 @@ De forma predeterminada, las etiquetas de servicio reflejan los intervalos de to
 | **SqlManagement** | Tráfico de administración para implementaciones dedicadas de SQL. | Ambos | No | Sí |
 | **Storage** | Azure Storage. <br/><br/>*Nota:* Esta etiqueta representa el servicio, no instancias específicas del mismo. Por ejemplo, la etiqueta representa el servicio Azure Storage, pero no una cuenta de específica de este. | Salida | Sí | Sí |
 | **StorageSyncService** | Servicio de sincronización de almacenamiento. | Ambos | No | No |
+| **WindowsAdminCenter** | Permita que el servicio back-end de Windows Admin Center se comunique con la instalación de Windows Admin Center de los clientes. *Nota: Esta etiqueta no se puede configurar actualmente desde Azure Portal.* | Salida | No | Sí |
 | **WindowsVirtualDesktop** | Windows Virtual Desktop. | Ambos | No | Sí |
 | **VirtualNetwork** | El espacio de direcciones de red virtual (todos los intervalos de direcciones IP definidos para la red virtual), todos los espacios de direcciones locales conectados, las redes virtuales [del mismo nivel](virtual-network-peering-overview.md), las redes virtuales conectadas a una [puerta de enlace de red virtual](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%3ftoc.json), la [dirección IP virtual del host](./network-security-groups-overview.md#azure-platform-considerations) y los prefijos de dirección usados en las [rutas definidas por el usuario](virtual-networks-udr-overview.md). Esta etiqueta también puede contener rutas predeterminadas. | Ambos | No | No |
 

@@ -3,18 +3,18 @@ title: 'Inicio rápido: Exploración de los costos de Azure con el análisis de 
 description: Este guía de inicio rápido le ayudará a usar el análisis de costos para explorar y analizar sus costos de organización de Azure.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/10/2021
+ms.date: 07/28/2021
 ms.topic: quickstart
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
-ms.custom: contperf-fy21q2, devx-track-azurecli
-ms.openlocfilehash: 9769b6ecb04ca513c4b48ec3d0ca32bdd3c64b5f
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.custom: contperf-fy22q1
+ms.openlocfilehash: 2391fbdf586c652f7567b5c4b08757a68546314a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107887133"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121731972"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Inicio rápido: Explore y analice los costos con Análisis de costos
 
@@ -151,64 +151,9 @@ Vea el vídeo [Compartir y guardar vistas en Azure Cost Management](https://www.
 
 >[!VIDEO https://www.youtube.com/embed/kQkXXj-SmvQ]
 
-Para anclar un análisis de costos, seleccione el icono de anclaje en la esquina superior derecha o de después de "<Subscription Name> | Análisis de costos". El anclaje de un análisis de costos solo guardará el gráfico principal o la vista de tabla. Comparta el panel para dar a otros usuarios acceso al icono. Con el uso compartido solo se comparte la configuración del panel y no se concede acceso a otros usuarios a los datos subyacentes. Si no tiene acceso a los costos, pero tiene acceso a un panel compartido, verá un mensaje de acceso denegado.
+Para anclar un análisis de costos, seleccione el icono de anclaje en la esquina superior derecha o justo después de ***Nombre de la suscripción** _ | _*Análisis de costos**. El anclaje de un análisis de costos solo guardará el gráfico principal o la vista de tabla. Comparta el panel para dar a otros usuarios acceso al icono. Con el uso compartido solo se comparte la configuración del panel y no se concede acceso a otros usuarios a los datos subyacentes. Si no tiene acceso a los costos, pero tiene acceso a un panel compartido, verá un mensaje de acceso denegado.
 
 Para compartir un vínculo al análisis de costos, seleccione **Compartir** en la parte superior de la ventana. Se mostrará una dirección URL personalizada, que abre esta vista específica para este ámbito concreto. Si no tiene acceso de costo y obtiene esta dirección URL, verá el mensaje "acceso denegado".
-
-## <a name="download-usage-data"></a>Descarga de datos de uso
-
-### <a name="portal"></a>[Portal](#tab/azure-portal)
-
-Hay ocasiones en que es necesario descargar los datos para analizarlos en mayor profundidad, combinarlos con los datos propios o integrarlos en los sistemas propios. Cost Management ofrece algunas opciones distintas. Como punto de partida, si necesita un resumen rápido de alto nivel, como el que se obtiene en el análisis de costos, cree la vista que necesite. Después, descárguelo seleccionando **Exportar** y **Descargar datos en CSV** o **Descargar datos en Excel**. La descarga de Excel proporciona más contexto en la vista que usó para generar la descarga, como el ámbito, la configuración de las consultas, el total y la fecha en que se generó.
-
-Si necesita el conjunto de datos completo sin agregar, descárguelo de la cuenta de facturación. A continuación, en la lista de servicios del panel de navegación izquierdo del portal, vaya a **Administración de costos + facturación**. Seleccione su cuenta de facturación, si procede. Vaya a **Uso y cargos** y, a continuación, seleccione el icono de **descarga** para un período de facturación.
-
-### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
-
-Empiece por preparar el entorno para la CLI de Azure:
-
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
-
-Después de iniciar sesión, use el comando [az costmanagement query](/cli/azure/costmanagement#az_costmanagement_query) para consultar la información de uso mensual hasta la fecha de su suscripción:
-
-```azurecli
-az costmanagement query --timeframe MonthToDate --type Usage \
-   --scope "subscriptions/00000000-0000-0000-0000-000000000000"
-```
-
-También puede restringir la consulta mediante el parámetro **--dataset-filter** u otros parámetros:
-
-```azurecli
-az costmanagement query --timeframe MonthToDate --type Usage \
-   --scope "subscriptions/00000000-0000-0000-0000-000000000000" \
-   --dataset-filter "{\"and\":[{\"or\":[{\"dimension\":{\"name\":\"ResourceLocation\",\"operator\":\"In\",\"values\":[\"East US\",\"West Europe\"]}},{\"tag\":{\"name\":\"Environment\",\"operator\":\"In\",\"values\":[\"UAT\",\"Prod\"]}}]},{\"dimension\":{\"name\":\"ResourceGroup\",\"operator\":\"In\",\"values\":[\"API\"]}}]}"
-```
-
-El parámetro **--dataset-filter** toma una cadena JSON o `@json-file`.
-
-También tiene la opción de usar los comandos [az costmanagement export](/cli/azure/costmanagement/export) para exportar datos de uso a una cuenta de almacenamiento de Azure. Puede descargar los datos aquí.
-
-1. Cree un grupo de recursos o use uno existente. Para crear un grupo de recursos, ejecute el comando [az group create](/cli/azure/group#az_group_create):
-
-   ```azurecli
-   az group create --name TreyNetwork --location "East US"
-   ```
-
-1. Cree una cuenta de almacenamiento para recibir las exportaciones o use una existente. Para crear una cuenta, use el comando [az storage account create](/cli/azure/storage/account#az_storage_account_create):
-
-   ```azurecli
-   az storage account create --resource-group TreyNetwork --name cmdemo
-   ```
-
-1. Ejecute el comando [az costmanagement export create](/cli/azure/costmanagement/export#az_costmanagement_export_create) para crear la exportación:
-
-   ```azurecli
-   az costmanagement export create --name DemoExport --type Usage \
-   --scope "subscriptions/00000000-0000-0000-0000-000000000000" --storage-account-id cmdemo \
-   --storage-container democontainer --timeframe MonthToDate --storage-directory demodirectory
-   ```
-
----
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

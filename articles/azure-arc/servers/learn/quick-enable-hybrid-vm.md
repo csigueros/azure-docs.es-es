@@ -3,14 +3,14 @@ title: Conexión de una máquina híbrida con servidores habilitados para Azure 
 description: Aprenda a conectar una máquina híbrida con servidores habilitados para Azure Arc y a registrarla en ellos.
 ms.topic: quickstart
 ms.date: 12/15/2020
-ms.openlocfilehash: c52b8d1f7098a7a2a88a9770a3b768b7fea31775
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d5f1699447093f148b0dadbdd23857c9e16e13a3
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101646833"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122772666"
 ---
-# <a name="quickstart-connect-hybrid-machines-with-azure-arc-enabled-servers"></a>Inicio rápido: Conexión de máquinas híbridas con servidores habilitados para Azure Arc
+# <a name="quickstart-connect-hybrid-machines-with-azure-arc-enabled-servers"></a>Inicio rápido: conexión de máquinas híbridas con servidores habilitados para Azure Arc
 
 Los [servidores habilitados para Azure Arc](../overview.md) permiten administrar y controlar las máquinas Windows y Linux hospedadas en entornos locales, perimetrales y multinube. En este inicio rápido, implementará y configurará el agente de máquina conectada de una máquina Windows o Linux hospedada fuera de Azure para que lo administren servidores habilitados para Arc.
 
@@ -106,7 +106,7 @@ El script para tanto automatizar la descarga e instalación, como para establece
 
 ## <a name="verify-the-connection-with-azure-arc"></a>Comprobación de la conexión con Azure Arc
 
-Después de instalar el agente y configurarlo para que se conecte a los servidores habilitados para Azure Arc, vaya a Azure Portal para comprobar que el servidor se ha conectado correctamente. Vea la máquina en [Azure Portal](https://aka.ms/hybridmachineportal).
+Después de instalar el agente y configurarlo para que se conecte a los servidores habilitados para Azure Arc, vaya a Azure Portal a fin de comprobar que el servidor se ha conectado correctamente. Vea la máquina en [Azure Portal](https://aka.ms/hybridmachineportal).
 
 :::image type="content" source="./media/quick-enable-hybrid-vm/enabled-machine.png" alt-text="Conexión de una máquina realizada correctamente" border="false":::
 

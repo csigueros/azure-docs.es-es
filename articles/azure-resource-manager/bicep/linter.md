@@ -3,12 +3,12 @@ title: Uso de Bicep linter
 description: Aprenda a usar Bicep linter.
 ms.topic: conceptual
 ms.date: 07/01/2021
-ms.openlocfilehash: 82ab1462ca55a4329370d185aed626ae631e2f2b
-ms.sourcegitcommit: d2738669a74cda866fd8647cb9c0735602642939
+ms.openlocfilehash: 6b270a87a67235a6663a697b1329c5f86d570fdf
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2021
-ms.locfileid: "113649440"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122779732"
 ---
 # <a name="use-bicep-linter"></a>Uso de Bicep linter
 
@@ -150,7 +150,7 @@ Seleccione la solución para corregir el problema automáticamente.
 
 ## <a name="use-in-bicep-cli"></a>Uso de la CLI de Bicep
 
-Instale la CLI de Bicep 0.4 o posterior para usar linter.  En la captura de pantalla siguiente se muestra linter en acción. El archivo Bicep es el mismo que se utilizó en [Uso en Visual Studio Code](#use-in-visual-studio-code).
+Instale la CLI de Bicep 0.4 o posterior para usar linter.  En la captura de pantalla siguiente se muestra linter en acción. El archivo Bicep es el mismo que se utilizó en [Uso en Visual Studio Code](#use-in-visual-studio-code).
 
 :::image type="content" source="./media/linter/bicep-linter-command-line.png" alt-text="Uso de Bicep linter en la línea de comandos":::
 

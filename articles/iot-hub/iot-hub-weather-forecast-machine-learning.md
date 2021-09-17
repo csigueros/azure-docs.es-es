@@ -1,6 +1,6 @@
 ---
-title: Previsión meteorológica mediante Azure Machine Learning Studio (clásico) con datos de IoT Hub
-description: Use Azure Machine Learning Studio (clásico) para predecir la posibilidad de lluvia en función de los datos de temperatura y humedad que IoT Hub recopila de un sensor.
+title: Previsión meteorológica mediante el uso de Machine Learning Studio (clásico) con datos del centro de IoT
+description: Use ML Studio (clásico) para predecir la posibilidad de lluvia en función de los datos de temperatura y humedad que el centro de IoT recopila de un sensor.
 author: robinsh
 keywords: Previsión meteorológica con Machine Learning
 ms.service: iot-hub
@@ -8,20 +8,20 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/16/2020
 ms.author: robinsh
-ms.openlocfilehash: f9b683d08a5b1fde172efa5a769a605d3d1862da
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 1a85456c6227df1f32387ff92746e0efb8c721ca
+ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121742227"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122597454"
 ---
-# <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning-studio-classic"></a>Pronóstico meteorológico con los datos del sensor de IoT Hub en Azure Machine Learning Studio (clásico)
+# <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-machine-learning-studio-classic"></a>Previsión meteorológica mediante el uso de datos de un sensor del centro de IoT en Machine Learning Studio (clásico)
 
 ![Diagrama integral](media/iot-hub-get-started-e2e-diagram/6.png)
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
-El aprendizaje automático es una técnica de ciencia de datos que ayuda a los equipos a aprender de los datos existentes para prever tendencias, resultados y comportamientos futuros. Azure Machine Learning Studio (clásico) es un servicio de análisis predictivo en la nube que permite crear e implementar rápidamente modelos predictivos como soluciones de análisis. En este artículo, aprenderá a usar Azure Machine Learning Studio (clásico) para hacer previsiones meteorológicas (como la probabilidad de que llueva) mediante el uso de los datos de temperatura y humedad de Azure IoT Hub. La posibilidad de lluvia es el resultado de un modelo de pronóstico meteorológico preparado. El modelo se basa en datos históricos para predecir la posibilidad de lluvia en función de la temperatura y la humedad.
+El aprendizaje automático es una técnica de ciencia de datos que ayuda a los equipos a aprender de los datos existentes para prever tendencias, resultados y comportamientos futuros. ML Studio (clásico) es un servicio de análisis predictivo en la nube que permite crear e implementar rápidamente modelos predictivos como soluciones de análisis. En este artículo, aprenderá a usar ML Studio (clásico) para hacer previsiones meteorológicas (como la probabilidad de que llueva) usando los datos de temperatura y humedad del centro de IoT de Azure. La posibilidad de lluvia es el resultado de un modelo de pronóstico meteorológico preparado. El modelo se basa en datos históricos para predecir la posibilidad de lluvia en función de la temperatura y la humedad.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -29,11 +29,11 @@ El aprendizaje automático es una técnica de ciencia de datos que ayuda a los e
   - Una suscripción de Azure activa.
   - Un centro de Azure IoT en su suscripción.
   - Una aplicación cliente que envía mensajes a su centro de Azure IoT.
-- Una cuenta de [Azure Machine Learning Studio (clásico)](https://studio.azureml.net/).
+- Una cuenta de [ML Studio (clásico)](https://studio.azureml.net/).
 - Una [cuenta de Azure Storage](../storage/common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-storage-accounts); es preferible tener **una cuenta de uso general V2**, pero también se puede usar cualquier cuenta de Azure Storage que admita Azure Blob Storage.
 
 > [!Note]
-> En este artículo se usa Azure Stream Analytics y otros servicios de pago. Recuerde que se aplican cargos adicionales en Azure Stream Analytics cuando los datos se deben transferir entre regiones de Azure. Por esta razón, es recomendable asegurarse de que el grupo de recursos, IoT Hub y la cuenta de Azure Storage, así como el área de trabajo de Machine Learning Studio (clásico) y el trabajo de Azure Stream Analytics que se agregarán más adelante en este tutorial, se encuentran en la misma región de Azure. Puede comprobar la compatibilidad regional de Azure Machine Learning Studio (clásico) y otros servicios de Azure en la página de [Disponibilidad de productos de Azure por región](https://azure.microsoft.com/global-infrastructure/services/?products=machine-learning-studio&regions=all).
+> En este artículo se usa Azure Stream Analytics y otros servicios de pago. Recuerde que se aplican cargos adicionales en Azure Stream Analytics cuando los datos se deben transferir entre regiones de Azure. Por esta razón, es recomendable asegurarse de que el grupo de recursos, IoT Hub y la cuenta de Azure Storage, así como el área de trabajo de Machine Learning Studio (clásico) y el trabajo de Azure Stream Analytics que se agregarán más adelante en este tutorial, se encuentran en la misma región de Azure. En la página de [productos disponibles por región de Azure](https://azure.microsoft.com/global-infrastructure/services/?products=machine-learning-studio&regions=all) puede comprobar la compatibilidad regional de ML Studio (clásico) y de otros servicios de Azure.
 
 ## <a name="deploy-the-weather-prediction-model-as-a-web-service"></a>Implementación del modelo de pronóstico meteorológico como un servicio web
 
@@ -41,21 +41,21 @@ En esta sección obtendrá el modelo de predicción meteorológica de la bibliot
 
 ### <a name="get-the-weather-prediction-model"></a>Obtención del modelo de predicción meteorológica
 
-En esta sección obtendrá el modelo de predicción meteorológica de Azure AI Gallery y lo abrirá en Azure Machine Learning Studio (clásico).
+En esta sección obtendrá el modelo de predicción meteorológica de Azure AI Gallery y lo abrirá en ML Studio (clásico).
 
 1. Vaya a la [página del modelo de pronóstico meteorológico](https://gallery.cortanaintelligence.com/Experiment/Weather-prediction-model-1).
 
    ![Apertura de la página del modelo de predicción meteorológica en Azure AI Gallery](media/iot-hub-weather-forecast-machine-learning/weather-prediction-model-in-azure-ai-gallery.png)
 
-1. Haga clic en **Open in Studio (classic)** (Abrir en Studio [clásico]) para abrir el modelo en Microsoft Azure Machine Learning Studio (clásico). Seleccione una región cerca de su centro de IoT y el área de trabajo correcta en la ventana emergente **Copy experiment from Gallery** (Copiar experimento de la galería).
+1. Haga clic en **Open in Studio (classic)** (Abrir en Studio [clásico]) para abrir el modelo en Microsoft ML Studio (clásico). Seleccione una región cerca de su centro de IoT y el área de trabajo correcta en la ventana emergente **Copy experiment from Gallery** (Copiar experimento de la galería).
 
-   ![Apertura del modelo de predicción meteorológica en Azure Machine Learning Studio (clásico)](media/iot-hub-weather-forecast-machine-learning/open-ml-studio.png)
+   ![Abrir el modelo de predicción meteorológica en ML Studio (clásico)](media/iot-hub-weather-forecast-machine-learning/open-ml-studio.png)
 
 ### <a name="add-an-r-script-module-to-clean-temperature-and-humidity-data"></a>Incorporación de un módulo de script de R para limpiar los datos de temperatura y humedad
 
 Para que el modelo se comporte correctamente, los datos de temperatura y humedad deben poder convertirse en datos numéricos. En esta sección, agregará un módulo de script de R al modelo de predicción meteorológica que quita las filas que tienen valores de datos de temperatura o humedad que no se pueden convertir en valores numéricos.
 
-1. En el lado izquierdo de la ventana de Azure Machine Learning Studio (clásico), haga clic en la flecha para expandir el panel de herramientas. Escriba "ejecutar" en el cuadro de búsqueda. Seleccione el módulo **Execute R Script** (Ejecutar script de R).
+1. En el lado izquierdo de la ventana de ML Studio (clásico), haga clic en la flecha para expandir el panel de herramientas. Escriba "ejecutar" en el cuadro de búsqueda. Seleccione el módulo **Execute R Script** (Ejecutar script de R).
 
    ![Selección del módulo Execute R Script (Ejecutar script de R)](media/iot-hub-weather-forecast-machine-learning/select-r-script-module.png)
 
@@ -92,11 +92,11 @@ En esta sección, validará el modelo, configurará un servicio web predictivo b
 
 1. Haga clic en **CONFIGURAR SERVICIO WEB** > **Predictive Web Service** (Servicio web predictivo). Se abre el diagrama del experimento predictivo.
 
-   ![Implementación del modelo de predicción meteorológica en Azure Machine Learning Studio (clásico)](media/iot-hub-weather-forecast-machine-learning/predictive-experiment.png)
+   ![Implementar el modelo de predicción meteorológica en ML Studio (clásico)](media/iot-hub-weather-forecast-machine-learning/predictive-experiment.png)
 
 1. En el diagrama del experimento predictivo, elimine la conexión entre el módulo **Web service input** (Entrada de servicio web) y **Select Columns in Dataset** (Seleccionar columnas en el conjunto de datos) que se encuentra en la parte superior. Luego, arrastre el módulo **Web service input** (Entrada de servicio web) cerca del módulo **Score Model** (Puntuar modelo) y conéctelo como se muestra:
 
-   ![Conexión de dos módulos en Azure Machine Learning Studio (clásico)](media/iot-hub-weather-forecast-machine-learning/connect-modules-azure-machine-learning-studio.png)
+   ![Conexión de dos módulos en ML Studio (clásico)](media/iot-hub-weather-forecast-machine-learning/connect-modules-azure-machine-learning-studio.png)
 
 1. Haga clic en **EJECUTAR** para validar los pasos del modelo.
 
@@ -230,10 +230,10 @@ Ejecute la aplicación cliente para empezar a recopilar y enviar datos de temper
 1. Haga clic en la suscripción > **Cuentas de almacenamiento** > su cuenta de almacenamiento > **Contenedores de blob** > su contenedor.
 1. Abra un archivo .csv para ver el resultado. La última columna registra la posibilidad de lluvia.
 
-   ![Obtención del resultado del pronóstico meteorológico con Azure Machine Learning Studio (clásico)](media/iot-hub-weather-forecast-machine-learning/weather-forecast-result.png)
+   ![Obtención del resultado del pronóstico meteorológico con ML Studio (clásico)](media/iot-hub-weather-forecast-machine-learning/weather-forecast-result.png)
 
 ## <a name="summary"></a>Resumen
 
-Ha usado Azure Machine Learning Studio (clásico) correctamente para predecir la posibilidad de lluvia en función de los datos de temperatura y humedad que IoT Hub recibe.
+Ha usado ML Studio (clásico) correctamente para predecir la posibilidad de lluvia en función de los datos de temperatura y humedad que IoT Hub recibe.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

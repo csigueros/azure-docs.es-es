@@ -7,22 +7,22 @@ ms.author: baanders
 ms.date: 6/1/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: b9038840142be64918b22f1aefc32d505252d71d
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.openlocfilehash: 2718dd070cc12cb58f8033d5a2757d8aedf05e05
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122254240"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122771207"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Enrutar eventos dentro y fuera de Azure Digital Twins
 
 Azure Digital Twins usa **rutas de eventos** para enviar datos a los consumidores fuera del servicio. 
 
 Hay dos casos principales para el envío de datos de Azure Digital Twins:
-* El envío de datos desde un gemelo del grafo de Azure Digital Twins a otro. Por ejemplo, cuando cambia una propiedad de un gemelo digital, puede que desee notificar y actualizar otro gemelo digital en consecuencia.
-* El envío de datos a servicios de datos descendentes, para almacenamiento o procesamiento adicional (también conocido como *salida de datos*). Por ejemplo,
+* El envío de datos desde un gemelo del grafo de Azure Digital Twins a otro. Por ejemplo, cuando cambia una propiedad de un gemelo digital, puede que quiera notificar y actualizar otro gemelo digital en función de los datos actualizados.
+* El envío de datos a servicios de datos descendentes, para más almacenamiento o procesamiento (también conocido como *salida de datos*). Por ejemplo,
   - Un hospital puede querer enviar datos de eventos de Azure Digital Twins a [Time Series Insights (TSI)](../time-series-insights/overview-what-is-tsi.md), para registrar los datos de series temporales de eventos relacionados con el lavado de manos para análisis masivo.
-  - Una empresa que ya use [Azure Maps](../azure-maps/about-azure-maps.md) podría querer usar Azure Digital Twins para mejorar su solución. Puede habilitar con rapidez un mapa de Azure después de configurar Azure Digital Twins, incorporar las entidades del mapa de Azure a Azure Digital Twins como [gemelos digitales](concepts-twins-graph.md) en el grafo de gemelos, o ejecutar consultas eficaces que aprovechen los datos de Azure Maps y Azure Digital Twins conjuntamente.
+  - Una empresa que ya use [Azure Maps](../azure-maps/about-azure-maps.md) podría querer usar Azure Digital Twins para mejorar su solución. Puede habilitar con rapidez un mapa de Azure después de configurar Azure Digital Twins, incorporar las entidades del mapa de Azure a Azure Digital Twins como [gemelos digitales](concepts-twins-graph.md) en el grafo de gemelos, o ejecutar consultas eficaces que usen los datos de Azure Maps y Azure Digital Twins conjuntamente.
 
 Las rutas de eventos se utilizan para ambos escenarios.
 
@@ -38,11 +38,11 @@ Los destinos descendentes típicos para las rutas de eventos son recursos como T
 
 ### <a name="event-routes-for-internal-digital-twin-events"></a>Rutas de eventos para eventos de gemelos digitales internos
 
-Las rutas de eventos también se usan para controlar los eventos dentro del grafo de gemelos y enviar datos de un gemelo digital a otro. Esto se hace mediante la conexión de las rutas de eventos a través de Event Grid para calcular los recursos, como [Azure Functions](../azure-functions/functions-overview.md). A continuación, estas funciones definen el modo en que los gemelos deben recibir y responder a los eventos. 
+Las rutas de eventos también se usan para controlar los eventos dentro del grafo de gemelos y enviar datos de un gemelo digital a otro. Este tipo de control de eventos se hace mediante la conexión de las rutas de eventos a través de Event Grid para calcular los recursos, como [Azure Functions](../azure-functions/functions-overview.md). A continuación, estas funciones definen el modo en que los gemelos deben recibir y responder a los eventos. 
 
 Cuando un recurso de proceso quiere modificar el grafo de gemelos en función de un evento recibido a través de la ruta de eventos, es útil que sepa con anterioridad qué gemelo quiere modificar. 
 
-Como alternativa, el mensaje de evento también contiene el id. de gemelo de origen que envió el mensaje, por lo que el recurso de proceso puede usar consultas o atravesar relaciones para encontrar un gemelo de destino para la operación deseada. 
+El mensaje de evento también contiene el identificador del gemelo de origen que envió el mensaje, por lo que el recurso de proceso puede usar consultas o atravesar relaciones para encontrar un gemelo de destino para la operación deseada. 
 
 El recurso de proceso también debe establecer los permisos de acceso y seguridad de forma independiente.
 

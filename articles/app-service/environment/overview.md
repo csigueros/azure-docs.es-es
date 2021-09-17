@@ -4,15 +4,15 @@ description: Información general sobre App Service Environment
 author: ccompy
 ms.assetid: 3d37f007-d6f2-4e47-8e26-b844e47ee919
 ms.topic: article
-ms.date: 07/05/2021
+ms.date: 08/05/2021
 ms.author: ccompy
 ms.custom: references_regions
-ms.openlocfilehash: d08645c3250490935c11fb983208a30d426dcce0
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 848b7ce830c91cffaaaa39ed2102255f0adc3b7f
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121723036"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122445684"
 ---
 # <a name="app-service-environment-overview"></a>Información general sobre App Service Environment 
 > [!NOTE]
@@ -61,7 +61,7 @@ El número de direcciones que ASEv3 usa en la subred variará en función del n�
 
 Las aplicaciones de un ASE no requieren que se habilite ninguna característica para acceder a los recursos de la misma red virtual en la que se encuentra el ASE. Si la red virtual del ASE está conectada a otra red, las aplicaciones del ASE pueden acceder a los recursos de esas redes extendidas. La configuración del usuario puede bloquear el tráfico en la red. 
 
-La versión multiinquilino de Azure App Service incluye numerosas características que permiten a las aplicaciones conectarse a las distintas redes. Esas características de red permiten que las aplicaciones actúen como si estuvieran implementadas en una red virtual. Las aplicaciones de una instancia de ASEv3 no requieren configuración alguna para estar en la red virtual. Una de las ventajas de usar un ASE a través del servicio multiinquilino es que cualquier control de acceso de red para las aplicaciones hospedadas en el ASE es totalmente externo a la configuración de la aplicación. Con las aplicaciones del servicio multiinquilino, debe habilitar las características aplicación por aplicación y usar RBAC o una directiva para evitar cambios de configuración. 
+La versión multiinquilino de Azure App Service incluye numerosas características que permiten a las aplicaciones conectarse a las distintas redes. Esas características de red permiten que las aplicaciones actúen como si estuvieran implementadas en una red virtual. Las aplicaciones de una instancia de ASEv3 no requieren configuración alguna para estar en la red virtual. Una ventaja de usar un ASE en lugar de un servicio multiinquilino es que cualquier control de acceso de red a las aplicaciones hospedadas en el ASE es externo a la configuración de la aplicación. Con las aplicaciones del servicio multiinquilino, debe habilitar las características aplicación por aplicación y usar RBAC o una directiva para evitar cambios de configuración. 
 
 ## <a name="feature-differences"></a>Diferencias de características
 
@@ -88,15 +88,15 @@ Algunas características que estaban disponibles en versiones anteriores de ASE 
 
 ASEv3 aplica un modelo de precios distinto en función del tipo de implementación de ASE que tenga. A continuación se indican los tres modelos de precios: 
 
-- **ASEv3**: si ASE está vacío, se aplica un cargo como si tuviera un ASP con una instancia de Windows I1v2. El cargo de única instancia no es adicional, solo se aplica si el ASE está completamente vacío.
-- **ASEv3 de zona de disponibilidad**: hay un cargo mínimo por nueve instancias de Windows I1v2. No hay ningún cargo adicional por compatibilidad con zonas de disponibilidad si tiene nueve o más instancias de plan de App Service. 
+- **ASEv3**: si ASE está vacío, se aplica un cargo como si tuviera un ASP con una instancia de Windows I1v2. El cargo de única instancia no es adicional, solo se aplica si el ASE está vacío.
+- **ASEv3 de zona de disponibilidad**: hay un cargo mínimo por nueve instancias de Windows I1v2. No hay ningún cargo adicional por compatibilidad con zonas de disponibilidad si tiene nueve o más instancias de plan de App Service. Todos los planes de App Service en una instancia de AZ ASEv3 también tienen tres instancias como mínimo para asegurarse de que hay una instancia en cada zona de disponibilidad. A medida que los planes se escalan horizontalmente, se reparten entre las zonas de disponibilidad. 
 - **ASEv3 de host dedicado**: con una implementación de host dedicado, se le cobran dos hosts dedicados según nuestros precios al crear una instancia de ASEv3 y, a continuación, un pequeño porcentaje de la tarifa Isolated V2 por núcleo a medida que escala.
 
-Los precios de las instancias reservadas para Isolated v2 estarán disponibles después de la disponibilidad general.  
+Los precios de instancias reservadas para Isolated v2 están disponibles y se describen en [Cómo se aplican los descuentos de reserva a Azure App Service][reservedinstances]. Los precios, junto con los precios de las instancias reservadas, están disponibles en [Precios de App Service][pricing] del **plan Aislado v2**. 
 
 ## <a name="regions"></a>Regions
 
-ASEv3 está disponible en las regiones siguientes.
+ASEv3 está disponible en las regiones siguientes. 
 
 |Regiones ASEv3 de host dedicados y normales|   Regiones ASEv3 de AZ|
 |---------------------------------------|------------------|
@@ -111,16 +111,19 @@ ASEv3 está disponible en las regiones siguientes.
 |Este de EE. UU. 2| Norte de Europa|
 |Centro de Francia | Centro-sur de EE. UU.|
 |Centro-oeste de Alemania   |   Sudeste de Asia|
-|Centro de Corea del Sur  | Sur de Reino Unido 2|
+|Centro de Corea del Sur  | Sur de Reino Unido|
 |Norte de Europa   | Oeste de Europa|
 |Este de Noruega    | Oeste de EE. UU. 2 |
-|Norte de Sudáfrica| |  
 |Centro-sur de EE. UU.   | |
 |Sudeste de Asia| |
 |Norte de Suiza  | | 
-|Sur de Reino Unido 2| |    
+|Sur de Reino Unido| |    
 |Oeste de Reino Unido| |
 |Centro-Oeste de EE. UU.    | | 
 |Oeste de Europa    | |
 |Oeste de EE. UU.    | | 
 |Oeste de EE. UU. 2| |
+
+<!--Links-->
+[reservedinstances]: https://docs.microsoft.com/azure/cost-management-billing/reservations/reservation-discount-app-service#how-reservation-discounts-apply-to-isolated-v2-instances
+[pricing]: https://azure.microsoft.com/pricing/details/app-service/windows/

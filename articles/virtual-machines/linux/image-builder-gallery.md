@@ -8,14 +8,16 @@ ms.date: 03/02/2021
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.openlocfilehash: 9c3af46cbb3eb669aa864f5d6b1fa95c82cf8e1b
-ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
+ms.openlocfilehash: ead4462c6dcff231b6127830ca24732bd7e3ef45
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2021
-ms.locfileid: "113596522"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122769098"
 ---
-# <a name="create-a-linux-image-and-distribute-it-to-a-shared-image-gallery"></a>Crear una imagen de Linux y distribuirla en una galería de imágenes compartidas 
+# <a name="create-a-linux-image-and-distribute-it-to-a-shared-image-gallery"></a>Crear una imagen de Linux y distribuirla en una galería de imágenes compartidas
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Conjuntos de escalado flexibles
 
 En este artículo se muestra cómo puede usar Azure Image Builder y la CLI de Azure para crear una versión de la imagen en el servicio [Shared Image Gallery](../shared-image-galleries.md) y después distribuirla globalmente. También puede hacerlo mediante [Azure PowerShell](../windows/image-builder-gallery.md).
 
@@ -70,10 +72,10 @@ imageDefName=myIbImageDef
 runOutputName=aibLinuxSIG
 ```
 
-Cree una variable para el id. de suscripción. Puede obtenerlo mediante `az account show | grep id`.
+Cree una variable para el id. de suscripción.
 
 ```azurecli-interactive
-subscriptionID=<Subscription ID>
+subscriptionID=$(az account show --query id --output tsv)
 ```
 
 Cree el grupo de recursos.
@@ -91,7 +93,7 @@ idenityName=aibBuiUserId$(date +'%s')
 az identity create -g $sigResourceGroup -n $idenityName
 
 # get identity id
-imgBuilderCliId=$(az identity show -g $sigResourceGroup -n $idenityName | grep "clientId" | cut -c16- | tr -d '",')
+imgBuilderCliId=$(az identity show -g $sigResourceGroup -n $identityName --query clientId -o tsv)
 
 # get the user identity URI, needed for the template
 imgBuilderId=/subscriptions/$subscriptionID/resourcegroups/$sigResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/$idenityName

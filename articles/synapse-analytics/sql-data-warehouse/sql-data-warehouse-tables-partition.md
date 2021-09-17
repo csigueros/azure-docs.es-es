@@ -1,5 +1,5 @@
 ---
-title: Creación de particiones de tablas
+title: Creación de particiones de tablas en el grupo de SQL dedicado
 description: Recomendaciones y ejemplos para usar particiones de tablas en el grupo de SQL dedicado
 services: synapse-analytics
 author: XiaoyuMSFT
@@ -7,16 +7,16 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 03/18/2019
+ms.date: 08/19/2021
 ms.author: xiaoyul
-ms.reviewer: igorstan
+ms.reviewer: igorstan, wiassaf
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: ed9a5c63fa86e1fac6abd9ac023bb48abd2f196d
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: ea941ae782e7da33cc07932d4b0c79613790b2e8
+ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110459654"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122515041"
 ---
 # <a name="partitioning-tables-in-dedicated-sql-pool"></a>Creación de particiones de tablas en el grupo de SQL dedicado
 
@@ -134,6 +134,8 @@ GROUP BY    s.[name]
 El grupo de SQL dedicado admite la separación, la combinación y la modificación de particiones. Cada una de estas funciones se ejecuta mediante la instrucción [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 Para cambiar particiones entre dos tablas, debe asegurarse de que las particiones se alinean en sus límites correspondientes y que las definiciones de tablas coinciden. Como las restricciones CHECK no están disponibles para aplicar el intervalo de valores en una tabla, la tabla de origen debe contener los mismos límites de partición que la tabla de destino. Si los límites de partición no son iguales, el cambio de partición genera un error dado que los metadatos de la partición no se sincronizan.
+
+Una división de partición requiere que la partición correspondiente (no toda la tabla necesariamente) esté vacía si la tabla tiene un índice de almacén de columnas agrupado. Otras particiones de la misma tabla pueden contener datos. Una partición que contiene datos no se puede dividir, se producirá el siguiente error: `ALTER PARTITION statement failed because the partition is not empty. Only empty partitions can be split in when a columnstore index exists on the table. Consider disabling the columnstore index before issuing the ALTER PARTITION statement, then rebuilding the columnstore index after ALTER PARTITION is complete.` Para ver una solución alternativa para dividir una partición que contiene datos, consulte [División de una partición que contiene datos](#how-to-split-a-partition-that-contains-data). 
 
 ### <a name="how-to-split-a-partition-that-contains-data"></a>División de una partición que contiene datos
 
@@ -278,6 +280,11 @@ ALTER TABLE dbo.FactInternetSales_NewSales SWITCH PARTITION 2 TO dbo.FactInterne
 ```
 
 ### <a name="table-partitioning-source-control"></a>Control de código fuente de particiones de tabla
+
+> [!NOTE]
+> Si su herramienta de control de código fuente no está configurada para omitir esquemas de partición, la modificación del esquema de una tabla para actualizar las particiones puede hacer que una tabla se elimine y vuelva a crearse como parte de la implementación, lo que puede ser inviable. Para implementar este cambio, puede que se necesite una solución personalizada, como la descrita abajo. Confirme que la herramienta de integración continua y entrega continua (CI/CD) permite esto. En SQL Server Data Tools (SSDT), busque la opción de configuración de publicación avanzada "Ignorar esquemas de partición" para evitar un script generado que haga que una tabla se elimine y vuelva a crearse.
+
+Este ejemplo es útil al actualizar esquemas de partición de una tabla vacía. Para implementar constantemente cambios de partición en una tabla con datos, siga los pasos descritos en [División de una partición que contiene datos](#how-to-split-a-partition-that-contains-data) durante la implementación para extraer temporalmente los datos de cada partición antes de hacer uso de la partición SPLIT RANGE. Esto es necesario porque la herramienta CI/CD no sabe qué particiones tienen datos.
 
 Para evitar que la definición de tabla se **oxide** en el sistema de control de código fuente, es conveniente tener en cuenta lo siguiente:
 

@@ -12,21 +12,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: damendo
-ms.openlocfilehash: 2e0ab4a22665741abb7ed4ab2569d1b55e090457
-ms.sourcegitcommit: 6f4378f2afa31eddab91d84f7b33a58e3e7e78c1
+ms.openlocfilehash: a507f0845fad1e43ce775e5d46f9fa8a548e369f
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2021
-ms.locfileid: "113688558"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122607479"
 ---
 # <a name="quickstart-deploy-and-manage-nsg-flow-logs-using-azure-policy"></a>Inicio rápido: Implementación y administración de registros de flujo de NSG con Azure Policy 
 
 ## <a name="overview"></a>Introducción
 Azure Policy ayuda a aplicar los estándares de la organización y a evaluar el cumplimiento a escala. Entre los casos de uso comunes de Azure Policy se incluye la implementación de la gobernanza para la coherencia de los recursos, el cumplimiento normativo, la seguridad, el costo y la administración. En este artículo, usaremos dos directivas integradas disponibles en los registros de flujo de NSG, y así poder administrar la configuración de los registros de flujo. La primera directiva marca cualquier grupo de seguridad de red que no tenga registros de flujo habilitados. La segunda directiva implementa automáticamente los registros de flujo de los grupos de seguridad de red que no tengan registros de flujo habilitados. 
 
-Si va a crear una directiva de Azure por primera vez, puede leer lo siguiente: 
+Si va a crear una definición de Azure Policy por primera vez, puede consultar las siguientes referencias: 
 - [Introducción a Azure Policy](../governance/policy/overview.md). 
-- [Tutorial para crear directivas](../governance/policy/assign-policy-portal.md#create-a-policy-assignment).
+- [Tutorial para crear una asignación de Azure Policy](../governance/policy/assign-policy-portal.md#create-a-policy-assignment).
 
 
 ## <a name="locate-the-policies"></a>Búsqueda de las directivas

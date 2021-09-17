@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: quickstart
-ms.date: 03/04/2021
+ms.date: 08/18/2021
 ms.author: memildin
-ms.openlocfilehash: 3f7663c62b514cb002b4de3df59d2185cfa815d3
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 96b5becdda011243cdcc9e510450683c255e7c1c
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114284219"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122607953"
 ---
 # <a name="configure-auto-provisioning-for-agents-and-extensions-from-azure-security-center"></a>Configuración del aprovisionamiento automático de agentes y extensiones desde Azure Security Center
 
@@ -25,10 +25,10 @@ Para empezar a trabajar con el Centro de seguridad, debe disponer de una suscrip
 
 | Aspecto                  | Detalles                                                                                                                                                                                                                      |
 |-------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Estado de la versión:          | **Característica**: El aprovisionamiento automático está en fase de disponibilidad general (GA)<br>**Agente y extensiones**: El agente de Log Analytics agente para las máquinas virtuales de Azure está en fase de disponibilidad general, el agente de Microsoft Dependency está en versión preliminar y el complemento de Policy para Kubernetes está en fase de disponibilidad general                |
+| Estado de la versión:          | **Característica**: El aprovisionamiento automático está en fase de disponibilidad general (GA)<br>**Agente y extensiones**: el agente de Log Analytics para máquinas virtuales de Azure está disponible de forma general, Microsoft Dependency Agent está en versión preliminar, el complemento de directiva para Kubernetes está disponible de forma general, el agente de configuración de invitado está en versión preliminar.  |
 | Precios:                | Gratuito                                                                                                                                                                                                                         |
 | Destinos admitidos: | :::image type="icon" source="./media/icons/yes-icon.png"::: Máquinas de Azure<br>:::image type="icon" source="./media/icons/no-icon.png"::: Máquinas de Azure Arc<br>:::image type="icon" source="./media/icons/no-icon.png"::: Nodos de Kubernetes<br>:::image type="icon" source="./media/icons/no-icon.png"::: Virtual Machine Scale Sets |
-| Nubes:                 | :::image type="icon" source="./media/icons/yes-icon.png"::: Nubes comerciales<br>:::image type="icon" source="./media/icons/yes-icon.png"::: US Gov, Azure China                                                                                                      |
+| Nubes:                 | **Característica**:<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Nubes comerciales<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Government, Azure China 21Vianet<br>**Agente y extensiones**:<br>El agente de Log Analytics para máquinas virtuales de Azure está disponible en todas las nubes, el complemento de directiva para Kubernetes está disponible en todas las nubes, el agente de la configuración de invitado solo está disponible en nubes comerciales.  |
 |                         |                                                                                                                                                                                                                              |
 
 ## <a name="how-does-security-center-collect-data"></a>¿Cómo recopila los datos Security Center?
@@ -69,7 +69,7 @@ Para habilitar el aprovisionamiento automático del agente de Log Analytics:
 1. Seleccione la suscripción correspondiente.
 1. En la página **Aprovisionamiento automático**, establezca el estado del agente de Log Analytics en **Activo**.
 
-    :::image type="content" source="./media/security-center-enable-data-collection/enable-automatic-provisioning.png" alt-text="Habilitación del aprovisionamiento automático del agente de Log Analytics.":::
+    :::image type="content" source="./media/security-center-enable-data-collection/enable-automatic-provisioning.png" alt-text="Habilitación del aprovisionamiento automático del agente de Log Analytics." lightbox="./media/security-center-enable-data-collection/enable-automatic-provisioning.png":::
 
 1. En el panel Opciones de configuración, defina el área de trabajo que se va a usar.
 
@@ -120,13 +120,14 @@ Para habilitar el aprovisionamiento automático del agente de Log Analytics:
 
         :::image type="content" source="./media/security-center-enable-data-collection/toggle-kubernetes-add-on.png" alt-text="Opción para habilitar o deshabilitar el aprovisionamiento automático para el complemento de directivas de K8s.":::
 
-    1. Seleccione **Guardar**. Se asigna la directiva de Azure y se crea una tarea de corrección.
+    1. Seleccione **Guardar**. Se asigna la directiva de Azure Policy y se crea una tarea de corrección.
 
         |Extensión  |Directiva  |
         |---------|---------|
-        |Complemento de Policy para Kubernetes|[Implementación del complemento de Azure Policy en los clústeres de Azure Kubernetes Service](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fa8eff44f-8c92-45c3-a3fb-9880802d67a7)|
+        |Complemento de Policy para Kubernetes                      |[Implementación del complemento de Azure Policy en los clústeres de Azure Kubernetes Service](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fa8eff44f-8c92-45c3-a3fb-9880802d67a7)|
         |Microsoft Dependency Agent (versión preliminar) (Máquinas virtuales Windows)|[Implementación de Dependency Agent para máquinas virtuales Windows](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f1c210e94-a481-4beb-95fa-1571b434fb04)         |
-        |Microsoft Dependency Agent (versión preliminar) (Máquinas virtuales Linux)|[Implementación de Dependency Agent para máquinas virtuales Linux](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f4da21710-ce6f-4e06-8cdb-5cc4c93ffbee)|
+        |Microsoft Dependency Agent (versión preliminar) (Máquinas virtuales Linux)  |[Implementación de Dependency Agent para máquinas virtuales Linux](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f4da21710-ce6f-4e06-8cdb-5cc4c93ffbee)|
+        |Agente de la configuración de invitado (versión preliminar)               |[Implementar los requisitos previos para habilitar directivas de configuración de invitado en máquinas virtuales](https://github.com/Azure/azure-policy/blob/64dcfa3033a3ff231ec4e73d2c1dad4db4e3b5dd/built-in-policies/policySetDefinitions/Guest%20Configuration/GuestConfiguration_Prerequisites.json)|
         |||
 
 1. Seleccione **Guardar**. Si es necesario aprovisionar un área de trabajo, la instalación del agente puede tardar hasta 25 minutos.
@@ -221,7 +222,7 @@ Para instalar manualmente el agente de Log Analytics, haga lo siguiente:
    - [Instalación del agente de Log Analytics para Windows](../virtual-machines/extensions/oms-windows.md)
    - [Instalación del agente de Log Analytics para Linux](../virtual-machines/extensions/oms-linux.md)
 
-1. Para implementar agentes en las máquinas virtuales existentes, siga las instrucciones que se indican en [Recopilación de datos acerca de máquinas virtuales de Azure](../azure-monitor/vm/quick-collect-azurevm.md) (la sección **Recopilación de datos de eventos y rendimiento** es opcional).
+1. Para implementar agentes en las máquinas virtuales existentes, siga las instrucciones que se indican en [Recopilación de datos acerca de máquinas virtuales de Azure](../azure-monitor/vm/monitor-virtual-machine.md) (la sección **Recopilación de datos de eventos y rendimiento** es opcional).
 
 1. Para usar PowerShell para implementar los agentes, siga las instrucciones de la documentación de máquinas virtuales:
 

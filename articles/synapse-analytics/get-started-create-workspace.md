@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 03/17/2021
-ms.openlocfilehash: cb00337446df3062fe640127a37adfb522e45345
-ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
+ms.openlocfilehash: c99d981c6abf6d7a43a5180360712b665c57f6fe
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2021
-ms.locfileid: "113300995"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122324358"
 ---
 # <a name="creating-a-synapse-workspace"></a>Creación de un área de trabajo de Synapse
 
@@ -46,7 +46,7 @@ Rellene los campos siguientes:
 1. **Región**: elija la región en la que ha colocado las aplicaciones y los servicios del cliente (por ejemplo, Azure Virtual Machines, Power BI, Azure Analysis Service) y los almacenamientos que contienen datos (por ejemplo, Azure Data Lake Storage, almacenamiento analítico de Azure Cosmos DB).
 
 > [!NOTE]
-> Un área de trabajo que no se encuentre en la misma ubicación que las aplicaciones cliente o el almacenamiento puede ser la causa principal de muchos problemas de rendimiento. Si los datos o los clientes están colocados en varias regiones, puede crear áreas de trabajo independientes en distintas regiones que se encuentran en la misma ubicación que los datos y los clientes.
+> Un área de trabajo que no se encuentre en la misma ubicación que las aplicaciones cliente o el almacenamiento puede ser la causa principal de muchos problemas de rendimiento. Si los datos o los clientes están en varias regiones, puede crear áreas de trabajo independientes en distintas regiones que se encuentren en la misma ubicación que los datos y los clientes.
 
 En **Seleccionar Data Lake Storage Gen2**:
 

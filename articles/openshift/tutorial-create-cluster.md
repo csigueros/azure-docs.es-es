@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: azure-redhat-openshift
 ms.date: 10/26/2020
-ms.openlocfilehash: 219ff986e88bca31912cfe8be72e9dba179b9236
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 707ee38ef71a0f3f3f09e142bd4d944bb04cff3d
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112289574"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122446134"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-4-cluster"></a>Tutorial: Creación de un clúster de la versión 4 de Red Hat OpenShift en Azure
 
@@ -42,7 +42,7 @@ El secreto de extracción de ARO no cambia el costo de la licencia de Red Hat Op
 
 Durante este tutorial, creará un grupo de recursos que contendrá la red virtual del clúster. Debe tener permisos de administrador de acceso de usuario y de colaborador, o permisos de propietario, ya sea directamente en la red virtual o en el grupo de recursos o la suscripción que lo contienen.
 
-También necesitará permisos suficientes de Azure Active Directory para que las herramientas creen una aplicación y una entidad de servicio en su nombre para el clúster.
+También necesitará suficientes permisos de Azure Active Directory (un usuario miembro del inquilino o un usuario invitado asignado con el rol **Administrador de aplicaciones**) para que las herramientas creen una aplicación y una entidad de servicio en su nombre para el clúster. Consulte [Usuarios miembros e invitados](/azure/active-directory/fundamentals/users-default-permissions#member-and-guest-users) y [Asignación de roles de administrador y no administrador a usuarios con Azure Active Directory](/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal) para obtener más información.
 
 ### <a name="register-the-resource-providers"></a>Registro de los proveedores de recursos
 
@@ -124,7 +124,7 @@ A continuación, creará una red virtual que contenga dos subredes vacías. Si y
    Un grupo de recursos de Azure es un grupo lógico en el que se implementan y administran recursos de Azure. Cuando se crea un grupo de recursos, se le pide que especifique una ubicación. Esta ubicación es donde se almacenan los metadatos del grupo de recursos, y es también el lugar en el que los recursos se ejecutan en Azure si no se especifica otra región al crearlos. Cree un grupo de recursos con el comando [az group create](/cli/azure/group#az_group_create).
     
    > [!NOTE] 
-   > Red Hat OpenShift en Azure no está disponible en todas las regiones en las que se puede crear un grupo de recursos de Azure. Consulte [Regiones disponibles](https://azure.microsoft.com/en-gb/global-infrastructure/services/?products=openshift) para obtener información sobre dónde se admite Red Hat OpenShift en Azure.
+   > Red Hat OpenShift en Azure no está disponible en todas las regiones en las que se puede crear un grupo de recursos de Azure. Consulte [Regiones disponibles](https://azure.microsoft.com/global-infrastructure/services/?products=openshift) para obtener información sobre dónde se admite Red Hat OpenShift en Azure.
 
    ```azurecli-interactive
    az group create \

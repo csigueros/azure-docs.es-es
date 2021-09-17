@@ -3,16 +3,16 @@ title: 'Tutorial: Asignación de directivas nuevas con Azure Portal'
 description: En este tutorial, se usa Azure Portal a fin de crear una asignación de Azure Policy para identificar recursos no compatibles.
 ms.topic: tutorial
 ms.date: 04/21/2021
-ms.openlocfilehash: 20cb8125a157a3ce97c88278c99f90936b449b65
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: be7752b5ccf73269b1e4715fc05c85162b4ea546
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107831661"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122770350"
 ---
 # <a name="tutorial-create-a-policy-assignment-to-identify-non-compliant-resources"></a>Tutorial: Creación de una asignación de directiva para identificar recursos no compatibles
 
-El primer paso para entender el cumplimiento en Azure es identificar el estado de sus recursos. Azure Policy admite la auditoría del estado del servidor habilitado para Arc con las directivas de configuración de invitado. Las directivas de configuración de invitado no aplican configuraciones, solo auditan la configuración dentro de la máquina. Este tutorial le guía por el proceso de crear y asignar una directiva e identificar cuáles de los servidores habilitados para Arc no tienen instalado el agente de Log Analytics.
+El primer paso para entender el cumplimiento en Azure es identificar el estado de sus recursos. Azure Policy admite la auditoría del estado del servidor habilitado para Arc con las directivas de configuración de invitado. Las definiciones de configuración de invitado de Azure Policy pueden auditar o aplicar la configuración dentro de la máquina. Este tutorial le guía por el proceso de crear y asignar una directiva e identificar cuáles de los servidores habilitados para Arc no tienen instalado el agente de Log Analytics.
 
 Al final de este proceso, se identificarán correctamente las máquinas que no tengan instalado el agente de Log Analytics para Windows o Linux. _No son compatibles_ con la asignación de directiva.
 
@@ -95,7 +95,7 @@ Para quitar la asignación creada, siga estos pasos:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, se asigna una definición de directiva a un ámbito y se evalúa su informe de cumplimiento. La definición de la directiva confirma que todos los recursos del ámbito son compatibles y se identifican cuáles no lo son. Ahora ya está preparado para supervisar las máquinas de servidores habilitados para Azure Arc mediante la habilitación de [VM Insights](../../../azure-monitor/vm/vminsights-overview.md).
+En este tutorial, se asigna una definición de directiva a un ámbito y se evalúa su informe de cumplimiento. La definición de la directiva confirma que todos los recursos del ámbito son compatibles y se identifican cuáles no lo son. Ahora ya está preparado para supervisar las máquinas de los servidores habilitados para Azure Arc mediante la habilitación de [VM Insights](../../../azure-monitor/vm/vminsights-overview.md).
 
 Para más información sobre cómo supervisar y ver el rendimiento, el proceso en ejecución y sus dependencias de la máquina, continúe con el tutorial:
 

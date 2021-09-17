@@ -6,14 +6,14 @@ documentationcenter: ''
 author: vladvino
 ms.service: api-management
 ms.topic: article
-ms.date: 06/22/2021
+ms.date: 08/20/2021
 ms.author: apimpm
-ms.openlocfilehash: be920fa3cd35d2b1e92891d5595dfbe27a258447
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 8d3370558e8dde2227834fa8f67577ca393b9564
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121741604"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122687728"
 ---
 # <a name="api-management-access-restriction-policies"></a>Directivas de restricción de acceso de API Management
 
@@ -138,7 +138,7 @@ En el ejemplo siguiente, el límite de tasa por suscripción es de 20 llamadas p
 | -------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
 | name           | Nombre de la API a la que se va a aplicar un límite de tasa.                                                | Sí      | N/D     |
 | calls          | Número total máximo de llamadas permitidas durante el intervalo de tiempo especificado en `renewal-period`. | Sí      | N/D     |
-| renewal-period | La longitud en segundos de la ventana deslizante durante la cual el número de solicitudes permitidas no debe superar el valor especificado en `calls`.                                              | Sí      | N/D     |
+| renewal-period | La longitud en segundos de la ventana deslizante durante la cual el número de solicitudes permitidas no debe superar el valor especificado en `calls`. Valor máximo permitido: 300 segundos.                                            | Sí      | N/D     |
 | retry-after-header-name    | Nombre de un encabezado de respuesta cuyo valor es el intervalo de reintento recomendado en segundos, después de que se supere la tasa de llamadas especificada. |  No | N/D  |
 | retry-after-variable-name    | Nombre de una variable de expresión de directiva que almacena el intervalo de reintento recomendado en segundos después de que se supere la tasa de llamadas especificada. |  No | N/D  |
 | remaining-calls-header-name    | Nombre de un encabezado de respuesta cuyo valor después de cada ejecución de directiva es el número de llamadas restantes permitidas para el intervalo de tiempo especificado en `renewal-period`. |  No | N/D  |
@@ -211,10 +211,10 @@ En el ejemplo siguiente, El límite de tasa de 10 llamadas por 60 segundos se es
 
 | Nombre                | Descripción                                                                                           | Obligatorio | Valor predeterminado |
 | ------------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
-| calls               | Número total máximo de llamadas permitidas durante el intervalo de tiempo especificado en `renewal-period`. | Sí      | N/D     |
+| calls               | Número total máximo de llamadas permitidas durante el intervalo de tiempo especificado en `renewal-period`. Se permite la expresión de directivas. | Sí      | N/D     |
 | counter-key         | Clave que se usa para la directiva de límite de tasa.                                                             | Sí      | N/D     |
 | increment-condition | Expresión booleana que especifica si la solicitud se debe contar para la tasa (`true`).        | No       | N/D     |
-| renewal-period      | La longitud en segundos de la ventana deslizante durante la cual el número de solicitudes permitidas no debe superar el valor especificado en `calls`.                                           | Sí      | N/D     |
+| renewal-period      | La longitud en segundos de la ventana deslizante durante la cual el número de solicitudes permitidas no debe superar el valor especificado en `calls`. Se permite la expresión de directivas. Valor máximo permitido: 300 segundos.                 | Sí      | N/D     |
 | retry-after-header-name    | Nombre de un encabezado de respuesta cuyo valor es el intervalo de reintento recomendado en segundos, después de que se supere la tasa de llamadas especificada. |  No | N/D  |
 | retry-after-variable-name    | Nombre de una variable de expresión de directiva que almacena el intervalo de reintento recomendado en segundos después de que se supere la tasa de llamadas especificada. |  No | N/D  |
 | remaining-calls-header-name    | Nombre de un encabezado de respuesta cuyo valor después de cada ejecución de directiva es el número de llamadas restantes permitidas para el intervalo de tiempo especificado en `renewal-period`. |  No | N/D  |

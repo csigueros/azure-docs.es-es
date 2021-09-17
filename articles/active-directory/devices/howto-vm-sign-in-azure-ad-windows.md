@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 06/30/2021
+ms.date: 08/19/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions, devx-track-azurecli, subject-rbac-steps
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e29ee77aa3fb9f33c5c923a49de07ffea1642a77
-ms.sourcegitcommit: a2540262e05ffd4a4b059df0976940d60fabd125
+ms.openlocfilehash: ea5ad0ed61ac0d2b9603752efc6bbc998cf189a6
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2021
-ms.locfileid: "113138456"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122608117"
 ---
 # <a name="login-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Inicio de sesión en una máquina virtual Windows en Azure mediante la autenticación de Azure Active Directory
 
@@ -211,7 +211,7 @@ Para obtener más información sobre cómo usar RBAC de Azure para administrar e
 
 ## <a name="using-conditional-access"></a>Uso del acceso condicional
 
-Puede aplicar directivas de acceso condicional, como la autenticación multifactor o la comprobación de riesgo de inicio de sesión de usuario antes de autorizar el acceso a máquinas virtuales Windows en Azure que están habilitadas con el inicio de sesión de Azure AD. Para aplicar la directiva de acceso condicional, debe seleccionar la aplicación de inicio de sesión de máquinas virtuales Windows de Azure desde la opción de asignación de acciones o aplicaciones en la nube y usar Riesgo de inicio de sesión como condición, o bien requerir la autenticación multifactor como un control de acceso de concesión. 
+Puede aplicar directivas de acceso condicional, como la autenticación multifactor o la comprobación de riesgo de inicio de sesión de usuario antes de autorizar el acceso a máquinas virtuales Windows en Azure que están habilitadas con el inicio de sesión de Azure AD. Para aplicar la directiva de acceso condicional, debe seleccionar la aplicación "**Inicio de sesión de máquinas virtuales Windows de Azure**" desde la opción de asignación de acciones o aplicaciones en la nube y usar Riesgo de inicio de sesión como condición, o bien requerir la autenticación multifactor como un control de acceso de concesión. 
 
 > [!NOTE]
 > Si usa "Requerir autenticación multifactor" como control de acceso de concesión para solicitar acceso a la aplicación de inicio de sesión de máquinas virtuales Windows de Azure, debe proporcionar una notificación de autenticación multifactor como parte del cliente que inicia la sesión RDP en la máquina virtual Windows de destino en Azure. La única manera de hacer esto en un cliente de Windows 10 es usar el PIN de Windows Hello para empresas o la autenticación biométrica con el cliente RDP. En la versión 1809 de Windows 10 se agregó compatibilidad con la autenticación biométrica al cliente RDP. El escritorio remoto que usa la autenticación de Windows Hello para empresas solo está disponible para implementaciones que emplean el modelo de confianza de certificados. Actualmente no está disponible para el modelo de confianza de claves.
@@ -240,7 +240,7 @@ Habrá iniciado sesión en la máquina virtual Windows Server 2019 de Azure con 
 
 ## <a name="using-azure-policy-to-ensure-standards-and-assess-compliance"></a>Uso de Azure Policy para garantizar estándares y evaluar el cumplimiento
 
-Use Azure Policy para asegurarse de que el inicio de sesión de Azure AD esté habilitado para las máquinas virtuales Windows nuevas y existentes, y evaluar el cumplimiento de su entorno a gran escala en el panel de cumplimiento de Azure Policy. Con esta funcionalidad, puede usar muchos niveles de aplicación: puede marcar las máquinas virtuales Windows nuevas y existentes dentro de su entorno que no tengan habilitado el inicio de sesión de Azure AD. También puede usar Azure Policy para implementar la extensión de Azure AD en las nuevas máquinas virtuales Windows que no tengan habilitado el inicio de sesión de Azure AD, así como corregir las máquinas virtuales Windows existentes con el mismo estándar. Además de estas funcionalidades, también puede usar la directiva para detectar y marcar las máquinas virtuales Windows que tengan cuentas locales no aprobadas creadas en sus máquinas. Para más información, consulte [Azure Policy](https://www.aka.ms/AzurePolicy).
+Use Azure Policy para asegurarse de que el inicio de sesión de Azure AD esté habilitado para las máquinas virtuales Windows nuevas y existentes, y evaluar el cumplimiento de su entorno a gran escala en el panel de cumplimiento de Azure Policy. Con esta funcionalidad, puede usar muchos niveles de aplicación: puede marcar las máquinas virtuales Windows nuevas y existentes dentro de su entorno que no tengan habilitado el inicio de sesión de Azure AD. También puede usar Azure Policy para implementar la extensión de Azure AD en las nuevas máquinas virtuales Windows que no tengan habilitado el inicio de sesión de Azure AD, así como corregir las máquinas virtuales Windows existentes con el mismo estándar. Además de estas funcionalidades, también puede usar Azure Policy para detectar y marcar las máquinas virtuales Windows que tengan cuentas locales no aprobadas creadas en sus máquinas. Para más información, consulte [Azure Policy](../../governance/policy/overview.md).
 
 ## <a name="troubleshoot"></a>Solución de problemas
 
@@ -377,7 +377,30 @@ Si ve el siguiente mensaje de error al iniciar una conexión de Escritorio remot
 
 Si configuró una directiva de acceso condicional que requiere que la autenticación multifactor (MFA) se realice antes de poder acceder al recurso, debe asegurarse de que el equipo Windows 10 que inicia la conexión de Escritorio remoto a la VM inicie sesión con un método de autenticación seguro, como Windows Hello. Si no usa un método de autenticación seguro para la conexión de Escritorio remoto, verá el anterior error.
 
-Si no ha implementado Windows Hello para empresas ni se plantea hacerlo por ahora, puede excluir el requisito de MFA configurando la directiva de acceso condicional que excluye la aplicación de inicio de sesión de máquinas virtuales Windows de Azure en la lista de aplicaciones en la nube que requieren MFA. Para obtener más información sobre Windows Hello para empresas, consulte [Información general de Windows Hello para empresas](/windows/security/identity-protection/hello-for-business/hello-identity-verification).
+- las credenciales no han funcionado.
+
+![Las credenciales no funcionaron.](./media/howto-vm-sign-in-azure-ad-windows/your-credentials-did-not-work.png)
+
+> [!WARNING]
+> Azure AD Multi-Factor Authentication habilitado o forzado por el usuario no es compatible con el inicio de sesión de la máquina virtual. Esta configuración produce el siguiente mensaje de error en el inicio de sesión: "Las credenciales no funcionan" .
+
+Para resolver el problema anterior, quite la configuración de MFA por usuario siguiendo estos pasos:
+
+```
+
+# Get StrongAuthenticationRequirements configure on a user
+(Get-MsolUser -UserPrincipalName username@contoso.com).StrongAuthenticationRequirements
+ 
+# Clear StrongAuthenticationRequirements from a user
+$mfa = @()
+Set-MsolUser -UserPrincipalName username@contoso.com -StrongAuthenticationRequirements $mfa
+ 
+# Verify StrongAuthenticationRequirements are cleared from the user
+(Get-MsolUser -UserPrincipalName username@contoso.com).StrongAuthenticationRequirements
+
+```
+
+Si no ha implementado Windows Hello para empresas ni se plantea hacerlo por ahora, puede excluir el requisito de MFA configurando la directiva de acceso condicional que excluye la aplicación "**Inicio de sesión de máquinas virtuales Windows de Azure**" en la lista de aplicaciones en la nube que requieren MFA. Para obtener más información sobre Windows Hello para empresas, consulte [Información general de Windows Hello para empresas](/windows/security/identity-protection/hello-for-business/hello-identity-verification).
 
 > [!NOTE]
 > La autenticación con el PIN de Windows Hello para empresas con RDP es compatible con varias versiones de Windows 10. También se ha agregado compatibilidad con la autenticación biométrica con RDP en la versión 1809 de Windows 10. El uso de la autenticación de Windows Hello para empresas durante RDP solo está disponible para las implementaciones que usan el modelo de confianza de certificados y actualmente no están disponibles para el modelo de confianza de claves.

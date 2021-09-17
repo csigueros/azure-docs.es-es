@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/11/2021
+ms.date: 08/11/2021
 ms.author: jeedes
-ms.openlocfilehash: c1c53da8c62acc1b4aacd2b0fa79dd968c65c13a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 61b8a15e4e765113455be0e8b37ba22b98e6e4ad
+ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101645644"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122271118"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-knowledgeowl"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con KnowledgeOwl
 
@@ -26,7 +26,7 @@ En este tutorial aprenderá a integrar KnowledgeOwl con Azure Active Directory
 * Permitir que los usuarios inicien sesión automáticamente en KnowledgeOwl con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -156,13 +156,13 @@ En esta sección va a permitir que B.Simon acceda a KnowledgeOwl mediante el ini
 
 1. En otra ventana del explorador web, inicie sesión en el sitio de la empresa de KnowledgeOwl como administrador.
 
-1. Haga clic en **Configuración** y, a continuación, seleccione **Seguridad**.
+1. Haga clic en **Settings** (Configuración) y, a continuación, seleccione **SSO**.
 
-    ![Captura de pantalla que muestra la opción Security (Seguridad) seleccionada en el menú Settings (Configuración).](./media/knowledgeowl-tutorial/configure-1.png)
+    ![Captura de pantalla que muestra la opción SSO seleccionada en el menú de configuración.](./media/knowledgeowl-tutorial/settings-sso-dropdown.png)
 
-1. Desplácese hasta la opción **SAML SSO Integration** (Integración de SSO de SAML) y siga los pasos a continuación:
+1. En la pestaña **SAML Settings** (Configuración de SAML), realice los pasos siguientes:
 
-    ![Captura de pantalla que muestra la opción SAML SSO Integration (Integración de SSO de SAML) donde puede realizar los cambios que se describen aquí.](./media/knowledgeowl-tutorial/configure-2.png)
+    ![Captura de pantalla que muestra la opción SAML SSO Integration (Integración de SSO de SAML) donde puede realizar los cambios que se describen aquí.](./media/knowledgeowl-tutorial/sso-settings-required-fields.png)
 
     a. Seleccione **Enable SAML SSO** (Habilitar SSO de SAML).
 
@@ -176,21 +176,24 @@ En esta sección va a permitir que B.Simon acceda a KnowledgeOwl mediante el ini
 
     f. En el cuadro de texto **IdP Logout URL** (Dirección URL de cierre de sesión del IdP), pegue el valor de **URL de cierre de sesión** que ha copiado de Azure Portal.
 
-    g. Cargue el certificado que descargó de Azure Portal haciendo clic en **Upload IdP Certificate** (Cargar certificado de IdP).
+    g. Cargue el certificado que descargó de Azure Portal haciendo clic en el vínculo **Upload** (Cargar) situado debajo de **IdP Certificate** (Certificado del IdP).
 
-    h. Haga clic en **Map SAML Attributes** (Asignar atributos de SAML) para asignar atributos y realice los pasos siguientes:
+    h. Haga clic en **Guardar** en la parte inferior de la página.
 
-    ![Captura de pantalla que muestra la opción Map SAML Attributes (Asignar atributos de SAML) donde puede realizar los cambios que se indican aquí.](./media/knowledgeowl-tutorial/configure-3.png)
+    ![Captura de pantalla que muestra el botón Save (Guardar).](./media/knowledgeowl-tutorial/sso-settings-saml-save.png)
+
+    i. Abra la pestaña **SAML Attribute Map** (Asignación de atributos de SAML) para asignar atributos y realice los pasos siguientes:
+
+    ![Captura de pantalla que muestra la opción Map SAML Attributes (Asignar atributos de SAML) donde puede realizar los cambios que se indican aquí.](./media/knowledgeowl-tutorial/sso-settings-direct-attribute-fields.png)
 
     * Escriba `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/ssoid` en el cuadro de texto **Id. de SSO**.
     * Escriba `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` en el cuadro de texto **Nombre de usuario / correo electrónico**.
     * Escriba `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname` en el cuadro de texto **Nombre**.
     * Escriba `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname` en el cuadro de texto **Apellidos**.
-    * Haga clic en **Save**(Guardar).
 
-    i. Haga clic en **Guardar** en la parte inferior de la página.
+    j. Haga clic en **Guardar** en la parte inferior de la página.
 
-    ![Captura de pantalla que muestra el botón Save (Guardar).](./media/knowledgeowl-tutorial/configure-4.png)
+    ![Captura de pantalla que muestra el botón Guardar.](./media/knowledgeowl-tutorial/sso-settings-direct-attribute-save.png)
 
 ### <a name="create-knowledgeowl-test-user"></a>Creación de un usuario de prueba de KnowledgeOwl
 
@@ -203,17 +206,17 @@ En esta sección se crea un usuario llamado B.Simon en KnowledgeOwl. KnowledgeOw
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones. 
 
-#### <a name="sp-initiated"></a>Iniciado por SP:
+#### <a name="sp-initiated"></a>Iniciado por SP
 
 * Haga clic en **Probar esta aplicación** en Azure Portal. Esto le redirigirá a la dirección URL de inicio de sesión de KnowledgeOwl, donde podrá iniciar el flujo de inicio de sesión.  
 
 * Vaya directamente a la dirección URL de inicio de sesión de KnowledgeOwl e inicie el flujo de inicio de sesión desde allí.
 
-#### <a name="idp-initiated"></a>Iniciado por IDP:
+#### <a name="idp-initiated"></a>Iniciado por IDP
 
-* Haga clic en **Probar esta aplicación** en Azure Portal; debería iniciar sesión automáticamente en la instancia de KnowledgeOwl para la que configuró el inicio de sesión único. 
+* Haga clic en **Probar esta aplicación** en Azure Portal; debería iniciar sesión automáticamente en la instancia de la aplicación KnowledgeOwl para la que configuró el inicio de sesión único. 
 
-También puede usar Aplicaciones de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de KnowledgeOwl en Aplicaciones, si se ha configurado en modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para comenzar el flujo de inicio de sesión; y si se ha configurado en modo IDP, debería iniciar sesión automáticamente en la instancia de KnowledgeOwl para la que ha configurado el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+También puede usar el portal Aplicaciones de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de KnowledgeOwl en el portal Aplicaciones, si se ha configurado en modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para comenzar el flujo de inicio de sesión; y si se ha configurado en modo IDP, debería iniciar sesión automáticamente en la instancia de la aplicación KnowledgeOwl para la que ha configurado el inicio de sesión único. Para más información acerca del portal Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

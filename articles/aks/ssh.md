@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 05/17/2021
 ms.custom: contperf-fy21q4
-ms.openlocfilehash: 8deba37750c6e498e87b87ab2c49e4aa54561475
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 87e548cd39c7c064b11131c28790d8335bd942fb
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121743960"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122418414"
 ---
 # <a name="connect-with-ssh-to-azure-kubernetes-service-aks-cluster-nodes-for-maintenance-or-troubleshooting"></a>Conexión con SSH a los nodos de clúster de Azure Kubernetes Service (AKS) para mantenimiento o solución de problemas
 
@@ -75,13 +75,17 @@ node-debugger-aks-nodepool1-12345678-vmss000000-bkmmx   1/1     Running   0     
 
 En el ejemplo anterior, *node-debugger-aks-nodepool1-12345678-vmss000000-bkmmx* es el nombre del pod iniciado por `kubectl debug`.
 
-Copie la clave SSH privada en el pod creado por `kubectl debug`. Esta clave privada se usa para crear la conexión SSH al nodo de AKS de Windows Server. Si es necesario, cambie `~/.ssh/id_rsa` a la ubicación de la clave SSH privada:
+Con `kubectl port-forward`, puede abrir una conexión al pod implementado:
 
-```azurecli-interactive
-kubectl cp ~/.ssh/id_rsa node-debugger-aks-nodepool1-12345678-vmss000000-bkmmx:/id_rsa
+```
+$ kubectl port-forward node-debugger-aks-nodepool1-12345678-vmss000000-bkmmx 2022:22
+Forwarding from 127.0.0.1:2022 -> 22
+Forwarding from [::1]:2022 -> 22
 ```
 
-Use `kubectl get nodes` para mostrar la dirección IP interna del nodo de Windows Server:
+En el ejemplo anterior se comienza a reenviar el tráfico de red desde el puerto 2022 del equipo de desarrollo al puerto 22 del pod implementado. Cuando se usa `kubectl port-forward` para abrir una conexión y reenviar el tráfico de red, la conexión permanece abierta hasta que se detiene el comando `kubectl port-forward`.
+
+Abra un nuevo terminal y use `kubectl get nodes` para mostrar la dirección IP interna del nodo de Windows Server:
 
 ```output
 $ kubectl get nodes -o wide
@@ -94,16 +98,10 @@ aksnpwin000000                      Ready    agent   87s     v1.19.9   10.240.0.
 
 En el ejemplo anterior, *10.240.0.67* es la dirección IP interna del nodo de Windows Server.
 
-Vuelva al terminal iniciado por `kubectl debug` y actualice el permiso de la clave SSH privada que copió en el pod.
-
-```azurecli-interactive
-chmod 0400 id_rsa
-```
-
 Cree una conexión SSH al nodo de Windows Server mediante la dirección IP interna. El nombre de usuario para los nodos de AKS es *azureuser*. Acepte el mensaje para continuar con la conexión. Luego, se le proporciona el símbolo del sistema de Bash del nodo de Windows Server:
 
 ```output
-$ ssh -i id_rsa azureuser@10.240.0.67
+$ ssh -o 'ProxyCommand ssh -p 2022 -W %h:%p azureuser@127.0.0.1' azureuser@10.240.0.67
 
 The authenticity of host '10.240.0.67 (10.240.0.67)' can't be established.
 ECDSA key fingerprint is SHA256:1234567890abcdefghijklmnopqrstuvwxyzABCDEFG.
@@ -117,9 +115,18 @@ Microsoft Windows [Version 10.0.17763.1935]
 azureuser@aksnpwin000000 C:\Users\azureuser>
 ```
 
+En el ejemplo anterior se conecta al puerto 22 del nodo de Windows Server a través del puerto 2022 del equipo de desarrollo.
+
+> [!NOTE]
+> Si prefiere usar la autenticación con contraseña, use `-o PreferredAuthentications=password`. Por ejemplo:
+>
+> ```console
+>  ssh -o 'ProxyCommand ssh -p 2022 -W %h:%p azureuser@127.0.0.1' -o PreferredAuthentications=password azureuser@10.240.0.67
+> ```
+
 ## <a name="remove-ssh-access"></a>Eliminación del acceso SSH
 
-Cuando haya finalizado, `exit` la sesión de SSH y, a continuación, `exit` la sesión del contenedor interactiva. Cuando esta sesión de contenedor se cierra, se elimina el pod usado para el acceso SSH desde el clúster de AKS.
+Cuando haya finalizado, `exit` de la sesión de SSH y, a continuación, `exit` de la sesión del contenedor interactiva. Cuando la sesión de contenedor interactiva se cierra, se elimina el pod usado para el acceso SSH desde el clúster de AKS.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -8,14 +8,16 @@ ms.author: rogarana
 ms.service: storage
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 48b7fb11f3f0127358ee92ddea9262b805264500
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 7f4ae0dfb8e03add64f450d98c15f85da33eaef3
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121738997"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122696470"
 ---
 # <a name="server-side-encryption-of-azure-disk-storage"></a>Cifrado del lado servidor de Azure Disk Storage
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles :heavy_check_mark: Conjuntos de escalado uniformes
 
 La mayoría de los discos administrados de Azure se cifran con el cifrado de Azure Storage, que usa el cifrado del lado servidor (SSE) para proteger los datos y ayudarle a satisfacer los compromisos de cumplimiento y seguridad de la organización. El cifrado de Azure Storage cifra automáticamente los datos almacenados en discos administrados de Azure (discos de datos y SO) en reposo de manera predeterminada cuando se conservan en la nube. Sin embargo, los discos con cifrado en host habilitado no se cifran a través de Azure Storage. En el caso de los discos con cifrado en host habilitado, el servidor que hospeda la máquina virtual proporciona el cifrado de los datos y los datos cifrados fluyen en Azure Storage.
 
@@ -55,7 +57,7 @@ Las claves administradas por el cliente están disponibles en todas las regiones
 > [!IMPORTANT]
 > Las claves administradas por el cliente dependen de identidades administradas para los recursos de Azure, una característica de Azure Active Directory (Azure AD). Al configurar claves administradas por el cliente, se asigna automáticamente una identidad administrada a los recursos en segundo plano. Si posteriormente mueve la suscripción, el grupo de recursos o el disco administrado de un directorio de Azure AD a otro, la identidad administrada asociada a los discos administrados no se transfiere al nuevo inquilino, por lo que es posible que las claves administradas por el cliente dejen de funcionar. Para obtener más información, consulte [Transferencia de una suscripción entre directorios de Azure AD](../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).
 
-Para habilitar las claves administradas por el cliente en los discos administrados, consulte nuestros artículos sobre cómo llevarlo a cabo con el [módulo de Azure PowerShell](windows/disks-enable-customer-managed-keys-powershell.md), la [CLI de Azure](linux/disks-enable-customer-managed-keys-cli.md) o [Azure Portal](disks-enable-customer-managed-keys-portal.md). Para obtener información sobre cómo habilitar las claves administradas por el cliente con la rotación automática de claves, consulte [Configuración de Azure Key Vault y DiskEncryptionSet con rotación de claves automática (versión preliminar)](windows/disks-enable-customer-managed-keys-powershell.md#set-up-an-azure-key-vault-and-diskencryptionset-with-automatic-key-rotation-preview).
+Para habilitar las claves administradas por el cliente en los discos administrados, consulte nuestros artículos sobre cómo llevarlo a cabo con el [módulo de Azure PowerShell](windows/disks-enable-customer-managed-keys-powershell.md), la [CLI de Azure](linux/disks-enable-customer-managed-keys-cli.md) o [Azure Portal](disks-enable-customer-managed-keys-portal.md). 
 
 ## <a name="encryption-at-host---end-to-end-encryption-for-your-vm-data"></a>Cifrado en el host: cifrado de un extremo a otro de los datos de la máquina virtual
 

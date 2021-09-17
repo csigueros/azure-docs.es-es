@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 07/14/2021
+ms.date: 08/12/2021
 ms.author: alkohli
-ms.openlocfilehash: a307fd2e2504e3c11c96fb56c7ab4f55db9508ff
-ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
+ms.openlocfilehash: a61178917214e53f6a2d01183a3d35a1ba93eff3
+ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114221271"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122429668"
 ---
 # <a name="what-is-azure-stack-edge-pro-with-gpu"></a>¿Qué es Azure Stack Edge Pro con GPU?
 
@@ -51,6 +51,7 @@ Azure Stack Edge Pro GPU presenta las siguientes funcionalidades:
 |Actualización de datos     | Capacidad para actualizar los archivos locales con la versión más reciente de la nube.|
 |Cifrado    | Compatibilidad con BitLocker para, localmente, cifrar los datos y proteger las transferencias de datos hacia la nube a través de *https*.|
 |Límite de ancho de banda| Limite el uso de ancho de banda durante las horas punta.|
+|Pedidos sencillos| Pedidos masivos y seguimiento del dispositivo mediante Azure Edge Hardware Center (versión preliminar).|
 |Funciones de red especializadas|Use Marketplace desde Azure Network Function Manager para implementar rápidamente funciones de red, como redes troncales de paquetes móviles, dispositivos perimetrales SD-WAN y servicios VPN, en un dispositivo Azure Stack Edge que se ejecuta en un entorno local. Para más información, consulte [¿Qué es Azure Network Function Manager? (versión preliminar)](../network-function-manager/overview.md).|
 
 <!--|ExpressRoute | Added security through ExpressRoute. Use peering configuration where traffic from local devices to the cloud storage endpoints travels over the ExpressRoute. For more information, see [ExpressRoute overview](../expressroute/expressroute-introduction.md).|-->
@@ -60,10 +61,13 @@ Azure Stack Edge Pro GPU presenta las siguientes funcionalidades:
 La solución Azure Stack Edge Pro GPU consta de un recurso Azure Stack Edge, un dispositivo físico de Azure Stack Edge Pro GPU y una interfaz de usuario web local.
 
 * **Dispositivo físico de Azure Stack Edge Pro GPU**: un servidor de montaje en bastidor 1U proporcionado por Microsoft que se puede configurar para enviar datos a Azure.
-    
-* **Recurso Azure Stack Edge**: un recurso de Azure Portal que le permite administrar un dispositivo de Azure Stack Edge Pro GPU desde una interfaz web a la cual puede acceder desde diferentes ubicaciones geográficas. Use el recurso Azure Stack Edge para crear y administrar recursos, ver y administrar dispositivos y alertas y administrar recursos compartidos.  
+
+    [!INCLUDE [azure-stack-edge-gateway-edge-hardware-center-overview](../../includes/azure-stack-edge-gateway-edge-hardware-center-overview.md)]    
 
     Para más información, vaya a [Creación de un pedido para el dispositivo de Azure Stack Edge Pro GPU](azure-stack-edge-gpu-deploy-prep.md#create-a-new-resource).
+    
+* **Recurso Azure Stack Edge**: un recurso de Azure Portal que le permite administrar un dispositivo de Azure Stack Edge Pro GPU desde una interfaz web a la cual puede acceder desde diferentes ubicaciones geográficas. Use el recurso Azure Stack Edge para crear y administrar recursos, ver y administrar dispositivos y alertas y administrar recursos compartidos.  
+   
 
 * **Interfaz de usuario web local de Azure Stack Edge Pro GPU**: una interfaz de usuario web local basada en explorador que se encuentra en su dispositivo Azure Stack Edge Pro GPU y cuya finalidad principal es la configuración inicial del dispositivo. Además, use la interfaz de usuario web local para ejecutar diagnósticos, apagar y reiniciar el dispositivo de Azure Stack Edge Pro GPU, ver registros de copia y ponerse en contacto con el Soporte técnico de Microsoft para realizar una solicitud de servicio.
 
@@ -82,6 +86,8 @@ El dispositivo físico de Azure Stack Edge Pro GPU, el recurso de Azure y la cue
 - **Cuentas de almacenamiento de destino**: las cuentas de almacenamiento que almacenan los datos están disponibles en todas las regiones de Azure. Las regiones en las que las cuentas de almacenamiento almacenan los datos de Azure Stack Edge Pro GPU deben estar ubicadas cerca de la ubicación del dispositivo a fin de obtener un rendimiento óptimo. Una cuenta de almacenamiento que se encuentra lejos del dispositivo causa latencias largas y un rendimiento más lento.
 
 El servicio Azure Stack Edge es un servicio no regional. Para obtener más información, consulte [Regiones y zonas de disponibilidad en Azure](../availability-zones/az-overview.md). El servicio Azure Stack Edge no depende de una región específica de Azure, lo que lo hace más resistentes a las interrupciones en toda la zona, así como a interrupciones en toda la región.
+
+Para obtener una explicación de las consideraciones para elegir una región para el servicio Azure Stack Edge, el dispositivo y el almacenamiento de datos, consulte [Elección de una región para Azure Stack Edge](azure-stack-edge-gpu-regions.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

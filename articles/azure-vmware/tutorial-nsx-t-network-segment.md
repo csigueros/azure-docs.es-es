@@ -4,16 +4,16 @@ description: Aprenda a crear un segmento de red para usarlo en máquinas virtual
 ms.topic: tutorial
 ms.custom: contperf-fy22q1
 ms.date: 07/16/2021
-ms.openlocfilehash: 04681c5d55536e3ee1cc0b12d2ebc94f19b3873f
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: a678e29591bc3ca17a1ec6638e111ffeb8c264b0
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114464447"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121734225"
 ---
 # <a name="tutorial-add-a-network-segment-in-azure-vmware-solution"></a>Tutorial: Incorporación de un segmento de red en Azure VMware Solution 
 
-Después de implementar Azure VMware Solution, puede configurar un segmento de red NSX-T desde NSX-T Manager o Azure Portal.  Una vez configurados, los segmentos son visibles en Azure VMware Solution, NSX-T Manager y vCenter.  NSX-T viene ya aprovisionado de forma predeterminada con una puerta de enlace NSX-T de nivel 0 en modo **activo-activo** y una puerta de enlace NSX-T predeterminada de nivel 1 en modo **activo-en espera**.  Estas puertas de enlace permiten conectar los segmentos (conmutadores lógicos) y proporcionan conectividad horizontal de derecha a izquierda y vertical de arriba abajo. 
+Después de implementar Azure VMware Solution, puede configurar un segmento de red NSX-T desde NSX-T Manager o Azure Portal. Una vez configurados, los segmentos son visibles en Azure VMware Solution, NSX-T Manager y vCenter. NSX-T viene ya aprovisionado de forma predeterminada con una puerta de enlace NSX-T de nivel 0 en modo **activo-activo** y una puerta de enlace NSX-T predeterminada de nivel 1 en modo **activo-en espera**.  Estas puertas de enlace permiten conectar los segmentos (conmutadores lógicos) y proporcionan conectividad horizontal de derecha a izquierda y vertical de arriba abajo. 
 
 >[!TIP]
 >Azure Portal presenta una vista simplificada de las operaciones NSX-T que un administrador de VMware necesita con regularidad y que está dirigida a los usuarios que no están familiarizados con NSX-T Manager. 
@@ -59,7 +59,7 @@ En este tutorial, ha creado un segmento de red de NSX-T que se usa para las máq
 Ahora puede: 
 
 - [Configurar y administrar DHCP para Azure VMware Solution](configure-dhcp-azure-vmware-solution.md)
-- [Crear una biblioteca de contenido para implementar máquinas virtuales en Azure VMware Solution](deploy-vm-content-library.md) 
+- [Creación de una biblioteca de contenido para implementar máquinas virtuales en Azure VMware Solution](deploy-vm-content-library.md) 
 - [Emparejamiento de entornos locales con una nube privada](tutorial-expressroute-global-reach-private-cloud.md)
 
 

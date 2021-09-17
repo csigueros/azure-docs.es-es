@@ -7,16 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/07/2021
+ms.date: 08/17/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 26bd2a4e39f2698f47a27a08716dc3049c7b70f8
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: ce49a0a6fc249f3cea6bfdac613beade5322142f
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113106828"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122323899"
 ---
 # <a name="tutorial-create-user-flows-and-custom-policies-in-azure-active-directory-b2c"></a>Tutorial: Creación de flujos de usuario y directivas personalizadas en Azure Active Directory B2C
 
@@ -39,7 +39,7 @@ Las [directivas personalizadas](custom-policy-overview.md) son archivos de confi
 
 ::: zone pivot="b2c-user-flow"
 > [!IMPORTANT]
-> Hemos cambiado la manera en que hacemos referencia a las versiones del flujo de usuario. Anteriormente, se ofrecían las versiones V1 (para entornos de producción) y V1.1 y V2 (preliminares). Ahora hemos consolidado los flujos de usuario en dos versiones: flujos de usuario **recomendados**, con las características más recientes, y flujos de usuario **estándar (heredado)** . En la nube pública, todos los flujos de usuario de las versiones preliminares heredadas (V1.1 y V2) se encuentran en un proceso de entrada en desuso que finalizará el **1 de agosto de 2021**. Para más información, consulte [Versiones de flujos de usuario de Azure Active Directory B2C](user-flow-versions.md). *Estos cambios solo se aplican a la nube pública de Azure. Otros entornos seguirán usando el [control de versiones de flujos de usuario heredado](user-flow-versions-legacy.md).* 
+> Hemos cambiado la manera en que hacemos referencia a las versiones del flujo de usuario. Anteriormente, se ofrecían las versiones V1 (para entornos de producción) y V1.1 y V2 (preliminares). Ahora hemos consolidado los flujos de usuario en dos versiones: flujos de usuario **recomendados**, con las características más recientes, y flujos de usuario **estándar (heredado)** . Todos los flujos de usuario de las versiones preliminares heredadas (V1.1 y V2) se encuentran en desuso. Para más información, consulte [Versiones de flujos de usuario de Azure Active Directory B2C](user-flow-versions.md). *Estos cambios solo se aplican a la nube pública de Azure. Otros entornos seguirán usando el [control de versiones de flujos de usuario heredado](user-flow-versions-legacy.md).* 
 ::: zone-end
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -70,7 +70,7 @@ Este flujo de usuario de registro y de inicio de sesión controla las experienci
 1. En Azure Portal, busque y seleccione **Azure AD B2C**.
 1. En **Directivas**, seleccione **Flujos de usuario** y **Nuevo flujo de usuario**.
 
-    ![Página Flujos de usuario del portal con el botón Nuevo flujo de usuario resaltado](./media/tutorial-create-user-flows/signup-signin-user-flow.png)
+    ![Página Flujos de usuario del portal con el botón Nuevo flujo de usuario resaltado](./media/tutorial-create-user-flows/sign-up-sign-in-user-flow.png)
 
 1. En la página **Crear un flujo de usuario**, seleccione el flujo de usuario **Registrarse e iniciar sesión**.
 
@@ -339,9 +339,17 @@ En este artículo, ha aprendido cómo:
 > * Creación de un flujo de usuario de edición de perfil
 > * Creación de un flujo de usuario de restablecimiento de contraseña
 
-A continuación, obtenga información sobre cómo usar Azure AD B2C para iniciar sesión y registrar usuarios en una aplicación. Siga la aplicación web de ASP.NET vinculada a continuación o vaya a otra aplicación de la tabla de contenido en **Autenticación de usuarios**.
+A continuación, obtenga información sobre cómo usar Azure AD B2C para iniciar sesión y registrar usuarios en una aplicación. Siga los vínculos de las aplicaciones de ejemplo a continuación:
 
-> [!div class="nextstepaction"]
-> [Tutorial: Habilitación de la autenticación en una aplicación web mediante Azure Active Directory B2C >](tutorial-web-app-dotnet.md)
+- [Configuración de una aplicación web ASP.NET Core de ejemplo](configure-authentication-sample-web-app.md)
+- [Configuración de una aplicación web ASP.NET Core de ejemplo que llama a una API web](configure-authentication-sample-web-app-with-api.md)
+- [Configuración de la autenticación en una aplicación web de Python de ejemplo](configure-authentication-sample-python-web-app.md)
+- [Configuración de una aplicación de página única (SPA) de ejemplo](configure-authentication-sample-spa-app.md)
+- [Configuración de una aplicación de página única Angular de ejemplo](configure-authentication-sample-angular-spa-app.md)
+- [Configuración de una aplicación móvil Android de ejemplo](configure-authentication-sample-android-app.md)
+- [Configuración de una aplicación móvil iOS de ejemplo](configure-authentication-sample-ios-app.md)
+- [Configuración de la autenticación en una aplicación de escritorio de WPF de ejemplo](configure-authentication-sample-wpf-desktop-app.md)
+- [Habilitación de la autenticación en la API web](enable-authentication-web-api.md)
+- [Configuración de una aplicación SAML](saml-service-provider.md) 
 
 También puede obtener más información en la [serie de profundización en la arquitectura de Azure AD B2C](https://www.youtube.com/playlist?list=PLOPotgzC07IKXXCTZcrpuLWbVe3y51kfm).

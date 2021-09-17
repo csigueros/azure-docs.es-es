@@ -10,14 +10,16 @@ ms.service: virtual-machines
 ms.collection: windows
 ms.subservice: image-builder
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 45748ac5c21993e6df69950e03de9e90180c4ab0
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: fdda25ecc9d111d626b7c9836757c31d4972c25f
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114472083"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122692455"
 ---
 # <a name="create-a-windows-virtual-desktop-image-using-azure-vm-image-builder-and-powershell"></a>Creación de una imagen de Windows Virtual Desktop mediante Azure VM Image Builder y PowerShell
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Windows 
 
 En este artículo se muestra cómo crear una imagen de Windows Virtual Desktop con estas personalizaciones:
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/28/2020
 ms.author: yitoh
-ms.openlocfilehash: b8ae9365199edfde078cad39783458fc3f86ebd6
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: ea85ca0cf1160b4ad738ea45ce33e72d07dc5fbf
+ms.sourcegitcommit: deb5717df5a3c952115e452f206052737366df46
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110061505"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122681400"
 ---
 # <a name="view-and-configure-ddos-diagnostic-logging"></a>Visualización y configuración del registro de diagnósticos de DDoS
 
@@ -60,6 +60,39 @@ Si quiere habilitar automáticamente el registro de diagnóstico en todas las di
     - **Archivar en una cuenta de almacenamiento**: los datos se escriben en una cuenta de Azure Storage. Para más información sobre esta opción, consulte [Archivo de registros de recursos](../azure-monitor/essentials/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-azure-storage).
     - **Transmisión a un centro de eventos**: permite que un receptor de registros seleccione los registros mediante una instancia de Azure Event Hub. Los centros de eventos habilitan la integración con Splunk y otros sistemas SIEM. Para más información sobre esta opción, consulte [Transmisión de registros de recursos a un centro de eventos](../azure-monitor/essentials/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-azure-event-hubs).
     - **Enviar a Log Analytics**: Escribe registros en el servicio Azure Monitor. Para obtener más información sobre esta opción, consulte [Recopilación de registros para su uso en los registros de Azure Monitor](../azure-monitor/essentials/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-log-analytics-workspace).
+
+### <a name="query-ddos-protection-logs-in-log-analytics-workspace"></a>Consulta de registros de protección contra DDOS en un área de trabajo de Log Analytics
+
+#### <a name="ddosprotectionnotifications-logs"></a>Registros DDoSProtectionNotifications
+
+1. En la hoja **Áreas de trabajo de Log Analytics**, seleccione su área de trabajo.
+
+4. En **General**, haga clic en **Registros**.
+
+5. En el Explorador de consultas, escriba la siguiente consulta de Kusto. Cambie el intervalo de tiempo a "Personalizado" e indique un intervalo correspondiente a los últimos 3 meses. A continuación, presione "Ejecutar".
+
+    ```kusto
+    AzureDiagnostics
+    | where Category == "DDoSProtectionNotifications"
+    ```
+
+#### <a name="ddosmitigationflowlogs"></a>DDoSMitigationFlowLogs
+
+1. Ahora, cambie la consulta por lo siguiente, manteniendo el mismo intervalo de tiempo, y presione "Ejecutar".
+
+    ```kusto
+    AzureDiagnostics
+    | where Category == "DDoSMitigationFlowLogs"
+    ```
+
+#### <a name="ddosmitigationreports"></a>DDoSMitigationReports
+
+1. Ahora, cambie la consulta por lo siguiente, manteniendo el mismo intervalo de tiempo, y presione "Ejecutar".
+
+    ```kusto
+    AzureDiagnostics
+    | where Category == "DDoSMitigationReports"
+    ```
 
 ### <a name="log-schemas"></a>Esquemas de registro
 
@@ -106,7 +139,7 @@ En la tabla siguiente se muestran los nombres y las descripciones de los campos:
 | --- | --- |
 | **TimeGenerated** | Fecha y hora en formato UTC en que se creó el informe. |
 | **ResourceId** | Identificador de recurso de la dirección IP pública. |
-| **Categoría** | En el caso de las notificaciones, será `DDoSProtectionNotifications`.|
+| **Categoría** | En el caso de las notificaciones, será `DDoSMitigationReports`.|
 | **ResourceGroup** | El grupo de recursos que contiene la dirección IP pública y la red virtual. |
 | **SubscriptionId** | El identificador de la suscripción del plan de protección contra DDoS. |
 | **Recurso** | El nombre de la dirección IP pública. |

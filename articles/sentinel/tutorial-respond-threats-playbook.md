@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Uso de cuadernos de estrategias con reglas de automatización en Azure Sentinel'
+title: Uso de cuadernos de estrategias con reglas de automatización en Azure Sentinel
 description: Use este tutorial para ayudarle a usar los cuadernos de estrategias junto con las reglas de automatización de Azure Sentinel para automatizar la respuesta a los incidentes y corregir las amenazas de seguridad.
 services: sentinel
 documentationcenter: na
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/17/2021
 ms.author: yelevin
-ms.openlocfilehash: a9411d044a8c176387d8b9900ca56a7512c4a0de
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: 152b034fe5fd5571ec58c001a8befc98c84f4107
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112458333"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121737552"
 ---
 # <a name="tutorial-use-playbooks-with-automation-rules-in-azure-sentinel"></a>Tutorial: Uso de cuadernos de estrategias con reglas de automatización en Azure Sentinel
 
@@ -33,6 +33,10 @@ En este tutorial se muestra cómo usar los cuadernos de estrategias junto con la
 > * Crear un cuaderno de estrategias
 > * Agregar acciones a un cuaderno de estrategias
 > * Adjuntar un cuaderno de estrategias a una regla de automatización o una regla de análisis para automatizar la respuesta a las amenazas
+
+> [!NOTE]
+> En este tutorial se proporcionan instrucciones básicas sobre una tarea principal para los clientes: la creación de automatización para la evaluación de prioridades de los incidentes. Para más información, consulte nuestra sección **Procedimiento**, por ejemplo, [cómo automatizar la respuesta frente a amenazas con los cuadernos de estrategias de Azure Sentinel](automate-responses-with-playbooks.md) y [cómo usar desencadenadores y acciones en los cuadernos de estrategias de Azure Sentinel](playbook-triggers-actions.md).
+>
 
 ## <a name="what-are-automation-rules-and-playbooks"></a>¿Qué son las reglas de automatización y los cuadernos de estrategias?
 
@@ -124,7 +128,7 @@ Todos los cuadernos de estrategias deben comenzar con un desencadenador. El dese
    Elija el desencadenador que coincida con el tipo de cuaderno de estrategias que va a crear.
 
     > [!NOTE]
-    > Recuerde que las reglas de automatización solo pueden llamar a cuadernos de estrategias basados en el **desencadenador de incidentes**. Los cuadernos de estrategias basados en el **desencadenador de alertas** deben definirse para ejecutarse directamente en [reglas de análisis](tutorial-detect-threats-custom.md#set-automated-responses-and-create-the-rule) y también se pueden ejecutar manualmente.
+    > Recuerde que las reglas de automatización solo pueden llamar a cuadernos de estrategias basados en el **desencadenador de incidentes**. Los cuadernos de estrategias basados en el **desencadenador de alertas** deben definirse para ejecutarse directamente en [reglas de análisis](detect-threats-custom.md#set-automated-responses-and-create-the-rule) y también se pueden ejecutar manualmente.
     > 
     > Para más información sobre qué desencadenador usar, consulte [**Uso de desencadenadores y acciones en los cuadernos de estrategias de Azure Sentinel**](playbook-triggers-actions.md).
 
@@ -205,7 +209,7 @@ Para crear una regla de automatización:
 
 ### <a name="respond-to-alerts"></a>Respuesta a las alertas
 
-Puede usar un cuaderno de estrategias para responder a una **alerta** mediante la creación de una **regla de análisis** o la edición de una existente, que se ejecuta cuando se genera la alerta, y la selección del cuaderno de estrategias como una respuesta automatizada en el [asistente para reglas de análisis](tutorial-detect-threats-custom.md).
+Puede usar un cuaderno de estrategias para responder a una **alerta** mediante la creación de una **regla de análisis** o la edición de una existente, que se ejecuta cuando se genera la alerta, y la selección del cuaderno de estrategias como una respuesta automatizada en el [asistente para reglas de análisis](detect-threats-custom.md).
 
 1. En la hoja **Analytics** (Análisis) del menú de navegación de Azure Sentinel, seleccione la regla de análisis para la que desea automatizar la respuesta y haga clic en **Edit** (Editar) en el panel de detalles.
 

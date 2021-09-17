@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 10/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 32fb95c88d632cc2c51cd2390f0244e9c1927051
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4e5e0b563b2701a8b5ddbffbf485a3127d52ece0
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100585894"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122769899"
 ---
 # <a name="enable-change-tracking-and-inventory-from-an-automation-account"></a>Habilitación de Change Tracking e Inventario desde una cuenta de Automation
 
@@ -19,7 +19,7 @@ En este artículo se describe cómo puede usar la cuenta de Automation para habi
 > [!NOTE]
 > Al habilitar Change Tracking e Inventario, solo se admite la vinculación a un área de trabajo de Log Analytics y una cuenta de Automation en regiones concretas. Para obtener una lista de los pares de asignación que se admiten, consulte [Asignación de región para la cuenta de Automation y el área de trabajo de Log Analytics](../how-to/region-mappings.md).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Suscripción de Azure. Si aún no tiene ninguna, puede [activar las ventajas de la suscripción a MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) o suscribirse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Una [cuenta de Automation](../automation-security-overview.md) para administrar máquinas.
@@ -49,7 +49,7 @@ Inicie sesión en Azure en https://portal.azure.com.
 
 ## <a name="enable-non-azure-vms"></a>Habilitación de máquinas virtuales que no son de Azure
 
-Las máquinas que no estén en Azure se deben agregar manualmente. Se recomienda instalar el agente de Log Analytics para Windows o Linux. Para ello, primero debe conectar la máquina a los [servidores habilitados para Azure Arc](../../azure-arc/servers/overview.md) y, a continuación, debe usar Azure Policy para asignar el [agente de Log Analytics a la directiva integrada de las máquinas de Azure Arc de *Linux* o de *Windows*](../../governance/policy/samples/built-in-policies.md#monitoring). Si también planea supervisar las máquinas con Azure Monitor para VM, en su lugar, use la iniciativa para [habilitar Azure Monitor para VM](../../governance/policy/samples/built-in-initiatives.md#monitoring).
+Las máquinas que no estén en Azure se deben agregar manualmente. Se recomienda instalar el agente de Log Analytics para Windows o Linux. Para ello, primero debe conectar su máquina a [servidores habilitados para Azure Arc](../../azure-arc/servers/overview.md) y, a continuación, usar Azure Policy para asignar la definición de directiva integrada [Implementación del agente de Log Analytics en máquinas de Azure Arc para *Linux* o *Windows*](../../governance/policy/samples/built-in-policies.md#monitoring). Si también planea supervisar las máquinas con Azure Monitor para VM, en su lugar, use la iniciativa para [habilitar Azure Monitor para VM](../../governance/policy/samples/built-in-initiatives.md#monitoring).
 
 1. Desde la cuenta de Automation, seleccione **Inventario** o **Change Tracking** en **Administración de configuración**.
 

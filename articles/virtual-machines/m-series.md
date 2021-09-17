@@ -7,14 +7,16 @@ ms.subservice: vm-sizes-memory
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: jushiman
-ms.openlocfilehash: 83bb3b8e2f6704c595b6398a15f620be6927f3d5
-ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
+ms.openlocfilehash: 97691d3b9c2d94a42e3ff434a5bbaef1bd281975
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/13/2021
-ms.locfileid: "109846633"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122698840"
 ---
 # <a name="m-series"></a>Serie M
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles :heavy_check_mark: Conjuntos de escalado uniformes
 
 La serie M ofrece un elevado recuento de vCPU (hasta 128 vCPU) y una gran cantidad de memoria (hasta 3,8 TiB). También es muy conveniente para bases de datos extremadamente grandes u otras aplicaciones que se benefician de un elevado número de vCPU y grandes cantidades de memoria. Los tamaños de la serie M se admiten tanto en la CPU Intel&reg; Xeon&reg; E7-8890 v3 a 2,50 GHz como en Intel&reg; Xeon&reg; Platinum 8280M (Cascade Lake).
 

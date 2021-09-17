@@ -1,66 +1,68 @@
 ---
-title: 'Tutorial: Creación de una aplicación de análisis de medidores inteligentes con IoT Central'
-description: 'Tutorial: Aprenda a crear una aplicación de supervisión de medidores inteligentes mediante plantillas de aplicación de Azure IoT Central.'
+title: 'Tutorial: Supervisión de medidores inteligentes de Azure IoT | Microsoft Docs'
+description: En este tutorial, se muestra cómo implementar y usar la plantilla de aplicación de supervisión de medidores inteligentes para IoT Central.
 author: op-ravi
 ms.author: omravi
-ms.date: 12/11/2020
+ms.date: 08/02/2021
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 42e88d322bd4d2b174d7a52e4892970caf5b1a5e
-ms.sourcegitcommit: cd7d099f4a8eedb8d8d2a8cae081b3abd968b827
+ms.openlocfilehash: a332ab10ce4e7c38442288165c56d1161081cd9c
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2021
-ms.locfileid: "112963246"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122179480"
 ---
-# <a name="tutorial-create-and-walk-through-the-smart-meter-monitoring-app-template"></a>Tutorial: Creación y recorrido de la plantilla de aplicación de supervisión de medidores inteligentes 
+# <a name="tutorial-deploy-and-walk-through-the-smart-meter-monitoring-app-template"></a>Tutorial: Implementación y recorrido por la plantilla de aplicación de supervisión de medidores inteligentes 
 
-Este tutorial le guía por el proceso de creación de la aplicación de supervisión de medidores inteligentes, que incluye un modelo de dispositivo de ejemplo con datos simulados. En este tutorial, aprenderá a:
+Use la plantilla de aplicación de *supervisión de medidores inteligentes* de IoT Central y las instrucciones de este artículo para desarrollar una solución de supervisión de medidores inteligentes completa.
 
-> [!div class="checklist"]
-> * Instrucciones sobre cómo crear la aplicación de medidores inteligentes de manera gratuita
-> * Tutorial de la aplicación
-> * Limpieza de recursos
+  :::image type="content" source="media/tutorial-iot-central-smart-meter/smart-meter-app-architecture.png" alt-text="Arquitectura de medidores inteligentes.":::
 
+Esta arquitectura consta de los siguientes componentes. Puede que algunas soluciones no requieran todos los componentes que se mencionan aquí.
 
-Si no tiene ninguna suscripción, [cree una cuenta de evaluación gratuita](https://azure.microsoft.com/free).
+### <a name="smart-meters-and-connectivity"></a>Medidores inteligentes y conectividad
+
+Un medidor inteligente es uno de los dispositivos más importantes entre todos los recursos energéticos. Registra datos de consumo energético y los comunica a servicios públicos con fines de supervisión y otros casos de uso, como la respuesta a la demanda y la facturación. Según el tipo de medidor, puede conectarse a IoT Central mediante puertas de enlace u otros sistemas o dispositivos intermedios, tales como dispositivos perimetrales y sistemas de cabeceras. Cree un dispositivo de puente de IoT Central para conectar los dispositivos que no pueden hacerlo directamente. El puente de dispositivo de IoT Central es una solución de código abierto y puede encontrar los detalles completos [aquí](../core/howto-build-iotc-device-bridge.md). 
+
+### <a name="iot-central-platform"></a>Plataforma de IoT Central
+
+Azure IoT Central es una plataforma que simplifica la compilación de su solución de IoT y permite reducir la carga y los costos de la administración, las operaciones y el desarrollo de IoT. Con IoT Central, puede conectar, supervisar y administrar fácilmente sus recursos de Internet de las cosas (IoT) a escala. Después de conectar los medidores inteligentes a IoT Central, la plantilla de aplicación usa características integradas, como modelos de dispositivos, comandos y paneles. La plantilla de la aplicación también usa el almacenamiento de IoT Central para escenarios de ruta de acceso activa, como la supervisión, el análisis, las reglas y la visualización de datos de medición casi en tiempo real. 
+
+### <a name="extensibility-options-to-build-with-iot-central"></a>Opciones de extensibilidad para la compilación con IoT Central
+
+La plataforma de IoT Central proporciona dos opciones de extensibilidad: Exportación de datos continua (CDE) y API. Los clientes y asociados pueden elegir entre estas opciones en función de la personalización de sus soluciones para necesidades específicas. Por ejemplo, uno de nuestros asociados configuró CDE con Azure Data Lake Storage (ADLS). Usa ADLS para la retención de datos a largo plazo y otros escenarios de almacenamiento de la ruta de acceso pasiva, como el procesamiento por lotes, la auditoría e informes.
+
+En este tutorial, aprenderá a:
+
+- Instrucciones sobre cómo crear la aplicación de medidores inteligentes de manera gratuita
+- Tutorial de la aplicación
+- Limpieza de recursos
 
 ## <a name="prerequisites"></a>Requisitos previos
-- None
-- Le recomendamos que use una suscripción a Azure para la aprueba, aunque no es obligatorio.
 
-## <a name="create-a-smart-meter-monitoring-app"></a>Creación de una aplicación de supervisión de medidores inteligentes 
+* No se necesitan requisitos previos específicos para implementar esta aplicación.
+* Puede usar el plan gratuito o una suscripción de Azure.
 
-Puede crear esta aplicación en tres sencillos pasos:
+## <a name="create-a-smart-meter-monitoring-application"></a>Creación de una aplicación de supervisión de medidores inteligentes
 
-1. Abra la [página principal de Azure IoT Central](https://apps.azureiotcentral.com) y haga clic en **Compilar** para crear una nueva aplicación. 
-1. Seleccione la pestaña **Energía** y haga clic en **Crear aplicación** en el icono de la aplicación **Supervisión de medidores inteligentes**.
+1. Navegue al sitio de [Compilación Azure IoT Central](https://aka.ms/iotcentral). Después, inicie sesión con una cuenta Microsoft personal, profesional o educativa. Seleccione **Crear** en la barra de navegación de la izquierda y, a continuación, seleccione la pestaña **Energía**:
 
-    > [!div class="mx-imgBorder"]
-    > ![Compilar una aplicación](media/tutorial-iot-central-smart-meter/smart-meter-build.png)
-    
+    :::image type="content" source="media/tutorial-iot-central-smart-meter/smart-meter-build.png" alt-text="Plantilla de medidor inteligente":::
 
-1. Con la opción **Crear aplicación** se abrirá el formulario **Nueva aplicación**. Rellene los detalles solicitados tal como se muestra en la ilustración siguiente:
-    * **Nombre de la aplicación**: elija un nombre para su aplicación de IoT Central. 
-    * **URL**: elija una dirección URL de IoT Central y la plataforma verificará su unicidad.
-    * **Prueba gratuita de 7 días**: si ya tiene una suscripción a Azure, se recomienda la configuración predeterminada. Si no tiene ninguna, inicie una evaluación gratuita.
-    * **Información de facturación**: la aplicación es gratuita. Los detalles del directorio, la suscripción a Azure y la región son necesarios para aprovisionar los recursos de la aplicación.
-    * Haga clic en el botón **Crear** en la parte inferior de la página y la aplicación se creará en un minuto aproximadamente.
+1. En **Supervisión de medidores inteligentes**, seleccione **Crear aplicación**.
 
-        ![Formulario de nueva aplicación](media/tutorial-iot-central-smart-meter/smart-meter-create-new-app.png)
+Para más información, consulte [Creación de una aplicación de Azure IoT Central](../core/howto-create-iot-central-application.md).
 
-        ![Información de facturación de un formulario de nueva aplicación](media/tutorial-iot-central-smart-meter/smart-meter-create-new-app-billinginfo.png)
+## <a name="walk-through-the-application"></a>Recorrido por la aplicación.
 
-### <a name="verify-the-application-and-simulated-data"></a>Verificación de la aplicación y los datos simulados
+Las secciones siguientes le guiarán por las características clave de la aplicación:
 
-La aplicación de medidores inteligentes recién creada es su aplicación y puede modificarla en cualquier momento. Vamos a asegurarnos de que la aplicación se haya implementado y funcione según lo esperado antes de modificarla.
+### <a name="dashboard"></a>Panel
 
-Para verificar la creación de la aplicación y la simulación de datos, vaya al **Panel**. Si puede ver los iconos con algunos datos, significa que la implementación de la aplicación se realizó correctamente. La simulación de datos puede tardar entre 1 y 2 minutos en generar los datos, por lo que deberá esperar un poco. 
-
-## <a name="application-walk-through"></a>Tutorial de la aplicación
-Una vez que implemente la plantilla de la aplicación correctamente, esta incluirá un dispositivo de ejemplo de medidores inteligentes, un modelo de dispositivo y un panel. 
+Una vez que implemente la plantilla de la aplicación, esta incluirá un dispositivo de ejemplo de medidores inteligentes, un modelo de dispositivo y un panel. 
 
 Adatum es una compañía energética ficticia que supervisa y administra los medidores inteligentes. En el panel de supervisión de medidores inteligentes, verá propiedades, datos y comandos de ejemplo de los medidores inteligentes. Este permite que los operadores y los equipos de soporte técnico realicen de forma proactiva las actividades siguientes antes de que se produzcan incidentes de soporte técnico: 
 * Revisar la información más reciente del medidor y la [ubicación](../core/howto-use-location-data.md) de su instalación en el mapa
@@ -70,39 +72,34 @@ Adatum es una compañía energética ficticia que supervisa y administra los med
 * Realizar un seguimiento del consumo energético total para fines de planificación y facturación
 * Realizar operaciones con comandos y controles, como, por ejemplo, volver a conectar el medidor y actualizar la versión del firmware. En la plantilla, los botones de comando muestran las funcionalidades posibles y no envían comandos reales. 
 
-> [!div class="mx-imgBorder"]
-> ![Panel de supervisión de medidores inteligentes](media/tutorial-iot-central-smart-meter/smart-meter-dashboard.png)
+:::image type="content" source="media/tutorial-iot-central-smart-meter/smart-meter-dashboard.png" alt-text="Panel de supervisión de medidores inteligentes.":::
 
 ### <a name="devices"></a>Dispositivos
+
 La aplicación incluye un dispositivo de ejemplo de medidores inteligentes. Para ver los detalles del dispositivo, haga clic en la pestaña **Dispositivos**.
 
-> [!div class="mx-imgBorder"]
-> ![Dispositivos de medidores inteligentes](media/tutorial-iot-central-smart-meter/smart-meter-devices.png)
+:::image type="content" source="media/tutorial-iot-central-smart-meter/smart-meter-devices.png" alt-text="Dispositivos de medidores inteligentes.":::
 
 Haga clic en el vínculo **SM0123456789** del dispositivo de ejemplo para ver los detalles del dispositivo. Puede actualizar las propiedades de escritura del dispositivo en la página **Actualizar propiedades** y visualizar los valores actualizados en el panel.
 
-> [!div class="mx-imgBorder"]
-> ![Propiedades de los medidores inteligentes](media/tutorial-iot-central-smart-meter/smart-meter-device-properties.png)
+:::image type="content" source="media/tutorial-iot-central-smart-meter/smart-meter-device-properties.png" alt-text="Propiedades de los medidores inteligentes.":::
 
 ### <a name="device-template"></a>Plantilla de dispositivo
+
 Haga clic en la pestaña **Plantillas de dispositivo** para ver el modelo de dispositivo de medidores inteligentes. El modelo tiene una interfaz predefinida para los datos, las propiedades, los comandos y las vistas.
 
-> [!div class="mx-imgBorder"]
-> ![Plantillas de dispositivos de medidores inteligentes](media/tutorial-iot-central-smart-meter/smart-meter-device-template.png)
-
+:::image type="content" source="media/tutorial-iot-central-smart-meter/smart-meter-device-template.png" alt-text="Plantillas de dispositivos de medidores inteligentes.":::
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
+
 Si decide no seguir usando esta aplicación, elimínela con los siguientes pasos:
 
 1. En el panel izquierdo, abra la pestaña Administración.
 1. Seleccione la configuración de la aplicación y haga clic en el botón Eliminar situado en la parte inferior de la página. 
 
-    > [!div class="mx-imgBorder"]
-    > ![Eliminar aplicación](media/tutorial-iot-central-smart-meter/smart-meter-delete-app.png)
+    :::image type="content" source="media/tutorial-iot-central-smart-meter/smart-meter-delete-app.png" alt-text="Eliminar aplicación.":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre la arquitectura de las aplicaciones de medidores inteligentes, consulte:
+> [Tutorial: Implementación y recorrido por una plantilla de aplicación de paneles solares](tutorial-solar-panel-app.md)
 
-> [!div class="nextstepaction"]
-> [Azure IoT Central: arquitectura de aplicaciones de medidores inteligentes](./concept-iot-central-smart-meter-app.md)

@@ -1,22 +1,25 @@
 ---
-title: Actividad de función de Azure en Azure Data Factory
-description: Obtenga información sobre cómo usar la actividad de las funciones de Azure para ejecutar una función de Azure en una canalización de Data Factory.
+title: Actividad de función de Azure
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Aprenda a usar la actividad Función de Azure para ejecutar una función de Azure en una canalización de Azure Data Factory o Azure Synapse Analytics
 author: nabhishek
 ms.author: abnarain
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: orchestration
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 01/09/2019
-ms.openlocfilehash: 202cf30ae0f620789f300404b26ba04582ea3300
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.date: 08/24/2021
+ms.openlocfilehash: 4e62ea4c57e00695b2a2f969b9fd4f80f8298681
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107906735"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122824088"
 ---
 # <a name="azure-function-activity-in-azure-data-factory"></a>Actividad de las funciones de Azure en Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
-La actividad de las funciones de Azure permite ejecutar [Azure Functions](../azure-functions/functions-overview.md) en una canalización de Data Factory. Para ejecutar una función de Azure, debe crear una conexión de servicio vinculado y una actividad que especifique la función de Azure que se va a ejecutar.
+La actividad Función de Azure permite ejecutar [Azure Functions](../azure-functions/functions-overview.md) en una canalización de Azure Data Factory o Synapse. Para ejecutar una función de Azure, debe crear una conexión de servicio vinculado y una actividad que especifique la función de Azure que se va a ejecutar.
 
 Si desea una introducción y demostración de ocho minutos de esta característica, vea el siguiente vídeo:
 
@@ -24,7 +27,11 @@ Si desea una introducción y demostración de ocho minutos de esta característi
 
 ## <a name="azure-function-linked-service"></a>Servicio vinculado de la función de Azure
 
+
 El tipo de valor devuelto de la función de Azure tiene que ser un elemento `JObject` válido. (Tenga en cuenta que [JArray](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Linq_JArray.htm)*no* es un `JObject`.) Los tipos de valor devuelto que no sean `JObject` producen un error y generan el error de usuario *El contenido de la respuesta no es un elemento JObject válido*.
+
+La clave de función proporciona acceso seguro al nombre de la función; cada una de ellas tiene claves únicas independientes o una clave maestra dentro de una aplicación de funciones. La identidad administrada proporciona acceso seguro a toda la aplicación de funciones. El usuario debe proporcionar la clave para acceder al nombre de la función. Vea la documentación de la función para obtener más detalles sobre la [clave de acceso a la función](../azure-functions/functions-bindings-http-webhook-trigger.md?tabs=csharp#configuration).
+
 
 | **Propiedad** | **Descripción** | **Obligatorio** |
 | --- | --- | --- |
@@ -63,8 +70,8 @@ Obtenga más información sobre Durable Functions en [este artículo](../azure-f
 
 ## <a name="sample"></a>Muestra
 
-[Aquí](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV2/UntarAzureFilesWithAzureFunction) puede encontrar un ejemplo de una factoría de datos que usa una función de Azure para extraer el contenido de un archivo tar.
+[Aquí](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV2/UntarAzureFilesWithAzureFunction) puede encontrar un ejemplo que usa una función de Azure para extraer el contenido de un archivo tar.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre las actividades en Data Factory, vea [Canalizaciones y actividades en Azure Data Factory](concepts-pipelines-activities.md).
+Obtenga más información sobre las actividades admitidas en [Canalizaciones y actividades](concepts-pipelines-activities.md).

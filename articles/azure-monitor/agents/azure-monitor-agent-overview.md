@@ -6,12 +6,12 @@ author: bwren
 ms.author: bwren
 ms.date: 07/22/2021
 ms.custom: references_regions
-ms.openlocfilehash: b037f82b0d56f09000c5fb9e2814ff80aa6f1a82
-ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
+ms.openlocfilehash: ccd194df39f0fff4bdabe4ae91e911dd030673e6
+ms.sourcegitcommit: c2f0d789f971e11205df9b4b4647816da6856f5b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122272086"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122662176"
 ---
 # <a name="azure-monitor-agent-overview"></a>Información general del agente de Azure Monitor
 El agente de Azure Monitor (AMA) recopila datos de supervisión del sistema operativo invitado de máquinas virtuales de Azure y los entrega a Azure Monitor. En este artículo se proporciona información general sobre el agente de Azure Monitor, incluido cómo instalarlo y cómo configurar la recopilación de datos.
@@ -35,9 +35,10 @@ En comparación con los ya existentes, este nuevo agente aún no tiene paridad c
 - **Comparación con agentes de Log Analytics (MMA/OMS):**
     - Actualmente no se admiten todas las soluciones de Log Analytics. Consulte [qué se admite](#supported-services-and-features).
     - No se admiten instancias de Azure Private Link.
-    - No se admite la recopilación de registros personalizados ni registros de IIS.
+    - No se admite la recopilación de registros basados en archivos ni registros de IIS.
 - **Comparación con las extensiones de Azure Diagnostics (WAD/LAD):**
     - No se admiten Event Hubs ni cuentas de Storage como destinos.
+    - No se admite la recopilación de registros basados en archivos, registros de IIS, eventos de ETW, eventos de .NET y volcados de memoria.
 
 ### <a name="changes-in-data-collection"></a>Cambios en la recopilación de datos
 Los métodos para definir la recopilación de datos de los agentes existentes son distintos entre sí. Cada uno de ellos tiene desafíos que se abordan con el agente de Azure Monitor.
@@ -66,7 +67,11 @@ El agente de Azure Monitor reemplaza los [agentes antiguos de Azure Monitor](age
 Actualmente se admiten máquinas virtuales de Azure, conjuntos de escalado de máquinas virtuales y servidores compatibles con Azure Arc. En este momento no se admiten Azure Kubernetes Service ni otros tipos de recursos de proceso.
 
 ## <a name="supported-regions"></a>Regiones admitidas
-El agente de Azure Monitor está disponible en todas las regiones públicas que admiten Log Analytics. En este momento no se admiten regiones ni nubes gubernamentales.
+El agente de Azure Monitor está disponible en todas las regiones públicas que admiten Log Analytics, así como en las nubes de Azure Government y China. Todavía no se admiten las nubes aisladas.
+
+## <a name="supported-operating-systems"></a>Sistemas operativos admitidos
+En [Sistemas operativos admitidos](agents-overview.md#supported-operating-systems) puede consultar una lista de las versiones de sistemas operativos Windows y Linux que son compatibles actualmente con el agente de Azure Monitor.
+
 ## <a name="supported-services-and-features"></a>Servicios y características admitidos
 En la siguiente tabla se muestra la compatibilidad actual del agente de Azure Monitor con otros servicios de Azure.
 
@@ -97,7 +102,7 @@ Por ejemplo, VM Insights usa el agente de Log Analytics para enviar datos de re
 
 Por lo tanto, asegúrese de que no recopila los mismos datos de ambos agentes. Si está seguro, compruebe que vayan a destinos independientes.
 
-## <a name="costs"></a>Costos
+## <a name="costs"></a>Costes
 El agente de Azure Monitor no cuesta nada, pero puede incurrir en cargos por los datos ingeridos. Para obtener información sobre la recopilación y retención de datos de Log Analytics y conocer las métricas de clientes, consulte [Precios de Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
 
 ## <a name="data-sources-and-destinations"></a>Orígenes y destinos de los datos
@@ -108,13 +113,10 @@ El agente de Azure Monitor envía datos a métricas de Azure Monitor o a un áre
 | Origen de datos | Destinations | Descripción |
 |:---|:---|:---|
 | Rendimiento        | Métricas de Azure Monitor<sup>1</sup><br>Área de trabajo de Log Analytics | Valores numéricos que miden el rendimiento de diferentes aspectos del sistema operativo y las cargas de trabajo. |
-| registros de eventos de Windows; | Área de trabajo de Log Analytics | Información enviada al sistema de registro de eventos de Windows |
+| Registros de eventos de Windows | Área de trabajo de Log Analytics | Información enviada al sistema de registro de eventos de Windows |
 | syslog             | Área de trabajo de Log Analytics | Información enviada al sistema de registro de eventos de Windows. |
 
 <sup>1</sup> Actualmente hay una limitación en el agente Azure Monitor para Linux. No está permitido usar métricas de Azure Monitor como *único* destino. Sí que es posible usarlas junto con registros de Azure Monitor. Esta limitación se solucionará en la siguiente actualización de la extensión.
-
-## <a name="supported-operating-systems"></a>Sistemas operativos admitidos
-En [Sistemas operativos admitidos](agents-overview.md#supported-operating-systems) puede consultar una lista de las versiones de sistemas operativos Windows y Linux que son compatibles actualmente con el agente de Azure Monitor.
 
 ## <a name="security"></a>Seguridad
 El agente de Azure Monitor no requiere ninguna clave, pero en su lugar requiere una [identidad administrada asignada por el sistema](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity). Para poder implementar el agente, en cada máquina virtual debe tener habilitada una identidad administrada asignada por el sistema.
@@ -131,7 +133,7 @@ Las extensiones del agente de Azure Monitor para Windows y Linux pueden comunica
    ![Diagrama de flujo para determinar los valores de los parámetros setting y protectedSetting al habilitar la extensión.](media/azure-monitor-agent-overview/proxy-flowchart.png)
 
 
-1. Una vez determinados los valores de los parámetros *setting* y *protectedSetting*, proporcione estos parámetros adicionales al implementar el agente de Azure Monitor usando comandos de PowerShell. Los siguientes ejemplos corresponden a máquinas virtuales de Azure:
+2. Una vez determinados los valores de los parámetros *setting* y *protectedSetting*, proporcione estos parámetros adicionales al implementar el agente de Azure Monitor usando comandos de PowerShell. Los siguientes ejemplos corresponden a máquinas virtuales de Azure:
 
     | Parámetro | Value |
     |:---|:---|

@@ -1,19 +1,21 @@
 ---
 title: Comandos comunes de la CLI de Azure
 description: Aprenda los comandos básicos de la CLI de Azure para empezar a administrar las máquinas virtuales en el modo de Azure Resource Manager
-author: RicksterCDN
+author: cynthn
 ms.service: virtual-machines
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/12/2017
-ms.author: rclaus
-ms.openlocfilehash: 2084d79ecbbc53ef9e3c75bae0664eae7de0eccb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: cynthn
+ms.openlocfilehash: 64f028059504d7d4ff7905653146add0649ecd2f
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102559637"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122697009"
 ---
 # <a name="common-azure-cli-commands-for-managing-azure-resources"></a>Comandos de CLI de Azure comunes para administrar recursos de Azure
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles 
 
 La CLI de Azure le permite crear y administrar los recursos de Azure en Mac OS, Linux y Windows. En este artículo se detallan algunos de los comandos más comunes para crear y administrar máquinas virtuales (VM).
 

@@ -11,12 +11,12 @@ author: rsethur
 ms.date: 08/05/2021
 ms.topic: how-to
 ms.custom: how-to, devplatv2
-ms.openlocfilehash: 0a4117e17ddddbb1fcb083a927fc35abae8b2eb6
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 0c421148571b99bb182de6841586caafb116df42
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121751960"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122418431"
 ---
 # <a name="deploy-and-score-a-machine-learning-model-by-using-a-managed-online-endpoint-preview"></a>Implementación y puntuación de un modelo de aprendizaje automático con un punto de conexión en línea administrado (versión preliminar)
 
@@ -32,11 +32,11 @@ Para más información, consulte [¿Qué son los puntos de conexión de Azure Ma
 
 * Para usar Azure Machine Learning, es preciso tener una suscripción a Azure. Si no tiene una suscripción de Azure, cree una cuenta gratuita antes de empezar. Pruebe la [versión gratuita o de pago de Azure Machine Learning](https://azure.microsoft.com/free/).
 
-* Instale y configure la CLI de Azure y la extensión `ml` a la CLI de Azure. Para más información, consulte [Instalación, configuración y uso de la CLI 2.0 (versión preliminar)](how-to-configure-cli.md). 
+* Instale y configure la CLI de Azure y la extensión `ml` a la CLI de Azure. Para más información, consulte [Instalación, configuración y uso de la CLI v2 (versión preliminar)](how-to-configure-cli.md). 
 
-* Debe tener un grupo de recursos de Azure, en el que usted (o la entidad de servicio que use) tenga acceso de colaborador. Se crea un grupo de recursos en [Instalación, configuración y uso de la CLI 2.0 (versión preliminar)](how-to-configure-cli.md). 
+* Debe tener un grupo de recursos de Azure, en el que usted (o la entidad de servicio que use) tenga acceso de colaborador. Se crea un grupo de recursos en [Instalación, configuración y uso de la CLI v2 (versión preliminar)](how-to-configure-cli.md). 
 
-* Debe tener un área de trabajo de Azure Machine Learning. Se crea un área de trabajo en [Instalación, configuración y uso de la CLI 2.0 (versión preliminar)](how-to-configure-cli.md).
+* Debe tener un área de trabajo de Azure Machine Learning. Se crea un área de trabajo en [Instalación, configuración y uso de la CLI v2 (versión preliminar)](how-to-configure-cli.md).
 
 * Si aún no ha establecido los valores predeterminados de la CLI de Azure, guarde la configuración predeterminada. Para evitar pasar los valores de la suscripción, el área de trabajo y el grupo de recursos varias veces, ejecute este código:
 

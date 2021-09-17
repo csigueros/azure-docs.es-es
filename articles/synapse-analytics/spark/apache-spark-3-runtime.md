@@ -1,28 +1,28 @@
 ---
-title: Entorno de ejecución de Azure Synapse para Apache Spark 3.0 (versión preliminar)
-description: Versiones admitidas de Spark, Scala, Python y .NET para Apache Spark 3.0 (versión preliminar).
+title: Entorno de ejecución de Azure Synapse para Apache Spark 3.1 (versión preliminar)
+description: Versiones admitidas de Spark, Scala, Python y .NET para Apache Spark 3.1 (versión preliminar).
 services: synapse-analytics
 author: midesa
 ms.service: synapse-analytics
 ms.topic: reference
 ms.subservice: spark
-ms.date: 05/26/2021
+ms.date: 08/23/2021
 ms.author: midesa
-ms.openlocfilehash: 1a129b7db413f7b4104f2d3f21e11f638ef6ee23
-ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
+ms.custom: has-adal-ref
+ms.openlocfilehash: 4ee561e5be8d24136210cd755865973d9aafd62f
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110579418"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122695680"
 ---
-# <a name="azure-synapse-runtime-for-apache-spark-30-preview"></a>Entorno de ejecución de Azure Synapse para Apache Spark 3.0 (versión preliminar)
+# <a name="azure-synapse-runtime-for-apache-spark-31-preview"></a>Entorno de ejecución de Azure Synapse para Apache Spark 3.1 (versión preliminar)
 
-Azure Synapse Analytics admite varios entornos de ejecución para Apache Spark. En este documento se tratarán los componentes y versiones del entorno de ejecución de Azure Synapse para Apache Spark 3.0 (versión preliminar).  El motor del entorno de ejecución se actualizará periódicamente con las características y bibliotecas más recientes durante el período de versión preliminar.  Consulte aquí para ver las actualizaciones más recientes de las bibliotecas y sus versiones.
+Azure Synapse Analytics admite varios entornos de ejecución para Apache Spark. En este documento se tratarán los componentes y versiones del entorno de ejecución de Azure Synapse para Apache Spark 3.1 (versión preliminar).  El motor del entorno de ejecución se actualizará periódicamente con las características y bibliotecas más recientes durante el período de versión preliminar.  Consulte aquí para ver las actualizaciones más recientes de las bibliotecas y sus versiones.
 
 ## <a name="known-issues-in-preview"></a>Problemas conocidos de la versión preliminar
 * La compatibilidad con canalizaciones y flujos de datos de Synapse estará disponible próximamente.
-* La administración de bibliotecas para agregar bibliotecas estará disponible próximamente.
-* Conectores: la siguiente compatibilidad con conectores estará disponible próximamente.
+* La siguiente compatibilidad con conectores estará disponible próximamente:
   * Conector de Azure Data Explorer
   * CosmosDB
   * SQL Server
@@ -31,14 +31,14 @@ Azure Synapse Analytics admite varios entornos de ejecución para Apache Spark. 
 ## <a name="component-versions"></a>Versiones de componentes
 |  Componente   | Versión   |  
 | ----- | ----- |
-| Spark de Apache | 3.0 |
+| Spark de Apache | 3.1 |
 | Sistema operativo | Ubuntu 18.04 |
 | Java | 1.8.0_282 |
 | Scala | 2,12  |
 | .NET Core | 3.1 |
-| .NET | 1.0.0 |
-| Delta Lake | 0.8 |
-| Python | 3.6 |
+| .NET | 2.0.0 |
+| Delta Lake | 1.0 |
+| Python | 3.8 |
 
 ## <a name="scala-and-java-libraries"></a>Bibliotecas de Scala y Java
 
@@ -1277,5 +1277,5 @@ zipp=0.6.0
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Azure Synapse Analytics](../overview-what-is.md)
-- [Documentación de Apache Spark](https://spark.apache.org/docs/2.4.4/)
+- [Documentación de Apache Spark](https://spark.apache.org/docs/3.0.2/)
 - [Conceptos de Apache Spark](apache-spark-concepts.md)

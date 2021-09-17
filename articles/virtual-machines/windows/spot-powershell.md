@@ -10,15 +10,16 @@ ms.date: 03/22/2021
 ms.author: cynthn
 ms.reviewer: jagaveer
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6db3a8b2871cad0348893ab2878904767f512988
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: ee1f915045ed3272d8f93559efcf06c0c2bcc011
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110677673"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122689320"
 ---
 # <a name="deploy-azure-spot-virtual-machines-using-azure-powershell"></a>Implementación de máquinas virtuales de acceso puntual de Azure con Azure PowerShell
 
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles 
 
 El uso de [máquinas virtuales de acceso puntual de Azure](../spot-vms.md) permite aprovechar las ventajas de nuestra capacidad no utilizada con un importante ahorro en los costos. Siempre que Azure necesite recuperar la capacidad, la infraestructura de esta plataforma expulsará las máquinas virtuales de acceso puntual de Azure. Por lo tanto, estas máquinas son excelentes para cargas de trabajo que puedan soportar interrupciones, como los trabajos de procesamiento por lotes, los entornos de desarrollo y pruebas, las cargas de trabajo de proceso de gran tamaño, etc.
 

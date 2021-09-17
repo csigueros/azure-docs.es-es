@@ -10,14 +10,15 @@ ms.workload: infrastructure
 ms.date: 09/27/2018
 ms.author: magoedte
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: cf30282ee37beaa99e83b78b8b7455f2060d8023
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 0834fa6fd7eff41f37eb8f16dc3429189be284cb
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110668011"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122688681"
 ---
 # <a name="tutorial-monitor-a-windows-virtual-machine-in-azure"></a>Tutorial: Supervisión de una máquina virtual Windows en Azure
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles
 
 La supervisión de Azure usa agentes para recopilar datos de arranque y de rendimiento de máquinas virtuales de Azure, almacenar estos datos en Azure Storage y permitir el acceso a ellos mediante el portal, el módulo de Azure PowerShell y la CLI de Azure. La supervisión avanzada se ofrece con Azure Monitor para VM mediante la recopilación de métricas de rendimiento, la detección de los componentes de aplicación instalados en la máquina virtual e incluye gráficos de rendimiento y asignaciones de dependencias.
 

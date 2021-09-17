@@ -9,16 +9,18 @@ ms.date: 10/16/2018
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a6943d2a26075c0671ad7c631e8d0d8f46c5b47e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: f8fbcbb70ae73c9fdfe0aa388c07d23d6c4f8e20
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121732461"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122692631"
 ---
 # <a name="attach-a-data-disk-to-a-windows-vm-with-powershell"></a>Conexión de un disco a una VM Windows con PowerShell
 
-En este artículo se explica cómo conectar discos nuevos y existentes a una máquina virtual Windows con PowerShell.
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles 
+
+En este artículo se explica cómo conectar discos nuevos y existentes a una máquina virtual Windows con PowerShell. 
 
 En primer lugar, revise estas sugerencias:
 

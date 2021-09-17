@@ -10,12 +10,12 @@ author: lobrien
 ms.date: 02/26/2021
 ms.topic: how-to
 ms.custom: contperf-fy20q4, devx-track-python, data4ml
-ms.openlocfilehash: ddac4588009d495ac64c607e97780eca5aceb54b
-ms.sourcegitcommit: 096e7972e2a1144348f8d648f7ae66154f0d4b39
+ms.openlocfilehash: 5b6a4186fed994057ab6c44930c5ec68ba85ad05
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2021
-ms.locfileid: "112515463"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122607134"
 ---
 # <a name="moving-data-into-and-between-ml-pipeline-steps-python"></a>Movimiento de datos a los pasos de canalización de Machine Learning (Python) y entre ellos
 
@@ -172,7 +172,7 @@ dataprep_step = PythonScriptStep(
 ```
 
 > [!NOTE]
-> Se producirá un error en las operaciones de escritura simultáneas en un objeto `OutputFileDatasetConfig`. No intente usar un único objeto `OutputFileDatasetConfig` de manera simultánea. No comparta un único objeto `OutputFileDatasetConfig` en una situación multiproceso, como cuando se usa el entrenamiento distribuido. 
+> Se producirá un error en las operaciones de escritura simultáneas en un objeto `OutputFileDatasetConfig`. No intente usar un único objeto `OutputFileDatasetConfig` de manera simultánea. No comparta un único objeto `OutputFileDatasetConfig` en una situación multiproceso, como cuando se usa el [entrenamiento distribuido](how-to-train-distributed-gpu.md). 
 
 ### <a name="use-outputfiledatasetconfig-as-outputs-of-a-training-step"></a>Uso de `OutputFileDatasetConfig` como salidas de un paso de entrenamiento
 

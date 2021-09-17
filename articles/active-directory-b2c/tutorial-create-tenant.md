@@ -10,12 +10,13 @@ ms.topic: tutorial
 ms.date: 12/03/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 56a306e56991500a6b1d5acab1ab38a3b4fa457f
-ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
+ms.custom: b2c-support
+ms.openlocfilehash: e8f5405e55c3443b020265e68d68737f6d266a17
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110613306"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122179310"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>Tutorial: Creación de un inquilino de Azure Active Directory B2C
 
@@ -49,6 +50,12 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
     En la barra de herramientas de Azure Portal, seleccione el icono **Directorio + suscripción** y, luego, seleccione el directorio que contiene la suscripción. Se trata de un directorio diferente al que contendrá al inquilino de Azure AD B2C.
 
     ![Inquilino de suscripción: filtro Directorio + suscripción con el inquilino de suscripción seleccionado](media/tutorial-create-tenant/portal-01-pick-directory.png)
+
+1. Agregue **Microsoft.AzureActiveDirectory** como proveedor de recursos para la suscripción de Azure que utiliza ([más información](../azure-resource-manager/management/resource-providers-and-types.md?WT.mc_id=Portal-Microsoft_Azure_Support#register-resource-provider-1)):
+
+    1. En el menú de Azure Portal o en la **página principal**, seleccione **Suscripciones**.
+    2. Seleccione la suscripción y luego seleccione **Proveedores de recursos**.
+    3. Asegúrese de que la fila **Microsoft.AzureActiveDirectory** muestre el estado **Registrado**. Si no es así, seleccione la fila y, a continuación, seleccione **Registrar**.
 
 1. En el menú de Azure Portal o en la **página principal**, seleccione **Crear un recurso**.
 

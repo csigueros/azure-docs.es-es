@@ -1,15 +1,15 @@
 ---
 title: 'Creación de archivos de Bicep: Visual Studio Code'
 description: Uso de Visual Studio Code y la extensión Bicep para archivos de Bicep a fin de implementar recursos de Azure
-ms.date: 06/25/2021
+ms.date: 07/30/2021
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8167516a41943ea17fdeb47bce84767178593e85
-ms.sourcegitcommit: cd8e78a9e64736e1a03fb1861d19b51c540444ad
+ms.openlocfilehash: 4f76d18c756855798651e0c129fd4f0caec15984
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2021
-ms.locfileid: "112970110"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121750154"
 ---
 # <a name="quickstart-create-bicep-files-with-visual-studio-code"></a>Inicio rápido: Creación de plantillas de archivos de Bicep con Visual Studio Code
 
@@ -61,7 +61,7 @@ resource virtualNetwork 'Microsoft.Network/virtualNetworks@2019-11-01' = {
 }
 ```
 
-Este fragmento de código contiene todos los valores que necesita para definir la red virtual. Sin embargo, puede modificarlo para que cumpla sus requisitos. Por ejemplo, `name` no es un buen nombre para la red virtual. Cambie la propiedad `name` a `examplevnet`.
+Este fragmento de código contiene todos los valores que necesita para definir una red virtual. Sin embargo, puede modificarlo para que cumpla sus requisitos. Por ejemplo, `name` no es un buen nombre para la red virtual. Cambie la propiedad `name` a `examplevnet`.
 
 ```bicep
 name: 'examplevnet'
@@ -118,13 +118,13 @@ Vale, el parámetro está listo para usarse.
 
 En lugar de usar un fragmento de código para definir la cuenta de almacenamiento, usaremos IntelliSense para configurar los valores. Con IntelliSense, este paso es mucho más fácil que cuando los valores se tienen que escribir manualmente.
 
-Defina un recurso con la palabra clave `resource`.  Debajo de la red virtual, escriba **resource exampleStorage**:
+Para definir un recurso, use la palabra clave `resource`.  Debajo de la red virtual, escriba **resource exampleStorage**:
 
 ```bicep
 resource exampleStorage
 ```
 
-**exampleStorage** es un nombre simbólico para el recurso que se va a implementar. Con él, se facilitará el uso de referencias al recurso en otras partes del archivo Bicep.
+**exampleStorage** es un nombre simbólico para el recurso que se va a implementar. Puede usar el nombre para hacer referencia al recurso en otras partes del archivo de Bicep.
 
 Al agregar un espacio después del nombre simbólico, se muestra una lista de tipos de recursos. Siga escribiendo **storage** hasta que pueda seleccionarlo entre las opciones disponibles.
 
@@ -154,7 +154,7 @@ resource exampleStorage 'Microsoft.Storage/storageAccounts@2021-02-01' = {
 
 Casi ha terminado. Solo tiene que proporcionar valores para esas propiedades.
 
-De nuevo, IntelliSense le puede ayudar. En el caso de `name`, proporcione el parámetro que contiene un nombre para la cuenta de almacenamiento. En el caso de `location`, establezca el valor en `eastus`. Al agregar el nombre y el tipo de SKU, IntelliSense presentará las opciones válidas.
+De nuevo, IntelliSense le puede ayudar. Defina `name` como `storageName`, que es el parámetro que contiene un nombre para la cuenta de almacenamiento. En el caso de `location`, establezca el valor en `eastus`. Al agregar el nombre y el tipo de SKU, IntelliSense presentará las opciones válidas.
 
 Cuando haya terminado, tendrá lo siguiente:
 

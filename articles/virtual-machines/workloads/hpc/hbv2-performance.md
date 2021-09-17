@@ -10,14 +10,16 @@ ms.topic: article
 ms.date: 09/28/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 6edaed1011b867cac9920a19be6bb5fb7157e16f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a15aaece5916ac9e9ff6129754b4f932878ac707
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104721223"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122698640"
 ---
 # <a name="hbv2-series-virtual-machine-sizes"></a>Tamaños de las máquinas virtuales de la serie HBv2
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles :heavy_check_mark: Conjuntos de escalado uniformes
 
 Se han realizado varias pruebas de rendimiento en las máquinas virtuales de los tamaños de la [serie HBv2](../../hbv2-series.md). Estos son algunos de los resultados de esta prueba.
 

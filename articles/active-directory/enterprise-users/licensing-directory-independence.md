@@ -1,5 +1,5 @@
 ---
-title: 'Características de la interacción de varios inquilinos: Azure AD | Microsoft Docs'
+title: 'Características de la interacción multiinquilino: Azure AD | Microsoft Docs'
 description: Descripción de la independencia de datos de las organizaciones de Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.author: curtand
 ms.custom: it-pro
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ce3e4c6a7708fba15560564577c9b01722c8aec
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 79673341845504590d1c70f802a04c644d20b7db
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96548059"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121750540"
 ---
-# <a name="understand-how-multiple-azure-active-directory-organizations-interact"></a>Información de cómo interactúan varias organizaciones de Azure Active Directory
+# <a name="understand-how-multiple-azure-active-directory-tenant-organizations-interact"></a>Información de cómo interactúan varias organizaciones inquilinas de Azure Active Directory
 
 En Azure Active Directory (Azure AD), cada organización de Azure AD es totalmente independiente: un elemento del mismo nivel, que es lógicamente independiente de otras organizaciones de Azure AD que administre. Esta independencia entre organizaciones incluye la independencia de recursos, la independencia administrativa y la independencia de sincronización. No hay ninguna relación de elementos primarios y secundarios entre las organizaciones.
 
@@ -35,7 +35,7 @@ En Azure Active Directory (Azure AD), cada organización de Azure AD es tota
 Si un usuario no administrativo de la organización "Contoso" crea la organización de prueba "Prueba", en ese caso:
 
 * De forma predeterminada, el usuario que crea una organización se agrega como un usuario externo en esa nueva organización y se le asigna el rol de administrador global en esa organización.
-* Los administradores de la organización "Contoso" no tienen privilegios administrativos directos en la organización "Prueba", a menos que el administrador de "Prueba" les conceda específicamente estos privilegios. Sin embargo, los administradores de "Contoso" pueden controlar el acceso a la organización "Prueba" si controlan la cuenta de usuario que creó "Prueba".
+* Los administradores de la organización "Contoso" no tienen privilegios administrativos directos en la organización "Prueba", a menos que el administrador de "Prueba" les conceda específicamente estos privilegios. Sin embargo, los administradores de "Contoso" pueden controlar el acceso a la organización "Prueba" si inician sesión con la cuenta de usuario que creó "Prueba".
 * Si agrega o quita un rol de Azure AD para un usuario de una organización, el cambio no afectará a los roles que el usuario esté asignado en otras organizaciones Azure AD.
 
 ## <a name="synchronization-independence"></a>Independencia de sincronización

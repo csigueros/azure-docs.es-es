@@ -3,12 +3,12 @@ title: Restauración y copia de seguridad periódicas de Azure Service Fabric i
 description: Use la característica de copia de seguridad periódica y restauración de Service Fabric para habilitar la copia de seguridad periódica de los datos de su aplicación.
 ms.topic: conceptual
 ms.date: 5/24/2019
-ms.openlocfilehash: d78a627c0c50a3e2ec57138e40cb5bc97486d6f7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 78a906e1e2261b0d117c7042b1ac387e2e98f045
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103198705"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122444571"
 ---
 # <a name="periodic-backup-and-restore-in-a-standalone-service-fabric"></a>Restauración y copia de seguridad periódicas de Service Fabric independiente
 > [!div class="op_single_selector"]
@@ -112,7 +112,9 @@ Primero debe habilitar el _servicio de copia de seguridad y restauración_ en el
         ...
     }
     ```
-
+    > [!NOTE]
+    > \[Thumbprint\] debe reemplazarse por la huella digital de certificado válida que se usará en el cifrado.
+    >
 4. Una vez actualizado el archivo de configuración del clúster con los cambios anteriores, aplíquelos y deje que se complete la actualización o la implementación. Cuando haya terminado, el _servicio de copia de seguridad y restauración_ empezará a ejecutarse en el clúster. El URI de este servicio es `fabric:/System/BackupRestoreService` y el servicio puede estar ubicado en la sección de servicio del sistema de Service Fabric Explorer. 
 
 

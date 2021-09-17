@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: reference
 ms.date: 08/03/2021
 ms.author: memildin
-ms.openlocfilehash: b826ed1ab9fbe2c55e8fd4737cb3a1c83bae1766
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 5b2eb0cd1f96ce52a7f27ec961bd08248442827a
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121734985"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122606862"
 ---
 # <a name="archive-for-whats-new-in-azure-security-center"></a>Archivo de novedades de Azure Security Center
 
@@ -935,7 +935,7 @@ La aplicación de una configuración segura, basada en una recomendación espec�
 
 - Con el efecto **Denegar** de Azure Policy, puede impedir que se creen recursos incorrectos.
 
-- Con la opción **Exigir**, puede sacar partido del efecto de **DeployIfNotExist** de Azure Policy y corregir automáticamente los recursos no compatibles tras la creación.
+- Con la opción **Aplicar**, puede sacar partido del efecto **DeployIfNotExist** de Azure Policy y corregir automáticamente los recursos no compatibles tras la creación.
  
 Está disponible para las recomendaciones de seguridad seleccionadas y puede encontrarse en la parte superior de la página de detalles del recurso.
 
@@ -1283,7 +1283,7 @@ La automatización de los procesos de supervisión y respuesta ante incidentes d
 
 Para implementar las configuraciones de automatización en la organización, use estas directivas de Azure "DeployIfdNotExist" integradas para crear y configurar los procedimientos de [exportación continua](continuous-export.md) y [automatización de flujos de trabajo](workflow-automation.md):
 
-Las directivas se pueden encontrar en la directiva de Azure:
+Las definiciones de directiva se pueden encontrar en Azure Policy:
 
 
 |Objetivo  |Directiva  |Id. de directiva  |
@@ -1314,9 +1314,9 @@ Obtenga más información en la tabla [Recomendaciones de red](recommendations-r
 
 ### <a name="new-policies-for-enabling-threat-protection-and-advanced-data-security"></a>Nuevas directivas para habilitar la protección contra amenazas y Advanced Data Security
 
-Las nuevas directivas que se indican a continuación se agregaron a la iniciativa predeterminada de ASC y están diseñadas para ayudar a habilitar la protección contra amenazas o Advanced Data Security para los tipos de recursos pertinentes.
+Las nuevas definiciones de directiva que se indican a continuación se agregaron a la iniciativa predeterminada de ASC y están diseñadas para ayudar a habilitar la protección contra amenazas o Advanced Data Security para los tipos de recursos pertinentes.
 
-Las directivas se pueden encontrar en la directiva de Azure:
+Las definiciones de directiva se pueden encontrar en Azure Policy:
 
 
 | Directiva                                                                                                                                                                                                                                                                | Id. de directiva                            |
@@ -1442,7 +1442,7 @@ Obtenga más información sobre los controles de seguridad en [Puntuación de se
 
 Las directivas personalizadas ahora forman parte de la experiencia de recomendaciones de Security Center, la puntuación segura y el panel de normas de cumplimiento normativo. Esta característica ya está disponible con carácter general y permite ampliar la cobertura de evaluación de seguridad de la organización en Security Center. 
 
-Cree una iniciativa personalizada en Azure Policy, agréguele directivas e incorpore a Azure Security Center y visualice como recomendaciones.
+Cree una iniciativa personalizada en Azure Policy, agréguele directivas e incorpórela a Azure Security Center, y visualícela como recomendaciones.
 
 Ahora también hemos agregado la opción para editar los metadatos de recomendación personalizados. Las opciones de metadatos incluyen gravedad, pasos de corrección, información de amenazas y mucho más.  
 

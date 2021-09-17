@@ -4,15 +4,15 @@ description: En este artículo, encontrará los pasos necesarios para administra
 documentationcenter: .net
 author: spelluru
 ms.topic: tutorial
-ms.date: 07/26/2021
+ms.date: 08/13/2021
 ms.author: spelluru
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 36690973f441c80f71c1941c63cd40d91c1efd08
-ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
+ms.openlocfilehash: 013468d1b6e5ba6fccb1277f715b5a42a469f4a2
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114719882"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122182602"
 ---
 # <a name="tutorial-respond-to-azure-service-bus-events-received-via-azure-event-grid-by-using-azure-logic-apps"></a>Tutorial: Respuesta a eventos de Azure Service Bus recibidos mediante Azure Event Grid utilizando Azure Logic Apps
 En este tutorial, aprenderá a responder a eventos de Azure Service Bus recibidos mediante Azure Event Grid utilizando Azure Logic Apps. 
@@ -44,7 +44,7 @@ En este paso, va a crear una aplicación lógica de Azure que recibe eventos de 
     2. En **Resource Type** (Tipo de recurso), seleccione **Microsoft.ServiceBus.Namespaces**. 
     3. En **Resource Name** (Nombre del recurso), seleccione el espacio de nombres de Service Bus. 
     4. Seleccione **Add new parameter** (Agregar nuevo parámetro) y **Suffix Filter** (Filtro de sufijo). 
-    5. En **Suffix Filter** (Filtro de sufijo), escriba el nombre de la segunda suscripción al tema de Service Bus. 
+    5. En **Suffix Filter** (Filtro de sufijo), escriba el nombre de la suscripción al tema de Service Bus. 
         ![Diseñador de Logic Apps: configuración de eventos](./media/service-bus-to-event-grid-integration-example/logic-app-configure-event.png)
 6. En el diseñador, seleccione **+New Step** (+Nuevo paso) y siga los siguientes pasos:
     1. Busque **Service Bus**.
@@ -102,7 +102,7 @@ En este paso, agregará pasos para enviar el mensaje recibido en un correo elect
     1. Seleccione **Service Bus** en la lista **Recientes**.
     2. Seleccione **Complete the message in a topic subscription** (Completar el mensaje en una suscripción de tema) en la lista de acciones. 
     3. Seleccione el **tema** de Service Bus.
-    4. Seleccione la segunda **suscripción** al tema.
+    4. Seleccione una **suscripción** al tema.
     5. En **Lock token of the message** (	Token de bloqueo del mensaje), seleccione **Lock Token** (Token de bloqueo) en **Dynamic content** (Contenido dinámico). 
 
         ![Diseñador de aplicaciones lógicas: completar el mensaje](./media/service-bus-to-event-grid-integration-example/logic-app-complete-message.png)

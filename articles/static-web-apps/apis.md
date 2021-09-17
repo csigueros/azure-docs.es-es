@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/18/2020
 ms.author: cshoe
-ms.openlocfilehash: 8d9654ce534bea9a6f1a10ffc9605278b1c598e9
-ms.sourcegitcommit: eb20dcc97827ef255cb4ab2131a39b8cebe21258
+ms.openlocfilehash: 168c187c4e573193b439e790fb94290aadec046a
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/03/2021
-ms.locfileid: "111372527"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122778877"
 ---
 # <a name="api-support-in-azure-static-web-apps-with-azure-functions"></a>Compatibilidad de API en Azure Static Web Apps con Azure Functions
 
@@ -37,10 +37,11 @@ En la tabla siguiente se comparan las diferencias entre el uso de funciones admi
 | [Planes de hospedaje](../azure-functions/functions-scale.md) de Azure Functions admitidos | Consumo | Consumo<br>Premium<br>Dedicado |
 | [Seguridad integrada](user-information.md) con acceso directo a los datos de autenticación y autorización basada en roles del usuario | ✔ | ✔ |
 | [Integración del enrutamiento](./configuration.md?#routes) que hace que la ruta de _api_ esté disponible para la aplicación web de forma segura sin necesidad de reglas de CORS personalizadas. | ✔ | ✔ |
-| Modelo de programación de [Durable Functions](../azure-functions/durable/durable-functions-overview.md) | | ✔ |
-| [Identidad administrada](../app-service/overview-managed-identity.md) | | ✔ |
-| Administración de tokens de [autenticación y autorización de Azure App Service](../app-service/configure-authentication-provider-aad.md) | | ✔ |
-| Funciones de API disponibles fuera de Azure Static Web Apps |  | ✔ |
+| Modelo de programación de [Durable Functions](../azure-functions/durable/durable-functions-overview.md) | ✕ | ✔ |
+| [Identidad administrada](../app-service/overview-managed-identity.md) | ✕ | ✔ |
+| Administración de tokens de [autenticación y autorización de Azure App Service](../app-service/configure-authentication-provider-aad.md) | ✕ | ✔ |
+| Funciones de API disponibles fuera de Azure Static Web Apps | ✕ | ✔ |
+| Configuración de la aplicación almacenada en Azure Key Vault | ✕ | ✔ |
 
 ## <a name="configuration"></a>Configuración
 

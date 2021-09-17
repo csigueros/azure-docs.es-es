@@ -8,14 +8,18 @@ ms.topic: tutorial
 ms.date: 04/20/2021
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 4b2290d29d1f6fbf8acd2e2652cd47a321fe674f
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: fbe2aabbcf9595cbb7520d160f72d17b58872293
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107813171"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122698973"
 ---
 # <a name="tutorial-use-tlsssl-certificates-to-secure-a-web-server"></a>Tutorial: Uso de certificados TLS/SSL para proteger un servidor web
+
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux 
+
 Para proteger los servidores web, se puede usar un certificado de seguridad de la capa de transporte (TLS), conocido anteriormente como Capa de sockets seguros (SSL), para cifrar el tráfico web. Estos certificados TLS/SSL pueden almacenarse en Azure Key Vault y permiten implementaciones seguras de certificados en máquinas virtuales Linux en Azure. En este tutorial, aprenderá a:
 
 > [!div class="checklist"]

@@ -1,18 +1,21 @@
 ---
-title: Creación de desencadenadores de ventana de saltos de tamaño constante en Azure Data Factory
-description: Obtenga información acerca de cómo crear un desencadenador en Azure Data Factory para que ejecute una canalización en una ventana de saltos de tamaño constante.
+title: Creación de un desencadenador periódico
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Aprenda a crear un desencadenador en Azure Data Factory o Azure Synapse Analytics que ejecute una canalización en una ventana de saltos de tamaño constante.
 author: chez-charlie
 ms.author: chez
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: orchestration
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/25/2020
-ms.openlocfilehash: ad397b62adcbcf6a0e117950c0dc3be33e6522db
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 08/24/2021
+ms.openlocfilehash: b4a2e86c66584f555dd88dfd8e3d3b8b0fac5858
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104779824"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122822747"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>Creación de un desencadenador que ejecuta una canalización en una ventana de saltos de tamaño constante
 
@@ -22,13 +25,19 @@ En este artículo se explica cómo crear, iniciar y supervisar un desencadenador
 
 Los desencadenadores de ventana de saltos de tamaño constante son un tipo de desencadenador que se activa en un intervalo de tiempo periódico a partir de una hora de inicio especificada, mientras conserva el estado. Las ventanas de saltos de tamaño constante son una serie de intervalos de tiempo de tamaño fijo, contiguos y que no se superponen. Un desencadenador de ventana de saltos de tamaño constante tiene una relación uno a uno con una canalización y solo puede hacer referencia a una única canalización. El desencadenador de ventana de saltos de tamaño constante es una alternativa de mayor peso para el desencadenador de programación, que ofrece un conjunto de características para escenarios complejos ([dependencia en otros desencadenadores de ventana de saltos de tamaño constante](#tumbling-window-trigger-dependency), [nueva ejecución de un trabajo con errores](tumbling-window-trigger-dependency.md#monitor-dependencies) y [definición del reintento de canalizaciones por el usuario](#user-assigned-retries-of-pipelines)). Para comprender mejor la diferencia entre el desencadenador de programación y el desencadenador de ventana de saltos de tamaño constante, visite [aquí](concepts-pipeline-execution-triggers.md#trigger-type-comparison).
 
-## <a name="data-factory-ui"></a>Interfaz de usuario de Data Factory
+## <a name="ui-experience"></a>Experiencia de IU
 
-1. Para crear un desencadenador de ventana de saltos de tamaño constante en la interfaz de usuario de Data Factory, seleccione la pestaña de los **desencadenadores** y, a continuación, seleccione **New** (Nuevo). 
+1. Para crear un desencadenador de ventana de saltos de tamaño constante en la interfaz de usuario, seleccione la pestaña de los **desencadenadores** y, a continuación, seleccione **Nuevo**. 
 1. Después de abrir el panel de configuración del desencadenador,seleccione la **ventana de saltos de tamaño constante** y, a continuación, defina las propiedades del desencadenador de la misma. 
 1. Cuando finalice, seleccione **Guardar**.
 
-![Creación de un desencadenador de ventana de saltos de tamaño constante en Azure Portal](media/how-to-create-tumbling-window-trigger/create-tumbling-window-trigger.png)
+# <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
+:::image type="content" source="media/how-to-create-tumbling-window-trigger/create-tumbling-window-trigger.png" alt-text="Creación de un desencadenador de ventana de saltos de tamaño constante en Azure Portal":::
+
+# <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+:::image type="content" source="media/how-to-create-tumbling-window-trigger/create-tumbling-window-trigger-synapse.png" alt-text="Creación de un desencadenador de ventana de saltos de tamaño constante en Azure Portal":::
+
+---
 
 ## <a name="tumbling-window-trigger-type-properties"></a>Propiedades del tipo de desencadenador de ventana de saltos de tamaño constante
 
@@ -168,11 +177,27 @@ Puede cancelar las ejecuciones de un desencadenador de ventana de saltos de tama
 * Si la ventana se encuentra en estado **Running** (En ejecución), cancele la _ejecución de canalización_ asociada y la ejecución del desencadenador se marcará después como _Canceled_ (Cancelada).
 * Si la ventana está en estado **Waiting** (En espera) o **Waiting on Dependency** (En espera de dependencia), puede cancelar la ventana desde Supervisión:
 
-![Cancelación de un desencadenador de ventana de saltos de tamaño constante desde la página Supervisión](media/how-to-create-tumbling-window-trigger/cancel-tumbling-window-trigger.png)
+# <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
+
+:::image type="content" source="media/how-to-create-tumbling-window-trigger/cancel-tumbling-window-trigger.png" alt-text="Cancelación de un desencadenador de ventana de saltos de tamaño constante desde la página Supervisión":::
+
+# <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+:::image type="content" source="media/how-to-create-tumbling-window-trigger/cancel-tumbling-window-trigger-synapse.png" alt-text="Cancelación de un desencadenador de ventana de saltos de tamaño constante desde la página Supervisión":::
+
+---
 
 También puede volver a ejecutar una ventana cancelada. En esta nueva ejecución se tomarán las definiciones publicadas _más recientes_ del desencadenador, y las dependencias de la ventana especificada se _volverán a evaluar_ después.
 
-![Nueva ejecución de un desencadenador de ventana de saltos de tamaño constante para las ejecuciones canceladas anteriormente](media/how-to-create-tumbling-window-trigger/rerun-tumbling-window-trigger.png)
+# <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
+
+:::image type="content" source="media/how-to-create-tumbling-window-trigger/rerun-tumbling-window-trigger.png" alt-text="Nueva ejecución de un desencadenador de ventana de saltos de tamaño constante para las ejecuciones canceladas anteriormente":::
+
+# <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+:::image type="content" source="media/how-to-create-tumbling-window-trigger/rerun-tumbling-window-trigger-synapse.png" alt-text="Nueva ejecución de un desencadenador de ventana de saltos de tamaño constante para las ejecuciones canceladas anteriormente":::
+
+---
 
 ## <a name="sample-for-azure-powershell"></a>Ejemplo para Azure PowerShell
 

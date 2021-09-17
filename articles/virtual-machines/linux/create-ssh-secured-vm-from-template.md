@@ -7,14 +7,16 @@ ms.collection: linux
 ms.topic: how-to
 ms.date: 03/22/2019
 ms.author: cynthn
-ms.openlocfilehash: 73b21947410ac275a568e20208c062f0da7a1b2e
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: ae954f1a461f2a5fd98b0f0374f6583fed34ce05
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108769964"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122689885"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-with-azure-resource-manager-templates"></a>Procedimiento para crear una máquina virtual Linux con plantillas de Azure Resource Manager
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Conjuntos de escalado flexibles 
 
 Aprenda a crear una máquina virtual (VM) Linux mediante una plantilla de Azure Resource Manager y la CLI de Azure desde Azure Cloud Shell. Para crear una máquina virtual Windows, consulte [Creación de una máquina virtual Windows con una plantilla de Resource Manager](../windows/ps-template.md).
 

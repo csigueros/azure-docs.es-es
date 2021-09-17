@@ -1,18 +1,18 @@
 ---
 title: 'Guía de publicación por tipo de oferta: marketplace comercial de Microsoft'
-description: En este artículo se describen los tipos de ofertas que están disponibles en marketplace comercial de Microsoft.
+description: En este artículo se describen los tipos de ofertas que están disponibles en el marketplace comercial de Microsoft (Azure Marketplace).
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
-ms.date: 04/06/2021
-ms.openlocfilehash: 72cae8aee9b1bcca286696b5685ef69b84167a8e
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.date: 08/20/2021
+ms.openlocfilehash: b5b969a5e390b59e60fb0dee47e2335541532730
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110537860"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122633773"
 ---
 # <a name="publishing-guide-by-offer-type"></a>Guía de publicación por tipo de oferta
 
@@ -42,6 +42,9 @@ En la tabla siguiente se muestran los tipos de oferta de Marketplace comercial e
 | [**Servicio administrado**](./plan-managed-service-offer.md) | Cree ofertas de servicios administrados y administre suscripciones o grupos de recursos delegados al cliente a través de [Azure Lighthouse](../lighthouse/overview.md).|
 | [**Aplicación Power BI**<br/>**Microsoft 365**](marketplace-dynamics-365.md) | Publique ofertas de AppSource que se basan en Power BI y Microsoft 365 o que los amplían.|
 | [**Software como servicio**](plan-saas-offer.md) | Use el tipo de oferta de software como servicio (SaaS) para permitir que el cliente compre su solución técnica basada en SaaS como suscripción. Para más información sobre los requisitos de inicio de sesión único de las ofertas de SaaS, consulte [Azure AD y ofertas de SaaS comercializable en el marketplace comercial](azure-ad-saas.md). |
+
+> [!IMPORTANT]
+> **Ofertas de SaaS Offers y complementos de Microsoft 365**: para los detalles específicos sobre cómo las capacidades de transacción pueden afectar a la forma en que los clientes de marketplace pueden ver y comprar su oferta, vea [Transacciones en marketplace comercial](marketplace-commercial-transaction-capabilities-and-considerations.md). En el caso de las ofertas de SaaS, la funcionalidad de transacción de la oferta, así como la selección de categoría, determinará la tienda en línea donde se publicará la oferta.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

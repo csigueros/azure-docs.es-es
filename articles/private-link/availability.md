@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 3/15/2021
 ms.custom: template-concept,references_regions
-ms.openlocfilehash: ec1911911653b8c176d92ad3216c64f7fd1a836e
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 052a59ede2acc751d6847646ca1b103de0c1b78a
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112295586"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122446458"
 ---
 # <a name="azure-private-link-availability"></a>Disponibilidad de Azure Private Link
 
@@ -44,7 +44,7 @@ En las tablas siguientes se enumeran los servicios de Private Link y las regione
 
 |Servicios admitidos  |Regiones disponibles | Otras consideraciones | Estado  |
 |:-------------------|:-----------------|:----------------|:--------|
-|Azure App Configuration | Todas las regiones públicas      |  | GA  </br> [Aprenda a crear un punto de conexión privado para Azure App Configuration.](../azure-app-configuration/concept-private-endpoint.md) |
+|Azure App Configuration | Todas las regiones públicas      |  | Disponibilidad general  </br> [Aprenda a crear un punto de conexión privado para Azure App Configuration.](../azure-app-configuration/concept-private-endpoint.md) |
 |Discos administrados por Azure | Todas las regiones públicas<br/> Todas las regiones de Azure Government<br/>Todas las regiones de China    | [Seleccione las limitaciones conocidas](../virtual-machines/disks-enable-private-links-for-import-export-portal.md#limitations) | GA   <br/> [Aprenda a crear un punto de conexión privado para Azure Managed Disks.](../virtual-machines/disks-enable-private-links-for-import-export-portal.md)   |
 
 ### <a name="containers"></a>Contenedores
@@ -94,11 +94,11 @@ En las tablas siguientes se enumeran los servicios de Private Link y las regione
 ### <a name="storage"></a>Storage
 |Servicios admitidos  |Regiones disponibles | Otras consideraciones | Estado  |
 |:-------------------|:-----------------|:----------------|:--------|
-| Azure Blob Storage (incluido Data Lake Storage Gen2)       |  Todas las regiones públicas<br/> Todas las regiones de Azure Government       |  Se admite en el tipo cuenta de uso general V2 | Disponibilidad general <br/> [Aprenda a crear un punto de conexión privado para Blob Storage.](tutorial-private-endpoint-storage-portal.md)  |
+| Azure Blob Storage (incluido Data Lake Storage Gen2)       |  Todas las regiones públicas<br/> Todas las regiones de Azure Government       |  Se admite únicamente en el tipo cuenta de uso general V2. | Disponibilidad general <br/> [Aprenda a crear un punto de conexión privado para Blob Storage.](tutorial-private-endpoint-storage-portal.md)  |
 | Azure Files | Todas las regiones públicas<br/> Todas las regiones de Azure Government      | |   Disponibilidad general <br/> [Aprenda a crear puntos de conexión de red de Azure Files.](../storage/files/storage-files-networking-endpoints.md)   |
 | Azure File Sync | Todas las regiones públicas      | |   Disponibilidad general <br/> [Aprenda a crear puntos de conexión de red de Azure Files.](../storage/file-sync/file-sync-networking-endpoints.md)   |
-| Azure Queue Storage       |  Todas las regiones públicas<br/> Todas las regiones de Azure Government       |  Se admite en el tipo cuenta de uso general V2 | Disponibilidad general <br/> [Aprenda a crear un punto de conexión privado para Queue Storage.](tutorial-private-endpoint-storage-portal.md) |
-| Azure Table storage       |  Todas las regiones públicas<br/> Todas las regiones de Azure Government       |  Se admite en el tipo cuenta de uso general V2 | Disponibilidad general <br/> [Aprenda a crear un punto de conexión privado para Table Storage.](tutorial-private-endpoint-storage-portal.md)  |
+| Azure Queue Storage       |  Todas las regiones públicas<br/> Todas las regiones de Azure Government       |  Se admite únicamente en el tipo cuenta de uso general V2. | Disponibilidad general <br/> [Aprenda a crear un punto de conexión privado para Queue Storage.](tutorial-private-endpoint-storage-portal.md) |
+| Azure Table storage       |  Todas las regiones públicas<br/> Todas las regiones de Azure Government       |  Se admite únicamente en el tipo cuenta de uso general V2. | Disponibilidad general <br/> [Aprenda a crear un punto de conexión privado para Table Storage.](tutorial-private-endpoint-storage-portal.md)  |
 | Azure Batch | Todas las regiones públicas, excepto: CENTRO DE Alemania, NORDESTE DE Alemania <br/> Todas las regiones de Azure Government  | | Disponibilidad general <br/> [Aprenda a crear un punto de conexión privado para Azure Batch.](../batch/private-connectivity.md) |
 
 ### <a name="web"></a>Web

@@ -5,15 +5,15 @@ services: service-bus-messaging
 author: spelluru
 ms.service: service-bus-messaging
 ms.topic: include
-ms.date: 10/15/2020
+ms.date: 08/13/2021
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 43f81d1fb7b38649bd9498782abe44cff9e37965
-ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
+ms.openlocfilehash: 7bcfa8993cdfa0ab8efcbe35881921c5cf5a92cd
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2021
-ms.locfileid: "114719921"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122182593"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 Si no tiene una [suscripción a Azure](../../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing), cree una [cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de empezar.
@@ -30,7 +30,7 @@ Siga las instrucciones de este tutorial: [Inicio rápido: Use Azure Portal para 
 En este paso utilizará una aplicación de ejemplo para enviar mensajes al tema de Service Bus que creó en el paso anterior. 
 
 1. Clone el [repositorio azure-service-bus de GitHub](https://github.com/Azure/azure-service-bus/).
-2. En Visual Studio, vaya a la carpeta *\samples\DotNet\Azure.Messaging.ServiceBus\ServiceBusEventGridIntegration* y abra el archivo *SBEventGridIntegration.sln*.
+2. En Visual Studio, vaya a la carpeta *\samples\DotNet\Azure.Messaging.ServiceBus\ServiceBusEventGridIntegrationV2* y abra el archivo *SBEventGridIntegration.sln*.
 3. En la ventana del Explorador de soluciones, expanda el proyecto **MessageSender** y seleccione **Program.cs**.
 4. Reemplace `<SERVICE BUS NAMESPACE - CONNECTION STRING>` por la cadena de conexión del espacio de nombres de Service Bus y `<TOPIC NAME>` por el nombre del tema. 
 

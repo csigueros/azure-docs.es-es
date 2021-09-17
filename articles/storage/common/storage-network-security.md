@@ -10,12 +10,12 @@ ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: dacf5814ee487c008e343347f7ab1319fd578597
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: d4f48f8a8c573ac03f5637b74b740c5710af92b3
+ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113729009"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122597686"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configuración de redes virtuales y firewalls de Azure Storage
 
@@ -49,9 +49,6 @@ El tráfico de disco de máquina virtual (incluidas las operaciones de montaje y
 Las cuentas de almacenamiento clásicas no admiten firewalls y redes virtuales.
 
 Puede usar discos no administrados en cuentas de almacenamiento con reglas de red aplicadas para crear copias de seguridad y restaurar máquinas virtuales mediante la creación de una excepción. Este proceso se documenta en la sección [Administración de excepciones](#manage-exceptions) de este artículo. Las excepciones del firewall no se aplican a los discos administrados, puesto que ya son administrados por Azure.
-
-> [!IMPORTANT] 
-> Si elimina la subred que se ha incluido en una regla de red, asegúrese de quitar esa subred de la regla de red. De lo contrario, si crea una subred con el mismo nombre, no podrá usar esa subred en las reglas de red de ninguna cuenta de almacenamiento. 
 
 ## <a name="change-the-default-network-access-rule"></a>Modificación de la regla de acceso de red predeterminada
 
@@ -128,6 +125,9 @@ Puede configurar las cuentas de almacenamiento para permitir el acceso solo desd
 Habilite un [punto de conexión de servicio](../../virtual-network/virtual-network-service-endpoints-overview.md) para Azure Storage dentro de la red virtual. El punto de conexión de servicio enruta el tráfico desde la red virtual a través de una ruta de acceso óptima al servicio Azure Storage. Las identidades de la red virtual y la subred también se transmiten con cada solicitud. Luego, los administradores pueden configurar reglas de red para la cuenta de almacenamiento que permitan que se reciban solicitudes desde subredes específicas en una red virtual. Los clientes a los que se concedió acceso a través de estas reglas de red deben seguir cumpliendo los requisitos de autorización de la cuenta de almacenamiento para acceder a los datos.
 
 Cada cuenta de almacenamiento admite un máximo de 200 reglas de red virtual, que se pueden combinar con [reglas de red IP](#grant-access-from-an-internet-ip-range).
+
+> [!IMPORTANT] 
+> Si elimina una subred que se ha incluido en una regla de red, se quitará de las reglas de red de la cuenta de almacenamiento. Si crea una subred con el mismo nombre, no tendrá acceso a la cuenta de almacenamiento. Para permitir el acceso, deberá autorizar la nueva subred explícitamente en las reglas de red de la cuenta de almacenamiento.
 
 ### <a name="available-virtual-network-regions"></a>Regiones de red virtual disponibles
 

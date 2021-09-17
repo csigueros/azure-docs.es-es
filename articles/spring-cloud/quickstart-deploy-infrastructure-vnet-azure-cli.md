@@ -2,18 +2,18 @@
 title: 'Inicio rápido: Aprovisionamiento de Azure Spring Cloud con la CLI de Azure'
 description: En este inicio rápido se muestra cómo usar la CLI de Azure para implementar un clúster de Spring Cloud en una red virtual existente.
 services: azure-cli
-author: vinodramasubbu
+author: karlerickson
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.custom: devx-track-azurecli, devx-track-java
 ms.author: vramasubbu
 ms.date: 06/15/2021
-ms.openlocfilehash: 7eb9b1a3194398dff60b72d1bc65f6ad71cb6822
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: a8dd727b0f0f999f1b0b8e6c9b6ed5977779f5ff
+ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114289477"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122271379"
 ---
 # <a name="quickstart-provision-azure-spring-cloud-using-azure-cli"></a>Inicio rápido: Aprovisionamiento de Azure Spring Cloud con la CLI de Azure
 
@@ -157,7 +157,7 @@ Para implementar el clúster de Azure Spring Cloud mediante el script de la CLI 
    az account list-locations --output table
    ```
 
-1. Cree un grupo de recursos en el que implementar el recurso. 
+1. Cree un grupo de recursos en el que implementar el recurso.
 
    ```azurecli
    az group create --name <your-resource-group-name> --location <location-name>
@@ -172,38 +172,28 @@ Para implementar el clúster de Azure Spring Cloud mediante el script de la CLI 
 1. Escriba los siguientes valores cuando el script se lo solicite:
 
    - El id. de suscripción de Azure que guardó anteriormente.
-
    - El nombre de la ubicación de Azure que guardó anteriormente.
-
    - El nombre del grupo de recursos que creó anteriormente.
-
    - El nombre del grupo de recursos de red virtual donde se implementarán los recursos.
-
    - El nombre de la red virtual de radio (por ejemplo, *vnet-spoke*).
-
    - El nombre de la subred que va a usar Spring Cloud App Service (por ejemplo, *snet-app*).
-
    - El nombre de la subred que va a usar Spring Cloud App Service (por ejemplo, *snet-runtime*).
-
    - El nombre del grupo de recursos del área de trabajo de Azure Log Analytics que se usará para almacenar los registros de diagnóstico.
-
    - El nombre del área de trabajo de Azure Log Analytics (por ejemplo, *la-cb5sqq6574o2a*).
-
    - Los rangos CIDR de la red virtual que va a usar Azure Spring Cloud (por ejemplo, *XX.X.X.X/16,XX.X.X.X/16,XX.X.X.X/16*).
-
    - Los pares clave-valor que se aplicarán como etiquetas en todos los recursos que admiten etiquetas. Para obtener más información, consulte [Uso de etiquetas para organizar los recursos de Azure y la jerarquía de administración](../azure-resource-manager/management/tag-resources.md). Use una lista separada por espacios para aplicar varias etiquetas (por ejemplo, *environment=Dev BusinessUnit=finance*).
 
 Después de proporcionar esta información, el script creará e implementará los recursos de Azure.
 
 ## <a name="review-deployed-resources"></a>Revisión de los recursos implementados
 
-Puede usar Azure Portal para comprobar los recursos implementados, o bien usar un script de la CLI de Azure o Azure PowerShell script para enumerar los recursos implementados.
+Puede usar Azure Portal para comprobar los recursos implementados, o bien usar la CLI de Azure para enumerar los recursos implementados.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
 Si planea seguir trabajando en otros inicios rápidos y tutoriales, considere la posibilidad de dejar estos recursos activos. Cuando ya no lo necesite, elimine el grupo de recursos, que elimina los recursos que contiene. Para eliminar el grupo de recursos mediante la CLI de Azure, use estos comandos:
 
-```azurecli-interactive
+```azurecli
 echo "Enter the Resource Group name:" &&
 read resourceGroupName &&
 az group delete --name $resourceGroupName &&

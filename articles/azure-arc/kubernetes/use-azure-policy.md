@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Uso de Azure Policy para aplicar configuraciones de clúster a escala
 keywords: Kubernetes, Arc, Azure, K8s, contenedores
-ms.openlocfilehash: 4619c84f88ee87b0b63e8c0cbe36b85a25f2dfb9
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 7a6892c4b89128abe698573960b61d08c2ac2f35
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110463066"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122609633"
 ---
 # <a name="use-azure-policy-to-apply-gitops-configurations-at-scale"></a>Uso de Azure Policy para aplicar configuraciones de clúster a escala
 
@@ -28,8 +28,8 @@ Una vez que se crea la asignación, el motor de Azure Policy identifica todos l
 
 Para habilitar la separación de preocupaciones, puede crear varias asignaciones de directivas, cada una con una configuración de GitOps diferente que apunte a un repositorio de Git diferente. Por ejemplo, los administradores de clústeres pueden usar un repositorio y los equipos de aplicaciones pueden usar otros repositorios.
 
->[!TIP]
-> Existen directivas integradas para estos escenarios:
+> [!TIP]
+> Existen definiciones de directivas integradas para estos escenarios:
 > * Repositorio público o repositorio privado con claves SSH creadas por Flux: `Configure Kubernetes clusters with specified GitOps configuration using no secrets`
 > * Repositorio privado con claves SSH proporcionadas por el usuario: `Configure Kubernetes clusters with specified GitOps configuration using SSH secrets`
 > * Repositorio privado con claves HTTPS proporcionadas por el usuario: `Configure Kubernetes clusters with specified GitOps configuration using HTTPS secrets`
@@ -42,10 +42,10 @@ Compruebe que tiene permisos de `Microsoft.Authorization/policyAssignments/write
 
 1. En Azure Portal, vaya a **Directiva**.
 1. En la sección **Creación** de la barra lateral, seleccione **Definiciones**.
-1. En la categoría "Kubernetes", elija la directiva integrada "Configurar clústeres de Kubernetes con la configuración de GitOps especificada sin secretos". 
+1. En la categoría "Kubernetes", elija la definición de directiva integrada "Configurar clústeres de Kubernetes con la configuración de GitOps especificada sin secretos". 
 1. Haga clic en **Asignar**.
 1. Establezca el **Ámbito** en el grupo de administración, la suscripción o el grupo de recursos al que se aplicará la asignación de directiva.
-    * Si quiere excluir recursos del ámbito de la directiva, establezca **Exclusiones**.
+    * Si quiere excluir recursos del ámbito de asignación de la directiva, establezca **Exclusiones**.
 1. Otorgue a la asignación de directiva un **Nombre** y una **Descripción** fáciles de identificar.
 1. Asegúrese de que **Cumplimiento de directivas** esté establecido en **Habilitado**.
 1. Seleccione **Next** (Siguiente).
@@ -65,7 +65,7 @@ En los clústeres existentes, es posible que deba ejecutar manualmente una tarea
 
 1. En el Azure Portal, vaya a uno de los clústeres de Kubernetes habilitado para Azure Arc.
 1. En la sección **Configuración** de la barra lateral, seleccione **Directivas**. 
-    * En la lista de directivas, debería ver la asignación de directiva que ha creado antes con **Estado de cumplimiento** establecido en *Conforme*.
+    * En la lista, debería ver la asignación de directiva que ha creado antes con **Estado de cumplimiento** establecido en *Conforme*.
 1. En la sección **Configuración** de la barra lateral, seleccione **GitOps**.
     * En la lista de configuraciones, debería ver la configuración creada por la asignación de directiva.
 1. Use `kubectl` para interrogar al clúster. 

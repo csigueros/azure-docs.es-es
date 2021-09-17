@@ -1,12 +1,9 @@
 ---
 title: Cambio del tamaño de un disco de SO con una partición GPT
 description: En este artículo se proporcionan instrucciones sobre cómo cambiar el tamaño de un disco del sistema operativo que tiene una partición de tabla de particiones GUID (GPT) en Linux.
-services: virtual-machines
-ms.topic: article
+ms.topic: how-to
 author: kailashmsft
 manager: dcscontentpm
-editor: ''
-tags: ''
 ms.service: virtual-machines
 ms.subservice: disks
 ms.collection: linux
@@ -15,14 +12,16 @@ ms.devlang: azurecli
 ms.date: 05/03/2020
 ms.author: kaib
 ms.custom: seodec18
-ms.openlocfilehash: 0db79728bbb963aa360743afc70aecc213bfb7bc
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.openlocfilehash: ca7a018accb0410c2656d7aeb4282b42f2756e39
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107011688"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122688228"
 ---
 # <a name="resize-an-os-disk-that-has-a-gpt-partition"></a>Cambio del tamaño de un disco de SO con una partición GPT
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Conjuntos de escalado flexibles 
 
 > [!NOTE]
 > Este artículo se aplica únicamente a los discos de SO que tienen una partición de tabla de particiones GUID (GPT).

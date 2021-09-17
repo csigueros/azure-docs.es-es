@@ -9,12 +9,12 @@ metadata:
   ms.date: 06/08/2021
   ms.author: victorh
   ms.custom: references_regions
-  ms.openlocfilehash: 7bef7a0cbc81f4d72a28d74feb5a526789c0ff59
-  ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+  ms.openlocfilehash: 87780dbc3a7d492f0fd0fec8839ef26bb092b2eb
+  ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 07/22/2021
-  ms.locfileid: "114469721"
+  ms.lasthandoff: 08/24/2021
+  ms.locfileid: "122777561"
 title: Preguntas más frecuentes sobre Application Gateway
 summary: >
   [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -64,7 +64,7 @@ sections:
   - question: ¿Cambia la dirección IP o el nombre DNS durante la vigencia de Application Gateway?
     answer: En la SKU de la versión 1 de Application Gateway, la IP virtual puede cambiar si se detiene o inicia la puerta de enlace de aplicaciones. Sin embargo, el nombre DNS asociado a Application Gateway no cambia durante la vigencia de la puerta de enlace. Como el nombre DNS no cambia, se debe usar un alias de CNAME y apuntarlo hacia la dirección DNS de Application Gateway. En la SKU de la versión 2 de Application Gateway, puede establecer la dirección IP como estática, por lo que el nombre de IP y DNS no cambiará durante la vigencia de la puerta de enlace de aplicaciones.
   - question: ¿Admite Application Gateway direcciones IP estáticas?
-    answer: Sí, la SKU v2 de Application Gateway es compatible con direcciones IP públicas estáticas. La SKU v1 es compatible con direcciones IP internas estáticas.
+    answer: Sí, la SKU v2 de Application Gateway es compatible con direcciones IP públicas estáticas e internas estáticas. La SKU v1 es compatible con direcciones IP internas estáticas.
   - question: ¿Admite Application Gateway varias direcciones IP públicas en la puerta de enlace?
     answer: Solo se admite una dirección IP pública en una instancia de Application Gateway.
   - question: ¿Cómo de grande debe ser la subred para Application Gateway?

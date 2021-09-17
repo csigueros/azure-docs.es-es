@@ -10,14 +10,16 @@ ms.topic: how-to
 ms.date: 10/10/2019
 ms.author: cynthn
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ccd1383349f4e009cc5ce5728eda25587e95a831
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 2a10d58dc36304afdbd37c3fd1c3c41dd819d022
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110669228"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122693459"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>Creación de una VM de Windows desde un disco especializado mediante PowerShell
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Windows 
 
 Cree una nueva VM asociando un disco administrado especializado como disco del SO. Un disco especializado es una copia del disco duro virtual (VHD) de una máquina virtual existente que contiene las cuentas de usuario, las aplicaciones y otros datos de estado de la máquina virtual original. 
 

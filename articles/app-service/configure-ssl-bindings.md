@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 05/13/2021
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: c67dfe6295a62a464d1a7a5eeb7a9ba7afd88ced
-ms.sourcegitcommit: 695a33a2123429289ac316028265711a79542b1c
+ms.openlocfilehash: 717c9595a9fbda39583be0be5bc6565d2938dc63
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2021
-ms.locfileid: "113128775"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122823375"
 ---
 # <a name="secure-a-custom-dns-name-with-a-tlsssl-binding-in-azure-app-service"></a>Protección de un nombre DNS personalizado con un enlace TLS/SSL en Azure App Service
 
@@ -154,6 +154,17 @@ Una vez completada la operación, la aplicación rechaza todas las conexiones co
 En App Service, la [terminación TLS](https://wikipedia.org/wiki/TLS_termination_proxy) tiene lugar en los equilibradores de carga de red, por lo que todas las solicitudes HTTPS llegan a la aplicación en forma de solicitudes HTTP sin cifrar. Si su aplicación lógica necesita comprobar si las solicitudes de usuario están cifradas, inspeccione el encabezado `X-Forwarded-Proto`.
 
 Guías de configuración específicas del lenguaje, como la guía [Configuración de Node.js en Linux](configure-language-nodejs.md#detect-https-session), que muestra cómo detectar una sesión HTTPS en el código de la aplicación.
+
+## <a name="renew-certificate-binding"></a>Renovación del enlace con certificados
+
+> [!NOTE]
+> Para renovar un [certificado de App Service que compró](configure-ssl-certificate.md#import-an-app-service-certificate), consulte [Exportar un certificado (de App Service)](configure-ssl-certificate.md#export-certificate). Los certificados de App Service se pueden renovar así como el enlace se puede sincronizar, todo de forma automática.
+
+Para reemplazar un certificado que expira, la forma de actualizar el enlace de certificado con el nuevo certificado puede afectar negativamente a la experiencia del usuario. Por ejemplo, su dirección IP de entrada puede cambiar al eliminar un enlace, incluso si este se basa en IP. Esto es especialmente importante al renovar un certificado que ya está en un enlace basado en IP. Para evitar modificaciones en la dirección IP de la aplicación y que el tiempo de inactividad de la aplicación aumente, siga estos pasos en orden:
+
+1. Carga el nuevo certificado.
+2. Enlace el nuevo certificado al mismo dominio personalizado sin eliminar el certificado existente (que expira). Esta acción reemplaza el enlace en lugar de quitar el que ya existe.
+3. Elimine el certificado existente.
 
 ## <a name="automate-with-scripts"></a>Automatizar con scripts
 

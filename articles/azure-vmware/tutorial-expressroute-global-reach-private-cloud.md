@@ -2,33 +2,43 @@
 title: Emparejamiento de entornos locales con Azure VMware Solution
 description: Aprenda a emparejar ExpressRoute Global Reach con una nube privada en Azure VMware Solution.
 ms.topic: tutorial
-ms.custom: contperf-fy22q1
-ms.date: 06/21/2021
-ms.openlocfilehash: 7e3542dbd91204688b39eddcdbdb5f374a1b35d2
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.custom: contperf-fy21q4, contperf-fy22q1
+ms.date: 07/28/2021
+ms.openlocfilehash: b930aab15ef9af8e43919af1671f44c20e6b2075
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114464520"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121730231"
 ---
 # <a name="peer-on-premises-environments-to-azure-vmware-solution"></a>Emparejamiento de entornos locales con Azure VMware Solution
 
-En este paso del inicio rápido, conectará Azure VMware Solution a un entorno local. Global Reach de ExpressRoute conecta su entorno local y la nubes privada de Azure VMware Solution. La conexión de Global Reach de ExpressRoute se establece entre el circuito ExpressRoute de la nube privada y una conexión existente de ExpressRoute con los entornos locales. 
+Después de implementar la nube privada de Azure VMware Solution, la conectará al entorno local. Global Reach de ExpressRoute conecta su entorno local y la nubes privada de Azure VMware Solution. La conexión de Global Reach de ExpressRoute se establece entre el circuito ExpressRoute de la nube privada y una conexión existente de ExpressRoute con los entornos locales. 
 
 :::image type="content" source="media/pre-deployment/azure-vmware-solution-on-premises-diagram.png" alt-text="Diagrama que muestra la conectividad de red local de ExpressRoute Global Reach." lightbox="media/pre-deployment/azure-vmware-solution-on-premises-diagram.png" border="false":::
 
 >[!NOTE]
 >Puede conectarse mediante VPN, pero ese tema no se detalla en esta guía de inicio rápido.
 
+En este artículo, hará lo siguiente:
+
+> [!div class="checklist"]
+> * Creación de una clave de autorización de ExpressRoute en el circuito local de ExpressRoute
+> * Emparejamiento de la nube privada con el circuito ExpressRoute local
+> * Comprobación de la conectividad de red local
+
+Cuando haya terminado, siga los pasos recomendados al final para continuar con los pasos de esta guía de introducción.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Revise la documentación sobre cómo [habilitar la conectividad en distintas suscripciones de Azure](../expressroute/expressroute-howto-set-global-reach-cli.md#enable-connectivity-between-expressroute-circuits-in-different-azure-subscriptions).  
+
 - Un circuito de ExpressRoute independiente y funcional utilizado para conectar entornos locales con Azure, que es el _circuito 1_ a efectos de emparejamiento.
+
 - Asegúrese de que todas las puertas de enlace, incluido el servicio del proveedor de ExpressRoute, admitan un número de sistema autónomo (ASN) de 4 bytes. Azure VMware Solution utiliza ASN públicos de 4 bytes para anunciar rutas.
 
 >[!NOTE]
-> Si anuncia una ruta predeterminada a Azure (0.0.0.0/0), asegúrese de que se anuncia una ruta más específica que contenga las redes locales además de la ruta predeterminada para habilitar el acceso de administración a AVS. La red de administración de Azure VMware Solution descartará una única ruta 0.0.0.0/0 para garantizar un funcionamiento correcto del servicio.
+>Si anuncia una ruta predeterminada a Azure (0.0.0.0/0), asegúrese de que se anuncia una ruta más específica que contenga las redes locales además de la ruta predeterminada para habilitar el acceso de administración a Azure VMware Solution. La red de administración de Azure VMware Solution descartará una única ruta 0.0.0.0/0 para garantizar un funcionamiento correcto del servicio.
 
 ## <a name="create-an-expressroute-auth-key-in-the-on-premises-expressroute-circuit"></a>Creación de una clave de autorización de ExpressRoute en el circuito local de ExpressRoute
 
@@ -68,16 +78,16 @@ Ahora que ha creado una clave de autorización para el circuito ExpressRoute de 
 
 ## <a name="verify-on-premises-network-connectivity"></a>Comprobación de la conectividad de red local
 
-Ahora debería ver en el **enrutador perimetral local** el lugar donde ExpressRoute conecta los segmentos de red NSX-T y los segmentos de administración de Azure VMware Solution.
+En el **enrutador perimetral local**, ahora debería ver el lugar donde ExpressRoute conecta los segmentos de red NSX-T y los segmentos de administración de Azure VMware Solution.
 
 >[!IMPORTANT]
 >Todos los usuarios tienen un entorno diferente, aunque algunos deberán permitir que estas rutas se propaguen de nuevo a la red local.  
 
 ## <a name="next-steps"></a>Pasos siguientes
-Continúe con el siguiente tutorial para aprender a implementar y configurar la solución VMware HCX para su nube privada de Azure VMware Solution.
+Continúe con el siguiente tutorial para instalar el complemento VMware HCX en la nube privada de Azure VMware Solution.
 
 > [!div class="nextstepaction"]
-> [Implementación y configuración de VMware HCX](tutorial-deploy-vmware-hcx.md)
+> [Instalación de VMware HCX](install-vmware-hcx.md)
 
 
 <!-- LINKS - external-->

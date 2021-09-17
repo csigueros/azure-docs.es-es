@@ -1,15 +1,15 @@
 ---
 title: 'Inicio rápido: nueva asignación de directiva con el archivo Bicep (versión preliminar)'
 description: En este inicio rápido se usa un archivo Bicep (versión preliminar) para crear una asignación de directivas para identificar recursos no compatibles.
-ms.date: 05/20/2021
+ms.date: 08/17/2021
 ms.topic: quickstart
 ms.custom: subject-bicepqs
-ms.openlocfilehash: 0f48804fd73b073479617aa3359e6d338056fb39
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.openlocfilehash: 116058395d556d4e5f7d8a9c67867376e703a7cc
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112007182"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122323756"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-a-bicep-file"></a>Creación de una asignación de directiva para identificar recursos no compatibles mediante un archivo Bicep
 
@@ -37,7 +37,7 @@ Cree el siguiente archivo Bicep como `assignment.bicep`:
 param policyAssignmentName string = 'audit-vm-manageddisks'
 param policyDefinitionID string = '/providers/Microsoft.Authorization/policyDefinitions/06a78e20-9358-41c9-923c-fb736d382a4d'
 
-resource assignment 'Microsoft.Authorization/policyAssignments@2019-09-01' = {
+resource assignment 'Microsoft.Authorization/policyAssignments@2021-09-01' = {
     name: policyAssignmentName
     scope: subscriptionResourceId('Microsoft.Resources/resourceGroups', resourceGroup().name)
     properties: {
@@ -79,7 +79,7 @@ az deployment group create \
 
 ---
 
-Algunos recursos adicionales:
+Otros recursos:
 
 - Puede encontrar más plantillas de ejemplo en [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Authorization&pageNumber=1&sort=Popular).
 - Para ver la referencia de plantilla, vaya a la [referencia de plantilla de Azure](/azure/templates/microsoft.authorization/allversions).

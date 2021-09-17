@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/28/2020
 ms.author: jeedes
-ms.openlocfilehash: 5318570ed77e3352f37c2306ecd003195992d010
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5d3d74c0e29de6ee75f80ab26c982c92501dafa2
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98732007"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122181688"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-tableau-online"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Tableau Online
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar Tableau Online con Azure Active Direct
 * Permitir que los usuarios inicien sesión automáticamente en Tableau Online con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -38,6 +38,7 @@ Para empezar, necesita los siguientes elementos:
 En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
 * Tableau Online admite SSO iniciado por **SP**
+* Tableau Online admite el [aprovisionamiento y desaprovisionamiento **automático** de usuarios](tableau-online-provisioning-tutorial.md) (se recomienda).
 
 ## <a name="adding-tableau-online-from-the-gallery"></a>Incorporación de Tableau Online desde la galería
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: ce4c526408f4aae1d4814a1c523c668e79e32c3a
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: 5f046920ce711ac6b1e6b9a461d71d9d49b2ddc7
+ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121861817"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122597668"
 ---
 # <a name="extend-azure-iot-central-with-custom-analytics-using-azure-databricks"></a>Ampliación de Azure IoT Central con análisis personalizados mediante Azure Databricks
 
@@ -58,7 +58,7 @@ Use [Azure Portal para crear un grupo de recursos](https://portal.azure.com/#cre
 
 Use [Azure Portal para crear un espacio de nombres de Event Hubs](https://portal.azure.com/#create/Microsoft.EventHub) con la siguiente configuración:
 
-| Configuración | Valor |
+| Configuración | Value |
 | ------- | ----- |
 | Nombre    | Elija el nombre del espacio de nombres |
 | Plan de tarifa | Básica |
@@ -250,4 +250,4 @@ En esta guía paso a paso, ha aprendido lo siguiente:
 * Hacer streaming de datos de telemetría desde una aplicación de IoT Central mediante la *exportación de datos continua*.
 * Cree un entorno de Azure Databricks para analizar y representar datos de telemetría.
 
-Ahora que sabe cómo crear un análisis personalizado, el siguiente paso sugerido es aprender a [Visualizar y analizar los datos de Azure IoT Central en un panel de Power BI](howto-connect-powerbi.md).
+Ahora que ya sabemos crear análisis personalizados, el siguiente paso que se recomienda es aprender a [usar el puente de dispositivos de IoT Central para conectar otras nubes de IoT a IoT Central](howto-build-iotc-device-bridge.md).

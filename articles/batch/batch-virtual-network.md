@@ -2,14 +2,14 @@
 title: Aprovisionamiento de un grupo en una red virtual
 description: Cómo crear un grupo de Batch en una red virtual de Azure para que los nodos de proceso puedan comunicarse de manera segura con otras máquinas virtuales en la red, como un servidor de archivos.
 ms.topic: how-to
-ms.date: 06/09/2021
+ms.date: 08/20/2021
 ms.custom: seodec18
-ms.openlocfilehash: 5279e9efb426c327761f14188b436e47387ea1eb
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: bc8f63af713b3b56d85426ce9be86214572506be
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111903098"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122635135"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Creación de un grupo de Azure Batch en una red virtual
 
@@ -38,14 +38,16 @@ Para permitir que los nodos de proceso se comuniquen de manera segura con otras 
 Una vez que haya creado la red virtual y le haya asignado una subred, puede crear un grupo de Batch a esa red virtual. Siga estos pasos para crear un grupo en Azure Portal: 
 
 1. Vaya a la cuenta de Batch en Azure Portal. Esta cuenta debe estar en la misma suscripción y región que el grupo de recursos que contiene la red virtual que pretende utilizar.
-2. En la ventana **Configuración** que aparece a la izquierda, seleccione el elemento de menú **Grupos**.
-3. En la ventana **Grupos**, seleccione **Agregar**.
-4. En la ventana **Agregar grupo**, seleccione la opción que desea utilizar en el menú desplegable **Tipo de imagen**.
-5. Seleccione el valor correcto de **publicador/oferta/SKU** para la imagen personalizada.
-6. Especifique los valores requeridos restantes, incluido el **tamaño de nodo**, los **nodos dedicados de destino** y los **nodos de baja prioridad**, además de cualquier otro valor opcional que desee.
-7. En **Virtual Network**, seleccione la red virtual y la subred que desea usar.
+1. En la ventana **Configuración** que aparece a la izquierda, seleccione el elemento de menú **Grupos**.
+1. En la ventana **Grupos**, seleccione **Agregar**.
+1. En la ventana **Agregar grupo**, seleccione la opción que desea utilizar en el menú desplegable **Tipo de imagen**.
+1. Seleccione el valor correcto de **publicador/oferta/SKU** para la imagen personalizada.
+1. Especifique los valores requeridos restantes, incluido el **tamaño de nodo**, los **nodos dedicados de destino** y los **nodos de baja prioridad**, además de cualquier otro valor opcional que desee.
+1. En **Virtual Network**, seleccione la red virtual y la subred que desea usar.
+1. Seleccione **Aceptar** para crear el grupo.
 
-   ![Adición de un grupo con red virtual](./media/batch-virtual-network/add-vnet-pool.png)
+> [!IMPORTANT]
+> Si intenta eliminar una subred que está en uso por parte de un grupo, recibirá un mensaje de error. Todos los grupos que usan una subred deben eliminarse antes de eliminar esa subred.
 
 ## <a name="user-defined-routes-for-forced-tunneling"></a>Rutas definidas por el usuario para la tunelización forzada
 
@@ -62,8 +64,6 @@ Si desea asegurarse de que los nodos del grupo funcionen en una red virtual con 
 - Si usa montajes de archivos virtuales, revise los [requisitos de red](virtual-file-mount.md#networking-requirements) y asegúrese de que no se bloquee el tráfico necesario.
 
 Cuando agregue una ruta definida por el usuario, defina la ruta de cada prefijo de dirección IP de Batch relacionado y establezca **Tipo del próximo salto** en **Internet**.
-
-![Ruta definida por el usuario](./media/batch-virtual-network/user-defined-route.png)
 
 > [!WARNING]
 > Las direcciones IP del servicio Batch pueden cambiar con el tiempo. Para evitar las interrupciones debidas a un cambio en las direcciones IP, cree un proceso para actualizar automáticamente las direcciones IP del servicio Batch y mantenerlas actualizadas en la tabla de enrutamiento.

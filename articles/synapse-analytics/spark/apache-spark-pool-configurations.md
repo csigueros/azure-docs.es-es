@@ -6,21 +6,33 @@ author: mlee3gsd
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: spark
-ms.date: 12/2/2020
+ms.date: 08/19/2021
 ms.author: martinle
 ms.reviewer: euang
-ms.openlocfilehash: 6422c33f17879aa8ec4844cc6de63411528a388b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: c674813aee7702e9887e909e4a8baf7ace074a2c
+ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104606164"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122597650"
 ---
 # <a name="apache-spark-pool-configurations-in-azure-synapse-analytics"></a>Configuraciones del grupo de Apache Spark en Azure Synapse Analytics
 
 Un grupo de Spark es un conjunto de metadatos que define los requisitos de recursos de proceso y las características de comportamiento asociadas cuando se crean instancias de una instancia de Spark. Estas características incluyen, entre otras, el nombre, el número de nodos, el tamaño del nodo, el comportamiento de escalado y el período de vida. Un grupo de Spark no consume ningún recurso por sí mismo. La creación de grupos de Spark no conlleva ningún costo. Solo se incurre en cargos una vez que se ejecuta un trabajo de Spark en el grupo de Spark de destino y se crean instancias de la instancia de Spark a petición.
 
 Puede consultar cómo crear un grupo de Spark y ver todas sus propiedades en [Introducción a los grupos de Spark en Synapse Analytics](../quickstart-create-apache-spark-pool-portal.md).
+
+## <a name="isolated-compute"></a>Proceso aislado
+
+La opción de proceso aislado reporta una mayor seguridad a los recursos de proceso de Spark procedentes de servicios que no son de confianza, para lo cual dedica el recurso de proceso físico a un solo cliente.
+Esta opción es la que mejor funciona en cargas de trabajo que requieren un alto grado de aislamiento de otros clientes por motivos como, por ejemplo, el cumplimiento normativo y de requisitos legales.  
+La opción de proceso aislado solamente está disponible con el tamaño de nodo XXXGrande (80 vCPU/504 GB) y en las regiones indicadas abajo.  La opción de proceso aislado se puede habilitar o deshabilitar después de la creación del grupo, aunque puede que sea necesario reiniciar la instancia.  Si tiene previsto habilitar esta característica en el futuro, asegúrese de que el área de trabajo de Synapse se crea en una región donde se admitan procesos aislados.
+
+* Este de EE. UU.
+* Oeste de EE. UU. 2
+* Centro-sur de EE. UU.
+* US Gov: Arizona
+* US Gov - Virginia
 
 ## <a name="nodes"></a>Nodos
 
@@ -37,6 +49,7 @@ Un grupo de Spark puede definirse con tamaños de nodo que van desde un nodo de 
 |grande|16|128 GB|
 |XGrande|32|256 GB|
 |XXGrande|64|432 GB|
+|XXXGrande (proceso aislado)|80|504 GB|
 
 ## <a name="autoscale"></a>Escalado automático
 

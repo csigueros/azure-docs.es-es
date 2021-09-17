@@ -10,12 +10,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviwer: vanto
 ms.date: 07/14/2021
-ms.openlocfilehash: dd8fc18b8f24a6164830dda6044c1b03151eb180
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: 31c9f128c1e98ce3b5a3e6a50f11e4afea33ecbc
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113727371"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121747669"
 ---
 # <a name="tutorial-getting-started-with-always-encrypted-with-secure-enclaves-in-azure-sql-database"></a>Tutorial: Introducción a Always Encrypted con enclaves seguros en Azure SQL Database
 
@@ -125,7 +125,7 @@ En este paso, creará un nuevo servidor lógico y una nueva base de datos de Azu
    ```PowerShell
    Connect-AzAccount
    $subscriptionId = "<your subscription ID>"
-   Set-AzContext -Subscription $subscriptionId
+   $context = Set-AzContext -Subscription $subscriptionId
    ```
 
 1. Crear un grupo de recursos.
@@ -253,8 +253,17 @@ En este paso, creará y configurará un proveedor de atestación en Microsoft Az
    $attestationProviderName = "<your attestation provider name>" 
    New-AzAttestation -Name $attestationProviderName -ResourceGroupName $resourceGroupName -Location $location
    ```
+1. Asígnese el rol Colaborador de atestación para el proveedor de atestación para asegurarse de que tiene permisos para configurar una directiva de atestación.
 
-1. Configure la directiva de atestación.
+   ```powershell
+   New-AzRoleAssignment -SignInName $context.Account.Id `
+    -RoleDefinitionName "Attestation Contributor" `
+    -ResourceName $attestationProviderName `
+    -ResourceType "Microsoft.Attestation/attestationProviders" `
+    -ResourceGroupName $resourceGroupName
+   ```
+   
+3. Configure la directiva de atestación.
   
    ```powershell
    $policyFile = "<the pathname of the file from step 1 in this section>"

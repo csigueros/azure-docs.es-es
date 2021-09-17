@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/05/2021
 ms.author: jeedes
-ms.openlocfilehash: f7df0bcedc5601001ba92326d95db2fa12a76d60
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9933a11f9d358380dafbf4f1573ab53d4ff189dc
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101649370"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122179638"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infor-cloudsuite"></a>Tutorial: Integración de Azure Active Directory con Infor CloudSuite
 
@@ -38,6 +38,7 @@ Para configurar la integración de Azure AD con Infor CloudSuite, necesita los s
 En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
 * Infor CloudSuite admite el inicio de sesión único iniciado por **SP e IDP**.
+* Infor CloudSuite admite el [aprovisionamiento y desaprovisionamiento **automático** de usuarios](infor-cloudsuite-provisioning-tutorial.md) (recomendado).
 * Infor CloudSuite admite el aprovisionamiento de usuarios **Just-In-Time**.
 
 ## <a name="add-infor-cloudsuite-from-the-gallery"></a>Incorporación de Infor CloudSuite desde la galería

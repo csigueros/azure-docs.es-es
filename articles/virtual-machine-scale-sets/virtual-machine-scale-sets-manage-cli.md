@@ -8,14 +8,17 @@ ms.service: virtual-machine-scale-sets
 ms.date: 05/29/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: 6c3b162c0acb5c494f8d5dda1dc9b515deb517bf
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 883ff0695538d54360fc06a36ee80acb33d54afb
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108768452"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122690392"
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>Administración de un conjunto de escalado de máquinas virtuales con la CLI de Azure
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado uniformes
+
 Durante el ciclo de vida de la máquina virtual, es posible que deba ejecutar una o varias tareas de administración. Además, puede crear scripts para automatizar varias tareas de ciclo de vida. En este artículo se detallan algunos de los comandos comunes de la CLI de Azure que le permiten realizar estas tareas.
 
 Para completar estas tareas de administración, se requiere la CLI de Azure más reciente. Para obtener información, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli). Si necesita crear un conjunto de escalado de máquinas virtuales, puede [crear un conjunto de escalado en la CLI de Azure](quick-create-cli.md).

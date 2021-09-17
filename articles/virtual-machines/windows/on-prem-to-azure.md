@@ -11,14 +11,16 @@ ms.topic: conceptual
 ms.date: 10/07/2017
 ms.author: rogarana
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 77d2e23b202957018ee80186dd28b6b2360698fc
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 68aaf58230ebadd7283e62baf232b84743bba535
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121740071"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122692419"
 ---
 # <a name="migrate-from-amazon-web-services-aws-and-other-platforms-to-managed-disks-in-azure"></a>Migración desde Amazon Web Services (AWS) y otras plataformas a Managed Disks en Azure
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Windows 
 
 Puede cargar archivos VHD desde AWS o soluciones de virtualización locales en Azure para crear máquinas virtuales que usen Managed Disks. Azure Managed Disks elimina la necesidad de administrar las cuentas de almacenamiento para las máquinas virtuales de IaaS de Azure. Especifique solo el tipo y el tamaño del disco que necesita, y Azure lo crea y administra automáticamente. 
 

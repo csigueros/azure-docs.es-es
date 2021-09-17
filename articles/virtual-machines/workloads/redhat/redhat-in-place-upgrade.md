@@ -8,14 +8,16 @@ ms.collection: linux
 ms.topic: article
 ms.date: 04/16/2020
 ms.author: alsin
-ms.openlocfilehash: 1be0904cc640eff5af7a77bba3abd6aa062991a8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ccd3e58babc6627a384636dbea28ef82969be9fc
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101676070"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122696749"
 ---
 # <a name="red-hat-enterprise-linux-in-place-upgrades"></a>Actualizaciones locales de Red Hat Enterprise Linux
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux 
 
 En este artículo se proporcionan instrucciones sobre cómo realizar una actualización local desde Red Hat Enterprise Linux (RHEL) 7 a Red Hat Enterprise Linux 8. Las instrucciones usan la herramienta `leapp` de Azure. Durante la actualización local, el sistema operativo RHEL 7 existente se sustituye por la versión de RHEL 8.
 

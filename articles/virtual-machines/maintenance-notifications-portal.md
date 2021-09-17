@@ -8,16 +8,16 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: shants
-ms.openlocfilehash: a13d79a28ac07d736b1eaf0d0e6b7f7b1ba4a4ec
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8ec87f5377fad1e42ad5b6e96f32a4dae241a4ca
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102557716"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122698795"
 ---
 # <a name="handling-planned-maintenance-notifications-using-the-portal"></a>Control de las notificaciones de mantenimiento planeado con el portal
 
-**Este artículo es válido para máquinas virtuales que se ejecutan tanto en Linux como en Windows.**
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles :heavy_check_mark: Conjuntos de escalado uniformes
 
 Una vez que se programa una tanda de [mantenimiento planeado](maintenance-notifications.md), puede consultar una lista de las máquinas virtuales que se ven afectadas. 
 

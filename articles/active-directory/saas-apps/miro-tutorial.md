@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/26/2021
 ms.author: jeedes
-ms.openlocfilehash: 6066dc8709fe376f99babcc3dd1360e4bf571ef2
-ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
+ms.openlocfilehash: d5731c8ae901edc57e17b050a8078f511759d772
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110655350"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122178856"
 ---
 # <a name="tutorial-integrate-miro-with-azure-active-directory"></a>Tutorial: Integración de Miro con Azure Active Directory
 
@@ -37,6 +37,7 @@ Para empezar, necesita los siguientes elementos:
 
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba. 
 * Miro admite el inicio de sesión único iniciado por **SP e IDP**, así como el aprovisionamiento de usuarios **Just In Time**.
+* Miro admite el [aprovisionamiento y desaprovisionamiento **automático** de usuarios](miro-provisioning-tutorial.md) (recomendado).
 
 > [!NOTE]
 > El identificador de esta aplicación es un valor de cadena fijo, por lo que solo se puede configurar una instancia en un inquilino.

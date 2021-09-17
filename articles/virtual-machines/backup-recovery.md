@@ -7,14 +7,16 @@ ms.subservice: recovery
 ms.topic: conceptual
 ms.date: 8/03/2020
 ms.author: cynthn
-ms.openlocfilehash: c4116ef8d02bd47d6375371be9381553f8c22eda
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aadbc0fe98f85d96cb06c21b33c8b28be6e732ed
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102565451"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122694407"
 ---
 # <a name="backup-and-restore-options-for-virtual-machines-in-azure"></a>Opciones de copia de seguridad y restauración de máquinas virtuales en Azure
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles
 
 Para proteger sus datos realice copias de seguridad a intervalos regulares. Hay varias opciones de copia de seguridad disponibles para máquinas virtuales, según el caso de uso.
 

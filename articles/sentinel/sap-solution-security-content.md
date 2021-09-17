@@ -8,12 +8,12 @@ ms.topic: reference
 ms.custom: mvc
 ms.date: 07/28/2021
 ms.subservice: azure-sentinel
-ms.openlocfilehash: bec0a6c872077d3982ddaf6e0ffc7e96ec7f54ee
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 234de4f2f93a9c35126c0f7be7d8feeb3a244044
+ms.sourcegitcommit: deb5717df5a3c952115e452f206052737366df46
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122183496"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122681500"
 ---
 # <a name="azure-sentinel-sap-solution-security-content-reference-public-preview"></a>Solución Azure Sentinel para SAP: referencia de contenido de seguridad (versión preliminar pública)
 
@@ -54,7 +54,7 @@ En las tablas siguientes se muestran las [reglas de análisis](sap-deploy-soluti
 |**SAP- Media - Ataques por fuerza bruta**     |     Identifica los ataques por fuerza bruta en el sistema SAP, según los intentos de inicio de sesión que no se han podido realizar en el sistema back-end.    |   Intentar iniciar sesión desde la misma dirección IP en varios sistemas o clientes dentro del intervalo de tiempo programado. <br><br>**Orígenes de datos**: SAPcon: registro de auditoría      | Acceso con credenciales        |
 |**SAP - Medium - Multiple Logons from the same IP** (SAP - Media - Varios inicios de sesión desde la misma dirección IP)     |  Identifica el inicio de sesión de varios usuarios desde la misma dirección IP en un intervalo de tiempo programado.   <br><br>**Subcaso de uso**: [Persistencia](#built-in-sap-analytics-rules-for-persistency)    |    Iniciar sesión con varios usuarios desde la misma dirección IP. <br><br>**Orígenes de datos**: SAPcon: registro de auditoría | Acceso inicial        |
 |**SAP - Media - Varios inicios de sesión por usuario**     | Identifica los inicios de sesión del mismo usuario desde varios terminales en un intervalo de tiempo programado.  <br><br>Solo está disponible a través del método Audit SAL, para las versiones 7.5 y posteriores de SAP.      |   Iniciar sesión con el mismo usuario con diferentes direcciones IP.   <br><br>**Orígenes de datos**: SAPcon: registro de auditoría   |  PreAttack, acceso con credenciales, acceso inicial, colección <br><br>**Subcaso de uso**: [Persistencia](#built-in-sap-analytics-rules-for-persistency)      |
-|**SAP - Informational - Lifecycle - SAP Notes were implemented in system** (SAP - Informativa - Ciclo de vida - Se implementaron notas de SAP en el sistema)     |   Identifica la implementación de una nota de SAP en el sistema. | Implementar una nota de SAP con SNOTE/TCI. <br><br>**Orígenes de datos**: SAPcon: solicitudes de cambio      | -  |
+|**SAP - Informational - Lifecycle - SAP Notes were implemented in system** (SAP - Informativa - Ciclo de vida - Se implementaron notas de SAP en el sistema)     |   Identifica la implementación de una nota de SAP en el sistema. | Implemente una nota de SAP con SNOTE/TCI. <br><br>**Orígenes de datos**: SAPcon: solicitudes de cambio      | -  |
 | | | | |
 
 ### <a name="built-in-sap-analytics-rules-for-data-exfiltration"></a>Reglas de análisis de SAP integradas para la filtración de datos
@@ -116,7 +116,7 @@ En las tablas siguientes se muestran las [reglas de análisis](sap-deploy-soluti
 |**SAP- Alta - Usuario con privilegios confidenciales que inició sesión**     |    Identifica el cuadro de diálogo de inicio de sesión de un usuario con privilegios confidenciales. <br><br>Mantener a los usuarios con privilegios en la lista de reproducción [SAP: usuarios con privilegios](#users).    |  Iniciar sesión en el sistema back-end mediante `SAP*` u otro usuario con privilegios.  <br><br>**Orígenes de datos**: SAPcon: registro de auditoría     |   acceso inicial, acceso a credenciales      |
 |  **SAP- Alta - Un usuario con privilegios confidenciales realiza un cambio en otro usuario**   |   Identifica los cambios de usuarios confidenciales con privilegios en otros usuarios.       | Cambiar los detalles o las autorizaciones de los usuarios mediante SU01.  <br><br>**Orígenes de datos**: SAPcon: registro de auditoría     |   Elevación de privilegios, acceso a credenciales       |
 |**SAP - High - Sensitive Users Password Change and Login** (SAP - Alta - Cambio de contraseña de usuarios confidenciales e inicio de sesión)     | Identifica los cambios de contraseña de los usuarios con privilegios.      |  Cambiar la contraseña de un usuario con privilegios e iniciar sesión en el sistema. <br>Mantener a los usuarios con privilegios en la lista de reproducción [SAP: usuarios con privilegios](#users).<br><br>**Orígenes de datos**: SAPcon: registro de auditoría | Impacto, comando y control, elevación de privilegios |
-|**SAP - High - User Creates and uses new user** (SAP - Alta - El usuario crea y usa un nuevo usuario)     | Identifica un usuario que crea y usa otros usuarios.  <br><br>**Subcaso de uso**: [Persistencia](#built-in-sap-analytics-rules-for-persistency)      |  Crear un usuario mediante SU01 e iniciar sesión con el usuario recién creado y la misma dirección IP.<br><br>**Orígenes de datos**: SAPcon: registro de auditoría | Detección, ataque previo, acceso inicial  |
+|**SAP - High - User Creates and uses new user** (SAP - Alta - El usuario crea y usa un nuevo usuario)     | Identifica un usuario que crea y usa otros usuarios.  <br><br>**Subcaso de uso**: [Persistencia](#built-in-sap-analytics-rules-for-persistency)      |  Cree un usuario mediante SU01 e inicie sesión con el usuario recién creado y la misma dirección IP.<br><br>**Orígenes de datos**: SAPcon: registro de auditoría | Detección, ataque previo, acceso inicial  |
 |**SAP - High - User Unlocks and uses other users** (SAP - Alta - El usuario desbloquea y usa otros usuarios)     |Identifica un usuario desbloqueado y usado por otros usuarios.   <br><br>**Subcaso de uso**: [Persistencia](#built-in-sap-analytics-rules-for-persistency)    |  Desbloquear un usuario mediante SU01 e iniciar sesión con el usuario desbloqueado y la misma dirección IP.<br><br>**Orígenes de datos**: SAPcon: registro de auditoría, SAPcon: registro de documentos de cambio | Detección, ataque previo, acceso inicial, desplazamiento lateral  |
 |**SAP- Media - Asignación de un perfil confidencial**     |  Identifica nuevas asignaciones de un perfil confidencial a un usuario. <br><br>Mantener los perfiles confidenciales de la lista de reproducción [SAP: perfiles confidenciales](#profiles).      |    Asigne un perfil a un usuario mediante `SU01`. <br><br>**Orígenes de datos**: SAPcon: cambiar registro de documentos    |  Elevación de privilegios       |
 |**SAP- Media - Asignación de un rol confidencial**     |    Identifica nuevas asignaciones para un rol confidencial para un usuario.     <br><br>Mantener los roles confidenciales de la lista de reproducción [SAP: roles confidenciales](#roles).|  Asignar un rol a un usuario mediante `SU01` / `PFCG`. <br><br>**Orígenes de datos**: SAPcon: cambiar registro de documentos y registro de auditoría     |   Elevación de privilegios      |
@@ -162,6 +162,7 @@ Para más información, consulte:
 
 - [Implementación de la solución Azure Sentinel para SAP](sap-deploy-solution.md)
 - [Referencia sobre los registros de la solución Azure Sentinel para SAP](sap-solution-log-reference.md)
-- [Implementación del conector de datos Azure Sentinel SAP en el entorno local](sap-solution-deploy-alternate.md)
+- [Implementación del conector de datos de SAP de Azure Sentinel con SNC](sap-solution-deploy-snc.md)
+- [Opciones de configuración de expertos, implementación local y orígenes de registro de SAPControl](sap-solution-deploy-alternate.md)
 - [Requisitos detallados de SAP para la solución Azure Sentinel SAP](sap-solution-detailed-requirements.md)
 - [Solución de problemas de implementación de la solución SAP de Azure Sentinel](sap-deploy-troubleshoot.md)

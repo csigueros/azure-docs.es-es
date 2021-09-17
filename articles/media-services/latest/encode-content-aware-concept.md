@@ -1,25 +1,25 @@
 ---
-title: Un valor preestablecido para la codificación según el contenido
+title: Valor predeterminado de codificación en función del contenido
 description: En este artículo se describe la codificación según el contenido en Microsoft Azure Media Services v3.
 services: media-services
 documentationcenter: ''
-author: IngridAtMicrosoft
+author: jiayali-ms
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 08/17/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0b87b37b98ada136597faa3ac5d990d6e08e9865
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 5f333b4ca86e24c845a8a91c621a2b3f7c8c984e
+ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122179423"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122429761"
 ---
-# <a name="use-the-content-aware-encoding-preset-to-find-the-optimal-bitrate-value-for-a-given-resolution"></a>Use el valor predeterminado de la codificación en función del contenido para encontrar el valor de velocidad de bits óptimo para una resolución dada
+# <a name="content-aware-encoding-preset"></a>Valor predeterminado de codificación en función del contenido
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
@@ -58,34 +58,6 @@ A continuación encontrará los resultados de otra categoría de contenido de or
 El codificador estándar de Azure Media Services ahora admite la codificación HEVC (H.265) de 8 bits. El contenido de HEVC se puede entregar y empaquetar a través del empaquetador dinámico con el formato "hev1".
 
 Hay disponible una nueva codificación .NET personalizada con un ejemplo de HEVC en el [repositorio de Git Hub media-services-v3-dotnet](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/Encoding_HEVC). Además de la codificación personalizada, AMS también admite otros nuevos valores preestablecidos de codificación HEVC integrados que puede ver en nuestras [notas de la versión de febrero de 2021](https://docs.microsoft.com/azure/media-services/latest/release-notes#february-2021).
-
-## <a name="how-to-use-the-content-aware-encoding-preset"></a>Uso del valor predeterminado de codificación en función del contenido 
-
-Puede crear transformaciones que usen este valor preestablecido como se indica a continuación. 
-
-Consulte la sección [Pasos siguientes](#next-steps) para ver otros tutoriales que usan salidas para la transformación. El recurso de la salida se puede entregar desde los puntos de conexión de streaming de Media Services en protocolos como MPEG-DASH y HLS (como se muestra en los tutoriales).
-
-> [!NOTE]
-> Asegúrese de usar el valor preestablecido **ContentAwareEncoding**, en lugar de ContentAwareEncodingExperimental. O bien, si desea codificar con HEVC, puede usar **H265ContentAwareEncoding**.
-
-```csharp
-TransformOutput[] output = new TransformOutput[]
-{
-   new TransformOutput
-   {
-      // The preset for the Transform is set to one of Media Services built-in sample presets.
-      // You can customize the encoding settings by changing this to use "StandardEncoderPreset" class.
-      Preset = new BuiltInStandardEncoderPreset()
-      {
-         // This sample uses the new preset for content-aware encoding
-         PresetName = EncoderNamedPreset.ContentAwareEncoding
-      }
-   }
-};
-```
-
-> [!NOTE]
-> Los trabajos de codificación que usan el valor predeterminado `ContentAwareEncoding` se facturan únicamente en función de los minutos de salida. AMS usa la codificación de dos pasos y no hay ningún cargo adicional asociado con el uso de ninguno de los valores preestablecidos más allá de lo que aparece en nuestra [página de precios](https://azure.microsoft.com/pricing/details/media-services/#overview).
   
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -3,15 +3,15 @@ title: Publicación de la aplicación administrada del catálogo de servicios
 description: Se explica cómo crear una aplicación administrada de Azure diseñada para los miembros de su organización.
 author: tfitzmac
 ms.topic: quickstart
-ms.custom: subject-armqs, devx-track-azurecli, devx-track-azurepowershell
-ms.date: 04/14/2020
+ms.custom: subject-armqs, devx-track-azurecli, devx-track-azurepowershell, subject-rbac-steps
+ms.date: 08/16/2021
 ms.author: tomfitz
-ms.openlocfilehash: b5306b40688974b17fb268a31c2d095de264df6d
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 7722017e2cbe9c0f195ce24ee5452674ad0fd344
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108314704"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122253752"
 ---
 # <a name="quickstart-create-and-publish-a-managed-application-definition"></a>Inicio rápido: Creación y publicación de una definición de aplicación administrada
 
@@ -309,14 +309,9 @@ Copie el identificador de recurso de la cuenta de almacenamiento. Se usará más
 
 ### <a name="set-the-role-assignment-for-appliance-resource-provider-in-your-storage-account"></a>Establezca la asignación de roles para "Appliance Resource Provider" en la cuenta de almacenamiento.
 
-Para que la definición de aplicación administrada pueda implementarse en la cuenta de almacenamiento, debe conceder primero permisos de colaborador al rol **Appliance Resource Provider** para que pueda escribir los archivos de definición en el contenedor de la cuenta de almacenamiento.
+Para que la definición de aplicación administrada pueda implementarse en la cuenta de almacenamiento, asigne el rol **Colaborador** al usuario **Appliance Resource Provider** (Proveedor de recursos de dispositivos) en el ámbito de la cuenta de almacenamiento. Esta asignación permite a la identidad escribir archivos de definición en el contenedor de la cuenta de almacenamiento.
 
-1. En [Azure Portal](https://portal.azure.com), vaya a la cuenta de almacenamiento.
-1. Seleccione **Control de acceso (IAM)** para mostrar la configuración del control de acceso de la cuenta de almacenamiento. Seleccione la pestaña **Asignaciones de roles** para ver la lista de asignaciones de roles.
-1. En la ventana **Agregar asignación de roles**, seleccione el rol **Colaborador**.
-1. En el campo **Asignar acceso a**, seleccione **Usuario, grupo o entidad de servicio de Azure AD**.
-1. En **Seleccionar**, busque el rol **Appliance Resource Provider** y selecciónelo.
-1. Guarde la asignación de roles.
+Para asignar roles, consulte [Asignación de roles de Azure mediante Azure Portal](../../role-based-access-control/role-assignments-portal.md).
 
 ### <a name="deploy-the-managed-application-definition-with-an-arm-template"></a>Implementación de la definición de aplicación administrada con una plantilla de Resource Manager
 

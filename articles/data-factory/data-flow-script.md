@@ -4,15 +4,16 @@ description: Información general sobre el lenguaje de código subyacente de un 
 author: kromerm
 ms.author: nimoolen
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/15/2021
-ms.openlocfilehash: 7dd58a7d4a94b832e52930f8ac6507cdd8f7a20e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0860d59d7d04354b6236d02126492468dec5921b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100534828"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122638820"
 ---
 # <a name="data-flow-script-dfs"></a>Script de flujo de datos (DFS)
 
@@ -269,6 +270,13 @@ window(over(stocksymbol),
     startRowOffset: -7L,
     endRowOffset: 7L,
     FifteenDayMovingAvg = round(avg(Close),2)) ~> Window1
+```
+
+### <a name="distinct-count-of-all-column-values"></a>Recuentos diferenciados de todos los valores de columna
+Este script puede servir para identificar las columnas de clave y ver la cardinalidad de todas las columnas de la secuencia con un solo fragmento de script. Agregue este script como una transformación agregada al flujo de datos, y le proporcionará automáticamente recuentos diferenciados de todas las columnas.
+
+```
+aggregate(each(match(true()), $$ = countDistinct($$))) ~> KeyPattern
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

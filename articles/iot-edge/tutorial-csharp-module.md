@@ -3,18 +3,17 @@ title: 'Tutorial: Desarrollo del módulo de C# para Linux mediante Azure IoT E
 description: En este tutorial se muestra la creación de un módulo IoT Edge con código C# y su implementación en un dispositivo IoT Edge en Linux.
 services: iot-edge
 author: kgremban
-manager: philmea
 ms.author: kgremban
 ms.date: 07/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 1384fbc79e052bfc2b0fdf29b7087de0949c5095
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+ms.openlocfilehash: 27bfa2400715b568fc99411235a21e1a87d17cbb
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113438339"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121740617"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-using-linux-containers"></a>Tutorial: Desarrollo de un módulo IoT Edge con C# con Java mediante contenedores Linux
 
@@ -111,7 +110,7 @@ Actualmente, Visual Studio Code puede desarrollar módulos de C# para disposit
 
 1. En el explorador de VS Code, abra **modules** > **CSharpModule** > **Program.cs**.
 
-2. En la parte superior del espacio de nombres **CSharpModule**, agregue tres instrucciones **using** para los tipos que se usarán más adelante en:
+1. En la parte superior del espacio de nombres **CSharpModule**, agregue tres instrucciones **using** para los tipos que se usarán más adelante en:
 
     ```csharp
     using System.Collections.Generic;     // For KeyValuePair<>
@@ -119,13 +118,13 @@ Actualmente, Visual Studio Code puede desarrollar módulos de C# para disposit
     using Newtonsoft.Json;                // For JsonConvert
     ```
 
-3. Agregue la variable **temperatureThreshold** a la clase **Program**. Esta variable establece el valor que debe superar la temperatura medida para que los datos se envíen al centro de IoT.
+1. Agregue la variable **temperatureThreshold** a la clase **Program**. Esta variable establece el valor que debe superar la temperatura medida para que los datos se envíen al centro de IoT.
 
     ```csharp
     static int temperatureThreshold { get; set; } = 25;
     ```
 
-4. Agregue las clases **MessageBody**, **Machine** y **Ambient** a la clase **Program**. Estas clases definen el esquema esperado para el cuerpo de los mensajes entrantes.
+1. Agregue las clases **MessageBody**, **Machine** y **Ambient** a la clase **Program**. Estas clases definen el esquema esperado para el cuerpo de los mensajes entrantes.
 
     ```csharp
     class MessageBody
@@ -146,24 +145,26 @@ Actualmente, Visual Studio Code puede desarrollar módulos de C# para disposit
     }
     ```
 
-5. Busque la función **Init**. Esta función crea y configura un objeto **ModuleClient**, que permite al módulo conectarse al entorno de ejecución de Azure IoT Edge local para enviar y recibir mensajes. Después de crear **ModuleClient**, el código lee el valor **temperatureThreshold** en las propiedades deseadas del módulo gemelo. El código registra una devolución de llamada para recibir mensajes desde el centro de IoT Edge a través del punto de conexión **input1**. Reemplace el método **SetInputMessageHandlerAsync** por uno nuevo y agregue un método **SetDesiredPropertyUpdateCallbackAsync** para las actualizaciones a las propiedades deseadas. Para realizar este cambio, reemplace la última línea del método **Init** con el siguiente código:
+1. Busque la función **Init**. Esta función crea y configura un objeto **ModuleClient**, que permite al módulo conectarse al entorno de ejecución de Azure IoT Edge local para enviar y recibir mensajes. Después de crear **ModuleClient**, el código lee el valor **temperatureThreshold** en las propiedades deseadas del módulo gemelo. El código registra una devolución de llamada para recibir mensajes desde un centro de IoT Edge mediante el punto de conexión llamado **input1**.
 
-    ```csharp
-    // Register a callback for messages that are received by the module.
-    // await ioTHubModuleClient.SetInputMessageHandlerAsync("input1", PipeMessage, iotHubModuleClient);
+   Reemplace el método **SetInputMessageHandlerAsync** por uno nuevo que actualice el nombre del punto de conexión y el método al que se llama cuando llega la entrada. Además, agregue un método **SetDesiredPropertyUpdateCallbackAsync** para las actualizaciones de las propiedades deseadas. Para realizar este cambio, reemplace la última línea del método **Init** con el siguiente código:
 
-    // Read the TemperatureThreshold value from the module twin's desired properties
-    var moduleTwin = await ioTHubModuleClient.GetTwinAsync();
-    await OnDesiredPropertiesUpdate(moduleTwin.Properties.Desired, ioTHubModuleClient);
+   ```csharp
+   // Register a callback for messages that are received by the module.
+   // await ioTHubModuleClient.SetInputMessageHandlerAsync("input1", PipeMessage, iotHubModuleClient);
 
-    // Attach a callback for updates to the module twin's desired properties.
-    await ioTHubModuleClient.SetDesiredPropertyUpdateCallbackAsync(OnDesiredPropertiesUpdate, null);
+   // Read the TemperatureThreshold value from the module twin's desired properties
+   var moduleTwin = await ioTHubModuleClient.GetTwinAsync();
+   await OnDesiredPropertiesUpdate(moduleTwin.Properties.Desired, ioTHubModuleClient);
 
-    // Register a callback for messages that are received by the module.
-    await ioTHubModuleClient.SetInputMessageHandlerAsync("input1", FilterMessages, ioTHubModuleClient);
-    ```
+   // Attach a callback for updates to the module twin's desired properties.
+   await ioTHubModuleClient.SetDesiredPropertyUpdateCallbackAsync(OnDesiredPropertiesUpdate, null);
 
-6. Agregue el método **onDesiredPropertiesUpdate** a la clase **Program**. Este método recibe las actualizaciones sobre las propiedades que se quieren del módulo gemelo y actualiza la variable **temperatureThreshold** para que coincida. Todos los módulos tienen su propio módulo gemelo, que le permite configurar el código que se ejecuta dentro de un módulo directamente desde la nube.
+   // Register a callback for messages that are received by the module. Messages received on the inputFromSensor endpoint are sent to the FilterMessages method.
+   await ioTHubModuleClient.SetInputMessageHandlerAsync("inputFromSensor", FilterMessages, ioTHubModuleClient);
+   ```
+
+1. Agregue el método **onDesiredPropertiesUpdate** a la clase **Program**. Este método recibe las actualizaciones sobre las propiedades que se quieren del módulo gemelo y actualiza la variable **temperatureThreshold** para que coincida. Todos los módulos tienen su propio módulo gemelo, que le permite configurar el código que se ejecuta dentro de un módulo directamente desde la nube.
 
     ```csharp
     static Task OnDesiredPropertiesUpdate(TwinCollection desiredProperties, object userContext)
@@ -194,7 +195,7 @@ Actualmente, Visual Studio Code puede desarrollar módulos de C# para disposit
     }
     ```
 
-7. Reemplace el método **PipeMessage** por el método **FilterMessages**. Se llama a este método cada vez que el módulo recibe un mensaje del centro de IoT Edge. Filtra los mensajes que informan de temperaturas por debajo del umbral de temperatura que se establecen mediante el módulo gemelo. También agrega la propiedad **MessageType** al mensaje con el valor establecido en **Alerta**.
+1. Reemplace el método **PipeMessage** por el método **FilterMessages**. Se llama a este método cada vez que el módulo recibe un mensaje del centro de IoT Edge. Filtra los mensajes que informan de temperaturas por debajo del umbral de temperatura que se establecen mediante el módulo gemelo. También agrega la propiedad **MessageType** al mensaje con el valor establecido en **Alerta**.
 
     ```csharp
     static async Task<MessageResponse> FilterMessages(Message message, object userContext)
@@ -251,11 +252,19 @@ Actualmente, Visual Studio Code puede desarrollar módulos de C# para disposit
     }
     ```
 
-8. Guarde el archivo Program.cs.
+1. Guarde el archivo Program.cs.
 
-9. En el explorador de VS Code, abra el archivo **deployment.template.json** en el área de trabajo de la solución de IoT Edge.
+1. En el explorador de VS Code, abra el archivo **deployment.template.json** en el área de trabajo de la solución de IoT Edge.
 
-10. Agregue el módulo gemelo **CSharpModule** al manifiesto de implementación. Inserte el siguiente contenido JSON en la parte inferior de la sección **modulesContent**, después del módulo gemelo **$edgeHub**:
+1. Puesto que hemos cambiado el nombre del punto de conexión en el que el módulo escucha, también es necesario actualizar las rutas en el manifiesto de implementación para que Edge Hub envíe mensajes al nuevo punto de conexión.
+
+    Busque la sección **routes** en el módulo gemelo **$edgeHub**. Actualice la ruta **sensorToCSharpModule** para reemplazar `input1` por `inputFromSensor`:
+
+    ```json
+    "sensorToCSharpModule": "FROM /messages/modules/SimulatedTemperatureSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/CSharpModule/inputs/inputFromSensor\")"
+    ```
+
+1. Agregue el módulo gemelo **CSharpModule** al manifiesto de implementación. Inserte el siguiente contenido JSON en la parte inferior de la sección **modulesContent**, después del módulo gemelo **$edgeHub**:
 
     ```json
        "CSharpModule": {
@@ -267,7 +276,7 @@ Actualmente, Visual Studio Code puede desarrollar módulos de C# para disposit
 
     ![Adición de un módulo gemelo a una plantilla de implementación](./media/tutorial-csharp-module/module-twin.png)
 
-11. Guarde el archivo deployment.template.json.
+1. Guarde el archivo deployment.template.json.
 
 ## <a name="build-and-push-your-module"></a>Compilación e inserción del módulo
 

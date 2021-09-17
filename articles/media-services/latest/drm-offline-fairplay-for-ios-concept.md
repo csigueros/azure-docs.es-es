@@ -8,12 +8,12 @@ ms.service: media-services
 ms.topic: how-to
 ms.date: 05/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: 516feb728368bfc57ce48bad8275419c726c7701
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: fec32eda9d82a7526a14befeab833d58b7792ccf
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110793412"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122633748"
 ---
 # <a name="offline-fairplay-streaming-for-ios-with-media-services-v3"></a>Streaming de FairPlay sin conexión para iOS con Media Services v3
 
@@ -199,4 +199,4 @@ Ya sea con un ejemplo de la versión 3 o de la versión 4 del SDK de FPS Server,
 
 ## <a name="offline-fairplay-questions"></a>Preguntas de FairPlay sin conexión
 
-Consulte las [preguntas de FairPlay sin conexión](questions-collection.md#why-does-only-audio-play-but-not-video-during-offline-mode).
+Consulte las [preguntas de FairPlay sin conexión en las preguntas más frecuentes](frequently-asked-questions.yml).

@@ -9,14 +9,16 @@ ms.service: virtual-machines
 ms.subservice: vm-sizes-memory
 ms.topic: conceptual
 ms.date: 6/8/2020
-ms.openlocfilehash: d49adc0be837197126aed617900a4a7c25fb84c5
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: e4278cb662d4e3ee518a52651462ca04d634c556
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121725990"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122688302"
 ---
 # <a name="ev4-and-esv4-series"></a>Series Ev4 y Esv4
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles :heavy_check_mark: Conjuntos de escalado uniformes
 
 Las series Ev4 y Esv4 se ejecuta en los procesadores Intel&reg; Xeon&reg; Platinum 8272CL (lago en cascada) en una configuración con Hyper-Threading. Son ideales para las diversas aplicaciones empresariales de uso intensivo de memoria y hasta 504 GiB de RAM. Cuenta con una velocidad de reloj en todos los núcleos de 3,4 GHz.
 

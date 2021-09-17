@@ -6,14 +6,16 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: 5fb4e8e4b204653c3d78f89a42220dd78b0eec1f
-ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
+ms.openlocfilehash: ea70b094c1b53a5ec4a7c80705e4ac795e6d8629
+ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111570959"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122598311"
 ---
 # <a name="use-azure-active-directory-for-authenticating-with-mysql"></a>Uso de Azure Active Directory para la autenticación con MySQL
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 La autenticación de Microsoft Azure Active Directory (Azure AD) es un mecanismo de conexión a Azure Database for MySQL mediante identidades definidas en Azure AD.
 Con la autenticación de Azure AD, puede administrar las identidades de los usuarios de la base de datos y otros servicios de Microsoft en una ubicación central, lo que simplifica la administración de permisos.
@@ -52,7 +54,7 @@ Cuando se usa la autenticación de Azure AD, existen dos cuentas de administrado
 
 ## <a name="permissions"></a>Permisos
 
-Para crear nuevos usuarios que se puedan autenticar con Azure AD, debe ser el administrador de Azure AD designado. Este usuario se asigna mediante la configuración de la cuenta de administrador de Azure AD para un servidor de Azure Database for MySQL específico.
+Para crear nuevos usuarios que se puedan autenticar con Azure AD, debe ser el administrador de Azure AD designado. Este usuario se asigna mediante la configuración de la cuenta de administrador de Azure AD para un servidor de Azure Database for MySQL específico.
 
 Para crear un nuevo usuario de base de datos de Azure AD, debe conectarse como administrador de Azure AD. Esto se muestra en [Configuración e inicio de sesión con Azure AD para Azure Database for MySQL](howto-configure-sign-in-azure-ad-authentication.md).
 

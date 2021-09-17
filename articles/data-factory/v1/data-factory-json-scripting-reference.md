@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 426965d469fbe08ecc0b0b6bf295d9919e698836
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: dcb652e66617fc5697be20b1f270d580184e9165
+ms.sourcegitcommit: c2f0d789f971e11205df9b4b4647816da6856f5b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110665731"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122662380"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - Referencia de scripting JSON
 > [!NOTE]
@@ -87,7 +87,7 @@ En la tabla siguiente se describen las propiedades dentro de la definición JSON
 | type |Especifica el tipo de actividad. Vea las secciones sobre [ALMACENES DE DATOS](#data-stores) y [ACTIVIDADES DE TRANSFORMACIÓN DE DATOS](#data-transformation-activities) para ver los distintos tipos de actividades. |Sí |
 | inputs |Tablas de entrada utilizadas por la actividad<br/><br/>`// one input table`<br/>`"inputs":  [ { "name": "inputtable1"  } ],`<br/><br/>`// two input tables` <br/>`"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ],` |No es para las actividades de HDInsightStreaming ni SqlServerStoredProcedure <br/> <br/> Sí para el resto |
 | outputs |Tablas de salida utilizadas por la actividad.<br/><br/>`// one output table`<br/>`"outputs":  [ { "name": “outputtable1” } ],`<br/><br/>`//two output tables`<br/>`"outputs":  [ { "name": “outputtable1” }, { "name": “outputtable2” }  ],` |Sí |
-| linkedServiceName |Nombre del servicio vinculado utilizado por la actividad. <br/><br/>Una actividad puede requerir que especifique el servicio vinculado que enlaza con el entorno de procesos necesario. |Sí para las actividades de HDInsight, las actividades de Azure Machine Learning Studio (clásico) y las actividades de procedimiento almacenado. <br/><br/>No para todos los demás |
+| linkedServiceName |Nombre del servicio vinculado utilizado por la actividad. <br/><br/>Una actividad puede requerir que especifique el servicio vinculado que enlaza con el entorno de procesos necesario. |Sí para las actividades de HDInsight, las actividades de ML Studio (clásico) y la actividad Procedimiento almacenado. <br/><br/>No para todos los demás |
 | typeProperties |Propiedades en la sección typeProperties dependen del tipo de actividad. |No |
 | policy |Directivas que afectan al comportamiento en tiempo de ejecución de la actividad. Si no se especifica, se usan las directivas predeterminadas. |No |
 | scheduler |La propiedad "scheduler" se utiliza para definir la programación deseada para la actividad. Sus subpropiedades son las mismas que las de la [propiedad availability de un conjunto de datos](data-factory-create-datasets.md#dataset-availability). |No |
@@ -4821,7 +4821,7 @@ En la tabla siguiente se enumeran entornos de proceso compatibles con Data Facto
 | --- | --- |
 | [Clúster de HDInsight a petición](#on-demand-azure-hdinsight-cluster) o [clúster HDInsight propio](#existing-azure-hdinsight-cluster) |[Actividad personalizada de .NET](#net-custom-activity), [actividad de Hive](#hdinsight-hive-activity), [actividad de Pig](#hdinsight-pig-activity), [actividad de MapReduce](#hdinsight-mapreduce-activity), actividad de streaming de Hadoop y [actividad de Spark](#hdinsight-spark-activity) |
 | [Azure Batch](#azure-batch) |[Actividad personalizada de .NET](#net-custom-activity) |
-| [Azure Machine Learning Studio (clásico)](#azure-machine-learning-studio-classic) | [Actividad de ejecución de lotes de Azure Machine Learning Studio (clásico)](#azure-machine-learning-studio-classic-batch-execution-activity), [actividad de actualización de recurso de Azure Machine Learning Studio (clásico)](#azure-machine-learning-studio-classic-update-resource-activity). |
+| [Machine Learning Studio (clásico)](#ml-studio-classic) | [Actividad Ejecución por lotes de ML Studio (clásico)](#ml-studio-classic-batch-execution-activity), [Actividad Actualizar recurso de ML Studio (clásico)](#ml-studio-classic-update-resource-activity) |
 | [Análisis con Azure Data Lake](#azure-data-lake-analytics) |[U-SQL de análisis con Data Lake](#data-lake-analytics-u-sql-activity) |
 | [Azure SQL Database](#azure-sql-database), [Azure Synapse Analytics](#azure-synapse-analytics), [SQL Server](#sql-server-stored-procedure) |[Procedimiento almacenado](#stored-procedure-activity) |
 
@@ -4928,8 +4928,8 @@ En la siguiente tabla se ofrecen descripciones de las propiedades que se usan en
 }
 ```
 
-## <a name="azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio (clásico)
-Un servicio vinculado de Azure Machine Learning Studio (clásico) se crea para registrar un punto de conexión de puntuación por lotes de Studio (clásico) con una factoría de datos. Dos actividades de transformación de datos que se pueden ejecutar en este servicio vinculado son: [Actividad de ejecución de lotes de Azure Machine Learning Studio (clásico)](#azure-machine-learning-studio-classic-batch-execution-activity), [actividad de actualización de recurso de Azure Machine Learning Studio (clásico)](#azure-machine-learning-studio-classic-update-resource-activity).
+## <a name="ml-studio-classic"></a>ML Studio (clásico)
+Cree un servicio vinculado de ML Studio (clásico) para registrar un punto de conexión de puntuación por lotes de Studio (clásico) con una factoría de datos. En este servicio vinculado se pueden ejecutar dos actividades de transformación de datos: [Actividad Ejecución por lotes de ML Studio (clásico)](#ml-studio-classic-batch-execution-activity) y [Actividad Actualizar recurso de ML Studio (clásico)](#ml-studio-classic-update-resource-activity).
 
 ### <a name="linked-service"></a>Servicio vinculado
 En la siguiente tabla se ofrecen descripciones de las propiedades que se usan en la definición de JSON en Azure de un servicio vinculado de Studio (clásico).
@@ -5061,8 +5061,8 @@ Actividad | Descripción
 [Actividad de MapReduce de HDInsight](#hdinsight-mapreduce-activity) | La actividad MapReduce de HDInsight en una canalización de Data Factory ejecuta programas de MapReduce en su propio clúster de HDInsight o en uno basado en Windows/Linux a petición.
 [Actividad de streaming de HDInsight](#hdinsight-streaming-activity) | La actividad de streaming de HDInsight en una canalización de Data Factory ejecuta programas de streaming de Hadoop en su propio clúster de HDInsight o en uno basado en Windows/Linux a petición.
 [Actividad de HDInsight Spark](#hdinsight-spark-activity) | La actividad de Spark de HDInsight en una canalización de Data Factory ejecuta consultas de Spark en su propio clúster de HDInsight.
-[Actividad de ejecución de lotes de Azure Machine Learning Studio (clásico)](#azure-machine-learning-studio-classic-batch-execution-activity) | Azure Data Factory permite crear fácilmente canalizaciones que usan un servicio web de Studio (clásico) publicado para realizar análisis predictivos. Mediante la actividad de ejecución de lotes en una canalización de Azure Data Factory, puede invocar un servicio web de Studio (clásico) para realizar predicciones sobre los datos del lote.
-[Actividad de actualización de recurso de Azure Machine Learning Studio (clásico)](#azure-machine-learning-studio-classic-update-resource-activity) | Pasado algún tiempo, los modelos predictivos en los experimentos de puntuación de Azure Machine Learning Studio (clásico) tienen que volver a entrenarse con nuevos conjuntos de datos de entrada. Después de terminar con el nuevo entrenamiento, tendrá que actualizar el servicio web de puntuación con el modelo de Machine Learning que volvió a entrenar. Puede usar la Actividad de recursos de actualización para actualizar el servicio web con el modelo recién entrenado.
+[Actividad Ejecución por lotes de ML Studio (clásico)](#ml-studio-classic-batch-execution-activity) | Azure Data Factory permite crear fácilmente canalizaciones que usan un servicio web de Studio (clásico) publicado para realizar análisis predictivos. Mediante la actividad de ejecución de lotes en una canalización de Azure Data Factory, puede invocar un servicio web de Studio (clásico) para realizar predicciones sobre los datos del lote.
+[Actividad Actualizar recurso de ML Studio (clásico)](#ml-studio-classic-update-resource-activity) | Con el tiempo, los modelos predictivos de los experimentos de puntuación de ML Studio (clásico) se tienen que volver a entrenar con nuevos conjuntos de datos de entrada. Después de terminar con el nuevo entrenamiento, tendrá que actualizar el servicio web de puntuación con el modelo de Machine Learning que volvió a entrenar. Puede usar la Actividad de recursos de actualización para actualizar el servicio web con el modelo recién entrenado.
 [Actividad de procedimiento almacenado](#stored-procedure-activity) | Puede usar la actividad de procedimiento almacenado en una canalización de Data Factory para invocar un procedimiento almacenado en uno de los siguientes almacenes de datos: Azure SQL Database, Azure Synapse Analytics y base de datos de SQL Server en una empresa o una máquina virtual de Azure.
 [Actividad U-SQL de Data Lake Analytics](#data-lake-analytics-u-sql-activity) | La actividad de U-SQL de Data Lake Analytics ejecuta un script de U-SQL en un clúster de Azure Data Lake Analytics.
 [Actividad personalizada de .NET](#net-custom-activity) | Si necesita transformar datos de algún modo no compatible con Data Factory, puede crear una actividad personalizada con su propia lógica de procesamiento de datos y usarla en la canalización. Puede configurar una actividad de .NET personalizada para ejecutarse mediante un servicio Azure Batch o un clúster de Azure HDInsight.
@@ -5343,8 +5343,8 @@ Tenga en cuenta los siguientes puntos:
 
 Para más información sobre la actividad, consulte el artículo [Actividad de Spark](data-factory-spark.md).
 
-## <a name="azure-machine-learning-studio-classic-batch-execution-activity"></a>Actividad de ejecución de lotes de Azure Machine Learning Studio (clásico)
-Puede especificar las siguientes propiedades en una definición JSON de actividad de ejecución de lotes de Azure Machine Learning Studio (clásico). La propiedad type de la actividad debe ser: **AzureMLBatchExecution**. Debe crear primero un servicio vinculado de Studio (clásico) y especificar el nombre de este como un valor para la propiedad **linkedServiceName**. Se admiten las siguientes propiedades en la sección **typeProperties** cuando se establece el tipo de actividad en AzureMLBatchExecution:
+## <a name="ml-studio-classic-batch-execution-activity"></a>Actividad Ejecución por lotes de ML Studio (clásico)
+Puede especificar las siguientes propiedades en una definición JSON de actividad Ejecución por lotes de ML Studio (clásico). La propiedad type de la actividad debe ser: **AzureMLBatchExecution**. Debe crear primero un servicio vinculado de Studio (clásico) y especificar el nombre de este como un valor para la propiedad **linkedServiceName**. Se admiten las siguientes propiedades en la sección **typeProperties** cuando se establece el tipo de actividad en AzureMLBatchExecution:
 
 Propiedad | Descripción | Obligatorio
 -------- | ----------- | --------
@@ -5399,8 +5399,8 @@ En el ejemplo JSON, el servicio web de Studio (clásico) implementado usa un mó
 > [!NOTE]
 > Solo las entradas y salidas de la actividad AzureMLBatchExecution pueden pasarse como parámetros al servicio web. Por ejemplo, en el fragmento JSON anterior, MLSqlInput es una entrada a la actividad AzureMLBatchExecution, que se pasa como entrada al servicio web mediante el parámetro webServiceInput.
 
-## <a name="azure-machine-learning-studio-classic-update-resource-activity"></a>Actividad de actualización de recurso de Azure Machine Learning Studio (clásico)
-Puede especificar las siguientes propiedades en una definición JSON de actividad de actualización de recurso de Azure Machine Learning Studio (clásico). La propiedad type de la actividad debe ser: **AzureMLUpdateResource**. Debe crear primero un servicio vinculado de Studio (clásico) y especificar el nombre de este como un valor para la propiedad **linkedServiceName**. Se admiten las siguientes propiedades en la sección **typeProperties** cuando se establece el tipo de actividad en AzureMLUpdateResource:
+## <a name="ml-studio-classic-update-resource-activity"></a>Actividad Actualizar recurso de ML Studio (clásico)
+Puede especificar las siguientes propiedades en una definición JSON de actividad Actualizar recurso de ML Studio (clásico). La propiedad type de la actividad debe ser: **AzureMLUpdateResource**. Debe crear primero un servicio vinculado de Studio (clásico) y especificar el nombre de este como un valor para la propiedad **linkedServiceName**. Se admiten las siguientes propiedades en la sección **typeProperties** cuando se establece el tipo de actividad en AzureMLUpdateResource:
 
 Propiedad | Descripción | Obligatorio
 -------- | ----------- | --------

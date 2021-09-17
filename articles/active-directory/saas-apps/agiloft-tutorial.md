@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/03/2021
+ms.date: 08/11/2021
 ms.author: jeedes
-ms.openlocfilehash: 25bea4a80a33d520683ec56ee4b40dd54b9652c9
-ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
+ms.openlocfilehash: bcb919a12590c7cb97ba220da8fb44dc59782331
+ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2021
-ms.locfileid: "111527035"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122271701"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-agiloft-contract-management-suite"></a>Tutorial: Integración de Azure Active Directory con Agiloft Contract Management Suite
 
@@ -123,15 +123,20 @@ En esta sección, va a permitir que B.Simon acceda a Agiloft Contract Management
 
 1. En otra ventana del explorador web, inicie sesión como administrador en el sitio de la empresa en Agiloft Contract Management Suite.
 
-2. Haga clic en **Setup** (Configuración) (en el panel izquierdo) y, luego, seleccione **Access** (Acceso).
+2. Haga clic en el icono de **configuración** de la esquina superior derecha de la página.
 
-    ![Captura de pantalla que resalta la sección Access (Acceso).](./media/agiloft-tutorial/access.png)
+    ![Captura de pantalla en que se resalta el icono de configuración.](./media/agiloft-tutorial/settings.png)
 
-3. Haga clic en el botón **Configure SAML 2.0 Single Sign-On** (Configurar inicio de sesión único de SAML 2.0).
+3. Seleccione **Access** (Acceso).
+
+    ![Captura de pantalla en que se resalta el área de acceso](./media/agiloft-tutorial/access.png)
+
+
+4. Haga clic en el botón **Configure SAML 2.0 Single Sign-On** (Configurar inicio de sesión único de SAML 2.0).
 
     ![Captura de pantalla que resalta el botón Configure SAML 2.0 Single Sign-On (Configurar inicio de sesión único de SAML 2.0).](./media/agiloft-tutorial/setup.png)
 
-4. Aparece un cuadro de diálogo del asistente. En el cuadro de diálogo, haga clic en la pestaña **Identity Provider Details** (Detalles del proveedor de identidades) y rellene los campos siguientes:  
+5. Aparece un cuadro de diálogo del asistente. En el cuadro de diálogo, haga clic en la pestaña **Identity Provider Details** (Detalles del proveedor de identidades) y rellene los campos siguientes:  
 
     ![Configuración de Agiloft Contract Management Suite](./media/agiloft-tutorial/details.png)
 

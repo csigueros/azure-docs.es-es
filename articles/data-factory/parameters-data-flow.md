@@ -1,24 +1,27 @@
 ---
 title: Parametrización de flujos de datos de asignación
-description: Obtenga información sobre cómo parametrizar una asignación de Data Flow desde canalizaciones de Data Factory.
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Aprenda a parametrizar un flujo de datos de asignación desde canalizaciones de Azure Data Factory y Azure Synapse Analytics
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
+ms.subservice: data-flows
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 04/19/2021
-ms.openlocfilehash: 22c4fc0680d8666d8c2dfafb8829436e27cf1ebd
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.date: 08/24/2021
+ms.openlocfilehash: 5d06d55e199e0c5f2f1fcda9f1a9d121ed1726e5
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107725717"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122821604"
 ---
 # <a name="parameterizing-mapping-data-flows"></a>Parametrización de flujos de datos de asignación
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)] 
 
-La asignación de flujos de datos de asignación en Azure Data Factory y Azure Synapse Analytics admite el uso de parámetros. Defina parámetros en la definición del flujo de datos y úselos después en las expresiones. La canalización que realiza la llamada puede establecer los valores de parámetro mediante la actividad de ejecución de Data Flow. Dispone de tres opciones para establecer los valores en las expresiones de la actividad del flujo de datos:
+Los flujos de datos de asignación de las canalizaciones de Azure Data Factory y Synapse admiten el uso de parámetros. Defina parámetros en la definición del flujo de datos y úselos después en las expresiones. La canalización que realiza la llamada puede establecer los valores de parámetro mediante la actividad de ejecución de Data Flow. Dispone de tres opciones para establecer los valores en las expresiones de la actividad del flujo de datos:
 
 * Usar el lenguaje de expresiones del flujo de control de canalizaciones para establecer un valor dinámico
 * Usar el lenguaje de expresiones del flujo de datos para establecer un valor dinámico

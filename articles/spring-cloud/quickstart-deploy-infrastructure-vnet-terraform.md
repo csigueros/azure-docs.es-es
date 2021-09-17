@@ -1,18 +1,18 @@
 ---
 title: 'Inicio rápido: Aprovisionamiento de Azure Spring Cloud con Terraform'
 description: En este inicio rápido se muestra cómo usar Terraform para implementar un clúster de Spring Cloud en una red virtual existente.
-author: aluna033
+author: karlerickson
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.custom: devx-track-java
 ms.author: ariel
 ms.date: 06/15/2021
-ms.openlocfilehash: d099e86f5a28aae145723b728e79ce3ee55f8250
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: f3459ef8fe7f3d1dcc491c0c7dcc8863df0b2cb1
+ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114287564"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122271515"
 ---
 # <a name="quickstart-provision-azure-spring-cloud-using-terraform"></a>Inicio rápido: Aprovisionamiento de Azure Spring Cloud con Terraform
 
@@ -38,7 +38,7 @@ El archivo de configuración que se usa en este inicio rápido procede de la [ar
 
 ```hcl
 provider "azurerm" {
-    features {} 
+    features {}
 }
 
 resource "azurerm_resource_group" "sc_corp_rg" {
@@ -55,24 +55,24 @@ resource "azurerm_application_insights" "sc_app_insights" {
 }
 
 resource "azurerm_spring_cloud_service" "sc" {
-  name                = var.sc_service_name 
+  name                = var.sc_service_name
   resource_group_name = var.resource_group_name
   location            = var.location
-  
+
   network {
     app_subnet_id                   = "/subscriptions/${var.subscription}/resourceGroups/${var.azurespringcloudvnetrg}/providers/Microsoft.Network/virtualNetworks/${var.vnet_spoke_name}/subnets/${var.app_subnet_id}"
     service_runtime_subnet_id       = "/subscriptions/${var.subscription}/resourceGroups/${var.azurespringcloudvnetrg}/providers/Microsoft.Network/virtualNetworks/${var.vnet_spoke_name}/subnets/${var.service_runtime_subnet_id}"
     cidr_ranges                     = var.sc_cidr
   }
-  
+
   timeouts {
       create = "60m"
       delete = "2h"
   }
-  
+
   depends_on = [azurerm_resource_group.sc_corp_rg]
   tags = var.tags
-  
+
 }
 
 resource "azurerm_monitor_diagnostic_setting" "sc_diag" {
@@ -111,27 +111,19 @@ Para aplicar la configuración, siga estos pasos:
 
    - Una ubicación de implementación entre las regiones en las que Azure Spring Cloud está disponible, como se muestra en [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/?products=spring-cloud&regions=all). Necesitará el formato corto del nombre de la ubicación. Para obtener este valor, use el siguiente comando para generar una lista de ubicaciones de Azure y, a continuación, busque el valor **Nombre** de la región seleccionada.
 
-      ```azurecli
-      az account list-locations --output table
-      ```
+   ```azurecli
+   az account list-locations --output table
+   ```
 
    - El nombre del grupo de recursos en el que se va a realizar la implementación.
-
    - Un nombre de su elección para la implementación de Spring Cloud.
-
    - El nombre del grupo de recursos de red virtual donde se implementarán los recursos.
-
    - El nombre de la red virtual de radio (por ejemplo, *vnet-spoke*).
-
    - El nombre de la subred que va a usar Spring Cloud App Service (por ejemplo, *snet-app*).
-
    - El nombre de la subred que va a usar Spring Cloud App Service (por ejemplo, *snet-runtime*).
-
    - El nombre del área de trabajo de Azure Log Analytics.
-
    - Los rangos CIDR de la red virtual que va a usar Azure Spring Cloud (por ejemplo, *XX.X.X.X/16,XX.X.X.X/16,XX.X.X.X/16*).
-
-   - Los pares clave-valor que se aplicarán como etiquetas en todos los recursos que admiten etiquetas. Para obtener más información, consulte [Uso de etiquetas para organizar los recursos de Azure y la jerarquía de administración](../azure-resource-manager/management/tag-resources.md). 
+   - Los pares clave-valor que se aplicarán como etiquetas en todos los recursos que admiten etiquetas. Para obtener más información, consulte [Uso de etiquetas para organizar los recursos de Azure y la jerarquía de administración](../azure-resource-manager/management/tag-resources.md).
 
 1. Ejecute el comando siguiente para inicializar los módulos de Terraform.
 

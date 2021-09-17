@@ -3,18 +3,18 @@ title: 'Tutorial: Creación y administración de datos exportados desde Azure Co
 description: En este artículo se muestra cómo crear y administrar datos de Azure Cost Management para utilizarlos en sistemas externos.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/26/2021
+ms.date: 08/05/2021
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18, devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 592ef54b359c84309da350bf53da6bb0a4152374
-ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
+ms.openlocfilehash: f6d640d40b586e435e1484fce8d6560a961ba6ac
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114708648"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121731947"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Tutorial: Creación y administración de datos exportados
 
@@ -259,11 +259,11 @@ No se admiten las exportaciones de grupos de administración de otros tipos de s
 
 ### <a name="file-partitioning-for-large-datasets"></a>Creación de particiones de archivos para grandes conjuntos de datos
 
-Si tiene un Contrato de cliente de Microsoft o un contrato Microsoft Partner Agreement, puede habilitar Exportaciones para fragmentar el archivo en varias particiones de archivo más pequeñas a fin de ayudar con la ingesta de datos. Al configurar inicialmente la exportación, establezca la opción **File Partitioning** (Creación de particiones de archivos) en **Activado**. El valor es **Desactivado** de forma predeterminada.
+Si tiene un Contrato de cliente de Microsoft, un Microsoft Partner Agreement o un Contrato Enterprise, puede habilitar Exportaciones para fragmentar el archivo en varias particiones de archivo más pequeñas a fin de ayudar con la ingesta de datos. Al configurar inicialmente la exportación, establezca la opción **File Partitioning** (Creación de particiones de archivos) en **Activado**. El valor es **Desactivado** de forma predeterminada.
 
 :::image type="content" source="./media/tutorial-export-acm-data/file-partition.png" alt-text="Captura de pantalla que muestra la opción File Partitioning (Creación de particiones de archivos)." lightbox="./media/tutorial-export-acm-data/file-partition.png" :::
 
-Si no tiene un Contrato de cliente de Microsoft o un contrato de Microsoft Partner Agreement, no verá la opción **File Partitioning** (Creación de particiones de archivos).
+Si no tiene un Contrato de cliente de Microsoft, un Microsoft Partner Agreement ni un Contrato Enterprise, no verá la opción **File Partitioning** (Creación de particiones de archivos).
 
 #### <a name="update-existing-exports-to-use-file-partitioning"></a>Actualización de las exportaciones existentes para usar la creación de particiones de archivos
 

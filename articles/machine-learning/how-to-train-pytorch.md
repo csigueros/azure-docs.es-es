@@ -10,12 +10,12 @@ author: mx-iao
 ms.reviewer: peterlu
 ms.date: 01/14/2020
 ms.topic: how-to
-ms.openlocfilehash: 5a107bd8548b313ad2ac0bf2fa86c9f5b7527e26
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 6891da994955359dcc10b8e994d8c2dd05436fce
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108764808"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122606768"
 ---
 # <a name="train-pytorch-models-at-scale-with-azure-machine-learning"></a>Entrenamiento de modelos de PyTorch a gran escala con Azure Machine Learning
 
@@ -247,131 +247,7 @@ Azure Machine Learning también admite trabajos distribuidos de PyTorch de vario
 
 Azure ML admite la ejecución de trabajos distribuidos de PyTorch con el módulo DistributedDataParallel integrado de PyTorch y Horovod.
 
-### <a name="horovod"></a>Horovod
-[Horovod](https://github.com/uber/horovod) es una plataforma de código abierto en que todo se reduce para el entrenamiento distribuido desarrollada por Uber. Ofrece una ruta sencilla para escribir código distribuido de PyTorch para el entrenamiento.
-
-El código de entrenamiento tendrá que ser instrumentado con Horovod para el entrenamiento distribuido. Para más información sobre el uso de Horovod con PyTorch, consulte la [documentación de Horovod](https://horovod.readthedocs.io/en/stable/pytorch.html).
-
-Además, asegúrese de que el entorno de entrenamiento incluye el paquete de **Horovod**. Si usa un entorno mantenido de PyTorch, Horovod ya está incluido como una de las dependencias. Si usa su propio entorno, asegúrese de que se incluye la dependencia de Horovod, por ejemplo:
-
-```yaml
-channels:
-- conda-forge
-dependencies:
-- python=3.6.2
-- pip:
-  - azureml-defaults
-  - torch==1.6.0
-  - torchvision==0.7.0
-  - horovod==0.19.5
-```
-
-Para ejecutar un trabajo distribuido mediante MPI y Horovod en Azure ML, debe especificar un objeto [MpiConfiguration](/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration) en el parámetro `distributed_job_config` del constructor de ScriptRunConfig. El código siguiente configurará un trabajo distribuido de 2 nodos que ejecuta un proceso por nodo. Si también desea ejecutar varios procesos por nodo (por ejemplo, si la SKU del clúster tiene varias GPU), especifique también el parámetro `process_count_per_node` en MpiConfiguration (el valor predeterminado es `1`).
-
-```python
-from azureml.core import ScriptRunConfig
-from azureml.core.runconfig import MpiConfiguration
-
-src = ScriptRunConfig(source_directory=project_folder,
-                      script='pytorch_horovod_mnist.py',
-                      compute_target=compute_target,
-                      environment=pytorch_env,
-                      distributed_job_config=MpiConfiguration(node_count=2))
-```
-
-Para ver un tutorial completo sobre la ejecución distribuida de PyTorch con Horovod en Azure ML, consulte [Ejecución distribuida de PyTorch con Horovod](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/pytorch/distributed-pytorch-with-horovod).
-
-### <a name="distributeddataparallel"></a>DistributedDataParallel
-Si usa el módulo integrado [DistributedDataParallel](https://pytorch.org/tutorials/intermediate/ddp_tutorial.html) de PyTorch que se ha creado con el paquete **torch.distributed** del código de entrenamiento, también puede iniciar el trabajo distribuido mediante Azure ML.
-
-Para iniciar un trabajo distribuido de PyTorch en Azure Machine Learning, tiene dos opciones:
-1. Inicio por proceso: especifique el número total de procesos de trabajo que desea ejecutar y Azure Machine Learning se encargará de iniciar cada proceso.
-2. Inicio por nodo con `torch.distributed.launch`: proporcione el comando `torch.distributed.launch` que desea ejecutar en cada nodo. La utilidad de inicio de Torch administrará el inicio de los procesos de trabajo en cada nodo.
-
-No hay diferencias fundamentales entre estas opciones de inicio; depende en gran medida de las preferencias del usuario o de las convenciones de los marcos de trabajo o bibliotecas creadas a partir de Vanilla PyTorch (como Lightning o Hugging Face).
-
-#### <a name="per-process-launch"></a>Inicio por proceso
-Para usar esta opción para ejecutar un trabajo distribuido de PyTorch, haga lo siguiente:
-1. Especificar el script de entrenamiento y los argumentos
-2. Cree un elemento [PyTorchConfiguration](/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration) y especifique `process_count` y `node_count`. `process_count` corresponde al número total de procesos que desea ejecutar para su trabajo. Normalmente, este debe ser igual al número de GPU por nodo multiplicado por el número de nodos. Si no se especifica `process_count`, Azure Machine Learning iniciará de forma predeterminada un proceso por nodo.
-
-Azure Machine Learning agregará las siguientes variables de entorno:
-* `MASTER_ADDR`: dirección IP de la máquina que hospedará el proceso con el rango 0.
-* `MASTER_PORT`: un puerto libre de la máquina que hospedará el proceso con el rango 0.
-* `NODE_RANK`: rango del nodo para el entrenamiento de varios nodos. Los valores posibles son de 0 a (número total de nodos - 1).
-* `WORLD_SIZE`: número total de procesos. Debe ser igual al número total de dispositivos (GPU) usados para el entrenamiento distribuido.
-* `RANK`: el rango (global) del proceso actual. Los valores posibles son de 0 a (tamaño mundial - 1).
-* `LOCAL_RANK`: el rango local (relativo) del proceso dentro del nodo. Los valores posibles son de 0 a (n.º de procesos en el nodo - 1).
-
-Dado que las variables de entorno necesarias se establecerán automáticamente en Azure Machine Learning, puede usar [el método de inicialización de variables de entorno predeterminado](https://pytorch.org/docs/stable/distributed.html#environment-variable-initialization) para inicializar el grupo de procesos en el código de entrenamiento.
-
-El siguiente fragmento de código configura un trabajo de PyTorch de 2 nodos y 2 procesos por nodo:
-```python
-from azureml.core import ScriptRunConfig
-from azureml.core.runconfig import PyTorchConfiguration
-
-curated_env_name = 'AzureML-PyTorch-1.6-GPU'
-pytorch_env = Environment.get(workspace=ws, name=curated_env_name)
-distr_config = PyTorchConfiguration(process_count=4, node_count=2)
-
-src = ScriptRunConfig(
-  source_directory='./src',
-  script='train.py',
-  arguments=['--epochs', 25],
-  compute_target=compute_target,
-  environment=pytorch_env,
-  distributed_job_config=distr_config,
-)
-
-run = Experiment(ws, 'experiment_name').submit(src)
-```
-
-> [!WARNING]
-> Para usar esta opción para el entrenamiento de varios procesos por nodo, tendrá que usar el SDK de Python de Azure Machine Learning 1.22.0 u otra versión posterior, ya que `process_count` se presentó por primera vez en esa versión.
-
-> [!TIP]
-> Si el script de entrenamiento pasa información (como el rango local o el rango) como argumentos de script, puede hacer referencia a las variables de entorno en los argumentos: `arguments=['--epochs', 50, '--local_rank', $LOCAL_RANK]`.
-
-#### <a name="per-node-launch-with-torchdistributedlaunch"></a>Inicio por nodo con `torch.distributed.launch`
-PyTorch proporciona una utilidad de inicio en [torch.distributed.launch](https://pytorch.org/docs/stable/distributed.html#launch-utility) que los usuarios pueden usar para iniciar varios procesos por nodo. El módulo `torch.distributed.launch` generará varios procesos de entrenamiento en cada uno de los nodos.
-
-En los pasos siguientes se muestra cómo configurar un trabajo de PyTorch con un iniciador por nodo en Azure Machine Learning que logrará el equivalente a ejecutar el siguiente comando:
-
-```shell
-python -m torch.distributed.launch --nproc_per_node <num processes per node> \
-  --nnodes <num nodes> --node_rank $NODE_RANK --master_addr $MASTER_ADDR \
-  --master_port $MASTER_PORT --use_env \
-  <your training script> <your script arguments>
-```
-
-1. Proporcione el comando `torch.distributed.launch` al parámetro `command` del constructor `ScriptRunConfig`. Azure Machine Learning ejecutará este comando en cada nodo del clúster de entrenamiento. `--nproc_per_node` debe ser menor o igual que el número de GPU disponibles en cada nodo. `MASTER_ADDR`, `MASTER_PORT` y `NODE_RANK` se establecen en Azure Machine Learning, por lo que solo puede hacer referencia a las variables de entorno del comando. Azure Machine Learning establece `MASTER_PORT` en 6105, pero puede pasar un valor diferente al argumento `--master_port` del comando `torch.distributed.launch` si lo desea. (La utilidad de inicio restablecerá las variables de entorno).
-2. Cree un elemento `PyTorchConfiguration` y especifique el valor de `node_count`. No es necesario establecer `process_count` ya que Azure Machine Learning iniciará un proceso por nodo de forma predeterminada, lo cual hará que se ejecute el comando de inicio que especificó.
-
-```python
-from azureml.core import ScriptRunConfig
-from azureml.core.runconfig import PyTorchConfiguration
-
-curated_env_name = 'AzureML-PyTorch-1.6-GPU'
-pytorch_env = Environment.get(workspace=ws, name=curated_env_name)
-distr_config = PyTorchConfiguration(node_count=2)
-launch_cmd = "python -m torch.distributed.launch --nproc_per_node 2 --nnodes 2 --node_rank $NODE_RANK --master_addr $MASTER_ADDR --master_port $MASTER_PORT --use_env train.py --epochs 50".split()
-
-src = ScriptRunConfig(
-  source_directory='./src',
-  command=launch_cmd,
-  compute_target=compute_target,
-  environment=pytorch_env,
-  distributed_job_config=distr_config,
-)
-
-run = Experiment(ws, 'experiment_name').submit(src)
-```
-
-Para ver un tutorial completo sobre la ejecución distribuida de PyTorch en Azure ML, consulte [Ejecución distribuida de PyTorch con DistributedDataParallel](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/pytorch/distributed-pytorch-with-distributeddataparallel).
-
-### <a name="troubleshooting"></a>Solución de problemas
-
-* **Horovod se apagó**: En la mayoría de los casos, si se muestra "AbortedError: Horovod has been shut down" (AbortedError: Horovod se cerró), hubo una excepción subyacente en uno de los procesos y esto causó el apagado de Horovod. Cada clasificación en el trabajo MPI obtiene su propio archivo de registro dedicado en Azure ML. Estos registros son nombrados `70_driver_logs`. En caso de entrenamiento distribuido, los nombres de registro tienen el sufijo `_rank` para facilitar la diferenciación de los registros. Para encontrar el error exacto que provocó el apagado de Horovod, revise todos los archivos de registro y busque `Traceback` al final de los archivos driver_log. Uno de estos archivos le dará la excepción subyacente real. 
+Para obtener más información sobre el entrenamiento distribuido, consulte la [guía de entrenamiento de GPU distribuido](how-to-train-distributed-gpu.md).
 
 ## <a name="export-to-onnx"></a>Exportación a ONNX
 
