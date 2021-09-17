@@ -11,20 +11,20 @@ ms.topic: conceptual
 ms.date: 04/01/2021
 ms.author: mbullwin
 keywords: anomaly detection, machine learning, algorithms
-ms.openlocfilehash: 2e74edb0f716862925bb19140a4425366ebab894
-ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
+ms.openlocfilehash: 85c169afb8c6158a3e5c32ac4d62cbeeabb4c2bb
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113587668"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123035612"
 ---
 # <a name="multivariate-time-series-anomaly-detection-preview"></a>Detección de anomalías de serie temporal multivariante (versión preliminar)
 
 Las nuevas API de **detección de anomalías multivariante** permiten a los desarrolladores integrar fácilmente la inteligencia artificial avanzada para detectar anomalías de grupos de métricas, sin necesidad de tener conocimientos de aprendizaje automático ni datos etiquetados. Las dependencias y las correlaciones de hasta 300 señales diferentes ahora se cuentan automáticamente como factores clave. Esta nueva funcionalidad le permite proteger de forma proactiva los sistemas complejos, como aplicaciones de software, servidores, máquinas de fábrica, vehículos espaciales o incluso su empresa, frente a errores.
 
-![Varios gráficos de líneas de serie temporal para variables de vibración, temperatura, presión, velocidad, velocidad de rotación con anomalías resaltadas en naranja.](./media/multivariate-graph.png)
+![Varios gráficos de líneas de serie temporal para variables de rotación, filtro óptico, presión o rumbo, con las anomalías resaltadas en naranja](./media/multivariate-graph.png)
 
-Imagine que tiene 20 sensores de un motor automático que generan 20 señales diferentes, como vibración, temperatura, presión de combustible, etc. Es posible que las lecturas individuales de esas señales no le informen mucho sobre los problemas de nivel del sistema, pero juntos pueden representar el estado del motor. Cuando la interacción de esas señales se desvía fuera del intervalo habitual, la característica de detección de anomalías multivariante puede detectar la anomalía como un experto con experiencia. Los modelos de IA subyacentes se entrenan y personalizan con los datos, de forma que comprendan las necesidades únicas del negocio. Con las nuevas API de Anomaly Detector, los desarrolladores ahora pueden integrar fácilmente las funcionalidades de detección de anomalías de serie temporal multivariante en soluciones de mantenimiento predictivo, soluciones de supervisión de AIOps para software empresarial complejo o herramientas de inteligencia empresarial.
+Imagine que tiene 20 sensores de un motor automático, que generan 20 señales diferentes, como rotación, presión de combustible, rumbo, etc. Es posible que las lecturas individuales de esas señales no le informen mucho sobre los problemas de nivel del sistema, pero juntas pueden representar el estado del motor. Cuando la interacción de esas señales se desvía fuera del intervalo habitual, la característica de detección de anomalías multivariante puede detectar la anomalía como un experto con experiencia. Los modelos de IA subyacentes se entrenan y personalizan con los datos, de forma que comprendan las necesidades únicas del negocio. Con las nuevas API de Anomaly Detector, los desarrolladores ahora pueden integrar fácilmente las funcionalidades de detección de anomalías de serie temporal multivariante en soluciones de mantenimiento predictivo, soluciones de supervisión de AIOps para software empresarial complejo o herramientas de inteligencia empresarial.
 
 ## <a name="when-to-use-multivariate-versus-univariate"></a>Cuándo usar un elemento **multivariante** frente a uno **univariante**
 
