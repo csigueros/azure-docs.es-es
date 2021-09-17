@@ -1,18 +1,20 @@
 ---
 title: Solución de problemas de rendimiento de la actividad de copia
-description: Conozca cómo solucionar problemas de rendimiento de la actividad de copia en Azure Data Factory.
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Obtenga información sobre cómo solucionar problemas de rendimiento de la actividad de copia en Azure Data Factory y Azure Synapse Analytics.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 01/07/2021
-ms.openlocfilehash: eee68b8cb533763aff0c1cc6a1ebe19db735461e
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.custom: synapse
+ms.date: 08/24/2021
+ms.openlocfilehash: cea4999752d416f36f435ba88403fd9dc735f689
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109488580"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123255816"
 ---
 # <a name="troubleshoot-copy-activity-performance"></a>Solución de problemas de rendimiento de la actividad de copia
 
@@ -26,7 +28,7 @@ Después de ejecutar una actividad de copia, puede recopilar el resultado de la 
 
 ## <a name="performance-tuning-tips"></a>Sugerencias de optimización del rendimiento
 
-En algunos casos, cuando se ejecuta una actividad de copia en Data Factory, se ve el mensaje **"Performance tuning tips"** (Sugerencias para la optimización del rendimiento) en la parte superior, como se muestra en el ejemplo anterior. Las sugerencias señalan el cuello de botella identificado por ADF para la ejecución específica de la copia, junto con recomendaciones sobre cómo aumentar el rendimiento de la copia. Intente llevar a cabo el cambio sugerido y ejecutar la copia de nuevo.
+En algunos escenarios, cuando se ejecuta una actividad de copia, aparece el mensaje **"Sugerencias para la optimización del rendimiento"** en la parte superior, como se muestra en el ejemplo anterior. Las sugerencias señalan el cuello de botella identificado por el servicio para la ejecución específica de la copia, junto con recomendaciones sobre cómo aumentar su rendimiento. Intente llevar a cabo el cambio sugerido y ejecute la copia de nuevo.
 
 Como referencia, actualmente las sugerencias de optimización del rendimiento proporcionan recomendaciones para los siguientes casos:
 
@@ -69,11 +71,11 @@ Si el rendimiento de la actividad de copia no satisface sus expectativas, quiere
 
     - Compruebe si puede [copiar archivos en función del nombre o la ruta de acceso del archivo con particiones de tiempo](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md). De este modo, no se aporta carga alguna a la enumeración del lado de origen.
 
-    - Compruebe si en su lugar puede usar el filtro nativo del almacén de datos, específicamente "**prefix**" para Amazon S3/Azure Blob/Azure File Storage y "**listAfter/listBefore**" para ADLS Gen1. Estos filtros son del lado servidor del almacén de datos y tendrían un rendimiento mucho mejor.
+    - Compruebe si en su lugar puede usar el filtro nativo del almacén de datos, específicamente "**prefix**" para Amazon S3/Azure Blob Storage/Azure Files y "**listAfter/listBefore**" para ADLS Gen1. Estos filtros son del lado servidor del almacén de datos y tendrían un rendimiento mucho mejor.
 
     - Considere la posibilidad de dividir un conjunto de datos de gran tamaño en varios conjuntos de datos más pequeños y permitir que esos trabajos de copia se ejecuten simultáneamente, abordando cada uno de ellos una parte de los datos. Puede hacerlo con Lookup/GetMetadata + ForEach + Copy. Consulte las plantillas de solución de [Copia de archivos de varios contenedores](solution-template-copy-files-multiple-containers.md) o [Migración de datos de Amazon S3 a ADLS Gen2](solution-template-migration-s3-azure.md) como ejemplo general.
 
-  - Compruebe si ADF notifica algún error de limitación en el origen o si el almacén de datos muestra un estado de uso elevado. Si es así, reduzca las cargas de trabajo en el almacén de datos o intente ponerse en contacto con el administrador del almacén de datos para aumentar el límite o los recursos disponibles.
+  - Compruebe si el servicio notifica algún error de limitación en el origen o si el almacén de datos muestra un estado de uso elevado. Si es así, reduzca las cargas de trabajo en el almacén de datos o intente ponerse en contacto con el administrador del almacén de datos para aumentar el límite o los recursos disponibles.
 
   - Use una instancia de Azure IR en la misma región que el almacén de datos de origen o en una región próxima.
 
@@ -81,7 +83,7 @@ Si el rendimiento de la actividad de copia no satisface sus expectativas, quiere
 
   - Adopte el procedimiento recomendado de carga de datos específico del conector si es aplicable. Por ejemplo, al copiar datos desde [Amazon Redshift](connector-amazon-redshift.md), realice la configuración para que use UNLOAD de Redshift.
 
-  - Compruebe si ADF notifica algún error de limitación en el origen o si el almacén de datos muestra un uso elevado. Si es así, reduzca las cargas de trabajo en el almacén de datos o intente ponerse en contacto con el administrador del almacén de datos para aumentar el límite o los recursos disponibles.
+  - Compruebe si el servicio notifica algún error de limitación en el origen o si el almacén de datos registra un uso elevado. Si es así, reduzca las cargas de trabajo en el almacén de datos o intente ponerse en contacto con el administrador del almacén de datos para aumentar el límite o los recursos disponibles.
 
   - Compruebe el patrón del origen y el receptor de la copia: 
 
@@ -95,7 +97,7 @@ Si el rendimiento de la actividad de copia no satisface sus expectativas, quiere
 
   - Adopte el procedimiento recomendado de carga de datos específico del conector si es aplicable. Por ejemplo, al copiar datos en [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md), use PolyBase o la instrucción COPY. 
 
-  - Compruebe si ADF notifica algún error de limitación en el receptor o si el almacén de datos muestra un uso elevado. Si es así, reduzca las cargas de trabajo en el almacén de datos o intente ponerse en contacto con el administrador del almacén de datos para aumentar el límite o los recursos disponibles.
+  - Compruebe si el servicio notifica algún error de limitación en el receptor o si el almacén de datos registra un uso elevado. Si es así, reduzca las cargas de trabajo en el almacén de datos o intente ponerse en contacto con el administrador del almacén de datos para aumentar el límite o los recursos disponibles.
 
   - Compruebe el patrón del origen y el receptor de la copia: 
 
@@ -123,11 +125,11 @@ Si el rendimiento de la copia no satisface sus expectativas, quiere solucionar p
 
     - Compruebe si puede [copiar archivos en función del nombre o la ruta de acceso del archivo con particiones de tiempo](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md). De este modo, no se aporta carga alguna a la enumeración del lado de origen.
 
-    - Compruebe si en su lugar puede usar el filtro nativo del almacén de datos, específicamente "**prefix**" para Amazon S3/Azure Blob/Azure File Storage y "**listAfter/listBefore**" para ADLS Gen1. Estos filtros son del lado servidor del almacén de datos y tendrían un rendimiento mucho mejor.
+    - Compruebe si en su lugar puede usar el filtro nativo del almacén de datos, específicamente "**prefix**" para Amazon S3/Azure Blob Storage/Azure Files y "**listAfter/listBefore**" para ADLS Gen1. Estos filtros son del lado servidor del almacén de datos y tendrían un rendimiento mucho mejor.
 
     - Considere la posibilidad de dividir un conjunto de datos de gran tamaño en varios conjuntos de datos más pequeños y permitir que esos trabajos de copia se ejecuten simultáneamente, abordando cada uno de ellos una parte de los datos. Puede hacerlo con Lookup/GetMetadata + ForEach + Copy. Consulte las plantillas de solución de [Copia de archivos de varios contenedores](solution-template-copy-files-multiple-containers.md) o [Migración de datos de Amazon S3 a ADLS Gen2](solution-template-migration-s3-azure.md) como ejemplo general.
 
-  - Compruebe si ADF notifica algún error de limitación en el origen o si el almacén de datos muestra un estado de uso elevado. Si es así, reduzca las cargas de trabajo en el almacén de datos o intente ponerse en contacto con el administrador del almacén de datos para aumentar el límite o los recursos disponibles.
+  - Compruebe si el servicio notifica algún error de limitación en el origen o si el almacén de datos muestra un estado de uso elevado. Si es así, reduzca las cargas de trabajo en el almacén de datos o intente ponerse en contacto con el administrador del almacén de datos para aumentar el límite o los recursos disponibles.
 
 - **En la fase de transferencia, la lectura desde el origen muestra una larga duración de trabajo**: 
 
@@ -135,7 +137,7 @@ Si el rendimiento de la copia no satisface sus expectativas, quiere solucionar p
 
   - Compruebe si la máquina de IR autohospedado tiene suficiente ancho de banda de entrada para leer y transferir los datos de forma eficaz. Si el almacén de datos de origen está en Azure, puede usar [esta herramienta](https://www.azurespeed.com/Azure/Download) para comprobar la velocidad de descarga.
 
-  - Compruebe la tendencia de uso de memoria y CPU del IR autohospedado en Azure Portal -> la factoría de datos -> página de información general. Considere la posibilidad de [escalar vertical u horizontalmente el entorno de ejecución de integración](create-self-hosted-integration-runtime.md#high-availability-and-scalability) si el uso de CPU es alto o hay poca memoria disponible.
+  - Compruebe la tendencia de uso de memoria y CPU del IR autohospedado en Azure Portal -> Su área de trabajo de Data Factory o Synapse -> Página de información general. Considere la posibilidad de [escalar vertical u horizontalmente el entorno de ejecución de integración](create-self-hosted-integration-runtime.md#high-availability-and-scalability) si el uso de CPU es alto o hay poca memoria disponible.
 
   - Adopte el procedimiento recomendado de carga de datos específico del conector si es aplicable. Por ejemplo:
 
@@ -145,7 +147,7 @@ Si el rendimiento de la copia no satisface sus expectativas, quiere solucionar p
 
     - Al copiar datos desde [Amazon Redshift](connector-amazon-redshift.md), realice la configuración para usar UNLOAD de Redshift.
 
-  - Compruebe si ADF notifica algún error de limitación en el origen o si el almacén de datos muestra un uso elevado. Si es así, reduzca las cargas de trabajo en el almacén de datos o intente ponerse en contacto con el administrador del almacén de datos para aumentar el límite o los recursos disponibles.
+  - Compruebe si el servicio notifica algún error de limitación en el origen o si el almacén de datos registra un uso elevado. Si es así, reduzca las cargas de trabajo en el almacén de datos o intente ponerse en contacto con el administrador del almacén de datos para aumentar el límite o los recursos disponibles.
 
   - Compruebe el patrón del origen y el receptor de la copia: 
 
@@ -161,9 +163,9 @@ Si el rendimiento de la copia no satisface sus expectativas, quiere solucionar p
 
   - Compruebe si la máquina de IR autohospedado tiene suficiente ancho de banda de salida para transferir y escribir los datos de forma eficaz. Si el almacén de datos receptor está en Azure, puede usar [esta herramienta](https://www.azurespeed.com/Azure/UploadLargeFile) para comprobar la velocidad de carga.
 
-  - Compruebe la tendencia de uso de memoria y CPU del IR autohospedado en Azure Portal -> la factoría de datos -> página de información general. Considere la posibilidad de [escalar vertical u horizontalmente el entorno de ejecución de integración](create-self-hosted-integration-runtime.md#high-availability-and-scalability) si el uso de CPU es alto o hay poca memoria disponible.
+  - Compruebe la tendencia de uso de memoria y CPU del IR autohospedado en Azure Portal -> Su área de trabajo de Data Factory o Synapse -> Página de información general. Considere la posibilidad de [escalar vertical u horizontalmente el entorno de ejecución de integración](create-self-hosted-integration-runtime.md#high-availability-and-scalability) si el uso de CPU es alto o hay poca memoria disponible.
 
-  - Compruebe si ADF notifica algún error de limitación en el receptor o si el almacén de datos muestra un uso elevado. Si es así, reduzca las cargas de trabajo en el almacén de datos o intente ponerse en contacto con el administrador del almacén de datos para aumentar el límite o los recursos disponibles.
+  - Compruebe si el servicio notifica algún error de limitación en el receptor o si el almacén de datos registra un uso elevado. Si es así, reduzca las cargas de trabajo en el almacén de datos o intente ponerse en contacto con el administrador del almacén de datos para aumentar el límite o los recursos disponibles.
 
   - Considere la posibilidad de ajustar gradualmente las [copias en paralelo](copy-activity-performance-features.md); tenga en cuenta que demasiadas copias en paralelo pueden perjudicar el rendimiento.
 
@@ -178,9 +180,7 @@ El tiempo de ejecución de la actividad varía cuando el conjunto de datos se ba
 
 - **Síntomas**: El simple cambio de la lista desplegable Servicio vinculado en el conjunto de datos realiza las mismas actividades de canalización, pero tiene tiempos de ejecución radicalmente diferentes. Cuando el conjunto de datos se basa en el entorno de ejecución de integración de la red virtual administrada, tarda más tiempo promedio que la ejecución basada en el entorno de ejecución de integración predeterminado.  
 
-- **Causa**: Al comprobar los detalles de las ejecuciones de canalización, puede observar que la canalización lenta se ejecuta en el entorno de ejecución de integración de la VNET administrada (Virtual Network), mientras que la normal se ejecuta en Azure IR. Por diseño, el entorno de ejecución de integración de la red virtual administrada lleva más tiempo en la cola que Azure IR, ya que no se reserva un nodo de proceso por factoría de datos, por lo que hay una preparación para que se inicie cada actividad de copia y se produce principalmente en la unión a una red virtual y no en Azure IR. 
-
-
+- **Causa**: Al comprobar los detalles de las ejecuciones de canalización, puede observar que la canalización lenta se ejecuta en el entorno de ejecución de integración de la VNET administrada (Virtual Network), mientras que la normal se ejecuta en Azure IR. Por diseño, el entorno de ejecución de integración de la red virtual administrada lleva más tiempo en la cola que Azure IR, ya que no se reserva un nodo de proceso por instancia del servicio. Por lo tanto, hay una preparación para que se inicie cada actividad de copia y se produce principalmente en la unión a una red virtual y no en Azure IR. 
 
     
 ### <a name="low-performance-when-loading-data-into-azure-sql-database"></a>Bajo rendimiento al cargar datos en Azure SQL Database
@@ -197,7 +197,7 @@ El tiempo de ejecución de la actividad varía cuando el conjunto de datos se ba
 
     - WriteBatchSize no es lo suficientemente grande como para ajustarse al tamaño de fila del esquema. Intente aumentar la propiedad para solucionar el problema.
 
-    - En lugar de Bulk insert, se usa el procedimiento almacenado, cuyo rendimiento es previsiblemente menor. 
+    - En lugar de Bulk Insert, se usa el procedimiento almacenado, cuyo rendimiento es previsiblemente menor. 
 
 
 ### <a name="timeout-or-slow-performance-when-parsing-large-excel-file"></a>Tiempo de espera o rendimiento lento al analizar un archivo de Excel de gran tamaño
@@ -212,7 +212,7 @@ El tiempo de ejecución de la actividad varía cuando el conjunto de datos se ba
 
     - En operaciones como la importación de esquemas, la vista previa de datos y la enumeración de hojas de cálculo en un conjunto de datos de Excel, el tiempo de espera es de 100 s y es estático. Para un archivo de Excel de gran tamaño, es posible que estas operaciones no finalicen dentro del valor del tiempo de espera.
 
-    - La actividad de copia de ADF lee el archivo de Excel completo en la memoria y, luego, busca la hoja de cálculo y las celdas especificadas para leer los datos. Este comportamiento se debe a que usa ADF del SDK subyacente.
+    - La actividad de copia lee el archivo de Excel completo en la memoria y, luego, busca la hoja de cálculo y las celdas especificadas para leer los datos. Este comportamiento se debe al SDK subyacente que usa el servicio.
 
 - **Solución:** 
 
@@ -240,5 +240,5 @@ Consulte los restantes artículos acerca de la actividad de copia:
 - [Información general de la actividad de copia](copy-activity-overview.md)
 - [Guía de escalabilidad y rendimiento de la actividad de copia](copy-activity-performance.md)
 - [Características de optimización del rendimiento de la actividad de copia](copy-activity-performance-features.md)
-- [Uso de Azure Data Factory para migrar datos del lago de datos y el almacenamiento de datos a Azure](data-migration-guidance-overview.md)
+- [Migración de datos de Data Lake y Data Warehouse a Azure](data-migration-guidance-overview.md)
 - [Migración de datos de AWS S3 a Azure Storage](data-migration-guidance-s3-azure-storage.md)

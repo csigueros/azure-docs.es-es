@@ -2,21 +2,22 @@
 title: Incorporación de una extensión de conjunto de escalado de máquinas virtuales a un tipo de nodo de clúster administrado de Service Fabric
 description: Aquí le mostramos cómo agregar una extensión de conjunto de escalado de máquinas virtuales a un tipo de nodo de clúster administrado de Service Fabric
 ms.topic: article
-ms.date: 5/10/2021
-ms.openlocfilehash: 0c0aac8d7804caeb6c08657b1ed36c45958a0ea5
-ms.sourcegitcommit: b044915306a6275c2211f143aa2daf9299d0c574
+ms.date: 8/02/2021
+ms.openlocfilehash: 8755eb7551dd7f7e572632ee50eb57467f675822
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113033702"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122866396"
 ---
-# <a name="add-a-virtual-machine-scale-set-extension-to-a-service-fabric-managed-cluster-node-type"></a>Incorporación de una extensión de conjunto de escalado de máquinas virtuales a un tipo de nodo de clúster administrado de Service Fabric
+# <a name="virtual-machine-scale-set-extension-support-on-service-fabric-managed-cluster-node-types"></a>Compatibilidad de extensiones de conjunto de escalado de máquinas virtuales con tipos de nodo de clúster administrado de Service Fabric
 
-Cada tipo de nodo de un clúster administrado de Service Fabric se encuentra respaldado por un conjunto de escalado de máquinas virtuales. De este modo, puede agregar [extensiones de conjunto de escalado de máquinas virtuales](../virtual-machines/extensions/overview.md) a los tipos de nodo de clúster administrado de Service Fabric.
+Cada tipo de nodo de un clúster administrado de Service Fabric se encuentra respaldado por un conjunto de escalado de máquinas virtuales. De este modo, puede agregar [extensiones de conjunto de escalado de máquinas virtuales](../virtual-machines/extensions/overview.md) a los tipos de nodo de clúster administrado de Service Fabric. Las extensiones son aplicaciones pequeñas que proporcionan automatización y configuración posterior a la implementación en VM de Azure. La plataforma de Azure hospeda numerosas extensiones, que abarcan aplicaciones de configuración, supervisión, seguridad y utilidad de VM. Los editores toman una aplicación, la encapsulan en una extensión y simplifican la instalación. Solo debe proporcionar parámetros obligatorios. 
 
-Puede agregar una extensión de conjunto de escalado de máquinas virtuales a un tipo de nodo mediante el comando de PowerShell [Add-AzServiceFabricManagedNodeTypeVMExtension](/powershell/module/az.servicefabric/add-azservicefabricmanagednodetypevmextension).
+## <a name="add-a-virtual-machine-scale-set-extension"></a>Incorporación de una extensión de conjunto de escalado de máquinas virtuales
+Puede agregar una extensión de conjunto de escalado de máquinas virtuales a un tipo de nodo de clúster administrado de Service Fabric mediante el comando de PowerShell [Add-AzServiceFabricManagedNodeTypeVMExtension](/powershell/module/az.servicefabric/add-azservicefabricmanagednodetypevmextension).
 
-También puede agregar una extensión del conjunto de escalado de máquinas virtuales en un tipo de nodo de clúster administrado por Service Fabric en la plantilla de Azure Resource Manager, por ejemplo:
+También puede agregar una extensión de conjunto de escalado de máquinas virtuales en un tipo de nodo de clúster administrado de Service Fabric en su plantilla de Azure Resource Manager, por ejemplo:
 
 ```json
 {

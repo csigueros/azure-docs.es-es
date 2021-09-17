@@ -1,19 +1,22 @@
 ---
-title: Actividad de copia en Azure Data Factory
-description: Aprenda sobre la actividad de copia en Azure Data Factory. Puede usarla para copiar datos de un almacén de datos de origen admitido a un almacén de datos receptor compatible.
+title: Actividad de copia
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Obtenga información sobre la actividad de copia de Azure Data Factory y Azure Synapse Analytics. Puede usarla para copiar datos de un almacén de datos de origen admitido a un almacén de datos receptor compatible.
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 6/1/2021
+ms.date: 08/24/2021
 ms.author: jianleishen
-ms.openlocfilehash: 944e5fb05298c91e4405088c1179e0720173dde0
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: a5b84673a879c086fe1fc0543da1ab0037d32ac1
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111746186"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123255948"
 ---
-# <a name="copy-activity-in-azure-data-factory"></a>Actividad de copia en Azure Data Factory
+# <a name="copy-activity-in-azure-data-factory-and-azure-synapse-analytics"></a>Actividad de copia en Azure Data Factory y Azure Synapse Analytics
 
 > [!div class="op_single_selector" title1="Seleccione la versión de Data Factory que va a usar:"]
 > * [Versión 1](v1/data-factory-data-movement-activities.md)
@@ -21,7 +24,7 @@ ms.locfileid: "111746186"
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-En Azure Data Factory, puede usar la actividad de copia para copiar datos entre almacenes de datos locales y en la nube. Después de copiar los datos, puede usar otras actividades para luego transformarlos y analizarlos. La actividad de copia también puede usarse para publicar los resultados de transformación y análisis de inteligencia empresarial (BI) y el consumo de la aplicación.
+En canalizaciones de Azure Data Factory y Synapse, puede usar la actividad de copia para copiar datos entre almacenes de datos locales y en la nube. Después de copiar los datos, puede usar otras actividades para luego transformarlos y analizarlos. La actividad de copia también puede usarse para publicar los resultados de transformación y análisis de inteligencia empresarial (BI) y el consumo de la aplicación.
 
 ![El rol de la actividad de copia](media/copy-activity-overview/copy-activity.png)
 
@@ -58,13 +61,13 @@ La actividad de copia se puede usar para copiar archivos tal cual entre dos alma
 
 ## <a name="supported-regions"></a>Regiones admitidas
 
-El servicio que permite la actividad de copia está disponible globalmente en las regiones y zonas geográficas enumeradas en [Ubicaciones de Azure Integration Runtime](concepts-integration-runtime.md#integration-runtime-location). La topología disponible globalmente garantiza un movimiento de datos eficiente que, normalmente, evita saltos entre regiones. Consulte [Productos por región](https://azure.microsoft.com/regions/#services) para comprobar la disponibilidad de Data Factory y el movimiento de datos en una región específica.
+El servicio que permite la actividad de copia está disponible globalmente en las regiones y zonas geográficas enumeradas en [Ubicaciones de Azure Integration Runtime](concepts-integration-runtime.md#integration-runtime-location). La topología disponible globalmente garantiza un movimiento de datos eficiente que, normalmente, evita saltos entre regiones. Consulte [Productos por región](https://azure.microsoft.com/regions/#services) para comprobar la disponibilidad de Data Factory, Synapse para áreas de trabajo y el movimiento de datos en una región específica.
 
 ## <a name="configuration"></a>Configuración
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
-En general, para usar la actividad de copia en Azure Data Factory, debe:
+En general, para usar la actividad de copia en canalizaciones de Azure Data Factory o Synapse, debe hacer lo siguiente:
 
 1. **Crear servicios vinculados para el almacén de datos de origen y el almacén de datos receptor**. Puede encontrar la lista de conectores admitidos en la sección [Almacenes de datos y formatos que se admiten](#supported-data-stores-and-formats) de este artículo. Consulte la sección "Propiedades del servicio vinculado" del artículo sobre conectores para información sobre la configuración y las propiedades admitidas. 
 2. **Crear conjuntos de datos para el origen y el receptor**. Consulte las secciones "Propiedades del conjunto de datos" de los artículos sobre los conectores de origen y receptor para información sobre la configuración y las propiedades admitidas.
@@ -139,19 +142,19 @@ La plantilla siguiente de una actividad de copia contiene una lista completa de 
 
 ## <a name="monitoring"></a>Supervisión
 
-Puede supervisar la ejecución de la actividad de copia en Azure Data Factory visualmente o mediante programación. Para obtener más detalles, consulte [Supervisión de la actividad de copia](copy-activity-monitoring.md).
+Puede supervisar la ejecución de la actividad de copia en canalizaciones de Azure Data Factory y Synapse visualmente o mediante programación. Para obtener más detalles, consulte [Supervisión de la actividad de copia](copy-activity-monitoring.md).
 
 ## <a name="incremental-copy"></a>Copia incremental
 
-Data Factory permite la copia incremental de datos diferenciales de un almacén de datos de origen a un almacén de datos receptor. Para más información, consulte [Tutorial: Copia de datos de forma incremental](tutorial-incremental-copy-overview.md).
+Las canalizaciones de Data Factory y Synapse le permiten copiar de forma incremental datos diferenciales de un almacén de datos de origen a otro receptor. Para más información, consulte [Tutorial: Copia de datos de forma incremental](tutorial-incremental-copy-overview.md).
 
 ## <a name="performance-and-tuning"></a>Rendimiento y optimización
 
-La experiencia de [supervisión de la actividad de copia](copy-activity-monitoring.md) muestra las estadísticas de rendimiento de copia de cada una de las ejecuciones de actividad. En el artículo [Guía de escalabilidad y rendimiento de la actividad de copia](copy-activity-performance.md) se describen los factores claves que afectan al rendimiento del movimiento de datos mediante la actividad de copia en Azure Data Factory. También se muestran los valores de rendimiento observados durante las pruebas y se describe cómo optimizar el rendimiento de la actividad de copia.
+La experiencia de [supervisión de la actividad de copia](copy-activity-monitoring.md) muestra las estadísticas de rendimiento de copia de cada una de las ejecuciones de actividad. En el artículo [Guía de escalabilidad y rendimiento de la actividad de copia](copy-activity-performance.md) se describen los factores claves que afectan al rendimiento del movimiento de datos mediante la actividad de copia. También se muestran los valores de rendimiento observados durante las pruebas y se describe cómo optimizar el rendimiento de la actividad de copia.
 
 ## <a name="resume-from-last-failed-run"></a>Reanudación desde el último error de ejecución
 
-La actividad de copia admite la reanudación desde el último error de ejecución cuando copia un gran tamaño de archivos tal cual con un formato binario entre almacenes basados en archivos y elige conservar la jerarquía carpeta/archivo del origen al receptor, por ejemplo, para migrar datos de Amazon S3 a Azure Data Lake Storage Gen2. Se aplica a los conectores basados en archivo siguientes: [Amazon S3](connector-amazon-simple-storage-service.md), [Amazon S3 Compatible Storage](connector-amazon-s3-compatible-storage.md) [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [Oracle Cloud Storage](connector-oracle-cloud-storage.md) y [SFTP](connector-sftp.md).
+La actividad de copia admite la reanudación desde el último error de ejecución cuando copia un gran tamaño de archivos tal cual con un formato binario entre almacenes basados en archivos y elige conservar la jerarquía carpeta/archivo del origen al receptor, por ejemplo, para migrar datos de Amazon S3 a Azure Data Lake Storage Gen2. Se aplica a los siguientes conectores basados en archivo: [Amazon S3](connector-amazon-simple-storage-service.md), [Amazon S3 Compatible Storage](connector-amazon-s3-compatible-storage.md) [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure Files](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [Oracle Cloud Storage](connector-oracle-cloud-storage.md) y [SFTP](connector-sftp.md).
 
 Puede aprovechar la reanudación de la actividad de copia de las dos maneras siguientes:
 
@@ -260,7 +263,7 @@ De forma predeterminada, la actividad de copia detiene la copia de datos y devue
 
 ## <a name="data-consistency-verification"></a>Comprobación de la coherencia de los datos
 
-Cuando se mueven datos del almacén de origen al de destino, la actividad de copia de Azure Data Factory proporciona una opción para realizar la comprobación de la coherencia de datos adicionales con el fin de garantizar que los datos no solo se copian correctamente del almacén de origen al de destino, así como la coherencia entre el almacén de origen y el de destino. Si se encuentran archivos incoherentes durante el movimiento de datos, puede anular la actividad de copia o habilitar la opción de configuración de tolerancia a errores para seguir copiando el resto y omitir los archivos incoherentes. Para obtener los nombres de los archivos omitidos, habilite la configuración del registro de sesión en la actividad de copia. Consulte [Comprobación de la coherencia de los datos en la actividad de copia](copy-activity-data-consistency.md) para más información.
+Cuando se mueven datos del almacén de origen al de destino, la actividad de copia proporciona una opción para realizar una comprobación adicional de la coherencia de los datos, con el fin de garantizar no solo que los datos se copien correctamente del almacén de origen al de destino, sino también la coherencia entre ambos almacenes. Si se encuentran archivos incoherentes durante el movimiento de datos, puede anular la actividad de copia o habilitar la opción de configuración de tolerancia a errores para seguir copiando el resto y omitir los archivos incoherentes. Para obtener los nombres de los archivos omitidos, habilite la configuración del registro de sesión en la actividad de copia. Consulte [Comprobación de la coherencia de los datos en la actividad de copia](copy-activity-data-consistency.md) para más información.
 
 ## <a name="session-log"></a>Registro de la sesión
 Puede registrar los nombres de archivo copiados, lo que puede ayudarle a asegurarse de que los datos no se copian correctamente del almacén de origen al de destino, sino que también son coherentes entre el almacén de origen y el de destino mediante la revisión de los registros de sesión de la actividad de copia. Consulte [Registro de sesión en la actividad de copia](copy-activity-log.md) para más información.
