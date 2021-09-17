@@ -9,13 +9,13 @@ ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: mathoma
-ms.date: 03/31/2021
-ms.openlocfilehash: e76493aa83383e4ce59da77cfb0ce050475ad303
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/07/2021
+ms.openlocfilehash: 85bf8c07da9d283011d17f1f96ad76e0fa411213
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121751264"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123535319"
 ---
 # <a name="migrate-databases-from-sql-server-to-sql-managed-instance-by-using-log-replay-service-preview"></a>Migración de bases de datos de SQL Server a SQL Managed Instance mediante el servicio de reproducción de registros (versión preliminar)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -393,6 +393,7 @@ A continuación se indican las limitaciones funcionales de LRS:
 - LRS requiere que las copias de seguridad de las bases de datos de SQL Server se realicen con la opción `CHECKSUM` habilitada.
 - El token de SAS que utilizará LRS debe generarse para todo el contenedor de Azure Blob Storage y solo debe tener permisos de lectura y enumeración.
 - Los archivos de copia de seguridad de diferentes bases de datos se deben colocar en distintas carpetas de Blob Storage.
+- LRS no puede consumir archivos de copia de seguridad que contengan los caracteres % y $ en el nombre de archivo. Considere la posibilidad de cambiar el nombre de estos nombres de archivo.
 - LRS debe iniciarse por separado para cada base de datos que apunte a distintas carpetas con archivos de copia de seguridad en Blob Storage.
 - LRS puede admitir hasta 100 procesos de restauración simultáneos por cada instancia administrada.
 

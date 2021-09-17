@@ -4,12 +4,12 @@ description: Aprenda a utilizar identidades administradas en Azure Kubernetes Se
 services: container-service
 ms.topic: article
 ms.date: 05/12/2021
-ms.openlocfilehash: dbc02f8b65235a47fc523665ea6337774a6eb557
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: d3d479730b88c80c627c3e6dad2ab8f80eb3aee6
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122321984"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123431737"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Uso de identidades administradas en Azure Kubernetes Service
 
@@ -83,6 +83,9 @@ az aks update -g <RGName> -n <AKSName> --enable-managed-identity
 ```
 > [!NOTE]
 > Después de la actualización, el plano de control del clúster y los pods de complemento cambiarán para usar la identidad administrada, pero kubelet SEGUIRÁ USANDO LA ENTIDAD DE SERVICIO hasta que se actualice el grupo de agentes. Utilice `az aks nodepool upgrade --node-image-only` en los nodos para completar la actualización de la identidad administrada. 
+
+
+> Si el clúster usaba --attach-acr para extraer de la imagen de ACR, después de actualizar el clúster a Identidad administrada, debe volver a ejecutar "az aks update --attach-acr <ACR Resource ID>" para permitir que el kubelet recién creado que se usa para la identidad administrada obtenga el permiso para la extracción desde ACR. De lo contrario, no podrá realizar la extracción desde ACR después de la actualización.
 
 
 ## <a name="obtain-and-use-the-system-assigned-managed-identity-for-your-aks-cluster"></a>Obtención y uso de la identidad administrada asignada por el sistema para el clúster de AKS

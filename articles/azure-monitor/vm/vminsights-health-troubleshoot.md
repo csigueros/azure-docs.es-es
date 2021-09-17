@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/25/2021
-ms.openlocfilehash: 0d7cb5c8747707b950075c7201d90c5e208298db
-ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
+ms.openlocfilehash: a02b7d6fa5ef8369578f89a452df95a50ca34204
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/15/2021
-ms.locfileid: "112123443"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123425183"
 ---
 # <a name="troubleshoot-vm-insights-guest-health-preview"></a>Solución de problemas de estado de invitado de VM Insights (versión preliminar)
 En este artículo se describen los pasos para solucionar problemas que puede seguir cuando tenga problemas con el estado de las instancias de VM Insights.
@@ -37,7 +37,7 @@ La instalación no se ha realizado correctamente y el mensaje de error de instal
 Exiting with the following error: "Failed to install VM Guest Health Agent: Init already exists: /etc/systemd/system/vmGuestHealthAgent.service"install vmGuestHealthAgent service execution failed with exit code 37
 ```
 
-El agente de estado de la máquina virtual desinstalará primero el servicio existente antes de instalar la versión actual. El motivo de este error es probablemente que el archivo de servicio anterior no se ha limpiado por alguna razón. Inicie sesión en la máquina virtual y ejecute el comando siguiente para realizar una copia de seguridad del archivo de servicio existente e intente volver a instalarlo.
+El agente de estado de la máquina virtual desinstalará primero el servicio existente antes de instalar la versión actual. El motivo de este error es probablemente que el archivo del servicio anterior no se ha limpiado por alguna razón. Inicie sesión en la máquina virtual y ejecute el comando siguiente para realizar una copia de seguridad del archivo de servicio existente e intente volver a instalarlo.
 
 ```
 sudo mv /etc/systemd/system/vmGuestHealthAgent.service  /etc/systemd/system/vmGuestHealthAgent.service.bak
@@ -55,7 +55,7 @@ La instalación no se ha realizado correctamente y el mensaje de error de instal
 ```
 Exiting with the following error: "Failed to install VM Guest Health Agent: exit status 1"install vmGuestHealthAgent service execution failed with exit code 37
 ```
-Probablemente se deba a que el agente invitado de máquina virtual no ha podido adquirir el bloqueo para el archivo de servicio. Pruebe a reiniciar la máquina virtual, de esta forma se liberará el bloqueo.
+Probablemente se deba a que el agente invitado de máquina virtual no ha podido adquirir el bloqueo del archivo del servicio. Pruebe a reiniciar la máquina virtual, de esta forma se liberará el bloqueo.
 
 
 ## <a name="upgrade-errors"></a>Errores de actualización
@@ -74,7 +74,7 @@ Probablemente se deba a que el agente invitado de máquina virtual no ha podido 
   - En Linux: el demonio es *vmGuestHealthAgent*. La carpeta de estado es */var/opt/vmGuestHealthAgent/* *.
   - En Windows: el servicio es *VM Guest Health Agent*. La carpeta de estado es _%ProgramData%\Microsoft\VMGuestHealthAgent \\*_ .
 - Compruebe que el agente de Azure Monitor tenga conectividad de red. 
-  - Desde la máquina virtual, intente hacer ping a _<region>.handler.control.monitor.azure.com_. Por ejemplo, si la máquina virtual está en westeurope, intente hacer ping a _westeurope.handler.control.monitor.azure.com:443_.
+  - Desde la máquina virtual, intente hacer ping a _\<region\>.handler.control.monitor.azure.com_. Por ejemplo, si la máquina virtual está en westeurope, intente hacer ping a _westeurope.handler.control.monitor.azure.com:443_.
 - Compruebe que la máquina virtual tenga una asociación con una regla de recopilación de datos de la misma región que el área de trabajo de Log Analytics.
   -  Consulte **Creación de una regla de recopilación de datos (DCR)** en [Habilitación del estado de invitado de Azure Monitor para VM (versión preliminar)](vminsights-health-enable.md) para asegurarse de que la estructura de la DCR es correcta. Preste especial atención a la presencia de la sección de origen de datos *performanceCounters* configurada para tres contadores de ejemplo y la presencia de la sección *inputDataSources* en la configuración de la extensión de estado para enviar contadores a la extensión.
 -  Compruebe si hay errores de la extensión de estado del invitado en la máquina virtual.
@@ -113,7 +113,7 @@ Compruebe que la identidad asignada por el sistema está habilitada en la máqui
 Compruebe que la regla de recopilación de datos que especifica la extensión de mantenimiento como un origen de datos está asociada a la máquina virtual.
 
 ### <a name="error-message-for-bad-request-due-to-insufficient-permissions"></a>Mensaje de error debido a una solicitud incorrecta por permisos insuficientes
-Este error indica que el proveedor de recursos **Microsoft.WorkloadMonitor** no se registró en la suscripción. Consulte [Tipos y proveedores de recursos de Azure](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) para obtener información sobre registrar a este proveedor de recursos. 
+Este error indica que el proveedor de recursos **Microsoft.WorkloadMonitor** no se ha registrado en la suscripción. Consulte [Tipos y proveedores de recursos de Azure](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) para obtener información sobre registrar a este proveedor de recursos. 
 
 ![Solicitud incorrecta](media/vminsights-health-troubleshoot/bad-request.png)
 

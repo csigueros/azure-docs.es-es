@@ -5,12 +5,12 @@ author: noakup
 ms.author: noakuper
 ms.topic: conceptual
 ms.date: 10/05/2020
-ms.openlocfilehash: 91230df3223f1227e2126ad48beaba781a3c28cc
-ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
+ms.openlocfilehash: e175439cacb75fc50574f172d9e1e34cba4cdbd7
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123214963"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123426407"
 ---
 # <a name="use-azure-private-link-to-connect-networks-to-azure-monitor"></a>Uso de Private Link para conectar redes a Azure Monitor
 
@@ -36,9 +36,10 @@ Un ámbito de Private Link de Azure Monitor conecta los puntos de conexión priv
 
 ![Diagrama de la topología básica de los recursos](./media/private-link-security/private-link-basic-topology.png)
 
+* Un vínculo privado de Azure Monitor conecta un punto de conexión privado a un conjunto de recursos de Azure Monitor: áreas de trabajo de Log Analytics y recursos de Application Insights. A esto se denomina ámbito de Private Link de Azure Monitor (AMPLS).
 * El punto de conexión privado de la red virtual le permite alcanzar los puntos de conexión de Azure Monitor a través de direcciones IP privadas desde el grupo de la red, en lugar de usar las direcciones IP públicas de estos puntos de conexión. Esto le permite seguir usando sus recursos de Azure Monitor sin necesidad de abrir la red virtual a un tráfico saliente no necesario. 
 * El tráfico desde el punto de conexión privado a los recursos de Azure Monitor pasará por la red troncal de Microsoft Azure y no se enrutará hacia las redes públicas.
-* Puede configurar el ámbito de Private Link de Azure Monitor (o redes específicas) para usar el modo de acceso preferido, ya sea permitir el tráfico solo a los recursos de Private Link, o permitir el tráfico tanto a los recursos de Private Link como a los recursos que no son de Private Link (recursos fuera de AMPLS).
+* Puede configurar el ámbito del vínculo privado de Azure Monitor (o las redes específicas que se conectan a él) para usar el modo de acceso preferido, ya sea permitir el tráfico solo a los recursos de Private Link, o permitir el tráfico tanto a los recursos de Private Link como a los recursos que no son de Private Link (recursos fuera de AMPLS).
 * Puede configurar cada uno de los componentes o áreas de trabajo para permitir o denegar la ingesta y las consultas de redes públicas. Esto proporciona una protección en el nivel de recurso para que pueda controlar el tráfico a recursos específicos.
 
 > [!NOTE]
@@ -61,10 +62,10 @@ Todos los puntos de conexión de Log Analytics, excepto el punto de conexión de
 
 
 > [!NOTE]
-> Cree un solo AMPLS para todas las redes que comparten el mismo DNS. Al crear varios recursos de AMPLS, los puntos de conexión de DNS de Azure Monitor se invalidarán entre sí e interrumpirán los entornos existentes.
+> Cree un solo AMPLS para todas las redes que comparten el mismo DNS. La creación de varios recursos de AMPLS hará que las zonas DNS de Azure Monitor se invaliden entre sí e interrumpan los entornos existentes.
 
 ### <a name="private-link-access-modes-private-only-vs-open"></a>Modos de acceso de Private Link: solo privado frente a abierto
-Como se describe en [Private Link de Azure Monitor se basa en el DNS](#azure-monitor-private-link-relies-on-your-dns), solo se debe crear un único recurso AMPLS para todas las redes que comparten el mismo DNS. Como consecuencia, las organizaciones que usan un único DNS global o regional de hecho tienen una única instancia de Private Link para administrar el tráfico a todos los recursos de Azure Monitor, a través de todas las redes globales o regionales.
+Como se analiza en [Private Link de Azure Monitor se basa en el DNS](#azure-monitor-private-link-relies-on-your-dns), solo se debe crear un único recurso AMPLS para todas las redes que comparten el mismo DNS. Como consecuencia, las organizaciones que usan un único DNS global o regional de hecho tienen una única instancia de Private Link para administrar el tráfico a todos los recursos de Azure Monitor, a través de todas las redes globales o regionales.
 
 En el caso de las instancias de Private Link creadas antes de septiembre de 2021, esto significa: 
 * La ingesta de registros solo funciona para los recursos de AMPLS. Se rechaza la ingesta a todos los demás recursos (en todas las redes que comparten el mismo DNS), independientemente de la suscripción o el inquilino.
@@ -75,6 +76,9 @@ Sin embargo, este comportamiento ha demostrado ser demasiado restrictivo para al
 Por lo tanto, las instancias de Private Link creadas a partir de septiembre de 2021 tienen una nueva configuración de AMPLS obligatoria que establece explícitamente de qué manera Private Link debe afectar al tráfico de red. Al crear un nuevo recurso de AMPLS, ahora es necesario seleccionar los modos de acceso deseados, para la ingesta y las consultas por separado. 
 * Modo solo privado: permite el tráfico solo a recursos de Private Link.
 * Modo abierto: usa Private Link para comunicarse con los recursos de AMPLS, pero también permite que el tráfico continúe a otros recursos. Consulte [Control de cómo se aplica Private Link a las redes](./private-link-design.md#control-how-private-links-apply-to-your-networks) para más información.
+
+> [!NOTE]
+> La ingesta de Log Analytics usa puntos de conexión específicos del recurso. Por lo tanto, no se adhiere a los modos de acceso de AMPLS. La ingesta en las áreas de trabajo de AMPLS se envía a través del vínculo privado, mientras que la ingesta en áreas de trabajo que no están en AMPLS usa los puntos de conexión públicos predeterminados. Para garantizar que las solicitudes de ingesta no pueden acceder a los recursos fuera de AMPLS, bloquee el acceso de la red a los puntos de conexión públicos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Diseño de la configuración de Private Link](private-link-design.md)

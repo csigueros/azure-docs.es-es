@@ -8,22 +8,25 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/27/2021
+ms.date: 09/01/2021
 ms.author: aahi
 ms.custom: cog-serv-seo-aug-2020
 keywords: entorno local, Docker, contenedor
-ms.openlocfilehash: a78408759492cdba97bca8b6e4b71411af192f9f
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: 75f0f8bb61c14f826addca3df41a0c568c92b510
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123224125"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123429377"
 ---
 # <a name="install-and-run-docker-containers-for-the-speech-service-apis"></a>Instalación y ejecución de contenedores de Docker para las API del servicio de voz 
 
-Los contenedores le permiten ejecutar algunas de las API del servicio de voz en su propio entorno. Los contenedores son excelentes para requisitos específicos de control de datos y seguridad. En este artículo, aprenderá a descargar, instalar y ejecutar un contenedor de Voz.
+Los contenedores le permiten ejecutar _algunas_ de las API del servicio de voz en su propio entorno. Los contenedores son excelentes para requisitos específicos de control de datos y seguridad. En este artículo, aprenderá a descargar, instalar y ejecutar un contenedor de Voz.
 
 Los contenedores de Voz permiten a los clientes compilar una arquitectura de aplicación de voz optimizada para las sólidas funcionalidades de la nube y la localidad del perímetro. Hay varios contenedores disponibles, que usan los mismos [precios](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) que los servicios de Voz de Azure basados en la nube.
+
+> [!IMPORTANT]
+> El 31 de agosto de 2021 se retiraron las voces de síntesis y el contenedor de texto a voz del servicio Voz estándar. Considere la posibilidad de migrar las aplicaciones para que usen el contenedor de texto a voz neuronal en su lugar. [Siga estos pasos](https://aka.ms/sttsretirement) para más información sobre cómo actualizar la aplicación.
 
 | Contenedor | Características | Más reciente | Estado de la versión |
 |--|--|--|--|
@@ -39,7 +42,7 @@ Los contenedores de Voz permiten a los clientes compilar una arquitectura de apl
 > * Para usar los contenedores de voz, debe enviar una solicitud en línea y esperar a que se apruebe. Para obtener más información, consulte la sección **Solicitud de aprobación para ejecutar el contenedor** más adelante. 
 > * Los contenedores *disponibles con carácter general* cumplen los requisitos de estabilidad y soporte técnico de Microsoft. Los contenedores en *versión preliminar* aún están en desarrollo.
 
-Debe cumplir los siguientes requisitos previos para poder usar los contenedores del servicio de Voz. Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de empezar.
+Debe cumplir los siguientes requisitos previos para poder usar los contenedores del servicio de Voz. Si no tiene una suscripción de Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de empezar.
 
 * [Docker](https://docs.docker.com/) instalado en un equipo host. Docker debe configurarse para permitir que los contenedores se conecten con Azure y envíen datos de facturación a dicho servicio. 
     * En Windows, Docker también debe estar configurado de forma que admita los contenedores de Linux.

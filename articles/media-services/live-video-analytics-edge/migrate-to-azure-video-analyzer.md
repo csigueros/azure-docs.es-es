@@ -3,12 +3,12 @@ title: Migración de Live Video Analytics a Azure Video Analyzer
 description: Aprenda a migrar de Live Video Analytics a Azure Video Analyzer.
 ms.topic: how-to
 ms.date: 08/16/2021
-ms.openlocfilehash: a2225e25685bb9177851379fd86b59c986ff28f0
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 452b3430dd1e0eafbfe35166339e42bcbfe1f47b
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122326568"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123471703"
 ---
 # <a name="how-to-migrate-from-live-video-analytics-to-azure-video-analyzer"></a>Migración de Live Video Analytics a Azure Video Analyzer
 
@@ -18,7 +18,7 @@ Si no usa cámaras RTSP y está utilizando los [inicios rápidos o tutoriales de
 
 Las instrucciones siguientes se aplican a la migración de Live Video Analytics a Azure Video Analyzer en el caso de un único dispositivo IoT Edge. Si existen otros dispositivos, deberá repetir estos pasos con cada uno.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Una suscripción de Azure activa.
 
@@ -234,7 +234,7 @@ Al crear una cuenta de Azure Video Analyzer, tiene que asociar una cuenta de Azu
 
 1. Seleccione el valor de identificador de dispositivo del dispositivo IT Edge.
 
-1. Seleccione Set modules (Establecer módulos).
+1. Seleccione Establecer módulos.
 
 1. Seleccione **Agregar** y, luego, **Marketplace de módulos IoT Edge** en el menú desplegable.
 
@@ -332,7 +332,7 @@ Existen algunas diferencias entre las topologías de grafo multimedia que usa Li
 | Grabación e inferencia continuas de vídeo mediante la extensión gRPC | [cvr-with-grpcExtension](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/cvr-with-grpcExtension/topology.json) | [cvr-with-grpcExtension](https://github.com/Azure/video-analyzer/blob/main/pipelines/live/topologies/cvr-with-grpcExtension/topology.json) |
 | Grabación e inferencia continuas de vídeo mediante la extensión HTTP | [cvr-with-httpExtension](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/cvr-with-httpExtension/2.0/topology.json) | [cvr-with-httpExtension](https://github.com/Azure/video-analyzer/blob/main/pipelines/live/topologies/cvr-with-httpExtension/topology.json) |
 | Grabación continua de vídeo con detección de movimiento             | [cvr-with-motion](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/cvr-with-motion/2.0/topology.json) | [cvr-with-motion](https://github.com/Azure/video-analyzer/blob/main/pipelines/live/topologies/cvr-with-motion/topology.json) |
-| Grabación de vídeo basada en eventos en [vídeo o recursos de Azure Video Analyzer] en función de eventos de inteligencia artificial externa | [evr-grpcExtension-assets](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/evr-grpcExtension-assets) | [evr-grpcExtension-video-sink](https://github.com/Azure/video-analyzer/tree/main/pipelines/live/topologies/evr-grpcExtension-video-sinkhttps://github.com/Azure/video-analyzer/tree/main/pipelines/live/topologies/evr-grpcExtension-video-sink) |
+| Grabación de vídeo basada en eventos en [vídeo o recursos de Azure Video Analyzer] en función de eventos de inteligencia artificial externa | [evr-grpcExtension-assets](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/evr-grpcExtension-assets) | [evr-grpcExtension-video-sink](https://github.com/Azure/video-analyzer/tree/main/pipelines/live/topologies/evr-grpcExtension-video-sink) |
 | Grabación de vídeo basada en eventos en [vídeo o recursos de Azure Video Analyzer] en función de eventos de inteligencia artificial externa | [evr-httpExtension-assets](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/evr-httpExtension-assets) | [evr-httpExtension-video-sink](https://github.com/Azure/video-analyzer/tree/main/pipelines/live/topologies/evr-httpExtension-video-sink) |
 | Grabación de vídeo basada en eventos en [recursos/receptor de vídeo] en función de los objetos específicos detectados por el motor de inferencia externo | [evr-hubMessages-assets](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/evr-hubMessage-assets/2.0/topology.json) | [evr-hubMessages-video-sink](https://github.com/Azure/video-analyzer/blob/main/pipelines/live/topologies/evr-hubMessage-video-sink/topology.json) |
 | Grabación de vídeo basada en eventos en archivos basados en mensajes enviados a través del centro de conectividad de IoT Edge | [evr-hubMessage-files](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/evr-hubMessage-files/2.0/topology.json) | [evr-hubMessage-file-sink](https://github.com/Azure/video-analyzer/blob/main/pipelines/live/topologies/evr-hubMessage-file-sink/topology.json) |

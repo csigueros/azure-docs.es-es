@@ -7,24 +7,21 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 08/10/2021
-ms.openlocfilehash: baa4a78e23b83fa7c138e71b92dba12ba23a3ab6
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/02/2021
+ms.openlocfilehash: 07a4d0b7b932b92307b77420df1a21027df1efb0
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121736317"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123538064"
 ---
 # <a name="knowledge-store-in-azure-cognitive-search"></a>Almacén de conocimiento en Azure Cognitive Search
 
-El almacén de conocimiento es una característica de Azure Cognitive Search que conserva la salida de una [canalización de enriquecimiento con IA](cognitive-search-concept-intro.md) en Azure Storage para realizar análisis independientes o procesos de bajada. Un *documento enriquecido* es la salida de una canalización creada a partir del contenido que se ha extraído, estructurado y analizado mediante procesos de inteligencia artificial. En una canalización estándar de inteligencia artificial, los documentos enriquecidos son transitorios, solo se usan durante la indexación y después se descartan. La creación de un almacén de conocimiento conserva los documentos enriquecidos para su inspección o para otros escenarios de minería de conocimiento.
+El almacén de conocimiento es una característica de Azure Cognitive Search que envía la salida de una [canalización de enriquecimiento con IA](cognitive-search-concept-intro.md) a tablas y blobs en Azure Storage para realizar análisis independientes o procesos de bajada.
 
-Si ha usado aptitudes cognitivas anteriormente, ya sabe que los *conjuntos de aptitudes* se usan para mover un documento por una secuencia de enriquecimientos. El resultado puede ser un índice de búsqueda o proyecciones en un almacén de conocimientos. Las dos salidas, el índice de búsqueda y el almacén de conocimiento son productos de la misma canalización. Aunque se obtienen de las mismas entradas, se genera una salida estructurada y almacenada, que se emplea de aplicaciones diferentes.
+Si ha usado aptitudes cognitivas en el pasado, ya sabe que los *conjuntos de aptitudes* mueven un documento a través de una secuencia de enriquecimientos que invocan transformaciones atómicas, como el reconocimiento de entidades o la traducción de texto. El resultado puede ser un índice de búsqueda o proyecciones en un almacén de conocimientos. Las dos salidas, el índice de búsqueda y el almacén de conocimiento son productos de la misma canalización mutuamente excluyentes. Aunque se obtienen de las mismas entradas, se genera una salida estructurada y almacenada que se emplea en aplicaciones diferentes.
 
 :::image type="content" source="media/knowledge-store-concept-intro/knowledge-store-concept-intro.svg" alt-text="Canalización con conjunto de aptitudes" border="false":::
-
-<!-- previous version of the architecture diagram
-:::image type="content" source="media/knowledge-store-concept-intro/annotationstore_sans_internalcache.png" alt-text="Knowledge store in pipeline diagram" border="false"::: -->
 
 Físicamente, un almacén de conocimiento es [Azure Storage](../storage/common/storage-account-overview.md), ya sea Azure Table Storage, Azure Blob Storage o ambos. Cualquier herramienta o proceso que pueda conectarse a Azure Storage puede consumir el contenido de un almacén de conocimiento.
 
@@ -34,25 +31,25 @@ Visto a través del Explorador de Storage, un almacén de conocimiento es simple
 
 ## <a name="benefits-of-knowledge-store"></a>Ventajas de Knowledge Store
 
-Un almacén de conocimiento proporciona estructura, contexto y contenido real, recopilados a partir de archivos de datos no estructurados y semiestructurados, como blobs, archivos de imagen que se han sometido a análisis o, incluso, datos estructurados cuya forma ha cambiado. En una [guía paso a paso](knowledge-store-create-rest.md), puede ver de primera mano cómo un documento JSON denso se particiona en subestructuras, se reconstituye en nuevas estructuras y, además, se pone a disposición para procesos de nivel inferior, como cargas de trabajo de ciencia de datos y aprendizaje automático.
+Las principales ventajas de un almacén de conocimiento son dos: el acceso flexible al contenido y la capacidad de dar forma a los datos.
 
-Aunque es útil ver lo que puede producir una canalización de enriquecimiento con IA, la verdadera ventaja del almacén de conocimiento radica en la capacidad de remodelar los datos. Puede comenzar con un conjunto de aptitudes básico y, luego, iterarlo para agregar niveles crecientes de estructura que luego se pueden combinar en nuevas estructuras, y que pueden consumirse en otras aplicaciones, además de Azure Cognitive Search.
+A diferencia de un índice de búsqueda al que solo se puede acceder a través de consultas de Cognitive Search, cualquier herramienta, aplicación o proceso que admita conexiones a Azure Storage puede acceder a un almacén de conocimiento. Esta flexibilidad abre nuevos escenarios para consumir el contenido analizado y enriquecido generado por una canalización de enriquecimiento.
 
-Entre las ventajas de Knowledge Store, se incluyen las siguientes:
+El mismo conjunto de aptitudes que enriquece los datos también se puede usar para dar forma a los datos. Algunas herramientas como Power BI funcionan mejor con tablas, mientras que una carga de trabajo de ciencia de datos podría requerir una estructura de datos compleja en un formato de blob. La adición de una [aptitud de Conformador](cognitive-search-skill-shaper.md) a un conjunto de aptitudes le proporciona control sobre la forma de los datos. A continuación, puede pasar estas formas a proyecciones, ya sean tablas o blobs, para crear estructuras de datos físicos que se alineen con el uso previsto de los datos.
 
-+ Consumir documentos enriquecidos en [herramientas de informes y análisis](#tools-and-apps), además de buscar. Power BI con Power Query es una opción atractiva, pero cualquier herramienta o aplicación que se pueda conectar a Azure Storage puede beneficiarse de un almacén de conocimiento que cree.
-
-+ Refinar una canalización de indexación de IA durante la depuración de pasos y definiciones de conjuntos de aptitudes. Un almacén de conocimientos le muestra el producto de la definición de un conjunto de aptitudes en una canalización de indexación de IA. Puede usar estos resultados para diseñar un mejor conjunto de aptitudes, ya que puede ver exactamente la apariencia de los enriquecimientos. Puede usar el [Explorador de Storage](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows) en Azure Storage para ver el contenido de un almacén de conocimiento.
-
-+ Cambiar la forma de los datos. El remodelado se codifica en conjuntos de aptitudes, pero la aptitud [Conformador](cognitive-search-skill-shaper.md) de Azure Cognitive Search proporciona control explícito y la capacidad de crear varias formas. El modelado le permite definir una proyección que se alinee con el uso previsto de los datos, al tiempo que conserva las relaciones.
+En el vídeo siguiente se explican estas ventajas y mucho más.
 
 > [!VIDEO https://www.youtube.com/embed/XWzLBP8iWqg?version=3]
 
 ## <a name="knowledge-store-definition"></a>Definición del almacén de conocimiento
 
-Durante la ejecución del indexador, los almacenes de conocimiento se crean en la [cuenta de Azure Storage](../storage/common/storage-account-overview.md), mediante Azure Table Storage, Azure Blob Storage o ambos. 
+Un almacén de conocimiento se define dentro de una definición de conjunto de aptitudes y consta de dos componentes: 
 
-Las estructuras de datos Azure Storage se especifican a través del elemento `projections` de una definición `knowledgeStore` en un conjunto de aptitudes. Las [proyecciones](knowledge-store-projection-overview.md) se pueden articular como tablas, objetos o archivos, y puede tener varios conjuntos (o *grupos de proyecciones*) para crear varias estructuras de datos para distintos propósitos.
++ una cadena de conexión a Azure Storage
+
++ [**Proyecciones**](knowledge-store-projection-overview.md) que determinan si el almacén de conocimiento consta de tablas, objetos o archivos. 
+
+El elemento proyecciones es una matriz. Puede crear varios conjuntos de combinaciones de tabla-objeto-archivo dentro de un almacén de conocimiento.
 
 ```json
 "knowledgeStore":{
@@ -72,42 +69,42 @@ El tipo de proyección que especifique en esta estructura determina el tipo de a
 
 + `objects` proyecta el documento JSON en Blob Storage. La representación física de un elemento `object` es una estructura JSON jerárquica que representa un documento enriquecido.
 
-+ `files` proyecta los archivos de imagen en Blob Storage. Un elemento `file` es una imagen extraída de un documento, que se transfiere sin cambios al almacenamiento de blobs.
++ `files` proyecta los archivos de imagen en Blob Storage. Un elemento `file` es una imagen extraída de un documento, que se transfiere sin cambios al almacenamiento de blobs. Aunque se denomina "archivos", se muestra en Blob Storage, no en el almacenamiento de archivos.
 
 ## <a name="create-a-knowledge-store"></a>Crear un almacén de conocimientos
 
 Para crear el almacén de conocimiento, use el portal o una API. Necesitará [Azure Storage](../storage/index.yml), un [conjunto de aptitudes](cognitive-search-working-with-skillsets.md) y un [indexador](search-indexer-overview.md). Dado que los indexadores requieren un índice de búsqueda, también deberá proporcionar una definición de índice.
 
+Opte por el enfoque del portal para obtener la ruta más rápida hacia un almacén de conocimiento terminado. O bien, elija la API de REST para comprender mejor cómo se definen y se relacionan los objetos.
+
 ### <a name="azure-portal"></a>[**Azure Portal**](#tab/kstore-portal)
 
-[Cree su primer almacén de conocimiento en cuatro pasos](knowledge-store-connect-power-bi.md) mediante el asistente para **importación de datos**. El asistente le guiará en las tareas siguientes:
+[**Cree su primer almacén de conocimiento en cuatro pasos**](knowledge-store-create-portal.md) mediante el asistente para **importación de datos**.
 
-1. Seleccione un origen de datos compatible que proporcione contenido sin procesar.
+1. Definición de un origen de datos
 
-1. Especifique el enriquecimiento: asocie un recurso de Cognitive Services, seleccione las aptitudes y especifique un almacén de conocimiento. En este paso, elegirá una cuenta Azure Storage y decidirá si desea crear objetos, tablas o ambas cosas.
+1. Defina el conjunto de aptitudes y especifique un almacén de conocimiento.
 
-1. Cree un esquema de índice. El asistente lo necesita y puede inferir uno automáticamente.
+1. Defina un esquema de índice. El asistente lo necesita y puede inferir uno automáticamente.
 
 1. Ejecute el asistente. La extracción, el enriquecimiento y el almacenamiento se producen en este último paso.
 
-Cuando se usa el asistente, se controlan internamente varias tareas adicionales que, de lo contrario, tendría que controlar en el código. Tanto el modelado como las proyecciones (definiciones de estructuras de datos físicas en Azure Storage) se crean automáticamente. Al crear manualmente un almacén de conocimiento, el código deberá cubrir estos pasos.
+El asistente automatiza las tareas que, de lo contrario, tendría que controlar manualmente. Específicamente, tanto el modelado como las proyecciones (definiciones de estructuras de datos físicas en Azure Storage) se crean automáticamente. 
 
 ### <a name="rest"></a>[**REST**](#tab/kstore-rest)
+
+El tutorial [**Create your first knowledge store using Postman**](knowledge-store-create-rest.md) (Cree su primer almacén de conocimiento mediante Postman) le guía por los objetos y las solicitudes que pertenecen a esta [colección del almacén de conocimiento](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/knowledge-store).
 
 La versión de la API de REST `2020-06-30` se puede usar para crear un almacén de conocimiento mediante adiciones a un conjunto de aptitudes.
 
 + [Creación de un conjunto de aptitudes (api-version=2020-06-30)](/rest/api/searchservice/create-skillset)
 + [Actualización de un conjunto de aptitudes (api-version=2020-06-30)](/rest/api/searchservice/update-skillset)
 
-Un elemento `knowledgeStore` se define dentro de un [conjunto de aptitudes](cognitive-search-working-with-skillsets.md) que, a su vez, se invoca mediante un [indizador](search-indexer-overview.md). Durante el enriquecimiento, Azure Cognitive Search crea un espacio en la cuenta de Azure Storage y proyecta los documentos enriquecidos como blobs o en tablas, según la configuración.
-
-Tareas que el código tendrá que controlar:
+Dentro del conjunto de aptitudes:
 
 + Especificación de las proyecciones que desea que se creen en Azure Storage (tablas, objetos, archivos)
 + Inclusión de una aptitud Conformador en el conjunto de aptitudes para determinar el esquema y el contenido de la proyección
 + Asignación de la forma con nombre a una proyección
-
-Una manera fácil de explorar es [crear el primer almacén de conocimiento mediante Postman](knowledge-store-create-rest.md).
 
 ### <a name="net-sdk"></a>[**SDK de .NET**](#tab/kstore-dotnet)
 
@@ -158,5 +155,3 @@ El enfoque más sencillo para crear documentos enriquecidos es [mediante el port
 
 > [!div class="nextstepaction"]
 > [Creación de un almacén de conocimiento mediante Postman y REST](knowledge-store-create-rest.md)
-
-O bien, observe más detenidamente las [proyecciones](knowledge-store-projection-overview.md). Para ver un ejemplo que muestre los conceptos de proyecciones avanzadas, como la segmentación, el modelado insertado y las relaciones, empiece con [Definición de proyecciones en un almacén de conocimiento](knowledge-store-projections-examples.md).

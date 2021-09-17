@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 08/23/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 5645a872c0dbb5d1b80e6856b173b75d758a23ab
-ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
+ms.openlocfilehash: 38a1e264d3febfc114df253a24479d9580c86bb5
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122868695"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123538370"
 ---
 # <a name="use-an-azure-free-account-to-try-azure-database-for-postgresql---flexible-server-for-free"></a>Uso de una cuenta gratuita de Azure para probar Azure Database for PostgreSQL: servidor flexible de forma gratuita
 
@@ -108,7 +108,7 @@ Para completar este tutorial, necesita:
     :::image type="content" source="media/how-to-deploy-on-azure-free-account/review-create-postgresql.png" alt-text="Captura de pantalla que muestra la hoja Revisar y crear.":::
 
     >[!IMPORTANT]
-    >Siempre que use su cuenta gratuita de Azure y el uso del servicio gratuito esté dentro de los límites mensuales (para ver la información de uso, consulte la sección [**Supervisión y seguimiento del uso de servicios gratuitos**](#monitor-and-track-free-services-usage) a continuación), no se le cobrará por el servicio. Actualmente estamos trabajando para mejorar la experiencia de **resumen de costos** para los servicios gratuitos. 
+    >Al crear la instancia de servidor flexible a partir de la cuenta gratuita de Azure, verá un **costo estimado al mes** en la hoja **Proceso y almacenamiento: Resumen del costo** y la pestaña **Revisar y crear**. Sin embargo, siempre que use su cuenta gratuita de Azure y el uso del servicio gratuito esté dentro de los límites mensuales (para ver la información de uso, consulte la sección [**Supervisión y seguimiento del uso de los servicios gratuitos**](#monitor-and-track-free-services-usage) a continuación), no se le cobrará por el servicio. Actualmente estamos trabajando para mejorar la experiencia de **resumen de costos** para los servicios gratuitos. 
 
 1. Seleccione **Crear** para realizar el aprovisionamiento del servidor.
 

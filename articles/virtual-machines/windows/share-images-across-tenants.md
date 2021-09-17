@@ -8,18 +8,18 @@ ms.topic: how-to
 ms.date: 07/15/2019
 ms.reviewer: cynthn
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: eb432b486815b9b2269eabb2631d4d4cb909df11
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: 50bea2cbd4d42855ecf621cb65f61b4565242a6f
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123225990"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123450996"
 ---
 # <a name="share-gallery-vm-images-across-azure-tenants-using-powershell"></a>Uso compartido de imágenes de VM de la galería entre inquilinos de Azure mediante la CLI de Azure y PowerShell
 
 **Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles :heavy_check_mark: Conjuntos de escalado uniformes
 
-Las galerías de imágenes compartidas le permiten compartir las imágenes mediante Azure RBAC. Puede usar Azure RBAC para compartir imágenes dentro de su inquilino e incluso con personas de fuera de él. Para más información sobre esta opción de uso compartido simple, consulte [Compartir la galería](./shared-images-portal.md#share-the-gallery).
+Las galerías de imágenes compartidas le permiten compartir las imágenes mediante Azure RBAC. Puede usar Azure RBAC para compartir imágenes dentro de su inquilino e incluso con personas de fuera de él. Para más información sobre esta opción de uso compartido simple, consulte [Compartir la galería](../share-gallery.md).
 
 [!INCLUDE [virtual-machines-share-images-across-tenants](../../../includes/virtual-machines-share-images-across-tenants.md)]
 
@@ -86,4 +86,4 @@ New-AzVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Puede crear también recursos de galería de imágenes compartidas con [Azure Portal](shared-images-portal.md).
+Cree [recursos de la galería de imágenes compartidas](../image-version.md).

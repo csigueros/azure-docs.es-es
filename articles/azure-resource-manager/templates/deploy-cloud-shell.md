@@ -2,13 +2,13 @@
 title: Implementación de plantillas con Cloud Shell
 description: Use Azure Resource Manager y Azure Cloud Shell para implementar recursos en Azure. Los recursos se definen en una plantilla de Azure Resource Manager (plantilla de ARM).
 ms.topic: conceptual
-ms.date: 10/22/2020
-ms.openlocfilehash: bd597c2cb29120e680493a99aac33f146940bc19
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.date: 09/03/2021
+ms.openlocfilehash: 0228f4862cbdcda98bc577844bca9dad34feb96f
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111957881"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123535108"
 ---
 # <a name="deploy-arm-templates-from-azure-cloud-shell"></a>Implementación de plantillas de ARM desde Azure Cloud Shell
 
@@ -54,41 +54,17 @@ Para implementar una plantilla externa, proporcione el identificador URI de la p
 
 Para implementar una plantilla local, primero debe cargarla en la cuenta de almacenamiento que está conectada a la sesión de Cloud Shell.
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Cloud Shell](https://shell.azure.com).
 
-1. Seleccione el grupo de recursos de Cloud Shell. El patrón de nombre es `cloud-shell-storage-<region>`.
+1. Seleccione **PowerShell** o **Bash**.
 
-   ![Selección de un grupo de recursos](./media/deploy-cloud-shell/select-cloud-shell-resource-group.png)
+   :::image type="content" source="./media/deploy-cloud-shell/cloud-shell-bash-powershell.png" alt-text="Selección de Bash o PowerShell":::
 
-1. Seleccione la cuenta de almacenamiento de Cloud Shell.
+1. Seleccione **Cargar/Descargar archivos** y, después, seleccione **Cargar**.
 
-   :::image type="content" source="./media/deploy-cloud-shell/cloud-shell-storage.png" alt-text="Seleccionar cuenta de almacenamiento":::
+   :::image type="content" source="./media/deploy-cloud-shell/cloud-shell-upload.png" alt-text="Carga de un archivo":::.
 
-1. Seleccione **Recursos compartidos de archivos**.
-
-   :::image type="content" source="./media/deploy-cloud-shell/files-shares.png" alt-text="Seleccionar Recursos compartidos de archivos":::
-
-1. Seleccione el recurso compartido de archivos predeterminado para Cloud Shell. El recurso compartido de archivos tiene el formato de nombre `cs-<user>-<domain>-com-<uniqueGuid>`.
-
-   :::image type="content" source="./media/deploy-cloud-shell/select-file-share.png" alt-text="Recurso compartido de archivos predeterminado":::
-
-1. Agregue un nuevo directorio para almacenar las plantillas. Seleccione ese directorio.
-
-   :::image type="content" source="./media/deploy-cloud-shell/add-directory.png" alt-text="Agregar directorio":::
-
-1. Seleccione **Cargar**.
-
-   :::image type="content" source="./media/deploy-cloud-shell/upload-template.png" alt-text="Cargar plantilla":::
-
-1. Busque y cargue la plantilla.
-
-   :::image type="content" source="./media/deploy-cloud-shell/select-template.png" alt-text="Seleccionar plantilla":::
-
-1. Abra la instancia de Cloud Shell.
-
-   :::image type="content" source="./media/deploy-cloud-shell/open-cloud-shell.png" alt-text="Abrir Cloud Shell":::.
-
-1. Vaya al directorio **clouddrive**. Vaya al directorio que agregó para guardar las plantillas.
+1. Seleccione la plantilla de ARM que desea cargar y luego seleccione **Abrir**.
 
 1. Para implementar la plantilla, use los comandos siguientes:
 

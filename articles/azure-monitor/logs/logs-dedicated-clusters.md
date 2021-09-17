@@ -6,12 +6,12 @@ author: rboucher
 ms.author: robb
 ms.date: 07/29/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 447836fa8a7468b9bf2a76fdfd81c899f7105ed0
-ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
+ms.openlocfilehash: ffef89736038d2dc9977b908959207d8dafd8acc
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123187782"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123540242"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>Clústeres dedicados de registros de Azure Monitor
 
@@ -30,18 +30,16 @@ Las funcionalidades que requieren clústeres dedicados son las siguientes:
 
 ## <a name="management"></a>Administración 
 
-Los clústeres dedicados se administran con un recurso de Azure que representa clústeres de registro de Azure Monitor. Todas las operaciones se realizan en este recurso mediante PowerShell o la API de REST.
+Los clústeres dedicados se administran con un recurso de Azure que representa clústeres de registro de Azure Monitor. Las operaciones se realizan mediante programación mediante la [CLI](https://docs.microsoft.com/cli/azure/monitor/log-analytics/cluster?view=azure-cli-latest), [PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights) o [REST](https://docs.microsoft.com/rest/api/loganalytics/clusters).
 
-Una vez que se crea el clúster, se puede configurar y se le pueden vincular áreas de trabajo. Cuando un área de trabajo está vinculada a un clúster, los nuevos datos que se envían al área de trabajo residen en el clúster. Solo se pueden vincular al clúster las áreas de trabajo que se encuentran en la misma región que el clúster. Las áreas de trabajo se pueden desvincular de un clúster con algunas limitaciones. En este artículo se incluyen más detalles sobre estas limitaciones. 
-
-Los datos ingeridos en clústeres dedicados se cifran dos veces, una vez en el nivel de servicio mediante claves administradas por Microsoft o [claves administradas por el cliente](../logs/customer-managed-keys.md), y una vez en el nivel de infraestructura mediante dos algoritmos de cifrado diferentes y dos claves diferentes. El [doble cifrado](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) sirve de protección en caso de que uno de los algoritmos o claves de cifrado puedan estar en peligro. En este caso, la capa adicional de cifrado también protege los datos. El clúster dedicado también le permite proteger los datos con un control de [caja de seguridad](../logs/customer-managed-keys.md#customer-lockbox-preview).
+Una vez creado un clúster, las áreas de trabajo se pueden vincular a dicho clúster y los nuevos datos ingeridos en estas se almacenan en el clúster. Las áreas de trabajo se pueden desvincular de un clúster en cualquier momento y los nuevos datos se almacenarán en clústeres compartidos de Log Analytics. La operación de vinculación y desvinculación no afecta a las consultas y al acceso a los datos antes y después de la operación sujeta a la retención en las áreas de trabajo. El clúster y las áreas de trabajo deben estar en la misma región para permitir la vinculación.
 
 Todas las operaciones en el nivel de clúster requieren el permiso de acción `Microsoft.OperationalInsights/clusters/write` en el clúster. Este permiso se puede conceder a través del rol Propietario o Colaborador que contiene la acción `*/write` o a través del rol Colaborador de Log Analytics que contiene la acción `Microsoft.OperationalInsights/*`. Para obtener más información sobre los permisos de Log Analytics, consulte [Administración del acceso a los datos de registro y las áreas de trabajo en Azure Monitor](./manage-access.md). 
 
 
 ## <a name="cluster-pricing-model"></a>Modelo de precios de clúster
 
-Los clústeres dedicados de Log Analytics usan un modelo de precios en un nivel de compromiso de al menos 500 GB/día. Cualquier uso por encima del nivel se facturará a una tarifa efectiva por GB de ese nivel de compromiso.  La información de precios del plan de compromiso está disponible en la [página de precios de Azure Monitor]( https://azure.microsoft.com/pricing/details/monitor/).  
+Los clústeres dedicados de Log Analytics usan un modelo de precios en un nivel de compromiso (anteriormente conocido como reservas de capacidad) de al menos 500 GB/día. Cualquier uso por encima del nivel se facturará a una tarifa efectiva por GB de ese nivel de compromiso. La información de precios del plan de compromiso está disponible en la [página de precios de Azure Monitor]( https://azure.microsoft.com/pricing/details/monitor/).  
 
 El nivel de compromiso del clúster se configura mediante programación con Azure Resource Manager usando el parámetro `Capacity` en `Sku`. `Capacity` se especifica en unidades de GB y puede tener valores de 500, 1000, 2000 o 5000 GB/día.
 
@@ -74,23 +72,21 @@ Authorization: Bearer <token>
 
 Debe especificar las siguientes propiedades al crear un nuevo clúster dedicado:
 
-- **Nombre del clúster**: Se usa con fines administrativos. Los usuarios no se exponen a este nombre.
-- **ResourceGroupName**: grupo de recursos para el clúster dedicado. Debe usar un grupo de recursos de TI central, ya que los clústeres suelen compartirse entre muchos equipos dentro de una organización. Para más información sobre el diseño, consulte [Diseño de la implementación de registros de Azure Monitor](../logs/design-logs-deployment.md).
-- **Ubicación**: Un clúster se encuentra en una región de Azure específica. Solo las áreas de trabajo que se encuentran en esta región se pueden vincular a este clúster.
-- **SkuCapacity**: debe especificar el nivel de compromiso (SKU) al crear un recurso de clúster. El nivel de compromiso se puede establecer en 500, 1000, 2000 o 5000 GB/día. Para obtener más información sobre los costos del clúster, consulte [Administración de costos de clústeres de Log Analytics](./manage-cost-storage.md#log-analytics-dedicated-clusters). 
- 
+- **ClusterName**
+- **ResourceGroupName**: debe usar un grupo de recursos de TI central, ya que los clústeres suelen compartirse entre muchos equipos dentro de una organización. Para más información sobre el diseño, consulte [Diseño de la implementación de registros de Azure Monitor](../logs/design-logs-deployment.md).
+- **Ubicación**
+- **SkuCapacity**: el nivel de compromiso (anteriormente denominado reservas de capacidad) se puede establecer en 500, 1000, 2000 o 5000 GB/día. Para obtener más información sobre los costos del clúster, consulte [Administración de costos de clústeres de Log Analytics](./manage-cost-storage.md#log-analytics-dedicated-clusters). 
 
-> [!NOTE]
-> Los niveles de compromiso se denominaban anteriormente "reservas de capacidad". 
+La cuenta de usuario que crea los clústeres debe tener el permiso de creación de recursos de Azure estándar (`Microsoft.Resources/deployments/*`) y el permiso de escritura de clúster (`Microsoft.OperationalInsights/clusters/write`) teniendo en sus asignaciones de roles esta acción específica, `Microsoft.OperationalInsights/*` o `*/write`.
 
 Después de crear el recurso cluster, puede editar propiedades adicionales, como *sku*, *keyVaultProperties o *billingType*. Vea más detalles a continuación.
 
 Puede tener hasta dos clústeres activos por suscripción por región. Si se elimina el clúster, se sigue reservando durante 14 días. Puede tener hasta cuatro clústeres reservados por suscripción por región (activos o eliminados recientemente).
 
-> [!WARNING]
-> La creación del clúster desencadena la asignación y el aprovisionamiento de recursos. Esta operación puede tardar varias horas en completarse. Se recomienda ejecutarla de forma asincrónica.
-
-La cuenta de usuario que crea los clústeres debe tener el permiso de creación de recursos de Azure estándar (`Microsoft.Resources/deployments/*`) y el permiso de escritura de clúster (`Microsoft.OperationalInsights/clusters/write`) teniendo en sus asignaciones de roles esta acción específica, `Microsoft.OperationalInsights/*` o `*/write`.
+> [!INFORMATION] La creación del clúster desencadena la asignación y el aprovisionamiento de recursos. Esta operación puede tardar varias horas en completarse.
+> El clúster dedicado se factura una vez aprovisionado independientemente de la ingesta de datos y se recomienda preparar la implementación para acelerar el aprovisionamiento y el vínculo de las áreas de trabajo al clúster. Verifique lo siguiente:
+> - Se identifica una lista de áreas de trabajo iniciales que se van a vincular al clúster.
+> - Tiene permisos para la suscripción destinada al clúster y a cualquier área de trabajo que se va a vincular.
 
 **CLI**
 ```azurecli
@@ -202,7 +198,7 @@ El GUID *principalId* se genera desde el servicio de identidad administrada al c
 
 ## <a name="link-a-workspace-to-a-cluster"></a>Vinculación del área de trabajo a un clúster
 
-Cuando un área de trabajo de Log Analytics está vinculada a un clúster dedicado, los nuevos datos que se ingieren en el área de trabajo se enrutan al nuevo clúster, mientras que los datos existentes permanecen en el clúster existente. Si el clúster dedicado se cifra mediante claves administradas por el cliente (CMK), solo se cifrarán los datos nuevos con la clave. El sistema deduce esta diferencia, por lo que puede consultar el área de trabajo como de costumbre mientras el sistema realiza consultas entre clústeres en segundo plano.
+Cuando un área de trabajo de Log Analytics está vinculada a un clúster dedicado, los nuevos datos ingeridos en el área de trabajo se enrutan al nuevo clúster, mientras que los datos existentes permanecen en el clúster existente. Si el clúster dedicado se cifra mediante claves administradas por el cliente (CMK), solo se cifrarán los datos nuevos con la clave. El sistema deduce esta diferencia, por lo que puede consultar el área de trabajo como de costumbre mientras el sistema realiza consultas entre clústeres en segundo plano.
 
 Un clúster puede vincularse con hasta 1000 áreas de trabajo. Las áreas de trabajo vinculadas se encuentran en la misma región que el clúster. Para proteger el back-end del sistema y evitar la fragmentación de los datos, un área de trabajo no se puede vincular a un clúster más de dos veces al mes.
 

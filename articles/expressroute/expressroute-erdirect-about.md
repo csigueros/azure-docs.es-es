@@ -5,14 +5,14 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 03/17/2021
+ms.date: 08/31/2021
 ms.author: duau
-ms.openlocfilehash: c6f06df11e0e17f37d7cfcbba6ed4fb8c224f824
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: 01de2c75cbb6c1f8b2e153e18add612608e75ac7
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123029867"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123434004"
 ---
 # <a name="about-expressroute-direct"></a>Acerca de ExpressRoute Direct
 
@@ -37,7 +37,7 @@ Para poder usar ExpressRoute Direct, primero hay que inscribir la suscripción. 
     ```
 
 1. Registre la suscripción para la versión preliminar pública con el siguiente comando:
-1. 
+
     ```azurepowershell-interactive
     Register-AzProviderFeature -FeatureName AllowExpressRoutePorts -ProviderNamespace Microsoft.Network
     ```
@@ -100,14 +100,24 @@ ExpressRoute Direct admite los etiquetados QinQ y Dot1Q de VLAN.
 
 * El **etiquetado Dot1Q de VLAN** se permite para una única VLAN etiquetada por puerto de ExpressRoute Direct. Una etiqueta C que se use en un emparejamiento debe ser única en todos los circuitos y emparejamientos del par de puertos de ExpressRoute Direct.
 
-## <a name="workflow"></a>Flujo de trabajo
+## <a name="workflows"></a>Workflows
 
-[![workflow](./media/expressroute-erdirect-about/workflow1.png)](./media/expressroute-erdirect-about/workflow1.png#lightbox)
+### <a name="set-up-expressroute-direct"></a>Configuración de ExpressRoute Direct
+
+:::image type="content" source="./media/expressroute-erdirect-about/set-up-workflow.png" alt-text="Diagrama del flujo de trabajo de configuración de ExpressRoute Direct." lightbox="./media/expressroute-erdirect-about/set-up-workflow-expanded.png":::
+
+### <a name="delete-expressroute-direct"></a>Eliminación de ExpressRoute Direct
+
+:::image type="content" source="./media/expressroute-erdirect-about/delete-workflow.png" alt-text="Diagrama del flujo de trabajo de eliminación de ExpressRoute Direct." lightbox="./media/expressroute-erdirect-about/delete-workflow-expanded.png":::
 
 ## <a name="sla"></a>Contrato de nivel de servicio
 
-ExpressRoute Direct proporciona el mismo acuerdo de nivel de servicio de nivel empresarial con conexiones redundantes activa-activa a la red global de Microsoft. La infraestructura de ExpressRoute es redundante, así como la conectividad a la red global de Microsoft es redundante y diversa y se escala correctamente con los requisitos del cliente. 
+ExpressRoute Direct proporciona el mismo acuerdo de nivel de servicio de nivel empresarial con conexiones redundantes activa-activa a la red global de Microsoft. La infraestructura de ExpressRoute es redundante, así como la conectividad a la red global de Microsoft es redundante y diversa y se escala correctamente con los requisitos del cliente.
+
+## <a name="pricing"></a>Precios
+
+Para más información sobre cómo se factura ExpressRoute Direct, consulte [P+F de ExpressRoute](expressroute-faqs.md#when-does-billing-start-and-stop-for-the-expressroute-direct-port-pairs). Consulte [Precios de ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute/) para conocer más detalles.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Configuración de ExpressRoute Direct](expressroute-howto-erdirect.md)
+Aprenda a [configurar ExpressRoute Direct](expressroute-howto-erdirect.md).

@@ -1,14 +1,14 @@
 ---
 title: Descripción del funcionamiento de los efectos
 description: Las definiciones de Azure Policy tienen diversos efectos que determinan cómo se administra y notifica el cumplimiento.
-ms.date: 08/17/2021
+ms.date: 09/01/2021
 ms.topic: conceptual
-ms.openlocfilehash: 22838cd661e64d4a85debfb4c5ce556a142dc2c2
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: aa1dc5554924efa36d7f1ab8b9d7398a7a076852
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122324853"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123437047"
 ---
 # <a name="understand-azure-policy-effects"></a>Comprender los efectos de Azure Policy
 
@@ -107,14 +107,39 @@ Audit es el último efecto que Azure Policy comprueba durante la creación o act
 
 Para un modo de Administrador de recursos, el efecto audit no tiene propiedades adicionales para su uso en la condición **then** de la definición de directiva.
 
-En el modo de Proveedor de recursos de `Microsoft.Kubernetes.Data`, el efecto audit tiene las siguientes subpropiedades adicionales de **details**.
+En el modo de Proveedor de recursos de `Microsoft.Kubernetes.Data`, el efecto audit tiene las siguientes subpropiedades adicionales de **details**. El uso de `templateInfo` es necesario para las definiciones de directiva nuevas o actualizadas, ya que `constraintTemplate` está en desuso.
 
-- **constraintTemplate** (obligatorio)
-  - La plantilla de restricción CustomResourceDefinition (CRD) que define nuevas restricciones. La plantilla define la lógica de Rego, el esquema de restricción y los parámetros de restricción que se pasan a través de **valores** desde Azure Policy.
-- **constraint** (obligatorio)
+- **templateInfo** (obligatorio)
+  - No se puede usar con `constraintTemplate`.
+  - **sourceType** (obligatorio)
+    - Define el tipo de origen de la plantilla de restricciones. Valores permitidos: _PublicURL_ o _Base64Encoded_.
+    - Si es _PublicURL_, se empareja con la propiedad `url` para proporcionar la ubicación de la plantilla de restricciones. La ubicación debe ser públicamente accesible.
+
+      > [!WARNING]
+      > No use el URI de SAS ni tokens en `url` ni nada que pueda exponer un secreto.
+
+    - Si es _Base64Encoded_, se empareja con la propiedad `content` para proporcionar la plantilla de restricciones codificada en Base 64. Consulte [Creación de una definición de directiva a partir de una plantilla de restricción](../how-to/extension-for-vscode.md) para crear una definición de directiva personalizada a partir de una [plantilla de restricción](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraint-templates) GateKeeper v3 de [Open Policy Agent](https://www.openpolicyagent.org/) (OPA).
+- **constraint** (opcional)
+  - No se puede usar con `templateInfo`.
   - La implementación de CRD de la plantilla de restricción. Usa los parámetros que se han pasado a través de **valores** como `{{ .Values.<valuename> }}`. En el ejemplo 2 siguiente, estos valores son `{{ .Values.excludedNamespaces }}` y `{{ .Values.allowedContainerImagesRegex }}`.
+- **namespaces** (opcional)
+  - Una _matriz_ de [espacios de nombres de Kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) a la que limitar la evaluación de directivas.
+  - Un valor vacío o que falta hace que la evaluación de la directiva incluya todos los espacios de nombres, excepto los definidos en _excludedNamespaces_.
+- **excludedNamespaces** (obligatorio)
+  - Una _matriz_ de [espacios de nombres de Kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) que se excluirán de la evaluación de directivas.
+- **labelSelector** (obligatorio)
+  - Un _objeto_ que incluye las propiedades _matchLabels_ (objeto) y _matchExpression_ (matriz) para permitir especificar qué recursos de Kubernetes se deben incluir para la evaluación de las directivas que coincidieron con las [etiquetas y selectores proporcionados](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/).
+  - Un valor vacío o que falta provoca que la evaluación de la directiva incluya todas las etiquetas y selectores, excepto los espacios de nombres definidos en _excludedNamespaces_.
+- **apiGroups** (obligatorio cuando se usa _templateInfo)_
+  - Una _matriz_ que incluye los [grupos API](https://kubernetes.io/docs/reference/using-api/#api-groups) que deben coincidir. Una matriz vacía (`[""]`) es el grupo de API principal, mientras que `["*"]` coincide con todos los grupos de API.
+- **kinds** (obligatorio cuando se usa _templateInfo_)
+  - Una _matriz_ que incluye el [tipo](https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/#required-fields) de objeto de Kubernetes al que se debe limitar la evaluación.
 - **values** (opcional)
   - Define cualquier parámetro y valor para pasar a la restricción. Cada valor debe existir en la CRD de la plantilla de restricción.
+- **constraintTemplate** (en desuso)
+  - No se puede usar con `templateInfo`.
+  - Debe reemplazarse por `templateInfo` al crear o actualizar una definición de directiva.
+  - La plantilla de restricción CustomResourceDefinition (CRD) que define nuevas restricciones. La plantilla define la lógica de Rego, el esquema de restricción y los parámetros de restricción que se pasan a través de **valores** desde Azure Policy.
 
 ### <a name="audit-example"></a>Ejemplo de audit
 
@@ -126,18 +151,21 @@ Ejemplo 1: Uso del efecto audit para los modos de Administrador de recursos.
 }
 ```
 
-Ejemplo 2: Uso del efecto audit para un modo de Proveedor de recursos de `Microsoft.Kubernetes.Data`. La información adicional en **details** define la plantilla de restricción y el CRD que se va a usar en Kubernetes para limitar las imágenes de contenedor permitidas.
+Ejemplo 2: Uso del efecto audit para un modo de Proveedor de recursos de `Microsoft.Kubernetes.Data`. La información adicional de **details.templateInfo** declara el uso de _PublicURL_ y establece `url` en la ubicación de la plantilla de restricciones que se va a usar en Kubernetes para limitar las imágenes de contenedor permitidas.
 
 ```json
 "then": {
     "effect": "audit",
     "details": {
-        "constraintTemplate": "https://raw.githubusercontent.com/Azure/azure-policy/master/built-in-references/Kubernetes/container-allowed-images/template.yaml",
-        "constraint": "https://raw.githubusercontent.com/Azure/azure-policy/master/built-in-references/Kubernetes/container-allowed-images/constraint.yaml",
+        "templateInfo": {
+            "sourceType": "PublicURL",
+            "url": "https://store.policy.core.windows.net/kubernetes/container-allowed-images/v1/template.yaml",
+        },
         "values": {
-            "allowedContainerImagesRegex": "[parameters('allowedContainerImagesRegex')]",
-            "excludedNamespaces": "[parameters('excludedNamespaces')]"
-        }
+            "imageRegex": "[parameters('allowedContainerImagesRegex')]"
+        },
+        "apiGroups": [""],
+        "kinds": ["Pod"]
     }
 }
 ```
@@ -229,14 +257,39 @@ Durante la evaluación de los recursos existentes, los recursos que coinciden co
 
 Para un modo de Administrador de recursos, el efecto deny no tiene propiedades adicionales para su uso en la condición **then** de la definición de directiva.
 
-En el modo de Proveedor de recursos de `Microsoft.Kubernetes.Data`, el efecto deny tiene las siguientes subpropiedades adicionales de **details**.
+En el modo de Proveedor de recursos de `Microsoft.Kubernetes.Data`, el efecto deny tiene las siguientes subpropiedades adicionales de **details**. El uso de `templateInfo` es necesario para las definiciones de directiva nuevas o actualizadas, ya que `constraintTemplate` está en desuso.
 
-- **constraintTemplate** (obligatorio)
-  - La plantilla de restricción CustomResourceDefinition (CRD) que define nuevas restricciones. La plantilla define la lógica de Rego, el esquema de restricción y los parámetros de restricción que se pasan a través de **valores** desde Azure Policy.
-- **constraint** (obligatorio)
+- **templateInfo** (obligatorio)
+  - No se puede usar con `constraintTemplate`.
+  - **sourceType** (obligatorio)
+    - Define el tipo de origen de la plantilla de restricciones. Valores permitidos: _PublicURL_ o _Base64Encoded_.
+    - Si es _PublicURL_, se empareja con la propiedad `url` para proporcionar la ubicación de la plantilla de restricciones. La ubicación debe ser públicamente accesible.
+
+      > [!WARNING]
+      > No use el URI de SAS ni tokens en `url` ni nada que pueda exponer un secreto.
+
+    - Si es _Base64Encoded_, se empareja con la propiedad `content` para proporcionar la plantilla de restricciones codificada en Base 64. Consulte [Creación de una definición de directiva a partir de una plantilla de restricción](../how-to/extension-for-vscode.md) para crear una definición de directiva personalizada a partir de una [plantilla de restricción](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraint-templates) GateKeeper v3 de [Open Policy Agent](https://www.openpolicyagent.org/) (OPA).
+- **constraint** (opcional)
+  - No se puede usar con `templateInfo`.
   - La implementación de CRD de la plantilla de restricción. Usa los parámetros que se han pasado a través de **valores** como `{{ .Values.<valuename> }}`. En el ejemplo 2 siguiente, estos valores son `{{ .Values.excludedNamespaces }}` y `{{ .Values.allowedContainerImagesRegex }}`.
+- **namespaces** (opcional)
+  - Una _matriz_ de [espacios de nombres de Kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) a la que limitar la evaluación de directivas.
+  - Un valor vacío o que falta hace que la evaluación de la directiva incluya todos los espacios de nombres, excepto los definidos en _excludedNamespaces_.
+- **excludedNamespaces** (obligatorio)
+  - Una _matriz_ de [espacios de nombres de Kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) que se excluirán de la evaluación de directivas.
+- **labelSelector** (obligatorio)
+  - Un _objeto_ que incluye las propiedades _matchLabels_ (objeto) y _matchExpression_ (matriz) para permitir especificar qué recursos de Kubernetes se deben incluir para la evaluación de las directivas que coincidieron con las [etiquetas y selectores proporcionados](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/).
+  - Un valor vacío o que falta provoca que la evaluación de la directiva incluya todas las etiquetas y selectores, excepto los espacios de nombres definidos en _excludedNamespaces_.
+- **apiGroups** (obligatorio cuando se usa _templateInfo)_
+  - Una _matriz_ que incluye los [grupos API](https://kubernetes.io/docs/reference/using-api/#api-groups) que deben coincidir. Una matriz vacía (`[""]`) es el grupo de API principal, mientras que `["*"]` coincide con todos los grupos de API.
+- **kinds** (obligatorio cuando se usa _templateInfo_)
+  - Una _matriz_ que incluye el [tipo](https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/#required-fields) de objeto de Kubernetes al que se debe limitar la evaluación.
 - **values** (opcional)
   - Define cualquier parámetro y valor para pasar a la restricción. Cada valor debe existir en la CRD de la plantilla de restricción.
+- **constraintTemplate** (en desuso)
+  - No se puede usar con `templateInfo`.
+  - Debe reemplazarse por `templateInfo` al crear o actualizar una definición de directiva.
+  - La plantilla de restricción CustomResourceDefinition (CRD) que define nuevas restricciones. La plantilla define la lógica de Rego, el esquema de restricción y los parámetros de restricción que se pasan a través de **valores** desde Azure Policy. Se recomienda usar la plantilla `templateInfo` más reciente para reemplazar a `constraintTemplate`.
 
 ### <a name="deny-example"></a>Ejemplo de deny
 
@@ -248,18 +301,21 @@ Ejemplo 1: Uso del efecto deny para los modos de Administrador de recursos.
 }
 ```
 
-Ejemplo 2: Uso del efecto deny para un modo de Proveedor de recursos de `Microsoft.Kubernetes.Data`. La información adicional en **details** define la plantilla de restricción y el CRD que se va a usar en Kubernetes para limitar las imágenes de contenedor permitidas.
+Ejemplo 2: Uso del efecto deny para un modo de Proveedor de recursos de `Microsoft.Kubernetes.Data`. La información adicional de **details.templateInfo** declara el uso de _PublicURL_ y establece `url` en la ubicación de la plantilla de restricciones que se va a usar en Kubernetes para limitar las imágenes de contenedor permitidas.
 
 ```json
 "then": {
     "effect": "deny",
     "details": {
-        "constraintTemplate": "https://raw.githubusercontent.com/Azure/azure-policy/master/built-in-references/Kubernetes/container-allowed-images/template.yaml",
-        "constraint": "https://raw.githubusercontent.com/Azure/azure-policy/master/built-in-references/Kubernetes/container-allowed-images/constraint.yaml",
+        "templateInfo": {
+            "sourceType": "PublicURL",
+            "url": "https://store.policy.core.windows.net/kubernetes/container-allowed-images/v1/template.yaml",
+        },
         "values": {
-            "allowedContainerImagesRegex": "[parameters('allowedContainerImagesRegex')]",
-            "excludedNamespaces": "[parameters('excludedNamespaces')]"
-        }
+            "imageRegex": "[parameters('allowedContainerImagesRegex')]"
+        },
+        "apiGroups": [""],
+        "kinds": ["Pod"]
     }
 }
 ```

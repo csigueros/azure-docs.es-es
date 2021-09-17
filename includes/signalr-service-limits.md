@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/11/2020
 ms.author: zhshang
-ms.openlocfilehash: 328a3d088ea21ec55f5e06cfbfc307fca2b03afa
-ms.sourcegitcommit: 75ad40bab1b3f90bb2ea2a489f8875d4b2da57e4
+ms.openlocfilehash: f5b197448529e953d5d7d188b00a88d60e87e900
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2021
-ms.locfileid: "113644387"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123454017"
 ---
 | Resource | Límite predeterminado | Límite máximo | 
 | --- | --- | --- |
@@ -36,3 +36,7 @@ ms.locfileid: "113644387"
 Para solicitar una actualización de los límites predeterminados de la suscripción, abra un vale de soporte técnico.
 
 Para más información sobre cómo se cuentan las conexiones y los mensajes, consulte [Mensajes y conexiones de Azure SignalR Service](../articles/azure-signalr/signalr-concept-messages-and-connections.md).
+
+Si sus requisitos superan los límites, cambie del nivel Gratis al nivel Estándar y agregue unidades. Para más información, consulte [Escalado de una instancia de Azure SignalR Service](../articles/azure-signalr/signalr-howto-scale-signalr.md). 
+
+Si los requisitos superan los límites de una sola instancia, agregue instancias. Para más información, consulte [Escalado de Azure SignalR Service con varias instancias](../articles/azure-signalr/signalr-howto-scale-multi-instances.md).

@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 06/18/2020
+ms.date: 08/31/2021
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 726507fa6ea0651b23d46424bda669a2d8ad41e0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 945679db60f78e03d8f4385acdbc97d8155922bb
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95996651"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123434491"
 ---
 # <a name="request-access-to-an-access-package-in-azure-ad-entitlement-management"></a>Solicitud de acceso a un paquete de acceso en la administración de derechos de Azure AD
 
@@ -86,6 +86,9 @@ Si va a solicitar acceso a un paquete de acceso que tiene varias directivas apli
 Puede solicitar acceso a un paquete de acceso que requiera justificación empresarial e información adicional del solicitante antes de que se le conceda dicho acceso. Rellene toda la información del solicitante necesaria para acceder al paquete de acceso.
 
 ![Portal Mi acceso - Solicitud de acceso - Rellenar la información del solicitante](./media/entitlement-management-request-access/my-access-requestor-information.png)
+
+> [!NOTE]
+> Es posible que observe que parte de la información adicional del solicitante tiene valores rellenados previamente. Esto suele ocurrir si la cuenta ya tiene establecida la información de atributos, ya sea de una solicitud anterior o de otro proceso. Estos valores pueden ser editables o no en función de la configuración de la directiva seleccionada.
 
 ## <a name="resubmit-a-request"></a>Nuevo envío de una solicitud
 

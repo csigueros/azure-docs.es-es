@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/06/2021
 ms.author: mlearned
 ms.custom: include file
-ms.openlocfilehash: d9566564c168e37477d8a0a8238c93dfb8be054d
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 928c4669ec7b1a04874f760cc14234cfa874e99a
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122336054"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123437904"
 ---
 | Recurso                                                                                                           | Límite                                                                                                                                                                                                       |
 | ------------------------------------------------------------------------------------------------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -27,8 +27,12 @@ ms.locfileid: "122336054"
 
 <sup>1</sup> El complemento OSM para AKS se encuentra en versión preliminar y se someterá a mejoras adicionales antes de su disponibilidad con carácter general. Durante la fase de versión preliminar, se recomienda no superar los límites indicados.<br />
 
-> [!IMPORTANT]
-> Se recomienda a los clientes habilitar el nivel de Acuerdo de Nivel de Servicio de tiempo de actividad para cargas de trabajo de producción y de pruebas de rendimiento y carga. El nivel de Acuerdo de Nivel de Servicio de tiempo de actividad habilita el escalado automático del plano de control de Kubernetes y es necesario para admitir clústeres con cargas de trabajo de producción dentro del [Acuerdo de Nivel de Servicio de tiempo de actividad](../articles/aks/uptime-sla.md).
+<br />
+
+| Límites del plano de control de Kubernetes                                                                                                                                                                                                     |
+| ------------------------------------------------------------------------------------------------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Nivel de pago                                                                                  | Se escala horizontalmente automáticamente en función de la carga                                                                                                                                                                                                        |
+| Nivel gratis                       | Recursos limitados con un [límite de solicitudes en proceso](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-apiserver/) de 50 de mutación y de 100 llamadas de solo lectura                                                                                                                                                                                                         |
 
 <!-- LINKS - Internal -->
 

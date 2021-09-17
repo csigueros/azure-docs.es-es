@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/29/2020
+ms.date: 09/03/2021
 ms.author: duau
-ms.openlocfilehash: 977a0d3eb0081818c0afe4f544dd33169cea0e95
-ms.sourcegitcommit: 4f185f97599da236cbed0b5daef27ec95a2bb85f
+ms.openlocfilehash: d21066563f3b3e2e27b5e1a2b2b96b520bd62311
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2021
-ms.locfileid: "112370480"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123542078"
 ---
 # <a name="caching-with-azure-front-door"></a>Almacenamiento en caché con Azure Front Door
 En el documento siguiente se especifican los comportamientos de Front Door con reglas de enrutamiento que han habilitado el almacenamiento en caché. Front Door es una red Content Delivery Network (CDN) moderna con aceleración de sitios dinámicos y equilibrio de carga; también admite comportamientos de almacenamiento en caché como cualquier otra red CDN.
@@ -121,11 +121,18 @@ Los siguientes encabezados de solicitud no se reenviarán a un back-end cuando s
 - Content-Length
 - Transfer-Encoding
 
-## <a name="cache-duration"></a>Duración de la caché
+## <a name="cache-behavior-and-duration"></a>Duración y comportamiento de la caché
 
-La duración de la caché se puede configurar tanto en el diseñador de Front Door como en el motor de reglas. La duración en caché establecida en el diseñador de Front Door es la mínima. Esta invalidación no funcionará si el encabezado de control de la caché del origen tiene un valor de período de vida mayor que el valor de invalidación. 
+La duración y el comportamiento de la caché se pueden configurar tanto en la regla de enrutamiento del diseñador de Front Door como en el motor de reglas. La configuración del almacenamiento en caché del motor de reglas siempre invalida a la de la regla de enrutamiento del diseñador de Front Door.
 
-La duración en caché establecida mediante el motor de reglas es una invalidación de caché verdadera, lo que significa que usará el valor de invalidación con independencia del encabezado de respuesta de origen.
+* Cuando el *almacenamiento en caché* está **deshabilitado**, Front Door no almacena en caché los contenidos de la respuesta, independientemente de las directivas de respuesta de origen.
+
+* Cuando el *almacenamiento en caché* está **habilitado**, el comportamiento de la caché es diferente según los distintos valores de *Usar duración de caché predeterminada*.
+    * Cuando *Usar duración de caché predeterminada* está establecido en **Sí**, Front Door siempre respeta la directiva de encabezado de respuesta de origen. Si falta la directiva de origen, Front Door almacena en caché el contenido entre uno y tres días.
+    * Cuando *Usar duración de caché predeterminada* está establecido en **No**, Front Door siempre invalida con la *duración de la caché* (campos obligatorios), lo que significa que almacena en caché el contenido durante la duración de la caché y omite los valores de las directivas de respuesta de origen. 
+
+> [!NOTE]
+> La *duración de la caché* establecida en la regla de enrutamiento del diseñador de Front Door es la **duración de la caché mínima**. Esta invalidación no funciona si el encabezado de control de la caché del origen tiene un TTL mayor que el valor de invalidación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

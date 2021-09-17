@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/26/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 30c33f6ec497fd5766dc541b50f341cb30946051
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: be7bd448fdf043c9a3916d87e9d54042ffe07380
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95912576"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123476653"
 ---
 # <a name="open-source-platforms-that-support-azure-data-lake-storage-gen2"></a>Plataformas de código abierto que admiten Azure Data Lake Storage Gen2
 
@@ -37,6 +37,6 @@ En esta tabla se enumeran las plataformas de código abierto que admiten Data La
 ## <a name="see-also"></a>Consulte también
 
 - [Problemas conocidos con Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md)
-- [Características de Blob Storage disponibles en Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md)
+- [Compatibilidad con la característica Blob Storage en cuentas de Azure Storage](storage-feature-support-in-storage-accounts.md)
 - [Servicios de Azure que admiten Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md)
 - [Acceso multiprotocolo en Azure Data Lake Storage](data-lake-storage-multi-protocol-access.md)

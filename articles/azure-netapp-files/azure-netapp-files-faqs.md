@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/17/2021
+ms.date: 09/01/2021
 ms.author: b-juche
-ms.openlocfilehash: dccf4f7bb39b296fdbcf9b7fbce2f86019397deb
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 119cf21f90102f7ebccd8e4e06cd5e5dee3c4bfe
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122323648"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123427991"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Preguntas más frecuentes acerca de Azure NetApp Files
 
@@ -53,6 +53,10 @@ No. La asignación de direcciones IP a volúmenes de Azure NetApp Files es diná
 ### <a name="does-azure-netapp-files-support-dual-stack-ipv4-and-ipv6-vnet"></a>¿Admite Azure NetApp Files la red virtual de pila dual (IPv4 e IPv6)?
 
 No, actualmente Azure NetApp Files no admite la red virtual de pila dual (IPv4 e IPv6).  
+
+### <a name="is-the-number-of-the-ip-addresses-using-azure-vmware-solutions-for-guest-os-mounts-limited-to-1000"></a>¿Está [limitado a 1000](azure-netapp-files-resource-limits.md#resource-limits) el número de direcciones IP que usa Azure VMWare Solutions para los montajes de sistemas operativos invitados?
+
+No. Azure VMWare Solutions (AVS) está detrás de una puerta de enlace de ER, lo que hace que se comporte de forma similar a los sistemas locales. El número de "hosts" e "invitados" de AVS no es visible para Azure NetApp Files, y el límite de 1000 direcciones IP no es aplicable.
  
 ## <a name="security-faqs"></a>Preguntas más frecuentes de seguridad
 
@@ -104,7 +108,7 @@ Sin embargo, no puede crear directivas de Azure (directivas de nomenclatura pers
 
 ### <a name="when-i-delete-an-azure-netapp-files-volume-is-the-data-deleted-safely"></a>Cuando elimino un volumen de Azure NetApp Files, ¿los datos se eliminan de forma segura? 
 
-La eliminación de un volumen de Azure NetApp Files se realiza en el back-end (nivel de infraestructura física) mediante programación con efecto inmediato. La operación de eliminación incluye la eliminación de las claves usadas para cifrar datos en reposo. No hay ningún escenario que permita la recuperación de un volumen eliminado una vez que la operación de eliminación se ejecuta correctamente (mediante interfaces como Azure Portal y la API).
+La eliminación de un volumen de Azure NetApp Files se realiza mediante programación con efecto inmediato. La operación de eliminación incluye la eliminación de las claves usadas para cifrar datos en reposo. No hay ningún escenario que permita la recuperación de un volumen eliminado una vez que la operación de eliminación se ejecuta correctamente (mediante interfaces como Azure Portal y la API).
 
 ## <a name="performance-faqs"></a>Preguntas más frecuentes sobre rendimiento
 
@@ -341,7 +345,7 @@ Puede montar volúmenes NFS de Azure NetApp Files en máquinas virtuales Windows
 
 ### <a name="what-regions-are-supported-for-using-azure-netapp-files-nfs-or-smb-volumes-with-azure-vmware-solution-avs"></a>¿Qué regiones se admiten para usar volúmenes NFS o SMB de Azure NetApp Files con Azure VMware Solution (AVS)?
 
-El uso de volúmenes NFS o SMB de Azure NetApp Files con AVS se admite en las siguientes regiones: Este de EE. UU., Oeste de EE. UU., Oeste de Europa y Este de Australia.
+El uso de volúmenes NFS o SMB de Azure NetApp Files (ANF) con AVS para *montajes de sistemas operativos invitados* se admite en [todas las regiones habilitadas para AVS y ANF](https://azure.microsoft.com/global-infrastructure/services/?products=azure-vmware,netapp).
 
 ### <a name="does-azure-netapp-files-work-with-azure-policy"></a>¿Azure NetApp Files funciona con Azure Policy?
 

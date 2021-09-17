@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-general
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: jushiman
-ms.openlocfilehash: 7877e674b4a027616d3593251602610cfa145c33
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 917a22980cda5dea5ced20f01d7e79ccd55fbcf1
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122691227"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123426695"
 ---
 # <a name="dv3-and-dsv3-series"></a>Series Dv3 y DSv3
 
@@ -70,7 +70,7 @@ Las máquinas virtuales de la serie DSv3 cuentan con la tecnología Hyper-Thread
 
 | Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento máximo de almacenamiento temporal y en caché: IOPS/Mbps (tamaño de caché en GiB) | Rendimiento máximo de almacenamiento en caché y almacenamiento temporal expandidos: IOPS/MBps<sup>2</sup> | Rendimiento máximo del disco sin almacenamiento en la caché: IOPS/Mbps | Rendimiento máximo del disco sin almacenamiento en la caché expandido: IOPS/MBps<sup>1</sup> | Nº máx. de NIC/ancho de banda de red esperado (Mbps) |
 |---|---|---|---|---|---|---|---|---|---|
-| Standard_D2s_v3<sup>3</sup>  | 2  | 8   | 16  | 4  | 4000/32 (50)       | 4000/100    |3200/48    | 4000/100   | 2/1000  |
+| Standard_D2s_v3<sup>2</sup>  | 2  | 8   | 16  | 4  | 4000/32 (50)       | 4000/100    |3200/48    | 4000/100   | 2/1000  |
 | Standard_D4s_v3  | 4  | 16  | 32  | 8  | 8000/64 (100)      | 8000/200    |6400/96    | 8000/200   | 2/2000  |
 | Standard_D8s_v3  | 8  | 32  | 64  | 16 | 16000/128 (200)    | 16 000/400   |12800/192  | 16 000/400  | 4/4000  |
 | Standard_D16s_v3 | 16 | 64  | 128 | 32 | 32000/256 (400)    | 32 000/800   |25600/384  | 32 000/800  | 8/8000  |

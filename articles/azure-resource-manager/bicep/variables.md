@@ -4,13 +4,13 @@ description: Describe cómo definir variables en Bicep
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 06/01/2021
-ms.openlocfilehash: b2f696adbad88cd424f2292b333069a7b80a13b2
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
+ms.date: 09/02/2021
+ms.openlocfilehash: a652d2efb3f97791d075f078637801e4d20aad47
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122634960"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123425064"
 ---
 # <a name="variables-in-bicep"></a>Variables de Bicep
 
@@ -32,6 +32,7 @@ Puede usar el valor de un parámetro u otra variable al construir la variable.
 param inputValue string = 'deployment Parameter'
 
 var stringVar = 'myVariable'
+
 var concatToVar =  '${stringVar}AddToVar'
 var concatToParam = '${inputValue}AddToParam'
 ```
@@ -43,6 +44,10 @@ En el ejemplo siguiente se crea un valor de cadena para un nombre de cuenta de a
 ```bicep
 var storageName = '${toLower(storageNamePrefix)}${uniqueString(resourceGroup().id)}'
 ```
+
+El ejemplo siguiente no implementa ningún recurso. Muestra cómo declarar variables de distintos tipos.
+
+:::code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/variables/variables.bicep":::
 
 ## <a name="use-variable"></a>Uso de la variable
 
@@ -69,17 +74,11 @@ output stgOutput string = storageName
 
 Dado que los nombres de cuenta de almacenamiento deben usar letras minúsculas, la variable `storageName` usa la función `toLower` para convertir el valor `storageNamePrefix` en minúsculas. La función `uniqueString` crea un valor único a partir del identificador del grupo de recursos. Los valores se concatenan a una cadena.
 
-## <a name="example-template"></a>Plantilla de ejemplo
-
-La plantilla siguiente no implementa ningún recurso. Muestra algunas maneras de declarar variables de distintos tipos.
-
-:::code language="bicep" source="~/azure-docs-bicep-samples/bicep/variables.bicep":::
-
 ## <a name="configuration-variables"></a>Variables de configuración
 
 Puede definir variables que contengan valores relacionados para configurar un entorno. La variable se define como un objeto con los valores. En el ejemplo siguiente se muestra un objeto que contiene valores para dos entornos: **test** y **prod**. Pase uno de estos valores durante la implementación.
 
-:::code language="bicep" source="~/azure-docs-bicep-samples/bicep/variablesconfigurations.bicep":::
+:::code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/variables/variablesconfigurations.bicep":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

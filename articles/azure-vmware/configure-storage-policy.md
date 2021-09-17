@@ -3,12 +3,12 @@ title: Configuración de la directiva de almacenamiento
 description: Aprenda a configurar la directiva de almacenamiento para las máquinas virtuales de Azure VMware Solution.
 ms.topic: how-to
 ms.date: 08/31/2021
-ms.openlocfilehash: b9535c5765b2ff024537ff44e2e24a76c992dd35
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: df8f6931dbae377833d3f380e3fd5fcad8bd73ba
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123304063"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123431339"
 ---
 # <a name="configure-storage-policy"></a>Configuración de la directiva de almacenamiento
 
@@ -97,6 +97,9 @@ Ejecutará el cmdlet `Set-AvsVMStoragePolicy` para modificar las directivas de a
 ## <a name="specify-storage-policy-for-a-cluster"></a>Especificar la directiva de almacenamiento de un clúster.
 
 Ejecutará el cmdlet `Set-ClusterDefaultStoragePolicy` para especificar la directiva de almacenamiento predeterminada de un clúster.
+
+>[!NOTE]
+>No se permite cambiar la directiva de almacenamiento del clúster de administración predeterminado.
 
 1. Seleccione **Ejecutar comando** > **Paaquetes** > **Set-ClusterDefaultStoragePolicy**.
 

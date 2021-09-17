@@ -1,20 +1,20 @@
 ---
-title: Acerca de la red de base dual con Azure Route Server (versión preliminar)
-description: Obtenga información sobre cómo funciona Azure Route Server (versión preliminar) en una red de base dual.
+title: 'Acerca de la red de base dual con Azure Route Server '
+description: Obtenga información sobre cómo funciona Azure Route Server en una red de base dual.
 services: route-server
 author: duongau
 ms.service: route-server
 ms.topic: conceptual
-ms.date: 05/04/2021
+ms.date: 09/01/2021
 ms.author: duau
-ms.openlocfilehash: b786c58efd193eebbd43a4bd40f29201347c1309
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 76c1a1e424e4f8ae372f53ceab5da43ca9d40629
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108777059"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123434581"
 ---
-# <a name="about-dual-homed-network-with-azure-route-server-preview"></a>Acerca de la red de base dual con Azure Route Server (versión preliminar)
+# <a name="about-dual-homed-network-with-azure-route-server"></a>Acerca de la red de base dual con Azure Route Server
 
 Azure Route Server admite la típica topología de red en estrella tipo hub-and-spoke. Esta configuración se debe a que Route Server y la aplicación virtual de red (NVA) están en la red virtual de centro de conectividad. Route Server también le permite configurar una topología diferente denominada red de base dual. Esta configuración se debe a que tiene una red virtual de radio emparejada con dos o más redes virtuales de centro de conectividad. Las máquinas virtuales de la red virtual de radio pueden comunicarse a través de la red virtual de centro de conectividad con el entorno local o Internet.
 

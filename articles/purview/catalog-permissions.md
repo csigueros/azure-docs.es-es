@@ -7,23 +7,25 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 08/18/2020
-ms.openlocfilehash: 41a2ecde221ab894ca4cd0907fc70ee2bd9952c5
-ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
+ms.openlocfilehash: 2d9b9aaa6cfd0236a6bc990da5b3ec0870adcd87
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122397751"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123478201"
 ---
 # <a name="access-control-in-azure-purview"></a>Control de acceso en Azure Purview
 
-Azure Purview usa **colecciones** para organizar y administrar el acceso a través de sus orígenes, recursos y otros artefactos. En este artículo se describen las colecciones y la administración de acceso en la instancia de Azure Purview.
+Azure Purview usa **colecciones** para organizar y administrar el acceso a través de sus orígenes, recursos y otros artefactos. En este artículo se describen las colecciones y la administración de acceso en una cuenta de Azure Purview.
 
 > [!NOTE]
-> En este momento, esta información solo se aplica a las instancias de Purview creadas **el 18 de agosto de 2021 o después**. Las instancias creadas antes del 18 de agosto pueden crear colecciones, pero no administrar permisos a través de esas colecciones. Para información sobre el control de acceso de una instancia de Purview creada antes del 18 de agosto, consulte nuestra [**guía de permisos heredados**](#legacy-permission-guide) en la parte inferior de la página.
+> En este momento, esta información solo se aplica a las cuentas de Purview creadas **a partir del 18 de agosto de 2021, inclusive**. Las instancias creadas antes del 18 de agosto pueden crear colecciones, pero no administran permisos a través de esas colecciones. Para obtener información sobre el control de acceso de una instancia de Purview creada antes del 18 de agosto, consulte nuestra [**guía de permisos heredados**](#legacy-permission-guide) en la parte inferior de la página.
+>
+> Todas las cuentas heredadas se actualizarán automáticamente en las próximas semanas. Recibirá una notificación por correo electrónico cuando se actualice la cuenta de Purview. Para obtener más información sobre los cambios que se producirán al actualizar la cuenta, consulte nuestra [guía de cuentas actualizadas](concept-account-upgrade.md).
 
 ## <a name="collections"></a>Colecciones
 
-Una colección es una herramienta que Azure Purview usa para agrupar recursos, orígenes y otros artefactos en una jerarquía para facilitar la detección y para administrar el control de acceso. Todo el acceso a los recursos de Purview se administra desde colecciones de la propia instancia de Purview.
+Una colección es una herramienta que Azure Purview usa para agrupar recursos, orígenes y otros artefactos en una jerarquía para facilitar la detección y para administrar el control de acceso. Todo el acceso a los recursos de Purview se administra desde las colecciones de la propia instancia de Purview.
 
 ## <a name="roles"></a>Roles
 
@@ -46,25 +48,27 @@ Azure Purview usa un conjunto de roles predefinidos para controlar quién puede 
 |Necesito habilitar una entidad de servicio o un grupo para configurar y supervisar exámenes en Azure Purview sin permitirles que accedan a la información del catálogo. |Administrador de orígenes de datos|
 |Necesito asignar usuarios a roles en Azure Purview. | Administrador de colecciones |
 
+:::image type="content" source="./media/catalog-permissions/collection-permissions-roles.png" alt-text="Gráfico que muestra los roles de Purview" lightbox="./media/catalog-permissions/collection-permissions-roles.png":::
+
 ## <a name="understand-how-to-use-azure-purviews-roles-and-collections"></a>Uso de los roles y las colecciones de Azure Purview
 
-Todo el control de acceso se administra en las colecciones de Purview. Las colecciones de Purview se pueden encontrar en [Purview Studio](use-purview-studio.md). Abra la cuenta de Purview en Azure Portal y seleccione el icono de Purview Studio en la página de información general. Desde allí, vaya al mapa de datos en el menú izquierdo y seleccione la pestaña "Colecciones".
+Todo el control de acceso se administra en las colecciones de Purview. Las colecciones de Purview se pueden encontrar en [Purview Studio](use-purview-studio.md). Abra la cuenta de Purview en [Azure Portal](https://portal.azure.com) y seleccione el icono de Purview Studio en la página de información general. Desde allí, vaya al mapa de datos en el menú izquierdo y seleccione la pestaña "Colecciones".
 
-Cuando se crea una instancia de Azure Purview, comienza con una colección raíz que tiene el mismo nombre que la propia cuenta de Purview. El creador de la cuenta de Purview se agrega automáticamente como administrador de colecciones, administrador de orígenes de datos, administrador provisional de datos y lector de datos en esta colección raíz, y puede editarla y administrarla.
+Cuando se crea una cuenta de Azure Purview, comienza con una colección raíz que tiene el mismo nombre que la propia cuenta de Purview. El creador de la cuenta de Purview se agrega automáticamente como administrador de colecciones, administrador de orígenes de datos, administrador provisional de datos y lector de datos en esta colección raíz, y puede editarla y administrarla.
 
-A esta colección raíz se le pueden agregar directamente orígenes, recursos y objetos, pero también otras colecciones. Al agregar colecciones, tendrá un mayor control sobre quién tiene acceso a los datos en la instancia de Purview.
+A esta colección raíz se le pueden agregar directamente orígenes, recursos y objetos, pero también otras colecciones. Al agregar colecciones, tendrá un mayor control sobre quién tiene acceso a los datos en la cuenta de Purview.
 
-Todos los demás usuarios solo pueden acceder a la información que contiene la instancia de Azure Purview si a ellos, o a un grupo en el que estén, se les da uno de los roles anteriores. Esto significa que, al crear una cuenta de Azure Purview, nadie más que el creador puede acceder o usar sus API hasta que se le [agrega uno o varios de los roles anteriores en una colección](how-to-create-and-manage-collections.md#add-role-assignments).
+Los restantes usuarios solo pueden acceder a la información que contiene la cuenta de Azure Purview si a ellos, o a un grupo en el que estén, se les da uno de los roles anteriores. Esto significa que, al crear una cuenta de Azure Purview, nadie más que el creador puede acceder o usar sus API hasta que se le [agrega uno o varios de los roles anteriores en una colección](how-to-create-and-manage-collections.md#add-role-assignments).
 
-Los usuarios solo pueden ser agregados a una colección por un administrador de colecciones, o mediante la herencia de permisos. Los permisos de una colección principal son heredados automáticamente por sus subcolecciones. Sin embargo, puede optar por [restringir la herencia de permisos](how-to-create-and-manage-collections.md#restrict-inheritance) en cualquier colección. Si lo hace, sus subcolecciones ya no heredarán los permisos de la colección principal, aunque los administradores de la colección que se heredan automáticamente de una colección principal no se pueden eliminar.
+Los usuarios solo pueden ser agregados a una colección por un administrador de colecciones, o mediante la herencia de permisos. Los permisos de una colección principal son heredados automáticamente por sus subcolecciones. Sin embargo, puede optar por [restringir la herencia de permisos](how-to-create-and-manage-collections.md#restrict-inheritance) en cualquier colección. Si lo hace, sus subcolecciones ya no heredarán los permisos de la colección primaria y será preciso agregarlos directamente, aunque los administradores de la colección que se heredan automáticamente de una colección principal no se pueden eliminar.
 
 ## <a name="assign-permissions-to-your-users"></a>Asignación de permisos a los usuarios
 
-Después de crear una instancia de Azure Purview, lo primero que debe hacer es crear colecciones y asignar usuarios a roles dentro de estas.
+Después de crear una cuenta de Azure Purview, lo primero que debe hacer es crear colecciones y asignar usuarios a roles dentro de estas.
 
 ### <a name="create-collections"></a>Creación de recopilaciones
 
-Las colecciones se pueden personalizar, por ejemplo, cambiar la estructura de los orígenes de la instancia de Purview, y pueden funcionar como ubicaciones de almacenamiento organizadas para estos recursos. Cuando piense en las colecciones que pueda necesitar, tenga en cuenta cómo los usuarios accederán a la información o la detectarán. ¿Los orígenes están divididos por departamentos? ¿Hay grupos especializados dentro de esos departamentos que solo necesitarán detectar algunos recursos? ¿Hay algunos orígenes que todos los usuarios deben poder detectar?
+Las colecciones se pueden personalizar de acuerdo a la estructura de los orígenes de la cuenta de Purview y pueden actuar como ubicaciones de almacenamiento organizadas para estos recursos. Cuando piense en las colecciones que pueda necesitar, tenga en cuenta cómo los usuarios accederán a la información o la detectarán. ¿Los orígenes están divididos por departamentos? ¿Hay grupos especializados dentro de esos departamentos que solo necesitarán detectar algunos recursos? ¿Hay algunos orígenes que todos los usuarios deben poder detectar?
 
 Hacerse estas preguntas le permitirá saber que colecciones y subcolecciones puede necesitar para organizar de forma más eficaz el mapa de datos.
 
@@ -94,7 +98,7 @@ Puede encontrar instrucciones completas en nuestra [guía paso a paso para agreg
 ## <a name="legacy-permission-guide"></a>Guía de permisos heredados
 
 > [!NOTE]
-> Esta guía de colecciones heredadas es solo para las instancias de Purview creadas antes del 18 de agosto. Las instancias creadas después de esa fecha deben seguir la guía anterior.
+> Esta guía de la colección heredada es solo para las cuentas de Purview creadas antes del 18 de agosto de 2021. Las instancias creadas después de esa fecha deben seguir la guía anterior.
 
 En este artículo se describe cómo se implementa el control de acceso basado en rol (RBAC) en el [plano de datos](../azure-resource-manager/management/control-plane-and-data-plane.md#data-plane) de Azure Purview para los recursos creados antes del 18 de agosto.
 
@@ -139,7 +143,7 @@ Solo dos roles integrados del plano de control en Azure pueden asignar roles de 
 
 Un rol se define como una colección de acciones. Consulte [aquí](../role-based-access-control/role-definitions.md) para más información sobre cómo se definen los roles. Y consulte [aquí](../role-based-access-control/built-in-roles.md) para conocer las definiciones de roles de los roles de Azure Purview.
 
-### <a name="getting-added-to-a-legacy-data-plane-role-in-an-azure-purview-instance"></a>Incorporación a un rol heredado del plano de datos en una instancia de Azure Purview
+### <a name="getting-added-to-a-legacy-data-plane-role-in-an-azure-purview-account"></a>Incorporación a un rol heredado del plano de datos en una cuenta de Azure Purview
 
 Si desea tener acceso a una cuenta de Azure Purview para poder usar Studio o llamar a sus API, necesita que le agreguen a un rol del plano de datos de Azure Purview. Las únicas personas que pueden hacer esto son aquellas que son Propietarios o Administradores de acceso de usuarios en la cuenta de Azure Purview. Para la mayoría de los usuarios, el siguiente paso es encontrar un administrador local que pueda ayudar a encontrar a las personas adecuadas que les puedan dar acceso.
 
@@ -156,6 +160,8 @@ En el caso de los usuarios que tienen acceso a [Azure Portal](https://portal.azu
 |Necesito configurar exámenes mediante Purview Studio.|Rol Administrador de orígenes de datos de Purview más al menos uno de los roles Lector de datos de Purview o Conservador de datos de Purview|
 |Necesito habilitar una entidad de servicio u otra identidad de programación para configurar y supervisar exámenes en Azure Purview sin permitir que la identidad de programación tenga acceso a la información del catálogo. |Rol Administrador de orígenes de datos de Purview|
 |Necesito asignar usuarios a roles en Azure Purview. | Propietario o Administrador de acceso de usuarios |
+
+:::image type="content" source="./media/catalog-permissions/collection-permissions-roles-legacy.png" alt-text="Gráfico que muestra los roles heredados de Purview" lightbox="./media/catalog-permissions/collection-permissions-roles-legacy.png":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

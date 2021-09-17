@@ -1,28 +1,30 @@
 ---
 title: Uso de la identificación del idioma
 titleSuffix: Azure Cognitive Services
-description: La identificación del idioma se usa para determinar el idioma que se habla en el audio que se pasa al SDK de Voz mediante la comparación con una lista de idiomas proporcionados.
+description: La identificación del idioma se puede usar con el reconocimiento de voz para determinar el idioma que se habla en el audio de voz que se reconoce.
 services: cognitive-services
-author: laujan
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/21/2021
-ms.author: lajanuar
+ms.author: pafarley
 zone_pivot_groups: programming-languages-speech-services-nomore-variant
-ms.openlocfilehash: e24a24b54d31a98497bfba453b6677ebf0f560a9
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 04c5c178a37f83203c0b5ee0597cba0b832933d7
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122322882"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123538550"
 ---
 # <a name="how-to-use-language-identification"></a>Uso de la identificación del idioma
 
 La identificación del idioma se usa para determinar el idioma que se habla en el audio que se pasa al SDK de Voz mediante la comparación con una lista de idiomas proporcionados. El valor devuelto por la identificación del idioma se usa para seleccionar el modelo de idioma para la conversión de voz en texto, lo que proporciona una transcripción más precisa. 
 
-La identificación del idioma también se puede usar con la [traducción de voz](./get-started-speech-translation.md?pivots=programming-language-csharp&tabs=script%2cwindowsinstall#multi-lingual-translation-with-language-identification) o mediante la [identificación independiente](#standalone-language-identification). Para ver los idiomas que están disponibles, consulte la [compatibilidad de idioma](language-support.md).
+La identificación del idioma también se puede usar con la [traducción de voz](./get-started-speech-translation.md?pivots=programming-language-csharp&tabs=script%2cwindowsinstall#multi-lingual-translation-with-language-identification) o mediante la [identificación independiente](/azure/cognitive-services/speech-service/language-identification). 
+
+Para ver los idiomas que están disponibles, consulte la [compatibilidad de idioma](language-support.md).
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -339,87 +341,6 @@ speechRecognizer.recognizeOnceAsync((result: SpeechSDK.SpeechRecognitionResult) 
 
 ::: zone-end
 
-## <a name="standalone-language-identification"></a>Identificación del idioma independiente
-
-::: zone pivot="programming-language-csharp"
-
-En los casos de uso en los que solo desee detectar el idioma de origen que se habla, puede usar la identificación del idioma independiente como se muestra en el ejemplo de código siguiente. `SourceLanguageRecognizer` también se puede usar en escenarios de reconocimiento continuo.
-
-```csharp
-using Microsoft.CognitiveServices.Speech;
-using Microsoft.CognitiveServices.Speech.Audio;
-
-var speechConfig = SpeechConfig.FromSubscription("<paste-your-subscription-key>","<paste-your-region>");
-// can switch "Latency" to "Accuracy" depending on priority
-speechConfig.SetProperty(PropertyId.SpeechServiceConnection_SingleLanguageIdPriority, "Latency");
-
-var autoDetectSourceLanguageConfig =
-    AutoDetectSourceLanguageConfig.FromLanguages(
-        new string[] { "en-US", "de-DE" });
-
-using (var recognizer = new SourceLanguageRecognizer(speechConfig, autoDetectSourceLanguageConfig))
-{
-    var result = await recognizer.RecognizeOnceAsync();
-    if (result.Reason == ResultReason.RecognizedSpeech)
-    {
-        var lang = AutoDetectSourceLanguageResult.FromResult(result).Language;
-        Console.WriteLine($"DETECTED: Language={lang}");
-    }
-}
-```
-
-Consulte el [ejemplo en GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/standalone_language_detection_samples.cs) para más ejemplos de identificación del idioma independiente, incluido un ejemplo de identificación continua.
-
-::: zone-end
-
-::: zone pivot="programming-language-cpp"
-
-En los casos de uso en los que solo desee detectar el idioma de origen que se habla, puede usar la identificación del idioma independiente como se muestra en el ejemplo de código siguiente. `SourceLanguageRecognizer` también se puede usar en escenarios de reconocimiento continuo.
-
-```cpp
-using namespace std;
-using namespace Microsoft::CognitiveServices::Speech;
-using namespace Microsoft::CognitiveServices::Speech::Audio;
-
-auto config = SpeechConfig::FromSubscription("<paste-your-subscription-key>","<paste-your-region>");
-config->SetProperty(PropertyId::SpeechServiceConnection_SingleLanguageIdPriority, "Latency");
-
-auto autoDetectSourceLanguageConfig = AutoDetectSourceLanguageConfig::FromLanguages({ "en-US", "de-DE" });
-
-auto recognizer = SourceLanguageRecognizer::FromConfig(config, autoDetectSourceLanguageConfig);
-cout << "Say something...\n";
-
-auto result = recognizer->RecognizeOnceAsync().get();
-if (result->Reason == ResultReason::RecognizedSpeech)
-{
-    auto lidResult = AutoDetectSourceLanguageResult::FromResult(result);
-    cout << "DETECTED: Language="<< lidResult->Language << std::endl;
-}
-```
-
-Consulte el [ejemplo en GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/cpp/windows/console/samples/standalone_language_detection_samples.cpp) para más ejemplos de identificación del idioma independiente, incluido un ejemplo de identificación continua.
-
-::: zone-end
-
-::: zone pivot="programming-language-java"
-> [!IMPORTANT]
-> Actualmente esta característica solo se admite en C#, C++ y Python.
-::: zone-end
-
-::: zone pivot="programming-language-python"
-> [!IMPORTANT]
-> Actualmente esta característica solo se admite en C#, C++ y Python.
-::: zone-end
-
-::: zone pivot="programming-language-objectivec"
-> [!IMPORTANT]
-> Actualmente esta característica solo se admite en C#, C++ y Python.
-::: zone-end
-
-::: zone pivot="programming-language-javascript"
-> [!IMPORTANT]
-> Actualmente esta característica solo se admite en C#, C++ y Python.
-::: zone-end
 
 ## <a name="use-a-custom-model-for-language-identification"></a>Uso de un modelo personalizado para la identificación del idioma
 
@@ -509,6 +430,7 @@ var autoDetectConfig = SpeechSDK.AutoDetectSourceLanguageConfig.fromSourceLangua
 
 ::: zone-end
 
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 ::: zone pivot="programming-language-csharp"
@@ -530,5 +452,3 @@ var autoDetectConfig = SpeechSDK.AutoDetectSourceLanguageConfig.fromSourceLangua
 ::: zone pivot="programming-language-objectivec"
 * Consulte el [código de ejemplo](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/objective-c/ios/speech-samples/speech-samples/ViewController.m#L525) en GitHub para la identificación del idioma.
 ::: zone-end
-
-* [Documentación de referencia del SDK de voz](speech-sdk.md)

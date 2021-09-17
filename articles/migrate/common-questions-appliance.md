@@ -6,12 +6,12 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 03/22/2021
-ms.openlocfilehash: a814cce09a134f007fbd136b8c142a60fb099a1b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 11360af784f456559955152772ba099ad4d48d73
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121732656"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123423886"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Dispositivo de Azure Migrate: Preguntas frecuentes
 
@@ -57,7 +57,7 @@ El dispositivo de Azure Migrate genera perfiles de servidores locales continuame
 
 ## <a name="can-i-harden-the-appliance"></a>¿Se puede proteger la aplicación?
 
-Cuando usa la plantilla descargada para crear la aplicación, puede agregar componentes (por ejemplo, un antivirus) a la plantilla, siempre que las reglas de firewall y de comunicación necesarias para el dispositivo de Azure Migrate no se modifiquen.
+Cuando se usa la plantilla descargada para cargar el dispositivo, es posible agregarle componentes (antivirus, por ejemplo). Asegúrese de que ha permitido el acceso a las [direcciones URL](migrate-appliance.md#public-cloud-urls) correctas por medio de Azure Firewall y de que la carpeta *%ProgramData%\MicrosoftAzure* está excluida del examen antivirus.
 
 ## <a name="what-network-connectivity-is-required"></a>¿Qué conectividad de red se necesita?
 

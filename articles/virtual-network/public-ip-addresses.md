@@ -9,12 +9,12 @@ ms.subservice: ip-services
 ms.topic: conceptual
 ms.date: 04/29/2021
 ms.author: allensu
-ms.openlocfilehash: 4497b58e40ccc280661d45932586c14bb8a21108
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 383c1c0419224a568e32dd41f50d49dc448dbb3c
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122179882"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123538154"
 ---
 # <a name="public-ip-addresses"></a>Direcciones IP públicas
 
@@ -61,20 +61,13 @@ Las direcciones IP públicas de SKU estándar:
 
 - Utilice siempre el método de asignación estática.
 - Tiene un tiempo espera de inactividad del flujo originado de entrada ajustable de entre 4 y 30 minutos, y un valor predeterminado de 4 minutos, y el valor predeterminado del tiempo de espera del flujo originado es de 4 minutos.
-- Son seguras de forma predeterminada y se cierran al tráfico de entrada. Permiten mostrar el tráfico de entrada con un [grupo de seguridad de red](./network-security-groups-overview.md#network-security-groups).
-- Se asignan a interfaces de red, equilibradores de carga estándar públicos o puertas de enlace de aplicaciones. Para más información sobre Azure Load Balancer, consulte [Azure Standard Load Balancer](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Diseñado para alinearse con el modelo "seguro de manera predeterminada" y cerrarse al tráfico entrante cuando se usa como front-end.  Se requiere añadir a la lista de permitidos el tráfico del plano de datos con el [grupo de seguridad de red](./network-security-groups-overview.md#network-security-groups) (NSG) (por ejemplo, en la NIC de una máquina virtual con una dirección IP pública de SKU estándar asociada).
 - Pueden tener redundancia de zona (es decir, se anuncian desde las tres zonas), ser zonales (es decir, se garantizan en una zona de disponibilidad preseleccionada específica) o no tener zona (es decir, no se asocian a ninguna zona de disponibilidad preseleccionada concreta). Para obtener más información acerca de las zonas de disponibilidad, consulte [Introducción a las zonas de disponibilidad](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) y [Standard Load Balancer and Availability Zones](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Load Balancer Standard y zonas de disponibilidad). **Las direcciones IP con redundancia de zona solo se pueden crear en [regiones en las que haya tres zonas de disponibilidad](../availability-zones/az-region.md) activas.** Las direcciones IP creadas antes de que las zonas estén activas no tendrán redundancia de zona.
 - Se puede usar con la [preferencia de enrutamiento](routing-preference-overview.md) para permitir un control más detallado de cómo se enruta el tráfico entre Azure e Internet.
 - Se puede usar como dirección IP de front-end de difusión por proximidad (anycast) para [equilibradores de carga entre regiones](../load-balancer/cross-region-overview.md) (funcionalidad de versión preliminar).
  
 > [!NOTE]
 > Para evitar que se produzca un error en la comunicación de entrada con el recurso SKU estándar, debe crear un [grupo de seguridad de red](./network-security-groups-overview.md#network-security-groups), asociarlo y permitir explícitamente el tráfico de entrada deseado.
-
-> [!NOTE]
-> Cuando se usa el [servicio de metadatos de instancia IMDS](../virtual-machines/windows/instance-metadata-service.md), solo hay disponibles direcciones IP públicas con SKU básica. No se admiten las SKU estándar.
-
-> [!NOTE]
-> La configuración de diagnóstico no aparece en la hoja del recurso cuando se usa una dirección IP pública de SKU estándar. Para habilitar el registro en un recurso de dirección IP pública estándar, vaya a la configuración de diagnóstico en la hoja Azure Monitor y seleccione el recurso de dirección IP.
 
 ### <a name="basic"></a>Básica
 
@@ -87,7 +80,7 @@ Las direcciones de SKU básica:
 - No admiten las funcionalidades de [preferencia de enrutamiento](routing-preference-overview.md) ni [equilibradores de carga entre regiones](../load-balancer/cross-region-overview.md).
 
 > [!NOTE]
-> Las direcciones IPv4 de SKU básica se pueden actualizar después de su creación a una SKU estándar.  Para obtener información acerca de la actualización de SKU, consulte [Actualización de IP pública](./public-ip-upgrade-portal.md).
+> Las direcciones IPv4 de SKU básica se pueden actualizar a SKU estándar después de su creación.  Para obtener información acerca de la actualización de SKU, consulte [Actualización de IP pública](./public-ip-upgrade-portal.md).
 
 >[!IMPORTANT]
 > En los recursos de IP pública y en el equilibrador de carga se requieren SKU coincidentes. No puede tener una combinación de recursos de SKU básica y recursos de SKU estándar. No se pueden asociar máquinas virtuales independientes, máquinas virtuales en un recurso de conjunto de disponibilidad o conjuntos de escalado de máquinas virtuales a ambas SKU simultáneamente.  Para los nuevos diseños, deberá considerar usar los recursos de SKU estándar.  Consulte [Load Balancer Estándar](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para obtener más información.
@@ -115,11 +108,7 @@ Las direcciones IPv4 e IPv6 públicas básicas admiten una asignación **dinámi
 
 ## <a name="dns-name-label"></a>Etiqueta de nombre DNS
 
-Seleccione esta opción para especificar una etiqueta de DNS para un recurso de dirección IP pública. Esta funcionalidad funciona tanto para direcciones IPv4 (registros A de 32 bits) como para direcciones IPv6 (registros AAAA de 128 bits).
-
-### <a name="dns-hostname-resolution"></a>Resolución de nombres de host DNS
-
-Esta selección crea una asignación para **domainnamelabel**.**location**.cloudapp.azure.com a la dirección IP pública en el DNS administrado por Azure. 
+Seleccione esta opción para especificar una etiqueta de DNS para un recurso de dirección IP pública. Esta funcionalidad funciona tanto para direcciones IPv4 (registros A de 32 bits) como para direcciones IPv6 (registros AAAA de 128 bits).  Esta selección crea una asignación para **domainnamelabel**.**location**.cloudapp.azure.com a la dirección IP pública en el DNS administrado por Azure. 
 
 Por ejemplo, la creación de una dirección IP pública con:
 
@@ -131,11 +120,7 @@ El nombre de dominio completo (FQDN) **contoso.westus.cloudapp.azure.com** se re
 > [!IMPORTANT]
 > Cada etiqueta de nombre de dominio que se cree debe ser única dentro de su ubicación de Azure.  
 
-### <a name="dns-recommendations"></a>Recomendaciones de DNS
-
-No se puede migrar el FQDN de la dirección IP pública entre regiones. Puede usar el nombre de dominio completo para crear un registro CNAME personalizado que apunte a la dirección IP pública. Si se requiere un traslado a una dirección IP pública diferente, actualice el registro CNAME.
-
-Puede usar [Azure DNS](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address) o un proveedor de DNS externo para el registro DNS.
+Si se desea un dominio personalizado para los servicios que usan una dirección IP pública, puede usar [Azure DNS](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address) o un proveedor DNS externo para el registro DNS.
 
 ## <a name="other-public-ip-address-features"></a>Otras características de dirección IP pública
 

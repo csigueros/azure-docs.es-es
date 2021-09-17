@@ -1,22 +1,22 @@
 ---
 title: Información sobre Azure Policy para Kubernetes
 description: Obtenga información sobre cómo Azure Policy usa Rego y Open Policy Agent para administrar clústeres que ejecutan Kubernetes en Azure o en el entorno local.
-ms.date: 08/17/2021
+ms.date: 09/01/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 20b3362823644ab478e2069fbc610079820302c3
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 43b5e010ec6f024838a0407f2cafae1d28bdcf1e
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122323080"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123436075"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters"></a>Descripción de Azure Policy para clústeres de Kubernetes (versión preliminar)
 
 Azure Policy extiende [Gatekeeper](https://github.com/open-policy-agent/gatekeeper) v3, un _webhook de controlador de admisión_ de [Open Policy Agent](https://www.openpolicyagent.org/) (OPA), a fin de aplicar medidas de seguridad y cumplimiento a escala en los clústeres de una manera centralizada y coherente. Azure Policy permite administrar e informar sobre el estado de cumplimiento de los clústeres de Kubernetes desde un único lugar. El complemento realiza las funciones siguientes:
 
 - Comprueba con el servicio Azure Policy las asignaciones de directivas al clúster.
-- Implementa definiciones de directiva en el clúster como recursos de [plantilla de restricción](https://github.com/open-policy-agent/gatekeeper#constraint-templates) y [restricción](https://github.com/open-policy-agent/gatekeeper#constraints).
+- Implementa definiciones de directiva en el clúster como recursos de [plantilla de restricción](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraint-templates) y [restricción](https://github.com/open-policy-agent/gatekeeper#constraints).
 - Realiza informes de auditoría y cumplimiento y los devuelve al servicio Azure Policy.
 
 Azure Policy para Kubernetes admite los entornos de clúster siguientes:
@@ -26,7 +26,8 @@ Azure Policy para Kubernetes admite los entornos de clúster siguientes:
 - [AKS Engine](https://github.com/Azure/aks-engine/blob/master/docs/README.md)
 
 > [!IMPORTANT]
-> Los complementos para el motor de AKS y los Kubernetes habilitados para Arc están en **versión preliminar**. Azure Policy para Kubernetes solo admite grupos de nodos de Linux y definiciones de directivas integradas. Las definiciones de directivas integradas se encuentran en la categoría **Kubernetes**. Las definiciones de directiva de versión preliminar limitadas con efecto **EnforceOPAConstraint** y **EnforceRegoPolicy** y la categoría **servicio Kubernetes** relacionada están en _desuso_. En su lugar, use los efectos _audit_ y _deny_ con el modo de proveedor de recursos `Microsoft.Kubernetes.Data`.
+> Los complementos para el motor de AKS y los Kubernetes habilitados para Arc están en **versión preliminar**. Azure Policy para Kubernetes solo admite grupos de nodos de Linux y definiciones de directivas integradas (las definiciones de directivas personalizadas son una característica en _versión preliminar pública)_ . Las definiciones de directivas integradas se encuentran en la categoría **Kubernetes**. Las definiciones de directiva de versión preliminar limitadas con efecto **EnforceOPAConstraint** y **EnforceRegoPolicy** y la categoría **servicio Kubernetes** relacionada están en _desuso_.
+> En su lugar, use los efectos _audit_ y _deny_ con el modo de proveedor de recursos `Microsoft.Kubernetes.Data`.
 
 ## <a name="overview"></a>Información general
 
@@ -42,7 +43,7 @@ Para habilitar y usar Azure Policy con el clúster de Kubernetes, realice las ac
 
 1. [Descripción del lenguaje de Azure Policy para Kubernetes](#policy-language)
 
-1. [Asignación de una definición integrada a un clúster de Kubernetes](#assign-a-built-in-policy-definition)
+1. [Asignación de una definición a un clúster de Kubernetes](#assign-a-policy-definition)
 
 1. [Espere la validación](#policy-evaluation)
 
@@ -51,8 +52,9 @@ Para habilitar y usar Azure Policy con el clúster de Kubernetes, realice las ac
 Las siguientes limitaciones generales se aplican al complemento de Azure Policy en los clústeres de Kubernetes:
 
 - El complemento Azure Policy para Kubernetes es compatible con la versión **1.14** o posterior de Kubernetes.
-- El complemento Azure Policy para Kubernetes solo se puede implementar en grupos de nodos de Linux
-- Solo se admiten las definiciones de directivas integradas
+- El complemento Azure Policy para Kubernetes solo se puede implementar en grupos de nodos de Linux.
+- Solo se admiten las definiciones de directivas integradas. Las definiciones de directivas personalizadas son una característica en _versión preliminar pública_.
+- Número máximo de pods admitidos por el complemento de Azure Policy: **10 000**
 - Número máximo de registros no compatibles por directiva por clúster: **500**
 - Número máximo de registros no compatibles por suscripción: **1 millón**
 - No se admiten las instalaciones de Gatekeeper fuera del complemento de Azure Policy. Desinstale los componentes instalados por una instalación anterior de Gatekeeper antes de habilitar el complemento de Azure Policy.
@@ -360,13 +362,16 @@ kubectl get pods -n gatekeeper-system
 
 La estructura del lenguaje de Azure Policy para administrar Kubernetes sigue la de las definiciones de directiva existentes. Con un [modo de proveedor de recursos](./definition-structure.md#resource-provider-modes) de `Microsoft.Kubernetes.Data`, se usan los efectos [audit](./effects.md#audit) y [deny](./effects.md#deny) para administrar los clústeres de Kubernetes. _Audit_ y _deny_ deben proporcionar propiedades **details** específicas para trabajar con [OPA Constraint Framework](https://github.com/open-policy-agent/frameworks/tree/master/constraint) y Gatekeeper v3.
 
-Como parte de las propiedades _details.constraintTemplate_ y _details.constraint_ de la definición de directiva, Azure Policy pasa los URI de estas [CustomResourceDefinitions](https://github.com/open-policy-agent/gatekeeper#constraint-templates) (CRD) al complemento. Rego es el lenguaje que OPA y el equipo selector admiten para validar una solicitud al clúster de Kubernetes. Al admitir un estándar existente para la administración de Kubernetes, Azure Policy le permite reutilizar las reglas existentes y vincularlas con Azure Policy para obtener una experiencia de informes de cumplimiento unificada en la nube. Para obtener más información, consulte [¿Qué es Rego?](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego)
+Como parte de las propiedades _details.templateInfo_, _details.constraint_ o _details.constraintTemplate_ de la definición de directiva, Azure Policy pasa los URI o valores codificados en Base64 de estas [CustomResourceDefinitions](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraint-templates) (CRD) al complemento. Rego es el lenguaje que OPA y el equipo selector admiten para validar una solicitud al clúster de Kubernetes. Al admitir un estándar existente para la administración de Kubernetes, Azure Policy le permite reutilizar las reglas existentes y vincularlas con Azure Policy para obtener una experiencia de informes de cumplimiento unificada en la nube. Para obtener más información, consulte [¿Qué es Rego?](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego)
 
-## <a name="assign-a-built-in-policy-definition"></a>Asignación de una definición de directiva integrada
+## <a name="assign-a-policy-definition"></a>Asignación de una definición de directiva
 
 Para asignar una definición de directiva al clúster de Kubernetes, debe tener asignadas las operaciones de asignación de directivas de control de acceso basado en rol de Azure (RBAC de AZure) adecuadas. Los roles de Azure integrados **Colaborador de la directiva de recursos** y **Propietario** tienen estas operaciones. Para obtener más información, vea [Permisos de RBAC de Azure en Azure Policy](../overview.md#azure-rbac-permissions-in-azure-policy).
 
-Siga estos pasos para buscar las directivas integradas para administrar el clúster mediante Azure Portal:
+> [!NOTE]
+> Las definiciones de directivas personalizadas son una característica en _versión preliminar pública_.
+
+Siga estos pasos para buscar las directivas integradas para administrar el clúster mediante Azure Portal. Si usa una definición de directiva personalizada, busque por nombre o por la categoría con la que la creó.
 
 1. Inicie el servicio Azure Policy en Azure Portal. Seleccione **All services** (Todos los servicios) en el panel izquierdo y busque y seleccione la opción **Policy** (Directiva).
 
@@ -407,10 +412,10 @@ Como alternativa, use el inicio rápido [Asignación de una directiva: Portal](.
 El complemento se registra con el servicio Azure Policy para detectar cambios en las asignaciones de directivas cada 15 minutos.
 Durante este ciclo de actualización, el complemento comprueba si hay cambios. Estos cambios desencadenan la creación, actualización o eliminación de restricciones y plantillas de restricciones.
 
-En un clúster de Kubernetes, si un espacio de nombres tiene alguna de las etiquetas siguientes, no se deniegan las solicitudes de admisión con infracciones. Los resultados de la evaluación de cumplimiento siguen estando disponibles.
+En un clúster de Kubernetes, si un espacio de nombres tiene la etiqueta adecuada para el clúster, no se deniegan las solicitudes de admisión con infracciones. Los resultados de la evaluación de cumplimiento siguen estando disponibles.
 
-- `control-plane`
-- `admission.policy.azure.com/ignore`
+- Clúster de Kubernetes habilitado para Azure Arc: `admission.policy.azure.com/ignore`
+- Clúster de Azure Kubernetes Service: `control-plane`
 
 > [!NOTE]
 > Aunque es posible que un administrador de clústeres tenga permiso para crear y actualizar los recursos de plantillas y restricciones instalados por el complemento Azure Policy, estos no son escenarios admitidos, ya que las actualizaciones manuales se sobrescriben. Gatekeeper sigue evaluando las directivas que existían antes de instalar el complemento y de asignar las definiciones de directiva de Azure Policy.
@@ -428,6 +433,21 @@ Otras consideraciones:
 
 - Si un clúster tiene una directiva de denegación que valida los recursos, no se mostrará ningún mensaje de rechazo al usuario cuando cree una implementación. Por ejemplo, imagine que tiene una implementación de Kubernetes con pods y conjuntos de réplicas. Cuando un usuario ejecute `kubectl describe deployment $MY_DEPLOYMENT`, no se devolverá un mensaje de rechazo durante los eventos. Sin embargo, `kubectl describe replicasets.apps $MY_DEPLOYMENT` sí devolverá los eventos relacionados con el rechazo.
 
+> [!NOTE]
+> Los contenedores de inicialización se pueden incluir durante la evaluación de directivas. Para ver si los contenedores de inicialización están incluidos, revise el valor de CRD para la declaración siguiente u otra similar:
+>
+> ```rego
+> input_containers[c] { 
+>    c := input.review.object.spec.initContainers[_] 
+> }
+> ```
+
+### <a name="constraint-template-conflicts"></a>Conflictos de plantilla de restricciones
+
+Si las plantillas de restricciones tienen el mismo nombre de los metadatos de recursos, pero la definición de directiva hace referencia al origen en ubicaciones diferentes, se considera que las definiciones de directiva están en conflicto. Ejemplo: dos definiciones de directiva hacen referencia al mismo archivo `template.yaml` almacenado en diferentes ubicaciones de origen como, por ejemplo, el almacén de plantillas de Azure Policy (`store.policy.core.windows.net`) y GitHub.
+
+Cuando se asignan las definiciones de directiva y sus plantillas de restricciones, pero aún no están instaladas en el clúster y están en conflicto, se notifican como un conflicto y no se instalarán en el clúster hasta que este se resuelva. Del mismo modo, las definiciones de directiva existentes y sus plantillas de restricciones que ya están en el clúster que entren en conflicto con las definiciones de directiva recién asignadas seguirán funcionando con normalidad. Si se actualiza una asignación existente y se produce un error al sincronizar la plantilla de restricciones, el clúster también se marca como un conflicto. Para ver todos los mensajes de conflicto, consulte [Motivos de cumplimiento del modo del proveedor de recursos de AKS](../how-to/determine-non-compliance.md#aks-resource-provider-mode-compliance-reasons).
+
 ## <a name="logging"></a>Registro
 
 Como controlador o contenedor de Kubernetes, los pods _azure-policy_ y _gatekeeper_ mantienen registros en el clúster de Kubernetes. Los registros se pueden exponer en la página **Insights** (Detalles) del clúster de Kubernetes. Para obtener más información, vea [Supervisión del rendimiento del clúster de Kubernetes con Azure Monitor para contenedores](../../../azure-monitor/containers/container-insights-analyze.md).
@@ -442,7 +462,7 @@ kubectl logs <azure-policy pod name> -n kube-system
 kubectl logs <gatekeeper pod name> -n gatekeeper-system
 ```
 
-Para obtener más información, vea [Depuración de Gatekeeper](https://github.com/open-policy-agent/gatekeeper#debugging) en la documentación de Gatekeeper.
+Para obtener más información, vea [Depuración de Gatekeeper](https://open-policy-agent.github.io/gatekeeper/website/docs/debug/) en la documentación de Gatekeeper.
 
 ## <a name="troubleshooting-the-add-on"></a>Solución de problemas del complemento
 

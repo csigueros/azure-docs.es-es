@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/01/2021
 ms.custom: references_regions
-ms.openlocfilehash: e33c1fc4b5daa3ca2092e63413dcedcc42f82509
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: a7b13f06e342478258fc2806991aeed2d2df726e
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123354414"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123424931"
 ---
 # <a name="migrate-databases-with-azure-sql-migration-extension-for-azure-data-studio-preview"></a>Migración de bases de datos con la extensión Azure SQL Migration para Azure Data Studio (versión preliminar)
 
-La extensión Azure SQL Migration para [Azure Data Studio](/sql/azure-data-studio/what-is-azure-data-studio.md) permite usar la nueva funcionalidad de evaluación y migración de SQL Server en Azure Data Studio.
+La [extensión Azure SQL Migration para Azure Data Studio](/sql/azure-data-studio/extensions/azure-sql-migration-extension) permite usar la nueva funcionalidad de evaluación y migración de SQL Server en Azure Data Studio.
 
 ## <a name="architecture-of-azure-sql-migration-extension-for-azure-data-studio"></a>Arquitectura de la extensión Azure SQL Migration para Azure Data Studio
 
@@ -127,7 +127,7 @@ Puede migrar bases de datos de SQL Server a una instancia de destino de Azure S
 - Centro-sur de EE. UU.
 - Sudeste de Asia
 - Sur de la India
-- Sur de Reino Unido
+- Sur de Reino Unido 2
 - Oeste de Europa
 - Oeste de EE. UU.
 - Oeste de EE. UU. 2
@@ -140,4 +140,4 @@ Puede migrar bases de datos de SQL Server a una instancia de destino de Azure S
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para obtener información general e instalar la extensión Azure SQL Migration, consulte [Extensión Azure SQL Migration para Azure Data Studio](/sql/azure-data-studio/extensions/azure-sql-migration-extension.md).
+- Para obtener información general e instalar la extensión Azure SQL Migration, consulte [Extensión Azure SQL Migration para Azure Data Studio](/sql/azure-data-studio/extensions/azure-sql-migration-extension).

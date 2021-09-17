@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/10/2021
 ms.author: xpouyat
-ms.openlocfilehash: 5ad7cd598e3970532e3a14795b78edcf1f9f61c4
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: f931d5c21de4c91acc24af68992e4b3b64931e21
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123226140"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123450591"
 ---
 # <a name="licensing-microsoftreg-smooth-streaming-client-porting-kit"></a>Licencias del kit de portabilidad de cliente de Microsoft&reg; Smooth Streaming
 
@@ -90,6 +90,7 @@ Los licenciatarios de productos provisionales y finales del SSPK pueden enviar p
 * MediaTek Inc.
 * Montage LZ Technologies Hong Kong Limited
 * Panasonic Corporation
+* Socionext Inc.
 * Synamedia Limited
 * Tatung Technology Inc.
 * Top Victory Investments, Ltd.

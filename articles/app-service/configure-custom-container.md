@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 08/25/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: b812495d1046ffc1b9435c0dc2684dd61af89beb
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.openlocfilehash: d51ab96f0a9bc09f966890b848201df7091db621
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122865078"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123541430"
 ---
 # <a name="configure-a-custom-container-for-azure-app-service"></a>Configuración de un contenedor de Linux personalizado para Azure App Service
 
@@ -406,7 +406,7 @@ Las listas siguientes muestran opciones de configuración admitidas y no admitid
 #### <a name="unsupported-options"></a>Opciones no admitidas
 
 - build (no permitido)
-- depends_on (omitido)
+- [depends_on](faq-app-service-linux.yml#how-do-i-use-depends-on-) (omitido)
 - networks (omitido)
 - secrets (omitido)
 - puertos que no sean el 80 y 8080 (omitido)

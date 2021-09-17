@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/17/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 7f133600f800881f462583ca5bee2972a5c914fa
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 07d89aab2f957b6161f81525cfd9ae703be65d48
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122323728"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123476275"
 ---
 # <a name="understand-azure-files-billing"></a>Descripción de la facturación de Azure Files
 Azure Files proporciona dos modelos de facturación distintos: aprovisionado y pago por uso. El modelo aprovisionado solo está disponible para los recursos compartidos de archivos prémium, que son recursos compartidos de archivos implementados en el tipo de cuenta de almacenamiento **FileStorage**. El modelo de pago por uso solo está disponible para los recursos compartidos de archivos estándar, que son recursos compartidos de archivos implementados en el tipo de cuenta de almacenamiento de **uso general, versión 2 (GPv2)** . En este artículo se explica cómo funcionan ambos modelos con el fin de ayudarle a entender la factura mensual de Azure Files.
@@ -77,36 +77,37 @@ Es posible reducir el tamaño del recurso compartido aprovisionados por debajo d
 ### <a name="provisioning-method"></a>Método de aprovisionamiento
 Al aprovisionar un recurso compartido de archivos prémium, se especifica la cantidad de GiB que requiere la carga de trabajo. Cada GiB aprovisionado permite beneficiarse de IOPS y rendimiento adicionales con una proporción fija. Además de la IOPS de línea de base garantizada, cada recurso compartido de archivos prémium admite ráfagas dentro de lo posible. Las fórmulas de IOPS y rendimiento son las siguientes:
 
-| Elemento | Valor |
+| Elemento | Value |
 |-|-|
 | Tamaño máximo de un recurso compartido de archivos | 100 GiB |
 | Unidad de aprovisionamiento | 1 GiB |
 | Fórmula de IOPS de línea de base | `MIN(400 + 1 * ProvisionedGiB, 100000)` |
 | Límite de aumento | `MIN(MAX(4000, 3 * BaselineIOPS), 100000)` |
+| Créditos de ráfaga | `BurstLimit * 3600` |
 | Velocidad de entrada | `40 MiB/sec + 0.04 * ProvisionedGiB` |
 | Velocidad de salida | `60 MiB/sec + 0.06 * ProvisionedGiB` |
 
 En la tabla siguiente se ilustran algunos ejemplos de estas fórmulas para los tamaños de recursos compartidos aprovisionados:
 
-| Capacidad (GiB) | IOPS base | IOPS de ráfaga | Salida (MiB/s) | Entrada (MiB/s) |
-|-|-|-|-|-|
-| 100 | 500 | Hasta 4000 | 66 | 44 |
-| 500 | 900 | Hasta 4000 | 90 | 60 |
-| 1024 | 1424 | Hasta 4000 | 122 | 81 |
-| 5120 | 5520 | Hasta 15 360 | 368 | 245 |
-| 10 240 | 10 640 | Hasta 30 720 | 675 | 450 |
-| 33 792 | 34 192 | Hasta 100 000 | 2088 | 1392 |
-| 51 200 | 51 600 | Hasta 100 000 | 3132 | 2088 |
-| 102 400 | 100 000 | Hasta 100 000 | 6204 | 4136 |
+| Capacidad (GiB) | IOPS base | IOPS de ráfaga | Créditos de ráfaga | Entrada (MiB/s) | Salida (MiB/s) |
+|-|-|-|-|-|-|
+| 100 | 500 | Hasta 4000 | 14 400 000 | 44 | 66 |
+| 500 | 900 | Hasta 4000 | 14 400 000 | 60 | 90 |
+| 1024 | 1424 | Hasta 4000 | 14 400 000 | 81 | 122 |
+| 5120 | 5520 | Hasta 15 360 | 55 296 000 | 245 | 368 |
+| 10 240 | 10 640 | Hasta 30 720 | 110 592 000 | 450 | 675 |
+| 33 792 | 34 192 | Hasta 100 000 | 360 000 000 | 1392 | 2088 |
+| 51 200 | 51 600 | Hasta 100 000 | 360 000 000 | 2088 | 3132 |
+| 102 400 | 100 000 | Hasta 100 000 | 360 000 000 | 4136 | 6204 |
 
-El rendimiento efectivo de los recursos compartidos de archivos está sujeto a los límites de red de la máquina, el ancho de banda de red disponible, los tamaños de E/S y el paralelismo, entre muchos otros factores. Por ejemplo, en función de las pruebas internas con tamaños de e/s de lectura/escritura de 8 KiB, una sola máquina virtual Windows sin SMB multicanal habilitado (*F16s_v2 estándar*) conectada al recurso compartido de archivos Premium a través de SMB podría alcanzar un valor de hasta 20 000 IOPS de lectura y 15 000 IOPS de escritura. Con tamaños de e/s de lectura/escritura de 512 MiB, la misma máquina virtual puede alcanzar un rendimiento de salida de 1,1 GiB/s y 370 MiB/s de entrada. El mismo cliente puede lograr un rendimiento hasta \~ tres veces superior si SMB multicanal está habilitado en los recursos compartidos Premium. Para lograr una escala de rendimiento máxima, [habilite SMB multicanal](storage-files-enable-smb-multichannel.md) y distribuya la carga entre varias máquinas virtuales. Consulte en el artículo sobre [rendimiento de SMB multicanal](storage-files-smb-multichannel-performance.md) y en la [ guía de solución de problemas](storage-troubleshooting-files-performance.md) algunos problemas de rendimiento comunes y sus soluciones alternativas.
+El rendimiento efectivo de los recursos compartidos de archivos está sujeto a los límites de red de la máquina, el ancho de banda de red disponible, los tamaños de E/S y el paralelismo, entre muchos otros factores. Por ejemplo, en función de las pruebas internas con tamaños de e/s de lectura/escritura de 8 KiB, una sola máquina virtual Windows sin SMB multicanal habilitado (*F16s_v2 estándar*) conectada al recurso compartido de archivos Premium a través de SMB podría alcanzar un valor de hasta 20 000 IOPS de lectura y 15 000 IOPS de escritura. Con tamaños de e/s de lectura/escritura de 512 MiB, la misma máquina virtual puede alcanzar un rendimiento de salida de 1,1 GiB/s y 370 MiB/s de entrada. El mismo cliente puede lograr un rendimiento hasta \~ tres veces superior si SMB multicanal está habilitado en los recursos compartidos Premium. Para lograr una escala de rendimiento máxima, [habilite SMB multicanal](files-smb-protocol.md#smb-multichannel) y distribuya la carga entre varias máquinas virtuales. Consulte en el artículo sobre [rendimiento de SMB multicanal](storage-files-smb-multichannel-performance.md) y en la [ guía de solución de problemas](storage-troubleshooting-files-performance.md) algunos problemas de rendimiento comunes y sus soluciones alternativas.
 
 ### <a name="bursting"></a>Creación de ráfagas
-Si la carga de trabajo necesita un rendimiento adicional para satisfacer los picos de demanda, el recurso compartido puede usar créditos de aumento para superar el límite de IOPS de la línea base del recurso compartido, con el fin de ofrecer el rendimiento de los recursos compartidos que necesita para cubrir la demanda. Los recursos compartidos de archivos Premium pueden aumentar su IOPS hasta 4000 o hasta un factor de tres, el valor que sea más alto. La creación de ráfagas está automatizada y funciona de acuerdo con un sistema de crédito. El aumento funciona en la medida de lo posible y su límite no es una garantía, los recursos compartidos de archivos pueden aumentar *hasta* el límite durante un máximo de 60 minutos.
+Si la carga de trabajo necesita un rendimiento adicional para satisfacer los picos de demanda, el recurso compartido puede usar créditos de aumento para superar el límite de IOPS de la línea base del recurso compartido, con el fin de ofrecer el rendimiento de los recursos compartidos que necesita para cubrir la demanda. Los recursos compartidos de archivos Premium pueden aumentar su IOPS hasta 4000 o hasta un factor de tres, el valor que sea más alto. La creación de ráfagas está automatizada y funciona de acuerdo con un sistema de crédito. La creación de ráfagas funciona en la medida de lo posible y el límite de ráfaga no es una garantía.
 
 Cada vez que el tráfico para el recurso compartido de archivos se encuentra por debajo del valor de IOPS de la línea de base, se acumulan créditos en un cubo de ráfagas. Por ejemplo, un recurso compartido de 100 GiB tiene un IOPS de línea base de 500. Si el tráfico real del recurso compartido era de 100 IOPS durante un intervalo específico de 1 segundo, el valor de 400 IOPS sin usar se agrega a un cubo de aumentos. Del mismo modo, un recurso compartido de 1 TiB inactivo acumula crédito de aumento en 1424 IOPS. Luego, estos créditos se usan más tarde si las operaciones superan el valor de IOPS de línea base.
 
-Cada vez que un recurso compartido supera el valor de IOPS de línea base y tiene créditos en un cubo de aumentos, aumentará a la velocidad máxima permitida. Los recursos compartidos pueden seguir aumentando siempre y cuando queden créditos, hasta un máximo de 60 minutos, pero esto se basa en el número de créditos de aumento acumulados. Cada E/S que supere el valor de IOPS de línea base consume un crédito y, una vez que se consumen todos los créditos, el recurso compartido volvería al valor de IOPS de la línea base.
+Cada vez que un recurso compartido supera el valor de IOPS de línea base y tiene créditos en un cubo de aumentos, este aumentará hasta alcanzar la velocidad máxima permitida. Los recursos compartidos pueden seguir aumentando siempre y cuando queden créditos, pero esto se basa en el número de créditos de aumento acumulados. Cada E/S que supere el valor de IOPS de línea base consume un crédito y, una vez que se consumen todos los créditos, el recurso compartido volvería al valor de IOPS de la línea base.
 
 Los créditos de recursos compartidos tienen tres estados:
 

@@ -4,16 +4,16 @@ description: Azure Cosmos DB admite actualmente una migración unidireccional de
 author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.date: 08/17/2021
+ms.date: 08/26/2021
 ms.author: sngun
 ms.topic: how-to
 ms.reviewer: sngun
-ms.openlocfilehash: 286caa42fd095a5a273c164d860154e88bc38748
-ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
+ms.openlocfilehash: 270c0fd585c2232b86011673e460737173106b09
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122397393"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123479083"
 ---
 # <a name="migrate-an-azure-cosmos-db-account-from-periodic-to-continuous-backup-mode"></a>Migración de una cuenta de Azure Cosmos DB del modo periódico al modo de copia de seguridad continua
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -175,7 +175,7 @@ Para restaurar a un momento después de t5 porque la cuenta está ahora en modo 
 Para restaurar a un momento anterior a t1, puede abrir una incidencia de soporte técnico como lo haría normalmente con la cuenta de copia de seguridad periódica. Después de la migración, tiene hasta 30 días para realizar la restauración periódica.  Durante estos 30 días, puede restaurar en función de la retención o el intervalo de copia de seguridad de la cuenta antes de la migración.  Por ejemplo, si la configuración de copia de seguridad conservaba 24 copias en un intervalo de 1 hora, puede restaurar a cualquier momento entre [t1 – 24 horas] y [t1].
 
 #### <a name="which-account-level-control-plane-operations-are-blocked-during-migration"></a>¿Qué operaciones del plano de control de nivel de cuenta se bloquean durante la migración?
-Las operaciones como agregar o quitar región, conmutación por error, replicación, cambiar la directiva de copia de seguridad o cambios de rendimiento que produzcan movimiento de datos se bloquean durante la migración.
+Las operaciones como agregar o quitar región, conmutación por error, cambiar la directiva de copia de seguridad o cambios de rendimiento que produzcan movimiento de datos se bloquean durante la migración.
 
 #### <a name="if-the-migration-fails-for-some-underlying-issue-would-it-still-block-the-control-plane-operation-until-it-is-retried-and-completed-successfully"></a>Si se produce un error en la migración por algún problema subyacente, ¿seguiría bloqueando la operación del plano de control hasta que se reintente y se complete correctamente?
 La migración con error no bloqueará ninguna operación del plano de control. Si se produce un error en la migración, se recomienda reintentar hasta que se realice correctamente antes de realizar cualquier otra operación del plano de control.
@@ -200,3 +200,7 @@ Para obtener más información sobre el modo de copia de seguridad continua, vea
 * [Modelo de recursos del modo de copia de seguridad continua](continuous-backup-restore-resource-model.md).
 
 * Restaure una cuenta mediante [Azure Portal](restore-account-continuous-backup.md#restore-account-portal), [PowerShell](restore-account-continuous-backup.md#restore-account-powershell), la [CLI](restore-account-continuous-backup.md#restore-account-cli) o [Azure Resource Manager](restore-account-continuous-backup.md#restore-arm-template).
+
+¿Intenta planear la capacidad de una migración a Azure Cosmos DB?
+   * Si lo único que sabe es el número de núcleos virtuales y servidores del clúster de bases de datos existente, lea este artículo para [calcular las unidades de solicitud utilizando núcleos o CPU virtuales](convert-vcore-to-request-unit.md). 
+   * Si conoce las velocidades de solicitud típicas de la carga de trabajo de base de datos actual, lea sobre el [cálculo de las unidades de solicitud mediante la herramienta de planeamiento de capacidad de Azure Cosmos DB](estimate-ru-with-capacity-planner.md).

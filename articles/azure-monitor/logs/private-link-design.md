@@ -5,12 +5,12 @@ author: noakup
 ms.author: noakuper
 ms.topic: conceptual
 ms.date: 08/01/2021
-ms.openlocfilehash: d6d5b5bf1cba2ebb2def30b15f3a70dea91e5ff7
-ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
+ms.openlocfilehash: 3b7316bf7d21a117c80eb49978a807b085db004b
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123272608"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123432547"
 ---
 # <a name="design-your-private-link-setup"></a>Diseño de la configuración de Private Link
 
@@ -57,7 +57,7 @@ Para probar Private Link localmente sin afectar a otros clientes de la red, aseg
 Este enfoque no se recomienda para entornos de producción.
 
 ## <a name="control-how-private-links-apply-to-your-networks"></a>Control de cómo se aplica Private Link a las redes
-Los modos de acceso de Private Link (presentados en agosto de 2021) le permiten controlar de qué manera Private Link afecta al tráfico de red. Esta configuración se puede aplicar al objeto AMPLS (para afectar a todas las redes conectadas) o a redes específicas conectadas a él.
+Los modos de acceso de Private Link (presentados en septiembre de 2021) permiten controlar cómo afecta Private Link al tráfico de red. Esta configuración se puede aplicar al objeto AMPLS (para afectar a todas las redes conectadas) o a redes específicas conectadas a él.
 
 Elegir el modo de acceso adecuado tiene efectos perjudiciales para el tráfico de red. Cada uno de estos modos se puede establecer para la ingesta y las consultas, por separado:
 
@@ -66,8 +66,11 @@ Elegir el modo de acceso adecuado tiene efectos perjudiciales para el tráfico d
 * Abierto: permite que la red virtual se comunique tanto con los recursos de Private Link como con los recursos que no están en AMPLS (si [aceptan tráfico de redes públicas](./private-link-design.md#control-network-access-to-your-resources)). Aunque el modo de acceso abierto no impide la filtración de datos, ofrece las otras ventajas de Private Link: el tráfico a los recursos de Private Link se envía a través de puntos de conexión privados, se valida y se envía a través de la red troncal de Microsoft. El modo abierto es útil para un modo de trabajo mixto (acceso a algunos recursos públicamente y a otros a través de Private Link) o durante un proceso de incorporación gradual.
 ![Diagrama del modo de acceso abierto de AMPLS](./media/private-link-security/ampls-open-access-mode.png) Los modos de acceso se establecen por separado para la ingesta y las consultas. Por ejemplo, puede establecer el modo solo privado para la ingesta y el modo abierto para las consultas.
 
+
+Tenga cuidado al seleccionar el modo de acceso. El uso del modo de acceso Solo privado bloqueará el tráfico a los recursos que no estén en el AMPLS en todas las redes que comparten el mismo DNS, independientemente de la suscripción o el inquilino (a excepción de las solicitudes de ingesta de Log Analytics, como se explica a continuación). Si no puede agregar todos los recursos de Azure Monitor al AMPLS, empiece por agregar algunos de ellos y aplicar el modo de acceso Abierto. Cuando haya agregado *todos* los recursos de Azure Monitor al AMPLS, cambie al modo "Solo privado" para obtener la máxima seguridad.
+
 > [!NOTE]
-> Tenga cuidado al seleccionar el modo de acceso: el uso del modo de acceso solo privado bloqueará el tráfico a los recursos que no están en AMPLS en todas las redes que comparten el mismo DNS, independientemente de la suscripción o el inquilino. Si no puede agregar todos los recursos de Azure Monitor a AMPLS, se recomienda usar el modo abierto y agregar algunos recursos a AMPLS. Únicamente una vez que haya agregado todos los recursos de Azure Monitor a AMPLS, cambie al modo solo privado para obtener la máxima seguridad.
+> La ingesta de Log Analytics usa puntos de conexión específicos del recurso. Por lo tanto, no se adhiere a los modos de acceso de AMPLS. La ingesta en las áreas de trabajo de AMPLS se envía a través del vínculo privado, mientras que la ingesta en áreas de trabajo que no están en AMPLS usa los puntos de conexión públicos predeterminados. Para garantizar que las solicitudes de ingesta no pueden acceder a los recursos fuera de AMPLS, bloquee el acceso de la red a los puntos de conexión públicos.
 
 ### <a name="setting-access-modes-for-specific-networks"></a>Definición de los modos de acceso para redes específicas
 Los modos de acceso establecidos en el recurso de AMPLS afectan a todas las redes, pero puede invalidar esta configuración para redes específicas.
@@ -107,7 +110,7 @@ Bloquear las consultas de redes públicas significa que los clientes (máquinas,
 Los registros y las métricas que se cargan en un área de trabajo a través de [Configuración de diagnóstico](../essentials/diagnostic-settings.md) pasan por un canal de Microsoft privado seguro y no se controlan mediante esta configuración.
 
 #### <a name="azure-resource-manager"></a>Azure Resource Manager
-La restricción del acceso, como se ha explicado antes, se aplica a los datos del recurso. No obstante, los cambios de configuración, incluida la activación o desactivación de esta configuración de acceso, se administran mediante Azure Resource Manager. Para controlar esta configuración, debe restringir el acceso a los recursos mediante los roles, los permisos, los controles de red y la auditoría adecuados. Para más información, consulte [Roles, permisos y seguridad en Azure Monitor](../roles-permissions-security.md).
+La restricción del acceso, como se ha explicado antes, se aplica a los datos del recurso. No obstante, los cambios de configuración, incluida la activación o desactivación de esta configuración de acceso, se administran mediante Azure Resource Manager. Para controlar esta configuración, debe restringir el acceso a los recursos mediante los roles, los permisos, los controles de red y la auditoría adecuados. Para obtener más información, vea [Roles, permisos y seguridad en Azure Monitor](../roles-permissions-security.md).
 
 > [!NOTE]
 > Las consultas enviadas a través de la API de Azure Resource Management (ARM) no pueden usar Private Link de Azure Monitor. Estas consultas solo pueden pasar si el recurso de destino permite consultas desde redes públicas (establecidas a través de la hoja Aislamiento de red o [mediante la CLI](./private-link-configure.md#set-resource-access-flags)).
@@ -149,7 +152,7 @@ Las cuentas de almacenamiento se usan en el proceso de ingesta de registros pers
 
 Para obtener más información sobre cómo conectar su propia cuenta de almacenamiento, consulte la información sobre [cuentas de almacenamiento propiedad del cliente para la ingesta de registros](private-storage.md).
 
-### <a name="automation"></a>Automatización
+### <a name="automation"></a>Automation
 Si usa soluciones de Log Analytics que requieren una cuenta de Automation (como Update Management, Change Tracking o Inventario), también debe crear una instancia de Private Link para la cuenta de Automation. Para obtener más información, vea [Uso de Azure Private Link para conectar redes a Azure Automation de forma segura](../../automation/how-to/private-link-security.md).
 
 > [!NOTE]

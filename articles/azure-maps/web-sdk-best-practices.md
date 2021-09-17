@@ -1,19 +1,17 @@
 ---
 title: Procedimientos recomendados del SDK de Azure Maps Web | Microsoft Azure Maps
 description: Aprenda consejos y trucos para optimizar el uso del SDK web de Azure Maps.
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 3/22/2021
 ms.topic: conceptual
 ms.service: azure-maps
-services: azure-maps
-manager: cpendle
-ms.openlocfilehash: 630b354768e3ad0882911f11a99cca06fc87154e
-ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
+ms.openlocfilehash: 3bcf3125e09ee2023e36b3eefc5d34d4a1215c4e
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "112234436"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123439369"
 ---
 # <a name="azure-maps-web-sdk-best-practices"></a>Procedimientos recomendados del SDK de Azure Maps Web
 
@@ -25,7 +23,7 @@ Por lo general, al considerar mejorar el rendimiento del mapa, busque formas de 
 
 ## <a name="security-basics"></a>Aspectos básicos de la seguridad
 
-La parte más importante de la aplicación es su seguridad. Si su aplicación no es segura, un pirata informático puede estropear cualquier aplicación, con independencia de la calidad de la experiencia del usuario. A continuación se muestran algunas sugerencias para proteger la aplicación Azure Maps. Al usar Azure, asegúrese de familiarizarse con las herramientas de seguridad disponibles. Consulte este documento para obtener una [Introducción a la seguridad de Azure](../security/fundamentals/overview.md).
+La parte más importante de la aplicación es su seguridad. Si la aplicación no es segura, cualquier hacker puede arruinarla, con independencia de la calidad de la experiencia de usuario. A continuación se muestran algunas sugerencias para proteger la aplicación Azure Maps. Al usar Azure, asegúrese de familiarizarse con las herramientas de seguridad disponibles. Consulte este documento para obtener una [Introducción a la seguridad de Azure](../security/fundamentals/overview.md).
 
 > [!IMPORTANT]
 > Azure Maps proporciona dos métodos de autenticación.
@@ -37,7 +35,7 @@ La parte más importante de la aplicación es su seguridad. Si su aplicación no
 
 ### <a name="secure-your-private-data"></a>Asegure sus datos privados
 
-Cuando los datos se agregan a los SDK de mapas interactivos Azure Maps, se representan localmente en el dispositivo del usuario final y nunca se envían de vuelta a Internet por cualquier motivo.
+Cuando los datos se agregan a los SDK de mapas interactivos de Azure Maps, se representan localmente en el dispositivo del usuario final y nunca se envían de vuelta a Internet por ningún motivo.
 
 Si la aplicación está cargando datos que no deben ser accesibles públicamente, asegúrese de que los datos se almacenan en una ubicación segura, se tiene acceso a ellos de forma segura y que la propia aplicación está bloqueada y solo está disponible para los usuarios deseados. Si se omite alguno de estos pasos, una persona no autorizada tiene la posibilidad de tener acceso a estos datos. Azure Active Directory puede ayudarle a bloquear esto.
 
@@ -57,20 +55,20 @@ Si hospeda automáticamente el SDK Web de Azure Maps a través del módulo NPM, 
 
 ## <a name="optimize-initial-map-load"></a>Optimizar la carga inicial del mapa
 
-Cuando se carga una página web, una de las primeras cosas que desea hacer es empezar a representar algo lo antes posible para que el usuario no se reproduzca en una pantalla en blanco.
+Cuando se carga una página web, una de las primeras cosas que se quieren hacer es empezar a representar algo lo antes posible para que el usuario no se quede mirando a una pantalla en blanco.
 
 ### <a name="watch-the-maps-ready-event"></a>Ver el evento de asignación lista
 
-Del mismo modo, cuando la asignación se carga inicialmente, a menudo se desea cargar datos en ella lo más rápido posible, por lo que el usuario no está examinando una asignación vacía. Dado que el mapa carga los recursos de forma asincrónica, tiene que esperar hasta que la asignación esté lista para interactuar antes de intentar representar sus propios datos. Hay dos eventos que puede esperar, un evento `load` y un evento `ready`. El evento de carga se activará después de que la asignación haya terminado de cargar completamente la vista de asignación inicial y se hayan cargado todos los mosaicos de asignación. El evento listo se activará cuando tenga los recursos de asignación que se necesitan como mínimo para empezar a interactuar con la asignación. El evento listo se puede activar a menudo a la mitad del tiempo del evento cargar y, por lo tanto, le permite empezar a cargar los datos en la asignación antes.
+Del mismo modo, cuando el mapa se carga por primera vez, se suele querer cargar datos en él lo más rápido posible para que el usuario no mire un mapa vacío. Dado que el mapa carga los recursos de forma asincrónica, tiene que esperar hasta que la asignación esté lista para interactuar antes de intentar representar sus propios datos. Hay dos eventos que puede esperar, un evento `load` y un evento `ready`. El evento de carga se activará después de que la asignación haya terminado de cargar completamente la vista de asignación inicial y se hayan cargado todos los mosaicos de asignación. El evento listo se activará cuando tenga los recursos de asignación que se necesitan como mínimo para empezar a interactuar con la asignación. El evento listo se puede activar a menudo a la mitad del tiempo del evento cargar y, por lo tanto, le permite empezar a cargar los datos en la asignación antes.
 
 ### <a name="lazy-load-the-azure-maps-web-sdk"></a>Carga lenta del SDK web de Azure Maps
 
-Si el mapa no es necesario inmediatamente, cargue de forma lenta el SDK Web de Azure Maps hasta que sea necesario. Esto retrasará la carga de los archivos JavaScript y CSS utilizados por el SDK Web de Azure Maps hasta que sea necesario. Un escenario común en el que esto ocurre es cuando el mapa se carga en un panel de tabulación o de flotante que no se muestra en la carga de la página.
+Si el mapa no se necesita de inmediato, cargue de forma lenta el SDK web de Azure Maps hasta que sea necesario. Esto retrasará la carga de los archivos JavaScript y CSS utilizados por el SDK Web de Azure Maps hasta que sea necesario. Un escenario común en el que ocurre esto es cuando el mapa se carga en una pestaña o un panel flotante que no se muestra al cargar la página.
 En el ejemplo de código siguiente se muestra cómo retrasar la carga del SDK web Azure Maps hasta que se presiona un botón.
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Carga diferida de la asignación" src="https://codepen.io/azuremaps/embed/vYEeyOv?height=500&theme-id=default&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" scrolling="no" title="Carga diferida de la asignación" src="https://codepen.io/azuremaps/embed/vYEeyOv?height=500&theme-id=default&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
 Vea el lápiz de <a href='https://codepen.io/azuremaps/pen/vYEeyOv'>carga de KML en el mapa</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
@@ -126,7 +124,7 @@ Un escenario común en el que suele aparecer en las aplicaciones es cuando una a
 
 ### <a name="remove-unused-features-and-properties"></a>Quitar las características y propiedades no utilizadas
 
-Si el conjunto de elementos contiene características que no se van a usar en la aplicación, quítelas. Del mismo modo, quite cualquier propiedad de las características que no sean necesarias. Esto presenta varias ventajas:
+Si el conjunto de datos contiene características que no se van a usar en la aplicación, quítelas. Del mismo modo, quite cualquier propiedad de las características que no sean necesarias. Esto presenta varias ventajas:
 
 * Reduce la cantidad de datos que se deben descargar.
 * Reduce el número de características que es necesario recorrer en bucle al representar los datos.
@@ -180,7 +178,7 @@ A diferencia de la mayoría de las capas del control web de Azure Maps que usan 
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Reutilizar un elemento emergente con varias marcas' src='//codepen.io/azuremaps/embed/rQbjvK/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte el Pen sobre <a href='https://codepen.io/azuremaps/pen/rQbjvK/'>reutilización de elementos emergentes con varias marcas</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Reutilizar un elemento emergente con varias marcas' src='//codepen.io/azuremaps/embed/rQbjvK/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'>Consulte el Pen sobre <a href='https://codepen.io/azuremaps/pen/rQbjvK/'>reutilización de elementos emergentes con varias marcas</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 Dicho esto, si solo tiene unos cuantos puntos para representar en el mapa, es posible que se prefiera la simplicidad de los marcadores HTML. Además, los marcadores HTML pueden ser fácilmente arrastrables si es necesario.
@@ -225,7 +223,7 @@ En el ejemplo de código siguiente se muestra una forma sencilla de animar una c
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Animación de capas de símbolos" src="https://codepen.io/azuremaps/embed/oNgGzRd?height=500&theme-id=default&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" scrolling="no" title="Animación de capas de símbolos" src="https://codepen.io/azuremaps/embed/oNgGzRd?height=500&theme-id=default&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
 Consulte el fragmento de código <a href='https://codepen.io/azuremaps/pen/oNgGzRd'>Animación de capa de símbolos</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
@@ -234,7 +232,7 @@ Consulte el fragmento de código <a href='https://codepen.io/azuremaps/pen/oNgGz
 Si los datos cumplen uno de los siguientes criterios, asegúrese de especificar el nivel de zoom mínimo y máximo de la capa para que el motor de representación pueda omitirla cuando esté fuera del intervalo de nivel de zoom.
 
 * Si los datos proceden de un origen de mosaicos vectoriales, a menudo las capas de origen para tipos de datos diferentes solo están disponibles a través de un intervalo de niveles de zoom.
-* Si usa una capa de mosaico que no tiene mosaicos para todos los niveles de zoom de 0 a 24 y desea que solo se representen en los niveles que tiene mosaicos, y no intente rellenar los mosaicos que faltan con iconos de otros niveles de zoom.
+* Si usa una capa de mosaico que no tiene mosaicos en los niveles de zoom del 0 al 24 y quiere que solo se representen en los niveles en los que tiene mosaicos y no intente rellenar los mosaicos que faltan con mosaicos de otros niveles de zoom.
 * Si solo desea representar una capa en determinados niveles de zoom.
 Todas las capas tienen opción `minZoom` y `maxZoom` en la que la capa se representará cuando se entre estos niveles de zoom en función de esta lógica ` maxZoom > zoom >= minZoom`.
 
@@ -265,7 +263,7 @@ var tileLayer = new atlas.layer.TileLayer({
 
 ### <a name="use-a-blank-map-style-when-base-map-not-visible"></a>Usar un estilo de mapa en blanco cuando el mapa base no esté visible
 
-Si una capa se está superpuesta en el mapa que abarcará por completo el mapa base, considere la posibilidad de establecer el estilo de mapa en `blank` o `blank_accessible` para que no se represente la asignación base. Un escenario común para hacerlo es cuando la superposición de un mosaico de globo terráqueo completo en no tiene ninguna opacidad ni área transparente sobre el mapa base.
+Si se está superponiendo una capa en el mapa que va a tapar por completo el mapa base, considere la posibilidad de establecer el estilo de mapa en `blank` o `blank_accessible` para que no se represente el mapa base. Un escenario común para hacerlo es cuando la superposición de un mosaico de globo terráqueo completo en no tiene ninguna opacidad ni área transparente sobre el mapa base.
 
 ### <a name="smoothly-animate-image-or-tile-layers"></a>Animar las capas de imagen o de mosaico sin problemas
 
@@ -296,7 +294,7 @@ Obtenga más información en la [agrupación en clústeres y las asignaciones t�
 
 ### <a name="keep-image-resources-small"></a>Mantener los recursos de imagen pequeños
 
-Se pueden agregar imágenes al sprite de imagen de los mapas para representar iconos en una capa de símbolos o patrones en una capa de polígonos. Mantenga estas imágenes pequeñas para minimizar la cantidad de datos que se deben descargar y la cantidad de espacio que ocupan en el sprite de imagen de mapas. Cuando use una capa de símbolos que escale el icono mediante la opción `size`, use una imagen que tenga el tamaño máximo que debe mostrar el plan en el mapa y que no sea más grande. Esto garantizará que el icono se represente con alta resolución, al tiempo que se minimizan los recursos que utiliza. Además, también se puede usar SVG como un formato de archivo más pequeño para imágenes de iconos simples.
+Se pueden agregar imágenes al sprite de imagen de los mapas para representar iconos en una capa de símbolos o patrones en una capa de polígonos. Mantenga estas imágenes pequeñas para minimizar la cantidad de datos que se deben descargar y la cantidad de espacio que ocupan en el sprite de imagen de mapas. Cuando use una capa de símbolos que escale el icono mediante la opción `size`, use una imagen que tenga el tamaño máximo que debe mostrar el plan en el mapa y que no sea más grande. Esto garantizará que el icono se represente con alta resolución, al tiempo que se minimizan los recursos que utiliza. Además, también se puede usar SVG como un formato de archivo más pequeño para imágenes de icono simples.
 
 ## <a name="optimize-expressions"></a>Optimizar expresiones
 
@@ -310,7 +308,7 @@ Filtra todos los datos de un origen de datos y comprueba si cada filtro coincide
 * Si usa la clase `DataSource`, divida los datos en orígenes de datos independientes. Intente equilibrar el número de orígenes de datos con la complejidad del filtro. Un número excesivo de orígenes de datos puede causar problemas de rendimiento, por lo que es posible que tenga que realizar algunas pruebas para averiguar qué funciona mejor para su escenario.
 * Al usar un filtro complejo en una capa, considere la posibilidad de usar varias capas con expresiones de estilo para reducir la complejidad del filtro. Evite crear un grupo de capas con estilos codificados cuando se pueden utilizar expresiones de estilo, ya que un gran número de capas también puede causar problemas de rendimiento.
 
-### <a name="make-sure-expressions-dont-produce-errors"></a>Asegúrese de que las expresiones no producen errores
+### <a name="make-sure-expressions-dont-produce-errors"></a>Asegúrese de que las expresiones no generan errores
 
 Las expresiones se suelen usar para generar código para realizar cálculos o operaciones lógicas en el momento de la representación. Al igual que el código en el resto de la aplicación, asegúrese de que los cálculos y el sentido lógico tienen sentido y no son propensos a errores. Los errores en las expresiones provocarán problemas al evaluar la expresión, lo que puede provocar problemas de representación y rendimiento reducidos.
 
@@ -353,16 +351,16 @@ Las expresiones pueden ser eficaces y a veces complejas. Cuanto más sencillo se
 
 A continuación se muestran algunas sugerencias para depurar algunos de los problemas comunes que se producen al desarrollar con el SDK de Azure Maps Web.
 
-**¿Por qué no se muestra el mapa al cargar el control Web?**
+**¿Por qué no se muestra el mapa al cargar el control web?**
 
 Haga lo siguiente:
 
-* Asegúrese de que ha agregado las opciones de autenticación agregadas a la asignación. Si no se agrega, la asignación se cargará con un lienzo en blanco, ya que no puede acceder a los datos del mapa base sin autenticación y los errores 401 aparecerán en la pestaña red de las herramientas de desarrollo del explorador.
+* Asegúrese de que ha agregado las opciones de autenticación agregadas a la asignación. Si no se agregan, el mapa se carga con un lienzo en blanco, ya que no puede acceder a los datos del mapa base sin autenticación, y aparecen errores 401 en la pestaña de redes de las herramientas de desarrollo del explorador.
 * Asegúrese de que dispone de una conexión a Internet.
 * Compruebe si hay errores de las herramientas de desarrollo del explorador en la consola. Algunos errores pueden provocar que la asignación no se represente. Depure la aplicación.
 * Asegúrese de que usa un [explorador compatible](supported-browsers.md).
 
-**Todos los datos se muestran en el otro lado del mundo, ¿qué está ocurriendo?**
+**Todos los datos se muestran en el otro lado del mundo, ¿qué sucede?**
 Las coordenadas, también denominadas posiciones, en los SDK de Azure Maps se alinean con el formato estándar del sector geoespacial de `[longitude, latitude]`. El mismo formato también es cómo se definen las coordenadas en el esquema GeoJSON; los datos principales con formato usados dentro de los SDK de Azure Maps. Si los datos aparecen en el lado opuesto del mundo, lo más probable es que se deba a que los valores de longitud y latitud se invierten en la información de coordenadas o posiciones.
 
 **¿Por qué aparecen marcadores HTML en el lugar equivocado del control Web?**
@@ -375,14 +373,14 @@ Cosas que puede comprobar:
 
 **¿Por qué los iconos o el texto de la capa de símbolos aparecen en el lugar equivocado?**
 Compruebe que las opciones `anchor` y `offset` están configuradas correctamente para alinearse con la parte de la imagen o el texto que desea que se alinee con la coordenada del mapa.
-Si el símbolo solo está fuera del sitio cuando se gira el mapa, active la opción `rotationAlignment`. De forma predeterminada, los símbolos girarán con la ventanilla de mapas para que aparezcan verticalmente para el usuario. Sin embargo, en función del escenario, puede ser conveniente bloquear el símbolo a la orientación del mapa. Establezca la opción `rotationAlignment` en `’map’` para hacerlo.
-Si el símbolo solo está fuera de lugar cuando el mapa está inclinado, marque la opción `pitchAlignment`. De forma predeterminada, los símbolos se mantendrán en posición vertical con la ventana de visualización de los mapas, ya que el mapa se inclina. Sin embargo, en función del escenario, puede ser conveniente bloquear el símbolo en el paso del mapa. Establezca la opción `pitchAlignment` en `’map’` para hacerlo.
+Si el símbolo solo está fuera del sitio cuando se gira el mapa, active la opción `rotationAlignment`. De forma predeterminada, los símbolos girarán con la ventanilla de mapas para que aparezcan verticalmente para el usuario. Pero, en función del escenario, puede ser conveniente bloquear el símbolo con respecto a la orientación del mapa. Establezca la opción `rotationAlignment` en `'map'` para hacerlo.
+Si el símbolo solo está fuera de lugar cuando el mapa está inclinado, marque la opción `pitchAlignment`. De forma predeterminada, los símbolos se mantendrán en posición vertical con la ventana de visualización de los mapas, ya que el mapa se inclina. Pero, en función del escenario, puede ser conveniente bloquear el símbolo con respecto a la inclinación del mapa. Establezca la opción `pitchAlignment` en `'map'` para hacerlo.
 
 **¿Por qué no aparece ninguno de mis datos en el mapa?**
 
 Cosas que puede comprobar:
 
-* Compruebe la consola para ver si hay errores en las herramientas de desarrollo del explorador.
+* Busque en las herramientas de desarrollo del explorador de la consola para ver si hay errores.
 * Asegúrese de que se ha creado un origen de datos y que se ha agregado a la asignación, y que el origen de datos se ha conectado a una capa de representación que también se ha agregado a la asignación.
 * Agregue puntos de interrupción en el código y recorra el paso para asegurarse de que los datos se agregan al origen de datos y que el origen de datos y las capas se agregan a la asignación sin que se produzcan errores.
 * Intente quitar las expresiones controladas por datos de la capa de representación. Es posible que una de ellas tenga un error en el que está causando el problema.

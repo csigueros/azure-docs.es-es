@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 6/8/2021
 ms.author: olayemio
 ms.reviewer: cynthn
-ms.openlocfilehash: c94e040d5047b25b8d260792fd362e50a29b9601
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 3e20029511ee6a9a0e6f8482e0d05d7217ec21f9
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122696295"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123451986"
 ---
 # <a name="shared-image-galleries-overview"></a>Información general de Shared Image Galleries
 
@@ -37,7 +37,7 @@ Si tiene un gran número de imágenes que se deben mantener y quiere que estén 
 
 La característica de galería de imágenes compartidas tiene varios tipos de recursos:
 
-| Resource | Descripción|
+| Recurso | Descripción|
 |----------|------------|
 | **Origen de imagen** | Se trata de un recurso que se puede usar para crear una **versión de imagen** en una galería de imágenes. Un origen de imagen puede ser una máquina virtual de Azure existente, ya sea [generalizada o especializada](#generalized-and-specialized-images); una imagen administrada; una instantánea; un disco duro virtual o una versión de imagen de otra galería de imágenes. |
 | **Galería de imágenes** | Al igual que Azure Marketplace, una **galería de imágenes** es un repositorio para administrar y compartir imágenes, pero usted puede controlar quién tiene acceso. |
@@ -238,13 +238,13 @@ Para enumerar todos los recursos de la galería de imágenes compartidas mediant
    az account list -otsv --query "[].id" | xargs -n 1 az sig list --subscription
 ```
 
-Para obtener más información, vea **Administrar los recursos de la galería** mediante la [CLI de Azure](update-image-resources-cli.md) o [PowerShell](update-image-resources-powershell.md).
+Para más información, consulte [Enumeración, actualización y eliminación de recursos de imagen](update-image-resources.md).
 
 ### <a name="can-i-move-my-existing-image-to-the-shared-image-gallery"></a>¿Puedo mover una imagen existente a la galería de imágenes compartidas?
  
 Sí. Hay tres escenarios basados en los tipos de imagen que pueda tener.
 
- Escenario 1: Si tiene una imagen administrada, puede crear una definición de la imagen y versión de la imagen a partir de ella. Para obtener más información, consulte **Migración de una imagen administrada a una versión de la imagen** con la [CLI de Azure](image-version-managed-image-cli.md) o [PowerShell](image-version-managed-image-powershell.md).
+ Escenario 1: Si tiene una imagen administrada, puede crear una definición de la imagen y versión de la imagen a partir de ella. Para más información, consulte [Creación y definición de imagen y una versión de imagen](image-version.md).
 
  Escenario 2: Si tiene una imagen no administrada, puede crear una imagen administrada a partir de ella y, luego, crear una definición de la imagen y una versión de la imagen a partir de ella. 
 
@@ -255,11 +255,11 @@ Sí. Hay tres escenarios basados en los tipos de imagen que pueda tener.
 
 ### <a name="can-i-create-an-image-version-from-a-specialized-disk"></a>¿Puedo crear una versión de la imagen desde un disco especializado?
 
-Sí, puede crear una máquina virtual a partir de una imagen especializada mediante la [CLI](vm-specialized-image-version-cli.md), [PowerShell](vm-specialized-image-version-powershell.md) o la API. 
+Sí, puede crear una VM a partir de una [imagen especializada](windows/create-vm-specialized.md). 
 
 ### <a name="can-i-move-the-shared-image-gallery-resource-to-a-different-subscription-after-it-has-been-created"></a>¿Puedo mover el recurso de Shared Image Gallery a otra suscripción después de crearlo?
 
-No, no puede mover el recurso de Shared Image Gallery a otra suscripción. Puede replicar las versiones de la imagen de la galería en otras regiones o copiar una imagen de otra galería mediante la [CLI de Azure](image-version-another-gallery-cli.md) o [PowerShell](image-version-another-gallery-powershell.md).
+No, no puede mover el recurso de Shared Image Gallery a otra suscripción. Puede replicar las versiones de la imagen de la galería en otras regiones o copiar una [imagen de otra galería](image-version.md).
 
 ### <a name="can-i-replicate-my-image-versions-across-clouds-such-as-azure-china-21vianet-or-azure-germany-or-azure-government-cloud"></a>¿Puedo replicar las versiones de mis imágenes en nubes como Azure China 21Vianet, Azure Alemania o la nube de Azure Government?
 
@@ -325,4 +325,4 @@ Además, puede publicar y etiquetar la pregunta con `azure-virtual-machines-imag
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga información sobre cómo implementar imágenes compartidas mediante la [CLI de Azure](shared-images-cli.md) y [PowerShell](shared-images-powershell.md).
+Obtenga información sobre cómo implementar imágenes compartidas mediante la [CLI de Azure](create-gallery.md) y [PowerShell](create-gallery.md).

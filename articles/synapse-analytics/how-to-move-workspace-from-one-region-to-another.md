@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/16/2021
 ms.author: phanir
 ms.reviewer: jrasnick
-ms.openlocfilehash: 015128d986ab0e32a1377da8b91c319895264aa9
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: a13231ea890476e5fc52cf563c250ef0124f940b
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123310296"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123539702"
 ---
 # <a name="move-an-azure-synapse-analytics-workspace-from-one-region-to-another"></a>Traslado de un área de trabajo de Azure Synapse Analytics de una región a otra
 
@@ -54,12 +54,12 @@ Mover un área de trabajo de Azure Synapse de una región a otra es un proceso d
 1. Pruebe la nueva área de trabajo en la región de destino y actualice las entradas DNS, que apuntan al área de trabajo de la región de origen.
 1. Si se ha creado una conexión mediante un punto de conexión privado en el área de trabajo de origen, cree otra en el área de trabajo de la región de destino.
 1. Puede eliminar el área de trabajo de la región de origen después de haberla probado exhaustivamente y haber enrutado todas las conexiones hacia el área de trabajo de la región de destino.
-
+## <a name="prepare"></a>Preparación
 ## <a name="step-1-create-an-azure-synapse-workspace-in-a-target-region"></a>Paso 1: Creación de un área de trabajo de Azure Synapse en una región de destino
 
 En esta sección, creará el área de trabajo de Azure Synapse con Azure PowerShell, la CLI de Azure y Azure Portal. Creará un grupo de recursos junto con una cuenta de Azure Data Lake Storage Gen2 que se usará como almacenamiento predeterminado para el área de trabajo, como parte de los scripts de PowerShell y de la CLI. Si desea automatizar el proceso de implementación, invoque estos scripts de PowerShell o de la CLI desde la canalización de versión de DevOps.
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure Portal
 Para crear un área de trabajo desde Azure Portal, siga los pasos que se indican en [Inicio rápido: Creación de un área de trabajo de Synapse](quickstart-create-workspace.md).
 
 ### <a name="azure-powershell"></a>Azure PowerShell 
@@ -210,7 +210,7 @@ az synapse workspace create `
 ## <a name="step-2-create-an-azure-synapse-workspace-firewall-rule"></a>Paso 2: Creación de una regla de firewall para el área de trabajo de Azure Synapse 
 Una vez creada el área de trabajo, agregue reglas de firewall para ella. Restrinja las direcciones IP a un intervalo determinado. Puede agregar un firewall desde Azure Portal o usando PowerShell o la CLI.
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure Portal
 Seleccione las opciones de firewall y agregue el intervalo de direcciones IP como se muestra en la siguiente captura de pantalla.
 
 :::image type="icon" source="media/how-to-move-workspace-from-one-region-to-another/firewall.png" border="false":::
@@ -261,7 +261,7 @@ az synapse workspace managed-identity grant-sql-access `
 
 Cree el grupo de Spark con la misma configuración que en el área de trabajo de la región de origen.
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure Portal
 
 Para crear un grupo de Spark desde Azure Portal, consulte [Inicio rápido: Creación de un grupo de Apache Spark sin servidor mediante Azure Portal](quickstart-create-apache-spark-pool-portal.md).
 
@@ -289,7 +289,7 @@ New-AzSynapseSparkPool `
 az synapse spark pool create --name $sparkPoolName --workspace-name $workspaceName --resource-group $resourceGroupName `
 --spark-version $sparkVersion --node-count 3 --node-size small
 ```
-
+## <a name="move"></a>Move
 ## <a name="step-4-restore-a-dedicated-sql-pool"></a>Paso 4: Restauración de un grupo de SQL dedicado 
 
 ### <a name="restore-from-geo-redundant-backups"></a>Restauración a partir de copias de seguridad con redundancia geográfica
@@ -352,7 +352,7 @@ Select-Object Id,Command,JobStateInfo,PSBeginTime,PSEndTime,PSJobTypeName,Error 
 ```
 Después de restaurar el grupo de SQL dedicado, cree todos los inicios de sesión de SQL en Azure Synapse. Para crear todos los inicios de sesión, siga los pasos que se indican en [CREATE LOGIN (Transact-SQL)](/sql/t-sql/statements/create-login-transact-sql?view=azure-sqldw-latest&preserve-view=true).
 
-## <a name="step-5-create-a-serverless-sql-pool-spark-pool-and-objects"></a>Paso 5: Creación de un grupo de SQL sin servidor, un grupo de Spark y objetos
+## <a name="step-5-create-a-serverless-sql-pool-spark-pool-database-and-objects"></a>Paso 5: Creación de un grupo de SQL sin servidor y de una base de datos y objetos de grupo de Spark
 
 No se pueden crear copias de seguridad ni restaurar los grupos de Spark y de SQL sin servidor. Como posible solución alternativa, puede hacer lo siguiente:
 
@@ -390,7 +390,7 @@ Para crear un entorno SHIR, siga los pasos que se indican en [Creación y config
 
  Asigne el acceso `Storage Blob Contributor` a la identidad administrada de la nueva área de trabajo en la cuenta de Data Lake Storage Gen2 asociada predeterminada. Asigne también acceso a otras cuentas de almacenamiento en las que se use SA-MI para la autenticación. Asigne el acceso `Storage Blob Contributor` o `Storage Blob Reader` a los usuarios y grupos de Azure AD para todas las cuentas de almacenamiento necesarias.
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure Portal
 Siga los pasos que se indican en [Concesión de permisos a una identidad administrada de área de trabajo (versión preliminar)](security/how-to-grant-workspace-managed-identity-permissions.md) para asignar el rol de colaborador de datos de Storage Blob a la identidad administrada del área de trabajo.
 
 ### <a name="azure-powershell"></a>Azure PowerShell
@@ -484,6 +484,11 @@ Para configurar el control de acceso para el área de trabajo de Azure Synapse e
 
 Para volver a crear los puntos de conexión privados administrados del área de trabajo de la región de origen en el área de trabajo de la región de destino, consulte [Creación de un punto de conexión privado administrado al origen de datos](security/how-to-create-managed-private-endpoints.md). 
 
+## <a name="discard"></a>Discard (Descartar)
+Si desea descartar el área de trabajo de la región de destino, elimínela de allí. Para ello, en el portal, vaya al grupo de recursos en el panel, seleccione el área de trabajo y seleccione Eliminar en la parte superior de la página Grupo de recursos.
+
+## <a name="clean-up"></a>Limpieza
+Para confirmar los cambios y completar el traslado del área de trabajo, elimine el área de trabajo de la región de origen después de probar el área de trabajo en la región de destino. Para ello, en el portal, vaya al grupo de recursos que tiene el área de trabajo de la región de origen en el panel, seleccione el área de trabajo y seleccione Eliminar en la parte superior de la página Grupo de recursos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

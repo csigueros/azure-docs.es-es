@@ -11,12 +11,12 @@ ms.date: 05/11/2021
 ms.author: lajanuar
 ms.custom: cog-serv-seo-aug-2020
 keywords: procesamiento de documentos
-ms.openlocfilehash: decd5b23f0b88e078cee47a833cc913d5cb095b4
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: d463a45064a9f6b342a7cb735372a3c5098539c4
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122326487"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123431755"
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
@@ -201,12 +201,16 @@ Actualmente se admiten los siguientes tipos de valor y variaciones:
 
 * `number`
   * predeterminado, `currency`
+  * Con formato de valor de número de punto flotante. 
+  * Ejemplo: 1234,98 en el documento tendrá el formato 1234,98 en la salida
 
 * `date`
   * predeterminado, `dmy`, `mdy`, `ymd`
 
 * `time`
 * `integer`
+  * Con formato de valor entero. 
+  * Ejemplo: 1234,98 en el documento tendrá el formato 123498 en la salida
 * `selectionMark`
 
 > [!NOTE]

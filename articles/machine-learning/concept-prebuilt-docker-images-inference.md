@@ -11,12 +11,12 @@ ms.date: 05/25/2021
 ms.topic: conceptual
 ms.reviewer: larryfr
 ms.custom: deploy, docker, prebuilt
-ms.openlocfilehash: 0548b309f84f46d7e1a8c904115167d59cc6f10e
-ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
+ms.openlocfilehash: db019c225b3e3caaad1a02b30ec0b7278e5b9dcc
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2021
-ms.locfileid: "112417404"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123435913"
 ---
 # <a name="prebuilt-docker-images-for-inference-preview"></a>Imágenes de Docker precompiladas para inferencia (versión preliminar)
 
@@ -35,6 +35,7 @@ Se usan imágenes de contenedor de Docker precompiladas para la inferencia [(ver
 ## <a name="list-of-prebuilt-docker-images-for-inference"></a>Lista de imágenes de Docker precompiladas para la inferencia 
 
 * Todas las imágenes de Docker se ejecutan como usuario no raíz.
+* Se recomienda usar la etiqueta `latest` para las imágenes de Docker. Las imágenes de Docker precompiladas para la inferencia se publican en Microsoft Container Registry (MCR); para consultar la lista de etiquetas disponibles, siga las [instrucciones de su repositorio de GitHub](https://github.com/microsoft/ContainerRegistry#browsing-mcr-content).
 
 ### <a name="tensorflow"></a>TensorFlow
 

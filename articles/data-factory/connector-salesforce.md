@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/30/2021
-ms.openlocfilehash: c95643e3853c1034e550ca9fad053171a5db0f67
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.date: 09/03/2021
+ms.openlocfilehash: e5d4e36b6c9da2d5887675828c407bcc5bde1263
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123308038"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123539918"
 ---
 # <a name="copy-data-from-and-to-salesforce-using-azure-data-factory-or-azure-synapse-analytics"></a>Copia de datos en Salesforce con origen y destino mediante Azure Data Factory o Azure Synapse Analytics
 
@@ -40,7 +40,7 @@ En concreto, este conector de Salesforce admite:
 - Ediciones de Salesforce Developer, Professional, Enterprise o Unlimited.
 - La copia de datos desde y hacia producción, espacio aislado y dominio personalizado de Salesforce.
 
-El conector de Salesforce se basa en la API REST/Bulk de Salesforce. De forma predeterminada, al copiar datos de Salesforce, el conector usa [v45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) y elige automáticamente entre las API de REST y Bulk en función del tamaño de los datos: cuando el conjunto de resultados es grande, se usa la API de Bulk para obtener un rendimiento mayor; al escribir datos en Salesforce, el conector utiliza [v40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) de la API de Bulk. También puede establecer de forma explicita la versión de la API que se va a usar para leer y escribir datos a través de [`apiVersion` propiedad](#linked-service-properties) en el servicio vinculado.
+El conector de Salesforce se basa en la API REST/Bulk de Salesforce. Al copiar datos desde Salesforce, el conector elige automáticamente entre REST y las API masivas en función del tamaño de los datos; cuando el conjunto de resultados es grande, se usa la API masiva para mejorar el rendimiento. Puede establecer explícitamente la versión de API que se usa para leer y escribir datos mediante la [propiedad `apiVersion`](#linked-service-properties) en el servicio vinculado.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -96,7 +96,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado Salesforce.
 | username |Especifique el nombre de usuario de la cuenta de usuario. |Sí |
 | password |Especifique la contraseña para la cuenta de usuario.<br/><br/>Marque este campo como SecureString para almacenarlo de forma segura, o bien [haga referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |Sí |
 | securityToken |Especifique el token de seguridad para la cuenta de usuario. <br/><br/>Para más información acerca de los tokens de seguridad en general, consulte [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)(Seguridad y la API). El token de seguridad solo se puede omitir si agrega la dirección IP de Integration Runtime a la [lista de direcciones IP de confianza](https://developer.salesforce.com/docs/atlas.en-us.securityImplGuide.meta/securityImplGuide/security_networkaccess.htm) en Salesforce. Cuando use Azure IR, consulte [Direcciones IP de Azure Integration Runtime](azure-integration-runtime-ip-addresses.md).<br/><br/>Para obtener instrucciones sobre cómo restablecer u obtener un token de seguridad consulte el artículo sobre [obtención de un token de seguridad](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm). Marque este campo como SecureString para almacenarlo de forma segura, o bien [haga referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |No |
-| apiVersion | Especifique la versión de la API REST/Bulk de Salesforce que se va a usar, por ejemplo, `48.0`. De forma predeterminada, el conector usa [V45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) para copiar datos de Salesforce y [v40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) para copiar datos en Salesforce. | No |
+| apiVersion | Especifique la versión de la API REST/Bulk de Salesforce que se va a usar, por ejemplo, `52.0`. | No |
 | connectVia | El [entorno de ejecución de integración](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Si no se especifica, se usará Azure Integration Runtime. | No |
 
 **Ejemplo: Almacenamiento de credenciales**

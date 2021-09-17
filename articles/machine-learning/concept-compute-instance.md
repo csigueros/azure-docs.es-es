@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/27/2021
-ms.openlocfilehash: fccbd763818facfa429451ce0c53d74ee8f6b8a4
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: fc7c9bceb32797d620a865d08c8b02cd2ab533c7
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122609271"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123471667"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>¿Qué es una instancia de proceso de Azure Machine Learning?
 

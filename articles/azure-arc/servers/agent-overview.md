@@ -1,15 +1,15 @@
 ---
 title: Información general del agente Connected Machine
 description: En este artículo se proporciona una descripción detallada del agente de servidores habilitados para Azure Arc disponible, que admite la supervisión de máquinas virtuales hospedadas en entornos híbridos.
-ms.date: 08/17/2021
+ms.date: 09/01/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: cfbc4405a724d0c133ee63398667f8b6e5cf4c34
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 1c6bb66fecb8fe90aa2384a52034b6687c691af0
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122323969"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123439675"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Introducción al agente de servidores habilitados para Azure Arc
 
@@ -26,11 +26,11 @@ El paquete del agente Azure Connected Machine contiene varios componentes lógic
 
 * Hybrid Instance Metadata Service (HIMDS) administra la conexión a Azure y la identidad de Azure de la máquina conectada.
 
-* El agente de configuración de invitado proporciona la funcionalidad de Directiva de invitado y Configuración de invitado, como la evaluación de si la máquina cumple con las directivas requeridas.
+* El agente de configuración de invitado proporciona la funcionalidad de evaluación de si la máquina cumple con las directivas requeridas y las normas de cumplimiento aplicables.
 
     Tenga en cuenta el siguiente comportamiento con [Configuración de invitado](../../governance/policy/concepts/guest-configuration.md) de Azure Policy para una máquina desconectada:
 
-    * Una asignación de directiva de Configuración de invitado que se dirige a las máquinas desconectadas no se ve afectada.
+    * Una asignación de Azure Policy que se dirige a las máquinas desconectadas no se ve afectada.
     * La asignación de invitado se almacena de forma local durante 14 días. En el período de 14 días, si el agente Connected Machine se vuelve a conectar al servicio, se vuelven a aplicar las asignaciones de directiva.
     * Las asignaciones se eliminan después de 14 días y no se reasignan a la máquina después de dicho período.
 
@@ -44,13 +44,14 @@ La información de los metadatos sobre la máquina conectada se recopila despué
 * Nombre del equipo
 * Modelo y el fabricante del equipo
 * Nombre de dominio completo (FQDN) del equipo
+* Nombre de dominio (si está unido a un dominio de Active Directory)
 * Versión del agente Connected Machine
 * Active Directory y nombre de dominio completo (FQDN) de DNS
 * UUID (IDENTIFICADOR DE BIOS)
 * Latido del agente de Connected Machine
 * Versión del agente Connected Machine
 * Clave pública para la identidad administrada
-* Estado y detalles de cumplimiento de las directivas (si usa directivas de configuración de invitado de Azure Policy)
+* Estado y detalles de cumplimiento de las directivas (si usa directivas de configuración de invitado)
 * SQL Server está instalado (valor booleano)
 * Identificador de recurso de clúster (para nodos de Azure Stack HCI) 
 
@@ -77,13 +78,13 @@ El agente de Azure Connected Machine para Windows y Linux se puede actualizar a 
 
 ### <a name="supported-environments"></a>Entornos admitidos
 
-Los servidores habilitados para Arc admiten la instalación del agente de Connected Machine en cualquier servidor físico y máquina virtual hospedados *fuera* de Azure. Esto incluye las máquinas virtuales que se ejecutan en plataformas como VMware, Azure Stack HCI y otros entornos en la nube. Los servidores habilitados para Arc no admiten la instalación del agente en las máquinas virtuales que se ejecutan en Azure ni en las máquinas virtuales que se ejecutan en Azure Stack Hub o Azure Stack Edge, porque ya están modeladas como máquinas virtuales de Azure.
+Los servidores habilitados para Arc admiten la instalación del agente de Connected Machine en cualquier servidor físico y máquina virtual hospedados *fuera* de Azure. Inclusión de máquinas virtuales que se ejecutan en plataformas como VMware, Azure Stack HCI y otros entornos en la nube. Los servidores habilitados para Arc no admiten la instalación del agente en las máquinas virtuales que se ejecutan en Azure ni en las máquinas virtuales que se ejecutan en Azure Stack Hub o Azure Stack Edge, porque ya están modeladas como máquinas virtuales de Azure.
 
 ### <a name="supported-operating-systems"></a>Sistemas operativos admitidos
 
 Las siguientes versiones de los sistemas operativos Windows y Linux son compatibles oficialmente con el agente de Azure Connected Machine:
 
-- Windows Server 2008 R2 SP1, Windows Server 2012 R2 y versiones posteriores (incluido Server Core)
+- Windows Server 2008 R2 SP1, Windows Server 2012 R2, 2016, 2019 y 2022 (incluido Server Core)
 - Ubuntu 16.04, 18.04 y 20.04 LTS (x64)
 - CentOS Linux 7 y 8 (x64)
 - SUSE Linux Enterprise Server (SLES) 12 y 15 (x64)
@@ -154,7 +155,7 @@ Direcciones URL:
 |`login.windows.net`|Azure Active Directory|
 |`login.microsoftonline.com`|Azure Active Directory|
 |`dc.services.visualstudio.com`|Application Insights|
-|`*.guestconfiguration.azure.com` |Configuración de invitado|
+|`*.guestconfiguration.azure.com` |Configuración de invitados|
 |`*.his.arc.azure.com`|Servicio de identidad híbrida|
 |`*.blob.core.windows.net`|Origen de descarga para las extensiones de servidores habilitados para Arc|
 
@@ -162,8 +163,8 @@ Los agentes de versión preliminar (versión 0.11 y anteriores) también requie
 
 | Recurso del agente | Descripción |
 |---------|---------|
-|`agentserviceapi.azure-automation.net`|Configuración de invitado|
-|`*-agentservice-prod-1.azure-automation.net`|Configuración de invitado|
+|`agentserviceapi.azure-automation.net`|Configuración de invitados|
+|`*-agentservice-prod-1.azure-automation.net`|Configuración de invitados|
 
 Para obtener una lista de direcciones IP para cada etiqueta o región de servicio, consulte el archivo JSON [Rangos de direcciones IP y etiquetas de servicio de Azure: nube pública](https://www.microsoft.com/download/details.aspx?id=56519). Microsoft publica actualizaciones semanales que incluyen cada uno de los servicios de Azure y los intervalos IP que usan. Esta información en el archivo JSON es la lista actual en un momento dado de los intervalos de direcciones IP que corresponden a cada etiqueta de servicio. Las direcciones IP están sujetas a cambios. Si se necesitan intervalos de direcciones IP para la configuración del firewall, se debe usar la etiqueta de servicio **AzureCloud** para permitir el acceso a todos los servicios de Azure. No deshabilite la supervisión de seguridad ni la inspección de estas direcciones URL, pero permítalas como haría con otro tráfico de Internet.
 

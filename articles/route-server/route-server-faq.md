@@ -5,29 +5,20 @@ services: route-server
 author: duongau
 ms.service: route-server
 ms.topic: article
-ms.date: 06/07/2021
+ms.date: 09/01/2021
 ms.author: duau
-ms.openlocfilehash: 8deecdc043a7a39f77e96e8be5eb8bb8ef4f6191
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: e17d49654b3c658ed133686e11d70c72b7f7f3b8
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122322931"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123426029"
 ---
-# <a name="azure-route-server-preview-faq"></a>Preguntas frecuentes sobre Azure Route Server (versión preliminar)
-
-> [!IMPORTANT]
-> Azure Route Server (versión preliminar) está actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
-> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="azure-route-server-faq"></a>Preguntas frecuentes sobre Azure Route Server
 
 ## <a name="what-is-azure-route-server"></a>¿Qué es Azure Route Server?
 
 Azure Route Server es un servicio totalmente administrado que permite administrar fácilmente el enrutamiento entre la aplicación virtual de red (NVA) y la red virtual.
-
-## <a name="why-does-azure-route-server-require-a-public-ip-address"></a>¿Por qué Azure Route Server necesita una dirección IP pública?
-
-Azure Route Server debe garantizar la conectividad con el servicio back-end que administra la configuración del servidor de rutas, por lo que se requiere una dirección IP pública. 
 
 ### <a name="is-azure-route-server-just-a-vm"></a>¿Azure Route Server es solo una máquina virtual?
 
@@ -52,6 +43,10 @@ No. Azure Route Server solo intercambia rutas BGP con la NVA. El tráfico de dat
 
 ### <a name="does-azure-route-server-store-customer-data"></a>¿Azure Route Server almacena los datos de los clientes?
 No. Azure Route Server solo intercambia rutas de BGP con NVA y, a continuación, las propaga a la red virtual.
+
+### <a name="why-does-azure-route-server-require-a-public-ip-address"></a>¿Por qué Azure Route Server necesita una dirección IP pública?
+
+Azure Route Server debe garantizar la conectividad con el servicio back-end que administra la configuración del servidor de rutas, por lo que se requiere una dirección IP pública. 
 
 ### <a name="if-azure-route-server-receives-the-same-route-from-more-than-one-nva-how-does-it-handle-them"></a>Si Azure Route Server recibe la misma ruta de más de una aplicación virtual de red, ¿cómo las administra?
 
@@ -93,11 +88,14 @@ Azure Route Server tiene los límites siguientes (por implementación).
 | Resource | Límite |
 |----------|-------|
 | Número de emparejamientos de BGP admitidos | 8 |
-| Número de rutas que puede anunciar cada emparejamiento de BGP a Azure Route Server | 200 |
+| Número de rutas que puede anunciar cada emparejamiento de BGP a Azure Route Server | 1000 |
 | Número de rutas que puede anunciar Azure Route Server a ExpressRoute o a la puerta de enlace de VPN | 200 |
-| Número de máquinas virtuales de la red virtual (incluidas las redes virtuales emparejadas) que Azure Route Server puede admitir. | 6000 |
+| Número de máquinas virtuales de la red virtual (incluidas las redes virtuales emparejadas) que Azure Route Server puede admitir. | 2000 |
+
+El número de máquinas virtuales que Azure Route Server puede admitir no tiene un límite estricto. Este depende de cómo se implemente la infraestructura del servidor de rutas dentro de una región de Azure.
 
 Si la NVA anuncia más rutas que el límite, se descartará la sesión BGP. En caso de que se descarte la sesión BGP entre la puerta de enlace y Azure Route Server, perderá la conectividad de la red local a Azure. Para más información, consulte [Diagnóstico de problemas de enrutamiento en una máquina virtual](../virtual-network/diagnose-network-routing-problem.md).
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 
