@@ -11,12 +11,12 @@ ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: f1da6ec900176807647819865ba708002bd6e614
-ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
+ms.openlocfilehash: a7022c9de1449d0c4001b1d814eeb9464b98c24a
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122271204"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122769986"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Servicios que admiten identidades administradas para recursos de Azure
 
@@ -82,7 +82,7 @@ Kubernetes habilitado para Azure Arc [admite actualmente la identidad asignada p
 | Asignado por el sistema | ![Disponible][check] | ![Disponible][check] | No disponible | No disponible |
 | Asignado por el usuario | No disponible | No disponible | No disponible | No disponible |
 
-Todos los servidores habilitados para Azure Arc tienen una identidad asignada por el sistema. No se puede deshabilitar ni cambiar la identidad asignada por el sistema en un servidor habilitado para Azure Arc. Consulte los siguientes recursos para obtener más información sobre cómo consumir identidades administradas en servidores habilitados para Azure Arc:
+Todos los servidores habilitados para Azure Arc tienen una identidad asignada por el sistema. No se puede deshabilitar ni cambiar la identidad asignada por el sistema en un servidor habilitado para Azure Arc. Consulte los siguientes recursos para obtener más información sobre cómo consumir identidades administradas en servidores habilitados para Azure Arc:
 
 - [Autenticación en recursos de Azure con servidores habilitados para Arc](../../azure-arc/servers/managed-identity-authentication.md)
 - [Uso de una identidad administrada con servidores habilitados para Arc](../../azure-arc/servers/security-overview.md#using-a-managed-identity-with-arc-enabled-servers)
@@ -102,8 +102,8 @@ Consulte el documento siguiente para volver a configurar una identidad administr
 
 | Tipo de identidad administrada | Regiones globales de Azure<br>con disponibilidad general | Azure Government | Azure Alemania | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| Asignado por el sistema | Versión preliminar | Vista previa | No disponible | Vista previa |
-| Asignado por el usuario | Vista previa | Vista previa | No disponible | Vista previa |
+| Asignado por el sistema | Versión preliminar | Versión preliminar | No disponible | Versión preliminar |
+| Asignado por el usuario | Versión preliminar | Versión preliminar | No disponible | Versión preliminar |
 
 Consulte los siguientes documentos para usar una identidad administrada con [Azure Automation](../../automation/automation-intro.md):
 
@@ -155,8 +155,8 @@ Consulte la lista siguiente para configurar la identidad administrada para Azure
 
 Tipo de identidad administrada | Regiones globales de Azure<br>con disponibilidad general | Azure Government | Azure Alemania | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| Asignado por el sistema | ![Disponible][check] | Vista previa | No disponible | Vista previa |
-| Asignado por el usuario | Vista previa | Vista previa | No disponible | Vista previa |
+| Asignado por el sistema | ![Disponible][check] | Versión preliminar | No disponible | Versión preliminar |
+| Asignado por el usuario | Versión preliminar | Versión preliminar | No disponible | Versión preliminar |
 
 Consulte la lista siguiente para configurar la identidad administrada para Azure Container Registry Tasks (en las regiones donde esté disponible):
 
@@ -195,15 +195,15 @@ Consulte la lista siguiente para configurar la identidad administrada para Azure
 
 Tipo de identidad administrada |Regiones globales de Azure<br>con disponibilidad general | Azure Government | Azure Alemania | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| Asignado por el sistema | Versión preliminar | Vista previa | No disponible | Vista previa |
-| Asignado por el usuario | No disponible | No disponible  | No disponible  | No disponible |
+| Asignado por el sistema | Versión preliminar | Versión preliminar | No disponible | Versión preliminar |
+| Asignado por el usuario | Versión preliminar | Versión preliminar | No disponible | Versión preliminar |
 
 ### <a name="azure-firewall-policy"></a>Directiva de Azure Firewall
 
 Tipo de identidad administrada |Regiones globales de Azure<br>con disponibilidad general | Azure Government | Azure Alemania | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
 | Asignado por el sistema | No disponible | No disponible | No disponible | No disponible |
-| Asignado por el usuario | Vista previa | No disponible  | No disponible  | No disponible |
+| Asignado por el usuario | Versión preliminar | No disponible  | No disponible  | No disponible |
 
 ### <a name="azure-functions"></a>Azure Functions
 
@@ -274,7 +274,7 @@ Consulte la lista siguiente para configurar la identidad administrada para Azure
 Tipo de identidad administrada | Regiones globales de Azure<br>con disponibilidad general | Azure Government | Azure Alemania | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
 | Asignado por el sistema | Versión preliminar | No disponible | No disponible | No disponible |
-| Asignado por el usuario | Vista previa | No disponible | No disponible | No disponible |
+| Asignado por el usuario | Versión preliminar | No disponible | No disponible | No disponible |
 
 Para más información, consulte [Uso de identidades administradas con Azure Machine Learning](../../machine-learning/how-to-use-managed-identities.md).
 
@@ -381,8 +381,8 @@ Para más información sobre cómo configurar la identidad administrada para Azu
 
 Tipo de identidad administrada | Regiones globales de Azure<br>con disponibilidad general | Azure Government | Azure Alemania | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| Asignado por el sistema | Versión preliminar | Vista previa | No disponible | Vista previa |
-| Asignado por el usuario | Vista previa | Vista previa | No disponible | Versión preliminar |
+| Asignado por el sistema | Versión preliminar | Versión preliminar | No disponible | Versión preliminar |
+| Asignado por el usuario | Versión preliminar | Versión preliminar | No disponible | Versión preliminar |
 
 Consulte la lista siguiente para configurar la identidad administrada para Azure SignalR Service (en las regiones donde esté disponible):
 
@@ -412,7 +412,7 @@ Consulte la siguiente lista para configurar el acceso a Azure Resource Manager:
 - [Asignar el acceso a través de la CLI de Azure](howto-assign-access-CLI.md)
 - [Asignar el acceso a través de una plantilla de Azure Resource Manager](../../role-based-access-control/role-assignments-template.md)
 
-| Nube | Id. de recurso | Status |
+| Nube | Id. de recurso | Estado |
 |--------|------------|:-:|
 | Azure Global | `https://management.azure.com/`| ![Disponible][check] |
 | Azure Government | `https://management.usgovcloudapi.net/` | ![Disponible][check] |
@@ -421,7 +421,7 @@ Consulte la siguiente lista para configurar el acceso a Azure Resource Manager:
 
 ### <a name="azure-key-vault"></a>Azure Key Vault
 
-| Nube | Id. de recurso | Status |
+| Nube | Id. de recurso | Estado |
 |--------|------------|:-:|
 | Azure Global | `https://vault.azure.net`| ![Disponible][check] |
 | Azure Government | `https://vault.usgovcloudapi.net` | ![Disponible][check] |
@@ -430,16 +430,16 @@ Consulte la siguiente lista para configurar el acceso a Azure Resource Manager:
 
 ### <a name="azure-data-lake"></a>Azure Data Lake
 
-| Nube | Id. de recurso | Status |
+| Nube | Id. de recurso | Estado |
 |--------|------------|:-:|
 | Azure Global | `https://datalake.azure.net/` | ![Disponible][check] |
 | Azure Government |  | No disponible |
 | Azure Alemania |   | No disponible |
 | Azure China 21Vianet |  | No disponible |
 
-### <a name="azure-cosmos-db"></a>Azure Cosmos DB
+### <a name="azure-cosmos-db"></a>Azure Cosmos DB
 
-| Nube | Id. de recurso | Status |
+| Nube | Id. de recurso | Estado |
 |--------|------------|:-:|
 | Azure Global | `https://<account>.documents.azure.com/`<br/><br/>`https://cosmos.azure.com` | ![Disponible][check] |
 | Azure Government | `https://<account>.documents.azure.us/`<br/><br/>`https://cosmos.azure.us` | ![Disponible][check] |
@@ -448,7 +448,7 @@ Consulte la siguiente lista para configurar el acceso a Azure Resource Manager:
 
 ### <a name="azure-sql"></a>Azure SQL
 
-| Nube | Id. de recurso | Status |
+| Nube | Id. de recurso | Estado |
 |--------|------------|:-:|
 | Azure Global | `https://database.windows.net/` | ![Disponible][check] |
 | Azure Government | `https://database.usgovcloudapi.net/` | ![Disponible][check] |
@@ -457,7 +457,7 @@ Consulte la siguiente lista para configurar el acceso a Azure Resource Manager:
 
 ### <a name="azure-data-explorer"></a>Explorador de datos de Azure
 
-| Nube | Id. de recurso | Status |
+| Nube | Id. de recurso | Estado |
 |--------|------------|:-:|
 | Azure Global | `https://<account>.<region>.kusto.windows.net` | ![Disponible][check] |
 | Azure Government | `https://<account>.<region>.kusto.usgovcloudapi.net` | ![Disponible][check] |
@@ -466,7 +466,7 @@ Consulte la siguiente lista para configurar el acceso a Azure Resource Manager:
 
 ### <a name="azure-event-hubs"></a>Azure Event Hubs
 
-| Nube | Id. de recurso | Status |
+| Nube | Id. de recurso | Estado |
 |--------|------------|:-:|
 | Azure Global | `https://eventhubs.azure.net` | ![Disponible][check] |
 | Azure Government | `https://eventhubs.azure.net` | ![Disponible][check] |
@@ -475,7 +475,7 @@ Consulte la siguiente lista para configurar el acceso a Azure Resource Manager:
 
 ### <a name="azure-service-bus"></a>Azure Service Bus
 
-| Nube | Id. de recurso | Status |
+| Nube | Id. de recurso | Estado |
 |--------|------------|:-:|
 | Azure Global | `https://servicebus.azure.net`  | ![Disponible][check] |
 | Azure Government | `https://servicebus.azure.net`  | ![Disponible][check] |
@@ -485,7 +485,7 @@ Consulte la siguiente lista para configurar el acceso a Azure Resource Manager:
 
 ### <a name="azure-storage-blobs-and-queues"></a>Colas y blobs de Azure Storage
 
-| Nube | Id. de recurso | Status |
+| Nube | Id. de recurso | Estado |
 |--------|------------|:-:|
 | Azure Global | `https://storage.azure.com/` <br /><br />`https://<account>.blob.core.windows.net` <br /><br />`https://<account>.queue.core.windows.net` | ![Disponible][check] |
 | Azure Government | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.usgovcloudapi.net` <br /><br />`https://<account>.queue.core.usgovcloudapi.net` | ![Disponible][check] |
@@ -494,7 +494,7 @@ Consulte la siguiente lista para configurar el acceso a Azure Resource Manager:
 
 ### <a name="azure-analysis-services"></a>Azure Analysis Services
 
-| Nube | Id. de recurso | Status |
+| Nube | Id. de recurso | Estado |
 |--------|------------|:-:|
 | Azure Global | `https://*.asazure.windows.net` | ![Disponible][check] |
 | Azure Government | `https://*.asazure.usgovcloudapi.net` | ![Disponible][check] |

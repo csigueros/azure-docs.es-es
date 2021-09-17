@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 04/27/2021
 ms.custom: devx-track-python, FY21Q4-aml-seo-hack, contperf-fy21q4
-ms.openlocfilehash: 40fdfcec5e74c7b86807f5cd1577d12ed4904632
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 472fcf4c7a1cc486db5aded40c87ffec2a9e796a
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113765737"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122634698"
 ---
 # <a name="tutorial-get-started-with-a-python-script-in-azure-machine-learning-part-1-of-3"></a>Tutorial: Introducción a un script de Python en Azure Machine Learning (parte 1 de 3)
 
@@ -149,13 +149,19 @@ Esta es una descripción de cómo funciona el script de control:
 
 ## <a name="submit-and-run-your-code-in-the-cloud"></a><a name="submit"></a> Envío y ejecución del código en la nube
 
-Seleccione **Guardar y ejecutar el script en el terminal** para ejecutar el script de control, que a su vez ejecuta `hello.py` en el clúster de proceso que creó en el [tutorial de configuración](quickstart-create-resources.md).
+1. Seleccione **Guardar y ejecutar el script en el terminal** para ejecutar el script de control, que a su vez ejecuta `hello.py` en el clúster de proceso que creó en el [tutorial de configuración](quickstart-create-resources.md).
 
-En el terminal, es posible que se le pida que inicie sesión para autenticarse.  Copie el código y siga el vínculo para completar este paso.
+1. En el terminal, es posible que se le pida que inicie sesión para autenticarse.  Copie el código y siga el vínculo para completar este paso.
 
-> [!TIP]
-> Si acaba de crear el clúster de proceso, es posible que vea el error "UserError: Required Docker image not found..." (Error de usuario: No se encontró la imagen de Docker requerida..."). Espere unos 5 minutos e inténtelo de nuevo.  Es posible que el clúster de proceso necesite más tiempo antes de que esté listo para crear nodos.
+1. Una vez que se haya autenticado, verá un vínculo en el terminal. Seleccione el vínculo para ver la ejecución.
 
+    [!INCLUDE [amlinclude-info](../../includes/machine-learning-py38-ignore.md)]
+
+## <a name="view-the-output"></a>Visualización de la salida
+
+1. En la página que se abre, verá el estado de la ejecución.
+1. Cuando dicho estado sea **Completado**, seleccione **Resultados y registros** en la parte superior de la página.
+1. Seleccione **70_driver_log.txt** para ver la salida de la ejecución.
 
 ## <a name="monitor-your-code-in-the-cloud-in-the-studio"></a><a name="monitor"></a>Supervisión del código en la nube en Studio
 

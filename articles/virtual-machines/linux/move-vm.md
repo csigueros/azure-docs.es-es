@@ -7,14 +7,17 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 09/12/2018
 ms.author: cynthn
-ms.openlocfilehash: 7dbe06a9f2fff8abf59adbdfc9e41055c85e8f2c
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: c2ceae3fbf1a59f5f148a488900e9bb88e6be4e4
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104889304"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122688284"
 ---
 # <a name="move-a-vm-to-another-subscription-or-resource-group"></a>Traslado de una máquina virtual a otra suscripción o grupo de recursos
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Conjuntos de escalado flexibles 
+
 Este artículo le guiará en el procedimiento para mover una máquina virtual (VM) entre suscripciones o grupos de recursos. Mover una máquina virtual entre suscripciones puede ser útil si ha creado una máquina virtual en una suscripción personal y ahora quiere moverla a la suscripción de su compañía.
 
 > [!IMPORTANT]

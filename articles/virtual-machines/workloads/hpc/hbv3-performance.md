@@ -4,20 +4,22 @@ description: Obtenga información sobre el rendimiento y la escalabilidad de los
 services: virtual-machines
 author: vermagit
 ms.service: virtual-machines
-ms.subservice: workloads
+ms.subservice: hpc
 ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 03/25/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: bf64cfc8ad00fc7f761019ed2fa66089434a96ba
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: bb32a407813ba7e85f55fc39790fba81ca452c50
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105604777"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122693403"
 ---
 # <a name="hbv3-series-virtual-machine-performance"></a>Rendimiento de las máquinas virtuales de la serie HBv3
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles :heavy_check_mark: Conjuntos de escalado uniformes
 
 Las expectativas de rendimiento que usan micropuntos de referencia de HPC comunes son las siguientes:
 

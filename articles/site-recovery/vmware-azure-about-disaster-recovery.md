@@ -3,13 +3,13 @@ title: Recuperación ante desastres de VMware con Azure Site Recovery
 description: En este artículo se proporciona información general acerca de la recuperación ante desastres de máquinas virtuales de VMware en Azure mediante el servicio Azure Site Recovery.
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/12/2019
-ms.openlocfilehash: 8e72d66bcf8398946b8901ef86666aa9aba34105
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.date: 08/19/2021
+ms.openlocfilehash: 12a8adc3e68f4d4bed2aad6b64b057258fadc2aa
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106579081"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122445392"
 ---
 # <a name="about-disaster-recovery-of-vmware-vms-to-azure"></a>Acerca de la recuperación ante desastres de máquinas virtuales de VMware en Azure
 
@@ -17,10 +17,10 @@ En este artículo se proporciona información general acerca de la recuperación
 
 ## <a name="what-is-bcdr"></a>¿Qué es BCDR?
 
-Una estrategia de continuidad empresarial y recuperación ante desastres (BCDR) le ayuda a mantener su negocio en funcionamiento. Durante el tiempo de inactividad planeado e interrupciones inesperadas, BCDR mantiene los datos protegidos y disponibles y garantiza que las aplicaciones sigan ejecutándose. Además de las características BCDR de la plataforma, como el emparejamiento regional y el almacenamiento de alta disponibilidad, Azure proporciona Recovery Services como una parte integral de la solución de BCDR. Recovery Services incluye: 
+Una estrategia de continuidad empresarial y recuperación ante desastres (BCDR) le ayuda a mantener su negocio en funcionamiento. Durante el tiempo de inactividad planeado e interrupciones inesperadas, BCDR mantiene los datos protegidos y disponibles y garantiza que las aplicaciones sigan ejecutándose. Además de las características BCDR de la plataforma, como el emparejamiento regional y el almacenamiento de alta disponibilidad, Azure proporciona Recovery Services como una parte integral de la solución de BCDR. Recovery Services incluye:
 
-- [Azure Backup](../backup/backup-overview.md) realiza una copia de seguridad de datos locales y de la máquina virtual de Azure. Puede realizar copias de seguridad de archivos y carpetas, cargas de trabajo específicas o toda una máquina virtual. 
-- [Azure Site Recovery](site-recovery-overview.md) proporciona resistencia y recuperación ante desastres para aplicaciones y cargas de trabajo que se ejecutan en máquinas locales o máquinas virtuales de IaaS de Azure. Site Recovery organiza la replicación y controla la conmutación por error en Azure cuando se producen interrupciones. También controla la recuperación desde Azure a su sitio primario. 
+- [Azure Backup](../backup/backup-overview.md) realiza una copia de seguridad de datos locales y de la máquina virtual de Azure. Puede realizar copias de seguridad de archivos y carpetas, cargas de trabajo específicas o toda una máquina virtual.
+- [Azure Site Recovery](site-recovery-overview.md) proporciona resistencia y recuperación ante desastres para aplicaciones y cargas de trabajo que se ejecutan en máquinas locales o máquinas virtuales de IaaS de Azure. Site Recovery organiza la replicación y controla la conmutación por error en Azure cuando se producen interrupciones. También controla la recuperación desde Azure a su sitio primario.
 
 > [!NOTE]
 > Site Recovery no mueve ni almacena los datos de los clientes fuera de la región de destino, en la que se ha configurado la recuperación ante desastres para las máquinas de origen. Los clientes pueden seleccionar un almacén de Recovery Services de otra región si así lo deciden. El almacén de Recovery Services contiene metadatos, pero ningún dato real de los clientes.
@@ -29,7 +29,7 @@ Una estrategia de continuidad empresarial y recuperación ante desastres (BCDR) 
 
 1. Después de preparar Azure y su sitio local, configure y habilite la replicación para las máquinas locales.
 2. Site Recovery organiza la replicación inicial de la máquina según la configuración de la directiva.
-3. Tras la recuperación inicial, Site Recovery replica los cambios diferenciales en Azure. 
+3. Tras la recuperación inicial, Site Recovery replica los cambios diferenciales en Azure.
 4. Cuando todo esté replicando según lo previsto, ejecute un simulacro de recuperación ante desastres.
     - El simulacro le ayuda a garantizar que la conmutación por error funcione según lo esperado cuando surja una necesidad real.
     - El simulacro realiza una conmutación por error de prueba sin afectar a su entorno de producción.
@@ -89,16 +89,17 @@ Tras prepara la infraestructura local y de Azure, puede configurar la recuperaci
 
 1. Para comprender los componentes que deberá implementar, revise la [arquitectura de VMware a Azure](vmware-azure-architecture.md)y la [arquitectura física a Azure](physical-azure-architecture.md). Hay una serie de componentes, por lo que es importante comprender cómo encajan.
 2. **Entorno de origen**: como primer paso de la implementación, debe configurar el entorno de origen de replicación. Debe especificar aquello que desea replicar y la ubicación donde se va a realizar la replicación.
-3. **Servidor de configuración**: deberá configurar un servidor de configuración en el entorno de origen local:
+3. **Servidor de configuración** (aplicable a la opción clásica): deberá configurar un servidor de configuración en el entorno de origen local:
     - El servidor de configuración es una máquina local. En el caso de la recuperación ante desastres de VMware, se recomienda implementarla como una máquina virtual de VMware que pueda implementarse desde una plantilla de OVF descargable.
     - El servidor de configuración coordina la comunicación entre Azure y el entorno local.
     - Otro par de componentes se ejecutan en la máquina del servidor de configuración.
         - El servidor de procesos recibe, optimiza y envía datos de replicación a la cuenta de almacenamiento en caché de Azure. También controla la instalación automática de Mobility Service en las máquinas que desea replicar, además de realizar la detección automática de máquinas virtuales en servidores de VMware.
         - El servidor de destino maestro controla los datos de replicación durante la conmutación por recuperación desde Azure.
     - La configuración incluye el registro del servidor de configuración en el almacén, la descarga de MySQL Server y VMware PowerCLI y la especificación de las cuentas creadas para la detección automática y la instalación de Mobility Service.
-4. **Entorno de destino**: debe configurar el entorno de destino de Azure mediante la especificación de la suscripción de Azure y la configuración de red.
-5. **Directiva de replicación**: debe especificar cómo realizar la replicación. La configuración incluye la frecuencia con que se crean y almacenan los puntos de recuperación, así como si deben crearse instantáneas coherentes con la aplicación.
-6. **Habilite la replicación**. Debe habilitar la replicación de máquinas locales. Si ha creado una cuenta para instalar Mobility Service, se instalará cuando se habilite la replicación de una máquina. 
+4. **Dispositivo de replicación de Azure Site Recovery** (aplicable a la versión preliminar): debe configurar un dispositivo de replicación en el entorno de origen local. El dispositivo es el bloque de creación básico de toda la infraestructura local de Azure Site Recovery. En el caso de la recuperación ante desastres de VMware, se recomienda [implementarla como una máquina virtual de VMware](deploy-vmware-azure-replication-appliance-preview.md#create-azure-site-recovery-replication-appliance) que pueda implementarse desde una plantilla de OVF descargable.  Más información sobre el dispositivo de replicación [aquí](vmware-azure-architecture-preview.md).   
+5. **Entorno de destino**: debe configurar el entorno de destino de Azure mediante la especificación de la suscripción de Azure y la configuración de red.
+6. **Directiva de replicación**: debe especificar cómo realizar la replicación. La configuración incluye la frecuencia con que se crean y almacenan los puntos de recuperación, así como si deben crearse instantáneas coherentes con la aplicación.
+7. **Habilite la replicación**. Debe habilitar la replicación de máquinas locales. Si ha creado una cuenta para instalar Mobility Service, se instalará cuando se habilite la replicación de una máquina.
 
 *¿Necesita más ayuda?*
 
@@ -122,4 +123,4 @@ Tras prepara la infraestructura local y de Azure, puede configurar la recuperaci
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Con la replicación ahora en su lugar, debería [ejecutar un simulacro de recuperación ante desastres](tutorial-dr-drill-azure.md) para asegurarse de que la conmutación por error funciona según lo previsto. 
+Con la replicación ahora en su lugar, debería [ejecutar un simulacro de recuperación ante desastres](tutorial-dr-drill-azure.md) para asegurarse de que la conmutación por error funciona según lo previsto.

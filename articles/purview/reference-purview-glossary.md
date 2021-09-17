@@ -6,12 +6,12 @@ ms.author: daperlov
 ms.service: purview
 ms.topic: conceptual
 ms.date: 08/16/2021
-ms.openlocfilehash: 20fdf362524a7a1a801aabd5a307b41216a81f31
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.openlocfilehash: 77c1d203808683d50e0a7648c686f84c7d23b354
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122254154"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122607920"
 ---
 # <a name="azure-purview-product-glossary"></a>Glosario de productos de Azure Purview
 
@@ -42,7 +42,7 @@ Expresión regular incluida en una regla de clasificación que representa los no
 ## <a name="contact"></a>Contacto
 Una persona que está asociada a una entidad en el catálogo de datos. 
 ## <a name="control-plane-operation"></a>Operación del plano de control
-Operaciones que administran los recursos de la suscripción, como el control de acceso basado en rol y la directiva de Azure, que se envían al punto de conexión de Azure Resource Manager. 
+Operaciones que administran los recursos de la suscripción, como el control de acceso basado en rol y Azure Policy, que se envían al punto de conexión de Azure Resource Manager. 
 ## <a name="credential"></a>Credential:
 Comprobación de identidad o herramienta que se usa en un sistema de control de acceso. Se pueden usar credenciales para autenticar a un individuo o grupo con el fin de concederle acceso a un recurso de datos. 
 ## <a name="data-catalog"></a>Catálogo de datos

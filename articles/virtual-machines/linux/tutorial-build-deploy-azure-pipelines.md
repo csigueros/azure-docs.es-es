@@ -1,25 +1,25 @@
 ---
-title: 'Tutorial: Integración continua e implementación continua (CI/CD) en máquinas virtuales de Azure mediante Azure Pipelines'
-description: En este tutorial, aprenderá a configurar la integración continua y la implementación continua de una aplicación Node.js en máquinas virtuales de Azure mediante la canalización de Azure basada en YAML.
+title: Integración continua y entrega continua (CI/CD) en máquinas virtuales de Azure mediante Azure Pipelines
+description: Aprenderá a configurar la integración continua y la implementación continua de una aplicación Node.js en máquinas virtuales de Azure mediante la canalización de Azure basada en YAML.
+ms.service: virtual-machines
 author: ushan
 tags: azure-devops-pipelines
-ms.assetid: ''
-ms.service: virtual-machines
 ms.collection: linux
-ms.topic: tutorial
-ms.tgt_pltfrm: azure-pipelines
+ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 1/3/2020
 ms.author: ushan
 ms.custom: devops, devx-track-js
-ms.openlocfilehash: 49282bf6cbc7c24b75fbe3f1bbe68bd1fac62ae3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5a50a51d68154654d204149a5e76e5aa94e57683
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102552497"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122697746"
 ---
-# <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-using-azure-devops-services-and-azure-pipelines"></a>Tutorial: Implementación de una aplicación en máquinas virtuales Linux de Azure con Azure DevOps Services y Azure Pipelines
+# <a name="deploy-your-app-to-linux-virtual-machines-in-azure-using-azure-devops-services-and-azure-pipelines"></a>Implementación de una aplicación en máquinas virtuales Linux de Azure con Azure DevOps Services y Azure Pipelines
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux 
 
 La integración continua y la implementación continua constituyen una canalización mediante la que se puede compilar, publicar e implementar el código tras cada confirmación de este. Este documento contiene los pasos asociados con la configuración de una canalización de CI/CD para realizar implementaciones en varias máquinas mediante Azure Pipelines.
 

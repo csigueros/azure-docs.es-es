@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/27/2021
 ms.author: jeedes
-ms.openlocfilehash: a06c94eed6c90d7b38f28d37f3c8145d4ac1151d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 337311bb94443e7e11ac5fed125acd1e1f625926
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101651015"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122179908"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-asana"></a>Tutorial: Integración de Azure Active Directory con Asana
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar Asana con Azure Active Directory (Azur
 * Permitir que los usuarios inicien sesión automáticamente en Asana con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -39,7 +39,7 @@ En este tutorial, puede configurar y probar el inicio de sesión único de Azure
 
 * Asana admite el inicio de sesión único iniciado por **SP**
 
-* Asana admite el [**aprovisionamiento** automático de usuarios](asana-provisioning-tutorial.md)
+* Asana admite el [aprovisionamiento **automático** de usuarios](asana-provisioning-tutorial.md)
 
 ## <a name="add-asana-from-the-gallery"></a>Adición de Asana desde la galería
 

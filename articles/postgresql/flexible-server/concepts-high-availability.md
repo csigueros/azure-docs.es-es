@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/30/2021
-ms.openlocfilehash: fd9b9a90156cabfb051e7c738d13d04bf60c9f5c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: cf2fcf836962bbdb8a3af1671ecf9e11f6b4efa1
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121745142"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122770253"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-postgresql---flexible-server"></a>Conceptos de alta disponibilidad en Azure Database for PostgreSQL: Servidor flexible
 
@@ -191,9 +191,46 @@ Los servidores flexibles que están configurados con alta disponibilidad replica
 
 * Si la descodificación lógica o la replicación lógica están configuradas con un servidor flexible configurado de alta disponibilidad, en el caso de una conmutación por error al servidor en espera, las ranuras de replicación lógica no se copian en el servidor en espera.  
 
+## <a name="availability-without-zone-redundant-ha"></a>Disponibilidad sin alta disponibilidad con redundancia de zona
+
+En el caso de los servidores flexibles configurados **sin** alta disponibilidad con redundancia de zona, el servicio sigue proporcionando disponibilidad integrada, redundancia de almacenamiento y resistencia para ayudar a recuperarse de los eventos de tiempo de inactividad planeados o no planeados.
+
+### <a name="planned-downtime"></a>Tiempo de inactividad planificado 
+
+Estos son algunos escenarios de mantenimiento planeado:
+
+| **Escenario** | **Descripción**|
+| ------------ | ----------- |
+| <b>Escalado y reducción vertical de proceso | Cuando el usuario realiza una operación de escalado o reducción vertical de procesos, se aprovisiona un nuevo servidor de base de datos con la configuración de proceso escalado. En el servidor de base de datos anterior, se permite que se finalicen los puntos de comprobación activos, se purgan las conexiones de cliente, se cancelan las transacciones no confirmadas y, a continuación, se apaga el servidor. A continuación, el almacenamiento se desasocia del servidor de base de datos anterior y se conecta al nuevo servidor de base de datos. Estará preparado para aceptar las conexiones.|
+| <b>Escalado vertical del almacenamiento | El escalado vertical del almacenamiento es actualmente una operación sin conexión que implica un breve tiempo de inactividad.|
+| <b>Nueva implementación de software (Azure) | Las nuevas características de implementación o corrección de errores se producen automáticamente como parte del mantenimiento planeado del servicio. Para obtener más información, consulte la [documentación](./concepts-maintenance.md) y consulte también el [portal](https://aka.ms/servicehealthpm).|
+| <b>Actualizaciones de versión secundarias | Azure Database for PostgreSQL revisa automáticamente los servidores de bases de datos según la versión secundaria determinada por Azure. Se produce como parte del mantenimiento planeado del servicio. Esto provocaría un breve tiempo de inactividad en términos de segundos y el servidor de base de datos se reiniciará automáticamente con la nueva versión secundaria. Para obtener más información, consulte la [documentación](./concepts-maintenance.md) y consulte también el [portal](https://aka.ms/servicehealthpm).|
+
+
+###  <a name="unplanned-downtime"></a>Tiempo de inactividad no planeado 
+
+Se puede producir un tiempo de inactividad no planeado como resultado de errores imprevistos, incluidos los errores subyacentes de hardware, los problemas de red y los errores de software. Si el servidor de base de datos deja de funcionar de forma inesperada, se aprovisiona automáticamente un nuevo servidor de base de datos en segundos. El almacenamiento remoto se asocia automáticamente al nuevo servidor de base de datos. El motor de PostgreSQL realiza la operación de recuperación mediante WAL y archivos de base de datos, y abre el servidor de base de datos para permitir que los clientes se conecten. Las transacciones no confirmadas se pierden y la aplicación debe volver a intentarlas. Aunque no es posible evitar un tiempo de inactividad no planeado, el servidor flexible lo reduce gracias a las operaciones de recuperación automáticas tanto en el servidor de bases de datos como en las capas de almacenamiento sin necesidad de intervención humana. 
+
+Estos son algunos escenarios de error y cómo el servidor flexible se recupera automáticamente:
+
+| **Escenario** | **Recuperación automática** |
+| ---------- | ---------- |
+| <B>Error de servidor de bases de datos | Si el servidor de base de datos está inactivo debido a un error de hardware subyacente, se quitan las conexiones activas y se anulan las transacciones inactivas. Se implementa automáticamente un nuevo servidor de base de datos y el almacenamiento de datos remotos se adjunta al nuevo servidor de base de datos. Una vez completada la recuperación de la base de datos, los clientes pueden conectarse al nuevo servidor de bases de datos con el mismo punto de conexión. <br /> <br /> El tiempo de recuperación (RTO) depende de varios factores, por ejemplo, la actividad en el momento del error, como una transacción de gran tamaño y la cantidad de recuperación que se va a realizar durante el proceso de inicio del servidor de bases de datos. <br /> <br /> Las aplicaciones que usan bases de datos de PostgreSQL se deben crear de forma que detecten y reintenten conexiones eliminadas y transacciones erróneas.  |
+| <B>Error de almacenamiento | Las aplicaciones no verán ningún impacto por los problemas relacionados con el almacenamiento, como un error de disco o un daño de bloque físico. A medida que los datos se almacenan en tres copias, el almacenamiento sobreviviente proporciona la copia de los datos. Los daños en bloques se corrigen automáticamente. Si se pierde una copia de los datos, se crea automáticamente una nueva. |
+
+Estos son algunos escenarios de error que requieren de la acciones del usuario para recuperarse:
+
+| **Escenario** | **Plan de recuperación** |
+| ---------- | ---------- |
+| <b> Error de zona de disponibilidad | Si la región admite varias zonas de disponibilidad, las copias de seguridad se guardan automáticamente en el almacenamiento de copia de seguridad con redundancia de zona. Si se produce un error de zona, puede restaurar desde la copia de seguridad en otra zona de disponibilidad. Esto proporciona resistencia de nivel de zona. Sin embargo, supone un tiempo de restauración y recuperación. Podría haber una pérdida de datos, ya que puede que no se hubieran copiado todos los registros WAL en el almacenamiento de copia de seguridad. <br> <br> Si prefiere tener poco tiempo de inactividad y un tiempo de actividad elevado, se recomienda configurar el servidor con alta disponibilidad con redundancia de zona. |
+| <b> Errores de usuario o lógicos | La recuperación de los errores de usuario, como las tablas eliminadas accidentalmente o los datos actualizados incorrectamente, implica la realización de una [recuperación a un momento dado](./concepts-backup-restore.md) (PITR), de modo que se restauran y recuperan los datos hasta el momento justo antes de que se produjera el error.<br> <br>  Si quiere restaurar únicamente un subconjunto de bases de datos o tablas específicas en lugar de todas las bases de datos del servidor de bases de datos, puede restaurar el servidor de base de datos en una nueva instancia, exportar las tablas a través de [pg_dump](https://www.postgresql.org/docs/13/app-pgdump.html) y, a continuación, usar [pg_restore](https://www.postgresql.org/docs/13/app-pgrestore.html) para restaurar esas tablas en la base de datos. |
+
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 
 ### <a name="ha-configuration-questions"></a>Preguntas sobre la configuración de la alta disponibilidad
+
+* **¿Es necesario tener alta disponibilidad con redundancia de zona para proteger mi servidor frente a interrupciones no planeadas?** <br>
+    No. El servidor flexible ofrece almacenamiento con redundancia local con 3 copias de datos, copia de seguridad con redundancia de zona (en las regiones donde se admite) y resistencia de servidor integrada para reiniciar automáticamente un servidor que se bloquea e incluso reubicar el servidor a otro nodo físico. La alta disponibilidad con redundancia de zona proporcionará un mayor tiempo de actividad mediante la conmutación automática por error a otro servidor en ejecución (en espera) de otra zona y, por tanto, proporciona alta disponibilidad con resistencia de zona sin pérdida de datos.
 
 * **¿Hay una alta disponibilidad con redundancia de zona disponible en todas las regiones?** <br>
     La alta disponibilidad con redundancia de zona está disponible en las regiones que admiten varias zonas de disponibilidad en la región. Para obtener la compatibilidad con la región más reciente, consulte [esta documentación](overview.md#azure-regions). Estamos agregando continuamente más regiones y habilitando varias zonas de disponibilidad. 

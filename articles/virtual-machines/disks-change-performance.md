@@ -8,14 +8,16 @@ ms.date: 06/29/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: c45bc6fa0df5883f060458c3ce92680752e5875a
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+ms.openlocfilehash: d2f617d2f5d05a6310d5442fa8d4a9e49369912e
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113358533"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122696423"
 ---
 # <a name="performance-tiers-for-managed-disks"></a>Niveles de rendimiento de discos administrados
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles :heavy_check_mark: Conjuntos de escalado uniformes
 
 El rendimiento de un disco administrado de Azure se establece al crearlo, en forma de su nivel de rendimiento. El nivel de rendimiento determina la IOPS y el rendimiento del disco administrado. Al establecer el tamaño aprovisionado de un disco, se selecciona automáticamente un nivel de rendimiento. El nivel de rendimiento se puede cambiar tanto en la implementación como posteriormente sin tener que cambiar el tamaño del disco.
 

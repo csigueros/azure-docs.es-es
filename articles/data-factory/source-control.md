@@ -8,12 +8,12 @@ ms.author: abnarain
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/04/2021
-ms.openlocfilehash: 1dc73117d1d9fc470ae284461e520c9d45358e87
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 0eb7356542eb7016cd27cc76e048857e8d7f9955
+ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121730124"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122598097"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Control de código fuente en Azure Data Factory
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
@@ -241,6 +241,8 @@ Se abrirá un panel lateral en el que se confirma que la rama de publicación y 
 > [!IMPORTANT]
 > La rama principal no es representativa de lo que se implementa en el servicio Data Factory. La rama principal se *debe* publicar manualmente en el servicio Data Factory.
 
+
+
 ## <a name="best-practices-for-git-integration"></a>Procedimientos recomendados para la integración de Git
 
 ### <a name="permissions"></a>Permisos
@@ -262,17 +264,34 @@ El uso de Key Vault o de la autenticación MSI también facilita la integración
 
 ### <a name="stale-publish-branch"></a>Rama de publicación obsoleta
 
-Si la rama de publicación no está sincronizada con la rama principal y contiene recursos no actualizados a pesar de una publicación reciente, pruebe lo siguiente:
+A continuación, se muestran algunos ejemplos de situaciones que pueden provocar una rama de publicación obsoleta:
+
+- Un usuario tiene varias ramas. En una rama de características, este eliminó un servicio vinculado que no está asociado a AKV (los servicios vinculados que no son AKV se publican inmediatamente, independientemente de si están en GIT o no) y nunca combinó la rama de características con la rama de colaboración.
+- Un usuario modificó la factoría de datos mediante el SDK o PowerShell.
+- Un usuario desplazó todos los recursos a una nueva rama e intentó publicarlos por primera vez. Los servicios vinculados se deben crear manualmente al importar los recursos.
+- Un usuario carga un servicio vinculado que no es AKV o un archivo JSON de Integration Runtime manualmente. Hace referencia a ese recurso desde otro recurso, como un conjunto de datos, un servicio vinculado o una canalización. Un servicio vinculado que no es AKV creado través de la experiencia de usuario se publica inmediatamente porque se deben cifrar las credenciales. Si carga un conjunto de datos que haga referencia a ese servicio vinculado e intenta publicarlo, la experiencia de usuario lo permitirá porque existe en el entorno de GIT. Sin embargo, se rechazará en el momento de la publicación, ya que no existe en el servicio de la factoría de datos.
+
+Si la rama de publicación no está sincronizada con la rama principal y contiene recursos no actualizados a pesar de una publicación reciente, puede usar alguna de las siguientes soluciones:
+
+#### <a name="option-1-use-overwrite-live-mode-functionality"></a>Opción 1: uso de la funcionalidad **Sobrescribir modo real**
+
+Publica o sobrescribe el código de la rama de colaboración en el modo real. Considerará el código del repositorio como el origen de la verdad. 
+
+<u>*Flujo de código:*</u> ***Rama de colaboración -> Modo real***
+
+![forzar la publicación de código desde la rama de colaboración](media/author-visually/force-publish-changes-from-collaboration-branch.png)
+
+#### <a name="option-2-disconnect-and-reconnect-git-repository"></a>Opción 2: desconexión y reconexión del repositorio de Git
+
+Importa el código del modo real a la rama de colaboración. Considera el código en modo real como origen de la verdad. 
+
+<u>*Flujo de código:*</u> ***Modo real -> Rama de colaboración***  
 
 1. Quite el repositorio de Git actual.
 1. Vuelva a configurar Git con los mismos valores, pero asegúrese de que la opción **Import existing Data Factory resources to repository** (Importar recursos existentes de Data Factory en el repositorio) esté seleccionada y elija **New branch** (Nueva rama).
 1. Cree una solicitud de incorporación de cambios para combinar los cambios con la rama de colaboración. 
 
-A continuación, se muestran algunos ejemplos de situaciones que pueden provocar una rama de publicación obsoleta:
-- Un usuario tiene varias ramas. En una rama de características, este eliminó un servicio vinculado que no está asociado a AKV (los servicios vinculados que no son AKV se publican inmediatamente, independientemente de si están en GIT o no) y nunca combinó la rama de características con la rama de colaboración.
-- Un usuario modificó la factoría de datos mediante el SDK o PowerShell.
-- Un usuario desplazó todos los recursos a una nueva rama e intentó publicarlos por primera vez. Los servicios vinculados se deben crear manualmente al importar los recursos.
-- Un usuario carga un servicio vinculado que no es AKV o un archivo JSON de Integration Runtime manualmente. Hace referencia a ese recurso desde otro recurso, como un conjunto de datos, un servicio vinculado o una canalización. Un servicio vinculado que no es AKV creado través de la experiencia de usuario se publica inmediatamente porque se deben cifrar las credenciales. Si carga un conjunto de datos que haga referencia a ese servicio vinculado e intenta publicarlo, la experiencia de usuario lo permitirá porque existe en el entorno de GIT. Sin embargo, se rechazará en el momento de la publicación, ya que no existe en el servicio de la factoría de datos.
+Elija cualquiera de los métodos según sea necesario. 
 
 ## <a name="switch-to-a-different-git-repository"></a>Cambio a un repositorio de Git diferente
 

@@ -9,14 +9,16 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/20/2020
 ms.author: mimckitt
-ms.openlocfilehash: b9910995632cb1e6e32e228a6e68be625117951c
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.openlocfilehash: d4046887ffe492ec627a7dfb244668a6f72314e1
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122253645"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122695801"
 ---
 # <a name="general-purpose-virtual-machine-sizes"></a>Tamaños de máquina virtual de uso general
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles :heavy_check_mark: Conjuntos de escalado uniformes
 
 > [!TIP]
 > Pruebe la **[herramienta Selector de máquinas virtuales](https://aka.ms/vm-selector)** para buscar otros tamaños que se adapten mejor a la carga de trabajo.

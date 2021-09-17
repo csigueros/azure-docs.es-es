@@ -8,12 +8,12 @@ ms.date: 07/06/2021
 ms.author: karler
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: bd4c1c4a20bbf9f19cffd8dd766642ba484ee4de
-ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
+ms.openlocfilehash: faa4c57a4fc5e75d0e6262833c27833e9069fb30
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122015341"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122418713"
 ---
 # <a name="prepare-an-application-for-deployment-in-azure-spring-cloud"></a>Preparación de una aplicación Java Spring para su implementación en Azure Spring Cloud
 
@@ -144,13 +144,14 @@ Azure Spring Cloud es compatible con Java 8 y Java 11. El entorno de hospedaje c
 
 Para preparar una aplicación de Spring Boot existente para la implementación en Azure Spring Cloud, incluya las dependencias de Spring Boot y Spring Cloud en el archivo POM de la aplicación, como se muestra en las siguientes secciones.
 
-Azure Spring Cloud admite Spring Boot, versión 2.2, 2.3, 2.4. En la tabla siguiente se enumeran las combinaciones admitidas de Spring Boot y Spring Cloud:
+Azure Spring Cloud será compatible con la versión Spring Boot o Spring Cloud más reciente en un plazo de un mes después de su publicación. Puede obtener versiones compatibles en las páginas de [versiones de Spring Boot](https://github.com/spring-projects/spring-boot/wiki/Supported-Versions#releases) y [versiones de Spring Cloud](https://github.com/spring-projects/spring-boot/wiki/Supported-Versions#releases), respectivamente. 
+
+En la tabla siguiente se enumeran las combinaciones admitidas de Spring Boot y Spring Cloud:
 
 Versión de Spring Boot | Versión de Spring Cloud
 ---|---
-2.2 | Hoxton.SR8+
-2.3 | Hoxton.SR8+
-2.4.1 y posteriores | 2020.0.2+
+2.3.x | Hoxton.SR8+
+2.4.x, 2.5.x | 2020.0 también llamado Ilford +
 
 > [!NOTE]
 > - Actualice Spring Boot a la versión 2.5.2 o 2.4.8 para abordar el siguiente informe CVE [CVE-2021-22119: ataque por denegación de servicio con spring-security-oauth2-client](https://tanzu.vmware.com/security/cve-2021-22119). Si usa Spring Security, actualícelo a la versión 5.5.1, 5.4.7, 5.3.10 o 5.2.11.

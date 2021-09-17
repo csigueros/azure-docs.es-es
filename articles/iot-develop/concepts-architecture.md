@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.service: iot-develop
 services: iot-develop
-ms.openlocfilehash: 35062d3be0ba73a0cb9aa2e497199c44eccd2469
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 94376e1bc5192a0aa437066cb8a460e9aecd27a6
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121732885"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122607425"
 ---
 # <a name="iot-plug-and-play-architecture"></a>Arquitectura de IoT Plug and Play
 
-IoT Plug and Play permite a los creadores de soluciones integrar dispositivos inteligentes en sus soluciones sin necesidad de configuración manual. IoT Plug and Play se basa en un _modelo_ de dispositivo que describe las funcionalidades del dispositivo para una aplicación compatible con IoT Plug and Play. Este modelo se estructura como un conjunto de interfaces que definen:
+IoT Plug and Play permite a los creadores de soluciones integrar dispositivos IoT en sus soluciones sin necesidad de configuración manual. IoT Plug and Play se basa en un _modelo_ de dispositivo que describe las funcionalidades del dispositivo para una aplicación compatible con IoT Plug and Play. Este modelo se estructura como un conjunto de interfaces que definen:
 
 - _Propiedades_ que representan el estado de solo lectura y grabable de un dispositivo o de otra entidad. Por ejemplo, el número de serie de un dispositivo puede ser una propiedad de solo lectura, y la temperatura objetivo de un termostato puede ser una propiedad grabable.
 - _Datos de telemetría_, que son los datos que emite un dispositivo, independientemente de que sean una secuencia normal de lecturas de un sensor, un error ocasional o un mensaje informativo.
@@ -39,7 +39,7 @@ El repositorio modelo tiene controles de acceso basados en roles integrados que 
 
 ## <a name="devices"></a>Dispositivos
 
-Un creador de dispositivos implementa el código para ejecutarse en una instancia de Smart Device de IoT mediante uno de los [SDK de dispositivo IoT de Azure](./libraries-sdks.md). Los SDK de dispositivo ayudan al creador de dispositivos a:
+Un creador de dispositivos implementa el código para que se ejecute en un dispositivo IoT mediante uno de los [SDK de dispositivo IoT de Azure](./libraries-sdks.md). Los SDK de dispositivo ayudan al creador de dispositivos a:
 
 - Conectarse de forma segura a una instancia de IoT Hub.
 - Registrar el dispositivo en su centro de IoT y anunciar el identificador de modelo que determina la colección de interfaces de DTDL que el dispositivo implementa.

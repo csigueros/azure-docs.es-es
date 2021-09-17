@@ -1,17 +1,20 @@
 ---
 title: Asignación de esquemas y tipos de datos en la actividad de copia
-description: Obtenga información acerca de cómo la actividad de copia de Azure Data Factory asigna esquemas y tipos de datos desde datos de origen hasta datos receptores.
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Obtenga información sobre cómo la actividad de copia de las canalizaciones de Azure Data Factory y Azure Synapse Analytics asigna esquemas y tipos de datos desde datos de origen a datos receptores.
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 06/22/2020
+ms.date: 08/24/2021
 ms.author: jianleishen
-ms.openlocfilehash: 2bd616ddec207d2aad47608c6f0200c7b629471e
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 046b25164df92c609196a701d35f989aa397253b
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109482532"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122825096"
 ---
 # <a name="schema-and-data-type-mapping-in-copy-activity"></a>Asignación de esquemas y tipos de datos en la actividad de copia
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -40,14 +43,14 @@ Más información sobre:
 - [Origen jerárquico a un receptor tabular](#hierarchical-source-to-tabular-sink)
 - [Origen tabular o jerárquico a un receptor jerárquico](#tabularhierarchical-source-to-hierarchical-sink)
 
-Puede configurar la asignación en la interfaz de usuario de creación de Data Factory > actividad de copia > pestaña Asignación, o bien especificar mediante programación la asignación en la propiedad `translator` de la actividad de copia. Las siguientes propiedades se admiten en `translator` -> matriz `mappings` -> objetos -> `source` y `sink`, que apuntan a la columna o campo específico para asignar datos.
+Puede configurar la asignación en la interfaz de usuario de creación > actividad de copia > pestaña Asignación, o bien especificar mediante programación la asignación en la actividad de copia -> propiedad `translator`. Las siguientes propiedades se admiten en `translator` -> matriz `mappings` -> objetos -> `source` y `sink`, que apuntan a la columna o campo específico para asignar datos.
 
 | Propiedad | Descripción                                                  | Obligatorio |
 | -------- | ------------------------------------------------------------ | -------- |
 | name     | Nombre de la columna o campo de origen o receptor. Aplica para el origen y el receptor tabulares. | Sí      |
 | ordinal  | Índice de columna. Inicia desde 1. <br>Se aplica y es obligatoria cuando se usa texto delimitado sin línea de encabezado. | No       |
 | path     | Expresión de ruta de acceso JSON de cada campo para su extracción o asignación. Aplica para el origen y el receptor jerárquicos; por ejemplo, Cosmos DB, MongoDB o conectores REST.<br>Para los campos situados bajo el objeto raíz, la ruta de acceso JSON comienza con la raíz `$`; para los campos incluidos dentro de la matriz elegida mediante la propiedad `collectionReference`, la ruta de acceso JSON empieza desde el elemento de matriz sin `$`. | No       |
-| type     | Tipo de datos provisionales de Data Factory de la columna de origen o receptor. En general, no es necesario especificar ni cambiar esta propiedad. Más información sobre la [asignación de tipo de datos](#data-type-mapping). | No       |
+| type     | Tipo de datos provisional de la columna de origen o receptor. En general, no es necesario especificar ni cambiar esta propiedad. Más información sobre la [asignación de tipo de datos](#data-type-mapping). | No       |
 | culture  | Cultura de la columna de origen o receptor. Se aplica cuando el tipo es `Datetime` o `Datetimeoffset`. El valor predeterminado es `en-us`.<br>En general, no es necesario especificar ni cambiar esta propiedad. Más información sobre la [asignación de tipo de datos](#data-type-mapping). | No       |
 | format   | Cadena de formato que se usa cuando el tipo es `Datetime` o `Datetimeoffset`. Consulte [Cadenas con formato de fecha y hora personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings) para obtener información sobre el formato de fecha y hora. En general, no es necesario especificar ni cambiar esta propiedad. Más información sobre la [asignación de tipo de datos](#data-type-mapping). | No       |
 
@@ -175,11 +178,11 @@ Y quiere copiarlo en un archivo de texto del formato siguiente con línea de enc
 
 Puede definir dicha asignación en la interfaz de usuario de creación de Data Factory:
 
-1. En la pestaña actividad de copia > asignación, haga clic en el botón **Importar esquemas** para importar los esquemas de origen y de receptor. Ya que Data Factory muestrea los objetos más importantes al importar el esquema, si no aparece algún campo, puede agregarlo a la capa correcta en la jerarquía; para ello, mantenga el puntero sobre un nombre de campo existente y elija la opción para agregar un nodo, un objeto o una matriz.
+1. En la pestaña actividad de copia > asignación, haga clic en el botón **Importar esquemas** para importar los esquemas de origen y de receptor. Ya que el servicio muestrea los objetos más importantes al importar el esquema, si no aparece algún campo, puede agregarlo a la capa correcta de la jerarquía; para ello, mantenga el puntero sobre un nombre de campo existente y elija la opción de agregar un nodo, un objeto o una matriz.
 
 2. Seleccione la matriz en la que quiere iterar y extraer datos. Se cumplimentará automáticamente como una **referencia de colecciones**. Nota: Solo se admite una matriz única para esta operación.
 
-3. Asigne los campos necesarios al receptor. Data Factory determina automáticamente las rutas de acceso JSON correspondientes para el lado jerárquico.
+3. Asigne los campos necesarios al receptor. El servicio determina automáticamente las rutas de acceso JSON correspondientes para el lado jerárquico.
 
 > [!NOTE]
 > El registro se omite para los registros en los que la matriz marcada como referencia de la colección está vacía y la casilla está activada.
@@ -273,9 +276,9 @@ Si se necesita una asignación explícita, puede:
 
 La actividad de copia realiza la asignación de tipos de origen a tipos de receptores con el siguiente flujo: 
 
-1. Convierta los tipos de datos nativos del origen a tipos de datos provisionales de Azure Data Factory.
+1. Conversión de tipos de datos nativos de origen en tipos de datos provisionales usados por canalizaciones de Azure Data Factory y Synapse.
 2. Convierta automáticamente el tipo de datos provisional según sea necesario para que coincida con los tipos de receptor correspondientes; se aplica para la [asignación predeterminada](#default-mapping) y la [asignación explícita](#explicit-mapping).
-3. Convierta los tipos de datos provisionales de Data Factory en tipos de datos nativos del receptor.
+3. Conversión de tipos de datos provisionales en tipos de datos nativos de receptor.
 
 La actividad de copia actualmente admite los siguientes tipos de datos provisionales: booleano, byte, matriz de bytes, DateTime, DatetimeOffset, decimal, double, GUID, Int16, Int32, Int64, SByte, single, cadena, intervalo de tiempo, UInt16, UInt32, and UInt64.
 
@@ -307,7 +310,7 @@ Las siguientes propiedades son compatibles con la actividad de copia para la con
 
 | Propiedad                         | Descripción                                                  | Obligatorio |
 | -------------------------------- | ------------------------------------------------------------ | -------- |
-| typeConversion                   | Habilita la nueva experiencia de conversión de tipos de datos. <br>El valor predeterminado es false debido a la compatibilidad con versiones anteriores.<br><br>En el caso de las nuevas actividades de copia creadas a través de la interfaz de usuario de creación de Data Factory a partir de finales de junio de 2020, esta conversión de tipos de datos está habilitada de forma predeterminada para obtener la mejor experiencia, y puede ver la siguiente configuración de conversión de tipos en actividad de copia > pestaña Asignación para los escenarios aplicables. <br>Para crear una canalización mediante programación, debe establecer explícitamente la propiedad `typeConversion` en true para habilitarla.<br>En el caso de las actividades de copia existentes creadas antes de la publicación de esta característica, no verá las opciones de conversión de tipos en la interfaz de usuario de creación de Data Factory debido a la compatibilidad con versiones anteriores. | No       |
+| typeConversion                   | Habilita la nueva experiencia de conversión de tipos de datos. <br>El valor predeterminado es false debido a la compatibilidad con versiones anteriores.<br><br>En el caso de las nuevas actividades de copia creadas a través de la interfaz de usuario de creación de Data Factory a partir de finales de junio de 2020, esta conversión de tipos de datos está habilitada de forma predeterminada para obtener la mejor experiencia, y puede ver la siguiente configuración de conversión de tipos en actividad de copia > pestaña Asignación para los escenarios aplicables. <br>Para crear una canalización mediante programación, debe establecer explícitamente la propiedad `typeConversion` en true para habilitarla.<br>En el caso de las actividades de copia existentes creadas antes de la publicación de esta característica, no se ven las opciones de conversión de tipos en la interfaz de usuario de creación para la compatibilidad con versiones anteriores. | No       |
 | typeConversionSettings           | Grupo de configuraciones para conversión de tipos. Se aplica cuando `typeConversion` está establecido en `true`. Todas las propiedades siguientes se encuentran en este grupo. | No       |
 | *En `typeConversionSettings`* |                                                              |          |
 | allowDataTruncation              | Permite truncar los datos al convertir los datos del origen al receptor con un tipo diferente durante la copia; por ejemplo, de decimal a entero, de DatetimeOffset a DateTime. <br>El valor predeterminado es true. | No       |
@@ -350,7 +353,7 @@ Las siguientes propiedades son compatibles con la actividad de copia para la con
 ## <a name="legacy-models"></a>Modelos heredados
 
 > [!NOTE]
-> Estos modelos para asignar columnas o campos del origen al receptor siguen siendo compatibles con versiones anteriores. Se recomienda usar el nuevo modelo mencionado en [asignación de esquemas](#schema-mapping). La interfaz de usuario de creación en Data Factory se ha cambiado para generar el nuevo modelo.
+> Estos modelos para asignar columnas o campos del origen al receptor siguen siendo compatibles con versiones anteriores. Se recomienda usar el nuevo modelo mencionado en [asignación de esquemas](#schema-mapping). La interfaz de usuario de creación se ha cambiado para generar el nuevo modelo.
 
 ### <a name="alternative-column-mapping-legacy-model"></a>Asignación de columnas alternativa (modelo heredado)
 

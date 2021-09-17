@@ -9,15 +9,16 @@ ms.topic: how-to
 ms.date: 04/24/2018
 ms.author: cynthn
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 85d6350a36e62ace8f1922d30493d0f1d448d315
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: f186052117f40167c9e4e72e350bf689f43bd8b1
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107765942"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122692844"
 ---
 # <a name="change-the-os-disk-used-by-an-azure-vm-using-the-azure-cli"></a>Intercambiar el disco del sistema operativo que usa una máquina virtual de Azure mediante la CLI de Azure.
 
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Conjuntos de escalado flexibles 
 
 Si ya tiene una máquina virtual, pero quiere intercambiar el disco por una copia de seguridad u otro disco del sistema operativo, puede usar la CLI de Azure para intercambiar los discos del sistema operativo. No es necesario eliminar ni volver a crear la máquina virtual. Incluso puede utilizar un disco administrado de otro grupo de recursos, siempre y cuando no esté en uso.
 

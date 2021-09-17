@@ -7,14 +7,16 @@ ms.topic: how-to
 ms.date: 03/22/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017, devx-track-azurepowershell
-ms.openlocfilehash: f31986b7c202309d41556c47233e8e8400590d3d
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 1be03bee5005cbcc4b2eec3d469631d504d3c504
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110668837"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122690158"
 ---
 # <a name="create-a-windows-virtual-machine-from-a-resource-manager-template"></a>Creación de una máquina virtual Windows con una plantilla de Resource Manager
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Windows 
 
 Aprenda a crear una máquina virtual Windows mediante una plantilla de Azure Resource Manager y Azure PowerShell desde Azure Cloud Shell. La plantilla usada en este artículo implementa una sola máquina virtual que ejecuta Windows Server en una nueva red virtual con una sola subred. Para la creación de una máquina virtual Linux, consulte [Procedimiento para crear una máquina virtual Linux con plantillas de Azure Resource Manager](../linux/create-ssh-secured-vm-from-template.md).
 

@@ -12,12 +12,12 @@ ms.date: 04/14/2021
 ms.author: aahi
 keywords: text mining, sentiment analysis, text analytics
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: bf148645ebdd762b65d59c86e5453b83423201e9
-ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
+ms.openlocfilehash: 804af634c7202fdc3f822e32e7cd1fbf827bfab1
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113550614"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121733970"
 ---
 # <a name="what-is-the-text-analytics-api"></a>¿Qué es Text Analytics API?
 
@@ -52,6 +52,10 @@ Detección de idiomas puede [detectar en qué idioma está escrito el texto de e
 ## <a name="named-entity-recognition"></a>Reconocimiento de entidades con nombre
 
 La característica Reconocimiento de entidades con nombre (NER) puede [identificar y clasificar las entidades](how-tos/text-analytics-how-to-entity-linking.md) del texto como personas, lugares, organizaciones o cantidades. Las entidades conocidas también se reconocen y se vinculan a más información en la Web.
+
+## <a name="text-summarization"></a>Resumen de texto
+
+[Resumen](how-tos/extractive-summarization.md) genera un resumen de texto mediante la extracción de oraciones que representan colectivamente la información más importante o pertinente dentro del contenido original. Esta característica condensa artículos, trabajos o documentos en frases clave.
 
 ## <a name="text-analytics-for-health"></a>Text Analytics for Health
 

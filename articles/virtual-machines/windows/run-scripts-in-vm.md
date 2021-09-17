@@ -8,15 +8,16 @@ author: bobbytreed
 ms.author: robreed
 ms.date: 05/02/2018
 ms.topic: how-to
-manager: carmonm
-ms.openlocfilehash: 34abfb3195f8a3640b1b4797aa430b6250d15b68
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: 7c45718726e9037021edc53346d20f26273a92b3
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112452375"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122687493"
 ---
 # <a name="run-scripts-in-your-windows-vm"></a>Ejecución de scripts en una máquina virtual Windows
+
+**Se aplica a:** Máquinas virtuales :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles :heavy_check_mark: Conjuntos de escalado uniformes
 
 Para automatizar las tareas o solucionar los problemas, es posible que deba ejecutar comandos en una máquina virtual. El artículo siguiente ofrece una breve introducción a las características disponibles para ejecutar scripts y comandos dentro de las máquinas virtuales.
 

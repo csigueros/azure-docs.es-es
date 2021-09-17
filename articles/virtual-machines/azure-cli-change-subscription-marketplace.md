@@ -9,14 +9,16 @@ ms.topic: sample
 ms.service: virtual-machines
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e70284a3a89c30d0f1d1363a15652449a6a1d4f5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6fc60e5b149ace0243df53e6da09c4f93aaf158a
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100558098"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122694472"
 ---
 # <a name="move-a-marketplace-azure-virtual-machine-to-another-subscription"></a>Traslado de una máquina virtual de Azure Marketplace a otra suscripción
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles
 
 Para trasladar una máquina virtual de Marketplace a otra suscripción, debe trasladar el disco del sistema operativo a esa suscripción y, a continuación, volver a crear la máquina virtual.
 

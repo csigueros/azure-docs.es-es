@@ -4,12 +4,12 @@ description: Obtenga más información sobre las características disponibles si
 ms.topic: overview
 ms.subservice: baremetal-oracle
 ms.date: 04/16/2021
-ms.openlocfilehash: 52bd9856b9203dfc515d5507fda310d567e1b588
-ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
+ms.openlocfilehash: 73473cb99521be76be5518ad82dfbb9ec9d1feb0
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110579145"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121862484"
 ---
 # <a name="high-availability-features-for-oracle-on-azure-baremetal"></a>Características de alta disponibilidad para Oracle en Azure sin sistema operativo
 
@@ -55,9 +55,9 @@ Data Guard ofrece ventajas con respecto a la replicación de nivel de almacenami
 - Se evitan daños lógicos dentro de los bloques y daños asociados a la pérdida de operaciones de escritura. También desparece el riesgo de que los administradores de almacenamiento comentan errores de replicación en la base de datos en espera.
 La fase de rehacer se puede aplazar por un tiempo establecido previamente, por lo que los errores del usuario no se replicarán inmediatamente en la base de datos en espera.
 
-## <a name="azure-netapp-files-snapshots"></a>Instantáneas de Azure NetApp Files
+## <a name="baremetal-snapshot-recovery"></a>Recuperación de instantáneas de BareMetal
 
-La solución de almacenamiento NetApp Files utilizada sin sistema operativo permite crear instantáneas de volúmenes. Las instantáneas permiten revertir rápidamente un sistema de archivos a un momento temporal específico. Las tecnologías de instantáneas permiten objetivos de tiempo de recuperación (RTO) que requieren una fracción del tiempo necesario para restaurar una copia de seguridad de una base de datos.
+La solución de almacenamiento BareMetal que usa NetApp que se ofrece en la infraestructura permite crear instantáneas de volúmenes. Las instantáneas permiten revertir rápidamente un sistema de archivos a un momento temporal específico. Las tecnologías de instantáneas permiten objetivos de tiempo de recuperación (RTO) que requieren una fracción del tiempo necesario para restaurar una copia de seguridad de una base de datos.
 
 La funcionalidad de instantáneas para las bases de datos de Oracle está disponible a través de Azure NetApp SnapCenter. SnapCenter facilita las instantáneas con fines de copia de seguridad, SnapVault habilita el almacenamiento sin conexión y Snap Clone ofrece el autoservicio de restauración y otras operaciones. Para más información, consulte [La integración de SnapCenter para Oracle en BareMetal Infrastructure](netapp-snapcenter-integration-oracle-baremetal.md).
 

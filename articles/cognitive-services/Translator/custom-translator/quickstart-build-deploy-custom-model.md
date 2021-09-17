@@ -9,24 +9,26 @@ ms.subservice: translator-text
 ms.date: 12/09/2019
 ms.author: lajanuar
 ms.topic: quickstart
-ms.openlocfilehash: ae417006903c8d2478126f928f05647361bad1b9
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: e77196572a0ea3b18f0b28a6ad26349e6e7c668e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896213"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121744788"
 ---
 # <a name="quickstart-build-deploy-and-use-a-custom-model-for-translation"></a>Guía de inicio rápido: Compilación, implementación y uso de un modelo personalizado para la traducción
 
 En este artículo se proporcionan instrucciones detalladas para compilar un sistema de traducción con Custom Translator.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 1. Para usar el portal de [Custom Translator](https://portal.customtranslator.azure.ai), necesitará una [cuenta Microsoft](https://signup.live.com) o [cuenta de Azure AD](../../../active-directory/fundamentals/active-directory-whatis.md) (cuenta de organización hospedada en Azure) para iniciar sesión.
 
 2. Una suscripción a Translator Text API a través de Azure Portal. Necesitará la clave de suscripción de Translator Text API para asociarla con el área de trabajo de Custom Translator. Consulte [Cómo suscribirse a Translator Text API](../translator-how-to-signup.md).
 
 3. Cuando tenga los dos anteriores, inicie sesión in en el portal [Custom Translator](https://portal.customtranslator.azure.ai) para crear áreas de trabajo y proyectos, así como cargar archivos y crear e implementar modelos.
+
+También puede ver un tutorial de vídeo completo de Traductor personalizado en [YouTube](https://www.youtube.com/watch?v=TykB6WDTkRc&t=3s).
 
 >[!Note]
 >Traductor personalizado no admite la creación de un área de trabajo para el recurso de Translator Text API que se creó en la [red virtual habilitada](../../../api-management/api-management-using-with-vnet.md).

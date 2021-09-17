@@ -9,19 +9,18 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/05/2018
-ms.openlocfilehash: fbb9787ce6641e379c3f43f0725d28dbd51fc962
-ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
+ms.openlocfilehash: 82b64ff099b2b503e2150d45f952d9c833b64b16
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112579565"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122689604"
 ---
 # <a name="create-machine-learning-studio-classic-experiments-from-working-examples-in-azure-ai-gallery"></a>Creación de experimentos de Machine Learning Studio (clásico) a partir de ejemplos prácticos en Azure AI Gallery
 
 **SE APLICA A:**  ![Se aplica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![No se aplica a.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
-
-
+[!INCLUDE [ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)]
 
 Aprenda cómo comenzar con experimentos de ejemplo desde la [galería de inteligencia artificial de Azure](https://gallery.azure.ai/) en lugar de crear experimentos de aprendizaje automático desde cero. Puede usar los ejemplos para crear su propia solución de aprendizaje automático.
 

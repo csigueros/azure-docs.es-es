@@ -6,13 +6,13 @@ author: asudbring
 ms.author: allensu
 ms.service: load-balancer
 ms.topic: tutorial
-ms.date: 02/24/2021
-ms.openlocfilehash: 16320021ede4a4e285c4e1973c166d2cdf643c4a
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.date: 08/02/2021
+ms.openlocfilehash: f0004845033493dc7546bb3af467918ea77ebcad
+ms.sourcegitcommit: 47491ce44b91e546b608de58e6fa5bbd67315119
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107529525"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122201628"
 ---
 # <a name="tutorial-create-a-cross-region-azure-load-balancer-using-the-azure-portal"></a>Tutorial: Creación de una instancia de Azure Load Balancer entre regiones mediante Azure Portal
 
@@ -32,7 +32,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 > Azure Load Balancer entre regiones se encuentra actualmente en versión preliminar pública.
 > Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Suscripción a Azure.
 - Dos instancias de Azure Load Balancer con SKU **Estándar** con grupos de back-end implementados en dos regiones de Azure diferentes.
@@ -45,100 +45,86 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="create-cross-region-load-balancer"></a>Creación de un equilibrador de carga entre regiones
 
-En esta sección, va a crear un equilibrador de carga entre regiones y una dirección IP pública.
+En esta sección, creará un: 
 
-1. Seleccione **Crear un recurso**. 
-2. En el cuadro de búsqueda, escriba **Equilibrador de carga**. Seleccione **Equilibrador de carga** en los resultados de la búsqueda.
-3. En la página **Equilibrador de carga**, seleccione **Crear**.
-4. En la pestaña **Conceptos básicos** de la página **Crear equilibrador de carga**, escriba o seleccione la siguiente información: 
+* Equilibrador de carga entre regiones
+* Front-end con una dirección IP pública global
+* Grupo de back-end con dos equilibradores de carga regionales
+
+> [!IMPORTANT]
+> Para completar estos pasos, asegúrese de que se han implementado en la suscripción dos equilibradores de carga regionales con grupos de back-end.  Para más información, consulte **[Inicio rápido: Uso de Azure Portal para crear un equilibrador de carga público para equilibrar la carga de máquinas virtuales](quickstart-load-balancer-standard-public-portal.md)** .
+
+1. En el cuadro de búsqueda que aparece en la parte superior del portal, escriba **Load Balancer**. Seleccione **Equilibrador de carga** en los resultados de la búsqueda.
+
+2. En la página **Equilibrador de carga**, seleccione **Crear**.
+
+3. En la pestaña **Conceptos básicos** de la página **Crear equilibrador de carga**, escriba o seleccione la siguiente información: 
 
     | Configuración                 | Value                                              |
     | ---                     | ---                                                |
-    | Subscription               | Seleccione su suscripción.    |    
-    | Resource group         | Seleccione **Crear nuevo** y escriba **CreateCRLBTutorial-rg** en el cuadro de texto.|
+    | **Detalles del proyecto** |    |
+    | Suscripción               | Seleccione su suscripción.    |    
+    | Resource group         | Seleccione **Crear nuevo** y escriba **CreateCRLBTutorial-rg** en el cuadro de texto. |
+    | **Detalles de instancia** |   |
     | Nombre                   | Escriba **myLoadBalancer-CR**.                                   |
     | Region         | Seleccione **(EE. UU.) Oeste de EE. UU.** .                                        |
     | Tipo          | Seleccione **Público**.                                        |
     | SKU           | Deje el valor predeterminado **Estándar**. |
     | Nivel           | Seleccione **Global**. |
-    | Dirección IP pública | Seleccione **Crear nuevo**.|
-    | Nombre de la dirección IP pública | Escriba **myPublicIP-CR** en el cuadro de texto.|
-    | Preferencia de enrutamiento| Seleccione **Red de Microsoft**. </br> Para obtener más información sobre la preferencia de enrutamiento, vea [¿Qué es la preferencia de enrutamiento (versión preliminar)?](../virtual-network/routing-preference-overview.md) |
+
+    :::image type="content" source="./media/tutorial-cross-region-portal/create-cross-region.png" alt-text="Creación de un equilibrador de carga entre regiones" border="true":::
+  
+4. Seleccione **Siguiente: Configuración de IP de front-end** en la parte inferior de la página.
+
+5. En **Configuración de IP de front-end**, seleccione **+ Agregar una IP de front-end**.
+
+6. Escriba **LoadBalancerFrontend** en **Nombre** en **Agregar dirección IP de front-end**.
+
+7. Seleccione **IPv4** o **IPv6** para **Versión de IP**.
+
+8. En **Dirección IP pública**, seleccione **Crear nueva**. Escriba **myPublicIP-cr** en **Nombre**.  Seleccione **Aceptar**.
+
+9. Seleccione **Agregar**.
+
+10. Seleccione **Siguiente: Grupos de back-end** en la parte inferior de la página.
+
+11. En **Grupos de back-end**, seleccione **+ Agregar un grupo de back-end**.
+
+12. Escriba **myBackendPool-cr** como **Nombre** en **Agregar un grupo de back-end**.
+
+13. En **Equilibradores de carga**, seleccione **myLoadBalancer-r1** o el primer equilibrador de carga regional en el cuadro desplegable **Equilibrador de carga**. Compruebe que la **configuración de IP de front-end** y la **dirección IP** correspondan a **myLoadBalancer-r1**.
+
+14. Seleccione **myLoadBalancer-r2** o el segundo equilibrador de carga regional en el cuadro desplegable **Equilibrador de carga**. Compruebe que la **configuración de IP de front-end** y la **dirección IP** correspondan a **myLoadBalancer-r2**.
+
+15. Seleccione **Agregar**.
+
+16. Seleccione **Siguiente: Reglas de entrada** en la parte inferior de la página.
+
+17. En **Reglas de entrada**, seleccione **+ Agregar una regla de equilibrio de carga**.
+
+18. En **Agregar regla de equilibrio de carga**, escriba o seleccione la siguiente información:
+
+    | Parámetro | Value |
+    | ------- | ----- |
+    | Nombre | Escriba **myHTTPRule-cr**. |
+    | Versión de la dirección IP | Seleccione **IPv4** o **IPv6** para **Versión de IP**. |
+    | Dirección IP del front-end | Seleccione **LoadBalancerFrontend**. |
+    | Protocolo | seleccione **TCP**. |
+    | Port | Escriba **80**. |
+    | Grupo back-end | Seleccione **myBackendPool-cr**. |
+    | Persistencia de la sesión | Seleccione **Ninguno**. |
+    | Tiempo de espera de inactividad (minutos) | Escriba o mueva el control deslizante a **15**. |
+    | Restablecimiento de TCP | Seleccione **Habilitado**. |
+    | Dirección IP flotante | Deje el valor predeterminado, **Deshabilitado**. |
+
+19. Seleccione **Agregar**.
+
+20. En la parte inferior de la página, seleccione **Revisar y crear**.
+
+21. En la pestaña **Revisar y crear**, seleccione **Crear**.
 
     > [!NOTE]
     > El equilibrador de carga entre regiones solo se puede implementar en las siguientes regiones de inicio: **Este de EE. UU. 2, Oeste de EE. UU., Oeste de Europa, Sudeste de Asia, Centro de EE. UU., Norte de Europa, Este de Asia**. Para más información, consulte **https://aka.ms/homeregionforglb**.
-
-
-3. Acepte los valores predeterminados en los demás valores y seleccione **Revisar y crear**.
-
-4. En la pestaña **Revisar + crear**, seleccione **Crear**.   
-
-    :::image type="content" source="./media/tutorial-cross-region-portal/create-cross-region.png" alt-text="Creación de un equilibrador de carga entre regiones" border="true":::
-
-## <a name="create-backend-pool"></a>Creación de un grupo de back-end
-
-En esta sección va a agregar dos equilibradores de carga estándar regionales al grupo de back-end del equilibrador de carga entre regiones.
-
-> [!IMPORTANT]
-> Para completar estos pasos, asegúrese de que se han implementado en la suscripción dos equilibradores de carga regionales con grupos de back-end.  Para más información, consulte **[Inicio rápido: Uso de Azure Portal para crear un equilibrador de carga público para equilibrar la carga de máquinas virtuales](quickstart-load-balancer-standard-public-portal.md)** .
-
-Cree el grupo de direcciones de back-end **myBackendPool-CR** para incluir los equilibradores de carga estándar regionales.
-
-1. Seleccione **Todos los servicios** en el menú de la izquierda, seleccione **Todos los recursos** y, después, en la lista de recursos, seleccione **myLoadBalancer-CR**.
-
-2. En **Configuración**, seleccione **Grupos de back-end** y, a continuación, seleccione **Agregar**.
-
-3. En la página **Agregar un grupo de back-end**, en nombre, escriba **myBackendPool-CR**.
-
-4. Seleccione **Agregar**.
-
-4. Seleccione **myBackendPool-CR**.
-
-5. En **Equilibradores de carga**, seleccione el cuadro desplegable en **Equilibrador de carga**.
-
-5. Seleccione **myLoadBalancer-R1** o el nombre del equilibrador de carga de la región 1.
-
-6. Seleccione el cuadro desplegable en **Configuración de IP de front-end**. Elija **LoadBalancerFrontEnd**.
-
-7. Repita los pasos del 4 al 6 para agregar **myLoadBalancer-R2**.
-
-8. Seleccione **Agregar**.
-
-    :::image type="content" source="./media/tutorial-cross-region-portal/add-to-backendpool.png" alt-text="Adición de equilibradores de carga regionales al grupo de back-end" border="true":::
-
-## <a name="create-a-load-balancer-rule"></a>Creación de una regla de equilibrador de carga
-
-En esta sección va a crear una regla de equilibrador de carga:
-
-* Llamada **myHTTPRule**.
-* En el front-end llamado **LoadBalancerFrontEnd**.
-* A la escucha en el **puerto 80**.
-* Dirige el tráfico con equilibrio de carga al back-end llamado **myBackendPool-CR** en el **puerto 80**.
-
-    > [!NOTE]
-    > El puerto de front-end debe coincidir con el puerto de back-end y el puerto de front-end de los equilibradores de carga regionales en el grupo de back-end.
-
-1. Seleccione **Todos los servicios** en el menú de la izquierda, seleccione **Todos los recursos** y, después, en la lista de recursos, seleccione **myLoadBalancer-CR**.
-
-2. En **Configuración**, seleccione **Reglas de equilibrio de carga** y, a continuación, seleccione **Agregar**.
-
-3. Use estos valores para configurar la regla de equilibrio de carga:
-    
-    | Configuración | Value |
-    | ------- | ----- |
-    | Nombre | Escriba **myHTTPRule**. |
-    | Versión de la dirección IP | Seleccione **IPv4**. |
-    | Dirección IP del front-end | Seleccione **LoadBalancerFrontEnd**. |
-    | Protocolo | seleccione **TCP**. |
-    | Port | Escriba **80**.|
-    | Puerto back-end | Escriba **80**. |
-    | Grupo back-end | Seleccione **MyBackendPool**.|
-    | Tiempo de espera de inactividad (minutos) | Mueva el control deslizante a **15**. |
-    | Restablecimiento de TCP | Seleccione **Habilitado**. |
-
-4. Deje el resto de valores predeterminados y después seleccione **Aceptar**.
-
-    :::image type="content" source="./media/tutorial-cross-region-portal/create-lb-rule.png" alt-text="Creación de reglas del equilibrador de carga" border="true":::
 
 ## <a name="test-the-load-balancer"></a>Prueba del equilibrador de carga
 

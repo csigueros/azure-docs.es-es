@@ -1,15 +1,15 @@
 ---
 title: Asignación de directivas nuevas con plantillas
 description: En este inicio rápido se usa una plantilla de Azure Resource Manager para crear una asignación de directivas para identificar los recursos no compatibles.
-ms.date: 04/22/2021
+ms.date: 08/17/2021
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.openlocfilehash: c25107bf5701b4e730924417e01c5e2486317c8e
-ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
+ms.openlocfilehash: 52daeb50d1b8eea91b43c07e45682d87e0bc12cb
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2021
-ms.locfileid: "108330951"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122323485"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-an-arm-template"></a>Creación de una asignación de directiva para identificar recursos no compatibles mediante una plantilla de Resource Manager
 
@@ -61,7 +61,7 @@ El recurso definido en la plantilla es el siguiente:
 
 1. Seleccione **Comprar**.
 
-Algunos recursos adicionales:
+Algunos otros recursos:
 
 - Puede encontrar más plantillas de ejemplo en [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Authorization&pageNumber=1&sort=Popular).
 - Para ver la referencia de plantilla, vaya a la [referencia de plantilla de Azure](/azure/templates/microsoft.authorization/allversions).

@@ -9,14 +9,17 @@ ms.subservice: extensions
 ms.date: 01/30/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurepowershell
-ms.openlocfilehash: 013404113c3346cfce752f53266062a3b5386092
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 1aa6a3291ef5d770104697669ec20468d91efc66
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110673965"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122690510"
 ---
 # <a name="sequence-extension-provisioning-in-virtual-machine-scale-sets"></a>Secuenciación del aprovisionamiento de extensiones en conjuntos de escalado de máquinas virtuales
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado uniformes
+
 Las extensiones de máquina virtual de Azure proporcionan funcionalidades como configuración y administración posteriores a la implementación, supervisión, seguridad y mucho más. Para lograr los resultados deseados, las implementaciones en producción suelen usar una combinación de varias extensiones configuradas para las instancias de máquina virtual.
 
 Cuando se usan varias extensiones en una máquina virtual, es importante asegurarse de que aquellas que requieren los mismos recursos del sistema operativo no intenten adquirirlos al mismo tiempo. Algunas extensiones también dependen de otras para proporcionar las configuraciones necesarias, como la configuración del entorno y los secretos. Si no se dispone de una ordenación y una secuenciación correctas, las implementaciones de extensiones dependientes producirán un error.

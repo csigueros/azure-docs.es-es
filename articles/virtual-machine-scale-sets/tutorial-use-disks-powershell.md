@@ -9,14 +9,16 @@ ms.subservice: disks
 ms.date: 03/27/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurepowershell
-ms.openlocfilehash: 9e995e88b80bf14f9c7784f465bcd3d89d0bed65
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4a32d9675de9968608da0c7faa70cc31208d666a
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92367965"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122821710"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-azure-powershell"></a>Tutorial: Creación y uso de discos con conjuntos de escalado de máquinas virtuales con Azure PowerShell
+
+**Se aplica a:** :heavy_check_mark: máquinas virtuales Linux :heavy_check_mark: máquinas virtuales Windows :heavy_check_mark: conjuntos de escalado uniformes
 
 Los conjuntos de escalado de máquinas virtuales usan discos para almacenar el sistema operativo, las aplicaciones y los datos de las máquinas virtuales. Al crear y administrar un conjunto de escalado, es importante elegir un tamaño de disco y la configuración adecuada para la carga de trabajo esperada. Este tutorial explica cómo crear y administrar discos de máquina virtual. En este tutorial, aprenderá a:
 
@@ -129,7 +131,7 @@ Add-AzVmssDataDisk `
 # Update the scale set to apply the change
 Update-AzVmss `
   -ResourceGroupName "myResourceGroup" `
-  -Name "myScaleSet" `
+  -VMScaleSetName "myScaleSet" `
   -VirtualMachineScaleSet $vmss
 ```
 
@@ -166,7 +168,7 @@ Add-AzVmssExtension -VirtualMachineScaleSet $vmss `
 # Update the scale set and apply the Custom Script Extension to the VM instances
 Update-AzVmss `
   -ResourceGroupName "myResourceGroup" `
-  -Name "myScaleSet" `
+  -VMScaleSetName "myScaleSet" `
   -VirtualMachineScaleSet $vmss
 ```
 
@@ -294,7 +296,7 @@ Remove-AzVmssDataDisk `
 # Update the scale set and detach the disk from the VM instances
 Update-AzVmss `
   -ResourceGroupName "myResourceGroup" `
-  -Name "myScaleSet" `
+  -VMScaleSetName "myScaleSet" `
   -VirtualMachineScaleSet $vmss
 ```
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: a84d4d71e5190c455441d1e627381be86ef5e129
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2fa227e1aa503cf17da6027da8754a6f51e7f469
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97608534"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122183049"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-peakon"></a>Tutorial: Integración de Azure Active Directory con Peakon
 
@@ -45,6 +45,7 @@ Para configurar la integración de Azure AD con Peakon, necesita los siguientes 
 En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
 * Peakon admite SSO iniciado por **SP** e **IDP**
+* Peakon admite el [aprovisionamiento y desaprovisionamiento **automático** de usuarios](peakon-provisioning-tutorial.md) (recomendado).
 
 ## <a name="adding-peakon-from-the-gallery"></a>Adición de Peakon desde la galería
 

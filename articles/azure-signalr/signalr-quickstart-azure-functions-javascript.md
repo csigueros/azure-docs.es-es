@@ -10,12 +10,12 @@ ms.devlang: javascript
 ms.custom:
 - devx-track-js
 - mode-api
-ms.openlocfilehash: 9e8bb3d49ef236521f7d4a48060b2405dbbbc104
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: fa3c4405bd2c62642e5d61dad10b078695fb32cd
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112462026"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122444679"
 ---
 # <a name="quickstart-use-javascript-to-create-an-app-showing-github-star-count-with-azure-functions-and-signalr-service"></a>Inicio rápido: Uso de JavaScript para crear una aplicación en la que se muestre el número de estrellas de GitHub con Azure Functions y SignalR Service
 
@@ -66,7 +66,30 @@ Inicie sesión en Azure Portal en <https://portal.azure.com/> con su cuenta de A
         ```bash
         func new -n index -t HttpTrigger
         ```
-        
+        Abra `index/function.json` y copie los códigos JSON siguientes:
+
+        ```json
+        {
+          "bindings": [
+            {
+              "authLevel": "anonymous",
+              "type": "httpTrigger",
+              "direction": "in",
+              "name": "req",
+              "methods": [
+                "get",
+                "post"
+              ]
+            },
+            {
+              "type": "http",
+              "direction": "out",
+              "name": "res"
+            }
+          ]
+        }
+        ```
+
         Abra `index/index.js` y copie los códigos siguientes.
 
         ```javascript
@@ -191,7 +214,7 @@ Inicie sesión en Azure Portal en <https://portal.azure.com/> con su cuenta de A
         }    
         ```
 
-3. La interfaz de cliente de este ejemplo es una página web. Si se lee contenido HTML de `content/index.html` en la función `index`, cree un archivo `index.html` en el directorio `content`. Y copie el contenido siguiente.
+3. La interfaz de cliente de este ejemplo es una página web. Si se lee contenido HTML de `content/index.html` en la función `index`, cree un archivo `index.html` en el directorio `content` bajo la carpeta raíz del proyecto. Y copie el contenido siguiente.
 
     ```html
     <html>
@@ -232,7 +255,7 @@ Inicie sesión en Azure Portal en <https://portal.azure.com/> con su cuenta de A
     1. Copie la cadena de conexión principal. Ejecute el comando siguiente.
     
         ```bash
-        func settings add AzureSignalRConnectionString '<signalr-connection-string>'
+        func settings add AzureSignalRConnectionString "<signalr-connection-string>"
         ```
     
 5. Ejecute la función de Azure en el entorno local:
@@ -241,7 +264,7 @@ Inicie sesión en Azure Portal en <https://portal.azure.com/> con su cuenta de A
     func start
     ```
 
-    Después de que la función de Azure se ejecute en el entorno local. Use el explorador para visitar `http://localhost:7071/api/index` y ver el recuento de estrellas actual. Y si asigna estrellas o las quita en GitHub, obtendrá un recuento de estrellas que se actualiza cada pocos segundos.
+    Después de que la función de Azure se ejecute en el entorno local. Use el explorador para visitar `http://localhost:7071/api/index` y ver el número de estrellas actual. Y si asigna estrellas o las quita en GitHub, obtendrá un número de estrellas que se actualiza cada pocos segundos.
 
     > [!NOTE]
     > Para el enlace de SignalR se necesita Azure Storage, pero puede usar el emulador de almacenamiento local cuando la función se ejecuta localmente.

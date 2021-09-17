@@ -12,49 +12,43 @@ ms.service: applied-ai-services
 ms.subservice: metrics-advisor
 ms.custom:
 - mode-portal
-ms.openlocfilehash: 324b84255bd5939940a7819c521a452c1c49c8e8
-ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
+ms.openlocfilehash: 1ad7d21907e8be6de4c28881719cc31f31b02c7a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114342489"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121745970"
 ---
-# <a name="quickstart-monitor-your-first-metric-using-the-web-portal"></a>Inicio rápido: Supervisión de su primera métrica con el portal web
+# <a name="quickstart-monitor-your-first-metric-by-using-the-web-portal"></a>Inicio rápido: Supervisión de la primera métrica con el portal web
 
-Al aprovisionar una instancia de Metrics Advisor, puede usar las API y el área de trabajo basada en web para trabajar con el servicio. El área de trabajo basada en web se puede usar para empezar a trabajar fácil y rápidamente con el servicio. También proporciona una forma visual de configurar valores, personalizar el modelo y realizar análisis de la causa principal. 
-
-* Incorporación de los datos de métricas
-* Vista de métricas y visualizaciones
-* Ajuste preciso de las configuraciones de detección
-* Exploración de información de diagnóstico
-* Creación y suscripción a alertas de anomalías
+Al aprovisionar una instancia de Azure Metrics Advisor, puede usar las API y el área de trabajo basada en web para trabajar con el servicio. El área de trabajo basada en web se puede usar para empezar a trabajar fácil y rápidamente con el servicio. También proporciona una forma visual de configurar valores, personalizar el modelo y realizar análisis de la causa principal. 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/cognitive-services)
-* Una vez que tenga la suscripción de Azure, <a href="https://go.microsoft.com/fwlink/?linkid=2142156"  title="cree un recurso de Metrics Advisor"  target="_blank">create a Metrics Advisor resource </a> en Azure Portal para implementar la instancia de Metrics Advisor.  
+* Suscripción a Azure. [cree una de forma gratuita](https://azure.microsoft.com/free/cognitive-services).
+* Una vez que tenga la suscripción de Azure, <a href="https://go.microsoft.com/fwlink/?linkid=2142156"  title="Creación de un recurso de Metrics Advisor"  target="_blank">cree un recurso de Metrics Advisor </a> en Azure Portal para implementar la instancia de Metrics Advisor.  
 
     
 > [!TIP]
-> * Puede que se tarde entre 10 y 30 minutos en implementar el recurso de Metrics Advisor. Una vez que se implemente correctamente, seleccione **Ir al recurso**.
-> * Si desea usar la API REST para interactuar con el servicio, necesitará la clave y el punto de conexión del recurso que cree. Puede encontrarlos en la pestaña **Keys and endpoints** (Claves y puntos de conexión) del recurso creado.
+> * Puede que el recurso de Metrics Advisor tarde entre 10 y 30 minutos en implementarse. Una vez que se implemente correctamente, seleccione **Ir al recurso**.
+> * Si quiere usar la API REST para interactuar con el servicio, necesitará la clave y el punto de conexión del recurso que cree. Puede encontrarlos en la pestaña **Keys and endpoints** (Claves y puntos de conexión) del recurso creado.
 
 
 En este documento se usa una instancia de SQL Database como ejemplo para crear el primer monitor.
 
 ## <a name="sign-in-to-your-workspace"></a>Inicio de sesión en su área de trabajo
 
-Tras crear el recurso, inicie sesión en el [portal de Metrics Advisor](https://go.microsoft.com/fwlink/?linkid=2143774) con una cuenta de Active Directory. En la página de aterrizaje, seleccione el **directorio**, la **suscripción** y el **área de trabajo** que acaba de crear y, después, seleccione **Introducción**. Para incorporar datos de una serie temporal, seleccione **Add data feed** (Agregar fuente de distribución de datos) datos en el menú de la izquierda.
+Después de crear el recurso, inicie sesión en el [portal de Metrics Advisor](https://go.microsoft.com/fwlink/?linkid=2143774) con su cuenta de Active Directory. En la página de aterrizaje, seleccione el **directorio**, la **suscripción** y el **área de trabajo** que acaba de crear y, después, elija **Get started** (Comenzar). Para incorporar datos de serie temporal, seleccione **Add data feed** (Agregar fuente de distribución de datos) en el menú de la izquierda.
 
  
 Actualmente, puede crear un recurso de Metrics Advisor en cada una de las regiones disponibles. Las áreas de trabajo se pueden cambiar en el portal de Metrics Advisor en cualquier momento.
 
 
-## <a name="onboard-time-series-data"></a>Incorporación de datos de serie temporal
+## <a name="time-series-data"></a>Datos de serie temporal
 
-Metrics Advisor proporciona conectores para diferentes orígenes de datos, como SQL Database, Azure Data Explorer y Azure Table Storage. Los pasos para la conexión de datos son similares para los diferentes conectores, aunque algunos parámetros de configuración pueden variar. Para ver distintas configuraciones de una conexión de datos, consulte [Conexión de datos de diferentes fuentes de distribución de datos](../data-feeds-from-different-sources.md).
+Metrics Advisor proporciona conectores para diferentes orígenes de datos, por ejemplo, SQL Database, Azure Data Explorer y Azure Table Storage. Los pasos para conectar los datos son similares en los diferentes conectores, aunque algunos parámetros de configuración pueden variar. Para más información, consulte [Conexión con distintos orígenes de datos](../data-feeds-from-different-sources.md).
 
-En este inicio rápido se usa una instancia de SQL Database como ejemplo. También puede introducir sus propios datos siguiendo los mismos pasos.
+En este inicio rápido se usa una instancia de SQL Database como ejemplo. También puede ingerir sus propios datos siguiendo los mismos pasos.
 
 
 ### <a name="data-schema-requirements-and-configuration"></a>Configuración y requisitos del esquema de datos
@@ -66,117 +60,116 @@ En este inicio rápido se usa una instancia de SQL Database como ejemplo. Tambi�
 [Agregue las fuentes de distribución de datos](../how-tos/onboard-your-data.md), para lo que debe conectarse al origen de datos de su serie temporal. Para empezar, seleccione los parámetros siguientes:
 
 * **Source Type** (Tipo de origen): tipo de origen de datos donde se almacenan los datos de serie temporal.
-* **Granularity** (Granularidad): intervalo entre los puntos de datos consecutivos de los datos de serie temporal, por ejemplo, anualmente, mensualmente o diariamente. La personalización más baja del intervalo admitida es de 60 segundos.
+* **Granularidad**: intervalo entre puntos de datos consecutivos de los datos de serie temporal (por ejemplo, anualmente, mensualmente o diariamente). El intervalo más corto admitido es de 60 segundos.
 * **Ingest data since (UTC)** (Ingesta de datos desde [UTC]): hora de inicio de la primera marca de tiempo que se va a ingerir. 
 
 
-<!-- Next, specify the **Connection string** with the credentials for your data source, and a custom **Query**, see [how to write a valid query](../tutorials/write-a-valid-query.md) for more information. -->
-
-:::image type="content" source="../media/connection-settings.png" alt-text="Configuración de conexión" lightbox="../media/connection-settings.png":::
+:::image type="content" source="../media/connection-settings.png" alt-text="Captura de pantalla que muestra la configuración de conexión." lightbox="../media/connection-settings.png":::
 
 
 ### <a name="load-data"></a>Cargar datos
 
-Después de especificar la cadena de conexión y la cadena de consulta, seleccione **Cargar datos**. Dentro de esta operación, Metrics Advisor comprobará la conexión y el permiso para cargar datos, los parámetros necesarios (@IntervalStart y @IntervalEnd) que deben usarse en la consulta y el nombre de columna del origen de datos. 
+Después de introducir las cadenas de conexión y consulta, seleccione **Load data** (Cargar datos). Metrics Advisor comprueba la conexión y el permiso para cargar datos, los parámetros necesarios usados en la consulta y el nombre de columna del origen de datos. 
 
 Si se produce un error en este paso:
-1. En primer lugar, compruebe si la cadena de conexión es válida. 
-2. Luego, confirme que hay permisos suficientes y que se concede acceso a la dirección IP del trabajo de ingesta.
-3. Después, compruebe si se usan los parámetros necesarios (@IntervalStart y @IntervalEnd) en la consulta. 
+1. Compruebe si la cadena de conexión es válida. 
+1. Confirme que hay permisos suficientes y que se concede acceso a la dirección IP del trabajo de ingesta.
+1. Compruebe si se usan los parámetros necesarios (`@IntervalStart` y `@IntervalEnd`) en la consulta. 
 
 ### <a name="schema-configuration"></a>Configuración del esquema
 
-Una vez que se carguen los datos, para lo que debe ejecutarse la consulta, y se muestren como se ve a continuación, seleccione los campos correspondientes.
+Una vez que se carguen los datos mediante la ejecución de la consulta, seleccione los campos adecuados.
 
 
 |Número de selección  |Descripción  |Notas  |
 |---------|---------|---------|
-|**Timestamp**     | La marca de tiempo de un punto de datos. Si se omite, Metrics Advisor usará la marca de tiempo cuando se ingiera el punto de datos. Para cada fuente de distribución de datos, puede especificar como máximo una columna como una marca de tiempo.        | Opcional. Debe especificarse con una columna como máximo.       |
-|**Medida**     |  Los valores numéricos de la fuente de distribución de datos. Para cada fuente de distribución de datos, puede especificar varias medidas, pero debe seleccionar al menos una columna como medida.        | Debe especificarse con al menos una columna.        |
-|**Dimensión**     | Los valores de las categorías. Una combinación de valores diferentes identifica una serie temporal de una única dimensión determinada; por ejemplo: Country (País), Language (Idioma) y Tenant (Inquilino). Puede seleccionar un número arbitrario de columnas como dimensiones o ningún valor. Nota: Si selecciona una columna que no es de cadena como dimensión, tenga cuidado con la explosión de dimensiones. | Opcional.        |
-|**Omitir**     | Omite la columna seleccionada.        | Opcional. Para que los orígenes de datos admitan el uso de una consulta para obtener datos, no hay ninguna opción "Omitir".       |
+|**Timestamp**     | La marca de tiempo de un punto de datos. Si se omite, Metrics Advisor la usa cuando se ingiere el punto de datos. Para cada fuente de distribución de datos, puede especificar como máximo una columna como una marca de tiempo.        | Opcional. Debe especificarse con una columna como máximo.       |
+|**Medida**     |  Los valores numéricos de la fuente de distribución de datos. Para cada fuente de distribución de datos, puede especificar varias medidas, pero al menos una de ellas debe ser una columna.        | Debe especificarse con al menos una columna.        |
+|**Dimensión**     | Los valores de las categorías. Una combinación de valores diferentes identifica una serie temporal determinada de una única dimensión. Algunos ejemplos son el país, el idioma y el inquilino. Puede seleccionar un número arbitrario de columnas como dimensiones o ningún valor. Si selecciona una columna que no es de cadena como dimensión, tenga cuidado con la explosión de dimensiones. | Opcional.        |
+|**Omitir**     | Omite la columna seleccionada.        | Opcional. En el caso de los orígenes de datos que admiten el uso de una consulta para obtener datos, no hay ninguna opción de omisión.       |
 
 
-:::image type="content" source="../media/schema-configuration.png" alt-text="Configuración del esquema" lightbox="../media/schema-configuration.png":::
+:::image type="content" source="../media/schema-configuration.png" alt-text="Captura de pantalla que muestra la configuración de esquema." lightbox="../media/schema-configuration.png":::
 
-Después de configurar el esquema, seleccione **Verify schema** (Comprobar esquema). En esta operación, Metrics Advisor realizará las siguientes comprobaciones:
-- Si la marca de tiempo de los datos consultados está en un solo intervalo. 
-- Si se han devuelto valores duplicados para la misma combinación de dimensiones dentro de un solo intervalo de métricas.  
+Después de configurar el esquema, seleccione **Verify schema** (Comprobar esquema). Metrics Advisor realiza las siguientes comprobaciones:
+- Que la marca de tiempo de los datos consultados esté en un solo intervalo. 
+- Que no se hayan devuelto valores duplicados para la misma combinación de dimensiones dentro de un solo intervalo de métricas.  
 
 ### <a name="automatic-roll-up-settings"></a>Configuración de la acumulación automática
 
 > [!IMPORTANT]
-> Si desea habilitar el **análisis de la causa principal** y otras funcionalidades de diagnóstico, es necesario configurar los valores de acumulación automática. Una vez habilitado, no se puede cambiar la configuración de la acumulación automática.
+> Si quiere habilitar el análisis de la causa principal y otras funcionalidades de diagnóstico, configure las opciones de acumulación automática. Después de habilitar el análisis, no puede cambiar la configuración.
 
-Metrics Advisor puede realizar automáticamente la agregación (SUM, MAX, MIN...) en cada dimensión durante la ingesta y, después, crea una jerarquía, que se usará en el análisis de la causa principal y en otras características del diagnóstico. Consulte cómo [configurar la acumulación automática](../how-tos/onboard-your-data.md#automatic-roll-up-settings) para obtener más información.
+Metrics Advisor puede realizar automáticamente la agregación en cada dimensión durante la ingesta. Luego, el servicio crea una jerarquía que puede usar en el análisis de la causa principal y otras características de diagnóstico. Para más información, consulte [Configuración de la acumulación automática](../how-tos/onboard-your-data.md#automatic-roll-up-settings).
 
-Proporcione un nombre personalizado a la fuente de distribución de datos, que se mostrará en el área de trabajo. Seleccione **Submit** (Enviar). 
+Proporcione un nombre personalizado para la fuente de distribución de datos (se mostrará en el área de trabajo). Seleccione **Submit** (Enviar). 
 
 ## <a name="tune-detection-configuration"></a>Ajuste de la configuración de detección
 
-Una vez agregada la fuente de distribución de datos, Metrics Advisor intentará ingerir datos de métricas desde la fecha de inicio especificada. Los datos tardarán un tiempo en ingerirse por completo y para ver el estado de la ingesta es preciso seleccionar **Ingestion progress** (Progreso de la ingesta) en la parte superior de la página de la fuente de distribución de datos. Si se ingieren datos, Metrics Advisor aplicará la detección y continuará supervisando el origen para detectar nuevos datos.
+Una vez agregada la fuente de distribución de datos, Metrics Advisor intenta ingerir datos de métricas desde la fecha de inicio especificada. Los datos tardarán un tiempo en ingerirse por completo y para ver el estado de la ingesta es preciso seleccionar **Ingestion progress** (Progreso de la ingesta) en la parte superior de la página de la fuente de distribución de datos. Si se ingieren datos, Metrics Advisor aplicará la detección y continuará supervisando el origen para detectar nuevos datos.
 
-Cuando se aplique la detección, seleccione una de las métricas que aparecen en la fuente de distribución de datos para buscar la **página de detalles de la métrica** para: 
-- Ver los sectores de todas las series temporales en esta métrica.
-- Actualizar la configuración de la detección para cumplir los resultados esperados.
-- Configuración de la notificación de anomalías detectadas
+Cuando se aplique la detección, seleccione una de las métricas que aparecen en la fuente de distribución de datos para buscar la **página de detalles de la métrica**. Aquí, puede hacer lo siguiente: 
+- Ver los sectores de todas las series temporales de esta métrica.
+- Actualizar la configuración de detección para cumplir los resultados esperados.
+- Configurar la notificación de anomalías detectadas.
 
-:::image type="content" source="../media/metric-details.png" alt-text="Detalles de la métrica" lightbox="../media/metric-details.png":::
+:::image type="content" source="../media/metric-details.png" alt-text="Captura de pantalla que muestra los detalles de las métricas." lightbox="../media/metric-details.png":::
 
-## <a name="view-the-diagnostic-insights"></a>Visualización de la información de diagnóstico
+## <a name="view-diagnostic-insights"></a>Visualización de la Información de diagnóstico
 
-Después de ajustar la configuración de detección, las anomalías encontradas deben reflejar las anomalías reales de los datos. Metrics Advisor realiza un análisis de las métricas multidimensionales para buscar la causa principal en una dimensión concreta y también el análisis de métricas cruzadas mediante "Gráfico de métricas". 
+Después de ajustar la configuración de detección, las anomalías encontradas deben reflejar las anomalías reales de los datos. Metrics Advisor realiza análisis de métricas multidimensionales para encontrar la causa principal para una dimensión específica. El servicio también realiza análisis entre métricas mediante la característica de grafo de métricas. 
 
-Para ver la información de diagnóstico, seleccione los puntos rojos de las visualizaciones de las series temporales, que representan las anomalías detectadas. Aparecerá una ventana con un vínculo a la página de análisis de incidentes. 
+Para ver la información de diagnóstico, seleccione los puntos rojos de las visualizaciones de series temporales. Estos puntos rojos representan anomalías detectadas. Aparecerá una ventana con un vínculo a la página de análisis de incidentes. 
 
-:::image type="content" source="../media/incident-link.png" alt-text="Vínculo del incidente" lightbox="../media/incident-link.png":::
+:::image type="content" source="../media/incident-link.png" alt-text="Captura de pantalla que muestra un vínculo a un incidente." lightbox="../media/incident-link.png":::
 
-Después de seleccionar el vínculo, pasará a la página de análisis de incidentes, en la que se realiza un análisis de un grupo de anomalías relacionadas con abundante información de diagnóstico. Hay tres pasos principales para diagnosticar un incidente:
+En la página de análisis de incidentes, verá un grupo de anomalías relacionadas y la información de diagnóstico. Las secciones siguientes cubren los pasos principales para diagnosticar un incidente.
 
-### <a name="check-summary-of-current-incident"></a>Comprobar el resumen del incidente actual
+### <a name="check-the-summary-of-the-current-incident"></a>Comprobación del resumen del incidente actual
 
-En la parte superior, habrá un resumen, que incluye información básica, acciones y seguimientos, y una causa principal analizada. La información básica incluye la "serie más afectada" con un diagrama, "la hora de inicio y finalización del impacto", "la gravedad del incidente" y "el número total de anomalías incluidas".
+Puede encontrar el resumen en la parte superior de la página de análisis. Este resumen incluye información básica, acciones y seguimientos, y una de las causas principales analizadas. La información básica incluye la serie más afectada con un diagrama, la hora de inicio y finalización del impacto, la gravedad y el número total de anomalías incluidas.
 
-La causa principal analizada es un resultado analizado automático. Metrics Advisor realiza análisis de todas las anomalías capturadas en series temporales dentro de una métrica con valores de dimensión diferentes en la misma marca de tiempo. Luego, realiza la correlación, agrupación en clústeres para agrupar anomalías relacionadas y genera un consejo de causa principal.
+La causa principal analizada es un resultado que se analiza automáticamente. Metrics Advisor analiza todas las anomalías que se capturan en una serie temporal, dentro de una métrica con valores de dimensión diferentes con la misma marca de tiempo. Luego, el servicio realiza la correlación, agrupa las anomalías relacionadas con el grupo y genera consejos sobre las causas principales.
 
-:::image type="content" source="../media/diagnostics/incident-summary.png" alt-text="Resumen de diagnóstico de incidentes" lightbox="../media/diagnostics/incident-summary.png":::
+:::image type="content" source="../media/diagnostics/incident-summary.png" alt-text="Captura de pantalla que muestra un resumen de diagnóstico de incidentes." lightbox="../media/diagnostics/incident-summary.png":::
 
-Sobre esta base, ya puede obtener una vista clara no solo del estado anómalo actual, sino también del impacto del incidente y de la potencial causa principal. De este modo, podrá tomar medidas inmediatas para resolver el incidente lo antes posible. 
+Basándose en estos consejos, puede obtener una visión clara no solo del estado anómalo actual, sino también del impacto del incidente y de la posible causa principal. Así, puede tomar medidas inmediatas para resolver el incidente. 
 
 ### <a name="view-cross-dimension-diagnostic-insights"></a>Ver la información del diagnóstico entre dimensiones
 
-Después de obtener información básica y una conclusión del análisis automático, puede obtener información más detallada sobre el estado anómalo en otras dimensiones dentro de la misma métrica de forma holística mediante el **"Árbol de diagnóstico"** .
+También puede obtener información más detallada sobre el estado anómalo de otras dimensiones dentro de la misma métrica de forma holística, mediante la característica de árbol de diagnóstico.
 
-En el caso de las métricas con varias dimensiones, Metrics Advisor clasifica la serie temporal en una jerarquía, que se denomina "Árbol de diagnóstico". Por ejemplo, dos dimensiones supervisan una métrica "revenue": "region" y "category". A pesar de los valores de dimensión concretos, es preciso tener un valor de dimensión **agregado**, como **"SUM"** . Luego, la serie temporal de "region" = **"SUM"** y de "category" = **"SUM"** se clasificará como el nodo principal dentro del árbol. Cada vez que se captura una anomalía en la dimensión **"SUM"** , se puede explorar en profundidad y analizar para localizar qué valor de dimensión específico ha sido el que más ha contribuido a la anomalía del nodo primario. Haga clic en cada nodo para expandir la información detallada.
+En el caso de las métricas con varias dimensiones, Metrics Advisor clasifica la serie temporal en una jerarquía (llamada árbol de diagnóstico). Por ejemplo, dos dimensiones supervisan una métrica de ingresos: región y categoría. Debe tener un valor de dimensión agregado, como `SUM`. Luego, la serie temporal de `region = SUM` y `category = SUM` se clasifica como el nodo raíz dentro del árbol. Cada vez que se captura una anomalía en la dimensión `SUM`, puede analizarla para encontrar qué valor de dimensión específico ha sido el que más ha contribuido a la anomalía del nodo principal. Seleccione cada nodo para expandirlo y ver información detallada.
 
-:::image type="content" source="../media/diagnostics/cross-dimension-diagnostic.png" alt-text="Vista de dimensiones cruzadas de diagnóstico de incidentes" lightbox="../media/diagnostics/cross-dimension-diagnostic.png":::
+:::image type="content" source="../media/diagnostics/cross-dimension-diagnostic.png" alt-text="Captura de pantalla que muestra la vista entre dimensiones de diagnóstico de incidentes." lightbox="../media/diagnostics/cross-dimension-diagnostic.png":::
 
-### <a name="view-cross-metrics-diagnostic-insights-using-metrics-graph"></a>Visualización de la información de diagnóstico entre métricas mediante un "gráfico de métricas"
+### <a name="view-cross-metrics-diagnostic-insights"></a>Visualización de la información de diagnóstico entre métricas
 
-A veces, es difícil analizar un problema mediante la comprobación del estado anómalo de una sola métrica, es necesario poner en correlación varias métricas. Los clientes pueden configurar un "gráfico de métricas" que indica las relaciones entre las métricas. Al aprovechar el resultado de diagnóstico entre dimensiones anterior, la causa principal se limita a un valor de dimensión concreto. A continuación, use el "gráfico de métricas" y filtre por la dimensión de la causa principal analizada para comprobar el estado de la anomalía en otras métricas.
-Después de hacer clic en el vínculo, se mostrará la página de análisis de incidentes, en la que se analiza la anomalía correspondiente con abundante información de diagnóstico. Hay tres secciones en la página de detalles del incidente que corresponden a tres pasos principales para diagnosticar un incidente. 
+A veces, es difícil analizar un problema mediante la comprobación del estado anómalo de una sola métrica, es necesario poner en correlación varias métricas. Para ello, configure un grafo de métricas que indique las relaciones entre ellas. 
 
-:::image type="content" source="../media/diagnostics/cross-metrics-analysis.png" alt-text="Análisis entre métricas de diagnóstico de incidentes" lightbox="../media/diagnostics/cross-metrics-analysis.png":::
+Mediante el resultado de diagnóstico entre dimensiones descrito en la sección anterior, puede identificar que la causa principal se limita a un valor de dimensión específico. Luego, puede usar el grafo de métricas y filtrar por la dimensión de la causa principal analizada para comprobar el estado de la anomalía en otras métricas.
 
-También puede desplazarse por distinta información de diagnóstico con características adicionales para explorar en profundidad las anomalías por dimensión, ver anomalías similares y realizar una comparación entre las métricas. Encontrará más información en [Cómo diagnosticar un incidente](../how-tos/diagnose-an-incident.md). 
+:::image type="content" source="../media/diagnostics/cross-metrics-analysis.png" alt-text="Captura de pantalla que muestra el análisis entre métricas de diagnóstico de incidentes." lightbox="../media/diagnostics/cross-metrics-analysis.png":::
+
+También puede usar otras características para crear tablas dinámicas con más datos de diagnóstico. Estas características le ayudan a explorar en profundidad las dimensiones de las anomalías, ver anomalías similares y realizar comparaciones entre métricas. Para más información, consulte [Diagnóstico de incidentes](../how-tos/diagnose-an-incident.md). 
 
 ## <a name="get-notified-when-new-anomalies-are-found"></a>Notificación cuando se encuentren nuevas anomalías
 
-Si desea recibir una alerta cuando se detecte una anomalía en los datos, puede crear una suscripción para una o varias de sus métricas. Metrics Advisor usa enlaces para enviar alertas. Se admiten tres tipos de enlaces: enlace de correo electrónico, webhook y Azure DevOps. Aquí se usará un webhook como ejemplo. 
+Si quiere recibir una alerta cuando se detecte una anomalía en los datos, puede crear una suscripción a una o varias de sus métricas. Metrics Advisor usa enlaces para enviar alertas. Se admiten tres tipos de enlaces: enlace de correo electrónico, webhook y Azure DevOps. Aquí se usará un webhook como ejemplo. 
 
 ### <a name="create-a-web-hook"></a>Creación de un webhook
 
-Un webhook es el punto de entrada para notificar anomalías mediante programación desde el servicio Metrics Advisor, que llama a una API proporcionada por el usuario cuando se desencadena una alerta. Para obtener información sobre cómo crear un enlace, consulte la sección sobre la **creación de enlaces** del artículo sobre el [procedimiento para configurar alertas y obtener notificaciones mediante enlaces](../how-tos/alerts.md#create-a-hook). 
+En Metrics Advisor, puede usar un webhook para mostrar una anomalía mediante programación. El servicio llama a una API proporcionada por el usuario cuando se desencadena una alerta. Para más información, consulte [Creación de un enlace](../how-tos/alerts.md#create-a-hook). 
 
 ### <a name="configure-alert-settings"></a>Configurar alertas
 
-Después de crear un enlace, una configuración de alerta determina cómo y qué notificaciones de alerta deben enviarse. Puede establecer varias configuraciones de alerta para cada métrica. Dos configuraciones importantes son **Alert for** (Alerta para), que especifica las anomalías que se van a incluir, y **Filter anomaly options** (Filtrar opciones de anomalías), que define las anomalías que se incluirán en la alerta. Vea la sección **Adición o edición de la configuración de alertas** en [Procedimiento: Configuración de alertas y obtención de notificaciones mediante un enlace](../how-tos/alerts.md#add-or-edit-alert-settings) para obtener más información.
+Después de crear un enlace, una configuración de alerta determina cómo y qué notificaciones de alerta deben enviarse. Puede establecer varias configuraciones de alerta para cada métrica. Dos configuraciones importantes son **Alert for** (Alerta para), que especifica las anomalías que se van a incluir, y **Filter anomaly options** (Filtrar opciones de anomalías), que define las anomalías que se incluirán en la alerta. Para más información, consulte [Adición o edición de configuraciones de alertas](../how-tos/alerts.md#add-or-edit-alert-settings).
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Incorporación de las fuentes de distribución de datos](../how-tos/onboard-your-data.md)
+- [Adición de los datos de métricas a Metrics Advisor](../how-tos/onboard-your-data.md)
     - [Administración de las fuentes de distribución de datos](../how-tos/manage-data-feeds.md)
-    - [Configuraciones para distintos orígenes de datos](../data-feeds-from-different-sources.md)
-- [Uso de la API REST o las bibliotecas de cliente](./rest-api-and-client-library.md)
+    - [Conexión con distintos orígenes de datos](../data-feeds-from-different-sources.md)
+- [Uso de las API REST o las bibliotecas cliente para personalizar una solución](./rest-api-and-client-library.md)
 - [Configuración de métricas y ajuste de la configuración de la detección](../how-tos/configure-metrics.md)

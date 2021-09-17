@@ -10,14 +10,16 @@ ms.workload: infrastructure-services
 ms.date: 06/01/2020
 ms.author: ericrad
 ms.reviewer: mimckitt
-ms.openlocfilehash: 05b51b2edfe7d7abe99835204c8e98197ecdeba0
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
+ms.openlocfilehash: cd80a8a69d4e75ec1be31a849fe00cc3ec708e1c
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111591177"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122692679"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Azure Metadata Service: Scheduled Events para máquinas virtuales Linux
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Conjuntos de escalado flexibles :heavy_check_mark: Conjuntos de escalado uniformes 
 
 Scheduled Events es un servicio de Azure Metadata Service que proporciona el tiempo de aplicación para prepararse para el mantenimiento de la máquina virtual. Da información sobre los eventos de mantenimiento próximos (por ejemplo, un reinicio) para que la aplicación pueda prepararlos y así limitar las interrupciones. Está disponible para todos los tipos de máquina virtual de Azure, incluidos IaaS y PaaS, tanto en Windows como en Linux. 
 
@@ -83,7 +85,7 @@ El servicio Scheduled Events tiene versiones. Las versiones son obligatorias; la
 | 2019-01-01 | Disponibilidad general | All | <li> Compatibilidad agregada con conjuntos de escalado de máquinas virtuales EventType "Terminate" |
 | 01-11-2017 | Disponibilidad general | All | <li> Se agregó compatibilidad para la expulsión de la máquina virtual de Azure Spot EventType 'Preempt'<br> | 
 | 2017-08-01 | Disponibilidad general | All | <li> Se quitó el guion bajo antepuesto de los nombres de recursos en las máquinas virtuales de IaaS<br><li>Se aplicó el requisito de encabezado de metadatos para todas las solicitudes | 
-| 2017-03-01 | Vista previa | All | <li>Versión inicial |
+| 2017-03-01 | Versión preliminar | All | <li>Versión inicial |
 
 
 > [!NOTE] 

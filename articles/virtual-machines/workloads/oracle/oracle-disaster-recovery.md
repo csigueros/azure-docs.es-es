@@ -8,14 +8,16 @@ ms.collection: linux
 ms.topic: article
 ms.date: 08/02/2018
 ms.author: kegorman
-ms.openlocfilehash: 68b5b9dfd205628c9d7c430df4c0230267752e01
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b90de3d7f80eb6dcb60d3e44b13aac83e1dec574
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101669949"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122688472"
 ---
 # <a name="disaster-recovery-for-an-oracle-database-12c-database-in-an-azure-environment"></a>Recuperación ante desastres para Oracle Database 12c en el entorno de Azure
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux 
 
 ## <a name="assumptions"></a>Supuestos
 

@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - contperf-fy21q1
 - device-developer
-ms.openlocfilehash: 451a880485503684f09108a84c559f222362bae8
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
+ms.openlocfilehash: 59c95633322f279504ded61bbf02a7415b1337b9
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122071596"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122446293"
 ---
 # <a name="define-a-new-iot-device-type-in-your-azure-iot-central-application"></a>Definición de un nuevo tipo de dispositivo IoT en la aplicación de Azure IoT Central
 
@@ -63,6 +63,9 @@ El nombre de la plantilla que creó es **Sensor Controller**. El modelo incluye 
 ## <a name="autogenerate-a-device-template"></a>Generación automática de una plantilla de dispositivo
 
 También puede crear automáticamente una plantilla de dispositivo a partir de un dispositivo conectado que aún no esté asignado a una plantilla de dispositivo. IoT Central usa los valores de propiedad y telemetría que envía el dispositivo para deducir un modelo de dispositivo.
+
+> [!NOTE]
+> Actualmente, esta característica en versión preliminar no puede usar la telemetría ni las propiedades de los componentes. Solo puede generar funcionalidades a partir de la telemetría y las propiedades raíz.
 
 Los pasos siguientes muestran cómo usar esta característica:
 

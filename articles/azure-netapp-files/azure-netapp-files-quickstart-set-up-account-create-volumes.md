@@ -6,14 +6,14 @@ ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: quickstart
-ms.date: 09/22/2020
+ms.date: 08/10/2020
 ms.custom: devx-track-azurecli, subject-armqs
-ms.openlocfilehash: b90b19edd1cf7f22f7396476866208e7e3bd2523
-ms.sourcegitcommit: ca38027e8298c824e624e710e82f7b16f5885951
+ms.openlocfilehash: 3d97c10236391157dbf0a8d32110e3e1d540a3b3
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112574630"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121729268"
 ---
 # <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume"></a>Inicio rápido: Configuración de Azure NetApp Files y creación de un volumen de NFS
 
@@ -89,9 +89,7 @@ Para más información, consulte [Registro en Azure NetApp Files](azure-netapp-f
 
       ![Seleccionar Azure NetApp Files](../media/azure-netapp-files/azure-netapp-files-select-azure-netapp-files.png)
 
-2. Haga clic en **+ Agregar** para crear una nueva cuenta de NetApp.
-
-     ![Crear una cuenta de NetApp](../media/azure-netapp-files/azure-netapp-files-create-new-netapp-account.png)
+2. Haga clic en **+ Crear** para crear una cuenta de NetApp.
 
 3. En la ventana Nueva cuenta de NetApp, especifique la siguiente información:
    1. Escriba **myaccount1** como nombre de la cuenta.
@@ -287,11 +285,9 @@ En el siguiente fragmento de código se muestra cómo crear un grupo de capacida
 
     ![Especificación del protocolo de NFS para el inicio rápido](../media/azure-netapp-files/azure-netapp-files-quickstart-protocol-nfs.png)
 
-5. Haga clic en **Revisar + crear**.
+5. Haga clic en **Revisar y crear** para mostrar información para el volumen que está creando.  
 
-    ![Ventana Revisar y crear](../media/azure-netapp-files/azure-netapp-files-review-and-create-window.png)
-
-6. Examine la información del volumen y haga clic en **Crear**.
+6. Haga clic en **Crear** para crear el volumen. 
     El volumen creado aparece en la hoja Volúmenes.
 
     ![Volumen creado](../media/azure-netapp-files/azure-netapp-files-create-volume-created.png)

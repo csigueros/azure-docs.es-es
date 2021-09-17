@@ -5,20 +5,22 @@ services: virtual-machines
 author: vermagit
 tags: azure-resource-manager
 ms.service: virtual-machines
-ms.subservice: workloads
+ms.subservice: hpc
 ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 03/25/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 7e9cdb80f1423076fb222e1d1521117e65bca9bc
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 1f5442c7ade736c4313812a4cb20e6535492acc3
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114460578"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122693412"
 ---
 # <a name="hbv3-series-virtual-machine-overview"></a>Introducción a las máquinas virtuales de la serie HBv3 
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles :heavy_check_mark: Conjuntos de escalado uniformes
 
 Un servidor de la [serie HBv3](../../hbv3-series.md) consta de 2 CPU de 64 núcleos EPYC 7V13 para un total de 128 núcleos físicos "Zen3". El multithreading simultáneo (SMT) está deshabilitado en HBv3. Estos 128 núcleos se dividen en 16 secciones (8 por socket), cada una de las cuales contiene 8 núcleos de procesador con acceso uniforme a una caché L3 de 32 MB. Los servidores HBv3 de Azure también tienen la siguiente configuración de BIOS de AMD:
 

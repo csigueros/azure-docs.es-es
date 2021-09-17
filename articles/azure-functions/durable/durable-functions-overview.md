@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 12/23/2020
 ms.author: cgillum
 ms.reviewer: azfuncdf
-ms.openlocfilehash: 62d5d3095d2c68741a61f2df64d54287fb429110
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 987857c4534ddbef90ef3eca5f73f554db0c4341
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110375988"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122777723"
 ---
 # <a name="what-are-durable-functions"></a>¿Qué es Durable Functions?
 
@@ -22,7 +22,7 @@ ms.locfileid: "110375988"
 Durable Functions admite actualmente los siguientes idiomas:
 
 * **C#**: tanto las [bibliotecas de clases precompiladas](../functions-dotnet-class-library.md) como [script C#](../functions-reference-csharp.md).
-* **JavaScript**: solo es compatible con la versión 2.x del entorno de ejecución de Azure Functions. Requiere la versión 1.7.0 de la extensión Durable Functions, o una posterior. 
+* **JavaScript**: solo se admite con la versión 2.x del entorno de ejecución de Azure Functions. Requiere la versión 1.7.0 de la extensión Durable Functions, o una posterior. 
 * **Python**: requiere la versión 2.3.1 de la extensión Durable Functions, o cualquier versión posterior.
 * **F#**: tanto las bibliotecas de clases precompiladas como script F#. El script F# solo es compatible con la versión 1.x del entorno de ejecución de Azure Functions.
 * **PowerShell**: solo es compatible con la versión 3.x del entorno de ejecución de Azure Functions y PowerShell 7. Requiere la versión 2.x de las extensiones de agrupación.

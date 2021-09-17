@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/20/2020
-ms.openlocfilehash: 4f127245ea36a7183603f5115739d317282ea686
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: ca35dc76107ca63dec885d34ebac9c9798334edb
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113009531"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122690650"
 ---
 # <a name="monitor-health-of-log-analytics-workspace-in-azure-monitor"></a>Supervisión del estado del área de trabajo de Log Analytics en Azure Monitor
 Para mantener el rendimiento y la disponibilidad del área de trabajo de Log Analytics en Azure Monitor, es necesario detectar con antelación los problemas que surjan. En este artículo se describe cómo supervisar el estado del área de trabajo de Log Analytics con los datos de la tabla [Operation](/azure/azure-monitor/reference/tables/operation) (Operación). Esta tabla se incluye en todas las áreas de trabajo de Log Analytics y contiene los errores y las advertencias que se producen en el área de trabajo. Se recomienda crear alertas para incidencias en los niveles "Advertencia" y "Error".
@@ -88,7 +88,7 @@ Acciones recomendadas: para las tablas personalizadas, puede pasar a [analizar l
 #### <a name="operation-field-content-validation"></a>Operación: validación del contenido de los campos
 "Los valores \<**field name**\> de tipo \<**table name**\> de los campos siguientes se han recortado al tamaño máximo permitido, \<**field size limit**\> bytes. Ajuste la entrada en consecuencia". 
 
-El campo mayor que el tamaño límite se ha procesado por los registros de Azure, el campo se ha recortado al límite de campos permitido. No se recomienda enviar campos que superen el límite permitido, ya que esto provocará la pérdida de datos. 
+Los registros de Azure procesaron un campo con un tamaño mayor que el límite; el campo se ha recortado al límite de campo permitido. No se recomienda enviar campos que superen el límite permitido, ya que esto provocará la pérdida de datos. 
 
 Acciones recomendadas: compruebe el origen del tipo de datos afectado:
 *   Si los datos se envían a través de la API del recopilador de datos HTTP, deberá cambiar el código o script para dividir los datos antes de que se ingieran.

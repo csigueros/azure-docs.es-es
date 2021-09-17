@@ -2,20 +2,18 @@
 title: Publicación de eventos en un tema personalizado de Azure Event Grid
 description: En este artículo se describe cómo publicar un evento en un tema personalizado. Muestra el formato de los datos de publicación y eventos.
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 08/19/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b662cd2034fc1035a5da64c19d9aba87b180af8f
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 3c3be5c11341ddd7bb381134a0d0b50ba8745709
+ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110701146"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122515427"
 ---
-# <a name="post-to-custom-topic-for-azure-event-grid"></a>Publicación en un tema personalizado de Azure Event Grid
+# <a name="post-to-azure-event-grid-custom-topics-using-access-keys"></a>Publicar temas personalizados de Azure Event Grid mediante claves de acceso
 
-En este artículo se describe cómo publicar un evento en un tema personalizado. Muestra el formato de los datos de publicación y eventos. El [Acuerdo de Nivel de Servicio (SLA)](https://azure.microsoft.com/support/legal/sla/event-grid/v1_0/) solo se aplica a las publicaciones que coinciden con el formato esperado.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+En este artículo se describe cómo publicar un evento en un tema personalizado mediante una clave de acceso. Muestra el formato de los datos de publicación y eventos. El [Acuerdo de Nivel de Servicio (SLA)](https://azure.microsoft.com/support/legal/sla/event-grid/v1_0/) solo se aplica a las publicaciones que coinciden con el formato esperado.
 
 ## <a name="endpoint"></a>Punto de conexión
 

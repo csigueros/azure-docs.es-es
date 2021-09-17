@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 7/15/2021
-ms.openlocfilehash: f7b134f14d190e7ef65eb2da897f9c106583d497
-ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
+ms.openlocfilehash: d88df617e994f4a609b12dff0419fd673f8207d1
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114393707"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121721930"
 ---
 # <a name="register-and-scan-google-bigquery-source-preview"></a>Registro y examen del origen de Google BigQuery (versión preliminar)
 
@@ -43,7 +43,7 @@ El origen de BigQuery admite un examen completo para extraer metadatos de un pro
 Para registrar un nuevo proyecto de Google BigQuery en el catálogo de datos, haga lo siguiente:
 
 1.  Vaya a la cuenta de Purview.
-2.  Seleccione **Sources** (Orígenes) en el panel de navegación izquierdo.
+2.  Seleccione **Data Map** (Mapa de datos) en el panel de navegación izquierdo.
 3.  Seleccione **Registrar.**
 4.  En Register sources (Registrar orígenes), seleccione **Google BigQuery**. Seleccione **Continue** (Continuar).
     :::image type="content" source="media/register-scan-google-bigquery-source/register-sources.png" alt-text="Registro de un origen de BigQuery" border="true":::
@@ -80,7 +80,7 @@ Para crear y ejecutar un nuevo examen, siga estos pasos:
     c.  **Credencial**: al configurar las credenciales de BigQuery, asegúrese de:
 
     - Seleccionar **Basic Authentication** (Autenticación básica) como método de autenticación
-    - Especificar el identificador de correo electrónico de la cuenta de servicio en el campo User name (Nombre de usuario). Por ejemplo, \xyz\@developer.gserviceaccount.com
+    - Especificar el identificador de correo electrónico de la cuenta de servicio en el campo User name (Nombre de usuario). Por ejemplo, xyz\@developer.gserviceaccount.com.
     - Guarde el archivo de clave privada de la cuenta de servicio en formato JSON en el secreto del almacén de claves.
 
     Para crear una clave privada desde la plataforma en la nube de Google, en el menú de navegación, haga clic en IAM & Admin (IAM y admin.) -\> Service Accounts (Cuentas de servicio) -\> Select a project (Seleccionar un proyecto) -\> Haga clic en la dirección de correo electrónico de la cuenta de servicio para la que desea crear una clave -\> Haga clic en la pestaña **Keys** (Claves) -\> Haga clic en el menú desplegable **Add key** (Agregar clave) y seleccione Create new key (Crear clave). Ahora elija el formato JSON.

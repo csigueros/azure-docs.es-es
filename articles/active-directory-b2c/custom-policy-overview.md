@@ -10,12 +10,13 @@ ms.topic: reference
 ms.date: 04/08/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2a8aabac6960909f2a3d90fcee01cebb0ad7a832
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.custom: b2c-support
+ms.openlocfilehash: 5c27384e58a23501224e279e987115e4981ebf99
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107256946"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122633612"
 ---
 # <a name="azure-ad-b2c-custom-policy-overview"></a>Información general sobre las directivas personalizadas de Azure AD B2C
 
@@ -34,6 +35,8 @@ El [paquete de inicio](tutorial-create-user-flows.md?pivots=b2c-custom-policy#ge
 - **SocialAndLocalAccounts**: habilita el uso de cuentas locales y sociales. La mayoría de los ejemplos hacen referencia a esta directiva.
 - **SocialAndLocalAccountsWithMFA**: habilita opciones sociales, locales y de autenticación multifactor.
 
+En el [repositorio de GitHub de ejemplos de Azure AD B2C](https://github.com/azure-ad-b2c/samples), encontrará ejemplos de varios recorridos de usuario de CIAM personalizados de Azure AD B2C, como mejoras de directivas de cuentas locales, mejoras de directivas de cuentas sociales, mejoras de MFA, mejoras de la interfaz de usuario, mejoras genéricas, migración de aplicaciones, migración de usuarios, acceso condicional, prueba web y CI/CD.
+ 
 ## <a name="understanding-the-basics"></a>Descripción de los conceptos básicos 
 
 ### <a name="claims"></a>Notificaciones

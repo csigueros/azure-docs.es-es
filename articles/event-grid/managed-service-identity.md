@@ -3,12 +3,12 @@ title: Entrega de eventos, identidad de servicio administrado y vínculo privado
 description: En este artículo se describe cómo habilitar Managed Service Identity para un tema de Azure Event Grid. Úselo para reenviar eventos a los destinos admitidos.
 ms.topic: how-to
 ms.date: 03/25/2021
-ms.openlocfilehash: 76f10b4627dc9578b1e616a868eab03431b59b69
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f1f80f23fe108415daa6e0526b651c7269d6b1b3
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105625285"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122634115"
 ---
 # <a name="event-delivery-with-a-managed-identity"></a>Entrega de evento con una identidad administrada
 En este artículo se describe cómo usar una [identidad de servicio administrada](../active-directory/managed-identities-azure-resources/overview.md) en un tema del sistema, un tema personalizado o un dominio de Azure Event Grid. Úselo para reenviar eventos a destinos compatibles, como colas y temas de Service Bus, centros de eventos y cuentas de almacenamiento.
@@ -16,7 +16,7 @@ En este artículo se describe cómo usar una [identidad de servicio administrada
 
 
 ## <a name="prerequisites"></a>Prerrequisitos
-1. Asigne una identidad asignada por el sistema a un tema del sistema, a un tema personalizado o a un dominio. 
+1. Asigne una identidad asignada por el sistema o por el usuario a un tema del sistema, un tema personalizado o un dominio. 
     - Para temas y dominios personalizados, consulte [Asignación de una identidad administrada por el sistema a un tema o un dominio personalizados de Event Grid](enable-identity-custom-topics-domains.md). 
     - Para los temas del sistema, consulte [Asignación de una identidad administrada por el sistema a un tema del sistema de Event Grid](enable-identity-system-topics.md).
 1. Agregue la identidad a un rol adecuado (por ejemplo, Remitente de los datos de Service Bus) en el destino (por ejemplo, una cola de Service Bus). Para obtener pasos detallados, consulte [Adición de una identidad a los roles de Azure en destinos de Azure Event Grid](add-identity-roles.md).
@@ -28,13 +28,24 @@ En este artículo se describe cómo usar una [identidad de servicio administrada
 Una vez que tenga un tema o un dominio del sistema o un tema personalizados de Event Grid con una identidad administrada por el sistema y haya agregado a la identidad el rol adecuado en el destino, estará listo para crear suscripciones que usen la identidad. 
 
 ### <a name="use-the-azure-portal"></a>Uso de Azure Portal
-Al crear una suscripción de eventos, se muestra una opción para habilitar el uso de una identidad asignada por el sistema para un punto de conexión en la sección **DETALLES DE PUNTO DE CONEXIÓN**. 
+Al crear una suscripción de evento, se ve una opción para habilitar el uso de una identidad asignada por el sistema o por el usuario para un punto de conexión en la sección **DETALLES DE PUNTO DE CONEXIÓN**. 
+
+Este es un ejemplo de la habilitación de una identidad asignada por el sistema al crear una suscripción de evento con una cola de Service Bus como destino. 
 
 ![Habilitación de una identidad al crear una suscripción de eventos de una cola de Service Bus](./media/managed-service-identity/service-bus-queue-subscription-identity.png)
 
 También puede habilitar el uso de una identidad asignada por el sistema para que se use en la cola de mensajes fallidos en la pestaña **Características adicionales**. 
 
 ![Habilitación de la identidad asignada por el sistema para la cola de mensajes fallidos](./media/managed-service-identity/enable-deadletter-identity.png)
+
+También puede habilitar una identidad administrada en una suscripción de evento después de su creación. En la página **Suscripción de evento** de la suscripción de evento, vaya a la pestaña **Características adicionales** para ver la opción. 
+
+![Habilitación de identidad asignada por el sistema en una suscripción de evento existente](./media/managed-service-identity/event-subscription-additional-features.png)
+
+Si ha habilitado identidades asignadas por el usuario para el tema, verá la opción de identidad asignada por el usuario habilitada en la lista desplegable de **Tipo de identidad administrada**. Si selecciona **Asignada por el usuario** en **Tipo de identidad administrada**, luego puede seleccionar la identidad asignada por el usuario que quiera emplear para entregar eventos. 
+
+![Habilitación de identidad asignada por el usuario en una suscripción de evento](./media/managed-service-identity/event-subscription-user-identity.png)
+
 
 ### <a name="use-the-azure-cli---service-bus-queue"></a>Uso de la CLI de Azure: cola de Service Bus 
 En esta sección, aprenderá a usar la CLI de Azure para habilitar el uso de una identidad asignada por el sistema para enviar eventos a una cola de Service Bus. La identidad debe ser miembro del rol **Emisor de datos de Azure Service Bus**. También debe ser miembro del rol **Colaborador de datos de blobs de almacenamiento** en la cuenta de almacenamiento que se usa para la cola de mensajes fallidos. 

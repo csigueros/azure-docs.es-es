@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 09/09/2019
 ms.author: kefre
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 5feb16227653bdc7e51925b7a327c3eb50c88491
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 0014297d45c26d855a2df8c2a3fdccb2f0c047d2
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110453817"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122822916"
 ---
 # <a name="call-the-image-analysis-api"></a>Llamada a API Análisis de imágenes
 
@@ -136,6 +136,10 @@ Consulte la siguiente lista de posibles errores y sus causas:
     * FailedToProcess
     * Timeout: se ha agotado el tiempo de espera.
     * InternalServerError
+
+> [!TIP]
+> Al trabajar con Computer Vision, puede encontrar errores transitorios producidos por [límites de frecuencia](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/) aplicados por el servicio u otros problemas transitorios, como interrupciones de red. Para información sobre cómo controlar estos tipos de errores, consulte la sección sobre el [patrón Retry](https://docs.microsoft.com/azure/architecture/patterns/retry) en la guía de patrones de diseño en la nube y el [patrón Circuit Breaker](https://docs.microsoft.com/azure/architecture/patterns/circuit-breaker) relacionado.
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

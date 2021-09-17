@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 2/12/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 4051f8fe4b338f223b36c3a87ebcc3e3d3e51979
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 30d7282d6f6f30b34b522991d6fd4e79b194d7dd
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114472979"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122771591"
 ---
 # <a name="extending-ontologies"></a>Extensión de las ontologías 
 
@@ -24,7 +24,7 @@ En este artículo se usa la ontología [RealEstateCore](https://www.realestateco
 
 ## <a name="realestatecore-space-hierarchy"></a>Jerarquía de espacios de RealEstateCore 
 
-En la ontología RealEstateCore basada en DTDL, la jerarquía de espacios se usa para definir varios tipos de espacios: Salas, edificios, zonas, etc. La jerarquía se extiende desde cada uno de estos modelos para definir varios tipos de salas, edificios y zonas. 
+En la ontología RealEstateCore basada en DTDL, la jerarquía de espacios se usa para definir varios tipos de espacios: salas, edificios, zonas, etc. La jerarquía se extiende desde cada uno de estos modelos para definir varios tipos de salas, edificios y zonas. 
 
 Una parte de la jerarquía tiene el aspecto del diagrama siguiente. 
 
@@ -53,7 +53,7 @@ Después de agregar la interfaz del espacio de concentración, la jerarquía ext
 
 :::image type="content" source="media/concepts-ontologies-extend/real-estate-core-extended-1.png" alt-text="Diagrama que ilustra parte de la jerarquía del espacio RealEstateCore, incluida la nueva adición."::: 
 
-### <a name="add-additional-capabilities-to-existing-interfaces"></a>Incorporación de funcionalidades adicionales a las interfaces existentes 
+### <a name="add-extra-capabilities-to-existing-interfaces"></a>Incorporación de funcionalidades adicionales a las interfaces existentes 
 
 En este caso, desea agregar más propiedades (o relaciones, componentes, datos de telemetría o comandos) a las interfaces que se encuentran en la ontología del sector.
 
@@ -63,7 +63,7 @@ En esta sección, encontrará dos ejemplos:
 
 Ambos ejemplos se pueden implementar con nuevas propiedades: una propiedad `drawingId` que asocia el dibujo en 3D con el gemelo digital y una propiedad "online" que indica si la sala de conferencias está en línea o no. 
 
-Normalmente, no desea modificar la ontología del sector directamente porque quiere poder incorporar actualizaciones a su solución en el futuro (lo cual sobrescribiría estas adiciones). En su lugar, estos tipos de adiciones se pueden realizar en su propia jerarquía de la interfaz que se extiende desde la ontología RealEstateCore basada en DTDL. Cada interfaz que se crea utiliza la herencia de varias interfaces para extender su interfaz de RealEstateCore primaria y su interfaz primaria desde la jerarquía de interfaz extendida. Este enfoque le permite hacer uso de la ontología del sector y de las adiciones de forma conjunta. 
+Normalmente, no desea modificar la ontología del sector directamente porque quiere poder incorporar actualizaciones a su solución en el futuro (lo cual sobrescribiría estas adiciones). En su lugar, estos tipos de adiciones se pueden realizar en su propia jerarquía de la interfaz que se extiende desde la ontología RealEstateCore basada en DTDL. Cada interfaz que se crea utiliza las herencias de varias interfaces para extender su interfaz de RealEstateCore primaria y su interfaz primaria desde la jerarquía de interfaz extendida. Este enfoque le permite hacer uso de la ontología del sector y de las adiciones de forma conjunta. 
 
 Para extender la ontología del sector, crea sus propias interfaces que se extienden desde las interfaces de la ontología del sector y agrega las nuevas funcionalidades a las interfaces extendidas. Para cada interfaz que desee extender, cree una nueva interfaz. Las interfaces extendidas están escritas en DTDL (consulte la sección DTDL para interfaces extendidas más adelante en este documento). 
 

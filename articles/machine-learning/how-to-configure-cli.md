@@ -1,7 +1,7 @@
 ---
-title: Instalación, configuración y uso de la CLI 2.0
+title: Instalación y configuración de la CLI (versión 2)
 titleSuffix: Azure Machine Learning
-description: Aprenda a instalar, configurar y usar la extensión de la CLI para Machine Learning.
+description: Aprenda a instalar y configurar la extensión de la CLI de Azure para Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,14 +11,14 @@ ms.author: copeters
 ms.date: 05/25/2021
 ms.reviewer: laobri
 ms.custom: devx-track-azurecli, devplatv2
-ms.openlocfilehash: 53d7b42426919ec5b91821ac67fbde940972494a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 8034b9e6027f85d9dd5385fda18f81523830944f
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121745230"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122772713"
 ---
-# <a name="install-set-up-and-use-the-20-cli-preview"></a>Instalación, configuración y uso de la CLI 2.0 (versión preliminar)
+# <a name="install-and-set-up-the-cli-v2"></a>Instalación y configuración de la CLI (versión 2)
 
 La extensión `ml` (versión preliminar) para la [CLI de Azure](/cli/azure/) es la interfaz mejorada de Azure Machine Learning. Permite entrenar e implementar modelos desde la línea de comandos, e incluye características que aceleran el escalado vertical y horizontal de la ciencia de datos al tiempo que se hace un seguimiento del ciclo de vida del modelo.
 
@@ -29,16 +29,11 @@ La extensión `ml` (versión preliminar) para la [CLI de Azure](/cli/azure/) es 
 - Para usar la CLI, debe tener una suscripción de Azure. Si no tiene una suscripción de Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning](https://azure.microsoft.com/free/).
 - Para usar los comandos de la CLI de este documento desde su **entorno local**, necesita la [CLI de Azure](/cli/azure/install-azure-cli).
 
-    > [!TIP]
-    > Si usa el [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/), la CLI es accesible a través del explorador y reside en la nube.
-
 ## <a name="installation"></a>Instalación
 
 La nueva extensión para Machine Learning **requiere la versión `>=2.15.0` de la CLI de Azure**. Asegúrese de que se cumple este requisito:
 
-```azurecli
-az version
-```
+:::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="az_version":::
 
 Si no es así, [actualice la CLI de Azure](/cli/azure/update-azure-cli).
 
@@ -74,9 +69,7 @@ Para obtener más información, consulte [Instalación de la CLI de Azure para L
 
 Inicio de sesión:
 
-```azurecli
-az login
-```
+:::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="az_login":::
 
 Si tiene acceso a varias suscripciones de Azure, puede establecer la suscripción de Azure.
 
@@ -96,29 +89,6 @@ Los subcomandos de Machine Learning requieren los parámetros `--workspace/-w` y
 Ahora cree un área de trabajo de aprendizaje automático:
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/setup.sh" id="az_ml_workspace_create":::
-
-## <a name="hello-world"></a>Hola a todos
-
-Para seguir, clone los ejemplos del repositorio y cambie al subdirectorio `cli`:
-
-```azurecli-interactive
-git clone https://github.com/Azure/azureml-examples --depth 1
-cd azureml-examples/cli
-```
-
-Para ejecutar "Hola mundo" localmente mediante Python, consulte el ejemplo del subdirectorio `jobs`:
-
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/hello-world.yml":::
-
-> [!IMPORTANT]
-> [Docker](https://docker.io) debe instalarse y ejecutarse localmente.
-
-Envíe el trabajo, transmita los registros a la salida de la consola y abra la ejecución en Estudio de Azure Machine Learning:
-
-:::code language="azurecli" source="~/azureml-examples-main/cli/hello-world.sh" id="hello_world":::
-
-> [!IMPORTANT]
-> Esto puede tardar unos minutos en ejecutarse la primera vez, ya que la imagen de Docker se extrae localmente y se ejecuta el trabajo de Azure ML. Las ejecuciones posteriores tendrán la imagen copiada en caché localmente y se completarán más rápido.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

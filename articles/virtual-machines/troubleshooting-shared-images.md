@@ -9,14 +9,16 @@ ms.workload: infrastructure
 ms.date: 7/1/2021
 ms.author: olayemio
 ms.reviewer: cynthn
-ms.openlocfilehash: e8cfba3c7dc13f6e32d0dd4141832bab475cc5b8
-ms.sourcegitcommit: a2540262e05ffd4a4b059df0976940d60fabd125
+ms.openlocfilehash: 974dba9d3770d7d5570896f24d31fc2378472ae2
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2021
-ms.locfileid: "113138826"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122697908"
 ---
 # <a name="troubleshoot-shared-image-galleries-in-azure"></a>Solución de problemas de las galerías de imágenes compartidas de Azure
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles :heavy_check_mark: Conjuntos de escalado uniformes
 
 Si tiene problemas al realizar cualquier operación en galerías de imágenes compartidas, definiciones de imágenes y versiones de imágenes, vuelva a ejecutar el comando con errores en modo de depuración. El modo de depuración se activa pasando el modificador `--debug` con la CLI de Azure y el modificador `-Debug` con PowerShell. Después de encontrar el error, siga este artículo para solucionarlo.
 

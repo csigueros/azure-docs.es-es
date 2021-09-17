@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: static-web-apps
 ms.custom:
 - mode-portal
-ms.openlocfilehash: ce4c37091fc56398c9986396d56e2cc66f9b1d8a
-ms.sourcegitcommit: 0ce834cd348bb8b28a5f7f612c2807084cde8e8f
+ms.openlocfilehash: d83a9f96745e798d307c6e5299da84f1ac717e76
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109813957"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122609089"
 ---
 # <a name="quickstart-building-your-first-static-site-in-the-azure-portal"></a>Inicio rápido: creación del primer sitio estático en Azure Portal
 
@@ -67,9 +67,9 @@ Tras iniciar sesión con GitHub, escriba la información del repositorio.
     # <a name="no-framework"></a>[Ningún marco](#tab/vanilla-javascript)
 
     1. Seleccione **Personalizado** en la lista desplegable _Valores preestablecidos de compilación_.
-    1. Conserve el valor predeterminado en el cuadro _Ubicación de la aplicación_.
+    1. Escriba **./src** en el cuadro _Ubicación de la aplicación_.
     1. Deje en blanco el cuadro _Ubicación de la aplicación_.
-    1. Deje en blanco el cuadro _Ubicación del artefacto de la aplicación_.
+    1. Escriba **./src** en el cuadro _Ubicación de los artefactos de la aplicación_.
 
     # <a name="angular"></a>[Angular](#tab/angular)
 

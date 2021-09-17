@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: iot-develop
 services: iot-develop
 zone_pivot_groups: programming-languages-set-twenty-six
-ms.openlocfilehash: f21ce89c265bc97d393c1ea2766acfb6fe63d6ee
-ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
+ms.openlocfilehash: f30403adf3c981df62a1e5c5122721400ecc060c
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2021
-ms.locfileid: "114406694"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122605949"
 ---
 # <a name="iot-plug-and-play-device-developer-guide"></a>Guía para desarrolladores de dispositivos IoT Plug and Play
 
-IoT Plug and Play permite crear dispositivos inteligentes que anuncian sus funcionalidades en aplicaciones de Azure IoT. Los dispositivos IoT Plug and Play no requieren configuración manual cuando un cliente los conecta a aplicaciones habilitadas para IoT Plug and Play.
+IoT Plug and Play permite crear dispositivos IoT que anuncian sus funcionalidades en aplicaciones de Azure IoT. Los dispositivos IoT Plug and Play no requieren configuración manual cuando un cliente los conecta a aplicaciones habilitadas para IoT Plug and Play.
 
-Un dispositivo inteligente podría implementarse directamente, usar [módulos](../iot-hub/iot-hub-devguide-module-twins.md) o usar [módulos de IoT Edge](../iot-edge/about-iot-edge.md).
+Un dispositivo IoT podría implementarse directamente, usar [módulos](../iot-hub/iot-hub-devguide-module-twins.md) o usar [módulos de IoT Edge](../iot-edge/about-iot-edge.md).
 
 En esta guía se describen los pasos básicos necesarios para crear un dispositivo, un módulo o un módulo de IoT Edge que sigan las [convenciones de IoT Plug and Play](../iot-develop/concepts-convention.md).
 

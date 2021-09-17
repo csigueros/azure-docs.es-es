@@ -1,5 +1,5 @@
 ---
-title: Creación y combinación de solicitudes de firma de certificado en Azure Key Vault
+title: Creación y combinación de una solicitud de firma de certificado en Azure Key Vault
 description: Aprenda a crear solicitudes de firma de certificado en Azure Key Vault.
 services: key-vault
 author: msmbaldwin
@@ -9,16 +9,16 @@ ms.subservice: certificates
 ms.topic: tutorial
 ms.date: 06/17/2020
 ms.author: sebansal
-ms.openlocfilehash: 77a46beceda451d456dfc4f576f855ebf7312e50
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: 54b387892e3ad7d813fb97fb8e9ab399ccdb2a1c
+ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112463520"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122515112"
 ---
-# <a name="create-and-merge-a-csr-in-key-vault"></a>Creación y combinación de solicitudes de firma de certificado en Key Vault
+# <a name="create-and-merge-a-certificate-signing-request-in-key-vault"></a>Creación y combinación de una solicitud de firma de certificado en Key Vault
 
-Azure Key Vault admite el almacenamiento de los certificados digitales emitidos por cualquier entidad de certificación (CA). Admite la creación de una solicitud de firma de certificado (CSR) con un par de claves privada y pública. La solicitud de firma de certificado puede firmarla cualquier entidad de certificación (una entidad de una empresa interna o una entidad pública externa). Una solicitud de firma de certificado es un mensaje que se envía a una entidad de certificación para solicitar un certificado digital.
+Azure Key Vault admite el almacenamiento de los certificados digitales emitidos por cualquier entidad de certificación (CA). Admite la creación de una solicitud de firma de certificado (CSR) con un par de claves privada y pública. La solicitud de firma de certificado puede firmarla cualquier entidad de certificación (una entidad de una empresa interna o una entidad pública externa). Una solicitud de firma de certificado (CSR) es un mensaje que se envía a una entidad de certificación para solicitar un certificado digital.
 
 Para más información general acerca de los certificados, consulte [Certificados de Azure Key Vault](./about-certificates.md).
 

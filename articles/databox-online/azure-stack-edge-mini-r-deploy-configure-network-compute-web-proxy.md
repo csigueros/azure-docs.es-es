@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 05/11/2021
+ms.date: 08/12/2021
 ms.author: alkohli
-ms.openlocfilehash: ae3504b1483dce5678a9d7b53556d9228e53ded0
-ms.sourcegitcommit: 1ee13b62c094a550961498b7a52d0d9f0ae6d9c0
+ms.openlocfilehash: 68667c495384320731b8a7898e3590aa8487a13e
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109839144"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121860732"
 ---
 # <a name="tutorial-configure-network-for-azure-stack-edge-mini-r"></a>Tutorial: Configuración de red para Azure Stack Edge Mini R
 
@@ -49,11 +49,16 @@ Siga estos pasos para configurar la red en el dispositivo.
 
 2. Si se necesita una actualización de día cero, puede hacerlo aquí mediante la configuración de un puerto de datos con una conexión con cable. Para más instrucciones sobre cómo configurar una conexión con cable para este dispositivo, consulte [Cableado del dispositivo](azure-stack-edge-mini-r-deploy-install.md#cable-the-device). Una vez finalizada la actualización, puede quitar la conexión con cable.
 
-3. Cree certificados para la red Wi-Fi y la cadena de firma. Tanto la cadena de firma como el certificado para la red Wi-Fi deben tener el formato DER con una extensión de archivo *.cer*. Para obtener instrucciones, consulte [Uso de certificados con el dispositivo Azure Stack Edge Pro con GPU](azure-stack-edge-gpu-manage-certificates.md).
+3. Cree certificados para la red Wi-Fi y la cadena de firma. Tanto la cadena de firma como el certificado para la red Wi-Fi deben tener el formato DER con una extensión de archivo *.cer*. Para obtener instrucciones, consulte [Uso de certificados con el dispositivo Azure Stack Edge Pro con GPU](azure-stack-edge-gpu-manage-certificates.md). Este paso es opcional si usa un perfil de Wi-Fi, en lugar de certificados, para la autenticación.
 
-4. En la interfaz de usuario web local, vaya a **Get started** (Comenzar). En el icono **Security** (Seguridad), seleccione **Certificates** (Certificados) y, a continuación, seleccione **Configure** (Configurar). 
+   > [!NOTE] 
+   > Si usa autenticación mediante contraseña en la red Wi-Fi personal, puede omitir los pasos del certificado. Solo tiene que configurar el puerto de Wi-Fi y, después, cargar su perfil de Wi-Fi.</br></br> Para obtener información sobre los perfiles de Wi-Fi perfiles para una red WPA2 - Personal y aprender a exportar perfiles de Wi-Fi, consulte [Uso de perfiles de Wi-Fi](azure-stack-edge-mini-r-use-wifi-profiles.md).
 
-   [![Página "Certificados" de la interfaz de usuario web local](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/get-started-1.png)](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/get-started-1.png#lightbox)
+4. Agregue los certificados al dispositivo: 
+
+   1. En la interfaz de usuario web local, vaya a **Get started** (Comenzar). En el icono **Security** (Seguridad), seleccione **Certificates** (Certificados) y, a continuación, seleccione **Configure** (Configurar). 
+
+      [![Página "Certificados" de la interfaz de usuario web local](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/get-started-1.png)](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/get-started-1.png#lightbox)
 
    1. Select **+ Add certificate** (+ Agregar certificado). 
     
@@ -73,7 +78,7 @@ Siga estos pasos para configurar la red en el dispositivo.
 
    5. Vuelva a **Get started** (Comenzar).
 
-5. En el icono **Red**, seleccione **Configurar**.  
+5. Configure el puerto de Wi-Fi. En el icono **Red**, seleccione **Configurar**.  
 
    En el dispositivo físico hay cinco interfaces de red. PUERTO 1 y PUERTO 2 son interfaces de red de 1 Gbps. El PUERTO 3 y el PUERTO 4 son interfaces de red de 10 Gbps. El quinto puerto es el puerto Wi-Fi. 
 

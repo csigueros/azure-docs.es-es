@@ -1,18 +1,21 @@
 ---
 title: Generador de expresiones del flujo de datos de asignación
-description: Generación de expresiones con el generador de expresiones de los flujos de datos de asignación en Azure Data Factory
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Genere expresiones con el Generador de expresiones en flujos de datos de asignación, en Azure Data Factory y Azure Synapse Analytics.
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
+ms.subservice: data-flows
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 04/29/2021
-ms.openlocfilehash: e335176b5cd7c6c35477ac9318cf20ce4b64b82d
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.date: 08/24/2021
+ms.openlocfilehash: 7dd40b52cbc74e62a6dbb8ed83d19c968e48d9c4
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108291017"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122822819"
 ---
 # <a name="build-expressions-in-mapping-data-flow"></a>Generación de expresiones del flujo de datos de asignación
 
@@ -20,7 +23,7 @@ ms.locfileid: "108291017"
 
 En el flujo de datos de asignación, muchas propiedades de transformación se especifican como expresiones. Estas expresiones se componen de valores de columna, parámetros, funciones, operadores y literales que se evalúan como un tipo de datos de Spark en tiempo de ejecución. La asignación de flujos de datos tiene una experiencia dedicada orientada a ayudarle a crear estas expresiones denominada **Generador de expresiones**. La utilización de la finalización de código de [IntelliSense](/visualstudio/ide/using-intellisense) para resaltar, comprobar la sintaxis y autocompletar, el generador de expresiones está diseñado para facilitar la creación de flujos de datos. En este artículo se explica cómo usar el generador de expresiones para crear eficazmente la lógica de negocios.
 
-![Generador de expresiones](media/data-flow/expresion-builder.png "Generador de expresiones")
+:::image type="content" source="media/data-flow/expresion-builder.png" alt-text="Generador de expresiones":::
 
 ## <a name="open-expression-builder"></a>Apertura del generador de expresiones
 
@@ -173,7 +176,7 @@ toLong( currentTimestamp() - toTimestamp('1970-01-01 00:00:00.000', 'yyyy-MM-dd 
 ### <a name="data-flow-time-evaluation"></a>Evaluación del tiempo de flujo de datos
 
 El flujo de datos procesa hasta milisegundos. Para *2018-07-31T20:00:00.2170000*, verá *2018-07-31T20:00:00.217* en la salida.
-En el portal de ADF, la marca de tiempo se muestra en la **configuración actual del explorador**, que puede eliminar 217, pero cuando ejecute el flujo de datos de un extremo a otro, se procesará también la parte de milisegundos de 217. Puede usar toString(myDateTimeColumn) como expresión y ver los datos de precisión completa en la versión preliminar. Procese datetime como datetime y no como string para todos los propósitos prácticos.
+En el portal del servicio, la marca de tiempo se muestra en la **configuración actual del explorador**, que puede eliminar 217. Sin embargo, cuando ejecute el flujo de datos de un extremo a otro, se procesará también la parte de milisegundos de 217. Puede usar toString(myDateTimeColumn) como expresión y ver los datos de precisión completa en la versión preliminar. Procese datetime como datetime y no como string para todos los propósitos prácticos.
  
 
 ## <a name="next-steps"></a>Pasos siguientes

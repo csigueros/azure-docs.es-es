@@ -6,14 +6,14 @@ author: asudbring
 manager: KumudD
 ms.service: azure-cdn
 ms.topic: how-to
-ms.date: 9/06/2020
+ms.date: 08/18/2021
 ms.author: allensu
-ms.openlocfilehash: 6e433950c04c4494201b090063b17a10e54a4822
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 06d0e35534db97f1de48c55f9cc6f46f979514fa
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98685778"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122444842"
 ---
 # <a name="azure-cdn-endpoint-multi-origin"></a>Punto de conexión con varios orígenes de Azure CDN
 
@@ -83,6 +83,12 @@ Configure uno o más grupos de origen y elija un grupo de origen predeterminado.
 3. Seleccione **Agregar**.
 
 4. Seleccione **Configure origin** (Configurar origen) para establecer la ruta de acceso de origen para todos los orígenes:
+
+    La ruta de acceso de origen se usa para volver a escribir la dirección URL que Microsoft CDN usará al crear la solicitud reenviada al origen. También incluirá todas las partes restantes de la solicitud entrante. De forma predeterminada, no se proporciona esta ruta de acceso. Por lo tanto, Microsoft CDN usará la ruta de acceso de la dirección URL entrante en la solicitud al origen.
+
+    Ruta de acceso de origen: `/fwd/`
+
+    Ruta de acceso de dirección URL entrante: `/foo/a/b/image1.jpg` </br> Dirección URL de Microsoft CDN al origen: `fwd/foo/a/b/image1.jpg.`
 
     :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-7.png" alt-text="Configuración de la ruta de acceso de origen" border="true":::
 

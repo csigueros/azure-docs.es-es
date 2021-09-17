@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/14/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 6307c99c0796fb4159da7563c951304ceef6ece2
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 125f3aa1cb3cfec0b7e8ec3cfafebdf2fae53e59
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121750859"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122771216"
 ---
 # <a name="azure-digital-twins-high-availability-and-disaster-recovery"></a>Alta disponibilidad y recuperación ante desastres de Azure Digital Twins
 
@@ -22,17 +22,17 @@ En este artículo se describen las características de alta disponibilidad y rec
 
 Azure Digital Twins admite estas opciones de características:
 * *Alta disponibilidad dentro de una región*: redundancia integrada para cumplir con el tiempo de actividad del servicio.
-* *Recuperación ante desastres entre regiones*: conmutación por error en una región de Azure emparejada geográficamente en caso de un error inesperado en el centro de datos.
+* *Recuperación ante desastres entre regiones*: conmutación por error en una región de Azure emparejada geográficamente en caso de error inesperado en el centro de datos.
 
 También puede consultar la sección [Procedimientos recomendados](#best-practices) para ver instrucciones generales de Azure sobre el diseño de alta disponibilidad y recuperación ante desastres.
 
 ## <a name="intra-region-ha"></a>Alta disponibilidad dentro de una región
  
-Azure Digital Twins ofrece alta disponibilidad dentro de una región mediante la implementación de redundancias en el servicio. Esto se refleja en el [Acuerdo de Nivel de Servicio](https://azure.microsoft.com/support/legal/sla/digital-twins) para el tiempo de actividad. **No es necesario que los desarrolladores de una solución de Azure Digital Twins hagan ningún trabajo adicional para poder beneficiarse de estas características de alta disponibilidad.** Aunque Azure Digital Twins ofrece una garantía de tiempo de actividad razonablemente elevada, todavía es posible que ocurran errores transitorios, al igual que sucede con cualquier plataforma de informática distribuida. Se deben integrar directivas de reintento adecuadas en los componentes que interactúan con una aplicación en la nube para solucionar errores transitorios.
+Azure Digital Twins ofrece alta disponibilidad dentro de una región mediante la implementación de redundancias en el servicio. Esta funcionalidad se refleja en el [contrato de nivel de servicio](https://azure.microsoft.com/support/legal/sla/digital-twins) para el tiempo de actividad. **No es necesario que los desarrolladores de una solución de Azure Digital Twins hagan ningún trabajo adicional para poder beneficiarse de estas características de alta disponibilidad.** Aunque Azure Digital Twins ofrece una garantía de tiempo de actividad razonablemente elevada, todavía es posible que ocurran errores transitorios, al igual que sucede con cualquier plataforma de informática distribuida. Se deben integrar directivas de reintento adecuadas en los componentes que interactúan con una aplicación en la nube para solucionar errores transitorios.
 
 ## <a name="cross-region-dr"></a>Recuperación ante desastres entre regiones
 
-Podría haber algunas situaciones excepcionales cuando un centro de datos sufre interrupciones prolongadas debido a problemas con el suministro eléctrico u otros eventos en la región. Estos eventos son poco frecuentes, durante los cuales es posible que no sea útil la funcionalidad de alta disponibilidad dentro de una región que se describió anteriormente. Azure Digital Twins aborda esta situación con la conmutación por error iniciada por Microsoft.
+Podría haber algunas situaciones excepcionales cuando un centro de datos sufre interrupciones prolongadas debido a problemas con el suministro eléctrico u otros eventos en la región. Estos eventos son poco frecuentes, durante los cuales es posible que no sea útil la funcionalidad de alta disponibilidad dentro de una región que se describió anteriormente. Azure Digital Twins aborda este escenario con la conmutación por error iniciada por Microsoft.
 
 La **conmutación por error iniciada por Microsoft** se lleva a cabo en situaciones excepcionales para conmutar por error todas las instancias de Azure Digital Twins desde una región afectada hasta la [región emparejada geográficamente](../best-practices-availability-paired-regions.md) correspondiente. Este proceso es una opción predeterminada (los usuarios no pueden omitirla) y no requiere ninguna intervención por parte del usuario. Microsoft se reserva el derecho a tomar una determinación sobre cuándo ejecutar esta opción. Este mecanismo no precisa de consentimiento del usuario antes de realizar la conmutación por error de la instancia del usuario.
 
@@ -65,7 +65,7 @@ Para ver los eventos de Service Health...
     :::image type="content" source="media/concepts-high-availability-disaster-recovery/issue-updates.png" alt-text="Captura de pantalla de Azure Portal en la que se muestra la página &quot;Historial de estado&quot; con la pestaña &quot;Actualizaciones de problemas&quot; resaltada. La pestaña muestra el estado de las entradas." lightbox="media/concepts-high-availability-disaster-recovery/issue-updates.png":::
 
 
-Tenga en cuenta que la información que se muestra en esta herramienta no es específica de una instancia de Azure Digital. Después de usar Service Health para comprender lo que está ocurriendo con el servicio Azure Digital Twins en una determinada región o suscripción, puede avanzar el proceso de supervisión un paso más mediante el uso de la [herramienta Resource Health](troubleshoot-resource-health.md) para profundizar en instancias específicas y ver si están afectadas.
+La información que se muestra en esta herramienta no es específica de una instancia de Azure Digital. Después de usar Service Health para comprender lo que está ocurriendo con el servicio Azure Digital Twins en una determinada región o suscripción, puede avanzar el proceso de supervisión un paso más mediante el uso de la [herramienta Resource Health](troubleshoot-resource-health.md) para profundizar en instancias específicas y ver si están afectadas.
 
 ## <a name="best-practices"></a>Procedimientos recomendados
 

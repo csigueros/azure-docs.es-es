@@ -11,20 +11,20 @@ ms.custom:
 ms.author: dobett
 author: dominicbetts
 ms.date: 11/12/2019
-ms.openlocfilehash: d94b3e56b3b8f70a03b6a3872b085e450043ab70
-ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
+ms.openlocfilehash: d2a5df40dd16ea7f996caf34b2e0cad7b0a60900
+ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113585958"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122195425"
 ---
 # <a name="tutorial-export-data-from-azure-iot-central-and-visualize-insights-in-power-bi"></a>Tutorial: Exportación de datos desde Azure IoT Central y visualización de información en Power BI
-
 
 En los dos tutoriales anteriores, ha creado y personalizado una aplicación de IoT Central con la plantilla de aplicación **In-store analytics - checkout** (Análisis en tienda: finalización de la compra). En este tutorial, configurará la aplicación de IoT Central para que exporte los datos de telemetría recopilados de los dispositivos. A continuación, usará Power BI para crear un panel personalizado para que el administrador de la tienda visualice la información derivada de la telemetría.
 
 En este tutorial, aprenderá a:
 > [!div class="checklist"]
+
 > * Configurar una aplicación de IoT Central para exportar los datos de telemetría a un centro de eventos.
 > * Usar Logic Apps para enviar datos de un centro de eventos a un conjunto de datos de streaming de Power BI.
 > * Crear un panel de Power BI para visualizar los datos del conjunto de datos de streaming.
@@ -75,7 +75,7 @@ Ahora que tiene un **espacio de nombres de Event Hubs**, puede crear un **centr
 
 Ahora tiene un centro de eventos que puede usar al configurar la exportación de datos desde la aplicación de IoT Central:
 
-![Centro de eventos](./media/tutorial-in-store-analytics-visualize-insights/event-hub.png)
+:::image type="content" source="media/tutorial-in-store-analytics-visualize-insights/event-hub.png" alt-text="Centro de eventos.":::
 
 ## <a name="configure-data-export"></a>Configuración de la exportación de datos
 
@@ -92,7 +92,7 @@ Ahora tiene un centro de eventos, puede configurar la aplicación **In-store ana
 
 La exportación de datos puede tardar unos minutos en iniciar el envío de los datos de telemetría al centro de eventos. Puede ver el estado de la exportación en la página **Data exports** (Exportaciones de datos):
 
-![Configuración de la exportación de datos continua](./media/tutorial-in-store-analytics-visualize-insights/export-configuration.png)
+:::image type="content" source="media/tutorial-in-store-analytics-visualize-insights/export-configuration.png" alt-text="Configuración de la exportación de datos continua.":::
 
 ## <a name="create-the-power-bi-datasets"></a>Creación de los conjuntos de datos de Power BI
 
@@ -119,7 +119,8 @@ El panel de Power BI mostrará los datos de la aplicación de supervisión de v
 
 Ahora tiene dos conjuntos de datos de streaming. La aplicación lógica enrutará los datos de telemetría de los dos sensores ambientales conectados a la aplicación **In-store analytics - checkout** (Análisis en tienda: finalización de la compra) a estos dos conjuntos de datos:
 
-![Conjuntos de datos de zona](./media/tutorial-in-store-analytics-visualize-insights/dataset-1.png)
+:::image type="content" source="media/tutorial-in-store-analytics-visualize-insights/dataset-1.png" alt-text="Conjuntos de datos de zona.":::
+
 
 Esta solución utiliza un conjunto de datos de streaming para cada sensor porque no es posible aplicar filtros a los datos de streaming en Power BI.
 
@@ -143,7 +144,7 @@ También necesita un conjunto de datos de streaming para los datos de telemetrí
 
 Ahora tiene un tercer conjunto de datos de streaming que almacena valores del sensor de ocupación simulado. Este sensor informa de la longitud de la cola en las dos zonas de cajas de la tienda y cuánto tiempo esperan los clientes en dichas colas:
 
-![Conjunto de datos de ocupación](./media/tutorial-in-store-analytics-visualize-insights/dataset-2.png)
+:::image type="content" source="media/tutorial-in-store-analytics-visualize-insights/dataset-2.png" alt-text="Conjunto de datos de ocupación.":::
 
 ## <a name="create-a-logic-app"></a>Creación de una aplicación lógica
 
@@ -155,7 +156,7 @@ Antes de crear la aplicación lógica, necesita los identificadores de dispositi
 1. En el panel izquierdo, seleccione **Devices** (Dispositivos). A continuación, seleccione **RuuviTag**.
 1. Tome nota de los **identificadores de dispositivo**. En la siguiente captura de pantalla, los identificadores son **f5dcf4ac32e8** y **e29ffc8d5326**:
 
-    ![Identificadores de dispositivo](./media/tutorial-in-store-analytics-visualize-insights/device-ids.png)
+:::image type="content" source="media/tutorial-in-store-analytics-visualize-insights/device-ids.png" alt-text="Identificadores de dispositivo.":::
 
 En los pasos siguientes se muestra cómo crear la aplicación lógica en Azure Portal:
 
@@ -369,7 +370,7 @@ Para agregar la lógica al diseño de la aplicación lógica, seleccione **Vista
 
 1. Seleccione **Guardar** y, después, seleccione **Diseñador** para ver la versión visual de la lógica que ha agregado:
 
-    ![Diseño de la aplicación lógica](./media/tutorial-in-store-analytics-visualize-insights/logic-app.png)
+    :::image type="content" source="media/tutorial-in-store-analytics-visualize-insights/logic-app.png" alt-text="Diseño de la aplicación lógica.":::
 
 1. Seleccione **Cambiar por identificador de dispositivo** para expandir la acción. A continuación, seleccione **Entorno zona 1** y seleccione **Agregar una acción**.
 1. En **Buscar conectores y acciones**, escriba **Power BI** y, a continuación, presione **Entrar**.
@@ -383,7 +384,7 @@ Para agregar la lógica al diseño de la aplicación lógica, seleccione **Vista
     * Seleccione el campo **Timestamp** y, después, seleccione **x-opt-enqueuedtime** de la lista **Contenido dinámico**.
     * Seleccione el campo **Humidity** y, a continuación, seleccione **Ver más** junto a **Analizar telemetría**. A continuación, seleccione **humidity**.
     * Seleccione el campo **Temperature** y, a continuación, seleccione **Ver más** junto a **Analizar telemetría**. A continuación, seleccione **temperature**.
-    * Haga clic en **Guardar** para guardar los cambios. La acción **Entorno zona 1** es similar a la captura de pantalla siguiente: ![Entorno zona 1](./media/tutorial-in-store-analytics-visualize-insights/zone-1-action.png)
+    * Haga clic en **Guardar** para guardar los cambios. La acción **Zone 1 environment** (Entorno de la zona 1) tiene el aspecto de la captura de pantalla siguiente: :::image type="content" source="media/tutorial-in-store-analytics-visualize-insights/zone-1-action.png" alt-text="Entorno de la zona 1.":::
 1. Seleccione la acción **Entorno zona 2** y seleccione **Agregar una acción**.
 1. En **Buscar conectores y acciones**, escriba **Power BI** y, a continuación, presione **Entrar**.
 1. Seleccione la acción **Agregar filas a un conjunto de datos (versión preliminar)** .
@@ -395,7 +396,7 @@ Para agregar la lógica al diseño de la aplicación lógica, seleccione **Vista
     * Seleccione el campo **Timestamp** y, después, seleccione **x-opt-enqueuedtime** de la lista **Contenido dinámico**.
     * Seleccione el campo **Humidity** y, a continuación, seleccione **Ver más** junto a **Analizar telemetría**. A continuación, seleccione **humidity**.
     * Seleccione el campo **Temperature** y, a continuación, seleccione **Ver más** junto a **Analizar telemetría**. A continuación, seleccione **temperature**.
-    Haga clic en **Guardar** para guardar los cambios.  La acción **Entorno zona 2** es similar a la captura de pantalla siguiente: ![Entorno zona 2](./media/tutorial-in-store-analytics-visualize-insights/zone-2-action.png)
+    Haga clic en **Guardar** para guardar los cambios.  La acción **Zone 2 environment** (Entorno de la zona 2) tiene el aspecto de la captura de pantalla siguiente: :::image type="content" source="media/tutorial-in-store-analytics-visualize-insights/zone-2-action.png" alt-text="Entorno de la zona 2.":::
 1. Seleccione la acción **Ocupación** y, a continuación, seleccione la acción **Cambiar por identificador de interfaz**.
 1. Seleccione la acción **Interfaz de tiempo de permanencia** y seleccione **Agregar una acción**.
 1. En **Buscar conectores y acciones**, escriba **Power BI** y, a continuación, presione **Entrar**.
@@ -408,7 +409,7 @@ Para agregar la lógica al diseño de la aplicación lógica, seleccione **Vista
     * Seleccione el campo **Timestamp** y, después, seleccione **x-opt-enqueuedtime** de la lista **Contenido dinámico**.
     * Seleccione el campo **Dwell Time 1** y, a continuación, seleccione **Ver más** junto a **Analizar telemetría**. A continuación, seleccione **DwellTime1**.
     * Seleccione el campo **Dwell Time 2** y, a continuación, seleccione **Ver más** junto a **Analizar telemetría**. A continuación, seleccione **DwellTime2**.
-    * Haga clic en **Guardar** para guardar los cambios. La acción **Interfaz de tiempo de permanencia** es similar a la captura de pantalla siguiente: ![Captura de pantalla que muestra la acción "Interfaz de tiempo de permanencia".](./media/tutorial-in-store-analytics-visualize-insights/occupancy-action-1.png)
+    * Haga clic en **Guardar** para guardar los cambios. La acción **Interfaz de tiempo de permanencia** es similar a la captura de pantalla siguiente: :::image type="content" source="media/tutorial-in-store-analytics-visualize-insights/occupancy-action-1.png" alt-text="Interfaz de tiempo de permanencia.":::
 1. Seleccione la acción **Interfaz de recuento de personas** y seleccione **Agregar una acción**.
 1. En **Buscar conectores y acciones**, escriba **Power BI** y, a continuación, presione **Entrar**.
 1. Seleccione la acción **Agregar filas a un conjunto de datos (versión preliminar)** .
@@ -420,7 +421,7 @@ Para agregar la lógica al diseño de la aplicación lógica, seleccione **Vista
     * Seleccione el campo **Timestamp** y, después, seleccione **x-opt-enqueuedtime** de la lista **Contenido dinámico**.
     * Seleccione el campo **Queue Length 1** y, a continuación, seleccione **Ver más** junto a **Analizar telemetría**. A continuación, seleccione **count1**.
     * Seleccione el campo **Queue Length 2** y, a continuación, seleccione **Ver más** junto a **Analizar telemetría**. A continuación, seleccione **count2**.
-    * Haga clic en **Guardar** para guardar los cambios. La acción **Interfaz de recuento de personas** es similar a la captura de pantalla siguiente: ![Acción de ocupación](./media/tutorial-in-store-analytics-visualize-insights/occupancy-action-2.png)
+    * Haga clic en **Guardar** para guardar los cambios. La acción **Interfaz de recuento de personas** es similar a la captura de pantalla siguiente: :::image type="content" source="media/tutorial-in-store-analytics-visualize-insights/occupancy-action-2.png" alt-text="Acción de ocupación.":::
 
 La aplicación lógica se ejecuta automáticamente. Para ver el estado de cada ejecución, vaya a la página **Información general** de la aplicación lógica en Azure Portal:
 
@@ -449,7 +450,7 @@ Agregue cuatro iconos de gráfico de líneas para mostrar la temperatura y la hu
 
 En la captura de pantalla siguiente se muestra la configuración del primer gráfico:
 
-![Configuración del gráfico de línea](./media/tutorial-in-store-analytics-visualize-insights/line-chart.png)
+:::image type="content" source="media/tutorial-in-store-analytics-visualize-insights/line-chart.png" alt-text="Configuración del gráfico de líneas.":::
 
 ### <a name="add-cards-to-show-environmental-data"></a>Adición de tarjetas para mostrar los datos ambientales
 
@@ -465,7 +466,7 @@ Agregue cuatro iconos de tarjeta para mostrar los valores de temperatura y humed
 
 En la captura de pantalla siguiente se muestra la configuración de la primera tarjeta:
 
-![Configuración de tarjeta](./media/tutorial-in-store-analytics-visualize-insights/card-settings.png)
+:::image type="content" source="media/tutorial-in-store-analytics-visualize-insights/card-settings.png" alt-text="Configuración de la tarjeta.":::
 
 ### <a name="add-tiles-to-show-checkout-occupancy-data"></a>Adición de iconos para mostrar los datos de ocupación en la zona de cajas
 
@@ -483,11 +484,11 @@ Agregue cuatro iconos de tarjeta para mostrar la longitud de la cola y el tiempo
 
 Cambie el tamaño y reorganice los iconos en el panel para que se parezca a la siguiente captura de pantalla:
 
-![Captura de pantalla que muestra el panel de Power BI con iconos cambiados y reorganizados.](./media/tutorial-in-store-analytics-visualize-insights/pbi-dashboard.png)
+:::image type="content" source="media/tutorial-in-store-analytics-visualize-insights/pbi-dashboard.png" alt-text="Captura de pantalla en la que se muestra el panel de Power BI con iconos redimensionados y reorganizados.":::
 
 Puede agregar algunos recursos gráficos adicionales para personalizar aún más el panel:
 
-![Panel de Power BI](./media/tutorial-in-store-analytics-visualize-insights/pbi-dashboard-graphics.png)
+:::image type="content" source="media/tutorial-in-store-analytics-visualize-insights/pbi-dashboard-graphics.png" alt-text="Panel de Power BI":::
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

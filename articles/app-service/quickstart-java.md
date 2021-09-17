@@ -14,12 +14,12 @@ adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./quickstart-java-uiex
-ms.openlocfilehash: 7393a8085a2ac597f3fdbcc365608d32956f39b7
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: 54ca249d1b89eb90b636da72e1378eadfd5fe0c1
+ms.sourcegitcommit: deb5717df5a3c952115e452f206052737366df46
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113111706"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122681402"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service"></a>Inicio rápido: Creación de una aplicación de Java en Azure App Service
 
@@ -98,7 +98,7 @@ El proceso de implementación en Azure App Service utilizará sus credenciales d
 Ejecute el siguiente comando de Maven para configurar la implementación. Este comando le ayudará a configurar el sistema operativo de App Service, la versión de Java y la versión de Tomcat.
 
 ```azurecli-interactive
-mvn com.microsoft.azure:azure-webapp-maven-plugin:2.0.0:config
+mvn com.microsoft.azure:azure-webapp-maven-plugin:2.1.0:config
 ```
 
 ::: zone pivot="platform-windows"
@@ -291,13 +291,7 @@ Tenga cuidado con los valores de `<appName>` y `<resourceGroup>` (`helloworld-15
 
 ## <a name="deploy-the-app"></a>Implementar la aplicación
 
-El complemento de Maven usa las credenciales de la cuenta desde la CLI de Azure para la implementación en App Services. [Inicie sesión con la CLI de Azure](/cli/azure/authenticate-azure-cli) antes de continuar.
-
-```azurecli-interactive
-az login
-```
-
-A continuación, puede implementar la aplicación de Java en Azure mediante el siguiente comando.
+Con toda la configuración lista en el archivo pom, puede implementar la aplicación de Java en Azure con un solo comando.
 
 ```azurecli-interactive
 mvn package azure-webapp:deploy

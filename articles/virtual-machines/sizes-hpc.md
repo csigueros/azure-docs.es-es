@@ -9,14 +9,16 @@ ms.workload: infrastructure-services
 ms.date: 03/19/2021
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: 1a82c13d0ad64f100f2fb8b826b1786afa81abac
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.openlocfilehash: 11c3fadd7f95f07bbcbf095e8d6a126022bbea0b
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122253372"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122697926"
 ---
 # <a name="high-performance-computing-vm-sizes"></a>Tamaños de VM para informática de alto rendimiento
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles :heavy_check_mark: Conjuntos de escalado uniformes
 
 > [!TIP]
 > Pruebe la **[herramienta Selector de máquinas virtuales](https://aka.ms/vm-selector)** para buscar otros tamaños que se adapten mejor a la carga de trabajo.

@@ -1,19 +1,19 @@
 ---
 title: Configuración de las reglas de firewall de IP
 description: En este artículo se muestra cómo configurar reglas de firewall de IP en Azure Synapse Analytics.
-author: RonyMSFT
+author: ashinMSFT
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: security
-ms.date: 04/15/2020
-ms.author: ronytho
-ms.reviewer: jrasnick
-ms.openlocfilehash: 787e600df4185346b250d9a96bdb89927e134075
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 08/15/2021
+ms.author: seshin
+ms.reviewer: wiassaf
+ms.openlocfilehash: a375c4c99e3b86706f9fed7bc52f3064995cd21c
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103472013"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122252793"
 ---
 # <a name="azure-synapse-analytics-ip-firewall-rules"></a>Reglas de firewall de IP de Azure Synapse Analytics
 
@@ -25,15 +25,17 @@ Las reglas de firewall de IP conceden o deniegan el acceso al área de trabajo d
 
 ## <a name="create-and-manage-ip-firewall-rules"></a>Creación y administración de reglas de firewall de IP
 
-Hay dos maneras de agregar reglas de firewall de IP a un área de trabajo de Synapse. Para agregar un firewall de IP al área de trabajo, seleccione **Security + networking** (Seguridad y redes) y active **Uso permitido de conexiones de todas las direcciones IP** durante la creación del área de trabajo.
+Hay dos maneras de agregar reglas de firewall de IP a un área de trabajo de Azure Synapse. Para agregar un firewall de IP al área de trabajo, seleccione **Redes** y active **Uso permitido de conexiones de todas las direcciones IP** al crear el área de trabajo.
 
-![Captura de pantalla que resalta el botón Seguridad y redes.](./media/synpase-workspace-ip-firewall/ip-firewall-1.png)
+> [!Important]
+> Esta característica solo está disponible para áreas de trabajo de Azure Synapse no asociadas a una red virtual administrada.
 
-![Configuración de IP del área de trabajo de Synapse en Azure Portal.](./media/synpase-workspace-ip-firewall/ip-firewall-2.png)
+:::image type="content" source="./media/synpase-workspace-ip-firewall/azure-synapse-workspace-networking-connections-all-ip-addresses.png" lightbox="./media/synpase-workspace-ip-firewall/azure-synapse-workspace-networking-connections-all-ip-addresses.png" alt-text="Captura de pantalla que resalta la pestaña Seguridad y la casilla &quot;Uso permitido de conexiones de todas las direcciones IP&quot;.":::
+
 
 También puede agregar reglas de firewall de IP a un área de trabajo de Synapse después de crear el área de trabajo. En Azure Portal, vaya a **Seguridad** y seleccione **Firewalls**. Para agregar una nueva regla de firewall de IP, asígnele un nombre, una dirección IP inicial y una dirección IP final. Seleccione **Guardar** cuando haya terminado.
 
-![Configuración de IP del área de trabajo de Azure Synapse en Azure Portal.](./media/synpase-workspace-ip-firewall/ip-firewall-3.png)
+:::image type="content" source="./media/synpase-workspace-ip-firewall/azure-synapse-workspace-networking-firewalls-add-client-ip.png" lightbox="./media/synpase-workspace-ip-firewall/azure-synapse-workspace-networking-firewalls-add-client-ip.png" alt-text="Captura de pantalla de la página Redes de un área de trabajo de Synapse en la que se resaltan los campos Agregar IP de cliente y Reglas.":::
 
 ## <a name="connect-to-synapse-from-your-own-network"></a>Conexión con Synapse desde su propia red
 

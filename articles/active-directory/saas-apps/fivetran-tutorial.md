@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/01/2020
+ms.date: 08/10/2021
 ms.author: jeedes
-ms.openlocfilehash: 88f6da7e43e269816c7e4ae2fd7bbc3f5e26522b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5845df453801b9c59e3652efed5cef7d9f9e0978
+ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92453100"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122272124"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-fivetran"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Fivetran
 
@@ -54,7 +54,6 @@ Para configurar la integración de Fivetran en Azure AD, es preciso agregar Fiv
 1. En la sección **Agregar desde la galería**, escriba **Fivetran** en el cuadro de búsqueda.
 1. Seleccione **Fivetran** en el panel de resultados y, a continuación, agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
-
 ## <a name="configure-and-test-azure-ad-sso-for-fivetran"></a>Configuración y prueba del inicio de sesión único de Azure AD para Fivetran
 
 Configure y pruebe el inicio de sesión único de Azure AD con Fivetran mediante un usuario de prueba llamado **B.Simon**. Para que el inicio de sesión único funcione, es preciso establecer una relación de vinculación entre un usuario de Azure AD y el usuario correspondiente de Fivetran.
@@ -74,12 +73,11 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. En Azure Portal, en la página de integración de la aplicación **Fivetran**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
 1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
-1. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
+1. En la página **Configuración del inicio de sesión único con SAML**, haga clic en el icono de lápiz de **Configuración básica de SAML** para editar la configuración.
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
 1. En la sección **Configuración básica de SAML**, la aplicación está preconfigurada y las direcciones URL necesarias ya se han rellenado previamente con Azure. El usuario debe guardar la configuración, para lo que debe hacer clic en el botón **Guardar**.
-
 
 1. La aplicación Fivetran espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de muestra la lista de atributos predeterminados.
 
@@ -129,13 +127,14 @@ En esta sección, va a permitir que B.Simon acceda a Fivetran mediante el inicio
 En esta sección, configurará el inicio de sesión único en la instancia de **Fivetran**.
 
 1. En otra ventana del explorador web, inicie sesión en su cuenta de Fivetran como propietario de la cuenta.
+
 1. Seleccione la flecha situada en la esquina superior izquierda de la ventana y, a continuación, seleccione **Administrar cuenta** en la lista desplegable.
 
-   ![Captura de pantalla que muestra la opción de menú Administrar cuenta seleccionada.](media/fivetran-tutorial/fivetran-1.png)
+   ![Captura de pantalla que muestra la opción de menú Administrar cuenta seleccionada.](media/fivetran-tutorial/menu.png)
 
 1. Vaya a la sección **Configuración de SAML** de la página **Configuración**.
 
-   ![Captura de pantalla que muestra el panel Configuración de SAML con las opciones de configuración resaltadas.](media/fivetran-tutorial/fivetran-2.png)
+   ![Captura de pantalla que muestra el panel Configuración de SAML con las opciones de configuración resaltadas.](media/fivetran-tutorial/settings.png)
 
    1. En **Habilitar autenticación SAML**, seleccione **Activado**.
    1. En **Dirección URL de inicio de sesión**, pegue el valor de **Dirección URL de inicio de sesión** que copió de Azure Portal.
@@ -149,11 +148,11 @@ En esta sección se crea un usuario llamado B.Simon en Fivetran. Fivetran admite
 
 ## <a name="test-sso"></a>Prueba de SSO 
 
-En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones. 
+En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones.
 
-1. Haga clic en **Probar esta aplicación** en Azure Portal y debería iniciar sesión automáticamente en la instancia de Fivetran para la que configuró el inicio de sesión único. 
+* Haga clic en Probar esta aplicación en Azure Portal y debería iniciar sesión automáticamente en la instancia de Fivetran para la que configuró el inicio de sesión único.
 
-2. Puede usar el Panel de acceso de Microsoft. Al hacer clic en el icono de Fivetran en el Panel de acceso, debería iniciar sesión automáticamente en la instancia de Fivetran para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
+* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Fivetran en Aplicaciones, debería iniciar sesión automáticamente en la instancia de Fivetran para la que configuró el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

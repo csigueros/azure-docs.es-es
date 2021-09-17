@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: sample
 ms.custom: devx-track-js
-ms.openlocfilehash: c071c1be4a0020788060f3e23b61a155dc6d85d1
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: fa36c399807c92b4c521e5b29c0d465a42462cbe
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106277375"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121740136"
 ---
 # <a name="azure-storage-samples-using-v12-javascript-client-libraries"></a>Ejemplos de Azure Storage mediante las bibliotecas de cliente de JavaScript v12
 
@@ -406,7 +406,7 @@ En la tabla siguiente se proporciona información general sobre el repositorio d
 
 Para ver todas las bibliotecas de ejemplo de JavaScript, vaya a:
 
-* [Ejemplos de código de blobs de Azure](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples/javascript)
+* [Ejemplos de código para blobs de Azure](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples/javascript)
 * [Ejemplos de código de Azure Data Lake](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-file-datalake/samples/javascript)
 * [Ejemplos de código de Azure Files](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-file-share/samples/javascript)
 * [Ejemplos de código de cola de Azure](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue/samples/javascript)

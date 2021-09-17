@@ -9,12 +9,12 @@ ms.topic: sample
 ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: mvc, seodec18, devx-track-azurecli
-ms.openlocfilehash: f76f036e2101fb1dbb4483ba417f5cf10f3e37f4
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 6beaafe19184e9c7b27c4e533f20c023948e9209
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107782422"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121736116"
 ---
 # <a name="connect-an-app-service-app-to-cosmos-db-using-cli"></a>Conexión de una aplicación de App Service a Cosmos DB mediante la CLI
 
@@ -43,7 +43,7 @@ Este script usa los siguientes comandos para crear un grupo de recursos, una apl
 | [`az webapp create`](/cli/azure/webapp#az_webapp_create) | Crea una aplicación de App Service. |
 | [`az cosmosdb create`](/cli/azure/cosmosdb#az_cosmosdb_create) | Crea una cuenta de Cosmos DB. |
 | [`az cosmosdb list-connection-strings`](/cli/azure/cosmosdb#az_cosmosdb_list_connection_strings) | Devuelve las cadenas de conexión de la cuenta de Cosmos DB especificada. |
-| [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) | Crea o actualiza una configuración de aplicación para una aplicación de App Service. La configuración de la aplicación se expone como variables de entorno para la aplicación. |
+| [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) | Crea o actualiza una configuración de aplicación para una aplicación de App Service. La configuración de la aplicación se expone como variables de entorno para la aplicación (consulte [Referencia de variables de entorno y configuración de la aplicación](../reference-app-settings.md)). |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

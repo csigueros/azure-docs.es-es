@@ -8,19 +8,19 @@ ms.subservice: purview-data-map
 ms.topic: quickstart
 ms.date: 08/18/2021
 ms.custom: template-quickstart
-ms.openlocfilehash: ba3265ff435bc0e8a34048b07aeee3ef82b24b6c
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: a1a62bb6253aa2788d8dad41d506ca898a049283
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122609144"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123475699"
 ---
 # <a name="quickstart-create-a-collection-and-assign-permissions-in-purview"></a>Inicio rápido: Creación de una colección y asignación de permisos en Purview
 
 > [!NOTE]
 > En este momento, este inicio rápido solo se aplica a las instancias de Purview creadas el 18 de agosto de 2021 o después. Las instancias creadas antes del 18 de agosto pueden crear colecciones, pero no administran permisos a través de esas colecciones. Para obtener información sobre cómo crear una colección para una instancia de Purview creada antes del 18 de agosto, consulte nuestra [**guía de colecciones heredada**](#legacy-collection-guide) en la parte inferior de la página.
 > 
-> Todas las cuentas heredadas se actualizarán automáticamente en las próximas semanas. Recibirá una notificación por correo electrónico cuando se actualice la cuenta de Purview. Cuando se actualice la cuenta, todos los permisos asignados se volverán a implementar automáticamente en la colección raíz.
+> Todas las cuentas heredadas se actualizarán automáticamente en las próximas semanas. Recibirá una notificación por correo electrónico cuando se actualice la cuenta de Purview. Para más información sobre los cambios que se producirán al actualizar la cuenta, consulte nuestra [guía de cuentas actualizadas](concept-account-upgrade.md).
 
 Las colecciones son la herramienta de Purview para administrar la propiedad y el control de acceso entre recursos, orígenes e información. También organizan los orígenes y recursos en categorías que se personalizan para que coincidan con la experiencia de administración con los datos. Esta guía le guiará por el proceso de configuración de su primera colección y el administrador de recopilación a fin de preparar el entorno de Purview para su organización.
 
@@ -79,7 +79,7 @@ Todos los roles asignados se aplican a orígenes, recursos y otros objetos dentr
 
 * **Administradores de la colección**: pueden editar una colección y sus detalles, administrar el acceso a la colección y agregar subcolecciones.
 * **Administradores de orígenes de datos**: pueden administrar orígenes de datos y exámenes de datos.
-* **Administradores de datos**: pueden crear, leer, modificar y eliminar acciones en objetos de datos del catálogo.
+* **Conservadores de datos**: pueden crear, leer, modificar y eliminar acciones en objetos de datos del catálogo.
 * **Lectores de datos**: pueden acceder a los objetos de datos del catálogo, pero no modificarlos.
 
 ### <a name="assign-permissions"></a>Asignación de permisos

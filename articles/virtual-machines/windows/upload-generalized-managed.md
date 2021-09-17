@@ -1,6 +1,6 @@
 ---
-title: Creación de una máquina virtual a partir de un disco duro virtual generalizado cargado
-description: Cargue un VHD generalizado en Azure y úselo para crear máquinas virtuales nuevas en el modelo de implementación de Resource Manager.
+title: Creación de una máquina virtual a partir de un disco duro virtual de Windows generalizado cargado
+description: Cargue un VHD de Windows generalizado en Azure y úselo para crear máquinas virtuales nuevas en el modelo de implementación de Resource Manager.
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: imaging
@@ -9,14 +9,16 @@ ms.topic: how-to
 ms.date: 12/12/2019
 ms.author: cynthn
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 70a89a8fe4917498dc7c31f2a15b95619e973b99
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 4f31fff34dcaaa8cc30b1a894e24f3eda8e5764d
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110667869"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122688590"
 ---
-# <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>Carga de un VHD generalizado y su uso para crear máquinas virtuales nuevas en Azure
+# <a name="upload-a-generalized-windows-vhd-and-use-it-to-create-new-vms-in-azure"></a>Carga de un VHD de Windows generalizado y su uso para crear máquinas virtuales nuevas en Azure
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles 
 
 En este artículo se explica cómo usar PowerShell para cargar un VHD de una máquina virtual generalizada en Azure, crear una imagen a partir del VHD y crear una máquina virtual nueva desde esa imagen. Puede cargar un VHD exportado de una herramienta de visualización local o desde otra nube. Usar [Managed Disks](../managed-disks-overview.md) para la nueva VM simplifica la administración de la VM y proporciona una mejor disponibilidad cuando la VM se encuentra en un conjunto de disponibilidad. 
 
@@ -41,7 +43,7 @@ Asegúrese de que los roles de servidor que se ejecutan en la máquina sean comp
 
 1. Inicie sesión en la máquina virtual de Windows.
 1. Abra una ventana del símbolo del sistema como administrador. 
-1. Elimine el directorio Panther (C:\Windows\Panther).
+1. Elimine el directorio de Panther (C:\Windows\Panther).
 1. Cambie el directorio a %windir%\system32\sysprep, y, después, ejecute `sysprep.exe`.
 1. En **Herramienta de preparación del sistema**, seleccione **Iniciar la Configuración rápida (OOBE)** y asegúrese de que la casilla **Generalizar** está seleccionada.
 1. En **Opciones de apagado**, seleccione **Apagar**.

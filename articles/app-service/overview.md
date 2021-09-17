@@ -3,14 +3,14 @@ title: Información general
 description: Vea cómo Azure App Service lo ayuda a desarrollar y hospedar aplicaciones web.
 ms.assetid: 94af2caf-a2ec-4415-a097-f60694b860b3
 ms.topic: overview
-ms.date: 07/06/2020
+ms.date: 07/21/2021
 ms.custom: devx-track-dotnet, mvc, seodec18
-ms.openlocfilehash: 8994edd417f4f9e94ae14e5923dd1a0d7398f584
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 481ef611bb3bd48ae5096abc538bd43a1bac2423
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108209776"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121741523"
 ---
 # <a name="app-service-overview"></a>Información general de App Service
 
@@ -54,9 +54,11 @@ Si tiene que crear otra aplicación web con una versión del entorno de ejecuci�
 
 ### <a name="limitations"></a>Limitaciones
 
+> [!NOTE]
+> Los planes de App Service para Windows y Linux ahora pueden compartir grupos de recursos. Esta limitación ya no se aplica desde la plataforma y los grupos de recursos existentes se han actualizado para admitir este hecho.
+>
+
 - App Service en Linux no se admite en el plan de tarifa [Compartido](https://azure.microsoft.com/pricing/details/app-service/plans/). 
-- No se pueden mezclar las aplicaciones Windows y Linux en el mismo plan de App Service.  
-- Históricamente, no se pueden mezclar aplicaciones Windows y Linux en el mismo grupo de recursos. Sin embargo, todos los grupos de recursos creados a partir del 21 de enero de 2021 admiten este escenario. Con los grupos de recursos creados antes del 21 de enero de 2021, la capacidad de agregar implementaciones de plataforma mixtas se implementará en breve en las regiones de Azure (incluidas las regiones de nube nacional).
 - Azure Portal solo muestra las características que funcionan actualmente para las aplicaciones Linux. A medida que se habiliten las características, se activarán en el portal.
 - Cuando se implementen en imágenes integradas, el código y el contenido se asignarán a un volumen de almacenamiento para el contenido web, respaldado por Azure Storage. La latencia de disco de este volumen es mayor y más variable que la del sistema de archivos del contenedor. Las aplicaciones que requieran muchos accesos de solo lectura a archivos de contenido pueden beneficiarse de la implementación de contenedores personalizados, que permite colocar los archivos en el sistema de archivos de contenedor en lugar de en el volumen de contenido.
 

@@ -10,14 +10,16 @@ ms.workload: infrastructure
 ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: c70b02bdc554c723f53ad5f8c0d36c5eca87811e
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: f8aa1b8e50a287861cb6367e21878579d69e2d2d
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107774375"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122687885"
 ---
 # <a name="disable-or-remove-the-linux-agent-from-vms-and-images"></a>Deshabilitar o quitar el agente Linux de las máquinas virtuales y las imágenes
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Conjuntos de escalado flexibles 
 
 Antes de quitar el agente Linux, debe saber qué es lo que no podrá hacer la VM después de quitarlo.
 

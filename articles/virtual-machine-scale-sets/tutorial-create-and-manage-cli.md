@@ -8,14 +8,17 @@ ms.service: virtual-machine-scale-sets
 ms.date: 03/27/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: bdf1f2f54e17c5c04d359e32d3596e73472f3506
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 1b95d997bfea9703f302b6ebfdc8dcbf1f514589
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108738366"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122693076"
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>Tutorial: Creación y administración de un conjunto de escalado de máquinas virtuales con la CLI de Azure
+
+**Se aplica a:** :heavy_check_mark: máquinas virtuales Linux :heavy_check_mark: máquinas virtuales Windows :heavy_check_mark: conjuntos de escalado uniformes
+
 El conjunto de escalado de máquinas virtuales le permite implementar y administrar un conjunto de máquinas virtuales de escalado automático idénticas. Durante el ciclo de vida de la máquina virtual, es posible que deba ejecutar una o varias tareas de administración. En este tutorial, aprenderá a:
 
 > [!div class="checklist"]

@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 05/13/2021
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 223a3ba0fdb11824cd7c45218dc72271054db428
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 86795c29f5eaaedb1ea08975a69b6afde9d755c1
+ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114470684"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122271491"
 ---
 # <a name="quickstart-integrate-azure-spring-cloud-with-azure-database-for-mysql"></a>Inicio rápido: Integración de Azure Spring Cloud con Azure Database for MySQL
 
@@ -20,7 +20,7 @@ Pet Clinic, como se implementa en la configuración predeterminada del [Inicio r
 
 ## <a name="variables-preparation"></a>Preparación de las variables
 
-Se usarán los valores siguientes. Para evitar errores, guárdelos en un archivo de texto o en variables de entorno.
+Se usarán los valores siguientes. Para evitar errores, guárdelos en un archivo de texto o en variables de entorno. La contraseña debe tener al menos 8 caracteres y al menos una letra mayúscula en inglés, una letra minúscula en inglés, un número y un carácter no alfanumérico (como !, $, #, %).
 
 ```bash
 export RESOURCE_GROUP=<resource-group-name> # customize this
@@ -34,7 +34,7 @@ export MYSQL_DATABASE_NAME=petclinic
 
 ## <a name="prepare-an-azure-database-for-mysql-instance"></a>Preparación de una instancia de Azure Database for MySQL
 
-1. Cree de un servidor de Azure Database for MySQL.
+1. Cree de un servidor de Azure Database for MySQL. 
 
     ```azcli
     az mysql server create --resource-group ${RESOURCE_GROUP} \
@@ -79,35 +79,35 @@ export MYSQL_DATABASE_NAME=petclinic
     // SUBSTITUTE values
     mysql -u ${MYSQL_SERVER_ADMIN_LOGIN_NAME} \
      -h ${MYSQL_SERVER_FULL_NAME} -P 3306 -p
-    
+
     Enter password:
     Welcome to the MySQL monitor.  Commands end with ; or \g.
     Your MySQL connection id is 64379
     Server version: 5.6.39.0 MySQL Community Server (GPL)
-    
+
     Copyright (c) 2000, 2018, Oracle and/or its affiliates. All rights reserved.
-    
+
     Oracle is a registered trademark of Oracle Corporation and/or its
     affiliates. Other names may be trademarks of their respective
     owners.
-    
+
     Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
-    
+
     mysql> CREATE DATABASE petclinic;
     Query OK, 1 row affected (0.10 sec)
-    
+
     mysql> CREATE USER 'root' IDENTIFIED BY 'petclinic';
     Query OK, 0 rows affected (0.11 sec)
-    
+
     mysql> GRANT ALL PRIVILEGES ON petclinic.* TO 'root';
     Query OK, 0 rows affected (1.29 sec)
-    
+
     mysql> CALL mysql.az_load_timezone();
     Query OK, 3179 rows affected, 1 warning (6.34 sec)
-    
+
     mysql> SELECT name FROM mysql.time_zone_name;
     ...
-    
+
     mysql> quit
     Bye
     ```
@@ -161,5 +161,6 @@ az spring-cloud app update --name visits-service \
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 * [Enlace de una instancia de Azure Database for MySQL con una aplicación de Azure Spring Cloud](how-to-bind-mysql.md)
 * [Uso de una identidad administrada para conectar Azure SQL Database a una aplicación de Azure Spring Cloud](./connect-managed-identity-to-azure-sql.md)

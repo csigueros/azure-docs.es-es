@@ -7,14 +7,14 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 07/30/2021
+ms.date: 08/19/2021
 ms.topic: conceptual
-ms.openlocfilehash: ed916e16392911dd92a98f3199cbb1c422ed2f55
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: 5c8918870274cb0ea443dd1f4c93f39c301c6287
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121861478"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122446504"
 ---
 # <a name="release-notes---azure-arc-enabled-data-services"></a>Notas de la versión: servicios de datos habilitados para Azure Arc
 
@@ -32,7 +32,7 @@ Esta versión anuncia la disponibilidad general para el [nivel de servicio de us
    > - [Nivel de servicio Crítico para la empresa](service-tiers.md) de SQL Managed Instance
    > - Hiperescala de PostgreSQL
 
-### <a name="breaking-changes"></a>Últimos cambios
+### <a name="breaking-changes"></a>Cambios importantes
 
 #### <a name="tools"></a>Herramientas
 
@@ -107,6 +107,7 @@ Utilice las herramientas siguientes:
 
 #### <a name="azure-arc-enabled-postgresql-hyperscale"></a>Hiperescala de PostgreSQL habilitada para Azure Arc
 
+- En este momento, Hiperescala de PosgreSQL no se puede usar con la versión 1.22 de Kubernetes y versiones posteriores. 
 - Las operaciones de copia de seguridad y restauración ya no funcionan en la versión del 30 de julio. Tenga en cuenta que esta es una limitación temporal. Use la versión de junio de 2021 por ahora si necesita crear una copia de seguridad o una restauración. Este problema se corregirá en futuras versiones.
 
 - No es posible habilitar ni configurar la extensión `pg_cron` al mismo tiempo. Debe usar dos comandos para esto. Un comando para habilitarlo y otro para configurarlo. Por ejemplo:
@@ -165,7 +166,7 @@ Utilice las herramientas siguientes:
 
 Esta versión preliminar se publicó el 13 de julio de 2021.
 
-### <a name="breaking-changes"></a>Últimos cambios
+### <a name="breaking-changes"></a>Cambios importantes
 
 #### <a name="new-deployment-templates"></a>Nuevas plantillas de implementación
 

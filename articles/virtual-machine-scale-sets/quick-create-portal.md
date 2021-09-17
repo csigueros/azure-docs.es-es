@@ -8,14 +8,16 @@ ms.service: virtual-machine-scale-sets
 ms.date: 06/30/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: f9a5c8e95b5230b5689a63a74bb31324c083e28a
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 5fd43ebed8d1ebcad3d5f76bda21b978bdb0950e
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112078301"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122693240"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-in-the-azure-portal"></a>Inicio rápido: Creación de un conjunto de escalado de máquinas virtuales en Azure Portal
+
+**Se aplica a:** :heavy_check_mark: máquinas virtuales Linux :heavy_check_mark: máquinas virtuales Windows :heavy_check_mark: conjuntos de escalado uniformes
 
 El conjunto de escalado de máquinas virtuales le permite implementar y administrar un conjunto de máquinas virtuales de escalado automático. Puede escalar el número de máquinas virtuales del conjunto de escalado manualmente o definir reglas de escalado automático según el uso de recursos tales como la CPU, la demanda de memoria o el tráfico de red. Un equilibrador de carga de Azure distribuirá el tráfico a las instancias de máquina virtual del conjunto de escalado. En esta guía de inicio rápido se crea un conjunto de escalado de máquinas virtuales en Azure Portal.
 
@@ -34,9 +36,9 @@ En primer lugar, cree una instancia de Standard Load Balancer mediante el portal
 1. En el cuadro de búsqueda, escriba **equilibrador de carga**. En **Marketplace**, en los resultados de la búsqueda, seleccione **Equilibradores de carga**.
 1. En la pestaña **Conceptos básicos** de la página **Crear equilibrador de carga**, escriba o seleccione la siguiente información:
 
-    | Configuración                 | Valor   |
+    | Configuración                 | Value   |
     | ---| ---|
-    | Subscription  | Seleccione su suscripción.    |    
+    | Suscripción  | Seleccione su suscripción.    |    
     | Resource group | Seleccione **Crear nuevo** y escriba *myVMSSResourceGroup* en el cuadro de texto.|
     | Nombre           | *myLoadBalancer*         |
     | Region         | Seleccione **Este de EE. UU**.       |

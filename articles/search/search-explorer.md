@@ -1,25 +1,25 @@
 ---
-title: Herramienta de consulta Explorador de búsqueda de Azure Portal
+title: 'Inicio rápido: Herramienta de consulta del Explorador de búsqueda'
 titleSuffix: Azure Cognitive Search
-description: En esta guía de inicio rápido de Azure Portal, use el Explorador de búsqueda para aprender la sintaxis de las consultas, probar expresiones de consulta o inspeccionar un documento de búsqueda. El Explorador de búsqueda consulta los índices en Azure Cognitive Search.
+description: El Explorador de búsqueda es una herramienta de consulta de Azure Portal que envía solicitudes de consulta a un índice de búsqueda en Azure Cognitive Search. Úselo para aprender sintaxis, probar expresiones de consulta o inspeccionar un documento de búsqueda.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 01/12/2021
-ms.openlocfilehash: e9607a71ed6b045ac704c43bf4ea54c9f181bbf4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 08/24/2021
+ms.openlocfilehash: d246c9aad024b1086a531c31a2a9559dfa798642
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98179782"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122772837"
 ---
 # <a name="quickstart-use-search-explorer-to-run-queries-in-the-portal"></a>Inicio rápido: Uso del Explorador de búsqueda para ejecutar consultas en el portal
 
-El **Explorador de búsqueda** es una herramienta de consulta integrada que se usa para ejecutar consultas en un índice de búsqueda en Azure Cognitive Search. Esta herramienta facilita aprender la sintaxis de las consultas, probar una expresión de consulta o filtro, o verificar si existe contenido nuevo en el índice para confirmar la actualización de datos.
+El **Explorador de búsqueda** es una herramienta de consulta integrada en Azure Portal que se usa para ejecutar consultas en un índice de búsqueda en Azure Cognitive Search. Esta herramienta facilita aprender la sintaxis de las consultas, probar una expresión de consulta o filtro, o verificar si existe contenido nuevo en el índice para confirmar la actualización de datos.
 
-En esta guía de inicio rápido se usa un índice existente para hacer una demostración del Explorador de búsqueda. Las solicitudes se formulan mediante la [API de REST de Search](/rest/api/searchservice/search-documents), donde las respuestas se devuelven como documentos JSON detallados.
+En esta guía de inicio rápido se usa un índice existente para hacer una demostración del Explorador de búsqueda. 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -44,6 +44,8 @@ Antes de comenzar, tiene que cumplir los siguientes requisitos previos:
    :::image type="content" source="media/search-explorer/search-explorer-tab.png" alt-text="Pestaña Explorador de búsqueda" border="true":::
 
 ## <a name="unspecified-query"></a>Consulta sin especificar
+
+En el Explorador de búsqueda las solicitudes se formulan mediante la [API REST de Search](/rest/api/searchservice/search-documents), donde las respuestas se devuelven como documentos JSON detallados.
 
 Para un echar un primer vistazo al contenido, ejecute una búsqueda vacía haciendo clic en **Buscar** sin especificar ningún término. Una búsqueda vacía resulta útil como primera consulta porque devuelve documentos completos para que pueda revisar la composición del documento. En una búsqueda vacía, no hay ninguna clasificación de búsqueda y los documentos se devuelven en orden arbitrario (`"@search.score": 1` para todos los documentos). De forma predeterminada, en una solicitud de búsqueda se devuelven 50 documentos.
 

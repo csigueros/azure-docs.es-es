@@ -1,19 +1,19 @@
 ---
-title: Escalabilidad de los tamaños de clúster en Azure HDInsight
-description: Escale un clúster de Apache Hadoop de forma elástica para ajustarlo a la carga de trabajo de Azure HDInsight.
+title: 'Escalado manual de un clúster: Azure HDInsight'
+description: Escale manualmente un clúster de Apache Hadoop de forma elástica para ajustarlo a la carga de trabajo de Azure HDInsight.
 ms.author: ashish
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/29/2020
-ms.openlocfilehash: 1c388cb070c66fc3a2322c358bc4113ed2106c77
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 86759dacfc4412fff1d100f5f6808aa7269575e1
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107761856"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122444413"
 ---
-# <a name="scale-azure-hdinsight-clusters"></a>Escala de clústeres de Azure HDInsight
+# <a name="manually-scale-azure-hdinsight-clusters"></a>Escalado manual de clústeres de Azure HDInsight
 
 HDInsight proporciona elasticidad con opciones para escalar y reducir verticalmente el número de nodos de trabajo de los clústeres. Esta elasticidad permite reducir un clúster una vez finalizada la jornada laboral o durante los fines de semana. También permite expandirlo durante períodos de máxima demanda empresarial.
 

@@ -10,16 +10,19 @@ ms.topic: how-to
 ms.date: 11/17/2020
 ms.author: tibasham
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: f2eaa92b99e286d4046b0bbb784c12f090c3903e
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 68941b2253e1b4655a9e0e61da3b0a4f0db27bdf
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110677742"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122697590"
 ---
 # <a name="how-to-map-azure-disks-to-windows-vm-guest-disks"></a>Asignación de discos de Azure a discos invitados de una máquina virtual Windows
 
-Es posible que tenga que determinar los discos de Azure que respaldan los discos invitados de una máquina virtual. En algunos escenarios, puede comparar el tamaño del disco o del volumen con el tamaño de los discos de Azure conectados. En los escenarios en que hay varios discos de Azure del mismo tamaño conectados a la máquina virtual, debe usar el número de unidad lógica (LUN) de los discos de datos. 
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Windows 
+
+
+Es posible que tenga que determinar los discos de Azure que respaldan a los discos invitados de una máquina virtual. En algunos escenarios, puede comparar el tamaño del disco o del volumen con el tamaño de los discos de Azure conectados. En los escenarios en que hay varios discos de Azure del mismo tamaño conectados a la máquina virtual, debe usar el número de unidad lógica (LUN) de los discos de datos. 
 
 ## <a name="what-is-a-lun"></a>¿Qué es un número de unidad lógica?
 

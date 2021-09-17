@@ -9,14 +9,16 @@ ms.collection: windows
 ms.topic: quickstart
 ms.date: 05/17/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e81d29922bee53ba9021c9c26816258f7922a59c
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 6db23229cf0f3521c5855226ac96ad7d52c0fc87
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107759746"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122693441"
 ---
 # <a name="quickstart-create-and-encrypt-a-windows-vm-with-the-azure-cli"></a>Inicio rápido: Creación y cifrado de una máquina virtual Windows con la CLI de Azure
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles 
 
 La CLI de Azure se usa para crear y administrar recursos de Azure desde la línea de comandos o en scripts. Este inicio rápido muestra cómo usar la CLI de Azure para crear y cifrar una máquina virtual con Windows Server 2016.
 

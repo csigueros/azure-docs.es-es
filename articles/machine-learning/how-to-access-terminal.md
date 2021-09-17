@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.date: 02/05/2021
-ms.openlocfilehash: d02259419a6349224b1d047ce01b2e1bf64c1b37
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: 7b0d43cec561040e98688a216165d7a4ed88c3d2
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112454561"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122635180"
 ---
 # <a name="access-a-compute-instance-terminal-in-your-workspace"></a>Acceso a un terminal de instancia de proceso en el área de trabajo
 
@@ -68,7 +68,7 @@ Obtenga más información sobre [la clonación de repositorios de GIT de en el s
 
 ## <a name="install-packages"></a>Instalar paquetes
 
- Instale paquetes desde una ventana del terminal. Instale los paquetes de Python en el entorno de **Python 3.6: AzureML**.  Instale los paquetes de R en el entorno de **R**.
+ Instale paquetes desde una ventana del terminal. Instale los paquetes de Python en el entorno de **Python 3.8: AzureML**.  Instale los paquetes de R en el entorno de **R**.
 
 O puede instalar paquetes directamente en Jupyter Notebook o en RStudio:
 
@@ -81,7 +81,7 @@ O puede instalar paquetes directamente en Jupyter Notebook o en RStudio:
 ## <a name="add-new-kernels"></a>Incorporación de nuevos kernels
 
 > [!WARNING]
->  Durante la personalización de la instancia de proceso, asegúrese de no eliminar el entorno de Conda **azureml_py36** ni el kernel de **Python 3.6: AzureML**. Esto es necesario para la funcionalidad de Jupyter/JupyterLab.
+>  Durante la personalización de la instancia de proceso, asegúrese de no eliminar los entornos de Conda **azureml_py36** ni **azureml_py38**.  Además, no elimine los kernel **Python 3.6: AzureML** ni **Python 3.8: AzureML**. Esto es necesario para la funcionalidad de Jupyter/JupyterLab.
 
 Para agregar un kernel nuevo de Jupyter a la instancia de proceso:
 

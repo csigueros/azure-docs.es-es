@@ -8,12 +8,12 @@ author: shashankbarsin
 ms.author: shasb
 ms.custom: references_regions, devx-track-azurecli
 description: Uso de ubicaciones personalizadas para implementar servicios de PaaS de Azure en clústeres de Kubernetes habilitado para Azure Arc
-ms.openlocfilehash: 5fa255755dd0b78498203624194d081447d70a13
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: a4586f6f527bd98f0f347e51c787f2bcda7c6d8d
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113730863"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122768306"
 ---
 # <a name="create-and-manage-custom-locations-on-azure-arc-enabled-kubernetes"></a>Creación y administración de ubicaciones personalizadas en Kubernetes habilitado para Azure Arc
 
@@ -57,29 +57,26 @@ Puede encontrar una información general conceptual sobre esta característica e
 - Compruebe que se completó el registro de proveedor de `Microsoft.ExtendedLocation`.
     1. Escriba los siguientes comandos:
     
-    ```azurecli
-    az provider register --namespace Microsoft.ExtendedLocation
-    ```
+        ```azurecli
+        az provider register --namespace Microsoft.ExtendedLocation
+        ```
 
     2. Supervise el proceso de registro. El registro puede tardar un máximo de 10 minutos.
     
-    ```azurecli
-    az provider show -n Microsoft.ExtendedLocation -o table
-    ```
+        ```azurecli
+        az provider show -n Microsoft.ExtendedLocation -o table
+        ```
+
+        Una vez que se registre, el estado `RegistrationState` tendrá el valor `Registered`.
 
 - Compruebe que tiene un [clúster conectado a Kubernetes habilitado para Azure Arc](quickstart-connect-cluster.md) existente.
     - [Actualice los agentes](agent-upgrade.md#manually-upgrade-agents) a la versión 1.1.0 o posterior.
-
->[!NOTE]
->**Regiones admitidas para ubicaciones personalizadas:**
->* Este de EE. UU.
->* Oeste de Europa
 
 ## <a name="enable-custom-locations-on-cluster"></a>Habilitación de ubicaciones personalizadas en el clúster
 
 Si ha iniciado sesión en la CLI de Azure como un usuario de Azure AD, para habilitar esta característica en el clúster, ejecute el siguiente comando:
 
-```console
+```azurecli
 az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --features cluster-connect custom-locations
 ```
 
@@ -87,13 +84,13 @@ Si ha iniciado sesión en la CLI de Azure con una entidad de servicio, para habi
 
 1. Capture el identificador de objeto de la aplicación de Azure AD que utiliza el servicio Azure Arc:
 
-    ```console
+    ```azurecli
     az ad sp show --id 'bc313c14-388c-4e7d-a58e-70017303ee3b' --query objectId -o tsv
     ```
 
 1. Use el valor `<objectId>` del paso anterior para habilitar la característica de ubicaciones personalizadas en el clúster:
 
-    ```console
+    ```azurecli
     az connectedk8s enable-features -n <cluster-name> -g <resource-group-name> --custom-locations-oid <objectId> --features cluster-connect custom-locations
     ```
 

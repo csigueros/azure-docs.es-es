@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
-ms.openlocfilehash: 2de0dcd52745ebadb02ab8dbb563e28abf2822dc
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: fbb169924498b30284ea26d172f605596e6a0379
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102046489"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122446365"
 ---
 # <a name="disable-monitoring-of-your-vms-in-vm-insights"></a>Deshabilitación de la supervisión de las VM en VM Insights
 
@@ -23,7 +23,7 @@ VM Insights se basa en los siguientes componentes para ofrecer su experiencia:
 * Un área de trabajo de Log Analytics, que almacena los datos de supervisión de las máquinas virtuales y otros orígenes.
 * Una colección de contadores de rendimiento configurados en el área de trabajo. La colección actualiza la configuración de supervisión en todas las VM conectadas al área de trabajo.
 * `VMInsights`, que es una solución de supervisión configurada en el área de trabajo. Esta solución actualiza la configuración de supervisión en todas las máquinas virtuales conectadas al área de trabajo.
-* `MicrosoftMonitoringAgent` y `DependencyAgent`, que son extensiones de Azure VM. Estas extensiones recopilan y envían datos al área de trabajo.
+* `MicrosoftMonitoringAgent` (Windows) o `OmsAgentForLinux` (Linux) y `DependencyAgent`, que son extensiones de máquina virtual de Azure. Estas extensiones recopilan y envían datos al área de trabajo.
 
 Cuando se prepare para deshabilitar la supervisión de las VM, tenga en cuenta estas consideraciones:
 

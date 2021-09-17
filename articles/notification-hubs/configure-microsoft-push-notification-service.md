@@ -7,18 +7,21 @@ manager: femila
 ms.service: notification-hubs
 ms.workload: mobile
 ms.topic: article
-ms.date: 08/04/2020
+ms.date: 08/23/2021
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 03/25/2019
-ms.openlocfilehash: 6784331dccd779390ace7dc632d54fe54aedc458
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c2b46d3f4831ed98e54a47d8daa77107a625e362
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87760998"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122770901"
 ---
 # <a name="configure-microsoft-push-notification-service-mpns-settings-in-the-azure-portal"></a>Configuración del Servicio de notificaciones push de Microsoft (MPNS) en Azure Portal
+
+> [!NOTE]
+> El servicio de notificaciones push de Microsoft (MPNS) está en desuso y ya no se admite.
 
 En este artículo podrá ver cómo establecer la configuración del Servicio de notificaciones push de Microsoft (MPNS) para un centro de notificaciones de Azure mediante Azure Portal.
 

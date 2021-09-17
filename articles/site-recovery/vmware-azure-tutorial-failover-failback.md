@@ -1,22 +1,22 @@
 ---
-title: Conmutación por error de máquinas virtuales de VMware a Azure con Site Recovery
-description: Aprenda a conmutar por error máquinas virtuales de VMware a Azure en Azure Site Recovery.
+title: 'Conmutación por error de máquinas virtuales de VMware a Azure con Site Recovery: clásico'
+description: Aprenda a conmutar por error máquinas virtuales de VMware a Azure en Azure Site Recovery (clásico).
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 12/16/2019
+ms.date: 08/19/2021
 ms.custom: MVC
-ms.openlocfilehash: bf47f08ac555cf60f59ba2b1a84750b6a9e2e0a1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7c1de30fee09da94546ea0f8b5835477e0f83a2a
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86132005"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122445310"
 ---
-# <a name="fail-over--vmware-vms"></a>Conmutación por error de máquinas virtuales de VMware
+# <a name="fail-over-vmware-vms---classic"></a>Conmutación por error de máquinas virtuales de VMware: clásico
 
-En este artículo se describe cómo conmutar por error una máquina virtual (VM) local de VMware a Azure con [Azure Site Recovery](site-recovery-overview.md).
+En este artículo, se describe cómo conmutar por error una máquina virtual (VM) local de VMware a Azure con [Azure Site Recovery](site-recovery-overview.md) (clásico).
 
-Este es el quinto tutorial de una serie que muestra cómo configurar la recuperación ante desastres en Azure para máquinas locales.
+Para obtener información sobre la conmutación por error en la versión preliminar, consulte [este artículo](vmware-azure-tutorial-failover-failback-preview.md).
 
 En este tutorial, aprenderá a:
 
@@ -34,7 +34,7 @@ En este tutorial, aprenderá a:
 Complete los tutoriales anteriores:
 
 1. Asegúrese de que ha [configurado Azure](tutorial-prepare-azure.md) para la recuperación ante desastres local tanto de máquinas virtuales de VMware como de máquinas virtuales de Hyper-V y de equipos físicos a Azure.
-2. Prepare el entorno de [VMware](vmware-azure-tutorial-prepare-on-premises.md) local para la recuperación ante desastres. 
+2. Prepare el entorno de [VMware](vmware-azure-tutorial-prepare-on-premises.md) local para la recuperación ante desastres.
 3. Configure la recuperación ante desastres para [máquinas virtuales de VMware](vmware-azure-tutorial.md).
 4. Realice una [exploración en profundidad de la recuperación ante desastres](tutorial-dr-drill-azure.md) para asegurarse de que todo funciona según lo previsto.
 
@@ -95,6 +95,7 @@ En algunos escenarios, la conmutación por error requiere un procesamiento adici
 
 >[!TIP]
 > Si tiene algún problema de conectividad después de la conmutación por error, siga la [guía para la solución de problemas](site-recovery-failover-to-azure-troubleshoot.md).
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

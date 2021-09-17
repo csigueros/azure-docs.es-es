@@ -8,14 +8,17 @@ ms.topic: conceptual
 ms.date: 10/19/2016
 ms.author: rclaus
 ms.collection: linux
-ms.openlocfilehash: e689e934f11e3cc2a621f25525e507a72a7044b8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 74b57062f74c735be1a982efa4d8c26becfb5b94
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102556798"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122687950"
 ---
 # <a name="dns-name-resolution-options-for-linux-virtual-machines-in-azure"></a>Opciones de resolución de nombres DNS para máquinas virtuales Linux en Azure
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Conjuntos de escalado flexibles 
+
 Azure proporciona resolución de nombres DNS de forma predeterminada para todas las máquinas virtuales de una única red virtual. Puede implementar su propia solución de resolución de nombre DNS si configura sus propios servicios DNS en las máquinas virtuales hospedadas de Azure. Los siguientes escenarios deberían ayudarle a elegir cuál funciona mejor para su situación.
 
 * [Resolución de nombres que proporciona Azure](#name-resolution-that-azure-provides)

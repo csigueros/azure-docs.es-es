@@ -9,14 +9,17 @@ ms.subservice: disks
 ms.date: 4/25/2017
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 9e4bdf868d3f8ddf3a049509ead30a4b1ba341b7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 13bdbe7a1f6c328a2797d6f8869c05af9c5cb7f5
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86527445"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122690560"
 ---
 # <a name="azure-virtual-machine-scale-sets-and-attached-data-disks"></a>Conjuntos de escalado de máquinas virtuales de Azure y discos de datos conectados
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado uniformes
+
 Para expandir el almacenamiento disponible, los [conjuntos de escalado de máquinas virtuales](./index.yml) de Azure admiten instancias de máquina virtual con discos de datos asociados. Puede asociar discos de datos cuando se crea el conjunto de escalado, o a un conjunto de escalado existente.
 
 > [!NOTE]

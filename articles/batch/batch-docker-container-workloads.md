@@ -2,14 +2,14 @@
 title: Cargas de trabajo de contenedor
 description: Aprenda a ejecutar y escalar aplicaciones desde imágenes de contenedor en Azure Batch. Cree un grupo de nodos de proceso que admita la ejecución de tareas de contenedor.
 ms.topic: how-to
-ms.date: 08/13/2021
+ms.date: 08/18/2021
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: c753a6ca0566b666eb343b922bd2ea673e56d9ee
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: e8effa7daf0c30edaef9924cbefe35cdad1b20e1
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122181501"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122445776"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Ejecución de aplicaciones de contenedor en Azure Batch
 
@@ -251,6 +251,37 @@ ContainerRegistry containerRegistry = new ContainerRegistry(
     registryServer: "myContainerRegistry.azurecr.io",
     userName: "myUserName",
     password: "myPassword");
+
+// Create container configuration, prefetching Docker images from the container registry
+ContainerConfiguration containerConfig = new ContainerConfiguration();
+containerConfig.ContainerImageNames = new List<string> {
+        "myContainerRegistry.azurecr.io/tensorflow/tensorflow:latest-gpu" };
+containerConfig.ContainerRegistries = new List<ContainerRegistry> { containerRegistry } );
+
+// VM configuration
+VirtualMachineConfiguration virtualMachineConfiguration = new VirtualMachineConfiguration(
+    imageReference: imageReference,
+    nodeAgentSkuId: "batch.node.ubuntu 16.04");
+virtualMachineConfiguration.ContainerConfiguration = containerConfig;
+
+// Create pool
+CloudPool pool = batchClient.PoolOperations.CreatePool(
+    poolId: poolId,
+    targetDedicatedComputeNodes: 4,
+    virtualMachineSize: "Standard_NC6",
+    virtualMachineConfiguration: virtualMachineConfiguration);
+...
+```
+
+### <a name="managed-identity-support-for-acr"></a>Compatibilidad con identidad administrada para ACR
+
+Al acceder a contenedores almacenados en [Azure Container Registry](https://azure.microsoft.com/services/container-registry), se puede usar un nombre de usuario o contraseña o una identidad administrada para autenticarse con el servicio. Para usar una identidad administrada, asegúrese primero de que la identidad se ha [asignado al grupo](managed-identity-pools.md) y de que la identidad tiene el rol `AcrPull` asignado para el registro de contenedor al que desea acceder. A continuación, simplemente diga a Batch qué identidad usar al autenticarse con ACR.
+
+```csharp
+ContainerRegistry containerRegistry = new ContainerRegistry(
+    registryServer: "myContainerRegistry.azurecr.io",
+    identityReference: new ComputeNodeIdentityReference() { ResourceId = "/subscriptions/SUB/resourceGroups/RG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity-name" }
+);
 
 // Create container configuration, prefetching Docker images from the container registry
 ContainerConfiguration containerConfig = new ContainerConfiguration();

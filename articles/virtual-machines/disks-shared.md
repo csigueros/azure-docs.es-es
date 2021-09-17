@@ -7,14 +7,16 @@ ms.topic: conceptual
 ms.date: 08/16/2021
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 80491f2d9169bcd5c9d4054eb8329c89fd778ba9
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.openlocfilehash: 0c72a263ff9d20f0cb70a0721625446b6a2e0ff9
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122252580"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122689356"
 ---
 # <a name="share-an-azure-managed-disk"></a>Uso compartido de un disco administrado de Azure
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles :heavy_check_mark: Conjuntos de escalado uniformes
 
 Los discos compartidos de Azure son una nueva característica de los discos administrados de Azure que permite conectar un disco administrado a varias máquinas virtuales (VM) al mismo tiempo. Si adjunta un disco administrado en varias VM, podrá implementar nuevas aplicaciones en clúster o migrar las existentes a Azure.
 

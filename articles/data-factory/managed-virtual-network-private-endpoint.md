@@ -4,18 +4,16 @@ description: Obtenga información sobre la red virtual administrada y los puntos
 ms.author: lle
 author: lrtoyou1223
 ms.service: data-factory
+ms.subservice: integration-runtime
 ms.topic: conceptual
-ms.custom:
-- seo-lt-2019
-- references_regions
-- devx-track-azurepowershell
-ms.date: 07/15/2020
-ms.openlocfilehash: 61b011a7df52b4df29c23a8e443f8bad6d72240a
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.custom: seo-lt-2019, references_regions, devx-track-azurepowershell
+ms.date: 07/20/2021
+ms.openlocfilehash: 29bd9cf165ef8247a4185b17d479b01c4e14fa87
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110677015"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122638346"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Red virtual administrada de Azure Data Factory (versión preliminar)
 
@@ -46,13 +44,13 @@ Ventajas del uso de una red virtual administrada:
 >El entorno público de ejecución de integración de Azure existente no puede cambiar al entorno de ejecución de Azure en la red virtual administrada de Azure Data Factory y viceversa.
  
 
-![Arquitectura de la red virtual de Azure Data Factory](./media/managed-vnet/managed-vnet-architecture-diagram.png)
+:::image type="content" source="./media/managed-vnet/managed-vnet-architecture-diagram.png" alt-text="Arquitectura de la red virtual de Azure Data Factory":::
 
 ## <a name="managed-private-endpoints"></a>Puntos de conexión privados administrados
 
 Los puntos de conexión privados administrados se crean en la red virtual administrada de Azure Data Factory y establecen un vínculo privado a recursos de Azure. Azure Data Factory administra estos puntos de conexión privados en su nombre. 
 
-![Nuevo punto de conexión privado administrado](./media/tutorial-copy-data-portal-private/new-managed-private-endpoint.png)
+:::image type="content" source="./media/tutorial-copy-data-portal-private/new-managed-private-endpoint.png" alt-text="Nuevo punto de conexión privado administrado":::
 
 Azure Data Factory admite vínculos privados. El vínculo privado le permite acceder a servicios de Azure (PaaS) (como Azure Storage, Azure Cosmos DB, Azure Synapse Analytics).
 
@@ -68,18 +66,18 @@ El punto de conexión privado usa una dirección IP privada en la red virtual ad
 
 Una conexión de punto de conexión privado se crea con estado "pendiente" cuando se crea un punto de conexión privado administrado en Azure Data Factory. Se inicia un flujo de trabajo de aprobación. El propietario del recurso de vínculo privado es responsable de aprobar o rechazar la conexión.
 
-![Administración de un punto de conexión privado](./media/tutorial-copy-data-portal-private/manage-private-endpoint.png)
+:::image type="content" source="./media/tutorial-copy-data-portal-private/manage-private-endpoint.png" alt-text="Administración de un punto de conexión privado":::
 
 Si el propietario aprueba la conexión, se establece el vínculo privado. De lo contrario, no se establece. En cualquier caso, el punto de conexión privado administrado se actualizará con el estado de la conexión.
 
-![Punto de conexión privado administrado aprobado](./media/tutorial-copy-data-portal-private/approve-private-endpoint.png)
+:::image type="content" source="./media/tutorial-copy-data-portal-private/approve-private-endpoint.png" alt-text="Punto de conexión privado administrado aprobado":::
 
 Solo un punto de conexión privado administrado en un estado aprobado puede enviar tráfico a un recurso de vínculo privado determinado.
 
 ## <a name="interactive-authoring"></a>Creación interactiva
 Entre las funcionalidades de la creación interactiva se incluyen probar la conexión, examinar la lista de carpetas y la lista de tablas, obtener esquemas y obtener una vista previa de los datos. Puede habilitar la creación interactiva al crear o editar una instancia de Azure Integration Runtime que se encuentre en una red virtual administrada por ADF. El servicio de back-end asignará previamente el proceso para las funcionalidades de creación interactiva. De lo contrario, el proceso se asignará cada vez que se realice cualquier operación interactiva, lo que tardará más tiempo. El período de vida (TTL) para la creación interactiva es de 60 minutos, lo que significa que se deshabilitará automáticamente después de 60 minutos de la última operación de creación interactiva.
 
-![Creación interactiva](./media/managed-vnet/interactive-authoring.png)
+:::image type="content" source="./media/managed-vnet/interactive-authoring.png" alt-text="Creación interactiva":::
 
 ## <a name="activity-execution-time-using-managed-virtual-network"></a>Tiempo de ejecución de la actividad mediante una red virtual administrada
 Por diseño, el entorno de ejecución de integración de Azure en la red virtual administrada tiene un tiempo en la cola más largo que el entorno de ejecución de Azure, ya que no se reserva un nodo de proceso por factoría de datos, por lo que hay una preparación antes de que se inicie cada actividad y se produce principalmente en la unión a una red virtual y no al entorno de ejecución de integración de Azure. En el caso de las actividades que no son de copia, incluida la actividad de canalización y la actividad externa, hay un período de vida (TTL) de 60 minutos al desencadenarlas por primera vez. Dentro de TTL, el tiempo de cola es más corto porque el nodo ya está preparado. 
@@ -101,7 +99,7 @@ $privateEndpointResourceId = "subscriptions/${subscriptionId}/resourceGroups/${r
 $integrationRuntimeResourceId = "subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.DataFactory/factories/${factoryName}/integrationRuntimes/${integrationRuntimeName}"
 
 # Create managed Virtual Network resource
-New-AzResource -ApiVersion "${apiVersion}" -ResourceId "${vnetResourceId}"
+New-AzResource -ApiVersion "${apiVersion}" -ResourceId "${vnetResourceId}" -Properties @{}
 
 # Create managed private endpoint resource
 New-AzResource -ApiVersion "${apiVersion}" -ResourceId "${privateEndpointResourceId}" -Properties @{
@@ -165,6 +163,8 @@ Para acceder a orígenes de datos locales desde una red virtual administrada med
 - Este de Canadá
 - Centro de la India
 - Centro de EE. UU.
+- Este de China 2
+- Norte de China 2
 - Este de Asia
 - Este de EE. UU.
 - Este de EE. UU. 2
@@ -181,6 +181,9 @@ Para acceder a orígenes de datos locales desde una red virtual administrada med
 - Sudeste de Asia
 - Norte de Suiza
 - Norte de Emiratos Árabes Unidos
+- US Gov: Arizona
+- US Gov Texas
+- US Gov - Virginia
 - Sur de Reino Unido
 - Oeste de Reino Unido
 - Centro-Oeste de EE. UU.
@@ -197,7 +200,11 @@ Para acceder a orígenes de datos locales desde una red virtual administrada med
 - Cuando se crea un servicio vinculado para Azure Key Vault, no existe ninguna referencia a Azure Integration Runtime. Por este motivo, no se puede generar un punto de conexión privado cuando se crea un servicio vinculado para Azure Key Vault. Sin embargo, si se crea un servicio vinculado para almacenes de datos que hace referencia a un servicio vinculado de Azure Key Vault y dicho servicio vinculado hace referencia a Azure Integration Runtime con la característica Managed Virtual Network habilitada, puede crear un punto de conexión privado para el servicio vinculado de Azure Key Vault durante la creación. 
 - La operación **Prueba de conexión** del servicio vinculado de Azure Key Vault solo valida el formato de la dirección URL, pero no realiza ninguna operación de red.
 - La columna **Using private endpoint** (Uso de punto de conexión privado) siempre se muestra en blanco, incluso si crea un punto de conexión privado para Azure Key Vault.
-![Punto de conexión privado para AKV](./media/managed-vnet/akv-pe.png)
+
+### <a name="linked-service-creation-of-azure-hdi"></a>Creación de un servicio vinculado de Azure HDI
+- La columna **Using private endpoint** (Uso del punto de conexión privado) siempre aparece en blanco, aun cuando se haya creado un punto de conexión privado para HDI usando el servicio Private Link y un equilibrador de carga con reenvío de puertos.
+
+:::image type="content" source="./media/managed-vnet/akv-pe.png" alt-text="Punto de conexión privado para AKV":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

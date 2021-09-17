@@ -7,14 +7,16 @@ ms.service: virtual-machines
 ms.topic: how-to
 ms.date: 03/06/2020
 ms.author: mimckitt
-ms.openlocfilehash: 8b0bc143ca92961d7c358248b73ee5524e6835c3
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: bf81d49bbbfaae2b96dfb712ae69568695ba6f23
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108768200"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122687520"
 ---
 # <a name="custom-data-and-cloud-init-on-azure-virtual-machines"></a>Datos personalizados y Cloud-Init en Azure Virtual Machines
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles
 
 Es posible que tenga que insertar un script u otros metadatos en una máquina virtual de Microsoft Azure en tiempo de aprovisionamiento.  En otras nubes, este concepto suele conocerse como datos de usuario.  En Microsoft Azure, tenemos una característica similar llamada datos personalizados. 
 

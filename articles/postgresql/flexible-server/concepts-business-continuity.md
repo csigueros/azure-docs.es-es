@@ -5,13 +5,13 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/22/2020
-ms.openlocfilehash: fbc47fa19cccb8d5ce6af38fdff3f0e772f5039f
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.date: 08/24/2021
+ms.openlocfilehash: 64206d1e5a26d163c5d5ed81c3c762a10de0fe96
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111537693"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122769593"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql---flexible-server"></a>Introducción a la continuidad empresarial con Azure Database for PostgreSQL: servidor flexible
 
@@ -59,7 +59,7 @@ Se pueden producir tiempos de inactividad no planeados como resultado de interru
 ### <a name="unplanned-downtime-failure-scenarios-and-service-recovery"></a>Tiempo de inactividad no planeado: escenarios de error y recuperación de servicio
 A continuación puede ver algunos escenarios de error no planeados y el proceso de recuperación. 
 
-| **Escenario** | **Proceso de recuperación (sin alta disponibilidad)** | **Proceso de recuperación (con alta disponibilidad)** |
+| **Escenario** | **Proceso de recuperación** <br> [Servidores configurados sin alta disponibilidad con redundancia de zona] | **Proceso de recuperación** <br> [Servidores configurados con alta disponibilidad con redundancia de zona] |
 | ---------- | ---------- | ------- |
 | <B>Error de servidor de bases de datos | Si el servidor de base de datos está inactivo, Azure intentará reiniciar el servidor de bases de datos. Si se produce un error, el servidor de bases de datos se reiniciará en otro nodo físico.  <br /> <br /> El tiempo de recuperación (RTO) depende de varios factores, por ejemplo, la actividad en el momento del error, como una transacción de gran tamaño, y el volumen de recuperación que se va a realizar durante el proceso de inicio del servidor de bases de datos. <br /> <br /> Las aplicaciones que usan bases de datos de PostgreSQL se deben crear de forma que detecten y reintenten conexiones eliminadas y transacciones erróneas. | Si se detecta un error del servidor de bases de datos, se activa el servidor en espera, lo que reduce el tiempo de inactividad. Para obtener más información, consulte la página de [Conceptos de alta disponibilidad](./concepts-high-availability.md). Se espera que el RTO dure entre 60 y 120 s, sin pérdida de datos. |
 | <B>Error de almacenamiento | Las aplicaciones no verán ningún impacto por los problemas relacionados con el almacenamiento, como un error de disco o un daño de bloque físico. Puesto que los datos se almacenan en tres copias, el almacenamiento sobreviviente proporciona la copia de los datos. El bloque de datos dañado se repara automáticamente y se crea una copia de los datos de manera automática. | En el caso de los errores poco frecuentes y no recuperables, como aquellos en los que no se puede acceder a todo el almacenamiento, el servidor flexible se conmuta por error a la réplica en espera para reducir el tiempo de inactividad. Para obtener más información, consulte la página de [Conceptos de alta disponibilidad](./concepts-high-availability.md). |

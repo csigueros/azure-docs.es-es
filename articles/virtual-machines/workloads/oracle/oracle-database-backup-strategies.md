@@ -9,14 +9,16 @@ ms.topic: article
 ms.date: 01/28/2021
 ms.author: cholse
 ms.reviewer: dbakevlar
-ms.openlocfilehash: dbe0fe6d0dadea6e99b406f2de6e16ed4d667741
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 2a61ed8f32fb85c3500ebf191c8bd53808b75eb9
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114461544"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122696897"
 ---
 # <a name="oracle-database-in-azure-linux-vm-backup-strategies"></a>Estrategias de copia de seguridad de Oracle Database en máquinas virtuales Linux de Azure
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux 
 
 Las copias de seguridad de base de datos protegen la base de datos contra la pérdida de datos debido a errores en los componentes de almacenamiento y en el centro de datos. También pueden ser un medio de recuperación de errores humanos y una manera de clonar una base de datos con fines de desarrollo o pruebas. 
 
@@ -108,10 +110,10 @@ Los recursos compartidos de archivos de Azure se pueden montar en distribuciones
 En la versión preliminar de Azure Files NFS v4.1 también está restringida a las siguientes [regiones](../../../storage/files/storage-files-how-to-mount-nfs-shares.md):
 - Este de EE. UU. (LRS y ZRS)
 - Este de EE. UU. 2
-- Oeste de EE. UU. 2
+- Oeste de EE. UU. 2
 - Oeste de Europa
 - Sudeste de Asia
-- Sur de Reino Unido 2
+- Sur de Reino Unido
 - Este de Australia
 
 #### <a name="azure-files-smb-30"></a>Azure Files SMB 3.0

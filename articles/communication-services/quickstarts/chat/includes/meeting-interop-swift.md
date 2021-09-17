@@ -5,12 +5,12 @@ ms.author: askaur
 ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 335e21057d0deaa68b4b791501e59aaa772eb49c
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: 06d7b776b49411fece14356f24a91f1a5df2b364
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113113128"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121722562"
 ---
 En este inicio rápido aprenderá a chatear en una reunión de Teams mediante el SDK de chat de Azure Communication Services para iOS.
 
@@ -19,15 +19,9 @@ En este inicio rápido aprenderá a chatear en una reunión de Teams mediante el
 - Una  [implementación de Teams](/deployoffice/teams-install). 
 - Una [aplicación de llamada](../../voice-video-calling/get-started-teams-interop.md) en funcionamiento. 
 
-## <a name="enable-teams-interoperability"></a>Habilitación de la interoperabilidad de Teams 
-
-Cualquier usuario de Communication Services que se una a una reunión de Teams como invitado solo puede acceder al chat cuando se haya unido a la llamada de la reunión de Teams. Consulte la documentación de la [interoperabilidad de Teams](../../voice-video-calling/get-started-teams-interop.md) para aprender a agregar un usuario de Communication Services a una llamada de reunión de Teams.
-
-Para usar esta característica debe ser miembro de la organización propietaria de ambas entidades.
-
 ## <a name="joining-the-meeting-chat"></a>Unión al chat de la reunión 
 
-Una vez que la interoperabilidad de Teams se habilita, cualquier usuario de Communication Services puede unirse a la llamada de Teams como usuario externo mediante el SDK de llamadas. Al unirse a la llamada se le agregará también como participante en el chat de la reunión, donde podrán enviar mensajes a otros usuarios durante la llamada, y recibirlos de ellos. El usuario no tendrá acceso a los mensajes del chat enviados antes de que se haya unido a la llamada. Para unirse a la reunión e iniciar el chat, puede seguir los pasos siguientes.
+Un usuario de Communication Services puede unirse a una reunión de Teams como un usuario anónimo mediante el SDK de llamada. Al unirse a la reunión, se le agregará también como participante en el chat de la reunión, donde podrá enviar mensajes a otros usuarios durante la reunión, y recibirlos de ellos. El usuario no tendrá acceso a los mensajes de chat que se enviaron antes de unirse a la reunión y no podrá enviar ni recibir mensajes una vez que finalice la esta. Para unirse a la reunión e iniciar el chat, puede seguir los pasos siguientes.
 
 ## <a name="add-chat-to-the-teams-calling-app"></a>Incorporación de chat a la aplicación de llamada de Teams
 

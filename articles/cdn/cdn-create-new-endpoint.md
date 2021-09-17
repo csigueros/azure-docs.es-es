@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 04/30/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: e8b3b5c28d00b4d7c81fa3e245113119ae3134ad
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d98b7050b2472c1dd0405c213b450c719bcd8572
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102555710"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122322450"
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint"></a>Inicio rápido: Creación de un perfil y un punto de conexión de Azure CDN
 
@@ -50,7 +50,7 @@ Después de crear un perfil de CDN, se usa para crear un punto de conexión.
     | **Tipo de origen** | Seleccione **Storage**. | 
     | **Nombre de host de origen** | Seleccione en la lista desplegable el nombre de host de la cuenta de Azure Storage que va a usar como, por ejemplo *cdnstorageacct123.blob.core.windows.net*. |
     | **Ruta de acceso de origen** | déjelo en blanco. |
-    | **Encabezado del host de origen** | Deje el valor predeterminado (que es el nombre de host de la cuenta de almacenamiento). |  
+    | **Encabezado del host de origen** | Deje el valor predeterminado (que es el nombre de host de origen). |  
     | **Protocolo** | Deje las opciones **HTTP** y **HTTPS** predeterminadas seleccionadas. |
     | **Puerto de origen** | Deje los valores de puerto predeterminados. | 
     | **Optimizado para** | Deje la selección predeterminada **Entrega web general**. |

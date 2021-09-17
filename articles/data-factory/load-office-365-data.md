@@ -3,15 +3,16 @@ title: Carga de datos de Office 365 mediante Azure Data Factory
 description: Uso de Azure Data Factory para copiar datos de Office 365
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.date: 02/18/2021
+ms.date: 07/05/2021
 ms.author: jianleishen
-ms.openlocfilehash: eae3a83a5354c61db27f38b7b73a396923427073
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: a7c809803df1e84528cc7cd8eb41574591aab8c1
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109485628"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122638539"
 ---
 # <a name="load-data-from-office-365-by-using-azure-data-factory"></a>Carga de datos de Office 365 mediante Azure Data Factory
 
@@ -38,15 +39,15 @@ En este artículo se muestra cómo usar Data Factory para _cargar datos de Offic
 3. Seleccione **Crear**.
 4. Una vez completada la creación, vaya a la factoría de datos. Verá la página principal de **Factoría de datos**, tal y como se muestra en la siguiente imagen:
    
-   ![Página principal Factoría de datos](./media/load-office-365-data/data-factory-home-page.png)
+   :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Página principal de Azure Data Factory, con el icono Abrir Azure Data Factory Studio.":::
 
-5. Seleccione el icono **Author & Monitor** (Creación y supervisión) para iniciar la aplicación de integración de datos en una pestaña independiente.
+5. Seleccione **Abrir** en el mosaico **Open Azure Data Factory Studio** (Abrir Azure Data Factory Studio) para iniciar la aplicación de integración de datos en una pestaña independiente.
 
 ## <a name="create-a-pipeline"></a>Crear una canalización
 
-1. En la página de introducción seleccione **Create pipeline** (Crear canalización).
+1. En la página principal, seleccione **Orchestrate** (Organizar).
  
-    ![Creación de una canalización](./media/load-office-365-data/create-pipeline-entry.png)
+    ![Captura de pantalla que muestra la página principal de ADF.](./media/doc-common-process/get-started-page.png)
 
 2. En la pestaña **General** de la canalización, escriba "CopyPipeline" como **nombre** de la canalización.
 

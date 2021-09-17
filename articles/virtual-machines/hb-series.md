@@ -8,14 +8,16 @@ ms.topic: conceptual
 ms.date: 03/22/2021
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: 02eb75f96cee6df8cf2659e65cbb48099b0d81e4
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: ae1107deb58aa7bcc52fc9ed8055772c81cd4eb3
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108768254"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122696313"
 ---
 # <a name="hb-series"></a>Serie HB
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles :heavy_check_mark: Conjuntos de escalado uniformes
 
 Las máquinas virtuales de la serie HB están optimizadas para aplicaciones que funcionan con ancho de banda de la memoria, como la dinámica de fluidos, el análisis explícito de elementos finitos y los modelos de clima. Las máquinas virtuales HB cuentan con 60 núcleos de procesador AMD EPYC 7551, 4 GB de RAM por núcleo de CPU y ningún multithreading simultáneo. Una máquina virtual HB proporciona hasta 260 GB/s de ancho de banda de memoria.
 

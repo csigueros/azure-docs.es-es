@@ -8,14 +8,16 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: vikancha
-ms.openlocfilehash: d9eb0d5bc93cbe9c2a7cbae56c336115bb227b04
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c421c30e9a8f117806e9e93b2df5154bd881e7c2
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102557682"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122697935"
 ---
 # <a name="fpga-optimized-virtual-machine-sizes"></a>Tamaños de máquinas virtuales optimizados para FPGA
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles :heavy_check_mark: Conjuntos de escalado uniformes
 
 Los tamaños de VM optimizados para FPGA son máquinas virtuales especializadas con una o varias matrices FPGA. Estos tamaños están diseñados para las cargas de trabajo de procesos intensivos. En este artículo se proporciona información sobre el número y el tipo de matrices FPGA, CPU virtuales, discos de datos y tarjetas NIC. El ancho de banda de red y el rendimiento del almacenamiento también se incluyen para cada tamaño de esta agrupación.
 

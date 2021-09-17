@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 03/24/2021
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 652f98659f96b36e3185432e50d9d36dc569bd43
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 3d0987e5203288da6c6acd8bec6c478f5762b320
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107537950"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122823735"
 ---
 # <a name="what-is-azure-synapse-analytics"></a>¿Qué es Azure Synapse Analytics?
 
@@ -28,7 +28,8 @@ ms.locfileid: "107537950"
 
 * Synapse SQL ofrece modelos de recurso **sin servidor** y **dedicados**. Para obtener un rendimiento y un costo predecibles, cree grupos de SQL dedicados para reservar la capacidad de procesamiento de los datos almacenados en tablas SQL. En el caso de cargas de trabajo no planeadas o en ráfagas, utilice el punto de conexión SQL sin servidor siempre disponible.
 * Use las funcionalidades integradas de **streaming** para destinar datos de los orígenes de datos en la nube a tablas SQL.
-* Integración de IA con SQL mediante el uso de modelos de **aprendizaje automático** para puntuar los datos mediante la [función PREDICT de T-SQL](/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest&preserve-view=true)
+* Cargue datos en tablas administradas para obtener el mejor rendimiento de las consultas o consulte directamente los datos en [Azure Data Lake Storage](sql/query-data-storage.md) o [Azure Cosmos DB](sql/query-cosmos-db-analytical-store.md) sin necesidad de realizar tareas de importación periódicas y esperar a que finalicen.
+* Integre la IA con SQL mediante el uso de modelos de **aprendizaje automático** para puntuar los datos mediante la [función PREDICT de T-SQL](/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest&preserve-view=true).
 
 ## <a name="industry-standard-apache-spark"></a>Apache Spark estándar del sector
 
@@ -44,8 +45,9 @@ ms.locfileid: "107537950"
 Azure Synapse elimina las barreras de la tecnología tradicionales entre el uso conjunto de SQL y Spark. Puede combinar y comparar sin problemas en función de sus necesidades y conocimientos.
 
 * Spark o Hive pueden usar sin problemas las tablas definidas en el lago de datos.
-* SQL y Spark pueden explorar y analizar directamente los archivos Parquet, CSV, TSV y JSON almacenados en el lago de datos.
+* SQL y Spark pueden explorar y analizar directamente los archivos Parquet, CSV, TSV, Delta Lake y JSON almacenados en el lago de datos.
 * Carga de datos rápida y escalable entre las bases de datos de SQL y de Spark
+
 
 ## <a name="built-in-data-integration"></a>Integración de datos integrada
 

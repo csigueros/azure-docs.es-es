@@ -11,14 +11,14 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 08/16/2021
+ms.date: 08/24/2021
 tags: azure-synapse
-ms.openlocfilehash: e61660a5c559012cbf4940356bd1a204f3203db6
-ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
+ms.openlocfilehash: bcda86cd166e410bfc546c802466180557a92dc8
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122228775"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122825061"
 ---
 # <a name="data-discovery--classification"></a>Clasificación y detección de datos
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -114,7 +114,27 @@ Una vez definida la directiva de toda la organización, puede continuar con la c
 
 Un aspecto importante de la clasificación es la capacidad de supervisar el acceso a información confidencial. [Auditoría de Azure SQL](../../azure-sql/database/auditing-overview.md) se ha mejorado para incluir un nuevo campo en el registro de auditoría denominado `data_sensitivity_information`. Este campo registra las clasificaciones de confidencialidad (etiquetas) de los datos devueltos por una consulta. Este es un ejemplo:
 
-![Registro de auditoría](./media/data-discovery-and-classification-overview/11_data_classification_audit_log.png)
+[ ![Registro de auditoría](./media/data-discovery-and-classification-overview/11_data_classification_audit_log.png)](./media/data-discovery-and-classification-overview/11_data_classification_audit_log.png#lightbox)
+
+Estas son las actividades que realmente son auditables con información de confidencialidad:
+- ALTER TABLE ... DROP COLUMN
+- BULK INSERT
+- Delete
+- INSERT
+- MERGE
+- UPDATE
+- UPDATETEXT
+- WRITETEXT
+- DROP TABLE
+- BACKUP
+- DBCC CloneDatabase
+- SELECT INTO
+- INSERT INTO EXEC
+- TRUNCATE TABLE
+- DBCC SHOW_STATISTICS
+- sys.dm_db_stats_histogram
+
+Use [sys.fn_get_audit_file](https://docs.microsoft.com/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql) para devolver información de un archivo de auditoría almacenado en una cuenta de Azure Storage.
 
 ## <a name="permissions"></a><a id="permissions"></a>Permisos
 
@@ -126,15 +146,25 @@ Estos roles integrados pueden leer la clasificación de datos de una base de dat
 - Administrador de seguridad SQL
 - Administrador de acceso de usuario
 
+Estas son las acciones necesarias para leer la clasificación de datos de una base de datos:
+
+- Microsoft.Sql/servers/databases/currentSensitivityLabels/*
+- Microsoft.Sql/servers/databases/recommendedSensitivityLabels/*
+- Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/*
+
 Estos roles integrados pueden modificar la clasificación de datos de una base de datos:
 
 - Propietario
 - Colaborador
 - Administrador de seguridad SQL
 
+Esta es la acción necesaria para modificar la clasificación de datos de una base de datos:
+
+- Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/*
+
 Obtenga información sobre los permisos basados en roles en [RBAC de Azure](../../role-based-access-control/overview.md).
 
-## <a name="manage-classifications"></a><a id="manage-classification"></a>Administración de clasificaciones
+## <a name="manage-classifications"></a>Administración de clasificaciones
 
 Puede usar T-SQL, una API de REST o PowerShell para administrar las clasificaciones.
 
@@ -184,14 +214,21 @@ Puede usar las API REST para administrar las clasificaciones y recomendaciones m
 - [Enumerar las actuales por base de datos](/rest/api/sql/sensitivitylabels/listcurrentbydatabase): obtiene las etiquetas de confidencialidad actuales de la base de datos especificada.
 - [Enumerar las recomendadas por base de datos](/rest/api/sql/sensitivitylabels/listrecommendedbydatabase): obtiene las etiquetas de confidencialidad recomendadas de la base de datos especificada.
 
+## <a name="retrieve-classifications-metadata-using-sql-drivers"></a>Recuperación de metadatos de clasificaciones mediante controladores de SQL
+
+Puede usar los siguientes controladores de SQL para recuperar metadatos de clasificación:
+
+- [Controlador ODBC](https://docs.microsoft.com/sql/connect/odbc/data-classification)
+- [Controlador OLE DB](https://docs.microsoft.com/sql/connect/oledb/features/using-data-classification)
+- [Controlador JDBC](https://docs.microsoft.com/sql/connect/jdbc/data-discovery-classification-sample)
+- [Controladores de Microsoft para PHP para SQL Server](https://docs.microsoft.com/sql/connect/php/release-notes-php-sql-driver)
 
 ## <a name="faq---advanced-classification-capabilities"></a>Preguntas más frecuentes: funcionalidades de clasificación avanzadas
 
 **Pregunta**: ¿[Azure Purview](../../purview/overview.md) reemplazará a Clasificación y detección de datos de SQL o Clasificación y detección de datos de SQL se retirará pronto?
 **Respuesta**: Seguimos admitiendo Clasificación y detección de datos de SQL y le animamos a que adopte [Azure Purview](../../purview/overview.md), que tiene capacidades más ricas para impulsar las funciones de clasificación avanzadas y la gobernanza de datos. Si decidimos retirar cualquier servicio, característica, API o SKU, recibirá un aviso previo con una ruta de migración o de transición. Obtenga más información sobre las directivas del ciclo de vida de Microsoft aquí.
 
-
-## <a name="next-steps"></a><a id="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - Considere la posibilidad de configurar [Auditoría de Azure SQL](../../azure-sql/database/auditing-overview.md) para supervisar y auditar el acceso a los datos confidenciales clasificados.
 - Para ver una presentación que incluye la detección y clasificación de datos, consulte [Detección, clasificación, etiquetado y protección de datos de SQL | Datos expuestos](https://www.youtube.com/watch?v=itVi9bkJUNc).

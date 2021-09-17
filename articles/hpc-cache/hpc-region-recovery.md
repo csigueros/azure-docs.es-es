@@ -4,24 +4,31 @@ description: Técnicas para proporcionar funcionalidades de conmutación por err
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 08/19/2021
 ms.author: v-erkel
-ms.openlocfilehash: 9159807f55ae52393b8fccec339fcc94c3e4ebb0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a05a281bdf01a01be842e99cc1b08383d0b9c1bc
+ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87061383"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122515018"
 ---
 # <a name="use-multiple-caches-for-regional-failover-recovery"></a>Uso de varias cachés para la recuperación de la conmutación por error regional
 
-Cada instancia de Azure HPC Cache se ejecuta en una suscripción concreta y en una región. Esto significa que es posible que el flujo de trabajo de la memoria caché se interrumpa si la región sufre una interrupción completa.
+Cada instancia de Azure HPC Cache se ejecuta en una suscripción concreta y en una región. Esto significa que es posible que el flujo de trabajo de la memoria caché se interrumpa si la región de esa memoria caché sufre una interrupción completa.
 
 En este artículo se describe una estrategia para reducir el riesgo de interrupción del trabajo mediante el uso de una segunda región para la conmutación por error de la caché.
 
 La clave usa un almacenamiento de back-end que es accesible desde varias regiones. Este almacenamiento puede ser un sistema NAS local con compatibilidad con DNS adecuada o una instancia de Azure Blob Storage que resida en una región distinta de la caché.
 
 A medida que se realiza el flujo de trabajo en la región primaria, los datos se guardan en el almacenamiento a largo plazo fuera de la región. Si la región de la caché deja de estar disponible, puede crear una instancia de Azure HPC Cache duplicada en una región secundaria, conectarse al mismo almacenamiento y reanudar el trabajo desde la nueva caché.
+
+> [!NOTE]
+> En este plan de conmutación por error no se contempla una interrupción total en la región de una *cuenta de almacenamiento*. Además, Azure HPC Cache no admite cuentas de almacenamiento con redundancia geográfica (GRS o GZRS), ya que su método de copia asincrónica entre regiones no es lo suficientemente coherente con los flujos de trabajo de HPC Cache.
+>
+> HPC Cache **sí admite** el almacenamiento con redundancia local (LRS) y el almacenamiento con redundancia de zona (ZRS), que [replican datos dentro de una región de Azure](../storage/common/storage-redundancy.md#redundancy-in-the-primary-region).
+>
+> Considere la posibilidad de hacer copias de seguridad manuales si necesita protección frente a interrupciones del almacenamiento en toda la región.
 
 ## <a name="planning-for-regional-failover"></a>Planeación de la conmutación por error regional
 
@@ -36,8 +43,7 @@ Para configurar una memoria caché preparada para una posible conmutación por e
    1. Detalles acerca de las máquinas cliente, si se encuentran en la misma región que la memoria caché
    1. Comando de montaje para que lo usen los clientes de caché
 
-   > [!NOTE]
-   > La instancia de Azure HPC Cache se puede crear mediante programación, mediante una [plantilla de Azure Resource Manager](../azure-resource-manager/templates/overview.md) o mediante el acceso directo a su API. Póngase en contacto con el equipo de Azure HPC Cache para más información.
+   > [NOTA] La instancia de Azure HPC Cache se puede crear mediante programación, usando una [plantilla de Azure Resource Manager](../azure-resource-manager/templates/overview.md) o accediendo directamente a su API. Póngase en contacto con el equipo de Azure HPC Cache para más información.
 
 ## <a name="failover-example"></a>Ejemplo de conmutación por error
 
@@ -57,4 +63,4 @@ Todos los clientes tendrán que montar la nueva caché, incluso si estos no se v
 
 ## <a name="learn-more"></a>Más información
 
-La guía de arquitectura de aplicaciones de Azure incluye más información acerca de la [recuperación después de una interrupción del servicio en toda la región](<https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region>).
+La guía de arquitectura de aplicaciones de Azure incluye más información acerca de la [recuperación después de una interrupción del servicio en toda la región](/azure/architecture/resiliency/recovery-loss-azure-region).

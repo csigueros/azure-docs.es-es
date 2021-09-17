@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: bb40946bc01b6bd241f542b3987e8a2e7d570794
-ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
+ms.openlocfilehash: 26b48e4f5ed50b547c8ec628fc534e24dfeb252e
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2021
-ms.locfileid: "108331671"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122609548"
 ---
 # <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>Optimización de la inversión en la nube con Azure Cost Management
 
@@ -162,7 +162,7 @@ Las etiquetas son una manera eficaz de comprender los costos que abarcan varios 
 
 Del mismo modo, también puede tener aplicaciones web o entornos, como pruebas o producción, que usan recursos en varias suscripciones que pertenecen a distintos equipos. Para comprender mejor el costo total de las cargas de trabajo, etiquete los recursos que usan. Cuando las etiquetas se aplican correctamente, puede aplicarlas como filtro en análisis de costos para comprender mejor las tendencias.
 
-Después de planear el etiquetado de recursos, puede configurar una directiva de Azure para aplicar el etiquetado en los recursos. Vea el vídeo [Revisión de las directivas de etiquetas con Azure Cost Management](https://www.youtube.com/watch?v=nHQYcYGKuyw) para conocer las herramientas disponibles para aplicar el etiquetado de recursos escalable en su organización. Para ver otros vídeos, visite el [canal de YouTube de Cost Management](https://www.youtube.com/c/AzureCostManagement).
+Después de planear el etiquetado de recursos, puede configurar una definición de Azure Policy para aplicar el etiquetado en los recursos. Vea el vídeo [Revisión de las directivas de etiquetas con Azure Cost Management](https://www.youtube.com/watch?v=nHQYcYGKuyw) para conocer las herramientas disponibles para aplicar el etiquetado de recursos escalable en su organización. Para ver otros vídeos, visite el [canal de YouTube de Cost Management](https://www.youtube.com/c/AzureCostManagement).
 
 >[!VIDEO https://www.youtube.com/embed/nHQYcYGKuyw]
 

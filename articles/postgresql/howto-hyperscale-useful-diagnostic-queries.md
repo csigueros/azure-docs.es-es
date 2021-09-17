@@ -6,13 +6,13 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 1/5/2021
-ms.openlocfilehash: 4858f650aca1b704ac79482e0158fd83fc0264b8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 8/23/2021
+ms.openlocfilehash: efd251e48beb4e2f2b3db16f694da14888e876dd
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98165248"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122822540"
 ---
 # <a name="useful-diagnostic-queries"></a>Consultas de diagnóstico útiles
 
@@ -253,18 +253,56 @@ Salida de ejemplo:
 └────────┴───────┘
 ```
 
+## <a name="viewing-system-queries"></a>Visualización de consultas del sistema
+
+### <a name="active-queries"></a>Consultas activas
+
+La vista `pg_stat_activity` muestra las consultas que se están ejecutando. Puede filtrar para buscar las que lo están haciendo de manera activa, junto con el identificador de proceso de su back-end:
+
+```sql
+SELECT pid, query, state
+  FROM pg_stat_activity
+ WHERE state != 'idle';
+```
+
+### <a name="why-are-queries-waiting"></a>Por qué hay consultas en espera
+
+También es posible consultar las razones más comunes de que haya consultas no inactivas en espera. Para obtener una explicación de las razones, vea la [documentación de PostgreSQL](https://www.postgresql.org/docs/current/monitoring-stats.html#WAIT-EVENT-TABLE).
+
+```sql
+SELECT wait_event || ':' || wait_event_type AS type, count(*) AS number_of_occurences
+  FROM pg_stat_activity
+ WHERE state != 'idle'
+GROUP BY wait_event, wait_event_type
+ORDER BY number_of_occurences DESC;
+```
+
+Salida de ejemplo cuando `pg_sleep` se ejecuta en una consulta independiente de manera simultánea:
+
+```
+┌─────────────────┬──────────────────────┐
+│      type       │ number_of_occurences │
+├─────────────────┼──────────────────────┤
+│ ∅               │                    1 │
+│ PgSleep:Timeout │                    1 │
+└─────────────────┴──────────────────────┘
+```
+
 ## <a name="index-hit-rate"></a>Tasa de aciertos del índice
 
-Esta consulta le proporcionará la tasa de aciertos del índice en todos los nodos. Este valor es útil para determinar la frecuencia con que se usan los índices al realizar consultas:
+Esta consulta le proporcionará la tasa de aciertos del índice en todos los nodos. Este valor es útil para determinar la frecuencia con que se usan los índices al realizar consultas.
+Un valor del 95 % o superior es ideal.
 
 ``` postgresql
+-- on coordinator
+SELECT 100 * (sum(idx_blks_hit) - sum(idx_blks_read)) / sum(idx_blks_hit) AS index_hit_rate
+  FROM pg_statio_user_indexes;
+
+-- on workers
 SELECT nodename, result as index_hit_rate
 FROM run_command_on_workers($cmd$
-  SELECT CASE sum(idx_blks_hit)
-    WHEN 0 THEN 'NaN'::numeric
-    ELSE to_char((sum(idx_blks_hit) - sum(idx_blks_read)) / sum(idx_blks_hit + idx_blks_read), '99.99')::numeric
-    END AS ratio
-  FROM pg_statio_user_indexes
+  SELECT 100 * (sum(idx_blks_hit) - sum(idx_blks_read)) / sum(idx_blks_hit) AS index_hit_rate
+    FROM pg_statio_user_indexes;
 $cmd$);
 ```
 
@@ -274,8 +312,8 @@ Salida de ejemplo:
 ┌───────────┬────────────────┐
 │ nodename  │ index_hit_rate │
 ├───────────┼────────────────┤
-│ 10.0.0.16 │ 0.88           │
-│ 10.0.0.20 │ 0.89           │
+│ 10.0.0.16 │ 96.0           │
+│ 10.0.0.20 │ 98.0           │
 └───────────┴────────────────┘
 ```
 
@@ -286,20 +324,32 @@ Normalmente, la mayoría de las aplicaciones tienen acceso a una pequeña fracci
 Una medida importante es el porcentaje de datos procedentes de la memoria caché frente a los procedentes del disco en la carga de trabajo:
 
 ``` postgresql
+-- on coordinator
 SELECT
   sum(heap_blks_read) AS heap_read,
   sum(heap_blks_hit)  AS heap_hit,
-  sum(heap_blks_hit) / (sum(heap_blks_hit) + sum(heap_blks_read)) AS ratio
+  100 * sum(heap_blks_hit) / (sum(heap_blks_hit) + sum(heap_blks_read)) AS cache_hit_rate
 FROM
   pg_statio_user_tables;
+
+-- on workers
+SELECT nodename, result as cache_hit_rate
+FROM run_command_on_workers($cmd$
+  SELECT
+    100 * sum(heap_blks_hit) / (sum(heap_blks_hit) + sum(heap_blks_read)) AS cache_hit_rate
+  FROM
+    pg_statio_user_tables;
+$cmd$);
 ```
 
 Salida de ejemplo:
 
 ```
- heap_read | heap_hit |         ratio
------------+----------+------------------------
-         1 |      132 | 0.99248120300751879699
+┌───────────┬──────────┬─────────────────────┐
+│ heap_read │ heap_hit │   cache_hit_rate    │
+├───────────┼──────────┼─────────────────────┤
+│         1 │      132 │ 99.2481203007518796 │
+└───────────┴──────────┴─────────────────────┘
 ```
 
 Si se encuentra con una relación significativamente inferior al 99 %, es probable que desee considerar la posibilidad de aumentar la memoria caché disponible para la base de datos.

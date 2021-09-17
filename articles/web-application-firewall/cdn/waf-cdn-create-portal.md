@@ -7,12 +7,12 @@ services: web-application-firewall
 ms.topic: tutorial
 ms.date: 09/16/2020
 ms.author: victorh
-ms.openlocfilehash: 9579d0da3347bdd4ecc627662cee42f909cbfaf7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a8710bac1d3161581f1002aa2d7531350c197be1
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92132778"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122696720"
 ---
 # <a name="tutorial-create-a-waf-policy-on-azure-cdn-using-the-azure-portal"></a>Tutorial: Creación de una directiva WAF para Azure CDN con Azure Portal
 
@@ -39,8 +39,8 @@ En primer lugar, cree una directiva básica WAF con un conjunto de reglas predet
     | Configuración                 | Value                                              |
     | ---                     | ---                                                |
     | Directiva de            |Seleccione Azure CDN (versión preliminar).|
-    | Subscription            |Seleccione el nombre de la suscripción a Front Door.|
-    | Resource group          |Seleccione el nombre del grupo de recursos de Front Door.|
+    | Subscription            |Seleccione el nombre de la suscripción de CDN Profile.|
+    | Resource group          |Seleccione el nombre del grupo de recursos de CDN Profile.|
     | Nombre de la directiva             |Escriba un nombre único para la directiva WAF.|
 
    :::image type="content" source="../media/waf-cdn-create-portal/basic.png" alt-text="Captura de pantalla de la página para crear una directiva de W A F, con el botón Revisar y crear y valores especificados para diversas configuraciones." border="false":::

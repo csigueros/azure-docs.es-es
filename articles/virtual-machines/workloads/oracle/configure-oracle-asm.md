@@ -8,14 +8,16 @@ ms.collection: linux
 ms.topic: article
 ms.date: 08/02/2018
 ms.author: kegorman
-ms.openlocfilehash: b180a0f148db5222a288958724ad248acd18b565
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7bd7b8e13ef6c44952f682497a4f4a5cdc2ebc3f
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101673853"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122688091"
 ---
-# <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Configuración de ASM de Oracle en una máquina virtual Linux en Azure  
+# <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Configuración de ASM de Oracle en una máquina virtual Linux en Azure
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux 
 
 Las máquinas virtuales de Azure proporcionan un entorno informático completamente configurable y flexible. En este tutorial se aborda la implementación de máquinas virtuales de Azure básicas combinada con la instalación y configuración de Automated Storage Management (ASM) de Oracle.  Aprenderá a:
 
@@ -476,7 +478,7 @@ Para instalar Oracle Grid Infrastructure, complete los pasos siguientes:
 
    ![Captura de pantalla de la página Create Inventory (Crear inventario) en el instalador](./media/oracle-asm/install08.png)
 
-10. En la página **Root script execution configuration** (Configuración de ejecución de script de root), active la casilla **Automatically run configuration scripts** (Ejecutar scripts de configuración automáticamente). Después, seleccione la opción **Use "root&quot; user credential** (Usar las credenciales del usuario &quot;root") y escriba la contraseña del usuario root.
+10. En la página **Root script execution configuration** (Configuración de ejecución de script de root), active la casilla **Automatically run configuration scripts** (Ejecutar scripts de configuración automáticamente). Después, seleccione la opción **Use "root" user credential** (Usar las credenciales del usuario "root") y escriba la contraseña del usuario root.
 
     ![Captura de pantalla de la página Root script execution configuration (Configuración de ejecución de script de root) en el instalador](./media/oracle-asm/install09.png)
 

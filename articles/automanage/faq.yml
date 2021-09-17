@@ -9,12 +9,12 @@ metadata:
   ms.topic: troubleshooting
   ms.date: 02/22/2021
   ms.author: deanwe
-  ms.openlocfilehash: b1cc973af2c4e50ea0f50698f6628bac77c1dfeb
-  ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+  ms.openlocfilehash: dca933c5b86875b50d04a67f482713830437350b
+  ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 07/22/2021
-  ms.locfileid: "114482097"
+  ms.lasthandoff: 08/20/2021
+  ms.locfileid: "122608108"
 title: Preguntas más frecuentes sobre Azure Automanage para máquinas virtuales
 summary: >
   En este artículo se proporcionan respuestas a algunas de las preguntas más comunes sobre [Azure Automanage para máquinas virtuales](automanage-virtual-machines.md).
@@ -78,9 +78,9 @@ sections:
     answer: >
       Azure Automanage está disponible sin costo adicional en la versión preliminar pública. Los recursos adjuntos de Azure, como Azure Backup, supondrán un costo.
   - question: >
-      ¿Se puede aplicar Automanage a través de Azure Policy?
+      ¿Se puede aplicar Automanage mediante Azure Policy?
     answer: >
-      Sí, tenemos una directiva integrada que aplicará automáticamente Automanage a todas las máquinas virtuales dentro del ámbito que se defina. También se especificará el entorno de configuración (Desarrollo/pruebas o Producción) junto con su cuenta de Automanage. Obtenga más información [aquí](virtual-machines-policy-enable.md) sobre cómo habilitar Automanage a través de Azure Policy.
+      Sí, tenemos una directiva integrada que aplicará automáticamente Automanage a todas las máquinas virtuales dentro del ámbito que se defina. También se especificará el entorno de configuración (Desarrollo/pruebas o Producción) junto con su cuenta de Automanage. Obtenga más información [aquí](virtual-machines-policy-enable.md) sobre cómo habilitar Automanage mediante Azure Policy.
   - question: >
       ¿Qué es una cuenta de Automanage?
     answer: >

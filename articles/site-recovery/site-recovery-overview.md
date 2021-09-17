@@ -2,14 +2,14 @@
 title: Acerca de Azure Site Recovery
 description: Proporciona información general acerca del servicio Azure Site Recovery y resume escenarios de recuperación ante desastres e implementación de migraciones.
 ms.topic: overview
-ms.date: 03/17/2020
+ms.date: 08/19/2021
 ms.custom: MVC
-ms.openlocfilehash: 19860e64182cd73fe9f9fa1246f440a03109d465
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: d5558930c77c115ba25cb4b35e88d470afc38a23
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92281878"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122445695"
 ---
 # <a name="about-site-recovery"></a>Acerca de Site Recovery
 
@@ -33,6 +33,7 @@ Site Recovery puede administrar la replicación de:
 --- | ---
 **Solución de BCDR simple** | Mediante Site Recovery se pueden configurar y administrar la replicación, la conmutación por error y la conmutación por recuperación desde una sola ubicación en Azure Portal.
 **Replicación de máquinas virtuales de Azure** | Puede configurar la recuperación ante desastres de máquinas virtuales de Azure de una región primaria a una secundaria.
+**Replicación de máquinas virtuales de VMware** | Puede replicar máquinas virtuales de VMware en Azure mediante el dispositivo de replicación de Azure Site Recovery mejorado que ofrece una mayor seguridad y resistencia que el servidor de configuración. Para más información, consulte [Recuperación ante desastres de máquinas virtuales de VMware](vmware-azure-about-disaster-recovery.md).
 **Replicación de máquinas virtuales local** | Las máquinas virtuales y los servidores físicos se pueden replicar en Azure o en un centro de datos local secundario. Si se replican en Azure, se elimina el costo y la complejidad de mantener un centro de datos secundario.
 **Replicación de la carga de trabajo** | La replicación de cualquier carga de trabajo que se ejecuta en máquinas virtuales de Azure compatibles, máquinas virtuales de Hyper-V y VMware locales y servidores físicos Windows o Linux.
 **Resistencia de datos** | Site Recovery coordina la replicación sin interceptar los datos de las aplicaciones. Cuando se realiza la replicación en Azure, los datos se almacenan en Azure Storage con toda la resistencia que proporciona. Cuando se produce la conmutación por error, las máquinas virtuales de Azure en función de los datos replicados.
@@ -58,3 +59,4 @@ Site Recovery puede administrar la replicación de:
 
 - Más información sobre la [compatibilidad con cargas de trabajo](site-recovery-workload.md).
 - Empiece a trabajar con la [replicación de máquina virtual de Azure entre regiones](azure-to-azure-quickstart.md).
+- Introducción a la [replicación de máquinas virtuales de VMware](vmware-azure-enable-replication.md).

@@ -7,12 +7,12 @@ ms.date: 01/08/2021
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: ce10143be81da9ad797ba0ccd68837b647aeb7a7
-ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
+ms.openlocfilehash: 6a9a7d23d4fb8f11c27f279bdef8d2b46274b21e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2021
-ms.locfileid: "113301979"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121743401"
 ---
 # <a name="tutorial-create-a-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Tutorial: Creación de una regla y configuración de las notificaciones en la aplicación de Azure IoT Central
 
@@ -110,7 +110,7 @@ Las condiciones definen los criterios que la regla supervisa. En este tutorial, 
 
     :::image type="content" source="media/tutorial-create-telemetry-rules/aggregate-condition-filled-out.png" alt-text="Captura de pantalla que muestra la condición de agregado rellenada":::
 
-Puede agregar varias condiciones a una regla seleccionando **+ Condition** (+ Condición). Cuando se especifican varias condiciones, deben cumplirse todas ellas para que la regla se desencadene. Cada condición está unida por una cláusula `AND` implícita. Si usa la agregación de tiempo con varias condiciones, se deben agregar todos los valores de telemetría.
+Puede agregar varias condiciones a una regla seleccionando **+ Condition** (+ Condición). Cuando se agregan varias condiciones, puede especificar si se deben cumplir todas las condiciones o solo alguna para que se desencadene la regla. Si usa la agregación de tiempo con varias condiciones, se deben agregar todos los valores de telemetría.
 
 ### <a name="configure-actions"></a>Configuración de acciones
 

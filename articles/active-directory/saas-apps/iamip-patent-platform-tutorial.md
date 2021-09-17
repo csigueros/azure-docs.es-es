@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/10/2020
+ms.date: 07/28/2021
 ms.author: jeedes
-ms.openlocfilehash: dc9be41cd7975610f2779da09b94066c70a91652
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8022ea8ab38dd7b22fe7c51f2700321c40fd9333
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92460536"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121752512"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-iamip-patent-platform"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con IamIP Patent Platform
 
@@ -25,8 +25,6 @@ En este tutorial, aprenderá a integrar IamIP Patent Platform con Azure Active�
 * Usar Azure AD para controlar quién puede acceder a IamIP Patent Platform.
 * Permitir que los usuarios inicien sesión automáticamente en IamIP Patent Platform con sus cuentas de Azure AD.
 * Administrar sus cuentas en una ubicación central: Azure Portal.
-
-Para más información acerca de la integración de aplicaciones SaaS con Azure AD, consulte [Inicio de sesión único en aplicaciones de Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -39,16 +37,13 @@ Para empezar, necesita los siguientes elementos:
 
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-IamIP Patent Platform admite el inicio de sesión único iniciado por SP e IDP.
-
-Una vez configurado IamIP Patent Platform, puede aplicar controles de sesión, que protegen la filtración y la infiltración de la información confidencial de la organización en tiempo real. Los controles de sesión proceden del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
-
+* IamIP Patent Platform admite el inicio de sesión único iniciado por SP e IDP.
 
 ## <a name="add-iamip-patent-platform-from-the-gallery"></a>Adición de IamIP Patent Platform desde la galería
 
 Para configurar la integración de IamIP Patent Platform en Azure AD, deberá agregar IamIP Patent Platform desde la galería a la lista de aplicaciones SaaS administradas.
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta profesional o educativa o con una cuenta Microsoft personal.
+1. Inicie sesión en Azure Portal con una cuenta profesional o educativa o con una cuenta Microsoft personal.
 1. En el panel izquierdo, seleccione **Azure Active Directory**.
 1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
 1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
@@ -59,14 +54,14 @@ Para configurar la integración de IamIP Patent Platform en Azure AD, deberá a
 
 Configure y pruebe el inicio de sesión único de Azure AD con IamIP Patent Platform mediante un usuario de prueba llamado B.Simon. Para que el inicio de sesión único funcione, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario correspondiente de IamIP Patent Platform.
 
-Para configurar y probar el inicio de sesión único de Azure AD con IamIP Patent Platform, es preciso llevar a cabo estos pasos generales:
+Para configurar y probar el inicio de sesión único de Azure AD con IamIP Patent Platform, siga estos pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para que los usuarios puedan utilizar esta característica.
-    * **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** para probar el inicio de sesión único de Azure AD.
-    * **[Concesión de acceso al usuario de prueba](#grant-access-to-the-test-user)** , para que el usuario pueda usar el inicio de sesión único de Azure AD.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** para probar el inicio de sesión único de Azure AD.
+    1. **[Concesión de acceso al usuario de prueba](#grant-access-to-the-test-user)** , para que el usuario pueda usar el inicio de sesión único de Azure AD.
 
 1. **[Configuración del inicio de sesión único de IamIP Patent Platform](#configure-iamip-patent-platform-sso)** en la aplicación.
-    * **[Creación de un usuario de prueba de IamIP Patent Platform](#create-iamip-patent-platform-test-user)** como homólogo de la representación del usuario en Azure AD.
+    1. **[Creación de un usuario de prueba de IamIP Patent Platform](#create-iamip-patent-platform-test-user)** como homólogo de la representación del usuario en Azure AD.
 
 1. **[Prueba del inicio de sesión único](#test-sso)** para comprobar que la configuración funciona.
 
@@ -74,7 +69,7 @@ Para configurar y probar el inicio de sesión único de Azure AD con IamIP Pate
 
 Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal:
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **IamIP Patent Platform**, en la sección **Administrar**, seleccione **Inicio de sesión único**.
+1. En Azure Portal, en la página de integración de la aplicación **IamIP Patent Platform**, en la sección **Administrar**, seleccione **Inicio de sesión único**.
 1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
 1. En la página **Configuración del inicio de sesión único con SAML**, seleccione el botón de lápiz para **Configuración básica de SAML** para editar la configuración:
 
@@ -82,30 +77,28 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. En la sección **Configuración básica de SAML**, si tiene el archivo de metadatos del proveedor de servicios y quiere configurar el inicio de sesión único en modo iniciado por IDP, siga estos pasos:
 
-    a. Seleccione **Cargar el archivo de metadatos**:
+    a. Seleccione **Cargar el archivo de metadatos**.
 
     ![Carga del archivo de metadatos](common/upload-metadata.png)
 
-    b. Seleccione el botón de carpeta, seleccione el archivo de metadatos y, a continuación, seleccione **Cargar**:
+    b. Seleccione el botón de carpeta, seleccione el archivo de metadatos y, a continuación, seleccione **Cargar**.
 
     ![Botones de carpeta y de carga](common/browse-upload-metadata.png)
 
-    c. Una vez que se haya cargado el archivo de metadatos, los valores de **Identificador** y **Dirección URL de respuesta** se rellenan automáticamente en la sección **Configuración básica de SAML**:
-
-    ![Valores de Identificador y Dirección URL de respuesta](common/idp-intiated.png)
+    c. Una vez que se haya cargado el archivo de metadatos, los valores de **Identificador** y **Dirección URL de respuesta** se rellenan automáticamente en la sección **Configuración básica de SAML**.
 
     > [!Note]
     > Si los valores de **Identificador** y **Dirección URL de respuesta** no se rellenan automáticamente, proporcione dichos valores manualmente según sus necesidades.
 
 1. Si quiere configurar la aplicación en modo iniciado por SP, seleccione **Establecer direcciones URL adicionales** y lleve a cabo el paso siguiente:
 
-    En el cuadro de texto **Dirección URL de inicio de sesión**, escriba **https:\//patents.iamip.com/login-user**.
+    En el cuadro **URL de inicio de sesión**, escriba la dirección URL: `https://patents.iamip.com/login-user`.
 
-1. En la página **Configurar inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, seleccione el vínculo **Descargar** para **Certificado (sin procesar)** para descargarlo y guardarlo en el equipo:
+1. En la página **Configurar inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, seleccione el vínculo **Descargar** para **Certificado (sin procesar)** para descargarlo y guardarlo en el equipo.
 
     ![Vínculo de descarga del certificado](common/certificateraw.png)
 
-1. En la sección **Configurar IamIP Patent Platform**, copie las direcciones URL según sus necesidades:
+1. En la sección **Configurar IamIP Patent Platform**, copie las direcciones URL correspondientes según sus necesidades.
 
     ![Copiar direcciones URL de configuración](common/idp-intiated.png))
 
@@ -128,13 +121,7 @@ En esta sección va a permitir que B.Simon acceda a IamIP Patent Platform median
 1. En Azure Portal, seleccione **Aplicaciones empresariales** y, a continuación, seleccione **Todas las aplicaciones**.
 1. En la lista de aplicaciones, seleccione **IamIP Patent Platform**.
 1. En la sección **Administrar** de la página de información general de la aplicación, seleccione **Usuarios y grupos**:
-
-   ![Seleccionar Usuarios y grupos](common/users-groups-blade.png)
-
-1. Seleccione **Agregar usuario** y, a continuación, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**:
-
-    ![Selección de Agregar usuario](common/add-assign-user.png)
-
+1. Seleccione **Agregar usuario** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
 1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** en la lista **Usuarios** y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
 1. Si espera que haya un valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione en la lista el rol adecuado para el usuario y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
 1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
@@ -149,18 +136,20 @@ Colabore con el [equipo de soporte técnico de IamIP Patent Platform](mailto:inf
 
 ## <a name="test-sso"></a>Prueba de SSO
 
-En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
+En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones. 
 
-Al seleccionar el icono de IamIP Patent Platform en el panel de acceso, debería iniciar sesión automáticamente en la instancia de IamIP Patent Platform para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
+#### <a name="sp-initiated"></a>Iniciado por SP:
 
-## <a name="additional-resources"></a>Recursos adicionales
+* Haga clic en **Probar esta aplicación** en Azure Portal. Esta acción le redirigirá a la URL de inicio de sesión de IamIP Patent Platform, donde podrá poner en marcha el flujo de inicio de sesión.  
 
-- [Tutoriales para la integración de aplicaciones SaaS con Azure Active Directory ](./tutorial-list.md)
+* Acceda directamente a la URL de inicio de sesión de IamIP Patent Platform y ponga en marcha el flujo de inicio de sesión desde ahí.
 
-- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
+#### <a name="idp-initiated"></a>Iniciado por IDP:
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](../conditional-access/overview.md)
+* Haga clic en **Probar esta aplicación** en Azure Portal. Debería iniciarse la sesión automáticamente en la aplicación IamIP Patent Platform para la que configuró el inicio de sesión único. 
 
-- [Prueba de IamIP Patent Platform con Azure AD](https://aad.portal.azure.com/)
+También puede usar Aplicaciones de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de IamIP Patent Platform en Aplicaciones, si se ha configurado el modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para poner en marcha el flujo de inicio de sesión y, si ha configurado el modo IDP, se debería iniciar sesión automáticamente en la aplicación IamIP Patent Platform para la que configuró el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
 
-- [¿Qué es el control de sesiones en Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
+## <a name="next-steps"></a>Pasos siguientes
+
+Una vez configurado IamIP Patent Platform, puede aplicar controles de sesión, que protegen contra la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

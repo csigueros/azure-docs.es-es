@@ -8,14 +8,17 @@ ms.collection: linux
 ms.topic: article
 ms.date: 04/16/2020
 ms.author: mathapli
-ms.openlocfilehash: 703732725ae7215d3ff59ad92a4c171a86251c20
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 82aa54f1b9aea331c7c08128487fbc9711cac2df
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101677199"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122696843"
 ---
 # <a name="red-hat-enterprise-linux-rhel-extended-lifecycle-support"></a>Soporte técnico ampliado del ciclo de vida de Red Hat Enterprise Linux (RHEL)
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux 
+
 En este artículo se proporciona información sobre el soporte técnico ampliado del ciclo de vida para las imágenes de Red Hat Enterprise:
 * Red Hat Enterprise Linux 6  
 

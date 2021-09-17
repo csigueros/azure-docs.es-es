@@ -1,38 +1,31 @@
 ---
-title: archivo de inclusión
-description: archivo de inclusión
-services: virtual-wan
+ms.author: cherylmc
 author: cherylmc
+ms.date: 08/19/2021
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 11/04/2019
-ms.author: cherylmc
-ms.custom: include file
-ms.openlocfilehash: 6f910dbe91ed8e1cb65eefa6dfc48c72a689bf25
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: f5d641a1d017f40081b311e9b9b610b7fcc7c13c
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "73491550"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122820841"
 ---
-1. Ubique la red WAN virtual que ha creado. En la página de Virtual WAN, en la sección **Conectividad**, seleccione **Centros**.
-2. En la página Centros, haga clic en **+ Nuevo centro de conectividad** para abrir la página **Crear centro de conectividad virtual**.
-3. En la página **Crear centro de conectividad virtual**, en la pestaña **Aspectos básicos** rellene los siguientes campos:
+1. Ubique la red WAN virtual que ha creado. En la página de Virtual WAN, en la sección **Conectividad**, seleccione **Centros**. Haga clic en **Nuevo centro de conectividad** para abrir la página **Crear centro de conectividad virtual**.
 
-   ![Conceptos básicos](./media/virtual-wan-tutorial-er-hub-include/hub1.png "Aspectos básicos")
+   :::image type="content" source="media/virtual-wan-empty-hub/new-hub.jpg" alt-text="Captura de pantalla que muestra el cuadro de diálogo Configuración de centros de conectividad con la opción Nuevo centro de conectividad seleccionada.":::
 
-    **Detalles del proyecto**
+1. En la página **Crear centro de conectividad virtual**, complete los campos.
 
-   * Región (anteriormente se conocía como ubicación)
-   * Nombre
-   * Espacio de direcciones privadas del centro de conectividad. El espacio de direcciones mínimo es/24 para crear un centro de conectividad, lo que implica que cualquier intervalo de/25 a/32 generará un error durante la creación.
-4. Seleccione la **pestaña ExpressRoute**.
+   :::image type="content" source="media/virtual-wan-tutorial-er-hub/create-hub.png" alt-text="Captura de pantalla en la que se muestra la pestaña Aspectos básicos donde puede especificar valores.":::
 
-5. En la pestaña **ExpressRoute**, rellene los siguientes campos:
+   * **Región**: seleccione la región en la que quiere implementar el centro de conectividad virtual.
+   * **Nombre**: nombre por el que desea que se conozca el centro de conectividad virtual.
+   * **Espacio de direcciones privadas del centro de conectividad**: intervalo de direcciones del centro de conectividad en la notación CIDR.
 
-   ![ExpressRoute](./media/virtual-wan-tutorial-er-hub-include/hub2.png "ExpressRoute")
+1. Seleccione la **pestaña ExpressRoute**. Haga clic en **Sí** para mostrar la configuración y rellenar el campo. Para obtener información sobre las unidades de escalado de puerta de enlace, vea las [Preguntas más frecuentes](../articles/virtual-wan/virtual-wan-faq.md#what-are-virtual-wan-gateway-scale-units).
 
-   * Seleccione **Sí** para crear una puerta de enlace de **ExpressRoute**.
-   * En la lista desplegable, seleccione el valor **Unidades de escalado de puerta de enlace**.
-6. Seleccione **Revisar y crear** para validar.
-7. Seleccione **Crear** para crear un centro de conectividad. Pasados 30 minutos haga clic en **Actualizar** para ver el centro de conectividad en la página **Centros**. Seleccione **Ir al recurso** para ir al recurso.
+   :::image type="content" source="media/virtual-wan-tutorial-er-hub/expressroute.png" alt-text="Captura de pantalla en la que se muestra la pestaña ExpressRoute donde puede especificar valores.":::
+
+1. Seleccione **Revisar y crear** para validar.
+1. Seleccione **Crear** para crear el centro de conectividad con una puerta de enlace de ExpressRoute. Un centro de conectividad puede tardar unos 30 minutos en completarse. Pasados 30 minutos haga clic en **Actualizar** para ver el centro de conectividad en la página **Centros**. Seleccione **Ir al recurso** para ir al recurso.

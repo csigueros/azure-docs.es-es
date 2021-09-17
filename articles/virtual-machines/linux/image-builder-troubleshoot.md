@@ -9,14 +9,17 @@ ms.topic: troubleshooting
 ms.service: virtual-machines
 ms.subservice: image-builder
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 91b60204c8fddd892fbaacf00a7588cf1a64854d
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 6ef288e776daaf7aa266d13068647bea1c5a4c27
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122180361"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122691892"
 ---
 # <a name="troubleshoot-azure-image-builder-service"></a>Solución de problemas del servicio Azure Image Builder
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Conjuntos de escalado flexibles 
+
 Este artículo le ayuda a solucionar problemas conocidos que se pueden producir al usar el servicio Azure Image Builder.
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -535,6 +538,25 @@ El servicio Image Builder usa el puerto 22 (Linux) o 5986 (Windows) para conecta
 
 #### <a name="solution"></a>Solución
 Revise los scripts para los cambios y la habilitación del firewall, o los cambios en SSH o WinRM, y asegúrese de que los cambios permitan la conectividad constante entre el servicio y la máquina virtual de compilación en los puertos anteriores. Para obtener más información sobre las redes de Image Builder, consulte los [requisitos](./image-builder-networking.md).
+
+### <a name="jwt-errors-in-log-early-in-the-build"></a>Errores JWT en el registro al principio de la compilación
+
+#### <a name="error"></a>Error
+Al principio del proceso de compilación, se produce un error en la compilación y el registro indica un error JWT:
+
+```text
+PACKER OUT Error: Failed to prepare build: "azure-arm"
+PACKER ERR 
+PACKER OUT 
+PACKER ERR * client_jwt will expire within 5 minutes, please use a JWT that is valid for at least 5 minutes
+PACKER OUT 1 error(s) occurred:
+```
+
+#### <a name="cause"></a>Causa
+El valor `buildTimeoutInMinutes` de la plantilla se establece en entre 1 y 5 minutos.
+
+#### <a name="solution"></a>Solución
+Como se describe en [Creación de una plantilla de Azure Image Builder](./image-builder-json.md), el tiempo de espera debe establecerse en 0 para usar el valor predeterminado o en un valor superior a 5 minutos para invalidar el valor predeterminado.  Cambie el tiempo de espera de la plantilla a 0 para usar el valor predeterminado o a un mínimo de 6 minutos.
 
 ## <a name="devops-task"></a>Tarea de DevOps 
 

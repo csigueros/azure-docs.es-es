@@ -7,14 +7,16 @@ author: cynthn
 ms.service: virtual-machines
 ms.date: 11/11/2020
 ms.author: cynthn
-ms.openlocfilehash: 9c220814ae1f714e9eac0c0c11a50d9cf68a621d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 543317b2e1dcc0c55ac970212612f5266e5f84aa
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98897415"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122695366"
 ---
 # <a name="tagging-a-vm-using-the-portal"></a>Etiquetado de máquinas virtuales mediante el portal
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles :heavy_check_mark: Conjuntos de escalado uniformes
 
 En este artículo se describe cómo agregar etiquetas a una máquina virtual mediante el portal. Las etiquetas son pares clave-valor definidos por el usuario que se pueden colocar directamente en un recurso o un grupo de recursos. Actualmente, Azure admite un máximo de 50 etiquetas por recurso y grupo de recursos. Las etiquetas se pueden colocar en un recurso en el momento de su creación, o bien se pueden agregar a un recurso existente.
 

@@ -8,17 +8,17 @@ ms.topic: quickstart
 ms.date: 04/23/2021
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 424954d18fc719748175c2ad9428bb621d577a70
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 4ff1666222eedecd944b94de428c7666b0998d03
+ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114470788"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122271584"
 ---
 # <a name="quickstart-monitoring-azure-spring-cloud-apps-with-logs-metrics-and-tracing"></a>Inicio rápido: supervisión de aplicaciones de Azure Spring Cloud con registros, métricas y seguimiento
 
 ::: zone pivot="programming-language-csharp"
-Con la funcionalidad de supervisión integrada de Azure Spring Cloud, puede depurar y supervisar problemas complejos. Azure Spring Cloud integra el [seguimiento distribuido](https://steeltoe.io/docs/3/tracing/distributed-tracing) de Steeltoe con [Application Insights](../azure-monitor/app/app-insights-overview.md) de Azure. Esta integración proporciona una eficaz funcionalidad de registros, métricas y seguimiento distribuido desde Azure Portal.
+Con la funcionalidad de supervisión integrada de Azure Spring Cloud, puede depurar y supervisar problemas complejos. Azure Spring Cloud integra el [seguimiento distribuido](https://docs.steeltoe.io/api/v3/tracing/) de Steeltoe con [Application Insights](../azure-monitor/app/app-insights-overview.md) de Azure. Esta integración proporciona una eficaz funcionalidad de registros, métricas y seguimiento distribuido desde Azure Portal.
 
 En los procedimientos siguientes se explica cómo usar el streaming de registro, Log Analytics, las métricas y el seguimiento distribuido con la aplicación de ejemplo que implementó en las guías de inicio rápido anteriores.
 
@@ -66,7 +66,7 @@ Executing ObjectResult, writing value of type 'System.Collections.Generic.KeyVal
 1. En Azure Portal, vaya a la página **Servicio | Información general** y seleccione **Registros** en la sección **Supervisión**. Seleccione **Ejecutar** en una de las consultas de ejemplo de Azure Spring Cloud.
 
    [ ![Entrada de Log Analytics](media/spring-cloud-quickstart-logs-metrics-tracing/logs-entry.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/logs-entry.png#lightbox)
-    
+
 1. Edite la consulta para quitar las cláusulas WHERE que limitan la presentación a los registros de advertencias y errores.
 
 1. A continuación, seleccione `Run` y verá los registros. Para más instrucciones sobre la escritura de consultas, consulte la [documentación de Azure Log Analytics](../azure-monitor/logs/get-started-queries.md).
@@ -80,8 +80,8 @@ Executing ObjectResult, writing value of type 'System.Collections.Generic.KeyVal
 1. En Azure Portal, vaya a la página **Servicio | Información general** y seleccione **Métricas** en la sección **Supervisión**. Para agregar la primera métrica, seleccione una de las métricas de .NET en **Rendimiento (.NET)** o **Solicitud (.NET)** , en la lista desplegable **Métrica** y `Avg` en **Agregación** para ver la línea de tiempo de esa métrica.
 
    [ ![Entrada de métricas: Steeltoe](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-basic-cpu-steeltoe.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-basic-cpu-steeltoe.png#lightbox)
-    
-1. Haga clic en **Agregar filtro** en la barra de herramientas y seleccione `App=solar-system-weather` para ver el uso de la CPU solo para la aplicación **solar-system-weather**.
+
+1. Seleccione **Agregar filtro** en la barra de herramientas y seleccione `App=solar-system-weather` para ver el uso de la CPU solo para la aplicación **solar-system-weather**.
 
    [ ![Usar un filtro en métricas: Steeltoe](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-filter-steeltoe.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-filter-steeltoe.png#lightbox)
 
@@ -95,14 +95,14 @@ Executing ObjectResult, writing value of type 'System.Collections.Generic.KeyVal
 
    [ ![Entrada de Seguimiento distribuido: Steeltoe](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-entry.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-entry.png#lightbox)
 
-1. Ya puede ver el estado de las llamadas entre las aplicaciones. 
+1. Ya puede ver el estado de las llamadas entre las aplicaciones.
 
    [ ![Información general sobre el seguimiento distribuido: Steeltoe](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-overview-steeltoe.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-overview-steeltoe.png#lightbox)
-    
+
 1. Seleccione el vínculo entre **solar-system-weather** y **planet-weather-provider** para ver más detalles, como las llamadas más lentas por métodos HTTP.
 
    [ ![Seguimiento distribuido: Steeltoe](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-call-steeltoe.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-call-steeltoe.png#lightbox)
-    
+
 1. Por último, seleccione **Investigate Performance** (Investigar rendimiento) para explorar un análisis del rendimiento integrado más eficaz.
 
    [ ![Rendimiento del seguimiento distribuido: Steeltoe](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-performance-steeltoe.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-performance-steeltoe.png#lightbox)
@@ -113,7 +113,7 @@ Con la funcionalidad de supervisión integrada de Azure Spring Cloud, puede depu
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Complete los pasos anteriores: 
+Complete los pasos anteriores:
 
 * [Aprovisionamiento de una instancia de Azure Spring Cloud](./quickstart-provision-service-instance.md)
 * [Configure el servidor de configuración](./quickstart-setup-config-server.md)
@@ -153,11 +153,11 @@ Para obtener los registros mediante Azure Toolkit for IntelliJ:
 1. Seleccione **Streaming Logs** (Registros de streaming) en la lista desplegable.
 
    ![Selección de los registros de streaming](media/spring-cloud-intellij-howto/streaming-logs.png)
-    
+
 1. Seleccione **Instancia**.
 
    ![Selección de la instancia](media/spring-cloud-intellij-howto/select-instance.png)
-    
+
 1. El registro de streaming se verá en la ventana de salida.
 
    ![Salida del registro de streaming](media/spring-cloud-intellij-howto/streaming-log-output.png)
@@ -168,7 +168,7 @@ Para obtener los registros mediante Azure Toolkit for IntelliJ:
 
 ### <a name="log-analytics"></a>Log Analytics
 
-1. Vaya a la página **servicio | Información general** y seleccione **Registros** en la sección **Supervisión**. Haga clic en **Ejecutar** en una de las consultas de ejemplo de Azure Spring Cloud.
+1. Vaya a la página **servicio | Información general** y seleccione **Registros** en la sección **Supervisión**. Seleccione **Ejecutar** en una de las consultas de ejemplo de Azure Spring Cloud.
 
    [ ![Entrada del portal de Log Analytics](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/logs-entry.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/logs-entry.png#lightbox)
 
@@ -178,8 +178,10 @@ Para obtener los registros mediante Azure Toolkit for IntelliJ:
 
 ## <a name="metrics"></a>Métricas
 
-Vaya a la hoja `Metrics` (puede ver las métricas aportadas por aplicaciones de Spring Boot, módulos de Spring Cloud y dependencias). En el gráfico siguiente se muestra `gateway-requests` (Spring Cloud Gateway), `hikaricp_connections` (Conexiones JDBC) y `http_client_requests`.
- 
+Vaya a la hoja `Application insights`. A continuación, vaya a la hoja `Metrics`puede ver las métricas aportadas por aplicaciones de Spring Boot, módulos de Spring Cloud y dependencias. 
+
+En el gráfico siguiente se muestra `gateway-requests` (Spring Cloud Gateway), `hikaricp_connections` (Conexiones JDBC) y `http_client_requests`.
+
 [ ![Hoja Métricas](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/petclinic-microservices-metrics.jpg) ](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/petclinic-microservices-metrics.jpg#lightbox)
 
 Spring Boot registra un gran número de métricas principales: JVM, CPU, Tomcat, Logback... La configuración automática de Spring Boot permite la instrumentación de las solicitudes que controla Spring MVC.
@@ -209,11 +211,11 @@ Vaya a la hoja `Performance`: [ ![ Hoja Rendimiento ](media/spring-cloud-quickst
 
 Vaya a la hoja `Performance/Dependenices` (puede ver el número de rendimiento de las dependencias, especialmente las llamadas SQL: [ ![ hoja Rendimiento/Dependencias](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/petclinic-microservices-insights-on-dependencies.jpg) ](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/petclinic-microservices-insights-on-dependencies.jpg#lightbox))
 
-Haga clic en una llamada SQL para ver la transacción de un extremo a otro en contexto: [ ![ transacción de un extremo a otro de SQL](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/petclinic-microservices-end-to-end-transaction-details.jpg) ](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/petclinic-microservices-end-to-end-transaction-details.jpg#lightbox)
+Seleccione una llamada SQL para ver la transacción completa en contexto: [ ![Transacción SQL completa](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/petclinic-microservices-end-to-end-transaction-details.jpg) ](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/petclinic-microservices-end-to-end-transaction-details.jpg#lightbox)
 
-Vaya a la hoja `Failures/Exceptions` (puede ver una colección de excepciones: [ ![ Errores o excepciones](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/petclinic-microservices-failures-exceptions.jpg) ](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/petclinic-microservices-failures-exceptions.jpg#lightbox))
+Vaya a la hoja `Failures/Exceptions` (puede ver una colección de excepciones: [ ![ Errores o excepciones](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/petclinic-microservices-failures-exceptions.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/petclinic-microservices-failures-exceptions.png#lightbox))
 
-Haga clic en una excepción para ver la transacción de un extremo a otro y el seguimiento de la pila en contexto: [ ![ seguimiento de la pila de un extremo a otro](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/end-to-end-transaction-details.jpg) ](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/end-to-end-transaction-details.jpg#lightbox)
+Seleccione una excepción para ver la transacción completa y el seguimiento de la pila en contexto: [ ![Seguimiento completo de la pila](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/end-to-end-transaction-details.jpg) ](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/end-to-end-transaction-details.jpg#lightbox)
 
 ::: zone-end
 

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 07/14/2021
 ms.topic: conceptual
-ms.openlocfilehash: 888123d1e1b2b87313f44f8b266d969cbff5bcde
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: d45ab7ba80a33658d1a3feaf024cb23ea65d5fab
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114460509"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122771804"
 ---
 # <a name="operating-systems-supported-by-update-management"></a>Sistemas operativos compatibles con Update Management
 
@@ -60,7 +60,7 @@ Requisitos de software:
 - Se requiere Windows PowerShell 5.1. ([Descargue Windows Management Framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616)).
 - La característica Update Management depende del rol Hybrid Runbook Worker del sistema, y debe confirmar sus [requisitos del sistema](../automation-windows-hrw-install.md#prerequisites).
 
-Los agentes de Windows Update deben estar configurados para comunicarse con un servidor de Windows Server Update Services (WSUS) o requieren acceso a Microsoft Update. Para las máquinas híbridas, se recomienda instalar el agente de Log Analytics para Windows; para ello, primero debe conectar la máquina a los [servidores habilitados para Azure Arc](../../azure-arc/servers/overview.md) y, después, use Azure Policy para asignar la directiva integrada [Implementar el agente de Log Analytics en máquinas de Azure Arc con Windows](../../governance/policy/samples/built-in-policies.md#monitoring). Como alternativa, si planea supervisar las máquinas con VM Insights, en su lugar, use la iniciativa [Habilitar información de máquinas virtuales](../../governance/policy/samples/built-in-initiatives.md#monitoring).
+Los agentes de Windows Update deben estar configurados para comunicarse con un servidor de Windows Server Update Services (WSUS) o requieren acceso a Microsoft Update. Para las máquinas híbridas, se recomienda instalar el agente de Log Analytics para Windows; para ello, primero debe conectar la máquina a los [servidores habilitados para Azure Arc](../../azure-arc/servers/overview.md) y, después, use Azure Policy para asignar la definición de la directiva integrada [Implementar el agente de Log Analytics en máquinas de Azure Arc con Windows](../../governance/policy/samples/built-in-policies.md#monitoring). Como alternativa, si planea supervisar las máquinas con VM Insights, en su lugar, use la iniciativa [Habilitar información de máquinas virtuales](../../governance/policy/samples/built-in-initiatives.md#monitoring).
 
 Puede usar Update Management con Microsoft Endpoint Configuration Manager. Para más información sobre escenarios de integración, consulte este artículo sobre la [integración de Update Management con Endpoint Configuration Manager de Windows](mecmintegration.md). El [agente de Log Analytics para Windows](../../azure-monitor/agents/agent-windows.md) es necesario para los servidores Windows administrados por sitios en su entorno de Configuration Manager.
 
@@ -80,7 +80,7 @@ Requisitos de software:
 > [!NOTE]
 > La evaluación de la actualización de máquinas Linux solo se admite en determinadas regiones. Consulte la [tabla de asignaciones](../how-to/region-mappings.md#supported-mappings) del área de trabajo de Log Analytics y la cuenta de Automation.
 
-Para las máquinas híbridas, se recomienda instalar el agente de Log Analytics para Linux; para ello, primero debe conectar la máquina a los [servidores habilitados para Azure Arc](../../azure-arc/servers/overview.md) y, después, use Azure Policy para asignar la directiva integrada [Implementar el agente de Log Analytics en máquinas de Azure Arc con Linux](../../governance/policy/samples/built-in-policies.md#monitoring). Como alternativa, si planea supervisar las máquinas con Azure Monitor para VM, en su lugar, use la iniciativa [Habilitar Azure Monitor para VM](../../governance/policy/samples/built-in-initiatives.md#monitoring).
+Para las máquinas híbridas, se recomienda instalar el agente de Log Analytics para Linux; para ello, primero debe conectar la máquina a los [servidores habilitados para Azure Arc](../../azure-arc/servers/overview.md) y, después, use Azure Policy para asignar la definición de la directiva integrada [Implementar el agente de Log Analytics en máquinas de Azure Arc con Linux](../../governance/policy/samples/built-in-policies.md#monitoring). Como alternativa, si planea supervisar las máquinas con Azure Monitor para VM, en su lugar, use la iniciativa [Habilitar Azure Monitor para VM](../../governance/policy/samples/built-in-initiatives.md#monitoring).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

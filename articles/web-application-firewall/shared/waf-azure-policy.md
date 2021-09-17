@@ -7,28 +7,28 @@ services: web-application-firewall
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: rimansdo
-ms.openlocfilehash: 7798d7e960286d4f8aa971eb2eb0b03d24bd6360
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7738976cbc3f7b87862cab73a5b5f52c6d499d47
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97589464"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122606117"
 ---
 # <a name="azure-web-application-firewall-and-azure-policy"></a>Azure Policy y firewall de aplicaciones web de Azure
 
-El firewall de aplicaciones web (WAF) de Azure combinado con Azure Policy puede ayudar a aplicar los estándares de la organización y evaluar el cumplimiento a escala para los recursos de WAF. La directiva de Azure es una herramienta de gobernanza que proporciona una vista agregada para evaluar el estado general del entorno, con la posibilidad de explorar en profundidad hasta el nivel de recurso y directiva. La directiva de Azure también ayuda al cumplimiento de los recursos gracias a la corrección masiva de los recursos existentes y la corrección automática de nuevos recursos.
+El firewall de aplicaciones web (WAF) de Azure combinado con Azure Policy puede ayudar a aplicar los estándares de la organización y evaluar el cumplimiento a escala para los recursos de WAF. Azure Policy es una herramienta de gobernanza que proporciona una vista agregada para evaluar el estado general del entorno, con la posibilidad de explorar en profundidad hasta el nivel de recurso y de directiva. Azure Policy también ayuda a lograr el cumplimiento de los recursos gracias a la corrección masiva de los recursos existentes y la corrección automática de los nuevos.
 
 ## <a name="azure-policy-for-web-application-firewall"></a>Azure Policy para Web Application Firewall
 
 Hay varias definiciones de directiva de Azure integradas para administrar los recursos de WAF. A continuación se muestra un desglose de las definiciones de directiva y sus funcionalidades:
 
-1. **El firewall de aplicaciones web (WAF) debe estar habilitado para Azure Front Door Service**: Los servicios de Azure Front Door Service se evalúan en si hay un WAF presente en la creación de recursos. La directiva tiene tres efectos: Auditar, denegar y deshabilitar. Auditoría realiza un seguimiento cuando Azure Front Door Service no tiene un WAF y permite a los usuarios ver qué es lo que no cumple Azure Front Door Service. La denegación impide que se cree un Azure Front Door Service en caso de que no se adjunte un WAF. Si está deshabilitada, la directiva se desactiva.
+1. **El firewall de aplicaciones web (WAF) debe estar habilitado para Azure Front Door Service**: Los servicios de Azure Front Door Service se evalúan en si hay un WAF presente en la creación de recursos. La definición de directiva tiene tres efectos: Auditar, Denegar y Deshabilitar. Auditoría realiza un seguimiento cuando Azure Front Door Service no tiene un WAF y permite a los usuarios ver qué es lo que no cumple Azure Front Door Service. La denegación impide que se cree un Azure Front Door Service en caso de que no se adjunte un WAF. Deshabilitar desactiva la asignación de directiva.
 
-2. **El firewall de aplicaciones web (WAF) debe estar habilitado para Application Gateway**: App Gateways se evalúan en si hay un WAF presente en la creación de recursos. La directiva tiene tres efectos: Auditar, denegar y deshabilitar. Auditar realiza un seguimiento cuando una Application Gateway no tiene un WAF y permite a los usuarios ver lo que Application Gateway no cumple. La denegación impide que se cree una Application Gateway en caso de que no se adjunte un WAF. Si está deshabilitada, la directiva se desactiva.
+2. **El firewall de aplicaciones web (WAF) debe estar habilitado para Application Gateway**: App Gateways se evalúan en si hay un WAF presente en la creación de recursos. La definición de directiva tiene tres efectos: Auditar, Denegar y Deshabilitar. Auditar realiza un seguimiento cuando una Application Gateway no tiene un WAF y permite a los usuarios ver lo que Application Gateway no cumple. La denegación impide que se cree una Application Gateway en caso de que no se adjunte un WAF. Deshabilitar desactiva la asignación de directiva.
 
-3. **El firewall de aplicaciones web (WAF) debe usar el modo especificado para Azure Front Door Service**: Exige que el modo de detección o prevención esté activo en todas las directivas de firewall de aplicaciones web para Azure Front Door Service. La directiva tiene tres efectos: Auditar, denegar y deshabilitar. Auditar realiza un seguimiento cuando un WAF no se ajusta al modo especificado. La denegación impide que se cree WAF si no está en el modo correcto. Si está deshabilitada, la directiva se desactiva.
+3. **El firewall de aplicaciones web (WAF) debe usar el modo especificado para Azure Front Door Service**: Exige que el modo de detección o prevención esté activo en todas las directivas de firewall de aplicaciones web para Azure Front Door Service. La definición de directiva tiene tres efectos: Auditar, Denegar y Deshabilitar. Auditar realiza un seguimiento cuando un WAF no se ajusta al modo especificado. La denegación impide que se cree WAF si no está en el modo correcto. Deshabilitar desactiva la asignación de directiva.
 
-4. **El firewall de aplicaciones web (WAF) debe usar el modo especificado para Application Gateway**: Exige que el modo de detección o prevención esté activo en todas las directivas de firewall de aplicaciones web para Application Gateway. La directiva tiene tres efectos: Auditar, denegar y deshabilitar. Auditar realiza un seguimiento cuando un WAF no se ajusta al modo especificado. La denegación impide que se cree WAF si no está en el modo correcto. Si está deshabilitada, la directiva se desactiva.
+4. **El firewall de aplicaciones web (WAF) debe usar el modo especificado para Application Gateway**: Exige que el modo de detección o prevención esté activo en todas las directivas de firewall de aplicaciones web para Application Gateway. La definición de directiva tiene tres efectos: Auditar, Denegar y Deshabilitar. Auditar realiza un seguimiento cuando un WAF no se ajusta al modo especificado. La denegación impide que se cree WAF si no está en el modo correcto. Deshabilitar desactiva la asignación de directiva.
 
 ## <a name="launch-an-azure-policy"></a>Inicio de Azure Policy
 

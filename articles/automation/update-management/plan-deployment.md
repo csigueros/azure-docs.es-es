@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 06/07/2021
 ms.topic: conceptual
-ms.openlocfilehash: 5b2303b17a525a6ae394996780fe3ebb89388f44
-ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
+ms.openlocfilehash: 4c29ff09b6d353072cb8486e17ffa605ceff9aea
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111855158"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122769359"
 ---
 # <a name="plan-your-update-management-deployment"></a>Planeamiento de la implementación de Update Management
 
@@ -34,7 +34,7 @@ Se necesita el [agente de Log Analytics](../../azure-monitor/agents/log-analytic
 
 En las máquinas virtuales de Azure, si el agente de Log Analytics aún no está instalado, se instala automáticamente al habilitar Update Management para la máquina virtual, mediante la extensión de máquina virtual de Log Analytics para [Windows](../../virtual-machines/extensions/oms-windows.md) o [Linux](../../virtual-machines/extensions/oms-linux.md). El agente está configurado para informar al área de trabajo de Log Analytics vinculada a la cuenta de Automation en la que Update Management está habilitada.
 
-Los servidores o máquinas virtuales que no son de Azure deben tener instalado el agente de Log Analytics para Windows o Linux e informar al área de trabajo vinculada. Se recomienda instalar el agente de Log Analytics para Windows o Linux. Para ello, primero debe conectar la máquina a los [servidores habilitados para Azure Arc](../../azure-arc/servers/overview.md) y, a continuación, use Azure Policy para asignar el [agente de Log Analytics a la directiva integrada de las máquinas de Azure Arc de Linux o de Windows](../../governance/policy/samples/built-in-policies.md#monitoring). Como alternativa, si planea supervisar las máquinas con [VM Insights](../../azure-monitor/vm/vminsights-overview.md), en su lugar, use la iniciativa [Habilitar Azure Monitor para VM](../../governance/policy/samples/built-in-initiatives.md#monitoring).
+Los servidores o máquinas virtuales que no son de Azure deben tener instalado el agente de Log Analytics para Windows o Linux e informar al área de trabajo vinculada. Se recomienda instalar el agente de Log Analytics para Windows o Linux. Para ello, primero debe conectar su máquina a [servidores habilitados para Azure Arc](../../azure-arc/servers/overview.md) y, a continuación, usar Azure Policy para la asignar definición de directiva integrada [Implementación del agente de Log Analytics en máquinas de Azure Arc para Linux o Windows](../../governance/policy/samples/built-in-policies.md#monitoring). Como alternativa, si planea supervisar las máquinas con [VM Insights](../../azure-monitor/vm/vminsights-overview.md), en su lugar, use la iniciativa [Habilitar Azure Monitor para VM](../../governance/policy/samples/built-in-initiatives.md#monitoring).
 
 Si va a habilitar una máquina que Operations Manager administre, no es necesario un nuevo agente. La información del área de trabajo se agrega a la configuración de los agentes cuando se conecta el grupo de administración al área de trabajo de Log Analytics.
 
@@ -85,7 +85,7 @@ Habilite Update Management y seleccione las máquinas que se administrarán con 
 
 - Use una [plantilla de Azure Resource Manager](enable-from-template.md) para implementar Update Management en una cuenta de Automation nueva o existente, y el área de trabajo de Log Analytics de Azure Monitor en la suscripción. No configura el ámbito de las máquinas que deben administrarse; esto se realiza como un paso independiente después de usar la plantilla.
 
-- Desde la [cuenta de Automation](enable-from-automation-account.md) para una o varias máquinas de Azure o que no sean de Azure, incluidos los servidores habilitados para Arc.
+- Desde su [cuenta de Automation](enable-from-automation-account.md) para una o más máquinas de Azure o que no sean de Azure, incluidos servidores habilitados para Arc.
 
 - Use el [runbook](enable-from-runbook.md) **Enable-AutomationSolution** para automatizar la incorporación de VM de Azure.
 

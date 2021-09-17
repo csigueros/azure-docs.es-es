@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 03/31/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 14ecbcaa35153438601a3dabb70f5b38006ded1b
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 508a6aebe581df1c4fcaa634bdcb1d870f319f84
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107749571"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122606211"
 ---
 # <a name="moving-an-azure-key-vault-across-resource-groups"></a>Movimiento de un almacén de Azure Key Vault entre grupos de recursos
 
@@ -32,7 +32,7 @@ Su organización puede haber implementado Azure Policy con cumplimiento o exclus
 
 ### <a name="example"></a>Ejemplo
 
-Tiene una aplicación conectada al almacén de claves que crea certificados que son válidos durante dos años. El grupo de recursos al que está intentando trasladar el almacén de claves tiene una asignación de directiva que bloquea la creación de certificados que son válidos durante más de un año. Después de trasladar el almacén de claves al nuevo grupo de recursos, una asignación de directiva de Azure bloqueará la operación que crea un certificado válido durante dos años.
+Tiene una aplicación conectada al almacén de claves que crea certificados que son válidos durante dos años. El grupo de recursos al que está intentando trasladar el almacén de claves tiene una asignación de directiva que bloquea la creación de certificados que son válidos durante más de un año. Después de trasladar el almacén de claves al nuevo grupo de recursos, una asignación de Azure Policy bloqueará la operación que crea un certificado válido durante dos años.
 
 ### <a name="solution"></a>Solución
 

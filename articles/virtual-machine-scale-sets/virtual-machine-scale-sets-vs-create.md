@@ -8,14 +8,16 @@ ms.service: virtual-machine-scale-sets
 ms.date: 09/09/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 6f9cc05e244b26ae881f2bc4d501c468a711b007
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f33cedfa9220510e23cfa5b1c72ac4182e9dd028
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105934570"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122692374"
 ---
 # <a name="how-to-create-a-virtual-machine-scale-set-with-visual-studio"></a>Procedimiento para crear un conjunto de escalado de máquinas virtuales con Visual Studio
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado uniformes
 
 En este artículo se muestra cómo implementar un conjunto de escalado de máquinas virtuales de Azure mediante la utilización de una implementación de grupo de recursos de Visual Studio.
 

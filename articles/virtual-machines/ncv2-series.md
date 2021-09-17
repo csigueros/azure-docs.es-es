@@ -7,14 +7,16 @@ ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 25d4ab64f357d0af83bf678df49cf11e8d3ae880
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 6372acef923b01fd9664560e3d5991e2743f3d8a
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108744522"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122698468"
 ---
 # <a name="ncv2-series"></a>Serie NCv2
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles :heavy_check_mark: Conjuntos de escalado uniformes
 
 Las máquinas virtuales de la serie NCv2 disponen de la tecnología de GPU NVIDIA Tesla P100. Estas GPU pueden duplicar el rendimiento del trabajo de computación de la serie NC. Los clientes pueden aprovechar estas GPU actualizadas para cargas de trabajo de HPC tradicionales, como la creación de modelos de embalses, la secuenciación de ADN, el análisis de proteínas, la realización de simulaciones Monte Carlo y otras. Además de las GPU, las máquinas virtuales de la serie NCv2 también están equipadas con CPU Intel Xeon E5-2690 v4 (Broadwell).
 

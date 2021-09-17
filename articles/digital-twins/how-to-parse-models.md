@@ -8,12 +8,12 @@ ms.date: 8/13/2021
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q3
-ms.openlocfilehash: 52cec60dc771232fcb808184373b82f790f8a759
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.openlocfilehash: 584d4ba9de922cd035a70850f723550b02863e16
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122252757"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122606600"
 ---
 # <a name="parse-and-validate-models-with-the-dtdl-parser-library"></a>Análisis y validación de modelos con la biblioteca del analizador de DTDL
 
@@ -70,7 +70,7 @@ Entre las capacidades del analizador se incluyen:
 * Determinar si un modelo es asignable desde otro modelo.
 
 > [!NOTE]
-> Los dispositivos[IoT Plug and Play (PnP)](../iot-develop/overview-iot-plug-and-play.md) usan una pequeña variante de la sintaxis para describir su funcionalidad. Esta variante de sintaxis es un subconjunto compatible semánticamente del DTDL que se usa en Azure Digital Twins. Cuando se usa la biblioteca del analizador, no es necesario saber qué variante de sintaxis se ha usado para crear el DTDL para el gemelo digital. El analizador siempre devolverá, de forma predeterminada, el mismo modelo para la sintaxis de PnP y de Azure Digital Twins.
+> Los dispositivos[IoT Plug and Play](../iot-develop/overview-iot-plug-and-play.md) usan una pequeña variante de la sintaxis para describir su funcionalidad. Esta variante de sintaxis es un subconjunto compatible semánticamente del DTDL que se usa en Azure Digital Twins. Cuando se usa la biblioteca del analizador, no es necesario saber qué variante de sintaxis se ha usado para crear el DTDL para el gemelo digital. El analizador siempre devolverá, de manera predeterminada, el mismo modelo para la sintaxis de IoT Plug and Play y de Azure Digital Twins.
 
 ### <a name="code-with-the-parser-library"></a>Código con la biblioteca del analizador
 

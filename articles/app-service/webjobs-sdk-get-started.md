@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.date: 06/25/2021
 ms.author: glenga
 ms.topic: tutorial
-ms.openlocfilehash: 4a017d57062e2871052305eb9bbf393c808a643d
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 6b4875f028fe8645125743d04770c2fd237b4f62
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114293287"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121752464"
 ---
 # <a name="tutorial-get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Tutorial: Introducción al SDK de Azure WebJobs para el procesamiento en segundo plano basado en eventos
 
@@ -246,7 +246,7 @@ El atributo `QueueTrigger` indica el tiempo de ejecución para llamar a esta fun
     }
     ```
 
-    Cuando se agrega un mensaje a una cola denominada `queue`, se ejecuta la función y la cadena `message` se escribe en los registros. La cola que se supervisa se encuentra en la cuenta de Azure Storage predeterminada, que creará a continuación.
+    Debe marcar la clase *Functions* como `public static` para que el runtime acceda al método y lo ejecute. En el código de ejemplo anterior, cuando se agrega un mensaje a una cola denominada `queue`, se ejecuta la función y la cadena `message` se escribe en los registros. La cola que se supervisa se encuentra en la cuenta de Azure Storage predeterminada, que creará a continuación.
    
 El parámetro `message` no tiene que ser una cadena. También puede enlazar a un objeto JSON, una matriz de bytes o un objeto [CloudQueueMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage). Consulte [Uso del desencadenador de cola](../azure-functions/functions-bindings-storage-queue-trigger.md?tabs=csharp#usage). Cada tipo de enlace (como colas, blobs o tablas) tiene un conjunto diferente de tipos de parámetros con los que puede enlazar.
 

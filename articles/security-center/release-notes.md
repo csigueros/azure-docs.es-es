@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: reference
 ms.date: 08/15/2021
 ms.author: memildin
-ms.openlocfilehash: 04cff79878c3110c6da8b40e7a207693e693e2ba
-ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
+ms.openlocfilehash: 9ebe158f1a047006b75eb519864152fc4bb396e8
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122229039"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122419531"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Novedades de Azure Security Center
 
@@ -120,6 +120,8 @@ Con esta actualización, ahora puede configurar que Security Center aprovisione 
 
 :::image type="content" source="media/release-notes/auto-provisioning-guest-configuration.png" alt-text="Habilite la implementación automática de la extensión de configuración de invitado.":::
 
+Obtenga más información sobre cómo funciona el aprovisionamiento automático en [Configuración del aprovisionamiento automático para agentes y extensiones](security-center-enable-data-collection.md).
+
 ### <a name="recommendations-to-enable-azure-defender-plans-now-support-enforce"></a>Recomendaciones para habilitar los planes Azure Defender ahora admiten "Aplicar"
 Security Center incluye dos características que ayudan a garantizar que los recursos recién creados se aprovisionan de forma segura: **aplicar** y **denegar**. Cuando una recomendación ofrece estas opciones, puede tener la certeza de que se cumplen los requisitos de seguridad cada vez que alguien intenta crear un recurso:
 
@@ -202,7 +204,7 @@ Estas son las alertas que formaban parte de Azure Defender para Resource Manager
 - ARM_AmMalwareCampaignRelatedExclusion
 - ARM_AmTemporarilyDisablement
 - ARM_UnusualAmFileExclusion
-- ARM_AmMalwareCampaignRelatedExclusion
+- ARM_CustomScriptExtensionSuspiciousCmd
 - ARM_CustomScriptExtensionSuspiciousEntryPoint
 - ARM_CustomScriptExtensionSuspiciousPayload
 - ARM_CustomScriptExtensionSuspiciousFailure

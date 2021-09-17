@@ -9,14 +9,16 @@ ms.subservice: extensions
 ms.date: 11/08/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurepowershell
-ms.openlocfilehash: faacadc391a124bbb67833a9c4c8f63033fea62a
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 9c317f1f67b016124eeb71d5bec6a34374d3c8bf
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110674265"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122693032"
 ---
 # <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-azure-powershell"></a>Tutorial: Instalación de aplicaciones en conjuntos de escalado de máquinas virtuales con Azure PowerShell
+
+**Se aplica a:** :heavy_check_mark: máquinas virtuales Linux :heavy_check_mark: máquinas virtuales Windows :heavy_check_mark: conjuntos de escalado uniformes
 
 Para ejecutar aplicaciones en las instancias de máquinas virtuales (VM) de un conjunto de escalado, primero debe instalar los componentes de la aplicación y los archivos necesarios. En un tutorial anterior, aprendió a crear y usar una imagen de máquina virtual personalizada para implementar las instancias de máquina virtual. Esta imagen personalizada incluía instalaciones y configuraciones manuales de aplicaciones. También puede automatizar la instalación de aplicaciones en un conjunto de escalado después de implementar cada instancia de máquina virtual, o actualizar una aplicación que ya se ejecuta en un conjunto de escalado. En este tutorial, aprenderá a:
 

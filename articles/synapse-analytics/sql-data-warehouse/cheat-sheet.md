@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: cc54ae66cda6bf8ecde07d1830448ec39a15cc29
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ad10e8d9f376578a61aaa7f5dc2cb0e896dd29cb
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98120230"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122324669"
 ---
 # <a name="cheat-sheet-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytic"></a>Hoja de referencia rápida de un grupo de SQL dedicado (anteriormente SQL DW) en Azure Synapse Analytics
 
@@ -92,10 +92,10 @@ Aprenda más sobre los [índices](sql-data-warehouse-tables-index.md).
 
 ## <a name="partitioning"></a>Creación de particiones
 
-Cuando tenga tablas de hechos de gran tamaño (más de 1000 millones de filas), puede particionarlas. En el 99 % de los casos, la clave de partición debe basarse en la fecha. Tenga cuidado de no crear particiones en exceso, en especial si tiene un índice de almacén de columnas agrupado.
+Cuando tenga tablas de hechos de gran tamaño (más de 1000 millones de filas), puede particionarlas. En el 99 % de los casos, la clave de partición debe basarse en la fecha. 
 
 Con tablas de almacenamiento provisional que requieren ELT, puede beneficiarse de la creación de particiones, ya que facilita la administración del ciclo de vida de los datos.
-Sin embargo, tenga cuidado de no crear particiones en exceso de los datos, en especial en un índice de almacén de columnas agrupado.
+Tenga cuidado de no crear particiones en exceso de la tabla de hecho o de almacenamiento provisional, en especial en un índice de almacén de columnas agrupado.
 
 Aprenda más sobre las [particiones](sql-data-warehouse-tables-partition.md).
 

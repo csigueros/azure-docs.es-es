@@ -7,15 +7,16 @@ ms.collection: linux
 ms.topic: how-to
 ms.date: 07/28/2021
 ms.author: srijangupta
-ms.openlocfilehash: f0417c156de07cd5a6fd45bdd63ed9134078966f
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 2079e50d92c7253c7c4f642c9a51e56aa1bfae2c
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121732480"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122689804"
 ---
 # <a name="prepare-an-ubuntu-virtual-machine-for-azure"></a>Preparación de una máquina virtual Ubuntu para Azure
 
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Conjuntos de escalado flexibles 
 
 Ahora Ubuntu publica discos duros virtuales de Azure oficiales que se pueden descargar en [https://cloud-images.ubuntu.com/](https://cloud-images.ubuntu.com/). Si necesita crear su propia imagen de Ubuntu especializada para Azure, en lugar de usar el siguiente procedimiento manual se recomienda comenzar con estos VHD conocidos y personalizarlos según sea necesario. Las versiones más recientes de las imágenes siempre se encuentran en las siguientes ubicaciones:
 

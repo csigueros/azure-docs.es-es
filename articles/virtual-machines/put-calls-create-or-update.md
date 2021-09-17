@@ -8,14 +8,17 @@ ms.topic: conceptual
 ms.service: virtual-machines
 ms.date: 08/4/2020
 ms.custom: avverma
-ms.openlocfilehash: d6ee4179dce905d637e933743ade7452a2484077
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 07d22c4535bc10012ea5df6cfb222f5a53eb0a81
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91978567"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122697290"
 ---
 # <a name="put-calls-for-creation-or-updates-on-compute-resources"></a>Llamadas PUT a operaciones de creación o actualización en recursos de proceso
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles :heavy_check_mark: Conjuntos de escalado uniformes
+
 
 Los recursos de `Microsoft.Compute` no admiten la definición convencional de la semántica de *HTTP PUT*. En su lugar, estos recursos utilizan la semántica de PATCH para los verbos PUT y PATCH.
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 07/14/2021
 ms.author: duau
-ms.openlocfilehash: 97a96d439773d7332fda3fe545d950dfe0077ad1
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 16b808200c43324a68bf909b3cf5548f34dbdec4
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113765428"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121738061"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Tutorial: Configuración de HTTPS en un dominio personalizado de Front Door
 
@@ -136,7 +136,9 @@ Conceda a Azure Front Door permisos para acceder a los certificados ubicados en 
     - Las versiones de secreto disponibles.
 
     > [!NOTE]
-    >  Para que el certificado se rote automáticamente a la versión más reciente cuando haya disponible una versión más reciente del certificado en el Key Vault, establezca la versión del secreto en "latest". Si se selecciona una versión específica, tendrá que volver a seleccionar la nueva versión manualmente para la rotación de certificados. La nueva versión del certificado o el secreto tarda hasta 24 horas en implementarse. 
+    >  Para que el certificado se rote automáticamente a la versión más reciente cuando haya disponible una versión más reciente del certificado en el Key Vault, establezca la versión del secreto en "latest". Si se selecciona una versión específica, tendrá que volver a seleccionar la nueva versión manualmente para la rotación de certificados. La nueva versión del certificado o el secreto tarda hasta 24 horas en implementarse.
+    >
+    > :::image type="content" source="./media/front-door-custom-domain-https/certificate-version.png" alt-text="Captura de pantalla de selección de la versión secreta en la página Actualizar dominio personalizado.":::
  
 5. Si usa su propio certificado, no se requiere la validación del dominio. Continúe con [Esperar a la propagación](#wait-for-propagation).
 

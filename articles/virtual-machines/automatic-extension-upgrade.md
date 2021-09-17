@@ -9,14 +9,16 @@ ms.topic: how-to
 ms.date: 08/10/2021
 ms.author: manayar
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6af80da8c05df4f56fe04ae45169c5e1a63fcd9c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 120171f77f9b9895cf58bbadd2f475110d068ffd
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121751726"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122698229"
 ---
 # <a name="automatic-extension-upgrade-for-vms-and-scale-sets-in-azure"></a>Actualización automática de extensiones para máquinas virtuales y conjuntos de escalado en Azure
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles :heavy_check_mark: Conjuntos de escalado uniformes
 
 La actualización automática de extensiones está disponible para las máquinas virtuales de Azure y Azure Virtual Machine Scale Sets. Cuando la actualización automática de extensiones está habilitada en una máquina virtual o en un conjunto de escalado, la extensión se actualiza automáticamente cada vez que el editor de la extensión publica una nueva versión de esta.
 

@@ -9,14 +9,15 @@ ms.date: 3/8/2021
 ms.author: mimckitt
 ms.reviewer: cynthn
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: f94b69614c32c09be275780b3a56e1e8f9a2d687
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 369f0df05ff31eca2bf3323c672a7ff8b0ab42eb
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110668100"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122689669"
 ---
 # <a name="create-and-deploy-virtual-machines-in-an-availability-set-using-azure-powershell"></a>Creación e implementación de máquinas virtuales en un conjunto de disponibilidad mediante Azure PowerShell
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Windows 
 
 En este tutorial, obtendrá información sobre cómo aumentar la disponibilidad y confiabilidad de Virtual Machines mediante conjuntos de disponibilidad. Los conjuntos de disponibilidad garantizan que las máquinas virtuales implementadas en Azure se distribuyan entre varios nodos de hardware aislados en un clúster. 
 

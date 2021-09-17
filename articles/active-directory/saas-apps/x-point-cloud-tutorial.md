@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/15/2021
+ms.date: 08/23/2021
 ms.author: jeedes
-ms.openlocfilehash: 87516b3114e665275c5a3e2ead0caf8c49987d33
-ms.sourcegitcommit: b59e0afdd98204d11b7f9b6a3e55f5a85d8afdec
+ms.openlocfilehash: 77c954d5fd3541b172ec51e237443b00e7e86154
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114373357"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122768556"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-x-point-cloud"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con X-point Cloud
 
@@ -57,7 +57,7 @@ Configure y pruebe el inicio de sesión único de Azure AD con X-point Cloud me
 Para configurar y probar el inicio de sesión único de Azure AD con X-point Cloud, lleve a cabo los siguientes pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)**, para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en X-point Cloud](#configure-x-point-cloud-sso)** , para configurar los valores de inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba de X-point Cloud](#create-x-point-cloud-test-user)** , para tener un homólogo de B. Simon en X-point Cloud que esté vinculado a la representación del usuario en Azure AD.
@@ -77,14 +77,16 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
     a. En el cuadro de texto **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente patrón: `https://<SUBDOMAIN>.atledcloud.jp`
 
-    b. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<SUBDOMAIN>.atledcloud.jp/xpoint`
+    b. En el cuadro de texto **URL de respuesta (URL del Servicio de consumidor de aserciones)** , escriba una URL con el siguiente patrón: `https://<SUBDOMAIN>.atledcloud.jp/xpoint/saml/acs`.
+
+    c. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<SUBDOMAIN>.atledcloud.jp/xpoint`
 
     > [!NOTE]
-    > Estos valores no son reales. Actualice estos valores con el identificador y la dirección URL de inicio de sesión reales. Póngase en contacto con el [equipo de soporte técnico de X-point Cloud](mailto:x-point@atled.jp) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+    > Estos valores no son reales. Actualice estos valores con el identificador y las direcciones URL de inicio de sesión y de respuesta reales. Póngase en contacto con el [equipo de soporte técnico de X-point Cloud](mailto:x-point@atled.jp) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
-1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **Certificado (Base64)** y seleccione **Descargar** para descargarlo y guardarlo en el equipo.
+1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **Certificado (sin procesar)** y seleccione **Descargar** para descargarlo y guardarlo en el equipo.
 
-    ![Vínculo de descarga del certificado](common/certificatebase64.png)
+    ![Vínculo de descarga del certificado](common/certificateraw.png)
 
 1. En la sección **Set up X-point Cloud** (Configurar X-point Cloud), copie las direcciones URL que necesite.
 
@@ -116,7 +118,7 @@ En esta sección va a permitir que B. Simon acceda a X-point Cloud mediante el 
 
 ## <a name="configure-x-point-cloud-sso"></a>Configuración del inicio de sesión único de X-point Cloud
 
-Para configurar el inicio de sesión único en **X-point Cloud**, es preciso enviar el **certificado (Base64)** descargado y las direcciones URL correspondientes copiadas de Azure Portal al [equipo de soporte técnico de X-point Cloud](mailto:x-point@atled.jp). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+Para configurar el inicio de sesión único en **X-point Cloud**, es preciso enviar el **certificado (sin procesar)** descargado y las direcciones URL correspondientes copiadas de Azure Portal al [equipo de soporte técnico de X-point Cloud](mailto:x-point@atled.jp). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 ### <a name="create-x-point-cloud-test-user"></a>Creación de un usuario de prueba en X-point Cloud
 

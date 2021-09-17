@@ -7,14 +7,16 @@ ms.subservice: disks
 ms.topic: article
 ms.author: jofrance
 ms.date: 09/21/2020
-ms.openlocfilehash: 92e3be9111abe5712549ba85ef4550a9ac1473f9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bd23b2381fb042d80297c7b29fad382787ef1281
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104596814"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122697182"
 ---
 # <a name="how-to-resize-logical-volume-management-devices-that-use-azure-disk-encryption"></a>Cambio del tamaño de dispositivos de administración de volúmenes lógicos cifrados que usan Azure Disk Encryption
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Conjuntos de escalado flexibles 
 
 En este artículo, aprenderá a cambiar el tamaño de los discos de datos que usan Azure Disk Encryption. Para cambiar el tamaño de los discos, usará la administración de volúmenes lógicos (LVM) en Linux. Los pasos se aplican a varios escenarios.
 

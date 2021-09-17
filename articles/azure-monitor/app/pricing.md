@@ -5,14 +5,14 @@ ms.topic: conceptual
 ms.custom: devx-track-dotnet
 author: DaleKoetke
 ms.author: dalek
-ms.date: 6/24/2021
+ms.date: 8/23/2021
 ms.reviewer: lagayhar
-ms.openlocfilehash: 39109106a100d2af8a9dad4e6009f4c73fea8f59
-ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
+ms.openlocfilehash: 8183e52e5b475f08df3631021d8ea6d3120525c8
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122195521"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122772596"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Administración del uso y los costos de Application Insights
 
@@ -37,22 +37,20 @@ En el caso de los recursos de Application Insights que envían sus datos a un á
 
 ## <a name="estimating-the-costs-to-manage-your-application"></a>Estimación de los costos de administración de la aplicación
 
-Si aún no usa Application Insights, puede usar la [calculadora de precios de Azure Monitor](https://azure.microsoft.com/pricing/calculator/?service=monitor) para calcular el costo del uso de Application Insights. Comience por escribir "Azure Monitor" en el cuadro de búsqueda y haga clic en el icono de Azure Monitor resultante. Desplácese hacia abajo en la página hasta Azure Monitor y seleccione Application Insights en la lista desplegable Tipo.  Aquí puede especificar el número de GB de datos que espera recopilar al mes, por lo que la pregunta es cuántos datos recopilará Application Insights supervisando la aplicación.
+Si aún no usa Application Insights, puede usar la [calculadora de precios de Azure Monitor](https://azure.microsoft.com/pricing/calculator/?service=monitor) para calcular el costo del uso de Application Insights. Comience por escribir "Azure Monitor" en el cuadro de búsqueda y haga clic en el icono de Azure Monitor resultante. Desplácese hacia abajo hasta Azure Monitor y expanda la sección "Application Insights". Los costes estimados dependen de la cantidad de datos de registro ingeridos.  Hay dos métodos para calcular los volúmenes de datos:
 
-Hay dos enfoques para abordar esta cuestión: usar la supervisión predeterminada y el muestreo adaptable, que está disponible en el SDK de ASP.NET, o calcular la probable ingesta de datos en función de lo que han visto otros clientes similares.
+1. Calcular la ingesta de datos probable en función de lo que generen otras aplicaciones similares. 
+2. Usar la supervisión predeterminada y muestreo adaptable, disponible en el SDK de ASP.NET.
+
+### <a name="learn-from-what-similar-applications-collect"></a>Información sobre lo que recopilan aplicaciones similares
+
+En la calculadora de precios de supervisión de Azure para Application Insights, haga clic para habilitar **Calcular volumen de datos en función de la actividad de la aplicación**. Aquí puede proporcionar entradas sobre su aplicación (solicitudes y vistas de página al mes, en caso de que se recopilen datos de telemetría del lado cliente). A continuación, la calculadora le indicará la mediana y la cantidad de percentil 90 de los datos recopilados por aplicaciones similares. Estas aplicaciones abarcan el intervalo de configuración de Application Insights (por ejemplo, algunas tienen el [muestreo](./sampling.md) predeterminado, otras no tienen muestreo, etc.), por lo que todavía tiene el control para reducir el volumen de datos que ingiere muy por debajo del nivel medio con muestreo. 
 
 ### <a name="data-collection-when-using-sampling"></a>Colección de datos al usar el muestreo
 
 Con el [muestreo adaptable](sampling.md#adaptive-sampling) del SDK de ASP.NET, el volumen de datos se ajusta automáticamente para mantener una velocidad de tráfico máxima específica para la supervisión predeterminada de Application Insights. Si la aplicación genera una cantidad baja de telemetría, como al depurar o debido a un uso bajo, el procesador de muestreo no podrá descargar los elementos mientras el volumen se encuentre por debajo del nivel configurado de eventos por segundo. En el caso de una aplicación de gran volumen, con el umbral predeterminado de cinco eventos por segundo, el muestreo adaptable limitará el número de eventos diarios a 432 000. Con un tamaño de evento promedio típico de 1 KB, corresponde a 13,4 GB de telemetría por mes de 31 días por nodo que hospeda la aplicación, ya que el muestreo se realiza de forma local en cada nodo.
 
-> [!NOTE]
-> El tamaño de los datos de registro de Azure Monitor se calcula en GB (1 GB = 10^9 bytes).
-
 En el caso de los SDK que no admiten el muestreo adaptable, puede emplear el [muestreo de ingesta](./sampling.md#ingestion-sampling), que toma muestras cuando Application Insights recibe los datos en función de un porcentaje de datos que se deben conservar, o el [muestreo de frecuencia fija para sitios web ASP.NET, ASP.NET Core y Java](sampling.md#fixed-rate-sampling) para reducir el tráfico enviado desde el servidor web y los exploradores web.
-
-### <a name="learn-from-what-similar-customers-collect"></a>Más información sobre qué recopilan los clientes similares
-
-En la calculadora de precios de Azure Monitor para Application Insights, si habilita la funcionalidad "Estimar el volumen de datos en función de la actividad de la aplicación", puede proporcionar entradas sobre la aplicación (solicitudes por mes y vistas de página al mes, en caso de que se recopile la telemetría del lado cliente) y, a continuación, la calculadora le indicará el valor medio y la cantidad de percentil 90 de los datos recopilados por aplicaciones similares. Estas aplicaciones abarcan el intervalo de configuración de Application Insights (por ejemplo, algunas tienen el [muestreo](./sampling.md) predeterminado, otras no tienen muestreo, etc.), por lo que todavía tiene el control para reducir el volumen de datos que ingiere muy por debajo del nivel medio con muestreo. Pero se trata de un punto de partida para comprender lo que ven otros clientes similares.
 
 ## <a name="understand-your-usage-and-estimate-costs"></a>Información útil del uso y los costos estimados
 

@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 62a88350e0bb1fceba635c651f8b831cba30cfce
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 1e0af1080a2d56fc01bdeb4bfb5f6475c477b685
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121732452"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122777743"
 ---
 # <a name="add-an-api-connector-to-a-sign-up-user-flow"></a>Adición de un conector de API a un flujo de usuario de registro
 
@@ -576,7 +576,8 @@ Para devolver la notificación del código de promoción a la aplicación de usu
 ## <a name="test-the-custom-policy"></a>Prueba de la directiva personalizada
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD. Para ello, seleccione el filtro **Directorio y suscripción** que se encuentra en el menú superior y elija el directorio que contiene el inquilino de Azure AD.
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD. Para ello, seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD en la lista **Nombre de directorio** y, después, seleccione **Cambiar**.
 1. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Registros de aplicaciones**.
 1. Seleccione **Marco de experiencia de identidad**.
 1. Seleccione **Cargar directiva personalizada** y cargue los archivos de directiva modificados: *TrustFrameworkExtensions.xml* y *SignUpOrSignin.xml*. 
@@ -664,7 +665,7 @@ Asegúrese de que:
 * La API busca explícitamente valores NULL de las notificaciones recibidas de las que depende.
 * La API implementa un método de autenticación descrito en [Protección de un conector de API](secure-rest-api.md).
 * La API responde lo más rápido posible para garantizar una experiencia de usuario fluida. 
-    * Si usa una función sin servidor o un servicio web escalable, use un plan de hospedaje que mantenga la API "activa" o "caliente" en producción. En Azure Functions, se recomienda usar como mínimo el [plan Premium](../azure-functions/functions-scale.md).
+    * Si usa una función sin servidor o un servicio web escalable, use un plan de hospedaje que mantenga la API "activa" o "caliente" en producción. En Azure Functions, se recomienda usar como mínimo el [plan Premium](../azure-functions/functions-scale.md).
 * Garantice una alta disponibilidad de la API.
 * Supervise y optimice el rendimiento de las API de nivel inferior, las bases de datos u otras dependencias de la API.
 

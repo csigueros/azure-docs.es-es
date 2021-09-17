@@ -9,14 +9,17 @@ ms.service: virtual-machine-scale-sets
 ms.date: 06/25/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 6541f1a54391ca4dd991ff9ae2299cd9e337cc7b
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: a9c000d5c1ced86fd12e78b362fa437da119bf45
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111985939"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122690493"
 ---
 # <a name="design-considerations-for-scale-sets"></a>Consideraciones de diseño para conjuntos de escalado
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado uniformes
+
 En este artículo se analizan consideraciones de diseño de Virtual Machine Scale Sets. Para información sobre qué son los conjuntos de escalado de máquinas virtuales, consulte [Información general de conjuntos de escalado de máquinas virtuales](./overview.md).
 
 ## <a name="when-to-use-scale-sets-instead-of-virtual-machines"></a>¿Cuándo se usan conjuntos de escalado en lugar de máquinas virtuales?
@@ -38,7 +41,7 @@ Algunas características solo están disponibles actualmente en las máquinas vi
 - Puede migrar una máquina virtual individual desde discos nativos a discos administrados, pero no puede migrar instancias de máquinas virtuales en un conjunto de escalado.
 - Puede asignar direcciones IP públicas IPv6 a tarjetas de interfaz de red (NIC) virtuales de máquinas virtuales individuales, pero no puede hacerlo para instancias de máquinas virtuales en un conjunto de escalado. Puede asignar direcciones IP públicas IPv6 a equilibradores de carga delante de máquinas virtuales individuales o de máquinas virtuales de conjunto de escalado.
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Almacenamiento
 
 ### <a name="scale-sets-with-azure-managed-disks"></a>Conjuntos de escalado con Azure Managed Disks
 Los conjuntos de escalado se pueden crear con [Azure Managed Disks](../virtual-machines/managed-disks-overview.md) en lugar de las cuentas de Azure Storage tradicionales. Managed Disks ofrece las siguientes ventajas:

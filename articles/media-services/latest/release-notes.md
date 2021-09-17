@@ -12,12 +12,12 @@ ms.custom: references_regions
 ms.topic: article
 ms.date: 03/17/2021
 ms.author: inhenkel
-ms.openlocfilehash: 3258baa30d689513ae09ea727ac1db603f8bf5fe
-ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
+ms.openlocfilehash: 46ebdd1f5cb3093b0c1c1a5bc3273cf1aa1afd8f
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114720288"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122634832"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de la versión de Azure Media Services v3
 
@@ -30,6 +30,26 @@ Para mantenerse al día con los avances más recientes, este artículo proporcio
 * Corrección de errores
 * Funciones obsoletas
 
+## <a name="july-2021"></a>Julio de 2021
+
+### <a name="net-sdk-microsoftazuremanagementmedia--500-release-available-in-nuget-coming-soon---early-september-2021"></a>SDK de .NET (Microsoft.Azure.Management.Media) versión 5.0.0 disponible en NuGet (próximamente: a principios de septiembre de 2021)
+
+La versión 5.0.0 del SDK de .NET [Microsoft.Azure.Management.Media](https://www.nuget.org/packages/Microsoft.Azure.Management.Media/5.0.0) ya se ha publicado en NuGet. Esta versión se genera para funcionar con la versión [estable 2021-06-01](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2021-06-01) de la API REST de ARM de Open API (Swagger).
+
+Para más información sobre los cambios de la versión 4.0.0, consulte el [registro de cambios](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/mediaservices/Microsoft.Azure.Management.Media/CHANGELOG.md).
+
+#### <a name="changes-in-the-500-net-sdk-release-coming-soon---early-september-2021"></a>Cambios en la versión 5.0.0 del SDK de .NET (próximamente: a principios de septiembre de 2021)
+
+* La cuenta de Media Services ahora admite identidades administradas asignadas por el usuario y por el sistema.
+* Se ha agregado la opción **PublicNetworkAccess** para cuentas de Media Services. Esta opción se puede usar con la característica Private Link para permitir solo el acceso desde redes privadas, bloqueando todo el acceso a la red pública.
+* Paso a través básico: se agrega un nuevo tipo de evento en directo. Los eventos en directo de "tránsito básico" tienen funcionalidades similares a los eventos en directo de paso a través estándar con algunas restricciones de entrada y salida, y se ofrecen a un precio reducido.
+* **PresetConfigurations**: permite personalizar la configuración de salida y velocidades de bits mínimas y máximas que se usan para los [valores preestablecidos de codificación que tienen en cuenta el contenido](./encode-content-aware-concept.md). Esto le ayuda a calcular mejor y planear una facturación más precisa al usar la codificación que tiene en cuenta el contenido a través de números y resoluciones de seguimiento de salida restringidos.
+
+#### <a name="breaking-changes-in-tht-500-net-sdk-release"></a>Cambios importantes en la versión 5.0.0 del SDK de .NET
+
+* **ApiErrorException** se ha reemplazado por **ErrorResponseException** para ser coherente con todos los demás SDK de Azure. El cuerpo de la excepción no ha cambiado.
+* El constructor del servicio multimedia tiene un nuevo parámetro PublicNetworkAccess opcional después del parámetro KeyDelivery.
+* La propiedad Type de MediaServiceIdentity se ha cambiado de enumeración ManagedIdentityType a cadena, para dar cabida a varios tipos separados por comas. Las cadenas válidas para el tipo son SystemAssigned o SystemAssigned, UserAssigned o UserAssigned.
 
 ## <a name="june-2021"></a>Junio de 2021
 

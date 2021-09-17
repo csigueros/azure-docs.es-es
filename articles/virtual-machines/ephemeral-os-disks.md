@@ -9,14 +9,16 @@ ms.date: 07/23/2020
 ms.author: cynthn
 ms.subservice: disks
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 3237985389b8248781ad6662af895cf5cdf0dfc6
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: b37f88d79e0b5abdacf7ada31badc57e7e666b03
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110663299"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122691108"
 ---
 # <a name="ephemeral-os-disks-for-azure-vms"></a>Discos de SO efímeros para máquinas virtuales de Azure
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles :heavy_check_mark: Conjuntos de escalado uniformes
 
 Los discos del sistema operativo efímeros se crean en el almacenamiento local de la máquina virtual y no se guardan en la instancia remota de Azure Storage. Estos discos están indicados para cargas de trabajo sin estado, donde las aplicaciones toleran errores de máquinas virtuales individuales, pero tienen más en cuenta el tiempo de implementación de las máquinas virtuales o el restablecimiento de la imagen inicial de dichas máquinas. Con los discos del sistema operativo efímeros, observará una latencia de lectura y escritura inferior en el disco del sistema operativo y un restablecimiento más rápido de la imagen inicial de la máquina virtual. 
  

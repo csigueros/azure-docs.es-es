@@ -9,14 +9,16 @@ ms.subservice: disks
 ms.date: 10/10/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 1aff05e51bcbc99f33325efb905ade819ae22e02
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 59f781e1e5969c9d11a0e801fef48e2f6e347832
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90988036"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122771360"
 ---
 # <a name="use-azure-disk-encryption-with-virtual-machine-scale-set-extension-sequencing"></a>Uso de Azure Disk Encryption con la secuenciación de extensiones de un conjunto de escalado de máquinas virtuales
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado uniformes
 
 Se pueden agregar extensiones como Azure Disk Encryption a un conjunto de escalado de máquinas virtuales de Azure en un orden especificado. Para ello, use la [secuenciación de extensiones](virtual-machine-scale-sets-extension-sequencing.md). 
 

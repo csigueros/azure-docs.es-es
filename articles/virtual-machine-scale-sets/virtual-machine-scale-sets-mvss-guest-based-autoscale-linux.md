@@ -9,14 +9,16 @@ ms.subservice: autoscale
 ms.date: 04/26/2019
 ms.reviewer: avverma
 ms.custom: avverma
-ms.openlocfilehash: 0605780651e1a3c54ae53d13a3f99e1124fa76db
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3ea607f788d9acb971312639851b745eb28b313d
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100585011"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122697389"
 ---
 # <a name="autoscale-using-guest-metrics-in-a-linux-scale-set-template"></a>Escalado automático con métricas de invitado en una plantilla de conjunto de escalado de Linux
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Conjuntos de escalado uniformes
 
 Hay dos tipos generales de métricas en Azure que se recopilan desde máquinas virtuales y conjuntos de escalado: métricas de host y métricas de invitado. A nivel general, si quiere usar métricas estándar de CPU, disco y red, las métricas de host resultan adecuadas. Sin embargo, si necesita una selección de métricas más grande, debería considerar las métricas de invitado.
 

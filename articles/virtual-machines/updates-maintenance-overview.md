@@ -5,16 +5,19 @@ author: mimckitt
 ms.author: mimckitt
 ms.service: virtual-machines
 ms.topic: overview
-ms.date: 03/08/2021
+ms.date: 08/10/2021
 ms.reviewer: cynthn
-ms.openlocfilehash: 81c6fb2e7f25abc9a236c80d1412b84fd6761872
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5e2d200e7133074ffc1dc2732cdedb692c1ea30c
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103021992"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122698334"
 ---
 # <a name="updates-and-maintenance-overview"></a>Información general de actualizaciones y mantenimiento
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles :heavy_check_mark: Conjuntos de escalado uniformes
+
 En este artículo se proporciona información general de las distintas opciones de actualización y mantenimiento para las máquinas virtuales (VM) de Azure.
 
 ## <a name="automatic-os-image-upgrade"></a>Actualización automática de las imágenes del sistema operativo
@@ -40,17 +43,17 @@ La habilitación de la [aplicación de revisiones automática](automatic-vm-gues
 La [aplicación de revisiones automáticas](automatic-vm-guest-patching.md) a invitados de máquinas virtuales tiene las siguientes características:
 - Las revisiones clasificadas de tipo *Critico* o de *Seguridad* se descargan y se aplican automáticamente en la máquina virtual.
 - Las revisiones se aplican durante las horas valle de la zona horaria de la máquina virtual.
-- Azure administra la orquestación de las revisiones y estas se aplican siguiendo el [principio de orden de disponibilidad](automatic-vm-guest-patching.md#availability-first-patching).
+- Azure administra la orquestación de las revisiones y estas se aplican siguiendo el [principio de orden de disponibilidad](automatic-vm-guest-patching.md#availability-first-updates).
 - Se supervisa el mantenimiento de la máquina virtual, determinado a través de las señales de mantenimiento de la plataforma, para detectar errores en la aplicación de revisiones.
 - Funciona con todos los tamaños de máquina virtual.
 
 
-## <a name="automatic-extension-upgrade-preview"></a>Actualización automática de extensiones (versión preliminar)
+## <a name="automatic-extension-upgrade"></a>Actualización automática de extensiones
 
-La [actualización automática de extensiones](automatic-extension-upgrade.md) está disponible en versión preliminar para las máquinas virtuales de Azure y Azure Virtual Machine Scale Sets. Cuando la actualización automática de extensiones está habilitada en una máquina virtual o en un conjunto de escalado, la extensión se actualiza automáticamente cada vez que el editor de la extensión publica una nueva versión de esta.
+La [actualización automática de extensiones](automatic-extension-upgrade.md) está disponible para las máquinas virtuales de Azure y Azure Virtual Machine Scale Sets. Cuando la actualización automática de extensiones está habilitada en una máquina virtual o en un conjunto de escalado, la extensión se actualiza automáticamente cada vez que el editor de la extensión publica una nueva versión de esta.
 
  La actualización automática de extensiones tiene las siguientes características:
-- Es compatible con máquinas virtuales de Azure y Azure Virtual Machine Scale Sets. No se admite actualmente Virtual Machine Scale Sets de Service Fabric.
+- Es compatible con máquinas virtuales de Azure y Azure Virtual Machine Scale Sets.
 - Las actualizaciones se aplican según un modelo de implementación de orden de disponibilidad.
 - En el caso de un conjunto de escalado de máquinas virtuales, no se actualizará más del 20 % de las máquinas virtuales del conjunto de escalado en un único lote. El tamaño mínimo de lote es una única máquina virtual.
 - Funciona con todos los tamaños de máquina virtual y con extensiones de Windows y Linux.
@@ -59,7 +62,7 @@ La [actualización automática de extensiones](automatic-extension-upgrade.md) e
 - Cada extensión admitida se inscribe individualmente, y puede elegir qué extensiones se van a actualizar automáticamente.
 - Se admite en todas las regiones de la nube pública.
 
-## <a name="hotpatch"></a>Revisiones en caliente 
+## <a name="hotpatch"></a>Revisiones en caliente
 
 La aplicación de [revisiones en caliente](../automanage/automanage-hotpatch.md?context=/azure/virtual-machines/context/context) es una nueva manera de instalar actualizaciones en nuevas máquinas virtuales (VM) de Windows Server Azure Edition que no es necesario reiniciar después de la instalación. La revisión en caliente para máquinas virtuales de Windows Server Azure Edition presenta las siguientes ventajas:
 
@@ -74,23 +77,23 @@ Puede usar [Update Management en Azure Automation](../automation/update-manageme
 
 ## <a name="maintenance-control"></a>Control de mantenimiento
 
-Administre las actualizaciones de la plataforma, que no requieren un reinicio, mediante el [control de mantenimiento](maintenance-control.md). Azure actualiza con frecuencia su infraestructura para mejorar la confiabilidad, el rendimiento y la seguridad o para poner en marcha nuevas características. La mayoría de las actualizaciones son transparentes para los usuarios. Algunas cargas de trabajo especialmente delicadas, como los juegos, el streaming multimedia o las transacciones financieras, no pueden tolerar ni siquiera unos segundos de bloqueo o desconexión por mantenimiento de una máquina virtual. El control de mantenimiento ofrece la opción de poner en espera las actualizaciones de la plataforma y aplicarlas en un período sucesivo de 35 días. 
+Administre las actualizaciones de la plataforma, que no requieren un reinicio, mediante el [control de mantenimiento](maintenance-control.md). Azure actualiza con frecuencia su infraestructura para mejorar la confiabilidad, el rendimiento y la seguridad o para poner en marcha nuevas características. La mayoría de las actualizaciones son transparentes para los usuarios. Algunas cargas de trabajo especialmente delicadas, como los juegos, el streaming multimedia o las transacciones financieras, no pueden tolerar ni siquiera unos segundos de bloqueo o desconexión por mantenimiento de una máquina virtual. El control de mantenimiento ofrece la opción de poner en espera las actualizaciones de la plataforma y aplicarlas en un período sucesivo de 35 días.
 
 El control de mantenimiento le permite decidir cuándo se aplican las actualizaciones a las máquinas virtuales aisladas y los hosts dedicados de Azure.
 
 Con el [control de mantenimiento](maintenance-control.md), puede:
 - Aplicar actualizaciones por lotes en un único paquete de actualización.
-- Esperar hasta 35 días para aplicar las actualizaciones. 
+- Esperar hasta 35 días para aplicar las actualizaciones.
 - Para automatizar las actualizaciones de plataforma configure una programación de mantenimiento o use [Azure Functions](https://github.com/Azure/azure-docs-powershell-samples/tree/master/maintenance-auto-scheduler).
-- Mantener el trabajo de las configuraciones entre suscripciones y grupos de recursos. 
+- Mantener el trabajo de las configuraciones entre suscripciones y grupos de recursos.
 
 
 ## <a name="scheduled-events"></a>Eventos programados
 
-Scheduled Events es un servicio de Azure Metadata Service que proporciona el tiempo de aplicación para prepararse para el mantenimiento de la máquina virtual. Da información sobre los eventos de mantenimiento próximos (por ejemplo, un reinicio) para que la aplicación pueda prepararlos y así limitar las interrupciones. Está disponible para todos los tipos de máquina virtual de Azure, incluidos IaaS y PaaS, tanto en Windows como en Linux. 
+Scheduled Events es un servicio de Azure Metadata Service que proporciona el tiempo de aplicación para prepararse para el mantenimiento de la máquina virtual. Da información sobre los eventos de mantenimiento próximos (por ejemplo, un reinicio) para que la aplicación pueda prepararlos y así limitar las interrupciones. Está disponible para todos los tipos de máquina virtual de Azure, incluidos IaaS y PaaS, tanto en Windows como en Linux.
 
 Para más información sobre Scheduled Events, consulte [Scheduled Events para máquinas virtuales Windows](./windows/scheduled-events.md) y [Scheduled Events para máquinas virtuales Linux](./linux/scheduled-events.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte la documentación sobre [disponibilidad y escalado](availability.md) para ver más formas de aumentar el tiempo de actividad de las aplicaciones y los servicios. 
+Consulte la documentación sobre [disponibilidad y escalado](availability.md) para ver más formas de aumentar el tiempo de actividad de las aplicaciones y los servicios.

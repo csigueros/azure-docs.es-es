@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 09/28/2020
 ms.author: wellee
-ms.openlocfilehash: d1aae5620f32b5680badc073d74d360b70b68a3b
-ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
+ms.openlocfilehash: 8c9ab37e46f23d533550ffc535633575a85937a6
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110579878"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122778904"
 ---
 # <a name="connect-cross-tenant-vnets-to-a-virtual-wan-hub"></a>Conexión de redes virtuales entre inquilinos a un centro de conectividad de Virtual Wan
 
@@ -44,9 +44,9 @@ Para seguir los pasos de este artículo debe tener la configuración siguiente y
 
 ## <a name="assign-permissions"></a><a name="rights"></a>Asignación de permisos
 
-Para que la suscripción primaria con el centro de conectividad virtual pueda modificar las redes virtuales del inquilino remoto y acceder a ellas, debe asignar permisos de **Colaborador** a la suscripción primaria desde la suscripción del inquilino remoto.
+Para que el usuario que administra la suscripción primaria al centro virtual pueda modificar las redes virtuales del inquilino remoto y acceder a ellas, debe asignar permisos de **Colaborador** a este usuario. La asignación de permisos de **Colaborador** a este usuario se hace en la suscripción de la red virtual del inquilino remoto.
 
-1. Agregue la asignación de roles **Colaborador** a la cuenta primaria (la que tiene el centro de conectividad de Virtual WAN). Puede usar PowerShell o Azure Portal para asignar este rol. Vea los siguientes artículos **Incorporación o eliminación de asignaciones de roles** para conocer los pasos:
+1. Agregue la asignación de roles **Colaborador** al administrador (el usuario que administra el centro de la WAN virtual). Puede usar PowerShell o Azure Portal para asignar este rol. Vea los siguientes artículos **Incorporación o eliminación de asignaciones de roles** para conocer los pasos:
 
    * [PowerShell](../role-based-access-control/role-assignments-powershell.md)
    * [Portal](../role-based-access-control/role-assignments-portal.md)

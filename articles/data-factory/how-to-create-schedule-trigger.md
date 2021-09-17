@@ -1,19 +1,21 @@
 ---
-title: Creación de desencadenadores de programación en Azure Data Factory
-description: Obtenga información acerca de cómo crear un desencadenador en Azure Data Factory para que ejecute una canalización en una programación.
+title: Creación de desencadenadores programados
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Aprenda a crear un desencadenador de Azure Data Factory o Azure Synapse Analytics que ejecute una canalización conforme a una programación.
 author: chez-charlie
 ms.author: chez
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: orchestration
 ms.topic: conceptual
-ms.date: 10/30/2020
-ms.custom: devx-track-python, devx-track-azurepowershell
-ms.openlocfilehash: 96a6b82afb7d3d71b0dd8ce392fa308a3611aa94
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.date: 08/24/2021
+ms.custom: devx-track-python, devx-track-azurepowershell, synapse
+ms.openlocfilehash: 833800da17302d2f28619cd1f66acfc476175a7f
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110675028"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122824619"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Creación de un desencadenador que ejecuta una canalización en una programación
 
@@ -25,18 +27,24 @@ Al crear un desencadenador de programación, especifique una programación (fech
 
 En las secciones siguientes se proporcionan los pasos necesarios para crear un desencadenador de programación de diferentes maneras. 
 
-## <a name="data-factory-ui"></a>Interfaz de usuario de Data Factory
+## <a name="ui-experience"></a>Experiencia de UI
 
 Puede crear un **programador de desencadenador** para programar la ejecución de una canalización periódicamente (cada hora, diariamente, etc.). 
 
 > [!NOTE]
 > Para obtener un tutorial completo acerca de cómo crear una canalización y un desencadenador de programación, que asocia el desencadenador a la canalización y ejecuta y supervisa la canalización, consulte [Inicio rápido: Creación de una factoría de datos con la interfaz de usuario de Azure Data Factory](quickstart-create-data-factory-portal.md).
 
-1. Cambie a la pestaña **Edit** (Editar), que se muestra con un símbolo de lápiz. 
+1. Vaya a la pestaña **Editar** de Data Factory o a la pestaña Integrar de Azure Synapse. 
 
+    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
     ![Cambio a la pestaña Edit (Editar)](./media/how-to-create-schedule-trigger/switch-edit-tab.png)
 
-1. Seleccione **Trigger** (Desencadenador) en el menú y, después, seleccione **New/Edit** (Nuevo/Editar). 
+    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+    ![Cambio a la pestaña Edit (Editar)](./media/how-to-create-schedule-trigger/switch-edit-tab-synapse.png)
+
+---
+    
+2. Seleccione **Trigger** (Desencadenador) en el menú y, después, seleccione **New/Edit** (Nuevo/Editar). 
 
     ![Menú Nuevo desencadenador](./media/how-to-create-schedule-trigger/new-trigger-menu.png)
 
@@ -54,7 +62,9 @@ Puede crear un **programador de desencadenador** para programar la ejecución de
         > En el caso de las zonas horarias que se adaptan a la hora de verano, la hora del desencadenador se ajustará automáticamente en los dos cambios que se producen al año. Para no cambiar en función del horario de verano, seleccione una zona horaria que no se adapte al horario de verano, como UTC.
 
     1. Especifique **Periodicidad** para el desencadenador. Seleccione uno de los valores de la lista desplegable (cada minuto, cada hora, diariamente, semanalmente y mensualmente). Introduzca el multiplicador en el cuadro de texto. Por ejemplo, si desea que el desencadenador se ejecute una vez para cada 15 minutos, seleccione **Cada minuto** y escriba **15** en el cuadro de texto. 
-    1. Para especificar una fecha y hora de finalización, seleccione **Especificar una fecha de finalización**, especifique _Termina el_ y luego seleccione **Aceptar**. Hay un costo asociado a cada ejecución de canalización. Si está realizando pruebas, es posible que quiera asegurarse de que la canalización se desencadena solo un par de veces. No obstante, asegúrese de que hay tiempo suficiente para que la canalización se ejecute entre la hora de publicación y la hora de finalización. El desencadenador entra en vigor después de publicar la solución en Data Factory, no cuando se guarda el desencadenador en la interfaz de usuario.
+    1. En **Periodicidad**, si elige "Días, Semanas o Meses" en la lista desplegable, puede encontrar "Opciones avanzadas de periodicidad".
+    :::image type="content" source="./media/how-to-create-schedule-trigger/advanced.png" alt-text="Opciones avanzadas de periodicidad de Días, Semanas o Meses":::
+    1. Para especificar una fecha y hora de finalización, seleccione **Especificar una fecha de finalización**, especifique _Termina el_ y luego seleccione **Aceptar**. Hay un costo asociado a cada ejecución de canalización. Si está realizando pruebas, es posible que quiera asegurarse de que la canalización se desencadena solo un par de veces. No obstante, asegúrese de que hay tiempo suficiente para que la canalización se ejecute entre la hora de publicación y la hora de finalización. El desencadenador se aplica después de publicar la solución, no cuando se guarda en la interfaz de usuario.
 
         ![Configuración del desencadenador](./media/how-to-create-schedule-trigger/trigger-settings-01.png)
 
@@ -68,17 +78,31 @@ Puede crear un **programador de desencadenador** para programar la ejecución de
 
     ![Configuración del desencadenador: botón Finalizar](./media/how-to-create-schedule-trigger/new-trigger-finish.png)
 
-1. Seleccione **Publish all** (Publicar todo) para publicar los cambios en Data Factory. Hasta que publique cambios en la factoría de datos, el desencadenador no inicia las ejecuciones de la canalización. 
+1. Seleccione **Publicar todo** para publicar los cambios. El desencadenador no inicia las ejecuciones de canalización hasta que se publican los cambios. 
 
     ![Botón Publicar](./media/how-to-create-schedule-trigger/publish-2.png)
 
 1. Cambie a la pestaña **Pipeline runs** (Ejecuciones de canalización) de la izquierda y seleccione **Refresh** (Actualizar) para actualizar la lista. Verá que el desencadenador programado ejecuta las ejecuciones de la canalización. Observe los valores de la columna **Triggered By** (Desencadenado por). Si usa la opción **Trigger Now** (Desencadenar ahora), verá la ejecución del desencadenador manual en la lista. 
 
+    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
+
     ![Supervisión de las ejecuciones desencadenadas](./media/how-to-create-schedule-trigger/monitor-triggered-runs.png)
 
-1. Cambie a la vista **Trigger Runs** (Ejecuciones de desencadenador) \ **Programación**. 
+    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+    ![Supervisión de las ejecuciones desencadenadas](./media/how-to-create-schedule-trigger/monitor-triggered-runs-synapse.png)
+    
+---
+
+9. Cambie a la vista **Trigger Runs** (Ejecuciones de desencadenador) \ **Programación**. 
+
+    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
 
     ![Supervisión de las ejecuciones del desencadenador](./media/how-to-create-schedule-trigger/monitor-trigger-runs.png)
+
+    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+    ![Supervisión de las ejecuciones del desencadenador](./media/how-to-create-schedule-trigger/monitor-trigger-runs-synapse.png)
+    
+---
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
@@ -286,7 +310,7 @@ Puede usar una plantilla de Azure Resource Manager para crear un desencadenador.
 
 ## <a name="pass-the-trigger-start-time-to-a-pipeline"></a>Transmisión de la hora de inicio del desencadenador a una canalización
 
-La versión 1 de Azure Data Factory admite la lectura y la escritura de datos con particiones por medio de las variables del sistema **SliceStart**, **SliceEnd**, **WindowStart** y **WindowEnd**. En la versión actual de Azure Data Factory, puede lograr este comportamiento con un parámetro de la canalización. La hora de inicio y la hora programada para el desencadenador se establecen como el valor del parámetro de la canalización. En el siguiente ejemplo, la hora programada del desencadenador se pasa como un valor al parámetro de canalización **scheduledRunTime**.
+La versión 1 de Azure Data Factory admite la lectura y la escritura de datos con particiones por medio de las variables del sistema **SliceStart**, **SliceEnd**, **WindowStart** y **WindowEnd**. En la versión actual de canalizaciones de Azure Data Factory y Synapse, puede lograr este comportamiento con un parámetro de canalización. La hora de inicio y la hora programada para el desencadenador se establecen como el valor del parámetro de la canalización. En el siguiente ejemplo, la hora programada del desencadenador se pasa como un valor al parámetro de canalización **scheduledRunTime**.
 
 ```json
 "parameters": {
@@ -391,7 +415,7 @@ Estas son algunas de las zonas horarias que se admiten para los desencadenadores
 | Hora estándar de la India (IST) | +5:30 | `India Standard Time` | No | `'yyyy-MM-ddTHH:mm:ss'` |
 | Hora estándar de China | +8 | `China Standard Time` | No | `'yyyy-MM-ddTHH:mm:ss'` |
 
-Esta lista está incompleta. Para obtener una lista completa de las opciones de zona horaria, consulte en el portal de Data Factory la [página de creación de desencadenadores](#data-factory-ui).
+Esta lista está incompleta. Para obtener una lista completa de las opciones de zona horaria, vea la [página de creación de desencadenadores](#ui-experience) del portal
 
 ### <a name="starttime-property"></a>Propiedad startTime
 En la tabla siguiente se muestra cómo la propiedad **startTime** controla una ejecución de desencadenador:

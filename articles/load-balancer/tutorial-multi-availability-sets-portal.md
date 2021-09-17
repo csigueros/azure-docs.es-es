@@ -6,14 +6,14 @@ author: asudbring
 ms.author: allensu
 ms.service: load-balancer
 ms.topic: tutorial
-ms.date: 04/21/2021
+ms.date: 08/12/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: 71115da01f47572d77243f25204d5b1127db22cd
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 920cfa4053fac692145f46cc5cff7d53381d900b
+ms.sourcegitcommit: 47491ce44b91e546b608de58e6fa5bbd67315119
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107887169"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122201803"
 ---
 # <a name="tutorial-create-a-load-balancer-with-more-than-one-availability-set-in-the-backend-pool-using-the-azure-portal"></a>Tutorial: Creación de un equilibrador de carga con más de un conjunto de disponibilidad en el grupo de servidores back-end mediante Azure Portal
 
@@ -52,7 +52,7 @@ En esta sección creará una red virtual para el equilibrador de carga y los dem
     | Configuración | Value |
     | ------- | ------|
     | **Detalles del proyecto** |   |
-    | Subscription | Seleccione su suscripción. |
+    | Suscripción | Seleccione su suscripción. |
     | Resource group | Seleccione **Crear nuevo**. </br> Escriba **TutorLBmultiAVS-rg** en **Nombre**. |
     | **Detalles de instancia** |   |
     | Nombre | Escriba **myVNet**. |
@@ -97,7 +97,7 @@ En esta sección creará una puerta de enlace NAT para la conectividad saliente 
     | Configuración | Value |
     | ------- | ----- |
     | **Detalles del proyecto** |   |
-    | Subscription | Seleccione su suscripción. |
+    | Suscripción | Seleccione su suscripción. |
     | Resource group | Seleccione **TutorLBmultiAVS-rg**. |
     | **Detalles de instancia** |   |
     | Nombre de NAT Gateway | Escriba **myNATgateway**. |
@@ -109,7 +109,7 @@ En esta sección creará una puerta de enlace NAT para la conectividad saliente 
 
 6. Seleccione **Crear una dirección IP pública** junto a **Direcciones IP públicas** en la pestaña **Outbound IP** (Dirección IP de salida).
 
-7. En **Nombre**, escriba **myPublicIP-nat**.
+7. Escriba **myNATgatewayIP** en **Nombre**.
 
 8. Seleccione **Aceptar**.
 
@@ -127,105 +127,100 @@ En esta sección creará una puerta de enlace NAT para la conectividad saliente 
 
 En esta sección va a crear un equilibrador de carga para las máquinas virtuales.
 
-1. En el cuadro de búsqueda que aparece en la parte superior del portal, escriba **Load Balancer**.
+1. En el cuadro de búsqueda que aparece en la parte superior del portal, escriba **Load Balancer**. Seleccione **Equilibradores de carga** en los resultados de la búsqueda.
 
-2. Seleccione **Equilibradores de carga** en los resultados de la búsqueda.
+2. En la página **Equilibrador de carga**, seleccione **Crear**.
 
-3. Seleccione **+ Create** (+ Crear).
+3. En la pestaña **Conceptos básicos** de la página **Crear equilibrador de carga**, escriba o seleccione la siguiente información: 
 
-4. En la pestaña **Conceptos básicos** de **Crear equilibrador de carga**, escriba o seleccione la siguiente información:
-
-    | Configuración | Value |
-    | ------- | ----- |
+    | Configuración                 | Value                                              |
+    | ---                     | ---                                                |
     | **Detalles del proyecto** |   |
-    | Subscription | Seleccione su suscripción. |
-    | Resource group | Seleccione **TutorLBmultiAVS-rg**. |
+    | Suscripción               | Seleccione su suscripción.    |    
+    | Resource group         | Seleccione **TutorLBmultiAVS-rg**. |
     | **Detalles de instancia** |   |
-    | Nombre | Escriba **myLoadBalancer**. |
-    | Region | Seleccione **(EE. UU.) Oeste de EE. UU. 2**. |
-    | Tipo | Deje el valor predeterminado, **Públicas**. |
-    | SKU | Deje el valor predeterminado **Estándar**. |
-    | Nivel | Deje el valor predeterminado, **Regional**. |
-    | **Dirección IP pública** |   |
-    | Dirección IP pública | Deje el valor **Crear nuevo** predeterminado. |
-    | Nombre de la dirección IP pública | Escriba **myPublicIP-lb**. |
-    | Zona de disponibilidad | seleccione **Con redundancia de zona**. |
-    | Adición de una dirección IPv6 pública | Deje el valor predeterminado de **No**. |
-    | Preferencia de enrutamiento | Deje el valor predeterminado **Microsoft Network**. |
+    | Nombre                   | Escriba **myLoadBalancer**.                                   |
+    | Region         | Seleccione **(EE. UU.) Oeste de EE. UU. 2**.                                        |
+    | Tipo          | Seleccione **Público**.                                        |
+    | SKU           | Deje el valor predeterminado **Estándar**. |
+    | Nivel          | En **Regional**, deje el valor predeterminado. |
 
-5. Seleccione la pestaña **Revisar y crear** o el botón azul **Revisar y crear** en la parte inferior de la página.
+4. Seleccione **Siguiente: Configuración de IP de front-end** en la parte inferior de la página.
 
-6. Seleccione **Crear**.
+5. En **Configuración de IP de front-end**, seleccione **+ Agregar una IP de front-end**.
 
-### <a name="configure-load-balancer-settings"></a>Configuración del equilibrador de carga
+6. Escriba **LoadBalancerFrontEnd** en **Nombre**.
 
-En esta sección creará un grupo de servidores back-end para **myLoadBalancer**.
+7. Seleccione **IPv4** o **IPv6** para **Versión de IP**.
 
-Creará un sondeo de estado para supervisar **HTTP** y el **puerto 80**. El sondeo de estado supervisará el estado de las máquinas virtuales del grupo de servidores back-end. 
+    > [!NOTE]
+    > IPv6 no se admite actualmente con preferencia de enrutamiento o equilibrio de carga entre regiones (nivel global).
 
-Creará una regla de equilibrio de carga para el **puerto 80** con SNAT de salida deshabilitado. La puerta de enlace NAT que creó anteriormente controlará la conectividad de salida de las máquinas virtuales.
+8. Seleccione **Dirección IP** para **Tipo de IP**.
 
-1. En el cuadro de búsqueda que aparece en la parte superior del portal, escriba **Load Balancer**.
+    > [!NOTE]
+    > Para más información sobre prefijos de IP, consulte [Prefijo de dirección IP pública de Azure](../virtual-network/public-ip-address-prefix.md).
 
-2. Seleccione **Equilibradores de carga** en los resultados de la búsqueda.
+9. Seleccione **Crear nueva** en **Dirección IP pública**.
 
-3. Seleccione **myLoadBalancer**.
+10. En **Agregar una dirección IP pública**, escriba **myPublicIP-lb** para **Nombre**.
 
-4. En **myLoadBalancer**, seleccione **Grupos de back-end** en **Configuración**.
+11. Seleccione **Con redundancia de zona** en **Zona de disponibilidad**.
 
-5. Seleccione **+ Agregar** en **Grupos de back-end**.
+    > [!NOTE]
+    > En las regiones con [Availability Zones](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones), tiene la opción de seleccionar Ninguna zona (opción predeterminada), una zona específica o redundancia de zona. La elección dependerá de los requisitos de error de dominio específicos. En regiones sin Availability Zones, este campo no aparecerá. </br> Para más información sobre las zonas de disponibilidad, consulte [Introducción a las zonas de disponibilidad](../availability-zones/az-overview.md).
 
-6. En **Agregar grupo back-end**, escriba o seleccione la siguiente información:
+12. Deje el valor predeterminado **Microsoft Network** para **Preferencia de enrutamiento**.
 
-    | Configuración | Valor |
-    | ------- | ----- |
-    | Nombre | Escriba **myBackendPool**. |
-    | Virtual network | Seleccione **myVNet**. |
-    | Configuración del grupo de back-end | Deje el valor predeterminado, **NIC**. |
-    | Versión de la dirección IP | Deje el valor predeterminado, **IPv4**. |
+13. Seleccione **Aceptar**.
 
-7. Seleccione **Agregar**.
+14. Seleccione **Agregar**.
 
-8. Seleccione **Sondeos de estado**.
+15. Seleccione **Siguiente: Grupos de back-end** en la parte inferior de la página.
 
-9. Seleccione **+Agregar**.
+16. En la pestaña **Grupos de back-end**, seleccione **+ Agregar un grupo de back-end**.
 
-10. En **Agregar sondeo de estado**, escriba o seleccione la siguiente información:
+17. Escriba **myBackendPool** como **Nombre** en **Agregar un grupo de back-end**.
 
-    | Configuración | Valor |
-    | ------- | ----- |
-    | Nombre | Escriba **myHTTPProbe**. |
-    | Protocolo | Seleccione **HTTP**. |
-    | Port | Deje el valor predeterminado, **80**. |
-    | Ruta de acceso | Deje el valor predeterminado, **/** . |
-    | Intervalo | Deje el valor predeterminado, **5** segundos. |
-    | Umbral incorrecto | Deje el valor predeterminado, **2** errores consecutivos. |
+18. Seleccione **myVNet** en **Red virtual**.
 
-11. Seleccione **Agregar**.
+19. Seleccione **NIC** o **Dirección IP** en **Configuración del grupo de back-end**.
 
-12. Seleccione **Reglas de equilibrio de carga**. 
+20. Seleccione **IPv4** o **IPv6** para **Versión de IP**.
 
-13. Seleccione **+Agregar**.
+21. Seleccione **Agregar**.
 
-14. Escriba o seleccione la siguiente información para **Agregar rega de equilibrio de carga**:
+22. Seleccione el botón **Siguiente: Reglas de entrada** situado en la parte inferior de la página.
 
-    | Configuración | Valor |
+23. En **Regla de equilibrio de carga** de la pestaña **Reglas de entrada**, seleccione **+ Agregar regla de equilibrio de carga**.
+
+24. En **Agregar regla de equilibrio de carga**, escriba o seleccione la siguiente información:
+
+    | Parámetro | Value |
     | ------- | ----- |
     | Nombre | Escriba **myHTTPRule**. |
-    | Versión de la dirección IP | Deje el valor predeterminado, **IPv4**. |
-    | Dirección IP del front-end | Seleccione **LoadBalancerFrontEnd**. |
-    | Protocolo | Seleccione el valor predeterminado, **TCP**. |
+    | Versión de la dirección IP | Seleccione **IPv4** o **IPv6** en función de sus requisitos. |
+    | Dirección IP del front-end | Seleccione **LoadBalancerFrontend**. |
+    | Protocolo | seleccione **TCP**. |
     | Port | Escriba **80**. |
     | Puerto back-end | Escriba **80**. |
     | Grupo back-end | Seleccione **MyBackendPool**. |
-    | Sondeo de mantenimiento | Seleccione **myHTTPProbe**. |
-    | Persistencia de la sesión | Deje el valor predeterminado de **No**. |
-    | Tiempo de espera de inactividad (minutos) | Cambie el control deslizante a **15**. |
+    | Sondeo de mantenimiento | Seleccione **Crear nuevo**. </br> En **Nombre**, escriba **myHealthProbe**. </br> Seleccione **HTTP** en **Protocolo**. </br> Deje el resto de los valores predeterminados y seleccione **Aceptar**. |
+    | Persistencia de la sesión | Seleccione **Ninguno**. |
+    | Tiempo de espera de inactividad (minutos) | Escriba o seleccione **15**. |
     | Restablecimiento de TCP | Seleccione **Habilitado**. |
-    | Dirección IP flotante | Deje el valor predeterminado, **Deshabilitado**. |
+    | Dirección IP flotante | Seleccione **Deshabilitado**. |
     | Traducción de direcciones de red de origen (SNAT) de salida | Deje el valor predeterminado, **(Recommended) Use outbound rules to provide backend pool members access to the internet** ([Recomendado] Usar reglas de salida para que los miembros del grupo de servidores de back-end puedan acceder a Internet). |
 
-5. Seleccione **Agregar**.
+25. Seleccione **Agregar**.
+
+26. Seleccione el botón azul **Revisar y crear** en la parte inferior de la página.
+
+27. Seleccione **Crear**.
+
+    > [!NOTE]
+    > En este ejemplo, hemos creado una puerta de enlace NAT para proporcionar acceso saliente a Internet. La pestaña de reglas de salida de la configuración se omite, ya que no es necesaria con la puerta de enlace NAT. Para más información sobre la puerta de enlace NAT de Azure, consulte [¿Qué es Azure Virtual Network NAT?](../virtual-network/nat-gateway/nat-overview.md)
+    > Para más información sobre las conexiones salientes en Azure, consulte [Traducción de direcciones de red de origen (SNAT) para conexiones salientes](../load-balancer/load-balancer-outbound-connections.md).
 
 ## <a name="create-virtual-machines"></a>Creación de máquinas virtuales
 
@@ -242,7 +237,7 @@ En esta sección creará dos grupos de disponibilidad con dos máquinas virtuale
     | Configuración | Value |
     | ------- | ----- |
     | **Detalles del proyecto** |   |
-    | Subscription | Seleccionar su suscripción |
+    | Suscripción | Seleccione su suscripción. |
     | Resource group | Seleccione **TutorLBmultiAVS-rg**. |
     | **Detalles de instancia** |   |
     | Nombre de la máquina virtual | Escriba **myVM1**. |
@@ -262,7 +257,7 @@ En esta sección creará dos grupos de disponibilidad con dos máquinas virtuale
 
 5. En la pestaña **Redes**, escriba o seleccione la siguiente información:
 
-    | Parámetro | Valor |
+    | Parámetro | Value |
     | ------- | ----- |
     | **Interfaz de red** |   |
     | Virtual network | Seleccione **myVNet**. |
@@ -283,7 +278,7 @@ En esta sección creará dos grupos de disponibilidad con dos máquinas virtuale
 
 8. Repita los pasos del 1 al 7 para crear la segunda máquina virtual del conjunto. Reemplace la configuración de la máquina virtual por la siguiente información:
 
-    | Configuración | Valor |
+    | Configuración | Value |
     | ------- | ----- |
     | Nombre | Escriba **myVM2**. |
     | Conjunto de disponibilidad | Seleccione **myAvailabilitySet1**. |
@@ -306,7 +301,7 @@ En esta sección creará dos grupos de disponibilidad con dos máquinas virtuale
     | Configuración | Value |
     | ------- | ----- |
     | **Detalles del proyecto** |   |
-    | Subscription | Seleccionar su suscripción |
+    | Suscripción | Seleccione su suscripción. |
     | Resource group | Seleccione **TutorLBmultiAVS-rg**. |
     | **Detalles de instancia** |   |
     | Nombre de la máquina virtual | Escriba **myVM3**. |
@@ -326,7 +321,7 @@ En esta sección creará dos grupos de disponibilidad con dos máquinas virtuale
 
 5. En la pestaña **Redes**, escriba o seleccione la siguiente información:
 
-    | Parámetro | Valor |
+    | Parámetro | Value |
     | ------- | ----- |
     | **Interfaz de red** |   |
     | Virtual network | Seleccione **myVNet**. |
@@ -347,7 +342,7 @@ En esta sección creará dos grupos de disponibilidad con dos máquinas virtuale
 
 8. Repita los pasos del 1 al 7 para crear la segunda máquina virtual del conjunto. Reemplace la configuración de la máquina virtual por la siguiente información:
 
-    | Configuración | Valor |
+    | Configuración | Value |
     | ------- | ----- |
     | Nombre | Escriba **myVM4**. |
     | Conjunto de disponibilidad | Seleccione **myAvailabilitySet2**. |

@@ -5,28 +5,28 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 07/07/2021
+ms.date: 08/20/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-ms.reviewer: rogoya
+ms.reviewer: lvandenende
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: d240e9bbf657a4336480d1340b8fbd59903a355a
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: a82b2632d5415091986c418ca7cd3871e519b374
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113730305"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122634189"
 ---
 # <a name="what-are-security-defaults"></a>¿Cuáles son los valores de seguridad predeterminados?
 
 La administración de la seguridad puede resultar difícil porque los ataques comunes relacionados con la identidad, como la difusión o reproducción de contraseñas y la suplantación de identidad, se están volviendo cada vez más populares. Los valores predeterminados de seguridad facilitan la protección de la organización frente a estos ataques con opciones de configuración de seguridad preconfiguradas:
 
 - Exigir que todos los usuarios se registren en Azure AD Multi-Factor Authentication.
-- Requerir que los administradores realicen la autenticación multifactor.
+- Exigir que los administradores realicen la autenticación multifactor.
 - Bloquear los protocolos de autenticación heredados.
-- Exigir a los usuarios que realicen la autenticación multifactor cuando sea necesario.
+- Exigir que los usuarios realicen la autenticación multifactor cuando sea necesario.
 - Proteger las actividades con privilegios, como el acceso a Azure Portal.
 
 ![Captura de pantalla de Azure Portal con el botón de alternancia para habilitar los valores predeterminados de seguridad](./media/concept-fundamentals-security-defaults/security-defaults-azure-ad-portal.png)
@@ -35,11 +35,11 @@ Para más información sobre por qué los valores predeterminados de seguridad s
 
 ## <a name="availability"></a>Disponibilidad
 
-Microsoft pone los valores de seguridad predeterminados a disposición de todos los usuarios. El objetivo es asegurarse de que todas las organizaciones gocen de un nivel básico de seguridad sin ningún costo adicional. Los valores predeterminados de seguridad se activan en Azure Portal. Si el inquilino se creó a partir del 22 de octubre de 2019, es posible que los valores predeterminados de seguridad ya estén habilitados en el inquilino. Para proteger a todos nuestros usuarios, los valores predeterminados de seguridad se están implementando en todos los nuevos inquilinos creados.
+Microsoft pone los valores de seguridad predeterminados a disposición de todos los usuarios. El objetivo es asegurarse de que todas las organizaciones gocen de un nivel básico de seguridad sin ningún costo adicional. Los valores predeterminados de seguridad se activan en Azure Portal. Si el inquilino se creó a partir del 22 de octubre de 2019, puede que los valores predeterminados de seguridad ya estén habilitados en el inquilino. Para proteger a todos los usuarios, los valores predeterminados de seguridad se están implementando en todos los nuevos inquilinos en el momento de su creación.
 
 ### <a name="whos-it-for"></a>¿Para quiénes son?
 
-- Para organizaciones que deseen aumentar la posición de seguridad, pero no saben cómo empezar o por dónde.
+- Para organizaciones que buscan aumentar la posición de seguridad, pero no saben cómo empezar o por dónde.
 - Para organizaciones que utilizan el nivel gratis de licencias de Azure Active Directory.
 
 ### <a name="who-should-use-conditional-access"></a>¿Quién debe usar el acceso condicional?
@@ -52,7 +52,7 @@ Microsoft pone los valores de seguridad predeterminados a disposición de todos 
 
 ### <a name="unified-multi-factor-authentication-registration"></a>Registro unificado de Multi-Factor Authentication
 
-Todos los usuarios del inquilino deben registrarse para la autenticación multifactor (MFA) en la forma del servicio Azure AD Multi-Factor Authentication. Los usuarios tendrán 14 días para registrarse en Azure AD Multi-Factor Authentication con la aplicación Microsoft Authenticator. Una vez transcurridos los 14 días, el usuario no podrá iniciar sesión hasta que se complete el registro. El período de 14 días de un usuario comienza después del primer inicio de sesión interactivo correcto después de habilitar los valores de seguridad predeterminados.
+Todos los usuarios del inquilino deben registrarse para la autenticación multifactor (MFA) en la forma del servicio Azure AD Multi-Factor Authentication. Los usuarios tendrán 14 días para registrarse en Azure AD Multi-Factor Authentication con la aplicación Microsoft Authenticator. Una vez transcurridos los 14 días, el usuario no podrá iniciar sesión hasta que se complete el registro. El período de 14 días de un usuario comienza después del primer inicio de sesión interactivo correcto después de habilitar los valores de seguridad predeterminados.
 
 ### <a name="protecting-administrators"></a>Protección de los administradores
 
@@ -79,7 +79,7 @@ Se tiende a pensar que las cuentas de administrador son las únicas cuentas que 
 
 Una vez que estos atacantes obtienen acceso, pueden solicitar acceso a información privilegiada en nombre del titular de la cuenta original. Incluso pueden descargar todo el directorio para realizar un ataque de suplantación de identidad (phishing) en toda la organización. 
 
-Un método común para mejorar la protección de todos los usuarios es exigir a todos una forma más estricta de verificación de cuentas, como Multi-Factor Authentication (MFA). Cuando los usuarios finalicen el registro de Multi-Factor Authentication, se les pedirá una autenticación adicional siempre que sea necesario. Se solicitará a los usuarios principalmente cuando se autentiquen mediante un nuevo dispositivo o aplicación, o cuando desempeñen tareas y roles críticos. Esta funcionalidad protege todas las aplicaciones registradas con Azure AD, incluidas las aplicaciones SaaS.
+Un método común para mejorar la protección de todos los usuarios es exigir a todos una forma más estricta de verificación de cuentas, como Multi-Factor Authentication (MFA). Cuando los usuarios finalicen el registro de Multi-Factor Authentication, se les pedirá otra autenticación siempre que sea necesario. Se solicitará a los usuarios principalmente cuando se autentiquen mediante un nuevo dispositivo o aplicación, o cuando desempeñen tareas y roles críticos. Esta funcionalidad protege todas las aplicaciones registradas con Azure AD, incluidas las aplicaciones SaaS.
 
 ### <a name="blocking-legacy-authentication"></a>Bloqueo de la autenticación heredada
 
@@ -149,13 +149,12 @@ Puede usar el acceso condicional para configurar directivas similares a los valo
 
 ![Mensaje de advertencia que indica que puede tener valores predeterminados de seguridad o acceso condicional, pero no ambos](./media/concept-fundamentals-security-defaults/security-defaults-conditional-access.png)
 
-Estas son las guías paso a paso sobre cómo se puede usar el acceso condicional para configurar directivas equivalentes en las directivas habilitadas por los valores predeterminados de seguridad:
+Estas son guías paso a paso sobre cómo puede usar el acceso condicional para configurar un conjunto de directivas, que forman un buen punto inicial para proteger las identidades:
 
 - [Exigir autenticación multifactor para administradores](../conditional-access/howto-conditional-access-policy-admin-mfa.md)
 - [Exigir autenticación multifactor para la administración de Azure](../conditional-access/howto-conditional-access-policy-azure-management.md)
 - [Bloquear la autenticación heredada](../conditional-access/howto-conditional-access-policy-block-legacy.md)
 - [Exigir autenticación multifactor para todos los usuarios](../conditional-access/howto-conditional-access-policy-all-users-mfa.md)
-- [Requerir registro de Azure AD MFA](../identity-protection/howto-identity-protection-configure-mfa-policy.md): requiere Azure AD Identity Protection como parte de Azure AD Premium P2.
 
 ## <a name="enabling-security-defaults"></a>Habilitación de los valores de seguridad predeterminados
 

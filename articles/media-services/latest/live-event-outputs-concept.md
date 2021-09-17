@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 10/23/2020
 ms.author: inhenkel
-ms.openlocfilehash: f1df5c945c5216e82837672ad8aeaa669fc4fb20
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 5269be27a0e31e9626cd26960092356bce0d8ff4
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110786454"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122635034"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>Eventos en directo y salidas en directo en Media Services
 
@@ -224,7 +224,6 @@ Para obtener detalles, vea [Operaciones de larga duración](media-services-apis-
 Una vez que la transmisión fluye en el evento en directo, puede comenzar el evento de streaming mediante la creación de un [recurso](/rest/api/media/assets), [salida activa](/rest/api/media/liveoutputs) y un [localizador de streaming](/rest/api/media/streaminglocators). La salida en directo archivará la transmisión y la pondrá a disposición de los usuarios a través del [punto de conexión de streaming](/rest/api/media/streamingendpoints).  
 
 Para obtener información detallada sobre las salidas en directo, consulte [Uso de una DVR en la nube](live-event-cloud-dvr-time-how-to.md).
-
 ## <a name="live-event-output-questions"></a>Preguntas sobre la salida de eventos en directo
 
-Consulte el artículo [Preguntas sobre la salida de eventos en directo](questions-collection.md#live-streaming).
+Consulte las [preguntas frecuentes sobre eventos en directo](frequently-asked-questions.yml).

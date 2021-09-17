@@ -3,32 +3,32 @@ title: Archivo de inclusión
 description: archivo de inclusión
 services: cosmos-db
 ms.custom: include file
-ms.openlocfilehash: e81f5ef294fd798f720bff06e8fd5f8bc1075ff0
-ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
+ms.openlocfilehash: 3f7a37ce78e49abe1356180818a215488fe82ea3
+ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122195824"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122515634"
 ---
 1. En una nueva ventana del explorador, inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 2. En el menú de la izquierda, seleccione **Crear un recurso**.
    
-   :::image type="content" source="./media/cosmos-db-create-dbaccount-mongodb/create-nosql-db-databases-json-tutorial-0.png" alt-text="Crear un recurso en Azure Portal":::
+   :::image type="content" source="./media/cosmos-db-create-dbaccount-mongodb/create-nosql-db-databases-json-tutorial-0.png" alt-text="Captura de pantalla de creación de un recurso en Azure Portal.":::
    
 3. En la página **Nuevo**, seleccione **Bases de datos** > **Azure Cosmos DB**.
    
-   :::image type="content" source="./media/cosmos-db-create-dbaccount-mongodb/create-nosql-db-databases-json-tutorial-1.png" alt-text="El panel Bases de datos de Azure Portal":::
+   :::image type="content" source="./media/cosmos-db-create-dbaccount-mongodb/create-nosql-db-databases-json-tutorial-1.png" alt-text="Captura de pantalla del de las bases de datos de Azure Portal":::
    
 4. En la págin **Seleccionar opción de API**, seleccione **Azure Cosmos DB API para MongoDB** > **Crear**.
 
    La API determina el tipo de cuenta que se va a crear. Seleccione **Azure Cosmos DB API para Mongo DB**, ya que va a crear una colección que funciona con MongoDB en este inicio rápido. Para más información, consulte [Introducción a Azure Cosmos DB API para MongoDB](../mongodb-introduction.md).
 
-   :::image type="content" source="./media/cosmos-db-create-dbaccount-mongodb/azure-cosmos-db-select-api.png" alt-text="Panel de opciones Seleccionar API":::
+   :::image type="content" source="./media/cosmos-db-create-dbaccount-mongodb/azure-cosmos-db-select-api.png" alt-text="Captura de pantalla del panel de selección de la opción de API.":::
 
 5. En la página **Crear una cuenta de Azure Cosmos DB**, especifique la configuración de la nueva cuenta de Azure Cosmos DB.
 
-   |Configuración|Valor|Descripción |
+   |Configuración|Value|Descripción |
    |---|---|---|
    |Suscripción|Nombre de suscripción|Seleccione la suscripción de Azure que quiere usar para esta cuenta de Azure Cosmos DB. |
    |Grupo de recursos|Definición de un nombre de grupo de recursos|Seleccione un grupo de recursos o seleccione **Crear nuevo** y escriba un nombre único para el grupo de recursos nuevo. |
@@ -41,11 +41,11 @@ ms.locfileid: "122195824"
    > [!NOTE]
    > Puede tener una cuenta de Azure Cosmos DB de nivel Gratis por cada suscripción de Azure y debe optar por tenerla al crear la cuenta. Si no ve la opción para aplicar el descuento por nivel Gratis, significará que en otra cuenta de la suscripción ya se ha habilitado el nivel Gratis.
 
-   :::image type="content" source="./media/cosmos-db-create-dbaccount-mongodb/azure-cosmos-db-create-new-account.png" alt-text="Página de la nueva cuenta de Azure Cosmos DB"::: 
+   :::image type="content" source="./media/cosmos-db-create-dbaccount-mongodb/azure-cosmos-db-create-new-account.png" alt-text="Captura de pantalla de la página de nueva cuenta de Azure Cosmos DB."::: 
 
 1. En la pestaña **Distribución global**, configure los detalles siguientes. Puede dejar los valores predeterminados para este inicio rápido:
 
-   |Configuración|Valor|Descripción |
+   |Configuración|Value|Descripción |
    |---|---|---|
    |Redundancia geográfica|Deshabilitar|Habilite o deshabilite la distribución global en su cuenta. Para ello, debe emparejar su región con una región de par. Puede agregar más regiones a su cuenta más adelante.|
    |Escrituras en varias regiones|Deshabilitar|La funcionalidad de escrituras en varias regiones le permite aprovechar el rendimiento aprovisionado para sus bases de datos y contenedores de todo el mundo.|
@@ -67,4 +67,4 @@ ms.locfileid: "122195824"
 
 4. La cuenta tarda unos minutos en crearse. Espere a que el portal muestre la página **¡Enhorabuena! La cuenta de Azure Cosmos DB API para MongoDB está lista**.
 
-   :::image type="content" source="./media/cosmos-db-create-dbaccount-mongodb/azure-cosmos-db-account-created.png" alt-text="Panel de notificaciones de Azure Portal"::: 
+   :::image type="content" source="./media/cosmos-db-create-dbaccount-mongodb/azure-cosmos-db-account-created.png" alt-text="Captura de pantalla del panel de notificaciones de Azure Portal."::: 

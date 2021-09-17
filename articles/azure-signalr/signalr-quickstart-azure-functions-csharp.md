@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: devx-track-csharp
 ms.date: 06/09/2021
 ms.author: zhshang
-ms.openlocfilehash: 1856f6e012c2b90e173162f055d64402f0c4c908
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: 3a3fa958ac6ad1cb440f30b5c680ae3f9139d29a
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112462116"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122444928"
 ---
 # <a name="quickstart-create-an-app-showing-github-star-count-with-azure-functions-and-signalr-service-using-c"></a>Inicio rápido: Creación de una aplicación en la que se muestra el número de estrellas de GitHub con Azure Functions y SignalR Service mediante C\#
 
@@ -105,7 +105,7 @@ Inicie sesión en Azure Portal en <https://portal.azure.com/> con su cuenta de A
                     new SignalRMessage
                     {
                         Target = "newMessage",
-                        Arguments = new[] { $"Current start count of https://github.com/Azure/azure-signalr is: {result.StartCount}" }
+                        Arguments = new[] { $"Current star count of https://github.com/Azure/azure-signalr is: {result.StarCount}" }
                     });
             }
     
@@ -113,14 +113,14 @@ Inicie sesión en Azure Portal en <https://portal.azure.com/> con su cuenta de A
             {
                 [JsonRequired]
                 [JsonProperty("stargazers_count")]
-                public string StartCount { get; set; }
+                public string StarCount { get; set; }
             }
         }
     }
     ```
-    Estos códigos tienen tres funciones. `Index` se usa para obtener un sitio web como cliente. `Negotiate` se usa para que el cliente obtenga el token de acceso. `Broadcast` se usa para obtener periódicamente el recuento de estrellas de GitHub y transmitir mensajes a todos los clientes.
+    Estos códigos tienen tres funciones. `Index` se usa para obtener un sitio web como cliente. `Negotiate` se usa para que el cliente obtenga el token de acceso. `Broadcast` se usa para obtener periódicamente el número de estrellas de GitHub y transmitir mensajes a todos los clientes.
 
-3. La interfaz de cliente de este ejemplo es una página web. Si se lee contenido HTML de `content/index.html` en la función `GetHomePage`, cree un archivo `index.html` en el directorio `content`. Y copie el contenido siguiente.
+3. La interfaz de cliente de esta muestra es una página web. Si se lee contenido HTML de `content/index.html` en la función `GetHomePage`, cree un archivo `index.html` en el directorio `content` bajo la carpeta raíz del proyecto. Y copie el contenido siguiente.
     ```html
     <html>
     
@@ -147,29 +147,39 @@ Inicie sesión en Azure Portal en <https://portal.azure.com/> con su cuenta de A
     </html>
     ```
 
-4. Ya casi ha terminado. El último paso consiste en establecer una cadena de conexión de SignalR Service a la configuración de Azure Functions.
+4. Actualice para `*.csproj` que la página de contenido se cree en la carpeta de salida de compilación.
+
+    ```html
+    <ItemGroup>
+      <None Update="content/index.html">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
+    </ItemGroup>
+    ```
+
+5. Ya casi ha terminado. El último paso consiste en establecer una cadena de conexión de SignalR Service a la configuración de Azure Functions.
 
     1. En el explorador que se muestra al abrir Azure Portal, confirme que la instancia del servicio SignalR que implementó anteriormente se ha creado correctamente buscando su nombre en el cuadro de búsqueda de la parte superior del portal. Seleccione la instancia para abrirla.
 
         ![Búsqueda del nombre de la instancia del servicio SignalR](media/signalr-quickstart-azure-functions-csharp/signalr-quickstart-search-instance.png)
 
-    1. Seleccione **Claves** para ver las cadenas de conexión para la instancia del servicio SignalR.
+    2. Seleccione **Claves** para ver las cadenas de conexión para la instancia del servicio SignalR.
     
         ![Captura de pantalla que resalta la cadena de conexión principal.](media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-keys.png)
 
-    1. Copie la cadena de conexión principal. Ejecute el comando siguiente.
+    3. Copie la cadena de conexión principal. Ejecute el comando siguiente.
     
         ```bash
-        func settings add AzureSignalRConnectionString '<signalr-connection-string>'
+        func settings add AzureSignalRConnectionString "<signalr-connection-string>"
         ```
     
-5. Ejecute la función de Azure en el entorno local:
+6. Ejecute la función de Azure en el entorno local:
 
     ```bash
     func start
     ```
 
-    Después de que la función de Azure se ejecute en el entorno local. Use el explorador para visitar `http://localhost:7071/api/index` y ver el recuento de estrellas actual. Y si asigna estrellas o las quita en GitHub, obtendrá un recuento de estrellas que se actualiza cada pocos segundos.
+    Después de que la función de Azure se ejecute en el entorno local. Use el explorador para visitar `http://localhost:7071/api/index` y ver el número de estrellas actual. Y si asigna estrellas o las quita en GitHub, obtendrá un número de estrellas que se actualiza cada pocos segundos.
 
     > [!NOTE]
     > Para el enlace de SignalR se necesita Azure Storage, pero puede usar el emulador de almacenamiento local cuando la función se ejecuta localmente.
@@ -193,5 +203,5 @@ A continuación, obtendrá más información sobre cómo establecer la comunicac
 > [Comunicación bidireccional sin servidor](https://github.com/aspnet/AzureSignalR-samples/tree/main/samples/BidirectionChat)
 
 > [!div class="nextstepaction"]
-> [Desarrollo de Azure Functions con Visual Studio](../azure-functions/functions-develop-vs.md)
+> [Implementación en Azure Function App mediante Visual Studio](../azure-functions/functions-develop-vs.md#publish-to-azure)
 

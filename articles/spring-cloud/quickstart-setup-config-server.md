@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 09/08/2020
 ms.custom: devx-track-java, fasttrack-edit
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 95f4e7e9dcc8c9f16465d2a577d4bdf425dae4a8
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: f3a3e4897904dcfd02b6ef3879736d1afb533747
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114470562"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122014721"
 ---
 # <a name="quickstart-set-up-azure-spring-cloud-configuration-server"></a>Inicio rápido: configuración del servidor de configuración de Azure Spring Cloud
 
@@ -27,7 +27,7 @@ El servidor de configuración de Azure Spring Cloud es un servicio de configurac
 
 ## <a name="azure-spring-cloud-config-server-procedures"></a>Procedimientos de Azure Spring Cloud Config Server
 
-Ejecute el comando siguiente para configurar el servidor de configuración con la ubicación del repositorio de Git del proyecto. Reemplace `<service instance name>` por el nombre del servicio que creó anteriormente. El valor predeterminado para el nombre de instancia de servicio que estableció en la guía de inicio rápido anterior no funciona con este comando.
+Ejecute el comando siguiente para configurar el servidor de configuración con la ubicación del repositorio de Git del proyecto. Reemplace *\<service instance name>* por el nombre del servicio que creó anteriormente. El valor predeterminado para el nombre de instancia de servicio que estableció en la guía de inicio rápido anterior no funciona con este comando.
 
 ```azurecli
 az spring-cloud config-server git set -n <service instance name> --uri https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples --search-paths steeltoe-sample/config
@@ -57,22 +57,21 @@ En el procedimiento siguiente se configura el servidor de configuración mediant
 
 2. En la sección **Default repository** (Repositorio predeterminado), en **URI** seleccione "https://github.com/azure-samples/spring-petclinic-microservices-config".
 
-3. Haga clic en **Validar**.
+3. Seleccione **Validar**.
 
     ![Ir al servidor de configuración](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
 
-4. Cuando finalice la validación, haga clic en **Aplicar** para guardar los cambios.
+4. Cuando finalice la validación, seleccione **Aplicar** para guardar los cambios.
 
     ![Validación del servidor de configuración](media/spring-cloud-quickstart-launch-app-portal/validate-complete.png)
 
 5. La actualización de la configuración puede tardar unos minutos.
- 
-    ![Actualización del servidor de configuración](media/spring-cloud-quickstart-launch-app-portal/updating-config.png) 
+
+    ![Actualización del servidor de configuración](media/spring-cloud-quickstart-launch-app-portal/updating-config.png)
 
 6. Cuando se haya completado la configuración, debería recibir una notificación.
 
 #### <a name="cli"></a>[CLI](#tab/Azure-CLI)
-
 
 En el procedimiento siguiente se usa la CLI de Azure para configurar el servidor de configuración para que implemente el [ejemplo de PetClinic](https://github.com/azure-samples/spring-petclinic-microservices).
 
@@ -91,24 +90,24 @@ az spring-cloud config-server git set -n <service instance name> --uri https://g
 
 En el procedimiento siguiente se explica cómo solucionar los problemas de configuración de Config Server.
 
-1. En Azure Portal, vaya a la página **Información general** del servicio y seleccione **Registros**. 
-1. Seleccione **Consultas** y **Mostrar los registros de aplicación que contienen los términos "error" o "excepción"** . 
-1. Haga clic en **Ejecutar**. 
+1. En Azure Portal, vaya a la página **Información general** del servicio y seleccione **Registros**.
+1. Seleccione **Consultas** y **Mostrar los registros de aplicación que contienen los términos "error" o "excepción"** .
+1. Seleccione **Run** (Ejecutar).
 1. Si s encuentra el error **java. lang. illegalStateException** en los registros, esto indica que el servicio Spring Cloud no puede encontrar propiedades de Config Server.
 
     [ ![Ejecución de la consulta del portal de ASC](media/spring-cloud-quickstart-setup-config-server/setup-config-server-query.png) ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-query.png)
 
 1. Vaya a la página **Información general** del servicio.
-1. Seleccione **Diagnóstico y solución de problemas**. 
+1. Seleccione **Diagnóstico y solución de problemas**.
 1. Seleccione la palabra clave **Config Server**.
 
     [ ![Problemas de diagnóstico del portal de ASC](media/spring-cloud-quickstart-setup-config-server/setup-config-server-diagnose.png) ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-diagnose.png)
 
-3. Haga clic en **Comprobación de estado de Config Server**.
+1. Seleccione **Comprobación de estado de Config Server**.
 
     [ ![Asistente del portal de ASC](media/spring-cloud-quickstart-setup-config-server/setup-config-server-genie.png) ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-genie.png)
 
-4. Haga clic en **Config Server Status** (Estado de Config Server) para ver más detalles del detector.
+1. Seleccione **Config Server Status** (Estado de Config Server) para ver más detalles del detector.
 
     [ ![Estado de mantenimiento del portal de ASC](media/spring-cloud-quickstart-setup-config-server/setup-config-server-health-status.png) ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-health-status.png)
 

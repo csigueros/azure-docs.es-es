@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, devx-track-js
-ms.openlocfilehash: 270b3e3f4c5e462b66129413d7acf983efd3f8eb
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+ms.openlocfilehash: be14a8cb9d72c439f5ba127858ccd3a3249b8a14
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113357632"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122770775"
 ---
 # <a name="scenario-single-page-application"></a>Escenario: Aplicación de una sola página
 
@@ -35,7 +35,7 @@ Muchas aplicaciones web modernas se compilan como aplicaciones de página única
 
 La Plataforma de identidad de Microsoft ofrece **dos** opciones para que las aplicaciones de página única inicien la sesión de los usuarios y obtengan tokens para acceder a los servicios de back-end o a las API web:
 
-- [Flujo de códigos de autorización de OAuth 2.0 (con PKCE)](./v2-oauth2-auth-code-flow.md) El flujo del código de autorización permite a la aplicación intercambiar un código de autorización para los tokens de **identificador** para representar al usuario autenticado y también los tokens de **acceso** necesarios para llamar a las API protegidas. Además, devuelve tokens de **actualización** que proporcionan acceso a largo plazo a los recursos en nombre de los usuarios sin necesidad de interacción con estos. Este es el enfoque **recomendado**.
+- [Flujo de códigos de autorización de OAuth 2.0 (con PKCE)](./v2-oauth2-auth-code-flow.md) El flujo del código de autorización permite a la aplicación intercambiar un código de autorización para los tokens de **identificador** para representar al usuario autenticado y también los tokens de **acceso** necesarios para llamar a las API protegidas. PKCE es una clave de prueba para intercambio de códigos y está diseñada para evitar varios ataques y para poder realizar de forma segura el intercambio de OAuth desde clientes públicos. PKCE es un estándar de IETF documentado en RFC 7636. Además, devuelve tokens de **actualización** que proporcionan acceso a largo plazo a los recursos en nombre de los usuarios sin necesidad de interacción con estos. Este es el enfoque **recomendado**.
 
 ![Aplicaciones de página única: autorización](./media/scenarios/spa-app-auth.svg)
 

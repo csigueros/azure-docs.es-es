@@ -6,19 +6,21 @@ ms.service: virtual-machines
 ms.collection: windows
 ms.topic: quickstart
 ms.workload: infrastructure
-ms.date: 07/02/2019
+ms.date: 08/09/2021
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 651d644070f13933fadf4a2616e770a27c014c92
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: ca4466c307a893ac7058581a5e22aec87b9a71a2
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112074888"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122694689"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-with-the-azure-cli"></a>Inicio rápido: Creación de una máquina virtual Windows con la CLI de Azure
 
-La CLI de Azure se usa para crear y administrar recursos de Azure desde la línea de comandos o en scripts. En esta guía de inicio rápido se muestra como usar la CLI de Azure para implementar una máquina virtual en Azure que ejecute Windows Server 2016. Para ver la máquina virtual en acción, conéctese a la máquina virtual mediante RDP e instale al servidor web IIS.
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Windows
+
+La CLI de Azure se usa para crear y administrar recursos de Azure desde la línea de comandos o en scripts. En esta guía de inicio rápido se muestra como usar la CLI de Azure para implementar una máquina virtual (VM) en Azure que ejecute Windows Server 2019. Para ver la máquina virtual en acción, conéctese a la máquina virtual mediante RDP e instale al servidor web IIS.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -41,17 +43,21 @@ az group create --name myResourceGroup --location eastus
 Cree la máquina virtual con [az vm create](/cli/azure/vm). En el ejemplo siguiente se crea una máquina virtual denominada *myVM*. En este ejemplo se usa *azureuser* como nombre de un usuario administrativo. 
 
 Necesitará establecer una contraseña que cumpla los [requisitos de contraseña de las máquinas virtuales de Azure](./faq.yml#what-are-the-password-requirements-when-creating-a-vm-
-). Con el ejemplo siguiente, se le pedirá que escriba una contraseña en la línea de comandos. También puede agregar el parámetro `--admin-password` con un valor para la contraseña. El nombre de usuario y la contraseña se usarán más adelante cuando se conecte a la máquina virtual.
+). 
+
+Con el ejemplo siguiente, se le pedirá que escriba una contraseña en la línea de comandos. También puede agregar el parámetro `--admin-password` con un valor para la contraseña. El nombre de usuario y la contraseña se usarán más adelante cuando se conecte a la máquina virtual.
 
 ```azurecli-interactive
 az vm create \
     --resource-group myResourceGroup \
     --name myVM \
-    --image win2016datacenter \
+    --image Win2019Datacenter \
+    --public-ip-sku Standard \
     --admin-username azureuser 
 ```
 
 La creación de la máquina virtual y los recursos auxiliares tarda unos minutos en realizarse. En la salida de ejemplo siguiente se muestra que la operación de creación de la máquina virtual se realizó correctamente.
+
 
 ```output
 {
@@ -67,8 +73,6 @@ La creación de la máquina virtual y los recursos auxiliares tarda unos minutos
 ```
 
 Tenga en cuenta sus propios valores de `publicIpAddress` en la salida de la máquina virtual. Esta dirección se usa para acceder a la máquina virtual en los siguientes pasos.
-
-[!INCLUDE [ephemeral-ip-note.md](../../../includes/ephemeral-ip-note.md)]
 
 ## <a name="open-port-80-for-web-traffic"></a>Apertura del puerto 80 para el tráfico web
 

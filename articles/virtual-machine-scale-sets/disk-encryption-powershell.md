@@ -9,14 +9,16 @@ ms.subservice: disks
 ms.date: 10/15/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurepowershell
-ms.openlocfilehash: 59b015232fcfe2fd98e1b9f28c2eb4fa86606049
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9b7ed6cbfcf93e05efb294c7af907a2416c3fe56
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102519578"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122691345"
 ---
 # <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-azure-powershell"></a>Cifrado de discos de datos conectados y de sistema operativo en un conjunto de escalado de máquinas virtuales con Azure PowerShell
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado uniformes
 
 El módulo de Azure PowerShell se usa para crear y administrar recursos de Azure desde la línea de comandos de PowerShell o en scripts.  En este artículo se muestra cómo usar Azure PowerShell para crear y cifrar un conjunto de escalado de máquinas virtuales. Para más información sobre cómo aplicar Azure Disk Encryption a un conjunto de escalado de máquinas virtuales, consulte [Azure Disk Encryption para conjuntos de escalado de máquinas virtuales](disk-encryption-overview.md).
 

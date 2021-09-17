@@ -9,14 +9,16 @@ ms.workload: infrastructure-services
 ms.date: 2/2/2021
 ms.author: mimckitt
 ms.custom: rybaker, chmimckitt, devx-track-azurepowershell
-ms.openlocfilehash: 04c67fc0f3692e6b30e564593b6245f4a8d297a1
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 08193cc933bfd7c1d183df119b1602270ecf6f74
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121740068"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122688510"
 ---
 # <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>Implementación de Windows 10 en Azure con derechos de hospedaje multiinquilino 
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles
+
 Para los clientes con Windows 10 Enterprise E3/E5 por usuario o con acceso a escritorios virtuales de Windows por usuario (licencias de suscripción de usuarios o licencias de suscripción de usuario de complemento), los derechos de hospedaje multiinquilino de Windows 10 le permiten llevar sus licencias de Windows 10 a la nube y ejecutar máquinas virtuales de Windows 10 en Azure sin pagar por otra licencia. Los derechos de hospedaje multiinquilino solo están disponibles para Windows 10 (versión 1703 o posterior).
 
 Para más información, consulte [Hospedaje multiinquilino para Windows 10](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx).

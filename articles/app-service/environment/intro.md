@@ -4,15 +4,15 @@ description: Aprenda la forma en que las instancias de Azure App Service Environ
 author: ccompy
 ms.assetid: 3c7eaefa-1850-4643-8540-428e8982b7cb
 ms.topic: overview
-ms.date: 04/19/2018
+ms.date: 07/28/2021
 ms.author: ccompy
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 990d1ca07d4cf9e66c50a22f213817dda3ae029c
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+ms.openlocfilehash: 195da1286251ca51c9d36aaf7c2dcfb3c2177766
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113432921"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121725735"
 ---
 # <a name="introduction-to-the-app-service-environments"></a>Introducción a App Service Environment #
 > [!NOTE]
@@ -49,7 +49,7 @@ Los ASE hospedan aplicaciones de un solo cliente y lo hacen en una de sus redes 
 
 ## <a name="dedicated-environment"></a>Entorno dedicado ##
 
-Una instancia de ASE está dedicada exclusivamente a una sola suscripción y puede hospedar 100 instancias de un plan de App Service. El rango puede abarcar 100 instancias en un único plan de App Service, 100 planes de App Service de una sola instancia o cualquier opción intermedia.
+Un ASE es un entorno dedicado que es exclusivo de un solo cliente y puede hospedar 200 instancias totales del plan de App Service. Un único plan de App Service de SKU aislada puede tener hasta 100 instancias en ella. Cuando se suman todas las instancias de todos los planes de App Service en ese ASE, el total debe ser menor o igual que 200.
 
 Una instancia de ASE se compone de front-end y trabajos. Los servidores front-end son responsables de la terminación HTTP/HTTPS y del equilibrio de carga automático de la solicitudes de aplicación en una instancia de ASE. Los servidores front-end se agregan automáticamente ya que los planes de App Service en la instancia de ASE se escalan horizontalmente.
 

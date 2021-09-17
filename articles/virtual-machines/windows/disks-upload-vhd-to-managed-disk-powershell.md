@@ -9,14 +9,16 @@ ms.service: storage
 ms.tgt_pltfrm: linux
 ms.subservice: disks
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 9bec6aaf34691adf03dad9204b93af006008c7a0
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+ms.openlocfilehash: 2260603ce4b2baa969734d87d91aa4c949e875f2
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113356161"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122692493"
 ---
 # <a name="upload-a-vhd-to-azure-or-copy-a-managed-disk-to-another-region---azure-powershell"></a>Carga de un VHD en Azure o copia de un disco administrado en otra región: Azure PowerShell
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Windows 
 
 [!INCLUDE [disks-upload-vhd-to-disk-intro](../../../includes/disks-upload-vhd-to-disk-intro.md)]
 
@@ -104,7 +106,7 @@ El script siguiente lo hará automáticamente, el proceso es similar a los pasos
 Reemplace los `<sourceResourceGroupHere>`, `<sourceDiskNameHere>`, `<targetDiskNameHere>`, `<targetResourceGroupHere>`, `<yourOSTypeHere>` y `<yourTargetLocationHere>` (un ejemplo de un valor de ubicación sería uswest2) con sus valores y, a continuación, ejecute el siguiente script para copiar un disco administrado.
 
 > [!TIP]
-> Si va a crear un disco del sistema operativo, agregue -HyperVGeneration "<yourGeneration>" a `New-AzDiskConfig`.
+> Si va a crear un disco del sistema operativo, agregue `-HyperVGeneration '<yourGeneration>'` a `New-AzDiskConfig`.
 
 ```powershell
 

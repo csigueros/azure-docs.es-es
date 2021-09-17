@@ -7,14 +7,16 @@ ms.collection: linux
 ms.topic: how-to
 ms.date: 06/05/2018
 ms.author: cynthn
-ms.openlocfilehash: 519939445e67f0f993662e2faf506eb186686156
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: af006f25733344ebd272087b897130f895478685
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102554571"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122689768"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>Creación de una máquina virtual Linux que usa la autenticación de SSH con la API REST
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Conjuntos de escalado flexibles 
 
 Una máquina virtual Linux en Azure consta de varios recursos como discos e interfaces de red y define parámetros como la ubicación, el tamaño y la imagen del sistema operativo, así como la configuración de autenticación.
 

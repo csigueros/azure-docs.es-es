@@ -9,14 +9,16 @@ ms.subservice: instance-protection
 ms.date: 02/28/2020
 ms.reviewer: jushiman
 ms.custom: avverma, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: af63d27f60c3e3fa8f6aa95cd30d1f93114d4078
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 6134e1f4b4823b2198a1ecc316644ef0cd11ca33
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112031176"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122690540"
 ---
 # <a name="automatic-instance-repairs-for-azure-virtual-machine-scale-sets"></a>Reparaciones automáticas de instancias para conjuntos de escalado de máquinas virtuales de Azure
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado uniformes
 
 La habilitación de las reparaciones automáticas de instancias para conjuntos de escalado de máquinas virtuales de Azure ayuda a lograr una alta disponibilidad para las aplicaciones al mantener un conjunto de instancias correctas. Si se detecta que una instancia del conjunto de escalado tiene un estado incorrecto según lo indicado por la [extensión de estado de la aplicación](./virtual-machine-scale-sets-health-extension.md) o por los [sondeos de estado del equilibrador de carga](../load-balancer/load-balancer-custom-probe-overview.md), esta característica realiza automáticamente la reparación de la instancia mediante la eliminación de la instancia incorrecta y la creación de una nueva para reemplazarla.
 

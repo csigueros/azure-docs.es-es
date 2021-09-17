@@ -7,14 +7,16 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 05/22/2020
 ms.author: shants
-ms.openlocfilehash: 8b332b1871c92d36821e8f797ceac5b6697e5dc1
-ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
+ms.openlocfilehash: 0f1d65c7caa9073fa66fe3920b2b39bc9c5a5d11
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109632194"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122687710"
 ---
 # <a name="maintenance-for-virtual-machines-in-azure"></a>Mantenimiento de máquinas virtuales en Azure
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles :heavy_check_mark: Conjuntos de escalado uniformes
 
 Azure actualiza periódicamente su plataforma para mejorar la confiabilidad, el rendimiento y la seguridad de la infraestructura de host para las máquinas virtuales. El objetivo de estas actualizaciones va desde la aplicación de revisiones a componentes de software en el entorno de hospedaje hasta la actualización de los componentes de red o la retirada de hardware. 
 

@@ -6,13 +6,13 @@ ms.author: srranga
 ms.custom: references_regions
 ms.service: postgresql
 ms.topic: overview
-ms.date: 06/23/2021
-ms.openlocfilehash: 87af6f9764c2ab01b0e0d02d8eb4a6c7342ca31c
-ms.sourcegitcommit: 5be51a11c63f21e8d9a4d70663303104253ef19a
+ms.date: 07/30/2021
+ms.openlocfilehash: 5423af2f148a56e978bfbe6a1584b3e281f9a1a4
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2021
-ms.locfileid: "112894633"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121740288"
 ---
 # <a name="release-notes---azure-database-for-postgresql---flexible-server"></a>Notas de la versión del servidor flexible de Azure Database for PostgreSQL
 
@@ -20,6 +20,16 @@ En esta página se proporcionan las últimas noticias y actualizaciones relacion
 
 > [!IMPORTANT]
 > Azure Database for PostgreSQL: Servidor flexible en versión preliminar
+
+## <a name="release-july-2021"></a>Versión: julio de 2021
+
+* Compatibilidad con las [nuevas regiones](overview.md#azure-regions) Este de Asia, Centro-oeste de Alemania, Sur de Corea del Sur, Centro-sur de EE. UU., Oeste de Reino Unido.
+* Compatibilidad con la [extensión pglogical](concepts-logical.md) v2.3.2 con PostgreSQL 11, 12 y 13.<sup>$</sup>
+* PgBouncer ahora incluye `ignore_startup_parameters` para omitir determinados parámetros del controlador del lado cliente, incluidos los parámetros `extra_float_digits` y `pgbouncer.query_wait_timeout`.  <sup>$</sup>.
+* Compatibilidad con `pg_stat_reset_shared('bgwriter');` y `pg_stat_reset_shared('archiver');` para restablecer los contadores que se muestran en las vistas `pg_stat_bgwriter` y `pg_stat_archiver` <sup>$</sup>.
+* Varias correcciones de errores y mejoras de estabilidad y rendimiento<sup>$</sup>.
+
+<sup> **$** </sup> Los nuevos servidores obtienen estas características automáticamente. En los servidores existentes, estas características se habilitan durante la ventana de mantenimiento futuro del servidor.
 
 ## <a name="release-june-2021"></a>Versión: junio de 2021
 
@@ -31,7 +41,7 @@ En esta página se proporcionan las últimas noticias y actualizaciones relacion
 * Compatibilidad con la extensión lo. Vea la [página de extensiones](./concepts-extensions.md) para obtener las versiones compatibles con cada versión principal <sup>$</sup>.
 * Varias correcciones de errores y mejoras de estabilidad y rendimiento<sup>$</sup>.
   
-<sup> **$** </sup> Los servidores existentes se actualizarán automáticamente a la versión secundaria admitida más reciente y también se habilitarán nuevas características durante la ventana de mantenimiento futura del servidor.
+<sup> **$** </sup> Los nuevos servidores obtienen estas características automáticamente.  Los servidores existentes se actualizarán automáticamente a la versión secundaria admitida más reciente y también se habilitarán nuevas características durante la ventana de mantenimiento futura del servidor.
 
 ## <a name="release-may-2021"></a>Versión: mayo de 2021
 

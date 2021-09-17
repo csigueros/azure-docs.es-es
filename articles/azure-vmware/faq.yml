@@ -2,22 +2,23 @@
 metadata:
   title: Preguntas frecuentes sobre Microsoft Azure VMware Solution
   description: Obtenga respuestas a las preguntas más frecuentes sobre Azure VMware Solution.
-  ms.topic: troubleshooting
+  ms.topic: article
+  ms.service: azure-vmware
   ms.custom: contperf-fy21q4
-  ms.date: 06/16/2021
-  ms.openlocfilehash: 1d3268c9f2bd35b9907ac6370598099d8d5cb9b9
-  ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+  ms.date: 08/19/2021
+  ms.openlocfilehash: 716605f2a617d5f02d93596e760156b58f9ddcb2
+  ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 07/22/2021
-  ms.locfileid: "114466405"
+  ms.lasthandoff: 08/20/2021
+  ms.locfileid: "122514669"
 title: Preguntas frecuentes sobre Azure VMware Solution
 summary: En este artículo se responden las preguntas más frecuentes sobre Azure VMware Solution.
 sections:
 - name: General
   questions:
   - question: ¿Qué es Azure VMware Solution?
-    answer: A medida que las empresas buscan estrategias de modernización de la TI para mejorar la agilidad empresarial, reducir costos y acelerar la innovación, las plataformas de nube híbrida han surgido como los grandes facilitadores de la transformación digital de los clientes. Azure VMware Solution combina el Centro de datos definido por software (SDDC) de VMware con el ecosistema global de servicios en la nube de Azure de Microsoft. Azure VMware Solution se administra para cumplir los requisitos de rendimiento, disponibilidad, seguridad y cumplimiento. Para obtener más información, consulte [Qué es Azure VMware Solution](introduction.md).
+    answer: A medida que las empresas buscan estrategias de modernización de la TI para mejorar la agilidad empresarial, reducir costos y acelerar la innovación, las plataformas de nube híbrida han surgido como los grandes facilitadores de la transformación digital de los clientes. Azure VMware Solution combina el Centro de datos definido por software (SDDC) de VMware con el ecosistema global de servicios en la nube de Azure de Microsoft. Además, Azure VMware Solution se cumple los requisitos de rendimiento, disponibilidad, seguridad y cumplimiento. Para obtener más información, consulte [Qué es Azure VMware Solution](introduction.md).
   - question: ¿Dónde está disponible actualmente Azure VMware Solution?
     answer: El servicio se agrega continuamente a regiones nuevas. Para obtener más información, consulte la [información de disponibilidad del servicio más reciente](https://azure.microsoft.com/global-infrastructure/services/?products=azure-vmware).
   - question: ¿Quién proporciona el soporte técnico de Azure VMware Solution?
@@ -26,13 +27,37 @@ sections:
 
       En el caso de las suscripciones administradas mediante el Proveedor de soluciones en la nube (CSP), el proveedor de soluciones proporciona el primer nivel de soporte técnico, igual que CSP lo hace para otros servicios de Azure.
   - question: ¿Pueden las cargas de trabajo que se ejecutan en una instancia de Azure VMware Solution integrarse en los servicios de Azure?
-    answer: Todos los servicios de Azure estarán disponibles para los clientes de Azure VMware Solution. Las limitaciones de rendimiento y disponibilidad de los servicios específicos deberán abordarse para cada caso.
+    answer: Todos los servicios de Azure están disponibles para los clientes de Azure VMware Solution. Las limitaciones de rendimiento y disponibilidad de los servicios específicos deberán abordarse caso por caso.
   - question: ¿Qué sistemas operativos invitados son compatibles con Azure VMware Solution?
     answer: Puede encontrar información sobre la compatibilidad de los sistemas operativos invitados con vSphere en la [guía de compatibilidad de VMware](https://www.vmware.com/resources/compatibility/search.php?deviceCategory=software&details=1&releases=485&page=1&display_interval=10&sortColumn=Partner&sortOrder=Asc&testConfig=16). Para identificar la versión de vSphere que se ejecuta en Azure VMware Solution, vea las [versiones de software de VMware](concepts-private-clouds-clusters.md#vmware-software-versions).
   - question: ¿Qué aspecto tiene el proceso de control de cambios?
-    answer: Las actualizaciones realizadas en el propio servicio sigue el proceso estándar de administración de cambios de Microsoft Azure. Los clientes son responsables de las tareas de administración de las cargas de trabajo y de los procesos asociados de administración de cambios.
+    answer: Las actualizaciones realizadas siguen el proceso estándar de administración de cambios de Microsoft Azure. Los clientes son responsables de las tareas de administración de las cargas de trabajo y de los procesos asociados de administración de cambios.
   - question: ¿En qué se diferencia esta versión de Azure VMware Solution by CloudSimple?
-    answer: Con la nueva solución Azure VMware Solution, Microsoft y VMware tienen una asociación directa con el proveedor de la nube. La solución nueva está diseñada, creada y respaldada completamente por Microsoft, y aprobada por VMware. Desde el punto de vista de la arquitectura, las soluciones son coherentes con la pila de tecnología de VMware que se ejecuta en una infraestructura de Azure dedicada.
+    answer: Con la nueva solución Azure VMware Solution, Microsoft y VMware tienen una asociación directa con el proveedor de la nube. La solución nueva está diseñada, creada y respaldada por Microsoft, y aprobada por VMware. Desde el punto de vista de la arquitectura, las soluciones son coherentes con la pila de tecnología de VMware que se ejecuta en una infraestructura de Azure dedicada.
+- name: Facturación
+  questions:
+  - question: ¿Cómo se me facturará durante la versión preliminar?
+    answer: La facturación durante la versión preliminar es de pago por uso, mensual. Con la disponibilidad general (GA) hay opciones adicionales disponibles.
+  - question: ¿Hay un Acuerdo de Nivel de Servicio en el reemplazo del disco cuando se producen errores?
+    answer: Cualquier host con problemas de disco se reemplaza. Se incluye hasta la disponibilidad del Acuerdo de Nivel de Servicio 99.9 del servicio Azure VMware Solution.
+  - question: ¿Cómo se estructurará el precio de Azure VMware Solution?
+    answer: Para ver las preguntas generales sobre los precios, consulte la página de [precios](https://azure.microsoft.com/pricing/details/azure-vmware) de Azure VMware Solution.
+  - question: ¿VMware HCX Enterprise está disponible? Si es así, ¿cuánto cuesta?
+    answer: VMware HCX Enterprise está disponible con Azure VMware Solution, como una función o servicio en *versión preliminar*. Aunque VMware HCX Enterprise para Azure VMware Solution esté en su versión preliminar, es una función o servicio gratuito, sujeto a los términos y condiciones de los servicios de versión preliminar. Una vez que el servicio VMware HCX Enterprise esté disponible de forma general, recibirá un aviso de 30 días de que la facturación cambia. Una vez recibido, puede desactivarlo o no participar en el servicio.
+  - question: ¿Incurre el tráfico entre el entorno local y Azure VMware Solution a través de ExpressRoute en un cargo de transferencia de datos de salida en el plan de datos según uso?
+    answer: "El tráfico del circuito ExpressRoute de Azure VMware Solution no se mide de ningún modo. El tráfico del circuito ExpressRoute que conecta el entorno local a Azure se cobra en función de los planes de precios de ExpressRoute.\n\n- La conexión de **Azure VMware Solution a la red virtual** se realiza mediante un circuito ExpressRoute interno y es gratuito dentro de la misma región que Azure VMware Solution. Sin embargo, si el circuito ExpressRoute interno está conectado entre regiones, se aplican cargos por la transferencia de datos.\n\n- La conexión de **Azure VMware Solution a un entorno local** se realiza mediante la red virtual o Global Reach de ExpressRoute (entre el ExpressRoute interno y el ExpressRoute externo). Sigue siendo gratuito siempre que la conexión a la red virtual (mencionada anteriormente) o el uso de Global Reach de ExpressRoute se realice en la región donde se haya implementado Azure VMware Solution. \n"
+  - question: ¿Cuándo comienza y finaliza la medición para los clústeres de prueba de Azure VMware Solution?
+    answer: Los clústeres de prueba se limitan a tres hosts que se usan para las evaluaciones de un mes de las nubes privadas de Azure VMware Solution. Después de 30 días, los clústeres se miden automáticamente según sus tarifas correspondientes. Si los clústeres de prueba se eliminan antes de la fecha de finalización de 30 días, la evaluación gratuita de Azure VMware Solution finalizará en el momento de la eliminación.
+  - question: ¿Es necesario adquirir licencias y recursos adicionales de VMware aparte de la instancia de AV36 al migrar desde el entorno de máquina virtual local con una extensión L2?
+    answer: "No, no es necesario adquirir licencias adicionales de VMware además del servicio Azure VMware Solution. Para más información, consulte la página [Precios de Solución de VMware en Azure](https://azure.microsoft.com/pricing/details/azure-vmware/) para ver qué tecnología de VMware se incluye.     \n"
+- name: Soporte técnico
+  questions:
+  - question: ¿Cómo se solicita un aumento de la cuota de host para Azure VMware Solution?
+    answer: Tanto si quiere tener más hosts para una nube privada existente como si va a crear una nueva nube privada, deberá enviar una solicitud de soporte técnico para que podamos asignarle esos hosts se.  Para obtener más información, vea [Solicitud de la cuota del host para Azure VMware Solution](request-host-quota-azure-vmware-solution.md).
+  - question: ¿Qué cuentas necesito para crear una nube privada de Azure VMware Solution?
+    answer: Necesitará una cuenta de Azure en una suscripción a Azure.
+  - question: ¿Las soluciones de Red Hat se admiten en Azure VMware Solution?
+    answer: Microsoft y Red Hat comparten un equipo de soporte técnico integrado y coubicado que proporciona un punto de contacto unificado para los ecosistemas de Red Hat que se ejecutan en la plataforma Azure.  Al igual que otros servicios de la plataforma Azure que funcionan con Red Hat Enterprise Linux, Azure VMware Solution está bajo la protección del soporte integrado y Cloud Access. Asimismo, Red Hat Enterprise Linux admite la ejecución a partir de Azure VMware Solution en Azure.
 - name: Comunicación al cliente
   questions:
   - question: ¿Cómo puedo recibir una alerta cuando Azure envía notificaciones de estado del servicio a mi suscripción de Azure?
@@ -49,7 +74,7 @@ sections:
   - question: ¿Existen instrucciones especiales para instalar y usar VMRC con las VM de Azure VMware Solution?
     answer: No. Para cumplir los requisitos previos de la VM, siga las [instrucciones proporcionadas por VMware](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vm_admin.doc/GUID-89E7E8F0-DB2B-437F-8F70-BA34C505053F.html).
   - question: ¿Puedo usar vRealize Suite que se ejecute en el entorno local?
-    answer: Las integraciones y los casos de uso específicos se pueden evaluar en cada caso.
+    answer: Las integraciones y los casos de uso específicos se evalúan caso por caso.
   - question: ¿Puedo migrar VM de vSphere de entornos locales a nubes privadas de Azure VMware Solution?
     answer: Sí. La migración de VM y vMotion se pueden usar para mover VM a una nube privada si se cumplen los [requisitos de vMotion](https://kb.vmware.com/s/article/2106952?lang=en_US&queryTerm=2106952) estándar de vCenter.
   - question: ¿Se requiere una versión específica de vSphere en entornos locales?
@@ -63,15 +88,13 @@ sections:
     answer: >
       [!INCLUDE [vmware-software-update-frequency](includes/vmware-software-update-frequency.md)]
   - question: ¿Usan las nubes privadas VMware NSX? Si es así, ¿qué versión se admite?
-    answer: Sí, NSX-T 2.5 se usa para las redes definidas por software en las nubes privadas de Azure VMware Solution. | La única versión admitida de NSX es NSX-T.
+    answer: "Sí, la única versión admitida de NSX es NSX-T.   \n\nSí, NSX-T [!INCLUDE [nsxt-version](includes/nsxt-version.md)] se usa para las redes definidas por software en las nubes privadas de Azure VMware Solution.\n"
   - question: ¿Se requiere NSX en entornos locales o redes que se conectan a una nube privada?
     answer: No, no es necesario usar NSX en el entorno local.
   - question: ¿Es VMware Horizon 8 2012 compatible con Azure VMware Solution?
     answer: Sí.
   - question: ¿Puedo cambiar el valor predeterminado del tiempo de espera del cliente web de vSphere?
     answer: Sí. Para obtener información sobre cómo cambiar el valor del tiempo de espera, consulte [Configuración del valor del tiempo de espera del cliente web de vSphere](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vcenterhost.doc/GUID-975412DE-CDCB-49A1-8E2A-0965325D33A5.html).
-  - question: ¿Se admite Windows 2008 como servidor de Active Directory (AD) o sistema operativo de Host de sesión de Escritorio remoto (RDSH) en NSX-T?
-    answer: No.
 - name: Migrar
   questions:
   - question: ¿Por qué no puedo ver mi pestaña Administración de Sentinel en el administrador de HCX cuando uso el servicio de dispositivos de Sentinel?
@@ -86,10 +109,8 @@ sections:
     answer: Los servidores tienen 576 GB de RAM.
   - question: ¿Se puede ejecutar ESXi/ESX en Azure VMware Solution como una solución de virtualización anidada?
     answer: No. VMware no admite oficialmente la virtualización anidada.
-- name: Copia de seguridad y recuperación de terceros
+- name: Copia de seguridad
   questions:
-  - question: ¿Los privilegios de extensión de tipo cloudadmin son compatibles con Azure VMware Solution?
-    answer: No. Actualmente no se admiten privilegios de extensión de tipo cloudadmin y no tenemos previsto admitirlos en un futuro próximo.
   - question: ¿Qué soluciones de copia de seguridad de fabricantes de software independientes (ISV) funcionan con Azure VMware Solution?
     answer: Commvault, Veritas y Veeam han ampliado sus soluciones de copia de seguridad para que funcionen con Azure VMware Solution.  Sin embargo, cualquier solución de copia de seguridad que use la API de vStorage de VMware para la protección de datos (VADP) con el modo de transporte HotAdd funciona de manera inmediata en la Azure VMware Solution. Para obtener más información, consulte [Soluciones de copia de seguridad para las VM de Azure VMware Solution](ecosystem-back-up-vms.md).
   - question: ¿Qué ocurre con la compatibilidad de las soluciones de copia de seguridad de ISV?
@@ -120,7 +141,7 @@ sections:
     answer: Actualmente, el único método admitido para VMware HCX es mediante ExpressRoute.
   - question: ¿Cómo conecto una VM de cargas de trabajo a Internet o a un punto de conexión de servicio de Azure?
     answer: >
-      En Azure Portal, habilite la conectividad a Internet para una nube privada. Con NSX-T Manager, cree un enrutador NSX-T T1 y un conmutador lógico. A continuación, use vCenter para implementar una VM en el segmento de red definido por el conmutador lógico. Esa VM tendrá acceso de red a Internet y a los servicios de Azure.
+      En Azure Portal, habilite la conectividad a Internet para una nube privada. Con NSX-T Manager, cree un enrutador NSX-T T1 y un conmutador lógico. A continuación, use vCenter para implementar una VM en el segmento de red definido por el conmutador lógico. Esa máquina virtual tiene acceso de red a Internet y a los servicios de Azure.
 
 
       > [!NOTE]
@@ -137,7 +158,9 @@ sections:
   - question: ¿Puede Azure VMware Solution usar puertas de enlace de ExpressRoute hospedadas por Azure Virtual WAN?
     answer: Sí.
   - question: ¿Se puede establecer la conectividad de tránsito entre el en el entorno local y Azure VMware Solution mediante Azure Virtual WAN a través de Global Reach de ExpressRoute?
-    answer: Azure Virtual WAN no proporciona enrutamiento transitivo entre dos circuitos ExpressRoute conectados y una puerta de enlace de ExpressRoute WAN no virtual. El uso de Global Reach de ExpressRoute permite la conectividad entre el en el entorno local y Azure VMware Solution, pero pasa a través de la red global de Microsoft en lugar del centro de Virtual WAN.
+    answer: Azure Virtual WAN no proporciona enrutamiento transitivo entre dos circuitos ExpressRoute conectados y una puerta de enlace de ExpressRoute WAN no virtual. Global Reach de ExpressRoute permite la conectividad entre el en el entorno local y Azure VMware Solution, pero pasa por la red global de Microsoft en lugar del centro de conectividad Virtual WAN.
+  - question: ¿Se admite Windows 2008 como servidor de Active Directory (AD) o sistema operativo de Host de sesión de Escritorio remoto (RDSH) en NSX-T?
+    answer: No.
 - name: Storage
   questions:
   - question: ¿Cuál es la directiva de almacenamiento correcta para la configuración de la desduplicación?
@@ -151,7 +174,7 @@ sections:
   - question: ¿Cuál es la tolerancia a errores del hardware en vSAN?
     answer: "FTT-1, RAID-1 (creación de reflejo) con reserva de espacio de objetos establecido en \"Aprovisionamiento grueso\" es la directiva de almacenamiento predeterminada para el SDDC.\n\n:::image type=\"content\" source=\"media/concepts/vsphere-vm-storage-policies.png\" alt-text=\"Captura de pantalla que muestra las directivas de almacenamiento de máquinas virtuales cliente de vSphere.\":::  \n"
   - question: ¿Por qué el aprovisionamiento grueso es la directiva predeterminada de vSAN en Azure VMware Solution?
-    answer: El aprovisionamiento grueso es el espacio de almacenamiento reservado o asignado previamente.  Este protege los sistemas al permitirles funcionar incluso si el almacén de datos de vSAN está lleno, porque el espacio ya está reservado. Por ejemplo, supongamos que crea un disco virtual de 10 GB con aprovisionamiento grueso. En ese caso, la cantidad completa de capacidad de almacenamiento del disco virtual se asigna previamente en el almacenamiento físico del disco virtual donde este se crea, y consume todo el espacio asignado a él en el almacén de datos.  No se permitirá que otras VM compartan el espacio del almacén de datos. Un disco virtual con aprovisionamiento fino consume el espacio que necesita inicialmente y aumenta hasta la demanda del espacio de datos que se usa en el almacén de datos.
+    answer: El aprovisionamiento grueso es el espacio de almacenamiento reservado o asignado previamente.  Este protege los sistemas al permitirles funcionar incluso si el almacén de datos de vSAN está lleno, porque el espacio ya está reservado. Por ejemplo, supongamos que crea un disco virtual de 10 GB con aprovisionamiento grueso. En ese caso, la cantidad completa de capacidad de almacenamiento del disco virtual se asigna previamente en el almacenamiento físico del disco virtual donde este se crea, y consume todo el espacio asignado a él en el almacén de datos.  No se permitirá que otras máquinas virtuales compartan el espacio del almacén de datos. Un disco virtual con aprovisionamiento fino consume el espacio que necesita inicialmente y aumenta hasta la demanda del espacio de datos que se usa en el almacén de datos.
   - question: ¿Puedo crear una nueva VM en Azure VMware Solution con aprovisionamiento fino incluso si la directiva predeterminada de vSAN es un aprovisionamiento grueso?
     answer: Sí. Fuera del valor predeterminado (aprovisionamiento grueso), puede crear VM con aprovisionamiento fino de FTT-1.
   - question: ¿Cuántos discos pueden producir un error en vSAN antes de que se produzca la pérdida de datos?
@@ -169,7 +192,7 @@ sections:
   - question: ¿Utilizo las mismas herramientas que uso ahora para administrar recursos de nube privada?
     answer: Sí. Azure Portal se utiliza para la implementación y para varias operaciones de administración. vCenter y NSX Manager se utilizan para administrar los recursos de vSphere y NSX-T.
   - question: ¿Puedo administrar una nube privada con mi instancia de vCenter local?
-    answer: En un principio, Azure VMware Solution no admitirá una única experiencia de administración en entornos locales y de nube privada. Los clústeres de nube privada se administrarán con vCenter y NSX Manager de local a una nube privada.
+    answer: En un principio, Azure VMware Solution no admitirá una única experiencia de administración en entornos locales y de nube privada. Los clústeres de nube privada se administrarán con vCenter y NSX Manager del entorno local a una nube privada.
   - question: Si un clúster se escala verticalmente y, a continuación, la demanda de carga de trabajo disminuye, ¿se puede reducir verticalmente?
     answer: Sí, siempre y cuando tenga la cuota asignada en la nube privada, puede escalar horizontalmente los clústeres. Cuando la demanda de carga de trabajo cae, puede eliminar hosts del clúster para reducirla verticalmente. Puede hacer esto a través del portal de Azure VMware Solution.
   - question: ¿Se comparte la infraestructura subyacente?
@@ -183,7 +206,7 @@ sections:
 - name: Administración de identidades
   questions:
   - question: ¿Qué cuentas y privilegios obtendré con mi nueva nube privada de Azure VMware Solution?
-    answer: Recibirá credenciales para un usuario cloudadmin en vCenter y acceso de administrador en NSX-T Manager. También hay un grupo CloudAdmin que se puede usar para incorporar Azure Active Directory. Para obtener más información, vea [Conceptos de acceso y de identidad](concepts-identity.md).
+    answer: Recibirá credenciales para un usuario cloudadmin en vCenter y acceso de administrador en NSX-T Manager. También puede usar un grupo CloudAdmin para incorporar Azure Active Directory. Para obtener más información, vea [Conceptos de acceso y de identidad](concepts-identity.md).
   - question: ¿Puedo tener acceso de administrador a los hosts de ESXi?
     answer: No, el acceso de administrador a ESXi está restringido para cumplir con los requisitos de seguridad de la solución.
   - question: ¿Qué privilegios y permisos tendré en vCenter?
@@ -218,23 +241,3 @@ sections:
     answer: Sí, los clientes pueden implementar Azure VMware Solution en una suscripción de Azure administrada por un CSP.
   - question: ¿Hay instancias reservadas disponibles para su compra a través del programa del Proveedor de soluciones en la nube (CSP)?
     answer: Sí. El CSP puede comprar instancias reservadas para sus clientes. Para obtener más información, vea [Ahorro de costos con una instancia reservada](reserved-instance.md).
-- name: Facturación y soporte técnico
-  questions:
-  - question: ¿Hay un Acuerdo de Nivel de Servicio en el reemplazo del disco cuando se producen errores?
-    answer: Se reemplazará cualquier host con problemas de disco. Se incluye hasta la disponibilidad del Acuerdo de Nivel de Servicio 99.9 del servicio Azure VMware Solution.
-  - question: ¿Cómo se estructurará el precio de Azure VMware Solution?
-    answer: Para ver las preguntas generales sobre los precios, consulte la página de [precios](https://azure.microsoft.com/pricing/details/azure-vmware) de Azure VMware Solution.
-  - question: ¿Qué cuentas necesito para crear una nube privada de Azure VMware Solution?
-    answer: Necesitará una cuenta de Azure en una suscripción a Azure.
-  - question: ¿Las soluciones de Red Hat se admiten en Azure VMware Solution?
-    answer: Microsoft y Red Hat comparten un equipo de soporte técnico integrado y coubicado que proporciona un punto de contacto unificado para los ecosistemas de Red Hat que se ejecutan en la plataforma Azure.  Al igual que otros servicios de la plataforma Azure que funcionan con Red Hat Enterprise Linux, Azure VMware Solution está bajo la protección del soporte integrado y Cloud Access. Asimismo, se admite la ejecución de Red Hat Enterprise Linux sobre Azure VMware Solution en Azure.
-  - question: ¿VMware HCX Enterprise está disponible? Si es así, ¿cuánto cuesta?
-    answer: VMware HCX Enterprise está disponible con Azure VMware Solution, como una función o servicio en *versión preliminar*. Aunque VMware HCX Enterprise para Azure VMware Solution esté en su versión preliminar, es una función o servicio gratuito y está sujeto a los términos y condiciones de los servicios de versión preliminar. Una vez que el servicio VMware HCX Enterprise esté disponible de forma general, recibirá un aviso de 30 días de que la facturación cambiará. Puede desactivar o no participar en el servicio.
-  - question: ¿Cómo se solicita un aumento de la cuota de host para Azure VMware Solution?
-    answer: Tanto si quiere tener más hosts para una nube privada existente como si va a crear una nueva nube privada, deberá enviar una solicitud de soporte técnico para que podamos asignarle esos hosts se.  Para obtener más información, vea [Solicitud de la cuota del host para Azure VMware Solution](request-host-quota-azure-vmware-solution.md).
-  - question: ¿Incurre el tráfico entre el entorno local y Azure VMware Solution a través de ExpressRoute en un cargo de transferencia de datos de salida en el plan de datos según uso?
-    answer: El tráfico del circuito ExpressRoute de Azure VMware Solution no se mide de ningún modo. El tráfico del circuito ExpressRoute que conecta el entorno local a Azure se cobra en función de los planes de precios de ExpressRoute.
-  - question: ¿Es necesario adquirir licencias y recursos que no sean la instancia de AV36 al migrar desde el entorno de VM local con la extensión L2?
-    answer: "No.        \n"
-  - question: ¿Cuándo comienza y finaliza la medición para los clústeres de prueba de Azure VMware Solution?
-    answer: Los clústeres de prueba se limitan a tres hosts que se usan para las evaluaciones de un mes de las nubes privadas de Azure VMware Solution. Después de 30 días, los clústeres se miden automáticamente según sus tarifas correspondientes. Si los clústeres de prueba se eliminan antes de la fecha de finalización de 30 días, la evaluación gratuita de Azure VMware Solution finalizará en el momento de la eliminación.

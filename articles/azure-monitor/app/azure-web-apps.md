@@ -4,12 +4,12 @@ description: Supervisión del rendimiento de aplicaciones de Azure App Services.
 ms.topic: conceptual
 ms.date: 08/05/2021
 ms.custom: devx-track-js, devx-track-dotnet, devx-track-azurepowershell
-ms.openlocfilehash: e8197c757de4bf109e12ca3d9171e4244ed3b35b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 9fac3e79b62a1f354b4120afc965e331b0185e98
+ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121741344"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122428628"
 ---
 # <a name="application-monitoring-for-azure-app-service"></a>Supervisión de aplicaciones para Azure App Service
 
@@ -92,7 +92,7 @@ Vea la sección [Habilitar supervisión](#enable-monitoring ) a continuación pa
 ### <a name="linux"></a>Linux 
 
 > [!IMPORTANT]
-> Se admiten las siguientes versiones de ASP.NET Core para la instrumentación automática en Linux: ASP.NET Core 3.1, 5.0 y 6.0 (versión preliminar). Las versiones 2.0, 2.1, 2.2 y 3.0 se han retirado y ya no se admiten. Actualice a una [versión compatible](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) de .NET Core para que la instrumentación automática funcione.
+> Solo se admite ASP.NET Core 6.0 (versión preliminar) para la instrumentación automática en Linux.
 
 > [!NOTE]
 > La instrumentación automática de Linux del portal de App Services está en versión preliminar pública. Estas versiones preliminares se proporcionan sin contrato de nivel de servicio. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.

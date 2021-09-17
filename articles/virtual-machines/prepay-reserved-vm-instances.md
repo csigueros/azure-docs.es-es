@@ -9,15 +9,16 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 10/30/2017
 ms.author: vikdesai
-ms.openlocfilehash: 7eab410bb2344617e555a7a9d1d44cd9adcc676d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 819732043ce035214fc9a56e22a99e9a3dec28a2
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101674730"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122694288"
 ---
 # <a name="save-costs-with-azure-reserved-vm-instances"></a>Ahorro de costos con Azure Reserved VM Instances
 
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles :heavy_check_mark: Conjuntos de escalado uniformes
 
 Cuando haga "commit" a una instancia reservada de VM de Azure, puede ahorrar dinero. El descuento de la reserva se aplica automáticamente el número de máquinas virtuales en ejecución que coincidan con el ámbito y los atributos de la reserva. No es necesario asignar una reserva a una máquina virtual para obtener los descuentos. Una compra de instancia reservada cubre solo la parte de proceso del uso de la máquina virtual. En el caso de las máquinas virtuales Windows, el medidor de uso se divide en dos medidores independientes. Hay un medidor de proceso, que es el mismo que el medidor de Linux, y un medidor de IP de Windows. Los cargos que verá al hacer la compra son solo por los costos de proceso. Los cargos no incluyen los costos de software de Windows. Para obtener más información sobre los costos de software, consulte los [costos de software no incluidos en Azure Reserved Virtual Machine Instances](../cost-management-billing/reservations/reserved-instance-windows-software-costs.md).
 

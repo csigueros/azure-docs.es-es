@@ -4,13 +4,13 @@ description: La expresión app se usa en una consulta de registro de Azure Monit
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 05/09/2019
-ms.openlocfilehash: 9d60857503402554381068fc36121fa3f7b61622
-ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
+ms.date: 08/11/2021
+ms.openlocfilehash: 1c7659d8b566649291e135c68c677b3f3a074d9f
+ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107283565"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122515472"
 ---
 # <a name="app-expression-in-azure-monitor-query"></a>Expresión app() de la consulta de Azure Monitor
 
@@ -41,7 +41,7 @@ La expresión `app` se usa en una consulta de Azure Monitor para recuperar datos
 * Debe tener acceso de lectura a la aplicación.
 * En la identificación de una aplicación por su nombre, se da por supuesto que este es único en todas las suscripciones accesibles. Si tiene varias aplicaciones con el nombre especificado, la consulta producirá un error debido a la ambigüedad. En este caso debe usar uno de los otros identificadores.
 * Utilice la expresión relacionada [área de trabajo](../logs/workspace-expression.md) para hacer consultas entre áreas de trabajo de Log Analytics.
-* Actualmente, la expresión app() actualmente no se admite en la consulta de búsqueda cuando se usa Azure Portal para crear un [regla de alerta de búsqueda de registros personalizada](../alerts/alerts-log.md), salvo que se use una aplicación de Application Insights se usa como recurso para la regla de alertas.
+* Actualmente, la expresión app() actualmente no se admite en la consulta de registro cuando se usa Azure Portal para crear un [regla de alerta de consulta de registro personalizada](../alerts/alerts-log.md), salvo que se use una aplicación de Application Insights se usa como recurso para la regla de alertas.
 
 ## <a name="examples"></a>Ejemplos
 

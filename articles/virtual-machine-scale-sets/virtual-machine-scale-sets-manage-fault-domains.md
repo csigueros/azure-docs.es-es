@@ -9,14 +9,17 @@ ms.subservice: availability
 ms.date: 12/18/2018
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: 10d45662f84a354ee4b261c2e7255a57aa81ad0f
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: ff513925647e5233afd6056677343dca88b8977b
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107774492"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122697407"
 ---
 # <a name="choosing-the-right-number-of-fault-domains-for-virtual-machine-scale-set"></a>Elección del número correcto de dominios de error para el conjunto de escalado de máquinas virtuales
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado uniformes
+
 Los conjuntos de escalado de máquinas virtuales se crean con cinco dominios de error de forma predeterminada en las regiones de Azure sin zonas. Para las regiones que admiten la implementación con zonas de conjuntos de escalado de máquinas virtuales y con esta opción seleccionada, el valor predeterminado del número de dominios de error es 1 para cada una de las zonas. FD=1 en este caso implica que las instancias de VM que pertenecen al conjunto de escalado se distribuirán entre varios bastidores en función del mejor esfuerzo.
 
 También puede considerar la alineación del número de dominios de error del conjunto de escalado con el número de dominios de error de Managed Disks. Esta alineación puede ayudar a evitar la pérdida de cuórum si todo un dominio de error de Managed Disks deja de funcionar. El recuento de FD puede establecerse como menor o igual al número de dominios de error de Managed Disks disponibles en cada una de las regiones. Consulte este [documento](../virtual-machines/availability.md) para obtener información sobre el número de dominios de error de Managed Disks por región.

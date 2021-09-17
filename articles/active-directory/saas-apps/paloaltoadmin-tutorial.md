@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: jeedes
-ms.openlocfilehash: 57b1d47fa40c0af4bced1e4169fe60cd759ee2f3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aceaed29b83a190e4e943f0ec1ae99a8daa44682
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97963645"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121727599"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---admin-ui"></a>Tutorial: Integración de Azure Active Directory con Palo Alto Networks - Admin UI
 
@@ -107,7 +107,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     | | |
 
     > [!NOTE]
-    > El valor _adminrole_ debe ser el mismo que el nombre de rol que se configuró en **Palo Alto Networks**, tal como se mencionó en el paso 9. 
+    > El valor de **Nombre**, que se muestra más arriba como _adminrole_, debe ser el mismo valor que para el _atributo de rol de administrador_ configurado en el paso 12 de la sección **[Configuración del inicio de sesión único de Palo Alto Networks - Admin UI](#configure-palo-alto-networks---admin-ui-sso)** . El valor de **Atributo de origen**, que se muestra más arriba como _customadmin_, debe ser el mismo valor que para el _nombre de perfil de rol administrador_ configurado en el paso 9 de la sección **[Configuración del inicio de sesión único de Palo Alto Networks - Admin UI](#configure-palo-alto-networks---admin-ui-sso)** .  
 
     > [!NOTE]
     > Para más información sobre los atributos, consulte los siguientes artículos:

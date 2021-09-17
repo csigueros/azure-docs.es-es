@@ -1,5 +1,5 @@
 ---
-title: Uso de Log Analytics para recopilar y visualizar métricas y registros (versión preliminar)
+title: Supervisión de las aplicaciones de Apache Spark con Azure Log Analytics (versión preliminar)
 description: Aprenda a habilitar el conector Synapse Studio para recopilar y enviar los registros y las métricas de aplicación de Apache Spark al área de trabajo de Log Analytics.
 services: synapse-analytics
 author: jejiang
@@ -10,14 +10,14 @@ ms.topic: tutorial
 ms.subservice: spark
 ms.date: 03/25/2021
 ms.custom: references_regions
-ms.openlocfilehash: d5052b7a36f3eacb96097b8d9268579ec56ea222
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: cc4d6cd7809c58451f95b94970ee8b489f2f9dfe
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122768133"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123535376"
 ---
-# <a name="tutorial-use-log-analytics-to-collect-and-visualize-metrics-and-logs-preview"></a>Tutorial: Uso de Log Analytics para recopilar y visualizar métricas y registros (versión preliminar)
+# <a name="monitor-apache-spark-applications-with-azure-log-analytics-preview"></a>Supervisión de las aplicaciones de Apache Spark con Azure Log Analytics (versión preliminar)
 
 En este tutorial, aprenderá a habilitar el conector Synapse Studio integrado en Log Analytics. Luego, puede recopilar y enviar los registros y las métricas de aplicación de Apache Spark al [área de trabajo de Log Analytics](../../azure-monitor/logs/quick-create-workspace.md). Finalmente, puede aprovechar los libros de Azure Monitor para visualizar las métricas y los registros.
 
@@ -32,13 +32,13 @@ Consulte uno de los siguientes recursos para crear este área de trabajo:
 - [Creación de un área de trabajo con la CLI de Azure](../../azure-monitor/logs/quick-create-workspace-cli.md)
 - [Creación y configuración de un área de trabajo en Azure Monitor con PowerShell](../../azure-monitor/logs/powershell-workspace-configuration.md)
 
-### <a name="step-2-prepare-a-spark-configuration-file"></a>Paso 2: Preparación de un archivo de configuración de Spark
+### <a name="step-2-prepare-a-apache-spark-configuration-file"></a>Paso 2: Preparación de un archivo de configuración de Apache Spark
 
 Use cualquiera de las siguientes opciones para preparar el archivo.
 
 #### <a name="option-1-configure-with-log-analytics-workspace-id-and-key"></a>Opción 1: Configuración con el identificador y la clave del área de trabajo de Log Analytics 
 
-Copie la siguiente configuración de Spark, guárdela como *spark_loganalytics_conf.txt* y rellene los siguientes parámetros:
+Copie la siguiente configuración de Apache Spark, guárdela como *spark_loganalytics_conf.txt* y rellene los siguientes parámetros:
 
    - `<LOG_ANALYTICS_WORKSPACE_ID>`: identificador del área de trabajo de Log Analytics.
    - `<LOG_ANALYTICS_WORKSPACE_KEY>`: clave de Log Analytics. Para encontrarla, en Azure Portal, vaya a **Área de trabajo de Azure Log Analytics** > **Administración de agentes** > **Clave principal**.
@@ -52,7 +52,7 @@ spark.synapse.logAnalytics.secret <LOG_ANALYTICS_WORKSPACE_KEY>
 #### <a name="option-2-configure-with-azure-key-vault"></a>Opción 2: Configuración con Azure Key Vault
 
 > [!NOTE]
-> Debe conceder permiso de lectura de secretos a los usuarios que vayan a enviar aplicaciones Spark. Para más información, consulte [Acceso a las claves, los certificados y los secretos de Key Vault con un control de acceso basado en rol de Azure](../../key-vault/general/rbac-guide.md).
+> Debe conceder permiso de lectura de secretos a los usuarios que vayan a enviar aplicaciones Apache Spark. Para más información, consulte [Acceso a las claves, los certificados y los secretos de Key Vault con un control de acceso basado en rol de Azure](../../key-vault/general/rbac-guide.md).
 
 Para configurar Azure Key Vault para almacenar la clave del área de trabajo, siga estos pasos:
 
@@ -63,11 +63,11 @@ Para configurar Azure Key Vault para almacenar la clave del área de trabajo, si
    - **Nombre**: escriba un nombre para el secreto. Como valor predeterminado, escriba `SparkLogAnalyticsSecret`.
    - **Valor**: escriba el valor de `<LOG_ANALYTICS_WORKSPACE_KEY>` del secreto.
    - Deje las restantes opciones con sus valores predeterminados. Seleccione **Crear**.
-5. Copie la siguiente configuración de Spark, guárdela como *spark_loganalytics_conf.txt* y rellene los siguientes parámetros:
+5. Copie la siguiente configuración de Apache Spark, guárdela como *spark_loganalytics_conf.txt* y rellene los siguientes parámetros:
 
    - `<LOG_ANALYTICS_WORKSPACE_ID>`: identificador del área de trabajo de Log Analytics.
    - `<AZURE_KEY_VAULT_NAME>`: el nombre del almacén de claves que configuró.
-   - `<AZURE_KEY_VAULT_SECRET_KEY_NAME>` (opcional): el nombre del secreto en el almacén de claves para la clave del área de trabajo. De manera predeterminada, es `SparkLogAnalyticsSecret`.
+   - `<AZURE_KEY_VAULT_SECRET_KEY_NAME>` (opcional): el nombre del secreto en el almacén de claves para la clave del área de trabajo. El valor predeterminado es `SparkLogAnalyticsSecret`.
 
 ```properties
 spark.synapse.logAnalytics.enabled true
@@ -82,7 +82,7 @@ spark.synapse.logAnalytics.keyVault.key.secret <AZURE_KEY_VAULT_SECRET_KEY_NAME>
 #### <a name="option-3-configure-with-a-linked-service"></a>Opción 3. Configuración con un servicio vinculado
 
 > [!NOTE]
-> Debe conceder permiso de lectura de secretos a los usuarios que vayan a enviar aplicaciones Spark. Para más información, consulte [Acceso a las claves, los certificados y los secretos de Key Vault con un control de acceso basado en rol de Azure](../../key-vault/general/rbac-guide.md).
+> Debe conceder permiso de lectura de secretos a los usuarios que vayan a enviar aplicaciones Apache Spark. Para más información, consulte [Acceso a las claves, los certificados y los secretos de Key Vault con un control de acceso basado en rol de Azure](../../key-vault/general/rbac-guide.md).
 
 Para configurar un servicio vinculado de Key Vault en Synapse Studio para almacenar la clave del área de trabajo, siga estos pasos:
 
@@ -97,7 +97,7 @@ Para configurar un servicio vinculado de Key Vault en Synapse Studio para almace
 
     d. Elija su almacén de claves y seleccione **Crear**.
 
-3. Agregue un elemento `spark.synapse.logAnalytics.keyVault.linkedServiceName` a la configuración de Spark.
+3. Agregue un elemento `spark.synapse.logAnalytics.keyVault.linkedServiceName` a la configuración de Apache Spark.
 
 ```properties
 spark.synapse.logAnalytics.enabled true
@@ -107,18 +107,21 @@ spark.synapse.logAnalytics.keyVault.key.secret <AZURE_KEY_VAULT_SECRET_KEY_NAME>
 spark.synapse.logAnalytics.keyVault.linkedServiceName <LINKED_SERVICE_NAME>
 ```
 
-#### <a name="available-spark-configuration"></a>Configuración de Spark disponible
+#### <a name="available-apache-spark-configuration"></a>Configuración disponible de Apache Spark
 
-| Nombre de la configuración                                  | Valor predeterminado                | Descripción                                                                                                                                                                                                |
-| --------------------------------------------------- | ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| spark.synapse.logAnalytics.enabled                  | false                        | True para habilitar el receptor de Log Analytics para las aplicaciones Spark. En caso contrario, es false.                                                                                                                  |
-| spark.synapse.logAnalytics.workspaceId              | -                            | Identificador del área de trabajo de Log Analytics de destino.                                                                                                                                                          |
-| spark.synapse.logAnalytics.secret                   | -                            | Secreto del área de trabajo de Log Analytics de destino.                                                                                                                                                      |
-| spark.synapse.logAnalytics.keyVault.linkedServiceName   | -                            | Nombre del servicio vinculado de Key Vault para el identificador y la clave del área de trabajo de Log Analytics.                                                                                                                       |
-| spark.synapse.logAnalytics.keyVault.name            | -                            | Nombre del almacén de claves para el identificador y la clave de Log Analytics.                                                                                                                                                |
-| spark.synapse.logAnalytics.keyVault.key.workspaceId | SparkLogAnalyticsWorkspaceId | Nombre del secreto de Key Vault para el identificador del área de trabajo de Log Analytics.                                                                                                                                       |
-| spark.synapse.logAnalytics.keyVault.key.secret      | SparkLogAnalyticsSecret      | Nombre del secreto de Key Vault para la clave del área de trabajo de Log Analytics.                                                                                                                                      |
-| spark.synapse.logAnalytics.uriSuffix       | ods.opinsights.azure.com     | [Sufijo de URI][uri_suffix] del área de trabajo de Log Analytics de destino. Si el área de trabajo no está en Azure global, debe actualizar el sufijo del URI de acuerdo con la nube correspondiente. |
+| Nombre de la configuración | Valor predeterminado | Descripción |
+| ------------------ | ------------- | ----------- |
+| spark.synapse.logAnalytics.enabled | false | True para habilitar el receptor de Log Analytics para las aplicaciones Spark. En caso contrario, es false. |
+| spark.synapse.logAnalytics.workspaceId | - | Identificador del área de trabajo de Log Analytics de destino. |
+| spark.synapse.logAnalytics.secret | - | Secreto del área de trabajo de Log Analytics de destino. |
+| spark.synapse.logAnalytics.keyVault.linkedServiceName   | - | Nombre del servicio vinculado de Key Vault para el identificador y la clave del área de trabajo de Log Analytics. |
+| spark.synapse.logAnalytics.keyVault.name | - | Nombre del almacén de claves para el identificador y la clave de Log Analytics. |
+| spark.synapse.logAnalytics.keyVault.key.workspaceId | SparkLogAnalyticsWorkspaceId | Nombre del secreto de Key Vault para el identificador del área de trabajo de Log Analytics. |
+| spark.synapse.logAnalytics.keyVault.key.secret | SparkLogAnalyticsSecret | Nombre del secreto de Key Vault para el área de trabajo de Log Analytics |
+| spark.synapse.logAnalytics.uriSuffix | ods.opinsights.azure.com | [Sufijo de URI][uri_suffix] del área de trabajo de Log Analytics de destino. Si el área de trabajo no está en Azure global, debe actualizar el sufijo del URI de acuerdo con la nube correspondiente. |
+| spark.synapse.logAnalytics.filter.eventName.match | - | Opcional. Nombres de eventos de Spark separados por comas, puede especificar qué eventos se recopilan. Por ejemplo: `SparkListenerJobStart,SparkListenerJobEnd` |
+| spark.synapse.logAnalytics.filter.loggerName.match | - | Opcional. Nombres del registrador log4j separados por comas, puede especificar qué registros se recopilan. Por ejemplo: `org.apache.spark.SparkContext,org.example.Logger` |
+| spark.synapse.logAnalytics.filter.metricName.match | - | Opcional. Sufijos de nombre de métrica de Spark separados por comas, puede especificar qué métricas se recopilan. Por ejemplo: `jvm.heap.used`|
 
 > [!NOTE]  
 > - En Azure China, el parámetro `spark.synapse.logAnalytics.uriSuffix` debe ser `ods.opinsights.azure.cn`. 
@@ -127,8 +130,8 @@ spark.synapse.logAnalytics.keyVault.linkedServiceName <LINKED_SERVICE_NAME>
 [uri_suffix]: ../../azure-monitor/logs/data-collector-api.md#request-uri
 
 
-### <a name="step-3-upload-your-spark-configuration-to-a-spark-pool"></a>Paso 3: Carga de la configuración de Spark en un grupo de Spark
-Puede cargar el archivo de configuración en el grupo de Spark de Azure Synapse Analytics. En Synapse Studio:
+### <a name="step-3-upload-your-apache-spark-configuration-to-a-apache-spark-pool"></a>Paso 3: Carga de la configuración de Apache Spark en un grupo de Apache Spark
+Puede cargar el archivo de configuración en el grupo de Apache Spark de Azure Synapse Analytics. En Synapse Studio:
 
    1. Seleccione **Administrar** > **Grupos de Apache Spark**.
    2. Junto al grupo de Apache Spark, seleccione el botón **...** .
@@ -141,18 +144,42 @@ Puede cargar el archivo de configuración en el grupo de Spark de Azure Synapse 
 
 > [!NOTE] 
 >
-> Toda la aplicación Spark enviada al grupo de Spark usará los parámetros de configuración para insertar las métricas y los registros de la aplicación Spark en el área de trabajo especificada.
+> Todas las aplicaciones Apache Spark que se envíen al grupo de Apache Spark usarán los valores de configuración para insertar las métricas y los registros de las aplicaciones Apache Spark en el área de trabajo especificada.
 
-## <a name="submit-a-spark-application-and-view-the-logs-and-metrics"></a>Envío de una aplicación Spark y visualización de los registros y las métricas
+## <a name="submit-a-apache-spark-application-and-view-the-logs-and-metrics&quot;></a>Envío de una aplicación Apache Spark y visualización de los registros y métricas
 
-A continuación, se indica cómo puede hacerlo.
+A continuación se muestra cómo hacerlo:
 
-1. Envíe una aplicación Spark al grupo de Spark configurado en el paso anterior. Para ello, puede usar cualquiera de los siguientes métodos:
+1. Envíe una aplicación Apache Spark al grupo de Apache Spark configurado en el paso anterior. Para ello, puede usar cualquiera de los siguientes métodos:
     - Ejecutar un cuaderno en Synapse Studio. 
-    - En Synapse Studio, envíe un trabajo por lotes de Apache Spark mediante una definición de trabajo de Spark.
-    - Ejecutar una canalización que contenga la actividad de Spark.
+    - En Synapse Studio, envíe un trabajo por lotes de Apache Spark mediante una definición de trabajo de Apache Spark.
+    - Ejecute una canalización que contenga la actividad de Apache Spark.
 
-1. Vaya al área de trabajo de Log Analytics especificada y, luego, vea las métricas y los registros de la aplicación cuando la aplicación Spark empiece a ejecutarse.
+1. Vaya al área de trabajo de Log Analytics especificada y, luego, vea las métricas y los registros de la aplicación cuando la aplicación Apache Spark empiece a ejecutarse.
+
+## <a name=&quot;write-custom-application-logs&quot;></a>Escritura de registros de aplicaciones personalizados
+
+Puede usar la biblioteca Log4j de Apache para escribir registros personalizados.
+
+Ejemplo de Scala:
+
+```scala
+%%spark
+val logger = org.apache.log4j.LogManager.getLogger(&quot;com.contoso.LoggerExample")
+logger.info("info message")
+logger.warn("warn message")
+logger.error("error message")
+```
+
+Ejemplo de PySpark:
+
+```python
+%%pyspark
+logger = sc._jvm.org.apache.log4j.LogManager.getLogger("com.contoso.PythonLoggerExample")
+logger.info("info message")
+logger.warn("warn message")
+logger.error("error message")
+```
 
 ## <a name="use-the-sample-workbook-to-visualize-the-metrics-and-logs"></a>Uso del libro de ejemplo para visualizar las métricas y los registros
 
@@ -169,7 +196,7 @@ A continuación, se indica cómo puede hacerlo.
     > [!div class="mx-imgBorder"]
     > ![Captura de pantalla que muestra cómo importar un libro.](./media/apache-spark-azure-log-analytics/import-workbook.png)
 
-A continuación, envíe la aplicación de Apache Spark al grupo de Spark configurado. Cuando la aplicación pase al estado de ejecución, elija la aplicación en ejecución en la lista desplegable de libros.
+A continuación, envíe la aplicación Apache Spark al grupo de Apache Spark configurado. Cuando la aplicación pase al estado de ejecución, elija la aplicación en ejecución en la lista desplegable de libros.
 
 > [!div class="mx-imgBorder"]
 > ![Captura de pantalla que muestra un libro.](./media/apache-spark-azure-log-analytics/workbook.png)
@@ -179,9 +206,9 @@ Puede personalizar el libro. Por ejemplo, puede usar consultas de Kusto y config
 > [!div class="mx-imgBorder"]
 > ![Captura de pantalla que muestra la personalización de un libro con una consulta y alertas.](./media/apache-spark-azure-log-analytics/kusto-query-and-alerts.png)
 
-## <a name="sample-kusto-queries"></a>Ejemplos de consultas de Kusto
+## <a name="query-data-with-kusto"></a>Consulta de datos con Kusto
 
-Este es un ejemplo de consulta de eventos de Spark:
+Este es un ejemplo de consulta de eventos de Apache Spark:
 
 ```kusto
 SparkListenerEvent_CL
@@ -190,7 +217,7 @@ SparkListenerEvent_CL
 | limit 100 
 ```
 
-Este es un ejemplo de consulta de los registros de ejecutores y del controlador de aplicación de Spark:
+Este es un ejemplo de consulta de los registros de ejecutores y del controlador de aplicación de Apache Spark:
 
 ```kusto
 SparkLoggingEvent_CL
@@ -199,7 +226,7 @@ SparkLoggingEvent_CL
 | limit 100
 ```
 
-Y este es un ejemplo de consulta de métricas de Spark:
+Y este es un ejemplo de consulta de métricas de Apache Spark:
 
 ```kusto
 SparkMetrics_CL
@@ -209,40 +236,39 @@ SparkMetrics_CL
 | order by TimeGenerated asc
 ```
 
-## <a name="write-custom-application-logs"></a>Escritura de registros de aplicaciones personalizados
 
-Puede usar la biblioteca Log4j de Apache para escribir registros personalizados.
-
-Ejemplo de Scala:
-
-```scala
-%%spark
-val logger = org.apache.log4j.LogManager.getLogger("com.contoso.LoggerExample")
-logger.info("info message")
-logger.warn("warn message")
-logger.error("error message")
-```
-
-Ejemplo de PySpark:
-
-```python
-%%pyspark
-logger = sc._jvm.org.apache.log4j.LogManager.getLogger("com.contoso.PythonLoggerExample")
-logger.info("info message")
-logger.warn("warn message")
-logger.error("error message")
-```
 
 ## <a name="create-and-manage-alerts"></a>Creación y administración de alertas
 
 Los usuarios pueden realizar consultas para evaluar las métricas y los registros según una frecuencia establecida y activar una alerta en función de los resultados. Para más información, consulte [Creación, visualización y administración de alertas de registro mediante Azure Monitor](../../azure-monitor/alerts/alerts-log.md).
 
-## <a name="limitation"></a>Limitación
+## <a name="synapse-workspace-with-data-exfiltration-protection-enabled"></a>Área de trabajo de Synapse con la protección de datos contra la filtración habilitada
 
-No se admite un área de trabajo de Azure Synapse Analytics con la [red virtual administrada](../security/synapse-workspace-managed-vnet.md) habilitada.
+Después de crear el área de trabajo de Synapse con la [protección contra la filtración de datos](../security/workspace-data-exfiltration-protection.md) habilitada.
+
+Cuando quiera habilitar esta característica, tiene que crear solicitudes de conexión de puntos de conexión privados administrados a [Ámbitos de Private Link de Azure Monitor (AMPLS)](../../azure-monitor/logs/private-link-security.md) en los inquilinos de Azure AD aprobados del área de trabajo.
+
+Puede seguir los pasos a continuación para crear una conexión de punto de conexión privado administrado a Ámbitos de Private Link de Azure Monitor (AMPLS):
+
+1. Si no existe ningún AMPLS, siga la [Configuración de una conexión de Private Link de Azure Monitor](../../azure-monitor/logs/private-link-security.md) para crear uno.
+2. Vaya a su AMPLS en Azure Portal, en la página **Recursos de Azure Monitor**, haga clic en **Agregar** para agregar la conexión al área de trabajo de Azure Log Analytics.
+3. Vaya a **Synapse Studio > Administrar > Managed private endpoints** (Puntos de conexión privados administrados), haga clic en el botón **Nuevo**, seleccione **Azure Monitor Private Link Scopes** (Ámbitos de Private Link de Azure Monitor) y **Continuar**.
+   > [!div class="mx-imgBorder"]
+   > ![Creación de un punto de conexión privado administrado de AMPLS 1](./media/apache-spark-azure-log-analytics/create-ampls-private-endpoint-1.png)
+4. Elija el ámbito de Private Link de Azure Monitor que acaba de crear y haga clic en el botón **Crear**.
+   > [!div class="mx-imgBorder"]
+   > ![Creación de un punto de conexión privado administrado de AMPLS 2](./media/apache-spark-azure-log-analytics/create-ampls-private-endpoint-2.png)
+5. Espere unos minutos durante el aprovisionamiento del punto de conexión privado.
+6. Vuelva a su AMPLS en Azure Portal; en la página **Conexiones de punto de conexión privado**, seleccione la conexión que acaba de aprovisionar y seleccione **Aprobar**.
+
+> [!NOTE] 
+>  - El objeto de AMPLS tiene una serie de límites que se deben tener en cuenta al planear la configuración de Private Link. Consulte [Límites de AMPLS](../../azure-monitor/logs/private-link-security.md) para un análisis más detallado de estos límites. 
+>  - Compruebe si tiene el [permiso adecuado](../security/synapse-workspace-access-control-overview.md) para crear un punto de conexión privado administrado.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
  - [Use un grupo de Apache Spark sin servidor en Synapse Studio](../quickstart-create-apache-spark-pool-studio.md).
  - [Ejecute una aplicación Spark en un cuaderno](./apache-spark-development-using-notebooks.md).
  - [Cree una definición de trabajo de Apache Spark en Azure Studio](./apache-spark-job-definitions.md).
+ - [Recopilación de métricas y registros de aplicaciones de Apache Spark con una cuenta de Azure Storage](./azure-synapse-diagnostic-emitters-azure-storage.md)
+ - [Recopilación de métricas y registros de aplicaciones de Apache Spark con Azure Event Hubs](./azure-synapse-diagnostic-emitters-azure-eventhub.md)

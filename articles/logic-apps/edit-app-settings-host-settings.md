@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 05/25/2021
-ms.openlocfilehash: cf1361a531511daf7f249f4e7c7d2acf9207c457
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 08/18/2021
+ms.openlocfilehash: 731fe8f29fc4e67e2d74d46702768e642928ae09
+ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121743245"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122514571"
 ---
 # <a name="edit-host-and-app-settings-for-logic-apps-in-single-tenant-azure-logic-apps"></a>Edición de la configuración de host y aplicación para aplicaciones lógicas en Azure Logic Apps de inquilino único
 
@@ -295,6 +295,7 @@ Esta configuración afecta al rendimiento y la capacidad de Azure Logic Apps de 
 
 | Configuración | Valor predeterminado | Descripción |
 |---------|---------------|-------------|
+| `ServiceProviders.ServiceBus.MessageSenderOperationTimeout` | `00:01:00` <br>(1 min) | Establece el tiempo de espera para enviar mensajes con la operación de Service Bus integrada. |
 | `Runtime.ServiceProviders.ServiceBus.MessageSenderPoolSizePerProcessorCount` | `64` remitentes de mensajes | Establece el número de remitentes de mensajes de Azure Service Bus por núcleo de procesador que se usarán en el grupo de remitentes de mensajes. |
 ||||
 

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/16/2021
-ms.openlocfilehash: 749caf37ee09f9dc794dee60c6d4a5b93da43c6e
-ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
+ms.openlocfilehash: 81c82152bf87944c7aed191c12e067567ec2b086
+ms.sourcegitcommit: c2f0d789f971e11205df9b4b4647816da6856f5b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114386323"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122662250"
 ---
 # <a name="configure-data-collection-for-the-azure-monitor-agent"></a>Configuración de la recopilación de datos para el agente de Azure Monitor
 
@@ -89,6 +89,7 @@ Vea [limitaciones de XPath 1.0](/windows/win32/wes/consuming-events#xpath-10-lim
 > Get-WinEvent -LogName 'Application' -FilterXPath $XPath
 > ```
 >
+> - **En el cmdlet anterior, el valor del parámetro "-LogName" es la parte inicial de la consulta XPath hasta "!", mientras que solo el resto de la consulta XPath entra en el parámetro $XPath.**
 > - Si se devuelven eventos, la consulta es válida.
 > - Si recibe el mensaje *No se encontraron eventos que coincidan con los criterios de selección especificados.* , la consulta puede ser válida, pero no hay eventos coincidentes en el equipo local.
 > - Si recibe el mensaje *La consulta especificada no es válida*, la sintaxis de la consulta no es válida. 

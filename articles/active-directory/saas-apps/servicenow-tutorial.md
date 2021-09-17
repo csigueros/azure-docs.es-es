@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/09/2020
+ms.date: 07/21/2021
 ms.author: jeedes
-ms.openlocfilehash: c90234249f3cf7eb6ed4793110d61e1f8190ed60
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 24f05c59d7ceac37ff628aec265541d323f170e3
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99092639"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121725863"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-servicenow"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con ServiceNow
 
@@ -92,7 +92,10 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. En la sección **Configuración básica de SAML**, siga estos pasos:
 
-    a. En el cuadro **URL de inicio de sesión**, escriba una dirección URL con el siguiente formato: `https://<instancename>.service-now.com/navpage.do`
+    a. En el cuadro **URL de inicio de sesión**, escriba una dirección URL con el siguiente formato: `https://<instance-name>.service-now.com/login_with_sso.do?glide_sso_id=<sys_id of the sso configuration>`
+    
+    > [!NOTE]
+    >  Copie el valor de sys_id del paso 5.d.iii de la sección **Configuración de ServiceNow**.
 
     b. En **Identificador (Id. de entidad)** , escriba una dirección URL con el siguiente formato: `https://<instance-name>.service-now.com`
 
@@ -163,7 +166,7 @@ En esta sección, va a permitir que B. Simon acceda a ServiceNow mediante el in
 
 4. En la sección **Configuración básica de SAML**, siga estos pasos:
 
-    a. En el cuadro **URL de inicio de sesión**, escriba una dirección URL con el siguiente formato: `https://<instancename>.service-now.com/navpage.do`
+    a. En **URL de inicio de sesión**, escriba una dirección URL que use el siguiente patrón: `https://<instance-name>.service-now.com/login_with_sso.do?glide_sso_id=<sys_id of the sso configuration>` copie el valor de sys_id del paso 5.d.iii de la sección **Configuración de ServiceNow**.
 
     b. En **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente formato: `https://<instance-name>.service-now.com`
 
@@ -262,18 +265,20 @@ En esta sección, va a permitir que B. Simon acceda a ServiceNow mediante el in
 
              ![Captura de pantalla de la sección Identity Provider (Proveedor de identidades)](./media/servicenow-tutorial/automatic-config.png "Configurar inicio de sesión único")
 
-               a. En **Name** (Nombre), escriba el nombre de la configuración, por ejemplo, **Microsoft Azure Federated single sign-on** (Inicio de sesión único federado de Microsoft Azure).
+               a. Haga clic con el botón derecho en la barra gris de la parte superior de la pantalla y haga clic en **Copiar sys_id** y use este valor en **URL de inicio de sesión** en la sección **Configuración básica de SAML**.
 
-               b. Copie el valor de **ServiceNow Homepage** (Página principal de ServiceNow) y péguelo en **Dirección URL de inicio de sesión**, en la sección **Configuración básica de SAML de ServiceNow** de Azure Portal.
+               b. En **Name** (Nombre), escriba el nombre de la configuración, por ejemplo, **Microsoft Azure Federated single sign-on** (Inicio de sesión único federado de Microsoft Azure).
+
+               c. Copie el valor de **ServiceNow Homepage** (Página principal de ServiceNow) y péguelo en **Dirección URL de inicio de sesión**, en la sección **Configuración básica de SAML de ServiceNow** de Azure Portal.
 
                 > [!NOTE]
                 > La página principal de la instancia de ServiceNow es una concatenación de su **URL de inquilino de ServiceNow** y **/navpage.do** (por ejemplo: `https://fabrikam.service-now.com/navpage.do`).
 
-              c. Copie el valor de **Entity ID / Issuer** (Identificador de entidad/emisor) y péguelo en **Identifier** (Identificador), en la sección **Configuración básica de SAML de ServiceNow** de Azure Portal.
+              d. Copie el valor de **Entity ID / Issuer** (Identificador de entidad/emisor) y péguelo en **Identifier** (Identificador), en la sección **Configuración básica de SAML de ServiceNow** de Azure Portal.
 
-              d. Confirme que el valor de **NameID Policy** (Directiva de id. de nombre) esté establecido en `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`. 
+              e. Confirme que el valor de **NameID Policy** (Directiva de id. de nombre) esté establecido en `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`. 
 
-              e. Haga clic en **Advanced** (Avanzado) y, en **Single Sign-On Script** (Script de inicio de sesión único), proporcione el valor **MultiSSOv2_SAML2_custom**.
+              f. Haga clic en **Advanced** (Avanzado) y, en **Single Sign-On Script** (Script de inicio de sesión único), proporcione el valor **MultiSSOv2_SAML2_custom**.
 
          1. Desplácese hacia abajo a la sección **Certificado X.509** y seleccione **Editar**.
 
@@ -324,7 +329,7 @@ En esta sección, va a permitir que B. Simon acceda a ServiceNow mediante el in
 
     1. Se lee la dirección URL de los metadatos de IdP y se rellena toda la información de los campos.
 
-        ![Captura de pantalla de Identity Provider (Proveedor de identidades)](./media/servicenow-tutorial/ic7694982.png "Configurar inicio de sesión único")
+        ![Captura de pantalla de Identity Provider (Proveedor de identidades)](./media/servicenow-tutorial/identity-provider.png "Configurar inicio de sesión único")
 
         a. En **Name** (Nombre), escriba el nombre de la configuración, por ejemplo, **Microsoft Azure Federated single sign-on** (Inicio de sesión único federado de Microsoft Azure).
 
@@ -384,7 +389,7 @@ El objetivo de esta sección es crear una usuaria de prueba llamada B. Simon en 
 
 5. En el cuadro de diálogo **X.509 Certificates** (Certificados X.509), siga estos pasos:
 
-    ![Captura de pantalla del cuadro de diálogo X.509 Certificates (Certificados X.509)](./media/servicenow-tutorial/ic7694975.png "Configurar inicio de sesión único")
+    ![Captura de pantalla del cuadro de diálogo X.509 Certificates (Certificados X.509)](./media/servicenow-tutorial/certificate.png "Configurar inicio de sesión único")
 
     a. En el cuadro de texto **Name** (Nombre), escriba el nombre de la configuración (por ejemplo, **TestSAML2.0**).
 
@@ -404,7 +409,7 @@ El objetivo de esta sección es crear una usuaria de prueba llamada B. Simon en 
 
 7. En el cuadro de diálogo **Add New Identity Provider** (Agregar nuevo proveedor de identidades), en **Configure Identity Provider** (Configurar proveedor de identidades), siga estos pasos:
 
-    ![Captura de pantalla del cuadro de diálogo Add New Identity Provider (Agregar nuevo proveedor de identidades)](./media/servicenow-tutorial/ic7694982ex.png "Configurar inicio de sesión único")
+    ![Captura de pantalla del cuadro de diálogo Add New Identity Provider (Agregar nuevo proveedor de identidades)](./media/servicenow-tutorial/new-identity-provider.png "Configurar inicio de sesión único")
 
     a. En el cuadro de texto **Name** (Nombre), escriba el nombre de la configuración (por ejemplo, **SAML 2.0**).
 
@@ -418,7 +423,7 @@ El objetivo de esta sección es crear una usuaria de prueba llamada B. Simon en 
 
 8. Seleccione **Advanced Settings** (Configuración avanzada). En **Additional Identity Provider Properties** (Propiedades adicionales del proveedor de identidades), siga estos pasos:
 
-    ![Captura de pantalla de Add New Identity Provider (Agregar nuevo proveedor de identidades) con Advanced Settings (Configuración avanzada) resaltado](./media/servicenow-tutorial/ic7694983ex.png "Configurar inicio de sesión único")
+    ![Captura de pantalla de Add New Identity Provider (Agregar nuevo proveedor de identidades) con Advanced Settings (Configuración avanzada) resaltado](./media/servicenow-tutorial/advanced-settings.png "Configurar inicio de sesión único")
 
     a. En **Protocol Binding for the IDP's SingleLogoutRequest** (Enlace de protocolo para la solicitud de cierre de sesión único del proveedor de identidades), escriba **urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect**.
 
@@ -430,7 +435,7 @@ El objetivo de esta sección es crear una usuaria de prueba llamada B. Simon en 
 
 9. En **Additional Identity Provider Properties** (Propiedades adicionales del proveedor de identidades), siga estos pasos:
 
-    ![Captura de pantalla de Add New Identity Provider (Agregar nuevo proveedor de identidades) con diversas propiedades resaltadas](./media/servicenow-tutorial/ic7694984ex.png "Configurar inicio de sesión único")
+    ![Captura de pantalla de Add New Identity Provider (Agregar nuevo proveedor de identidades) con diversas propiedades resaltadas](./media/servicenow-tutorial/service-provider.png "Configurar inicio de sesión único")
 
     a. En el cuadro de texto **ServiceNow Homepage** (Página principal de ServiceNow), escriba la dirección URL de la página principal de la instancia de ServiceNow.
 

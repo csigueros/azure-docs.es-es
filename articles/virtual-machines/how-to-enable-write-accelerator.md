@@ -10,14 +10,16 @@ ms.date: 2/20/2019
 ms.author: raiye
 ms.subservice: disks
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8658845a3f5a0e9913536a73850d0cf6442e69d3
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 6b6db47d812b13bced9d0e52530ec8c59b58be19
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110669518"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122770802"
 ---
 # <a name="enable-write-accelerator"></a>Habilitar el acelerador de escritura
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles :heavy_check_mark: Conjuntos de escalado uniformes
 
 El Acelerador de escritura es una capacidad de disco para las máquinas virtuales (VM) de la serie M en Premium Storage con Azure Managed Disks exclusivamente. Como el nombre indica, el propósito de la funcionalidad es mejorar la latencia de E/S de las escrituras en Azure Premium Storage. El Acelerador de escritura se adecua perfectamente a las situaciones en las que las actualizaciones del archivo de registro deben persistir en el disco de una manera muy eficiente para bases de datos modernas.
 
@@ -52,9 +54,10 @@ Hay límites en los discos duros virtuales de Azure Premium Storage por máquina
 | --- | --- | --- |
 | M416ms_v2, M416s_v2| 16 | 20000 |
 | M208ms_v2, M208s_v2| 8 | 10000 |
-| M128ms, M128s | 16 | 20000 |
-| M64ms, M64ls, M64s | 8 | 10000 |
-| M32ms, M32ls, M32ts, M32s | 4 | 5000 |
+| M192ids_v2, M192idms_v2, M192is_v2, M192ims_v2, | 16 | 20000 |
+| M128ms, M128s, M128ds_v2, M128dms_v2, M128s_v2, M128ms_v2 | 16 | 20000 |
+| M64ms, M64ls, M64s, M64ds_v2, M64dms_v2, M64s_v2, M64ms_v2 | 8 | 10000 |
+| M32ms, M32ls, M32ts, M32s, M32dms_v2, M32ms_v2 | 4 | 5000 |
 | M16ms, M16s | 2 | 2.500 |
 | M8ms, M8s | 1 | 1250 |
 

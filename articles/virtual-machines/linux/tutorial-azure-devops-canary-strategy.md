@@ -1,25 +1,26 @@
 ---
-title: 'Tutorial: Configuración de implementaciones de valor controlado para Azure Linux Virtual Machines'
-description: En este tutorial, aprenderá a configurar una canalización de implementación continua (CD). Esta canalización actualiza un grupo de máquinas virtuales Linux en Azure con la estrategia de implementación controlada.
+title: Configuración de implementaciones controladas para máquinas virtuales Linux en Azure
+description: Aprenda a configurar una canalización de implementación continua (CD). Esta canalización actualiza un grupo de máquinas virtuales Linux en Azure con la estrategia de implementación controlada.
 author: moala
 tags: azure-devops-pipelines
-ms.assetid: ''
 ms.service: virtual-machines
 ms.collection: linux
-ms.topic: tutorial
+ms.topic: how-to
 ms.tgt_pltfrm: azure-pipelines
 ms.workload: infrastructure
 ms.date: 4/10/2020
 ms.author: moala
 ms.custom: devops
-ms.openlocfilehash: bbfe6571cf075b2ce4930eea91bfd1e239470c5a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f9ab4712e6419303f010d7cf1a417a8a907f9a05
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102552514"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122690953"
 ---
-# <a name="tutorial---configure-the-canary-deployment-strategy-for-azure-linux-virtual-machines"></a>Tutorial: Configuración de la estrategia de implementación controlada para Azure Linux Virtual Machines
+# <a name="configure-the-canary-deployment-strategy-for-azure-linux-virtual-machines"></a>Configuración de la estrategia de implementación controlada para máquinas virtuales Linux en Azure
+
+**Se aplica a:** :heavy_check_mark: máquinas virtuales Linux 
 
 ## <a name="infrastructure-as-a-service-iaas---configure-cicd"></a>Infraestructura como servicio (IaaS): configuración de CI/CD
 

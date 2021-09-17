@@ -4,15 +4,16 @@ description: Uso de Azure Data Factory para copiar datos en Azure Data Lake Stor
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/18/2021
-ms.openlocfilehash: 5269267f0fa786163b6c1fa1a4d4bfc8d0ff9af5
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.date: 07/05/2021
+ms.openlocfilehash: 0d2bdda7cacc07b84c8136eb63d282d55a4a0806
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109483522"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122637877"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>Carga de datos en Azure Data Lake Storage Gen1 mediante Azure Data Factory
 
@@ -59,15 +60,15 @@ En este artículo se muestra cómo utilizar la herramienta Copy Data de Data Fac
 3. Seleccione **Crear**.
 4. Una vez completada la creación, vaya a la factoría de datos. Verá la página principal de **Factoría de datos**, tal y como se muestra en la siguiente imagen: 
    
-   ![Página principal Factoría de datos](./media/load-data-into-azure-data-lake-store/data-factory-home-page.png)
+   :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Página principal de Azure Data Factory, con el icono Abrir Azure Data Factory Studio.":::
 
-   Seleccione el icono **Author & Monitor** (Creación y supervisión) para iniciar la aplicación de integración de datos en una pestaña independiente.
+   Seleccione **Abrir** en el icono **Open Azure Data Factory Studio** (Abrir Azure Data Factory Studio) para iniciar la aplicación de integración de datos en una pestaña independiente.
 
 ## <a name="load-data-into-data-lake-storage-gen1"></a>Carga de datos en Data Lake Storage Gen1
 
-1. En la página **Get started** (Introducción), seleccione el icono **Copy Data** (Copiar datos) para iniciar la herramienta para copiar datos: 
+1. En la página principal, seleccione el icono **Ingerir** para iniciar la herramienta Copia de datos: 
 
-   ![Icono de la herramienta Copy Data](./media/load-data-into-azure-data-lake-store/copy-data-tool-tile.png)
+   ![Captura de pantalla que muestra la página principal de ADF.](./media/doc-common-process/get-started-page.png)
 2. En la página **Properties** (Propiedades), especifique **CopyFromAmazonS3ToADLS** en el campo **Task name** (Nombre de la tarea) y seleccione **Next** (Siguiente):
 
     ![Página de propiedades](./media/load-data-into-azure-data-lake-store/copy-data-tool-properties-page.png)

@@ -9,12 +9,12 @@ ms.topic: overview
 ms.subservice: azure-video-analyzer-media
 ms.date: 07/15/2021
 ms.author: juliako
-ms.openlocfilehash: 79c6dc98bd214594b938cf74ce9176a64867fe3e
-ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
+ms.openlocfilehash: 9f7b76a0de33e89a17f89f3c93fc7de430a681c9
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114711849"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121734149"
 ---
 # <a name="what-is-video-analyzer-for-media"></a>¿Qué es Video Analyzer for Media?
 
@@ -74,7 +74,7 @@ En la siguiente lista se muestra la información que se puede recuperar de los v
 
 ### <a name="audio-insights"></a>Información de audio
 
-* **Transcripción de audio**: convierte la voz en texto en 12 idiomas y permite extensiones. Los idiomas admitidos son los siguientes: alemán, árabe, chino (mandarín), coreano, español, francés, hindi, inglés, italiano, japonés, portugués y ruso.
+* **Transcripción de audio**: convierte voz en texto en más de 50 idiomas y permite extensiones. Entre los idiomas que se admiten se incluyen: inglés (EE. UU.), inglés (Reino Unido), inglés (Australia ), español, español (México), francés, francés (Canadá), alemán, italiano, chino mandarín, chino (cantonés, tradicional), chino (simplificado), japonés, ruso, portugués, hindi, checo, neerlandés, polaco, danés, noruego, finés, sueco, tailandés, turco, coreano, árabe (Egipto), árabe (República Árabe de Siria), árabe (Israel), árabe (Iraq), árabe (Jordania), árabe (Kuwait), árabe (Líbano), Árabe (Omán), árabe (Qatar), árabe (Arabia Saudí), árabe (Emiratos Árabes Unidos), árabe (Autoridad Palestina) y árabe estándar moderno (Bahrein) .
 * **Detección de idioma automática**: identifica automáticamente el idioma hablado dominante. Los idiomas admitidos son los siguientes: alemán, chino (mandarín), español, francés, inglés, italiano, japonés, portugués y ruso. Si el idioma hablado no se puede identificar con confianza, Video Analyzer for Media supone que es inglés. Para obtener más información, vea [Modelo de identificación de idiomas](language-identification-model.md).
 * **Identificación y transcripción de voz en varios idiomas**: identifica automáticamente el idioma hablado en diferentes segmentos del audio. Envía cada segmento del archivo multimedia que se va a transcribir y luego combina la transcripción en una unificada. Para más información, consulte [Identificación y transcripción automáticas del contenido de varios idiomas](multi-language-identification-transcription.md).
 * **Subtítulos (CC)** : crea subtítulos en tres formatos: VTT, TTML y SRT.

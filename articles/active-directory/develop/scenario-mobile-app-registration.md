@@ -7,18 +7,18 @@ author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 08/18/2021
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 6385f03556d155941139b77333d6f4a25081fe67
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7fa12eca00bca011107f48c6f1b282dded4f3b5a
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100103165"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122444553"
 ---
 # <a name="register-mobile-apps-that-call-web-apis"></a>Registro de aplicaciones móviles que llaman a las API web
 
@@ -34,7 +34,7 @@ La mayoría de las aplicaciones móviles usan la autenticación interactiva. Si 
 
 ### <a name="audience-for-integrated-windows-authentication-username-password-and-b2c"></a>Audiencia para la autenticación integrada de Windows, con nombre de usuario y contraseña, y B2C
 
-Si tiene una aplicación para la Plataforma universal de Windows (UWP), puede usar la autenticación integrada de Windows para iniciar la sesión de los usuarios. Para usar la autenticación integrada de Windows o con un nombre de usuario y una contraseña, la aplicación debe iniciar la sesión de los usuarios en su propio inquilino si es un desarrollador de línea de negocio (LOB). En un escenario de fabricante de software independiente (ISV), la aplicación puede iniciar la sesión de los usuarios en organizaciones de Azure Active Directory. Estos flujos de autenticación no son compatibles con las cuentas personales de Microsoft.
+Si tiene una aplicación para la Plataforma universal de Windows (UWP), puede usar la autenticación integrada de Windows (IWA) para iniciar la sesión de los usuarios. Para usar IWA o la autenticación con un nombre de usuario y una contraseña, la aplicación debe iniciar la sesión de los usuarios en su propio inquilino de desarrollador de línea de negocio (LOB). En un escenario de fabricante de software independiente (ISV), la aplicación puede iniciar la sesión de los usuarios en organizaciones de Azure Active Directory. Estos flujos de autenticación no son compatibles con las cuentas personales de Microsoft.
 
 También puede iniciar la sesión de los usuarios mediante identidades sociales que pasen una directiva y una autoridad de B2C. Para usar este método, solo puede usar la autenticación interactiva y la autenticación con nombre de usuario y contraseña. La autenticación con nombre de usuario y contraseña solo se admite actualmente en Xamarin.iOS, Xamarin.Android y UWP.
 
@@ -90,7 +90,7 @@ Sin embargo, exprese la aplicación como una aplicación cliente pública. Para 
 
 ## <a name="api-permissions"></a>Permisos de API
 
-Las aplicaciones móviles llaman a las API en nombre del usuario con sesión iniciada. La aplicación debe solicitar permisos delegados. Estos permisos también se denominan ámbitos. En función de la experiencia que desee, puede solicitar los permisos delegados de forma estática a través de Azure Portal. O bien, puede solicitarlos dinámicamente en tiempo de ejecución.
+Las aplicaciones móviles llaman a las API en nombre del usuario que tiene la sesión iniciada. La aplicación debe solicitar permisos delegados. Estos permisos también se denominan ámbitos. En función de la experiencia que desee, puede solicitar los permisos delegados de forma estática a través de Azure Portal. O bien, puede solicitarlos dinámicamente en tiempo de ejecución.
 
 El registro estático de permisos permite a los administradores aprobar fácilmente su aplicación. Se recomienda el registro estático.
 

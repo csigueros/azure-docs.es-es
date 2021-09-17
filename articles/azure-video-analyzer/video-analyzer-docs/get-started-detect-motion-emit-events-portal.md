@@ -3,12 +3,12 @@ title: 'Introducción a Azure Video Analyzer mediante Azure Portal: Azure'
 description: Este inicio rápido le guiará por los pasos necesarios para empezar a usar Azure Video Analyzer mediante Azure Portal.
 ms.topic: quickstart
 ms.date: 06/01/2021
-ms.openlocfilehash: 4ff89417a10e50ff404ce22b7c57a2c0e29322e6
-ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
+ms.openlocfilehash: df63755aa66399a2f457673ba17391d5b42f31a8
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114601097"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121734231"
 ---
 # <a name="quickstart-get-started-with-azure-video-analyzer-in-the-azure-portal"></a>Inicio rápido: Introducción a Azure Video Analyzer en Azure Portal
 
@@ -230,7 +230,7 @@ Cuando use este inicio rápido, los eventos se enviarán a IoT Hub. Para ver est
 
 ## <a name="use-direct-method-calls"></a>Uso de llamadas de método directo
 
-Ahora puede analizar secuencias de vídeo en directo mediante la invocación de métodos directos que expone el módulo perimetral de Video Analyzer. Consulte [Métodos directos de Video Analyzer](direct-methods.md) para examinar todos los métodos directos que proporciona el módulo.
+Ahora puede analizar secuencias de vídeo en directo mediante la invocación de métodos directos que expone el módulo perimetral de Video Analyzer. Consulte [Métodos directos de Video Analyzer](direct-methods.md) para examinar todos los métodos directos que proporciona el módulo. El esquema de los métodos directos se puede encontrar [aquí](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/videoanalyzer/data-plane/VideoAnalyzer.Edge/preview/1.0.0/AzureVideoAnalyzerSdkDefinitions.json).
 
 ### <a name="enumerate-pipeline-topologies"></a>Enumeración de topologías de canalización
 

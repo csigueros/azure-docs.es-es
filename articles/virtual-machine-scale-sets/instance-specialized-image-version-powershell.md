@@ -10,14 +10,16 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: mimckitt
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a47d0d99dd4ca3db9098222f62d73fc4ea258d1b
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: a12e378b91f2b303e80b739be3b8e9efea4262ec
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112027990"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122691081"
 ---
 # <a name="create-a-scale-set-from-a-specialized-image-using-powershell"></a>Creación de un conjunto de escalado a partir de una imagen especializada mediante PowerShell 
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado uniformes
 
 Cree una máquina virtual a partir de una versión de imagen especializada almacenada en [Shared Image Gallery](../virtual-machines/shared-image-galleries.md) mediante Azure PowerShell. Si desea crear un conjunto de escalado mediante una versión de imagen generalizada, consulte [Creación de instancias de un conjunto de escalado a partir de una versión de imagen generalizada](instance-generalized-image-version-powershell.md).
 

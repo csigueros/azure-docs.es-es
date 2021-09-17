@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/27/2021
 ms.author: jeedes
-ms.openlocfilehash: 9872402ca86ec1d6de349f921806757822e3b587
-ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
+ms.openlocfilehash: 78fa4b405c95d1f39a733eb22ff7c08d28873940
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111568799"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122178070"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-code42"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Code42
 
@@ -38,6 +38,8 @@ Para empezar, necesita los siguientes elementos:
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
 * Code42 admite el inicio de sesión único iniciado por **SP**.
+* Code42 admite el [**aprovisionamiento y desaprovisionamiento automatizado de usuarios**](code42-provisioning-tutorial.md) (recomendado).
+
 
 > [!NOTE]
 > El identificador de esta aplicación es un valor de cadena fijo, por lo que solo se puede configurar una instancia en un inquilino.

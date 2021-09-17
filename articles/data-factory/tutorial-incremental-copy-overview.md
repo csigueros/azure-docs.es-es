@@ -4,15 +4,16 @@ description: En estos tutoriales se muestra cómo copiar datos de forma incremen
 author: dearandyxu
 ms.author: yexu
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 02/18/2021
-ms.openlocfilehash: 7161fb30c8b445681b4cd577d8f8ac9fff5106df
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a7dae1f33583a7350dd273a44efa90e9cb7dd725
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101739252"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122638860"
 ---
 # <a name="incrementally-load-data-from-a-source-data-store-to-a-destination-data-store"></a>Carga incremental de datos de un almacén de datos de origen a un almacén de datos de destino
 
@@ -43,7 +44,7 @@ Para ver instrucciones paso a paso, consulte el siguiente tutorial: <br/>
 - [Carga incremental de datos de Azure SQL Database a Azure Blob Storage mediante la información de control de cambios](tutorial-incremental-copy-change-tracking-feature-powershell.md)
 
 ## <a name="loading-new-and-changed-files-only-by-using-lastmodifieddate"></a>Carga de archivos nuevos y modificados solo mediante LastModifiedDate
-Puede copiar los archivos nuevos y modificados en el almacén de destino utilizando solo LastModifiedDate. ADF examinará todos los archivos del almacén de origen, aplicará el filtro de archivos con LastModifiedDate, y copiará solo los archivos nuevos y actualizados desde la última vez en el almacén de destino.  Tenga en cuenta que si deja que ADF examine enormes cantidades de archivos, aunque solo copie algunos archivos en destino, aún así tendrá que prever que tarde bastante, ya que el examen de archivos puede exigir mucho tiempo.   
+Puede copiar los archivos nuevos y modificados en el almacén de destino utilizando solo LastModifiedDate. ADF examinará todos los archivos del almacén de origen, aplicará el filtro de archivos con LastModifiedDate, y copiará solo los archivos nuevos y actualizados desde la última vez en el almacén de destino.  Tenga en cuenta que si deja que ADF analice grandes cantidades de archivos pero solo copia unos pocos en el destino, el proceso tardará mucho tiempo debido al proceso de examen de archivos.   
 
 Para ver instrucciones paso a paso, consulte el siguiente tutorial: <br/>
 - [Copia incremental de archivos nuevos y modificados según LastModifiedDate desde Azure Blob Storage hasta Azure Blob Storage](tutorial-incremental-copy-lastmodified-copy-data-tool.md)

@@ -8,23 +8,23 @@ ms.topic: how-to
 ms.date: 05/08/2020
 ms.author: buhollan
 ms.custom: devx-track-js
-ms.openlocfilehash: b7191e4d1cff49ff31fa66f80c3aafbc4dfd9924
-ms.sourcegitcommit: 0ce834cd348bb8b28a5f7f612c2807084cde8e8f
+ms.openlocfilehash: 8132ed61a1588c8ccdeb2ac9dc0eb6b5354fd0e0
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109814287"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122778850"
 ---
 # <a name="configure-application-settings-for-azure-static-web-apps"></a>Configuración de las opciones de la aplicación para Azure Static Web Apps
 
 La configuración de la aplicación almacena las opciones de configuración para los valores que pueden cambiar, como las cadenas de conexión de base de datos. Al agregar la configuración de la aplicación, puede modificar las entradas de la configuración en la aplicación sin necesidad de cambiar el código de la aplicación.
 
-Las opciones de configuración de la aplicación:
+Las opciones de la aplicación:
 
-- Se cifran en reposo
-- Se copian a los entornos de [ensayo](review-publish-pull-requests.md) y producción
-
-A las opciones de configuración de la aplicación también se les conoce a veces como variables de entorno.
+- se cifran en reposo;
+- se copian en los entornos de [ensayo](review-publish-pull-requests.md) y producción;
+- solo pueden usar caracteres alfanuméricos, `.` y `_`.
+- En ocasiones también reciben el nombre de "variables de entorno".
 
 > [!IMPORTANT]
 > La configuración de la aplicación descrita en este artículo solo se aplica a la API de back-end de una aplicación de Azure Static Web App.

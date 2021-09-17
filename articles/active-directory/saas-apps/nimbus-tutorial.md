@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/17/2020
+ms.date: 08/17/2021
 ms.author: jeedes
-ms.openlocfilehash: 0cc005ee22bff897a87679a0bde95ffec6e98e51
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 96077765fe4332c56a2d2d429bc5a18c2fcaf750
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92522417"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122772486"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-nimbus"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Nimbus
 
@@ -40,7 +40,7 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 * Nimbus admite el inicio de sesión único iniciado por **SP e IDP**.
 * Nimbus admite el aprovisionamiento de usuarios **Just-In-Time**.
 
-## <a name="adding-nimbus-from-the-gallery"></a>Adición de Nimbus desde la galería
+## <a name="add-nimbus-from-the-gallery"></a>Adición de Nimbus desde la galería
 
 Para configurar la integración de Nimbus en Azure AD, es preciso agregar Nimbus desde la galería a la lista de aplicaciones SaaS administradas.
 
@@ -50,7 +50,6 @@ Para configurar la integración de Nimbus en Azure AD, es preciso agregar Nimbu
 1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
 1. En la sección **Agregar desde la galería**, escriba **Nimbus** en el cuadro de búsqueda.
 1. Seleccione **Nimbus** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
-
 
 ## <a name="configure-and-test-azure-ad-sso-for-nimbus"></a>Configuración y prueba del inicio de sesión único de Azure AD para Nimbus
 
@@ -71,11 +70,11 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. En Azure Portal, en la página de integración de aplicaciones de **Nimbus**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
 1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
-1. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
+1. En la página **Configuración del inicio de sesión único con SAML**, haga clic en el icono de lápiz de **Configuración básica de SAML** para editar la configuración.
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-1. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en modo iniciado por **IDP**, escriba los valores de los siguientes campos:
+1. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en modo iniciado por **IDP**, realice los siguientes pasos:
 
     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://<CUSTOMER_NAME>.time2work.com/Security/ADFS.aspx`
 
@@ -91,6 +90,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en el botón de copia para copiar la **Dirección URL de metadatos de federación de aplicación** y guárdela en su equipo.
 
     ![Vínculo de descarga del certificado](common/copy-metadataurl.png)
+
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
 En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Portal.
@@ -137,7 +137,7 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 * Haga clic en **Probar esta aplicación** en Azure Portal; debería iniciar sesión automáticamente en la instancia de Nimbus para la que configuró el inicio de sesión único. 
 
-También puede usar el Panel de acceso de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de Nimbus en el Panel de acceso, si está configurado en modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para iniciar el flujo de inicio de sesión y, si está configurado en modo IDP, debería iniciar sesión automáticamente en la instancia de Nimbus para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
+También puede usar Aplicaciones de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de Nimbus en Aplicaciones, si está configurado en modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para iniciar el flujo de inicio de sesión. Si este está configurado en modo IDP, deberá iniciar sesión automáticamente en la instancia de Nimbus para la que configuró el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -11,14 +11,16 @@ ms.subservice: redhat
 ms.custom:
 - mode-api
 ms.collection: linux
-ms.openlocfilehash: 34d0fdb605e81606960e56a3a15f9f41ee078898
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: 77d113dac4f081210746851a76c6c4f623a79645
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112467426"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122771982"
 ---
 # <a name="deploy-enterprise-java-applications-to-azure-with-jboss-eap-on-red-hat-enterprise-linux"></a>Implementación de aplicaciones empresariales Java en Azure con JBoss EAP en Red Hat Enterprise Linux
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux 
 
 En las plantillas de inicio rápido de Azure de este artículo se muestra cómo implementar [JBoss Enterprise Application Platform (EAP)](https://www.redhat.com/en/technologies/jboss-middleware/application-platform) con [Red Hat Enterprise Linux (RHEL)](https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux) en máquinas virtuales de Azure y conjuntos de escalado de máquinas virtuales de Azure. Usará una aplicación Java de ejemplo para validar la implementación. 
 
@@ -155,7 +157,7 @@ Para más información sobre los precios de máquinas virtuales con el modelo PA
 Para usar el modelo BYOS para el sistema operativo de RHEL, debe tener una suscripción válida de Red Hat con derechos para usar el sistema operativo RHEL en Azure. Antes de implementar el sistema operativo RHEL con el modelo BYOS, complete los siguientes requisitos previos:
 
 1. Asegúrese de que tiene los derechos del sistema operativo RHEL y JBoss EAP asociados a su suscripción de Red Hat.
-2. Autorice su identificador de suscripción de Azure para usar imágenes de BYOS en RHEL. Siga la [documentación de administración de suscripciones de Red Hat](https://access.redhat.com/documentation/red_hat_subscription_management/1/) para completar el proceso, que incluye estos pasos:
+2. Autorice su identificador de suscripción de Azure para usar imágenes de BYOS en RHEL. Siga la [documentación de administración de suscripciones de Red Hat](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1) para completar el proceso, que incluye estos pasos:
 
    1. Habilite Microsoft Azure como proveedor en el panel de Red Hat Cloud Access.
 
@@ -230,7 +232,7 @@ Para empezar, use una de las siguientes plantillas de inicio rápido para JBoss 
 
 * <a href="https://azure.microsoft.com/resources/templates/jboss-eap-clustered-multivm-rhel/"> JBoss EAP en RHEL (en clúster, varias máquinas virtuales)</a>. Esta plantilla implementará una aplicación web denominada eap-session-replication en un clúster de JBoss EAP 7.2 o 7.3 que se ejecuta en un número *n* de máquinas virtuales de RHEL 7.7 u 8.0. El usuario decide el valor *n*. Todas las máquinas virtuales se agregan al grupo de back-end de un equilibrador de carga.
 
-* <a href="https://azure.microsoft.com/en-us/resources/templates/jboss-eap-clustered-vmss-rhel/"> JBoss EAP en RHEL (en clúster, conjunto de escalado de máquinas virtuales)</a>. Esta plantilla implementará una aplicación web denominada eap-session-replication en un clúster de JBoss EAP 7.2 o 7.3 que se ejecuta en conjuntos de escalado de máquinas virtuales de RHEL 7.7 o 8.0.
+* <a href="https://azure.microsoft.com/resources/templates/jboss-eap-clustered-vmss-rhel/"> JBoss EAP en RHEL (en clúster, conjunto de escalado de máquinas virtuales)</a>. Esta plantilla implementará una aplicación web denominada eap-session-replication en un clúster de JBoss EAP 7.2 o 7.3 que se ejecuta en conjuntos de escalado de máquinas virtuales de RHEL 7.7 o 8.0.
 
 ## <a name="resource-links"></a>Vínculos de recursos
 
@@ -242,8 +244,8 @@ Para empezar, use una de las siguientes plantillas de inicio rápido para JBoss 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Más información sobre [JBoss EAP 7.2](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.2/).
-* Más información sobre [JBoss EAP 7.3](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.3/).
+* Más información sobre [JBoss EAP 7.2](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.2).
+* Más información sobre [JBoss EAP 7.3](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.3).
 * Más información sobre la [administración de suscripciones de Red Hat](https://access.redhat.com/products/red-hat-subscription-management).
 * Información sobre las [cargas de trabajo de Red Hat en Azure](./overview.md).
 * Implementación de [JBoss EAP en una máquina virtual o un conjunto de escalado de máquinas virtuales de RHEL desde Azure Marketplace](https://aka.ms/AMP-JBoss-EAP).

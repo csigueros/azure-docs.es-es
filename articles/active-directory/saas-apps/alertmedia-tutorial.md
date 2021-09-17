@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/13/2021
+ms.date: 08/20/2021
 ms.author: jeedes
-ms.openlocfilehash: 5affe9f8876ef8d69a585119155d6cdd77ab46ac
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 847e80822cffe0a1a1daaf7595062b2e7a522ab5
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110078741"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122772207"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-alertmedia"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con AlertMedia
 
@@ -39,6 +39,7 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 
 * AlertMedia admite el inicio de sesión único iniciado por **IDP**.
 * AlertMedia admite el aprovisionamiento de usuarios **Just-In-Time**.
+* AlertMedia admite el [aprovisionamiento de usuarios automatizado](alertmedia-provisioning-tutorial.md).
 
 ## <a name="add-alertmedia-from-the-gallery"></a>Incorporación de AlertMedia desde la galería
 

@@ -3,12 +3,12 @@ title: Administrar suscripciones
 description: Las suscripciones consisten en dispositivos confirmados administrados y se pueden incorporar o retirar según sea necesario.
 ms.date: 08/10/2021
 ms.topic: how-to
-ms.openlocfilehash: b2d9c5ba3b359415f1dcfa5772003aec04a80855
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.openlocfilehash: 41240bd3b05c08d8acd3484bbe32fc99b6590d49
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122252490"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122444425"
 ---
 # <a name="manage-defender-for-iot-subscriptions"></a>Administración de suscripciones a Defender para IoT
 
@@ -32,20 +32,22 @@ Antes de suscribirse, debe tener una idea de cuántos dispositivos desea que cub
 Los usuarios también pueden trabajar con una suscripción de prueba, que permite supervisar un número limitado de dispositivos durante 30 días.
 Para obtener información sobre el precio de dispositivos confirmados, consulte [Precios de Azure Defender](https://azure.microsoft.com/pricing/details/azure-defender/).
 
-### <a name="before-you-begin"></a>Antes de empezar
+## <a name="requirements"></a>Requisitos
 
 Antes de incorporar una suscripción, compruebe lo siguiente:
+
 - Ha configurado su cuenta de Azure.
 - Tiene los permisos de usuario de Azure necesarios.
-#### <a name="azure-account-setup"></a>Configuración de una cuenta de Azure
 
-Para empezar a trabajar con Azure Defender para IoT, debe tener una suscripción a Microsoft Azure. Si no tiene una suscripción, puede registrarse para obtener una cuenta gratuita. Si ya tiene acceso a una suscripción a Azure, pero no aparece en la lista al suscribirse, compruebe los detalles de la cuenta y confirme sus permisos con el propietario de la suscripción.
+### <a name="azure-account-subscription-requirements"></a>Requisitos de suscripción de la cuenta de Azure
 
-- Si tiene una cuenta: https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade.
+Para empezar a trabajar con Azure Defender para IoT, debe tener una suscripción de cuenta de Microsoft Azure.
 
-- Si no tiene una cuenta: https://azure.microsoft.com/free/.
+Si no tiene una suscripción, puede registrarse para obtener una cuenta gratuita. Para obtener más información, consulte https://azure.microsoft.com/free/.
 
-#### <a name="user-permission-requirements"></a>Requisitos de permisos de usuario
+Si ya tiene acceso a una suscripción a Azure, pero no aparece en la lista al suscribirse a Defender para IoT, compruebe los detalles de la cuenta y confirme sus permisos con el propietario de la suscripción. Vea https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade.
+
+### <a name="user-permission-requirements"></a>Requisitos de permisos de usuario
 
 Los **propietarios** y los **colaboradores** de suscripciones de Azure pueden incorporar, actualizar y retirar suscripciones a Azure Defender para IoT.
 

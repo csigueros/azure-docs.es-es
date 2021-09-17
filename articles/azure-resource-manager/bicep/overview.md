@@ -2,13 +2,13 @@
 title: Lenguaje Bicep para implementar recursos de Azure
 description: Describe el lenguaje Bicep para implementar la infraestructura en Azure. Ofrece una experiencia de creación mejorada sobre el uso de JSON para desarrollar plantillas.
 ms.topic: conceptual
-ms.date: 07/30/2021
-ms.openlocfilehash: 28d42335901db5326be502be52fd4ce2209a7980
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 08/18/2021
+ms.openlocfilehash: 93aea8ee92d1f15ac45bd5978e7cbf68261e5a69
+ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121724606"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122429111"
 ---
 # <a name="what-is-bicep"></a>¿Qué es Bicep?
 
@@ -34,6 +34,8 @@ Para empezar a trabajar con Bicep:
 2. **Complete el artículo de [inicio rápido](./quickstart-create-bicep-use-visual-studio-code.md) y los [módulos de Bicep en Microsoft Learn](./learn-bicep.md)** .
 
 Para descompilar en Bicep una plantilla de ARM existente, consulte [Descompilación de plantillas de ARM en Bicep](./decompile.md). Para ver el archivo de Bicep y el de JSON equivalente en paralelo, consulte [Bicep Playground](https://bicepdemo.z22.web.core.windows.net/).
+
+Para obtener información sobre los recursos que están disponibles en el archivo de Bicep, vea [Referencia de recursos de Bicep](/azure/templates/)
 
 Puede encontrar ejemplos de Bicep en el [repositorio de Bicep en GitHub](https://github.com/Azure/bicep/tree/main/docs/examples).
 
@@ -108,7 +110,7 @@ Siguen funcionando exactamente como siempre lo han hecho. No es necesario hacer 
 
 Cuando esté listo, puede [descompilar los archivos JSON en Bicep](./decompile.md).
 
-## <a name="known-limitations"></a>Limitaciones conocidas
+## <a name="known-limitations"></a>Restricciones conocidas
 
 - No se admiten matrices ni objetos de una sola línea. Por ejemplo, `['a', 'b', 'c']` no es compatible. Para obtener más información, consulte [Matrices](data-types.md#arrays) y [Objetos](data-types.md#objects).
 - No se admite la separación de líneas largas en varias líneas. Por ejemplo:

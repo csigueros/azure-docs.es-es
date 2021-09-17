@@ -7,14 +7,16 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 08/25/2020
 ms.author: cynthn
-ms.openlocfilehash: abc9a2ae130d987c90ce87ffaecbf2bb44b06010
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aa6cdb37e6b664398e469ab8e1c3eefbb721bba0
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88929452"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122698450"
 ---
 # <a name="generate-and-store-ssh-keys-in-the-azure-portal"></a>Generar y almacenar claves SSH en Azure Portal
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles :heavy_check_mark: Conjuntos de escalado uniformes
 
 Si usa con frecuencia el portal para implementar VM de Linux, puede hacer que el uso de claves SSH sea más sencillo al crearlas directamente en el portal o al cargarlas desde el equipo.
 

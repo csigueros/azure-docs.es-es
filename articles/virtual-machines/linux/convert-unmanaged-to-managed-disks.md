@@ -8,14 +8,16 @@ ms.topic: how-to
 ms.date: 12/15/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 1a0bca9446cd6a04b8568ccebd8df006641e6dca
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 58e68193ffabb6984365eade56c9c8efe8504acd
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114297713"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122692143"
 ---
 # <a name="convert-a-linux-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Conversión de una máquina virtual Linux con discos no administrados en discos administrados
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux 
 
 Si ya dispone de máquinas virtuales (VM) con Linux que usan Unmanaged Disks, puede convertirlas para usar [Azure Managed Disks](../managed-disks-overview.md). Este proceso convierte el disco del SO y los discos de datos conectados.
 

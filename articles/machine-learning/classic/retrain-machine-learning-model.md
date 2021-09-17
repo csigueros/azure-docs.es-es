@@ -1,5 +1,5 @@
 ---
-title: 'ML Studio (clásico): reciclaje de servicios web (Azure)'
+title: 'ML Studio (clásico): Nuevo entrenamiento de servicios web (Azure)'
 description: Aprenda a actualizar un servicio web para usar un modelo de Machine Learning recién entrenado en Machine Learning Studio (clásico).
 services: machine-learning
 ms.service: machine-learning
@@ -9,17 +9,18 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18, devx-track-csharp, devx-track-azurepowershell
 ms.date: 02/14/2019
-ms.openlocfilehash: 5234611c99a58cefcb98d02c87d257055f603b4c
-ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
+ms.openlocfilehash: 374359b3b91a19fdeead862a6fb6d2dad2f4260a
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112579637"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122688423"
 ---
 # <a name="retrain-and-deploy-a-machine-learning-model"></a>Nuevo entrenamiento e implementación de un modelo de aprendizaje automático
 
 **SE APLICA A:**  ![Se aplica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![No se aplica a.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
+[!INCLUDE [ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)]
 
 Una forma de garantizar que los modelos de aprendizaje automático siguen siendo precisos y se basan en los datos más adecuados disponibles, es volver a entrenarlos. En este artículo se muestra cómo volver a entrenar e implementar un modelo de aprendizaje automático como un nuevo servicio web en Studio (clásico). Si está pensando en volver a entrenar un servicio web clásico, [vea este artículo de procedimientos.](retrain-classic-web-service.md)
 

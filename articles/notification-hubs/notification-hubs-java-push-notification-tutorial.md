@@ -5,24 +5,22 @@ services: notification-hubs
 documentationcenter: ''
 author: sethmanheim
 manager: femila
-editor: jwargo
-ms.assetid: 4c3f966d-0158-4a48-b949-9fa3666cb7e4
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: java
 ms.devlang: java
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 08/23/2021
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 01/04/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: 09553f587916e8204541b36f259a450d72c1b270
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: d5a3e848694f89d7c0b59304043e774b2291ae1f
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "87322948"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122772785"
 ---
 # <a name="how-to-use-notification-hubs-from-java"></a>Uso de Notification Hubs desde Java
 
@@ -43,6 +41,9 @@ El SDK admite actualmente:
 * Envíos programados
 * Operaciones asincrónicas mediante Java NIO
 * Plataformas admitidas: APNS (iOS), FCM (Android), WNS (aplicaciones de la Tienda Windows), MPNS (Windows Phone), ADM (Amazon Kindle Fire), Baidu (Android sin servicios de Google)
+
+> [!NOTE]
+> El servicio de notificaciones push de Microsoft (MPNS) está en desuso y ya no es compatible.
 
 ## <a name="sdk-usage"></a>Uso del SDK
 

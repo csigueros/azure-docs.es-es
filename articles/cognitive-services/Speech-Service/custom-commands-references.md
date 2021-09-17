@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: c0694e7d136b7fd339362145179939d350eb23ef
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 1040c05b081c6edb181d349d00468d1ba0aac3a7
+ms.sourcegitcommit: d01c2b2719e363178720003b67b968ac2a640204
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110475971"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122455920"
 ---
 # <a name="custom-commands-concepts-and-definitions"></a>Conceptos y definiciones de Comandos personalizados
 
@@ -51,12 +51,24 @@ Tenga en cuenta que, aunque configure un **valor predeterminado** para **paráme
 ### <a name="type"></a>Tipo
 Comandos personalizados admite los siguientes tipos de parámetros:
 
+* Age
+* Moneda
 * DateTime
+* Dimensión
+* Email
 * Geography
 * Number
+* Ordinal
+* Porcentaje
+* PersonName
+* PhoneNumber
 * String
+* Temperatura
+* Url
 
-Todos estos tipos de parámetros, excepto Geography, son compatibles con la configuración de valores predeterminados, que puede realizar desde el portal.
+Cada configuración regional admite el tipo de parámetro "String", pero la disponibilidad del resto de tipos varía en función de la configuración regional. Comandos personalizados usa la resolución de entidades predefinidas de LUIS, por lo que la disponibilidad de un tipo de parámetro en una configuración regional dependerá de la compatibilidad de entidades predefinidas de LUIS en esa configuración regional. Aquí encontrará [más detalles sobre la compatibilidad de entidades predefinidas de LUIS por configuración regional](/azure/cognitive-services/luis/luis-reference-prebuilt-entities).
+
+Algunos tipos de parámetros, como Number, String y DateTime, admiten la configuración de un valor predeterminado, lo que se puede configurar desde Portal.
 
 ### <a name="configuration"></a>Configuración
 La configuración es una propiedad de parámetro que solo está definida para el tipo Cadena. Se admiten los valores siguientes:

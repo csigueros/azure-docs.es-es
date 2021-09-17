@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0947f9924e97532b087940ecde08e8a0f8d7e005
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: b77a0a8f1a02fa970965d3393dada2a7720ab3e4
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114449112"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122821379"
 ---
 # <a name="protect-user-accounts-from-attacks-with-azure-active-directory-smart-lockout"></a>Protección de las cuentas de usuario frente a ataques con el bloqueo inteligente de Azure Active Directory
 
@@ -47,7 +47,7 @@ Al usar la [autenticación de paso a través](../hybrid/how-to-connect-pta.md), 
 * El umbral de bloqueo de Azure AD es **menor** que el umbral de bloqueo de cuenta de AD DS. Establezca los valores de modo que el umbral de bloqueo de cuenta de AD DS sea al menos dos o tres veces mayor que el umbral de bloqueo de Azure AD.
 * La duración del bloqueo de Azure AD debe ser mayor que la duración de Restablecer el contador de bloqueos tras de AD DS. La duración de Azure AD se establece en segundos, mientras que la duración de AD se establece en minutos.
 
-Por ejemplo, si quiere que el contador de Azure AD sea mayor que AD DS, el contador de Azure AD sería de 120 segundos (2 minutos), mientras que el contador de AD en el entorno local se establece en 1 minuto (60 segundos).
+Por ejemplo, si quiere que la duración de bloqueo inteligente de Azure AD sea mayor que AD DS, Azure AD sería de 120 segundos (2 minutos), mientras que AD local se establece en 1 minuto (60 segundos). Si desea que el umbral de bloqueo de Azure AD sea 5, el umbral de bloqueo de AD local debe ser 10.  Esta configuración garantizaría que el bloqueo inteligente impida que las cuentas de AD local se bloqueen por ataques por fuerza bruta en las cuentas de Azure AD.
 
 > [!IMPORTANT]
 > Actualmente, un administrador no puede desbloquear cuentas en la nube de los usuarios si estos han sido bloqueados por la capacidad de bloqueo inteligente. El administrador deberá esperar a que expire la duración del bloqueo. Pero el usuario puede desbloquear mediante el autoservicio de restablecimiento de contraseña (SSPR) desde un dispositivo o una ubicación de confianza.

@@ -7,14 +7,14 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 04/18/2021
-ms.openlocfilehash: cf69321045a3c79e2803445964ff7f09a5e522e7
-ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
+ms.openlocfilehash: b1168833242aa69b8e1bff5d7bd810f2c3db019d
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2021
-ms.locfileid: "114732239"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122693591"
 ---
-# <a name="connect-azure-database-for-sql-flexible-server-with-private-access-connectivity-method"></a>Conexión al servidor flexible de Azure Database for SQL con un método de conectividad de acceso privado
+# <a name="connect-azure-database-for-mysql-flexible-server-with-private-access-connectivity-method"></a>Conexión al servidor flexible de Azure Database for MySQL con un método de conectividad de acceso privado
 
 Servidor flexible de Azure Database for MySQL es un servicio administrado que se usa para ejecutar, administrar y escalar servidores MySQL de alta disponibilidad en la nube. En este inicio rápido se muestra cómo crear un servidor flexible en una red virtual mediante Azure Portal.
 
@@ -44,7 +44,7 @@ Siga estos pasos para crear un servidor flexible:
 
 4. En la pestaña **Aspectos básicos**, escriba la **suscripción**, el **grupo de recursos**, la **región**, el **nombre de usuario de administrador** y la **contraseña de administrador**.  Con los valores predeterminados, se aprovisionará un servidor MySQL de la versión 5.7 con una SKU por ráfagas mediante 1 núcleo virtual, memoria de 2 GiB y almacenamiento de 32 GiB. La retención de copia de seguridad es de 7 días. La configuración se puede cambiar.
 
-    > :::image type="content" source="./media/quickstart-create-connect-server-vnet/mysql-flexible-server-create-portal.png" alt-text="Captura de pantalla que muestra la pestaña Conceptos básicos de la página Servidor flexible." lightbox="/media/quickstart-create-connect-server-vnet/mysql-flexible-server-create-portal.png":::
+    > :::image type="content" source="./media/quickstart-create-connect-server-vnet/mysql-flexible-server-create-portal.png" alt-text="Captura de pantalla que muestra la pestaña Conceptos básicos de la página Servidor flexible." lightbox="./media/quickstart-create-connect-server-vnet/mysql-flexible-server-create-portal.png":::
 
    > [!TIP]
    > Para agilizar la carga de datos durante la migración, se recomienda aumentar IOPS hasta el tamaño máximo admitido por el tamaño de proceso y, posteriormente, volver a escalarlo para ahorrar costos.
@@ -133,7 +133,7 @@ ssh -i .\Downloads\myKey1.pem azureuser@10.111.12.123
 Debe instalar la herramienta mysql-client para poder conectarse al servidor.
 
 ```bash
-sude apt-getupdate
+sudo apt-getupdate
 sudo apt-get install mysql-client
 ```
 

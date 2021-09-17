@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: overview
 ms.date: 06/02/2021
 ms.author: cherylmc
-ms.openlocfilehash: b62f531c355852dd8a66f8186d4bd73a875e6948
-ms.sourcegitcommit: b59e0afdd98204d11b7f9b6a3e55f5a85d8afdec
+ms.openlocfilehash: 97ecb049d4307bacf6c9a7b73d08e3d25e05f112
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114371626"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122821674"
 ---
 # <a name="what-is-azure-virtual-wan"></a>¿Qué es Azure Virtual WAN?
 
@@ -51,11 +51,11 @@ Para configurar una red Virtual WAN de extremo a otro, debe crear los siguientes
 
 * **virtualWAN:** El recurso virtualWAN representa una superposición virtual de la red de Azure y es una colección de varios recursos. Contiene vínculos a todos los concentradores virtuales que le gustaría tener dentro de Virtual WAN. Los recursos de Virtual WAN están aislados entre sí y no pueden contener un concentrador común. Los centros de conectividad virtuales mediante Virtual WAN no se comunican entre sí.
 
-* **Centro:** Un concentrador virtual es una red virtual administrada por Microsoft. El concentrador contiene varios puntos de conexión de servicio para habilitar la conectividad. Desde la red local (vpnsite), puede conectarse a una instancia de VPN Gateway dentro del centro de conectividad virtual, conectar circuitos ExpressRoute a un centro de conectividad virtual o incluso conectar usuarios móviles a una puerta de enlace de punto a sitio en el centro de conectividad virtual. El concentrador es el núcleo de la red en una región. Solo puede haber un único concentrador por cada región de Azure.
+* **Centro:** Un concentrador virtual es una red virtual administrada por Microsoft. El concentrador contiene varios puntos de conexión de servicio para habilitar la conectividad. Desde la red local (vpnsite), puede conectarse a una instancia de VPN Gateway dentro del centro de conectividad virtual, conectar circuitos ExpressRoute a un centro de conectividad virtual o incluso conectar usuarios móviles a una puerta de enlace de punto a sitio en el centro de conectividad virtual. El concentrador es el núcleo de la red en una región. Se pueden crear varios centros virtuales en la misma región. 
 
   Una puerta de enlace de concentrador no es lo mismo que la puerta de enlace de red virtual que usó para ExpressRoute y VPN Gateway. Por ejemplo, cuando se usa Virtual WAN, no se crea una conexión de sitio a sitio desde un sitio local directamente a una red virtual. En su lugar, se crea una conexión de sitio a sitio en el centro. El tráfico siempre pasa a través de la puerta de enlace del concentrador. Esto significa que las redes virtuales no necesitan su propia puerta de enlace de red virtual. Virtual WAN permite que las redes virtuales obtengan provecho del escalado fácilmente mediante el concentrador virtual y su puerta de enlace.
 
-* **Conexión de red virtual del centro:** el recurso de conexión de red virtual de centro se usa para conectar el centro sin problemas a una red virtual.
+* **Conexión de red virtual del centro:** el recurso de conexión de red virtual de centro se usa para conectar el centro sin problemas a una red virtual. Una red virtual solo se puede conectar a un centro virtual. 
 
 * **Conexión centro a centro:** los centros están conectados entre sí en una WAN virtual. Esto implica que una rama, un usuario o una red virtual conectados a un concentrador local pueden comunicarse con otra rama o red virtual mediante la arquitectura de malla completa de los concentradores conectados. También puede conectar redes virtuales dentro de un centro de conectividad virtual en tránsito mediante el concentrador virtual, así como redes virtuales a través del concentrador, con el marco conectado de concentrador a concentrador.
 

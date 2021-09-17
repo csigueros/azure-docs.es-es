@@ -2,17 +2,19 @@
 title: Acerca de la configuración, el proceso y los servidores de destino maestros de Azure Site Recovery
 description: En este artículo se proporciona información general sobre el uso de servidores de configuración, proceso y destino maestro al configurar la recuperación ante desastres de máquinas virtuales locales de VMware en Azure con Azure Site Recovery.
 ms.topic: conceptual
-ms.date: 03/17/2020
-ms.openlocfilehash: cd5ded18d1a8f1f5fd96212d37725bb5db13002f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 08/19/2021
+ms.openlocfilehash: ad8cdbdf9d051ac9b0e5a7fd47660811e4a285e3
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "80062083"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122446429"
 ---
 # <a name="about-site-recovery-components-configuration-process-master-target"></a>Acerca de los componentes de Site Recovery (configuración, proceso y destino maestro)
 
-En este artículo se describen los servidores de configuración, proceso y destino maestro que usa el servicio [Site Recovery](site-recovery-overview.md) para replicar tanto máquinas virtuales de VMware como servidores físicos en Azure.
+En este artículo se describen los servidores de configuración, proceso y destino maestro que usa el servicio [Site Recovery](site-recovery-overview.md) para replicar tanto máquinas virtuales de VMware como servidores físicos en Azure. Este artículo es válido para las versiones clásicas.
+
+Para replicar máquinas virtuales en la versión preliminar, hay que crear y usar un servidor de replicación de Azure Site Recovery. Para obtener información sobre el servidor de replicación de Azure Site Recovery y sus componentes, consulte [este artículo](vmware-azure-architecture-preview.md).
 
 ## <a name="configuration-server"></a>Servidor de configuración
 

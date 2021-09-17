@@ -8,14 +8,16 @@ ms.date: 03/02/2020
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.openlocfilehash: 87f77b72104caf74007d63477f6f845c7ae8ad96
-ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
+ms.openlocfilehash: ea18c4f5738fef119106dd983b58252ef364bae8
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2021
-ms.locfileid: "113593696"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122770361"
 ---
 # <a name="create-a-linux-image-and-distribute-it-to-a-shared-image-gallery-by-using-azure-cli"></a>Creación de una imagen de Linux y distribución a Shared Image Gallery mediante la CLI de Azure
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Conjuntos de escalado flexibles 
 
 En este artículo se muestra cómo puede usar Azure Image Builder y la CLI de Azure para crear una versión de la imagen en el servicio [Shared Image Gallery](../shared-image-galleries.md) y después distribuirla globalmente. También puede hacerlo mediante [Azure PowerShell](../windows/image-builder-gallery.md).
 
@@ -69,10 +71,10 @@ imageDefName=myIbImageDef
 runOutputName=aibLinuxSIG
 ```
 
-Cree una variable para el id. de suscripción. Puede obtenerlo mediante `az account show -o json | grep id`.
+Cree una variable para el id. de suscripción.
 
 ```azurecli-interactive
-subscriptionID=<Subscription ID>
+subscriptionID=$(az account show --query id --output tsv)
 ```
 
 Cree el grupo de recursos.
@@ -90,7 +92,7 @@ identityName=aibBuiUserId$(date +'%s')
 az identity create -g $sigResourceGroup -n $identityName
 
 # get identity id
-imgBuilderCliId=$(az identity show -g $sigResourceGroup -n $identityName -o json | grep "clientId" | cut -c16- | tr -d '",')
+imgBuilderCliId=$(az identity show -g $sigResourceGroup -n $identityName --query clientId -o tsv)
 
 # get the user identity URI, needed for the template
 imgBuilderId=/subscriptions/$subscriptionID/resourcegroups/$sigResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/$identityName

@@ -1,23 +1,26 @@
 ---
-title: Actividad web en Azure Data Factory
-description: Aprenda a usar la actividad web, una de las actividades de flujo de control admitidas por Data Factory, para invocar un punto de conexión REST desde una canalización.
+title: Actividad web
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Aprenda a usar la actividad web, una de las actividades de flujo de control admitidas por Azure Data Factory y Azure Synapse Analytics, para invocar un punto de conexión REST desde una canalización.
 author: nabhishek
 ms.author: abnarain
 ms.service: data-factory
+ms.subservice: orchestration
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 12/19/2018
-ms.openlocfilehash: 23b28b54e42b03007492424a58b6234ccc5233ce
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.date: 08/24/2021
+ms.openlocfilehash: 88b7e1cb43fc10301f9dab46c6cca5f30c1e14d1
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107906681"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122822486"
 ---
-# <a name="web-activity-in-azure-data-factory"></a>Actividad web en Azure Data Factory
+# <a name="web-activity-in-azure-data-factory-and-azure-synapse-analytics"></a>Actividad web en Azure Data Factory y Azure Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 
-La actividad Web puede usarse para llamar a un punto de conexión REST personalizado desde una canalización de Data Factory. Puede pasar conjuntos de datos y servicios vinculados que la actividad consumirá y a los que tendrá acceso.
+La actividad web puede usarse para llamar a un punto de conexión REST personalizado desde una canalización de Azure Data Factory o Synapse. Puede pasar conjuntos de datos y servicios vinculados que la actividad consumirá y a los que tendrá acceso.
 
 > [!NOTE]
 > Se admite la actividad web para invocar direcciones URL que se hospedan en una red virtual privada y mediante el uso de un entorno de ejecución de integración autohospedado. El entorno de ejecución de integración debe tener una línea de visión al punto de conexión de la dirección URL. 
@@ -128,7 +131,7 @@ Especifique un contenido codificado en base64 de un archivo PFX y la contraseña
 
 ### <a name="managed-identity"></a>Identidad administrada
 
-Especifique el URI de recurso para el que el token de acceso se solicitará utilizando la identidad administrada para la factoría de datos. Para llamar a la API de Azure Resource Management, use `https://management.azure.com/`. Para más información sobre cómo funcionan las identidades administradas, consulte la página de información general [Identidades administradas de recursos de Azure](../active-directory/managed-identities-azure-resources/overview.md).
+Especifique el URI de recurso para el que el token de acceso se solicitará utilizando la identidad administrada para la factoría de datos o la instancia del área de trabajo de Synapse. Para llamar a la API de Azure Resource Management, use `https://management.azure.com/`. Para más información sobre cómo funcionan las identidades administradas, consulte la página de información general [Identidades administradas de recursos de Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
 ```json
 "authentication": {
@@ -138,7 +141,7 @@ Especifique el URI de recurso para el que el token de acceso se solicitará util
 ```
 
 > [!NOTE]
-> Si la factoría de datos está configurada con un repositorio de Git, debe almacenar las credenciales en Azure Key Vault para usar la autenticación de certificado de cliente o básica. Azure Data Factory no almacena contraseñas en Git.
+> Si la factoría de datos o el área de trabajo de Synapse está configurada con un repositorio de Git, tiene que almacenar sus credenciales en Azure Key Vault para usar la autenticación básica o de certificado de cliente. El servicio no almacena contraseñas en Git.
 
 ## <a name="request-payload-schema"></a>Solicitar un esquema de carga
 Al usar el método POST o PUT, la propiedad body representa la carga que se envía al punto de conexión. Puede pasar servicios vinculados y conjuntos de datos como parte de la carga. Este es el esquema de la carga:
@@ -258,7 +261,7 @@ public HttpResponseMessage Execute(JObject payload)
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte otras actividades de flujo de control compatibles con Data Factory:
+Vea otras actividades de flujo de control admitidas:
 
 - [Actividad de ejecución de canalización](control-flow-execute-pipeline-activity.md)
 - [Para cada actividad](control-flow-for-each-activity.md)

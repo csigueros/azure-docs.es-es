@@ -9,14 +9,16 @@ ms.workload: infrastructure
 ms.date: 07/31/2020
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 12715a3f1392f789425ac7cc5176db3f293efef8
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: f195a741ed11fc8f7ded421593417bf41a3b9d84
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110668223"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122692824"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-azure-with-powershell"></a>Inicio rápido: Creación de una máquina virtual Linux en Azure con PowerShell
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux 
 
 El módulo de Azure PowerShell se usa para crear y administrar recursos de Azure desde la línea de comandos de PowerShell o en scripts. En esta guía de inicio rápido se muestra cómo usar el módulo de Azure PowerShell para implementar una máquina virtual Linux en Azure. En este inicio rápido se usa la imagen de Marketplace de Ubuntu 18.04 LTS de Canonical. Para ver la máquina virtual en acción, conéctese a ella mediante SSH e instale el servidor web NGINX.
 
