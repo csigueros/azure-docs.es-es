@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: how-to
 ms.custom: inference server, local development, local debugging, devplatv2
 ms.date: 05/14/2021
-ms.openlocfilehash: 924995fe9330a44b52a40a8e3eb651efdeb24398
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 48dda26415113bff4ff20305ee8779804859be33
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121751947"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123428315"
 ---
 # <a name="azure-machine-learning-inference-http-server-preview"></a>Servidor HTTP de inferencia de Azure Machine Learning (versión preliminar)
 
@@ -132,6 +132,15 @@ En los pasos siguientes se explica cómo el servidor HTTP de inferencia de Azure
 1. Por último, la solicitud se envía al script de entrada. A continuación, el script de entrada realiza una llamada de inferencia al modelo cargado y devuelve una respuesta.
 
 :::image type="content" source="./media/how-to-inference-server-http/inference-server-architecture.png" alt-text="Diagrama del proceso del servidor HTTP":::
+
+## <a name="how-to-integrate-with-visual-studio-code"></a>Procedimiento para la integración con Visual Studio Code
+
+Hay dos maneras de usar Visual Studio Code (VSCode) y la [extensión Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) para depurar con el paquete [azureml-inference-server-http](https://pypi.org/project/azureml-inference-server-http/). 
+
+1. El usuario inicia el servidor de inferencia de AzureML en una línea de comandos y usa VSCode más la extensión Python para adjuntar al proceso.
+1. El usuario configura `launch.json` en VSCode e inicia el servidor de inferencia de AzureML en VSCode.
+
+En ambos sentidos, el usuario puede establecer el punto de interrupción y depurar paso a paso.
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 

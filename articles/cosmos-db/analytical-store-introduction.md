@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/12/2021
 ms.author: rosouz
 ms.custom: seo-nov-2020
-ms.openlocfilehash: 5bcc0fed8413affe6d525f03bd08e8b61751f893
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 80818386ccd47619ccb23323474ac76fa2240db2
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121745517"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123427735"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store"></a>¿Qué es el almacén analítico de Azure Cosmos DB?
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -149,7 +149,19 @@ Las restricciones siguientes se aplican a los datos operativos de Azure Cosmos 
   * La eliminación de todos los documentos de una colección no restablece el esquema del almacén analítico.
   * No hay control de versiones de esquema. La última versión inferida del almacén de transacciones es lo que verá en el almacén analítico.
 
-* Actualmente no se admiten los nombres de la columna de lectura de Azure Synapse Spark que contengan espacios en blanco. Deberá usar funciones de Spark como `cast` o `replace` para poder cargar los datos en un dataframe de Spark.
+* Actualmente, Azure Synapse Spark no puede leer propiedades que contengan en su nombre determinados caracteres especiales, que se enumeran a continuación. Si este es su caso, póngase en contacto con el [equipo de Azure Cosmos DB](mailto:cosmosdbsynapselink@microsoft.com) para obtener más información.
+  * : (dos puntos)
+  * ` (acento grave)
+  * , (coma)
+  * ; (punto y coma)
+  * {}
+  * ()
+  * \n
+  * \t
+  * = (signo igual)
+  * " (comillas dobles)
+ 
+* Ahora Azure Synapse Spark admite propiedades con espacios en blanco en sus nombres.
 
 ### <a name="schema-representation"></a>Representación del esquema
 
@@ -298,7 +310,7 @@ Si tiene una cuenta de Azure Cosmos DB distribuida globalmente, después de habi
 
 ## <a name="security"></a>Seguridad
 
-* La autenticación con el almacén analítico es igual que en un almacén transaccional para una base de datos determinada. Puede usar claves principales o de solo lectura para la autenticación. Puede aprovechar el servicio vinculado en Synapse Studio para evitar pegar las claves de Azure Cosmos DB en los cuadernos de Spark. El acceso a este servicio vinculado está disponible para todos los usuarios que tengan acceso al área de trabajo.
+* La **autenticación con el almacén analítico** es igual que en un almacén transaccional para una base de datos determinada. Puede usar claves principales o de solo lectura para la autenticación. Puede aprovechar el servicio vinculado en Synapse Studio para evitar pegar las claves de Azure Cosmos DB en los cuadernos de Spark. En el caso de Azure Synapse SQL sin servidor, puede usar credenciales de SQL para evitar también pegar las claves de Azure Cosmos DB en los cuadernos de SQL. El acceso a estos servicios vinculados o a estas credenciales está disponible para cualquier usuario que tenga acceso al área de trabajo.
 
 * **Aislamiento de red con puntos de conexión privados**: puede controlar el acceso de red a los datos de los almacenes transaccionales y analíticos de forma independiente. El aislamiento de red se realiza mediante puntos de conexión privados administrados distintos para cada almacén, dentro de redes virtuales administradas en áreas de trabajo de Azure Synapse. Para más información, consulte el artículo [Configuración de puntos de conexión privados para almacenes analíticos](analytical-store-private-endpoints.md).
 
@@ -323,12 +335,14 @@ El almacén analítico sigue un modelo de precios basado en el consumo, donde se
 
 * Operaciones de lectura analíticas: operaciones de lectura realizadas en el almacén analítico desde los tiempos de ejecución del grupo de SQL sin servidor y el grupo de Spark de Azure Synapse Analytics.
 
-Los precios del almacén analítico son independientes del modelo de precios del almacén transaccional. No hay ningún concepto de RU aprovisionadas en el almacén analítico. Consulte la [página de precios de Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/) para obtener información completa sobre el modelo de precios del almacén analítico.
+Los precios del almacén analítico son independientes del modelo de precios del almacén transaccional. No hay ningún concepto de RU aprovisionadas en el almacén analítico. Consulte la [página de precios de Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/) para obtener información completa sobre el modelo de precios del almacén analítico.
 
-Para obtener una estimación general del costo de habilitación del almacén analítico en un contenedor de Azure Cosmos DB, puede usar el [planificador de capacidad de Azure Cosmos DB](https://cosmos.azure.com/capacitycalculator/) y obtener una estimación de los costos de almacenamiento analítico y de las operaciones de escritura. Los costos de las operaciones de lectura analíticas dependen de las características de la carga de trabajo analítica, pero como estimación general, el análisis de 1 TB de datos en el almacén analítico suele generar 130 000 operaciones de lectura analíticas, con un costo de 0,065 USD.
+Solo se puede acceder a los datos del almacén de análisis a través de Azure Synapse Link, que se realiza en los entornos de ejecución de Azure Synapse Analytics: grupos de Apache Spark y grupos de SQL sin servidor de Azure Synapse. Consulte la [página de precios de Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/synapse-analytics/) para obtener todos los detalles sobre el modelo de precios para acceder a los datos de un almacén analítico.
+
+Para obtener una estimación general del costo de habilitación del almacén analítico en un contenedor de Azure Cosmos DB, desde la perspectiva del almacén analítico, puede usar el [planificador de capacidad de Azure Cosmos DB](https://cosmos.azure.com/capacitycalculator/) y obtener una estimación de los costos de almacenamiento analítico y de las operaciones de escritura. Los costos de las operaciones de lectura analíticas dependen de las características de la carga de trabajo analítica, pero como estimación general, el análisis de 1 TB de datos en el almacén analítico suele generar 130 000 operaciones de lectura analíticas, con un costo de 0,065 USD.
 
 > [!NOTE]
-> Las estimaciones de operaciones de lectura del almacén analítico no se incluyen en la calculadora de costos de Cosmos DB, ya que son una función de la carga de trabajo analítica. Aunque la estimación anterior es para examinar 1 TB de datos en el almacén analítico, la aplicación de filtros reduce el volumen de datos analizados y esto determina el número exacto de operaciones de lectura analíticas según el modelo de precios de consumo. Una prueba de concepto en torno a la carga de trabajo analítica proporcionaría una estimación más fina de las operaciones de lectura analítica.
+> Las estimaciones de operaciones de lectura del almacén analítico no se incluyen en la calculadora de costos de Cosmos DB, ya que son una función de la carga de trabajo analítica. Aunque la estimación anterior es para examinar 1 TB de datos en el almacén analítico, la aplicación de filtros reduce el volumen de datos analizados y esto determina el número exacto de operaciones de lectura analíticas según el modelo de precios de consumo. Una prueba de concepto en torno a la carga de trabajo analítica proporcionaría una estimación más fina de las operaciones de lectura analítica. Esta estimación no incluye el costo de Azure Synapse Analytics.
 
 
 ## <a name="analytical-time-to-live-ttl"></a><a id="analytical-ttl"></a> Período de vida (TTL) analítico

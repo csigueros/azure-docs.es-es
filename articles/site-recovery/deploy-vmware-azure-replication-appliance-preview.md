@@ -3,13 +3,13 @@ title: 'Implementación del dispositivo de replicación de Azure Site Recovery: 
 description: 'En este artículo se describen el soporte y los requisitos al implementar el dispositivo de replicación para realizar la recuperación ante desastres de VMware en Azure con Azure Site Recovery: versión preliminar'
 ms.service: site-recovery
 ms.topic: article
-ms.date: 08/19/2021
-ms.openlocfilehash: e4021aa0f5572a51ca4d3ddda37f64f4da46a3b4
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.date: 09/01/2021
+ms.openlocfilehash: f1c5182cc06fa0065c266cdd03ffe85717c0d496
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122446752"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123536804"
 ---
 # <a name="deploy-azure-site-recovery-replication-appliance---preview"></a>Implementación del dispositivo de replicación de Azure Site Recovery: versión preliminar
 
@@ -58,7 +58,7 @@ Asegúrese de que se permiten las siguientes direcciones URL y se puede acceder 
 
   | **URL**                  | **Detalles**                             |
   | ------------------------- | -------------------------------------------|
-  | portal.azure.com          | Vaya a Azure Portal.              |
+  | portal.azure.com          | Acceda a Azure Portal.              |
   | `*.windows.net `<br>`*.msftauth.net`<br>`*.msauth.net`<br>`*.microsoft.com`<br>`*.live.com `<br>`*.office.com ` | Para iniciar sesión en la suscripción de Azure.  |
   |`*.microsoftonline.com `|Cree aplicaciones de Azure Active Directory (AD) para que el dispositivo se comunique con Azure Site Recovery. |
   |management.azure.com |Cree aplicaciones de Azure AD para que el dispositivo se comunique con el servicio Azure Site Recovery. |
@@ -67,10 +67,9 @@ Asegúrese de que se permiten las siguientes direcciones URL y se puede acceder 
   |aka.ms |Permita el acceso a vínculos también conocido como. Se usa para las actualizaciones del dispositivo de Azure Site Recovery. |
   |download.microsoft.com/download |Permita descargas de Microsoft. |
   |`*.servicebus.windows.net `|Comunicación entre el dispositivo y el servicio Azure Site Recovery. |
-  |`*.discoverysrv.windowsazure.com `|Conéctese a la dirección URL del servicio de detección de Azure Site Recovery. |
-  |`*.hypervrecoverymanager.windowsazure.com `|Conéctese a las direcciones URL de microservicios de Azure Site Recovery.  |
+  |`*.discoverysrv.windowsazure.com `<br><br>`*.hypervrecoverymanager.windowsazure.com `<br><br> `*.backup.windowsazure.com ` |Conéctese a las direcciones URL de microservicios de Azure Site Recovery.
   |`*.blob.core.windows.net `|Cargue datos en Azure Storage que se usan para crear discos de destino. |
-  |`*.backup.windowsazure.com `|Dirección URL del servicio de protección: un microservicio que Azure Site Recovery usa para procesar y crear discos replicados en Azure. |
+
 
 > [!NOTE]
 > Los vínculos privados no se admiten con la versión preliminar.
@@ -85,7 +84,7 @@ Para crear y registrar un dispositivo de replicación de Azure Site Recovery, ne
 
 Si acaba de crear una cuenta de Azure gratuita, es el propietario de la suscripción. Si no es el propietario de la suscripción, colabore con él para obtener los permisos necesarios.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 **Estos son los permisos necesarios del almacén de claves**:
 
@@ -240,6 +239,9 @@ En caso de restricciones organizativas, puede configurar manualmente el disposit
 
     Asegúrese de no cerrar el explorador mientras la configuración está en curso.
 
+    >[!NOTE]
+    > La clonación de dispositivos no es compatible con esta versión preliminar. Si intenta clonar, podría interrumpir el flujo de recuperación.
+
 
 ## <a name="view-azure-site-recovery-replication-appliance-in-azure-portal"></a>Vista del dispositivo de replicación de Azure Site Recovery en Azure Portal
 
@@ -267,4 +269,4 @@ Un dispositivo en el que se utiliza el servidor de procesos integrado para prote
 Para obtener información detallada sobre cómo usar varios dispositivos y conmutar por error un dispositivo de replicación, consulte [este artículo](switch-replication-appliance-preview.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
-Configure la recuperación ante desastres en Azure para [máquinas virtuales VMware](vmware-azure-tutorial.md).
+Configure la recuperación ante desastres en Azure para [máquinas virtuales VMware](vmware-azure-set-up-replication-tutorial-preview.md).

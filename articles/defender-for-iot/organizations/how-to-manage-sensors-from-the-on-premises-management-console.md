@@ -1,14 +1,14 @@
 ---
 title: Administración de sensores desde la consola de administración local
-description: Obtenga información sobre cómo administrar los sensores desde la consola de administración, incluida la actualización de las versiones de los sensores, la inserción de la configuración del sistema en sensores y también la habilitación y deshabilitación de motores en sensores.
+description: Aprenda a administrar los sensores desde la consola de administración, incluida la actualización de las versiones de los sensores, la inserción de la configuración del sistema en sensores, la administración de certificados y también la habilitación y deshabilitación de motores en sensores.
 ms.date: 07/08/2021
 ms.topic: how-to
-ms.openlocfilehash: 1597c5830ff497bf4ee1d10a59f1ee22e16f056f
-ms.sourcegitcommit: 555ea0d06da38dea1de6ecbe0ed746cddd4566f5
+ms.openlocfilehash: dbdee98fc1f7e6bc294bd54d72e64fa8f053eb8e
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2021
-ms.locfileid: "113515295"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123431195"
 ---
 # <a name="manage-sensors-from-the-management-console"></a>Administración de sensores desde la consola de administración
 
@@ -62,11 +62,17 @@ Puede definir la siguiente configuración del sistema de sensores desde la conso
 
 1. Seleccione **Guardar**.
 
-## <a name="update-versions"></a>Actualización de versiones
+## <a name="update-sensor-versions"></a>Actualización de las versiones de los sensores
 
 Puede actualizar varios sensores simultáneamente desde la consola de administración local.
 
+### <a name="update-sequence"></a>Secuencia de actualización
+
+Al actualizar una consola de administración local y sensores administrados, actualice primero la consola de administración y, a continuación, actualice los sensores. El proceso de actualización del sensor no se realizará correctamente si no actualiza primero la consola de administración local.
+
 **Para actualizar varios sensores**:
+
+1. Compruebe que ya ha actualizado la consola de administración local a la versión que está actualizando los sensores. Para obtener más información sobre la actualización de la consola de administración local, consulte [Actualización de la versión de software](how-to-manage-the-on-premises-management-console.md#update-the-software-version).
 
 1. Vaya a [Azure Portal](https://portal.azure.com/).
 
@@ -105,7 +111,7 @@ Puede supervisar el estado de actualización de cada sensor en la ventana **Site
 
 Puede ver el estado de actualización de los sensores desde la consola de administración. Si la actualización no se ha podido realizar, puede volver a intentar actualizar el sensor desde la consola de administración local (versiones 2.3.5 y posteriores).
 
-Para actualizar el sensor desde la consola de administración local:
+**Para actualizar el sensor desde la consola de administración local:**
 
 1. Inicie sesión en la consola de administración local y vaya a la página **Sites Management** (Administración de sitios).
 
@@ -125,7 +131,7 @@ El paquete de datos de la inteligencia sobre amenazas se proporciona con cada nu
 
 Puede cargar manualmente este archivo desde la página **Actualizaciones** del portal de Defender para IoT y actualizarlo automáticamente en los sensores. 
 
-Para actualizar los datos de inteligencia sobre amenazas: 
+**Para actualizar los datos de inteligencia sobre amenazas:**
 
 1. Vaya a la página **Actualizaciones** de Defender para IoT. 
 
@@ -168,7 +174,7 @@ Los sensores están protegidos por cinco motores de Defender para IoT. Puede hab
 | Motor operativo | Este motor detecta incidentes operativos o entidades que no funcionan correctamente. | Alerta `Device is Suspected to be Disconnected (Unresponsive)`. Esta alerta se desencadena cuando un dispositivo no responde a las solicitudes durante un período predefinido. Podría indicar un apagado, desconexión o funcionamiento incorrecto del dispositivo.
 |
 
-Para habilitar o deshabilitar los motores para los sensores conectados:
+**Para habilitar o deshabilitar los motores para los sensores conectados:**
 
 1. En el panel izquierdo de la consola, seleccione **Configuración del sistema**.
 
@@ -232,7 +238,7 @@ Cuando supera el número de copias de seguridad retenidas que se ha definido, se
 
 El nombre de los archivos de copia de seguridad de sensores se asigna automáticamente con el siguiente formato: `<sensor name>-backup-version-<version>-<date>.tar`. Por ejemplo: `Sensor_1-backup-version-2.6.0.102-2019-06-24_09:24:55.tar`. 
 
-Para realizar una copia de seguridad de sensores:
+**Para realizar una copia de seguridad de sensores:**
 
 1. Seleccione **Schedule Sensor Backup** (Programar copia de seguridad de sensores) en la ventana **Configuración del sistema**. Los sensores que la consola de administración local administra aparecen en el cuadro de diálogo **Sensor Backup Schedule** (Programación de copia de seguridad de sensores).  
 
@@ -252,7 +258,7 @@ Para realizar una copia de seguridad de sensores:
 
 1. Seleccione **Guardar**. 
 
-Para realizar la copia de seguridad inmediatamente: 
+**Para realizar la copia de seguridad inmediatamente:**
 
 - Seleccione **Hacer Copia Ahora**. La consola de administración local crea y recopila archivos de copia de seguridad de sensores. 
 
@@ -278,7 +284,7 @@ Puede enviar una notificación por correo electrónico, actualizaciones de syslo
 
 Puede restaurar las copias de seguridad desde la consola de administración local y mediante la CLI.  
 
-Para restaurar desde la consola: 
+**Para restaurar desde la consola:**
 
 - Seleccione **Restore Image** (Restaurar imagen) en la ventana de configuración **Sensor System** (Sistema de sensores).
 
@@ -292,7 +298,7 @@ Para realizar la restauración con la CLI:
 
 ### <a name="save-a-sensor-backup-to-an-external-smb-server"></a>Procedimiento para guardar la copia de seguridad de un sensor en un servidor SMB externo
 
-Si quiere configurar un servidor SMB para que pueda guardar una copia de seguridad de un sensor en una unidad externa: 
+**Si quiere configurar un servidor SMB para que pueda guardar una copia de seguridad de un sensor en una unidad externa:**
 
 1. Cree una carpeta compartida en el servidor SMB externo. 
 

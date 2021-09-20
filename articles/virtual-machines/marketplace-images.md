@@ -8,16 +8,17 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 07/07/2020
 ms.author: cynthn
-ms.reviewer: akjosh
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1ba23474034623228cc7c645ffb3d0ec5ae65474
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 52f4152a8f3ec1d2f812de74ed0bd238fb323330
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110679053"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123451842"
 ---
 # <a name="supply-azure-marketplace-purchase-plan-information-when-creating-images"></a>Indicación de la información del plan de compra de Azure Marketplace al crear imágenes
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles :heavy_check_mark: Conjuntos de escalado uniformes
 
 Si va a crear una imagen en una galería compartida y va a usar para ello un origen que se creó a partir de una imagen de Azure Marketplace, es posible que necesite realizar un seguimiento de la información del plan de compra. En este artículo se muestra cómo buscar información del plan de compra para una máquina virtual y, después, cómo usar esa información al crear una definición de imagen. También se tratará el uso de la información de la definición de la imagen para simplificar el suministro de información del plan de compra al crear una máquina virtual para una imagen.
 
@@ -68,7 +69,7 @@ Cree la definición de la imagen con los parámetros `-PurchasePlanPublisher`, `
    -PurchasePlanName  $vm.Plan.Name
 ```
 
-Luego, cree una versión de la imagen mediante [New-AzGalleryImageVersion](/powershell/module/az.compute/new-azgalleryimageversion). Se puede crear una versión de imagen desde una [máquina virtual](image-version-vm-powershell.md#create-an-image-version), una [imagen administrada](image-version-managed-image-powershell.md#create-an-image-version), un [disco duro virtual o instantánea](image-version-snapshot-powershell.md#create-an-image-version) u [otra versión de la imagen](image-version-another-gallery-powershell.md#create-the-image-version). 
+Luego, cree una [versión de la imagen](image-version.md) mediante [New-AzGalleryImageVersion](/powershell/module/az.compute/new-azgalleryimageversion).  
 
 
 ## <a name="create-the-vm"></a>Creación de la máquina virtual

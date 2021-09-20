@@ -3,17 +3,25 @@ title: 'Actualización de los componentes del dispositivo y Mobility Service: ve
 description: 'En este artículo se describen las actualizaciones automáticas del agente de movilidad y el procedimiento relacionado con las actualizaciones manuales: versión preliminar.'
 ms.service: site-recovery
 ms.topic: article
-ms.date: 08/19/2021
-ms.openlocfilehash: 3f9b29eedb5e379bf13657e3619c498ccec90e7e
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.date: 09/01/2021
+ms.openlocfilehash: 97cfba3e14268385632a47a5898b21e8d68811cb
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122446714"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123539738"
 ---
 # <a name="upgrade-mobility-service-and-appliance-components-preview"></a>Actualización de los componentes del dispositivo y Mobility Service (versión preliminar)
 
+Desde esta versión preliminar, no es necesario mantener las credenciales raíz o de administrador de la máquina de origen para realizar actualizaciones. Las credenciales solo son necesarias para la instalación inicial del agente. Una vez hecho esto, puede quitar las credenciales.
+
+
+## <a name="update-mobility-agent-automatically"></a>Actualización automática del agente de movilidad
+
 De manera predeterminada, las actualizaciones automáticas están habilitadas en un almacén. Las actualizaciones automáticas se desencadenarán a las 12:00 a. m. hora local todos los días, si hay una nueva versión disponible.
+
+> [!NOTE]
+> Si usa bits de versión preliminar privada, las actualizaciones automáticas se bloquean para las máquinas protegidas. Asegúrese de configurar el Site Recovery en la máquina de nuevo, mediante un nuevo dispositivo de versión preliminar.
 
 Para aprovechar las características, mejoras y correcciones más recientes, se recomienda elegir la opción **Permitir la administración por parte de Site Recovery** en la **configuración de actualización del agente de movilidad (versión preliminar)** . Las actualizaciones automáticas no requieren un reinicio ni afectan a la replicación en curso de las máquinas virtuales. Las actualizaciones automáticas también garantizan que todos los dispositivos de replicación del almacén se actualizan automáticamente.
 
@@ -23,8 +31,6 @@ Para desactivar las actualizaciones automáticas, active el botón **Permitir la
 
 ![Actualizaciones automáticas desactivadas en el agente de movilidad](./media/upgrade-mobility-service-preview/automatic-updates-off.png)
 
-> [!NOTE]
-> Si usa bits de versión preliminar privada, las actualizaciones automáticas se bloquean para las máquinas protegidas. Asegúrese de configurar el Site Recovery en la máquina de nuevo, mediante un nuevo dispositivo de versión preliminar.
 
 ## <a name="update-mobility-agent-manually"></a>Actualización manual del agente de movilidad
 

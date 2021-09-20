@@ -4,18 +4,20 @@ description: Configuración de un disco administrado de Azure con discos compart
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/16/2021
+ms.date: 09/01/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: d2a770dd007c801d2192ff08349966ff915bdd0a
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.openlocfilehash: bdf012d1ee6c1230e458b7b40e3130d8fa25e4a1
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122253090"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123424786"
 ---
 # <a name="enable-shared-disk"></a>Habilitación del disco compartido
+
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles :heavy_check_mark: Conjuntos de escalado uniformes
 
 En este artículo se describe cómo habilitar la característica de discos compartidos en Azure Managed Disks. Los discos compartidos de Azure son una nueva característica de Azure Managed Disks que permite conectar un disco administrado a varias máquinas virtuales (VM) al mismo tiempo. Si adjunta un disco administrado en varias VM, podrá implementar nuevas aplicaciones en clúster o migrar las existentes a Azure. 
 
@@ -60,9 +62,9 @@ Para implementar un disco administrado con la característica de disco compartid
 
     :::image type="content" source="media/disks-shared-enable/create-shared-disk-basics-pane.png" alt-text="Captura de pantalla del panel Crear un disco administrado, cambio de tamaño resaltado." lightbox="media/disks-shared-enable/create-shared-disk-basics-pane.png":::
 
-1. Seleccione el tamaño de SSD Premium que desee y seleccione **Aceptar**.
+1. Seleccione el tamaño de SSD Premium y la SKU que desee y seleccione **Aceptar**.
 
-    :::image type="content" source="media/disks-shared-enable/select-premium-shared-disk.png" alt-text="Captura de pantalla de la SKU de disco, SSD Premium resaltado." lightbox="media/disks-shared-enable/select-premium-shared-disk.png":::
+    :::image type="content" source="media/disks-shared-enable/select-premium-shared-disk.png" alt-text="Captura de pantalla de la SKU de disco, las SKU de SSD Premium LRS y ZRS resaltadas." lightbox="media/disks-shared-enable/select-premium-shared-disk.png":::
 
 1. Continúe con la implementación hasta llegar al panel **Avanzado**.
 1. Seleccione **Sí** para **Habilitar disco compartido** y seleccione la cantidad de **recursos compartidos máximos** que desea.
@@ -103,7 +105,23 @@ Para implementar un disco administrado con la característica de disco compartid
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Actualmente no se puede implementar un SSD estándar compartido a través de Azure Portal. Use la CLI de Azure, el módulo Azure PowerShell o una plantilla de Azure Resource Manager.
+1. Inicie sesión en Azure Portal. 
+1. Busque y seleccione **Discos**.
+1. Seleccione **+ Crear** para crear un nuevo disco.
+1. Rellene los detalles y seleccione una región adecuada y, a continuación, seleccione **Cambiar tamaño**.
+
+    :::image type="content" source="media/disks-shared-enable/create-shared-disk-basics-pane.png" alt-text="Captura de pantalla del panel Crear un disco administrado, cambio de tamaño resaltado." lightbox="media/disks-shared-enable/create-shared-disk-basics-pane.png":::
+
+1. Seleccione el tamaño de SSD Estándar y la SKU que desee y seleccione **Aceptar**.
+
+    :::image type="content" source="media/disks-shared-enable/select-standard-ssd-shared-disk.png" alt-text="Captura de pantalla de la SKU de disco, las SKU estándar de SSD LRS y ZRS resaltadas." lightbox="media/disks-shared-enable/select-premium-shared-disk.png":::
+
+1. Continúe con la implementación hasta llegar al panel **Avanzado**.
+1. Seleccione **Sí** para **Habilitar disco compartido** y seleccione la cantidad de **recursos compartidos máximos** que desea.
+
+    :::image type="content" source="media/disks-shared-enable/enable-premium-shared-disk.png" alt-text="Captura de pantalla del panel Avanzado, Habilitar disco compartido resaltado y establecer en Sí" lightbox="media/disks-shared-enable/enable-premium-shared-disk.png":::.
+
+1. Seleccione **Revisar + crear**.
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 

@@ -2,15 +2,14 @@
 title: Administración de una solicitud de soporte técnico de Azure
 description: Describe cómo ver solicitudes de soporte técnico, enviar mensajes, cambiar el nivel de gravedad de las solicitudes, compartir información de diagnóstico con el soporte técnico de Azure, volver a abrir una solicitud de soporte técnico cerrada y cargar archivos.
 tags: billing
-ms.assetid: 86697fdf-3499-4cab-ab3f-10d40d3c1f70
 ms.topic: how-to
-ms.date: 05/25/2021
-ms.openlocfilehash: bc9edecd918668e76c36308a660c47d3a8fd9e8b
-ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
+ms.date: 09/01/2021
+ms.openlocfilehash: f1930402c0f458962c95f8f4fe0f1011f1dcca49
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110496530"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123426389"
 ---
 # <a name="manage-an-azure-support-request"></a>Administración de una solicitud de soporte técnico de Azure
 
@@ -36,13 +35,10 @@ En esta página, puede buscar, filtrar y ordenar solicitudes de soporte técnico
 
 > [!NOTE]
 > El nivel de gravedad máximo depende de su [plan de soporte técnico](https://azure.microsoft.com/support/plans).
->
 
 1. En la página **Todas las solicitudes de soporte técnico**, seleccione la solicitud de soporte técnico.
 
 1. En la página **Solicitud de soporte técnico**, seleccione **Cambiar**.
-
-    :::image type="content" source="media/how-to-manage-azure-support-request/change-severity.png" alt-text="Cambiar la gravedad de la solicitud de soporte técnico":::
 
 1. Azure Portal muestra una de dos pantallas, en función de si la solicitud ya está asignada a un ingeniero de soporte técnico:
 
@@ -56,16 +52,16 @@ En esta página, puede buscar, filtrar y ordenar solicitudes de soporte técnico
 
 ## <a name="share-diagnostic-information-with-azure-support"></a>Compartir información de diagnóstico con el soporte técnico de Azure
 
-Al crear una solicitud de soporte técnico, la opción **Compartir información de diagnóstico** está seleccionada de forma predeterminada. Esta opción permite al soporte técnico de Azure recopilar [información de diagnóstico](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) de los recursos de Azure que pueden ayudar a resolver el problema.
+Al crear una solicitud de soporte técnico, se puede seleccionar **Sí** o **No** en la sección **Compartir información de diagnóstico**. Esta opción determina si Soporte técnico de Azure puede recopilar [información de diagnóstico](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) de los recursos de Azure que pueda ayudar a resolver el problema.
 
 Para cambiar la selección de **Compartir información de diagnóstico** una vez creada la solicitud:
 
 1. En la página **Todas las solicitudes de soporte técnico**, seleccione la solicitud.
-    
+
 1. En la página **Solicitud de soporte técnico**, busque **Compartir información de diagnóstico** y, a continuación, seleccione **Cambiar**.
-    
-1.  Seleccione **Sí** o **No** y, a continuación, seleccione **Aceptar** para confirmar.
-    
+
+1. Seleccione **Sí** o **No** y, a continuación, seleccione **Aceptar** para confirmar.
+
     :::image type="content" source="media/how-to-manage-azure-support-request/grant-permission-manage.png" alt-text="Conceder permisos para la información de diagnóstico":::
 
 ## <a name="upload-files"></a>Carga de archivos
@@ -82,11 +78,11 @@ Puede usar la opción de carga de archivos para cargar archivos de diagnóstico 
 
 Siga estas directrices cuando use la opción de carga de archivos:
 
-* Para proteger su privacidad, no incluya ninguna información personal en su carga.
-* El nombre de archivo debe ser de 110 caracteres como máximo.
-* No se puede cargar más de un archivo.
-* Los archivos no pueden ser superiores a 4 MB.
-* Todos los archivos deben tener una extensión de nombre de archivo, por ejemplo, *.docx* o *.xlsx*. En la tabla siguiente se muestran las extensiones de nombre de archivo que se permiten para la carga.
+- Para proteger su privacidad, no incluya ninguna información personal en su carga.
+- El nombre de archivo debe ser de 110 caracteres como máximo.
+- No se puede cargar más de un archivo.
+- Los archivos no pueden ser superiores a 4 MB.
+- Todos los archivos deben tener una extensión de nombre de archivo, por ejemplo, *.docx* o *.xlsx*. En la tabla siguiente se muestran las extensiones de nombre de archivo que se permiten para la carga.
 
 | 0-9, A-C    | D-G   | H-N         | O-Q   | R-T      | U-W        | X-Z     |
 |-------------|-------|-------------|-------|----------|------------|---------|
@@ -121,18 +117,17 @@ Siga estas directrices cuando use la opción de carga de archivos:
 
 ## <a name="close-a-support-request"></a>Cierre de una solicitud de soporte técnico
 
-Si tiene que cerrar una solicitud de soporte técnico, [envíe un mensaje](#send-a-message) para pedir que se cierre la solicitud.
+Para cerrar una solicitud de soporte técnico, [envíe un mensaje](#send-a-message) para pedir que se cierre la solicitud.
 
 ## <a name="reopen-a-closed-request"></a>Volver a abrir una solicitud cerrada
 
-Si necesita volver a abrir una solicitud de soporte cerrada, cree un [mensaje nuevo](#send-a-message). Al hacerlo, la solicitud se volverá a abrir automáticamente.
+Para volver a abrir una solicitud de soporte cerrada, cree un [mensaje nuevo](#send-a-message). Al hacerlo, la solicitud se volverá a abrir automáticamente.
 
 ## <a name="cancel-a-support-plan"></a>Cancelación de un plan de soporte técnico
 
-Si tiene que cancelar un plan de soporte técnico, consulte [Cancelación de un plan de soporte técnico](../../cost-management-billing/manage/cancel-azure-subscription.md#cancel-a-support-plan).
+Para cancelar un plan de soporte técnico, consulte [Cancelación de un plan de soporte técnico](../../cost-management-billing/manage/cancel-azure-subscription.md#cancel-a-support-plan).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Creación de una solicitud de soporte técnico de Azure](how-to-create-azure-support-request.md)
-
-[API REST de incidencia de soporte técnico de Azure](/rest/api/support)
+- Consulte el proceso para [crear una solicitud de soporte técnico de Azure](how-to-create-azure-support-request.md).
+- Obtenga más información sobre la [API REST de incidencia de soporte técnico de Azure](/rest/api/support).

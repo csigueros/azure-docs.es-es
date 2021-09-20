@@ -1,14 +1,14 @@
 ---
 title: Determinación de las causas de incumplimiento
 description: Cuando un recurso no es compatible, hay muchos motivos posibles para ello. Descubra qué es lo que provoca que no sea compatible.
-ms.date: 08/17/2021
+ms.date: 09/01/2021
 ms.topic: how-to
-ms.openlocfilehash: e09bdaee974e77a3afecaaa35a37c56ed3cd56ec
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 3c4076673adfe3253a418cc648592e72a8979b5a
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122324534"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123433818"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Determinación de las causas de incumplimiento
 
@@ -78,9 +78,13 @@ Estos detalles explican por qué un recurso no es compatible actualmente, pero n
 
 ### <a name="compliance-reasons"></a>Razones de cumplimiento
 
-La siguiente matriz asigna cada _motivo_ posible a la [condición](../concepts/definition-structure.md#conditions) responsable en la definición de la directiva:
+Los [modos de Resource Manager](../concepts/definition-structure.md#resource-manager-modes) y los [modos del proveedor de recursos](../concepts/definition-structure.md#resource-provider-modes) tienen _razones_ diferentes para el no cumplimiento.
 
-|Motivo | Condición |
+#### <a name="general-resource-manager-mode-compliance-reasons"></a>Razones de cumplimiento del modo general de Resource Manager
+
+La siguiente tabla asigna cada _razón_ del [modo de Resource Manager](../concepts/definition-structure.md#resource-manager-modes) posible a la [condición](../concepts/definition-structure.md#conditions) responsable en la definición de la directiva:
+
+|Motivo |Condición |
 |-|-|
 |El valor actual debe contener el valor de destino como una clave. |containsKey o **no** notContainsKey |
 |El valor actual debe contener el valor de destino. |contains o **no** notContains |
@@ -104,15 +108,33 @@ La siguiente matriz asigna cada _motivo_ posible a la [condición](../concepts/d
 |El valor actual no debe coincidir sin distinción de mayúsculas y minúsculas con el valor de destino. |notMatchInsensitively o **no** matchInsensitively |
 |Ninguno de los recursos relacionados coincide con los detalles de vigencia de la definición de directiva. |Un recurso del tipo definido en **then.details.type** y relacionado con el recurso definido en la porción **if** de la regla de directiva no existe. |
 
+#### <a name="aks-resource-provider-mode-compliance-reasons"></a>Razones de cumplimiento del modo del proveedor de recursos de AKS
+
+En la tabla siguiente se asigna cada _razón_ del `Microsoft.Kubernetes.Data`
+[modo del proveedor de recursos](../concepts/definition-structure.md#resource-provider-modes) al estado responsable de la [plantilla de restricción](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraint-templates) en la definición de directiva:
+
+|Motivo |Descripción de la razón de la plantilla de restricción |
+|-|-|
+|Constraint/TemplateCreateFailed |No se pudo crear el recurso para una definición de directiva con una restricción o plantilla que no coincide con una restricción o plantilla existentes en el clúster por nombre de metadatos de recursos. |
+|Constraint/TemplateUpdateFailed |No se pudo actualizar la restricción o plantilla para una definición de directiva con una restricción o plantilla que coincide con una restricción o plantilla existentes en el clúster por nombre de metadatos de recursos. |
+|Constraint/TemplateInstallFailed |No se pudo crear la restricción o plantilla y no se pudo instalar en el clúster para la operación de creación o actualización. |
+|ConstraintTemplateConflicts |La plantilla tiene un conflicto con una o varias definiciones de directiva que usan el mismo nombre de plantilla con otro origen. |
+|ConstraintStatusStale |Hay un estado "Auditoría" existente, pero Gatekeeper no ha realizado ninguna auditoría en la última hora. |
+|ConstraintNotProcessed |No hay ningún estado y Gatekeeper ha realizado una auditoría en la última hora. |
+|InvalidConstraint/Template |El servidor de API ha rechazado el recurso debido a un YAML incorrecto. Este motivo también puede deberse a una discrepancia en el tipo de parámetro (ejemplo: se proporciona una cadena en lugar de un entero).
+
+> [!NOTE]
+> En el caso de las asignaciones de directivas existentes y las plantillas de restricción que ya están en el clúster, si se produce un error en esa restricción o plantilla, el clúster se protege manteniendo la restricción o plantilla existentes. Se notifica el no cumplimiento del clúster hasta que el error se resuelva en la asignación de directivas o el complemento se recupere por sí mismo. Para más información sobre cómo controlar conflictos, consulte [Conflictos de plantilla de restricciones](../concepts/policy-for-kubernetes.md#constraint-template-conflicts).
+
 ## <a name="component-details-for-resource-provider-modes"></a>Detalles de componente de los modos de proveedor de recursos
 
-En las asignaciones con un [modo de proveedor de recursos](../concepts/definition-structure.md#resource-manager-modes), seleccione el recurso _No compatible_ para abrir una vista más profunda. En la pestaña **Compatibilidad de componentes** hay información adicional específica del modo de proveedor de recursos en la directiva asignada que muestra _No compatible_, **Componente** e **Id. de componente**.
+En las asignaciones con un [modo de proveedor de recursos](../concepts/definition-structure.md#resource-provider-modes), seleccione el recurso _No compatible_ para abrir una vista más profunda. En la pestaña **Compatibilidad de componentes** hay información adicional específica del modo de proveedor de recursos en la directiva asignada que muestra _No compatible_, **Componente** e **Id. de componente**.
 
 :::image type="content" source="../media/getting-compliance-data/compliance-components.png" alt-text="Captura de pantalla de la pestaña Compatibilidad de componentes y detalles de cumplimiento de una asignación de modo de proveedor de recursos." border="false":::
 
 ## <a name="compliance-details-for-guest-configuration"></a>Detalles de cumplimiento de la configuración de invitado
 
-En las directivas _auditIfNotExists_ de la categoría _Configuración de invitados_, podría haber varias configuraciones evaluadas dentro de la máquina virtual y es necesario ver los detalles por configuración. Por ejemplo, si va a realizar una auditoría de una lista de directivas de contraseñas y solo una de ellas tiene el estado _No compatible_, debe saber qué directivas de contraseñas específicas no cumplen los requisitos y por qué.
+En las definiciones de directiva de la categoría _Configuración de invitados_, podría haber varias configuraciones evaluadas dentro de la máquina virtual y es necesario ver los detalles por configuración. Por ejemplo, si va a realizar una auditoría de una lista de opciones de seguridad y solo una de ellas tiene el estado _No conforme_, debe saber qué directivas de contraseñas específicas no cumplen los requisitos y por qué.
 
 También es posible que no disponga de acceso para iniciar sesión en la máquina virtual directamente, pero tenga que comunicar el motivo por el que la máquina virtual es _No compatible_.
 
@@ -127,6 +149,15 @@ En la vista del panel Detalles de cumplimiento, seleccione el vínculo **Último
 La página **Asignación de invitado** muestra todos los detalles de cumplimiento disponibles. Cada fila de la vista representa una evaluación que se realizó dentro de la máquina. En la columna **Motivo**, se muestra una frase que describe el motivo por el que Asignación de invitado es _No compatible_. Por ejemplo, si audita directivas de contraseñas, la columna **Motivo** mostraría un texto que incluye el valor actual de cada configuración.
 
 :::image type="content" source="../media/determine-non-compliance/guestconfig-compliance-details.png" alt-text="Captura de pantalla de los detalles de cumplimiento de la asignación de invitados." border="false":::
+
+### <a name="view-configuration-assignment-details-at-scale"></a>Visualización de los detalles de la asignación de configuración a escala
+
+La característica de configuración de invitado se puede usar fuera de las asignaciones de Azure Policy.
+Por ejemplo, [Azure AutoManage](../../../automanage/automanage-virtual-machines.md) crea asignaciones de configuración de invitado, o puede asignar [configuraciones cuando implemente máquinas](guest-configuration-create-assignment.md).
+
+Para ver todas las asignaciones de configuración de invitado del inquilino, en Azure Portal abra la página **Asignaciones de invitado**. Para ver información detallada sobre el cumplimiento, seleccione cada asignación mediante el vínculo de la columna "Nombre".
+
+:::image type="content" source="../media/determine-non-compliance/guest-config-assignment-view.png" alt-text="Captura de pantalla de la página Asignación de invitados." border="true":::
 
 ## <a name="change-history-preview"></a><a name="change-history"></a>Historial de cambios (versión preliminar)
 

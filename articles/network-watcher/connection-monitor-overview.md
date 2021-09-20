@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: 41c39a87375b66e9aaf916f927d09a3b6abb3b0e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 4e8f1847459d16f82b029f9719d87b61dd243524
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121748199"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123542387"
 ---
 # <a name="network-connectivity-monitoring-with-connection-monitor"></a>Supervisión de conectividad de red con Connection Monitor
 
@@ -74,7 +74,7 @@ Las reglas de un grupo de seguridad de red (NSG) o firewall pueden bloquear la c
 
 ### <a name="agents-for-on-premises-machines"></a>Agentes para máquinas locales
 
-Para que el Monitor de conexión reconozca las máquinas locales como orígenes para la supervisión, instale el agente de Log Analytics en las máquinas.  Luego, habilite la solución Network Performance Monitor. Estos agentes están vinculados a áreas de trabajo de Log Analytics, por lo que es necesario configurar el identificador de área de trabajo y la clave principal antes de que los agentes puedan iniciar la supervisión.
+Para que el Monitor de conexión reconozca las máquinas locales como orígenes para la supervisión, instale el agente de Log Analytics en las máquinas.  Luego, habilite la [solución Network Performance Monitor](/azure-monitor/insights/network-performance-monitor.md#configure-the-solution). Estos agentes están vinculados a áreas de trabajo de Log Analytics, por lo que es necesario configurar el identificador de área de trabajo y la clave principal antes de que los agentes puedan iniciar la supervisión.
 
 Para instalar el agente de Log Analytics para máquinas Windows, consulte [Instalación del agente de Log Analytics en Windows](../azure-monitor/agents/agent-windows.md).
 
@@ -92,6 +92,23 @@ Para las máquinas Linux, el uso de portNumbers se debe cambiar manualmente.
 El script crea las claves del Registro que requiere la solución. También crea reglas de firewall de Windows para permitir que los agentes creen conexiones TCP entre sí. Las claves del Registro que crea el script especifican si se deben escribir los registros de depuración y la ruta del archivo de registro. Asimismo, el script define el puerto TCP del agente empleado para establecer la comunicación. El script establece automáticamente los valores de estas claves. No cambie manualmente estas claves. El puerto que se abre de forma predeterminada es 8084. Puede utilizar un puerto personalizado especificando el parámetro portNumber en el script. Utilice el mismo puerto en todos los equipos en los que se ejecute el script. [Obtenga más](../azure-monitor/agents/log-analytics-agent.md#network-requirements) información sobre los requisitos de red para los agentes de Log Analytics
 
 El script configura solo el firewall de Windows localmente. Si tiene un firewall de red, asegúrese de que permite el tráfico destinado al puerto TCP que Network Performance Monitor esté utilizando.
+
+El agente de LA Windows puede hospedarse en diferentes sitios para enviar datos a varias áreas de trabajo y grupos de administración de System Center Operations Manager. El agente de Linux puede enviar datos a un solo destino, ya sea un área de trabajo o un grupo de administración.
+
+#### <a name="enable-network-performance-monitor-solution-for-on-premise-machines"></a>Habilitación de la solución Network Performance Monitor para máquinas locales 
+
+Siga los pasos siguientes para habilitar la solución Network Performance Monitor para máquinas locales 
+
+1. En la página principal de Azure Portal, vaya a Network Watcher.
+2. A la izquierda, en la sección Supervisión, seleccione Network Performance Monitor. 
+3. En el portal verá una lista de áreas de trabajo con la solución NPM habilitada, filtrada por suscripciones. 
+4. Para agregar una solución NPM en una nueva área de trabajo, haga clic en "+ Agregar NPM" en la parte superior izquierda del portal. 
+5. Seleccione la suscripción y el área de trabajo en las que desea habilitar la solución y haga clic en Crear.
+6. El área de trabajo llevará un par de minutos en aparecer en el portal después de habilitar la solución.
+
+:::image type="content" source="./media/connection-monitor/network-performance-monitor-solution-enable.png" alt-text="Captura de pantalla que muestra cómo agregar una solución NPM en Connection Monitor" lightbox="./media/connection-monitor/network-performance-monitor-solution-enable.png":::
+
+A diferencia de los agentes de LA, la solución NPM solo se puede configurar para enviar datos a un área de trabajo de LA
 
 ## <a name="enable-network-watcher-on-your-subscription"></a>Habilitar Network Watcher en la suscripción
 
@@ -374,7 +391,7 @@ En el caso de las redes cuyos orígenes son máquinas virtuales de Azure, se pue
 * BGP no está habilitado en la conexión de puerta de enlace.
 * El sondeo de DIP está inactivo en el equilibrador de carga.
 
-## <a name="comparision-between-azures-connectivity-monitoring-support"></a>Comparación entre la compatibilidad con la supervisión de conectividad de Azure 
+## <a name="comparison-between-azures-connectivity-monitoring-support"></a>Comparación entre la compatibilidad con la supervisión de conectividad de Azure 
 
 Puede migrar las pruebas de Network Performance Monitor y Connection Monitor (clásico) a la nueva y mejorada característica Connection Monitor con un solo clic y sin tiempo de inactividad.
  

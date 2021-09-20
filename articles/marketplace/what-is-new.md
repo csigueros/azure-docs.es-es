@@ -5,13 +5,13 @@ ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 08/06/2021
-ms.openlocfilehash: bab6b3afccb16f49384ec6fd90410e44a4edf268
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
+ms.date: 09/03/2021
+ms.openlocfilehash: c7b9eef946aed1a34bf35342c50315efe1b92688
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122634180"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123537794"
 ---
 # <a name="whats-new-in-the-microsoft-commercial-marketplace"></a>Novedades de marketplace comercial de Microsoft
 
@@ -20,7 +20,8 @@ Obtenga información sobre actualizaciones importantes en el programa de marketp
 ## <a name="new-features"></a>Nuevas características
 
 | Category | Descripción | Date |
-| ------------ | ------------- | ------------- |
+| --- | --- | --- |
+| Ofertas | La instalación y el mantenimiento de objetos visuales de Power BI se migrará desde la Tienda Office al marketplace comercial este mes. En [estas preguntas más frecuentes](/azure/marketplace/power-bi-visual-faq) se proporciona un resumen de las mejoras en el proceso de envío de la oferta. | 07-09-2021 |
 | Ofertas | Ahora hay propiedades adicionales en el nivel de plan disponibles para las ofertas de máquina virtual de Azure. Vea el artículo sobre las [propiedades de configuración técnica de máquinas virtuales](azure-vm-create-plans.md#properties) para obtener más información. | 26-07-2021 |
 | Tarifas | Microsoft ha cambiado sus tarifas para determinados servicios. Vea [Capacidades de transacción de marketplace comercial](marketplace-commercial-transaction-capabilities-and-considerations.md#examples-of-pricing-and-store-fees) y preguntas comunes sobre pagos e impuestos, "[¿Cómo encuentro la tarifa actual del servicio Store y la tarifa de pago?](/partner-center/payout-faq)". | 14-07-2021 |
 | Ofertas | Los editores pueden publicar una máquina virtual (VM) que han creado en el entorno local. Para obtener más información, vea [Creación de una máquina virtual mediante una imagen propia](./azure-vm-create-using-own-image.md). | 23-06-2021 |
@@ -32,7 +33,7 @@ Obtenga información sobre actualizaciones importantes en el programa de marketp
 ## <a name="tax-updates"></a>Actualizaciones fiscales
 
 | Categoría | Descripción | Date |
-| ------------ | ------------- | ------------- |
+| --- | --- | --- |
 | Impuestos | Microsoft administra los impuestos de los clientes finales en Australia, excepto las compras de clientes realizadas por medio de un contrato Enterprise, que administra el editor. | 01-07-2021 |
 | Impuestos | Se ha actualizado la lista de países de la [página de detalles fiscales](/partner-center/tax-details-marketplace) para incluir los siguientes: <ul><li>Argentina</li><li>Bulgaria</li><li>RAE de Hong Kong</li><li>Corea del Sur</li><li>Pakistán</li><li>Autoridad palestina</li><li>Panamá</li><li>Paraguay</li><li>Perú</li><li>Filipinas</li><li>San Cristóbal y Nieves</li><li>Senegal</li><li>Sri Lanka</li><li>Tayikistán</li><li>Tanzania</li><li>Tailandia</li><li>Trinidad y Tobago</li><li>Túnez</li><li>Turkmenistán</li><li>Uganda</li><li>Uzbekistán</li><li>Zimbabue</li></ul> | 01-07-2021 |
 | Impuestos | Nigeria se ha pasado de la lista "países administrados por editores o desarrolladores compartidos" a la "fiscalidad del cliente final con diferencias en los marketplace".  | 01-07-2021 |
@@ -42,7 +43,7 @@ Obtenga información sobre actualizaciones importantes en el programa de marketp
 ## <a name="documentation-updates"></a>Actualizaciones de la documentación
 
 | Category | Descripción | Date |
-| ------------ | ------------- | ------------- |
+| --- | --- | --- |
 | Ofertas | El tema [Capacidades de transacción de marketplace comercial](/azure/marketplace/marketplace-commercial-transaction-capabilities-and-considerations) ahora incluye un diagrama de flujo que le ayudará a determinar el tipo de oferta comercializable y el plan de precios adecuados para vender el software en el marketplace comercial. | 18-08-2021 |
 | Directiva | Se ha actualizado la directiva de [certificación](/legal/marketplace/certification-policies?context=/azure/marketplace/context/context); vea [Historial de cambios](/legal/marketplace/offer-policies-change-history). | 06-08-2021 |
 | Venta conjunta | Información agregada para el programa MACC, incluidos los requisitos, la frecuencia de actualización del estado de MACC y las definiciones de Inscritos y No inscritos. Para obtener más información, vea [Inscripción en Compromiso de consumo de Azure](./azure-consumption-commitment-enrollment.md) o [Información general sobre la venta conjunta de los equipos de ventas de Microsoft y los asociados](./co-sell-overview.md). | 03-06-2021 |

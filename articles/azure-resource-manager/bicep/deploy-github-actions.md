@@ -4,22 +4,22 @@ description: Describe cómo implementar archivos de Bicep mediante Acciones de G
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 08/23/2021
+ms.date: 09/02/2021
 ms.custom: github-actions-azure
-ms.openlocfilehash: 005ad729eed380b6684ef06ddca6341dce8b16da
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: df644fb081e6c15eb72e20a2a84af4b4c9386ba7
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122695222"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123427038"
 ---
 # <a name="deploy-bicep-files-by-using-github-actions"></a>Implementación de archivos de Bicep mediante Acciones de GitHub
 
-[Acciones de GitHub](https://docs.github.com/en/actions) es un conjunto de características de GitHub para automatizar los flujos de trabajo de desarrollo de software en el mismo lugar donde almacena el código y colabora en las solicitudes de incorporación de cambios y problemas.
+[Acciones de GitHub](https://docs.github.com/en/actions) es un conjunto de características de GitHub que automatizan los flujos de trabajo de desarrollo de software.
 
-Use la [acción Implementación de plantilla de Azure Resource Manager](https://github.com/marketplace/actions/deploy-azure-resource-manager-arm-template) para automatizar la implementación de un archivo de Bicep en Azure.
+Use la [acción de GitHub para la implementación de Azure Resource Manager](https://github.com/marketplace/actions/deploy-azure-resource-manager-arm-template) para automatizar la implementación de un archivo de Bicep en Azure.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Una cuenta de GitHub. Si no tiene ninguna, regístrese [gratis](https://github.com/join).
@@ -41,16 +41,16 @@ El archivo tiene dos secciones:
 
 Puede crear una [entidad de servicio](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) mediante el comando [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) de la [CLI de Azure](/cli/azure/). Puede ejecutar este comando mediante [Azure Cloud Shell](https://shell.azure.com/) en Azure Portal o haciendo clic en el botón **Probar**.
 
-Cree un grupo de recursos si todavía no tiene uno.
+Cree un grupo de recursos si no tiene ninguno.
 
 ```azurecli-interactive
-    az group create -n {MyResourceGroup} -l {location}
+az group create -n {MyResourceGroup} -l {location}
 ```
 
 Sustituya el marcador de posición `myApp` por el nombre de aplicación.
 
 ```azurecli-interactive
-   az ad sp create-for-rbac --name {myApp} --role contributor --scopes /subscriptions/{subscription-id}/resourceGroups/{MyResourceGroup} --sdk-auth
+az ad sp create-for-rbac --name {myApp} --role contributor --scopes /subscriptions/{subscription-id}/resourceGroups/{MyResourceGroup} --sdk-auth
 ```
 
 En el ejemplo anterior, reemplace los marcadores de posición por el identificador de la suscripción y el nombre del grupo de recursos. La salida es un objeto JSON con las credenciales de asignación de roles que proporcionan acceso a la aplicación App Service similar al siguiente. Copie este objeto JSON para más adelante. Solo necesitará las secciones con los valores `clientId`, `clientSecret`, `subscriptionId` y `tenantId`.
@@ -76,21 +76,19 @@ Debe crear secretos para las credenciales de Azure, el grupo de recursos y las s
 
 1. Seleccione **Settings > Secrets > New secret** (Configuración > Secretos > Secreto nuevo).
 
-1. Pegue la salida JSON completa del comando de la CLI de Azure en el campo de valor del secreto. Asigne al secreto el nombre `AZURE_CREDENTIALS`.
+1. Pegue la salida JSON completa del comando de la CLI de Azure en el campo de valor del secreto. Asigne al secreto el siguiente nombre: `AZURE_CREDENTIALS`.
 
 1. Cree otro secreto denominado `AZURE_RG`. Agregue el nombre del grupo de recursos al campo de valor del secreto (ejemplo: `myResourceGroup`).
 
-1. Cree un secreto adicional denominado `AZURE_SUBSCRIPTION`. Agregue el identificador de la suscripción al campo de valor del secreto (ejemplo: `90fd3f9d-4c61-432d-99ba-1273f236afa2`).
+1. Cree otro secreto denominado `AZURE_SUBSCRIPTION`. Agregue el identificador de la suscripción al campo de valor del secreto (ejemplo: `90fd3f9d-4c61-432d-99ba-1273f236afa2`).
 
 ## <a name="add-a-bicep-file"></a>Incorporación de un archivo de Bicep
 
 Agregue un archivo de Bicep al repositorio de GitHub. El siguiente archivo de Bicep crea una cuenta de almacenamiento:
 
-```url
-https://raw.githubusercontent.com/Azure/azure-docs-bicep-samples/main/get-started-with-bicep-files/add-variable/azuredeploy.bicep
-```
+::: code language="bicep" source="~/azure-docs-bicep-samples/samples/create-storage-account/azuredeploy.bicep" :::
 
-El archivo de Bicep toma un parámetro denominado **storagePrefix** que tiene entre tres y once caracteres.
+El archivo de Bicep requiere un parámetro denominado **storagePrefix** que tiene entre tres y once caracteres.
 
 Puede colocar el archivo en cualquier parte del repositorio. En el ejemplo de flujo de trabajo de la sección siguiente se supone que el archivo de Bicep se denomina **azuredeploy.bicep** y se almacena en la raíz del repositorio.
 
@@ -102,7 +100,7 @@ El archivo de flujo de trabajo se debe almacenar en la carpeta **.github/workflo
 1. Seleccione **New workflow** (Nuevo flujo de trabajo).
 1. Seleccione **Set up a workflow yourself** (Configurar un flujo de trabajo personalmente).
 1. Cambie el nombre del archivo de flujo de trabajo si prefiere otro distinto a **main.yml**. Por ejemplo: **deployBicepFile.yml**.
-1. Reemplace el contenido del archivo .yml por lo siguiente:
+1. Reemplace el contenido del archivo .yml por el código siguiente:
 
     ```yml
     on: [push]
@@ -131,7 +129,7 @@ El archivo de flujo de trabajo se debe almacenar en la carpeta **.github/workflo
             failOnStdErr: false
     ```
 
-    Reemplace **mystore** por su propio prefijo de nombre de cuenta de almacenamiento.
+    Reemplace `mystore` por su propio prefijo de nombre de cuenta de almacenamiento.
 
     > [!NOTE]
     > En su lugar, puede especificar un archivo de parámetros de formato JSON en la acción de implementación de ARM (ejemplo: `.azuredeploy.parameters.json`).
@@ -145,11 +143,11 @@ El archivo de flujo de trabajo se debe almacenar en la carpeta **.github/workflo
 1. Seleccione **Commit directly to the main branch** (Confirmar directamente en la rama principal).
 1. Seleccione **Commit new file** (Confirmar nuevo archivo) (o bien **Commit changes** (Confirmar cambios)).
 
-Como el flujo de trabajo está configurado para que lo desencadene el archivo de flujo de trabajo o el de Bicep que se va a actualizar, el flujo de trabajo se inicia inmediatamente después de confirmar los cambios.
+La actualización del archivo de flujo de trabajo o del archivo de Bicep desencadena el flujo de trabajo. El flujo de trabajo se inicia justo después de confirmar los cambios.
 
 ## <a name="check-workflow-status"></a>Comprobación del estado del flujo de trabajo
 
-1. Seleccione la pestaña **Actions** (Acciones). Verá un flujo de trabajo **Create deployStorageAccount.yml** en la lista. El flujo de trabajo tarda un par de minutos en ejecutarse.
+1. Seleccione la pestaña **Actions** (Acciones). Debería ver un flujo de trabajo **Create deployStorageAccount.yml** (Crear deployStorageAccount.yml) en la lista. El flujo de trabajo tarda un par de minutos en ejecutarse.
 1. Seleccione el flujo de trabajo para abrirlo.
 1. Seleccione **Run ARM deploy** (Ejecutar implementación de ARM) en el menú para comprobar la implementación.
 
