@@ -54,7 +54,7 @@ Después de ejecutar la canalización de Azure Synapse, en la vista de supervisi
 
 En la cuenta de Purview, puede examinar los recursos y elegir el tipo "Azure Synapse Analytics". También puede buscar Data Catalog mediante palabras clave.
 
-:::image type="content" source="./media/how-to-lineage-azure-synapse-analytics/browse-azure-synapse-assets.png" alt-text="Examinar los recursos de Azure Synapse en Purview".
+:::image type="content" source="./media/how-to-lineage-azure-synapse-analytics/browse-azure-synapse-assets.png" alt-text="Examinar los recursos de Azure Synapse en Purview":::
 
 Seleccione la cuenta de Synapse -> canalización -> actividad y podrá ver la información de linaje.
 
