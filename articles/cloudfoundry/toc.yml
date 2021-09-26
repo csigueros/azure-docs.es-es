@@ -1,10 +1,5 @@
 - name: Documentación de Cloud Foundry
   href: index.yml
-- name: Guías de inicio rápido
-  expanded: true
-  items:
-    - name: Plantilla de Marketplace
-      href: 'https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry'
 - name: Tutoriales
   items:
     - name: Creación de Cloud Foundry en Azure

@@ -23,6 +23,8 @@
       href: tutorial-configure-password-hash-sync.md
     - name: Creación de un conjunto de réplicas
       href: tutorial-create-replica-set.md
+    - name: Obtener detalles de recuperación ante desastres
+      href: tutorial-perform-disaster-recovery-drill.md
     - name: Creación de un dominio administrado personalizado
       href: tutorial-create-instance-advanced.md
     - name: Creación de una confianza de bosque

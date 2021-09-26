@@ -78,12 +78,6 @@
           href: ../reports-monitoring/concept-provisioning-logs.md?context=%2fazure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
     - name: Aprovisionamiento de aplicaciones locales
       items:
-        - name: Requisitos previos del host del conector ECMA
-          href: on-premises-ecma-prerequisites.md
-        - name: Instalación del host del conector ECMA
-          href: on-premises-ecma-install.md
-        - name: Configuración del host del conector ECMA
-          href: on-premises-ecma-configure.md
         - name: Configuración genérica del conector SQL
           href: on-premises-sql-connector-configure.md
         - name: Aprovisionamiento de aplicaciones locales para aplicaciones habilitadas para SCIM
