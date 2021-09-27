@@ -1,14 +1,14 @@
 ---
-title: Ejemplos de Azure PowerShell para Azure Lab Services | Microsoft Docs
+title: Ejemplos de Azure PowerShell
 description: 'Ejemplos de Azure PowerShell: scripts que le ayudan a administrar laboratorios en Azure Lab Services'
-ms.topic: article
+ms.topic: landing-page
 ms.date: 06/26/2020
-ms.openlocfilehash: ce7a4f77aa0ea309afb81a54fd2f8f0a8f373e58
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0e9ac94a89e62653448ed53d0bfd26ac12c108ca
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86187734"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128670792"
 ---
 # <a name="azure-powershell-samples-for-azure-lab-services"></a>Ejemplos de Azure PowerShell para Azure Lab Services
 
@@ -21,4 +21,3 @@ En la tabla siguiente se incluyen vínculos a scripts de Azure PowerShell de eje
 |[Creación de una imagen personalizada a partir de un disco duro virtual](scripts/create-custom-image-from-vhd.md)| Este script de PowerShell crea una imagen personalizada en un laboratorio de Azure DevTest Labs. |
 |[Creación de un rol personalizado en un laboratorio](scripts/create-custom-role-in-lab.md)| Este script de PowerShell crea un rol personalizado en un laboratorio de Azure Lab Services. |
 |[Establecimiento de los tamaños de máquina virtual permitidos en un laboratorio](scripts/set-allowed-vm-sizes-in-lab.md)| Este script de PowerShell establece los tamaños de máquina virtual permitidos en un laboratorio. |
-

@@ -60,8 +60,6 @@
           href: howto-find-activity-reports.md
         - name: Solución de errores de inicio de sesión para un usuario
           href: howto-troubleshoot-sign-in-errors.md
-        - name: Corrección de usuarios marcados en riesgo
-          href: howto-remediate-users-flagged-for-risk.md
         - name: Configuración de requisitos previos para la API de informes
           href: howto-configure-prerequisites-for-reporting-api.md
         - name: "Uso de libros de Azure\_AD"

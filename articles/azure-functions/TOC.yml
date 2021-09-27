@@ -158,8 +158,10 @@
   items:
     - name: Procedimientos recomendados
       items:
-        - name: Rendimiento y confiabilidad
+        - name: Procedimientos recomendados generales
           href: functions-best-practices.md
+        - name: Rendimiento y confiabilidad
+          href: performance-reliability.md
           displayName: best practices
         - name: Administración de conexiones
           href: manage-connections.md
@@ -184,12 +186,12 @@
           href: functions-premium-plan.md
         - name: Plan dedicado
           href: dedicated-plan.md
-        - name: Escalado impulsado por eventos
-          href: event-driven-scaling.md
     - name: Implementaciones
       href: functions-deployment-technologies.md
     - name: Eventos y mensajería
       items:
+        - name: Escalado impulsado por eventos
+          href: event-driven-scaling.md
         - name: Procesamiento de eventos confiable
           href: functions-reliable-event-processing.md
         - name: Diseño de entradas idénticas
@@ -259,6 +261,8 @@
       href: ip-addresses.md
     - name: Controladores personalizados
       href: functions-custom-handlers.md
+    - name: Alta disponibilidad
+      href: azure-functions-az-redundancy.md
 - name: Guías paso a paso
   items:
     - name: Desarrollar

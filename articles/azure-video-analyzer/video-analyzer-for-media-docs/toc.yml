@@ -116,7 +116,7 @@
       displayName: location
       href: regions.md
     - name: Preguntas más frecuentes
-      href: faq.md
+      href: faq.yml
     - name: Cumplimiento normativo
       href: 'https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942'
     - name: Notas de la versión
