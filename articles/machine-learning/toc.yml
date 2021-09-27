@@ -213,6 +213,8 @@
         - name: Introducción sobre la seguridad en la empresa
           displayName: authorization authentication encryption aad azure active directory
           href: concept-enterprise-security.md
+        - name: Flujo de tráfico del área de trabajo protegido
+          href: concept-secure-network-traffic-flow.md
         - name: Línea de base de seguridad
           href: /security/benchmark/azure/baselines/machine-learning-security-baseline?context=/azure/machine-learning/context/ml-context
         - name: Controles de seguridad de Azure Policy
@@ -243,7 +245,7 @@
               displayName: 'vnet, workspace, container instance, container registry'
               href: how-to-secure-workspace-vnet.md
             - name: Protección de un entorno de entrenamiento
-              displayName: vnet
+              displayName: 'vnet, No public IP'
               href: how-to-secure-training-vnet.md
             - name: Protección de un entorno de inferencia
               displayName: vnet
@@ -295,7 +297,7 @@
         - name: Creación y administración de recursos de proceso
           items:
             - name: Instancia de proceso
-              displayName: compute target
+              displayName: 'compute target, No public IP'
               href: how-to-create-manage-compute-instance.md
             - name: Clúster de proceso
               displayName: 'compute target, low priority, managed identity'
@@ -541,7 +543,7 @@
                 - name: Supervisión de puntos de conexión en línea administrados
                   href: how-to-monitor-online-endpoints.md
                 - name: Solución de problemas de puntos de conexión en línea administrados
-                  href: how-to-troubleshoot-managed-online-endpoints.md
+                  href: how-to-troubleshoot-online-endpoints.md
             - name: Batch
               items:
                 - name: Puntuación por lotes con puntos de conexión por lotes

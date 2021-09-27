@@ -324,6 +324,12 @@
           href: stream-analytics-machine-learning-anomaly-detection.md
         - name: Uso de API REST de Machine Learning
           href: stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md
+    - name: Exportación desde Application Insights
+      items:
+        - name: Exportación a Stream Analytics
+          href: app-insights-export-stream-analytics.md
+        - name: Exportación a SQL con Stream Analytics
+          href: app-insights-export-sql-stream-analytics.md
     - name: Depuración mediante diagrama de trabajos
       href: stream-analytics-job-diagram-with-metrics.md
     - name: Escalado con funciones de Machine Learning

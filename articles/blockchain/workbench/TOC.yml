@@ -23,6 +23,8 @@
   items:
     - name: Implementación de Workbench
       href: deploy.md
+    - name: Migración a otro libro de contabilidad
+      href: 'https://github.com/Azure-Samples/blockchain/blob/caleteet-migration/migration/abw-migration.md'
     - name: Administración de usuarios de Workbench
       href: manage-users.md
     - name: Control de versiones de aplicaciones
@@ -67,9 +69,3 @@
       href: 'https://stackoverflow.com/questions/tagged/azure-blockchain-workbench'
     - name: Comentarios sobre el producto
       href: 'https://aka.ms/blockchainuservoice'
-- name: Plantillas de solución
-  items:
-    - name: Consorcio de prueba de autoridad de Ethereum
-      href: ../templates/ethereum-poa-deployment.md
-    - name: Azure Kubernetes Service del consorcio de Hyperledger Fabric
-      href: ../templates/hyperledger-fabric-consortium-azure-kubernetes-service.md

@@ -87,6 +87,8 @@ items:
         href: az-cli-prerequisites.md
       - name: Uso de claves de cifrado administradas por el cliente
         href: customer-keys.md
+      - name: Equilibrio de carga del tráfico de cliente
+        href: client-load-balancing.md
       - name: Información general del producto
         href: 'https://azure.microsoft.com/services/hpc-cache/'
       - name: Precios y opciones de compra

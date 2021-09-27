@@ -110,6 +110,8 @@
           href: configure-dns-azure-vmware-solution.md
         - name: Configuración de la extensión de red HCX
           href: configure-hcx-network-extension.md
+        - name: Configuración de componentes de red de NSX
+          href: configure-nsx-network-components-azure-portal.md
         - name: Configurar la creación de reflejo del puerto
           href: configure-port-mirroring-azure-vmware-solution.md
         - name: Configuración de una VPN de sitio a sitio en vWAN
@@ -120,12 +122,16 @@
           href: vmware-hcx-mon-guidance.md
     - name: Configuración de directivas de almacenamiento
       href: configure-storage-policy.md
+    - name: Configuración de syslogs de VMware
+      href: configure-vmware-syslogs.md
     - name: Configurar los clústeres de conmutación por error de Windows Server
       href: configure-windows-server-failover-cluster.md
     - name: Conexión de varias nubes privadas en la misma región
       href: connect-multiple-private-clouds-same-region.md
     - name: Implementación de la recuperación ante desastres
       items:
+        - name: Implementación de la recuperación ante desastres de JetStream
+          href: deploy-disaster-recovery-using-jetstream.md
         - name: Implementación de VMware HCX para la recuperación ante desastres
           href: deploy-disaster-recovery-using-vmware-hcx.md
         - name: Implementación de VMware SRM para la recuperación ante desastres
@@ -148,6 +154,10 @@
           href: ecosystem-back-up-vms.md
         - name: Soluciones de migración para máquinas virtuales
           href: ecosystem-migration-vms.md
+        - name: Soluciones de seguridad para Azure VMware Solution
+          href: ecosystem-security-solutions.md
+        - name: Implementación de dispositivos Bitnami
+          href: bitnami-appliances-deployment.md
     - name: Soluciones de VMware
       items:
         - name: Configuración de la extensión de red HCX
@@ -158,12 +168,6 @@
           href: azure-vmware-solution-horizon.md
         - name: Implementación de máquinas virtuales desde la biblioteca de contenido
           href: deploy-vm-content-library.md
-        - name: Recuperación ante desastres
-          items:
-            - name: VMware SRM para la recuperación ante desastres
-              href: disaster-recovery-using-vmware-site-recovery-manager.md
-            - name: VMware HCX para la recuperación ante desastres
-              href: deploy-disaster-recovery-using-vmware-hcx.md
         - name: Actualización del dispositivo VMware HCX
           href: 'https://docs.vmware.com/en/VMware-HCX/4.1/hcx-user-guide/GUID-02DB88E1-EC81-434B-9AE9-D100E427B31C.html'
 - name: Recursos

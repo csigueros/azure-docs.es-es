@@ -207,6 +207,8 @@
           href: azure-files-dynamic-pv.md
         - name: 'Azure Files: Estático'
           href: azure-files-volume.md
+        - name: Azure HPC Cache
+          href: azure-hpc-cache.md
         - name: 'Servidor NFS: estático'
           href: azure-nfs-volume.md
         - name: Azure NetApp Files
@@ -367,7 +369,11 @@
             - name: Introducción a OSM
               href: open-service-mesh-about.md
             - name: Implementación del complemento AKS de OSM
-              href: open-service-mesh-deploy-add-on.md
+              items:
+                - name: Uso de la CLI de Azure
+                  href: open-service-mesh-deploy-addon-az-cli.md
+                - name: Uso de plantilla de Bicep
+                  href: open-service-mesh-deploy-addon-bicep.md
             - name: Descarga del binario de cliente de OSM
               href: open-service-mesh-binary.md
             - name: Tutoriales de OSM

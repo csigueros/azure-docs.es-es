@@ -3,28 +3,28 @@
 - name: Información general
   expanded: true
   items:
-    - name: Acerca del servicio Azure Web PubSub
+    - name: "Acerca del servicio Azure\_Web\_PubSub"
       href: overview.md
     - name: 'Acerca de centros de conectividad, grupos y conexiones'
       href: key-concepts.md
 - name: Guías de inicio rápido
   expanded: true
   items:
-    - name: Crear instancia
+    - name: Creación de una instancia
       expanded: true
       items:
-        - name: Portal
+        - name: Azure Portal
           href: howto-develop-create-instance.md
-        - name: CLI
+        - name: La CLI de Azure
           href: quickstart-cli-create.md
     - name: Conexión a la instancia
       expanded: true
       items:
-        - name: Publicación y suscripción desde el explorador
+        - name: PubSub desde el explorador
           href: quickstart-live-demo.md
-        - name: Publicación y suscripción desde la CLI
+        - name: PubSub desde la CLI de Azure
           href: quickstart-cli-try.md
-        - name: Publicación/publicación mediante el SDK de servicio
+        - name: PubSub mediante el SDK de servicio
           href: quickstart-use-sdk.md
 - name: Tutoriales
   expanded: true
@@ -32,7 +32,7 @@
     - name: Desarrollo sin servidor
       expanded: true
       items:
-        - name: Compilación de una aplicación de notificación con Azure Function
+        - name: Compilación de una aplicación de notificación con Azure Functions
           href: tutorial-serverless-notification.md
         - name: Compilación de una aplicación de chat en tiempo real con autenticación de cliente
           href: quickstart-serverless.md
@@ -40,7 +40,7 @@
       href: tutorial-pub-sub-messages.md
     - name: Creación de una aplicación de chat
       href: tutorial-build-chat.md
-    - name: Streaming de cliente mediante un subprotocolo compatible con el servicio
+    - name: Streaming de cliente con un subprotocolo compatible con el servicio
       href: tutorial-subprotocol.md
     - name: Autenticación y permisos
       href: tutorial-permission.md
@@ -49,7 +49,7 @@
   items:
     - name: Desarrollar
       items:
-        - name: Procedimientos para crear clientes de WebSocket
+        - name: Creación de clientes de WebSocket
           href: howto-websocket-connect.md
     - name: Seguridad
       items:
@@ -65,7 +65,7 @@
       items:
         - name: Recopilación de un seguimiento de red
           href: howto-troubleshoot-network-trace.md
-        - name: Capturar los registros de diagnóstico
+        - name: Captura de registros de diagnóstico
           href: howto-troubleshoot-diagnostic-logs.md
 - name: Conceptos
   expanded: true

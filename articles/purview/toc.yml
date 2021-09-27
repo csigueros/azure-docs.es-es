@@ -29,15 +29,19 @@ items:
           - name: Configuración de MSI de Azure Purview a escala
             href: tutorial-msi-configuration.md
       - name: Registro y examen de un servidor SQL Server local
-        href: register-scan-on-premises-sql-server.md
-      - name: Llamada a las API REST para el catálogo
+        href: tutorial-register-scan-on-premises-sql-server.md
+      - name: Procedimientos para usar API REST para planos de datos de Purview
         href: tutorial-using-rest-apis.md
   - name: Conceptos
     items:
       - name: Uso de Purview Studio
         href: use-purview-studio.md
-      - name: Procedimientos recomendados de implementación
-        href: deployment-best-practices.md
+      - name: Procedimientos recomendados
+        items:
+          - name: Procedimientos recomendados de implementación
+            href: deployment-best-practices.md
+          - name: Arquitectura de colecciones
+            href: concept-best-practices-collections.md
       - name: Límites de Azure Purview
         href: how-to-manage-quotas.md
       - name: Exámenes e ingesta
@@ -231,12 +235,10 @@ items:
             items:
               - name: Introducción a los puntos de conexión privados
                 href: catalog-private-link.md
-              - name: Aislamiento de la red para la cuenta y el portal de Purview
-                href: catalog-private-link-account-portal.md
-              - name: Aislamiento de la red para exámenes
-                href: catalog-private-link-ingestion.md
               - name: Aislamiento de la red de un extremo a otro
                 href: catalog-private-link-end-to-end.md
+              - name: Aislamiento de la red para la cuenta y el portal de Purview
+                href: catalog-private-link-account-portal.md
               - name: Configuración de DNS para un punto de conexión privado
                 href: catalog-private-link-name-resolution.md
               - name: Solución de problemas de puntos de conexión privados

@@ -102,8 +102,10 @@
                   href: database/authentication-aad-service-principal.md
                 - name: Rol Lectores de directorio
                   href: database/authentication-aad-directory-readers-role.md
-                - name: Autenticación solo de Azure AD
+                - name: "Autenticación solo de Azure\_AD"
                   href: database/authentication-azure-ad-only-authentication.md
+                - name: "Autenticación solo de Azure Policy para Azure\_AD"
+                  href: database/authentication-azure-ad-only-authentication-policy.md
             - name: Cifrado de datos transparente (TDE)
               items:
                 - name: Información general
@@ -191,6 +193,8 @@
                   href: database/authentication-aad-directory-readers-role-tutorial.md
                 - name: Habilitación de la autenticación solo de Azure AD
                   href: database/authentication-azure-ad-only-authentication-tutorial.md
+                - name: "Exigencia de la autenticación solo de Azure\_AD mediante Azure Policy"
+                  href: database/authentication-azure-ad-only-authentication-policy-how-to.md
                 - name: "Creación de un servidor con autenticación solo con Azure\_AD habilitada"
                   href: database/authentication-azure-ad-only-authentication-create-server.md
             - name: Configuración de TDE con BYOK
@@ -509,7 +513,7 @@
                   href: /sql/azure-data-studio/quickstart-sql-database?toc=%2Fazure%2Fazure-sql%2Ftoc.json
                 - name: SSMS
                   href: database/connect-query-ssms.md
-                - name: Portal de Azure
+                - name: Azure portal
                   href: database/connect-query-portal.md
                 - name: Código de VS
                   href: database/connect-query-vscode.md

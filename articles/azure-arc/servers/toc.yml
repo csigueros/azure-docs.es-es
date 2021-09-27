@@ -41,10 +41,12 @@
           href: agent-overview.md
         - name: Plan para implementar
           href: plan-at-scale-deployment.md
-        - name: Conexión de máquinas a Azure Arc desde Azure Portal
+        - name: Conexión de máquinas mediante un script de implementación
           href: onboard-portal.md
         - name: Conexión de máquinas a escala mediante una entidad de servicio
           href: onboard-service-principal.md
+        - name: Conexión de máquinas desde Automation Update Management
+          href: onboard-update-management-machines.md
         - name: Conexión de máquinas a Azure Arc con DSC de PowerShell
           href: onboard-dsc.md
         - name: Conexión de máquinas desde Windows Admin Center

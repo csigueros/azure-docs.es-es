@@ -422,6 +422,14 @@ groups:
     title: Python
   - id: programming-language-java
     title: Java
+- id: runtime-version-programming-functions
+  title: Versión de Azure Functions
+  prompt: Elección de una versión del runtime&#58;
+  pivots:
+  - id: programming-runtime-functions-v3
+    title: Versión 3.x
+  - id: programming-runtime-functions-v4
+    title: Version 4.x
 - id: programming-languages-metrics-monitor
   title: Lenguajes de programación
   prompt: Selección de un lenguaje de programación
@@ -816,6 +824,14 @@ groups:
   pivots:
   - id: development-environment-vs
     title: Visual Studio
+  - id: development-environment-vscode
+    title: Visual Studio Code
+  - id: development-environment-cli
+    title: Interfaz de la línea de comandos
+- id: app-service-ide-oss
+  title: Entorno de desarrollo
+  prompt: Elección de un entorno de desarrollo
+  pivots:
   - id: development-environment-vscode
     title: Visual Studio Code
   - id: development-environment-cli
@@ -1263,7 +1279,7 @@ groups:
   prompt: Elegir una opción.
   pivots:
   - id: identity-mi-methods-azp
-    title: Portal de Azure
+    title: Azure portal
   - id: identity-mi-methods-azcli
     title: Azure CLI
   - id: identity-mi-methods-powershell
@@ -1277,15 +1293,33 @@ groups:
   prompt: Elegir una opción.
   pivots:
   - id: identity-mi-methods-sub-azp
-    title: Portal de Azure
+    title: Azure portal
   - id: identity-mi-methods-sub-azcli
     title: Azure CLI
   - id: identity-mi-methods-sub-powershell
     title: PowerShell
+- id: azure-stack-edge-device-deployment
+  title: Implementación de un dispositivo Azure Stack Edge
+  prompt: Elección del tipo de implementación
+  pivots:
+  - id: single-node
+    title: Dispositivo de nodo único
+  - id: two-node
+    title: Clúster de dos nodos
+- id: iot-develop-toolset
+  title: Dispositivos IoT
+  prompt: Elección de un entorno de compilación
+  pivots:
+  - id: iot-toolset-cmake
+    title: CMake
+  - id: iot-toolset-iar-ewarm
+    title: IAR EWARM
+  - id: iot-toolset-mplab
+    title: MPLAB
 metadata:
-  ms.openlocfilehash: 6043c9ad329e91e258a57df19cb0a6e4ccb3ac93
-  ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+  ms.openlocfilehash: 89fe5b9daec6956c252679045c3f5a5b98cbd670
+  ms.sourcegitcommit: 3ef5a4eed1c98ce76739cfcd114d492ff284305b
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 09/04/2021
-  ms.locfileid: "123471451"
+  ms.lasthandoff: 09/24/2021
+  ms.locfileid: "128708536"

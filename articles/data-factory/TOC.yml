@@ -256,6 +256,8 @@ items:
             href: connector-overview.md
           - name: Servicio Web de Amazon Marketplace
             href: connector-amazon-marketplace-web-service.md
+          - name: Amazon RDS para Oracle
+            href: connector-amazon-rds-for-oracle.md
           - name: Amazon Redshift
             href: connector-amazon-redshift.md
           - name: Amazon S3
@@ -290,7 +292,7 @@ items:
             href: connector-azure-databricks-delta-lake.md
           - name: Azure File Storage
             href: connector-azure-file-storage.md
-          - name: Azure SQL Database
+          - name: "Azure\_SQL\_Database"
             href: connector-azure-sql-database.md
             displayName: upsert
           - name: Instancia administrada de Azure SQL
@@ -709,6 +711,8 @@ items:
             href: monitor-integration-runtime.md
           - name: Supervisión de una instancia de Integration Runtime para la integración de SSIS en Azure
             href: monitor-integration-runtime.md#azure-ssis-integration-runtime
+          - name: Ejecución de canalizaciones de datos con Acuerdos de Nivel de Servicio
+            href: tutorial-operationalize-pipelines.md
           - name: Reconfiguración de una instancia de Integration Runtime para la integración de SSIS en Azure
             href: manage-azure-ssis-integration-runtime.md
           - name: Copia o clonación de una factoría de datos
@@ -879,7 +883,7 @@ items:
             displayName: diu
       - name: Guías de solución de problemas
         items:
-          - name: Experiencia de usuario de Data Factory
+          - name: Azure Data Factory Studio
             href: data-factory-ux-troubleshoot-guide.md
           - name: Actividades
             href: data-factory-troubleshoot-guide.md

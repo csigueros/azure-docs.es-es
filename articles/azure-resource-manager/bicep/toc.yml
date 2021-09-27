@@ -1,7 +1,6 @@
 - name: Documentación de Bicep
   href: index.yml
 - name: Información general
-  expanded: true
   items:
     - name: ¿Qué es Bicep?
       href: overview.md
@@ -35,9 +34,9 @@
             - name: Implementación condicional
               href: conditional-resource-deployment.md
               displayName: runtime
-            - name: Nombre y tipo del recurso secundario
+            - name: Recursos secundarios
               href: child-resource-name-type.md
-              displayName: 'parent,parent resource'
+              displayName: 'parent,parent resource,sub,nested'
             - name: Recursos de extensión
               href: scope-extension-resources.md
         - name: Parámetros
@@ -84,7 +83,23 @@
               href: deploy-to-tenant.md
               displayName: assign role
         - name: Linter
-          href: linter.md
+          items:
+            - name: Linter
+              href: linter.md
+            - name: Reglas de Linter
+              items:
+                - name: Sin direcciones URL de entorno con codificación rígida
+                  href: linter-rule-no-hardcoded-environment-urls.md
+                - name: Parámetros sin utilizar
+                  href: linter-rule-no-unused-parameters.md
+                - name: Variables sin utilizar
+                  href: linter-rule-no-unused-variables.md
+                - name: Preferir interpolación
+                  href: linter-rule-prefer-interpolation.md
+                - name: Protección de valor predeterminado de parámetro
+                  href: linter-rule-secure-parameter-default.md
+                - name: Simplificación de la interpolación
+                  href: linter-rule-simplify-interpolation.md
         - name: Procedimientos recomendados
           href: best-practices.md
         - name: Patrones
@@ -121,8 +136,10 @@
               href: add-template-to-azure-pipelines.md
             - name: Bicep con Acciones de GitHub
               href: deploy-github-actions.md
-    - name: Uso de la CLI de Bicep
+    - name: Migración a Bicep
       items:
+        - name: Flujo de trabajo recomendado
+          href: migrate.md
         - name: Descompilación
           href: decompile.md
           displayName: 'conversion issues,export,convert,playground'

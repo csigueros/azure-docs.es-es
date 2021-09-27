@@ -552,6 +552,8 @@
           href: howto-restrict-your-app-to-a-set-of-users.md
         - name: Incorporación de roles de aplicación en la aplicación
           href: howto-add-app-roles-in-azure-ad-apps.md
+        - name: Implementación de RBAC en una aplicación
+          href: howto-implement-rbac-for-apps.md
     - name: Uso de Microsoft Graph API
       href: microsoft-graph-intro.md
     - name: Compilación para resistencia

@@ -256,6 +256,12 @@
             - name: Configuración de controladores de GPU de AMD
               displayName: 'AMD GPU drivers, AMD, GPU drivers, GPU'
               href: ./windows/n-series-amd-driver-setup.md
+            - name: "Retirada de la serie\_NC"
+              href: nc-series-retirement.md
+            - name: Retirada de la serie NCv2
+              href: ncv2-series-retirement.md
+            - name: "Retirada de la serie\_ND"
+              href: nd-series-retirement.md
             - name: Guía de migración de proceso de GPU
               displayName: GPU compute migration guide
               href: ./n-series-migration.md
@@ -337,13 +343,8 @@
         - name: Herramienta de selección de máquinas virtuales
           href: 'https://aka.ms/vm-selector'
         - name: Cambio del tamaño de la máquina virtual
-          items:
-            - name: CLI
-              displayName: 'Change, resize, update size'
-              href: ./linux/change-vm-size.md
-            - name: Portal o PowerShell
-              displayName: 'Change, resize, update size'
-              href: ./windows/resize-vm.md
+          displayName: 'Change, resize, update size'
+          href: resize-vm.md
         - name: Estados y facturación
           href: states-billing.md
         - name: Máquinas virtuales de Azure sin disco temporal
@@ -403,28 +404,28 @@
           href: reserved-vm-instance-size-flexibility.md
     - name: Reserva de capacidad (versión preliminar)
       items:
-        - name: Introducción (versión preliminar)
+        - name: Información general
           displayName: on-demand capacity reservation
           href: capacity-reservation-overview.md
-        - name: Creación de una reserva de capacidad (versión preliminar)
+        - name: Creación de una reserva de capacidad
           displayName: on-demand capacity reservation
           href: capacity-reservation-create.md
-        - name: Asignación excesiva de reserva de capacidad (versión preliminar)
+        - name: Asignación excesiva de reserva de capacidad
           displayName: on-demand capacity reservation
           href: capacity-reservation-overallocate.md
-        - name: Modificación de una reserva de capacidad (versión preliminar)
+        - name: Modificación de una reserva de capacidad
           displayName: on-demand capacity reservation
           href: capacity-reservation-modify.md
-        - name: Asociación de una máquina virtual (versión preliminar)
+        - name: Asociación de una máquina virtual
           displayName: on-demand capacity reservation
           href: capacity-reservation-associate-vm.md
-        - name: Eliminación de una máquina virtual (versión preliminar)
+        - name: Eliminación de una VM
           displayName: on-demand capacity reservation
           href: capacity-reservation-remove-vm.md
-        - name: Asociación de un conjunto de escalado de máquinas virtuales (versión preliminar)
+        - name: Asociación de un conjunto de escalado de máquinas virtuales.
           displayName: on-demand capacity reservation
           href: capacity-reservation-associate-virtual-machine-scale-set.md
-        - name: Eliminación de un conjunto de escalado de máquinas virtuales (versión preliminar)
+        - name: Eliminación de un conjunto de escalado de máquinas virtuales
           displayName: on-demand capacity reservation
           href: capacity-reservation-remove-virtual-machine-scale-set.md
     - name: Creación de máquinas virtuales
@@ -1373,7 +1374,7 @@
       href: ../virtual-network/quick-create-cli.md?context=/azure/virtual-machines/context/context
     - name: Filtrado del tráfico de red
       items:
-        - name: Azure Portal
+        - name: Azure portal
           href: ../virtual-network/tutorial-filter-network-traffic.md?context=/azure/virtual-machines/context/context
         - name: Azure PowerShell
           href: ../virtual-network/tutorial-filter-network-traffic-powershell.md?context=/azure/virtual-machines/context/context
@@ -1381,7 +1382,7 @@
           href: ../virtual-network/tutorial-filter-network-traffic-cli.md?context=/azure/virtual-machines/context/context
     - name: 'Creación de una máquina virtual: IP pública estática'
       items:
-        - name: Azure Portal
+        - name: Azure portal
           href: ../virtual-network/virtual-network-deploy-static-pip-arm-portal.md?context=/azure/virtual-machines/context/context
         - name: Azure PowerShell
           href: ../virtual-network/virtual-network-deploy-static-pip-arm-ps.md?context=/azure/virtual-machines/context/context
@@ -1393,7 +1394,7 @@
           href: ../virtual-network/remove-public-ip-address-vm.md?context=/azure/virtual-machines/context/context
     - name: 'Creación de una máquina virtual: IP privada estática'
       items:
-        - name: Azure Portal
+        - name: Azure portal
           href: ../virtual-network/virtual-networks-static-private-ip-arm-pportal.md?context=/azure/virtual-machines/context/context
         - name: Azure PowerShell
           href: ../virtual-network/virtual-networks-static-private-ip-arm-ps.md?context=/azure/virtual-machines/context/context

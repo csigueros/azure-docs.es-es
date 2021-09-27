@@ -160,6 +160,32 @@
         - name: Puntuaciones de pruebas comparativas
           href: ../virtual-machines/windows/compute-benchmark-scores.md
           maintainContext: true
+        - name: Reserva de capacidad (versión preliminar)
+          items:
+            - name: Información general
+              displayName: on-demand capacity reservation
+              href: ../virtual-machines/capacity-reservation-overview.md
+              maintainContext: true
+            - name: Creación de una reserva de capacidad
+              displayName: on-demand capacity reservation
+              href: ../virtual-machines/capacity-reservation-create.md
+              maintainContext: true
+            - name: Asignación excesiva de reserva de capacidad
+              displayName: on-demand capacity reservation
+              href: ../virtual-machines/capacity-reservation-overallocate.md
+              maintainContext: true
+            - name: Modificación de una reserva de capacidad
+              displayName: on-demand capacity reservation
+              href: ../virtual-machines/capacity-reservation-modify.md
+              maintainContext: true
+            - name: Asociación de un conjunto de escalado de máquinas virtuales.
+              displayName: on-demand capacity reservation
+              href: ../virtual-machines/capacity-reservation-associate-virtual-machine-scale-set.md
+              maintainContext: true
+            - name: Eliminación de un conjunto de escalado de máquinas virtuales
+              displayName: on-demand capacity reservation
+              href: ../virtual-machines/capacity-reservation-remove-virtual-machine-scale-set.md
+              maintainContext: true
       maintainContext: true
     - name: Distribuciones de Linux promocionadas
       href: ../virtual-machines/linux/endorsed-distros.md

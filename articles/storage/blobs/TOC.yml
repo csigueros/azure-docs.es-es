@@ -18,7 +18,7 @@ items:
         items:
           - name: Uso de blobs
             items:
-              - name: Azure Portal
+              - name: Azure portal
                 href: storage-quickstart-blobs-portal.md
               - name: Explorador de Storage
                 href: quickstart-storage-explorer.md
@@ -376,6 +376,8 @@ items:
                     href: ../common/storage-account-sas-create-dotnet.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                   - name: Definición de una directiva de acceso almacenada
                     href: ../common/storage-stored-access-policy-define-dotnet.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                  - name: Creación de una directiva de expiración de SAS
+                    href: ../common/sas-expiration-policy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
               - name: Administración del acceso de lectura anónimo a datos de blob
                 items:
                   - name: Configuración del acceso de lectura anónimo para contenedores y blobs
@@ -836,7 +838,7 @@ items:
                 href: ../common/storage-use-data-movement-library.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
           - name: Administración del control de acceso
             items:
-              - name: Azure Portal
+              - name: Azure portal
                 href: data-lake-storage-acl-azure-portal.md
               - name: Explorador de Storage
                 href: data-lake-storage-explorer-acl.md
@@ -875,23 +877,13 @@ items:
           - name: Uso con servicios de Azure
             href: data-lake-storage-integrate-with-services-tutorials.md
           - name: Optimizar el rendimiento
-            items:
-              - name: Introducción a la optimización del rendimiento
-                href: data-lake-storage-performance-tuning-guidance.md
-              - name: Optimización de Spark en HDInsight
-                href: data-lake-storage-performance-tuning-spark.md
-              - name: Optimización de Hive en HDInsight
-                href: data-lake-storage-performance-tuning-hive.md
-              - name: Optimización de MapReduce en HDInsight
-                href: data-lake-storage-performance-tuning-mapreduce.md
-              - name: Optimización de Storm en HDInsight
-                href: data-lake-storage-performance-tuning-storm.md
+            href: data-lake-storage-performance-tuning-guidance.md
       - name: Referencia
         items:
           - name: .NET
             href: /dotnet/api/azure.storage.files.datalake
           - name: Java
-            href: 'https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.0.0-preview.6/index.html'
+            href: 'https://docs.microsoft.com/java/api/overview/azure/storage-file-datalake-readme'
           - name: Python
             href: 'https://azuresdkdocs.blob.core.windows.net/$web/python/azure-storage-file-datalake/12.0.0b5/index.html'
           - name: JavaScript

@@ -54,7 +54,7 @@ items:
         items:
           - name: Crear un área de trabajo
             items:
-              - name: Azure Portal
+              - name: Azure portal
                 href: quickstart-create-workspace.md
                 displayName: quickstart
               - name: Azure CLI
@@ -140,6 +140,8 @@ items:
                     href: ./sql/mfa-authentication.md
                   - name: Autorización de SQL
                     href: ./sql/sql-authentication.md
+                  - name: Acceso condicional
+                    href: ./security/workspace-conditional-access.md
               - name: Control de acceso
                 items:
                   - name: Información general
@@ -671,6 +673,8 @@ items:
                 href: ./spark/data-sources/apache-spark-sql-connector.md
               - name: JSON
                 href: how-to-analyze-complex-schema.md
+              - name: Metastore de Hive externo
+                href: ./spark/apache-spark-external-metastore.md
   - name: Synapse Link
     items:
       - name: Información general
@@ -787,6 +791,8 @@ items:
                 href: ../data-factory/connector-overview.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Servicio Web de Amazon Marketplace
                 href: ../data-factory/connector-amazon-marketplace-web-service.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+              - name: Amazon RDS para Oracle
+                href: ../data-factory/connector-amazon-rds-for-oracle.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Amazon Redshift
                 href: ../data-factory/connector-amazon-redshift.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Amazon S3
@@ -819,7 +825,7 @@ items:
                 href: ../data-factory/connector-azure-databricks-delta-lake.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Azure File Storage
                 href: ../data-factory/connector-azure-file-storage.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
-              - name: Azure SQL Database
+              - name: "Azure\_SQL\_Database"
                 href: ../data-factory/connector-azure-sql-database.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Instancia administrada de Azure SQL
                 href: ../data-factory/connector-azure-sql-managed-instance.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json

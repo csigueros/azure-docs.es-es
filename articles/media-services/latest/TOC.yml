@@ -219,6 +219,9 @@
         - name: Codificación que tiene en cuenta el contenido
           href: encode-content-aware-concept.md
           displayName: 'Content aware encoding, encode, transcode, ABR, adaptive bitrate, resolution, HLS, DASH, Smooth, per title encoding, per title, per scene encoding, scene based, QVBR, Quality Defined Variable Bitrate, Quality-Defined'
+        - name: Invalidaciones preestablecidas
+          href: encode-concept-preset-overrides.md
+          displayName: 'preset, override, transform, job, per-job, language, encode, transcode, custom, per job, encoding settings, customize, job output, output'
         - name: Unidades reservadas de multimedia (heredadas)
           href: concept-media-reserved-units.md
           displayName: 'MRU, reserved units, scaling, scale, encoding, media reserved units'
@@ -465,7 +468,7 @@
         - name: Administración de varias cuentas de almacenamiento
           href: storage-managing-multiple-storage-accounts-how-to.md
           displayName: 'how to, how-to, tutorial, storage accounts, multiple storage accounts,'
-    - name: Creación de transformaciones
+    - name: Codificación de elementos multimedia
       items:
         - name: Creación de una transformación
           href: transform-create-transform-how-to.md
@@ -514,7 +517,7 @@
           displayName: 'copy videos, copy, copy codec, copy video codec, copy audio codec, fast encoding, fast remux, remuxing, re-package, packaging, re-encoding'
         - name: Uso del valor predeterminado de codificación en función del contenido
           href: encode-content-aware-how-to.md
-          displayName: 'encode, encoder, transcode, custom preset, content aware, transform'
+          displayName: 'encode, encoder, transcode, custom preset, content aware, transform, CAE, scene based, shot based, qvbr, quality defined'
     - name: Creación de trabajos
       items:
         - name: Creación de trabajos con la CLI

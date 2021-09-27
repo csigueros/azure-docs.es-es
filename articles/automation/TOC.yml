@@ -30,6 +30,8 @@
   items:
     - name: Introducción a la autenticación de cuentas de Automation
       href: automation-security-overview.md
+    - name: Cambio de contexto en Automation
+      href: context-switching.md
     - name: Introducción a la ejecución de runbooks
       href: automation-runbook-execution.md
     - name: Introducción a Hybrid Runbook Worker

@@ -618,6 +618,8 @@
       items:
         - name: Introducción a Speech Studio
           href: speech-studio-overview.md
+        - name: Control de acceso basado en rol en Speech Studio
+          href: speech-studio-role-based-access-control.md
     - name: Adecuado para empresas
       items:
         - name: Regiones admitidas

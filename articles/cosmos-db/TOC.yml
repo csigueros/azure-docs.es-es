@@ -146,7 +146,7 @@
       items:
         - name: Recursos de Cosmos DB
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: sql/create-cosmosdb-resources-portal.md
             - name: Plantilla ARM
               displayName: Resource Manager
@@ -225,6 +225,8 @@
           href: sql/cli-samples.md
         - name: Azure Resource Manager
           href: sql/templates-samples-sql.md
+        - name: Bicep
+          href: sql/bicep-samples.md
     - name: Conceptos
       items:
         - name: Modelado y creación de particiones
@@ -788,7 +790,7 @@
                 - name: Solución de problemas con solicitudes lentas
                   href: sql/troubleshoot-dot-net-sdk-slow-request.md
                 - name: Solución del problema de que el servicio no está disponible
-                  href: troubleshoot-service-unavailable.md
+                  href: sql/troubleshoot-service-unavailable.md
             - name: .Java
               items:
                 - name: "Solución de problemas de la versión 4\_ del SDK de Java"
@@ -1065,6 +1067,8 @@
         - name: Administración mediante plantillas de Resource Manager
           href: cassandra/templates-samples.md
           displayName: ARM
+        - name: Administración mediante Bicep
+          href: cassandra/manage-with-bicep.md
         - name: Administración mediante PowerShell
           href: cassandra/powershell-samples.md
         - name: Administración mediante la CLI de Azure
@@ -1205,6 +1209,8 @@
         - name: Administración mediante plantillas de Resource Manager
           href: mongodb/resource-manager-template-samples.md
           displayName: ARM
+        - name: Administración mediante Bicep
+          href: mongodb/manage-with-bicep.md
         - name: Administración mediante PowerShell
           href: mongodb/powershell-samples.md
         - name: Administración mediante la CLI de Azure
@@ -1289,6 +1295,8 @@
         - name: Administración mediante plantillas de Resource Manager
           href: graph/resource-manager-template-samples.md
           displayName: ARM
+        - name: Administración mediante Bicep
+          href: graph/manage-with-bicep.md
         - name: Administración mediante PowerShell
           href: graph/powershell-samples.md
         - name: Administración mediante la CLI de Azure
@@ -1364,6 +1372,8 @@
           href: table/find-request-unit-charge.md
         - name: Administración mediante plantillas de Resource Manager
           href: table/resource-manager-templates.md
+        - name: Administración mediante Bicep
+          href: table/manage-with-bicep.md
           displayName: ARM
         - name: Administración mediante PowerShell
           href: table/powershell-samples.md
@@ -1402,6 +1412,9 @@
           href: sql/manage-with-powershell.md
         - name: Uso de la CLI de Azure
           href: sql/manage-with-cli.md
+        - name: Uso de Bicep
+          href: sql/manage-with-bicep.md
+          displayName: ARM
         - name: Uso de plantillas de Resource Manager
           href: sql/manage-with-templates.md
           displayName: ARM
@@ -1504,6 +1517,8 @@
               href: monitor-server-side-latency.md
             - name: Supervisión del uso de la unidad de solicitud
               href: monitor-request-unit-usage.md
+            - name: Supervisión de actualizaciones de claves
+              href: monitor-account-key-updates.md
             - name: Supervisión del uso de unidades de solicitud normalizadas
               href: monitor-normalized-request-units.md
         - name: Uso de registros de Azure Monitor

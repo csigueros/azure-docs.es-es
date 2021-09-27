@@ -100,7 +100,7 @@
       href: document-translation/get-started-with-document-translation.md
     - name: Guías paso a paso
       items:
-        - name: Creación de tokens de SAS para la traducción de documentos
+        - name: Generación de tokens de SAS para la traducción de documentos
           href: document-translation/create-sas-tokens.md
         - name: Creación y uso de identidad administrada
           href: document-translation/managed-identity.md

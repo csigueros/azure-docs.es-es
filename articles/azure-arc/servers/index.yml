@@ -7,14 +7,14 @@ metadata:
   author: mgoedtel
   ms.service: azure-arc
   ms.topic: landing-page
-  ms.date: 08/17/2021
+  ms.date: 09/21/2021
   ms.author: magoedte
-  ms.openlocfilehash: 1af908e1c778a9e390ef644cf1e3d211af335c88
-  ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+  ms.openlocfilehash: ed9df4d3242f64f950e52ecd3003150b1eb103f7
+  ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 08/17/2021
-  ms.locfileid: "122322063"
+  ms.lasthandoff: 09/24/2021
+  ms.locfileid: "128624451"
 landingContent:
 - title: Conexión de máquinas a Azure mediante servidores habilitados para Azure Arc
   linkLists:
@@ -28,18 +28,24 @@ landingContent:
       url: plan-at-scale-deployment.md
   - linkListType: get-started
     links:
-    - text: Conexión de máquinas a Azure Arc desde Azure Portal
+    - text: Conexión de máquinas con Azure Arc mediante un script de implementación
       url: onboard-portal.md
     - text: Conexión de máquinas a escala mediante una entidad de servicio
       url: onboard-service-principal.md
-    - text: Conexión de máquinas a Azure con DSC de PowerShell
-      url: onboard-dsc.md
+    - text: Conexión de máquinas a Azure con Windows Admin Center
+      url: onboard-windows-admin-center.md
 - title: Inicios rápidos en 10 minutos
   linkLists:
   - linkListType: quickstart
     links:
     - text: Implementación de un agente de servidores habilitado para Arc
       url: ./learn/quick-enable-hybrid-vm.md
+- title: Cursos
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: Ruta de aprendizaje de Microsoft Learn
+      url: /learn/paths/manage-hybrid-infrastructure-with-azure-arc
 - title: Prueba de concepto
   linkLists:
   - linkListType: sample

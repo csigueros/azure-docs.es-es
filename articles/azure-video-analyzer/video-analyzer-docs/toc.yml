@@ -113,6 +113,8 @@
           href: playback-recordings-how-to.md
         - name: Uso del widget Player de Azure Video Analyzer
           href: player-widget.md
+        - name: Aplicación de ejemplo de widget reproductor
+          href: sample-player-widget.md
         - name: Uso de directivas de acceso para la reproducción
           href: access-policies.md
     - name: Registro
@@ -135,6 +137,8 @@
       items:
         - name: Supervisión y registro
           href: monitor-log-edge.md
+        - name: Puntos de conexión públicos
+          href: access-public-endpoints-networking.md
     - name: Visualización
       items:
         - name: "Inserción del widget de reproductor en Power\_BI"
@@ -173,3 +177,5 @@
       href: faq-edge.yml
     - name: Cuotas y limitaciones
       href: quotas-limitations.md
+    - name: Recurso Terraform de Azure Video Analytics
+      href: 'https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/video_analyzer'

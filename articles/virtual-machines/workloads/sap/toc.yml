@@ -260,6 +260,8 @@
               href: sap-ascs-ha-multi-sid-wsfc-shared-disk.md
         - name: SAP con recurso compartido de archivos
           items:
+            - name: Instalación de SAP NetWeaver de alta disponibilidad con SMB de Azure Files
+              href: high-availability-guide-windows-azure-files-smb.md
             - name: Instalación de SAP NetWeaver de alta disponibilidad con Azure NetApp Files (SMB)
               href: high-availability-guide-windows-netapp-files-smb.md
             - name: Instancia de ASCS/SCS de SAP con WSFC y recurso compartido de archivos de SOFS

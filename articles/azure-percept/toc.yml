@@ -130,6 +130,8 @@
           href: software-releases-usb-cable-updates.md
         - name: "Notas de la versión del software Azure Percept\_DK"
           href: azure-percept-devkit-software-release-notes.md
+        - name: "Notas de la versión del contenedor de Azure Percept\_DK"
+          href: azure-percept-devkit-container-release-notes.md
     - name: Fichas técnicas de los dispositivos Azure Percept
       items:
         - name: "Ficha técnica de Azure Percept\_DK"

@@ -2,7 +2,7 @@
   href: index.yml
 - name: Información general
   items:
-    - name: 'Usuarios, grupos, licencias y roles de Azure AD'
+    - name: "Usuarios, grupos y licencias de Azure\_AD"
       href: directory-overview-user-model.md
 - name: Guías de inicio rápido
   items:
@@ -30,7 +30,7 @@
 - name: Guías paso a paso
   expanded: true
   items:
-    - name: Administrar usuarios
+    - name: Usuarios
       items:
         - name: Creación de usuarios
           href: ../fundamentals/add-users-azure-active-directory.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
@@ -62,25 +62,25 @@
           href: users-restrict-guest-permissions.md
         - name: Grupos dinámicos e invitados
           href: ../external-identities/use-dynamic-groups.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
-    - name: Administración de su organización
+    - name: Organización
       items:
-        - name: "Organizaciones de Azure\_AD"
+        - name: "Organizaciones de inquilinos de Azure\_AD"
           href: ../fundamentals/active-directory-whatis.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+        - name: Eliminar un inquilino
+          href: directory-delete-howto.md
+        - name: Varios inquilinos
+          href: licensing-directory-independence.md
+        - name: Tomar el control de un inquilino
+          href: domains-admin-takeover.md
         - name: Administración de nombres de dominio
           href: domains-manage.md
         - name: Comprobación de subdominios como administrados
           href: domains-verify-custom-subdomain.md
-        - name: Eliminación de un directorio
-          href: directory-delete-howto.md
-        - name: Varios directorios
-          href: licensing-directory-independence.md
-        - name: Suscripción de autoservicio
+        - name: Registro de autoservicio
           href: directory-self-service-signup.md
-        - name: Adquisición de un directorio
-          href: domains-admin-takeover.md
         - name: Azure AD Connect
           href: ../hybrid/whatis-hybrid-identity.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
-    - name: Administrar grupos
+    - name: Grupos
       items:
         - name: Administración de acceso con grupos
           href: ../fundamentals/active-directory-manage-groups.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
@@ -130,7 +130,7 @@
           href: groups-self-service-management.md
         - name: Asignación de etiquetas de confidencialidad
           href: groups-assign-sensitivity-labels.md
-    - name: Asignación de licencias
+    - name: Licencias
       items:
         - name: Asignación de licencias a usuarios
           href: ../fundamentals/license-users-groups.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
@@ -148,7 +148,7 @@
           href: licensing-ps-examples.md
         - name: Identificadores de planes de servicio para licencias
           href: licensing-service-plan-reference.md
-    - name: Administración del inicio de sesión
+    - name: Inicio de sesión
       items:
         - name: Personalización de marca de la compañía
           href: ../fundamentals/customize-branding.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context

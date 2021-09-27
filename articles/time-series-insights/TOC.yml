@@ -55,6 +55,10 @@
               href: breaking-changes-long-data-type.md
             - name: Cambios en el almacenamiento y acoplamiento de JSON
               href: ingestion-rules-update.md
+        - name: Seguridad
+          items:
+            - name: Acceso a red privada
+              href: concepts-private-links.md
     - name: Azure Time Series Insights Gen1
       items:
         - name: Acerca de Time Series Insights
@@ -89,6 +93,8 @@
       href: ./how-to-monitor-tsi.md
     - name: Administración de recursos mediante plantillas
       href: time-series-insights-manage-resources-using-azure-resource-manager-template.md
+    - name: Habilitación de acceso privado para TSI
+      href: how-to-private-links.md
     - name: Azure Time Series Insights Gen2
       items:
         - name: Procedimientos recomendados

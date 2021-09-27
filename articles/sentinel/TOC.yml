@@ -15,10 +15,12 @@
   items:
     - name: Investigación con UEBA
       href: investigate-with-ueba.md
-    - name: Uso de la automatización para responder a amenazas
-      href: tutorial-respond-threats-playbook.md
     - name: Creación de consultas KQL para Azure Sentinel (módulo de aprendizaje)
       href: /learn/paths/sc-200-utilize-kql-for-azure-sentinel/
+    - name: Uso de la automatización para responder a amenazas
+      href: tutorial-respond-threats-playbook.md
+    - name: Introducción a los cuadernos y MSTICPy
+      href: notebook-get-started.md
     - name: Crear un informe de Power BI en Azure Sentinel
       href: powerbi.md
 - name: Conceptos
@@ -200,6 +202,8 @@
       items:
         - name: Búsqueda con Jupyter Notebooks
           href: notebooks.md
+        - name: Configuración avanzada de MSTICPy para cuadernos de Jupyter Notebook
+          href: notebooks-msticpy-advanced.md
         - name: Búsqueda con marcadores
           href: bookmarks.md
         - name: Búsqueda con Live Stream

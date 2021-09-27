@@ -9,14 +9,8 @@
   items:
     - name: 'Creación y uso de recursos compartidos de archivos: Windows'
       href: storage-files-quick-create-use-windows.md
-    - name: 'Creación de recursos compartidos de archivos: Portal'
+    - name: Creación de recursos compartidos de archivos
       href: storage-how-to-use-files-portal.md
-    - name: 'Creación de recursos compartidos de archivos: PowerShell'
-      href: storage-how-to-use-files-powershell.md
-    - name: 'Creación de recursos compartidos de archivos: CLI'
-      href: storage-how-to-use-files-cli.md
-    - name: 'Creación de recursos compartidos de archivos: Explorador de Storage'
-      href: storage-how-to-use-files-storage-explorer.md
 - name: Tutoriales
   items:
     - name: Extensión de servidores de archivos de Windows con Azure File Sync
@@ -177,7 +171,7 @@
           href: storage-files-migration-overview.md
         - name: Establecimiento de implementación solo en la nube como destino
           items:
-            - name: RoboCopy a recursos compartido de archivos de Azure
+            - name: RoboCopy para migrar a recursos compartidos de archivos de Azure
               href: storage-files-migration-robocopy.md
             - name: Migración desde un NAS local a recursos compartido de archivos de Azure con DataBox
               href: storage-files-migration-nas-cloud-databox.md
