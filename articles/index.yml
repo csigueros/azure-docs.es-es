@@ -340,12 +340,6 @@ productDirectory:
       azureCategories:
         - analytics
       url: hdinsight/r-server/r-server-overview.md
-    - title: Azure Blockchain Service (versión preliminar)
-      summary: 'Crear, gobernar y expandir redes de cadena de bloques de consorcio'
-      imageSrc: 'https://static.docs.com/ui/media/product/azure/blockchain-service.svg'
-      azureCategories:
-        - blockchain
-      url: blockchain/service/index.yml
     - title: Azure Blockchain Workbench (versión preliminar)
       summary: Cree fácilmente prototipos de aplicaciones de cadena de bloques en la nube
       imageSrc: 'https://static.docs.com/ui/media/product/azure/blockchain-workbench.svg'
@@ -591,7 +585,7 @@ productDirectory:
         - hybrid
         - databases
       url: azure-sql/index.yml
-    - title: Azure SQL Database
+    - title: "Azure\_SQL\_Database"
       summary: SQL administrado e inteligente en la nube
       imageSrc: 'https://static.docs.com/ui/media/product/azure/sql-database.svg'
       azureCategories:
