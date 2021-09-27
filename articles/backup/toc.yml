@@ -170,7 +170,7 @@
               href: restore-azure-encrypted-virtual-machines.md
             - name: Restauración de la clave y el secreto para máquinas virtuales cifradas
               href: backup-azure-restore-key-secret.md
-        - name: Administración
+        - name: Administrar
           items:
             - name: Administración de copias de seguridad de máquinas virtuales de Azure
               href: backup-azure-manage-vms.md
@@ -196,9 +196,13 @@
           href: manage-monitor-sql-database-backup.md
     - name: Copia de seguridad de Azure Database for PostgreSQL
       items:
-        - name: Backup
+        - name: Información general
+          href: backup-azure-database-postgresql-overview.md
+        - name: Copia de seguridad
           href: backup-azure-database-postgresql.md
-        - name: Administración
+        - name: Restauración
+          href: restore-azure-database-postgresql.md
+        - name: Administrar
           href: manage-azure-database-postgresql.md
     - name: Copia de seguridad de Windows mediante el agente de MARS
       items:
@@ -238,7 +242,7 @@
               href: backup-managed-disks.md
             - name: Restauración
               href: restore-managed-disks.md
-            - name: Administración
+            - name: Administrar
               href: manage-azure-managed-disks.md
         - name: Con PowerShell
           items:
@@ -292,7 +296,7 @@
               href: backup-afs.md
             - name: Restauración
               href: restore-afs.md
-            - name: Administración
+            - name: Administrar
               href: manage-afs-backup.md
         - name: Con la CLI de Azure
           items:
@@ -300,7 +304,7 @@
               href: backup-afs-cli.md
             - name: Restauración
               href: restore-afs-cli.md
-            - name: Administración
+            - name: Administrar
               href: manage-afs-backup-cli.md
         - name: Con PowerShell
           items:
@@ -416,6 +420,8 @@
           href: offline-backup-server-previous-versions.md
     - name: Supervisión y alertas
       items:
+        - name: Información general
+          href: monitoring-and-alerts-overview.md
         - name: Uso del Explorador de Backup
           href: monitor-azure-backup-with-backup-explorer.md
         - name: Uso de Azure Portal
@@ -543,6 +549,8 @@
           href: disk-backup-troubleshoot.md
         - name: SQL Server
           href: backup-sql-server-azure-troubleshoot.md
+        - name: Azure Database for PostgreSQL
+          href: backup-azure-database-postgresql-troubleshoot.md
         - name: Copia de seguridad de SAP HANA en máquinas virtuales de Azure
           href: backup-azure-sap-hana-database-troubleshoot.md
         - name: Estado del sistema
