@@ -103,7 +103,7 @@
               displayName: firewall
         - name: Configuración de parámetros del servidor
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: howto-server-parameters.md
               displayName: server parameters
             - name: Azure CLI
@@ -384,6 +384,8 @@
                   displayName: 'debug, slow query log , performance'
     - name: Ejemplos
       items:
+        - name: Ejemplos de la CLI de Azure
+          href: sample-scripts-azure-cli.md
         - name: Configuración de la agrupación de conexiones de Java
           href: sample-scripts-java-connection-pooling.md
 - name: Servidor flexible (versión preliminar)
@@ -428,7 +430,7 @@
           href: flexible-server/how-to-connect-tls-ssl.md
         - name: Configuración de parámetros del servidor
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: flexible-server/how-to-configure-server-parameters-portal.md
               displayName: server parameters
             - name: Azure CLI
@@ -509,7 +511,7 @@
           items:
             - name: Administración de un servicio
               items:
-                - name: Azure Portal
+                - name: Azure portal
                   href: flexible-server/how-to-manage-server-portal.md
                 - name: CLI de Azure
                   href: flexible-server/how-to-manage-server-cli.md
@@ -521,7 +523,7 @@
                   href: flexible-server/how-to-restart-stop-start-server-cli.md
             - name: Reinicio del servidor
               items:
-                - name: Azure Portal
+                - name: Azure portal
                   href: flexible-server/how-to-restart-server-portal.md
                 - name: CLI de Azure
                   href: flexible-server/how-to-restart-stop-start-server-cli.md
@@ -580,7 +582,7 @@
           items:
             - name: Restauración de un servidor
               items:
-                - name: Azure Portal
+                - name: Azure portal
                   href: flexible-server/how-to-restore-server-portal.md
                 - name: CLI de Azure
                   href: flexible-server/how-to-restore-server-cli.md
@@ -590,6 +592,10 @@
               href: flexible-server/how-to-troubleshoot-common-connection-issues.md
             - name: Solución de errores de la CLI
               href: flexible-server/how-to-troubleshoot-cli-errors.md
+    - name: Ejemplos
+      items:
+        - name: Ejemplos de la CLI de Azure
+          href: flexible-server/sample-scripts-azure-cli.md
 - name: Migración
   items:
     - name: Migración de datos de un entorno local de MySQL a Azure Database for MySQL >

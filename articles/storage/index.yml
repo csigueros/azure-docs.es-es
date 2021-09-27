@@ -7,8 +7,8 @@ metadata:
   description: 'Página del centro de documentación de Azure Storage. Apunta a la documentación del servicio para las soluciones de almacenamiento híbrido y de la nube y a los servicios para transferir, compartir y realizar copias de seguridad de los datos.'
   ms.service: storage
   ms.topic: hub-page
-  author: twooley
-  ms.author: twooley
+  author: tamram
+  ms.author: tamram
   ms.date: 04/14/2021
 highlightedContent:
   items:

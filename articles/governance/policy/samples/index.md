@@ -1,14 +1,14 @@
 ---
 title: Índice de ejemplos de Azure Policy
 description: Índice de elementos integrados en Azure Policy. Etiquetas de categorías, Cumplimiento de normativas, Key Vault, Kubernetes, Configuración de invitados, etc.
-ms.date: 08/13/2021
+ms.date: 09/08/2021
 ms.topic: sample
-ms.openlocfilehash: ca5c973b8efe6ec97eb5d4e6dada5418d7433c0f
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 2c8dbaa1496d8f67c30cc3021697760d67206b8f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122180091"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128650484"
 ---
 # <a name="azure-policy-samples"></a>Ejemplos de Azure Policy
 
@@ -38,8 +38,7 @@ A continuación se muestran ejemplos de diferentes patrones que usan el lenguaje
 A continuación se muestran las integraciones del [cumplimiento normativo](../concepts/regulatory-compliance.md) en Azure:
 
 - [Australian Government ISM PROTECTED](./australia-ism.md)
-- [Azure Security Benchmark v2](./azure-security-benchmark.md)
-- [Azure Security Benchmark v1](./azure-security-benchmarkv1.md)
+- [Azure Security Benchmark](./azure-security-benchmark.md)
 - [Canada Federal PBMM](./canada-federal-pbmm.md)
 - [CIS Microsoft Azure Foundations Benchmark v1.3.0](./cis-azure-1-3-0.md)
 - [CIS Microsoft Azure Foundations Benchmark v1.1.0](./cis-azure-1-1-0.md)
@@ -57,7 +56,7 @@ A continuación se muestran las integraciones del [cumplimiento normativo](../co
 
 A continuación se muestran las integraciones del [cumplimiento normativo](../concepts/regulatory-compliance.md) en Azure Government:
 
-- [Azure Security Benchmark v2](./gov-azure-security-benchmark.md)
+- [Azure Security Benchmark](./gov-azure-security-benchmark.md)
 - [CIS Microsoft Azure Foundations Benchmark v1.3.0](./gov-cis-azure-1-3-0.md)
 - [CIS Microsoft Azure Foundations Benchmark v1.1.0](./gov-cis-azure-1-1-0.md)
 - [CMMC nivel 3](./gov-cmmc-l3.md)
