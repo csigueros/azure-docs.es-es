@@ -1,18 +1,18 @@
 ---
 title: Introducción al ejemplo de plano técnico de Azure Security Benchmark Foundation
 description: Introducción y arquitectura del ejemplo de plano técnico de Azure Security Benchmark Foundation.
-ms.date: 03/12/2021
+ms.date: 09/08/2021
 ms.topic: sample
-ms.openlocfilehash: a60f70b1f3e9d810ccded8bbeee726ea950524e9
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 82521251ca395a0d5a1409dae62954950b7da8a3
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108739266"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128614738"
 ---
 # <a name="overview-of-the-azure-security-benchmark-foundation-blueprint-sample"></a>Introducción al ejemplo de plano técnico de Azure Security Benchmark Foundation
 
-El ejemplo de plano técnico de Azure Security Benchmark Foundation proporciona un conjunto de patrones de infraestructura de la linea base que le ayuda a crear un entorno seguro y compatible con Azure. El plano técnico le ayuda a implementar una arquitectura basada en la nube que ofrece soluciones para escenarios que tienen requisitos de acreditación o de cumplimiento. Este ejemplo de plano técnico fundamental es una extensión del [plano técnico de ejemplo de Azure Security Benchmark](../azure-security-benchmark.md). Implementa y configura los límites de la red, la supervisión y otros recurso en consonancia con las directivas y los límites de protección definidos en [Azure Security Benchmark](../../../../security/benchmarks/index.yml).
+El ejemplo de plano técnico de Azure Security Benchmark Foundation proporciona un conjunto de patrones de infraestructura de la linea base que le ayuda a crear un entorno seguro y compatible con Azure. El plano técnico le ayuda a implementar una arquitectura basada en la nube que ofrece soluciones para escenarios que tienen requisitos de acreditación o de cumplimiento. Implementa y configura los límites de la red, la supervisión y otros recurso en consonancia con las directivas y los límites de protección definidos en [Azure Security Benchmark](../../../../security/benchmarks/index.yml).
 
 ## <a name="architecture"></a>Architecture
 
