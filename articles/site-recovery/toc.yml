@@ -200,6 +200,8 @@
       items:
         - name: Línea de base de seguridad
           href: /security/benchmark/azure/baselines/site-recovery-security-baseline?toc=/azure/site-recovery/toc.json
+        - name: Seguridad de la capa de transporte
+          href: transport-layer-security.md
 - name: Guías de procedimientos
   items:
     - name: Recuperación ante desastres de Azure a Azure
