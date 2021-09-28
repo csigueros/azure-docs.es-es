@@ -253,8 +253,6 @@
       href: core/howto-faq.yml
     - name: Administración de las preferencias personales
       href: core/howto-manage-preferences.md
-    - name: Alternancia de chat en directo
-      href: core/howto-show-hide-chat.md
 - name: Referencia
   items:
     - name: Azure CLI

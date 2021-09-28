@@ -326,6 +326,8 @@
       items:
         - name: Información general
           href: sap-hana-db-about.md
+        - name: Architecture
+          href: azure-backup-architecture-for-sap-hana-backup.md
         - name: Copia de seguridad
           href: backup-azure-sap-hana-database.md
         - name: Restauración
