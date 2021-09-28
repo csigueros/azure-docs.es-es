@@ -564,6 +564,8 @@ items:
             href: control-flow-append-variable-activity.md
           - name: Actividad de ejecución de canalización
             href: control-flow-execute-pipeline-activity.md
+          - name: Actividad de error
+            href: control-flow-fail-activity.md
           - name: Actividad de filtro
             href: control-flow-filter-activity.md
           - name: Actividad ForEach

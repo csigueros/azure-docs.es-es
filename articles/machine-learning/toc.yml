@@ -276,7 +276,7 @@
         - name: Codificación segura
           href: concept-secure-code-best-practice.md
           displayName: security threat
-        - name: Auditoría y administración del cumplimiento
+        - name: Auditoría y administración
           href: how-to-integrate-azure-policy.md
           displayName: policy
     - name: Recursos de áreas de trabajo y proceso

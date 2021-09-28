@@ -12,17 +12,15 @@
   items:
     - name: Adición de una aplicación
       href: add-application-portal.md
-    - name: Configuración de una aplicación
-      href: add-application-portal-configure.md
-    - name: Asignación de usuarios a una aplicación
+    - name: Asignación de un usuario
       href: add-application-portal-assign-users.md
-    - name: Configuración del inicio de sesión único basado en SAML
+    - name: Habilitar el inicio de sesión único
       href: add-application-portal-setup-sso.md
-    - name: Configuración del inicio de sesión único basado en OIDC
-      href: add-application-portal-setup-oidc-sso.md
-    - name: Visualización de sus aplicaciones
+    - name: Configuración de propiedades
+      href: add-application-portal-configure.md
+    - name: Ver las aplicaciones
       href: view-applications-portal.md
-    - name: Eliminar una aplicación
+    - name: Eliminar aplicaciones
       href: delete-application-portal.md
 - name: Tutoriales
   items:
@@ -47,6 +45,8 @@
       href: application-management-fundamentals.md
     - name: Escenarios comunes de administración de aplicaciones
       href: common-scenarios.md
+    - name: Directiva de detección de dominio kerberos de inicio
+      href: home-realm-discovery-policy.md
     - name: Planeamiento de una integración de aplicación en la nube
       items:
         - name: Introducción a la integración de aplicaciones
@@ -55,10 +55,10 @@
           href: my-apps-deployment-plan.md
     - name: Inicio de sesión único
       items:
+        - name: Plan para implementar
+          href: plan-sso-deployment.md
         - name: ¿Qué es el inicio de sesión único?
           href: what-is-single-sign-on.md
-        - name: Planeamiento de la implementación del inicio de sesión único
-          href: plan-sso-deployment.md
     - name: Seguridad de la aplicación
       items:
         - name: Opciones de acceso a aplicaciones
@@ -152,10 +152,12 @@
           href: f5-aad-password-less-vpn.md
     - name: Inicio de sesión único
       items:
-        - name: Inicio de sesión único con contraseña
-          href: configure-password-single-sign-on-non-gallery-applications.md
-        - name: Inicio de sesión único vinculado
+        - name: Vinculado
           href: configure-linked-sign-on.md
+        - name: OpenID Connect
+          href: add-application-portal-setup-oidc-sso.md
+        - name: Contraseña
+          href: configure-password-single-sign-on-non-gallery-applications.md
     - name: Solución de problemas
       items:
         - name: Solución de problemas de inicio de sesión único basado en contraseña

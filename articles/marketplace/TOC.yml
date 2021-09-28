@@ -509,36 +509,46 @@
   items:
     - name: Guía de las API de Marketplace
       href: marketplace-apis-guide.md
-    - name: Referencia de CPP API
+    - name: API de envío de Marketplace
       items:
-        - name: Introducción a CPP API
-          href: cloud-partner-portal-api-overview.md
-        - name: Requisitos previos de la API
-          href: cloud-partner-portal-api-prerequisites.md
-        - name: Consideraciones sobre las API
-          href: cloud-partner-portal-api-considerations.md
-        - name: Control de simultaneidad
-          href: cloud-partner-portal-api-concurrency-control.md
-        - name: Recuperación de ofertas
-          href: cloud-partner-portal-api-retrieve-offers.md
-        - name: Recuperación de una oferta específica
-          href: cloud-partner-portal-api-retrieve-specific-offer.md
-        - name: Adición o modificación de una oferta
-          href: cloud-partner-portal-api-creating-offer.md
-        - name: Recuperación del estado de la oferta
-          href: cloud-partner-portal-api-retrieve-offer-status.md
-        - name: Publicación de una oferta
-          href: cloud-partner-portal-api-publish-offer.md
-        - name: Retrieve operations
-          href: cloud-partner-portal-api-retrieve-operations.md
-        - name: Cancelación de operaciones
-          href: cloud-partner-portal-api-cancel-operations.md
-        - name: Go Live
-          href: cloud-partner-portal-api-go-live.md
-        - name: Precios de ofertas de máquinas virtuales
-          href: cloud-partner-portal-api-setting-price.md
-        - name: Solución de errores de autenticación
-          href: cloud-partner-portal-api-troubleshooting-authentication-errors.md
+        - name: Introducción a las API de envío de Marketplace
+          href: submission-api-overview.md
+        - name: API de envío del Centro de partners
+          items:
+            - name: Requisitos previos de la API
+              href: submission-api-onboard.md
+            - name: API de envío del Centro de partners
+              href: 'https://apidocs.microsoft.com/services/partneringestion/'
+        - name: API de envío heredadas
+          items:
+            - name: Introducción a las API heredadas
+              href: cloud-partner-portal-api-overview.md
+            - name: Requisitos previos de la API
+              href: cloud-partner-portal-api-prerequisites.md
+            - name: Consideraciones sobre las API
+              href: cloud-partner-portal-api-considerations.md
+            - name: Control de simultaneidad
+              href: cloud-partner-portal-api-concurrency-control.md
+            - name: Recuperación de ofertas
+              href: cloud-partner-portal-api-retrieve-offers.md
+            - name: Recuperación de una oferta específica
+              href: cloud-partner-portal-api-retrieve-specific-offer.md
+            - name: Adición o modificación de una oferta
+              href: cloud-partner-portal-api-creating-offer.md
+            - name: Recuperación del estado de la oferta
+              href: cloud-partner-portal-api-retrieve-offer-status.md
+            - name: Publicación de una oferta
+              href: cloud-partner-portal-api-publish-offer.md
+            - name: Retrieve operations
+              href: cloud-partner-portal-api-retrieve-operations.md
+            - name: Cancelación de operaciones
+              href: cloud-partner-portal-api-cancel-operations.md
+            - name: Go Live
+              href: cloud-partner-portal-api-go-live.md
+            - name: Precios de ofertas de máquinas virtuales
+              href: cloud-partner-portal-api-setting-price.md
+            - name: Solución de errores de autenticación
+              href: cloud-partner-portal-api-troubleshooting-authentication-errors.md
     - name: Servicio de medición de Marketplace
       items:
         - name: Servicio de detección de anomalías
