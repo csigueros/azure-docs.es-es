@@ -79,6 +79,8 @@
               href: app/resource-manager-web-app.md
             - name: Azure Functions
               href: app/resource-manager-function-app.md
+            - name: Administración con la CLI de Azure
+              href: insights/azure-cli-application-insights-component.md
         - name: Container Insights
           href: containers/resource-manager-container-insights.md
         - name: Reglas de recopilación de datos
@@ -233,7 +235,7 @@
           items:
             - name: Crear un área de trabajo
               items:
-                - name: Azure Portal
+                - name: Azure portal
                   href: logs/quick-create-workspace.md
                 - name: PowerShell
                   href: logs/powershell-workspace-configuration.md
@@ -1021,10 +1023,6 @@
           items:
             - name: Exportación continua
               href: app/export-telemetry.md
-            - name: Exportación a Stream Analytics
-              href: app/export-stream-analytics.md
-            - name: Exportación a SQL con Stream Analytics
-              href: app/code-sample-export-sql-stream-analytics.md
             - name: Modelo de exportación de datos
               href: app/export-data-model.md
         - name: Visual Studio
