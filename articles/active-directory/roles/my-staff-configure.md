@@ -13,18 +13,18 @@ ms.date: 03/11/2021
 ms.author: rolyon
 ms.reviewer: sahenry
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: d3ec7c9786a9b5d3774c05669ae6d51ad443e71d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: c7f05973f7d609ab3f4dc0f2f567ede4ce0d0f64
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121744090"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124830932"
 ---
 # <a name="manage-your-users-with-my-staff"></a>Administración de los usuarios con Mi personal
 
 Mi personal permite delegar en una figura de autoridad, como un administrador de almacenes o un responsable de equipo, los permisos para garantizar que los miembros del personal puedan obtener acceso a sus cuentas de Azure AD. En lugar de depender de un departamento de soporte técnico central, las organizaciones pueden delegar tareas comunes, como el restablecimiento de contraseñas o el cambio de números de teléfono, en un administrador de equipos local. Con Mi personal, un usuario que no puede tener acceso a su cuenta puede recuperar el acceso con tan solo un par de clics, sin necesidad de ayuda por parte del personal de TI o el departamento de soporte técnico.
 
-Antes de configurar Mi personal para su organización, recomendamos que revise esta documentación, así como la [documentación de usuario](../user-help/my-staff-team-manager.md), para asegurarse de que comprende cómo funciona y afecta a los usuarios. Puede aprovechar la documentación de usuario para entrenar y preparar a los usuarios para la nueva experiencia y ayudar a garantizar un lanzamiento satisfactorio.
+Antes de configurar Mi personal para su organización, recomendamos que revise esta documentación, así como la [documentación de usuario](https://support.microsoft.com/account-billing/manage-front-line-users-with-my-staff-c65b9673-7e1c-4ad6-812b-1a31ce4460bd), para asegurarse de que comprende cómo funciona y afecta a los usuarios. Puede aprovechar la documentación de usuario para entrenar y preparar a los usuarios para la nueva experiencia y ayudar a garantizar un lanzamiento satisfactorio.
 
 ## <a name="how-my-staff-works"></a>Cómo funciona Mi personal
 
@@ -72,7 +72,7 @@ Verá la entidad de servicio al crear una directiva de acceso condicional que se
 
 ## <a name="using-my-staff"></a>Uso de Mi personal
 
-Cuando un usuario va a Mi personal, se le muestran los nombres de las [unidades administrativas](administrative-units.md) sobre las que tienen permisos administrativos. En la [documentación de usuario de Mi personal](../user-help/my-staff-team-manager.md), usamos el término "ubicación" para hacer referencia a las unidades administrativas. Si los permisos de un administrador no tienen ningún ámbito de unidad administrativa, estos se aplicarán en toda la organización. Una vez que se ha habilitado Mi personal, los usuarios que están habilitados y a los que se ha asignado un rol administrativo pueden tener acceso al mismo a través de [https://mystaff.microsoft.com](https://mystaff.microsoft.com). Puede seleccionar una unidad administrativa para ver los usuarios de esta y seleccionar un usuario para abrir su perfil.
+Cuando un usuario va a Mi personal, se le muestran los nombres de las [unidades administrativas](administrative-units.md) sobre las que tienen permisos administrativos. En la [documentación de usuario de Mi personal](https://support.microsoft.com/account-billing/manage-front-line-users-with-my-staff-c65b9673-7e1c-4ad6-812b-1a31ce4460bd), usamos el término "ubicación" para hacer referencia a las unidades administrativas. Si los permisos de un administrador no tienen ningún ámbito de unidad administrativa, estos se aplicarán en toda la organización. Una vez que se ha habilitado Mi personal, los usuarios que están habilitados y a los que se ha asignado un rol administrativo pueden tener acceso al mismo a través de [https://mystaff.microsoft.com](https://mystaff.microsoft.com). Puede seleccionar una unidad administrativa para ver los usuarios de esta y seleccionar un usuario para abrir su perfil.
 
 ## <a name="reset-a-users-password"></a>Restablecimiento de la contraseña del usuario
 
@@ -128,5 +128,5 @@ Puede ver registros de auditoría de las acciones realizadas en Mi personal en e
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Documentación de usuario de Mi personal](../user-help/my-staff-team-manager.md)
+[Documentación de usuario de Mi personal](https://support.microsoft.com/account-billing/manage-front-line-users-with-my-staff-c65b9673-7e1c-4ad6-812b-1a31ce4460bd)
 [Documentación de unidades administrativas](administrative-units.md)

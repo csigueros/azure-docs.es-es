@@ -5,21 +5,21 @@ description: En este artículo se proporciona una introducción al firewall de a
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 12/04/2020
+ms.date: 09/02/2021
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: ea3bc751d91e72c68bd9900f07c3c2e8aae38212
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 2734bc7c02df4f9bbd84d1681d606b3ea92f2ce0
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121729442"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128680117"
 ---
 # <a name="what-is-azure-web-application-firewall-on-azure-application-gateway"></a>¿Qué es el firewall de aplicaciones web de Azure en Azure Application Gateway?
 
 El firewall de aplicaciones web (WAF) de Azure en Azure Application Gateway ofrece una protección centralizada a las aplicaciones web contra vulnerabilidades de seguridad comunes. Las aplicaciones web son cada vez más el objetivo de ataques malintencionados que aprovechan vulnerabilidades habitualmente conocidas. Los scripts entre sitios y las inyecciones de código SQL están dentro de los ataques más comunes.
 
-El firewall de aplicaciones web de Application Gateway se basa en el [conjunto de reglas básicas (CRS)](https://owasp.org/www-project-modsecurity-core-rule-set/) 3.1, 3.0 o 2.2.9 de OWASP (Open Web Application Security Project). El WAF se actualiza automáticamente para incluir protección frente a nuevas vulnerabilidades sin necesidad de configuración adicional. 
+El firewall de aplicaciones web de Application Gateway se basa en el [conjunto de reglas básicas (CRS)](https://owasp.org/www-project-modsecurity-core-rule-set/) 3.1, 3.0 o 2.2.9 de OWASP (Open Web Application Security Project). 
 
 Todas las características de WAF que se enumeran a continuación existen dentro de una directiva de WAF. Puede crear múltiples directivas y se pueden asociar a una instancia de Application Gateway, a clientes de escucha individuales o a reglas de enrutamiento basadas en rutas de acceso en una instancia de Application Gateway. De este modo, puede tener directivas independientes para cada sitio detrás de la instancia Application Gateway si es necesario. Para más información sobre las directivas de WAF, consulte [Creación de una directiva de WAF](create-waf-policy-ag.md).
 

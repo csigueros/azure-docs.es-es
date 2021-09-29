@@ -13,12 +13,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 4c358a0ac6d19918c43cdc99417664ff8ce63971
-ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
+ms.openlocfilehash: 24d62e282258a92826b6e5226ab342d890099c18
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122428698"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124773633"
 ---
 # <a name="azure-ad-connect-version-release-history-archive"></a>Azure AD Connect: Archivo del historial de lanzamiento de versiones
 
@@ -1069,7 +1069,7 @@ Fecha de publicación: Noviembre de 2015
 **Nuevas características de la versión preliminar:**
 
 * [Azure AD Connect Health para sincronización](how-to-connect-health-sync.md)
-* Compatibilidad para sincronización de contraseñas de [Servicios de dominio de Azure AD](../user-help/active-directory-passwords-update-your-own-password.md) .
+* Compatibilidad para sincronización de contraseñas de [Servicios de dominio de Azure AD](https://support.microsoft.com/account-billing/reset-your-work-or-school-password-using-security-info-23dde81f-08bb-4776-ba72-e6b72b9dda9e) .
 
 **Nuevo escenarios admitido:**
 

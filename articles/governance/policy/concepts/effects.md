@@ -3,12 +3,12 @@ title: Descripción del funcionamiento de los efectos
 description: Las definiciones de Azure Policy tienen diversos efectos que determinan cómo se administra y notifica el cumplimiento.
 ms.date: 09/01/2021
 ms.topic: conceptual
-ms.openlocfilehash: aa1dc5554924efa36d7f1ab8b9d7398a7a076852
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: bca5d7535cbbcbf2fc7b6f54e853872c788c723d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123437047"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124792284"
 ---
 # <a name="understand-azure-policy-effects"></a>Comprender los efectos de Azure Policy
 
@@ -202,7 +202,7 @@ La propiedad **details** de los efectos de AuditIfNotExists tiene todas las subp
   - El valor predeterminado es _ResourceGroup_.
 - **EvaluationDelay** (opcional)
   - Especifica cuándo se debe evaluar la existencia de los recursos relacionados. El retraso solo se usa para las evaluaciones que son el resultado de una solicitud de creación o de actualización de recursos.
-  - Los valores permitidos son `AfterProvisioning`, `AfterProvisioningSuccess`, `AfterProvisioningFailure`, o una duración ISO 8601 entre 10 y 360 minutos.
+  - Los valores permitidos son `AfterProvisioning`, `AfterProvisioningSuccess`, `AfterProvisioningFailure`, o una duración ISO 8601 entre 0 y 360 minutos.
   - Los valores _AfterProvisioning_ inspeccionan el resultado de aprovisionamiento del recurso que se evaluó en la condición IF de la regla de directiva. `AfterProvisioning` se ejecuta una vez completado el aprovisionamiento, independientemente del resultado. Si el aprovisionamiento tarda más de seis horas, se trata como un error a la hora de determinar los retrasos de evaluación de _AfterProvisioning_.
   - El valor predeterminado es `PT10M` (10 minutos).
   - La especificación de un retraso de evaluación largo puede hacer que el estado de cumplimiento registrado del recurso no se actualice hasta el siguiente [desencadenador de evaluación](../how-to/get-compliance-data.md#evaluation-triggers).

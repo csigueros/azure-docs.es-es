@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.custom: devx-track-csharp, mvc
 ms.topic: quickstart
 ms.date: 06/18/2020
-ms.openlocfilehash: 8b2909d608578cf2ceff926bba5f3aa1b569b025
-ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
+ms.openlocfilehash: 63595bc1471e550eb964e50e5d5bafacb29bd623
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2021
-ms.locfileid: "113136632"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128596379"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-in-net-core"></a>Inicio rápido: Uso de Azure Cache for Redis con .NET Core
 
@@ -29,9 +29,10 @@ Si quiere pasar directamente al código, consulte [Inicio rápido: Uso de Azure 
 - [SDK de .NET Core](https://dotnet.microsoft.com/download)
 
 ## <a name="create-a-cache"></a>Creación de una caché
-[!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
+[!INCLUDE [redis-cache-create](includes/redis-cache-create.md)]
 
-[!INCLUDE [redis-cache-access-keys](../../includes/redis-cache-access-keys.md)]
+
+[!INCLUDE [redis-cache-access-keys](includes/redis-cache-access-keys.md)]
 
 Tome nota del **NOMBRE DE HOST** y de la **clave de acceso** principal. Usará estos valores más adelante para construir el secreto *CacheConnection*.
 

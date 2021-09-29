@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/09/2021
 ms.reviewer: cynthn, jushiman
 ms.custom: template-how-to
-ms.openlocfilehash: 39dc20f240ba051dd5b49ddbbcc99a20b732ec77
-ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
+ms.openlocfilehash: fe9b445a1eccb6c897a1fd7f383e487714c23966
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123273317"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128575941"
 ---
 # <a name="associate-a-virtual-machine-scale-set-to-a-capacity-reservation-group-preview"></a>Asociación de un conjunto de escalado de máquinas virtuales a un grupo de reserva de capacidad (versión preliminar)
 
@@ -28,13 +28,9 @@ Para obtener más información sobre estos modos, vaya a [Modos de orquestación
 > Reserva de capacidad está actualmente en versión preliminar pública.
 > Esta versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="register-for-capacity-reservation"></a>Registro para la reserva de capacidad 
+## <a name="register-for-capacity-reservation"></a>Registro en la reserva de capacidad 
 
-Antes de poder usar la característica Reserva de capacidad, debe [registrar la suscripción para la versión preliminar](capacity-reservation-overview.md#register-for-capacity-reservation). El registro puede tardar varios minutos en terminar. Puede usar la CLI de Azure o PowerShell para completar el registro de la característica.
-
-> [!NOTE]
-> La reserva de capacidad a petición está disponible para conjuntos de escalado de máquinas virtuales en modo de orquestación uniforme solo en regiones selectas. Para comprobar si su región es compatible, vaya a [Seguimiento de implementación del conjunto de escalado de máquinas virtuales uniforme](https://aka.ms/vmssuniformdeploymenttracker).
-
+Para usar la característica de reserva de capacidad, debe [registrar la suscripción en la versión preliminar](capacity-reservation-overview.md#register-for-capacity-reservation). El registro puede tardar varios minutos en terminar. Puede usar la CLI de Azure o PowerShell para completar el registro de la característica.
 
 ## <a name="limitations-of-scale-sets-in-uniform-orchestration"></a>Limitaciones de los conjuntos de escalado en la orquestación uniforme 
 
@@ -109,7 +105,7 @@ Para obtener más información, vaya al comando de Azure PowerShell [New-AzVmss]
 
 ### <a name="arm-template"></a>[Plantilla ARM](#tab/arm1)
 
-Una  [plantilla de ARM](/azure/azure-resource-manager/templates/overview)  es un archivo de notación de objetos JavaScript (JSON) que define la infraestructura y la configuración del proyecto. La plantilla usa sintaxis declarativa. En la sintaxis declarativa, se describe la implementación deseada sin escribir la secuencia de comandos de programación para crearla. 
+Una  [plantilla de ARM](../azure-resource-manager/templates/overview.md) es un archivo de notación de objetos JavaScript (JSON) que define la infraestructura y la configuración del proyecto. La plantilla usa sintaxis declarativa. En la sintaxis declarativa, se describe la implementación deseada sin escribir la secuencia de comandos de programación para crearla. 
 
 Las plantillas de Resource Manager permiten implementar grupos de recursos relacionados. En una sola plantilla, puede crear grupos de reserva de capacidad y reservas de capacidad. Puede implementar plantillas mediante Azure Portal, la CLI de Azure o Azure PowerShell, o bien desde las canalizaciones de integración continua o entrega continua (CI/CD). 
 

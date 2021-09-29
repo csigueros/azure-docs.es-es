@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/30/2020
 ms.author: jeedes
-ms.openlocfilehash: 44ea8afcb42365b2b01d81674d0f76781cca0ea9
-ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
+ms.openlocfilehash: eb1b40636c26e9515b19cc1853e249a7e4c99b57
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108801737"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124753867"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-count-me-in---operations-dashboard"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Count Me In - Operations Dashboard
 
@@ -145,7 +145,7 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 - Vaya directamente a la dirección URL de inicio de sesión de Count Me In - Operations Dashboard e inicie el flujo de inicio de sesión desde allí.
 
-- Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Count Me In - Operations Dashboard en el panel Aplicaciones, se le redirigirá a la dirección URL de inicio de sesión de Count Me In - Operations Dashboard. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+- Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Count Me In - Operations Dashboard en el panel Aplicaciones, se le redirigirá a la dirección URL de inicio de sesión de Count Me In - Operations Dashboard. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

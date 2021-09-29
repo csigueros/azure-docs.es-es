@@ -6,17 +6,16 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/24/2021
-ms.openlocfilehash: 64206d1e5a26d163c5d5ed81c3c762a10de0fe96
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: 571311d5d455bedc61bae06634324cc5a380f7ab
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122769593"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128555986"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql---flexible-server"></a>Introducción a la continuidad empresarial con Azure Database for PostgreSQL: servidor flexible
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL: servidor flexible en versión preliminar
+
 
 En Azure Database for PostgreSQL: servidor flexible, la **continuidad empresarial** hace referencia a los mecanismos, directivas y procedimientos que permiten a la empresa seguir funcionando en caso de interrupciones, especialmente en lo que respecta a su infraestructura informática. En la mayoría de los casos, el servidor flexible controlará los eventos de interrupción que puedan ocurrir en el entorno en la nube y permitirá que se sigan ejecutando las aplicaciones y los procesos empresariales. No obstante, hay algunos eventos que no se pueden controlar automáticamente, por ejemplo:
 

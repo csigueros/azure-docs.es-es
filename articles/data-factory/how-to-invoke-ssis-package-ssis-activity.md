@@ -9,12 +9,12 @@ ms.author: sawinark
 author: swinarko
 ms.custom: seo-lt-2019, devx-track-azurepowershell
 ms.date: 06/04/2021
-ms.openlocfilehash: 3b8c15a764f3a196232e43ffd8d7fd7fe373355c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 0b24ae5a1564f182cf44e540a9d05a2aaac005ae
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121739460"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124733124"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>Ejecución de un paquete de SSIS mediante la actividad Ejecutar paquete SSIS de Azure Data Factory
 
@@ -36,15 +36,15 @@ En este paso, usa la interfaz de usuario de Data Factory o aplicación para crea
 
 1. En la información general de Data Factory o en la página principal de Azure Portal, seleccione el icono **Crear y supervisar** para iniciar la interfaz de usuario de Data Factory o la aplicación en una pestaña independiente. 
 
-   ![Página principal de Data Factory](./media/how-to-invoke-ssis-package-stored-procedure-activity/data-factory-home-page.png)
+   :::image type="content" source="./media/how-to-invoke-ssis-package-stored-procedure-activity/data-factory-home-page.png" alt-text="Página principal de Data Factory":::
 
    En la página principal, seleccione **Orchestrate** (Organizar). 
 
-   ![Captura de pantalla que muestra la página principal de ADF.](./media/doc-common-process/get-started-page.png)
+   :::image type="content" source="./media/doc-common-process/get-started-page.png" alt-text="Captura de pantalla que muestra la página principal de ADF.":::
 
 1. En el cuadro de herramientas **Activities** (Actividades), expanda **General**. Después, arrastre la actividad **Ejecutar paquete SSIS** a la superficie del diseñador 
 
-   ![Arrastrar la actividad Execute SSIS Package (Ejecutar paquete de SSIS) a la superficie del diseñador](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-designer.png) 
+   :::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-designer.png" alt-text="Arrastrar la actividad Execute SSIS Package (Ejecutar paquete de SSIS) a la superficie del diseñador"::: 
 
    Seleccione el objeto Execute SSIS Package activity (Ejecutar una actividad de paquete SSISS) para configurar sus pestañas **General**, **Settings** (Configuración), **SSIS Parameters** (Parámetros de SSIS), **Connection Managers** (Administradores de conexiones) y **Property Overrides** (Invalidaciones de propiedad).
 
@@ -52,7 +52,7 @@ En este paso, usa la interfaz de usuario de Data Factory o aplicación para crea
 
 En la pestaña **General** de la actividad Execute SSIS Package (Ejecutar paquete SSIS), realice los pasos siguientes.
 
-![Establecimiento de propiedades en la pestaña General](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png)
+:::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png" alt-text="Establecimiento de propiedades en la pestaña General":::
 
    1. En **Name** (Nombre), escriba el nombre de la actividad Execute SSIS Package (Ejecutar paquete de SSIS).
 
@@ -72,7 +72,7 @@ En la pestaña **General** de la actividad Execute SSIS Package (Ejecutar paquet
 
 En la pestaña **Settings** (Configuración) de la actividad Execute SSIS Package (Ejecutar paquete de SSIS), haga lo siguiente.
 
-![Establecer propiedades de la pestaña Settings (Configuración): Automatic (Automática)](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings.png)
+:::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings.png" alt-text="Establecer propiedades de la pestaña Settings (Configuración): Automatic (Automática)":::
 
    1. En **Azure-SSIS IR**, seleccione la instancia de Azure-SSIS IR designada para ejecutar la actividad Execute SSIS Package (Ejecutar paquete de SSIS).
 
@@ -98,13 +98,13 @@ La ubicación del paquete **SSISDB** se selecciona automáticamente si Azure-SSI
 
    1. Si la instancia de Azure-SSIS IR no se está ejecutando o la casilla **Manual entries** (Entradas manuales) está activada, escriba las rutas de acceso del paquete y el entorno de SSISDB directamente en los siguientes formatos: `<folder name>/<project name>/<package name>.dtsx` y `<folder name>/<environment name>`.
 
-      ![Establecer las propiedades en la pestaña Settings (Configuración): manual](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings2.png)
+      :::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings2.png" alt-text="Establecer las propiedades en la pestaña Settings (Configuración): manual":::
 
 ##### <a name="package-location-file-system-package"></a>Ubicación del paquete: File System (Package) (Sistema de archivos [paquete])
 
 La ubicación del paquete **File System (Package)** (Sistema de archivos [paquete]) se selecciona automáticamente si Azure-SSIS IR se aprovisionó sin SSISDB; también la puede seleccionar el usuario. Si está seleccionada, siga estos pasos.
 
-![Establecimiento de las propiedades en la pestaña Properties (Propiedades): File System (Package) (Sistema de archivos [paquete])](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings3.png)
+:::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings3.png" alt-text="Establecimiento de las propiedades en la pestaña Properties (Propiedades): File System (Package) (Sistema de archivos [paquete])":::
    
    1. Especifique el paquete que se va a ejecutar, para lo que debe proporcionar una ruta de acceso UNC (Convención de nomenclatura universal) al archivo de paquete (con `.dtsx`) en el cuadro **Package path** (Ruta de acceso del paquete). Para examinar y seleccionar el paquete, elija **Browse file storage** (Examinar almacenamiento de archivos) o escriba su ruta de acceso manualmente. Por ejemplo, si almacena el paquete en Azure Files, su ruta de acceso es `\\<storage account name>.file.core.windows.net\<file share name>\<package name>.dtsx`. 
    
@@ -134,7 +134,7 @@ Para todas las rutas de acceso UNC mencionadas anteriormente, el nombre de archi
 
 Si selecciona **File System (Project)** (Sistema de archivos [proyecto]) como ubicación del paquete, realice los pasos siguientes.
 
-![Establecimiento de las propiedades en la pestaña Settings (Configuración): File System (Project) (Sistema de archivos [proyecto])](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings4.png)
+:::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings4.png" alt-text="Establecimiento de las propiedades en la pestaña Settings (Configuración): File System (Project) (Sistema de archivos [proyecto])":::
 
    1. Especifique el paquete que quiere ejecutar; para ello, proporcione una ruta de acceso UNC al archivo de proyecto (con `.ispac`) en el cuadro **Project path** (Ruta de acceso del proyecto) y un archivo de paquete (con `.dtsx`) del proyecto en el cuadro **Package name** (Nombre del paquete). Para examinar y seleccionar el proyecto, elija **Browse file storage** (Examinar almacenamiento de archivos) o escriba su ruta de acceso manualmente. Por ejemplo, si almacena el proyecto en Azure Files, su ruta de acceso será `\\<storage account name>.file.core.windows.net\<file share name>\<project name>.ispac`.
 
@@ -162,7 +162,7 @@ Para todas las rutas de acceso UNC mencionadas anteriormente, el nombre de archi
 
 Si selecciona **Embedded package** (Paquete insertado) como ubicación del paquete, realice los pasos siguientes.
 
-![Establecimiento de propiedades en la pestaña Configuración: Embedded package (Paquete insertado)](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings5.png)
+:::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings5.png" alt-text="Establecimiento de propiedades en la pestaña Configuración: Embedded package (Paquete insertado)":::
 
    1. Arrastre y coloque el archivo de paquete (con `.dtsx`) o **cárguelo** desde una carpeta de archivos en el cuadro proporcionado. El paquete se comprimirá e insertará automáticamente en la carga de la actividad. Una vez insertado, puede **descargar** el paquete más adelante para su edición. También puede **parametrizar** el paquete insertado si lo asigna a un parámetro de canalización que se puede usar en varias actividades, por lo que se optimiza el tamaño de la carga de la canalización. Actualmente no se admite la inserción de archivos de proyecto (con `.ispac`), por lo que no se pueden usar parámetros de SSIS ni administradores de conexión con el ámbito de nivel de proyecto en los paquetes insertados.
    
@@ -190,7 +190,7 @@ Para todas las rutas de acceso UNC mencionadas anteriormente, el nombre de archi
 
 Si selecciona **Package store** (Almacén de paquetes) como ubicación del paquete, realice los pasos siguientes.
 
-![Establecimiento de las propiedades de la pestaña Settings (Configuración): Package store (Almacén de paquetes)](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings6.png)
+:::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings6.png" alt-text="Establecimiento de las propiedades de la pestaña Settings (Configuración): Package store (Almacén de paquetes)":::
    
    1. En **Package store name** (Nombre del almacén de paquetes), seleccione un almacén de paquetes existente que esté asociado a su instancia de Azure-SSIS IR.
 
@@ -222,7 +222,7 @@ Para todas las rutas de acceso UNC mencionadas anteriormente, el nombre de archi
 
 En la pestaña **SSIS Parameters** (Parámetros de SSIS) de la actividad Execute SSIS Package (Ejecutar paquete de SSIS), haga lo siguiente.
 
-![Establecer propiedades en la pestaña SSIS Parameters (Parámetros de SSIS)](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-ssis-parameters.png)
+:::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-ssis-parameters.png" alt-text="Establecer propiedades en la pestaña SSIS Parameters (Parámetros de SSIS)":::
 
    1. Si la instancia de Azure-SSIS IR está en ejecución, se selecciona **SSISDB** como la ubicación del paquete y la casilla **Manual entries** (Entradas manuales) de la pestaña **Settings** (Configuración) está desactivada, se muestran los parámetros de SSIS existentes en el proyecto o paquete seleccionados de SSISDB para que les asigne valores. De lo contrario, puede escribirlos uno por uno para asignarles valores manualmente. Asegúrese de que existen y que se han escrito correctamente para que la ejecución del paquete se realice satisfactoriamente. 
    
@@ -236,19 +236,19 @@ También puede usar como valores los secretos almacenados en la instancia de Azu
 
 En la pestaña **Connection Managers** (Administradores de conexones) de la actividad Execute SSIS Package (Ejecutar paquete de SSIS), haga lo siguiente.
 
-![Establecer propiedades en la pestaña Connection Managers (Administradores de conexiones)](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-connection-managers.png)
+:::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-connection-managers.png" alt-text="Establecer propiedades en la pestaña Connection Managers (Administradores de conexiones)":::
 
    1. Si la instancia de Azure-SSIS IR está en ejecución, se selecciona **SSISDB** como ubicación del paquete y la casilla **Manual entries** (Entradas manuales) de la pestaña **Settings** (Configuración) está desactivada, se muestran los administradores de conexiones existentes del proyecto y del paquete seleccionados en SSISDB para que se asignen valores a sus propiedades. De lo contrario, puede escribirlos uno por uno para asignar valores a sus propiedades manualmente. Asegúrese de que existen y que se han escrito correctamente para que la ejecución del paquete se realice satisfactoriamente. 
    
       Puede obtener los nombres correctos de **SCOPE**, **NAME** y **PROPERTY** de cualquier administrador de conexiones; para ello, abra el paquete que lo contiene en SSDT. Una vez abierto el paquete, seleccione el administrador de conexiones correspondiente para mostrar los nombres y valores de todas sus propiedades en la ventana **Propiedades** de SSDT. Con esta información, puede invalidar los valores de las propiedades del administrador de conexiones en tiempo de ejecución. 
 
-      ![Obtención de las propiedades del administrador de conexiones de SSDT](media/how-to-invoke-ssis-package-ssis-activity/ssdt-connection-manager-properties.png)
+      :::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/ssdt-connection-manager-properties.png" alt-text="Obtención de las propiedades del administrador de conexiones de SSDT":::
 
       Por ejemplo, sin modificar el paquete original en SSDT, puede convertir sus flujos de datos del entorno local al entorno local que se ejecutan en SQL Server en flujos de datos del entorno local a la nube que se ejecutan en SSIS IR en ADF mediante la invalidación de los valores de las propiedades **ConnectByProxy**, **ConnectionString** y **ConnectUsingManagedIdentity** en los administradores de conexiones existentes en tiempo de ejecución.
       
       Estas invalidaciones en tiempo de ejecución pueden habilitar IR autohospedado (SHIR) como proxy para SSIS IR al acceder a los datos locales, consulte [Configuración de IR autohospedado como proxy para Azure-SSIS IR](./self-hosted-integration-runtime-proxy-ssis.md), y las conexiones de Instancia administrada/Azure SQL Database con el controlador MSOLEDBSQL más reciente que, a su vez, habilita la autenticación de Azure Active Directory (AAD) con la identidad administrada de ADF, consulte [Configuración de la autenticación de AAD con la identidad administrada de ADF para conexiones OLEDB](/sql/integration-services/connection-manager/ole-db-connection-manager#managed-identities-for-azure-resources-authentication).
 
-      ![Definición de propiedades desde SSDT en la pestaña Administradores de conexiones](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-connection-managers2.png)
+      :::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-connection-managers2.png" alt-text="Definición de propiedades desde SSDT en la pestaña Administradores de conexiones":::
    
    1. Si ha usado el nivel de protección **EncryptSensitiveWithUserKey** al crear el paquete mediante SSDT y se ha seleccionado **File System (Package)** (Sistema de archivos [paquete]), **File System (Project)** (Sistema de archivos [proyecto]), **Embedded package** (Paquete insertado) o **Package store** (Almacén de paquetes) como ubicación del paquete, también debe volver a escribir las propiedades confidenciales del administrador de conexiones para asignarles valores en esta pestaña. 
 
@@ -260,23 +260,23 @@ También puede usar como valores los secretos almacenados en la instancia de Azu
 
 En la pestaña **Property Overrides** (Invalidaciones de propiedad) de la actividad Execute SSIS Package (Ejecutar paquete de SSIS), siga estos pasos.
 
-![Establecer propiedades en la pestaña Property Overrides (Reemplazos de propiedad)](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-property-overrides.png)
+:::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-property-overrides.png" alt-text="Establecer propiedades en la pestaña Property Overrides (Reemplazos de propiedad)":::
 
    1. Escriba las rutas de acceso de las propiedades existentes en el paquete seleccionado una por una para asignarles valores manualmente. Asegúrese de que existen y que se han escrito correctamente para que la ejecución del paquete se realice satisfactoriamente. Por ejemplo, para invalidar el valor de la variable de usuario, escriba su ruta de acceso en el formato `\Package.Variables[User::<variable name>].Value`. 
 
       Para obtener la **RUTA DE ACCESO DE LA PROPIEDAD** correcta para cualquier propiedad del paquete, puede abrir el paquete que la contiene en SSDT. Una vez abierto el paquete, seleccione su flujo de control y la propiedad **Configurations** en la ventana **Propiedades** de SSDT. Después, seleccione el botón de puntos suspensivos ( **…** ) situado junto a su propiedad **Configurations** para abrir el **Organizador de configuraciones de paquetes** que se usa normalmente para [crear configuraciones de paquetes en el modelo de implementación de paquetes](/sql/integration-services/packages/legacy-package-deployment-ssis#create-package-configurations). 
 
-      ![Obtención de las propiedades de paquete desde la propiedad Configurations de SSDT](media/how-to-invoke-ssis-package-ssis-activity/ssdt-package-properties.png)
+      :::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/ssdt-package-properties.png" alt-text="Obtención de las propiedades de paquete desde la propiedad Configurations de SSDT":::
 
       En el **Organizador de configuraciones de paquetes**, active la casilla **Habilitar configuraciones de paquetes** y el botón **Agregar…** para abrir el **Asistente para la configuración de paquetes**. 
       
       En el **Asistente para la configuración de paquetes**, seleccione el elemento **Archivo de configuración XML** en el menú desplegable **Tipo de configuración** y el botón **Especificar valores de configuración  directamente**, escriba el nombre del archivo de configuración y seleccione el botón **Siguiente >** . 
 
-      ![Obtención de las propiedades de paquete desde el Organizador de configuraciones de SSDT](media/how-to-invoke-ssis-package-ssis-activity/ssdt-package-properties2.png)
+      :::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/ssdt-package-properties2.png" alt-text="Obtención de las propiedades de paquete desde el Organizador de configuraciones de SSDT":::
 
       Por último, seleccione las propiedades del paquete cuya ruta de acceso desea y el botón **Siguiente >** .  Ahora puede ver, copiar & pegar las rutas de acceso de las propiedades del paquete que desee y guardarlas en el archivo de configuración. Con esta información, puede invalidar los valores de las propiedades del paquete en tiempo de ejecución. 
 
-      ![Obtención de las propiedades de paquete desde el Asistente para la configuración de SSDT](media/how-to-invoke-ssis-package-ssis-activity/ssdt-package-properties3.png)
+      :::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/ssdt-package-properties3.png" alt-text="Obtención de las propiedades de paquete desde el Asistente para la configuración de SSDT":::
    
    1. Si ha usado el nivel de protección **EncryptSensitiveWithUserKey** al crear el paquete mediante SSDT y se ha seleccionado **File System (Package)** (Sistema de archivos [paquete]), **File System (Project)** (Sistema de archivos [proyecto]), **Embedded package** (Paquete insertado) o **Package store** (Almacén de paquetes) como ubicación del paquete, también debe volver a escribir las propiedades confidenciales del paquete para asignarles valores en esta pestaña. 
    
@@ -293,7 +293,7 @@ En este paso, desencadenará una ejecución de canalización.
 
 1. Para desencadenar una ejecución de canalización, seleccione **Trigger** (Desencadenar) en la barra de herramientas y en **Trigger now** (Desencadenar ahora). 
 
-   ![Trigger now (Desencadenar ahora)](./media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-trigger.png)
+   :::image type="content" source="./media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-trigger.png" alt-text="Trigger now (Desencadenar ahora)":::
 
 2. En la ventana **Pipeline Run** (Ejecución de canalización), seleccione **Finish** (Finalizar). 
 
@@ -301,11 +301,11 @@ En este paso, desencadenará una ejecución de canalización.
 
 1. Cambie a la pestaña **Monitor** (Supervisar) de la izquierda. Verá la ejecución de canalización y su estado junto con otro tipo de información, como la hora de **inicio de la ejecución**. Para actualizar la vista, seleccione **Refresh** (Actualizar).
 
-   ![Ejecuciones de la canalización](./media/how-to-invoke-ssis-package-stored-procedure-activity/pipeline-runs.png)
+   :::image type="content" source="./media/how-to-invoke-ssis-package-stored-procedure-activity/pipeline-runs.png" alt-text="Ejecuciones de la canalización":::
 
 2. Seleccione el vínculo **View Activity Runs** (Ver ejecuciones de actividad) en la columna **Actions** (Acciones). Solo verá una ejecución de actividad porque la canalización solo tiene una actividad. Es la actividad de ejecución de paquetes de SSIS.
 
-   ![Ejecuciones de actividad](./media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-runs.png)
+   :::image type="content" source="./media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-runs.png" alt-text="Ejecuciones de actividad":::
 
 3. Ejecute la consulta siguiente en la base de datos SSISDB en el servidor de SQL para comprobar la ejecución del paquete. 
 
@@ -313,11 +313,11 @@ En este paso, desencadenará una ejecución de canalización.
    select * from catalog.executions
    ```
 
-   ![Comprobación de las ejecuciones del paquete](./media/how-to-invoke-ssis-package-stored-procedure-activity/verify-package-executions.png)
+   :::image type="content" source="./media/how-to-invoke-ssis-package-stored-procedure-activity/verify-package-executions.png" alt-text="Comprobación de las ejecuciones del paquete":::
 
 4. También puede obtener el identificador de ejecución de SSISDB desde la salida de la ejecución de la actividad de canalización, y usar el identificador para comprobar registros de ejecución y mensajes de error más completos en SQL Server Management Studio.
 
-   ![Obtenga el identificador de ejecución.](media/how-to-invoke-ssis-package-ssis-activity/get-execution-id.png)
+   :::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/get-execution-id.png" alt-text="Obtenga el identificador de ejecución.":::
 
 ### <a name="schedule-the-pipeline-with-a-trigger"></a>Programación de la canalización con un desencadenador
 

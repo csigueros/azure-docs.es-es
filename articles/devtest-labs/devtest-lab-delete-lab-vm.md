@@ -1,14 +1,14 @@
 ---
-title: Eliminación de un laboratorio o de una máquina virtual de un laboratorio en Azure DevTest Labs
+title: Eliminación de un laboratorio o máquina virtual de un laboratorio
 description: En este artículo se muestra cómo eliminar un laboratorio o eliminar una VM en un laboratorio mediante Azure Portal (Azure DevTest Labs).
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/24/2020
-ms.openlocfilehash: 495fb98f3da41a47d316dd64554ba616ede0af47
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: af8a1691bbd0f34647b7e52a8f05b7acffb86d2b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85481228"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128616372"
 ---
 # <a name="delete-a-lab-or-vm-in-a-lab-in-azure-devtest-labs"></a>Eliminación de un laboratorio o de una máquina virtual de un laboratorio en Azure DevTest Labs
 Este artículo muestra cómo eliminar un laboratorio o una máquina virtual de un laboratorio.

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: normesta
 ms.date: 03/04/2020
 ms.custom: devx-track-js, devx-track-azurepowershell
-ms.openlocfilehash: b4279d296c9948d9fbb06174c7c379cd067666dc
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 46c22fe3033a9fc9cda90bf9901f10f20355838e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110677307"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128645899"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Hospedaje de un sitio web estático en Azure Storage
 
@@ -35,15 +35,15 @@ El hospedaje de sitios web estáticos es una característica que permite habilit
 
 4. Seleccione **Habilitado** para habilitar el hospedaje del sitio web estático para la cuenta de almacenamiento.
 
-5. En el campo **Index document name** (Nombre del documento de índice), especifique una página de índice predeterminada (por ejemplo: *index.html*). 
+5. En el campo **Index document name** (Nombre del documento de índice), especifique una página de índice predeterminada (por ejemplo: *index.html*).
 
-   La página de índice predeterminada se muestra cuando un usuario navega hasta la raíz del sitio web estático.  
+   La página de índice predeterminada se muestra cuando un usuario navega hasta la raíz del sitio web estático.
 
-6. En el campo **Error document path** (Ruta de acceso del documento de error), especifique una página de error predeterminada (por ejemplo: *404.html*). 
+6. En el campo **Error document path** (Ruta de acceso del documento de error), especifique una página de error predeterminada (por ejemplo: *404.html*).
 
    La página de error predeterminada se muestra cuando un usuario intenta navegar a una página que no existe en el sitio web estático.
 
-7. Haga clic en **Save**(Guardar). Azure Portal ahora muestra el punto de conexión estático del sitio web. 
+7. Haga clic en **Save**(Guardar). Azure Portal ahora muestra el punto de conexión estático del sitio web.
 
     ![Habilitación del hospedaje del sitio web estático para una cuenta de almacenamiento](media/storage-blob-static-website-host/enable-static-website-hosting.png)
 
@@ -69,11 +69,11 @@ Puede habilitar el hospedaje de sitios web estáticos mediante la [Interfaz de l
    az storage blob service-properties update --account-name <storage-account-name> --static-website --404-document <error-document-name> --index-document <index-document-name>
    ```
 
-   * Reemplace el valor de marcador de posición `<storage-account-name>` por el nombre de la cuenta de almacenamiento.
+   - Reemplace el valor de marcador de posición `<storage-account-name>` por el nombre de la cuenta de almacenamiento.
 
-   * Reemplace el marcador de posición `<error-document-name>` por el nombre del documento de error que verán los usuarios cuando un explorador solicite una página en el sitio que no existe.
+   - Reemplace el marcador de posición `<error-document-name>` por el nombre del documento de error que verán los usuarios cuando un explorador solicite una página en el sitio que no existe.
 
-   * Reemplace el marcador de posición `<index-document-name>` por el nombre del documento de índice. Este documento suele ser "index.html".
+   - Reemplace el marcador de posición `<index-document-name>` por el nombre del documento de índice. Este documento suele ser "index.html".
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -113,9 +113,9 @@ Puede habilitar el hospedaje de sitios web estáticos con el módulo de Azure Po
    $ctx = $storageAccount.Context
    ```
 
-   * Reemplace el marcador de posición `<resource-group-name>` por el nombre del grupo de recursos.
+   - Reemplace el marcador de posición `<resource-group-name>` por el nombre del grupo de recursos.
 
-   * Reemplace el valor de marcador de posición `<storage-account-name>` por el nombre de la cuenta de almacenamiento.
+   - Reemplace el valor de marcador de posición `<storage-account-name>` por el nombre de la cuenta de almacenamiento.
 
 6. Habilite el hospedaje de sitios web estáticos.
 
@@ -123,13 +123,13 @@ Puede habilitar el hospedaje de sitios web estáticos con el módulo de Azure Po
    Enable-AzStorageStaticWebsite -Context $ctx -IndexDocument <index-document-name> -ErrorDocument404Path <error-document-name>
    ```
 
-   * Reemplace el marcador de posición `<error-document-name>` por el nombre del documento de error que verán los usuarios cuando un explorador solicite una página en el sitio que no existe.
+   - Reemplace el marcador de posición `<error-document-name>` por el nombre del documento de error que verán los usuarios cuando un explorador solicite una página en el sitio que no existe.
 
-   * Reemplace el marcador de posición `<index-document-name>` por el nombre del documento de índice. Este documento suele ser "index.html".
+   - Reemplace el marcador de posición `<index-document-name>` por el nombre del documento de índice. Este documento suele ser "index.html".
 
 ---
 
-## <a name="upload-files"></a>Carga de archivos 
+## <a name="upload-files"></a>Carga de archivos
 
 ### <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -143,11 +143,11 @@ En estas instrucciones se muestra cómo cargar archivos mediante la versión del
 
    ![Carga de archivos](media/storage-blob-static-website/storage-blob-static-website-upload.png)
 
-4. Si pretende que el explorador muestre el contenido de un archivo, asegúrese de que el tipo de contenido del mismo está establecido en `text/html`. 
+4. Si pretende que el explorador muestre el contenido de un archivo, asegúrese de que el tipo de contenido del mismo está establecido en `text/html`.
 
    ![Comprobar los tipos de contenido](media/storage-blob-static-website/storage-blob-static-website-content-type.png)
 
-   >[!NOTE]
+   > [!NOTE]
    > El Explorador de Storage establece automáticamente esta propiedad en `text/html` para las extensiones que se reconocen habitualmente, como `.html`. Sin embargo, en algunos casos, el usuario es quien debe realizar la operación. Si no establece esta propiedad en `text/html`, el explorador solicitará a los usuarios que descarguen el archivo, en lugar representar el contenido. Para establecer esta propiedad, haga clic con el botón derecho en el archivo y, después, haga clic en **Propiedades**.
 
 ### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
@@ -160,12 +160,12 @@ En este ejemplo se da por hecho que ejecuta comandos desde la sesión de Azure C
 az storage blob upload-batch -s <source-path> -d '$web' --account-name <storage-account-name>
 ```
 
-> [!NOTE] 
-> Si el explorador solicita a los usuarios que descarguen el archivo en lugar de representar el contenido, puede anexar `--content-type 'text/html; charset=utf-8'` al comando. 
+> [!NOTE]
+> Si el explorador solicita a los usuarios que descarguen el archivo en lugar de representar el contenido, puede anexar `--content-type 'text/html; charset=utf-8'` al comando.
 
-* Reemplace el valor de marcador de posición `<storage-account-name>` por el nombre de la cuenta de almacenamiento.
+- Reemplace el valor de marcador de posición `<storage-account-name>` por el nombre de la cuenta de almacenamiento.
 
-* Reemplace el marcador de posición `<source-path>` por una ruta de acceso a la ubicación de los archivos que desea cargar.
+- Reemplace el marcador de posición `<source-path>` por una ruta de acceso a la ubicación de los archivos que desea cargar.
 
 > [!NOTE]
 > Si usa una instalación de ubicación de la CLI de Azure, puede usar la ruta de acceso a cualquier ubicación en el equipo local (por ejemplo: `C:\myFolder`).
@@ -184,12 +184,12 @@ set-AzStorageblobcontent -File "<path-to-file>" `
 -Context $ctx
 ```
 
-> [!NOTE] 
+> [!NOTE]
 > Si el explorador solicita a los usuarios que descarguen el archivo en lugar de representar el contenido, puede anexar `-Properties @{ ContentType = "text/html; charset=utf-8";}` al comando.
 
-* Reemplace el valor de marcador de posición `<path-to-file>` por la ruta de acceso absoluta al archivo que desea cargar (por ejemplo: `C:\temp\index.html`).
+- Reemplace el valor de marcador de posición `<path-to-file>` por la ruta de acceso absoluta al archivo que desea cargar (por ejemplo: `C:\temp\index.html`).
 
-* Reemplace el valor de marcador de posición `<blob-name>` por el nombre que desea dar al blob resultante (por ejemplo: `index.html`).
+- Reemplace el valor de marcador de posición `<blob-name>` por el nombre que desea dar al blob resultante (por ejemplo: `index.html`).
 
 ---
 
@@ -213,9 +213,9 @@ Para buscar la dirección URL pública de un sitio web estático, use el siguien
 az storage account show -n <storage-account-name> -g <resource-group-name> --query "primaryEndpoints.web" --output tsv
 ```
 
-* Reemplace el valor de marcador de posición `<storage-account-name>` por el nombre de la cuenta de almacenamiento.
+- Reemplace el valor de marcador de posición `<storage-account-name>` por el nombre de la cuenta de almacenamiento.
 
-* Reemplace el marcador de posición `<resource-group-name>` por el nombre del grupo de recursos.
+- Reemplace el marcador de posición `<resource-group-name>` por el nombre del grupo de recursos.
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -226,9 +226,9 @@ Para buscar la dirección URL pública de un sitio web estático, use el siguien
 Write-Output $storageAccount.PrimaryEndpoints.Web
 ```
 
-* Reemplace el marcador de posición `<resource-group-name>` por el nombre del grupo de recursos.
+- Reemplace el marcador de posición `<resource-group-name>` por el nombre del grupo de recursos.
 
-* Reemplace el valor de marcador de posición `<storage-account-name>` por el nombre de la cuenta de almacenamiento.
+- Reemplace el valor de marcador de posición `<storage-account-name>` por el nombre de la cuenta de almacenamiento.
 
 ---
 
@@ -270,9 +270,9 @@ Después de habilitar las métricas, las estadísticas de tráfico de los archiv
 
    ![GetWebContent de métricas de sitios web de Azure Storage](./media/storage-blob-static-website/storage-blob-static-website-metrics-getwebcontent.png)
 
-   >[!NOTE]
+   > [!NOTE]
    > La casilla **GetWebContent** solo aparece si ese miembro de la API se usó dentro de un período de tiempo determinado. El portal solo muestra los miembros de API que se usan en un período de tiempo determinado, para centrarse únicamente en los miembros que devuelven datos. Si no encuentra un miembro específico de la API en esta lista, expanda el período de tiempo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Aprenda a configurar un dominio personalizado con su sitio web estático. Consulte [Asignación de un dominio personalizado a un punto de conexión de Azure Blob Storage](storage-custom-domain-name.md).
+- Aprenda a configurar un dominio personalizado con su sitio web estático. Consulte [Asignación de un dominio personalizado a un punto de conexión de Azure Blob Storage](storage-custom-domain-name.md).

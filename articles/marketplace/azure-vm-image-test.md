@@ -4,15 +4,15 @@ description: Pruebe y envíe una oferta de máquina virtual de Azure en Azure M
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: kriti-ms
-ms.author: krsh
+author: ebolton-cyber
+ms.author: edewebolton
 ms.date: 03/10/2021
-ms.openlocfilehash: c885f7e953849825c9a0ef87f68df6e9e2d3360a
-ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
+ms.openlocfilehash: 876f4b42c77caba27ed94b42d784004b0bfd32ce
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2021
-ms.locfileid: "111528583"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128598163"
 ---
 # <a name="test-a-virtual-machine-image"></a>Prueba de una imagen de máquina virtual
 
@@ -280,4 +280,4 @@ En este ejemplo, se usará curl para realizar una llamada de API POST a Azure Ac
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Inicie sesión en el [Centro de partners](https://partner.microsoft.com/).
+- Inicie sesión en el [Centro de partners](https://go.microsoft.com/fwlink/?linkid=2166002).

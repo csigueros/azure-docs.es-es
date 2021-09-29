@@ -7,13 +7,13 @@ author: dlepow
 ms.service: api-management
 ms.topic: article
 ms.date: 08/20/2021
-ms.author: apimpm
-ms.openlocfilehash: 6946dcaf713bda83e5bce7e823b5f7e26ccd6e92
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.author: danlep
+ms.openlocfilehash: 57bb68352f04b356ec7a60f9e354993404c46abd
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122694611"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128658956"
 ---
 # <a name="api-management-policies-to-validate-requests-and-responses"></a>Directivas de API Management para validar solicitudes y respuestas
 

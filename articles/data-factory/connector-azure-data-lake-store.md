@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/30/2021
-ms.openlocfilehash: e1ec23300f5bccfea161ec967702e65152bc658f
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.date: 09/09/2021
+ms.openlocfilehash: 87e377c5fbfd5c8a6045e7178351419c246a0bc5
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123314625"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128652479"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-using-azure-data-factory-or-azure-synapse-analytics"></a>Copia de datos con Azure Data Lake Storage Gen1 como origen o destino mediante Azure Data Factory o Azure Synapse Analytics
 
@@ -61,7 +61,7 @@ Siga estos pasos para crear un servicio vinculado a Azure Data Lake Storage Gen1
 
     # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
 
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Captura de pantalla de la creación de un servicio vinculado con la interfaz de usuario de Azure Data Factory":::
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Captura de pantalla de la creación de un nuevo servicio vinculado con la interfaz de usuario de Azure Data Factory.":::
 
     # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
 
@@ -439,7 +439,7 @@ La configuración específica de formato se encuentra en la documentación de es
 
 En la transformación de origen, puede leer de un contenedor, una carpeta o un archivo individual en Azure Data Lake Storage Gen1. La pestaña **Opciones de origen** permite administrar cómo se leen los archivos. 
 
-![Opciones de origen](media/data-flow/sourceOptions1.png "Opciones de origen")
+:::image type="content" source="media/data-flow/sourceOptions1.png" alt-text="Opciones de origen":::
 
 **Ruta de acceso con carácter comodín:** el uso de un patrón de caracteres comodín indicará al servicio que recorra todos los archivos y carpetas que coincidan en una única transformación de origen. Se trata de una manera eficaz de procesar varios archivos en un único flujo. Agregue varios patrones de coincidencia de caracteres comodín con el signo + que aparece al desplazar el puntero sobre el patrón de caracteres comodín existente.
 
@@ -461,11 +461,11 @@ Ejemplos de caracteres comodín:
 
 En primer lugar, establezca un comodín que incluya todas las rutas de acceso que sean carpetas con particiones y, además, los archivos de hoja que desee leer.
 
-![Configuración del archivo de origen de partición](media/data-flow/partfile2.png "Configuración del archivo de partición")
+:::image type="content" source="media/data-flow/partfile2.png" alt-text="Configuración del archivo de origen de partición":::
 
 Use el valor de Partition Root Path (Ruta de acceso de la raíz de la partición) para definir cuál es el nivel superior de la estructura de carpetas. Cuando consulte el contenido de los datos mediante una vista previa, verá que el servicio agrega las particiones resueltas encontradas en cada uno de los niveles de carpeta.
 
-![Ruta de acceso raíz de la partición](media/data-flow/partfile1.png "Vista previa de la ruta de acceso raíz de la partición")
+:::image type="content" source="media/data-flow/partfile1.png" alt-text="Ruta de acceso raíz de la partición":::
 
 **Lista de archivos**: Se trata de un conjunto de archivos. Cree un archivo de texto que incluya una lista de archivos de ruta de acceso relativa para procesar. Apunte a este archivo de texto.
 
@@ -477,15 +477,15 @@ Para mover archivos de origen a otra ubicación posterior al procesamiento, prim
 
 Si tiene una ruta de acceso de origen con un comodín, su sintaxis será como esta:
 
-```/data/sales/20??/**/*.csv```
+`/data/sales/20??/**/*.csv`
 
 puede especificar "from" como
 
-```/data/sales```
+`/data/sales`
 
 y "to" como
 
-```/backup/priorSales```
+`/backup/priorSales`
 
 En este caso, todos los subdirectorios cuyo origen se encuentra en /data/sales se mueven a /backup/priorSales.
 
@@ -498,7 +498,7 @@ En este caso, todos los subdirectorios cuyo origen se encuentra en /data/sales s
 
 En la transformación de receptor, puede escribir en un contenedor o una carpeta en Azure Data Lake Storage Gen1. La pestaña **Configuración** permite administrar cómo se escriben los archivos.
 
-![Opciones del receptor](media/data-flow/file-sink-settings.png "opciones de receptor")
+:::image type="content" source="media/data-flow/file-sink-settings.png" alt-text="Opciones del receptor":::
 
 **Clear the folder** (Borrar la carpeta): determina si se borra o no la carpeta de destino antes de escribir los datos.
 
@@ -655,4 +655,4 @@ Para información detallada sobre las propiedades, consulte [Actividad de elimin
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener una lista de los almacenes de datos que admite la actividad de copia como orígenes y receptores, consulte [Almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats).
+Para obtener una lista de almacenes de datos que la actividad de copia admite como orígenes y receptores, vea [Almacenes de datos que se admiten](copy-activity-overview.md#supported-data-stores-and-formats).

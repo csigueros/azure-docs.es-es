@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: rogarana
 ms.subservice: blobs
-ms.openlocfilehash: 1bec42dabde64fed8126e47e39f19536b28014f1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ced5b6493753baab64f5390b7dee815227334796
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101714840"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128549524"
 ---
 # <a name="verify-throughput-and-latency-metrics-for-a-storage-account"></a>Comprobar las métricas de rendimiento y latencia de una cuenta de almacenamiento
 
@@ -21,8 +21,8 @@ Este tutorial es la parte número cuatro y última de una serie. En los tutorial
 En la parte número cuatro de la serie, se aprende a:
 
 > [!div class="checklist"]
-> * Configurar diagramas en Azure Portal
-> * Comprobar las métricas de rendimiento y latencia
+> - Configurar diagramas en Azure Portal
+> - Comprobar las métricas de rendimiento y latencia
 
 [Las métricas de almacenamiento de Azure](./monitor-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) utilizan el monitor de Azure para proporcionar una vista unificada del rendimiento y la disponibilidad de la cuenta de almacenamiento.
 
@@ -67,8 +67,8 @@ Cuando ya no los necesite, elimine el grupo de recursos, la máquina virtual y t
 En la parte cuatro de la serie, aprendió a ver las métricas de la solución de ejemplo y a realizar lo siguiente:
 
 > [!div class="checklist"]
-> * Configurar diagramas en Azure Portal
-> * Comprobar las métricas de rendimiento y latencia
+> - Configurar diagramas en Azure Portal
+> - Comprobar las métricas de rendimiento y latencia
 
 Siga este vínculo para ver ejemplos de almacenamiento previamente creados.
 

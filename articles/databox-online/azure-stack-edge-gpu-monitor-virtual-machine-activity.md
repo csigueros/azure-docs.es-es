@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/03/2021
 ms.author: alkohli
-ms.openlocfilehash: a73337ad261d8d2d7aef2c6292c7387d7c4cad9a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: aa1974347caa04c314e51b33daba47d7835026db
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121780583"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124757617"
 ---
 # <a name="monitor-vm-activity-on-your-azure-stack-edge-pro-gpu-device"></a>Supervisión de la actividad de las máquinas virtuales en un dispositivo de GPU de Azure Stack Edge Pro
 
@@ -42,7 +42,7 @@ Para visualizar los registros de actividad de las máquinas virtuales en el disp
 
     ![Captura de pantalla en la que se muestra el panel Registro de actividad de las máquinas virtuales en un dispositivo de Azure Stack Edge. Aparece resaltada una operación expandida de la lista.](./media/azure-stack-edge-gpu-monitor-virtual-machine-activity/activity-log-03.png)<!--Reshoot to remove pointer. May be able to replace drop-down only.-->
 
-En todos los paneles de **Registro de actividad** de Azure, puede filtrar y ordenar las actividades, seleccionar las columnas que quiere que se muestren, explorar en profundidad los detalles de una actividad específica y obtener **conclusiones rápidas** sobre los errores, las implementaciones con errores, las alertas, el estado del servicio y los cambios de seguridad durante las últimas 24 horas. Para obtener más información sobre los registros y las opciones de filtrado, vea [Visualización de registros de actividad](../azure-resource-manager/management/view-activity-logs.md).
+En todos los paneles de **Registro de actividad** de Azure, puede filtrar y ordenar las actividades, seleccionar las columnas que quiere que se muestren, explorar en profundidad los detalles de una actividad específica y obtener **conclusiones rápidas** sobre los errores, las implementaciones con errores, las alertas, el estado del servicio y los cambios de seguridad durante las últimas 24 horas. Para obtener más información sobre los registros y las opciones de filtrado, vea [Visualización de registros de actividad](../azure-monitor/essentials/activity-log.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -5,12 +5,12 @@ ms.service: container-service
 ms.custom: subject-monitoring
 ms.date: 07/29/2021
 ms.topic: reference
-ms.openlocfilehash: d2c945d975b158131abb99b421622d5dd9d58477
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: 9e8a12f8d3075bade1619ce766c74dc8cac23481
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123472423"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124816049"
 ---
 # <a name="monitoring-aks-data-reference"></a>Supervisión de la referencia de datos de AKS
 
@@ -99,4 +99,4 @@ Para obtener más información sobre el esquema de las entradas del registro de 
 ## <a name="see-also"></a>Vea también
 
 - Vea [Supervisión de Azure AKS](monitor-aks.md) para obtener una descripción de la supervisión de Azure AKS.
-- Para más información sobre la supervisión de recursos de Azure, consulte [Supervisión de recursos de Azure con Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource).
+- Para más información sobre la supervisión de recursos de Azure, consulte [Supervisión de recursos de Azure con Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md).

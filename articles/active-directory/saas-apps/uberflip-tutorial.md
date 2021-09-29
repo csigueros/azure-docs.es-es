@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 6bf3eccec70619bf73397e315c6d851f753ec52f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 33d66c6e7fa247c3888c17c8eea4cb1090ef825c
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92521839"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124756154"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-uberflip"></a>Tutorial: Integración de Azure Active Directory con Uberflip
 
@@ -192,7 +192,7 @@ Ahora se crea un usuario llamado B. Simon en Uberflip. No tiene que hacer nada p
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el portal Aplicaciones.
 
-Al seleccionar **Uberflip** en el portal Aplicaciones, debería iniciar sesión automáticamente en la suscripción de Uberflip para la que configuró el inicio de sesión único. Para más información acerca del portal Aplicaciones, consulte [Access and use apps on the My Apps portal](../user-help/my-apps-portal-end-user-access.md) (Uso de aplicaciones y acceso a ellas en el portal Aplicaciones).
+Al seleccionar **Uberflip** en el portal Aplicaciones, debería iniciar sesión automáticamente en la suscripción de Uberflip para la que configuró el inicio de sesión único. Para más información acerca del portal Aplicaciones, consulte [Access and use apps on the My Apps portal](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510) (Uso de aplicaciones y acceso a ellas en el portal Aplicaciones).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

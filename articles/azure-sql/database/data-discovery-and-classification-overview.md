@@ -13,12 +13,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 08/24/2021
 tags: azure-synapse
-ms.openlocfilehash: bcda86cd166e410bfc546c802466180557a92dc8
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.openlocfilehash: b24fcbac37288dd3c49fe64fe517dd31bbab03d2
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122825061"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124788408"
 ---
 # <a name="data-discovery--classification"></a>Clasificación y detección de datos
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -134,7 +134,7 @@ Estas son las actividades que realmente son auditables con información de confi
 - DBCC SHOW_STATISTICS
 - sys.dm_db_stats_histogram
 
-Use [sys.fn_get_audit_file](https://docs.microsoft.com/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql) para devolver información de un archivo de auditoría almacenado en una cuenta de Azure Storage.
+Use [sys.fn_get_audit_file](/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql) para devolver información de un archivo de auditoría almacenado en una cuenta de Azure Storage.
 
 ## <a name="permissions"></a><a id="permissions"></a>Permisos
 
@@ -218,10 +218,10 @@ Puede usar las API REST para administrar las clasificaciones y recomendaciones m
 
 Puede usar los siguientes controladores de SQL para recuperar metadatos de clasificación:
 
-- [Controlador ODBC](https://docs.microsoft.com/sql/connect/odbc/data-classification)
-- [Controlador OLE DB](https://docs.microsoft.com/sql/connect/oledb/features/using-data-classification)
-- [Controlador JDBC](https://docs.microsoft.com/sql/connect/jdbc/data-discovery-classification-sample)
-- [Controladores de Microsoft para PHP para SQL Server](https://docs.microsoft.com/sql/connect/php/release-notes-php-sql-driver)
+- [Controlador ODBC](/sql/connect/odbc/data-classification)
+- [Controlador OLE DB](/sql/connect/oledb/features/using-data-classification)
+- [Controlador JDBC](/sql/connect/jdbc/data-discovery-classification-sample)
+- [Controladores de Microsoft para PHP para SQL Server](/sql/connect/php/release-notes-php-sql-driver)
 
 ## <a name="faq---advanced-classification-capabilities"></a>Preguntas más frecuentes: funcionalidades de clasificación avanzadas
 

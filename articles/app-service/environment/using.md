@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/06/2021
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 131c8d2abc21e046a96488a602b831361f64dcf4
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: 150e5d0e0d7360bcf9d4f42038e3ff49366d80a8
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122446226"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124767895"
 ---
 # <a name="using-an-app-service-environment"></a>Uso de App Service Environment
 
@@ -220,5 +220,5 @@ Los precios de instancias reservadas para Isolated v2 están disponibles y se de
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../web-application-firewall/ag/ag-overview.md
 [logalerts]: ../../azure-monitor/alerts/alerts-log.md
-[reservedinstances]: https://docs.microsoft.com/azure/cost-management-billing/reservations/reservation-discount-app-service#how-reservation-discounts-apply-to-isolated-v2-instances
+[reservedinstances]: ../../cost-management-billing/reservations/reservation-discount-app-service.md#how-reservation-discounts-apply-to-isolated-v2-instances
 [pricing]: https://azure.microsoft.com/pricing/details/app-service/windows/

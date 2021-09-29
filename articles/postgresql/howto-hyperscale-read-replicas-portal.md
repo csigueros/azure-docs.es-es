@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 08/03/2021
-ms.openlocfilehash: 74c9df5ee9eb6cd6a61104b4c9cce91b284dbb29
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 45867bc93b90c76d971fc4b7d8e4d8cc094929d6
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121726140"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128629016"
 ---
 # <a name="create-and-manage-read-replicas-in-azure-database-for-postgresql---hyperscale-citus-from-the-azure-portal"></a>Creación y administración de réplicas de lectura mediante Azure Portal para Azure Database for PostgreSQL: Hiperescala (Citus)
 
@@ -47,13 +47,7 @@ Después de crear la réplica de lectura, puede verla en la ventana **Replicaci�
 
 ## <a name="delete-a-primary-server-group"></a>Eliminación de un grupo de servidores principal
 
-Para eliminar un grupo de servidores principal, se usan los mismos pasos que para eliminar un grupo de servidores de Hiperescala (Citus) independiente. 
-
-> [!IMPORTANT]
->
-> Cuando se elimina un grupo de servidores principal, la replicación se detiene en todas las réplicas de lectura. Las réplicas de lectura se convierten en grupos de servidores independientes que ahora admiten tanto lectura como escritura.
-
-Para eliminar un grupo de servidores de Azure Portal, siga estos pasos:
+Para eliminar un grupo de servidores principal, se usan los mismos pasos que para eliminar un grupo de servidores de Hiperescala (Citus) independiente. En Azure Portal, haga lo siguiente:
 
 1. En Azure Portal, seleccione el grupo de servidores principal de Azure Database for PostgreSQL.
 

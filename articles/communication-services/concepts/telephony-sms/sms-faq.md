@@ -9,12 +9,13 @@ ms.author: prakulka
 ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: fcbff4d8f6122681e9947f83b02dff1ae6d60835
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.subservice: sms
+ms.openlocfilehash: 7b10040aa8aabd16d84326c73bd422f9b66ef04e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123251167"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128635990"
 ---
 # <a name="sms-faq"></a>Preguntas más frecuentes sobre SMS
 

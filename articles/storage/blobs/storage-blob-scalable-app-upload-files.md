@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 02/04/2021
 ms.author: rogarana
 ms.subservice: blobs
-ms.openlocfilehash: a23836ebadace19c23802a0897287932892657a0
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 787cfde40013122c3827cddd4903ca15dfe51836
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110459672"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128624944"
 ---
 # <a name="upload-large-amounts-of-random-data-in-parallel-to-azure-storage"></a>Cargar grandes cantidades de datos aleatorios en paralelo en Azure Storage
 
@@ -21,10 +21,10 @@ Este tutorial es la segunda parte de una serie. En este tutorial se muestra cóm
 En la segunda parte de la serie, se aprende a:
 
 > [!div class="checklist"]
-> * Configurar la cadena de conexión
-> * Compilar la aplicación
-> * Ejecución de la aplicación
-> * Validar el número de conexiones
+> - Configurar la cadena de conexión
+> - Compilar la aplicación
+> - Ejecución de la aplicación
+> - Validar el número de conexiones
 
 Microsoft Azure Blob Storage proporciona un servicio escalable para almacenar los datos. Para asegurarse de que la aplicación tenga el máximo rendimiento posible, se recomienda comprender el funcionamiento de Blob Storage. Es importante conocer los límites de los blobs de Azure. Para más información sobre estos límites, visite: [Objetivos de escalabilidad y rendimiento de Blob Storage](../blobs/scalability-targets.md).
 
@@ -160,9 +160,10 @@ private static async Task UploadFilesAsync()
     }
 }
 ```
+
 Además de establecer la configuración del límite de subprocesos y de conexiones, la clase [BlobRequestOptions](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions) del método [UploadFromStreamAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob.uploadfromstreamasync) está configurada para usar el paralelismo y deshabilitar la validación de hash MD5. Los archivos se cargan en bloques de 100 MB. Esta configuración proporciona un mejor rendimiento, pero puede aumentar el costo si se usa una red con un rendimiento deficiente, ya que si se produce un error, se reintenta todo el bloque de 100 MB.
 
-|Propiedad|Valor|Descripción|
+|Propiedad|Value|Descripción|
 |---|---|---|
 |[ParallelOperationThreadCount](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.paralleloperationthreadcount)| 8| La configuración divide el blob en bloques al realizar la carga. Para conseguir el máximo rendimiento, este valor debe ser 8 veces el número de núcleos. |
 |[DisableContentMD5Validation](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.disablecontentmd5validation)| true| Esta propiedad deshabilita la función de comprobación del hash MD5 del contenido cargado. Al deshabilitar la validación de MD5, se agiliza la transferencia. Aún así, hay que tener en cuenta que no se puede confirmar la validez o integridad de los archivos que se transfieren.   |
@@ -205,10 +206,10 @@ C:\>
 En la segunda parte de la serie aprendió no solo cómo cargar grandes cantidades de datos aleatorios en una cuenta de almacenamiento en paralelo, si no que también aprendió lo siguiente:
 
 > [!div class="checklist"]
-> * Configurar la cadena de conexión
-> * Compilar la aplicación
-> * Ejecución de la aplicación
-> * Validar el número de conexiones
+> - Configurar la cadena de conexión
+> - Compilar la aplicación
+> - Ejecución de la aplicación
+> - Validar el número de conexiones
 
 Continúe en la tercera parte de la serie para descargar grandes cantidades de datos de una cuenta de almacenamiento.
 

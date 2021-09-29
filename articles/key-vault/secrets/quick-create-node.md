@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: 90e505a4d505cc52920f1c7727afb321f4eda462
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: 53adc99c236371dcbd39e59edae1fecc394091de
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107814161"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124760030"
 ---
 # <a name="quickstart-azure-key-vault-secret-client-library-for-javascript-version-4"></a>Inicio rápido: Biblioteca cliente de secretos de Azure Key Vault para JavaScript (versión 4)
 
@@ -152,9 +152,9 @@ const { SecretClient } = require("@azure/keyvault-secrets");
 
 ### <a name="authenticate-and-create-a-client"></a>Autenticación y creación de un cliente
 
-En este inicio rápido se emplea el usuario que ha iniciado sesión para autenticarlo en el almacén de claves, que es el método preferido para el desarrollo local. Para las aplicaciones implementadas en Azure, la identidad administrada debe asignarse a App Service o la máquina virtual. Para más información, consulte [Introducción a la identidad administrada](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+En este inicio rápido se emplea el usuario que ha iniciado sesión para autenticarlo en el almacén de claves, que es el método preferido para el desarrollo local. Para las aplicaciones implementadas en Azure, la identidad administrada debe asignarse a App Service o la máquina virtual. Para más información, consulte [Introducción a la identidad administrada](../../active-directory/managed-identities-azure-resources/overview.md).
 
-En el ejemplo siguiente, el nombre del almacén de claves se expande al URI del almacén de claves, con el formato "https://\<your-key-vault-name\>.vault.azure.net". En este ejemplo se utiliza la clase ["DefaultAzureCredential()"](https://docs.microsoft.com/javascript/api/@azure/identity/defaultazurecredential) de la [biblioteca Azure Identity](https://docs.microsoft.com/javascript/api/overview/azure/identity-readme), que permite usar el mismo código en entornos diferentes con otras opciones para proporcionar la identidad. Para más información sobre la autenticación en Key Vault, consulte la [Guía del desarrollador](https://docs.microsoft.com/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code).
+En el ejemplo siguiente, el nombre del almacén de claves se expande al URI del almacén de claves, con el formato "https://\<your-key-vault-name\>.vault.azure.net". En este ejemplo se utiliza la clase ["DefaultAzureCredential()"](/javascript/api/@azure/identity/defaultazurecredential) de la [biblioteca Azure Identity](/javascript/api/overview/azure/identity-readme), que permite usar el mismo código en entornos diferentes con otras opciones para proporcionar la identidad. Para más información sobre la autenticación en Key Vault, consulte la [Guía del desarrollador](../general/developers-guide.md#authenticate-to-key-vault-in-code).
 
 Agregue el siguiente código a la función "main()".
 
@@ -186,7 +186,7 @@ El secreto se guarda ahora como `retrievedSecret.value`.
 
 ### <a name="delete-a-secret"></a>Eliminación de un secreto
 
-Por último, se va a eliminar y purgar la clave del almacén de secretos con los métodos [beginDeleteSecret](https://docs.microsoft.com/javascript/api/@azure/keyvault-secrets/secretclient?#beginDeleteSecret_string__BeginDeleteSecretOptions_) y [purgeDeletedSecret](https://docs.microsoft.com/javascript/api/@azure/keyvault-secrets/secretclient?#purgeDeletedSecret_string__PurgeDeletedSecretOptions_).
+Por último, se va a eliminar y purgar la clave del almacén de secretos con los métodos [beginDeleteSecret](/javascript/api/@azure/keyvault-secrets/secretclient?#beginDeleteSecret_string__BeginDeleteSecretOptions_) y [purgeDeletedSecret](/javascript/api/@azure/keyvault-secrets/secretclient?#purgeDeletedSecret_string__PurgeDeletedSecretOptions_).
 
 ```javascript
 const deletePoller = await client.beginDeleteSecret(secretName);

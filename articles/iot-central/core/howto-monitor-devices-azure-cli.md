@@ -1,20 +1,19 @@
 ---
 title: Supervisar la conectividad de dispositivos con Azure IoT Central Explorer
 description: Supervise los mensajes de los dispositivo y observe los cambios de los dispositivos gemelos mediante la CLI de IoT Central Explorer.
-author: viv-liu
-ms.author: viviali
+author: dominicbetts
+ms.author: dobett
 ms.date: 08/30/2021
 ms.topic: how-to
 ms.service: iot-central
 ms.custom: devx-track-azurecli, device-developer
 services: iot-central
-manager: corywink
-ms.openlocfilehash: fe42d9bcfef72dfb8f2deebd3fb147ed2025f150
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: 9c257b9df42af31c443ae3e609d578db6adeb1c8
+ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123479457"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129154838"
 ---
 # <a name="monitor-device-connectivity-using-azure-cli"></a>Supervisión de la conectividad de dispositivos mediante la CLI de Azure
 

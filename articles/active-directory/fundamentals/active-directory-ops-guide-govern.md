@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: ba3ca140abe36a31ffa03422420ea537bbe4f39a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 065b0ca66b2e8d253ae798ce672638877ddceef8
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97935757"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124732669"
 ---
 # <a name="azure-active-directory-governance-operations-reference-guide"></a>Guía de referencia de operaciones de gobernanza de Azure Active Directory
 
@@ -96,7 +96,7 @@ Los hackers a menudo tienen como objetivo las cuentas de administrador y otros e
 
 Si no hay ningún proceso en su organización para administrar cuentas con privilegios o si actualmente tiene administradores que usan sus cuentas de usuario habituales para administrar servicios y recursos, debe empezar a usar cuentas independientes, por ejemplo, una para las actividades habituales del día a día y otra para el acceso privilegiado configurada con MFA. Mejor aún, si su organización tiene una suscripción Azure AD Premium P2, debe implementar inmediatamente [Azure AD Privileged Identity Management](../privileged-identity-management/pim-configure.md#license-requirements) (PIM). En el mismo token, también debe revisar esas cuentas con privilegios y [asignar roles con menos privilegios](../roles/security-planning.md), si procede.
 
-Otro aspecto de la administración de cuentas con privilegios que se debe implementar es la definición de [revisiones de acceso](../governance/access-reviews-overview.md) para esas cuentas, ya sea de forma manual o [automatizada a través de PIM](../privileged-identity-management/pim-how-to-perform-security-review.md).
+Otro aspecto de la administración de cuentas con privilegios que se debe implementar es la definición de [revisiones de acceso](../governance/access-reviews-overview.md) para esas cuentas, ya sea de forma manual o [automatizada a través de PIM](../privileged-identity-management/pim-perform-azure-ad-roles-and-resource-roles-review.md).
 
 #### <a name="privileged-account-management-recommended-reading"></a>Lectura recomendada para la administración de cuentas con privilegios
 

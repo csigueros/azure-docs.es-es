@@ -4,12 +4,12 @@ description: Muestra cómo aplicar etiquetas para organizar los recursos de Azur
 ms.topic: conceptual
 ms.date: 07/29/2021
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 9dc4b87713d5b397b900f19e83c297130a10be3c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: cf8b4ceb70eec2ac6dbb79b8193276997f8e06f1
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121751366"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128664530"
 ---
 # <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>Uso de etiquetas para organizar los recursos de Azure y la jerarquía de administración
 
@@ -468,7 +468,7 @@ En el ejemplo siguiente se implementa una cuenta de almacenamiento con tres etiq
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2021-02-01",
+      "apiVersion": "2021-04-01",
       "name": "[concat('storage', uniqueString(resourceGroup().id))]",
       "location": "[parameters('location')]",
       "sku": {
@@ -492,7 +492,7 @@ En el ejemplo siguiente se implementa una cuenta de almacenamiento con tres etiq
 param location string = resourceGroup().location
 param utcShort string = utcNow('d')
 
-resource stgAccount 'Microsoft.Storage/storageAccounts@2021-02-01' = {
+resource stgAccount 'Microsoft.Storage/storageAccounts@2021-04-01' = {
   name: 'storage${uniqueString(resourceGroup().id)}'
   location: location
   sku: {
@@ -535,7 +535,7 @@ Puede definir un parámetro de objeto que almacene varias etiquetas y aplicar es
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2021-02-01",
+      "apiVersion": "2021-04-01",
       "name": "[concat('storage', uniqueString(resourceGroup().id))]",
       "location": "[parameters('location')]",
       "sku": {
@@ -558,7 +558,7 @@ param tagValues object = {
   Environment: 'Production'
 }
 
-resource stgAccount 'Microsoft.Storage/storageAccounts@2021-02-01' = {
+resource stgAccount 'Microsoft.Storage/storageAccounts@2021-04-01' = {
   name: 'storage${uniqueString(resourceGroup().id)}'
   location: location
   sku: {
@@ -590,7 +590,7 @@ Para almacenar muchos valores en una única etiqueta, aplique una cadena JSON qu
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2021-02-01",
+      "apiVersion": "2021-04-01",
       "name": "[concat('storage', uniqueString(resourceGroup().id))]",
       "location": "[parameters('location')]",
       "sku": {
@@ -611,7 +611,7 @@ Para almacenar muchos valores en una única etiqueta, aplique una cadena JSON qu
 ```Bicep
 param location string = resourceGroup().location
 
-resource stgAccount 'Microsoft.Storage/storageAccounts@2021-02-01' = {
+resource stgAccount 'Microsoft.Storage/storageAccounts@2021-04-01' = {
   name: 'storage${uniqueString(resourceGroup().id)}'
   location: location
   sku: {
@@ -645,7 +645,7 @@ Para aplicar etiquetas desde un grupo de recursos a un recurso, use la función 
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2021-02-01",
+      "apiVersion": "2021-04-01",
       "name": "[concat('storage', uniqueString(resourceGroup().id))]",
       "location": "[parameters('location')]",
       "sku": {
@@ -667,7 +667,7 @@ Para aplicar etiquetas desde un grupo de recursos a un recurso, use la función 
 ```Bicep
 param location string = resourceGroup().location
 
-resource stgAccount 'Microsoft.Storage/storageAccounts@2021-02-01' = {
+resource stgAccount 'Microsoft.Storage/storageAccounts@2021-04-01' = {
   name: 'storage${uniqueString(resourceGroup().id)}'
   location: location
   sku: {
@@ -843,7 +843,7 @@ Se aplican las siguientes limitaciones a las etiquetas:
 * Cada recurso, grupo de recursos y suscripción puede tener un máximo de 50 pares nombre-valor de etiqueta. Si necesita aplicar más etiquetas que el número máximo permitido, use una cadena JSON para el valor de etiqueta. La cadena JSON puede contener muchos valores que se aplican a un sol nombre de etiqueta. Un grupo de recursos o una suscripción puede contener muchos recursos con 50 pares clave-valor de etiqueta cada uno.
 * El nombre de etiqueta está limitado a 512 caracteres y el valor de la etiqueta, a 256. En las cuentas de almacenamiento, el nombre de etiqueta se limita a 128 caracteres y el valor de la etiqueta, a 256.
 * No se pueden aplicar etiquetas a recursos clásicos como Cloud Services.
-* Los grupos de direcciones IP de Azure y las directivas de Azure Firewall no admiten operaciones PATCH, lo que significa que no admiten la actualización de etiquetas mediante el portal. En su lugar, use los comandos de actualización para esos recursos. Por ejemplo, puede actualizar etiquetas para un grupo de direcciones IP con el comando [az network ip-group update](/cli/azure/network/ip-group#az_network_ip_group_update). 
+* Los grupos de direcciones IP de Azure y las directivas de Azure Firewall no admiten operaciones PATCH, lo que significa que no admiten la actualización de etiquetas mediante el portal. En su lugar, use los comandos de actualización para esos recursos. Por ejemplo, puede actualizar etiquetas para un grupo de direcciones IP con el comando [az network ip-group update](/cli/azure/network/ip-group#az_network_ip_group_update).
 * Los nombres de etiqueta no pueden contener estos caracteres: `<`, `>`, `%`, `&`, `\`, `?`, `/`
 
    > [!NOTE]
@@ -852,7 +852,7 @@ Se aplican las siguientes limitaciones a las etiquetas:
    > * Azure Front Door no admite el uso de `#` o `:` en el nombre de la etiqueta.
    >
    > * Los siguientes recursos de Azure solo admiten 15 etiquetas:
-   >     * Azure Automation 
+   >     * Azure Automation
    >     * Azure CDN
    >     * Azure DNS (zona y registros A)
    >     * Azure DNS privado (zona, registros A y vínculo de red virtual)

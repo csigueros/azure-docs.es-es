@@ -9,12 +9,12 @@ ms.author: prakulka
 ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 2281dac86281d01ec6f033062b87236a780d3bc7
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: 8bd683be329572189daedc74f089ef89d9f015ea
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123259753"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128609676"
 ---
 # <a name="azure-communication-services-messaging-policy"></a>Directiva de mensajería de Azure Communication Services
 
@@ -101,7 +101,6 @@ Aunque normalmente se requiere el consentimiento expreso antes de enviar un mens
  
 Ninguno de estos mensajes puede incluir convocatorias ni anuncios.
 
-
 ## <a name="opt-out"></a>Dejar de participar
 
 Los destinatarios del mensaje pueden revocar el consentimiento y dejar de recibir mensajes futuros mediante cualquier medio razonable. No puede designar un medio exclusivo para que los destinatarios del mensaje revoquen el consentimiento. 
@@ -115,7 +114,6 @@ Uno de los mecanismos para dejar de participar más comunes consiste en incluir 
 ### <a name="opt-out-best-practices"></a>Procedimientos recomendados para dejar de participar:
 
 Además de las palabras clave, otros mecanismos comunes para dejar de participar incluyen proporcionar a los clientes una dirección de correo electrónico de cancelación designada, el número de teléfono del personal de soporte al cliente o un vínculo para cancelar la suscripción en la página web. 
-
 
 ### <a name="how-we-handle-opt-out-requests"></a>Cómo se controlan las solicitudes para dejar de participar:
 

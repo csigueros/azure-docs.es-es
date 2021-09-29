@@ -9,12 +9,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 857e5ba3c4251e49dd84726697164f87e0a96bc6
-ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
+ms.openlocfilehash: 9d43b91fcebff017d6d18ee736cfddc858650fc7
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110653184"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128620205"
 ---
 # <a name="process-change-feed-in-azure-blob-storage"></a>Procesamiento de la fuente de cambios en Azure Blob Storage
 
@@ -31,13 +31,15 @@ Para más información sobre la fuente de cambios, consulte [Fuente de cambios e
 dotnet add package Azure.Storage.Blobs --version 12.5.1
 dotnet add package Azure.Storage.Blobs.ChangeFeed --version 12.0.0-preview.4
 ```
+
+
 ## <a name="read-records"></a>Lectura de registros
 
 > [!NOTE]
 > La fuente de cambios es una entidad inmutable y de solo lectura en la cuenta de almacenamiento. Cualquier número de aplicaciones puede leer y procesar la fuente de cambios de manera simultáneamente y de manera independiente a su comodidad. Los registros no se quitan de la fuente de cambios cuando una aplicación los lee. El estado de lectura o de iteración de cada lector de consumo es independiente y solo lo mantiene la aplicación.
 
 En este ejemplo se recorren en iteración todos los registros de la fuente de cambios, se agregan a una lista y, a continuación, se devuelve esa lista al autor de la llamada.
- 
+
 ```csharp
 public async Task<List<BlobChangeFeedEvent>> ChangeFeedAsync(string connectionString)
 {
@@ -59,7 +61,7 @@ public async Task<List<BlobChangeFeedEvent>> ChangeFeedAsync(string connectionSt
 }
 ```
 
-En este ejemplo se imprimen en la consola algunos valores de cada registro de la lista. 
+En este ejemplo se imprimen en la consola algunos valores de cada registro de la lista.
 
 ```csharp
 public void showEventData(List<BlobChangeFeedEvent> changeFeedEvents)
@@ -81,7 +83,7 @@ public void showEventData(List<BlobChangeFeedEvent> changeFeedEvents)
 
 Puede optar por guardar la posición de lectura en la fuente de cambios y, después, reanudar la iteración de los registros en el futuro. Puede obtener el cursor de la fuente de cambios para guardar la posición de lectura. El cursor es una **string** y la aplicación puede guardarla de cualquier forma que funcione para el diseño de la aplicación (por ejemplo, en un archivo o base de datos).
 
-En este ejemplo se recorren en iteración todos los registros de la fuente de cambios, se agregan a una lista y se guarda el cursor. La lista y el cursor se devuelven al autor de la llamada. 
+En este ejemplo se recorren en iteración todos los registros de la fuente de cambios, se agregan a una lista y se guarda el cursor. La lista y el cursor se devuelven al autor de la llamada.
 
 ```csharp
 public async Task<(string, List<BlobChangeFeedEvent>)> ChangeFeedResumeWithCursorAsync
@@ -103,10 +105,10 @@ public async Task<(string, List<BlobChangeFeedEvent>)> ChangeFeedResumeWithCurso
 
     foreach (BlobChangeFeedEvent changeFeedEvent in enumerator.Current.Values)
     {
-    
+
         changeFeedEvents.Add(changeFeedEvent);             
     }
-    
+
     // Update the change feed cursor.  The cursor is not required to get each page of events,
     // it is intended to be saved and used to resume iterating at a later date.
     cursor = enumerator.Current.ContinuationToken;
@@ -118,7 +120,7 @@ public async Task<(string, List<BlobChangeFeedEvent>)> ChangeFeedResumeWithCurso
 
 Puede elegir procesar los registros de la fuente de cambios a medida que se confirmen en la fuente de cambios. Consulte las [especificaciones](storage-blob-change-feed.md#specifications). Los eventos de cambios se publican en la fuente de cambios en un período de 60 segundos de media. Se recomienda que sondee los nuevos cambios con este plazo en mente al especificar el intervalo de sondeo.
 
-Este ejemplo sondea periódicamente los cambios.  Si existen cambios en los registros, este código procesa dichos registros y guarda el cursor de la fuente de cambios. De este modo, si el proceso se detiene y, a continuación, se vuelve a iniciar, la aplicación puede usar el cursor para reanudar el procesamiento de los registros en el punto en que se quedó por última vez. En este ejemplo se guarda el cursor en un archivo de configuración de la aplicación local, pero su aplicación puede guardarlo en cualquier formato que sea más adecuado para su caso. 
+Este ejemplo sondea periódicamente los cambios.  Si existen cambios en los registros, este código procesa dichos registros y guarda el cursor de la fuente de cambios. De este modo, si el proceso se detiene y, a continuación, se vuelve a iniciar, la aplicación puede usar el cursor para reanudar el procesamiento de los registros en el punto en que se quedó por última vez. En este ejemplo se guarda el cursor en un archivo de configuración de la aplicación local, pero su aplicación puede guardarlo en cualquier formato que sea más adecuado para su caso.
 
 ```csharp
 public async Task ChangeFeedStreamAsync
@@ -151,7 +153,7 @@ public async Task ChangeFeedStreamAsync
                         "Event Type: " + eventType + "\n" +
                         "Api: " + api);
                 }
-            
+
                 // helper method to save cursor. 
                 SaveCursor(enumerator.Current.ContinuationToken);
             }

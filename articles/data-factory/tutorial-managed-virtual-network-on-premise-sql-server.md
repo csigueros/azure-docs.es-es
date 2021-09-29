@@ -4,14 +4,15 @@ description: En este tutorial se proporcionan los pasos para usar Azure Portal p
 author: lrtoyou1223
 ms.author: lle
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: tutorial
 ms.date: 05/06/2021
-ms.openlocfilehash: a04371fcba573be41fd5c2275371e0c590b82c08
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: d924abc214d01cc4e981d7398a6a250753cb50a8
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121736886"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128605038"
 ---
 # <a name="tutorial-how-to-access-on-premises-sql-server-from-data-factory-managed-vnet-using-private-endpoint"></a>Tutorial: Acceso a SQL Server local desde una VNet administrada por Data Factory mediante un punto de conexión privado
 
@@ -50,7 +51,7 @@ Use el portal para crear un equilibrador de carga interno estándar.
 
     | Configuración | Value |
     |:--- |:--- |
-    |Suscripción|Seleccione su suscripción.|
+    |Subscription|Seleccione su suscripción.|
     |Resource group|Seleccione el grupo de recursos que necesite.|
     |Nombre|Escriba **myLoadBalancer**.|
     |Region|Seleccione **Este de EE. UU**.|
@@ -137,7 +138,7 @@ En esta sección, va a crear un servicio Private Link detrás de un equilibrador
     |Configuración |Value |
     |---------|--------|
     |**Detalles del proyecto**||
-    |Suscripción |Seleccione su suscripción.|
+    |Subscription |Seleccione su suscripción.|
     |Grupo de recursos |Seleccione el grupo de recursos que necesite.|
     |**Detalles de instancia**||
     |Nombre  |Escriba **myPrivateLinkService**.|
@@ -167,10 +168,10 @@ En esta sección, va a crear un servicio Private Link detrás de un equilibrador
 1. En la parte superior izquierda del portal, seleccione **Crear un recurso > Proceso > Máquina virtual**.
 2. En **Crear una máquina virtual**, escriba o seleccione los valores en la pestaña **Básico**:
 
-    |Parámetro |Value|
+    |Configuración |Value|
     |---------|--------|
     |**Detalles del proyecto**||
-    |Suscripción |Seleccione su suscripción a Azure.|
+    |Subscription |Seleccione su suscripción a Azure.|
     |Grupo de recursos |Seleccione el grupo de recursos que necesite.|
     |**Detalles de instancia**||
     |Nombre de la máquina virtual  |Escriba **myVM1**.|
@@ -190,7 +191,7 @@ En esta sección, va a crear un servicio Private Link detrás de un equilibrador
 3. Seleccione la pestaña **Redes** o seleccione **Siguiente: Discos** y, después, **Siguiente: Redes**.
 4. En la pestaña Redes, seleccione o escriba:
 
-    | Parámetro |Value|
+    | Configuración |Value|
     |---------|--------|
     |**Interfaz de red**||
     |Virtual network |Seleccione la red virtual.|

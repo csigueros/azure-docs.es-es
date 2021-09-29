@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/29/2021
 ms.author: mbullwin
-ms.openlocfilehash: 5b0dfd51ac3de7f7abea41f18f8bf43dfa14580c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 0ac9f337ed24a3e440fe877998a40181853d5657
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121801413"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128910459"
 ---
 Comience a usar la biblioteca cliente multivariante de Anomaly Detector para Python. Siga estos pasos para instalar el inicio del paquete con los algoritmos que proporciona el servicio. Las nuevas API de detección de anomalías multivariante permiten a los desarrolladores integrar fácilmente inteligencia artificial avanzada para detectar anomalías de grupos de métricas, sin necesidad de tener conocimientos de aprendizaje automático ni usar datos etiquetados. Las dependencias y correlaciones entre distintas señales se consideran automáticamente como factores clave. De este modo, podrá proteger de forma proactiva los sistemas complejos frente a errores.
 
@@ -262,9 +262,9 @@ if __name__ == '__main__':
 
 ```
 
-Antes de ejecutarla, puede resultar útil comprobar el proyecto con el [código de ejemplo completo](https://github.com/Azure-Samples/AnomalyDetector/blob/master/ipython-notebook/Multivariate%20API%20Demo%20Notebook.ipynb) del que se deriva este inicio rápido.
+Antes de ejecutarla, puede resultar útil comprobar el proyecto con el [código de ejemplo completo](https://github.com/Azure-Samples/AnomalyDetector/blob/master/ipython-notebook/API%20Sample/Multivariate%20API%20Demo%20Notebook.ipynb) del que se deriva este inicio rápido.
 
-También tenemos una instancia de [Jupyter Notebook detallada](https://github.com/Azure-Samples/AnomalyDetector/blob/master/ipython-notebook/Multivariate%20API%20Demo%20Notebook.ipynb) para ayudarle a empezar a trabajar.
+También tenemos una instancia de [Jupyter Notebook detallada](https://github.com/Azure-Samples/AnomalyDetector/blob/master/ipython-notebook/API%20Sample/Multivariate%20API%20Demo%20Notebook.ipynb) para ayudarle a empezar a trabajar.
 
 Ejecute la aplicación con el comando `python` en el nombre de archivo.
 

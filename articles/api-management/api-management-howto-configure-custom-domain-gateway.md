@@ -3,17 +3,17 @@ title: Configuración de un nombre de dominio personalizado para su puerta de en
 description: Este tema describe los pasos para configurar un nombre de dominio personalizado para la puerta de enlace autohospedada de Azure API Management.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 ms.service: api-management
 ms.topic: article
 ms.date: 03/31/2020
-ms.author: apimpm
-ms.openlocfilehash: d52bf87b74ae9b1770ed5092738fd05eb9f54fde
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: danlep
+ms.openlocfilehash: b2ddd4c4486930cd7e5327068a5fe3827ac0581a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99491038"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128667642"
 ---
 # <a name="configure-a-custom-domain-name-for-a-self-hosted-gateway"></a>Configuración de un nombre de dominio personalizado para una puerta de enlace autohospedada
 

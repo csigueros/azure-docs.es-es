@@ -2,14 +2,14 @@
 title: Plantillas de vínculo para la implementación
 description: Describe cómo usar plantillas vinculadas en una plantilla de Azure Resource Manager (plantilla de ARM) para crear una solución de plantilla modular. Muestra cómo pasar valores de parámetros y especificar un archivo de parámetros y las direcciones URL creadas dinámicamente.
 ms.topic: conceptual
-ms.date: 03/25/2021
+ms.date: 09/10/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 3ae1bcc6cc1c99bc89e2f8fbd2c8debf95418850
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: b8be710611d892913c43e9d500a051a3d3b55ca5
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111951144"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124820495"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Uso de plantillas vinculadas y anidadas al implementar recursos de Azure
 
@@ -38,7 +38,7 @@ Para anidar una plantilla, agregue un [recurso de implementaciones](/azure/templ
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2020-10-01",
+      "apiVersion": "2021-04-01",
       "name": "nestedTemplate1",
       "properties": {
         "mode": "Incremental",
@@ -67,7 +67,7 @@ En el ejemplo siguiente se implementa una cuenta de almacenamiento mediante una 
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2020-10-01",
+      "apiVersion": "2021-04-01",
       "name": "nestedTemplate1",
       "properties": {
         "mode": "Incremental",
@@ -77,7 +77,7 @@ En el ejemplo siguiente se implementa una cuenta de almacenamiento mediante una 
           "resources": [
             {
               "type": "Microsoft.Storage/storageAccounts",
-              "apiVersion": "2019-04-01",
+              "apiVersion": "2021-04-01",
               "name": "[parameters('storageAccountName')]",
               "location": "West US",
               "sku": {
@@ -104,7 +104,7 @@ El ámbito se establece mediante la propiedad `expressionEvaluationOptions`. De 
 ```json
 {
   "type": "Microsoft.Resources/deployments",
-  "apiVersion": "2020-10-01",
+  "apiVersion": "2021-04-01",
   "name": "nestedTemplate1",
   "properties": {
     "expressionEvaluationOptions": {
@@ -131,7 +131,7 @@ En la plantilla siguiente se muestra cómo se resuelven las expresiones de plant
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2020-10-01",
+      "apiVersion": "2021-04-01",
       "name": "nestedTemplate1",
       "properties": {
         "expressionEvaluationOptions": {
@@ -215,7 +215,7 @@ En el ejemplo siguiente se implementa un servidor SQL Server y se recupera el se
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2020-10-01",
+      "apiVersion": "2021-04-01",
       "name": "dynamicSecret",
       "properties": {
         "mode": "Incremental",
@@ -258,7 +258,7 @@ En el ejemplo siguiente se implementa un servidor SQL Server y se recupera el se
           "resources": [
             {
               "type": "Microsoft.Sql/servers",
-              "apiVersion": "2018-06-01-preview",
+              "apiVersion": "2021-02-01-preview",
               "name": "[variables('sqlServerName')]",
               "location": "[parameters('location')]",
               "properties": {
@@ -308,7 +308,7 @@ En el siguiente fragmento se muestra qué valores son seguros y cuáles no son s
   "resources": [
     {
       "type": "Microsoft.Compute/virtualMachines",
-      "apiVersion": "2020-06-01",
+      "apiVersion": "2021-04-01",
       "name": "mainTemplate",
       "properties": {
         ...
@@ -322,7 +322,7 @@ En el siguiente fragmento se muestra qué valores son seguros y cuáles no son s
     {
       "name": "outer",
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2020-10-01",
+      "apiVersion": "2021-04-01",
       "properties": {
         "expressionEvaluationOptions": {
           "scope": "outer"
@@ -334,7 +334,7 @@ En el siguiente fragmento se muestra qué valores son seguros y cuáles no son s
           "resources": [
             {
               "type": "Microsoft.Compute/virtualMachines",
-              "apiVersion": "2020-06-01",
+              "apiVersion": "2021-04-01",
               "name": "outer",
               "properties": {
                 ...
@@ -352,7 +352,7 @@ En el siguiente fragmento se muestra qué valores son seguros y cuáles no son s
     {
       "name": "inner",
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2020-10-01",
+      "apiVersion": "2021-04-01",
       "properties": {
         "expressionEvaluationOptions": {
           "scope": "inner"
@@ -386,7 +386,7 @@ En el siguiente fragmento se muestra qué valores son seguros y cuáles no son s
           "resources": [
             {
               "type": "Microsoft.Compute/virtualMachines",
-              "apiVersion": "2020-06-01",
+              "apiVersion": "2021-04-01",
               "name": "inner",
               "properties": {
                 ...
@@ -418,7 +418,7 @@ Para vincular una plantilla, agregue un [recurso de implementaciones](/azure/tem
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2020-10-01",
+      "apiVersion": "2021-04-01",
       "name": "linkedTemplate",
       "properties": {
         "mode": "Incremental",
@@ -456,7 +456,7 @@ Puede proporcionar los parámetros de la plantilla vinculada en un archivo exter
 "resources": [
   {
     "type": "Microsoft.Resources/deployments",
-    "apiVersion": "2020-10-01",
+    "apiVersion": "2021-04-01",
     "name": "linkedTemplate",
     "properties": {
       "mode": "Incremental",
@@ -479,7 +479,7 @@ Para pasar los valores de parámetro alineados, use la propiedad `parameters`.
 "resources": [
   {
     "type": "Microsoft.Resources/deployments",
-    "apiVersion": "2020-10-01",
+    "apiVersion": "2021-04-01",
     "name": "linkedTemplate",
     "properties": {
       "mode": "Incremental",
@@ -522,7 +522,7 @@ En la plantilla siguiente se muestra cómo *mainTemplate.json* implementa el ele
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2020-10-01",
+      "apiVersion": "2021-04-01",
       "name": "childLinked",
       "properties": {
         "mode": "Incremental",
@@ -644,7 +644,7 @@ En la plantilla de ejemplo siguiente se muestra cómo usar `copy` con una planti
 "resources": [
   {
     "type": "Microsoft.Resources/deployments",
-    "apiVersion": "2020-10-01",
+    "apiVersion": "2021-04-01",
     "name": "[concat('nestedTemplate', copyIndex())]",
     // yes, copy works here
     "copy": {
@@ -662,7 +662,7 @@ En la plantilla de ejemplo siguiente se muestra cómo usar `copy` con una planti
         "resources": [
           {
             "type": "Microsoft.Storage/storageAccounts",
-            "apiVersion": "2019-04-01",
+            "apiVersion": "2021-04-01",
             "name": "[concat(variables('storageName'), copyIndex())]",
             "location": "West US",
             "sku": {
@@ -726,7 +726,7 @@ Puede utilizar estas entradas independientes en el historial para recuperar valo
   "resources": [
     {
       "type": "Microsoft.Network/publicIPAddresses",
-      "apiVersion": "2018-11-01",
+      "apiVersion": "2021-02-01",
       "name": "[parameters('publicIPAddresses_name')]",
       "location": "southcentralus",
       "properties": {
@@ -761,7 +761,7 @@ La siguiente plantilla se vincula a la plantilla anterior. Crea tres direcciones
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2020-10-01",
+      "apiVersion": "2021-04-01",
       "name": "[concat('linkedTemplate', copyIndex())]",
       "copy": {
         "count": 3,
@@ -831,7 +831,7 @@ En el ejemplo siguiente se muestra cómo pasar un token de SAS al vincular a una
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2020-10-01",
+      "apiVersion": "2021-04-01",
       "name": "linkedTemplate",
       "properties": {
         "mode": "Incremental",
@@ -893,7 +893,7 @@ En los ejemplos siguientes se muestran los usos más comunes de las plantillas v
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para realizar un tutorial, consulte [Tutorial: Implementación de una plantilla vinculada](./deployment-tutorial-linked-template.md).
-* Para información sobre cómo definir el orden de implementación de los recursos, consulte [Definición del orden de implementación de recursos en las plantillas de ARM](./resource-dependency.md).
-* Para información sobre cómo definir un recurso y crear muchas instancias de este, consulte [Iteración de recursos en las plantillas de ARM](copy-resources.md).
-* Para los pasos de configuración de una plantilla en una cuenta de almacenamiento y la generación de un token de SAS, consulte [Implementación de recursos con las plantillas de Resource Manager y Azure PowerShell](deploy-powershell.md) o [Implementación de recursos con plantillas de ARM y la CLI de Azure](deploy-cli.md).
+- Para realizar un tutorial, consulte [Tutorial: Implementación de una plantilla vinculada](./deployment-tutorial-linked-template.md).
+- Para información sobre cómo definir el orden de implementación de los recursos, consulte [Definición del orden de implementación de recursos en las plantillas de ARM](./resource-dependency.md).
+- Para información sobre cómo definir un recurso y crear muchas instancias de este, consulte [Iteración de recursos en las plantillas de ARM](copy-resources.md).
+- Para los pasos de configuración de una plantilla en una cuenta de almacenamiento y la generación de un token de SAS, consulte [Implementación de recursos con las plantillas de Resource Manager y Azure PowerShell](deploy-powershell.md) o [Implementación de recursos con plantillas de ARM y la CLI de Azure](deploy-cli.md).

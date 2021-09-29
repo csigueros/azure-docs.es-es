@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/26/2021
 author: gahl-levy
 ms.author: gahllevy
-ms.openlocfilehash: 80bb166925964624dc4a4b9811989ab15a5cfe9a
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: 9bf6403f57ed7b49fb6b60d1f674a10616c017f2
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123035680"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128593883"
 ---
 # <a name="pre-migration-steps-for-data-migrations-from-mongodb-to-azure-cosmos-dbs-api-for-mongodb"></a>Pasos previos a la migración para migraciones de datos de MongoDB a la API de Azure Cosmos DB para MongoDB
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
@@ -84,7 +84,7 @@ En las secciones siguientes se proporciona información más detallada.
 ### <a name="capacity-planning"></a>Planificación de capacidad
 
 ¿Intenta planear la capacidad de una migración a Azure Cosmos DB?
-* Si lo único que sabe es el número de núcleos virtuales y servidores del clúster de bases de datos existente, lea este artículo para [calcular las unidades de solicitud utilizando núcleos o CPU virtuales](../convert-vcore-to-request-unit.md). 
+* Si lo único que sabe es el número de núcleos virtuales y servidores del clúster de bases de datos existente, lea sobre el [cálculo de unidades de solicitud mediante núcleos o CPU virtuales](../convert-vcore-to-request-unit.md). 
 * Si conoce las velocidades de solicitud típicas de la carga de trabajo de base de datos actual, lea sobre el [cálculo de las unidades de solicitud mediante la herramienta de planeamiento de capacidad de Azure Cosmos DB](estimate-ru-capacity-planner.md).
 
 ### <a name="considerations-when-using-azure-cosmos-dbs-api-for-mongodb"></a>Consideraciones al usar la API de Azure Cosmos DB para MongoDB
@@ -143,7 +143,7 @@ Las siguientes opciones de configuración de Azure Cosmos DB no se pueden modif
 
     Este comando generará un documento JSON similar al siguiente:
 
-    ```{  "_t": "GetRequestStatisticsResponse",  "ok": 1,  "CommandName": "find",  "RequestCharge": 10.1,  "RequestDurationInMilliSeconds": 7.2}```
+    `{  "_t": "GetRequestStatisticsResponse",  "ok": 1,  "CommandName": "find",  "RequestCharge": 10.1,  "RequestDurationInMilliSeconds": 7.2}`
 
 * También puede usar [la configuración de diagnóstico](../cosmosdb-monitor-resource-logs.md) para comprender la frecuencia y los patrones de las consultas ejecutadas en Azure Cosmos DB. Los resultados de los registros de diagnóstico se pueden enviar a una cuenta de almacenamiento, una instancia de EventHub o [Azure Log Analytics](../../azure-monitor/logs/log-analytics-tutorial.md).  
 
@@ -204,7 +204,7 @@ En la fase previa a la migración, dedique algo de tiempo para planear los pasos
 ## <a name="next-steps"></a>Pasos siguientes
 
 * ¿Intenta planear la capacidad de una migración a Azure Cosmos DB?
-    * Si lo único que sabe es el número de núcleos virtuales y servidores del clúster de bases de datos existente, lea este artículo para [calcular las unidades de solicitud utilizando núcleos o CPU virtuales](../convert-vcore-to-request-unit.md). 
+    * Si lo único que sabe es el número de núcleos virtuales y servidores del clúster de bases de datos existente, lea sobre el [cálculo de unidades de solicitud mediante núcleos o CPU virtuales](../convert-vcore-to-request-unit.md). 
     * Si conoce las velocidades de solicitud típicas de la carga de trabajo de base de datos actual, lea sobre el [cálculo de las unidades de solicitud mediante la herramienta de planeamiento de capacidad de Azure Cosmos DB](estimate-ru-capacity-planner.md).
 * Migración a la API de Azure Cosmos DB para MongoDB
    * [Migración sin conexión mediante herramientas nativas de MongoDB](tutorial-mongotools-cosmos-db.md)

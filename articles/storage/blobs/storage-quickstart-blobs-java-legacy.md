@@ -1,19 +1,19 @@
 ---
 title: 'Inicio rápido: Biblioteca cliente de Azure Blob Storage v8 para Java'
 description: Cree una cuenta de almacenamiento y un contenedor en el almacenamiento de objetos (Blob). Después, use la biblioteca cliente de Azure Storage v8 para Java a fin de cargar un blob en Azure Storage, descargar un blob o enumerar los blobs de un contenedor.
-author: twooley
+author: normesta
 ms.custom: devx-track-java
-ms.author: twooley
+ms.author: normesta
 ms.date: 01/19/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 49c55a2b565100e370ce561537c96a96b896f355
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 97c876821cd457b1da95429160f74a19b491147b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106280605"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128622462"
 ---
 # <a name="quickstart-manage-blobs-with-java-v8-sdk"></a>Inicio rápido: Administración de blobs con el SDK de Java v8
 
@@ -78,8 +78,8 @@ Deleting the source, and downloaded files
 
 Antes de continuar, revise el directorio predeterminado (*C:\Users\<user>\AppData\Local\Temp*, para usuarios de Windows) del archivo de ejemplo. Copie la dirección URL para el blob fuera de la ventana de consola y péguela en un explorador para ver el contenido del archivo de Blob Storage. Si el archivo de ejemplo en el directorio se compara con el contenido almacenado en Blob Storage, verá que son los mismos.
 
-  >[!NOTE]
-  >También puede usar una herramienta como [Explorador de Azure Storage](https://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) para ver los archivos de Blob Storage. El Explorador de Azure Storage es una herramienta gratuita multiplataforma que permite acceder a la información de la cuenta de almacenamiento.
+  > [!NOTE]
+  > También puede usar una herramienta como [Explorador de Azure Storage](https://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) para ver los archivos de Blob Storage. El Explorador de Azure Storage es una herramienta gratuita multiplataforma que permite acceder a la información de la cuenta de almacenamiento.
 
 Después de haber comprobado los archivos, presione la tecla **Entrar** para finalizar la demostración y eliminar los archivos de prueba. Ahora que sabe lo que hace el ejemplo, abra el archivo **AzureApp.java** para examinar el código.
 
@@ -91,15 +91,15 @@ A continuación, explicaremos el código de ejemplo para ayudarle a comprender s
 
 Lo primero que hay que hacer es crear las referencias a los objetos usados para acceder a Blob Storage y administrarlo. Estos objetos dependen unos de otros: cada uno es utilizado por el siguiente de la lista.
 
-* Cree una instancia del objeto [CloudStorageAccount](/java/api/com.microsoft.azure.management.storage.storageaccount) que apunte a la cuenta de almacenamiento.
+- Cree una instancia del objeto [CloudStorageAccount](/java/api/com.microsoft.azure.management.storage.storageaccount) que apunte a la cuenta de almacenamiento.
 
     El objeto **CloudStorageAccount** es una representación de su cuenta de almacenamiento, que le permite establecer las propiedades de la cuenta de almacenamiento mediante programación, así como acceder a estas. Con el objeto **CloudStorageAccount** se puede crear una instancia del objeto **CloudBlobClient**, que es necesario para acceder a Blob service.
 
-* Cree una instancia del objeto **CloudBlobClient**, que apunte a [Blob service](/java/api/com.microsoft.azure.storage.blob.cloudblobclient) de la cuenta de almacenamiento.
+- Cree una instancia del objeto **CloudBlobClient**, que apunte a [Blob service](/java/api/com.microsoft.azure.storage.blob.cloudblobclient) de la cuenta de almacenamiento.
 
     El objeto **CloudBlobClient** proporciona un punto de acceso a Blob service, lo que le permite establecer las propiedades de Blob Storage mediante programación, así como acceder a estas. Con el objeto **CloudBlobClient** se puede crear una instancia del objeto **CloudBlobContainer**, que es necesario para crear contenedores.
 
-* Cree una instancia del objeto [CloudBlobContainer](/java/api/com.microsoft.azure.storage.blob.cloudblobcontainer), que representa el contenedor al que está accediendo. Use los contenedores para organizar los blobs al igual que se usan las carpetas del equipo para organizar los archivos.
+- Cree una instancia del objeto [CloudBlobContainer](/java/api/com.microsoft.azure.storage.blob.cloudblobcontainer), que representa el contenedor al que está accediendo. Use los contenedores para organizar los blobs al igual que se usan las carpetas del equipo para organizar los archivos.
 
     Una vez que tenga **CloudBlobContainer**, puede crear una instancia del objeto [CloudBlockBlob](/java/api/com.microsoft.azure.storage.blob.cloudblockblob) que apunte al blob específico en el que está interesado y realizar una operación de carga, descarga, copia, etc.
 

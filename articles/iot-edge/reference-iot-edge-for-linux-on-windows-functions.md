@@ -8,12 +8,12 @@ ms.topic: reference
 ms.service: iot-edge
 services: iot-edge
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: 8429ed368e8465c45137e555444a18b8a66769dd
-ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
+ms.openlocfilehash: 93a217a88b75ec6c472972d3f12cb33e33561f2c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123271960"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128579792"
 ---
 # <a name="powershell-functions-for-iot-edge-for-linux-on-windows"></a>Funciones de PowerShell para IoT Edge para Linux en Windows
 
@@ -84,9 +84,9 @@ El comando **Deploy-Eflow** es el método de implementación principal. El coman
 | vmDiskSize | Entre 8 y 256 GB. | Tamaño de disco máximo del disco duro virtual de expansión dinámica.<br><br>**Valor predeterminado**: 10 GB. |
 | vswitchName | Nombre del conmutador virtual |  Nombre del conmutador virtual asignado a la VM EFLOW. |
 | vswitchType | **Interno** o **externo** | Tipo del conmutador virtual asignado a la VM EFLOW. |
-| ip4Address | Dirección IPv4 en el intervalo del ámbito del servidor DCHP | Dirección IPv4 estática de la VM EFLOW. _NOTA: Solo se admite con el conmutador de ICS predeterminado_. |
-| ip4PrefixLength | Longitud del prefijo IPv4 de la subred | Longitud del prefijo de subred IPv4, solo válida cuando se especifica una dirección IPv4 estática.  _NOTA: Solo se admite con el conmutador de ICS predeterminado_. |
-| ip4GatewayAddress | Dirección IPv4 de la puerta de enlace de subred | Dirección IPv4 de puerta de enlace, solo válida cuando se especifica una dirección IPv4 estática.  _NOTA: Solo se admite con el conmutador de ICS predeterminado_. |
+| ip4Address | Dirección IPv4 en el intervalo del ámbito del servidor DCHP | Dirección IPv4 estática de la VM EFLOW. |
+| ip4PrefixLength | Longitud del prefijo IPv4 de la subred | Longitud del prefijo de subred IPv4, solo válida cuando se especifica una dirección IPv4 estática. |
+| ip4GatewayAddress | Dirección IPv4 de la puerta de enlace de subred | Dirección IPv4 de puerta de enlace, solo válida cuando se especifica una dirección IPv4 estática. |
 | gpuName | Nombre de dispositivo GPU |  Nombre del dispositivo GPU que se va a usar para el tránsito. |
 | gpuPassthroughType | **DirectDeviceAssignment**, **ParaVirtualization** o ninguno (solo CPU) |  Tipo de tránsito de GPU |
 | gpuCount | Valor entero entre 1 y el número de núcleos de la GPU del dispositivo | Número de dispositivos GPU para la VM. <br><br>**Nota**: Si usa ParaVirtualization, asegúrese de establecer gpuCount = 1. |
@@ -176,7 +176,7 @@ Los siguientes parámetros opcionales se pueden usar para especificar el comando
 
 | Parámetro | Valores aceptados | Comentarios |
 | --------- | --------------- | -------- |
-| command | String | Comando que se va a ejecutar en la VM. |
+| . | String | Comando que se va a ejecutar en la VM. |
 | ignoreError | Ninguno |  Si esta marca está presente, ignore los errores del comando. |
 
 Para obtener más información, use el comando `Get-Help Invoke-EflowVmCommand -full`.
@@ -257,4 +257,4 @@ Para obtener más información, use el comando `Get-Help Verify-EflowVm -full`.
 
 Obtenga información sobre cómo usar estos comandos para instalar y aprovisionar IoT Edge para Linux en Windows en el siguiente artículo:
 
-* [Instalación de Azure IoT Edge para Linux en Windows](./how-to-install-iot-edge-windows-on-windows.md)
+* [Instalación de Azure IoT Edge para Linux en Windows](./how-to-install-iot-edge-on-windows.md)

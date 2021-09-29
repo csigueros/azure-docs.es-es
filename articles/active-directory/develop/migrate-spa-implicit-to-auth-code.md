@@ -3,21 +3,21 @@ title: Migración de una aplicación de página única de JavaScript desde una c
 titleSuffix: Microsoft identity platform
 description: Cómo actualizar JavaScript SPA mediante MSAL.js 1.x y el flujo de concesión implícita a MSAL.js 2.x, y el flujo de código de autorización mediante la compatibilidad con PKCE y CORS.
 services: active-directory
-author: hahamil
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
 ms.date: 07/17/2020
-ms.author: hahamil
+ms.author: marsma
 ms.custom: aaddev, devx-track-js
-ms.openlocfilehash: 3c11334fe1b4d77be6e64febfc1d3de6efa302c3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5a38063e8b5311422ece4bafc9c22355262d631d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100365947"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128636218"
 ---
 # <a name="migrate-a-javascript-single-page-app-from-implicit-grant-to-auth-code-flow"></a>Migración de una aplicación de página única de JavaScript desde una concesión implícita a un flujo de código de autorización
 

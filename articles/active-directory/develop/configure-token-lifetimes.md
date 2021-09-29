@@ -13,12 +13,12 @@ ms.date: 04/08/2021
 ms.author: ryanwi
 ms.custom: aaddev, content-perf, FY21Q1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: 66e9817c6d3bbcd199418b9afd78eda016c5f291
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: ac1fa8db8d153365f990c4d3eff120a254ed8096
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107363893"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129060638"
 ---
 # <a name="configure-token-lifetime-policies-preview"></a>Configuración de las directivas de vigencia de tokens (versión preliminar)
 Puede especificar la duración de un token de acceso, SAML o identificador emitido por la plataforma de Microsoft Identity. La vigencia de los tokens se puede configurar para todas las aplicaciones de una organización, para una aplicación multiinquilino (multiorganización) o para una entidad de servicio específica de una organización. Para obtener más información, lea [Vigencias de tokens configurables](active-directory-configurable-token-lifetimes.md).
@@ -94,11 +94,9 @@ Algunos usuarios han notificado un error `Get-AzureADPolicy : The term 'Get-Azur
 # Uninstall the AzureAD Module
 UnInstall-Module AzureAD
 
-# Re-install the AzureAD Module
-Install-Module AzureAD
-
 # Install the AzureAD Preview Module adding the -AllowClobber
 Install-Module AzureADPreview -AllowClobber
+Note: You cannot install both the preview and the GA version on the same computer at the same time. 
 
 Connect-AzureAD
 Get-AzureADPolicy -All $true

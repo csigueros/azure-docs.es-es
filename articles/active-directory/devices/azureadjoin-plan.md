@@ -8,15 +8,15 @@ ms.topic: how-to
 ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bdaef1c746ca23f2badf657e6e72e6e3988bcfa4
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: f3eb56d9de903fc6013600908e3b44e8e0f547ed
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121724855"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128618122"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Procedimientos: Planeación de la implementación de la unión a Azure AD
 
@@ -199,7 +199,7 @@ Actualmente, los dispositivos unidos de Azure AD no admiten la autenticación c
 
 Puede aprovisionar la unión a Azure AD con los siguientes enfoques:
 
-- **Autoservicio en la configuración o en Configuración**: en el modo de autoservicio, los usuarios se someten al proceso de unión a Azure AD durante la experiencia de configuración rápida o desde la Configuración de Windows. Para obtener más información, consulte [Una su dispositivo de trabajo a la red de su organización](../user-help/user-help-join-device-on-network.md). 
+- **Autoservicio en la configuración o en Configuración**: en el modo de autoservicio, los usuarios se someten al proceso de unión a Azure AD durante la experiencia de configuración rápida o desde la Configuración de Windows. Para obtener más información, consulte [Una su dispositivo de trabajo a la red de su organización](https://support.microsoft.com/account-billing/join-your-work-device-to-your-work-or-school-network-ef4d6adb-5095-4e51-829e-5457430f3973). 
 - **Windows Autopilot**: permite la configuración previa de dispositivos para una experiencia más fluida en la configuración rápida para realizar una unión a Azure AD. Para obtener más información, consulte [Introducción a Windows Autopilot](/windows/deployment/windows-autopilot/windows-10-autopilot). 
 - **Inscripción masiva**: permite la unión a Azure AD controlada por un administrador mediante una herramienta de aprovisionamiento en bloque para configurar dispositivos. Para obtener más información, consulte [Inscripción masiva para dispositivos Windows](/intune/windows-bulk-enroll).
  
@@ -308,7 +308,7 @@ Puede usar esta implementación para [requerir dispositivos administrados para e
 
 > [!div class="nextstepaction"]
 > [Unir un nuevo dispositivo Windows 10 con Azure AD durante la primera ejecución](azuread-joined-devices-frx.md)
-> [Unir el dispositivo de trabajo a la red de la organización](../user-help/user-help-join-device-on-network.md)
+> [Unir el dispositivo de trabajo a la red de la organización](https://support.microsoft.com/account-billing/join-your-work-device-to-your-work-or-school-network-ef4d6adb-5095-4e51-829e-5457430f3973)
 
 <!--Image references-->
 [1]: ./media/azureadjoin-plan/12.png

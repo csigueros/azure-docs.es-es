@@ -4,16 +4,16 @@ ms.topic: include
 ms.service: azure-video-analyzer
 ms.date: 05/03/2021
 ms.author: juliako
-ms.openlocfilehash: 341730ee0ed64809cec3f60a0e28cb6367fa863f
-ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
+ms.openlocfilehash: ca59a7d54b405c323529353878f2e2de27b5566a
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113559425"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "126056461"
 ---
 ### <a name="get-the-sample-code"></a>Obtención del código de ejemplo
 
-1. Clone el [repositorio de ejemplos de C# de AVA](https://github.com/Azure-Samples/video-analyzer-iot-edge-csharp).
+1. Clone el [repositorio de ejemplos de C# de AVA](https://github.com/Azure-Samples/video-analyzer-iot-edge-python).
 1. Inicie Visual Studio Code y abra la carpeta en la que se descargó el repositorio.
 1. En Visual Studio Code, vaya a la carpeta src/cloud-to-device-console-app y cree un archivo llamado **appsettings.json**. Este archivo contiene la configuración necesaria para ejecutar el programa.
 1. Vaya al recurso compartido de archivos en la cuenta de almacenamiento creada en el paso de instalación anterior y busque el archivo **appsettings.json** en el recurso compartido de archivos "deployment-output". Haga clic en el archivo y, después, presione el botón "Descargar". El contenido debería abrirse en una nueva pestaña del explorador, que debería parecerse a esta:

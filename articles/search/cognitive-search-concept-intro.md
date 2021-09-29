@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/10/2021
 ms.custom: references_regions
-ms.openlocfilehash: 73a1ae771ba3e3e5876b2efd3914b9e38ab0e426
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: b1c7a8f29c08f00cc69dbd304c8215180f5ace92
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123222355"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124796616"
 ---
 # <a name="ai-enrichment-in-azure-cognitive-search"></a>Enriquecimiento con IA en Azure Cognitive Search
 
@@ -71,7 +71,7 @@ Los [conjuntos de aptitudes](cognitive-search-defining-skillset.md) que se ensam
 
 ### <a name="use-cases-for-custom-skills"></a>Casos de uso de las aptitudes personalizadas
 
-Las aptitudes personalizadas pueden admitir escenarios más complejos, como el reconocimiento de formularios o la detección de entidades personalizadas mediante un modelo que se proporciona y se encapsula en la [interfaz web de aptitudes personalizadas](cognitive-search-custom-skill-interface.md). Entre los ejemplos de aptitudes personalizadas se incluyen [Form Recognizer](../cognitive-services/form-recognizer/overview.md), la integración de [Bing Entity Search API](./cognitive-search-create-custom-skill-example.md) y el [reconocimiento de entidades personalizadas](https://github.com/Microsoft/SkillsExtractorCognitiveSearch).
+Las aptitudes personalizadas pueden admitir escenarios más complejos, como el reconocimiento de formularios o la detección de entidades personalizadas mediante un modelo que se proporciona y se encapsula en la [interfaz web de aptitudes personalizadas](cognitive-search-custom-skill-interface.md). Entre los ejemplos de aptitudes personalizadas se incluyen [Form Recognizer](../applied-ai-services/form-recognizer/overview.md), la integración de [Bing Entity Search API](./cognitive-search-create-custom-skill-example.md) y el [reconocimiento de entidades personalizadas](https://github.com/Microsoft/SkillsExtractorCognitiveSearch).
 
 ## <a name="enrichment-steps"></a>Pasos de enriquecimiento <a name="enrichment-steps"></a>
 

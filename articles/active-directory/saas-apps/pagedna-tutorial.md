@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
-ms.openlocfilehash: e1ccd337851f8242526362675a11280e33584082
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ea643d58802a1233a24d53cb68c5099f2b8bdacd
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95993931"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124828097"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pagedna"></a>Tutorial: Integración de Azure Active Directory con PageDNA
 
@@ -196,7 +196,7 @@ Ahora se crea un usuario llamado Britta Simon en PageDNA. No tiene que hacer nad
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el portal Aplicaciones.
 
-Al seleccionar **PageDNA** en el portal Aplicaciones, debería iniciar sesión automáticamente en la suscripción de PageDNA para la que configuró el inicio de sesión único. Para más información acerca del portal Aplicaciones, consulte [Access and use apps on the My Apps portal](../user-help/my-apps-portal-end-user-access.md) (Uso de aplicaciones y acceso a ellas en el portal Aplicaciones).
+Al seleccionar **PageDNA** en el portal Aplicaciones, debería iniciar sesión automáticamente en la suscripción de PageDNA para la que configuró el inicio de sesión único. Para más información acerca del portal Aplicaciones, consulte [Access and use apps on the My Apps portal](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510) (Uso de aplicaciones y acceso a ellas en el portal Aplicaciones).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

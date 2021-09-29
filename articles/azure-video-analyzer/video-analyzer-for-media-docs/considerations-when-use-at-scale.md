@@ -1,20 +1,15 @@
 ---
 title: 'Aspectos que se deben tener en cuenta al usar Azure Video Analyzer for Media (anteriormente, Video Indexer) a gran escala: Azure'
-titleSuffix: Azure Video Analyzer for Media
 description: En este tema se explican los aspectos que se deben tener en cuenta al usar Azure Video Analyzer for Media (anteriormente, Video Indexer) a gran escala.
-services: azure-video-analyzer
-author: Juliako
-manager: femila
 ms.topic: how-to
-ms.subservice: azure-video-analyzer-media
 ms.date: 11/13/2020
 ms.author: juliako
-ms.openlocfilehash: 8784b82c59575a569730949d71473027cd30479a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: f27dc577fdd90842e7108b2e57e1f0cbfe841080
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121734158"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128665689"
 ---
 # <a name="things-to-consider-when-using-video-analyzer-for-media-at-scale"></a>Aspectos que se deben tener en cuenta al usar Video Analyzer for Media a gran escala
 

@@ -8,15 +8,15 @@ manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 1/17/2021
+ms.date: 09/20/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 006bcc6c0cffe6f7c08b16057325a499e44f06be
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: bc8bc67ca2fd7a023b68f6aa2e21527e26281dd3
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107257915"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128588435"
 ---
 # <a name="tutorial-configure-keyless-with-azure-active-directory-b2c"></a>Tutorial: Configuración de Keyless con Azure Active Directory B2C
 
@@ -65,23 +65,19 @@ En el siguiente diagrama de arquitectura se muestra la implementación.
 Para agregar un nuevo proveedor de identidades, siga estos pasos:
 
 1. Inicie sesión en **[Azure Portal](https://portal.azure.com/#home)** como administrador global del inquilino de Azure AD B2C.
-
-2. Asegúrese de usar el directorio que contiene el inquilino de Azure AD B2C. Para ello, seleccione el filtro **Directorio y suscripción** en el menú superior y luego el directorio que contiene el inquilino.
-
-3. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, busque y seleccione **Azure AD B2C**.
-
-4. Vaya a **Panel** > **Azure Active Directory B2C** >  **Proveedores de identidad**.
-
-5. Seleccione **Proveedores de identidades**.
-
-6. Seleccione **Agregar**.
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
+1. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, busque y seleccione **Azure AD B2C**.
+1. Vaya a **Panel** > **Azure Active Directory B2C** >  **Proveedores de identidad**.
+1. Seleccione **Proveedores de identidades**.
+1. Seleccione **Agregar**.
 
 ### <a name="configure-an-identity-provider"></a>Configuración de un proveedor de identidades
 
 Para configurar un proveedor de identidades, siga estos pasos:
 
 1. Seleccione **Tipo de proveedor de identidades** > **OpenID Connect (versión preliminar)** .
-2. Rellene el formulario para configurar el proveedor de identidades:
+1. Rellene el formulario para configurar el proveedor de identidades:
 
    |Propiedad | Value |
    |:-----| :-----------|
@@ -93,11 +89,11 @@ Para configurar un proveedor de identidades, siga estos pasos:
    | Tipo de respuesta | ID_token |
    | Modo de respuesta | form_post|
 
-3. Seleccione **Aceptar**.
+1. Seleccione **Aceptar**.
 
-4. Seleccione **Asignar las notificaciones de este proveedor de identidades**.
+1. Seleccione **Asignar las notificaciones de este proveedor de identidades**.
 
-5. Rellene el formulario para asignar el proveedor de identidades:
+1. Rellene el formulario para asignar el proveedor de identidades:
 
    |Propiedad | Value |
    |:-----| :-----------|
@@ -105,7 +101,7 @@ Para configurar un proveedor de identidades, siga estos pasos:
    | Nombre para mostrar | Desde la suscripción. |
    | Modo de respuesta | Desde la suscripción. |
 
-6. Seleccione **Guardar** para completar la configuración del nuevo proveedor de identidades de Open ID Connect (OIDC).
+1. Seleccione **Guardar** para completar la configuración del nuevo proveedor de identidades de Open ID Connect (OIDC).
 
 ### <a name="create-a-user-flow-policy"></a>Creación de una directiva de flujo de usuario
 

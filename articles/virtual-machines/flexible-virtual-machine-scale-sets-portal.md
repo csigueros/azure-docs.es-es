@@ -9,12 +9,12 @@ ms.subservice: flexible-scale-sets
 ms.date: 08/05/2021
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli, vmss-flex
-ms.openlocfilehash: cef23894759b0b2dca7098ef1c430548d1720406
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 5d25e46ae62962e3f94d4a3f9222f91ebfa1d430
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122868539"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124823445"
 ---
 # <a name="preview-create-virtual-machines-in-a-flexible-scale-set-using-azure-portal"></a>Versión preliminar: creación de máquinas virtuales en un conjunto de escalado flexible con Azure Portal
 
@@ -37,9 +37,7 @@ En este artículo se describe el uso de Azure Portal para crear un conjunto de e
 
 Para poder implementar conjuntos de escalado de máquinas virtuales en el modo de orquestación flexible, antes es preciso registrar la suscripción en la característica en vista previa (GB). El registro de la característica puede tardar hasta 15 minutos.
 
-Durante el modo de orquestación flexible de versión preliminar de conjuntos de escalado, use la *característica en vista previa* de Azure Portal cuyo vínculo encontrará en los siguientes pasos. 
-
-1. Inicie sesión en Azure Portal en https://preview.portal.azure.com.
+1. Inicie sesión en Azure Portal en https://portal.azure.com.
 1. Vaya a **Suscripciones**.
 1. Vaya a la página de detalles de la suscripción en la que quiere crear un conjunto de escalado en modo de orquestación flexible y seleccione el nombre de dicha suscripción.
 1. En el menú bajo **Configuración**, seleccione **Características en vista previa**.
@@ -57,9 +55,7 @@ Una vez que se hayan registrado las características para su suscripción, compl
 
 ### <a name="create-a-virtual-machine-scale-set-in-flexible-orchestration-mode-through-the-azure-portal"></a>Cree un conjunto de escalado de máquinas virtuales en modo de orquestación Flexible mediante Azure Portal.
 
-Durante el modo de orquestación flexible de versión preliminar de conjuntos de escalado, use la *característica en vista previa* de Azure Portal cuyo vínculo encontrará en los siguientes pasos. 
-
-1. Inicie sesión en Azure Portal en https://preview.portal.azure.com.
+1. Inicie sesión en Azure Portal en https://portal.azure.com.
 1. En la barra de búsqueda, busque y seleccione **Conjuntos de escalado de máquinas virtuales**.
 1. Seleccione **Crear** en la página **Conjuntos de escalado de máquinas virtuales**.
 1. En la página **Crear un conjunto de escalado de máquinas virtuales**, vea la sección **Orquestación**.

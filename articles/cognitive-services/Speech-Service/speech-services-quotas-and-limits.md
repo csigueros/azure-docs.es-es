@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/16/2021
+ms.date: 09/10/2021
 ms.author: alexeyo
-ms.openlocfilehash: a71a2736533cd2c707d4224db3790e93fe5e2782
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 06d54a7d42efd1cad9088785d24095abc039337b
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121747555"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124737082"
 ---
 # <a name="speech-service-quotas-and-limits"></a>Cuotas y límites del servicio de voz
 
@@ -45,7 +45,6 @@ Para su uso con el [SDK de voz](speech-sdk.md) y/o la [API de REST de conversió
 | Tamaño máximo de contenedor de blobs | N/D | 5 GB |
 | Número máximo de blobs por contenedor | N/D | 10000 |
 | Número máximo de archivos por solicitud de transcripción (cuando se usan varias direcciones URL de contenido como entrada) | N/D | 1000  |
-| Número máximo de trabajos en ejecución simultánea | N/D | 2000  |
 
 #### <a name="model-customization"></a>Personalización de modelos
 | Quota | Gratis (F0)<sup>1</sup> | Estándar (S0) |
@@ -100,7 +99,7 @@ En las tablas siguientes, los parámetros sin la fila "Ajustable" **no** se pued
 | **Límite de solicitudes simultáneas para Voz neuronal personalizada** |  |  |
 | Valor predeterminado | N/D | 10 |
 | Ajustable | N/D | Sí<sup>5</sup> |
-| **Límite de solicitudes simultáneas para Voz personalizada<sup>6</sup>** |  |  |
+| **Límite de solicitudes simultáneas para Voz personalizada <sup>6</sup>** |  |  |
 | Valor predeterminado | 10 | 10 |
 | Ajustable | No<sup>5</sup> | Sí<sup>5</sup> |
 

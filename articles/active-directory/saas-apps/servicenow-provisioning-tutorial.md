@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/10/2021
 ms.author: jeedes
-ms.openlocfilehash: afad903734fded062681f18683cb74492993fe1c
-ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
+ms.openlocfilehash: 1d240d1a4fd37c9ec6371407969473e415a27065
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109684224"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129093694"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning"></a>Tutorial: Configuración de ServiceNow para el aprovisionamiento automático de usuarios
 
@@ -146,7 +146,7 @@ Una vez configurado el aprovisionamiento, use los recursos siguientes para super
 
    Por ejemplo, imagine que tiene dos ubicaciones (Seattle, Los Angeles) y tres departamentos (ventas, finanzas, marketing) en una tabla de ServiceNow. Si intenta aprovisionar un usuario cuyo departamento sea "ventas" y cuya ubicación sea "Seattle", la operación se realizará correctamente. Si intenta aprovisionar un usuario cuyo departamento sea "ventas" y cuya ubicación sea "LA", no se realizará el aprovisionamiento. Es necesario agregar la ubicación "LA" a la tabla de referencia de ServiceNow o actualizar el atributo del usuario en Azure AD para que coincida con el formato en ServiceNow. 
 * Si se produce el error **EntryJoiningPropertyValueIsMissing**, revise las [asignaciones de atributos](../app-provisioning/customize-application-attributes.md) para identificar el atributo que corresponda. Este valor debe estar presente en el usuario o grupo que esté intentando aprovisionar. 
-* Revise la [API SOAP de ServiceNow](https://docs.servicenow.com/bundle/newyork-application-development/page/integrate/web-services-apis/reference/r_DirectWebServiceAPIFunctions.html) para conocer los requisitos o las limitaciones (por ejemplo, el formato que debe utilizarse para especificar el código de país de un usuario).
+* Revise la [API SOAP de ServiceNow](https://docs.servicenow.com/bundle/rome-application-development/page/integrate/web-services-apis/reference/r_DirectWebServiceAPIFunctions.html) para conocer los requisitos o las limitaciones (por ejemplo, el formato que debe utilizarse para especificar el código de país de un usuario).
 * Las solicitudes de aprovisionamiento se envían de forma predeterminada a https://{nombre-de-instancia}.service-now.com/{nombre-de-tabla}. Si necesita una dirección URL de inquilino personalizada, puede proporcionar la dirección URL completa como nombre de la instancia.
 * El error **ServiceNowInstanceInvalid** indica que se ha producido un problema al comunicarse con la instancia de ServiceNow. Este es el texto del mensaje de error:
   

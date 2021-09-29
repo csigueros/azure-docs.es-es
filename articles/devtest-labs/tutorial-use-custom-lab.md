@@ -1,15 +1,15 @@
 ---
-title: Acceso a un laboratorio en Azure DevTest Labs | Microsoft Docs
+title: Acceso a un laboratorio
 description: En este tutorial, va a acceder al laboratorio que se ha creado con Azure DevTest Labs, reclamar máquinas virtuales, utilizarlas y, después, anular la reclamación.
 ms.topic: tutorial
 ms.date: 06/26/2020
 ms.author: spelluru
-ms.openlocfilehash: 96d41b74b3c143feb64fc9c602de68182787c08b
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: d9338bc746158802c86b9631323f3523d01714ce
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107379475"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128561322"
 ---
 # <a name="tutorial-access-a-lab-in-azure-devtest-labs"></a>Tutorial: Acceso a un laboratorio en Azure DevTest Labs
 En este tutorial, va a utilizar el laboratorio que se creó en el [Tutorial: Creación de un laboratorio en Azure DevTest Labs](tutorial-create-custom-lab.md).
@@ -77,4 +77,3 @@ Este tutorial le ha mostrado cómo acceder y usar un laboratorio creado con Azur
 
 > [!div class="nextstepaction"]
 > [Procedimiento: Uso de máquinas virtuales en un laboratorio](devtest-lab-add-vm.md)
-

@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 10/29/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b746b1f7d35668759108580d4d695787ac8fa3bc
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: e2411ef1ba4878e43c7f6432b6aa3bd032f2842a
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113733113"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129083721"
 ---
 # <a name="azure-active-directory-feature-deployment-guide"></a>Guía de implementación de la característica Azure Active Directory
 
@@ -92,7 +92,7 @@ En la fase 4 los administradores deben aplicar los últimos principios de los pe
 | Tarea | Detail | Licencia necesaria |
 | ---- | ------ | ---------------- |
 | [Inicio del uso de Privileged Identity Management](../privileged-identity-management/pim-security-wizard.md) | Elimine los roles de administrador de las cuentas de usuario diarias normales. Haga que los usuarios administradores puedan usar su rol tras la comprobación de la autenticación multifactor para proporcionar una justificación de negocios o solicitar la autorización de los aprobadores designados. | Azure AD Premium P2 |
-| [Completar una revisión de acceso para los roles de directorio de Azure AD en PIM](../privileged-identity-management/pim-how-to-start-security-review.md) | Trabaje con los equipos de seguridad y dirección para crear una directiva de revisión de acceso para revisar el acceso de los administradores de conformidad con las directivas de la organización. | Azure AD Premium P2 |
+| [Completar una revisión de acceso para los roles de directorio de Azure AD en PIM](../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md) | Trabaje con los equipos de seguridad y dirección para crear una directiva de revisión de acceso para revisar el acceso de los administradores de conformidad con las directivas de la organización. | Azure AD Premium P2 |
 | [Implementación de directivas de pertenencia dinámica a grupos](../enterprise-users/groups-dynamic-membership.md) | Use grupos dinámicos para asignar automáticamente usuarios a grupos en función de sus atributos de RR. HH. (o su origen fiable), como el departamento, el puesto, la región y otros atributos. |  |
 | [Implementación del aprovisionamiento de aplicaciones basado en grupos](../manage-apps/what-is-access-management.md) | Use el aprovisionamiento de administración del acceso basado en grupos para aprovisionar usuarios automáticamente para las aplicaciones SaaS. |  |
 | [Automatización del aprovisionamiento y desaprovisionamiento de usuarios](../app-provisioning/user-provisioning.md) | Elimine los pasos manuales del ciclo de vida de la cuenta del empleado para evitar el acceso no autorizado. Sincronización de identidades desde un origen fiable (sistema de RR. HH.) en Azure AD. |  |

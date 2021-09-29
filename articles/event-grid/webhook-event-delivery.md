@@ -2,13 +2,13 @@
 title: Entrega de eventos de WebHook
 description: En este artículo se describe la entrega de eventos de webhook y la validación de puntos de conexión al usar webhooks.
 ms.topic: conceptual
-ms.date: 09/02/2021
-ms.openlocfilehash: 04ae18ca6aab01331bdc1005498820177dfec56d
-ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.date: 09/15/2021
+ms.openlocfilehash: 58da34498fa3e2fc81c8fe1476b1098688b9c6c0
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123450204"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128625171"
 ---
 # <a name="webhook-event-delivery"></a>Entrega de eventos de webhook
 Los webhooks son una de las muchas maneras de recibir eventos de Azure Event Grid. Cuando un nuevo evento está preparado, el servicio EventGrid publica una solicitud HTTP en el punto de conexión configurado con el evento en el cuerpo de la solicitud.

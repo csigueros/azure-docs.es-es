@@ -11,12 +11,12 @@ ms.date: 03/17/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2ad99f677cde82f461eee6396d945fb3cd030245
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: 59edce425720c08f2d973e7e61d35c851aa36fd1
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123306115"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128633457"
 ---
 # <a name="prerequisites-for-azure-ad-connect-cloud-sync"></a>Requisitos previos de la sincronizar en la nube de Azure AD Connect
 En este artículo se proporciona una guía sobre cómo elegir y usar la sincronización en la nube de Azure Active Directory (Azure AD Connect) como solución de identidad.
@@ -88,7 +88,7 @@ Ejecute la [herramienta IdFix](/office365/enterprise/prepare-directory-attribute
 
 ### <a name="additional-requirements"></a>Requisitos adicionales
 
-- [Microsoft .NET Framework 4.7.1](https://www.microsoft.com/download/details.aspx?id=56116) 
+- [Microsoft .NET Framework 4.7.1](https://dotnet.microsoft.com/download/dotnet-framework/net471) 
 
 #### <a name="tls-requirements"></a>Requisitos de TLS
 

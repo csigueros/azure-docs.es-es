@@ -6,12 +6,12 @@ ms.date: 03/26/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d394b74bb2021d77f9d68cd101e0ee98e091f0ac
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: 14aece10cad828b82f2541e4f0478633382de662
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111893001"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128656253"
 ---
 # <a name="tutorial-deploy-virtual-machine-extensions-with-arm-templates"></a>Tutorial: Implementación de extensiones de máquina virtual con plantillas de Resource Manager
 
@@ -45,7 +45,7 @@ Para completar este artículo, necesitará lo siguiente:
 Puede usar un script de PowerShell en línea o un archivo de script. En este tutorial se muestra cómo usar un archivo de script. Un script de PowerShell con el siguiente contenido se comparte desde [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-vm-extension/installWebServer.ps1):
 
 ```azurepowershell
-Install-WindowsFeature -name Web-Server -IncludeManagementTools
+Install-WindowsFeature -Name Web-Server -IncludeManagementTools
 ```
 
 Si elige publicar el archivo en su propia ubicación, actualice el elemento `fileUri` de la plantilla más adelante en el tutorial.
@@ -82,23 +82,23 @@ Agregue un recurso de extensión de máquina virtual a la plantilla existente co
 ```json
 {
   "type": "Microsoft.Compute/virtualMachines/extensions",
-  "apiVersion": "2020-12-01",
+  "apiVersion": "2021-04-01",
   "name": "[concat(variables('vmName'),'/', 'InstallWebServer')]",
   "location": "[parameters('location')]",
   "dependsOn": [
-      "[concat('Microsoft.Compute/virtualMachines/',variables('vmName'))]"
+    "[concat('Microsoft.Compute/virtualMachines/',variables('vmName'))]"
   ],
   "properties": {
-      "publisher": "Microsoft.Compute",
-      "type": "CustomScriptExtension",
-      "typeHandlerVersion": "1.7",
-      "autoUpgradeMinorVersion":true,
-      "settings": {
-        "fileUris": [
-          "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-vm-extension/installWebServer.ps1"
-        ],
-        "commandToExecute": "powershell.exe -ExecutionPolicy Unrestricted -File installWebServer.ps1"
-      }
+    "publisher": "Microsoft.Compute",
+    "type": "CustomScriptExtension",
+    "typeHandlerVersion": "1.7",
+    "autoUpgradeMinorVersion": true,
+    "settings": {
+      "fileUris": [
+        "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-vm-extension/installWebServer.ps1"
+      ],
+      "commandToExecute": "powershell.exe -ExecutionPolicy Unrestricted -File installWebServer.ps1"
+    }
   }
 }
 ```

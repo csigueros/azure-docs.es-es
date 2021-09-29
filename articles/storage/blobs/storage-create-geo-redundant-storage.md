@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: artek
 ms.custom: mvc, devx-track-python, devx-track-js, devx-track-csharp
 ms.subservice: blobs
-ms.openlocfilehash: 8c9666f9cfadeda29b6259876c972bda67a9ee44
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: e8009e7b86ca151b6445ff3a5c165687641318d3
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110462021"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128590354"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>Tutorial: Creación de una aplicación de alta disponibilidad con Blob Storage
 
@@ -31,9 +31,9 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 En la primera parte de la serie, se aprende a:
 
 > [!div class="checklist"]
-> * Crear una cuenta de almacenamiento
-> * Establecimiento de la cadena de conexión
-> * Ejecución de la aplicación de consola
+> - Crear una cuenta de almacenamiento
+> - Establecimiento de la cadena de conexión
+> - Ejecución de la aplicación de consola
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -45,7 +45,7 @@ Actualmente, estamos trabajando para crear fragmentos de código que reflejen la
 
 # <a name="net-v11-sdk"></a>[SDK de .NET, versión 11](#tab/dotnet11)
 
-* Instale [Visual Studio 2019](https://www.visualstudio.com/downloads/) con la carga de trabajo de **desarrollo de Azure**.
+- Instale [Visual Studio 2019](https://www.visualstudio.com/downloads/) con la carga de trabajo de **desarrollo de Azure**.
 
   ![Desarrollo de Azure (en web y la nube)](media/storage-create-geo-redundant-storage/workloads.png)
 
@@ -55,8 +55,8 @@ Actualmente, estamos trabajando para crear fragmentos de código que reflejen la
 
 # <a name="python-v21"></a>[Python v2.1](#tab/python2)
 
-* Instalación de [Python](https://www.python.org/downloads/)
-* Descargue e instale el [SDK de Azure Storage para Python](https://github.com/Azure/azure-storage-python).
+- Instalación de [Python](https://www.python.org/downloads/)
+- Descargue e instale el [SDK de Azure Storage para Python](https://github.com/Azure/azure-storage-python).
 
 # <a name="nodejs-v12-sdk"></a>[SDK para Node.js v12](#tab/nodejs)
 
@@ -64,7 +64,7 @@ Actualmente, estamos trabajando para crear fragmentos de código que reflejen la
 
 # <a name="nodejs-v11-sdk"></a>[SDK para Node.js v11](#tab/nodejs11)
 
-* [Instale Node.js](https://nodejs.org).
+- [Instale Node.js](https://nodejs.org).
 
 ---
 
@@ -82,7 +82,7 @@ Siga estos pasos para crear una cuenta de almacenamiento que proporcione redunda
 2. Seleccione **Cuenta de almacenamiento: blob, archivo, tabla, cola** en la página **Nuevo**.
 4. Rellene el formulario de la cuenta de almacenamiento con la siguiente información, como se muestra en la siguiente imagen y seleccione **Crear**:
 
-   | Configuración       | Valor de ejemplo | Descripción |
+   | Configuración       | Valor de ejemplo | Descripción |
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Suscripción** | *Mi suscripción* | Para más información acerca de sus suscripciones, consulte [Suscripciones](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). |
    | **ResourceGroup** | *myResourceGroup* | Para conocer cuáles son los nombres de grupo de recursos válidos, consulte el artículo [Convenciones de nomenclatura](/azure/architecture/best-practices/resource-naming). |

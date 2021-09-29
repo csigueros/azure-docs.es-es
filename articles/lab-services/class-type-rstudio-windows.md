@@ -5,18 +5,18 @@ author: emaher
 ms.topic: article
 ms.date: 08/26/2021
 ms.author: enewman
-ms.openlocfilehash: 6a50b1f0cb53fa064a426b2fe3d28ae7fb7be2aa
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 5d081e21723fa73d84beec12e8602234ad5e8074
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123114405"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124757389"
 ---
 # <a name="set-up-a-lab-to-teach-r-on-windows"></a>Configuración de un laboratorio para enseñar R en Windows
 
 [R](https://www.r-project.org/about.html) es un lenguaje de código abierto que se usa para la computación y los gráficos estadísticos.  Se utiliza en el análisis estadístico de la genética, en el procesamiento del lenguaje natural y en el análisis de datos financieros.  R proporciona una experiencia de [línea de comandos interactiva](https://cran.r-project.org/doc/manuals/r-release/R-intro.html#Invoking-R-from-the-command-line).  [RStudio](https://www.rstudio.com/products/rstudio/) es un entorno de desarrollo interactivo (IDE) disponible para el lenguaje R.  La versión gratuita proporciona herramientas de edición de código, una experiencia de depuración integrada y herramientas de desarrollo de paquetes.
 
-Este artículo se centrará únicamente en RStudio y R como bloque de creación para una clase que requiere el uso de la computación estadística.  Los tipos de clase [aprendizaje profundo](class-type-deep-learning-natural-language-processing.md) y [Python y Jupyter Notebooks](class-type-jupyter-notebook.md) configuran RStudio de forma diferente.  En cada artículo se describe cómo usar la imagen de Marketplace [Data Science Virtual Machine para Linux (Ubuntu)](https://azuremarketplace.microsoft.com/en-US/marketplace/apps/microsoft-dsvm.ubuntu-1804), que tiene instaladas muchas [herramientas relacionadas con la ciencia de datos](/azure/machine-learning/data-science-virtual-machine/tools-included), incluido RStudio.  
+Este artículo se centrará únicamente en RStudio y R como bloque de creación para una clase que requiere el uso de computación estadística.  Los tipos de clase [aprendizaje profundo](class-type-deep-learning-natural-language-processing.md) y [Python y Jupyter Notebooks](class-type-jupyter-notebook.md) configuran RStudio de forma diferente.  En cada artículo se describe cómo usar la imagen de Marketplace [Data Science Virtual Machine para Linux (Ubuntu)](https://azuremarketplace.microsoft.com/en-US/marketplace/apps/microsoft-dsvm.ubuntu-1804), que tiene instaladas muchas [herramientas relacionadas con la ciencia de datos](../machine-learning/data-science-virtual-machine/tools-included.md), incluido RStudio.  
 
 ## <a name="lab-account-configuration"></a>Configuración de la cuenta de laboratorio
 
@@ -28,14 +28,14 @@ Habilite la configuración de la cuenta de laboratorio tal y como se describe en
 
 | Configuración de la cuenta de laboratorio | Instructions |
 | -------------------- | ----- |
-| [Habilitar red virtual del mismo nivel](how-to-connect-peer-virtual-network.md) | Use esta opción si:<ul><li>La clase requiere una instancia compartida de R Server.</li><li>La clase requiere archivos de datos grandes que desea almacenar externamente y no en la máquina virtual del alumno.</li></ul> |
+| [Habilitar red virtual del mismo nivel](how-to-connect-peer-virtual-network.md) | Use esta opción en los siguientes casos:<ul><li>La clase requiere una instancia compartida de R Server.</li><li>La clase requiere archivos de datos grandes que desea almacenar externamente y no en la máquina virtual del alumno.</li></ul> |
 
 > [!IMPORTANT]
 > Si decide habilitar la red virtual del mismo nivel, debe hacerlo antes de crear el laboratorio.
 
 ## <a name="lab-configuration"></a>Configuración del laboratorio
 
-Para instrucciones sobre cómo crear un laboratorio y aplicar la configuración necesaria, consulte [Tutorial: Configuración de un laboratorio de clase](tutorial-setup-classroom-lab.md).  Al crear el laboratorio, aplique la siguiente configuración:
+Para obtener instrucciones sobre cómo crear un laboratorio y aplicar la configuración necesaria, consulte [Tutorial: Configuración de un laboratorio de clase](tutorial-setup-classroom-lab.md).  Al crear el laboratorio, aplique la siguiente configuración:
 
 | Configuración del laboratorio | Valor y descripción |
 | ------------ | ------------------ |
@@ -44,9 +44,9 @@ Para instrucciones sobre cómo crear un laboratorio y aplicar la configuración 
 
 ## <a name="external-resource-configuration"></a>Configuración de recursos externos
 
-Algunas clases requieren que los archivos, como los archivos de datos grandes, se almacenen externamente.  Para ver opciones e instrucciones de configuración, consulte [Uso de almacenamiento de archivos externo en Lab Services](how-to-attach-external-storage.md).
+Algunas clases requieren que determinados archivos (por ejemplo, los de datos grandes) se almacenen externamente.  Para ver opciones e instrucciones de configuración, consulte [Uso de almacenamiento de archivos externo en Lab Services](how-to-attach-external-storage.md).
 
-Si decide tener una instancia compartida de RStudio Server para los alumnos, se debe configurar el servidor antes de crear el laboratorio.  Para más información sobre cómo configurar un servidor compartido, consulte [cómo crear un laboratorio con un recurso compartido en Azure Lab Services](how-to-create-a-lab-with-shared-resource.md).  Para instrucciones sobre cómo crear una instancia de RStudio Server, consulte [Descargar RStudio Server para Debian y Ubuntu](https://www.rstudio.com/products/rstudio/download-server/debian-ubuntu/) y [Acceso a RStudio Server de código abierto](https://support.rstudio.com/hc/en-us/articles/200552306-Getting-Started).
+Si decide tener una instancia compartida de RStudio Server para los alumnos, se debe configurar el servidor antes de crear el laboratorio.  Para más información sobre cómo configurar un servidor compartido, consulte [cómo crear un laboratorio con un recurso compartido en Azure Lab Services](how-to-create-a-lab-with-shared-resource.md).  Para obtener instrucciones sobre cómo crear una instancia de RStudio Server, consulte [Descarga de RStudio Server para Debian y Ubuntu](https://www.rstudio.com/products/rstudio/download-server/debian-ubuntu/) y [Acceso a RStudio Server de código abierto](https://support.rstudio.com/hc/en-us/articles/200552306-Getting-Started).
 
 ## <a name="template-configuration"></a>Configuración de plantilla
 
@@ -97,7 +97,7 @@ Start-Process -FilePath $installPath.FullName -ArgumentList "/VERYSILENT /LOG=r-
 
 ### <a name="install-rstudio"></a>Instalación de RStudio
 
-Ahora que R está instalado localmente, podemos instalar el IDE de RStudio.  Instalaremos la versión gratuita de RStudio Desktop.  Para todas las versiones disponibles, consulte [Descargas de RStudio](https://www.rstudio.com/products/rstudio/download/).
+Ahora que R está instalado localmente, podemos instalar el IDE de RStudio.  Vamos a instalar la versión gratuita de RStudio Desktop.  Para todas las versiones disponibles, consulte [Descargas de RStudio](https://www.rstudio.com/products/rstudio/download/).
 
 1. Descargue el [instalador de R Studio](https://www.rstudio.com/products/rstudio/download/#download) para Windows 10.  El archivo del instalador tendrá el formato `rstudio-{version}.exe`.  
 2. Ejecute el instalador de RStudio.
@@ -123,9 +123,9 @@ Start-Process -FilePath $installPath.FullName -ArgumentList "/S" -NoNewWindow -W
 
 ### <a name="cran-packages"></a>Paquetes CRAN
 
-Use el comando `install.packages(“package name”)` en una sesión interactiva de R como se muestra en el artículo [Lista rápida de paquetes de R útiles](https://support.rstudio.com/hc/articles/201057987-Quick-list-of-useful-R-packages).  Como alternativa, use el elemento de menú Tools -> Install Packages (Instalar > Instalar paquetes) de RStudio.
+Use el comando `install.packages(“package name”)` en una sesión interactiva de R como se muestra en el artículo [Lista rápida de paquetes de R útiles](https://support.rstudio.com/hc/articles/201057987-Quick-list-of-useful-R-packages).  También puede usar el elemento de menú Tools -> Install Packages (Instalar > Instalar paquetes) de RStudio.
 
-Si necesita ayuda para encontrar un paquete, use la [lista de paquetes por tarea](https://cran.r-project.org/web/views/) o la [Lista alfabética de paquetes](https://cloud.r-project.org/web/packages/available_packages_by_name.html).
+Si necesita ayuda para encontrar un paquete, use la [lista de paquetes por tarea](https://cran.r-project.org/web/views/) o la [lista alfabética de paquetes](https://cloud.r-project.org/web/packages/available_packages_by_name.html).
 
 ## <a name="cost"></a>Coste
 
