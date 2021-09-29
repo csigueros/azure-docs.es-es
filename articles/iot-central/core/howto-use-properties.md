@@ -3,16 +3,16 @@ title: Uso de las propiedades en una solución de Azure IoT Central
 description: Obtenga información sobre el uso de las propiedades de solo lectura y escritura en una solución de Azure IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/06/2020
+ms.date: 09/07/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: a0dd00dffaa5112ce04723a12e8b8634f6149690
-ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
+ms.openlocfilehash: 07038a98b3be23295599febe0af16cb081facd5d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113588046"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124797335"
 ---
 # <a name="use-properties-in-an-azure-iot-central-solution"></a>Uso de las propiedades en una solución de Azure IoT Central
 

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/14/2020
 ms.author: nichola
 ms.custom: has-adal-ref
-ms.openlocfilehash: 49757ba5faaff1043bd9b113cad3cfa342bb51ce
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
+ms.openlocfilehash: 43f66b7f44e7d30816da5ac59a9692807f257a2b
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122418765"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124787270"
 ---
 # <a name="support-single-sign-on-and-app-protection-policies-in-mobile-apps-you-develop"></a>Compatibilidad con inicio de sesión único y directivas de protección de aplicaciones en el desarrollo de aplicaciones móviles
 
@@ -67,7 +67,7 @@ Apple tiene instrucciones para hacerlo en aplicaciones iOS: [Autenticación de u
 
 Para habilitar directivas de protección de aplicaciones, use la [Biblioteca de autenticación de Microsoft (MSAL)](msal-overview.md). MSAL es la biblioteca de autenticación y autorización de la plataforma de identidad de Microsoft, y el SDK de Intune se ha desarrollado para trabajar conjuntamente con ella.
 
-Además, debe usar una aplicación de agente para la autenticación. El agente requiere que la aplicación proporcione información de la aplicación y del dispositivo para garantizar su cumplimiento. Los usuarios de iOS usarán la [aplicación Microsoft Authenticator](../user-help/user-help-auth-app-sign-in.md) y los usuarios de Android usarán la aplicación Microsoft Authenticator o la [aplicación Portal de empresa](https://play.google.com/store/apps/details?id=com.microsoft.windowsintune.companyportal) para la [autenticación asincrónica](./msal-android-single-sign-on.md). De forma predeterminada, MSAL utiliza un agente como primera opción para cumplimentar una solicitud de autenticación, por lo que su uso para la autenticación se habilitará automáticamente para la aplicación al usar MSAL de forma predefinida.
+Además, debe usar una aplicación de agente para la autenticación. El agente requiere que la aplicación proporcione información de la aplicación y del dispositivo para garantizar su cumplimiento. Los usuarios de iOS usarán la [aplicación Microsoft Authenticator](https://support.microsoft.com/account-billing/sign-in-to-your-accounts-using-the-microsoft-authenticator-app-582bdc07-4566-4c97-a7aa-56058122714c) y los usuarios de Android usarán la aplicación Microsoft Authenticator o la [aplicación Portal de empresa](https://play.google.com/store/apps/details?id=com.microsoft.windowsintune.companyportal) para la [autenticación asincrónica](./msal-android-single-sign-on.md). De forma predeterminada, MSAL utiliza un agente como primera opción para cumplimentar una solicitud de autenticación, por lo que su uso para la autenticación se habilitará automáticamente para la aplicación al usar MSAL de forma predefinida.
 
 Por último, [agregue el SDK de Intune](/mem/intune/developer/app-sdk-get-started) a la aplicación para habilitar las directivas de protección de aplicaciones. El SDK sigue en su mayor parte un modelo de interceptación, y aplicará automáticamente las directivas de protección de aplicaciones para determinar si las acciones que realiza la aplicación se permiten o no. También hay API a las que puede llamar manualmente para indicar a la aplicación si hay restricciones en ciertas acciones.
 

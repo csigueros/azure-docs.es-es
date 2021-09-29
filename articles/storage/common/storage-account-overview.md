@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/14/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: c5d4c390110a5b3eef7509508d35c9554f7be984
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: cb19372e5b97a9f508367366faa9ae49d0d11261
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110065987"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128596968"
 ---
 # <a name="storage-account-overview"></a>Introducción a las cuentas de almacenamiento
 
@@ -66,7 +66,7 @@ Construya la dirección URL para acceder a un objeto de una cuenta de almacenami
 
 `http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob*`
 
-También puede configurar una cuenta de almacenamiento para usar un dominio personalizado para los blobs. Para obtener más información, consulte [Configuración de un nombre de dominio personalizado para una cuenta de Azure Storage](../blobs/storage-custom-domain-name.md).  
+También puede configurar una cuenta de almacenamiento para usar un dominio personalizado para los blobs. Para obtener más información, consulte [Configuración de un nombre de dominio personalizado para una cuenta de Azure Storage](../blobs/storage-custom-domain-name.md).
 
 ## <a name="migrate-a-storage-account"></a>Migración de una cuenta de almacenamiento
 

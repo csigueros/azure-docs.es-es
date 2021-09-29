@@ -7,12 +7,12 @@ ms.subservice: workloads
 ms.topic: article
 ms.date: 01/19/2017
 ms.author: seanmck
-ms.openlocfilehash: 2f80f07cad0e82ee35fe71223e1282ea24f791bb
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: cd231c63235436c70590d7334236474c4ebf791a
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107530933"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124815351"
 ---
 # <a name="cloud-foundry-on-azure"></a>Cloud Foundry en Azure
 
@@ -57,5 +57,4 @@ Cloud Foundry se adapta perfectamente al desarrollo ágil de software, incluido 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Implementar Pivotal Cloud Foundry desde Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry)
 - [Implementar una aplicación en Cloud Foundry en Azure](./cloudfoundry-deploy-your-first-app.md)

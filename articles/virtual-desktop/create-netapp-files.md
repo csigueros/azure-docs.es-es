@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 08/19/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 244ff34b462d519d111aad6d6b66d7261e612595
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: fa6052c91be73e05bc2413f57810405fe5a198a0
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122446646"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124818634"
 ---
 # <a name="upload-msix-images-to-azure-netapp-files-in-azure-virtual-desktop"></a>Carga de imágenes MSIX en Azure NetApp Files en Azure Virtual Desktop
 
@@ -33,12 +33,11 @@ Para configurar Azure NetApp Files, necesitará lo siguiente:
 
 Para empezar a usar Azure NetApp Files:
 
-1. Siga las instrucciones de [Registro para Azure NetApp Files](../azure-netapp-files/azure-netapp-files-register.md) para enviar una solicitud de lista de espera y registrar el proveedor de NetApp.
-2. Para configurar la cuenta de Azure NetApp Files, siga las instrucciones de [Configuración de la cuenta de Azure NetApp Files](create-fslogix-profile-container.md#set-up-your-azure-netapp-files-account).
-3. Para configurar el grupo de capacidad, siga las instrucciones que se muestran en [Configuración de un grupo de capacidad](../azure-netapp-files/azure-netapp-files-set-up-capacity-pool.md).
-4. Para unir una conexión de Azure Active Directory (Azure AD), siga las instrucciones de [Unión a una conexión de Active Directory](create-fslogix-profile-container.md#join-an-active-directory-connection).
-5. Para crear un nuevo volumen, siga las instrucciones de [Creación de un nuevo volumen](create-fslogix-profile-container.md#create-a-new-volume) y [Configuración de parámetros de acceso al volumen](create-fslogix-profile-container.md#configure-volume-access-parameters).
-6. Para asegurarse de que la conexión al recurso compartido de Azure NetApp Files funciona, siga las instrucciones de [Asegúrese de que los usuarios puedan tener acceso al recurso compartido de Azure NetApp Files](create-fslogix-profile-container.md#make-sure-users-can-access-the-azure-netapp-file-share).
+1. Para configurar la cuenta de Azure NetApp Files, siga las instrucciones de [Configuración de la cuenta de Azure NetApp Files](create-fslogix-profile-container.md#set-up-your-azure-netapp-files-account).
+2. Para configurar el grupo de capacidad, siga las instrucciones que se muestran en [Configuración de un grupo de capacidad](../azure-netapp-files/azure-netapp-files-set-up-capacity-pool.md).
+3. Para unir una conexión de Azure Active Directory (Azure AD), siga las instrucciones de [Unión a una conexión de Active Directory](create-fslogix-profile-container.md#join-an-active-directory-connection).
+4. Para crear un nuevo volumen, siga las instrucciones de [Creación de un nuevo volumen](create-fslogix-profile-container.md#create-a-new-volume) y [Configuración de parámetros de acceso al volumen](create-fslogix-profile-container.md#configure-volume-access-parameters).
+5. Para asegurarse de que la conexión al recurso compartido de Azure NetApp Files funciona, siga las instrucciones de [Asegúrese de que los usuarios puedan tener acceso al recurso compartido de Azure NetApp Files](create-fslogix-profile-container.md#make-sure-users-can-access-the-azure-netapp-file-share).
 
 ## <a name="upload-an-msix-image-to-the-azure-netapp-file-share"></a>Carga de una imagen MSIX en el recurso compartido de archivos de Azure NetApp Files
 

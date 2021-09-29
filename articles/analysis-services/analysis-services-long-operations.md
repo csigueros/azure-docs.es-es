@@ -6,19 +6,19 @@ ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 04/27/2021
 ms.author: owend
-ms.openlocfilehash: e5b5f61900f3ca82509718e765f2a62ccd163ecf
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 65d1b6cbee1040846fec2d8e1dd8153eedf9eabc
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108145886"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128580972"
 ---
 # <a name="best-practices-for-long-running-operations"></a>Procedimientos recomendados para las operaciones de larga duración
 
 En Azure Analysis Services, un *nodo* representa una máquina virtual de host en la que se ejecuta un recurso de servidor. Algunas operaciones como las consultas de larga duración, las operaciones de actualización y la sincronización de escalado horizontal de consultas pueden producir errores si un recurso de servidor se mueve a otro nodo. Entre los mensajes de error comunes en este escenario se incluyen los siguientes:
 
 - "Se produjo un error al tratar de localizar una solicitud XMLA de larga duración. Es posible que una actualización del servicio o reinicio del servidor haya interrumpido la solicitud".
-- "El trabajo con id. ‘<guid> del modelo '<database>’ se canceló debido a un error de servicio (inactividad) con el mensaje ‘Se cancelará la solicitud de actualización, ya que se bloqueó sin actualizaciones. Este es un problema de servicio interno. Vuelva a enviar el trabajo o envíe un vale de soporte técnico para obtener ayuda si este problema se presenta varias veces".
+- "El trabajo con id. ‘\<guid\> del modelo '\<database\>’ se canceló debido a un error de servicio (inactividad) con el mensaje ‘Se cancelará la solicitud de actualización, ya que se bloqueó sin actualizaciones. Este es un problema de servicio interno. Vuelva a enviar el trabajo o envíe un vale de soporte técnico para obtener ayuda si este problema se presenta varias veces".
 
 Hay muchas razones por las que se pueden interrumpir las operaciones de larga duración. Por ejemplo, las actualizaciones de Azure como las siguientes: 
 - Revisiones del sistema operativo 

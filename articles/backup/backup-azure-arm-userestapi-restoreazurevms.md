@@ -4,12 +4,12 @@ description: En este artículo obtendrá información sobre cómo administrar la
 ms.topic: conceptual
 ms.date: 08/26/2021
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
-ms.openlocfilehash: f82adee9690c0114fef17640672c7326cffc8481
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+ms.openlocfilehash: 0aa66b5c853faf26320510b3fe78ac71cd9d8afc
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122966082"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124820324"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>Restauración de máquinas virtuales de Azure mediante API REST
 
@@ -603,7 +603,7 @@ A continuación se muestra un cuerpo de solicitud de ejemplo para restaurar los 
 }
 ```
 
-De forma similar a la operación de restauración de la región primaria, se trata de una operación asincrónica de la que se debe [realizar un seguimiento por separado](/azure/backup/backup-azure-arm-userestapi-restoreazurevms#restore-response).
+De forma similar a la operación de restauración de la región primaria, se trata de una operación asincrónica de la que se debe [realizar un seguimiento por separado](#restore-response).
 
 
 

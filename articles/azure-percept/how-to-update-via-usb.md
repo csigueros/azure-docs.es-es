@@ -1,22 +1,23 @@
 ---
-title: Actualización de Azure Percept DK a través de una conexión por cable USB-C
+title: Actualización de Azure Percept DK a través de una conexión USB-C
 description: Aprenda a actualizar Azure Percept DK a través de una conexión por cable USB-C
-author: mimcco
-ms.author: mimcco
+author: EthanChangAED
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 03/18/2021
 ms.custom: template-how-to
-ms.openlocfilehash: e40a75f91ebf371d27b541b74ba427f42bc518f3
-ms.sourcegitcommit: 6f21017b63520da0c9d67ca90896b8a84217d3d3
+ms.openlocfilehash: 293249c764155aefe16ef23738b1e4efea4255e5
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114652912"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124751057"
 ---
-# <a name="update-the-azure-percept-dk-over-a-usb-c-cable-connection"></a>Actualización de Azure Percept DK por medio de una conexión por cable USB-C
+# <a name="update-azure-percept-dk-over-a-usb-c-connection"></a>Actualización de Azure Percept DK a través de una conexión USB-C
 
 En esta guía se muestra cómo actualizar correctamente el firmware y el sistema operativo del kit de desarrollo a través de una conexión USB. Esta es una introducción de lo que va a hacer durante este procedimiento.
+
 1. Descarga del paquete de actualización en un equipo host
 1. Ejecución del comando que transfiere el paquete de actualización al kit de desarrollo
 1. Establecer el kit de desarrollo en modo USB mediante conmutadores SSH o DIP
@@ -27,7 +28,6 @@ En esta guía se muestra cómo actualizar correctamente el firmware y el sistema
 > Al actualizar el kit de desarrollo a través de USB, se eliminarán todos los datos existentes en el dispositivo, incluidos los modelos y contenedores de AI.
 >
 > Siga todas las instrucciones en orden. Omitir los pasos podría poner el kit de desarrollo en un estado inutilizable.
-
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -44,7 +44,7 @@ En esta guía se muestra cómo actualizar correctamente el firmware y el sistema
 
 1. [Herramienta NXP UUU](https://github.com/NXPmicro/mfgtools/releases). Descargue la **versión más reciente** del archivo uuu.exe versión (para Windows) o del archivo uuu (para Linux) en la pestaña **Recursos**. UUU es una herramienta creada por NXP que se usa para actualizar los paneles de desarrollo NXP.
 
-1. [Descargue los archivos de actualización](https://go.microsoft.com/fwlink/?linkid=2155734). Todos están incluidos en un archivo ZIP que se extraerá en la sección siguiente.
+1. [Descargue los archivos de actualización](./how-to-select-update-package.md). Todos están incluidos en un archivo ZIP que se extraerá en la sección siguiente.
 
 1. Asegúrese de que los tres artefactos de compilación están presentes:
     - Azure-Percept-DK- *&lt;número de versión&gt;* .raw

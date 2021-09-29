@@ -5,14 +5,15 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: 42a1318ffb4c0063875939c8d3633ea513818ba4
-ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
+ms.openlocfilehash: 2d1cd9053f5be915015653e1b522e82eff7b978c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122397075"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128571242"
 ---
 # <a name="updating-ml-studio-classic-models-using-update-resource-activity"></a>Actualización de los modelos de ML Studio (clásico) mediante la actividad de actualización de recurso
 
@@ -47,7 +48,7 @@ En la tabla siguiente se describen los servicios web empleados en este ejemplo. 
 
 La siguiente imagen muestra la relación entre los puntos de conexión de entrenamiento y de puntuación de ML Studio (clásico).
 
-![servicios Web](./media/data-factory-azure-ml-batch-execution-activity/web-services.png)
+:::image type="content" source="./media/data-factory-azure-ml-batch-execution-activity/web-services.png" alt-text="servicios Web":::
 
 Puede invocar el **servicio web de entrenamiento** a través de la **actividad de ejecución por lotes de ML Studio (clásico)** . La invocación de un servicio web de entrenamiento es lo mismo que invocar un servicio web de ML Studio (clásico) (servicio web de puntuación) para puntuar datos. Las secciones anteriores abarcan cómo invocar un servicio web de ML Studio (clásico) a partir de una canalización de Azure Data Factory. 
 
@@ -59,7 +60,7 @@ Si el servicio web de puntuación es un **servicio web clásico**, cree el segun
 * Haga clic en **EJECUCIÓN DE LOTES** para obtener el valor del URI para la propiedad JSON **mlEndpoint**.
 * Haga clic en vínculo **ACTUALIZAR RECURSO** para obtener el valor de URI para la propiedad JSON **updateResourceEndpoint**. La clave de API está en la página de punto de conexión (en la esquina inferior derecha).
 
-![punto de conexión actualizable](./media/data-factory-azure-ml-batch-execution-activity/updatable-endpoint.png)
+:::image type="content" source="./media/data-factory-azure-ml-batch-execution-activity/updatable-endpoint.png" alt-text="punto de conexión actualizable":::
 
 En el ejemplo siguiente se proporciona una definición de JSON de ejemplo para el servicio vinculado de AzureML. El servicio vinculado utiliza apiKey para la autenticación.  
 
@@ -111,7 +112,7 @@ Esta sección proporciona una canalización de ejemplo que usa la **actividad de
 
 Esta es la vista de diagrama de la canalización de ejemplo. Como se puede apreciar, la actividad de ejecución de lotes de Studio (clásico) toma la entrada de entrenamiento y genera una salida de entrenamiento (archivo iLearner). La actividad de actualización de recurso de Studio (clásico) toma esta salida de entrenamiento y actualiza el modelo en el punto de conexión de servicio web de puntuación. La Actividad de recursos de actualización no produce ningún resultado. El placeholderBlob es simplemente un conjunto de datos de salida ficticio que el servicio de Azure Data Factory necesita para ejecutar la canalización.
 
-![diagrama de canalización](./media/data-factory-azure-ml-batch-execution-activity/update-activity-pipeline-diagram.png)
+:::image type="content" source="./media/data-factory-azure-ml-batch-execution-activity/update-activity-pipeline-diagram.png" alt-text="diagrama de canalización":::
 
 ### <a name="azure-blob-storage-linked-service"></a>Servicio vinculado de almacenamiento de blobs de Azure:
 Azure Storage contiene los siguientes datos:
@@ -258,7 +259,7 @@ La actividad de actualización de recurso de Studio (clásico) no genera ningún
 ### <a name="pipeline"></a>Canalización
 La canalización tiene dos actividades: **AzureMLBatchExecution** y **AzureMLUpdateResource**. La actividad de ejecución por lotes de ML Studio (clásico) toma los datos de entrenamiento como entrada y genera como salida un archivo iLearner. La actividad invoca el servicio web de entrenamiento (el experimento de entrenamiento expuesto como servicio web) con los datos de entrenamiento de entrada y recibe el archivo ilearner desde el servicio web. El placeholderBlob es simplemente un conjunto de datos de salida ficticio que el servicio de Azure Data Factory necesita para ejecutar la canalización.
 
-![diagrama de canalización](./media/data-factory-azure-ml-batch-execution-activity/update-activity-pipeline-diagram.png)
+:::image type="content" source="./media/data-factory-azure-ml-batch-execution-activity/update-activity-pipeline-diagram.png" alt-text="diagrama de canalización":::
 
 ```JSON
 {

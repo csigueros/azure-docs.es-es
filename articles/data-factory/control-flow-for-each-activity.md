@@ -9,13 +9,13 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/24/2021
-ms.openlocfilehash: 5325999fc844a23aeea3795527396709d2e7a730
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.date: 09/09/2021
+ms.openlocfilehash: b0caba4963420de555b9dbfdb269924ba8c9a942
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122825085"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124831586"
 ---
 # <a name="foreach-activity-in-azure-data-factory-and-azure-synapse-analytics"></a>Actividad ForEach de Azure Data Factory y Azure Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -490,7 +490,7 @@ A continuación se indican algunas de las limitaciones de la actividad ForEach y
 | | |
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte otras actividades de flujo de control admitidas: 
+Vea otras actividades de flujo de control admitidas: 
 
 - [Actividad de ejecución de canalización](control-flow-execute-pipeline-activity.md)
 - [Actividad GetMetadata](control-flow-get-metadata-activity.md)

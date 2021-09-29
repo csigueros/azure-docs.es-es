@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 12/17/2020
 ms.author: cachai
 ms.custom: ''
-ms.openlocfilehash: be3c5bc2d178171aaebd322e13b23b3a6f79c442
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f0cac775870345ae298672c2af5dad8277c592e6
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100388998"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128639793"
 ---
 # <a name="rabbitmq-trigger-for-azure-functions-overview"></a>Introducción al desencadenador de RabbitMQ para Azure Functions
 
@@ -247,7 +247,7 @@ El tipo de mensaje predeterminado es [evento RabbitMQ](https://rabbitmq.github.i
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-El mensaje de la cola está disponible a través de context.bindings.<NAME> donde <NAME> coincide con el nombre definido en function.json. Si la carga es JSON, el valor se deserializa en un objeto.
+El mensaje de la cola está disponible a través de context.bindings.\<NAME\> donde \<NAME\> coincide con el nombre definido en function.json. Si la carga es JSON, el valor se deserializa en un objeto.
 
 # <a name="python"></a>[Python](#tab/python)
 

@@ -5,15 +5,15 @@ author: craigktreasure
 manager: virivera
 services: azure-object-anchors
 ms.author: crtreasu
-ms.date: 08/02/2021
+ms.date: 09/08/2021
 ms.topic: quickstart
 ms.service: azure-object-anchors
-ms.openlocfilehash: b047c293a14dcfde5c8de2f56fb5c2abeab61c69
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.openlocfilehash: 987c8933040b71c8053728f64da2964e02ac6fa3
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122254368"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128607318"
 ---
 # <a name="quickstart-create-a-hololens-app-with-azure-object-anchors-in-unity-with-mrtk"></a>Inicio rápido: Creación de una aplicación de HoloLens con Azure Object Anchors, en Unity con MRTK
 
@@ -57,11 +57,11 @@ Cuando un cuadro de diálogo "TMP Importer" (Importador de TMP) le pida que impo
 
  Después de la pantalla de presentación de Unity, debería ver un rectángulo delimitador. Puede usar la mano para moverse, escalar o girar el rectángulo delimitador. Coloque el rectángulo para cubrir el objeto que quiere detectar.
 
-Abra el <a href="https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/README_HandMenu.html" target="_blank">menú de la mano</a> y seleccione **Lock SearchArea** (Bloquear SearchArea) para evitar que el rectángulo delimitador se siga moviendo. Seleccione **Start Search** (Iniciar búsqueda) para iniciar la detección de objetos. Cuando se detecte el objeto, se representará una malla en el objeto. Los detalles de una instancia detectada se mostrarán en la pantalla, como la marca de tiempo actualizada y la relación de cobertura de superficie. Seleccione **Stop Search** (Detener búsqueda) para detener el seguimiento, con lo que se quitarán todas las instancias detectadas.
+Abra el <a href="/windows/mixed-reality/mrtk-unity/features/ux-building-blocks/hand-menu" target="_blank">menú de la mano</a> y seleccione **Lock SearchArea** (Bloquear SearchArea) para evitar que el rectángulo delimitador se siga moviendo. Seleccione **Start Search** (Iniciar búsqueda) para iniciar la detección de objetos. Cuando se detecte el objeto, se representará una malla en el objeto. Los detalles de una instancia detectada se mostrarán en la pantalla, como la marca de tiempo actualizada y la relación de cobertura de superficie. Seleccione **Stop Search** (Detener búsqueda) para detener el seguimiento, con lo que se quitarán todas las instancias detectadas.
 
 #### <a name="the-app-menus"></a>Menús de la aplicación
 
-También puede realizar otras acciones mediante el <a href="https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/README_HandMenu.html" target="_blank">menú de la mano</a>.
+También puede realizar otras acciones mediante el <a href="/windows/mixed-reality/mrtk-unity/features/ux-building-blocks/hand-menu" target="_blank">menú de la mano</a>.
 
 ##### <a name="primary-menu"></a>Menú principal
 
@@ -70,7 +70,7 @@ También puede realizar otras acciones mediante el <a href="https://microsoft.gi
 * **Tracker Settings** (Configuración de seguimiento): Alterna la activación del menú de configuración de seguimiento.
 * **Search Area Settings** (Configuración del área de búsqueda): Alterna la activación del menú de configuración del área de búsqueda.
 * **Start Tracing** (Iniciar seguimiento): Captura los datos de diagnóstico y los guarda en el dispositivo. Consulte más detalles en la sección **Depuración de problemas de detección y captura de diagnósticos**.
-* **Upload Tracing** (Cargar seguimiento): Cargue los datos de diagnóstico en el servicio Object Anchors.    
+* **Upload Tracing** (Cargar seguimiento): Cargue los datos de diagnóstico en el servicio Object Anchors.
 
     :::image type="content" source="./media/mrtk-hand-menu-primary.png" alt-text="Menú principal de la mano en Unity":::
 
@@ -106,3 +106,6 @@ También puede realizar otras acciones mediante el <a href="https://microsoft.gi
 
 > [!div class="nextstepaction"]
 > [Biblioteca cliente de Azure Object Anchors para .NET: versión 0.3.0-beta.1](/dotnet/api/overview/azure/mixedreality.objectanchors.conversion-readme-pre)
+
+> [!div class="nextstepaction"]
+> [Solución de problemas de detección de objetos](../troubleshoot/object-detection.md)

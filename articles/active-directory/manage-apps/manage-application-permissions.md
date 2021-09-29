@@ -12,12 +12,12 @@ ms.date: 08/31/2021
 ms.author: davidmu
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 35afe080bdbb98a871fa039ad533c31ac0e8c111
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: ab20521ea61820a7518529c4940837ab08ae3a4f
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123439711"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124822964"
 ---
 # <a name="take-action-on-over-privileged-or-suspicious-applications-in-azure-active-directory"></a>Adopción de medidas ante aplicaciones con privilegios excesivos o sospechosas en Azure Active Directory
 
@@ -29,7 +29,7 @@ Para más información acerca de cómo dar consentimiento a las aplicaciones, co
 
 Para realizar las siguientes acciones, debe iniciar sesión como administrador global, administrador de la aplicación o administrador de aplicaciones en la nube.
 
-- Configure Azure AD PowerShell. Vea [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/)
+- Configure Azure AD PowerShell. Vea [Azure AD PowerShell](/powershell/azure/)
 
 Para restringir el acceso a las aplicaciones, debe requerir la asignación de usuarios y, luego, asignar usuarios o grupos a la aplicación.  Para más información, consulte [Métodos para asignar usuarios y grupos](./assign-user-or-group-access-portal.md).
 

@@ -12,12 +12,12 @@ ms.date: 02/05/2021
 ms.author: davidmu
 ms.reviewer: alamaral
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f8ee443f12ce4c28e5bb883be686a4610eeec38
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: 2ef33a1fa80e443a51583551f2ec3ceb65da3f88
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122768909"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124791657"
 ---
 # <a name="migrate-application-authentication-to-azure-active-directory"></a>Migración de la autenticación de las aplicaciones a Azure Active Directory
 
@@ -503,7 +503,7 @@ En función de cómo configure la aplicación, compruebe que el inicio de sesió
 | ------------------------ | --------------------------------------------------- |
 | **OAuth / OpenID Connect** | Seleccione **Aplicaciones empresariales &gt; Permisos** y asegúrese de haber dado su consentimiento a que la aplicación se use en la organización desde la configuración del usuario correspondiente a la aplicación. |
 | **SSO basado en SAML** | Use el botón [Probar la configuración de SAML](./debug-saml-sso-issues.md) que está en **Inicio de sesión único.** |
-| **SSO basado en contraseñas** | Descarga e instalación de la [extensión de inicio de sesión seguro de Mis aplicaciones](../user-help/my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension). Esta extensión lo ayudará a iniciar cualquiera de las aplicaciones en la nube de su organización que requiera que se use un proceso de inicio de sesión único. |
+| **SSO basado en contraseñas** | Descarga e instalación de la [extensión de inicio de sesión seguro de Mis aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510#download-and-install-the-my-apps-secure-sign-in-extension). Esta extensión lo ayudará a iniciar cualquiera de las aplicaciones en la nube de su organización que requiera que se use un proceso de inicio de sesión único. |
 
 |  **[Application Proxy](../app-proxy/application-proxy.md)** | Asegúrese de que el conector esté en ejecución y de que esté asignado a la aplicación. Visite la [Solución de problemas y mensajes de error de Proxy de aplicación](../app-proxy/application-proxy-troubleshoot.md) para obtener más ayuda. |
 
@@ -553,7 +553,7 @@ Una vez que haya migrado las aplicaciones, puede enriquecer la experiencia del u
 
 **Haga que las aplicaciones se puedan buscar**
 
-**Dirija al usuario** a la experiencia del portal [Mis aplicaciones](../user-help/my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension). Aquí, podrá acceder a todas las aplicaciones basadas en la nube, a las aplicaciones que pone a su disposición mediante [Azure AD Connect](../hybrid/whatis-azure-ad-connect.md) y a las aplicaciones que usan [Application Proxy](../app-proxy/application-proxy.md), siempre que tenga permisos de acceso a esas aplicaciones.
+**Dirija al usuario** a la experiencia del portal [Mis aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510#download-and-install-the-my-apps-secure-sign-in-extension). Aquí, podrá acceder a todas las aplicaciones basadas en la nube, a las aplicaciones que pone a su disposición mediante [Azure AD Connect](../hybrid/whatis-azure-ad-connect.md) y a las aplicaciones que usan [Application Proxy](../app-proxy/application-proxy.md), siempre que tenga permisos de acceso a esas aplicaciones.
 
 Puede guiar a los usuarios en la búsqueda de sus aplicaciones:
 

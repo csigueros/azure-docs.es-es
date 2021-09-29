@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 04/29/2021
 ms.author: tamram
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 7c4e0fed78eb85e0e5326cbee6c6823466811c16
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 0d5d9eb7d2d8097da47d6639b1b6bb6887825207
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108321883"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128649121"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Actualización a una cuenta de almacenamiento de uso general v2
 
@@ -77,8 +77,8 @@ Los niveles de acceso de blobs le permiten elegir el almacenamiento más rentabl
 
 De forma predeterminada, se crea una nueva cuenta de almacenamiento en el nivel de almacenamiento de acceso frecuente y se puede actualizar una cuenta de almacenamiento de uso general v1 al nivel de acceso frecuente o esporádico. Si no se especifica un nivel de acceso de cuenta en la actualización, se actualizará a frecuente de forma predeterminada. Si está explorando qué nivel de acceso debe usar para la actualización, considere el escenario de uso de datos actual. Hay dos escenarios típicos del usuario para migrar a una cuenta de uso general v2:
 
-* Tiene una cuenta de almacenamiento de uso general v1 y desea evaluar una actualización a una cuenta de almacenamiento de uso general v2 con el nivel de almacenamiento de acceso correcto para datos de blob.
-* Ha decidido usar una cuenta de almacenamiento de uso general v2 o ya tiene una y quiere evaluar si debe usar el nivel de almacenamiento de acceso frecuente o esporádico para los datos de blob.
+- Tiene una cuenta de almacenamiento de uso general v1 y desea evaluar una actualización a una cuenta de almacenamiento de uso general v2 con el nivel de almacenamiento de acceso correcto para datos de blob.
+- Ha decidido usar una cuenta de almacenamiento de uso general v2 o ya tiene una y quiere evaluar si debe usar el nivel de almacenamiento de acceso frecuente o esporádico para los datos de blob.
 
 En ambos casos, la principal prioridad es estimar el costo de almacenamiento, acceso y uso de los datos almacenados en una cuenta de almacenamiento de uso general v2 y compararlo con los costos actuales.
 
@@ -88,17 +88,17 @@ El proceso de actualización de la cuenta de almacenamiento v1 a una cuenta de 
 
 Todas las cuentas de Blob Storage usan un modelo de precios para el almacenamiento de blobs basado en el nivel de cada blob. Al usar una cuenta de almacenamiento, se aplican las siguientes consideraciones de facturación:
 
-* **Costos de almacenamiento**: además de la cantidad de datos almacenados, el costo varía en función del nivel de almacenamiento de acceso. El costo por gigabyte disminuye a medida que el nivel es más esporádico.
+- **Costos de almacenamiento**: además de la cantidad de datos almacenados, el costo varía en función del nivel de almacenamiento de acceso. El costo por gigabyte disminuye a medida que el nivel es más esporádico.
 
-* **Costos de acceso a datos**: los gastos de acceso a los datos aumentan a medida que el nivel es más esporádico. En el nivel de almacenamiento de acceso esporádico y de archivo se cobra un cargo de acceso a datos por gigabyte por las operaciones de lectura.
+- **Costos de acceso a datos**: los gastos de acceso a los datos aumentan a medida que el nivel es más esporádico. En el nivel de almacenamiento de acceso esporádico y de archivo se cobra un cargo de acceso a datos por gigabyte por las operaciones de lectura.
 
-* **Costos de transacciones**: hay un cargo por transacción para todos los niveles, que aumenta a medida que el nivel es más esporádico.
+- **Costos de transacciones**: hay un cargo por transacción para todos los niveles, que aumenta a medida que el nivel es más esporádico.
 
-* **Costos de transferencia de datos de replicación geográfica**: este cargo solo se aplica a las cuentas con replicación geográfica configurada, incluidas GRS y RA-GRS. La transferencia de datos de replicación geográfica incurre en un cargo por gigabyte.
+- **Costos de transferencia de datos de replicación geográfica**: este cargo solo se aplica a las cuentas con replicación geográfica configurada, incluidas GRS y RA-GRS. La transferencia de datos de replicación geográfica incurre en un cargo por gigabyte.
 
-* **Costos de transferencia de datos salientes**: las transferencias de datos salientes (los datos que se transfieren fuera de una región de Azure) conllevan un cargo por el uso del ancho de banda por gigabyte, lo que es coherente con las cuentas de almacenamiento de uso general.
+- **Costos de transferencia de datos salientes**: las transferencias de datos salientes (los datos que se transfieren fuera de una región de Azure) conllevan un cargo por el uso del ancho de banda por gigabyte, lo que es coherente con las cuentas de almacenamiento de uso general.
 
-* **Cambio del nivel de almacenamiento de acceso**: el cambio del nivel de almacenamiento de acceso de la cuenta que pasa de esporádico a frecuente conlleva un cargo igual a la lectura de todos los datos existentes en la cuenta de almacenamiento. Sin embargo, cambiar el nivel de almacenamiento de acceso de la cuenta de frecuente a esporádico genera un cargo igual que escribir todos los datos en el nivel de acceso esporádico (solo cuentas de uso general v2).
+- **Cambio del nivel de almacenamiento de acceso**: el cambio del nivel de almacenamiento de acceso de la cuenta que pasa de esporádico a frecuente conlleva un cargo igual a la lectura de todos los datos existentes en la cuenta de almacenamiento. Sin embargo, cambiar el nivel de almacenamiento de acceso de la cuenta de frecuente a esporádico genera un cargo igual que escribir todos los datos en el nivel de acceso esporádico (solo cuentas de uso general v2).
 
 > [!NOTE]
 > Para más información acerca del modelo de precios de las cuentas de almacenamiento, consulte la página [Precios de Azure Storage](https://azure.microsoft.com/pricing/details/storage/). Para más información acercas los cargos por la transferencia de datos salientes, consulte la página [Detalles de precios de ancho de banda](https://azure.microsoft.com/pricing/details/data-transfers/).
@@ -107,13 +107,13 @@ Todas las cuentas de Blob Storage usan un modelo de precios para el almacenamien
 
 Para calcular el costo de almacenamiento y acceso a los datos de blob en una cuenta de almacenamiento de uso general v2 en un nivel específico, es preciso evaluar el patrón de uso existente o realizar una aproximación al patrón de uso esperado. En general, será preciso conocer:
 
-* El consumo de almacenamiento de blobs, en gigabytes, incluido:
-  * ¿Cuántos datos se almacenan en la cuenta de almacenamiento?
-  * ¿Cómo cambia el volumen de datos mensualmente? Los datos nuevos, ¿reemplazan constantemente a los antiguos?
+- El consumo de almacenamiento de blobs, en gigabytes, incluido:
+  - ¿Cuántos datos se almacenan en la cuenta de almacenamiento?
+  - ¿Cómo cambia el volumen de datos mensualmente? Los datos nuevos, ¿reemplazan constantemente a los antiguos?
 
-* El patrón de acceso principal para los datos de almacenamiento de blobs, incluido:
-  * ¿Cuántos datos se leen y se escriben en la cuenta de almacenamiento?
-  * ¿Cuántas operaciones de lectura frente a operaciones de escritura se producen en los datos de la cuenta de almacenamiento?
+- El patrón de acceso principal para los datos de almacenamiento de blobs, incluido:
+  - ¿Cuántos datos se leen y se escriben en la cuenta de almacenamiento?
+  - ¿Cuántas operaciones de lectura frente a operaciones de escritura se producen en los datos de la cuenta de almacenamiento?
 
 Para decidir sobre el mejor nivel de acceso para sus necesidades, puede resultar útil determinar la capacidad de datos de blob y cómo se usan esos datos. La mejor manera de hacerlo es observar las métricas de supervisión de su cuenta.
 
@@ -155,9 +155,9 @@ La suma de *'TotalBillableRequests'* , en todas las entradas de una API en la ta
 
 Para calcular los costos de transacción de las cuentas de Blob Storage, es preciso que desglose las transacciones en tres grupos, ya que tienen precios diferentes.
 
-* Transacciones de escritura como *'PutBlob'* , *'PutBlock'* , *'PutBlockList'* , *'AppendBlock'* , *'ListBlobs'* , *'ListContainers'* , *'CreateContainer'* , *'SnapshotBlob'* y *'CopyBlob'* .
-* Transacciones de eliminación como *'DeleteBlob'* y *'DeleteContainer'* .
-* Las restantes transacciones.
+- Transacciones de escritura como *'PutBlob'* , *'PutBlock'* , *'PutBlockList'* , *'AppendBlock'* , *'ListBlobs'* , *'ListContainers'* , *'CreateContainer'* , *'SnapshotBlob'* y *'CopyBlob'* .
+- Transacciones de eliminación como *'DeleteBlob'* y *'DeleteContainer'* .
+- Las restantes transacciones.
 
 Para calcular los costos de transacción de las cuentas de almacenamiento de GPv1, es preciso agregar todas las transacciones, independientemente de la operación o API.
 
@@ -167,9 +167,9 @@ Aunque el análisis del almacenamiento no proporciona la cantidad de datos leíd
 
 Para calcular los costos de acceso a los datos en las cuentas de Blob Storage, es preciso que desglose las transacciones en dos grupos.
 
-* La cantidad de datos que se recuperan de la cuenta de almacenamiento se puede calcular examinando la suma de *'TotalEgress'* principalmente en las operaciones *'GetBlob'* y *'CopyBlob'* .
+- La cantidad de datos que se recuperan de la cuenta de almacenamiento se puede calcular examinando la suma de *'TotalEgress'* principalmente en las operaciones *'GetBlob'* y *'CopyBlob'* .
 
-* La cantidad de datos que se escriben en la cuenta de almacenamiento se puede calcular examinando la suma de *'TotalIngress'* principalmente en las operaciones *'PutBlob'* , *'PutBlock'* , *'CopyBlob'* y *'AppendBlock'* .
+- La cantidad de datos que se escriben en la cuenta de almacenamiento se puede calcular examinando la suma de *'TotalIngress'* principalmente en las operaciones *'PutBlob'* , *'PutBlock'* , *'CopyBlob'* y *'AppendBlock'* .
 
 El costo de transferencia de datos de replicación geográfica para cuentas de Blob Storage también puede calcularse mediante la valoración de la cantidad de datos escritos cuando se usa una cuenta de almacenamiento GRS o RA-GRS.
 
@@ -178,7 +178,7 @@ El costo de transferencia de datos de replicación geográfica para cuentas de B
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Introducción a las cuentas de almacenamiento](storage-account-overview.md)
-* [Cree una cuenta de almacenamiento](storage-account-create.md)
-* [Traslado de una cuenta de Azure Storage a otra región](storage-account-move.md)
-* [recuperar una cuenta de almacenamiento eliminada](storage-account-recover.md)
+- [Introducción a las cuentas de almacenamiento](storage-account-overview.md)
+- [Cree una cuenta de almacenamiento](storage-account-create.md)
+- [Traslado de una cuenta de Azure Storage a otra región](storage-account-move.md)
+- [recuperar una cuenta de almacenamiento eliminada](storage-account-recover.md)

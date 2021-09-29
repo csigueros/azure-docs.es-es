@@ -9,12 +9,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5f003273d05a1e0c317c37afe3d03e49cf3a0e7c
-ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
+ms.openlocfilehash: 2e88c3bebe5cccaac2a750c4f5bd0b301226d0ab
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110655091"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128630762"
 ---
 # <a name="manage-blob-properties-and-metadata-with-net"></a>Administración de propiedades y metadatos de blobs con .NET
 
@@ -68,6 +68,7 @@ public static async Task SetBlobPropertiesAsync(CloudBlob blob)
     }
 }
 ```
+
 ---
 
 En el ejemplo de código siguiente se obtienen las propiedades del sistema de un blob y se muestran algunos de los valores.
@@ -109,6 +110,7 @@ private static async Task GetBlobPropertiesAsync(CloudBlob blob)
     }
 }
 ```
+
 ---
 
 ## <a name="set-and-retrieve-metadata"></a>Establecimiento y recuperación de metadatos
@@ -162,6 +164,7 @@ public static async Task AddBlobMetadataAsync(CloudBlob blob)
     }
 }
 ```
+
 ---
 
 El ejemplo de código siguiente lee los metadatos en un blob.
@@ -204,6 +207,7 @@ public static async Task ReadBlobMetadataAsync(CloudBlob blob)
     }
 }
 ```
+
 ---
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]

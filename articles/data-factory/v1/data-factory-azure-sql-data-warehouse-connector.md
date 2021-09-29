@@ -3,16 +3,17 @@ title: Copia de datos en y desde Azure Synapse Analytics
 description: Información sobre cómo copiar datos en y desde Azure Synapse Analytics con Azure Data Factory
 author: linda33wj
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: e46d4c07f3de2441f53648b228ab7a9d2a41ab61
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 489c4ee4c48c0d38d46d4ce3b73d820261f65616
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108753376"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128653426"
 ---
 # <a name="copy-data-to-and-from-azure-synapse-analytics-using-azure-data-factory"></a>Copia de datos en y desde Azure Synapse Analytics con Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]

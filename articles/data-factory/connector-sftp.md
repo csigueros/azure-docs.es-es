@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/30/2021
-ms.openlocfilehash: 94034e1a7c297e33209c42b5aa93fed2b52feb3f
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.date: 09/09/2021
+ms.openlocfilehash: 5e851a266dd74758987c5e6bdeef1d76e3d50db9
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123316543"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124763963"
 ---
 # <a name="copy-data-from-and-to-the-sftp-server-using-azure-data-factory-or-azure-synapse-analytics"></a>Copia de datos con el servidor SFTP como origen y destino mediante Azure Data Factory o Azure Synapse Analytics
 

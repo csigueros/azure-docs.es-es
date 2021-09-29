@@ -1,18 +1,18 @@
 ---
 title: 'Almacenamiento de objetos (Blob Storage) de iOS: Azure | Microsoft Docs'
 description: Almacene datos no estructurados en la nube con Almacenamiento de blobs (objetos) de Azure.
-author: twooley
-ms.author: twooley
+author: normesta
+ms.author: normesta
 ms.date: 11/20/2018
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.openlocfilehash: 1b0653c997930c60950da335e79b0388edd43897
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 999b9d5b700dc807255b695b3254cf11e7d37f80
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106278361"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128603968"
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>Uso del almacenamiento de blobs desde iOS
 
@@ -39,7 +39,7 @@ Para usar esta biblioteca, necesita lo siguiente:
     sudo gem install cocoapods
     ```
 
-2. Después, en el directorio del proyecto (el directorio que contiene el archivo .xcodeproj), cree un archivo llamado "_Podfile_" (sin extensión de archivo). Agregue lo siguiente a _Podfile_ y guarde.
+2. Después, en el directorio del proyecto (el directorio que contiene el archivo .xcodeproj), cree un archivo llamado "*Podfile*" (sin extensión de archivo). Agregue lo siguiente a *Podfile* y guarde.
 
     ```ruby
     platform :ios, '8.0'
@@ -224,12 +224,12 @@ En el ejemplo siguiente se muestra cómo enumerar todos los blobs en un contened
 - **prefix** : puede especificar el prefijo que se va a usar para la lista de blobs. Solo se enumerarán los blobs que comiencen por dicho prefijo.
 - **useFlatBlobListing**: como se mencionó en la sección [Asignación de nombres y referencia a contenedores y blobs](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata), aunque Blob service es un esquema plano de almacenamiento, puede crear una jerarquía virtual asignando a los blobs el nombre de la información de la ruta de acceso. Sin embargo, actualmente no se admiten listas que no sean planas. Esta característica estará disponible próximamente. Por el momento, este valor debe ser **SÍ**.
 - **blobListingDetails** : puede especificar qué elementos desea incluir al enumerar los blobs
-  - _AZSBlobListingDetailsNone_: se enumeran solo los blobs confirmados y no se devuelven los metadatos de los blobs.
-  - _AZSBlobListingDetailsSnapshots_: se enumeran los blobs confirmados y las instantáneas de los blobs.
-  - _AZSBlobListingDetailsMetadata_: se recuperan los metadatos de los blobs que se devuelven en la lista.
-  - _AZSBlobListingDetailsUncommittedBlobs_: se enumeran los blobs confirmados y sin confirmar.
-  - _AZSBlobListingDetailsCopy_: se incluyen propiedades de copia en la lista.
-  - _AZSBlobListingDetailsAll_: se enumeran todos los blobs confirmados, blobs sin confirmar e instantáneas disponibles y se devuelven todos los metadatos y estados de copia de dichos blobs.
+  - *AZSBlobListingDetailsNone*: se enumeran solo los blobs confirmados y no se devuelven los metadatos de los blobs.
+  - *AZSBlobListingDetailsSnapshots*: se enumeran los blobs confirmados y las instantáneas de los blobs.
+  - *AZSBlobListingDetailsMetadata*: se recuperan los metadatos de los blobs que se devuelven en la lista.
+  - *AZSBlobListingDetailsUncommittedBlobs*: se enumeran los blobs confirmados y sin confirmar.
+  - *AZSBlobListingDetailsCopy*: se incluyen propiedades de copia en la lista.
+  - *AZSBlobListingDetailsAll*: se enumeran todos los blobs confirmados, blobs sin confirmar e instantáneas disponibles y se devuelven todos los metadatos y estados de copia de dichos blobs.
 - **maxResults** : el número máximo de resultados que se devuelven para esta operación. Utilice -1 para no establecer un límite.
 - **completionHandler** : el bloque de código que se ejecutará con los resultados de la operación de lista.
 

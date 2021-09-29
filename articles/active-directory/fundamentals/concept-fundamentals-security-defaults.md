@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 08/20/2021
+ms.date: 09/27/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: lvandenende
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: a82b2632d5415091986c418ca7cd3871e519b374
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
+ms.openlocfilehash: 83a2c5bca5837919015125d6c421dccfef5bf58c
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122634189"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129079454"
 ---
 # <a name="what-are-security-defaults"></a>¿Cuáles son los valores de seguridad predeterminados?
 
@@ -61,14 +61,18 @@ Los usuarios con acceso a cuentas con privilegios tienen un mayor acceso a su en
 Una vez finalizado el registro con Azure AD Multi-Factor Authentication, los nueve roles de administrador de Azure AD siguientes deberán realizar una autenticación adicional cada vez que inicien sesión:
 
 - Administrador global
-- Administrador de SharePoint
-- Administrador de Exchange
-- Administrador de acceso condicional
-- Administrador de seguridad
-- Administrador del departamento de soporte técnico
-- Administrador de facturación
-- Administrador de usuarios
+- Administrador de aplicaciones
 - Administrador de autenticación
+- Administrador de facturación
+- Administrador de aplicaciones en la nube
+- Administrador de acceso condicional
+- Administrador de Exchange
+- Administrador del departamento de soporte técnico
+- Administrador de contraseñas
+- Administrador de autenticación con privilegios
+- Administrador de seguridad
+- Administrador de SharePoint
+- Administrador de usuarios
 
 > [!WARNING]
 > Asegúrese de que el directorio tenga al menos dos cuentas que tengan asignados privilegios de administrador global. Esto le ayudará en caso de que un administrador global esté bloqueado. Para obtener más información, consulte el artículo [Administración de cuentas de acceso de emergencia en Azure AD](../roles/security-emergency-access.md).

@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 08/26/2021
 author: gahl-levy
 ms.author: gahllevy
-ms.openlocfilehash: bce5b5874b12638d1f2d628e23812676053006a4
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: 9a142dfcba67b80a8293a15d03ea2b389bd297d1
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123035218"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128593902"
 ---
 # <a name="azure-cosmos-db-api-for-mongodb"></a>Azure Cosmos DB API para MongoDB
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
@@ -57,15 +57,15 @@ Todas las versiones de la API para MongoDB se ejecutan en el mismo código base,
 
 * Hay tres maneras de implementar Azure Cosmos DB API para MongoDB:
      * [Rendimiento aprovisionado](../set-throughput.md): establezca un número de RU/s y cámbielo manualmente. Este modelo se adapta mejor a las cargas de trabajo coherentes.
-     * [Autoscale]../(provision-throughput-autoscale.md): establezca el límite superior en el rendimiento que necesite. El rendimiento se escala al instante para satisfacer sus necesidades. Este modelo se adapta mejor a las cargas de trabajo que cambian con frecuencia y optimiza los costos.
+     * [Escalado automático](../provision-throughput-autoscale.md): establezca un límite superior en el rendimiento que necesita. El rendimiento se escala al instante para satisfacer sus necesidades. Este modelo se adapta mejor a las cargas de trabajo que cambian con frecuencia y optimiza los costos.
      * [Sin servidor](../serverless.md): pague únicamente por el rendimiento que utiliza. Este modelo se adapta mejor a las cargas de trabajo de desarrollo y pruebas. 
 
 * El rendimiento del clúster particionado depende de la clave de partición que elija al crear una colección. Elija cuidadosamente una clave de partición para asegurarse de que los datos se distribuyan uniformemente entre las particiones.
 
 ### <a name="capacity-planning"></a>Planificación de capacidad
 
-¿Intenta planear la capacidad de una migración a Azure Cosmos DB? Puede usar información sobre el clúster de bases de datos existente para planear la capacidad.
-* Si lo único que sabe es el número de núcleos virtuales y servidores del clúster de bases de datos existente, lea este artículo sobre el [cálculo de unidades de solicitud mediante núcleos o CPU virtuales](../convert-vcore-to-request-unit.md). 
+¿Intenta planear la capacidad de una migración a Azure Cosmos DB? Para ello, puede usar información sobre el clúster de bases de datos existente.
+* Si lo único que sabe es el número de núcleos virtuales y servidores del clúster de bases de datos existente, lea sobre el [cálculo de unidades de solicitud mediante núcleos o CPU virtuales](../convert-vcore-to-request-unit.md). 
 * Si conoce la velocidad que suelen tener las solicitudes de la carga de trabajo de la base de datos actual, lea este artículo para [calcular las unidades de solicitud utilizando la herramienta de planeamiento de capacidad de Azure Cosmos DB](../estimate-ru-with-capacity-planner.md).
 
 ## <a name="quickstart"></a>Inicio rápido
@@ -78,8 +78,8 @@ Todas las versiones de la API para MongoDB se ejecutan en el mismo código base,
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* ¿Intenta planear la capacidad de una migración a Azure Cosmos DB? Puede usar información sobre el clúster de bases de datos existente para planear la capacidad.
-    * Si lo único que sabe es el número de núcleos virtuales y servidores del clúster de bases de datos existente, lea este artículo sobre el [cálculo de unidades de solicitud mediante núcleos o CPU virtuales](../convert-vcore-to-request-unit.md). 
+* ¿Intenta planear la capacidad de una migración a Azure Cosmos DB? Para ello, puede usar información sobre el clúster de bases de datos existente.
+    * Si lo único que sabe es el número de núcleos virtuales y servidores del clúster de bases de datos existente, lea sobre el [cálculo de unidades de solicitud mediante núcleos o CPU virtuales](../convert-vcore-to-request-unit.md). 
     * Si conoce la velocidad que suelen tener las solicitudes de la carga de trabajo de la base de datos actual, lea este artículo para [calcular las unidades de solicitud utilizando la herramienta de planeamiento de capacidad de Azure Cosmos DB](estimate-ru-capacity-planner.md).
 * Para aprender a obtener la información de cadena de conexión de la cuenta, siga el tutorial de [conexión de una aplicación de MongoDB a Azure Cosmos DB](connect-mongodb-account.md).
 * Para aprender a crear una conexión entre la base de datos de Azure Cosmos DB y la aplicación de MongoDB en Studio 3T, siga el tutorial de [uso de Studio 3T con Azure Cosmos DB](connect-using-mongochef.md).

@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: troubleshooting
 ms.date: 07/28/2021
-ms.openlocfilehash: d701767f6e8f22b1577b3fb745d01dea00557e8b
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: eca62eccca6f53935f29a16bca0afc382896212c
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123306828"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124810358"
 ---
 # <a name="troubleshoot-assessment"></a>Solución de problemas de evaluación
 
@@ -153,7 +153,7 @@ Una valoración de máquinas virtuales de Azure recopila continuamente datos de 
 
 ## <a name="can-i-migrate-my-disks-to-an-ultra-disk-by-using-azure-migrate"></a>¿Puedo migrar mis discos a un disco Ultra mediante Azure Migrate?
 
-No. Actualmente, Azure Migrate y Azure Site Recovery no admiten la migración a discos Ultra. Busque los pasos para implementar un disco Ultra en [este sitio web](https://docs.microsoft.com/azure/virtual-machines/disks-enable-ultra-ssd?tabs=azure-portal#deploy-an-ultra-disk).
+No. Actualmente, Azure Migrate y Azure Site Recovery no admiten la migración a discos Ultra. Busque los pasos para implementar un disco Ultra en [este sitio web](../virtual-machines/disks-enable-ultra-ssd.md?tabs=azure-portal#deploy-an-ultra-disk).
 
 ## <a name="why-are-the-provisioned-iops-and-throughput-in-my-ultra-disk-more-than-my-on-premises-iops-and-throughput"></a>¿Por qué los valores de IOPS y rendimiento aprovisionados de mi disco Ultra son mayores que mis valores de IOPS y rendimiento locales?
 
@@ -191,10 +191,10 @@ Este problema puede ocurrir si el servidor físico tiene habilitada la virtualiz
 
 ## <a name="capture-network-traffic"></a>Captura del tráfico de red
 
-Para recopilar registros de tráfico de red:
+Para recopilar registros del tráfico de red:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-1. Presione F12 para iniciar las Herramientas de desarrollo. Si es necesario, desactive la opción **Borrar entradas de navegación**.
+1. Seleccione F12 para iniciar las Herramientas de desarrollo. Si es necesario, desactive la opción **Borrar entradas de navegación**.
 1. Seleccione la pestaña **Red** para empezar a capturar el tráfico de red:
    - En Chrome, seleccione **Preserve log** (Conservar registro). La grabación debe iniciarse automáticamente. Un círculo rojo indica que la captura del tráfico está en curso. Si no aparece el círculo rojo, seleccione el círculo negro para comenzar.
    - En Microsoft Edge e Internet Explorer, la grabación debe iniciarse automáticamente. Si no es así, seleccione el botón de reproducción de color verde.

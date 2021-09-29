@@ -1,14 +1,14 @@
 ---
-title: Creación de un generador de imágenes en Azure DevTest Labs | Microsoft Docs
+title: Creación de una fábrica de imágenes
 description: Este artículo muestra cómo configurar un generador de imágenes personalizadas mediante el uso de scripts de ejemplo disponibles en el repositorio de Git (Azure DevTest Labs).
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 14c8338d6a5ae21847da3a9c774ea6dcdac33ae4
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 0e4ed8444475d1cd396dfa6c54083858b7671d5e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "85482078"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128623596"
 ---
 # <a name="create-a-custom-image-factory-in-azure-devtest-labs"></a>Creación de un generador de imágenes personalizadas en Azure DevTest Labs
 Este artículo muestra cómo configurar un generador de imágenes personalizadas mediante el uso de scripts de ejemplo disponibles en el [repositorio de Git](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts/ImageFactory).

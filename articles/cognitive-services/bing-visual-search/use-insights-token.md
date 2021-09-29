@@ -3,20 +3,18 @@ title: 'Token de información predeterminado: Bing Visual Search'
 titleSuffix: Azure Cognitive Services
 description: Aquí se muestra cómo usar el token de información de una imagen con Bing Visual Search API para obtener información sobre esa imagen.
 services: cognitive-services
-author: swhite-msft
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 4/26/2019
-ms.author: scottwhi
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: 685bdc3f67594c51f6ab749c33ab30e940faee34
-ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
+ms.openlocfilehash: 04239a1fb2ce060ac2622c8607d66c5b5aacc790
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/04/2021
-ms.locfileid: "113288291"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128663200"
 ---
 # <a name="use-an-insights-token-to-get-insights-for-an-image"></a>Uso de un token de información para obtener los detalles de una imagen
 

@@ -10,12 +10,12 @@ ms.date: 05/11/2020
 ms.author: normesta
 ms.reviewer: dineshm
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8ff972965533dac423cafc731aa4a10165570977
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: c447d5cacc0c1d60a7594c1b6e6f2082941f7ae9
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123258764"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128587449"
 ---
 # <a name="move-an-azure-storage-account-to-another-region"></a>Traslado de una cuenta de Azure Storage a otra región
 
@@ -24,13 +24,13 @@ Para mover una cuenta de almacenamiento, cree una copia de esta en otra región.
 En este artículo, aprenderá a:
 
 > [!div class="checklist"]
-> 
-> * Exportar una plantilla.
-> * Modificar la plantilla agregando el nombre de la cuenta de almacenamiento y la región de destino.
-> * Implementar la plantilla para crear la cuenta de almacenamiento nueva.
-> * Configurar la cuenta de almacenamiento nueva.
-> * Mover datos a la cuenta de almacenamiento nueva.
-> * Eliminar los recursos en la región de origen.
+>
+> - Exportar una plantilla.
+> - Modificar la plantilla agregando el nombre de la cuenta de almacenamiento y la región de destino.
+> - Implementar la plantilla para crear la cuenta de almacenamiento nueva.
+> - Configurar la cuenta de almacenamiento nueva.
+> - Mover datos a la cuenta de almacenamiento nueva.
+> - Eliminar los recursos en la región de origen.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -42,11 +42,11 @@ En este artículo, aprenderá a:
 
 ## <a name="prepare"></a>Preparación
 
-Para empezar, exporte y luego modifique una plantilla de Resource Manager. 
+Para empezar, exporte y luego modifique una plantilla de Resource Manager.
 
 ### <a name="export-a-template"></a>Exportación de una plantilla
 
-Esta plantilla contiene la configuración que describe la cuenta de almacenamiento. 
+Esta plantilla contiene la configuración que describe la cuenta de almacenamiento.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -73,6 +73,7 @@ Para exportar una plantilla mediante PowerShell:
    ```azurepowershell-interactive
    Connect-AzAccount
    ```
+
 2. Si su identidad se asocia a más de una suscripción, establezca su suscripción activa en la suscripción de la cuenta de almacenamiento que quiere mover.
 
    ```azurepowershell-interactive
@@ -94,7 +95,7 @@ Para exportar una plantilla mediante PowerShell:
 
 ---
 
-### <a name="modify-the-template"></a>Modificación de la plantilla 
+### <a name="modify-the-template"></a>Modificación de la plantilla
 
 Para modificar la plantilla, cambie el nombre y la región de la cuenta de almacenamiento.
 
@@ -117,7 +118,7 @@ Para implementar la plantilla con Azure Portal:
 6. Seleccione **Cargar archivo** y, después, siga las instrucciones para cargar el archivo **template.json** que descargó en la última sección.
 
 7. En el archivo **template.json**, asigne un nombre a la cuenta de almacenamiento de destino mediante el establecimiento del valor predeterminado del nombre de la cuenta de almacenamiento. En este ejemplo se establece el valor predeterminado del nombre de la cuenta de almacenamiento en `mytargetaccount`.
-    
+
     ```json
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
@@ -127,7 +128,7 @@ Para implementar la plantilla con Azure Portal:
             "type": "String"
         }
     },
- 
+
 8. Edit the **location** property in the **template.json** file to the target region. This example sets the target region to `centralus`.
 
     ```json
@@ -138,6 +139,7 @@ Para implementar la plantilla con Azure Portal:
          "location": "centralus"
          }]          
     ```
+
     Para obtener los códigos de ubicación de la región, consulte [Ubicaciones de Azure](https://azure.microsoft.com/global-infrastructure/locations/).  El código de una región es el nombre de la región sin espacios, **Centro de EE. UU.**  = **centralus**.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
@@ -145,7 +147,7 @@ Para implementar la plantilla con Azure Portal:
 Para implementar la plantilla con PowerShell:
 
 1. En el archivo **template.json**, asigne un nombre a la cuenta de almacenamiento de destino mediante el establecimiento del valor predeterminado del nombre de la cuenta de almacenamiento. En este ejemplo se establece el valor predeterminado del nombre de la cuenta de almacenamiento en `mytargetaccount`.
-    
+
     ```json
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
@@ -155,7 +157,7 @@ Para implementar la plantilla con PowerShell:
             "type": "String"
         }
     },
-    ``` 
+    ```
 
 2. Edite la propiedad **location** del archivo **template.json** en la región de destino. En este ejemplo, la región de destino se establece en `eastus`.
 
@@ -173,13 +175,14 @@ Para implementar la plantilla con PowerShell:
     ```azurepowershell-interactive
     Get-AzLocation | format-table 
     ```
+
 ---
 
 <a id="move"></a>
 
 ## <a name="move"></a>Move
 
-Implemente la plantilla para crear una nueva cuenta de almacenamiento en la región de destino. 
+Implemente la plantilla para crear una nueva cuenta de almacenamiento en la región de destino.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -187,11 +190,11 @@ Implemente la plantilla para crear una nueva cuenta de almacenamiento en la regi
 
 2. Escriba o seleccione los valores de propiedad:
 
-- **Suscripción**: Seleccione una suscripción de Azure.
+   - **Suscripción**: Seleccione una suscripción de Azure.
 
-- **Grupo de recursos**: Seleccione **Crear nuevo** y asígnele un nombre al grupo de recursos.
+   - **Grupo de recursos**: Seleccione **Crear nuevo** y asígnele un nombre al grupo de recursos.
 
-- **Ubicación**: Seleccione una ubicación de Azure.
+   - **Ubicación**: Seleccione una ubicación de Azure.
 
 3. Active la casilla **Acepto los términos y condiciones indicados anteriormente** y haga clic en el botón **Select Purchase** (Seleccionar compra).
 
@@ -212,11 +215,12 @@ Implemente la plantilla para crear una nueva cuenta de almacenamiento en la regi
    New-AzResourceGroup -Name $resourceGroupName -Location "$location"
    New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri "<name of your local template file>"  
    ```
+
 ---
 
 ### <a name="configure-the-new-storage-account"></a>Configuración de la cuenta de almacenamiento nueva
 
-Algunas características no se exportarán a una plantilla, por lo que tendrá que agregarlas a la cuenta de almacenamiento nueva. 
+Algunas características no se exportarán a una plantilla, por lo que tendrá que agregarlas a la cuenta de almacenamiento nueva.
 
 En la tabla siguiente se enumeran estas características junto con instrucciones para agregarlas a la cuenta de almacenamiento nueva.
 
@@ -228,14 +232,14 @@ En la tabla siguiente se enumeran estas características junto con instrucciones
 | **Alertas** | [Crear, ver y administrar las alertas del registro de actividad mediante Azure Monitor](../../azure-monitor/alerts/alerts-activity-log.md) |
 | **Content Delivery Network (CDN)** | [Uso de Azure CDN para obtener acceso a blobs con dominios personalizados mediante HTTPS](../blobs/storage-https-custom-domain-cdn.md) |
 
-> [!NOTE] 
-> Si configura una red CDN para la cuenta de almacenamiento de origen, solo tiene que cambiar el origen de la red CDN existente por el punto de conexión de servicio de blob principal (o el punto de conexión del sitio web estático principal) de la cuenta nueva. 
+> [!NOTE]
+> Si configura una red CDN para la cuenta de almacenamiento de origen, solo tiene que cambiar el origen de la red CDN existente por el punto de conexión de servicio de blob principal (o el punto de conexión del sitio web estático principal) de la cuenta nueva.
 
 ### <a name="move-data-to-the-new-storage-account"></a>Traslado de datos a la cuenta de almacenamiento nueva
 
 AzCopy es la herramienta preferida para trasladar los datos. Está optimizado para el rendimiento.  Una manera más rápida de hacerlo es que los datos se copien directamente entre los servidores de almacenamiento, para que AzCopy no use el ancho de banda de red del equipo. Use AzCopy en la línea de comandos o como parte de un script personalizado. Consulte [Introducción a AzCopy](/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-También puede usar Azure Data Factory para trasladar los datos. Esta proporciona una interfaz de usuario intuitiva. Para usar Azure Data Factory, consulte cualquiera de estos vínculos: 
+También puede usar Azure Data Factory para trasladar los datos. Esta proporciona una interfaz de usuario intuitiva. Para usar Azure Data Factory, consulte cualquiera de estos vínculos:
 
   - [Copia de datos con Azure Blob Storage como origen o destino mediante Azure Data Factory](/azure/data-factory/connector-azure-blob-storage)
   - [Copia de datos con Azure Data Lake Storage Gen2 como origen o destino mediante Azure Data Factory](/azure/data-factory/connector-azure-data-lake-storage)
@@ -267,12 +271,12 @@ Para quitar el grupo de recursos y sus recursos asociados, incluida la nueva cue
 ```powershell
 Remove-AzStorageAccount -ResourceGroupName  $resourceGroup -AccountName $storageAccount
 ```
+
 ---
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial, trasladó una cuenta de almacenamiento de Azure de una región a otra y ha limpiado los recursos de origen.  Para obtener más información sobre cómo trasladar recursos entre regiones y la recuperación ante desastres en Azure, consulte:
-
 
 - [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](../../azure-resource-manager/management/move-resource-group-and-subscription.md)
 - [Traslado de máquinas virtuales de Azure a otra región](../../site-recovery/azure-to-azure-tutorial-migrate.md)

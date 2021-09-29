@@ -8,15 +8,15 @@ ms.date: 07/01/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 4e12f578fe8bd2eff97deec7b23656086e80475c
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: 9a76298b829df96ca6fcf7c483eeec98e1f5b36d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121862527"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128673224"
 ---
 # <a name="nfs-file-shares-in-azure-files-preview"></a>Recursos compartidos de archivos NFS en Azure Files (versión preliminar)
-Azure Files ofrece dos protocolos estándar del sector para el montaje de recursos compartidos de archivos de Azure: el protocolo [Bloque de mensajes del servidor (SMB)](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) y el protocolo [Network File System (NFS)](https://en.wikipedia.org/wiki/Network_File_System) (versión preliminar). Azure Files le permite seleccionar el protocolo del sistema de archivos más adecuado para la carga de trabajo. Los recursos compartidos de archivos de Azure no admiten el acceso a un recurso compartido de archivos de Azure individual con los protocolos SMB y NFS, aunque se pueden crear recursos compartidos de archivos SMB y NFS dentro de la misma cuenta de almacenamiento. En general, Azure Files ofrece recursos compartidos de archivos de nivel empresarial que se pueden escalar verticalmente para satisfacer sus necesidades de almacenamiento y a los que pueden acceder simultáneamente miles de clientes.
+Azure Files ofrece dos protocolos estándar del sector para el montaje de recursos compartidos de archivos de Azure: el protocolo [Bloque de mensajes del servidor (SMB)](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) y el protocolo [Network File System (NFS)](https://en.wikipedia.org/wiki/Network_File_System) (versión preliminar). Azure Files le permite seleccionar el protocolo del sistema de archivos más adecuado para su carga de trabajo. Los recursos compartidos de archivos de Azure no admiten el acceso a un recurso compartido de archivos de Azure individual con los protocolos SMB y NFS, aunque se pueden crear recursos compartidos de archivos SMB y NFS dentro de la misma cuenta de almacenamiento. En general, Azure Files ofrece recursos compartidos de archivos de nivel empresarial que se pueden escalar verticalmente para satisfacer sus necesidades de almacenamiento y a los que pueden acceder simultáneamente miles de clientes.
 
 En este artículo se describen los recursos compartidos de archivos NFS de Azure. Para obtener información acerca de los recursos compartidos de archivos SMB de Azure, consulte [Recursos compartidos de archivos SMB en Azure Files](files-smb-protocol.md).
 
@@ -99,7 +99,6 @@ Los recursos compartidos de archivos de Azure NFS solo se ofrecen en recursos c
 La versión preliminar de NFS se ha validado para funcionar bien con cargas de trabajo como directorios raíz para servidores de archivos de uso general y repositorios de contenido para cargas de trabajo de aplicaciones.
 
 Las siguientes cargas de trabajo tienen problemas conocidos. Consulte [Solución de problemas de recursos compartidos de archivos NFS de Azure](storage-troubleshooting-files-nfs.md) para ver una lista de problemas conocidos:
-- IBM MQ experimentará problemas de bloqueo.
 - Oracle Database experimentará incompatibilidad con su característica dNFS.
 - La capa de aplicación de SAP experimentará un comportamiento incoherente debido a [un problema activo conocido con ls -l](storage-troubleshooting-files-nfs.md#ls-la-throws-io-error).
 

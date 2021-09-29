@@ -8,12 +8,12 @@ ms.service: virtual-network
 ms.topic: tutorial
 ms.date: 03/06/2021
 ms.author: kumud
-ms.openlocfilehash: cfbb499c79761e1f2014c834e65dac35fe09ef90
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 4af40f7f1caab7e4517c0dd621e400f58e3a29ad
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106057293"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129091376"
 ---
 # <a name="tutorial-filter-network-traffic-with-a-network-security-group-using-the-azure-portal"></a>Tutorial: Filtrado del tráfico de red con un grupo de seguridad de red en Azure Portal
 
@@ -31,7 +31,7 @@ En este tutorial aprenderá a:
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Suscripción a Azure.
 
@@ -178,7 +178,7 @@ En esta sección, vamos a asociar el grupo de seguridad de red con la subred de 
     | Grupo de seguridad de aplicación de destino | Seleccione **myAsgMgmtServers**. |
     | Servicio | Deje el valor predeterminado, **Personalizado**. |
     | Intervalos de puertos de destino | Escriba **3389**. |
-    | Protocolo | seleccione **TCP**. |
+    | Protocolo | Seleccione **Cualquiera**. |
     | Acción | Deje el valor predeterminado, **Permitir**. |
     | Priority | Deje el valor predeterminado, **110**. |
     | Nombre | Escriba **Allow-RDP-All**. |

@@ -1,19 +1,18 @@
 ---
 title: Habilitación de un registro de contenedor de Edge en un dispositivo de Azure Stack Edge Pro con GPU
 description: Se describe cómo habilitar un registro de contenedor de Edge local en un dispositivo de Azure Stack Edge Pro con GPU.
-services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 56b691b2755b5e248b16e338f8fd82864f5bf218
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 18fa68b6d0d0922bad0a632ba10bd82a8cfe8506
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105560342"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128643030"
 ---
 # <a name="enable-edge-container-registry-on-your-azure-stack-edge-pro-gpu-device"></a>Habilitación de un registro de contenedor de Edge en un dispositivo de Azure Stack Edge Pro con GPU
 
@@ -59,7 +58,7 @@ El primer paso es habilitar el registro de contenedor de Edge como complemento.
     
     Esta operación puede tardar varios minutos en completarse.
 
-    Esta es la salida de ejemplo de este comando:  
+    Esta es la salida de ejemplo de este comando:    
             
     ```powershell
     [10.128.44.40]: PS>Set-HcsKubernetesContainerRegistry
@@ -78,9 +77,9 @@ El primer paso es habilitar el registro de contenedor de Edge como complemento.
     Endpoint                                   IPAddress    Username     Password
     --------                                   ---------    --------     --------
     ecr.dbe-hw6h1t2.microsoftdatabox.com:31001 10.128.44.41 ase-ecr-user i3eTsU4zGYyIgxV
-    ``` 
+    ```    
 
-1. Anote el nombre de usuario y la contraseña de la salida de `Get-HcsKubernetesContainerRegistryInfo`. Estas credenciales se usan para iniciar sesión en el registro de contenedor de Edge mientras se insertan imágenes.         
+1. Anote el nombre de usuario y la contraseña de la salida de `Get-HcsKubernetesContainerRegistryInfo`. Estas credenciales se usan para iniciar sesión en el registro de contenedor de Edge mientras se insertan imágenes.            
 
 
 ## <a name="manage-container-registry-images"></a>Administración de imágenes del registro de contenedor
@@ -95,7 +94,7 @@ Siga estos pasos para obtener acceso al registro de contenedor de Edge:
         ![Punto de conexión del registro de contenedor de Edge en la página Dispositivo](media/azure-stack-edge-gpu-edge-container-registry/get-edge-container-registry-endpoint-1.png) 
     1. Copie este punto de conexión y cree una entrada DNS correspondiente en el archivo `C:\Windows\System32\Drivers\etc\hosts` del cliente para conectarse al punto de conexión del registro de contenedor de Edge. 
 
-        <IP address of the Kubernetes main node>    <Edge container registry endpoint> 
+        \<IP address of the Kubernetes main node\>    \<Edge container registry endpoint\> 
         
         ![Adición de entrada DNS para el punto de conexión del registro de contenedor de Edge](media/azure-stack-edge-gpu-edge-container-registry/add-domain-name-service-entry-hosts-1.png)    
 

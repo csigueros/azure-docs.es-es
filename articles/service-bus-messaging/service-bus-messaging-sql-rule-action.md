@@ -2,13 +2,13 @@
 title: Sintaxis de acciones de SQL de regla de suscripción de Azure Service Bus | Microsoft Docs
 description: En este artículo se ofrece una referencia para la sintaxis de acciones de reglas SQL. Las acciones se escriben con una sintaxis basada en lenguaje SQL que se realiza en un mensaje.
 ms.topic: article
-ms.date: 11/24/2020
-ms.openlocfilehash: 7aceb1992aafbbf92718a6bf558a72060f3275df
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.date: 09/28/2021
+ms.openlocfilehash: 19d4ae9a188e2e675e055eae2f4aedd714e17e47
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108770090"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129211779"
 ---
 # <a name="subscription-rule-sql-action-syntax"></a>Sintaxis de acciones de SQL de regla de suscripción
 

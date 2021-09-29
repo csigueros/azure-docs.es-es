@@ -55,10 +55,16 @@
       href: volume-quota-introduction.md
     - name: Instrucciones para el planeamiento de red de Azure NetApp Files
       href: azure-netapp-files-network-topologies.md
-    - name: Funcionamiento de las instantáneas de Azure NetApp Files
-      href: snapshots-introduction.md
     - name: Grupo de capacidad de QoS manual
       href: manual-qos-capacity-pool-introduction.md
+    - name: Funcionamiento de las instantáneas de Azure NetApp Files
+      href: snapshots-introduction.md
+    - name: Copia de seguridad de archivos de Azure NetApp Files
+      items:
+        - name: Descripción de la copia de seguridad de archivos de Azure NetApp Files
+          href: backup-introduction.md
+        - name: Requisitos y consideraciones para la copia de seguridad de archivos de Azure NetApp Files
+          href: backup-requirements-considerations.md
     - name: Replicación entre regiones
       items:
         - name: Descripción de la replicación entre regiones
@@ -173,6 +179,24 @@
               href: snapshots-revert-volume.md
             - name: Eliminar instantáneas
               href: snapshots-delete.md
+        - name: Administración de copias de seguridad de volúmenes
+          items:
+            - name: Configuración de copias de seguridad
+              items:
+                - name: Configuración de copias de seguridad basadas en directivas
+                  href: backup-configure-policy-based.md
+                - name: Configuración de copias de seguridad manuales
+                  href: backup-configure-manual.md
+            - name: Administrar directivas de copia de seguridad
+              href: backup-manage-policies.md
+            - name: Búsqueda de copias de seguridad
+              href: backup-search.md
+            - name: Restaurar una copia de seguridad
+              href: backup-restore-new-volume.md
+            - name: Deshabilitación de la funcionalidad de copia de seguridad
+              href: backup-disable.md
+            - name: Eliminar copias de seguridad
+              href: backup-delete.md
         - name: Administración de la replicación entre regiones
           items:
             - name: Creación de replicación de volumen

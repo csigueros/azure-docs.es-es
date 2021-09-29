@@ -3,17 +3,17 @@ title: Comparación de características de los planes de tarifa de Azure API Man
 description: En este artículo se comparan los planes de tarifa de API Management según las características que ofrecen. Verá una tabla donde se resumen las características principales disponibles en cada plan de tarifa.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 ms.service: api-management
 ms.topic: article
 ms.date: 04/13/2021
-ms.author: apimpm
-ms.openlocfilehash: 53804e99a3bc341669c0d4943464835cc7d1e531
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.author: danlep
+ms.openlocfilehash: 55e5d8de3761bb50295f849232363b5643329c2b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110463293"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128596360"
 ---
 # <a name="feature-based-comparison-of-the-azure-api-management-tiers"></a>Comparación de características de los planes de tarifa de Azure API Management
 

@@ -1,7 +1,7 @@
 ---
 title: Novedades en las identidades externas de Azure Active Directory
 description: Documentación nueva y actualizada sobre las identidades externas de Azure Active Directory.
-ms.date: 08/03/2021
+ms.date: 09/08/2021
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: reference
@@ -9,16 +9,29 @@ ms.workload: identity
 ms.author: mimart
 author: msmimart
 manager: CelesteDG
-ms.openlocfilehash: 81a25af5dfa73cbeefdf5fc677da80515f20a2f1
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: b6346a9e8ff776143b6e000f945fcd9400e03a0d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121746122"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124776488"
 ---
 # <a name="azure-active-directory-external-identities-whats-new"></a>Identidades externas de Azure Active Directory: Novedades
 
 Estas son las novedades en la documentación de las identidades externas de Azure Active Directory. En este artículo se enumeran los documentos nuevos que se han agregado y los que han tenido actualizaciones importantes en los últimos tres meses. Para conocer las novedades del servicio de identidades externas, consulte [Novedades de Azure Active Directory](../fundamentals/whats-new.md).
+
+## <a name="august-2021"></a>Agosto de 2021
+
+### <a name="updated-articles"></a>Artículos actualizados
+
+- [Proveedores de identidades para External Identities](identity-providers.md)
+- [Habilitación de la colaboración externa B2B y administración de quién puede invitar a otros usuarios](delegate-invitations.md)
+- [Propiedades de un usuario de colaboración B2B de Azure Active Directory](user-properties.md)
+- [Incorporación de Google como proveedor de identidades para los usuarios invitados de B2B](google-federation.md)
+- [Proveedor de identidades de Azure Active Directory (Azure AD) para External Identities](azure-ad-account.md)
+- [Proveedor de identidades de cuenta Microsoft (MSA) para External Identities](microsoft-account.md)
+- [Adición de un conector de API a un flujo de usuario](self-service-sign-up-add-api-connector.md)
+
 
 ## <a name="july-2021"></a>Julio de 2021
 

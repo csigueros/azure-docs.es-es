@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 33048b616ef7c36685a912dba7bef1ed3a83261c
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 222d7cf84af8456d3d35a4b3c501f91b3cfda6c7
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122697980"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124730196"
 ---
 # <a name="ncv3-series"></a>Serie NCv3
 
@@ -31,7 +31,7 @@ Las máquinas virtuales de la serie NCv3 disponen de la tecnología de las GPU N
 Interconexión de Nvidia NVLink: No compatible<br>
 
 > [!IMPORTANT]
-> Para esta serie de máquinas virtuales, la cuota de vCPU (núcleo) en su suscripción está establecida inicialmente en 0 en cada región. [Solicite un aumento de cuota de vCPU](../azure-portal/supportability/resource-manager-core-quotas-request.md) para esta serie en una [región donde esté disponible](https://azure.microsoft.com/regions/services/). Estas SKU no están disponibles para las suscripciones de Azure en la modalidad de evaluación gratuita o suscriptor de Visual Studio. Su nivel de suscripción podría no admitir la selección o implementación de estas SKU. 
+> Para esta serie de máquinas virtuales, la cuota de vCPU (núcleo) en su suscripción está establecida inicialmente en 0 en cada región. [Solicite un aumento de cuota de vCPU](../azure-portal/supportability/regional-quota-requests.md) para esta serie en una [región donde esté disponible](https://azure.microsoft.com/regions/services/). Estas SKU no están disponibles para las suscripciones de Azure en la modalidad de evaluación gratuita o suscriptor de Visual Studio. Su nivel de suscripción podría no admitir la selección o implementación de estas SKU. 
 >
 
 | Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | GPU | Memoria de GPU: GiB | Discos de datos máx. | Rendimiento máximo del disco sin almacenamiento en la caché: IOPS/Mbps | Nº máx. NIC |
@@ -45,7 +45,6 @@ Interconexión de Nvidia NVLink: No compatible<br>
 
 *Compatible con RDMA
 
-[!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
 ## <a name="supported-operating-systems-and-drivers"></a>Sistemas operativos y controladores compatibles
 
@@ -55,7 +54,9 @@ La [extensión de controlador de GPU de NVIDIA](./extensions/hpccompute-gpu-wind
 
 Si decide instalar manualmente los controladores de GPU de NVIDIA, consulte el artículo sobre la [instalación de controladores GPU de la serie N para Windows](./windows/n-series-driver-setup.md) o el artículo sobre la [instalación de controladores GPU de la serie N para Linux](./linux/n-series-driver-setup.md) para obtener información sobre los sistemas operativos compatibles, los controladores, la instalación y los pasos de verificación.
 
-## <a name="other-sizes"></a>Otros tamaños
+[!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
+
+## <a name="other-sizes-and-information"></a>Otros tamaños e información
 
 - [Uso general](sizes-general.md)
 - [Memoria optimizada](sizes-memory.md)
@@ -63,6 +64,10 @@ Si decide instalar manualmente los controladores de GPU de NVIDIA, consulte el a
 - [GPU optimizada](sizes-gpu.md)
 - [Proceso de alto rendimiento](sizes-hpc.md)
 - [Generaciones anteriores](sizes-previous-gen.md)
+
+Calculadora de precios: [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/)
+
+Para obtener más información sobre los tipos de discos, vea [¿Qué tipos de disco están disponibles en Azure?](disks-types.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

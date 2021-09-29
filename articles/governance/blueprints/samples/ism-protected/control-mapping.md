@@ -1,14 +1,14 @@
 ---
 title: Controles del ejemplo del plano técnico Australian Government ISM PROTECTED
 description: Asignación de controles del ejemplo de plano técnico Australian Government ISM PROTECTED. Cada control se corresponde a una o varias definiciones de Azure Policy que ayudan en la evaluación.
-ms.date: 04/02/2021
+ms.date: 09/08/2021
 ms.topic: sample
-ms.openlocfilehash: 2129c3d8e63f11f3902f3ddb0690ed1463206849
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 293c1a0566b830f9aab84d3c675479f91eff4976
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108733992"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128632279"
 ---
 # <a name="control-mapping-of-the-australian-government-ism-protected-blueprint-sample"></a>Asignación de controles del ejemplo de plano técnico Australian Government ISM PROTECTED
 

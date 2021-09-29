@@ -8,12 +8,12 @@ ms.date: 08/11/2020
 author: minhe-msft
 ms.author: hemin
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 10770e3df3f666163958344868a86ee8e7374d55
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 8633ee6f76319afcd9c62a3aa5d70db77113f235
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121749915"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124750598"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Supervisión de Integration Runtime en Azure Data Factory
 
@@ -224,7 +224,7 @@ En la tabla siguiente se proporcionan los estados generales posibles de una inst
 
 Para supervisar la instancia de Azure-SSIS IR en Azure Portal, vaya a la página **Entornos de ejecución de integración** del centro **Supervisión** en la interfaz de usuario de ADF, donde puede ver todos los entornos de ejecución de integración.
 
-![Supervisión de todos los entornos de ejecución de integración](media/monitor-integration-runtime/monitor-integration-runtimes.png)
+:::image type="content" source="media/monitor-integration-runtime/monitor-integration-runtimes.png" alt-text="Supervisión de todos los entornos de ejecución de integración":::
 
 A continuación, seleccione el nombre de la instancia de Azure-SSIS IR para abrir su página de supervisión, donde puede ver sus propiedades globales/específicas del nodo y estados. En esta página, en función de cómo defina la configuración general, la implementación y la configuración avanzada de Azure-SSIS IR, encontrará varios iconos de información o funcionales.
 
@@ -238,19 +238,19 @@ El icono informativo **DUAL STANDBY PAIR / ROLE** (PAR/ROL EN ESPERA DUAL) muest
 
 Los iconos funcionales se describen con más detalle a continuación.
 
-![Supervisión de la instancia de Azure-SSIS IR](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime.png)
+:::image type="content" source="media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime.png" alt-text="Supervisión de la instancia de Azure-SSIS IR":::
 
 #### <a name="status-tile"></a>Icono STATUS (Estado)
 
 En el icono **ESTADO** de la página de supervisión de Azure-SSIS IR, puede ver su estado general; por ejemplo, **En ejecución** o **Detenido**. Al seleccionar el estado **En ejecución**, se abre una ventana con un botón dinámico **Detener** para detener la instancia de Azure-SSIS IR. Al seleccionar el estado **Detenido**, se abre una ventana con un botón dinámico **Iniciar** para iniciar la instancia de Azure-SSIS IR. La ventana emergente también tiene un botón **Ejecutar paquete de SSIS** para generar automáticamente una canalización de ADF con la actividad Ejecutar paquete de SSIS que se ejecuta en Azure-SSIS IR (consulte [Ejecución de un paquete de SSIS mediante la actividad Ejecutar paquete SSIS de Azure Data Factory](./how-to-invoke-ssis-package-ssis-activity.md)) y un cuadro de texto **Id. de recurso**, desde el que puede copiar el identificador de recurso de Azure-SSIS IR (`/subscriptions/YourAzureSubscripton/resourcegroups/YourResourceGroup/providers/Microsoft.DataFactory/factories/YourADF/integrationruntimes/YourAzureSSISIR`). El sufijo del identificador de recurso de Azure-SSIS IR que contiene los nombres de ADF y Azure-SSIS IR forma un identificador de clúster que se puede usar para adquirir componentes de SSIS Premium o con licencia adicionales de fabricantes de software independientes (ISV) y enlazarlos a su instancia de Azure-SSIS IR (consulte [Instalación de componentes personalizados de pago o con licencia para la instancia de Integration Runtime para la integración de SSIS en Azure](./how-to-develop-azure-ssis-ir-licensed-components.md)).
 
-![Supervisión de la instancia de Azure-SSIS IR: icono ESTADO](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-status.png)
+:::image type="content" source="media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-status.png" alt-text="Supervisión de la instancia de Azure-SSIS IR: icono ESTADO":::
 
 #### <a name="ssisdb-server-endpoint-tile"></a>Icono PUNTO DE CONEXIÓN DE SERVIDOR DE SSISDB
 
 Si usa el modelo de implementación de proyectos en el que los paquetes se almacenan en SSISDB hospedado en su servidor de Azure SQL Database o instancia administrada, verá el icono **SSISDB SERVER ENDPOINT** (PUNTO DE CONEXIÓN DEL SERVIDOR DE SSISDB) en la página de supervisión de Azure-SSIS IR (consulte [Configuración de implementación de Azure-SSIS IR](./tutorial-deploy-ssis-packages-azure.md#deployment-settings-page)). En este icono, puede seleccionar un vínculo que designe el servidor de Azure SQL Database o la instancia administrada para que se muestre una ventana, donde puede copiar el punto de conexión del servidor desde un cuadro de texto y usarlo al conectarse desde SSMS para implementar, configurar, ejecutar y administrar los paquetes. En la ventana emergente, también puede seleccionar el icono **See your Azure SQL Database or managed instance settings** (Ver la configuración de Azure SQL Database o la instancia administrada) para volver a configurar o cambiar el tamaño de SSISDB en Azure Portal.
 
-![Supervisión de la instancia de Azure-SSIS IR: icono SSISDB](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-ssisdb.png)
+:::image type="content" source="media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-ssisdb.png" alt-text="Supervisión de la instancia de Azure-SSIS IR: icono SSISDB":::
 
 #### <a name="proxy--staging-tile"></a>Icono PROXY/ALMACENAMIENTO PROVISIONAL
 
@@ -260,35 +260,35 @@ Si descarga, instala y configura IR autohospedado (SHIR) como proxy para que Azu
 
 Si une la instancia de Azure-SSIS IR a una red virtual, verá el icono **VALIDATE VNET / SUBNET** (VALIDAR RED VIRTUAL/SUBRED) en la página de supervisión de Azure-SSIS IR (consulte [Unión de la instancia de Azure-SSIS IR a una red virtual](./join-azure-ssis-integration-runtime-virtual-network.md)). En este icono, puede seleccionar un vínculo que designe la red virtual y la subred para que aparezca una ventana, donde puede copiar el identificador de recurso de red virtual (`/subscriptions/YourAzureSubscripton/resourceGroups/YourResourceGroup/providers/Microsoft.Network/virtualNetworks/YourARMVNet`) y el nombre de subred de los cuadros de texto, así como validar las configuraciones de red virtual y subred para asegurarse de que los tráficos de red entrantes y salientes necesarios y la administración de la instancia de Azure-SSIS IR no estén obstruidos.
 
-![Supervisión de la instancia de Azure-SSIS IR: icono VALIDAR](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-validate.png)
+:::image type="content" source="media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-validate.png" alt-text="Supervisión de la instancia de Azure-SSIS IR: icono VALIDAR":::
 
 #### <a name="diagnose-connectivity-tile"></a>Icono DIAGNOSE CONNECTIVITY (Diagnosticar conectividad)
 
 En el icono **DIAGNOSTICAR CONECTIVIDAD** de la página de supervisión de Azure-SSIS IR, puede seleccionar el vínculo **Probar conexión** para mostrar una ventana, donde puede comprobar las conexiones entre la instancia de Azure-SSIS IR y los almacenes de paquetes, configuraciones y datos relevantes, así como los servicios de administración, a través de su dirección de nombre de dominio completo (FQDN)/IP y el puerto designado (consulte [Prueba de conexiones desde la instancia de Azure-SSIS IR](./ssis-integration-runtime-diagnose-connectivity-faq.md)).
 
-![Supervisión de la instancia de Azure-SSIS IR: icono DIAGNOSTICAR](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-diagnose.png)
+:::image type="content" source="media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-diagnose.png" alt-text="Supervisión de la instancia de Azure-SSIS IR: icono DIAGNOSTICAR":::
 
 #### <a name="static-public-ip-addresses-tile"></a>Icono STATIC PUBLIC IP ADDRESSES (Direcciones IP públicas estáticas)
 
 Si trae sus propias direcciones IP públicas estáticas a Azure-SSIS IR, verá el icono **STATIC PUBLIC IP ADDRESSES** (Direcciones IP públicas estáticas) en la página de supervisión de Azure-SSIS IR (consulte la sección [Selección de direcciones IP públicas estáticas](./join-azure-ssis-integration-runtime-virtual-network.md#publicIP)). En este icono, puede seleccionar los vínculos que designan las primeras/segunda direcciones IP públicas estáticas para Azure-SSIS IR para que aparezca una ventana, donde puede copiar el identificador de recurso (`/subscriptions/YourAzureSubscripton/resourceGroups/YourResourceGroup/providers/Microsoft.Network/publicIPAddresses/YourPublicIPAddress`) de un cuadro de texto. En la ventana emergente, también puede seleccionar el vínculo **See your first/second static public IP address settings** (Ver la configuración de la primera/segunda dirección IP pública estática) para administrar su primera y segunda dirección IP pública estática en Azure Portal.
 
-![Supervisión de la instancia de Azure-SSIS IR: icono STATIC (ESTÁTICO)](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-static.png)
+:::image type="content" source="media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-static.png" alt-text="Supervisión de la instancia de Azure-SSIS IR: icono STATIC (ESTÁTICO)":::
 
 #### <a name="package-stores-tile"></a>Icono PACKAGE STORES (Almacenes de paquetes)
 
 Si usa el modelo de implementación de paquetes en el que los paquetes se almacenan en el sistema de archivos/Azure Files/base de datos de SQL Server (MSDB) hospedado en Azure SQL Managed Instance y administrado a través de almacenes de paquetes de Azure-SSIS IR, verá el icono **PACKAGE STORES** (ALMACENES DE PAQUETES) en la página de supervisión de Azure-SSIS IR (consulte [Configuración de implementación de Azure-SSIS IR](./tutorial-deploy-ssis-packages-azure.md#deployment-settings-page)). En este icono, puede seleccionar un vínculo que designe el número de almacenes de paquetes adjuntos a su instancia de Azure-SSIS IR para que se muestre una ventana, donde podrá volver a configurar los servicios vinculados relevantes para sus almacenes de paquetes de Azure-SSIS IR en el sistema de archivos/Azure Files/MSDB hospedado por Azure SQL Managed Instance.
 
-![Supervisión de la instancia de Azure-SSIS IR: icono PAQUETE](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-package.png)
+:::image type="content" source="media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-package.png" alt-text="Supervisión de la instancia de Azure-SSIS IR: icono PAQUETE":::
 
 #### <a name="errors-tile"></a>Icono ERROR(S) (Errores)
 
 Si hay problemas con el inicio, la detención, el mantenimiento o la actualización de su instancia de Azure-SSIS IR, verá un icono **ERRORES** adicional en la página de supervisión de Azure-SSIS IR. En este icono, puede seleccionar un vínculo que designe el número de errores generados por la instancia de Azure-SSIS IR para que se muestre una ventana, donde puede ver los errores con más detalles y copiarlos para encontrar las soluciones recomendadas en nuestra guía de solución de problemas (consulte [Solución de problemas de su instancia de Azure-SSIS IR](./ssis-integration-runtime-management-troubleshoot.md)).
 
-![Supervisión de la instancia de Azure-SSIS IR: icono ERROR](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-error.png)
+:::image type="content" source="media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-error.png" alt-text="Supervisión de la instancia de Azure-SSIS IR: icono ERROR":::
 
 ### <a name="monitor-the-azure-ssis-integration-runtime-with-azure-monitor"></a>Supervisión de Azure-SSIS Integration Runtime con Azure Monitor
 
-Para supervisar la instancia de Azure-SSIS IR con Azure Monitor, consulte [Supervisión de operaciones de SSIS con Azure Monitor](./monitor-using-azure-monitor.md#monitor-ssis-operations-with-azure-monitor).
+Para supervisar la instancia de Azure-SSIS IR con Azure Monitor, consulte [Supervisión de operaciones de SSIS con Azure Monitor](./monitor-ssis.md).
 
 ### <a name="more-info-about-the-azure-ssis-integration-runtime"></a>Más información sobre Integration Runtime de SSIS de Azure
 

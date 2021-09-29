@@ -4,16 +4,16 @@ description: Para crear aplicaciones altamente disponibles y resistentes en Azur
 author: prsandhu
 ms.service: azure
 ms.topic: conceptual
-ms.date: 08/04/2021
+ms.date: 09/16/2021
 ms.author: prsandhu
 ms.reviewer: cnthn
 ms.custom: fasttrack-edit, mvc, references_regions
-ms.openlocfilehash: 3973941a5fbceb58ed265f2594661c8365c618d9
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: 26d4464d67634d5660796ce24dc9b9dc2505e0ef
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123480253"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129218249"
 ---
 # <a name="azure-services-that-support-availability-zones"></a>Servicios de Azure compatibles con Availability Zones
 
@@ -49,16 +49,15 @@ Para lograr una continuidad del negocio integral en Azure, cree la arquitectura 
 
 | América           | Europa               | África              | Asia Pacífico   |
 |--------------------|----------------------|---------------------|----------------|
-|                    |                      |                     |                |
 | Sur de Brasil       | Centro de Francia       | Norte de Sudáfrica* | Este de Australia |
 | Centro de Canadá     | Centro-oeste de Alemania |                     | Centro de la India* |
 | Centro de EE. UU.         | Norte de Europa         |                     | Japón Oriental     |
-| Este de EE. UU.            | Este de Noruega*         |                     | Centro de Corea del Sur* |
+| Este de EE. UU.            | Este de Noruega          |                     | Centro de Corea del Sur* |
 | Este de EE. UU. 2          | Sur de Reino Unido 2             |                     | Sudeste de Asia |
-| Centro y Sur de EE. UU. | Oeste de Europa          |                     |                |
+| Centro-sur de EE. UU.   | Oeste de Europa          |                     |                |
 | US Gov - Virginia    |                      |                     |                |
-| Oeste de EE. UU. 2        |                      |                     |                |
-| Oeste de EE. UU. 3        |                      |                     |                |
+| Oeste de EE. UU. 2          |                      |                     |                |
+| Oeste de EE. UU. 3          |                      |                     |                |
 
 \* Para obtener más información sobre la compatibilidad de Availability Zones y los servicios disponibles en estas regiones, póngase en contacto con el representante de ventas o de clientes de Microsoft. Para las próximas regiones que van a admitir Availability Zones, consulte [Zonas geográficas de Azure](https://azure.microsoft.com/global-infrastructure/geographies/).
 
@@ -125,6 +124,7 @@ Para lograr una continuidad del negocio integral en Azure, cree la arquitectura 
 |     [Azure Active Directory Domain Services](../active-directory-domain-services/overview.md)                      | :large_blue_diamond:  |
 |     [Azure API Management](../api-management/zone-redundancy.md)                      | :large_blue_diamond:  |
 |     [Azure App Configuration](../azure-app-configuration/faq.yml#how-does-app-configuration-ensure-high-data-availability)   | :large_blue_diamond:  |    
+|     [Azure Batch](/azure/batch/create-pool-availability-zones)                                               | :large_blue_diamond:  |
 |     [Azure Bastion](../bastion/bastion-overview.md)                                               | :large_blue_diamond:  |
 |     [Azure Cache for Redis](../azure-cache-for-redis/cache-high-availability.md)                              | :large_blue_diamond:  |
 |     [Azure Cognitive Search](../search/search-performance-optimization.md#availability-zones)               | :large_blue_diamond:  |
@@ -137,17 +137,22 @@ Para lograr una continuidad del negocio integral en Azure, cree la arquitectura 
 |     [Azure Disk Encryption](../virtual-machines/disks-redundancy.md)                                       | :large_blue_diamond:  |
 |     [Azure Firewall](../firewall/deploy-availability-zone-powershell.md)                                              | :large_blue_diamond:  |
 |     [Azure Firewall Manager](../firewall-manager/quick-firewall-policy.md)                                      | :large_blue_diamond:  |
+|     [Funciones de Azure](https://azure.github.io/AppService/2021/08/25/App-service-support-for-availability-zones.html)     | :large_blue_diamond:  |
 |     [Azure Kubernetes Service (AKS)](../aks/availability-zones.md)                              | :large_blue_diamond:  |
 |     [Azure Media Services (AMS)](../media-services/latest/concept-availability-zones.md)        | :large_blue_diamond:  |
+|     [Azure Monitor](/azure/azure-monitor/logs/availability-zones)        | :large_blue_diamond:  |
+|     [Azure Monitor: Application Insights](/azure/azure-monitor/logs/availability-zones)        | :large_blue_diamond:  |
+|     [Azure Monitor: Log Analytics](/azure/azure-monitor/logs/availability-zones)        | :large_blue_diamond:  |
 |     [Azure Private Link](../private-link/private-link-overview.md)                                          | :large_blue_diamond:  |
-|     [Azure Site Recovery](../site-recovery/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md)                                         | :large_blue_diamond:  |
-|     Azure SQL: [Máquina virtual](../azure-sql/database/high-availability-sla.md)                                  | :large_blue_diamond:  |
-|     [Firewall de aplicaciones web de Azure](../firewall/deploy-availability-zone-powershell.md)                              | :large_blue_diamond:  |
-|     [Container Registry](../container-registry/zone-redundancy.md)                                          | :large_blue_diamond:  |
-|     [Event Grid](../event-grid/overview.md)                                                  | :large_blue_diamond:  |
-|     [Network Watcher](/azure/network-watcher/frequently-asked-questions#service-availability-and-redundancy)                                             | :large_blue_diamond:  |
-|     Network Watcher: [Análisis de tráfico](/azure/network-watcher/frequently-asked-questions#service-availability-and-redundancy)                          | :large_blue_diamond:  |
-|     [¿Qué es Power BI Embedded de Azure?](/power-bi/admin/service-admin-failover#what-does-high-availability)                                           | :large_blue_diamond:  |
+|     [Azure Site Recovery](../site-recovery/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md)                                       | :large_blue_diamond:  |
+|     Azure SQL: [Máquina virtual](../azure-sql/database/high-availability-sla.md)                                                                 | :large_blue_diamond:  |
+|     [Firewall de aplicaciones web de Azure](../firewall/deploy-availability-zone-powershell.md)                                                         | :large_blue_diamond:  |
+|     [Container Registry](../container-registry/zone-redundancy.md)                                                                               | :large_blue_diamond:  |
+|     [Event Grid](../event-grid/overview.md)                                                                                                      | :large_blue_diamond:  |
+|     [HDInsight](/azure/hdinsight/hdinsight-use-availability-zones)                                                                               | :large_blue_diamond:  |
+|     [Network Watcher](/azure/network-watcher/frequently-asked-questions#service-availability-and-redundancy)                                     | :large_blue_diamond:  |
+|     Network Watcher: [Análisis de tráfico](/azure/network-watcher/frequently-asked-questions#service-availability-and-redundancy)                  | :large_blue_diamond:  |
+|     [¿Qué es Power BI Embedded de Azure?](/power-bi/admin/service-admin-failover#what-does-high-availability)                                                      | :large_blue_diamond:  |
 |     [Premium Blob Storage](../storage/blobs/storage-blob-performance-tiers.md)                                        | :large_blue_diamond:  |
 |     Almacenamiento: [Azure Premium Files](../storage/files/storage-files-planning.md)                                | :large_blue_diamond:  |
 |     Virtual Machines: [Azure Dedicated Host](../virtual-machines/windows/create-powershell-availability-zone.md)                     | :large_blue_diamond:  |

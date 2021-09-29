@@ -10,12 +10,12 @@ ms.date: 05/06/2021
 ms.author: santoshc
 ms.reviewer: jiacfan
 ms.subservice: common
-ms.openlocfilehash: 45a0fbac0fbe1bd513717ba1ab1d30b3cffbf78e
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 791e533cc1f0dafa8724faa8cc3a46d1f8c770d7
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110065951"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128666010"
 ---
 # <a name="actions-and-attributes-for-azure-role-assignment-conditions-in-azure-storage-preview"></a>Acciones y atributos para las condiciones de asignación de roles de Azure en Azure Storage (versión preliminar)
 
@@ -58,11 +58,11 @@ En la tabla siguiente se enumeran las acciones y suboperaciones admitidas para l
 > | --- | --- | --- |
 > | Eliminar un blob | DataAction para eliminar blobs. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete` |
 > | Leer un blob | DataAction para leer blobs. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |
-> | Leer el contenido de un blob con condiciones de etiquetas  | Operaciones REST: Get Blob, Get Blob Metadata, Get Blob Properties, Get Block List, Get Page Ranges y Query Blob Contents. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`<br/>**Suboperación**<br/>`Blob.Read.WithTagConditions` | 
+> | Leer el contenido de un blob con condiciones de etiquetas  | Operaciones REST: Get Blob, Get Blob Metadata, Get Blob Properties, Get Block List, Get Page Ranges y Query Blob Contents. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`<br/>**Suboperación**<br/>`Blob.Read.WithTagConditions` |
 > | Escribir en un blob | DataAction para escribir en blobs. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` |
-> | Escribir en un blob con etiquetas de índice de blobs | Operaciones REST: Put Blob, Put Block List, Copy Blob y Copy Blob From URL. |`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write`<br/>**Suboperación**<br/>`Blob.Write.WithTagHeaders` | 
+> | Escribir en un blob con etiquetas de índice de blobs | Operaciones REST: Put Blob, Put Block List, Copy Blob y Copy Blob From URL. |`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write`<br/>**Suboperación**<br/>`Blob.Write.WithTagHeaders` |
 > | Crear un blob o una instantánea, o anexar datos | DataAction para crear blobs. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action` |
-> | Escribir contenido en un blob con etiquetas de índice de blobs | Operaciones REST: Put Blob, Put Block List, Copy Blob y Copy Blob From URL. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action`<br/>**Suboperación**<br/>`Blob.Write.WithTagHeaders` | 
+> | Escribir contenido en un blob con etiquetas de índice de blobs | Operaciones REST: Put Blob, Put Block List, Copy Blob y Copy Blob From URL. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action`<br/>**Suboperación**<br/>`Blob.Write.WithTagHeaders` |
 > | Eliminar una versión de un blob | DataAction para eliminar una versión de un blob. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/deleteBlobVersion/action` |
 > | Cambiar la propiedad de un blob | DataAction para cambiar la propiedad de un blob. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/manageOwnership/action` |
 > | Modificar los permisos de un blob | DataAction para modificar los permisos de un blob. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/modifyPermissions/action` |
@@ -141,4 +141,3 @@ En la tabla siguiente se enumeran los atributos que puede usar en las expresione
 - [Condiciones de asignación de roles de Azure de ejemplo (versión preliminar)](storage-auth-abac-examples.md)
 - [Formato y sintaxis de las condiciones de asignación de roles de Azure (versión preliminar)](../../role-based-access-control/conditions-format.md)
 - [¿Qué es el control de acceso basado en atributos de Azure (ABAC de Azure) (versión preliminar)?](../../role-based-access-control/conditions-overview.md)
-

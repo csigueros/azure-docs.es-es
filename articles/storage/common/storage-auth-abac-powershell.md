@@ -10,12 +10,12 @@ ms.author: rolyon
 ms.reviewer: ''
 ms.subservice: common
 ms.date: 05/06/2021
-ms.openlocfilehash: d6cb1980c93e5161f02b79b05f1128ba777027c6
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 19aee45977dfde4b401dc4736e24970e311a4cc9
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112281960"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128621136"
 ---
 # <a name="tutorial-add-a-role-assignment-condition-to-restrict-access-to-blobs-using-azure-powershell-preview"></a>Tutorial: Adición de una condición de asignación de roles para restringir el acceso a blobs mediante Azure PowerShell (versión preliminar)
 
@@ -29,8 +29,8 @@ En la mayoría de los casos, una asignación de roles concederá los permisos ne
 En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
-> * Agregar una condición a una asignación de roles
-> * Restringir el acceso a blobs en función de una etiqueta de índice de blobs
+> - Agregar una condición a una asignación de roles
+> - Restringir el acceso a blobs en función de una etiqueta de índice de blobs
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -132,7 +132,7 @@ Este es el aspecto de la condición en el código:
 1. Agregue la siguiente etiqueta de índice de blobs al archivo de texto. Para más información, consulte [Uso de etiquetas de índice de blobs (versión preliminar) para administrar y buscar datos en Azure Blob Storage](../blobs/storage-blob-index-how-to.md).
 
     > [!NOTE]
-    > Los blobs también admiten la capacidad de almacenar metadatos arbitrarios de clave-valor definidos por el usuario. Aunque los metadatos son similares a las etiquetas de índice de blobs, debe usar etiquetas de índice de blobs con condiciones. 
+    > Los blobs también admiten la capacidad de almacenar metadatos arbitrarios de clave-valor definidos por el usuario. Aunque los metadatos son similares a las etiquetas de índice de blobs, debe usar etiquetas de índice de blobs con condiciones.
 
     | Clave | Value |
     | --- | --- |
@@ -193,7 +193,7 @@ Este es el aspecto de la condición en el código:
     ```
 
     Este es un ejemplo de la salida:
-    
+
     ```azurepowershell
     RoleAssignmentId   : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microso
                          ft.Authorization/roleAssignments/<roleAssignmentId>
@@ -257,7 +257,7 @@ Este es el aspecto de la condición en el código:
     ```
 
     Este es un ejemplo de la salida. Tenga en cuenta que **no puede** leer el archivo debido a la condición que ha agregado.
-    
+
     ```azurepowershell
     Get-AzStorageBlob : This request is not authorized to perform this operation using this permission. HTTP Status Code:
     403 - HTTP Error Message: This request is not authorized to perform this operation using this permission.
@@ -272,7 +272,7 @@ Este es el aspecto de la condición en el código:
         + FullyQualifiedErrorId : StorageException,Microsoft.WindowsAzure.Commands.Storage.Blob.Cmdlet.GetAzureStorageBlob
        Command
     ```
-    
+
 1. Lea el archivo del proyecto Cascade.
 
     ```azurepowershell
@@ -280,10 +280,10 @@ Este es el aspecto de la condición en el código:
     ```
 
     Este es un ejemplo de la salida. Observe que sí puede leer el archivo porque tiene la etiqueta Project=Cascade.
-    
+
     ```azurepowershell
        AccountName: <storageAccountName>, ContainerName: <containerName>
-    
+
     Name                 BlobType  Length          ContentType                    LastModified         AccessTier SnapshotT
                                                                                                                   ime
     ----                 --------  ------          -----------                    ------------         ---------- ---------
@@ -339,7 +339,7 @@ Este es el aspecto de la condición en el código:
                          torage/storageAccounts/blobServices/containers/blobs/tags:Project<$key_case_sensitive$>]
                          StringEquals 'Baker'))
     ```
-    
+
 ## <a name="step-9-clean-up-resources"></a>Paso 9: Limpieza de recursos
 
 1. Use [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment) para quitar la asignación de roles y la condición que ha agregado.

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 07/05/2021
 ms.author: jianleishen
-ms.openlocfilehash: 227bbaf2faa845d269d8326883c3e63c4572fdab
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 7aee146ea06e15696b1e52e701d8d32b476d0570
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122637744"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124798339"
 ---
 # <a name="copy-data-securely-from-azure-blob-storage-to-a-sql-database-by-using-private-endpoints"></a>Copia de datos de forma segura desde Azure Blob Storage a SQL Database mediante puntos de conexión privados
 
@@ -102,14 +102,14 @@ En este paso se crea una instancia de Azure Integration Runtime y se habilita un
 
 1. En el portal de Data Factory, vaya a **Administrar** y seleccione **Nuevo** para crear una instancia nueva de Azure Integration Runtime.
 
-   ![Captura de pantalla que muestra la creación de una nueva instancia de Azure Integration Runtime.](./media/tutorial-copy-data-portal-private/create-new-azure-ir.png)
+   :::image type="content" source="./media/tutorial-copy-data-portal-private/create-new-azure-ir.png" alt-text="Captura de pantalla que muestra la creación de una nueva instancia de Azure Integration Runtime.":::
 1. En la página **Integration runtime setup** (Configuración de Integration Runtime), elija qué entorno de ejecución de integración va a crear según las funcionalidades necesarias. En este tutorial, seleccione **Azure, Self-Hosted** (Azure, autohospedado) y, luego, haga clic en **Continuar**. 
 1. Seleccione **Azure** y, luego, haga clic en **Continuar** para crear un entorno de ejecución de integración de Azure.
 
-   ![Captura de pantalla que muestra una nueva instancia de Azure Integration Runtime.](./media/tutorial-copy-data-portal-private/azure-ir.png)
+   :::image type="content" source="./media/tutorial-copy-data-portal-private/azure-ir.png" alt-text="Captura de pantalla que muestra una nueva instancia de Azure Integration Runtime.":::
 1. En **Configuración de red virtual (versión preliminar)** , seleccione **Habilitar**.
 
-   ![Captura de pantalla que muestra la habilitación de una nueva instancia de Azure Integration Runtime.](./media/tutorial-copy-data-portal-private/enable-managed-vnet.png)
+   :::image type="content" source="./media/tutorial-copy-data-portal-private/enable-managed-vnet.png" alt-text="Captura de pantalla que muestra la habilitación de una nueva instancia de Azure Integration Runtime.":::
 1. Seleccione **Crear**.
 
 ## <a name="create-a-pipeline"></a>Crear una canalización
@@ -123,12 +123,12 @@ En este tutorial, comenzará por crear una canalización. A continuación, crear
 
 1. En la página principal, seleccione **Orchestrate** (Organizar).
 
-   ![Captura de pantalla que muestra la página principal de ADF.](./media/doc-common-process/get-started-page.png)
+   :::image type="content" source="./media/doc-common-process/get-started-page.png" alt-text="Captura de pantalla que muestra la página principal de ADF.":::
 1. En el panel de propiedades de la canalización, escriba **CopyPipeline** como nombre de la canalización.
 
 1. En el cuadro de herramientas **Actividades**, expanda la categoría **Mover y transformar** y arrastre la actividad **Copiar datos** desde el cuadro de herramientas hasta la superficie de diseño de la canalización. Especifique **CopyFromBlobToSql** como nombre.
 
-    ![Captura de pantalla que muestra la actividad de copia.](./media/tutorial-copy-data-portal-private/drag-drop-copy-activity.png)
+    :::image type="content" source="./media/tutorial-copy-data-portal-private/drag-drop-copy-activity.png" alt-text="Captura de pantalla que muestra la actividad de copia.":::
 
 ### <a name="configure-a-source"></a>Configuración de un origen de datos
 
@@ -151,7 +151,7 @@ En este tutorial, comenzará por crear una canalización. A continuación, crear
 
 1. Asegúrese de habilitar **Interactive Authoring** (Creación interactiva). Puede tardar aproximadamente un minuto en habilitarse.
 
-    ![Captura de pantalla que muestra la creación interactiva.](./media/tutorial-copy-data-portal-private/interactive-authoring.png)
+    :::image type="content" source="./media/tutorial-copy-data-portal-private/interactive-authoring.png" alt-text="Captura de pantalla que muestra la creación interactiva.":::
 
 1. Seleccione **Test connection** (Probar conexión). Se debería producir un error cuando la cuenta de almacenamiento solo permite el acceso desde las **Redes seleccionadas** y requiere que Data Factory cree un punto de conexión privado que debe aprobarse antes de su uso. En el mensaje de error, debería ver un vínculo para crear un punto de conexión privado que puede usar para crear un punto de conexión privado administrado. Una alternativa es ir directamente a la pestaña **Administrar** y seguir las instrucciones de la [siguiente sección](#create-a-managed-private-endpoint) para crear un punto de conexión privado administrado.
 
@@ -169,7 +169,7 @@ En este tutorial, comenzará por crear una canalización. A continuación, crear
 
 1. Seleccione **Aceptar**. Se dirige automáticamente a la página de canalización. En la pestaña **Origen**, confirme que se selecciona **SourceBlobDataset**. Para obtener una vista previa de los datos de esta página, seleccione **Preview data** (Vista previa de los datos).
 
-    ![Captura de pantalla que muestra el panel Conjunto de datos de origen.](./media/tutorial-copy-data-portal-private/source-dataset-selected.png)
+    :::image type="content" source="./media/tutorial-copy-data-portal-private/source-dataset-selected.png" alt-text="Captura de pantalla que muestra el panel Conjunto de datos de origen.":::
 
 #### <a name="create-a-managed-private-endpoint"></a>Creación de un punto de conexión privado administrado
 
@@ -184,7 +184,7 @@ Si no seleccionó el hipervínculo al probar la conexión, siga la ruta de acces
 
 1. Seleccione **+ Nuevo** debajo de **Puntos de conexión privados administrados**.
 
-    ![Captura de pantalla que muestra el botón Nuevo debajo de los Puntos de conexión privados administrados.](./media/tutorial-copy-data-portal-private/new-managed-private-endpoint.png) 
+    :::image type="content" source="./media/tutorial-copy-data-portal-private/new-managed-private-endpoint.png" alt-text="Captura de pantalla que muestra el botón Nuevo debajo de los Puntos de conexión privados administrados."::: 
 
 1. Seleccione el icono de **Azure Blob Storage** de la lista y seleccione **Continuar**.
 
@@ -196,14 +196,14 @@ Si no seleccionó el hipervínculo al probar la conexión, siga la ruta de acces
 
 1. Seleccione el punto de conexión privado que creó. Puede ver un hipervínculo que le llevará a la página para aprobar el punto de conexión privado en el nivel de cuenta de almacenamiento.
 
-    ![Captura de pantalla que muestra el panel Punto de conexión privado administrado.](./media/tutorial-copy-data-portal-private/manage-private-endpoint.png) 
+    :::image type="content" source="./media/tutorial-copy-data-portal-private/manage-private-endpoint.png" alt-text="Captura de pantalla que muestra el panel Punto de conexión privado administrado."::: 
 
 #### <a name="approval-of-a-private-link-in-a-storage-account"></a>Aprobación de un vínculo privado en una cuenta de almacenamiento
 1. En la cuenta de almacenamiento, vaya a **Conexiones de punto de conexión privado** en la sección **Configuración**.
 
 1. Seleccione la casilla del punto de conexión privado que creó y seleccione **Aprobar**.
 
-    ![Captura de pantalla que muestra el botón Aprobar para el punto de conexión privado.](./media/tutorial-copy-data-portal-private/approve-private-endpoint.png)
+    :::image type="content" source="./media/tutorial-copy-data-portal-private/approve-private-endpoint.png" alt-text="Captura de pantalla que muestra el botón Aprobar para el punto de conexión privado.":::
 
 1. Agregue una descripción y seleccione **Sí**.
 1. Vuelva a la sección **Puntos de conexión privados administrados** de la pestaña **Administrar** de Data Factory.
@@ -240,7 +240,7 @@ Si no seleccionó el hipervínculo al probar la conexión, siga la ruta de acces
 
 1. Vaya a la pestaña con la canalización y, en **Sink dataset** (Conjunto de datos del receptor), confirme que se ha seleccionado **OutputSqlDataset**.
 
-    ![Captura de pantalla que muestra la pestaña Canalización.](./media/tutorial-copy-data-portal-private/pipeline-tab-2.png)
+    :::image type="content" source="./media/tutorial-copy-data-portal-private/pipeline-tab-2.png" alt-text="Captura de pantalla que muestra la pestaña Canalización.":::
 
 Opcionalmente, puede asignar el esquema del origen al esquema de destino correspondiente. Para ello, siga las instrucciones de [Asignación de esquemas en la actividad de copia](./copy-activity-schema-and-type-mapping.md).
 
@@ -252,7 +252,7 @@ Si no seleccionó el hipervínculo al probar la conexión, siga la ruta de acces
 1. Vaya a la sección **Puntos de conexión privados administrados**.
 1. Seleccione **+ Nuevo** debajo de **Puntos de conexión privados administrados**.
 
-    ![Captura de pantalla que muestra el botón Nuevo debajo de los Puntos de conexión privados administrados.](./media/tutorial-copy-data-portal-private/new-managed-private-endpoint.png) 
+    :::image type="content" source="./media/tutorial-copy-data-portal-private/new-managed-private-endpoint.png" alt-text="Captura de pantalla que muestra el botón Nuevo debajo de los Puntos de conexión privados administrados."::: 
 
 1. Seleccione el icono de **Azure SQL Database** de la lista y seleccione **Continuar**.
 1. Escriba el nombre de la instancia de SQL Server que seleccionó.

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: application-gateway
 ms.custom: subject-monitoring
 ms.date: 06/10/2021
-ms.openlocfilehash: dce23e60b3a3be5ba7647de1f45380d188c07094
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 5ece5b220a59f562774fde7b093236ed5946f019
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114295992"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124836251"
 ---
 <!-- VERSION 2.2
 Template for monitoring data reference article for Azure services. This article is support for the main "Monitoring [servicename]" article for the service. -->
@@ -147,7 +147,7 @@ Proveedor de recursos y tipo: [Microsoft.Network/applicationGateways](../azure-m
 
 | Category | Display Name (Nombre para mostrar) | Information|
 |:---------|:-------------|------------------|
-| **Activitylog**   | Registro de actividades | Las entradas del registro de actividad se recopilar de manera predeterminada. se puede usar el [registro de actividades de Azure](../azure-resource-manager/management/view-activity-logs.md) (anteriormente conocido como registros operativos y registros de auditoría) para ver todas las operaciones enviadas a la suscripción de Azure, así como su estado. |
+| **Activitylog**   | Registro de actividades | Las entradas del registro de actividad se recopilar de manera predeterminada. se puede usar el [registro de actividades de Azure](../azure-monitor/essentials/activity-log.md) (anteriormente conocido como registros operativos y registros de auditoría) para ver todas las operaciones enviadas a la suscripción de Azure, así como su estado. |
 |**ApplicationGatewayAccessLog**|Registro de acceso| Puede usar este registro para ver los patrones de acceso de Application Gateway y analizar información importante. Esto incluye la dirección IP del autor de la llamada, la dirección URL solicitada, la latencia de la respuesta, el código de devolución y los bytes de entrada y salida. El registro de acceso se recopila cada 60 segundos. Este registro contiene un registro por cada instancia de Application Gateway. La instancia de Application Gateway se identifica por la propiedad instanceId.|
 | **ApplicationGatewayPerformanceLog**|Registro de rendimiento|este registro se puede usar para ver el rendimiento de las instancias de Application Gateway. Este registro captura la información de rendimiento de cada instancia, incluida la cantidad total de solicitudes atendidas, el rendimiento en bytes, la cantidad de solicitudes con error y el número de instancias de back-end con un mantenimiento correcto o incorrecto. El registro de rendimiento se recopila cada 60 segundos. El registro de rendimiento solo está disponible para la SKU v1. En la SKU v2, use [Métricas](#metrics) para los datos de rendimiento.|
 |**ApplicationGatewayFirewallLog**|Registro de firewall|este registro se puede usar para ver las solicitudes que se registran con el modo de detección o prevención de una puerta de enlace de aplicaciones que está configurada con el firewall de aplicaciones web. Los registros de firewall se recopilan cada 60 segundos.|

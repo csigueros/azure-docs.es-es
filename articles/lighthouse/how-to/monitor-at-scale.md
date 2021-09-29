@@ -3,12 +3,12 @@ title: Supervisión de los recursos delegados a escala
 description: Con Azure Lighthouse, puede usar los registros de Azure Monitor de forma escalable en los inquilinos del cliente.
 ms.date: 08/12/2021
 ms.topic: how-to
-ms.openlocfilehash: 3424078b00aef569f054d6d3c02382f4bd071a91
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: d261fd41c300f317e34ff7cacafa53911b7bbc12
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122325067"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124736607"
 ---
 # <a name="monitor-delegated-resources-at-scale"></a>Supervisión de los recursos delegados a escala
 
@@ -28,7 +28,7 @@ Se recomienda crear estas áreas de trabajo directamente en los inquilinos del c
 > [!TIP]
 > Cualquier cuenta de Automation usada para acceder a los datos de un área de trabajo de Log Analytics debe crearse en el mismo inquilino que el área de trabajo.
 
-Puede crear un área de trabajo de Log Analytics mediante [Azure Portal](../../azure-monitor/logs/quick-create-workspace.md), la [CLI de Azure](../../azure-monitor/logs/quick-create-workspace-cli.md) o [Azure PowerShell](../../azure-monitor/logs/powershell-workspace-configuration.md).
+Puede crear un área de trabajo de Log Analytics mediante [Azure Portal](../../azure-monitor/logs/quick-create-workspace.md), la [CLI de Azure](../../azure-monitor/logs/resource-manager-workspace.md) o [Azure PowerShell](../../azure-monitor/logs/powershell-workspace-configuration.md).
 
 > [!IMPORTANT]
 > Si todas las áreas de trabajo se crean en los inquilinos del cliente, los proveedores de recursos de Microsoft.Insights también deben [registrarse](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) en una suscripción del inquilino de administración. Si el inquilino de administración no tiene una suscripción a Azure existente, puede registrar el proveedor de recursos de manera manual con los comandos de PowerShell siguientes:

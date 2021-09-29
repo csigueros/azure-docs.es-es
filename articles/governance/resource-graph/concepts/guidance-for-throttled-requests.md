@@ -1,15 +1,15 @@
 ---
 title: Guía para solicitudes limitadas
 description: Aprenda a agrupar, escalonar, paginar y consultar en paralelo las solicitudes para evitar que Azure Resource Graph las limite.
-ms.date: 08/17/2021
+ms.date: 09/13/2021
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 745f90fd82c4ee0bd233f6b074c7c3a637820609
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: eece1d35cdabcca957e4ce1e72e32f243a1747e1
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122324984"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128589746"
 ---
 # <a name="guidance-for-throttled-requests-in-azure-resource-graph"></a>Guía de solicitudes limitadas en Azure Resource Graph
 
@@ -200,7 +200,7 @@ Dado que Azure Resource Graph devuelve 1000 entradas como máximo en una respues
   var results = new List<object>();
   var queryRequest = new QueryRequest(
       subscriptions: new[] { mySubscriptionId },
-      query: "Resources | project id, name, type | top 5000");
+      query: "Resources | project id, name, type");
   var azureOperationResponse = await this.resourceGraphClient
       .ResourcesWithHttpMessagesAsync(queryRequest, header)
       .ConfigureAwait(false);
@@ -215,18 +215,6 @@ Dado que Azure Resource Graph devuelve 1000 entradas como máximo en una respues
 
       // Inspect throttling headers in query response and delay the next call if needed.
   }
-  ```
-
-- CLI de Azure o Azure PowerShell
-
-  Cuando se usa la CLI de Azure o Azure PowerShell, las consultas a Azure Resource Graph se paginan automáticamente para capturar 5000 entradas como máximo. Los resultados de la consulta devuelven una lista combinada de las entradas de todas las llamadas paginadas. En este caso, según el número de entradas en el resultado de la consulta, una sola consulta paginada puede consumir más de una cuota de consulta. Por ejemplo, en los ejemplos siguientes, una única ejecución de la consulta puede consumir hasta cinco cuotas de consulta:
-
-  ```azurecli-interactive
-  az graph query -q 'Resources | project id, name, type' --first 5000
-  ```
-
-  ```azurepowershell-interactive
-  Search-AzGraph -Query 'Resources | project id, name, type' -First 5000
   ```
 
 ## <a name="still-get-throttled"></a>¿Todavía se ve limitado?

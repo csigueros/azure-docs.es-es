@@ -3,7 +3,7 @@ title: Directivas de transformación de Azure API Management | Microsoft Docs
 description: Obtenga información sobre las directivas de transformación disponibles para su uso en Azure API Management.
 services: api-management
 documentationcenter: ''
-author: miaojiang
+author: dlepow
 manager: erikre
 editor: ''
 ms.service: api-management
@@ -11,13 +11,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/11/2019
-ms.author: apimpm
-ms.openlocfilehash: 48f8445e30bd186681d1a4384d16f228a3382473
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.author: danlep
+ms.openlocfilehash: 8cbef3416230d087b7ca627e877e0030f0ace9b2
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107012444"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128647107"
 ---
 # <a name="api-management-transformation-policies"></a>Directivas de transformación de API Management
 En este tema se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](./api-management-policies.md).

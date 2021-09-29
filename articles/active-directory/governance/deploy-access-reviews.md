@@ -16,12 +16,12 @@ ms.date: 04/16/2021
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9acbe5d7b57906c894021ec4e4f83633433b3c3b
-ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
+ms.openlocfilehash: f5974f8d3f94d16a27c77c81837d7c430ee48b26
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122228618"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124817911"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>Planeamiento de una implementación de revisiones de acceso de Azure Active Directory
 
@@ -439,9 +439,9 @@ Siga las instrucciones del vínculo que se incluye a continuación:
 
 | Artículos de procedimientos | Descripción |
 | - | - |
- [Crear revisiones del acceso](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Muestra cómo crear revisiones de acceso para los roles de Azure AD con privilegios en PIM. |
-| [Autorrevisión del acceso](../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Si se le ha asignado un rol administrativo, apruebe o deniegue el acceso al rol. |
-| [Finalización de una revisión de acceso](../privileged-identity-management/pim-how-to-complete-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Explica cómo ver una revisión de acceso y aplicar los resultados. |
+ [Crear revisiones del acceso](../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Muestra cómo crear revisiones de acceso para los roles de Azure AD con privilegios en PIM. |
+| [Autorrevisión del acceso](../privileged-identity-management/pim-perform-azure-ad-roles-and-resource-roles-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Si se le ha asignado un rol administrativo, apruebe o deniegue el acceso al rol. |
+| [Finalización de una revisión de acceso](../privileged-identity-management/pim-complete-azure-ad-roles-and-resource-roles-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Explica cómo ver una revisión de acceso y aplicar los resultados. |
 
 
 ### <a name="review-azure-resource-roles"></a>Revisión de roles de Azure Resource
@@ -454,9 +454,9 @@ Siga las instrucciones del vínculo que se incluye a continuación:
 
 | Artículos de procedimientos| Descripción |
 | - | -|
-| [Crear revisiones del acceso](../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Señala cómo crear revisiones de acceso para roles de Azure Resource con privilegios en PIM. |
-| [Autorrevisión del acceso](../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Si se le ha asignado un rol administrativo, apruebe o deniegue el acceso al rol. |
-| [Finalización de una revisión de acceso](../privileged-identity-management/pim-resource-roles-complete-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Explica cómo ver una revisión de acceso y aplicar los resultados. |
+| [Crear revisiones del acceso](../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Señala cómo crear revisiones de acceso para roles de Azure Resource con privilegios en PIM. |
+| [Autorrevisión del acceso](../privileged-identity-management/pim-perform-azure-ad-roles-and-resource-roles-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Si se le ha asignado un rol administrativo, apruebe o deniegue el acceso al rol. |
+| [Finalización de una revisión de acceso](../privileged-identity-management/pim-complete-azure-ad-roles-and-resource-roles-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Explica cómo ver una revisión de acceso y aplicar los resultados. |
 
 
 ## <a name="use-the-access-reviews-api"></a>Uso de la API de revisiones de acceso

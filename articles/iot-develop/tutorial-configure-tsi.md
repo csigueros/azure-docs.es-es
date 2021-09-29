@@ -8,12 +8,12 @@ ms.date: 10/14/2020
 ms.topic: tutorial
 ms.service: iot-develop
 services: iot-develop
-ms.openlocfilehash: e1d4b294003fe7eb03f6742c75be6d4fadbfce4f
-ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
+ms.openlocfilehash: 1258255ddc12dc4d718998e2320aa40951916400
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2021
-ms.locfileid: "114406100"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128642745"
 ---
 # <a name="tutorial-create-and-configure-a-time-series-insights-gen2-environment"></a>Tutorial: Creación y configuración de un entorno de Time Series Insights Gen2
 
@@ -208,11 +208,11 @@ Seleccione la pestaña **Instancias**. Busque la instancia que representa el esp
 
 ![Captura de pantalla en la que se muestra cómo editar una instancia.](./media/tutorial-configure-tsi/edit-instance.png)
 
-Abra el menú desplegable **Tipo** y seleccione **Temperature Controller** (Controlador de temperatura). Escriba *defaultComponent, <your device name>* para actualizar el nombre de la instancia que representa todas las etiquetas de nivel superior asociadas con el dispositivo.
+Abra el menú desplegable **Tipo** y seleccione **Temperature Controller** (Controlador de temperatura). Escriba *defaultComponent, \<your device name\>* para actualizar el nombre de la instancia que representa todas las etiquetas de nivel superior asociadas con el dispositivo.
 
 ![Captura de pantalla que muestra cómo cambiar un tipo de instancia.](./media/tutorial-configure-tsi/change-type.png)
 
-Antes de seleccionar **Guardar**, seleccione la pestaña **Campos de instancia** y active la casilla **Device Fleet** (Flota de dispositivos). Para agrupar la telemetría, escriba *\<your device name> - Temp Controller* (Controlador de temperatura). Después, seleccione **Guardar**.
+Antes de seleccionar **Guardar**, seleccione la pestaña **Campos de instancia** y active la casilla **Device Fleet** (Flota de dispositivos). Para agrupar la telemetría, escriba *\<your device name\> - Temp Controller* (Controlador de temperatura). Después, seleccione **Guardar**.
 
 ![Captura de pantalla que muestra cómo asignar una instancia a una jerarquía](./media/tutorial-configure-tsi/assign-to-hierarchy.png)
 

@@ -4,14 +4,15 @@ description: Se está retirando la opción optimizada del proceso de flujo de da
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: tutorial
 ms.date: 06/29/2021
-ms.openlocfilehash: 883fd878ecc90cb9608b6d5e6cbe8be4fb1ea079
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 2ef5e68f9629feab42a4417b4e08697038947495
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122643650"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128661837"
 ---
 # <a name="retirement-of-data-flow-compute-optimized-option"></a>Retirada de la opción optimizada del proceso de flujo de datos
 
@@ -26,7 +27,7 @@ De aquí hasta el 31 de agosto de 2024, los flujos de datos Optimizados para p
 1. Cree una nueva instancia de Azure Integration Runtime con "De uso general" u "Optimizados para memoria" como tipo de proceso.
 2. Establezca la actividad de flujo de datos mediante cualquiera de esos tipos de proceso.
 
-   ![Tipos de proceso](media/data-flow/compute-types.png)
+   :::image type="content" source="media/data-flow/compute-types.png" alt-text="Tipos de proceso":::
 
 ## <a name="comparison-between-different-compute-options"></a>Comparación entre diferentes opciones de proceso 
 
@@ -37,5 +38,5 @@ De aquí hasta el 31 de agosto de 2024, los flujos de datos Optimizados para p
 | Flujos de datos Optimizados para proceso (en desuso) | No se recomienda para las cargas de trabajo de producción. |
 
 * [Visite la página de precios de Azure Data Factory para obtener los precios actualizados más recientes disponibles para flujos De uso general y Optimizados para memoria](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/)
-* [Puede encontrar información más detallada en Preguntas frecuentes sobre flujos de datos aquí](https://aka.ms/dataflowsqa)  
+* [Puede encontrar información más detallada en Preguntas frecuentes sobre flujos de datos aquí](/azure/data-factory/frequently-asked-questions#mapping-data-flows)  
 * [Publicar preguntas y encontrar respuestas sobre flujos de datos en Microsoft Q&A](https://aka.ms/datafactoryqa)

@@ -10,12 +10,12 @@ ms.date: 05/10/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0641a7357a334847bc52c3089eb4cf36cc3e3175
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: 1feb78c381a189ae2db1d2aa658f8d0782769f99
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123467617"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128664796"
 ---
 # <a name="blob-versioning"></a>Control de versiones de blobs
 
@@ -45,7 +45,7 @@ En el siguiente diagrama se muestra cómo se crean las versiones en operaciones 
 
 Las versiones del blob son inmutables. No puede modificar el contenido ni los metadatos de la versión de un blob existente.
 
-Tener un gran número de versiones por cada blob puede aumentar la latencia de las operaciones de enumeración de blobs. Microsoft recomienda mantener menos de 1000 versiones por blob. Puede usar la administración del ciclo de vida para eliminar automáticamente las versiones anteriores. Para obtener más información sobre la administración del ciclo de vida, consulte [Optimización de los costos mediante la automatización de los niveles de acceso de Azure Blob Storage](storage-lifecycle-management-concepts.md).
+Tener un gran número de versiones por cada blob puede aumentar la latencia de las operaciones de enumeración de blobs. Microsoft recomienda mantener menos de 1000 versiones por blob. Puede usar la administración del ciclo de vida para eliminar automáticamente las versiones anteriores. Para obtener más información sobre la administración del ciclo de vida, consulte [Optimización de los costos mediante la automatización de los niveles de acceso de Azure Blob Storage](./lifecycle-management-overview.md).
 
 El control de versiones de blobs está disponible para cuentas estándar de uso general V2, cuentas premium de blob en bloques y cuentas heredadas de almacenamiento de blobs. Actualmente, no se admiten las cuentas de almacenamiento con un espacio de nombres jerárquico habilitado para usarse con Azure Data Lake Storage Gen2.
 
@@ -111,7 +111,7 @@ Al escribir nuevos datos en el blob, se crea una versión actual de este. Las ve
 
 Puede trasladar cualquier versión de un blob en bloques, incluida la actual, a otro nivel de acceso de blobs mediante una llamada a la operación [Set Blob Tier](/rest/api/storageservices/set-blob-tier). Para aprovechar los precios de menor capacidad, traslade las versiones anteriores de un blob al nivel de acceso esporádico o de archivo. Para obtener más información, consulte [Azure Blob Storage: niveles de acceso frecuente, esporádico y de archivo](storage-blob-storage-tiers.md).
 
-Para automatizar el proceso de trasladar blobs en bloques al nivel adecuado, use la administración del ciclo de vida del blob. Para obtener más información sobre la administración del ciclo de vida, consulte [Administración del ciclo de vida de Azure Blob Storage](storage-lifecycle-management-concepts.md).
+Para automatizar el proceso de trasladar blobs en bloques al nivel adecuado, use la administración del ciclo de vida del blob. Para obtener más información sobre la administración del ciclo de vida, consulte [Administración del ciclo de vida de Azure Blob Storage](./lifecycle-management-overview.md).
 
 ## <a name="enable-or-disable-blob-versioning"></a>Habilitación o deshabilitación del control de versiones de blobs
 
@@ -298,11 +298,11 @@ En la tabla siguiente se describe el comportamiento de facturación de un blob q
 
 ## <a name="feature-support"></a>Compatibilidad de características
 
-En esta tabla, se muestra cómo se admite esta característica en la cuenta y el impacto en la compatibilidad al habilitar determinadas funcionalidades. 
+En esta tabla se muestra cómo se admite esta característica en la cuenta y el impacto en la compatibilidad al habilitar determinadas funcionalidades.
 
-| Tipo de cuenta de almacenamiento                | Blob Storage (compatibilidad predeterminada)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>    
+| Tipo de cuenta de almacenamiento                | Blob Storage (compatibilidad predeterminada)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
 |-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
-| De uso general estándar, v2 | ![Sí](../media/icons/yes-icon.png) |![No](../media/icons/no-icon.png)              | ![No](../media/icons/no-icon.png) | 
+| De uso general estándar, v2 | ![Sí](../media/icons/yes-icon.png) |![No](../media/icons/no-icon.png)              | ![No](../media/icons/no-icon.png) |
 | Blobs en bloques Premium          | ![Sí](../media/icons/yes-icon.png) |![No](../media/icons/no-icon.png)              | ![No](../media/icons/no-icon.png) |
 
 <sup>1</sup> Data Lake Storage Gen2 y el protocolo Network File System (NFS) 3.0 necesitan una cuenta de almacenamiento con un espacio de nombres jerárquico habilitado.

@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring, devx-track-azurepowershell
-ms.openlocfilehash: 0470813cf19305124956925a0730344c3183866a
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: a5e23ed381ad1e973e0ae6343fb3c0566aac6a7d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110666781"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128673262"
 ---
 # <a name="enable-and-manage-azure-storage-analytics-logs-classic"></a>Habilitación y administración de los registros de Azure Storage Analytics (clásico)
 
@@ -50,8 +50,7 @@ También puede indicar a Azure Storage que guarde los registros de diagnóstico 
 3. Asegúrese de que el **estado** está establecido en **Activado** y seleccione los **servicios** para los que desea habilitar el registro.
 
    > [!div class="mx-imgBorder"]
-   > ![Configure el registro en Azure Portal.](./media/manage-storage-analytics-logs/enable-diagnostics.png)    
-
+   > ![Configure el registro en Azure Portal.](./media/manage-storage-analytics-logs/enable-diagnostics.png)
 
 4. Asegúrese de que la casilla **Eliminar datos** está activada.  A continuación, establezca el número de días durante los que desea conservar los datos de registro moviendo el control deslizante debajo de la casilla, o modificando directamente el valor que aparece en el cuadro de texto situado al lado del control deslizante. El valor predeterminado para las nuevas cuentas de almacenamiento es de siete días. Si no desea configurar una directiva de retención, escriba un cero. Si no existe una directiva de retención, es posible eliminar los datos de registro.
 
@@ -90,28 +89,28 @@ También puede indicar a Azure Storage que guarde los registros de diagnóstico 
    $ctx = $storageAccount.Context
    ```
 
-   * Reemplace el marcador de posición `<resource-group-name>` por el nombre del grupo de recursos.
+   - Reemplace el marcador de posición `<resource-group-name>` por el nombre del grupo de recursos.
 
-   * Reemplace el valor de marcador de posición `<storage-account-name>` por el nombre de la cuenta de almacenamiento. 
+   - Reemplace el valor de marcador de posición `<storage-account-name>` por el nombre de la cuenta de almacenamiento.
 
-6. Use **Set-AzStorageServiceLoggingProperty** para cambiar la configuración de registro actual. Los cmdlets que controlan el registro de almacenamiento usan un parámetro **LoggingOperations**, que es una cadena que contiene una lista separada por comas de los tipos de solicitud que se van a registrar. Los tres tipos de solicitud posibles son **read**, **write** y **delete**. Para desactivar el registro, use el valor **none** en el parámetro **LoggingOperations**.  
+6. Use **Set-AzStorageServiceLoggingProperty** para cambiar la configuración de registro actual. Los cmdlets que controlan el registro de almacenamiento usan un parámetro **LoggingOperations**, que es una cadena que contiene una lista separada por comas de los tipos de solicitud que se van a registrar. Los tres tipos de solicitud posibles son **read**, **write** y **delete**. Para desactivar el registro, use el valor **none** en el parámetro **LoggingOperations**.
 
-   Con el siguiente comando se activa el registro de solicitudes de lectura, escritura y eliminación en el servicio Queue service de la cuenta de almacenamiento predeterminada, con un período de retención establecido en cinco días:  
+   Con el siguiente comando se activa el registro de solicitudes de lectura, escritura y eliminación en el servicio Queue service de la cuenta de almacenamiento predeterminada, con un período de retención establecido en cinco días:
 
    ```powershell
    Set-AzStorageServiceLoggingProperty -ServiceType Queue -LoggingOperations read,write,delete -RetentionDays 5 -Context $ctx
-   ```  
+   ```
 
    > [!WARNING]
    > Los registros se almacenan como datos en la cuenta. Los datos de registro se pueden acumular en la cuenta a lo largo del tiempo, lo que puede aumentar el costo de almacenamiento. Si necesita datos de registro solo durante un breve período de tiempo, puede reducir los costos mediante la modificación de la directiva de retención de datos. El sistema eliminará los datos de registro obsoletos (aquellos anteriores a la directiva de retención de datos). Es recomendable configurar una directiva de retención basada en el tiempo que desee retener los datos de registro de su cuenta. Vea [Facturación según las métricas de almacenamiento](storage-analytics-metrics.md#billing-on-storage-metrics) para más información.
-   
-   Con el siguiente comando se desactiva el registro en el servicio Table service de la cuenta de almacenamiento predeterminada:  
+
+   Con el siguiente comando se desactiva el registro en el servicio Table service de la cuenta de almacenamiento predeterminada:
 
    ```powershell
    Set-AzStorageServiceLoggingProperty -ServiceType Table -LoggingOperations none -Context $ctx 
-   ```  
+   ```
 
-   Para más información sobre cómo configurar los cmdlets de Azure PowerShell para que funcionen con su suscripción de Azure y cómo seleccionar la cuenta de almacenamiento predeterminada que quiere usar, vea: [Cómo instalar y configurar Azure PowerShell](/powershell/azure/).  
+   Para más información sobre cómo configurar los cmdlets de Azure PowerShell para que funcionen con su suscripción de Azure y cómo seleccionar la cuenta de almacenamiento predeterminada que quiere usar, vea: [Cómo instalar y configurar Azure PowerShell](/powershell/azure/).
 
 ### <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/dotnet)
 
@@ -122,13 +121,13 @@ También puede indicar a Azure Storage que guarde los registros de diagnóstico 
 ```csharp
 var storageAccount = CloudStorageAccount.Parse(connStr);  
 var queueClient = storageAccount.CreateCloudQueueClient();  
-var serviceProperties = queueClient.GetServiceProperties();  
+var serviceProperties = queueClient.GetServiceProperties();
 
 serviceProperties.Logging.LoggingOperations = LoggingOperations.All;  
-serviceProperties.Logging.RetentionDays = 2;  
+serviceProperties.Logging.RetentionDays = 2;
 
 queueClient.SetServiceProperties(serviceProperties);  
-``` 
+```
 
 ---
 
@@ -154,7 +153,7 @@ Los datos de registro se pueden acumular en la cuenta a lo largo del tiempo, lo 
    > ![Modificar el período de retención en Azure Portal](./media/manage-storage-analytics-logs/modify-retention-period.png)
 
    El número predeterminado de días para las nuevas cuentas de almacenamiento es de 7 días. Si no desea configurar una directiva de retención, escriba un cero. Si no existe una directiva de retención, es posible eliminar los datos de supervisión.
-   
+
 4. Haga clic en **Save**(Guardar).
 
    Los registros de diagnóstico se guardan en un contenedor de blobs denominado *$logs* en su cuenta de almacenamiento. Para ver los datos de registro se puede usar un explorador de almacenamiento como el [Explorador de Microsoft Azure Storage](https://storageexplorer.com), o bien, mediante programación, la biblioteca de cliente de almacenamiento o PowerShell.
@@ -187,28 +186,28 @@ Los datos de registro se pueden acumular en la cuenta a lo largo del tiempo, lo 
    $ctx = $storageAccount.Context
    ```
 
-   * Reemplace el marcador de posición `<resource-group-name>` por el nombre del grupo de recursos.
+   - Reemplace el marcador de posición `<resource-group-name>` por el nombre del grupo de recursos.
 
-   * Reemplace el valor de marcador de posición `<storage-account-name>` por el nombre de la cuenta de almacenamiento. 
+   - Reemplace el valor de marcador de posición `<storage-account-name>` por el nombre de la cuenta de almacenamiento.
 
 6. Use [Get-AzStorageServiceLoggingProperty](/powershell/module/az.storage/get-azstorageserviceloggingproperty) para ver la directiva de retención de registros actual. En el ejemplo siguiente, se imprime en la consola el período de retención para los servicios de almacenamiento de blobs y colas.
 
    ```powershell
    Get-AzStorageServiceLoggingProperty -ServiceType Blob, Queue -Context $ctx
-   ```  
+   ```
 
    En el resultado de la consola, el período de retención aparece bajo el encabezado de columna `RetentionDays`.
 
    > [!div class="mx-imgBorder"]
    > ![Directiva de retención en la salida de PowerShell](./media/manage-storage-analytics-logs/retention-period-powershell.png)
 
-7. Use [Set-AzStorageServiceLoggingProperty](/powershell/module/az.storage/set-azstorageserviceloggingproperty) para cambiar el período de retención. En el ejemplo siguiente se cambia el período de retención a 4 días.  
+7. Use [Set-AzStorageServiceLoggingProperty](/powershell/module/az.storage/set-azstorageserviceloggingproperty) para cambiar el período de retención. En el ejemplo siguiente se cambia el período de retención a 4 días.
 
    ```powershell
    Set-AzStorageServiceLoggingProperty -ServiceType Blob, Queue -RetentionDays 4 -Context $ctx
-   ```  
+   ```
 
-   Para más información sobre cómo configurar los cmdlets de Azure PowerShell para que funcionen con su suscripción de Azure y cómo seleccionar la cuenta de almacenamiento predeterminada que quiere usar, vea: [Cómo instalar y configurar Azure PowerShell](/powershell/azure/).  
+   Para más información sobre cómo configurar los cmdlets de Azure PowerShell para que funcionen con su suscripción de Azure y cómo seleccionar la cuenta de almacenamiento predeterminada que quiere usar, vea: [Cómo instalar y configurar Azure PowerShell](/powershell/azure/).
 
 ### <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/dotnet)
 
@@ -216,7 +215,7 @@ En el ejemplo siguiente, se imprime en la consola el período de retención para
 
 :::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/Monitoring.cs" id="snippet_ViewRetentionPeriod":::
 
-En el ejemplo siguiente se cambia el período de retención a 4 días. 
+En el ejemplo siguiente se cambia el período de retención a 4 días.
 
 :::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/Monitoring.cs" id="snippet_ModifyRetentionPeriod":::
 
@@ -240,7 +239,7 @@ Console.WriteLine("Retention period for logs from the queue service is: " +
    queueserviceProperties.Logging.RetentionDays.ToString());
 ```
 
-En el ejemplo siguiente, se cambia el período de retención de los registros para los servicios de almacenamiento de blobs y colas a 4 días. 
+En el ejemplo siguiente, se cambia el período de retención de los registros para los servicios de almacenamiento de blobs y colas a 4 días.
 
 ```csharp
 
@@ -249,7 +248,7 @@ queueserviceProperties.Logging.RetentionDays = 4;
 
 blobClient.SetServiceProperties(blobserviceProperties);
 queueClient.SetServiceProperties(queueserviceProperties);  
-``` 
+```
 
 ---
 
@@ -264,18 +263,18 @@ Puede comprobar la eliminación de los registros; para ello, consulte el conteni
 
 ## <a name="view-log-data"></a>Visualización de los datos de registro
 
- Para ver y analizar los datos de registro, conviene descargar en un equipo local los blobs que contengan los datos de registro de su interés. Muchas herramientas de exploración del almacenamiento permiten descargar blobs de la cuenta de almacenamiento; también puede usar la herramienta de la línea de comandos para copiar de Azure [AzCopy](storage-use-azcopy-v10.md), suministrada por el equipo de Azure Storage, para descargar los datos de registro.  
- 
->[!NOTE]
-> El contenedor `$logs` no está integrado con Event Grid, por lo que no recibirá notificaciones cuando se escriban en los archivos de registro. 
+ Para ver y analizar los datos de registro, conviene descargar en un equipo local los blobs que contengan los datos de registro de su interés. Muchas herramientas de exploración del almacenamiento permiten descargar blobs de la cuenta de almacenamiento; también puede usar la herramienta de la línea de comandos para copiar de Azure [AzCopy](storage-use-azcopy-v10.md), suministrada por el equipo de Azure Storage, para descargar los datos de registro.
 
- Para estar seguro de que descarga los datos de registro de su interés y no descarga los mismos datos de registro más de una vez:  
+> [!NOTE]
+> El contenedor `$logs` no está integrado con Event Grid, por lo que no recibirá notificaciones cuando se escriban en los archivos de registro.
 
--   Use la convención de nomenclatura de fecha y hora en los blobs que contienen datos de registro para realizar un seguimiento de los blobs que ya ha descargado para analizarlos y, así, evitar volver a descargar los mismos datos más de una vez.  
+ Para estar seguro de que descarga los datos de registro de su interés y no descarga los mismos datos de registro más de una vez:
 
--   Use los metadatos de los blobs que contienen datos de registro para identificar el período específico en el que el blob contiene los datos de registro y, así, detectar el blob exacto que necesita descargar.  
+-   Use la convención de nomenclatura de fecha y hora en los blobs que contienen datos de registro para realizar un seguimiento de los blobs que ya ha descargado para analizarlos y, así, evitar volver a descargar los mismos datos más de una vez.
 
-Para empezar a trabajar con AzCopy, consulte [Introducción a AzCopy](storage-use-azcopy-v10.md). 
+-   Use los metadatos de los blobs que contienen datos de registro para identificar el período específico en el que el blob contiene los datos de registro y, así, detectar el blob exacto que necesita descargar.
+
+Para empezar a trabajar con AzCopy, consulte [Introducción a AzCopy](storage-use-azcopy-v10.md).
 
 En el siguiente ejemplo se muestra cómo descargar los datos de registro de Queue service correspondientes a las horas 9 A.M., 10 A.M. y 11 A.M. del 20 de mayo de 2014.
 
@@ -289,7 +288,7 @@ Cuando haya descargado los datos de registro, puede ver las entradas de registro
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para obtener más información sobre Storage Analytics, vea [Storage Analytics](storage-analytics.md) para Storage Analytics.
-* Para obtener más información sobre cómo usar un lenguaje .NET para configurar el registro de almacenamiento, vea [Referencia de biblioteca de cliente de almacenamiento](/previous-versions/azure/dn261237(v=azure.100)). 
-* Para obtener información general sobre cómo configurar el registro de almacenamiento con la API de REST, vea [Habilitar y configurar Storage Analytics](/rest/api/storageservices/Enabling-and-Configuring-Storage-Analytics).
-* Obtenga más información sobre el formato de los registros de Storage Analytics. Vea [Formato del registro de Storage Analytics](/rest/api/storageservices/storage-analytics-log-format).
+- Para obtener más información sobre Storage Analytics, vea [Storage Analytics](storage-analytics.md) para Storage Analytics.
+- Para obtener más información sobre cómo usar un lenguaje .NET para configurar el registro de almacenamiento, vea [Referencia de biblioteca de cliente de almacenamiento](/previous-versions/azure/dn261237(v=azure.100)).
+- Para obtener información general sobre cómo configurar el registro de almacenamiento con la API de REST, vea [Habilitar y configurar Storage Analytics](/rest/api/storageservices/Enabling-and-Configuring-Storage-Analytics).
+- Obtenga más información sobre el formato de los registros de Storage Analytics. Vea [Formato del registro de Storage Analytics](/rest/api/storageservices/storage-analytics-log-format).

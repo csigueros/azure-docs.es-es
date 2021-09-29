@@ -1,14 +1,14 @@
 ---
-title: Importación de máquinas virtuales de otro laboratorio de Azure DevTest Labs
+title: Importación de máquinas virtuales de otro laboratorio
 description: En este artículo se describe cómo importar máquinas virtuales de otro laboratorio en el laboratorio actual de Azure DevTest Labs.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 3e2cce7a364254798c88697d942041c1503af193
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 324f86b8192cdbc29261d6dfb60ce37cdebe5939
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112300442"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128593788"
 ---
 # <a name="import-virtual-machines-from-another-lab-in-azure-devtest-labs"></a>Importación de máquinas virtuales de otro laboratorio de Azure DevTest Labs
 En este artículo se proporciona información sobre cómo importar máquinas virtuales de otro laboratorio al suyo.

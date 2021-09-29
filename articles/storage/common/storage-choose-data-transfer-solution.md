@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 11ea9c759bdb4bb2b837028407ce6e83f6e25a8c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c3765114c73be73beba6d898385077b83d46e3bc
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92784055"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128638299"
 ---
 # <a name="choose-an-azure-solution-for-data-transfer"></a>Elección de la solución de Azure para la transferencia de datos
 
@@ -33,10 +33,10 @@ El movimiento de datos puede ser de los siguientes tipos:
 
 - **Transferencia de red**: los datos se transfieren a Azure mediante la conexión de red. Esto puede hacerse de diferentes maneras.
 
-    - **Interfaz gráfica**: si únicamente transfiere algunos datos de manera esporádica y no necesita automatizar la transferencia, puede elegir una herramienta de interfaz gráfica, como el Explorador de Azure Storage o una herramienta de exploración basada en web de Azure Portal.
-    - **Transferencia mediante scripts o programación**: puede usar las herramientas de software optimizadas que ofrecemos o llamar directamente a los SDK o las API REST. Las herramientas de scripts disponibles son AzCopy, Azure PowerShell y la CLI de Azure. Para la interfaz de programación, utilice uno de los SDK para .NET, Java, Python, Node/JS, C++, Go, PHP o Ruby.
-    - **Dispositivos locales**: nosotros ofrecemos un dispositivo virtual o físico que reside en el centro de datos y optimiza la transferencia de datos a través de la red. Estos dispositivos también proporcionan una caché local de los archivos usados frecuentemente. El dispositivo físico es Azure Stack Edge y el virtual, Data Box Gateway. Ambos se ejecutan permanentemente en el entorno local y se conectan a Azure a través de la red.
-    - **Canalización de datos administrados**: puede configurar una canalización en la nube para transferir archivos periódicamente entre distintos servicios de Azure, locales o de ambos tipos. Utilice Azure Data Factory para configurar y administrar canalizaciones de datos, y mover y transformar los datos para el análisis.
+  - **Interfaz gráfica**: si únicamente transfiere algunos datos de manera esporádica y no necesita automatizar la transferencia, puede elegir una herramienta de interfaz gráfica, como el Explorador de Azure Storage o una herramienta de exploración basada en web de Azure Portal.
+  - **Transferencia mediante scripts o programación**: puede usar las herramientas de software optimizadas que ofrecemos o llamar directamente a los SDK o las API REST. Las herramientas de scripts disponibles son AzCopy, Azure PowerShell y la CLI de Azure. Para la interfaz de programación, utilice uno de los SDK para .NET, Java, Python, Node/JS, C++, Go, PHP o Ruby.
+  - **Dispositivos locales**: nosotros ofrecemos un dispositivo virtual o físico que reside en el centro de datos y optimiza la transferencia de datos a través de la red. Estos dispositivos también proporcionan una caché local de los archivos usados frecuentemente. El dispositivo físico es Azure Stack Edge y el virtual, Data Box Gateway. Ambos se ejecutan permanentemente en el entorno local y se conectan a Azure a través de la red.
+  - **Canalización de datos administrados**: puede configurar una canalización en la nube para transferir archivos periódicamente entre distintos servicios de Azure, locales o de ambos tipos. Utilice Azure Data Factory para configurar y administrar canalizaciones de datos, y mover y transformar los datos para el análisis.
 
 En la siguiente ilustración se muestran las directrices para elegir las herramientas de transferencia de datos de Azure en función del ancho de banda de red disponible para la transferencia, el tamaño de los datos que se van a transferir y la frecuencia de las transferencias.
 
@@ -49,7 +49,7 @@ En la siguiente ilustración se muestran las directrices para elegir las herrami
 Responda a las siguientes preguntas, que le ayudarán a seleccionar una solución de transferencia de datos:
 
 - ¿Es el ancho de banda de red disponible limitado o inexistente, y desea transferir grandes conjuntos de datos?
-  
+
     Si es así, consulte: [Escenario 1: Transferencia de grandes conjuntos de datos sin ancho de banda de red o con ancho de banda de red reducido](storage-solution-large-dataset-low-network.md).
 - ¿Desea transferir grandes conjuntos de datos a través de la red y tiene un ancho de banda de red moderado o alto?
 
@@ -66,7 +66,7 @@ Responda a las siguientes preguntas, que le ayudarán a seleccionar una solució
 
 ## <a name="data-transfer-feature-in-azure-portal"></a>Característica Transferencia de datos en Azure Portal
 
-También puede ir a su cuenta de Azure Storage en Azure Portal y seleccionar la característica **Transferencia de datos**. Proporcione el ancho de banda de red en su entorno, el tamaño de los datos que desea transferir y la frecuencia de transferencia de datos. Verá las soluciones de transferencia de datos óptimas correspondientes a la información que ha proporcionado. 
+También puede ir a su cuenta de Azure Storage en Azure Portal y seleccionar la característica **Transferencia de datos**. Proporcione el ancho de banda de red en su entorno, el tamaño de los datos que desea transferir y la frecuencia de transferencia de datos. Verá las soluciones de transferencia de datos óptimas correspondientes a la información que ha proporcionado.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -76,10 +76,10 @@ También puede ir a su cuenta de Azure Storage en Azure Portal y seleccionar la 
 - [Inicio rápido: Creación, descarga y enumeración de blobs mediante la CLI de Azure](../blobs/storage-quickstart-blobs-cli.md)
 - Más información sobre lo siguiente:
 
-    - [Azure Data Box, Azure Data Box Disk y Azure Data Box Heavy para las transferencias sin conexión](../../databox/index.yml).
-    - [Azure Data Box Gateway y Azure Data Box Edge para las transferencias en línea](../../databox-online/index.yml).
+  - [Azure Data Box, Azure Data Box Disk y Azure Data Box Heavy para las transferencias sin conexión](../../databox/index.yml).
+  - [Azure Data Box Gateway y Azure Data Box Edge para las transferencias en línea](../../databox-online/index.yml).
 - [Qué es Azure Data Factory](../../data-factory/copy-activity-overview.md).
 - Use las API REST para transferir datos
 
-    - [En .NET](/dotnet/api/overview/azure/storage)
-    - [En Java](/java/api/overview/azure/storage)
+  - [En .NET](/dotnet/api/overview/azure/storage)
+  - [En Java](/java/api/overview/azure/storage)

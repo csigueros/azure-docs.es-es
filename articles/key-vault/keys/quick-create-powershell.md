@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 01/27/2021
 ms.author: mbaldwin
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 083cd20747c5dec9b326707489b2494ff5a89804
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 51b1a255eb538dabd735e77ae6161d53c89e90d3
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110664314"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128675846"
 ---
 # <a name="quickstart-set-and-retrieve-a-key-from-azure-key-vault-using-azure-powershell"></a>Inicio rápido: Establecimiento y recuperación de una clave desde Azure Key Vault mediante Azure PowerShell
 
@@ -49,7 +49,7 @@ Escriba los siguientes comandos para crear un **ExampleKey**:
 Add-AzKeyVaultKey -VaultName "<your-unique-keyvault-name>" -Name "ExampleKey" -Destination "Software"
 ```
 
-Ahora puede hacer referencia a esta clave que agregó a Azure Key Vault utilizando su URI. Use **"https://<su-nombre-de-almacén-de-claves-único>.vault.azure.net/keys/ExampleKey"** para obtener la versión actual. 
+Ahora puede hacer referencia a esta clave que agregó a Azure Key Vault utilizando su URI. Use **`https://<your-unique-keyvault-name>.vault.azure.net/keys/ExampleKey`** para obtener la versión actual. 
 
 Para ver la clave previamente almacenada:
 

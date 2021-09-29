@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/18/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 87fd5de90896a1a5b97cf9fa07a880ebcea1f35b
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
+ms.openlocfilehash: f5928815b6559c257319eb625587135cbf99df0d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122420603"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128645747"
 ---
 # <a name="best-practices-for-disaster-recovery-with-azure-file-sync"></a>Procedimientos recomendados para la recuperación ante desastres con Azure File Sync
 
@@ -30,7 +30,6 @@ Debido a su naturaleza híbrida, algunas estrategias tradicionales de copia de s
 - Clonación del sistema operativo de un servidor en otro servidor
 - Reversión a un punto de control de máquina virtual anterior
 - Restauración de archivos desde la copia de seguridad local si la nube por niveles está habilitada
-
 
 ## <a name="high-availability"></a>Alta disponibilidad
 
@@ -67,7 +66,7 @@ En la versión 9 del agente de Azure File Sync y versiones posteriores, las [in
 Para garantizar una solución sólida de recuperación ante desastres, agregue algún tipo de redundancia de datos a la infraestructura. Hay cuatro ofertas de redundancia para Azure Files: [almacenamiento con redundancia local (LRS)](../common/storage-redundancy.md#locally-redundant-storage), [almacenamiento con redundancia de zona (ZRS)](../common/storage-redundancy.md#zone-redundant-storage), [almacenamiento con redundancia geográfica (GRS)](../common/storage-redundancy.md#geo-redundant-storage) y [almacenamiento con redundancia de zona geográfica (GZRS)](../common/storage-redundancy.md#geo-zone-redundant-storage).
 
 - [Almacenamiento con redundancia local (LRS)](../common/storage-redundancy.md#locally-redundant-storage): con LRS, todos los archivos se almacenan tres veces dentro de un clúster de almacenamiento de Azure. Esto protege contra la pérdida de datos debido a errores de hardware, como una unidad de disco incorrecta. No obstante, si se produce un desastre como un incendio o una inundación en el centro de datos, es posible que todas las réplicas de una cuenta de almacenamiento con LRS se pierdan o no se puedan recuperar.
-- [Almacenamiento con redundancia de zona (ZRS)](../common/storage-redundancy.md#zone-redundant-storage): con ZRS, se almacenan tres copias de cada archivo. Sin embargo, estas copias están aisladas físicamente en tres clústeres de almacenamiento distintos en distintas *zonas de disponibilidad* de Azure. Las zonas de disponibilidad son ubicaciones físicas exclusivas dentro de una región de Azure. Cada zona consta de uno o varios centros de datos equipados con alimentación, refrigeración y redes independientes. No se acepta la escritura en el almacenamiento hasta que se escribe en los clústeres de almacenamiento en las tres zonas de disponibilidad. 
+- [Almacenamiento con redundancia de zona (ZRS)](../common/storage-redundancy.md#zone-redundant-storage): con ZRS, se almacenan tres copias de cada archivo. Sin embargo, estas copias están aisladas físicamente en tres clústeres de almacenamiento distintos en distintas *zonas de disponibilidad* de Azure. Las zonas de disponibilidad son ubicaciones físicas exclusivas dentro de una región de Azure. Cada zona consta de uno o varios centros de datos equipados con alimentación, refrigeración y redes independientes. No se acepta la escritura en el almacenamiento hasta que se escribe en los clústeres de almacenamiento en las tres zonas de disponibilidad.
 - [Almacenamiento con redundancia geográfica (GRS)](../common/storage-redundancy.md#geo-redundant-storage): con GRS, tiene dos regiones, una principal y una secundaria. Los archivos se almacenan tres veces dentro de un clúster de almacenamiento de Azure en la región primaria. Las escrituras se replican de forma asincrónica en una región secundaria definida por Microsoft. GRS proporciona seis copias de los datos distribuidas entre dos regiones de Azure.
 - [Almacenamiento con redundancia de zona geográfica (GZRS)](../common/storage-redundancy.md#geo-zone-redundant-storage): puede pensar en GZRS como si fuera como ZRS, pero con redundancia geográfica. Con GZRS, los archivos se almacenan tres veces en tres clústeres de almacenamiento distintos en la región primaria. Todas las escrituras se replican de forma asincrónica en una región secundaria definida por Microsoft.
 

@@ -7,14 +7,14 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/24/2021
+ms.date: 09/09/2021
 ms.author: jianleishen
-ms.openlocfilehash: a5b84673a879c086fe1fc0543da1ab0037d32ac1
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: 2c7c2a6d0056cb16f2ff79cb662cce2604d835b5
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123255948"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124767629"
 ---
 # <a name="copy-activity-in-azure-data-factory-and-azure-synapse-analytics"></a>Actividad de copia en Azure Data Factory y Azure Synapse Analytics
 
@@ -26,7 +26,7 @@ ms.locfileid: "123255948"
 
 En canalizaciones de Azure Data Factory y Synapse, puede usar la actividad de copia para copiar datos entre almacenes de datos locales y en la nube. Después de copiar los datos, puede usar otras actividades para luego transformarlos y analizarlos. La actividad de copia también puede usarse para publicar los resultados de transformación y análisis de inteligencia empresarial (BI) y el consumo de la aplicación.
 
-![El rol de la actividad de copia](media/copy-activity-overview/copy-activity.png)
+:::image type="content" source="media/copy-activity-overview/copy-activity.png" alt-text="El rol de la actividad de copia":::
 
 La actividad de copia se ejecuta en un [entorno de ejecución de integración](concepts-integration-runtime.md). Puede usar diferentes tipos de entornos de ejecución de integración para diferentes escenarios de copia de datos:
 
@@ -41,7 +41,7 @@ Para copiar datos de un origen a un receptor, el servicio que ejecuta la activid
 2. Realiza procesos de serialización y deserialización, compresión y descompresión, asignación de columnas, etc. Lleva a cabo estas operaciones según la configuración del conjunto de datos de entrada y salida, y la actividad de copia.
 3. Escribe datos en el almacén de datos de receptor o destino.
 
-![Introducción a la actividad de copia](media/copy-activity-overview/copy-activity-overview.png)
+:::image type="content" source="media/copy-activity-overview/copy-activity-overview.png" alt-text="Información general de la actividad de copia":::
 
 ## <a name="supported-data-stores-and-formats"></a>Almacenes de datos y formatos que se admiten
 
@@ -161,7 +161,7 @@ Puede aprovechar la reanudación de la actividad de copia de las dos maneras sig
 - **Reintento de nivel de actividad:** Puede establecer el número de reintentos en la actividad de copia. Durante la ejecución de la canalización, si se produce un error en la ejecución de la actividad de copia, el siguiente reintento automático se iniciará desde el punto de error de la última prueba.
 - **Volver a ejecutar desde la actividad con errores:** Una vez finalizada la ejecución de la canalización, también puede desencadenar una nueva ejecución desde la actividad con errores en la vista de supervisión de la interfaz de usuario de ADF o mediante programación. Si la actividad con errores es una actividad de copia, la canalización no solo se volverá a ejecutar desde esta actividad, sino que también se reanudará desde el punto de error de la ejecución anterior.
 
-    ![Reanudación de copia](media/copy-activity-overview/resume-copy.png)
+    :::image type="content" source="media/copy-activity-overview/resume-copy.png" alt-text="Reanudación de copia":::
 
 Algunos puntos que se deben tener en cuenta:
 
@@ -190,7 +190,7 @@ Además de copiar datos desde el almacén de datos de origen al receptor, tambi�
 
 Puede encontrar la siguiente configuración en la pestaña de origen de la actividad de copia. También puede asignar esas columnas adicionales en la actividad de copia [asignación de esquemas](copy-activity-schema-and-type-mapping.md#schema-mapping) como de costumbre con los nombres de columna definidos. 
 
-![Adición de columnas adicionales en la actividad de copia](./media/copy-activity-overview/copy-activity-add-additional-columns.png)
+:::image type="content" source="./media/copy-activity-overview/copy-activity-add-additional-columns.png" alt-text="Adición de columnas adicionales en la actividad de copia":::
 
 >[!TIP]
 >Esta característica funciona con el modelo de conjunto de datos más reciente. Si no ve esta opción desde la interfaz de usuario, intente crear un nuevo conjunto de datos.
@@ -255,7 +255,7 @@ Esta característica se acepta cuando se copian datos desde cualquier origen en 
 - [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md)
 - [SQL Server](connector-sql-server.md)
 
-![Creación de tablas de receptores](media/copy-activity-overview/create-sink-table.png)
+:::image type="content" source="media/copy-activity-overview/create-sink-table.png" alt-text="Creación de tablas de receptores":::
 
 ## <a name="fault-tolerance"></a>Tolerancia a errores
 

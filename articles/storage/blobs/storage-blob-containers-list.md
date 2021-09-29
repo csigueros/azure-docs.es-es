@@ -9,16 +9,16 @@ ms.date: 10/14/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 40dade86882cdfa8f85015bebc8769430fbf3f1a
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: b6caf7170130b75689de2915e5d15c8484ba231a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110477626"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128680212"
 ---
 # <a name="list-blob-containers-with-net"></a>Enumeración de contenedores de blob con .NET
 
-Al enumerar los contenedores de una cuenta de Azure Storage desde el código, puede especificar una serie de opciones para administrar cómo se devuelven los resultados de Azure Storage. En este artículo se muestra cómo enumerar contenedores con [la biblioteca cliente de Azure Storage para .NET](/dotnet/api/overview/azure/storage).  
+Al enumerar los contenedores de una cuenta de Azure Storage desde el código, puede especificar una serie de opciones para administrar cómo se devuelven los resultados de Azure Storage. En este artículo se muestra cómo enumerar contenedores con [la biblioteca cliente de Azure Storage para .NET](/dotnet/api/overview/azure/storage).
 
 ## <a name="understand-container-listing-options"></a>Descripción de las opciones de enumeración de contenedores
 

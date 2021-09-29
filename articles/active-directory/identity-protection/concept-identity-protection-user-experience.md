@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0bbb1df9821879dd34956d1cb16d2b37850d1d6
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 484136b1c01cf93515971a42030eacfdda51715e
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121734521"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124784173"
 ---
 # <a name="user-experiences-with-azure-ad-identity-protection"></a>Experiencias de usuario con Azure AD Identity Protection
 
@@ -29,7 +29,7 @@ Todas las directivas de Identity Protection afectan a la experiencia de inicio d
 
 ## <a name="multi-factor-authentication-registration"></a>Registro de la autenticación multifactor
 
-Al habilitar la directiva de Identity Protection que requiere el registro de autenticación multifactor y se dirige a todos los usuarios, se asegurará de que estos tienen la capacidad de usar Azure AD MFA para solucionar sus problemas por sí mismos en el futuro. La configuración de esta directiva proporciona a los usuarios un período de 14 días para registrarse y, si no lo han hecho al finalizar este plazo, se les exigirá el registro. A continuación se describe la experiencia de los usuarios. Puede encontrar más información en la documentación del usuario final, en el artículo [Información general de la verificación en dos fases y la cuenta profesional o educativa](../user-help/multi-factor-authentication-end-user-first-time.md).
+Al habilitar la directiva de Identity Protection que requiere el registro de autenticación multifactor y se dirige a todos los usuarios, se asegurará de que estos tienen la capacidad de usar Azure AD MFA para solucionar sus problemas por sí mismos en el futuro. La configuración de esta directiva proporciona a los usuarios un período de 14 días para registrarse y, si no lo han hecho al finalizar este plazo, se les exigirá el registro. A continuación se describe la experiencia de los usuarios. Puede encontrar más información en la documentación del usuario final, en el artículo [Información general de la verificación en dos fases y la cuenta profesional o educativa](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc).
 
 ### <a name="registration-interrupt"></a>Interrupción de registro
 

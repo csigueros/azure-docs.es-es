@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/25/2020
 ms.author: jeedes
-ms.openlocfilehash: 786925799d19bf01e8edebbf85de04d92213298b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 95d594d585ebb6016c1f2971121898b1c1b9c5da
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98732852"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124816422"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-retrievermediadatabase"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con RetrieverMediaDatabase
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar RetrieverMediaDatabase con Azure Active 
 * Permitir que los usuarios inicien sesión automáticamente en RetrieverMediaDatabase con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -118,7 +118,7 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 1. Haga clic en Probar esta aplicación en Azure Portal. Se debería iniciar sesión automáticamente en la instancia de RetrieverMediaDatabase para la ha configurado el inicio de sesión único.
 
-1. Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de RetrieverMediaDatabase en Mis aplicaciones, se debería iniciar sesión automáticamente en la instancia de RetrieverMediaDatabase para la que ha configurado el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+1. Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de RetrieverMediaDatabase en Mis aplicaciones, se debería iniciar sesión automáticamente en la instancia de RetrieverMediaDatabase para la que ha configurado el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

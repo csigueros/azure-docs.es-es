@@ -8,18 +8,18 @@ ms.topic: how-to
 ms.date: 02/17/2021
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 3f5bd22619e49246583d8b9fc4e62ad8ab266993
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d97df947309f9ccc9886e45878cfc91ea6423b23
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100656431"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128590373"
 ---
 # <a name="use-azure-storage-explorer-to-manage-acls-in-azure-data-lake-storage-gen2"></a>Uso del Explorador de Azure Storage para administrar listas de control de acceso en Azure Data Lake Storage Gen2
 
 En este artículo se muestra cómo usar el [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/) para administrar listas de control de acceso (ACL) en cuentas de almacenamiento que tengan habilitado el espacio de nombres jerárquico (HNS).
 
-El Explorador de Storage se puede usar para ver y actualizar las listas de control de acceso de directorios y archivos. La herencia de ACL ya está disponible para los nuevos elementos secundarios que se crean en un directorio primario. Pero también se puede la configuración de las listas de control de acceso de forma recursiva en los elementos secundarios existentes de un directorio primario sin tener que realizar estos cambios individualmente para cada elemento secundario. 
+El Explorador de Storage se puede usar para ver y actualizar las listas de control de acceso de directorios y archivos. La herencia de ACL ya está disponible para los nuevos elementos secundarios que se crean en un directorio primario. Pero también se puede la configuración de las listas de control de acceso de forma recursiva en los elementos secundarios existentes de un directorio primario sin tener que realizar estos cambios individualmente para cada elemento secundario.
 
 En este artículo se muestra cómo modificar la lista de control de acceso de un archivo o directorio y cómo aplicar la configuración de la lista de control de acceso de forma recursiva a los directorios secundarios.
 
@@ -46,11 +46,11 @@ Cuando se inicia por primera vez el Explorador de Storage, aparece la ventana **
 
 Seleccione **Add an Azure Account** (Agregar una cuenta de Azure) y haga clic en **Iniciar sesión**. Siga las indicaciones de la pantalla para registrarse en su cuenta de Azure.
 
-![Captura de pantalla que muestra el Explorador de Microsoft Azure Storage y resalta la opción Add an Azure Account (Agregar una cuenta de Azure) y el botón Sign-in (Iniciar sesión).](media/storage-quickstart-blobs-storage-explorer/connect.png)
+![Captura de pantalla que muestra el Explorador de Microsoft Azure Storage y resalta la opción Add an Azure Account (Agregar una cuenta de Azure) y el botón Sign-in (Iniciar sesión).](media/quickstart-storage-explorer/storage-explorer-connect.png)
 
 Cuando se completa la conexión, el Explorador de Microsoft Azure Storage se carga y se muestra la pestaña **Explorador**. Esta vista proporciona una visión general de todas las cuentas de Azure Storage, así como del almacenamiento local que se configuró mediante el [emulador de almacenamiento Azurite](../common/storage-use-azurite.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), las cuentas de [Cosmos DB](../../cosmos-db/storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) o los entornos de [Azure Stack](/azure-stack/user/azure-stack-storage-connect-se?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-![Explorador de Microsoft Azure Storage: ventana Conectar](media/storage-quickstart-blobs-storage-explorer/mainpage.png)
+![Explorador de Microsoft Azure Storage: ventana Conectar](media/quickstart-storage-explorer/storage-explorer-main-page.png)
 
 ## <a name="manage-an-acl"></a>Administración de una lista de control de acceso
 

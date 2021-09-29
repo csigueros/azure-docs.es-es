@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.subservice: integration-services
 author: swinarko
 ms.author: sawinark
-ms.openlocfilehash: 93fdb913da430241835d448945747ba5ab736f45
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 907b946dec3112d152212d26a1d3dffca41150fa
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121749912"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124828383"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>Configuración de Integration Runtime de SSIS de Azure para conseguir un alto rendimiento
 
@@ -103,7 +103,7 @@ Estos datos representan la ejecución de un único paquete en un único nodo de 
 
 El eje Y es el número de paquetes que completaron la ejecución en una hora. Tenga en cuenta que esto es solo un resultado de la prueba de un paquete que consume memoria. Si desea conocer el rendimiento del paquete, se le recomienda realizar la prueba por sí mismo.
 
-![Velocidad de ejecución de paquetes de Integration Runtime de SSIS](media/configure-azure-ssis-integration-runtime-performance/ssisir-execution-speedV2.png)
+:::image type="content" source="media/configure-azure-ssis-integration-runtime-performance/ssisir-execution-speedV2.png" alt-text="Velocidad de ejecución de paquetes de Integration Runtime de SSIS":::
 
 ### <a name="configure-for-overall-throughput"></a>Configuración del rendimiento global
 
@@ -111,7 +111,7 @@ Si tiene que ejecutar muchos paquetes y lo que más le preocupa es el rendimient
 
 El eje Y es el número de paquetes que completaron la ejecución en una hora. Tenga en cuenta que esto es solo un resultado de la prueba de un paquete que consume memoria. Si desea conocer el rendimiento del paquete, se le recomienda realizar la prueba por sí mismo.
 
-![Rendimiento global máximo de Integration Runtime de SSIS](media/configure-azure-ssis-integration-runtime-performance/ssisir-overall-throughputV2.png)
+:::image type="content" source="media/configure-azure-ssis-integration-runtime-performance/ssisir-overall-throughputV2.png" alt-text="Rendimiento global máximo de Integration Runtime de SSIS":::
 
 ## <a name="azuressisnodenumber"></a>AzureSSISNodeNumber
 

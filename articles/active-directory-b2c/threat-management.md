@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 07/22/2021
+ms.date: 09/20/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8e17f6933695755a86c5d1e2fbcb7a14c183d0c4
-ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
+ms.openlocfilehash: 99363e4f9f67e6ceca0d163131a2f2ff64b09857
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114602829"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128546980"
 ---
 # <a name="mitigate-credential-attacks-in-azure-ad-b2c"></a>Mitigación de ataques a credenciales en Azure AD B2C
 
@@ -36,7 +36,8 @@ Los diez primeros períodos de bloqueo son de un minuto. Los diez períodos de b
 Para administrar la configuración de protección con contraseña, incluido el umbral de bloqueo:
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com)
-1. Use el filtro **Directorio y suscripción** del menú superior para seleccionar el directorio que contiene el inquilino de Azure AD B2C.
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
 1. En el menú de la izquierda, seleccione **Azure AD B2C**. O bien, seleccione **Todos los servicios** y busque y seleccione **Azure AD B2C**.
 1. En **Seguridad**, seleccione **Métodos de autenticación (Vista preliminar)** y, a continuación, seleccione **Protección con contraseña**.
 1. En **Bloqueo inteligente personalizado**, especifique la configuración de protección de contraseñas deseada:

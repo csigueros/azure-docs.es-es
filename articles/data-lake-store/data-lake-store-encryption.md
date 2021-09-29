@@ -1,19 +1,17 @@
 ---
 title: Cifrado de Azure Data Lake Storage Gen1 | Microsoft Docs
 description: El cifrado en Azure Data Lake Storage Gen1 le ayuda a proteger sus datos, implementar directivas de seguridad de empresa y satisfacer los requisitos de cumplimiento normativo. En este artículo se proporciona información general sobre el diseño y se discuten algunos de los aspectos técnicos de la implementación.
-services: data-lake-store
-documentationcenter: ''
-author: twooley
+author: normesta
 ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 03/26/2018
-ms.author: twooley
-ms.openlocfilehash: dda173278f2bb788b0768fc891b951793224bf77
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.author: normesta
+ms.openlocfilehash: f0b24fd25a0fa95d6ed8561349987f9cb5fc5ee3
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113006165"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128596132"
 ---
 # <a name="encryption-of-data-in-azure-data-lake-storage-gen1"></a>Cifrado de datos en Azure Data Lake Storage Gen1
 

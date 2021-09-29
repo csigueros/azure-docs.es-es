@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 09/15/2021
 ms.author: banders
-ms.openlocfilehash: 9ff151071d42308137bdb8e9064f9b27ed194cae
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 63295e27791252e3b978fb83801182b7b8814f82
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88688851"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128559832"
 ---
 # <a name="terms-in-your-microsoft-partner-agreement-invoice"></a>Términos que aparecen en la factura de Microsoft Partner Agreement
 
@@ -42,7 +42,7 @@ El **Resumen de factura** se encuentra en la parte superior de la primera págin
 | Pedido de compra number |Un número de pedido de compra opcional asignado por usted para el seguimiento |
 | Número de factura |Un número de factura único generado por Microsoft usado para fines de seguimiento |
 | Fecha de la factura |Fecha en la que se generó la factura, normalmente entre 5 y 12 días después del final del ciclo de facturación. Puede consultar la fecha de la factura en las propiedades del perfil de facturación.|
-| Términos de pago |Forma de pago de su factura de Microsoft. *60 días naturales* significa que se paga en un plazo máximo de 60 días a partir de la fecha de factura. |
+| Condiciones de pago |Forma de pago de su factura de Microsoft. *60 días naturales* significa que se paga en un plazo máximo de 60 días a partir de la fecha de factura. |
 
 ## <a name="billing-summary"></a>Resumen de facturación
 

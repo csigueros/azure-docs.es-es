@@ -8,12 +8,12 @@ ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/07/2019
-ms.openlocfilehash: e313e3cb6711a844b4e0aa44a5453fc945a974d7
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 456fc7a8df9103d1edd9d912f56bda3c58a10f9d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121737007"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124743464"
 ---
 # <a name="migrate-data-from-amazon-s3-to-azure-data-lake-storage-gen2"></a>Migración de datos de Amazon S3 a Azure Data Lake Storage Gen2
 
@@ -106,23 +106,23 @@ La plantilla contiene dos parámetros:
 
 3. Vaya a la plantilla **Migrar datos históricos desde AWS S3 en Azure Data Lake Storage Gen2**. Introduzca las conexiones en la tabla de control externa, AWS S3 como el almacén de origen de datos y Azure Data Lake Storage Gen2 como el almacén de destino. Tenga en cuenta que la tabla de control externa y el procedimiento almacenado hacen referencia a la misma conexión.
 
-    ![Captura de pantalla que muestra la plantilla Migrate historical data from AWS S3 to Azure Data Lake Storage Gen2.](media/solution-template-migration-s3-azure/historical-migration-s3-azure1.png)
+    :::image type="content" source="media/solution-template-migration-s3-azure/historical-migration-s3-azure1.png" alt-text="Captura de pantalla que muestra la plantilla Migrate historical data from AWS S3 to Azure Data Lake Storage Gen2.":::
 
 4. Seleccione **Usar esta plantilla**.
 
-    ![Captura de pantalla que resalta el botón Usar esta plantilla.](media/solution-template-migration-s3-azure/historical-migration-s3-azure2.png)
+    :::image type="content" source="media/solution-template-migration-s3-azure/historical-migration-s3-azure2.png" alt-text="Captura de pantalla que resalta el botón Usar esta plantilla.":::
     
 5. Verá que se crearon dos canalizaciones y tres conjuntos de valores, tal como se muestra en el ejemplo siguiente:
 
-    ![Captura de pantalla que muestra las dos canalizaciones y los tres conjuntos de datos que se crearon con la plantilla.](media/solution-template-migration-s3-azure/historical-migration-s3-azure3.png)
+    :::image type="content" source="media/solution-template-migration-s3-azure/historical-migration-s3-azure3.png" alt-text="Captura de pantalla que muestra las dos canalizaciones y los tres conjuntos de datos que se crearon con la plantilla.":::
 
 6. Vaya a la canalización "BulkCopyFromS3", seleccione **Depurar** y escriba los **parámetros**. A continuación, seleccione **Finish** (Finalizar).
 
-    ![Captura de pantalla que muestra dónde seleccionar Depurar y especificar los parámetros antes de seleccionar Finalizar.](media/solution-template-migration-s3-azure/historical-migration-s3-azure4.png)
+    :::image type="content" source="media/solution-template-migration-s3-azure/historical-migration-s3-azure4.png" alt-text="Captura de pantalla que muestra dónde seleccionar Depurar y especificar los parámetros antes de seleccionar Finalizar.":::
 
 7. Ve resultados similares al ejemplo siguiente:
 
-    ![Captura de pantalla que muestra los resultados devueltos.](media/solution-template-migration-s3-azure/historical-migration-s3-azure5.png)
+    :::image type="content" source="media/solution-template-migration-s3-azure/historical-migration-s3-azure5.png" alt-text="Captura de pantalla que muestra los resultados devueltos.":::
 
 
 ### <a name="for-the-template-to-copy-changed-files-only-from-amazon-s3-to-azure-data-lake-storage-gen2"></a>Para que la plantilla copie los archivos modificados solo desde Amazon S3 en Azure Data Lake Storage Gen2
@@ -169,27 +169,27 @@ La plantilla contiene dos parámetros:
 
 3. Vaya a la plantilla **Copiar datos delta desde AWS S3 en Azure Data Lake Storage Gen2**. Introduzca las conexiones en la tabla de control externa, AWS S3 como el almacén de origen de datos y Azure Data Lake Storage Gen2 como el almacén de destino. Tenga en cuenta que la tabla de control externa y el procedimiento almacenado hacen referencia a la misma conexión.
 
-    ![Crear una conexión](media/solution-template-migration-s3-azure/delta-migration-s3-azure1.png)
+    :::image type="content" source="media/solution-template-migration-s3-azure/delta-migration-s3-azure1.png" alt-text="Crear una conexión":::
 
 4. Seleccione **Usar esta plantilla**.
 
-    ![Uso de esta plantilla](media/solution-template-migration-s3-azure/delta-migration-s3-azure2.png)
+    :::image type="content" source="media/solution-template-migration-s3-azure/delta-migration-s3-azure2.png" alt-text="Uso de esta plantilla":::
     
 5. Verá que se crearon dos canalizaciones y tres conjuntos de valores, tal como se muestra en el ejemplo siguiente:
 
-    ![Revisión de la canalización](media/solution-template-migration-s3-azure/delta-migration-s3-azure3.png)
+    :::image type="content" source="media/solution-template-migration-s3-azure/delta-migration-s3-azure3.png" alt-text="Revisión de la canalización":::
 
 6.  Vaya a la canalización "DeltaCopyFromS3", seleccione **Depurar** y escriba los **parámetros**. A continuación, seleccione **Finish** (Finalizar).
 
-    ![Clic en **Depurar**](media/solution-template-migration-s3-azure/delta-migration-s3-azure4.png)
+    :::image type="content" source="media/solution-template-migration-s3-azure/delta-migration-s3-azure4.png" alt-text="Clic en **Depurar**":::
 
 7. Ve resultados similares al ejemplo siguiente:
 
-    ![Revisión del resultado](media/solution-template-migration-s3-azure/delta-migration-s3-azure5.png)
+    :::image type="content" source="media/solution-template-migration-s3-azure/delta-migration-s3-azure5.png" alt-text="Revisión del resultado":::
 
 8. También puede comprobar los resultados de la tabla de control mediante una consulta *"select * from s3_partition_delta_control_table"* . Verá que la salida es similar a la del ejemplo siguiente:
 
-    ![Captura de pantalla que muestra los resultados de la tabla de control después de ejecutar la consulta.](media/solution-template-migration-s3-azure/delta-migration-s3-azure6.png)
+    :::image type="content" source="media/solution-template-migration-s3-azure/delta-migration-s3-azure6.png" alt-text="Captura de pantalla que muestra los resultados de la tabla de control después de ejecutar la consulta.":::
     
 ## <a name="next-steps"></a>Pasos siguientes
 

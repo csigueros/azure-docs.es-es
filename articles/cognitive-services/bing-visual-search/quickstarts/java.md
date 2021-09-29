@@ -3,20 +3,18 @@ title: 'Inicio rápido: Obtención de conclusiones de imágenes mediante la API 
 titleSuffix: Azure Cognitive Services
 description: Aprenda a cargar una imagen en Bing Visual Search API y obtener conclusiones sobre ella.
 services: cognitive-services
-author: swhite-msft
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
 ms.date: 05/22/2020
 ms.custom: devx-track-java
-ms.author: scottwhi
-ms.openlocfilehash: b92010a1e4ea0cb942d3e3749965a1c4399a97f8
-ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
+ms.openlocfilehash: ec9c736c3f1a643e3f53c2c56141f3bc37fa61d6
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/04/2021
-ms.locfileid: "113286167"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128658683"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-java"></a>Inicio rápido: Obtención de conclusiones de imágenes mediante la API de REST Bing Visual Search y Java
 

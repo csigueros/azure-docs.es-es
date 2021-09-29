@@ -6,20 +6,20 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/22/2021
+ms.date: 08/16/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 9accd34601ed900ff7600485b1b3007054c4202a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 2aeedab7e8ec7204137ec12fdcc049c0ad01881f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121780111"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128606292"
 ---
 # <a name="configure-immutability-policies-for-containers"></a>Configuración de directivas de inmutabilidad para contenedores
 
-El almacenamiento inmutable para Azure Blob Storage permite a los usuarios almacenar datos críticos para la empresa en un estado WORM (escribir una vez, leer muchas). Mientras los datos se encuentran en un estado WORM, no se pueden modificar ni eliminar durante un intervalo especificado por el usuario. Configurando directivas de inmutabilidad para los datos de blobs, puede impedir que sus datos se sobrescriban o eliminen. Las directivas de inmutabilidad incluyen directivas de retención de duración definida y suspensiones legales. Para obtener más información sobre las directivas de inmutabilidad de Blob Storage, consulte [Almacenamiento de datos críticos para la empresa con almacenamiento inmutable](immutable-storage-overview.md).
+El almacenamiento inmutable para Azure Blob Storage permite a los usuarios almacenar datos críticos para la empresa en un estado WORM (escribir una vez, leer muchas). Mientras los datos se encuentran en estado WORM, no se pueden modificar ni eliminar durante un intervalo especificado por el usuario. Con la configuración de directivas de inmutabilidad para los datos de blobs, puede impedir que sus datos se sobrescriban y eliminen. Las directivas de inmutabilidad incluyen directivas de retención de duración definida y suspensiones legales. Para más información sobre las directivas de inmutabilidad de Blob Storage, consulte [Almacenamiento de datos críticos para la empresa con almacenamiento inmutable](immutable-storage-overview.md).
 
 Una directiva de inmutabilidad puede tener como ámbito una determinada versión de blob (versión preliminar) o un contenedor. En este artículo se describe cómo configurar una directiva de inmutabilidad para contenedores. Para obtener información sobre cómo configurar directivas de inmutabilidad para versiones, consulte [Configuración de directivas de inmutabilidad para versiones de blob (versión preliminar)](immutable-policy-configure-version-scope.md).
 
@@ -79,7 +79,7 @@ Para modificar una directiva de retención de duración definida desbloqueada en
 
 1. Desplácese hasta el contenedor deseado.
 1. Seleccione el botón **Más** y elija **Directiva de acceso**.
-1. En la sección **Versiones de blob inmutables**, localice la directiva desbloqueada ya existente. Seleccione el botón **Más** y, a continuación **Editar** en el menú.
+1. En la sección **Versiones de blob inmutables**, busque la directiva desbloqueada ya existente. Seleccione el botón **Más** y, a continuación **Editar** en el menú.
 1. Proporcione un nuevo intervalo de retención para la directiva. También puede seleccionar **Permitir anexos protegidos adicionales** para permitir que se escriba en blobs en anexos que estén protegidos.
 
     :::image type="content" source="media/immutable-policy-configure-container-scope/modify-retention-policy-container-scope.png" alt-text="Captura de pantalla en la que se muestra cómo modificar una directiva de retención de duración definida desbloqueada":::
@@ -112,7 +112,7 @@ Para eliminar una directiva desbloqueada, llame al comando [Remove-AzRmStorageCo
 ```azurepowershell
 Remove-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName <resource-group> `
     -AccountName <storage-account> `
-    -ContainerName <container> 
+    -ContainerName <container>
     -Etag $policy.Etag
 ```
 
@@ -125,7 +125,7 @@ $etag=$(az storage container immutability-policy show /
         --account-name <storage-account> /
         --container-name <container> /
         --query etag /
-        --output tsv) 
+        --output tsv)
 
 az storage container immutability-policy \
     --resource-group <resource-group>
@@ -133,7 +133,7 @@ az storage container immutability-policy \
     --container-name <container> \
     --period 21 \
     --if-match $etag \
-    --allow-protected-append-writes true 
+    --allow-protected-append-writes true
 ```
 
 Para eliminar una directiva desbloqueada, llame al comando [az storage container immutability-policy delete](/cli/azure/storage/container/immutability-policy#az_storage_container_immutability_policy_delete).
@@ -142,7 +142,7 @@ Para eliminar una directiva desbloqueada, llame al comando [az storage container
 
 ## <a name="lock-a-time-based-retention-policy"></a>Bloqueo de una directiva de retención de duración definida
 
-Cuando haya terminado de probar una directiva de retención de duración definida, puede bloquearla. Una directiva bloqueada cumple los requisitos de SEC 17a-4(f) y de otras normas. Puede ampliar el intervalo de retención de una directiva bloqueada hasta cinco veces, pero no reducirlo.
+Cuando haya terminado de probar una directiva de retención de duración definida, puede bloquearla. Una directiva bloqueada cumple los requisitos de SEC 17a-4(f) y de otras normas. Puede ampliar el intervalo de retención de una directiva bloqueada hasta cinco veces, pero no acortarlo.
 
 Una vez bloqueada una directiva, no se puede eliminar. Sin embargo, puede eliminar el blob una vez expirado el intervalo de retención.
 
@@ -151,7 +151,7 @@ Una vez bloqueada una directiva, no se puede eliminar. Sin embargo, puede elimin
 Para asignar una directiva con Azure Portal, siga los pasos que figuran a continuación:
 
 1. Vaya a un contenedor con una directiva desbloqueada.
-1. En la sección **Versiones de blob inmutables**, localice la directiva desbloqueada ya existente. Seleccione el botón **Más** y, a continuación **Bloquear directiva** en el menú.
+1. En la sección **Versiones de blob inmutables**, localice la directiva desbloqueada ya existente. Seleccione el botón **Más** y, luego, **Bloquear directiva** en el menú.
 1. Confirme que desea bloquear la directiva.
 
 :::image type="content" source="media/immutable-policy-configure-container-scope/lock-retention-policy.png" alt-text="Captura de pantalla en la que se muestra cómo bloquear una directiva de retención de duración definida en Azure Portal":::
@@ -180,7 +180,7 @@ $etag=$(az storage container immutability-policy show /
         --account-name <storage-account> /
         --container-name <container> /
         --query etag /
-        --output tsv) 
+        --output tsv)
 
 az storage container immutability-policy lock /
     --resource-group <resource-group> /
@@ -226,7 +226,7 @@ Para borrar una suspensión legal, llame al comando [Remove-AzRmStorageContainer
 ```azurepowershell
 Remove-AzRmStorageContainerLegalHold -ResourceGroupName <resource-group> `
     -StorageAccountName <storage-account> `
-    -Name <container> ` 
+    -Name <container> `
     -Tag <tag1>,<tag2>,...
 ```
 
@@ -257,6 +257,6 @@ az storage container legal-hold clear /
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Almacenamiento inmutable de los datos críticos para la empresa en Azure Blob Storage](immutable-storage-overview.md)
-- [Directivas de retención de duración definida para datos de blobs inmutables](immutable-time-based-retention-policy-overview.md)
+- [Directivas de retención con duración definida para datos de blobs inmutables](immutable-time-based-retention-policy-overview.md)
 - [Retenciones legales para datos de blob inmutables](immutable-legal-hold-overview.md)
 - [Configuración de directivas de inmutabilidad para versiones de blobs (versión preliminar)](immutable-policy-configure-version-scope.md)

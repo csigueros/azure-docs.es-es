@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 12b6e3d0202de03c6378438457900601e4d091b8
-ms.sourcegitcommit: 695a33a2123429289ac316028265711a79542b1c
+ms.openlocfilehash: 814514ede598d0de435c767ee29ef6aa4564d003
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2021
-ms.locfileid: "113129534"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128616581"
 ---
 # <a name="azure-security-baseline-for-azure-cloud-services"></a>Base de referencia de seguridad de Azure para Azure Cloud Services
 
@@ -193,7 +193,7 @@ Cree una configuración de diagnóstico para enviar el registro de actividad a A
 
 **Guía**: Microsoft mantiene los orígenes de hora de los recursos de Azure para Azure Cloud Services. Es posible que los clientes tengan que crear una regla de red para permitir el acceso a un servidor de hora que se use en su entorno, a través del puerto 123 con el protocolo UDP.
 
-- [Acceso al servidor NTP](../firewall/protect-windows-virtual-desktop.md#additional-considerations)
+- [Acceso al servidor NTP](../firewall/protect-azure-virtual-desktop.md#additional-considerations)
 
 **Responsabilidad**: Compartido
 

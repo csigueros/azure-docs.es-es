@@ -2,17 +2,17 @@
 title: Puntuaciones de pruebas comparativas de proceso para máquinas virtuales Linux de Azure
 description: Comparación de puntuaciones de pruebas comparativas de proceso de CoreMark para máquinas virtuales de Azure con Linux.
 ms.service: virtual-machines
-ms.subservice: benchmark
+ms.subservice: sizes
 ms.collection: linux
 ms.topic: conceptual
 ms.date: 04/08/2021
 ms.reviewer: davberg
-ms.openlocfilehash: 41a2f377629b8cce647adecb21e395c60bf15a7c
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: 3847250ee3c5a080740aef51541fdf47e5c11882
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122770784"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129216541"
 ---
 # <a name="compute-benchmark-scores-for-linux-vms"></a>Puntuaciones de pruebas comparativas de proceso para máquinas virtuales Linux
 
@@ -708,7 +708,7 @@ CoreMark es una herramienta de código abierto que se puede descargar de [GitHub
 
 Para compilar y ejecutar el banco de pruebas, escriba:
 
-```> make```
+`> make`
 
 Los resultados completos están disponibles en los archivos ```run1.log``` y ```run2.log```. 
 ```run1.log``` contiene los resultados de CoreMark. Estos son los resultados del banco de pruebas con parámetros de rendimiento.
@@ -718,7 +718,7 @@ Los resultados completos están disponibles en los archivos ```run1.log``` y ```
 
 De forma predeterminada, el banco de pruebas se ejecutará entre 10 y 100 segundos. Para invalidarlo, use ```ITERATIONS=N```;
 
-```% make ITERATIONS=10```
+`% make ITERATIONS=10`
 
 la marca anterior ejecutará el banco de pruebas para 10 iteraciones. 
 **Los resultados solo son válidos para la generación de informes si el banco de pruebas se ejecutó durante al menos 10 segundos.**
@@ -727,7 +727,7 @@ la marca anterior ejecutará el banco de pruebas para 10 iteraciones.
 
 Use ```XCFLAGS=-DMULTITHREAD=N``` donde N es el número de subprocesos que se ejecutarán en paralelo. Hay varias implementaciones disponibles que se pueden ejecutar en varios contextos.
 
-```% make XCFLAGS="-DMULTITHREAD=4 -DUSE_PTHREAD"```
+`% make XCFLAGS="-DMULTITHREAD=4 -DUSE_PTHREAD"`
 
 La opción anterior compilará el punto de referencia para su ejecución en 4 núcleos.
 

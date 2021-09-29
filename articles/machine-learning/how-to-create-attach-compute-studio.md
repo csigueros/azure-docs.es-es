@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/16/2021
 ms.topic: how-to
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 8f74b21e2c40b441c48cc3a2837f396252408224
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: be6bc9166ffc0bddae5433734d3213b53e6f6f0e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121736599"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128673661"
 ---
 # <a name="create-compute-targets-for-model-training-and-deployment-in-azure-machine-learning-studio"></a>Creación de destinos de proceso para la implementación y el entrenamiento de modelos en Azure Machine Learning Studio
 
@@ -198,10 +198,10 @@ Si ha creado la instancia de proceso o el clúster de proceso con el acceso SSH 
 
 1. Copie la cadena de conexión.
 1. Para Windows, abra PowerShell o un símbolo del sistema:
-    1. Vaya al directorio o la carpeta donde se almacena la clave.
-    1. Agregue la marca -i a la cadena de conexión para buscar la clave privada y apuntar a donde se almacena:
+   1. Vaya al directorio o la carpeta donde se almacena la clave.
+   1. Agregue la marca -i a la cadena de conexión para buscar la clave privada y apuntar a donde se almacena:
     
-        ```ssh -i <keyname.pem> azureuser@... (rest of connection string)```
+      `ssh -i <keyname.pem> azureuser@... (rest of connection string)`
 
 1. Para los usuarios de Linux, siga los pasos de [Creación y uso de un par de claves SSH para máquinas virtuales Linux en Azure](../virtual-machines/linux/mac-create-ssh-keys.md).
 

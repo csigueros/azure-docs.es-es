@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 09/22/2020
 ms.author: mbullwin
 ms.custom: devx-track-js
-ms.openlocfilehash: ca842a3d235cd58cb12bf9d8d80419e42ddf8441
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 9a709b9872546e8aa4909077b3dd40a03f004d5e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102445473"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128910437"
 ---
 Comience a usar la biblioteca cliente de Anomaly Detector para JavaScript. Siga estos pasos para instalar el inicio del paquete con los algoritmos que proporciona el servicio. El servicio de Anomaly Detector le permite detectar anomalías en los datos de serie temporal mediante el uso automático de los mejores modelos, independientemente del sector, el escenario o el volumen de datos.
 
@@ -24,7 +24,7 @@ Use la biblioteca cliente de Anomaly Detector para JavaScript para hacer lo sigu
 * Detectar el estado de anomalía del punto de datos más reciente en la serie temporal
 * Detectar puntos de cambio de tendencia en el conjunto de datos.
 
-[Documentación de referencia de la biblioteca](https://go.microsoft.com/fwlink/?linkid=2090788) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/AnomalyDetector) | [Paquete (npm)](https://www.npmjs.com/package/%40azure/ai-anomaly-detector) | [Buscar el código en GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/javascript/AnomalyDetector)
+[Documentación de referencia de la biblioteca](https://go.microsoft.com/fwlink/?linkid=2090788) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/anomalydetector) | [Paquete (npm)](https://www.npmjs.com/package/%40azure/ai-anomaly-detector) | [Buscar el código en GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/javascript/AnomalyDetector)
 
 ## <a name="prerequisites"></a>Requisitos previos
 

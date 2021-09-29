@@ -7,13 +7,13 @@ ms.devlang: powershell
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/22/2021
-ms.openlocfilehash: c95f4dc48f1b6da72cad0418468ef06929ac6866
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.date: 09/15/2021
+ms.openlocfilehash: 86ecab935209a21fbb07ae670b338f85ca455deb
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114467317"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128680478"
 ---
 # <a name="create-event-grid-custom-topic-with-powershell"></a>Creación de un tema personalizado de Event Grid con PowerShell
 

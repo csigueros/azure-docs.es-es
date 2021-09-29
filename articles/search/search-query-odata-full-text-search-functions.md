@@ -7,7 +7,7 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 09/16/2021
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 8a3c563c25283c300942f1fb58072e8c61847ba1
-ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
+ms.openlocfilehash: c58c45ba0cff48b5760c9c3c164cb95b0f4e6336
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122831454"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128559235"
 ---
 # <a name="odata-full-text-search-functions-in-azure-cognitive-search---searchismatch-and-searchismatchscoring"></a>Funciones de búsqueda de texto completo de OData en Azure Cognitive Search: `search.ismatch` y `search.ismatchscoring`
 
@@ -128,7 +128,7 @@ Busque documentos donde los términos "hotel" y "airport" no estén separados po
     search.ismatch('"hotel airport"~5', 'Description', 'full', 'any') and Rooms/any(room: not room/SmokingAllowed)
 ```
 
-Busque documentos que tengan una palabra que comience por las letras "lux" en el campo Descripción. Esta consulta usa [búsqueda de prefijo](query-simple-syntax.md#prefix-queries) en combinación con `search.ismatch`.
+Busque documentos que tengan una palabra que comience por las letras "lux" en el campo Descripción. En esta consulta se usa la [búsqueda de prefijo](query-simple-syntax.md#prefix-queries) en combinación con `search.ismatch`.
 
 ```odata-filter-expr
     search.ismatch('lux*', 'Description')

@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo configurar la recuperación ante d
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
-ms.openlocfilehash: 869702c9eaac4a38f6b0e64311c772892ddd6d90
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.openlocfilehash: 6a77b91b49009964ba6e20f76e20e4739da6ea75
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106580440"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124823769"
 ---
 # <a name="set-up-disaster-recovery-at-scale-for-vmware-vmsphysical-servers"></a>Configuración de recuperación ante desastres a escala para servidores físicos o máquinas virtuales de VMware
 
@@ -82,7 +82,7 @@ Queremos asegurarnos de que las cuotas disponibles en la suscripción de destino
 
 **Task** | **Detalles** | **Acción**
 --- | --- | ---
-**Comprobación de núcleos** | Si los núcleos de la cuota disponible no son iguales ni superiores al recuento de destino total en el momento de la conmutación por error, las conmutación por error generarán un error. | En el caso de las máquinas virtuales de VMware, compruebe que tiene los núcleos suficientes en la suscripción de destino para cumplir la recomendación de núcleos de Deployment Planner.<br/><br/> En el caso de los servidores físicos, compruebe que los núcleos de Azure cumplen con los cálculos manuales.<br/><br/> Para comprobar las cuotas, en Azure Portal > **Suscripción**, haga clic en **Uso y cuotas**.<br/><br/> [Obtenga más información](../azure-portal/supportability/resource-manager-core-quotas-request.md) sobre cómo aumentar las cuotas.
+**Comprobación de núcleos** | Si los núcleos de la cuota disponible no son iguales ni superiores al recuento de destino total en el momento de la conmutación por error, las conmutación por error generarán un error. | En el caso de las máquinas virtuales de VMware, compruebe que tiene los núcleos suficientes en la suscripción de destino para cumplir la recomendación de núcleos de Deployment Planner.<br/><br/> En el caso de los servidores físicos, compruebe que los núcleos de Azure cumplen con los cálculos manuales.<br/><br/> Para comprobar las cuotas, en Azure Portal > **Suscripción**, haga clic en **Uso y cuotas**.<br/><br/> [Obtenga más información](../azure-portal/supportability/regional-quota-requests.md) sobre cómo aumentar las cuotas.
 **Comprobación de los límites de conmutación por error** | El número de conmutaciones por error no debe superar los límites de conmutación por error de Site Recovery. |  Si las conmutaciones por error superan los límites, puede agregar suscripciones y conmutar por error a varias suscripciones, o bien puede aumentar la cuota para una suscripción. 
 
 

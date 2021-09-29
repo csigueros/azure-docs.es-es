@@ -10,20 +10,20 @@ ms.date: 12/04/2019
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e924a5f6c765b5b964fe3b1492393b063d9d23b4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 181dd9531ec8aa3630ff1ef3e3356ead5120c512
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92783579"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128605969"
 ---
 # <a name="managing-storage-in-the-azure-independent-clouds-using-powershell"></a>Administración del almacenamiento en las nubes independientes mediante PowerShell
 
 La mayoría de los usuarios utiliza la nube pública de Azure para una implementación global. También hay algunas implementaciones independientes de Microsoft Azure por motivos de soberanía, etc. Estas implementaciones independientes se conocen como "entornos". La siguiente lista detalla las nubes independientes disponibles actualmente.
 
-* [Azure Government Cloud (Nube de Azure Government)](https://azure.microsoft.com/features/gov/)
-* [Nube Azure China 21Vianet controlada por 21Vianet en China](http://www.windowsazure.cn/)
-* [Nube de Azure German](../../germany/germany-welcome.md)
+- [Azure Government Cloud (Nube de Azure Government)](https://azure.microsoft.com/features/gov/)
+- [Nube Azure China 21Vianet controlada por 21Vianet en China](http://www.windowsazure.cn/)
+- [Nube de Azure German](../../germany/germany-welcome.md)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -31,9 +31,9 @@ La mayoría de los usuarios utiliza la nube pública de Azure para una implement
 
 Para usar Azure Storage en una de las nubes independientes, conéctese a ella, en lugar de a la nube pública de Azure. Para usar una de las nubes independientes en lugar de la nube pública de Azure:
 
-* Especifique el *entorno* al que se va a conectar.
-* Puede determinar y usar las regiones disponibles.
-* Utilice el sufijo de punto de conexión correcto, que es diferente en el caso de la nube pública de Azure.
+- Especifique el *entorno* al que se va a conectar.
+- Puede determinar y usar las regiones disponibles.
+- Utilice el sufijo de punto de conexión correcto, que es diferente en el caso de la nube pública de Azure.
 
 Los ejemplos requieren la versión 0.7 o posterior del módulo Az de Azure PowerShell. En una ventana de PowerShell, ejecute `Get-Module -ListAvailable Az` para buscar la versión. Si no aparece ninguna o necesita una actualización, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-Az-ps).
 
@@ -45,7 +45,7 @@ Ejecute el cmdlet [Get-AzEnvironment](/powershell/module/az.accounts/get-azenvir
 Get-AzEnvironment
 ```
 
-Inicie sesión en la cuenta que tenga acceso a la nube a la que desea conectarse y establezca el entorno. Este ejemplo le muestra cómo iniciar sesión en una cuenta que utiliza la nube de administración pública de Azure.   
+Inicie sesión en la cuenta que tenga acceso a la nube a la que desea conectarse y establezca el entorno. Este ejemplo le muestra cómo iniciar sesión en una cuenta que utiliza la nube de administración pública de Azure.
 
 ```powershell
 Connect-AzAccount –Environment AzureUSGovernment
@@ -65,7 +65,6 @@ La siguiente tabla muestra las ubicaciones devueltas para la nube de Alemania.
 |----|----|
 | `germanycentral` | Centro de Alemania|
 | `germanynortheast` | Nordeste de Alemania |
-
 
 ## <a name="endpoint-suffix"></a>Sufijo de punto de conexión
 
@@ -166,8 +165,8 @@ Remove-AzResourceGroup -Name $resourceGroup
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Conservación de inicios de sesión de usuario entre sesiones de PowerShell](/powershell/azure/context-persistence)
-* [Almacenamiento de Azure Government](../../azure-government/compare-azure-government-global-azure.md)
-* [Guía para desarrolladores de Microsoft Azure Government](../../azure-government/documentation-government-developer-guide.md)
-* [Notas para desarrolladores para las aplicaciones de Azure China 21Vianet](https://msdn.microsoft.com/library/azure/dn578439.aspx)
-* [Documentación sobre Azure Alemania](../../germany/germany-welcome.md)
+- [Conservación de inicios de sesión de usuario entre sesiones de PowerShell](/powershell/azure/context-persistence)
+- [Almacenamiento de Azure Government](../../azure-government/compare-azure-government-global-azure.md)
+- [Guía para desarrolladores de Microsoft Azure Government](../../azure-government/documentation-government-developer-guide.md)
+- [Notas para desarrolladores para las aplicaciones de Azure China 21Vianet](https://msdn.microsoft.com/library/azure/dn578439.aspx)
+- [Documentación sobre Azure Alemania](../../germany/germany-welcome.md)

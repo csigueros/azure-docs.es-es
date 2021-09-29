@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/30/2020
+ms.date: 09/20/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4d1aab07514f4a42d011cf75a9a22b34246a5653
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 6dd813d2bd046d6b4256bd17b447b8d5660bdea2
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121734533"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128564048"
 ---
 # <a name="secure-an-azure-api-management-api-with-azure-ad-b2c"></a>Protección de una API de Azure API Management con Azure AD B2C
 
@@ -40,7 +40,8 @@ Para registrar una aplicación en el inquilino de Azure AD B2C, puede usar la 
 # <a name="app-registrations"></a>[Registros de aplicaciones](#tab/app-reg-ga/)
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-1. Seleccione el filtro **Directorio y suscripción** en el menú superior y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
 1. En el panel de la izquierda, seleccione **Azure AD B2C**. O bien, puede seleccionar **Todos los servicios** y, luego, buscar y seleccionar **Azure AD B2C**.
 1. Seleccione **Registros de aplicaciones** y, a continuación, la pestaña **Aplicaciones propias**.
 1. Anote el valor de la columna **Id. de aplicación (cliente)** de *webapp1* u otra aplicación que haya creado previamente.
@@ -48,7 +49,8 @@ Para registrar una aplicación en el inquilino de Azure AD B2C, puede usar la 
 # <a name="applications-legacy"></a>[Applications (Legacy)](#tab/applications-legacy/) (Aplicaciones [heredadas])
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-1. Seleccione el filtro **Directorio y suscripción** en el menú superior y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
 1. En el panel de la izquierda, seleccione **Azure AD B2C**. O bien, puede seleccionar **Todos los servicios** y, luego, buscar y seleccionar **Azure AD B2C**.
 1. En **Administrar**, seleccione **Aplicaciones (heredado)** .
 1. Anote el valor de la columna **Id. de aplicación** de *webapp1* u otra aplicación que haya creado previamente.

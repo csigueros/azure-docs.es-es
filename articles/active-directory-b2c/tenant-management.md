@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/10/2021
+ms.date: 09/20/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8aeb818104e1424d96374bf535d4c02a870f4705
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: 3851f9893799902c9cdcda71db67a9152de028ec
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112453887"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128595814"
 ---
 # <a name="manage-your-azure-active-directory-b2c-tenant"></a>Administración del inquilino de Azure Active Directory B2C
 
@@ -76,7 +76,8 @@ Al planear la estrategia de control de acceso, es mejor asignar a los usuarios e
 Para crear una cuenta administrativa, siga estos pasos:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) con permisos de administrador de roles con privilegios o de administrador global.
-1. Seleccione el filtro **Directorio y suscripción** en el menú superior y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
 1. En **Servicios de Azure**, seleccione **Azure AD B2C**. O bien, use el cuadro de búsqueda para buscar y seleccionar **Azure AD B2C**.
 1. En **Administrar**, seleccione **Usuarios**.
 1. Seleccione **Nuevo usuario**.
@@ -101,7 +102,8 @@ También puede invitar a un nuevo usuario invitado para administrar el inquilino
 Para invitar a un usuario, siga estos pasos:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) con permisos de administrador de roles con privilegios o de administrador global.
-1. Seleccione el filtro **Directorio y suscripción** en el menú superior y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
 1. En **Servicios de Azure**, seleccione **Azure AD B2C**. O bien, use el cuadro de búsqueda para buscar y seleccionar **Azure AD B2C**.
 1. En **Administrar**, seleccione **Usuarios**.
 1. Seleccione **New guest account** (Nueva cuenta de invitado).
@@ -123,13 +125,13 @@ Se envía un correo electrónico de invitación al usuario. El usuario debe acep
 Si el invitado no recibió el correo electrónico de invitación o la invitación expiró, puede reenviarla. Como alternativa al correo electrónico de invitación, puede proporcionar al invitado un vínculo directo para aceptar la invitación. Para reenviar la invitación y obtener el vínculo directo:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-1. Seleccione el filtro **Directorio y suscripción** en el menú superior y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
 1. En **Servicios de Azure**, seleccione **Azure AD B2C**. O bien, use el cuadro de búsqueda para buscar y seleccionar **Azure AD B2C**.
 1. En **Administrar**, seleccione **Usuarios**.
 1. Busque y seleccione el usuario al que desea reenviar la invitación.
 1. En la página **Usuario | Perfil**, en **Identidad**, seleccione **(Administrar)** .
-    
-    ![Captura de pantalla en la que se muestra cómo reenviar el correo electrónico de invitación de la cuenta de invitado.](./media/tenant-management/guest-account-resend-invite.png)
+        ![Captura de pantalla en la que se muestra cómo reenviar el correo electrónico de invitación de la cuenta de invitado.](./media/tenant-management/guest-account-resend-invite.png)
 
 1. En **¿Quiere volver a enviar la invitación?** , seleccione **Sí**. Cuando aparezca el mensaje **¿Seguro que quiere volver a enviar una invitación?** , seleccione **Sí**.
 1. Azure AD B2C envía la invitación. También puede copiar la dirección URL de invitación y proporcionarla directamente al invitado.
@@ -141,7 +143,8 @@ Si el invitado no recibió el correo electrónico de invitación o la invitació
 Puede asignar un rol al [crear un usuario](#add-an-administrator-work-account) o al [invitar a un usuario externo](#invite-an-administrator-guest-account). Puede agregar un rol, cambiarlo o quitarlo para un usuario:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) con permisos de administrador de roles con privilegios o de administrador global.
-1. Seleccione el filtro **Directorio y suscripción** en el menú superior y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
 1. En **Servicios de Azure**, seleccione **Azure AD B2C**. O bien, use el cuadro de búsqueda para buscar y seleccionar **Azure AD B2C**.
 1. En **Administrar**, seleccione **Usuarios**.
 1. Seleccione el usuario cuyo rol desea modificar. Después, seleccione **Roles asignados**.
@@ -159,7 +162,8 @@ Si necesita quitar una asignación de roles de un usuario, siga estos pasos:
 Como parte de un proceso de auditoría, normalmente se revisa qué usuarios están asignados a roles específicos en el directorio de Azure AD B2C. Siga estos pasos para auditar qué usuarios tienen asignados roles con privilegios actualmente.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) con permisos de administrador de roles con privilegios o de administrador global.
-1. Seleccione el filtro **Directorio y suscripción** en el menú superior y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
 1. En **Servicios de Azure**, seleccione **Azure AD B2C**. O bien, use el cuadro de búsqueda para buscar y seleccionar **Azure AD B2C**.
 1. En **Administrar**, seleccione **Roles y administradores**.
 1. Seleccione un rol, como **Administrador global**. En la página **Rol | Asignaciones**, se muestran los usuarios que tienen dicho rol.
@@ -186,7 +190,8 @@ Puede habilitar los [valores predeterminados de seguridad de Azure AD](../activ
 Para obtener el nombre del inquilino de Azure AD B2C, siga estos pasos:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-1. Seleccione el filtro **Directorio y suscripción** en el menú superior y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
 1. En Azure Portal, busque y seleccione **Azure AD B2C**.
 1. En **Información general**, copie el **nombre de dominio**.
 
@@ -197,7 +202,8 @@ Para obtener el nombre del inquilino de Azure AD B2C, siga estos pasos:
 Para obtener el identificador del inquilino de Azure AD B2C, siga estos pasos:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-1. Seleccione el filtro **Directorio y suscripción** en el menú superior y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
 1. En Azure Portal, busque y seleccione **Azure Active Directory**.
 1. En **Información general**, copie el **identificador de inquilino**.
 

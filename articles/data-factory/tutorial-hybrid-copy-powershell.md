@@ -8,12 +8,12 @@ ms.subservice: tutorials
 ms.topic: tutorial
 ms.custom: devx-track-azurepowershell
 ms.date: 02/18/2021
-ms.openlocfilehash: fb01749b71c89b4290abf71e7f8ed5d95b891cdd
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 38f98ab557738031e4c3933a4bc914b31c42cd91
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122638000"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124814834"
 ---
 # <a name="tutorial-copy-data-from-a-sql-server-database-to-azure-blob-storage"></a>Tutorial: Copia de datos de una base de datos de SQL Server a Azure Blob Storage
 
@@ -82,7 +82,7 @@ En este tutorial, use el nombre y la clave de su cuenta de Azure Storage. Para o
 
 1. En el panel izquierdo, seleccione **Más servicios**, use la palabra clave **Almacenamiento** para realizar el filtro y, luego, seleccione **Cuentas de almacenamiento**.
 
-    ![Buscar cuenta de Storage](media/doc-common-process/search-storage-account.png)
+    :::image type="content" source="media/doc-common-process/search-storage-account.png" alt-text="Buscar cuenta de Storage":::
 
 1. En la lista de cuentas de almacenamiento, filtre por su cuenta de almacenamiento (si fuera necesario) y, después, seleccione su cuenta de almacenamiento.
 
@@ -95,13 +95,13 @@ En esta sección se crea un contenedor de blobs denominado **adftutorial** en la
 
 1. En la ventana **Cuenta de almacenamiento**, cambie a **Información general** y, después, seleccione **Blobs**.
 
-    ![Selección de la opción Blobs](media/tutorial-hybrid-copy-powershell/select-blobs.png)
+    :::image type="content" source="media/tutorial-hybrid-copy-powershell/select-blobs.png" alt-text="Selección de la opción Blobs":::
 
 1. En la ventana **Blob service**, seleccione **Contenedor**.
 
 1. En la ventana **Nuevo contenedor**, en el cuadro **Nombre**, escriba **adftutorial** y, después, seleccione **Aceptar**.
 
-    ![Especificación de un nombre de contenedor](media/tutorial-hybrid-copy-powershell/new-container-dialog.png)
+    :::image type="content" source="media/tutorial-hybrid-copy-powershell/new-container-dialog.png" alt-text="Especificación de un nombre de contenedor":::
 
 1. En la lista de contenedores, seleccione **adftutorial**.  
 
@@ -266,21 +266,21 @@ En esta sección se crea una instancia de Integration Runtime autohospedada y se
 
 1. En la ventana **Registro de Integration Runtime (autohospedado)** , pegue la clave que guardó en la sección anterior y haga clic en **Registrar**.
 
-    ![Registro de Integration Runtime](media/tutorial-hybrid-copy-powershell/register-integration-runtime.png)
+    :::image type="content" source="media/tutorial-hybrid-copy-powershell/register-integration-runtime.png" alt-text="Registro de Integration Runtime":::
 
 1. En la ventana **Nuevo nodo de Integration Runtime (autohospedado)** , seleccione **Finalizar**.
 
-    ![Ventana Nuevo nodo de Integration Runtime](media/tutorial-hybrid-copy-powershell/new-integration-runtime-node-page.png)
+    :::image type="content" source="media/tutorial-hybrid-copy-powershell/new-integration-runtime-node-page.png" alt-text="Ventana Nuevo nodo de Integration Runtime":::
 
  1. Cuando Integration Runtime autohospedado se haya registrado correctamente, se muestra el siguiente mensaje:
 
-    ![Se registró correctamente](media/tutorial-hybrid-copy-powershell/registered-successfully.png)
+    :::image type="content" source="media/tutorial-hybrid-copy-powershell/registered-successfully.png" alt-text="Se registró correctamente":::
 
 1. En la ventana **Registro de Integration Runtime (autohospedado)** , haga clic en **Iniciar Configuration Manager**.
 
 1. Cuando el nodo se conecte al servicio en la nube, se mostrará el servicio en la nube:
 
-    ![El nodo está conectado](media/tutorial-hybrid-copy-powershell/node-is-connected.png)
+    :::image type="content" source="media/tutorial-hybrid-copy-powershell/node-is-connected.png" alt-text="El nodo está conectado":::
 
 1. Para probar la conectividad a la base de datos de SQL Server, siga estos pasos:
 
@@ -299,7 +299,7 @@ En esta sección se crea una instancia de Integration Runtime autohospedada y se
     g. Escriba la contraseña asociada con el nombre de usuario.
 
     h. Para confirmar que Integration Runtime puede conectarse a SQL Server, seleccione **Probar**.  
-    ![Conectividad correcta](media/tutorial-hybrid-copy-powershell/config-manager-diagnostics-tab.png)
+    :::image type="content" source="media/tutorial-hybrid-copy-powershell/config-manager-diagnostics-tab.png" alt-text="Conectividad correcta":::
 
     Si la conexión se ha realizado correctamente, verá una marca de verificación verde. De lo contrario, recibirá un mensaje de error asociado al error. Solucione los problemas y asegúrese de que Integration Runtime puede conectarse a la instancia de SQL Server.
 
@@ -710,7 +710,7 @@ La canalización automáticamente la carpeta de salida *fromonprem* en el conten
 1. Seleccione `fromonprem` en la lista de carpetas.
 1. Confirme que ve un archivo denominado `dbo.emp.txt`.
 
-    ![Archivo de salida](media/tutorial-hybrid-copy-powershell/fromonprem-file.png)
+    :::image type="content" source="media/tutorial-hybrid-copy-powershell/fromonprem-file.png" alt-text="Archivo de salida":::
 
 
 ## <a name="next-steps"></a>Pasos siguientes

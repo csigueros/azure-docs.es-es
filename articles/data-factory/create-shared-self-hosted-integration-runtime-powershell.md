@@ -8,12 +8,12 @@ ms.author: lle
 author: lrtoyou1223
 ms.custom: seo-lt-2019, devx-track-azurepowershell
 ms.date: 06/10/2020
-ms.openlocfilehash: b59655f343c8b5aa279dae9197c1d7fa41e0c318
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 65473b226ac8c188660862bddadb30ba44c4136d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121733074"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124811665"
 ---
 # <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory"></a>Creación de un entorno de ejecución de integración autohospedado compartido en Azure Data Factory
 
@@ -40,17 +40,17 @@ Para crear un entorno de ejecución de integración autohospedado compartido med
 
 1. En el entorno de ejecución de integración autohospedado que se va a compartir, seleccione **Conceder permiso a otra factoría de datos** y, en la página "Configuración de Integration Runtime", seleccione la factoría de datos en la que desee crear el entorno de ejecución de integración vinculado.
       
-    ![El botón para conceder el permiso en la pestaña Compartir](media/create-self-hosted-integration-runtime/grant-permissions-IR-sharing.png)  
+    :::image type="content" source="media/create-self-hosted-integration-runtime/grant-permissions-IR-sharing.png" alt-text="El botón para conceder el permiso en la pestaña Compartir":::  
     
 2. Anote y copie el "Identificador de recurso" anterior del entorno de ejecución de integración autohospedado que se va a compartir.
          
 3. En la factoría de datos en la que se concedieron los permisos, cree un nuevo IR autohospedado (vinculado) y escriba el identificador de recurso.
       
-    ![Botón para crear un entorno de ejecución de integración autohospedado](media/create-self-hosted-integration-runtime/create-linkedir-1.png)
+    :::image type="content" source="media/create-self-hosted-integration-runtime/create-linkedir-1.png" alt-text="Botón para crear un entorno de ejecución de integración autohospedado":::
    
-    ![Botón para crear un entorno de ejecución de integración autohospedado vinculado](media/create-self-hosted-integration-runtime/create-linkedir-2.png) 
+    :::image type="content" source="media/create-self-hosted-integration-runtime/create-linkedir-2.png" alt-text="Botón para crear un entorno de ejecución de integración autohospedado vinculado"::: 
 
-    ![Cuadros para nombre y el identificador de recurso](media/create-self-hosted-integration-runtime/create-linkedir-3.png)
+    :::image type="content" source="media/create-self-hosted-integration-runtime/create-linkedir-3.png" alt-text="Cuadros para nombre y el identificador de recurso":::
 
 ## <a name="create-a-shared-self-hosted-ir-using-azure-powershell"></a>Creación de un IR autohospedado compartido mediante Azure PowerShell
 
@@ -227,15 +227,15 @@ Remove-AzDataFactoryV2IntegrationRuntime `
 
 #### <a name="shared-ir"></a>IR compartido
 
-![Opciones para buscar un entorno de ejecución de integración compartido](media/create-self-hosted-integration-runtime/Contoso-shared-IR.png)
+:::image type="content" source="media/create-self-hosted-integration-runtime/Contoso-shared-IR.png" alt-text="Opciones para buscar un entorno de ejecución de integración compartido":::
 
-![Supervisión de un entorno de ejecución de integración compartido](media/create-self-hosted-integration-runtime/contoso-shared-ir-monitoring.png)
+:::image type="content" source="media/create-self-hosted-integration-runtime/contoso-shared-ir-monitoring.png" alt-text="Supervisión de un entorno de ejecución de integración compartido":::
 
 #### <a name="linked-ir"></a>IR vinculado
 
-![Opciones para buscar un entorno de ejecución de integración vinculado](media/create-self-hosted-integration-runtime/Contoso-linked-ir.png)
+:::image type="content" source="media/create-self-hosted-integration-runtime/Contoso-linked-ir.png" alt-text="Opciones para buscar un entorno de ejecución de integración vinculado":::
 
-![Supervisión de un entorno de ejecución de integración vinculado](media/create-self-hosted-integration-runtime/Contoso-linked-ir-monitoring.png)
+:::image type="content" source="media/create-self-hosted-integration-runtime/Contoso-linked-ir-monitoring.png" alt-text="Supervisión de un entorno de ejecución de integración vinculado":::
 
 
 ### <a name="known-limitations-of-self-hosted-ir-sharing"></a>Limitaciones conocidas del uso compartido de un entorno de ejecución de integración autohospedado

@@ -1,18 +1,18 @@
 ---
 title: 'Tutorial: Importación y publicación de la primera API en Azure API Management'
 description: En este tutorial, importará una API de especificación de OpenAPI en Azure API Management y la probará luego en Azure Portal.
-author: mikebudzynski
+author: dlepow
 ms.service: api-management
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 09/30/2020
-ms.author: apimpm
-ms.openlocfilehash: 0187a1c15315835c1606913acfd52dc930e92443
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.author: danlep
+ms.openlocfilehash: 8ac58d354c5a92482f2cd47c59316fca9ba32025
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123538658"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128627109"
 ---
 # <a name="tutorial-import-and-publish-your-first-api"></a>Tutorial: Importación y publicación de la primera API
 

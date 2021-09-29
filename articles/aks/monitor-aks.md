@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/29/2021
-ms.openlocfilehash: 7a2dc8350ecfed3a5fc234a7630870a43c8580c8
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.openlocfilehash: 68f0d94482d65f261b40095ac715ad65f76fe7af
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122253873"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124772208"
 ---
 # <a name="monitoring-azure-kubernetes-service-aks-with-azure-monitor"></a>Supervisión de Azure Kubernetes Service (AKS) con Azure Monitor
 En este escenario se describe cómo usar Azure Monitor para supervisar el mantenimiento y rendimiento de Azure Kubernetes Service (AKS). Incluye la recopilación de datos de telemetría críticos para la supervisión, el análisis y la visualización de los datos recopilados para identificar tendencias, y cómo configurar alertas para recibir notificaciones proactivas de problemas críticos.
@@ -27,7 +27,7 @@ Este escenario está pensado para los clientes que usan Azure Monitor con el fin
 > [!NOTE]
 > Azure Monitor se ha diseñado para supervisar la disponibilidad y el rendimiento de recursos en la nube. Aunque los datos operativos almacenados en Azure Monitor pueden ser útiles para investigar incidentes de seguridad, se han diseñado otros servicios de Azure para supervisar la seguridad. La supervisión de la seguridad de AKS se lleva a cabo mediante [Azure Sentinel](../sentinel/overview.md) y [Azure Security Center](../security-center/security-center-introduction.md). Consulte [Supervisión de máquinas virtuales con Azure Monitor: supervisión de la seguridad](../azure-monitor/vm/monitor-virtual-machine-security.md) para obtener una descripción de las herramientas de supervisión de la seguridad de Azure y su relación con Azure Monitor.
 >
-> Para obtener información sobre cómo usar los servicios de seguridad con el fin de supervisar AKS, consulte [Azure Defender para Kubernetes: ventajas y características](../security-center/defender-for-kubernetes-introduction.md) y [Conexión de los registros de diagnóstico de Azure Kubernetes Service (AKS) a Azure Sentinel](../sentinel/connect-azure-kubernetes-service.md).
+> Para obtener información sobre cómo usar los servicios de seguridad con el fin de supervisar AKS, consulte [Azure Defender para Kubernetes: ventajas y características](../security-center/defender-for-kubernetes-introduction.md) y [Conexión de los registros de diagnóstico de Azure Kubernetes Service (AKS) a Azure Sentinel](../sentinel/data-connectors-reference.md#azure-kubernetes-service-aks).
 ## <a name="container-insights"></a>Container Insights
 AKS genera [métricas de plataforma y registros de recursos](monitor-aks-reference.md), como cualquier otro recurso de Azure, que puede usar para supervisar su mantenimiento y rendimiento básicos. Habilite [Container Insights](../azure-monitor/containers/container-insights-overview.md) para ampliar esta supervisión. Container Insights es una característica de Azure Monitor que supervisa el mantenimiento y rendimiento de los clústeres administrados de Kubernetes que están hospedados en AKS, además de otras configuraciones de clúster. Container Insights proporciona vistas interactivas y libros que analizan los datos recopilados para diversos escenarios de supervisión. 
 

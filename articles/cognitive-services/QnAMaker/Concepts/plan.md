@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 177c02da26ffcedd0453538bc32158cf2f014896
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 1f3db34f477e228157cfa8378f171adf7a239811
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110369292"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124828831"
 ---
 # <a name="plan-your-qna-maker-app"></a>Planeamiento de la aplicación de QnA Maker
 
@@ -88,7 +88,7 @@ Una base de conocimiento está directamente vinculada a su recurso de QnA Maker.
 
 La primera base de conocimiento que se crea en el recurso de QnA Maker establece el idioma del recurso. Solo se puede tener un idioma para un recurso de QnA Maker.
 
-Puede estructurar los recursos de QnA Maker por idioma o usar el [Traductor](../../translator/translator-info-overview.md) para cambiar una consulta de otro idioma al de la base de conocimiento antes de enviar la consulta al punto de conexión de predicción de consultas.
+Puede estructurar los recursos de QnA Maker por idioma o usar el [Traductor](../../translator/translator-overview.md) para cambiar una consulta de otro idioma al de la base de conocimiento antes de enviar la consulta al punto de conexión de predicción de consultas.
 
 # <a name="custom-question-answering-preview-release"></a>[Respuesta personalizada a preguntas (versión preliminar)](#tab/v2)
 

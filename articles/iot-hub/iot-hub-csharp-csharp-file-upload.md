@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/24/2021
 ms.author: robinsh
 ms.custom: mqtt, devx-track-csharp
-ms.openlocfilehash: cc568964c3f961cad63591ea14885fb23eea03da
-ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
+ms.openlocfilehash: 18055232714914456ec2db51891edc70ac89057e
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123187627"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124779642"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-net"></a>Carga de archivos de un dispositivo a la nube con IoT Hub (.NET)
 
@@ -279,8 +279,8 @@ En este tutorial ha aprendido a usar la característica de carga de archivos de 
 
 * [Configuración de cargas de archivos de IoT Hub](iot-hub-configure-file-upload.md)
 
-* [Documentación de Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction)
+* [Documentación de Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md)
 
-* [Referencia de la API de Azure Blob Storage](/azure/storage/blobs/reference)
+* [Referencia de la API de Azure Blob Storage](../storage/blobs/reference.md)
 
 * [SDK de IoT de Azure](iot-hub-devguide-sdks.md)

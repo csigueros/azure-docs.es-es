@@ -14,12 +14,12 @@ ms.custom:
 - seo-javascript-october2019
 - seo-python-october2019
 - devx-track-azurecli
-ms.openlocfilehash: f6ae323dadd2f2859079899906c3ba51a12df935
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 4329110d117a81d34b70662e44e36d8aed21e114
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122698164"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124774203"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-with-the-azure-cli"></a>Inicio rápido: Creación de una máquina virtual Linux con la CLI de Azure
 
@@ -51,7 +51,7 @@ az group create --name myResourceGroup --location eastus
 
 Cree la máquina virtual con el comando [az vm create](/cli/azure/vm).
 
-En el ejemplo siguiente se crea una máquina virtual llamada *myVM* y se agrega una cuenta de usuario llamada *azureuser*. El parámetro `--generate-ssh-keys` se usa para generar automáticamente una clave SSH y colocarla en la ubicación de la clave predeterminada ( *~/.ssh*). Para utilizar un conjunto de claves concreto, utilice la opción `--ssh-key-value`.
+En el ejemplo siguiente se crea una máquina virtual llamada *myVM* y se agrega una cuenta de usuario llamada *azureuser*. El parámetro `--generate-ssh-keys` se usa para generar automáticamente una clave SSH y colocarla en la ubicación de la clave predeterminada ( *~/.ssh*). Para utilizar un conjunto de claves concreto, utilice la opción `--ssh-key-values`.
 
 ```azurecli-interactive
 az vm create \

@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0558be2ea1defb2a09e6461ba838e328cb293d6
-ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
+ms.openlocfilehash: 072cfcd66207d8c778c77f3ece4db49a30e8ca28
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "112201723"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124826865"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>¿Qué es Azure AD Identity Governance?
 
@@ -82,7 +82,7 @@ Además de las características mencionadas anteriormente, las características 
 |Solicitudes de acceso|Los usuarios finales pueden solicitar la pertenencia a un grupo o el acceso a las aplicaciones. Los usuarios finales, incluidos los invitados de otras organizaciones, pueden solicitar acceso a los paquetes.|[Administración de derechos](entitlement-management-overview.md)|
 |Flujo de trabajo|Los propietarios de recursos pueden definir los aprobadores y aprobadores de escalación para las solicitudes de acceso y aprobadores para las de activación de rol.  |[Administración de derechos](entitlement-management-overview.md) y [PIM](../privileged-identity-management/pim-configure.md)|
 |Administración de directivas y roles|El administrador puede definir directivas de acceso condicional para el acceso en tiempo de ejecución a las aplicaciones.  Los propietarios de recursos pueden definir directivas para el acceso del usuario mediante paquetes de acceso.|Directivas de [acceso condicional](../conditional-access/overview.md) y de [administración de derechos](entitlement-management-overview.md)|
-|Certificación de acceso|Los administradores pueden habilitar la certificación de acceso recurrente para: aplicaciones SaaS o pertenencias a grupos en la nube, asignaciones de roles de Azure AD o de recursos de Azure. Quita automáticamente el acceso a los recursos, bloquea el acceso de invitados y elimina cuentas de invitado.|[Revisiones de acceso](access-reviews-overview.md), también en [PIM](../privileged-identity-management/pim-how-to-start-security-review.md)|
+|Certificación de acceso|Los administradores pueden habilitar la certificación de acceso recurrente para: aplicaciones SaaS o pertenencias a grupos en la nube, asignaciones de roles de Azure AD o de recursos de Azure. Quita automáticamente el acceso a los recursos, bloquea el acceso de invitados y elimina cuentas de invitado.|[Revisiones de acceso](access-reviews-overview.md), también en [PIM](../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md)|
 |Cumplimiento y aprovisionamiento|Aprovisionamiento y desaprovisionamiento automáticos en las aplicaciones conectadas con Azure AD, también con SCIM y en los sitios de SharePoint Online. |[aprovisionamiento de usuarios](../app-provisioning/user-provisioning.md)|
 |Informes y análisis|Los administradores pueden recuperar los registros de auditoría de la actividad reciente de aprovisionamiento e inicio de sesión de los usuarios. Integración con Azure Monitor y "quién tenga acceso" mediante los paquetes de acceso.|[Informes](../reports-monitoring/overview-reports.md) y [supervisión de Azure AD](../reports-monitoring/overview-monitoring.md)|
 |Acceso con privilegios|Flujos de trabajo de aprobación, alertas y acceso programado y Just-In-Time para los roles de Azure AD (roles personalizados incluidos) y de los recursos de Azure.|[Azure AD PIM](../privileged-identity-management/pim-configure.md)|

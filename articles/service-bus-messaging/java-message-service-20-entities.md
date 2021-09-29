@@ -2,13 +2,13 @@
 title: 'Mensajería de Azure Service Bus: entidades de Java Message Service'
 description: En este artículo se proporciona información general sobre las entidades de mensajería de Azure Service Bus accesibles a través de la API de Java Message Service.
 ms.topic: article
-ms.date: 07/20/2020
-ms.openlocfilehash: ee4e0124dced16b86d5292c647e129aa87645f22
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 09/27/2021
+ms.openlocfilehash: 6900deff355f10e4274a5268bd21da189a9daf80
+ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100652588"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129154534"
 ---
 # <a name="java-message-service-jms-20-entities"></a>Entidades de Java Message Service (JMS) 2.0
 

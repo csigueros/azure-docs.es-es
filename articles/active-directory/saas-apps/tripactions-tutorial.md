@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/08/2020
 ms.author: jeedes
-ms.openlocfilehash: 741009b1d92d185678080c60078b272d7fb85558
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 5292404ac1d9ba9e30ff30375b0dab96f83d0c1a
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92509308"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124789453"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-tripactions"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con TripActions
 
@@ -134,7 +134,7 @@ En esta sección, se crea un usuario llamado B.Simon en TripActions. TripActions
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de TripActions en el Panel de acceso y debería iniciar sesión automáticamente en la versión de TripActions para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
+Al hacer clic en el icono de TripActions en el Panel de acceso y debería iniciar sesión automáticamente en la versión de TripActions para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

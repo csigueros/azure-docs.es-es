@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.date: 07/29/2021
-ms.openlocfilehash: 133496614db862d4c1af31afb015a535ddbfd188
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: d49b587262bfceb8072761cec6981ab908abb21e
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121724455"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124732944"
 ---
 # <a name="what-is-data-wrangling"></a>¿Qué es la limpieza y transformación de datos?
 
@@ -57,7 +57,7 @@ Analice visualmente los datos sin código para quitar los valores atípicos y la
 
 Cuando se crea una actividad de Power Query, todos los conjuntos de datos de origen se convierten en consultas de conjuntos de datos y se colocan en la carpeta **ADFResource**. De forma predeterminada, UserQuery apuntará a la primera consulta del conjunto de datos. Todas las transformaciones deben realizarse en UserQuery, ya que no se admiten ni se conservan los cambios en las consultas del conjunto de datos. Actualmente no se admiten las opciones para cambiar el nombre o agregar y eliminar consultas.
 
-![Limpieza y transformación](media/wrangling-data-flow/editor.png)
+:::image type="content" source="media/wrangling-data-flow/editor.png" alt-text="Limpieza y transformación":::
 
 Actualmente no se admiten todas las funciones de Power Query M para la limpieza y transformación de datos, a pesar de estar disponibles durante la creación. Al compilar las actividades de Power Query, aparecerá el siguiente mensaje de error si no se admite una función:
 

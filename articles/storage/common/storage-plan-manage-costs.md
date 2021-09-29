@@ -9,12 +9,12 @@ ms.date: 06/21/2021
 ms.author: normesta
 ms.subservice: common
 ms.custom: subject-cost-optimization
-ms.openlocfilehash: 0497f35b1b0d1df05c1e64f092ff45ebb9678390
-ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
+ms.openlocfilehash: 5c50cffb561076dd7d9c4af8e5b4654784cc3a01
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2021
-ms.locfileid: "113594578"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128555367"
 ---
 # <a name="plan-and-manage-costs-for-azure-blob-storage"></a>Planeamiento y administración de costos de Azure Blob Storage
 
@@ -30,13 +30,13 @@ Use la [calculadora de precios de Azure](https://azure.microsoft.com/pricing/cal
 
 2. Desplácese hacia abajo en la página y busque la sección **Cuentas de almacenamiento** de la estimación.
 
-3. Elija las opciones de las listas desplegables. 
+3. Elija las opciones de las listas desplegables.
 
    A medida que se modifica el valor de estas listas desplegables, cambia el costo estimado. Esa estimación aparece en la esquina superior, así como en la parte inferior de la estimación.
 
    ![Captura de pantalla que muestra su cotización](media/storage-plan-manage-costs/price-calculator-storage-type.png)
 
-   A medida que cambia el valor de la lista desplegable **Tipo**, también cambian otras opciones que aparecen en esta hoja de cálculo. Use los vínculos de la sección **Más información** para obtener más información sobre el significado de cada opción y cómo afectan al precio de las operaciones relacionadas con el almacenamiento. 
+   A medida que cambia el valor de la lista desplegable **Tipo**, también cambian otras opciones que aparecen en esta hoja de cálculo. Use los vínculos de la sección **Más información** para obtener más información sobre el significado de cada opción y cómo afectan al precio de las operaciones relacionadas con el almacenamiento.
 
 4. Modifique las demás opciones cómo afectan a la estimación.
 
@@ -46,9 +46,9 @@ Azure Blob Storage se ejecuta en la infraestructura de Azure, que genera costos 
 
 ### <a name="how-youre-charged-for-azure-blob-storage"></a>Cómo se le cobra por Azure Blob Storage
 
-Al crear o usar recursos de Azure Blob Storage, se le cobrará por los siguientes medidores: 
+Al crear o usar recursos de Azure Blob Storage, se le cobrará por los siguientes medidores:
 
-| Medidor | Unidad | 
+| Medidor | Unidad |
 |---|---|
 | Almacenamiento de datos | Por GB/mes|
 | Operaciones | Por transacción |
@@ -66,19 +66,19 @@ El tráfico de datos también puede incurrir en costos de red. Consulte los [pre
 
 Al final del ciclo de facturación, se suman los cargos de cada medidor. La factura muestra una sección para todos los costos de Azure Blob Storage. Hay un elemento de línea independiente para cada medidor.
 
-El almacenamiento de datos y los metadatos se facturan por GB al mes. Puede calcular cuánto afectan a la factura mensual los datos y metadatos almacenados durante menos de un mes calculando el costo de cada GB al día. Puede usar un enfoque similar para calcular el costo de los ámbitos de cifrado que se usan menos de un mes. El número de días varía según el mes. Por lo tanto, para obtener la mejor aproximación de los costos de un mes determinado, asegúrese de dividir el costo mensual por el número de días de ese mes. 
+El almacenamiento de datos y los metadatos se facturan por GB al mes. Puede calcular cuánto afectan a la factura mensual los datos y metadatos almacenados durante menos de un mes calculando el costo de cada GB al día. Puede usar un enfoque similar para calcular el costo de los ámbitos de cifrado que se usan menos de un mes. El número de días varía según el mes. Por lo tanto, para obtener la mejor aproximación de los costos de un mes determinado, asegúrese de dividir el costo mensual por el número de días de ese mes.
 
 ### <a name="finding-the-unit-price-for-each-meter"></a>Búsqueda del precio unitario de cada medidor
 
 Para averiguar los precios unitarios, abra la página de precios correcta. Si ha habilitado la característica de espacio de nombres jerárquico en su cuenta, consulte la página de [precios de Azure Data Lake Storage Gen2](https://azure.microsoft.com/pricing/details/storage/data-lake/). Si no ha habilitado esta característica, consulte la página de [precios de los blobs en bloques](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
-En la página de precios, aplique los filtros de redundancia, región y moneda adecuados. Los precios de cada medidor aparecen en una tabla. Los precios difieren en función de otras configuraciones de la cuenta, como las opciones de redundancia de datos, el nivel de acceso y el nivel de rendimiento. 
+En la página de precios, aplique los filtros de redundancia, región y moneda adecuados. Los precios de cada medidor aparecen en una tabla. Los precios difieren en función de otras configuraciones de la cuenta, como las opciones de redundancia de datos, el nivel de acceso y el nivel de rendimiento.
 
 ### <a name="flat-namespace-accounts-and-transaction-pricing"></a>Cuentas de espacio de nombres plano y precios de transacciones
 
 Los clientes pueden realizar una solicitud mediante el punto de conexión de Blob Storage o el punto de conexión de Data Lake Storage de la cuenta. Para más información sobre los puntos de conexión de las cuentas de almacenamiento, consulte [Puntos de conexión de cuenta de almacenamiento](storage-account-overview.md#storage-account-endpoints).
 
-Los precios de las transacciones que aparecen en la página de [precios de los blobs en bloques](https://azure.microsoft.com/pricing/details/storage/blobs/) solo se aplican a las solicitudes que usan el punto de conexión de Blob Storage (por ejemplo, `https://<storage-account>.blob.core.windows.net`). Los precios indicados no se aplican a las solicitudes que usan el punto de conexión de Data Lake Storage Gen2 (por ejemplo, `https://<storage-account>.dfs.core.windows.net`). Para conocer el precio de transacción de esas solicitudes, abra la página de [precios de Azure Data Lake Storage Gen2](https://azure.microsoft.com/pricing/details/storage/data-lake/) y seleccione la opción **Espacio de nombres plano**. 
+Los precios de las transacciones que aparecen en la página de [precios de los blobs en bloques](https://azure.microsoft.com/pricing/details/storage/blobs/) solo se aplican a las solicitudes que usan el punto de conexión de Blob Storage (por ejemplo, `https://<storage-account>.blob.core.windows.net`). Los precios indicados no se aplican a las solicitudes que usan el punto de conexión de Data Lake Storage Gen2 (por ejemplo, `https://<storage-account>.dfs.core.windows.net`). Para conocer el precio de transacción de esas solicitudes, abra la página de [precios de Azure Data Lake Storage Gen2](https://azure.microsoft.com/pricing/details/storage/data-lake/) y seleccione la opción **Espacio de nombres plano**.
 
 > [!div class="mx-imgBorder"]
 > ![Opción de espacio de nombres plano](media/storage-plan-manage-costs/select-flat-namespace.png)
@@ -89,8 +89,7 @@ Las solicitudes al punto de conexión de Data Lake Storage Gen2 pueden originars
 
 - Llamadas REST que usan la [API REST de Azure Data Lake Store](/rest/api/storageservices/data-lake-storage-gen2).
 
-- Aplicaciones que usan las API de Data Lake Storage Gen2 desde una biblioteca cliente de Azure Storage.  
-
+- Aplicaciones que usan las API de Data Lake Storage Gen2 desde una biblioteca cliente de Azure Storage.
 
 ### <a name="using-azure-prepayment-with-azure-blob-storage"></a>Uso del pago por adelantado de Azure con Azure Blob Storage
 
@@ -98,7 +97,7 @@ Puede pagar los cargos de Azure Blob Storage con el crédito del pago por adelan
 
 ## <a name="optimize-costs"></a>Optimización de costos
 
-Considere la posibilidad de usar estas opciones para reducir costos. 
+Considere la posibilidad de usar estas opciones para reducir costos.
 
 - Reservar capacidad de almacenamiento.
 
@@ -106,17 +105,17 @@ Considere la posibilidad de usar estas opciones para reducir costos.
 
 - Mover automáticamente los datos entre las capas de almacenamiento.
 
-En esta sección se tratan todas las opciones de forma más detallada. 
+En esta sección se tratan todas las opciones de forma más detallada.
 
 #### <a name="reserve-storage-capacity"></a>Reserva de la capacidad de almacenamiento
 
-Puede ahorrar dinero en costos de almacenamiento de datos de blobs con la capacidad reservada de Azure Storage. La capacidad reservada de Azure Storage ofrece un descuento en la capacidad para los blobs en bloques y los datos de Azure Data Lake Storage Gen2 en las cuentas de almacenamiento estándar cuando se compromete a una reserva durante un año o tres años. Una reserva proporciona una cantidad fija de capacidad de almacenamiento para el plazo de la reserva. La capacidad reservada de Azure Storage puede disminuir considerablemente los costos de capacidad de los blobs en bloques y los datos de Azure Data Lake Storage Gen2. 
+Puede ahorrar dinero en costos de almacenamiento de datos de blobs con la capacidad reservada de Azure Storage. La capacidad reservada de Azure Storage ofrece un descuento en la capacidad para los blobs en bloques y los datos de Azure Data Lake Storage Gen2 en las cuentas de almacenamiento estándar cuando se compromete a una reserva durante un año o tres años. Una reserva proporciona una cantidad fija de capacidad de almacenamiento para el plazo de la reserva. La capacidad reservada de Azure Storage puede disminuir considerablemente los costos de capacidad de los blobs en bloques y los datos de Azure Data Lake Storage Gen2.
 
 Para más información, consulte [Optimización de los costos de almacenamiento de blobs con capacidad reservada](../blobs/storage-blob-reserved-capacity.md).
 
 #### <a name="organize-data-into-access-tiers"></a>Organización de datos en capas de almacenamiento
 
-Para reducir los costos puede colocar los datos del blob en las capas de almacenamiento más económicas. Elija una de las tres capas que están diseñadas para optimizar los costos del uso de datos. Por ejemplo, el nivel de *acceso frecuente* tiene un mayor costo de almacenamiento, pero un menor costo de acceso. Por consiguiente, si planea acceder a los datos con frecuencia, es posible que este nivel sea la opción más económica. Si planea acceder a los datos con poca frecuencia, tendría más sentido elegir los niveles de acceso *esporádico* o *de archivo*, ya que su costo de acceso a los datos es mayor, pero se reduce el costo de almacenamiento.    
+Para reducir los costos puede colocar los datos del blob en las capas de almacenamiento más económicas. Elija una de las tres capas que están diseñadas para optimizar los costos del uso de datos. Por ejemplo, el nivel de *acceso frecuente* tiene un mayor costo de almacenamiento, pero un menor costo de acceso. Por consiguiente, si planea acceder a los datos con frecuencia, es posible que este nivel sea la opción más económica. Si planea acceder a los datos con poca frecuencia, tendría más sentido elegir los niveles de acceso *esporádico* o *de archivo*, ya que su costo de acceso a los datos es mayor, pero se reduce el costo de almacenamiento.
 
 Para más información, consulte [Niveles de acceso de Azure Blob Storage: frecuente, esporádico y archivo](../blobs/storage-blob-storage-tiers.md?tabs=azure-portal).
 
@@ -124,7 +123,7 @@ Para más información, consulte [Niveles de acceso de Azure Blob Storage: frecu
 
 Use las directivas de administración del ciclo de vida para mover periódicamente datos entre las distintas capas para ahorrar el mayor dinero posible. Para mover datos, estas directivas usan las reglas que especifique. Por ejemplo, puede crear una regla que mueva blobs al nivel de almacenamiento de archivo si el blob no se ha modificado en 90 días. La creación de directivas que ajusten el nivel de acceso de los datos le permite diseñar las opciones de almacenamiento más baratas que se ajusten a sus necesidades.
 
-Para más información, consulte [Optimización de los costos mediante la administración automática del ciclo de vida de los datos](../blobs/storage-lifecycle-management-concepts.md?tabs=azure-portal).
+Para más información, consulte [Optimización de los costos mediante la administración automática del ciclo de vida de los datos](../blobs/lifecycle-management-overview.md?tabs=azure-portal).
 
 ## <a name="create-budgets"></a>Creación de presupuestos
 
@@ -136,7 +135,7 @@ A medida que se usan recursos con Azure Storage, se incurre en costos. Los costo
 
 Al usar el análisis de costos, puede ver los costos de Azure Storage en gráficos y tablas para diferentes intervalos de tiempo. Algunos ejemplos son: por día, mes actual y anterior y año. También puede ver los costos comparados con los presupuestos y los costos previstos. Cambiar a vistas más largas en el tiempo puede ayudarle a identificar las tendencias de gasto y ver dónde podría haber ocurrido un gasto excesivo. Si ha creado presupuestos, también podrá ver fácilmente dónde se han excedido.
 
->[!NOTE]
+> [!NOTE]
 > El análisis de costos es compatible con varios tipos de cuenta de Azure. Para ver la lista completa de tipos de cuenta compatibles, consulte [Understand Cost Management data](../../cost-management-billing/costs/understand-cost-mgt-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) (Información sobre los datos de Cost Management). Para ver los datos de costos, se necesita al menos acceso de lectura en la cuenta de Azure. Para más información acerca de cómo asignar acceso a los datos de Azure Cost Management, consulte [Asignación de acceso a los datos](../../cost-management-billing/costs/assign-access-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 
 Para ver los costos de Azure Storage en los análisis de costos:
@@ -147,7 +146,7 @@ Para ver los costos de Azure Storage en los análisis de costos:
 
    ![Captura de pantalla que muestra el ámbito](./media/storage-plan-manage-costs/cost-analysis-pane.png)
 
-4. Para ver los costos de Azure Storage, seleccione **Agregar filtro** y, a continuación, seleccione **Nombre del servicio**. Después, elija **almacenamiento** en la lista. 
+4. Para ver los costos de Azure Storage, seleccione **Agregar filtro** y, a continuación, seleccione **Nombre del servicio**. Después, elija **almacenamiento** en la lista.
 
    Este es un ejemplo que muestra solo los costos de Azure Storage:
 
@@ -164,7 +163,6 @@ También puede [exportar los datos de costos](../../cost-management-billing/cost
 **Si uso Azure Storage solo unos días al mes, ¿se prorratea el costo?**
 
 La capacidad de almacenamiento se factura en unidades de la cantidad media diaria de datos almacenados, en gigabytes (GB), durante un periodo mensual. Por ejemplo, si ha utilizado de forma constante 10 GB de almacenamiento durante la primera mitad del mes y nada durante la segunda mitad, se le facturará un uso medio de 5 GB de almacenamiento.
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

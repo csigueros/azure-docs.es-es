@@ -11,23 +11,23 @@ ms.date: 06/10/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.custom: mvc, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 607f7921b62540d26b1354c21f3352f5b5b943f4
-ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
+ms.openlocfilehash: bc2150f63e0392f94c17f90ab41f80de91336c7b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2021
-ms.locfileid: "112376655"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128620167"
 ---
 # <a name="secure-access-to-application-data"></a>Protección del acceso a los datos de la aplicación
 
-Este tutorial es la tercera parte de una serie. Aprenda a proteger el acceso a la cuenta de almacenamiento. 
+Este tutorial es la tercera parte de una serie. Aprenda a proteger el acceso a la cuenta de almacenamiento.
 
 En la tercera parte de la serie, se aprende a:
 
 > [!div class="checklist"]
-> * Usar tokens de SAS para acceder a imágenes en miniatura
-> * Activar el cifrado de servidor
-> * Habilitar el transporte solo HTTPS
+> - Usar tokens de SAS para acceder a imágenes en miniatura
+> - Activar el cifrado de servidor
+> - Habilitar el transporte solo HTTPS
 
 [Azure Blob Storage](../common/storage-introduction.md#blob-storage) proporciona un servicio sólido para almacenar archivos de aplicaciones. Este tutorial amplía [el tema anterior][previous-tutorial] para mostrar cómo proteger el acceso a la cuenta de almacenamiento desde una aplicación web. Al terminar, las imágenes están cifradas y la aplicación web usa tokens de SAS seguros para acceder a las imágenes en miniatura.
 
@@ -55,7 +55,7 @@ Set-AzStorageAccount -ResourceGroupName "MyResourceGroup" -AccountName $blobStor
 blobStorageAccount="<blob_storage_account>"
 
 blobStorageAccountKey=$(az storage account keys list -g myResourceGroup \
-    --account-name $blobStorageAccount --query [0].value --output tsv) 
+    --account-name $blobStorageAccount --query [0].value --output tsv)
 
 az storage container set-permission \
     --account-name $blobStorageAccount \
@@ -190,9 +190,9 @@ HTTP/1.1 400 The account being accessed does not support http.
 En la tercera parte de la serie, ha aprendido a proteger el acceso a la cuenta de almacenamiento, por ejemplo a:
 
 > [!div class="checklist"]
-> * Usar tokens de SAS para acceder a imágenes en miniatura
-> * Activar el cifrado de servidor
-> * Habilitar el transporte solo HTTPS
+> - Usar tokens de SAS para acceder a imágenes en miniatura
+> - Activar el cifrado de servidor
+> - Habilitar el transporte solo HTTPS
 
 Vaya a la cuarta parte de la serie para aprender a supervisar una aplicación de almacenamiento en la nube y a solucionar los problemas que plantee.
 

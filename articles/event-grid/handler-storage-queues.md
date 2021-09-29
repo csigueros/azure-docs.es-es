@@ -2,13 +2,13 @@
 title: Cola de Storage como controlador de eventos para eventos de Azure Event Grid
 description: Aquí se describe cómo puede usar las colas de Azure Storage como controladores de eventos para eventos de Event Grid.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: d7c8b7a111c29fe11cc11ee191d78ae2a5f13610
-ms.sourcegitcommit: ef950cf37f65ea7a0f583e246cfbf13f1913eb12
+ms.date: 09/28/2021
+ms.openlocfilehash: 12314aaad4204892523ab88166bf86a80c35c939
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111421741"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129217795"
 ---
 # <a name="storage-queue-as-an-event-handler-for-azure-event-grid-events"></a>Cola de Storage como controlador de eventos para eventos de Azure Event Grid
 Un controlador de eventos es el lugar al que se envía el evento. El controlador realiza alguna acción adicional para procesar el evento. Varios servicios de Azure se configuran automáticamente para controlar eventos y **Azure Queue Storage** es uno de ellos. 

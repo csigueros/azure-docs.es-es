@@ -1,19 +1,19 @@
 ---
 title: Uso del almacenamiento de colas (C++) - Azure Storage
 description: Aprenda a usar el servicio de almacenamiento de colas en Azure. Los ejemplos están escritos en C++.
-author: twooley
-ms.author: twooley
+author: normesta
+ms.author: normesta
 ms.reviewer: dineshm
 ms.date: 07/16/2020
 ms.topic: how-to
 ms.service: storage
 ms.subservice: queues
-ms.openlocfilehash: 0e8274378ed321dc7c3d6ddcfb85f5bb0a2f7993
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: f83d10b59ae2af24ddf690e773ca63e71bff02b9
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106276287"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128565004"
 ---
 # <a name="how-to-use-queue-storage-from-c"></a>Uso de Queue Storage de C++
 
@@ -278,7 +278,7 @@ queue.delete_queue_if_exists();
 
 Ahora que está familiarizado con los aspectos básicos de Queue Storage, siga estos vínculos para obtener más información sobre Azure Storage.
 
-- [Cómo usar Blob Storage de C++](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
+- [Cómo usar Blob Storage de C++](../blobs/quickstart-blobs-c-plus-plus.md)
 - [Cómo usar Table Storage de C++](../../cosmos-db/table-storage-how-to-use-c-plus.md)
 - [Enumeración de los recursos de Azure Storage en C++](../common/storage-c-plus-plus-enumeration.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
 - [Referencia de la biblioteca de clientes de Azure Storage para C++](https://azure.github.io/azure-storage-cpp)

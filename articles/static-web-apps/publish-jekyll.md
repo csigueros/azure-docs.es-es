@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/11/2021
 ms.author: cshoe
-ms.openlocfilehash: 179fa0e247b2c875a4d32eac312d240ae768c009
-ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
+ms.openlocfilehash: fa97100e670e1d96bdd33c362b2e133d78d8dae7
+ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110190551"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129155446"
 ---
 # <a name="tutorial-publish-a-jekyll-site-to-azure-static-web-apps"></a>Tutorial: Publicación de un sitio de Jekyll en Azure Static Web Apps
 
@@ -73,7 +73,7 @@ Azure Static Web Apps usa GitHub para publicar su sitio web. En los pasos siguie
 1. Agregue el repositorio de GitHub como remoto al repositorio local. Asegúrese de agregar el nombre de usuario de GitHub en lugar del marcador de posición `<YOUR_USER_NAME>` en el comando siguiente.
 
    ```bash
-   git remote add origin https://github.com/<YOUR_USER_NAME>/jekyll-static-app
+   git remote add origin https://github.com/<YOUR_USER_NAME>/jekyll-azure-static
    ```
 
 1. Inserte el repositorio local en GitHub.
@@ -98,7 +98,7 @@ En los pasos siguientes se muestra cómo crear una aplicación de sitio estátic
 1. Seleccione **Crear**
 1. En la pestaña _Datos básicos_, especifique los valores siguientes.
 
-    | Propiedad | Valor |
+    | Propiedad | Value |
     | --- | --- |
     | _Suscripción_ | El nombre de la suscripción de Azure. |
     | _Grupos de recursos_ | **jekyll-static-app**  |
@@ -111,7 +111,7 @@ En los pasos siguientes se muestra cómo crear una aplicación de sitio estátic
 
 1. Escriba los siguientes valores de GitHub.
 
-    | Propiedad | Valor |
+    | Propiedad | Value |
     | --- | --- |
     | _Organización_ | Seleccione la organización de GitHub que quiera. |
     | _Repositorio_ | Seleccione **jekyll-static-app**. |
@@ -139,7 +139,7 @@ En los pasos siguientes se muestra cómo crear una aplicación de sitio estátic
 
 #### <a name="custom-jekyll-settings"></a>Configuración personalizada de Jekyll
 
-Cuando se genera una aplicación web estática, se genera un [archivo de flujo de trabajo](./github-actions-workflow.md) que contiene los valores de configuración de publicación de la aplicación.
+Cuando se genera una aplicación web estática, se genera un [archivo de flujo de trabajo](./build-configuration.md) que contiene los valores de configuración de publicación de la aplicación.
 
 Para configurar variables de entorno, como `JEKYLL_ENV`, agregue una sección `env` a la acción de GitHub de Azure Static Web Apps en el flujo de trabajo.
 

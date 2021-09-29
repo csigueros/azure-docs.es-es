@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/25/2021
 ms.author: jeedes
-ms.openlocfilehash: f94aee8fd609870e2ac0e49721e8d7c21892428b
-ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
+ms.openlocfilehash: 12a1505da59763f52da71b94dc3dc1ca8edcc075
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108804293"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124800186"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-internet-access-administrator"></a>Tutorial: Integración de Azure Active Directory con Zscaler Internet Access Administrator
 
@@ -188,7 +188,7 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 - Haga clic en Probar esta aplicación en Azure Portal; debería iniciar sesión automáticamente en la instancia de Zscaler Internet Access Administrator para la que configuró el inicio de sesión único.
 
-- Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Zscaler Internet Access Administrator en Aplicaciones, debería iniciar sesión automáticamente en la instancia de Zscaler Internet Access Administrator para la que configuró el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+- Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Zscaler Internet Access Administrator en Aplicaciones, debería iniciar sesión automáticamente en la instancia de Zscaler Internet Access Administrator para la que configuró el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

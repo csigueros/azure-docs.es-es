@@ -1,14 +1,14 @@
 ---
-title: Acerca de Azure DevTest Labs | Microsoft Docs
+title: Acerca de Azure DevTest Labs
 description: Aprenda cómo DevTest Labs puede facilitar la creación, la administración y la supervisión de máquinas virtuales de Azure
-ms.topic: article
+ms.topic: overview
 ms.date: 08/20/2021
-ms.openlocfilehash: 5ef1aabb861b90679fbb36e46b837d6567f122d4
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: cad1bb218722c72d6b7f7c2d28ad92a460e3d051
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123468049"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128563177"
 ---
 # <a name="about-azure-devtest-labs"></a>Acerca de Azure DevTest Labs
 Azure DevTest Labs permite a los desarrolladores de los equipos administrar automáticamente y de forma eficaz las máquinas virtuales (VM) y los recursos PaaS sin esperar a las aprobaciones.

@@ -4,12 +4,12 @@ description: Application Performance Management y seguimiento del uso de la apli
 ms.topic: overview
 ms.date: 06/03/2019
 ms.custom: mvc
-ms.openlocfilehash: a22bbad35fad5c5c4b231636fa2ac434b186a660
-ms.sourcegitcommit: 8154d7f8642d783f637cf6d857b4abbe28033f53
+ms.openlocfilehash: 6104cef3a3ba1850163964778e6fa000fc6981b6
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2021
-ms.locfileid: "113616494"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129060562"
 ---
 # <a name="what-is-application-insights"></a>¿Qué es Application Insights?
 Application Insights es una característica de [Azure Monitor](../overview.md) que es un servicio de Application Performance Management (APM) extensible para desarrolladores y profesionales de DevOps. Úselo para supervisar las aplicaciones en directo. Detectará automáticamente anomalías en el rendimiento e incluye eficaces herramientas de análisis que le ayudan a diagnosticar problemas y a saber lo que hacen realmente los usuarios con la aplicación.  Está diseñado para ayudarle a mejorar continuamente el rendimiento y la facilidad de uso. Funciona con diversas aplicaciones y en una amplia variedad de plataformas, como .NET, Node.js, Java y Python, hospedadas en el entorno local, de forma híbrida o en cualquier nube pública. Se integra con el proceso de DevOps y tiene puntos de conexión a numerosas herramientas de desarrollo. Puede supervisar y analizar la telemetría de aplicaciones móviles mediante la integración con Visual Studio App Center.
@@ -96,6 +96,7 @@ Hay varias formas de empezar. Comience con la que más se ajuste a sus necesidad
   * [**Aplicaciones ASP.NET o ASP.NET Core hospedadas en Azure Web Apps**](./azure-web-apps.md)
   * [**Aplicaciones ASP.NET hospedadas en IIS en una máquina virtual de Azure o un conjunto de escalado de máquinas virtuales de Azure**](./azure-vm-vmss-apps.md)
   * [**Aplicaciones ASP.NET hospedadas en un servidor local del Internet Information Services**](./status-monitor-v2-overview.md)
+  * [**Aplicaciones Java**](java-in-process-agent.md)
 * **En tiempo de desarrollo: agregue Application Insights al código.** Le permite personalizar la recopilación de telemetría personalizada y enviar telemetría adicional.
   * [Aplicaciones ASP.NET](./asp-net.md)
   * [Aplicación ASP.NET Core](./asp-net-core.md)

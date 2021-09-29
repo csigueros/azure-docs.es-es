@@ -2,13 +2,13 @@
 title: 'Azure Event Grid: Registros de diagnóstico de temas o dominios'
 description: En este artículo se proporciona información conceptual sobre los registros de diagnóstico de un tema o un dominio de Azure Event Grid.
 ms.topic: conceptual
-ms.date: 12/03/2020
-ms.openlocfilehash: 13577e02cba07fc788bb4846cddd3c0ed894f2b1
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.date: 09/28/2021
+ms.openlocfilehash: 057d4856e6a1bc0574639def731dffc99f988994
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108314934"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129216904"
 ---
 #  <a name="diagnostic-logs-for-azure-event-grid-topicsdomains"></a>Registros de diagnóstico de temas o dominios de Azure Event Grid
 La configuración de diagnóstico permite a los usuarios de Event Grid capturar y ver los registros de **errores de publicación y entrega** en una cuenta de almacenamiento, un centro de eventos o un área de trabajo de Log Analytics. En este artículo se proporciona un esquema para los registros y una entrada de registro de ejemplo.

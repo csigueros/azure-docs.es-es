@@ -2,17 +2,17 @@
 title: 'Tutorial: acceso y personalización del portal para desarrolladores: Azure API Management | Microsoft Docs'
 description: Siga este tutorial para aprender a personalizar el portal para desarrolladores de API Management, un sitio web totalmente personalizable generado automáticamente con la documentación de las API.
 services: api-management
-author: mikebudzynski
+author: dlepow
 ms.service: api-management
 ms.topic: tutorial
 ms.date: 08/31/2021
-ms.author: apimpm
-ms.openlocfilehash: c08fd4635232bdb84ce27fdc7a3e6f0d1791e921
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.author: danlep
+ms.openlocfilehash: 9220bcfc218acaaa073090fd1b05b4648510d096
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123318583"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128583033"
 ---
 # <a name="tutorial-access-and-customize-the-developer-portal"></a>Tutorial: Acceso y personalización del portal para desarrolladores
 

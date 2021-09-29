@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 07/02/2021
+ms.date: 09/24/2021
 ms.author: aahi
 keywords: local, Docker, contenedor, Kubernetes
-ms.openlocfilehash: 567e09dfcc47926b8b25fa8c634a11ee339ab2ea
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: 0a55820202d5bfe6d0948afdd00ac99c6d9d666e
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123475861"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129061891"
 ---
 # <a name="azure-cognitive-services-containers"></a>Contenedores de Azure Cognitive Services
 
@@ -54,7 +54,7 @@ Los contenedores de Azure Cognitive Services proporcionan el siguiente conjunto 
 | [Text Analytics][ta-containers-language] |  **Detección de idioma del texto** ([imagen](https://go.microsoft.com/fwlink/?linkid=2018759&clcid=0x409)) | Se detecta el idioma (120 como máximo) en que está escrito el texto de entrada y se usa un código de idioma único para informar acerca de cada documento enviado en la solicitud. El código de idioma se empareja con una puntuación que indica la intensidad de esta. | Disponibilidad general |
 | [Text Analytics][ta-containers-sentiment] | **Análisis de sentimiento, versión 3** ([imagen](https://go.microsoft.com/fwlink/?linkid=2018654&clcid=0x409)) | Analiza el texto sin formato para obtener pistas sobre opiniones positivas o negativas. Esta versión del análisis de sentimiento devuelve etiquetas de sentimiento (por ejemplo, *positivo* o *negativo*) para cada documento y oración que contiene. |  Disponibilidad general |
 | [Text Analytics][ta-containers-health] |  **Text Analytics para el estado** | Extraiga y etiquete la información médica del texto clínico no estructurado. | Vista previa |
-| [Traductor][tr-containers] | **Traductor** | Traduzca texto a varios idiomas y dialectos. | Versión preliminar "validada". [Solicite acceso][request-access]. | 
+| [Traductor][tr-containers] | **Traductor** | Traduzca texto a varios idiomas y dialectos. | Versión preliminar "validada". [Solicite acceso](https://aka.ms/csgate-translator). | 
 
 ### <a name="speech-containers"></a>Contenedores de Speech
 

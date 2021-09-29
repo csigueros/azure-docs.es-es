@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/13/2021
 ms.author: jeedes
-ms.openlocfilehash: ef121112bb4ff3ff6a297677a5c713f642cb3b78
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: ea114dfc0a0ecb7f06fa350a0067a96763dc2b81
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107519601"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124809497"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-easysso-for-confluence"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con EasySSO for Confluence
 
@@ -26,7 +26,7 @@ En este tutorial aprenderá a integrar EasySSO for Confluence con Azure Active�
 * Permitir que los usuarios inicien sesión automáticamente en Confluence con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -194,7 +194,7 @@ Sin embargo, si no desea habilitar el aprovisionamiento automático de usuarios 
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante Mis aplicaciones.
 
-Al hacer clic en el icono de EasySSO for Confluence en Mis aplicaciones, se debería iniciar sesión automáticamente en la instancia de Confluence para la que configuró el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+Al hacer clic en el icono de EasySSO for Confluence en Mis aplicaciones, se debería iniciar sesión automáticamente en la instancia de Confluence para la que configuró el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ### <a name="sp-initiated-workflow"></a>Flujo de trabajo iniciado por SP
 

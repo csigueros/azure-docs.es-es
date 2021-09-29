@@ -9,12 +9,12 @@ ms.subservice: blobs
 ms.topic: how-to
 ms.reviewer: klaasl
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 682f855232ef021b10d148b3ede71a35dbaee760
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.openlocfilehash: d4743a529649c7223449b35092b1505ee534eeaf
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122867656"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128615679"
 ---
 # <a name="use-blob-index-tags-to-manage-and-find-data-on-azure-blob-storage"></a>Uso de etiquetas de índice de blobs para administrar y buscar datos en Azure Blob Storage
 
@@ -57,7 +57,7 @@ Esta tarea puede realizarla un [propietario de datos de Storage Blob](../../role
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-1. En [Azure Portal](https://portal.azure.com/), seleccione la cuenta de almacenamiento. 
+1. En [Azure Portal](https://portal.azure.com/), seleccione la cuenta de almacenamiento.
 
 2. Vaya a la opción **Contenedores** de **Almacenamiento de datos** y seleccione el contenedor.
 
@@ -199,7 +199,7 @@ Esta tarea puede realizarla un [propietario de datos de Storage Blob](../../role
 
 En Azure Portal, el filtro de las etiquetas de índice de blobs aplica automáticamente el parámetro `@container` para limitar el ámbito del contenedor seleccionado. Si quiere filtrar y buscar datos etiquetados en toda la cuenta de almacenamiento, use la API REST, los SDK o las herramientas.
 
-1. En [Azure Portal](https://portal.azure.com/), seleccione la cuenta de almacenamiento. 
+1. En [Azure Portal](https://portal.azure.com/), seleccione la cuenta de almacenamiento.
 
 2. Vaya a la opción **Contenedores** de **Almacenamiento de datos** y seleccione el contenedor.
 
@@ -241,7 +241,7 @@ static async Task FindBlobsByTagsExample()
           AppendBlobClient appendBlobWithTags3 = container2.GetAppendBlobClient("myAppendBlob03.logs");
           AppendBlobClient appendBlobWithTags4 = container2.GetAppendBlobClient("myAppendBlob04.logs");
           AppendBlobClient appendBlobWithTags5 = container2.GetAppendBlobClient("myAppendBlob05.logs");
-           
+
           // Blob index tags to upload
           CreateAppendBlobOptions appendOptions = new CreateAppendBlobOptions();
           appendOptions.Tags = new Dictionary<string, string>
@@ -250,7 +250,7 @@ static async Task FindBlobsByTagsExample()
               { "Priority", "01" },
               { "Date", "2020-04-20" }
           };
-          
+
           CreateAppendBlobOptions appendOptions2 = new CreateAppendBlobOptions();
           appendOptions2.Tags = new Dictionary<string, string>
           {
@@ -295,7 +295,7 @@ static async Task FindBlobsByTagsExample()
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-1. En [Azure Portal](https://portal.azure.com/), seleccione la cuenta de almacenamiento. 
+1. En [Azure Portal](https://portal.azure.com/), seleccione la cuenta de almacenamiento.
 
 2. Vaya a la opción **Administración del ciclo de vida** de **Blob service**.
 
@@ -313,11 +313,11 @@ static async Task FindBlobsByTagsExample()
 
 # <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/net)
 
-Las directivas de [administración del ciclo de vida](storage-lifecycle-management-concepts.md) se aplican a cada cuenta de almacenamiento en el nivel del plano de control. Para .NET, instale la versión 16.0.0 o posterior de la [biblioteca Microsoft.Azure.Management.Storage](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/).
+Las directivas de [administración del ciclo de vida](./lifecycle-management-overview.md) se aplican a cada cuenta de almacenamiento en el nivel del plano de control. Para .NET, instale la versión 16.0.0 o posterior de la [biblioteca Microsoft.Azure.Management.Storage](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/).
 
 ---
 
 ## <a name="next-steps"></a>Pasos siguientes
 
- - Para obtener más información sobre las etiquetas de índice de blobs, vea [Administración y búsqueda de datos de Azure Blob con etiquetas de índice de blobs](storage-manage-find-blobs.md ).
- - Para obtener más información sobre la administración del ciclo de vida, vea [Administración del ciclo de vida de Azure Blob Storage](storage-lifecycle-management-concepts.md)
+- Para obtener más información sobre las etiquetas de índice de blobs, vea [Administración y búsqueda de datos de Azure Blob con etiquetas de índice de blobs](storage-manage-find-blobs.md ).
+- Para obtener más información sobre la administración del ciclo de vida, vea [Administración del ciclo de vida de Azure Blob Storage](./lifecycle-management-overview.md)

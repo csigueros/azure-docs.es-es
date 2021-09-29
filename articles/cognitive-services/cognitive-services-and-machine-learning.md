@@ -7,12 +7,12 @@ manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 08/22/2019
-ms.openlocfilehash: cc09acbb8f7220d63c6884cbb4860f1a45f32052
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: e723089b0e248b3bab167b985bc410b3e00d4dc6
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123475951"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124788275"
 ---
 # <a name="cognitive-services-and-machine-learning"></a>Cognitive Services y Machine Learning
 
@@ -103,7 +103,7 @@ Los datos siguientes categorizan cada servicio según el tipo de datos que permi
 |[Speech: Voz a texto (STT)](speech-service/speech-to-text.md)|x|x||
 |[Traducción de voz](speech-service/speech-translation.md)|x|||
 |[Text Analytics](./text-analytics/overview.md)|x|||
-|[Traductor](./translator/translator-info-overview.md)|x|||
+|[Traductor](./translator/translator-overview.md)|x|||
 |[Traductor: traductor personalizado](./translator/custom-translator/overview.md)||x||
 
 *Personalizer solo necesita datos de entrenamiento recopilados por el servicio (como funciona en tiempo real) para evaluar la directiva y los datos. Personalizer no necesita grandes conjuntos de datos históricos para entrenamiento inicial o por lotes. 

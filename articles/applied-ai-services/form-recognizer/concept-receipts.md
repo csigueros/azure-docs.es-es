@@ -2,7 +2,6 @@
 title: 'Recibos: Form Recognizer'
 titleSuffix: Azure Applied AI Services
 description: 'Conozca los conceptos relacionados con el análisis de recibos mediante Form Recognizer API: uso y límites.'
-services: cognitive-services
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -10,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/09/2021
 ms.author: lajanuar
-ms.openlocfilehash: 1efe839a1344f28d2f3033d67de2dd7035320f08
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: f9e6478acb2e0c21b2794b9c613f60dface3859f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122326595"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128674003"
 ---
 # <a name="form-recognizer-prebuilt-receipt-model"></a>Modelo de recibo creado previamente de Form Recognizer
 

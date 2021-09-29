@@ -18,8 +18,11 @@
         - name: Creación de un registro de contenedor (PowerShell)
           href: container-registry-get-started-powershell.md
         - name: Creación de un registro de contenedor (plantilla de Resource Manager)
-          displayName: Resource Manager
+          displayName: 'Resource Manager,ARM'
           href: container-registry-get-started-geo-replication-template.md
+        - name: 'Creación de un registro de contenedor: Bicep'
+          displayName: 'Resource Manager,ARM'
+          href: container-registry-get-started-bicep.md
         - name: 'Envío de eventos a Event Grid: CLI'
           href: container-registry-event-grid-quickstart.md
         - name: 'Creación e inserción de imágenes de Java: CLI'

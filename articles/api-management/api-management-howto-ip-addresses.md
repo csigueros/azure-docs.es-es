@@ -3,17 +3,17 @@ title: Direcciones IP del servicio Azure API Management | Microsoft Docs
 description: Aprenda a recuperar las direcciones IP del servicio Azure API Management y sepa cuándo cambian.
 services: api-management
 documentationcenter: ''
-author: mikebudzynski
+author: dlepow
 ms.service: api-management
 ms.topic: article
 ms.date: 04/13/2021
-ms.author: apimpm
-ms.openlocfilehash: 5939292b6e810634723fada17521bb227764b989
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.author: danlep
+ms.openlocfilehash: d0fe9c305b9592aad7b08437d6e9d14150748ed6
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107534035"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128680744"
 ---
 # <a name="ip-addresses-of-azure-api-management"></a>Direcciones IP de Azure API Management
 

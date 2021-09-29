@@ -1,17 +1,17 @@
 ---
 title: Copia de datos de los blobs de Azure Storage en Azure Data Lake Storage Gen1
 description: Use la herramienta AdlCopy para copiar datos desde Azure Storage Blob a Azure Data Lake Storage Gen1.
-author: twooley
+author: normesta
 ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
-ms.author: twooley
-ms.openlocfilehash: 84ee65b05af4393f49696875bda41df39e283d5d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: normesta
+ms.openlocfilehash: c0ff59832c49a24704649f5aebe55c3ae084c64c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85980096"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128670849"
 ---
 # <a name="copy-data-from-azure-storage-blobs-to-azure-data-lake-storage-gen1"></a>Copia de datos de Azure Storage Blobs a Azure Data Lake Storage Gen1
 

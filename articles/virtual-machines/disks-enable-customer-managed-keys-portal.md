@@ -2,17 +2,17 @@
 title: 'Azure Portal: Habilitación de claves administradas por el cliente con SSE para discos administrados'
 description: Habilite las claves administradas por el cliente en los discos administrados con Azure Portal.
 author: roygara
-ms.date: 08/31/2021
+ms.date: 09/27/2021
 ms.topic: how-to
 ms.author: rogarana
 ms.service: storage
 ms.subservice: disks
-ms.openlocfilehash: 2117fc6d425233ee2de4954173981ad5cfda5f18
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: c5941c8307e5aacc99f6fce627dafc154b6bc786
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123318479"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129091175"
 ---
 # <a name="use-the-azure-portal-to-enable-server-side-encryption-with-customer-managed-keys-for-managed-disks"></a>Uso de Azure Portal para habilitar el cifrado del lado servidor con claves administradas por el cliente para los discos administrados
 

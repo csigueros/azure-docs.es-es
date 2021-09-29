@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/30/2021
-ms.openlocfilehash: c594d253c193928eae47949474aaa75c4f27b60d
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.date: 09/09/2021
+ms.openlocfilehash: ce4d1030999978ba5814d7978238c6f70026b34c
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123314011"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124785123"
 ---
 # <a name="copy-and-transform-data-in-azure-sql-database-by-using-azure-data-factory-or-azure-synapse-analytics"></a>Copia y transformación de datos en Azure SQL Database mediante Azure Data Factory o Azure Synapse Analytics
 
@@ -519,7 +519,7 @@ Para más información, vea [Invocación del procedimiento almacenado desde el r
 
 En la actividad de copia, el conector de Azure SQL Database proporciona creación de particiones de datos integrada para copiar los datos en paralelo. Puede encontrar las opciones de creación de particiones de datos en la pestaña **Origen** de la actividad de copia.
 
-![Captura de pantalla de las opciones de partición](./media/connector-sql-server/connector-sql-partition-options.png)
+:::image type="content" source="./media/connector-sql-server/connector-sql-partition-options.png" alt-text="Captura de pantalla de las opciones de partición":::
 
 Al habilitar la copia con particiones, la actividad de copia ejecuta consultas en paralelo en el origen de Azure SQL Database para cargar los datos por particiones. El grado en paralelo se controla mediante el valor [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) de la actividad de copia. Por ejemplo, si establece `parallelCopies` en cuatro, el servicio genera y ejecuta al mismo tiempo cuatro consultas de acuerdo con la configuración y la opción de partición que ha especificado, y cada consulta recupera una porción de la instancia de Azure SQL Database.
 
@@ -580,7 +580,7 @@ WHERE s.name='[your schema]' AND t.name = '[your table name]'
 
 Si la tabla tiene una partición física, verá "HasPartition" como "yes" como en el caso siguiente.
 
-![Resultado de la consulta SQL](./media/connector-azure-sql-database/sql-query-result.png)
+:::image type="content" source="./media/connector-azure-sql-database/sql-query-result.png" alt-text="Resultado de la consulta SQL":::
 
 ## <a name="best-practice-for-loading-data-into-azure-sql-database"></a>Procedimiento recomendado para cargar datos en Azure SQL Database
 
@@ -605,7 +605,7 @@ La actividad de copia actualmente no admite de forma nativa la carga de datos en
 
 Por ejemplo, puede crear una canalización con una **actividad de copia** encadenada con una **actividad de procedimiento almacenado**. La primera copia datos del almacén de origen en una tabla de almacenamiento provisional de Azure SQL Database, por ejemplo, **UpsertStagingTable**, como nombre de la tabla en el conjunto de datos. Luego, la segunda invoca un procedimiento almacenado para combinar datos de origen de la tabla de almacenamiento provisional en la tabla de destino y limpiar la tabla de almacenamiento provisional.
 
-![Upsert](./media/connector-azure-sql-database/azure-sql-database-upsert.png)
+:::image type="content" source="./media/connector-azure-sql-database/azure-sql-database-upsert.png" alt-text="Upsert":::
 
 En la base de datos, defina un procedimiento almacenado con la lógica MERGE, como en el ejemplo siguiente, al que se señala desde la actividad de procedimiento almacenado anterior. Suponga que el destino es la tabla **Marketing** con tres columnas: **ProfileID**, **State** y **Category**. Realice la operación upsert de acuerdo con la columna **ProfileID**.
 
@@ -702,7 +702,7 @@ La configuración específica de Azure SQL Database está disponible en la pesta
 
 **Procedimiento almacenado**: elija esta opción si desea generar una proyección y datos de origen a partir de un procedimiento almacenado que se ejecuta desde la base de datos de origen. Puede escribir el esquema, el nombre del procedimiento y los parámetros, o bien hacer clic en Actualizar para pedir al servicio que detecte los esquemas y los nombres de los procedimientos. Después, puede hacer clic en Importar para importar todos los parámetros de procedimiento mediante el formulario ``@paraName``.
 
-![Procedimiento almacenado](media/data-flow/stored-procedure-2.png "Procedimiento almacenado")
+:::image type="content" source="media/data-flow/stored-procedure-2.png" alt-text="Procedimiento almacenado":::
 
 - Ejemplo de SQL: ```Select * from MyTable where customerId > 1000 and customerId < 2000```
 - Ejemplo de SQL con parámetros: ``"select * from {$tablename} where orderyear > {$year}"``
@@ -717,7 +717,7 @@ La configuración específica de Azure SQL Database está disponible en la pesta
 - Serializable
 - Ninguno (ignorar el nivel de aislamiento)
 
-![Nivel de aislamiento](media/data-flow/isolationlevel.png "Nivel de aislamiento"):
+:::image type="content" source="media/data-flow/isolationlevel.png" alt-text="Nivel de aislamiento"::::
 
 ### <a name="sink-transformation"></a>Transformación de receptor
 
@@ -725,7 +725,7 @@ La configuración específica de Azure SQL Database está disponible en la pesta
 
 **Método de actualización**: determina qué operaciones se permiten en el destino de la base de datos. El valor predeterminado es permitir solamente las inserciones. Para realizar las operaciones update, upsert o delete rows, se requiere una transformación de alteración de filas para etiquetar esas acciones. En el caso de las actualizaciones, upserts y eliminaciones, se debe establecer una o varias columnas de clave para determinar la fila que se va a modificar.
 
-![Columnas de clave](media/data-flow/keycolumn.png "Columnas de clave")
+:::image type="content" source="media/data-flow/keycolumn.png" alt-text="Columnas de clave":::
 
 El nombre de columna que elija aquí como clave se usará en el servicio como parte de las operaciones posteriores de actualización, upsert y eliminación. Por lo tanto, debe seleccionar una columna que exista en la asignación del receptor. Si no quiere escribir el valor en esta columna de clave, haga clic en "Skip writing key columns" (Omitir escritura de columnas de clave).
 
@@ -741,11 +741,11 @@ Puede parametrizar la columna de clave que se usa aquí para actualizar la tabla
 
 **Usar TempDB**: de manera predeterminada, Data Factory utilizará una tabla temporal global para almacenar los datos como parte del proceso de carga. También puede desactivar la opción "Usar TempDB" y, en su lugar, pedir al servicio que almacene la tabla de almacenamiento temporal en una base de datos de usuario que se encuentra en la base de datos que se utiliza para este receptor.
 
-![Usar TempDB](media/data-flow/tempdb.png "Uso de TempDB")
+:::image type="content" source="media/data-flow/tempdb.png" alt-text="Usar TempDB":::
 
 **Scripts SQL anteriores y posteriores**: escriba scripts de SQL de varias líneas que se ejecutarán antes (preprocesamiento) y después (procesamiento posterior) de que los datos se escriban en la base de datos del receptor.
 
-![Scripts previos y posteriores al procesamiento de SQL](media/data-flow/prepost1.png "Scripts de procesamiento SQL")
+:::image type="content" source="media/data-flow/prepost1.png" alt-text="Scripts previos y posteriores al procesamiento de SQL":::
 
 ### <a name="error-row-handling"></a>Control de filas de errores
 
@@ -763,7 +763,7 @@ De forma predeterminada, la ejecución de un flujo de datos no funcionará al re
 
 **Report success on error** (Notificar éxito cuando hay error): si está habilitada, el flujo de datos se marcará como correcto, aunque se encuentren filas de error. 
 
-![Control de filas de errores](media/data-flow/sql-error-row-handling.png "Control de filas de errores")
+:::image type="content" source="media/data-flow/sql-error-row-handling.png" alt-text="Control de filas de errores":::
 
 
 ## <a name="data-type-mapping-for-azure-sql-database"></a>Asignación de tipos de Azure SQL Database
@@ -827,10 +827,10 @@ Al copiar datos desde o hacia SQL Server con [Always Encrypted](/sql/relational-
 3. Cree un servicio vinculado para conectarse a la base de datos SQL y habilitar la función "Always Encrypted" mediante una identidad administrada o una entidad de servicio. 
 
 >[!NOTE]
->[Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) de SQL Server admite los siguientes escenarios: 
+>La función [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) de SQL Server admite los siguientes escenarios: 
 >1. Los almacenes de datos de origen o receptores usan la identidad administrada o la entidad de servicio como tipo de autenticación del proveedor de claves.
 >2. Los almacenes de datos de origen y receptores usan la identidad administrada como tipo de autenticación del proveedor de claves.
->3. Los almacenes de datos de origen y receptores usan la misma entidad de servicio que el tipo de autenticación del proveedor de claves.
+>3. Los almacenes de datos de origen y receptores usan la misma entidad de servicio como tipo de autenticación del proveedor de claves.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

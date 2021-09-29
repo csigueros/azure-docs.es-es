@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 03/24/2021
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: 13fe269431a84a00a8af073849cbd17d188c5175
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 70b8715119eb221fc860ba6e7a26b92bffadd12f
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121724757"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124744933"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Opciones de acceso e identidad en Azure Kubernetes Service (AKS)
 
@@ -217,7 +217,7 @@ Si la identidad que realiza la solicitud existe en Azure AD, Azure colaborará 
 
 En este escenario, usará mecanismos y API de RBAC de Azure para asignar roles integrados a los usuarios o crear roles personalizados, tal como lo haría con los roles de Kubernetes. 
 
-Con esta característica, no solo concede permisos a los usuarios para el recurso de AKS entre suscripciones, sino que también configura el rol y los permisos dentro de cada uno de esos clústeres que controlan el acceso a la API de Kubernetes. Por ejemplo, puede conceder el rol `Azure Kubernetes Service RBAC Viewer` en el ámbito de la suscripción. El destinatario del rol podrá enumerar y obtener todos los objetos de Kubernetes de todos los clústeres sin modificarlos.
+Con esta característica, no solo concede permisos a los usuarios para el recurso de AKS entre suscripciones, sino que también configura el rol y los permisos dentro de cada uno de esos clústeres que controlan el acceso a la API de Kubernetes. Por ejemplo, puede conceder el rol `Azure Kubernetes Service RBAC Reader` en el ámbito de la suscripción. El destinatario del rol podrá enumerar y obtener todos los objetos de Kubernetes de todos los clústeres sin modificarlos.
 
 > [!IMPORTANT]
 > Debe habilitar Azure RBAC para la autorización de Kubernetes antes de usar esta característica. Para obtener información detallada e instrucciones paso a paso, siga nuestra guía paso a paso [Uso de Azure RBAC para la autorización de Kubernetes](manage-azure-rbac.md).
@@ -228,7 +228,7 @@ AKS proporciona los siguientes cuatro roles integrados. Son similares a los [rol
 
 | Role                                | Descripción  |
 |-------------------------------------|--------------|
-| Visor de Azure Kubernetes Service RBAC  | Permite el acceso de solo lectura para ver la mayoría de los objetos en un espacio de nombres. <br> No permite la visualización de roles o enlaces de roles.<br> No permite la visualización de `Secrets`. Leer el contenido de `Secrets` permite el acceso a las credenciales de `ServiceAccount` en el espacio de nombres, lo que permitiría el acceso a la API como cualquier `ServiceAccount` en el espacio de nombres (una forma de elevación de privilegios).  |
+| Lector de RBAC de Azure Kubernetes Service  | Permite el acceso de solo lectura para ver la mayoría de los objetos en un espacio de nombres. <br> No permite la visualización de roles o enlaces de roles.<br> No permite la visualización de `Secrets`. Leer el contenido de `Secrets` permite el acceso a las credenciales de `ServiceAccount` en el espacio de nombres, lo que permitiría el acceso a la API como cualquier `ServiceAccount` en el espacio de nombres (una forma de elevación de privilegios).  |
 | Escritor de Azure Kubernetes Service RBAC | Permite el acceso de lectura y escritura para ver la mayoría de los objetos en un espacio de nombres. <br> No permite la visualización o modificación de roles o enlaces de roles. <br> Permite acceder a `Secrets` y ejecutar pods como cualquier ServiceAccount en el espacio de nombres, por lo que se puede usar para obtener los niveles de acceso de la API de cualquier ServiceAccount en el espacio de nombres. |
 | Administrador de Azure Kubernetes Service RBAC  | Permite el acceso de administrador, diseñado para su concesión dentro de un espacio de nombres. <br> Permite el acceso de lectura y escritura a la mayoría de los recursos de un espacio de nombres (o ámbito de clúster), incluida la capacidad de crear roles y enlaces de roles dentro del espacio de nombres. <br> No permite el acceso de escritura a la cuota de recursos o al espacio de nombres en sí. |
 | Administrador de clúster de Azure Kubernetes Service RBAC  | Permite el acceso de superusuario para realizar cualquier acción en cualquier recurso. <br> Proporciona control total sobre todos los recursos del clúster y en todos los espacios de nombres. |

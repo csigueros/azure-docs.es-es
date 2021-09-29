@@ -9,12 +9,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: fryu
-ms.openlocfilehash: be4c00596e0d058dad50ae5f535ac56334b305ea
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 2c4eac524ecda8a2b90036748fd2a6f2a389a3cd
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123436525"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124823728"
 ---
 # <a name="overview-of-blob-rehydration-from-the-archive-tier"></a>Introducción a la rehidratación de blobs desde el nivel de archivo
 
@@ -80,7 +80,7 @@ Una vez que se inicia una solicitud [Set Blob Tier](/rest/api/storageservices/se
 Para obtener información sobre cómo rehidratar un blob cambiando su nivel a un nivel en línea, consulte [Rehidratación de un blob cambiando su nivel](archive-rehydrate-to-online-tier.md#rehydrate-a-blob-by-changing-its-tier).
 
 > [!CAUTION]
-> Cambiar el nivel de un blob no afecta a la hora de la última modificación. Si hay una directiva de [administración del ciclo de vida](storage-lifecycle-management-concepts.md) en vigor para la cuenta de almacenamiento, la rehidratación de un blob con la operación **Set Blob Tier** puede dar lugar a un escenario en el que la directiva de ciclo de vida mueva el blob de nuevo al nivel de archivo después de la rehidratación, ya que la hora de la última modificación supera el umbral establecido para la directiva.
+> Cambiar el nivel de un blob no afecta a la hora de la última modificación. Si hay una directiva de [administración del ciclo de vida](./lifecycle-management-overview.md) en vigor para la cuenta de almacenamiento, la rehidratación de un blob con la operación **Set Blob Tier** puede dar lugar a un escenario en el que la directiva de ciclo de vida mueva el blob de nuevo al nivel de archivo después de la rehidratación, ya que la hora de la última modificación supera el umbral establecido para la directiva.
 >
 > Para evitar este escenario, en su lugar, rehidrate el blob archivado copiándolo, como se describe en la sección [Copia de un blob archivado en un nivel en línea](#copy-an-archived-blob-to-an-online-tier). La realización de una operación de copia crea una nueva instancia del blob con una hora de la última modificación actualizada, por lo que no desencadena la directiva de administración del ciclo de vida.
 

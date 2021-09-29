@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/25/2021
 ms.author: jeedes
-ms.openlocfilehash: d23e56aeb80fbd00eac65c4c1fb7ce7cb88c4e8b
-ms.sourcegitcommit: 1c12bbaba1842214c6578d914fa758f521d7d485
+ms.openlocfilehash: be146cba31d1eb6f22db8788f7e71ed60f9ca52a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2021
-ms.locfileid: "112988830"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128627660"
 ---
 # <a name="tutorial-integrate-sansan-with-azure-active-directory"></a>Tutorial: Integración de Azure Active Directory con Sansan
 
@@ -81,7 +81,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
        | Entorno | URL |
       |:--- |:--- |
       | PC |`https://ap.sansan.com/v/saml2/<COMPANY_NAME>/acs` |
-      | Aplicación de smartphone |`https://internal.api.sansan.com/<COMPANY_NAME>/acs` |
+      | Aplicación de smartphone |`https://internal.api.sansan.com/saml2/<COMPANY_NAME>/acs` |
       | Aplicación web |`https://ap.sansan.com/s/saml2/<COMPANY_NAME>/acs` |
 
    1. En el cuadro de texto **Dirección URL de inicio de sesión**, escriba la dirección URL: `https://ap.sansan.com/`
@@ -146,7 +146,7 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 * Vaya directamente a la dirección URL de inicio de sesión de Sansan y comience el flujo de inicio de sesión desde ahí.
 
-* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el mosaico de Sansan en Aplicaciones, se le redirigirá a la dirección URL de inicio de sesión de Sansan. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el mosaico de Sansan en Aplicaciones, se le redirigirá a la dirección URL de inicio de sesión de Sansan. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -2,14 +2,14 @@
 title: 'Federación de varios sitios y varias regiones: Azure Event Hubs | Microsoft Docs'
 description: En este artículo se proporciona información general sobre la federación de varios sitios y varias regiones con Azure Event Hubs.
 ms.topic: article
-ms.date: 12/12/2020
+ms.date: 09/28/2021
 ms.author: spelluru
-ms.openlocfilehash: 12ef895c8b16fe18ed02ebf01d17624ac71c2f3e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7311854b95250f94aa51bdc954b53743fbfde3a1
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97861452"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129217871"
 ---
 # <a name="multi-site-and-multi-region-federation"></a>Federación en varios sitios y regiones
 

@@ -8,12 +8,12 @@ ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/12/2021
-ms.openlocfilehash: 0c2cfe51e84931b90ab80588b16fe126aadaf4c3
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: bd9bfff8faf8f5c5e2c81ea9a8abea23af0da6ca
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122638812"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124771657"
 ---
 # <a name="incrementally-copy-new-and-changed-files-based-on-lastmodifieddate-by-using-the-copy-data-tool"></a>Copia incremental de archivos nuevos y modificados según LastModifiedDate con la herramienta Copiar datos
 
@@ -50,7 +50,7 @@ Complete estos pasos para preparar su instancia de Blob Storage para el tutorial
 
 1. En el panel izquierdo, seleccione **Crear un recurso**. Seleccione **Integración** > **Data Factory**:
 
-   ![Selección de Data Factory](./media/doc-common-process/new-azure-data-factory-menu.png)
+   :::image type="content" source="./media/doc-common-process/new-azure-data-factory-menu.png" alt-text="Selección de Data Factory":::
 
 2. En la página **Nueva factoría de datos**, en **Nombre**, escriba **ADFTutorialDataFactory**.
 
@@ -58,7 +58,7 @@ Complete estos pasos para preparar su instancia de Blob Storage para el tutorial
 
     :::image type="content" source="./media/doc-common-process/name-not-available-error.png" alt-text="Nuevo mensaje de error de factoría de datos por nombre duplicado.":::
 
-   Si recibe un mensaje de error sobre el valor de nombre, escriba un nombre diferente para la factoría de datos. Por ejemplo, utilice _**suNombre**_**ADFTutorialDataFactory**. Para conocer las reglas de nomenclatura de los artefactos de Data Factory, consulte [Data Factory: reglas de nomenclatura](naming-rules.md).
+   Si recibe un mensaje de error sobre el valor de nombre, escriba un nombre diferente para la factoría de datos. Por ejemplo, utilice _**suNombre**_ **ADFTutorialDataFactory**. Para conocer las reglas de nomenclatura de los artefactos de Data Factory, consulte [Data Factory: reglas de nomenclatura](naming-rules.md).
 3. En **Suscripción**, seleccione la suscripción de Azure en la que creará la factoría de datos nueva.
 4. En **Grupo de recursos**, complete uno de estos pasos:
 
@@ -80,7 +80,7 @@ Complete estos pasos para preparar su instancia de Blob Storage para el tutorial
 
 1. En la página principal de Azure Data Factory, seleccione el icono **Ingerir** para abrir la herramienta Copiar datos:
 
-   ![Captura de pantalla que muestra la página principal de ADF.](./media/doc-common-process/get-started-page.png)
+   :::image type="content" source="./media/doc-common-process/get-started-page.png" alt-text="Captura de pantalla que muestra la página principal de ADF.":::
 
 2. En la página **Propiedades**, realice los pasos siguientes:
 
@@ -92,7 +92,7 @@ Complete estos pasos para preparar su instancia de Blob Storage para el tutorial
 
     1. Seleccione **Siguiente**.
 
-    ![Página de propiedades de Copy data (Copiar datos)](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/copy-data-tool-properties-page.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-lastmodified-copy-data-tool/copy-data-tool-properties-page.png" alt-text="Página de propiedades de Copy data (Copiar datos)":::
 
 3. En la página **Almacén de datos de origen**, complete estos pasos:
 
@@ -100,7 +100,7 @@ Complete estos pasos para preparar su instancia de Blob Storage para el tutorial
 
     1. Seleccione **Azure Blob Storage** en la galería y, a continuación, seleccione **Continuar**:
 
-        ![Seleccionar Azure Blob Storage](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/source-data-store-page-select-blob.png)
+        :::image type="content" source="./media/tutorial-incremental-copy-lastmodified-copy-data-tool/source-data-store-page-select-blob.png" alt-text="Seleccionar Azure Blob Storage":::
 
     1. En la página **New connection (Azure Blob Storage)** (Nueva conexión [Azure Blob Storage]), seleccione la suscripción a Azure de la lista **Azure subscription** (Suscripción a Azure) y la cuenta de almacenamiento de la lista **Storage account name** (Nombre de la cuenta de almacenamiento). Pruebe la conexión y seleccione **Crear**.
 
@@ -129,27 +129,27 @@ Complete estos pasos para preparar su instancia de Blob Storage para el tutorial
 
 6. En la página **Summary** (Resumen), revise la configuración y seleccione **Next** (Siguiente).
 
-    ![Página de resumen](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/summary-page.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-lastmodified-copy-data-tool/summary-page.png" alt-text="Página de resumen":::
 
 7. En la página **Implementación**, seleccione **Monitor** para supervisar la canalización (tarea).
 
-    ![Página Deployment (Implementación)](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/deployment-page.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-lastmodified-copy-data-tool/deployment-page.png" alt-text="Página Deployment (Implementación)":::
 
 8. Observe que la pestaña **Monitor** (Supervisión) de la izquierda se selecciona automáticamente. La aplicación cambia a la pestaña **Monitor** (Supervisión). Verá el estado de la canalización. Seleccione **Refresh** (Actualizar) para actualizar la lista. Seleccione el vínculo bajo **Nombre de canalización** para ver los detalles de la ejecución de actividad o para volver a ejecutar la canalización.
 
-    ![Actualizar la lista y ver los detalles de la ejecución de actividad](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs-1.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs-1.png" alt-text="Actualizar la lista y ver los detalles de la ejecución de actividad":::
 
 9. Como solo hay una actividad (actividad de copia) en la canalización, solo verá una entrada. Para ver detalles sobre la operación de copia, en la página **Ejecuciones de actividad**, seleccione el vínculo **Detalles** (el icono de gafas) en la columna **Nombre de actividad**. Para detalles sobre las propiedades, consulte [Introducción a la actividad de copia](copy-activity-overview.md).
 
-    ![Actividad de copia en la canalización](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs2.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs2.png" alt-text="Actividad de copia en la canalización":::
 
     Como no hay archivos en el contenedor de origen de la cuenta de Blob Storage, no verá ningún archivo copiado en el contenedor de destino en la cuenta:
 
-    ![No hay archivos en los contenedores source o destination](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs3.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs3.png" alt-text="No hay archivos en los contenedores source o destination":::
 
 10. Cree un archivo de texto vacío y asígnele el nombre **file1.txt**. Cargue este archivo de texto en el contenedor de origen en su cuenta de almacenamiento. Puede usar varias herramientas para realizar estas tareas, como el [Explorador de Azure Storage](https://storageexplorer.com/).
 
-    ![Crear file1.txt y cargar en el contenedor de origen](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs3-1.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs3-1.png" alt-text="Crear file1.txt y cargar en el contenedor de origen":::
 
 11. Para volver a la vista **Ejecuciones de canalizaciones**, seleccione el vínculo **Todas las ejecuciones de la canalización** en el menú de la ruta de navegación de la página **Ejecuciones de actividad** y espere a que la misma canalización se desencadene de nuevo automáticamente.  
 
@@ -157,7 +157,7 @@ Complete estos pasos para preparar su instancia de Blob Storage para el tutorial
 
     Verá que un archivo (file1.txt) se copió del contenedor de origen al contenedor de destino de la cuenta de Blob Storage:
 
-    ![file1.txt se copió del contenedor de origen al contenedor de destino](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs6.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs6.png" alt-text="file1.txt se copió del contenedor de origen al contenedor de destino":::
 
 13. Cree otro archivo de texto vacío y asígnele el nombre **file2.txt**. Cargue este archivo de texto en el contenedor de origen en su cuenta de Blob Storage.
 
@@ -165,7 +165,7 @@ Complete estos pasos para preparar su instancia de Blob Storage para el tutorial
 
     También puede comprobar que solo se copió un archivo mediante el uso del [Explorador de Azure Storage](https://storageexplorer.com/) para examinar los archivos:
 
-    ![Examen de archivos mediante el Explorador de Azure Storage](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs8.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs8.png" alt-text="Examen de archivos mediante el Explorador de Azure Storage":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 Vaya al tutorial siguiente para aprender a transformar los datos mediante el uso de un clúster de Apache Spark en Azure:

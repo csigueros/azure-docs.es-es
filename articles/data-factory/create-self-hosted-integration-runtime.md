@@ -7,14 +7,14 @@ ms.subservice: integration-runtime
 ms.topic: conceptual
 author: lrtoyou1223
 ms.author: lle
-ms.date: 08/24/2021
+ms.date: 09/09/2021
 ms.custom: devx-track-azurepowershell, synapse
-ms.openlocfilehash: 8c6f5954e173f58333ec3970cb09ca0404adf964
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.openlocfilehash: 734c469afa43a178f5c7a50550426a47940b8f35
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122822828"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124820035"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Creación y configuración de un entorno de ejecución de integración autohospedado
 
@@ -45,7 +45,7 @@ Cuando mueve datos entre un entorno local y la nube, la actividad utiliza un ent
 
 A continuación se muestra un resumen de alto nivel de los pasos del flujo de datos para copiar con un IR autohospedado:
 
-![Información general de alto nivel del flujo de datos](media/create-self-hosted-integration-runtime/high-level-overview.png)
+:::image type="content" source="media/create-self-hosted-integration-runtime/high-level-overview.png" alt-text="Información general de alto nivel del flujo de datos":::
 
 1. Un desarrollador de datos crea primero un entorno de ejecución de integración autohospedado en una instancia de Azure Data Factory o en un área de trabajo de Synapse mediante Azure Portal o el cmdlet de PowerShell.  A continuación, el desarrollador de datos crea un servicio vinculado para un almacén de datos local mediante la especificación de la instancia del entorno de ejecución de integración autohospedado que debe usar el servicio para conectarse a los almacenes de datos.
 
@@ -226,19 +226,19 @@ Estos son los detalles de las acciones y los argumentos de la aplicación:
 
 La cuenta de servicio de inicio de sesión predeterminada del entorno de ejecución de integración autohospedado es **NT SERVICE\DIAHostService**. Puede verla en **Servicios -> Servicio del entorno de ejecución -> Propiedades -> Inicio de sesión**.
 
-![Cuenta de servicio para el entorno de ejecución de integración autohospedado](media/create-self-hosted-integration-runtime/shir-service-account.png)
+:::image type="content" source="media/create-self-hosted-integration-runtime/shir-service-account.png" alt-text="Cuenta de servicio para el entorno de ejecución de integración autohospedado":::
 
 Asegúrese de que la cuenta tenga permiso de inicio de sesión como servicio. De lo contrario, el entorno de ejecución de integración autohospedado no puede iniciarse correctamente. Puede comprobar el permiso en **Directiva de seguridad local -> Configuración de seguridad -> Directivas locales-> Asignación de permisos de usuario-> Iniciar sesión como servicio**
 
-![Captura de pantalla de la directiva de seguridad local: asignación de derechos de usuario](media/create-self-hosted-integration-runtime/shir-service-account-permission.png)
+:::image type="content" source="media/create-self-hosted-integration-runtime/shir-service-account-permission.png" alt-text="Captura de pantalla de la directiva de seguridad local: asignación de derechos de usuario":::
 
-![Captura de pantalla de la asignación de derechos de usuario Iniciar sesión como servicio](media/create-self-hosted-integration-runtime/shir-service-account-permission-2.png)
+:::image type="content" source="media/create-self-hosted-integration-runtime/shir-service-account-permission-2.png" alt-text="Captura de pantalla de la asignación de derechos de usuario Iniciar sesión como servicio":::
 
 ## <a name="notification-area-icons-and-notifications"></a>Iconos y notificaciones del área de notificación
 
 Si mueve el cursor sobre el icono o el mensaje en el área de notificación, podrá ver los detalles del estado del entorno de ejecución de integración autohospedado.
 
-![Notificaciones en el área de notificación](media/create-self-hosted-integration-runtime/system-tray-notifications.png)
+:::image type="content" source="media/create-self-hosted-integration-runtime/system-tray-notifications.png" alt-text="Notificaciones en el área de notificación":::
 
 ## <a name="high-availability-and-scalability"></a>Alta disponibilidad y escalabilidad
 

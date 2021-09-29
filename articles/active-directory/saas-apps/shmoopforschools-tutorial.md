@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/18/2020
 ms.author: jeedes
-ms.openlocfilehash: 17b4b0ca07b5adc054d4fcfcf4183bb97ce134fb
-ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
+ms.openlocfilehash: c27d2fbe1c80c13a91ff31d5d3f655c873b63fbf
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108801539"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124801151"
 ---
 # <a name="tutorial-integrate-shmoop-for-schools-with-azure-active-directory"></a>Tutorial: Integración de Shmoop For Schools con Azure Active Directory
 
@@ -143,7 +143,7 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 - Vaya directamente a la dirección URL de inicio de sesión de Shmoop For Schools e inicie el flujo de inicio de sesión desde allí.
 
-- Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Shmoop For Schools en Aplicaciones, se le redirigirá a la dirección URL de inicio de sesión de Shmoop For Schools. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+- Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Shmoop For Schools en Aplicaciones, se le redirigirá a la dirección URL de inicio de sesión de Shmoop For Schools. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
