@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/06/2020
 ms.author: jeedes
-ms.openlocfilehash: 8d5881d838c4fe952206afb827fd60ed98dbba86
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 63209118be15bb61a0b85e27fe9541601169274f
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96178371"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124772873"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-hownow-webapp-sso"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con HowNow WebApp SSO
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar HowNow WebApp SSO con Azure Active Direc
 * Permitir que los usuarios inicien sesión automáticamente en HowNow WebApp SSO con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -138,7 +138,7 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 * Acceda directamente a la URL de inicio de sesión de HowNow WebApp SSO y ponga en marcha el flujo de inicio de sesión desde ahí.
 
-* Puede usar el Panel de acceso de Microsoft. Al hacer clic en el icono de HowNow WebApp SSO en el panel de acceso, se le redirigirá a URL de inicio de sesión de la aplicación. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
+* Puede usar el Panel de acceso de Microsoft. Al hacer clic en el icono de HowNow WebApp SSO en el panel de acceso, se le redirigirá a URL de inicio de sesión de la aplicación. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -4,7 +4,7 @@ titleSuffix: Azure API Management
 description: Obtenga información acerca de cómo autorizar a los usuarios para que utilicen OAuth 2.0 en Administración de API. OAuth 2.0 protege la API para que los usuarios solo puedan acceder a los recursos a los que están autorizados.
 services: api-management
 documentationcenter: ''
-author: mikebudzynski
+author: dlepow
 manager: cfowler
 editor: ''
 ms.service: api-management
@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/14/2020
-ms.author: apimpm
-ms.openlocfilehash: fae4e349d46425c0c2b2b923d6a61e2e588708c1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: danlep
+ms.openlocfilehash: 0aa147063c9fc67442c1c15e297f66bf3612f645
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93077258"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128588226"
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Procedimiento para autorizar a las cuentas de desarrollador para que usen OAuth 2.0 en Azure API Management
 

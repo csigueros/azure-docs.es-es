@@ -13,12 +13,12 @@ ms.date: 07/23/2021
 ms.custom: template-concept
 ms.author: cchiedo
 ms.reviewer: johngarland, mamarxen, ianbe, marsma
-ms.openlocfilehash: 4dcdb90daa9bb8cd1df79ec399eb9372fca02c61
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: a3710d4af1b65b1220db8938b35cf9d6cb516579
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123037195"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124734721"
 ---
 # <a name="authorization-basics"></a>Conceptos básicos de autorización
 
@@ -50,7 +50,7 @@ El control de acceso basado en roles (RBAC) es posiblemente el enfoque más com�
 En implementaciones avanzadas de RBAC, los roles se pueden asignar a colecciones de permisos, donde un permiso describe una acción o actividad concreta que se puede realizar. Después, los roles se configuran como combinaciones de permisos. Para procesar el conjunto general de permisos de las entidades para una aplicación, debe formar una intersección con los permisos concedidos a los distintos roles a los que se asigna la entidad. Un buen ejemplo de este enfoque es la implementación de RBAC que gobierna el acceso a los recursos de las suscripciones de Azure.
 
 > [!NOTE]
-> [El RBAC de aplicación](./custom-rbac-for-developers.md) difiere del [RBAC de Azure](/azure/role-based-access-control/overview) y del [RBAC de Azure AD](../roles/custom-overview.md#understand-azure-ad-role-based-access-control). Los roles personalizados de Azure y los roles integrados forman parte de RBAC de Azure, lo cual le ayuda a administrar los recursos de Azure. El RBAC de Azure AD permite administrar recursos de Azure AD.
+> [El RBAC de aplicación](./custom-rbac-for-developers.md) difiere del [RBAC de Azure](../../role-based-access-control/overview.md) y del [RBAC de Azure AD](../roles/custom-overview.md#understand-azure-ad-role-based-access-control). Los roles personalizados de Azure y los roles integrados forman parte de RBAC de Azure, lo cual le ayuda a administrar los recursos de Azure. El RBAC de Azure AD permite administrar recursos de Azure AD.
 
 ### <a name="attribute-based-access-control"></a>Control de acceso basado en atributos 
 
@@ -75,4 +75,4 @@ No es estrictamente necesario que los desarrolladores inserten la lógica de aut
 
 - Para más información sobre la implementación personalizada del control de acceso basado en roles en aplicaciones, consulte [Control de acceso basado en rol para desarrolladores de aplicaciones](./custom-rbac-for-developers.md).
 - Para conocer el proceso de registrar la aplicación para que se pueda integrar con la plataforma de identidad de Microsoft, consulte [Modelo de aplicación](./application-model.md).
-- Para obtener un ejemplo de configuración de la autorización simple basada en autenticación, consulte [Configuración de una aplicación de App Service o Azure Functions para usar el inicio de sesión de Azure AD](/azure/app-service/configure-authentication-provider-aad).
+- Para obtener un ejemplo de configuración de la autorización simple basada en autenticación, consulte [Configuración de una aplicación de App Service o Azure Functions para usar el inicio de sesión de Azure AD](../../app-service/configure-authentication-provider-aad.md).

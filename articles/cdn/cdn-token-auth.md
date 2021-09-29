@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/17/2017
 ms.author: mazha
-ms.openlocfilehash: 21ef06f37e6840df08b1477f9c0ff24f6e15d1a3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b28041d0bfcc60b3973e17d1883ef63be521a515
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95978055"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128613106"
 ---
 # <a name="securing-azure-cdn-assets-with-token-authentication"></a>Protección de los activos de Azure CDN con autenticación por tokens
 
@@ -70,11 +70,11 @@ En el diagrama de flujo siguiente se describe cómo Azure CDN valida una solicit
 
       La herramienta OpenSSL tiene la sintaxis siguiente:
 
-      ```rand -hex <key length>```
+      `rand -hex <key length>`
 
       Por ejemplo:
 
-      ```OpenSSL> rand -hex 32``` 
+      `OpenSSL> rand -hex 32` 
 
       Para evitar el tiempo de inactividad, cree un elemento principal y una clave de copia de seguridad. Una clave de copia de seguridad proporciona un acceso ininterrumpido a su contenido cuando se actualiza la clave principal.
     

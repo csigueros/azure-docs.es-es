@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f2f3a3c561b2fe82dcbeaaee1138c0d465ac6a4
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: a38361355c48021b6145552071593056a2a3caa6
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121737329"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124759745"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app"></a>Habilitación del inicio de sesión sin contraseña con la aplicación Microsoft Authenticator 
 
@@ -83,7 +83,7 @@ Los usuarios se registran directamente en el método de autenticación sin contr
 1. En la aplicación **Microsoft Authenticator**, seleccione **Habilitar inicio de sesión en el teléfono** en el menú desplegable de la cuenta registrada.
 1. Siga las instrucciones de la aplicación para terminar de registrar la cuenta para el inicio de sesión en el teléfono sin contraseña.
 
-Una organización puede dirigir a sus usuarios para que inicien sesión con sus teléfonos, sin usar una contraseña. Para obtener más información sobre la configuración de la aplicación Microsoft Authenticator y la habilitación del inicio de sesión en el teléfono, consulte [Inicio de sesión en sus cuentas mediante la aplicación Microsoft Authenticator](../user-help/user-help-auth-app-sign-in.md).
+Una organización puede dirigir a sus usuarios para que inicien sesión con sus teléfonos, sin usar una contraseña. Para obtener más información sobre la configuración de la aplicación Microsoft Authenticator y la habilitación del inicio de sesión en el teléfono, consulte [Inicio de sesión en sus cuentas mediante la aplicación Microsoft Authenticator](https://support.microsoft.com/account-billing/sign-in-to-your-accounts-using-the-microsoft-authenticator-app-582bdc07-4566-4c97-a7aa-56058122714c).
 
 > [!NOTE]
 > Los usuarios que no estén permitidos por la directiva para usar el inicio de sesión con el teléfono ya no pueden habilitarla en la aplicación Microsoft Authenticator.

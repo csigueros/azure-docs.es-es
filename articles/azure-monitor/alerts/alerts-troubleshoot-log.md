@@ -6,12 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: f7e5340b69bacb14180b4feee7ada22c7ca298d0
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
+ms.openlocfilehash: aafd6f2e0d5c10b1e3e1698176734a83083ef72d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111592704"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124744513"
 ---
 # <a name="troubleshoot-log-alerts-in-azure-monitor"></a>Solución de problemas de alertas de registro en Azure Monitor  
 
@@ -156,7 +156,7 @@ El número total de reglas de alerta de búsqueda de registros aparece encima de
 
 ## <a name="activity-log-example-when-rule-is-disabled"></a>Ejemplo de registro de actividad cuando la regla está deshabilitada
 
-Si se produce un error en la consulta durante siete días de forma continuada, Azure Monitor deshabilita la alerta de registro y deja de facturar la regla. Puede ver la hora exacta en que Azure Monitor deshabilitó la alerta de registro en el [registro de actividad de Azure](../../azure-resource-manager/management/view-activity-logs.md). 
+Si se produce un error en la consulta durante siete días de forma continuada, Azure Monitor deshabilita la alerta de registro y deja de facturar la regla. Puede ver la hora exacta en que Azure Monitor deshabilitó la alerta de registro en el [registro de actividad de Azure](../../azure-monitor/essentials/activity-log.md). 
 
 Consulte este ejemplo:
 

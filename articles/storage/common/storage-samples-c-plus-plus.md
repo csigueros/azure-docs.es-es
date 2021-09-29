@@ -1,18 +1,18 @@
 ---
 title: Ejemplos de Azure Storage con C++ | Microsoft Docs
 description: Consulte, descargue y ejecute código de ejemplo y aplicaciones para Azure Storage. Descubra ejemplos introductorios de blobs, colas, tablas y archivos, con las bibliotecas de cliente de almacenamiento para C++.
-author: twooley
-ms.author: twooley
+author: normesta
+ms.author: normesta
 ms.date: 10/01/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.openlocfilehash: d82b31cde0e8df5db2d073abcec8ea44f13bd0f0
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 46f34dfc6a841bf465aed527907ee81e8fb56e22
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106276678"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128633723"
 ---
 # <a name="azure-storage-samples-using-v12-c-client-libraries"></a>Ejemplos de Azure Storage con las bibliotecas de cliente para C++ v12
 
@@ -132,9 +132,9 @@ En la tabla siguiente se proporciona información general sobre el repositorio d
 
 Para ver todas las bibliotecas de ejemplo de C++, vaya a:
 
-* [Ejemplos de código para blobs de Azure](https://github.com/Azure/azure-sdk-for-cpp/tree/master/sdk/storage/azure-storage-blobs/sample)
-* [Ejemplos de código de Azure Data Lake](https://github.com/Azure/azure-sdk-for-cpp/tree/master/sdk/storage/azure-storage-files-datalake/sample)
-* [Ejemplos de código de Azure Files](https://github.com/Azure/azure-sdk-for-cpp/tree/master/sdk/storage/azure-storage-files-shares/sample)
+- [Ejemplos de código para blobs de Azure](https://github.com/Azure/azure-sdk-for-cpp/tree/master/sdk/storage/azure-storage-blobs/sample)
+- [Ejemplos de código de Azure Data Lake](https://github.com/Azure/azure-sdk-for-cpp/tree/master/sdk/storage/azure-storage-files-datalake/sample)
+- [Ejemplos de código de Azure Files](https://github.com/Azure/azure-sdk-for-cpp/tree/master/sdk/storage/azure-storage-files-shares/sample)
 
 Puede explorar y clonar el repositorio de GitHub para cada biblioteca.
 
@@ -142,14 +142,14 @@ Puede explorar y clonar el repositorio de GitHub para cada biblioteca.
 
 Consulte las guías siguientes si busca instrucciones sobre cómo instalar las bibliotecas de cliente de Azure Storage y cómo empezar a usarlas.
 
-* [Inicio rápido: Biblioteca de Azure Blob Storage v12: C++](../blobs/quickstart-blobs-c-plus-plus.md)
+- [Inicio rápido: Biblioteca de Azure Blob Storage v12: C++](../blobs/quickstart-blobs-c-plus-plus.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para información sobre ejemplos para otros lenguajes:
 
-* .NET: [Azure Storage samples using .NET](storage-samples-dotnet.md) (Ejemplos de Azure Storage con .NET)
-* Java: [Azure Storage samples using Java](storage-samples-java.md) (Ejemplos de Azure Storage con Java)
-* Python: [Ejemplos de Azure Storage con Python](storage-samples-python.md)
-* JavaScript/Node.js: [Ejemplos de Azure Storage con JavaScript](storage-samples-javascript.md)
-* El resto de lenguajes: [Ejemplos de Azure Storage](storage-samples.md)
+- .NET: [Azure Storage samples using .NET](storage-samples-dotnet.md) (Ejemplos de Azure Storage con .NET)
+- Java: [Azure Storage samples using Java](storage-samples-java.md) (Ejemplos de Azure Storage con Java)
+- Python: [Ejemplos de Azure Storage con Python](storage-samples-python.md)
+- JavaScript/Node.js: [Ejemplos de Azure Storage con JavaScript](storage-samples-javascript.md)
+- El resto de lenguajes: [Ejemplos de Azure Storage](storage-samples.md)

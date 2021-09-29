@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-general
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: jushiman
-ms.openlocfilehash: 917a22980cda5dea5ced20f01d7e79ccd55fbcf1
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: c3accb7edfb65ee2f21c924e4b028a6fdcaccea4
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123426695"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124774260"
 ---
 # <a name="dv3-and-dsv3-series"></a>Series Dv3 y DSv3
 
@@ -92,8 +92,10 @@ Las máquinas virtuales de la serie DSv3 cuentan con la tecnología Hyper-Thread
 - [GPU optimizada](sizes-gpu.md)
 - [Proceso de alto rendimiento](sizes-hpc.md)
 - [Generaciones anteriores](sizes-previous-gen.md)
-- [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/)
-- Para obtener más información sobre los tipos de discos, vea [¿Qué tipos de disco están disponibles en Azure?](disks-types.md).
+
+Calculadora de precios: [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/)
+
+Para obtener más información sobre los tipos de discos, vea [¿Qué tipos de disco están disponibles en Azure?](disks-types.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

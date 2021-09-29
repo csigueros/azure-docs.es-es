@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/17/2020
 ms.author: jeedes
-ms.openlocfilehash: e3de90084c42a6ce5f71977de7e90e0767f858db
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 12fd6865e80932328748a28cf7b5c833aa44008b
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96181344"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124785484"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-virtual-risk-manager"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Virtual Risk Manager
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar Virtual Risk Manager con Azure Active Di
 * Permitir que los usuarios inicien sesión automáticamente en Virtual Risk Manager con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -121,7 +121,7 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 * Haga clic en Probar esta aplicación en Azure Portal. Se debería iniciar sesión automáticamente en la instancia de Virtual Risk Manager para la que configuró el inicio de sesión único.
 
-* Puede usar el Panel de acceso de Microsoft. Al hacer clic en el icono de Virtual Risk Manager en el panel de acceso, debería iniciarse sesión automáticamente en la versión de Virtual Risk Manager para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
+* Puede usar el Panel de acceso de Microsoft. Al hacer clic en el icono de Virtual Risk Manager en el panel de acceso, debería iniciarse sesión automáticamente en la versión de Virtual Risk Manager para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

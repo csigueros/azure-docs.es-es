@@ -4,12 +4,12 @@ description: Las diferencias y el flujo de migración de cargas de trabajo de Ap
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 01/16/2019
-ms.openlocfilehash: b8b054d06c9c0987508abfdf03bbcf9470572bd1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c4f4156f80fac0c9e5eaae360aa937544d88aa9e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104868773"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128656804"
 ---
 # <a name="migrate-azure-hdinsight-36-apache-storm-to-hdinsight-40-apache-spark"></a>Migración de Apache Storm para Azure HDInsight 3.6 a Apache Spark para HDInsight 4.0
 
@@ -40,7 +40,7 @@ Apache Storm puede proporcionar diferentes niveles de procesamiento de mensajes 
 
 ### <a name="spark-streaming-vs-spark-structured-streaming"></a>Spark Streaming frente a Spark Structured Streaming
 
-Spark Structured Streaming va a reemplazar a Spark Streaming (DStreams). Structured Streaming seguirá recibiendo mejoras y mantenimiento, mientras que DStreams estará solo en modo de mantenimiento. **Nota: Necesita vínculos para resaltar este punto**. Structured Streaming no tiene tantas características como DStreams para los orígenes y receptores que admite de forma estándar, así que es aconsejable evaluar los requisitos para elegir la opción de procesamiento de secuencias de Spark adecuada.
+Spark Structured Streaming va a reemplazar a Spark Streaming (DStreams). Structured Streaming seguirá recibiendo mejoras y mantenimiento, mientras que DStreams estará solo en modo de mantenimiento. Structured Streaming no tiene tantas características como DStreams para los orígenes y receptores que admite de forma estándar, así que es aconsejable evaluar los requisitos para elegir la opción de procesamiento de secuencias de Spark adecuada.
 
 ## <a name="streaming-single-event-processing-vs-micro-batch-processing"></a>Procesamiento de streaming (evento único) frente a procesamiento de microlotes
 

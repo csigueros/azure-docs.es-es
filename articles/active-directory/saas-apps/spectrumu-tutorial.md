@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/11/2021
 ms.author: jeedes
-ms.openlocfilehash: 32036e3ac121d5128b85fb82e345aad53d040619
-ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
+ms.openlocfilehash: 22b16dc0e06e961542c5474c56914e91df22ffa4
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122271007"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124785617"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-spectrumu"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con SpectrumU
 
@@ -139,7 +139,7 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 * Vaya directamente a la dirección URL de inicio de sesión de SpectrumU e inicie el flujo de inicio de sesión desde allí.
 
-* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de SpectrumU en Aplicaciones, se le redirigirá a la URL de inicio de sesión de SpectrumU. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de SpectrumU en Aplicaciones, se le redirigirá a la URL de inicio de sesión de SpectrumU. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

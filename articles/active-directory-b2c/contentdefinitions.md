@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 08/04/2021
+ms.date: 09/12/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a3c8b3d97a117e88c323253134be383fb0766355
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: bbe79082f63065ed73b573ab87f3299f7df79148
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121723261"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124740234"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
 
@@ -111,8 +111,6 @@ El elemento **DataUri** se usa para especificar el identificador de página. Azu
 ### <a name="select-a-page-layout"></a>Selección de un diseño de página
 
 Puede habilitar el [código cliente de JavaScript](javascript-and-page-layout.md) insertando `contract` entre `elements` y el tipo de página. Por ejemplo, `urn:com:microsoft:aad:b2c:elements:contract:page-name:version`.
-
-[!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
 La parte de la [versión](page-layout.md) de `DataUri` especifica el paquete del contenido que incluye HTML, CSS y JavaScript para los elementos de la interfaz de usuario de la directiva. Si tiene pensado habilitar el código cliente de JavaScript, los elementos en los que se basa el código JavaScript deben ser inmutables. Si no son inmutables, cualquier cambio podría provocar un comportamiento inesperado en las páginas de usuario. Para evitar estos problemas, exija el uso de un diseño de página y especifique una versión del diseño de página. Con esto se asegurará de que todas las definiciones de contenido en las que ha basado el código JavaScript sean inmutables. Incluso si no piensa habilitar JavaScript, aún tiene que especificar una versión del diseño de página para las páginas.
 

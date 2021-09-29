@@ -7,16 +7,16 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 07/18/2020
 ms.author: cshoe
-ms.openlocfilehash: 767b20600c8edb2752a87a10c788ee446a8f15b3
-ms.sourcegitcommit: 0ce834cd348bb8b28a5f7f612c2807084cde8e8f
+ms.openlocfilehash: be5415658de782c362eca0f40a17a4578932aafa
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109813981"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124777229"
 ---
 # <a name="configure-front-end-frameworks-and-libraries-with-azure-static-web-apps"></a>Configuración de marcos y bibliotecas de servidores front-end con Azure Static Web Apps
 
-Azure Static Web Apps requiere que tenga los valores de configuración adecuados en el [archivo de configuración de compilación](github-actions-workflow.md) para el marco o la biblioteca del servidor front-end.
+Azure Static Web Apps requiere que tenga los valores de configuración adecuados en el [archivo de configuración de compilación](build-configuration.md) para el marco o la biblioteca del servidor front-end.
 
 ## <a name="configuration"></a>Configuración
 
@@ -24,9 +24,9 @@ En la siguiente tabla se muestra la configuración de varios marcos y biblioteca
 
 Los siguientes elementos explican la intención de las columnas de la tabla:
 
-- **Ubicación de salida**: Muestra el valor de `output_location`, que es la [carpeta para las versiones compiladas de los archivos de aplicación](github-actions-workflow.md#build-and-deploy).
+- **Ubicación de salida**: Muestra el valor de `output_location`, que es la [carpeta para las versiones compiladas de los archivos de aplicación](build-configuration.md).
 
-- **Comando de compilación personalizado**: Cuando el marco de trabajo requiere un comando distinto de `npm run build` o `npm run azure:build`, puede definir un [comando de compilación personalizado](github-actions-workflow.md#custom-build-commands).
+- **Comando de compilación personalizado**: Cuando el marco de trabajo requiere un comando distinto de `npm run build` o `npm run azure:build`, puede definir un [comando de compilación personalizado](build-configuration.md#custom-build-commands).
 
 | marco | Ubicación del artefacto de la aplicación | Comando de compilación personalizado |
 |--|--|--|
@@ -65,4 +65,4 @@ Los siguientes elementos explican la intención de las columnas de la tabla:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Creación y configuración de flujos de trabajo](github-actions-workflow.md)
+- [Creación y configuración de flujos de trabajo](build-configuration.md)

@@ -7,17 +7,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/27/2021
+ms.date: 09/20/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 9259fac727287ce4d52594d146eaac96a3085433
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 8c6e1e1e22f8d694a020174af15ee8f12c6838d7
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121738969"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128594733"
 ---
 # <a name="configure-session-behavior-in-azure-active-directory-b2c"></a>Configuración del comportamiento de la sesión en Azure Active Directory B2C
 
@@ -89,7 +89,8 @@ Puede configurar el comportamiento de la sesión de Azure AD B2C, entre otras c
 Para configurar el comportamiento de la sesión:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-1. Asegúrese de usar el directorio que contiene el inquilino de Azure AD B2C. Para ello, seleccione el filtro **Directorio y suscripción** en el menú superior y luego el directorio que contiene el inquilino de Azure AD B2C.
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
 1. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C**.
 1. Seleccione **Flujos de usuario**.
 1. Abra el flujo de usuario que creó anteriormente.
@@ -133,14 +134,14 @@ Esta característica se puede configurar en el nivel de flujo cada usuario. Ante
 Para habilitar la característica Mantener la sesión iniciada para el flujo de usuario, siga estos pasos:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-2. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el filtro  **Directorio y suscripción**  del menú superior y el directorio que contiene el inquilino de Azure AD B2C.
-3. Elija  **Todos los servicios**  en la esquina superior izquierda de Azure Portal, y busque y seleccione  **Azure AD B2C**.
-4. Seleccione  **Flujos de usuario (directivas)** .
-5. Abra el flujo de usuario que creó anteriormente.
-6. Seleccione  **Propiedades**.
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
+1. Elija  **Todos los servicios**  en la esquina superior izquierda de Azure Portal, y busque y seleccione  **Azure AD B2C**.
+1. Seleccione  **Flujos de usuario (directivas)** .
+1. Abra el flujo de usuario que creó anteriormente.
+1. Seleccione  **Propiedades**.
 
-7. En  **Comportamiento de la sesión**, seleccione **Habilitar la opción de mantener la sesión iniciada**. Junto a **Mantener la sesión iniciada (días)** , escriba un valor entre 1 y 90 para especificar el número de días que una sesión puede permanecer abierta.
-
+1. En  **Comportamiento de la sesión**, seleccione **Habilitar la opción de mantener la sesión iniciada**. Junto a **Mantener la sesión iniciada (días)** , escriba un valor entre 1 y 90 para especificar el número de días que una sesión puede permanecer abierta.
 
    ![Habilitar la opción de mantener la sesión iniciada](media/session-behavior/enable-keep-me-signed-in.png)
 
@@ -325,7 +326,8 @@ Después del cierre de sesión, se redirige al usuario al URI especificado en el
 Para requerir un token de identificador en las solicitudes de cierre de sesión:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-1. Asegúrese de usar el directorio que contiene el inquilino de Azure AD B2C. Para ello, seleccione el filtro **Directorio y suscripción** en el menú superior y luego el directorio que contiene el inquilino de Azure AD B2C.
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
 1. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C**.
 1. Seleccione **Flujos de usuario**.
 1. Abra el flujo de usuario que creó anteriormente.
@@ -353,7 +355,8 @@ Para requerir un token de identificador en las solicitudes de cierre de sesión,
 Para configurar la dirección URL de cierre de sesión de la aplicación:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-1. Asegúrese de usar el directorio que contiene el inquilino de Azure AD B2C. Para ello, seleccione el filtro **Directorio y suscripción** en el menú superior y luego el directorio que contiene el inquilino de Azure AD B2C.
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
 1. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C**.
 1. Seleccione **Registros de aplicaciones** y, luego, seleccione su aplicación.
 1. Seleccione **Autenticación**.

@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.topic: how-to
-ms.date: 08/20/2020
+ms.date: 09/15/2021
 ms.author: banders
-ms.openlocfilehash: 1706fd69f58e4dee4a7ed963fb22cb63aec026fa
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 2f2d88a48b7dca0b2ab3ad512e6b723ab68931c8
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100593395"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128650256"
 ---
 # <a name="manage-costs-with-azure-budgets"></a>Administración de costos con Azure Budgets
 
@@ -60,7 +60,7 @@ Mediante un [Runbook de Azure Automation](../../automation/automation-runbook-ty
 1. Una vez que el Runbook haya completado el proceso de importación, seleccione **Editar** para mostrar la opción de publicación y el editor del Runbook gráfico.  
     ![Azure: edición de runbook gráfico](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-01.png)
 1. Seleccione **Publicar** para publicar el runbook y **Sí** cuando se le solicite. Al publicar un Runbook, reemplaza la versión publicada existente con la versión del borrador. En este caso, no tiene una versión publicada porque ha creado el runbook.
-    Para más información sobre cómo publicar un Runbook, consulte [Mi primer Runbook gráfico](../../automation/learn/automation-tutorial-runbook-graphical.md).
+    Para más información sobre cómo publicar un Runbook, consulte [Mi primer Runbook gráfico](../../automation/learn/powershell-runbook-managed-identity.md).
 
 ## <a name="create-webhooks-for-the-runbook"></a>Creación de webhooks para el Runbook
 

@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1b944480ce7c09676b65216da4c74f4ffdacdcf
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 3091afbab67f65a1850bb4ffbd73487d0e0327c9
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112292346"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124742550"
 ---
 # <a name="common-scenarios-in-azure-ad-entitlement-management"></a>Escenarios comunes de administración de derechos de Azure AD
 
@@ -40,7 +40,7 @@ Hay varias formas para configurar la administración de derechos para su organiz
 
 ### <a name="catalog-owner-delegate-management-of-resources"></a>Propietario del catálogo: Delegar la administración de los recursos
 
-1. [Adición de copropietarios al catálogo](entitlement-management-catalog-create.md#add-additional-catalog-owners)
+1. [Adición de copropietarios al catálogo](entitlement-management-catalog-create.md#add-more-catalog-owners)
 1. [Adición de recursos al catálogo](entitlement-management-catalog-create.md#add-resources-to-a-catalog)
 
 ### <a name="catalog-owner-delegate-management-of-access-packages"></a>Propietario del catálogo: delegar la administración de paquetes de acceso

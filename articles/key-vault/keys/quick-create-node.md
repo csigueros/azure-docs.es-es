@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: a3d63a65edaca68bbb60bf7b8901e341da218377
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: 82cca0492aba30b8bf04a8d3fe4c9c4c7d5be5a1
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113733545"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124775170"
 ---
 # <a name="quickstart-azure-key-vault-key-client-library-for-javascript-version-4"></a>Inicio rápido: Biblioteca cliente de claves de Azure Key Vault para JavaScript (versión 4)
 
@@ -152,9 +152,9 @@ const { KeyClient } = require("@azure/keyvault-keys");
 
 ### <a name="authenticate-and-create-a-client"></a>Autenticación y creación de un cliente
 
-En este inicio rápido se emplea el usuario que ha iniciado sesión para autenticarlo en el almacén de claves, que es el método preferido para el desarrollo local. Para las aplicaciones implementadas en Azure, la identidad administrada debe asignarse a App Service o la máquina virtual. Para más información, consulte [Introducción a la identidad administrada](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+En este inicio rápido se emplea el usuario que ha iniciado sesión para autenticarlo en el almacén de claves, que es el método preferido para el desarrollo local. Para las aplicaciones implementadas en Azure, la identidad administrada debe asignarse a App Service o la máquina virtual. Para más información, consulte [Introducción a la identidad administrada](../../active-directory/managed-identities-azure-resources/overview.md).
 
-En el ejemplo siguiente, el nombre del almacén de claves se expande al URI del almacén de claves, con el formato "https://\<your-key-vault-name\>.vault.azure.net". En este ejemplo se usa la clase ["DefaultAzureCredential()"](https://docs.microsoft.com/javascript/api/@azure/identity/defaultazurecredential) de la [biblioteca de identidades de Azure](https://docs.microsoft.com/javascript/api/overview/azure/identity-readme), que permite usar el mismo código en entornos diferentes con distintas opciones para proporcionar la identidad. Para más información sobre la autenticación en el almacén de claves, consulte la [Guía del desarrollador](https://docs.microsoft.com/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code).
+En el ejemplo siguiente, el nombre del almacén de claves se expande al URI del almacén de claves, con el formato "https://\<your-key-vault-name\>.vault.azure.net". En este ejemplo se usa la clase ["DefaultAzureCredential()"](/javascript/api/@azure/identity/defaultazurecredential) de la [biblioteca de identidades de Azure](/javascript/api/overview/azure/identity-readme), que permite usar el mismo código en entornos diferentes con distintas opciones para proporcionar la identidad. Para más información sobre la autenticación en el almacén de claves, consulte la [Guía del desarrollador](../general/developers-guide.md#authenticate-to-key-vault-in-code).
 
 Agregue el siguiente código a la función "main()".
 
@@ -168,7 +168,7 @@ const client = new KeyClient(KVUri, credential);
 
 ### <a name="save-a-key"></a>Guardar una clave
 
-Ahora que la aplicación se ha autenticado, puede colocar una clave en el almacén de claves, para lo que usará el [método createKey](/javascript/api/@azure/keyvault-keys/keyclient?#createKey_string__KeyType__CreateKeyOptions_). Los parámetros del método aceptan un nombre de clave y el [tipo de clave](https://docs.microsoft.com/javascript/api/@azure/keyvault-keys/keytype)
+Ahora que la aplicación se ha autenticado, puede colocar una clave en el almacén de claves, para lo que usará el [método createKey](/javascript/api/@azure/keyvault-keys/keyclient?#createKey_string__KeyType__CreateKeyOptions_). Los parámetros del método aceptan un nombre de clave y el [tipo de clave](/javascript/api/@azure/keyvault-keys/keytype)
 
 ```javascript
 await client.createKey(keyName, keyType);
@@ -184,7 +184,7 @@ const retrievedKey = await client.getKey(keyName);
 
 ### <a name="delete-a-key"></a>Eliminación de una clave
 
-Por último, se va a eliminar y purgar la clave del almacén de claves con los métodos [beginDeleteKey](https://docs.microsoft.com/javascript/api/@azure/keyvault-keys/keyclient?#beginDeleteKey_string__BeginDeleteKeyOptions_) y [purgeDeletedKey](https://docs.microsoft.com/javascript/api/@azure/keyvault-keys/keyclient?#purgeDeletedKey_string__PurgeDeletedKeyOptions_).
+Por último, se va a eliminar y purgar la clave del almacén de claves con los métodos [beginDeleteKey](/javascript/api/@azure/keyvault-keys/keyclient?#beginDeleteKey_string__BeginDeleteKeyOptions_) y [purgeDeletedKey](/javascript/api/@azure/keyvault-keys/keyclient?#purgeDeletedKey_string__PurgeDeletedKeyOptions_).
 
 ```javascript
 const deletePoller = await client.beginDeleteKey(keyName);

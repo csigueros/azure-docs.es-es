@@ -2,17 +2,17 @@
 title: Funcionamiento de una puerta de enlace de aplicaciones
 description: En este artículo se proporciona información sobre cómo una puerta de enlace de aplicaciones para acepta las solicitudes entrantes y las enruta al back-end.
 services: application-gateway
-author: abshamsft
+author: KumudD
 ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 11/16/2019
-ms.author: absha
-ms.openlocfilehash: d2055bf812c3dc986a907d4358fa0e74e8af20fa
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.author: kumud
+ms.openlocfilehash: 594bc177afc0de7703ce12ae9e8a1e831431f176
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104599670"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124751235"
 ---
 # <a name="how-an-application-gateway-works"></a>Funcionamiento de una puerta de enlace de aplicaciones
 

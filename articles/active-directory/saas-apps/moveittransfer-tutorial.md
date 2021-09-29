@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/27/2021
 ms.author: jeedes
-ms.openlocfilehash: 73f378bb0f71df4df3731a3ef2a1fdb7f8abb4aa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0db5d434e2442019fc441b5443c50df16bc4559e
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101653080"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124742232"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-moveit-transfer---azure-ad-integration"></a>Tutorial: Integración de Azure Active Directory con MOVEit Transfer - Azure AD integration
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar MOVEit Transfer - Azure AD integration
 * Permitir que los usuarios inicien sesión automáticamente en MOVEit Transfer - Azure AD integration con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -186,7 +186,7 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 * Vaya a la URL de inicio de sesión de MOVEit Transfer - Azure AD integration directamente y ponga en marcha el flujo de inicio de sesión desde allí.
 
-* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de MOVEit Transfer - Azure AD integration en Aplicaciones, debería iniciar sesión automáticamente en la instancia de MOVEit Transfer - Azure AD integration para la que configuró el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de MOVEit Transfer - Azure AD integration en Aplicaciones, debería iniciar sesión automáticamente en la instancia de MOVEit Transfer - Azure AD integration para la que configuró el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

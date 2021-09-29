@@ -1,20 +1,19 @@
 ---
-title: Implementación de una puerta de enlace autohospedada en Kubernetes | Microsoft Docs
+title: Implementación de una puerta de enlace autohospedada en Kubernetes
 description: Aprenda a implementar un componente de puerta de enlace autohospedada de Azure API Management en Kubernetes
-services: api-management
-author: vladvino
+author: dlepow
 manager: gwallace
 ms.service: api-management
 ms.workload: mobile
 ms.topic: article
-ms.author: apimpm
+ms.author: danlep
 ms.date: 05/25/2021
-ms.openlocfilehash: 645fce68e408b65299090e4661b36690f7ca140c
-ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
+ms.openlocfilehash: dda6fcbf71914fefcd1afd2056864ad66aa11d4d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2021
-ms.locfileid: "114690493"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128609828"
 ---
 # <a name="deploy-a-self-hosted-gateway-to-kubernetes"></a>Implementación de una puerta de enlace autohospedada en Kubernetes
 
@@ -43,25 +42,27 @@ En este artículo se describen los pasos para implementar un componente de puert
 8. Pegue los comandos en la ventana de terminal o comando. El primer comando crea un secreto de Kubernetes que contiene el token de acceso generado en el paso 4. El segundo comando aplica el archivo de configuración descargado en el paso 6 al clúster de Kubernetes y espera que el archivo esté en el directorio actual.
 9. Ejecute los comandos para crear los objetos de Kubernetes necesarios en el [espacio de nombres predeterminado](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) e inicie los pods de la puerta de enlace autohospedada desde la [imagen de contenedor](https://aka.ms/apim/sputnik/dhub) descargada de Microsoft Azure Container Registry.
 10. Ejecute el siguiente comando para comprobar si la implementación se realizó correctamente. Tenga en cuenta que la creación de todos los objetos y la inicialización de los pods pueden tardar un poco.
+
     ```console
     kubectl get deployments
     NAME             READY   UP-TO-DATE   AVAILABLE   AGE
     <gateway-name>   1/1     1            1           18s
     ```
 11. Ejecute el siguiente comando para comprobar si el servicio se creó correctamente. Tenga en cuenta que las direcciones IP y los puertos del servicio serán diferentes.
+
     ```console
     kubectl get services
     NAME             TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S)                      AGE
     <gateway-name>   LoadBalancer   10.99.236.168   <pending>     80:31620/TCP,443:30456/TCP   9m1s
     ```
-12. Vuelva a Azure Portal y seleccione **Información general**.
-13. Confirme que **Estado** muestra una marca de verificación verde seguida de un recuento de nodos que coincide con el número de réplicas especificado en el archivo YAML. Este estado significa que los pods de puerta de enlace autohospedados implementados se comunican correctamente con el servicio de API Management y tienen un "latido" normal.
+1. Vuelva a Azure Portal y seleccione **Información general**.
+1. Confirme que **Estado** muestra una marca de verificación verde seguida de un recuento de nodos que coincide con el número de réplicas especificado en el archivo YAML. Este estado significa que los pods de puerta de enlace autohospedados implementados se comunican correctamente con el servicio de API Management y tienen un "latido" normal.
 
     ![Estado de la puerta de enlace](media/how-to-deploy-self-hosted-gateway-kubernetes/status.png)
 
 > [!TIP]
-> Ejecute el comando <code>kubectl logs deployment/<gateway-name></code> para ver los registros de un pod seleccionado aleatoriamente si hay más de uno.
-> Ejecute <code>kubectl logs -h</code> para un conjunto completo de opciones de comando; por ejemplo, para ver los registros de un pod o contenedor específico.
+> Ejecute el comando `kubectl logs deployment/<gateway-name>` para ver los registros de un pod seleccionado aleatoriamente si hay más de uno.
+> Ejecute `kubectl logs -h` para un conjunto completo de opciones de comando; por ejemplo, para ver los registros de un pod o contenedor específico.
 
 ## <a name="production-deployment-considerations"></a>Consideraciones de implementación en producción
 

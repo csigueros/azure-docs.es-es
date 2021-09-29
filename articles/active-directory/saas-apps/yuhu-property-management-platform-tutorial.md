@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/18/2019
 ms.author: jeedes
-ms.openlocfilehash: 51e84e7e3a1e8a800769985e37374abf6d601f5c
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 05591a72da0df39e9fad043d3d77b6e30eb97ddb
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106077455"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124789168"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-yuhu-property-management-platform"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Yuhu Property Management Platform
 
@@ -146,7 +146,7 @@ En esta sección va a crear un usuario llamado B.Simon en Yuhu Property Manageme
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de Yuhu Property Management Platform en el panel de acceso, debería iniciar sesión automáticamente en la versión de Yuhu Property Management Platform para la que configurara el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
+Al hacer clic en el icono de Yuhu Property Management Platform en el panel de acceso, debería iniciar sesión automáticamente en la versión de Yuhu Property Management Platform para la que configurara el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

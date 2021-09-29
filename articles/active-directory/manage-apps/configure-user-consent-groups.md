@@ -12,12 +12,12 @@ ms.date: 08/31/2021
 ms.author: davidmu
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: babc9da622fdca1365d5b963191775881ad992e8
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 94c3280731f40839f462632fedaa30ebc916466e
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123431935"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124754192"
 ---
 # <a name="configure-group-owner-consent-to-apps-accessing-group-data"></a>Configuración del consentimiento del propietario del grupo para las aplicaciones que acceden a los datos del grupo
 
@@ -29,7 +29,7 @@ Necesita lo siguiente para completar las tareas de esta guía:
 
 - Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Un rol de administrador global.
-- Configure Azure AD PowerShell. Vea [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/)
+- Configure Azure AD PowerShell. Vea [Azure AD PowerShell](/powershell/azure/)
 
 ## <a name="manage-group-owner-consent-to-apps"></a>Administración del consentimiento del propietario del grupo para las aplicaciones
 

@@ -7,12 +7,12 @@ ms.subservice: workloads
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: seanmck
-ms.openlocfilehash: 1cffc36cbd4f24bbcbb5996a323ffa963e311693
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 9ebfd3a9ce02ece7fc36fdce004dac29539f4fae
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107530953"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124737112"
 ---
 # <a name="deploy-your-first-app-to-cloud-foundry-on-microsoft-azure"></a>Implementación de la primera aplicación en Cloud Foundry en Microsoft Azure
 
@@ -22,7 +22,7 @@ ms.locfileid: "107530953"
 
 Hay varias opciones para crear un entorno de Cloud Foundry en Azure:
 
-- Use la [oferta de Pivotal Cloud Foundry][pcf-azuremarketplace] que encontrará en Azure Marketplace para crear un entorno estándar que incluya PCF Ops Manager y Azure Service Broker. En la documentación de Pivotal puede encontrar [instrucciones completas][pcf-azuremarketplace-pivotaldocs] para implementar la oferta de Marketplace.
+- Use la oferta de Pivotal Cloud Foundry que encontrará en Azure Marketplace para crear un entorno estándar que incluya PCF Ops Manager y Azure Service Broker. En la documentación de Pivotal puede encontrar [instrucciones completas][pcf-azuremarketplace-pivotaldocs] para implementar la oferta de Marketplace.
 - Cree un entorno personalizado [implementando Pivotal Cloud Foundry manualmente][pcf-custom].
 - [Implemente directamente los paquetes de Cloud Foundry de código abierto][oss-cf-bosh]. Para ello, configure un director de [BOSH](https://bosh.io), una máquina virtual que coordina la implementación del entorno de Cloud Foundry.
 
@@ -141,7 +141,6 @@ La ejecución del comando `cf app` en la aplicación muestra que Cloud Foundry c
 
 <!-- LINKS -->
 
-[pcf-azuremarketplace]: https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry
 [pcf-custom]: https://docs.pivotal.io/pivotalcf/1-10/customizing/azure.html
 [oss-cf-bosh]: https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/tree/master/docs
 [pcf-azuremarketplace-pivotaldocs]: https://docs.pivotal.io/ops-manager/2-10/install/pcf_azure.html

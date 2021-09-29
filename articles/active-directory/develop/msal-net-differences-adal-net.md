@@ -13,12 +13,12 @@ ms.date: 06/09/2021
 ms.author: jmprieur
 ms.reviewer: saeeda, shermanouko
 ms.custom: devx-track-csharp, aaddev, has-adal-ref
-ms.openlocfilehash: 7b7f94b5e71719b53e724c76f9604f40ba7990e2
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
+ms.openlocfilehash: 39c8f669b8577278a7654db92ae87d55758505ff
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122419050"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124787175"
 ---
 # <a name="differences-between-adalnet-and-msalnet-apps"></a>Diferencias entre las aplicaciones de ADAL.NET y MSAL.NET
 
@@ -50,10 +50,10 @@ Estas son las concesiones que se admiten en ADAL.NET y MSAL.NET para aplicacione
 
 Conceder                             | MSAL.NET                                                                                                                     | ADAL.NET                                                                                                                                                                                                   |
 --------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-Interactive                       | [Adquisición de tokens de forma interactiva en MSAL.NET](scenario-desktop-acquire-token.md#acquire-a-token-interactively)    | [Autenticación interactiva](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Acquiring-tokens-interactively---Public-client-application-flows)                                              |
-Autenticación integrada de Windows | [Autenticación integrada de Windows](scenario-desktop-acquire-token.md#integrated-windows-authentication)         | [Autenticación integrada en Windows (Kerberos)](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AcquireTokenSilentAsync-using-Integrated-authentication-on-Windows-(Kerberos))  |
-Nombre de usuario y contraseña               | [Autenticación de nombre de usuario y contraseña](scenario-desktop-acquire-token.md#username-and-password)                      | [Adquisición de tokens con nombre de usuario y contraseña](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Acquiring-tokens-with-username-and-password)                                        |
-Flujo de código de dispositivo                  | [Flujo de código de dispositivo](scenario-desktop-acquire-token.md#command-line-tool-without-a-web-browser)                    | [Perfil de dispositivo para dispositivos sin exploradores web](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Device-profile-for-devices-without-web-browsers)                                |
+Interactive                       | [Adquisición de tokens de forma interactiva en MSAL.NET](scenario-desktop-acquire-token-interactive.md)    | [Autenticación interactiva](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Acquiring-tokens-interactively---Public-client-application-flows)                                              |
+Autenticación integrada de Windows | [Autenticación integrada de Windows](scenario-desktop-acquire-token-integrated-windows-authentication.md)         | [Autenticación integrada en Windows (Kerberos)](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AcquireTokenSilentAsync-using-Integrated-authentication-on-Windows-(Kerberos))  |
+Nombre de usuario y contraseña               | [Autenticación de nombre de usuario y contraseña](scenario-desktop-acquire-token-username-password.md)                      | [Adquisición de tokens con nombre de usuario y contraseña](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Acquiring-tokens-with-username-and-password)                                        |
+Flujo de código de dispositivo                  | [Flujo de código de dispositivo](scenario-desktop-acquire-token-device-code-flow.md)                    | [Perfil de dispositivo para dispositivos sin exploradores web](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Device-profile-for-devices-without-web-browsers)                                |
 
 ### <a name="confidential-client-applications"></a>Aplicaciones cliente confidenciales
 

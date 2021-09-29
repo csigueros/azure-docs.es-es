@@ -1,22 +1,22 @@
 ---
 title: Controles de cumplimiento normativo de Azure Policy para Azure Storage
 description: Enumera los controles de cumplimiento normativo de Azure Policy disponibles para Azure Storage. Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar el cumplimiento de los recursos de Azure.
-ms.date: 09/03/2021
+ms.date: 09/17/2021
 ms.topic: sample
-author: twooley
-ms.author: twooley
+author: normesta
+ms.author: normesta
 ms.service: storage
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: a349e61b554fd8fc8479a901c8fb52a67da4bee9
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: 5e1cafad4e2fa51a2274d24b760c90bb31ce03f0
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123467538"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128633832"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-storage"></a>Controles de cumplimiento normativo de Azure Policy para Azure Storage
 
-[Cumplimiento normativo de Azure Policy](../../governance/policy/concepts/regulatory-compliance.md) proporciona definiciones de iniciativas creadas y administradas por Microsoft, conocidas como _integraciones_, para los **dominios de cumplimiento** y los **controles de seguridad** relativos a distintos estándares de cumplimiento. En esta página se enumeran los **dominios de cumplimiento** y los **controles de seguridad** para Azure Storage. Para que los recursos de Azure sean compatibles con el estándar específico, puede asignar las integraciones a un **control de seguridad** de manera individual.
+[Cumplimiento normativo de Azure Policy](../../governance/policy/concepts/regulatory-compliance.md) proporciona definiciones de iniciativas creadas y administradas por Microsoft, conocidas como *integraciones*, para los **dominios de cumplimiento** y los **controles de seguridad** relativos a distintos estándares de cumplimiento. En esta página se enumeran los **dominios de cumplimiento** y los **controles de seguridad** para Azure Storage. Para que los recursos de Azure sean compatibles con el estándar específico, puede asignar las integraciones a un **control de seguridad** de manera individual.
 
 [!INCLUDE [azure-policy-compliancecontrols-introwarning](../../../includes/policy/standards/intro-warning.md)]
 

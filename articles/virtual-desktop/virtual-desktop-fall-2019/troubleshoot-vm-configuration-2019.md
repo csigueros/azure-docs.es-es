@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: c662338a29ef30abf1a0da77edad25d4f5896cd3
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: f867ad9d55f5e5dbaac7962dd8e4ae4daeafee6f
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112028080"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124776849"
 ---
 # <a name="azure-virtual-desktop-classic-session-host-virtual-machine-configuration"></a>Configuración de máquina virtual de host de sesión de Azure Virtual Desktop (clásico)
 
@@ -231,7 +231,7 @@ Existen circunstancias conocidas que pueden provocar que la pila en paralelo no 
 - Ejecutar enablesxsstackrc.ps1 varias veces
 - Ejecutar enablesxsstackrc.ps1 en una cuenta que no tiene privilegios de administrador local
 
-Las instrucciones de esta sección pueden ayudarle a desinstalar la pila en paralelo de Azure Virtual Desktop. Una vez que se desinstale la pila en paralelo, vaya a "Registro de la máquina virtual al grupo host de Azure Virtual Desktop" en [Creación de un grupo host con PowerShell](create-host-pools-powershell-2019.md) para reinstalar la pila en paralelo.
+Las instrucciones de esta sección pueden ayudarle a desinstalar la pila en paralelo de Azure Virtual Desktop. Una vez desinstalada la pila en paralelo, vaya a "Registrar la máquina virtual con el grupo host de Azure Virtual Desktop" en [Creación de un grupo host con PowerShell](create-host-pools-powershell-2019.md) para volver a instalar la pila en paralelo.
 
 La VM usada para ejecutar la corrección debe estar en la misma subred y el mismo dominio que la VM con la pila en paralelo con error de funcionamiento.
 
@@ -353,11 +353,11 @@ Para obtener más información acerca de esta directiva, consulte [Permitir el i
 
 - Para obtener información general sobre cómo solucionar problemas de Azure Virtual Desktop y las pistas de escalación, consulte [Introducción, comentarios y soporte técnico para solucionar problemas](troubleshoot-set-up-overview-2019.md).
 - Para solucionar problemas durante la creación de un grupo de inquilinos y de hosts en un entorno de Azure Virtual Desktop, consulte [Creación de los grupos de inquilinos y de host](troubleshoot-set-up-issues-2019.md).
-- Para solucionar problemas al configurar una máquina virtual (VM) en Azure Virtual Desktop, consulte [Configuración de la máquina virtual del host de sesión](troubleshoot-vm-configuration-2019.md).
+- Para solucionar problemas al configurar una máquina virtual (VM) en Azure Virtual Desktop, consulte [Configuración de la máquina virtual del host de sesión](troubleshoot-vm-configuration-2019.md).
 - Para solucionar problemas con conexiones de cliente de Azure Virtual Desktop, consulte [Conexiones de servicios de Azure Virtual Desktop](troubleshoot-service-connection-2019.md).
 - Para solucionar problemas con los clientes de Escritorio remoto, consulte [Solución de problemas del cliente de Escritorio remoto](../troubleshoot-client.md).
-- Para solucionar problemas al usar PowerShell con Azure Virtual Desktop, consulte [PowerShell para Azure Virtual Desktop](troubleshoot-powershell-2019.md).
-- Para obtener más información sobre el servicio, consulte [Entorno de Azure Virtual Desktop](environment-setup-2019.md).
+- Para solucionar problemas al usar PowerShell con Azure Virtual Desktop, consulte [PowerShell para Azure Virtual Desktop](troubleshoot-powershell-2019.md).
+- Para más información sobre el servicio, consulte [Entorno de Azure Virtual Desktop](environment-setup-2019.md).
 - Para realizar un tutorial de solución de problemas, consulte [Tutorial: Solución de problemas de las implementaciones de plantillas de Resource Manager](../../azure-resource-manager/templates/template-tutorial-troubleshoot.md).
-- Para más información sobre las acciones de auditoría, consulte [Operaciones de auditoría con Resource Manager](../../azure-resource-manager/management/view-activity-logs.md).
+- Para más información sobre las acciones de auditoría, consulte [Operaciones de auditoría con Resource Manager](../../azure-monitor/essentials/activity-log.md).
 - Si desea conocer más detalles sobre las acciones que permiten determinar los errores durante la implementación, consulte [Visualización de operaciones de implementación con el Portal de Azure](../../azure-resource-manager/templates/deployment-history.md).

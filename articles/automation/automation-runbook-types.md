@@ -6,12 +6,12 @@ ms.subservice: process-automation
 ms.date: 06/10/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a6005c267423787fed61f2fb9badfea5769137d2
-ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
+ms.openlocfilehash: 44923cd63676a6eb2fa589c66726f1c14c76896c
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113565371"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124744807"
 ---
 # <a name="azure-automation-runbook-types"></a>Tipos de runbooks de Azure Automation
 
@@ -134,7 +134,7 @@ En el caso de los trabajos en la nube, a veces se produce un error en los trabaj
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para más información sobre los runbooks de PowerShell, consulte [Tutorial: Creación de un runbook de PowerShell](learn/automation-tutorial-runbook-textual-powershell.md).
+* Para más información sobre los runbooks de PowerShell, consulte [Tutorial: Creación de un runbook de PowerShell](./learn/powershell-runbook-managed-identity.md).
 * Para mas información sobre los runbooks de flujo de trabajo de PowerShell, consulte [Tutorial: Creación de un runbook de flujo de trabajo de PowerShell](learn/automation-tutorial-runbook-textual.md).
-* Para información sobre los runbooks gráficos, consulte [Tutorial: Creación de un runbook gráfico](learn/automation-tutorial-runbook-graphical.md).
-* Para información sobre los runbooks de Python, consulte [Tutorial: Creación de un runbook de Python](learn/automation-tutorial-runbook-textual-python2.md).
+* Para información sobre los runbooks gráficos, consulte [Tutorial: Creación de un runbook gráfico](./learn/powershell-runbook-managed-identity.md).
+* Para información sobre los runbooks de Python, consulte [Tutorial: Creación de un runbook de Python](./learn/automation-tutorial-runbook-textual-python-3.md).

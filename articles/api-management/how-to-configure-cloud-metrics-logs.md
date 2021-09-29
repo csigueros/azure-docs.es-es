@@ -3,7 +3,7 @@ title: Configuración de los registros y las métricas en la nube para la puerta
 description: Aprenda a configurar los registros y las métricas en la nube para la puerta de enlace autohospedada de Azure API Management.
 services: api-management
 documentationcenter: ''
-author: miaojiang
+author: dlepow
 manager: gwallace
 editor: ''
 ms.service: api-management
@@ -11,13 +11,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 04/30/2020
-ms.author: apimpm
-ms.openlocfilehash: c420c62e6f8f09a2b29398590cdb4ad410e5d296
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: danlep
+ms.openlocfilehash: 5661218fd9e1849eb3133496d8e2640753eb2fa1
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100574059"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128659937"
 ---
 # <a name="configure-cloud-metrics-and-logs-for-azure-api-management-self-hosted-gateway"></a>Configuración de los registros y las métricas en la nube para la puerta de enlace autohospedada de Azure API Management
 

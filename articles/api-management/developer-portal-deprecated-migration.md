@@ -4,17 +4,17 @@ titleSuffix: Azure API Management
 description: Obtenga información sobre cómo migrar desde el portal para desarrolladores heredado al nuevo portal para desarrolladores en API Management.
 services: api-management
 documentationcenter: API Management
-author: mikebudzynski
+author: dlepow
 ms.service: api-management
 ms.topic: article
 ms.date: 04/15/2021
-ms.author: apimpm
-ms.openlocfilehash: 6ef07743b7def1c49744185f153d13bb24719652
-ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
+ms.author: danlep
+ms.openlocfilehash: f09f83fdac6de53f59801e33dd9e668b1009136c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2021
-ms.locfileid: "114667921"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128642574"
 ---
 # <a name="migrate-to-the-new-developer-portal"></a>Migración al nuevo portal para desarrolladores
 

@@ -13,12 +13,12 @@ ms.date: 03/31/2020
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: cf8869002fb3e0170331709af3da5b971a098740
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 6a6d66be619808ae7a6997966aef32e89b0b2226
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105612405"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124786890"
 ---
 # <a name="overview-of-shared-device-mode"></a>Introducción al modo de dispositivo compartido
 
@@ -54,7 +54,7 @@ Como se mencionó, el modo de dispositivo compartido es una característica de A
 
 ### <a name="build-applications-that-support-frontline-workers"></a>Creación de aplicaciones que admiten trabajadores de primera línea
 
-Puede admitir trabajadores de primera línea en sus aplicaciones mediante el uso de la biblioteca de autenticación de Microsoft (MSAL) y la [aplicación Microsoft Authenticator](../user-help/user-help-auth-app-overview.md) para habilitar un estado del dispositivo llamado *modo de dispositivo compartido*. Cuando un dispositivo está en modo de dispositivo compartido, Microsoft proporciona información a la aplicación para que pueda modificar el comportamiento en función del estado del usuario en el dispositivo, protegiendo los datos de usuario.
+Puede admitir trabajadores de primera línea en sus aplicaciones mediante el uso de la biblioteca de autenticación de Microsoft (MSAL) y la [aplicación Microsoft Authenticator](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc) para habilitar un estado del dispositivo llamado *modo de dispositivo compartido*. Cuando un dispositivo está en modo de dispositivo compartido, Microsoft proporciona información a la aplicación para que pueda modificar el comportamiento en función del estado del usuario en el dispositivo, protegiendo los datos de usuario.
 
 Las características admitidas son:
 
@@ -73,7 +73,7 @@ Para más información sobre cómo modificar las aplicaciones para admitir el mo
 
 Una vez que las aplicaciones admitan el modo de dispositivo compartido e incluyan los datos necesarios y los cambios de seguridad, puede anunciarlas como aptas para su uso por trabajadores de primera línea.
 
-Los administradores de dispositivos de una organización pueden implementar sus dispositivos y sus aplicaciones en sus tiendas y lugares de trabajo mediante una solución de administración de dispositivos móviles (MDM) como Microsoft Intune. Parte del proceso de aprovisionamiento consiste en marcar el dispositivo como *dispositivo compartido*. Los administradores configuran el modo de dispositivo compartido mediante la implementación de la aplicación [Microsoft Authenticator](../user-help/user-help-auth-app-overview.md) y estableciendo el modo de dispositivo compartido en los parámetros de configuración. Después de realizar estos pasos, todas las aplicaciones que admiten el modo de dispositivo compartido usarán la aplicación Microsoft Authenticator para administrar su estado de usuario y proporcionar características de seguridad para el dispositivo y la organización.
+Los administradores de dispositivos de una organización pueden implementar sus dispositivos y sus aplicaciones en sus tiendas y lugares de trabajo mediante una solución de administración de dispositivos móviles (MDM) como Microsoft Intune. Parte del proceso de aprovisionamiento consiste en marcar el dispositivo como *dispositivo compartido*. Los administradores configuran el modo de dispositivo compartido mediante la implementación de la aplicación [Microsoft Authenticator](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc) y estableciendo el modo de dispositivo compartido en los parámetros de configuración. Después de realizar estos pasos, todas las aplicaciones que admiten el modo de dispositivo compartido usarán la aplicación Microsoft Authenticator para administrar su estado de usuario y proporcionar características de seguridad para el dispositivo y la organización.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

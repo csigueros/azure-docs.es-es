@@ -1,18 +1,18 @@
 ---
 title: Controles de Cumplimiento normativo de Azure Policy para Azure App Configuration
 description: En este artículo, se enumeran los controles de Cumplimiento normativo de Azure Policy disponibles para Azure App Configuration. Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar el cumplimiento de los recursos de Azure.
-ms.date: 09/03/2021
+ms.date: 09/17/2021
 ms.topic: sample
 author: AlexandraKemperMS
 ms.author: alkemper
 ms.service: azure-app-configuration
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 7f78da97c52a7d0d8fb0b40f42671fed6ec58bd2
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: 887cac9b6d3af8c4bbe89d56d0217b9e70080113
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123473574"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128677874"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-app-configuration"></a>Controles de Cumplimiento normativo de Azure Policy para Azure App Configuration
 

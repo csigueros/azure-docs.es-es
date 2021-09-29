@@ -2,13 +2,13 @@
 title: Azure Key Vault como origen de Event Grid
 description: Describe las propiedades y el esquema que se proporcionan para los eventos de Azure Key Vault con Azure Event Grid
 ms.topic: conceptual
-ms.date: 02/11/2021
-ms.openlocfilehash: 31a5e77cc238dcfc774ebc851e864c916206fd9e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/15/2021
+ms.openlocfilehash: fccd93b97455a673da5a3b92dcd54cf494f0cecb
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121748467"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128612783"
 ---
 # <a name="azure-key-vault-as-event-grid-source"></a>Azure Key Vault como origen de Event Grid
 
@@ -50,8 +50,8 @@ En el ejemplo siguiente se muestra el esquema para **Microsoft.KeyVault.SecretNe
          "Id":"https://sample-kv.vault.azure.net/secrets/newsecret/ee059b2bb5bc48398a53b168c6cdcb10",
          "VaultName":"sample-kv",
          "ObjectType":"Secret",
-         "ObjectName ":"newsecret",
-         "Version":" ee059b2bb5bc48398a53b168c6cdcb10",
+         "ObjectName":"newsecret",
+         "Version":"ee059b2bb5bc48398a53b168c6cdcb10",
          "NBF":"1559081980",
          "EXP":"1559082102"
       },
@@ -77,8 +77,8 @@ En el ejemplo siguiente se muestra el esquema para **Microsoft.KeyVault.SecretNe
          "Id":"https://sample-kv.vault.azure.net/secrets/newsecret/ee059b2bb5bc48398a53b168c6cdcb10",
          "VaultName":"sample-kv",
          "ObjectType":"Secret",
-         "ObjectName ":"newsecret",
-         "Version":" ee059b2bb5bc48398a53b168c6cdcb10",
+         "ObjectName":"newsecret",
+         "Version":"ee059b2bb5bc48398a53b168c6cdcb10",
          "NBF":"1559081980",
          "EXP":"1559082102"
       },

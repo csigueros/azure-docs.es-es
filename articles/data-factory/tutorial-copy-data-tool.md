@@ -8,12 +8,12 @@ ms.subservice: tutorials
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 07/08/2021
-ms.openlocfilehash: 4a03eb37d5ec956dfeb5eb3d637722c506f58bf1
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: c47443068aadef73a75e68d97de24981125fd973
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122637735"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124736985"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>Copia de datos de Azure Blob Storage a SQL Database con la herramienta Copy Data
 
@@ -80,7 +80,7 @@ Prepare su instancia de Blob Storage y su instancia de SQL Storage para el tutor
 
 1. En el menú de la izquierda, seleccione **Crear un recurso** > **Integración** > **Data Factory**:
 
-   ![Creación de nueva factoría de datos](./media/doc-common-process/new-azure-data-factory-menu.png)
+   :::image type="content" source="./media/doc-common-process/new-azure-data-factory-menu.png" alt-text="Creación de nueva factoría de datos":::
 
 1. En la página **Nueva factoría de datos**, en **Nombre**, escriba **ADFTutorialDataFactory**.
 
@@ -88,7 +88,7 @@ Prepare su instancia de Blob Storage y su instancia de SQL Storage para el tutor
 
    :::image type="content" source="./media/doc-common-process/name-not-available-error.png" alt-text="Nuevo mensaje de error de factoría de datos por nombre duplicado.":::
 
-   Si recibe un mensaje de error sobre el valor de nombre, escriba un nombre diferente para la factoría de datos. Por ejemplo, utilice _**suNombre**_**ADFTutorialDataFactory**. Para conocer las reglas de nomenclatura de los artefactos de Data Factory, consulte [Data Factory: reglas de nomenclatura](naming-rules.md).
+   Si recibe un mensaje de error sobre el valor de nombre, escriba un nombre diferente para la factoría de datos. Por ejemplo, utilice _**suNombre**_ **ADFTutorialDataFactory**. Para conocer las reglas de nomenclatura de los artefactos de Data Factory, consulte [Data Factory: reglas de nomenclatura](naming-rules.md).
 
 1. Seleccione la **suscripción** de Azure en la que quiere crear la nueva factoría de datos.
 
@@ -116,11 +116,11 @@ Prepare su instancia de Blob Storage y su instancia de SQL Storage para el tutor
 
 1. En la página principal de Azure Data Factory, seleccione el icono **Introducción** para iniciar la herramienta Copiar datos.
 
-   ![Captura de pantalla que muestra la página principal de Azure Data Factory.](./media/doc-common-process/get-started-page.png)
+   :::image type="content" source="./media/doc-common-process/get-started-page.png" alt-text="Captura de pantalla que muestra la página principal de Azure Data Factory.":::
 
 1. En la página **Propiedades** de la herramienta Copiar datos, elija **Tarea de copia integrada** en **Tipo de tarea** y, a continuación, seleccione **Siguiente**.
 
-     ![Captura de pantalla que muestra la página Propiedades](./media/tutorial-copy-data-tool/copy-data-tool-properties-page.png)
+     :::image type="content" source="./media/tutorial-copy-data-tool/copy-data-tool-properties-page.png" alt-text="Captura de pantalla que muestra la página Propiedades":::
     
 1. En la página **Almacén de datos de origen**, realice los pasos siguientes:
 
@@ -140,7 +140,7 @@ Prepare su instancia de Blob Storage y su instancia de SQL Storage para el tutor
 
 1. En la página **File format settings** (Configuración del formato de archivo), active la casilla para *First row as header* (Primera fila como encabezado). Observe que la herramienta detecta automáticamente los delimitadores de columna y fila; puede obtener una vista previa de los datos y ver el esquema de los datos de entrada seleccionando el botón **Vista previa de datos** de esta página. Luego, seleccione **Siguiente**. 
 
-   ![Configuración del formato de archivo](./media/tutorial-copy-data-tool/file-format-settings-page.png)
+   :::image type="content" source="./media/tutorial-copy-data-tool/file-format-settings-page.png" alt-text="Configuración del formato de archivo":::
 
 1. En la página **Almacén de datos de destino**, realice los pasos siguientes:
 
@@ -150,7 +150,7 @@ Prepare su instancia de Blob Storage y su instancia de SQL Storage para el tutor
 
    c. En la página **New connection (Azure SQL Database)** [Nueva conexión (Azure SQL Database)], seleccione la suscripción de Azure, el nombre del servidor y el nombre de la base de datos en la lista desplegable. A continuación, seleccione **Autenticación de SQL** en **Tipo de autenticación**, y especifique el nombre de usuario y la contraseña. Pruebe la conexión y seleccione **Crear**.
 
-   ![Configurar Azure SQL DB](./media/tutorial-copy-data-tool/config-azure-sql-db.png)
+   :::image type="content" source="./media/tutorial-copy-data-tool/config-azure-sql-db.png" alt-text="Configurar Azure SQL DB":::
 
    d. Seleccione el servicio vinculado recién creado como receptor y, después, seleccione **Siguiente**.
 
@@ -158,7 +158,7 @@ Prepare su instancia de Blob Storage y su instancia de SQL Storage para el tutor
 
 1. En la página **Column mapping** (Asignación de columnas), observe que las columnas segunda y tercera del archivo de entrada se asignan a las columnas **FirstName** y **LastName** de la tabla **emp**. Ajuste la asignación para asegurarse de que no haya ningún error y, después, seleccione **Next** (Siguiente).
 
-   ![Página de asignación de columnas](./media/tutorial-copy-data-tool/column-mapping.png)
+   :::image type="content" source="./media/tutorial-copy-data-tool/column-mapping.png" alt-text="Página de asignación de columnas":::
 
 1. En la página **Configuración**, en **Nombre de tarea**, escriba **CopyFromBlobToSqlPipeline** y, a continuación, seleccione **Siguiente**.
 
@@ -168,21 +168,21 @@ Prepare su instancia de Blob Storage y su instancia de SQL Storage para el tutor
 
 1. En la página **Implementación**, seleccione **Monitor** para supervisar la canalización (tarea).
 
-   ![Supervisión de la canalización](./media/tutorial-copy-data-tool/monitor-pipeline.png)
+   :::image type="content" source="./media/tutorial-copy-data-tool/monitor-pipeline.png" alt-text="Supervisión de la canalización":::
 
 1. En la página Pipeline runs (Ejecuciones de canalización), seleccione **Refresh** (Actualizar) para actualizar la lista. Seleccione el vínculo en **Nombre de canalización** para ver los detalles de la ejecución de actividad o volver a ejecutar la canalización. 
 
-   ![Ejecución de la canalización](./media/tutorial-copy-data-tool/pipeline-run.png)
+   :::image type="content" source="./media/tutorial-copy-data-tool/pipeline-run.png" alt-text="Ejecución de la canalización":::
 
 1. En la página "Ejecuciones de actividad", seleccione el vínculo **Detalles** (icono de gafas) en la columna **Nombre de actividad** para obtener más detalles sobre la operación de copia. Para volver a la vista "Ejecuciones de canalización", seleccione el vínculo **Todas las ejecuciones de la canalización** en el menú de la ruta de navegación. Para actualizar la vista, seleccione **Refresh** (Actualizar).
 
-   ![Supervisión de las ejecuciones de actividad](./media/tutorial-copy-data-tool/activity-monitoring.png)
+   :::image type="content" source="./media/tutorial-copy-data-tool/activity-monitoring.png" alt-text="Supervisión de las ejecuciones de actividad":::
 
 1. Compruebe que los datos se insertan en la tabla **dbo.emp** de SQL Database.
 
 1. Seleccione la pestaña **Author** (Crear) de la izquierda para cambiar al modo de edición. Con el editor puede actualizar los servicios vinculados, los conjuntos de datos y las canalizaciones creados mediante la herramienta. Para más información sobre la edición de estas entidades en la interfaz de usuario de Data Factory, consulte [la versión de Azure Portal de este tutorial](tutorial-copy-data-portal.md).
 
-   ![Pestaña de selección de autor](./media/tutorial-copy-data-tool/author-tab.png)
+   :::image type="content" source="./media/tutorial-copy-data-tool/author-tab.png" alt-text="Pestaña de selección de autor":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 La canalización de este ejemplo copia los datos de una instancia de Blob Storage a una instancia de SQL Database. Ha aprendido a:

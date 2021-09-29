@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 3816239798290318404980ded388b726d8134395
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f3310e1569cd04950c768b24a333dc6d6c7bbe09
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95999797"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124746110"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-screensteps"></a>Tutorial: Integración de Azure Active Directory con ScreenSteps
 
@@ -120,13 +120,13 @@ Para configurar el inicio de sesión único de Azure AD con ScreenSteps, siga es
 
     c. URL de cierre de sesión
 
-### <a name="configure-screensteps-single-sign-on"></a>Configuración del inicio de sesión único en ScreenSteps
+### <a name="configure-screensteps-single-sign-on&quot;></a>Configuración del inicio de sesión único en ScreenSteps
 
 1. En otra ventana del explorador web, inicie sesión en su sitio de la compañía de ScreenSteps como administrador.
 
 1. Haga clic en **Configuración de la cuenta**.
 
-    ![Administración de cuentas](./media/screensteps-tutorial/ic778523.png "Administración de cuentas")
+    ![Administración de cuentas](./media/screensteps-tutorial/ic778523.png &quot;Administración de cuentas")
 
 1. Haga clic en **Inicio de sesión único**.
 
@@ -229,7 +229,7 @@ En esta sección, creará un usuario llamado Britta Simon en ScreenSteps. Trabaj
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de ScreenSteps en el panel de acceso, debería iniciar sesión automáticamente en la versión de ScreenSteps para la que configurara el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
+Al hacer clic en el icono de ScreenSteps en el panel de acceso, debería iniciar sesión automáticamente en la versión de ScreenSteps para la que configurara el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

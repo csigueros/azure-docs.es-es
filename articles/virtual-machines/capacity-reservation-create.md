@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/09/2021
 ms.reviewer: cynthn, jushiman
 ms.custom: template-how-to
-ms.openlocfilehash: a8c5e7f21747bc4f37f766106931a8f303fa33d3
-ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
+ms.openlocfilehash: db9b8b71ddbdccb2cdc4893ce7ea041304bafba9
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123273307"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124776621"
 ---
 # <a name="create-a-capacity-reservation-preview"></a>Creación de una reserva de capacidad (versión preliminar)
 
@@ -28,9 +28,9 @@ La creación de una reserva de capacidad se completa correctamente o se produce 
 > Esta versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
-## <a name="register-for-capacity-reservation"></a>Registro para la reserva de capacidad 
+## <a name="register-for-capacity-reservation"></a>Registro en la reserva de capacidad 
 
-Antes de poder usar la característica Reserva de capacidad, debe [registrar la suscripción para la versión preliminar](capacity-reservation-overview.md#register-for-capacity-reservation). El registro puede tardar varios minutos en terminar. Puede usar la CLI de Azure o PowerShell para completar el registro de la característica.
+Para usar la característica de reserva de capacidad, debe [registrar la suscripción en la versión preliminar](capacity-reservation-overview.md#register-for-capacity-reservation). El registro puede tardar varios minutos en terminar. Puede usar la CLI de Azure o PowerShell para completar el registro de la característica.
 
 
 ## <a name="considerations"></a>Consideraciones
@@ -157,12 +157,12 @@ La reserva de capacidad debe cumplir las siguientes reglas:
     -CapacityToReserve 5
     ```
 
-Para más información, consulte los comandos de Azure PowerShell [New-AzResourceGroup](/powershell/module/az.compute/new-azresourcegroup), [New-AzCapacityReservationGroup](/powershell/module/az.compute/new-azcapacityreservationgroup) y [New-AzCapacityReservation](/powershell/module/az.compute/new-azcapacityreservation).
+Para más información, consulte los comandos de Azure PowerShell [New-AzResourceGroup](/powershell/module/az.Resources/new-azresourcegroup), [New-AzCapacityReservationGroup](/powershell/module/az.compute/new-azcapacityreservationgroup) y [New-AzCapacityReservation](/powershell/module/az.compute/new-azcapacityreservation).
 
 
 ### <a name="arm-template"></a>[Plantilla ARM](#tab/arm1)
 
-Una  [plantilla de ARM](/azure/azure-resource-manager/templates/overview) es un archivo de notación de objetos JavaScript (JSON) que define la infraestructura y la configuración del proyecto. La plantilla usa sintaxis declarativa. En la sintaxis declarativa, se describe la implementación deseada sin escribir la secuencia de comandos de programación para crearla. 
+Una  [plantilla de ARM](../azure-resource-manager/templates/overview.md) es un archivo de notación de objetos JavaScript (JSON) que define la infraestructura y la configuración del proyecto. La plantilla usa sintaxis declarativa. En la sintaxis declarativa, se describe la implementación deseada sin escribir la secuencia de comandos de programación para crearla. 
 
 Las plantillas de Resource Manager permiten implementar grupos de recursos relacionados. En una sola plantilla, puede crear grupos de reserva de capacidad y reservas de capacidad. Puede implementar plantillas mediante Azure Portal, la CLI de Azure o Azure PowerShell, o bien desde las canalizaciones de integración continua o entrega continua (CI/CD). 
 

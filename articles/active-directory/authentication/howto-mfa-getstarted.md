@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 120e97e62980427fb83c6bf7884da92dd9c5e1f7
-ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
+ms.openlocfilehash: 01044f9d03b911bfb6939023dfb4fd5d3b0a3cd3
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114602313"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124773804"
 ---
 # <a name="plan-an-azure-active-directory-multi-factor-authentication-deployment"></a>Plan de una implementación de Azure AD Multi-Factor Authentication 
 
@@ -182,7 +182,7 @@ Como ya se ha indicado, asegúrese de que los usuarios están registrados en má
 - Actualice sus métodos como administrador. Para ello, seleccione el usuario en Azure Portal, seleccione Métodos de autenticación y actualice sus métodos.
 Comunicaciones de los usuarios
 
-Es fundamental notificar a los usuarios los próximos cambios, los requisitos de registro de Azure AD MFA y todas aquellas acciones que deben realizar. Microsoft proporciona [plantillas de comunicación](https://aka.ms/mfatemplates) y [documentación de usuario final](../user-help/security-info-setup-signin.md) que le ayudan a crear borradores de sus comunicaciones. Envíe a los usuarios a [https://myprofile.microsoft.com](https://myprofile.microsoft.com/) para que se registren, para lo que deben seleccionar el vínculo **Información de seguridad** en esa página.
+Es fundamental notificar a los usuarios los próximos cambios, los requisitos de registro de Azure AD MFA y todas aquellas acciones que deben realizar. Microsoft proporciona [plantillas de comunicación](https://aka.ms/mfatemplates) y [documentación de usuario final](https://support.microsoft.com/account-billing/set-up-your-security-info-from-a-sign-in-prompt-28180870-c256-4ebf-8bd7-5335571bf9a8) que le ayudan a crear borradores de sus comunicaciones. Envíe a los usuarios a [https://myprofile.microsoft.com](https://myprofile.microsoft.com/) para que se registren, para lo que deben seleccionar el vínculo **Información de seguridad** en esa página.
 
 ## <a name="plan-integration-with-on-premises-systems"></a>Planificación de la integración con sistemas locales
 

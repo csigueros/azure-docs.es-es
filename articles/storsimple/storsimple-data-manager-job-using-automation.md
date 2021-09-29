@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: 3d0103857b6f759560129dbe8e693ec6c0d7291e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 99824c80b041af284d3e71f720943b4425b78a75
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94961216"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124730276"
 ---
 # <a name="use-azure-automation-to-trigger-a-job"></a>Uso de Azure Automation para desencadenar un trabajo
 
@@ -98,7 +98,7 @@ Realice los pasos siguientes para importar, publicar y ejecutar el runbook para 
 
     ![Incorporación del runbook 4](./media/storsimple-data-manager-job-using-automation/add-runbook-4.png)
 
-6. Proporcione los parámetros, como el nombre del servicio StorSimple Data Manager, el grupo de recursos asociado y el nombre de la definición de trabajo. **Inicie** la prueba. Una vez completada la ejecución, se genera el informe. Para más información, vaya a cómo [probar un runbook](../automation/learn/automation-tutorial-runbook-textual-powershell.md#step-3---test-the-runbook).
+6. Proporcione los parámetros, como el nombre del servicio StorSimple Data Manager, el grupo de recursos asociado y el nombre de la definición de trabajo. **Inicie** la prueba. Una vez completada la ejecución, se genera el informe. Para más información, vaya a cómo [probar un runbook](../automation/learn/powershell-runbook-managed-identity.md).
 
     ![Incorporación del runbook 8](./media/storsimple-data-manager-job-using-automation/add-runbook-8.png)    
 

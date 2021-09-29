@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: c9fed65260e83b0ce70b45a28942ca81668b545f
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: fbcea71558a59d624faf73647498fb38ecf6ccc1
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121731192"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124755437"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>Detección, valoración y análisis de dependencias: preguntas comunes
 
@@ -197,9 +197,9 @@ Para Azure SQL Managed Instance, no se agrega ningún costo de almacenamiento pa
 
 ### <a name="can-i-migrate-my-disks-to-ultra-disk-using-azure-migrate"></a>¿Puedo migrar mis discos a un disco Ultra mediante Azure Migrate?
 
-No. Actualmente, tanto Azure Migrate como Azure Sire Recovery no admiten la migración a discos Ultra. Encuentre los pasos para implementar un disco Ultra [aquí](https://docs.microsoft.com/azure/virtual-machines/disks-enable-ultra-ssd?tabs=azure-portal#deploy-an-ultra-disk).
+No. Actualmente, tanto Azure Migrate como Azure Sire Recovery no admiten la migración a discos Ultra. Encuentre los pasos para implementar un disco Ultra [aquí](../virtual-machines/disks-enable-ultra-ssd.md?tabs=azure-portal#deploy-an-ultra-disk).
 
-### <a name="why-are-the-provisioned-iops-and-throughput-in-my-ultra-disk-more-than-my-on-premises-iops-and-throughput"></a>¿Por qué las IOPS y el rendimiento aprovisionados en mi disco Ultra son más que mis IOPS y rendimiento locales?
+### <a name="why-are-the-provisioned-iops-and-throughput-in-my-ultra-disk-more-than-my-on-premises-iops-and-throughput"></a>¿Por qué los valores de IOPS y rendimiento aprovisionados de mi disco Ultra son mayores que mis valores de IOPS y rendimiento locales?
 
 Según la [página oficial de precios](https://azure.microsoft.com/pricing/details/managed-disks/), los discos Ultra se facturan según el tamaño, las IOPS y el rendimiento aprovisionados. Según un ejemplo que se proporciona:
 
@@ -209,11 +209,11 @@ IOPS que se aprovisionarán = (rendimiento detectado) *1024/256
 
 ### <a name="does-the-ultra-disk-recommendation-consider-latency"></a>¿La recomendación de disco Ultra tiene en cuenta la latencia?
 
-No, actualmente solo se usa el tamaño del disco, el rendimiento total y las IOPS totales para el tamaño y el costo.
+No, actualmente solo se usa el tamaño del disco, el rendimiento total y la cantidad de IOPS total para el ajuste de tamaño y el costo.
 
-### <a name="i-can-see-m-series-supports-ultra-disk-but-in-my-assessment-where-ultra-disk-was-recommended-it-says-no-vm-found-for-this-location"></a>Puedo ver que la serie M admite discos Ultra, pero en mi evaluación en la que se recomendó el disco Ultra, dice "No se encontró ninguna máquina virtual para esta ubicación"
+### <a name="i-can-see-m-series-supports-ultra-disk-but-in-my-assessment-where-ultra-disk-was-recommended-it-says-no-vm-found-for-this-location"></a>Veo que la serie M admite discos Ultra, pero en mi evaluación donde se recomendó el disco Ultra, dice "No se encontró ninguna VM para esta ubicación"
 
-Esto es posible, ya que no todos los tamaños de máquina virtual que admiten el disco Ultra están presentes en todas las regiones compatibles con discos Ultra. Cambie la región de evaluación de destino para obtener el tamaño de máquina virtual de este servidor.
+Es posible, ya que no todos los tamaños de VM que admiten el disco Ultra están presentes en todas las regiones que admiten discos Ultra. Cambie la región de evaluación de destino para obtener el tamaño de máquina virtual de este servidor.
 
 ## <a name="i-cant-see-some-vm-types-and-sizes-in-azure-government"></a>No puedo ver algunos tamaños y tipos de VM en Azure Government
 

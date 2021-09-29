@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/06/2021
 ms.author: allensu
 ms.custom: ''
-ms.openlocfilehash: 155f3817b913e38e503d0a8fcaa6083922067ebd
-ms.sourcegitcommit: 0fd913b67ba3535b5085ba38831badc5a9e3b48f
+ms.openlocfilehash: 65bb0649f5fed3615887d750b95d2b4ce91216fb
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113487622"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128626064"
 ---
 # <a name="retrieve-the-current-pop-ip-list-for-azure-cdn"></a>Recuperación de la lista de direcciones IP POP para Azure CDN
 
@@ -28,7 +28,7 @@ ms.locfileid: "113487622"
 
 Puede utilizar la API REST para recuperar el conjunto de direcciones IP de los servidores de punto de presencia (POP) de Verizon. Estos servidores de POP realizan solicitudes a los servidores de origen que están asociados a los puntos de conexión de Azure Content Delivery Network (CDN) en un perfil de Verizon (**Azure CDN de Verizon estándar** o **Azure CDN de Verizon premium**). Tenga en cuenta que este conjunto de direcciones IP es diferente de las direcciones IP que un cliente vería al realizar solicitudes a los POP. 
 
-Para obtener la sintaxis de la operación de API REST para recuperar la lista de POP, consulte [Edge Nodes - List](/rest/api/cdn/cdn/edgenodes/list) (Nodos de Edge: lista).
+Para obtener la sintaxis de la operación de API REST para recuperar la lista de POP, consulte [Edge Nodes - List](/rest/api/cdn/edge-nodes/list) (Nodos de Edge: lista).
 
 ## <a name="retrieve-the-current-microsoft-pop-ip-list-for-azure-cdn"></a>Recuperación de la lista de direcciones IP POP actual de Microsoft para Azure CDN
 

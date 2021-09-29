@@ -3,21 +3,21 @@ title: 'Tutorial: Creación de una aplicación de página única de JavaScript q
 titleSuffix: Microsoft identity platform
 description: En este tutorial, creará una aplicación de página única de JavaScript con la que los usuarios pueden iniciar sesión y usar el flujo de código de autenticación para obtener un token de acceso de la Plataforma de identidad de Microsoft y llamar a Microsoft Graph API.
 services: active-directory
-author: hahamil
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
 ms.date: 07/17/2020
-ms.author: hahamil
+ms.author: marsma
 ms.custom: aaddev, devx-track-js
-ms.openlocfilehash: 2eaaeda879e9946610d2f18f7ccf530bc60f7910
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 07269bddcaf077d6224ffad5d592a9cbd3d3f754
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108072214"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128603645"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-app-spa-using-auth-code-flow"></a>Tutorial: Inicio de sesión de usuarios y llamada a Microsoft Graph API desde una aplicación de página única (SPA) de JavaScript mediante un flujo de código de autorización
 

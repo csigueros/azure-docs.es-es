@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/25/2021
 ms.author: jeedes
-ms.openlocfilehash: 9fda314b5cd25f4e806d1ed552fbef24ae54ffa6
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: 391153bf48b097f314ead1e05f53c14019e80be8
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123033122"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124759593"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-baldwin-safety-and-compliance"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Baldwin Safety and Compliance
 
@@ -125,7 +125,7 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 * En Azure Portal, haga clic en Probar esta aplicación. Al hacerlo, debería iniciar sesión automáticamente en la instancia de Baldwin Safety and Compliance para la que configuró el inicio de sesión único.
 
-* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Baldwin Safety and Compliance en Aplicaciones, debería iniciar sesión automáticamente en la instancia de Baldwin Safety and Compliance para la que configuró el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Baldwin Safety and Compliance en Aplicaciones, debería iniciar sesión automáticamente en la instancia de Baldwin Safety and Compliance para la que configuró el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

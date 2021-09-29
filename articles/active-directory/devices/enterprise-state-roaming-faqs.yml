@@ -9,15 +9,15 @@ metadata:
   ms.date: 02/12/2020
   ms.author: joflore
   author: MicrosoftGuyJFlo
-  manager: daveba
+  manager: karenhoran
   ms.reviewer: na
   ms.collection: M365-identity-device-management
-  ms.openlocfilehash: 8fa75d1baae917e7e60ca99f4d5c3cc33ff85f0a
-  ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
+  ms.openlocfilehash: 0a948eaf278e2f3064178f8ec29465dfc4d0b3fa
+  ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 06/16/2021
-  ms.locfileid: "112200753"
+  ms.lasthandoff: 09/24/2021
+  ms.locfileid: "128590655"
 title: Preguntas más frecuentes sobre itinerancia de datos y configuración
 summary: Este artículo responde a algunas preguntas que los administradores de TI podrían tener sobre la sincronización de datos de aplicación y la configuración.
 sections:

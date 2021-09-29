@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 08/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 51bfd632e854132be27a7b971cf03e9fe5b00138
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3c91961eb6e89533ee5b995eb56fdd172d21b6f2
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102504310"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124730169"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Lista de comprobación de planeamiento e implementación de cargas de trabajo de SAP en Azure
 
@@ -82,7 +82,7 @@ Durante esta fase, se planea la migración de la carga de trabajo de SAP a la pl
     - La [estrategia de etiquetado](../../../azure-resource-manager/management/tag-resources.md#tags-and-billing).
     - La convención de nomenclatura para las máquinas virtuales y otros componentes de la infraestructura o los nombres lógicos.
 5.  Contrato de soporte técnico Premier y Profesional de Microsoft. Identifique a su responsable técnico de cuenta (TAM) de Microsoft si tiene un contrato de soporte técnico Premier con Microsoft. Para conocer los requisitos de soporte técnico de SAP, consulte la [nota de soporte técnico de SAP 2015553](https://launchpad.support.sap.com/#/notes/2015553).
-6.  El número de suscripciones de Azure y la cuota de núcleos para las suscripciones. [Abra solicitudes de soporte técnico para aumentar las cuotas de suscripciones de Azure](../../../azure-portal/supportability/resource-manager-core-quotas-request.md) según sea necesario.
+6.  El número de suscripciones de Azure y la cuota de núcleos para las suscripciones. [Abra solicitudes de soporte técnico para aumentar las cuotas de suscripciones de Azure](../../../azure-portal/supportability/regional-quota-requests.md) según sea necesario.
 7.  Plan de reducción y migración de datos para migrar datos de SAP a Azure. SAP dispone de instrucciones para los sistemas SAP NetWeaver sobre cómo limitar el volumen de grandes cantidades de datos. Consulte [esta guía de SAP](https://wiki.scn.sap.com/wiki/download/attachments/247399467/DVM_%20Guide_7.2.pdf?version=1&modificationDate=1549365516000&api=v2) sobre la administración de datos en sistemas ERP de SAP. Parte del contenido también se aplica a los sistemas NetWeaver y S/4HANA en general.
 8.  Una estrategia de implementación automatizada. La automatización en las implementaciones de infraestructura en Azure tiene como objetivo implementar de manera determinista y obtener resultados deterministas. Muchos clientes usan scripts basados en PowerShell o en la CLI. Sin embargo, hay diversas tecnologías de código abierto que pueden usarse para implementar la infraestructura de Azure para SAP e incluso para instalar software de SAP. Puede encontrar ejemplos en GitHub:
     - [Automated SAP Deployments in Azure Cloud](https://github.com/Azure/sap-hana) (Implementaciones automatizadas de SAP en la nube de Azure)

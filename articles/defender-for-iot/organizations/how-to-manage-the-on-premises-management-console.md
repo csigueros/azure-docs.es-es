@@ -3,12 +3,12 @@ title: Administración de la consola de administración local
 description: Obtenga información sobre las opciones de la consola de administración local, como la copia de seguridad y la restauración, la definición del nombre de host y la configuración de un proxy en sensores.
 ms.date: 1/12/2021
 ms.topic: article
-ms.openlocfilehash: a94dc89f6d39bfef096809299e31bd88b43824d4
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 9b956dbfa640862d10d0e47aef97e5a1727052c7
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123431087"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128625228"
 ---
 # <a name="manage-the-on-premises-management-console"></a>Administración de la consola de administración local
 
@@ -232,9 +232,9 @@ Para realizar la definición, siga estos pasos:
 1. Inicie sesión en la CLI de la administración local con credenciales de administración.
 1. Escriba ```nano /var/cyberx/properties/remote-interfaces.properties```.
 1. Seleccione ENTRAR. Aparecerán las solicitudes siguientes.
-```mail.smtp_server= ```
-```mail.port=25 ```
-```mail.sender=```
+   `mail.smtp_server=`
+   `mail.port=25`
+   `mail.sender=`
 1. Escriba el nombre del servidor SMTP y el emisor. Luego, seleccione ENTRAR.
 
 ## <a name="see-also"></a>Consulte también

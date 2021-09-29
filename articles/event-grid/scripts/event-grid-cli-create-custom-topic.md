@@ -3,14 +3,14 @@ title: 'Ejemplo de script de la CLI de Azure: creación de un tema personalizado
 description: En este artículo se proporciona un script de la CLI de Azure de ejemplo que muestra cómo crear un tema personalizado de Azure Event Grid.
 ms.devlang: azurecli
 ms.topic: sample
-ms.date: 07/22/2021
+ms.date: 09/15/2021
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 54f56b1bce0c8d88bff3b39b6d4c8ff108106cb3
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 18e33e7ac9c270bfc8736caa0215fdcdd4cf41ce
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114463809"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128612061"
 ---
 # <a name="create-event-grid-custom-topic-with-azure-cli"></a>Creación de un tema personalizado de Event Grid con la CLI de Azure
 

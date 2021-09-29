@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 08/06/2021
 ms.author: b-juche
-ms.openlocfilehash: ed67984dac9d1beb7106c78a8ffa35d778f69d59
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: e9d3f2443d73f75e96e0036d5c546d00238a58d8
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121725608"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128614379"
 ---
 # <a name="create-an-nfs-volume-for-azure-netapp-files"></a>Creación de un volumen de NFS para Azure NetApp Files
 
@@ -96,7 +96,7 @@ En este artículo se muestra cómo crear un volumen NFS. Para los volúmenes SMB
 
     * Si desea aplicar una directiva de instantáneas existente al volumen, haga clic en **Mostrar la sección avanzada** para expandirla, especifique si quiere ocultar la ruta de acceso de la instantánea y seleccione una directiva de instantáneas en el menú desplegable. 
 
-        Para obtener información sobre cómo crear una directiva de instantáneas, consulte [Administración de directivas de instantánea](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies).
+        Para obtener información sobre cómo crear una directiva de instantáneas, consulte [Administración de directivas de instantánea](snapshots-manage-policy.md).
 
         ![Mostrar la sección avanzada](../media/azure-netapp-files/volume-create-advanced-selection.png)
 

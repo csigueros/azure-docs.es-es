@@ -7,12 +7,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.date: 08/04/2021
 ms.custom: mvc
-ms.openlocfilehash: 720b19ff16e72fade8bcdbd1b41304b2d87d1f2d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 99216bd26bfff76c4342f1533ff4ced070a69e92
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121737657"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124735972"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Novedades de Azure Migrate
 
@@ -21,7 +21,7 @@ ms.locfileid: "121737657"
 ## <a name="update-august-2021"></a>Actualización (agosto de 2021)
 
 - La detección y evaluación a gran escala de las aplicaciones web de ASP.NET que se ejecutan en servidores IIS en el entorno de VMware se encuentra ahora en versión preliminar. [Más información](concepts-azure-webapps-assessment-calculation.md). Consulte los tutoriales sobre [detección](tutorial-discover-vmware.md) y [evaluación](tutorial-assess-webapps.md) para comenzar.
-- Compatibilidad con [discos Ultra](https://docs.microsoft.com/azure/virtual-machines/disks-types#ultra-disk) de Azure en la recomendación de evaluación de máquinas virtuales de Azure.
+- Compatibilidad con [discos Ultra](../virtual-machines/disks-types.md#ultra-disk) de Azure en la recomendación de evaluación de máquinas virtuales de Azure.
 - Disponibilidad general de análisis de dependencias sin agente e inventario de software a gran escala para máquinas virtuales de VMware.
 - Actualizaciones del dispositivo de Azure Migrate:
     - "Diagnosticar y resolver" en el dispositivo para ayudar a los usuarios a identificar y autoevaluar cualquier problema con el dispositivo.

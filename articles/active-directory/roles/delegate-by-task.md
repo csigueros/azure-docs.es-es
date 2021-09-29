@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a65ce79252c25d187ed61de3b637182deaf225db
-ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
+ms.openlocfilehash: df3c243970709ad7ae4bc52f179117affc2d8613
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2021
-ms.locfileid: "113136353"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124776442"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Roles de administrador por tarea de administrador en Azure Active Directory
 
@@ -166,7 +166,7 @@ En este artículo, puede encontrar la información necesaria para restringir los
 > [!div class="mx-tableFixed"]
 > | Tarea | Rol con privilegios mínimos | Roles adicionales |
 > | ---- | --------------------- | ---------------- |
-> | Adición de recursos a un catálogo | Administrador de Identity Governance | Con la administración de derechos, puede delegar esta tarea en el propietario del catálogo ([consulte la documentación](../governance/entitlement-management-catalog-create.md#add-additional-catalog-owners)). |
+> | Adición de recursos a un catálogo | Administrador de Identity Governance | Con la administración de derechos, puede delegar esta tarea en el propietario del catálogo ([consulte la documentación](../governance/entitlement-management-catalog-create.md#add-more-catalog-owners)). |
 > | Adición de sitios de SharePoint Online al catálogo | Administrador de SharePoint |  |
 
 ## <a name="groups"></a>Grupos

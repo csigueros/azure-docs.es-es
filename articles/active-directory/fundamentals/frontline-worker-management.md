@@ -10,12 +10,12 @@ ms.author: cchiedo
 author: Chrispine-Chiedo
 manager: CelesteDG
 ms.reviewer: stevebal
-ms.openlocfilehash: 32cee4ca0558166c44ff83c5ce9d61360e79e535
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: 26d7e967ceb0208d6e852db9946ac0c260751dd3
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105975856"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124732575"
 ---
 # <a name="frontline-worker-management"></a>Administración de trabajadores de primera línea
 
@@ -48,6 +48,6 @@ Muchas empresas usan dispositivos compartidos para que los trabajadores de prime
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para obtener más información sobre la administración de usuarios delegada, vea la [documentación del usuario de Mi personal](../user-help/my-staff-team-manager.md).
+- Para obtener más información sobre la administración de usuarios delegada, vea la [documentación del usuario de Mi personal](https://support.microsoft.com/account-billing/manage-front-line-users-with-my-staff-c65b9673-7e1c-4ad6-812b-1a31ce4460bd).
 - Para el aprovisionamiento de usuarios de entrada desde SAP SuccessFactors, vea el tutorial sobre la [configuración de SAP SuccessFactors para el aprovisionamiento de usuarios de Active Directory](../saas-apps/sap-successfactors-inbound-provisioning-tutorial.md).
 - Para el aprovisionamiento de usuarios de entrada desde Workday, vea el tutorial sobre la [configuración de Workday para el aprovisionamiento automático de usuarios](../saas-apps/workday-inbound-tutorial.md).

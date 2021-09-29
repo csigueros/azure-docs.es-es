@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/30/2020
+ms.date: 09/20/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2efd5fdc49f5ae6724b9d1dc3b45d54329f17a61
-ms.sourcegitcommit: f4e04fe2dfc869b2553f557709afaf057dcccb0b
+ms.openlocfilehash: 67e0601430b7c1f6f2fc97b78534080e0731fc7a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113223957"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128595643"
 ---
 # <a name="integrating-trusona-with-azure-active-directory-b2c"></a>Integración de Trusona con Azure Active Directory B2C
 
@@ -55,24 +55,24 @@ En este escenario, Trusona actúa como proveedor de identidades para Azure AD B2
 
 1. Rellene el [formulario](https://www.trusona.com/) para crear una cuenta de Trusona y comenzar.
 
-2. Descargue la aplicación móvil de Trusona de la tienda de aplicaciones. Instale la aplicación y registre el correo electrónico.
+1. Descargue la aplicación móvil de Trusona de la tienda de aplicaciones. Instale la aplicación y registre el correo electrónico.
 
-3. Compruebe su correo electrónico mediante el "vínculo mágico" seguro que envía el software.  
+1. Compruebe su correo electrónico mediante el "vínculo mágico" seguro que envía el software.  
 
-4. Vaya al [panel del desarrollador de Trusona](https://dashboard.trusona.com) para acceder al autoservicio.
+1. Vaya al [panel del desarrollador de Trusona](https://dashboard.trusona.com) para acceder al autoservicio.
 
-5. Seleccione **I'm Ready** (Estoy listo) y autentíquese con la aplicación Trusona.
+1. Seleccione **I'm Ready** (Estoy listo) y autentíquese con la aplicación Trusona.
 
-6. En el panel de navegación izquierdo, seleccione **OIDC Integrations** (Integraciones de OIDC).
+1. En el panel de navegación izquierdo, seleccione **OIDC Integrations** (Integraciones de OIDC).
 
-7. Seleccione **Create OpenID Connect Integration** (Crear una integración de OpenID Connect).
+1. Seleccione **Create OpenID Connect Integration** (Crear una integración de OpenID Connect).
 
-8. Proporcione un **Nombre** de su elección y use la información de dominio proporcionada anteriormente (por ejemplo, Contoso) en el **campo Client Redirect Host** (Host de redireccionamiento de cliente).  
+1. Proporcione un **Nombre** de su elección y use la información de dominio proporcionada anteriormente (por ejemplo, Contoso) en el **campo Client Redirect Host** (Host de redireccionamiento de cliente).  
 
    > [!NOTE]
    > El nombre de dominio inicial de Azure Active Directory se usa como host de redireccionamiento de cliente.
 
-9. Siga las instrucciones de la [guía de integración de Trusona](https://docs.trusona.com/integrations/aad-b2c-integration/). Cuando se le solicite, use el nombre de dominio inicial (por ejemplo, Contoso) al que se hace referencia en el paso anterior.  
+1. Siga las instrucciones de la [guía de integración de Trusona](https://docs.trusona.com/integrations/aad-b2c-integration/). Cuando se le solicite, use el nombre de dominio inicial (por ejemplo, Contoso) al que se hace referencia en el paso anterior.  
 
 ## <a name="integrate-with-azure-ad-b2c"></a>Integración con Azure AD B2C
 
@@ -82,22 +82,18 @@ En este escenario, Trusona actúa como proveedor de identidades para Azure AD B2
 > Si todavía no tiene uno, [cree un inquilino de Azure AD B2C](tutorial-create-tenant.md) vinculado a la suscripción de Azure.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) como administrador global del inquilino de Azure AD B2C.
-
-2. Asegúrese de usar el directorio que contiene el inquilino de Azure AD B2C. Para ello, seleccione el filtro **Directorio y suscripción** en el menú superior y luego el directorio que contiene el inquilino.
-
-3. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, busque y seleccione **Azure AD B2C**.
-
-4. Vaya a **Panel** > **Azure Active Directory B2C** > **Proveedores de identidad**.
-
-3. Seleccione **Proveedores de identidades**.
-
-4. Seleccione **Agregar**.
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
+1. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, busque y seleccione **Azure AD B2C**.
+1. Vaya a **Panel** > **Azure Active Directory B2C** > **Proveedores de identidad**.
+1. Seleccione **Proveedores de identidades**.
+1. Seleccione **Agregar**.
 
 ### <a name="configure-an-identity-provider"></a>Configuración de un proveedor de identidades  
 
 1. Seleccione **Tipo de proveedor de identidades** > **OpenID Connect (versión preliminar)** .
 
-2. Rellene el formulario para configurar el proveedor de identidades:  
+1. Rellene el formulario para configurar el proveedor de identidades:  
 
    | Propiedad | Value  |
    | :--- | :--- |
@@ -107,11 +103,11 @@ En este escenario, Trusona actúa como proveedor de identidades para Azure AD B2
    | Tipo de respuesta | Id_token |
    | Modo de respuesta  | Form_post |
 
-3. Seleccione **Aceptar**.  
+1. Seleccione **Aceptar**.  
 
-4. Seleccione **Asignar las notificaciones de este proveedor de identidades**.  
+1. Seleccione **Asignar las notificaciones de este proveedor de identidades**.  
 
-5. Rellene el formulario para asignar el proveedor de identidades:
+1. Rellene el formulario para asignar el proveedor de identidades:
 
    | Propiedad | Value  |
    | :--- | :--- |
@@ -121,7 +117,7 @@ En este escenario, Trusona actúa como proveedor de identidades para Azure AD B2
    | Surname | Family_name |
    | Modo de respuesta | email |
 
-6. Seleccione **Aceptar** para completar la instalación del nuevo proveedor de identidades de OIDC.
+1. Seleccione **Aceptar** para completar la instalación del nuevo proveedor de identidades de OIDC.
 
 ### <a name="create-a-user-flow-policy"></a>Creación de una directiva de flujo de usuario
 

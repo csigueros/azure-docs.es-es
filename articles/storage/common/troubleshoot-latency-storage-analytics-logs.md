@@ -10,12 +10,12 @@ ms.service: storage
 ms.subservice: common
 services: storage
 tags: ''
-ms.openlocfilehash: 72220b33ea0d10b16ec5be94da6a26d91b9bfc1e
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 4b59b7d42b162a369862974c0599d972fa1957ee
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108161850"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128636693"
 ---
 # <a name="troubleshoot-latency-using-storage-analytics-logs"></a>Solución de problemas de latencia mediante registros de Storage Analytics
 
@@ -80,18 +80,18 @@ Los siguientes pasos muestran cómo identificar y solucionar problemas de latenc
 
 5. En el momento en que se produjo el problema, son importantes los siguientes valores:
 
-   * Tipo de operación = GetBlob
-   * estado de la solicitud = SASNetworkError
-   * Latencia de un extremo a otro en milisegundos = 8453
-   * Latencia del servidor en milisegundos = 391
+   - Tipo de operación = GetBlob
+   - estado de la solicitud = SASNetworkError
+   - Latencia de un extremo a otro en milisegundos = 8453
+   - Latencia del servidor en milisegundos = 391
 
    La latencia de un extremo a otro se calcula mediante la siguiente ecuación:
 
-   * Latencia de un extremo a otro = latencia del servidor + latencia de cliente
+   - Latencia de un extremo a otro = latencia del servidor + latencia de cliente
 
    Calcule la latencia de cliente mediante la entrada de registro:
 
-   * Latencia de cliente = latencia de un extremo a otro – latencia del servidor
+   - Latencia de cliente = latencia de un extremo a otro – latencia del servidor
 
         Ejemplo: 8453 – 391 = 8062 ms
 
@@ -110,58 +110,58 @@ Los siguientes pasos muestran cómo identificar y solucionar problemas de latenc
 
 Compruebe los siguientes valores tal como se mencionó en el paso 5 de la sección "Pasos recomendados":
 
-* Latencia de un extremo a otro
-* Latencia del servidor
-* Latencia de cliente
+- Latencia de un extremo a otro
+- Latencia del servidor
+- Latencia de cliente
 
 En una **operación GetBlob** con **RequestStatus = Correcto**, si el **tiempo máximo** se pasa en la **latencia de cliente**, esto indica que Azure Storage pasa un gran volumen de tiempo escribiendo datos en el cliente. Este retraso indica un problema del lado cliente.
 
 **Recomendación:**
 
-* Investigue el código en su cliente.
-* Utilice Wireshark, el Analizador de mensajes de Microsoft o Tcping para investigar los problemas de conectividad de red desde el cliente.
+- Investigue el código en su cliente.
+- Utilice Wireshark, el Analizador de mensajes de Microsoft o Tcping para investigar los problemas de conectividad de red desde el cliente.
 
 ### <a name="getblob-operation-requeststatus--sasnetworkerror"></a>Operación GetBlob: RequestStatus = (SAS)NetworkError
 
 Compruebe los siguientes valores tal como se mencionó en el paso 5 de la sección "Pasos recomendados":
 
-* Latencia de un extremo a otro
-* Latencia del servidor
-* Latencia de cliente
+- Latencia de un extremo a otro
+- Latencia del servidor
+- Latencia de cliente
 
 En una **operación GetBlob** con **RequestStatus = (SAS)NetworkError**, si el **tiempo máximo** se pasa en la **latencia de cliente**, el problema más habitual es que el cliente se desconecta antes de expirar el tiempo de espera en el servicio de almacenamiento.
 
 **Recomendación:**
 
-* Investigue el código en el cliente para comprender por qué y cuándo se desconecta el cliente del servicio de almacenamiento.
-* Utilice Wireshark, el Analizador de mensajes de Microsoft o Tcping para investigar los problemas de conectividad de red desde el cliente.
+- Investigue el código en el cliente para comprender por qué y cuándo se desconecta el cliente del servicio de almacenamiento.
+- Utilice Wireshark, el Analizador de mensajes de Microsoft o Tcping para investigar los problemas de conectividad de red desde el cliente.
 
 ### <a name="put-operation-requeststatus--success"></a>Operación Put: RequestStatus = Correcto
 
 Compruebe los siguientes valores tal como se mencionó en el paso 5 de la sección "Pasos recomendados":
 
-* Latencia de un extremo a otro
-* Latencia del servidor
-* Latencia de cliente
+- Latencia de un extremo a otro
+- Latencia del servidor
+- Latencia de cliente
 
 En una **operación Put** con **RequestStatus = Correcto**, si el **tiempo máximo** se pasa en la **latencia de cliente**, esto indica que el cliente tarda más tiempo en enviar datos a Azure Storage. Este retraso indica un problema del lado cliente.
 
 **Recomendación:**
 
-* Investigue el código en su cliente.
-* Utilice Wireshark, el Analizador de mensajes de Microsoft o Tcping para investigar los problemas de conectividad de red desde el cliente.
+- Investigue el código en su cliente.
+- Utilice Wireshark, el Analizador de mensajes de Microsoft o Tcping para investigar los problemas de conectividad de red desde el cliente.
 
 ### <a name="put-operation-requeststatus--sasnetworkerror"></a>Operación Put: RequestStatus = (SAS)NetworkError
 
 Compruebe los siguientes valores tal como se mencionó en el paso 5 de la sección "Pasos recomendados":
 
-* Latencia de un extremo a otro
-* Latencia del servidor
-* Latencia de cliente
+- Latencia de un extremo a otro
+- Latencia del servidor
+- Latencia de cliente
 
 En una **operación PutBlob** con **RequestStatus = (SAS)NetworkError**, si el **tiempo máximo** se pasa en la **latencia de cliente**, el problema más habitual es que el cliente se desconecta antes de expirar el tiempo de espera en el servicio de almacenamiento.
 
 **Recomendación:**
 
-* Investigue el código en el cliente para comprender por qué y cuándo se desconecta el cliente del servicio de almacenamiento.
-* Utilice Wireshark, el Analizador de mensajes de Microsoft o Tcping para investigar los problemas de conectividad de red desde el cliente.
+- Investigue el código en el cliente para comprender por qué y cuándo se desconecta el cliente del servicio de almacenamiento.
+- Utilice Wireshark, el Analizador de mensajes de Microsoft o Tcping para investigar los problemas de conectividad de red desde el cliente.

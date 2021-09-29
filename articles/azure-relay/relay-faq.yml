@@ -4,13 +4,13 @@ metadata:
   description: En este artículo se responden algunas de las preguntas más frecuentes relativas al servicio Azure Relay.
   ms.topic: article
   ms.service: azure
-  ms.date: 06/23/2021
-  ms.openlocfilehash: fd18d0d36cb07596ba6f8b40e699228bb95a190d
-  ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+  ms.date: 09/17/2021
+  ms.openlocfilehash: defbb7c8318b548de3ed5bc4aa6049944a719e6d
+  ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 08/17/2021
-  ms.locfileid: "122253965"
+  ms.lasthandoff: 09/24/2021
+  ms.locfileid: "128637562"
 title: Preguntas frecuentes sobre Azure Relay
 summary: >
   En este artículo se responden algunas preguntas frecuentes sobre [Azure Relay](https://azure.microsoft.com/services/service-bus/). Vea [Preguntas frecuentes de soporte técnico de Azure](https://azure.microsoft.com/support/faq/) para obtener información general sobre los precios y el soporte técnico de Azure.
@@ -42,7 +42,7 @@ sections:
   - question: >
       ¿Cómo se cobra por Conexiones híbridas y WCF Relay?
     answer: >
-      Para obtener información completa sobre los precios de retransmisión, consulte la tabla [Conexiones híbridas e instancias de WCF Relay][Información general de precios] en la página de detalles de precios de Service Bus. Además de los precios indicados en dicha página, se le cobrará por las transferencias de datos asociadas para salidas del centro de datos en el que se aprovisiona la aplicación.
+      Para obtener información completa sobre los precios de retransmisión, consulte la tabla [Conexiones híbridas y retransmisiones de WCF](https://azure.microsoft.com/pricing/details/service-bus) en la página de detalles de precios de Service Bus. Además de los precios indicados en dicha página, se le cobrará por las transferencias de datos asociadas para salidas del centro de datos en el que se aprovisiona la aplicación.
   - question: >
       ¿Cómo se factura Conexiones híbridas?
     answer: "Presentamos tres escenarios de facturación de ejemplo para Conexiones híbridas:\n\n*   Escenario 1:\n    *   Tiene un agente de escucha único, como una instancia del administrador de Conexiones híbridas instalado y en ejecución continua durante todo el mes.\n    *   Envía 3 GB de datos a través de la conexión durante el mes. \n    *   El cargo total es de 5 dólares.\n*   Escenario 2:\n    *   Tiene un agente de escucha único, como una instancia del administrador de Conexiones híbridas instalado y en ejecución continua durante todo el mes.\n    *   Envía 10 GB de datos a través de la conexión durante el mes.\n    *   El cargo total es de 7,50 dólares. Son 5 dólares por la conexión y los primeros 5 GB más 2,50 dólares por los 5 GB de datos adicionales.\n*   Escenario 3:\n    *   Tiene dos instancias, A y B, del administrador de Conexiones híbridas instaladas y en ejecución continua durante todo el mes.\n    *   Envía 3 GB de datos a través de la conexión A durante el mes.\n    *   Envía 6 GB de datos a través de la conexión B durante el mes.\n    *   El cargo total es de 10,50 dólares. Son 5 dólares por la conexión A, más 5 dólares por la conexión B, más 0,50 dólares por el sexto GB de la conexión B.\n"
@@ -110,11 +110,11 @@ sections:
   - question: >
       ¿Cuáles son algunas de las excepciones generadas por las API de Azure Relay y sus acciones sugeridas?
     answer: >
-      Para obtener una descripción de excepciones comunes y acciones sugeridas que puede realizar, consulte [Excepciones de Relay][Excepciones de Relay].
+      Para obtener una descripción de excepciones comunes y las acciones sugeridas que puede realizar, consulte [Excepciones de Azure Relay](relay-exceptions.md).
   - question: >
       ¿Qué es una firma de acceso compartido y qué lenguajes puedo usar para generar una firma?
     answer: >
-      Las firmas de acceso compartido (SAS) son un mecanismo de autenticación basado en valores hash seguros SHA-256 o en URI. Para obtener información sobre cómo generar sus propias firmas en Node.js, PHP, Python, Java, C y C#, consulte [Autenticación de Service Bus con firmas de acceso compartido][Firmas de acceso compartido].
+      Las firmas de acceso compartido (SAS) son un mecanismo de autenticación basado en valores hash seguros SHA-256 o en URI. Para obtener información sobre cómo generar sus propias firmas en Node.js, PHP, Python, Java, C y C#, consulte [Autenticación de Service Bus con firmas de acceso compartido](../service-bus-messaging/service-bus-sas.md).
   - question: >
       ¿Se pueden permitir únicamente algunos puntos de conexión de retransmisión?
     answer: >

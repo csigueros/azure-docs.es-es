@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.date: 04/16/2021
-ms.openlocfilehash: f75ae0030316fafcc734644d4def4ad94d04b0d8
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: e3f310fb7544ed92dcf096dcf0d6e276a01fa7de
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121740846"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124732978"
 ---
 # <a name="transformation-functions-in-power-query-for-data-wrangling"></a>Funciones de transformación en Power Query para la limpieza y transformación de datos
 
@@ -88,7 +88,7 @@ Mantener y quitar la parte superior, mantener el rango (funciones M correspondie
 
 ## <a name="known-unsupported-functions"></a>Funciones conocidas no admitidas
 
-| Función | Status |
+| Función | Estado |
 | -- | -- |
 | Table.PromoteHeaders | No compatible. Se puede lograr el mismo resultado si se establece "Primera fila como encabezado" en el conjunto de resultados. |
 | Table.CombineColumns | Se trata de un escenario habitual que no se admite directamente, pero se puede realizar si se agrega una nueva columna que concatene dos columnas concretas.  Por ejemplo, Table.AddColumn(RemoveEmailColumn, "Name", each [FirstName] & " " & [LastName]) |
@@ -111,7 +111,7 @@ Mantener y quitar la parte superior, mantener el rango (funciones M correspondie
 
 Se puede acceder a esta opción desde "Extraer" en la cinta de opciones.
 
-![Power Query Agregar columna](media/wrangling-data-flow/pq-split.png)
+:::image type="content" source="media/wrangling-data-flow/pq-split.png" alt-text="Power Query Agregar columna":::
 
 ### <a name="for-tablecombinecolumns"></a>Para ```Table.CombineColumns```
 

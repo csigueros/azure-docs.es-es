@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 3/8/2019
 ms.author: jeedes
-ms.openlocfilehash: 7483e7a9300088d07e85d238ad897522d59c5464
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b96310c029867cb60d45bc17ab36a357e7fc26f7
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92519391"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124765091"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-turborater"></a>Tutorial: Integración de Azure Active Directory con TurboRater
 
@@ -187,7 +187,7 @@ En esta sección, creará un usuario llamado B. Simon en TurboRater. Colabore co
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el portal Aplicaciones.
 
-Al seleccionar **TurboRater** en el portal Aplicaciones, debería iniciar sesión automáticamente en la suscripción de TurboRater para la que configuró el inicio de sesión único. Para más información acerca del portal Aplicaciones, consulte [Access and use apps on the My Apps portal](../user-help/my-apps-portal-end-user-access.md) (Uso de aplicaciones y acceso a ellas en el portal Aplicaciones).
+Al seleccionar **TurboRater** en el portal Aplicaciones, debería iniciar sesión automáticamente en la suscripción de TurboRater para la que configuró el inicio de sesión único. Para más información acerca del portal Aplicaciones, consulte [Access and use apps on the My Apps portal](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510) (Uso de aplicaciones y acceso a ellas en el portal Aplicaciones).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

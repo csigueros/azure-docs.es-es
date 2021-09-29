@@ -13,12 +13,12 @@ ms.date: 03/31/2020
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 3353d87291492563acbd3a85bbae266c711377f2
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 92d52bcdd990d255a41c151b2312cc2b6494bd45
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105611810"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124787194"
 ---
 # <a name="shared-device-mode-for-ios-devices"></a>Modo de dispositivo compartido para dispositivos iOS
 
@@ -31,7 +31,7 @@ El modo de dispositivo compartido le permite configurar un dispositivo iOS 13 o
 
 El modo de dispositivo compartido también proporciona la administración del dispositivo respaldada por la identidad de Microsoft.
 
-Esta característica usa la [aplicación Microsoft Authenticator](../user-help/user-help-auth-app-overview.md) para administrar los usuarios en el dispositivo y para distribuir el complemento [Microsoft Enterprise SSO para dispositivos Apple](apple-sso-plugin.md).
+Esta característica usa la [aplicación Microsoft Authenticator](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc) para administrar los usuarios en el dispositivo y para distribuir el complemento [Microsoft Enterprise SSO para dispositivos Apple](apple-sso-plugin.md).
 
 ## <a name="create-a-shared-device-mode-app"></a>Creación de una aplicación con modo de dispositivo compartido
 
@@ -41,7 +41,7 @@ Para crear una aplicación en modo de dispositivo compartido, los desarrolladore
 
 1. Los **administradores de dispositivos** preparan el dispositivo para que se comparta mediante un proveedor de administración de dispositivos móviles (MDM) como Microsoft Intune para administrar los dispositivos de la organización. MDM envía la aplicación Microsoft Authenticator a los dispositivos y activa el "modo compartido" para cada dispositivo mediante una actualización de perfil en el dispositivo. Esta configuración de modo compartido es lo que cambia el comportamiento de las aplicaciones compatibles en el dispositivo. Esta configuración del proveedor de MDM establece el modo de dispositivo compartido para el dispositivo y habilita el complemento [Microsoft Enterprise SSO para dispositivos Apple](apple-sso-plugin.md) que es necesario para el modo de dispositivo compartido.
 
-1. [**Necesario solo durante la versión preliminar pública**] Un usuario con el rol de [administrador de dispositivos en la nube](../roles/permissions-reference.md#cloud-device-administrator) debe iniciar la [aplicación Microsoft Authenticator](../user-help/user-help-auth-app-overview.md) y unir el dispositivo a la organización.
+1. [**Necesario solo durante la versión preliminar pública**] Un usuario con el rol de [administrador de dispositivos en la nube](../roles/permissions-reference.md#cloud-device-administrator) debe iniciar la [aplicación Microsoft Authenticator](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc) y unir el dispositivo a la organización.
 
     Para configurar la pertenencia de los roles de la organización en Azure Portal: **Azure Active Directory** > **Roles y administradores**  > **Administrador de dispositivos en la nube**
 

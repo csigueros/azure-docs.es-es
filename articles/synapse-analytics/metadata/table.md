@@ -10,29 +10,29 @@ ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9852f146651ca6bcb5c1935ca78fce61bca5093f
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 1f9cb59e7216f038baf96c3a809fb88c6e584d6c
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123433321"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124735145"
 ---
 # <a name="azure-synapse-analytics-shared-metadata-tables"></a>Tablas de metadatos compartidos de Azure Synapse Analytics
 
 
-Azure Synapse Analytics permite que los diferentes motores de cálculo de áreas de trabajo compartan bases de datos y tablas entre sus grupos de Apache Spark y el grupo de SQL sin servidor.
+Azure Synapse Analytics permite que los diferentes motores de cálculo de áreas de trabajo compartan bases de datos y tablas con respaldo de Parquet entre sus grupos de Apache Spark y el grupo de SQL sin servidor.
 
-Una vez creada una base de datos con un trabajo de Spark, puede crear en ella, mediante Spark, tablas que usen Parquet o CSV como formato de almacenamiento. Los nombres de tabla se convertirán a minúsculas y se deben consultar con el nombre en minúscula. Estas tablas estarán disponibles de forma inmediata para que cualquiera de los grupos de Spark del área de trabajo de Azure Synapse realice consultas en ellas. También se pueden usar desde cualquiera de los trabajos de Spark sujetos a permisos.
+Una vez creada una base de datos con un trabajo de Spark, puede crear en ella, mediante Spark, tablas que usen Parquet como formato de almacenamiento. Los nombres de tabla se convertirán a minúsculas y se deben consultar con el nombre en minúscula. Estas tablas estarán disponibles de forma inmediata para que cualquiera de los grupos de Spark del área de trabajo de Azure Synapse realice consultas en ellas. También se pueden usar desde cualquiera de los trabajos de Spark sujetos a permisos.
 
 Las tablas creadas, administradas y externas de Spark también están disponibles como tablas externas con el mismo nombre en la base de datos sincronizada correspondiente en el grupo de SQL sin servidor. [La exposición de una tabla de Spark en SQL](#expose-a-spark-table-in-sql) proporciona más información sobre la sincronización de la tabla.
 
-Dado que las tablas se sincronizan con el grupo de SQL sin servidor de forma asincrónica, se producirá un pequeño retraso hasta que aparezcan.
+Dado que las tablas se sincronizan con el grupo de SQL sin servidor de forma asincrónica, se producirá un retraso hasta que aparezcan.
 
 ## <a name="manage-a-spark-created-table"></a>Administración de una tabla creada con Spark
 
 Use Spark para administrar las bases de datos creadas con Spark. Por ejemplo, elimínela mediante un trabajo del grupo de Apache Spark sin servidor y cree tablas en ella desde Spark.
 
-Los objetos de las bases de datos sincronizadas no se pueden modificar desde un grupo de SQL sin servidor.
+Si crea objetos en una base de datos creada con Spark desde el grupo de SQL sin servidor o intenta eliminar la base de datos, se producirá un error en la operación. No se puede cambiar la base de datos de Spark original mediante el grupo de SQL sin servidor.
 
 ## <a name="expose-a-spark-table-in-sql"></a>Exposición de una tabla de Spark en SQL
 
@@ -64,24 +64,21 @@ Las tablas de Spark proporcionan tipos de datos diferentes a los motores de Syna
 
 | Tipo de datos de Spark | Tipo de datos de SQL | Comentarios |
 |---|---|---|
-| `LongType`, `long`, `bigint`                | `bigint`              | **Spark**: *LongType* representa números enteros con signo de 8 bytes. [Referencia](/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql) |
-| `BooleanType`, `boolean`                    | `bit` (Parquet), `varchar(6)` (CSV)  | |
-| `DecimalType`, `decimal`, `dec`, `numeric`  | `decimal`             | **Spark**: *DecimalType* representa números decimales con signo de precisión arbitraria. Con el respaldo interno de java.math.BigDecimal. BigDecimal consta de un valor entero de precisión arbitraria sin escalar y una escala de enteros de 32 bits. <br> **SQL**: números de precisión y escala fijas. Cuando se utiliza la precisión máxima, los valores válidos se sitúan entre - 10^38 +1 y 10^38 - 1. Los sinónimos ISO para decimal son dec y dec(p, s) . numeric es funcionalmente idéntico a decimal. [Referencia](/sql/t-sql/data-types/decimal-and-numeric-transact-sql]) |
-| `IntegerType`, `Integer`, `int`             | `int`                 | **Spark**: *IntegerType* representa números enteros con signo de 4 bytes. [Referencia](/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql)|
-| `ByteType`, `Byte`, `tinyint`               | `smallint`            | **Spark**: *ByteType* representa números enteros con signo de 1 byte [de -128 a 127] y ShortType representa números enteros con signo de 2 bytes [de -32768 a 32767]. <br> **SQL**: tinyint representa números enteros con signo de 1 byte [de 0 a 255] y smallint representa números enteros con signo de 2 bytes [de -32768 a 32767]. [Referencia](/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql)|
-| `ShortType`, `Short`, `smallint`            | `smallint`            | Igual que el anterior. |
-| `DoubleType`, `Double`                      | `float`               | **Spark**: *DoubleType* representa números de punto flotante de doble precisión de 8 bytes. Para **SQL**, [visite esta página](/sql/t-sql/data-types/float-and-real-transact-sql).|
-| `FloatType`, `float`, `real`                | `real`                | **Spark**: *FloatType* representa números de punto flotante de doble precisión de 4 bytes. Para **SQL**, [visite esta página](/sql/t-sql/data-types/float-and-real-transact-sql).|
-| `DateType`, `date`                          | `date`                | **Spark**: *DateType* representa valores de campos de año, mes y día, sin una zona horaria.|
-| `TimestampType`, `timestamp`                | `datetime2`           | **Spark**: *TimestampType* representa valores de campos de año, mes, día, hora, minuto y segundo, con la zona horaria local de la sesión. El valor de marca de tiempo representa un punto absoluto en el tiempo.
-| `char`                                      | `char`                |
-| `StringType`, `String`, `varchar`           | `Varchar(n)`          | **Spark**: *StringType* representa valores de una cadena de caracteres. *VarcharType(n)* es una variante de StringType que tiene una limitación de longitud. Si la cadena de entrada supera la limitación de longitud, se producirá un error en la escritura de datos. Este tipo solo se puede usar en el esquema de tabla, no en funciones ni operadores.<br> *CharType(n)* es una variante de *VarcharType(n)* que tiene una longitud fija. La lectura de una columna de tipo *CharType(n)* siempre devuelve valores de cadena de longitud n. Al comparar columnas de tipo Char, la corta se rellenará hasta la longitud de la larga. <br> **SQL**: en *Varchar(n)* , n puede ser 8000 como máximo; si es una columna con particiones, n puede ser 2048 como máximo. <br> Úselo con la intercalación `Latin1_General_100_BIN2_UTF8`. |
-| `BinaryType`, `binary`                      | `varbinary(n)`        | **SQL**: en *Varbinary(n)* , n puede ser 8000 como máximo; si es una columna con particiones, n puede ser 2048 como máximo. |
-| `array`, `map`, `struct`                    | `varchar(max)`        | **SQL**: serializa en JSON con intercalación `Latin1_General_100_BIN2_UTF8`. |
-
-\* La intercalación de nivel de base de datos es Latin1_General_100_CI_AS_SC_UTF8 \* La intercalación de nivel de columna de cadena es Latin1_General_100_BIN2_UTF8
-
-\** ArrayType, MapType y StructType se representan como elementos JSON.
+| `byte`      | `smallint`       ||
+| `short`     | `smallint`       ||
+| `integer`   |    `int`            ||
+| `long`      |    `bigint`         ||
+| `float`     | `real`           |<!-- need precision and scale-->|
+| `double`    | `float`          |<!-- need precision and scale-->|
+| `decimal`      | `decimal`        |<!-- need precision and scale-->|
+| `timestamp` |    `datetime2`      |<!-- need precision and scale-->|
+| `date`      | `date`           ||
+| `string`    |    `varchar(max)`   | Con intercalación `Latin1_General_100_BIN2_UTF8` |
+| `binary`    |    `varbinary(max)` ||
+| `boolean`   |    `bit`            ||
+| `array`     |    `varchar(max)`   | Serializa en JSON con intercalación `Latin1_General_100_BIN2_UTF8` |
+| `map`       |    `varchar(max)`   | Serializa en JSON con intercalación `Latin1_General_100_BIN2_UTF8` |
+| `struct`    |    `varchar(max)`   | Serializa en JSON con intercalación `Latin1_General_100_BIN2_UTF8` |
 
 ## <a name="security-model"></a>Modelo de seguridad
 
@@ -95,7 +92,7 @@ Para más información sobre cómo establecer permisos en las carpetas y los arc
 
 ## <a name="examples"></a>Ejemplos
 
-### <a name="create-a-managed-table-in-spark-and-query-from-serverless-sql-pool"></a>Creación de una tabla administrada en Spark y realización de consultas desde el grupo de SQL sin servidor
+### <a name="create-a-managed-table-backed-by-parquet-in-spark-and-query-from-serverless-sql-pool"></a>Creación de una tabla administrada respaldada por Parquet en Spark y realización de consultas desde el grupo de SQL sin servidor
 
 En este escenario, tiene una base de datos de Spark denominada `mytestdb`. Consulte [Creación y conexión a una base de datos de Spark con un grupo de SQL sin servidor](database.md#create-and-connect-to-spark-database-with-serverless-sql-pool).
 
@@ -115,7 +112,7 @@ Este comando crea la tabla `myparquettable` en la base de datos `mytestdb`. Los 
 Compruebe que `myparquettable` se incluye en los resultados.
 
 >[!NOTE]
->Una tabla que no use Parquet o CSV como formato de almacenamiento no se sincronizará.
+>Una tabla que no use Parquet como formato de almacenamiento no se sincronizará.
 
 A continuación, inserte algunos valores en la tabla de Spark, por ejemplo, con las siguientes instrucciones C# de Spark en un cuaderno C#:
 
@@ -154,7 +151,7 @@ id | name | birthdate
 1 | Alice | 2010-01-01
 ```
 
-### <a name="create-an-external-table-in-spark-and-query-from-serverless-sql-pool"></a>Creación de una tabla externa en Spark y realización de consultas desde el grupo de SQL sin servidor
+### <a name="create-an-external-table-backed-by-parquet-in-spark-and-query-from-serverless-sql-pool"></a>Creación de una tabla externa respaldada por Parquet en Spark y realización de consultas desde el grupo de SQL sin servidor
 
 En este ejemplo, cree una tabla de Spark externa con los archivos de datos de Parquet que creó en el ejemplo anterior para la tabla administrada.
 
@@ -163,12 +160,12 @@ Por ejemplo, con SparkSQL ejecute:
 ```sql
 CREATE TABLE mytestdb.myexternalparquettable
     USING Parquet
-    LOCATION "abfss://<storage-name>.dfs.core.windows.net/<fs>/synapse/workspaces/<synapse_ws>/warehouse/mytestdb.db/myparquettable/"
+    LOCATION "abfss://<fs>@arcadialake.dfs.core.windows.net/synapse/workspaces/<synapse_ws>/warehouse/mytestdb.db/myparquettable/"
 ```
 
-Reemplace el marcador de posición `<storage-name>` por el nombre de la cuenta de almacenamiento de ADLS gen2 que está usando, `<fs>` por el nombre del sistema de archivos que está usando y `<synapse_ws>` por el nombre del área de trabajo de Synapse que está usando para ejecutar este ejemplo.
+Reemplace el marcador de posición `<fs>` por el nombre del sistema de archivos que es el sistema de archivos predeterminado del área de trabajo y el marcador de posición `<synapse_ws>` por el nombre del área de trabajo de Synapse que está usando para ejecutar este ejemplo.
 
-En el ejemplo anterior se crea la tabla `myextneralparquettable` en la base de datos `mytestdb`. Después de un breve retraso, puede ver la tabla del grupo de SQL sin servidor. Por ejemplo, ejecute la siguiente instrucción desde el grupo de SQL sin servidor.
+En el ejemplo anterior se crea la tabla `myexternalparquettable` en la base de datos `mytestdb`. Después de un breve retraso, puede ver la tabla del grupo de SQL sin servidor. Por ejemplo, ejecute la siguiente instrucción desde el grupo de SQL sin servidor.
 
 ```sql
 USE mytestdb;
@@ -195,5 +192,3 @@ id | name | birthdate
 
 - [Más información sobre los metadatos compartidos de Azure Synapse Analytics](overview.md)
 - [Más información sobre las bases de datos de metadatos compartidos de Azure Synapse Analytics](database.md)
-
-

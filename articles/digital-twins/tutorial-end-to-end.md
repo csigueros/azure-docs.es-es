@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/23/2021
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: cdd4554485a7c04f2d768f7a3bf7265d6342af96
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: 9d19a74dc7bacc996fe328679d9c3e12766bfadf
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123227216"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128626197"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Tutorial: Creación de soluciones de un extremo a otro
 
@@ -84,12 +84,7 @@ Para comprobar los gemelos que se crearon, ejecute el siguiente comando, que con
 Query
 ```
 
->[!TIP]
-> Este método simplificado se proporciona como parte del proyecto _**AdtE2ESample**_. Fuera del contexto de este código de ejemplo, puede consultar todos los gemelos de la instancia en cualquier momento, mediante el uso de [API de consulta](/rest/api/digital-twins/dataplane/query) o [comandos de la CLI](/cli/azure/dt?view=azure-cli-latest&preserve-view=true).
->
-> A continuación se incluye el cuerpo de consulta completo para obtener todos los gemelos digitales de la instancia:
-> 
-> :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="GetAllTwins":::
+[!INCLUDE [digital-twins-query-latency-note.md](../../includes/digital-twins-query-latency-note.md)]
 
 Ahora puede dejar de ejecutar el proyecto. No obstante, mantenga la solución abierta en Visual Studio, ya que la usará más veces en el tutorial.
 

@@ -11,12 +11,12 @@ ms.date: 04/16/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.custom: devx-track-js
-ms.openlocfilehash: 5a0bef4fbfd4ee9aa720dab430a33bbfcd0b918b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fe955ede3c2936c0c842d19fbadb9a075830822c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91280358"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128603493"
 ---
 # <a name="tutorial-simulate-a-failure-in-reading-data-from-the-primary-region"></a>Tutorial: Simulación de un error al leer datos de la región principal
 
@@ -29,9 +29,9 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 En la segunda parte de la serie, se aprende a:
 
 > [!div class="checklist"]
-> * Ejecutar y pausar la aplicación
-> * Simulación de un error con [una ruta estática no válida](#simulate-a-failure-with-an-invalid-static-route) o [Fiddler](#simulate-a-failure-with-fiddler)
-> * Simular la restauración del punto de conexión principal
+> - Ejecutar y pausar la aplicación
+> - Simulación de un error con [una ruta estática no válida](#simulate-a-failure-with-an-invalid-static-route) o [Fiddler](#simulate-a-failure-with-fiddler)
+> - Simular la restauración del punto de conexión principal
 
 ## <a name="prerequisites"></a>Prerrequisitos
 

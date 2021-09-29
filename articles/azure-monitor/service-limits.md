@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/10/2019
-ms.openlocfilehash: 71df05c8c8dfb7946303ae2d75b51a91972775be
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: c554ac2bd4455ff75681db585d95ad36ddda5970
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108123778"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128606667"
 ---
 # <a name="azure-monitor-service-limits"></a>Límites de servicio de Azure Monitor
 
@@ -28,10 +28,15 @@ En este artículo se enumeran los límites de las diferentes áreas de Azure Mon
 
 [!INCLUDE [monitoring-limits](../../includes/azure-monitor-limits-autoscale.md)]
 
-
 ## <a name="data-collection-rules"></a>Reglas de recopilación de datos
 
 [!INCLUDE [data-collection-rules](../../includes/azure-monitor-limits-data-collection-rules.md)]
+
+## <a name="diagnostic-settings"></a>Configuración de diagnóstico
+
+[!INCLUDE [data-collection-rules](../../includes/azure-monitor-limits-diagnostic-settings.md)]
+
+
 ## <a name="log-queries-and-language"></a>Consultas de registro y lenguaje
 
 [!INCLUDE [monitoring-limits](../../includes/azure-monitor-limits-log-queries.md)]

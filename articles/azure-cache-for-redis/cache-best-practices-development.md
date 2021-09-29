@@ -7,12 +7,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/25/2021
 ms.author: shpathak
-ms.openlocfilehash: 1a91b5e11707d8f17effa6b2d711aaaa1a97afed
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 20725796abed454aaccdea73f13d898ca48f615c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123114404"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128626121"
 ---
 # <a name="development"></a>Desarrollo
 
@@ -69,3 +69,9 @@ Si la biblioteca o la herramienta cliente no admiten TLS, es posible habilitar l
 * [PHP](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-php-md)
 * [HiRedisCluster](https://github.com/Azure/AzureCacheForRedis/blob/main/HiRedisCluster%20Best%20Practices.md)
 * [Proveedor de estado de sesión de ASP.NET](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-session-state-provider-md)
+
+## <a name="next-steps"></a>Pasos siguientes
+
+- [Preguntas frecuentes sobre el desarrollo para Azure Cache for Redis](cache-development-faq.yml)
+- [Pruebas de rendimiento](cache-best-practices-performance.md)
+- [Conmutación por error y aplicación de revisiones para Azure Cache for Redis](cache-failover.md)

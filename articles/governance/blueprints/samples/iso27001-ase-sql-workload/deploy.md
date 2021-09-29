@@ -1,14 +1,14 @@
 ---
 title: Implementación del ejemplo del plano técnico para cargas de trabajo de ASE y SQL compatibles con ISO 27001
 description: Pasos de implementación del ejemplo de plano técnico de cargas de trabajo de App Service Environment y SQL Database ISO 27001, incluidos los detalles de los parámetros del artefacto de plano técnico.
-ms.date: 04/30/2021
+ms.date: 09/08/2021
 ms.topic: sample
-ms.openlocfilehash: 84400710d169c02e480272d74418c7ed6ac7ad09
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 553218028f610598f1b13cd4daebdb43f1ea1656
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108772628"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128632108"
 ---
 # <a name="deploy-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>Implementación del ejemplo de plano técnico de cargas de trabajo de App Service Environment y SQL Database según la norma ISO 27001
 

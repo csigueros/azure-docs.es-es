@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2020
-ms.openlocfilehash: 5aca623f9292a1e34eacd209b204436dc7fbdcea
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: c0cb4d4c1c9d37c7b449dd3e6d3c07ec2bd2476d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123220842"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124737401"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Solución de administración de Office 365 en Azure (versión preliminar)
 
@@ -18,7 +18,7 @@ ms.locfileid: "123220842"
 
 > [!IMPORTANT]
 > ## <a name="solution-update"></a>Actualización de la solución
-> Esta solución se ha reemplazado por la solución de disponibilidad general [Office 365](../../sentinel/connect-office-365.md) en [Azure Sentinel](../../sentinel/overview.md) y la [solución de supervisión e informes de Azure AD](../../active-directory/reports-monitoring/plan-monitoring-and-reporting.md). De forma conjunta, proporcionan una versión actualizada de la solución Office 365 de Azure Monitor anterior con una experiencia de configuración mejorada. Puede seguir usando la solución existente hasta el 31 de octubre de 2020.
+> Esta solución se ha reemplazado por la solución de disponibilidad general [Office 365](../../sentinel/data-connectors-reference.md#microsoft-office-365) en [Azure Sentinel](../../sentinel/overview.md) y la [solución de supervisión e informes de Azure AD](../../active-directory/reports-monitoring/plan-monitoring-and-reporting.md). De forma conjunta, proporcionan una versión actualizada de la solución Office 365 de Azure Monitor anterior con una experiencia de configuración mejorada. Puede seguir usando la solución existente hasta el 31 de octubre de 2020.
 > 
 > Azure Sentinel es una solución de administración de eventos e información de seguridad nativa en la nube que ingiere registros y proporciona funcionalidad de SIEM adicional, como detecciones, investigaciones, búsqueda e información controlada por aprendizaje automático. El uso de Azure Sentinel ahora le proporcionará ingesta de registros de administración de Exchange y de actividad de Office 365 SharePoint.
 > 
@@ -91,10 +91,10 @@ ms.locfileid: "123220842"
 > ### <a name="q-how-i-can-use-the-azure-sentinel-out-of-the-box-security-oriented-content"></a>P: ¿Cómo puedo usar el contenido de serie orientado a la seguridad de Azure Sentinel?
 > Azure Sentinel proporciona paneles de serie orientados a la seguridad, consultas de alertas personalizadas, consultas de búsqueda, investigación y funcionalidades de respuesta automatizadas basadas en los registros de Office 365 y Azure AD. Explore Azure Sentinel en GitHub y los tutoriales de Azure Sentinel para obtener más información:
 >
-> - [Detección de amenazas integrada](/azure/sentinel/detect-threats-built-in)
-> - [Creación de reglas de análisis personalizadas para detectar amenazas sospechosas](/azure/sentinel/detect-threats-custom)
-> - [Supervisión de los datos](/azure/sentinel/monitor-your-data)
-> - [Investigación de incidentes con Azure Sentinel](/azure/sentinel/investigate-cases)
+> - [Detección de amenazas integrada](../../sentinel/detect-threats-built-in.md)
+> - [Creación de reglas de análisis personalizadas para detectar amenazas sospechosas](../../sentinel/detect-threats-custom.md)
+> - [Supervisión de los datos](../../sentinel/monitor-your-data.md)
+> - [Investigación de incidentes con Azure Sentinel](../../sentinel/investigate-cases.md)
 > - [Configuración de respuestas automatizadas frente a amenazas en Azure Sentinel](../../sentinel/tutorial-respond-threats-playbook.md)
 > - [Comunidad de Azure Sentinel en GitHub](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks)
 > 

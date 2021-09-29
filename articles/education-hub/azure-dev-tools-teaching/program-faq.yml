@@ -8,12 +8,12 @@ metadata:
   ms.subservice: education-hub
   ms.topic: overview
   ms.date: 08/31/2021
-  ms.openlocfilehash: 28972b6c29e14ca453d713e25867b8079e05c3ca
-  ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+  ms.openlocfilehash: add297aa2c3ff9b883cbf07b2e546bbf46f09b94
+  ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 09/03/2021
-  ms.locfileid: "123431033"
+  ms.lasthandoff: 09/13/2021
+  ms.locfileid: "124771487"
 title: Preguntas frecuentes sobre el Centro de Education
 summary: En este artículo se tratan preguntas frecuentes sobre Azure for Students, Azure for Students Starter y Azure Dev Tools for Teaching.
 sections:
@@ -32,7 +32,7 @@ sections:
       Sí.  Puede renovar la suscripción de Microsoft Azure for Students después de un año.  Le enviaremos correos electrónicos recordando que debe renovar justo antes de que pase el año.  Para renovarla, solo tiene que volver a suscribirse a la oferta desde el [sitio web](https://aka.ms/azure4students) de Microsoft Azure for Students.
   - question: >
       ¿Por qué he recibido una factura de Microsoft?
-    answer: "Puede recibir una factura de Microsoft que detalla el uso en el que incurrió en el mes anterior mientras estaba en Microsoft Azure for Students.  No se preocupe, no tiene que pagar por ese uso; todo está cubierto por el crédito proporcionado por Microsoft Azure for Students.  Para más información sobre las facturas y cómo funcionan, consulte el [artículo](https://docs.microsoft.com/en-us/azure/cost-management-billing/understand/mca-overview) sobre docs.microsoft.com. \n"
+    answer: "Puede recibir una factura de Microsoft que detalla el uso en el que incurrió en el mes anterior mientras estaba en Microsoft Azure for Students.  No se preocupe, no tiene que pagar por ese uso; todo está cubierto por el crédito proporcionado por Microsoft Azure for Students.  Para más información sobre las facturas y cómo funcionan, consulte el [artículo](../../cost-management-billing/understand/mca-overview.md) sobre docs.microsoft.com. \n"
   - question: >
       ¿Cuáles son las suscripciones y cuál es su relación con Azure for Students?
     answer: >

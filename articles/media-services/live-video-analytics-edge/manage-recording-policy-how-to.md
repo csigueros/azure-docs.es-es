@@ -3,20 +3,20 @@ title: Administración de la directiva de grabación con Live Video Analytics - 
 description: En este tema se explica cómo administrar la directiva de grabación con Live Video Analytics.
 ms.topic: how-to
 ms.date: 04/27/2020
-ms.openlocfilehash: 52c9011e81c4e9d43aa32158d8577a7388dc20d2
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: a8301b97e571370d498fba9a8d46cf3fc545ff29
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110379052"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124740355"
 ---
 # <a name="manage-recording-policy-with-live-video-analytics"></a>Administración de la directiva de grabación con Live Video Analytics
 
 [!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
-Puede usar Live Video Analytics on IoT Edge para la [grabación continua de vídeo](continuous-video-recording-concept.md), lo que permite grabar vídeo en la nube durante semanas o meses. Además, puede administrar la longitud (en días) de ese archivo de la nube con las [herramientas de administración del ciclo de vida](../../storage/blobs/storage-lifecycle-management-concepts.md?tabs=azure-portal) integradas en Azure Storage.  
+Puede usar Live Video Analytics on IoT Edge para la [grabación continua de vídeo](continuous-video-recording-concept.md), lo que permite grabar vídeo en la nube durante semanas o meses. Además, puede administrar la longitud (en días) de ese archivo de la nube con las [herramientas de administración del ciclo de vida](../../storage/blobs/lifecycle-management-overview.md?tabs=azure-portal) integradas en Azure Storage.  
 
-La cuenta de Media Services está vinculada a una cuenta de Azure Storage y, al grabar vídeo en la nube, el contenido se escribe en un [recurso](../latest/assets-concept.md) de Media Services. Cada recurso se asigna a un contenedor en la cuenta de almacenamiento. La administración del ciclo de vida le permite definir una [directiva](../../storage/blobs/storage-lifecycle-management-concepts.md?tabs=azure-portal#policy) para una cuenta de Azure Storage, en la que puede especificar una [regla](../../storage/blobs/storage-lifecycle-management-concepts.md?tabs=azure-portal#rules) como la siguiente.
+La cuenta de Media Services está vinculada a una cuenta de Azure Storage y, al grabar vídeo en la nube, el contenido se escribe en un [recurso](../latest/assets-concept.md) de Media Services. Cada recurso se asigna a un contenedor en la cuenta de almacenamiento. La administración del ciclo de vida le permite definir una [directiva](../../storage/blobs/lifecycle-management-overview.md?tabs=azure-portal) para una cuenta de Azure Storage, en la que puede especificar una [regla](../../storage/blobs/lifecycle-management-overview.md?tabs=azure-portal#lifecycle-management-rule-definition) como la siguiente.
 
 ```
 {
@@ -54,7 +54,7 @@ Al usar Live Video Analytics para grabar en un recurso, especifique una propieda
 A continuación se indican algunas de las limitaciones conocidas de la administración del ciclo de vida:
 
 * Puede tener como máximo 100 reglas en la directiva, y cada regla puede especificar hasta 10 contenedores. Por lo tanto, si necesita tener distintas directivas de grabación (por ejemplo, un archivo de 3 días para la cámara del aparcamiento, 30 días para la cámara del muelle de carga y 180 días para la cámara de detrás del mostrador), con una cuenta de Media Services puede personalizar reglas para un máximo de 1000 cámaras.
-* Las actualizaciones de la directiva de administración del ciclo de vida no son inmediatas. Consulte [esta sección de preguntas más frecuentes](../../storage/blobs/storage-lifecycle-management-concepts.md?tabs=azure-portal#faq) para obtener más detalles.
+* Las actualizaciones de la directiva de administración del ciclo de vida no son inmediatas. Consulte [esta sección de preguntas más frecuentes](../../storage/blobs/lifecycle-management-overview.md?tabs=azure-portal#faq) para obtener más detalles.
 * Si decide aplicar una directiva en la que los blobs se mueven al nivel de acceso esporádico, la reproducción de esa parte del archivo puede verse afectada. Podría ver latencias adicionales o errores esporádicos. Media Services no admite la reproducción de contenido en el nivel de archivo.
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -1,7 +1,7 @@
 ---
 title: Novedades en el aprovisionamiento de aplicaciones de Azure Active Directory
 description: Documentación nueva y actualizada sobre el aprovisionamiento de aplicaciones de Azure Active Directory.
-ms.date: 08/03/2021
+ms.date: 09/08/2021
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
@@ -9,16 +9,25 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: mtillman
-ms.openlocfilehash: 23d3c074ee1a4cb07b4770b27ee1ead145bae28a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 1cd99265954671084b37bcf0f11606a1e334223e
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121732406"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124759802"
 ---
 # <a name="azure-active-directory-application-provisioning-whats-new"></a>Aprovisionamiento de aplicaciones de Azure Active Directory: Novedades
 
 Le damos la bienvenida a las novedades sobre la documentación de aprovisionamiento de aplicaciones de Azure Active Directory. En este artículo se enumeran los documentos nuevos que se han agregado y los que han tenido actualizaciones importantes en los últimos tres meses. Para conocer las novedades del servicio de aprovisionamiento, consulte [Novedades de Azure Active Directory](../fundamentals/whats-new.md).
+
+## <a name="august-2021"></a>Agosto de 2021
+
+### <a name="updated-articles"></a>Artículos actualizados
+
+- [Referencia para la escritura de expresiones para la asignación de atributos en Azure Active Directory](functions-for-customizing-application-data.md)
+- [Problemas conocidos y soluciones con el cumplimiento de protocolo SCIM 2.0 del servicio de aprovisionamiento de usuarios de Azure AD](application-provisioning-config-problem-scim-compatibility.md)
+- [Tutorial: Personalización de las asignaciones de atributos de aprovisionamiento de usuarios para aplicaciones SaaS en Azure Active Directory](customize-application-attributes.md)
+
 
 ## <a name="july-2021"></a>Julio de 2021
 

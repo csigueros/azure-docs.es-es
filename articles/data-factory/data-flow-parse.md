@@ -7,16 +7,18 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.date: 05/10/2021
-ms.openlocfilehash: 2058fcade3375f680f616374ba8dee73a4e72dbc
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 7f426c04793c754619cd40bfdfcb4a7b9fc7d904
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122637908"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129059917"
 ---
 # <a name="parse-transformation-in-mapping-data-flow"></a>Transformación de análisis en el flujo de datos de asignación
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
 
 Use la transformación de análisis para analizar las columnas de los datos del documento. Los tipos de documentos insertados admitidos actualmente que se pueden analizar son JSON, XML y texto delimitado.
 
@@ -26,7 +28,7 @@ Use la transformación de análisis para analizar las columnas de los datos del 
 
 En el panel de configuración de la transformación de análisis, primero se selecciona el tipo de datos contenidos en las columnas que desea analizar en línea. La transformación de análisis también contiene los siguientes valores de configuración.
 
-![Configuración de análisis](media/data-flow/data-flow-parse-1.png "Analizar")
+:::image type="content" source="media/data-flow/data-flow-parse-1.png" alt-text="Configuración de análisis":::
 
 ### <a name="column"></a>Columna
 
@@ -51,11 +53,11 @@ Use el generador de expresiones para establecer el origen del análisis. Esto pu
 
 Aquí es donde va a configurar el esquema de salida de destino a partir del análisis que se escribirá en una sola columna.
 
-![Ejemplo de análisis](media/data-flow/data-flow-parse-2.png "Ejemplo de análisis")
+:::image type="content" source="media/data-flow/data-flow-parse-2.png" alt-text="Ejemplo de análisis":::
 
 En este ejemplo, hemos definido el análisis del campo de entrada "jsonString", que es texto sin formato, pero con formato de estructura JSON. Vamos a almacenar los resultados analizados como JSON en una nueva columna denominada "json" con este esquema:
 
-```(trade as boolean, customers as string[])```
+`(trade as boolean, customers as string[])`
 
 Consulte la pestaña de inspección y la vista previa de los datos para comprobar que la salida se ha asignado correctamente.
 

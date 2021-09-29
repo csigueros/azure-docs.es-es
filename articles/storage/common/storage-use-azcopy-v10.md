@@ -8,12 +8,12 @@ ms.date: 04/02/2021
 ms.author: normesta
 ms.subservice: common
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: e289ad866ba53de761077f22b27ef4ff763451ff
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: ccf2f423137e4732b2785f23256577c92eee07ac
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114468559"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128595662"
 ---
 # <a name="get-started-with-azcopy"></a>Introducción a AzCopy
 
@@ -46,7 +46,7 @@ Para mayor comodidad, considere la posibilidad de agregar la ubicación del dire
 
 Si decide no agregar el directorio de AzCopy a la ruta de acceso, tendrá que cambiar los directorios a la ubicación de su archivo ejecutable de AzCopy y escribir `azcopy` o `.\azcopy` en los símbolos del sistema de Windows PowerShell.
 
-Como propietario de la cuenta de Azure Storage, no se le asignan automáticamente permisos para tener acceso a datos. Antes de hacer nada significativo con AzCopy, debe decidir cómo proporcionará las credenciales de autorización al servicio de almacenamiento. 
+Como propietario de la cuenta de Azure Storage, no se le asignan automáticamente permisos para tener acceso a datos. Antes de hacer nada significativo con AzCopy, debe decidir cómo proporcionará las credenciales de autorización al servicio de almacenamiento.
 
 <a id="choose-how-youll-provide-authorization-credentials"></a>
 
@@ -64,7 +64,7 @@ Use esta tabla como guía:
 
 #### <a name="option-1-use-azure-active-directory"></a>Opción 1: Uso de Azure Active Directory
 
-Esta opción solo está disponible para Blob storage. Con Azure Active Directory, puede proporcionar credenciales una vez en lugar de anexar un token de SAS a cada comando.  
+Esta opción solo está disponible para Blob storage. Con Azure Active Directory, puede proporcionar credenciales una vez en lugar de anexar un token de SAS a cada comando.
 
 > [!NOTE]
 > En la versión actual, si tiene previsto copiar blobs entre distintas cuentas de almacenamiento, deberá anexar un token de SAS a cada URL de origen. Puede omitir el token de SAS solo de la dirección URL de destino. Si necesita ejemplos, vea [Copia de blobs entre cuentas de almacenamiento](#transfer-data).
@@ -84,7 +84,7 @@ azcopy copy "C:\local\path" "https://account.blob.core.windows.net/mycontainer1/
 Para más información sobre los tokens de SAS y de cómo obtener uno, consulte [Uso de firmas de acceso compartido (SAS)](./storage-sas-overview.md).
 
 > [!NOTE]
-> El parámetro [Se requiere transferencia segura](storage-require-secure-transfer.md) de una cuenta de almacenamiento determina si la conexión a una cuenta de almacenamiento está protegida con Seguridad de la capa de transporte (TLS). Esta opción está habilitada de forma predeterminada.   
+> El parámetro [Se requiere transferencia segura](storage-require-secure-transfer.md) de una cuenta de almacenamiento determina si la conexión a una cuenta de almacenamiento está protegida con Seguridad de la capa de transporte (TLS). Esta opción está habilitada de forma predeterminada.
 
 <a id="transfer-data"></a>
 
@@ -116,7 +116,7 @@ Para obtener información acerca de un comando específico, basta con que incluy
 
 ### <a name="list-of-commands"></a>Lista de comandos
 
-En la tabla siguiente se enumeran todos los comandos de AzCopy v10. Cada comando está vinculado a un artículo de referencia. 
+En la tabla siguiente se enumeran todos los comandos de AzCopy v10. Cada comando está vinculado a un artículo de referencia.
 
 |Get-Help|Descripción|
 |---|---|
@@ -140,7 +140,7 @@ En la tabla siguiente se enumeran todos los comandos de AzCopy v10. Cada comand
 |[azcopy sync](storage-ref-azcopy-sync.md?toc=/azure/storage/blobs/toc.json)|Replica la ubicación de origen en la ubicación de destino.|
 
 > [!NOTE]
-> AzCopy no tiene un comando para cambiar el nombre de los archivos. 
+> AzCopy no tiene un comando para cambiar el nombre de los archivos.
 
 ## <a name="use-in-a-script"></a>Uso en un script
 

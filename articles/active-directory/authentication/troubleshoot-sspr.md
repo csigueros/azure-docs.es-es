@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ff19142255b168dc0c0d3b422752c0610a3ddd1
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 5451c8b5211fec91872b05eba5c30d9622f51dc9
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123538586"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124787308"
 ---
 # <a name="troubleshoot-self-service-password-reset-in-azure-active-directory"></a>Solución de problemas del autoservicio de restablecimiento de contraseña en Azure Active Directory
 
@@ -121,7 +121,7 @@ Use la siguiente información para comprender el problema y lo que debe corregir
 
 | Error | Detalles | Detalles técnicos |
 | --- | --- | --- |
-| TenantSSPRFlagDisabled = 9 | En este momento no se puede restablecer la contraseña porque el administrador ha deshabilitado la característica en la organización. No hay ninguna otra acción que puede realizar para resolver esta situación. Póngase en contacto con el administrador y pídale que habilite esta característica.<br /><br />Para más información, vea [Ayuda, he olvidado mi contraseña de Azure AD](../user-help/active-directory-passwords-update-your-own-password.md#common-problems-and-their-solutions). | SSPR_0009: se ha detectado que el administrador no ha habilitado el restablecimiento de contraseñas. Póngase en contacto con el administrador y pídale que lo habilite en la organización. |
+| TenantSSPRFlagDisabled = 9 | En este momento no se puede restablecer la contraseña porque el administrador ha deshabilitado la característica en la organización. No hay ninguna otra acción que puede realizar para resolver esta situación. Póngase en contacto con el administrador y pídale que habilite esta característica.<br /><br />Para más información, vea [Ayuda, he olvidado mi contraseña de Azure AD](https://support.microsoft.com/account-billing/reset-your-work-or-school-password-using-security-info-23dde81f-08bb-4776-ba72-e6b72b9dda9e#common-problems-and-their-solutions). | SSPR_0009: se ha detectado que el administrador no ha habilitado el restablecimiento de contraseñas. Póngase en contacto con el administrador y pídale que lo habilite en la organización. |
 | WritebackNotEnabled = 10 |En este momento no se puede restablecer la contraseña porque el administrador no ha habilitado un servicio necesario para la organización. No hay ninguna otra acción que puede realizar para resolver esta situación. Póngase en contacto con el administrador y pídale que compruebe la configuración de su organización.<br /><br />Para más información sobre este servicio necesario, vea [Configuración de la escritura diferida de contraseñas](./tutorial-enable-sspr-writeback.md). | SSPR_0010: se ha detectado que no se ha habilitado la escritura diferida de contraseñas. Póngase en contacto con el administrador y pídale que la habilite. |
 | SsprNotEnabledInUserPolicy = 11 | En este momento no se puede restablecer la contraseña porque el administrador no ha configurado el restablecimiento de contraseñas en la organización. No hay ninguna otra acción que puede realizar para resolver esta situación. Póngase en contacto con él y pídale que lo configure.<br /><br />Para más información sobre la configuración del restablecimiento de contraseñas, consulte [Inicio rápido: Autoservicio de restablecimiento de contraseña de Azure AD](./tutorial-enable-sspr.md). | SSPR_0011: su organización no ha definido una directiva de restablecimiento de contraseña. Póngase en contacto con el administrador y pídale que defina una directiva de restablecimiento de contraseña. |
 | UserNotLicensed = 12 | En este momento no se puede restablecer la contraseña porque faltan licencias necesarias en la organización. No hay ninguna otra acción que puede realizar para resolver esta situación. Póngase en contacto con el administrador y pídale que compruebe su asignación de licencias.<br /><br />Para más información sobre licencias, vea [Requisitos de concesión de licencias del autoservicio de restablecimiento de contraseña de Azure AD](./concept-sspr-licensing.md). | SSPR_0012: su organización no tiene las licencias necesarias para realizar el restablecimiento de contraseña. Póngase en contacto con el administrador y pídale que revise las asignaciones de licencia. |

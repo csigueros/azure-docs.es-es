@@ -1,24 +1,15 @@
 ---
 title: Comparación de Azure Video Analyzer for Media (anteriormente Video Indexer) y los valores preestablecidos de Azure Media Services v3
 description: En este artículo se comparan las funcionalidades de Azure Video Analyzer for Media (anteriormente Video Indexer) y los valores preestablecidos de Azure Media Services v3.
-services: azure-video-analyzer
-documentationcenter: ''
-author: juliako
-manager: femila
-editor: ''
-ms.workload: media
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.subservice: azure-video-analyzer-media
+ms.topic: conceptual
 ms.date: 02/24/2020
 ms.author: juliako
-ms.openlocfilehash: cdd354adc7a34cdcb7e0811ffd2a5d0b50018fee
-ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
+ms.openlocfilehash: 66e62013c4719bf0b20808a240bdfa44483ab5b1
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/15/2021
-ms.locfileid: "112121509"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128607622"
 ---
 # <a name="compare-azure-media-services-v3-presets-and-video-analyzer-for-media"></a>Comparación de los valores preestablecidos de Azure Media Services v3 y Video Analyzer for Media 
 

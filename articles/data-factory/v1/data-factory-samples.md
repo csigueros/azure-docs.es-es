@@ -5,14 +5,15 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 4fc4cea51494333bed90cd6c277469a58e2c6a3f
-ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
+ms.openlocfilehash: 5985c653d02a041e648f306847b5bcfd93783302
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122397485"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128615232"
 ---
 # <a name="azure-data-factory---samples"></a>Azure Data Factory: ejemplos
 > [!NOTE]
@@ -54,21 +55,21 @@ Puede usar el icono de **Canales de muestras** de la página principal de la fac
 1. Cree una factoría de datos o abra una. Vea [Copia de datos de Blob Storage a SQL Database con Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener los pasos para crear una factoría de datos.
 2. En la hoja **FACTORÍA DE DATOS** de la factoría de datos, haga clic en el icono **Canalizaciones de ejemplo**.
 
-    ![Icono Canalizaciones de ejemplo](./media/data-factory-samples/SamplePipelinesTile.png)
+    :::image type="content" source="./media/data-factory-samples/SamplePipelinesTile.png" alt-text="Icono Canalizaciones de ejemplo":::
 3. En la hoja **Canalizaciones de ejemplo**, haga clic en el **ejemplo** que quiere implementar.
 
-    ![Hoja Canalizaciones de ejemplo](./media/data-factory-samples/SampleTile.png)
+    :::image type="content" source="./media/data-factory-samples/SampleTile.png" alt-text="Hoja Canalizaciones de ejemplo":::
 4. Especifique las opciones de configuración para el ejemplo. Por ejemplo, el nombre de la cuenta de almacenamiento de Azure y la clave de la cuenta, el nombre del servidor lógico de SQL, la base de datos, el identificador de usuario y la contraseña, etc.
 
-    ![Hoja de ejemplo](./media/data-factory-samples/SampleBlade.png)
+    :::image type="content" source="./media/data-factory-samples/SampleBlade.png" alt-text="Hoja de ejemplo":::
 5. Cuando haya terminado de especificar las opciones de configuración, haga clic en **Crear** para crear o implementar las canalizaciones de ejemplo y los servicios o las tablas vinculados que usan las canalizaciones.
 6. Verá el estado de implementación en el icono de ejemplo en el que hizo clic anteriormente en la hoja **Canalizaciones de ejemplo canalizaciones**.
 
-    ![Estado de implementación](./media/data-factory-samples/DeploymentStatus.png)
+    :::image type="content" source="./media/data-factory-samples/DeploymentStatus.png" alt-text="Estado de la implementación":::
 7. Cuando vea el mensaje **La implementación se realizó correctamente** en el icono del ejemplo, cierre la hoja **Canalizaciones de ejemplo**.  
 8. En la hoja **FACTORÍA DE DATOS** , verá que los servicios vinculados, los conjuntos de datos y las canalizaciones se han agregado a la factoría de datos.  
 
-    ![Hoja de la Factoría de datos](./media/data-factory-samples/DataFactoryBladeAfter.png)
+    :::image type="content" source="./media/data-factory-samples/DataFactoryBladeAfter.png" alt-text="Hoja de la Factoría de datos":::
 
 ## <a name="samples-in-visual-studio"></a>Ejemplos en Visual Studio
 ### <a name="prerequisites"></a>Requisitos previos
@@ -88,10 +89,10 @@ Debe tener lo siguiente instalado en el equipo:
    4. Seleccione una **ubicación** para el proyecto.
    5. Haga clic en **OK**.
 
-      ![Cuadro de diálogo Nuevo proyecto](./media/data-factory-samples/vs-new-project-adf-templates.png)
+      :::image type="content" source="./media/data-factory-samples/vs-new-project-adf-templates.png" alt-text="Cuadro de diálogo Nuevo proyecto":::
 3. En el cuadro de diálogo **Data Factory Templates** (Plantillas de Data Factory), seleccione la plantilla de ejemplo desde la sección **Use-Case Templates** (Plantillas de caso de uso) y haga clic en **Siguiente**. Los siguientes pasos le guiarán en la utilización de la plantilla **Generación de perfiles de cliente** . Los pasos son similares para los otros ejemplos.
 
-    ![Cuadro de diálogo Plantillas de Data Factory](./media/data-factory-samples/vs-data-factory-templates-dialog.png)
+    :::image type="content" source="./media/data-factory-samples/vs-data-factory-templates-dialog.png" alt-text="Cuadro de diálogo Plantillas de Data Factory":::
 4. En el cuadro de diálogo **Data Factory Configuration** (Configuración de Data Factory), haga clic en **Siguiente** en la página **Data Factory Basics** (Aspectos básicos de Data Factory).
 5. En la página **Configure data factory** (Configurar Data Factory), siga estos pasos:
    1. Seleccione la opción **Crear la nueva factoría de datos**. También puede seleccionar **Use existing data factory**(Usar factoría de datos existente).
@@ -108,7 +109,7 @@ Debe tener lo siguiente instalado en el equipo:
 11. Si ve el cuadro de diálogo **Iniciar sesión en tu cuenta Microsoft**, escriba sus credenciales para la cuenta que tiene la suscripción de Azure y haga clic en **Iniciar sesión**.
 12. Debería ver el siguiente cuadro de diálogo:
 
-    ![Cuadro de diálogo Publicar](./media/data-factory-build-your-first-pipeline-using-vs/publish.png)
+    :::image type="content" source="./media/data-factory-build-your-first-pipeline-using-vs/publish.png" alt-text="Cuadro de diálogo Publicar":::
 13. En la página **Configure data factory** (Configurar Data Factory), siga estos pasos:
 
     1. Confirme la opción **Use existing data factory** (Usar factoría de datos existente).

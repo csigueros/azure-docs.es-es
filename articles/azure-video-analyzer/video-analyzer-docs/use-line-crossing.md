@@ -3,12 +3,12 @@ title: Detectar si los objetos cruzan una línea virtual en un vídeo en directo
 description: En este inicio rápido se muestra cómo usar Azure Video Analyzer para detectar si los objetos cruzan una línea a partir de una fuente de vídeo en directo desde una cámara IP (simulada).
 ms.topic: tutorial
 ms.date: 06/01/2021
-ms.openlocfilehash: 7257562626b17c8f61479eb1ba4d51fea52d3c91
-ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
+ms.openlocfilehash: 27f14c8257d11956d0cacb3efddfb6a00ba239f6
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123185964"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128630193"
 ---
 # <a name="tutorial-detect-when-objects-cross-a-virtual-line-in-a-live-video"></a>Tutorial: Detectar si los objetos cruzan una línea virtual en un vídeo en directo
 
@@ -253,7 +253,7 @@ En este mensaje, tenga en cuenta estos detalles:
 * El elemento `direction` contiene la dirección de este evento.
 
 > [!NOTE] 
-> Si ha implementado recursos de Azure mediante la implementación con un solo clic de este tutorial, se crea una máquina virtual DS1 estándar. Sin embargo, para obtener resultados precisos de modelos de inteligencia artificial que consumen muchos recursos, como YOLO, es posible que tenga que aumentar el tamaño de la máquina virtual. [Cambie el tamaño de la máquina virtual](../../virtual-machines/windows/resize-vm.md) para aumentar el número de vcpus y la memoria según sus necesidades. A continuación, vuelva a activar la canalización activa para ver las inferencias.
+> Si ha implementado recursos de Azure mediante la implementación con un solo clic de este tutorial, se crea una máquina virtual DS1 estándar. Sin embargo, para obtener resultados precisos de modelos de inteligencia artificial que consumen muchos recursos, como YOLO, es posible que tenga que aumentar el tamaño de la máquina virtual. [Cambie el tamaño de la máquina virtual](../../virtual-machines/resize-vm.md) para aumentar el número de vcpus y la memoria según sus necesidades. A continuación, vuelva a activar la canalización activa para ver las inferencias.
 
 ## <a name="customize-for-your-own-environment"></a>Personalización para su propio entorno
 

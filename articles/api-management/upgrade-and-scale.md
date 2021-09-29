@@ -3,20 +3,20 @@ title: Actualización y escalado de una instancia de Azure API Management | Micr
 description: En este tema, se explica cómo se actualiza y se escala una instancia de Azure API Management.
 services: api-management
 documentationcenter: ''
-author: mikebudzynski
+author: dlepow
 manager: anneta
 editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
 ms.date: 04/20/2020
-ms.author: apimpm
-ms.openlocfilehash: bd36434bbfe435a53567c46728610627f99f987f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: danlep
+ms.openlocfilehash: 9cec5717c6c25faafc7349a4c18b60cc30e97f26
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98127794"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128659975"
 ---
 # <a name="upgrade-and-scale-an-azure-api-management-instance"></a>Actualización y escalado de una instancia de Azure API Management  
 

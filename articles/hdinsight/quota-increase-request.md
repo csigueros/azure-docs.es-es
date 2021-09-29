@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 05/07/2020
-ms.openlocfilehash: b62e41f280d02664b3df631c3413960f1265356f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c6a46d1d0224ac802dc2c7b418e1fa19f1b26099
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104863180"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124742864"
 ---
 # <a name="requesting-quota-increases-for-azure-hdinsight"></a>Solicitud de aumentos de cuota para Azure HDInsight
 
@@ -64,7 +64,7 @@ Para solicitar un aumento de la cuota, siga los pasos siguientes:
 > [!NOTE]  
 > Si necesita aumentar la cuota de núcleos de HDInsight en una región privada, [envíe una solicitud de lista aprobada](https://aka.ms/canaryintwhitelist).
 
-Puede [ponerse en contacto con el servicio de soporte técnico para solicitar un aumento de la cuota](../azure-portal/supportability/resource-manager-core-quotas-request.md).
+Puede [ponerse en contacto con el servicio de soporte técnico para solicitar un aumento de la cuota](../azure-portal/supportability/regional-quota-requests.md).
 
 Hay algunos límites de cuota fijos. Por ejemplo, una sola suscripción de Azure puede tener como máximo 10 000 núcleos. Para obtener información detallada sobre estos límites, vea [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-resource-manager/management/azure-subscription-service-limits.md).
 

@@ -5,12 +5,12 @@ author: bwren
 ms.author: bwren
 ms.topic: tutorial
 ms.date: 03/09/2020
-ms.openlocfilehash: 9923bfcbd439ef5e20e44e9c397199fe06f40b43
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 029202b1b05c43c29f0011d01d63cc5d5c5f029f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102032915"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128649707"
 ---
 # <a name="tutorial-create-a-metrics-chart-in-azure-monitor"></a>Tutorial: Creación de un gráfico de métricas en Azure Monitor
 El explorador de métricas es una característica de Azure Monitor de Azure Portal que permite crear gráficos a partir de valores de métricas, correlacionar visualmente las tendencias e investigar los repuntes o las caídas en los valores de las métricas. Utilice el explorador de métricas para investigar el estado y el uso de los recursos de Azure o para trazar gráficos a partir de métricas personalizadas. 
@@ -77,7 +77,7 @@ Vea [ejemplos de gráficos](../essentials/metric-chart-samples.md) que tienen fi
 
 ## <a name="advanced-chart-settings"></a>Configuración gráfico avanzada
 
-Se puede personalizar el estilo y el título de un gráfico, así como modificar la configuración de gráfico avanzada. Cuando haya terminado de personalizarlo, puede anclarlo a un panel para guardar el trabajo. También se pueden configurar alertas de métricas. Consulte [Características avanzadas del Explorador de métricas de Azure](../essentials/metrics-charts.md#locking the-range-of-the-y-axis) para aprender sobre estas y otras características avanzadas del explorador de métricas de Azure Monitor.
+Se puede personalizar el estilo y el título de un gráfico, así como modificar la configuración de gráfico avanzada. Cuando haya terminado de personalizarlo, puede anclarlo a un panel para guardar el trabajo. También se pueden configurar alertas de métricas. Consulte [Características avanzadas del Explorador de métricas de Azure](../essentials/metrics-charts.md#locking-the-range-of-the-y-axis) para aprender sobre estas y otras características avanzadas del explorador de métricas de Azure Monitor.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

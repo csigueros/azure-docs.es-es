@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/01/2021
 ms.author: mbullwin
 keywords: anomaly detection, machine learning, algorithms
-ms.openlocfilehash: 85c169afb8c6158a3e5c32ac4d62cbeeabb4c2bb
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: 7f8e9c26de1cceb6c4dec514e21d36b9843bb44e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123035612"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128588169"
 ---
 # <a name="multivariate-time-series-anomaly-detection-preview"></a>Detección de anomalías de serie temporal multivariante (versión preliminar)
 
@@ -34,7 +34,7 @@ Si su objetivo es detectar anomalías en el nivel del sistema a partir de un gru
 
 ## <a name="notebook"></a>Notebook
 
-Para aprender a llamar a Anomaly Detector API (multivariante), pruebe este [cuaderno](https://github.com/Azure-Samples/AnomalyDetector/blob/master/ipython-notebook/Multivariate%20API%20Demo%20Notebook.ipynb). En esta instancia de Jupyter Notebook se muestra cómo enviar una solicitud de API y visualizar el resultado.
+Para aprender a llamar a Anomaly Detector API (multivariante), pruebe este [cuaderno](https://github.com/Azure-Samples/AnomalyDetector/blob/master/ipython-notebook/API%20Sample/Multivariate%20API%20Demo%20Notebook.ipynb). En esta instancia de Jupyter Notebook se muestra cómo enviar una solicitud de API y visualizar el resultado.
 
 Para ejecutar el cuaderno, debe obtener una **clave de suscripción** de Anomaly Detector API y un **punto de conexión de API**. En el cuaderno, agregue la clave de suscripción de Anomaly Detector API válida a la variable `subscription_key` y cambie la variable `endpoint` al punto de conexión.
 

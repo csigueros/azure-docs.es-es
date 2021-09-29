@@ -3,12 +3,12 @@ title: Administración de asignaciones con PowerShell
 description: Obtenga información sobre cómo administrar las asignaciones de planos técnicos con el módulo oficial de PowerShell de Azure Blueprints, Az.Blueprint.
 ms.date: 08/17/2021
 ms.topic: how-to
-ms.openlocfilehash: 943f2bcceef76a2b867b7459f88f6d5041f38ef5
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 0ce2132fe9d43ef0d5df1a4e0eec3a80a3a5c5ca
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122322419"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128612821"
 ---
 # <a name="how-to-manage-assignments-with-powershell"></a>Administración de asignaciones con PowerShell
 
@@ -16,7 +16,7 @@ Una asignación de plano técnico se puede administrar mediante módulo de Azure
 
 ## <a name="add-the-azblueprint-module"></a>Adición del módulo Az.Blueprint
 
-A fin de habilitar Azure PowerShell para administrar asignaciones de planos técnicos, debe agregar el módulo. Este módulo se puede usar con PowerShell y PowerShell Core instalados localmente, con [Azure Cloud Shell](https://shell.azure.com) o con la [imagen de Docker de Azure PowerShell](https://hub.docker.com/r/azuresdk/azure-powershell/).
+A fin de habilitar Azure PowerShell para administrar asignaciones de planos técnicos, debe agregar el módulo. Este módulo se puede usar con PowerShell y PowerShell Core instalados localmente, con [Azure Cloud Shell](https://shell.azure.com) o con la [imagen de Docker de Azure PowerShell](/powershell/azure/azureps-in-docker).
 
 ### <a name="base-requirements"></a>Requisitos básicos
 

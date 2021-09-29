@@ -9,13 +9,14 @@ ms.author: jken
 ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
+ms.subservice: calling
 zone_pivot_groups: acs-csharp-java
-ms.openlocfilehash: b41ed8b917e3311aa69369bc0fa5725305346056
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: 78ffdce7cbc4b8973407330a58e2ac3643bfac8b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123254599"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128676987"
 ---
 # <a name="quickstart-use-the-call-automation-apis"></a>Inicio rápido: Uso de las API de automatización de llamadas
 

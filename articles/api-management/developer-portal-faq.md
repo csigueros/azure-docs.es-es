@@ -4,18 +4,18 @@ titleSuffix: Azure API Management
 description: Preguntas frecuentes sobre el portal para desarrolladores en API Management. El portal para desarrolladores es un sitio web personalizable, donde los consumidores de API pueden explorarlas.
 services: api-management
 documentationcenter: API Management
-author: mikebudzynski
+author: dlepow
 ms.service: api-management
 ms.topic: troubleshooting
 ms.date: 07/30/2021
-ms.author: apimpm
+ms.author: danlep
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b7b7efda7ca28382ca1dfbdead64db9976d67bd4
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 0c8757211bf11e97cde091d49eb6512bb0e4f7cc
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121747785"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128656348"
 ---
 # <a name="api-management-developer-portal---frequently-asked-questions"></a>Portal para desarrolladores de API Management: Preguntas más frecuentes
 
@@ -79,7 +79,7 @@ También puede habilitar CORS manualmente.
 1. Haga clic en el vínculo **Manually apply it on the global level** (Aplicarlo manualmente en el nivel global) para ver el código generado de la directiva.
 2. Vaya a **Todas las API** en la sección **API** del servicio API Management en Azure Portal.
 3. Haga clic en el icono **</>** en la sección **Procesamiento de entrada**.
-4. Inserte la directiva en la sección **<inbound>** del archivo XML. Asegúrese de que el valor de **<origin>** coincide con el dominio del portal para desarrolladores.
+4. Inserte la directiva en la sección **\<inbound\>** del archivo XML. Asegúrese de que el valor de **\<origin\>** coincide con el dominio del portal para desarrolladores.
 
 > [!NOTE]
 > 

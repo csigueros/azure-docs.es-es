@@ -7,14 +7,14 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/30/2021
+ms.date: 09/09/2021
 ms.author: makromer
-ms.openlocfilehash: 16bb4ac7062c39ad57becce4d5280ed227160690
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: dc9aec86e01655087a64c3ac0a494d448889f857
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123311571"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124733083"
 ---
 # <a name="copy-and-transform-data-from-and-to-a-rest-endpoint-by-using-azure-data-factory"></a>Copia y transformación de datos desde y hacia un punto de conexión de REST mediante Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -465,7 +465,7 @@ REST se admite en flujos de datos de conjuntos de datos de integración y conjun
 
 Puede establecer los métodos delete, insert, update y upsert, así como los datos de fila relativos que se van a enviar al receptor REST para las operaciones CRUD.
 
-![Receptor REST de flujo de datos](media/data-flow/data-flow-sink.png)
+:::image type="content" source="media/data-flow/data-flow-sink.png" alt-text="Receptor REST de flujo de datos":::
 
 ## <a name="sample-data-flow-script"></a>Script de flujo de datos de ejemplo
 
@@ -586,21 +586,21 @@ La plantilla define dos parámetros:
 ### <a name="how-to-use-this-solution-template"></a>Uso de esta plantilla de solución
 
 1. Vaya a la plantilla **Copiar desde REST o HTTP con OAuth**. Cree una nueva conexión para la conexión de origen. 
-    ![Creación de conexiones](media/solution-template-copy-from-rest-or-http-using-oauth/source-connection.png)
+    :::image type="content" source="media/solution-template-copy-from-rest-or-http-using-oauth/source-connection.png" alt-text="Creación de conexiones":::
 
     A continuación se muestran los pasos principales para configurar el nuevo servicio vinculado (REST):
     
      1. En **URL base**, especifique el parámetro de dirección URL para su servicio REST de origen. 
      2. En **Tipo de autenticación**, elija *Anónima*.
-        ![Nueva conexión REST](media/solution-template-copy-from-rest-or-http-using-oauth/new-rest-connection.png)
+        :::image type="content" source="media/solution-template-copy-from-rest-or-http-using-oauth/new-rest-connection.png" alt-text="Nueva conexión REST":::
 
 2. Cree una nueva conexión para la conexión de destino.  
-    ![Conexión de Gen2 nueva](media/solution-template-copy-from-rest-or-http-using-oauth/destination-connection.png)
+    :::image type="content" source="media/solution-template-copy-from-rest-or-http-using-oauth/destination-connection.png" alt-text="Conexión de Gen2 nueva":::
 
 3. Seleccione **Usar esta plantilla**.
-    ![Usar esta plantilla](media/solution-template-copy-from-rest-or-http-using-oauth/use-this-template.png)
+    :::image type="content" source="media/solution-template-copy-from-rest-or-http-using-oauth/use-this-template.png" alt-text="Usar esta plantilla":::
 
-4. Verá la canalización creada tal y como se muestra en el ejemplo siguiente:  ![Captura de pantalla que muestra la canalización creada a partir de la plantilla.](media/solution-template-copy-from-rest-or-http-using-oauth/pipeline.png)
+4. Verá la canalización creada tal y como se muestra en el ejemplo siguiente:  :::image type="content" source="media/solution-template-copy-from-rest-or-http-using-oauth/pipeline.png" alt-text="Captura de pantalla que muestra la canalización creada a partir de la plantilla.":::
 
 5. Seleccione la actividad **web**. En **Configuración**, especifique la **URL**, **Método**, **Encabezados** y **Cuerpo** correspondientes para recuperar el token de portador OAuth de la API de inicio de sesión del servicio desde el que quiere copiar los datos. El marcador de posición de la plantilla muestra un ejemplo de OAuth de Azure Active Directory (AAD). Nota: la autenticación de AAD es compatible de forma nativa con el conector REST; este es solo un ejemplo de flujo de OAuth. 
 
@@ -611,7 +611,7 @@ La plantilla define dos parámetros:
     | encabezados | El usuario define el encabezado, que hace referencia a un nombre de encabezado en la solicitud HTTP. | 
     | Body | Cuerpo de la solicitud HTTP. | 
 
-    ![Canalización](media/solution-template-copy-from-rest-or-http-using-oauth/web-settings.png)
+    :::image type="content" source="media/solution-template-copy-from-rest-or-http-using-oauth/web-settings.png" alt-text="Canalización":::
 
 6. En la actividad **Copiar datos**, seleccione la pestaña *Origen* y verá que el token de portador (access_token) recuperado del paso anterior se pasará a la actividad de copia de datos como **autorización** en los encabezados adicionales. Confirme la configuración de las siguientes propiedades antes de iniciar una ejecución de canalización.
 
@@ -620,20 +620,20 @@ La plantilla define dos parámetros:
     | Método de solicitud | Método HTTP. Los valores permitidos son **Get** (valor predeterminado) y **Post**. | 
     | Encabezados adicionales | Encabezados de solicitud HTTP adicionales.| 
 
-   ![Autenticación para la copia del origen](media/solution-template-copy-from-rest-or-http-using-oauth/copy-data-settings.png)
+   :::image type="content" source="media/solution-template-copy-from-rest-or-http-using-oauth/copy-data-settings.png" alt-text="Autenticación para la copia del origen":::
 
 7. Seleccione **Depurar**, escriba los **parámetros** y, a continuación, seleccione **Finalizar**.
-   ![Ejecución de la canalización](media/solution-template-copy-from-rest-or-http-using-oauth/pipeline-run.png) 
+   :::image type="content" source="media/solution-template-copy-from-rest-or-http-using-oauth/pipeline-run.png" alt-text="Ejecución de la canalización"::: 
 
-8. Cuando la ejecución de la canalización se complete correctamente, verá un resultado similar al ejemplo siguiente: ![Resultado de la ejecución de la canalización](media/solution-template-copy-from-rest-or-http-using-oauth/run-result.png) 
+8. Cuando la ejecución de la canalización se complete correctamente, verá un resultado similar al ejemplo siguiente: :::image type="content" source="media/solution-template-copy-from-rest-or-http-using-oauth/run-result.png" alt-text="Resultado de la ejecución de la canalización"::: 
 
 9. Haga clic en el icono de "Salida" de WebActivity en la columna **Acciones** para ver el access_token devuelto por el servicio.
 
-   ![Salida del token](media/solution-template-copy-from-rest-or-http-using-oauth/token-output.png) 
+   :::image type="content" source="media/solution-template-copy-from-rest-or-http-using-oauth/token-output.png" alt-text="Salida del token"::: 
 
 10. Haga clic en el icono de "Entrada" de CopyActivity en la columna **Acciones** para ver que el access_token recuperado por WebActivity se pasa a CopyActivity para la autenticación. 
 
-    ![Entrada del token](media/solution-template-copy-from-rest-or-http-using-oauth/token-input.png)
+    :::image type="content" source="media/solution-template-copy-from-rest-or-http-using-oauth/token-input.png" alt-text="Entrada del token":::
         
     >[!CAUTION] 
     >Para evitar que el token se registre como texto sin formato, habilite la opción "Salida segura" en la actividad web y "Entrada segura" en la actividad de copia.

@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: ed2267ebb4467331a4859f2b3f6507edd39dc03b
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: e4f4a7149f522d11a9a77bdeb9b16a0f848cba77
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111750342"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124776869"
 ---
 # <a name="create-a-profile-container-with-azure-netapp-files-and-ad-ds"></a>Creación de un contenedor de perfiles con Azure NetApp Files y AD DS
 
@@ -31,13 +31,12 @@ Las instrucciones de esta guía son específicas para los usuarios de Azure Virt
 >[!NOTE]
 >Si está buscando material de comparación sobre las diferentes opciones de almacenamiento del contenedor de perfiles de FSLogix en Azure, consulte [Opciones de almacenamiento para contenedores de perfiles de FSLogix](store-fslogix-profile.md).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de crear un contenedor de perfiles de FSLogix para un grupo host, debe hacer lo siguiente:
 
 - Configurar Azure Virtual Desktop.
 - Aprovisionar un grupo host de Azure Virtual Desktop.
-- [Habilitar la suscripción a Azure NetApp Files](../azure-netapp-files/azure-netapp-files-register.md).
 
 ## <a name="set-up-your-azure-netapp-files-account"></a>Configuración de la cuenta a Azure NetApp Files
 

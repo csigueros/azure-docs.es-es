@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: d5aa2a2eba1cf6123d81813cab00d2ac7c5309b4
-ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
+ms.openlocfilehash: 22dd9bdfc8f26a46c7cd5989851fb748955732fe
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122835372"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124773823"
 ---
 # <a name="configure-azure-ad-multi-factor-authentication-settings"></a>Configuración de Azure AD Multi-Factor Authentication
 
@@ -311,7 +311,7 @@ Si no quiere usar directivas de acceso condicional para habilitar direcciones IP
 
 ## <a name="verification-methods"></a>Métodos de comprobación
 
-Puede elegir los métodos de verificación que estén disponibles para los usuarios en el portal de configuración del servicio. Cuando los usuarios inscriben sus cuentas en Azure AD Multi-Factor Authentication, eligen su método de verificación preferido entre las opciones que ha habilitado. Las instrucciones para el proceso de inscripción de los usuarios se proporcionan en [Configuración de mi cuenta para la autenticación multifactor](../user-help/multi-factor-authentication-end-user-first-time.md).
+Puede elegir los métodos de verificación que estén disponibles para los usuarios en el portal de configuración del servicio. Cuando los usuarios inscriben sus cuentas en Azure AD Multi-Factor Authentication, eligen su método de verificación preferido entre las opciones que ha habilitado. Las instrucciones para el proceso de inscripción de los usuarios se proporcionan en [Configuración de mi cuenta para la autenticación multifactor](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc).
 
 Están disponibles los siguientes métodos de verificación:
 
@@ -341,7 +341,7 @@ La característica _Recordar Multi-Factor Authentication_ permite a los usuarios
 > [!IMPORTANT]
 > Si una cuenta o un dispositivo corren peligro, el hecho de recordar Multi-Factor Authentication para los dispositivos de confianza puede afectar a la seguridad. Si una cuenta corporativa se pone en peligro o un dispositivo de confianza es objeto de pérdida o robo, debe [revocar las sesiones de MFA](howto-mfa-userdevicesettings.md).
 >
-> La acción de restauración revoca el estado de confianza de todos los dispositivos y el usuario debe volver a realizar la autenticación multifactor. También puede pedir a los usuarios que restauren la autenticación multifactor en sus propios dispositivos tal y como se indica en [Administración de la configuración de la autenticación multifactor](../user-help/multi-factor-authentication-end-user-manage-settings.md#turn-on-two-factor-verification-prompts-on-a-trusted-device).
+> La acción de restauración revoca el estado de confianza de todos los dispositivos y el usuario debe volver a realizar la autenticación multifactor. También puede pedir a los usuarios que restauren la autenticación multifactor en sus propios dispositivos tal y como se indica en [Administración de la configuración de la autenticación multifactor](https://support.microsoft.com/account-billing/change-your-two-step-verification-method-and-settings-c801d5ad-e0fc-4711-94d5-33ad5d4630f7#turn-on-two-factor-verification-prompts-on-a-trusted-device).
 
 ### <a name="how-the-feature-works"></a>Cómo funciona la característica
 

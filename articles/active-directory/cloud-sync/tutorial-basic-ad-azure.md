@@ -11,12 +11,12 @@ ms.date: 12/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de59b3f26a9a4696c721cab94cd5b96bd0200e9e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cbf02dd12c76de529026b58f98f111aa3be39502
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98612358"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128626444"
 ---
 # <a name="tutorial-basic-active-directory-environment"></a>Tutorial: Entorno básico de Active Directory
 
@@ -33,7 +33,7 @@ A continuación, se indican los requisitos previos necesarios para completar est
 - Un [adaptador de red externo](/virtualization/hyper-v-on-windows/quick-start/connect-to-network) para permitir que la máquina virtual se comunique con Internet.
 - [Una suscripción de Azure](https://azure.microsoft.com/free)
 - Una copia de Windows Server 2016.
-- [Microsoft .NET Framework 4.7.1](https://www.microsoft.com/download/details.aspx?id=56115)
+- [Microsoft .NET Framework 4.7.1](https://dotnet.microsoft.com/download/dotnet-framework/net471)
 
 > [!NOTE]
 > En este tutorial se utilizan scripts de PowerShell para que pueda crear el entorno de tutorial de la forma más rápida posible.  Cada uno de los scripts usa variables que se declaran al principio de estos.  Puede y debe cambiar las variables para reflejar su entorno.

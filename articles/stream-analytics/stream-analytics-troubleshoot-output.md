@@ -7,12 +7,12 @@ ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 10/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: 28d66477c31db9ee274fb1e8aaa1690365a4fa72
-ms.sourcegitcommit: fd83264abadd9c737ab4fe85abdbc5a216467d8b
+ms.openlocfilehash: 393d710ba411a6573a4cce155abd7c1aeae06aa8
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2021
-ms.locfileid: "112912796"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124754880"
 ---
 # <a name="troubleshoot-azure-stream-analytics-outputs"></a>Solución de problemas en las salidas de Azure Stream Analytics
 
@@ -25,7 +25,7 @@ En este artículo se describen los problemas comunes relacionados con las conexi
 
    * Si el valor de **Eventos de entrada** es mayor que cero, el trabajo puede leer los datos de entrada. Si el valor de los **Eventos de entrada** no es mayor que cero, hay un problema con la entrada del trabajo. Consulte [Solucionar problemas de conexiones de entrada](stream-analytics-troubleshoot-input.md) para obtener más información. Si el trabajo tiene una entrada de datos de referencia, aplique la división por nombre lógico al consultar la métrica **Eventos de entrada**. Si solo no hay ningún evento de entrada de los datos de referencia, es probable que este origen de entrada no se haya configurado correctamente para capturar el conjunto de datos de referencia adecuado.
    * Si el valor de **Errores de conversión de datos** es superior a cero y cifras superiores, vea [Errores de datos de Azure Stream Analytics](data-errors.md) para obtener información detallada sobre los errores de conversión de datos.
-   * Si el valor de **Errores en tiempo de ejecución** es superior a cero, el trabajo recibe datos, pero genera errores al procesar la consulta. Para encontrar los errores, vaya a los [registros de auditoría](../azure-resource-manager/management/view-activity-logs.md) y filtre por el estado **Error**.
+   * Si el valor de **Errores en tiempo de ejecución** es superior a cero, el trabajo recibe datos, pero genera errores al procesar la consulta. Para encontrar los errores, vaya a los [registros de auditoría](../azure-monitor/essentials/activity-log.md) y filtre por el estado **Error**.
    * Si el valor de **Eventos de entrada** es mayor que cero y el de **Eventos de salida** es igual a cero, se cumple una de las siguientes instrucciones:
       * El procesamiento de consultas no ha generado ningún evento de salida.
       * Puede que los eventos o los campos tengan un formato incorrecto, por lo que no se genera ninguna salida después de procesar la consulta.

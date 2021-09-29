@@ -8,12 +8,12 @@ ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: quickstart
 keywords: kinect, azure, sensor, sdk, body, tracking, joint, application, first
-ms.openlocfilehash: bdf8ee7a14bf59a151dfa316b11159830b4f63b8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7667157e90e9920130084e26c23a7628c7f55b11
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85277846"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124755667"
 ---
 # <a name="quickstart-build-an-azure-kinect-body-tracking-application"></a>Inicio rápido: Compilación de una aplicación de seguimiento corporal de Azure Kinect
 
@@ -85,7 +85,8 @@ En [esta página](retrieve-images.md) puede encontrar más información sobre la
 
 ```C
 // Capture a depth frame
-k4a_device_get_capture(device, &capture, TIMEOUT_IN_MS);
+k4a_capture_t sensor_capture;
+k4a_device_get_capture(device, &sensor_capture, TIMEOUT_IN_MS);
 ```
 
 ## <a name="enqueue-the-capture-and-pop-the-results"></a>Poner en cola la captura y sacar los resultados

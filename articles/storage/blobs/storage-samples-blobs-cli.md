@@ -1,19 +1,19 @@
 ---
 title: Ejemplos de la CLI de Azure para Blob Storage | Microsoft Docs
 description: Vea los vínculos a ejemplos de la CLI de Azure para trabajar con Azure Blob Storage, como la creación de una cuenta de almacenamiento, la eliminación de contenedores con un prefijo específico, etcétera.
-author: twooley
-ms.author: twooley
+author: normesta
+ms.author: normesta
 ms.date: 06/13/2017
 ms.service: storage
 ms.subservice: blobs
 ms.topic: sample
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4b18d332132bcaa8b3297179c7992eb9cc2f88d8
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 123939b166fd972152adb0b8b2e4b49fecf95fe1
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106279653"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128630686"
 ---
 # <a name="azure-cli-samples-for-azure-blob-storage"></a>Ejemplos de la CLI de Azure para Azure Blob Storage
 

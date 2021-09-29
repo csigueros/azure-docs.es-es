@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f0d29e55e0bf1a88f5fb787b96b5bc549107fe8f
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 638199df27c04548bfb7a2e1433b212c489b25ce
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110469403"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128626786"
 ---
 # <a name="use-geo-redundancy-to-design-highly-available-applications"></a>Uso de redundancia geográfica para diseñar aplicaciones de alta disponibilidad
 
@@ -24,11 +24,11 @@ Una característica común de las infraestructuras basadas en la nube como Azure
 
 Azure Storage ofrece dos tipos de replicación con redundancia geográfica. La única diferencia entre estas dos opciones es la forma en que los datos se replican en la región principal:
 
-* [Almacenamiento con redundancia de zona geográfica (GZRS)](storage-redundancy.md): Los datos se replican de forma sincrónica en tres zonas de disponibilidad de Azure en la región principal mediante el *almacenamiento con redundancia de zona (ZRS)* y, luego, se replican de forma asincrónica en la región secundaria. Para obtener acceso de lectura a los datos de la región secundaria, habilite el almacenamiento con redundancia de zona geográfica con acceso de lectura (RA-GZRS).
+- [Almacenamiento con redundancia de zona geográfica (GZRS)](storage-redundancy.md): Los datos se replican de forma sincrónica en tres zonas de disponibilidad de Azure en la región principal mediante el *almacenamiento con redundancia de zona (ZRS)* y, luego, se replican de forma asincrónica en la región secundaria. Para obtener acceso de lectura a los datos de la región secundaria, habilite el almacenamiento con redundancia de zona geográfica con acceso de lectura (RA-GZRS).
 
     Microsoft recomienda el uso de GZRS/RA-GZRS para escenarios que requieren la máxima disponibilidad y durabilidad.
 
-* [Almacenamiento con redundancia geográfica (GRS)](storage-redundancy.md): Los datos se replican de forma sincrónica tres veces en la región principal mediante el *almacenamiento con redundancia local (LRS)* y, luego, se replican de forma asincrónica en la región secundaria. Para obtener acceso de lectura a los datos de la región secundaria, habilite el almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS).
+- [Almacenamiento con redundancia geográfica (GRS)](storage-redundancy.md): Los datos se replican de forma sincrónica tres veces en la región principal mediante el *almacenamiento con redundancia local (LRS)* y, luego, se replican de forma asincrónica en la región secundaria. Para obtener acceso de lectura a los datos de la región secundaria, habilite el almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS).
 
 En este artículo se muestra cómo diseñar la aplicación para controlar una interrupción en la región primaria. Si la región primaria deja de estar disponible, la aplicación se puede adaptar para realizar operaciones de lectura en la región secundaria en su lugar. Antes de comenzar, asegúrese de que la cuenta de almacenamiento está configurada para RA-GRS o RA-GZRS.
 
@@ -38,21 +38,21 @@ El propósito de este artículo es mostrar cómo diseñar una aplicación que si
 
 Cuando diseñe su aplicación para RA-GRS o RA-GZRS debe tener en cuenta estos puntos clave:
 
-* Azure Storage mantiene una copia de solo lectura de los datos que almacena en la región primaria en una región secundaria. Como se mencionó anteriormente, el servicio de almacenamiento determina la ubicación de la región secundaria.
+- Azure Storage mantiene una copia de solo lectura de los datos que almacena en la región primaria en una región secundaria. Como se mencionó anteriormente, el servicio de almacenamiento determina la ubicación de la región secundaria.
 
-* La copia de solo lectura es de [coherencia final](https://en.wikipedia.org/wiki/Eventual_consistency) con los datos en la región primaria.
+- La copia de solo lectura es de [coherencia final](https://en.wikipedia.org/wiki/Eventual_consistency) con los datos en la región primaria.
 
-* Para blobs, tablas y colas, puede consultar en la región secundaria un valor *Hora de última sincronización* que indica cuándo se produjo la última replicación desde la región primaria a la secundaria (Esto no se admite para Azure Files, que no tiene redundancia RA-GRS en este momento).
+- Para blobs, tablas y colas, puede consultar en la región secundaria un valor *Hora de última sincronización* que indica cuándo se produjo la última replicación desde la región primaria a la secundaria (Esto no se admite para Azure Files, que no tiene redundancia RA-GRS en este momento).
 
-* Puede usar la biblioteca cliente de Storage para leer y escribir los datos en la región primaria o la secundaria. También puede redirigir solicitudes de lectura automáticamente a la región secundaria si se agota el tiempo de espera de una solicitud de lectura a la región principal.
+- Puede usar la biblioteca cliente de Storage para leer y escribir los datos en la región primaria o la secundaria. También puede redirigir solicitudes de lectura automáticamente a la región secundaria si se agota el tiempo de espera de una solicitud de lectura a la región principal.
 
-* Si la región primaria deja de estar disponible, puede iniciar una conmutación por error de la cuenta. Si la conmutación por error tiene como destino la región secundaria, las entradas DNS que apunten a la región primaria se modificarán para que apunten a la región secundaria. Una vez completada la conmutación por error, se restaurará el acceso de escritura en las cuentas GRS y RA-GRS. Para obtener más información, consulte [Recuperación ante desastres y conmutación por error de la cuenta de almacenamiento](storage-disaster-recovery-guidance.md).
+- Si la región primaria deja de estar disponible, puede iniciar una conmutación por error de la cuenta. Si la conmutación por error tiene como destino la región secundaria, las entradas DNS que apunten a la región primaria se modificarán para que apunten a la región secundaria. Una vez completada la conmutación por error, se restaurará el acceso de escritura en las cuentas GRS y RA-GRS. Para obtener más información, consulte [Recuperación ante desastres y conmutación por error de la cuenta de almacenamiento](storage-disaster-recovery-guidance.md).
 
 ### <a name="using-eventually-consistent-data"></a>Uso de datos con coherencia final
 
 En la solución propuesta se da por supuesto que es aceptable devolver datos potencialmente obsoletos a la aplicación que realiza la llamada. Debido a que, en última instancia, los datos de la región secundaria son coherentes, puede que no sea posible acceder a la región primaria antes de que una actualización en la región secundaria haya terminado de replicarse.
 
-Por ejemplo, imagine que el cliente envía correctamente una actualización, pero se produce un error en la región primaria antes de que la actualización se propague a la región secundaria. Cuando el cliente pide leer de nuevo los datos, se reciben los datos obsoletos de la región secundaria en lugar de los datos actualizados. Cuando diseña la aplicación, debe decidir si esto es aceptable y, en tal caso, cómo enviará mensajes al cliente. 
+Por ejemplo, imagine que el cliente envía correctamente una actualización, pero se produce un error en la región primaria antes de que la actualización se propague a la región secundaria. Cuando el cliente pide leer de nuevo los datos, se reciben los datos obsoletos de la región secundaria en lugar de los datos actualizados. Cuando diseña la aplicación, debe decidir si esto es aceptable y, en tal caso, cómo enviará mensajes al cliente.
 
 Más adelante en este artículo, le mostraremos cómo comprobar la hora de la última sincronización de los datos secundarios para ver si la región secundaria está actualizada.
 
@@ -68,11 +68,11 @@ En última instancia, esto depende de la complejidad de la aplicación. Es posib
 
 En el resto del artículo, también se tratarán estas consideraciones.
 
-* Control de los reintentos de solicitudes de lectura mediante el patrón de disyuntor
+- Control de los reintentos de solicitudes de lectura mediante el patrón de disyuntor
 
-* Datos de coherencia final y la hora de la última sincronización
+- Datos de coherencia final y la hora de la última sincronización
 
-* Prueba
+- Prueba
 
 ## <a name="running-your-application-in-read-only-mode"></a>Ejecución de la aplicación en modo de solo lectura
 
@@ -88,11 +88,11 @@ Poder ejecutar la aplicación en modo de solo lectura ofrece otra ventaja: la ca
 
 Existen muchas formas de controlar solicitudes de actualización durante la ejecución en modo de solo lectura. No se va a tratar esto de forma exhaustiva, pero, por lo general, hay un par de patrones que tener en cuenta.
 
-1. Puede responder al usuario y indicarle que actualmente no se aceptan actualizaciones. Por ejemplo, un sistema de administración de contactos podría permitir que los clientes accedan a información de contacto, pero no que la actualicen.
+- Puede responder al usuario y indicarle que actualmente no se aceptan actualizaciones. Por ejemplo, un sistema de administración de contactos podría permitir que los clientes accedan a información de contacto, pero no que la actualicen.
 
-2. Puede poner las actualizaciones en cola en otra región. En este caso, podría escribir las solicitudes de actualización pendientes en una cola de una región distinta y, después, contar con una forma de procesar esas solicitudes una vez que el centro de datos principal vuelva a estar en línea. En este escenario, debería hacer saber al cliente que la actualización solicitada está en cola para procesarse más adelante.
+- Puede poner las actualizaciones en cola en otra región. En este caso, podría escribir las solicitudes de actualización pendientes en una cola de una región distinta y, después, contar con una forma de procesar esas solicitudes una vez que el centro de datos principal vuelva a estar en línea. En este escenario, debería hacer saber al cliente que la actualización solicitada está en cola para procesarse más adelante.
 
-3. Puede escribir las actualizaciones en una cuenta de almacenamiento de otra región. Después, cuando el centro de datos principal vuelva a estar en línea, puede disponer de una forma de combinar esas actualizaciones con los datos principales, en función de la estructura de estos. Por ejemplo, si va a crear archivos distintos con una marca de fecha y hora en el nombre, puede copiar esos archivos de nuevo a la región primaria. Esto funciona para algunas cargas de trabajo como los datos de registro e IoT.
+- Puede escribir las actualizaciones en una cuenta de almacenamiento de otra región. Después, cuando el centro de datos principal vuelva a estar en línea, puede disponer de una forma de combinar esas actualizaciones con los datos principales, en función de la estructura de estos. Por ejemplo, si va a crear archivos distintos con una marca de fecha y hora en el nombre, puede copiar esos archivos de nuevo a la región primaria. Esto funciona para algunas cargas de trabajo como los datos de registro e IoT.
 
 ## <a name="handling-retries"></a>Control de los reintentos
 
@@ -102,23 +102,23 @@ La biblioteca cliente de Azure Storage le ayuda a determinar qué errores se pue
 
 Las solicitudes de lectura se pueden redirigir a almacenamiento secundario si hay un problema con el principal. Como se indicó antes en [Uso de datos con coherencia final](#using-eventually-consistent-data), debe ser aceptable que su aplicación lea datos potencialmente obsoletos. Si usa la biblioteca del cliente de almacenamiento para acceder a datos desde la región secundaria, puede especificar el comportamiento de reintento de una solicitud de lectura estableciendo un valor para la propiedad **LocationMode** en una de las siguientes opciones:
 
-* **PrimaryOnly** (valor predeterminado)
+- **PrimaryOnly** (valor predeterminado)
 
-* **PrimaryThenSecondary**
+- **PrimaryThenSecondary**
 
-* **SecondaryOnly**
+- **SecondaryOnly**
 
-* **SecondaryThenPrimary**
+- **SecondaryThenPrimary**
 
 Cuando se establece **LocationMode** en **PrimaryThenSecondary**, si la solicitud de lectura inicial para el punto de conexión principal genera un error que se puede reintentar, el cliente presenta automáticamente otra solicitud de lectura al punto de conexión secundario. Si el error es por agotamiento del tiempo de espera del servidor, el cliente tendrá que esperar a que el tiempo de espera expire antes de recibir un error con posibilidad de reintento del servicio.
 
 Básicamente, se deben tener en cuenta dos escenarios al decidir cómo responder a un error con posibilidad de reintento:
 
-* Se trata de un problema aislado y las solicitudes posteriores al punto de conexión principal no devolverán un error con posibilidad de reintento. Un ejemplo de cuándo puede ocurrir esto es un error de red transitorio.
+- Se trata de un problema aislado y las solicitudes posteriores al punto de conexión principal no devolverán un error con posibilidad de reintento. Un ejemplo de cuándo puede ocurrir esto es un error de red transitorio.
 
     En este escenario, no hay ninguna reducción notable del rendimiento por tener **LocationMode** establecido en **PrimaryThenSecondary**, ya que esto solo sucede en raras ocasiones.
 
-* Se trata de un problema con al menos uno de los servicios de almacenamiento en la región principal y es probable que todas las solicitudes posteriores a ese servicio en la región principal devuelvan errores con posibilidad de reintento durante un tiempo. Un ejemplo se da si la región principal es totalmente inaccesible.
+- Se trata de un problema con al menos uno de los servicios de almacenamiento en la región principal y es probable que todas las solicitudes posteriores a ese servicio en la región principal devuelvan errores con posibilidad de reintento durante un tiempo. Un ejemplo se da si la región principal es totalmente inaccesible.
 
     En este escenario, el rendimiento se ve afectado porque todas las solicitudes de lectura intentarán en primer lugar el punto de conexión principal, esperarán a que el tiempo de espera expire y después cambiarán al punto de conexión secundario.
 
@@ -146,7 +146,7 @@ Otra consideración es cómo controlar varias instancias de una aplicación y qu
 
 Dispone de tres opciones principales para supervisar la frecuencia de reintentos en la región primaria y determinar cuándo se debe cambiar a la región secundaria y hacer que la aplicación se ejecute en modo de solo lectura.
 
-* Agregue un controlador para el evento [**Retrying**](/dotnet/api/microsoft.azure.cosmos.table.operationcontext.retrying) en el objeto [**OperationContext**](/java/api/com.microsoft.applicationinsights.extensibility.context.operationcontext) que se pasa a las solicitudes de almacenamiento: este método se muestra en este artículo y se usa en el ejemplo que lo acompaña. Estos eventos se activan cada vez que el cliente reintenta una solicitud, lo que le permite realizar un seguimiento de la frecuencia con que el cliente encuentra errores con posibilidad de reintento en un punto de conexión principal.
+- Agregue un controlador para el evento [**Retrying**](/dotnet/api/microsoft.azure.cosmos.table.operationcontext.retrying) en el objeto [**OperationContext**](/java/api/com.microsoft.applicationinsights.extensibility.context.operationcontext) que se pasa a las solicitudes de almacenamiento: este método se muestra en este artículo y se usa en el ejemplo que lo acompaña. Estos eventos se activan cada vez que el cliente reintenta una solicitud, lo que le permite realizar un seguimiento de la frecuencia con que el cliente encuentra errores con posibilidad de reintento en un punto de conexión principal.
 
     # <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/current)
 
@@ -162,9 +162,10 @@ Dispone de tres opciones principales para supervisar la frecuencia de reintentos
             ...
     };
     ```
+
     ---
 
-* En el método [**Evaluate**](/dotnet/api/microsoft.azure.cosmos.table.iextendedretrypolicy.evaluate) de una directiva de reintentos personalizada, puede ejecutar código personalizado siempre que se lleve a cabo un reintento. Además de registrar cuándo sucede un reintento, esto también ofrece la oportunidad de modificar el comportamiento de reintento.
+- En el método [**Evaluate**](/dotnet/api/microsoft.azure.cosmos.table.iextendedretrypolicy.evaluate) de una directiva de reintentos personalizada, puede ejecutar código personalizado siempre que se lleve a cabo un reintento. Además de registrar cuándo sucede un reintento, esto también ofrece la oportunidad de modificar el comportamiento de reintento.
 
     # <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/current)
 
@@ -197,9 +198,10 @@ Dispone de tres opciones principales para supervisar la frecuencia de reintentos
         return info;
     }
     ```
+
     ---
 
-* El tercer enfoque consiste en implementar un componente de supervisión personalizado en la aplicación que haga ping continuamente al punto de conexión de almacenamiento principal con solicitudes de lectura ficticias (por ejemplo, la lectura de un blob pequeño) para determinar su estado. Esto consumiría recursos, pero no en cantidades notables. Cuando se detecte un problema que alcance el umbral, se llevar a cabo el cambio a **SecondaryOnly** y al modo de solo lectura.
+- El tercer enfoque consiste en implementar un componente de supervisión personalizado en la aplicación que haga ping continuamente al punto de conexión de almacenamiento principal con solicitudes de lectura ficticias (por ejemplo, la lectura de un blob pequeño) para determinar su estado. Esto consumiría recursos, pero no en cantidades notables. Cuando se detecte un problema que alcance el umbral, se llevar a cabo el cambio a **SecondaryOnly** y al modo de solo lectura.
 
 En algún momento, querrá que se vuelva a usar el punto de conexión principal y se permitan las actualizaciones. Si usa uno de los dos primeros métodos mencionados antes, podría simplemente cambiar al punto de conexión principal y habilitar el modo de actualización después de un intervalo de tiempo arbitrario o de que se haya llevado a cabo un número de operaciones. A continuación, puede dejar que se repita la lógica de reintento. Si se ha corregido el problema, procederá a usar el punto de conexión principal y a permitir las actualizaciones. Si el problema persiste, volverá una vez más a cambiar al punto de conexión secundario y al modo de solo lectura después de que se incumplan los criterios que haya establecido.
 
@@ -212,7 +214,7 @@ El almacenamiento con redundancia geográfica funciona mediante la replicación 
 En la tabla siguiente, se muestra un ejemplo de lo que podría suceder al actualizar los detalles de un empleado para convertirlo en miembro del rol de *administrador*. Para este ejemplo, esto requiere actualizar la entidad **empleado** y actualizar una entidad **rol de administrador** con un recuento del número total de administradores. Observe cómo se aplican las actualizaciones desordenadas en la región secundaria.
 
 | **Time** | **Transacción**                                            | **Replicación**                       | **Hora de última sincronización** | **Resultado** |
-|----------|------------------------------------------------------------|---------------------------------------|--------------------|------------| 
+|----------|------------------------------------------------------------|---------------------------------------|--------------------|------------|
 | T0       | Transacción A: <br> Insertar entidad <br> empleado en región primaria |                                   |                    | Transacción A insertada en región primaria,<br> aún sin replicar. |
 | T1       |                                                            | Transacción A <br> replicada en<br> región secundaria | T1 | Transacción A replicada en región secundaria. <br>Hora de última sincronización actualizada.    |
 | T2       | Transacción B:<br>Actualizar<br> entidad empleado<br> en región primaria  |                                | T1                 | Transacción B escrita en región primaria,<br> aún sin replicar.  |
@@ -252,6 +254,8 @@ static function OnBeforeResponse(oSession: Session) {
 Puede ampliar este ejemplo para interceptar una gama más amplia de solicitudes y solamente cambiar el elemento **responseCode** en algunas de ellas para simular mejor un escenario real. Para más información sobre cómo personalizar scripts de Fiddler, consulte [Modifying a Request or Response](https://docs.telerik.com/fiddler/KnowledgeBase/FiddlerScript/ModifyRequestOrResponse) (Modificación de una solicitud o respuesta) en la documentación de Fiddler.
 
 Si ha hecho configurables los umbrales para cambiar la aplicación al modo de solo lectura, será más fácil probar el comportamiento con volúmenes de transacciones que no sean de producción.
+
+---
 
 ## <a name="next-steps"></a>Pasos siguientes
 

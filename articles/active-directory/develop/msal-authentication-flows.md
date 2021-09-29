@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 01/25/2021
 ms.author: marsma
 ms.reviewer: saeeda
-ms.openlocfilehash: 78932e5852453fe996e26a278f8a1859a8ecf546
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ff8a97afa39f4db6892402c334aacb903d2cb4c2
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98755013"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124787251"
 ---
 # <a name="authentication-flows"></a>Flujos de autenticación
 
@@ -27,11 +27,11 @@ La biblioteca de autenticación de Microsoft (MSAL) admite varios flujos de aute
 |--|--|--|
 | [Código de autorización](#authorization-code) | Se usa en aplicaciones que están instaladas en un dispositivo para obtener acceso a recursos protegidos, como las API web. Permite agregar acceso de inicio de sesión y API a las aplicaciones de escritorio y móviles. | [Aplicaciones de escritorio](scenario-desktop-overview.md), [aplicaciones móviles](scenario-mobile-overview.md), [aplicaciones web](scenario-web-app-call-api-overview.md) |
 | [Credenciales de cliente](#client-credentials) | Permite acceder a los recursos hospedados en la Web mediante la identidad de una aplicación. Se usa principalmente para las interacciones entre servidores que se deben ejecutar en segundo plano, sin la interacción inmediata con un usuario. | [Aplicaciones de demonio](scenario-daemon-overview.md) |
-| [Código del dispositivo](#device-code) | Permite a los usuarios iniciar sesión en dispositivos con limitaciones de entrada, como un televisor inteligente, dispositivo IoT o impresora. | [Aplicaciones de escritorio o móviles](scenario-desktop-acquire-token.md#command-line-tool-without-a-web-browser) |
+| [Código del dispositivo](#device-code) | Permite a los usuarios iniciar sesión en dispositivos con limitaciones de entrada, como un televisor inteligente, dispositivo IoT o impresora. | [Aplicaciones de escritorio o móviles](scenario-desktop-acquire-token-device-code-flow.md) |
 | [Concesión implícita](#implicit-grant) | Permite a la aplicación obtener tokens sin tener que realizar un intercambio de credenciales de servidor back-end. Permite a la aplicación iniciar la sesión del usuario, mantenerla y recibir tokens para otras API web, todo dentro del código de cliente de JavaScript. | [Aplicación de página única (SPA)](scenario-spa-overview.md) |
 | [En nombre de](#on-behalf-of) | Una aplicación invoca un servicio o API web, que, a su vez, debe llamar a otro servicio o API web. La idea es propagar la identidad y los permisos del usuario delegado a través de la cadena de solicitud. | [API web](scenario-web-api-call-api-overview.md) |
-| [Nombre de usuario y contraseña](#usernamepassword) | Permite a una aplicación iniciar la sesión del usuario al controlar directamente la contraseña. Este flujo no es recomendable. | [Aplicaciones de escritorio o móviles](scenario-desktop-acquire-token.md#username-and-password) |
-| [Autenticación integrada de Windows](#integrated-windows-authentication) | Permite a los equipos de aplicaciones en equipos unidos a un dominio o a Azure Active Directory (Azure AD) adquirir un token de manera silenciosa (sin ninguna interacción de la interfaz de usuario del usuario). | [Aplicaciones de escritorio o móviles](scenario-desktop-acquire-token.md#integrated-windows-authentication) |
+| [Nombre de usuario y contraseña](#usernamepassword) | Permite a una aplicación iniciar la sesión del usuario al controlar directamente la contraseña. Este flujo no es recomendable. | [Aplicaciones de escritorio o móviles](scenario-desktop-acquire-token-username-password.md) |
+| [Autenticación integrada de Windows](#integrated-windows-authentication) | Permite a los equipos de aplicaciones en equipos unidos a un dominio o a Azure Active Directory (Azure AD) adquirir un token de manera silenciosa (sin ninguna interacción de la interfaz de usuario del usuario). | [Aplicaciones de escritorio o móviles](scenario-desktop-acquire-token-integrated-windows-authentication.md) |
 
 ## <a name="how-each-flow-emits-tokens-and-codes"></a>Cómo emite cada flujo los tokens y los códigos
 

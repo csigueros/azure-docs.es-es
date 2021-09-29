@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 08/26/2021
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 9db589de9bd62a00b7de89b2b558a3bac1e1785a
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: 4c45c127710ff5a572a68531a1a5b3836d505e39
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123039984"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124749514"
 ---
 # <a name="sampling-in-application-insights"></a>Muestreo en Application Insights.
 
@@ -23,7 +23,7 @@ Cuando los recuentos de métrica se presentan en el portal, se vuelven a normali
 * Hay tres tipos diferentes de muestreo: muestreo adaptable, muestreo de frecuencia fija y muestreo de ingesta.
 * El muestreo adaptable está habilitado de manera predeterminada en todas las versiones más recientes de los kits de desarrollo de software (SDK) de Application Insights para ASP.NET y ASP.NET Core. También lo usa [Azure Functions](../../azure-functions/functions-overview.md).
 * El muestreo de frecuencia fija está disponible en las versiones recientes de los SDK de Application Insights para ASP.NET, ASP.NET Core, Java (tanto el agente como el SDK) y Python.
-* En Java, las invalidaciones de muestreo están disponibles y son útiles cuando necesita aplicar diferentes velocidades de muestreo a dependencias, solicitudes y pruebas de estado seleccionadas. Use [invalidaciones de muestreo](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-sampling-overrides) para optimizar algunas dependencias ruidosas, mientras que, por ejemplo, todos los errores importantes se mantienen al 100 %. Se trata de una forma de muestreo fijo que proporciona un nivel de control más preciso sobre la telemetría.
+* En Java, las invalidaciones de muestreo están disponibles y son útiles cuando necesita aplicar diferentes velocidades de muestreo a dependencias, solicitudes y pruebas de estado seleccionadas. Use [invalidaciones de muestreo](./java-standalone-sampling-overrides.md) para optimizar algunas dependencias ruidosas, mientras que, por ejemplo, todos los errores importantes se mantienen al 100 %. Se trata de una forma de muestreo fijo que proporciona un nivel de control más preciso sobre la telemetría.
 * El muestreo de ingesta funciona en el punto de conexión de servicio de Application Insights. Solo se aplica cuando no hay ningún otro muestreo en vigor. Si el SDK muestrea los datos de telemetría, el muestreo de ingesta está deshabilitado.
 * Para aplicaciones web, si registra eventos personalizados y necesita asegurarse de que un conjunto de eventos se conserva o descarta en conjunto, los eventos deben tener el mismo valor de `OperationId`.
 * Si escribe consultas de Analytics, debería [tener en cuenta el muestreo](/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#aggregations). En concreto, en lugar de simplemente contar registros, debería usar `summarize sum(itemCount)`.
@@ -310,12 +310,12 @@ En el Explorador de métricas, las tasas, como los recuentos de solicitudes y de
 
 ### <a name="configuring-sampling-overrides-and-fixed-rate-sampling-for-java-applications"></a>Configuración de invalidaciones de muestreo y muestreo de frecuencia fija para aplicaciones Java
 
-De manera predeterminada, no hay ningún muestreo habilitado en la instrumentación automática y el SDK de Java. Actualmente se admiten la instrumentación automática de Java, las [invalidaciones de muestreo](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-sampling-overrides) y el muestreo de frecuencia fija. No se admite el muestreo adaptable en Java.
+De manera predeterminada, no hay ningún muestreo habilitado en la instrumentación automática y el SDK de Java. Actualmente se admiten la instrumentación automática de Java, las [invalidaciones de muestreo](./java-standalone-sampling-overrides.md) y el muestreo de frecuencia fija. No se admite el muestreo adaptable en Java.
 
 #### <a name="configuring-java-auto-instrumentation"></a>Configuración de la instrumentación automática de Java
 
-* Para configurar invalidaciones de muestreo que invaliden la frecuencia de muestreo predeterminada y apliquen diferentes velocidades de muestreo a las solicitudes y dependencias seleccionadas, use la [guía de invalidación de muestreo](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-sampling-overrides#getting-started).
-* Para configurar el uso de velocidad fija que se aplica a todos los datos de telemetría, use la [guía de muestreo de frecuencia fija](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-config#sampling).
+* Para configurar invalidaciones de muestreo que invaliden la frecuencia de muestreo predeterminada y apliquen diferentes velocidades de muestreo a las solicitudes y dependencias seleccionadas, use la [guía de invalidación de muestreo](./java-standalone-sampling-overrides.md#getting-started).
+* Para configurar el uso de velocidad fija que se aplica a todos los datos de telemetría, use la [guía de muestreo de frecuencia fija](./java-standalone-config.md#sampling).
 
 #### <a name="configuring-java-2x-sdk"></a>Configuración del SDK de Java 2.x
 
@@ -576,4 +576,3 @@ Antes de la versión v2.5.0-beta2 del SDK de ASP.NET y de la versión v2.2.0-bet
 
 * [filtro](./api-filtering-sampling.md) puede proporcionar un control más estricto de los SDK que envía.
 * Lea el artículo de Developer Network [Optimize Telemetry with Application Insights](/archive/msdn-magazine/2017/may/devops-optimize-telemetry-with-application-insights) (Optimización de la telemetría con Application Insights).
-

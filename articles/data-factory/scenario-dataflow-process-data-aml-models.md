@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 1/31/2021
 ms.author: amberz
 ms.co-author: Donnana
-ms.openlocfilehash: a652ac797739323530dee169987a135c8abdf0f8
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 084e4c0fa3ecf94685e1789273764c548c07147a
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122638958"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124730788"
 ---
 # <a name="process-data-from-automated-machine-learning-models-by-using-data-flows"></a>Procesamiento de datos de modelos de aprendizaje automático automatizado mediante flujos de datos
 
@@ -71,19 +71,19 @@ Supongamos que necesitamos quitar un recuento de filas inferior a dos.
 
 1. Use la actividad de agregado para obtener un recuento del número de filas. Utilice **Agrupado por** en función de Col2 y **Agregados** con `count(1)` para el recuento de filas.
 
-    ![Captura de pantalla que muestra la configuración de la actividad de agregado para obtener un recuento del número de filas.](./media/scenario-dataflow-process-data-aml-models/aggregate-activity-addrowcount.png)
+    :::image type="content" source="./media/scenario-dataflow-process-data-aml-models/aggregate-activity-addrowcount.png" alt-text="Captura de pantalla que muestra la configuración de la actividad de agregado para obtener un recuento del número de filas.":::
 
 1. Use la actividad Receptor y seleccione el **tipo de receptor** **Caché** en la pestaña **Receptor**. A continuación, seleccione la columna deseada en la lista desplegable **Columnas clave** de la pestaña **Configuración**.
 
-    ![Captura de pantalla que muestra la configuración de la actividad CacheSink para obtener un recuento del número de filas de un receptor almacenado en caché.](./media/scenario-dataflow-process-data-aml-models/cachesink-activity-addrowcount.png)
+    :::image type="content" source="./media/scenario-dataflow-process-data-aml-models/cachesink-activity-addrowcount.png" alt-text="Captura de pantalla que muestra la configuración de la actividad CacheSink para obtener un recuento del número de filas de un receptor almacenado en caché.":::
 
 1. Use la actividad Columna derivada para agregar una columna de recuento de filas en el flujo de origen. En la pestaña **Configuración de Columna derivada**, use la expresión `CacheSink#lookup` para obtener un recuento de filas de CacheSink.
 
-    ![Captura de pantalla que muestra la configuración de la actividad Columna derivada para agregar un recuento del número de filas en origen1.](./media/scenario-dataflow-process-data-aml-models/derived-column-activity-rowcount-source-1.png)
+    :::image type="content" source="./media/scenario-dataflow-process-data-aml-models/derived-column-activity-rowcount-source-1.png" alt-text="Captura de pantalla que muestra la configuración de la actividad Columna derivada para agregar un recuento del número de filas en origen1.":::
 
 1. Use la actividad División condicional para quitar los datos no cualificados. En este ejemplo, el recuento de filas se basa en la columna Col2. La condición es quitar un recuento de filas menor que dos, por lo que se quitarán dos filas (Id.=2 e Id.=7). Los datos no cualificados se guardarían en un almacenamiento de blobs para la administración de datos.
 
-    ![Captura de pantalla que muestra la configuración de la actividad División condicional para obtener datos mayores o iguales que dos.](./media/scenario-dataflow-process-data-aml-models/conditionalsplit-greater-or-equal-than-2.png)
+    :::image type="content" source="./media/scenario-dataflow-process-data-aml-models/conditionalsplit-greater-or-equal-than-2.png" alt-text="Captura de pantalla que muestra la configuración de la actividad División condicional para obtener datos mayores o iguales que dos.":::
 
 > [!NOTE]
 >    * Cree un nuevo origen para obtener un recuento de filas que se usará en el origen inicial en los pasos posteriores.
@@ -95,21 +95,21 @@ Queremos dividir los datos de entrenamiento y los datos de prueba para cada part
 
 1. Use la actividad Ventana para agregar un número de columna o fila para cada partición. En la pestaña **Over** (Por encima), seleccione una columna para la partición. En este tutorial, se creará una partición para Col2. Asigne un orden en la pestaña **Ordenar**, que en este tutorial se basará en el identificador. Asigne un orden en la pestaña **Window columns** (Columnas de la ventana) para agregar una columna como un número de fila para cada partición.
 
-    ![Captura de pantalla que muestra la configuración de la actividad Ventana para agregar una nueva columna que es el número de fila.](./media/scenario-dataflow-process-data-aml-models/window-activity-add-row-number.png)
+    :::image type="content" source="./media/scenario-dataflow-process-data-aml-models/window-activity-add-row-number.png" alt-text="Captura de pantalla que muestra la configuración de la actividad Ventana para agregar una nueva columna que es el número de fila.":::
 
 1. Utilice la actividad División condicional para dividir las dos primeras filas de cada partición en el conjunto de datos de prueba y el resto de las filas en el conjunto de datos de entrenamiento. En la pestaña **Configuración de División condicional**, utilice la expresión `lesserOrEqual(RowNum,2)` como condición.
 
-    ![Captura de pantalla que muestra la configuración de la actividad División condicional para dividir el conjunto de datos actual en el conjunto de datos de entrenamiento y el conjunto de datos de prueba.](./media/scenario-dataflow-process-data-aml-models/split-training-dataset-test-dataset.png)
+    :::image type="content" source="./media/scenario-dataflow-process-data-aml-models/split-training-dataset-test-dataset.png" alt-text="Captura de pantalla que muestra la configuración de la actividad División condicional para dividir el conjunto de datos actual en el conjunto de datos de entrenamiento y el conjunto de datos de prueba.":::
 
 ## <a name="partition-the-training-and-test-datasets-with-parquet-format"></a>Partición de los conjuntos de datos de entrenamiento y prueba con el formato Parquet
 
 Use la actividad Receptor en la pestaña **Optimizar** con **Unique value per partition** (Valor único por partición) para establecer una columna como clave de columna para la partición.
 
-![Captura de pantalla que muestra la configuración de la actividad Receptor para establecer la partición del conjunto de datos de entrenamiento.](./media/scenario-dataflow-process-data-aml-models/partition-training-dataset-sink.png)
+:::image type="content" source="./media/scenario-dataflow-process-data-aml-models/partition-training-dataset-sink.png" alt-text="Captura de pantalla que muestra la configuración de la actividad Receptor para establecer la partición del conjunto de datos de entrenamiento.":::
 
 Echemos un vistazo a toda la lógica de la canalización.
 
-![Captura de pantalla que muestra la lógica de toda la canalización.](./media/scenario-dataflow-process-data-aml-models/entire-pipeline.png)
+:::image type="content" source="./media/scenario-dataflow-process-data-aml-models/entire-pipeline.png" alt-text="Captura de pantalla que muestra la lógica de toda la canalización.":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

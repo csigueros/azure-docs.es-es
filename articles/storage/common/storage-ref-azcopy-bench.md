@@ -8,18 +8,18 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 1e49e787854069c2fcea30df7a43c3aacdd21b9e
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 6bd80367ab407be3d6b43750c6525b2d2ae30200
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107502035"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128605874"
 ---
 # <a name="azcopy-benchmark"></a>azcopy benchmark
 
 Ejecuta una prueba comparativa de rendimiento al cargar o descargar datos de prueba en o de un destino especificado. Para las cargas, los datos de prueba se generan automáticamente.
 
-El comando de prueba comparativa ejecuta el mismo proceso que "copy", con las siguientes excepciones: 
+El comando de prueba comparativa ejecuta el mismo proceso que "copy", con las siguientes excepciones:
 
   - En lugar de requerir los parámetros de origen y de destino, la prueba comparativa toma solo uno. Puede ser el contenedor de blobs, el recurso compartido de Azure Files o el sistema de archivos de Azure Data Lake Storage Gen2 donde desea cargar o descargar.
 
@@ -28,14 +28,14 @@ El comando de prueba comparativa ejecuta el mismo proceso que "copy", con las si
   - Para las pruebas comparativas de carga, la carga útil se describe mediante parámetros de la línea de comandos, que controlan el número de archivos que se generan automáticamente y el tamaño de los archivos. El proceso de generación se realiza por completo en la memoria. No se utiliza el disco.
 
   - En el caso de las descargas, la carga útil se compone de los archivos que ya existen en el origen. (Vea el ejemplo siguiente sobre cómo generar archivos de prueba, si es necesario).
-  
+
   - Solo se admiten unos pocos de los parámetros opcionales que están disponibles para el comando copy.
-  
+
   - Se miden y se notifican diagnósticos adicionales.
-  
+
   - En el caso de las cargas, el comportamiento predeterminado es eliminar los datos transferidos al final de la serie de pruebas.  En el caso de las descargas, los datos nunca se guardan de forma local.
 
-El modo de prueba comparativa se ajustará automáticamente al número de conexiones TCP paralelas que proporcione el máximo rendimiento. Mostrará ese número al final. Para evitar el ajuste automático, establezca la variable de entorno AZCOPY_CONCURRENCY_VALUE en un número específico de conexiones. 
+El modo de prueba comparativa se ajustará automáticamente al número de conexiones TCP paralelas que proporcione el máximo rendimiento. Mostrará ese número al final. Para evitar el ajuste automático, establezca la variable de entorno AZCOPY_CONCURRENCY_VALUE en un número específico de conexiones.
 
 Se admiten todos los tipos de autenticación habituales. Sin embargo, el enfoque más conveniente para las pruebas comparativas de carga suele ser crear un contenedor vacío con un token de SAS y usar la autenticación de SAS. (El modo de descarga requiere que haya un conjunto de datos de prueba en el contenedor de destino).
 
@@ -43,7 +43,6 @@ Se admiten todos los tipos de autenticación habituales. Sin embargo, el enfoque
 
 - [Introducción a AzCopy](storage-use-azcopy-v10.md)
 - [Optimización del rendimiento de AzCopy v10 con Azure Storage](storage-use-azcopy-optimize.md)
-
 
 ## <a name="examples"></a>Ejemplos
 
@@ -56,11 +55,13 @@ Ejecución de una prueba comparativa con parámetros predeterminados (adecuada p
 ```azcopy
 azcopy bench "https://[account].blob.core.windows.net/[container]?<SAS>"
 ```
+
 Ejecución de una prueba comparativa que carga 100 archivos, cada uno con 2 GiB de tamaño (adecuada para las pruebas comparativas en una red rápida; por ejemplo, 10 Gbps):'
 
 ```azcopy
 azcopy bench "https://[account].blob.core.windows.net/[container]?<SAS>"--file-count 100 --size-per-file 2G
 ```
+
 Ejecute una prueba comparativa, pero usa 50 000 archivos, cada uno con 8 MiB de tamaño, y procesa sus códigos hash MD5 (de la misma forma que la marca `--put-md5` lo hace en el comando copy). El propósito de `--put-md5` al realizar pruebas comparativas es comprobar si el cálculo de MD5 afecta a la capacidad de proceso del número y tamaño de archivos seleccionados:
 
 ```azcopy
@@ -110,7 +111,6 @@ azcopy bench "https://[account].blob.core.windows.net/[container]?<SAS>" --file-
 **--output-type**  string. Formato de la salida del comando. Las opciones incluyen: text, json. El valor predeterminado es "text". (Valor predeterminado: "text").
 
 La cadena **--trusted-microsoft-suffixes**   Especifica sufijos de dominio adicionales en los que se pueden enviar tokens de inicio de sesión de Azure Active Directory.  El valor predeterminado es " *.core.windows.net;* .core.chinacloudapi.cn; *.core.cloudapi.de;* .core.usgovcloudapi.net". Los valores que se muestran aquí se agregan al valor predeterminado. Por seguridad, solo debe poner aquí dominios de Microsoft Azure. Separe las entradas con punto y coma.
-
 
 ## <a name="see-also"></a>Consulte también
 

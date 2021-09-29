@@ -7,12 +7,12 @@ ms.service: mysql
 ms.custom: mvc, devx-track-azurecli
 ms.topic: quickstart
 ms.date: 03/01/2021
-ms.openlocfilehash: f75b933769e94986b1c140fb8bcbadca44b96cf1
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: b27fb9ec4ff24cd53906b304db1f32655380fc66
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "122643595"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "128595793"
 ---
 # <a name="quickstart-connect-and-query-with-azure-cli--with-azure-database-for-mysql---flexible-server"></a>Inicio rápido: Conexión y consulta mediante la CLI de Azure a Azure Database for MySQL Servidor flexible
 
@@ -25,7 +25,9 @@ En este inicio rápido se muestra cómo puede conectarse a un servidor flexible 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Una cuenta de Azure. Si no tiene una, [obtenga la versión de evaluación gratuita](https://azure.microsoft.com/free/).
+- Una cuenta de Azure con una suscripción activa. 
+
+    [!INCLUDE [flexible-server-free-trial-note](../includes/flexible-server-free-trial-note.md)]
 - Instale la última versión de la [CLI de Azure](/cli/azure/install-azure-cli) (2.20.0 o superior).
 - Inicie sesión mediante la CLI de Azure on el comando ```az login```. 
 - Active la persistencia de parámetros con ```az config param-persist on```. La persistencia de parámetros le ayudará a usar el contexto local sin tener que repetir muchos argumentos, como el grupo de recursos, la ubicación, etc.

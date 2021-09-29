@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 04a15c3163e37e30636eefba638968c2e57c0536
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4bbf2b83dfad046d5025c5040d191329b82c0a28
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92454296"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124742595"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-edcor"></a>Tutorial: Integración de Azure Active Directory con Edcor
 
@@ -181,7 +181,7 @@ En esta sección, creará un usuario llamado Britta Simon en Edcor. Colabore con
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de Edcor en el Panel de acceso, debería iniciar sesión automáticamente en la instancia de Edcor para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
+Al hacer clic en el icono de Edcor en el Panel de acceso, debería iniciar sesión automáticamente en la instancia de Edcor para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

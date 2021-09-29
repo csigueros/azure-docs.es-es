@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 04/02/2021
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: ac73d0e57377a8922691ea06c8de3df5ef577680
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 68aaa447aef65a109105f870b805dd485f322643
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107502443"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128639990"
 ---
 # <a name="copy-data-from-amazon-s3-to-azure-storage-by-using-azcopy"></a>Copia de datos desde Amazon S3 a Azure Storage con AzCopy
 
@@ -21,9 +21,9 @@ AzCopy es una utilidad de línea de comandos que puede usar para copiar blobs o 
 
 ## <a name="choose-how-youll-provide-authorization-credentials"></a>Elección del modo de proporcionar las credenciales de autorización
 
-* Para la autorización con Azure Storage, use Azure Active Directory (AD) o un token de firma de acceso compartido (SAS).
+- Para la autorización con Azure Storage, use Azure Active Directory (AD) o un token de firma de acceso compartido (SAS).
 
-* Para la autorización con AWS S3, use una clave de acceso de AWS y una clave de acceso secreta.
+- Para la autorización con AWS S3, use una clave de acceso de AWS y una clave de acceso secreta.
 
 ### <a name="authorize-with-azure-storage"></a>Autorización con Azure Storage
 
@@ -53,7 +53,7 @@ AzCopy usa la API [Put Block From URL](/rest/api/storageservices/put-block-from-
 > [!TIP]
 > En los ejemplos de esta sección se delimitan los argumentos de ruta de acceso con comillas simples (''). Use comillas simples en todos los shells de comandos excepto en el shell de comandos de Windows (cmd.exe). Si usa un shell de comandos de Windows (cmd.exe), incluya los argumentos de la ruta de acceso entre comillas dobles ("") en lugar de comillas simples ('').
 
- Estos ejemplos también funcionan con las cuentas que tienen un espacio de nombres jerárquico. El [acceso multiprotocolo en Data Lake Storage](../blobs/data-lake-storage-multi-protocol-access.md) le permite usar la misma sintaxis de URL (`blob.core.windows.net`) en esas cuentas. 
+ Estos ejemplos también funcionan con las cuentas que tienen un espacio de nombres jerárquico. El [acceso multiprotocolo en Data Lake Storage](../blobs/data-lake-storage-multi-protocol-access.md) le permite usar la misma sintaxis de URL (`blob.core.windows.net`) en esas cuentas.
 
 ### <a name="copy-an-object"></a>Copia de un objeto
 
@@ -153,7 +153,7 @@ azcopy copy 'https://s3-rds.eu-north-1.amazonaws.com' 'https://mystorageaccount.
 
 AWS S3 tiene otro conjunto de convenciones de nomenclatura para los nombres de cubo en comparación con los contenedores de blobs de Azure. [Aquí](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html#bucketnamingrules) puede leer más al respecto. Si elige copiar un grupo de cubos en una cuenta de Azure Storage, es posible que se produzca un error en la operación de copia debido a las diferencias de nomenclatura.
 
-AzCopy controla dos de los problemas más comunes que pueden surgir; cubos que contienen puntos y cubos que pueden contener guiones consecutivos. Los nombres de cubo de AWS S3 pueden contener puntos y guiones consecutivos, pero un contenedor de Azure no. AzCopy reemplaza los puntos con guiones y los guiones consecutivos con un número que representa el número de guiones consecutivos (por ejemplo: un cubo denominado `my----bucket` se convierte en `my-4-bucket`). 
+AzCopy controla dos de los problemas más comunes que pueden surgir; cubos que contienen puntos y cubos que pueden contener guiones consecutivos. Los nombres de cubo de AWS S3 pueden contener puntos y guiones consecutivos, pero un contenedor de Azure no. AzCopy reemplaza los puntos con guiones y los guiones consecutivos con un número que representa el número de guiones consecutivos (por ejemplo: un cubo denominado `my----bucket` se convierte en `my-4-bucket`).
 
 Además, como AzCopy copia sobre los archivos, comprueba si hay conflictos de nombres e intenta resolverlos. Por ejemplo, si hay cubos con el nombre `bucket-name` y `bucket.name`, en AzCopy un cubo con el nombre `bucket.name` primero se resuelve como `bucket-name` y después como `bucket-name-2`.
 

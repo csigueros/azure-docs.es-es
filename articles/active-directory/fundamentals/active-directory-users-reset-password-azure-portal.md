@@ -14,12 +14,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8809f8c168e7095f05587c7a572e08287637dc5a
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 7efa458ebcae7e837be4bb574f4a2707e9cb9e30
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102034598"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124732603"
 ---
 # <a name="reset-a-users-password-using-azure-active-directory"></a>Restablecimiento de la contraseña de un usuario con Azure Active Directory
 
@@ -29,7 +29,7 @@ Como administrador, puede restablecer la contraseña de un usuario si se olvida 
 >Si el inquilino de Azure AD no es el directorio principal de un usuario, no podrá restablecer su contraseña. Esto significa que si el usuario inicia sesión en su organización mediante una cuenta de otra organización, una cuenta de Microsoft o una cuenta de Google, no podrá restablecer su contraseña.<br><br>Si el usuario tiene una fuente de autoridad como Windows Server Active Directory, solo podrá restablecer la contraseña si ha activado la escritura diferida de contraseñas.<br><br>Si el usuario tiene una fuente de autoridad como Azure AD externo, no podrá restablecer la contraseña. Solo el usuario, o un administrador de Azure AD externo, puede restablecer la contraseña.
 
 >[!Note]
->Si no es administrador y busca instrucciones acerca de cómo restablecer la contraseña profesional o educativa, consulte [Restablecimiento de la contraseña profesional o educativa](../user-help/active-directory-passwords-update-your-own-password.md).
+>Si no es administrador y busca instrucciones acerca de cómo restablecer la contraseña profesional o educativa, consulte [Restablecimiento de la contraseña profesional o educativa](https://support.microsoft.com/account-billing/reset-your-work-or-school-password-using-security-info-23dde81f-08bb-4776-ba72-e6b72b9dda9e).
 
 ## <a name="to-reset-a-password"></a>Para restablecer una contraseña
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/08/2020
 ms.author: jeedes
-ms.openlocfilehash: 946c754b9335553ec5c741470c0ed4b39bc41098
-ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
+ms.openlocfilehash: 5ef0c43dbd989983fbf627d323603924c6c1dcdb
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108802241"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124770916"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-academy-attendance"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Academy Attendance
 
@@ -145,7 +145,7 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 - Acceda directamente a la dirección URL de inicio de sesión de Academy Attendance y ponga en marcha el flujo de inicio de sesión desde ahí.
 
-- Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Academy Attendance en Mis aplicaciones, se le redirigirá a la dirección URL de inicio de sesión de Academy Attendance. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+- Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Academy Attendance en Mis aplicaciones, se le redirigirá a la dirección URL de inicio de sesión de Academy Attendance. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

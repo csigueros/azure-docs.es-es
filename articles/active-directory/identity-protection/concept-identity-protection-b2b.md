@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1d275c4fe093992f1bf87f7d4b8c5965e448a41
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 0f3a5efbb9c990173c7012b9ff6f938fed33f1ad
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121737296"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124734555"
 ---
 # <a name="identity-protection-and-b2b-users"></a>Protección de identidades y usuarios de Colaboración B2B
 
@@ -32,7 +32,7 @@ Si está intentando iniciar sesión en otra organización como invitado y está 
 
 Si su organización lo habilita, puede usar el autoservicio de restablecimiento de contraseña para desbloquear la cuenta y devolver las credenciales a un estado seguro.
 1. Vaya al  [portal de restablecimiento de contraseña](https://passwordreset.microsoftonline.com/) e inicie el restablecimiento de contraseña. Si el autoservicio de restablecimiento de contraseña no está habilitado para su cuenta y no puede continuar, diríjase al administrador de TI con la información [siguiente](#how-to-remediate-a-users-risk-as-an-administrator).
-2. Si el autoservicio de restablecimiento de contraseña está habilitado para su cuenta, se le pedirá que compruebe su identidad mediante métodos de seguridad antes de cambiar la contraseña. Para obtener ayuda, consulte el artículo [Restablecimiento de la contraseña profesional o educativa con la información de seguridad](../user-help/active-directory-passwords-update-your-own-password.md).
+2. Si el autoservicio de restablecimiento de contraseña está habilitado para su cuenta, se le pedirá que compruebe su identidad mediante métodos de seguridad antes de cambiar la contraseña. Para obtener ayuda, consulte el artículo [Restablecimiento de la contraseña profesional o educativa con la información de seguridad](https://support.microsoft.com/account-billing/reset-your-work-or-school-password-using-security-info-23dde81f-08bb-4776-ba72-e6b72b9dda9e).
 3. Una vez que haya restablecido de forma correcta y segura la contraseña, se corregirá el riesgo del usuario. Ahora puede volver a intentar iniciar sesión como usuario invitado.
 
 Si después de restablecer la contraseña todavía está bloqueado como invitado debido a un riesgo, póngase en contacto con el administrador de TI de la organización.

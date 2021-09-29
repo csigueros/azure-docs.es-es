@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 1/25/2021
 ms.author: allensu
-ms.openlocfilehash: f847ef4f4490b64212e4cdcce3f9a89e94c7cd37
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 3d3c1d9937382080ea5a735e3f67e9767919366f
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106058602"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124740772"
 ---
 # <a name="what-is-azure-load-balancer"></a>¿Qué es Azure Load Balancer?
 
@@ -55,7 +55,7 @@ Entre los escenarios principales que puede llevar a cabo con Azure Standard Load
 
 - Equilibrio de carga del tráfico **[interno](./quickstart-load-balancer-standard-internal-portal.md)** y **[externo](./quickstart-load-balancer-standard-public-portal.md)** a las máquinas virtuales de Azure.
 
-- Aumento de la disponibilidad mediante la distribución de recursos **[en zonas](./tutorial-load-balancer-standard-public-zonal-portal.md)** y **[a través de ellas](./tutorial-load-balancer-standard-public-zone-redundant-portal.md)** .
+- Aumento de la disponibilidad mediante la distribución de recursos **[en zonas](./tutorial-load-balancer-standard-public-zonal-portal.md)** y **[a través de ellas](./quickstart-load-balancer-standard-public-portal.md)** .
 
 - Configuración de la **[conectividad de salida](./load-balancer-outbound-connections.md)** para máquinas virtuales de Azure.
 

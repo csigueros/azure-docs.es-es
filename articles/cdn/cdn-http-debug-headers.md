@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2018
 ms.author: allensu
-ms.openlocfilehash: 4154c6a1e739f935022271e7a101f39d3ee5c500
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7b0171b2bf74f60e2cc1ea7600f313934737103e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "84343027"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128639648"
 ---
 # <a name="x-ec-debug-http-headers-for-azure-cdn-rules-engine"></a>Encabezados HTTP X-EC-Debug para el motor de reglas de Azure CDN
 El encabezado de solicitud de caché de depuración, `X-EC-Debug`, proporciona información adicional acerca de la directiva de caché que se aplica al recurso solicitado. Estos encabezados son específicos de los productos **Azure CDN Premium de Verizon**.
@@ -169,5 +169,4 @@ Los términos que se usan en la sintaxis del encabezado de respuesta anterior se
 
 El siguiente ejemplo de encabezado de respuesta indica el estado de la caché del contenido solicitado en el momento en que se solicitó:
 
-```X-EC-Debug: x-ec-cache-state: max-age=604800 (7d); cache-ts=1341802519 (Mon, 09 Jul 2012 02:55:19 GMT); cache-age=0 (0s); remaining-ttl=604800 (7d); expires-delta=none```
-
+`X-EC-Debug: x-ec-cache-state: max-age=604800 (7d); cache-ts=1341802519 (Mon, 09 Jul 2012 02:55:19 GMT); cache-age=0 (0s); remaining-ttl=604800 (7d); expires-delta=none`

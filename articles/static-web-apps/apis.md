@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/18/2020
 ms.author: cshoe
-ms.openlocfilehash: 168c187c4e573193b439e790fb94290aadec046a
-ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
+ms.openlocfilehash: d7716c6d91ac0f7c8c699d14f265e00f5535a00d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122778877"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124730399"
 ---
 # <a name="api-support-in-azure-static-web-apps-with-azure-functions"></a>Compatibilidad de API en Azure Static Web Apps con Azure Functions
 
@@ -49,7 +49,7 @@ Los puntos de conexión de API están a disposición de la aplicación web a tra
 
 | Funciones administradas | Traiga sus propias funciones |
 | --- | --- |
-| Aunque la ruta de _api_ es fija, tiene control sobre la ubicación de la carpeta de la aplicación de funciones administrada. Para cambiar esta ubicación, [edite el archivo YAML del flujo de trabajo](github-actions-workflow.md#build-and-deploy), que se encuentra en la carpeta _.github/workflows_ de su repositorio. | Las solicitudes a la ruta de _api_ se envían a la aplicación de Azure Functions existente. |
+| Aunque la ruta de _api_ es fija, tiene control sobre la ubicación de la carpeta de la aplicación de funciones administrada. Para cambiar esta ubicación, [edite el archivo YAML del flujo de trabajo](build-configuration.md), que se encuentra en la carpeta _.github/workflows_ de su repositorio. | Las solicitudes a la ruta de _api_ se envían a la aplicación de Azure Functions existente. |
 
 ## <a name="troubleshooting-and-logs"></a>Solución de problemas y registros
 

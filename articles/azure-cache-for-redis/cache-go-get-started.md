@@ -7,12 +7,12 @@ ms.service: cache
 ms.devlang: go
 ms.topic: quickstart
 ms.date: 01/08/2021
-ms.openlocfilehash: 5303289cd0629fea1c78e4ae746427e875f80520
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: ab7bd55dd7b66d613f99b4d54a8fdf4445542545
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111891642"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128591831"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-go"></a>Inicio rápido: Uso de Azure Cache for Redis con Go
 
@@ -31,9 +31,9 @@ Si quiere pasar directamente al código, consulte [Inicio rápido: Uso de Azure 
 
 ## <a name="create-an-azure-cache-for-redis-instance"></a>Creación de una instancia de Azure Redis Cache
 
-[!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
+[!INCLUDE [redis-cache-create](includes/redis-cache-create.md)]
 
-[!INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
+[!INCLUDE [redis-cache-create](includes/redis-cache-access-keys.md)]
 
 ## <a name="review-the-code-optional"></a>Revisión del código (opcional)
 
@@ -132,20 +132,20 @@ La aplicación acepta la conectividad y las credenciales en forma de variables d
 
 1. Establezca estos valores en las variables de entorno respectivas:
 
-    ```shell
+    ```console
     set REDIS_HOST=<Host name>:<port> (e.g. <name of cache>.redis.cache.windows.net:6380)
     set REDIS_PASSWORD=<Primary Access Key>
     ```
 
 1. En la ventana de terminal, cambie a la carpeta correcta. Por ejemplo:
 
-    ```shell
+    ```console
     cd "C:\git-samples\azure-redis-cache-go-quickstart"
     ```
 
 1. En el terminal, ejecute el comando siguiente para iniciar la aplicación.
 
-    ```shell
+    ```console
     go run main.go
     ```
 

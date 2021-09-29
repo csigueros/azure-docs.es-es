@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 04/27/2021
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 32fcbcd7c932eee36f5974b369d41e551c861ebf
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: 08b730b0196aa5b78ebafc0208accd51e544e8d7
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108187221"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124787497"
 ---
 # <a name="redirect-hard-coded-links-for-apps-published-with-azure-active-directory-application-proxy"></a>Redireccionamiento de vínculos codificados de manera rígida de aplicaciones publicadas con Application Proxy de Azure Active Directory
 
@@ -57,7 +57,7 @@ La extensión de explorador de MyApps reconoce todas las URL internas publicadas
 
 Para usar esta característica, el usuario debe descargar la extensión e iniciar sesión. Los usuarios o administradores no tienen que configurar nada más. 
 
-Para obtener más información, incluido cómo configurar esta opción, vea la documentación de [Extensión de explorador de MyApps](../user-help/my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension).
+Para obtener más información, incluido cómo configurar esta opción, vea la documentación de [Extensión de explorador de MyApps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510#download-and-install-the-my-apps-secure-sign-in-extension).
 
 > [!NOTE]
 > La extensión del navegador MyApps no admite la traducción de vínculos de direcciones URL con caracteres comodín.

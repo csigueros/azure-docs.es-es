@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: troubleshooting
-ms.date: 10/09/2020
+ms.date: 09/15/2021
 ms.author: banders
-ms.openlocfilehash: 6525d809805da3a19a0efe423306f18d8e67a646
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 2532b02247a85d180d7b1cccd504838b83a8f93f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92026873"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128591850"
 ---
 # <a name="troubleshoot-csp-billing-issues-with-usage-file-pivot-tables"></a>Solución de problemas de facturación de CSP con tablas dinámicas de archivos de uso
 
@@ -40,9 +40,9 @@ Dado que los archivos de uso de Azure están en formato CSV, debe preparar los d
 1. Seleccione el primer campo de la tabla, **PartnerID**.
 1. Presione Ctrl + Mayús + Flecha abajo y, a continuación, Ctrl + Mayús + Flecha derecha para seleccionar toda la información de la tabla.
 1. En el menú superior, seleccione **Insertar** > **Tabla**. En el cuadro Crear tabla, seleccione **Mi tabla tiene encabezados** y, después, seleccione **Aceptar**.  
-    :::image type="content" source="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/create-table-dialog.png" alt-text="Ejemplo que muestra datos sin formato en Excel" :::
+    :::image type="content" source="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/create-table-dialog.png" alt-text="Ejemplo que muestra el cuadro de diálogo Crear tabla" :::
 1. En el menú superior, seleccione **Insertar** > **Tabla dinámica** y, a continuación, seleccione **Aceptar**. La acción crea una nueva hoja en el archivo y le lleva al área de la tabla dinámica en el lado derecho de la hoja.  
-    :::image type="content" source="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/pivot-table-fields.png" alt-text="Ejemplo que muestra datos sin formato en Excel" lightbox="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/pivot-table-fields.png" :::
+    :::image type="content" source="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/pivot-table-fields.png" alt-text="Ejemplo que muestra el área Campos de la tabla dinámica" lightbox="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/pivot-table-fields.png" :::
 
 El área Campos de la tabla dinámica es un área de arrastrar y colocar. Continúe con la siguiente sección para crear la tabla dinámica.
 
@@ -51,13 +51,13 @@ El área Campos de la tabla dinámica es un área de arrastrar y colocar. Contin
 En esta sección, va a crear una tabla dinámica en la que podrá solucionar problemas generales del uso de Azure. La tabla de ejemplo puede ayudarle a investigar qué servicio consume la mayoría de los recursos. También podrá ver los recursos que incurren en el mayor costo y cómo se cobra un servicio.
 
 1. En el área Campos de la tabla dinámica, arrastre **Nombre de servicio** y **Recurso** al área **Filas**. Coloque **Recurso** debajo de **Nombre de servicio**.  
-    :::image type="content" source="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/rows-section.png" alt-text="Ejemplo que muestra datos sin formato en Excel" lightbox="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/rows-section.png" :::
+    :::image type="content" source="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/rows-section.png" alt-text="Ejemplo que muestra el nombre de servicio y el recurso en Filas" lightbox="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/rows-section.png" :::
 1. A continuación, coloque **Total después de impuestos** en el área **Valores**. También puede usar la columna Consumed Quantity (Cantidad consumida) en su lugar para obtener información sobre las transacciones y unidades de consumo. Por ejemplo, GB y horas. O bien, transacciones en lugar de costos en monedas diferentes como USD, EUR y INR.  
-    :::image type="content" source="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/add-pivot-table-fields.png" alt-text="Ejemplo que muestra datos sin formato en Excel" lightbox="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/add-pivot-table-fields.png" :::
+    :::image type="content" source="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/add-pivot-table-fields.png" alt-text="Ejemplo que muestra las columnas agregadas a los campos de tabla dinámica" lightbox="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/add-pivot-table-fields.png" :::
 1. Ahora tiene un panel para la investigación generalizada del consumo. Puede filtrar por un servicio específico mediante las opciones de filtrado de la tabla dinámica.  
-    :::image type="content" source="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/pivot-table-filter-option-row-label.png" alt-text="Ejemplo que muestra datos sin formato en Excel" lightbox="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/pivot-table-filter-option-row-label.png" :::
+    :::image type="content" source="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/pivot-table-filter-option-row-label.png" alt-text="Ejemplo que muestra la opción de filtro de la tabla dinámica para la etiqueta de fila" lightbox="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/pivot-table-filter-option-row-label.png" :::
     Para filtrar un segundo nivel en una tabla dinámica, por ejemplo un recurso, seleccione un elemento de segundo nivel en la tabla.
-    :::image type="content" source="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/pivot-table-filter-option-select-field.png" alt-text="Ejemplo que muestra datos sin formato en Excel" lightbox="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/pivot-table-filter-option-select-field.png" :::
+    :::image type="content" source="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/pivot-table-filter-option-select-field.png" alt-text="Ejemplo que muestra las opciones de filtro para el campo de selección" lightbox="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/pivot-table-filter-option-select-field.png" :::
 1. En el caso de los filtros adicionales, puede agregar **SubscriptionID** y **Customer Company Name** al área **Filtros** y seleccionar el ámbito deseado.
 
 ## <a name="create-a-pivot-table-to-view-azure-usage-by-date"></a>Creación de una tabla dinámica para ver el uso de Azure por fecha
@@ -66,12 +66,12 @@ En esta sección, va a crear una tabla dinámica en la que podrá solucionar pro
 
 El archivo de conciliación tiene dos tablas. Uno está en la parte superior (la tabla principal) y hay otra tabla en la parte inferior del documento. Esta segunda tabla tiene gran parte de la misma información, pero no incluye precios ni detalles de costos. Tiene la fecha de uso y la cantidad consumida.
 
-:::image type="content" source="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/reconciliation-file-two-tables.png" alt-text="Ejemplo que muestra datos sin formato en Excel" lightbox="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/reconciliation-file-two-tables.png" :::
+:::image type="content" source="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/reconciliation-file-two-tables.png" alt-text="Ejemplo que muestra los archivos de conciliación con dos tablas de datos" lightbox="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/reconciliation-file-two-tables.png" :::
 
 1. Siga los mismos pasos de la sección [Obtención de los datos y aplicación de formato](#get-the-data-and-format-it) para crear una tabla de Excel con la información en la parte inferior del archivo de conciliación.
 1. Cuando la tabla esté lista y tenga una hoja de tabla dinámica, siga los mismos pasos de la sección Creación de una tabla dinámica para ver los costos de Azure por recursos para preparar el panel. En lugar de usar el total después de impuestos, coloque **Consumed Quantity** (Cantidad consumida) en el área **Valores**.
 1. Agregue la **fecha de uso** a la sección de columnas. La salida debe tener un aspecto similar al ejemplo siguiente.  
-    :::image type="content" source="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/final-pivot-table-fields.png" alt-text="Ejemplo que muestra datos sin formato en Excel" lightbox="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/final-pivot-table-fields.png" :::
+    :::image type="content" source="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/final-pivot-table-fields.png" alt-text="Ejemplo que muestra los campos finales de la tabla dinámica" lightbox="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/final-pivot-table-fields.png" :::
 1. Ahora tiene un panel que muestra el uso por fecha. Puede ampliar cada mes seleccionando el símbolo **+** .
 
 El panel muestra la cantidad consumida en unidades como GB, horas y transferencias.
@@ -86,7 +86,7 @@ Un único recurso puede incurrir en varios cargos por los distintos servicios. P
 
 Los archivos de conciliación no contienen detalles específicos de los recursos. Por lo tanto, se utiliza el archivo de uso agregado. Póngase en contacto con el [soporte técnico de facturación de Azure](https://go.microsoft.com/fwlink/?linkid=2083458) para que le proporcione el archivo de uso agregado para su suscripción. Los archivos agregados se generan en el nivel de suscripción. Los datos sin formato se parecen al ejemplo siguiente.
 
-:::image type="content" source="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/raw-aggregated-usage-file.png" alt-text="Ejemplo que muestra datos sin formato en Excel" lightbox="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/raw-aggregated-usage-file.png" :::
+:::image type="content" source="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/raw-aggregated-usage-file.png" alt-text="Ejemplo que muestra el archivo de uso agregado sin formato" lightbox="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/raw-aggregated-usage-file.png" :::
 
 La tabla contiene las columnas siguientes.
 
@@ -98,11 +98,11 @@ La tabla contiene las columnas siguientes.
 1. Seleccione el primer campo de la tabla, **PartnerID**.  
 1. Presione Ctrl + Mayús + Flecha abajo y, a continuación, Ctrl + Mayús + Flecha derecha para seleccionar toda la información de la tabla.
 1. En el menú superior, seleccione **Insertar** > **Tabla**. En el cuadro Crear tabla, seleccione **Mi tabla tiene encabezados** y, después, seleccione **Aceptar**.  
-    :::image type="content" source="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/create-table-dialog.png" alt-text="Ejemplo que muestra datos sin formato en Excel" :::
+    :::image type="content" source="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/create-table-dialog.png" alt-text="Ejemplo que muestra el cuadro de diálogo Crear tabla" :::
 1. En el menú superior, seleccione **Insertar** > **Tabla dinámica** y, a continuación, seleccione **Aceptar**. La acción crea una nueva hoja en el archivo y le lleva al área de la tabla dinámica en el lado derecho de la hoja.  
-    :::image type="content" source="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/pivot-table-fields-reconciliation.png" alt-text="Ejemplo que muestra datos sin formato en Excel" lightbox="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/pivot-table-fields-reconciliation.png" :::
+    :::image type="content" source="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/pivot-table-fields-reconciliation.png" alt-text="Ejemplo que muestra el área Campos de la tabla dinámica para el archivo de conciliación" lightbox="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/pivot-table-fields-reconciliation.png" :::
 1. A continuación, agregue **MeteredResourceID** al área **Filas** y **Quantity** a **Valores**. Los resultados muestran la información de uso general. Para obtener más información, coloque **UsageEndDateTime** en el área **Columnas**.  
-    :::image type="content" source="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/overall-usage.png" alt-text="Ejemplo que muestra datos sin formato en Excel" lightbox="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/overall-usage.png" :::
+    :::image type="content" source="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/overall-usage.png" alt-text="Ejemplo que muestra información de uso general" lightbox="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/overall-usage.png" :::
 1. Para ver un informe general, agregue **Properties** a **Filas** en **MeteredResourceID**. Muestra un panel completo para su uso.
 1. Para filtrar por un recurso específico, agregue **Properties** al área **Filtros** y seleccione el uso deseado. Puede usar la búsqueda para localizar un nombre de recurso.
     Para ver el costo del recurso, busque la cantidad total consumida y multiplique el valor por el precio de la lista. El precio de venta es específico para cada GUID de recurso (MeteredResourceID). Si un recurso está consumiendo varios MeteredResourceID, tiene que anotar el valor total de cada identificador.

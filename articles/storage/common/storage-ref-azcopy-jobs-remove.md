@@ -8,18 +8,18 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: c6a4745c4059c81384448deba37495030c4bf3a3
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: ac68ea66250a906cf42c489c8ad8dcb0fe972003
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107503378"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128673205"
 ---
 # <a name="azcopy-jobs-remove"></a>azcopy jobs remove
 
 Quita todos los archivos asociados al identificador de trabajo especificado.
 
-> [!NOTE] 
+> [!NOTE]
 > Puede personalizar la ubicación donde se guardan los archivos de registro y de plan. Consulte el comando [azcopy env](storage-ref-azcopy-env.md) para obtener más información.
 
 ```

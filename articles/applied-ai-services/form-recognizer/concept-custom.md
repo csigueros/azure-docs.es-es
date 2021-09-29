@@ -2,7 +2,6 @@
 title: 'Modelos personalizados y compuestos: Form Recognizer'
 titleSuffix: Azure Applied AI Services
 description: Aprenda a crear, usar y administrar modelos personalizados y compuestos de Form Recognizer, su uso y límites.
-services: cognitive-services
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -10,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/09/2021
 ms.author: lajanuar
-ms.openlocfilehash: 19d18028118c5513f6272612c9e4c690aceab493
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 9c995c5ce63c44473cd3d7b824ef85e64868ae1e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122326527"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128546643"
 ---
 # <a name="form-recognizer-custom-and-composed-models"></a>Modelos personalizados y compuestos de Form Recognizer
 

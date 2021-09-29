@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/11/2021
 ms.author: radeltch
-ms.openlocfilehash: e722f1dfe131c59e17974ef699b1373244eb6046
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 8629a706ddc28ea79f67e6cabcebbbd87eba2419
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121746209"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124730154"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux-with-azure-netapp-files-for-sap-applications"></a>Alta disponibilidad de Azure Virtual Machines para SAP NetWeaver en Red Hat Enterprise Linux con Azure NetApp Files para aplicaciones SAP
 
@@ -29,7 +29,6 @@ ms.locfileid: "121746209"
 
 [anf-azure-doc]:../../../azure-netapp-files/azure-netapp-files-introduction.md
 [anf-avail-matrix]:https://azure.microsoft.com/global-infrastructure/services/?products=storage&regions=all
-[anf-register]:../../../azure-netapp-files/azure-netapp-files-register.md
 [anf-sap-applications-azure]:https://www.netapp.com/us/media/tr-4746.pdf
 
 [2002167]:https://launchpad.support.sap.com/#/notes/2002167
@@ -134,19 +133,18 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS y la base de datos SAP 
 
 SAP NetWeaver requiere un almacenamiento compartido para el directorio de transporte y perfil.  Antes de continuar con la configuración de la infraestructura de Azure NetApp Files, familiarícese con la [documentación correspondiente][anf-azure-doc]. Compruebe si la región de Azure seleccionada ofrece Azure NetApp Files. El siguiente vínculo muestra la disponibilidad de Azure NetApp Files por región de Azure: [Disponibilidad de Azure NetApp Files por región de Azure][anf-avail-matrix].
 
-Azure NetApp Files está disponible en varias [regiones de Azure](https://azure.microsoft.com/global-infrastructure/services/?products=netapp). Antes de implementar Azure NetApp Files, solicite la incorporación a este siguiendo las [instrucciones para registrarse en Azure NetApp Files][anf-register]. 
+Azure NetApp Files está disponible en varias [regiones de Azure](https://azure.microsoft.com/global-infrastructure/services/?products=netapp). 
 
 ### <a name="deploy-azure-netapp-files-resources"></a>Implementación de recursos de Azure NetApp Files  
 
 En estos pasos se supone que ya ha implementado [Azure Virtual Network](../../../virtual-network/virtual-networks-overview.md). Los recursos de Azure NetApp Files y las máquinas virtuales en las que esos recursos se montarán se deben implementar en la misma red virtual de Azure o en redes virtuales emparejadas.  
 
-1. Si aún no lo ha hecho, solicite la [incorporación a Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-register.md).  
-2. Cree la cuenta de NetApp en la región de Azure seleccionada mediante las [instrucciones para crear la cuenta de NetApp](../../../azure-netapp-files/azure-netapp-files-create-netapp-account.md).  
-3. Configure el grupo de capacidad de Azure NetApp Files con las [instrucciones correspondientes](../../../azure-netapp-files/azure-netapp-files-set-up-capacity-pool.md).  
+1. Cree la cuenta de NetApp en la región de Azure seleccionada mediante las [instrucciones para crear la cuenta de NetApp](../../../azure-netapp-files/azure-netapp-files-create-netapp-account.md).  
+2. Configure el grupo de capacidad de Azure NetApp Files con las [instrucciones correspondientes](../../../azure-netapp-files/azure-netapp-files-set-up-capacity-pool.md).  
 La arquitectura de SAP Netweaver que se presenta en este artículo usa un único grupo de capacidad de Azure NetApp Files, SKU Premium. Se recomienda usar SKU Premium de Azure NetApp Files para cargas de trabajo de aplicaciones de SAP NetWeaver en Azure.  
-4. Delegue una subred en Azure NetApp Files como se describe en las [instrucciones correspondientes](../../../azure-netapp-files/azure-netapp-files-delegate-subnet.md).  
+3. Delegue una subred en Azure NetApp Files como se describe en las [instrucciones correspondientes](../../../azure-netapp-files/azure-netapp-files-delegate-subnet.md).  
 
-5. Implemente los volúmenes de Azure NetApp Files mediante las [instrucciones correspondientes](../../../azure-netapp-files/azure-netapp-files-create-volumes.md). Implemente los volúmenes en la [subred](/rest/api/virtualnetwork/subnets) de Azure NetApp Files designada. Las direcciones IP de los volúmenes de Azure NetApp se asignan automáticamente. Tenga en cuenta que los recursos de Azure NetApp Files y las máquinas virtuales de Azure deben estar en la misma red virtual de Azure o en redes virtuales emparejadas. En este ejemplo se usan dos volúmenes de Azure NetApp Files: sap<b>QAS</b> y transSAP. Las rutas de acceso de los archivos que se montan en los correspondientes puntos de montaje son /usrsap<b>qas</b>/sapmnt<b>QAS</b>, /usrsap<b>qas</b>/usrsap<b>QAS</b>sys, etc.  
+4. Implemente los volúmenes de Azure NetApp Files mediante las [instrucciones correspondientes](../../../azure-netapp-files/azure-netapp-files-create-volumes.md). Implemente los volúmenes en la [subred](/rest/api/virtualnetwork/subnets) de Azure NetApp Files designada. Las direcciones IP de los volúmenes de Azure NetApp se asignan automáticamente. Tenga en cuenta que los recursos de Azure NetApp Files y las máquinas virtuales de Azure deben estar en la misma red virtual de Azure o en redes virtuales emparejadas. En este ejemplo se usan dos volúmenes de Azure NetApp Files: sap<b>QAS</b> y transSAP. Las rutas de acceso de los archivos que se montan en los correspondientes puntos de montaje son /usrsap<b>qas</b>/sapmnt<b>QAS</b>, /usrsap<b>qas</b>/usrsap<b>QAS</b>sys, etc.  
 
    1. volumen sap<b>QAS</b> (nfs://192.168.24.5/usrsap<b>qas</b>/sapmnt<b>QAS</b>)
    2. volumen sap<b>QAS</b> (nfs://192.168.24.5/usrsap<b>qas</b>/usrsap<b>QAS</b>ascs)

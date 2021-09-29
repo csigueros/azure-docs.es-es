@@ -11,12 +11,12 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 19e40d135316c1c7cd270d2804fff1f487937685
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4b48fa334aedce144e274b8155edda3cc7b08b9a
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96858542"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124739944"
 ---
 # <a name="plan-and-troubleshoot-user-principal-name-changes-in-azure-active-directory"></a>Planeamiento y solución de problemas de los cambios de nombre principal de usuario en Azure Active Directory
 
@@ -168,9 +168,9 @@ El usuario deberá [volver a inscribirse](/windows/security/identity-protection/
 
 ## <a name="microsoft-authenticator-known-issues-and-workarounds"></a>Problemas conocidos y soluciones alternativas de Microsoft Authenticator
 
-Es posible que la organización requiera el uso de la [aplicación Microsoft Authenticator](../user-help/user-help-auth-app-overview.md) para iniciar sesión y acceder a los datos y las aplicaciones de la organización. Aunque puede aparecer un nombre de usuario en la aplicación, la cuenta no está configurada para funcionar como método de comprobación hasta que el usuario completa el proceso de registro.
+Es posible que la organización requiera el uso de la [aplicación Microsoft Authenticator](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc) para iniciar sesión y acceder a los datos y las aplicaciones de la organización. Aunque puede aparecer un nombre de usuario en la aplicación, la cuenta no está configurada para funcionar como método de comprobación hasta que el usuario completa el proceso de registro.
 
-La [aplicación Microsoft Authenticator](../user-help/user-help-auth-app-overview.md) tiene cuatro funciones principales:
+La [aplicación Microsoft Authenticator](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc) tiene cuatro funciones principales:
 
 * Autenticación multifactor a través de una notificación push u un código de verificación.
 
@@ -186,7 +186,7 @@ La aplicación Microsoft Authenticator ofrece una opción de comprobación fuera
 
 **Problemas conocidos** 
 
-Al cambiar el UPN de un usuario, el UPN anterior se sigue mostrando en la cuenta de usuario y es posible que no se reciba una notificación. Los [códigos de verificación](../user-help/user-help-auth-app-faq.md) siguen funcionando.
+Al cambiar el UPN de un usuario, el UPN anterior se sigue mostrando en la cuenta de usuario y es posible que no se reciba una notificación. Los [códigos de verificación](https://support.microsoft.com/account-billing/common-problems-with-the-microsoft-authenticator-app-12d283d1-bcef-4875-9ae5-ac360e2945dd) siguen funcionando.
 
 **Solución alternativa**
 

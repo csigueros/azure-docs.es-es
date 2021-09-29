@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 07/24/2021
 ms.topic: conceptual
-ms.openlocfilehash: 7c0d2d1f64d0d931c670b87438a032c646c45f9d
-ms.sourcegitcommit: 98e126b0948e6971bd1d0ace1b31c3a4d6e71703
+ms.openlocfilehash: 178da223b5d5f14cc27034c39bd4cc3a05f82631
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2021
-ms.locfileid: "114673926"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128606596"
 ---
 # <a name="disable-system-assigned-managed-identity-for-azure-automation-account-preview"></a>Deshabilitación de una identidad administrada asignada por el sistema para una cuenta de Azure Automation (versión preliminar)
 
@@ -78,14 +78,14 @@ Lleve a cabo los siguiente pasos.
     $sub = Get-AzSubscription -ErrorAction SilentlyContinue
     if(-not($sub))
     {
-        Connect-AzAccount -Subscription
+        Connect-AzAccount
     }
     
     # If you have multiple subscriptions, set the one to use
     # Select-AzSubscription -SubscriptionId "<SUBSCRIPTIONID>"
     ```
 
-1. Proporcione un valor adecuado para las variables y, a continuación, ejecute el script.
+1. Proporcione un valor adecuado para las variables y, después, ejecute el script.
 
     ```powershell
     $subscriptionID = "subscriptionID"
@@ -126,6 +126,6 @@ Lleve a cabo los siguiente pasos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para más información acerca de cómo habilitar las identidades administradas en Azure Automation, consulte [Habilitación y uso de la identidad administrada para Automation (versión preliminar)](enable-managed-identity-for-automation.md).
+- Para obtener más información acerca de cómo habilitar las identidades administradas en Azure Automation, consulte [Habilitación y uso de la identidad administrada para Automation (versión preliminar)](enable-managed-identity-for-automation.md).
 
 - Para información general acerca de la seguridad de la cuenta de Automation, consulte [Introducción a la autenticación de cuentas de Automation](automation-security-overview.md).

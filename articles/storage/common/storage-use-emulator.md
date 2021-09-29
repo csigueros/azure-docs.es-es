@@ -1,19 +1,19 @@
 ---
 title: Uso del Emulador de Azure Storage para desarrollo y pruebas (en desuso)
 description: El Emulador de Azure Storage (en desuso) ofrece un entorno de desarrollo local gratuito para desarrollar y probar las aplicaciones de Azure Storage.
-author: twooley
-ms.author: twooley
+author: normesta
+ms.author: normesta
 ms.date: 07/14/2021
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 2ff639cd19a97d2e3a5ef730c774f8c967cfa6c3
-ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
+ms.openlocfilehash: d23c5eed831e693509cd9216acd7c98166544b31
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114203824"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128595792"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing-deprecated"></a>Uso del Emulador de Azure Storage para desarrollo y pruebas (en desuso)
 
@@ -30,7 +30,7 @@ El emulador de almacenamiento solo se ejecuta actualmente en Windows. Para la em
 
 > [!NOTE]
 > No se garantiza que los datos que se crean en una versión del emulador de almacenamiento estén disponibles cuando se utilice una versión diferente. Si necesita conservar los datos a largo plazo, es recomendable que almacene esos datos en una cuenta de almacenamiento de Azure y no en el mismo emulador de almacenamiento.
-> 
+>
 > El emulador de almacenamiento depende de versiones específicas de las bibliotecas de OData. No se admite la sustitución de las DLL de OData usadas por el emulador de almacenamiento con otras versiones y, de ser así, puede provocar un comportamiento inesperado. Sin embargo, cualquier versión de OData admitida por el servicio de almacenamiento puede utilizarse para enviar las solicitudes al emulador.
 
 ## <a name="how-the-storage-emulator-works"></a>Cómo funciona el emulador de almacenamiento.
@@ -151,9 +151,9 @@ Por ejemplo, la siguiente dirección se puede usar para obtener acceso a un blob
 
 Los puntos de conexión de servicio del emulador de almacenamiento son:
 
-* Blob service: `http://127.0.0.1:10000/<account-name>/<resource-path>`
-* Queue service: `http://127.0.0.1:10001/<account-name>/<resource-path>`
-* Table service: `http://127.0.0.1:10002/<account-name>/<resource-path>`
+- Blob service: `http://127.0.0.1:10000/<account-name>/<resource-path>`
+- Queue service: `http://127.0.0.1:10001/<account-name>/<resource-path>`
+- Table service: `http://127.0.0.1:10002/<account-name>/<resource-path>`
 
 ### <a name="addressing-the-account-secondary-with-ra-grs"></a>Direccionar la cuenta secundaria con RA-GRS
 
@@ -195,32 +195,32 @@ Para ver la lista de opciones, escriba `/help` en el símbolo del sistema.
 
 Dado que el emulador de almacenamiento es un entorno emulado local, existen diferencias entre el uso del emulador y una cuenta de almacenamiento de Azure en la nube:
 
-* El emulador de almacenamiento es compatible con una sola cuenta fija y una clave de autenticación ya conocida.
-* El emulador de almacenamiento no es un servicio de almacenamiento escalable y no es compatible con un gran número de clientes simultáneos.
-* Como se describe en [Direccionamiento de los recursos en el emulador de almacenamiento](#addressing-resources-in-the-storage-emulator), los recursos se tratan de forma diferente en el emulador de almacenamiento que en una cuenta de almacenamiento de Azure. La diferencia se debe a que la resolución de nombres de dominio está disponible en la nube, pero no en el equipo local.
-* A partir de la versión 3.1, la cuenta del emulador de almacenamiento admite la replicación con redundancia geográfica con acceso de lectura (RA-GRS). En el emulador, todas las cuentas tienen RA-GRS habilitado y no hay ningún retraso entre las réplicas principal y secundaria. Las operaciones Get Blob Service Stats, Get Queue Service Stats y Get Table Service Stats son compatibles con la cuenta secundaria y siempre devolverán el valor del elemento de respuesta `LastSyncTime` como la hora actual según la base de datos SQL subyacente.
-* El servicio de archivo y los puntos de conexión de servicio de protocolo SMB no se admiten actualmente en el emulador de almacenamiento.
-* Si usa una versión de los servicios de almacenamiento que no es compatible con el emulador, este devuelve un error VersionNotSupportedByEmulator (código de estado HTTP 400 - Solicitud incorrecta).
+- El emulador de almacenamiento es compatible con una sola cuenta fija y una clave de autenticación ya conocida.
+- El emulador de almacenamiento no es un servicio de almacenamiento escalable y no es compatible con un gran número de clientes simultáneos.
+- Como se describe en [Direccionamiento de los recursos en el emulador de almacenamiento](#addressing-resources-in-the-storage-emulator), los recursos se tratan de forma diferente en el emulador de almacenamiento que en una cuenta de almacenamiento de Azure. La diferencia se debe a que la resolución de nombres de dominio está disponible en la nube, pero no en el equipo local.
+- A partir de la versión 3.1, la cuenta del emulador de almacenamiento admite la replicación con redundancia geográfica con acceso de lectura (RA-GRS). En el emulador, todas las cuentas tienen RA-GRS habilitado y no hay ningún retraso entre las réplicas principal y secundaria. Las operaciones Get Blob Service Stats, Get Queue Service Stats y Get Table Service Stats son compatibles con la cuenta secundaria y siempre devolverán el valor del elemento de respuesta `LastSyncTime` como la hora actual según la base de datos SQL subyacente.
+- El servicio de archivo y los puntos de conexión de servicio de protocolo SMB no se admiten actualmente en el emulador de almacenamiento.
+- Si usa una versión de los servicios de almacenamiento que no es compatible con el emulador, este devuelve un error VersionNotSupportedByEmulator (código de estado HTTP 400 - Solicitud incorrecta).
 
 ### <a name="differences-for-blob-storage"></a>Diferencias en el almacenamiento de blobs
 
 Las siguientes diferencias se aplican al almacenamiento de blobs en el emulador:
 
-* El emulador de almacenamiento solo admite tamaños de blobs de hasta 2 GB.
-* La longitud máxima de un nombre de blob en el emulador de almacenamiento es de 256 caracteres, mientras que en Azure Storage es de 1024.
-* La copia incremental permite copiar instantáneas desde los blobs sobrescritos, lo que devuelve un error en el servicio.
-* Get Page Ranges Diff no funciona entre instantáneas copiadas con el blob de copia incremental.
-* Una operación Put Blob puede funcionar en un blob que existe en el emulador de almacenamiento con una concesión activa, incluso si el identificador de concesión no se ha especificado en la solicitud.
-* El emulador no admite operaciones de blob en anexos. Intentando realizar una operación en un blob en anexos, devuelve un error FeatureNotSupportedByEmulator (código de estado HTTP 400 - Solicitud incorrecta).
+- El emulador de almacenamiento solo admite tamaños de blobs de hasta 2 GB.
+- La longitud máxima de un nombre de blob en el emulador de almacenamiento es de 256 caracteres, mientras que en Azure Storage es de 1024.
+- La copia incremental permite copiar instantáneas desde los blobs sobrescritos, lo que devuelve un error en el servicio.
+- Get Page Ranges Diff no funciona entre instantáneas copiadas con el blob de copia incremental.
+- Una operación Put Blob puede funcionar en un blob que existe en el emulador de almacenamiento con una concesión activa, incluso si el identificador de concesión no se ha especificado en la solicitud.
+- El emulador no admite operaciones de blob en anexos. Intentando realizar una operación en un blob en anexos, devuelve un error FeatureNotSupportedByEmulator (código de estado HTTP 400 - Solicitud incorrecta).
 
 ### <a name="differences-for-table-storage"></a>Diferencias en el almacenamiento de tabla
 
 Las siguientes diferencias se aplican al almacenamiento de tablas en el emulador:
 
-* Las propiedades de fecha en Table service del emulador de almacenamiento solo admiten el intervalo admitido por SQL Server 2005 (es decir, tienen que ser posteriores al 1 de enero de 1753). Todas las fechas anteriores al 1 de enero de 1753 se cambiarán a este valor. La precisión de las fechas se limita a la precisión de SQL Server 2005, lo que significa que las fechas son precisas hasta 1/300 de un segundo.
-* El emulador de almacenamiento admite valores de propiedad de clave de fila y de clave de partición de menos de 512 bytes. El tamaño total del nombre de la cuenta, el nombre de la tabla y los nombres de las propiedades de clave no pueden superar en conjunto los 900 bytes.
-* El tamaño total de una fila de una tabla en el emulador de almacenamiento se limita a menos de 1 MB.
-* En el emulador de almacenamiento, las propiedades de tipo de datos `Edm.Guid` o `Edm.Binary` solo admiten los operadores de comparación `Equal (eq)` y `NotEqual (ne)` en las cadenas de filtro de consultas.
+- Las propiedades de fecha en Table service del emulador de almacenamiento solo admiten el intervalo admitido por SQL Server 2005 (es decir, tienen que ser posteriores al 1 de enero de 1753). Todas las fechas anteriores al 1 de enero de 1753 se cambiarán a este valor. La precisión de las fechas se limita a la precisión de SQL Server 2005, lo que significa que las fechas son precisas hasta 1/300 de un segundo.
+- El emulador de almacenamiento admite valores de propiedad de clave de fila y de clave de partición de menos de 512 bytes. El tamaño total del nombre de la cuenta, el nombre de la tabla y los nombres de las propiedades de clave no pueden superar en conjunto los 900 bytes.
+- El tamaño total de una fila de una tabla en el emulador de almacenamiento se limita a menos de 1 MB.
+- En el emulador de almacenamiento, las propiedades de tipo de datos `Edm.Guid` o `Edm.Binary` solo admiten los operadores de comparación `Equal (eq)` y `NotEqual (ne)` en las cadenas de filtro de consultas.
 
 ### <a name="differences-for-queue-storage"></a>Diferencias en el almacenamiento de cola
 
@@ -230,109 +230,109 @@ No hay ninguna diferencia específica del almacenamiento en cola en el emulador.
 
 ### <a name="version-510"></a>Versión 5.10
 
-* El emulador de almacenamiento no rechazará la versión 2019-07-07 de los servicios de almacenamiento en los puntos de conexión de servicio de Blob, Queue y Table.
+- El emulador de almacenamiento no rechazará la versión 2019-07-07 de los servicios de almacenamiento en los puntos de conexión de servicio de Blob, Queue y Table.
 
 ### <a name="version-59"></a>Versión 5.9
 
-* El emulador de almacenamiento no rechazará la versión 2019-02-02 de los servicios de almacenamiento en los puntos de conexión de servicio de Blob, Queue y Table.
+- El emulador de almacenamiento no rechazará la versión 2019-02-02 de los servicios de almacenamiento en los puntos de conexión de servicio de Blob, Queue y Table.
 
 ### <a name="version-58"></a>Versión 5.8
 
-* El emulador de almacenamiento no rechazará la versión 2018-11-09 de los servicios de almacenamiento en los puntos de conexión de servicio de Blob, Queue y Table.
+- El emulador de almacenamiento no rechazará la versión 2018-11-09 de los servicios de almacenamiento en los puntos de conexión de servicio de Blob, Queue y Table.
 
 ### <a name="version-57"></a>Versión 5.7
 
-* Se ha corregido un error que podría ocasionar un bloqueo si el registro estaba habilitado.
+- Se ha corregido un error que podría ocasionar un bloqueo si el registro estaba habilitado.
 
 ### <a name="version-56"></a>Versión 5.6
 
-* El emulador de almacenamiento admite ahora la versión 2018-03-28 de los servicios de almacenamiento en los puntos de conexión de Blob, Queue y Table.
+- El emulador de almacenamiento admite ahora la versión 2018-03-28 de los servicios de almacenamiento en los puntos de conexión de Blob, Queue y Table.
 
 ### <a name="version-55"></a>Versión 5.5
 
-* El emulador de almacenamiento admite ahora la versión 2017-11-09 de los servicios de almacenamiento en los puntos de conexión de Blob, Queue y Table.
-* Se ha agregado compatibilidad para la propiedad **Created** del blob, que devuelve la hora de creación de este.
+- El emulador de almacenamiento admite ahora la versión 2017-11-09 de los servicios de almacenamiento en los puntos de conexión de Blob, Queue y Table.
+- Se ha agregado compatibilidad para la propiedad **Created** del blob, que devuelve la hora de creación de este.
 
 ### <a name="version-54"></a>Versión 5.4
 
-* Para mejorar la estabilidad de la instalación, el emulador ya no intenta reservar puertos en el momento de la instalación. Si quiere realizar las reservas de puertos, use la opción *-reserveports* del comando **init** para especificarlos.
+- Para mejorar la estabilidad de la instalación, el emulador ya no intenta reservar puertos en el momento de la instalación. Si quiere realizar las reservas de puertos, use la opción *-reserveports* del comando **init** para especificarlos.
 
 ### <a name="version-53"></a>Versión 5.3
 
-* El emulador de almacenamiento admite ahora la versión 2017-07-29 de los servicios de almacenamiento en los puntos de conexión de servicio de Blob, Queue y Table.
+- El emulador de almacenamiento admite ahora la versión 2017-07-29 de los servicios de almacenamiento en los puntos de conexión de servicio de Blob, Queue y Table.
 
 ### <a name="version-52"></a>Versión 5.2
 
-* El emulador de almacenamiento admite ahora la versión 2017-04-17 de los servicios de almacenamiento en los puntos de conexión de servicio de Blob, Queue y Table.
-* Se ha corregido un error por el que no se codificaban correctamente los valores de propiedad de tabla.
+- El emulador de almacenamiento admite ahora la versión 2017-04-17 de los servicios de almacenamiento en los puntos de conexión de servicio de Blob, Queue y Table.
+- Se ha corregido un error por el que no se codificaban correctamente los valores de propiedad de tabla.
 
 ### <a name="version-51"></a>Versión 5.1
 
-* Se ha corregido un error que hacía que el emulador de almacenamiento devolviera el encabezado `DataServiceVersion` en algunas respuestas en las que el servicio no lo hacía.
+- Se ha corregido un error que hacía que el emulador de almacenamiento devolviera el encabezado `DataServiceVersion` en algunas respuestas en las que el servicio no lo hacía.
 
 ### <a name="version-50"></a>Versión 5.0
 
-* El instalador del emulador de almacenamiento ya no comprueba instalaciones existentes de MSSQL y .NET Framework.
-* El instalador del emulador de almacenamiento ya no crea la base de datos como parte de la instalación. Se seguirá creando la base de datos si se necesita como parte del proceso de inicio.
-* La creación de la base de datos ya no requiere elevación.
-* Las reservas de puertos ya no son necesarias para el inicio.
-* Agrega las siguientes opciones a `init`: `-reserveports` (requiere elevación), `-unreserveports` (requiere elevación), `-skipcreate`.
-* La opción de interfaz de usuario Emulador de almacenamiento en el icono de la bandeja del sistema ahora inicia la interfaz de línea de comandos. La interfaz gráfica de usuario anterior ya no está disponible.
-* Algunos archivos DLL se han quitado o se han cambiado de nombre.
+- El instalador del emulador de almacenamiento ya no comprueba instalaciones existentes de MSSQL y .NET Framework.
+- El instalador del emulador de almacenamiento ya no crea la base de datos como parte de la instalación. Se seguirá creando la base de datos si se necesita como parte del proceso de inicio.
+- La creación de la base de datos ya no requiere elevación.
+- Las reservas de puertos ya no son necesarias para el inicio.
+- Agrega las siguientes opciones a `init`: `-reserveports` (requiere elevación), `-unreserveports` (requiere elevación), `-skipcreate`.
+- La opción de interfaz de usuario Emulador de almacenamiento en el icono de la bandeja del sistema ahora inicia la interfaz de línea de comandos. La interfaz gráfica de usuario anterior ya no está disponible.
+- Algunos archivos DLL se han quitado o se han cambiado de nombre.
 
 ### <a name="version-46"></a>Versión 4.6
 
-* El emulador de almacenamiento admite ahora la versión 2016-05-31 de los servicios de almacenamiento en los puntos de conexión de servicio de Blob, Queue y Table.
+- El emulador de almacenamiento admite ahora la versión 2016-05-31 de los servicios de almacenamiento en los puntos de conexión de servicio de Blob, Queue y Table.
 
 ### <a name="version-45"></a>Versión 4.5
 
-* Se corrigió un error que provocaba un error en la instalación e inicialización cuando se cambia el nombre de la base de datos auxiliar.
+- Se corrigió un error que provocaba un error en la instalación e inicialización cuando se cambia el nombre de la base de datos auxiliar.
 
 ### <a name="version-44"></a>Version 4.4
 
-* El emulador de almacenamiento admite ahora la versión 2015-12-11 de los servicios de almacenamiento en los puntos de conexión de servicio de Blob, Queue y Table.
-* La recolección de elementos no utilizados de datos de blobs del emulador de almacenamiento ahora es más eficaz cuando se trabaja con grandes cantidades de blobs.
-* Se ha corregido un error que provocaba que el XML de ACL del contenedor se validara de forma algo diferente de cómo lo hace el servicio de almacenamiento.
-* Se ha corregido un error que a veces causaba que los valores máx. y mín. de DateTime se notificarán en una zona horaria incorrecta.
+- El emulador de almacenamiento admite ahora la versión 2015-12-11 de los servicios de almacenamiento en los puntos de conexión de servicio de Blob, Queue y Table.
+- La recolección de elementos no utilizados de datos de blobs del emulador de almacenamiento ahora es más eficaz cuando se trabaja con grandes cantidades de blobs.
+- Se ha corregido un error que provocaba que el XML de ACL del contenedor se validara de forma algo diferente de cómo lo hace el servicio de almacenamiento.
+- Se ha corregido un error que a veces causaba que los valores máx. y mín. de DateTime se notificarán en una zona horaria incorrecta.
 
 ### <a name="version-43"></a>Versión 4.3
 
-* El emulador de almacenamiento admite ahora la versión 2015-07-08 de los servicios de almacenamiento en los puntos de conexión de servicio de Blob, Queue y Table.
+- El emulador de almacenamiento admite ahora la versión 2015-07-08 de los servicios de almacenamiento en los puntos de conexión de servicio de Blob, Queue y Table.
 
 ### <a name="version-42"></a>Versión 4.2
 
-* El emulador de almacenamiento admite ahora la versión 2015-04-05 de los servicios de almacenamiento en los puntos de conexión de servicio de Blob, Queue y Table.
+- El emulador de almacenamiento admite ahora la versión 2015-04-05 de los servicios de almacenamiento en los puntos de conexión de servicio de Blob, Queue y Table.
 
 ### <a name="version-41"></a>Versión 4.1
 
-* El emulador de almacenamiento admite ahora la versión 2015-02-21 de los servicios de almacenamiento en los puntos de conexión de servicio de Blob, Queue y Table. No es compatible con las nuevas características de blobs en anexos.
-* El emulador ahora devuelve un mensaje de error significativo para las versiones no admitidas de los servicios de almacenamiento. Se recomienda usar la versión más reciente del emulador. Si se encuentra con un error VersionNotSupportedByEmulator (código de estado HTTP 400 - Solicitud incorrecta), descargue la versión más reciente del emulador.
-* Se ha corregido un error en el que una condición de carrera hacía que los datos de entidad de tabla fuesen incorrectos durante las operaciones de mezcla simultáneas.
+- El emulador de almacenamiento admite ahora la versión 2015-02-21 de los servicios de almacenamiento en los puntos de conexión de servicio de Blob, Queue y Table. No es compatible con las nuevas características de blobs en anexos.
+- El emulador ahora devuelve un mensaje de error significativo para las versiones no admitidas de los servicios de almacenamiento. Se recomienda usar la versión más reciente del emulador. Si se encuentra con un error VersionNotSupportedByEmulator (código de estado HTTP 400 - Solicitud incorrecta), descargue la versión más reciente del emulador.
+- Se ha corregido un error en el que una condición de carrera hacía que los datos de entidad de tabla fuesen incorrectos durante las operaciones de mezcla simultáneas.
 
 ### <a name="version-40"></a>Versión 4.0
 
-* Se ha cambiado el nombre del ejecutable del emulador de almacenamiento por *AzureStorageEmulator.exe*.
+- Se ha cambiado el nombre del ejecutable del emulador de almacenamiento por *AzureStorageEmulator.exe*.
 
 ### <a name="version-32"></a>Versión 3.2
 
-* El emulador de almacenamiento admite ahora la versión 2014-02-14 de los servicios de almacenamiento en los puntos de conexión de servicio de Blob, Queue y Table. Los puntos de conexión de servicio de archivos no se admiten actualmente en el emulador de almacenamiento. Consulte [Versiones de los servicios de Azure Storage](/rest/api/storageservices/Versioning-for-the-Azure-Storage-Services) para obtener información acerca de la versión 2014-02-14.
+- El emulador de almacenamiento admite ahora la versión 2014-02-14 de los servicios de almacenamiento en los puntos de conexión de servicio de Blob, Queue y Table. Los puntos de conexión de servicio de archivos no se admiten actualmente en el emulador de almacenamiento. Consulte [Versiones de los servicios de Azure Storage](/rest/api/storageservices/Versioning-for-the-Azure-Storage-Services) para obtener información acerca de la versión 2014-02-14.
 
 ### <a name="version-31"></a>Versión 3.1
 
-* Ahora se admite el almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS) en el emulador de almacenamiento. Las API `Get Blob Service Stats`, `Get Queue Service Stats` y `Get Table Service Stats` se admiten para la cuenta secundaria y siempre devolverán el valor del elemento de respuesta LastSyncTime como la hora actual según la base de datos SQL subyacente. Para el acceso mediante programación a la cuenta secundaria con el emulador de almacenamiento, usa la biblioteca de clientes de almacenamiento para la versión 3.2 de .NET o una versión posterior. Consulte la Documentación de referencia de la biblioteca cliente de Microsoft Azure Storage para .NET para obtener más información.
+- Ahora se admite el almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS) en el emulador de almacenamiento. Las API `Get Blob Service Stats`, `Get Queue Service Stats` y `Get Table Service Stats` se admiten para la cuenta secundaria y siempre devolverán el valor del elemento de respuesta LastSyncTime como la hora actual según la base de datos SQL subyacente. Para el acceso mediante programación a la cuenta secundaria con el emulador de almacenamiento, usa la biblioteca de clientes de almacenamiento para la versión 3.2 de .NET o una versión posterior. Consulte la Documentación de referencia de la biblioteca cliente de Microsoft Azure Storage para .NET para obtener más información.
 
 ### <a name="version-30"></a>Versión 3.0
 
-* El Emulador de Azure Storage ya no se incluye en el mismo paquete que el emulador de proceso.
-* La interfaz gráfica de usuario del emulador de almacenamiento está en desuso. Se reemplazó por una interfaz de línea de comandos que admite scripts. Para obtener más información sobre la interfaz de la línea de comandos, vea Referencia de la herramienta de la línea de comandos del emulador de almacenamiento. La interfaz gráfica seguirá estando presente en la versión 3.0, pero solo se puede acceder a ella cuando se instala el emulador de proceso con el botón secundario en el icono de la bandeja del sistema y se selecciona la opción de mostrar IU del emulador de almacenamiento.
-* La versión 2013-08-15 de los servicios de almacenamiento de Azure ahora es totalmente compatible. (Anteriormente esta versión solo era compatible con versión la versión 2.2.1 Preview del emulador de almacenamiento.)
+- El Emulador de Azure Storage ya no se incluye en el mismo paquete que el emulador de proceso.
+- La interfaz gráfica de usuario del emulador de almacenamiento está en desuso. Se reemplazó por una interfaz de línea de comandos que admite scripts. Para obtener más información sobre la interfaz de la línea de comandos, vea Referencia de la herramienta de la línea de comandos del emulador de almacenamiento. La interfaz gráfica seguirá estando presente en la versión 3.0, pero solo se puede acceder a ella cuando se instala el emulador de proceso con el botón secundario en el icono de la bandeja del sistema y se selecciona la opción de mostrar IU del emulador de almacenamiento.
+- La versión 2013-08-15 de los servicios de almacenamiento de Azure ahora es totalmente compatible. (Anteriormente esta versión solo era compatible con versión la versión 2.2.1 Preview del emulador de almacenamiento.)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Evalúe [Azurite](https://github.com/azure/azurite), el emulador de almacenamiento de código abierto multiplataforma mantenido por la comunidad. 
-* [Ejemplos de Azure Storage mediante .NET](./storage-samples-dotnet.md) contiene vínculos a varios ejemplos de código que puede usar al desarrollar su aplicación.
-* Puede usar el [Explorador de Microsoft Azure Storage](https://storageexplorer.com) para trabajar con recursos de su cuenta de almacenamiento en la nube y del emulador de almacenamiento.
+- Evalúe [Azurite](https://github.com/azure/azurite), el emulador de almacenamiento de código abierto multiplataforma mantenido por la comunidad.
+- [Ejemplos de Azure Storage mediante .NET](./storage-samples-dotnet.md) contiene vínculos a varios ejemplos de código que puede usar al desarrollar su aplicación.
+- Puede usar el [Explorador de Microsoft Azure Storage](https://storageexplorer.com) para trabajar con recursos de su cuenta de almacenamiento en la nube y del emulador de almacenamiento.
 
 ## <a name="see-also"></a>Consulte también
 
-* [Desarrollo de Azure Storage local con Azurite, SDK de Azure y Explorador de Azure Storage](https://blog.jongallant.com/2020/04/local-azure-storage-development-with-azurite-azuresdks-storage-explorer/)
+- [Desarrollo de Azure Storage local con Azurite, SDK de Azure y Explorador de Azure Storage](https://blog.jongallant.com/2020/04/local-azure-storage-development-with-azurite-azuresdks-storage-explorer/)

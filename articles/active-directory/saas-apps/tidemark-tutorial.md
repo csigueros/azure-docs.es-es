@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 8cbccc3fb4cc513d7c86253ae07fbced4626a15e
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
+ms.openlocfilehash: a839588b7b7d5b05a6cf6355345327bae1634a82
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107599662"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124789586"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tidemark"></a>Tutorial: integración de Azure Active Directory con Tidemark
 
@@ -191,7 +191,7 @@ En esta sección, creará un usuario llamado Britta Simon en Tidemark. Trabaje c
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de Tidemark en el panel de acceso y debería iniciar sesión automáticamente en la versión de Tidemark para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
+Al hacer clic en el icono de Tidemark en el panel de acceso y debería iniciar sesión automáticamente en la versión de Tidemark para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

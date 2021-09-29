@@ -3,17 +3,18 @@ title: 'Tutorial: creación de una canalización mediante el uso de plantillas d
 description: En este tutorial, creará una canalización de Azure Data Factory mediante una plantilla de Azure Resource Manager. Esta canalización copia datos desde una instancia de Azure Blob Storage hasta Azure SQL Database.
 author: linda33wj
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 ms.custom: devx-track-azurepowershell
 robots: noindex
-ms.openlocfilehash: f396563b4429d7aa547c86a2a5b3f84ac6bab4b9
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 259a2e2e263f022b4cb91824aba9921f14cc1069
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111957213"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128614833"
 ---
 # <a name="tutorial-use-azure-resource-manager-template-to-create-a-data-factory-pipeline-to-copy-data"></a>Tutorial: Uso de plantillas de Azure Resource Manager para crear una canalización de Data Factory para copiar datos 
 > [!div class="op_single_selector"]
@@ -59,7 +60,7 @@ En este tutorial, va a crear una factoría de datos con las siguientes entidades
 
 Una factoría de datos puede tener una o más canalizaciones. Una canalización puede tener una o más actividades. Hay dos tipos de actividades: [actividades de movimiento de datos](data-factory-data-movement-activities.md) y [actividades de transformación de datos](data-factory-data-transformation-activities.md). En este tutorial, va a crear una canalización con una actividad (actividad de copia).
 
-![Copia de un blob de Azure a Azure SQL Database](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/CopyBlob2SqlDiagram.png) 
+:::image type="content" source="media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/CopyBlob2SqlDiagram.png" alt-text="Copia de un blob de Azure a Azure SQL Database"::: 
 
 En la siguiente sección se proporciona la plantilla completa de Resource Manager para definir las entidades de Data Factory para que pueda ejecutar el tutorial rápidamente y probar la plantilla. Para entender cómo se define cada entidad de Data Factory, consulte la sección [Entidades de Data Factory en la plantilla](#data-factory-entities-in-the-template).
 
@@ -339,15 +340,15 @@ Cree un archivo JSON denominado **ADFCopyTutorialARM Parameters.json** que conti
 
 1. Haga clic en **Factorías de datos** en el menú de la izquierda (o bien) haga clic en **Todos los servicios** y después en **Factorías de datos** bajo la categoría **INTELIGENCIA Y ANÁLISIS**.
    
-    ![Menú Factorías de datos](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/data-factories-menu.png)
+    :::image type="content" source="media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/data-factories-menu.png" alt-text="Menú Factorías de datos":::
 
 1. En la página **Factorías de datos**, busque y encuentre su factoría de datos (AzureBlobToAzureSQLDatabaseDF). 
    
-    ![Búsqueda de la factoría de datos](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/search-for-data-factory.png)  
+    :::image type="content" source="media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/search-for-data-factory.png" alt-text="Búsqueda de la factoría de datos":::  
 
 1. Haga clic en su factoría de datos de Azure. Verá la página principal de la factoría de datos.
    
-    ![Página principal de la factoría de datos](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/data-factory-home-page.png)  
+    :::image type="content" source="media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/data-factory-home-page.png" alt-text="Página principal de la factoría de datos":::  
 
 1. Siga las instrucciones que se indican en [Supervisión de conjuntos de datos y canalizaciones](data-factory-monitor-manage-pipelines.md) para supervisar la canalización y los conjuntos de datos que ha creado en este tutorial. Actualmente, Visual Studio no permite supervisar canalizaciones de Data Factory.
 

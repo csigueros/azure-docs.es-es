@@ -4,12 +4,12 @@ description: Crear alertas del registro de actividad mediante Azure Portal, una 
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 08/12/2021
-ms.openlocfilehash: 8f26806a08ca463350e54d5ce1319fe0323715e7
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: 273f8b3a747685c250958e745ce6a37754859329
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123220041"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124744594"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-by-using-azure-monitor"></a>Crear, ver y administrar las alertas del registro de actividad mediante Azure Monitor  
 
@@ -269,6 +269,5 @@ Para quitar los recursos de regla de alertas del registro de actividad, use el c
 
 - Obtenga información acerca del [esquema de webhook para los registros de actividad](./activity-log-alerts-webhook.md).
 - Lea la [información general sobre los registros de actividad](./activity-log-alerts.md).
-- Más información sobre los [grupos de acciones](../platform/action-groups.md).  
+- Más información sobre los [grupos de acciones](./action-groups.md).  
 - Más información acerca de las [Notificaciones del estado del servicio](../../service-health/service-notifications.md).
-

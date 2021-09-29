@@ -1,14 +1,14 @@
 ---
 title: Ejemplo de plano técnico de CMMC de nivel 3
 description: Introducción al ejemplo de plano técnico de CMMC de nivel 3 Este ejemplo de plano técnico ayuda a los clientes a evaluar determinados controles concretos.
-ms.date: 03/24/2021
+ms.date: 09/08/2021
 ms.topic: sample
-ms.openlocfilehash: df3dac17ce91757640f5b437f5915d41c901afc4
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 2925acf75ada0bd950ca52e3fe63b9c97b5e34ad
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108757644"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128632336"
 ---
 # <a name="cmmc-level-3-blueprint-sample"></a>Ejemplo de plano técnico de CMMC de nivel 3
 
@@ -280,8 +280,8 @@ En la tabla siguiente se proporciona una lista de los parámetros del artefacto 
 |CMMC nivel 3|Asignación de directiva|Espacios de nombres excluidos de la evaluación de la directiva: los pods del clúster de Kubernetes solo deben usar una red de host y un intervalo de puertos aprobados|Lista de los espacios de nombres de Kubernetes que se excluirán de la evaluación de directivas.|
 |CMMC nivel 3|Asignación de directiva|Versión de Java más reciente para App Services|Versión de Java más reciente admitida para App Services|
 |CMMC nivel 3|Asignación de directiva|Versión de Python más reciente para Linux para App Services|Versión de Python más reciente admitida para App Services|
-|CMMC nivel 3|Asignación de directiva|Opcional: lista de imágenes de máquina virtual que han admitido que el sistema operativo Linux se agregue al ámbito al auditar la implementación del agente de Log Analytics|Valor de ejemplo: "/subscriptions/<subscriptionId>/resourceGroups/YourResourceGroup/providers/Microsoft.Compute/images/ContosoStdImage"|
-|CMMC nivel 3|Asignación de directiva|Opcional: lista de imágenes de máquina virtual que han admitido que el sistema operativo Windows se agregue al ámbito al auditar la implementación del agente de Log Analytics|Valor de ejemplo: "/subscriptions/<subscriptionId>/resourceGroups/YourResourceGroup/providers/Microsoft.Compute/images/ContosoStdImage"|
+|CMMC nivel 3|Asignación de directiva|Opcional: lista de imágenes de máquina virtual que han admitido que el sistema operativo Linux se agregue al ámbito al auditar la implementación del agente de Log Analytics|Valor de ejemplo: `/subscriptions/<subscriptionId>/resourceGroups/YourResourceGroup/providers/Microsoft.Compute/images/ContosoStdImage`|
+|CMMC nivel 3|Asignación de directiva|Opcional: lista de imágenes de máquina virtual que han admitido que el sistema operativo Windows se agregue al ámbito al auditar la implementación del agente de Log Analytics|Valor de ejemplo: `/subscriptions/<subscriptionId>/resourceGroups/YourResourceGroup/providers/Microsoft.Compute/images/ContosoStdImage`|
 |CMMC nivel 3|Asignación de directiva|Lista de regiones en las que se debe habilitar Network Watcher|Permite la auditoría si Network Watcher no se ha habilitado para las regiones.|
 |CMMC nivel 3|Asignación de directiva|Lista de tipos de recursos que deben tener los registros de diagnóstico habilitados||
 |CMMC nivel 3|Asignación de directiva|Valor máximo del intervalo de puertos de host permitido que los pods pueden usar en el espacio de nombres de la red de host|El valor máximo del intervalo de puertos de host permitido que los pods pueden usar en el espacio de nombres de la red de host.|

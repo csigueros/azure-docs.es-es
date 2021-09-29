@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 07/10/2020
 ms.author: marayerm
-ms.openlocfilehash: 87520d26ac4f83297d076ff7539a7731ddbd09fd
-ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
+ms.openlocfilehash: 37486f22aba1be1ac987238d38e69b95553a8629
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114708805"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128638223"
 ---
 # <a name="azure-storage-explorer-support-lifecycle-and-policy"></a>Ciclo de vida y directiva de soporte técnico del Explorador de Azure Storage
 
@@ -39,7 +39,7 @@ A partir de la versión 1.13.0, se mostrará una alerta en la aplicación cuando
 
 En esta tabla se describe la fecha de lanzamiento y la fecha de finalización del soporte técnico de todas las versiones del Explorador de Azure Storage.
 
-| Versión del Explorador de Storage  | Fecha de la versión       | Fecha de finalización de soporte técnico |
+| Versión del Explorador de Storage  | Fecha de la versión         | Fecha de finalización de soporte técnico |
 |:-------------------------:|:------------------:|:-------------------:|
 | v1.20.1                   | 23 de julio de 2021      | 23 de julio de 2022       |
 | v1.20.0                   | 25 de junio de 2021      | 25 de junio de 2022       |
@@ -56,7 +56,7 @@ En esta tabla se describe la fecha de lanzamiento y la fecha de finalización de
 | v1.14.0                   | 24 de junio de 2020      | 14 de julio de 2021       |
 | v1.13.1                   | 18 de mayo de 2020       | 14 de julio de 2021       |
 | v1.13.0                   | 1 de mayo de 2020        | 14 de julio de 2021       |
-| v1.12.0                   | 16 de enero de 2020   | 14 de julio de 2021       |
+| v1.12.0                   | 16 de enero de 2020     | 14 de julio de 2021       |
 | v1.11.2                   | 17 de diciembre de 2019  | 14 de julio de 2021       |
 | v1.11.1                   | 20 de noviembre de 2019  | 14 de julio de 2021       |
 | v1.11.0                   | 4 de noviembre de 2019   | 14 de julio de 2021       |
@@ -69,7 +69,7 @@ En esta tabla se describe la fecha de lanzamiento y la fecha de finalización de
 | v1.6.2                    | 8 de enero de 2019    | 14 de julio de 2021       |
 | v1.6.1                    | 18 de diciembre de 2018  | 14 de julio de 2021       |
 | v1.6.0                    | 4 de diciembre de 2018   | 14 de julio de 2021       |
-| v1.5.0                    | 29 de octubre de 2018   | 14 de julio de 2021       |
+| v1.5.0                    | 29 de octubre de 2018     | 14 de julio de 2021       |
 | v1.4.4                    | 15 de octubre de 2018   | 14 de julio de 2021       |
 | v1.4.2                    | 24 de septiembre de 2018 | 14 de julio de 2021       |
 | v1.4.1                    | 28 de agosto de 2018    | 14 de julio de 2021       |

@@ -8,12 +8,12 @@ ms.date: 09/21/2021
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 8556dc719aa8abcfa1506b4d1147c29959b32746
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 5ea7c1afd57fa566f9dcc5f92760f8350b978783
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123427631"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128605418"
 ---
 # <a name="azcopy-remove"></a>azcopy remove
 
@@ -40,7 +40,7 @@ azcopy rm "https://[account].blob.core.windows.net/[container]/[path/to/blob]?[S
 ```
 
 Quite todo un directorio virtual con un token de SAS:
- 
+
 ```azcopy
 azcopy rm "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive=true
 ```
@@ -72,6 +72,7 @@ azcopy rm "https://[account].blob.core.windows.net/[container]/[path/to/parent/d
     blob1
     blob2
 ```
+
 Quite un solo archivo de una cuenta de Blob Storage que tenga un espacio de nombres jerárquico (no se admite incluir/excluir):
 
 ```azcopy
@@ -104,9 +105,9 @@ azcopy rm "https://[account].dfs.core.windows.net/[container]/[path/to/directory
 
 **--include-pattern** string   Incluye solo los archivos en los que el nombre coincide con la lista de patrones. Por ejemplo: *`.jpg`;* `.pdf`;`exactName`
 
-**--list-of-files** string   Define la ubicación de un archivo que contiene la lista de archivos y directorios que se van a eliminar. Las rutas de acceso relativas deben delimitarse mediante saltos de línea y las rutas de acceso NO deben estar codificadas como URL. 
+**--list-of-files** string   Define la ubicación de un archivo que contiene la lista de archivos y directorios que se van a eliminar. Las rutas de acceso relativas deben delimitarse mediante saltos de línea y las rutas de acceso NO deben estar codificadas como URL.
 
-Cadena **--list-of-versions** Especifica un archivo en el que cada id. de versión aparece en una línea independiente. Asegúrese de que el origen apunte a un único blob y que todos los id. de versión especificados en el archivo con esta marca solo pertenezcan al blob de origen. Los identificadores de versión especificados del blob determinado se eliminarán de Azure Storage. 
+Cadena **--list-of-versions** Especifica un archivo en el que cada id. de versión aparece en una línea independiente. Asegúrese de que el origen apunte a un único blob y que todos los id. de versión especificados en el archivo con esta marca solo pertenezcan al blob de origen. Los identificadores de versión especificados del blob determinado se eliminarán de Azure Storage.
 
 **--log-level** string   Define el nivel de detalle del registro para el archivo de registro. Los niveles disponibles son: `INFO`(todas las solicitudes/respuestas), `WARNING`(respuestas lentas), `ERROR`(solo solicitudes con errores) y `NONE`(sin registros de salida). (`INFO` predeterminado) (`INFO` predeterminado)
 

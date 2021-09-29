@@ -5,14 +5,14 @@ author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.date: 07/14/2020
+ms.date: 09/15/2021
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 1ffdba78d43d558f5d84ec30153df17dfba83cc1
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 02a1a6d5088a722c0b919811afc0ac89c7c52550
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114460128"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128593579"
 ---
 # <a name="known-issues-in-azure-digital-twins"></a>Problemas conocidos en Azure Digital Twins
 
@@ -25,15 +25,6 @@ En este artículo se proporciona información sobre los problemas conocidos asoc
 | ¿Cómo me afecta esto? | Causa | Resolución |
 | --- | --- | --- |
 | In&nbsp;Azure&nbsp;Digital&nbsp;Twins, este problema afecta a los siguientes grupos de comandos:<br><br>`az dt route`<br><br>`az dt model`<br><br>`az dt twin` | Es el resultado de un problema conocido en Cloud Shell: [La obtención del token de Cloud Shell genera intermitentemente el error "400 Error de cliente: solicitud incorrecta](https://github.com/Azure/azure-cli/issues/11749).<br><br>Esto presenta un problema con los tokens de autenticación de la instancia de Azure Digital Twins y la autenticación basada en la [identidad administrada](../active-directory/managed-identities-azure-resources/overview.md) predeterminada del Cloud Shell. <br><br>Esto no afecta a los comandos de Azure Digital Twins de los grupos de comandos `az dt` o `az dt endpoint`, ya que usan otro tipo de token de autenticación (basado en Azure Resource Manager), que no tiene ningún problema con la autenticación de identidad administrada de Cloud Shell. | Una forma de resolver este problema consiste en volver a ejecutar el comando `az login` en Cloud Shell y completar los pasos de inicio de sesión siguientes. Esta acción cambiará la sesión de la autenticación de identidad administrada, lo que evita el problema raíz. Después, puede volver a ejecutar el comando.<br><br>Como alternativa, puede abrir el panel de Cloud Shell en Azure Portal y completar desde allí el trabajo de Cloud Shell.<br>:::image type="content" source="media/troubleshoot-known-issues/portal-launch-icon.png" alt-text="Captura de pantalla del icono de Cloud Shell en la barra de iconos de Azure Portal." lightbox="media/troubleshoot-known-issues/portal-launch-icon.png":::<br><br>Otra alternativa consiste en [instalar la CLI de Azure](/cli/azure/install-azure-cli) en su máquina para poder ejecutar localmente comandos de la CLI de Azure. La CLI local no experimenta este problema. |
-
-
-## <a name="missing-role-assignment-after-scripted-setup"></a>Asignación de roles que faltan después de la instalación con script
-
-**Descripción del problema:** algunos usuarios pueden experimentar problemas con la parte de asignación de roles que se describe en [Configuración de una instancia y autenticación (con scripts)](how-to-set-up-instance-scripted.md). El script no indica un error, pero el rol *Propietario de datos de Azure Digital Twins* no se ha asignado correctamente al usuario, lo que afectará a la posibilidad de crear otros recursos más adelante.
-
-| ¿Cómo me afecta esto? | Causa | Solución |
-| --- | --- | --- |
-| Para determinar si la asignación de roles se configuró correctamente después de ejecutar el script, siga las instrucciones de la sección [Comprobación de la asignación de roles de usuario](how-to-set-up-instance-scripted.md#verify-user-role-assignment) del artículo de configuración. Si el usuario no se muestra con este rol, este problema le afecta. | En el caso de los usuarios que iniciaron sesión con una [cuenta Microsoft (MSA)](https://account.microsoft.com/account) personal, el identificador de entidad de seguridad del usuario que lo identifica en comandos de este tipo puede ser diferente del correo electrónico de inicio de sesión del usuario, lo que dificulta la detección y el uso de la asignación del rol correctamente por el script. | Para resolverlo, puede configurar la asignación de roles manualmente mediante las [instrucciones de la CLI](how-to-set-up-instance-cli.md#set-up-user-access-permissions) o las [instrucciones de Azure Portal](how-to-set-up-instance-portal.md#set-up-user-access-permissions). |
 
 ## <a name="issue-with-interactive-browser-authentication-on-azureidentity-120"></a>Problema con la autenticación interactiva del explorador en Azure.Identity 1.2.0
 

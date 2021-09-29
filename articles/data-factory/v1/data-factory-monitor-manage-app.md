@@ -5,14 +5,15 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 3a9eb73aab381f90ae51300bff1250348916c2ab
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 76acbba66ccbeb18637ce0f181a702f8696148d6
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104779603"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128591907"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Supervisión y administración de canalizaciones de Azure Data Factory mediante la aplicación de supervisión y administración
 > [!div class="op_single_selector"]
@@ -35,11 +36,11 @@ En este artículo se describe cómo usar la aplicación de supervisión y admini
 ## <a name="launch-the-monitoring-and-management-app"></a>Inicio de la aplicación de supervisión y administración
 Para iniciar la aplicación de supervisión y administración, haga clic en el icono **Monitoring & Manage** (Supervisión y administración), de la hoja **Factoría de datos** de su factoría de datos.
 
-![Icono de supervisión en la página de inicio de Factoría de datos](./media/data-factory-monitor-manage-app/MonitoringAppTile.png)
+:::image type="content" source="./media/data-factory-monitor-manage-app/MonitoringAppTile.png" alt-text="Icono de supervisión en la página de inicio de Factoría de datos":::
 
 La aplicación de supervisión y administración debería abrirse en una ventana independiente.  
 
-![Aplicación de supervisión y administración](./media/data-factory-monitor-manage-app/AppLaunched.png)
+:::image type="content" source="./media/data-factory-monitor-manage-app/AppLaunched.png" alt-text="Aplicación de supervisión y administración":::
 
 > [!NOTE]
 > Si ve que el explorador web está atascado en "Autorizando...", desactive la casilla **Block third party cookies and site data** (Bloquear cookies y datos de sitios de terceros), o déjela activada y cree una excepción para **login.microsoftonline.com** e intente volver a abrir la aplicación.
@@ -70,7 +71,7 @@ En el Explorador de recursos, aparecen todos los recursos (canalizaciones, conju
 * Las propiedades del objeto seleccionado aparecen en la ventana Propiedades (panel derecho).
 * Aparece la definición de JSON del objeto seleccionado, si procede. Por ejemplo: un servicio vinculado, un conjunto de datos o una canalización.
 
-![Explorador de recursos](./media/data-factory-monitor-manage-app/ResourceExplorer.png)
+:::image type="content" source="./media/data-factory-monitor-manage-app/ResourceExplorer.png" alt-text="Explorador de recursos":::
 
 Consulte el artículo sobre [programación y ejecución](data-factory-scheduling-and-execution.md) para información conceptual detallada sobre las ventanas de actividad.
 
@@ -83,51 +84,51 @@ La vista de diagrama de una factoría de datos es un panel único para supervisa
 
 Si la canalización está habilitada (es decir, no en estado de pausa), se indicará con una línea verde:
 
-![Canalización en ejecución](./media/data-factory-monitor-manage-app/PipelineRunning.png)
+:::image type="content" source="./media/data-factory-monitor-manage-app/PipelineRunning.png" alt-text="Canalización en ejecución":::
 
 Para pausar, reanudar o terminar una canalización, selecciónela en la vista de diagrama y utilice los botones de la barra de comandos.
 
-![Pausa/reanudación en la barra de comandos](./media/data-factory-monitor-manage-app/SuspendResumeOnCommandBar.png)
+:::image type="content" source="./media/data-factory-monitor-manage-app/SuspendResumeOnCommandBar.png" alt-text="Pausa/reanudación en la barra de comandos":::
  
 En la vista de diagrama hay tres botones en la barra de comandos para la canalización. Puede usar el segundo botón para pausar la canalización. La pausa no termina las actividades que se estén ejecutando, estas continúan hasta su finalización. El tercer botón pausa la canalización y termina las actividades que se están ejecutando. El primer botón reanuda la canalización. Cuando la canalización está en pausa, su color cambia. Por ejemplo, la siguiente imagen muestra una canalización en pausa: 
 
-![Canalización en pausa](./media/data-factory-monitor-manage-app/PipelinePaused.png)
+:::image type="content" source="./media/data-factory-monitor-manage-app/PipelinePaused.png" alt-text="Canalización en pausa":::
 
 Con la tecla Ctrl puede realizar una selección múltiple de dos o más canalizaciones. Puede utilizar los botones de la barra de comandos para pausar y reanudar varias canalizaciones a la vez.
 
 También puede hacer clic con el botón derecho en una canalización y seleccionar las opciones apropiadas para suspender, reanudar o terminar una canalización. 
 
-![Menú contextual de la canalización](./media/data-factory-monitor-manage-app/right-click-menu-for-pipeline.png)
+:::image type="content" source="./media/data-factory-monitor-manage-app/right-click-menu-for-pipeline.png" alt-text="Menú contextual de la canalización":::
 
 Haga clic en la opción **Abrir canalización** para ver todas las actividades de la canalización. 
 
-![Menú Abrir canalización](./media/data-factory-monitor-manage-app/OpenPipelineMenu.png)
+:::image type="content" source="./media/data-factory-monitor-manage-app/OpenPipelineMenu.png" alt-text="Menú Abrir canalización":::
 
 En la vista de canalización que se abre, verá todas las actividades de la canalización. En este ejemplo, solamente hay una actividad: la actividad de copia. 
 
-![Canalización abierta](./media/data-factory-monitor-manage-app/OpenedPipeline.png)
+:::image type="content" source="./media/data-factory-monitor-manage-app/OpenedPipeline.png" alt-text="Canalización abierta":::
 
 Para volver a la vista anterior, haga clic en el nombre de la factoría de datos en el menú de la ruta de navegación en la parte superior.
 
 En la vista de canalización, cuando se selecciona un conjunto de datos de salida o cuando se pasa el mouse sobre él, se ve la ventana emergente Activity Windows (Ventanas de actividad) de dicho conjunto de datos.
 
-![Ventana emergente Activity Windows (Ventanas de actividad)](./media/data-factory-monitor-manage-app/ActivityWindowsPopup.png)
+:::image type="content" source="./media/data-factory-monitor-manage-app/ActivityWindowsPopup.png" alt-text="Ventana emergente Activity Windows (Ventanas de actividad)":::
 
 Puede hacer clic en una ventana de actividad para ver sus detalles en la ventana **Propiedades** del panel derecho.
 
-![Propiedades de la ventana de actividad](./media/data-factory-monitor-manage-app/ActivityWindowProperties.png)
+:::image type="content" source="./media/data-factory-monitor-manage-app/ActivityWindowProperties.png" alt-text="Propiedades de la ventana de actividad":::
 
 En el panel derecho, cambie a la pestaña **Activity Window Explorer** (Explorador de ventanas de actividad) para ver más información.
 
-![Captura de pantalla que muestra cómo obtener acceso a la pestaña del explorador de ventanas de actividad.](./media/data-factory-monitor-manage-app/ActivityWindowExplorer.png)
+:::image type="content" source="./media/data-factory-monitor-manage-app/ActivityWindowExplorer.png" alt-text="Captura de pantalla que muestra cómo obtener acceso a la pestaña del explorador de ventanas de actividad.":::
 
 También verá las **variables resueltas** de cada intento de ejecución de una actividad en la sección **Intentos**.
 
-![Variables resueltas](./media/data-factory-monitor-manage-app/ResolvedVariables.PNG)
+:::image type="content" source="./media/data-factory-monitor-manage-app/ResolvedVariables.PNG" alt-text="Variables resueltas":::
 
 Cambie a la pestaña **Script** para ver la definición del script de JSON del objeto seleccionado.   
 
-![Pestaña de script](./media/data-factory-monitor-manage-app/ScriptTab.png)
+:::image type="content" source="./media/data-factory-monitor-manage-app/ScriptTab.png" alt-text="Pestaña de script":::
 
 Puede ver las ventanas de actividad en tres lugares:
 
@@ -137,16 +138,16 @@ Puede ver las ventanas de actividad en tres lugares:
 
 En el elemento emergente Activity Windows (Ventanas de actividad) y Activity Window Explorer (Explorador de ventanas de actividad) puede desplazarse a la semana anterior o siguiente con las flechas izquierda y derecha.
 
-![Flechas izquierda/derecha de Activity Window Explorer (Explorador de ventanas de actividad)](./media/data-factory-monitor-manage-app/ActivityWindowExplorerLeftRightArrows.png)
+:::image type="content" source="./media/data-factory-monitor-manage-app/ActivityWindowExplorerLeftRightArrows.png" alt-text="Flechas izquierda/derecha de Activity Window Explorer (Explorador de ventanas de actividad)":::
 
 En la parte inferior de la vista de diagrama aparecen estos botones: acercar, alejar, ajustar, 100 % y bloquear el diseño. El botón para **bloquear el diseño** mover tablas y canalizaciones por error en la vista de diagrama. Está activado de forma predeterminada. Puede desactivarlo y mover las entidades por el diagrama. Si lo desactiva, puede usar el último botón para colocar automáticamente las tablas y las canalizaciones. También puede acercar o alejar con la rueda del mouse.
 
-![Comandos de ampliación de la vista de diagrama](./media/data-factory-monitor-manage-app/DiagramViewZoomCommands.png)
+:::image type="content" source="./media/data-factory-monitor-manage-app/DiagramViewZoomCommands.png" alt-text="Comandos de ampliación de la vista de diagrama":::
 
 ### <a name="activity-windows-list"></a>Lista Activity Windows (Ventanas de actividad)
 La lista Activity Windows (Ventanas de actividad) de la parte inferior del panel central muestra todas las ventanas de actividad del conjunto de datos seleccionado en el Explorador de recursos o en la vista de diagrama. De forma predeterminada, la lista está en orden descendente, lo que significa que en la parte superior aparece la ventana de actividad más reciente.
 
-![Lista Activity Windows (Ventanas de actividad)](./media/data-factory-monitor-manage-app/ActivityWindowsList.png)
+:::image type="content" source="./media/data-factory-monitor-manage-app/ActivityWindowsList.png" alt-text="Lista Activity Windows (Ventanas de actividad)":::
 
 Esta lista no se actualiza automáticamente, por lo que debe usar el botón Actualizar de la barra de herramientas para hacerlo manualmente.  
 
@@ -212,7 +213,7 @@ Las ventanas de actividad pueden estar en uno de los siguientes estados:
 
 Al hacer clic en una de las ventanas de actividad de la lista, verá sus detalles en **Activity Windows Explorer** (Explorador de ventanas de actividad) o en la ventana **Propiedades** de la derecha.
 
-![Captura de pantalla que muestra cómo ver los detalles de una ventana de actividad.](./media/data-factory-monitor-manage-app/ActivityWindowExplorer-2.png)
+:::image type="content" source="./media/data-factory-monitor-manage-app/ActivityWindowExplorer-2.png" alt-text="Captura de pantalla que muestra cómo ver los detalles de una ventana de actividad.":::
 
 ### <a name="refresh-activity-windows"></a>Actualizar las ventanas de actividad
 Los detalles no se actualizan automáticamente, por lo que debe usar el segundo botón, Actualizar, de la barra de comandos para actualizar manualmente la lista de ventanas de actividad.  
@@ -220,14 +221,14 @@ Los detalles no se actualizan automáticamente, por lo que debe usar el segundo 
 ### <a name="properties-window"></a>Ventana Propiedades
 La ventana Propiedades está en el panel del extremo derecho de la Aplicación de supervisión y administración.
 
-![Ventana Propiedades](./media/data-factory-monitor-manage-app/PropertiesWindow.png)
+:::image type="content" source="./media/data-factory-monitor-manage-app/PropertiesWindow.png" alt-text="Ventana Propiedades":::
 
 Muestra las propiedades del elemento seleccionado en el Explorador de recursos (en la vista de árbol), la vista de diagrama o la lista Activity Windows (Ventanas de actividad).
 
 ### <a name="activity-window-explorer"></a>Activity Window Explorer
 La ventana **Activity Window Explorer** (Explorador de ventanas de actividad) se encuentra en el panel más a la derecha de la aplicación de supervisión y administración. Muestra detalles de la ventana de actividad seleccionada en la ventana emergente Activity Windows (Ventanas de actividad) o en la lista Activity Windows (Ventanas de actividad).
 
-![Activity Window Explorer](./media/data-factory-monitor-manage-app/ActivityWindowExplorer-3.png)
+:::image type="content" source="./media/data-factory-monitor-manage-app/ActivityWindowExplorer-3.png" alt-text="Activity Window Explorer":::
 
 Puede cambiar a una ventana de actividad diferente haciendo clic en ella en la vista de calendario de la parte superior. También puede usar los botones de flecha izquierda/flecha derecha de la parte superior para ver las ventanas de actividad de la semana anterior o siguiente.
 
@@ -236,14 +237,14 @@ Puede usar los botones de la barra de herramientas del panel inferior para volve
 ### <a name="script"></a>Script
 Puede usar la pestaña **Script** para ver la definición de JSON de la entidad de Factoría de datos seleccionada (servicio vinculado, conjunto de datos o canalización).
 
-![Pestaña de script](./media/data-factory-monitor-manage-app/ScriptTab.png)
+:::image type="content" source="./media/data-factory-monitor-manage-app/ScriptTab.png" alt-text="Pestaña de script":::
 
 ## <a name="use-system-views"></a>Vistas de uso del sistema
 La aplicación de supervisión y administración incluye vistas del sistema pregeneradas (**Recent activity windows** [Ventanas de actividad recientes], **Failed activity windows** [Ventanas de actividades con error] y **In-Progress activity windows** [Ventanas de actividad en curso]) que permiten ver las ventanas de actividad recientes, las que contienen errores o las que están en curso de su factoría de datos.
 
 Cambie a la pestaña **Monitoring Views** (Vistas de supervisión) de la izquierda haciendo clic en ella.
 
-![Pestaña Vistas de supervisión](./media/data-factory-monitor-manage-app/MonitoringViewsTab.png)
+:::image type="content" source="./media/data-factory-monitor-manage-app/MonitoringViewsTab.png" alt-text="Pestaña Vistas de supervisión":::
 
 Actualmente, hay tres vistas del sistema compatibles. Seleccione una opción para ver las ventanas de actividad recientes, las ventanas de actividad con error o las ventanas de actividad en curso en la lista Activity Windows (Ventanas de actividad) (en la parte inferior del panel central).
 
@@ -254,7 +255,7 @@ Puede usar la vista **Failed activity windows** (Ventanas de actividad con error
 ## <a name="sort-and-filter-activity-windows"></a>Ordenado y filtrado de las ventanas de actividad
 Cambie la configuración de **hora de inicio** y **hora de finalización** en la barra de comandos para filtrar las ventanas de actividad. Después de cambiar la hora de inicio y de finalización, haga clic en el botón situado junto a la hora de finalización para actualizar la lista Activity Windows (Ventanas de actividad).
 
-![Horas de inicio y finalización](./media/data-factory-monitor-manage-app/StartAndEndTimes.png)
+:::image type="content" source="./media/data-factory-monitor-manage-app/StartAndEndTimes.png" alt-text="Horas de inicio y finalización":::
 
 > [!NOTE]
 > Actualmente, en la aplicación de supervisión y administración todas las horas están en formato UTC.
@@ -263,7 +264,7 @@ Cambie la configuración de **hora de inicio** y **hora de finalización** en la
 
 En la **lista de ventanas de actividad**, haga clic en el nombre de una columna (por ejemplo, Estado).
 
-![Menú de columna de la lista Activity Windows (Ventanas de actividad)](./media/data-factory-monitor-manage-app/ActivityWindowsListColumnMenu.png)
+:::image type="content" source="./media/data-factory-monitor-manage-app/ActivityWindowsListColumnMenu.png" alt-text="Menú de columna de la lista Activity Windows (Ventanas de actividad)":::
 
 Puede hacer lo siguiente:
 
@@ -273,20 +274,20 @@ Puede hacer lo siguiente:
 
 Cuando especifique un filtro en una columna, verá que el botón de filtro se habilita para esa columna, lo cual indica que los valores de la columna están filtrados.
 
-![Filtro de columna de la lista Activity Windows (Ventanas de actividad)](./media/data-factory-monitor-manage-app/ActivityWindowsListFilterInColumn.png)
+:::image type="content" source="./media/data-factory-monitor-manage-app/ActivityWindowsListFilterInColumn.png" alt-text="Filtro de columna de la lista Activity Windows (Ventanas de actividad)":::
 
 Puede usar la misma ventana emergente para borrar filtros. Para borrar todos los filtros de la lista Activity Windows (Ventanas de actividad), haga clic en el botón para borrar el filtro de la barra de comandos.
 
-![Borrado de todos los filtros de la lista Activity Windows (Ventanas de actividad)](./media/data-factory-monitor-manage-app/ClearAllFiltersActivityWindowsList.png)
+:::image type="content" source="./media/data-factory-monitor-manage-app/ClearAllFiltersActivityWindowsList.png" alt-text="Borrado de todos los filtros de la lista Activity Windows (Ventanas de actividad)":::
 
 ## <a name="perform-batch-actions"></a>Acciones por lotes
 ### <a name="rerun-selected-activity-windows"></a>Volver a ejecutar las ventanas de actividad seleccionadas
 Seleccione una ventana de actividad, haga clic en la flecha hacia abajo del primer botón de la barra de comandos y seleccione **Rerun** (Volver a ejecutar) / **Rerun with upstream in pipeline** (Volver a ejecutar con canal de subida en la canalización). Al seleccionar la opción **Rerun with upstream in pipeline** (Volver a ejecutar con canal de subida en la canalización), también se vuelven a ejecutar todas las ventanas de actividad con canal de subida.
-    ![Volver a ejecutar una ventana de actividad](./media/data-factory-monitor-manage-app/ReRunSlice.png)
+    :::image type="content" source="./media/data-factory-monitor-manage-app/ReRunSlice.png" alt-text="Volver a ejecutar una ventana de actividad":::
 
 También puede seleccionar varias ventanas de actividad en la lista y volver a ejecutarlas al mismo tiempo. Puede filtrar las ventanas de actividad según el estado (por ejemplo, **Failed** [Con error]) y volver a ejecutar las ventanas de actividad con error tras corregir el problema que provocaba el error en las ventanas de actividad. Vea la siguiente sección para obtener más información sobre el filtrado de ventanas de actividad en la lista.  
 
 ### <a name="pauseresume-multiple-pipelines"></a>Pausar y reanudar varias canalizaciones
 También puede realizar una selección múltiple de dos o más canalizaciones con la tecla Ctrl. Puede utilizar los botones de la barra de comandos (que se resaltan en el rectángulo rojo en la imagen siguiente) para pausarlas o reanudarlas.
 
-![Pausa/reanudación en la barra de comandos](./media/data-factory-monitor-manage-app/SuspendResumeOnCommandBar.png)
+:::image type="content" source="./media/data-factory-monitor-manage-app/SuspendResumeOnCommandBar.png" alt-text="Pausa/reanudación en la barra de comandos":::

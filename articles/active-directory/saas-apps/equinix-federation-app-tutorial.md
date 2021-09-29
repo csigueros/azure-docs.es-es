@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/22/2021
 ms.author: jeedes
-ms.openlocfilehash: 6b74f4616f988d27bca7c7087d33bdb5f5a2a324
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 2f7929875ac9cb489f79a7755066c85848e9ebe1
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108130700"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124753376"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-equinix-federation-app"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Equinix Federation App
 
@@ -131,7 +131,7 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 Acceda directamente a la dirección URL de inicio de sesión de Equinix Federation App y comience el flujo de inicio de sesión desde allí.
 
  > [!NOTE]
- > Si intenta probar la aplicación de Azure mediante el vínculo **probar esta aplicación** o si hace clic en el icono de Equinix Federation App, no funcionará, ya que se trata del inicio de sesión único habilitado mediante IDP, que Equinix no admite de forma predeterminada.  Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+ > Si intenta probar la aplicación de Azure mediante el vínculo **probar esta aplicación** o si hace clic en el icono de Equinix Federation App, no funcionará, ya que se trata del inicio de sesión único habilitado mediante IDP, que Equinix no admite de forma predeterminada.  Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 
 ## <a name="next-steps"></a>Pasos siguientes

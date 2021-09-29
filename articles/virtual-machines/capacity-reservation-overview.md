@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/09/2021
 ms.reviewer: cynthn, jushiman
 ms.custom: template-how-to
-ms.openlocfilehash: ee14ea525575a49abd4e4026201c3fa39ffa84b9
-ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
+ms.openlocfilehash: fe50e8db24f0f280365e435d8a205e9b45ac6ccb
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123273315"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124774567"
 ---
 # <a name="on-demand-capacity-reservation-preview"></a>Reserva de capacidad a petición (versión preliminar)
 
@@ -137,7 +137,7 @@ La reserva de capacidad no crea límites en el número de implementaciones de m�
 
 Cuando se crea una reserva, Azure reserva el número solicitado de instancias de capacidad en la ubicación especificada: 
 
-![Imagen 1 de la reserva de capacidad.](\media\capacity-reservation-overview\capacity-reservation-1.jpg) 
+![Imagen 1 de la reserva de capacidad.](./media/capacity-reservation-overview/capacity-reservation-1.jpg) 
 
 Realice el seguimiento del estado de la reserva general por medio de las siguientes propiedades:  
 - `capacity` = cantidad total de instancias reservadas por el cliente 
@@ -148,7 +148,7 @@ El ejemplo anterior empezará con `capacity` como 2 y una longitud de `virutalM
 
 Cuando después se asigna una máquina virtual a la reserva de capacidad, consumirá lógicamente una de las instancias de capacidad reservada: 
 
-![Imagen 2 de la reserva de capacidad.](\media\capacity-reservation-overview\capacity-reservation-2.jpg) 
+![Imagen 2 de la reserva de capacidad.](./media/capacity-reservation-overview/capacity-reservation-2.jpg) 
 
 Ahora el estado de la reserva de capacidad mostrará `capacity` como 2 y una longitud de `virutalMachinesAllocated`, y `virtualMachinesAssociated` como 1.  
 
@@ -156,23 +156,23 @@ Las asignaciones sobre la reserva de capacidad se realizarán correctamente siem
 
 En el ejemplo, cuando se asigna una tercera máquina virtual a la reserva de capacidad, la reserva entra en el estado [sobreasignado](capacity-reservation-overallocate.md). Para esta tercera máquina virtual se necesitará la cuota sin usar y el suministro de capacidad adicional de Azure. Después de asignar la tercera máquina virtual, la reserva de capacidad tiene este aspecto: 
 
-![Imagen 3 de la reserva de capacidad.](\media\capacity-reservation-overview\capacity-reservation-3.jpg) 
+![Imagen 3 de la reserva de capacidad.](./media/capacity-reservation-overview/capacity-reservation-3.jpg) 
 
 `capacity` es 2 y la longitud de `virutalMachinesAllocated`, y `virtualMachinesAssociated` es 3. 
 
 Ahora imagine que la aplicación se reduce verticalmente al mínimo de dos máquinas virtuales. Como la máquina virtual 0 necesita una actualización, se elige para la desasignación. La reserva cambia automáticamente a este estado: 
 
-![Imagen 4 de la reserva de capacidad.](\media\capacity-reservation-overview\capacity-reservation-4.jpg) 
+![Imagen 4 de la reserva de capacidad.](./media/capacity-reservation-overview/capacity-reservation-4.jpg) 
 
 `capacity` y la longitud `virtualMachinesAllocated` son 2. Pero la longitud de `virtualMachinesAssociated` sigue siendo 3 ya que la máquina virtual 0, aunque está desasignada, todavía está asociada a la reserva de capacidad.  
 
 La reserva de capacidad existirá hasta que se elimine de forma explícita. Para eliminar una reserva de capacidad, el primer paso consiste en desasociar todas las máquinas virtuales de la propiedad `virtualMachinesAssociated`. Una vez que se complete la desasociación, la reserva de capacidad debe tener este aspecto: 
 
-![Imagen 5 de la reserva de capacidad.](\media\capacity-reservation-overview\capacity-reservation-5.jpg) 
+![Imagen 5 de la reserva de capacidad.](./media/capacity-reservation-overview/capacity-reservation-5.jpg) 
 
 Ahora el estado de la reserva de capacidad mostrará `capacity` como 2 y una longitud de `virtualMachinesAssociated`, y `virtualMachinesAllocated` como 0. Desde este estado, se puede eliminar la reserva de capacidad. Una vez que se haya eliminado ya no pagará por la reserva.  
 
-![Imagen 6 de la reserva de capacidad.](\media\capacity-reservation-overview\capacity-reservation-6.jpg)
+![Imagen 6 de la reserva de capacidad.](./media/capacity-reservation-overview/capacity-reservation-6.jpg)
 
 
 ## <a name="usage-and-billing"></a>Uso y facturación 
@@ -183,13 +183,13 @@ Cuando una reserva de capacidad está vacía, se notifica el uso de la máquina 
 
 Por ejemplo, imagine que se ha creado una reserva de capacidad con la cantidad reservada 2. La suscripción tiene acceso a una instancia reservada de máquina virtual correspondiente del mismo tamaño. El resultado son dos flujos de uso para la reserva de capacidad, uno de los cuales está cubierto por la instancia reservada: 
 
-![Imagen 7 de la reserva de capacidad.](\media\capacity-reservation-overview\capacity-reservation-7.jpg)
+![Imagen 7 de la reserva de capacidad.](./media/capacity-reservation-overview/capacity-reservation-7.jpg)
 
 En la imagen anterior, se aplica un descuento de instancia reservada de máquina virtual a una de las instancias sin usar y el costo de esa instancia se pondrá a cero. En el caso de la otra instancia, se cobrará la tarifa de pago por uso para el tamaño de máquina virtual reservado.  
 
 Cuando se asigna una máquina virtual a la reserva de capacidad, también se deben asignar los demás componentes de máquina virtual, como discos, redes, extensiones y cualquier otro componente solicitado. En este estado, el uso de la máquina virtual reflejará una máquina virtual asignada y una instancia de capacidad sin usar. La instancia reservada de máquina virtual pondrá a cero el costo de la máquina virtual o la instancia de capacidad sin usar. Los demás cargos para discos, redes y otros componentes asociados a la máquina virtual asignada también aparecerán en la factura. 
 
-![Imagen 8 de la reserva de capacidad.](\media\capacity-reservation-overview\capacity-reservation-8.jpg)
+![Imagen 8 de la reserva de capacidad.](./media/capacity-reservation-overview/capacity-reservation-8.jpg)
 
 En la imagen anterior, el descuento de instancia reservada de máquina virtual se aplica a la máquina virtual 0, que solo se cobrará por otros componentes, como el disco y las redes. La otra instancia sin usar se cobra según la tarifa de pago por uso por el tamaño de máquina virtual reservado.
 

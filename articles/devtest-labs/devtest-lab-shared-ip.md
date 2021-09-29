@@ -1,14 +1,14 @@
 ---
-title: Direcciones IP compartidas en Azure DevTest Labs | Microsoft Docs
+title: Descripción de las direcciones IP compartidas
 description: Obtenga información sobre cómo Azure DevTest Labs usa direcciones IP compartidas para minimizar las direcciones IP públicas necesarias para acceder a las máquinas virtuales de su laboratorio.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 36a5da1b2b6252d0adb480a622c461b33425e675
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e3d5afd69b898a4f17440a81fc41a065c1c79a3e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85484101"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128659785"
 ---
 # <a name="understand-shared-ip-addresses-in-azure-devtest-labs"></a>Direcciones IP compartidas en Azure DevTest Labs
 
@@ -44,8 +44,3 @@ Siempre que se agrega una máquina virtual con la dirección IP compartida a la 
 
 * [Definición de directivas de laboratorio en Azure DevTest Labs](devtest-lab-set-lab-policy.md)
 * [Configuración de una red virtual en Azure DevTest Labs](devtest-lab-configure-vnet.md)
-
-
-
-
-

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/30/2020
 ms.author: jeedes
-ms.openlocfilehash: a8b344cd9e4428c3508534edaec4fd98fb67d832
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c460f350a8650380b05eb891819942446f31b6e7
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96182054"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124744974"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-line-works"></a>Tutorial: Integración de Azure Active Directory con LINE WORKS
 
@@ -138,7 +138,7 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 2. Vaya directamente a la dirección URL de inicio de sesión de LINE WORKS e inicie el flujo de inicio de sesión desde allí.
 
-3. Puede usar el Panel de acceso de Microsoft. Al hacer clic en el icono de LINE WORKS en el Panel de acceso, se le redirigirá a la dirección URL de inicio de sesión de LINE WORKS. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
+3. Puede usar el Panel de acceso de Microsoft. Al hacer clic en el icono de LINE WORKS en el Panel de acceso, se le redirigirá a la dirección URL de inicio de sesión de LINE WORKS. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

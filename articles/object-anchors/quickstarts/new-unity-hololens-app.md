@@ -7,12 +7,12 @@ ms.author: rgarcia
 ms.date: 06/23/2021
 ms.topic: quickstart
 ms.service: azure-object-anchors
-ms.openlocfilehash: 174701b16d8ae9c8c8e5b1edf863aa9f1a65336c
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: a83606d76beb4fd9cead19293636b9e5348d4990
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113095246"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124777571"
 ---
 # <a name="quickstart-step-by-step-instructions-to-create-a-new-hololens-unity-app-using-azure-object-anchors"></a>Inicio rápido: Instrucciones paso a paso para crear una nueva aplicación de HoloLens en Unity mediante Azure Object Anchors
 
@@ -45,7 +45,7 @@ Lo primero es configurar el proyecto y la escena de Unity:
 
 ## <a name="install-mixed-reality-feature-tool-feature-packages"></a>Instalación de los paquetes de características de la herramienta de características de Mixed Reality
 
-1. Consulte la documentación de la <a a href="/windows/mixed-reality/develop/unity/welcome-to-mr-feature-tool" target="_blank">herramienta de características de Mixed Reality</a> para configurar la herramienta y aprender a usarla.
+1. Consulte la documentación de la <a href="/windows/mixed-reality/develop/unity/welcome-to-mr-feature-tool" target="_blank">herramienta de características de Mixed Reality</a> para configurar la herramienta y aprender a usarla.
 1. En la sección **Platform Support** (Compatibilidad con la plataforma), instale el paquete de características del **complemento OpenXR de Mixed Reality**, versión 1.0.0 o posterior, en la carpeta del proyecto de Unity.
 1. En la sección **Azure Mixed Reality Services** (Servicios de Azure Mixed Reality), instale el paquete de características **Microsoft Azure Object Anchors** en la carpeta del proyecto de Unity.
 1. Vuelva al **Editor Unity**. Pueden transcurrir unos minutos mientras se instalan los paquetes de características de la **herramienta de características de Mixed Reality**.

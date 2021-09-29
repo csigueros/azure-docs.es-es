@@ -3,16 +3,16 @@ title: Implementación de widgets en el portal para desarrolladores
 titleSuffix: Azure API Management
 description: Obtenga información sobre cómo implementar widgets que consumen datos de API externas y mostrarlo en el portal para desarrolladores de API Management.
 author: dlepow
-ms.author: apimpm
+ms.author: danlep
 ms.date: 04/15/2021
 ms.service: api-management
 ms.topic: how-to
-ms.openlocfilehash: 4bda136a1abe8f9ffb443973731ebbe13b56ac3b
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.openlocfilehash: af2ac28df5b41606d9199d6fa36c3f683e86c59d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107741340"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128639914"
 ---
 # <a name="implement-widgets-in-the-developer-portal"></a>Implementación de widgets en el portal para desarrolladores
 

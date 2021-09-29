@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 01/12/2021
-ms.openlocfilehash: 509d1dc0b94bdfa9be5185df0bad793f7702eb26
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 904a29278ea3efdabe6ed72892d2e14ccbf2e0e3
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "101731041"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124740752"
 ---
 # <a name="correct-misspelled-words-with-bing-resource"></a>Corrección de palabras mal escritas con el recurso de Bing
 
@@ -68,11 +68,6 @@ Para crear un recurso de Bing Search en Azure Portal, siga estas instrucciones:
 ## Using the key in LUIS test panel
 There are two places in LUIS to use the key. The first is in the [test panel](luis-interactive-test.md#view-bing-spell-check-corrections-in-test-panel). The key isn't saved into LUIS but instead is a session variable. You need to set the key every time you want the test panel to apply the Bing Spell Check API v7 service to the utterance. See [instructions](luis-interactive-test.md#view-bing-spell-check-corrections-in-test-panel) in the test panel for setting the key.
 -->
-## <a name="enable-spell-check-from-ui"></a>Habilitación de la revisión ortográfica desde la interfaz de usuario 
-Puede habilitar la revisión ortográfica para la consulta de ejemplos mediante el [portal de Luis](https://www.luis.ai). Seleccione **Administrar** en la parte superior de la pantalla y **Recursos de Azure** en el panel de navegación izquierdo. Después de asociar un recurso de predicción a la aplicación, puede seleccionar **Cambiar parámetros de consulta** desde la parte inferior de la página y pegar la clave de recurso en el campo **Habilitar revisión de la ortografía**.
-    
-   > [!div class="mx-imgBorder"]
-   > ![Habilitar revisión de la ortografía](./media/luis-tutorial-bing-spellcheck/spellcheck-query-params.png)
 
 
 ## <a name="adding-the-key-to-the-endpoint-url"></a>Agregar la clave a la dirección URL del punto de conexión

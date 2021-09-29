@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 58344a385a8ad4d409748c039f8f1e7807e290b7
-ms.sourcegitcommit: 92dd25772f209d7d3f34582ccb8985e1a099fe62
+ms.openlocfilehash: f79bca8626eca56c40f99f75daa2b8cb4da3a995
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114228385"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124773785"
 ---
 # <a name="enable-and-use-azure-ad-multi-factor-authentication-with-legacy-applications-using-app-passwords"></a>Habilitación y uso de Azure AD Multi-Factor Authentication con aplicaciones heredadas mediante contraseñas de aplicación
 
@@ -42,7 +42,7 @@ Al usar las contraseñas de aplicación, deben aplicarse las siguientes consider
 * Una vez habilitado Azure AD Multi-Factor Authentication en una cuenta de usuario, se pueden usar las contraseñas de aplicación con la mayoría de los clientes sin explorador como Outlook y Microsoft Skype Empresarial. Sin embargo, no se pueden realizar acciones administrativas con contraseñas de aplicación mediante aplicaciones sin explorador como Windows PowerShell. No se pueden realizar las acciones, incluso cuando el usuario tiene una cuenta administrativa.
     * Para ejecutar scripts de PowerShell, cree una cuenta de servicio con una contraseña segura y no la habilite para la verificación en dos pasos.
 * Si sospecha que una cuenta de usuario está en peligro y revoca o restablece la contraseña de la cuenta, también se deben actualizar las contraseñas de aplicación. Las contraseñas de aplicación no se revocan automáticamente cuando se revoca o restablece una contraseña de cuenta de usuario. El usuario debe eliminar las contraseñas de aplicación existentes y crear otras nuevas.
-   * Para obtener más información, consulte [Creación y eliminación de contraseñas de la aplicación en la página de comprobación de seguridad adicional](../user-help/multi-factor-authentication-end-user-app-passwords.md#create-and-delete-app-passwords-from-the-additional-security-verification-page).
+   * Para obtener más información, consulte [Creación y eliminación de contraseñas de la aplicación en la página de comprobación de seguridad adicional](https://support.microsoft.com/account-billing/manage-app-passwords-for-two-step-verification-d6dc8c6d-4bf7-4851-ad95-6d07799387e9#create-and-delete-app-passwords-from-the-additional-security-verification-page).
 
 >[!WARNING]
 > Las contraseñas de aplicación no funcionan en entornos híbridos donde los clientes se comunican con los puntos de conexión de detección automática locales y en la nube. Las contraseñas de dominio deben autenticarse en local. Las contraseñas de aplicación deben autenticarse con la nube.
@@ -102,8 +102,8 @@ De forma predeterminada, los usuarios no pueden crear contraseñas de aplicació
 Cuando los usuarios completan el registro inicial en Azure AD Multi-Factor Authentication, existe una opción para crear contraseñas de aplicación al final del proceso de registro.
 
 Los usuarios también pueden crear contraseñas de aplicación después del registro. Para obtener más información y los pasos detallados para los usuarios, consulte los siguientes recursos:
-* [¿Qué son las contraseñas de aplicación en Azure AD Multi-Factor Authentication?](../user-help/multi-factor-authentication-end-user-app-passwords.md)
-* [Creación de contraseñas de aplicaciones desde la página Información de seguridad](../user-help/security-info-app-passwords.md)
+* [¿Qué son las contraseñas de aplicación en Azure AD Multi-Factor Authentication?](https://support.microsoft.com/account-billing/manage-app-passwords-for-two-step-verification-d6dc8c6d-4bf7-4851-ad95-6d07799387e9)
+* [Creación de contraseñas de aplicaciones desde la página Información de seguridad](https://support.microsoft.com/account-billing/create-app-passwords-from-the-security-info-preview-page-d8bc744a-ce3f-4d4d-89c9-eb38ab9d4137)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

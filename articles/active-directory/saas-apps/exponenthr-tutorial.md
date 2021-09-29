@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/06/2021
 ms.author: jeedes
-ms.openlocfilehash: bc05b2ec906888f96abe253fd2e4b8b5bfe92cbe
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: f36962cc06a29baa12d98931a279cc2eb80ed108
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121728356"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124758966"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-exponenthr"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con ExponentHR
 
@@ -126,7 +126,7 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 * Vaya directamente a la dirección URL de inicio de sesión de ExponentHR e inicie el flujo de inicio de sesión desde allí.
 
-* Puede usar Mis aplicaciones de Microsoft. Si hace clic en el icono de ExponentHR de Aplicaciones, accederá automáticamente a la dirección URL de inicio de sesión de ExponentHR. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+* Puede usar Mis aplicaciones de Microsoft. Si hace clic en el icono de ExponentHR de Aplicaciones, accederá automáticamente a la dirección URL de inicio de sesión de ExponentHR. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

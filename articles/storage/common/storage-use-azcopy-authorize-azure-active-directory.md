@@ -7,20 +7,20 @@ ms.topic: how-to
 ms.date: 04/01/2021
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: e6b2e331c274013ccad445c4e203388b8b7b8048
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: d5aced875863f892ec9dda0022f4571ce15349c4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111903876"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128638242"
 ---
 # <a name="authorize-access-to-blobs-with-azcopy-and-azure-active-directory-azure-ad"></a>Autorización del acceso a blobs con AzCopy y Azure Active Directory (Azure AD)
 
-Puede proporcionar AzCopy con credenciales de autorización mediante Azure AD. De este modo, no tendrá que anexar un token de firma de acceso compartido (SAS) a cada comando. 
+Puede proporcionar AzCopy con credenciales de autorización mediante Azure AD. De este modo, no tendrá que anexar un token de firma de acceso compartido (SAS) a cada comando.
 
-Empiece por comprobar las asignaciones de roles. A continuación, elija qué tipo de _entidad de seguridad_ quiere autorizar. Una [identidad de usuario](../../active-directory/fundamentals/add-users-azure-active-directory.md), una [identidad administrada](../../active-directory/managed-identities-azure-resources/overview.md) y una [entidad de servicio](../../active-directory/develop/app-objects-and-service-principals.md) son tipos de entidad de seguridad.
+Empiece por comprobar las asignaciones de roles. A continuación, elija qué tipo de *entidad de seguridad* quiere autorizar. Una [identidad de usuario](../../active-directory/fundamentals/add-users-azure-active-directory.md), una [identidad administrada](../../active-directory/managed-identities-azure-resources/overview.md) y una [entidad de servicio](../../active-directory/develop/app-objects-and-service-principals.md) son tipos de entidad de seguridad.
 
-Una identidad de usuario es cualquier usuario que tiene una identidad en Azure AD. Es la entidad de seguridad más fácil de autorizar. Las identidades administradas y las entidades de servicio son buenas opciones si va a usar AzCopy dentro de un script que se ejecuta sin interacción del usuario. Una identidad administrada es más adecuada para los scripts que se ejecutan desde una máquina virtual (VM) de Azure, y una entidad de servicio es más adecuada para los scripts que se ejecutan localmente. 
+Una identidad de usuario es cualquier usuario que tiene una identidad en Azure AD. Es la entidad de seguridad más fácil de autorizar. Las identidades administradas y las entidades de servicio son buenas opciones si va a usar AzCopy dentro de un script que se ejecuta sin interacción del usuario. Una identidad administrada es más adecuada para los scripts que se ejecutan desde una máquina virtual (VM) de Azure, y una entidad de servicio es más adecuada para los scripts que se ejecutan localmente.
 
 Para más información sobre AzCopy, consulte [Introducción a AzCopy](storage-use-azcopy-v10.md).
 
@@ -145,7 +145,7 @@ $env:AZCOPY_SPA_CLIENT_SECRET="$(Read-Host -prompt "Enter key")"
 ```
 
 > [!NOTE]
-> Considere la posibilidad de utilizar un símbolo del sistema como se muestra en este ejemplo. De este modo, la contraseña no aparecerá en el historial de comandos de la consola.  
+> Considere la posibilidad de utilizar un símbolo del sistema como se muestra en este ejemplo. De este modo, la contraseña no aparecerá en el historial de comandos de la consola.
 
 A continuación, escriba el comando siguiente y presione la tecla ENTRAR.
 
@@ -153,7 +153,7 @@ A continuación, escriba el comando siguiente y presione la tecla ENTRAR.
 azcopy login --service-principal  --application-id application-id --tenant-id=tenant-id
 ```
 
-Reemplace el marcador de posición `<application-id>` por el identificador de aplicación del registro de la aplicación de la entidad de servicio. Reemplace el marcador de posición `<tenant-id>` por el identificador de inquilino de la organización a la que pertenece la cuenta de almacenamiento. Para buscar el identificador de inquilino, seleccione **Azure Active Directory > Propiedades > Identificador de directorio** en Azure Portal. 
+Reemplace el marcador de posición `<application-id>` por el identificador de aplicación del registro de la aplicación de la entidad de servicio. Reemplace el marcador de posición `<tenant-id>` por el identificador de inquilino de la organización a la que pertenece la cuenta de almacenamiento. Para buscar el identificador de inquilino, seleccione **Azure Active Directory > Propiedades > Identificador de directorio** en Azure Portal.
 
 #### <a name="authorize-a-service-principal-by-using-a-certificate"></a>Autorización de una entidad de servicio mediante el uso de un certificado
 
@@ -181,13 +181,13 @@ azcopy login --service-principal --certificate-path <path-to-certificate-file> -
 Reemplace el marcador de posición `<path-to-certificate-file>` por la ruta de acceso completa o relativa al archivo del certificado. AzCopy guarda la ruta de acceso a este certificado, pero no guarda una copia del certificado, así que asegúrese de tener el certificado listo para usar. Reemplace el marcador de posición `<tenant-id>` por el identificador de inquilino de la organización a la que pertenece la cuenta de almacenamiento. Para buscar el identificador de inquilino, seleccione **Azure Active Directory > Propiedades > Identificador de directorio** en Azure Portal.
 
 > [!NOTE]
-> Considere la posibilidad de utilizar un símbolo del sistema como se muestra en este ejemplo. De este modo, la contraseña no aparecerá en el historial de comandos de la consola. 
+> Considere la posibilidad de utilizar un símbolo del sistema como se muestra en este ejemplo. De este modo, la contraseña no aparecerá en el historial de comandos de la consola.
 
 ## <a name="authorize-without-a-secret-store"></a>Autorización sin un almacén secreto
 
-El comando `azcopy login` recupera un token de OAuth y, a continuación, coloca ese token en un almacén secreto del sistema. Si el sistema operativo no tiene un almacén secreto como un *conjunto de claves* de Linux, el comando `azcopy login` no funcionará porque no hay ningún lugar donde colocar el token. 
+El comando `azcopy login` recupera un token de OAuth y, a continuación, coloca ese token en un almacén secreto del sistema. Si el sistema operativo no tiene un almacén secreto como un *conjunto de claves* de Linux, el comando `azcopy login` no funcionará porque no hay ningún lugar donde colocar el token.
 
-En lugar de usar el comando `azcopy login`, puede establecer variables de entorno en memoria. A continuación, ejecute cualquier comando de AzCopy. AzCopy recuperará el token de autenticación necesario para completar la operación. Una vez finalizada la operación, el token desaparece de la memoria. 
+En lugar de usar el comando `azcopy login`, puede establecer variables de entorno en memoria. A continuación, ejecute cualquier comando de AzCopy. AzCopy recuperará el token de autenticación necesario para completar la operación. Una vez finalizada la operación, el token desaparece de la memoria.
 
 ### <a name="authorize-a-user-identity"></a>Autorización de una identidad de usuario
 
@@ -264,10 +264,10 @@ export AZCOPY_SPA_CLIENT_SECRET=<client-secret>
 export AZCOPY_TENANT_ID=<tenant-id>
 ```
 
-Reemplace el marcador de posición `<application-id>` por el identificador de aplicación del registro de la aplicación de la entidad de servicio. Reemplace el marcador de posición `<client-secret>` por el secreto de cliente. Reemplace el marcador de posición `<tenant-id>` por el identificador de inquilino de la organización a la que pertenece la cuenta de almacenamiento. Para buscar el identificador de inquilino, seleccione **Azure Active Directory > Propiedades > Identificador de directorio** en Azure Portal. 
+Reemplace el marcador de posición `<application-id>` por el identificador de aplicación del registro de la aplicación de la entidad de servicio. Reemplace el marcador de posición `<client-secret>` por el secreto de cliente. Reemplace el marcador de posición `<tenant-id>` por el identificador de inquilino de la organización a la que pertenece la cuenta de almacenamiento. Para buscar el identificador de inquilino, seleccione **Azure Active Directory > Propiedades > Identificador de directorio** en Azure Portal.
 
 > [!NOTE]
-> Considere la posibilidad de usar una solicitud para recopilar la contraseña del usuario. De este modo, la contraseña no aparecerá en el historial de comandos. 
+> Considere la posibilidad de usar una solicitud para recopilar la contraseña del usuario. De este modo, la contraseña no aparecerá en el historial de comandos.
 
 A continuación, ejecute cualquier comando azcopy (por ejemplo: `azcopy list https://contoso.blob.core.windows.net`).
 
@@ -275,7 +275,7 @@ A continuación, ejecute cualquier comando azcopy (por ejemplo: `azcopy list htt
 
 Si prefiere usar sus propias credenciales para la autorización, puede cargar un certificado en el registro de la aplicación y utilizar ese certificado para iniciar sesión.
 
-Además de cargar el certificado en el registro de la aplicación, también deberá tener una copia del certificado guardada en el equipo o la máquina virtual donde se ejecutará AzCopy. Esta copia del certificado debe tener el formato .PFX o .PEM e incluir la clave privada. La clave privada debe estar protegida por contraseña. 
+Además de cargar el certificado en el registro de la aplicación, también deberá tener una copia del certificado guardada en el equipo o la máquina virtual donde se ejecutará AzCopy. Esta copia del certificado debe tener el formato .PFX o .PEM e incluir la clave privada. La clave privada debe estar protegida por contraseña.
 
 Escriba el comando siguiente y presione la tecla ENTRAR.
 
@@ -286,10 +286,10 @@ export AZCOPY_SPA_CERT_PASSWORD=<certificate-password>
 export AZCOPY_TENANT_ID=<tenant-id>
 ```
 
-Reemplace el marcador de posición `<path-to-certificate-file>` por la ruta de acceso completa o relativa al archivo del certificado. AzCopy guarda la ruta de acceso a este certificado, pero no guarda una copia del certificado, así que asegúrese de tener el certificado listo para usar. Reemplace el marcador de posición `<certificate-password>` por la contraseña del certificado. Reemplace el marcador de posición `<tenant-id>` por el identificador de inquilino de la organización a la que pertenece la cuenta de almacenamiento. Para buscar el identificador de inquilino, seleccione **Azure Active Directory > Propiedades > Identificador de directorio** en Azure Portal. 
+Reemplace el marcador de posición `<path-to-certificate-file>` por la ruta de acceso completa o relativa al archivo del certificado. AzCopy guarda la ruta de acceso a este certificado, pero no guarda una copia del certificado, así que asegúrese de tener el certificado listo para usar. Reemplace el marcador de posición `<certificate-password>` por la contraseña del certificado. Reemplace el marcador de posición `<tenant-id>` por el identificador de inquilino de la organización a la que pertenece la cuenta de almacenamiento. Para buscar el identificador de inquilino, seleccione **Azure Active Directory > Propiedades > Identificador de directorio** en Azure Portal.
 
 > [!NOTE]
-> Considere la posibilidad de usar una solicitud para recopilar la contraseña del usuario. De este modo, la contraseña no aparecerá en el historial de comandos. 
+> Considere la posibilidad de usar una solicitud para recopilar la contraseña del usuario. De este modo, la contraseña no aparecerá en el historial de comandos.
 
 A continuación, ejecute cualquier comando azcopy (por ejemplo: `azcopy list https://contoso.blob.core.windows.net`).
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: ningk
-ms.openlocfilehash: ff2a6618b60ff2cfa5faa74c905e140466a14359
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 2fcb89ccbebf557a1a4068f6fe08b0d27226b1fa
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102563326"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128591774"
 ---
 # <a name="integrate-cloud-foundry-with-azure"></a>Integración de Cloud Foundry con Azure
 
@@ -87,7 +87,7 @@ Los discos administrados admiten tamaños de disco más pequeños, por ejemplo P
 #### <a name="use-azure-first-party-services"></a>Uso de los servicios de primera entidad de Azure: 
 Aprovechar el servicio de primera entidad de Azure reducirá el costo de administración a largo plazo, además de obtener la alta disponibilidad y confiabilidad mencionadas en las secciones anteriores. 
 
-Pivotal ha lanzado un [ERT de superficie mínima](https://docs.pivotal.io/pivotalcf/2-0/customizing/small-footprint.html) para los clientes de PCF, con los componentes colocados en solo cuatro máquinas virtuales, y con un máximo de 2 500 instancias de aplicación en ejecución. La versión de prueba ya está disponible a través de [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry).
+Pivotal ha lanzado un [ERT de superficie mínima](https://docs.pivotal.io/pivotalcf/2-0/customizing/small-footprint.html) para los clientes de PCF, con los componentes colocados en solo cuatro máquinas virtuales, y con un máximo de 2 500 instancias de aplicación en ejecución. La versión de prueba ya está disponible a través de Azure Marketplace.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Las características de integración de Azure están disponibles primero con [Open Source Cloud Foundry](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/tree/master/docs/advanced/), antes de estarlo en Pivotal Cloud Foundry. Las características marcadas con * todavía no están disponibles a través de PCF. La integración de Cloud Foundry con Azure Stack tampoco se trata en este documento.

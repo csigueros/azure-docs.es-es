@@ -3,12 +3,12 @@ title: Implementación del ejemplo de plano técnico de Fundación CAF
 description: Pasos para implementar el ejemplo de plano técnico de CAF Foundation, incluidos los detalles de los parámetros del artefacto de plano técnico.
 ms.date: 03/12/2021
 ms.topic: sample
-ms.openlocfilehash: 281bd0fdae5aa144799499d583b5673a569612b1
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: daa3d4a2c8f8abec3754680ddf9fb6115f88bf6b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108757878"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128678239"
 ---
 # <a name="deploy-the-microsoft-cloud-adoption-framework-for-azure-foundation-blueprint-sample"></a>Implementación del ejemplo de plano técnico de Microsoft Cloud Adoption Framework para Azure Foundation
 
@@ -106,7 +106,7 @@ En la tabla siguiente se proporciona una lista de los parámetros del artefacto 
 |SKU de máquina virtual permitida|Asignación de directiva|Policy_Allowed-VM-SKUs|SKU de máquina virtual permitida|
 |Anexar la etiqueta CostCenter a los grupos de recursos|Asignación de directiva|Policy_CostCenter_Tag|Anexar la etiqueta CostCenter y su valor del grupo de recursos|
 |Tipos de recursos que no desea permitir en su entorno|Asignación de directiva|Policy _Allowed-Resource-Types|Qué recursos de Azure quiere permitir en su entorno|
-|Implementación de Key Vault|Plantilla de Resource Manager|KV-AccessPolicy|**Bloqueado**: grupo o usuario de Azure AD <Object ID> al que conceder permisos en Key Vault|
+|Implementación de Key Vault|Plantilla de Resource Manager|KV-AccessPolicy|**Bloqueado**: grupo o usuario de Azure AD \<Object ID\> al que conceder permisos en Key Vault|
 |Implementación de Log Analytics|Plantilla de Resource Manager|LogAnalytics_DataRetention|**Bloqueado**: número de días que se conservarán los datos en Log Analytics.|
 |Implementación de Log Analytics|Plantilla de Resource Manager|LogAnalytics_Location|**Bloqueado**: región que se usa al establecer el área de trabajo.|
 

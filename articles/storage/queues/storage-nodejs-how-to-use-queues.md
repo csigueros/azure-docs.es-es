@@ -1,20 +1,20 @@
 ---
 title: 'Uso de Azure Queue Storage de Node.js: Azure Storage'
 description: Aprenda a usar Azure Queue Storage para crear y eliminar colas. Aprenda a insertar, obtener y eliminar mensajes mediante Node.js.
-author: twooley
-ms.author: twooley
+author: normesta
+ms.author: normesta
 ms.reviewer: dineshm
 ms.date: 12/21/2020
 ms.topic: how-to
 ms.service: storage
 ms.subservice: queues
 ms.custom: seo-javascript-september2019, devx-track-js
-ms.openlocfilehash: ec0f439e8ad098e1fe2d14c3f61f98b387edf625
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 29a621aa5221a0a4ee06c5c9a635af49320533c7
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110477213"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128638280"
 ---
 # <a name="how-to-use-azure-queue-storage-from-nodejs"></a>Uso de Azure Queue Storage desde Node.js
 

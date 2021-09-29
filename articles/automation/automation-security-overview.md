@@ -7,12 +7,12 @@ ms.subservice: process-automation
 ms.date: 08/02/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 78b188b270ec08aa546311b449f908d47313a9a1
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 5a86a5c8c0922e0861411e93376047344ba6c5af
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121730585"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124789111"
 ---
 # <a name="azure-automation-account-authentication-overview"></a>Introducción a la autenticación de cuentas de Azure Automation
 
@@ -24,7 +24,7 @@ En este artículo se tratan los distintos escenarios de autenticación que se ad
 
 Cuando inicia Azure Automation por primera vez, debe crear al menos una cuenta de Automation. Las cuentas de Automation le permiten aislar sus recursos, runbooks, activos y configuraciones de Automation de los recursos de otras cuentas. Puede usar cuentas de Automation para separar los recursos en entornos lógicos independientes o responsabilidades delegadas. Por ejemplo, puede usar una cuenta para desarrollo, otra para producción y otra para su entorno local. O bien, puede dedicar una cuenta de Automation para administrar las actualizaciones del sistema operativo en todas las máquinas con [Update Management](update-management/overview.md). 
 
-Una cuenta de Azure Automation es diferente de su cuenta Microsoft o de las cuentas creadas en su suscripción de Azure. Para obtener una introducción a la creación de una cuenta de Automation, consulte [Creación de una cuenta independiente de Azure Automation](automation-quickstart-create-account.md).
+Una cuenta de Azure Automation es diferente de su cuenta Microsoft o de las cuentas creadas en su suscripción de Azure. Para obtener una introducción a la creación de una cuenta de Automation, consulte [Creación de una cuenta independiente de Azure Automation](./quickstarts/create-account-portal.md).
 
 ## <a name="automation-resources"></a>Recursos de Automation
 

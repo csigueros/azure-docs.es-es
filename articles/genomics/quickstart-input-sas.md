@@ -9,12 +9,12 @@ ms.author: vigunase
 ms.service: genomics
 ms.topic: conceptual
 ms.date: 03/02/2018
-ms.openlocfilehash: 660f6ffe286e13e46f367c761c596ed0ee51da24
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: 6d6a3833ccf9a30f59da0931f497da1d0490b9a8
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123259850"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124736873"
 ---
 # <a name="submit-a-workflow-to-microsoft-genomics-using-a-sas-instead-of-a-storage-account-key"></a>Envío de un flujo de trabajo a Microsoft Genomics mediante una firma de acceso compartido en lugar de una clave de cuenta de almacenamiento 
 
@@ -51,7 +51,7 @@ Hay dos maneras de crear un token de SAS: mediante el Explorador de Azure Storag
 
 El [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/) es una herramienta para administrar los recursos que están almacenados en Azure Storage.  Puede obtener más información sobre cómo usar el Explorador de Azure Storage [aquí](../vs-azure-tools-storage-manage-with-storage-explorer.md).
 
-La firma de acceso compartido de los archivos de entrada debe estar limitada al archivo de entrada concreto (blob). Para crear un token de SAS, siga [estas instrucciones](../storage/blobs/storage-quickstart-blobs-storage-explorer.md). Una vez que haya creado la firma de acceso compartido, se proporcionan la dirección URL completa con la cadena de consulta, así como la cadena de consulta solamente y se pueden copiar desde la pantalla.
+La firma de acceso compartido de los archivos de entrada debe estar limitada al archivo de entrada concreto (blob). Para crear un token de SAS, siga [estas instrucciones](../storage/blobs/quickstart-storage-explorer.md). Una vez que haya creado la firma de acceso compartido, se proporcionan la dirección URL completa con la cadena de consulta, así como la cadena de consulta solamente y se pueden copiar desde la pantalla.
 
  ![Explorador de Storage de SAS para Genomics](./media/quickstart-input-sas/genomics-sas-storageexplorer.png "Explorador de Storage de SAS para Genomics")
 

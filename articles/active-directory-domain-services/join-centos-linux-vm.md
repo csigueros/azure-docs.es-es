@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 06/17/2021
 ms.author: justinha
-ms.openlocfilehash: d78416308647af62bac1e44366b0ea978670889b
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: dc82c2c2793495009b9200ac0976c796ef2ccc9c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112284444"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128603759"
 ---
 # <a name="join-a-centos-linux-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>Unión de una máquina virtual CentOS Linux a un dominio administrado de Azure Active Directory Domain Services
 
@@ -35,6 +35,7 @@ Para completar este tutorial, necesitará los siguientes recursos y privilegios:
 * Un dominio administrado de Azure Active Directory Domain Services habilitado y configurado en su inquilino de Azure AD.
     * Si es necesario, el primer tutorial [crea y configura un dominio administrado de Azure Active Directory Domain Services][create-azure-ad-ds-instance].
 * Una cuenta de usuario que forme parte del dominio administrado.
+* Nombres de máquina virtual Linux únicos con un máximo de 15 caracteres para evitar nombres truncados que podrían causar conflictos en Active Directory.
 
 ## <a name="create-and-connect-to-a-centos-linux-vm"></a>Creación y conexión a una máquina virtual CentOS Linux
 

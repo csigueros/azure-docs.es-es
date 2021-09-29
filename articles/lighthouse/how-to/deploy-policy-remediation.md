@@ -1,14 +1,14 @@
 ---
 title: Implementación de una directiva que se pueda corregir
 description: Para implementar directivas que usan una tarea de corrección a través de Azure Lighthouse, deberá crear una identidad administrada en el inquilino del cliente.
-ms.date: 05/11/2021
+ms.date: 09/13/2021
 ms.topic: how-to
-ms.openlocfilehash: 65fb11ff98d51ca6ee9f9280bdd50997e6eeef26
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 2270644a2d3e841a40046743bd6092a3ba44105d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109788668"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128611460"
 ---
 # <a name="deploy-a-policy-that-can-be-remediated-within-a-delegated-subscription"></a>Implementación de una directiva que se pueda corregir en una suscripción delegada
 

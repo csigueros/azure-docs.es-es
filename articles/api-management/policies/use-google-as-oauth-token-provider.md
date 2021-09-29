@@ -4,7 +4,7 @@ titleSuffix: Azure API Management
 description: 'Ejemplo de directiva de Azure API Management: muestra cómo autorizar el acceso a los puntos de conexión con Google como proveedor de tokens de OAuth.'
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 manager: cfowler
 editor: ''
 ms.service: api-management
@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/13/2017
-ms.author: apimpm
-ms.openlocfilehash: 0f6c9fe2146414f78e90d6ade1a00045cdf3a04f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: danlep
+ms.openlocfilehash: 6d80c416bd8dd8e1a8af1e7ea2228e71884a80c3
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92078024"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128601033"
 ---
 # <a name="authorize-access-using-google-oauth-token"></a>Autorización de acceso con el token de OAuth de Google
 

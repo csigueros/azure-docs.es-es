@@ -6,12 +6,12 @@ ms.author: jaawasth
 ms.service: virtual-machines-sap
 ms.topic: how-to
 ms.date: 04/19/2021
-ms.openlocfilehash: 3da8c2a0147136ad5da90489e4f8db511cad7378
-ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
+ms.openlocfilehash: 7f5f554f6563c2d0275bca7b6db48f2521379b11
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113217456"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128626615"
 ---
 # <a name="azure-large-instances-high-availability-for-sap-on-rhel"></a>Alta disponibilidad de Azure (instancias grandes) para SAP en RHEL
 
@@ -19,7 +19,7 @@ ms.locfileid: "113217456"
 > Este artículo contiene referencias al término *lista negra*, un término que Microsoft ya no usa. Cuando se elimine este término del software, se eliminará también de este artículo.
 
 > [!NOTE]
-> Este artículo contiene referencias al término esclavo, un término que Microsoft ya no usa. Cuando se quite el término del software, se quitará también del artículo.
+> Este artículo contiene referencias al término *esclavo*, un término que Microsoft ya no usa. Cuando se quite el término del software, se quitará también del artículo.
 
 En este artículo va a aprender a configurar el clúster de Pacemaker en RHEL 7 para automatizar una conmutación por error de base de datos SAP HANA. Para realizar los pasos de esta guía debe entender bien Linux, SAP HANA y Pacemaker.
 
@@ -1226,10 +1226,12 @@ Asegúrese de cumplir los siguientes requisitos previos:
 
 
 Para comprobar la migración del recurso SAPHana de un nodo a otro, use el siguiente comando. Tenga en cuenta que la opción `--primary` no debe usarse al ejecutar el siguiente comando debido al funcionamiento interno del recurso SAPHana.
-```pcs resource move SAPHana_HR2_00-primary```
+
+`pcs resource move SAPHana_HR2_00-primary`
 
 Después de cada invocación del comando de migración del recurso PCS, el clúster crea restricciones de ubicación para lograr el traslado del recurso. Estas restricciones deben quitarse para permitir la conmutación automática por error en el futuro.
 Para quitarlas, puede usar el comando siguiente.
+
 ```
 pcs resource clear SAPHana_HR2_00-primary
 crm_mon -A1

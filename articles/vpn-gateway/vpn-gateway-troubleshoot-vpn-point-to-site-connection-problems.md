@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 03/26/2020
 ms.author: genli
-ms.openlocfilehash: 136ea5fcb8dd446cfff6400616df058722fa2827
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: c30dc859a7cfc139d1402eadc3b4e0ae812125c2
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106075379"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128603474"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Solución de problemas: Problemas de conexión de punto a sitio de Azure
 
@@ -341,9 +341,9 @@ Actualice el controlador NIC:
 4. Si Windows no encuentra un nuevo controlador, puede intentar buscar uno en el sitio web del fabricante del dispositivo y seguir sus instrucciones.
 5. Reinicie el equipo e intente la conexión de nuevo.
 
-## <a name="vpn-client-error-dialing-vpn-connection-vpn-connection-name-status--vpn-platform-did-not-trigger-connection"></a>Error de cliente de VPN: Al marcar la conexión VPN <VPN Connection Name>, Estado = Plataforma VPN no desencadenó la conexión.
+## <a name="vpn-client-error-dialing-vpn-connection-vpn-connection-name-status--vpn-platform-did-not-trigger-connection"></a>Error de cliente de VPN: Al marcar la conexión VPN \<VPN Connection Name\>, Estado = Plataforma VPN no desencadenó la conexión.
 
-También puede aparecer el siguiente error en el Visor de eventos, procedente de RasClient: "El usuario <User> marcó una conexión denominada <VPN Connection Name>, que no se realizó correctamente. El código de error devuelto en el error es 1460".
+También puede aparecer el siguiente error en el Visor de eventos, procedente de RasClient: "El usuario \<User\> marcó una conexión denominada \<VPN Connection Name\>, que no se realizó correctamente. El código de error devuelto en el error es 1460".
 
 ### <a name="cause"></a>Causa
 

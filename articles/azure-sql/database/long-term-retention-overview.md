@@ -12,12 +12,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: mathoma
 ms.date: 07/13/2021
-ms.openlocfilehash: 13e522b45673723a33b8739ccefafa4a8410910a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: e5e980878091145770f98cff952374e76f08180d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121751326"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124775652"
 ---
 # <a name="long-term-retention---azure-sql-database-and-azure-sql-managed-instance"></a>Retención a largo plazo: Azure SQL Database y Azure SQL Managed Instance
 
@@ -88,8 +88,6 @@ Puede configurar la retención de copias de seguridad a largo plazo mediante Azu
 Para aprender a configurar la retención a largo plazo o restaurar una base de datos a partir de una copia de seguridad de SQL Database mediante Azure Portal o PowerShell, consulte [Administración de la retención de copias de seguridad a largo plazo de Azure SQL Database](long-term-backup-retention-configure.md).
 
 Para obtener información sobre cómo configurar la retención a largo plazo o cómo restaurar una base de datos a partir de una copia de seguridad de SQL Managed Instance mediante Azure Portal o PowerShell, consulte [Administración de la retención de copias de seguridad a largo plazo en Azure SQL Managed Instance](../managed-instance/long-term-backup-retention-configure.md).
-
-Para restaurar una base de datos desde el almacenamiento de LTR, puede seleccionar una copia de seguridad específica en función de su marca de tiempo. La base de datos se puede restaurar en cualquier servidor existente en la misma suscripción que la base de datos original. Para más información sobre cómo restaurar la base de datos a partir de una copia de seguridad de LTR mediante Azure Portal o PowerShell, vea [Administración de la retención de copias de seguridad a largo plazo de Azure SQL Database](long-term-backup-retention-configure.md). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

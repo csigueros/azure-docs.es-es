@@ -12,12 +12,12 @@ ms.date: 07/15/2021
 ms.author: baselden
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aaa8f116680b3876eebb2b96a4f4c5e40d6384a2
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 1a03b30c1e2628342246430089e3c6fbb47c98a7
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121732343"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124754351"
 ---
 # <a name="azure-active-directory-security-operations-guide-for-applications"></a>Guía de operaciones de seguridad de Azure Active Directory para aplicaciones
 
@@ -72,7 +72,7 @@ Los archivos de registro que usa para la investigación y supervisión son:
 
 * [Registros de inicio de sesión](../reports-monitoring/concept-all-sign-ins.md)
 
-* [Registros de auditoría de Microsoft 365](/microsoft-365/compliance/auditing-solutions-overview?view=o365-worldwide)
+* [Registros de auditoría de Microsoft 365](/microsoft-365/compliance/auditing-solutions-overview)
 
 * [Registros de Azure Key Vault](../../key-vault/general/logging.md)
 
@@ -162,7 +162,7 @@ Para obtener más información sobre las especificaciones de consentimiento, vea
 
 * [Administración del consentimiento en las aplicaciones y evaluación de las solicitudes de consentimiento en Azure Active Directory](../manage-apps/manage-consent-requests.md)
 
-* [Detección y corrección de las opciones ilegales para otorgar consentimiento - Office 365](/microsoft-365/security/office-365-security/detect-and-remediate-illicit-consent-grants?view=o365-worldwide)
+* [Detección y corrección de las opciones ilegales para otorgar consentimiento - Office 365](/microsoft-365/security/office-365-security/detect-and-remediate-illicit-consent-grants)
 
 * [Cuaderno de reproducción de respuesta a incidentes: investigación de concesión de consentimiento de aplicación](/security/compass/incident-response-playbook-app-consent)
 

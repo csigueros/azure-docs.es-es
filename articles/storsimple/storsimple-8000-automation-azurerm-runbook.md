@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 10/23/2017
 ms.author: alkohli
-ms.openlocfilehash: b5f2a86fb7c776436ea707ef293a66c033014c33
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 33385fa03d480c257789fd4cc139f9033e541a99
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96021085"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124754926"
 ---
 # <a name="use-azure-automation-runbooks-to-manage-storsimple-devices"></a>Uso de runbooks de Azure Automation para administrar dispositivos de StorSimple
 
@@ -206,7 +206,7 @@ Para crear un módulo de automatización para la administración de dispositivos
 
     ![click-new-runbook](./media/storsimple-8000-automation-azurerm-runbook/verify-runbook-created.png)
 
-8. Edite el runbook y haga clic en **Panel de prueba**. Proporcione los parámetros, como el nombre del servicio StorSimple Device Manager, el nombre del dispositivo de StorSimple y la suscripción. **Inicie** la prueba. Una vez completada la ejecución, se genera el informe. Para obtener más información, vaya a [cómo probar un runbook](../automation/learn/automation-tutorial-runbook-textual-powershell.md#step-3---test-the-runbook).
+8. Edite el runbook y haga clic en **Panel de prueba**. Proporcione los parámetros, como el nombre del servicio StorSimple Device Manager, el nombre del dispositivo de StorSimple y la suscripción. **Inicie** la prueba. Una vez completada la ejecución, se genera el informe. Para obtener más información, vaya a [cómo probar un runbook](../automation/learn/powershell-runbook-managed-identity.md).
 
     ![Captura de pantalla que muestra el panel Prueba donde se introducen los valores de parámetros e Iniciar una prueba.](./media/storsimple-8000-automation-azurerm-runbook/test-runbook.png)
 

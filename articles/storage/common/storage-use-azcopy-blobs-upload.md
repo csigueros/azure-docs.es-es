@@ -8,16 +8,16 @@ ms.date: 04/02/2021
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 352497f0f4d23250abe9f84121f358589664002b
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: c1171ada070131477c06292628da6eca9ee9c2ec
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107502919"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128590995"
 ---
 # <a name="upload-files-to-azure-blob-storage-by-using-azcopy"></a>Carga de archivos en Azure Blob Storage con AzCopy
 
-Puede cargar archivos y directorios en Blob Storage mediante la utilidad de línea de comandos AzCopy v10. 
+Puede cargar archivos y directorios en Blob Storage mediante la utilidad de línea de comandos AzCopy v10.
 
 Para ver ejemplos de otros tipos de tareas, como la carga de archivos, la sincronización con Blob Storage o la copia de blobs entre cuentas, consulte los vínculos presentados en la sección [Pasos siguientes](#next-steps) de este artículo.
 
@@ -25,7 +25,7 @@ Para ver ejemplos de otros tipos de tareas, como la carga de archivos, la sincro
 
 Vea el artículo [Introducción a AzCopy](storage-use-azcopy-v10.md) para descargar AzCopy y obtener información sobre las formas de proporcionar credenciales de autorización para el servicio de almacenamiento.
 
-> [!NOTE] 
+> [!NOTE]
 > En los ejemplos de este artículo se da por hecho que ha proporcionado credenciales de autorización mediante Azure Active Directory (Azure AD).
 >
 > Si prefiere usar un token de SAS para autorizar el acceso a los datos de blob, puede anexar ese token a la dirección URL de recursos en cada comando AzCopy. Por ejemplo: `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`.
@@ -84,7 +84,7 @@ También puede cargar un archivo mediante un símbolo comodín (*) en cualquier 
 
 ## <a name="upload-a-directory"></a>Subir un directorio
 
-Cargue un directorio mediante el comando [azcopy copy](storage-ref-azcopy-copy.md). 
+Cargue un directorio mediante el comando [azcopy copy](storage-ref-azcopy-copy.md).
 
 En este ejemplo se copia un directorio (y todos sus archivos) en un contenedor de blobs. El resultado es un directorio en el contenedor con el mismo nombre.
 
@@ -132,7 +132,7 @@ Cargue el contenido de un directorio mediante el comando [azcopy copy](storage-r
 
 **Sintaxis**
 
-`azcopy copy '<local-directory-path>\*' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<directory-path>'` 
+`azcopy copy '<local-directory-path>\*' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<directory-path>'`
 
 **Ejemplo**
 
@@ -159,9 +159,9 @@ Puede cargar archivos específicos mediante nombres de archivo completos, nombre
 
 Use el comando [azcopy copy](storage-ref-azcopy-copy.md) con la opción `--include-path`. Separe los nombres de archivo individuales mediante punto y coma (`;`).
 
-**Sintaxis** 
+**Sintaxis**
 
-`azcopy copy '<local-directory-path>' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>' --include-path <semicolon-separated-file-list>` 
+`azcopy copy '<local-directory-path>' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>' --include-path <semicolon-separated-file-list>`
 
 **Ejemplo**
 
@@ -181,11 +181,11 @@ También puede excluir archivos mediante la opción `--exclude-path`. Para más 
 
 ### <a name="use-wildcard-characters"></a>Uso de caracteres comodín
 
-Use el comando [azcopy copy](storage-ref-azcopy-copy.md) con la opción `--include-pattern`. Especifique nombres parciales que incluyan los caracteres comodín. Separe los nombres con punto y coma (`;`). 
+Use el comando [azcopy copy](storage-ref-azcopy-copy.md) con la opción `--include-pattern`. Especifique nombres parciales que incluyan los caracteres comodín. Separe los nombres con punto y coma (`;`).
 
 **Sintaxis**
 
-`azcopy copy '<local-directory-path>' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>' --include-pattern <semicolon-separated-file-list-with-wildcard-characters>` 
+`azcopy copy '<local-directory-path>' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>' --include-pattern <semicolon-separated-file-list-with-wildcard-characters>`
 
 **Ejemplo**
 
@@ -203,15 +203,15 @@ También puede excluir archivos mediante la opción `--exclude-pattern`. Para m�
 
 Las opciones `--include-pattern` y `--exclude-pattern` solo se aplican a los nombres de archivo, no a la ruta de acceso.  Si quiere copiar todos los archivos de texto que existen en un árbol de directorios, use la opción `–recursive` para obtener todo el árbol de directorios y, a continuación, use el `–include-pattern` y especifique `*.txt` para obtener todos los archivos de texto.
 
-### <a name="upload-files-that-were-modified-before-or-after-a-date-and-time"></a>Carga de archivos modificados antes o después de una fecha y hora 
+### <a name="upload-files-that-were-modified-before-or-after-a-date-and-time"></a>Carga de archivos modificados antes o después de una fecha y hora
 
-Use el comando [azcopy copy](storage-ref-azcopy-copy.md) con la opción `--include-before` o `--include-after`. Especifique una fecha y hora en formato ISO-8601 (por ejemplo: `2020-08-19T15:04:00Z`). 
+Use el comando [azcopy copy](storage-ref-azcopy-copy.md) con la opción `--include-before` o `--include-after`. Especifique una fecha y hora en formato ISO-8601 (por ejemplo: `2020-08-19T15:04:00Z`).
 
 En los siguientes ejemplos se cargan archivos que se modificaron en la fecha especificada o después de esta.
 
 **Sintaxis**
 
-`azcopy copy '<local-directory-path>\*' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-or-directory-name>'  --include-after <Date-Time-in-ISO-8601-format>` 
+`azcopy copy '<local-directory-path>\*' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-or-directory-name>'  --include-after <Date-Time-in-ISO-8601-format>`
 
 **Ejemplo**
 
@@ -229,11 +229,11 @@ Para ver una referencia detallada, consulte la documentación de referencia de [
 
 ## <a name="upload-with-index-tags"></a>Carga con etiquetas de índice
 
-Puede cargar un archivo y agregar [etiquetas de índice de blob (versión preliminar)](../blobs/storage-manage-find-blobs.md) al blob de destino.  
+Puede cargar un archivo y agregar [etiquetas de índice de blob (versión preliminar)](../blobs/storage-manage-find-blobs.md) al blob de destino.
 
 Si usa la autorización de Azure AD, a la entidad de seguridad se le debe asignar el rol [Propietario de datos de Storage Blob](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) o se le debe conceder permiso para la `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` [operación del proveedor de recursos de Azure](../../role-based-access-control/resource-provider-operations.md#microsoftstorage) a través de un rol personalizado de Azure. Si usa un token de firma de acceso compartido (SAS), ese token debe proporcionar acceso a las etiquetas del blob mediante el permiso `t` de SAS.
 
-Para agregar etiquetas, use la opción `--blob-tags` junto con un par clave-valor codificado como dirección URL. Por ejemplo, para agregar la clave `my tag` y un valor `my tag value`, agregaría `--blob-tags='my%20tag=my%20tag%20value'` al parámetro de destino. 
+Para agregar etiquetas, use la opción `--blob-tags` junto con un par clave-valor codificado como dirección URL. Por ejemplo, para agregar la clave `my tag` y un valor `my tag value`, agregaría `--blob-tags='my%20tag=my%20tag%20value'` al parámetro de destino.
 
 Separe varias etiquetas de índice mediante el carácter de Y comercial (`&`).  Por ejemplo, si quiere agregar una clave `my second tag` y un valor `my second tag value`, la cadena de opción completa sería `--blob-tags='my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value'`.
 

@@ -8,16 +8,16 @@ ms.service: bastion
 ms.topic: quickstart
 ms.date: 08/30/2021
 ms.author: cherylmc
-ms.openlocfilehash: f6319369a03de754b1ce016fb20aa99e5ab466e1
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: d9f3d2c8f30f3b5d249aae0789a7e2fee282e867
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123223416"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128677822"
 ---
 # <a name="quickstart-configure-azure-bastion-from-vm-settings"></a>Inicio rápido: Configuración de Azure Bastion a partir de las opciones de máquina virtual
 
-En este artículo de inicio rápido se muestra cómo configurar Azure Bastion en función de las opciones de la máquina virtual en el Azure Portal y, a continuación, conectarse a una máquina virtual a través de una dirección IP privada. Cuando se aprovisiona el servicio, la experiencia de RDP/SSH está disponible para todas las máquinas virtuales de la misma red virtual. La máquina virtual no necesita una dirección IP pública, software cliente, agente ni una configuración especial. Si no necesita la dirección IP pública en la máquina virtual para nada más, puede quitarla. A continuación, conéctese a la máquina virtual mediante el portal con la dirección IP privada. Para más información sobre Azure Bastion, consulte [¿Qué es Azure Bastion?](bastion-overview.md)
+En este artículo de inicio rápido se muestra cómo configurar Azure Bastion en función de las opciones de la máquina virtual en el Azure Portal y, a continuación, conectarse a una máquina virtual a través de una dirección IP privada. Cuando se aprovisiona el servicio, la experiencia de RDP/SSH está disponible para todas las máquinas virtuales de la misma red virtual. La máquina virtual no necesita una dirección IP pública, software cliente, agente ni una configuración especial. Si no necesita la dirección IP pública en la máquina virtual para nada más, puede quitarla. A continuación, conéctese a la máquina virtual mediante el portal con la dirección IP privada. Para más información sobre Azure Bastion, consulte [¿Qué es Azure Bastion?](bastion-overview.md) 
 
 ## <a name="prerequisites"></a><a name="prereq"></a>Requisitos previos
 

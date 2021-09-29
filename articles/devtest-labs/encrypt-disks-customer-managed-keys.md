@@ -1,14 +1,14 @@
 ---
-title: Cifrado de discos de sistema operativo mediante claves administradas por el cliente en Azure DevTest Labs
+title: Cifrado de discos de sistema operativo mediante claves administradas por el cliente
 description: Aprenda a cifrar discos de sistema operativo (SO) mediante claves administradas por el cliente en Azure DevTest Labs.
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/01/2020
-ms.openlocfilehash: 26ef4ff1529483da9956c6dcc43807af0ffd6463
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2da0e89c5a3f34d9ba967088ea3881f6a30bc1e2
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96341219"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128632355"
 ---
 # <a name="encrypt-operating-system-os-disks-using-customer-managed-keys-in-azure-devtest-labs"></a>Cifrado de discos de sistema operativo (SO) mediante claves administradas por el cliente en Azure DevTest Labs
 El cifrado del lado servidor (SSE) protege los datos y le ayuda a cumplir los compromisos de cumplimiento y seguridad de la organización. SSE cifra automáticamente los datos almacenados en discos administrados de Azure (discos de datos y de SO) en reposo de forma predeterminada cuando los conserva en la nube. Obtenga más información acerca del [cifrado de disco](../virtual-machines/disk-encryption.md) en Azure. 

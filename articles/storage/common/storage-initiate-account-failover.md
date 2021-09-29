@@ -10,12 +10,12 @@ ms.date: 05/07/2021
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: bd1bbf0d1c5a49bde35d303e6780737fb43ca997
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: ab764fd95168fef768efd0687adb5e2841bfb140
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121726066"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128609296"
 ---
 # <a name="initiate-a-storage-account-failover"></a>Inicio de una conmutación por error de la cuenta de almacenamiento
 
@@ -124,7 +124,7 @@ Después de volver a habilitar GRS para la cuenta de almacenamiento, Microsoft c
 - Los recursos disponibles para la replicación en segundo plano, como CPU, memoria, disco y capacidad WAN. El tráfico en directo tiene prioridad sobre la replicación geográfica.
 - Si usa Blob Storage, el número de instantáneas por blob.
 - Si usa Table Storage, la [estrategia de creación de particiones de datos](/rest/api/storageservices/designing-a-scalable-partitioning-strategy-for-azure-table-storage). El proceso de replicación no se puede escalar más allá del número de claves de partición que se usan.
-  
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Recuperación ante desastres y conmutación por error de la cuenta de almacenamiento](storage-disaster-recovery-guidance.md)

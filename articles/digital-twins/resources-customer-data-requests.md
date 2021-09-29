@@ -4,16 +4,16 @@ titleSuffix: Azure Digital Twins
 description: En este artículo se muestran los procesos para exportar y eliminar datos personales en Azure Digital Twins.
 author: baanders
 ms.author: baanders
-ms.date: 05/05/2020
+ms.date: 9/14/2021
 ms.topic: conceptual
 ms.service: digital-twins
 services: digital-twins
-ms.openlocfilehash: c50ff2e1a8e63fd775b7b09863ffcd9d832d8683
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: ef68e552d57df0fc202b9d75ae76065e3119ccff
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108205726"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128642802"
 ---
 # <a name="azure-digital-twins-customer-data-request-features"></a>Características de las solicitudes de datos de clientes para Azure Digital Twins
 
@@ -31,7 +31,7 @@ Para ver, exportar y eliminar datos personales a los que se puede hacer referenc
 
 Azure Digital Twins considera que los *datos personales* son datos asociados a sus administradores y usuarios. 
 
-Azure Digital Twins almacena el [id. de objeto](../active-directory/fundamentals/active-directory-whatis.md) de *Azure Active Directory* de los usuarios con acceso al entorno. Azure Digital Twins en Azure Portal muestra las direcciones de correo electrónico del usuario, pero estas direcciones de correo electrónico no se almacenan en Azure Digital Twins. Se buscan dinámicamente en Azure Active Directory mediante el id. de objeto de Azure Active Directory.
+Azure Digital Twins almacena el [id. de objeto](../active-directory/fundamentals/active-directory-whatis.md) de **Azure Active Directory** de los usuarios con acceso al entorno. Azure Digital Twins en Azure Portal muestra las direcciones de correo electrónico del usuario, pero estas direcciones de correo electrónico no se almacenan en Azure Digital Twins. Se buscan dinámicamente en Azure Active Directory mediante el id. de objeto de Azure Active Directory.
 
 ## <a name="deleting-customer-data"></a>Eliminación de datos del cliente
 

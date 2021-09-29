@@ -9,16 +9,16 @@ ms.topic: how-to
 ms.author: normesta
 ms.reviewer: klaasl
 ms.subservice: blobs
-ms.openlocfilehash: e7b92b2b9c4885e09bc2a700fbf3a8f1a37dbfa4
-ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
+ms.openlocfilehash: 67bd943028ba321aa4fa3a5acca30e80cfc36a32
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122272265"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128615574"
 ---
 # <a name="enable-azure-storage-blob-inventory-reports"></a>Habilitación de los informes de inventario de blobs de Azure Storage
 
-La característica de inventario de blobs de Azure Storage proporciona información general de los contenedores, blobs, instantáneas y versiones de blob dentro de una cuenta de almacenamiento. Use el informe de inventario para conocer diversos atributos de blobs y contenedores, como el tamaño total de los datos, la antigüedad, el estado de cifrado, la directiva de inmutabilidad y la suspensión legal, entre otros. El informe proporciona información general de los datos para los requisitos empresariales y de cumplimiento. 
+La característica de inventario de blobs de Azure Storage proporciona información general de los contenedores, blobs, instantáneas y versiones de blob dentro de una cuenta de almacenamiento. Use el informe de inventario para conocer diversos atributos de blobs y contenedores, como el tamaño total de los datos, la antigüedad, el estado de cifrado, la directiva de inmutabilidad y la suspensión legal, entre otros. El informe proporciona información general de los datos para los requisitos empresariales y de cumplimiento.
 
 Para más información sobre los informes de inventario de blobs, consulte [Inventario de blobs de Azure Storage](blob-inventory.md).
 
@@ -44,7 +44,7 @@ Para habilitar los informes de inventario de blobs, agregue una directiva con un
 
 7. En **Object type to inventory** (Tipo de objeto a inventario), seleccione si desea crear un informe para blobs o contenedores.
 
-   Si selecciona **Blob**, en **Blob subtype** (Subtipo de blob), elija los tipos de blobs que desea incluir en el informe y si desea incluir versiones e instantáneas de blobs en el informe de inventario. 
+   Si selecciona **Blob**, en **Blob subtype** (Subtipo de blob), elija los tipos de blobs que desea incluir en el informe y si desea incluir versiones e instantáneas de blobs en el informe de inventario.
 
    > [!NOTE]
    > Las versiones y las instantáneas deben estar habilitadas en la cuenta para guardar una nueva regla con la opción correspondiente habilitada.
@@ -91,30 +91,30 @@ Puede habilitar el hospedaje de sitios web estáticos con el módulo de Azure Po
    $ctx = $storageAccount.Context
    ```
 
-   * Reemplace el marcador de posición `<resource-group-name>` por el nombre del grupo de recursos.
+   - Reemplace el marcador de posición `<resource-group-name>` por el nombre del grupo de recursos.
 
-   * Reemplace el valor de marcador de posición `<storage-account-name>` por el nombre de la cuenta de almacenamiento.
+   - Reemplace el valor de marcador de posición `<storage-account-name>` por el nombre de la cuenta de almacenamiento.
 
 6. Cree reglas de inventario con el comando [New-AzStorageBlobInventoryPolicyRule](/powershell/module/az.storage/new-azstorageblobinventorypolicyrule). Cada regla enumera los campos de informe. Para obtener una lista completa de los campos de informe, consulte [Inventario de blobs de Azure Storage](blob-inventory.md).
 
-   ```Powershell
+   ```powershell
     $containerName = "my-container"
 
     $rule1 = New-AzStorageBlobInventoryPolicyRule -Name Test1 -Destination $containerName -Disabled -Format Csv -Schedule Daily -PrefixMatch con1,con2 `
-                -ContainerSchemaField Name,Metadata,PublicAccess,Last-modified,LeaseStatus,LeaseState,LeaseDuration,HasImmutabilityPolicy,HasLegalHold 
+                -ContainerSchemaField Name,Metadata,PublicAccess,Last-modified,LeaseStatus,LeaseState,LeaseDuration,HasImmutabilityPolicy,HasLegalHold
 
     $rule2 = New-AzStorageBlobInventoryPolicyRule -Name test2 -Destination $containerName -Format Parquet -Schedule Weekly  -BlobType blockBlob,appendBlob -PrefixMatch aaa,bbb `
                 -BlobSchemaField name,Last-Modified,Metadata,LastAccessTime
 
     $rule3 = New-AzStorageBlobInventoryPolicyRule -Name Test3 -Destination $containerName -Format Parquet -Schedule Weekly -IncludeBlobVersion -IncludeSnapshot -BlobType blockBlob,appendBlob -PrefixMatch aaa,bbb `
-                -BlobSchemaField name,Creation-Time,Last-Modified,Content-Length,Content-MD5,BlobType,AccessTier,AccessTierChangeTime,Expiry-Time,hdi_isfolder,Owner,Group,Permissions,Acl,Metadata,LastAccessTime 
+                -BlobSchemaField name,Creation-Time,Last-Modified,Content-Length,Content-MD5,BlobType,AccessTier,AccessTierChangeTime,Expiry-Time,hdi_isfolder,Owner,Group,Permissions,Acl,Metadata,LastAccessTime
 
     $rule4 = New-AzStorageBlobInventoryPolicyRule -Name test4 -Destination $containerName -Format Csv -Schedule Weekly -BlobType blockBlob -BlobSchemaField Name,BlobType,Content-Length,Creation-Time
 
    ```
 
-7. Utilice el comando [Set-AzStorageBlobInventoryPolicy](/powershell/module/az.storage/set-azstorageblobinventorypolicy) para crear una directiva de inventario de blobs. Pase reglas a este comando mediante el parámetro `-Rule`. 
-  
+7. Utilice el comando [Set-AzStorageBlobInventoryPolicy](/powershell/module/az.storage/set-azstorageblobinventorypolicy) para crear una directiva de inventario de blobs. Pase reglas a este comando mediante el parámetro `-Rule`.
+
    ```powershell
    $policy = Set-AzStorageBlobInventoryPolicy -StorageAccount $storageAccount -Rule $rule1,$rule2,$rule3,$rule4  
    ```
@@ -132,9 +132,10 @@ Puede habilitar el hospedaje de sitios web estáticos mediante la [Interfaz de l
    ```azurecli
       az account set --subscription <subscription-id>
    ```
+
    Reemplace el valor de marcador de posición `<subscription-id>` por el identificador de la suscripción.
 
-3. Defina las reglas de la directiva en un documento JSON. A continuación se muestra el contenido de un archivo JSON de ejemplo denominado `policy.json`. 
+3. Defina las reglas de la directiva en un documento JSON. A continuación se muestra el contenido de un archivo JSON de ejemplo denominado `policy.json`.
 
     ```json
     {
@@ -178,7 +179,8 @@ Puede habilitar el hospedaje de sitios web estáticos mediante la [Interfaz de l
       }
      ]
    }
-   ``` 
+
+   ```
 
 4. Cree una directiva de inventario de blobs mediante el comando [az storage account blob-inventory-policy create](/cli/azure/storage/account/blob-inventory-policy#az_storage_account_blob_inventory_policy_create). Proporcione el nombre del documento JSON mediante el parámetro `--policy`.
 
@@ -191,4 +193,4 @@ Puede habilitar el hospedaje de sitios web estáticos mediante la [Interfaz de l
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Cálculo del recuento y el tamaño total de los blobs por contenedor](calculate-blob-count-size.md)
-- [Administración del ciclo de vida de Azure Blob Storage](storage-lifecycle-management-concepts.md)
+- [Administración del ciclo de vida de Azure Blob Storage](./lifecycle-management-overview.md)

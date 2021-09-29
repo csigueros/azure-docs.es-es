@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 0057c28d5b0c65e7bd75eb2c80a0bf413e5f5c0f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6b173b323b1f3380d698f4ddc80108d59ed0b071
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92517903"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124785674"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-spacio"></a>Tutorial: Integración de Azure Active Directory con Spacio
 
@@ -175,7 +175,7 @@ En esta sección, creará un usuario llamado Britta Simon en Spacio. Trabaje con
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de Spacio en el panel de acceso, debería iniciar sesión automáticamente en la versión de Spacio para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
+Al hacer clic en el icono de Spacio en el panel de acceso, debería iniciar sesión automáticamente en la versión de Spacio para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

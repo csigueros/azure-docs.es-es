@@ -4,15 +4,15 @@ titleSuffix: Azure Digital Twins
 description: Describe las características de Azure y Azure Digital Twins que lo ayudarán a crear soluciones de Azure IoT de alta disponibilidad con funcionalidades de recuperación ante desastres.
 author: baanders
 ms.author: baanders
-ms.date: 10/14/2020
+ms.date: 9/16/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 125f3aa1cb3cfec0b7e8ec3cfafebdf2fae53e59
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: d021bc7643cfab1bbe805b424623c4ba129f6b1e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122771216"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128642821"
 ---
 # <a name="azure-digital-twins-high-availability-and-disaster-recovery"></a>Alta disponibilidad y recuperación ante desastres de Azure Digital Twins
 

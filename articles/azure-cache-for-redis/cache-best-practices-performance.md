@@ -7,12 +7,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/25/2021
 ms.author: shpathak
-ms.openlocfilehash: 0e2ba661d2eaa6dd3899bdd0cb5e70e8e083526a
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: 748e7e09332e9feded9af0bc6cfa9a38d27086f5
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123227106"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128615213"
 ---
 # <a name="performance-testing"></a>Pruebas de rendimiento
 
@@ -54,3 +54,9 @@ redis-benchmark -h yourcache.redis.cache.windows.net -a yourAccesskey -t GET -d 
 ```dos
 redis-benchmark -h yourcache.redis.cache.windows.net -a yourAccesskey -t  GET -n 1000000 -d 1024 -P 50  -c 50
 ```
+
+## <a name="next-steps"></a>Pasos siguientes
+
+- [Desarrollo](cache-best-practices-development.md)
+- [Preguntas frecuentes sobre el desarrollo para Azure Cache for Redis](cache-development-faq.yml)
+- [Conmutación por error y aplicación de revisiones para Azure Cache for Redis](cache-failover.md)

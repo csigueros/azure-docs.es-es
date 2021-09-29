@@ -6,17 +6,16 @@ ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/30/2021
-ms.openlocfilehash: 3ccbe4cfa7b6e4f485d16ffecbda5c3b7042b8e1
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: dda5f9c654d7b6630a733006e69df7f2b98b8eeb
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121745149"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128594828"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---flexible-server"></a>Extensiones de PostgreSQL en Azure Database for PostgreSQL: Servidor flexible
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL: Servidor flexible está en versión preliminar.
+
 
 PostgreSQL ofrece la capacidad de ampliar la funcionalidad de su base de datos mediante extensiones. Las extensiones agrupan varios objetos SQL relacionados en un solo paquete que se puede cargar o quitar de la base de datos con un comando. Después de cargarse en la base de datos, las extensiones funcionan como características integradas.
 

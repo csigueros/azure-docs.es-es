@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.date: 04/23/2021
 ms.author: jocorte
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6afce8903c5fe821e080983ab50a444f9f508554
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 591f2882e6886f208a5452ac547a5bb1e4024906
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121736674"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128610168"
 ---
 # <a name="scale-snat-ports-with-azure-nat-gateway"></a>Escalado de puertos SNAT con Azure NAT Gateway
 
-Azure Firewall proporciona 2048 puertos SNAT por cada dirección IP pública configurada y se pueden asociar hasta [250 direcciones IP públicas](./deploy-multi-public-ip-powershell.md). Según la arquitectura y los patrones de tráfico, es posible que necesite más de los 512 000 puertos SNAT disponibles con esta configuración. Por ejemplo, cuando se usa para proteger [implementaciones de Windows Virtual Desktop](./protect-windows-virtual-desktop.md) de gran tamaño que se integran con Aplicaciones de Microsoft 365.
+Azure Firewall proporciona 2048 puertos SNAT por cada dirección IP pública configurada y se pueden asociar hasta [250 direcciones IP públicas](./deploy-multi-public-ip-powershell.md). Según la arquitectura y los patrones de tráfico, es posible que necesite más de los 512 000 puertos SNAT disponibles con esta configuración. Por ejemplo, cuando se usa para proteger [implementaciones de Windows Virtual Desktop](./protect-azure-virtual-desktop.md) de gran tamaño que se integran con Aplicaciones de Microsoft 365.
 
 Otra dificultad con el uso de un gran número de direcciones IP públicas es cuando hay requisitos de filtrado de direcciones IP de nivel inferior. Azure Firewall selecciona aleatoriamente la dirección IP pública de origen que se va a usar para una conexión, por lo que debe permitir todas las direcciones IP públicas asociadas a ella. Incluso si usa [prefijos de dirección IP pública](../virtual-network/public-ip-address-prefix.md) y necesita asociar 250 direcciones IP públicas para cumplir los requisitos de puerto SNAT salientes, debe crear y permitir 16 prefijos de dirección IP pública.
 

@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: best-practice
 ms.date: 07/30/2020
 ms.author: cralvord
-ms.openlocfilehash: 283ec9999f9b4362035b6770383984efb0879d49
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b82071c393cea168fccb5e06db85e71852bbd4f8
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92783766"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128636769"
 ---
 # <a name="azure-storage-explorer-security-guide"></a>Guía de seguridad del Explorador de Azure Storage
 
@@ -98,7 +98,7 @@ El Explorador de Storage permite modificar el nivel de acceso de los contenedore
 Al habilitar el acceso público a un contenedor de blobs, se recomiendan las siguientes directrices:
 
 - **No habilite el acceso público a un contenedor de blobs que pueda contener datos potencialmente confidenciales.** Asegúrese de que el contenedor de blobs no tenga datos privados.
-- **No cargue datos potencialmente confidenciales en un contenedor de blobs con acceso a blobs o contenedores.** 
+- **No cargue datos potencialmente confidenciales en un contenedor de blobs con acceso a blobs o contenedores.**
 
 ## <a name="next-steps"></a>Pasos siguientes
 

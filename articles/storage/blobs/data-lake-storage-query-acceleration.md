@@ -8,12 +8,12 @@ ms.reviewer: jamesbak
 ms.date: 09/09/2020
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: dc1d217dba64c36aa219abbd4d2220a494347689
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3360b2ddfb89ede248cc9bcafe4a0178de2f0e9d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95912763"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128636807"
 ---
 # <a name="azure-data-lake-storage-query-acceleration"></a>Aceleración de consultas de Azure Data Lake Storage
 
@@ -21,7 +21,7 @@ La aceleración de consultas permite a las aplicaciones y los marcos de análisi
 
 ## <a name="overview"></a>Información general
 
-La aceleración de consultas acepta el filtrado de *predicados* y *proyecciones de columnas* que permiten a las aplicaciones filtrar filas y columnas en el momento en que se leen los datos del disco. Solo los datos que cumplen las condiciones de un predicado se transfieren a la aplicación a través de la red. Esto reduce la latencia de red y el costo de proceso.  
+La aceleración de consultas acepta el filtrado de *predicados* y *proyecciones de columnas* que permiten a las aplicaciones filtrar filas y columnas en el momento en que se leen los datos del disco. Solo los datos que cumplen las condiciones de un predicado se transfieren a la aplicación a través de la red. Esto reduce la latencia de red y el costo de proceso.
 
 Puede usar SQL para especificar los predicados de filtro de fila y las proyecciones de columna en una solicitud de aceleración de consultas. Una solicitud solo procesa un archivo. Por lo tanto, no se admiten las características relacionales avanzadas de SQL, como combinaciones y agrupación por agregados. La aceleración de consultas admite datos con formato CSV y JSON como entrada para cada solicitud.
 
@@ -50,7 +50,7 @@ En el diagrama siguiente se muestra cómo una aplicación típica utiliza la ace
 
 La aceleración de consultas optimiza el rendimiento mediante la reducción de la cantidad de datos transferidos y procesados por la aplicación.
 
-Para calcular un valor agregado, las aplicaciones normalmente recuperan **todos** los datos de un archivo y, a continuación, procesan y filtran los datos localmente. Un análisis de los patrones de entrada y salida para las cargas de trabajo de análisis revela que las aplicaciones normalmente solo requieren un 20 % de los datos que leen para realizar un cálculo determinado. Esta estadística es verdadera incluso después de aplicar técnicas como la [eliminación de particiones](../../hdinsight/hdinsight-hadoop-optimize-hive-query.md#hive-partitioning). Esto significa que el 80 % de los datos se transfieren a través de la red, se analizan y se filtran mediante las aplicaciones innecesariamente. Este patrón, diseñado esencialmente para quitar datos innecesarios, incurre en un costo de proceso significativo.  
+Para calcular un valor agregado, las aplicaciones normalmente recuperan **todos** los datos de un archivo y, a continuación, procesan y filtran los datos localmente. Un análisis de los patrones de entrada y salida para las cargas de trabajo de análisis revela que las aplicaciones normalmente solo requieren un 20 % de los datos que leen para realizar un cálculo determinado. Esta estadística es verdadera incluso después de aplicar técnicas como la [eliminación de particiones](../../hdinsight/hdinsight-hadoop-optimize-hive-query.md#hive-partitioning). Esto significa que el 80 % de los datos se transfieren a través de la red, se analizan y se filtran mediante las aplicaciones innecesariamente. Este patrón, diseñado esencialmente para quitar datos innecesarios, incurre en un costo de proceso significativo.
 
 Aunque Azure incluye una red líder del sector, en términos de rendimiento y latencia, la transferencia innecesaria de datos a través de esa red sigue siendo costosa para el rendimiento de la aplicación. Al filtrar los datos no deseados durante la solicitud de almacenamiento, la aceleración de consultas elimina este costo.
 
@@ -58,11 +58,11 @@ Además, la carga de la CPU necesaria para analizar y filtrar los datos innecesa
 
 ## <a name="applications-that-can-benefit-from-query-acceleration"></a>Aplicaciones que pueden beneficiarse de la aceleración de consultas
 
-La aceleración de consultas está diseñada para marcos de análisis distribuidos y aplicaciones de procesamiento de datos. 
+La aceleración de consultas está diseñada para marcos de análisis distribuidos y aplicaciones de procesamiento de datos.
 
-Los marcos de análisis distribuidos, como Apache Spark y Apache Hive, incluyen una capa de abstracción de almacenamiento en el marco de trabajo. Estos motores también incluyen optimizadores de consultas que pueden incorporar conocimiento de las capacidades del servicio de E/S subyacente al determinar un plan de consulta óptimo para las consultas de usuario. Estos marcos están empezando a integrar la aceleración de consultas. Como resultado, los usuarios de estos marcos verán una latencia de consulta mejorada y un costo total de propiedad más bajo sin tener que realizar cambios en las consultas. 
+Los marcos de análisis distribuidos, como Apache Spark y Apache Hive, incluyen una capa de abstracción de almacenamiento en el marco de trabajo. Estos motores también incluyen optimizadores de consultas que pueden incorporar conocimiento de las capacidades del servicio de E/S subyacente al determinar un plan de consulta óptimo para las consultas de usuario. Estos marcos están empezando a integrar la aceleración de consultas. Como resultado, los usuarios de estos marcos verán una latencia de consulta mejorada y un costo total de propiedad más bajo sin tener que realizar cambios en las consultas.
 
-La aceleración de consultas también está diseñada para aplicaciones de procesamiento de datos. Normalmente, estos tipos de aplicaciones realizan transformaciones de datos a gran escala que podrían no conducir directamente a la información de análisis, por lo que no siempre usan marcos de análisis distribuidos establecidos. Estas aplicaciones suelen tener una relación más directa con el servicio de almacenamiento subyacente para que puedan beneficiarse directamente de características como la aceleración de consultas. 
+La aceleración de consultas también está diseñada para aplicaciones de procesamiento de datos. Normalmente, estos tipos de aplicaciones realizan transformaciones de datos a gran escala que podrían no conducir directamente a la información de análisis, por lo que no siempre usan marcos de análisis distribuidos establecidos. Estas aplicaciones suelen tener una relación más directa con el servicio de almacenamiento subyacente para que puedan beneficiarse directamente de características como la aceleración de consultas.
 
 Para obtener un ejemplo de cómo una aplicación puede integrar la aceleración de consultas, consulte [Filtro de datos mediante la aceleración de consultas de Azure Data Lake Storage](data-lake-storage-query-acceleration-how-to.md).
 

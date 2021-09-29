@@ -5,18 +5,18 @@ author: emaher
 ms.topic: article
 ms.date: 08/25/2021
 ms.author: enewman
-ms.openlocfilehash: 80a64ce36697db2ac7bf941fdb40ab997e9f700f
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 14e30572ab620b36730c725c7ac5a2e762947366
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123110103"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124755491"
 ---
 # <a name="set-up-a-lab-to-teach-r-on-linux"></a>Configuración de un laboratorio para enseñar R en Linux
 
 [R](https://www.r-project.org/about.html) es un lenguaje de código abierto que se usa en computación y gráficos estadísticos.  Se utiliza en el análisis estadístico de la genética, en el procesamiento del lenguaje natural y en el análisis de datos financieros.  R proporciona una experiencia de [línea de comandos interactiva](https://cran.r-project.org/doc/manuals/r-release/R-intro.html#Invoking-R-from-the-command-line).  [RStudio](https://www.rstudio.com/products/rstudio/) es un entorno de desarrollo interactivo (IDE) disponible para el lenguaje R.  La versión gratuita proporciona herramientas de edición de código, una experiencia de depuración integrada y herramientas de desarrollo de paquetes.
 
-Este artículo se centrará únicamente en RStudio y R como bloque de creación para una clase que requiere el uso de computación estadística.  Los tipos de clase [aprendizaje profundo](class-type-deep-learning-natural-language-processing.md) y [Python y Jupyter Notebooks](class-type-jupyter-notebook.md) configuran RStudio de forma diferente.  En cada artículo se describe cómo usar la imagen de Marketplace [Data Science Virtual Machine para Linux (Ubuntu)](https://azuremarketplace.microsoft.com/en-US/marketplace/apps/microsoft-dsvm.ubuntu-1804), que tiene instaladas muchas [herramientas relacionadas con la ciencia de datos](/azure/machine-learning/data-science-virtual-machine/tools-included), incluido RStudio.  
+Este artículo se centrará únicamente en RStudio y R como bloque de creación para una clase que requiere el uso de computación estadística.  Los tipos de clase [aprendizaje profundo](class-type-deep-learning-natural-language-processing.md) y [Python y Jupyter Notebooks](class-type-jupyter-notebook.md) configuran RStudio de forma diferente.  En cada artículo se describe cómo usar la imagen de Marketplace [Data Science Virtual Machine para Linux (Ubuntu)](https://azuremarketplace.microsoft.com/en-US/marketplace/apps/microsoft-dsvm.ubuntu-1804), que tiene instaladas muchas [herramientas relacionadas con la ciencia de datos](../machine-learning/data-science-virtual-machine/tools-included.md), incluido RStudio.  
 
 ## <a name="lab-account-configuration"></a>Configuración de la cuenta de laboratorio
 

@@ -8,12 +8,12 @@ ms.service: azure-sentinel
 ms.topic: reference
 ms.date: 08/12/2021
 ms.author: bagol
-ms.openlocfilehash: d3f727b251c13bdc52de793919d85e984d8b78f2
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: 8cbd8861e7dc01e8615225dd88960b581fd4c2f4
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123260994"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124755091"
 ---
 # <a name="find-your-azure-sentinel-data-connector"></a>Búsqueda del conector de datos de Azure Sentinel
 
@@ -72,7 +72,7 @@ En este artículo se describe cómo implementar conectores de datos en Azure Sen
 > [!IMPORTANT]
 > Si realiza este paso, haga esto antes de implementar el conector de datos.
 >
-La aplicación de funciones de Agari permite compartir la inteligencia sobre amenazas con Azure Sentinel a través de Security Graph API. Para usar esta característica, no solo es preciso habilitar el conector [Sentinel Threat Intelligence Platforms](connect-threat-intelligence.md), sino también [registrar una aplicación](/graph/auth-register-app-v2) en Azure Active Directory.
+La aplicación de funciones de Agari permite compartir la inteligencia sobre amenazas con Azure Sentinel a través de Security Graph API. Para usar esta característica, no solo es preciso habilitar el conector [Sentinel Threat Intelligence Platforms](./connect-threat-intelligence-tip.md), sino también [registrar una aplicación](/graph/auth-register-app-v2) en Azure Active Directory.
 
 Este proceso proporcionará tres datos que se usarán al [implementar la aplicación de funciones](connect-azure-functions-template.md): el **id. de inquilino de Graph**, el **id. de cliente de Graph** y el **secreto de cliente de Graph** (vea la *configuración de la aplicación* en la tabla anterior).
 
@@ -163,7 +163,6 @@ Para obtener más información, consulte Cognito Detect Syslog Guide (Guía de S
 | --- | --- |
 | **Método de ingesta de datos** | [**Agente de Log Analytics: registros personalizados**](connect-custom-logs.md) <br><br>[Configuración adicional para Alsid](#extra-configuration-for-alsid)|
 | **Tabla de Log Analytics** | AlsidForADLog_CL |
-| **Archivo de ejemplo de registro personalizado:** | https://github.com/Azure/azure-quickstart-templates/blob/master/alsid-syslog-proxy/logs/AlsidForAD.log |
 | **Alias de función de Kusto:** | afad_parser |
 | **URL de función de Kusto:** | https://aka.ms/sentinel-alsidforad-parser |
 | **Compatible con** | [Alsid](https://www.alsid.com/contact-us/) |
@@ -291,13 +290,13 @@ Para obtener más información, consulte Cognito Detect Syslog Guide (Guía de S
 
 #### <a name="data-structure-changes"></a>Cambios en la estructura de datos
 
-Este conector ha cambiado recientemente su mecanismo de back-end para recopilar eventos del registro de actividad. Ahora usa la canalización de **configuración de diagnóstico**. Si todavía usa el método heredado para este conector, *se recomienda encarecidamente actualizar* a la nueva versión, que proporciona una mejor funcionalidad y una mayor coherencia con los registros de recursos. Vea las instrucciones siguientes.
+Este conector ha cambiado recientemente su mecanismo de back-end para recopilar eventos del registro de actividad. Ahora usa la canalización de **configuración de diagnóstico**. Si todavía usa el método heredado para este conector, *se recomienda encarecidamente actualizar* a la nueva versión, que proporciona una mejor funcionalidad y una mayor coherencia con los registros de recursos. Consulte las instrucciones a continuación.
 
-El método de **configuración de diagnóstico** envía los mismos datos que el método heredado enviaba desde el servicio Registro de actividad, aunque ha habido algunos [cambios en la estructura](../azure-monitor/essentials/activity-log.md#data-structure-changes) de la tabla **AzureActivity**.
+El método de **configuración de diagnóstico** envía los mismos datos que el método heredado que se envía desde el servicio Registro de actividad, aunque ha habido algunos [cambios en la estructura](../azure-monitor/essentials/activity-log.md#data-structure-changes) de la tabla **AzureActivity**.
 
-Estas son algunas de las mejoras clave resultantes del cambio a la canalización de configuración de diagnóstico:
-- Se ha mejorado la latencia de ingesta (ingesta de eventos de entre 2 y 3 minutos desde la aparición en lugar de 15 o 20 minutos).
-- Se ha mejorado la confiabilidad.
+Estas son algunas de las mejoras clave resultantes del pasaje a la canalización de configuración de diagnóstico:
+- Se mejoró la latencia de ingesta (ingesta de eventos de entre 2 y 3 minutos desde la aparición en lugar de 15 o 20 minutos).
+- Se mejoró la confiabilidad.
 - Mejor rendimiento.
 - Compatibilidad con todas las categorías de eventos registrados por el servicio Registro de actividad (el mecanismo heredado solo admite un subconjunto; por ejemplo, no admite eventos de Service Health).
 - Administración a gran escala con Azure Policy.
@@ -308,7 +307,7 @@ Vea la [documentación de Azure Monitor](../azure-monitor/logs/data-platform-log
 
 Antes de configurar el nuevo conector del registro de actividad de Azure, debe desconectar las suscripciones existentes del método heredado.
 
-1. En el menú de navegación de Azure Sentinel, seleccione **Conectores de datos**. En la lista de conectores, seleccione **Actividad de Azure** y, después, haga clic en el botón **Open connector page** (Abrir página del conector) en la parte inferior derecha.
+1. En el menú de navegación de Azure Sentinel, seleccione **Conectores de datos**. En la lista de conectores, seleccione **Actividad de Azure** y, a continuación, haga clic en el botón **Abrir página del conector** en la parte inferior derecha.
 
 1. En la pestaña **Instrucciones**, en la sección **Configuración**, en el paso 1, revise la lista de suscripciones existentes que están conectadas al método heredado (para saber cuáles se van a agregar al nuevo) y desconéctelas todas a la vez con el botón **Desconectar todo** que aparece a continuación.
 
@@ -1109,7 +1108,7 @@ Agregue http://localhost:8081/ en **Authorized redirect URIs** (URI de redirecci
 | **Tabla de Log Analytics** | Okta_CL |
 | **Código de la aplicación de funciones de Azure** | https://aka.ms/sentineloktaazurefunctioncodev2 |
 | **Credenciales de API** | <li>Token de API |
-| **Documentación del proveedor/<br>instrucciones de instalación** | <li>[Documentación de la API de registro del sistema de Okta](https://developer.okta.com/docs/reference/api/system-log/)<li>[Creación de un token de API](https://developer.okta.com/docs/guides/create-an-api-token/create-the-token/)<li>[Conexión de Okta SSO a Azure Sentinel](connect-okta-single-sign-on.md) |
+| **Documentación del proveedor/<br>instrucciones de instalación** | <li>[Documentación de la API de registro del sistema de Okta](https://developer.okta.com/docs/reference/api/system-log/)<li>[Creación de un token de API](https://developer.okta.com/docs/guides/create-an-api-token/create-the-token/)<li>[Conexión de Okta SSO a Azure Sentinel](#okta-single-sign-on-preview) |
 | **Instrucciones de implementación del conector** | <li>[Implementación de un solo clic](connect-azure-functions-template.md?tabs=ARM) mediante una plantilla de Azure Resource Manager (ARM)<li>[Implementación manual](connect-azure-functions-template.md?tabs=MPS) |
 | **Configuración de la aplicación** | <li>apiToken<li>workspaceID<li>workspaceKey<li>uri (sigue el esquema `https://<OktaDomain>/api/v1/logs?since=`. [Identifique el espacio de nombres del dominio](https://developer.okta.com/docs/reference/api-overview/#url-namespace)). <li>logAnalyticsUri (opcional) |
 | **Compatible con** | Microsoft |
@@ -1610,7 +1609,7 @@ Siga las instrucciones para obtener las credenciales.
 
 El conector de datos de Zimperium Mobile Threat Defense conecta el registro de amenazas de Zimperium a Azure Sentinel para ver paneles, crear alertas personalizadas y mejorar la investigación. Este conector le ofrece más conclusiones sobre el panorama de amenazas móviles de la organización y mejora las capacidades de las operaciones de seguridad. Para obtener más instrucciones, vea.
 
-Para obtener más información sobre cómo conectarse a Azure Sentinel, vea [Conexión de Zimperium a Azure Sentinel](connect-zimperium-mtd.md).
+Para obtener más información sobre cómo conectarse a Azure Sentinel, vea [Conexión de Zimperium a Azure Sentinel](#zimperium-mobile-thread-defense-preview).
 
 | Atributo del conector | Descripción |
 | --- | --- |

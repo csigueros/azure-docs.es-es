@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/13/2021
 ms.author: yelevin
-ms.openlocfilehash: c231840b6255ef693353d83323710cb3243efaef
-ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
+ms.openlocfilehash: 82a2dca4c38a8d8602bf41ee36760e846edb5d78
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123214304"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124774754"
 ---
 # <a name="threat-intelligence-integration-in-azure-sentinel"></a>Integración de inteligencia sobre amenazas en Azure Sentinel
 
@@ -75,7 +75,7 @@ Para conectarse a fuentes de la plataforma de inteligencia sobre amenazas (TIP),
 
 ### <a name="agari-phishing-defense-and-brand-protection"></a>Agari Phishing Defense y Agari Brand Protection
 
-- Para conectar [Agari Phishing Defense y Brand Protection](https://agari.com/products/phishing-defense/), use el [conector de datos de Agari](connect-agari-phishing-defense.md) integrado en Azure Sentinel.
+- Para conectar [Agari Phishing Defense y Brand Protection](https://agari.com/products/phishing-defense/), use el [conector de datos de Agari](./data-connectors-reference.md#agari-phishing-defense-and-brand-protection-preview) integrado en Azure Sentinel.
 
 ### <a name="anomali-threatstream"></a>Anomali ThreatStream
 
