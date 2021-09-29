@@ -4,15 +4,16 @@ description: En este artículo se describe lo que necesita saber antes y despué
 author: bandersmsft
 ms.reviewer: mcville
 ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 09/15/2021
 ms.author: banders
-ms.openlocfilehash: d234227de98beeed6898697fb6ed8e0865546e16
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 6ce3a4b19bd1ba32a466bede87e111744e1a8a52
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100555853"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128658476"
 ---
 # <a name="transfer-subscriptions-under-an-azure-plan-from-one-partner-to-another-preview"></a>Transferencia de suscripciones de un plan de Azure de un asociado a otro (versión preliminar)
 

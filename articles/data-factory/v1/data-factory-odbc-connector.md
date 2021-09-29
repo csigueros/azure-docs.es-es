@@ -3,17 +3,18 @@ title: Movimiento de datos desde almacenes de datos de ODBC
 description: Obtenga información sobre cómo mover datos desde almacenes de datos ODBC mediante Azure Data Factory.
 author: linda33wj
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 11/19/2018
 ms.author: jingwang
 ms.custom: devx-track-azurepowershell
 robots: noindex
-ms.openlocfilehash: 43987b333279675204179a90f01f2aa668abb2c1
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 269d0d0bb1d9fb61dada1640a4a5c63106654abd
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110665680"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128619559"
 ---
 # <a name="move-data-from-odbc-data-stores-using-azure-data-factory"></a>Movimiento de datos desde almacenes de datos ODBC mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -355,10 +356,10 @@ Use la pestaña **Diagnósticos** del **Administrador de configuración de Data 
 
 1. Inicie el **Administrador de configuración de Data Management Gateway**. Puede ejecutar C:\Archivos de programa\Microsoft Data Management Gateway\1.0\Shared\ConfigManager.exe directamente, o bien buscar **Gateway** para encontrar un vínculo a la aplicación **Microsoft Data Management Gateway**, tal y como se muestra en la imagen siguiente.
 
-    ![Buscar puerta de enlace](./media/data-factory-odbc-connector/search-gateway.png)
+    :::image type="content" source="./media/data-factory-odbc-connector/search-gateway.png" alt-text="Buscar puerta de enlace":::
 2. Cambie a la pestaña **Diagnósticos** .
 
-    ![Diagnóstico de puerta de enlace](./media/data-factory-odbc-connector/data-factory-gateway-diagnostics.png)
+    :::image type="content" source="./media/data-factory-odbc-connector/data-factory-gateway-diagnostics.png" alt-text="Diagnóstico de puerta de enlace":::
 3. Seleccione el **tipo** de almacén de datos (el servicio vinculado).
 4. Especifique la **autenticación** y escriba las **credenciales**, o bien escriba la **cadena de conexión** que se usa para conectarse al almacén de datos.
 5. Haga clic en **Probar conexión** para probar la conexión con el almacén de datos.

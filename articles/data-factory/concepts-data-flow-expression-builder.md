@@ -9,13 +9,13 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/24/2021
-ms.openlocfilehash: 7dd40b52cbc74e62a6dbb8ed83d19c968e48d9c4
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.date: 09/09/2021
+ms.openlocfilehash: 6a21299d505d0132bab432223095850b3006b05e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122822819"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128651282"
 ---
 # <a name="build-expressions-in-mapping-data-flow"></a>Generación de expresiones del flujo de datos de asignación
 
@@ -29,25 +29,25 @@ En el flujo de datos de asignación, muchas propiedades de transformación se es
 
 Hay varios puntos de entrada para abrir el generador de expresiones. Todos ellos dependen del contexto específico de la transformación del flujo de datos. El caso de uso más común se da en las transformaciones como [columna derivada](data-flow-derived-column.md) y [agregado](data-flow-aggregate.md), donde los usuarios crean o actualizan columnas con el lenguaje de expresiones de flujo de datos. El generador de expresiones se puede abrir al seleccionar **Abrir el generador de expresiones** encima de la lista de columnas. También puede hacer clic en un contexto de columna y abrir el generador de expresiones directamente en esa expresión.
 
-![Abrir Generador de expresiones en columna derivada](media/data-flow/open-expression-builder-derive.png "Abrir Generador de expresiones en columna derivada")
+:::image type="content" source="media/data-flow/open-expression-builder-derive.png" alt-text="Abrir Generador de expresiones en columna derivada":::
 
 En algunas transformaciones como [filtro](data-flow-filter.md), al hacer clic en un cuadro de texto de expresión azul, se abrirá el generador de expresiones. 
 
-![Cuadro de expresión azul](media/data-flow/expressionbox.png "Cuadro de expresión azul")
+:::image type="content" source="media/data-flow/expressionbox.png" alt-text="Cuadro de expresión azul":::
 
 Al hacer referencia a columnas en una coincidencia o grupo por condición, una expresión puede extraer valores de las columnas. Para crear una expresión, seleccione la opción **Columna calculada**.
 
-![Opción Columna calculada](media/data-flow/computedcolumn.png "Opción Columna calculada")
+:::image type="content" source="media/data-flow/computedcolumn.png" alt-text="Opción Columna calculada":::
 
 En los casos en los que una expresión o un valor literal son entradas válidas, **Agregar contenido dinámico** le permitirá crear una expresión que se evalúe como un literal.
 
-![Opción Agregar contenido dinámico](media/data-flow/add-dynamic-content.png "Opción Agregar contenido dinámico")
+:::image type="content" source="media/data-flow/add-dynamic-content.png" alt-text="Opción Agregar contenido dinámico":::
 
 ## <a name="expression-elements"></a>Elementos de expresión
 
 En la asignación de flujos de datos, las expresiones pueden estar compuestas de valores de columna, parámetros, funciones, variables locales, operadores y literales. Estas expresiones deben evaluarse como un tipo de datos de Spark, como una cadena, un valor booleano o un entero.
 
-![Elementos de expresión](media/data-flow/expression-elements.png "Elementos de expresión")
+:::image type="content" source="media/data-flow/expression-elements.png" alt-text="Elementos de expresión":::
 
 ### <a name="functions"></a>Functions
 
@@ -57,7 +57,7 @@ Los flujos de datos de asignación tienen funciones y operadores integrados que 
 
 Al tratar con columnas o funciones que devuelven tipos de matriz, use corchetes ([]) para acceder a un elemento específico. Si el índice no existe, la expresión se evalúa como NULL.
 
-![Matriz del Generador de expresiones](media/data-flow/expression-array.png "Vista previa de datos de expresión")
+:::image type="content" source="media/data-flow/expression-array.png" alt-text="Matriz del Generador de expresiones":::
 
 > [!IMPORTANT]
 > En los flujos de datos de asignación, las matrices se basan en uno, lo que significa que al primer elemento se hace referencia mediante la indexación de uno. Por ejemplo, myArray[1] accederá al primer elemento de una matriz denominada "myArray".
@@ -70,7 +70,7 @@ Si el flujo de datos usa un esquema definido en cualquiera de sus orígenes, pue
 
 Si tiene nombres de columna que incluyen caracteres especiales o espacios, escriba el nombre entre llaves para hacer referencia a estos en una expresión.
 
-```{[dbo].this_is my complex name$$$}```
+`{[dbo].this_is my complex name$$$}`
 
 ### <a name="parameters"></a>Parámetros
 
@@ -84,7 +84,7 @@ Una búsqueda en caché le permite realizar una búsqueda alineada de la salida 
 
 `outputs()` no toma ningún parámetro y devuelve el receptor de caché completo como una matriz de columnas complejas. No se puede llamar a este método si las columnas de clave se especifican en el receptor y solo se debe usar si hay un número pequeño de filas en el receptor de caché. Un caso de uso común es anexar el valor máximo de una clave de incremento. Si una sola fila agregada almacenada en caché `CacheMaxKey` contiene una columna `MaxKey`, puede hacer referencia al primer valor llamando a `CacheMaxKey#outputs()[1].MaxKey`.
 
-![Búsqueda en caché](media/data-flow/cached-lookup-example.png "Búsqueda en caché")
+:::image type="content" source="media/data-flow/cached-lookup-example.png" alt-text="Búsqueda en caché":::
 
 ### <a name="locals"></a>Locals
 
@@ -94,7 +94,7 @@ Si varias columnas comparten la misma lógica o si desea compartimentar la lógi
 
 Si el [modo de depuración](concepts-data-flow-debug-mode.md) está activado, puede usar el clúster de depuración de manera interactiva para obtener una vista previa de lo que evalúa la expresión. Seleccione **Actualizar** junto a la vista previa de los datos para actualizar los resultados de la vista previa de los datos. Puede ver la salida de cada fila a partir de las columnas de entrada.
 
-![Versión preliminar en curso](media/data-flow/preview-expression.png "Vista previa de datos de expresión")
+:::image type="content" source="media/data-flow/preview-expression.png" alt-text="Versión preliminar en curso":::
 
 ## <a name="string-interpolation"></a>Interpolación de cadenas
 
@@ -126,7 +126,7 @@ Los ejemplos siguientes son comentarios válidos:
 
 Si coloca un comentario al comienzo de la expresión, aparecerá en el cuadro de texto de transformación para documentar las expresiones de transformación.
 
-![Comentario en el cuadro de texto de transformación](media/data-flow/comment-expression.png "Comentarios")
+:::image type="content" source="media/data-flow/comment-expression.png" alt-text="Comentario en el cuadro de texto de transformación":::
 
 ## <a name="regular-expressions"></a>Expresiones regulares
 
@@ -159,13 +159,13 @@ A continuación, se muestra una lista de los accesos directos disponibles en el 
 
 ### <a name="convert-to-dates-or-timestamps"></a>Conversión en fechas o marcas de tiempo
 
-Para incluir literales de cadena en la salida de la marca de tiempo, debe ajustar la conversión en ```toString()```.
+Para incluir literales de cadena en la salida de la marca de tiempo, debe ajustar la conversión en `toString()`.
 
-```toString(toTimestamp('12/31/2016T00:12:00', 'MM/dd/yyyy\'T\'HH:mm:ss'), 'MM/dd /yyyy\'T\'HH:mm:ss')```
+`toString(toTimestamp('12/31/2016T00:12:00', 'MM/dd/yyyy\'T\'HH:mm:ss'), 'MM/dd /yyyy\'T\'HH:mm:ss')`
 
 Para convertir los milisegundos de la época a una fecha o marca de tiempo, use `toTimestamp(<number of milliseconds>)`. Si el tiempo estará disponible en segundos, multiplíquelo por 1000.
 
-```toTimestamp(1574127407*1000l)```
+`toTimestamp(1574127407*1000l)`
 
 El signo "l" final al final de la expresión anterior indica que hay una conversión a un tipo long como sintaxis insertada.
 

@@ -7,12 +7,12 @@ ms.custom: references_regions
 ms.date: 02/17/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 6eb6dd71ae95b3af4ee913e1ac88d9988d2b23a9
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 7e2c4c6a68bb8db4434a233e7b7c658074ed015a
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113762525"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124804120"
 ---
 # <a name="host-pool-creation"></a>Creación de grupos de hosts
 
@@ -71,7 +71,7 @@ Al volver a registrar el proveedor de recursos, no verá ningún comentario o es
 Siga estas instrucciones para solucionar problemas de implementaciones incorrectas de DSC de PowerShell y plantillas de Azure Resource Manager.
 
 1. Revise los errores en la implementación mediante [Ver operaciones de implementación con Azure Resource Manager](../azure-resource-manager/templates/deployment-history.md).
-2. Si no hay ningún error en la implementación, revise los errores en el registro de actividad mediante [Ver registros de actividad para auditar las acciones sobre los recursos](../azure-resource-manager/management/view-activity-logs.md).
+2. Si no hay ningún error en la implementación, revise los errores en el registro de actividad mediante [Ver registros de actividad para auditar las acciones sobre los recursos](../azure-monitor/essentials/activity-log.md).
 3. Una vez identificado el error, utilice el mensaje de error y los recursos de [Solucionar errores comunes de implementación de Azure con Azure Resource Manager](../azure-resource-manager/templates/common-deployment-errors.md) para solucionar el problema.
 4. Elimine los recursos creados durante la implementación anterior y vuelva a intentar implementar la plantilla.
 
@@ -282,11 +282,11 @@ the VM.\\\"
 
 - Para información general sobre la solución de problemas de Azure Virtual Desktop y las pistas de escalación, consulte [Introducción a la solución de problemas, comentarios y soporte técnico](troubleshoot-set-up-overview.md).
 - Para solucionar problemas al configurar una máquina virtual (VM) en Azure Virtual Desktop, consulte [Configuración de la máquina virtual del host de sesión](troubleshoot-vm-configuration.md).
-- Para solucionar problemas relacionados con el agente de Windows Virtual Desktop o la conectividad de sesión, consulte [Solución de problemas comunes del agente de Azure Virtual Desktop](troubleshoot-agent.md).
+- Para solucionar problemas relacionados con el agente de Azure Virtual Desktop o la conectividad de sesión, consulte [Solución de problemas comunes del agente de Azure Virtual Desktop](troubleshoot-agent.md).
 - Para solucionar problemas con conexiones de cliente de Azure Virtual Desktop, consulte [Conexiones de servicios de Azure Virtual Desktop](troubleshoot-service-connection.md).
 - Para solucionar problemas con los clientes de Escritorio remoto, consulte [Solución de problemas del cliente de Escritorio remoto](troubleshoot-client.md).
 - Para solucionar problemas al usar PowerShell con Azure Virtual Desktop, consulte [PowerShell para Azure Virtual Desktop](troubleshoot-powershell.md).
 - Para más información sobre el servicio, consulte [Entorno de Azure Virtual Desktop](environment-setup.md).
 - Para realizar un tutorial de solución de problemas, consulte [Tutorial: Solución de problemas de las implementaciones de plantillas de Resource Manager](../azure-resource-manager/templates/template-tutorial-troubleshoot.md).
-- Para más información sobre las acciones de auditoría, consulte [Operaciones de auditoría con Resource Manager](../azure-resource-manager/management/view-activity-logs.md).
+- Para más información sobre las acciones de auditoría, consulte [Operaciones de auditoría con Resource Manager](../azure-monitor/essentials/activity-log.md).
 - Si desea conocer más detalles sobre las acciones que permiten determinar los errores durante la implementación, consulte [Visualización de operaciones de implementación con el Portal de Azure](../azure-resource-manager/templates/deployment-history.md).

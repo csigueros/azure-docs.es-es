@@ -15,12 +15,12 @@ ms.custom: mvc
 ms.date: 08/26/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f79fc66b44de89ba93137b244e22890348ab1c4
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+ms.openlocfilehash: 91728bfee6b8e303de2e7199e703a8acaa5139d8
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122967210"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124773595"
 ---
 # <a name="what-are-managed-identities-for-azure-resources"></a>¿Qué son las identidades administradas de recursos de Azure?
 
@@ -75,7 +75,7 @@ Los recursos que admiten identidades administradas asignadas por el sistema le p
 
 - Habilitar o deshabilitar las identidades administradas en el nivel de recurso.
 - Usar roles de RBAC para [conceder permisos](howto-assign-access-portal.md).
-- Ver las operaciones de creación, lectura, actualización y eliminación (CRUD) en los [registros de actividad de Azure](../../azure-resource-manager/management/view-activity-logs.md).
+- Ver las operaciones de creación, lectura, actualización y eliminación (CRUD) en los [registros de actividad de Azure](../../azure-monitor/essentials/activity-log.md).
 - Ver la actividad de inicio de sesión en los [registros de inicio de sesión](../reports-monitoring/concept-sign-ins.md) de Azure AD.
 
 Si en su lugar elige una identidad administrada asignada por el usuario:
@@ -83,7 +83,7 @@ Si en su lugar elige una identidad administrada asignada por el usuario:
 - Puede [crear, leer, actualizar y eliminar](how-to-manage-ua-identity-portal.md) las identidades.
 - Puede usar asignaciones de roles de RBAC para [conceder permisos](howto-assign-access-portal.md).
 - Las identidades administradas asignadas por el usuario se pueden usar en más de un recurso.
-- Las operaciones CRUD están disponibles para su revisión en los [registros de actividad de Azure](../../azure-resource-manager/management/view-activity-logs.md).
+- Las operaciones CRUD están disponibles para su revisión en los [registros de actividad de Azure](../../azure-monitor/essentials/activity-log.md).
 - Ver la actividad de inicio de sesión en los [registros de inicio de sesión](../reports-monitoring/concept-sign-ins.md) de Azure AD.
 
 Las operaciones sobre identidades administradas se pueden realizar mediante una plantilla de Azure Resource Manager (ARM), Azure Portal, la CLI de Azure, PowerShell y las API REST.

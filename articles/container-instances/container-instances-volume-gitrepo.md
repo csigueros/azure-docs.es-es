@@ -3,12 +3,12 @@ title: Montar el volumen de gitRepo en un grupo de contenedores
 description: Más información acerca de cómo montar un volumen de gitRepo para clonar un repositorio de GIT en las instancias de Container Instances
 ms.topic: article
 ms.date: 06/15/2018
-ms.openlocfilehash: 7c1249e3120dd680c52bf74fb045bedf5202b9f2
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 02def9b54211e122bb61f5dbbb380da0cac91f88
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107763728"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128607337"
 ---
 # <a name="mount-a-gitrepo-volume-in-azure-container-instances"></a>Montaje de un volumen de gitRepo en Azure Container Instances
 
@@ -68,7 +68,7 @@ Para montar un volumen de GitRepo al implementar instancias de contenedor con un
 Por ejemplo, la siguiente plantilla de Resource Manager crea un grupo de contenedores que consta de un único contenedor. El contenedor clona dos repositorios de GitHub especificados por los bloques del volumen de *gitRepo*. El segundo volumen incluye propiedades adicionales que especifican un directorio en el que clonar y el hash de confirmación de una revisión específica que se va a clonar.
 
 <!-- https://github.com/Azure/azure-docs-json-samples/blob/master/container-instances/aci-deploy-volume-gitrepo.json -->
-[!code-json[volume-gitrepo](~/azure-docs-json-samples/container-instances/aci-deploy-volume-gitrepo.json)]
+[!code-json[volume-gitrepo](~/resourcemanager-templates/container-instances/aci-deploy-volume-gitrepo.json)]
 
 A continuación, se muestra la estructura del directorio resultante de los dos repositorios clonados definidos en la plantilla anterior:
 

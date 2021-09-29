@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 04/27/2021
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 6755aae60f09fad14f773c3976ae4f3d7e073744
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: 6fbffc3b9a8c45aca7fa61b45dd6f34b300864e6
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108187174"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124773975"
 ---
 # <a name="saml-single-sign-on-for-on-premises-applications-with-application-proxy"></a>Inicio de sesión único de SAML para aplicaciones en el entorno local con Application Proxy
 
@@ -81,7 +81,7 @@ Para proporcionar SSO para aplicaciones en el entorno local, tiene que habilitar
    * Con un flujo iniciado por el proveedor de servicios, asegúrese de que la aplicación de back-end especifica el valor de **URL de respuesta** correcto o la URL del Servicio de consumidor de aserciones que se utilizará para recibir el token de autenticación.
 
     > [!NOTE]
-    > Si la aplicación de back-end espera que la **URL de respuesta** sea la dirección URL interna, necesitará usar [dominios personalizados](application-proxy-configure-custom-domain.md) para tener direcciones URL internas y externas que coincidan o instalar la extensión de inicio de sesión segura de Mis aplicaciones en los dispositivos de los usuarios. Esta extensión le redireccionará automáticamente al servicio Application Proxy adecuado. Para instalar la extensión, consulte [	Extensión de inicio de sesión seguro de mis aplicaciones](../user-help/my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension).
+    > Si la aplicación de back-end espera que la **URL de respuesta** sea la dirección URL interna, necesitará usar [dominios personalizados](application-proxy-configure-custom-domain.md) para tener direcciones URL internas y externas que coincidan o instalar la extensión de inicio de sesión segura de Mis aplicaciones en los dispositivos de los usuarios. Esta extensión le redireccionará automáticamente al servicio Application Proxy adecuado. Para instalar la extensión, consulte [	Extensión de inicio de sesión seguro de mis aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510#download-and-install-the-my-apps-secure-sign-in-extension).
     
 ## <a name="test-your-app"></a>Prueba de la aplicación
 

@@ -8,12 +8,12 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 08/03/2021
-ms.openlocfilehash: f46f5a01765d03c521c7bbc21b51aef9f3a8f93a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: e2dfb0eda9d4e10c97591a6cc534adaa188d87e1
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121745157"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128602021"
 ---
 # <a name="azure-database-for-postgresql--hyperscale-citus-configuration-options"></a>Opciones de configuración de Hiperescala (Citus) para Azure Database for PostgreSQL
 
@@ -115,6 +115,7 @@ Los grupos de servidores Hiperescala (Citus) están disponibles en las siguiente
 * Asia Pacífico:
     * Este de Australia
     * Japón Oriental
+    * Japón Occidental
     * Centro de Corea del Sur
     * Sudeste de Asia
 * Europa:
@@ -122,7 +123,7 @@ Los grupos de servidores Hiperescala (Citus) están disponibles en las siguiente
     * Centro-oeste de Alemania
     * Norte de Europa
     * Norte de Suiza
-    * Sur de Reino Unido 2
+    * Sur de Reino Unido
     * Oeste de Europa
 
 Es posible que algunas de estas regiones no se activen inicialmente en todas las suscripciones de Azure. Si desea utilizar una región de la lista anterior y no la ve en su suscripción, o si desea usar una región que no está en esta lista, abra una [solicitud de soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

@@ -6,12 +6,12 @@ author: bwren
 ms.author: bwren
 ms.date: 08/16/2021
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 548ddbc3fce6220e32de2df43024b7c4ed22f5e7
-ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
+ms.openlocfilehash: 530602fdb471b86ba84aea0093d9e6c4d91d3c75
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123187899"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124820594"
 ---
 # <a name="managing-azure-monitor-logs-in-azure-cli"></a>Administración de los registros de Azure Monitor en la CLI de Azure
 
@@ -32,7 +32,7 @@ az monitor log-analytics workspace create --resource-group ContosoRG \
    --workspace-name ContosoWorkspace
 ```
 
-Para más información acerca de las áreas de trabajo, consulte [Introducción a los registros de Azure Monitor](/azure/azure-monitor/logs/data-platform-logs).
+Para más información acerca de las áreas de trabajo, consulte [Introducción a los registros de Azure Monitor](./data-platform-logs.md).
 
 ## <a name="list-tables-in-your-workspace"></a>Enumeración de las tablas del área de trabajo
 
@@ -56,7 +56,7 @@ az monitor log-analytics workspace table update --resource-group ContosoRG \
 
 El tiempo de retención está entre 30 y 730 días.
 
-Para más información sobre las tablas, consulte [Estructura de los datos](/azure/azure-monitor/logs/data-platform-logs#data-structure).
+Para más información sobre las tablas, consulte [Estructura de los datos](./data-platform-logs.md#data-structure).
 
 ## <a name="export-data-from-selected-tables"></a>Exportación de datos de tablas seleccionadas
 
@@ -83,7 +83,7 @@ az monitor log-analytics workspace data-export delete --resource-group ContosoRG
    --workspace-name ContosoWorkspace --name DataExport --yes
 ```
 
-Para más información sobre la exportación de datos, consulte [Exportación de datos del área de trabajo de Log Analytics en Azure Monitor (versión preliminar)](/azure/azure-monitor/logs/logs-data-export).
+Para más información sobre la exportación de datos, consulte [Exportación de datos del área de trabajo de Log Analytics en Azure Monitor (versión preliminar)](./logs-data-export.md).
 
 ## <a name="manage-a-linked-service"></a>Administración de un servicio vinculado
 
@@ -132,7 +132,7 @@ az monitor log-analytics workspace linked-storage delete --resource-group Contos
    --workspace-name ContosoWorkspace --type Alerts
 ```
 
-Para más información, consulte [Uso de cuentas de almacenamiento administradas por el cliente en Log Analytics de Azure Monitor](/azure/azure-monitor/logs/private-storage).
+Para más información, consulte [Uso de cuentas de almacenamiento administradas por el cliente en Log Analytics de Azure Monitor](./private-storage.md).
 
 ## <a name="manage-intelligence-packs"></a>Administración de módulos de inteligencia
 

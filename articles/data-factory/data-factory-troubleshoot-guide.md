@@ -7,14 +7,14 @@ ms.service: data-factory
 ms.subservice: troubleshooting
 ms.custom: synapse
 ms.topic: troubleshooting
-ms.date: 08/24/2021
+ms.date: 09/09/2021
 ms.author: abnarain
-ms.openlocfilehash: bab07b19efc1978836d1f14463392f8de2bd6e92
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.openlocfilehash: c9e6c4c0475842d9eb8c674464ebcf997d98b548
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122864556"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124749445"
 ---
 # <a name="troubleshoot-azure-data-factory-and-synapse-pipelines"></a>Solución de problemas de canalizaciones de Azure Data Factory y Synapse
 
@@ -566,7 +566,7 @@ La tabla siguiente se aplica a Azure Batch.
 
 - **Recomendación:** Corrija las credenciales y vuelva a implementar el servicio vinculado. En primer lugar, compruebe que las credenciales funcionan en HDInsight; para ello, abra el URI del clúster en cualquier explorador e intente iniciar sesión. Si las credenciales no funcionan, puede restablecerlas desde Azure Portal.
 
-   En el caso del clúster de ESP, restablezca la contraseña mediante el [autoservicio de restablecimiento de contraseña](../active-directory/user-help/active-directory-passwords-update-your-own-password.md).
+   En el caso del clúster de ESP, restablezca la contraseña mediante el [autoservicio de restablecimiento de contraseña](https://support.microsoft.com/account-billing/reset-your-work-or-school-password-using-security-info-23dde81f-08bb-4776-ba72-e6b72b9dda9e).
 
  </br>
 
@@ -953,7 +953,7 @@ La tabla siguiente se aplica a Azure Batch.
 
 - **Solución:** puede ir a la ruta de acceso **Microsoft Integration Runtime\4.0\Shared\ODBC Drivers\Microsoft Hive ODBC Driver\lib** y abrir DriverConfiguration64.exe para cambiar la configuración.
 
-    ![Desactive la casilla Use System Trust Store (Usar almacén de confianza del sistema)](./media/connector-troubleshoot-guide/system-trust-store-setting.png)
+    :::image type="content" source="./media/connector-troubleshoot-guide/system-trust-store-setting.png" alt-text="Desactive la casilla Use System Trust Store (Usar almacén de confianza del sistema)":::
 
 ## <a name="web-activity"></a>Actividad web
 
@@ -982,7 +982,7 @@ Para usar **Fiddler** para crear una sesión HTTP de la aplicación web supervis
 
    1. Seleccione **Capturar CONEXIONES HTTPS** y **Descifrar tráfico HTTPS**.
 
-      ![Opciones de Fiddler](media/data-factory-troubleshoot-guide/fiddler-options.png)
+      :::image type="content" source="media/data-factory-troubleshoot-guide/fiddler-options.png" alt-text="Opciones de Fiddler":::
 
 1. Si la aplicación usa certificados TLS/SSL, agregue el certificado de Fiddler al dispositivo.
 

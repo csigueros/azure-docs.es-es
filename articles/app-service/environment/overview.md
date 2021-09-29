@@ -4,15 +4,15 @@ description: Información general sobre App Service Environment
 author: ccompy
 ms.assetid: 3d37f007-d6f2-4e47-8e26-b844e47ee919
 ms.topic: article
-ms.date: 08/05/2021
+ms.date: 09/07/2021
 ms.author: ccompy
 ms.custom: references_regions
-ms.openlocfilehash: 848b7ce830c91cffaaaa39ed2102255f0adc3b7f
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: e422f6316cce204a4b6ea152ff9be4489bb3e331
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122445684"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124767914"
 ---
 # <a name="app-service-environment-overview"></a>Información general sobre App Service Environment 
 > [!NOTE]
@@ -90,7 +90,7 @@ ASEv3 aplica un modelo de precios distinto en función del tipo de implementaci�
 
 - **ASEv3**: si ASE está vacío, se aplica un cargo como si tuviera un ASP con una instancia de Windows I1v2. El cargo de única instancia no es adicional, solo se aplica si el ASE está vacío.
 - **ASEv3 de zona de disponibilidad**: hay un cargo mínimo por nueve instancias de Windows I1v2. No hay ningún cargo adicional por compatibilidad con zonas de disponibilidad si tiene nueve o más instancias de plan de App Service. Todos los planes de App Service en una instancia de AZ ASEv3 también tienen tres instancias como mínimo para asegurarse de que hay una instancia en cada zona de disponibilidad. A medida que los planes se escalan horizontalmente, se reparten entre las zonas de disponibilidad. 
-- **ASEv3 de host dedicado**: con una implementación de host dedicado, se le cobran dos hosts dedicados según nuestros precios al crear una instancia de ASEv3 y, a continuación, un pequeño porcentaje de la tarifa Isolated V2 por núcleo a medida que escala.
+- **ASEv3 de host dedicado**: con una implementación de host dedicado, se le cobran dos hosts dedicados según nuestros precios al crear una instancia de ASEv3 y, a continuación, un pequeño porcentaje de la tarifa del plan Aislado V2 por núcleo a medida que escala.
 
 Los precios de instancias reservadas para Isolated v2 están disponibles y se describen en [Cómo se aplican los descuentos de reserva a Azure App Service][reservedinstances]. Los precios, junto con los precios de las instancias reservadas, están disponibles en [Precios de App Service][pricing] del **plan Aislado v2**. 
 
@@ -108,22 +108,27 @@ ASEv3 está disponible en las regiones siguientes.
 |Centro de EE. UU. |Este de EE. UU. 2|
 |Este de Asia  | Centro de Francia|
 |Este de EE. UU.    | Centro-oeste de Alemania|
-|Este de EE. UU. 2| Norte de Europa|
-|Centro de Francia | Centro-sur de EE. UU.|
-|Centro-oeste de Alemania   |   Sudeste de Asia|
+|Este de EE. UU. 2| Japón Oriental|
+|Centro de Francia | Norte de Europa|
+|Centro-oeste de Alemania   |   Centro-sur de EE. UU.|
+|Japón Oriental | Sudeste de Asia|
 |Centro de Corea del Sur  | Sur de Reino Unido|
-|Norte de Europa   | Oeste de Europa|
-|Este de Noruega    | Oeste de EE. UU. 2 |
+|Centro-Norte de EE. UU   | Oeste de Europa|
+|Norte de Europa   | Oeste de EE. UU. 2|
+|Este de Noruega    | |
+|Norte de Sudáfrica | |
 |Centro-sur de EE. UU.   | |
 |Sudeste de Asia| |
 |Norte de Suiza  | | 
+|Norte de Emiratos Árabes Unidos| |   
 |Sur de Reino Unido| |    
 |Oeste de Reino Unido| |
 |Centro-Oeste de EE. UU.    | | 
 |Oeste de Europa    | |
 |Oeste de EE. UU.    | | 
 |Oeste de EE. UU. 2| |
+|Oeste de EE. UU. 3| |
 
 <!--Links-->
-[reservedinstances]: https://docs.microsoft.com/azure/cost-management-billing/reservations/reservation-discount-app-service#how-reservation-discounts-apply-to-isolated-v2-instances
+[reservedinstances]: ../../cost-management-billing/reservations/reservation-discount-app-service.md
 [pricing]: https://azure.microsoft.com/pricing/details/app-service/windows/

@@ -14,12 +14,12 @@ ms.date: 06/30/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 88854bb08b9f1cffec7d6f2fde535f73a3241e18
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 761995f33d5688e5864640a0e6e2f864f5aa44a3
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121749059"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124766053"
 ---
 # <a name="configure-security-alerts-for-azure-ad-roles-in-privileged-identity-management"></a>Configurar alertas de seguridad para roles de Azure AD en Privileged Identity Management
 
@@ -43,7 +43,7 @@ Gravedad: **Baja**
 | --- | --- |
 | **¿Por qué se recibe esta alerta?** | El hecho de que los usuarios tengan asignados roles con privilegios que no necesitan aumenta la probabilidad de un ataque. También es más fácil para los atacantes permanecer desapercibidos en cuentas que no se usan activamente. |
 | **Solución** | Revise los usuarios de la lista y quítelos de los roles con privilegios que no necesitan. |
-| **Prevención** | Asigne roles con privilegios solo a los usuarios que tengan una justificación empresarial. </br>Programe [revisiones de acceso](pim-how-to-start-security-review.md) periódicas para comprobar que los usuarios todavía necesitan el acceso. |
+| **Prevención** | Asigne roles con privilegios solo a los usuarios que tengan una justificación empresarial. </br>Programe [revisiones de acceso](./pim-create-azure-ad-roles-and-resource-roles-review.md) periódicas para comprobar que los usuarios todavía necesitan el acceso. |
 | **Acción de mitigación en el portal** | Quítele a la cuenta su rol con privilegios. |
 | **Desencadenador** | Se desencadena si un usuario pasa por un número especificado de días sin activar un rol. |
 | **Número de días** | Esta configuración especifica el número máximo de días, de 0 a 100, que un usuario puede pasar sin activar un rol.|
@@ -76,7 +76,7 @@ Gravedad: **Media**
 | --- | --- |
 | **¿Por qué se recibe esta alerta?** | Las cuentas de un rol con privilegios no han cambiado su contraseña en los últimos 90 días. Estas cuentas podrían ser cuentas de servicio o compartidas que no se mantienen y son vulnerables a los atacantes. |
 | **Solución** | Revise las cuentas de la lista. Si ya no necesitan acceso, quíteles sus roles con privilegios. |
-| **Prevención** | Asegúrese de que las cuentas que se comparten tengan contraseñas seguras que rotan cuando se produce un cambio en los usuarios que conocen la contraseña. </br>Revise con regularidad las cuentas con roles con privilegios mediante [revisiones de acceso](pim-how-to-start-security-review.md) y quite las asignaciones de roles que ya no sean necesarias. |
+| **Prevención** | Asegúrese de que las cuentas que se comparten tengan contraseñas seguras que rotan cuando se produce un cambio en los usuarios que conocen la contraseña. </br>Revise con regularidad las cuentas con roles con privilegios mediante [revisiones de acceso](./pim-create-azure-ad-roles-and-resource-roles-review.md) y quite las asignaciones de roles que ya no sean necesarias. |
 | **Acción de mitigación en el portal** | Quítele a la cuenta su rol con privilegios. |
 | **procedimientos recomendados** | Las cuentas de acceso compartido, de servicio y de emergencia que se autentican mediante una contraseña y que se asignan a roles administrativos con privilegios elevados, como administrador global o administrador de seguridad, deben rotar sus contraseñas para los siguientes casos:<ul><li>Después de un incidente de seguridad que implique usos indebidos o riesgos de los derechos de acceso administrativos.</li><li>Después de cambiar los privilegios del usuario de modo que deje de ser un administrador (por ejemplo, cuando un empleado que era administrador deja el departamento de TI o abandona la organización).</li><li>A intervalos regulares (por ejemplo, trimestral o anualmente), incluso si no se ha producido ninguna infracción conocida o cambio en el personal de TI.</li></ul>Dado que varias personas tienen acceso a las credenciales de estas cuentas, se deben girar las credenciales para garantizar que las personas que dejan sus roles no puedan seguir accediendo a las cuentas. [Más información sobre la protección de cuentas](../roles/security-planning.md) |
 

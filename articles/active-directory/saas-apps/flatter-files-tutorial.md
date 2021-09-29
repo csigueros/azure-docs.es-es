@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: fae21c98c7340614a96b6e85aa79bdea7889a807
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 34372fe7d623041c46d33b97e58740612adeb87a
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92453287"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124834792"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-flatter-files"></a>Tutorial: integración de Azure Active Directory con Flatter Files
 
@@ -228,7 +228,7 @@ El objetivo de esta sección es crear un usuario de prueba llamado Britta Simon 
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de Flatter Files del panel de acceso, debería iniciar sesión automáticamente en la versión de Flatter Files para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
+Al hacer clic en el icono de Flatter Files del panel de acceso, debería iniciar sesión automáticamente en la versión de Flatter Files para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

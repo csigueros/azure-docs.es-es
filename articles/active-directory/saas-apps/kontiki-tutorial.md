@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 9e0b438e0cfa729300099463086248780c69484c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 01e068c55d6ab2c11e0ac745c2347b52c374741d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95019847"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124813426"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kontiki"></a>Tutorial: Integración de Azure Active Directory con Kontiki
 
@@ -180,7 +180,7 @@ No hay ningún elemento de acción para que configure el aprovisionamiento de us
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el portal Aplicaciones.
 
-Después de configurar el inicio de sesión único, cuando se selecciona **Kontiki** en el portal Aplicaciones, se inicia automáticamente sesión en Kontiki. Para más información acerca del portal Aplicaciones, consulte [Acceso y uso de aplicaciones en el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+Después de configurar el inicio de sesión único, cuando se selecciona **Kontiki** en el portal Aplicaciones, se inicia automáticamente sesión en Kontiki. Para más información acerca del portal Aplicaciones, consulte [Acceso y uso de aplicaciones en el portal Aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

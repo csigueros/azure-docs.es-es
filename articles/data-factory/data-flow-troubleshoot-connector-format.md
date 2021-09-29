@@ -4,17 +4,17 @@ description: Obtenga información sobre la solución de problemas de flujos de d
 author: linda33wj
 ms.author: jingwang
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: troubleshooting
 ms.date: 08/17/2021
-ms.openlocfilehash: 79a64a7eb1e06fef3c9e534a69324faaf9f23107
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.openlocfilehash: 3a723f2317e9408f35ef506d96d7fb9714c9f4b3
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122867539"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129059803"
 ---
 # <a name="troubleshoot-connector-and-format-issues-in-mapping-data-flows-in-azure-data-factory"></a>Solución de problemas de conectores y formatos en flujos de datos de asignación en Azure Data Factory
-
 
 En este artículo se exploran los métodos de solución de problemas relacionados con conectores y formatos para flujos de datos de asignación en Azure Data Factory (ADF).
 
@@ -75,7 +75,7 @@ Para sobrescribir el comportamiento predeterminado y traer campos adicionales, A
 
     1. Use la **Configuración de depuración** del origen del flujo de datos para hacer que **Import projection** (Importar proyección) con los archivos o tablas de ejemplo obtenga el esquema completo. Puede seguir los pasos de la siguiente imagen:<br/>
 
-        ![Captura de pantalla que muestra la primera parte de la primera opción para personalizar el esquema de origen.](./media/data-flow-troubleshoot-connector-format/customize-schema-option-1-1.png)<br/>
+        :::image type="content" source="./media/data-flow-troubleshoot-connector-format/customize-schema-option-1-1.png" alt-text="Captura de pantalla que muestra la primera parte de la primera opción para personalizar el esquema de origen.":::<br/>
          1. Seleccione **Configuración de depuración** en el lienzo del flujo de datos.
          1. En el panel emergente, seleccione **Sample table** (Tabla de ejemplo) en la pestaña **cosmosSource** y escriba el nombre de la tabla en el bloque **Tabla**.
          1. Haga clic en **Guardar** para guardar la configuración.
@@ -83,7 +83,7 @@ Para sobrescribir el comportamiento predeterminado y traer campos adicionales, A
     
     1. Vuelva a cambiar la **Configuración de depuración** para usar el conjunto de datos de origen para el movimiento o la transformación de datos restantes. Puede seguir con los pasos de la imagen siguiente:<br/>
 
-        ![Captura de pantalla que muestra la segunda parte de la primera opción para personalizar el esquema de origen.](./media/data-flow-troubleshoot-connector-format/customize-schema-option-1-2.png) <br/>   
+        :::image type="content" source="./media/data-flow-troubleshoot-connector-format/customize-schema-option-1-2.png" alt-text="Captura de pantalla que muestra la segunda parte de la primera opción para personalizar el esquema de origen."::: <br/>   
          1. Seleccione **Configuración de depuración** en el lienzo del flujo de datos.
          1. En el panel emergente, seleccione **Source dataset** (Conjunto de datos de origen) en la pestaña **cosmosSource**.
          1. Haga clic en **Guardar** para guardar la configuración.<br/>
@@ -92,7 +92,7 @@ Para sobrescribir el comportamiento predeterminado y traer campos adicionales, A
 
 - **Opción 2**: Si está familiarizado con el esquema y el lenguaje DSL de los datos de origen, puede actualizar manualmente el script de origen del flujo de datos para agregar columnas adicionales o que faltan para leer los datos. En la imagen siguiente se muestra un ejemplo: 
 
-    ![Captura de pantalla que muestra la segunda opción para personalizar el esquema de origen.](./media/data-flow-troubleshoot-connector-format/customize-schema-option-2.png)
+    :::image type="content" source="./media/data-flow-troubleshoot-connector-format/customize-schema-option-2.png" alt-text="Captura de pantalla que muestra la segunda opción para personalizar el esquema de origen.":::
 
 ### <a name="support-map-type-in-the-source"></a>Compatibilidad con el tipo de asignación en el origen
 
@@ -247,7 +247,7 @@ Si usa el servidor flexible o Hiperescala (Citus) para el servidor de Azure Post
 - [MCW: Datos en tiempo real con Azure Database for PostgreSQL: Hiperescala](https://github.com/microsoft/MCW-Real-time-data-with-Azure-Database-for-PostgreSQL-Hyperscale/blob/master/Hands-on%20lab/HOL%20step-by%20step%20-%20Real-time%20data%20with%20Azure%20Database%20for%20PostgreSQL%20Hyperscale.md)<br/>
     Consulte el contenido de la siguiente imagen de este artículo:<br/>
 
-    ![Capturas de pantalla que muestran el contenido de referencia del artículo anterior.](./media/data-flow-troubleshoot-connector-format/handshake-failure-cause-2.png)
+    :::image type="content" source="./media/data-flow-troubleshoot-connector-format/handshake-failure-cause-2.png" alt-text="Capturas de pantalla que muestran el contenido de referencia del artículo anterior.":::
 
 #### <a name="recommendation"></a>Recomendación
 Puede intentar usar actividades de copia para desbloquear este problema. 
@@ -395,7 +395,7 @@ Puede intentar solucionar este problema mediante los métodos siguientes:
 #### <a name="symptoms"></a>Síntomas
 Cuando usa Synapse como origen o receptor del flujo de datos para obtener una vista previa de los datos, depurar o desencadenar una ejecución, etc., y habilita el almacenamiento provisional para usar PolyBase, y se crea el servicio vinculado del almacén de almacenamiento provisional (Blob, Gen2, etc.) para usar la autenticación con identidades administradas, el trabajo podría producir el siguiente error que se muestra en la imagen: <br/>
 
-![Capturas de pantalla que muestran el error de identidad del servicio.](./media/data-flow-troubleshoot-connector-format/service-identity-error.png)
+:::image type="content" source="./media/data-flow-troubleshoot-connector-format/service-identity-error.png" alt-text="Capturas de pantalla que muestran el error de identidad del servicio.":::
 
 #### <a name="error-message"></a>Mensaje de error
 `shaded.msdataflow.com.microsoft.sqlserver.jdbc.SQLServerException: Managed Service Identity has not been enabled on this server. Please enable Managed Service Identity and try again.`
@@ -480,7 +480,7 @@ Reemplace los caracteres especiales del nombre de archivo, lo cual funcionará e
 #### <a name="symptoms"></a>Síntomas
 Cuando se usa el archivo manifest.json para CDM no se muestra ningún dato en la vista previa de los datos ni después de ejecutar una canalización. Solo se muestran los encabezados. Puede ver este problema en la imagen siguiente.<br/>
 
-![Captura de pantalla que muestra el síntoma de salida sin datos.](./media/data-flow-troubleshoot-connector-format/no-data-output.png)
+:::image type="content" source="./media/data-flow-troubleshoot-connector-format/no-data-output.png" alt-text="Captura de pantalla que muestra el síntoma de salida sin datos.":::
 
 #### <a name="cause"></a>Causa
 En el documento de manifiesto se describe la carpeta CDM, por ejemplo, qué entidades tiene en la carpeta, las referencias de esas entidades y los datos que corresponden a esta instancia. Al documento de manifiesto le falta la información sobre `dataPartitions` que indica a ADF dónde leer los datos y, como está vacía, devuelve cero datos. 
@@ -495,11 +495,11 @@ Puede encontrarse con un problema por el que un atributo (de tipo cadena) de la 
 
 - En los datos de origen del archivo .csv (consulte la segunda columna): <br/>
 
-    ![Captura de pantalla que muestra el atributo en los datos de origen del archivo .csv.](./media/data-flow-troubleshoot-connector-format/json-array-csv.png)
+    :::image type="content" source="./media/data-flow-troubleshoot-connector-format/json-array-csv.png" alt-text="Captura de pantalla que muestra el atributo en los datos de origen del archivo .csv.":::
 
 - En la vista previa de los datos de origen de CDM: <br/>
 
-    ![Captura de pantalla que muestra la columna independiente en los datos de origen de CDM.](./media/data-flow-troubleshoot-connector-format/json-array-cdm.png)
+    :::image type="content" source="./media/data-flow-troubleshoot-connector-format/json-array-cdm.png" alt-text="Captura de pantalla que muestra la columna independiente en los datos de origen de CDM.":::
 
  
 También puede intentar asignar las columnas desplazadas y usar la expresión del flujo de datos para transformar este atributo como una matriz. Pero, dado que este atributo se lee como una columna independiente, la transformación en una matriz no funciona.  
@@ -538,7 +538,7 @@ Quite la parte `@snapshot=2020-10-02T13:26:10.6681248Z` del nombre del archivo d
 #### <a name="symptoms"></a>Síntomas
 Cuando se usa CDM en el flujo de datos con el formato de modelo, no se puede obtener una vista previa de los datos y se produce el error: `DF-CDM_005 The corpus path is null or empty`. En la imagen siguiente se muestra el error:  
 
-![Captura de pantalla que muestra el error en la ruta de acceso del corpus.](./media/data-flow-troubleshoot-connector-format/corpus-path-error.png)
+:::image type="content" source="./media/data-flow-troubleshoot-connector-format/corpus-path-error.png" alt-text="Captura de pantalla que muestra el error en la ruta de acceso del corpus.":::
 
 #### <a name="cause"></a>Causa
 La ruta de acceso de la partición de datos del archivo model.json apunta a una ubicación de almacenamiento de blobs y no al lago de datos. La ubicación debe tener la dirección URL base de **.dfs.core.windows.net** para ADLS Gen2. 
@@ -546,14 +546,14 @@ La ruta de acceso de la partición de datos del archivo model.json apunta a una 
 #### <a name="recommendation"></a>Recomendación
 Para solucionar este problema, puede consultar este artículo: [ADF incorpora la compatibilidad con los conjuntos de datos en línea y Common Data Model a los flujos de datos](https://techcommunity.microsoft.com/t5/azure-data-factory/adf-adds-support-for-inline-datasets-and-common-data-model-to/ba-p/1441798), y la siguiente imagen muestra la manera de corregir el error de la ruta de acceso del corpus de este artículo.
 
-![Captura de pantalla que muestra cómo solucionar el error en la ruta de acceso del corpus.](./media/data-flow-troubleshoot-connector-format/fix-format-issue.png)
+:::image type="content" source="./media/data-flow-troubleshoot-connector-format/fix-format-issue.png" alt-text="Captura de pantalla que muestra cómo solucionar el error en la ruta de acceso del corpus.":::
 
 ### <a name="unable-to-read-csv-data-files"></a>No se pueden leer archivos de datos CSV
 
 #### <a name="symptoms"></a>Síntomas 
 Usa el conjunto de datos en línea como Common Data Model con el manifiesto como origen y ha proporcionado el archivo de manifiesto de entrada, la ruta de acceso raíz, el nombre de la entidad y la ruta de acceso. En el manifiesto, tiene las particiones de datos con la ubicación del archivo .csv. Mientras tanto, el esquema de entidad y el esquema csv son idénticos y todas las validaciones se han realizado correctamente. Sin embargo, en la vista previa de los datos, solo se carga el esquema en lugar de los datos y estos no se pueden ver. En esta imagen se muestra esta situación:
 
-![Captura de pantalla que muestra el problema de no poder leer los archivos de datos.](./media/data-flow-troubleshoot-connector-format/unable-read-data.png)
+:::image type="content" source="./media/data-flow-troubleshoot-connector-format/unable-read-data.png" alt-text="Captura de pantalla que muestra el problema de no poder leer los archivos de datos.":::
 
 #### <a name="cause"></a>Causa
 La carpeta de CDM no está separada en modelos lógicos y físicos, y solo existen modelos físicos en esta carpeta. En los dos artículos siguientes se describe la diferencia: [Definiciones lógicas](/common-data-model/sdk/logical-definitions) y [Resolución de una definición de entidad lógica](/common-data-model/sdk/convert-logical-entities-resolved-entities).<br/> 
@@ -613,11 +613,11 @@ El primer y el segundo síntoma no se pueden solucionar actualmente. Para el ter
 Cuando se usan flujos de datos para leer archivos como, por ejemplo, archivos .csv y Excel con esquemas diferentes, se producirá un error en la depuración del flujo de datos, el espacio aislado o la ejecución de la actividad.
 - En el caso de los archivos .csv, la desalineación de los datos se produce cuando el esquema de los archivos es diferente. 
 
-    ![Captura de pantalla que muestra el primer error de esquema.](./media/data-flow-troubleshoot-connector-format/schema-error-1.png)
+    :::image type="content" source="./media/data-flow-troubleshoot-connector-format/schema-error-1.png" alt-text="Captura de pantalla que muestra el primer error de esquema.":::
 
 - En el caso de Excel, se produce un error cuando el esquema del archivo es diferente.
 
-    ![Captura de pantalla que muestra el segundo error de esquema.](./media/data-flow-troubleshoot-connector-format/schema-error-2.png)
+    :::image type="content" source="./media/data-flow-troubleshoot-connector-format/schema-error-2.png" alt-text="Captura de pantalla que muestra el segundo error de esquema.":::
 
 #### <a name="cause"></a>Causa
 

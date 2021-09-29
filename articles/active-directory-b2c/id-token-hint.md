@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/30/2021
+ms.date: 09/16/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6477283b3eb96579b943baf0aa34c2737bf43a58
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 39c21beb5f2f8f673210f8fc4c8c5bf0a7d13c2a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110059612"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128575083"
 ---
 # <a name="define-an-id-token-hint-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definición de un perfil técnico de sugerencias de token de id. en una directiva personalizada de Azure Active Directory B2C
 
@@ -130,7 +130,8 @@ Este código crea una cadena de secreto como `VK62QTn0m1hMcn0DQ3RPYDAr6yIiSvYgdR
 Debe crearse la misma clave que usa el emisor del token, en las claves de la directiva de Azure AD B2C.  
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-1. Seleccione el icono **Directorio y suscripción** en la barra de herramientas del portal y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
 1. En Azure Portal, busque y seleccione **Azure AD B2C**.
 1. En la página de información general, en **Directivas**, seleccione **Identity Experience Framework**.
 1. Seleccione **Claves de directiva**. 

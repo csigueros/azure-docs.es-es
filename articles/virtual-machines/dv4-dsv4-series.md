@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: vm-sizes-general
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: a32fdd1da872c45c0e2402cdddd0685ef4296c7a
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: e33dba0f48f59f9be02e9cbab8346efd078cb893
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122691218"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124803927"
 ---
 # <a name="dv4-and-dsv4-series"></a>Series Dv4 y Dsv4
 
@@ -85,3 +85,22 @@ Los tamaños de la serie Dsv4 se ejecutan en procesadores Intel&reg; Xeon&reg; P
 
 <sup>1</sup> Las máquinas virtuales de la serie Dsv4 pueden [expandir](./disk-bursting.md) su rendimiento de disco y llegar a una expansión máxima hasta durante 30 minutos cada vez.<br>
 <sup>2</sup> Las redes aceleradas solo se pueden aplicar a una única NIC. 
+
+[!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
+
+## <a name="other-sizes-and-information"></a>Otros tamaños e información
+
+- [Uso general](sizes-general.md)
+- [Memoria optimizada](sizes-memory.md)
+- [Almacenamiento optimizado](sizes-storage.md)
+- [GPU optimizada](sizes-gpu.md)
+- [Proceso de alto rendimiento](sizes-hpc.md)
+- [Generaciones anteriores](sizes-previous-gen.md)
+
+Calculadora de precios: [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/)
+
+Para obtener más información sobre los tipos de discos, vea [¿Qué tipos de disco están disponibles en Azure?](disks-types.md).
+
+## <a name="next-steps"></a>Pasos siguientes
+
+Obtenga más información sobre cómo las [unidades de proceso de Azure (ACU)](acu.md) pueden ayudarlo a comparar el rendimiento en los distintos SKU de Azure.

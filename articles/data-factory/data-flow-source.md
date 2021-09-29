@@ -8,17 +8,19 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 07/27/2021
-ms.openlocfilehash: ef2db7e11666c104215b29f298882cfe77631310
-ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
+ms.date: 09/09/2021
+ms.openlocfilehash: a95bfe8ed978a0d67381d0be1f15038c847ab36b
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122015542"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129061226"
 ---
 # <a name="source-transformation-in-mapping-data-flow"></a>Transformación de origen en flujo de datos de asignación
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
 
 Una transformación de origen configura el origen de datos para el flujo de datos. Al diseñar flujos de datos, el primer paso será siempre configurar una transformación de origen. Para agregar un origen, seleccione el cuadro **Agregar origen** en el lienzo de Data Flow.
 
@@ -36,7 +38,7 @@ Se recomiendan los conjuntos de datos en línea cuando se usan esquemas flexible
 
 Para usar un conjunto de datos en línea, seleccione el formato que desee en el selector **Tipo de origen**. En lugar de seleccionar un conjunto de datos de origen, seleccione el servicio vinculado al que desea conectarse.
 
-![Captura de pantalla que muestra la opción En línea seleccionada.](media/data-flow/inline-selector.png "Captura de pantalla que muestra la opción En línea seleccionada.")
+:::image type="content" source="media/data-flow/inline-selector.png" alt-text="Captura de pantalla que muestra la opción En línea seleccionada.":::
 
 ## <a name="workspace-db-synapse-workspaces-only"></a>Workspace DB (solo áreas de trabajo de Synapse)
 
@@ -45,7 +47,7 @@ En áreas de trabajo de Azure Synapse, hay una opción adicional en las transfor
 > [!NOTE]
 > El conector Workspace DB de Azure Synapse está actualmente en versión preliminar pública y, en este momento, solo puede funcionar con bases de datos de Spark Lake.
 
-![Captura de pantalla en la que se muestra Workspace DB seleccionado](media/data-flow/syms-source.png "Captura de pantalla en la que se muestra Workspace DB seleccionado")
+:::image type="content" source="media/data-flow/syms-source.png" alt-text="Captura de pantalla en la que se muestra Workspace DB seleccionado":::
 
 ##  <a name="supported-source-types"></a><a name="supported-sources"></a> Tipos de orígenes admitidos
 
@@ -76,7 +78,7 @@ Una vez que haya agregado un origen, configúrelo mediante la pestaña **Configu
 
 Los valores de desarrollo de los parámetros del conjunto de datos se pueden configurar en la [configuración de depuración](concepts-data-flow-debug-mode.md). (Requiere que esté activado el modo Depuración)
 
-![Captura de pantalla que muestra la pestaña Configuración de origen.](media/data-flow/source1.png "Captura de pantalla que muestra la pestaña Configuración de origen.")
+:::image type="content" source="media/data-flow/source1.png" alt-text="Captura de pantalla que muestra la pestaña Configuración de origen.":::
 
 **Nombre de la secuencia de salida**: El nombre de la transformación de origen.
 
@@ -109,7 +111,7 @@ La pestaña **Source options** (Opciones de origen) contiene la configuración e
 
 Al igual que los esquemas en los conjuntos de datos, la proyección de un origen define las columnas, los tipos y los formatos de datos de los datos de origen. Para la mayoría de los tipos de conjuntos de datos, como SQL y Parquet, la proyección en un origen se corrige para que refleje el esquema definido en un conjunto de datos. Cuando los archivos de origen no están fuertemente tipados (por ejemplo, archivos .csv sin formato en lugar de archivos Parquet), puede definir los tipos de datos de cada campo en la transformación de origen.
 
-![Captura de pantalla que muestra la configuración en la pestaña Proyección.](media/data-flow/source3.png "Captura de pantalla que muestra la configuración en la pestaña Proyección.")
+:::image type="content" source="media/data-flow/source3.png" alt-text="Captura de pantalla que muestra la configuración en la pestaña Proyección.":::
 
 Si el archivo de texto no tiene ningún esquema definido, seleccione **Detectar tipo de datos** para que el servicio muestree e infiera los tipos de datos. Seleccione **Definir formato predeterminado** para detectar automáticamente los formatos de datos predeterminados.
 
@@ -129,7 +131,7 @@ La pestaña **Optimizar** permite la edición de la información de partición e
 
 Si va a leer de un origen de Azure SQL Database, la creación de particiones de **Origen** personalizada probablemente leerá los datos con mayor rapidez. El servicio leerá las consultas grandes realizando conexiones en paralelo con su base de datos. Esta creación de particiones de origen se puede realizar en una columna o mediante una consulta.
 
-![Captura de pantalla que muestra la configuración de la partición de origen.](media/data-flow/sourcepart3.png "Captura de pantalla que muestra la configuración de la partición de origen.")
+:::image type="content" source="media/data-flow/sourcepart3.png" alt-text="Captura de pantalla que muestra la configuración de la partición de origen.":::
 
 Para más información sobre la optimización en Mapping Data Flow, consulte la [pestaña de optimización](concepts-data-flow-overview.md#optimize).
 

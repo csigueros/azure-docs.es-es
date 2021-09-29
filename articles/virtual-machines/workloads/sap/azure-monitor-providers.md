@@ -7,12 +7,12 @@ ms.subservice: baremetal-sap
 ms.topic: article
 ms.date: 07/06/2021
 ms.author: radeltch
-ms.openlocfilehash: e6d5ad24176c779055fbde2c2ec6e6506cea3285
-ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
+ms.openlocfilehash: 5061ee2131ee708c38a68dca02c18a21085b5430
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114392176"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128616866"
 ---
 # <a name="azure-monitor-for-sap-solutions-providers-preview"></a>Proveedores de Azure Monitor para soluciones de SAP (versión preliminar)
 
@@ -118,7 +118,7 @@ Para configurar al proveedor de clúster de alta disponibilidad, se deben llevar
    Para configurar al proveedor de clústeres de alta disponibilidad, se requiere la siguiente información:
    
    - **Nombre**. Nombre del proveedor. Debe ser único para esta instancia Azure Monitor para soluciones de SAP.
-   - **Punto de conexión de Prometheus**. http\://\<servername or ip address\>:9664/metrics.
+   - **Punto de conexión de Prometheus**. `http://<servername or ip address>:9664/metrics`.
    - **SID**. En el caso de los sistemas SAP, use el SID de SAP. En el caso de otros sistemas (por ejemplo, clústeres NFS), use un nombre de tres caracteres para el clúster. El SID debe ser distinto de otros clústeres que se vayan a supervisar.   
    - **Nombre del clúster**. Nombre de clúster que se usó al crear el clúster. El nombre del clúster se puede encontrar en la propiedad `cluster-name` del clúster.
    - **Hostname**. Nombre de host de Linux de la máquina virtual (VM).  
@@ -141,7 +141,7 @@ Para configurar un proveedor de sistema operativo (Linux), se deben llevar a cab
 2. Configure un proveedor de sistema operativo (Linux) para cada nodo de VM o BareMetal en su entorno. 
    Para configurar el proveedor de sistema operativo (Linux), se requiere la información siguiente: 
       - Name (Nombre). Nombre del proveedor. Debe ser único para esta instancia de Azure Monitor para soluciones de SAP. 
-      - Punto de conexión de Node Exporter. Por lo general, http://<servername or ip address>:9100/metrics. 
+      - Punto de conexión de Node Exporter. Normalmente, `http://<servername or ip address>:9100/metrics`. 
 
 > [!NOTE]
 > 9100 es un puerto expuesto para el punto de conexión de Node_Exporter.

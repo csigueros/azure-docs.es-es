@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 09/16/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 69803dc374e92b8fcc856237cb8b791dac5cb40c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 63d94ebe209c4b1a40c58f3c4b1b02e70c51a391
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121723187"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128572287"
 ---
 # <a name="add-ad-fs-as-an-openid-connect-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>Incorporación de AD FS como proveedor de identidades de OpenID Connect mediante las directivas personalizadas de Azure Active Directory B2C
 
@@ -67,7 +67,7 @@ En este paso, configure las notificaciones que la aplicación AD FS devuelve a A
     | Given-Name | given_name |
     | Display-Name | name |
 
-    Tenga en cuenta que algunos de los nombres no se mostrarán en la lista desplegable de notificaciones salientes. Debe escribirlos manualmente. (La lista desplegable es editable).
+    Tenga en cuenta que algunos de los nombres no se mostrarán en la lista desplegable de tipo de notificaciones salientes. Debe escribirlos manualmente. (La lista desplegable es editable).
 
 1. Seleccione **Finalizar** y, a continuación, **Cerrar**.
 
@@ -77,7 +77,8 @@ En este paso, configure las notificaciones que la aplicación AD FS devuelve a A
 ## <a name="configure-ad-fs-as-an-identity-provider"></a>Configurar AD FS como proveedor de identidades
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) como administrador global del inquilino de Azure AD B2C.
-1. Asegúrese de usar el directorio que contiene el inquilino de Azure AD B2C. Para ello, seleccione el filtro **Directorio y suscripción** en el menú superior y luego el directorio que contiene el inquilino.
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
 1. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C**.
 1. Seleccione **Proveedores de identidades** y luego **Nuevo proveedor de OpenID Connect**.
 1. Escriba un **nombre**. Por ejemplo, *Contoso*.

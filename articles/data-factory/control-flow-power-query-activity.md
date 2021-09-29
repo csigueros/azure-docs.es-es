@@ -7,18 +7,18 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.date: 01/18/2021
-ms.openlocfilehash: ab19b62ff4aaca1b3357d586e3bba4252e8a5d9e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 07e663b7b631cbc083916e48924d740255e46e37
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121738260"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128638774"
 ---
-# <a name="power-query-activity-in-data-factory"></a>Actividad de Power Query en Data Factory
+# <a name="power-query-activity-in-azure-data-factory"></a>Actividad de Power Query en Azure Data Factory
 
 La actividad de Power Query permite generar y ejecutar mashups de Power Query para ejecutar la limpieza y transformación de datos a escala en una canalización de Data Factory. Puede crear un nuevo mashup de Power Query desde la opción de menú Nuevos recursos o mediante la adición de una actividad de Power a la canalización.
 
-![Captura de pantalla que muestra Power Query en el panel de recursos de fábrica.](media/data-flow/power-query-wrangling.png)
+:::image type="content" source="media/data-flow/power-query-wrangling.png" alt-text="Captura de pantalla que muestra Power Query en el panel de recursos de fábrica.":::
 
 Anteriormente, la limpieza y transformación de datos en Azure Data Factory se realizaba desde la opción de menú Flujo de datos. Esto se ha cambiado y se realiza desde una nueva actividad de Power Query. Puede trabajar directamente en el editor de mashups de Power Query para realizar una exploración interactiva de los datos y luego guardar el trabajo. Una vez completado, puede tomar la actividad de Power Query y agregarla a una canalización. Azure Data Factory la escalará horizontalmente de forma automática y pondrá en funcionamiento la limpieza y transformación de datos mediante el entorno Spark de flujo de datos de Azure Data Factory.
 

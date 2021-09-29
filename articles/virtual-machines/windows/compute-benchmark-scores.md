@@ -3,18 +3,18 @@ title: Puntuaciones de pruebas comparativas de proceso de máquinas virtuales Wi
 description: Comparación de puntuaciones de las pruebas comparativas de proceso de SPECint para máquinas virtuales de Azure con Windows Server.
 author: cynthn
 ms.service: virtual-machines
-ms.subservice: benchmark
+ms.subservice: sizes
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 04/08/2021
 ms.author: cynthn
 ms.reviewer: davberg
-ms.openlocfilehash: f83a2a8aab4f1daf9fe4317491b2ed3591ec227d
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: a91aaa470904a17ee2fbf1ad3af2ec8482137003
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122689714"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129215422"
 ---
 # <a name="compute-benchmark-scores-for-windows-vms"></a>Puntuaciones de pruebas comparativas de proceso para máquinas virtuales Windows
 
@@ -375,7 +375,7 @@ CoreMark es una herramienta de código abierto que se puede descargar de [GitHub
 
 Para compilar y ejecutar el banco de pruebas, escriba:
 
-```> make```
+`> make`
 
 Los resultados completos están disponibles en los archivos ```run1.log``` y ```run2.log```. 
 ```run1.log``` contiene los resultados de CoreMark. Estos son los resultados del banco de pruebas con parámetros de rendimiento.
@@ -385,7 +385,7 @@ Los resultados completos están disponibles en los archivos ```run1.log``` y ```
 
 De forma predeterminada, el banco de pruebas se ejecutará entre 10 y 100 segundos. Para invalidarlo, use ```ITERATIONS=N```;
 
-```% make ITERATIONS=10```
+`% make ITERATIONS=10`
 
 la marca anterior ejecutará el banco de pruebas para 10 iteraciones. 
 **Los resultados solo son válidos para la generación de informes si el banco de pruebas se ejecutó durante al menos 10 segundos.**
@@ -394,7 +394,7 @@ la marca anterior ejecutará el banco de pruebas para 10 iteraciones.
 
 Use ```XCFLAGS=-DMULTITHREAD=N``` donde N es el número de subprocesos que se ejecutarán en paralelo. Hay varias implementaciones disponibles que se pueden ejecutar en varios contextos.
 
-```% make XCFLAGS="-DMULTITHREAD=4 -DUSE_PTHREAD"```
+`% make XCFLAGS="-DMULTITHREAD=4 -DUSE_PTHREAD"`
 
 La opción anterior compilará el punto de referencia para su ejecución en 4 núcleos.
 

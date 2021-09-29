@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.author: jianleishen
 author: jianleishen
 ms.custom: synapse
-ms.date: 08/30/2021
-ms.openlocfilehash: 483ad9dbceb134188ee8a5e2fdce3469226c579b
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.date: 09/09/2021
+ms.openlocfilehash: 6f95e117865ccf9d242d595ec98b66d7cd344a85
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123312950"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128597689"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-microsoft-dataverse-or-dynamics-crm"></a>Copia de datos desde y hacia Dynamics 365 (Microsoft Dataverse) o Dynamics CRM
 
@@ -88,11 +88,11 @@ Siga estos pasos para crear un servicio vinculado a Dynamics 365 en la interfaz
 
 2. Busque Dynamics y seleccione el conector de Dynamics 365.
 
-    :::image type="content" source="media/connector-azure-blob-storage/azure-blob-storage-connector.png" alt-text="Captura de pantalla del conector de Dynamics 365.":::    
+    :::image type="content" source="media/connector-dynamics-crm-office-365/dynamics-crm-office-365-connector.png" alt-text="Captura de pantalla del conector de Dynamics 365.":::    
 
 1. Configure los detalles del servicio, pruebe la conexión y cree el nuevo servicio vinculado.
 
-    :::image type="content" source="media/connector-azure-blob-storage/configure-azure-blob-storage-linked-service.png" alt-text="Captura de pantalla de la configuración del servicio vinculado en Dynamics 365.":::
+    :::image type="content" source="media/connector-dynamics-crm-office-365/configure-dynamics-crm-office-365-linked-service.png" alt-text="Captura de pantalla de la configuración del servicio vinculado en Dynamics 365.":::
 
 ## <a name="connector-configuration-details"></a>Detalles de configuración del conector
 
@@ -477,11 +477,11 @@ En la asignación de columnas de copia y actividad, asigne las dos columnas como
 - **CustomerField** a **CustomerField**. Se trata de la asignación de campos normal.
 - **Target** a **CustomerField\@EntityReference**. La columna de receptor es una columna virtual que representa la referencia de entidad. Escriba estos nombres de campo en una asignación, ya que no se mostrarán mediante la importación de esquemas.
 
-![Asignación de columnas de campo de búsqueda de Dynamics](./media/connector-dynamics-crm-office-365/connector-dynamics-lookup-field-column-mapping.png)
+:::image type="content" source="./media/connector-dynamics-crm-office-365/connector-dynamics-lookup-field-column-mapping.png" alt-text="Asignación de columnas de campo de búsqueda de Dynamics":::
 
 Si todos los registros de origen se asignan a la misma entidad de destino y los datos de origen no contienen el nombre de la entidad de destino, este es un acceso directo: en el origen de la actividad de copia, agregue una columna adicional. Asigne un nombre a la nueva columna mediante el patrón `{lookup_field_name}@EntityReference`, establezca el valor en el nombre de la entidad de destino y, después, continúe con la asignación de columnas como de costumbre. Si los nombres de las columnas del origen y el receptor son idénticos, también puede omitir la asignación de columnas explícita, ya que la actividad de copia asigna las columnas por nombre de forma predeterminada.
 
-![Campo de búsqueda de Dynamics que agrega una columna de referencia de entidad](./media/connector-dynamics-crm-office-365/connector-dynamics-add-entity-reference-column.png)
+:::image type="content" source="./media/connector-dynamics-crm-office-365/connector-dynamics-add-entity-reference-column.png" alt-text="Campo de búsqueda de Dynamics que agrega una columna de referencia de entidad":::
 
 ## <a name="lookup-activity-properties"></a>Propiedades de la actividad de búsqueda
 

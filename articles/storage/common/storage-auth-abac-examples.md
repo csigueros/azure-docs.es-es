@@ -10,12 +10,12 @@ ms.author: rolyon
 ms.reviewer: ''
 ms.subservice: common
 ms.date: 05/06/2021
-ms.openlocfilehash: 062be43bda26169d27740777bdb60d335c9923e6
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: a04c205370ee07900b649ed0a3f6f4bf3a892685
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109490079"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128577832"
 ---
 # <a name="example-azure-role-assignment-conditions-preview"></a>Condiciones de asignación de roles de Azure de ejemplo (versión preliminar)
 
@@ -96,7 +96,7 @@ Esta condición requiere que los nuevos blobs incluyan una clave de etiqueta de 
 
 Hay dos permisos que le permiten crear nuevos blobs, por lo que debe tener como destino ambos. Debe agregar esta condición a todas las asignaciones de roles que incluyan uno de los permisos siguientes.
 
-- /blobs/write (crear o actualizar) 
+- /blobs/write (crear o actualizar)
 - /blobs/add/action (crear)
 
 ![Diagrama de la condición de ejemplo 2 que muestra que los nuevos blobs deben incluir una etiqueta.](./media/storage-auth-abac-examples/example-2.png)

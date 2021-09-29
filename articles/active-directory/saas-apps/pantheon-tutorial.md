@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/09/2021
 ms.author: jeedes
-ms.openlocfilehash: df1da9b871d2d076e1543d48ecde934242e8d37a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 7cd8244a1f3f8eaba151a7d5957308118a635d37
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121727560"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124778654"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-pantheon"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Pantheon
 
@@ -152,7 +152,7 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 * Haga clic en Probar esta aplicación en Azure Portal; debería iniciar sesión automáticamente en la instancia de Pantheon para la que configuró el inicio de sesión único.
 
-* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Pantheon en Aplicaciones, debería iniciar sesión automáticamente en la versión de Pantheon para la que configuró el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Pantheon en Aplicaciones, debería iniciar sesión automáticamente en la versión de Pantheon para la que configuró el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

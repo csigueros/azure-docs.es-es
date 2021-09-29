@@ -106,16 +106,12 @@
           href: assign-user-or-group-access-portal.md
         - name: Creación de colecciones en Aplicaciones
           href: access-panel-collections.md
-        - name: Uso del acceso de autoservicio a las aplicaciones
+        - name: Habilitación del acceso de autoservicio a las aplicaciones
           href: access-panel-manage-self-service-access.md
-        - name: Eliminación del acceso de usuarios
-          href: methods-for-removing-user-access.md
         - name: Ocultar una aplicación
           href: hide-application-from-user-portal.md
         - name: Deshabilitar inicio de sesión del usuario
           href: disable-user-sign-in-portal.md
-        - name: Configuración de la asignación en modo autoservicio
-          href: manage-self-service-access.md
         - name: Forzar aceleración automática
           href: configure-authentication-for-federated-users-portal.md
         - name: Impedir la aceleración automática del inicio de sesión
@@ -184,6 +180,8 @@
       href: application-types.md
     - name: Motivos por los que los usuarios se asignan a una aplicación
       href: ways-users-get-assigned-to-applications.md
+    - name: Eliminación del acceso de usuarios
+      href: methods-for-removing-user-access.md
 - name: Recursos
   items:
     - name: Opciones de ayuda y soporte técnico para desarrolladores

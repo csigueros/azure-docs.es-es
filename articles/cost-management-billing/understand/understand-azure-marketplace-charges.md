@@ -7,15 +7,15 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 09/15/2021
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8da85ec5781ff9575cf380092fea9e41d6af8786
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: ee3e5b7b172bc6441e0148c3cbfa4bab02e6949b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686129"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128586473"
 ---
 # <a name="understand-your-azure-external-services-charges"></a>Descripción de los gastos de servicios externos de Azure
 Los servicios externos los publican proveedores de software de terceros en Azure Marketplace. Por ejemplo, SendGrid es un servicio externo que puede adquirir en Azure, pero que no está publicado por Microsoft. Algunos productos de Microsoft también se venden a través de Azure Marketplace.

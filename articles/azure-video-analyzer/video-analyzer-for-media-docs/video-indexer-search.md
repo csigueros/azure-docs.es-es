@@ -1,20 +1,15 @@
 ---
 title: Búsqueda de momentos exactos en vídeos con Azure Video Analyzer for Media (anteriormente, Video Indexer)
-titleSuffix: Azure Video Analyzer for Media
 description: Obtenga información sobre cómo buscar momentos exactos en vídeos con Azure Video Analyzer for Media (anteriormente, Video Indexer).
-services: azure-video-analyzer
-author: Juliako
-manager: femila
-ms.topic: article
-ms.subservice: azure-video-analyzer-media
+ms.topic: how-to
 ms.date: 11/23/2019
 ms.author: juliako
-ms.openlocfilehash: 27d25793dfec24a5eac847fae89bc0a01a32e909
-ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
+ms.openlocfilehash: 454c5a8033e30a10183d03a1689b6e606bcb77ba
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/15/2021
-ms.locfileid: "112115290"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128607527"
 ---
 # <a name="search-for-exact-moments-in-videos-with-video-analyzer-for-media"></a>Búsqueda de momentos exactos en vídeos con Video Analyzer for Media
 

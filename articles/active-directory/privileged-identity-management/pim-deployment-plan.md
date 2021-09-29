@@ -14,12 +14,12 @@ ms.date: 07/26/2021
 ms.author: baselden
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99bdfeff59f26f59c9d64bcca9226d9b1f70ec1d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: afb94b9589171a5715b1e7bdf9a80ceb0a8b7f45
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121749079"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124771182"
 ---
 # <a name="plan-a-privileged-identity-management-deployment"></a>Planeación de una implementación de Privileged Identity Management
 
@@ -152,7 +152,7 @@ Siga estas tareas para preparar PIM para administrar roles de Azure AD.
 
 Especifique quién tiene roles con privilegios en su organización. Revise los usuarios asignados, identifique a los administradores que ya no necesiten el rol y quítelos de sus asignaciones. 
 
-Puede usar las [revisiones de acceso de roles de Azure AD](pim-how-to-start-security-review.md) para automatizar la detección, revisión y aprobación o eliminación de asignaciones.
+Puede usar las [revisiones de acceso de roles de Azure AD](./pim-create-azure-ad-roles-and-resource-roles-review.md) para automatizar la detección, revisión y aprobación o eliminación de asignaciones.
 
 ### <a name="determine-roles-to-be-managed-by-pim"></a>Determinación de los roles que va a administrar PIM
 
@@ -183,7 +183,7 @@ Siga las instrucciones del vínculo que se incluye a continuación:
 
 2.[Permita que los usuarios elegibles activen su rol de Azure AD cuando sea necesario](pim-how-to-activate-role.md).
 
-Cuando la expiración del rol esté cerca, use [PIM para ampliar o renovar los roles](pim-resource-roles-renew-extend.md). Ambas acciones iniciadas por el usuario requieren una aprobación de un administrador global o un administrador de roles con privilegios.  Ambas acciones iniciadas por el usuario requieren una aprobación de un administrador global o un administrador de roles con privilegios. 
+Cuando la expiración del rol esté cerca, use [PIM para ampliar o renovar los roles](pim-resource-roles-renew-extend.md). Ambas acciones iniciadas por el usuario requieren una aprobación de un administrador global o un administrador de roles con privilegios.
 
 Cuando estos eventos importantes se producen en los roles de Azure AD, PIM [envía notificaciones por correo electrónico y correos electrónicos de resumen semanales](pim-email-notifications.md) a administradores con privilegios dependiendo de la configuración de roles, eventos y notificaciones. Estos mensajes de correo electrónico también podrían incluir vínculos a tareas pertinentes, tales como la activación o renovación de un rol. 
 
@@ -214,7 +214,7 @@ Minimice las asignaciones de administrador de acceso de usuario y propietario co
 
 Como administrador global puede [elevar el privilegio de acceso para administrar todas las suscripciones de Azure](../../role-based-access-control/elevate-access-global-admin.md). A continuación, puede encontrar a cada propietario de la suscripción y trabajar con él para quitar las asignaciones innecesarias dentro de sus suscripciones.
 
-Use las [revisiones de acceso para recursos de Azure](pim-resource-roles-start-access-review.md) a fin de auditar y quitar las asignaciones de roles innecesarias. 
+Use las [revisiones de acceso para recursos de Azure](./pim-create-azure-ad-roles-and-resource-roles-review.md) a fin de auditar y quitar las asignaciones de roles innecesarias. 
 
 ### <a name="determine-roles-to-be-managed-by-pim"></a>Determinación de los roles que va a administrar PIM
 
@@ -318,6 +318,4 @@ Configure propietarios o miembros de un grupo de acceso con privilegios para req
 * Si hay problemas relacionados con PIM, consulte el artículo sobre cómo [solucionar un problema con PIM](pim-troubleshoot.md).
 
 * [Implementación de otras características de identidad](../fundamentals/active-directory-deployment-plans.md)
-
- 
 

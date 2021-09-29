@@ -9,12 +9,12 @@ ms.date: 06/24/2020
 ms.author: normesta
 ms.reviewer: dineshm
 ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 9aa776b52d3303d7721d900476f606c3ab38d7a5
-ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
+ms.openlocfilehash: 3ba616f2edead3bdd3b3353405e3b9ce6b40ccaa
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2021
-ms.locfileid: "112378716"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128599152"
 ---
 # <a name="tutorial-upload-image-data-in-the-cloud-with-azure-storage"></a>Tutorial: Carga de datos de imagen en la nube con Azure Storage
 
@@ -34,12 +34,12 @@ En la primera parte de la serie, se aprende a:
 
 > [!div class="checklist"]
 
-> * Crear una cuenta de almacenamiento
-> * Crear un contenedor y establecer permisos
-> * Recuperar una clave de acceso
-> * Implementar una aplicación web en Azure
-> * Configuración de aplicaciones
-> * Interactuar con la aplicación web
+> - Crear una cuenta de almacenamiento
+> - Crear un contenedor y establecer permisos
+> - Recuperar una clave de acceso
+> - Implementar una aplicación web en Azure
+> - Configuración de aplicaciones
+> - Interactuar con la aplicación web
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -47,7 +47,7 @@ Para completar este tutorial, necesitará una suscripción de Azure. Cree una [c
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Para instalar y usar la CLI localmente, ejecute la versión 2.0.4 de la CLI de Azure o una posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli). 
+Para instalar y usar la CLI localmente, ejecute la versión 2.0.4 de la CLI de Azure o una posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
@@ -55,7 +55,7 @@ En el ejemplo siguiente se crea un grupo de recursos denominado `myResourceGroup
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Cree un grupo de recursos con el comando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. 
+Cree un grupo de recursos con el comando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure.
 
 ```powershell
 New-AzResourceGroup -Name myResourceGroup -Location southeastasia
@@ -63,7 +63,7 @@ New-AzResourceGroup -Name myResourceGroup -Location southeastasia
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-Para crear un grupo de recursos, use el comando [az group create](/cli/azure/group). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. 
+Para crear un grupo de recursos, use el comando [az group create](/cli/azure/group). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure.
 
 ```azurecli
 az group create --name myResourceGroup --location southeastasia
@@ -140,7 +140,7 @@ az storage container create --name thumbnails \
 
 ---
 
-Anote el nombre y la clave de la cuenta de almacenamiento de blobs. La aplicación de ejemplo usa esta configuración para conectarse a la cuenta de almacenamiento y cargar las imágenes. 
+Anote el nombre y la clave de la cuenta de almacenamiento de blobs. La aplicación de ejemplo usa esta configuración para conectarse a la cuenta de almacenamiento y cargar las imágenes.
 
 ## <a name="create-an-app-service-plan"></a>Creación de un plan de App Service
 
@@ -170,11 +170,11 @@ az appservice plan create --name myAppServicePlan --resource-group myResourceGro
 
 La aplicación web proporciona un espacio de hospedaje para el código de la aplicación de ejemplo que se implementó desde el repositorio de ejemplo de GitHub.
 
-En el siguiente comando, reemplace `<web_app>` por un nombre único. Los caracteres válidos son `a-z`, `0-9` y `-`. Si el valor de `<web_app>` no es único, recibirá el mensaje de error: Ya existe un *sitio web con el nombre especificado `<web_app>`.* La dirección URL predeterminada de la aplicación web es `https://<web_app>.azurewebsites.net`.  
+En el siguiente comando, reemplace `<web_app>` por un nombre único. Los caracteres válidos son `a-z`, `0-9` y `-`. Si el valor de `<web_app>` no es único, recibirá el mensaje de error: Ya existe un *sitio web con el nombre especificado `<web_app>`.* La dirección URL predeterminada de la aplicación web es `https://<web_app>.azurewebsites.net`.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Cree una [aplicación web](../../app-service/overview.md) en el plan de App Service `myAppServicePlan` con el comando [New-AzWebApp](/powershell/module/az.websites/new-azwebapp).  
+Cree una [aplicación web](../../app-service/overview.md) en el plan de App Service `myAppServicePlan` con el comando [New-AzWebApp](/powershell/module/az.websites/new-azwebapp).
 
 ```powershell
 $webapp="<web_app>"
@@ -184,7 +184,7 @@ New-AzWebApp -ResourceGroupName myResourceGroup -Name $webapp -AppServicePlan my
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-Cree una [aplicación web](../../app-service/overview.md) en el plan de App Service `myAppServicePlan` con el comando [az webapp create](/cli/azure/webapp).  
+Cree una [aplicación web](../../app-service/overview.md) en el plan de App Service `myAppServicePlan` con el comando [az webapp create](/cli/azure/webapp).
 
 ```azurecli
 webapp="<web_app>"

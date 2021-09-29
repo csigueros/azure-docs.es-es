@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 03/04/2021
+ms.date: 09/27/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 35178ecc9bc736bbaca3adc932022b15cc2fc956
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 45ba7a7cc96790b2022692286bdfdac230c25984
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102632091"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129079549"
 ---
 # <a name="conditional-access-require-mfa-for-administrators"></a>Acceso condicional: Exigir autenticación multifactor para administradores
 
@@ -24,17 +24,20 @@ Las cuentas a las que se asignan derechos administrativos son el objetivo de los
 
 Microsoft recomienda exigir MFA en los roles siguientes como mínimo:
 
-* Administrador de autenticación
-* Administrador de facturación
-* Administrador de acceso condicional
-* Administrador de Exchange
-* Administrador global
-* Administrador del departamento de soporte técnico
-* Administrador de contraseñas
-* Administrador de roles con privilegios
-* Administrador de seguridad
-* Administrador de SharePoint
-* Administrador de usuarios
+- Administrador global
+- Administrador de aplicaciones
+- Administrador de autenticación
+- Administrador de facturación
+- Administrador de aplicaciones en la nube
+- Administrador de acceso condicional
+- Administrador de Exchange
+- Administrador del departamento de soporte técnico
+- Administrador de contraseñas
+- Administrador de autenticación con privilegios
+- Administrador de roles con privilegios
+- Administrador de seguridad
+- Administrador de SharePoint
+- Administrador de usuarios
 
 Las organizaciones pueden optar por incluir o excluir roles según sea adecuado.
 
@@ -42,10 +45,10 @@ Las organizaciones pueden optar por incluir o excluir roles según sea adecuado.
 
 Las directivas de acceso condicional son herramientas eficaces, por lo que se recomienda excluir las siguientes cuentas de la directiva:
 
-* Cuentas de **acceso de emergencia** para **evitar** el bloqueo de cuentas en todo el inquilino. En el caso improbable de que todos los administradores estén bloqueados en el inquilino, la cuenta administrativa de acceso de emergencia se puede usar para iniciar sesión en el inquilino y realizar los pasos para recuperar el acceso.
-   * Se puede encontrar más información en el artículo [Administración de cuentas de acceso de emergencia en Azure AD](../roles/security-emergency-access.md).
-* **Cuentas de servicio** y **entidades de servicio**, como la cuenta de sincronización de Azure AD Connect. Las cuentas de servicio son cuentas no interactivas que no están asociadas a ningún usuario en particular. Los servicios back-end las usan normalmente para permitir el acceso mediante programación a las aplicaciones, pero también se utilizan para iniciar sesión en los sistemas con fines administrativos. Las cuentas de servicio como estas se deben excluir porque MFA no se puede completar mediante programación. El acceso condicional no bloquea las llamadas realizadas por las entidades de servicio.
-   * Si su organización usa estas cuentas en scripts o código, piense en la posibilidad de reemplazarlas por [identidades administradas](../managed-identities-azure-resources/overview.md). Como solución temporal, puede excluir estas cuentas específicas de la directiva de línea de base.
+- Cuentas de **acceso de emergencia** para **evitar** el bloqueo de cuentas en todo el inquilino. En el caso improbable de que todos los administradores estén bloqueados en el inquilino, la cuenta administrativa de acceso de emergencia se puede usar para iniciar sesión en el inquilino y realizar los pasos para recuperar el acceso.
+   - Se puede encontrar más información en el artículo [Administración de cuentas de acceso de emergencia en Azure AD](../roles/security-emergency-access.md).
+- **Cuentas de servicio** y **entidades de servicio**, como la cuenta de sincronización de Azure AD Connect. Las cuentas de servicio son cuentas no interactivas que no están asociadas a ningún usuario en particular. Los servicios back-end las usan normalmente para permitir el acceso mediante programación a las aplicaciones, pero también se utilizan para iniciar sesión en los sistemas con fines administrativos. Las cuentas de servicio como estas se deben excluir porque MFA no se puede completar mediante programación. El acceso condicional no bloquea las llamadas realizadas por las entidades de servicio.
+   - Si su organización usa estas cuentas en scripts o código, piense en la posibilidad de reemplazarlas por [identidades administradas](../managed-identities-azure-resources/overview.md). Como solución temporal, puede excluir estas cuentas específicas de la directiva de línea de base.
 
 ## <a name="create-a-conditional-access-policy"></a>Creación de una directiva de acceso condicional
 
@@ -57,16 +60,20 @@ Los pasos siguientes le ayudarán a crear una directiva de acceso condicional qu
 1. Asigne un nombre a la directiva. Se recomienda que las organizaciones creen un estándar significativo para los nombres de sus directivas.
 1. En **Asignaciones**, seleccione **Usuarios y grupos**.
    1. En **Incluir**, seleccione **Roles del directorio** y elija roles integrados como:
-      * Administrador de autenticación
-      * Administrador de facturación
-      * Administrador de acceso condicional
-      * Administrador de Exchange
-      * Administrador global
-      * Administrador del departamento de soporte técnico
-      * Administrador de contraseñas
-      * Administrador de seguridad
-      * Administrador de SharePoint
-      * Administrador de usuarios
+      - Administrador global
+      - Administrador de aplicaciones
+      - Administrador de autenticación
+      - Administrador de facturación
+      - Administrador de aplicaciones en la nube
+      - Administrador de acceso condicional
+      - Administrador de Exchange
+      - Administrador del departamento de soporte técnico
+      - Administrador de contraseñas
+      - Administrador de autenticación con privilegios
+      - Administrador de roles con privilegios
+      - Administrador de seguridad
+      - Administrador de SharePoint
+      - Administrador de usuarios
    
       > [!WARNING]
       > Las directivas de acceso condicional admiten los roles integrados. Las directivas de acceso condicional no se aplican a otros tipos de roles, incluidos los roles con [ámbito de unidad administrativa](../roles/admin-units-assign-roles.md) o [personalizados](../roles/custom-create.md).

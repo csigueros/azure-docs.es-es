@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/05/2020
 ms.author: depadia
-ms.openlocfilehash: bf1ca9de6d7ee8ac6c7e87bd444cbd1d98b56f51
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: 0d7d68f9452f5f551361a48580e223b0dd614a09
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112463412"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124818128"
 ---
 # <a name="sap-businessobjects-bi-platform-deployment-guide-for-linux-on-azure"></a>Guía de implementación de la plataforma de inteligencia empresarial SAP BusinessObjects para Linux en Azure
 
@@ -70,19 +70,15 @@ Azure NetApp Files está disponible en varias [regiones de Azure](https://azure.
 
 Para comprobar la disponibilidad de Azure NetApp Files por región, consulte [Disponibilidad de Azure NetApp Files por región de Azure](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all).
 
-Antes de implementar Azure NetApp Files, consulte [Registro para instrucciones de Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-register.md).
-
 ### <a name="deploy-azure-netapp-files-resources"></a>Implementación de recursos de Azure NetApp Files
 
 En las siguientes instrucciones se supone que ya ha implementado la [red virtual de Azure](../../../virtual-network/virtual-networks-overview.md). Los recursos de Azure NetApp Files y las máquinas virtuales en las que esos recursos se montarán se deben implementar en la misma red virtual de Azure o en redes virtuales emparejadas.
 
-1. Si aún no ha implementado los recursos, [regístrese en Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-register.md).
+1. [Cree una cuenta de Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-create-netapp-account.md) en la región de Azure seleccionada.
 
-2. [Cree una cuenta de Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-create-netapp-account.md) en la región de Azure seleccionada.
+2. [Configure un grupo de capacidad de Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-set-up-capacity-pool.md). La arquitectura de la plataforma de inteligencia empresarial SAP que se presenta en este artículo utiliza un único grupo de capacidad de Azure NetApp Files, el nivel de servicio Prémium. En el caso del servidor de repositorio de archivos de inteligencia empresarial SAP en Azure, se recomienda usar un [nivel de servicio](../../../azure-netapp-files/azure-netapp-files-service-levels.md) Prémium o Ultra de Azure NetApp Files.
 
-3. [Configure un grupo de capacidad de Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-set-up-capacity-pool.md). La arquitectura de la plataforma de inteligencia empresarial SAP que se presenta en este artículo utiliza un único grupo de capacidad de Azure NetApp Files, el nivel de servicio Prémium. En el caso del servidor de repositorio de archivos de inteligencia empresarial SAP en Azure, se recomienda usar un [nivel de servicio](../../../azure-netapp-files/azure-netapp-files-service-levels.md) Prémium o Ultra de Azure NetApp Files.
-
-4. [Delegación de una subred en Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-delegate-subnet.md).
+3. [Delegación de una subred en Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-delegate-subnet.md).
 
 5. Implemente los volúmenes de Azure NetApp Files según las instrucciones de [Creación de un volumen de NFS para Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-create-volumes.md).
 

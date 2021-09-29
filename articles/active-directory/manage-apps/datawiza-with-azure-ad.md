@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 8/27/2021
 ms.author: gasinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf8b1d7a3f45cd49bdb2ea420084a242e3e2c959
-ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
+ms.openlocfilehash: 19a3f4835e3e2b20d0921aa2a259739ec6cd51bc
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123214238"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124754177"
 ---
 # <a name="tutorial-configure-datawiza-with-azure-active-directory-for-secure-hybrid-access"></a>Tutorial: Configuración de Datawiza con Azure Active Directory para el acceso híbrido seguro
 
@@ -32,7 +32,7 @@ Para empezar, necesitará lo siguiente:
 
 - Suscripción a Azure. Si no tiene una suscripción, puede obtener una [cuenta de evaluación](https://azure.microsoft.com/free/).
 
-- Un [inquilino de Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant) vinculado a la suscripción de Azure.
+- Un [inquilino de Azure AD](../fundamentals/active-directory-access-create-new-tenant.md) vinculado a la suscripción de Azure.
 
 - [Docker](https://docs.docker.com/get-docker/) y [docker-compose](https://docs.docker.com/compose/install/) son necesarios para ejecutar DAB. Las aplicaciones se pueden ejecutar en cualquier plataforma, como en máquinas virtuales y equipos sin sistema operativo.
 
@@ -42,7 +42,7 @@ Para empezar, necesitará lo siguiente:
 
 La integración de Datawiza incluye los componentes siguientes:
 
-- [Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis): el servicio de administración de identidades y acceso basado en la nube de Microsoft, que ayuda a los usuarios a iniciar sesión y acceder a recursos internos y externos.
+- [Azure AD](../fundamentals/active-directory-whatis.md): el servicio de administración de identidades y acceso basado en la nube de Microsoft, que ayuda a los usuarios a iniciar sesión y acceder a recursos internos y externos.
 
 - Datawiza Access Broker (DAB): el usuario del servicio inicia sesión y pasa la identidad de forma transparente a las aplicaciones por medio de encabezados HTTP.
 
@@ -125,6 +125,6 @@ En su lugar, si quiere usar una aplicación web existente en el inquilino de Azu
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Configuración de Datawiza con Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/partner-datawiza)
+- [Configuración de Datawiza con Azure AD B2C](../../active-directory-b2c/partner-datawiza.md)
 
 - [Documentación de Datawiza](https://docs.datawiza.com)

@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 08/27/2021
+ms.date: 09/17/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 97aaddbb749a2e5ff60bececdf0a3b025b8cb31f
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 090ee8cd0e7152160fae28104ee857a28d152231
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123102782"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128647696"
 ---
 ## <a name="australian-government-ism-protected"></a>Australian Government ISM PROTECTED
 
@@ -474,7 +474,7 @@ Para más información acerca de este estándar de cumplimiento, consulte [HIPAA
 ## <a name="irs-1075-september-2016"></a>IRS 1075, septiembre de 2016
 
 Para revisar cómo las integraciones de Azure Policy disponibles para todos los servicios de Azure se asignan a este estándar de cumplimiento, consulte [Cumplimiento normativo de Azure Policy: IRS 1075, septiembre de 2016](../../../../articles/governance/policy/samples/irs-1075-sept2016.md).
-Para más información sobre este estándar de cumplimiento, consulte [IRS 1075, septiembre de 2016](https://www.irs.gov/pub/irs-pdf/p1075.pdf).
+Para más información sobre este estándar de cumplimiento, consulte este artículo acerca de [IRS 1075, septiembre de 2016](https://www.irs.gov/pub/irs-pdf/p1075.pdf).
 
 |Domain |Id. de control |Título de control |Directiva<br /><sub>(Azure Portal)</sub> |Versión de la directiva<br /><sub>(GitHub)</sub>  |
 |---|---|---|---|---|
@@ -497,7 +497,7 @@ Para más información sobre este estándar de cumplimiento, consulte [ISO 27001
 |Criptografía |10.1.1 |Directiva sobre el uso de controles criptográficos |[Acceso a Function App solo a través de HTTPS](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6d555dd1-86f2-4f1c-8ed7-5abae7c6cbab) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppServiceFunctionApp_AuditHTTP_Audit.json) |
 |Criptografía |10.1.1 |Directiva sobre el uso de controles criptográficos |[Acceso a la aplicación web solo a través de HTTPS](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa4af4a39-4135-47fb-b175-47fbdf85311d) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppServiceWebapp_AuditHTTP_Audit.json) |
 
-## <a name="new-zealand-ism-restricted"></a>ISM restringido en Nueva Zelanda
+## <a name="new-zealand-ism-restricted"></a>ISM restringido de Nueva Zelanda
 
 Para consultar la correspondencia que existe entre las integraciones de Azure Policy disponibles para todos los servicios de Azure y este estándar de cumplimiento, consulte este artículo sobre el [cumplimiento normativo de Azure Policy y la restricción de ISM en Nueva Zelanda](../../../../articles/governance/policy/samples/new-zealand-ism.md).
 Para más información acerca de este estándar de cumplimiento, consulte [ISM restringido de Nueva Zelanda](https://www.nzism.gcsb.govt.nz/).

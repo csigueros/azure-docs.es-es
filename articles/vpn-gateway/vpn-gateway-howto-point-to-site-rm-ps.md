@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 06/03/2021
 ms.author: cherylmc
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0d6281f0767938b8ffd00f1790a629adcb8252d6
-ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
+ms.openlocfilehash: 62765ceb53d7a66d591b0fa62397b50c7fc04b9a
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114722403"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124774051"
 ---
 # <a name="configure-a-point-to-site-vpn-connection-to-a-vnet-using-azure-certificate-authentication-powershell"></a>Configure una conexión VPN de punto a sitio a una red virtual mediante la autenticación de certificados de Azure: PowerShell
 
@@ -386,6 +386,6 @@ Para obtener información adicional de punto a sitio, consulte las [preguntas fr
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez completada la conexión, puede agregar máquinas virtuales a las redes virtuales. Consulte [Virtual Machines](../index.yml) para más información. Para más información acerca de las redes y las máquinas virtuales, consulte [Información general sobre las redes de máquina virtual con Linux y Azure](../virtual-machines/network-overview.md).
+Una vez completada la conexión, puede agregar máquinas virtuales a las redes virtuales. Consulte [Virtual Machines](../index.yml) para más información. Para más información acerca de las redes y las máquinas virtuales, consulte [Información general sobre las redes de máquina virtual con Linux y Azure](../virtual-network/network-overview.md).
 
 Para información de solución de problemas de P2S, consulte el artículo de [solución de problemas de conexión de punto a sitio de Azure](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

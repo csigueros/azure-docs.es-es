@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/06/2021
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: f75d3872d0125e210edcd33ca85978901468bfe8
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 77ec7a7dad4b215ae22bf3766172f1e92e932593
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122322387"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124736205"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>Capacidades de transacción de marketplace comercial
 
@@ -75,7 +75,7 @@ Por lo general, las ofertas SaaS son una buena opción si los clientes solo quie
 Las ofertas de máquina virtual y aplicación de Azure son una buena opción si quiere que los clientes implementen, administren y ejecuten el paquete de aplicación o servicio (como una imagen de máquina virtual u otros servicios de Azure en la plantilla de ARM) en su propia infraestructura en la nube.
 
 [![Se muestra un diagrama de flujo para determinar el tipo de oferta y el plan de precios.](media/commercial-marketplace-plans/offer-type-and-pricing-plan-flowchart.png)](media/commercial-marketplace-plans/offer-type-and-pricing-plan-flowchart.png#lightbox)
-&nbsp;&nbsp;&nbsp;<sup>(1)</sup> Póngase en contacto con [Microsoft Office Hours](https://microsoftcloudpartner.eventbuilder.com/MarketplaceDeveloperOfficeHours) o con el [servicio de soporte técnico](/azure/marketplace/support).<br>
+&nbsp;&nbsp;&nbsp;<sup>(1)</sup> Póngase en contacto con [Microsoft Office Hours](https://microsoftcloudpartner.eventbuilder.com/MarketplaceDeveloperOfficeHours) o con el [servicio de soporte técnico](./support.md).<br>
 &nbsp;&nbsp;&nbsp;<sup>(2)</sup> Las imágenes de ofertas de máquina virtual se pueden incluir en la oferta de App de Azure para que los precios sean más flexibles.<br>
 &nbsp;&nbsp;&nbsp;<sup>(3)</sup> El cliente paga los costos de infraestructura, ya que los servicios de Azure se implementan en el inquilino del cliente en las ofertas de máquina virtual y App de Azure.
 
@@ -207,4 +207,4 @@ Los planes privados le permiten ofrecer un precio mayor o menor a determinados c
 
 - Revise los patrones de publicación por tienda en línea para ver ejemplos de cómo la solución se asigna a un tipo de oferta y configuración.
 - [Guía de publicación por tipo de oferta](publisher-guide-by-offer-type.md).
-- [Planes y precios de las ofertas del marketplace comercial](/azure/marketplace/plans-pricing)
+- [Planes y precios de las ofertas del marketplace comercial](./plans-pricing.md)

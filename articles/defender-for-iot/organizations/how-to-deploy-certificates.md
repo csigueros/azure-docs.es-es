@@ -3,12 +3,12 @@ title: Implementación de certificados
 description: Aprenda a configurar e implementar certificados para Defender para IoT.
 ms.date: 08/29/2021
 ms.topic: how-to
-ms.openlocfilehash: 83345d9ad0267e39093bc310c8ebd940f878c47e
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: d6a67a84dab6df165346ff2739d0ac56e2b8eff2
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123440225"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128602828"
 ---
 # <a name="about-certificates"></a>Acerca de los certificados
 
@@ -193,9 +193,9 @@ En esta sección se explica cómo convertir los archivos de certificados existen
 
 |**Descripción** | **Comando de la CLI** |
 |--|--|
-| Conversión de un archivo .crt en un archivo .pem   | openssl x509 -inform PEM -in <full path>/<pem-file-name>.pem -out <fullpath>/<crt-file-name>.crt  | 
-| Conversión de un archivo .pem en un archivo .crt   | openssl x509 -inform PEM -in <full path>/<pem-file-name>.pem -out <fullpath>/<crt-file-name>.crt |  
-| Conversión de un archivo PKCS#12 (.pfx .p12) que contiene una clave privada y certificados a .pem   | openssl pkcs12 -in keyStore.pfx -out keyStore.pem -nodes. Puede agregar -nocerts para que solo se genere la clave privada, o bien agregar -nokeys para generar solo los certificados.  |  
+| Conversión de un archivo .crt en un archivo .pem   | `openssl x509 -inform PEM -in <full path>/<pem-file-name>.pem -out <fullpath>/<crt-file-name>.crt`  | 
+| Conversión de un archivo .pem en un archivo .crt   | `openssl x509 -inform PEM -in <full path>/<pem-file-name>.pem -out <fullpath>/<crt-file-name>.crt` |  
+| Conversión de un archivo PKCS#12 (.pfx .p12) que contiene una clave privada y certificados a .pem   | `openssl pkcs12 -in keyStore.pfx -out keyStore.pem -nodes`. Puede agregar -nocerts para que solo se genere la clave privada, o bien agregar -nokeys para generar solo los certificados.  |  
 
 ## <a name="troubleshooting"></a>Solución de problemas  
 

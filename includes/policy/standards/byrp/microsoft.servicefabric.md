@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 09/03/2021
+ms.date: 09/17/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 2039b9c820739d4dd13c104319879e8c5d3f4225
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: db96eccb237597a3a4cebb4c2be730e76555e885
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123479802"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128666143"
 ---
 ## <a name="australian-government-ism-protected"></a>Australian Government ISM PROTECTED
 
@@ -97,7 +97,7 @@ Para más información sobre este estándar de cumplimiento, consulte [FedRAMP M
 ## <a name="irs-1075-september-2016"></a>IRS 1075, septiembre de 2016
 
 Para revisar cómo las integraciones de Azure Policy disponibles para todos los servicios de Azure se asignan a este estándar de cumplimiento, consulte [Cumplimiento normativo de Azure Policy: IRS 1075, septiembre de 2016](../../../../articles/governance/policy/samples/irs-1075-sept2016.md).
-Para más información sobre este estándar de cumplimiento, consulte [IRS 1075, septiembre de 2016](https://www.irs.gov/pub/irs-pdf/p1075.pdf).
+Para más información sobre este estándar de cumplimiento, consulte este artículo acerca de [IRS 1075, septiembre de 2016](https://www.irs.gov/pub/irs-pdf/p1075.pdf).
 
 |Domain |Id. de control |Título de control |Directiva<br /><sub>(Azure Portal)</sub> |Versión de la directiva<br /><sub>(GitHub)</sub>  |
 |---|---|---|---|---|

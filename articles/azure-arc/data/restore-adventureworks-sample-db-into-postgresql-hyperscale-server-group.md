@@ -1,7 +1,6 @@
 ---
 title: Importación de la base de datos de ejemplo AdventureWorks en Hiperescala de PostgreSQL habilitada para Azure Arc
 description: Restauración de la base de datos de ejemplo AdventureWorks en Hiperescala de PostgreSQL habilitada para Azure Arc
-services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
 author: TheJY
@@ -9,12 +8,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 06/02/2021
 ms.topic: how-to
-ms.openlocfilehash: f802bb5d681e9e77d258d6071def53d4c5e4958f
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: f3174e0980470f9ad23a53810767d75ba375bd9e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113731115"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128650180"
 ---
 # <a name="import-the-adventureworks-sample-database-to-azure-arc-enabled-postgresql-hyperscale"></a>Importación de la base de datos de ejemplo AdventureWorks en Hiperescala de PostgreSQL habilitada para Azure Arc
 
@@ -38,7 +37,7 @@ Ejecute un comando como este para descargar los archivos. Reemplace antes el val
 >  El contenedor deberá tener conectividad a Internet a través del puerto 443 para descargar el archivo de GitHub.
 
 > [!NOTE]
->  Use el nombre de pod del nodo de coordinación del grupo de servidores de Hiperescala de PostgreSQL. Su nombre es <server group name>c-0 (por ejemplo, postgres01c-0, donde c significa nodo de coordinación).  Si no está seguro del nombre del pod, ejecute el comando `kubectl get pod`.
+>  Use el nombre de pod del nodo de coordinación del grupo de servidores de Hiperescala de PostgreSQL. Su nombre es \<server group name\>c-0 (por ejemplo, postgres01c-0, donde c significa nodo de coordinación).  Si no está seguro del nombre del pod, ejecute el comando `kubectl get pod`.
 
 ```console
 kubectl exec <PostgreSQL pod name> -n <namespace name> -c postgres  -- /bin/bash -c "cd /tmp && curl -k -O https://raw.githubusercontent.com/microsoft/azure_arc/main/azure_arc_data_jumpstart/aks/arm_template/postgres_hs/AdventureWorks.sql"

@@ -4,12 +4,12 @@ description: En este tutorial se muestra cómo usar la extensión de inteligenci
 ms.topic: tutorial
 ms.service: azure-video-analyzer
 ms.date: 06/01/2021
-ms.openlocfilehash: f666ac772d85fb1501c54001511e25cd941ee7c3
-ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
+ms.openlocfilehash: a55b4a970f1a6aeb0e257ae6404eae349f356a01
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114604783"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129058573"
 ---
 # <a name="tutorial-analyze-live-video-with-intel-openvino-dl-streamer--edge-ai-extension"></a>Tutorial: análisis de vídeo en directo con la extensión de inteligencia artificial de Edge Intel OpenVINO™ DL Streamer 
 
@@ -55,7 +55,7 @@ El módulo Extensión de inteligencia artificial perimetral Intel OpenVINO™ DL
 
 Con el fin de crear soluciones de análisis de vídeo complejas y de alto rendimiento, el módulo Azure Video Analyzer se debe emparejar con un potente motor de inferencia que pueda aprovechar la escala en el perímetro. En este tutorial, se envían solicitudes de inferencia a la extensión de inteligencia artificial de Edge Intel OpenVINO™ DL Streamer, un módulo de Edge que se ha diseñado para funcionar con Azure Video Analyzer.
 
-En la versión inicial de este servidor de inferencia, se tiene acceso a los siguientes [modelos](https://aka.ms/intel-dlstreamer-docs):
+En la versión inicial de este servidor de inferencia, se tiene acceso a los siguientes [modelos](https://github.com/intel/video-analytics-serving/tree/master/samples/ava_ai_extension#edge-ai-extension-module-options):
 
 - object_detection for person_vehicle_bike_detection ![detección de objetos para vehículo](./media/use-intel-openvino-tutorial/object-detection.png)
 

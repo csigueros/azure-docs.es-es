@@ -10,27 +10,27 @@ ms.author: normesta
 ms.reviewer: dineshm
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 391541569f237b98c46f001b511c86c17f00e058
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: e56a36947930894548a4490320c48efab0509ef1
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123468139"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128662577"
 ---
 # <a name="map-a-custom-domain-to-an-azure-blob-storage-endpoint"></a>Asignación de un dominio personalizado a un punto de conexión de Azure Blob Storage
 
-Puede asignar un dominio personalizado a un punto de conexión del servicio de blobs o a un punto de conexión de un [sitio web estático](storage-blob-static-website.md). 
+Puede asignar un dominio personalizado a un punto de conexión del servicio de blobs o a un punto de conexión de un [sitio web estático](storage-blob-static-website.md).
 
-> [!NOTE] 
-> Esta asignación solo funciona para subdominios (por ejemplo: `www.contoso.com`). Si desea que su punto de conexión web esté disponible en el dominio raíz (por ejemplo: `contoso.com`), tendrá que usar Azure CDN. Para obtener instrucciones, consulte la sección [Asignación de un dominio personalizado con HTTPS habilitado](#enable-https) de este artículo. Dado que va a ir a esa sección de este artículo para activar el dominio raíz de su dominio personalizado, el paso de dicha sección para habilitar HTTPS es opcional. 
+> [!NOTE]
+> Esta asignación solo funciona para subdominios (por ejemplo: `www.contoso.com`). Si desea que su punto de conexión web esté disponible en el dominio raíz (por ejemplo: `contoso.com`), tendrá que usar Azure CDN. Para obtener instrucciones, consulte la sección [Asignación de un dominio personalizado con HTTPS habilitado](#enable-https) de este artículo. Dado que va a ir a esa sección de este artículo para activar el dominio raíz de su dominio personalizado, el paso de dicha sección para habilitar HTTPS es opcional.
 
 <a id="enable-http"></a>
 
 ## <a name="map-a-custom-domain-with-only-http-enabled"></a>Asignación de un dominio personalizado en el que solo HTTP está habilitado
 
-Este enfoque es más sencillo, pero solo permite el acceso HTTP. Si la cuenta de almacenamiento está configurada para [requerir la transferencia segura](../common/storage-require-secure-transfer.md) a través de HTTPS, debe habilitar el acceso HTTPS a su dominio personalizado. 
+Este enfoque es más sencillo, pero solo permite el acceso HTTP. Si la cuenta de almacenamiento está configurada para [requerir la transferencia segura](../common/storage-require-secure-transfer.md) a través de HTTPS, debe habilitar el acceso HTTPS a su dominio personalizado.
 
-Para habilitar el acceso HTTPS, consulte la sección [Asignación de un dominio personalizado con HTTPS habilitado](#enable-https) de este artículo. 
+Para habilitar el acceso HTTPS, consulte la sección [Asignación de un dominio personalizado con HTTPS habilitado](#enable-https) de este artículo.
 
 <a id="map-a-domain"></a>
 
@@ -45,22 +45,22 @@ Si no le preocupa que el dominio no disponible durante un breve período para su
 
 :heavy_check_mark: Paso 2: Creación de un registro de nombres canónicos (CNAME) con su proveedor de dominios.
 
-:heavy_check_mark: Paso 3: Registro del dominio personalizado en Azure. 
+:heavy_check_mark: Paso 3: Registro del dominio personalizado en Azure.
 
 :heavy_check_mark: Paso 4: Prueba de un dominio personalizado.
 
 <a id="endpoint"></a>
 
-#### <a name="step-1-get-the-host-name-of-your-storage-endpoint"></a>Paso 1: Obtención del nombre de host del punto de conexión del almacenamiento 
+#### <a name="step-1-get-the-host-name-of-your-storage-endpoint"></a>Paso 1: Obtención del nombre de host del punto de conexión del almacenamiento
 
-El nombre de host es la dirección URL del punto de conexión del almacenamiento sin el identificador del protocolo ni la barra diagonal final. 
+El nombre de host es la dirección URL del punto de conexión del almacenamiento sin el identificador del protocolo ni la barra diagonal final.
 
 1. En [Azure Portal](https://portal.azure.com), vaya a la cuenta de almacenamiento.
 
-2. En el panel de menús, en **Configuración**, seleccione **Puntos de conexión**.  
+2. En el panel de menús, en **Configuración**, seleccione **Puntos de conexión**.
 
-3. Copie el valor del punto de conexión **Blob service** o del punto de conexión **Sitio web estático** en un archivo de texto. 
-  
+3. Copie el valor del punto de conexión **Blob service** o del punto de conexión **Sitio web estático** en un archivo de texto.
+
    > [!NOTE]
    > No se admite el punto de conexión de almacenamiento de Data Lake (por ejemplo, `https://mystorageaccount.dfs.core.windows.net/`).
 
@@ -70,7 +70,7 @@ El nombre de host es la dirección URL del punto de conexión del almacenamiento
    |------------|-----------------|-------------------|
    |Blob service  | `https://mystorageaccount.blob.core.windows.net/` | `mystorageaccount.blob.core.windows.net` |
    |sitio web estático  | `https://mystorageaccount.z5.web.core.windows.net/` | `mystorageaccount.z5.web.core.windows.net` |
-  
+
    Deje este valor para más adelante.
 
 <a id="create-cname-record"></a>
@@ -83,15 +83,15 @@ Cree un registro CNAME que apunte al nombre de host. Un registro CNAME es un tip
 
    Podría encontrar la página en una sección como **Nombre de dominio**, **DNS** o **Administración del servidor de nombres**.
 
-2. Busque la sección para la administración de registros CNAME. 
+2. Busque la sección para la administración de registros CNAME.
 
    Tiene que dirigirse a la página de configuración avanzada y buscar **CNAME**, **Alias** o **Subdomains**.
 
-3. Cree un registro CNAME. Como parte de ese registro, especifique los siguientes elementos: 
+3. Cree un registro CNAME. Como parte de ese registro, especifique los siguientes elementos:
 
-   - El alias de subdominio, como `www` o `photos`. El subdominio es obligatorio, pero los dominios raíz no se admiten. 
-      
-   - El nombre de host que obtuvo en la sección [Obtención del nombre de host de un punto de conexión del almacenamiento](#endpoint) de este mismo artículo. 
+   - El alias de subdominio, como `www` o `photos`. El subdominio es obligatorio, pero los dominios raíz no se admiten.
+
+   - El nombre de host que obtuvo en la sección [Obtención del nombre de host de un punto de conexión del almacenamiento](#endpoint) de este mismo artículo.
 
 <a id="register"></a>
 
@@ -108,8 +108,8 @@ Cree un registro CNAME que apunte al nombre de host. Un registro CNAME es un tip
    > [!NOTE]
    > Esta opción no aparece en las cuentas que tienen habilitada la característica de espacio de nombres jerárquico. Para esas cuentas, use PowerShell o la CLI de Azure para completar este paso.
 
-3. En el cuadro de texto **Nombre de dominio**, escriba el nombre del dominio personalizado, incluido el subdominio.  
-   
+3. En el cuadro de texto **Nombre de dominio**, escriba el nombre del dominio personalizado, incluido el subdominio.
+
    Por ejemplo, si su dominio es *contoso.com* y su alias de subdominio es *www*, escriba `www.contoso.com`. Si su subdominio es *photos*, escriba `photos.contoso.com`.
 
 4. Para registrar el dominio personalizado, elija el botón **Guardar**.
@@ -169,9 +169,9 @@ Por ejemplo, para acceder a un formulario web del contenedor `myforms` en el sub
 ### <a name="map-a-custom-domain-with-zero-downtime"></a>Asignación de un dominio personalizado sin tiempo de inactividad
 
 > [!NOTE]
-> Si no le preocupa que el dominio no esté disponible durante un breve período para los usuarios, considere la posibilidad de aplicar los pasos que se describen en la sección [Asignación de un dominio personalizado](#map-a-domain) de este artículo. Es un enfoque más sencillo con menos pasos.  
+> Si no le preocupa que el dominio no esté disponible durante un breve período para los usuarios, considere la posibilidad de aplicar los pasos que se describen en la sección [Asignación de un dominio personalizado](#map-a-domain) de este artículo. Es un enfoque más sencillo con menos pasos.
 
-Si el dominio admite actualmente una aplicación con un acuerdo de nivel de servicio (SLA) que requiere que no haya tiempo de inactividad, siga estos pasos para asegurarse de que los usuarios puedan acceder al dominio mientras se realiza la asignación de DNS. 
+Si el dominio admite actualmente una aplicación con un acuerdo de nivel de servicio (SLA) que requiere que no haya tiempo de inactividad, siga estos pasos para asegurarse de que los usuarios puedan acceder al dominio mientras se realiza la asignación de DNS.
 
 :heavy_check_mark: Paso 1: Obtención del nombre de host del punto de conexión del almacenamiento.
 
@@ -185,15 +185,15 @@ Si el dominio admite actualmente una aplicación con un acuerdo de nivel de serv
 
 <a id="endpoint-2"></a>
 
-#### <a name="step-1-get-the-host-name-of-your-storage-endpoint"></a>Paso 1: Obtención del nombre de host del punto de conexión del almacenamiento 
+#### <a name="step-1-get-the-host-name-of-your-storage-endpoint"></a>Paso 1: Obtención del nombre de host del punto de conexión del almacenamiento
 
-El nombre de host es la dirección URL del punto de conexión del almacenamiento sin el identificador del protocolo ni la barra diagonal final. 
+El nombre de host es la dirección URL del punto de conexión del almacenamiento sin el identificador del protocolo ni la barra diagonal final.
 
 1. En [Azure Portal](https://portal.azure.com), vaya a la cuenta de almacenamiento.
 
-2. En el panel de menús, en **Configuración**, seleccione **Puntos de conexión**.  
+2. En el panel de menús, en **Configuración**, seleccione **Puntos de conexión**.
 
-3. Copie el valor del punto de conexión **Blob service** o del punto de conexión **Sitio web estático** en un archivo de texto.  
+3. Copie el valor del punto de conexión **Blob service** o del punto de conexión **Sitio web estático** en un archivo de texto.
 
    > [!NOTE]
    > No se admite el punto de conexión de almacenamiento de Data Lake (por ejemplo, `https://mystorageaccount.dfs.core.windows.net/`).
@@ -204,7 +204,7 @@ El nombre de host es la dirección URL del punto de conexión del almacenamiento
    |------------|-----------------|-------------------|
    |Blob service  | `https://mystorageaccount.blob.core.windows.net/` | `mystorageaccount.blob.core.windows.net` |
    |sitio web estático  | `https://mystorageaccount.z5.web.core.windows.net/` | `mystorageaccount.z5.web.core.windows.net` |
-  
+
    Deje este valor para más adelante.
 
 #### <a name="step-2-create-an-intermediary-canonical-name-cname-record-with-your-domain-provider"></a>Paso 2: Creación de un registro de nombres canónicos (CNAME) intermediario con su proveedor de dominios
@@ -215,17 +215,17 @@ Cree un registro CNAME temporal que apunte al nombre de host. Un registro CNAME 
 
    Podría encontrar la página en una sección como **Nombre de dominio**, **DNS** o **Administración del servidor de nombres**.
 
-2. Busque la sección para la administración de registros CNAME. 
+2. Busque la sección para la administración de registros CNAME.
 
    Tiene que dirigirse a la página de configuración avanzada y buscar **CNAME**, **Alias** o **Subdomains**.
 
-3. Cree un registro CNAME. Como parte de ese registro, especifique los siguientes elementos: 
+3. Cree un registro CNAME. Como parte de ese registro, especifique los siguientes elementos:
 
    - El alias de subdominio, como `www` o `photos`. El subdominio es obligatorio, pero los dominios raíz no se admiten.
 
      Agregue el subdominio `asverify` al alias. Por ejemplo, `asverify.www` o `asverify.photos`.
-       
-   - El nombre de host que obtuvo en la sección [Obtención del nombre de host de un punto de conexión del almacenamiento](#endpoint) de este mismo artículo. 
+
+   - El nombre de host que obtuvo en la sección [Obtención del nombre de host de un punto de conexión del almacenamiento](#endpoint) de este mismo artículo.
 
      Agregue el subdominio `asverify` al nombre de host. Por ejemplo: `asverify.mystorageaccount.blob.core.windows.net`.
 
@@ -244,14 +244,14 @@ Al realizar un registro previo de su dominio personalizado en Azure, permite que
    > [!NOTE]
    > Esta opción no aparece en las cuentas que tienen habilitada la característica de espacio de nombres jerárquico. Para esas cuentas, use PowerShell o la CLI de Azure para completar este paso.
 
-3. En el cuadro de texto **Nombre de dominio**, escriba el nombre del dominio personalizado, incluido el subdominio.  
-   
+3. En el cuadro de texto **Nombre de dominio**, escriba el nombre del dominio personalizado, incluido el subdominio.
+
    Por ejemplo, si su dominio es *contoso.com* y su alias de subdominio es *www*, escriba `www.contoso.com`. Si su subdominio es *photos*, escriba `photos.contoso.com`.
 
 4. Seleccione la casilla **Usar validación CNAME indirecta**.
 
 5. Para registrar el dominio personalizado, elija el botón **Guardar**.
-  
+
    Si el registro se realiza correctamente, en el portal se notificará que la cuenta de almacenamiento se actualizó correctamente. Azure ha comprobado el dominio personalizado, pero no se ha realizado el enrutamiento del tráfico al dominio en la cuenta de almacenamiento hasta que cree un registro CNAME con el proveedor de dominios. Lo hará en la sección siguiente.
 
 ##### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
@@ -304,15 +304,15 @@ Cree un registro CNAME temporal que apunte al nombre de host.
 
    Podría encontrar la página en una sección como **Nombre de dominio**, **DNS** o **Administración del servidor de nombres**.
 
-2. Busque la sección para la administración de registros CNAME. 
+2. Busque la sección para la administración de registros CNAME.
 
    Tiene que dirigirse a la página de configuración avanzada y buscar **CNAME**, **Alias** o **Subdomains**.
 
-3. Cree un registro CNAME. Como parte de ese registro, especifique los siguientes elementos: 
+3. Cree un registro CNAME. Como parte de ese registro, especifique los siguientes elementos:
 
    - El alias de subdominio, como `www` o `photos`. El subdominio es obligatorio, pero los dominios raíz no se admiten.
-      
-   - El nombre de host que obtuvo en la sección [Obtención del nombre de host de un punto de conexión del almacenamiento](#endpoint-2) de este mismo artículo. 
+
+   - El nombre de host que obtuvo en la sección [Obtención del nombre de host de un punto de conexión del almacenamiento](#endpoint-2) de este mismo artículo.
 
 #### <a name="step-5-test-your-custom-domain"></a>Paso 5: Prueba de un dominio personalizado
 
@@ -344,7 +344,7 @@ Una vez se haya quitado correctamente el dominio personalizado, verá una notifi
 
 Para quitar un registro de dominio personalizado, use el cmdlet de PowerShell [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) y especifique una cadena vacía (`""`) para el valor del argumento `-CustomDomainName`.
 
-* Formato de comando:
+- Formato de comando:
 
   ```powershell
   Set-AzStorageAccount `
@@ -353,7 +353,7 @@ Para quitar un registro de dominio personalizado, use el cmdlet de PowerShell [S
       -CustomDomainName ""
   ```
 
-* Ejemplo de comando:
+- Ejemplo de comando:
 
   ```powershell
   Set-AzStorageAccount `
@@ -366,7 +366,7 @@ Para quitar un registro de dominio personalizado, use el cmdlet de PowerShell [S
 
 Para quitar un registro de dominio personalizado, use el comando de la CLI [az storage account update](/cli/azure/storage/account) y especifique una cadena vacía (`""`) para el valor del argumento `--custom-domain`.
 
-* Formato de comando:
+- Formato de comando:
 
   ```azurecli
   az storage account update \
@@ -375,7 +375,7 @@ Para quitar un registro de dominio personalizado, use el comando de la CLI [az s
       --custom-domain ""
   ```
 
-* Ejemplo de comando:
+- Ejemplo de comando:
 
   ```azurecli
   az storage account update \
@@ -383,19 +383,20 @@ Para quitar un registro de dominio personalizado, use el comando de la CLI [az s
       --resource-group myresourcegroup \
       --custom-domain ""
   ```
+
 ---
 
 <a id="enable-https"></a>
 
 ## <a name="map-a-custom-domain-with-https-enabled"></a>Asignación de un dominio personalizado con HTTPS habilitado
 
-Este enfoque implica más pasos, pero habilita el acceso HTTPS. 
+Este enfoque implica más pasos, pero habilita el acceso HTTPS.
 
-Si no necesita que los usuarios accedan al contenido de su blob o web mediante HTTPS, consulte la sección [Asignación de un dominio personalizado en el que solo HTTP está habilitado](#enable-http) de este mismo artículo. 
+Si no necesita que los usuarios accedan al contenido de su blob o web mediante HTTPS, consulte la sección [Asignación de un dominio personalizado en el que solo HTTP está habilitado](#enable-http) de este mismo artículo.
 
-1. Habilite [Azure CDN](../../cdn/cdn-overview.md) punto de conexión de su blob o web. 
+1. Habilite [Azure CDN](../../cdn/cdn-overview.md) punto de conexión de su blob o web.
 
-   Para ver un punto de conexión de Blob Storage, consulte [Integración de una cuenta de Azure Storage con Azure CDN](../../cdn/cdn-create-a-storage-account-with-cdn.md). 
+   Para ver un punto de conexión de Blob Storage, consulte [Integración de una cuenta de Azure Storage con Azure CDN](../../cdn/cdn-create-a-storage-account-with-cdn.md).
 
    Para obtener un punto de conexión de un sitio web estático, consulte [Integración de un sitio web estático con Azure CDN](static-website-content-delivery-network.md).
 
@@ -403,24 +404,24 @@ Si no necesita que los usuarios accedan al contenido de su blob o web mediante H
 
 3. [Habilitación de HTTPS en un dominio personalizado de Azure CDN](../../cdn/cdn-custom-ssl.md).
 
-   > [!NOTE] 
+   > [!NOTE]
    > Al actualizar el sitio web estático, asegúrese de borrar el contenido almacenado en caché de los servidores perimetrales de CDN purgando el punto de conexión de CDN. Para más información, consulte [Purgar un punto de conexión de Azure CDN](../../cdn/cdn-purge-endpoint.md).
 
 4. (Opcional) Consulte las siguientes instrucciones:
 
-   * [Tokens de firma de acceso compartido (SAS) con Azure CDN](../../cdn/cdn-storage-custom-domain-https.md#shared-access-signatures).
+   - [Tokens de firma de acceso compartido (SAS) con Azure CDN](../../cdn/cdn-storage-custom-domain-https.md#shared-access-signatures).
 
-   * [Redireccionamiento de HTTP a HTTPS con Azure CDN](../../cdn/cdn-storage-custom-domain-https.md#http-to-https-redirection).
+   - [Redireccionamiento de HTTP a HTTPS con Azure CDN](../../cdn/cdn-storage-custom-domain-https.md#http-to-https-redirection).
 
-   * [Precios y facturación cuando se usa Blob Storage con Azure CDN](../../cdn/cdn-storage-custom-domain-https.md#pricing-and-billing).
+   - [Precios y facturación cuando se usa Blob Storage con Azure CDN](../../cdn/cdn-storage-custom-domain-https.md#pricing-and-billing).
 
 ## <a name="feature-support"></a>Compatibilidad de características
 
-En esta tabla, se muestra cómo se admite esta característica en la cuenta y el impacto en la compatibilidad al habilitar determinadas funcionalidades. 
+En esta tabla se muestra cómo se admite esta característica en la cuenta y el impacto en la compatibilidad al habilitar determinadas funcionalidades.
 
-| Tipo de cuenta de almacenamiento                | Blob Storage (compatibilidad predeterminada)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>    
+| Tipo de cuenta de almacenamiento                | Blob Storage (compatibilidad predeterminada)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
 |-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
-| De uso general estándar, v2 | ![Sí](../media/icons/yes-icon.png) | ![Sí](../media/icons/yes-icon.png)  <sup>2</sup> | ![Sí](../media/icons/yes-icon.png)  <sup>2</sup> | 
+| De uso general estándar, v2 | ![Sí](../media/icons/yes-icon.png) | ![Sí](../media/icons/yes-icon.png)  <sup>2</sup> | ![Sí](../media/icons/yes-icon.png)  <sup>2</sup> |
 | Blobs en bloques Premium          | ![Sí](../media/icons/yes-icon.png) | ![Sí](../media/icons/yes-icon.png)  <sup>2</sup> | ![Sí](../media/icons/yes-icon.png)  <sup>2</sup> |
 
 <sup>1</sup> Data Lake Storage Gen2 y el protocolo Network File System (NFS) 3.0 necesitan una cuenta de almacenamiento con un espacio de nombres jerárquico habilitado.
@@ -429,4 +430,4 @@ En esta tabla, se muestra cómo se admite esta característica en la cuenta y el
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Hospedaje de sitios web estáticos en Azure Blob Storage](storage-blob-static-website.md)
+- [Hospedaje de sitios web estáticos en Azure Blob Storage](storage-blob-static-website.md)

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/04/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 77c09385c69e4a2922fa3b2249143e6e969bfc5a
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: b58fd8ba86febba41715aba4340838a0f494e6ab
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91759911"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128591661"
 ---
 ::: zone target="docs"
 
@@ -222,24 +222,26 @@ Si se encuentra con algún problema al desbloquear los discos, consulte cómo [s
 
 6. Ejecute la herramienta de desbloqueo de Data Box Disk. Proporcione la clave de paso de Azure Portal que obtuvo en [Conexión a discos y obtención de la clave de paso](#connect-to-disks-and-get-the-passkey). Opcionalmente, especifique una lista de volúmenes cifrados de BitLocker para desbloquear. La lista de volúmenes y la clave de paso se debe especificar entre comillas simples. 
 
-    Escriba el siguiente comando.
+   Escriba el siguiente comando.
  
-    `sudo ./DataBoxDiskUnlock_x86_64 /PassKey:'<Your passkey from Azure portal>'          
+   ```bash
+   sudo ./DataBoxDiskUnlock_x86_64 /PassKey:'<Your passkey from Azure portal>'
+   ```
 
-    A continuación se muestra la salida de ejemplo. 
+   A continuación se muestra la salida de ejemplo. 
  
-    ```
-    [user@localhost Downloads]$ sudo ./DataBoxDiskUnlock_x86_64 /Passkey:'qwerqwerqwer'  
-    
-    START: Mon Aug 13 14:25:49 2018 
-    Volumes: /dev/sdbl 
-    Passkey: qwerqwerqwer 
-    
-    Volumes for data copy : 
-    /dev/sdbl: /mnt/DataBoxDisk/mountVoll/ 
-    END: Mon Aug 13 14:26:02 2018
-    ```
-    Aparece el punto de montaje del volumen en el que puede copiar los datos.
+   ```output
+   [user@localhost Downloads]$ sudo ./DataBoxDiskUnlock_x86_64 /Passkey:'qwerqwerqwer'  
+   
+   START: Mon Aug 13 14:25:49 2018 
+   Volumes: /dev/sdbl 
+   Passkey: qwerqwerqwer 
+   
+   Volumes for data copy : 
+   /dev/sdbl: /mnt/DataBoxDisk/mountVoll/ 
+   END: Mon Aug 13 14:26:02 2018
+   ```
+   Aparece el punto de montaje del volumen en el que puede copiar los datos.
 
 7. Repita los pasos de desbloqueo cada vez que tenga que volver a insertar un disco. Use el comando `help` si necesita ayuda con la herramienta de desbloqueo de Data Box Disk. 
     

@@ -9,12 +9,12 @@ ms.date: 11/19/2019
 ms.author: normesta
 ms.reviewer: dineshm
 ms.custom: devx-track-python
-ms.openlocfilehash: 3e9fbda18c786f934790c9aa70cd0f27d045fa64
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: 1df5b2ba2aa44102975bfd68330466fccd0c6bb0
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111901320"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128593180"
 ---
 # <a name="tutorial-azure-data-lake-storage-gen2-azure-databricks--spark"></a>Tutorial: Azure Data Lake Storage Gen2, Azure Databricks y Spark
 
@@ -23,23 +23,23 @@ Este tutorial muestra cómo conectarse con un clúster de Azure Databricks para 
 En este tutorial, aprenderá lo siguiente:
 
 > [!div class="checklist"]
-> * Creación de un clúster de Databricks
-> * Ingesta de datos no estructurados en una cuenta de almacenamiento
-> * Ejecución de análisis en los datos de almacenamiento de blobs
+> - Creación de un clúster de Databricks
+> - Ingesta de datos no estructurados en una cuenta de almacenamiento
+> - Ejecución de análisis en los datos de almacenamiento de blobs
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-* Cree una cuenta de Azure Data Lake Storage Gen2
+- Cree una cuenta de Azure Data Lake Storage Gen2
 
   Consulte [Creación de una cuenta de almacenamiento para su uso con Azure Data Lake Storage Gen2 habilitado](create-data-lake-storage-account.md).
 
-* Asegúrese de que la cuenta de usuario tiene asignado el rol [Colaborador de datos de Storage Blob](assign-azure-role-data-access.md).
+- Asegúrese de que la cuenta de usuario tiene asignado el rol [Colaborador de datos de Storage Blob](assign-azure-role-data-access.md).
 
-* Instale AzCopy v10. Consulte [Transferencia de datos con AzCopy v10](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+- Instale AzCopy v10. Consulte [Transferencia de datos con AzCopy v10](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-* Crear una entidad de servicio. Consulte [Cómo: portal para crear una aplicación de Azure AD y una entidad de servicio que puedan acceder a los recursos](../../active-directory/develop/howto-create-service-principal-portal.md).
+- Crear una entidad de servicio. Consulte [Cómo: portal para crear una aplicación de Azure AD y una entidad de servicio que puedan acceder a los recursos](../../active-directory/develop/howto-create-service-principal-portal.md).
 
   Hay un par de cosas que tendrá que hacer cuando realice los pasos de este artículo.
 
@@ -58,7 +58,7 @@ Este tutorial se utilizan datos de vuelo de Bureau of Transportation Statistics 
 
 2. Active la casilla **Prezipped File** (Archivo precomprimido) para seleccionar todos los campos de datos.
 
-3. Seleccione el botón **Download** (Descargar) y guarde los resultados en el equipo. 
+3. Seleccione el botón **Download** (Descargar) y guarde los resultados en el equipo.
 
 4. Descomprima el contenido del archivo comprimido y anote el nombre y la ruta de acceso del archivo. Necesitará esta información en pasos posteriores.
 
@@ -101,7 +101,7 @@ En esta sección, va a crear un servicio de Azure Databricks con Azure Portal.
     Rellene los valores para los campos siguientes y acepte los valores predeterminados para el resto de campos:
 
     - Escriba un nombre para el clúster.
-     
+
     - Asegúrese de que selecciona la casilla **Terminate after 120 minutes of inactivity** (Terminar después de 120 minutos de inactividad). Proporcione una duración (en minutos) para terminar el clúster, si este no se usa.
 
 4. Seleccione **Create cluster** (Crear clúster). Después de ejecutar el clúster, puede asociarle cuadernos y ejecutar trabajos de Spark.
@@ -126,11 +126,11 @@ Use AzCopy para copiar datos del archivo *.csv* en su cuenta de Data Lake Storag
    azcopy cp "<csv-folder-path>" https://<storage-account-name>.dfs.core.windows.net/<container-name>/folder1/On_Time.csv
    ```
 
-   * Reemplace el valor de marcador de posición `<csv-folder-path>` por la ruta de acceso al archivo *csv*.
+   - Reemplace el valor de marcador de posición `<csv-folder-path>` por la ruta de acceso al archivo *csv*.
 
-   * Reemplace el valor de marcador de posición `<storage-account-name>` por el nombre de la cuenta de almacenamiento.
+   - Reemplace el valor de marcador de posición `<storage-account-name>` por el nombre de la cuenta de almacenamiento.
 
-   * Reemplace el marcador de posición `<container-name>` por el nombre de un contenedor de la cuenta de almacenamiento.
+   - Reemplace el marcador de posición `<container-name>` por el nombre de un contenedor de la cuenta de almacenamiento.
 
 ## <a name="create-a-container-and-mount-it"></a>Creación y montaje de un contenedor
 
@@ -148,7 +148,7 @@ En esta sección, va a crear un contenedor y una carpeta en la cuenta de almacen
 
 5. Copie y pegue el siguiente bloque de código en la primera celda, pero no ejecute el código aún.
 
-    ```Python
+    ```python
     configs = {"fs.azure.account.auth.type": "OAuth",
            "fs.azure.account.oauth.provider.type": "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider",
            "fs.azure.account.oauth2.client.id": "<appId>",
@@ -170,7 +170,7 @@ En esta sección, va a crear un contenedor y una carpeta en la cuenta de almacen
 
 ### <a name="use-databricks-notebook-to-convert-csv-to-parquet"></a>Uso de Databricks Notebook para convertir CSV en Parquet
 
-En el cuaderno que creó previamente, agregue una nueva celda y pegue el siguiente código en esa celda. 
+En el cuaderno que creó previamente, agregue una nueva celda y pegue el siguiente código en esa celda.
 
 ```python
 # Use the previously established DBFS mount point to read the data.
@@ -210,7 +210,7 @@ A continuación, puede empezar a consultar los datos cargados en la cuenta de al
 
 Para crear tramas de datos para los orígenes de datos, ejecute el script siguiente:
 
-* Reemplace el valor de marcador de posición `<csv-folder-path>` por la ruta de acceso al archivo *csv*.
+- Reemplace el valor de marcador de posición `<csv-folder-path>` por la ruta de acceso al archivo *csv*.
 
 ```python
 # Copy this into a Cmd cell in your notebook.
@@ -277,5 +277,5 @@ Cuando ya no los necesite, elimine el grupo de recursos y todos los recursos rel
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [Extracción, transformación y carga de datos mediante Apache Hive en Azure HDInsight](data-lake-storage-tutorial-extract-transform-load-hive.md)

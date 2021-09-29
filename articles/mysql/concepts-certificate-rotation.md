@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 04/08/2021
-ms.openlocfilehash: 468244b786d418117f12b445d86b67580db913da
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: e100acf7006c3ab4ad5fad9281f372a37ac8c6b4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "122652584"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128663675"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-mysql-single-server"></a>Descripción de los cambios en la entidad de certificación raíz para un solo servidor de Azure Database for MySQL
 
@@ -22,7 +22,7 @@ Un solo servidor de Azure Database for MySQL ha completado correctamente el camb
 > [!NOTE]
 > Este artículo SOLO se aplica a [Azure Database for MySQL: servidor único](single-server-overview.md). En el caso de [Azure Database for MySQL: servidor flexible](flexible-server/overview.md), el certificado necesario para comunicarse a través de SSL es la [entidad de certificación raíz global DigiCert](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem).
 >
-> Este artículo contiene referencias al término _esclavo_, un término que Microsoft ya no usa. Cuando se elimine el término del software, se eliminará también de este artículo.
+> Este artículo contiene referencias al término *esclavo*, un término que Microsoft ya no usa. Cuando se elimine el término del software, se eliminará también de este artículo.
 >
 
 #### <a name="why-is-a-root-certificate-update-required"></a>¿Por qué se requiere la actualización del certificado raíz?

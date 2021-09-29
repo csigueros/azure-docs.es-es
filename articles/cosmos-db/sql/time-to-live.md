@@ -6,14 +6,14 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 11/04/2020
+ms.date: 09/16/2021
 ms.reviewer: sngun
-ms.openlocfilehash: e859e244e41b6bbd065244a285653b2d9d3988e9
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 800ac96aee933791d0507e21ec5623ce47e82efb
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123114219"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128623748"
 ---
 # <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Período de vida (TTL) en Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -22,6 +22,7 @@ Mediante el **período de vida** o TTL, Azure Cosmos DB proporciona la capacida
 
 La eliminación de los elementos expirados es una tarea en segundo plano que usa las [unidades de solicitud](../request-units.md) restantes, es decir, las unidades de solicitud que no han consumido las solicitudes del usuario. Incluso después de que expire el período de vida, si el contenedor está sobrecargado con solicitudes y no hay suficientes RU disponibles, se retrasa la eliminación de los datos. Los datos se eliminan cuando hay suficientes RU disponibles para realizar la operación de eliminación. Aunque se retrasa la eliminación de los datos, las consultas (por parte de cualquier API) no devuelven los datos después de que expira el período de vida.
 
+> [!NOTE]
 > Este contenido está relacionado con el TTL del almacén transaccional de Azure Cosmos DB. Si está buscando el TTL del almacén de análisis, que habilita escenarios de NoETL HTAP mediante [Azure Synapse Link](../synapse-link.md), haga clic [aquí](../analytical-store-introduction.md#analytical-ttl).
 
 ## <a name="time-to-live-for-containers-and-items"></a>Período de vida para contenedores y elementos

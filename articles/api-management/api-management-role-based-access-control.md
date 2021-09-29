@@ -3,7 +3,7 @@ title: Uso del control de acceso basado en rol en Azure API Management | Microso
 description: Obtención de información sobre cómo usar los roles integrados y crear roles personalizados en Azure API Management
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 manager: erikre
 editor: ''
 ms.assetid: 364cd53e-88fb-4301-a093-f132fa1f88f5
@@ -12,14 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/18/2021
-ms.author: apimpm
+ms.author: danlep
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 407defa76b5677e3e5136a5e28a64eb4a78c3cd2
-ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
+ms.openlocfilehash: 90278abd972b0a6f56e820090435f4cfb8ebbeb6
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110191222"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128643296"
 ---
 # <a name="how-to-use-role-based-access-control-in-azure-api-management"></a>Uso del control de acceso basado en rol en Azure API Management
 

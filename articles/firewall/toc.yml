@@ -68,8 +68,8 @@
       href: dns-details.md
     - name: Línea de base de seguridad
       href: /security/benchmark/azure/baselines/firewall-security-baseline?toc=/azure/firewall/toc.json
-    - name: Compatibilidad con FTP activa
-      href: active-ftp-support.md
+    - name: Compatibilidad con FTP
+      href: ftp-support.md
 - name: Guías paso a paso
   items:
     - name: 'Implementación y configuración: clásico'

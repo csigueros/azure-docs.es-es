@@ -5,14 +5,15 @@ metadata:
   author: ssabat
   ms.author: susabat
   ms.service: data-factory
+  ms.subservice: 
   ms.topic: conceptual
   ms.date: 07/23/2021
-  ms.openlocfilehash: 2954ccd8eb20458cbd286463d3c914a63a85dd56
-  ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+  ms.openlocfilehash: 792d61cf017fc098db92b0ac1ec4670a08456069
+  ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 08/27/2021
-  ms.locfileid: "123104234"
+  ms.lasthandoff: 09/24/2021
+  ms.locfileid: "128571382"
 title: Preguntas más frecuentes de Azure Data Factory
 summary: "[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]\n\nEste artículo ofrece respuestas a las preguntas más frecuentes sobre Azure Data Factory.  \n"
 sections:

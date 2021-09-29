@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 61cefacc4147ab1eb105af9cb21365129dd1950e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f07ddd744481b80e5a74a7b4b597167964f4f183
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96742466"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124750142"
 ---
 # <a name="user-portal-for-the-azure-multi-factor-authentication-server"></a>Portal de usuarios para el Servidor Azure Multi-Factor Authentication
 
@@ -31,14 +31,14 @@ Según su entorno, puede que quiera implementar el Portal de usuarios en el mism
 > [!IMPORTANT]
 > A partir del 1 de julio de 2019, Microsoft ya no ofrecerá el servidor MFA para implementaciones nuevas. Los clientes nuevos que quieran exigir la autenticación multifactor (MFA) durante los eventos de inicio de sesión deben usar Azure AD Multi-Factor Authentication basado en la nube.
 >
-> Para empezar a trabajar con MFA basado en la nube, consulte [Tutorial: Protección de los eventos de inicio de sesión de usuario mediante Azure AD Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
+> Para empezar a trabajar con MFA basado en la nube, consulte [Tutorial: Protección de los eventos de inicio de sesión de usuario mediante Azure AD Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
 >
 > Los clientes existentes que hayan activado el Servidor MFA antes del 1 de julio de 2019 podrán descargar la versión más reciente y las actualizaciones futuras, así como generar credenciales de activación como de costumbre.
 
 ![Página de inicio de sesión en el portal de usuarios del Servidor MFA](./media/howto-mfaserver-deploy-userportal/portal.png)
 
 > [!NOTE]
-> El Portal de usuarios solo está disponible con el Servidor Multi-Factor Authentication. Si utiliza Multi-Factor Authentication en la nube, remita a sus usuarios a [Configuración de mi cuenta para la verificación en dos pasos](../user-help/multi-factor-authentication-end-user-first-time.md) o a [Administración de la configuración de la verificación en dos pasos](../user-help/multi-factor-authentication-end-user-manage-settings.md).
+> El Portal de usuarios solo está disponible con el Servidor Multi-Factor Authentication. Si utiliza Multi-Factor Authentication en la nube, remita a sus usuarios a [Configuración de mi cuenta para la verificación en dos pasos](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc) o a [Administración de la configuración de la verificación en dos pasos](https://support.microsoft.com/account-billing/change-your-two-step-verification-method-and-settings-c801d5ad-e0fc-4711-94d5-33ad5d4630f7).
 
 ## <a name="install-the-web-service-sdk"></a>Instalación del SDK del servicio web
 

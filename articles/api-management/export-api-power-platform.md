@@ -2,17 +2,17 @@
 title: Exportación de las API de Azure API Management a Microsoft Power Platform | Microsoft Docs
 description: Obtenga información sobre cómo exportar una API de API Management como un conector personalizado a Power Apps y Power Automate en Microsoft Power Platform.
 services: api-management
-author: miaojiang
+author: dlepow
 ms.service: api-management
 ms.topic: how-to
 ms.date: 07/27/2021
-ms.author: apimpm
-ms.openlocfilehash: 6560995ba770e01c910c2b8fc923c9fcbad6f3d3
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.author: danlep
+ms.openlocfilehash: 7bc73c3134d01dd88112dd1564b12ecfe5f710b6
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122178239"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128639059"
 ---
 # <a name="export-apis-from-azure-api-management-to-the-power-platform"></a>Exportación de API de Azure API Management a Power Platform 
 

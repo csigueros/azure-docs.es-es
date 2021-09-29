@@ -3,20 +3,20 @@ title: Entrenamiento con proyectos de MLflow
 titleSuffix: Azure Machine Learning
 description: Configuración de MLflow con Azure Machine Learning para registrar métricas y artefactos de modelos de Machine Learning
 services: machine-learning
-author: shivp950
-ms.author: shipatel
+author: cjgronlund
+ms.author: cgronlun
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: nibaccam
 ms.date: 06/16/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: f9a298a311ac30b03be569a35aa59c0c6157601e
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 11358869e727948627e76c0f56c049b95c0abbb9
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112287612"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124784788"
 ---
 # <a name="train-ml-models-with-mlflow-projects-and-azure-machine-learning"></a>Entrenamiento de modelos de Machine Learning con proyectos de MLflow y Azure Machine Learning
 

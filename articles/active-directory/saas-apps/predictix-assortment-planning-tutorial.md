@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: adf00d24c05deab149edb95b8087b8522dbda99a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 93b3305a08f7440a7ac79f349caea192a637af3e
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92515396"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124789890"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-predictix-assortment-planning"></a>Tutorial: Integración de Azure Active Directory con Predictix Assortment Planning
 
@@ -196,7 +196,7 @@ A continuación debe crear un usuario llamado Britta Simon en Predictix Assortme
 
 Ahora, debe probar la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al seleccionar el icono de Predictix Assortment Planning en el panel de acceso, debería iniciar sesión automáticamente en la instancia de Predictix Assortment Planning para la que configurara el inicio de sesión único. Para más información, consulte [Acceso y uso del aplicaciones en el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+Al seleccionar el icono de Predictix Assortment Planning en el panel de acceso, debería iniciar sesión automáticamente en la instancia de Predictix Assortment Planning para la que configurara el inicio de sesión único. Para más información, consulte [Acceso y uso del aplicaciones en el portal Aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

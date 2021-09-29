@@ -11,12 +11,12 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: ''
 ms.date: 07/23/2021
-ms.openlocfilehash: 0b9e47d23968c29a0c69a2da198bcf8d183f1bb0
-ms.sourcegitcommit: 98e126b0948e6971bd1d0ace1b31c3a4d6e71703
+ms.openlocfilehash: 2bddb630cd2dad83992cfd740fb44b127a770c51
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2021
-ms.locfileid: "114675254"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128672806"
 ---
 # <a name="troubleshooting-transaction-log-errors-with-azure-sql-database-and-azure-sql-managed-instance"></a>Solución de errores del registro de transacciones con Azure SQL Database y Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -130,7 +130,7 @@ Para más información sobre cómo administrar el espacio de archivos de bases d
 
 ### <a name="error-40552-the-session-has-been-terminated-because-of-excessive-transaction-log-space-usage"></a>Error 40552: La sesión ha terminado debido al uso excesivo del espacio de registro de transacciones
 
-``40552: The session has been terminated because of excessive transaction log space usage. Try modifying fewer rows in a single transaction.``
+`40552: The session has been terminated because of excessive transaction log space usage. Try modifying fewer rows in a single transaction.`
 
 Para resolver este problema, pruebe los métodos siguientes:
 
@@ -154,4 +154,3 @@ Para información sobre los tamaños del registro de transacciones, consulte:
 - Para conocer los límites de recursos de DTU para una base de datos única, consulte los [límites de recursos para bases de datos únicas que usan el modelo de compra de DTU](resource-limits-dtu-single-databases.md).
 - Para conocer los límites de recursos de DTU para grupos elásticos, consulte los [límites de recursos para grupos elásticos que usan el modelo de compra de DTU](resource-limits-dtu-elastic-pools.md).
 - Para los límites de recursos de SQL Managed Instance, consulte los [límites de recursos para SQL Managed Instance](../managed-instance/resource-limits.md).
-

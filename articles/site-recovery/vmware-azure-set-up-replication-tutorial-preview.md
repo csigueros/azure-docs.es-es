@@ -5,12 +5,12 @@ ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 08/19/2021
 ms.custom: MVC
-ms.openlocfilehash: 74e9af6f1f9dd30b391c17f03a0d8d5e9a41a10d
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: 66bd4e5f24423ef022f8930b618b3cee9b5c9631
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122447084"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124777343"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms---preview"></a>Configuración de la recuperación ante desastres de máquinas virtuales de VMware locales en Azure (Versión preliminar)
 
@@ -39,7 +39,7 @@ La replicación de VMware en Azure incluye los procedimientos siguientes:
 - Para empezar, vaya al [portal de versión preliminar de Azure](https://aka.ms/rcmcanary). A continuación, realice los pasos detallados en las secciones siguientes.
 - Preparación de la cuenta de Azure
 - Preparación de la infraestructura
-- [Creación de un almacén de Recovery Services](/azure/site-recovery/quickstart-create-vault-template?tabs=CLI)
+- [Creación de un almacén de Recovery Services](./quickstart-create-vault-template.md?tabs=CLI)
 - [Implementación de un dispositivo de replicación de Azure Site Recovery](deploy-vmware-azure-replication-appliance-preview.md)
 - Habilitación de la replicación
 
@@ -123,7 +123,7 @@ Para habilitar la replicación, siga estos pasos:
       De manera predeterminada, Azure Site Recovery creará una nueva cuenta de almacenamiento de tipo LRS v1 para la primera operación de habilitación de la replicación de un almacén. Para las siguientes operaciones, se volverá a usar la misma cuenta de almacenamiento en caché.
     -  Discos administrados
 
-       De manera predeterminada, se crean discos administrados HDD estándar en Azure. Puede personalizar el tipo de discos administrados; para ello, seleccione **Personalizar**. Elija el tipo de disco en función de los requisitos empresariales. Asegúrese [de que se elija el tipo de disco adecuado](/azure/virtual-machines/disks-types#disk-comparison) en función de las IOPS de los discos de la máquina de origen. Para obtener información sobre precios, consulte el documento de precios de discos administrados [aquí](https://azure.microsoft.com/pricing/details/managed-disks/).
+       De manera predeterminada, se crean discos administrados HDD estándar en Azure. Puede personalizar el tipo de discos administrados; para ello, seleccione **Personalizar**. Elija el tipo de disco en función de los requisitos empresariales. Asegúrese [de que se elija el tipo de disco adecuado](../virtual-machines/disks-types.md#disk-comparison) en función de las IOPS de los discos de la máquina de origen. Para obtener información sobre precios, consulte el documento de precios de discos administrados [aquí](https://azure.microsoft.com/pricing/details/managed-disks/).
 
        >[!NOTE]
        > Si el servicio Mobility se instala manualmente antes de habilitar la replicación, puede cambiar el tipo de disco administrado en el nivel de disco. De lo contrario, de manera predeterminada, se puede elegir un tipo de disco administrado en el nivel de máquina.

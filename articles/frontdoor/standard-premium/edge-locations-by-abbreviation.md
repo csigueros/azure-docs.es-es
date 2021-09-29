@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.date: 05/25/2021
 ms.author: duau
 ms.custom: references_regions
-ms.openlocfilehash: 012104c100a66d11f75234b7b9a998d0bd99f29b
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: c853812cdb869d706f238c346af8e06caecabf41
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110482878"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128652346"
 ---
 # <a name="microsoft-edge-locations-by-abbreviation-for-azure-front-door-standardpremium"></a>Ubicaciones perimetrales de Microsoft por abreviatura para Azure Front Door Estándar o Prémium
 > [!div class="op_single_selector"]
@@ -31,5 +31,5 @@ En este artículo se enumeran las ubicaciones perimetrales de Microsoft, ordenad
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Consulte [Ubicaciones perimetrales de Azure Front Door por área metropolitana](edge-locations.md).
-* Para obtener la lista más reciente de nodos perimetrales para Azure Front Door, consulte [Lista de nodos perimetrales: API REST](/rest/api/cdn/cdn/edgenodes/list).
+* Para obtener la lista más reciente de nodos perimetrales para Azure Front Door, consulte [Lista de nodos perimetrales: API REST](/rest/api/cdn/edge-nodes/list).
 * Aprenda a [crear un perfil Estándar/Prémium de Azure Front Door](create-front-door-portal.md).

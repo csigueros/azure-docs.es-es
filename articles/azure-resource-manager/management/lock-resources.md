@@ -4,12 +4,12 @@ description: Impida que los usuarios actualicen o eliminen recursos de Azure apl
 ms.topic: conceptual
 ms.date: 07/01/2021
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: fe644c740f5c96f9a7864850fe4760151e1c6f87
-ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.openlocfilehash: 62581028b58001c51721b79149ad2c75dacc86a8
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123449898"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128642403"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Bloqueo de recursos para impedir cambios inesperados
 
@@ -159,14 +159,14 @@ Para crear un grupo de recursos y bloquearlo, implemente la plantilla siguiente 
   "resources": [
     {
       "type": "Microsoft.Resources/resourceGroups",
-      "apiVersion": "2020-10-01",
+      "apiVersion": "2021-04-01",
       "name": "[parameters('rgName')]",
       "location": "[parameters('rgLocation')]",
       "properties": {}
     },
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2020-10-01",
+      "apiVersion": "2021-04-01",
       "name": "lockDeployment",
       "resourceGroup": "[parameters('rgName')]",
       "dependsOn": [
@@ -209,7 +209,7 @@ targetScope = 'subscription'
 param rgName string
 param rgLocation string
 
-resource createRg 'Microsoft.Resources/resourceGroups@2020-10-01' = {
+resource createRg 'Microsoft.Resources/resourceGroups@2021-04-01' = {
   name: rgName
   location: rgLocation
 }
@@ -236,7 +236,7 @@ resource createRgLock 'Microsoft.Authorization/locks@2016-09-01' = {
 
 Al aplicar un bloqueo a un **recurso** dentro del grupo de recursos, agregue la propiedad de ámbito. Configure el ámbito en el nombre del recurso que va a bloquear.
 
-En el siguiente [ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/lock.json) se muestra una plantilla que crea un plan de App Service, un sitio web y un bloqueo en el sitio web. El ámbito del bloqueo se establece en el sitio web.
+En el ejemplo siguiente se muestra una plantilla que crea un plan de App Service, un sitio web y un bloqueo en el sitio web. El ámbito del bloqueo se establece en el sitio web.
 
 # <a name="json"></a>[JSON](#tab/json)
 

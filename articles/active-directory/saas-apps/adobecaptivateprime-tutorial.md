@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/31/2021
 ms.author: jeedes
-ms.openlocfilehash: 527b2bf9e7f97e0ffffa3d2cab1fae45a6393f49
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 3f4e44664a3d8b4a013bea5fb26ae0b2c5252ca5
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108125524"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124803333"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-captivate-prime"></a>Tutorial: Integración de Azure Active Directory con Adobe Captivate Prime
 
@@ -132,7 +132,7 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 * Haga clic en Probar esta aplicación en Azure Portal; debería iniciar sesión automáticamente en la instancia de Adobe Captivate Prime para la que configurara el inicio de sesión único.
 
-* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Adobe Captivate Prime en Aplicaciones debería iniciar sesión automáticamente en la versión de Adobe Captivate Prime para la que configurara el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Adobe Captivate Prime en Aplicaciones debería iniciar sesión automáticamente en la versión de Adobe Captivate Prime para la que configurara el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

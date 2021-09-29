@@ -9,12 +9,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0d06e40fc33a713904fb171a3a44ba8e977a254f
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: 67ecaac43885b76071a6bc71268edb811db7cbbd
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123467653"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128680288"
 ---
 # <a name="change-feed-support-in-azure-blob-storage"></a>Compatibilidad con la fuente de cambios en Azure Blob Storage
 
@@ -41,7 +41,7 @@ La compatibilidad con la fuente de cambios es adecuada para escenarios que proce
 La fuente de cambios es un requisito previo para [Replicación de objetos](object-replication-overview.md) y [Restauración a un momento dado para blobs en bloques](point-in-time-restore-overview.md).
 
 > [!NOTE]
-> La fuente de cambios proporciona un modelo de registro duradero y ordenado de los cambios que se producen en un blob. Los cambios se escriben y pasan a estar disponibles en el registro de la fuente de cambios en cuestión de minutos después del cambio. Si es necesario que su aplicación reaccione a eventos mucho más rápido, considere la posibilidad de usar en su lugar los [eventos de Blob Storage](storage-blob-event-overview.md). Los [eventos de Blob Storage](storage-blob-event-overview.md) proporcionan eventos únicos en tiempo real que permiten a Azure Functions o a sus aplicaciones reaccionar rápidamente a los cambios que se producen en un blob. 
+> La fuente de cambios proporciona un modelo de registro duradero y ordenado de los cambios que se producen en un blob. Los cambios se escriben y pasan a estar disponibles en el registro de la fuente de cambios en cuestión de minutos después del cambio. Si es necesario que su aplicación reaccione a eventos mucho más rápido, considere la posibilidad de usar en su lugar los [eventos de Blob Storage](storage-blob-event-overview.md). Los [eventos de Blob Storage](storage-blob-event-overview.md) proporcionan eventos únicos en tiempo real que permiten a Azure Functions o a sus aplicaciones reaccionar rápidamente a los cambios que se producen en un blob.
 
 ## <a name="enable-and-disable-the-change-feed"></a>Habilitar y deshabilitar la fuente de cambios
 
@@ -99,6 +99,7 @@ Habilite la fuente de cambios mediante PowerShell:
    ```
 
 ### <a name="template"></a>[Plantilla](#tab/template)
+
 Use una plantilla de Azure Resource Manager para habilitar la fuente de cambios en la cuenta de almacenamiento existente a través de Azure Portal:
 
 1. En Azure Portal, elija **Crear un recurso**.
@@ -153,7 +154,7 @@ La fuente de cambios es un registro de los cambios que se organizan en *segmento
 
 Un segmento por hora disponible de la fuente de cambios se describe en un archivo de manifiesto que especifica las rutas de acceso a los archivos de la fuente de cambios para ese segmento. El listado del directorio virtual `$blobchangefeed/idx/segments/` muestra estos segmentos ordenados por hora. La ruta de acceso del segmento describe el inicio del intervalo de tiempo por hora que el segmento representa. Puede usar esa lista para filtrar los segmentos de registros que le interesen.
 
-```text
+```output
 Name                                                                    Blob Type    Blob Tier      Length  Content Type    
 ----------------------------------------------------------------------  -----------  -----------  --------  ----------------
 $blobchangefeed/idx/segments/1601/01/01/0000/meta.json                  BlockBlob                      584  application/json
@@ -163,7 +164,7 @@ $blobchangefeed/idx/segments/2019/02/23/0110/meta.json                  BlockBlo
 ```
 
 > [!NOTE]
-> `$blobchangefeed/idx/segments/1601/01/01/0000/meta.json` se crea automáticamente cuando se habilita la fuente de cambios. Puede omitir este archivo sin problemas. Es un archivo de inicialización que siempre está vacío. 
+> `$blobchangefeed/idx/segments/1601/01/01/0000/meta.json` se crea automáticamente cuando se habilita la fuente de cambios. Puede omitir este archivo sin problemas. Es un archivo de inicialización que siempre está vacío.
 
 El archivo de manifiesto del segmento (`meta.json`) muestra la ruta de acceso de los archivos de la fuente de cambios para ese segmento en la propiedad `chunkFilePaths`. A continuación, se muestra un ejemplo de un archivo de manifiesto de segmento.
 
@@ -196,7 +197,7 @@ El archivo de manifiesto del segmento (`meta.json`) muestra la ruta de acceso de
 ```
 
 > [!NOTE]
-> El contenedor `$blobchangefeed` solo aparece después de haber habilitado la característica de fuente de cambios en su cuenta. Tendrá que esperar unos minutos después de habilitar la fuente de cambios para poder ver los blobs del contenedor. 
+> El contenedor `$blobchangefeed` solo aparece después de haber habilitado la característica de fuente de cambios en su cuenta. Tendrá que esperar unos minutos después de habilitar la fuente de cambios para poder ver los blobs del contenedor.
 
 <a id="log-files"></a>
 
@@ -288,7 +289,7 @@ Para una descripción de cada propiedad, consulte [Esquema de eventos de Azure E
 
 ## <a name="conditions-and-known-issues"></a>Condiciones y problemas conocidos
 
-En esta sección se describen los problemas conocidos y las condiciones de la versión actual de la fuente de cambios. 
+En esta sección se describen los problemas conocidos y las condiciones de la versión actual de la fuente de cambios.
 
 - Los registros de eventos de cambio para cualquier cambio único pueden aparecer más de una vez en la fuente de cambios.
 - Todavía no se puede administrar la duración de los archivos de registro de la fuente de cambios estableciendo en ellos la directiva de retención basada en tiempo y no puede eliminar los blobs.
@@ -299,14 +300,14 @@ En esta sección se describen los problemas conocidos y las condiciones de la ve
 
 ## <a name="feature-support"></a>Compatibilidad de características
 
-En esta tabla, se muestra cómo se admite esta característica en la cuenta y el impacto en la compatibilidad al habilitar determinadas funcionalidades. 
+En esta tabla se muestra cómo se admite esta característica en la cuenta y el impacto en la compatibilidad al habilitar determinadas funcionalidades.
 
-| Tipo de cuenta de almacenamiento                | Blob Storage (compatibilidad predeterminada)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>    
+| Tipo de cuenta de almacenamiento                | Blob Storage (compatibilidad predeterminada)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
 |-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
-| De uso general estándar, v2 | ![Sí](../media/icons/yes-icon.png) |![No](../media/icons/no-icon.png)              | ![No](../media/icons/no-icon.png) | 
+| De uso general estándar, v2 | ![Sí](../media/icons/yes-icon.png) |![No](../media/icons/no-icon.png)              | ![No](../media/icons/no-icon.png) |
 | Blobs en bloques Premium          | ![No](../media/icons/no-icon.png)|![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
 
-<sup>1</sup> Data Lake Storage Gen2 y el protocolo Network File System (NFS) 3.0 necesitan una cuenta de almacenamiento con un espacio de nombres jerárquico habilitado.
+<sup>1</sup> Tanto Data Lake Storage Gen2 como el protocolo Network File System (NFS) 3.0 necesitan una cuenta de almacenamiento con un espacio de nombres jerárquico habilitado.
 
 ## <a name="faq"></a>Preguntas más frecuentes
 

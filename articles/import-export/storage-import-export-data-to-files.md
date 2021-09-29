@@ -5,16 +5,16 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/02/2021
+ms.date: 09/03/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3
-ms.openlocfilehash: e06c5adc37e4c7ea73e3b86db61160c51d060f71
-ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.openlocfilehash: 344d513f823c3eb04e869c66ca79bfb611c3eb6a
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123449196"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129079758"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Uso del servicio Azure Import/Export para importar datos a Azure Files
 
@@ -96,13 +96,13 @@ Para preparar las unidades, realice los pasos siguientes:
 5. Use la opción `PrepImport` para copiar y preparar los datos para la unidad de disco. Para la primera sesión de copia para copiar directorios o archivos con una nueva sesión de copia, ejecute el siguiente comando:
 
     ```cmd
-    .\WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] [/sk:<StorageAccountKey>] [/silentmode] [/InitialDriveSet:<driveset.csv>]/DataSet:<dataset.csv>
+    .\WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] [/silentmode] [/InitialDriveSet:<driveset.csv>]/DataSet:<dataset.csv>
     ```
 
    A continuación se muestra un ejemplo de importación.
 
     ```cmd
-    .\WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1  /sk:************* /InitialDriveSet:driveset.csv /DataSet:dataset.csv /logdir:C:\logs
+    .\WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1 /InitialDriveSet:driveset.csv /DataSet:dataset.csv /logdir:C:\logs
     ```
 
 6. Se crea un archivo de diario con el nombre proporcionado con el parámetro `/j:` para cada ejecución de la línea de comandos. Cada unidad que prepare tiene un archivo de diario que se tiene que cargar cuando se crea el trabajo de importación. Las unidades sin archivos de diario no se procesan.

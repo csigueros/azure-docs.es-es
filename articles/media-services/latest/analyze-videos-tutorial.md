@@ -8,12 +8,12 @@ ms.service: media-services
 ms.topic: tutorial
 ms.date: 07/26/2021
 ms.author: inhenkel
-ms.openlocfilehash: 38586e2cc60186c929b5ca43990019e768a1ed13
-ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
+ms.openlocfilehash: 8f857ff3c1a17e0f17d396b8d97d9d0e27b4fa18
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114720476"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128646087"
 ---
 # <a name="tutorial-analyze-videos-with-media-services-v3"></a>Tutorial: Análisis de vídeos con Media Services v3
 
@@ -34,7 +34,7 @@ En este tutorial se muestra cómo realizar las siguientes acciones:
 
 ## <a name="compliance-privacy-and-security"></a>Cumplimiento, privacidad y seguridad
  
-Como recordatorio importante, debe cumplir todas las leyes aplicables cuando use Azure Video Analyzer for Media (antes, Video Indexer). No debe usar Video Analyzer for Media ni ningún otro servicio de Azure de forma que infrinja los derechos de los demás. Antes de cargar vídeos que incluyan datos biométricos en el servicio Video Analyzer for Media para procesarlos y almacenarlos, debe tener todos los derechos apropiados (por ejemplo, todos los consentimientos adecuados) de las personas del vídeo. Para información sobre el cumplimiento, la privacidad y la seguridad de Video Analyzer for Media, consulte [Términos de Cognitive Services](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/) de Azure. En lo que respecta a las obligaciones de privacidad de Microsoft y al control de los datos, consulte la [declaración de privacidad](https://privacy.microsoft.com/PrivacyStatement), los [Términos de los Servicios en Línea](https://www.microsoft.com/licensing/product-licensing/products) (OST) y el [anexo de procesamiento de datos](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) ("DPA") de Microsoft. Puede encontrar información adicional sobre la privacidad, como la retención, eliminación o destrucción de los datos, en los términos de OST y [aquí](../../azure-video-analyzer/video-analyzer-for-media-docs/faq.md). Con el uso de Video Analyzer for Media, acepta estar sujeto a los términos de Cognitive Services, OST, DPA y la declaración de privacidad.
+Como recordatorio importante, debe cumplir todas las leyes aplicables cuando use Azure Video Analyzer for Media (antes, Video Indexer). No debe usar Video Analyzer for Media ni ningún otro servicio de Azure de forma que infrinja los derechos de los demás. Antes de cargar vídeos que incluyan datos biométricos en el servicio Video Analyzer for Media para procesarlos y almacenarlos, debe tener todos los derechos apropiados (por ejemplo, todos los consentimientos adecuados) de las personas del vídeo. Para información sobre el cumplimiento, la privacidad y la seguridad de Video Analyzer for Media, consulte [Términos de Cognitive Services](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/) de Azure. En lo que respecta a las obligaciones de privacidad de Microsoft y al control de los datos, consulte la [declaración de privacidad](https://privacy.microsoft.com/PrivacyStatement), los [Términos de los Servicios en Línea](https://www.microsoft.com/licensing/product-licensing/products) (OST) y el [anexo de procesamiento de datos](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) ("DPA") de Microsoft. Puede encontrar información adicional sobre la privacidad, como la retención, eliminación o destrucción de los datos, en los términos de OST y [aquí](../../azure-video-analyzer/video-analyzer-for-media-docs/faq.yml). Con el uso de Video Analyzer for Media, acepta estar sujeto a los términos de Cognitive Services, OST, DPA y la declaración de privacidad.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -78,7 +78,7 @@ En el código que ha clonado al principio del artículo, la función `GetCredent
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/Common_Utils/Authentication.cs#GetCredentialsAsync)]
 
-En el caso de la autenticación interactiva, la función `GetCredentialsInteractiveAuthAsync` crea el objeto `ServiceClientCredentials` en función de una autenticación interactiva y los parámetros de conexión proporcionados en el archivo de configuración local (*appsettings.json*) o a través del archivo de variables de entorno *.env* en la raíz del repositorio. En ese caso, AADCLIENTID y AADSECRET no son necesarios en el archivo de variables de entorno ni de configuración.
+En el caso de la autenticación interactiva, la función `GetCredentialsInteractiveAuthAsync` crea el objeto `ServiceClientCredentials` en función de una autenticación interactiva y los parámetros de conexión proporcionados en el archivo de configuración local (*appsettings.json*) o a través del archivo de variables de entorno *.env* en la raíz del repositorio. En ese caso, AADCLIENTID y AADSECRET no son necesarios en el archivo de variables de entorno o de configuración.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/Common_Utils/Authentication.cs#GetCredentialsInteractiveAuthAsync)]
 

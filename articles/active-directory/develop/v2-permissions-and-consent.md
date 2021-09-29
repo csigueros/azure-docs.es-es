@@ -12,12 +12,12 @@ ms.date: 07/06/2021
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur, marsma
 ms.custom: aaddev, fasttrack-edit, contperf-fy21q1, identityplatformtop40, has-adal-ref
-ms.openlocfilehash: fca6234742958f363d45c02780c2d01246ac58a9
-ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
+ms.openlocfilehash: 292bca70ae9ebb8b864e95d9f5eda125a90a597d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122428846"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128632982"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform"></a>Permisos y consentimiento en la plataforma de identidad de Microsoft
 
@@ -182,6 +182,9 @@ Algunos permisos de privilegios elevados de los recursos de Microsoft se pueden 
 * Leer los perfiles completos de todos los usuarios con `User.Read.All`
 * Escribir datos en el directorio de una organización mediante `Directory.ReadWrite.All`
 * Leer todos los grupos de seguridad del directorio de una organización con: `Groups.Read.All`
+
+> [!NOTE]
+>En las solicitudes a los puntos de conexión de autorización, token o consentimiento para la Plataforma de identidad de Microsoft, si el identificador de recurso se omite en el parámetro de ámbito, se supone que el recurso es Microsoft Graph. Por ejemplo, `scope=User.Read` es equivalente a `https://graph.microsoft.com/User.Read`.
 
 Aunque un usuario consumidor podría conceder acceso de la aplicación a este tipo de datos, los usuarios de la organización no pueden conceder acceso al mismo conjunto de datos confidenciales de la empresa. Si la aplicación solicita acceso a uno de estos permisos desde un usuario de la organización, el usuario recibe un mensaje de error que indica que no está autorizado para dar el consentimiento a los permisos de la aplicación.
 

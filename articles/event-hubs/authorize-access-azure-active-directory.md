@@ -2,13 +2,13 @@
 title: Autorización del acceso con Azure Active Directory
 description: En este artículo se proporciona información sobre cómo autorizar el acceso a recursos de Event Hubs mediante Azure Active Directory.
 ms.topic: conceptual
-ms.date: 06/23/2020
-ms.openlocfilehash: d794b03fdbb5429983788c74cbb05a7c13bf2d76
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 09/20/2021
+ms.openlocfilehash: f00f0ff73762cede60a0f2298875fac057ff0563
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92910804"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128627375"
 ---
 # <a name="authorize-access-to-event-hubs-resources-using-azure-active-directory"></a>Autorización del acceso a recursos de Event Hubs mediante Azure Active Directory
 Azure Event Hubs admite la autorización de solicitudes a recursos de Event Hubs mediante Azure Active Directory (Azure AD). Con Azure AD, puede usar el control de acceso basado en roles (RBAC) de Azure para conceder permisos a una entidad de seguridad, que puede ser un usuario o una entidad de servicio de aplicación. Para más información sobre los roles y las asignaciones de roles, consulte [Descripción de los distintos roles](../role-based-access-control/overview.md).

@@ -3,16 +3,17 @@ title: Movimiento de datos desde Cassandra mediante Data Factory
 description: Aprenda a mover los datos de una base de datos de Cassandra local con Azure Data Factory.
 author: linda33wj
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 005fd85a152ee2765facda0d961bd9119d1598e8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 48362434ed36d8ee6d8d164aa9bb5e2df782c95b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100387417"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128629358"
 ---
 # <a name="move-data-from-an-on-premises-cassandra-database-using-azure-data-factory"></a>Movimiento de datos desde una base de datos de Cassandra local con Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]

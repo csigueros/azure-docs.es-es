@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 6cad57c2dac15b89713386661ca54dae6ec3cf99
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 787656f654be9af742d1975aecf11b0df118aa90
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92453950"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124747421"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-eplatform"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con ePlatform
 
@@ -144,7 +144,7 @@ En esta sección creará un usuario llamado B.Simon en ePlatform. Trabaje con el
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de ePlatform en el panel de acceso, debería iniciar sesión automáticamente en la versión de ePlatform para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
+Al hacer clic en el icono de ePlatform en el panel de acceso, debería iniciar sesión automáticamente en la versión de ePlatform para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

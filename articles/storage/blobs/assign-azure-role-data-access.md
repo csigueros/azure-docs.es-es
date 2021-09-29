@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 34c3f19ebb48bef3ece00b6413af2c1d7e585cf5
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: b30bb21369e75b76c5aba299d38b2ccfc3259803
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121737459"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128651605"
 ---
 # <a name="assign-an-azure-role-for-access-to-blob-data"></a>Asignación de un rol de Azure para acceder a datos de blobs
 
@@ -65,7 +65,7 @@ Para asignar un rol cuyo ámbito es un contenedor, especifique una cadena que co
 /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/blobServices/default/containers/<container-name>
 ```
 
-En el siguiente ejemplo se asigna el rol **Colaborador de datos de Storage Blob** a un usuario y el ámbito se establece un contenedor denominado *sample-container*. Asegúrese de reemplazar los valores de ejemplo y los valores de marcador de posición entre corchetes angulares por los suyos propios: 
+En el siguiente ejemplo se asigna el rol **Colaborador de datos de Storage Blob** a un usuario y el ámbito se establece un contenedor denominado *sample-container*. Asegúrese de reemplazar los valores de ejemplo y los valores de marcador de posición entre corchetes angulares por los suyos propios:
 
 ```powershell
 New-AzRoleAssignment -SignInName <email> `

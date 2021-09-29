@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/11/2021
 ms.author: jeedes
-ms.openlocfilehash: 3135c36a604d67b4a5321e1f44189dde6d124dfc
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.openlocfilehash: ab300cceaa023f5479aa7db74c9597bef0a1bfa9
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112062917"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124772759"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hpe-saas"></a>Tutorial: integración de Azure Active Directory con HPE SaaS
 
@@ -130,7 +130,7 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 * Vaya directamente a la dirección URL de inicio de sesión de HPE SaaS e inicie el flujo de inicio de sesión desde allí.
 
-* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de HPE SaaS en Mis aplicaciones, se le redirigirá a la URL de inicio de sesión de la aplicación. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de HPE SaaS en Mis aplicaciones, se le redirigirá a la URL de inicio de sesión de la aplicación. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -18,12 +18,12 @@ ms.workload: na
 ms.date: 07/13/2020
 ms.author: magoedte
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1ecfc4a87908d9cde21d50d93df371950449fa25
-ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
+ms.openlocfilehash: 76b0353022782aecabd2a7df3e5a920d22119402
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2021
-ms.locfileid: "112379769"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128643600"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Introducción al controlador de extensiones de configuración de estado deseado de Azure
 
@@ -156,7 +156,7 @@ Para máquinas virtuales que ejecutan Windows:
 az vm extension set \
   --resource-group myResourceGroup \
   --vm-name myVM \
-  --name Microsoft.Powershell.DSC \
+  --name DSC \
   --publisher Microsoft.Powershell \
   --version 2.77 --protected-settings '{}' \
   --settings '{}'

@@ -3,16 +3,17 @@ title: Movimiento de datos de Amazon Redshift mediante Azure Data Factory
 description: Obtenga información sobre cómo mover datos de Amazon Redshift mediante la actividad de copia de Azure Data Factory.
 author: linda33wj
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 025250f47bf0630be5ae988140a5feeecfd0eaf0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 22370c0df5b11935ae107c065ec66fe98b355cd6
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100377557"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128653350"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Movimiento de datos de Amazon Redshift mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -102,7 +103,7 @@ Este ejemplo copia datos de Amazon Redshift a Azure Synapse Analytics. En el eje
 
 En este ejemplo de caso de uso, la actividad de copia descarga primero los datos de Amazon Redshift a Amazon S3 tal como está configurado en la opción **redshiftUnloadSettings**. Luego, los datos se copian de Amazon S3 a Azure Blob Storage tal como se especifica en la opción **stagingSettings**. Por último, PolyBase carga los datos en Azure Synapse Analytics. Todos los formatos provisionales están controlados por la actividad de copia.
 
-![Copia del flujo de trabajo de Amazon Redshift a Azure Synapse Analytics](media/data-factory-amazon-redshift-connector/redshift-to-sql-dw-copy-workflow.png)
+:::image type="content" source="media/data-factory-amazon-redshift-connector/redshift-to-sql-dw-copy-workflow.png" alt-text="Copia del flujo de trabajo de Amazon Redshift a Azure Synapse Analytics":::
 
 ```json
 {

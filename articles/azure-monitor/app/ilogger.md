@@ -3,12 +3,12 @@ title: Registro de Application Insights con .NET
 description: Aprenda a usar Application Insights con la interfaz ILogger en .NET.
 ms.topic: conceptual
 ms.date: 05/20/2021
-ms.openlocfilehash: 0457656ae06d4a86c8a4151ce8b89d3e42978d74
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 274fa5a9ab3fef94f892ed75fd69bc6cca6cccc9
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122180340"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128617799"
 ---
 # <a name="application-insights-logging-with-net"></a>Registro de Application Insights con .NET
 
@@ -34,7 +34,7 @@ En función del paquete de registros de Application Insights que use, habrá var
 
 Para agregar datos de telemetría de Application Insights a aplicaciones de ASP.NET Core, use el paquete de NuGet `Microsoft.ApplicationInsights.AspNetCore`. Esta operación se puede configurar desde [Visual Studio como servicio conectado](/visualstudio/azure/azure-app-insights-add-connected-service), o bien manualmente.
 
-De forma predeterminada, las aplicaciones de ASP.NET Core tienen un proveedor de registro de Application Insights registrado cuando se configuran mediante el enfoque [con código](./asp-net-core.md) o [sin código](./azure-web-apps.md?tabs=netcore#enable-agent-based-monitoring). El proveedor registrado está configurado para capturar automáticamente eventos de registro con una gravedad de <xref:Microsoft.Extensions.Logging.LogLevel.Warning?displayProperty=nameWithType> o mayor. Puede personalizar la gravedad y las categorías. Para obtener más información, consulte [Nivel de registro](#logging-level).
+De forma predeterminada, las aplicaciones de ASP.NET Core tienen un proveedor de registro de Application Insights registrado cuando se configuran mediante el enfoque [con código](./asp-net-core.md) o [sin código](./azure-web-apps-net-core.md#enable-agent-based-monitoring). El proveedor registrado está configurado para capturar automáticamente eventos de registro con una gravedad de <xref:Microsoft.Extensions.Logging.LogLevel.Warning?displayProperty=nameWithType> o mayor. Puede personalizar la gravedad y las categorías. Para obtener más información, consulte [Nivel de registro](#logging-level).
 
 1. Asegúrese de que el paquete NuGet está instalado:
 
@@ -67,11 +67,8 @@ De forma predeterminada, las aplicaciones de ASP.NET Core tienen un proveedor de
 
             public void ConfigureServices(IServiceCollection services)
             {
-                services.AddApplicationInsightsTelemetry(
-                    Configuration["APPINSIGHTS_CONNECTIONSTRING"]);
-
-                // An alternative overload, when not using appsettings.json or user secrets.
-                // services.AddApplicationInsightsTelemetry();
+                services.AddApplicationInsightsTelemetry();
+                // Configure the Connection String/Instrumentation key in appsettings.json
             }
 
             public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -202,8 +199,8 @@ namespace WebApplication
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddApplicationInsightsTelemetry(
-                Configuration["APPINSIGHTS_CONNECTIONSTRING"]);
+            services.AddApplicationInsightsTelemetry();
+            // Configure the Connection String/Instrumentation key in appsettings.json
         }
 
         // The ILogger<Startup> is resolved by dependency injection

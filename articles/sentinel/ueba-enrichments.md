@@ -1,26 +1,19 @@
 ---
 title: Referencia de características enriquecidas de UEBA de Azure Sentinel | Microsoft Docs
 description: En este artículo se muestran las características enriquecidas generadas por el análisis de comportamiento de entidades de Azure Sentinel.
-services: sentinel
-cloud: na
-documentationcenter: na
 author: yelevin
 manager: rkarlin
-ms.assetid: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: reference
 ms.date: 05/10/2021
 ms.author: yelevin
-ms.openlocfilehash: 3253a399015e533fc299bc7a338ce091769f4c65
-ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
+ms.openlocfilehash: 6420ef1345e20c2aec511a0a0284753a78895020
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114721689"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128627356"
 ---
 # <a name="azure-sentinel-ueba-enrichments-reference"></a>Referencia de características enriquecidas de UEBA de Azure Sentinel
 
@@ -199,7 +192,7 @@ En las siguientes tablas se describen los enriquecimientos que se encuentran en 
 
 | Nombre de la característica enriquecida | [Base de referencia](#baseline-explained) (días) | Descripción | Valor de ejemplo |
 | --- | --- | --- | --- |
-| **Última vez que el usuario realizó la acción**<br>*(LastTimeUserPerformedAction)* | 180 | Última vez que el usuario realizó la misma acción. | <Timestamp> |
+| **Última vez que el usuario realizó la acción**<br>*(LastTimeUserPerformedAction)* | 180 | Última vez que el usuario realizó la misma acción. | \<Timestamp\> |
 | **No se ha realizado una acción similar en el pasado**<br>*(SimilarActionWasn'tPerformedInThePast)* | 30 | El usuario no realizó ninguna acción en el mismo proveedor de recursos. | True, False |
 | **Ubicación de IP de origen**<br>*(SourceIPLocation)* | *N/D* | El país resuelto a partir de la IP de origen de la acción. | [Surrey, England] |
 | **Gran volumen de operaciones poco frecuentes**<br>*(UncommonHighVolumeOfOperations)* | 7 | Un usuario realizó una serie de operaciones similares en el mismo proveedor | True, False |

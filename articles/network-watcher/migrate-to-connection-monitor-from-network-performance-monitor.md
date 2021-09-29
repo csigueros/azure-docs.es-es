@@ -2,22 +2,18 @@
 title: Migración a Connection Monitor desde Network Performance Monitor
 titleSuffix: Azure Network Watcher
 description: Aprenda a migrar a Connection Monitor desde Network Performance Monitor.
-services: network-watcher
-documentationcenter: na
 author: vinynigam
 ms.service: network-watcher
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: vinigam
-ms.openlocfilehash: 0ec16b16c8e71d764fb0fe21520eb407493ed8d7
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: 84daa5527617584d420db02b012bec28760a146c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113105370"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128614569"
 ---
 # <a name="migrate-to-connection-monitor-from-network-performance-monitor"></a>Migración a Connection Monitor desde Network Performance Monitor
 
@@ -58,7 +54,7 @@ Para migrar las pruebas de Network Performance Monitor a Connection Monitor, hag
 1. En las listas desplegables, seleccione la suscripción y el área de trabajo y, luego, seleccione la característica de NPM que quiere migrar. 
 1. Seleccione **Import** (Importar) para migrar las pruebas.
 * Si NPM no está habilitado en el área de trabajo, verá un error que indica "No se encontró ninguna configuración de NPM válida". 
-* Si no existen pruebas en la característica que eligió en el paso 2, verá un error que indica "El área de trabajo seleccionada no tiene la configuración <feature>".
+* Si no existen pruebas en la característica que eligió en el paso 2, verá un error que indica "El área de trabajo seleccionada no tiene la configuración \<feature\>".
 * Si no hay pruebas válidas, verá un error que indica "El área de trabajo seleccionada no tiene pruebas válidas".
 * Las pruebas pueden contener agentes que ya no están activos, pero que pueden haber estado activos en el pasado. Verá un error que indica que "Algunas pruebas contienen agentes que ya no están activos. Lista de agentes inactivos: {0}. Estos agentes pueden estar ejecutándose en el pasado, pero se apagan o ya no se ejecutan. Habilite los agentes y migre a Connection Monitor. Haga clic en Continuar para migrar las pruebas que no contienen agentes que no están activos".
 

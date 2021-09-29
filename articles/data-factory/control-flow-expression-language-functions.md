@@ -9,13 +9,13 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/24/2021
-ms.openlocfilehash: aaca4774f6f56d38624b4811375a6661299161cc
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.date: 09/09/2021
+ms.openlocfilehash: 9b378b4cfb9bb35f1fb2a555afed195ac6b84dc3
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122821775"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128678694"
 ---
 # <a name="expressions-and-functions-in-azure-data-factory-and-azure-synapse-analytics"></a>Expresiones y funciones en Azure Data Factory y Azure Synapse Analytics
 
@@ -210,11 +210,35 @@ En este [tutorial](https://azure.microsoft.com/mediahandler/files/resourcefiles/
 ## <a name="functions"></a>Functions
 
 Puede llamar a funciones dentro de expresiones. En las siguientes secciones se proporciona información sobre las funciones que se pueden usar en una expresión.  
+  
+## <a name="date-functions"></a>Funciones de fecha  
+
+| Función de fecha u hora | Tarea |
+| --------------------- | ---- |
+| [addDays](control-flow-expression-language-functions.md#addDays) | Agrega un número de días a una marca de tiempo. |
+| [addHours](control-flow-expression-language-functions.md#addHours) | Agrega un número de horas a una marca de tiempo. |
+| [addMinutes](control-flow-expression-language-functions.md#addMinutes) | Agrega un número de minutos a una marca de tiempo. |
+| [addSeconds](control-flow-expression-language-functions.md#addSeconds) | Agrega un número de segundos a una marca de tiempo. |
+| [addToTime](control-flow-expression-language-functions.md#addToTime) | Agrega un número de unidades de tiempo a una marca de tiempo. Consulte también [getFutureTime](control-flow-expression-language-functions.md#getFutureTime). |
+| [convertFromUtc](control-flow-expression-language-functions.md#convertFromUtc) | Convierte una marca de tiempo del formato Hora Universal Coordinada (UTC) a la zona horaria de destino. |
+| [convertTimeZone](control-flow-expression-language-functions.md#convertTimeZone) | Convierte una marca de tiempo de la zona horaria de origen a la zona horaria de destino. |
+| [convertToUtc](control-flow-expression-language-functions.md#convertToUtc) | Convierte una marca de tiempo de la zona horaria de origen al formato Hora Universal Coordinada (UTC). |
+| [dayOfMonth](control-flow-expression-language-functions.md#dayOfMonth) | Devuelve el día del componente de mes de una marca de tiempo. |
+| [dayOfWeek](control-flow-expression-language-functions.md#dayOfWeek) | Devuelve el día del componente de semana de una marca de tiempo. |
+| [dayOfYear](control-flow-expression-language-functions.md#dayOfYear) | Devuelve el día del componente de año de una marca de tiempo. |
+| [formatDateTime](control-flow-expression-language-functions.md#formatDateTime) | Devuelve la marca de tiempo como cadena en formato opcional. |
+| [getFutureTime](control-flow-expression-language-functions.md#getFutureTime) | Devuelve la marca de tiempo actual más las unidades de tiempo especificadas. Consulte también [addToTime](control-flow-expression-language-functions.md#addToTime). |
+| [getPastTime](control-flow-expression-language-functions.md#getPastTime) | Devuelve la marca de tiempo actual menos las unidades de tiempo especificadas. Consulte también [subtractFromTime](control-flow-expression-language-functions.md#subtractFromTime). |
+| [startOfDay](control-flow-expression-language-functions.md#startOfDay) | Devuelve el inicio del día de una marca de tiempo. |
+| [startOfHour](control-flow-expression-language-functions.md#startOfHour) | Devuelve el inicio de la hora de una marca de tiempo. |
+| [startOfMonth](control-flow-expression-language-functions.md#startOfMonth) | Devuelve el inicio del mes de una marca de tiempo. |
+| [subtractFromTime](control-flow-expression-language-functions.md#subtractFromTime) | Resta un número de unidades de tiempo de una marca de tiempo. Consulte también [getPastTime](control-flow-expression-language-functions.md#getPastTime). |
+| [ticks](control-flow-expression-language-functions.md#ticks) | Devuelve el valor de la propiedad `ticks` de una marca de tiempo especificada. |
+| [utcNow](control-flow-expression-language-functions.md#utcNow) | Devuelve la marca de tiempo actual como una cadena. |
 
 ## <a name="string-functions"></a>Funciones de cadena  
 
-Para trabajar con cadenas, puede usar estas funciones de cadena y también algunas [funciones de colección](#collection-functions).
-Las funciones de cadena solo funcionan en cadenas.
+Para trabajar con cadenas, puede usar estas funciones de cadena y también algunas [funciones de colección](#collection-functions).  Las funciones de cadena solo funcionan en cadenas.
 
 | Función de cadena | Tarea |
 | --------------- | ---- |
@@ -315,31 +339,6 @@ Estas funciones son útiles en las condiciones y se pueden usar para evaluar cua
 | [rand](control-flow-expression-language-functions.md#rand) | Devuelve un entero aleatorio desde un intervalo especificado. |
 | [range](control-flow-expression-language-functions.md#range) | Devuelve una matriz de enteros que comienza en un entero especificado. |
 | [sub](control-flow-expression-language-functions.md#sub) | Devuelve el resultado de restar el segundo número del primero. |
-  
-## <a name="date-functions"></a>Funciones de fecha  
-
-| Función de fecha u hora | Tarea |
-| --------------------- | ---- |
-| [addDays](control-flow-expression-language-functions.md#addDays) | Agrega un número de días a una marca de tiempo. |
-| [addHours](control-flow-expression-language-functions.md#addHours) | Agrega un número de horas a una marca de tiempo. |
-| [addMinutes](control-flow-expression-language-functions.md#addMinutes) | Agrega un número de minutos a una marca de tiempo. |
-| [addSeconds](control-flow-expression-language-functions.md#addSeconds) | Agrega un número de segundos a una marca de tiempo. |
-| [addToTime](control-flow-expression-language-functions.md#addToTime) | Agrega un número de unidades de tiempo a una marca de tiempo. Consulte también [getFutureTime](control-flow-expression-language-functions.md#getFutureTime). |
-| [convertFromUtc](control-flow-expression-language-functions.md#convertFromUtc) | Convierte una marca de tiempo del formato Hora Universal Coordinada (UTC) a la zona horaria de destino. |
-| [convertTimeZone](control-flow-expression-language-functions.md#convertTimeZone) | Convierte una marca de tiempo de la zona horaria de origen a la zona horaria de destino. |
-| [convertToUtc](control-flow-expression-language-functions.md#convertToUtc) | Convierte una marca de tiempo de la zona horaria de origen al formato Hora Universal Coordinada (UTC). |
-| [dayOfMonth](control-flow-expression-language-functions.md#dayOfMonth) | Devuelve el día del componente de mes de una marca de tiempo. |
-| [dayOfWeek](control-flow-expression-language-functions.md#dayOfWeek) | Devuelve el día del componente de semana de una marca de tiempo. |
-| [dayOfYear](control-flow-expression-language-functions.md#dayOfYear) | Devuelve el día del componente de año de una marca de tiempo. |
-| [formatDateTime](control-flow-expression-language-functions.md#formatDateTime) | Devuelve la marca de tiempo como cadena en formato opcional. |
-| [getFutureTime](control-flow-expression-language-functions.md#getFutureTime) | Devuelve la marca de tiempo actual más las unidades de tiempo especificadas. Consulte también [addToTime](control-flow-expression-language-functions.md#addToTime). |
-| [getPastTime](control-flow-expression-language-functions.md#getPastTime) | Devuelve la marca de tiempo actual menos las unidades de tiempo especificadas. Consulte también [subtractFromTime](control-flow-expression-language-functions.md#subtractFromTime). |
-| [startOfDay](control-flow-expression-language-functions.md#startOfDay) | Devuelve el inicio del día de una marca de tiempo. |
-| [startOfHour](control-flow-expression-language-functions.md#startOfHour) | Devuelve el inicio de la hora de una marca de tiempo. |
-| [startOfMonth](control-flow-expression-language-functions.md#startOfMonth) | Devuelve el inicio del mes de una marca de tiempo. |
-| [subtractFromTime](control-flow-expression-language-functions.md#subtractFromTime) | Resta un número de unidades de tiempo de una marca de tiempo. Consulte también [getPastTime](control-flow-expression-language-functions.md#getPastTime). |
-| [ticks](control-flow-expression-language-functions.md#ticks) | Devuelve el valor de la propiedad `ticks` de una marca de tiempo especificada. |
-| [utcNow](control-flow-expression-language-functions.md#utcNow) | Devuelve la marca de tiempo actual como una cadena. |
 
 ## <a name="function-reference"></a>Referencia de funciones
 

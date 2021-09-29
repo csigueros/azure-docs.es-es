@@ -4,12 +4,12 @@ description: En este artículo se indica cómo usar Azure Automation para admini
 services: automation
 ms.date: 11/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 70c8892969a3b13175c60a4e20e0cf9086112abe
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f61149fd9c35cc55a3ed55fa83e6031d895fb073
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93398052"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124737736"
 ---
 # <a name="manage-office-365-services"></a>Administración de servicios de Office 365
 
@@ -33,7 +33,7 @@ El uso de Office 365 en Azure Automation requiere Microsoft Azure Active Dire
 
 ## <a name="create-an-azure-automation-account"></a>Creación de una cuenta de Azure Automation
 
-Para completar los pasos de este artículo, necesitará una cuenta en Azure Automation. Consulte [Creación de una cuenta de Azure Automation](automation-quickstart-create-account.md).
+Para completar los pasos de este artículo, necesitará una cuenta en Azure Automation. Consulte [Creación de una cuenta de Azure Automation](./quickstarts/create-account-portal.md).
  
 ## <a name="add-msonline-and-msonlineext-as-assets"></a>Adición de MSOnline y MSOnlineExt como recursos
 
@@ -94,7 +94,7 @@ Send-MailMessage -Credential $credObject -From $emailFromAddress -To $emailToAdd
 
 Puede usar el script en un runbook de Azure Automation. A modo de ejemplo, usaremos el tipo de runbook de PowerShell.
 
-1. Cree un runbook de PowerShell. Consulte [Creación de un runbook de Azure Automation](./automation-quickstart-create-runbook.md).
+1. Cree un runbook de PowerShell. Consulte [Creación de un runbook de Azure Automation](./learn/powershell-runbook-managed-identity.md).
 2. En la cuenta de Automation, seleccione **Runbooks** en **Automatización de procesos**.
 3. Seleccione el nuevo runbook y haga clic en **Editar**.
 4. Copie el script y péguelo en el editor de texto para el runbook.

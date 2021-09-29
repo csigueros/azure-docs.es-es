@@ -4,15 +4,14 @@ description: Obtenga información sobre cómo configurar las métricas, las aler
 author: chanuengg
 ms.author: csugunan
 ms.service: purview
-ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 12/03/2020
-ms.openlocfilehash: 4cb3965d359980856c238cd563ed8b761754660b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7028bb42481c2559d7aa9d044bd25771efc41f31
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101667738"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129213747"
 ---
 # <a name="azure-purview-metrics-in-azure-monitor"></a>Métricas de Azure Purview en Azure Monitor
 

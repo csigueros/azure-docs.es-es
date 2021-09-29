@@ -1,14 +1,14 @@
 ---
-title: Registros de actividad en Azure DevTest Labs | Microsoft Docs
+title: Registros de actividad
 description: En este artículo se indican los pasos para ver los registros de actividad de Azure DevTest Labs.
 ms.topic: how-to
 ms.date: 07/10/2020
-ms.openlocfilehash: 51bdfc6c3857a3e59d75094b4c847c80c58de045
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e5c7453a1cc4959f6517050ed4c1896890b2610b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100582766"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128654277"
 ---
 # <a name="view-activity-logs-for-labs-in-azure-devtest-labs"></a>Visualización de registros de actividad para laboratorios en Azure DevTest Labs 
 Después de crear uno o varios laboratorios, es probable que desee supervisar cómo y cuándo se accede a los laboratorios, cómo y cuándo se modifican y administran, y quién lo hace. Azure DevTest Labs usa Azure Monitor, en concreto **registros de actividad**, para proporcionar información sobre estas operaciones en los laboratorios. 
@@ -47,4 +47,3 @@ Para obtener más información sobre los registros de actividad, consulte [Regis
 
 - Para obtener información sobre cómo configurar **alertas** en los registros de actividad, consulte [Creación de alertas](create-alerts.md).
 - Para obtener más información sobre los registros de actividad, consulte [Registro de actividad de Azure](../azure-monitor/essentials/activity-log.md).
-

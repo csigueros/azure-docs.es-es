@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 09/16/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: cf2f0cdf8b7c540e569067d68374eef55d3479fe
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: 4501d28699b2bf9056cfd814bc89b5e9c5672ab9
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107028220"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128571962"
 ---
 # <a name="set-up-sign-in-with-a-salesforce-saml-provider-by-using-saml-protocol-in-azure-active-directory-b2c"></a>Configuración del inicio de sesión con un proveedor de Salesforce SAML mediante el protocolo SAML en Azure Active Directory B2C
 
@@ -99,15 +99,16 @@ En este artículo se muestra cómo habilitar el inicio de sesión para los usuar
 Debe almacenar el certificado que creó en el inquilino de Azure AD B2C.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
-2. Asegúrese de usar el directorio que contiene el inquilino de Azure AD B2C. Para ello, seleccione el filtro **Directorio y suscripción** en el menú superior y luego el directorio que contiene el inquilino.
-3. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C**.
-4. En la página de introducción, seleccione **Identity Experience Framework**.
-5. Seleccione **Claves de directiva** y luego **Agregar**.
-6. En **Opciones**, elija `Upload`.
-7. Escriba un **Nombre** para la directiva. Por ejemplo, SAMLSigningCert. El prefijo `B2C_1A_` se agrega automáticamente al nombre de la clave.
-8. Busque el certificado B2CSigningCert.pfx que ha creado y selecciónelo.
-9. Escriba la **Contraseña** del certificado.
-3. Haga clic en **Crear**.
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
+1. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C**.
+1. En la página de introducción, seleccione **Identity Experience Framework**.
+1. Seleccione **Claves de directiva** y luego **Agregar**.
+1. En **Opciones**, elija `Upload`.
+1. Escriba un **Nombre** para la directiva. Por ejemplo, SAMLSigningCert. El prefijo `B2C_1A_` se agrega automáticamente al nombre de la clave.
+1. Busque el certificado B2CSigningCert.pfx que ha creado y selecciónelo.
+1. Escriba la **Contraseña** del certificado.
+1. Haga clic en **Crear**.
 
 ## <a name="add-a-claims-provider"></a>Incorporación de un proveedor de notificaciones
 

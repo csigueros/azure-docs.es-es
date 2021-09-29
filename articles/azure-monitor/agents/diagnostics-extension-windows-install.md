@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: bwren
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 71b54db0df20ea1bfe630639fb5e60bea62712b2
-ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
+ms.openlocfilehash: 6fb9698b4f2f20fb4fa527bbd68cc2b4c352d5f5
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "112200283"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128663504"
 ---
 # <a name="install-and-configure-windows-azure-diagnostics-extension-wad"></a>Instalación y configuración de la extensión de Azure Diagnostics (WAD) para Windows
 [Azure Diagnostics Extension](diagnostics-extension-overview.md) es un agente de Azure Monitor que recopila datos de supervisión del sistema operativo invitado y de las cargas de trabajo de las máquinas virtuales de Azure y de otros recursos de proceso. En este artículo se proporcionan detalles sobre cómo instalar y configurar la extensión de diagnósticos para Windows y una descripción de cómo se almacenan los datos en la cuenta de Azure Storage.
@@ -207,7 +207,7 @@ Existen varias herramientas para ver los datos una vez que se transfieren al alm
 
 * El Explorador de servidores en Visual Studio: si instaló Azure Tools para Microsoft Visual Studio, puede usar el nodo de Azure Storage en el Explorador de servidores para ver los datos de tabla y blob de solo lectura de las cuentas de Azure Storage. Puede mostrar datos de la cuenta del emulador de almacenamiento local y también desde cuentas de almacenamiento que haya creado para Azure. Para obtener más información, consulte [Exploración y administración de recursos de almacenamiento con el Explorador de servidores](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage).
 * [Explorador de Microsoft Azure Storage](../../vs-azure-tools-storage-manage-with-storage-explorer.md) es una aplicación independiente que permite trabajar fácilmente con los datos de Azure Storage en Windows, OSX y Linux.
-* [Azure Management Studio](https://www.cerebrata.com/products/azure-management-studio/introduction) incluye Azure Diagnostics Manager, que permite ver, descargar y administrar los datos de diagnóstico recopilados por las aplicaciones que se ejecutan en Azure.
+* [Azure Management Studio](https://cerebrata.com/blog/introducing-azure-management-studio-and-azure-explorer) incluye Azure Diagnostics Manager, que permite ver, descargar y administrar los datos de diagnóstico recopilados por las aplicaciones que se ejecutan en Azure.
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Consulte [Envío de datos desde la extensión Azure Diagnostics para Windows a Event Hubs](diagnostics-extension-stream-event-hubs.md) para más información sobre el reenvío de datos de supervisión a Azure Event Hubs.

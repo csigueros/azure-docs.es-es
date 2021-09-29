@@ -9,12 +9,12 @@ ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
 ms.date: 09/03/2021
-ms.openlocfilehash: e5d4e36b6c9da2d5887675828c407bcc5bde1263
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 0a7bca44ccee4e836fd5aa8e0ef44412e1fc6985
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123539918"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124836204"
 ---
 # <a name="copy-data-from-and-to-salesforce-using-azure-data-factory-or-azure-synapse-analytics"></a>Copia de datos en Salesforce con origen y destino mediante Azure Data Factory o Azure Synapse Analytics
 
@@ -173,7 +173,7 @@ Para copiar datos desde y hacia Salesforce, establezca la propiedad type del con
 > [!IMPORTANT]
 > La parte "__c" del **nombre de la API** es necesaria para cualquier objeto personalizado.
 
-![Nombre de API de la conexión a Salesforce](media/copy-data-from-salesforce/data-factory-salesforce-api-name.png)
+:::image type="content" source="media/copy-data-from-salesforce/data-factory-salesforce-api-name.png" alt-text="Nombre de API de la conexión a Salesforce":::
 
 **Ejemplo**:
 
@@ -219,7 +219,7 @@ Para copiar datos desde Salesforce, establezca el tipo de origen de la actividad
 > [!IMPORTANT]
 > La parte "__c" del **nombre de la API** es necesaria para cualquier objeto personalizado.
 
-![Conexión a Salesforce - Lista de nombres de API](media/copy-data-from-salesforce/data-factory-salesforce-api-name-2.png)
+:::image type="content" source="media/copy-data-from-salesforce/data-factory-salesforce-api-name-2.png" alt-text="Conexión a Salesforce - Lista de nombres de API":::
 
 **Ejemplo**:
 

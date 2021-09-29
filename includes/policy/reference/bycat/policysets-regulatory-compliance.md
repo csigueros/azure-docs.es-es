@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 09/03/2021
+ms.date: 09/17/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 32008e0071f9e57c7b85dd3146f7082797710b1c
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: 43929f4fc00b8a6ca3fb485c0257f5e651f2802f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123474831"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128618387"
 ---
 |Nombre |Descripción |Directivas |Versión |
 |---|---|---|---|
@@ -19,8 +19,8 @@ ms.locfileid: "123474831"
 |[CIS Microsoft Azure Foundations Benchmark v1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/CISv1_1_0.json) |Esta iniciativa incluye las directivas que abordan un subconjunto de recomendaciones de CIS Microsoft Azure Foundations Benchmark. Se agregarán directivas adicionales en futuras versiones. Para más información, visite [https://aka.ms/cisazure110-initiative](../../../../articles/governance/policy/samples/cis-azure-1-1-0.md). |99 |10.1.0 |
 |[CIS Microsoft Azure Foundations Benchmark v1.3.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/CISv1_3_0.json) |Esta iniciativa incluye las directivas que abordan un subconjunto de recomendaciones de CIS Microsoft Azure Foundations Benchmark. Se agregarán directivas adicionales en futuras versiones. Para más información, visite [https://aka.ms/cisazure130-initiative](../../../../articles/governance/policy/samples/cis-azure-1-3-0.md). |104 |1.1.2 |
 |[\[Versión preliminar\]: CMMC de nivel 3](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/CMMC_L3.json) |Esta iniciativa incluye directivas que abordan un subconjunto de requisitos de certificación del modelo de madurez de ciberseguridad (CMMC) de nivel 3. Se agregarán directivas adicionales en futuras versiones. Para más información, visite [https://aka.ms/cmmc-initiative](../../../../articles/governance/policy/samples/cmmc-l3.md). |182 |3.2.1-preview |
-|[Nivel de impacto alto de FedRAMP](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/FedRAMP_H_audit.json) |Esta iniciativa incluye directivas que abarcan un subconjunto de controles FedRAMP High. Se agregarán directivas adicionales en futuras versiones. Para más información, visite [https://aka.ms/fedramph-initiative](../../../../articles/governance/policy/samples/built-in-initiatives.md). |262 |5.0.0 |
-|[FedRAMP Moderate](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/FedRAMP_M_audit.json) |Esta iniciativa incluye directivas que abarcan un subconjunto de controles FedRAMP Moderate. Se agregarán directivas adicionales en futuras versiones. Para más información, visite [https://aka.ms/fedrampm-initiative](../../../../articles/governance/policy/samples/built-in-initiatives.md). |262 |5.0.0 |
+|[Nivel de impacto alto de FedRAMP](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/FedRAMP_H_audit.json) |Esta iniciativa incluye directivas que abarcan un subconjunto de controles FedRAMP High. Se agregarán directivas adicionales en futuras versiones. Para más información, visite [https://aka.ms/fedramph-initiative](../../../../articles/governance/policy/samples/built-in-initiatives.md). |262 |5.0.1 |
+|[FedRAMP Moderate](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/FedRAMP_M_audit.json) |Esta iniciativa incluye directivas que abarcan un subconjunto de controles FedRAMP Moderate. Se agregarán directivas adicionales en futuras versiones. Para más información, visite [https://aka.ms/fedrampm-initiative](../../../../articles/governance/policy/samples/built-in-initiatives.md). |262 |5.0.1 |
 |[HITRUST/HIPAA](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/HIPAA_HITRUST_audit.json) |Esta iniciativa incluye directivas de implementación de extensiones de máquina virtual y auditoría que abordan un subconjunto de controles de HITRUST/HIPAA. Se agregarán directivas adicionales en futuras versiones. Para más información, visite [https://aka.ms/hipaa-blueprint](../../../../articles/governance/blueprints/samples/index.md). |121 |6.0.1 |
 |[IRS1075 September 2016](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/IRS1075_audit.json) |Esta iniciativa incluye directivas de implementación de extensiones de máquina virtual y auditoría que abordan un subconjunto de controles IRS1075 September 2016. Se agregarán directivas adicionales en futuras versiones. Para más información, visite [https://aka.ms/irs1075-blueprint](../../../../articles/governance/blueprints/samples/irs-1075-sept2016.md). |62 |5.0.0 |
 |[ISO 27001:2013](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/ISO27001_2013_audit.json) |Esta iniciativa incluye directivas de implementación de extensiones de máquina virtual y auditoría que abordan un subconjunto de controles ISO 27001:2013. Se agregarán directivas adicionales en futuras versiones. Para más información, visite [https://aka.ms/iso27001-init](../../../../articles/governance/blueprints/samples/iso-27001-2013.md). |53 |4.0.2 |

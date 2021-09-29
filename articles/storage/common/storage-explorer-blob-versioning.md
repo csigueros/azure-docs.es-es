@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: chuye
-ms.openlocfilehash: ea0b0470c83df147526a145a7c54f7245a72c4c4
-ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.openlocfilehash: dfff19eee4c852e336d0d943a9509d286d510347
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123450330"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128626691"
 ---
 # <a name="azure-storage-explorer-blob-versioning-guide"></a>Guía de control de versiones de blobs del Explorador de Azure Storage
 
@@ -62,7 +62,7 @@ En esta vista, el Explorador de Azure Storage muestra:
 
 - Blobs sin control de versiones activos
 - Versiones actuales
-- Versiones anteriores activas más recientes 
+- Versiones anteriores activas más recientes
 
 En el caso de los blobs que no tienen una versión actual, pero sí una versión anterior activa, el Explorador de Azure Storage muestra la versión anterior activa más reciente como una representación de ese blob.
 
@@ -73,13 +73,13 @@ En esta vista, el Explorador de Azure Storage muestra:
 - Blobs sin control de versiones activos
 - Blobs sin control de versiones eliminados temporalmente
 - Versiones actuales
-- Versiones anteriores más recientes 
+- Versiones anteriores más recientes
 
 En el caso de los blobs que no tienen una versión actual, el Explorador de Azure Storage muestra la versión anterior más reciente como una representación de ese blob.
 
-> [!Note]
+> [!NOTE]
 > Debido a una limitación del servicio, el Explorador de Azure Storage necesita realizar un procesamiento adicional para obtener una vista jerárquica de los directorios virtuales al enumerar las versiones de blobs. Tomará más tiempo enumerar los blobs en las siguientes vistas:
-> 
+>
 > - Blobs activos y blobs sin una versión actual
 > - Todos los blobs y blobs sin una versión actual
 
@@ -117,6 +117,6 @@ Cada versión de blob tiene su propio nivel de acceso. Para cambiar el nivel de 
 
 ## <a name="see-also"></a>Consulte también
 
-* [Control de versiones de blobs](../blobs/versioning-overview.md)
-* [Eliminación temporal para blobs](../blobs/soft-delete-blob-overview.md)
-* [Eliminación temporal del Explorador de Azure Storage](./storage-explorer-soft-delete.md)
+- [Control de versiones de blobs](../blobs/versioning-overview.md)
+- [Eliminación temporal para blobs](../blobs/soft-delete-blob-overview.md)
+- [Eliminación temporal del Explorador de Azure Storage](./storage-explorer-soft-delete.md)

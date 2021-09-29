@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 07/12/2021
 ms.author: v-erkel
-ms.openlocfilehash: 70b1dc3e2de6c70a6b59aa739a9bed254295a4f9
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 090003e25c2d8ca13be27bf94bc12b4941cda798
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114293439"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124814650"
 ---
 # <a name="use-nfs-mounted-blob-storage-with-azure-hpc-cache"></a>Uso de Blob Storage montado en NFS con Azure HPC Cache
 
@@ -38,7 +38,7 @@ Esta configuración se conserva durante la vigencia del contenedor, aunque se el
 ## <a name="pre-load-data-with-nfs-protocol"></a>Precarga de datos con el protocolo NFS
 <!-- cross-referenced from hpc-cache-ingest.md and here -->
 
-En un contenedor de blobs compatible con NFS, *un archivo solo se puede editar mediante el mismo protocolo que se usó al crearse*. Es decir, si usa la API de REST de Azure para rellenar un contenedor, no puede usar NFS para actualizar los archivos. Dado que Azure HPC Cache solo usa NFS, no puede editar archivos creados con la API de REST de Azure. (Más información sobre [problemas conocidos con las API de almacenamiento de blobs](../storage/blobs/network-file-system-protocol-known-issues.md#blob-storage-apis))
+En un contenedor de blobs compatible con NFS, *un archivo solo se puede editar mediante el mismo protocolo que se usó al crearse*. Es decir, si usa la API de REST de Azure para rellenar un contenedor, no puede usar NFS para actualizar los archivos. Dado que Azure HPC Cache solo usa NFS, no puede editar archivos creados con la API de REST de Azure. (Más información sobre [problemas conocidos con las API de almacenamiento de blobs](../storage/blobs/data-lake-storage-known-issues.md#blob-storage-apis))
 
 El hecho de que el contenedor esté vacío o que los archivos se hayan creado mediante NFS no supone ningún problema para la caché.
 

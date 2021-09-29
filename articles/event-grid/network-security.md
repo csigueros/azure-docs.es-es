@@ -3,14 +3,14 @@ title: Seguridad de red para recursos de Azure Event Grid
 description: En este artículo se describe cómo usar las etiquetas de servicio para la salida, las reglas de firewall de IP para la entrada y los puntos de conexión privados para la entrada con Azure Event Grid.
 author: VidyaKukke
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 09/28/2021
 ms.author: vkukke
-ms.openlocfilehash: d58e8b5ce9fb444fa501f897cca722613d9c51fe
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: 041c09a23b25b2ffe487b6d13171c51f2d96e6e1
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105967581"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129212767"
 ---
 # <a name="network-security-for-azure-event-grid-resources"></a>Seguridad de red para recursos de Azure Event Grid
 En este artículo se describe cómo usar las siguientes características de seguridad con Azure Event Grid: 

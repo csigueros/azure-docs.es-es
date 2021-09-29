@@ -3,12 +3,12 @@ title: Compatibilidad de etiquetas de los recursos
 description: Muestra los tipos de recursos de Azure que admiten etiquetas. Proporciona detalles de todos los servicios de Azure.
 ms.topic: conceptual
 ms.date: 07/20/2021
-ms.openlocfilehash: 4f15fea365fc242f3c7253a39b6a877dd672deb1
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 6581a4c9a61fb3de1e04119b13bc83a4b67ce92d
+ms.sourcegitcommit: 3ef5a4eed1c98ce76739cfcd114d492ff284305b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114453295"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128707738"
 ---
 # <a name="tag-support-for-azure-resources"></a>Compatibilidad de etiquetas de los recursos de Azure
 En este artículo se describe si un tipo de recurso admite [etiquetas](tag-resources.md). La columna con la etiqueta **Admite etiquetas** indica si el tipo de recurso tiene una propiedad para la etiqueta. La columna con la etiqueta **Etiqueta en el informe de costos** indica si ese tipo de recurso pasa la etiqueta al informe de costos. Puede ver los costos por etiquetas en el [análisis de costos de Cost Management](../../cost-management-billing/costs/group-filter.md) y los [datos de uso diario y de facturación de Azure](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md).
@@ -911,10 +911,10 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | diskEncryptionSets | Sí | Sí |
 > | disks | Sí | Sí |
 > | galleries | Sí | Sí |
-> | galleries/applications | No | No |
-> | galleries/applications/versions | No | No |
-> | galleries/images | No | No |
-> | galleries/images/versions | No | No |
+> | galleries/applications | Sí | No |
+> | galleries/applications/versions | Sí | No |
+> | galleries/images | Sí | No |
+> | galleries/images/versions | Sí | No |
 > | hostGroups | Sí | Sí |
 > | hostGroups/hosts | Sí | Sí |
 > | images | Sí | Sí |

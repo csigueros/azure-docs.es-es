@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/21/2021
+ms.date: 09/16/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 329a8340bdb7353553866e2f4182f6df2c60ccce
-ms.sourcegitcommit: 12f15775e64e7a10a5daebcc52154370f3e6fa0e
+ms.openlocfilehash: 6d7180b92ba4f4dbcc23f19bdc2581072446a15f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/26/2021
-ms.locfileid: "108001311"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128574926"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-facebook-account-using-azure-active-directory-b2c"></a>Configuración de la suscripción y del inicio de sesión con una cuenta de Facebook mediante Azure Active Directory B2C
 
@@ -66,7 +66,8 @@ Si aún no tiene una cuenta de Facebook, puede registrarse en [https://www.faceb
 ## <a name="configure-facebook-as-an-identity-provider"></a>Configuración de Facebook como proveedor de identidades
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) como administrador global del inquilino de Azure AD B2C.
-1. Asegúrese de usar el directorio que contiene el inquilino de Azure AD B2C. Para ello, seleccione el filtro **Directorio y suscripción** en el menú superior y luego el directorio que contiene el inquilino.
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
 1. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, busque y seleccione **Azure AD B2C**.
 1. Seleccione **Proveedores de identidades** y luego **Facebook**.
 1. Escriba un **nombre**. Por ejemplo, *Facebook*.
@@ -99,15 +100,16 @@ Si el proceso de inicio de sesión se completa correctamente, el explorador se r
 Debe almacenar el secreto de aplicación que haya registrado previamente en el inquilino de Azure AD B2C.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
-2. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el filtro **Directorio y suscripciones** del menú superior y elija el directorio que contiene el inquilino.
-3. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C**.
-4. En la página de introducción, seleccione **Identity Experience Framework**.
-5. Seleccione **Claves de directiva** y luego **Agregar**.
-6. En **Opciones**, elija `Manual`.
-7. Escriba un **nombre** para la clave de directiva. Por ejemplo, `FacebookSecret`. Se agregará el prefijo `B2C_1A_` automáticamente al nombre de la clave.
-8. En **Secreto**, escriba el secreto de aplicación que haya registrado previamente.
-9. En **Uso de claves**, seleccione `Signature`.
-10. Haga clic en **Crear**.
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
+1. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C**.
+1. En la página de introducción, seleccione **Identity Experience Framework**.
+1. Seleccione **Claves de directiva** y luego **Agregar**.
+1. En **Opciones**, elija `Manual`.
+1. Escriba un **nombre** para la clave de directiva. Por ejemplo, `FacebookSecret`. Se agregará el prefijo `B2C_1A_` automáticamente al nombre de la clave.
+1. En **Secreto**, escriba el secreto de aplicación que haya registrado previamente.
+1. En **Uso de claves**, seleccione `Signature`.
+1. Haga clic en **Crear**.
 
 ## <a name="configure-a-facebook-account-as-an-identity-provider"></a>Configuración de una cuenta de Facebook como proveedor de identidades
 

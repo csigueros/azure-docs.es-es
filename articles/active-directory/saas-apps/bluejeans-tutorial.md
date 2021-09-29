@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/03/2021
 ms.author: jeedes
-ms.openlocfilehash: 273d82c5d9427dd7717b567c04b8c18141e6eee2
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 9d4931b07c4564f4a04c8ec46f0666e696854aa4
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110063782"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124747863"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-bluejeans-for-azure-ad"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con BlueJeans for Azure AD
 
@@ -225,7 +225,7 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 * Vaya directamente a la dirección URL de inicio de sesión de BlueJeans for Azure AD y comience el flujo de inicio de sesión desde allí.
 
-* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de BlueJeans for Azure AD en Mis aplicaciones, se le redirigirá a la dirección URL de inicio de sesión de BlueJeans for Azure AD. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de BlueJeans for Azure AD en Mis aplicaciones, se le redirigirá a la dirección URL de inicio de sesión de BlueJeans for Azure AD. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

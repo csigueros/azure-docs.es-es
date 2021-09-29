@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 03/07/2021
 ms.author: bagol
-ms.openlocfilehash: e2da161d98a7f4bcae0f8da55a1cf7129c7633f9
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 76800b0f7a90dacd1447b87fdc1f1d23300873ec
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122183956"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124784401"
 ---
 # <a name="commonly-used-azure-sentinel-workbooks"></a>Libros de Azure Sentinel que se usan comúnmente
 
@@ -48,7 +48,7 @@ Acceda a los libros de Azure Sentinel en **Administración de amenazas** > **Li
 |**Identidad y acceso**     |   Proporciona información sobre las operaciones de identidad y acceso en el uso de productos de Microsoft, a través de registros de seguridad que incluyen registros de auditoría e inicio de sesión.     |
 |**Información general sobre incidentes**     |   Diseñado para ayudar con la evaluación de prioridades y la investigación mediante el suministro de información detallada sobre un incidente, como información general, datos de entidad, tiempo de evaluación de prioridades, tiempo de mitigación y comentarios. <br><br>Para obtener más información, consulte [Kit de herramientas para los SOC controlados por datos](https://techcommunity.microsoft.com/t5/azure-sentinel/the-toolkit-for-data-driven-socs/ba-p/2143152).      |
 |<a name="investigation-insights"></a>**Conclusiones de la investigación**     | Proporciona a los analistas conclusiones sobre incidentes, marcadores y datos de entidad. Las consultas comunes y las visualizaciones detalladas pueden ayudar a los analistas a investigar actividades sospechosas.     |
-|**Microsoft Cloud App Security: registros de detección**     |   Proporciona información detallada sobre las aplicaciones en la nube que se usan en su organización, así como conclusiones sobre las tendencias de uso y datos detallados para usuarios y aplicaciones específicos.  <br><br>Para obtener más información, consulte [Conectar datos de Microsoft Cloud App Security](connect-cloud-app-security.md).|
+|**Microsoft Cloud App Security: registros de detección**     |   Proporciona información detallada sobre las aplicaciones en la nube que se usan en su organización, así como conclusiones sobre las tendencias de uso y datos detallados para usuarios y aplicaciones específicos.  <br><br>Para obtener más información, consulte [Conectar datos de Microsoft Cloud App Security](./data-connectors-reference.md#microsoft-cloud-app-security-mcas).|
 |**Libro de MITRE ATT&CK**     |   Proporciona detalles sobre la cobertura de MITRE ATT&CK para Azure Sentinel.      |
 |**Office 365**     | Proporciona conclusiones de Office 365 mediante el seguimiento y el análisis de todas las operaciones y actividades. Explore en profundidad los datos de SharePoint, OneDrive, Teams y Exchange.       |
 |**alertas de seguridad**     |  Proporciona un panel de alertas de seguridad para las alertas del entorno de Azure Sentinel. <br><br>Para más información, consulte [Creación automática de incidentes a partir de alertas de seguridad de Microsoft](create-incidents-from-alerts.md).      |

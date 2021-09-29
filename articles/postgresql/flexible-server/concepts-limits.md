@@ -6,17 +6,16 @@ ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/17/2021
-ms.openlocfilehash: e4e6af7e0fd475d60c38a021d2cefec4cbc39de3
-ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
+ms.openlocfilehash: 54261049799cc02695d1162012cac9b7bff3558f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122397299"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128559254"
 ---
 # <a name="limits-in-azure-database-for-postgresql---flexible-server"></a>Límites en Azure Database for PostgreSQL con servidor flexible
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL: servidor flexible está en versión preliminar
+
 
 En las secciones siguientes se describen los límites de capacidad y funcionales en el servicio de base de datos. Para obtener más información sobre los niveles de recursos (proceso, memoria y almacenamiento), consulte el artículo acerca del [proceso y el almacenamiento](concepts-compute-storage.md).
 

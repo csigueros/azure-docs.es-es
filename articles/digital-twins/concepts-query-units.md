@@ -4,15 +4,15 @@ titleSuffix: Azure Digital Twins
 description: Descripción del concepto de facturación de las unidades de consulta en Azure Digital Twins
 author: baanders
 ms.author: baanders
-ms.date: 8/14/2020
+ms.date: 9/16/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 4e588e08e6c4180056bb2e27274154f1c00f0556
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: eb5e7970c2ce44b5ee96f671464a3029cb9429b1
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114466190"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128631008"
 ---
 # <a name="query-units-in-azure-digital-twins"></a>Unidades de consulta en Azure Digital Twins 
 

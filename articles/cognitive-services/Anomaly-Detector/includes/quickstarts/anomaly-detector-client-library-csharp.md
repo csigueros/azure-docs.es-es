@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/22/2020
 ms.author: mbullwin
-ms.openlocfilehash: f526038a37e6f4e4a5d03c516446653a95c08be4
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 13245ac2e9569ee9d984ae0978dca2a93ca735da
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110163371"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128909591"
 ---
 Comience a usar la biblioteca cliente de Anomaly Detector para C#. Siga estos pasos para instalar el inicio del paquete con los algoritmos que proporciona el servicio. El servicio de Anomaly Detector le permite detectar anomalías en los datos de serie temporal mediante el uso automático de los mejores modelos, independientemente del sector, el escenario o el volumen de datos.
 
@@ -23,7 +23,7 @@ Use la biblioteca cliente de Anomaly Detector para C# para realizar las siguient
 * Detectar el estado de anomalía del punto de datos más reciente en la serie temporal
 * Detectar puntos de cambio de tendencia en el conjunto de datos.
 
-[Documentación de referencia de la biblioteca](https://aka.ms/anomaly-detector-dotnet-ref) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/AnomalyDetector) | [Paquete (NuGet)](https://www.nuget.org/packages/Azure.AI.AnomalyDetector/3.0.0-preview.2) | [Buscar el código en GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/sdk/csharp-sdk-sample.cs)
+[Documentación de referencia de la biblioteca](https://aka.ms/anomaly-detector-dotnet-ref) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/anomalydetector) | [Paquete (NuGet)](https://www.nuget.org/packages/Azure.AI.AnomalyDetector/3.0.0-preview.2) | [Buscar el código en GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/sdk/csharp-sdk-sample.cs)
 
 ## <a name="prerequisites"></a>Prerrequisitos
 

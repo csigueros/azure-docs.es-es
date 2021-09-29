@@ -8,16 +8,16 @@ manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 7/15/2021
+ms.date: 09/20/2021
 ms.author: gasinh
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 80d2ad6d011633a3db6a63a37f04db5d22f517ba
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: a983da4159f41ae6dfe261b7f42ce20c2d2fa3a4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122179619"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128594752"
 ---
 # <a name="tutorial-configure-azure-active-directory-b2c-with-bloksec-for-passwordless-authentication"></a>Tutorial: Configurar Azure Active Directory B2C con BlokSec para la autenticación sin contraseña
 
@@ -96,7 +96,7 @@ Para empezar, necesitará lo siguiente:
 
 3. Complete los detalles de la aplicación como se muestra a continuación y envíe:  
 
-   |Propiedad  |Valor  |
+   |Propiedad  |Value  |
    |---------|---------|
    |  Nombre         |Azure AD B2C o el nombre de aplicación deseado|
    |Tipo de SSO         | OIDC|
@@ -114,24 +114,20 @@ Para empezar, necesitará lo siguiente:
 ### <a name="part-2---add-a-new-identity-provider-in-azure-ad-b2c"></a>Parte 2: Adición de un nuevo proveedor de identidades en Azure AD B2C
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/#home) como administrador global del inquilino de Azure AD B2C.
-
-2. Asegúrese de usar el directorio que contiene el inquilino de Azure AD B2C. Para ello, seleccione el filtro **Directorio y suscripción** en el menú superior y luego el directorio que contiene el inquilino.
-
-3. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, busque y seleccione **Azure AD B2C**. 
-
-4. Vaya a **Panel > Azure Active Directory B2C > Proveedores de identidades**.
-
-5. Seleccione **Proveedor de OpenID Connect**.
-
-6. Seleccione **Agregar**.
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
+1. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, busque y seleccione **Azure AD B2C**. 
+1. Vaya a **Panel > Azure Active Directory B2C > Proveedores de identidades**.
+1. Seleccione **Proveedor de OpenID Connect**.
+1. Seleccione **Agregar**.
 
 ### <a name="part-3---configure-an-identity-provider"></a>Parte 3: Configuración de un proveedor de identidades
 
 1. Seleccione **Tipo de proveedor de identidades OpenID Connect**.
 
-2. Rellene el formulario para configurar el proveedor de identidades:
+1. Rellene el formulario para configurar el proveedor de identidades:
 
-|Propiedad  |Valor  |
+|Propiedad  |Value  |
 |:---------|:---------|
 |Nombre     |Escriba BlokSec yuID – Passwordless (BlokSec yuID: sin contraseña) o un nombre de su elección.|
 |URL de metadatos|https://api.bloksec.io/oidc/.well-known/openid-configuration|         
@@ -141,11 +137,11 @@ Para empezar, necesitará lo siguiente:
 |Tipo de respuesta|Código|
 |Sugerencia de dominio|yuID|
 
-3. Seleccione **Aceptar**.
+1. Seleccione **Aceptar**.
 
-4. Seleccione **Asignar las notificaciones de este proveedor de identidades**.
+1. Seleccione **Asignar las notificaciones de este proveedor de identidades**.
 
-5. Rellene el formulario para asignar el proveedor de identidades:
+1. Rellene el formulario para asignar el proveedor de identidades:
 
 |Propiedad  |Valor  |
 |:---------|:---------|
@@ -155,15 +151,15 @@ Para empezar, necesitará lo siguiente:
 |Surname|family_name|
 |Email|email|
 
-6. Seleccione **Guardar** para completar la instalación del nuevo proveedor de identidades de OIDC.  
+1. Seleccione **Guardar** para completar la instalación del nuevo proveedor de identidades de OIDC.  
 
 ### <a name="part-4---user-registration"></a>Parte 4: Registro del usuario
 
 1. Inicie sesión en la consola de administración de BlokSec con la credencial proporcionada anteriormente.
 
-2. Vaya a la aplicación Azure AD B2C que se creó anteriormente. Seleccione el icono de engranaje en la parte superior derecha y, a continuación, seleccione **Crear cuenta**.  
+1. Vaya a la aplicación Azure AD B2C que se creó anteriormente. Seleccione el icono de engranaje en la parte superior derecha y, a continuación, seleccione **Crear cuenta**.  
 
-3. Escriba la información del usuario en el formulario Crear cuenta, anote el nombre de la cuenta y seleccione **Enviar**.  
+1. Escriba la información del usuario en el formulario Crear cuenta, anote el nombre de la cuenta y seleccione **Enviar**.  
 
 El usuario recibirá un **correo electrónico de registro de cuenta** en la dirección de correo electrónico proporcionada. Haga que el usuario siga el vínculo de registro en el dispositivo móvil donde está instalada la aplicación BlokSec yuID.
 
@@ -173,23 +169,23 @@ Ahora debería ver BlokSec como un nuevo proveedor de identidades de Open ID Con
 
 1. En el inquilino de Azure AD B2C, en **Directivas**, seleccione **Flujos de usuario**.  
 
-2. Seleccione **Nuevo flujo de usuario**.
+1. Seleccione **Nuevo flujo de usuario**.
 
-3. Seleccione **Inscribirse e iniciar sesión en** > **Versión** > **Crear**.
+1. Seleccione **Inscribirse e iniciar sesión en** > **Versión** > **Crear**.
 
-4. Escriba un **nombre** para la directiva.
+1. Escriba un **nombre** para la directiva.
 
-5. En la sección Proveedores de identidades seleccione el proveedor de identidades de BlokSec recién creado.  
+1. En la sección Proveedores de identidades seleccione el proveedor de identidades de BlokSec recién creado.  
 
-6. Seleccione **Ninguna** en Cuentas locales para desactivar la autenticación basada en correo electrónico y contraseña.
+1. Seleccione **Ninguna** en Cuentas locales para desactivar la autenticación basada en correo electrónico y contraseña.
 
-7. Seleccione **Ejecutar el flujo de usuario**.
+1. Seleccione **Ejecutar el flujo de usuario**.
 
-8. En el formulario, escriba la dirección URL de respuesta, por ejemplo, https://jwt.ms
+1. En el formulario, escriba la dirección URL de respuesta, por ejemplo, https://jwt.ms
 
-9. El explorador se redirigirá a la página de inicio de sesión de BlokSec. Escriba el nombre de cuenta registrado durante el registro del usuario. El usuario recibirá una notificación push en su dispositivo móvil donde está instalada la aplicación BlokSec yuID. Al abrir la notificación, se presentará al usuario un desafío de autenticación.
+1. El explorador se redirigirá a la página de inicio de sesión de BlokSec. Escriba el nombre de cuenta registrado durante el registro del usuario. El usuario recibirá una notificación push en su dispositivo móvil donde está instalada la aplicación BlokSec yuID. Al abrir la notificación, se presentará al usuario un desafío de autenticación.
 
-10. Una vez aceptado el desafío de autenticación, el explorador redirigirá al usuario a la dirección URL de respuesta.  
+1. Una vez aceptado el desafío de autenticación, el explorador redirigirá al usuario a la dirección URL de respuesta.  
 
 ## <a name="next-steps"></a>Pasos siguientes 
 
@@ -211,24 +207,16 @@ Para más información, consulte los artículos siguientes:
 Almacene el secreto de cliente que haya registrado previamente en el inquilino de Azure AD B2C.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
-
-2. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el filtro **Directorio y suscripciones** del menú superior y elija el directorio que contiene el inquilino.
-
-3. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C**.
-
-4. En la página de introducción, seleccione **Identity Experience Framework**.
-
-5. Seleccione **Claves de directiva** y luego **Agregar**.
-
-6. En **Opciones**, elija `Manual`.
-
-7. Escriba un **nombre** para la clave de directiva. Por ejemplo, `BlokSecAppSecret`. Se agregará el prefijo `B2C_1A_` automáticamente al nombre de la clave.
-
-8. En **Secreto**, escriba el secreto de cliente que haya registrado previamente.
-
-9. En **Uso de claves**, seleccione `Signature`.
-
-10. Seleccione **Crear**.
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
+1. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C**.
+1. En la página de introducción, seleccione **Identity Experience Framework**.
+1. Seleccione **Claves de directiva** y luego **Agregar**.
+1. En **Opciones**, elija `Manual`.
+1. Escriba un **nombre** para la clave de directiva. Por ejemplo, `BlokSecAppSecret`. Se agregará el prefijo `B2C_1A_` automáticamente al nombre de la clave.
+1. En **Secreto**, escriba el secreto de cliente que haya registrado previamente.
+1. En **Uso de claves**, seleccione `Signature`.
+1. Seleccione **Crear**.
 
 ### <a name="part-3---configure-bloksec-as-an-identity-provider"></a>Parte 3: Configuración de BlokSec como proveedor de identidades
 
@@ -347,23 +335,18 @@ En el ejemplo siguiente, para el recorrido de usuario `CustomSignUpOrSignIn`, Re
 ### <a name="part-7---upload-the-custom-policy"></a>Parte 7: Carga de la directiva personalizada
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/#home).
-
-2. Seleccione el icono **Directorio y suscripción** en la barra de herramientas del portal y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
-
-3. En [Azure Portal](https://portal.azure.com/#home), busque **Azure AD B2C** y selecciónelo.
-
-4. En Directivas, seleccione **Identity Experience Framework**.
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
+1. En [Azure Portal](https://portal.azure.com/#home), busque **Azure AD B2C** y selecciónelo.
+1. En Directivas, seleccione **Identity Experience Framework**.
 Seleccione **Cargar directiva personalizada** y, a continuación, cargue los dos archivos de directivas que ha cambiado, en el siguiente orden: la directiva de extensiones, por ejemplo `TrustFrameworkExtensions.xml`, luego la directiva de usuarios de confianza, como `SignUpSignIn.xml`.
 
 ### <a name="part-8---test-your-custom-policy"></a>Parte 8: Prueba de la directiva personalizada
 
 1. Seleccione la directiva de usuarios de confianza, por ejemplo `B2C_1A_signup_signin`.
-
-2. En **Aplicación**, seleccione la aplicación web que [registró anteriormente](./tutorial-register-applications.md). La **dirección URL de respuesta** debe mostrar `https://jwt.ms`.
-
-3. Seleccione el botón **Ejecutar ahora**.
-
-4. En la página de registro o de inicio de sesión, seleccione **Google** para iniciar sesión con la cuenta de Google.
+1. En **Aplicación**, seleccione la aplicación web que [registró anteriormente](./tutorial-register-applications.md). La **dirección URL de respuesta** debe mostrar `https://jwt.ms`.
+1. Seleccione el botón **Ejecutar ahora**.
+1. En la página de registro o de inicio de sesión, seleccione **Google** para iniciar sesión con la cuenta de Google.
 
 Si el proceso de inicio de sesión se completa correctamente, el explorador se redirige a `https://jwt.ms`, que muestra el contenido del token devuelto por Azure AD B2C.
 

@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: article
 ms.date: 04/02/2021
 ms.author: victorh
-ms.openlocfilehash: 4514717274cfb66fbfc0eee25b09aa9e1234ffad
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 504ed485115f48b252027431a5b69e2a6b5f33f3
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106280333"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124763583"
 ---
 # <a name="azure-firewall-logs-and-metrics"></a>Métricas y registros de Azure Firewall
 
@@ -138,7 +138,7 @@ Tiene tres opciones para almacenar los archivos de registro:
 
    Las entradas del registro de actividades se recopilan de forma predeterminada y se pueden ver en Azure Portal.
 
-   Puede usar el [registro de actividades de Azure](../azure-resource-manager/management/view-activity-logs.md) (anteriormente conocido como registros operativos y registros de auditoría) para ver todas las operaciones enviadas a sus suscripciones de Azure.
+   Puede usar el [registro de actividades de Azure](../azure-monitor/essentials/activity-log.md) (anteriormente conocido como registros operativos y registros de auditoría) para ver todas las operaciones enviadas a sus suscripciones de Azure.
 
 ## <a name="metrics"></a>Métricas
 

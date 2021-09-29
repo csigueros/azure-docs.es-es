@@ -11,12 +11,12 @@ ms.date: 06/01/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0731e35eab3a2872cd3c07e5401577fd51c33323
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: b96d3ec481d21d937a9c8810c6f2601966672ff1
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114437303"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128551550"
 ---
 # <a name="export-a-microsoft-identity-manager-connector-for-use-with-the-azure-ad-ecma-connector-host"></a>Exportación de un conector de Microsoft Identity Manager para su uso con el host del conector ECMA de Azure AD
 
@@ -55,7 +55,4 @@ En este punto, ya no es necesario el servidor de MIM Sync.
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Aprovisionamiento de aplicaciones](user-provisioning.md)
-- [Requisitos previos del host del conector ECMA de Azure AD](on-premises-ecma-prerequisites.md)
-- [Instalación del host del conector ECMA de Azure AD](on-premises-ecma-install.md)
-- [Configuración del host del conector ECMA de Azure AD](on-premises-ecma-configure.md)
-- [Configuración del conector SQL genérico del host del conector ECMA de Azure AD](on-premises-sql-connector-configure.md)
+- [Conector SQL genérico](on-premises-sql-connector-configure.md)

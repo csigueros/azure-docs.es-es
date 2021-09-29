@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 08/27/2021
+ms.date: 09/17/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 1ede50ce3bc758c7be9ebbb3d6e8386749fd8bcb
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: ee9396059eb9e4cd7b37fd2a852de598a25f3783
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123101168"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128628522"
 ---
 ## <a name="australian-government-ism-protected"></a>Australian Government ISM PROTECTED
 
@@ -722,7 +722,7 @@ Para más información acerca de este estándar de cumplimiento, consulte [HIPAA
 ## <a name="irs-1075-september-2016"></a>IRS 1075, septiembre de 2016
 
 Para revisar cómo las integraciones de Azure Policy disponibles para todos los servicios de Azure se asignan a este estándar de cumplimiento, consulte [Cumplimiento normativo de Azure Policy: IRS 1075, septiembre de 2016](../../../../articles/governance/policy/samples/irs-1075-sept2016.md).
-Para más información sobre este estándar de cumplimiento, consulte [IRS 1075, septiembre de 2016](https://www.irs.gov/pub/irs-pdf/p1075.pdf).
+Para más información sobre este estándar de cumplimiento, consulte este artículo acerca de [IRS 1075, septiembre de 2016](https://www.irs.gov/pub/irs-pdf/p1075.pdf).
 
 |Domain |Id. de control |Título de control |Directiva<br /><sub>(Azure Portal)</sub> |Versión de la directiva<br /><sub>(GitHub)</sub>  |
 |---|---|---|---|---|

@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 03/25/2021
 ms.custom: mvc
-ms.openlocfilehash: 7bdc0008baa1ee03c11aeeba03485fd7cd09e6f9
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+ms.openlocfilehash: 8ee94cf4c02c5535a85b75eec5a60522143a16ce
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122969823"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124748702"
 ---
 # <a name="tutorial-discover-servers-running-on-hyper-v-with-azure-migrate-discovery-and-assessment"></a>Tutorial: Detección de servidores que se ejecutan en Hyper-V con Azure Migrate Discovery and assessment
 
@@ -139,7 +139,7 @@ Azure Migrate usa un dispositivo de Azure Migrate ligero. El dispositivo de Azur
 
 > [!NOTE]
 > Si, por algún motivo, no puede configurar el dispositivo mediante la plantilla, puede hacerlo con un script de PowerShell en un servidor de Windows Server 2016 existente. [Más información](deploy-appliance-script.md#set-up-the-appliance-for-hyper-v).<br/>
-> La opción para implementar un dispositivo mediante una plantilla VHD no se admite en la nube de Azure Government. [Más información](/azure/migrate/deploy-appliance-script-government) sobre cómo implementar un dispositivo para la nube de Azure Government.
+> La opción para implementar un dispositivo mediante una plantilla VHD no se admite en la nube de Azure Government. [Más información](./deploy-appliance-script-government.md) sobre cómo implementar un dispositivo para la nube de Azure Government.
 
 En este tutorial se configura el dispositivo en un servidor que se ejecuta en un entorno de Hyper-V, como se indica a continuación:
 

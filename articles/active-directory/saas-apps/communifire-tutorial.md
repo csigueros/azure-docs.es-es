@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 48d09a5ef43e267550dd584a9f6356493887d6d7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a2e2bcc34c66f55837db1a2e2f41a3c003ac914c
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97673807"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124817364"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-communifire"></a>Tutorial: Integración de Azure Active Directory con Communifire
 
@@ -206,7 +206,7 @@ El objetivo de esta sección es crear un usuario de prueba llamado Britta Simon 
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de Communifire en el panel de acceso, debería iniciar sesión automáticamente en la versión de Communifire para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
+Al hacer clic en el icono de Communifire en el panel de acceso, debería iniciar sesión automáticamente en la versión de Communifire para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

@@ -1,17 +1,17 @@
 ### YamlMime:FAQ
 metadata:
-  title: Preguntas más frecuentes sobre Azure DevTest Labs | Microsoft Docs
+  title: Preguntas más frecuentes sobre Azure DevTest Labs
   description: En este artículo se responden algunas de las preguntas más frecuentes (P+F) relativas a Azure DevTest Labs.
-  ms.topic: article
+  ms.topic: troubleshooting
   ms.service: azure
   ms.date: 07/17/2020
   ms.custom: devx-track-azurepowershell, references_regions
-  ms.openlocfilehash: c1ad54ee9c95590cf25aacadf0fd549d460e2d8c
-  ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+  ms.openlocfilehash: 55a8c385479b5a14407e07288d61ff9cd1eb21a5
+  ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 08/17/2021
-  ms.locfileid: "122253139"
+  ms.lasthandoff: 09/24/2021
+  ms.locfileid: "128650465"
 title: Preguntas más frecuentes sobre Azure DevTest Labs
 summary: "\nEn este artículo se ofrecen respuestas a algunas de las preguntas más frecuentes sobre Azure DevTest Labs.\n\n## <a name=\"blog-post\"></a>Entrada de blog\nNuestro blog del equipo de DevTest Labs lleva retirado desde el 20 de marzo de 2019. \n\n### <a name=\"where-can-i-track-feature-updates-from-now-on\"></a>¿Dónde puedo realizar un seguimiento de las actualizaciones de características a partir de ahora?\nDe ahora en adelante, publicaremos las actualizaciones de características y las entradas de blog informativas en el blog de Azure y en las actualizaciones de Azure. Estas entradas de blog también se vincularán a nuestra documentación siempre que sea necesario.\n        \nSuscríbase al [blog de Azure DevTest Labs](https://azure.microsoft.com/blog/tag/azure-devtest-labs/) y a las [actualizaciones de Azure DevTest Labs](https://azure.microsoft.com/updates/?product=devtest-lab) para estar al tanto de las nuevas características de DevTest Labs.\n        \n### <a name=\"what-happens-to-the-existing-blog-posts\"></a>¿Qué ocurre con las entradas de blog existentes?\nActualmente trabajamos en la migración de las entradas de blog existentes (excepto las actualizaciones de interrupciones) a nuestra [documentación de DevTest Labs](devtest-lab-overview.md). Si el blog de MSDN está en desuso, se redirigirá a la información general sobre la documentación para DevTest Labs. Una vez redirigido, podrá buscar el artículo deseado en el título \"Filtrar por\". Aún no hemos migrado todas las publicaciones, pero debemos hacerlo antes de finalizar este mes. \n        \n### <a name=\"where-do-i-see-outage-updates\"></a>¿Dónde se pueden ver las actualizaciones de interrupciones?\nPublicaremos las actualizaciones de interrupciones con nuestro identificador de Twitter de ahora en adelante. Síganos en Twitter para obtener las últimas actualizaciones sobre interrupciones y errores conocidos.\n\n### <a name=\"twitter\"></a>Twitter\nNuestro identificador de Twitter: [@azlabservices](https://twitter.com/azlabservices)\n"
 sections:
@@ -448,7 +448,7 @@ sections:
       Los errores de implementación de máquinas virtuales se capturan en los registros de actividad. Puede encontrar los registros de actividad de las máquinas virtuales de laboratorio en **Registros de auditoría** o **Diagnóstico de máquina virtual** en el menú de recursos de la página de máquina virtual del laboratorio (la página se muestra una vez que selecciona la máquina virtual en la lista Mis máquinas virtuales).
 
 
-      En ocasiones, el error de implementación se produce antes de que comience la implementación de la máquina virtual. Un ejemplo es cuando se supera el límite de suscripciones para un recurso que se creó con la máquina virtual. En este caso, los detalles del error se capturan en los registros de actividad de nivel de laboratorio. Los registros de actividad se encuentran en la parte inferior de las opciones de **Configuración y directivas**. Para obtener más información sobre el uso de los registros de actividad en Azure, consulte [Visualización de registros de actividad para auditar las acciones sobre los recursos](../azure-resource-manager/management/view-activity-logs.md).
+      En ocasiones, el error de implementación se produce antes de que comience la implementación de la máquina virtual. Un ejemplo es cuando se supera el límite de suscripciones para un recurso que se creó con la máquina virtual. En este caso, los detalles del error se capturan en los registros de actividad de nivel de laboratorio. Los registros de actividad se encuentran en la parte inferior de las opciones de **Configuración y directivas**. Para obtener más información sobre el uso de los registros de actividad en Azure, consulte [Visualización de registros de actividad para auditar las acciones sobre los recursos](../azure-monitor/essentials/activity-log.md).
   - question: >
       ¿Por qué aparece el error "la ubicación no está disponible para el tipo de recurso" al intentar crear un laboratorio?
     answer: >-

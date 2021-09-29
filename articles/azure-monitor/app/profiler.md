@@ -5,13 +5,12 @@ ms.topic: conceptual
 author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
-ms.reviewer: mbullwin
-ms.openlocfilehash: a53db9deb07863010c792943c71eb0af5d845af8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e80ce3a4e96720bc3149dd9d8083a1f8f0943dbe
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105026512"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124815749"
 ---
 # <a name="profile-live-azure-app-service-apps-with-application-insights"></a>Generación de perfiles de aplicaciones activas de Azure App Service con Application Insights
 
@@ -54,7 +53,7 @@ Estos son los valores necesarios para habilitar el generador de perfiles:
 |DiagnosticServices_EXTENSION_VERSION | ~3 |
 
 
-Puede establecer estos valores mediante las [plantillas de Azure Resource Manager](./azure-web-apps.md#app-service-application-settings-with-azure-resource-manager), [Azure PowerShell](/powershell/module/az.websites/set-azwebapp) o la [CLI de Azure](/cli/azure/webapp/config/appsettings).
+Puede establecer estos valores mediante las [plantillas de Azure Resource Manager](./azure-web-apps-net-core.md#app-service-application-settings-with-azure-resource-manager), [Azure PowerShell](/powershell/module/az.websites/set-azwebapp) o la [CLI de Azure](/cli/azure/webapp/config/appsettings).
 
 ## <a name="enable-profiler-for-other-clouds"></a>Habilitación de Profiler para otras nubes
 

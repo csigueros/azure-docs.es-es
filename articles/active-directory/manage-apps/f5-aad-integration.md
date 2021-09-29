@@ -12,12 +12,12 @@ ms.date: 11/12/2020
 ms.author: davidmu
 ms.collection: M365-identity-device-management
 ms.reviewer: miccohen
-ms.openlocfilehash: cc55eff7c5ed3a4773a016bcd73bbd33708d9595
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: a5066eece8950d4e9dffabedb2e0cca4c527353f
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121738781"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124822990"
 ---
 # <a name="f5-big-ip-access-policy-manager-and-azure-active-directory-integration-for-secure-hybrid-access"></a>Integración del administrador de directivas de acceso de F5 BIG-IP y Azure Active Directory para el acceso híbrido seguro
 
@@ -30,7 +30,7 @@ El acceso híbrido seguro se encarga de remediar este "punto débil", ya que per
 
 Hacer que Azure AD realice una autenticación previa para el acceso a los servicios publicados de BIG-IP proporciona muchas ventajas:
 
-- Autenticación sin contraseña mediante [Windows Hello](/windows/security/identity-protection/hello-for-business/hello-overview), [MS Authenticator](../user-help/user-help-auth-app-download-install.md), [Claves de Fast Identity Online (FIDO)](../authentication/howto-authentication-passwordless-security-key.md) y [autenticación basada en certificados](../authentication/active-directory-certificate-based-authentication-get-started.md).
+- Autenticación sin contraseña mediante [Windows Hello](/windows/security/identity-protection/hello-for-business/hello-overview), [MS Authenticator](https://support.microsoft.com/account-billing/download-and-install-the-microsoft-authenticator-app-351498fc-850a-45da-b7b6-27e523b8702a), [Claves de Fast Identity Online (FIDO)](../authentication/howto-authentication-passwordless-security-key.md) y [autenticación basada en certificados](../authentication/active-directory-certificate-based-authentication-get-started.md).
 
 - [Acceso condicional](../conditional-access/overview.md) preventivo y [autenticación multifactor (MFA)](../authentication/concept-mfa-howitworks.md).
 
@@ -81,7 +81,7 @@ Los pasos 1-4 del diagrama ilustran el intercambio de autenticación previa de f
 
 Tanto si se trata de un empleado directo, un afiliado o un consumidor, la mayoría de los usuarios ya están familiarizados con la experiencia de inicio de sesión de Office 365, por lo que el acceso a los servicios de BIG-IP a través del acceso híbrido seguro resulta muy familiar.
 
-Ahora, los usuarios encuentran sus servicios publicados de BIG-IP consolidados en [MyApps](../user-help/my-apps-portal-end-user-access.md) o las [plataformas de lanzamiento de O365](https://o365pp.blob.core.windows.net/media/Resources/Microsoft%20365%20Business/Launchpad%20Overview_for%20Partners_10292019.pdf) junto con las funcionalidades de autoservicio para un conjunto más amplio de servicios, independientemente del tipo de dispositivo o ubicación. Los usuarios pueden incluso seguir accediendo a los servicios publicados directamente a través del portal de webtops propiedad de BIG-IP, si lo prefiere. Al cerrar la sesión, el acceso híbrido seguro garantiza que la sesión de los usuarios finaliza en ambos extremos, BIG-IP y Azure AD, lo cual garantiza que los servicios permanecen completamente protegidos frente a accesos no autorizados.  
+Ahora, los usuarios encuentran sus servicios publicados de BIG-IP consolidados en [MyApps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510) o las [plataformas de lanzamiento de O365](https://o365pp.blob.core.windows.net/media/Resources/Microsoft%20365%20Business/Launchpad%20Overview_for%20Partners_10292019.pdf) junto con las funcionalidades de autoservicio para un conjunto más amplio de servicios, independientemente del tipo de dispositivo o ubicación. Los usuarios pueden incluso seguir accediendo a los servicios publicados directamente a través del portal de webtops propiedad de BIG-IP, si lo prefiere. Al cerrar la sesión, el acceso híbrido seguro garantiza que la sesión de los usuarios finaliza en ambos extremos, BIG-IP y Azure AD, lo cual garantiza que los servicios permanecen completamente protegidos frente a accesos no autorizados.  
 
 Las capturas de pantallas que se proporcionan proceden del portal de aplicaciones de Azure AD al que los usuarios pueden acceder de forma segura para encontrar sus servicios publicados de BIG-IP y administrar las propiedades de sus cuentas.  
 

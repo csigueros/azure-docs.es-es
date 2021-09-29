@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 01/03/2021
-ms.openlocfilehash: ab16bfe708589b6f89dd5b9a37512d4f2148992f
-ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
+ms.openlocfilehash: 5afe39d7693d36ebfd433c6cd1db336e9c72b7ca
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123214906"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128664245"
 ---
 # <a name="tutorial-migrate-sql-server-to-azure-sql-database-using-dms"></a>Migración de SQL Server a Azure SQL Database mediante DMS
 
@@ -343,7 +343,7 @@ Seleccione todas las bases de datos o las bases de datos específicas que desee 
 
 2. Compruebe las bases de datos de destino de la instancia de **Azure SQL Database** de destino.
 
-### <a name="additional-resources"></a>Recursos adicionales
+## <a name="additional-resources"></a>Recursos adicionales
 
 - Para más información acerca de Azure Database Migration Service, consulte el artículo [¿Qué es Azure Database Migration Service?](./dms-overview.md)
 - Para más información sobre Azure SQL Database, consulte el artículo [¿Qué es el servicio Azure SQL Database?](../azure-sql/database/sql-database-paas-overview.md)

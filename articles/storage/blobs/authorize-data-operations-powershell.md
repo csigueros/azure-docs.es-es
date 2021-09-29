@@ -10,12 +10,12 @@ ms.date: 02/10/2021
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: blobs
-ms.openlocfilehash: d32058fed80db335086c6ec508441817002feca9
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: dae63f442c2e2df068cc3f17bb5355abd4b7de77
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111900762"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128615650"
 ---
 # <a name="run-powershell-commands-with-azure-ad-credentials-to-access-blob-data"></a>Ejecución de comandos de PowerShell con credenciales de Azure AD para acceder a los datos de blob
 
@@ -27,7 +27,7 @@ Puede asignar permisos en los datos de blob a una entidad de seguridad de Azure�
 
 Las extensiones de Azure Storage se admiten para las operaciones en datos de blob. Las operaciones a las que podrá llamar dependerán de los permisos que se concedan a la entidad de seguridad de Azure AD con la que inicie sesión en PowerShell. Los permisos para contenedores de Azure Storage se asignan mediante Azure RBAC. Por ejemplo, si se le asigna el rol de **lector de datos de blob**, puede ejecutar comandos de scripting que lean datos de un contenedor. Si se le asigna el rol de **colaborador de datos de blob**, podrá ejecutar comandos de scripting que lean, escriban o eliminen un contenedor, o los datos que estos contienen.
 
-Para más información sobre los permisos requeridos para cada operación de Azure Storage en un contenedor, consulte la sección [Llamadas a operaciones de almacenamiento con tokens de OAuth](/rest/api/storageservices/authorize-with-azure-active-directory#call-storage-operations-with-oauth-tokens).  
+Para más información sobre los permisos requeridos para cada operación de Azure Storage en un contenedor, consulte la sección [Llamadas a operaciones de almacenamiento con tokens de OAuth](/rest/api/storageservices/authorize-with-azure-active-directory#call-storage-operations-with-oauth-tokens).
 
 > [!IMPORTANT]
 > Cuando una cuenta de almacenamiento está bloqueada con un bloqueo **ReadOnly** de Azure Resource Manager, no se permite la operación [Crear lista de claves](/rest/api/storagerp/storageaccounts/listkeys) para esa cuenta de almacenamiento. **Crear lista de claves** es una operación POST y todas las operaciones POST se impiden cuando se configura un bloqueo **ReadOnly** para la cuenta. Por esta razón, cuando la cuenta está bloqueada con un bloqueo **ReadOnly**, los usuarios que no disponen ya de las claves de cuenta deben usar las credenciales de Azure AD para acceder a los datos del blob. En PowerShell, incluya el parámetro `-UseConnectedAccount` para crear un objeto **AzureStorageContext** con sus credenciales de Azure AD.
@@ -48,7 +48,7 @@ En el ejemplo siguiente se muestra cómo crear un contenedor en una nueva cuenta
 
     Para obtener más información sobre cómo iniciar sesión en Azure con PowerShell, consulte [Inicio de sesión con Azure PowerShell](/powershell/azure/authenticate-azureps).
 
-1. Cree un grupo de recursos de Azure mediante una llamada a [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). 
+1. Cree un grupo de recursos de Azure mediante una llamada a [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup).
 
     ```powershell
     $resourceGroup = "sample-resource-group-ps"

@@ -7,12 +7,12 @@ author: vikancha-MSFT
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: vikancha
-ms.openlocfilehash: 55799d15ef0ebe8af0f4a79b583143394540f48b
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 62108e46b748552fc22a8dc1e86ea78b3cc5e4e5
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122697971"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124774165"
 ---
 # <a name="ncast4_v3-series"></a>Serie NCasT4_v3 
 
@@ -42,7 +42,7 @@ Interconexión de NVIDIA NVLink: No compatible<br>
 | Standard_NC64as_T4_v3 |64 |440 |2880 | 4 | 64 | 32 | 8 / 32 000  |
 
 
-[!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
+
 
 ## <a name="supported-operating-systems-and-drivers"></a>Sistemas operativos y controladores compatibles
 
@@ -52,7 +52,9 @@ Para instalar manualmente los controladores de GPU de NVIDIA, consulte [Instalac
 
 La extensión del controlador de GPU de NVIDIA de Azure implementará controladores CUDA en las máquinas virtuales de la serie NCasT4_v3. En el caso de las cargas de trabajo de visualización y gráficos, instale manualmente los controladores GRID compatibles con Azure.
 
-## <a name="other-sizes"></a>Otros tamaños
+[!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
+
+## <a name="other-sizes-and-information"></a>Otros tamaños e información
 
 - [Uso general](sizes-general.md)
 - [Memoria optimizada](sizes-memory.md)
@@ -60,6 +62,10 @@ La extensión del controlador de GPU de NVIDIA de Azure implementará controlado
 - [GPU optimizada](sizes-gpu.md)
 - [Proceso de alto rendimiento](sizes-hpc.md)
 - [Generaciones anteriores](sizes-previous-gen.md)
+
+Calculadora de precios: [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/)
+
+Para obtener más información sobre los tipos de discos, vea [¿Qué tipos de disco están disponibles en Azure?](disks-types.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

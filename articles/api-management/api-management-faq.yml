@@ -4,7 +4,7 @@ metadata:
   description: Conozca las respuestas a las preguntas más frecuentes (P+F), los patrones y los procedimientos recomendados en Azure API Management.
   services: api-management
   documentationcenter: ''
-  author: vladvino
+  author: dlepow
   manager: erikre
   editor: ''
   ms.assetid: 2fa193cd-ea71-4b33-a5ca-1f55e5351e23
@@ -13,14 +13,14 @@ metadata:
   ms.tgt_pltfrm: na
   ms.topic: article
   ms.date: 11/19/2017
-  ms.author: apimpm
+  ms.author: danlep
   ms.custom: devx-track-azurepowershell
-  ms.openlocfilehash: 79e08fe471efdf633787a522f028f6b96f5cbcc3
-  ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
+  ms.openlocfilehash: 161f532be71fb137adc0514f6a71b279f5111509
+  ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 06/16/2021
-  ms.locfileid: "112204868"
+  ms.lasthandoff: 09/24/2021
+  ms.locfileid: "128647145"
 title: P+F de Azure API Management
 summary: >
   Obtenga respuestas a preguntas comunes, patrones y procedimientos recomendados para Azure API Management.

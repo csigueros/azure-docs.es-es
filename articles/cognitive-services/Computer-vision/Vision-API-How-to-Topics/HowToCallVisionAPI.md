@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 09/09/2019
 ms.author: kefre
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 0014297d45c26d855a2df8c2a3fdccb2f0c047d2
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.openlocfilehash: b7835185071d85b064c942da9f86f6848443dcd1
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122822916"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124820222"
 ---
 # <a name="call-the-image-analysis-api"></a>Llamada a API Análisis de imágenes
 
@@ -138,7 +138,7 @@ Consulte la siguiente lista de posibles errores y sus causas:
     * InternalServerError
 
 > [!TIP]
-> Al trabajar con Computer Vision, puede encontrar errores transitorios producidos por [límites de frecuencia](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/) aplicados por el servicio u otros problemas transitorios, como interrupciones de red. Para información sobre cómo controlar estos tipos de errores, consulte la sección sobre el [patrón Retry](https://docs.microsoft.com/azure/architecture/patterns/retry) en la guía de patrones de diseño en la nube y el [patrón Circuit Breaker](https://docs.microsoft.com/azure/architecture/patterns/circuit-breaker) relacionado.
+> Al trabajar con Computer Vision, puede encontrar errores transitorios producidos por [límites de frecuencia](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/) aplicados por el servicio u otros problemas transitorios, como interrupciones de red. Para información sobre cómo controlar estos tipos de errores, consulte la sección sobre el [patrón Retry](/azure/architecture/patterns/retry) en la guía de patrones de diseño en la nube y el [patrón Circuit Breaker](/azure/architecture/patterns/circuit-breaker) relacionado.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 08/26/2021
 ms.author: duau
-ms.openlocfilehash: e0556c4736108e649514a368b582f8f1983a9744
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 7703c1bba0faf69ee5d2640497df64cc1a418564
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123431069"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128665271"
 ---
 # <a name="expressroute-connectivity-partners-and-peering-locations"></a>Asociados de conectividad de ExpressRoute y ubicaciones de emparejamiento
 
@@ -356,7 +356,7 @@ Habilitar la conectividad privada para la adaptación a sus necesidades puede se
 | **[Presidio](https://www.presidio.com/subpage/1107/microsoft-azure)** | Norteamérica |
 | **[sol-tec](https://www.sol-tec.com/what-we-do/)** | Europa |
 | **[Venha Pra Nuvem](https://venhapranuvem.com.br/)** | Sudamérica |
-| **[Vigilant.IT](https://vigilant.it/expressroute)** | Australia |
+| **[Vigilant.IT](https://vigilant.it/networking-services/microsoft-azure-networking/)** | Australia |
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Para obtener más información acerca de ExpressRoute, consulte [P+F de ExpressRoute](expressroute-faqs.md).

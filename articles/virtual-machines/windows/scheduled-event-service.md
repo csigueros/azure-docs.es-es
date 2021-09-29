@@ -7,12 +7,12 @@ ms.subservice: scheduled-events
 ms.date: 08/20/2019
 ms.author: sarn
 ms.topic: how-to
-ms.openlocfilehash: b8e13f8a8bd577e3e872d3fc59b099e34fd495d1
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 678c59f8a2ca9a3d9f1030597d84ed9986bce8d7
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122694216"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128588530"
 ---
 # <a name="monitor-scheduled-events-for-your-azure-vms"></a>Supervisión de los eventos programados para las máquinas virtuales de Azure
 
@@ -158,7 +158,7 @@ Una vez que los eventos se insertan en Log Analytics, puede ejecutar la [consult
 
 1. Seleccione **Nueva regla de alertas**. 
 1. En la página **Crear regla**, deje `collectorworkspace` como **Recurso**.
-1. En **Condición**, seleccione la entrada *Whenever the customer log search<login undefined>* (Cada vez que la búsqueda de registros del cliente sea). Se abrirá la página **Configurar lógica de señal**.
+1. En **Condición**, seleccione la entrada *Whenever the customer log search\<login undefined\>* (Cada vez que la búsqueda de registros del cliente sea). Se abrirá la página **Configurar lógica de señal**.
 1. En **Valor del umbral**, escriba *0* y seleccione **Listo**.
 1. En **Acciones**, seleccione **Crear grupo de acciones**. Se abrirá la página **Agregar grupo de acciones**.
 1. En **Nombre del grupo de acciones**, escriba *myActionGroup*.

@@ -3,7 +3,7 @@ title: Procedimiento para habilitar SSO entre aplicaciones en Android mediante M
 titleSuffix: Microsoft identity platform
 description: Procedimiento para usar la biblioteca de autenticación de Microsoft (MSAL) para Android con el fin de habilitar el inicio de sesión único en las aplicaciones.
 services: active-directory
-author: hamiltonha
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: android
 ms.devlang: java
 ms.topic: how-to
 ms.date: 10/15/2020
-ms.author: hahamil
+ms.author: marsma
 ms.reviewer: marsma
-ms.openlocfilehash: 8f5e096f5f313f785311c4a6acbaf87fbfe2a38c
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: 877ebb2ab58af978896e4cb61989e12bb5731a7c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123034392"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128628921"
 ---
 # <a name="enable-cross-app-sso-on-android-using-msal"></a>Habilitación de SSO entre aplicaciones en Android mediante MSAL
 

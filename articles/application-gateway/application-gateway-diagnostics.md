@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 11/22/2019
 ms.author: victorh
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1f9a0385856c053d3c7f73acf130ee48d712d4f5
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 5b7068d707497ee15689671ea9278d72b149cace
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114469825"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124837392"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Mantenimiento del back-end y registros de diagnóstico para Application Gateway
 
@@ -96,7 +96,7 @@ El siguiente fragmento de código muestra un ejemplo de la respuesta:
 
 Puede usar diferentes tipos de registros en Azure para administrar y solucionar problemas de Application Gateway. Se puede acceder a algunos de estos registros mediante el portal. Se pueden extraer todos los registros de Azure Blob Storage y visualizarse en distintas herramientas, como los [registros de Azure Monitor](../azure-monitor/insights/azure-networking-analytics.md), Excel y PowerBI. Puede obtener más información sobre los diferentes tipos de registros en la lista siguiente:
 
-* **Registro de actividades**: se puede usar el [registro de actividades de Azure](../azure-resource-manager/management/view-activity-logs.md) (anteriormente conocido como registros operativos y registros de auditoría) para ver todas las operaciones enviadas a la suscripción de Azure, así como su estado. Las entradas del registro de actividades se recopilan de forma predeterminada y se pueden ver en Azure Portal.
+* **Registro de actividades**: se puede usar el [registro de actividades de Azure](../azure-monitor/essentials/activity-log.md) (anteriormente conocido como registros operativos y registros de auditoría) para ver todas las operaciones enviadas a la suscripción de Azure, así como su estado. Las entradas del registro de actividades se recopilan de forma predeterminada y se pueden ver en Azure Portal.
 * **Registro de acceso**: Puede usar este registro para ver los patrones de acceso de Application Gateway y analizar información importante. Esto incluye la dirección IP del autor de la llamada, la dirección URL solicitada, la latencia de la respuesta, el código de devolución y los bytes de entrada y salida. El registro de acceso se recopila cada 60 segundos. Este registro contiene un registro por cada instancia de Application Gateway. La instancia de Application Gateway se identifica por la propiedad instanceId.
 * **Registro de rendimiento**: este registro se puede usar para ver el rendimiento de las instancias de Application Gateway. Este registro captura la información de rendimiento de cada instancia, incluida la cantidad total de solicitudes atendidas, el rendimiento en bytes, la cantidad de solicitudes con error y el número de instancias de back-end con un mantenimiento correcto o incorrecto. El registro de rendimiento se recopila cada 60 segundos. El registro de rendimiento solo está disponible para la SKU v1. En la SKU v2, use [Métricas](application-gateway-metrics.md) para los datos de rendimiento.
 * **Registro de firewall**: este registro se puede usar para ver las solicitudes que se registran con el modo de detección o prevención de una puerta de enlace de aplicaciones que está configurada con el firewall de aplicaciones web. Los registros de firewall se recopilan cada 60 segundos. 
@@ -153,7 +153,7 @@ El registro de actividades se habilita automáticamente para todos los recursos 
 
 ### <a name="activity-log"></a>Registro de actividades
 
-Azure genera el registro de actividad de forma predeterminada. Los registros se conservan durante 90 días en el almacén de registros de eventos de Azure. Para más información sobre estos registros, consulte el artículo [Visualización de eventos y registros de actividades](../azure-resource-manager/management/view-activity-logs.md).
+Azure genera el registro de actividad de forma predeterminada. Los registros se conservan durante 90 días en el almacén de registros de eventos de Azure. Para más información sobre estos registros, consulte el artículo [Visualización de eventos y registros de actividades](../azure-monitor/essentials/activity-log.md).
 
 ### <a name="access-log"></a>Registro de acceso
 
@@ -351,7 +351,7 @@ El registro de firewall solo se genera si lo habilitó para cada instancia de Ap
 
 Puede ver y analizar los datos del registro de actividades con cualquiera de los métodos siguientes:
 
-* **Herramientas de Azure**: permiten recuperar información de los registros de actividades mediante Azure PowerShell, la CLI de Azure, la API REST de Azure o Azure Portal. En el artículo [Operaciones de actividades con Resource Manager](../azure-resource-manager/management/view-activity-logs.md) se detallan instrucciones paso a paso de cada método.
+* **Herramientas de Azure**: permiten recuperar información de los registros de actividades mediante Azure PowerShell, la CLI de Azure, la API REST de Azure o Azure Portal. En el artículo [Operaciones de actividades con Resource Manager](../azure-monitor/essentials/activity-log.md) se detallan instrucciones paso a paso de cada método.
 * **Power BI**: si todavía no tiene una cuenta de [Power BI](https://powerbi.microsoft.com/pricing), puede probarlo gratis. Las [aplicaciones de plantilla de Power BI](/power-bi/service-template-apps-overview) permiten analizar los datos.
 
 ### <a name="view-and-analyze-the-access-performance-and-firewall-logs"></a>Visualización y análisis de los registros de acceso, rendimiento y firewall

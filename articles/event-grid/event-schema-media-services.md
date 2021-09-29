@@ -2,13 +2,13 @@
 title: Azure Media Services como origen de Event Grid
 description: Describe las propiedades que se proporcionan para los eventos de Media Services con Azure Event Grid
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: c3b40f1a40cd0a5ee611a00f2f0361a8a522d3ad
-ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
+ms.date: 09/15/2021
+ms.openlocfilehash: 4177fc6edb283b0e81e40c7fc1de608dd7726a31
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122014573"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128589936"
 ---
 # <a name="azure-media-services-as-an-event-grid-source"></a>Azure Media Services como origen de Event Grid
 
@@ -901,7 +901,7 @@ El objeto data tiene las siguientes propiedades:
 | `state` | string | Estado del evento en directo. |
 | `healthy` | bool | Indica si la ingesta está en buen estado según los recuentos y las marcas. Estará en buen estado si este tiene el valor "true" y si overlapCount = 0 && discontinuityCount = 0 && nonIncreasingCount = 0 && unexpectedBitrate = false. |
 | `lastFragmentArrivalTime` | string |La última marca de tiempo en UTC en la que un fragmento llegó al punto de conexión de ingesta. El ejemplo de formato de fecha es "2020-11-11 12:12:12:888999" |
-| `ingestDriftValue` | string | Indica la velocidad del retraso, en segundos por minuto, de los datos de audio o vídeo entrantes durante el último minuto. El valor es mayor que cero si los datos llegan al evento en directo más lentamente de lo esperado en el último minuto; cero si los datos llegaron sin retraso; y "n/a" si no se han recibido datos de audio o vídeo. Por ejemplo, si tiene un codificador de contribución que envía contenido en directo y pierde velocidad debido a problemas de procesamiento o latencia de red, es posible que solo pueda entregar un total de 58 segundos de audio o vídeo en un minuto. Esto se notificaría como un desfase de 2 segundos por minuto. Si el codificador puede ponerse al día y enviar los 60 segundos o más, de datos por minuto, verá que este valor se notifica como 0. Si se ha producido una desconexión o una discontinuidad del codificador, este valor puede aparecer como 0, ya que no tiene en cuenta las interrupciones en los datos, solo los datos que se retrasan en las marcas de tiempo.|
+| `ingestDriftValue` | string | Indica la velocidad del retraso, en segundos por minuto, de los datos de audio o vídeo entrantes durante el último minuto. El valor es mayor que cero si los datos llegan al evento en directo más lentamente de lo esperado en el último minuto; cero si los datos llegaron sin retraso; y "n/a" si no se han recibido datos de audio o vídeo. Por ejemplo, si tiene un codificador de contribución que envía contenido en directo y pierde velocidad debido a problemas de procesamiento o latencia de red, es posible que solo pueda entregar un total de 58 segundos de audio o vídeo en un minuto. Esto se notificaría como un desfase de 2 segundos por minuto. Si el codificador puede ponerse al día y enviar los 60 segundos o más, de datos por minuto, verá que este valor se notifica como 0. Si se ha producido una desconexión o una discontinuidad del codificador, este valor puede aparecer como 0, ya que no tiene en cuenta las interrupciones en los datos, solo los datos que se retrasan en las marcas de tiempo.|
 | `transcriptionState` | string | Este valor está "Activado" para los latidos de pista de audio si la transcripción en vivo está activada; de lo contrario, verá una cadena vacía. Este estado solo es aplicable al tipo de pista de "audio" para la transcripción en directo. Todas las demás pistas tendrán un valor vacío.|
 | `transcriptionLanguage` | string  | Código de idioma (en formato BCP-47) del idioma de transcripción. Por ejemplo, "de-de" indica alemán (Alemania). El valor está vacío para los latidos de la pista de vídeo o cuando la transcripción en directo está desactivada. |
 

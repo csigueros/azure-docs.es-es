@@ -10,12 +10,12 @@ ms.date: 07/06/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions, devx-track-azurepowershell
-ms.openlocfilehash: be23b73558006fd9523953393a2bdfef5faef460
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: 51aa58bf3f3c0d672d90b70301f84306e09e06e9
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123476635"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128585711"
 ---
 # <a name="soft-delete-for-containers"></a>Eliminación temporal para contenedores
 
@@ -65,11 +65,11 @@ La versión 2019-12-12 o posteriores de la API REST de Azure Storage admiten la
 
 ## <a name="feature-support"></a>Compatibilidad de características
 
-En esta tabla se muestra cómo se admite esta característica en la cuenta y el impacto en la compatibilidad al habilitar determinadas funcionalidades. 
+En esta tabla se muestra cómo se admite esta característica en la cuenta y el impacto en la compatibilidad al habilitar determinadas funcionalidades.
 
-| Tipo de cuenta de almacenamiento                | Blob Storage (compatibilidad predeterminada)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>    
+| Tipo de cuenta de almacenamiento                | Blob Storage (compatibilidad predeterminada)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
 |-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
-| De uso general estándar, v2 | ![Sí](../media/icons/yes-icon.png) |![Sí](../media/icons/yes-icon.png)              | ![No](../media/icons/no-icon.png) | 
+| De uso general estándar, v2 | ![Sí](../media/icons/yes-icon.png) |![Sí](../media/icons/yes-icon.png)              | ![No](../media/icons/no-icon.png) |
 | Blobs en bloques Premium          | ![Sí](../media/icons/yes-icon.png) |![Sí](../media/icons/yes-icon.png)              | ![No](../media/icons/no-icon.png) |
 
 <sup>1</sup> Data Lake Storage Gen2 y el protocolo Network File System (NFS) 3.0 necesitan una cuenta de almacenamiento con un espacio de nombres jerárquico habilitado.

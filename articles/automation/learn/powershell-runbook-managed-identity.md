@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 08/16/2021
 ms.topic: tutorial
-ms.openlocfilehash: 9f728a8e51dbe310f744d11dd495038b2ff96126
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 0620aacb1b4f2a6cb7c6214c1ce92add3bec8f63
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123540278"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128610681"
 ---
 # <a name="tutorial-create-automation-powershell-runbook-using-managed-identity"></a>Tutorial: Creación de un runbook de PowerShell de Automation mediante una identidad administrada
 
@@ -43,7 +43,7 @@ Asigne permisos a las identidades administradas para permitirles detener e inici
     $sub = Get-AzSubscription -ErrorAction SilentlyContinue
     if(-not($sub))
     {
-        Connect-AzAccount -Subscription
+        Connect-AzAccount
     }
     
     # If you have multiple subscriptions, set the one to use
@@ -57,7 +57,7 @@ Asigne permisos a las identidades administradas para permitirles detener e inici
     
     # These values are used in this tutorial
     $automationAccount = "xAutomationAccount"
-    $userAssignedOne = "xUAMI"
+    $userAssignedManagedIdentity = "xUAMI"
     ```
 
 1. Use el cmdlet de PowerShell [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) para asignar un rol a la identidad administrada asignada por el sistema.
@@ -75,7 +75,7 @@ Asigne permisos a las identidades administradas para permitirles detener e inici
 1. Se necesita la misma asignación de roles para la identidad administrada asignada por el usuario.
 
     ```powershell
-    $UAMI = (Get-AzUserAssignedIdentity -ResourceGroupName $resourceGroup -Name $userAssignedOne).PrincipalId
+    $UAMI = (Get-AzUserAssignedIdentity -ResourceGroupName $resourceGroup -Name $userAssignedManagedIdentity).PrincipalId
     New-AzRoleAssignment `
         -ObjectId $UAMI `
         -ResourceGroupName $resourceGroup `
@@ -129,6 +129,10 @@ Cree un runbook que permita la ejecución por cualquiera de las identidades admi
             exit
         }
     
+    # set and store context
+    $subID = (Get-AzContext).Subscription.Id
+    $AzureContext = Set-AzContext -SubscriptionId $subID
+    
     if ($method -eq "SA")
         {
             Write-Output "Using system-assigned managed identity"
@@ -138,12 +142,15 @@ Cree un runbook que permita la ejecución por cualquiera de las identidades admi
             Write-Output "Using user-assigned managed identity"
     
             # Connects using the Managed Service Identity of the named user-assigned managed identity
-            $identity = Get-AzUserAssignedIdentity -ResourceGroupName $resourceGroup -Name $UAMI
+            $identity = Get-AzUserAssignedIdentity -ResourceGroupName $resourceGroup -Name $UAMI -DefaultProfile $AzureContext
     
             # validates assignment only, not perms
-            if ((Get-AzAutomationAccount -ResourceGroupName $resourceGroup -Name $automationAccount).Identity.UserAssignedIdentities.Values.PrincipalId.Contains($identity.PrincipalId))
+            if ((Get-AzAutomationAccount -ResourceGroupName $resourceGroup -Name $automationAccount -DefaultProfile $AzureContext).Identity.UserAssignedIdentities.Values.PrincipalId.Contains($identity.PrincipalId))
                 {
                     Connect-AzAccount -Identity -AccountId $identity.ClientId | Out-Null
+    
+                    # set and store context
+                    $AzureContext = Set-AzContext -SubscriptionId ($identity.id -split "/")[2]
                 }
             else {
                     Write-Output "Invalid or unassigned user-assigned managed identity"
@@ -156,26 +163,26 @@ Cree un runbook que permita la ejecución por cualquiera de las identidades admi
          }
     
     # Get current state of VM
-    $status = (Get-AzVM -ResourceGroupName $resourceGroup -Name $VMName -Status).Statuses[1].Code
+    $status = (Get-AzVM -ResourceGroupName $resourceGroup -Name $VMName -Status -DefaultProfile $AzureContext).Statuses[1].Code
     
     Write-Output "`r`n Beginning VM status: $status `r`n"
     
     # Start or stop VM based on current state
     if($status -eq "Powerstate/deallocated")
         {
-            Start-AzVM -Name $VMName -ResourceGroupName $resourceGroup
+            Start-AzVM -Name $VMName -ResourceGroupName $resourceGroup -DefaultProfile $AzureContext
         }
     elseif ($status -eq "Powerstate/running")
         {
-            Stop-AzVM -Name $VMName -ResourceGroupName $resourceGroup -Force
+            Stop-AzVM -Name $VMName -ResourceGroupName $resourceGroup -DefaultProfile $AzureContext -Force
         }
     
     # Get new state of VM
-    $status = (Get-AzVM -ResourceGroupName $resourceGroup -Name $VMName -Status).Statuses[1].Code  
+    $status = (Get-AzVM -ResourceGroupName $resourceGroup -Name $VMName -Status -DefaultProfile $AzureContext).Statuses[1].Code  
     
     Write-Output "`r`n Ending VM status: $status `r`n `r`n"
     
-    Write-Output "Account ID of current context: " (Get-AzContext).Account.Id
+    Write-Output "Account ID of current context: " $AzureContext.Account.Id
     ```
 
 1. En el editor, en la línea 8, modifique el valor de la variable `$automationAccount` según sea necesario.

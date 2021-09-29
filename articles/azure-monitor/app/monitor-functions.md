@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: MS-jgol
 ms.author: jgol
 ms.date: 08/27/2021
-ms.openlocfilehash: d8364915518104581a9f9ffb03b7ee7eda86c447
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: ac160463dbfa5fd66afb351c0c0edc5f59b61b30
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123252212"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124751033"
 ---
 # <a name="monitoring-azure-functions-with-azure-monitor-application-insights"></a>Supervisión de Azure Functions con Application Insights de Azure Monitor
 
@@ -51,7 +51,7 @@ ApplicationInsightsAgent_EXTENSION_VERSION -> ~3
 
 ## <a name="distributed-tracing-for-python-function-apps"></a>Seguimiento distribuido para aplicaciones de funciones de Python
 
-Para recopilar la telemetría personalizada de servicios como Redis, Memcached y MongoDB, entre otros, puede usar la [extensión de Python de OpenCensus](https://github.com/census-ecosystem/opencensus-python-extensions-azure) y [registrar la telemetría](https://docs.microsoft.com/azure/azure-functions/functions-reference-python?tabs=azurecli-linux%2Capplication-level#log-custom-telemetry). Puede encontrar la lista de servicios admitidos [aquí](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib).
+Para recopilar la telemetría personalizada de servicios como Redis, Memcached y MongoDB, entre otros, puede usar la [extensión de Python de OpenCensus](https://github.com/census-ecosystem/opencensus-python-extensions-azure) y [registrar la telemetría](../../azure-functions/functions-reference-python.md?tabs=azurecli-linux%2capplication-level#log-custom-telemetry). Puede encontrar la lista de servicios admitidos [aquí](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

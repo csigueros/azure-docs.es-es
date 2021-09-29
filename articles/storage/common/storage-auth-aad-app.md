@@ -10,12 +10,12 @@ ms.date: 12/07/2020
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ee77fd8ee7f9b209fa1639c787295e380e8dce0b
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: 746d908065523651f9147a721531514d1a0f84c0
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111902004"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128673281"
 ---
 # <a name="acquire-a-token-from-azure-ad-for-authorizing-requests-from-a-client-application"></a>Adquisición de un token de Azure AD para la autorización de solicitudes desde una aplicación cliente
 
@@ -35,7 +35,7 @@ Para autenticar una entidad de seguridad de la aplicación de Azure Storage, pri
 
 ## <a name="register-your-application-with-an-azure-ad-tenant"></a>Registro de la aplicación con un inquilino de Azure AD
 
-El primer paso para usar Azure AD con el fin de autorizar el acceso a los recursos de almacenamiento es registrar la aplicación cliente con un inquilino desde [Azure Portal](https://portal.azure.com). Al registrar la aplicación cliente, facilita información acerca de la aplicación a Azure AD. Azure AD proporciona un identificador de cliente (también denominado *identificador de aplicación*) que se utiliza para asociar la aplicación con Azure AD en runtime. Para más información sobre el identificador de cliente, consulte [Objetos de aplicación y de entidad de servicio de Azure Active Directory](../../active-directory/develop/app-objects-and-service-principals.md). Para registrar su aplicación de Azure Storage, siga los pasos mostrados en [Inicio rápido: Registro de una aplicación en la plataforma de identidad de Microsoft](../../active-directory/develop/quickstart-configure-app-access-web-apis.md). 
+El primer paso para usar Azure AD con el fin de autorizar el acceso a los recursos de almacenamiento es registrar la aplicación cliente con un inquilino desde [Azure Portal](https://portal.azure.com). Al registrar la aplicación cliente, facilita información acerca de la aplicación a Azure AD. Azure AD proporciona un identificador de cliente (también denominado *identificador de aplicación*) que se utiliza para asociar la aplicación con Azure AD en runtime. Para más información sobre el identificador de cliente, consulte [Objetos de aplicación y de entidad de servicio de Azure Active Directory](../../active-directory/develop/app-objects-and-service-principals.md). Para registrar su aplicación de Azure Storage, siga los pasos mostrados en [Inicio rápido: Registro de una aplicación en la plataforma de identidad de Microsoft](../../active-directory/develop/quickstart-configure-app-access-web-apis.md).
 
 En la imagen siguiente se muestra la configuración común para registrar una aplicación web. Tenga en cuenta que, en este ejemplo, el URI de redirección se establece en `http://localhost:5000/signin-oidc` para probar la aplicación de ejemplo en el entorno de desarrollo. Puede modificar esta configuración más adelante en el valor de **Autenticación** para la aplicación registrada en Azure Portal:
 
@@ -140,7 +140,7 @@ Cuando la aplicación obtiene acceso a Azure Storage, lo hace en nombre del usua
 
 Una aplicación web de ejemplo completada que adquiere un token y lo usa para crear un blob en Azure Storage está disponible en [GitHub](https://aka.ms/aadstorage). La revisión y ejecución del ejemplo completado puede resultar útil para describir los ejemplos de código. Para ver instrucciones sobre cómo ejecutar el ejemplo completado, consulte la sección sobre [visualización y ejecución del ejemplo completado](#view-and-run-the-completed-sample).
 
-#### <a name="add-references-and-using-statements"></a>Incorporación de referencias y uso de instrucciones  
+#### <a name="add-references-and-using-statements"></a>Incorporación de referencias y uso de instrucciones
 
 En Visual Studio, instale la biblioteca cliente de Azure Storage. En el menú **Herramientas**, seleccione **Administrador de paquetes NuGet** y después **Consola del Administrador de paquetes**. Escriba los siguientes comandos en la ventana de consola para instalar los paquetes necesarios de la biblioteca cliente de Azure Storage para .NET:
 

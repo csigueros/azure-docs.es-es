@@ -3,7 +3,7 @@ title: 'Ejemplo de directiva de Azure API Management: filtro de contenido de res
 description: 'Ejemplo de directiva de Azure API Management: demuestra cómo filtrar los elementos de datos de la carga de respuesta según el producto asociado a la solicitud.'
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 manager: cfowler
 editor: ''
 ms.service: api-management
@@ -11,13 +11,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/13/2017
-ms.author: apimpm
-ms.openlocfilehash: 1f2794c2d72dd460f0b3edf5fb7ec4035746c6e4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: danlep
+ms.openlocfilehash: 4bcd9f9db9af45149028707ba2c055b29e2bb420
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92078449"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128590627"
 ---
 # <a name="filter-response-content"></a>Filtro de contenido de respuestas
 

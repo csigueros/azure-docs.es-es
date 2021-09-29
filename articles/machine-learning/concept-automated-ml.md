@@ -10,12 +10,12 @@ author: cartacioS
 ms.author: sacartac
 ms.date: 07/01/2021
 ms.custom: automl
-ms.openlocfilehash: 33fa0218a81d57ae6d33578cd08917bfd2055770
-ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
+ms.openlocfilehash: 55cf993dd8f4dad17533ef759e135c1604a48901
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2021
-ms.locfileid: "114690782"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129061397"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>¿Qué es el aprendizaje automático automatizado (AutoML)?
 
@@ -98,7 +98,7 @@ La clasificación es una tarea común del aprendizaje automático. La clasificac
 
 El objetivo principal de los modelos de clasificación es predecir en qué categorías se incluirán los nuevos datos en función de lo aprendido de los datos de entrenamiento. Algunos ejemplos comunes de clasificación son la detección de fraudes, el reconocimiento de escritura a mano y la detección de objetos. Obtenga más información y vea un ejemplo en [Creación de un modelo de clasificación con aprendizaje automático](tutorial-first-experiment-automated-ml.md).
 
-Consulte ejemplos de clasificación y aprendizaje automático automatizado en estos cuadernos de Python: [Detección de fraudes](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-credit-card-fraud/auto-ml-classification-credit-card-fraud.ipynb), [Predicción de Marketing](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) y [Clasificación de datos de grupo de noticias](https://towardsdatascience.com/automated-text-classification-using-machine-learning-3df4f4f9570b)
+Consulte ejemplos de clasificación y aprendizaje automático automatizado en estos cuadernos de Python: [Detección de fraudes](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-credit-card-fraud/auto-ml-classification-credit-card-fraud.ipynb), [Predicción de Marketing](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) y [Clasificación de datos de grupo de noticias](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-text-dnn/auto-ml-classification-text-dnn.ipynb)
 
 ### <a name="regression"></a>Regresión
 
@@ -256,7 +256,7 @@ Con Azure Machine Learning, puede usar Machine Learning para generar un modelo d
 
 Consulte cómo convertir al formato ONNX [en este ejemplo de Jupyter Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb). Aprenda cuáles [son los algoritmos que se admiten en ONNX](how-to-configure-auto-train.md#select-your-experiment-type).
 
-El entorno de ejecución de ONNX también es compatible con C#, por lo que puede usar el modelo creado automáticamente en sus aplicaciones de C# sin necesidad de volver a codificar o experimentar alguna de las latencias de red que presentan los puntos de conexión REST. Obtenga más detalles sobre el [uso de un modelo AutoML de ONNX en una aplicación .NET con ML.NET](./how-to-use-automl-onnx-model-dotnet.md) y la [creación de inferencias en modelos de ONNX con la API de C# del entorno de ejecución de ONNX](https://www.onnxruntime.ai/docs/reference/api/csharp-api.html). 
+El entorno de ejecución de ONNX también es compatible con C#, por lo que puede usar el modelo creado automáticamente en sus aplicaciones de C# sin necesidad de volver a codificar o experimentar alguna de las latencias de red que presentan los puntos de conexión REST. Obtenga más detalles sobre el [uso de un modelo AutoML de ONNX en una aplicación .NET con ML.NET](./how-to-use-automl-onnx-model-dotnet.md) y la [creación de inferencias en modelos de ONNX con la API de C# del entorno de ejecución de ONNX](https://onnxruntime.ai/docs/api/csharp-api.html). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

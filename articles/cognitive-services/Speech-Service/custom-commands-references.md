@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: 1040c05b081c6edb181d349d00468d1ba0aac3a7
-ms.sourcegitcommit: d01c2b2719e363178720003b67b968ac2a640204
+ms.openlocfilehash: 85c51be3b8434aadd254b0274e22b756c667832f
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122455920"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124750773"
 ---
 # <a name="custom-commands-concepts-and-definitions"></a>Conceptos y definiciones de Comandos personalizados
 
@@ -66,7 +66,7 @@ Comandos personalizados admite los siguientes tipos de parámetros:
 * Temperatura
 * Url
 
-Cada configuración regional admite el tipo de parámetro "String", pero la disponibilidad del resto de tipos varía en función de la configuración regional. Comandos personalizados usa la resolución de entidades predefinidas de LUIS, por lo que la disponibilidad de un tipo de parámetro en una configuración regional dependerá de la compatibilidad de entidades predefinidas de LUIS en esa configuración regional. Aquí encontrará [más detalles sobre la compatibilidad de entidades predefinidas de LUIS por configuración regional](/azure/cognitive-services/luis/luis-reference-prebuilt-entities).
+Cada configuración regional admite el tipo de parámetro "String", pero la disponibilidad del resto de tipos varía en función de la configuración regional. Comandos personalizados usa la resolución de entidades predefinidas de LUIS, por lo que la disponibilidad de un tipo de parámetro en una configuración regional dependerá de la compatibilidad de entidades predefinidas de LUIS en esa configuración regional. Aquí encontrará [más detalles sobre la compatibilidad de entidades predefinidas de LUIS por configuración regional](../luis/luis-reference-prebuilt-entities.md).
 
 Algunos tipos de parámetros, como Number, String y DateTime, admiten la configuración de un valor predeterminado, lo que se puede configurar desde Portal.
 

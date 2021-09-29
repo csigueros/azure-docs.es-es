@@ -1,18 +1,18 @@
 ---
 title: 'Tutorial: Transformación y protección de una API con Azure API Management | Microsoft Docs'
 description: En este tutorial, aprenderá a proteger una API en API Management con directivas de transformación y limitación (limitación de frecuencia).
-author: vladvino
+author: dlepow
 ms.service: api-management
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 09/28/2020
-ms.author: apimpm
-ms.openlocfilehash: 979bdaa1e0dac4f45a321abda2a208f46983f9cd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: danlep
+ms.openlocfilehash: be58732e3279b7bfaccee76a8d5bc9d09ea664ac
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96010238"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128656405"
 ---
 # <a name="tutorial-transform-and-protect-your-api"></a>Tutorial: Transformación y protección de una API
 

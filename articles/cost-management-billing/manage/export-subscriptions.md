@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 09/15/2021
 ms.author: banders
-ms.openlocfilehash: b3b2e9b501f2ae103900a085e9b7a4b412efb78e
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 34b6e7be93cf42ab4d3ef80110b81fee8a403ed7
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686843"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128561428"
 ---
 # <a name="export-and-view-your-top-level-subscription-information"></a>Exportación y visualización de la información de nivel superior de la suscripción
 Si necesita ver el conjunto de identificadores de suscripción asociados con las credenciales de usuario, [descargue un archivo .json con información de la suscripción desde el Centro de cuentas de Azure](https://account.azure.com/subscriptions/download).
@@ -22,7 +22,7 @@ Si necesita ver el conjunto de identificadores de suscripción asociados con las
 [!INCLUDE [gdpr-dsr-and-stp-note](../../../includes/gdpr-dsr-and-stp-note.md)]
 
 El archivo .json descargado proporciona la siguiente información:
-- Correo electrónico: dirección de correo electrónico asociada a la cuenta.
+- Email: dirección de correo electrónico asociada a la cuenta.
 - Puid: identificador único asociado a la cuenta de facturación.
 - SubscriptionIds: lista de suscripciones que pertenecen a la cuenta, enumeradas por identificador de suscripción.
 

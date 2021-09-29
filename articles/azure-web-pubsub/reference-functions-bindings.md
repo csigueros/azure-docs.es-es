@@ -6,12 +6,12 @@ ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: conceptual
 ms.date: 08/16/2021
-ms.openlocfilehash: 68c3ba369af177d2b673dc06d5f7ccafe09c4cf6
-ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
+ms.openlocfilehash: 43fcc70bf88b7e037167a936ebd655b8877b394d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122598314"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124820369"
 ---
 #  <a name="azure-web-pubsub-trigger-and-bindings-for-azure-functions"></a>Desencadenador y enlaces de Azure Web PubSub para Azure Functions
 
@@ -28,7 +28,7 @@ Web PubSub es un servicio administrado de Azure que ayuda a los desarrolladores 
 [Código fuente](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/webpubsub/) |
 [Paquete](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.WebPubSub) |
 [Documentación de referencia de API](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/webpubsub/Microsoft.Azure.WebJobs.Extensions.WebPubSub/api/Microsoft.Azure.WebJobs.Extensions.WebPubSub.netstandard2.0.cs) |
-[Documentación del producto](https://aka.ms/awps/doc) |
+[Documentación del producto](./index.yml) |
 [Ejemplos][samples_ref]
 
 ## <a name="add-to-your-functions-app"></a>Adición a la aplicación de Functions
@@ -48,9 +48,9 @@ func extensions install --package Microsoft.Azure.WebJobs.Extensions.WebPubSub -
 ```
 
 [Paquete NuGet]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.WebPubSub
-[Instalación explícita de extensiones]: /azure/azure-functions/functions-bindings-register#explicitly-install-extensions 
+[Instalación explícita de extensiones]: ../azure-functions/functions-bindings-register.md#explicitly-install-extensions 
 [Extensión Azure Tools]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
-[Actualización de las extensiones]: /azure/azure-functions/functions-bindings-register
+[Actualización de las extensiones]: ../azure-functions/functions-bindings-register.md
 
 ## <a name="key-concepts"></a>Conceptos clave
 
@@ -66,7 +66,7 @@ func extensions install --package Microsoft.Azure.WebJobs.Extensions.WebPubSub -
 
 Use el desencadenador de función para controlar las solicitudes del servicio Azure Web PubSub. 
 
-`WebPubSubTrigger` se usa cuando necesita controlar las solicitudes del lado del servicio. El patrón de punto de conexión del desencadenador sería similar al siguiente, que debe establecerse en el lado del servicio Web PubSub (portal: configuración -> controlador de eventos -> plantilla de URL). En el patrón de punto de conexión, el elemento de consulta `code=<API_KEY>` es **OBLIGATORIO** cuando se usa la aplicación de funciones de Azure por motivos de [seguridad](/azure/azure-functions/security-concepts#system-key). La clave se puede encontrar en **Azure Portal**. Busque el recurso de la aplicación de funciones y vaya **Functions** -> **Claves de la aplicación** -> **Claves del sistema** -> **webpubsub_extension** después de implementar la aplicación de funciones en Azure. Sin embargo, esta clave no es necesaria para trabajar con funciones locales.
+`WebPubSubTrigger` se usa cuando necesita controlar las solicitudes del lado del servicio. El patrón de punto de conexión del desencadenador sería similar al siguiente, que debe establecerse en el lado del servicio Web PubSub (portal: configuración -> controlador de eventos -> plantilla de URL). En el patrón de punto de conexión, el elemento de consulta `code=<API_KEY>` es **OBLIGATORIO** cuando se usa la aplicación de funciones de Azure por motivos de [seguridad](../azure-functions/security-concepts.md#system-key). La clave se puede encontrar en **Azure Portal**. Busque el recurso de la aplicación de funciones y vaya **Functions** -> **Claves de la aplicación** -> **Claves del sistema** -> **webpubsub_extension** después de implementar la aplicación de funciones en Azure. Sin embargo, esta clave no es necesaria para trabajar con funciones locales.
 
 ```
 <Function_App_Url>/runtime/webhooks/webpubsub?code=<API_KEY>
@@ -155,7 +155,7 @@ module.exports = async function (context) {
 
 ### <a name="attributes-and-annotations"></a>Atributos y anotaciones
 
-En las [bibliotecas de clases C#](/azure/azure-functions/functions-dotnet-class-library), use el atributo `WebPubSubTrigger`.
+En las [bibliotecas de clases C#](../azure-functions/functions-dotnet-class-library.md), use el atributo `WebPubSubTrigger`.
 
 A continuación, se muestra un atributo `WebPubSubTrigger` en una signatura de método:
 

@@ -2,19 +2,19 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 09/03/2021
+ms.date: 09/17/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 7f519a8a5defbc79074d5ebd25d88e491304d105
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: 997c27e4bdb5ca7d298e9b691e000f236617583a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123470928"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128558319"
 ---
 ## <a name="australian-government-ism-protected"></a>Australian Government ISM PROTECTED
 
-Para revisar el modo en que las integraciones de Azure Policy disponibles para todos los servicios de Azure se corresponden a este estándar de cumplimiento, consulte [Cumplimiento normativo de Azure Policy: Australian Government ISM PROTECTED](../../../../articles/governance/policy/samples/australia-ism.md).
+Para revisar el modo en que las integraciones de Azure Policy disponibles para todos los servicios de Azure se asignan a este estándar de cumplimiento, consulte [Cumplimiento normativo de Azure Policy: Australian Government ISM PROTECTED](../../../../articles/governance/policy/samples/australia-ism.md).
 Para obtener más información sobre este estándar de cumplimiento, vea [Australian Government ISM PROTECTED](https://www.cyber.gov.au/acsc/view-all-content/ism).
 
 |Domain |Id. de control |Título de control |Directiva<br /><sub>(Azure Portal)</sub> |Versión de la directiva<br /><sub>(GitHub)</sub>  |
@@ -368,7 +368,7 @@ Para más información acerca de este estándar de cumplimiento, consulte [HIPAA
 ## <a name="irs-1075-september-2016"></a>IRS 1075, septiembre de 2016
 
 Para revisar cómo las integraciones de Azure Policy disponibles para todos los servicios de Azure se asignan a este estándar de cumplimiento, consulte [Cumplimiento normativo de Azure Policy: IRS 1075, septiembre de 2016](../../../../articles/governance/policy/samples/irs-1075-sept2016.md).
-Para más información sobre este estándar de cumplimiento, consulte [IRS 1075, septiembre de 2016](https://www.irs.gov/pub/irs-pdf/p1075.pdf).
+Para más información sobre este estándar de cumplimiento, consulte este artículo acerca de [IRS 1075, septiembre de 2016](https://www.irs.gov/pub/irs-pdf/p1075.pdf).
 
 |Domain |Id. de control |Título de control |Directiva<br /><sub>(Azure Portal)</sub> |Versión de la directiva<br /><sub>(GitHub)</sub>  |
 |---|---|---|---|---|

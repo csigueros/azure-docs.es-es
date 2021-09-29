@@ -1,7 +1,6 @@
 ---
 title: 'Referencia: Biblioteca cliente 3.1.1 de Form Recognizer para Java'
 description: Use la biblioteca cliente de Form Recognizer para Java con el fin de crear una aplicación de procesamiento de formularios que extraiga pares clave-valor y datos de tabla de los documentos personalizados.
-services: cognitive-services
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -9,12 +8,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 05/25/2021
 ms.author: lajanuar
-ms.openlocfilehash: 0c15ab527191f034c21678c5529f1af4cd4adcb5
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 40f7973149ae81fb9ae8f00df99c51c27300c6d1
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122326532"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128641817"
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
@@ -343,7 +342,7 @@ El siguiente bloque de código comprueba cuántos modelos se han guardado en la 
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_manage_count)]
 
-#### <a name="output"></a>Output
+#### <a name="output"></a>Resultados
 
 ```console
 The account has 12 custom models, and we can have at most 250 custom models

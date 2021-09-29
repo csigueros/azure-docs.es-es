@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 09/01/2021
 ms.author: jordanselig
 ms.custom: references_regions
-ms.openlocfilehash: b9453783ac0d3e6ecfd3785a134c31393fc15d4a
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: 1fb6959ab6e47ad631ea3cac208a3dc52ca41e41
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123479479"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124832707"
 ---
 # <a name="availability-zone-support-for-public-multi-tenant-app-service"></a>Compatibilidad con zonas de disponibilidad para instancias de App Service multiinquilino públicas
 
@@ -64,7 +64,7 @@ Cuando la plataforma App Service asigna instancias a un plan de App Service con 
 
 Actualmente, debe usar una plantilla de ARM para crear una instancia de App Service con redundancia de zona. Después de crearlo mediante la plantilla de ARM, se puede ver e interactuar con el plan de App Service desde Azure Portal y las herramientas de la CLI. Solo se necesita una plantilla de ARM para la creación inicial del plan de App Service.
 
-Los únicos cambios necesarios en una plantilla de ARM para especificar una instancia de App Service con redundancia de zona son la nueva propiedad ***zoneRedundant** _ (obligatoria) y, opcionalmente, el recuento de instancias del plan de App Service (_*_capacity_*_) en el recurso [Microsoft.Web/serverfarms](https://docs.microsoft.com/azure/templates/microsoft.web/serverfarms?tabs=json). Si no especifica una capacidad, el valor predeterminado de la plataforma es tres. La propiedad _*_zoneRedundant_*_ se debe establecer en _*_true_*_ y _ *_capacity_** se debe establecer en función del requisito de carga de trabajo, pero no debe ser inferior a tres. Una buena regla general para elegir la capacidad consiste en garantizar instancias suficientes para la aplicación, de modo que la pérdida de una zona de instancias deje capacidad suficiente para controlar la carga esperada.
+Los únicos cambios necesarios en una plantilla de ARM para especificar una instancia de App Service con redundancia de zona son la nueva propiedad ***zoneRedundant** _ (obligatoria) y, opcionalmente, el recuento de instancias del plan de App Service (_*_capacity_*_) en el recurso [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms?tabs=json). Si no especifica una capacidad, el valor predeterminado de la plataforma es tres. La propiedad _*_zoneRedundant_*_ se debe establecer en _*_true_*_ y _ *_capacity_** se debe establecer en función del requisito de carga de trabajo, pero no debe ser inferior a tres. Una buena regla general para elegir la capacidad consiste en garantizar instancias suficientes para la aplicación, de modo que la pérdida de una zona de instancias deje capacidad suficiente para controlar la carga esperada.
 
 > [!TIP]
 > Para decidir la capacidad de la instancia, puede usar el cálculo siguiente:

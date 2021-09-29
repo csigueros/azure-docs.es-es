@@ -7,14 +7,14 @@ tags: billing,top-support-issue
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 09/15/2021
 ms.author: banders
-ms.openlocfilehash: db9c8d18d975661edf4a120a2e82b073c884d2a9
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 383f9a2f2b4cd3b1e3ed1a4330f0b91f16dca74c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369682"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128648741"
 ---
 # <a name="sign-up-for-a-microsoft-365-subscription-with-your-azure-account"></a>Suscripción a Microsoft 365 con la cuenta de Azure
 
@@ -31,17 +31,17 @@ Si ya tiene una cuenta de Microsoft 365 y una suscripción a Azure, puede [asoc
 3. Inicie sesión con las credenciales de su cuenta de Azure. Si va a crear una suscripción para una organización, use una cuenta de Azure que sea miembro del rol de directorio de administrador global o de administrador de facturación en el inquilino de Azure Active Directory.
 
     ![Captura de pantalla del inicio de sesión de Microsoft](./media/azure-account-for-microsoft-365-subscription/13-office-365-sign-in.png)
-4. Haga clic en **Probar ahora** .
+4. Haga clic en **Probar ahora**.
 
     ![Captura de pantalla que confirma su pedido de Microsoft 365.](./media/azure-account-for-microsoft-365-subscription/14-office-365-confirm-your-order.png)
-5. En la página de confirmación del pedido, haga clic en **Continuar** .
+5. En la página de confirmación del pedido, haga clic en **Continuar**.
 
     ![Captura de pantalla del recibo del pedido de Microsoft 365](./media/azure-account-for-microsoft-365-subscription/15-office-365-order-receipt.png)
 
 Ahora ya está listo. Si ha creado la suscripción a Microsoft 365 para su organización, siga los pasos siguientes para comprobar que los usuarios de Azure AD aparecen ahora en Microsoft 365.
 
 1. Abra el centro de administración de Microsoft 365.
-2. Expanda **USUARIOS** y luego haga clic en **Usuarios activos** .
+2. Expanda **USUARIOS** y luego haga clic en **Usuarios activos**.
 
     ![Captura de pantalla de los usuarios del centro de administración de Microsoft 365](./media/azure-account-for-microsoft-365-subscription/16-microsoft-365-admin-center-users.png)
 
@@ -49,15 +49,15 @@ Una vez completado el registro, la suscripción a Microsoft 365 se agrega a la 
 
 ## <a name="check-my-account-permissions-in-azure-ad"></a><a id="RoleInAzureAD"></a>Comprobación de los permisos de mi cuenta en Azure AD
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
-2. Haga clic en **Todos los servicios** y, a continuación, busque **Active Directory** .
+2. Haga clic en **Todos los servicios** y, a continuación, busque **Active Directory**.
 
     ![Captura de pantalla de Active Directory en Azure Portal](./media/azure-account-for-microsoft-365-subscription/billing-more-services-active-directory.png)
-3. Haga clic en **Usuarios y grupos** > **Todos los usuarios** .
+3. Haga clic en **Usuarios y grupos** > **Todos los usuarios**.
 4. Seleccione el nombre del usuario.
 
     ![Captura de pantalla que muestra los usuarios de Azure Active Directory](./media/azure-account-for-microsoft-365-subscription/billing-users-groups.png)
 
-5. Haga clic en **Rol del directorio** .
+5. Haga clic en **Rol del directorio**.
 
     ![Captura de pantalla que muestra el rol del directorio de Azure Portal](./media/azure-account-for-microsoft-365-subscription/billing-user-directory-role.png)
 6.  El rol **Administrador global** o **Administrador limitado** > **Administrador de facturación** es necesario para crear una suscripción a Microsoft 365 para los usuarios de su cuenta actual de Azure Active Directory.

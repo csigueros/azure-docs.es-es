@@ -7,13 +7,13 @@ ms.service: api-management
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 10/14/2020
-ms.author: apimpm
-ms.openlocfilehash: df0018e323bc0c5725c9752b25b77612f035c196
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: danlep
+ms.openlocfilehash: 0da1a897f9abe55e846006136c040d3602882b5a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100582508"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128676511"
 ---
 # <a name="reference-api-management-resource-log-schema"></a>Referencia: Esquema del registro de recursos de API Management
 

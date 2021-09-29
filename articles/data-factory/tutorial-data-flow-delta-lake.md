@@ -8,12 +8,12 @@ ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: seo-lt-2021
 ms.date: 06/04/2021
-ms.openlocfilehash: dff3972bfc9da83312a1fdf4fc7c6169f932c410
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 246b1988a7a632e9c3b332f7adbdf908f1084457
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122638538"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124798263"
 ---
 # <a name="transform-data-in-delta-lake-using-mapping-data-flows"></a>Transformación de datos en Delta Lake mediante flujos de datos de asignación
 
@@ -56,24 +56,24 @@ En este paso, creará una canalización que contiene una actividad de flujo de d
 
 1. En la página principal, seleccione **Orchestrate** (Organizar).
 
-   ![Captura de pantalla que muestra la página principal de ADF.](./media/doc-common-process/get-started-page.png)
+   :::image type="content" source="./media/doc-common-process/get-started-page.png" alt-text="Captura de pantalla que muestra la página principal de ADF.":::
 
 1. En la pestaña **General** de la canalización, escriba **DeltaLake** en el campo **Nombre** de la canalización.
 1. En el panel **Actividades** expanda el acordeón **Movimiento y transformación**. Arrastre y coloque la actividad **Data Flow** del panel al lienzo de la canalización.
 
-    ![Captura de pantalla que muestra el lienzo de canalización donde puede colocar la actividad de Data Flow.](media/tutorial-data-flow/activity1.png)
+    :::image type="content" source="media/tutorial-data-flow/activity1.png" alt-text="Captura de pantalla que muestra el lienzo de canalización donde puede colocar la actividad de Data Flow.":::
 1. En el menú emergente **Adding Data Flow** (Adición de Data Flow), seleccione **Create New Data Flow** (Crear nueva instancia de Data Flow) y, a continuación, asigne el nombre **DeltaLake** al flujo de datos. Haga clic en Finalizar cuando haya terminado.
 
-    ![Captura de pantalla que muestra la ubicación donde se asigna nombre al flujo de datos al crear uno nuevo.](media/tutorial-data-flow/activity2.png)
+    :::image type="content" source="media/tutorial-data-flow/activity2.png" alt-text="Captura de pantalla que muestra la ubicación donde se asigna nombre al flujo de datos al crear uno nuevo.":::
 1. En la barra superior del lienzo de la canalización, mueva el control deslizante **Depuración de flujo de datos** a la posición de activado. El modo de depuración permite realizar pruebas interactivas de la lógica de transformación en un clúster de Spark activo. Los clústeres de Data Flow tardan de 5 a 7 minutos en prepararse y se recomienda que los usuarios activen primero la depuración si planean realizar el desarrollo de Data Flow. Para más información, consulte [Modo de depuración](concepts-data-flow-debug-mode.md).
 
-    ![Captura de pantalla que muestra el control deslizante Data flow debug (Depuración de flujo de datos).](media/tutorial-data-flow/dataflow1.png)
+    :::image type="content" source="media/tutorial-data-flow/dataflow1.png" alt-text="Captura de pantalla que muestra el control deslizante Data flow debug (Depuración de flujo de datos).":::
 
-## <a name="build-transformation-logic-in-the-data-flow-canvas&quot;></a>Generación de la lógica de transformación en el lienzo de flujo de datos
+## <a name="build-transformation-logic-in-the-data-flow-canvas"></a>Generación de la lógica de transformación en el lienzo de flujo de datos
 
 En este tutorial se generarán dos flujos de datos. El primer flujo de datos es un origen simple de receptor para generar una nueva instancia de Delta Lake a partir del archivo CSV de películas anterior. Por último, creará el diseño de flujo siguiente para actualizar los datos en Delta Lake.
 
-![Flujo final](media/data-flow/data-flow-tutorial-6.png &quot;Flujo final")
+:::image type="content" source="media/data-flow/data-flow-tutorial-6.png" alt-text="Flujo final":::
 
 ### <a name="tutorial-objectives"></a>Objetivos del tutorial
 
@@ -95,7 +95,7 @@ En este tutorial se generarán dos flujos de datos. El primer flujo de datos es 
 1. Agregue una transformación de receptor.
 1. Delta es un tipo de conjunto de datos en línea. Tendrá que apuntar a la cuenta de almacenamiento de ADLS Gen2.
    
-   ![Conjunto de datos insertado](media/data-flow/data-flow-tutorial-5.png "Conjunto de datos insertado")
+   :::image type="content" source="media/data-flow/data-flow-tutorial-5.png" alt-text="Conjunto de datos insertado":::
 
 1. Elija un nombre de carpeta en el contenedor de almacenamiento donde desea que ADF cree la instancia de Delta Lake.
 1. Vuelva al diseñador de canalizaciones y haga clic en Depurar para ejecutar la canalización en modo de depuración solo con esta actividad de flujo de datos en el lienzo. Se generará la nueva instancia de Delta Lake en ADLS Gen2.
@@ -107,16 +107,16 @@ En este tutorial se generarán dos flujos de datos. El primer flujo de datos es 
 1. En esa misma columna derivada, cree películas para 2021. Para ello, tome un año existente y cambie el año a 2021. Vamos a elegir 1960.
 1. Este es el aspecto que tendrán las tres columnas derivadas:
 
-   ![Columna derivada](media/data-flow/data-flow-tutorial-2.png "Columna derivada")
+   :::image type="content" source="media/data-flow/data-flow-tutorial-2.png" alt-text="Columna derivada":::
    
 1. Las directivas ```Update, insert, delete, and upsert``` se crean en la transformación de alteración de fila. Agregue una transformación de alteración de fila después de la columna derivada.
 1. Las directivas de alteración de fila deben tener este aspecto.
 
-   ![Alteración de fila](media/data-flow/data-flow-tutorial-3.png "Alteración de fila")
+   :::image type="content" source="media/data-flow/data-flow-tutorial-3.png" alt-text="Alteración de fila":::
    
 1. Ahora que ha establecido la directiva adecuada para cada tipo de alteración de fila, compruebe que se han establecido las reglas de actualización adecuadas en la transformación de receptor.
 
-   ![Sink](media/data-flow/data-flow-tutorial-4.png "Receptor")
+   :::image type="content" source="media/data-flow/data-flow-tutorial-4.png" alt-text="Sink":::
    
 1. Aquí vamos a usar el receptor de Delta Lake en el lago de datos de ADLS Gen2 y permitiremos inserciones, actualizaciones y eliminaciones. 
 1. Observe que las columnas de clave son una clave compuesta formada por la columna de clave principal "movie" y la columna "year". Esto se debe a que hemos creado películas de 2021 falsas mediante la duplicación de las filas de 1960. Esto evita las colisiones, ya que proporciona unicidad al consultar las filas existentes.

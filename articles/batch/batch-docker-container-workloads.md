@@ -4,12 +4,12 @@ description: Aprenda a ejecutar y escalar aplicaciones desde imágenes de conten
 ms.topic: how-to
 ms.date: 08/18/2021
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: e8effa7daf0c30edaef9924cbefe35cdad1b20e1
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: c6922c48aedc3394d164367806bece43d5fb8a49
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122445776"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124744215"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Ejecución de aplicaciones de contenedor en Azure Batch
 
@@ -75,7 +75,7 @@ Estas imágenes solo se admiten para su uso en grupos de Azure Batch y están or
 
 También puede crear imágenes personalizadas a partir de máquinas virtuales que ejecutan Docker en una de las distribuciones Linux compatibles con Batch. Si elige proporcionar su propia imagen personalizada de Linux, consulte las instrucciones de [Uso de una imagen personalizada administrada para crear un grupo de máquinas virtuales](batch-custom-images.md).
 
-Para la compatibilidad de una imagen personalizada con Docker, instale [Docker Community Edition (CE)](https://www.docker.com/community-edition) o [Docker Enterprise Edition (EE)](https://www.docker.com/enterprise-edition).
+Para la compatibilidad de una imagen personalizada con Docker, instale [Docker Community Edition (CE)](https://www.docker.com/community-edition) o [Docker Enterprise Edition (EE)](https://www.docker.com/blog/docker-enterprise-edition/).
 
 Consideraciones adicionales para usar una imagen Linux personalizada:
 

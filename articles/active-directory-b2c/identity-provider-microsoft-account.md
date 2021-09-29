@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/09/2021
+ms.date: 09/16/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 324e494271287824c09030eaf918cd7f3881bc01
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 2e024c9cbe5733b5cf5cfb81946957518b7ea28d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122178055"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128574469"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-microsoft-account-using-azure-active-directory-b2c"></a>Configuración de la suscripción y del inicio de sesión con una cuenta Microsoft mediante Azure Active Directory B2C
 
@@ -37,9 +37,9 @@ ms.locfileid: "122178055"
 ### <a name="verify-the-applications-publisher-domain"></a>Comprobación del dominio del publicador de la aplicación
 A partir de noviembre de 2020, los nuevos registros de aplicaciones se muestran como no comprobados en el mensaje de consentimiento del usuario, a menos que [se haya comprobado el dominio del publicador de la aplicación](../active-directory/develop/howto-configure-publisher-domain.md) ***y además*** se haya comprobado la identidad de la empresa con Microsoft Partner Network y se haya asociado a la aplicación. [Obtenga más información](../active-directory/develop/publisher-verification-overview.md) sobre este cambio. Tenga en cuenta que, en los flujos de usuario de Azure AD B2C, el dominio del publicador solo aparece cuando se usa una [cuenta de Microsoft](../active-directory-b2c/identity-provider-azure-ad-single-tenant.md) u otro inquilino de Azure AD como proveedor de identidades. Para cumplir estos nuevos requisitos, haga lo siguiente:
 
-1. [Compruebe la identidad de la empresa con la cuenta de Microsoft Partner Network (MPN)](/partner-center/verification-responses). Este proceso comprueba la información sobre la empresa y el contacto principal de la empresa.
-1. Complete el proceso de comprobación del publicador para asociar la cuenta de MPN con el registro de la aplicación mediante una de las siguientes opciones:
-   - Si el registro de la aplicación para el proveedor de identidades de la cuenta de Microsoft está en un inquilino de Azure AD, [compruebe la aplicación en el portal de registro de aplicaciones](../active-directory/develop/mark-app-as-publisher-verified.md).
+1. [Compruebe la identidad de la empresa con la cuenta de Microsoft Partner Network (MPN)](/partner-center/verification-responses). Este proceso comprueba la información sobre su empresa y el contacto principal de esta.
+1. Complete el proceso de comprobación del publicador para asociar su cuenta de MPN al registro de la aplicación usando una de las siguientes opciones:
+   - Si el registro de la aplicación para el proveedor de identidades de la cuenta Microsoft está en un inquilino de Azure AD, [compruebe la aplicación en el portal de registro de aplicaciones](../active-directory/develop/mark-app-as-publisher-verified.md).
    - Si el registro de la aplicación para el proveedor de identidades de la cuenta de Microsoft está en un inquilino de Azure AD B2C, [marque la aplicación como publicador comprobado mediante las API de Microsoft Graph](../active-directory/develop/troubleshoot-publisher-verification.md#making-microsoft-graph-api-calls) (por ejemplo, mediante Probador de Graph). La interfaz de usuario para establecer el publicador comprobado de una aplicación está deshabilitada actualmente para inquilinos de Azure AD B2C.
 
 ## <a name="create-a-microsoft-account-application"></a>Creación de una aplicación de cuenta Microsoft
@@ -47,7 +47,8 @@ A partir de noviembre de 2020, los nuevos registros de aplicaciones se muestran 
 Para habilitar el inicio de sesión para los usuarios con una cuenta de Microsoft en Azure Active Directory B2C (Azure AD B2C), tiene que crear una aplicación en [Azure Portal](https://portal.azure.com). Para más información, consulte [Registro de una aplicación con la plataforma de identidad de Microsoft](../active-directory/develop/quickstart-register-app.md). Si todavía no tiene una cuenta Microsoft, puede obtenerla en [https://www.live.com/](https://www.live.com/).
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD. Para ello, seleccione el filtro **Directorio y suscripción** que se encuentra en el menú superior y elija el directorio que contiene el inquilino de Azure AD.
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD en la lista **Nombre de directorio** y, después, seleccione **Cambiar**.
 1. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Registros de aplicaciones**.
 1. Seleccione **Nuevo registro**.
 1. Escriba el **nombre** de la aplicación. Por ejemplo, *MSAapp1*.
@@ -67,7 +68,8 @@ Para habilitar el inicio de sesión para los usuarios con una cuenta de Microsof
 ## <a name="configure-microsoft-as-an-identity-provider"></a>Configuración de Microsoft como proveedor de identidades
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) como administrador global del inquilino de Azure AD B2C.
-1. Asegúrese de usar el directorio que contiene el inquilino de Azure AD B2C. Para ello, seleccione el filtro **Directorio y suscripción** en el menú superior y luego el directorio que contiene el inquilino.
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
 1. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, busque y seleccione **Azure AD B2C**.
 1. Seleccione **Proveedores de identidades** y, luego, **Cuenta Microsoft**.
 1. Escriba un **nombre**. Por ejemplo, *MSA*.
@@ -112,7 +114,8 @@ Si quiere obtener las notificaciones `family_name` y `given_name` de Azure AD, 
 Ahora que creó la aplicación en el inquilino de Azure AD, deberá almacenar el secreto de cliente de esa aplicación en el inquilino de Azure AD B2C.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
-1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el filtro **Directorio y suscripciones** del menú superior y elija el directorio que contiene el inquilino.
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
 1. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C**.
 1. En la página de introducción, seleccione **Identity Experience Framework**.
 1. Seleccione **Claves de directiva** y luego **Agregar**.

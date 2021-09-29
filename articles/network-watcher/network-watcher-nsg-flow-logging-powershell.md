@@ -2,23 +2,19 @@
 title: 'Administración de registros de flujos de grupo de seguridad de red: Azure PowerShell'
 titleSuffix: Azure Network Watcher
 description: En esta página se explica cómo administrar registros de flujo de grupos de seguridad de red en Azure Network Watcher con PowerShell.
-services: network-watcher
-documentationcenter: na
 author: damendo
 ms.service: network-watcher
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: damendo
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 79a48f479bedfbe7ecbe5199c7af08a3321badd7
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 94a604c687326d7fb43b4b9e44aaad682d7e5ee4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123100416"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128585821"
 ---
 # <a name="configuring-network-security-group-flow-logs-with-powershell"></a>Configuración de registros de flujo de grupos de seguridad de red con PowerShell
 
@@ -35,7 +31,7 @@ La especificación detallada de todos los comandos de registros de flujo de grup
 > [!NOTE]
 > - Los comandos [Get-AzNetworkWatcherFlowLogStatus](/powershell/module/az.network/get-aznetworkwatcherflowlogstatus) y [Set-AzNetworkWatcherConfigFlowLog](/powershell/module/az.network/set-aznetworkwatcherconfigflowlog) que se utilizan en este documento requieren un permiso de "lector" adicional en el grupo de recursos de Network Watcher. Además, estos comandos son antiguos y puede que pronto queden en desuso.
 > - En su lugar, se recomienda utilizar los comandos [Get-AzNetworkWatcherFlowLog](/powershell/module/az.network/get-aznetworkwatcherflowlog) y [Set-AzNetworkWatcherFlowLog](/powershell/module/az.network/set-aznetworkwatcherflowlog) nuevos.
-> - El comando [Get-AzNetworkWatcherFlowLog](/powershell/module/az.network/get-aznetworkwatcherflowlog) nuevo ofrece cuatro variantes en pos de la flexibilidad. En caso de que utilice la variante "Ubicación <String>" de este comando, se podría requerir un permiso de "lector" adicional en el grupo de recursos de Network Watcher. Para otras variantes, no se requieren permisos adicionales. 
+> - El comando [Get-AzNetworkWatcherFlowLog](/powershell/module/az.network/get-aznetworkwatcherflowlog) nuevo ofrece cuatro variantes en pos de la flexibilidad. En caso de que utilice la variante "Ubicación \<String\>" de este comando, se podría requerir un permiso de "lector" adicional en el grupo de recursos de Network Watcher. Para otras variantes, no se requieren permisos adicionales. 
 
 ## <a name="register-insights-provider"></a>Registro del proveedor de Insights
 

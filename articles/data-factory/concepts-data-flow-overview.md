@@ -8,12 +8,12 @@ ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 08/26/2021
-ms.openlocfilehash: 1d4e8ad4fd7d0b5690f506e9db7f1043c8f21045
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: 2c61431f3556a83482306c76c7246df5ba2c0139
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123039098"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124828391"
 ---
 # <a name="mapping-data-flows-in-azure-data-factory"></a>Flujos de datos de asignación en Azure Data Factory
 
@@ -29,7 +29,7 @@ Los flujos de datos de asignación proporcionan una experiencia completamente vi
 
 Los flujos de datos se crean desde el panel Factory Resources (Recursos de fábrica) como canalizaciones y conjuntos de datos. Para crear un flujo de datos, seleccione el signo más junto a **Factory Resources** (Recursos de fábrica) y luego **Data Flow**. 
 
-![Nuevo flujo de datos](media/data-flow/new-data-flow.png)
+:::image type="content" source="media/data-flow/new-data-flow.png" alt-text="Nuevo flujo de datos":::
 
 Con esta acción, accederá al lienzo de flujo de datos, donde podrá crear la lógica de transformación. Seleccione **Agregar origen** para comenzar a configurar la transformación de origen. Para más información, consulte [Transformación de origen](data-flow-source.md).
 
@@ -37,13 +37,13 @@ Con esta acción, accederá al lienzo de flujo de datos, donde podrá crear la l
 
 El flujo de datos de asignación tiene un lienzo de creación único diseñado para facilitar la creación de lógica de transformación. El lienzo de flujo de datos está dividido en tres partes: la barra superior, el gráfico y el panel de configuración. 
 
-![Captura de pantalla que muestra el lienzo del flujo de datos con la barra superior, el gráfico y el panel de configuración marcados.](media/data-flow/canvas-1.png "Lienzo")
+:::image type="content" source="media/data-flow/canvas-1.png" alt-text="Captura de pantalla que muestra el lienzo del flujo de datos con la barra superior, el gráfico y el panel de configuración marcados.":::
 
 ### <a name="graph"></a>Grafo
 
 En el gráfico se muestra el flujo de transformación. Muestra el linaje de los datos de origen a medida que fluyen hacia uno o varios receptores. Para agregar un nuevo origen, seleccione **Agregar origen**. Para agregar una nueva transformación, seleccione el signo más situado en la parte inferior derecha de una transformación existente. Obtenga más información sobre cómo [administrar el gráfico de flujo de datos](concepts-data-flow-manage-graph.md).
 
-![Captura de pantalla que muestra la parte del gráfico del lienzo con un cuadro de texto de búsqueda.](media/data-flow/canvas-2.png)
+:::image type="content" source="media/data-flow/canvas-2.png" alt-text="Captura de pantalla que muestra la parte del gráfico del lienzo con un cuadro de texto de búsqueda.":::
 
 ### <a name="configuration-panel"></a>Panel de configuración
 
@@ -55,19 +55,19 @@ Cada transformación contiene al menos cuatro pestañas de configuración.
 
 La primera pestaña del panel de configuración de cada transformación contiene los valores específicos de esa transformación. Para más información, consulte la página de documentación de la transformación.
 
-![Pestaña de configuración de origen](media/data-flow/source1.png "Pestaña de configuración de origen")
+:::image type="content" source="media/data-flow/source1.png" alt-text="Pestaña de configuración de origen":::
 
 #### <a name="optimize"></a>Optimización
 
 La pestaña **Optimizar** contiene valores opcionales para configurar los esquemas de partición. Para obtener más información sobre cómo optimizar los flujos de datos, consulte la [guía de rendimiento de flujos de datos de asignación](concepts-data-flow-performance.md).
 
-![Captura de pantalla que muestra la pestaña Optimizar, que incluye la opción de partición, el tipo de partición y el número de particiones.](media/data-flow/optimize.png)
+:::image type="content" source="media/data-flow/optimize.png" alt-text="Captura de pantalla que muestra la pestaña Optimizar, que incluye la opción de partición, el tipo de partición y el número de particiones.":::
 
-#### <a name="inspect&quot;></a>Inspeccionar
+#### <a name="inspect"></a>Inspeccionar
 
 La pestaña **Inspeccionar** proporciona una vista de los metadatos del flujo de datos que se está transformando. Puede ver el número de columnas, las columnas que han cambiado, las columnas que se han agregado, los tipos de datos, el orden de las columnas y las referencias de las columnas. **Inspeccionar** es una vista de solo lectura de los metadatos. Para ver los metadatos en el panel **Inspeccionar**, no es preciso que el modo de depuración esté habilitado.
 
-![Inspeccionar](media/data-flow/inspect1.png &quot;Inspeccionar")
+:::image type="content" source="media/data-flow/inspect1.png" alt-text="Inspeccionar":::
 
 Al cambiar la forma de los datos mediante transformaciones, verá que los cambios de los metadatos fluyen por el panel **Inspeccionar**. Si no hay un esquema definido en la transformación de origen, los metadatos no estarán visibles en el panel **Inspeccionar**. La falta de metadatos es habitual en escenarios de desviación en el esquema.
 

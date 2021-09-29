@@ -6,14 +6,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 08/20/2020
+ms.date: 09/15/2021
 ms.author: banders
-ms.openlocfilehash: d2ccfcb26c66d936d474cd5bd4f830d03a8b0002
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: f1666d0bf02a10c2c5e1f87f68d4365782de683d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88682920"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128648722"
 ---
 # <a name="why-is-my-azure-for-students-subscription-disabled-and-how-do-i-reactivate-it"></a>¿Por qué está deshabilitada mi suscripción a Azure for Students y cómo reactivarla?
 
@@ -36,9 +36,9 @@ Puede comprobar el crédito que le queda en el [portal de Patrocinio de Microsof
 
 La tabla contiene las columnas siguientes:
 
-* **Nombre del servicio:** El servicio que consume el crédito de Azure.
-* **Recurso de servicio:** Unidad de medida del servicio que se consume.
-* **Gasto:** Importe del crédito en USD($) gastado en el servicio.
+* **Nombre de servicio:** el servicio que consume el crédito de Azure.
+* **Recurso de servicio:** unidad de medida del servicio que se consume.
+* **Gasto:** importe del crédito en USD($) gastado en el servicio.
 
 ## <a name="your-credit-has-expired"></a>El crédito expiró
 

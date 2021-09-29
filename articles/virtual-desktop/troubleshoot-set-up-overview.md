@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 12/04/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: fefaac3d969695bd85264a82ce76f1524c3c56f0
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: c847c87a24dedc994da39a37f37def3caeef4db1
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113758826"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124818626"
 ---
 # <a name="troubleshooting-overview-feedback-and-support-for-azure-virtual-desktop"></a>Información general, comentarios y soporte técnico para la solución de problemas de Azure Virtual Desktop
 
@@ -53,11 +53,11 @@ Use la siguiente tabla para identificar y resolver los problemas que puedan surg
 
 - Para solucionar problemas durante la creación de un grupo de hosts en un entorno de Azure Virtual Desktop, consulte [Creación de grupos de host](troubleshoot-set-up-issues.md).
 - Para solucionar problemas al configurar una máquina virtual (VM) en Azure Virtual Desktop, consulte [Configuración de la máquina virtual del host de sesión](troubleshoot-vm-configuration.md).
-- Para solucionar problemas relacionados con el agente de Windows Virtual Desktop o la conectividad de sesión, consulte [Solución de problemas comunes del agente de Azure Virtual Desktop](troubleshoot-agent.md).
+- Para solucionar problemas relacionados con el agente de Azure Virtual Desktop o la conectividad de sesión, consulte [Solución de problemas comunes del agente de Azure Virtual Desktop](troubleshoot-agent.md).
 - Para solucionar problemas con conexiones de cliente de Azure Virtual Desktop, consulte [Conexiones de servicios de Azure Virtual Desktop](troubleshoot-service-connection.md).
 - Para solucionar problemas con los clientes de Escritorio remoto, consulte [Solución de problemas del cliente de Escritorio remoto](troubleshoot-client.md).
 - Para solucionar problemas al usar PowerShell con Azure Virtual Desktop, consulte [PowerShell para Azure Virtual Desktop](troubleshoot-powershell.md).
 - Para más información sobre el servicio, consulte [Entorno de Azure Virtual Desktop](environment-setup.md).
 - Para realizar un tutorial de solución de problemas, consulte [Tutorial: Solución de problemas de las implementaciones de plantillas de Resource Manager](../azure-resource-manager/templates/template-tutorial-troubleshoot.md).
-- Para más información sobre las acciones de auditoría, consulte [Operaciones de auditoría con Resource Manager](../azure-resource-manager/management/view-activity-logs.md).
+- Para más información sobre las acciones de auditoría, consulte [Operaciones de auditoría con Resource Manager](../azure-monitor/essentials/activity-log.md).
 - Para obtener información sobre las acciones que permiten determinar los errores que se producen durante la implementación, consulte [Visualización de operaciones de implementación](../azure-resource-manager/templates/deployment-history.md).

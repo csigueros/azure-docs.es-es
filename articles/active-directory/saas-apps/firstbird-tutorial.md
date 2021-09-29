@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/06/2019
 ms.author: jeedes
-ms.openlocfilehash: bb49f542fbd744a16ab1674ceab4b0bffc9a41f8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 7d6def54aa2e10208dab0d43f830f58620c1affc
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92453423"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124834875"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-firstbird"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Firstbird
 
@@ -160,7 +160,7 @@ En esta sección, se crea un usuario llamado B.Simon en Firstbird. Firstbird adm
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de Firstbird en el panel de acceso y debería iniciar sesión automáticamente en la versión de Firstbird para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
+Al hacer clic en el icono de Firstbird en el panel de acceso y debería iniciar sesión automáticamente en la versión de Firstbird para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

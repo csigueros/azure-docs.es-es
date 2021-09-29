@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d476be7a417cfc31cca76d3409074aaaa281a56
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4d9c22974ec3452df9597999eb62569a08eb85dc
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98724617"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124754405"
 ---
 # <a name="build-resilience-with-device-states"></a>Aumento de la resistencia con estados de dispositivos
 
@@ -42,7 +42,7 @@ Cuando se usa un PRT para solicitar acceso a una aplicación, sus notificaciones
 
 * Estandarice el acceso al explorador del usuario para usar [Microsoft Edge](/deployedge/microsoft-edge-security-identity) o Google Chrome con [extensiones](https://chrome.google.com/webstore/detail/office/ndjpnladcallmjemlbaebfadecfhkepb) [compatibles](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji) que habiliten el inicio de sesión único de conexión directa a aplicaciones web mediante el PRT.
 
-* En el caso de los dispositivos iOS y Android de propiedad personal o de la empresa, implemente la [aplicación Microsoft Authenticator](../user-help/user-help-auth-app-overview.md). Además de las funcionalidades de inicio de sesión con autenticación multifactor y sin contraseña, la aplicación Microsoft Authenticator habilitará el inicio de sesión único en la aplicación nativa a través de la [autenticación con intermediación](../develop/msal-android-single-sign-on.md) con menos solicitudes de autenticación para los usuarios finales.
+* En el caso de los dispositivos iOS y Android de propiedad personal o de la empresa, implemente la [aplicación Microsoft Authenticator](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc). Además de las funcionalidades de inicio de sesión con autenticación multifactor y sin contraseña, la aplicación Microsoft Authenticator habilitará el inicio de sesión único en la aplicación nativa a través de la [autenticación con intermediación](../develop/msal-android-single-sign-on.md) con menos solicitudes de autenticación para los usuarios finales.
 
 * En el caso de los dispositivos iOS y Android de propiedad personal o de la empresa, use la [administración de aplicaciones móviles](/mem/intune/apps/app-management) para tener acceso de forma segura a los recursos de la empresa con menos solicitudes de autenticación. 
 

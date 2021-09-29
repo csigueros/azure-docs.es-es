@@ -2,13 +2,13 @@
 title: 'Introducción a los centros de eventos dedicados: Azure Event Hubs | Microsoft Docs'
 description: En este artículo, se proporciona información general sobre Azure Event Hubs dedicado, que permite realizar implementaciones de centros de eventos con un único inquilino.
 ms.topic: article
-ms.date: 10/23/2020
-ms.openlocfilehash: c398bd6bc17ef29f7a8fce30940ae4000b317754
-ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
+ms.date: 09/23/2021
+ms.openlocfilehash: 696df96c9ac833d937fb89c52842b09ace4c4ec5
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2021
-ms.locfileid: "112412978"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129210730"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>Introducción a Event Hubs dedicado
 

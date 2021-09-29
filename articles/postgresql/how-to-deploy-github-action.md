@@ -7,16 +7,16 @@ ms.topic: quickstart
 ms.author: sumuth
 ms.date: 10/12/2020
 ms.custom: github-actions-azure
-ms.openlocfilehash: 7fc59c0d9036a2e83c742f51fc17750d40e057fe
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: acfed042be582475f3d186b5bcfbb6754d621b28
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107791434"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124766898"
 ---
 # <a name="quickstart-use-github-actions-to-connect-to-azure-postgresql"></a>Inicio rápido: Uso de Acciones de GitHub para conectarse a Azure PostgreSQL
 
-<Token>**SE APLICA A:** :::image type="icon" source="./media/applies-to/yes.png" border="false":::Azure Database for PostgreSQL: Servidor único:::image type="icon" source="./media/applies-to/yes.png" border="false":::Azure Database for PostgreSQL: Servidor flexible</Token>
+**SE APLICA A:** :::image type="icon" source="./media/applies-to/yes.png" border="false":::Azure Database for PostgreSQL: Servidor único:::image type="icon" source="./media/applies-to/yes.png" border="false":::Azure Database for PostgreSQL: Servidor flexible 
 
 Comience a trabajar con [Acciones de GitHub](https://docs.github.com/en/actions) usando un flujo de trabajo para implementar actualizaciones de base de datos en [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql/).
 

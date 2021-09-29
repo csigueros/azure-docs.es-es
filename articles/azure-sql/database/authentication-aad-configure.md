@@ -12,12 +12,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/11/2021
-ms.openlocfilehash: 29479aa35146630162226ff392f3924bc59ea8ae
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 4bcfc687e1a91fd2ecc652ced2481963974e155f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121735626"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128643353"
 ---
 # <a name="configure-and-manage-azure-ad-authentication-with-azure-sql"></a>Configuración y administración de la autenticación de Azure AD con Azure SQL
 
@@ -531,9 +531,9 @@ Este método de autenticación permite a los servicios de nivel intermedio obten
 Cadena de conexión de ejemplo:
 
 ```csharp
-string ConnectionString =@"Data Source=n9lxnyuzhv.database.windows.net; Initial Catalog=testdb;"
+string ConnectionString = @"Data Source=n9lxnyuzhv.database.windows.net; Initial Catalog=testdb;";
 SqlConnection conn = new SqlConnection(ConnectionString);
-conn.AccessToken = "Your JWT token"
+conn.AccessToken = "Your JWT token";
 conn.Open();
 ```
 

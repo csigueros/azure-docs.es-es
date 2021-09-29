@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 08/17/2021
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick; azure-synapse
-ms.openlocfilehash: ce3f7b923cec3dec28043f43babbaa86a0c6d92e
-ms.sourcegitcommit: c2f0d789f971e11205df9b4b4647816da6856f5b
+ms.openlocfilehash: 2b3e2af66334ebb82c8113caac2f8b78d5c8bf20
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122662073"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128674497"
 ---
 # <a name="performance-tune-with-materialized-views"></a>Optimización del rendimiento con vistas materializadas
 
@@ -57,9 +57,6 @@ En comparación con otros proveedores de almacenamiento de datos, las vistas mat
 - Amplia compatibilidad con funciones de agregado. Consulte [CREATE MATERIALIZED VIEW AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql).
 - Compatibilidad con la recomendación de vista materializada específica de la consulta.  Consulte [EXPLAIN (Transact-SQL)](/sql/t-sql/queries/explain-transact-sql).
 - Actualización automática y sincrónica de los datos con los cambios de los datos de las tablas base. No se requiere ninguna acción del usuario.
->[!note] 
-> Una vista materializada creada con expresiones CASE almacena valores que cumplen los criterios CASE solo en el momento de la creación de la vista.  La vista materializada no refleja los cambios de datos incrementales resultantes de las expresiones CASE después de crear la vista.   
-
  
 ## <a name="common-scenarios"></a>Escenarios frecuentes  
 

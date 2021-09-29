@@ -7,16 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 07/06/2021
+ms.date: 09/16/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: b2c-support, has-adal-ref
-ms.openlocfilehash: 1e21be821a495dae95b0bc45b47aef4345802f38
-ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
+ms.openlocfilehash: 4dca649048a393adaba58614ab8f63dec5db29e2
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123186198"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128575178"
 ---
 # <a name="enable-authentication-in-your-own-android-app-by-using-azure-ad-b2c"></a>Habilitación de la autenticación en una aplicación de Android propia mediante Azure AD B2C
 
@@ -142,7 +142,8 @@ Configure dónde escucha su aplicación la respuesta del token de Azure AD B2C
 Para actualizar el registro de la aplicación móvil con el URI de redireccionamiento de la aplicación, haga lo siguiente:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-1. Seleccione el icono **Directorio y suscripción** en la barra de herramientas del portal y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
 1. Busque y seleccione **Azure AD B2C**.
 1. Seleccione **Registros de aplicaciones** y, después, seleccione la aplicación que registró en el [Paso 2.3: Registro de la aplicación móvil](configure-authentication-sample-android-app.md#step-23-register-the-mobile-app).
 1. Seleccione **Autenticación**.

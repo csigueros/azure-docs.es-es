@@ -7,7 +7,7 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 09/16/2021
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 27d5427d34de591f9cfeab2310d79a2fde217624
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 0cd42f2a8ba7b9d543909604184e3618da31e710
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "88917880"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128656557"
 ---
 # <a name="odata-logical-operators-in-azure-cognitive-search---and-or-not"></a>Operadores lógicos de OData en Azure Cognitive Search: `and`, `or`, `not`
 

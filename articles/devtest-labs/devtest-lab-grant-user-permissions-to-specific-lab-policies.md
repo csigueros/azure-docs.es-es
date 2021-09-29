@@ -1,15 +1,15 @@
 ---
-title: Concesión de permisos de usuario a directivas específicas de laboratorio | Microsoft Docs
+title: Concesión de permisos de usuario a directivas específicas de laboratorio
 description: Obtenga información acerca de cómo conceder permisos de usuario para las directivas específicas de laboratorio en DevTest Labs según las necesidades de cada usuario
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8a9d48ca6c798c38aa7bda3a8e19405fcfa0a439
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: baf520f1d34d94926e4cf5eff5191d84936e34e0
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110703757"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128650520"
 ---
 # <a name="grant-user-permissions-to-specific-lab-policies"></a>Concesión de permisos de usuario a directivas específicas de laboratorio
 ## <a name="overview"></a>Información general

@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04f7b5a7757d402035e36aaf085de9033d046ba2
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 52e50aa4097dbb405b0c37a96426440fdf002810
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121723164"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124763146"
 ---
 # <a name="combined-security-information-registration-for-azure-active-directory-overview"></a>Introducción al registro de información de seguridad combinado para Azure Active Directory
 
@@ -32,7 +32,7 @@ En este artículo se describe qué es el registro de seguridad combinado. Para e
 
 ![Mi cuenta con información de seguridad registrada de un usuario](media/concept-registration-mfa-sspr-combined/combined-security-info-defaults-registered.png)
 
-Antes de habilitar la nueva experiencia, revise esta documentación centrada en el administrador y la documentación centrada en el usuario para asegurarse de que entiende las funciones y el efecto de esta característica. Con el fin de preparar a los usuarios para la nueva experiencia y ayudar a garantizar un lanzamiento satisfactorio, puede basar el aprendizaje en la [documentación de usuario](../user-help/security-info-setup-signin.md).
+Antes de habilitar la nueva experiencia, revise esta documentación centrada en el administrador y la documentación centrada en el usuario para asegurarse de que entiende las funciones y el efecto de esta característica. Con el fin de preparar a los usuarios para la nueva experiencia y ayudar a garantizar un lanzamiento satisfactorio, puede basar el aprendizaje en la [documentación de usuario](https://support.microsoft.com/account-billing/set-up-your-security-info-from-a-sign-in-prompt-28180870-c256-4ebf-8bd7-5335571bf9a8).
 
 El registro de información de seguridad combinado de Azure AD está disponible para las nube de Azure US Government, pero no para Azure Alemania ni Azure China 21Vianet.
 

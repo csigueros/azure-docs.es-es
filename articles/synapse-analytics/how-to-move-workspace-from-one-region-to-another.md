@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/16/2021
 ms.author: phanir
 ms.reviewer: jrasnick
-ms.openlocfilehash: a13231ea890476e5fc52cf563c250ef0124f940b
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 6ad246eefb86c31291d2a9745c6f77e276701744
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123539702"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129214092"
 ---
 # <a name="move-an-azure-synapse-analytics-workspace-from-one-region-to-another"></a>Traslado de un área de trabajo de Azure Synapse Analytics de una región a otra
 
@@ -59,7 +59,7 @@ Mover un área de trabajo de Azure Synapse de una región a otra es un proceso d
 
 En esta sección, creará el área de trabajo de Azure Synapse con Azure PowerShell, la CLI de Azure y Azure Portal. Creará un grupo de recursos junto con una cuenta de Azure Data Lake Storage Gen2 que se usará como almacenamiento predeterminado para el área de trabajo, como parte de los scripts de PowerShell y de la CLI. Si desea automatizar el proceso de implementación, invoque estos scripts de PowerShell o de la CLI desde la canalización de versión de DevOps.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 Para crear un área de trabajo desde Azure Portal, siga los pasos que se indican en [Inicio rápido: Creación de un área de trabajo de Synapse](quickstart-create-workspace.md).
 
 ### <a name="azure-powershell"></a>Azure PowerShell 
@@ -210,7 +210,7 @@ az synapse workspace create `
 ## <a name="step-2-create-an-azure-synapse-workspace-firewall-rule"></a>Paso 2: Creación de una regla de firewall para el área de trabajo de Azure Synapse 
 Una vez creada el área de trabajo, agregue reglas de firewall para ella. Restrinja las direcciones IP a un intervalo determinado. Puede agregar un firewall desde Azure Portal o usando PowerShell o la CLI.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 Seleccione las opciones de firewall y agregue el intervalo de direcciones IP como se muestra en la siguiente captura de pantalla.
 
 :::image type="icon" source="media/how-to-move-workspace-from-one-region-to-another/firewall.png" border="false":::
@@ -261,7 +261,7 @@ az synapse workspace managed-identity grant-sql-access `
 
 Cree el grupo de Spark con la misma configuración que en el área de trabajo de la región de origen.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 
 Para crear un grupo de Spark desde Azure Portal, consulte [Inicio rápido: Creación de un grupo de Apache Spark sin servidor mediante Azure Portal](quickstart-create-apache-spark-pool-portal.md).
 
@@ -364,7 +364,7 @@ No se pueden crear copias de seguridad ni restaurar los grupos de Spark y de SQL
 
 ## <a name="step-6-deploy-artifacts-and-pipelines-by-using-cicd"></a>Paso 6: Implementación de artefactos y canalizaciones mediante CI/CD 
 
- Para saber cómo integrar un área de trabajo de Azure Synapse con Azure DevOps o GitHub, y cómo implementar los artefactos en un área de trabajo de la región de destino, siga los pasos que se indican en [Integración y entrega continuas para las áreas de trabajo de Azure Synapse](cicd/continuous-integration-deployment.md). 
+ Para saber cómo integrar un área de trabajo de Azure Synapse con Azure DevOps o GitHub, y cómo implementar los artefactos en un área de trabajo de la región de destino, siga los pasos que se indican en [Integración y entrega continuas para las áreas de trabajo de Azure Synapse](cicd/continuous-integration-delivery.md). 
 
 Una vez que el área de trabajo está integrada con Azure DevOps, verá una rama con el nombre workspace_publish. Esta rama contiene la plantilla de área de trabajo que incluye definiciones para los artefactos, como cuadernos, scripts de SQL, conjuntos de datos, servicios vinculados, canalizaciones, desencadenadores y trabajos de Spark.
 
@@ -390,7 +390,7 @@ Para crear un entorno SHIR, siga los pasos que se indican en [Creación y config
 
  Asigne el acceso `Storage Blob Contributor` a la identidad administrada de la nueva área de trabajo en la cuenta de Data Lake Storage Gen2 asociada predeterminada. Asigne también acceso a otras cuentas de almacenamiento en las que se use SA-MI para la autenticación. Asigne el acceso `Storage Blob Contributor` o `Storage Blob Reader` a los usuarios y grupos de Azure AD para todas las cuentas de almacenamiento necesarias.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 Siga los pasos que se indican en [Concesión de permisos a una identidad administrada de área de trabajo (versión preliminar)](security/how-to-grant-workspace-managed-identity-permissions.md) para asignar el rol de colaborador de datos de Storage Blob a la identidad administrada del área de trabajo.
 
 ### <a name="azure-powershell"></a>Azure PowerShell

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/24/2021
 ms.author: jeedes
-ms.openlocfilehash: 62a64270083b7589bb1c6bfb0298ddac8cd71227
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 6ed85566f1654e117c2e0871b44fcc14ea096060
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108130749"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124783812"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cylanceprotect"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con CylancePROTECT
 
@@ -151,7 +151,7 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 * Haga clic en Probar esta aplicación en Azure Portal y debería iniciar sesión automáticamente en la instancia de CylancePROTECT para la que ha configurado el inicio de sesión único.
 
-* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de CylancePROTECT en Aplicaciones, debería iniciar sesión automáticamente en la versión de CylancePROTECT para la que configuró el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de CylancePROTECT en Aplicaciones, debería iniciar sesión automáticamente en la versión de CylancePROTECT para la que configuró el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 
 ## <a name="next-steps"></a>Pasos siguientes

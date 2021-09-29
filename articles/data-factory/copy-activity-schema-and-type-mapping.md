@@ -7,14 +7,14 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/24/2021
+ms.date: 09/09/2021
 ms.author: jianleishen
-ms.openlocfilehash: 046b25164df92c609196a701d35f989aa397253b
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.openlocfilehash: af22c23184da4163deb07b2b9d5fa470bd35042d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122825096"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124760505"
 ---
 # <a name="schema-and-data-type-mapping-in-copy-activity"></a>Asignación de esquemas y tipos de datos en la actividad de copia
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -68,7 +68,7 @@ Por ejemplo, para copiar datos de Salesforce a Azure SQL Database y asignar expl
 
 2. Asigne los campos necesarios y excluya o elimine los demás.
 
-![Asignación de tabular a tabular](media/copy-activity-schema-and-type-mapping/map-tabular-to-tabular.png)
+:::image type="content" source="media/copy-activity-schema-and-type-mapping/map-tabular-to-tabular.png" alt-text="Asignación de tabular a tabular":::
 
 La misma asignación se puede configurar de la siguiente forma en la carga de la actividad de copia (consulte `translator`):
 
@@ -187,11 +187,11 @@ Puede definir dicha asignación en la interfaz de usuario de creación de Data F
 > [!NOTE]
 > El registro se omite para los registros en los que la matriz marcada como referencia de la colección está vacía y la casilla está activada.
 
-![Asignación de datos jerárquicos a tabulares mediante la interfaz de usuario](media/copy-activity-schema-and-type-mapping/map-hierarchical-to-tabular-ui.png)
+:::image type="content" source="media/copy-activity-schema-and-type-mapping/map-hierarchical-to-tabular-ui.png" alt-text="Asignación de datos jerárquicos a tabulares mediante la interfaz de usuario":::
 
 También puede cambiar al **Editor avanzado**, en cuyo caso puede ver y editar directamente las rutas de acceso JSON de los campos. Si decide agregar una nueva asignación en esta vista, especifique la ruta de acceso JSON.
 
-![Asignación de datos jerárquicos a tabulares mediante el editor avanzado](media/copy-activity-schema-and-type-mapping/map-hierarchical-to-tabular-advanced-editor.png)
+:::image type="content" source="media/copy-activity-schema-and-type-mapping/map-hierarchical-to-tabular-advanced-editor.png" alt-text="Asignación de datos jerárquicos a tabulares mediante el editor avanzado":::
 
 La misma asignación se puede configurar de la siguiente forma en la carga de la actividad de copia (consulte `translator`):
 

@@ -8,19 +8,19 @@ ms.custom: mvc
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 9/21/2020
-ms.openlocfilehash: 57bfd9564f1f5ee3ea66e80a969760ea578a0e74
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 8430fc401e8cbb6c526f5bdca9a0b6841447793b
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "122643614"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "128588777"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-mysql---flexible-server"></a>Inicio rápido: Use Python para conectarse a datos y consultarlos en Azure Database for MySQL con la opción Servidor flexible.
 
 [[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 > [!IMPORTANT]
-> Actualmente, Azure Database for MySQL con la opción Servidor flexible se encuentra en versión preliminar pública.
+> Actualmente, la opción de implementación Servidor flexible de Azure Database for MySQL se encuentra en versión preliminar pública.
 
 En este inicio rápido se va a conectar a una instancia de Azure Database for MySQL con la opción Servidor flexible mediante Python. Puede usar instrucciones SQL para consultar, insertar, actualizar y eliminar datos de la base de datos en las plataformas Mac, Ubuntu Linux y Windows. 
 
@@ -28,7 +28,9 @@ En este artículo se da por hecho que está familiarizado con el desarrollo medi
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+* Una cuenta de Azure con una suscripción activa. 
+
+    [!INCLUDE [flexible-server-free-trial-note](../includes/flexible-server-free-trial-note.md)]
 * Azure Database for MySQL con la opción Servidor flexible. Para crear un servidor flexible, consulte [Creación de una instancia de Azure Database for MySQL con la opción Servidor flexible mediante Azure Portal](./quickstart-create-server-portal.md) o [Creación de una instancia de Azure Database for MySQL con la opción Servidor flexible mediante la CLI de Azure](./quickstart-create-server-cli.md).
 
 ## <a name="preparing-your-client-workstation"></a>Preparación de la estación de trabajo de cliente

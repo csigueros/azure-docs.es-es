@@ -6,15 +6,15 @@ author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/17/2020
-ms.openlocfilehash: 6cf6bae3548a459a1d47dc0dcd55d28a290ca0f6
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/24/2021
+ms.openlocfilehash: 0ff55bf38e88bf62b483cf70df89a17b9c5afb8d
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121749382"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129210390"
 ---
-#    <a name="entity-recognition-cognitive-skill"></a>Aptitud cognitiva de reconocimiento de entidades
+# <a name="entity-recognition-cognitive-skill"></a>Aptitud cognitiva de reconocimiento de entidades
 
 La aptitud **Reconocimiento de entidades** extrae entidades de distintos tipos del texto. Esta aptitud utiliza los modelos de aprendizaje automático proporcionados por [Text Analytics](../cognitive-services/text-analytics/overview.md) en Cognitive Services.
 

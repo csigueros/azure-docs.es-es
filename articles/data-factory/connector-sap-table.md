@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/30/2021
-ms.openlocfilehash: b5e60883f4af77eabcd3a59334bbf31b63d5cc49
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.date: 09/09/2021
+ms.openlocfilehash: e4d77aa3d4456154149c5ad38b9fdc769953f8ad
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123316596"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124764058"
 ---
 # <a name="copy-data-from-an-sap-table-using-azure-data-factory-or-azure-synapse-analytics"></a>Copia de datos de una tabla de SAP mediante Azure Data Factory o Azure Synapse Analytics
 
@@ -53,7 +53,7 @@ La versión 7.01 o posterior hace referencia a la versión de SAP NetWeaver en l
 1. Use la GUI de SAP para conectarse al sistema de SAP. 
 2. Vaya a **System** -> **Status**. 
 3. Compruebe la versión de SAP_BASIS, asegúrese de que sea mayor o igual que 701.  
-      ![Comprobar SAP_BASIS](./media/connector-sap-table/sap-basis.png)
+      :::image type="content" source="./media/connector-sap-table/sap-basis.png" alt-text="Comprobar SAP_BASIS":::
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -63,7 +63,7 @@ Para usar este conector de tabla de SAP, necesitará lo siguiente:
 
 - Descargue el [conector de SAP de 64 bits para Microsoft.NET 3.0](https://support.sap.com/en/product/connectors/msnet.html) del sitio web de SAP e instálelo en la máquina del entorno de ejecución de integración autohospedado. Al instalarlo, asegúrese de seleccionar la opción **Install Assemblies to GAC** (Instalar ensamblados en GAC) en la ventana **Optional setup steps** (Pasos de configuración opcionales).
 
-  ![Instale el conector de SAP para .NET](./media/connector-sap-business-warehouse-open-hub/install-sap-dotnet-connector.png)
+  :::image type="content" source="./media/connector-sap-business-warehouse-open-hub/install-sap-dotnet-connector.png" alt-text="Instale el conector de SAP para .NET":::
 
 - El usuario de SAP que se está usando en el conector de SAP Table debe tener los siguientes permisos:
 
@@ -331,7 +331,7 @@ Actualmente, el conector de SAP Table solo admite una tabla con el módulo de fu
 
 Aquí tiene un ejemplo:
 
-![Combinación de SAP Table](./media/connector-sap-table/sap-table-join.png) 
+:::image type="content" source="./media/connector-sap-table/sap-table-join.png" alt-text="Combinación de SAP Table"::: 
 
 >[!TIP]
 >También puede considerar la posibilidad de que los datos combinados se agreguen en la VISTA, que es compatible con el conector de SAP Table.
@@ -345,13 +345,13 @@ A modo de guía rápida, estos son algunos requisitos para empezar a trabajar co
 
 - Definición:
 
-    ![Definición](./media/connector-sap-table/custom-function-module-definition.png) 
+    :::image type="content" source="./media/connector-sap-table/custom-function-module-definition.png" alt-text="Definición"::: 
 
 - Exporte los datos a una de las tablas siguientes:
 
-    ![Tabla de exportación 1](./media/connector-sap-table/export-table-1.png) 
+    :::image type="content" source="./media/connector-sap-table/export-table-1.png" alt-text="Tabla de exportación 1"::: 
 
-    ![Tabla de exportación 2](./media/connector-sap-table/export-table-2.png)
+    :::image type="content" source="./media/connector-sap-table/export-table-2.png" alt-text="Tabla de exportación 2":::
  
 A continuación se ilustra cómo funciona el conector de SAP Table con el módulo de función personalizado:
 
@@ -367,11 +367,11 @@ A continuación se ilustra cómo funciona el conector de SAP Table con el módul
 
     1. Analice el valor de la tabla Fields para obtener los esquemas.
 
-        ![Analice los valores de Fields](./media/connector-sap-table/parse-values.png)
+        :::image type="content" source="./media/connector-sap-table/parse-values.png" alt-text="Analice los valores de Fields":::
 
     1. Obtenga los valores de la tabla de salida para ver qué tabla contiene estos valores.
 
-        ![Obtener valores en la tabla de salida](./media/connector-sap-table/get-values.png)
+        :::image type="content" source="./media/connector-sap-table/get-values.png" alt-text="Obtener valores en la tabla de salida":::
 
     1. Obtenga los valores de OUT_TABLE, analice los datos y escríbalos en el receptor.
 

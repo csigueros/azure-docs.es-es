@@ -3,7 +3,7 @@ title: Guía de migración de ADAL a a MSAL (MSAL4j) | Azure
 titleSuffix: Microsoft identity platform
 description: Obtenga información sobre cómo migrar la aplicación de Java de la Biblioteca de autenticación de Azure Active Directory (ADAL) a la Biblioteca de autenticación de Microsoft (MSAL).
 services: active-directory
-author: sangonzal
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: Java
 ms.workload: identity
 ms.date: 11/04/2019
-ms.author: sagonzal
+ms.author: marsma
 ms.reviewer: nacanuma, twhitney
 ms.custom: aaddev, devx-track-java, has-adal-ref
-ms.openlocfilehash: 60d9b427fd8c5d856266facf7b1370837b00a144
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
+ms.openlocfilehash: c70f2d1495f827c391fab86fc6ea1dea4301fc29
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122418835"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128624622"
 ---
 # <a name="adal-to-msal-migration-guide-for-java"></a>Guía de migración de ADAL a MSAL para Java
 

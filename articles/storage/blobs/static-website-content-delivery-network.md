@@ -7,16 +7,16 @@ ms.subservice: blobs
 ms.topic: how-to
 ms.author: normesta
 ms.date: 04/07/2020
-ms.openlocfilehash: 1c17fceb267018901975f942f7cfc804f450ead9
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.openlocfilehash: fcc79c6b1828d4feb33a73f04e98f92abbf7384e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122867647"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128597025"
 ---
 # <a name="integrate-a-static-website-with-azure-cdn"></a>Integración de un sitio web estático con Azure CDN
 
-Puede habilitar [Azure Content Delivery Network (CDN)](../../cdn/cdn-overview.md) para almacenar en caché el contenido de un [sitio web estático](storage-blob-static-website.md) que esté hospedado en una cuenta de Azure Storage. Puede usar Azure CDN para configurar el punto de conexión del dominio personalizado de su sitio web estático, aprovisionar certificados TLS/SSL personalizados y configurar reglas de reescritura personalizadas. La configuración de Azure CDN da como resultado cargos adicionales, pero proporciona latencias bajas y coherentes a su sitio web desde cualquier parte del mundo. Azure CDN también proporciona el cifrado TLS con su propio certificado. 
+Puede habilitar [Azure Content Delivery Network (CDN)](../../cdn/cdn-overview.md) para almacenar en caché el contenido de un [sitio web estático](storage-blob-static-website.md) que esté hospedado en una cuenta de Azure Storage. Puede usar Azure CDN para configurar el punto de conexión del dominio personalizado de su sitio web estático, aprovisionar certificados TLS/SSL personalizados y configurar reglas de reescritura personalizadas. La configuración de Azure CDN da como resultado cargos adicionales, pero proporciona latencias bajas y coherentes a su sitio web desde cualquier parte del mundo. Azure CDN también proporciona el cifrado TLS con su propio certificado.
 
 Para más información sobre los precios de Azure CDN, consulte [Precios de Azure CDN](https://azure.microsoft.com/pricing/details/cdn/).
 
@@ -36,7 +36,7 @@ Puede habilitar Azure CDN para su sitio web estático directamente desde su cuen
 
 1. En el campo **Nombre del punto de conexión de CDN**, especifique el nombre del punto de conexión de CDN. El punto de conexión de red CDN debe ser único en Azure y proporcionar la primera parte de la dirección URL del punto de conexión. El formulario valida que el nombre del punto de conexión es único.
 
-1. Escriba el punto de conexión del sitio web estático en el campo **Nombre de host de origen**. 
+1. Escriba el punto de conexión del sitio web estático en el campo **Nombre de host de origen**.
 
    Para buscar el punto de conexión del sitio web estático, vaya al valor **Sitio web estático** de la cuenta de almacenamiento.  Copie el punto de conexión principal y péguelo en la configuración de CDN.
 
@@ -63,9 +63,9 @@ Puede habilitar Azure CDN para su sitio web estático directamente desde su cuen
 
 Si ya no desea almacenar en caché un objeto en Azure CDN, puede realizar uno de los siguientes pasos:
 
-* Convierta el contenedor en privado en lugar de público. Para más información, consulte [Administración del acceso de lectura anónimo a contenedores y blobs](./anonymous-read-access-configure.md).
-* Deshabilite o elimine el punto de conexión de CDN mediante Azure Portal.
-* Modifique su servicio hospedado para no seguir respondiendo a las solicitudes del objeto.
+- Convierta el contenedor en privado en lugar de público. Para más información, consulte [Administración del acceso de lectura anónimo a contenedores y blobs](./anonymous-read-access-configure.md).
+- Deshabilite o elimine el punto de conexión de CDN mediante Azure Portal.
+- Modifique su servicio hospedado para no seguir respondiendo a las solicitudes del objeto.
 
 Un objeto que ya está almacenado en caché en Azure CDN permanece en caché hasta que cumple el período de vida del objeto o hasta que se [purgue](../../cdn/cdn-purge-endpoint.md) el punto de conexión. Al cumplir el período de vida, Azure CDN determina si el punto de conexión de CDN sigue siendo válido y si el objeto sigue siendo accesible de forma anónima. En caso negativo, el objeto dejará de estar almacenado en caché.
 

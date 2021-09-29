@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.custom: subject-rbac-steps
-ms.date: 07/26/2021
+ms.date: 09/08/2021
 ms.author: radeltch
-ms.openlocfilehash: 7ce4960b167db05874447c8c3063892d0690c4eb
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: 63c7def5a76fba19eeef5192ebdfacd6225fbaa1
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123034330"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124784306"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Configuración de Pacemaker en SUSE Linux Enterprise Server en Azure
 
@@ -594,24 +594,21 @@ La entidad de servicio no tiene permiso para acceder a los recursos de Azure de 
 Utilice el siguiente contenido para el archivo de entrada. Debe adaptar el contenido a sus suscripciones; esto es, reemplace c276fc76-9cd4-44c9-99a7-4fd71546436e y e91d47c4-76f3-4271-a796-21b4ecfe3624 por los identificadores de su suscripción. Si solo tiene una suscripción, quite la segunda entrada en AssignableScopes.
 
 ```json
-       {
-         "Name": "Linux Fence Agent Role - Test",
-         "description": "Allows to power-off and start virtual machines",
-         "assignableScopes": [
-         "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e",
-         "/subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624"
-         ],
-         "actions": [
-         "Microsoft.Compute/*/read",
-         "Microsoft.Compute/virtualMachines/powerOff/action",
-         "Microsoft.Compute/virtualMachines/start/action"
-            ],
-         "notActions": [],
-         "dataActions": [],
-         "notDataActions": []
-            }
-        ]
-    }
+{
+      "Name": "Linux Fence Agent Role",
+      "description": "Allows to power-off and start virtual machines",
+      "assignableScopes": [
+              "/subscriptions/e663cc2d-722b-4be1-b636-bbd9e4c60fd9",
+              "/subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624"
+      ],
+      "actions": [
+              "Microsoft.Compute/*/read",
+              "Microsoft.Compute/virtualMachines/powerOff/action",
+              "Microsoft.Compute/virtualMachines/start/action"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
 }
 ```
 

@@ -1,24 +1,19 @@
 ---
 title: Esquema de Análisis de tráfico de Azure | Microsoft Docs
 description: Comprender el esquema de Análisis de tráfico para analizar los registros de flujo de grupo de seguridad de red de Azure.
-services: network-watcher
-documentationcenter: na
 author: vinynigam
 manager: agummadi
-editor: ''
 ms.service: network-watcher
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: vinigam
-ms.openlocfilehash: fb32ff13df7329e6e78095b8ee28639312cc62b5
-ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
+ms.openlocfilehash: 2ec8f1df778a95b571f89f3213c2cc71163de955
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113216250"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128597234"
 ---
 # <a name="schema-and-data-aggregation-in-traffic-analytics"></a>Esquema y agregación de datos en Análisis de tráfico
 
@@ -143,7 +138,7 @@ A continuación se proporcionan los campos en el esquema y su significado
 | LocalNetworkGateway1_s | \<SubscriptionID>/\<ResourceGroupName>/\<LocalNetworkGatewayName> | Puerta de enlace de red local asociada con la dirección IP de origen en el flujo. |
 | LocalNetworkGateway2_s | \<SubscriptionID>/\<ResourceGroupName>/\<LocalNetworkGatewayName> | Puerta de enlace de red local asociada con la dirección IP de destino en el flujo. |
 | ConnectionType_s | Los valores posibles son VNetPeering, VpnGateway y ExpressRoute. |    Tipo de conexión. |
-| ConnectionName_s | \<SubscriptionID>/\<ResourceGroupName>/\<ConnectionName> | Nombre de la conexión. En el caso del tipo de flujo de la conexión de punto a sitio, el formato será <gateway name>_<VPN Client IP>. |
+| ConnectionName_s | \<SubscriptionID>/\<ResourceGroupName>/\<ConnectionName> | Nombre de la conexión. En el caso del tipo de flujo de la conexión de punto a sitio, el formato será \<gateway name\>_\<VPN Client IP\>. |
 | ConnectingVNets_s | Lista separada por espacios de nombres de red virtual. | En el caso de una topología de concentrador y radio, las redes virtuales de centro se rellenarán aquí. |
 | Country_s | Código de país o región de dos letras (ISO 3166-1 alfa-2). | Se rellena para el tipo de flujo ExternalPublic. Todas las direcciones IP en el campo PublicIPs_s compartirán el mismo código de país o región. |
 | AzureRegion_s | Ubicaciones de la región de Azure | Se rellena para el tipo de flujo AzurePublic. Todas las direcciones IP en el campo PublicIPs_s compartirán la región de Azure. |
