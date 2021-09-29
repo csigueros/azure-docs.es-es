@@ -228,10 +228,6 @@ items:
             href: ./sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md?context=/azure/synapse-analytics/context/context
           - name: Administración de costos para el grupo de SQL sin servidor
             href: sql/data-processed.md
-          - name: Procedimientos recomendados para un grupo de SQL sin servidor
-            href: sql/best-practices-serverless-sql-pool.md
-          - name: Procedimientos recomendados para grupos de SQL dedicados
-            href: sql/best-practices-dedicated-sql-pool.md
       - name: Guías de inicio rápido
         items:
           - name: Uso de grupos de SQL sin servidor
@@ -293,8 +289,10 @@ items:
             items:
               - name: Información general
                 href: sql/develop-overview.md
-              - name: Procedimientos recomendados
-                href: sql/develop-best-practices.md
+              - name: Procedimientos recomendados para un grupo de SQL sin servidor
+                href: sql/best-practices-serverless-sql-pool.md
+              - name: Procedimientos recomendados para grupos de SQL dedicados
+                href: sql/best-practices-dedicated-sql-pool.md
               - name: Vista materializada
                 items:
                   - name: Guía para el ajuste del rendimiento
@@ -793,6 +791,8 @@ items:
                 href: ../data-factory/connector-amazon-marketplace-web-service.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Amazon RDS para Oracle
                 href: ../data-factory/connector-amazon-rds-for-oracle.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+              - name: "Amazon RDS para SQL\_Server"
+                href: ../data-factory/connector-amazon-rds-for-sql-server.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Amazon Redshift
                 href: ../data-factory/connector-amazon-redshift.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Amazon S3

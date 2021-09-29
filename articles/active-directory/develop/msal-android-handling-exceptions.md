@@ -3,21 +3,21 @@ title: Errores y excepciones (MSAL para Android) | Azure
 titleSuffix: Microsoft identity platform
 description: Aprenda a controlar errores y excepciones, y obtenga más información sobre el acceso condicional y el desafío de las notificaciones en las aplicaciones de MSAL para Android.
 services: active-directory
-author: hamiltonha
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: troubleshooting
 ms.workload: identity
 ms.date: 08/07/2020
-ms.author: hahamil
+ms.author: marsma
 ms.reviewer: marsma
-ms.openlocfilehash: 4185206e92a78c2684ba1690f03700ef2532cc5e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5a4efe81fae5e98c588141e6dff85544dea2961a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98761392"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128567998"
 ---
 # <a name="handle-exceptions-and-errors-in-msal-for-android"></a>Control de excepciones y errores en MSAL para Android
 

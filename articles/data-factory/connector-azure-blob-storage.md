@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/30/2021
-ms.openlocfilehash: e7d9e4da611bbbf13bacee60ed73248f5b39c14c
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.date: 09/09/2021
+ms.openlocfilehash: 9de59b4510642ab70540c4217ef074347a34ac89
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123307065"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124764191"
 ---
 # <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory-or-azure-synapse-analytics"></a>Copia y transformación de datos en Azure Blob Storage mediante Azure Data Factory o Azure Synapse Analytics
 
@@ -59,7 +59,7 @@ Siga estos pasos para crear un servicio vinculado de Azure Blob Storage en la in
 
     # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
 
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Captura de pantalla de la creación de un servicio vinculado con la interfaz de usuario de Azure Data Factory.":::
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Captura de pantalla de la creación de un nuevo servicio vinculado con la interfaz de usuario de Azure Data Factory.":::
 
     # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
 
@@ -357,7 +357,7 @@ Estas propiedades son compatibles con un servicio vinculado de Azure Blob Storag
 | type | La propiedad **type** debe establecerse en **AzureBlobStorage**. | Sí |
 | serviceEndpoint | Especifique el punto de conexión de servicio de Azure Blob Storage con el patrón `https://<accountName>.blob.core.windows.net/`. | Sí |
 | accountKind | Especifique el tipo de la cuenta de almacenamiento. Los valores permitidos son: **Storage** (v1 de uso general), **StorageV2** (v2 de uso general), **BlobStorage** o **BlockBlobStorage**. <br/><br/>Cuando se usa el servicio vinculado de blob de Azure en el flujo de datos, la autenticación de identidad administrada o de entidad de servicio no se admite cuando el tipo de cuenta está definido como vacío o "almacenamiento". Especifique el tipo de cuenta adecuado, elija una autenticación diferente o actualice la cuenta de almacenamiento a uso general v2. | No |
-| credentials | Especifique la identidad administrada asignada por el usuario como el objeto de credencial. | Sí |
+| credentials | Especifique la identidad administrada asignada por el usuario como objeto de credencial. | Sí |
 | connectVia | El [entorno de ejecución de integración](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Se puede usar Azure Integration Runtime o un entorno de ejecución de integración autohospedado (si el almacén de datos está en una red privada). Si no se especifica esta propiedad, el servicio usa el valor predeterminado de Azure Integration Runtime. | No |
 
 **Ejemplo**:
@@ -629,7 +629,7 @@ La configuración específica de formato se encuentra en la documentación de es
 
 En la transformación de origen, puede leer de un contenedor, una carpeta o un archivo individual en Azure Blob Storage. Use la pestaña **Opciones de origen** para administrar cómo se leen los archivos. 
 
-![Opciones de origen](media/data-flow/sourceOptions1.png "Opciones de origen")
+:::image type="content" source="media/data-flow/sourceOptions1.png" alt-text="Opciones de origen":::
 
 **Rutas con carácter comodín:** el uso de un patrón de caracteres comodín indicará al servicio que recorra todos los archivos y carpetas que coincidan en una única transformación del origen. Se trata de una manera eficaz de procesar varios archivos en un único flujo. Agregue varios patrones de coincidencia de caracteres comodín con el signo más que aparece al desplazar el puntero sobre el patrón de caracteres comodín existente.
 
@@ -651,11 +651,11 @@ Ejemplos de caracteres comodín:
 
 En primer lugar, establezca un comodín que incluya todas las rutas de acceso que sean carpetas con particiones y, además, los archivos de hoja que quiera leer.
 
-![Configuración del archivo de origen de partición](media/data-flow/partfile2.png "Configuración del archivo de partición")
+:::image type="content" source="media/data-flow/partfile2.png" alt-text="Configuración del archivo de origen de partición":::
 
 Use el valor de **Partition root path** (Ruta de acceso de la raíz de la partición) para definir cuál es el nivel superior de la estructura de carpetas. Cuando vea el contenido de los datos mediante una vista previa, verá que el servicio agregará las particiones resueltas que se encuentran en cada uno de los niveles de carpeta.
 
-![Ruta de acceso raíz de la partición](media/data-flow/partfile1.png "Vista previa de la ruta de acceso raíz de la partición")
+:::image type="content" source="media/data-flow/partfile1.png" alt-text="Ruta de acceso raíz de la partición":::
 
 **Lista de archivos**: Se trata de un conjunto de archivos. Cree un archivo de texto que incluya una lista de archivos de ruta de acceso relativa para procesar. Apunte a este archivo de texto.
 
@@ -688,7 +688,7 @@ En este caso, todos los archivos cuyo origen se encuentra en `/data/sales` se mu
 
 En la transformación del receptor, puede escribir en un contenedor o carpeta en Azure Blob Storage. Use la pestaña **Configuración** para administrar cómo se escriben los archivos.
 
-![Opciones del receptor](media/data-flow/file-sink-settings.png "opciones de receptor")
+:::image type="content" source="media/data-flow/file-sink-settings.png" alt-text="Opciones del receptor":::
 
 **Clear the folder** (Borrar la carpeta): determina si se borra o no la carpeta de destino antes de escribir los datos.
 

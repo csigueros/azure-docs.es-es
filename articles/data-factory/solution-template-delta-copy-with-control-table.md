@@ -8,12 +8,12 @@ ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/09/2020
-ms.openlocfilehash: 2478c50b9753f3518a0a09533842a4d7abde762c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 8cf8ecaaafa9697286dcaa0ae61d00853d53a311
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121731468"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124743478"
 ---
 # <a name="delta-copy-from-a-database-with-a-control-table"></a>Copia diferencial desde una base de datos con una tabla de control
 
@@ -90,37 +90,37 @@ La plantilla define los parámetros siguientes:
     
 4. Vaya a la plantilla **Copia diferencial desde base de datos**. Cree una **nueva** conexión a la base de datos de origen desde la que desea copiar datos.
 
-    ![Creación de una nueva conexión con la tabla de origen](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable4.png)
+    :::image type="content" source="media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable4.png" alt-text="Creación de una nueva conexión con la tabla de origen":::
 
 5. Cree una **nueva** conexión al almacén de datos de destino en el que desea copiar los datos.
 
-    ![Creación de una nueva conexión a la tabla de destino](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable5.png)
+    :::image type="content" source="media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable5.png" alt-text="Creación de una nueva conexión a la tabla de destino":::
 
 6. Cree una **nueva** conexión a la tabla de control externa y al procedimiento almacenado que ha creado en los pasos 2 y 3.
 
-    ![Creación de una nueva conexión al almacén de datos de la tabla de control](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable6.png)
+    :::image type="content" source="media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable6.png" alt-text="Creación de una nueva conexión al almacén de datos de la tabla de control":::
 
 7. Seleccione **Usar esta plantilla**.
     
 8. Verá la canalización disponible, como se muestra en el ejemplo siguiente:
   
-    ![Revisión de la canalización](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable8.png)
+    :::image type="content" source="media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable8.png" alt-text="Revisión de la canalización":::
 
 9. Seleccione **Procedimiento almacenado**. En **Nombre del procedimiento almacenado**, elija **[dbo].[update_watermark]** . Seleccione **Importar parámetro** y, a continuación, seleccione **Agregar contenido dinámico**.  
 
-    ![Establecimiento de la actividad de procedimiento almacenado](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable9.png)  
+    :::image type="content" source="media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable9.png" alt-text="Establecimiento de la actividad de procedimiento almacenado":::   
 
 10. Escriba el contenido **\@{activity('LookupCurrentWaterMark').output.firstRow.NewWatermarkValue}** y, a continuación, seleccione **Finalizar**.  
 
-    ![Escritura del contenido para los parámetros del procedimiento almacenado](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable10.png)       
+    :::image type="content" source="media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable10.png" alt-text="Escritura del contenido para los parámetros del procedimiento almacenado":::        
      
 11. Seleccione **Depurar**, escriba los **parámetros** y, a continuación, seleccione **Finalizar**.
 
-    ![Selección de **Depurar**](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable11.png)
+    :::image type="content" source="media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable11.png" alt-text="Selección de **Depurar**":::
 
 12. Se muestran resultados similares a los del ejemplo siguiente:
 
-    ![Revisión del resultado](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable12.png)
+    :::image type="content" source="media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable12.png" alt-text="Revisión del resultado":::
 
 13. Puede crear nuevas filas en la tabla de origen. Este es el lenguaje SQL de ejemplo para crear nuevas filas:
 
@@ -138,7 +138,7 @@ La plantilla define los parámetros siguientes:
 
 15. (Opcional): Si selecciona Azure Synapse Analytics como destino de datos, también debe proporcionar una conexión a una instancia de Azure Blob Storage como almacenamiento provisional, porque así lo requiere Polybase de Azure Synapse Analytics. La plantilla generará una ruta de acceso del contenedor automáticamente. Después de la ejecución de la canalización, compruebe si el contenedor se ha creado en Blob Storage.
     
-    ![Configuración de PolyBase](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable15.png)
+    :::image type="content" source="media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable15.png" alt-text="Configuración de PolyBase":::
     
 ## <a name="next-steps"></a>Pasos siguientes
 

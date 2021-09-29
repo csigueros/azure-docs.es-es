@@ -7,18 +7,19 @@ ms.service: storage
 ms.topic: article
 ms.date: 02/24/2021
 ms.author: chuye
-ms.openlocfilehash: f5c43822bb9b856126c9b1ff80212d457044887b
-ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.openlocfilehash: 69b5eb294bf33a56e89052752cb8473189f34eac
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123449538"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128626653"
 ---
 # <a name="azure-storage-explorer-command-line-options"></a>Opciones de la línea de comandos del Explorador de Azure Storage
 
 El Explorador de Microsoft Azure Storage tiene un conjunto de opciones de línea de comandos que se pueden agregar al iniciar la aplicación. La mayoría de las opciones de línea de comandos son para depurar o solucionar problemas.
 
 ## <a name="command-line-options"></a>Opciones de línea de comandos
+
 Opción  | Descripción
 :------- | :-----------
 `--debug`/`--prod`  | Inicia la aplicación en modo de depuración o de producción. En el modo de depuración, los datos adjuntos locales se almacenarán en el almacenamiento local de la aplicación y no se cifrarán. Las propiedades ocultas se mostrarán en el panel Propiedades de los nodos de recursos seleccionados. El nivel de detalle del registro se establecerá para imprimir los mensajes de depuración que revelan la lógica de instalación interna del Explorador de Storage. El valor predeterminado es `--prod`.
@@ -39,6 +40,6 @@ Ejemplo de inicio del Explorador de Storage con opciones de línea de comandos p
 
 ## <a name="when-to-use-command-line-options"></a>Cuándo usar las opciones de la línea de comandos
 
-Algunas opciones de la línea de comandos se pueden usar para personalizar el Explorador de Storage. Es el caso de esas opciones que tienen una configuración de usuario correspondiente, como `--lang`. Se recomienda usar la configuración de usuario en lugar de usar la opción de línea de comandos. 
+Algunas opciones de la línea de comandos se pueden usar para personalizar el Explorador de Storage. Es el caso de esas opciones que tienen una configuración de usuario correspondiente, como `--lang`. Se recomienda usar la configuración de usuario en lugar de usar la opción de línea de comandos.
 
 Las demás opciones de la línea de comandos pueden resultar útiles para la depuración y solución de problemas. Si surge un problema en el Explorador de Storage, la reproducción del problema en el modo de depuración puede ayudarnos a obtener información más detallada para investigar.

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/21/2021
-ms.openlocfilehash: e411f7fd6f8d8a21b2016cbe16d0c7a947313331
-ms.sourcegitcommit: 98e126b0948e6971bd1d0ace1b31c3a4d6e71703
+ms.openlocfilehash: 64ef920e727baf559b71cac416404fb740e47625
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2021
-ms.locfileid: "114674870"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124788560"
 ---
 # <a name="monitor-virtual-machines-with-azure-monitor-workloads"></a>Supervisión de máquinas virtuales con Azure Monitor: cargas de trabajo
 Este artículo forma parte del escenario [Supervisión de máquinas virtuales y sus cargas de trabajo en Azure Monitor](monitor-virtual-machine.md). Describe cómo supervisar las cargas de trabajo que se ejecutan en los sistemas operativos invitados de las máquinas virtuales. En este artículo se incluyen detalles sobre el análisis y las alertas sobre diferentes orígenes de datos en las máquinas virtuales.
@@ -186,7 +186,7 @@ Para supervisar el estado de un servicio Windows o demonio de Linux, habilite la
 > [!NOTE]
 > La solución Change Tracking and Analysis es diferente de la característica [Change Analysis](vminsights-change-analysis.md) en la información de máquinas virtuales. Esta característica está en versión preliminar pública y aún no se incluye en este escenario.
 
-Para las diferentes opciones para habilitar la solución Change Tracking en las máquinas virtuales, consulte [Habilitar Seguimiento de cambios e inventario](../../automation/change-tracking/overview.md#enable-change-tracking-and-inventory). Esta solución incluye métodos para configurar máquinas virtuales a escala. Tendrá que [crear una cuenta de Azure Automation](../../automation/automation-quickstart-create-account.md) para admitir la solución.
+Para las diferentes opciones para habilitar la solución Change Tracking en las máquinas virtuales, consulte [Habilitar Seguimiento de cambios e inventario](../../automation/change-tracking/overview.md#enable-change-tracking-and-inventory). Esta solución incluye métodos para configurar máquinas virtuales a escala. Tendrá que [crear una cuenta de Azure Automation](../../automation/quickstarts/create-account-portal.md) para admitir la solución.
 
 Al habilitar el Seguimiento de cambios e inventario, se crean dos tablas nuevas en el área de trabajo de Log Analytics. Use estas tablas para las reglas de alertas de consulta de registro.
 

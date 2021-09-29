@@ -5,12 +5,12 @@ author: IngridAtMicrosoft
 ms.topic: how-to
 ms.author: inhenkel
 ms.date: 12/04/2020
-ms.openlocfilehash: f806a700fa9f1788e2435a43d8fdcb19fa8134ce
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: b7594a8d5e958b05c001f3943437e86b5830bd80
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110372660"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128667091"
 ---
 # <a name="troubleshoot-live-video-analytics-on-iot-edge"></a>Solución de problemas de Live Video Analytics on IoT Edge
 
@@ -39,7 +39,7 @@ Si la infraestructura perimetral está bien, puede comprobar si existen problema
 az iot edge set-modules --hub-name <iot-hub-name> --device-id lva-sample-device --content <path-to-deployment_manifest.json>
 ```
 Si el código JSON no tiene el formato correcto, podría recibir el siguiente error:   
-&nbsp;&nbsp;&nbsp; **No se pudo analizar el código JSON del archivo: "<deployment manifest.json>" para el argumento "content" con la excepción: "Datos adicionales: línea 101, columna 1 (char 5325)"**
+&nbsp;&nbsp;&nbsp; **No se pudo analizar el código JSON del archivo: "\<deployment manifest.json\>" para el argumento "content" con la excepción: "Datos adicionales: línea 101, columna 1 (char 5325)"**
 
 Si se produce este error, se recomienda comprobar en el archivo JSON si faltan corchetes o existe algún otro problema con la estructura del archivo. Puede usar un cliente como [Notepad++ con el complemento del visor de JSON](https://riptutorial.com/notepadplusplus/example/18201/json-viewer) o una herramienta en línea como el [formateador y validador de JSON](https://jsonformatter.curiousconcept.com/) para validar la estructura de archivos.
 

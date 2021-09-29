@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 09/16/2019
 ms.author: allensu
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d9e402b2015370eca5782ec91dd6afb8f7c6d962
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: f4d5de43786952b3581067c69e2b8840d3aa7296
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110701269"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128553343"
 ---
 # <a name="manage-a-private-endpoint-connection"></a>Administrar una conexión de punto de conexión privado
 Azure Private Link trabaja en un modelo de flujo de llamadas de aprobación en el que el consumidor del servicio Private Link puede solicitar una conexión al proveedor de servicios para consumir el servicio. A partir de ese momento, el proveedor de servicios puede decidir si va a permitir al consumidor conectarse o no. Azure Private Link permite a los proveedores de servicios administrar la conexión de punto de conexión privado en sus recursos. En este artículo se proporcionan instrucciones sobre cómo administrar las conexiones de punto de conexión privado.
@@ -36,7 +36,8 @@ En la siguiente tabla se muestran las distintas acciones del proveedor de servic
 |   |         |         |
    
 ## <a name="manage-private-endpoint-connections-on-azure-paas-resources"></a>Administración de conexiones de punto de conexión privado en los recursos de PaaS de Azure
-El portal es el método preferido para administrar conexiones de punto de conexión privado en los recursos de PaaS de Azure. Actualmente, no tenemos compatibilidad con PowerShell o la CLI para administrar conexiones en los recursos de PaaS de Azure.
+El portal es el método preferido para administrar conexiones de punto de conexión privado en los recursos de PaaS de Azure. 
+
 1. Inicie sesión en Azure Portal en https://portal.azure.com.
 2. Vaya al centro de Private Link.
 3. En **Recursos**, seleccione el tipo de recurso que desea para administrar las conexiones de punto de conexión privado.
@@ -46,7 +47,7 @@ El portal es el método preferido para administrar conexiones de punto de conexi
 
 ## <a name="manage-private-endpoint-connections-on-a-customerpartner-owned-private-link-service"></a>Administración de conexiones de punto de conexión privado en un servicio Private Link propiedad del cliente o asociado
 
-Azure PowerShell y la CLI de Azure son los métodos preferidos para administrar conexiones de punto de conexión privado en servicios de asociados de Microsoft o servicios propiedad del cliente. Actualmente, no tenemos compatibilidad del portal para administrar conexiones en un servicio Private Link.  
+Azure PowerShell y la CLI de Azure son los métodos preferidos para administrar conexiones de punto de conexión privado en servicios de asociados de Microsoft o servicios propiedad del cliente. 
  
 ### <a name="powershell"></a>PowerShell 
   

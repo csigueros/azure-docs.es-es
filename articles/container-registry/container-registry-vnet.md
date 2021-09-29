@@ -3,18 +3,20 @@ title: Restricción del acceso mediante puntos de conexión de servicio
 description: Restricción del acceso a un registro de contenedor de Azure mediante un punto de conexión de servicio en una red virtual de Azure. El acceso de punto de conexión de servicio es una característica del nivel de servicio Premium.
 ms.topic: article
 ms.date: 05/04/2020
-ms.openlocfilehash: 8a67a011c75a192df9ad3460458fd766b5ec1ec1
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 0fa721a4a4cf59c93123c98c500b693f05667054
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107773477"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128641624"
 ---
 # <a name="restrict-access-to-a-container-registry-using-a-service-endpoint-in-an-azure-virtual-network"></a>Restricción del acceso a un registro de contenedor mediante un punto de conexión de servicio en una red virtual de Azure
 
 [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) proporciona acceso de red seguro y privado a los recursos locales y de Azure. Un [punto de conexión de servicio](../virtual-network/virtual-network-service-endpoints-overview.md) le permite proteger la dirección IP pública del registro de contenedor solo en la red virtual. Este punto de conexión proporciona al tráfico una ruta óptima hasta el recurso a través de una red troncal de Azure. Las identidades de la red virtual y la subred también se transmiten con cada solicitud.
 
 En este artículo se muestra cómo configurar un punto de conexión de servicio de registro de contenedor (versión preliminar) en una red virtual. 
+
+Cada registro admite un máximo de cien reglas de red virtual.
 
 > [!IMPORTANT]
 > Azure Container Registry admite ahora [Azure Private Link](container-registry-private-link.md), lo que permite colocar los puntos de conexión privados desde una red virtual en un registro. Se puede acceder a los puntos de conexión privados desde dentro de la red virtual mediante direcciones IP privadas. Se recomienda usar puntos de conexión privados en lugar de puntos de conexión de servicio en la mayoría de los escenarios de red.

@@ -3,21 +3,21 @@ title: Uso de identidades administradas en Azure API Management | Microsoft Docs
 description: Obtenga información sobre cómo crear identidades asignadas por el sistema y asignadas por el usuario en API Management mediante Azure Portal, PowerShell y una plantilla de Resource Manager.
 services: api-management
 documentationcenter: ''
-author: miaojiang
+author: dlepow
 manager: anneta
 editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
 ms.date: 03/09/2021
-ms.author: apimpm
+ms.author: danlep
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: fa70be7a890bdfe0bbac9ee7acf2b8ae373e60e0
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 32dd5d723a7592e265a7aea791b8aa7161107239
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121730738"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128594714"
 ---
 # <a name="use-managed-identities-in-azure-api-management"></a>Uso de identidades administradas en Azure API Management
 

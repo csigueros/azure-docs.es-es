@@ -8,12 +8,12 @@ ms.service: virtual-machine-scale-sets
 ms.date: 03/10/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: cf79bc16ed717a71820b7226c0c97cfd263c7fef
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 5fd9fd2e2077ceeccc4fed0d63e759b7c8ec2e67
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122693748"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128608154"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Modificación de un conjunto de escalado de máquinas virtuales
 
@@ -356,7 +356,7 @@ Algunas propiedades pueden cambiarse, con excepciones dependiendo del valor actu
 ### <a name="properties-that-require-deallocation-to-change"></a>Propiedades que requieren desasignación para poder cambiar
 Algunas propiedades solo pueden cambiar a ciertos valores si se desasignan las máquinas virtuales del conjunto de escalado. Estas propiedades incluyen:
 
-- **Nombre de SKU**: si el nombre de la nueva SKU de máquina virtual no se admite en el hardware en el que se encuentra actualmente el conjunto de escalado, debe desasignar las máquinas virtuales del conjunto de escalado antes de modificar el nombre de la SKU. Para más información, consulte [cómo cambiar el tamaño de una máquina virtual de Azure](../virtual-machines/windows/resize-vm.md). 
+- **Nombre de SKU**: si el nombre de la nueva SKU de máquina virtual no se admite en el hardware en el que se encuentra actualmente el conjunto de escalado, debe desasignar las máquinas virtuales del conjunto de escalado antes de modificar el nombre de la SKU. Para más información, consulte [cómo cambiar el tamaño de una máquina virtual de Azure](../virtual-machines/resize-vm.md). 
 
 ## <a name="vm-specific-updates"></a>Actualizaciones específicas de la máquina virtual
 Algunas modificaciones pueden aplicarse a máquinas virtuales específicas, y no a las propiedades globales del conjunto de escalado. Actualmente, la única actualización específica de la máquina virtual que se admite es asociar/desasociar discos de datos en las máquinas virtuales del conjunto de escalado. Esta característica se encuentra en su versión preliminar. Para más información, consulte la [documentación de versión preliminar](https://github.com/Azure/vm-scale-sets/tree/master/preview/disk).

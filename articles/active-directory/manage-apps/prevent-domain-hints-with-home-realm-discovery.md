@@ -1,5 +1,6 @@
 ---
-title: Evitación de la aceleración automática del inicio de sesión en Azure AD mediante la directiva de detección del dominio de inicio
+title: Impedir la aceleración automática del inicio de sesión mediante la directiva Detección de dominio principal
+titleSuffix: Azure AD
 description: Obtenga información acerca de cómo evitar la aceleración automática de sugerencias de dominio en IDP federados.
 services: active-directory
 author: davidmu1
@@ -11,12 +12,12 @@ ms.topic: how-to
 ms.date: 02/12/2021
 ms.author: davidmu
 ms.reviewer: hirsin
-ms.openlocfilehash: c85c4028c1931c1e5eee061b9be7b2ebffc5b951
-ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
+ms.openlocfilehash: 9f8608330d5f74ef2e1262b7c3dff82be746c884
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113566936"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129059179"
 ---
 # <a name="disable-auto-acceleration-to-a-federated-idp-during-user-sign-in-with-home-realm-discovery-policy"></a>Deshabilitación de la aceleración automática en un IDP federado durante el inicio de sesión de usuario con la directiva de detección del dominio de inicio
 
@@ -41,7 +42,7 @@ La sección DomainHintPolicy de la directiva de HRD es un objeto JSON que permit
 
 La lógica de DomainHintPolicy se ejecuta en cada solicitud entrante que contiene una sugerencia de dominio y se acelera en función de dos fragmentos de datos de la solicitud: el dominio de la sugerencia de dominios y el identificador de cliente (la aplicación). En resumen: el "respeto" de un dominio o una aplicación tiene prioridad sobre una instrucción para "omitir" una sugerencia de dominio para un dominio o aplicación determinados.
 
-1. En ausencia de una directiva de sugerencia de dominio, o si ninguna de las 4 secciones hacen referencia a la sugerencia de aplicación o dominio mencionada, [se evaluará el resto de la directiva de HRD](configure-authentication-for-federated-users-portal.md#priority-and-evaluation-of-hrd-policies).
+1. En ausencia de una directiva de sugerencia de dominio, o si ninguna de las 4 secciones hacen referencia a la sugerencia de aplicación o dominio mencionada, [se evaluará el resto de la directiva de HRD](home-realm-discovery-policy.md#priority-and-evaluation-of-hrd-policies).
 1. Si alguna de las secciones `RespectDomainHintForApps` o `RespectDomainHintForDomains` (o ambas) incluye la sugerencia de aplicación o dominio en la solicitud, el usuario se acelerará automáticamente al IDP federado según se solicite.
 1. Si alguna de las secciones `IgnoreDomainHintsForApps` o `IgnoreDomainHintsForDomains` (o ambas) hace referencia a la sugerencia de aplicación o dominio en la solicitud, y no se hace referencia a ellas en las secciones de "respeto", la solicitud no se acelerará automáticamente y el usuario permanecerá en la página de inicio de sesión de Azure AD para proporcionar un nombre de usuario.
 

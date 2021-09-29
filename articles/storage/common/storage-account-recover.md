@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/06/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 3a26a181dc8fd25ad93ebba9aaa496f3421bbffc
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+ms.openlocfilehash: 69d95ea67064ad45e60a6c38e37ab425bed27b76
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113354590"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128616885"
 ---
 # <a name="recover-a-deleted-storage-account"></a>recuperar una cuenta de almacenamiento eliminada
 
@@ -23,7 +23,7 @@ Hay casos en los que se puede recuperar una cuenta de almacenamiento eliminada e
 - La cuenta de almacenamiento se ha eliminado en los últimos 14 días.
 - La cuenta de almacenamiento se ha creado con el modelo de implementación de Azure Resource Manager.
 - No se ha creado una cuenta de almacenamiento con el mismo nombre desde que se eliminó la cuenta original.
-- Al usuario que recupera la cuenta de almacenamiento se le debe asignar un rol RBAC de Azure que proporcione el permiso **Microsoft.Storage/storageAccounts/write**. Para obtener información sobre los roles RBAC de Azure integrados que proporcionan este permiso, vea [Roles integrados de Azure](../../role-based-access-control/built-in-roles.md). 
+- Al usuario que recupera la cuenta de almacenamiento se le debe asignar un rol RBAC de Azure que proporcione el permiso **Microsoft.Storage/storageAccounts/write**. Para obtener información sobre los roles RBAC de Azure integrados que proporcionan este permiso, vea [Roles integrados de Azure](../../role-based-access-control/built-in-roles.md).
 
 Antes de intentar recuperar una cuenta de almacenamiento eliminada, asegúrese de que el grupo de recursos de esa cuenta existe. Si se ha eliminado, debe volver a crearlo. No es posible recuperar un grupo de recursos. Para más información, consulte [Administración de grupos de recursos](../../azure-resource-manager/management/manage-resource-groups-portal.md).
 

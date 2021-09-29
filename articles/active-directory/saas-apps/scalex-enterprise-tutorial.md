@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/16/2019
 ms.author: jeedes
-ms.openlocfilehash: fecb7381786c36b077d329f68ca48ab10f65a984
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c3ce7518621e01d9831afc7edd4ba5014a27bac6
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105642952"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124821637"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-scalex-enterprise"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con ScaleX Enterprise
 
@@ -182,7 +182,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en ScaleX Enterprise
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de ScaleX Enterprise en el panel de acceso, debería iniciar sesión automáticamente en la versión de ScaleX Enterprise para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
+Al hacer clic en el icono de ScaleX Enterprise en el panel de acceso, debería iniciar sesión automáticamente en la versión de ScaleX Enterprise para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

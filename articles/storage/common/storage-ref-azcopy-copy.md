@@ -8,12 +8,12 @@ ms.date: 09/01/2021
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 09994e329072ab0ed67a9cb29c09ff245b288923
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 4cb943230c0211c67caf5d7a074d21077358c143
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123432079"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128605456"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
 
@@ -67,6 +67,7 @@ Carga de un solo archivo mediante la autenticación de OAuth. Si aún no ha inic
 ```azcopy
 azcopy cp "/path/to/file.txt" "https://[account].blob.core.windows.net/[container]/[path/to/blob]"
 ```
+
 Igual que antes, pero en esta ocasión también procesa el hash MD5 del contenido del archivo y lo guarda como la propiedad Content-MD5 del blob:
 
 ```azcopy
@@ -80,13 +81,13 @@ azcopy cp "/path/to/file.txt" "https://[account].blob.core.windows.net/[containe
 ```
 
 Carga de un solo archivo mediante un token de SAS y una canalización (solo blobs en bloques):
-  
+
 ```azcopy
 cat "/path/to/file.txt" | azcopy cp "https://[account].blob.core.windows.net/[container]/[path/to/blob]?[SAS]
 ```
 
 Carga de un directorio completo mediante un token de SAS:
-  
+
 ```azcopy
 azcopy cp "/path/to/dir" "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive
 ```
@@ -98,7 +99,7 @@ azcopy cp "/path/to/dir" "https://[account].blob.core.windows.net/[container]/[p
 ```
 
 Carga de un conjunto de archivos mediante un token de SAS y caracteres comodín (*):
- 
+
 ```azcopy
 azcopy cp "/path/*foo/*bar/*.pdf" "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]"
 ```
@@ -109,10 +110,10 @@ Carga de archivos y directorios mediante un token de SAS y caracteres comodín (
 azcopy cp "/path/*foo/*bar*" "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive
 ```
 
-Cargue archivos y directorios en la cuenta de Azure Storage y establezca las etiquetas codificadas en la cadena de consulta del blob. 
+Cargue archivos y directorios en la cuenta de Azure Storage y establezca las etiquetas codificadas en la cadena de consulta del blob.
 
 - Para establecer las etiquetas {key = "bla bla", val = "foo"} y {key = "bla bla 2", val = "bar"}, use la sintaxis siguiente: `azcopy cp "/path/*foo/*bar*" "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --blob-tags="bla%20bla=foo&bla%20bla%202=bar"`
-    
+
 - Las claves y los valores están codificados como dirección URL y los pares clave-valor se separan con una y comercial ("&")
 
 - Al establecer etiquetas en los blobs, hay permisos adicionales ("t" para etiquetas) en SAS sin que el servicio devuelva un error de autorización.
@@ -130,27 +131,27 @@ azcopy cp "https://[account].blob.core.windows.net/[container]/[path/to/blob]?[S
 ```
 
 Descarga de un solo archivo mediante un token de SAS y, luego, canalización de la salida a un archivo (solo blobs en bloques):
- 
+
 ```azcopy
 azcopy cp "https://[account].blob.core.windows.net/[container]/[path/to/blob]?[SAS]" > "/path/to/file.txt"
-``` 
+```
 
 Descarga de un directorio completo mediante un token de SAS:
- 
+
 ```azcopy
 azcopy cp "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" "/path/to/dir" --recursive
-``` 
+```
 
 Una nota sobre el uso de un carácter comodín (*) en direcciones URL:
 
-Hay solo dos formas admitidas de usar un carácter comodín en una dirección URL. 
+Hay solo dos formas admitidas de usar un carácter comodín en una dirección URL.
 
-- Puede usar uno justo después de la barra diagonal final (/) de una dirección URL. Este uso del carácter comodín copia todos los archivos de un directorio directamente en el destino sin colocarlos en un subdirectorio. 
+- Puede usar uno justo después de la barra diagonal final (/) de una dirección URL. Este uso del carácter comodín copia todos los archivos de un directorio directamente en el destino sin colocarlos en un subdirectorio.
 
-- También puede usar un carácter comodín en el nombre de un contenedor siempre y cuando la dirección URL solo haga referencia a un contenedor y no a un blob. Puede usar este enfoque para obtener archivos de un subconjunto de contenedores. 
+- También puede usar un carácter comodín en el nombre de un contenedor siempre y cuando la dirección URL solo haga referencia a un contenedor y no a un blob. Puede usar este enfoque para obtener archivos de un subconjunto de contenedores.
 
 Descarga del contenido de un directorio sin copiar el propio directorio contenedor.
- 
+
 ```azcopy
 azcopy cp "https://[srcaccount].blob.core.windows.net/[container]/[path/to/folder]/*?[SAS]" "/path/to/dir"
 ```
@@ -173,7 +174,7 @@ Copia de un blob único en otro blob mediante un token de SAS.
 azcopy cp "https://[srcaccount].blob.core.windows.net/[container]/[path/to/blob]?[SAS]" "https://[destaccount].blob.core.windows.net/[container]/[path/to/blob]?[SAS]"
 ```
 
-Copia de un blob único en otro blob mediante un token de SAS y un token de autenticación. Tiene que usar un token de SAS al final de la dirección URL de la cuenta de origen, pero la cuenta de destino no necesita uno si inicia sesión en AzCopy mediante el comando `azcopy login`. 
+Copia de un blob único en otro blob mediante un token de SAS y un token de autenticación. Tiene que usar un token de SAS al final de la dirección URL de la cuenta de origen, pero la cuenta de destino no necesita uno si inicia sesión en AzCopy mediante el comando `azcopy login`.
 
 ```azcopy
 azcopy cp "https://[srcaccount].blob.core.windows.net/[container]/[path/to/blob]?[SAS]" "https://[destaccount].blob.core.windows.net/[container]/[path/to/blob]"
@@ -192,27 +193,27 @@ azcopy cp "https://[srcaccount].blob.core.windows.net?[SAS]" "https://[destaccou
 ```
 
 Copia de un solo objeto en Blob Storage de Amazon Web Services (AWS) S3 mediante una clave de acceso y un token de SAS. En primer lugar, establezca las variables de entorno `AWS_ACCESS_KEY_ID` y `AWS_SECRET_ACCESS_KEY` para el origen de AWS S3.
-  
+
 ```azcopy
 azcopy cp "https://s3.amazonaws.com/[bucket]/[object]" "https://[destaccount].blob.core.windows.net/[container]/[path/to/blob]?[SAS]"
 ```
 
 Copia de un directorio completo en Blob Storage de AWS S3 mediante una clave de acceso y un token de SAS. En primer lugar, establezca las variables de entorno `AWS_ACCESS_KEY_ID` y `AWS_SECRET_ACCESS_KEY` para el origen de AWS S3.
- 
+
 ```azcopy
 azcopy cp "https://s3.amazonaws.com/[bucket]/[folder]" "https://[destaccount].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive
 ```
-    
+
   Consulte https://docs.aws.amazon.com/AmazonS3/latest/user-guide/using-folders.html para comprender mejor el marcador de posición [folder].
 
 Copia de todos los cubos en Blob Storage de Amazon Web Services (AWS) mediante el uso de una clave de acceso y un token de SAS. En primer lugar, establezca las variables de entorno `AWS_ACCESS_KEY_ID` y `AWS_SECRET_ACCESS_KEY` para el origen de AWS S3.
- 
+
 ```azcopy
 azcopy cp "https://s3.amazonaws.com/" "https://[destaccount].blob.core.windows.net?[SAS]" --recursive
 ```
 
 Copia de todos los cubos en Blob Storage desde una región de Amazon Web Services (AWS) mediante el uso de una clave de acceso y un token de SAS. En primer lugar, establezca las variables de entorno `AWS_ACCESS_KEY_ID` y `AWS_SECRET_ACCESS_KEY` para el origen de AWS S3.
- 
+
 ```azcopy
 - azcopy cp "https://s3-[region].amazonaws.com/" "https://[destaccount].blob.core.windows.net?[SAS]" --recursive
 ```
@@ -223,22 +224,22 @@ Copia de un subconjunto de cubos mediante un símbolo comodín (*) en el nombre 
 - azcopy cp "https://s3.amazonaws.com/[bucket*name]/" "https://[destaccount].blob.core.windows.net?[SAS]" --recursive
 ```
 
-Transfiera archivos y directorios a la cuenta de Azure Storage y establezca las etiquetas codificadas de la cadena de consulta determinadas en el blob. 
+Transfiera archivos y directorios a la cuenta de Azure Storage y establezca las etiquetas codificadas de la cadena de consulta determinadas en el blob.
 
 - Para establecer las etiquetas {key = "bla bla", val = "foo"} y {key = "bla bla 2", val = "bar"}, use la sintaxis siguiente: `azcopy cp "https://[account].blob.core.windows.net/[source_container]/[path/to/directory]?[SAS]" "https://[account].blob.core.windows.net/[destination_container]/[path/to/directory]?[SAS]" --blob-tags="bla%20bla=foo&bla%20bla%202=bar"`
-        
+
 - Las claves y los valores están codificados como dirección URL y los pares clave-valor se separan con una y comercial ("&")
-    
+
 - Al establecer etiquetas en los blobs, hay permisos adicionales ("t" para etiquetas) en SAS sin que el servicio devuelva un error de autorización.
 
 Copie un solo objeto en Blob Storage desde Google Cloud Storage mediante una clave de cuenta de servicio y un token de SAS. En primer lugar, establezca la variable de entorno GOOGLE_APPLICATION_CREDENTIALS para el origen de Google Cloud Storage.
-  
+
 ```azcopy
 azcopy cp "https://storage.cloud.google.com/[bucket]/[object]" "https://[destaccount].blob.core.windows.net/[container]/[path/to/blob]?[SAS]"
 ```
 
 Copie un directorio completo en Blob Storage desde Google Cloud Storage mediante una clave de cuenta de servicio y un token de SAS. En primer lugar, establezca la variable de entorno GOOGLE_APPLICATION_CREDENTIALS para el origen de Google Cloud Storage.
- 
+
 ```azcopy
   - azcopy cp "https://storage.cloud.google.com/[bucket]/[folder]" "https://[destaccount].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive=true
 ```
@@ -256,7 +257,7 @@ Copie todos los cubos en Blob Storage desde Google Cloud Storage mediante una cl
 ```
 
 Copie un subconjunto de cubos mediante un símbolo comodín (*) en el nombre del depósito de Google Cloud Storage, con una clave de cuenta de servicio y un token de SAS para el destino. En primer lugar, establezca las GOOGLE_APPLICATION_CREDENTIALS y GOOGLE_CLOUD_PROJECT=<`project-id`> para el origen de Google Cloud Storage.
- 
+
 ```azcopy
 azcopy cp "https://storage.cloud.google.com/[bucket*name]/" "https://[destaccount].blob.core.windows.net/?[SAS]" --recursive=true
 ```
@@ -299,7 +300,7 @@ Cadena **--blob-tags**: establece etiquetas en blobs para clasificar los datos d
 
 **--exclude-attributes** string (solo Windows) Excluye los archivos cuyos atributos coinciden con la lista de atributos. Por ejemplo: A;S;R
 
-**--exclude-blob-type** string Opcionalmente, especifica el tipo de blob (`BlockBlob`/ `PageBlob`/ `AppendBlob`) que se va a excluir al copiar blobs desde el contenedor o la cuenta. El uso de esta marca no es aplicable para copiar datos desde un servicio que no es de Azure a otro que sí lo es. Si hay más de un blob deberían separarse mediante `;`. 
+**--exclude-blob-type** string Opcionalmente, especifica el tipo de blob (`BlockBlob`/ `PageBlob`/ `AppendBlob`) que se va a excluir al copiar blobs desde el contenedor o la cuenta. El uso de esta marca no es aplicable para copiar datos desde un servicio que no es de Azure a otro que sí lo es. Si hay más de un blob deberían separarse mediante `;`.
 
 **--exclude-path** string Excluye estas rutas de acceso al copiar. Esta opción no permite caracteres comodín (*). Comprueba el prefijo de ruta de acceso relativa (por ejemplo: `myFolder;myFolder/subDirName/file.pdf`). Cuando se usa en combinación con recorrido de cuentas, las rutas de acceso no incluyen el nombre del contenedor.
 
@@ -331,7 +332,7 @@ Cadena **--blob-tags**: establece etiquetas en blobs para clasificar los datos d
 
 Cadena **--list-of-versions** Especifica un archivo en el que cada id. de versión aparece en una línea independiente. Asegúrese de que el origen apunte a un único blob y que todos los id. de versión especificados en el archivo con esta marca solo pertenezcan al blob de origen. AzCopy descargará las versiones especificadas en la carpeta de destino proporcionada. Para obtener más información, consulte [Descarga de versiones anteriores de un blob](./storage-use-azcopy-v10.md#transfer-data).
 
-**--log-level** string Define el nivel de detalle para el archivo de registro; los niveles disponibles son: INFO (todas las solicitudes y respuestas), WARNING (respuestas lentas), ERROR (solo solicitudes con error) y NONE (sin registros de salida). (El valor predeterminado es `INFO`). 
+**--log-level** string Define el nivel de detalle para el archivo de registro; los niveles disponibles son: INFO (todas las solicitudes y respuestas), WARNING (respuestas lentas), ERROR (solo solicitudes con error) y NONE (sin registros de salida). (El valor predeterminado es `INFO`).
 
 **--metadata** string Carga en Azure Storage con estos pares clave-valor como metadatos.
 
@@ -348,7 +349,6 @@ Cadena **--list-of-versions** Especifica un archivo en el que cada id. de versi�
 **--preserve-smb-info** True de manera predeterminada. Conserva la información de las propiedades de SMB (hora de la última escritura, hora de creación, bits de atributo) entre los recursos compatibles con SMB (Windows y Azure Files). Solo se transferirán los bits de atributo que admite Azure Files; los restantes se omitirán. Esta marca se aplica tanto a archivos como a carpetas, salvo que se especifique un filtro que solo permita archivos (por ejemplo, include-pattern). La información transferida a las carpetas es la misma que la transferida a los archivos, excepto la hora de la última escritura, que nunca se conserva para las carpetas.
 
 **--preserve-permissions** False de manera predeterminada. Conserva las ACL entre los recursos compatibles (Windows y Azure Files, o bien de Data Lake Storage Gen 2 a Data Lake Storage Gen 2). Para las cuentas que tienen un espacio de nombres jerárquico, necesitará un token de SAS o OAuth de contenedor con permisos Modificar propiedad y Modificar permisos. En el caso de las descargas, también necesitará la marca --backup para restaurar los permisos si el nuevo propietario no será el usuario que ejecute AzCopy. Esta marca se aplica tanto a archivos como a carpetas, salvo que se especifique un filtro de que solo permita archivos (por ejemplo, include-pattern).
-
 
 **--put-md5** Crea un hash MD5 de cada archivo y lo guarda como la propiedad Content-MD5 del blob o archivo de destino. (De forma predeterminada, NO se crea el hash). Solo está disponible al cargar.
 

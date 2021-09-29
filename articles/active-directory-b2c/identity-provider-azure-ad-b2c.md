@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/09/2021
+ms.date: 09/16/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit, project-no-code
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 6ad2014b8fce21eada9ced1e63a3511daa5e1891
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 5757b2e875253ac21c64cd3fbd0b7ade42085e8b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122178059"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128571924"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-an-azure-ad-b2c-account-from-another-azure-ad-b2c-tenant"></a>Configuración del registro y el inicio de sesión con una cuenta de Azure AD B2C de otro inquilino de Azure AD B2C
 
@@ -44,9 +44,9 @@ En este artículo se describe cómo configurar una federación con otro inquilin
 ### <a name="verify-the-applications-publisher-domain"></a>Comprobación del dominio del publicador de la aplicación
 A partir de noviembre de 2020, los nuevos registros de aplicaciones se muestran como no comprobados en el mensaje de consentimiento del usuario, a menos que [se haya comprobado el dominio del publicador de la aplicación](../active-directory/develop/howto-configure-publisher-domain.md) ***y además*** se haya comprobado la identidad de la empresa con Microsoft Partner Network y se haya asociado a la aplicación. [Obtenga más información](../active-directory/develop/publisher-verification-overview.md) sobre este cambio. Tenga en cuenta que, en los flujos de usuario de Azure AD B2C, el dominio del publicador solo aparece cuando se usa una [cuenta de Microsoft](../active-directory-b2c/identity-provider-microsoft-account.md) u otro inquilino de Azure AD como proveedor de identidades. Para cumplir estos nuevos requisitos, haga lo siguiente:
 
-1. [Compruebe la identidad de la empresa con la cuenta de Microsoft Partner Network (MPN)](/partner-center/verification-responses). Este proceso comprueba la información sobre la empresa y el contacto principal de la empresa.
-1. Complete el proceso de comprobación del publicador para asociar la cuenta de MPN con el registro de la aplicación mediante una de las siguientes opciones:
-   - Si el registro de la aplicación para el proveedor de identidades de la cuenta de Microsoft está en un inquilino de Azure AD, [compruebe la aplicación en el portal de registro de aplicaciones](../active-directory/develop/mark-app-as-publisher-verified.md).
+1. [Compruebe la identidad de la empresa con la cuenta de Microsoft Partner Network (MPN)](/partner-center/verification-responses). Este proceso comprueba la información sobre su empresa y el contacto principal de esta.
+1. Complete el proceso de comprobación del publicador para asociar su cuenta de MPN al registro de la aplicación usando una de las siguientes opciones:
+   - Si el registro de la aplicación para el proveedor de identidades de la cuenta Microsoft está en un inquilino de Azure AD, [compruebe la aplicación en el portal de registro de aplicaciones](../active-directory/develop/mark-app-as-publisher-verified.md).
    - Si el registro de la aplicación para el proveedor de identidades de la cuenta de Microsoft está en un inquilino de Azure AD B2C, [marque la aplicación como publicador comprobado mediante las API de Microsoft Graph](../active-directory/develop/troubleshoot-publisher-verification.md#making-microsoft-graph-api-calls) (por ejemplo, mediante Probador de Graph). La interfaz de usuario para establecer el publicador comprobado de una aplicación está deshabilitada actualmente para inquilinos de Azure AD B2C.
 
 ## <a name="create-an-azure-ad-b2c-application"></a>Creación de una aplicación de Azure AD B2C
@@ -90,7 +90,8 @@ Para crear una aplicación:
 ## <a name="configure-azure-ad-b2c-as-an-identity-provider"></a>Configuración de Azure AD B2C como proveedor de identidades
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C en el que quiere configurar la federación (por ejemplo, Contoso). Seleccione el filtro **Directorio y suscripción** del menú superior y elija el directorio que contiene el inquilino de Azure AD B2C (por ejemplo, Contoso).
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C en el que quiere configurar la federación (por ejemplo, Contoso). Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
 1. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C**.
 1. Seleccione **Proveedores de identidades** y luego **Nuevo proveedor de OpenID Connect**.
 1. Escriba un **nombre**. Por ejemplo, escriba *Fabrikam*.
@@ -138,7 +139,8 @@ Si el proceso de inicio de sesión se completa correctamente, el explorador se r
 
 Debe almacenar la clave de la aplicación que creó anteriormente en el inquilino de Azure AD B2C.
 
-1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C en el que quiere configurar la federación (por ejemplo, Contoso). Seleccione el filtro **Directorio y suscripción** del menú superior y elija el directorio que contiene el inquilino de Azure AD B2C (por ejemplo, Contoso).
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C en el que quiere configurar la federación (por ejemplo, Contoso). Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
 1. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C**.
 1. En **Directivas**, seleccione **Identity Experience Framework**.
 1. Seleccione **Claves de directiva** y luego **Agregar**.

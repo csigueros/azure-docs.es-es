@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: prishet
 ms.subservice: common
-ms.openlocfilehash: afdea12c8eedb25a9a56cda2d57ec3a24a5afc18
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: d9beb1ce981826eb7555b1a55e00c7c00fb84810
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121745048"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124766623"
 ---
 # <a name="data-protection-overview"></a>Información general sobre la protección de datos
 
@@ -104,10 +104,10 @@ En la tabla siguiente se resumen las consideraciones de costos para las distinta
 | Directiva de inmutabilidad en una versión de blob (versión preliminar) | No se cobra por la inmutabilidad en un contenedor a nivel de versión. La creación, modificación o eliminación de una directiva de retención con duración definida o una suspensión legal en una versión de blob generan un cargo por transacciones de escritura. |
 | Directiva de inmutabilidad de un contenedor | No se cobra por configurar una directiva de inmutabilidad en un contenedor. |
 | Eliminación temporal de contenedores | No se cobra por habilitar la eliminación temporal de contenedores para una cuenta de almacenamiento. Los datos de un contenedor eliminado temporalmente se facturan a la misma tarifa que los datos activos hasta que el contenedor se elimina permanentemente. |
-| Control de versiones de blobs | No se cobra por habilitar el control de versiones de blobs para una cuenta de almacenamiento. Una vez habilitado el control de versiones de blobs, cada operación de escritura o eliminación que se realice en un blob de la cuenta creará una nueva versión, lo que puede generar mayores costos de capacidad.<br /><br />Una versión de blob se factura en función de los bloques o páginas únicos. Por lo tanto, los costos aumentan a medida que el blob base difiere de una versión determinada. Cambiar el nivel de un blob o de una versión de blob puede tener un impacto en la facturación. Para obtener más información, consulte la sección [Precios y facturación](versioning-overview.md#pricing-and-billing).<br /><br />Use la administración del ciclo de vida para eliminar versiones anteriores según sea necesario para controlar los costos. Para más información, consulte [Optimización de los costos mediante la automatización de los niveles de acceso de Azure Blob Storage](storage-lifecycle-management-concepts.md). |
+| Control de versiones de blobs | No se cobra por habilitar el control de versiones de blobs para una cuenta de almacenamiento. Una vez habilitado el control de versiones de blobs, cada operación de escritura o eliminación que se realice en un blob de la cuenta creará una nueva versión, lo que puede generar mayores costos de capacidad.<br /><br />Una versión de blob se factura en función de los bloques o páginas únicos. Por lo tanto, los costos aumentan a medida que el blob base difiere de una versión determinada. Cambiar el nivel de un blob o de una versión de blob puede tener un impacto en la facturación. Para obtener más información, consulte la sección [Precios y facturación](versioning-overview.md#pricing-and-billing).<br /><br />Use la administración del ciclo de vida para eliminar versiones anteriores según sea necesario para controlar los costos. Para más información, consulte [Optimización de los costos mediante la automatización de los niveles de acceso de Azure Blob Storage](./lifecycle-management-overview.md). |
 | Eliminación temporal de blobs | No se cobra por habilitar la eliminación temporal de blobs para una cuenta de almacenamiento. Los datos de un blob eliminado temporalmente se facturan a la misma tarifa que los datos activos hasta que el blob se elimina permanentemente. |
 | Restauración a un momento dado | No se aplica ningún cargo por habilitar la restauración a un momento dado para una cuenta de almacenamiento; sin embargo, habilitar la restauración a un momento dado también habilita el control de versiones de blobs, la eliminación temporal y la fuente de cambios, cada uno de los cuales puede generar cargos adicionales.<br /><br />Se le facturará por la restauración a un momento dado cuando realice operaciones de restauración. El costo de una operación de restauración depende de la cantidad de datos que se restaurarán. Para obtener más información, consulte la sección [Precios y facturación](point-in-time-restore-overview.md#pricing-and-billing). |
-| Instantáneas de blob | Los datos de una instantánea se facturan en función de los bloques o páginas únicos. Por lo tanto, los costos aumentan a medida que el blob base difiere de la instantánea. Cambiar el nivel de un blob o una instantánea puede tener un impacto en la facturación. Para obtener más información, consulte la sección [Precios y facturación](snapshots-overview.md#pricing-and-billing).<br /><br />Use la administración del ciclo de vida para eliminar instantáneas anteriores según sea necesario para controlar los costos. Para más información, consulte [Optimización de los costos mediante la automatización de los niveles de acceso de Azure Blob Storage](storage-lifecycle-management-concepts.md). |
+| Instantáneas de blob | Los datos de una instantánea se facturan en función de los bloques o páginas únicos. Por lo tanto, los costos aumentan a medida que el blob base difiere de la instantánea. Cambiar el nivel de un blob o una instantánea puede tener un impacto en la facturación. Para obtener más información, consulte la sección [Precios y facturación](snapshots-overview.md#pricing-and-billing).<br /><br />Use la administración del ciclo de vida para eliminar instantáneas anteriores según sea necesario para controlar los costos. Para más información, consulte [Optimización de los costos mediante la automatización de los niveles de acceso de Azure Blob Storage](./lifecycle-management-overview.md). |
 | Copia de datos en una segunda cuenta de almacenamiento | El mantenimiento de los datos en una segunda cuenta de almacenamiento generará costos de capacidad y de transacción. Si la segunda cuenta de almacenamiento se encuentra en una región diferente de la cuenta de origen, la copia de datos a esa segunda cuenta también generará en cargos de salida. |
 
 ## <a name="disaster-recovery"></a>Recuperación ante desastres
@@ -116,7 +116,7 @@ Azure Storage siempre mantiene varias copias de los datos, con el fin de protege
 
 En caso de que se produzca un error en un centro de datos, si la cuenta de almacenamiento es redundante en dos regiones geográficas (con redundancia geográfica), tendrá la opción de conmutar por error la cuenta de la región primaria a la secundaria. Para más información, consulte [Recuperación ante desastres y conmutación por error de la cuenta de almacenamiento](../common/storage-disaster-recovery-guidance.md).
 
-La conmutación por error administrada por el cliente no se admite actualmente para las cuentas de almacenamiento con un espacio de nombres jerárquico habilitado. Para más información, consulte [Características de Blob Storage disponibles en Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md).
+La conmutación por error administrada por el cliente no se admite actualmente para las cuentas de almacenamiento con un espacio de nombres jerárquico habilitado. Para más información, consulte [Características de Blob Storage disponibles en Azure Data Lake Storage Gen2](./storage-feature-support-in-storage-accounts.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

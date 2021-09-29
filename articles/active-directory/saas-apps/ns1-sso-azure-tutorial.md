@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/12/2020
 ms.author: jeedes
-ms.openlocfilehash: a7fad0af26d15bc77a52d55309c594937ba3be13
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 38d64cc11889e3279d4e81ed2ab760ea50755f40
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92518626"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124761045"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ns1-sso-for-azure"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con NS1 SSO for Azure
 
@@ -28,7 +28,7 @@ En este tutorial, aprenderá a integrar NS1 SSO for Azure con Azure Active Dir
 
 Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -165,7 +165,7 @@ En esta sección, va a crear un usuario llamado B.Simon en NS1 SSO for Azure. Co
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al seleccionar el icono de NS1 SSO for Azure en el Panel de acceso, debería iniciar sesión automáticamente en la instancia de NS1 SSO for Azure para la que configuró el inicio de sesión único. Para más información, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
+Al seleccionar el icono de NS1 SSO for Azure en el Panel de acceso, debería iniciar sesión automáticamente en la instancia de NS1 SSO for Azure para la que configuró el inicio de sesión único. Para más información, consulte [Introducción al Panel de acceso](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

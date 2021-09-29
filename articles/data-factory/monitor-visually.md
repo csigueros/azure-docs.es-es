@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.subservice: monitoring
 ms.topic: conceptual
 ms.date: 07/30/2021
-ms.openlocfilehash: 81649565955d1de031e4eefca548c5d58f7e28c6
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 6e781316d6aa58961360882d9d11fa6df05640fb
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121730155"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124750535"
 ---
 # <a name="visually-monitor-azure-data-factory"></a>Supervise visualmente Azure Data Factory
 
@@ -27,7 +27,7 @@ De manera predeterminada, todas las ejecuciones de la factoría de datos se mues
 
 La vista de supervisión predeterminada es una lista de ejecuciones de la canalización desencadenadas en el período de tiempo seleccionado. Puede cambiar el intervalo de tiempo y filtrar por estado, nombre de canalización o anotación. Mantenga el puntero sobre la ejecución de canalización específica para ver acciones específicas de la ejecución, como volver a ejecutar y el informe de consumo.
 
-![Vista de lista de supervisión de las ejecuciones de canalización](media/monitor-visually/pipeline-runs.png)
+:::image type="content" source="media/monitor-visually/pipeline-runs.png" alt-text="Vista de lista de supervisión de las ejecuciones de canalización":::
 
 La cuadrícula de ejecución de la canalización contiene las columnas siguientes:
 
@@ -46,21 +46,21 @@ La cuadrícula de ejecución de la canalización contiene las columnas siguiente
 
 Debe seleccionar manualmente el botón **Actualizar** para actualizar la lista de ejecuciones de actividad y de la canalización. La actualización automática no se admite actualmente.
 
-![Botón Actualizar](media/monitor-visually/refresh.png)
+:::image type="content" source="media/monitor-visually/refresh.png" alt-text="Botón Actualizar":::
 
 Para ver los resultados de una ejecución de depuración, seleccione la pestaña **Depurar**.
 
-![Seleccione el icono de vista de ejecuciones de depuraciones activas](media/iterative-development-debugging/view-debug-runs.png)
+:::image type="content" source="media/iterative-development-debugging/view-debug-runs.png" alt-text="Seleccione el icono de vista de ejecuciones de depuraciones activas":::
 
 ## <a name="monitor-activity-runs"></a>Supervisión de las ejecuciones de actividad
 
 Para obtener una vista detallada de las ejecuciones de actividades individuales de una ejecución de canalización específica, haga clic en el nombre de la canalización.
 
-![Ver ejecuciones de actividad](media/monitor-visually/view-activity-runs.png)
+:::image type="content" source="media/monitor-visually/view-activity-runs.png" alt-text="Ver ejecuciones de actividad":::
 
 La vista de lista muestra ejecuciones de actividad correspondiente a cada ejecución de canalización. Mantenga el puntero sobre la ejecución de actividad específica para obtener información específica sobre la ejecución, como la entrada JSON, la salida JSON y las experiencias detalladas de supervisión específicas de la actividad.
 
-![Hay información sobre SalesAnalyticsMLPipeline, seguida de una lista de ejecuciones de actividad.](media/monitor-visually/activity-runs.png)
+:::image type="content" source="media/monitor-visually/activity-runs.png" alt-text="Hay información sobre SalesAnalyticsMLPipeline, seguida de una lista de ejecuciones de actividad.":::
 
 | **Nombre de la columna** | **Descripción** |
 | --- | --- |
@@ -77,7 +77,7 @@ La vista de lista muestra ejecuciones de actividad correspondiente a cada ejecuc
 
 Si se produce un error en una actividad, puede ver el mensaje de error detallado al hacer clic en el icono de la columna Error. 
 
-![Aparece una notificación con los detalles del error, que incluye el código de error, el tipo de error y los detalles del error.](media/monitor-visually/activity-run-error.png)
+:::image type="content" source="media/monitor-visually/activity-run-error.png" alt-text="Aparece una notificación con los detalles del error, que incluye el código de error, el tipo de error y los detalles del error.":::
 
 ### <a name="promote-user-properties-to-monitor"></a>Promocionar las propiedades de usuario para supervisar
 
@@ -86,15 +86,15 @@ Promueva cualquier propiedad de actividad de canalización como propiedad de usu
 > [!NOTE]
 > Puede promover un máximo de cinco propiedades de la actividad de canalización como propiedades del usuario.
 
-![Creación de propiedades de usuario](media/monitor-visually/promote-user-properties.png)
+:::image type="content" source="media/monitor-visually/promote-user-properties.png" alt-text="Creación de propiedades de usuario":::
 
 Después de crear las propiedades del usuario, puede supervisarlas en las vistas de lista de supervisión.
 
-![Agregar columnas para propiedades del usuario a la lista de ejecuciones de actividad](media/monitor-visually/choose-user-properties.png)
+:::image type="content" source="media/monitor-visually/choose-user-properties.png" alt-text="Agregar columnas para propiedades del usuario a la lista de ejecuciones de actividad":::
 
  Si el origen de la actividad de copia es un nombre de tabla, puede supervisar el nombre de la tabla de origen como una columna de la vista de lista en las ejecuciones de actividad.
 
-![Lista de ejecuciones de actividad con columnas de propiedades de usuario](media/monitor-visually/view-user-properties.png)
+:::image type="content" source="media/monitor-visually/view-user-properties.png" alt-text="Lista de ejecuciones de actividad con columnas de propiedades de usuario":::
 
 
 ## <a name="rerun-pipelines-and-activities"></a>Repetición de canalizaciones y actividades
@@ -112,37 +112,37 @@ Después de crear las propiedades del usuario, puede supervisarlas en las vistas
 
 Para volver a ejecutar una canalización que se ejecutó previamente desde el inicio, mantenga el puntero sobre la ejecución de canalización específica y seleccione **Volver a ejecutar**. Si selecciona varias canalizaciones, puede usar el botón **Volver a ejecutar** para ejecutarlas todas.
 
-![Repetición de una canalización](media/monitor-visually/rerun-pipeline.png)
+:::image type="content" source="media/monitor-visually/rerun-pipeline.png" alt-text="Repetición de una canalización":::
 
 Si quiere volver a ejecutar a partir de un punto concreto, puede hacerlo desde la vista Ejecuciones de actividad. Seleccione la actividad desde la que quiere empezar y seleccione **Volver a ejecutar desde actividad**. 
 
-![Repetición de una ejecución de actividad](media/monitor-visually/rerun-activity.png)
+:::image type="content" source="media/monitor-visually/rerun-activity.png" alt-text="Repetición de una ejecución de actividad":::
 
 ### <a name="rerun-from-failed-activity"></a>Volver a ejecutar desde la actividad con errores
 
 Si se produce un error en una actividad, se agota el tiempo de espera o se cancela, puede seleccionar **Volver a ejecutar desde la actividad con errores** para volver a ejecutar la canalización desde esa actividad con errores.
 
-![Volver a ejecutar la actividad con errores](media/monitor-visually/rerun-failed-activity.png)
+:::image type="content" source="media/monitor-visually/rerun-failed-activity.png" alt-text="Volver a ejecutar la actividad con errores":::
 
 ### <a name="view-rerun-history"></a>Ver el historial de repetición de ejecuciones
 
 Puede ver el historial de repetición de ejecuciones de todas las ejecuciones de canalización en la vista de lista.
 
-![Visualización del historial](media/monitor-visually/rerun-history-1.png)
+:::image type="content" source="media/monitor-visually/rerun-history-1.png" alt-text="Visualización del historial":::
 
 También puede ver el historial de repetición de ejecuciones de una ejecución de canalización determinada.
 
-![Ver el historial de ejecuciones de una canalización](media/monitor-visually/view-rerun-history.png)
+:::image type="content" source="media/monitor-visually/view-rerun-history.png" alt-text="Ver el historial de ejecuciones de una canalización":::
 
 ## <a name="monitor-consumption"></a>Supervisión del consumo
 
 Para ver los recursos utilizados por una ejecución de canalización, haga clic en el icono de consumo junto a la ejecución. 
 
-![Captura de pantalla que muestra dónde puede ver los recursos consumidos por una canalización.](media/monitor-visually/monitor-consumption-1.png)
+:::image type="content" source="media/monitor-visually/monitor-consumption-1.png" alt-text="Captura de pantalla que muestra dónde puede ver los recursos consumidos por una canalización.":::
 
 Al hacer clic en el icono, se abre un informe de consumo de recursos usados por esa canalización. 
 
-![Supervisión del consumo](media/monitor-visually/monitor-consumption-2.png)
+:::image type="content" source="media/monitor-visually/monitor-consumption-2.png" alt-text="Supervisión del consumo":::
 
 Puede conectar estos valores a la [calculadora de precios de Azure](https://azure.microsoft.com/pricing/details/data-factory/) para calcular el costo de la ejecución de la canalización. Para más información sobre los precios de Azure Data Factory, consulte [Descripción de los precios](pricing-concepts.md).
 
@@ -153,17 +153,17 @@ Puede conectar estos valores a la [calculadora de precios de Azure](https://azur
 
 Un diagrama de Gantt es una vista que le permite ver el historial de ejecución en un intervalo de tiempo. Al cambiar a una vista de Gantt, notará que todas las ejecuciones de canalización agrupadas por nombre se muestran como barras en relación con cuánto tiempo tardaron en ejecutarse. También puede agruparlas por las anotaciones o etiquetas que haya creado en la canalización. La vista de Gantt también está disponible en el nivel de ejecución de actividad.
 
-![Ejemplo de diagrama de Gantt](media/monitor-visually/select-gantt.png)
+:::image type="content" source="media/monitor-visually/select-gantt.png" alt-text="Ejemplo de diagrama de Gantt":::
 
 La longitud de la barra le informará de la duración de la canalización. Asimismo, puede seleccionar la barra para ver más detalles.
 
-![Duración del diagrama de Gantt](media/monitor-visually/view-gantt-run.png)
+:::image type="content" source="media/monitor-visually/view-gantt-run.png" alt-text="Duración del diagrama de Gantt":::
 
 ## <a name="alerts"></a>Alertas
 
 Puede generar alertas en función de métricas admitidas en Data Factory. Seleccione **Supervisar** > **Alertas y métricas**, en la página de supervisión de Data Factory, para empezar.
 
-![Página de supervisión de Data Factory](media/monitor-visually/start-page.png)
+:::image type="content" source="media/monitor-visually/start-page.png" alt-text="Página de supervisión de Data Factory":::
 
 Si desea una demostración y una introducción de siete minutos de esta característica, vea el siguiente vídeo:
 
@@ -173,35 +173,35 @@ Si desea una demostración y una introducción de siete minutos de esta caracter
 
 1.  Seleccione **Nueva regla de alertas** para crear una nueva alerta.
 
-    ![Botón Nueva regla de alertas](media/monitor-visually/new-alerts.png)
+    :::image type="content" source="media/monitor-visually/new-alerts.png" alt-text="Botón Nueva regla de alertas":::
 
 1.  Especifique el nombre de la regla y seleccione la gravedad de la alerta.
 
-    ![Cuadros del nombre de la regla y de la gravedad](media/monitor-visually/name-and-severity.png)
+    :::image type="content" source="media/monitor-visually/name-and-severity.png" alt-text="Cuadros del nombre de la regla y de la gravedad":::
 
 1.  Seleccione los criterios de la alerta.
 
-    ![Cuadro para los criterios de destino](media/monitor-visually/add-criteria-1.png)
+    :::image type="content" source="media/monitor-visually/add-criteria-1.png" alt-text="Cuadro para los criterios de destino":::
 
-    ![Captura de pantalla que muestra dónde se selecciona una métrica para configurar la condición de la alerta.](media/monitor-visually/add-criteria-2.png)
+    :::image type="content" source="media/monitor-visually/add-criteria-2.png" alt-text="Captura de pantalla que muestra dónde se selecciona una métrica para configurar la condición de la alerta.":::
 
-    ![Lista de criterios](media/monitor-visually/add-criteria-3.png)
+    :::image type="content" source="media/monitor-visually/add-criteria-3.png" alt-text="Lista de criterios":::
 
     Puede crear alertas de varias métricas, incluidas para el tamaño/recuento de entidades de ADF, ejecuciones de actividad/canalización/desencadenador, uso de CPU/memoria/número de nodos/cola de Integration Runtime (IR), así como para ejecuciones de paquetes de SSIS y operaciones de inicio/parada de IR de SSIS.
 
 1.  Configure la lógica de la alerta. Puede crear una alerta de la métrica seleccionada para todas las canalizaciones y actividades correspondientes. También puede seleccionar un tipo de actividad, nombre de actividad, nombre de canalización o tipo de error determinados.
 
-    ![Opciones para configurar la lógica de alerta](media/monitor-visually/alert-logic.png)
+    :::image type="content" source="media/monitor-visually/alert-logic.png" alt-text="Opciones para configurar la lógica de alerta":::
 
 1.  Configure las notificaciones push, por correo electrónico, SMS o voz de la alerta. Cree un grupo de acciones para las notificaciones de alerta o elija uno existente.
 
-    ![Opciones para configurar notificaciones](media/monitor-visually/configure-notification-1.png)
+    :::image type="content" source="media/monitor-visually/configure-notification-1.png" alt-text="Opciones para configurar notificaciones":::
 
-    ![Opciones para agregar una notificación](media/monitor-visually/configure-notification-2.png)
+    :::image type="content" source="media/monitor-visually/configure-notification-2.png" alt-text="Opciones para agregar una notificación":::
 
 1.  Cree la regla de alertas.
 
-    ![Opciones para crear una regla de alertas](media/monitor-visually/create-alert-rule.png)
+    :::image type="content" source="media/monitor-visually/create-alert-rule.png" alt-text="Opciones para crear una regla de alertas":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

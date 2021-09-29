@@ -1,14 +1,14 @@
 ---
-title: 'Entrega de una prueba de concepto: Azure DevTest Labs | Microsoft Docs'
+title: Entrega de una prueba de concepto
 description: Obtenga información sobre cómo entregar una prueba de concepto para que Azure DevTest Labs se pueda incorporar correctamente en un entorno empresarial.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/2/2020
-ms.openlocfilehash: 9c28cf9eebd8a39a2edce48e4fb8b96dc7608d80
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 03c8cc087f33ea6385fc0690f5634f33a3cbf0fd
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "87288024"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128589974"
 ---
 # <a name="deliver-a-proof-of-concept"></a>Entrega de una prueba de concepto 
 

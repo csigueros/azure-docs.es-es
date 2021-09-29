@@ -3,19 +3,17 @@ title: Actualización de Bing Spell Check API de v5 a v7
 titleSuffix: Azure Cognitive Services
 description: Se identifican las partes de la aplicación de Bing Spell Check que se deben actualizar para usar la versión 7.
 services: cognitive-services
-author: swhite-msft
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: conceptual
 ms.date: 02/20/2019
-ms.author: scottwhi
-ms.openlocfilehash: 77910c964ed45c012163e27ca58b092e1972d114
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a1df73cdcbf7b9578c205bda9b5a1804b1b882eb
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "96349595"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128556382"
 ---
 # <a name="spell-check-api-upgrade-guide"></a>Guía de actualización de Spell Check API
 

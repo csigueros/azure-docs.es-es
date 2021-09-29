@@ -1,15 +1,15 @@
 ---
-title: 'Gobernanza de la infraestructura de Azure DevTest Labs: recurso'
+title: Gobernanza de la infraestructura de Azure DevTest Labs
 description: Este artículo aborda la alineación y la administración de recursos de Azure DevTest Labs dentro de su organización.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 1e470da5cd317d49f0d0734caa11eed6630d3f32
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b279047b46e7e9abbc3198a62dc2b86d2c68d424
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85480922"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128652384"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---resources"></a>Gobernanza de la infraestructura de Azure DevTest Labs: recursos
 Este artículo aborda la alineación y la administración de recursos de DevTest Labs dentro de su organización. 

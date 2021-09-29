@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 07/06/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 2284344e525608c2c1498503f3bf479df1cea559
-ms.sourcegitcommit: 0ab53a984dcd23b0a264e9148f837c12bb27dac0
+ms.openlocfilehash: 208f4ff6b43a722e14a788d052350117aeac56dc
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2021
-ms.locfileid: "113504512"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128562502"
 ---
 # <a name="enable-and-manage-soft-delete-for-containers"></a>Habilitación y administración de la eliminación temporal para contenedores
 
@@ -45,7 +45,7 @@ Para habilitar la eliminación temporal de contenedores con PowerShell, primero 
 ```azurepowershell-interactive
 Enable-AzStorageContainerDeleteRetentionPolicy -ResourceGroupName <resource-group> `
     -StorageAccountName <storage-account> `
-    -RetentionDays 7 
+    -RetentionDays 7
 ```
 
 Para deshabilitar la eliminación temporal de contenedores, llame al comando **Disable-AzStorageContainerDeleteRetentionPolicy**.

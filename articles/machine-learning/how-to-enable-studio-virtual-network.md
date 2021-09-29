@@ -11,12 +11,12 @@ ms.author: jhirono
 author: jhirono
 ms.date: 07/13/2021
 ms.custom: contperf-fy20q4, tracking-python, security
-ms.openlocfilehash: d5c794bfc707f6429daad2e78affe592f5e3754c
-ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
+ms.openlocfilehash: 7fe7070611fc9fc94f983a69a6fb9009af0f9c3e
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114710009"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129091528"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Habilitación de Azure Machine Learning Studio en una Azure Virtual Network
 
@@ -65,7 +65,7 @@ En este artículo aprenderá a:
 
 + Un [área de trabajo de Azure Machine Learning existente con un punto de conexión privado](how-to-secure-workspace-vnet.md#secure-the-workspace-with-private-endpoint).
 
-+ Una [cuenta de Azure Storage existente agregada a la red virtual](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints).
++ Una [cuenta de Azure Storage existente agregada a la red virtual](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts).
 
 ## <a name="limitations"></a>Limitaciones
 
@@ -106,7 +106,7 @@ Siga estos pasos para habilitar el acceso a los datos almacenados en Azure Blob 
     |Almacenamiento de blobs predeterminado del área de trabajo| Almacena recursos del modelo desde el diseñador. Habilite la autenticación de identidad administrada en esta cuenta de almacenamiento para implementar modelos en el diseñador. <br> <br> Puede visualizar y ejecutar una canalización del diseñador si usa un almacén de datos no predeterminado que se ha configurado para utilizar una identidad administrada. Sin embargo, si intenta implementar un modelo entrenado sin la identidad administrada habilitada en el almacén de datos predeterminado, se producirá un error en la implementación independientemente de que se usen otros almacenes de datos.|
     |Almacén de archivos predeterminado del área de trabajo| Almacena los recursos de experimentos de AutoML. Habilite la autenticación de identidad administrada en esta cuenta de almacenamiento para enviar experimentos de AutoML. |
 
-1. **Configuración de almacenes de datos para usar la autenticación de la identidad administrada**. Después de agregar una cuenta de Azure Storage a la red virtual con un [punto de conexión de servicio](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints) o un [punto de conexión privado](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints), debe configurar el almacén de datos para usar la autenticación de [identidad administrada](../active-directory/managed-identities-azure-resources/overview.md). Esto permite que Studio tenga acceso a los datos de la cuenta de almacenamiento.
+1. **Configuración de almacenes de datos para usar la autenticación de la identidad administrada**. Después de agregar una cuenta de Azure Storage a la red virtual con un [punto de conexión de servicio](how-to-secure-workspace-vnet.md?tabs=se#secure-azure-storage-accounts) o un [punto de conexión privado](how-to-secure-workspace-vnet.md?tabs=pe#secure-azure-storage-accounts), debe configurar el almacén de datos para usar la autenticación de [identidad administrada](../active-directory/managed-identities-azure-resources/overview.md). Esto permite que Studio tenga acceso a los datos de la cuenta de almacenamiento.
 
     Azure Machine Learning usa [almacenes de datos](concept-data.md#datastores) para conectarse a las cuentas de almacenamiento. Al crear un almacén de datos, siga estos pasos para configurar un almacén de datos para usar la autenticación de la identidad administrada:
 

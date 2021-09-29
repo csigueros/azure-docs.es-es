@@ -9,19 +9,19 @@ ms.workload: infrastructure-services
 ms.date: 2/2/2021
 ms.author: mimckitt
 ms.custom: rybaker, chmimckitt, devx-track-azurepowershell
-ms.openlocfilehash: 08193cc933bfd7c1d183df119b1602270ecf6f74
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 96cd1c079a4d3705dbddaffcaf23c44191e38543
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122688510"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128622424"
 ---
 # <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>Implementación de Windows 10 en Azure con derechos de hospedaje multiinquilino 
 **Se aplica a:** :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles
 
 Para los clientes con Windows 10 Enterprise E3/E5 por usuario o con acceso a escritorios virtuales de Windows por usuario (licencias de suscripción de usuarios o licencias de suscripción de usuario de complemento), los derechos de hospedaje multiinquilino de Windows 10 le permiten llevar sus licencias de Windows 10 a la nube y ejecutar máquinas virtuales de Windows 10 en Azure sin pagar por otra licencia. Los derechos de hospedaje multiinquilino solo están disponibles para Windows 10 (versión 1703 o posterior).
 
-Para más información, consulte [Hospedaje multiinquilino para Windows 10](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx).
+Para más información, consulte [Hospedaje multiinquilino para Windows 10](https://www.microsoft.com/en-us/CloudandHosting).
 
 > [!NOTE]
 > - Para usar imágenes de Windows 7, 8.1 y 10 en desarrollo o pruebas, consulte [Cliente de Windows en Azure para escenarios de desarrollo y pruebas](client-images.md).
@@ -132,4 +132,4 @@ Azure aprovisiona todas las máquinas virtuales Windows con la cuenta de adminis
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Obtenga más información sobre la [configuración de VDA para Windows 10](/windows/deployment/vda-subscription-activation).
-- Obtenga más información sobre el [hospedaje multiinquilino para Windows 10](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx)
+- Obtenga más información sobre el [hospedaje multiinquilino para Windows 10](https://www.microsoft.com/en-us/CloudandHosting)

@@ -1,14 +1,14 @@
 ---
-title: Usar las funcionalidades de reclamación en Azure DevTest Labs | Microsoft Docs
+title: Uso de funcionalidades de notificación
 description: Obtenga información sobre los diferentes escenarios para usar las funcionalidades reclamación o de anulación de reclamaciones de Azure DevTest Labs
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/26/2020
-ms.openlocfilehash: 73ed3c0b94a66f5d17b5c8e2561c65bb48579aa1
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: d50ab660433ac9b2616a897e1110d466eb143a9a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "85476536"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128559292"
 ---
 # <a name="use-claim-capabilities-in-azure-devtest-labs"></a>Usar las funcionalidades de reclamación en Azure DevTest Labs
 El servicio Azure DevTest Labs mejora la efectividad y la eficiencia de los desarrolladores y los evaluadores. Este artículo se centra en la capacidad de reclamar o anular la reclamación de las máquinas virtuales en Azure DevTest Labs. También enumera varias mejoras que ofrece esta característica en la experiencia del usuario. Antes de ver diferentes escenarios en los que se puede usar esta característica, veamos qué es una **reclamación** y cómo funciona.

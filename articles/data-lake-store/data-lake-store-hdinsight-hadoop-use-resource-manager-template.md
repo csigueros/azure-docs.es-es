@@ -1,18 +1,18 @@
 ---
 title: 'Plantilla: clúster de HDInsight con Data Lake Storage Gen1'
 description: Use las plantillas de Azure Resource Manager para crear y usar clústeres de HDInsight con Azure Data Lake Storage Gen1.
-author: twooley
+author: normesta
 ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
-ms.author: twooley
+ms.author: normesta
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 9d2a8868dffa232aef58f9e57398987f1db755b3
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 1cf45c977feae9f8c9bba6b63421805c35735ceb
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110704114"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128597348"
 ---
 # <a name="create-an-hdinsight-cluster-with-azure-data-lake-storage-gen1-using-azure-resource-manager-template"></a>Creación de un clúster de HDInsight con Azure Data Lake Storage Gen1 mediante las plantillas de Azure Resource Manager
 > [!div class="op_single_selector"]

@@ -4,12 +4,12 @@ description: Aprenda a configurar SnapCenter para Oracle en BareMetal Infrastruc
 ms.topic: how-to
 ms.subservice: baremetal-oracle
 ms.date: 05/05/2021
-ms.openlocfilehash: cd3163b90d65f3e33fa56a190ed854069afd6703
-ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
+ms.openlocfilehash: edc75bd8d5fb2a64e22b2dd8f53fceda092161c3
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110579214"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128676112"
 ---
 # <a name="configure-snapcenter-for-oracle-on-baremetal-infrastructure"></a>Configuración de SnapCenter para Oracle en BareMetal Infrastructure
 
@@ -82,7 +82,7 @@ Una vez comprobado el ping, repita los pasos que siguió para agregar el almacen
     - **Credential Name** (Nombre de credencial): Escriba un nombre que identifique el nombre de usuario y sudoers.
     - **Authentication** (Autenticación): Linux.
     - **Username** (Nombre de usuario): Escriba el nombre de usuario recién creado.
-    - **Contraseña**: <Enter Password>
+    - **Contraseña**: \<enter password\>
     - Active la casilla **Use sudo privileges** (Usar privilegios de sudo).
     
 7. Seleccione **Aceptar**.

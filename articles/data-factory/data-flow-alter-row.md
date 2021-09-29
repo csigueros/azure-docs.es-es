@@ -9,21 +9,23 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/24/2021
-ms.openlocfilehash: 7fe220315f7cccb749fe0974e822f157cf54ca36
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.date: 09/09/2021
+ms.openlocfilehash: 052b91600f77d50c6ae70c6742aa4fe41c64e552
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122821721"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129060354"
 ---
 # <a name="alter-row-transformation-in-mapping-data-flow"></a>Transformación Alterar fila en el flujo de datos de asignación
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
+
 Use la transformación Alterar fila para establecer directivas de inserción, eliminación, actualización y upsert en las filas. Puede agregar las condiciones de uno a varios como expresiones. Estas condiciones se deben especificar en orden de prioridad, ya que cada fila se marcará con la directiva correspondiente a la primera expresión coincidente. Cada una de esas condiciones puede dar lugar a la inserción, actualización, eliminación o upsert de una fila (o filas). La transformación Alterar fila puede generar tanto acciones DDL como DML en la base de datos.
 
-![Configuración de alteración de fila](media/data-flow/alter-row1.png "Configuración de alteración de fila")
+:::image type="content" source="media/data-flow/alter-row1.png" alt-text="Configuración de alteración de fila":::
 
 Las transformaciones de Alterar fila solo funcionarán en los receptores de base de datos, REST o CosmosDB del flujo de datos. Las acciones que asigne a las filas (inserción, actualización, eliminación, upsert) no se producirán durante las sesiones de depuración. Ejecute una actividad Ejecutar flujo de datos en una canalización para aplicar las directivas de Alterar fila en las tablas de base de datos.
 
@@ -33,7 +35,7 @@ Las transformaciones de Alterar fila solo funcionarán en los receptores de base
 
 Cree una transformación Alterar fila y especifique una directiva de fila con una condición de `true()`. Cada fila que no coincida con alguna de las expresiones definidas previamente se marcará para la directiva de fila especificada. De forma predeterminada, cada fila que no coincide con alguna expresión condicional se marcará para `Insert`.
 
-![Directiva de alteración de fila](media/data-flow/alter-row4.png "Directiva de alteración de fila")
+:::image type="content" source="media/data-flow/alter-row4.png" alt-text="Directiva de alteración de fila":::
 
 > [!NOTE]
 > Para marcar todas las filas con una directiva, puede crear una condición para dicha directiva y especificar la condición como `true()`.
@@ -42,7 +44,7 @@ Cree una transformación Alterar fila y especifique una directiva de fila con un
 
 Use el [modo de depuración](concepts-data-flow-debug-mode.md) para ver los resultados de las directivas de Alterar fila en el panel Vista previa de datos. La vista previa de datos de una transformación Alterar fila no producirá acciones DDL o DML en el destino.
 
-![Directivas de alteración de fila](media/data-flow/alter-row3.png "Directivas de alteración de fila")
+:::image type="content" source="media/data-flow/alter-row3.png" alt-text="Directivas de alteración de fila":::
 
 Cada directiva de Alterar fila se representa con un icono que indica si se producirá una acción de inserción, actualización, upsert o eliminación. El encabezado superior muestra el número de filas afectadas por cada directiva en la vista previa.
 
@@ -50,7 +52,7 @@ Cada directiva de Alterar fila se representa con un icono que indica si se produ
 
 Para que las directivas de Alterar fila funcionen, el flujo de datos debe escribir en una base de datos o en un receptor Cosmos. En la pestaña **Configuración** del receptor, habilite las directivas de Alterar fila que tiene permitidas.
 
-![Receptor de alteración de fila](media/data-flow/alter-row2.png "Receptor de alteración de fila")
+:::image type="content" source="media/data-flow/alter-row2.png" alt-text="Receptor de alteración de fila":::
 
 El comportamiento predeterminado es permitir solamente las inserciones. Para permitir actualizaciones, upserts o eliminaciones, marque la casilla en el receptor correspondiente a esa condición. Si están habilitadas las actualizaciones, upserts o eliminaciones, debe especificar con qué columnas de clave del receptor deben coincidir.
 
@@ -93,7 +95,7 @@ El ejemplo siguiente es una transformación Alterar fila denominada `CleanData` 
 
 En la interfaz de usuario, esta transformación es similar a la siguiente imagen:
 
-![Ejemplo de alteración de fila](media/data-flow/alter-row4.png "Ejemplo de alteración de fila")
+:::image type="content" source="media/data-flow/alter-row4.png" alt-text="Ejemplo de alteración de fila":::
 
 En el siguiente fragmento de código se muestra el script del flujo de datos para esta transformación:
 

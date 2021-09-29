@@ -5,13 +5,13 @@ author: TheovanKraay
 ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
-ms.date: 05/05/2021
-ms.openlocfilehash: d2319ee86c356dfc3f145bd7031efe2ff01befa5
-ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
+ms.date: 09/08/2021
+ms.openlocfilehash: b40a2a2a8aaff878fa514ddd0d5b56eb9d5e10a3
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109520582"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124736237"
 ---
 # <a name="quickstart-create-a-multi-region-cluster-with-azure-managed-instance-for-apache-cassandra-preview"></a>Inicio rápido: Configuración de un clúster de varias regiones con Azure Managed Instance for Apache Cassandra (versión preliminar)
 
@@ -38,57 +38,84 @@ Como todos los centros de datos aprovisionados con este servicio deben implement
 
 1. Cree un grupo de recursos llamado "cassandra-mi-multi-region".
 
-    ```azurecli-interactive
-        az group create -l eastus2 -n cassandra-mi-multi-region
-    ```
+   ```azurecli-interactive
+   az group create -l eastus2 -n cassandra-mi-multi-region
+   ```
 
 1. Cree la primera red virtual en Este de EE. UU. 2 con una subred dedicada:
 
-    ```azurecli-interactive
-        az network vnet create -n vnetEastUs2 -l eastus2 -g cassandra-mi-multi-region --address-prefix 10.0.0.0/16 --subnet-name dedicated-subnet
-    ```
+   ```azurecli-interactive
+   az network vnet create \
+     -n vnetEastUs2 \
+     -l eastus2 \
+     -g cassandra-mi-multi-region \
+     --address-prefix 10.0.0.0/16 \
+     --subnet-name dedicated-subnet
+   ```
 
 1. Ahora, cree la segunda red virtual en Este de EE. UU., también con una subred dedicada:
 
-    ```azurecli-interactive
-        az network vnet create -n vnetEastUs -l eastus -g cassandra-mi-multi-region --address-prefix 192.168.0.0/16 --subnet-name dedicated-subnet
-    ```
+   ```azurecli-interactive
+    az network vnet create \
+      -n vnetEastUs \
+      -l eastus \
+      -g cassandra-mi-multi-region \
+      --address-prefix 192.168.0.0/16 \
+      --subnet-name dedicated-subnet
+   ```
 
    > [!NOTE]
    > Agregaremos explícitamente distintos intervalos de direcciones IP para garantizar que no se produzcan errores durante el emparejamiento. 
 
 1. Ahora es necesario emparejar la primera red virtual con la segunda:
 
-    ```azurecli-interactive
-        az network vnet peering create -g cassandra-mi-multi-region -n MyVnet1ToMyVnet2 --vnet-name vnetEastUs2 \
-            --remote-vnet vnetEastUs --allow-vnet-access --allow-forwarded-traffic
-    ```
+   ```azurecli-interactive
+   az network vnet peering create \
+     -g cassandra-mi-multi-region \
+     -n MyVnet1ToMyVnet2 \
+     --vnet-name vnetEastUs2 \
+     --remote-vnet vnetEastUs \
+     --allow-vnet-access \
+     --allow-forwarded-traffic
+   ```
 
 1. Para conectar las dos redes virtuales, cree otro emparejamiento entre la segunda red virtual y la primera:
 
-    ```azurecli-interactive
-        az network vnet peering create -g cassandra-mi-multi-region -n MyVnet2ToMyVnet1 --vnet-name vnetEastUs \
-            --remote-vnet vnetEastUs2 --allow-vnet-access --allow-forwarded-traffic  
-    ```
+   ```azurecli-interactive
+   az network vnet peering create \
+     -g cassandra-mi-multi-region \
+     -n MyVnet2ToMyVnet1 \
+     --vnet-name vnetEastUs \
+     --remote-vnet vnetEastUs2 \
+     --allow-vnet-access \
+     --allow-forwarded-traffic  
+   ```
 
    > [!NOTE]
    > Si agrega más regiones, será necesario emparejar cada red virtual a todas las demás redes virtuales y viceversa. 
 
 1. Compruebe la salida del comando anterior y asegúrese de que el valor de "peeringState" es ahora "Conectado". Otra manera de comprobarlo es ejecutar el siguiente comando:
 
-    ```azurecli-interactive
-        az network vnet peering show \
-          --name MyVnet1ToMyVnet2 \
-          --resource-group cassandra-mi-multi-region \
-          --vnet-name vnetEastUs2 \
-          --query peeringState
-    ``` 
+   ```azurecli-interactive
+   az network vnet peering show \
+     --name MyVnet1ToMyVnet2 \
+     --resource-group cassandra-mi-multi-region \
+     --vnet-name vnetEastUs2 \
+     --query peeringState
+   ``` 
 
-1. A continuación, aplique algunos permisos especiales a ambas redes virtuales, que se requieren en Azure Managed Instance for Apache Cassandra. Ejecute el siguiente código y asegúrese de reemplazar `<Subscription ID>` por su identificador de suscripción:
+1. A continuación, aplique algunos permisos especiales a ambas redes virtuales, que se requieren en Azure Managed Instance for Apache Cassandra. Ejecute el siguiente código y asegúrese de reemplazar `<SubscriptionID>` por su identificador de suscripción:
 
-    ```azurecli-interactive
-        az role assignment create --assignee a232010e-820c-4083-83bb-3ace5fc29d0b --role 4d97b98b-1d4f-4787-a291-c67834d212e7 --scope /subscriptions/<Subscription ID>/resourceGroups/cassandra-mi-multi-region/providers/Microsoft.Network/virtualNetworks/vnetEastUs2
-        az role assignment create --assignee a232010e-820c-4083-83bb-3ace5fc29d0b --role 4d97b98b-1d4f-4787-a291-c67834d212e7 --scope /subscriptions/<Subscription ID>/resourceGroups/cassandra-mi-multi-region/providers/Microsoft.Network/virtualNetworks/vnetEastUs
+   ```azurecli-interactive
+   az role assignment create \
+     --assignee a232010e-820c-4083-83bb-3ace5fc29d0b \
+     --role 4d97b98b-1d4f-4787-a291-c67834d212e7 \
+     --scope /subscriptions/<SubscriptionID>/resourceGroups/cassandra-mi-multi-region/providers/Microsoft.Network/virtualNetworks/vnetEastUs2
+
+   az role assignment create     \
+     --assignee a232010e-820c-4083-83bb-3ace5fc29d0b \
+     --role 4d97b98b-1d4f-4787-a291-c67834d212e7 \
+     --scope /subscriptions/<SubscriptionID>/resourceGroups/cassandra-mi-multi-region/providers/Microsoft.Network/virtualNetworks/vnetEastUs
     ```
    > [!NOTE]
    > Los valores `assignee` y `role` del comando anterior son valores fijos. Escriba estos valores exactamente como se mencionó en el comando. Si no lo hace, se producirán errores al crear el clúster. Si se producen errores al ejecutar este comando, es posible que no tenga permisos para ejecutarlo. Para obtenerlos, póngase en contacto con el administrador.
@@ -97,57 +124,57 @@ Como todos los centros de datos aprovisionados con este servicio deben implement
 
 1. Ahora que tenemos las redes adecuadas, estamos listos para implementar el recurso de clúster (reemplace `<Subscription ID>` por su identificador de suscripción). La instalación puede tardar entre 5 y 10 minutos.
 
-    ```azurecli-interactive
-        resourceGroupName='cassandra-mi-multi-region'
-        clusterName='test-multi-region'
-        location='eastus2'
-        delegatedManagementSubnetId='/subscriptions/<Subscription ID>/resourceGroups/cassandra-mi-multi-region/providers/Microsoft.Network/virtualNetworks/vnetEastUs2/subnets/dedicated-subnet'
-        initialCassandraAdminPassword='myPassword'
+   ```azurecli-interactive
+   resourceGroupName='cassandra-mi-multi-region'
+   clusterName='test-multi-region'
+   location='eastus2'
+   delegatedManagementSubnetId='/subscriptions/<SubscriptionID>/resourceGroups/cassandra-mi-multi-region/providers/Microsoft.Network/virtualNetworks/vnetEastUs2/subnets/dedicated-subnet'
+   initialCassandraAdminPassword='myPassword'
         
-        az managed-cassandra cluster create \
-           --cluster-name $clusterName \
-           --resource-group $resourceGroupName \
-           --location $location \
-           --delegated-management-subnet-id $delegatedManagementSubnetId \
-           --initial-cassandra-admin-password $initialCassandraAdminPassword \
-           --debug
-    ```
+    az managed-cassandra cluster create \
+      --cluster-name $clusterName \
+      --resource-group $resourceGroupName \
+      --location $location \
+      --delegated-management-subnet-id $delegatedManagementSubnetId \
+      --initial-cassandra-admin-password $initialCassandraAdminPassword \
+      --debug
+   ```
 
-1. Después de crear el recurso de clúster, está listo para crear un centro de datos. En primer lugar, cree un centro de datos en Este de EE. UU. 2 (reemplace `<Subscription ID>` por su identificador de suscripción). Esta operación puede tardar hasta 10 minutos.
+1. Después de crear el recurso de clúster, está listo para crear un centro de datos. En primer lugar, cree un centro de datos en Este de EE. UU. 2 (reemplace `<SubscriptionID>` por su identificador de suscripción). Esta operación puede tardar hasta 10 minutos.
 
-    ```azurecli-interactive
-        resourceGroupName='cassandra-mi-multi-region'
-        clusterName='test-multi-region'
-        dataCenterName='dc-eastus2'
-        dataCenterLocation='eastus2'
-        delegatedManagementSubnetId='/subscriptions/<Subscription ID>/resourceGroups/cassandra-mi-multi-region/providers/Microsoft.Network/virtualNetworks/vnetEastUs2/subnets/dedicated-subnet'
+   ```azurecli-interactive
+   resourceGroupName='cassandra-mi-multi-region'
+   clusterName='test-multi-region'
+   dataCenterName='dc-eastus2'
+   dataCenterLocation='eastus2'
+   delegatedManagementSubnetId='/subscriptions/<SubscriptionID>/resourceGroups/cassandra-mi-multi-region/providers/Microsoft.Network/virtualNetworks/vnetEastUs2/subnets/dedicated-subnet'
         
-        az managed-cassandra datacenter create \
-           --resource-group $resourceGroupName \
-           --cluster-name $clusterName \
-           --data-center-name $dataCenterName \
-           --data-center-location $dataCenterLocation \
-           --delegated-subnet-id $delegatedManagementSubnetId \
-           --node-count 3
-    ```
+    az managed-cassandra datacenter create \
+       --resource-group $resourceGroupName \
+       --cluster-name $clusterName \
+       --data-center-name $dataCenterName \
+       --data-center-location $dataCenterLocation \
+       --delegated-subnet-id $delegatedManagementSubnetId \
+       --node-count 3
+   ```
 
-1. Luego, cree un centro de datos en Este de EE. UU. (reemplace `<Subscription ID>` por su identificador de suscripción).
+1. Luego, cree un centro de datos en Este de EE. UU. (reemplace `<SubscriptionID>` por su identificador de suscripción).
 
-    ```azurecli-interactive
-        resourceGroupName='cassandra-mi-multi-region'
-        clusterName='test-multi-region'
-        dataCenterName='dc-eastus'
-        dataCenterLocation='eastus'
-        delegatedManagementSubnetId='/subscriptions/<Subscription ID>/resourceGroups/cassandra-mi-multi-region/providers/Microsoft.Network/virtualNetworks/vnetEastUs/subnets/dedicated-subnet'
+   ```azurecli-interactive
+   resourceGroupName='cassandra-mi-multi-region'
+   clusterName='test-multi-region'
+   dataCenterName='dc-eastus'
+   dataCenterLocation='eastus'
+   delegatedManagementSubnetId='/subscriptions/<SubscriptionID>/resourceGroups/cassandra-mi-multi-region/providers/Microsoft.Network/virtualNetworks/vnetEastUs/subnets/dedicated-subnet'
         
-        az managed-cassandra datacenter create \
-           --resource-group $resourceGroupName \
-           --cluster-name $clusterName \
-           --data-center-name $dataCenterName \
-           --data-center-location $dataCenterLocation \
-           --delegated-subnet-id $delegatedManagementSubnetId \
-           --node-count 3 
-    ```
+    az managed-cassandra datacenter create \
+      --resource-group $resourceGroupName \
+      --cluster-name $clusterName \
+      --data-center-name $dataCenterName \
+      --data-center-location $dataCenterLocation \
+      --delegated-subnet-id $delegatedManagementSubnetId \
+      --node-count 3 
+   ```
 
 1. Una vez creado el segundo centro de datos, obtenga el estado del nodo para comprobar que todos los nodos de Cassandra funcionan correctamente:
 
@@ -156,10 +183,9 @@ Como todos los centros de datos aprovisionados con este servicio deben implement
     clusterName='test-multi-region'
     
     az managed-cassandra cluster node-status \
-        --cluster-name $clusterName \
-        --resource-group $resourceGroupName
+       --cluster-name $clusterName \
+       --resource-group $resourceGroupName
     ```
-
 
 1. Por último, [conecte el clúster](create-cluster-cli.md#connect-to-your-cluster) mediante CQLSH y use la siguiente consulta de CQL para actualizar la estrategia de replicación de cada espacio de claves a fin de incluir todos los centros de datos del clúster:
 
@@ -190,7 +216,7 @@ Si no va a seguir usando este clúster de instancia administrada, elimínelo med
 1. En el menú de la izquierda de Azure Portal, seleccione **Grupos de recursos**.
 1. En la lista, seleccione el grupo de recursos que creó para este inicio rápido.
 1. En el panel **Información general** del grupo de recursos, seleccione **Eliminar grupo de recursos**.
-3. En la ventana siguiente, escriba el nombre del grupo de recursos que desea eliminar y, después, seleccione **Eliminar**.
+1. En la ventana siguiente, escriba el nombre del grupo de recursos que desea eliminar y, después, seleccione **Eliminar**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -3,7 +3,7 @@ title: Importación de la API de SOAP con Azure Portal | Microsoft Docs
 description: Obtenga información sobre cómo importar una representación XML estándar de una API SOAP y, a continuación, probar la API en los portales de Azure y para desarrolladores.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 manager: cfowler
 editor: ''
 ms.service: api-management
@@ -11,13 +11,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 04/22/2020
-ms.author: apimpm
-ms.openlocfilehash: 81ded79ee72fb7c2d89898595602cb3e6d7ae5e2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: danlep
+ms.openlocfilehash: effb8b3820359539045a25244ced9f0dddc83c86
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96011071"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128629699"
 ---
 # <a name="import-soap-api"></a>Importación de una API de SOAP
 
@@ -32,7 +32,7 @@ En este artículo aprenderá a:
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-Completar la guía de inicio rápido siguiente: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md)
+Complete el siguiente inicio rápido: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 

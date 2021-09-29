@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: anjusingh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 284a1c9d8b79a0d4e9c479afea9713a09c8c0fa4
-ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
+ms.openlocfilehash: 6cf0cc0ebc60a5b401ac8bd9726e39d23d8504a0
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122429612"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124766111"
 ---
 # <a name="configure-and-enable-users-for-sms-based-authentication-using-azure-active-directory"></a>Configuración y habilitación de los usuarios para la autenticación basada en SMS mediante Azure Active Directory 
 
@@ -88,7 +88,7 @@ Cada usuario que esté habilitado en la directiva de métodos de autenticación 
 
 ## <a name="set-a-phone-number-for-user-accounts"></a>Establecimiento de un número de teléfono para las cuentas de usuario
 
-Los usuarios ya están habilitados para la autenticación basada en SMS, pero su número de teléfono debe estar asociado con el perfil de usuario en Azure AD antes de poder iniciar sesión. El usuario puede [establecer este número de teléfono por sí mismo](../user-help/sms-sign-in-explainer.md) en *Mi cuenta*, o bien se puede asignar mediante Azure Portal. Los *administradores globales*, *administradores de autenticación* o *administradores de autenticación con privilegios* pueden establecer los números de teléfono.
+Los usuarios ya están habilitados para la autenticación basada en SMS, pero su número de teléfono debe estar asociado con el perfil de usuario en Azure AD antes de poder iniciar sesión. El usuario puede [establecer este número de teléfono por sí mismo](https://support.microsoft.com/account-billing/set-up-sms-sign-in-as-a-phone-verification-method-0aa5b3b3-a716-4ff2-b0d6-31d2bcfbac42) en *Mi cuenta*, o bien se puede asignar mediante Azure Portal. Los *administradores globales*, *administradores de autenticación* o *administradores de autenticación con privilegios* pueden establecer los números de teléfono.
 
 Cuando se establece un número de teléfono para el inicio de sesión con SMS, también se puede usar con [Multi-Factor Authentication de Azure AD][tutorial-azure-mfa] y el [autoservicio de restablecimiento de contraseña][tutorial-sspr].
 
@@ -137,7 +137,7 @@ Si un usuario ya se ha registrado en Multi-Factor Authentication de Azure AD o 
 
 Los usuarios que tengan un número de teléfono ya establecido para su cuenta verán un botón *Enable for SMS sign-in* (Habilitar para el inicio de sesión único) en su página **Mi perfil**. Al seleccionar este botón, la cuenta se habilita para su uso con el inicio de sesión basado en SMS y el registro anterior en Multi-Factor Authentication de Azure AD o SSPR.
 
-Para más información sobre la experiencia de usuario final, consulte [Experiencia de usuario de inicio de sesión de SMS para el número de teléfono](../user-help/sms-sign-in-explainer.md).
+Para más información sobre la experiencia de usuario final, consulte [Experiencia de usuario de inicio de sesión de SMS para el número de teléfono](https://support.microsoft.com/account-billing/set-up-sms-sign-in-as-a-phone-verification-method-0aa5b3b3-a716-4ff2-b0d6-31d2bcfbac42).
 
 ### <a name="error-when-trying-to-set-a-phone-number-on-a-users-account"></a>Error al intentar establecer un número de teléfono en la cuenta de un usuario
 

@@ -1,15 +1,15 @@
 ---
 title: Escenarios conocidos de uso de Azure DevTest Labs
 description: Este artículo proporciona los escenarios principales de uso de Azure DevTest Labs y dos rutas generales para empezar a usar el servicio en su organización.
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/20/2020
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: d6508bc4fdcb5f6dfae877fcdb8d407350f1047f
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: fc4c7ca1cdbc8e503ad6c0d94fcec2d9697baae4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114293572"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128657488"
 ---
 # <a name="popular-scenarios-for-using-azure-devtest-labs"></a>Escenarios conocidos de uso de Azure DevTest Labs
 Según las necesidades de la empresa, DevTest Labs puede configurarse para satisfacer requisitos diferentes.  En este artículo se tratan los escenarios más habituales. Cada escenario aborda las ventajas del uso de DevTest Labs y los recursos para implementar estos escenarios.  

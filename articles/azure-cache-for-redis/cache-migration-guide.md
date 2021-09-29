@@ -6,17 +6,19 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: yegu
-ms.openlocfilehash: d63cafb32dc1db0a901ed3e6004446b450db10c7
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: bd0e35105174cf64146cb27f75693e8348b1035e
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102451530"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124825002"
 ---
 # <a name="migrate-to-azure-cache-for-redis"></a>Migración a Azure Cache for Redis
+
 En este artículo se describen varios métodos para migrar una instancia de Redis Cache existente que se ejecuta de forma local o en otro servicio en la nube Azure Cache for Redis.
 
 ## <a name="migration-scenarios"></a>Escenarios de migración
+
 Las instancias de Redis de código abierto se pueden ejecutar en muchos entornos de proceso. Algunos ejemplos frecuentes son:
 
 - **En el entorno local**: cachés en Redis que se ejecutan en centros de datos privados.

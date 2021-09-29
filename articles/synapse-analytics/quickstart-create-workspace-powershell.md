@@ -2,20 +2,20 @@
 title: 'Inicio rápido: Creación de un área de trabajo de Synapse mediante Azure PowerShell'
 description: Siga los pasos de esta guía para crear un área de trabajo de Azure Synapse mediante Azure PowerShell.
 services: synapse-analytics
-author: lenadroid
+author: rothja
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: workspace
 ms.date: 10/19/2020
-ms.author: alehall
+ms.author: jroth
 ms.reviewer: jrasnick
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1b602ecb096293df7071489262175ae4bb7d71b0
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: ee02f650ad20eb9f6673875823090ea3d242b7cd
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113113542"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129093010"
 ---
 # <a name="quickstart-create-an-azure-synapse-workspace-with-azure-powershell"></a>Inicio rápido: Creación de un área de trabajo de Azure Synapse con Azure PowerShell
 
@@ -25,7 +25,7 @@ En este inicio rápido, aprenderá a crear un área de trabajo de Synapse median
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Una [cuenta de almacenamiento de Azure Data Lake Storage Gen2](../storage/common/storage-account-create.md).
 

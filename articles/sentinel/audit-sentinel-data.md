@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/03/2021
 ms.author: bagol
-ms.openlocfilehash: 82d406521ad534c77fc48c095631e07a74bfd080
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.openlocfilehash: 4378065a8d1a91f9051c04dbb71a90e2a4ab862c
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122252924"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124777400"
 ---
 # <a name="audit-azure-sentinel-queries-and-activities"></a>Auditoría de consultas y actividades de Azure Sentinel
 
@@ -47,7 +47,7 @@ Puede usar la tabla **AzureActivity** al auditar la actividad en el entorno de S
 
 **Para consultar la tabla AzureActivity**:
 
-1. Conecte el origen de datos [Actividad de Azure](connect-azure-activity.md) para iniciar la transmisión de eventos de auditoría a una nueva tabla en la pantalla **Registros**, denominada AzureActivity.
+1. Conecte el origen de datos [Actividad de Azure](./data-connectors-reference.md#azure-activity) para iniciar la transmisión de eventos de auditoría a una nueva tabla en la pantalla **Registros**, denominada AzureActivity.
 
 1. A continuación, consulte los datos mediante KQL, tal como lo haría con cualquier otra tabla.
 

@@ -3,7 +3,7 @@ title: Plantillas de API en Azure API Management | Microsoft Docs
 description: Aprenda a personalizar el contenido de las páginas de API en el portal para desarrolladores en Azure API Management.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 manager: cfowler
 editor: ''
 ms.assetid: 3642fd09-ba98-4358-93a6-c48ab0500431
@@ -12,14 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: apimpm
+ms.author: danlep
 ms.custom: devx-track-python
-ms.openlocfilehash: b63f38609b4b61130e515dd118e8ced9f201defd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1572843dfdff0f19a5c997781d1b3e5f223fad11
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87851721"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128629832"
 ---
 # <a name="api-templates-in-azure-api-management"></a>Plantillas de API en Azure API Management
 

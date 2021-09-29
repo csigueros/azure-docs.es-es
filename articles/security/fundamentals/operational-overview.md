@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2019
 ms.author: tomsh
-ms.openlocfilehash: 28bd7af9722bd76d6580257ffaf0446c79522502
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: 2d0187dcac4de0fc49bbc504d8a3010801d44ecb
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112461556"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124781332"
 ---
 # <a name="azure-operational-security-overview"></a>Información general sobre la seguridad operativa de Azure
 
@@ -66,7 +66,7 @@ Azure AD también incluye un conjunto completo de [funcionalidades de administra
 
 - [Autenticación multifactor](../../active-directory/authentication/concept-mfa-howitworks.md)
 - [Administración de contraseñas de autoservicio](https://azure.microsoft.com/resources/videos/self-service-password-reset-azure-ad/)
-- [Administración de grupos de autoservicio](../../active-directory/user-help/active-directory-passwords-update-your-own-password.md)
+- [Administración de grupos de autoservicio](https://support.microsoft.com/account-billing/reset-your-work-or-school-password-using-security-info-23dde81f-08bb-4776-ba72-e6b72b9dda9e)
 - [Administración de cuentas con privilegios](../../active-directory/privileged-identity-management/pim-configure.md)
 - [Control de acceso basado en roles de Azure (Azure RBAC)](../../role-based-access-control/overview.md)
 - [Supervisión del uso de la aplicación](../../active-directory/hybrid/whatis-hybrid-identity.md)

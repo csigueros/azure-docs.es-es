@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/07/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 29392d17d31926f7ae261bad96b53623b3c5a36a
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: 18f6be8421d424b8eefe04c5cb2e3f8026858ec7
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123470515"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128626729"
 ---
 # <a name="disaster-recovery-and-storage-account-failover"></a>Recuperación ante desastres y conmutación por error de la cuenta de almacenamiento
 
@@ -30,7 +30,7 @@ En este artículo se describen los conceptos y el proceso que implica la conmuta
 
 ## <a name="choose-the-right-redundancy-option"></a>Elección de la opción de redundancia correcta
 
-Azure Storage mantiene varias copias de la cuenta de almacenamiento para garantizar su durabilidad y alta disponibilidad. La opción de redundancia que elija para la cuenta depende del grado de resistencia que necesita. Para protegerse contra interrupciones regionales, configure la cuenta para el almacenamiento con redundancia geográfica, ya sea con o sin la opción de acceso de lectura desde la región secundaria:  
+Azure Storage mantiene varias copias de la cuenta de almacenamiento para garantizar su durabilidad y alta disponibilidad. La opción de redundancia que elija para la cuenta depende del grado de resistencia que necesita. Para protegerse contra interrupciones regionales, configure la cuenta para el almacenamiento con redundancia geográfica, ya sea con o sin la opción de acceso de lectura desde la región secundaria:
 
 El **almacenamiento con redundancia geográfica (GRS) o almacenamiento con redundancia de zona geográfica (GZRS)** copia los datos de manera asincrónica en dos regiones geográficas separadas por al menos cientos de kilómetros. Si se produce una interrupción en la región primaria, la región secundaria sirve como origen redundante de los datos. Puede iniciar una conmutación por error para convertir el punto de conexión secundario en el principal.
 
@@ -48,7 +48,7 @@ Es importante diseñar la aplicación para lograr alta disponibilidad desde el p
 - [Diseño de aplicaciones resistentes de Azure](/azure/architecture/framework/resiliency/app-design): información general de los conceptos clave para diseñar aplicaciones altamente disponibles en Azure.
 - [Lista de comprobación de resistencia](/azure/architecture/checklist/resiliency-per-service): lista de comprobación para verificar que la aplicación implementa los mejores procedimientos recomendados para lograr alta disponibilidad.
 - [Uso de redundancia geográfica para diseñar aplicaciones de alta disponibilidad](geo-redundant-design.md): instrucciones de diseño para compilar aplicaciones para aprovechar el almacenamiento con redundancia geográfica.
-- [Tutorial: Creación de una aplicación de alta disponibilidad con Blob Storage](../blobs/storage-create-geo-redundant-storage.md): tutorial que muestra cómo compilar una aplicación altamente disponible que cambia entre puntos de conexión de manera automática a medida que se simulan errores y recuperaciones. 
+- [Tutorial: Creación de una aplicación de alta disponibilidad con Blob Storage](../blobs/storage-create-geo-redundant-storage.md): tutorial que muestra cómo compilar una aplicación altamente disponible que cambia entre puntos de conexión de manera automática a medida que se simulan errores y recuperaciones.
 
 Además, tenga en cuenta estos procedimientos recomendados para mantener la alta disponibilidad de los datos de Azure Storage:
 
@@ -68,7 +68,7 @@ Microsoft también recomienda diseñar la aplicación para prepararse para la po
 La conmutación por error de una cuenta administrada por el cliente le permite conmutar por error toda una cuenta de almacenamiento en la región secundaria si la región principal deja de estar disponible por cualquier motivo. Cuando se fuerza una conmutación por error en la región secundaria, los clientes pueden empezar a escribir datos en el punto de conexión secundario una vez que se completa la conmutación por error. Por lo general, la conmutación por error tarda aproximadamente una hora.
 
 > [!NOTE]
-> Esta característica aún no se admite en cuentas con un espacio de nombres jerárquico (Azure Data Lake Storage Gen2). Para obtener más información, consulte [Características de Blob Storage disponibles en Azure Data Lake Storage Gen2](../blobs/data-lake-storage-supported-blob-storage-features.md).
+> Esta característica aún no se admite en cuentas con un espacio de nombres jerárquico (Azure Data Lake Storage Gen2). Para obtener más información, consulte [Características de Blob Storage disponibles en Azure Data Lake Storage Gen2](../blobs/storage-feature-support-in-storage-accounts.md).
 
 ### <a name="how-an-account-failover-works"></a>Funcionamiento de la conmutación por error de una cuenta
 
@@ -94,7 +94,7 @@ El acceso de escritura se restaura para las cuentas con redundancia geográfica 
 ### <a name="anticipate-data-loss"></a>Previsión de la pérdida de datos
 
 > [!CAUTION]
-> Por lo general, la conmutación por error de una cuenta implica perder algunos datos. Es importante entender las implicaciones que tiene iniciar la conmutación por error de una cuenta.  
+> Por lo general, la conmutación por error de una cuenta implica perder algunos datos. Es importante entender las implicaciones que tiene iniciar la conmutación por error de una cuenta.
 
 Como los datos se escriben de manera asincrónica desde la región primaria a la secundaria, siempre se produce un retraso antes de que una escritura en la región primaria se copie en la secundaria. Si la región primaria deja de estar disponible, puede que las escrituras más recientes todavía no se hayan copiado en la región secundaria.
 

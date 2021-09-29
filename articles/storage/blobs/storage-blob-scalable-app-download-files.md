@@ -8,12 +8,12 @@ ms.date: 02/04/2021
 ms.author: rogarana
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: aafea55e2683ab9c78fafbf819c9a67d7cb75a45
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 435bc37a79ea7397bcfd8d1d044c44cd5fde382e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110459690"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128630733"
 ---
 # <a name="download-large-amounts-of-random-data-from-azure-storage"></a>Descargar grandes cantidades de datos aleatorios desde Azure Storage
 
@@ -22,9 +22,9 @@ Este tutorial es la tercera parte de una serie. Este tutorial muestra cómo desc
 En la tercera parte de la serie, se aprende a:
 
 > [!div class="checklist"]
-> * Actualizar la aplicación
-> * Ejecución de la aplicación
-> * Validar el número de conexiones
+> - Actualizar la aplicación
+> - Ejecución de la aplicación
+> - Validar el número de conexiones
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -115,7 +115,7 @@ La aplicación lee los contenedores que se encuentran en la cuenta de almacenami
 
 En la siguiente tabla se muestran la clases [BlobRequestOptions](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions) definidas para cada blob al descargarse.
 
-|Propiedad|Valor|Descripción|
+|Propiedad|Value|Descripción|
 |---|---|---|
 |[DisableContentMD5Validation](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.disablecontentmd5validation)| true| Esta propiedad deshabilita la función de comprobación del hash MD5 del contenido cargado. Al deshabilitar la validación de MD5, se agiliza la transferencia. Aún así, hay que tener en cuenta que no se puede confirmar la validez o integridad de los archivos que se transfieren. |
 |[StoreBlobContentMD5](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.storeblobcontentmd5)| false| Esta propiedad determina si se calcula y almacena un hash MD5.   |
@@ -223,8 +223,8 @@ C:\>
 En la tercera parte de la serie aprendió a descargar grandes cantidades de datos de una cuenta de almacenamiento, incluido lo siguiente:
 
 > [!div class="checklist"]
-> * Ejecución de la aplicación
-> * Validar el número de conexiones
+> - Ejecución de la aplicación
+> - Validar el número de conexiones
 
 Vaya a la parte cuatro de la serie para comprobar las métricas de rendimiento y latencia en el portal.
 

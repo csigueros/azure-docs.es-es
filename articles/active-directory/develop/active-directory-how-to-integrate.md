@@ -14,12 +14,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, seoapril2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: b7ee283ff61753a060e49a3340cd0a795b04faf9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 57aefd8cc8a246d485854f72b47c131f75dced0c
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98755939"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124734813"
 ---
 # <a name="integrating-with-the-microsoft-identity-platform"></a>Integración con la Plataforma de identidad de Microsoft
 
@@ -55,7 +55,7 @@ Hay varias maneras de integrar la aplicación con la Plataforma de identidad de 
 
 **Promueva la aplicación en millones de organizaciones que ya están utilizando Azure AD.**  Los usuarios que buscan y examinan estos catálogos de soluciones ya están usando uno o más servicios en la nube, lo que los convierte en clientes de servicio en la nube cualificados. Más información acerca de la promoción de la aplicación en [Azure Marketplace](https://azure.microsoft.com/marketplace/partner-program/).
 
-**Cuando los usuarios registrar la aplicación, aparecerá en el panel de acceso de Azure AD y en el iniciador de aplicaciones de Microsoft 365.**  Los usuarios podrán volver de forma rápida y sencilla a la aplicación más tarde y mejorar la afiliación del usuario. Más información sobre el [panel de acceso de Azure AD](../user-help/my-apps-portal-end-user-access.md).
+**Cuando los usuarios registrar la aplicación, aparecerá en el panel de acceso de Azure AD y en el iniciador de aplicaciones de Microsoft 365.**  Los usuarios podrán volver de forma rápida y sencilla a la aplicación más tarde y mejorar la afiliación del usuario. Más información sobre el [panel de acceso de Azure AD](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ### <a name="secure-device-to-service-and-service-to-service-communication"></a>Comunicación segura de dispositivo a servicio y de servicio a servicio
 

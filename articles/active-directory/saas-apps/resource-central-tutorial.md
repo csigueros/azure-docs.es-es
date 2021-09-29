@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/07/2021
 ms.author: jeedes
-ms.openlocfilehash: 327fc5bd6003f93746f484e5d157cfa1737ae317
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: 0db8c8d14dbd3e09ebb798c41ea2d7b526acabc9
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111982131"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124753203"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-resource-central--saml-sso-for-meeting-room-booking-system"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Resource Central – SAML SSO for Meeting Room Booking System
 
@@ -177,7 +177,7 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
    :::image type="content" source="./media/resource-central/test.png" alt-text="Captura de pantalla de la página web de prueba de inicio de sesión único de Resource Central":::
 
-* Use el portal Aplicaciones de Microsoft. En el portal Mis aplicaciones, seleccione el icono **Resource Central – SAML SSO for Meeting Room Booking System** para redirigir a la dirección URL de inicio de sesión de Resource Central – SAML SSO for Meeting Room Booking System. Para más información, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+* Use el portal Aplicaciones de Microsoft. En el portal Mis aplicaciones, seleccione el icono **Resource Central – SAML SSO for Meeting Room Booking System** para redirigir a la dirección URL de inicio de sesión de Resource Central – SAML SSO for Meeting Room Booking System. Para más información, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

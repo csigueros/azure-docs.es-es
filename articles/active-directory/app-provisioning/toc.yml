@@ -60,6 +60,8 @@
           href: ../reports-monitoring/concept-provisioning-logs.md?context=%2fazure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
     - name: Automatización de la configuración mediante MS Graph
       href: application-provisioning-configuration-api.md
+    - name: Habilitación de la prevención de eliminaciones accidentales
+      href: accidental-deletions.md
     - name: Solución de problemas de aprovisionamiento de aplicaciones
       items:
         - name: Problemas conocidos

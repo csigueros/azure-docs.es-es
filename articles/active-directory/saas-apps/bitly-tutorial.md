@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/07/2019
 ms.author: jeedes
-ms.openlocfilehash: ecd96e13f66e88be2ed4e53ff300510763fbd564
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 02a6788e25b5f3cb6ca38c74202af80972b7a4e7
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92457102"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124734396"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-bitly"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Bitly
 
@@ -139,7 +139,7 @@ En esta sección se crea un usuario llamado B.Simon en Bitly. Bitly admite el ap
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de Bitly en el panel de acceso, debería iniciar sesión automáticamente en la versión de Bitly para la que configurara el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
+Al hacer clic en el icono de Bitly en el panel de acceso, debería iniciar sesión automáticamente en la versión de Bitly para la que configurara el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

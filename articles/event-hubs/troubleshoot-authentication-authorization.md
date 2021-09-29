@@ -2,13 +2,13 @@
 title: 'Solución de problemas de autenticación y autorización: Azure Event Hubs'
 description: En este artículo se proporciona información sobre cómo solucionar problemas de autenticación y autorización con Azure Event Hubs.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 368fd8efda1b828f99bc41da0743768989c1a601
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 09/20/2021
+ms.openlocfilehash: 0561ab94f113bf849d5492b93171c9b14540de44
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92329617"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128656842"
 ---
 # <a name="troubleshoot-authentication-and-authorization-issues---azure-event-hubs"></a>Solución de problemas de autenticación y autorización: Azure Event Hubs
 En el artículo [Solución de problemas de conectividad](troubleshooting-guide.md) se ofrecen sugerencias para solucionar problemas de conectividad con Azure Event Hubs. En este artículo se proporcionan sugerencias y recomendaciones para solucionar problemas de autenticación y autorización con Azure Event Hubs. 
