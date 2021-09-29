@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/19/2020
+ms.date: 09/20/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1f79eee17a78bd5cfc9024a333142deaaa44b3e2
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 82454e41ea9895c8006ac179a7c731a57a0c5c3b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108071143"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128581653"
 ---
 # <a name="tutorial-register-a-single-page-application-spa-in-azure-active-directory-b2c"></a>Tutorial: Registro de una aplicación de página única en Azure Active Directory B2C
 
@@ -54,7 +54,8 @@ Si aún no ha creado su propio [inquilino de Azure AD B2C](tutorial-create-tenan
 ## <a name="register-the-spa-application"></a>Registro de la aplicación SPA
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-1. Seleccione el icono **Directorio y suscripción** en la barra de herramientas del portal y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
 1. En Azure Portal, busque y seleccione **Azure AD B2C**.
 1. Seleccione **Registros de aplicaciones** y luego **Nuevo registro**.
 1. Escriba un **Nombre** para la aplicación. Por ejemplo, *spaapp1*.

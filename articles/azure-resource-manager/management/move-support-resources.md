@@ -2,13 +2,13 @@
 title: Compatibilidad con la operación de traslado por tipo de recurso
 description: Enumera los tipos de recursos de Azure que se pueden trasladar a un nuevo grupo de recursos, suscripción o región.
 ms.topic: conceptual
-ms.date: 08/30/2021
-ms.openlocfilehash: 614ef51474f789073f35e722733d255818bf3957
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.date: 09/08/2021
+ms.openlocfilehash: 14ef825ec2e11d76b90161dc7cf3d8814c8daa04
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123260885"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124764343"
 ---
 # <a name="move-operation-support-for-resources"></a>Compatibilidad con la operación de traslado para recursos
 
@@ -831,7 +831,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Subscription | Movimiento de región |
 > | ------------- | ----------- | ---------- | ---------- |
-> | backupvaults | No | No | No |
+> | backupvaults | [Sí](../../backup/backup-vault-overview.md#use-azure-portal-to-move-backup-vault-to-a-different-resource-group) | [Sí](../../backup/backup-vault-overview.md#use-azure-portal-to-move-backup-vault-to-a-different-subscription) | No |
 
 ## <a name="microsoftdatashare"></a>Microsoft.DataShare
 
@@ -1578,7 +1578,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Subscription | Movimiento de región |
 > | ------------- | ----------- | ---------- | ---------- |
-> | accounts | **pendiente** | **pendiente** | No |
+> | accounts | Sí | Sí | No |
 
 ## <a name="microsoftproviderhub"></a>Microsoft.ProviderHub
 

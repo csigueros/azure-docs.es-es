@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 2e2212171f0be8d754ac1a86567641c2bad8a9a0
-ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
+ms.openlocfilehash: cd22b7068507358b3b9cff0b97ce9bf6f3cabc1e
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114602779"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124762956"
 ---
 # <a name="enable-per-user-azure-ad-multi-factor-authentication-to-secure-sign-in-events"></a>Habilitación de Azure AD Multi-Factor Authentication por usuario para proteger los eventos de inicio de sesión
 
@@ -77,7 +77,7 @@ Para cambiar el estado de Azure AD Multi-Factor Authentication por usuario de u
 
 1. Confirme la selección en la ventana emergente que se abre.
 
-Después de habilitar los usuarios, notifíquelos por correo electrónico. Indique a los usuarios que aparecerá un mensaje para solicitarles que se registren la próxima vez que inicien sesión. Además, si su organización utiliza aplicaciones sin explorador que no son compatibles con la autenticación moderna, deben crear contraseñas de aplicación. Para más información, consulte la [guía del usuario final de Azure AD Multi-Factor Authentication](../user-help/multi-factor-authentication-end-user-first-time.md) para ayudarle a empezar.
+Después de habilitar los usuarios, notifíquelos por correo electrónico. Indique a los usuarios que aparecerá un mensaje para solicitarles que se registren la próxima vez que inicien sesión. Además, si su organización utiliza aplicaciones sin explorador que no son compatibles con la autenticación moderna, deben crear contraseñas de aplicación. Para más información, consulte la [guía del usuario final de Azure AD Multi-Factor Authentication](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc) para ayudarle a empezar.
 
 ### <a name="convert-users-from-per-user-mfa-to-conditional-access-based-mfa"></a>Convertir a los usuarios de MFA por usuario a MFA basado en el acceso condicional
 

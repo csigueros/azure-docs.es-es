@@ -2,14 +2,14 @@
 title: Uso de la API de Java Message Service 2.0 con Azure Service Bus Premium
 description: Aprenda a usar Java Message Service (JMS) con Azure Service Bus.
 ms.topic: article
-ms.date: 07/17/2020
+ms.date: 09/20/2021
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: b27784e4f70a72ae5b114d2796c2aaeace8068ab
-ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
+ms.openlocfilehash: df85a53652395e7ecdb55c1471ee81a8e49e048b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2021
-ms.locfileid: "112414700"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128615646"
 ---
 # <a name="use-java-message-service-20-api-with-azure-service-bus-premium"></a>Uso de la API de Java Message Service 2.0 con Azure Service Bus Premium
 

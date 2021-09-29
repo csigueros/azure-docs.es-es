@@ -3,7 +3,7 @@ title: Administración de Azure API Management mediante Azure Automation
 description: Obtenga información acerca de cómo puede usarse el servicio de Azure Automation para administrar Azure API Management.
 services: api-management, automation
 documentationcenter: ''
-author: vladvino
+author: dlepow
 manager: eamono
 editor: ''
 ms.assetid: 2e53c9af-f738-47f8-b1b6-593050a7c51b
@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/13/2018
-ms.author: apimpm
-ms.openlocfilehash: c808d4659b5987b099dd96d73bb8c18c08fe3c99
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: danlep
+ms.openlocfilehash: b503174049c459902f69c627f7b13c29e876266b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86249402"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128657944"
 ---
 # <a name="managing-azure-api-management-using-azure-automation"></a>Administración de Azure API Management mediante Azure Automation
 Esta guía presenta el servicio Azure Automation y cómo se puede usar para simplificar la administración de Azure API Management.
@@ -40,4 +40,4 @@ Estos son algunos ejemplos del uso de API Management con PowerShell:
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que ha aprendido los aspectos básicos de Azure Automation y cómo se puede usar para administrar Azure API Management, siga estos vínculos para obtener más información.
 
-* Consulte el [tutorial de introducción](../automation/learn/automation-tutorial-runbook-graphical.md) de Azure Automation.
+* Consulte el [tutorial de introducción](../automation/learn/powershell-runbook-managed-identity.md) de Azure Automation.

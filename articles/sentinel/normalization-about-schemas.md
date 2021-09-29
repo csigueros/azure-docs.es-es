@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/11/2021
 ms.author: ofshezaf
-ms.openlocfilehash: 5474dbce356ab8bb4b07ffcc5bd9facadd7134e0
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 828524e225f660cab2c11d23c5657ca82ae8781e
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123430043"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124796521"
 ---
 # <a name="azure-sentinel-information-model-asim-schemas-public-preview"></a>Esquemas del modelo de información de Azure Sentinel (ASIM) (versión preliminar pública)
 
@@ -90,7 +90,7 @@ Los siguientes campos son comunes a todos los esquemas de ASIM. Los campos comun
 | **EventStartTime**      | Mandatory   | Fecha y hora  |      Si el origen admite agregación y el registro representa varios eventos, este campo especifica la hora a la que se generó el primer evento. <br><br>De lo contrario, este campo es un alias del campo [TimeGenerated](#timegenerated). |
 | **EventEndTime**        | Mandatory   | Alias      |      Alias del campo [TimeGenerated](#timegenerated).    |
 |  <a name=eventtype></a>**EventType**           | Mandatory   | Enumerated |    Describe la operación notificada por el registro. Cada esquema documenta la lista de valores válidos para este campo. |
-| **EventSubType** | Opcional | Enumerated | Describe una subdivisión de la operación notificada en el campo [EventType](#eventtype). Cada esquema documenta la lista de valores válidos para este campo. |
+| **EventSubType** | Opcionales | Enumerated | Describe una subdivisión de la operación notificada en el campo [EventType](#eventtype). Cada esquema documenta la lista de valores válidos para este campo. |
 | <a name="eventresult"></a>**EventResult** | Mandatory | Enumerated | Uno de los siguientes valores: **Correcto**, **Parcial**, **Error** o **NA** (No aplicable).<br> <br>El valor se puede proporcionar en el registro de origen usando términos diferentes, que se deben normalizar con estos valores. El origen puede proporcionar también únicamente el campo [EventOriginalResultDetails](#eventresultdetails), que se debe analizar para obtener el valor de "EventResult".<br><br>Ejemplo: `Success`|
 | <a name=eventresultdetails></a>**EventResultDetails** | Mandatory | Alias | Motivo o detalles del resultado notificado en el campo [**EventResult**](#eventresult). Cada esquema documenta la lista de valores válidos para este campo.<br><br>Ejemplo: `NXDOMAIN`|
 | **EventOriginalUid**    | Opcional    | String     |   Id. único del registro original, si lo proporciona el origen.<br><br>Ejemplo: `69f37748-ddcd-4331-bf0f-b137f1ea83b`|
@@ -104,14 +104,14 @@ Los siguientes campos son comunes a todos los esquemas de ASIM. Los campos comun
 | <a name ="dvcipaddr"></a>**DvcIpAddr**           | Recomendado | Dirección IP |         Dirección IP del dispositivo en el que se produjo el evento.  <br><br>Ejemplo: `45.21.42.12`    |
 | <a name ="dvchostname"></a>**DvcHostname**         | Recomendado | Nombre de host   |               Nombre de host del dispositivo en el que se produjo el evento. <br><br>Ejemplo: `ContosoDc.Contoso.Azure`               |
 | <a name ="dvcid"></a>**DvcId**               | Opcional    | String     |  Id. único del dispositivo en el que se produjo el evento. <br><br>Ejemplo: `41502da5-21b7-48ec-81c9-baeea8d7d669`   |
-| **DvcMacAddr**          | Opcional    | MAC        |   Dirección MAC del dispositivo en el que se produjo el evento.  <br><br>Ejemplo: `00:1B:44:11:3A:B7`       |
+| **DvcMacAddr**          | Opcionales    | MAC        |   Dirección MAC del dispositivo en el que se produjo el evento.  <br><br>Ejemplo: `00:1B:44:11:3A:B7`       |
 | **DvcOs**               | Opcional    | String     |         Sistema operativo que se ejecuta en el dispositivo en el que se produjo el evento.    <br><br>Ejemplo: `Windows`    |
 | **DvcOsVersion**        | Opcional    | String     |   Versión del sistema operativo del dispositivo en el que se produjo el evento. <br><br>Ejemplo: `10` |
-| **AdditionalFields**    | Opcional    | Dinámica    | Si el origen proporciona información adicional que merece la pena preservar, consérvela con los nombres de campo originales o cree el campo dinámico **AdditionalFields** y agréguele la información adicional como pares clave-valor.    |
+| **AdditionalFields**    | Opcionales    | Dinámica    | Si el origen proporciona información adicional que merece la pena preservar, consérvela con los nombres de campo originales o cree el campo dinámico **AdditionalFields** y agréguele la información adicional como pares clave-valor.    |
 | | | | |
 
 > [!NOTE]
-> Log Analytics también agrega otros campos que son menos pertinentes para los casos de uso de seguridad. Para obtener más información, consulte [Columnas estándar en registros de Azure Monitor](/azure/azure-monitor/logs/log-standard-columns).
+> Log Analytics también agrega otros campos que son menos pertinentes para los casos de uso de seguridad. Para obtener más información, consulte [Columnas estándar en registros de Azure Monitor](../azure-monitor/logs/log-standard-columns.md).
 >
 
 

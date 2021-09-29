@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.author: jeedes
-ms.openlocfilehash: d7569f690d054deaec1c81299463cf4b12f73601
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 864f906330a40154443a4ee43c4cfb9c0e6a4ebe
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92450618"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124834394"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-fulcrum"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Fulcrum
 
@@ -28,7 +28,7 @@ En este tutorial, obtendrá información sobre cómo integrar Fulcrum con Azure 
 
 Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -155,7 +155,7 @@ En esta sección, se crea un usuario llamado Britta Simon en Fulcrum. Fulcrum ad
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de Fulcrum en el panel de acceso, debería iniciar sesión automáticamente en la versión de Fulcrum para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
+Al hacer clic en el icono de Fulcrum en el panel de acceso, debería iniciar sesión automáticamente en la versión de Fulcrum para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

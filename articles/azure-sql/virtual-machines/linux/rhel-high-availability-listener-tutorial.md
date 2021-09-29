@@ -8,12 +8,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: jroth
 ms.date: 03/11/2020
-ms.openlocfilehash: 935b3ea84a1e8927a80e1cf3e0ce287fa90620ba
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: a93fc15d35f8bcba7a4c314dd854cd048095f0cd
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121745771"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128666787"
 ---
 # <a name="tutorial-configure-an-availability-group-listener-for-sql-server-on-rhel-virtual-machines-in-azure"></a>Tutorial: Configuración de una escucha de grupo de disponibilidad para SQL Server en máquinas virtuales con Red Hat Enterprise Linux en Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -265,7 +265,7 @@ En este punto, el grupo de recursos dispone de un equilibrador de carga que se c
 1. Compruebe los recursos del clúster mediante el comando `sudo pcs resource` y observará que la instancia principal es ahora `<VM2>`.
 
     > [!NOTE]
-    > Este artículo contiene referencias al término esclavo, un término que Microsoft ya no usa. Cuando se quite el término del software, se quitará también del artículo.
+    > Este artículo contiene referencias al término *esclavo*, un término que Microsoft ya no usa. Cuando se quite el término del software, se quitará también del artículo.
 
 
     ```output

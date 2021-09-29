@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: 3ccd5cf9ebc1c5183571dcdfbe3beeabe1b28a63
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 01283dd9607dbe3f9b5b0c2103345cb73d56e093
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114448123"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128579522"
 ---
 # <a name="storage-analytics"></a>Storage Analytics
 
@@ -34,8 +34,8 @@ Todos los datos de métricas los escriben los servicios de una cuenta de almacen
 
 Son facturables las acciones siguientes realizadas por Storage Analytics:
 
-* Solicitudes para crear blobs para el registro
-* Solicitudes para crear entidades de tabla para las métricas
+- Solicitudes para crear blobs para el registro
+- Solicitudes para crear entidades de tabla para las métricas
 
 Si ha configurado una directiva de retención de datos, puede reducir el gasto mediante la eliminación de datos antiguos de registro y métricas. Para obtener más información acerca de las directivas de retención, consulte [Establecer una directiva de retención de datos de Storage Analytics](/rest/api/storageservices/Setting-a-Storage-Analytics-Data-Retention-Policy).
 
@@ -46,6 +46,7 @@ Las solicitudes realizadas al servicio de almacenamiento de una cuenta son factu
 Al examinar los datos de Storage Analytics, puede usar las tablas del tema [Operaciones y mensajes de estado registrados por Storage Analytics](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) para determinar qué solicitudes son facturables. De esta manera, podrá comparar los datos de métricas y de registro con los mensajes de estado para ver si se le cobró por una solicitud determinada. También puede usar las tablas del tema anterior para investigar la disponibilidad de un servicio de almacenamiento o de una operación de API determinada.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Supervisión de una cuenta de almacenamiento en Azure Portal](./manage-storage-analytics-logs.md)
-* [Métricas de Storage Analytics](storage-analytics-metrics.md)
-* [Registro de Storage Analytics](storage-analytics-logging.md)
+
+- [Supervisión de una cuenta de almacenamiento en Azure Portal](./manage-storage-analytics-logs.md)
+- [Métricas de Storage Analytics](storage-analytics-metrics.md)
+- [Registro de Storage Analytics](storage-analytics-logging.md)

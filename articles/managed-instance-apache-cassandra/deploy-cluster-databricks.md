@@ -6,12 +6,12 @@ ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 06/02/2021
-ms.openlocfilehash: 1e66e8a3358bdcbca3d5dea247e1e6af2000393f
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 7075b7efd871d3f226faa593e0730d22c8913fd1
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121735052"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124797091"
 ---
 # <a name="quickstart-deploy-a-managed-apache-spark-cluster-preview-with-azure-databricks"></a>Inicio rápido: implementación de un clúster de Apache Spark administrado (versión preliminar) con Azure Databricks
 
@@ -36,15 +36,15 @@ Siga estos pasos para crear un clúster de Azure Databricks en una red virtual q
 
 1. Abra el recurso **Red virtual** y tome nota del **espacio de direcciones**:
 
-    :::image type="content" source="./media/deploy-cluster-databricks/virtual-network-address-space.png" alt-text="Obtenga el espacio de direcciones de su red virtual." border="true":::
+   :::image type="content" source="./media/deploy-cluster-databricks/virtual-network-address-space.png" alt-text="Obtenga el espacio de direcciones de su red virtual." border="true":::
 
 1. En el grupo de recursos, seleccione **Agregar** y busque **Azure Databricks** en el campo de búsqueda:
 
-    :::image type="content" source="./media/deploy-cluster-databricks/databricks.png" alt-text="Busque Azure Databricks." border="true":::
+   :::image type="content" source="./media/deploy-cluster-databricks/databricks.png" alt-text="Busque Azure Databricks." border="true":::
 
 1. Seleccione **Crear** para crear una cuenta de Azure Databricks:
 
-    :::image type="content" source="./media/deploy-cluster-databricks/databricks-create.png" alt-text="Cree una cuenta de Azure Databricks." border="true":::
+   :::image type="content" source="./media/deploy-cluster-databricks/databricks-create.png" alt-text="Cree una cuenta de Azure Databricks." border="true":::
 
 1. Rellene los siguientes valores:
 
@@ -52,7 +52,7 @@ Siga estos pasos para crear un clúster de Azure Databricks en una red virtual q
    * **Región** : asegúrese de seleccionar la misma región que su red virtual.
    * **Plan de tarifa**: elija entre Estándar, Premium o Evaluación gratuita. Para más información sobre estos planes, consulte la [página de precios de Databricks](https://azure.microsoft.com/pricing/details/databricks/).
 
-    :::image type="content" source="./media/deploy-cluster-databricks/select-name.png" alt-text="Especifique el nombre del área de trabajo, la región y el plan de tarifa para la cuenta de Databricks." border="true":::
+   :::image type="content" source="./media/deploy-cluster-databricks/select-name.png" alt-text="Especifique el nombre del área de trabajo, la región y el plan de tarifa para la cuenta de Databricks." border="true":::
 
 1. A continuación, seleccione la pestaña **Redes** y rellene la información siguiente:
 
@@ -82,17 +82,17 @@ Siga estos pasos para crear un clúster de Azure Databricks en una red virtual q
    * **Nombre del clúster**: escriba un nombre para el clúster.
    * **Versión de Databricks Runtime:** se recomienda seleccionar Databricks Runtime versión 7.5 o posterior, para la compatibilidad con Spark 3.x. 
 
-    :::image type="content" source="../cosmos-db/cassandra/media/migrate-data-databricks/databricks-runtime.png" alt-text="Seleccione la versión de Databricks Runtime y el clúster de Spark." border="true":::
+   :::image type="content" source="../cosmos-db/cassandra/media/migrate-data-databricks/databricks-runtime.png" alt-text="Seleccione la versión de Databricks Runtime y el clúster de Spark." border="true":::
 
 1. Expanda **Opciones avanzadas** y agregue la configuración siguiente. Asegúrese de reemplazar las direcciones IP y las credenciales del nodo:
 
-    ```java
-    spark.cassandra.connection.host <node1 IP>,<node 2 IP>, <node IP>
-    spark.cassandra.auth.password cassandra
-    spark.cassandra.connection.port 9042
-    spark.cassandra.auth.username cassandra
-    spark.cassandra.connection.ssl.enabled true
-    ```
+   ```java
+   spark.cassandra.connection.host <node1 IP>,<node 2 IP>, <node IP>
+   spark.cassandra.auth.password cassandra
+   spark.cassandra.connection.port 9042
+   spark.cassandra.auth.username cassandra
+   spark.cassandra.connection.ssl.enabled true
+   ```
 
 1. Agregue la biblioteca de conectores de Cassandra de Apache Spark a su clúster para conectarse a los puntos de conexión nativos y de Cassandra de Azure Cosmos DB. En el clúster, seleccione **Libraries** > **Install New** > **Maven** (Bibliotecas > Instalar nueva > Maven) y, después, agregue `com.datastax.spark:spark-cassandra-connector-assembly_2.12:3.0.0` en las coordenadas de Maven.
 
@@ -105,11 +105,11 @@ Si no va a seguir usando este clúster de instancia administrada, elimínelo med
 1. En el menú de la izquierda de Azure Portal, seleccione **Grupos de recursos**.
 1. En la lista, seleccione el grupo de recursos que creó para este inicio rápido.
 1. En el panel **Información general** del grupo de recursos, seleccione **Eliminar grupo de recursos**.
-3. En la ventana siguiente, escriba el nombre del grupo de recursos que desea eliminar y, después, seleccione **Eliminar**.
+1. En la ventana siguiente, escriba el nombre del grupo de recursos que desea eliminar y, después, seleccione **Eliminar**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este inicio rápido se muestra cómo usar Azure Portal para crear un clúster de Apache Spark totalmente administrado en la red virtual del clúster de Azure Managed Instance for Apache Cassandra. A continuación, obtenga información sobre cómo administrar los recursos del centro de datos y el clúster: 
+En este inicio rápido se muestra cómo usar Azure Portal para crear un clúster de Apache Spark totalmente administrado en la red virtual del clúster de Azure Managed Instance for Apache Cassandra. A continuación, obtenga información sobre cómo administrar los recursos del centro de datos y el clúster:
 
 > [!div class="nextstepaction"]
 > [Administración de recursos de Azure Managed Instance for Apache Cassandra mediante la CLI de Azure](manage-resources-cli.md)

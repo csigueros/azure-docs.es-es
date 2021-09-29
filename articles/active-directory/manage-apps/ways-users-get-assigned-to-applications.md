@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 01/07/2021
 ms.author: davidmu
 ms.reviewer: alamaral
-ms.openlocfilehash: 081ae6506949407c0cc5331abf542367f7cc4c84
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 9f4e99c21ab0cba538021f416e058bdafd5c83b9
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121738769"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124779357"
 ---
 # <a name="understand-how-users-are-assigned-to-apps-in-azure-active-directory"></a>Explicación del proceso de asignación de usuarios a aplicaciones en Azure Active Directory
 
@@ -34,8 +34,8 @@ Para que un usuario tenga acceso a una aplicación, se le debe primero asignar a
   * Un [grupo de seguridad dinámico](../enterprise-users/groups-dynamic-membership.md) creado en la nube
   * Un grupo de Microsoft 365 creado en la nube
   * El grupo [Todos los usuarios](../fundamentals/active-directory-groups-create-azure-portal.md)
-* Un administrador habilita [Acceso de autoservicio a las aplicaciones](./manage-self-service-access.md) para permitir que un usuario agregue una aplicación mediante la característica **Agregar aplicación** de la página [Aplicaciones](../user-help/my-apps-portal-end-user-access.md) **sin aprobación de la empresa**.
-* Un administrador habilita [Acceso de autoservicio a las aplicaciones](./manage-self-service-access.md) para permitir que un usuario agregue una aplicación mediante la característica **Agregar aplicación** de la página [Mis aplicaciones](../user-help/my-apps-portal-end-user-access.md), pero solo **con la aprobación previa de un conjunto seleccionado de aprobadores de la empresa**
+* Un administrador habilita [Acceso de autoservicio a las aplicaciones](./manage-self-service-access.md) para permitir que un usuario agregue una aplicación mediante la característica **Agregar aplicación** de la página [Aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510) **sin aprobación de la empresa**.
+* Un administrador habilita [Acceso de autoservicio a las aplicaciones](./manage-self-service-access.md) para permitir que un usuario agregue una aplicación mediante la característica **Agregar aplicación** de la página [Mis aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510), pero solo **con la aprobación previa de un conjunto seleccionado de aprobadores de la empresa**
 * Un administrador habilita [Administración de grupos de autoservicio](../enterprise-users/groups-self-service-management.md) para permitir que un usuario se una a un grupo al que se ha asignado una aplicación **sin la aprobación de la empresa**
 * Un administrador habilita [Administración de grupos de autoservicio](../enterprise-users/groups-self-service-management.md) para permitir que un usuario se una a un grupo al que se ha asignado una aplicación pero solo **con la aprobación anterior de un conjunto seleccionado de aprobadores de la empresa**
 * Un administrador asigna una licencia a un usuario directamente para una aplicación original de Microsoft, como [Microsoft 365](https://products.office.com/)

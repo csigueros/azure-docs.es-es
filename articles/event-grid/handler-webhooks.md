@@ -2,13 +2,13 @@
 title: Webhooks como controladores de eventos para eventos de Azure Event Grid
 description: Aquí se describe cómo puede usar los webhooks como controladores de eventos para eventos de Event Grid. Los runbooks y aplicaciones lógicas de Azure Automation se admiten como controladores de eventos a través de webhooks.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: aa20c75789a18b93f787134dffe165e60ff1ab6f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 09/15/2021
+ms.openlocfilehash: 4f790c6a4ced30d0a0e34cb594581aae09ed1004
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91875808"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128550481"
 ---
 # <a name="webhooks-automation-runbooks-logic-apps-as-event-handlers-for-azure-event-grid-events"></a>Webhooks, runbooks de Automation, aplicaciones lógicas como controladores de eventos para eventos de Azure Event Grid
 Un controlador de eventos es el lugar al que se envía el evento. El controlador realiza alguna acción adicional para procesar el evento. Varios servicios de Azure se configuran automáticamente para controlar los eventos. También puede usar cualquier webhook para controlar los eventos. El webhook no necesita estar hospedado en Azure para controlar los eventos. Event Grid solo admite puntos de conexión de webhook HTTPS.

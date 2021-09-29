@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.date: 10/03/2018
 ms.topic: article
-ms.openlocfilehash: 95b5cc191ac6857bf8e1b09e70b22d928473fe03
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3b8e4395cd2ac46acb94abced52aa28eccf4f3d7
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92314852"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128615992"
 ---
 # <a name="run-actions-based-on-group-status-by-using-scopes-in-azure-logic-apps"></a>Ejecución de acciones basadas en el estado del grupo mediante ámbitos en Azure Logic Apps
 
@@ -61,7 +61,7 @@ Puede guardar la aplicación lógica en cualquier momento, así que guarde su tr
 
    1. Si no tiene una conexión de Mapas de Bing, se le solicitará que cree una.
 
-      | Configuración | Valor | Descripción |
+      | Configuración | Value | Descripción |
       | ------- | ----- | ----------- |
       | **Nombre de la conexión** | BingMapsConnection | Proporcione un nombre para la conexión. | 
       | **Clave de API** | <*su-clave-de-Mapas-de-Bing*> | Escriba la clave de Mapas de Bing recibida previamente. | 
@@ -73,7 +73,7 @@ Puede guardar la aplicación lógica en cualquier momento, así que guarde su tr
 
       Para más información acerca de estos parámetros, consulte [Calculate a route](/bingmaps/rest-services/routes/calculate-a-route) (Cálculo de una ruta).
 
-      | Configuración | Valor | Descripción |
+      | Configuración | Value | Descripción |
       | ------- | ----- | ----------- |
       | **Waypoint 1** (Punto de referencia 1) | <*inicio*> | Escriba el origen de la ruta. | 
       | **Waypoint 2** (Punto de referencia 2) | <*fin*> | Escriba el destino de la ruta. | 
@@ -111,13 +111,13 @@ Puede guardar la aplicación lógica en cualquier momento, así que guarde su tr
 
    1. En el campo **Asunto**, escriba este texto:
 
-      ```Time to leave: Traffic more than 10 minutes```
+     `Time to leave: Traffic more than 10 minutes`
 
    1. En el campo **Cuerpo**, escriba este texto con un espacio final: 
 
-      ```Travel time:```
+     `Travel time:`
 
-      Mientras el cursor aparece en el campo **Cuerpo**, la lista de contenido dinámica permanece abierta para que pueda seleccionar los parámetros que estén disponibles en este momento.
+     Mientras el cursor aparece en el campo **Cuerpo**, la lista de contenido dinámica permanece abierta para que pueda seleccionar los parámetros que estén disponibles en este momento.
 
    1. En la lista de contenido dinámico, elija **Expresión**.
 

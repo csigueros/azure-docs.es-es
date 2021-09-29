@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/17/2021
+ms.date: 09/20/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b0d0c77ffbf6e8c8493abe2f9356aaa0e171f1f2
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+ms.openlocfilehash: 76d9010bed698dfe49650675bdb15abe7eb1dfe7
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122967300"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128596493"
 ---
 # <a name="set-up-phone-sign-up-and-sign-in-for-user-flows"></a>Configuración del registro e inicio de sesión telefónico para flujos de usuario
 
@@ -39,14 +39,11 @@ La autenticación multifactor (MFA) se deshabilita de forma predeterminada al co
 El registro de correo electrónico se habilita de forma predeterminada en la configuración del proveedor de identidades de la cuenta local. Puede cambiar los tipos de identidad que admitirá en el inquilino seleccionando o anulando la selección del registro de correo electrónico, el nombre de usuario o el número de teléfono.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-
-2. Asegúrese de usar el directorio que contiene el inquilino de Azure AD B2C. Para ello, seleccione el filtro **Directorio y suscripción** en el menú superior y luego el directorio que contiene el inquilino de Azure AD.
-
-3. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C**.
-
-4. En **Administrar**, seleccione **Proveedores de identidades**.
-
-5. En la lista de proveedores de identidades, seleccione **Cuenta local**.
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
+1. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C**.
+1. En **Administrar**, seleccione **Proveedores de identidades**.
+1. En la lista de proveedores de identidades, seleccione **Cuenta local**.
 
    ![Selección de Cuenta local en Proveedores de identidades](media/phone-authentication-user-flows/identity-provider-local-account.png)
 
@@ -63,29 +60,27 @@ Después de agregar el registro telefónico como una opción de identidad para l
 Este es un ejemplo en el que se muestra cómo agregar el registro telefónico a un nuevo flujo de usuario.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-2. Seleccione el icono **Directorio y suscripción** en la barra de herramientas del portal y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
-
-    ![Inquilino de B2C, panel de directorio y suscripción, Azure Portal](./media/phone-authentication-user-flows/directory-subscription-pane.png)
-
-3. En Azure Portal, busque y seleccione **Azure AD B2C**.
-4. En **Directivas**, seleccione **Flujos de usuario** y **Nuevo flujo de usuario**.
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
+1. En Azure Portal, busque y seleccione **Azure AD B2C**.
+1. En **Directivas**, seleccione **Flujos de usuario** y **Nuevo flujo de usuario**.
 
     ![Página Flujos de usuario del portal con el botón Nuevo flujo de usuario resaltado](./media/phone-authentication-user-flows/sign-up-sign-in-user-flow.png)
 
-5. En la página **Crear un flujo de usuario**, seleccione el flujo de usuario **Registrarse e iniciar sesión**.
+1. En la página **Crear un flujo de usuario**, seleccione el flujo de usuario **Registrarse e iniciar sesión**.
 
     ![Página Selección de un flujo de usuario con el flujo de registro e inicio de sesión resaltado](./media/phone-authentication-user-flows/select-user-flow-type.png)
 
-6. En **Seleccione una versión**, elija **Recomendada** y, luego, seleccione **Crear**. [Más información](user-flow-versions.md) sobre las versiones del flujo de usuario.
+1. En **Seleccione una versión**, elija **Recomendada** y, luego, seleccione **Crear**. [Más información](user-flow-versions.md) sobre las versiones del flujo de usuario.
 
     ![Botón Creación de flujo de usuario](./media/phone-authentication-user-flows/select-version.png)
 
-7. Escriba un **nombre** para el flujo de usuario. Por ejemplo, *signupsignin1*.
-8. En la sección **Proveedores de identidades**, en **Cuentas locales**, seleccione **Phone signup**(Registro telefónico).
+1. Escriba un **nombre** para el flujo de usuario. Por ejemplo, *signupsignin1*.
+1. En la sección **Proveedores de identidades**, en **Cuentas locales**, seleccione **Phone signup**(Registro telefónico).
 
    ![Opción de registro telefónico del flujo de usuario seleccionada](media/phone-authentication-user-flows/user-flow-phone-signup.png)
 
-9. En **Proveedores de identidades sociales**, seleccione cualquier otro proveedor de identidades que desee permitir para este flujo de usuario.
+1. En **Proveedores de identidades sociales**, seleccione cualquier otro proveedor de identidades que desee permitir para este flujo de usuario.
 
    > [!NOTE]
    > La autenticación multifactor (MFA) está deshabilitada de forma predeterminada para los flujos de registro de usuarios. Puede habilitar MFA para un flujo de usuario de registro telefónico, pero como un número de teléfono se usa como identificador principal, el código de acceso de un solo uso de correo electrónico es la única opción disponible para el segundo factor de autenticación.
@@ -110,19 +105,20 @@ Puede habilitar la solicitud de correo electrónico de recuperación en las prop
 ### <a name="to-enable-the-recovery-email-prompt"></a>Para habilitar la solicitud de correo electrónico de recuperación
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-2. Seleccione el icono **Directorio y suscripción** en la barra de herramientas del portal y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
-3. En Azure Portal, busque y seleccione **Azure AD B2C**.
-4. En Azure AD B2C, en **Directivas**, seleccione **Flujos de usuario**.
-5. Seleccione el flujo de usuario de la lista.
-6. En **Configuración**, seleccione **Propiedades**.
-7. Junto a **Habilitar solicitud de correo electrónico de recuperación para la suscripción del número de teléfono y el inicio de sesión (versión preliminar)** , seleccione:
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
+1. En Azure Portal, busque y seleccione **Azure AD B2C**.
+1. En Azure AD B2C, en **Directivas**, seleccione **Flujos de usuario**.
+1. Seleccione el flujo de usuario de la lista.
+1. En **Configuración**, seleccione **Propiedades**.
+1. Junto a **Habilitar solicitud de correo electrónico de recuperación para la suscripción del número de teléfono y el inicio de sesión (versión preliminar)** , seleccione:
 
    - **Activado** para mostrar la solicitud de correo electrónico de recuperación durante el registro e inicio de sesión.
    - **Desactivado** para ocultar la solicitud de correo electrónico de recuperación.
 
     ![Propiedades de flujos de usuario con la opción de habilitación del correo electrónico de recuperación habilitada](./media/phone-authentication-user-flows/recovery-email-settings.png)
 
-8. Seleccione **Guardar**.
+1. Seleccione **Guardar**.
 
 ### <a name="to-test-the-recovery-email-prompt"></a>Para probar la solicitud de correo electrónico de recuperación
 
@@ -130,14 +126,14 @@ Una vez que haya habilitado el registro e inicio de sesión telefónico y la sol
 
 1. Seleccione **Directivas** > **Flujos de usuario** y, a continuación, seleccione el flujo de usuario que ha creado. En la página de información general del flujo de usuario, seleccione **Ejecutar flujo de usuario**.
 
-2. En **Aplicación**, seleccione la aplicación web que registró en el paso 1. La **dirección URL de respuesta** debe mostrar `https://jwt.ms`.
+1. En **Aplicación**, seleccione la aplicación web que registró en el paso 1. La **dirección URL de respuesta** debe mostrar `https://jwt.ms`.
 
-3. Seleccione **Ejecutar flujo de usuario** y compruebe el comportamiento siguiente:
+1. Seleccione **Ejecutar flujo de usuario** y compruebe el comportamiento siguiente:
 
    - A un usuario que se registre por primera vez se le pedirá que proporcione un correo electrónico de recuperación. 
    - A un usuario que ya se haya registrado pero no haya proporcionado un correo electrónico de recuperación se le pedirá que proporcione uno al iniciar sesión.
 
-4. Escriba una dirección de correo electrónico y, a continuación, seleccione **Enviar código de verificación**. Compruebe que se envía un código a la bandeja de entrada del correo electrónico que ha proporcionado. Recupere el código y escríbalo en el cuadro **Código de verificación**. A continuación, seleccione **Verificar código**.
+1. Escriba una dirección de correo electrónico y, a continuación, seleccione **Enviar código de verificación**. Compruebe que se envía un código a la bandeja de entrada del correo electrónico que ha proporcionado. Recupere el código y escríbalo en el cuadro **Código de verificación**. A continuación, seleccione **Verificar código**.
 
 ## <a name="enable-consent-information"></a>Habilitación de la información de consentimiento
 
@@ -150,22 +146,23 @@ Se recomienda encarecidamente incluir información de consentimiento en el flujo
 Para habilitar la información de consentimiento
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-2. Seleccione el icono **Directorio y suscripción** en la barra de herramientas del portal y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
-3. En Azure Portal, busque y seleccione **Azure AD B2C**.
-4. En Azure AD B2C, en **Directivas**, seleccione **Flujos de usuario**.
-5. Seleccione el flujo de usuario de la lista.
-6. En **Personalizar**, seleccione **Idiomas.**
-7. Para mostrar el texto de consentimiento, seleccione **Habilitación de la personalización de idioma**.
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
+1. En Azure Portal, busque y seleccione **Azure AD B2C**.
+1. En Azure AD B2C, en **Directivas**, seleccione **Flujos de usuario**.
+1. Seleccione el flujo de usuario de la lista.
+1. En **Personalizar**, seleccione **Idiomas.**
+1. Para mostrar el texto de consentimiento, seleccione **Habilitación de la personalización de idioma**.
   
     ![Habilitación de la personalización de idioma](./media/phone-authentication-user-flows/enable-language-customization.png)
 
-8. Para personalizar la información de consentimiento, seleccione un idioma en la lista.
-9. En el panel de idiomas, seleccione **Phone signIn page** (Página de inicio de sesión por teléfono).
-10. Seleccione Descargar valores predeterminados.
+1. Para personalizar la información de consentimiento, seleccione un idioma en la lista.
+1. En el panel de idiomas, seleccione **Phone signIn page** (Página de inicio de sesión por teléfono).
+1. Seleccione Descargar valores predeterminados.
 
     ![Descargar valores predeterminados](./media/phone-authentication-user-flows/phone-sign-in-language-override.png)
 
-11. Abra el archivo JSON descargado. Busque el texto siguiente y personalícelo:
+1. Abra el archivo JSON descargado. Busque el texto siguiente y personalícelo:
 
     - **disclaimer_link_1_url**: cambie **override** a "true" y agregue la dirección URL de la información de privacidad.
 
@@ -173,9 +170,8 @@ Para habilitar la información de consentimiento
 
     - **disclaimer_msg_intro**: cambie **override** a "true" y cambie **value** a las cadenas de declinación de responsabilidades deseadas.  
 
-12. Guarde el archivo. En **Upload new overrides** (Cargar nuevos reemplazos) busque el archivo y selecciónelo. Confirme que ve la notificación "Se cargaron correctamente los reemplazos.".
-
-13. Seleccione **Phone signUp page** (Página de registro por teléfono) y repita los pasos del 10 al 12. 
+1. Guarde el archivo. En **Upload new overrides** (Cargar nuevos reemplazos) busque el archivo y selecciónelo. Confirme que ve la notificación "Se cargaron correctamente los reemplazos.".
+1. Seleccione **Phone signUp page** (Página de registro por teléfono) y repita los pasos del 10 al 12. 
 
 
 ## <a name="get-a-users-phone-number-in-your-directory"></a>Obtención del número de teléfono de un usuario en el directorio

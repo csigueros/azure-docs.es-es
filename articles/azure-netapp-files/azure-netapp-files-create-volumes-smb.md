@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 08/17/2021
 ms.author: b-juche
-ms.openlocfilehash: bf38602fdbc2c6fb1f7beba5a374c641963651a0
-ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
+ms.openlocfilehash: a3db25adec1ffb8d56134b6f7e651a4707d613a6
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122429551"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128577076"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Creación de un volumen de SMB para Azure NetApp Files
 
@@ -83,7 +83,7 @@ Debe crear una conexión de Active Directory antes de crear un volumen SMB. Si n
 
     * Si desea aplicar una directiva de instantáneas existente al volumen, haga clic en **Mostrar la sección avanzada** para expandirla, especifique si quiere ocultar la ruta de acceso de la instantánea y seleccione una directiva de instantáneas en el menú desplegable. 
 
-        Para obtener información sobre cómo crear una directiva de instantáneas, consulte [Administración de directivas de instantánea](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies).
+        Para obtener información sobre cómo crear una directiva de instantáneas, consulte [Administración de directivas de instantánea](snapshots-manage-policy.md).
 
         ![Mostrar la sección avanzada](../media/azure-netapp-files/volume-create-advanced-selection.png)
 

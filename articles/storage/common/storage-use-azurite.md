@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: how-to
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e01957c04e422f26601eab6f4e53694e317e22a3
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: e097a9860c4e3cde968bc9b7c7bddb7eebd99349
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121741875"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128624868"
 ---
 # <a name="use-the-azurite-emulator-for-local-azure-storage-development"></a>Uso del emulador Azurite para el desarrollo local de Azure Storage
 
@@ -53,7 +53,7 @@ En la consola se muestra información de salida similar a la siguiente.
 
 Cambie a la [configuración de compilación de versión](/visualstudio/debugger/how-to-set-debug-and-release-configurations#change-the-build-configuration) y, a continuación, ejecute el proyecto.
 
->[!NOTE]
+> [!NOTE]
 > Si inicia el proyecto mediante la configuración de compilación de depuración, es posible que reciba un error. Esto se debe a Visual Studio podría intentar iniciar el emulador de almacenamiento heredado integrado en Visual Studio. Cualquier intento de iniciar el emulador heredado se bloqueará, ya que Azurite usa los puertos de escucha que requiere el emulador de almacenamiento heredado.
 
 En la imagen siguiente se muestra la salida de la línea de comandos que aparece al ejecutar un proyecto de Azure Functions.
@@ -68,7 +68,7 @@ En Visual Studio Code, seleccione el panel **EXTENSIONES** y busque *Azurite* e
 
 También puede ir a la opción de [comercialización de la extensión de Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=Azurite.azurite) en el explorador. Seleccione el botón **Instalar** para abrir Visual Studio Code y vaya directamente a la página de la extensión de Azurite.
 
-La extensión admite los siguientes comandos de Visual Studio Code. Presione F1 en Visual Studio Code para abrir la paleta de comandos. 
+La extensión admite los siguientes comandos de Visual Studio Code. Presione F1 en Visual Studio Code para abrir la paleta de comandos.
 
    - **Azurite: Clean** (Azurite: Limpiar). Restablece todos los datos de persistencia de los servicios de Azurite
    - **Azurite: Limpiar Blob Service**. Limpia Blob Service
@@ -173,7 +173,7 @@ Después de instalar y compilar Azurite, consulte [Ejecución de Azurite desde u
 ## <a name="run-azurite-from-a-command-line"></a>Ejecución de Azurite desde una línea de comandos
 
 > [!NOTE]
-> No se puede ejecutar Azurite desde la línea de comandos si solo se instaló la extensión Visual Studio Code. En su lugar, use la paleta de comandos de Visual Studio Code. 
+> No se puede ejecutar Azurite desde la línea de comandos si solo se instaló la extensión Visual Studio Code. En su lugar, use la paleta de comandos de Visual Studio Code.
 
 Para empezar inmediatamente con la línea de comandos, cree un directorio denominado *c:\azurite* y, a continuación, inicie Azurite emitiendo el siguiente comando:
 
@@ -333,6 +333,8 @@ azurite --location c:\azurite
 azurite -s
 azurite --silent
 ```
+
+
 ### <a name="debug-log"></a>Registro de depuración
 
 **Opcional**: el registro de depuración incluye información detallada sobre cada solicitud y seguimiento de la pila de excepciones. Habilite el registro de depuración proporcionando una ruta de acceso local válida de archivo al modificador `-d` o `--debug`.
@@ -350,6 +352,8 @@ azurite --debug path/debug.log
 azurite -L
 azurite --loose
 ```
+
+
 ### <a name="version"></a>Versión
 
 **Opcional**: muestra el número de versión de Azurite instalado mediante el modificador `-v` o `--version`.
@@ -397,7 +401,6 @@ Azurite admite la autenticación básica mediante la especificación del paráme
 ```console
 azurite --skipApiVersionCheck
 ```
-
 
 ## <a name="authorization-for-tools-and-sdks"></a>Autorización para herramientas y SDK
 

@@ -2,13 +2,13 @@
 title: 'Equilibrio de carga de particiones entre varias instancias: Azure Event Hubs | Microsoft Docs'
 description: Describe cómo equilibrar la carga de las particiones entre varias instancias de una aplicación mediante un procesador de eventos y el SDK de Azure Event Hubs.
 ms.topic: conceptual
-ms.date: 06/23/2020
-ms.openlocfilehash: d27736667ca6d5e7e073b24f3cfcad96b2381c0d
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.date: 09/15/2021
+ms.openlocfilehash: 9ddccf27ad12759cb502a969440cff3b81478389
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113003183"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128676720"
 ---
 # <a name="balance-partition-load-across-multiple-instances-of-your-application"></a>Equilibrio de carga de particiones entre varias instancias de una aplicación
 Para escalar la aplicación de procesamiento de eventos, puede ejecutar varias instancias de la aplicación y equilibrar la carga entre ellas. En las versiones anteriores, [EventProcessorHost](event-hubs-event-processor-host.md) permitía equilibrar la carga entre varias instancias del programa y eventos de punto de comprobación en la recepción. En las versiones más recientes (5.0 y posteriores), **EventProcessorClient** (.NET y Java) o **EventHubConsumerClient** (Python y JavaScript) le permiten hacer lo mismo. El modelo de desarrollo se simplifica mediante el uso de eventos. Para suscribirse a los eventos que le interesen, registre un controlador de eventos. Si usa la versión anterior de la biblioteca cliente, vea las siguientes guías de migración: [.NET](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md), [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/servicebus/azure-messaging-servicebus/migration-guide.md), [Python](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/servicebus/azure-servicebus/migration_guide.md) y [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/migrationguide.md).

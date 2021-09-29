@@ -2,17 +2,17 @@
 title: Planeamiento y administración de costos de Azure API Management
 description: Aprenda a planear y administrar los costos de Azure API Management mediante el análisis de costos de Azure Portal.
 author: dlepow
-ms.author: apimpm
+ms.author: danlep
 ms.custom: subject-cost-optimization
 ms.service: api-management
 ms.topic: how-to
 ms.date: 06/11/2021
-ms.openlocfilehash: ec15f11c6aee82d117210402e4cc4fda114e86a2
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 8baf9e9e7ff1ae12fc5c53af9aa2a479e1ce8342
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112034614"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128670317"
 ---
 # <a name="plan-and-manage-costs-for-api-management"></a>Planeamiento y administración de costos de API Management
 

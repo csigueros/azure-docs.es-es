@@ -10,12 +10,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: eca43b43606828ebb514f3f22e1839d96db4e0fa
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 577a288d8dbe6afd7c05aa78e7055bdae288ce82
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110461800"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128589309"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-for-microsoft-azure-storage"></a>Cifrado del lado de cliente y Azure Key Vault para Microsoft Azure Storage
 
@@ -95,7 +95,7 @@ La biblioteca de cliente admite el cifrado de propiedades de entidad para operac
 > [!NOTE]
 > Las operaciones de combinación no se admiten actualmente. Puesto que un subconjunto de propiedades puede haberse cifrado previamente con una clave distinta, si simplemente se combinan las nuevas propiedades y se actualizan los metadatos, se producirá una pérdida de datos. Para realizar una combinación es necesario realizar llamadas de servicio adicionales para leer la entidad existente desde el servicio. También puede usar una nueva clave por propiedad. Ninguno de estos procedimientos es adecuado por motivos de rendimiento.
 
-El cifrado de datos de tabla funciona de la siguiente forma:  
+El cifrado de datos de tabla funciona de la siguiente forma:
 
 1. Los usuarios especifican las propiedades que se van a cifrar.
 2. La biblioteca de cliente genera un vector de inicialización (IV) aleatorio de 16 bytes junto con una clave de cifrado de contenido (CEK) aleatoria de 32 bytes para cada entidad. Después, realiza el cifrado de sobres en las propiedades individuales que se van a cifrar derivando un nuevo vector de inicialización por propiedad. La propiedad de cifrado se almacena como datos binarios.
@@ -129,8 +129,8 @@ La biblioteca de cliente de almacenamiento utiliza las interfaces de Key Vault e
 
 Hay dos paquetes necesarios para la integración de Key Vault:
 
-* Azure.Core contiene las interfaces `IKeyEncryptionKey` y `IKeyEncryptionKeyResolver`. La biblioteca cliente de almacenamiento para .NET ya lo define como una dependencia.
-* Azure.Security.KeyVault.Keys (versión 4.x) contiene el cliente REST de Key Vault así como clientes criptográficos que se usan con el cifrado del lado cliente.
+- Azure.Core contiene las interfaces `IKeyEncryptionKey` y `IKeyEncryptionKeyResolver`. La biblioteca cliente de almacenamiento para .NET ya lo define como una dependencia.
+- Azure.Security.KeyVault.Keys (versión 4.x) contiene el cliente REST de Key Vault así como clientes criptográficos que se usan con el cifrado del lado cliente.
 
 Key Vault está diseñado para claves maestras de gran valor. Por su parte, los valores de limitación por cada almacén de claves se diseñan teniendo en cuenta este aspecto. A partir de Azure.Security.KeyVault.Keys 4.1.0, no hay ninguna implementación `IKeyEncryptionKeyResolver` que admita el almacenamiento en caché de claves. Si el almacenamiento en caché es necesario debido a una limitación, se puede seguir [este ejemplo](/samples/azure/azure-sdk-for-net/azure-key-vault-proxy/) para insertar una capa de almacenamiento en caché en una instancia de `Azure.Security.KeyVault.Keys.Cryptography.KeyResolver`.
 
@@ -138,9 +138,9 @@ Key Vault está diseñado para claves maestras de gran valor. Por su parte, los 
 
 Hay tres paquetes de Key Vault:
 
-* Microsoft.Azure.KeyVault.Core contiene IKey e IKeyResolver. Es un paquete pequeño sin dependencias. La biblioteca de cliente de almacenamiento para .NET lo define como dependencia.
-* Microsoft.Azure.KeyVault (versión 3.x) contiene el cliente REST de Key Vault.
-* Microsoft.Azure.KeyVault.Extensions (versión 3.x) contiene el código de extensión que incluye implementaciones de algoritmos criptográficos, además de una RSAKey y una SymmetricKey. Depende de los espacios de nombres principales y KeyVault. Proporciona funcionalidad para definir una resolución de agregado (cuando los usuarios desean utilizar varios proveedores de clave) y una resolución de clave de almacenamiento en caché. Aunque la biblioteca de cliente de almacenamiento no depende directamente de este paquete, si los usuarios desean usar Azure Key Vault para almacenar sus claves o utilizar las extensiones de Key Vault para consumir los proveedores de servicios criptográficos locales y en la nube, necesitarán este paquete.
+- Microsoft.Azure.KeyVault.Core contiene IKey e IKeyResolver. Es un paquete pequeño sin dependencias. La biblioteca de cliente de almacenamiento para .NET lo define como dependencia.
+- Microsoft.Azure.KeyVault (versión 3.x) contiene el cliente REST de Key Vault.
+- Microsoft.Azure.KeyVault.Extensions (versión 3.x) contiene el código de extensión que incluye implementaciones de algoritmos criptográficos, además de una RSAKey y una SymmetricKey. Depende de los espacios de nombres principales y KeyVault. Proporciona funcionalidad para definir una resolución de agregado (cuando los usuarios desean utilizar varios proveedores de clave) y una resolución de clave de almacenamiento en caché. Aunque la biblioteca de cliente de almacenamiento no depende directamente de este paquete, si los usuarios desean usar Azure Key Vault para almacenar sus claves o utilizar las extensiones de Key Vault para consumir los proveedores de servicios criptográficos locales y en la nube, necesitarán este paquete.
 
 Key Vault está diseñado para claves maestras de gran valor. Por su parte, los valores de limitación por cada almacén de claves se diseñan teniendo en cuenta este aspecto. Al realizar el cifrado en el lado cliente con Key Vault, el modelo preferido es usar las claves maestras simétricas almacenadas como secretos en Key Vault y almacenadas en caché localmente. Los usuarios deben hacer lo siguiente:
 
@@ -159,19 +159,19 @@ La compatibilidad con el cifrado solo está disponible en la biblioteca de clien
 > [!IMPORTANT]
 > Tenga en cuenta estos puntos importantes al usar el cifrado del lado del cliente:
 >
-> * Al leer desde un blob cifrado o escribir en él, utilice comandos de carga completa del blob y comandos de descarga de blobs de intervalo/completos. Evite escribir en un blob cifrado mediante operaciones de protocolo, como Colocar bloque, Colocar lista de bloque, Escribir páginas, Borrar páginas o Anexar bloque; de lo contrario, puede dañar el objeto blob cifrado y que no sea legible.
-> * Para las tablas, existe una restricción similar. Tenga cuidado de no actualizar propiedades cifradas sin actualizar los metadatos de cifrado.
-> * Si establece los metadatos en el objeto blob cifrado, puede sobrescribir los metadatos relacionados con el cifrado necesarios para el descifrado, ya que el establecimiento de metadatos no es aditivo. Esto también se aplica a las instantáneas: evite la especificación de metadatos durante la creación de una instantánea de un blob cifrado. Si se deben establecer metadatos, asegúrese de llamar primero al método **FetchAttributes** , para así obtener los metadatos de cifrado actuales y evitar las escrituras simultáneas mientras se estos se establecen.
-> * Habilite la propiedad **RequireEncryption** en las opciones de solicitud predeterminadas para los usuarios que deben trabajar solo con datos cifrados. Vea a continuación para obtener más información.
+> - Al leer desde un blob cifrado o escribir en él, utilice comandos de carga completa del blob y comandos de descarga de blobs de intervalo/completos. Evite escribir en un blob cifrado mediante operaciones de protocolo, como Colocar bloque, Colocar lista de bloque, Escribir páginas, Borrar páginas o Anexar bloque; de lo contrario, puede dañar el objeto blob cifrado y que no sea legible.
+> - Para las tablas, existe una restricción similar. Tenga cuidado de no actualizar propiedades cifradas sin actualizar los metadatos de cifrado.
+> - Si establece los metadatos en el objeto blob cifrado, puede sobrescribir los metadatos relacionados con el cifrado necesarios para el descifrado, ya que el establecimiento de metadatos no es aditivo. Esto también se aplica a las instantáneas: evite la especificación de metadatos durante la creación de una instantánea de un blob cifrado. Si se deben establecer metadatos, asegúrese de llamar primero al método **FetchAttributes** , para así obtener los metadatos de cifrado actuales y evitar las escrituras simultáneas mientras se estos se establecen.
+> - Habilite la propiedad **RequireEncryption** en las opciones de solicitud predeterminadas para los usuarios que deben trabajar solo con datos cifrados. Vea a continuación para obtener más información.
 
 ## <a name="client-api--interface"></a>Interfaz/API de cliente
 
 Los usuarios pueden proporcionar solo una clave, solo una resolución, o ambas. Las claves se identifican con un identificador de claves y proporcionan la lógica de ajuste o desajuste. Las resoluciones se usan para resolver una clave durante el proceso de descifrado. Define un método de resolución que devuelve una clave en función de un identificador de clave. Esto ofrece a los usuarios la posibilidad de elegir entre varias claves que se administran en varias ubicaciones.
 
-* Para el cifrado, se utiliza siempre la clave. Si no hay clave, se producirá un error.
-* Para el descifrado:
-  * Si se especifica la clave y su identificador coincide con el identificador de clave requerido, esa clase se usa para el descifrado. De lo contrario, se intenta con la resolución. Si no hay resolución para este intento, se genera un error.
-  * La resolución de claves se invoca si se especifica para obtener la clave. Si se especifica la resolución, pero no se proporciona una asignación para el identificador de clave, se produce un error.
+- Para el cifrado, se utiliza siempre la clave. Si no hay clave, se producirá un error.
+- Para el descifrado:
+  - Si se especifica la clave y su identificador coincide con el identificador de clave requerido, esa clase se usa para el descifrado. De lo contrario, se intenta con la resolución. Si no hay resolución para este intento, se genera un error.
+  - La resolución de claves se invoca si se especifica para obtener la clave. Si se especifica la resolución, pero no se proporciona una asignación para el identificador de clave, se produce un error.
 
 ### <a name="requireencryption-mode-v11-only"></a>Modo RequireEncryption (solo la versión 11)
 
@@ -409,7 +409,7 @@ Tenga en cuenta que el cifrado de sus resultados de datos de almacenamiento da l
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Tutorial: Cifrado y descifrado de blobs en Microsoft Azure Storage con Azure Key Vault](../blobs/storage-encrypt-decrypt-blobs-key-vault.md)
-* Descargar la [Biblioteca de cliente de Azure Storage para el paquete NuGet de .NET](https://www.nuget.org/packages/WindowsAzure.Storage)
-* Descargar los paquetes de NuGet [Básico](https://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Cliente](https://www.nuget.org/packages/Microsoft.Azure.KeyVault/) y [Extensiones](https://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) de Azure Key Vault  
-* Consulte la [documentación de Azure Key Vault](../../key-vault/general/overview.md)
+- [Tutorial: Cifrado y descifrado de blobs en Microsoft Azure Storage con Azure Key Vault](../blobs/storage-encrypt-decrypt-blobs-key-vault.md)
+- Descargar la [Biblioteca de cliente de Azure Storage para el paquete NuGet de .NET](https://www.nuget.org/packages/WindowsAzure.Storage)
+- Descargar los paquetes de NuGet [Básico](https://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Cliente](https://www.nuget.org/packages/Microsoft.Azure.KeyVault/) y [Extensiones](https://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) de Azure Key Vault
+- Consulte la [documentación de Azure Key Vault](../../key-vault/general/overview.md)

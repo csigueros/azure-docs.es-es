@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 03/17/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a62afbcd120a7404b1677a8c8adb62723a119d5
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 674f4cf80d68095ebd7b134c679b60b45ff2a548
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110070271"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128619351"
 ---
 # <a name="building-a-conditional-access-policy"></a>Creación de una directiva de acceso condicional
 
@@ -77,9 +77,9 @@ Los datos de ubicación se proporcionan mediante datos de geolocalización de di
 
 #### <a name="client-apps"></a>Aplicaciones cliente
 
-De manera predeterminada, las directivas de acceso condicional se aplican a aplicaciones de explorador, aplicaciones móviles y clientes de escritorio que admiten la autenticación moderna. 
+De manera predeterminada, todas las directivas de acceso condicional recién creadas se aplicarán a todos los tipos de aplicaciones cliente, incluso si la condición de las aplicaciones cliente no está configurada.
 
-Esta condición de asignación permite que las directivas de acceso condicional tengan como destino aplicaciones cliente específicas que no usen la autenticación moderna. Entre estas aplicaciones se incluyen los clientes de Exchange ActiveSync, aplicaciones de Office anteriores que no usan la autenticación moderna y protocolos de correo como IMAP, MAPI, POP y SMTP.
+El comportamiento de la condición de las aplicaciones cliente se actualizó en agosto de 2020. Si ya tiene directivas de acceso condicional, estas permanecerán sin cambios. Sin embargo, si hace clic en una directiva existente, se habrá quitado el botón de alternancia de configuración, y estarán seleccionadas las aplicaciones cliente a las que se aplica la directiva.
 
 #### <a name="device-state"></a>Estado del dispositivo
 

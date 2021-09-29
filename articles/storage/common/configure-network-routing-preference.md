@@ -10,22 +10,22 @@ ms.date: 03/17/2021
 ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: e9d1f7f520a7613abde520c35fbacc7355973021
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: c871a1ec4feec89cc3250f1fbfefefa69ed927bb
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108208228"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128589328"
 ---
 # <a name="configure-network-routing-preference-for-azure-storage"></a>Configuración de las preferencias de enrutamiento de red para Azure Storage
 
-En este artículo se describe cómo puede configurar la preferencia de enrutamiento de red y los puntos de conexión específicos de la ruta para la cuenta de almacenamiento. 
+En este artículo se describe cómo puede configurar la preferencia de enrutamiento de red y los puntos de conexión específicos de la ruta para la cuenta de almacenamiento.
 
 La preferencia de enrutamiento de red le permite especificar cómo se enruta el tráfico de red a la cuenta desde los clientes a través de Internet. Los puntos de conexión específicos de la ruta son nuevos puntos de conexión que Azure Storage crea para la cuenta de almacenamiento. Estos puntos de conexión enrutan el tráfico a través de una ruta de acceso de su elección sin necesidad de cambiar su preferencia de enrutamiento predeterminada. Para más información, consulte [Preferencia de enrutamiento de red para Azure Storage](network-routing-preference.md).
 
 ## <a name="configure-the-routing-preference-for-the-default-public-endpoint"></a>Configuración de la preferencia de enrutamiento del punto de conexión público predeterminado
 
-De forma predeterminada, la preferencia de enrutamiento del punto de conexión público de la cuenta de almacenamiento se establece en la red global de Microsoft. Puede elegir entre la red global de Microsoft y el enrutamiento de Internet como una preferencia de enrutamiento predeterminada del punto de conexión público de la cuenta de almacenamiento. Para más información acerca de la diferencia entre estos dos tipos de enrutamiento, consulte [Preferencia de enrutamiento de red para Azure Storage](network-routing-preference.md). 
+De forma predeterminada, la preferencia de enrutamiento del punto de conexión público de la cuenta de almacenamiento se establece en la red global de Microsoft. Puede elegir entre la red global de Microsoft y el enrutamiento de Internet como una preferencia de enrutamiento predeterminada del punto de conexión público de la cuenta de almacenamiento. Para más información acerca de la diferencia entre estos dos tipos de enrutamiento, consulte [Preferencia de enrutamiento de red para Azure Storage](network-routing-preference.md).
 
 ### <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -40,9 +40,9 @@ Para cambiar la preferencia de enrutamiento a enrutamiento de Internet:
     > [!div class="mx-imgBorder"]
     > ![Opción del menú Redes](./media/configure-network-routing-preference/networking-option.png)
 
-4.  En la pestaña **Firewalls y redes virtuales**, en **Enrutamiento de red**, cambie el valor **Preferencia de enrutamiento** a **Enrutamiento de Internet**.
+4. En la pestaña **Firewalls y redes virtuales**, en **Enrutamiento de red**, cambie el valor **Preferencia de enrutamiento** a **Enrutamiento de Internet**.
 
-5.  Haga clic en **Save**(Guardar).
+5. Haga clic en **Save**(Guardar).
 
     > [!div class="mx-imgBorder"]
     > ![Opción Enrutamiento de Internet](./media/configure-network-routing-preference/internet-routing-option.png)
@@ -87,6 +87,7 @@ Para cambiar la preferencia de enrutamiento a enrutamiento de Internet:
      ```azurecli
      az login
      ```
+
 2. Si su identidad se asocia a más de una suscripción, establezca su suscripción activa en la suscripción de la cuenta de almacenamiento que hospedará el sitio web estático.
 
    ```azurecli
@@ -109,15 +110,15 @@ Para cambiar la preferencia de enrutamiento a enrutamiento de Internet:
 
 También puede configurar un punto de conexión específico de la ruta. Por ejemplo, puede establecer la preferencia de enrutamiento para el punto de conexión predeterminado en *Enrutamiento de Internet* y, a continuación, publicar un punto de conexión específico de la ruta que permita el tráfico entre los clientes de Internet y la cuenta de almacenamiento a través de la red global de Microsoft.
 
-Esta preferencia solo afecta al punto de conexión específico de la ruta. Esta preferencia no afecta a la preferencia de enrutamiento predeterminada.  
+Esta preferencia solo afecta al punto de conexión específico de la ruta. Esta preferencia no afecta a la preferencia de enrutamiento predeterminada.
 
 ### <a name="portal"></a>[Portal](#tab/azure-portal)
 
-1.  Vaya a la cuenta de almacenamiento desde el portal.
+1. Vaya a la cuenta de almacenamiento desde el portal.
 
-2.  En **Configuración**, elija **Redes**.
+2. En **Configuración**, elija **Redes**.
 
-3.  En la pestaña **Firewalls y redes virtuales**, en **Publicar los puntos de conexión específicos de la ruta**, seleccione la preferencia de enrutamiento del punto de conexión específico de la ruta y, a continuación, haga clic en **Guardar**.
+3. En la pestaña **Firewalls y redes virtuales**, en **Publicar los puntos de conexión específicos de la ruta**, seleccione la preferencia de enrutamiento del punto de conexión específico de la ruta y, a continuación, haga clic en **Guardar**.
 
     En la imagen siguiente se muestra la opción de **Enrutamiento de red de Microsoft** seleccionada.
 
@@ -126,11 +127,11 @@ Esta preferencia solo afecta al punto de conexión específico de la ruta. Esta 
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-1. Para configurar un punto de conexión específico de la ruta, use el comando [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount). 
+1. Para configurar un punto de conexión específico de la ruta, use el comando [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount).
 
-   - Para crear un punto de conexión específico de la ruta que use la preferencia de enrutamiento de red de Microsoft, establezca el parámetro `-PublishMicrosoftEndpoint` en `true`. 
+   - Para crear un punto de conexión específico de la ruta que use la preferencia de enrutamiento de red de Microsoft, establezca el parámetro `-PublishMicrosoftEndpoint` en `true`.
 
-   - Para crear un punto de conexión específico de la ruta que use la preferencia de enrutamiento de Internet, establezca el parámetro `-PublishInternetEndpointTo` en `true`.  
+   - Para crear un punto de conexión específico de la ruta que use la preferencia de enrutamiento de Internet, establezca el parámetro `-PublishInternetEndpointTo` en `true`.
 
    En el ejemplo siguiente se crea un punto de conexión específico de la ruta que utiliza la preferencia de enrutamiento de red de Microsoft.
 
@@ -146,11 +147,11 @@ Esta preferencia solo afecta al punto de conexión específico de la ruta. Esta 
 
 ### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-1. Para configurar un punto de conexión específico de la ruta, use el comando [az storage account update](/cli/azure/storage/account#az_storage_account_update). 
+1. Para configurar un punto de conexión específico de la ruta, use el comando [az storage account update](/cli/azure/storage/account#az_storage_account_update).
 
-   - Para crear un punto de conexión específico de la ruta que use la preferencia de enrutamiento de red de Microsoft, establezca el parámetro `--publish-microsoft-endpoints` en `true`. 
+   - Para crear un punto de conexión específico de la ruta que use la preferencia de enrutamiento de red de Microsoft, establezca el parámetro `--publish-microsoft-endpoints` en `true`.
 
-   - Para crear un punto de conexión específico de la ruta que use la preferencia de enrutamiento de Internet, establezca el parámetro `--publish-internet-endpoints` en `true`.  
+   - Para crear un punto de conexión específico de la ruta que use la preferencia de enrutamiento de Internet, establezca el parámetro `--publish-internet-endpoints` en `true`.
 
    En el ejemplo siguiente se crea un punto de conexión específico de la ruta que utiliza la preferencia de enrutamiento de red de Microsoft.
 
@@ -168,12 +169,12 @@ Si configuró un punto de conexión específico de la ruta, puede encontrar el p
 
 ### <a name="portal"></a>[Portal](#tab/azure-portal)
 
-1.  En **Configuración**, elija **Propiedades**.
+1. En **Configuración**, elija **Propiedades**.
 
     > [!div class="mx-imgBorder"]
     > ![Opción de menú Propiedades](./media/configure-network-routing-preference/properties.png)
 
-2.  El punto de conexión de **Enrutamiento de red de Microsoft** aparece en cada servicio que admite preferencias de enrutamiento. En esta imagen se muestra el punto de conexión para los servicios de blobs y archivos
+2. El punto de conexión de **Enrutamiento de red de Microsoft** aparece en cada servicio que admite preferencias de enrutamiento. En esta imagen se muestra el punto de conexión para los servicios de blobs y archivos
 
     > [!div class="mx-imgBorder"]
     > ![Opción Enrutamiento de red de Microsoft para puntos de conexión específicos de la ruta](./media/configure-network-routing-preference/routing-url.png)

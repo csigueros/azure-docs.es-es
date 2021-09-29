@@ -8,15 +8,15 @@ manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/20/2021
+ms.date: 09/20/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: c6b3802add796184714f389b813765945a8d20a4
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: d090d6c97a26b78799adf8c5927e6e680c43938a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122183907"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128596512"
 ---
 # <a name="tutorial-configure-biocatch-with-azure-active-directory-b2c"></a>Tutorial: Configuración Azure Active Directory B2C con BioCatch
 
@@ -352,24 +352,18 @@ document.getElementById("clientSessionId").style.display = 'none';
 Siga estos pasos para agregar los archivos de directivas a Azure AD B2C.
 
 1. Inicie sesión en  [**Azure Portal**](https://portal.azure.com/) como administrador global del inquilino de Azure AD B2C.
-
-2. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el filtro **Directorio + suscripción**  del menú superior y elija el directorio que contiene el inquilino.
-
-3. Elija  **Todos los servicios**  en la esquina superior izquierda de Azure Portal, y busque y seleccione Azure AD B2C.
-
-4. Vaya a  **Azure AD B2C** > **Identity Experience Framework**.
-
-3. Cargue todos los archivos de directiva en el inquilino.
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
+1. Elija  **Todos los servicios**  en la esquina superior izquierda de Azure Portal, y busque y seleccione Azure AD B2C.
+1. Vaya a  **Azure AD B2C** > **Identity Experience Framework**.
+1. Cargue todos los archivos de directiva en el inquilino.
 
 ## <a name="test-the-solution"></a>Probar la solución
 
 1. [Registre una aplicación ficticia que redirija a JWT.MS](./tutorial-register-applications.md?tabs=app-reg-ga).  
-
-2. En **Identity Experience Framework**, seleccione la directiva que creó.
-
-3. En la ventana de la directiva, seleccione la aplicación ficticia JWT.MS y elija **Ejecutar ahora**.
-
-4. Recorra el flujo de registro y cree una cuenta. El token devuelto a JWT.MS debería tener dos notificaciones para riskLevel y score. Siga el ejemplo.  
+1. En **Identity Experience Framework**, seleccione la directiva que creó.
+1. En la ventana de la directiva, seleccione la aplicación ficticia JWT.MS y elija **Ejecutar ahora**.
+1. Recorra el flujo de registro y cree una cuenta. El token devuelto a JWT.MS debería tener dos notificaciones para riskLevel y score. Siga el ejemplo.  
 
     ```JavaScript
     { 

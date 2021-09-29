@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python, github-actions-azure
-ms.openlocfilehash: cc356b307a752b10ba6f1c1a7151381c5644ca1e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0317b4f67a092702de7d0f430fbdb55fbaee2bf9
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98762731"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128556608"
 ---
 # <a name="continuous-delivery-by-using-github-action"></a>Entrega continua con Acciones de GitHub
 
@@ -101,9 +101,9 @@ En el ejemplo siguiente se muestra la parte del flujo de trabajo que configura e
 ```yaml
 
     - name: Setup Node 12.x Environment
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@v2
       with:
-        node-version: 12.x
+        node-version: 14.x
 ```
 
 # <a name="python"></a>[Python](#tab/python)
@@ -186,7 +186,7 @@ En el ejemplo siguiente se muestra la parte del flujo de trabajo que compila la 
 ```
 ---
 
-## <a name="deploy-the-function-app"></a>Implementar la aplicación de función
+## <a name="deploy-the-function-app"></a>Implementación de la aplicación de funciones
 
 Para implementar su código en una aplicación de funciones, use la acción `Azure/functions-action`. Esta acción tiene tres parámetros:
 
@@ -218,7 +218,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: 'Checkout GitHub Action'
-      uses: actions/checkout@main
+      uses: actions/checkout@v2
 
     - name: Setup DotNet ${{ env.DOTNET_VERSION }} Environment
       uses: actions/setup-dotnet@v1
@@ -257,7 +257,7 @@ jobs:
     runs-on: windows-latest
     steps:
     - name: 'Checkout GitHub Action'
-      uses: actions/checkout@main
+      uses: actions/checkout@v2
 
     - name: Setup DotNet ${{ env.DOTNET_VERSION }} Environment
       uses: actions/setup-dotnet@v1
@@ -300,7 +300,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: 'Checkout GitHub Action'
-      uses: actions/checkout@main
+      uses: actions/checkout@v2
 
     - name: Setup Java Sdk ${{ env.JAVA_VERSION }}
       uses: actions/setup-java@v1
@@ -342,7 +342,7 @@ jobs:
     runs-on: windows-latest
     steps:
     - name: 'Checkout GitHub Action'
-      uses: actions/checkout@main
+      uses: actions/checkout@v2
 
     - name: Setup Java Sdk ${{ env.JAVA_VERSION }}
       uses: actions/setup-java@v1
@@ -385,10 +385,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: 'Checkout GitHub Action'
-      uses: actions/checkout@main
+      uses: actions/checkout@v2
 
     - name: Setup Node ${{ env.NODE_VERSION }} Environment
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@v2
       with:
         node-version: ${{ env.NODE_VERSION }}
 
@@ -427,10 +427,10 @@ jobs:
     runs-on: windows-latest
     steps:
     - name: 'Checkout GitHub Action'
-      uses: actions/checkout@main
+      uses: actions/checkout@v2
 
     - name: Setup Node ${{ env.NODE_VERSION }} Environment
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@v2
       with:
         node-version: ${{ env.NODE_VERSION }}
 
@@ -471,7 +471,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: 'Checkout GitHub Action'
-      uses: actions/checkout@main
+      uses: actions/checkout@v2
 
     - name: Setup Python ${{ env.PYTHON_VERSION }} Environment
       uses: actions/setup-python@v1

@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 11/25/2020
-ms.openlocfilehash: 235dc8fa484212a8322b24d32f7516af5441978a
-ms.sourcegitcommit: 6f21017b63520da0c9d67ca90896b8a84217d3d3
+ms.openlocfilehash: 757a10473c2f6776ef3a84310b42209ddd12ed45
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114652930"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128643657"
 ---
 # <a name="set-up-dependency-visualization"></a>Configuración de la visualización de dependencias
 
@@ -96,18 +96,20 @@ El agente se puede instalar desde la línea de comandos o mediante un método au
 Para instalar MMA en un servidor Linux:
 
 1. Transfiera el paquete adecuado (x86 o x x64) al equipo Linux mediante scp o sftp.
+
 2. Instale el paquete mediante el argumento --install.
 
-    ```sudo sh ./omsagent-<version>.universal.x64.sh --install -w <workspace id> -s <workspace key>```
+   `sudo sh ./omsagent-<version>.universal.x64.sh --install -w <workspace id> -s <workspace key>`
 
 [Más información](../azure-monitor/agents/agents-overview.md#supported-operating-systems) sobre la lista de compatibilidad de MMA con sistemas operativos Linux. 
 
 ## <a name="install-the-dependency-agent"></a>Instalación del agente de dependencia
 
 1. Para instalar al agente de dependencias en Windows Server, haga doble clic en el archivo de instalación y siga los pasos del asistente.
+
 2. Para instalar el agente de dependencias en un servidor Linux, realice la instalación como usuario raíz mediante el siguiente comando:
 
-    ```sh InstallDependencyAgent-Linux64.bin```
+   `sh InstallDependencyAgent-Linux64.bin`
 
 - [Más información](../azure-monitor/vm/vminsights-enable-hybrid.md#dependency-agent) acerca de cómo puede utilizar scripts para instalar el agente de dependencia.
 - [Obtenga más información](../azure-monitor/vm/vminsights-enable-overview.md#supported-operating-systems) sobre los sistemas operativos que admite el agente de dependencia.

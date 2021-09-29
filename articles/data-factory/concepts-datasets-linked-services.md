@@ -9,13 +9,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/24/2021
-ms.openlocfilehash: d1f3313c1b348e037ab70dad0f4072d4727f21b3
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.date: 09/09/2021
+ms.openlocfilehash: dff54916007046d3d0d8d6741ca6fce7409c5d99
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122824286"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124787989"
 ---
 # <a name="datasets-in-azure-data-factory-and-azure-synapse-analytics"></a>Conjuntos de datos de Azure Data Factory y Azure Synapse Analytics
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -38,7 +38,7 @@ Este es un escenario de ejemplo. Para copiar datos de Blob Storage en SQL Databa
 
 En el siguiente diagrama se muestran las relaciones entre canalización, actividad, conjunto de datos y servicios vinculados:
 
-![Relación entre la canalización, la actividad, el conjunto de datos y los servicios vinculados](media/concepts-datasets-linked-services/relationship-between-data-factory-entities.png)
+:::image type="content" source="media/concepts-datasets-linked-services/relationship-between-data-factory-entities.png" alt-text="Relación entre la canalización, la actividad, el conjunto de datos y los servicios vinculados":::
 
 
 ## <a name="dataset-json"></a>Conjunto de datos JSON

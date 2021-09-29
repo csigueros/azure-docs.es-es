@@ -2,13 +2,13 @@
 title: Azure Event Hubs como origen de Event Grid
 description: Describe las propiedades que se proporcionan para los eventos de Event Hubs con Azure Event Grid
 ms.topic: conceptual
-ms.date: 02/11/2021
-ms.openlocfilehash: e9bb4b5a27173181c7295e96a1eb0654a1a929e6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 09/15/2021
+ms.openlocfilehash: 48d982e27d9da83d16bfbaad1a24ad1c8991a065
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100363516"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128647430"
 ---
 # <a name="azure-event-hubs-as-an-event-grid-source"></a>Azure Event Hubs como origen de Event Grid
 

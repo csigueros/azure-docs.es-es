@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 07/15/2021
 ms.author: v-erkel
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: eb7d88424a04754612f981d58e8e1d6cb85ce0fb
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: b7789af76572eeaa3dfdfe4c6ff379889341033e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122770595"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128557467"
 ---
 # <a name="create-an-azure-hpc-cache"></a>Creación de una instancia de Azure HPC Cache
 
@@ -163,7 +163,7 @@ Especifique estos valores:
 * Región de Azure
 * Subred de la caché, con este formato:
 
-  ``--subnet "/subscriptions/<subscription_id>/resourceGroups/<cache_resource_group>/providers/Microsoft.Network/virtualNetworks/<virtual_network_name>/subnets/<cache_subnet_name>"``
+  `--subnet "/subscriptions/<subscription_id>/resourceGroups/<cache_resource_group>/providers/Microsoft.Network/virtualNetworks/<virtual_network_name>/subnets/<cache_subnet_name>"`
 
   La subred de la caché necesita al menos 64 direcciones IP (/24) y no puede hospedar ningún otro recurso.
 

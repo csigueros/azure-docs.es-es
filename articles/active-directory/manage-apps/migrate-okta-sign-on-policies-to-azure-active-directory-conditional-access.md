@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/01/2021
 ms.author: gasinh
 ms.subservice: app-mgmt
-ms.openlocfilehash: f8967d0674689328bf0f761a5f39c17c505d1bd6
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: c36ad9b56ce49234d2ee28f53073267944152db0
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123440256"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129080442"
 ---
 # <a name="tutorial-migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access"></a>Tutorial: Migrar directivas de inicio de sesión de Okta al acceso condicional de Azure Active Directory
 
@@ -64,7 +64,7 @@ Las directivas de CA de Azure AD se pueden configurar para que coincidan con la
 
 En algunos escenarios, es posible que necesite una configuración adicional antes de configurar las directivas de CA. Los dos escenarios conocidos en el momento de redacción de este artículo son:
 
-- **Ubicación de red de Okta a ubicaciones con nombre en Azure AD**: siga[este artículo](https://docs.microsoft.com/azure/active-directory/conditional-access/location-condition#named-locations) para configurar ubicaciones con nombre en Azure AD.
+- **Ubicación de red de Okta a ubicaciones con nombre en Azure AD**: siga [este artículo](../conditional-access/location-condition.md#named-locations) para configurar ubicaciones con nombre en Azure AD.
 
 - **Confianza del dispositivo de Okta para CA basada en dispositivos**: CA ofrece dos opciones posibles al evaluar el dispositivo de un usuario.
 
@@ -79,7 +79,7 @@ La habilitación de la unión a Azure AD híbrida se puede realizar en el servi
 >[!NOTE]
 >La unión a Azure AD híbrido no es compatible con los agentes de aprovisionamiento en la nube de Azure AD Connect.
 
-1. Siga estas [instrucciones](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-managed-domains#configure-hybrid-azure-ad-join) para habilitar la unión a Azure AD híbrido.
+1. Siga estas [instrucciones](../devices/hybrid-azuread-join-managed-domains.md#configure-hybrid-azure-ad-join) para habilitar la unión a Azure AD híbrido.
 
 2. En la página de configuración de SCP, seleccione la lista desplegable **Servicio de autenticación**. Elija la dirección URL del proveedor de federación de Okta seguida de **Agregar**. Escriba sus credenciales de administrador de empresa local y, a continuación, seleccione **Siguiente**.
 
@@ -93,15 +93,15 @@ La habilitación de la unión a Azure AD híbrida se puede realizar en el servi
 
 Aunque la unión a Azure AD híbrido es un reemplazo directo de la confianza del dispositivo de Okta en Windows, las directivas de CA también pueden ver el cumplimiento de los dispositivos totalmente inscritos en Microsoft Endpoint Manager.
 
-- **Información general del cumplimiento**: consulte las [directivas de cumplimiento de dispositivos en Microsoft Intune](https://docs.microsoft.com/mem/intune/protect/device-compliance-get-started#:~:text=Reference%20for%20non-compliance%20and%20Conditional%20Access%20on%20the,applicable%20%20...%20%203%20more%20rows).
+- **Información general del cumplimiento**: consulte las [directivas de cumplimiento de dispositivos en Microsoft Intune](/mem/intune/protect/device-compliance-get-started#:~:text=Reference%20for%20non-compliance%20and%20Conditional%20Access%20on%20the,applicable%20%20...%20%203%20more%20rows).
 
-- **Directivas de cumplimiento**: cree [directivas en Microsoft Intune](https://docs.microsoft.com/mem/intune/protect/create-compliance-policy).
+- **Directivas de cumplimiento**: cree [directivas en Microsoft Intune](/mem/intune/protect/create-compliance-policy).
 
-- **Inscripción de Windows**: si ha optado por implementar la unión a Azure AD híbrida, se puede implementar una directiva de grupo adicional para completar el [proceso de inscripción automática de estos dispositivos en Microsoft Intune](https://docs.microsoft.com/windows/client-management/mdm/enroll-a-windows-10-device-automatically-using-group-policy).
+- **Inscripción de Windows**: si ha optado por implementar la unión a Azure AD híbrida, se puede implementar una directiva de grupo adicional para completar el [proceso de inscripción automática de estos dispositivos en Microsoft Intune](/windows/client-management/mdm/enroll-a-windows-10-device-automatically-using-group-policy).
 
-- **Inscripción de iOS/iPadOS**: antes de inscribir un dispositivo iOS, se deben realizar [configuraciones adicionales](https://docs.microsoft.com/mem/intune/enrollment/ios-enroll) en la Consola de administración de puntos de conexión.
+- **Inscripción de iOS/iPadOS**: antes de inscribir un dispositivo iOS, se deben realizar [configuraciones adicionales](/mem/intune/enrollment/ios-enroll) en la Consola de administración de puntos de conexión.
 
-- **Inscripción de Android**: antes de inscribir un dispositivo Android, se deben realizar [configuraciones adicionales](https://docs.microsoft.com/mem/intune/enrollment/android-enroll) en la Consola de administración de puntos de conexión.
+- **Inscripción de Android**: antes de inscribir un dispositivo Android, se deben realizar [configuraciones adicionales](/mem/intune/enrollment/android-enroll) en la Consola de administración de puntos de conexión.
 
 ## <a name="step-3---configure-azure-ad-multi-factor-authentication-tenant-settings"></a>Paso 3: Configuración del inquilino de autenticación multifactor de Azure AD
 
@@ -109,13 +109,13 @@ Antes de realizar la conversión a CA, confirme la configuración de los inquili
 
 1. Navegue a [Azure Portal](https://portal.azure.com) e inicie sesión con una cuenta de administrador global.
 
-2. Seleccione **Azure Active Directory**, seguido de **Usuarios** y, a continuación, **Autenticación multifactor**. Esto le llevará al portal heredado de Azure MFA.
+1. Seleccione **Azure Active Directory**, seguido de **Usuarios** y, a continuación, **Autenticación multifactor**. Esto le llevará al portal heredado de Azure MFA.
 
    ![imagen que muestra el portal de autenticación multifactor heredado de Azure AD](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/legacy-azure-ad-portal.png)
 
-En su lugar, puede usar **<https://aka.ms/mfaportal>** .
+   En su lugar, puede usar **<https://aka.ms/mfaportal>** .
 
-4. En el menú heredado de **Azure MFA**, cambie el menú de estado en **habilitado** y **aplicado** para confirmar que no tiene usuarios habilitados para la MFA heredada. Si el inquilino tiene usuarios en las siguientes vistas, debe deshabilitarlos en el menú heredado. Solo entonces, las directivas de entidad de certificación tendrán efecto en su cuenta.
+1. En el menú heredado de **Azure MFA**, cambie el menú de estado en **habilitado** y **aplicado** para confirmar que no tiene usuarios habilitados para la MFA heredada. Si el inquilino tiene usuarios en las siguientes vistas, debe deshabilitarlos en el menú heredado. Solo entonces, las directivas de entidad de certificación tendrán efecto en su cuenta.
 
    ![Imagen que muestra la deshabilitación de un usuario el portal de autenticación multifactor heredado de Azure AD](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/disable-user-legacy-azure-ad-portal.png)
 
@@ -123,12 +123,12 @@ En su lugar, puede usar **<https://aka.ms/mfaportal>** .
 
    ![imagen que muestra que el campo aplicado está vacío en el portal de autenticación multifactor de Azure AD](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/enforced-empty-legacy-azure-ad-portal.png)
 
-5. Después de confirmar que no hay usuarios configurados para MFA heredado, seleccione la opción **Configuración del servicio**. Cambie la selección de **Contraseñas de la aplicación** para **no permitir a los usuarios crear contraseñas de aplicación para iniciar sesión en aplicaciones que no son de explorador**.
+1. Después de confirmar que no hay usuarios configurados para MFA heredado, seleccione la opción **Configuración del servicio**. Cambie la selección de **Contraseñas de la aplicación** para **no permitir a los usuarios crear contraseñas de aplicación para iniciar sesión en aplicaciones que no son de explorador**.
 
-6. Asegúrese de que los cuadros **Omitir autenticación multifactor para solicitudes de usuarios federados en mi intranet** y **Permitir a los usuarios recordar la autenticación multifactor en dispositivos en los que confían (entre uno y 365 días)** están desactivados y, a continuación, seleccione **Guardar**.
+1. Asegúrese de que los cuadros **Omitir autenticación multifactor para solicitudes de usuarios federados en mi intranet** y **Permitir a los usuarios recordar la autenticación multifactor en dispositivos en los que confían (entre uno y 365 días)** están desactivados y, a continuación, seleccione **Guardar**.
 
    >[!NOTE]
-   >Consulte los [procedimientos recomendados para configurar la solicitud de la MFA](https://aka.ms/mfaprompts).
+   >Consulte los [procedimientos recomendados para configurar la solicitud de la MFA](../authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime.md).
 
    ![Imagen que muestra los campos sin comprobar en el portal de autenticación multifactor heredada de Azure AD](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/uncheck-fields-legacy-azure-ad-portal.png)
 
@@ -138,11 +138,11 @@ Después de configurar los requisitos previos y establecer la configuración bas
 
 1. Para configurar las directivas de CA en Azure AD, vaya a [Azure Portal](https://portal.azure.com). Seleccione **Vista** en Administración de Azure Active Directory.
 
-2. La configuración de directivas de CA debe tener en cuenta los [procedimientos recomendados para implementar y diseñar CA](https://docs.microsoft.com/azure/active-directory/conditional-access/plan-conditional-access#understand-conditional-access-policy-components).
+2. La configuración de directivas de CA debe tener en cuenta los [procedimientos recomendados para implementar y diseñar CA](../conditional-access/plan-conditional-access.md#understand-conditional-access-policy-components).
 
-3. Para imitar la directiva de MFA de inicio de sesión global de Okta, [cree una directiva](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-policy-all-users-mfa).
+3. Para imitar la directiva de MFA de inicio de sesión global de Okta, [cree una directiva](../conditional-access/howto-conditional-access-policy-all-users-mfa.md).
 
-4. Cree una [regla de CA basada en la confianza de dispositivos](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices).
+4. Cree una [regla de CA basada en la confianza de dispositivos](../conditional-access/require-managed-devices.md).
 
 5. Esta directiva, como cualquier otra de este tutorial, se puede dirigir a una aplicación específica, a un grupo de prueba de usuarios o a ambos.
 
@@ -150,7 +150,7 @@ Después de configurar los requisitos previos y establecer la configuración bas
 
    ![Imagen que muestra el éxito en la prueba del usuario](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/success-test-user.png)
 
-6. Después de configurar la directiva basada en ubicación y la directiva de confianza del dispositivo, es el momento de configurar la directiva equivalente de [**Bloqueo de la autenticación heredada**](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-policy-block-legacy).
+6. Después de configurar la directiva basada en ubicación y la directiva de confianza del dispositivo, es el momento de configurar la directiva equivalente de [**Bloqueo de la autenticación heredada**](../conditional-access/howto-conditional-access-policy-block-legacy.md).
 
 Con estas tres directivas de CA, la experiencia de directivas de inicio de sesión de Okta original se ha replicado en Azure AD. Los siguientes pasos implican la inscripción del usuario en Azure MFA y la prueba de las directivas.
 
@@ -162,14 +162,14 @@ Una vez configuradas las directivas de CA, los usuarios tendrán que registrarse
 
 2. El usuario puede ir a <https://aka.ms/mysecurityinfo> para especificar información o administrar el formulario de registro de MFA.
 
-Consulte [esta guía](https://docs.microsoft.com/azure/active-directory/authentication/howto-registration-mfa-sspr-combined) para comprender completamente el proceso de registro de MFA.  
+Consulte [esta guía](../authentication/howto-registration-mfa-sspr-combined.md) para comprender completamente el proceso de registro de MFA.  
 
 Vaya a <https://aka.ms/mfasetup> después de iniciar sesión con Okta MFA y se le indicará que se registre para MFA en Azure AD.
 
 >[!NOTE]
 >Si el registro ya se ha producido en el pasado para ese usuario, se le mostrará en la página de información **Mi seguridad** después de satisfacer la solicitud de MFA.
 
-Consulte la [documentación del usuario final para la inscripción en MFA](https://docs.microsoft.com/azure/active-directory/user-help/security-info-setup-signin).
+Consulte la [documentación del usuario final para la inscripción en MFA](../user-help/security-info-setup-signin.md).
 
 ## <a name="step-6---enable-ca-policies"></a>Paso 6: Habilitar directivas de CA
 

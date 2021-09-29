@@ -3,16 +3,17 @@ title: Movimiento de datos con la actividad de copia
 description: 'Aprenda sobre el movimiento de datos en las canalizaciones de Data Factory: migración de datos entre almacenes en la nube, entre un almacén de datos local y un almacén de datos en la nube. Utilice la actividad de copia.'
 author: linda33wj
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 12/05/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 99190ccab6dc299fac970fce6fb0222096592357
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: d138cab93d9cd9b1c4c44e92e6fcfb583103fb70
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108766904"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128629415"
 ---
 # <a name="move-data-by-using-copy-activity"></a>Movimiento de datos con la actividad de copia
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -25,7 +26,7 @@ ms.locfileid: "108766904"
 ## <a name="overview"></a>Información general
 En Azure Data Factory, puede usar la actividad de copia para copiar datos entre los almacenes de datos locales y en la nube. Una vez copiados los datos, se pueden analizar y transformar con más profundidad. La actividad de copia también puede utilizarse para publicar los resultados de transformación y análisis de inteligencia empresarial (BI) y el consumo de la aplicación.
 
-![Rol de actividad de copia](media/data-factory-data-movement-activities/copy-activity.png)
+:::image type="content" source="media/data-factory-data-movement-activities/copy-activity.png" alt-text="Rol de actividad de copia":::
 
 La actividad de copia se basa en un [servicio globalmente disponible](#global)que es seguro, confiable y escalable. Este artículo proporciona detalles sobre el movimiento de datos en Data Factory y en la actividad de copia.
 
@@ -45,14 +46,14 @@ Cuando los almacenes de datos de origen y receptor residen en la nube, la activi
 
 El servicio elige automáticamente la región más óptima para realizar el movimiento de datos. Normalmente, es la que está más cerca del almacén de datos receptor.
 
-![Copia de la nube a la nube](./media/data-factory-data-movement-activities/cloud-to-cloud.png)
+:::image type="content" source="./media/data-factory-data-movement-activities/cloud-to-cloud.png" alt-text="Copia de la nube a la nube":::
 
 ### <a name="copy-data-between-an-on-premises-data-store-and-a-cloud-data-store"></a>Copia de datos entre un almacén de datos local y un almacén de datos en la nube
 Para mover con seguridad datos entre almacenes de datos locales y un almacén de datos en la nube de forma segura, instale la puerta de enlace de administración de datos en la máquina local. Data Management Gateway es un agente que permite procesar y mover datos híbridos. Puede instalarse en la misma máquina que el propio almacén de datos o en una independiente que pueda acceder al almacén de datos.
 
 En este escenario, Data Management Gateway realiza procesos de serialización y deserialización, compresión y descompresión, asignación de columnas, y conversión de tipos. Los datos no fluyen a través del servicio Azure Data Factory. En su lugar, Data Management Gateway escribe directamente los datos en el almacén de destino.
 
-![Copia de entorno local a la nube](./media/data-factory-data-movement-activities/onprem-to-cloud.png)
+:::image type="content" source="./media/data-factory-data-movement-activities/onprem-to-cloud.png" alt-text="Copia de entorno local a la nube":::
 
 Consulte [Movimiento de datos entre orígenes locales y la nube con Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md) para ver una introducción y un tutorial. Consulte el artículo sobre [Data Management Gateway](data-factory-data-management-gateway.md) para obtener información detallada sobre esta agente.
 

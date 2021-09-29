@@ -2,13 +2,13 @@
 title: Operaciones de solicitud y respuesta de AMQP 1.0 en Azure Service Bus
 description: En este artículo se define la lista de operaciones de respuesta/solicitud de AMQP en Microsoft Azure Service Bus.
 ms.topic: article
-ms.date: 04/26/2020
-ms.openlocfilehash: 2fd72e30d609d789d6513e666866878dfb4732d5
-ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
+ms.date: 09/27/2021
+ms.openlocfilehash: bb7b3ea90678be8a462f59d700f4c18feac300e5
+ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108016876"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129153565"
 ---
 # <a name="amqp-10-in-microsoft-azure-service-bus-request-response-based-operations"></a>El protocolo AMQP 1.0 de Microsoft Azure Service Bus: operaciones de respuesta/solicitud
 

@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.date: 05/25/2021
 ms.author: duau
 ms.custom: references_regions
-ms.openlocfilehash: 70fc52bf0cb2eb74e115601da713e706b9d690a1
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: df85a123fa6b3700e71d2d05ae99f4c4ecec5074
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110483259"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128560941"
 ---
 # <a name="microsoft-edge-locations-by-abbreviation-for-azure-front-door"></a>Ubicaciones perimetrales de Microsoft por abreviatura para Azure Front Door
 > [!div class="op_single_selector"]
@@ -22,7 +22,7 @@ ms.locfileid: "110483259"
 > * [Ubicaciones perimetrales por abreviatura](edge-locations-abbreviation.md)
 > 
 
-En este artículo se enumeran las ubicaciones perimetrales de Microsoft, ordenadas por abreviatura de la ubicación, para Azure Front Door Service.
+En este artículo se enumeran las ubicaciones perimetrales de Microsoft, ordenadas por abreviatura de ubicación, para el servicio Azure Front Door.
 
 ## <a name="edge-locations"></a>Ubicaciones perimetrales
 
@@ -30,6 +30,6 @@ En este artículo se enumeran las ubicaciones perimetrales de Microsoft, ordenad
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Consulte las [Ubicaciones perimetrales de Azure Front Door por área metropolitana](edge-locations-by-region.md).
-* Para obtener la lista más reciente de nodos perimetrales para Azure Front Door, consulte [Lista de nodos perimetrales: API REST](/rest/api/cdn/cdn/edgenodes/list).
+* Consulte [Ubicaciones perimetrales de Azure Front Door por área metropolitana](edge-locations-by-region.md).
+* Para obtener la lista más reciente de nodos perimetrales para Azure Front Door, consulte [Lista de nodos perimetrales: API REST](/rest/api/cdn/edge-nodes/list).
 * Aprenda a [crear un perfil de Azure Front Door](quickstart-create-front-door.md).

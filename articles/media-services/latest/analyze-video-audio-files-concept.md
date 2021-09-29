@@ -8,12 +8,12 @@ ms.service: media-services
 ms.topic: conceptual
 ms.date: 07/26/2021
 ms.author: inhenkel
-ms.openlocfilehash: a9a101afad5bfcdd8ca7ec20bc39b3080790a09b
-ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
+ms.openlocfilehash: 4271224c3ebb78274d13617ac30d8e376c301108
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114720771"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128646068"
 ---
 # <a name="analyze-video-and-audio-files-with-azure-media-services"></a>Análisis de archivos de audio y vídeo con Azure Media Services
 
@@ -29,7 +29,7 @@ Para analizar el contenido mediante los valores preestablecidos de Media Service
 
 ## <a name="compliance-privacy-and-security"></a>Cumplimiento, privacidad y seguridad
 
-Como recordatorio importante, debe cumplir todas las leyes aplicables al uso de Video Analyzer for Media y no puede utilizar este servicio de Azure ni ningún otro de forma que infrinja los derechos de otras personas o que pueda ser perjudicial para ellas. Antes de cargar vídeos que incluyan datos biométricos en el servicio Video Analyzer for Media para procesarlos y almacenarlos, debe tener todos los derechos apropiados (por ejemplo, todos los consentimientos adecuados) de las personas del vídeo. Para obtener información sobre el cumplimiento, la privacidad y la seguridad de Video Analyzer for Media, consulte [Términos de Cognitive Services](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/) de Azure. En lo que respecta a las obligaciones de privacidad de Microsoft y al control de los datos, consulte la [declaración de privacidad](https://privacy.microsoft.com/PrivacyStatement), los [términos de Online Services](https://www.microsoft.com/licensing/product-licensing/products) ("OST") y el [anexo de procesamiento de datos](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) ("DPA") de Microsoft. Puede encontrar información adicional sobre la privacidad, como la retención, eliminación o destrucción de los datos, en los términos de OST y [aquí](../../azure-video-analyzer/video-analyzer-for-media-docs/faq.md). Con el uso de Video Analyzer for Media, acepta estar sujeto a los términos de Cognitive Services, OST, DPA y la declaración de privacidad.
+Como recordatorio importante, debe cumplir todas las leyes aplicables al uso de Video Analyzer for Media y no puede utilizar este servicio de Azure ni ningún otro de forma que infrinja los derechos de otras personas o que pueda ser perjudicial para ellas. Antes de cargar vídeos que incluyan datos biométricos en el servicio Video Analyzer for Media para procesarlos y almacenarlos, debe tener todos los derechos apropiados (por ejemplo, todos los consentimientos adecuados) de las personas del vídeo. Para obtener información sobre el cumplimiento, la privacidad y la seguridad de Video Analyzer for Media, consulte [Términos de Cognitive Services](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/) de Azure. En lo que respecta a las obligaciones de privacidad de Microsoft y al control de los datos, consulte la [declaración de privacidad](https://privacy.microsoft.com/PrivacyStatement), los [términos de Online Services](https://www.microsoft.com/licensing/product-licensing/products) ("OST") y el [anexo de procesamiento de datos](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) ("DPA") de Microsoft. Puede encontrar información adicional sobre la privacidad, como la retención, eliminación o destrucción de los datos, en los términos de OST y [aquí](../../azure-video-analyzer/video-analyzer-for-media-docs/faq.yml). Con el uso de Video Analyzer for Media, acepta estar sujeto a los términos de Cognitive Services, OST, DPA y la declaración de privacidad.
 
 ## <a name="built-in-presets"></a>Valores preestablecidos integrados
 

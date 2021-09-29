@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/11/2017
 ms.author: davidmu
 ms.reviewer: lenalepa
-ms.openlocfilehash: 6297f519e87e9cb98ff0c85916eeae4161d2749e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 017f43152ed041d0b3b9a24bab151bb06acb9d3f
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121727624"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124748486"
 ---
 # <a name="how-to-use-self-service-application-access"></a>Uso del acceso de autoservicio a las aplicaciones
 
@@ -24,7 +24,7 @@ Para que los usuarios puedan descubrir automáticamente aplicaciones desde su p�
 
 Esta característica es una excelente manera de ahorrar tiempo y dinero como grupo de TI y es muy recomendable como parte de una implementación de aplicaciones moderna con Azure Active Directory.
 
-Para obtener información sobre el uso de Mis aplicaciones desde la perspectiva del usuario final, consulte la [ayuda del portal Mis aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+Para obtener información sobre el uso de Mis aplicaciones desde la perspectiva del usuario final, consulte la [ayuda del portal Mis aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 Con esta característica, puede:
 

@@ -8,14 +8,14 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 06/09/2021
+ms.date: 09/16/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: bb596e993981275bbf61efd2542dbf1b566e1a3a
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: 37c03a5be2f81fff0f4a1cac01153601a39ddd10
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113003897"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128557160"
 ---
 # <a name="upgrade-to-azure-cognitive-search-net-sdk-version-11"></a>Actualización a la versión 11 del SDK de .NET para Azure Cognitive Search
 

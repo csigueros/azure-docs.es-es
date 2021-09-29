@@ -1,19 +1,19 @@
 ---
 title: 'Procedimiento para usar Queue Storage desde Ruby: Azure Storage'
 description: Aprenda a utilizar Azure Queue Storage para crear y eliminar colas, e insertar, obtener y eliminar mensajes. Los ejemplos están escritos en Ruby.
-author: twooley
-ms.author: twooley
+author: normesta
+ms.author: normesta
 ms.reviewer: dineshm
 ms.date: 06/08/2021
 ms.topic: how-to
 ms.service: storage
 ms.subservice: queues
-ms.openlocfilehash: 7850e7fef034fd618c86400e17ddaa319c45005a
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: fd09a951bbc6380a583ec2fec4194b216cca2db1
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112081000"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128553267"
 ---
 # <a name="how-to-use-queue-storage-from-ruby"></a>Procedimiento para usar Queue Storage desde Ruby
 

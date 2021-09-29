@@ -2,13 +2,13 @@
 title: Conexión híbrida de Relay como controlador de eventos para eventos de Azure Event Grid
 description: Aquí se describe cómo puede usar las conexiones híbridas de Azure Relay como controladores de eventos para eventos de Event Grid.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 38233a2e103600f07837ce9a1ad8d63fe7e4fb99
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 09/28/2021
+ms.openlocfilehash: fb36e391663ee53729175a2768d765521b03f4da
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91270209"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129214947"
 ---
 # <a name="relay-hybrid-connection-as-an-event-handler-for-azure-event-grid-events"></a>Conexión híbrida de Relay como controlador de eventos para eventos de Azure Event Grid
 Un controlador de eventos es el lugar al que se envía el evento. El controlador realiza alguna acción adicional para procesar el evento. Varios servicios de Azure se configuran automáticamente para controlar los eventos y **Azure Relay** es uno de ellos. 

@@ -9,12 +9,12 @@ ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 7/12/2019
-ms.openlocfilehash: 270f6e83a7073bf39f4bc7efae8adea1ca56627e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: d6be1c8c0abf050a95d02c764580657b88975e0f
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121739420"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124743427"
 ---
 # <a name="move-files-with-azure-data-factory"></a>Movimiento de archivos con Azure Data Factory
 
@@ -48,25 +48,25 @@ La plantilla define cuatro parámetros:
 
 1. Vaya a la plantilla **Mover archivos**. Seleccione la conexión existente o cree **una** al almacén de archivos de origen desde el que quiera mover los archivos. Tenga en cuenta que **DataSource_Folder** y **DataSource_File** hacen referencia a la misma conexión del almacén de archivos de origen.
 
-    ![Creación de una nueva conexión con el origen](media/solution-template-move-files/move-files1.png)
+    :::image type="content" source="media/solution-template-move-files/move-files1.png" alt-text="Creación de una nueva conexión con el origen":::
 
 2. Seleccione la conexión existente o cree **una** al almacén de archivos de destino al que quiera mover los archivos.
 
-    ![Creación de una nueva conexión con el destino](media/solution-template-move-files/move-files2.png)
+    :::image type="content" source="media/solution-template-move-files/move-files2.png" alt-text="Creación de una nueva conexión con el destino":::
 
 3. Seleccione la pestaña **Usar esta plantilla**.
     
 4. Verá la canalización, como en el ejemplo siguiente:
 
-    ![Visualización de la canalización](media/solution-template-move-files/move-files4.png)
+    :::image type="content" source="media/solution-template-move-files/move-files4.png" alt-text="Visualización de la canalización":::
 
 5. Seleccione **Depurar**, escriba los **parámetros** y, a continuación, seleccione **Finalizar**.   Los parámetros son las rutas de acceso de la carpeta desde la que quiere mover los archivos y a la que quiere moverlos. 
 
-    ![Ejecución de la canalización](media/solution-template-move-files/move-files5.png)
+    :::image type="content" source="media/solution-template-move-files/move-files5.png" alt-text="Ejecución de la canalización":::
 
 6. Revise el resultado.
 
-    ![Revisión del resultado](media/solution-template-move-files/move-files6.png)
+    :::image type="content" source="media/solution-template-move-files/move-files6.png" alt-text="Revisión del resultado":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

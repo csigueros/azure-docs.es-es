@@ -8,13 +8,13 @@ ms.subservice: dedicated-hosts
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 09/01/2021
-ms.reviewer: cynthn, zivr
-ms.openlocfilehash: c4d895551f852c26d9083c570de29d5cbdedfa53
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.reviewer: brittanyrowe
+ms.openlocfilehash: 3bae87c87c7ab8dd1090f40b4e0589c84e2c54ec
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123440230"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128557124"
 ---
 # <a name="deploy-vms-and-scale-sets-to-dedicated-hosts"></a>Implementación de máquinas virtuales y conjuntos de escalado en hosts dedicados
 

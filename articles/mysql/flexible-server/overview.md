@@ -7,12 +7,12 @@ ms.service: mysql
 ms.custom: mvc, references_regions
 ms.topic: overview
 ms.date: 08/10/2021
-ms.openlocfilehash: c2cdd4009261306357bc9d840afa83bc1ebf40df
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 863281f85eac1d467e7935f47a90aacf1b3134dd
+ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123111643"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129153451"
 ---
 # <a name="azure-database-for-mysql---flexible-server-preview"></a>Servidor flexible (versión preliminar) de Azure Database for MySQL
 
@@ -52,7 +52,7 @@ Puede aprovechar esta oferta para desarrollar e implementar aplicaciones que use
 
 Servidor flexible de Azure Database for MySQL (versión preliminar) permite configurar la alta disponibilidad con conmutación automática por error. La solución de alta disponibilidad está diseñada para garantizar que los datos confirmados nunca se pierdan debido a errores y mejorar el tiempo de actividad general de la aplicación.Cuando se configura la alta disponibilidad, el servidor flexible aprovisiona y administra automáticamente una réplica en espera. Hay dos modelos arquitectónicos de alta disponibilidad: 
 
-- **Alta disponibilidad con redundancia de zona**: esta opción es preferible para lograr el aislamiento completo y la redundancia de la infraestructura en varias zonas de disponibilidad. Proporciona el máximo nivel de disponibilidad, pero es necesario configurar la redundancia de la aplicación entre las zonas. La alta disponibilidad con redundancia de zona es preferible cuando se quiere lograr el máximo nivel de disponibilidad frente a cualquier error de infraestructura en la zona de disponibilidad y donde la latencia en la zona de disponibilidad sea aceptable. La alta disponibilidad con redundancia de zona está disponible en un  [subconjunto de regiones de Azure](overview.md#azure-regions)  en el que la región admite varias zonas de disponibilidad y en la que hay disponibles recurso compartido de archivos Prémium con redundancia de zona. 
+- **Alta disponibilidad con redundancia de zona**: esta opción es preferible para lograr el aislamiento completo y la redundancia de la infraestructura en varias zonas de disponibilidad. Proporciona el máximo nivel de disponibilidad, pero exige configurar la redundancia de aplicaciones entre zonas. La alta disponibilidad con redundancia de zona es preferible cuando se quiere lograr el máximo nivel de disponibilidad frente a cualquier error de infraestructura en la zona de disponibilidad y donde la latencia en la zona de disponibilidad sea aceptable. La alta disponibilidad con redundancia de zona está disponible en un  [subconjunto de regiones de Azure](overview.md#azure-regions)  en el que la región admite varias zonas de disponibilidad y en la que hay disponibles recurso compartido de archivos Prémium con redundancia de zona. 
 
 :::image type="content" source="./media/concepts-high-availability/1-flexible-server-overview-zone-redundant-ha.png" alt-text="Alta disponibilidad con redundancia de zona":::
 
@@ -64,7 +64,7 @@ Para más información, consulte los [conceptos sobre la alta disponibilidad](co
 
 ## <a name="automated-patching-with-managed-maintenance-window"></a>Aplicación de revisiones automatizada con la ventana de mantenimiento administrado
 
-El servicio aplica automáticamente revisiones al hardware, sistema operativo y motor de base de datos subyacentes. La revisión incluye actualizaciones de seguridad y software. En el motor de MySQL, las actualizaciones de versión secundaria también se incluyen como parte de la versión de mantenimiento planeado. Los usuarios pueden configurar la programación de la aplicación de revisión para que la administre el sistema o definir su programación personalizada. Durante la programación de mantenimiento, se aplica la revisión y es posible que el servidor requiera un reinicio como parte del proceso de aplicación de revisiones para completar la actualización. Con la programación personalizada, los usuarios pueden hacer que el ciclo de aplicación de revisiones sea predecible y elegir una ventana de mantenimiento con un impacto mínimo en el negocio. En general, el servicio sigue una programación mensual de versiones como parte de la integración y publicación continuas.
+El servicio aplica automáticamente revisiones al hardware, sistema operativo y motor de base de datos subyacentes. La aplicación de revisión incluye actualizaciones de seguridad y software. En el motor de MySQL, las actualizaciones de versión secundaria también se incluyen como parte de la versión de mantenimiento planeado. Los usuarios pueden configurar la programación de la aplicación de revisión para que la administre el sistema o definir su programación personalizada. Durante la programación de mantenimiento, se aplica la revisión y es posible que el servidor requiera un reinicio como parte del proceso de aplicación de revisiones para completar la actualización. Con la programación personalizada, los usuarios pueden hacer que el ciclo de aplicación de revisiones sea predecible y elegir una ventana de mantenimiento con un impacto mínimo en el negocio. En general, el servicio sigue una programación mensual de versiones como parte de la integración y publicación continuas.
 
 Consulte [Mantenimiento programado](concepts-maintenance.md) para más detalles. 
 
@@ -162,26 +162,34 @@ Una ventaja de ejecutar una carga de trabajo en Azure es su alcance global. El s
 | Region (Región) | Disponibilidad | Alta disponibilidad en la misma zona | Alta disponibilidad con redundancia de zona |
 | --- | --- | --- | --- |
 | Este de Australia | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Sudeste de Australia | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | Sur de Brasil | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | Centro de Canadá | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Este de Canadá | :heavy_check_mark: | :x: | :x: |
+| Centro de la India | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | Centro de EE. UU. | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Asia Oriental (Hong Kong) | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | Este de EE. UU. | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Este de EE. UU. 2 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Centro de Francia | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:|
+| Centro de Francia | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Centro-oeste de Alemania | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | Japón Oriental | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Centro de Corea del Sur | :heavy_check_mark: | :x: | :x: |
+| Japón Occidental | :heavy_check_mark: | :x: | :x: |
+| Centro de Corea del Sur | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Corea del Sur | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | Norte de Europa | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Este de Noruega | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | Sudeste de Asia | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Norte de Suiza | :heavy_check_mark: | :x: | :x: |
+| Centro-sur de EE. UU. | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Norte de Sudáfrica | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Norte de Suiza | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | Sur de Reino Unido | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Oeste de Reino Unido | :heavy_check_mark: | :x: | :x: |
+| Norte de Emiratos Árabes Unidos | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | Oeste de EE. UU. | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | Oeste de EE. UU. 2 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Oeste de Europa | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Sudeste de Australia | :heavy_check_mark: | :heavy_check_mark: | :x: |
-| Norte de Sudáfrica | :heavy_check_mark: | :x: | :x: |
-| Asia Oriental (Hong Kong) | :heavy_check_mark: | :x: | :x: |
-| Centro de la India | :heavy_check_mark: | :x: | :x: |
+| Centro-Oeste de EE. UU. | :heavy_check_mark: | :heavy_check_mark: | :x: |
 
 ## <a name="contacts"></a>Contactos
 

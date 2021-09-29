@@ -8,12 +8,12 @@ ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/09/2020
-ms.openlocfilehash: ba4d84a6d3eda01f3d9192aef521d7d45a811083
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 94f7210c05056db2ead8b1aa54d9a0d16e3d8849
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121737011"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124743586"
 ---
 # <a name="bulk-copy-from-a-database-with-a-control-table"></a>Copia masiva desde una base de datos con una tabla de control
 
@@ -67,33 +67,33 @@ Los tres últimos parámetros, que definen la ruta de acceso en el almacén de d
 
 2. Vaya a la plantilla **Copia masiva desde base de datos**. Crear una conexión **nueva** a la tabla de control externo que ha creado en el paso 1.
 
-    ![Creación de una nueva conexión a la tabla de control](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable2.png)
+    :::image type="content" source="media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable2.png" alt-text="Creación de una nueva conexión a la tabla de control":::
 
 3. Creación de una **nueva** conexión a la base de datos de origen desde la que está copiando datos.
 
-    ![Creación de una nueva conexión a la base de datos de origen](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable3.png)
+    :::image type="content" source="media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable3.png" alt-text="Creación de una nueva conexión a la base de datos de origen":::
     
 4. Cree una conexión **nueva** al almacén de datos de destino en el que está copiando datos.
 
-    ![Creación de una nueva conexión al almacén de destino](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable4.png)
+    :::image type="content" source="media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable4.png" alt-text="Creación de una nueva conexión al almacén de destino":::
 
 5. Seleccione **Usar esta plantilla**.
 
 6. Ve la canalización, como se muestra en el ejemplo siguiente:
 
-    ![Revisión de la canalización](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable6.png)
+    :::image type="content" source="media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable6.png" alt-text="Revisión de la canalización":::
 
 7. Seleccione **Depurar**, escriba los **parámetros** y, a continuación, seleccione **Finalizar**.
 
-    ![Clic en **Depurar**](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable7.png)
+    :::image type="content" source="media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable7.png" alt-text="Clic en **Depurar**":::
 
 8. Ve resultados similares al ejemplo siguiente:
 
-    ![Revisión del resultado](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable8.png)
+    :::image type="content" source="media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable8.png" alt-text="Revisión del resultado":::
 
 9. (Opcional) Si elige "Azure Synapse Analytics" como destino de datos, debe especificar una conexión a una instancia de Azure Blob Storage como almacenamiento provisional, porque así lo requiere PolyBase de Azure Synapse Analytics. La plantilla generará automáticamente una ruta de acceso de contenedor para Blob Storage. Consulte si el contenedor se ha creado después de la ejecución de la canalización.
     
-    ![Configuración de PolyBase](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable9.png)
+    :::image type="content" source="media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable9.png" alt-text="Configuración de PolyBase":::
        
 ## <a name="next-steps"></a>Pasos siguientes
 

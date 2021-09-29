@@ -9,13 +9,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/24/2021
-ms.openlocfilehash: 96d7792ee9c867263b7ab7f21cea652414f28478
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.date: 09/09/2021
+ms.openlocfilehash: d9b6695824b5fc19d2cd2ee40aec929a372750f2
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122822396"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124812038"
 ---
 # <a name="linked-services-in-azure-data-factory-and-azure-synapse-analytics"></a>Servicios vinculados en Azure Data Factory y Azure Synapse Analytics
 
@@ -41,7 +41,7 @@ Este es un escenario de ejemplo. Para copiar datos de Blob Storage en SQL Databa
 
 En el siguiente diagrama se muestra la relación entre la canalización, la actividad, el conjunto de datos y el servicio vinculado en el servicio:
 
-![Relación entre la canalización, la actividad, el conjunto de datos y los servicios vinculados](media/concepts-datasets-linked-services/relationship-between-data-factory-entities.png)
+:::image type="content" source="media/concepts-datasets-linked-services/relationship-between-data-factory-entities.png" alt-text="Relación entre la canalización, la actividad, el conjunto de datos y los servicios vinculados":::
 
 ## <a name="linked-service-json"></a>Servicio vinculado JSON
 

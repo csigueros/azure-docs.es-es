@@ -8,12 +8,12 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 08/18/2021
 ms.author: allensu
-ms.openlocfilehash: 6b54784b5cd77113983dea5e936d93e36aca5591
-ms.sourcegitcommit: 47491ce44b91e546b608de58e6fa5bbd67315119
+ms.openlocfilehash: de7d106ae02e1150d9765e60fbfdf0dc0cb9bc74
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122201850"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124810329"
 ---
 # <a name="quickstart-create-a-private-link-service-by-using-the-azure-portal"></a>Inicio rápido: Creación de un servicio Private Link mediante Azure Portal
 
@@ -46,17 +46,17 @@ En esta sección, va a crear una red virtual y una subred para hospedar el equil
     | **Configuración**          | **Valor**                                                           |
     |------------------|-----------------------------------------------------------------|
     | **Detalles del proyecto**  |                                                                 |
-    | Suscripción     | Selección de su suscripción a Azure                                  |
+    | Subscription     | Selección de su suscripción a Azure                                  |
     | Grupo de recursos   | Seleccione **Crear nuevo**. Especifique **CreatePrivLinkService-rg**. </br> Seleccione **Aceptar**. |
     | **Detalles de instancia** |                                                                 |
     | Nombre             | Escriba **myVNet**.                                    |
-    | Region           | Seleccione **(EE.UU.) Este de EE. UU.** |
+    | Region           | Seleccione **(EE. UU.) Este de EE. UU. 2**. |
 
 5. Seleccione la pestaña **Direcciones IP** o el botón **Siguiente: Direcciones IP** situado en la parte inferior de la página.
 
 6. En la pestaña **Direcciones IP**, especifique esta información:
 
-    | Parámetro            | Value                      |
+    | Configuración            | Value                      |
     |--------------------|----------------------------|
     | Espacio de direcciones IPv4 | Escriba **10.1.0.0/16**. |
 
@@ -88,7 +88,7 @@ En esta sección, creará una puerta de enlace NAT y la asignará a la subred de
     | **Configuración**          | **Valor**                                                           |
     |------------------|-----------------------------------------------------------------|
     | **Detalles del proyecto**  |                                                                 |
-    | Suscripción     | Seleccione su suscripción a Azure.                                  |
+    | Subscription     | Seleccione su suscripción a Azure.                                  |
     | Grupo de recursos   | Seleccione **CreatePrivLinkService-rg**. |
     | **Detalles de instancia** |                                                                 |
     | Nombre             | Escriba **myNATGateway**.                                    |
@@ -133,7 +133,7 @@ Durante la creación del equilibrador de carga, configurará:
     | Configuración                 | Value                                              |
     | ---                     | ---                                                |
     | **Detalles del proyecto** |   |
-    | Suscripción               | Seleccione su suscripción.    |    
+    | Subscription               | Seleccione su suscripción.    |    
     | Resource group         | Seleccione **CreatePrivLinkService-rg**. |
     | **Detalles de instancia** |   |
     | Nombre                   | Escriba **myLoadBalancer**.                                   |
@@ -176,7 +176,7 @@ Durante la creación del equilibrador de carga, configurará:
 
 19. En **Agregar regla de equilibrio de carga**, escriba o seleccione la siguiente información:
 
-    | Parámetro | Value |
+    | Configuración | Value |
     | ------- | ----- |
     | Nombre | Escriba **myHTTPRule**. |
     | Versión de la dirección IP | Seleccione **IPv4** o **IPv6** en función de sus requisitos. |
@@ -214,7 +214,7 @@ En esta sección, va a crear un servicio Private Link detrás de un equilibrador
     | Configuración | Value |
     | ------- | ----- |
     | **Detalles del proyecto** |  |
-    | Suscripción | Seleccione su suscripción. |
+    | Subscription | Seleccione su suscripción. |
     | Grupo de recursos | Seleccione **CreatePrivLinkService-rg**. |
     | **Detalles de instancia** |  |
     | Nombre | Escriba **myPrivateLinkService**. |
@@ -258,7 +258,7 @@ En esta sección, asignará el servicio de vínculo privado a un punto de conexi
     | **Configuración**          | **Valor**                                                           |
     |------------------|-----------------------------------------------------------------|
     | **Detalles del proyecto**  |                                                                 |
-    | Suscripción     | Selección de su suscripción a Azure                                  |
+    | Subscription     | Selección de su suscripción a Azure                                  |
     | Grupo de recursos   | Seleccione **CreatePrivLinkService-rg**. |
     | **Detalles de instancia** |                                                                 |
     | Nombre             | Escriba **myVNetPE**                                    |
@@ -268,7 +268,7 @@ En esta sección, asignará el servicio de vínculo privado a un punto de conexi
 
 4. En la pestaña **Direcciones IP**, especifique esta información:
 
-    | Parámetro            | Value                      |
+    | Configuración            | Value                      |
     |--------------------|----------------------------|
     | Espacio de direcciones IPv4 | Escriba **11.1.0.0/16**. |
 
@@ -302,7 +302,7 @@ En esta sección, asignará el servicio de vínculo privado a un punto de conexi
     | Parámetro | Value |
     | ------- | ----- |
     | **Detalles del proyecto** | |
-    | Suscripción | Seleccione su suscripción. |
+    | Subscription | Seleccione su suscripción. |
     | Resource group | Seleccione **CreatePrivLinkService-rg**. Ha creado este grupo de recursos en la sección anterior.|
     | **Detalles de instancia** |  |
     | Nombre  | Escriba **myPrivateEndpoint**. |
@@ -315,7 +315,7 @@ En esta sección, asignará el servicio de vínculo privado a un punto de conexi
     | Parámetro | Value |
     | ------- | ----- |
     | Método de conexión | Seleccione **Conectarse a un recurso de Azure en mi directorio**. |
-    | Suscripción | Seleccione su suscripción. |
+    | Subscription | Seleccione su suscripción. |
     | Tipo de recurso | Seleccione **Microsoft.Network/privateLinkServices**. |
     | Resource | Seleccione **myPrivateLinkService**. |
 

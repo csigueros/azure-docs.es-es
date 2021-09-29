@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 04/13/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 8ba54fa398d42aea43a93d3b3369f21f4d2168ec
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 0feb7f6fc9a36e3440001d3a344ada843ea54e0d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122182514"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128645709"
 ---
 # <a name="how-to-manage-tiered-files"></a>Administración de archivos en niveles
 
@@ -22,15 +22,15 @@ En este artículo se proporciona una guía para los usuarios que tienen pregunta
 
 El hecho de que los archivos deban organizarse por niveles según directivas establecidas se evalúa una vez a la hora. Al crear un punto de conexión de servidor, pueden darse dos situaciones:
 
-Al agregar por primera vez un nuevo punto de conexión de servidor, a menudo existen archivos en esa ubicación de servidor. Estos archivos deben cargarse para que la funcionalidad de la nube por niveles pueda comenzar. La directiva de espacio disponible en el volumen no comienza a trabajar hasta que termina la carga inicial de todos los archivos. Pero la directiva de fecha opcional empieza a trabajar archivo a archivo, en cuanto se carga un archivo. El intervalo de una hora también se aplica aquí. 
+Al agregar por primera vez un nuevo punto de conexión de servidor, a menudo existen archivos en esa ubicación de servidor. Estos archivos deben cargarse para que la funcionalidad de la nube por niveles pueda comenzar. La directiva de espacio disponible en el volumen no comienza a trabajar hasta que termina la carga inicial de todos los archivos. Pero la directiva de fecha opcional empieza a trabajar archivo a archivo, en cuanto se carga un archivo. El intervalo de una hora también se aplica aquí.
 
 Al agregar un nuevo punto de conexión de servidor, es posible que haya conectado una ubicación de servidor vacía a un recurso compartido de archivos de Azure que contiene los datos. Si decide descargar el espacio de nombres y recuperar el contenido durante la descarga inicial en el servidor, después de que el espacio de nombres quede inactivo, se recuperan los archivos en función de la marca de tiempo de última modificación, hasta alcanzar los límites de la directiva de espacio disponible del volumen y la directiva de fecha opcional.
 
 Hay varias maneras de comprobar si un archivo se ha organizado en niveles en el recurso compartido de archivos de Azure:
-    
-   *  **Compruebe los atributos de archivo en el archivo.**
-     Haga clic con el botón derecho en un archivo, vaya a **Detalles** y desplácese hacia abajo a la propiedad **Atributos**. Un archivo en niveles tendrá los siguientes atributos establecidos:     
-        
+
+   - **Compruebe los atributos de archivo en el archivo.**
+     Haga clic con el botón derecho en un archivo, vaya a **Detalles** y desplácese hacia abajo a la propiedad **Atributos**. Un archivo en niveles tendrá los siguientes atributos establecidos:
+
         | Letra del atributo | Atributo | Definición |
         |:----------------:|-----------|------------|
         | A | Archivar | Indica que se debe realizar la copia de seguridad del archivo con un software de copia de seguridad. Este atributo siempre se establece, independientemente de si el archivo está organizado en niveles o está completamente almacenado en el disco. |
@@ -40,26 +40,27 @@ Hay varias maneras de comprobar si un archivo se ha organizado en niveles en el 
         | O | Sin conexión | Indica que parte del contenido del archivo, o la totalidad, no se ha almacenado en el disco. Cuando un archivo completo se recupera, Azure File Sync quita este atributo. |
 
         ![Cuadro de diálogo Propiedades de un archivo con la pestaña Detalles seleccionada](../files/media/storage-files-faq/azure-file-sync-file-attributes.png)
-        
-    
+
+
         > [!NOTE]
         > Puede ver los atributos de todos los archivos en una carpeta mediante la adición del campo **Atributos** a la presentación de la tabla del Explorador de archivos. Para ello, haga clic con el botón derecho en una columna existente (por ejemplo, **Tamaño**), seleccione **Más** y, después, **Atributos** en la lista desplegable.
-        
+
         > [!NOTE]
         > Todos estos atributos serán visibles también para los archivos recuperados parcialmente.
-        
-   * **Use `fsutil` para buscar puntos de repetición de análisis en un archivo.**
-       Como se indica en la opción anterior, un archivo organizado en niveles siempre tiene establecido un punto de repetición de análisis. Un punto de repetición de análisis permite al controlador de filtro del sistema de archivos de Azure File Sync (StorageSync.sys) recuperar el contenido de los recursos compartidos de archivos de Azure que no se almacenan localmente en el servidor. 
+
+   - **Use `fsutil` para buscar puntos de repetición de análisis en un archivo.**
+       Como se indica en la opción anterior, un archivo organizado en niveles siempre tiene establecido un punto de repetición de análisis. Un punto de repetición de análisis permite al controlador de filtro del sistema de archivos de Azure File Sync (StorageSync.sys) recuperar el contenido de los recursos compartidos de archivos de Azure que no se almacenan localmente en el servidor.
 
        Para comprobar si un archivo tiene un punto de repetición de análisis, en un símbolo del sistema con privilegios elevados o en una ventana de PowerShell, ejecute la utilidad `fsutil`:
 
         ```powershell
         fsutil reparsepoint query <your-file-name>
         ```
+
        Si el archivo tiene un punto de repetición de análisis, debería ver **Valor de la etiqueta de análisis: 0x8000001e**. Este valor hexadecimal es el valor del punto de repetición de análisis que pertenece a Azure File Sync. La salida también contendrá los datos de repetición de análisis que representan la ruta de acceso al archivo en el recurso compartido de archivos de Azure.
-        
-        > [!WARNING]  
-        > El comando de la utilidad `fsutil reparsepoint` también puede eliminar un punto de repetición de análisis. No ejecute este comando a menos que el equipo de ingeniería de Azure File Sync se lo indique. Si lo ejecuta, podría producirse una pérdida de datos. 
+
+        > [!WARNING]
+        > El comando de la utilidad `fsutil reparsepoint` también puede eliminar un punto de repetición de análisis. No ejecute este comando a menos que el equipo de ingeniería de Azure File Sync se lo indique. Si lo ejecuta, podría producirse una pérdida de datos.
 
 ## <a name="how-to-exclude-applications-from-cloud-tiering-last-access-time-tracking"></a>Exclusión de las aplicaciones del seguimiento del último acceso de la nube por niveles
 
@@ -111,31 +112,33 @@ Invoke-StorageSyncCloudTiering -Path <file-or-directory-to-be-tiered>
 La manera más fácil de recuperar un archivo en el disco es abrirlo. El filtro del sistema de archivos de Azure File Sync (StorageSync.sys) descarga sin problemas el archivo desde el recurso compartido de archivos de Azure de forma automática. En el caso de los tipos de archivo que se pueden leer o transmitirse parcialmente, como los archivos multimedia o los archivos .zip, solo con abrir el archivo no se garantiza que se descargue entero.
 
 Para que un archivo se descargue completamente en el disco local, debe usar PowerShell para obligar a un archivo a recuperarse por completo. Esta opción puede resultar también útil cuando se quiere recuperar muchos archivos a la vez, como todos los archivos de una carpeta. Abra una sesión de PowerShell en el nodo del servidor donde está instalado Azure File Sync y ejecute los siguientes comandos de PowerShell:
-    
+
 ```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint>
 ```
+
 Parámetros opcionales:
-* `-Order CloudTieringPolicy` recupera primero los archivos modificados o a los que se ha accedido más recientemente permitidos por la directiva de niveles actual. 
+- `-Order CloudTieringPolicy` recupera primero los archivos modificados o a los que se ha accedido más recientemente permitidos por la directiva de niveles actual. 
     * Si la directiva de espacio disponible en el volumen está configurada, se recuperan archivos hasta que se alcanza el valor de esta. Por ejemplo, si el valor de la directiva es 20 %, la recuperación se detiene una vez que el espacio disponible en el volumen alcanza el 20 %.  
     * Si la directiva de espacio disponible en el volumen y la directiva de fecha están configuradas, se recuperan archivos hasta que se alcanzan los valores de estas. Por ejemplo, si el valor de la directiva de espacio disponible es 20 % y el de la directiva de fecha es 7 días, la recuperación se detiene una vez que el espacio disponible en el volumen alcanza el 20 % o si todos los archivos a los que se ha accedido o que se han modificado en los últimos 7 días son locales.
-* `-ThreadCount` determina el número de archivos que se pueden recuperar en paralelo.
-* `-PerFileRetryCount` determina la frecuencia con que se intentará recuperar un archivo que está bloqueado actualmente.
-* `-PerFileRetryDelaySeconds` determina el tiempo en segundos entre los reintentos de recuperación y siempre se debe usar en combinación con el parámetro anterior.
+- `-ThreadCount` determina el número de archivos que se pueden recuperar en paralelo.
+- `-PerFileRetryCount` determina la frecuencia con que se intentará recuperar un archivo que está bloqueado actualmente.
+- `-PerFileRetryDelaySeconds` determina el tiempo en segundos entre los reintentos de recuperación y siempre se debe usar en combinación con el parámetro anterior.
 
 Ejemplo:
+
 ```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint> -ThreadCount 8 -Order CloudTieringPolicy -PerFileRetryCount 3 -PerFileRetryDelaySeconds 10
-``` 
+```
 
-> [!Note]  
->- Si el volumen local que hospeda el servidor no tiene suficiente espacio disponible para recuperar todos los datos con niveles, el cmdlet `Invoke-StorageSyncFileRecall` dará error.  
+> [!NOTE]  
+> - Si el volumen local que hospeda el servidor no tiene suficiente espacio disponible para recuperar todos los datos con niveles, el cmdlet `Invoke-StorageSyncFileRecall` dará error.
 
-> [!Note]
+> [!NOTE]
 > Para recuperar los archivos que están organizados en niveles, el ancho de banda de red debe ser de al menos 1 Mbps. Si el ancho de banda de red es menor que 1 Mbps, puede ocurrir un error de tiempo de expiración al recuperar los archivos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Preguntas más frecuentes (P+F) sobre Azure Files](../files/storage-files-faq.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json)
+- [Preguntas más frecuentes (P+F) sobre Azure Files](../files/storage-files-faq.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json)

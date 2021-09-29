@@ -4,17 +4,17 @@ description: Controle las interacciones con clientes de Azure vinculando un Id. 
 author: dhirajgandhi
 ms.reviewer: dhgandhi
 ms.author: banders
-ms.date: 10/05/2020
+ms.date: 09/08/2021
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ca8c972f1d5c8819d5902966adde1070691301ba
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: f554c8e29cbff3b78a3390cb3f6ef155a7a61b6f
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110695222"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124744171"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Vinculación de un Id. de partner a cuentas de Azure
 
@@ -66,12 +66,12 @@ Cuando acceda a los recursos del cliente, use Azure Portal, PowerShell o la CLI 
 
 
     ```azurepowershell-interactive
-    C:\> new-AzManagementPartner -PartnerId 12345
+    C:\> New-AzManagementPartner -PartnerId 12345
     ```
 
 #### <a name="get-the-linked-partner-id"></a>Obtención del Id. de partner vinculado
 ```azurepowershell-interactive
-C:\> get-AzManagementPartner
+C:\> Get-AzManagementPartner
 ```
 
 #### <a name="update-the-linked-partner-id"></a>Actualización del Id. de partner vinculado
@@ -80,7 +80,7 @@ C:\> Update-AzManagementPartner -PartnerId 12345
 ```
 #### <a name="delete-the-linked-partner-id"></a>Eliminación del Id. de partner vinculado
 ```azurepowershell-interactive
-C:\> remove-AzManagementPartner -PartnerId 12345
+C:\> Remove-AzManagementPartner -PartnerId 12345
 ```
 
 ### <a name="use-the-azure-cli-to-link-to-a-new-partner-id"></a>Uso de la CLI de Azure para vincular un nuevo Id. de partner

@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: how-to
 ms.date: 05/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 80c4d8a70454c007ac45f588e59c03ef45f10933
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 82ac4e9c4a2f573295790d5d7fa3b02c2e690bbc
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92125071"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124819851"
 ---
 # <a name="use-azure-data-box-or-azure-data-box-heavy-to-send-data-to-appropriate-azure-storage-blob-tier"></a>Uso de Azure Data Box o Azure Data Box Heavy para enviar datos al nivel del blob de Azure Storage adecuado
 
@@ -47,7 +47,7 @@ También puede crear primero una cuenta de almacenamiento con el atributo de niv
 
 Una vez que se carguen los datos del dispositivo de Data Box en el nivel predeterminado, podrá mover los datos a un nivel no predeterminado. Existen dos maneras de mover los datos a un nivel distinto al predeterminado.
 
-- **Administración del ciclo de vida de Azure Blob Storage**: puede usar un enfoque basado en directivas para asignar automáticamente los datos a un nivel o para que expiren al final de su ciclo de vida. Para más información, consulte [Administración del ciclo de vida de Azure Blob Storage](../storage/blobs/storage-lifecycle-management-concepts.md).
+- **Administración del ciclo de vida de Azure Blob Storage**: puede usar un enfoque basado en directivas para asignar automáticamente los datos a un nivel o para que expiren al final de su ciclo de vida. Para más información, consulte [Administración del ciclo de vida de Azure Blob Storage](../storage/blobs/lifecycle-management-overview.md).
 - **Scripts**: puede usar un enfoque con scripts mediante Azure PowerShell para habilitar niveles de blob. Puede llamar a la operación `SetBlobTier` para establecer el nivel en el blob.
 
 ## <a name="use-azure-powershell-to-set-the-blob-tier"></a>Uso de Azure PowerShell para establecer el nivel de blob
@@ -116,4 +116,4 @@ Los pasos siguientes describen cómo establecer el nivel de blob de archivo medi
 
 ## <a name="next-steps"></a>Pasos siguientes
 
--  Obtenga información acerca de cómo tratar [escenarios de niveles de datos comunes con reglas de directivas de ciclo de vida](../storage/blobs/storage-lifecycle-management-concepts.md#examples).
+-  Obtenga información acerca de cómo tratar [escenarios de niveles de datos comunes con reglas de directivas de ciclo de vida](../storage/blobs/lifecycle-management-overview.md#examples-of-lifecycle-policies).

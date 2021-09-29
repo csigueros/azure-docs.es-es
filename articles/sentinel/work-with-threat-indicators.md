@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 07/27/2021
 ms.author: yelevin
-ms.openlocfilehash: 2ecc10c43600a20ceb7209f651f27e78e7b286be
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 0ce6c7ced310fa467adbdc707d25bb5efc0f02bc
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122181272"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124763317"
 ---
 # <a name="work-with-threat-indicators-in-azure-sentinel"></a>Trabajo con los indicadores de amenazas en Azure Sentinel
 
@@ -179,7 +179,7 @@ La regla de **Análisis de coincidencias de Inteligencia sobre amenazas de Micro
 |Origen del registro  |Descripción  |
 |---------|---------|
 |[CEF](connect-common-event-format.md)     |  La coincidencia se realiza para todos los registros CEF que se ingieren en la tabla **CommonSecurityLog** de Log Analytics, excepto aquellos en los que el `DeviceVendor` aparece como `Cisco`. <br><br>Para hacer coincidir la inteligencia sobre amenazas generada por Microsoft con los registros CEF, asegúrese de asignar el dominio en el campo `RequestURL` del registro CEF.      |
-|[DNS](connect-dns.md)     | La coincidencia se realiza para todos los registros DNS que son consultas de DNS de búsqueda de clientes a servicios DNS (`SubType == "LookupQuery"`). Las consultas de DNS se procesan solo para consultas IPv4 (`QueryType=”A”`) e IPv6 (`QueryType=” AAAA”`).<br><br>Para hacer coincidir la inteligencia sobre amenazas generada por Microsoft con los registros DNS, no se necesita ninguna asignación manual de columnas Windows, ya que todas las columnas son estándar de un servidor DNS y los dominios estarán en la columna `Name` de forma predeterminada.   |
+|[DNS](./data-connectors-reference.md#domain-name-server)     | La coincidencia se realiza para todos los registros DNS que son consultas de DNS de búsqueda de clientes a servicios DNS (`SubType == "LookupQuery"`). Las consultas de DNS se procesan solo para consultas IPv4 (`QueryType=”A”`) e IPv6 (`QueryType=” AAAA”`).<br><br>Para hacer coincidir la inteligencia sobre amenazas generada por Microsoft con los registros DNS, no se necesita ninguna asignación manual de columnas Windows, ya que todas las columnas son estándar de un servidor DNS y los dominios estarán en la columna `Name` de forma predeterminada.   |
 |[Syslog](connect-syslog.md)     |  Actualmente, la coincidencia solo se realiza para los eventos de Syslog donde `Facility` es `cron`. <br><br>Para hacer coincidir la inteligencia sobre amenazas generada por Microsoft con Syslog, no se necesita ninguna asignación manual de columnas. Los detalles se incluyen en el campo `SyslogMessage` de Syslog de forma predeterminada y la regla analizará el dominio directamente desde SyslogMessage.     |
 |     |         |
 

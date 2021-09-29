@@ -3,18 +3,18 @@ title: 'Tutorial: Depuración de API en Azure API Management mediante el seguimi
 description: Siga los pasos de este tutorial para habilitar los pasos de seguimiento e inspección del procesamiento de solicitudes en Azure API Management.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 editor: ''
 ms.service: api-management
 ms.topic: tutorial
 ms.date: 10/30/2020
-ms.author: apimpm
-ms.openlocfilehash: 531e346569b85ababc382f997fd7764a92b3d05f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: danlep
+ms.openlocfilehash: 59d095b45b10ad6ed093107cc8d4589e0915161b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94542321"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128643315"
 ---
 # <a name="tutorial-debug-your-apis-using-request-tracing"></a>Tutorial: Depuración de las API con el seguimiento de solicitudes
 

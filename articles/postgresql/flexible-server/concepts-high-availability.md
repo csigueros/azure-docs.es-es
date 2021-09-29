@@ -6,17 +6,16 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/30/2021
-ms.openlocfilehash: cf2fcf836962bbdb8a3af1671ecf9e11f6b4efa1
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: c8108540f77d323c46cc88caa628764b40c59e74
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122770253"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128597994"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-postgresql---flexible-server"></a>Conceptos de alta disponibilidad en Azure Database for PostgreSQL: Servidor flexible
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL: Servidor flexible está en versión preliminar.
+
 
 Azure Database for PostgreSQL: Servidor flexible ofrece una configuración de alta disponibilidad con capacidad de conmutación automática por error mediante una implementación de servidor **con redundancia de zona**. Cuando se implementa en una configuración con redundancia de zona, el servidor flexible aprovisiona y administra de forma automática una réplica en espera en otra zona de disponibilidad. Mediante la replicación de streaming de PostgreSQL, los datos se replican en el servidor de réplica en espera en modo **sincrónico**. 
 

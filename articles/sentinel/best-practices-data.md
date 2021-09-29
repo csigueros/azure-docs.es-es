@@ -8,12 +8,12 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 07/21/2021
-ms.openlocfilehash: 35b29ae6116e2e040f2383606fa20c5ab6316315
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: 7c29ae41acd800a3e8893ec50ef25cb77c89fe04
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123253463"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124810164"
 ---
 #  <a name="data-collection-best-practices"></a>Procedimientos recomendados para la recopilación de datos
 
@@ -99,7 +99,7 @@ Si necesita recopilar datos de Microsoft Office aparte de los del conector está
 
 |Dificultad/requisito  |Posibles soluciones  |Consideraciones  |
 |---------|---------|---------|
-|**Recopilación de datos sin procesar de Teams, seguimiento de mensajes, datos de phishing, etc.**     |    Use la funcionalidad integrada del [conector de Office 365](connect-office-365.md) y cree un conector personalizado para otros datos sin procesar.  |  La asignación de eventos al Id. de registro correspondiente puede plantear dificultades.  |
+|**Recopilación de datos sin procesar de Teams, seguimiento de mensajes, datos de phishing, etc.**     |    Use la funcionalidad integrada del [conector de Office 365](./data-connectors-reference.md#microsoft-office-365) y cree un conector personalizado para otros datos sin procesar.  |  La asignación de eventos al Id. de registro correspondiente puede plantear dificultades.  |
 |**Requiere RBAC para dividir países, departamentos, etc.**     | Personalice la recopilación de datos agregando etiquetas a los datos y creando áreas de trabajo dedicadas para cada separación necesaria.|   La recopilación de datos personalizada tiene costes extras de ingesta.     |
 |**Requiere varios inquilinos en una sola área de trabajo**     |  Personalice la recopilación de datos usando Azure LightHouse y una vista unificada de incidentes.|  La recopilación de datos personalizada tiene costes extras de ingesta.  <br><br>Para obtener más información, consulte [Extender Azure Sentinel por áreas de trabajo e inquilinos](extend-sentinel-across-workspaces-tenants.md).      |
 | | | |

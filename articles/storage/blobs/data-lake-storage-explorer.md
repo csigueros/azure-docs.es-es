@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 02/17/2021
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: e6147918e7cd56aed5b5b333a8e9825a34d60fd4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5307a56ba2384f9e0294634530823238fd903859
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100652282"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124766756"
 ---
 # <a name="use-azure-storage-explorer-to-manage-directories-and-files-in-azure-data-lake-storage-gen2"></a>Uso del Explorador de Azure Storage para administrar directorios y archivos en Azure Data Lake Storage Gen2
 
@@ -42,11 +42,11 @@ Cuando se inicia por primera vez el Explorador de Storage, aparece la ventana **
 
 Seleccione **Add an Azure Account** (Agregar una cuenta de Azure) y haga clic en **Iniciar sesión**. Siga las indicaciones de la pantalla para registrarse en su cuenta de Azure.
 
-![Captura de pantalla que muestra el Explorador de Microsoft Azure Storage y resalta la opción Add an Azure Account (Agregar una cuenta de Azure) y el botón Sign-in (Iniciar sesión).](media/storage-quickstart-blobs-storage-explorer/connect.png)
+![Captura de pantalla que muestra el Explorador de Microsoft Azure Storage y resalta la opción Add an Azure Account (Agregar una cuenta de Azure) y el botón Sign-in (Iniciar sesión).](media/quickstart-storage-explorer/storage-explorer-connect.png)
 
 Cuando se completa la conexión, el Explorador de Microsoft Azure Storage se carga y se muestra la pestaña **Explorador**. Esta vista proporciona una visión general de todas las cuentas de Azure Storage, así como del almacenamiento local que se configuró mediante el [emulador de almacenamiento Azurite](../common/storage-use-azurite.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), las cuentas de [Cosmos DB](../../cosmos-db/storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) o los entornos de [Azure Stack](/azure-stack/user/azure-stack-storage-connect-se?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-![Explorador de Microsoft Azure Storage: ventana Conectar](media/storage-quickstart-blobs-storage-explorer/mainpage.png)
+![Explorador de Microsoft Azure Storage: ventana Conectar](media/quickstart-storage-explorer/storage-explorer-main-page.png)
 
 ## <a name="create-a-container"></a>Crear un contenedor
 

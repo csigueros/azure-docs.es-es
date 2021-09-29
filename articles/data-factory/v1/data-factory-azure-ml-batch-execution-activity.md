@@ -5,14 +5,15 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: d4a930677f4760ae5f2d77dd4f148097ae67f465
-ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
+ms.openlocfilehash: fd666c51042811a8008657d965d629d1b17848f4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122598019"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128571280"
 ---
 # <a name="create-predictive-pipelines-using-machine-learning-studio-classic-and-azure-data-factory"></a>Creación de canalizaciones predictivas con Machine Learning Studio (clásico) y Azure Data Factory
 
@@ -65,9 +66,9 @@ Azure Data Factory se usa para orquestar el procesamiento y el movimiento de dat
    2. **Clave de API** del servicio web de Studio (clásico) publicado. Para encontrar la clave de API, haga clic en el servicio web que ha publicado.
    3. Use la actividad **AzureMLBatchExecution** .
 
-      ![Panel de Machine Learning Studio (clásico)](./media/data-factory-azure-ml-batch-execution-activity/AzureMLDashboard.png)
+      :::image type="content" source="./media/data-factory-azure-ml-batch-execution-activity/AzureMLDashboard.png" alt-text="Panel de Machine Learning Studio (clásico)":::
 
-      ![URI del lote](./media/data-factory-azure-ml-batch-execution-activity/batch-uri.png)
+      :::image type="content" source="./media/data-factory-azure-ml-batch-execution-activity/batch-uri.png" alt-text="URI del lote":::
 
 ### <a name="scenario-experiments-using-web-service-inputsoutputs-that-refer-to-data-in-azure-blob-storage"></a>Escenario: experimentos mediante entradas y salidas de servicios web que hacen referencia a datos de Azure Blob Storage
 En este escenario, el servicio web de Studio (clásico) realiza predicciones mediante datos de un archivo de una instancia de Azure Blob Storage y almacena los resultados de predicción en el almacenamiento de blobs. El siguiente JSON define una canalización de Data Factory con una actividad AzureMLBatchExecution. La actividad tiene el conjunto de datos **DecisionTreeInputBlob** como entrada y **DecisionTreeResultBlob** como salida. **DecisionTreeInputBlob** se pasa como entrada al servicio web mediante la propiedad JSON **webServiceInput**. **DecisionTreeResultBlob** se pasa como salida al servicio web mediante la propiedad JSON **webServiceOutputs**.
@@ -349,7 +350,7 @@ La canalización de macrodatos con actividades como Pig y Hive puede generar uno
 
 Al usar el módulo Lector en un experimento de Studio (clásico), puede especificar Azure Blob como entrada. Los archivos de Azure Blob Storage pueden ser los archivos de salida (ejemplo: 000000_0) que genera un script de Pig y Hive que se ejecuta en HDInsight. El módulo de lector permite leer archivos (sin extensiones) mediante la configuración de la propiedad **Path to container, directory/blob**(Ruta de acceso al contenedor, directorio o blob). La **ruta de acceso al contenedor** apunta al contenedor y el **directorio o blob** apunta a la carpeta que contiene los archivos, tal y como se muestra en la siguiente imagen. Tenga en cuenta que el asterisco (\*) **especifica que todos los archivos de la carpeta o contenedor (es decir, data/aggregateddata/year=2014/month-6/\*)** se leen como parte del experimento.
 
-![Propiedades de Blob de Azure](./media/data-factory-create-predictive-pipelines/azure-blob-properties.png)
+:::image type="content" source="./media/data-factory-create-predictive-pipelines/azure-blob-properties.png" alt-text="Propiedades de Blob de Azure":::
 
 ### <a name="example"></a>Ejemplo
 #### <a name="pipeline-with-azuremlbatchexecution-activity-with-web-service-parameters"></a>Canalización con la actividad AzureMLBatchExecution con parámetros de servicio web

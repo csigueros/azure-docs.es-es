@@ -7,20 +7,20 @@ ms.author: normesta
 ms.date: 02/17/2021
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: b67c3ccebefc178ddebc2b4a7fd49043bc0776b8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: bbe99ced7a4d0110ac9ff709201a16017b45ec15
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101735427"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128562483"
 ---
 # <a name="tutorials-that-use-azure-services-with-azure-data-lake-storage-gen2"></a>Tutoriales que usan los servicios de Azure con Azure Data Lake Storage Gen2
 
-En este artículo se incluyen vínculos a tutoriales que muestran cómo usar varios servicios de Azure con Data Lake Storage Gen2. 
+En este artículo se incluyen vínculos a tutoriales que muestran cómo usar varios servicios de Azure con Data Lake Storage Gen2.
 
 ## <a name="list-of-tutorials"></a>Lista de tutoriales
 
-| Servicio de Azure | Guía paso a paso | 
+| Servicio de Azure | Guía paso a paso |
 |---------------|-------------------|
 | Azure Synapse Analytics | [Introducción a Azure Synapse Analytics](../../synapse-analytics/get-started.md) |
 | Azure Data Factory | [Carga de datos en Azure Data Lake Storage Gen2 con Azure Data Factory](../../data-factory/load-azure-data-lake-storage-gen2.md) |

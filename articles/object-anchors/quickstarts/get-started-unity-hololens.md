@@ -4,15 +4,15 @@ description: En este inicio rápido, aprenderá a compilar una aplicación HoloL
 author: craigktreasure
 manager: virivera
 ms.author: crtreasu
-ms.date: 08/02/2021
+ms.date: 09/08/2021
 ms.topic: quickstart
 ms.service: azure-object-anchors
-ms.openlocfilehash: cb9b1d5aa489950e86bc2f1575d44fd78919359e
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.openlocfilehash: 53bcc84fc63666e64ffaf502a4348de87c1ab8c7
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122254360"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124797009"
 ---
 # <a name="quickstart-create-a-hololens-app-with-azure-object-anchors-in-unity"></a>Inicio rápido. Creación de una aplicación de HoloLens con Azure Object Anchors, en Unity
 
@@ -70,3 +70,6 @@ La aplicación busca objetos en el campo visual actual y, a continuación, reali
 
 > [!div class="nextstepaction"]
 > [Biblioteca cliente de Azure Object Anchors para .NET: versión 0.3.0-beta.1](/dotnet/api/overview/azure/mixedreality.objectanchors.conversion-readme-pre)
+
+> [!div class="nextstepaction"]
+> [Solución de problemas de detección de objetos](../troubleshoot/object-detection.md)

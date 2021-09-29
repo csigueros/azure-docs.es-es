@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 249332f680bd0550d99a38a200ce95d32e6f95d7
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: f840d72698790be10630fe182f4655554ff23962
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123473611"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124748394"
 ---
 # <a name="manage-emergency-access-accounts-in-azure-ad"></a>Administración de cuentas de acceso de emergencia en Azure AD
 
@@ -72,7 +72,7 @@ Si usa contraseñas, asegúrese de que las cuentas tengan contraseñas seguras y
 
 Las organizaciones deben supervisar la actividad de registro de auditoría e inicio de sesión de las cuentas de emergencia y desencadenar el envío de notificaciones a otros administradores. Al supervisar la actividad en las cuentas de emergencia, puede comprobar que estas cuentas solo se usen para pruebas o emergencias reales. Puede usar Azure Log Analytics para supervisar los registros de inicio de sesión y desencadenar alertas por SMS y correo electrónico a los administradores cuando las cuentas de emergencia inicien sesión.
 
-### <a name="prerequisites"></a>Prerrequisitos
+### <a name="prerequisites"></a>Requisitos previos
 
 1. [Envíe registros de inicio de sesión de Azure AD](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) a Azure Monitor.
 
@@ -158,4 +158,4 @@ Estos pasos deben realizarse a intervalos regulares y para cambios de claves:
 - [Suscripción a Azure AD Premium](../fundamentals/active-directory-get-started-premium.md), si no lo ha hecho anteriormente.
 - [Exigencia de verificación en dos pasos para un usuario](../authentication/howto-mfa-userstates.md).
 - [Configuración de otras protecciones adicionales para los administradores globales de Microsoft 365](/office365/enterprise/protect-your-global-administrator-accounts), si lo usa.
-- [Inicio de una revisión de acceso de los administradores globales](../privileged-identity-management/pim-how-to-start-security-review.md) y [cambio de los administradores globales existentes a roles de administrador más específicos](permissions-reference.md).
+- [Inicio de una revisión de acceso de los administradores globales](../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md) y [cambio de los administradores globales existentes a roles de administrador más específicos](permissions-reference.md).

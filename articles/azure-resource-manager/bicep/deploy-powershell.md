@@ -5,12 +5,12 @@ author: mumian
 ms.author: jgao
 ms.topic: conceptual
 ms.date: 06/01/2021
-ms.openlocfilehash: a367c643ea2780c081250ec35ebcb890fdfec24e
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 3058265fee62143f88bbd87e69c58dd4ff597920
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123427013"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124793804"
 ---
 # <a name="deploy-resources-with-bicep-and-azure-powershell"></a>Implementación de recursos con Bicep y Azure PowerShell
 
@@ -88,7 +88,7 @@ La implementación puede tardar unos minutos en finalizar.
 
 ## <a name="deploy-remote-bicep-file"></a>Implementación de un archivo Bicep remoto
 
-Actualmente, Azure PowerShell no admite la implementación de archivos Bicep remotos. Use la [CLI de Bicep](./install.md#development-environment) para compilar el archivo de Bicep en una plantilla JSON y, luego, cargue el archivo JSON en la ubicación remota.
+Actualmente, Azure PowerShell no admite la implementación de archivos Bicep remotos. Use la [CLI de Bicep](./install.md#vs-code-and-bicep-extension) para compilar el archivo de Bicep en una plantilla JSON y, luego, cargue el archivo JSON en la ubicación remota.
 
 ## <a name="parameters"></a>Parámetros
 

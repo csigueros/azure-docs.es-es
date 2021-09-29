@@ -9,12 +9,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 64bffb127c7d3fbcf56619ea17b23fc0a58d6a37
-ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
+ms.openlocfilehash: 39969e5e1767bbd2a84a27bb5cbbea6d51c9a4eb
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110652884"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128674573"
 ---
 # <a name="copy-a-blob-with-azure-storage-client-libraries"></a>Copia de un blob con las bibliotecas cliente de Azure Storage
 
@@ -183,10 +183,10 @@ El método [abort_copy](/azure/developer/python/sdk/storage/azure-storage-blob/a
 
 Obtenga más información sobre los SDK de Azure:
 
- - [SDK de Azure para .NET](https://github.com/azure/azure-sdk-for-net)
- - [SDK de Azure para Java](https://github.com/azure/azure-sdk-for-java)
- - [SDK de Azure para Python](https://github.com/azure/azure-sdk-for-python)
- - [Azure SDK para JavaScript](https://github.com/azure/azure-sdk-for-js)
+- [SDK de Azure para .NET](https://github.com/azure/azure-sdk-for-net)
+- [SDK de Azure para Java](https://github.com/azure/azure-sdk-for-java)
+- [SDK de Azure para Python](https://github.com/azure/azure-sdk-for-python)
+- [Azure SDK para JavaScript](https://github.com/azure/azure-sdk-for-js)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 07/26/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 0d7a139588ac2ab507e4b4d4ef2061e42de41e35
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 539daea27b83203794fb4bf09969a288e2e570dd
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122180591"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124759878"
 ---
 # <a name="tutorial-develop-and-plan-provisioning-for-a-scim-endpoint-in-azure-active-directory"></a>Tutorial: Desarrollo y planeación del aprovisionamiento de un punto de conexión de SCIM en Azure Active Directory
 
@@ -150,11 +150,8 @@ Esta representación ayuda a clasificarlos entre `/User` y `/Group` para asignar
 | Grupo de Azure Active Directory | urn:ietf:params:scim:schemas:core:2.0:Group |
 | --- | --- |
 | DisplayName |DisplayName |
-| mail |emails[type eq "work"].value |
-| mailNickname |DisplayName |
 | members |members |
 | objectId |externalId |
-| proxyAddresses |emails[type eq "other"].Value |
 
 **Ejemplo de lista de atributos de grupo**
 

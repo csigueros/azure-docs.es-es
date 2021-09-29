@@ -3,16 +3,17 @@ title: Copia de datos con Oracle como origen o destino mediante Data Factory
 description: Aprenda a copiar datos desde o a una base de datos de Oracle local mediante Azure Data Factory.
 author: linda33wj
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 087afa7425d1244c38514c5388e242281bdab3dc
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: ef5bf35cabf0edddae1922d8acae56dbbef317e7
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121736787"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128616410"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>Copia de datos con una instancia local de Oracle como origen o destino mediante Azure Data Factory
 

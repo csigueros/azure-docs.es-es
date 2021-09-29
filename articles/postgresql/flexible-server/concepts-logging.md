@@ -6,17 +6,16 @@ ms.author: sunila
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
-ms.openlocfilehash: e09c01fcfb9c4725ac169151e85c8b030d8bb18c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7c269c26710711c23dd200f688bf1eb55d3925fd
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105606392"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128597975"
 ---
 # <a name="logs-in-azure-database-for-postgresql---flexible-server"></a>Registros en Azure Database for PostgreSQL: Servidor flexible
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL: Servidor flexible está en versión preliminar
+
 
 Azure Database for PostgreSQL permite configurar los registros estándar de Postgres y acceder a ellos. Los registros se pueden usar para identificar, solucionar y reparar errores de configuración y casos de rendimiento no óptimo. La información de registro que puede configurar y a la que puede acceder incluye errores, información de consultas, registros de vaciado automático, conexiones y puntos de control (no está disponible el acceso a los registros de transacciones).
 

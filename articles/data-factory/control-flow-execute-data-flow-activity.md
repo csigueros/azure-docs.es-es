@@ -8,13 +8,13 @@ ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
 ms.author: makromer
-ms.date: 08/24/2021
-ms.openlocfilehash: b5fdb41c84d97c5a4ba544c299eb183c704fa3d8
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.date: 09/09/2021
+ms.openlocfilehash: 14fa6484a3cba97602d33cf2b302d62bf6ef2871
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122822216"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124743876"
 ---
 # <a name="data-flow-activity-in-azure-data-factory-and-azure-synapse-analytics"></a>Actividad Flujo de datos de Azure Data Factory y Azure Synapse Analytics
 
@@ -67,7 +67,7 @@ staging.linkedService | Si utiliza un origen o un receptor de Azure Synapse Anal
 staging.folderPath | Si usa un origen o un receptor de Azure Synapse Analytics, es la ruta de la carpeta de la cuenta de almacenamiento de blobs que se utiliza como almacenamiento provisional de PolyBase. | String | Solo si el flujo de datos lee o escribe en una instancia de Azure Synapse Analytics.
 traceLevel | Establecimiento del nivel de registro de la ejecución de actividades de flujo de datos | Fino, Grueso, Ninguno | No
 
-![Ejecución de flujo de datos](media/data-flow/activity-data-flow.png "Ejecución de flujo de datos")
+:::image type="content" source="media/data-flow/activity-data-flow.png" alt-text="Ejecución de flujo de datos":::
 
 ### <a name="dynamically-size-data-flow-compute-at-runtime"></a>Ajuste dinámico del tamaño del proceso de flujo de datos en tiempo de ejecución
 
@@ -76,7 +76,7 @@ Las propiedades Recuento de núcleos y Tipo de proceso se pueden configurar din�
 > [!NOTE]
 > Al elegir núcleos de nodo de trabajo y controlador en flujos de datos de Azure Synapse, siempre se emplea un mínimo de tres nodos.
 
-![Flujo de datos dinámicos](media/data-flow/dyna1.png "Flujo de datos dinámicos")
+:::image type="content" source="media/data-flow/dyna1.png" alt-text="Flujo de datos dinámicos":::
 
 [Este es un breve tutorial en formato de vídeo en el que se explica esta técnica.](https://www.youtube.com/watch?v=jWSkJdtiJNM)
 
@@ -86,7 +86,7 @@ Seleccione el entorno de ejecución de integración que desee usar con la ejecuc
 
 Un tipo de proceso mínimo de uso general (no se recomienda la optimización para proceso en cargas de trabajo grandes) con una configuración de 8+8 (16 núcleos virtuales en total) y de 10 minutos es la recomendación mínima para la mayoría de las cargas de trabajo de producción. Al establecer un valor de TTL pequeño, Azure IR puede mantener un clúster semiactivo que no empleará los minutos de tiempo de inicio que un clúster en frío necesita. Puede acelerar aún más la ejecución de los flujos de datos si selecciona "Quick re-use" (Reutilización rápida) en las configuraciones de flujo de datos de Azure IR. Para más información, consulte [Azure Integration Runtime](concepts-integration-runtime.md).
 
-![Azure Integration Runtime](media/data-flow/ir-new.png "Azure Integration Runtime")
+:::image type="content" source="media/data-flow/ir-new.png" alt-text="Azure Integration Runtime":::
 
 > [!IMPORTANT]
 > La selección del entorno de ejecución de integración en la actividad de Data Flow solo se aplica a las *ejecuciones activadas* de su canalización. La canalización con flujos de datos se depurará en el clúster que se haya especificado en la sesión de depuración.
@@ -99,7 +99,7 @@ Si utiliza Azure Synapse Analytics como origen o receptor, debe elegir una ubica
 
 Si no es necesario que cada ejecución de canalización de las actividades de flujo de datos anote completamente todos los registros de telemetría detallados, tiene la opción de establecer el nivel de registro en "básico" o "ninguno". Al ejecutar los flujos de datos en modo "detallado" (valor predeterminado), está solicitando al servicio que registre la actividad por completo en cada nivel de partición individual durante la transformación de los datos. Esta puede ser una operación costosa; por tanto, habilitar solo el modo detallado al solucionar problemas puede mejorar el flujo de datos y el rendimiento de la canalización en general. El modo "básico" solo registrará las duraciones de las transformaciones, mientras que "ninguno" solo proporcionará un resumen de las duraciones.
 
-![Nivel de registro](media/data-flow/logging.png "Establecimiento del nivel de registro")
+:::image type="content" source="media/data-flow/logging.png" alt-text="Nivel de registro":::
 
 ## <a name="sink-properties"></a>Propiedades del receptor
 
@@ -111,7 +111,7 @@ El comportamiento predeterminado de los receptores de flujo de datos es ejecutar
 
 Esta opción solo está disponible para los flujos de datos que tienen los receptores de caché habilitados para la "salida a la actividad". La salida del flujo de datos que se inserta directamente en la canalización está limitada a 2 MB. Establecer "solo la primera fila" le ayuda a limitar la salida de datos del flujo de datos al insertar la salida de la actividad de flujo de datos directamente en la canalización.
 
-![Propiedades del receptor](media/data-flow/sink-properties.png "Establecimiento de propiedades del receptor")
+:::image type="content" source="media/data-flow/sink-properties.png" alt-text="Propiedades del receptor":::
 
 ## <a name="parameterizing-data-flows"></a>Flujos de datos con parámetros
 
@@ -119,7 +119,7 @@ Esta opción solo está disponible para los flujos de datos que tienen los recep
 
 Si el flujo de datos utiliza conjuntos de datos con parámetros, establezca los valores de los parámetros en la pestaña **Configuración**.
 
-![Parámetros de ejecución de flujo de datos](media/data-flow/params.png "Parámetros")
+:::image type="content" source="media/data-flow/params.png" alt-text="Parámetros de ejecución de flujo de datos":::
 
 ### <a name="parameterized-data-flows"></a>Flujos de datos con parámetros
 
@@ -129,13 +129,13 @@ Si el flujo de datos tiene parámetros, establezca los valores dinámicos de los
 
 Puede parametrizar el número de núcleos o el tipo de proceso si usa la resolución automática de Azure Integration Runtime y especifica valores para compute.coreCount y compute.computeType.
 
-![Ejemplo de parámetros de ejecución de flujo de datos](media/data-flow/parameterize-compute.png "Ejemplo de parámetro")
+:::image type="content" source="media/data-flow/parameterize-compute.png" alt-text="Ejemplo de parámetros de ejecución de flujo de datos":::
 
 ## <a name="pipeline-debug-of-data-flow-activity"></a>Depuración de la canalización de actividades de Data Flow
 
 Para ejecutar una canalización de depuración con una actividad de Data Flow, debe activar el modo de depuración del flujo de datos a través del control deslizante **Data Flow Debug** (Depuración de flujo de datos) en la barra superior. El modo de depuración permite ejecutar el flujo de datos en un clúster de Spark activo. Para más información, consulte [Modo de depuración](concepts-data-flow-debug-mode.md).
 
-![Captura de pantalla que muestra dónde está el botón Depurar](media/data-flow/debug-button-3.png)
+:::image type="content" source="media/data-flow/debug-button-3.png" alt-text="Captura de pantalla que muestra dónde está el botón Depurar":::
 
 La canalización de depuración se ejecuta en el clúster de depuración activo, no en el entorno de ejecución de integración especificado en la configuración de la actividad de Data Flow. Puede elegir el entorno de proceso de depuración al iniciar el modo de depuración.
 

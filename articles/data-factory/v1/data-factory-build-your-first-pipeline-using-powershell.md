@@ -5,14 +5,15 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: tutorial
 ms.date: 01/22/2018
-ms.openlocfilehash: f25e3d9f3b3d6319493856e3b15c894301289c29
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7b9d8f8a58f4f2e9920b81c88547282d250fb16e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104783024"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128647717"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-powershell"></a>Tutorial: Compilación de la primera factoría de datos de Azure mediante Azure PowerShell
 > [!div class="op_single_selector"]
@@ -383,7 +384,7 @@ En este paso, se usa Azure PowerShell para supervisar lo que ocurre en una Data 
     ```
     Puede seguir ejecutando este cmdlet hasta que vea que el segmento se encuentra en el estado **Listo** o **Con error**. Cuando el segmento tenga el estado Listo, busque los datos de salida en la carpeta **partitioneddata** del contenedor **adfgetstarted** del almacenamiento de blobs.  La creación de un clúster de HDInsight a petición normalmente requiere algo de tiempo.
 
-    ![datos de salida](./media/data-factory-build-your-first-pipeline-using-powershell/three-ouptut-files.png)
+    :::image type="content" source="./media/data-factory-build-your-first-pipeline-using-powershell/three-ouptut-files.png" alt-text="datos de salida":::
 
 > [!IMPORTANT]
 > La creación de un clúster de HDInsight a petición normalmente tarda algún tiempo (20 minutos aproximadamente). Por tanto, cabe esperar que la canalización tarde **aproximadamente 30 minutos** en procesar el segmento.

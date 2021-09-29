@@ -5,12 +5,12 @@ metadata:
   ms.topic: article
   ms.service: backup
   ms.date: 08/19/2021
-  ms.openlocfilehash: d579c304c9a345323fc57020435b4b3a41c70cbd
-  ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
+  ms.openlocfilehash: 2b7ecc95117201d9ab60a39acf1d0f6ae60896a0
+  ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 08/20/2021
-  ms.locfileid: "122597869"
+  ms.lasthandoff: 09/13/2021
+  ms.locfileid: "124799308"
 title: Preguntas más frecuentes sobre la copia de seguridad de máquinas virtuales de Azure
 summary: >
   En este artículo se responde a preguntas comunes sobre la copia de seguridad de máquinas virtuales de Azure con el servicio [Azure Backup](./backup-overview.md).
@@ -116,7 +116,7 @@ sections:
       Cada máquina virtual de Azure de un clúster se considera una máquina virtual de Azure individual. Por lo tanto, todas las operaciones de copia de seguridad son aplicables a las máquinas virtuales de Azure individuales.
   - question: ¿Azure Backup interfiere con el rendimiento de la aplicación?
     answer: >
-      La creación de una instantánea de máquina virtual tarda unos minutos y habrá una interferencia mínima en el rendimiento de la aplicación en esta fase. Sin embargo, la transferencia de datos a un almacén tarda un par de horas. por lo que se recomienda programar copias de seguridad fuera del horario comercial. Obtenga más información sobre los [procedimientos recomendados para copias de seguridad y restauración](/azure/backup/backup-azure-vms-introduction#backup-and-restore-considerations).
+      La creación de una instantánea de máquina virtual tarda unos minutos y habrá una interferencia mínima en el rendimiento de la aplicación en esta fase. Sin embargo, la transferencia de datos a un almacén tarda un par de horas. por lo que se recomienda programar copias de seguridad fuera del horario comercial. Obtenga más información sobre los [procedimientos recomendados para copias de seguridad y restauración](./backup-azure-vms-introduction.md#backup-and-restore-considerations).
   - question: ¿Se hará una copia de seguridad automática del nuevo disco agregado a la máquina virtual?
     answer: >
       Sí, el nuevo disco agregado a una máquina virtual se incluye automáticamente en la siguiente copia de seguridad.
@@ -178,7 +178,7 @@ sections:
       `if (storageProfile.osDisk.createOption == "Attach") then { exclude <Policy> }`
   - question: ¿Cómo se restaura una máquina virtual en estado apagado?
     answer: >
-      Para restaurar una máquina virtual en estado apagado, puede [crear una máquina virtual](/azure/backup/backup-during-vm-creation#create-a-vm-with-backup-configured) o [restaurar discos](/azure/backup/backup-azure-arm-restore-vms#restore-disks), pero no puede reemplazar una máquina virtual existente. Obtenga más información sobre las [opciones de restauración disponibles](/azure/backup/backup-azure-arm-restore-vms#restore-options).
+      Para restaurar una máquina virtual en estado apagado, puede [crear una máquina virtual](./backup-during-vm-creation.md#create-a-vm-with-backup-configured) o [restaurar discos](./backup-azure-arm-restore-vms.md#restore-disks), pero no puede reemplazar una máquina virtual existente. Obtenga más información sobre las [opciones de restauración disponibles](./backup-azure-arm-restore-vms.md#restore-options).
 - name: Administrar copias de seguridad de máquina virtual
   questions:
   - question: ¿Qué ocurre si se modifica una directiva de copia de seguridad?

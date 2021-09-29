@@ -9,12 +9,12 @@ ms.subservice: ip-services
 ms.topic: conceptual
 ms.date: 04/29/2021
 ms.author: allensu
-ms.openlocfilehash: 383c1c0419224a568e32dd41f50d49dc448dbb3c
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 61ba348c93b034b5ed1419c22330e2ce842b7136
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123538154"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124784211"
 ---
 # <a name="public-ip-addresses"></a>Direcciones IP públicas
 
@@ -87,7 +87,7 @@ Las direcciones de SKU básica:
 
 ## <a name="ip-address-assignment"></a>Asignación de dirección IP
 
- Tanto las direcciones IPv4 públicas estándar, IPv4 públicas básicas como IPv6 públicas estándar admiten la asignación **estática**.  Al recurso se le asigna una dirección IP cuando aquel se crea. La dirección IP se libera cuando el recurso se elimina.  
+Tanto las direcciones IPv4 públicas estándar, IPv4 públicas básicas como IPv6 públicas estándar admiten la asignación **estática**.  Al recurso se le asigna una dirección IP cuando aquel se crea. La dirección IP se libera cuando el recurso se elimina.  
 
 > [!NOTE]
 > Incluso cuando se establece el método de asignación en **estático**, no se puede especificar la dirección IP real asignada al recurso de dirección IP pública. Azure asigna la dirección IP desde un grupo de direcciones IP disponibles en la ubicación de Azure cuando se crea el recurso.

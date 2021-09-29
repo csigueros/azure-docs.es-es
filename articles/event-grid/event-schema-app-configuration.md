@@ -2,13 +2,13 @@
 title: Azure App Configuration como origen de Event Grid
 description: En este artículo se describe cómo utilizar Azure App Configuration como origen de eventos de Event Grid. Proporciona el esquema y los vínculos a los artículos de procedimientos y tutorial.
 ms.topic: conceptual
-ms.date: 02/11/2021
-ms.openlocfilehash: a64c6fead5e6d95ba11bc98d7e9a52e3021c3be2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 09/15/2021
+ms.openlocfilehash: 9c434bfa9d3c080da2404d858886f1d9c715e3c7
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100366779"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128678333"
 ---
 # <a name="azure-app-configuration-as-an-event-grid-source"></a>Azure App Configuration como origen de Event Grid
 En este artículo se proporcionan las propiedades y los esquemas de los eventos de Azure App Configuration. Para una introducción a los esquemas de eventos, consulte [Esquema de eventos de Azure Event Grid](event-schema.md). También proporciona una lista de inicios rápidos y tutoriales para usar Azure App Configuration como origen de eventos.

@@ -1,8 +1,8 @@
 ---
 title: 'Inicio rápido: Creación de colas de Azure Storage en el portal'
 description: Use Azure Portal para crear una cola. A continuación, use Azure Portal para agregar un mensaje, ver las propiedades del mensaje y quitar el mensaje de la cola.
-author: twooley
-ms.author: twooley
+author: normesta
+ms.author: normesta
 ms.reviewer: dineshm
 ms.date: 08/13/2020
 ms.topic: quickstart
@@ -10,12 +10,12 @@ ms.service: storage
 ms.subservice: queues
 ms.custom:
 - mode-portal
-ms.openlocfilehash: f0e7a5a514f2d68fce025ea9fb354f29fa068561
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 8140e694b900c87ca93e0e73603aa1fd95e34f09
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107534398"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128555386"
 ---
 # <a name="quickstart-create-a-queue-and-add-a-message-with-the-azure-portal"></a>Inicio rápido: Creación de una cola y agregación de un mensaje con Azure Portal
 

@@ -7,12 +7,12 @@ ms.author: allensu
 ms.service: load-balancer
 ms.topic: tutorial
 ms.date: 03/04/2021
-ms.openlocfilehash: ca4134ff25dc9915f256b5a7bdd9404021b60a8e
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: b9c96a6434712ed3179fe25c1014dc1fdc6e062d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107791920"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124736569"
 ---
 # <a name="tutorial-create-a-cross-region-azure-load-balancer-using-azure-cli"></a>Tutorial: Creación de una instancia de Azure Load Balancer entre regiones mediante la CLI de Azure
 
@@ -28,7 +28,7 @@ En este tutorial, aprenderá a:
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Suscripción a Azure.
 - Dos instancias de Azure Load Balancer con SKU **Estándar** con grupos de back-end implementados en dos regiones de Azure diferentes.
@@ -192,4 +192,4 @@ En este tutorial ha:
 
 Avance al siguiente artículo para obtener información sobre...
 > [!div class="nextstepaction"]
-> [Equilibrio de carga de máquinas virtuales en distintas zonas de disponibilidad](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
+> [Equilibrio de carga de máquinas virtuales en distintas zonas de disponibilidad](./quickstart-load-balancer-standard-public-portal.md)

@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 04/26/2021
 ms.custom: seodec18, devx-track-python, FY21Q4-aml-seo-hack, contperf-fy21q4
-ms.openlocfilehash: d1ad8e4af0d3fdb0abb95fc12ec4a445afabbb1f
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: 5c3c5271e000b001ebe257a5ef421f01ac2b1e32
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112459251"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128597367"
 ---
 # <a name="tutorial-train-an-image-classification-model-with-an-example-jupyter-notebook"></a>Tutorial: Entrenamiento de un modelo de clasificación de imágenes con un ejemplo de Jupyter Notebook 
 
@@ -342,11 +342,13 @@ joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')
 
 Tenga en cuenta cómo el script obtiene los datos y guarda los modelos:
 
-+ El script de entrenamiento lee un argumento para encontrar el directorio que contiene los datos. Al enviar el trabajo más adelante, apunta al almacén de datos para este argumento: ```parser.add_argument('--data-folder', type=str, dest='data_folder', help='data directory mounting point')```
+- El script de entrenamiento lee un argumento para encontrar el directorio que contiene los datos. Al enviar el trabajo más adelante, apunta al almacén de datos para este argumento: 
 
-+ El script de entrenamiento guarda el modelo en un directorio denominado **outputs**. Todo lo que se escriba en este directorio se cargará automáticamente en el área de trabajo. Accederá al modelo desde este directorio más adelante en el tutorial. `joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')`
+  `parser.add_argument('--data-folder', type=str, dest='data_folder', help='data directory mounting point')`
 
-+ El script de entrenamiento requiere el archivo `utils.py` para cargar el conjunto de datos correctamente. El código siguiente copia `utils.py` en `script_folder` para que se pueda acceder al archivo junto con el script de entrenamiento en el recurso remoto.
+- El script de entrenamiento guarda el modelo en un directorio denominado **outputs**. Todo lo que se escriba en este directorio se cargará automáticamente en el área de trabajo. Accederá al modelo desde este directorio más adelante en el tutorial. `joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')`
+
+- El script de entrenamiento requiere el archivo `utils.py` para cargar el conjunto de datos correctamente. El código siguiente copia `utils.py` en `script_folder` para que se pueda acceder al archivo junto con el script de entrenamiento en el recurso remoto.
 
   ```python
   import shutil

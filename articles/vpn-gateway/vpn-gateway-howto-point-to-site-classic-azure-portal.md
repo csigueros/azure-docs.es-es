@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/08/2020
 ms.author: cherylmc
-ms.openlocfilehash: 90f2c6dd8d82b40f6a12195c2ce89b28ca4e9305
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.openlocfilehash: fb69f075aa78f84999751f20a10f3eed8d56ced0
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108228917"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124818089"
 ---
 # <a name="configure-a-point-to-site-connection-by-using-certificate-authentication-classic"></a>Configuración de una conexión de punto a sitio mediante la autenticación de certificado (clásica)
 
@@ -219,6 +219,6 @@ Una vez finalizada la actualización, el certificado no se puede usar para conec
 
 * Una vez completada la conexión, puede agregar máquinas virtuales a las redes virtuales. Consulte [Virtual Machines](../index.yml) para más información.
 
-* Para más información sobre las redes y las máquinas virtuales Linux, consulte [Información general sobre las redes de máquina virtual con Linux y Azure](../virtual-machines/network-overview.md).
+* Para más información sobre las redes y las máquinas virtuales Linux, consulte [Información general sobre las redes de máquina virtual con Linux y Azure](../virtual-network/network-overview.md).
 
 * Para información de solución de problemas de P2S, consulte el artículo de [solución de problemas de conexión de punto a sitio de Azure](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

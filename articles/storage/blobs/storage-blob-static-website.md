@@ -9,12 +9,12 @@ ms.reviewer: dineshm
 ms.date: 09/04/2020
 ms.subservice: blobs
 ms.custom: devx-track-js
-ms.openlocfilehash: 53153c7ea154b77ee4d0d348818c891ce22bc5f8
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: 388b84dc831984cf03b91ff16e4cfb8962b88c73
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123470965"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128662730"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Hospedaje de sitios web estáticos en Azure Storage
 
@@ -41,12 +41,12 @@ Los archivos del contenedor **$web** distinguen mayúsculas de minúsculas, se p
 Puede usar cualquiera de estas herramientas para cargar contenido en el contenedor **$web**:
 
 > [!div class="checklist"]
-> * [CLI de Azure](storage-blob-static-website-how-to.md?tabs=azure-cli)
-> * [Módulo de Azure PowerShell](storage-blob-static-website-how-to.md?tabs=azure-powershell)
-> * [AzCopy](../common/storage-use-azcopy-v10.md)
-> * [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/)
-> * [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/)
-> * [Extensión de Visual Studio Code](- https://channel9.msdn.com/Shows/Docs-Azure/Deploy-static-website-to-Azure-from-Visual-Studio-Code/player)
+> - [CLI de Azure](storage-blob-static-website-how-to.md?tabs=azure-cli)
+> - [Módulo de Azure PowerShell](storage-blob-static-website-how-to.md?tabs=azure-powershell)
+> - [AzCopy](../common/storage-use-azcopy-v10.md)
+> - [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/)
+> - [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/)
+> - [Extensión de Visual Studio Code](- https://channel9.msdn.com/Shows/Docs-Azure/Deploy-static-website-to-Azure-from-Visual-Studio-Code/player)
 
 ## <a name="viewing-content"></a>Visualización de contenido
 
@@ -102,7 +102,7 @@ Si planea hospedar un sitio web en varias zonas geográficas, se recomienda usar
 
 ## <a name="permissions"></a>Permisos
 
-El permiso para habilitar el sitio web estático es Microsoft.Storage/storageAccounts/blobServices/write o clave compartida.  Los roles integrados que proporcionan este acceso incluyen Colaborador de la cuenta de almacenamiento.  
+El permiso para habilitar el sitio web estático es Microsoft.Storage/storageAccounts/blobServices/write o clave compartida.  Los roles integrados que proporcionan este acceso incluyen Colaborador de la cuenta de almacenamiento.
 
 ## <a name="pricing"></a>Precios
 
@@ -116,11 +116,11 @@ Para habilitar métricas en las páginas de su sitio web estático, consulte [En
 
 ## <a name="feature-support"></a>Compatibilidad de características
 
-En esta tabla se muestra cómo se admite esta característica en la cuenta y el impacto en la compatibilidad al habilitar determinadas funcionalidades. 
+En esta tabla se muestra cómo se admite esta característica en la cuenta y el impacto en la compatibilidad al habilitar determinadas funcionalidades.
 
-| Tipo de cuenta de almacenamiento                | Blob Storage (compatibilidad predeterminada)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>    
+| Tipo de cuenta de almacenamiento                | Blob Storage (compatibilidad predeterminada)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
 |-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
-| De uso general estándar, v2 | ![Sí](../media/icons/yes-icon.png) |![Sí](../media/icons/yes-icon.png)              | ![Sí](../media/icons/yes-icon.png) | 
+| De uso general estándar, v2 | ![Sí](../media/icons/yes-icon.png) |![Sí](../media/icons/yes-icon.png)              | ![Sí](../media/icons/yes-icon.png) |
 | Blobs en bloques Premium          | ![Sí](../media/icons/yes-icon.png)|![Sí](../media/icons/yes-icon.png) | ![Sí](../media/icons/yes-icon.png) |
 
 <sup>1</sup> Tanto Data Lake Storage Gen2 como el protocolo Network File System (NFS) 3.0 necesitan una cuenta de almacenamiento con un espacio de nombres jerárquico habilitado.
@@ -137,7 +137,7 @@ No. Un sitio web estático solo admite acceso de lectura público anónimo para 
 
 ##### <a name="how-do-i-use-a-custom-domain-with-a-static-website"></a>¿Cómo uso un dominio personalizado con un sitio web estático?
 
-Puede configurar un [dominio personalizado](./static-website-content-delivery-network.md) con un sitio web estático mediante [Azure Content Delivery Network (Azure CDN)](./storage-custom-domain-name.md#map-a-custom-domain-with-https-enabled). Azure CDN proporciona latencias bajas coherentes al sitio web desde cualquier lugar del mundo. 
+Puede configurar un [dominio personalizado](./static-website-content-delivery-network.md) con un sitio web estático mediante [Azure Content Delivery Network (Azure CDN)](./storage-custom-domain-name.md#map-a-custom-domain-with-https-enabled). Azure CDN proporciona latencias bajas coherentes al sitio web desde cualquier lugar del mundo.
 
 ##### <a name="how-do-i-use-a-custom-ssl-certificate-with-a-static-website"></a>¿Cómo se usa el certificado SSL personalizado con un sitio web estático?
 
@@ -153,13 +153,13 @@ Esto puede ocurrir si hace referencia a un nombre de archivo con mayúsculas y m
 
 ##### <a name="why-isnt-the-root-directory-of-the-website-not-redirecting-to-the-default-index-page"></a>¿Por qué el directorio raíz del sitio web no redirige a la página de índice predeterminada?
 
-En Azure Portal, abra la página de configuración del sitio web estático de su cuenta y busque el nombre y la extensión que se establecieron en el campo **Nombre del documento de índice**. Asegúrese de que este nombre sea exactamente el mismo que el nombre del archivo ubicado en el contenedor **$web** de la cuenta de almacenamiento. Los nombres de archivo y las extensiones en la URL de un sitio web estático distinguen mayúsculas de minúsculas, aunque entreguen a través de HTTP. 
+En Azure Portal, abra la página de configuración del sitio web estático de su cuenta y busque el nombre y la extensión que se establecieron en el campo **Nombre del documento de índice**. Asegúrese de que este nombre sea exactamente el mismo que el nombre del archivo ubicado en el contenedor **$web** de la cuenta de almacenamiento. Los nombres de archivo y las extensiones en la URL de un sitio web estático distinguen mayúsculas de minúsculas, aunque entreguen a través de HTTP.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Hospedaje de sitios web estáticos en Azure Storage](storage-blob-static-website-how-to.md)
-* [Asignación de un dominio personalizado a un punto de conexión de Azure Blob Storage](storage-custom-domain-name.md)
-* [Funciones de Azure](../../azure-functions/functions-overview.md)
-* [Azure App Service](../../app-service/overview.md)
-* [Crear la primera aplicación web sin servidor](/azure/functions/tutorial-static-website-serverless-api-with-database)
-* [Tutorial: Hospedaje del dominio en Azure DNS](../../dns/dns-delegate-domain-azure-dns.md)
+- [Hospedaje de sitios web estáticos en Azure Storage](storage-blob-static-website-how-to.md)
+- [Asignación de un dominio personalizado a un punto de conexión de Azure Blob Storage](storage-custom-domain-name.md)
+- [Funciones de Azure](../../azure-functions/functions-overview.md)
+- [Azure App Service](../../app-service/overview.md)
+- [Crear la primera aplicación web sin servidor](/azure/functions/tutorial-static-website-serverless-api-with-database)
+- [Tutorial: Hospedaje del dominio en Azure DNS](../../dns/dns-delegate-domain-azure-dns.md)

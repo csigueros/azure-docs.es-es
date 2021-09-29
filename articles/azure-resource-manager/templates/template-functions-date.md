@@ -2,13 +2,13 @@
 title: 'Funciones de plantillas: fecha'
 description: Aquí se describen las funciones que se usan en una plantilla de Azure Resource Manager (plantilla de ARM) para trabajar con fechas.
 ms.topic: conceptual
-ms.date: 05/11/2021
-ms.openlocfilehash: c6bf3adca5dde4947e2c22dd8468f1b045f77120
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.date: 09/09/2021
+ms.openlocfilehash: ed7c9d44458acb6733618ff84cf98b9bed2e2a36
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111959702"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124793424"
 ---
 # <a name="date-functions-for-arm-templates"></a>Funciones de cadena para plantillas de Resource Manager
 
@@ -39,38 +39,7 @@ Valor datetime resultado de sumar el valor de duración al valor base.
 
 En la plantilla de ejemplo siguiente se muestran distintas formas de sumar valores de hora.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "baseTime": {
-      "type": "string",
-      "defaultValue": "[utcNow('u')]"
-    }
-  },
-  "variables": {
-    "add3Years": "[dateTimeAdd(parameters('baseTime'), 'P3Y')]",
-    "subtract9Days": "[dateTimeAdd(parameters('baseTime'), '-P9D')]",
-    "add1Hour": "[dateTimeAdd(parameters('baseTime'), 'PT1H')]"
-  },
-  "resources": [],
-  "outputs": {
-    "add3YearsOutput": {
-      "value": "[variables('add3Years')]",
-      "type": "string"
-    },
-    "subtract9DaysOutput": {
-      "value": "[variables('subtract9Days')]",
-      "type": "string"
-    },
-    "add1HourOutput": {
-      "value": "[variables('add1Hour')]",
-      "type": "string"
-    },
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/date/datetimeadd.json":::
 
 Cuando la plantilla anterior se implementa con una hora base de `2020-04-07 14:53:14Z`, la salida es:
 
@@ -82,55 +51,7 @@ Cuando la plantilla anterior se implementa con una hora base de `2020-04-07 14:5
 
 En la plantilla de ejemplo siguiente se muestra cómo establecer la hora de inicio de una programación de Automation.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "omsAutomationAccountName": {
-      "type": "string",
-      "defaultValue": "demoAutomation",
-      "metadata": {
-        "description": "Use an existing Automation account."
-      }
-    },
-    "scheduleName": {
-      "type": "string",
-      "defaultValue": "demoSchedule1",
-      "metadata": {
-        "description": "Name of the new schedule."
-      }
-    },
-    "baseTime": {
-      "type": "string",
-      "defaultValue": "[utcNow('u')]",
-      "metadata": {
-        "description": "Schedule will start one hour from this time."
-      }
-    }
-  },
-  "variables": {
-    "startTime": "[dateTimeAdd(parameters('baseTime'), 'PT1H')]"
-  },
-  "resources": [
-    ...
-    {
-      "type": "Microsoft.Automation/automationAccounts/schedules",
-      "apiVersion": "2015-10-31",
-      "name": "[concat(parameters('omsAutomationAccountName'), '/', parameters('scheduleName'))]",
-
-      "properties": {
-        "description": "Demo Scheduler",
-        "startTime": "[variables('startTime')]",
-        "interval": 1,
-        "frequency": "Hour"
-      }
-    }
-  ],
-  "outputs": {
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/date/datetimeadd-automation.json":::
 
 ## <a name="utcnow"></a>utcNow
 
@@ -160,42 +81,7 @@ El valor de fecha y hora UTC actual.
 
 La plantilla de ejemplo siguiente muestra formatos diferentes para el valor de fecha y hora.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "utcValue": {
-      "type": "string",
-      "defaultValue": "[utcNow()]"
-    },
-    "utcShortValue": {
-      "type": "string",
-      "defaultValue": "[utcNow('d')]"
-    },
-    "utcCustomValue": {
-      "type": "string",
-      "defaultValue": "[utcNow('M d')]"
-    }
-  },
-  "resources": [
-  ],
-  "outputs": {
-    "utcOutput": {
-      "type": "string",
-      "value": "[parameters('utcValue')]"
-    },
-    "utcShortOutput": {
-      "type": "string",
-      "value": "[parameters('utcShortValue')]"
-    },
-    "utcCustomOutput": {
-      "type": "string",
-      "value": "[parameters('utcCustomValue')]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/date/utcnow.json":::
 
 El resultado del ejemplo anterior varía para cada implementación, pero será similar a:
 
@@ -207,39 +93,7 @@ El resultado del ejemplo anterior varía para cada implementación, pero será s
 
 El ejemplo siguiente muestra cómo usar un valor de la función cuando se establece un valor de etiqueta.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "utcShort": {
-      "type": "string",
-      "defaultValue": "[utcNow('d')]"
-    },
-    "rgName": {
-      "type": "string"
-    }
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Resources/resourceGroups",
-      "apiVersion": "2020-10-01",
-      "name": "[parameters('rgName')]",
-      "location": "westeurope",
-      "tags": {
-        "createdDate": "[parameters('utcShort')]"
-      },
-      "properties": {}
-    }
-  ],
-  "outputs": {
-    "utcShortOutput": {
-      "type": "string",
-      "value": "[parameters('utcShort')]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/date/utcnow-tag.json":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

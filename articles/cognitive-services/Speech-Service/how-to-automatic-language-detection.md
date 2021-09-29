@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 05/21/2021
 ms.author: pafarley
 zone_pivot_groups: programming-languages-speech-services-nomore-variant
-ms.openlocfilehash: 04c5c178a37f83203c0b5ee0597cba0b832933d7
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 917dd55035ecca40c0a8a25a8f70d79d6a7e6e37
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123538550"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124806638"
 ---
 # <a name="how-to-use-language-identification"></a>Uso de la identificación del idioma
 
 La identificación del idioma se usa para determinar el idioma que se habla en el audio que se pasa al SDK de Voz mediante la comparación con una lista de idiomas proporcionados. El valor devuelto por la identificación del idioma se usa para seleccionar el modelo de idioma para la conversión de voz en texto, lo que proporciona una transcripción más precisa. 
 
-La identificación del idioma también se puede usar con la [traducción de voz](./get-started-speech-translation.md?pivots=programming-language-csharp&tabs=script%2cwindowsinstall#multi-lingual-translation-with-language-identification) o mediante la [identificación independiente](/azure/cognitive-services/speech-service/language-identification). 
+La identificación del idioma también se puede usar con la [traducción de voz](./get-started-speech-translation.md?pivots=programming-language-csharp&tabs=script%2cwindowsinstall#multi-lingual-translation-with-language-identification) o mediante la [identificación independiente](./language-identification.md). 
 
 Para ver los idiomas que están disponibles, consulte la [compatibilidad de idioma](language-support.md).
 

@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: cynthn
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 9cda129c1df1ebb1f880424cd77e65144ef8bd0d
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 81173fa34bec38168233c5f740d49832cf9cb795
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122693889"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128589195"
 ---
 # <a name="create-and-manage-a-windows-virtual-machine-that-has-multiple-nics"></a>Crear y administrar una máquina virtual con Windows que tiene varias NIC
 
@@ -124,7 +124,7 @@ Comience ahora a compilar la configuración de la máquina virtual. El tamaño d
 6. Agregue rutas de tarjetas NIC secundarias al sistema operativo mediante los pasos que se indican en [Configuración del sistema operativo invitado para varias NIC](#configure-guest-os-for-multiple-nics).
 
 ## <a name="add-a-nic-to-an-existing-vm"></a>Adición de una NIC a una máquina virtual existente
-Para agregar una NIC virtual a una máquina virtual existente, se desasigna la máquina virtual, se agrega la NIC virtual y, después, se inicia la máquina virtual. Diferentes [tamaños de máquina virtual](../sizes.md) admiten un número distinto de NIC, así que ajuste el tamaño de su máquina virtual teniendo esto en cuenta. Si es necesario, puede [cambiar el tamaño de una máquina virtual](resize-vm.md).
+Para agregar una NIC virtual a una máquina virtual existente, se desasigna la máquina virtual, se agrega la NIC virtual y, después, se inicia la máquina virtual. Diferentes [tamaños de máquina virtual](../sizes.md) admiten un número distinto de NIC, así que ajuste el tamaño de su máquina virtual teniendo esto en cuenta. Si es necesario, puede [cambiar el tamaño de una máquina virtual](../resize-vm.md).
 
 1. Desasigne la VM con [Stop-AzVM](/powershell/module/az.compute/stop-azvm). En el ejemplo siguiente se desasigna la máquina virtual denominada *myVM* en *myResourceGroup*:
 

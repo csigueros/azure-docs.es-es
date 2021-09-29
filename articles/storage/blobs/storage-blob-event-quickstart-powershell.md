@@ -9,16 +9,16 @@ ms.topic: article
 ms.service: storage
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 06be168ff9dfd55a56578b3afcdab8d984416756
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 39f5e15bc0300981f2dc504a9eecd8039d6ec237
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89078017"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128643695"
 ---
 # <a name="quickstart-route-storage-events-to-web-endpoint-with-powershell"></a>Inicio rápido: Enrutamiento de eventos de almacenamiento a un punto de conexión web con PowerShell
 
-Azure Event Grid es un servicio de eventos para la nube. En este artículo, aprenderá a usar Azure PowerShell para suscribirse a los eventos de Blob Storage, desencadenar un evento y ver el resultado. 
+Azure Event Grid es un servicio de eventos para la nube. En este artículo, aprenderá a usar Azure PowerShell para suscribirse a los eventos de Blob Storage, desencadenar un evento y ver el resultado.
 
 Por lo general, se envían eventos a un punto de conexión que procesa los datos del evento y realiza acciones. Sin embargo, para simplificar en este artículo, los eventos se envían a una aplicación web que recopila y muestra los mensajes.
 
@@ -52,7 +52,7 @@ Los temas de Event Grid son recursos de Azure y se deben colocar en un grupo de 
 
 Cree un grupo de recursos con el comando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup).
 
-En el ejemplo siguiente, se crea un grupo de recursos denominado **gridResourceGroup** en la ubicación **westus2**.  
+En el ejemplo siguiente, se crea un grupo de recursos denominado **gridResourceGroup** en la ubicación **westus2**.
 
 ```powershell
 $resourceGroup = "gridResourceGroup"
@@ -63,7 +63,7 @@ New-AzResourceGroup -Name $resourceGroup -Location $location
 
 Los eventos de Blob Storage están disponibles en las cuentas de almacenamiento de uso general v2 y en las cuentas de Blob Storage. Las cuentas de almacenamiento de **uso general v2** admiten todas las características de todos los servicios de almacenamiento, como blobs, archivos, colas y tablas. Una **cuenta de Blob Storage** es una cuenta de almacenamiento especializada para almacenar los datos no estructurados como blobs (objetos) en Azure Storage. Las cuentas de Blob Storage son similares a las cuentas de almacenamiento de uso general y comparten las excelentes características de rendimiento, escalabilidad, disponibilidad y durabilidad que se usan en la actualidad, incluida la coherencia total de la API con blobs en bloques y blobs en anexos. Para más información, vea [Introducción a las cuentas de Azure Storage](../common/storage-account-overview.md).
 
-Cree una cuenta de Blob Storage con la replicación de LRS mediante [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount). A continuación, recupere el contexto de la cuenta de almacenamiento que define la cuenta de almacenamiento que se usará. Cuando actúa en una cuenta de almacenamiento, hace referencia al contexto en lugar de proporcionar varias veces las credenciales. En este ejemplo, se crea una cuenta de almacenamiento denominada **gridstorage** con almacenamiento con redundancia local (LRS). 
+Cree una cuenta de Blob Storage con la replicación de LRS mediante [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount). A continuación, recupere el contexto de la cuenta de almacenamiento que define la cuenta de almacenamiento que se usará. Cuando actúa en una cuenta de almacenamiento, hace referencia al contexto en lugar de proporcionar varias veces las credenciales. En este ejemplo, se crea una cuenta de almacenamiento denominada **gridstorage** con almacenamiento con redundancia local (LRS).
 
 > [!NOTE]
 > Los nombres de cuenta de almacenamiento están en un espacio de nombres global, por lo que necesita anexar algunos caracteres aleatorios al nombre que se proporciona en este script.
@@ -163,6 +163,7 @@ Ha desencadenado el evento y Event Grid ha enviado el mensaje al punto de conexi
 ```
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
+
 Si planea seguir trabajando con esta cuenta de almacenamiento y suscripción de eventos, no elimine los recursos creados en este artículo. Si no va a continuar, use el siguiente comando para eliminar los recursos creados en este artículo.
 
 ```powershell

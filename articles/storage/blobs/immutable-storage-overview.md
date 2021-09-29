@@ -10,12 +10,12 @@ ms.date: 08/31/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: 01ea434081b83065f510a246591af2d05a8d7276
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: ca0ec185721b0e35c15dfe99e361ff024cf01a78
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123469597"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128584224"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>Almacenamiento de datos de blobs críticos para la empresa con almacenamiento inmutable
 
@@ -53,7 +53,7 @@ El informe de Cohasset está disponible en el [Centro de confianza de servicios 
 
 El ámbito de las directivas de inmutabilidad se puede establecer en una versión de blob (versión preliminar) o en un contenedor. El comportamiento de un objeto según una directiva de inmutabilidad depende del ámbito de la directiva. Para más información sobre el ámbito de las directivas para cada tipo de directiva de inmutabilidad, consulte las secciones siguientes:
 
-- [Ámbito de las directivas de retención con duración definida](immutable-time-based-retention-policy-overview.md#time-based-retention-policy-scope) 
+- [Ámbito de las directivas de retención con duración definida](immutable-time-based-retention-policy-overview.md#time-based-retention-policy-scope)
 - [Ámbito de la suspensión legal](immutable-legal-hold-overview.md#legal-hold-scope)
 
 Puede configurar tanto una directiva de retención con duración definida como una suspensión legal para un recurso (contenedor o versión de blob), según el ámbito. En la tabla siguiente se resumen las directivas de inmutabilidad que se admiten para cada ámbito de recurso:
@@ -165,11 +165,11 @@ Si no paga la factura y su cuenta tiene en vigor una directiva de retención con
 
 ## <a name="feature-support"></a>Compatibilidad de características
 
-En esta tabla se muestra cómo se admite esta característica en la cuenta y el impacto en la compatibilidad al habilitar determinadas funcionalidades. 
+En esta tabla se muestra cómo se admite esta característica en la cuenta y el impacto en la compatibilidad al habilitar determinadas funcionalidades.
 
-| Tipo de cuenta de almacenamiento                | Blob Storage (compatibilidad predeterminada)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>    
+| Tipo de cuenta de almacenamiento                | Blob Storage (compatibilidad predeterminada)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
 |-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
-| De uso general estándar, v2 | ![Sí](../media/icons/yes-icon.png) |![Sí](../media/icons/yes-icon.png)  <sup>2</sup>              | ![Sí](../media/icons/yes-icon.png)  <sup>2</sup> | 
+| De uso general estándar, v2 | ![Sí](../media/icons/yes-icon.png) |![Sí](../media/icons/yes-icon.png)  <sup>2</sup>              | ![Sí](../media/icons/yes-icon.png)  <sup>2</sup> |
 | Blobs en bloques Premium          | ![Sí](../media/icons/yes-icon.png) |![Sí](../media/icons/yes-icon.png)  <sup>2</sup> | ![Sí](../media/icons/yes-icon.png)  <sup>2</sup> |
 
 <sup>1</sup> Data Lake Storage Gen2 y el protocolo Network File System (NFS) 3.0 necesitan una cuenta de almacenamiento con un espacio de nombres jerárquico habilitado.

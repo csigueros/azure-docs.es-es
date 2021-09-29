@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/01/2021
 ms.author: gasinh
 ms.subservice: app-mgmt
-ms.openlocfilehash: da42e6ea14167b3214be9162197e2cbc3afabcd5
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: b2486f4be20d2347f0cadff04ef8d0aa776ccdc5
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123439972"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124791695"
 ---
 # <a name="tutorial-migrate-okta-federation-to-azure-active-directory-managed-authentication"></a>Tutorial: Migración de la federación de Okta a la autenticación administrada de Azure AD
 
@@ -35,15 +35,15 @@ Es posible que los clientes que han federado sus dominios de Office 365 con Okt
 
 Use los métodos siguientes para determinar qué método es más adecuado para su entorno:
 
-- La **sincronización de hash de contraseñas** - [sincronización de hash de contraseñas](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-phs) es una extensión de la característica de sincronización de directorios implementada por los agentes de aprovisionamiento en el servidor o la nube de Azure AD Connect. Puede usar esta característica para iniciar sesión en servicios de Azure AD, como Microsoft 365. Inicie sesión en el servicio con la misma contraseña que usa para iniciar sesión en la instancia local de Active Directory.
+- La **sincronización de hash de contraseñas** - [sincronización de hash de contraseñas](../hybrid/whatis-phs.md) es una extensión de la característica de sincronización de directorios implementada por los agentes de aprovisionamiento en el servidor o la nube de Azure AD Connect. Puede usar esta característica para iniciar sesión en servicios de Azure AD, como Microsoft 365. Inicie sesión en el servicio con la misma contraseña que usa para iniciar sesión en la instancia local de Active Directory.
 
-- **Autenticación transferida**: la [autenticación transferida](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta) de Azure AD permite a los usuarios iniciar sesión en aplicaciones locales y basadas en la nube con las mismas contraseñas. Cuando los usuarios inician sesión con Azure AD, esta característica valida sus contraseñas directamente con la instancia de Active Directory local mediante el agente de autenticación transferida.
+- **Autenticación transferida**: la [autenticación transferida](../hybrid/how-to-connect-pta.md) de Azure AD permite a los usuarios iniciar sesión en aplicaciones locales y basadas en la nube con las mismas contraseñas. Cuando los usuarios inician sesión con Azure AD, esta característica valida sus contraseñas directamente con la instancia de Active Directory local mediante el agente de autenticación transferida.
 
-- **Inicio de sesión único de conexión directa** - [El inicio de sesión único de conexión directa de Azure AD](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso) permite iniciar sesión automáticamente a los usuarios en equipos de escritorio corporativos conectados a la red de la empresa. El inicio de sesión único de conexión directa proporciona a los usuarios un acceso sencillo a las aplicaciones basadas en la nube sin necesidad de usar otros componentes locales.
+- **Inicio de sesión único de conexión directa** - [El inicio de sesión único de conexión directa de Azure AD](../hybrid/how-to-connect-sso.md) permite iniciar sesión automáticamente a los usuarios en equipos de escritorio corporativos conectados a la red de la empresa. El inicio de sesión único de conexión directa proporciona a los usuarios un acceso sencillo a las aplicaciones basadas en la nube sin necesidad de usar otros componentes locales.
 
 El inicio de sesión único de conexión directa también se puede implementar en la sincronización de hash de contraseña o en la autenticación transferida para crear una sencilla experiencia de autenticación para los usuarios de Azure AD.
 
-Asegúrese de que se implementen todos los requisitos previos necesarios del inicio de sesión único de conexión directa para los usuarios finales mediante las indicaciones de la [guía de implementación](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso-quick-start#step-1-check-the-prerequisites).
+Asegúrese de que se implementen todos los requisitos previos necesarios del inicio de sesión único de conexión directa para los usuarios finales mediante las indicaciones de la [guía de implementación](../hybrid/how-to-connect-sso-quick-start.md#step-1-check-the-prerequisites).
 
 En nuestro ejemplo, se va a configurar la sincronización de hash de contraseña y el inicio de sesión único de conexión directa.
 
@@ -83,7 +83,7 @@ Siga estos pasos para habilitar el inicio de sesión único de conexión directa
 
 ## <a name="step-2---configure-staged-rollout-features"></a>Paso 2: Configuración de las características de lanzamiento preconfigurado
 
-El [lanzamiento preconfigurado de la autenticación en la nube](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-staged-rollout) es una característica de Azure AD que se puede usar para probar la anulación de la federación de usuarios antes de hacer lo propio con un dominio completo. Antes de la implementación, consulte los [requisitos previos](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-staged-rollout#prerequisites).
+El [lanzamiento preconfigurado de la autenticación en la nube](../hybrid/how-to-connect-staged-rollout.md) es una característica de Azure AD que se puede usar para probar la anulación de la federación de usuarios antes de hacer lo propio con un dominio completo. Antes de la implementación, consulte los [requisitos previos](../hybrid/how-to-connect-staged-rollout.md#prerequisites).
 
 Después de habilitar la sincronización de hash de contraseña y el inicio de sesión único de conexión directa en el servidor de Azure AD Connect, siga estos pasos para configurar el lanzamiento preconfigurado.
 
@@ -241,7 +241,7 @@ Después de configurar la aplicación Okta en Azure AD y el proveedor de identi
 
 ## <a name="step-5---test-managed-authentication-on-pilot-members"></a>Paso 5: Prueba de la autenticación administrada en miembros piloto
 
-Después de configurar la aplicación de federación inversa Okta, haga que los usuarios realicen pruebas completas en la experiencia de autenticación administrada. Se recomienda configurar la personalización de marca de la empresa para ayudar a los usuarios a distinguir el inquilino adecuado en el que inician sesión. Obtenga [instrucciones](https://docs.microsoft.com/azure/active-directory/fundamentals/customize-branding) para configurar la personalización de marca de la empresa.
+Después de configurar la aplicación de federación inversa Okta, haga que los usuarios realicen pruebas completas en la experiencia de autenticación administrada. Se recomienda configurar la personalización de marca de la empresa para ayudar a los usuarios a distinguir el inquilino adecuado en el que inician sesión. Obtenga [instrucciones](../fundamentals/customize-branding.md) para configurar la personalización de marca de la empresa.
 
 >[!IMPORTANT]
 >Determine las directivas de acceso condicional adicionales que puedan ser necesarias antes de anular la federación de los dominios en su conjunto desde Okta. Consulte **Directivas de inicio de sesión de Okta para la migración del acceso condicional de Azure AD** para conocer los pasos para proteger el entorno antes de la anulación definitiva.

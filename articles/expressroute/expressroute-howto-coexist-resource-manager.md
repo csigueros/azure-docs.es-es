@@ -5,15 +5,15 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 03/06/2021
+ms.date: 09/16/2021
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: fc202359e90024ee73c3041013eef9c2da814045
-ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
+ms.openlocfilehash: ce5f1e0057f3ed6146ab942aa94302a96c503c19
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122835834"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128646746"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-using-powershell"></a>Configuración de conexiones ExpressRoute y de sitio a sitio coexistentes con PowerShell
 > [!div class="op_single_selector"]
@@ -62,10 +62,7 @@ Puede configurar la red para sitios que se conectan directamente a Azure mediant
 
 ![Coexistencia](media/expressroute-howto-coexist-resource-manager/scenario2.jpg)
 
-> [!NOTE]
-> No se puede configurar una red virtual como un enrutador de tránsito.
-> 
-> 
+
 
 ## <a name="selecting-the-steps-to-use"></a>Selección de los pasos a seguir
 Hay dos conjuntos diferentes de procedimientos que puede elegir. El procedimiento de configuración que seleccione depende de si ya tiene una red virtual existente a la que quiere conectarse o si desea crear una nueva.

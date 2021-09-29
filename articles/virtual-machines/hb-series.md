@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/22/2021
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: ae1107deb58aa7bcc52fc9ed8055772c81cd4eb3
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 20e7f9f79e90aa382c94f4b013f1fd32390e4c2d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122696313"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124803894"
 ---
 # <a name="hb-series"></a>Serie HB
 
@@ -47,7 +47,7 @@ Más información sobre:
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
-## <a name="other-sizes"></a>Otros tamaños
+## <a name="other-sizes-and-information"></a>Otros tamaños e información
 
 - [Uso general](sizes-general.md)
 - [Memoria optimizada](sizes-memory.md)
@@ -55,6 +55,11 @@ Más información sobre:
 - [GPU optimizada](sizes-gpu.md)
 - [Proceso de alto rendimiento](sizes-hpc.md)
 - [Generaciones anteriores](sizes-previous-gen.md)
+
+Calculadora de precios: [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/)
+
+Para obtener más información sobre los tipos de discos, vea [¿Qué tipos de disco están disponibles en Azure?](disks-types.md).
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

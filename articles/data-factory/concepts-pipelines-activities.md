@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/24/2021
-ms.openlocfilehash: 135d9235a94dd22311a804ee8c20046d2608a95c
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.date: 09/09/2021
+ms.openlocfilehash: b030ab291f1b1ce0d3d89ea01c63d6c2eaeff72c
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122822225"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129218042"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory-and-azure-synapse-analytics"></a>Canalizaciones y actividades en Azure Data Factory y Azure Synapse Analytics
 
@@ -32,7 +32,7 @@ Las actividades de una canalización definen las acciones que se van a realizar 
 
 Azure Data Factory y Azure Synapse Analytics tienen tres agrupaciones de actividades: [actividades de movimiento de datos](copy-activity-overview.md), [actividades de transformación de datos](transform-data.md) y [actividades de control](#control-flow-activities). Una actividad puede tomar diversos [conjuntos de datos](concepts-datasets-linked-services.md), o ninguno, y generar uno o varios [conjuntos de datos](concepts-datasets-linked-services.md). En el siguiente diagrama se muestra la relación entre la canalización, la actividad y el conjunto de datos:
 
-![Relación entre el conjunto de datos, la actividad y la canalización](media/concepts-pipelines-activities/relationship-between-dataset-pipeline-activity.png)
+:::image type="content" source="media/concepts-pipelines-activities/relationship-between-dataset-pipeline-activity.png" alt-text="Relación entre el conjunto de datos, la actividad y la canalización":::
 
 Un conjunto de datos de entrada representa la entrada para una actividad de la canalización y un conjunto de datos de salida representa la salida de la actividad. Los conjuntos de datos identifican datos en distintos almacenes de datos, como tablas, archivos, carpetas y documentos. Después de crear un conjunto de datos, puede usarlo con las actividades de una canalización. Por ejemplo, un conjunto de datos puede ser un conjunto de datos de entrada y salida de una actividad de copia o una actividad de HDInsightHive. Para obtener más información sobre los conjuntos de datos, vea el artículo [Conjuntos de datos en Azure Data Factory](concepts-datasets-linked-services.md).
 
@@ -408,4 +408,4 @@ Consulte los siguientes tutoriales para obtener instrucciones paso a paso sobre 
 - [Creación de una canalización con una actividad de transformación de datos](tutorial-transform-data-spark-powershell.md)
 
 Procedimiento para lograr CI/CD (integración y entrega continuas) mediante Azure Data Factory
-- [Integración y entrega continuas en Azure Data Factory](continuous-integration-deployment.md)
+- [Integración y entrega continuas en Azure Data Factory](continuous-integration-delivery.md)

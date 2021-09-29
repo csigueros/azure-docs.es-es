@@ -3,12 +3,12 @@ title: Novedades de Azure Site Recovery
 description: Proporciona un resumen de las nuevas características y las actualizaciones más recientes en el servicio Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 07/28/2021
-ms.openlocfilehash: 2b733f4e525f2f47df7afde0ddc308430ae05d0b
-ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
+ms.openlocfilehash: 0058078e04e14e6e8c823490f8c6e09a123d40f8
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123215311"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124804770"
 ---
 # <a name="whats-new-in-site-recovery"></a>Novedades de Site Recovery
 
@@ -43,10 +43,10 @@ El [paquete acumulativo de actualizaciones 57](https://support.microsoft.com/to
 > Para configurar la experiencia de versión preliminar, tendrá que realizar una instalación nueva y usar un nuevo almacén de Recovery Services. No se admite la actualización de la arquitectura existente a la nueva arquitectura.
 
 Esta versión preliminar pública cubre una revisión completa de la arquitectura actual para la protección de máquinas de VMware.
-- Obtenga [información](https://docs.microsoft.com/azure/site-recovery/vmware-azure-architecture-preview) sobre la nueva arquitectura y los cambios introducidos.
-- Consulte los requisitos previos y configure el dispositivo de replicación de ASR según [estos pasos](https://docs.microsoft.com/azure/site-recovery/deploy-vmware-azure-replication-appliance-preview).
-- [Habilite la replicación](https://docs.microsoft.com/azure/site-recovery/vmware-azure-set-up-replication-tutorial-preview) de máquinas de VMware.
-- Consulte las funcionalidades de [actualización automática](https://docs.microsoft.com/azure/site-recovery/upgrade-mobility-service-preview) y el [cambio](https://docs.microsoft.com/azure/site-recovery/switch-replication-appliance-preview) para el dispositivo de replicación de ASR.
+- Obtenga [información](./vmware-azure-architecture-preview.md) sobre la nueva arquitectura y los cambios introducidos.
+- Consulte los requisitos previos y configure el dispositivo de replicación de ASR según [estos pasos](./deploy-vmware-azure-replication-appliance-preview.md).
+- [Habilite la replicación](./vmware-azure-set-up-replication-tutorial-preview.md) de máquinas de VMware.
+- Consulte las funcionalidades de [actualización automática](./upgrade-mobility-service-preview.md) y el [cambio](./switch-replication-appliance-preview.md) para el dispositivo de replicación de ASR.
 
 
 ### <a name="update-rollup-56"></a>Paquete acumulativo de actualizaciones 56

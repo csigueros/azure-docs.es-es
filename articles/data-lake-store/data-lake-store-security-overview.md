@@ -1,18 +1,17 @@
 ---
 title: Introducción a la seguridad de Azure Data Lake Storage Gen1 | Microsoft Docs
 description: Obtenga información sobre las capacidades de seguridad de Azure Data Lake Storage Gen1, incluida la autenticación, la autorización, el aislamiento de red, la protección de datos y la auditoría.
-services: data-lake-store
-author: twooley
+author: normesta
 ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.author: twooley
-ms.openlocfilehash: 240018381a3139a6378141d78514e43ae469de5d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: normesta
+ms.openlocfilehash: f6ea097209666d75696203163b2b99b927344fdc
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92146295"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128651187"
 ---
 # <a name="security-in-azure-data-lake-storage-gen1"></a>Seguridad de Azure Data Lake Storage Gen1
 
@@ -101,7 +100,7 @@ Para las trazas de auditoría de administración de cuentas, vea y elija las col
 
 ![Registro de actividad](./media/data-lake-store-security-overview/activity-logs.png "Registro de actividades")
 
-Para obtener más información sobre cómo trabajar con los registros de actividad, consulte [Visualización de registros de actividad para auditar las acciones sobre los recursos](../azure-resource-manager/management/view-activity-logs.md).
+Para obtener más información sobre cómo trabajar con los registros de actividad, consulte [Visualización de registros de actividad para auditar las acciones sobre los recursos](../azure-monitor/essentials/activity-log.md).
 
 ### <a name="diagnostics-logs"></a>Registros de diagnóstico
 

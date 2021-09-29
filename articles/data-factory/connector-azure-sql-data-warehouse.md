@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/30/2021
-ms.openlocfilehash: 2131e74935ee831925dbe307a79c26909078e575
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.date: 09/09/2021
+ms.openlocfilehash: fb28edc395738a2993750d97e26b9a98999b1284
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123313993"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124744049"
 ---
 # <a name="copy-and-transform-data-in-azure-synapse-analytics-by-using-azure-data-factory-or-synapse-pipelines"></a>Copia y transformación de datos en Azure Synapse Analytics mediante canalizaciones de Azure Data Factory o Synapse
 
@@ -436,7 +436,7 @@ Para copiar datos en Azure Synapse Analytics, establezca el tipo de receptor de 
 
 En la actividad de copia, el conector de Azure Synapse Analytics proporciona creación de particiones de datos integrada para copiar los datos en paralelo. Puede encontrar las opciones de creación de particiones de datos en la pestaña **Origen** de la actividad de copia.
 
-![Captura de pantalla de las opciones de partición](./media/connector-sql-server/connector-sql-partition-options.png)
+:::image type="content" source="./media/connector-sql-server/connector-sql-partition-options.png" alt-text="Captura de pantalla de las opciones de partición":::
 
 Al habilitar la copia con particiones, la actividad de copia ejecuta consultas en paralelo en el origen de Azure Synapse Analytics para cargar los datos por particiones. El grado en paralelo se controla mediante el valor [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) de la actividad de copia. Por ejemplo, si establece `parallelCopies` en cuatro, el servicio genera y ejecuta cuatro consultas de forma simultánea de acuerdo con la configuración y la opción de partición que se ha especificado, y cada consulta recupera una porción de datos de Azure Synapse Analytics.
 
@@ -884,7 +884,7 @@ Ejemplo de SQL: ```Select * from MyTable where customerId > 1000 and customerId 
 - Serializable
 - Ninguno (ignorar el nivel de aislamiento)
 
-![Nivel de aislamiento](media/data-flow/isolationlevel.png)
+:::image type="content" source="media/data-flow/isolationlevel.png" alt-text="Nivel de aislamiento"::::
 
 ### <a name="sink-transformation"></a>Transformación de receptor
 
@@ -907,7 +907,7 @@ La configuración específica de Azure Synapse Analytics está disponible en la 
 
 **Scripts SQL anteriores y posteriores**: escriba scripts de SQL de varias líneas que se ejecutarán antes (preprocesamiento) y después (procesamiento posterior) de que los datos se escriban en la base de datos del receptor.
 
-![Scripts previos y posteriores al procesamiento de SQL](media/data-flow/prepost1.png "Scripts de procesamiento SQL")
+:::image type="content" source="media/data-flow/prepost1.png" alt-text="Scripts previos y posteriores al procesamiento de SQL":::
 
 ### <a name="error-row-handling"></a>Control de filas de errores
 

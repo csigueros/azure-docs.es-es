@@ -7,16 +7,16 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.author: shipatel
-author: shivp950
+ms.author: cgronlun
+author: cjgronlund
 ms.reviewer: larryfr
 ms.date: 05/11/2020
-ms.openlocfilehash: 8294ecb255578305c868188575d5fa33e3b29b42
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 0f5cdc9acd68f67c57027d6b68e6c79a8ab1a24e
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107884523"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124767306"
 ---
 # <a name="trigger-applications-processes-or-cicd-workflows-based-on-azure-machine-learning-events-preview"></a>Desencadenar aplicaciones, procesos o flujos de trabajo de CI/CD basados en eventos de Azure Machine Learning (versión preliminar)
 
@@ -30,7 +30,7 @@ Cuándo usar Event Grid para las acciones controladas por eventos:
 * Streaming de eventos desde Azure Machine Learning a varios puntos de conexión
 * Desencadenamiento de una canalización de Machine Learning cuando se detecta un desfase
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 Para usar Event Grid, necesita acceso de colaborador o propietario al área de trabajo de Azure Machine Learning para la que se crearán los eventos.
 
 ## <a name="the-event-model--types"></a>Modelo de evento y tipos

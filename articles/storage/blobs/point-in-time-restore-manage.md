@@ -10,12 +10,12 @@ ms.date: 01/29/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 7e2d71c1f388786c05052e773ea621caab92185e
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: c4dc8b3e079f224dbefde3bc12b5d79a4db32faa
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122445878"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128589613"
 ---
 # <a name="perform-a-point-in-time-restore-on-block-blob-data"></a>Habilitación y administración de la restauración a un momento dado para blobs en bloques
 
@@ -193,7 +193,7 @@ Para comprobar las propiedades de una operación de restauración, llame a [az s
 ```azurecli
 az storage account show \
     --name <storage-account> \
-    --resource-group <resource_group> \ 
+    --resource-group <resource_group> \
     --expand blobRestoreStatus \
     --query blobRestoreStatus.status \
     --output tsv
@@ -259,7 +259,7 @@ Restore-AzStorageBlobRange -ResourceGroupName $rgName `
     -TimeToRestore (Get-Date).AddDays(-3)
 ```
 
-De manera predeterminada, el comando **Restore-AzStorageBlobRange** se ejecuta asincrónicamente. Al iniciar una operación de restauración de manera asincrónica, PowerShell muestra de inmediato una tabla de propiedades para la operación:  
+De manera predeterminada, el comando **Restore-AzStorageBlobRange** se ejecuta asincrónicamente. Al iniciar una operación de restauración de manera asincrónica, PowerShell muestra de inmediato una tabla de propiedades para la operación:
 
 ```powershell
 Status     RestoreId                            FailureReason Parameters.TimeToRestore     Parameters.BlobRanges

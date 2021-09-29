@@ -5,14 +5,15 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 4c50c7de84f92f1050b88a9c5c7179c69211bb42
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 78e0973cd4e187f819332e23ead056f57d4cd378
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108766940"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128653066"
 ---
 # <a name="datasets-in-azure-data-factory-version-1"></a>Conjuntos de datos en Azure Data Factory (versión  1)
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -38,7 +39,7 @@ Este es un escenario de ejemplo. Para copiar datos de Blob Storage en SQL Databa
 
 En el siguiente diagrama se muestra la relación entre la canalización, la actividad, el conjunto de datos y el servicio vinculado en Data Factory:
 
-![Relación entre la canalización, la actividad, el conjunto de datos y los servicios vinculados](media/data-factory-create-datasets/relationship-between-data-factory-entities.png)
+:::image type="content" source="media/data-factory-create-datasets/relationship-between-data-factory-entities.png" alt-text="Relación entre la canalización, la actividad, el conjunto de datos y los servicios vinculados":::
 
 ## <a name="dataset-json"></a>Conjunto de datos JSON
 Un conjunto de datos de Data Factory se define con formato JSON de la manera siguiente:

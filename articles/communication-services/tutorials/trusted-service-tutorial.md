@@ -9,12 +9,13 @@ ms.author: dademath
 ms.date: 06/30/2021
 ms.topic: tutorial
 ms.service: azure-communication-services
-ms.openlocfilehash: a2598d56d74c159c2db00aaa26b9bde04a7d2bcb
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.subservice: identity
+ms.openlocfilehash: 1c6a5f215d583069884f7c7c0e23b9e4b553bf9c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123258962"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128671514"
 ---
 # <a name="build-a-trusted-user-access-service-using-azure-functions"></a>Creación de un servicio de acceso de usuarios de confianza mediante Azure Functions
 

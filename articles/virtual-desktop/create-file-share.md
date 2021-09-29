@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: ab9a70dccdeff6ed16eb3f25e9dc78fb274b2449
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 013a2d377ef4e30848d29c43c7275c6644cf4549
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111746940"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128593066"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-ad-ds"></a>Creación de un contenedor de perfiles con Azure Files y AD DS
 
@@ -176,8 +176,8 @@ Para configurar los permisos NTFS:
      icacls <mounted-drive-letter>: /remove "Builtin\Users"
      ```
 
-     - Reemplace <mounted-drive-letter> por la letra de la unidad que usó para asignar la unidad.
-     - Reemplace <user-email> por el UPN del usuario o grupo de Active Directory que contiene los usuarios que necesitarán acceso al recurso compartido.
+     - Reemplace \<mounted-drive-letter\> por la letra de la unidad que usó para asignar la unidad.
+     - Reemplace \<user-email\> por el UPN del usuario o grupo de Active Directory que contiene los usuarios que necesitarán acceso al recurso compartido.
 
      Por ejemplo:
 

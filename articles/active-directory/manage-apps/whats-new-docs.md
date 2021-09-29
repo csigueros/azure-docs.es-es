@@ -1,7 +1,7 @@
 ---
 title: Novedades de la administración de aplicaciones en Azure Active Directory
 description: Documentación nueva y actualizada sobre la administración de aplicaciones de Azure Active Directory.
-ms.date: 08/03/2021
+ms.date: 09/08/2021
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: reference
@@ -10,16 +10,38 @@ ms.author: davidmu
 author: davidmu1
 manager: CelesteDG
 reviewer: napuri
-ms.openlocfilehash: d95c81256dcb58b64273d6062563daf38dfdb4fa
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: a5de6a248d389c90cbc67f59b0b94f53c35821f2
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121727626"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124810042"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Administración de aplicaciones en Azure Active Directory: Novedades
 
 Le damos la bienvenida a las novedades sobre la documentación de administración de aplicaciones de Azure Active Directory. En este artículo se enumeran los documentos nuevos que se han agregado y los que han tenido actualizaciones importantes en los últimos tres meses. Para conocer las novedades del servicio de administración de aplicaciones, consulte [Novedades de Azure Active Directory](../fundamentals/whats-new.md).
+
+## <a name="august-2021"></a>Agosto de 2021
+
+### <a name="new-articles"></a>Artículos nuevos
+
+- [Protección contra la suplantación de identidad en el consentimiento](protect-against-consent-phishing.md)
+
+### <a name="updated-articles"></a>Artículos actualizados
+
+- [Configuración de las clasificaciones de los permisos](configure-permission-classifications.md)
+- [Configuración del consentimiento del propietario del grupo para las aplicaciones que acceden a los datos del grupo](configure-user-consent-groups.md)
+- [Adopción de medidas ante aplicaciones con privilegios excesivos o sospechosas en Azure Active Directory](manage-application-permissions.md)
+- [Administración del consentimiento a las aplicaciones y evaluación de las solicitudes de consentimiento](manage-consent-requests.md)
+- [Concesión del consentimiento del administrador para todo el inquilino a una aplicación](grant-admin-consent.md)
+- [Inicio rápido: Adición de una aplicación a su inquilino](add-application-portal.md)
+- [Asignación de usuarios y grupos una aplicación empresarial](assign-user-or-group-access-portal.md)
+- [Administración del acceso a las aplicaciones](what-is-access-management.md)
+- [Administración de aplicaciones en Azure Active Directory: Novedades](whats-new-docs.md)
+- [Planeamiento de la configuración de Aplicaciones de Azure Active Directory](my-apps-deployment-plan.md)
+- [Opciones avanzadas de firma de certificados en un token SAML](certificate-signing-options.md)
+- [Creación de colecciones en el portal Mis aplicaciones](access-panel-collections.md)
+
 
 ## <a name="july-2021"></a>Julio de 2021
 

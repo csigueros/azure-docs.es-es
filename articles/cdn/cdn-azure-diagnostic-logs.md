@@ -14,12 +14,12 @@ ms.topic: troubleshooting
 ms.date: 07/15/2020
 ms.author: allensu
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6754ac10f614082f09a460b55dc712f5bc0c27be
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 2b4db3701ee5d66616d6e3888a12cb73232f62b5
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110702617"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128603094"
 ---
 # <a name="diagnostic-logs---azure-content-delivery-network"></a>Registros de diagnóstico: Azure Content Delivery Network
 
@@ -196,12 +196,11 @@ Para descargar la herramienta, consulte [Explorador de Azure Storage](https://st
 6.  Cada archivo blob *PT1H.json* representa los registros de análisis durante una hora de un punto de conexión de red CDN concreto o de su dominio personalizado.
 7.  El esquema del contenido de este archivo JSON se describe en la sección de esquema de los registros de análisis básico.
 
-
 #### <a name="blob-path-format"></a>Formato de las rutas de acceso de blob
 
-Los registros de análisis básico se generan cada hora y los datos se recopilan y almacenan en un único blob de Azure como una carga JSON. La herramienta Explorador de almacenamiento interpreta "/" como un separador de directorio y muestra la jerarquía. La ruta de acceso a este blob de Azure aparece como si hubiera una estructura jerárquica y representa el nombre del blob. Este nombre del blob sigue la convención de nomenclatura siguiente:    
+Los registros de análisis básico se generan cada hora y los datos se recopilan y almacenan en un único blob de Azure como una carga JSON. La herramienta Explorador de almacenamiento interpreta "/" como un separador de directorio y muestra la jerarquía. La ruta de acceso a este blob de Azure aparece como si hubiera una estructura jerárquica y representa el nombre del blob. Este nombre del blob sigue la convención de nomenclatura siguiente:
 
-```resourceId=/SUBSCRIPTIONS/{Subscription Id}/RESOURCEGROUPS/{Resource Group Name}/PROVIDERS/MICROSOFT.CDN/PROFILES/{Profile Name}/ENDPOINTS/{Endpoint Name}/ y={Year}/m={Month}/d={Day}/h={Hour}/m={Minutes}/PT1H.json```
+`resourceId=/SUBSCRIPTIONS/{Subscription Id}/RESOURCEGROUPS/{Resource Group Name}/PROVIDERS/MICROSOFT.CDN/PROFILES/{Profile Name}/ENDPOINTS/{Endpoint Name}/ y=/m=/d=/h=/m=/PT1H.json`
 
 **Descripción de los campos:**
 

@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/30/2021
-ms.openlocfilehash: 8df5c60881ad449d8733abaf4f0eb7bcde6dde9a
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.date: 09/09/2021
+ms.openlocfilehash: c4a6c17bd16a4a2ba005cb28757e341afaff120b
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123307670"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124763887"
 ---
 # <a name="copy-and-transform-data-in-snowflake-using-azure-data-factory-or-azure-synapse-analytics"></a>Copia y transformación de datos en Snowflake mediante Azure Data Factory o Azure Synapse Analytics
 

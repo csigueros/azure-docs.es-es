@@ -3,16 +3,17 @@ title: Guía de optimización y rendimiento de la actividad de copia
 description: Conozca los factores más importantes que afectan al rendimiento del movimiento de datos en Azure Data Factory cuando se usa la actividad de copia.
 author: linda33wj
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 05/25/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 9a890719de39a71d8336d39f9932e73f7baccf87
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 145d93cc073664ed1260170a9c1f7031c9831b7c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100377217"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128559328"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guía de optimización y rendimiento de la actividad de copia
 
@@ -45,7 +46,7 @@ En este artículo se describe:
 
 Como referencia, la tabla siguiente muestra la cantidad de procesamiento de copias en MBps para los pares origen-receptor especificados en función de pruebas internas. A efectos de comparación, también muestra cómo distintos valores de [unidades de movimiento de datos de nube](#cloud-data-movement-units) o de [escalabilidad de Data Management Gateway](data-factory-data-management-gateway-high-availability-scalability.md) (varios nodos de puerta de enlace) pueden contribuir al rendimiento de copias.
 
-![Matriz de rendimiento](./media/data-factory-copy-activity-performance/CopyPerfRef.png)
+:::image type="content" source="./media/data-factory-copy-activity-performance/CopyPerfRef.png" alt-text="Matriz de rendimiento":::
 
 >[!IMPORTANT]
 >En la versión 1 de Azure Data Factory, las unidades de movimiento de datos mínimas en la nube para la copia de nube a la nube es dos. Si no se especifica, vea las unidades de movimiento de datos predeterminadas usadas en [Unidades de movimiento de datos de nube](#cloud-data-movement-units).
@@ -187,11 +188,11 @@ Al activar la característica de almacenamiento provisional, primero se copian l
 
 En el escenario de copia en la nube (tanto en almacenes de datos de origen y recepción), no se utiliza la puerta de enlace. El servicio de Data Factory realiza las operaciones de copia.
 
-![Copias almacenadas provisionalmente: escenario de nube](media/data-factory-copy-activity-performance/staged-copy-cloud-scenario.png)
+:::image type="content" source="media/data-factory-copy-activity-performance/staged-copy-cloud-scenario.png" alt-text="Copias almacenadas provisionalmente: escenario de nube":::
 
 En el escenario de copia híbrida, en el que el origen se encuentra en el entorno local y el receptor está en la nube, la puerta de enlace mueve los datos desde el almacén de datos de origen a un almacén de datos provisional. El servicio de Data Factory también mueve los datos desde el almacén de datos provisional al almacén de datos receptor. Con el flujo invertido también se permite copiar datos de un almacén de datos en la nube a uno local a través del almacenamiento provisional.
 
-![Copias almacenadas provisionalmente: escenario híbrido](media/data-factory-copy-activity-performance/staged-copy-hybrid-scenario.png)
+:::image type="content" source="media/data-factory-copy-activity-performance/staged-copy-hybrid-scenario.png" alt-text="Copias almacenadas provisionalmente: escenario híbrido":::
 
 Cuando activa el movimiento de datos mediante un almacenamiento provisional, puede especificar si quiere que los datos se compriman antes de moverlos del almacén de datos de origen al provisional y luego descomprimirlos antes de moverlos desde un almacenamiento de datos provisional a un almacén de datos receptor.
 
@@ -247,7 +248,7 @@ Para optimizar el rendimiento del servicio Data Factory con la actividad de copi
 
    Recopile características de tiempo de ejecución y rendimiento mediante la **Aplicación de supervisión y administración**. Elija **Supervisión y administración** en la página de inicio de Data Factory. En la vista de árbol, elija el **conjunto de datos de salida**. En la lista **Activity Windows** (Ventanas de actividad), elija la ejecución de la actividad de copia. **Activity Windows** (Ventanas de actividad) se muestra la duración de la actividad de copia y el tamaño de los datos que se copian. El rendimiento se muestra en **Activity Window Explorer**(Explorador de ventanas de actividad). Para más información sobre la aplicación, consulte [Supervisión y administración de canalizaciones de Azure Data Factory mediante la nueva Aplicación de supervisión y administración](data-factory-monitor-manage-app.md).
 
-   ![Detalles de ejecución de actividad](./media/data-factory-copy-activity-performance/mmapp-activity-run-details.png)
+   :::image type="content" source="./media/data-factory-copy-activity-performance/mmapp-activity-run-details.png" alt-text="Detalles de ejecución de actividad":::
 
    Más adelante en este artículo, puede comparar el rendimiento y la configuración de su escenario con la [referencia de rendimiento](#performance-reference) de la actividad de copia de nuestras pruebas.
 2. **Diagnostique y optimice el rendimiento**. Si el rendimiento que observa no satisface sus expectativas, deberá identificar los cuellos de botella. A continuación, optimice el rendimiento para eliminar o reducir el efecto de los cuellos de botella. Aunque la descripción completa del diagnóstico de rendimiento escapa del ámbito de este artículo, aquí hay algunos aspectos comunes a tener en cuenta:
@@ -374,7 +375,7 @@ Tenga cuidado con el número de conjuntos de datos y actividades de copia que ne
 
 Como puede ver, los datos se procesan y se mueven en streaming de manera secuencial: SQL Server > LAN > puerta de enlace > WAN > Blob Storage. **El rendimiento general viene determinado por el rendimiento mínimo a través de la canalización**.
 
-![flujo de datos](./media/data-factory-copy-activity-performance/case-study-pic-1.png)
+:::image type="content" source="./media/data-factory-copy-activity-performance/case-study-pic-1.png" alt-text="Flujo de datos":::
 
 Puede que uno o varios de los siguientes factores provoquen el cuello de botella en el rendimiento:
 
@@ -394,19 +395,19 @@ En este caso, la compresión de datos bzip2 podría estar ralentizando la canali
 
 **Análisis y optimización del rendimiento**: por ejemplo, si ha instalado la puerta de enlace en una máquina de cuatro núcleos, Data Factory usa 16 copias en paralelo para mover los archivos del sistema de archivos a Blob Storage de manera simultánea. Esta ejecución en paralelo debe tener como resultado un alto rendimiento. También puede especificar explícitamente el número de copias en paralelo. Al copiar muchos archivos pequeños, las copias en paralelo ayudan considerablemente al rendimiento al usar los recursos de forma más eficaz.
 
-![Escenario 1](./media/data-factory-copy-activity-performance/scenario-1.png)
+:::image type="content" source="./media/data-factory-copy-activity-performance/scenario-1.png" alt-text="Escenario 1":::
 
 **Escenario II**: se copian 20 blobs de 500 MB cada uno de Blob Storage a Data Lake Store Analytics y luego se optimiza el rendimiento.
 
 **Análisis y optimización del rendimiento**: en este escenario, Data Factory copia los datos de Blob Storage a Data Lake Store mediante una única copia (**parallelCopies** se establece en 1) y unidades de movimiento de datos de nube única. El rendimiento que observe estará próximo al que se describe en la [sección de referencia de rendimiento](#performance-reference).
 
-![Escenario 2](./media/data-factory-copy-activity-performance/scenario-2.png)
+:::image type="content" source="./media/data-factory-copy-activity-performance/scenario-2.png" alt-text="Escenario 2":::
 
 **Escenario III**: el tamaño de cada archivo es mayor que decenas de MB y el volumen total es grande.
 
 **Análisis y optimización del rendimiento**: el aumento del valor de **parallelCopies** no da lugar a un rendimiento mejor de la copia debido a las limitaciones de recursos de una DMU de nube única. En su lugar, debe especificar más DMU de nube para obtener más recursos de cara a realizar el movimiento de los datos. No especifique un valor para la propiedad **parallelCopies** . Data Factory controla el paralelismo automáticamente. En este caso, si establece **cloudDataMovementUnits** en 4, se produce una capacidad de proceso cuádruple.
 
-![Escenario 3](./media/data-factory-copy-activity-performance/scenario-3.png)
+:::image type="content" source="./media/data-factory-copy-activity-performance/scenario-3.png" alt-text="Escenario 3":::
 
 ## <a name="reference"></a>Referencia
 Estas son algunas referencias para la supervisión y la optimización del rendimiento para algunos de los almacenes de datos admitidos:

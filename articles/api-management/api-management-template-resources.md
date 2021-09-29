@@ -3,7 +3,7 @@ title: Recursos de plantilla de Azure API Management | Microsoft Docs
 description: Descubra los tipos de los recursos disponibles para su uso en las plantillas del portal para desarrolladores en Azure API Management.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 manager: erikre
 editor: ''
 ms.assetid: 51a1b4c6-a9fd-4524-9e0e-03a9800c3e94
@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: apimpm
-ms.openlocfilehash: c3b6123c63bf530463379a175745ef86baf2c5a3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: danlep
+ms.openlocfilehash: 608299143de1e480548efaf8a62966c4de96736e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "84689994"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128654430"
 ---
 # <a name="azure-api-management-template-resources"></a>Recursos de plantilla de Azure API Management
 Azure API Management proporciona los siguientes tipos de recursos para su uso en las plantillas del portal para desarrolladores.  

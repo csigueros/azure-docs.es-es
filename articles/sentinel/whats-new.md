@@ -8,12 +8,12 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 08/09/2021
-ms.openlocfilehash: ebb1ddeea3c19ae87320c6156a5a6af60c7a2d9c
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: c94ca45d77ccab14c7e10ac831aa9d59ee0e0e2d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123434545"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124763298"
 ---
 # <a name="whats-new-in-azure-sentinel"></a>Novedades de Azure Sentinel
 
@@ -100,9 +100,9 @@ Los incidentes se generan para las alertas que posiblemente están asociadas a a
 Entre los conectores de datos admitidos, se incluyen los siguientes:
 
 - [Azure Defender (Azure Security Center)](connect-azure-security-center.md)
-- [Microsoft Defender para punto de conexión](connect-microsoft-defender-advanced-threat-protection.md)
-- [Microsoft Defender for Identity](connect-azure-atp.md)
-- [Microsoft Cloud App Security](connect-cloud-app-security.md)
+- [Microsoft Defender para punto de conexión](./data-connectors-reference.md#microsoft-defender-for-endpoint)
+- [Microsoft Defender for Identity](./data-connectors-reference.md#microsoft-defender-for-identity)
+- [Microsoft Cloud App Security](./data-connectors-reference.md#microsoft-cloud-app-security-mcas)
 - [Reglas de análisis programadas de Azure Sentinel](detect-threats-built-in.md#scheduled)
 
 Para obtener más información, vea [Varias alertas posiblemente relacionadas con la actividad de ransomware detectada](fusion.md#multiple-alerts-possibly-related-to-ransomware-activity-detected-public-preview).
@@ -171,7 +171,7 @@ Azure Sentinel proporciona ahora la regla integrada de **Análisis de coincidenc
 La regla de **Análisis de coincidencias de Inteligencia sobre amenazas de Microsoft** coincide actualmente con los indicadores de dominio con los siguientes orígenes de registro:
 
 - [CEF](connect-common-event-format.md)
-- [DNS](connect-dns.md)
+- [DNS](./data-connectors-reference.md#domain-name-server)
 - [Syslog](connect-syslog.md)
 
 Para obtener más información, consulte [Detección de amenazas mediante análisis de coincidencias (versión preliminar pública)](work-with-threat-indicators.md#detect-threats-using-matching-analytics-public-preview).
@@ -253,7 +253,7 @@ Dos de nuestros conectores más utilizados se han beneficiado de importantes act
 
 - El [conector de eventos de seguridad de Windows (versión preliminar pública)](connect-windows-security-events.md) se basa ahora en el nuevo agente de Azure Monitor (AMA), lo que le permite tener mucha más flexibilidad a la hora de elegir qué datos ingerir y le proporciona la máxima visibilidad al mínimo costo.
 
-- El [conector de registros de actividad de Azure](connect-azure-activity.md) se basa ahora en la canalización de configuración de diagnóstico, lo que proporciona datos más completos, un retraso en la ingesta considerablemente reducido y un rendimiento y una confiabilidad mayores.
+- El [conector de registros de actividad de Azure](./data-connectors-reference.md#azure-activity) se basa ahora en la canalización de configuración de diagnóstico, lo que proporciona datos más completos, un retraso en la ingesta considerablemente reducido y un rendimiento y una confiabilidad mayores.
 
 Las actualizaciones no son automáticas. Se recomienda a los usuarios de estos conectores que habiliten las nuevas versiones.
 
@@ -422,9 +422,9 @@ Para obtener más información, consulte [Visualización y supervisión de los d
 
 Azure Policy permite aplicar un conjunto común de configuraciones de registros de diagnóstico a todos los recursos (actuales y futuros) de un tipo determinado cuyos registros quiera ingerir en Azure Sentinel.
 
-Para continuar con nuestros esfuerzos para llevar la eficacia de [Azure Policy](../governance/policy/overview.md) a la tarea de configuración de recopilación de datos, ahora ofrecemos otro recopilador de datos mejorado por Azure Policy para los recursos de la [cuenta de Azure Storage](connect-azure-storage-account.md), publicado en versión preliminar pública.
+Para continuar con nuestros esfuerzos para llevar la eficacia de [Azure Policy](../governance/policy/overview.md) a la tarea de configuración de recopilación de datos, ahora ofrecemos otro recopilador de datos mejorado por Azure Policy para los recursos de la [cuenta de Azure Storage](./data-connectors-reference.md#azure-storage-account), publicado en versión preliminar pública.
 
-Además, dos de nuestros conectores en versión preliminar, para [Azure Key Vault](connect-azure-key-vault.md) y [Azure Kubernetes Service](connect-azure-kubernetes-service.md), ahora se han publicado para disponibilidad general (GA) y se han unido al conector de [Azure SQL Database](connect-azure-sql-logs.md).
+Además, dos de nuestros conectores en versión preliminar, para [Azure Key Vault](./data-connectors-reference.md#azure-key-vault) y [Azure Kubernetes Service](./data-connectors-reference.md#azure-kubernetes-service-aks), ahora se han publicado para disponibilidad general (GA) y se han unido al conector de [Azure SQL Database](./data-connectors-reference.md#azure-sql-databases).
 
 ### <a name="incident-timeline-public-preview"></a>Escala de tiempo del incidente (versión preliminar pública)
 

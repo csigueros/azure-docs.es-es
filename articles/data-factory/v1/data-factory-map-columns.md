@@ -4,15 +4,16 @@ description: Obtenga información acerca de cómo asignar columnas de origen a c
 author: linda33wj
 ms.author: jingwang
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 01/10/2018
 robots: noindex
-ms.openlocfilehash: fef2c6f120ae25e6aa1846d4971ff707da9bab92
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ac8da7dcfcc95a57606b9590e897a66bfab1675e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100371131"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128602961"
 ---
 # <a name="map-source-dataset-columns-to-destination-dataset-columns"></a>Asignación de columnas de conjunto de datos de origen a columnas del conjunto de datos de destino
 > [!NOTE]
@@ -133,7 +134,7 @@ El siguiente fragmento JSON define una actividad de copia en una canalización. 
 ```
 **Flujo de asignación de columnas:**
 
-![Flujo de asignación de columnas](./media/data-factory-map-columns/column-mapping-flow.png)
+:::image type="content" source="./media/data-factory-map-columns/column-mapping-flow.png" alt-text="Flujo de asignación de columnas":::
 
 ## <a name="sample-2--column-mapping-with-sql-query-from-azure-sql-to-azure-blob"></a>Ejemplo 2: asignación de columnas con una consulta SQL de SQL de Azure a un blob de Azure
 En este ejemplo, se usa una consulta SQL para extraer datos de SQL de Azure en lugar de especificar simplemente el nombre de tabla y los nombres de columna en la sección "structure". 
@@ -172,7 +173,7 @@ En este caso, los resultados de consulta se asignan primero a las columnas espec
 
 **Flujo de asignación de columnas**
 
-![Flujo de asignación de columnas 2](./media/data-factory-map-columns/column-mapping-flow-2.png)
+:::image type="content" source="./media/data-factory-map-columns/column-mapping-flow-2.png" alt-text="Flujo de asignación de columnas 2":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 Vea el artículo para acceder a un tutorial sobre el uso de la actividad de copia: 

@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 06/25/2021
 ms.author: mametcal
 ms.custom: devx-track-java
-ms.openlocfilehash: 86a4d97f387124b7c0043ec49f00b818c8b34a19
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 6e2b57ec7f5522d8789d1977afc4aa58fc24a3e7
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114450591"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128573315"
 ---
 # <a name="quickstart-add-feature-flags-to-a-spring-boot-app"></a>Inicio rápido: Incorporación de marcas de características a una aplicación de Spring Boot
 
@@ -85,6 +85,7 @@ Para crear un proyecto de Spring Boot, use [Spring Initializr](https://start.spr
 
     ```properties
     spring.cloud.azure.appconfiguration.stores[0].connection-string= ${APP_CONFIGURATION_CONNECTION_STRING}
+    spring.cloud.azure.appconfiguration.stores[0].feature-flags.enabled=true
     ```
 
 1. En el portal de App Configuration del almacén de configuración, seleccione `Access keys`en la barra lateral. Seleccione la pestaña Claves de solo lectura. Copie el valor de la cadena de conexión principal.
@@ -159,7 +160,7 @@ Para crear un proyecto de Spring Boot, use [Spring Initializr](https://start.spr
 
         @GetMapping("/welcome")
         public String mainWithParam(Model model) {
-            model.addAttribute("Beta", featureManager.isEnabledAsync("featureManagement.Beta").block());
+            model.addAttribute("Beta", featureManager.isEnabledAsync("Beta").block());
             return "welcome";
         }
     }

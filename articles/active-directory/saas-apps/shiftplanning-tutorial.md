@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: e1099f271291c6d86610237454e08e06b5fe48c7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 61bb44a6431885c4696af840d829bc1671f1c1e5
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92522172"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124801303"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-humanity"></a>Tutorial: Integración de Azure Active Directory con Humanity
 
@@ -122,13 +122,13 @@ Para configurar el inicio de sesión único de Azure AD con Humanity, realice lo
 
     c. URL de cierre de sesión
 
-### <a name="configure-humanity-single-sign-on"></a>Configuración del inicio de sesión único de Humanity
+### <a name="configure-humanity-single-sign-on&quot;></a>Configuración del inicio de sesión único de Humanity
 
 1. En otra ventana del explorador web, inicie sesión en el sitio de **Humanity** de la compañía como administrador.
 
 2. En el menú de la parte superior, haga clic en **Administrador**.
 
-    ![Administrador](./media/shiftplanning-tutorial/iC786619.png "Administración")
+    ![Administrador](./media/shiftplanning-tutorial/iC786619.png &quot;Administración")
 3. En **Integración**, haga clic en **Inicio de sesión único**.
 
     ![Captura de pantalla que muestra la opción de inicio de sesión único seleccionada en el menú de integración.](./media/shiftplanning-tutorial/iC786620.png "Inicio de sesión único")
@@ -200,7 +200,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 7. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
-### <a name="create-humanity-test-user"></a>Creación de un usuario de prueba de Humanity
+### <a name="create-humanity-test-user&quot;></a>Creación de un usuario de prueba de Humanity
 
 Para permitir que los usuarios de Azure AD inicien sesión en Humanity, deben aprovisionarse en Humanity. En el caso de Humanity, el aprovisionamiento es una tarea manual.
 
@@ -210,7 +210,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Humanity, deben ap
 
 2. Haga clic en **Administrador**.
 
-    ![Administrador](./media/shiftplanning-tutorial/iC786619.png "Administración")
+    ![Administrador](./media/shiftplanning-tutorial/iC786619.png &quot;Administración")
 
 3. Haga clic en **Personal**.
 
@@ -235,7 +235,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Humanity, deben ap
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de Humanity en el panel de acceso, debería iniciar sesión automáticamente en la instancia de Humanity para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
+Al hacer clic en el icono de Humanity en el panel de acceso, debería iniciar sesión automáticamente en la instancia de Humanity para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

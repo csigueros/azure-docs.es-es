@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/30/2021
+ms.date: 09/16/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 51639df9115032beefd04e6eb114c0d62e61ed88
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 22ca7de0f36e14453dd0c48efe3bae081bfe120b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "122653480"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128574890"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-openid-connect-using-azure-active-directory-b2c"></a>Configuración de la suscripción y el inicio de sesión con OpenID Connect mediante Azure Active Directory B2C
 
@@ -29,7 +29,8 @@ En este artículo se explica cómo puede agregar proveedores de identidades pers
 ## <a name="add-the-identity-provider"></a>Agregar el proveedor de identidades
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) como administrador global del inquilino de Azure AD B2C.
-1. Asegúrese de usar el directorio que contiene el inquilino de Azure AD B2C. Para ello, haga clic en el filtro **Directorio y suscripción** del menú superior y seleccione el directorio que contiene el inquilino.
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
 1. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, busque y seleccione **Azure AD B2C**.
 1. Seleccione **Proveedores de identidades** y luego **Nuevo proveedor de OpenID Connect**.
 1. Escriba un **nombre**. Por ejemplo, escriba *Contoso*.

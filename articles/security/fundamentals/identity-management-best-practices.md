@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 70f318c10799c1cf30265373d8971faddfafc072
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: e7241944f6178b80ad684ff35684b5b5d3f53e94
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122180459"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124784534"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Procedimientos recomendados para la administración de identidades y la seguridad del control de acceso en Azure
 
@@ -142,7 +142,7 @@ La puntuación de seguridad de la identidad es un conjunto de controles de segur
 
 ## <a name="enable-password-management"></a>Habilitación de la administración de contraseñas
 
-Si tiene varios inquilinos o quiere permitir que los usuarios [restablezcan su propia contraseña](../../active-directory/user-help/active-directory-passwords-update-your-own-password.md), es importante utilizar directivas de seguridad adecuadas para evitar un uso inadecuado.
+Si tiene varios inquilinos o quiere permitir que los usuarios [restablezcan su propia contraseña](https://support.microsoft.com/account-billing/reset-your-work-or-school-password-using-security-info-23dde81f-08bb-4776-ba72-e6b72b9dda9e), es importante utilizar directivas de seguridad adecuadas para evitar un uso inadecuado.
 
 **Procedimiento recomendado**: Configuración del autoservicio de restablecimiento de contraseña (SSPR) para los usuarios.  
 **Detalles**: use la característica de [autoservicio de restablecimiento de contraseña](../../active-directory-b2c/user-flow-self-service-password-reset.md) de Azure AD.

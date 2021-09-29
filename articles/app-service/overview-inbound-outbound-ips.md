@@ -4,12 +4,12 @@ description: Aprenda cómo se usan las direcciones IP de entrada y salida en App
 ms.topic: article
 ms.date: 08/25/2020
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: e4913ad840c847c4ce571f07f971922858e40393
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: f8354d52c43d786e3506cf6fcee0907f9f365ab6
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123472243"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124836324"
 ---
 # <a name="inbound-and-outbound-ip-addresses-in-azure-app-service"></a>Direcciones IP de entrada y salida en Azure App Service
 
@@ -82,7 +82,7 @@ az webapp show --resource-group <group_name> --name <app_name> --query possibleO
 ```
 
 ## <a name="get-a-static-outbound-ip"></a>Obtención de una dirección IP estática de salida
-Puede controlar la dirección IP del tráfico de salida desde la aplicación mediante la integración de una red virtual regional junto con una instancia de NAT Gateway, a fin de dirigir el tráfico a través de una dirección IP pública estática. La [integración de una red virtual regional](/azure/app-service/web-sites-integrate-with-vnet) está disponible en los planes de App Service **Estándar**, **Premium**, **PremiumV2** y **PremiumV3**. Para más información sobre esta configuración, consulte [Integración de Virtual Network NAT Gateway](./networking/nat-gateway-integration.md).
+Puede controlar la dirección IP del tráfico de salida desde la aplicación mediante la integración de una red virtual regional junto con una instancia de NAT Gateway, a fin de dirigir el tráfico a través de una dirección IP pública estática. La [integración de una red virtual regional](./web-sites-integrate-with-vnet.md) está disponible en los planes de App Service **Estándar**, **Premium**, **PremiumV2** y **PremiumV3**. Para más información sobre esta configuración, consulte [Integración de Virtual Network NAT Gateway](./networking/nat-gateway-integration.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

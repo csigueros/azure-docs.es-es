@@ -2,14 +2,14 @@
 title: Copia de seguridad de Azure Database for PostgreSQL
 description: Más información sobre la copia de seguridad de Azure Database for PostgreSQL con retención a largo plazo (versión preliminar)
 ms.topic: conceptual
-ms.date: 09/01/2021
+ms.date: 09/06/2021
 ms.custom: references_regions , devx-track-azurecli
-ms.openlocfilehash: ac7790cd823bbca4ca7580bc5b3c5edee6f45f96
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 1896f836d9eeb2f4d32e4b0784424837a2f80d0c
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123432691"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129081840"
 ---
 # <a name="azure-database-for-postgresql-backup-with-long-term-retention-preview"></a>Copia de seguridad de Azure Database for PostgreSQL con retención a largo plazo (versión preliminar)
 
@@ -67,7 +67,7 @@ Azure Backup sigue unas estrictas directrices de seguridad. Aunque sea un servic
 
 8. Cuando se completa la transferencia de datos, el coordinador realiza la confirmación con el servicio de copia de seguridad.
 
-    ![Proceso de copia de seguridad](./media/backup-azure-database-postgresql/backup-process.png)
+    ![Proceso de copia de seguridad](./media/backup-azure-database-postgresql-overview/backup-process.png)
 
 ## <a name="configure-backup-on-azure-postgresql-databases"></a>Configuración de la copia de seguridad en bases de datos de Azure PostgreSQL
 
@@ -162,21 +162,22 @@ Puede restaurar una base de datos en cualquier servidor de Azure PostgreSQL dent
 Siga esta guía paso a paso para desencadenar una restauración:
 
 1. Hay dos maneras de iniciar el proceso de restauración:
-    1. Vaya a [Centro de copias de seguridad](backup-center-overview.md) -> **Información general** -> **Restauración**.
 
-    ![Seleccionar Restauración en el Centro de copias de seguridad](./media/backup-azure-database-postgresql/backup-center-restore.png)
+   1. Vaya a [Centro de copias de seguridad](backup-center-overview.md) -> **Información general** -> **Restauración**.
 
-    En **Iniciar: Restaurar**, seleccione **Azure Database for PostgreSQL** en **Tipo de origen de datos**. Seleccione la **instancia de copia de seguridad**.
+      ![Seleccionar Restauración en el Centro de copias de seguridad](./media/backup-azure-database-postgresql/backup-center-restore.png)
 
-    ![Seleccionar el tipo de origen de datos en Iniciar: Restaurar](./media/backup-azure-database-postgresql/initiate-restore.png)
+      En **Iniciar: Restaurar**, seleccione **Azure Database for PostgreSQL** en **Tipo de origen de datos**. Seleccione la **instancia de copia de seguridad**.
 
-    1. También puede ir directamente a **Almacén de Backup** -> **Instancias de copia de seguridad**. En **Instancia de copia de seguridad** seleccione la instancia correspondiente a la base de datos que desea restaurar.
+      ![Seleccionar el tipo de origen de datos en Iniciar: Restaurar](./media/backup-azure-database-postgresql/initiate-restore.png)
 
-    ![Instancias de copia de seguridad para restauración](./media/backup-azure-database-postgresql/backup-instances-restore.png)
+   1. También puede ir directamente a **Almacén de Backup** -> **Instancias de copia de seguridad**. En **Instancia de copia de seguridad** seleccione la instancia correspondiente a la base de datos que desea restaurar.
 
-    ![Lista de instancias de copia de seguridad](./media/backup-azure-database-postgresql/list-backup-instances.png)
+      ![Instancias de copia de seguridad para restauración](./media/backup-azure-database-postgresql/backup-instances-restore.png)
 
-    ![Seleccione Restaurar](./media/backup-azure-database-postgresql/select-restore.png)
+      ![Lista de instancias de copia de seguridad](./media/backup-azure-database-postgresql/list-backup-instances.png)
+
+      ![Seleccione Restaurar](./media/backup-azure-database-postgresql/select-restore.png)
 
 1. En **Seleccione un punto de recuperación**, elija el punto que desee en la lista de todas las copias de seguridad completas disponibles para la instancia de copia de seguridad seleccionada. De forma predeterminada, se selecciona el punto de recuperación más reciente.
 
@@ -232,12 +233,6 @@ Elija una regla de retención en la lista de las que se definieron en la directi
 ![Desencadenar copia de seguridad ahora](./media/backup-azure-database-postgresql/backup-now.png)
 
 ![Elegir en la lista de reglas de retención](./media/backup-azure-database-postgresql/retention-rules.png)
-
-### <a name="stop-protection"></a>Detener protección
-
-Puede detener la protección de un elemento de copia de seguridad. De este modo también se eliminarán los puntos de recuperación que tenga asociados. Si los puntos de recuperación no están en el nivel de archivo durante un mínimo de seis meses, la eliminación de esos puntos de recuperación incurrirá en un costo de eliminación temprana. Todavía no se ofrece la opción de detener la protección y conservar los puntos de recuperación existentes.
-
-![Detener protección](./media/backup-azure-database-postgresql/stop-protection.png)
 
 ### <a name="change-policy"></a>Cambiar la directiva
 

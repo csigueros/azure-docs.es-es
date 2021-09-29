@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/24/2021
-ms.openlocfilehash: cea4999752d416f36f435ba88403fd9dc735f689
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.date: 09/09/2021
+ms.openlocfilehash: a2f3ddf20b41ae1a1638a8c8a1900207f5b880df
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123255816"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124767487"
 ---
 # <a name="troubleshoot-copy-activity-performance"></a>Solución de problemas de rendimiento de la actividad de copia
 
@@ -24,7 +24,7 @@ En este artículo se describe cómo solucionar problemas de rendimiento de la ac
 
 Después de ejecutar una actividad de copia, puede recopilar el resultado de la ejecución y estadísticas de rendimiento en la vista de [supervisión de la actividad de copia](copy-activity-monitoring.md). A continuación se muestra un ejemplo.
 
-![Detalles de la supervisión de la ejecución de la actividad de copia](./media/copy-activity-overview/monitor-copy-activity-run-details.png)
+:::image type="content" source="./media/copy-activity-overview/monitor-copy-activity-run-details.png" alt-text="Detalles de la supervisión de la ejecución de la actividad de copia":::
 
 ## <a name="performance-tuning-tips"></a>Sugerencias de optimización del rendimiento
 

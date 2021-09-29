@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: article
-ms.date: 08/17/2021
+ms.date: 09/01/2021
 ms.author: memildin
-ms.openlocfilehash: a3dc221ff4fa1caebad9dea601e208280b928558
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 4bfacebc9961cdbac89252783f47267002a69a66
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122322914"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128597253"
 ---
 # <a name="secure-score-in-azure-security-center"></a>Puntuación de seguridad de Azure Security Center
 
@@ -100,14 +100,8 @@ Se recomienda que cada organización revise cuidadosamente sus iniciativas de Az
 > Para obtener información detallada sobre cómo revisar y editar iniciativas, vea [Trabajo con directivas de seguridad](tutorial-security-policy.md). 
 
 Aunque la iniciativa de seguridad predeterminada de Security Center se basa en los estándares y procedimientos recomendados del sector, hay escenarios en los que es posible que las recomendaciones integradas que se indican a continuación no se ajusten completamente a su organización. Por lo tanto, a veces será necesario ajustar la iniciativa predeterminada, sin comprometer la seguridad, para asegurarse de que está alineada con las directivas propias de su organización, así como con estándares del sector, estándares normativos y pruebas comparativas que tiene la obligación de cumplir.<br><br>
-<div class="foo">
-
-<style type="text/css"> .tg  {border-collapse:collapse;border-spacing:0;} .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px; overflow:hidden;padding:10px 5px;word-break:normal;} .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:18px; font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;} .tg .tg-cly1{text-align:left;vertical-align:middle} .tg .tg-lboi{border-color:inherit;text-align:left;vertical-align:middle} </style>
 
 [!INCLUDE [security-center-controls-and-recommendations](../../includes/asc/security-control-recommendations.md)]
-
-</div>
-
 
 
 

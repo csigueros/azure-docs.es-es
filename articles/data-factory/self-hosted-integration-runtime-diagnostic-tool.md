@@ -4,18 +4,19 @@ description: Herramienta de diagnóstico para el entorno de ejecución de integr
 ms.author: lle
 author: lrtoyou1223
 ms.service: data-factory
+ms.subservice: integration-runtime
 ms.topic: conceptual
 ms.custom:
 - seo-lt-2019
 - references_regions
 - devx-track-azurepowershell
 ms.date: 07/28/2021
-ms.openlocfilehash: b8aa070759ea29c9c2853d0c8a6af184bc169569
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: b3c98d4e85b1a7d04b017eea2da00f36a479eeac
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121780800"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128598582"
 ---
 # <a name="diagnostic-tool-for-self-hosted-integration-runtime"></a>Herramienta de diagnóstico para el entorno de ejecución de integración autohospedado
 El entorno de ejecución de integración autohospedado es la infraestructura de proceso que Azure Data Factory usa para proporcionar funcionalidades de integración de datos en distintos entornos de red. La instalación de un entorno de ejecución de integración autohospedado debe realizarse en una máquina local o en una máquina virtual dentro de una red privada. A veces, es difícil investigar incidencias en máquinas locales, por ejemplo, relacionadas con la red, el firewall, la dependencia o el sistema operativo. En este artículo se describe una nueva herramienta de diagnóstico para solucionar problemas en entornos locales.

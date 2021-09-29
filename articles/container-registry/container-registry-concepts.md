@@ -3,12 +3,12 @@ title: Acerca de los registros, repositorios, artefactos e imágenes
 description: Introducción a los conceptos clave de los registros de contenedor, repositorios e imágenes de contenedor y otros artefactos de Azure.
 ms.topic: article
 ms.date: 01/29/2021
-ms.openlocfilehash: 64ab3812b3f23a7b3a480d3530c82bd39f2d29a5
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: add8c20de07a2d520095f257dac0356d1c21af57
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107784090"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128596151"
 ---
 # <a name="about-registries-repositories-and-artifacts"></a>Acerca de los registros, repositorios y artefactos
 
@@ -68,7 +68,7 @@ Para proporcionar aislamiento seguro y protección frente a posibles manipulacio
 
 ### <a name="manifest"></a>Manifest
 
-Cada imagen de contenedor o artefacto que se inserta en un registro de contenedor está asociado con un *manifiesto*. El manifiesto, que lo ha generado el registro cuando se inserta el contenido, identifica de forma única los artefactos y especifica las capas. Puede enumerar los manifiestos de un repositorio con el comando de la CLI de Azure [az acr repository show-manifests][az-acr-repository-show-manifests]. 
+Cada imagen de contenedor o artefacto que se inserta en un registro de contenedor está asociado con un *manifiesto*. El manifiesto, que lo ha generado el registro cuando se inserta el contenido, identifica de forma única los artefactos y especifica las capas.
 
 Un manifiesto básico de una imagen `hello-world` de Linux tiene un aspecto similar al siguiente:
 

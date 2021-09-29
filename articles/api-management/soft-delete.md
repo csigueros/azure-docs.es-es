@@ -3,15 +3,15 @@ title: Eliminación temporal de Azure API Management (versión preliminar) | Mic
 description: La eliminación temporal permite recuperar instancias de API Management eliminadas.
 ms.service: api-management
 ms.topic: conceptual
-author: vladvino
-ms.author: apimpm
+author: dlepow
+ms.author: danlep
 ms.date: 11/27/2020
-ms.openlocfilehash: e2842f3e428abb4f0eb628dbb8e446f2714d5d89
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0cf99dfe2fb697b0a28db1fbacecaa2e2021a9d4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101652392"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128622025"
 ---
 # <a name="api-management-soft-delete-preview"></a>Eliminación temporal de API Management (versión preliminar)
 

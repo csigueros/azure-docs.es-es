@@ -1,5 +1,5 @@
 ---
-title: Solución de problemas de Azure Bastion | Microsoft Docs
+title: Solución de problemas de Azure Bastion
 description: Aprenda más información sobre cómo solucionar problemas de Azure Bastion.
 services: bastion
 author: charwen
@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: troubleshooting
 ms.date: 10/16/2019
 ms.author: charwen
-ms.openlocfilehash: 6b8ce0014524a407d6d35b85fed3bf5f41b556cf
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
+ms.openlocfilehash: 86be88a7e8900ef871af1a2ad2c1c301f7487042
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122067941"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128673908"
 ---
 # <a name="troubleshoot-azure-bastion"></a>Solución de problemas de Azure Bastion
 
@@ -20,7 +20,7 @@ Este artículo le mostrará cómo solucionar problemas de Azure Bastion.
 
 ## <a name="unable-to-create-an-nsg-on-azurebastionsubnet"></a><a name="nsg"></a>No se puede crear un grupo de seguridad de red en AzureBastionSubnet
 
-**P:** Cuando intento crear un NSG en la subred de Azure Bastion, aparece el siguiente error: *"El grupo de seguridad de red <NSG name> no tiene las reglas necesarias para la subred de Azure Bastion AzureBastionSubnet"* .
+**P:** Cuando intento crear un NSG en la subred de Azure Bastion, aparece el siguiente error: *"El grupo de seguridad de red \<NSG name\> no tiene las reglas necesarias para la subred de Azure Bastion AzureBastionSubnet"* .
 
 **R:** Si crea y aplica un grupo de seguridad de red a *AzureBastionSubnet*, asegúrese de que le ha agregado las reglas necesarias. Puede encontrar una lista de las reglas necesarias en [Trabajo con acceso a grupos de seguridad de red y Azure Bastion](./bastion-nsg.md). Si no agrega estas reglas, se producirá un error en la creación o actualización de los grupos de seguridad de red.
 
@@ -73,7 +73,7 @@ The key's randomart image is:
 
 **P:** No puedo conectarme a mi máquina virtual (y no estoy experimentando ninguno de los problemas anteriores).
 
-**R:** Puede solucionar sus problemas de conectividad desde la pestaña **Solución de problemas de conexión**  de la sección **Supervisión** de su recurso de Azure Bastion en Azure Portal. La solución de problemas de conexión Network Watcher proporciona la posibilidad de comprobar una conexión TCP directa de una máquina virtual a otra, a un nombre de dominio completo (FQDN), a un URI o a una dirección IPv4. Para empezar, elija un origen desde el que iniciar la conexión y el destino al que desea conectarse y seleccione "Comprobar". [Más información](https://docs.microsoft.com/azure/network-watcher/network-watcher-connectivity-overview).
+**R:** Puede solucionar sus problemas de conectividad desde la pestaña **Solución de problemas de conexión**  de la sección **Supervisión** de su recurso de Azure Bastion en Azure Portal. La solución de problemas de conexión Network Watcher proporciona la posibilidad de comprobar una conexión TCP directa de una máquina virtual a otra, a un nombre de dominio completo (FQDN), a un URI o a una dirección IPv4. Para empezar, elija un origen desde el que iniciar la conexión y el destino al que desea conectarse y seleccione "Comprobar". [Más información](../network-watcher/network-watcher-connectivity-overview.md).
 
 
 ## <a name="file-transfer-issues"></a><a name="filetransfer"></a>Problemas de transferencia de archivos

@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 920f7912a1289fe92618d893b94943784e4a9a3a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 4c5a361fafeaed6452481adc9e6eae856828bfda
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102520734"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128635591"
 ---
 # <a name="deploy-a-php-guestbook-stateless-application-with-redis-on-arc-enabled-kubernetes-cluster-on-azure-stack-edge-pro-gpu"></a>Implementación de una aplicación sin estado de `Guestbook` PHP con Redis en un clúster de Kubernetes habilitado para Arc en Azure Stack Edge Pro con GPU
 
@@ -30,14 +30,11 @@ La implementación se realiza mediante GitOps en el clúster de Kubernetes habil
 Este procedimiento está dirigido a los usuarios que han examinado las [cargas de trabajo de Kubernetes en un dispositivo Azure Stack Edge Pro](azure-stack-edge-gpu-kubernetes-workload-management.md) y están familiarizados con los conceptos de [¿Qué es Kubernetes habilitado para Azure Arc (versión preliminar)?](../azure-arc/kubernetes/overview.md)
 
 > [!NOTE]
-> Este artículo contiene referencias al término esclavo, un término que Microsoft ya no usa. Cuando se quite el término del software, se quitará también del artículo.
+> Este artículo contiene referencias al término *esclavo*, un término que Microsoft ya no usa. Cuando se quite el término del software, se quitará también del artículo.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Antes de implementar la aplicación sin estado, asegúrese de que ha completado los siguientes requisitos previos en el dispositivo y en el cliente que vaya a usar para acceder al dispositivo:
-
-> [!NOTE]
-> Este artículo contiene referencias al término esclavo, un término que Microsoft ya no usa. Cuando se quite el término del software, se quitará también del artículo.
 
 ### <a name="for-device"></a>Para el dispositivo
 

@@ -8,12 +8,12 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: e4861749d66e466bc3302553af8b3ed4919a72e0
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: f5c0532f194aad27f99752c9c5312f30dfe0a21d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107503242"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128600216"
 ---
 # <a name="azcopy-login"></a>azcopy login
 
@@ -62,11 +62,11 @@ azcopy login --identity
 ```
 
 Inicie sesión con la identidad asignada por el usuario de una máquina virtual y un identificador de cliente de la identidad de servicio:
-  
+
 ```azcopy
 azcopy login --identity --identity-client-id "[ServiceIdentityClientID]"
 ```
- 
+
 Inicie sesión con la identidad asignada por el usuario de una máquina virtual y un identificador de objeto de la identidad de servicio:
 
 ```azcopy
@@ -74,7 +74,7 @@ azcopy login --identity --identity-object-id "[ServiceIdentityObjectID]"
 ```
 
 Inicie sesión con la identidad asignada por el usuario de una máquina virtual y un identificador de recurso de la identidad de servicio:
- 
+
 ```azcopy
 azcopy login --identity --identity-resource-id "/subscriptions/<subscriptionId>/resourcegroups/myRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myID"
 ```

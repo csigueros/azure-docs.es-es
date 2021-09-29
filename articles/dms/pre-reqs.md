@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: conceptual
 ms.date: 02/25/2020
-ms.openlocfilehash: 55d5594229bccb5fcb6a406e671ed104c1e12378
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 94acb0557fd69497ef7f599a157be8db3f2ce026
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101094045"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128578479"
 ---
 # <a name="overview-of-prerequisites-for-using-the-azure-database-migration-service"></a>Información general sobre los requisitos previos para usar Azure Database Migration Service
 
@@ -45,9 +45,9 @@ Los requisitos de Azure Database Migration Service que son comunes en todos los 
     > "Microsoft.Resources/subscriptions/resourceGroups/read"
     >
     > $writerActions = `
-    > "Microsoft.DataMigration/services/*/write", `
-    > "Microsoft.DataMigration/services/*/delete", `
-    > "Microsoft.DataMigration/services/*/action", `
+    > "Microsoft.DataMigration/*/write", `
+    > "Microsoft.DataMigration/*/delete", `
+    > "Microsoft.DataMigration/*/action", `
     > "Microsoft.Network/virtualNetworks/subnets/join/action", `
     > "Microsoft.Network/virtualNetworks/write", `
     > "Microsoft.Network/virtualNetworks/read", `

@@ -4,13 +4,13 @@ description: Aprenda a usar Azure Portal o la CLI para crear, ver y administrar 
 author: harelbr
 ms.author: harelbr
 ms.topic: conceptual
-ms.date: 08/02/2021
-ms.openlocfilehash: 49e9dee0b28eb17f2a4241570a2f0752f33b9020
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/09/2021
+ms.openlocfilehash: 7a76b4b37760e5e320ab62c2660e97c9fcabdbb0
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121747688"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124815689"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Creación, visualización y administración de alertas de métricas mediante Azure Monitor
 
@@ -126,7 +126,7 @@ En las secciones anteriores se describía cómo crear, ver y administrar las reg
 6. Puede deshabilitar una regla de alertas de métricas con el comando siguiente.
 
     ```azurecli
-    az monitor metrics alert update -g {ResourceGroup} -n {AlertRuleName} --disabled false
+    az monitor metrics alert update -g {ResourceGroup} -n {AlertRuleName} --enabled false
     ```
 
 7. Puede eliminar una regla de alertas de métricas con el comando siguiente.

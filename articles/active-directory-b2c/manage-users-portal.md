@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/03/2021
+ms.date: 09/20/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ace0ccb8372ff21a2d3e8721baf09bab539846c2
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 02c0197af40854bfbcff04401dbc4e9ca0d990dc
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102033679"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128573904"
 ---
 # <a name="use-the-azure-portal-to-create-and-delete-consumer-users-in-azure-ad-b2c"></a>Uso de Azure Portal para crear y eliminar usuarios consumidores en Azure AD B2C
 
@@ -36,7 +36,8 @@ Este artículo se centra en el trabajo con **cuentas de consumidor** en Azure Po
 ## <a name="create-a-consumer-user"></a>Creación de un usuario consumidor
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-1. Seleccione el filtro **Directorio y suscripción** en el menú superior y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
 1. En el menú de la izquierda, seleccione **Azure AD B2C**. O bien, seleccione **Todos los servicios** y busque y seleccione **Azure AD B2C**.
 1. En **Administrar**, seleccione **Usuarios**.
 1. Seleccione **Nuevo usuario**.

@@ -4,15 +4,15 @@ titleSuffix: Azure Digital Twins
 description: Vea cómo se crea un registro de aplicaciones de Azure AD, como opción de autenticación para aplicaciones cliente, mediante Azure Portal.
 author: baanders
 ms.author: baanders
-ms.date: 8/27/2021
+ms.date: 9/8/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: da935038599b86d9c86a1f55071d4b4d1ea4ce16
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: 8350ff149b54ef8cf8f4061abd64df73dc688962
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123223056"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128653122"
 ---
 # <a name="create-an-app-registration-to-use-with-azure-digital-twins-portal"></a>Creación de un registro de aplicaciones para usar con Azure Digital Twins (portal)
 
@@ -64,7 +64,7 @@ En las secciones siguientes se describe cómo buscar los restantes valores.
 
 Los valores de **identificador de cliente** e **identificador de inquilino** se pueden recopilar de la página de detalles del registro de la aplicación en Azure Portal:
 
-:::image type="content" source="media/how-to-create-app-registration/client-id-tenant-id.png" alt-text="Captura de pantalla de Azure Portal en la que se muestran los valores importantes para el registro de la aplicación.":::
+:::image type="content" source="media/how-to-create-app-registration/client-id-tenant-id.png" alt-text="Captura de pantalla de Azure Portal en la que se muestran los valores importantes para el registro de la aplicación."  lightbox="media/how-to-create-app-registration/client-id-tenant-id.png":::
 
 Tome nota del **Id. de la aplicación (cliente)** y el **Id. de directorio (inquilino)** , como se muestra en **su** página.
 
@@ -78,7 +78,13 @@ Para configurar un **secreto de cliente** para un registro de aplicación, lo pr
 
 1. Escriba los valores que desee en Descripción y Caduca, y seleccione **Agregar**.
 
-    :::image type="content" source="media/how-to-create-app-registration/add-client-secret.png" alt-text="Captura de pantalla de Azure Portal al agregar un secreto de cliente.":::
+    :::row:::
+        :::column:::
+            :::image type="content" source="media/how-to-create-app-registration/add-client-secret.png" alt-text="Captura de pantalla de Azure Portal al agregar un secreto de cliente.":::
+        :::column-end:::
+        :::column:::
+        :::column-end:::
+    :::row-end:::
 
 1. Compruebe que el secreto de cliente está visible en la página **Certificados y secretos** con los campos Caduca y Valor. 
 

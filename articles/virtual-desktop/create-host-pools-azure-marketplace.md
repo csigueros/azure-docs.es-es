@@ -7,12 +7,12 @@ ms.custom: references_regions
 ms.date: 08/06/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 49c453f4ffcb2fac04b42f4956768e06ab8fce8f
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 8e33c165cd249b578bd4cba9ef4f25446287d7ec
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123100856"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124766452"
 ---
 # <a name="tutorial-create-a-host-pool"></a>Tutorial: Creación de un grupo de hosts
 
@@ -237,7 +237,7 @@ Para más información sobre el uso de la CLI de Azure para crear máquinas virt
     - [Creación de una máquina virtual Windows mediante la CLI de Azure]( /azure/virtual-machines/windows/quick-create-cli)
     - [Tutorial: Creación y administración de máquinas virtuales Windows con la CLI de Azure](/cli/azure/azure-cli-vm-tutorial)
 - Linux
-    - [Creación de una máquina virtual con Linux desde cero con la CLI de Azure]( /virtual-machines/linux/quick-create-cli)
+    - [Creación de una máquina virtual con Linux desde cero con la CLI de Azure](../virtual-machines/linux/quick-create-cli.md)
     - [Tutorial: Creación y administración de máquinas virtuales Linux con la CLI de Azure]( /azure/virtual-machines/linux/tutorial-manage-vm) 
 ---
 

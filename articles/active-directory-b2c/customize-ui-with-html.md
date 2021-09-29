@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/27/2021
+ms.date: 09/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 0a3312559ee46b70b97a99a5dae16e4a26cad273
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: 0f0ffa8a4a25df07cf212eb3352d3515d8c5267c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123031847"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128575564"
 ---
 # <a name="customize-the-user-interface-with-html-templates-in-azure-active-directory-b2c"></a>Personalización de la interfaz de usuario con plantillas HTML en Azure Active Directory B2C
 
@@ -326,7 +326,8 @@ Para configurar la personalización de la interfaz de usuario, copie **ContentDe
 
 #### <a name="51-upload-the-custom-policy"></a>5.1 Carga de la directiva personalizada
 
-1. Asegúrese de usar el directorio que contiene el inquilino de Azure AD B2C. Para ello, seleccione el filtro **Directorio y suscripción** en el menú superior y luego el directorio que contiene el inquilino.
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
 1. Busque y seleccione **Azure AD B2C**.
 1. En **Directivas**, seleccione **Identity Experience Framework**.
 1. Seleccione **Cargar directiva personalizada**.

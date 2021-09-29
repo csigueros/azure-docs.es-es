@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/19/2021
 ms.author: jeedes
-ms.openlocfilehash: 0367581d17545b3334865bae4c74fb095a210664
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 86538e75480d89d2bc4b87d037dcea8f4b62cc49
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101644849"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124816990"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-condeco"></a>Tutorial: Integración de Azure Active Directory con Condeco
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar Condeco con Azure Active Directory (Azur
 * Permitir que los usuarios inicien sesión automáticamente en Condeco con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
  
@@ -131,7 +131,7 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 * Acceda directamente a la dirección URL de inicio de sesión de Condeco y ponga en marcha el flujo de inicio de sesión desde allí.
 
-* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Condeco en Mis aplicaciones, debería iniciar sesión automáticamente en la versión de Condeco para la que ha configurado el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Condeco en Mis aplicaciones, debería iniciar sesión automáticamente en la versión de Condeco para la que ha configurado el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

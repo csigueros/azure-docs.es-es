@@ -1,20 +1,20 @@
 ---
 title: Información general de hosts dedicados de Azure para máquinas virtuales
 description: Obtenga más información sobre cómo se pueden usar los hosts dedicados de Azure para implementar máquinas virtuales.
-author: cynthn
+author: brittanyrowe
 ms.service: virtual-machines
 ms.subservice: dedicated-hosts
 ms.topic: conceptual
 ms.workload: infrastructure
 ms.date: 12/07/2020
-ms.author: cynthn
-ms.reviewer: zivr
-ms.openlocfilehash: 957bc2f34ddbc1af019afe0154d3a27ca6e3e368
-ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.author: brittanyrowe
+ms.reviewer: brittanyrowe
+ms.openlocfilehash: 6e34d5c638c8501840c9ef8d9bbaf22ae2874ff1
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123451572"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128557105"
 ---
 # <a name="azure-dedicated-hosts"></a>Hosts dedicados de Azure
 
@@ -80,7 +80,6 @@ Los grupos host que están habilitados para la selección de ubicación automát
 
 Incidencias y limitaciones conocidas cuando se usa la selección automática de ubicación de máquinas virtuales:
 
-- No se podrán aplicar las Ventajas híbridas de Azure en los hosts dedicados.
 - No se podrá reimplementar la máquina virtual.
 - No se podrán usar máquinas virtuales de las series Lsv2, NVasv4, NVsv3, Msv2 o M con hosts dedicados.
 

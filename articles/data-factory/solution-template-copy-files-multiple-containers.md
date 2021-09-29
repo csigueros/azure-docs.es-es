@@ -8,12 +8,12 @@ ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/1/2018
-ms.openlocfilehash: c1f2a83807703593482cc725036a2da158d7195d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: d1d1ffaecdf57817e5ef7be48791d0cb50ca9b74
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121747406"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124743550"
 ---
 # <a name="copy-multiple-folders-with-azure-data-factory"></a>Copia de varias carpetas con Azure Data Factory
 
@@ -45,27 +45,27 @@ Si quiere copiar varios contenedores debajo de carpetas raíz entre almacenes de
 
 1. Vaya a la plantilla **Copy multiple files containers between File Stores**(Copiar varios contenedores de archivos entre almacenes de archivos). Cree una **nueva** conexión con el almacén de almacenamiento de origen. El almacén de almacenamiento de origen es desde donde se van a copiar los archivos de varios contenedores.
 
-    ![Creación de una nueva conexión con el origen](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image1.png)
+    :::image type="content" source="media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image1.png" alt-text="Creación de una nueva conexión con el origen":::
 
 2. Cree una **nueva** conexión con el almacén de almacenamiento de destino.
 
-    ![Creación de una nueva conexión con el destino](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image2.png)
+    :::image type="content" source="media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image2.png" alt-text="Creación de una nueva conexión con el destino":::
 
 3. Seleccione **Usar esta plantilla**.
 
-    ![Uso de esta plantilla](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image3.png)
+    :::image type="content" source="media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image3.png" alt-text="Uso de esta plantilla":::
     
 4. Verá la canalización, como en el ejemplo siguiente:
 
-    ![Visualización de la canalización](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image4.png)
+    :::image type="content" source="media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image4.png" alt-text="Visualización de la canalización":::
 
 5. Seleccione **Depurar**, escriba los **parámetros** y, a continuación, seleccione **Finalizar**.
 
-    ![Ejecución de la canalización](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image5.png)
+    :::image type="content" source="media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image5.png" alt-text="Ejecución de la canalización":::
 
 6. Revise el resultado.
 
-    ![Revisión del resultado](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image6.png)
+    :::image type="content" source="media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image6.png" alt-text="Revisión del resultado":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

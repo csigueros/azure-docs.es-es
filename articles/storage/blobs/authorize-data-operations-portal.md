@@ -11,16 +11,16 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: blobs
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: b6af5e7efa14c7a8b2243e908b52ed6cf50c8272
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: 35ea4317b78a9f732d095d9f024d7465ebd1828e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113727227"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128615707"
 ---
 # <a name="choose-how-to-authorize-access-to-blob-data-in-the-azure-portal"></a>Elección de la forma de autorizar el acceso a los datos de blob en Azure Portal
 
-Cuando se accede a los datos de blob desde [Azure Portal](https://portal.azure.com), este realiza ciertas solicitudes a Azure Storage en segundo plano. Una solicitud a Azure Storage se puede autorizar mediante la cuenta de Azure AD o la clave de acceso a la cuenta de almacenamiento. El portal indica qué método está usando, y le permite alternar entre ambos si tiene los permisos adecuados.  
+Cuando se accede a los datos de blob desde [Azure Portal](https://portal.azure.com), este realiza ciertas solicitudes a Azure Storage en segundo plano. Una solicitud a Azure Storage se puede autorizar mediante la cuenta de Azure AD o la clave de acceso a la cuenta de almacenamiento. El portal indica qué método está usando, y le permite alternar entre ambos si tiene los permisos adecuados.
 
 También puede especificar cómo autorizar una operación de carga de blobs individual en Azure Portal. De forma predeterminada, el portal usa el método que ya está utilizando para autorizar una operación de carga de blobs, pero tiene la opción de cambiar esta configuración al cargar un blob.
 

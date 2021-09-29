@@ -8,12 +8,12 @@ metadata:
   author: trkeya
   ms.author: trkeya
   ms.date: 06/02/2021
-  ms.openlocfilehash: d8403e69b241ee107631f7ba8cdd88d6700e65e0
-  ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
+  ms.openlocfilehash: 5af21d8e78f468a1a099da30ca87437a0433e750
+  ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 08/30/2021
-  ms.locfileid: "123187640"
+  ms.lasthandoff: 09/13/2021
+  ms.locfileid: "124736167"
 title: Preguntas habituales sobre el marketplace comercial de Microsoft
 summary: En este artículo se responden las preguntas más frecuentes sobre el marketplace comercial.
 sections:
@@ -35,7 +35,7 @@ sections:
       Azure Marketplace incluye soluciones para desarrolladores y TI creadas en Azure o que se usan en las propias suscripciones de Azure.
 
 
-      Para obtener más información, vea la [documentación de cliente de Marketplace](https://aka.ms/MarketplaceBuyerGuide).
+      Para obtener más información, vea la [documentación de cliente de Marketplace](/marketplace/).
   - question: >
       ¿Por qué debo hacer que mi software o mis servicios estén disponibles en el marketplace comercial de Microsoft?
     answer: "El marketplace comercial es un punto de partida para la colaboración en la comercialización y para la habilitación en canales de ventas y Marketplace Rewards. Los sitios web y las experiencias en el producto permiten que sus productos sean vistos por millones de clientes que buscan soluciones como la suya. Ni siquiera necesita crear o comprar las capacidades de comercio. \n\nEl marketplace comercial está disponible en 141 regiones, según el plan. \n\nAdministramos el pago de impuestos en muchos países o regiones y proporcionamos acceso a nuestra red global de canales de revendedores. Puede usar el Contrato de cliente de Microsoft o el Contrato Enterprise para vender a las organizaciones sin tener que crear una nueva relación de compra.\n\nPara más información, consulte el [centro del marketplace comercial de Microsoft](https://aka.ms/commercialmarketplacehub).\n"

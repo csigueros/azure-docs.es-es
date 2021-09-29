@@ -3,16 +3,17 @@ title: Copia de datos hacia o desde Azure SQL Database
 description: Información acerca de cómo copiar datos hacia y desde Azure SQL Database con Azure Data Factory.
 author: linda33wj
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 67163cd2e2af43d58133dd5ff843b475fc70e3fc
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 6879fd1d616268c48114573f0a7c33b0250c6ed3
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108767084"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128554135"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-using-azure-data-factory"></a>Copia de datos hacia y desde Azure SQL Database con Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]

@@ -1,18 +1,18 @@
 ---
 title: Conexión a una red virtual interna mediante Azure API Management
 description: Aprenda a instalar y configurar Azure API Management en una red virtual mediante el modo interno.
-author: vladvino
+author: dlepow
 ms.service: api-management
 ms.topic: how-to
 ms.date: 08/10/2021
-ms.author: apimpm
+ms.author: danlep
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 83c0e0a7e04130a25267f7a9dafc1cdd888eb53a
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: ee5d0ac639cbd36215df5545d684909af3acd748
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123537268"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128563827"
 ---
 # <a name="connect-to-a-virtual-network-in-internal-mode-using-azure-api-management"></a>Conexión a una red virtual en modo interno mediante Azure API Management 
 Con las redes virtuales de Azure (VNET), Azure API Management puede administrar API inaccesibles por Internet mediante varias tecnologías de VPN para realizar la conexión. Puede implementar API Management mediante modos [externos](./api-management-using-with-vnet.md) o internos. Para ver las opciones, los requisitos y las consideraciones de conectividad de red virtual, consulte [Uso de una red virtual con Azure API Management](virtual-network-concepts.md).
@@ -208,7 +208,7 @@ Más información sobre:
 [api-management-custom-domain-name]: ./media/api-management-using-with-internal-vnet/updated-api-management-custom-domain-name.png
 
 [Create API Management service]: get-started-create-service-instance.md
-[Common network configuration problems]: api-management-using-with-vnet.md#network-configuration
+[Common network configuration problems]: api-management-using-with-vnet.md#network-configuration-issues
 
 [ServiceTags]: ../virtual-network/network-security-groups-overview.md#service-tags
 

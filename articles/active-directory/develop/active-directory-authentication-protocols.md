@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/18/2019
+ms.date: 09/27/2021
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: hirsin
 ROBOTS: NOINDEX
-ms.openlocfilehash: 803f52666fb09a836eae3294410584ebbd71a1b6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d489dbad512af238601636e9f0c4f144f9b2216d
+ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98755895"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129153945"
 ---
 # <a name="microsoft-identity-platform-authentication-protocols"></a>Protocolos de autenticación de la Plataforma de identidad de Microsoft
 

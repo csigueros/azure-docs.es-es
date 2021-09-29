@@ -10,14 +10,14 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/17/2021
+ms.date: 09/24/2021
 ms.author: radeltch
-ms.openlocfilehash: aca16d11bd9ee7e035f7306426a5566c67622a42
-ms.sourcegitcommit: 4f185f97599da236cbed0b5daef27ec95a2bb85f
+ms.openlocfilehash: 36e60acef3bb81b3da24cfcdaf4b8350f0be344d
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2021
-ms.locfileid: "112369189"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129044215"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-red-hat-enterprise-linux"></a>Alta disponibilidad de SAP HANA en máquinas virtuales de Azure en Red Hat Enterprise Linux
 
@@ -597,10 +597,13 @@ Este paso es importante para optimizar la integración con el clúster y mejorar
 
 2. **[A]** El clúster requiere la configuración de sudoers en cada nodo de clúster para <sid\>adm. En este ejemplo, esto se consigue mediante la creación de un archivo nuevo. Ejecute los comandos como `root`.    
     ```bash
-    cat << EOF > /etc/sudoers.d/20-saphana
-    # Needed for SAPHanaSR python hook
-    hn1adm ALL=(ALL) NOPASSWD: /usr/sbin/crm_attribute -n hana_hn1_site_srHook_*
-    EOF
+    sudo visudo -f /etc/sudoers.d/20-saphana
+    # Insert the following lines and then save
+    Cmnd_Alias SITE1_SOK   = /usr/sbin/crm_attribute -n hana_hn1_site_srHook_SITE1 -v SOK -t crm_config -s SAPHanaSR
+    Cmnd_Alias SITE1_SFAIL = /usr/sbin/crm_attribute -n hana_hn1_site_srHook_SITE1 -v SFAIL -t crm_config -s SAPHanaSR
+    Cmnd_Alias SITE2_SOK   = /usr/sbin/crm_attribute -n hana_hn1_site_srHook_SITE2 -v SOK -t crm_config -s SAPHanaSR
+    Cmnd_Alias SITE2_SFAIL = /usr/sbin/crm_attribute -n hana_hn1_site_srHook_SITE2 -v SFAIL -t crm_config -s SAPHanaSR
+    hn1adm ALL=(ALL) NOPASSWD: SITE1_SOK, SITE1_SFAIL, SITE2_SOK, SITE2_SFAIL
     ```
 
 3. **[A]** Inicie SAP HANA en ambos nodos. Ejecute como <sid\>adm.  

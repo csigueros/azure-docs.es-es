@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.date: 06/22/2021
-ms.openlocfilehash: afdfce29840bbc88bdfc853e12e8109881f8366a
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: d593b234e33eefeb5116bc69aeb7ad990ac24536
+ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113002037"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129153831"
 ---
 # <a name="publish-an-integrated-solution"></a>Publicación de una solución integrada
 
@@ -51,7 +51,7 @@ Para obtener información general sobre el programa de soluciones integradas, ve
 
 ## <a name="submit-a-nomination"></a>Enviar una nominación
 
-Los partners que quieran participar en el programa deben identificar a otros partners con los que quieran trabajar. Deben completar el [formulario de nominación de soluciones integradas](https://aka.ms/AA5qicu). El equipo del programa de soluciones integradas revisa la nominación y realiza un seguimiento durante los 10 días laborables siguientes. También facilita la aprobación e indica los pasos siguientes.
+Los partners que quieran participar en el programa deben identificar a otros partners con los que quieran trabajar. Deben completar el [formulario de nominación de soluciones integradas](https://go.microsoft.com/fwlink/?linkid=2172593). El equipo del programa de soluciones integradas revisa la nominación y realiza un seguimiento durante los 10 días laborables siguientes. También facilita la aprobación e indica los pasos siguientes.
 
 ## <a name="develop-an-integrated-solution"></a>Desarrollo de una solución integrada
 

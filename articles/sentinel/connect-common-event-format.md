@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/26/2021
 ms.author: yelevin
-ms.openlocfilehash: 6f261e69daa14e652d226c9b0d6402eb353c1744
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: 71f127bd45c833205067256a2b23cdc72b2c3bfb
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123251894"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124784515"
 ---
 # <a name="get-cef-formatted-logs-from-your-device-or-appliance-into-azure-sentinel"></a>Obtención de registros con formato CEF del dispositivo en Azure Sentinel
 
@@ -55,7 +55,7 @@ Se requiere un área de trabajo de Azure Sentinel para ingerir datos CEF en Log
 
 - Debe tener permisos de lectura y escritura en el área de trabajo.
 
-- Debe tener permisos de lectura para las claves compartidas del área de trabajo. [Obtenga más información sobre las claves del área de trabajo](../azure-monitor/platform/agent-windows.md#obtain-workspace-id-and-key).
+- Debe tener permisos de lectura para las claves compartidas del área de trabajo. [Obtenga más información sobre las claves del área de trabajo](../azure-monitor/agents/agent-windows.md).
 
 ## <a name="designate-a-log-forwarder-and-install-the-log-analytics-agent"></a>Designe un reenviador de registros e instale el agente de Log Analytics.
 
@@ -117,7 +117,7 @@ Para buscar eventos CEF de estos productos, escriba el nombre de la función de 
 
 Puede encontrar consultas de ejemplo útiles, libros y plantillas de reglas de análisis hechas especialmente para el producto en la pestaña **Pasos siguientes** de la página de conectores de datos del producto en el portal de Azure Sentinel.
 
-Si no ve ningún dato, consulte la página [Solución de problemas de CEF](connect-cef-verify.md) para obtener instrucciones.
+Si no ve ningún dato, consulte la página [Solución de problemas de CEF](./troubleshooting-cef-syslog.md) para obtener instrucciones.
 
 ### <a name="changing-the-source-of-the-timegenerated-field"></a>Cambio del origen del campo TimeGenerated
 

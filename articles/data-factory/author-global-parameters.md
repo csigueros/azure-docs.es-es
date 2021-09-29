@@ -8,12 +8,12 @@ author: minhe-msft
 ms.author: hemin
 ms.date: 05/12/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: f3ae53df3827349e208f0097e084c38b2ab4314b
-ms.sourcegitcommit: deb5717df5a3c952115e452f206052737366df46
+ms.openlocfilehash: f57b33f94bff98714969639e935ae5010a5762cd
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122681261"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129218156"
 ---
 # <a name="global-parameters-in-azure-data-factory"></a>Parámetros globales en Azure Data Factory
 
@@ -25,21 +25,21 @@ Los parámetros globales son constantes en una factoría de datos que una canali
 
 Para crear un parámetro global, vaya a la pestaña *Parámetros globales* de la sección **Administrar**. Seleccione **Nuevo** para abrir el panel de navegación lateral de creación.
 
-![Captura de pantalla en la que se resalta el botón Nuevo que ha seleccionado para crear los parámetros globales.](media/author-global-parameters/create-global-parameter-1.png)
+:::image type="content" source="media/author-global-parameters/create-global-parameter-1.png" alt-text="Captura de pantalla en la que se resalta el botón Nuevo que ha seleccionado para crear los parámetros globales.":::
 
 En el panel de navegación lateral, escriba un nombre, seleccione un tipo de datos y especifique el valor del parámetro.
 
-![Captura de pantalla que muestra dónde se agrega el nombre, el tipo de datos y el valor del nuevo parámetro global.](media/author-global-parameters/create-global-parameter-2.png)
+:::image type="content" source="media/author-global-parameters/create-global-parameter-2.png" alt-text="Captura de pantalla que muestra dónde se agrega el nombre, el tipo de datos y el valor del nuevo parámetro global.":::
 
 Una vez creado un parámetro global, puede editarlo con un clic en el nombre del parámetro. Para modificar varios parámetros a la vez, seleccione **Editar todo**.
 
-![Creación de parámetros globales](media/author-global-parameters/create-global-parameter-3.png)
+:::image type="content" source="media/author-global-parameters/create-global-parameter-3.png" alt-text="Creación de parámetros globales":::
 
 ## <a name="using-global-parameters-in-a-pipeline"></a>Uso de parámetros globales en una canalización
 
 Los parámetros globales se pueden usar en cualquier [expresión de canalización](control-flow-expression-language-functions.md). Si una canalización hace referencia a otro recurso, como un conjunto de datos o un flujo de datos, puede pasar el valor del parámetro global a través de los parámetros de ese recurso. Se hace referencia a los parámetros globales como `pipeline().globalParameters.<parameterName>`.
 
-![Uso de parámetros globales](media/author-global-parameters/expression-global-parameters.png)
+:::image type="content" source="media/author-global-parameters/expression-global-parameters.png" alt-text="Uso de parámetros globales":::
 
 ## <a name="global-parameters-in-cicd"></a><a name="cicd"></a> Parámetros globales en CI/CD
 
@@ -48,9 +48,9 @@ Hay dos maneras de integrar los parámetros globales en la solución de integrac
 * Incluir los parámetros globales en la plantilla de Resource Manager
 * Implementar los parámetros globales mediante un script de PowerShell
 
-Para casos de uso generales, se recomienda incluir parámetros globales en la plantilla de ARM. Esto se integra de forma nativa con la solución descrita en [el documento de CI/CD](continuous-integration-deployment.md). En el caso de la publicación automática y la conexión de Purview, se requiere el método de **script de PowerShell**. Puede encontrar más información sobre el método de script de PowerShell más adelante. Los parámetros globales se agregarán como un parámetro de plantilla de ARM de forma predeterminada, ya que a menudo cambian de un entorno a otro. Puede habilitar la inclusión de parámetros globales en la plantilla de ARM desde el **centro de administración**.
+Para casos de uso generales, se recomienda incluir parámetros globales en la plantilla de ARM. Esto se integra de forma nativa con la solución descrita en [el documento de CI/CD](continuous-integration-delivery.md). En el caso de la publicación automática y la conexión de Purview, se requiere el método de **script de PowerShell**. Puede encontrar más información sobre el método de script de PowerShell más adelante. Los parámetros globales se agregarán como un parámetro de plantilla de ARM de forma predeterminada, ya que a menudo cambian de un entorno a otro. Puede habilitar la inclusión de parámetros globales en la plantilla de ARM desde el **centro de administración**.
 
-![Inclusión en la plantilla de Resource Manager](media/author-global-parameters/include-arm-template.png)
+:::image type="content" source="media/author-global-parameters/include-arm-template.png" alt-text="Inclusión en la plantilla de Resource Manager":::
 
 > [!NOTE]
 > La configuración de **inclusión en la plantilla de ARM** solo está disponible en el modo git. Actualmente está deshabilitada en el modo activo o el modo de Data Factory. En el caso de la publicación automática o la conexión de Purview, no use el método Incluir parámetros globales; use el método de script de PowerShell. 
@@ -67,13 +67,13 @@ En los pasos siguientes se describe cómo implementar parámetros globales a tra
 
 Al publicar una factoría o exportar una plantilla de Resource Manager con parámetros globales, se crea una carpeta llamada *globalParameters* con un archivo denominado *nombre-de-su-factoría.json*. Este archivo es un objeto JSON que contiene cada tipo y valor de parámetro global en la factoría publicada.
 
-![Publicación de parámetros globales](media/author-global-parameters/global-parameters-adf-publish.png)
+:::image type="content" source="media/author-global-parameters/global-parameters-adf-publish.png" alt-text="Publicación de parámetros globales":::
 
 Si va a realizar la implementación en un entorno nuevo como TEST o PROD, se recomienda crear una copia de este archivo de parámetros globales y sobrescribir los valores específicos del entorno. Cuando vuelva a realizar la publicación, el archivo de parámetros globales original se sobrescribirá, pero la copia del otro entorno no se modificará.
 
 Por ejemplo, si tiene una factoría denominada "ADF-DEV" y un parámetro global de tipo cadena denominado "environment" con un valor "dev", cuando publique un archivo denominado *ADF-DEV_GlobalParameters.json*, se generará. Si realiza la implementación en una factoría de prueba denominada "ADF_TEST", cree una copia del archivo JSON (por ejemplo, con el nombre ADF-TEST_GlobalParameters.json) y reemplace los valores de parámetro por los valores específicos del entorno. El parámetro "environment" ahora puede tener un valor "test". 
 
-![Implementación de parámetros globales](media/author-global-parameters/powershell-task.png)
+:::image type="content" source="media/author-global-parameters/powershell-task.png" alt-text="Implementación de parámetros globales":::
 
 Use el script de PowerShell siguiente para promover los parámetros globales a otros entornos. Agregue una tarea de DevOps de Azure PowerShell antes de la implementación de plantillas de Resource Manager. En la tarea DevOps, debe especificar la ubicación del archivo de parámetros nuevo, el grupo de recursos de destino y la factoría de datos de destino.
 
@@ -114,5 +114,5 @@ Set-AzDataFactoryV2 -InputObject $dataFactory -Force
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Más información sobre el [proceso de integración e implementación continuas](continuous-integration-deployment.md) de Azure Data Factory.
+* Más información sobre el [proceso de integración e implementación continuas](continuous-integration-delivery.md) de Azure Data Factory.
 * Más información sobre cómo usar el [lenguaje de expresiones del flujo de control](control-flow-expression-language-functions.md).

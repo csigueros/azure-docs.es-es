@@ -3,16 +3,17 @@ title: Movimiento de datos de tabla web mediante Azure Data Factory
 description: Obtenga información sobre cómo mover datos de una tabla de una página web mediante Azure Data Factory.
 author: linda33wj
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 7663848bd06244de7efb169a576e11a5c78204c1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0e3472393587fe117e342bbc1dce5d990520760d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100392908"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128651225"
 ---
 # <a name="move-data-from-a-web-table-source-using-azure-data-factory"></a>Movimiento de datos de un origen de tabla web mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -29,7 +30,7 @@ Factoría de datos solo admite actualmente el movimiento de datos desde una tabl
 > [!IMPORTANT]
 > Actualmente, este conector web solo permite extraer contenido de tablas de una página HTML. Para recuperar datos de un punto de conexión HTTP/s, utilice el [conector HTTP](data-factory-http-connector.md) en su lugar.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para utilizar este conector de tabla web, debe configurar Integration Runtime autohospedado (también conocido como Data Management Gateway) y configurar la propiedad `gatewayName` en el servicio vinculado del receptor. Por ejemplo, para copiar de la tabla web a Azure Blob Storage, configure el servicio vinculado de Azure Storage de la siguiente manera:
 
@@ -282,24 +283,24 @@ Consulte Propiedades de tipo WebSource para obtener la lista de propiedades que 
 1. Inicie **Excel 2016** y cambie a la pestaña **Datos**.  
 2. Haga clic en **Nueva consulta** en la barra de herramientas, elija **De otros orígenes** y haga clic en **Desde Web**.
 
-    ![Menú de Power Query](./media/data-factory-web-table-connector/PowerQuery-Menu.png)
+    :::image type="content" source="./media/data-factory-web-table-connector/PowerQuery-Menu.png" alt-text="Menú de Power Query":::
 3. En el cuadro de diálogo **Desde Web**, escriba la **dirección URL** que usaría en el objeto JSON del servicio vinculado (por ejemplo: https://en.wikipedia.org/wiki/) ) junto con la ruta de acceso que especificaría para el conjunto de datos (por ejemplo: AFI%27s_100_Years...100_Movies) y haga clic en **Aceptar**.
 
-    ![Cuadro de diálogo Desde Web](./media/data-factory-web-table-connector/FromWeb-DialogBox.png)
+    :::image type="content" source="./media/data-factory-web-table-connector/FromWeb-DialogBox.png" alt-text="Cuadro de diálogo Desde Web":::
 
     Dirección URL que se usa en este ejemplo: https://en.wikipedia.org/wiki/AFI%27s_100_Years...100_Movies
 4. Si ve el cuadro de diálogo **Acceso a contenido web**, seleccione la **dirección URL** correcta, la **autenticación** y haga clic en **Conectar**.
 
-   ![Cuadro de diálogo Acceso a contenido web](./media/data-factory-web-table-connector/AccessWebContentDialog.png)
+   :::image type="content" source="./media/data-factory-web-table-connector/AccessWebContentDialog.png" alt-text="Cuadro de diálogo Acceso a contenido web":::
 5. Haga clic en un elemento de **tabla** en la vista de árbol para ver el contenido de la tabla y después en el botón **Editar** ubicado en la parte inferior.  
 
-   ![Cuadro de diálogo Navegador](./media/data-factory-web-table-connector/Navigator-DialogBox.png)
+   :::image type="content" source="./media/data-factory-web-table-connector/Navigator-DialogBox.png" alt-text="Cuadro de diálogo Navegador":::
 6. En la ventana **Editor de consultas**, haga clic en el botón **Editor avanzado** de la barra de herramientas.
 
-    ![Botón Editor avanzado](./media/data-factory-web-table-connector/QueryEditor-AdvancedEditorButton.png)
+    :::image type="content" source="./media/data-factory-web-table-connector/QueryEditor-AdvancedEditorButton.png" alt-text="Botón Editor avanzado":::
 7. En el cuadro de diálogo Editor avanzado, el número que aparece junto a "Origen" es el índice.
 
-    ![Editor avanzado - Índice](./media/data-factory-web-table-connector/AdvancedEditor-Index.png)
+    :::image type="content" source="./media/data-factory-web-table-connector/AdvancedEditor-Index.png" alt-text="Editor avanzado - Índice":::
 
 Si usa Excel 2013, use [Microsoft Power Query para Excel](https://www.microsoft.com/download/details.aspx?id=39379) para obtener el índice. Consulte el artículo [Conectarse a una página web](https://support.office.com/article/Connect-to-a-web-page-Power-Query-b2725d67-c9e8-43e6-a590-c0a175bd64d8) para más información. Los pasos son similares si usa [Microsoft Power BI Desktop](https://powerbi.microsoft.com/desktop/).
 

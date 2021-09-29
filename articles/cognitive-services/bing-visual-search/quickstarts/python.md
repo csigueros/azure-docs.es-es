@@ -3,20 +3,18 @@ title: 'Inicio rápido: Obtención de conclusiones de imágenes mediante la API 
 titleSuffix: Azure Cognitive Services
 description: Aprenda a cargar una imagen con Bing Visual Search API y Python y, a continuación, obtener conclusiones sobre esta.
 services: cognitive-services
-author: swhite-msft
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
 ms.date: 05/22/2020
-ms.author: scottwhi
 ms.custom: devx-track-python
-ms.openlocfilehash: 5c43df5880c1d54fa8e4f86acaa0b3456d778374
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 1470bfe66ee79b993e624f1bf6f9d5ca31c84b60
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499051"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128658704"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-python"></a>Inicio rápido: Obtención de conclusiones de imágenes mediante la API REST Bing Visual Search y Python
 

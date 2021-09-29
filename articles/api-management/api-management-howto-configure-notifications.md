@@ -4,7 +4,7 @@ titleSuffix: Azure API Management
 description: Obtenga información acerca de cómo configurar notificaciones y plantillas de correo electrónico en Azure API Management.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 manager: cfowler
 editor: ''
 ms.service: api-management
@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/10/2020
-ms.author: apimpm
-ms.openlocfilehash: ddea6f64aa4c3f78116e30ba8c9731acebfbb006
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.author: danlep
+ms.openlocfilehash: 973f555391e9659700450be5fef796ddabcbfcc0
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121734487"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128660830"
 ---
 # <a name="how-to-configure-notifications-and-email-templates-in-azure-api-management"></a>Configuración de notificaciones y plantillas de correo electrónico en Azure API Management
 

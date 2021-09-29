@@ -9,12 +9,12 @@ ms.subservice: certificates
 ms.topic: overview
 ms.date: 07/20/2020
 ms.author: sebansal
-ms.openlocfilehash: ce1d83ddd47553de1efdef80cc33bc5dd4634c81
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: b2eeca4bb6f5d8af01aa283446961b56d27918d7
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123307601"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124761676"
 ---
 # <a name="renew-your-azure-key-vault-certificates"></a>Renovación de los certificados de Azure Key Vault
 
@@ -65,7 +65,7 @@ Para renovar un certificado de una entidad de certificación no integrada, haga 
 > [!NOTE]
 > Es importante fusionar el CSR firmado con la misma solicitud de CSR que creó. De lo contrario, la clave no coincidirá.
 
-Para más información sobre la creación de un CSR, consulte [Creación y Combinación de un CSR en Key Vault]( https://docs.microsoft.com/azure/key-vault/certificates/create-certificate-signing-request#azure-portal).
+Para más información sobre la creación de un CSR, consulte [Creación y Combinación de un CSR en Key Vault](create-certificate-signing-request.md).
 
 ## <a name="renew-a-self-signed-certificate"></a>Renovación de un certificado autofirmado
 

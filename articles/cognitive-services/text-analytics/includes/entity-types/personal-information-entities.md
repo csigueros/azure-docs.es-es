@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 08/11/2021
+ms.date: 09/09/2021
 ms.author: aahi
-ms.openlocfilehash: c1b4d8801013eeb25c18b837ef4ff5a0245739e5
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: ce85895307af9e437fb9ceaaff3f1a385e77e17d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121734077"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128672596"
 ---
 > [!NOTE]
 > Para detectar información de salud protegida (PHI), use el parámetro `domain=phi` y la versión del modelo `2020-04-01` o posterior.
@@ -155,78 +155,6 @@ Este categoría contiene la entidad siguiente:
 
 :::row-end:::
 
-#### <a name="subcategories"></a>Subcategorías
-
-La entidad de esta categoría puede tener las subcategorías siguientes.
-
-:::row:::
-    :::column span="":::
-        **Subcategoría de la entidad**
-
-        Medicina    
-
-    :::column-end:::
-    :::column span="2":::
-        **Detalles**
-
-        Empresas y grupos médicos.
-
-        Para obtener esta categoría de entidad, agregue `OrganizationMedical` al parámetro `piiCategories`. `OrganizationMedical` se devolverá en la respuesta de la API si se detecta.
-      
-    :::column-end:::
-
-    :::column span="":::
-      **Idiomas de documento admitidos**
-
-      `en`   
-      
-   :::column-end:::
-
-:::row-end:::
-:::row:::
-    :::column span="":::
-
-        Bolsa de valores
-
-    :::column-end:::
-    :::column span="2":::
-
-        Grupos de bolsa de valores. 
-
-        Para obtener esta categoría de entidad, agregue `OrganizationStockExchange` al parámetro `piiCategories`. `OrganizationStockExchange` se devolverá en la respuesta de la API si se detecta.
-      
-    :::column-end:::
-
-    :::column span="":::
-
-      `en`   
-      
-   :::column-end:::
-
-:::row-end:::
-:::row:::
-    :::column span="":::
-
-        Deportes
-
-    :::column-end:::
-    :::column span="2":::
-
-        Organizaciones relacionadas con los deportes.
-
-        Para obtener esta categoría de entidad, agregue `OrganizationSports` al parámetro `piiCategories`. `OrganizationSports` se devolverá en la respuesta de la API si se detecta.
-      
-    :::column-end:::
-
-    :::column span="":::
-
-      `en`   
-      
-   :::column-end:::
-
-:::row-end:::
-
-
 ### <a name="category-address"></a>Categoría: Dirección
 
 Este categoría contiene la entidad siguiente:
@@ -366,33 +294,6 @@ Este categoría contiene las entidades siguientes:
       `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`
       
    :::column-end:::
-:::row-end:::
-
-#### <a name="subcategories"></a>Subcategorías
-
-La entidad de esta categoría puede tener las subcategorías siguientes.
-
-:::row:::
-    :::column span="":::
-        **Subcategoría de la entidad**
-
-        Fecha
-
-    :::column-end:::
-    :::column span="2":::
-        **Detalles**
-
-        Fechas calendario. También se devuelve con `domain=phi`.
-
-        Para obtener esta categoría de entidad, agregue `Date` al parámetro `piiCategories`. `Date` se devolverá en la respuesta de la API si se detecta.
-      
-    :::column-end:::
-    :::column span="2":::
-      **Idiomas de documento admitidos**
-      
-      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`   
-      
-    :::column-end:::
 :::row-end:::
 
 ### <a name="category-quantity"></a>Categoría: Cantidad

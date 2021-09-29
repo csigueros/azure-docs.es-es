@@ -7,16 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/17/2021
+ms.date: 09/20/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: ce49a0a6fc249f3cea6bfdac613beade5322142f
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 07c3b88bd4cb5b7c0b0121bc2b9e12b7f9d5a441
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122323899"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128598049"
 ---
 # <a name="tutorial-create-user-flows-and-custom-policies-in-azure-active-directory-b2c"></a>Tutorial: Creación de flujos de usuario y directivas personalizadas en Azure Active Directory B2C
 
@@ -63,10 +63,8 @@ Las [directivas personalizadas](custom-policy-overview.md) son archivos de confi
 Este flujo de usuario de registro y de inicio de sesión controla las experiencias de registro y de inicio de sesión del cliente con una sola configuración. A los usuarios se les lleva por el proceso correcto según el contexto.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-1. Seleccione el icono **Directorio y suscripción** en la barra de herramientas del portal y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
-
-    ![Inquilino de B2C, panel de directorio y suscripción, Azure Portal](./media/tutorial-create-user-flows/directory-subscription-pane.png)
-
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
 1. En Azure Portal, busque y seleccione **Azure AD B2C**.
 1. En **Directivas**, seleccione **Flujos de usuario** y **Nuevo flujo de usuario**.
 
@@ -150,7 +148,8 @@ Si desea permitir que los usuarios editen sus perfiles en la aplicación, debe u
 ## <a name="add-signing-and-encryption-keys"></a>Agregar claves de firma y cifrado
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-1. Seleccione el icono **Directorio y suscripción** en la barra de herramientas del portal y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
 1. En Azure Portal, busque y seleccione **Azure AD B2C**.
 1. En la página de información general, en **Directivas**, seleccione **Identity Experience Framework**.
 

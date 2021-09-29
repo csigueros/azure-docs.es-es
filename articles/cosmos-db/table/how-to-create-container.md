@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: mjbrown
 ms.custom: devx-track-csharp
-ms.openlocfilehash: cfb7513ad3dc76c87cb9b06d5d7325011fb2908b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 9320e34ccd4cdb217ac574eeef0d5c0b0f1eeb42
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121780948"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124812083"
 ---
 # <a name="create-a-container-in-azure-cosmos-db-table-api"></a>Creación de un contenedor en Table API de Azure Cosmos DB
 [!INCLUDE[appliesto-table-api](../includes/appliesto-table-api.md)]
@@ -29,7 +29,7 @@ En este artículo se explican las distintas formas de crear un contenedor en Tab
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
-1. [Cree una cuenta de Azure Cosmos](create-table-dotnet.md#create-a-database-account) o seleccione una ya existente.
+1. [Cree una cuenta de Azure Cosmos](create-table-dotnet.md#1---create-an-azure-cosmos-db-account) o seleccione una ya existente.
 
 1. Abra el panel **Data Explorer** y seleccione **Nueva tabla**. Después, proporcione los detalles siguientes:
 

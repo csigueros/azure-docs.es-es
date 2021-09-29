@@ -10,12 +10,12 @@ ms.date: 03/16/2021
 ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 3fcc58f626622bcc728265e782906226859e1bf9
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: a52460db452d519c51fb7a1b191766b21da67f88
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104600469"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128592287"
 ---
 # <a name="use-private-endpoints-for-azure-storage"></a>Uso de puntos de conexión privados para Azure Storage
 
@@ -47,7 +47,7 @@ Los propietarios de cuentas de almacenamiento pueden administrar las solicitudes
 Puede proteger la cuenta de almacenamiento para que acepte solo las conexiones que provengan de la red virtual. Para ello, debe [configurar el firewall de almacenamiento](storage-network-security.md#change-the-default-network-access-rule) para que, de forma predeterminada, deniegue el acceso a través de su punto de conexión. Para permitir el tráfico de una red virtual que tenga un punto de conexión privado no se necesita ninguna regla de firewall, ya que el firewall de almacenamiento solo controla el acceso a través del punto de conexión privado. En su lugar, los puntos de conexión privados usan el flujo de consentimiento para conceder el acceso de las subredes al servicio de almacenamiento.
 
 > [!NOTE]
-> Cuando se copian blobs entre cuentas de almacenamiento, el cliente debe tener acceso a redes en ambas cuentas. Por consiguiente, si elige usar un vínculo privado para una sola cuenta (ya sea el origen o el destino), asegúrese de que el cliente tiene acceso a redes en la otra cuenta. Para obtener información sobre otras formas de configurar el acceso a redes, consulte [Configuración de redes virtuales y firewalls de Azure Storage](storage-network-security.md?toc=/azure/storage/blobs/toc.json). 
+> Cuando se copian blobs entre cuentas de almacenamiento, el cliente debe tener acceso a redes en ambas cuentas. Por consiguiente, si elige usar un vínculo privado para una sola cuenta (ya sea el origen o el destino), asegúrese de que el cliente tiene acceso a redes en la otra cuenta. Para obtener información sobre otras formas de configurar el acceso a redes, consulte [Configuración de redes virtuales y firewalls de Azure Storage](storage-network-security.md?toc=/azure/storage/blobs/toc.json).
 
 <a id="private-endpoints-for-azure-storage"></a>
 
@@ -61,11 +61,9 @@ Para crear un punto de conexión privado mediante PowerShell o la CLI de Azure, 
 
 - [Creación de un punto de conexión privado mediante Azure PowerShell](../../private-link/create-private-endpoint-powershell.md)
 
+Al crear un punto de conexión privado, debe especificar la cuenta de almacenamiento y el servicio de almacenamiento al que se conecta.
 
-
-Al crear un punto de conexión privado, debe especificar la cuenta de almacenamiento y el servicio de almacenamiento al que se conecta. 
-
-Necesita un punto de conexión privado independiente para cada recurso de almacenamiento al que necesite acceder, concretamente, [Blobs](../blobs/storage-blobs-overview.md), [Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md), [Files](../files/storage-files-introduction.md), [Queues](../queues/storage-queues-introduction.md), [Tables](../tables/table-storage-overview.md) o [Static Websites](../blobs/storage-blob-static-website.md). En el punto de conexión privado, estos servicios de almacenamiento se definen como el **recurso secundario de destino** de la cuenta de almacenamiento asociada. 
+Necesita un punto de conexión privado independiente para cada recurso de almacenamiento al que necesite acceder, concretamente, [Blobs](../blobs/storage-blobs-overview.md), [Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md), [Files](../files/storage-files-introduction.md), [Queues](../queues/storage-queues-introduction.md), [Tables](../tables/table-storage-overview.md) o [Static Websites](../blobs/storage-blob-static-website.md). En el punto de conexión privado, estos servicios de almacenamiento se definen como el **recurso secundario de destino** de la cuenta de almacenamiento asociada.
 
 Si crea un punto de conexión privado para el recurso de almacenamiento de Data Lake Storage Gen2, también debe crear uno para el recurso de Blob Storage. Esto se debe a que las operaciones que tienen como destino el punto de conexión de Data Lake Storage Gen2 se pueden redirigir al punto de conexión del blob. Al crear un punto de conexión privado para ambos recursos, se asegura de que las operaciones se pueden completar correctamente.
 
@@ -96,22 +94,22 @@ En el ejemplo anterior, los registros de recursos DNS de la cuenta de almacenami
 
 | Nombre                                                  | Tipo  | Value                                                 |
 | :---------------------------------------------------- | :---: | :---------------------------------------------------- |
-| ``StorageAccountA.blob.core.windows.net``             | CNAME | ``StorageAccountA.privatelink.blob.core.windows.net`` |
-| ``StorageAccountA.privatelink.blob.core.windows.net`` | CNAME | \<storage service public endpoint\>                   |
+| `StorageAccountA.blob.core.windows.net`             | CNAME | `StorageAccountA.privatelink.blob.core.windows.net` |
+| `StorageAccountA.privatelink.blob.core.windows.net` | CNAME | \<storage service public endpoint\>                   |
 | \<storage service public endpoint\>                   | Un     | \<storage service public IP address\>                 |
 
 Como ya se ha mencionado, puede denegar o controlar el acceso de los clientes de fuera de la red virtual a través del punto de conexión público mediante el firewall de Storage.
 
 Los registros de recursos DNS de StorageAccountA, cuando los resuelve un cliente en la red virtual que hospeda el punto de conexión privado, serán:
 
-| Nombre                                                  | Tipo  | Value                                                 |
-| :---------------------------------------------------- | :---: | :---------------------------------------------------- |
-| ``StorageAccountA.blob.core.windows.net``             | CNAME | ``StorageAccountA.privatelink.blob.core.windows.net`` |
-| ``StorageAccountA.privatelink.blob.core.windows.net`` | Un     | 10.1.1.5                                              |
+| Nombre  | Tipo | Value |
+| :--- | :---: | :--- |
+| `StorageAccountA.blob.core.windows.net` | CNAME | `StorageAccountA.privatelink.blob.core.windows.net` |
+| `StorageAccountA.privatelink.blob.core.windows.net` | A | `10.1.1.5` |
 
 Este enfoque permite el acceso a la cuenta de almacenamiento **mediante la misma cadena de conexión** para los clientes de la red virtual que hospeda los puntos de conexión privados y los clientes que están fuera de esta.
 
-Si va a usar un servidor DNS personalizado en la red, los clientes deben ser capaces de resolver el FQDN del punto de conexión de la cuenta de almacenamiento en la dirección IP del punto de conexión privado. Debería configurar el servidor DNS para delegar el subdominio del vínculo privado en la zona DNS privada de la red virtual o configurar los registros A para "*StorageAccountA.privatelink.blob.core.windows.net*" con la dirección IP del punto de conexión privado.
+Si va a usar un servidor DNS personalizado en la red, los clientes deben ser capaces de resolver el FQDN del punto de conexión de la cuenta de almacenamiento en la dirección IP del punto de conexión privado. Debe configurar el servidor DNS para delegar el subdominio del vínculo privado en la zona DNS privada de la red virtual, o bien configurar los registros D para `StorageAccountA.privatelink.blob.core.windows.net` con la dirección IP del punto de conexión privado.
 
 > [!TIP]
 > Cuando use un servidor DNS personalizado o local, debe configurarlo para resolver el nombre de la cuenta de almacenamiento del subdominio `privatelink` en la dirección IP del punto de conexión privado. Para ello, puede delegar el subdominio `privatelink` en la zona DNS privada de la red virtual, o bien configurar la zona DNS en el servidor DNS y agregar los registros A de DNS.
@@ -152,9 +150,9 @@ Actualmente, no se pueden configurar reglas de [grupo de seguridad de red](../..
 
 ### <a name="copying-blobs-between-storage-accounts"></a>Copia de blobs entre cuentas de almacenamiento
 
-Puede copiar blobs entre cuentas de almacenamiento mediante puntos de conexión privados solo si usa la API REST de Azure o las herramientas que usan la API REST. Entre estas herramientas se incluyen AzCopy, explorador de Storage, Azure PowerShell, CLI de Azure y los SDK de Azure Blob Storage. 
+Puede copiar blobs entre cuentas de almacenamiento mediante puntos de conexión privados solo si usa la API REST de Azure o las herramientas que usan la API REST. Entre estas herramientas se incluyen AzCopy, explorador de Storage, Azure PowerShell, CLI de Azure y los SDK de Azure Blob Storage.
 
-Solo se admiten los puntos de conexión privados que tienen como destino el recurso de almacenamiento de blobs. Todavía no se admiten los puntos de conexión privados que tienen como destino Data Lake Storage Gen2 o el recurso File. Además, todavía no se admite la copia entre cuentas de almacenamiento mediante el protocolo Network File System (NFS). 
+Solo se admiten los puntos de conexión privados que tienen como destino el recurso de almacenamiento de blobs. Todavía no se admiten los puntos de conexión privados que tienen como destino Data Lake Storage Gen2 o el recurso File. Además, todavía no se admite la copia entre cuentas de almacenamiento mediante el protocolo Network File System (NFS).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

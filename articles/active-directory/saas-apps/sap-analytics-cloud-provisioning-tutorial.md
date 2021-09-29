@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/13/2020
 ms.author: thwimmer
-ms.openlocfilehash: 16fbc64f77407c02ec189e9f0bd0de40d9a7f2bd
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 84842b751c0e4351da13d26654147c9541af6973
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113759642"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128643405"
 ---
 # <a name="tutorial-configure-sap-analytics-cloud-for-automatic-user-provisioning"></a>Tutorial: Configuración de SAP Analytics Cloud para el aprovisionamiento automático de usuarios
 
@@ -54,7 +54,7 @@ En el escenario descrito en este tutorial se supone que ya cuenta con los requis
 
 1. Inicie sesión en la [consola de administración de aprovisionamiento de identidades de SAP](https://ips-xlnk9v890j.dispatcher.us1.hana.ondemand.com/) con la cuenta de administrador y seleccione **Proxy Systems** (Sistemas proxy).
 
-   ![Sistemas proxy de SAP](./media/sap-analytics-cloud-provisioning-tutorial/sap-proxy-systems.png.png)
+   ![Sistemas proxy de SAP](./media/sap-analytics-cloud-provisioning-tutorial/sap-proxy-systems.png)
 
 2. Seleccione **Propiedades**.
 

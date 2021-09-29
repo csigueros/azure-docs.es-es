@@ -2,14 +2,14 @@
 title: Consulta de suscripciones de Azure Event Grid
 description: En este artículo se describe cómo enumerar las suscripciones de Event Grid en una suscripción a Azure. Proporciona distintos parámetros en función del tipo de suscripción.
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 09/28/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e8818a1b055d19153563700efd2fa16141a4fe05
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: e2211b2d1e1c87a70a33ba450c55a7f6284a457a
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110695934"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129211741"
 ---
 # <a name="query-event-grid-subscriptions"></a>Consulta de suscripciones de Event Grid 
 

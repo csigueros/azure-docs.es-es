@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/03/2021
+ms.date: 09/15/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 01aa29865967818a3308bc696544fdb140d95f73
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: c8b7a30cfa47634aeb2eace9ee1c8d3ad2d388c9
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111409440"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128564265"
 ---
 # <a name="custom-email-verification-with-mailjet"></a>Verificación de correo electrónico personalizado con Mailjet
 
@@ -52,7 +52,8 @@ Si aún no tiene una, empiece por configurar una cuenta de Mailjet (los clientes
 A continuación, almacene la clave de API de Mailjet en una clave de directiva de Azure AD B2C que servirá de referencia para las directivas.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
-1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el filtro **Directorio + suscripción** en el menú superior y elija el directorio de Azure AD B2C.
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
 1. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C**.
 1. En la página de **introducción**, seleccione **Identity Experience Framework**.
 1. Seleccione **Claves de directiva** y, luego, **Agregar**.

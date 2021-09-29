@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 07/28/2021
-ms.openlocfilehash: 852bbd93fe7ac1524201db1f96a6a43c7ff60bdb
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 0a5591ddad8410c2cea7018fa2f4d4f13a3afa86
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121736474"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124735956"
 ---
 # <a name="assessment-overview-migrate-to-azure-vms"></a>Introducción a la evaluación (migración a máquinas virtuales de Azure)
 
@@ -232,7 +232,7 @@ En el caso de los discos Ultra, hay un intervalo de IOPS y rendimiento que se pe
     - Se encuentra un disco (disco 2) que puede satisfacer el requisito de IOPS total.
         - IOPS que se aprovisionarán = (rendimiento del disco de origen) *1024/256
     - Se encuentra un disco (disco 3) que puede satisfacer el requisito de rendimiento total.
-1. De los tres discos, se encuentra uno con el tamaño de disco máximo y se redondea a la siguiente [oferta de disco Ultra](https://docs.microsoft.com/azure/virtual-machines/disks-types#disk-size) disponible. Este es el tamaño de disco Ultra aprovisionado.
+1. De los tres discos, se encuentra uno con el tamaño de disco máximo y se redondea a la siguiente [oferta de disco Ultra](../virtual-machines/disks-types.md#disk-size) disponible. Este es el tamaño de disco Ultra aprovisionado.
 1. Las IOPS aprovisionadas se calculan con la siguiente lógica:
     - Si el rendimiento de origen detectado está en el intervalo permitido para el tamaño de disco Ultra, las IOPS aprovisionadas son iguales a las IOPS del disco de origen.
     - De lo contrario, las IOPS aprovisionadas se calculan con las IOPS que se aprovisionarán = (rendimiento del disco de origen) *1024/256

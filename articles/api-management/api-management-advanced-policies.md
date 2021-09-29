@@ -1,17 +1,17 @@
 ---
 title: Directivas avanzadas de Azure API Management | Microsoft Docs
 description: Aprenda sobre las directivas avanzadas disponibles para su uso en Azure API Management. Consulte ejemplos y examine los recursos adicionales disponibles.
-author: vladvino
+author: dlepow
 ms.topic: article
 ms.date: 07/19/2021
 ms.service: api-management
-ms.author: apimpm
-ms.openlocfilehash: 274c4d55955bb3ee7c95fc755660cb67de3bbbd3
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.author: danlep
+ms.openlocfilehash: 056b757b2902889d94ba380dffdd1668de95f892
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114467628"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128643372"
 ---
 # <a name="api-management-advanced-policies"></a>Directivas avanzadas de API Management
 

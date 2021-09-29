@@ -8,22 +8,22 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/25/2021
+ms.date: 09/02/2021
 ms.author: davidmu
 ms.reviewer: lenalepa
-ms.openlocfilehash: 36da44521169c516888489bd0ac60015adcc432f
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 6d77f3d93ad3b69f6cc8842e8a320221e533c4c7
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121733669"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124791486"
 ---
 # <a name="plan-azure-active-directory-my-apps-configuration"></a>Planeamiento de la configuración de Aplicaciones de Azure Active Directory
 
 > [!NOTE]
 > Este artículo va dirigido a aquellos profesionales de TI que necesitan planear la configuración del portal Aplicaciones de su organización.
 >
-> **Para ver la documentación para el usuario final, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md)** .
+> **Para ver la documentación para el usuario final, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)** .
 
 Aplicación, de Azure Active Directory (Azure AD), es un portal web para iniciar y administrar aplicaciones. La página Aplicaciones proporciona a los usuarios un lugar desde el que pueden iniciar el trabajo y buscar todas las aplicaciones a las que tienen acceso. Los usuarios accede a Aplicaciones en [https://myapps.microsoft.com](https://myapps.microsoft.com/).
 
@@ -36,7 +36,6 @@ El portal Aplicaciones está disponible para los usuarios de forma predeterminad
 En él aparecen todas las aplicaciones empresariales de Azure Active Directory que cumplen estas dos condiciones:
 
 * La propiedad visibility de la aplicación se ha establecido en true.
-
 * La aplicación se ha asignado a algún usuario o grupo. Aparece para los usuarios asignados.
 
 La configuración del portal garantiza que las personas adecuadas puedan encontrar fácilmente las aplicaciones adecuadas.
@@ -46,27 +45,18 @@ La configuración del portal garantiza que las personas adecuadas puedan encontr
 Los usuarios acceden al portal Aplicaciones para:
 
 * Descubrir y acceder a todas las aplicaciones conectadas a Azure AD de la organización a las que tienen acceso.
-
    * Para proporcionar a los usuarios la mejor experiencia posible, conviene asegurarse de que las aplicaciones están configuradas para el inicio de sesión único (SSO).
-
 * Solicitar acceso a las nuevas aplicaciones configuradas para el autoservicio.
-
 * Crear colecciones personales de aplicaciones.
-
 * Administrar el acceso a las aplicaciones para otros usuarios cuando se asigne el rol de propietario del grupo o control delegado en el grupo que se usa para conceder acceso a las aplicaciones.
 
 Los administradores pueden configurar:
 
 * [Experiencias de consentimiento](../manage-apps/configure-user-consent.md), incluidos los términos del servicio.
-
 * [Solicitudes de acceso y detección de aplicaciones en forma de autoservicio](../manage-apps/access-panel-manage-self-service-access.md).
-
 * [Colecciones de aplicaciones](../manage-apps/access-panel-collections.md).
-
 * Asignación de iconos a aplicaciones
-
 * Nombres de aplicaciones descriptivos para el usuario
-
 * Personalización de marca de empresa que se muestra en Aplicaciones
 
 ## <a name="plan-consent-configuration"></a>Planeamiento de la configuración del consentimiento
@@ -102,7 +92,6 @@ Es aconsejable que todas las aplicaciones del portal tengan el inicio de sesión
 Azure AD admite varias opciones de inicio de sesión único.
 
 * Para más información al respecto, consulte [Opciones de inicio de sesión único en Azure AD](sso-options.md).
-
 * Para obtener más información sobre cómo usar Azure AD como proveedor de identidades de una aplicación, consulte la [serie de inicios rápidos sobre la administración de aplicaciones](../manage-apps/view-applications-portal.md).
 
 ### <a name="use-federated-sso-if-possible"></a>Uso de SSO federado siempre que sea posible
@@ -120,12 +109,11 @@ Para iniciar sesión en aplicaciones que usan contraseña para el inicio de sesi
 
 ![Captura de pantalla de](./media/my-apps-deployment-plan/ap-dp-install-myapps.png)
 
-Para más información sobre la extensión, consulte el artículo sobre la [instalación de la extensión del explorador Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+Para más información sobre la extensión, consulte el artículo sobre la [instalación de la extensión del explorador Aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
-Si debe integrar estas aplicaciones, debería definir un mecanismo para implementar la extensión a escala con [exploradores compatibles](../user-help/my-apps-portal-end-user-access.md). Las opciones son:
+Si debe integrar estas aplicaciones, debería definir un mecanismo para implementar la extensión a escala con [exploradores compatibles](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510). Las opciones son:
 
 * [Descarga y configuración de Chrome, Firefox, Microsoft Edge o IE controladas por el usuario](../user-help/my-apps-portal-end-user-access.md)
-
 * [Configuration Manager para Internet Explorer](/mem/configmgr/core/clients/deploy/deploy-clients-to-windows-computers)
 
 Esta extensión permite a los usuarios iniciar cualquier aplicación desde su barra de búsqueda, encontrar acceso a las aplicaciones usadas recientemente y tener un vínculo a la página Aplicaciones.
@@ -151,7 +139,6 @@ Todas las aplicaciones de Azure AD a las que algún usuario tenga acceso aparec
 Los usuarios finales también pueden personalizar su experiencia. Para ello deben:
 
 * Crear sus propias colecciones de aplicaciones.
-
 * [Ocultar y reordenar las colecciones de aplicaciones](access-panel-collections.md).
 
 ![Captura de pantalla de la configuración mediante autoservicio](./media/my-apps-deployment-plan/collections.png)
@@ -174,9 +161,7 @@ Consulte [Configuración de la administración de grupos de autoservicio en Azur
 Puede permitir que los usuarios detecten aplicaciones y soliciten acceso a ellas mediante el panel Aplicaciones. Para ello, lo primero que debe hacer es:
 
 * Habilitar la administración de grupos de autoservicio.
-
 * Habilitar la aplicación para el inicio de sesión único.
-
 * Crear un grupo de acceso a la aplicación.
 
 ![Captura de pantalla de la configuración de autoservicio de Aplicaciones](./media/my-apps-deployment-plan/my-apps-self-service.png)

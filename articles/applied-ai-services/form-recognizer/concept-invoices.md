@@ -2,7 +2,6 @@
 title: 'Facturas: Form Recognizer'
 titleSuffix: Azure Applied AI Services
 description: 'Conozca los conceptos relacionados con el análisis de facturas mediante Form Recognizer API: uso y límites.'
-services: cognitive-services
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -10,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/09/2021
 ms.author: lajanuar
-ms.openlocfilehash: f1d0860e3ab5366661971ba932b87e61d82803e0
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 92f20d9275aad08a47e20202e1daab621d1a4578
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122326515"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128646994"
 ---
 # <a name="form-recognizer-prebuilt-invoice-model"></a>Modelo de factura precompilado de Form Recognizer
 

@@ -7,14 +7,14 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/24/2021
+ms.date: 09/09/2021
 ms.author: jianleishen
-ms.openlocfilehash: 7a1a0331276169bb81dcf86c74aab1a16855b25c
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: 66f0f310faa32e65dea657d7b15ceae7e4f84ba0
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123255852"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124831337"
 ---
 # <a name="excel-file-format-in-azure-data-factory-and-azure-synapse-analytics"></a>Formato Excel en Azure Data Factory y Azure Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -124,7 +124,7 @@ En la tabla siguiente se enumeran las propiedades que admite un origen Excel. Pu
 
 En la imagen siguiente se presenta un ejemplo de una configuración de origen Excel en flujos de datos de asignación mediante un modo de conjunto de datos.
 
-![Origen de Excel](media/data-flow/excel-source.png)
+:::image type="content" source="media/data-flow/excel-source.png" alt-text="Origen de Excel":::
 
 El script de flujo de datos asociado es:
 
@@ -136,7 +136,7 @@ source(allowSchemaDrift: true,
 
 Si usa un conjunto de datos alineado, verá las siguientes opciones de origen en el flujo de datos de asignación.
 
-![Conjunto de datos alineado del origen de Excel](media/data-flow/excel-source-inline-dataset.png)
+:::image type="content" source="media/data-flow/excel-source-inline-dataset.png" alt-text="Conjunto de datos alineado del origen de Excel":::
 
 El script de flujo de datos asociado es:
 

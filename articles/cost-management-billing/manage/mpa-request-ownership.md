@@ -6,14 +6,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 10/19/2020
+ms.date: 09/15/2021
 ms.author: banders
-ms.openlocfilehash: 0c5ecb61b5b34864aa89c1f0e760e96c383a269f
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 682c07b4ab34bacbca280cea54e5df8a06c735c5
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101091484"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128616505"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-to-your-mpa-account"></a>Obtención de la propiedad de la facturación de las suscripciones a Azure para la cuenta de MPA
 
@@ -25,7 +25,7 @@ Para solicitar la propiedad de la facturación, debe tener el rol **Administrado
 
 Este artículo se aplica a las cuentas de facturación de Microsoft Partner Agreement. Estas cuentas se crean para que los proveedores de soluciones en la nube (CSP) administren la facturación de sus clientes en la nueva experiencia comercial. La nueva experiencia solo está disponible para asociados que tengan al menos un cliente que haya aceptado un Contrato de cliente de Microsoft (MCA) y que tenga un plan de Azure. [Compruebe si tiene acceso a un contrato Microsoft Partner Agreement](#check-access-to-a-microsoft-partner-agreement).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 1. Establezca la [relación de revendedor](/partner-center/request-a-relationship-with-a-customer) con el cliente. Consulte [Introducción a la autorización regional de CSP](/partner-center/regional-authorization-overview) para asegurarse de que el cliente y el inquilino del asociado estén dentro de las mismas regiones autorizadas.
 1. [Confirme que el cliente haya aceptado el contrato de cliente de Microsoft](/partner-center/confirm-customer-agreement).
@@ -67,11 +67,11 @@ Este artículo se aplica a las cuentas de facturación de Microsoft Partner Agre
    |Fecha de solicitud|La fecha en la que se envió la solicitud de transferencia.|
    |Recipient|La dirección de correo electrónico del usuario que envió la solicitud para transferir la propiedad de la facturación|
    |Fecha de expiración|La fecha en que expira la solicitud|
-   |Status|El estado de la solicitud de transferencia|
+   |Estado|El estado de la solicitud de transferencia|
 
     La solicitud de transferencia puede tener uno de los siguientes estados:
 
-   |Status|Definición|
+   |Estado|Definición|
    |---------|---------|
    |En curso|El usuario no ha aceptado la solicitud de transferencia.|
    |Processing|El usuario aprueba la solicitud de transferencia. La facturación de las suscripciones seleccionadas por el usuario está en proceso de transferencia a su cuenta.|

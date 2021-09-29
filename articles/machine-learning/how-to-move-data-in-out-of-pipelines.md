@@ -10,12 +10,12 @@ author: lobrien
 ms.date: 02/26/2021
 ms.topic: how-to
 ms.custom: contperf-fy20q4, devx-track-python, data4ml
-ms.openlocfilehash: 5b6a4186fed994057ab6c44930c5ec68ba85ad05
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: 86bdbd1588c14ad03cca6544e341599a446c35e9
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122607134"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124767268"
 ---
 # <a name="moving-data-into-and-between-ml-pipeline-steps-python"></a>Movimiento de datos a los pasos de canalización de Machine Learning (Python) y entre ellos
 
@@ -237,7 +237,7 @@ step1_output_ds = step1_output_data.register_on_complete(name='processed_data',
 Azure no elimina automáticamente los datos intermedios escritos con `OutputFileDatasetConfig`. Para evitar cargos de almacenamiento por grandes cantidades de datos innecesarios, debe hacer lo siguiente:
 
 * Eliminar mediante programación los datos intermedios al final de una ejecución de canalización cuando ya no se necesiten
-* Usar almacenamiento en blobs con una directiva de almacenamiento a corto plazo para los datos intermedios (vea [Optimización de los costos mediante la automatización de los niveles de acceso de Azure Blob Storage](../storage/blobs/storage-lifecycle-management-concepts.md?tabs=azure-portal)) 
+* Usar almacenamiento en blobs con una directiva de almacenamiento a corto plazo para los datos intermedios (vea [Optimización de los costos mediante la automatización de los niveles de acceso de Azure Blob Storage](../storage/blobs/lifecycle-management-overview.md?tabs=azure-portal)) 
 * Revisar y eliminar con regularidad los datos que ya no sean necesarios
 
 Para obtener más información, vea [Planeamiento y administración de los costos de Azure Machine Learning](concept-plan-manage-cost.md).

@@ -8,12 +8,12 @@ ms.author: meiyl
 author: meiyl
 ms.reviewer: sawinark
 ms.date: 06/21/2021
-ms.openlocfilehash: 1d501a461caab23fb45441473fda60e13c7e8334
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: e1d1b8a876d55698db83b0c7d331f45797c3c1b3
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121733000"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124743174"
 ---
 # <a name="use-the-diagnose-connectivity-feature-in-the-ssis-integration-runtime"></a>Uso de la característica Diagnosticar conectividad en SSIS Integration Runtime
 
@@ -23,9 +23,9 @@ Es posible que encuentre problemas de conectividad al ejecutar paquetes de SQL S
 
 Solucione los problemas de conectividad mediante el uso de la característica *Diagnosticar conectividad* para probar las conexiones. La característica se encuentra en la página de supervisión de SSIS Integration Runtime del portal de Azure Data Factory.
 
- ![Página Supervisión: Diagnosticar conectividad](media/ssis-integration-runtime-diagnose-connectivity-faq/ssis-monitor-diagnose-connectivity.png)
+ :::image type="content" source="media/ssis-integration-runtime-diagnose-connectivity-faq/ssis-monitor-diagnose-connectivity.png" alt-text="Página Supervisión: Diagnosticar conectividad":::
 
- ![Página Supervisión: Probar conexión](media/ssis-integration-runtime-diagnose-connectivity-faq/ssis-monitor-test-connection.png)
+ :::image type="content" source="media/ssis-integration-runtime-diagnose-connectivity-faq/ssis-monitor-test-connection.png" alt-text="Página Supervisión: Probar conexión":::
 
 Use las secciones siguientes para obtener información sobre los errores más comunes que se producen al probar las conexiones. En cada sección se describe:
 

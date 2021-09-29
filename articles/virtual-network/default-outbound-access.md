@@ -9,12 +9,12 @@ ms.subservice: ip-services
 ms.topic: conceptual
 ms.date: 07/13/2021
 ms.author: allensu
-ms.openlocfilehash: f4c06fb4c97ea38c494f18e5bf72e9eb015299a8
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
+ms.openlocfilehash: 0ca1f0ee6bcac39f0f73286fe8c426be9447c345
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122515829"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124754465"
 ---
 # <a name="default-outbound-access-in-azure"></a>Acceso de salida predeterminado en Azure
 
@@ -62,7 +62,7 @@ Hay varias maneras de desactivar el acceso de salida predeterminado:
 
 2.  Use el modo de orquestación flexible para conjuntos de escalado de máquinas virtuales.
 
-    * Los conjuntos de escalado flexibles son seguros de manera predeterminada. Las instancias creadas a través de conjuntos de escalado flexibles no tendrán asociada la dirección IP de acceso de salida predeterminada. Para obtener más información, vea [Modo de orquestación flexible para conjuntos de escalado de máquinas virtuales](https://aka.ms/vmssflex/docs).
+    * Los conjuntos de escalado flexibles son seguros de manera predeterminada. Las instancias creadas a través de conjuntos de escalado flexibles no tendrán asociada la dirección IP de acceso de salida predeterminada. Para obtener más información, vea [Modo de orquestación flexible para conjuntos de escalado de máquinas virtuales](../virtual-machines/flexible-virtual-machine-scale-sets.md).
 
 ## <a name="if-i-need-outbound-access-what-is-the-recommended-way"></a>Si necesito acceso de salida, ¿cuál es la manera recomendada?
 

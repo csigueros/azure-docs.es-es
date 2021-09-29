@@ -7,12 +7,12 @@ ms.subservice: security
 ms.topic: conceptual
 ms.date: 04/13/2020
 ms.author: abnarain
-ms.openlocfilehash: 922387e352882cc81a2e8e0f4a02124bee41fa06
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 2ac261adeade46b14651583cf28803cab039d754
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122638686"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124743152"
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Almacenamiento de credenciales en Azure Key Vault
 
@@ -48,11 +48,11 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Azure Ke
 
 Seleccione **Conexiones** -> **Servicios vinculados** -> **Nuevo**. En el nuevo servicio vinculado, busque y seleccione "Azure Key Vault":
 
-![Busque Azure Key Vault](media/store-credentials-in-key-vault/search-akv.png)
+:::image type="content" source="media/store-credentials-in-key-vault/search-akv.png" alt-text="Busque Azure Key Vault":::
 
 Seleccione el almacén de Azure Key Vault aprovisionado en el que se almacenan las credenciales. Puede hacer una **conexión de prueba** para asegurarse de que su conexión de AKV es válida. 
 
-![Configuración de Azure Key Vault](media/store-credentials-in-key-vault/configure-akv.png)
+:::image type="content" source="media/store-credentials-in-key-vault/configure-akv.png" alt-text="Configuración de Azure Key Vault":::
 
 **Ejemplo JSON:**
 
@@ -86,7 +86,7 @@ Seleccione **Azure Key Vault** para campos secretos al crear la conexión al alm
 >[!TIP]
 >Para los conectores que usan cadena de conexión en el servicio vinculado, como SQL Server, Blob Storage, etc., puede elegir almacenar solo el campo secreto, por ejemplo, la contraseña, en AKV o la cadena de conexión completa. Puede encontrar ambas opciones en la interfaz de usuario.
 
-![Configuración del secreto de Azure Key Vault](media/store-credentials-in-key-vault/configure-akv-secret.png)
+:::image type="content" source="media/store-credentials-in-key-vault/configure-akv-secret.png" alt-text="Configuración del secreto de Azure Key Vault":::
 
 **Ejemplo de JSON: (consulte la sección "Contraseña")**
 

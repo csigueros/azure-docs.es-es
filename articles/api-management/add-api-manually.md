@@ -3,17 +3,17 @@ title: Adición manual de una API mediante Azure Portal| Microsoft Docs
 description: En este tutorial se muestra cómo utilizar la API de administración (APIM) para agregar manualmente una API.
 services: api-management
 documentationcenter: ''
-author: mikebudzynski
+author: dlepow
 ms.service: api-management
 ms.topic: tutorial
 ms.date: 04/26/2021
-ms.author: apimpm
-ms.openlocfilehash: 4419bca71e3523d4b1bf6c803a96fe8190bda780
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.author: danlep
+ms.openlocfilehash: 2e88bef36179a0e923ad6dfa8c7744f20d0a4d33
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108230753"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128623976"
 ---
 # <a name="add-an-api-manually"></a>Adición manual de una API
 

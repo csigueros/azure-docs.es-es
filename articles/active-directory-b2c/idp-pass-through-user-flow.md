@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/15/2020
+ms.date: 09/16/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: a99d41f5f9fc9538aaf563bd3ae56075d269c94a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ae5f9409811e182bcc64dd9a6ea3ec12d46cfefd
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97584653"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128574018"
 ---
 # <a name="pass-an-identity-provider-access-token-to-your-application-in-azure-active-directory-b2c"></a>Transmisión de un token de acceso del proveedor de identidades a la aplicación en Azure Active Directory B2C
 
@@ -51,23 +51,24 @@ En el diagrama siguiente se muestra cómo un token del proveedor de identidades 
 ## <a name="enable-the-claim"></a>Habilitación de la notificación
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) como administrador global del inquilino de Azure AD B2C.
-2. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el filtro **Directorio y suscripciones** del menú superior y elija el directorio que contiene el inquilino.
-3. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, busque y seleccione **Azure AD B2C**.
-4. Seleccione **Flujos de usuario (directivas)** y, a continuación, elija el flujo de usuario. Por ejemplo, **B2C_1_signupsignin1**.
-5. Seleccione **Notificaciones de aplicación**.
-6. Habilite la notificación **Token de acceso del proveedor de identidades**.
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
+1. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, busque y seleccione **Azure AD B2C**.
+1. Seleccione **Flujos de usuario (directivas)** y, a continuación, elija el flujo de usuario. Por ejemplo, **B2C_1_signupsignin1**.
+1. Seleccione **Notificaciones de aplicación**.
+1. Habilite la notificación **Token de acceso del proveedor de identidades**.
 
     ![Habilitación de la notificación Token de acceso del proveedor de identidades](./media/idp-pass-through-user-flow/identity-provider-pass-through-app-claim.png)
 
-7. Haga clic en **Guardar** para guardar el flujo de usuario.
+1. Haga clic en **Guardar** para guardar el flujo de usuario.
 
 ## <a name="test-the-user-flow"></a>Prueba del flujo de usuario
 
 Al probar las aplicaciones en Azure AD B2C, puede ser útil que el token de Azure AD B2C se devuelva a `https://jwt.ms` para revisar las notificaciones en él.
 
 1. En la página Introducción del flujo de usuario, seleccione **Ejecutar flujo de usuario**.
-2. En **Aplicación**, seleccione la aplicación que registró anteriormente. Para ver el token en el ejemplo siguiente, **URL de respuesta** debe mostrar `https://jwt.ms`.
-3. Haga clic en **Ejecutar flujo de usuario** y, a continuación, inicie sesión con sus credenciales de cuenta. Debería ver el token de acceso del proveedor de identidades en la notificación **idp_access_token**.
+1. En **Aplicación**, seleccione la aplicación que registró anteriormente. Para ver el token en el ejemplo siguiente, **URL de respuesta** debe mostrar `https://jwt.ms`.
+1. Haga clic en **Ejecutar flujo de usuario** y, a continuación, inicie sesión con sus credenciales de cuenta. Debería ver el token de acceso del proveedor de identidades en la notificación **idp_access_token**.
 
     Debería ver algo parecido al siguiente ejemplo:
 
@@ -94,7 +95,7 @@ Al probar las aplicaciones en Azure AD B2C, puede ser útil que el token de Azur
     </BuildingBlocks>
     ```
 
-2. Agregue el elemento **OutputClaim** al elemento **TechnicalProfile** para cada proveedor de identidades de OAuth 2.0 para el que le gustaría el token de acceso. El ejemplo siguiente muestra el elemento agregado en el perfil técnico de Facebook:
+1. Agregue el elemento **OutputClaim** al elemento **TechnicalProfile** para cada proveedor de identidades de OAuth 2.0 para el que le gustaría el token de acceso. El ejemplo siguiente muestra el elemento agregado en el perfil técnico de Facebook:
 
     ```xml
     <ClaimsProvider>
@@ -110,8 +111,8 @@ Al probar las aplicaciones en Azure AD B2C, puede ser útil que el token de Azur
     </ClaimsProvider>
     ```
 
-3. Guarde el archivo *TrustFrameworkExtensions.xml*.
-4. Abra el archivo de directiva del usuario de confianza, como *SignUpOrSignIn.xml* y agregue el elemento **OutputClaim** a **TechnicalProfile**:
+1. Guarde el archivo *TrustFrameworkExtensions.xml*.
+1. Abra el archivo de directiva del usuario de confianza, como *SignUpOrSignIn.xml* y agregue el elemento **OutputClaim** a **TechnicalProfile**:
 
     ```xml
     <RelyingParty>
@@ -125,7 +126,7 @@ Al probar las aplicaciones en Azure AD B2C, puede ser útil que el token de Azur
     </RelyingParty>
     ```
 
-5. Guarde el archivo de directiva.
+1. Guarde el archivo de directiva.
 
 ## <a name="test-your-policy"></a>Prueba de la directiva
 
@@ -134,19 +135,20 @@ Al probar las aplicaciones en Azure AD B2C, puede ser útil que el token de Azur
 ### <a name="upload-the-files"></a>Carga de los archivos
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
-2. Asegúrese de usar el directorio que contiene el inquilino de Azure AD B2C. Para ello, haga clic en el filtro **Directorio y suscripción** del menú superior y seleccione el directorio que contiene el inquilino.
-3. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C**.
-4. Seleccione **Marco de experiencia de identidad**.
-5. En la página Directivas personalizadas, haga clic en **Cargar directiva**.
-6. Seleccione **Sobrescribir la directiva, si existe** y busque y seleccione el archivo *TrustframeworkExtensions.xml*.
-7. Seleccione **Cargar**.
-8. Repita los pasos 5 a 7 para el archivo del usuario de confianza, como *SignUpOrSignIn.xml*.
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
+1. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C**.
+1. Seleccione **Marco de experiencia de identidad**.
+1. En la página Directivas personalizadas, haga clic en **Cargar directiva**.
+1. Seleccione **Sobrescribir la directiva, si existe** y busque y seleccione el archivo *TrustframeworkExtensions.xml*.
+1. Seleccione **Cargar**.
+1. Repita los pasos 5 a 7 para el archivo del usuario de confianza, como *SignUpOrSignIn.xml*.
 
 ### <a name="run-the-policy"></a>Ejecución de la directiva
 
 1. Abra la directiva que ha cambiado. Por ejemplo, *B2C_1A_signup_signin*.
-2. En **Aplicación**, seleccione la aplicación que registró anteriormente. Para ver el token en el ejemplo siguiente, **URL de respuesta** debe mostrar `https://jwt.ms`.
-3. Seleccione **Ejecutar ahora**.
+1. En **Aplicación**, seleccione la aplicación que registró anteriormente. Para ver el token en el ejemplo siguiente, **URL de respuesta** debe mostrar `https://jwt.ms`.
+1. Seleccione **Ejecutar ahora**.
 
     Debería ver algo parecido al siguiente ejemplo:
 

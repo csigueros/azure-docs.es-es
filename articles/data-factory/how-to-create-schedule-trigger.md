@@ -8,14 +8,14 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: orchestration
 ms.topic: conceptual
-ms.date: 08/24/2021
+ms.date: 09/09/2021
 ms.custom: devx-track-python, devx-track-azurepowershell, synapse
-ms.openlocfilehash: 833800da17302d2f28619cd1f66acfc476175a7f
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.openlocfilehash: c21d06a97acd433445ee73e90833684c5cc36dac
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122824619"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124815016"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Creación de un desencadenador que ejecuta una canalización en una programación
 
@@ -37,20 +37,20 @@ Puede crear un **programador de desencadenador** para programar la ejecución de
 1. Vaya a la pestaña **Editar** de Data Factory o a la pestaña Integrar de Azure Synapse. 
 
     # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
-    ![Cambio a la pestaña Edit (Editar)](./media/how-to-create-schedule-trigger/switch-edit-tab.png)
+    :::image type="content" source="./media/how-to-create-schedule-trigger/switch-edit-tab.png" alt-text="Cambio a la pestaña Edit (Editar)":::
 
     # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
-    ![Cambio a la pestaña Edit (Editar)](./media/how-to-create-schedule-trigger/switch-edit-tab-synapse.png)
+    :::image type="content" source="./media/how-to-create-schedule-trigger/switch-edit-tab-synapse.png" alt-text="Cambio a la pestaña Edit (Editar)":::
 
 ---
     
 2. Seleccione **Trigger** (Desencadenador) en el menú y, después, seleccione **New/Edit** (Nuevo/Editar). 
 
-    ![Menú Nuevo desencadenador](./media/how-to-create-schedule-trigger/new-trigger-menu.png)
+    :::image type="content" source="./media/how-to-create-schedule-trigger/new-trigger-menu.png" alt-text="Menú Nuevo desencadenador":::
 
 1. En la página **Add Triggers** (Agregar desencadenadores), seleccione **Choose trigger...** (Elegir desencadenador) y, después, seleccione **+New** (+Nuevo). 
 
-    ![Add Triggers (Agregar desencadenadores): nuevo desencadenador](./media/how-to-create-schedule-trigger/add-trigger-new-button.png)
+    :::image type="content" source="./media/how-to-create-schedule-trigger/add-trigger-new-button.png" alt-text="Add Triggers (Agregar desencadenadores): nuevo desencadenador":::
 
 1. En la página **New Trigger** (Nuevo desencadenador), lleve a cabo los siguientes pasos: 
 
@@ -66,30 +66,30 @@ Puede crear un **programador de desencadenador** para programar la ejecución de
     :::image type="content" source="./media/how-to-create-schedule-trigger/advanced.png" alt-text="Opciones avanzadas de periodicidad de Días, Semanas o Meses":::
     1. Para especificar una fecha y hora de finalización, seleccione **Especificar una fecha de finalización**, especifique _Termina el_ y luego seleccione **Aceptar**. Hay un costo asociado a cada ejecución de canalización. Si está realizando pruebas, es posible que quiera asegurarse de que la canalización se desencadena solo un par de veces. No obstante, asegúrese de que hay tiempo suficiente para que la canalización se ejecute entre la hora de publicación y la hora de finalización. El desencadenador se aplica después de publicar la solución, no cuando se guarda en la interfaz de usuario.
 
-        ![Configuración del desencadenador](./media/how-to-create-schedule-trigger/trigger-settings-01.png)
+        :::image type="content" source="./media/how-to-create-schedule-trigger/trigger-settings-01.png" alt-text="Configuración del desencadenador":::
 
-        ![Configuración del desencadenador para la fecha de finalización](./media/how-to-create-schedule-trigger/trigger-settings-02.png)
+        :::image type="content" source="./media/how-to-create-schedule-trigger/trigger-settings-02.png" alt-text="Configuración del desencadenador para la fecha de finalización":::
 
 1. En la ventana **New Trigger** (Nuevo desencadenador), seleccione **Yes** (Sí) en la opción **Activated** (Activado) y, a continuación, seleccione **OK** (Aceptar). Puede utilizar esta casilla para desactivar el desencadenador más adelante. 
 
-    ![Configuración del desencadenador: botón Siguiente](./media/how-to-create-schedule-trigger/trigger-settings-next.png)
+    :::image type="content" source="./media/how-to-create-schedule-trigger/trigger-settings-next.png" alt-text="Configuración del desencadenador: botón Siguiente":::
 
 1. En la página **New Trigger** (Nuevo desencadenador), revise el mensaje de advertencia y seleccione **Finish** (Finalizar).
 
-    ![Configuración del desencadenador: botón Finalizar](./media/how-to-create-schedule-trigger/new-trigger-finish.png)
+    :::image type="content" source="./media/how-to-create-schedule-trigger/new-trigger-finish.png" alt-text="Configuración del desencadenador: botón Finalizar":::
 
 1. Seleccione **Publicar todo** para publicar los cambios. El desencadenador no inicia las ejecuciones de canalización hasta que se publican los cambios. 
 
-    ![Botón Publicar](./media/how-to-create-schedule-trigger/publish-2.png)
+    :::image type="content" source="./media/how-to-create-schedule-trigger/publish-2.png" alt-text="Botón Publicar":::
 
 1. Cambie a la pestaña **Pipeline runs** (Ejecuciones de canalización) de la izquierda y seleccione **Refresh** (Actualizar) para actualizar la lista. Verá que el desencadenador programado ejecuta las ejecuciones de la canalización. Observe los valores de la columna **Triggered By** (Desencadenado por). Si usa la opción **Trigger Now** (Desencadenar ahora), verá la ejecución del desencadenador manual en la lista. 
 
     # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
 
-    ![Supervisión de las ejecuciones desencadenadas](./media/how-to-create-schedule-trigger/monitor-triggered-runs.png)
+    :::image type="content" source="./media/how-to-create-schedule-trigger/monitor-triggered-runs.png" alt-text="Supervisión de las ejecuciones desencadenadas":::
 
     # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
-    ![Supervisión de las ejecuciones desencadenadas](./media/how-to-create-schedule-trigger/monitor-triggered-runs-synapse.png)
+    :::image type="content" source="./media/how-to-create-schedule-trigger/monitor-triggered-runs-synapse.png" alt-text="Supervisión de las ejecuciones desencadenadas":::
     
 ---
 
@@ -97,10 +97,10 @@ Puede crear un **programador de desencadenador** para programar la ejecución de
 
     # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
 
-    ![Supervisión de las ejecuciones del desencadenador](./media/how-to-create-schedule-trigger/monitor-trigger-runs.png)
+    :::image type="content" source="./media/how-to-create-schedule-trigger/monitor-trigger-runs.png" alt-text="Supervisión de las ejecuciones del desencadenador":::
 
     # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
-    ![Supervisión de las ejecuciones del desencadenador](./media/how-to-create-schedule-trigger/monitor-trigger-runs-synapse.png)
+    :::image type="content" source="./media/how-to-create-schedule-trigger/monitor-trigger-runs-synapse.png" alt-text="Supervisión de las ejecuciones del desencadenador":::
     
 ---
 

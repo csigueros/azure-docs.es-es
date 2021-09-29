@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 48d424a64df215a7506130a44d57fc45d638255d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: c40d1ae4d24f24feafa138b75aefc3f9b711287e
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121739945"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124762880"
 ---
 # <a name="best-practices-for-azure-ad-roles"></a>Procedimientos recomendados para roles de Azure AD
 
@@ -62,7 +62,7 @@ Las revisiones de acceso permiten a las organizaciones revisar el acceso del adm
 - Un actor malintencionado puede poner en peligro una cuenta.
 - Las personas mueven los equipos dentro de una empresa. Si no hay auditoría, pueden acumular accesos innecesarios con el tiempo.
  
-Para más información sobre las revisiones de acceso de los roles, consulte el artículo sobre la [creación de una revisión de acceso de roles de Azure AD en PIM](../privileged-identity-management/pim-how-to-start-security-review.md). Para más información sobre las revisiones de acceso de los grupos a los que se asignan roles, consulte [Creación de una revisión de acceso de los grupos y las aplicaciones en las revisiones de acceso de Azure AD](../governance/create-access-review.md).
+Para más información sobre las revisiones de acceso de los roles, consulte el artículo sobre la [creación de una revisión de acceso de roles de Azure AD en PIM](../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md). Para más información sobre las revisiones de acceso de los grupos a los que se asignan roles, consulte [Creación de una revisión de acceso de los grupos y las aplicaciones en las revisiones de acceso de Azure AD](../governance/create-access-review.md).
 
 ## <a name="5-limit-the-number-of-global-administrators-to-less-than-5"></a>5. Limitación del número de administradores globales a menos de cinco
 

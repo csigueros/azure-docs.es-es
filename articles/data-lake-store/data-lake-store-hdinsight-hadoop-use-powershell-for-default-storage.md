@@ -1,18 +1,18 @@
 ---
 title: 'PowerShell: Clúster de HDInsight con Data Lake Storage Gen1 - Azure'
 description: Use Azure PowerShell para crear y usar clústeres de Azure HDInsight con Azure Data Lake Storage Gen1.
-author: twooley
+author: normesta
 ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
-ms.author: twooley
+ms.author: normesta
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e795720959f0460034717e0185cbbffe72c0b5d7
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 0b5c06dc8f955aa74b65614dff1419bd2322ae94
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111964184"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128635515"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-as-default-storage-by-using-powershell"></a>Crear clústeres de HDInsight con Azure Data Lake Storage Gen1 como almacenamiento predeterminado mediante PowerShell
 

@@ -1,14 +1,14 @@
 ---
-title: Especificación de artefactos obligatorios para su instancia de Azure DevTest Labs | Microsoft Docs
+title: Especificación de artefactos obligatorios
 description: Aprenda a especificar artefactos obligatorios que se han de instalar antes que cualquier artefacto seleccionado por el usuario en máquinas virtuales (VM) del laboratorio.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 0677f8bea35cb34735fdcf34e717eea349fad8bf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8963db2f99cc893937365a4eac0a656e1ba90613
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85480310"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128678504"
 ---
 # <a name="specify-mandatory-artifacts-for-your-lab-in-azure-devtest-labs"></a>Especificación de artefactos obligatorios para su laboratorio de Azure DevTest Labs
 Como propietario de un laboratorio, puede especificar los artefactos obligatorios que se aplican a cada máquina creada en el laboratorio. Imagine un escenario donde quiere que cada máquina del laboratorio se conecte a la red corporativa. En este caso, cada usuario del laboratorio tendría que agregar un artefacto de unión a un dominio durante la creación de máquinas virtuales para asegurarse de que su equipo está conectado al dominio corporativo. En otras palabras, los usuarios del laboratorio esencialmente tendrían que volver a crear una máquina en caso de que se olviden de aplicar artefactos obligatorios en su equipo. Como propietario del laboratorio, convierte el artefacto de unión a un dominio en un artefacto obligatorio en el laboratorio. Con este paso se asegura de que cada máquina está conectada a la red corporativa y ahorra tiempo y esfuerzo a los usuarios del laboratorio.
@@ -76,4 +76,3 @@ Ahora, como usuario del laboratorio, puede ver la lista de artefactos obligatori
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Aprenda cómo [agregar un repositorio de artefactos Git a un laboratorio](devtest-lab-add-artifact-repo.md).
-

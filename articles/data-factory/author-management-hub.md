@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: minhe-msft
 ms.author: hemin
 ms.date: 04/27/2021
-ms.openlocfilehash: 91b19a33df19fd474c9db282fd4467be54f8dd15
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 4c9b56a206a4ae515fdf8eae66dabf8dfafa1fcb
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121742434"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129218137"
 ---
 # <a name="management-hub-in-azure-data-factory"></a>Centro de administración de Azure Data Factory
 
@@ -26,13 +26,13 @@ El centro de administración, al que se accede en la pestaña *Administrar* de l
 
 Los servicios vinculados definen la información de conexión de Azure Data Factory para conectarse a almacenes de datos externos y entornos de proceso. Para más información, consulte los [conceptos sobre servicios vinculados](concepts-linked-services.md). La creación, edición y eliminación de servicios vinculados se realiza en el centro de administración.
 
-![Administración de servicios vinculados](media/author-management-hub/management-hub-linked-services.png)
+:::image type="content" source="media/author-management-hub/management-hub-linked-services.png" alt-text="Administración de servicios vinculados":::
 
 ### <a name="integration-runtimes"></a>Entornos de ejecución de integración
 
 Un entorno de ejecución de integración es la infraestructura de proceso que Azure Data Factory usa para proporcionar funcionalidades de integración de datos en distintos entornos de red. Para más información, consulte los [conceptos sobre entornos de ejecución de integración](concepts-integration-runtime.md). En el centro de administración, puede crear, eliminar y supervisar los entornos de ejecución de integración.
 
-![Administración de entornos de ejecución de integración](media/author-management-hub/management-hub-integration-runtime.png)
+:::image type="content" source="media/author-management-hub/management-hub-integration-runtime.png" alt-text="Administración de entornos de ejecución de integración":::
 
 ## <a name="manage-source-control"></a>Administración del control de código fuente
 
@@ -44,13 +44,13 @@ La última información de confirmación publicada también se muestra y puede a
 
 Para más información, consulte [Control de código fuente en Azure Data Factory](source-control.md).
 
-![Administración del repositorio de Git](media/author-management-hub/management-hub-git.png)
+:::image type="content" source="media/author-management-hub/management-hub-git.png" alt-text="Administración del repositorio de Git":::
 
 ### <a name="parameterization-template"></a>Plantilla de parametrización
 
-Para reemplazar los parámetros de la plantilla de Resource Manager generados al publicar desde la rama de colaboración, puede generar o editar un archivo de parámetros personalizado. Para más información, consulte [Uso de parámetros personalizados en la plantilla de Resource Manager](continuous-integration-deployment.md#use-custom-parameters-with-the-resource-manager-template). La plantilla de parametrización solo está disponible cuando se trabaja en un repositorio de Git. Si el archivo *arm-template-parameters-definition.json* no existe en la rama de trabajo, se generará al editar la plantilla predeterminada.
+Para reemplazar los parámetros de la plantilla de Resource Manager generados al publicar desde la rama de colaboración, puede generar o editar un archivo de parámetros personalizado. Para más información, consulte [Uso de parámetros personalizados en la plantilla de Resource Manager](continuous-integration-delivery-resource-manager-custom-parameters.md). La plantilla de parametrización solo está disponible cuando se trabaja en un repositorio de Git. Si el archivo *arm-template-parameters-definition.json* no existe en la rama de trabajo, se generará al editar la plantilla predeterminada.
 
-![Administración de los parámetros personalizados](media/author-management-hub/management-hub-custom-parameters.png)
+:::image type="content" source="media/author-management-hub/management-hub-custom-parameters.png" alt-text="Administración de los parámetros personalizados":::
 
 ## <a name="manage-authoring"></a>Administración de la creación
 
@@ -58,13 +58,13 @@ Para reemplazar los parámetros de la plantilla de Resource Manager generados al
 
 Los desencadenadores determinan cuándo se debe iniciar una ejecución de canalización. Actualmente, los desencadenadores pueden estar en una programación de reloj, operar en un intervalo periódico o depender de un evento. Para más información, consulte acerca de la [ejecución de desencadenadores](concepts-pipeline-execution-triggers.md#trigger-execution). En el centro de administración, puede crear, editar, eliminar o ver el estado actual de un desencadenador.
 
-![Captura de pantalla que muestra dónde crear, editar, eliminar o ver el estado actual de un desencadenador.](media/author-management-hub/management-hub-triggers.png)
+:::image type="content" source="media/author-management-hub/management-hub-triggers.png" alt-text="Captura de pantalla que muestra dónde crear, editar, eliminar o ver el estado actual de un desencadenador.":::
 
 ### <a name="global-parameters"></a>Parámetros globales
 
 Los parámetros globales son constantes en una factoría de datos que una canalización puede consumir en cualquier expresión. Para obtener más información, consulte los [parámetros globales](author-global-parameters.md).
 
-![Creación de parámetros globales](media/author-global-parameters/create-global-parameter-3.png)
+:::image type="content" source="media/author-global-parameters/create-global-parameter-3.png" alt-text="Creación de parámetros globales":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

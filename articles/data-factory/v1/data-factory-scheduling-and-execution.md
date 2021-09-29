@@ -5,14 +5,15 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: f613a14f84999fced888ae72de11328bc7c90811
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9cce6dfcda5c506f27c3527c5a417cbe712ebcca
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104780011"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128661058"
 ---
 # <a name="data-factory-scheduling-and-execution"></a>Programación y ejecución de Data Factory
 > [!NOTE]
@@ -48,7 +49,7 @@ La canalización en sí no se ejecuta. Son las actividades que incluye las que s
 
 Como se muestra en el diagrama siguiente, al especificar una programación de una actividad se crea una ventana de saltos de tamaño constante con las horas de inicio y finalización de la canalización. Las ventanas de saltos de tamaño constante son series de intervalos de tiempo de tamaño fijo, no superpuestos y contiguos. Estas ventanas de saltos lógicas de tamaño constante para la actividad se denominan **ventanas de actividad**.
 
-![Ejemplo de programador de actividades](media/data-factory-scheduling-and-execution/scheduler-example.png)
+:::image type="content" source="media/data-factory-scheduling-and-execution/scheduler-example.png" alt-text="Ejemplo de programador de actividades":::
 
 La propiedad **scheduler** de una actividad es opcional. Si especifica esta propiedad, debe coincidir con la cadencia que indique en la definición del conjunto de datos de salida de la actividad. Actualmente, el conjunto de datos de salida es lo que impulsa la programación. Por tanto, debe crear un conjunto de datos de salida incluso si la actividad no produce ninguna salida. 
 
@@ -162,7 +163,7 @@ En este ejemplo, la actividad se ejecuta cada hora entre las horas de inicio y f
 
 Cada unidad de datos consumida o producida por la ejecución de una actividad se denomina **segmento de datos**. El diagrama siguiente muestra un ejemplo de una actividad con un conjunto de datos de entrada y uno de salida: 
 
-![Programador de disponibilidad](./media/data-factory-scheduling-and-execution/availability-scheduler.png)
+:::image type="content" source="./media/data-factory-scheduling-and-execution/availability-scheduler.png" alt-text="Programador de disponibilidad":::
 
 En el diagrama se muestran los segmentos de datos por hora para el conjunto de datos de entrada y salida. El diagrama muestra tres segmentos de entrada que están listos para su procesamiento. La actividad 10-11 AM está en curso, produciendo el segmento de salida 10-11 AM. 
 
@@ -284,7 +285,7 @@ Cuando se produce un error durante el procesamiento de un segmento de datos, pue
 
 Observe el ejemplo siguiente, que muestra dos actividades. Activity1 y Activity2. Activity1 consume un segmento de Dataset1 y genera un segmento de Dataset2, que Activity2 consume como entrada para generar un segmento de Final Dataset.
 
-![Segmento con errores](./media/data-factory-scheduling-and-execution/failed-slice.png)
+:::image type="content" source="./media/data-factory-scheduling-and-execution/failed-slice.png" alt-text="Segmento con errores":::
 
 El diagrama muestra que en tres segmentos recientes se produjo un error al generar el segmento 9-10 AM para Dataset2. Data Factory realiza automáticamente el seguimiento de la dependencia para el conjunto de datos de series temporales. Como resultado, no se inicia la ejecución de actividad para el segmento 9-10 AM de bajada.
 
@@ -292,7 +293,7 @@ Las herramientas de administración y supervisión de Data Factory permiten prof
 
 Tras haber repetido la ejecución del segmento 9-10 AM para **Dataset2**, Data Factory inicia la ejecución del segmento dependiente de 9-10 AM en el conjunto de datos final.
 
-![Repetición de ejecución de un segmento con errores](./media/data-factory-scheduling-and-execution/rerun-failed-slice.png)
+:::image type="content" source="./media/data-factory-scheduling-and-execution/rerun-failed-slice.png" alt-text="Repetición de ejecución de un segmento con errores":::
 
 ## <a name="multiple-activities-in-a-pipeline"></a>Varias actividades en una canalización
 pero se pueden tener más de una actividad en una canalización. Si tiene varias actividades en una canalización y la salida de una actividad no es la entrada de otra actividad, las actividades se pueden ejecutar en paralelo si los segmentos de datos de entrada para las actividades están listos.
@@ -308,11 +309,11 @@ En este escenario, las actividades A1 y A2 se encuentran en la misma canalizaci�
 
 La vista Diagrama con ambas actividades en la misma canalización tendría un aspecto similar al siguiente diagrama:
 
-![Encadenamiento de las actividades de la misma canalización](./media/data-factory-scheduling-and-execution/chaining-one-pipeline.png)
+:::image type="content" source="./media/data-factory-scheduling-and-execution/chaining-one-pipeline.png" alt-text="Encadenamiento de las actividades de la misma canalización":::
 
 Tal y como se ha mencionado anteriormente, las actividades pueden estar en distintas canalizaciones. En tal escenario, la vista de diagrama tendría un aspecto similar al siguiente diagrama:
 
-![Encadenamiento de las actividades de dos canalizaciones](./media/data-factory-scheduling-and-execution/chaining-two-pipelines.png)
+:::image type="content" source="./media/data-factory-scheduling-and-execution/chaining-two-pipelines.png" alt-text="Encadenamiento de las actividades de dos canalizaciones":::
 
 Consulte la sección Copia secuencial del anexo para obtener un ejemplo.
 
@@ -435,7 +436,7 @@ El script de Hive recibe la información adecuada de *DateTime* como parámetros
 
 El diagrama siguiente muestra el escenario desde el punto de vista de la dependencia de datos.
 
-![Dependencia de los datos](./media/data-factory-scheduling-and-execution/data-dependency.png)
+:::image type="content" source="./media/data-factory-scheduling-and-execution/data-dependency.png" alt-text="Dependencia de los datos":::
 
 El segmento de salida para cada día depende de 24 segmentos por hora del conjunto de datos de entrada. Data Factory calcula automáticamente estas dependencias al determinar los segmentos de datos de entrada que se encuentran en el mismo período de tiempo que el segmento de salida que se va a producir. Si cualquiera de los 24 segmentos de entrada no está disponible, Data Factory espera a que el segmento de entrada esté listo antes de empezar la ejecución de la actividad diaria.
 

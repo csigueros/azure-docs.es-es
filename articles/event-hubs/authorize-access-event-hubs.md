@@ -2,14 +2,14 @@
 title: Autorización del acceso a Azure Event Hubs
 description: En este artículo se proporciona información sobre las distintas opciones para autorizar el acceso a recursos de Azure Event Hubs.
 ms.topic: conceptual
-ms.date: 06/23/2020
+ms.date: 09/20/2021
 ms.author: spelluru
-ms.openlocfilehash: 5fc35387f4ac28ad4dd28bea0013bcdf1e1e9f02
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: df4498de020b2e389622fb5f495e5f42f69f186d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92332389"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128561032"
 ---
 # <a name="authorize-access-to-azure-event-hubs"></a>Autorización del acceso a Azure Event Hubs
 Cada vez que se publican o consumen eventos o datos de un centro de eventos, el cliente intenta obtener acceso a recursos de Event Hubs. Todas las solicitudes a un recurso seguro deben estar autorizadas para que el servicio pueda garantizar que el cliente tenga los permisos necesarios para publicar o consumir los datos. 

@@ -3,16 +3,17 @@ title: Movimiento de datos desde HDFS local
 description: Obtenga información acerca de cómo mover datos desde HDFS local mediante Azure Data Factory
 author: linda33wj
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 52e176e0fed85b649d482614667d695db539e5d1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2e514903a3c89790a6b0bb85d37a530e13b07d8c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100383082"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128580915"
 ---
 # <a name="move-data-from-on-premises-hdfs-using-azure-data-factory"></a>Movimiento de datos desde HDFS local mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -467,7 +468,7 @@ Existen dos opciones para configurar el entorno local para usar la autenticació
 
    3. Seleccione el algoritmo de cifrado que quiere usar al conectarse a KDC. Normalmente, puede seleccionar todas las opciones.
 
-      ![Configuración de tipos de cifrado para Kerberos](media/data-factory-hdfs-connector/config-encryption-types-for-kerberos.png)
+      :::image type="content" source="media/data-factory-hdfs-connector/config-encryption-types-for-kerberos.png" alt-text="Configuración de tipos de cifrado para Kerberos":::
 
    4. Use el comando **Ksetup** para especificar el algoritmo de cifrado que se usará en el dominio específico.
 
@@ -485,7 +486,7 @@ Existen dos opciones para configurar el entorno local para usar la autenticació
 
    4. Agregue una entidad de seguridad del dominio Kerberos.
 
-      ![Asignación de la identidad de seguridad](media/data-factory-hdfs-connector/map-security-identity.png)
+      :::image type="content" source="media/data-factory-hdfs-connector/map-security-identity.png" alt-text="Asignación de la identidad de seguridad":::
 
 **En la máquina de puerta de enlace:**
 

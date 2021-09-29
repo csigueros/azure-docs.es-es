@@ -1,17 +1,17 @@
 ---
 title: 'Administración de una cuenta de Azure Data Lake Storage Gen1: CLI de Azure'
 description: Use la CLI de Azure para crear una cuenta de Data Lake Storage Gen1 y realizar operaciones básicas.
-author: twooley
+author: normesta
 ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 06/27/2018
-ms.author: twooley
-ms.openlocfilehash: de98e25cf5703a43282e551a0eda20d7767c6ce8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: normesta
+ms.openlocfilehash: 8f94506804f5edc4a728f06234f996ad30509eb6
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92103635"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128621761"
 ---
 # <a name="get-started-with-azure-data-lake-storage-gen1-using-the-azure-cli"></a>Introducción a Azure Data Lake Storage Gen1 con la CLI de Azure
 

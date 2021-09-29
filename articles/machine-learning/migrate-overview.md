@@ -8,17 +8,17 @@ ms.topic: how-to
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 08/23/2021
-ms.openlocfilehash: 87902df54eccdd7038c8351f4ca1794b013a0f13
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 4f4b0cd13095c83f84c96e57e73f255caf4fcdc9
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122868522"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124736329"
 ---
 # <a name="migrate-to-azure-machine-learning"></a>Migración a Azure Machine Learning 
 
 > [!IMPORTANT]
-> El soporte técnico de Machine Learning Studio (clásico) finalizará el 31 de agosto de 2024. Se recomienda realizar la transición [a Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) antes de esa fecha.
+> El soporte técnico de Machine Learning Studio (clásico) finalizará el 31 de agosto de 2024. Se recomienda realizar la transición [a Azure Machine Learning](./overview-what-is-azure-machine-learning.md) antes de esa fecha.
 >
 > A partir del 1 de diciembre de 2021 no se podrán crear recursos de Machine Learning Studio (clásico). Hasta el 31 de agosto de 2024, puede seguir usando los recursos de Machine Learning Studio (clásico) existentes.  
 >
@@ -82,7 +82,7 @@ Tras trazar una estrategia, migre el primer modelo.
 
 ## <a name="step-5-cleanup-studio-classic-assets"></a>Paso 5: Limpiar los recursos de Studio (clásico)
 
-1. [Limpie los recursos de Studio (clásico)](/classic/export-delete-personal-data-dsr.md) para evitar cargos adicionales. Puede que desee conservar recursos como reserva hasta que haya comprobado las cargas de trabajo de Azure Machine Learning.
+1. [Limpie los recursos de Studio (clásico)](./classic/export-delete-personal-data-dsr.md) para evitar cargos adicionales. Puede que desee conservar recursos como reserva hasta que haya comprobado las cargas de trabajo de Azure Machine Learning.
 
 ## <a name="step-6-review-and-expand-scenarios"></a>Paso 6: Revisar y ampliar los escenarios
 

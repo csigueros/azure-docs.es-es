@@ -4,15 +4,16 @@ description: En este tutorial se proporcionan los pasos para establecer dinámic
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: seo-lt-2021
 ms.date: 06/17/2021
-ms.openlocfilehash: 96143f39811658c2794b46f3504a1a604264ab13
-ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
+ms.openlocfilehash: 576b11e78c8cf928863d7db700942cbeab884e2c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2021
-ms.locfileid: "112542995"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128617837"
 ---
 # <a name="dynamically-set-column-names-in-data-flows"></a>Establecimiento dinámico de nombres de columna en flujos de datos
 
@@ -51,17 +52,17 @@ En este paso, creará una canalización que contiene una actividad de flujo de d
 1. En la pestaña **General** de la canalización, escriba **DeltaLake** en el campo **Nombre** de la canalización.
 1. En la barra superior de Data Factory, deslice el control deslizante **Depuración de Data Flow** para activarlo. El modo de depuración permite realizar pruebas interactivas de la lógica de transformación en un clúster de Spark activo. Los clústeres de Data Flow tardan de 5 a 7 minutos en prepararse y se recomienda que los usuarios activen primero la depuración si planean realizar el desarrollo de Data Flow. Para más información, consulte [Modo de depuración](concepts-data-flow-debug-mode.md).
 
-    ![Actividad de Data Flow](media/tutorial-data-flow/dataflow1.png)
+    :::image type="content" source="media/tutorial-data-flow/dataflow1.png" alt-text="Actividad de Data Flow":::
 1. En el panel **Actividades** expanda el acordeón **Movimiento y transformación**. Arrastre y coloque la actividad **Data Flow** del panel al lienzo de la canalización.
 
-    ![Captura de pantalla que muestra el lienzo de canalización donde puede colocar la actividad de Data Flow.](media/tutorial-data-flow/activity1.png)
+    :::image type="content" source="media/tutorial-data-flow/activity1.png" alt-text="Captura de pantalla que muestra el lienzo de canalización donde puede colocar la actividad de Data Flow.":::
 1. En el menú emergente **Adding Data Flow** (Agregar Data Flow), seleccione **Create New Data Flow** (Crear Data Flow) y, después, asigne el nombre **DynaCols** al flujo de datos. Haga clic en Finalizar cuando haya terminado.    
 
 ## <a name="build-dynamic-column-mapping-in-data-flows"></a>Creación de asignaciones de columnas dinámicas en flujos de datos
 
 En este tutorial, se usará un archivo de clasificación de películas de ejemplo y se modificará el nombre de algunos de los campos del origen a un nuevo conjunto de columnas de destino que pueden cambiar con el tiempo. Los conjuntos de datos que creará a continuación deben apuntar a este archivo CSV de películas en la cuenta de almacenamiento de Blob Storage o ADLS Gen2. [Descargue el archivo de películas aquí](https://github.com/kromerm/adfdataflowdocs/blob/master/sampledata/moviesDB.csv) y guárdelo en la cuenta de almacenamiento de Azure.
 
-![Flujo final](media/data-flow/dynacols-1.png "Flujo final")
+:::image type="content" source="media/data-flow/dynacols-1.png" alt-text="Flujo final":::
 
 ### <a name="tutorial-objectives"></a>Objetivos del tutorial
 
@@ -95,7 +96,7 @@ En primer lugar, se configurará el entorno de flujo de datos para cada uno de l
 
 En este primer escenario, definirá nombres de columna de salida en el flujo de datos mediante el establecimiento de la asignación de columnas en función de la coincidencia de campos entrantes con un parámetro que es una matriz de cadenas de columnas y hará coincidir cada índice de matriz con la posición ordinal de la columna entrante. Al ejecutar este flujo de datos desde una canalización, podrá establecer nombres de columna diferentes en cada ejecución de canalización mediante el envío de este parámetro de matriz de cadenas a la actividad de flujo de datos.
 
-![Parámetros](media/data-flow/dynacols-3.png "Parameters")
+:::image type="content" source="media/data-flow/dynacols-3.png" alt-text="Parámetros":::
 
 1. Vuelva al diseñador de flujo de datos y modifique el flujo de datos creado anteriormente.
 1. Haga clic en la pestaña de parámetros.
@@ -108,7 +109,7 @@ En este primer escenario, definirá nombres de columna de salida en el flujo de 
 1. Para la primera columna, la regla de coincidencia será ```position==1``` y el nombre será ```$parameter1[1]```.
 1. Siga el mismo patrón para las columnas 2 y 3.
  
-    ![Transformación Select](media/data-flow/dynacols-4.png "Transformación Select (Seleccionar)") (Seleccionar)
+    :::image type="content" source="media/data-flow/dynacols-4.png" alt-text="Transformación Select"::: (Seleccionar)
 
 1. Haga clic en las pestañas Inspeccionar y Vista previa de datos de la transformación Select (Seleccionar) para ver que los nuevos valores de nombre de columna ```(a,b,c)``` reemplazan a los nombres de columna de películas, títulos y géneros originales.
    
@@ -131,7 +132,7 @@ Ahora que ha almacenado el contenido del archivo de configuración en memoria, p
 1. Lo que ha hecho es buscar todos los nombres de columna que coincidan con la propiedad ```prevcolumn``` del archivo de configuración JSON externo y cambiar el nombre de cada coincidencia al nuevo nombre ```newcolumn```.
 1. Haga clic en las pestañas Vista previa de datos e Inspeccionar de la transformación Select (Seleccionar); ahora debería ver los nuevos nombres de columna del archivo de asignación externo.
 
-![Origen 2](media/data-flow/dynacols-2.png "Origen 2")
+:::image type="content" source="media/data-flow/dynacols-2.png" alt-text="Origen 2":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

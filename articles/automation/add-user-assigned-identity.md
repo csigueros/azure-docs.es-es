@@ -3,14 +3,14 @@ title: Uso de una identidad administrada asignada por el usuario para una cuenta
 description: En este artículo, se describe cómo configurar una identidad administrada asignada por el usuario para las cuentas de Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 08/26/2021
+ms.date: 09/23/2021
 ms.topic: conceptual
-ms.openlocfilehash: ce409853cddfd0278692e2c6e233331530296d6b
-ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
+ms.openlocfilehash: 7b1a75aac3166b1fdd3cdd39f5f66bd380339975
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123214269"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129061796"
 ---
 # <a name="using-a-user-assigned-managed-identity-for-an-azure-automation-account-preview"></a>Uso de una identidad administrada asignada por el usuario para una cuenta de Azure Automation (versión preliminar)
 
@@ -23,7 +23,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-- Una cuenta de Azure Automation Para obtener instrucciones, consulte [Creación de una cuenta de Azure Automation](automation-quickstart-create-account.md).
+- Una cuenta de Azure Automation Para obtener instrucciones, consulte [Creación de una cuenta de Azure Automation](./quickstarts/create-account-portal.md).
 
 - Una identidad administrada asignada por el sistema. Para obtener instrucciones, consulte [Habilitación de una identidad administrada para la cuenta de Azure Automation (versión preliminar)](enable-managed-identity-for-automation.md).
 
@@ -49,7 +49,7 @@ Puede agregar una identidad administrada asignada por el usuario para una cuenta
 $sub = Get-AzSubscription -ErrorAction SilentlyContinue
 if(-not($sub))
 {
-    Connect-AzAccount -Subscription
+    Connect-AzAccount
 }
 
 # If you have multiple subscriptions, set the one to use
@@ -303,7 +303,7 @@ Una cuenta de Automation puede utilizar su identidad administrada asignada por e
 
 Para poder usar la identidad administrada asignada por el usuario para la autenticación, configure el acceso para esa identidad en el recurso de Azure en el que planea usar la identidad. Para completar esta tarea, asigne el rol adecuado a esa identidad en el recurso de Azure de destino.
 
-Siga la entidad de seguridad con menos privilegios y asigne cuidadosamente los permisos solo necesarios para ejecutar el runbook. Por ejemplo, si la cuenta de Automation solo es necesaria para iniciar o detener una VM de Azure, los permisos asignados a la cuenta de ejecución o a la identidad administrada solo deben ser para iniciar o detener la VM. De manera similar, si un runbook lee del almacenamiento de blobs, asigne permisos de solo lectura.
+Siga la entidad de seguridad con menos privilegios y asigne cuidadosamente solo los permisos necesarios para ejecutar el runbook. Por ejemplo, si la cuenta de Automation solo es necesaria para iniciar o detener una VM de Azure, los permisos asignados a la cuenta de ejecución o a la identidad administrada solo deben ser para iniciar o detener la VM. De manera similar, si un runbook lee del almacenamiento de blobs, asigne permisos de solo lectura.
 
 En este ejemplo se usa Azure PowerShell para mostrar cómo asignar el rol Colaborador en la suscripción al recurso de Azure de destino. El rol Colaborador se usa como ejemplo y puede ser necesario o no en su caso. Como alternativa, puede usar [Azure Portal](../role-based-access-control/role-assignments-portal.md) para asignar el rol al recurso de Azure de destino.
 
@@ -319,8 +319,14 @@ New-AzRoleAssignment `
 Después de habilitar la identidad administrada asignada por el usuario para la cuenta de Automation y de conceder acceso a una identidad al recurso de destino, puede especificar esa identidad en los runbooks para los recursos que admiten la identidad administrada. Para ver la compatibilidad con las identidades, use el cmdlet Az [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount).
 
 ```powershell
-Connect-AzAccount -Identity `
-    -AccountId <user-assigned-identity-ClientId> 
+# Ensures you do not inherit an AzContext in your runbook
+Disable-AzContextAutosave -Scope Process
+
+# Connect to Azure with user-assigned managed identity
+$AzureContext = (Connect-AzAccount -Identity -AccountId <user-assigned-identity-ClientId>).context
+
+# set and store context
+$AzureContext = Set-AzContext -SubscriptionName $AzureContext.Subscription -DefaultProfile $AzureContext
 ```
 
 ## <a name="generate-an-access-token-without-using-azure-cmdlets"></a>Generación de un token de acceso sin usar cmdlets de Azure

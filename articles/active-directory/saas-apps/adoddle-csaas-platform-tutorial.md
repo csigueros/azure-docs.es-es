@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 5554ec4521a126a2c2e823b707fe42d9983b5d8e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 6773ab2357a92299f9566cdf1140b3da76ad9162
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97671740"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124803300"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adoddle-csaas-platform"></a>Tutorial: Integración de Azure Active Directory con Adoddle cSaas Platform
 
@@ -180,7 +180,7 @@ En esta sección, se crea un usuario llamado a Britta Simon en Adoddle cSaas Pla
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de Adoddle cSaas Platform del panel de acceso, debería iniciar sesión automáticamente en la aplicación Adoddle cSaas Platform para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
+Al hacer clic en el icono de Adoddle cSaas Platform del panel de acceso, debería iniciar sesión automáticamente en la aplicación Adoddle cSaas Platform para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

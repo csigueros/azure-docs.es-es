@@ -4,12 +4,12 @@ description: Conozca cómo Azure App Service actualiza el sistema operativo y lo
 ms.topic: article
 ms.date: 02/02/2018
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 8b876760ee2bafc855345878a28c38ec3b35daad
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 35d4bbb33aa737725668c0376bb1ffe6f7748f46
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105047888"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124800087"
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>Aplicación de revisiones al sistema operativo y al entorno de tiempo de ejecución en Azure App Service
 
@@ -39,10 +39,6 @@ Manténgase al día con anuncios de seguridad críticos en Azure en el [blog de 
 
 Las nuevas versiones estables de los tiempos de ejecución de lenguajes admitidos (principales, secundarios o aplicación de revisiones) se agregan periódicamente a las instancias de App Service. Algunas actualizaciones sobrescriben la instalación existente, mientras que otras se instalan en paralelo a las versiones existentes. Una instalación de sobrescritura significa que la aplicación se ejecuta automáticamente en el tiempo de ejecución actualizado. Una instalación en paralelo significa que debe migrar manualmente la aplicación para beneficiarse de una versión en tiempo de ejecución nueva. Para más información, vea una de las subsecciones.
 
-Las actualizaciones y el desuso de tiempo de ejecución se anuncian aquí:
-
-- https://azure.microsoft.com/updates/?product=app-service 
-- https://github.com/Azure/app-service-announcements/issues
 
 > [!NOTE] 
 > Esta información se aplica a tiempos de ejecución de lenguaje integrados en una aplicación de App Service. Un tiempo de ejecución personalizado cargado en App Service, por ejemplo, no varía, a menos que lo actualice manualmente.
@@ -64,10 +60,6 @@ az webapp config appsettings set --settings WEBSITE_NODE_DEFAULT_VERSION=8.9.3 -
 az webapp config set --python-version 3.8 --resource-group <groupname> --name <appname>
 az webapp config set --java-version 1.8 --java-container Tomcat --java-container-version 9.0 --resource-group <groupname> --name <appname>
 ```
-
-### <a name="deprecated-versions"></a>Versiones en desuso  
-
-Cuando está en desuso una versión anterior, la fecha de eliminación se anuncia para que pueda planear la actualización de la versión en tiempo de ejecución. 
 
 ## <a name="how-can-i-query-os-and-runtime-update-status-on-my-instances"></a>¿Cómo puedo consultar el estado de actualización del sistema operativo y en tiempo de ejecución en mis instancias?  
 

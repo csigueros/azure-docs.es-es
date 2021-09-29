@@ -6,12 +6,12 @@ ms.author: v-ekrieg
 ms.topic: tutorial
 ms.date: 07/27/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: dd4500940b7a7b009e8cfb8acfb0411f2ade3023
-ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
+ms.openlocfilehash: 506af89773f9639df2bd3fcc07a204531d0dcf6e
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114719939"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124749010"
 ---
 # <a name="tutorial-integrate-servicenow-with-azure-defender-for-iot"></a>Tutorial: Integración de ServiceNow con Azure Defender para IoT
 
@@ -224,7 +224,7 @@ No hay recursos para limpiar.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha aprendido a empezar a trabajar con la integración de ServiceNow. Continúe para obtener información sobre la [integración de Cisco](integration-cisco-ise-pxgrid.md).
+En este tutorial, ha aprendido a empezar a trabajar con la integración de ServiceNow. Continúe para obtener información sobre la [integración de Cisco](./integration-forescout.md).
 
 > [!div class="nextstepaction"]
-> [Botón de pasos siguientes](integration-cisco-ise-pxgrid.md)
+> [Botón de pasos siguientes](./integration-forescout.md)

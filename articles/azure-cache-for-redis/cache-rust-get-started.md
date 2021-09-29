@@ -7,12 +7,12 @@ ms.service: cache
 ms.devlang: rust
 ms.topic: quickstart
 ms.date: 01/08/2021
-ms.openlocfilehash: acbf5933f01a465ad1855c049796901da5d1ff90
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 23e1bdc895da7ba9941901832d7fc89cd9c6196a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110059741"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128592629"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-rust"></a>Inicio rápido: Uso de Azure Cache for Redis con Rust
 
@@ -35,9 +35,9 @@ Si quiere pasar directamente al código, consulte [Inicio rápido: Uso de Azure 
 - [Git](https://git-scm.com/downloads)
 
 ## <a name="create-an-azure-cache-for-redis-instance"></a>Creación de una instancia de Azure Redis Cache
-[!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
+[!INCLUDE [redis-cache-create](includes/redis-cache-create.md)]
 
-[!INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
+[!INCLUDE [redis-cache-create](includes/redis-cache-access-keys.md)]
 
 ## <a name="review-the-code-optional"></a>Revisión del código (opcional)
 
@@ -177,7 +177,7 @@ fn list() {
 }
 ```
 
-Aquí puede ver algunas de las operaciones `SET`. El método [sadd](https://docs.rs/redis/0.19.0/redis/trait.Commands.html#method.sadd) (API de alto nivel) se usa para agregar un par de entradas a un objeto `SET` denominado `users`. A continuación, se ejecuta [SISMEMBER](https://redis.io/commands/hset) (API de bajo nivel) para comprobar si `user1` existe. Por último, [smembers](https://docs.rs/redis/0.19.0/redis/trait.Commands.html#method.smembers) se usa para capturar y recorrer en iteración todas las entradas establecidas en forma de vector ([Vec<String>](https://doc.rust-lang.org/std/vec/struct.Vec.html)).
+Aquí puede ver algunas de las operaciones `SET`. El método [sadd](https://docs.rs/redis/0.19.0/redis/trait.Commands.html#method.sadd) (API de alto nivel) se usa para agregar un par de entradas a un objeto `SET` denominado `users`. A continuación, se ejecuta [SISMEMBER](https://redis.io/commands/hset) (API de bajo nivel) para comprobar si `user1` existe. Por último, [smembers](https://docs.rs/redis/0.19.0/redis/trait.Commands.html#method.smembers) se usa para capturar y recorrer en iteración todas las entradas establecidas en forma de vector ([Vec\<String\>](https://doc.rust-lang.org/std/vec/struct.Vec.html)).
 
 ```rust
 fn set() {

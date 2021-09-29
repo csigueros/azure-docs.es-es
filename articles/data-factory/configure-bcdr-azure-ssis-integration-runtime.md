@@ -13,12 +13,12 @@ ms.reviewer: douglasl
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/05/2021
-ms.openlocfilehash: 71e85c44c951e7ce556e920a1316fe9a029c892c
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 2da56452a8674940b3d81ffd06c722886fd07ed7
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123428808"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129218023"
 ---
 # <a name="configure-azure-ssis-integration-runtime-for-business-continuity-and-disaster-recovery-bcdr"></a>Configuración de Azure-SSIS Integration Runtime para continuidad empresarial y recuperación ante desastres (BCDR) 
 
@@ -62,11 +62,11 @@ Para configurar un par de Azure-SSIS IR en espera dual que funcione en sincroni
 
 1. Con la interfaz de usuario de ADF o Azure Portal puede crear una instancia de Azure-SSIS IR con la instancia administrada de Azure SQL principal para hospedar SSISDB en la región primaria. Si tiene una instancia de Azure-SSIS IR existente que ya está conectada a la SSIDB que hospeda la instancia administrada de Azure SQL principal y sigue en ejecución, debe detenerla primero para volver a configurarla. Esta será la instancia de Azure-SSIS IR principal.
 
-   Al [seleccionar usar SSISDB](./create-azure-ssis-integration-runtime.md#creating-ssisdb) en la página **Configuración de la implementación** del panel **Configuración de Integration Runtime**, active también la casilla **Use dual standby Azure-SSIS Integration Runtime pair with SSISDB failover** (Usar el par de Azure-SSIS Integration Runtime en modo de espera dual con conmutación por error de SSISDB). En **Dual standby pair name** (Nombre de par en espera dual), escriba un nombre para identificar el par de Azure-SSIS IR principal y secundario. Al completar la creación de la instancia de Azure-SSIS IR principal, se iniciará y adjuntará a una SSISDB principal que se creará en su nombre con acceso de lectura y escritura. Si lo acaba de volver a configurar, tendrá que reiniciarlo. También puede comprobar si la SSISDB principal se ha replicado en una secundaria con acceso de solo lectura en la página **Información general** de la instancia administrada de Azure SQL secundaria.
+   Al [seleccionar usar SSISDB](./create-azure-ssis-integration-runtime-portal.md#creating-ssisdb) en la página **Configuración de la implementación** del panel **Configuración de Integration Runtime**, active también la casilla **Use dual standby Azure-SSIS Integration Runtime pair with SSISDB failover** (Usar el par de Azure-SSIS Integration Runtime en modo de espera dual con conmutación por error de SSISDB). En **Dual standby pair name** (Nombre de par en espera dual), escriba un nombre para identificar el par de Azure-SSIS IR principal y secundario. Al completar la creación de la instancia de Azure-SSIS IR principal, se iniciará y adjuntará a una SSISDB principal que se creará en su nombre con acceso de lectura y escritura. Si lo acaba de volver a configurar, tendrá que reiniciarlo. También puede comprobar si la SSISDB principal se ha replicado en una secundaria con acceso de solo lectura en la página **Información general** de la instancia administrada de Azure SQL secundaria.
 
 1. Con la interfaz de usuario de ADF o Azure Portal puede crear otra instancia de Azure-SSIS IR con la instancia administrada de Azure SQL secundaria para hospedar SSISDB en la región secundaria. Esta será la instancia de Azure-SSIS IR secundaria. Para operaciones completas de BCDR, asegúrese de que todos los recursos de los que depende también se crean en la región secundaria, por ejemplo Azure Storage para almacenar scripts o archivos de configuración personalizados, ADF para la orquestación o programación de ejecuciones de paquetes, etc.
 
-   Al [seleccionar usar SSISDB](./create-azure-ssis-integration-runtime.md#creating-ssisdb) en la página **Configuración de la implementación** del panel **Configuración de Integration Runtime**, active también la casilla **Use dual standby Azure-SSIS Integration Runtime pair with SSISDB failover** (Usar el par de Azure-SSIS Integration Runtime en modo de espera dual con conmutación por error de SSISDB). En **Dual standby pair name** (Nombre de par en espera dual), escriba el mismo nombre para identificar el par de Azure-SSIS IR principal y secundario. Al completar la creación de la instancia de Azure-SSIS IR secundaria, se iniciará y adjuntará a la SSISDB secundaria.
+   Al [seleccionar usar SSISDB](./create-azure-ssis-integration-runtime-portal.md#creating-ssisdb) en la página **Configuración de la implementación** del panel **Configuración de Integration Runtime**, active también la casilla **Use dual standby Azure-SSIS Integration Runtime pair with SSISDB failover** (Usar el par de Azure-SSIS Integration Runtime en modo de espera dual con conmutación por error de SSISDB). En **Dual standby pair name** (Nombre de par en espera dual), escriba el mismo nombre para identificar el par de Azure-SSIS IR principal y secundario. Al completar la creación de la instancia de Azure-SSIS IR secundaria, se iniciará y adjuntará a la SSISDB secundaria.
 
 1. Azure SQL Managed Instance puede proteger la información confidencial de las bases de datos, como SSISDB, si los cifra mediante la clave maestra de base de datos (DMK). DMK a su vez se cifra mediante la clave maestra de servicio (SMK) de forma predeterminada. Desde septiembre de 2021, SMK se replica desde la instancia principal de Azure SQL Managed Instance a la secundaria durante la creación del grupo de conmutación por error. Si el grupo de conmutación por error se creó antes, elimine todas las bases de datos de usuario, incluida SSISDB, de la instancia secundaria de Azure SQL Managed Instance y vuelva a crear el grupo de conmutación por error.
 
@@ -78,7 +78,7 @@ Para configurar un par de Azure-SSIS IR en espera dual que funcione en sincroni
 
    1. Para cada trabajo de SSIS, haga clic con el botón derecho y seleccione los elementos de menú desplegable **Script Job as** (Incluir trabajo como), **CREATE To** (Crear en) y **Nueva ventana del Editor de consultas** para generar su script.
 
-      ![Generación del script de trabajo de SSIS](media/configure-bcdr-azure-ssis-integration-runtime/generate-ssis-job-script.png)
+      :::image type="content" source="media/configure-bcdr-azure-ssis-integration-runtime/generate-ssis-job-script.png" alt-text="Generación del script de trabajo de SSIS":::
 
    1. Para cada script de trabajo de SSIS generado, busque el comando para ejecutar el procedimiento almacenado `sp_add_job` y modifique o quite la asignación de valores al argumento `@owner_login_name` según sea necesario.
 
@@ -115,13 +115,13 @@ Si se produce un desastre que afecta a la instancia de Azure-SSIS IR existente 
    EXEC [catalog].[failover_integration_runtime] @data_factory_name = 'YourNewADF', @integration_runtime_name = 'YourNewAzureSSISIR'
    ```
 
-1. Con la [interfaz de usuario de Azure Portal o ADF](./create-azure-ssis-integration-runtime.md#use-the-azure-portal-to-create-an-integration-runtime), o [Azure PowerShell](./create-azure-ssis-integration-runtime.md#use-azure-powershell-to-create-an-integration-runtime), cree la instancia de ADF o Azure-SSIS IR con el nombre *NuevaInstanciaDeADF*/*NuevaInstanciaDeAzureSSISIR*, respectivamente, en otra región. Si usa la interfaz de usuario de Azure Portal o ADF, puede omitir el error de conexión de prueba en la página **Configuración de implementación** del panel **Configuración de Integration Runtime**.
+1. Con la [interfaz de usuario de Azure Portal o ADF](./create-azure-ssis-integration-runtime-portal.md), o [Azure PowerShell](./create-azure-ssis-integration-runtime-powershell.md), cree la instancia de ADF o Azure-SSIS IR con el nombre *NuevaInstanciaDeADF*/*NuevaInstanciaDeAzureSSISIR*, respectivamente, en otra región. Si usa la interfaz de usuario de Azure Portal o ADF, puede omitir el error de conexión de prueba en la página **Configuración de implementación** del panel **Configuración de Integration Runtime**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Puede tener en cuenta estas otras opciones de configuración para Azure-SSIS IR:
 
-- [Configuración de almacenes de paquetes para Azure-SSIS IR](./create-azure-ssis-integration-runtime.md#creating-azure-ssis-ir-package-stores)
+- [Configuración de almacenes de paquetes para Azure-SSIS IR](./create-azure-ssis-integration-runtime-portal.md#creating-azure-ssis-ir-package-stores)
 
 - [Configuración de instalaciones personalizadas para Azure-SSIS IR](./how-to-configure-azure-ssis-ir-custom-setup.md)
 

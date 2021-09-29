@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/30/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: dd63a04616848acfb3971a97f8363498e6ba4e55
-ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
+ms.openlocfilehash: 4e9bfa2dc340f567a6c2b7c4ab5d45cfeaa41e6c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122835747"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128661020"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins"></a>Administración de puntos de conexión y rutas en Azure Digital Twins
 
@@ -77,7 +77,7 @@ Para crear un punto de conexión, vaya a la página de la instancia en [Azure Po
 1. Escriba un **Nombre** para el punto de conexión y elija el **Tipo de punto de conexión**.
 
 1. Complete los demás detalles necesarios para el tipo de punto de conexión, incluida la suscripción y los recursos del punto de conexión descritos [antes](#prerequisite-create-endpoint-resources).
-    1. Solo para los puntos de conexión de centro de eventos y Service Bus, debe seleccionar un **Tipo de autenticación**. Puede usar la autenticación basada en claves con una regla de autorización creada previamente, o bien la autenticación basada en identidades si va a utilizar el punto de conexión con una [identidad administrada](concepts-security.md#managed-identity-for-accessing-other-resources-preview) para la instancia de Azure Digital Twins. 
+    1. Solo para los puntos de conexión de centro de eventos y Service Bus, debe seleccionar un **Tipo de autenticación**. Puede usar la autenticación basada en claves con una regla de autorización creada previamente, o bien la autenticación basada en identidades si va a utilizar el punto de conexión con una [identidad administrada](concepts-security.md#managed-identity-for-accessing-other-resources) para la instancia de Azure Digital Twins. 
 
     :::row:::
         :::column:::
@@ -132,7 +132,7 @@ Después de ejecutar correctamente estos comandos, Event Grid, el centro de even
 
 #### <a name="create-an-endpoint-with-identity-based-authentication"></a>Creación de un punto de conexión con autenticación basada en identidades
 
-También puede crear un punto de conexión que tenga autenticación basada en identidades, para usarlo con una [identidad administrada](concepts-security.md#managed-identity-for-accessing-other-resources-preview). Esta opción solo está disponible para los puntos de conexión de centro de eventos y de tipo Service Bus (no se admite para Event Grid).
+También puede crear un punto de conexión que tenga autenticación basada en identidades, para usarlo con una [identidad administrada](concepts-security.md#managed-identity-for-accessing-other-resources). Esta opción solo está disponible para los puntos de conexión de centro de eventos y de tipo Service Bus (no se admite para Event Grid).
 
 A continuación se muestra el comando de la CLI para crear este tipo de punto de conexión. Necesitará los valores siguientes para conectarse a los marcadores de posición del comando:
 * el id. de recurso de Azure de la instancia de Azure Digital Twins
@@ -235,7 +235,7 @@ Como alternativa, puede crear puntos de conexión de cola de mensajes fallidos m
 
 #### <a name="create-a-dead-letter-endpoint-with-identity-based-authentication"></a>Creación de un punto de conexión de cola de mensajes fallidos con autenticación basada en identidades
 
-También puede crear un punto de conexión de cola de mensajes fallidos que tenga autenticación basada en identidades, para usarlo con una [identidad administrada](concepts-security.md#managed-identity-for-accessing-other-resources-preview). Esta opción solo está disponible para los puntos de conexión de centro de eventos y de tipo Service Bus (no se admite para Event Grid).
+También puede crear un punto de conexión de cola de mensajes fallidos que tenga autenticación basada en identidades, para usarlo con una [identidad administrada](concepts-security.md#managed-identity-for-accessing-other-resources). Esta opción solo está disponible para los puntos de conexión de centro de eventos y de tipo Service Bus (no se admite para Event Grid).
 
 Para crear este tipo de punto de conexión, use el mismo comando de la CLI anterior para [crear un punto de conexión con autenticación basada en identidades](#create-an-endpoint-with-identity-based-authentication), con un campo adicional en la carga de JSON para un elemento `deadLetterUri`.
 

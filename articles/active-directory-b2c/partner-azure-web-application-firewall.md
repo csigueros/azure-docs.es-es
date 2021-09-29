@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 08/17/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 03c66f9610ab8dc309098e1eee695ded477938bc
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: 54cb0cdbff2ac11334f168e41a18107d3d0dfe87
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122768450"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124763225"
 ---
 # <a name="tutorial-configure-azure-web-application-firewall-with-azure-active-directory-b2c"></a>Tutorial: Configuración de Azure Web Application Firewall con Azure Active Directory B2C
 
@@ -33,15 +33,15 @@ Para empezar, necesitará lo siguiente:
 
 - [Un inquilino de Azure AD B2C](tutorial-create-tenant.md): el servidor de autorización, responsable de comprobar las credenciales del usuario en función de las directivas personalizadas definidas en el inquilino.  También se conoce como proveedor de identidades.
 
-- [Azure Front Door (AFD)](https://docs.microsoft.com/azure/frontdoor/): el responsable de habilitar dominios personalizados para el inquilino de Azure AD B2C.  
+- [Azure Front Door (AFD)](../frontdoor/index.yml): el responsable de habilitar dominios personalizados para el inquilino de Azure AD B2C.  
 
 - [Azure WAF](https://azure.microsoft.com/services/web-application-firewall/#overview): administra todo el tráfico que se envía al servidor de autorización.
 
 ## <a name="azure-ad-b2c-setup"></a>Configuración de Azure AD B2C
 
-Para usar dominios personalizados en Azure AD B2C, es necesario usar la característica de dominio personalizado que proporciona AFD. Obtenga información sobre la [habilitación de dominios personalizados de Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-domain?pivots=b2c-user-flow).  
+Para usar dominios personalizados en Azure AD B2C, es necesario usar la característica de dominio personalizado que proporciona AFD. Obtenga información sobre la [habilitación de dominios personalizados de Azure AD B2C](./custom-domain.md?pivots=b2c-user-flow).  
 
-Una vez que el dominio de Azure AD B2C personalizado se haya configurado correctamente mediante AFD, [pruebe el dominio personalizado](https://docs.microsoft.com/azure/active-directory-b2c/custom-domain?pivots=b2c-custom-policy#test-your-custom-domain) antes de continuar.  
+Una vez que el dominio de Azure AD B2C personalizado se haya configurado correctamente mediante AFD, [pruebe el dominio personalizado](./custom-domain.md?pivots=b2c-custom-policy#test-your-custom-domain) antes de continuar.  
 
 ## <a name="onboard-with-azure-waf"></a>Incorporación con Azure WAF
 
@@ -80,7 +80,7 @@ Cree una directiva básica de WAF con un conjunto de reglas predeterminado (DRS)
 
 ### <a name="change-policy-mode-from-detection-to-prevention"></a>Cambio del modo de directiva de detección a prevención
 
-Cuando se crea una directiva WAF, de forma predeterminada está en modo de detección. En el modo de detección, WAF no bloquea las solicitudes, sino que las solicitudes que coinciden con las reglas de WAF se registran en los registros de WAF. Para obtener más información sobre el registro de WAF, consulte [Supervisión y registro de Azure WAF](https://docs.microsoft.com/azure/web-application-firewall/afds/waf-front-door-monitor).
+Cuando se crea una directiva WAF, de forma predeterminada está en modo de detección. En el modo de detección, WAF no bloquea las solicitudes, sino que las solicitudes que coinciden con las reglas de WAF se registran en los registros de WAF. Para obtener más información sobre el registro de WAF, consulte [Supervisión y registro de Azure WAF](../web-application-firewall/afds/waf-front-door-monitor.md).
 
 La consulta de ejemplo muestra todas las solicitudes bloqueadas por la directiva de WAF en las últimas 24 horas. Los detalles incluyen el nombre de la regla, los datos de solicitud, la acción realizada por la directiva y el modo de directiva.
 
@@ -88,7 +88,7 @@ La consulta de ejemplo muestra todas las solicitudes bloqueadas por la directiva
 
 ![La imagen muestra los detalles de las solicitudes bloqueadas.](./media/partner-azure-web-application-firewall/blocked-requests-details.png)
 
-Se recomienda permitir que WAF capture solicitudes en modo de detección. Revise los registros de WAF para determinar si hay alguna regla en la directiva que esté causando resultados falsos positivos. A continuación, [excluya las reglas de WAF basadas en los registros de WAF](https://docs.microsoft.com/azure/web-application-firewall/afds/waf-front-door-exclusion#define-exclusion-based-on-web-application-firewall-logs).
+Se recomienda permitir que WAF capture solicitudes en modo de detección. Revise los registros de WAF para determinar si hay alguna regla en la directiva que esté causando resultados falsos positivos. A continuación, [excluya las reglas de WAF basadas en los registros de WAF](../web-application-firewall/afds/waf-front-door-exclusion.md#define-exclusion-based-on-web-application-firewall-logs).
 
 Para ver WAF en acción, use Cambiar al modo de prevención para cambiar del modo de detección al modo de prevención. Todas las solicitudes que coinciden con las reglas que se definen en el conjunto de reglas predeterminado (DRS) se bloquean y se registran en los registros de WAF.
 
@@ -100,6 +100,6 @@ En caso de que quiera volver al modo de detección, puede hacerlo mediante la op
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Supervisión y registro de Azure WAF](https://docs.microsoft.com/azure/web-application-firewall/afds/waf-front-door-monitor/)
+- [Supervisión y registro de Azure WAF](../web-application-firewall/afds/waf-front-door-monitor.md)
 
-- [WAF con listas de exclusión de servicios de Front Door](https://docs.microsoft.com/azure/web-application-firewall/afds/waf-front-door-exclusion/)
+- [WAF con listas de exclusión de servicios de Front Door](../web-application-firewall/afds/waf-front-door-exclusion.md)

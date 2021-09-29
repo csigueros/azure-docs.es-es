@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
-ms.openlocfilehash: 03a216f24013413fd03de9ae71eb599fd1334998
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b408e943d67657995e28b7493e172a13213a3ef4
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97672971"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124809875"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-certain-admin-sso"></a>Tutorial: Integración de Azure Active Directory con Certain Admin SSO
 
@@ -185,7 +185,7 @@ En esta sección, creará la usuaria Britta Simon en Certain Admin SSO. Trabaje 
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de Certain Admin SSO en el panel de acceso, debería iniciar sesión automáticamente en la versión de Certain Admin SSO para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
+Al hacer clic en el icono de Certain Admin SSO en el panel de acceso, debería iniciar sesión automáticamente en la versión de Certain Admin SSO para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

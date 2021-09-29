@@ -3,12 +3,12 @@ title: Creación de un plan Prémium de Azure Functions en el portal
 description: Aprenda a usar Azure Portal para crear una aplicación de funciones que se ejecute en el plan Prémium.
 ms.topic: how-to
 ms.date: 10/30/2020
-ms.openlocfilehash: 9cab67f096665c9333fa40bcb790896fcbebd8d5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e510eb85cb0e30cd6cd0fcfa1a1979dd421dd266
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98676593"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128573258"
 ---
 # <a name="create-a-premium-plan-function-app-in-the-azure-portal"></a>Creación de una aplicación de funciones de plan Prémium en Azure Portal
 
@@ -35,4 +35,4 @@ Llegados a este punto, puede crear funciones en la nueva aplicación de funcione
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Adición de una función de desencadenador HTTP](./functions-get-started.md
+> [Incorporación de una función desencadenada mediante HTTP](./functions-create-function-app-portal.md#create-function)

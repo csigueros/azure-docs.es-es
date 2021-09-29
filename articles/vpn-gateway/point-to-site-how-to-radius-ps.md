@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 07/27/2021
 ms.author: cherylmc
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 638a38cf1cbe9aee231e1db400440330bd852b9f
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: d700a74b0e5be6511cbaf356da2d1cd85af8ff66
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121729655"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124766300"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell"></a>Configuración de una conexión de punto a sitio a una red virtual con autenticación RADIUS: PowerShell
 
@@ -294,4 +294,4 @@ Estas preguntas más frecuentes se aplican a la conexión de punto a sitio con a
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez completada la conexión, puede agregar máquinas virtuales a las redes virtuales. Consulte [Virtual Machines](../index.yml) para más información. Para más información acerca de las redes y las máquinas virtuales, consulte [Información general sobre las redes de máquina virtual con Linux y Azure](../virtual-machines/network-overview.md).
+Una vez completada la conexión, puede agregar máquinas virtuales a las redes virtuales. Consulte [Virtual Machines](../index.yml) para más información. Para más información acerca de las redes y las máquinas virtuales, consulte [Información general sobre las redes de máquina virtual con Linux y Azure](../virtual-network/network-overview.md).

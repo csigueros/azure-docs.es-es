@@ -8,12 +8,12 @@ ms.service: internet-peering
 ms.topic: how-to
 ms.date: 03/30/2021
 ms.author: gatharej
-ms.openlocfilehash: 4c4e3e2331ce334fbdd1c273fecd899bcd24612b
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 395ca8022b0355ff79c200dfbe87bc78e29de089
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108124570"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129060865"
 ---
 # <a name="azure-internet-peering-for-communications-services-walkthrough"></a>Tutorial de emparejamiento de Internet de Azure para Communication Services
 
@@ -52,7 +52,7 @@ En caso de que el nodo del mismo nivel ya haya asociado el ASN público a una su
 El siguiente paso consiste en crear una conexión de emparejamiento directo para Peering Service.
 
 > [!NOTE]
-> Una vez aprobada la asociación de ASN, envíenos un correo electrónico a peeringservices@microsoft.com con su ASN y su identificador de suscripción para asociar la suscripción a Communication Services. 
+> Una vez aprobada la asociación de ASN, envíenos un correo electrónico a peeringservice@microsoft.com con su ASN y su identificador de suscripción para asociar la suscripción a Communication Services. 
 
 **2. Cree una conexión de emparejamiento directo para Peering Service:**
 

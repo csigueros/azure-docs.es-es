@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 06/17/2021
-ms.openlocfilehash: c83e8a93d41cde3c7a3debbbcfa9d3522ffe2939
-ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
+ms.openlocfilehash: 601b3659cd23cbd12d96f4e73c24a3a4a6c3fe55
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122396963"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128602268"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql---flexible-server"></a>Réplicas de lectura en Azure Database for MySQL: Servidor flexible
 
@@ -31,7 +31,7 @@ Las réplicas son nuevos servidores que se administran de forma similar a los se
 Para más información sobre los problemas y las características de replicación de MySQL, consulte la [documentación de replicación de MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html).
 
 > [!NOTE]
-> Este artículo contiene referencias al término _esclavo_, un término que Microsoft ya no usa. Cuando se elimine el término del software, se eliminará también de este artículo.
+> Este artículo contiene referencias al término *esclavo*, un término que Microsoft ya no usa. Cuando se elimine el término del software, se eliminará también de este artículo.
 
 ## <a name="common-use-cases-for-read-replica"></a>Casos de uso habituales de las réplicas de lectura
 

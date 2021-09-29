@@ -9,12 +9,12 @@ ms.date: 03/03/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3
-ms.openlocfilehash: 2d4885f23e775f84a412d176568d992ebe01166b
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 32605a78336c8d9e1aeb730be50441d43b8fe45c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107875708"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128659141"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Uso del servicio Azure Import/Export para exportar datos de Azure Blob Storage
 
@@ -395,16 +395,13 @@ Este paso *opcional* le ayuda a determinar el número de unidades necesarias par
 
 4. Para comprobar el número de discos necesarios para los blobs seleccionados, ejecute el siguiente comando:
 
-   `WAImportExport.exe PreviewExport /sn:<Storage account name> /sk:<Storage account key> /ExportBlobListFile:<Path to XML blob list file> /DriveSize:<Size of drives used>`
+   `WAImportExport.exe PreviewExport /ExportBlobListFile:<Path to XML blob list file> /DriveSize:<Size of drives used>`
 
     Los parámetros se describen en la tabla siguiente:
 
     |Parámetro de línea de comandos|Descripción|
     |--------------------------|-----------------|
     |**/logdir:**|Opcional. Directorio de registro. Los archivos de registro detallados se escriben en este directorio. Si no se especifica, se usa el directorio actual como directorio de registro.|
-    |**/sn:**|Necesario. El nombre de la cuenta de almacenamiento para el trabajo de exportación.|
-    |**/sk:**|Necesario únicamente si no se especifica un SAS del contenedor. La clave de cuenta para la cuenta de almacenamiento correspondiente al trabajo de exportación.|
-    |**/csas:**|Necesario únicamente si no se especifica una clave de cuenta de almacenamiento. El contenedor SAS para enumerar los blobs que se van a exportar en el trabajo de exportación.|
     |**/ExportBlobListFile:**|Necesario. Ruta de acceso al archivo XML que contiene una lista de rutas de acceso de blob o prefijos de ruta de acceso para los blobs que se van a exportar. El formato de archivo usado en el elemento `BlobListBlobPath` de la operación [Put Job](/rest/api/storageimportexport/jobs) de la API de REST del servicio Import/Export.|
     |**/DriveSize:**|Necesario. El tamaño de las unidades que se van a usar para un trabajo de exportación, *por ejemplo*, 500 GB o 1,5 TB.|
 
@@ -417,7 +414,7 @@ Este paso *opcional* le ayuda a determinar el número de unidades necesarias par
 En el siguiente ejemplo se muestra el comando `PreviewExport`:
 
 ```powershell
-    WAImportExport.exe PreviewExport /sn:bobmediaaccount /sk:VkGbrUqBWLYJ6zg1m29VOTrxpBgdNOlp+kp0C9MEdx3GELxmBw4hK94f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /ExportBlobListFile:C:\WAImportExport\mybloblist.xml /DriveSize:500GB
+    WAImportExport.exe PreviewExport /ExportBlobListFile:C:\WAImportExport\mybloblist.xml /DriveSize:500GB
 ```
 
 El archivo de lista de blobs de exportación puede contener nombres de blob y prefijos de blob, como se muestra aquí:

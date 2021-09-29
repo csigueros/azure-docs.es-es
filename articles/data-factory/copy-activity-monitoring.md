@@ -7,14 +7,14 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/24/2021
+ms.date: 09/09/2021
 ms.author: jianleishen
-ms.openlocfilehash: b8f3de9a986c491de6bfd2b507755abe4face534
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.openlocfilehash: ed65bb5bcde37bf4ad18d9650697d51640ac1e4a
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122822405"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124767591"
 ---
 # <a name="monitor-copy-activity"></a>Supervisión de actividad de copia
 
@@ -30,17 +30,17 @@ Para supervisar la ejecución de la actividad de copia, vaya a la interfaz de us
 
 # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
 
-![Supervisar ejecución de canalización](./media/copy-activity-overview/monitor-pipeline-run.png)
+:::image type="content" source="./media/copy-activity-overview/monitor-pipeline-run.png" alt-text="Supervisar ejecución de canalización":::
 
 # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
 
-![Supervisar ejecución de canalización](./media/copy-activity-overview/monitor-pipeline-run-synapse.png)
+:::image type="content" source="./media/copy-activity-overview/monitor-pipeline-run-synapse.png" alt-text="Supervisar ejecución de canalización":::
 
 ---
 
 En este nivel, puede ver vínculos a la entrada, la salida y los errores (si se produce un error en la ejecución de la actividad de copia) de la actividad de copia, así como estadísticas tales como la duración y el estado. Al hacer clic en el botón de **detalles** (gafas) junto al nombre de la actividad de copia, obtendrá información más detallada sobre la ejecución de la actividad de copia. 
 
-![Supervisión de la ejecución de la actividad de copia](./media/copy-activity-overview/monitor-copy-activity-run.png)
+:::image type="content" source="./media/copy-activity-overview/monitor-copy-activity-run.png" alt-text="Supervisión de la ejecución de la actividad de copia":::
 
 En esta vista gráfica de supervisión, el servicio presenta la información sobre la ejecución de la actividad de copia, entre la que se incluye el volumen de datos leídos y escritos, el número de archivos y filas de datos copiados del origen al receptor, el rendimiento, las configuraciones aplicadas para el escenario de copia, los pasos de la actividad de copia con las duraciones y los detalles correspondientes, etc. Consulte en [esta tabla](#monitor-programmatically) cada métrica posible y su descripción detallada. 
 
@@ -50,7 +50,7 @@ En la parte inferior, los **detalles y duraciones de la ejecución** describen l
 
 **Ejemplo: Copia de Amazon S3 a Azure Data Lake Storage Gen2**
 
-![Detalles de la supervisión de la ejecución de la actividad de copia](./media/copy-activity-overview/monitor-copy-activity-run-details.png)
+:::image type="content" source="./media/copy-activity-overview/monitor-copy-activity-run-details.png" alt-text="Detalles de la supervisión de la ejecución de la actividad de copia":::
 
 ## <a name="monitor-programmatically"></a>Supervisión mediante programación
 

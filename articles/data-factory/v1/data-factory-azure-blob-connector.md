@@ -3,16 +3,17 @@ title: Copia de datos hacia o desde Azure Blob Storage
 description: 'Aprenda a copiar datos de blob en Azure Data Factory. Utilice nuestro ejemplo: Cómo copiar datos entre Azure Blob Storage y Azure SQL Database.'
 author: linda33wj
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 3d42c7cc6498adad251174db7caea11feec82784
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 02b51ff93b14adcbf0dc4c628421a7521fdc49c7
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108753574"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128599817"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>Copia de datos hacia Azure Blob Storage o desde él con Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -188,7 +189,7 @@ Vamos a ver cómo copiar rápidamente datos a y desde una instancia de Azure Blo
     4. Seleccione una **ubicación** para la factoría de datos.
     5. Seleccione la casilla **Anclar al panel** en la parte inferior de la hoja.
     6. Haga clic en **Crear**.
-3. Una vez completada la creación, puede ver la hoja **Data Factory** como se muestra en la siguiente imagen:  ![Página principal de Data Factory](./media/data-factory-azure-blob-connector/data-factory-home-page.png)
+3. Una vez completada la creación, puede ver la hoja **Data Factory** como se muestra en la siguiente imagen:  :::image type="content" source="./media/data-factory-azure-blob-connector/data-factory-home-page.png" alt-text="Página principal de Data Factory":::
 
 ### <a name="copy-wizard"></a>Asistente para copia
 1. En la página principal de Data Factory, haga clic en el icono **Copiar datos** para iniciar el **Asistente para copia de datos** en una pestaña aparte.  
@@ -203,27 +204,27 @@ Vamos a ver cómo copiar rápidamente datos a y desde una instancia de Azure Blo
     5. Cambie la **fecha y hora de inicio** a **04/21/2017**.
     6. Cambie la **fecha y hora de finalización** a **04/25/2017**. Puede escribir la fecha en lugar de buscarla en el calendario.
     8. Haga clic en **Next**.
-        ![Herramienta de copia: Página de propiedades](./media/data-factory-azure-blob-connector/copy-tool-properties-page.png)
+        :::image type="content" source="./media/data-factory-azure-blob-connector/copy-tool-properties-page.png" alt-text="Herramienta de copia: Página de propiedades":::
 3. En la página **Almacén de datos de origen**, haga clic en el icono **Azure Blob Storage**. Use esta página para especificar el almacén de datos de origen para la tarea de copia. Puede usar un servicio vinculado del almacén de datos existente, o bien especificar un almacén de datos nuevo. Para usar un servicio vinculado existente, seleccionaría **FROM EXISTING LINKED SERVICES** (DE SERVICIOS VINCULADOS EXISTENTES) y luego el servicio vinculado correcto.
-    ![Herramienta de copia: Página de almacén de datos de origen](./media/data-factory-azure-blob-connector/copy-tool-source-data-store-page.png)
+    :::image type="content" source="./media/data-factory-azure-blob-connector/copy-tool-source-data-store-page.png" alt-text="Herramienta de copia: Página de almacén de datos de origen":::
 4. En la página **Especificar cuenta de Almacenamiento de blobs de Azure** :
     1. En **Nombre de la conexión**, mantenga el nombre generado automáticamente. El nombre de conexión es el nombre del servicio vinculado de tipo: Azure Storage.
     2. Confirme que la opción **De suscripciones de Azure** está seleccionada para **Método de selección de cuenta**.
     3. Seleccione la suscripción de Azure o mantenga **Seleccionar todo** para **Suscripción de Azure**.
     4. Seleccione una **cuenta de Azure Storage** en la lista de cuentas de Azure Storage disponibles en la suscripción seleccionada. También puede elegir especificar la configuración de la cuenta de almacenamiento manualmente, para lo que debe seleccionar la opción **Enter manually** (Especificar manualmente) en **Account selection method** (Método de selección de cuenta).
     5. Haga clic en **Next**.  
-        ![Herramienta de copia: Especificación de la cuenta de Azure Blob Storage](./media/data-factory-azure-blob-connector/copy-tool-specify-azure-blob-storage-account.png)
+        :::image type="content" source="./media/data-factory-azure-blob-connector/copy-tool-specify-azure-blob-storage-account.png" alt-text="Herramienta de copia: Especificación de la cuenta de Azure Blob Storage":::
 5. En la página **Elegir el archivo o la carpeta de entrada** :
     1. Haga doble clic en **adfblobcontainer**.
     2. Seleccione **entrada** y haga clic en **Elegir**. En este tutorial, seleccionará la carpeta de entrada. También podría seleccionar en su lugar el archivo emp.txt de la carpeta.
-        ![Herramienta de copia: selección del archivo o la carpeta de entrada 1](./media/data-factory-azure-blob-connector/copy-tool-choose-input-file-or-folder.png)
+        :::image type="content" source="./media/data-factory-azure-blob-connector/copy-tool-choose-input-file-or-folder.png" alt-text="Herramienta de copia: selección del archivo o la carpeta de entrada 1":::
 6. En la página **Choose the input file or folder** (Elegir el archivo o la carpeta de entrada):
     1. Confirme que el **archivo o la carpeta** están establecidos en **adfblobconnector/entrada**. Si los archivos se encuentran en subcarpetas, por ejemplo, 2017/04/01, 2017/04/02, etc., escriba adfblobconnector/entrada/{año}/{mes}/{día} para el archivo o la carpeta. Al presionar la tecla de tabulación fuera del cuadro de texto, verá tres listas desplegables para seleccionar el formato de año (aaaa), meso (MM) y día (dd).
     2. No marque la casilla **Copy file recursively** (Copiar archivo de forma recursiva). Seleccione esta opción para recorrer las carpetas de forma recursiva para encontrar los archivos que se van a copiar en el destino.
     3. No marque la opción **Binary copy** (Copia binaria). Seleccione esta opción para realizar una copia binaria del archivo de origen en el destino. No la seleccione para este tutorial, así podrá ver más opciones en las páginas siguientes.
     4. Confirme que **Compression type** (Tipo de compresión) está establecido en **Ninguno**. Seleccione un valor para esta opción si sus archivos de origen están comprimidos en uno de los formatos admitidos.
     5. Haga clic en **Next**.
-    ![Herramienta de copia: selección del archivo o la carpeta de entrada 2](./media/data-factory-azure-blob-connector/chose-input-file-folder.png)
+    :::image type="content" source="./media/data-factory-azure-blob-connector/chose-input-file-folder.png" alt-text="Herramienta de copia: selección del archivo o la carpeta de entrada 2":::
 7. En la página **Configuración de formato de archivo**, verá los delimitadores y el esquema que el asistente detecta automáticamente al analizar el archivo.
     1. Confirme las siguientes opciones:  
         a. El **formato de archivo** está establecido en **Formato de texto**. Puede ver todos los formatos admitidos en la lista desplegable. Por ejemplo: JSON, Avro, ORC y Parquet.
@@ -236,9 +237,9 @@ Vamos a ver cómo copiar rápidamente datos a y desde una instancia de Azure Blo
     3. En la parte inferior de la página, obtenga la **vista previa** de datos del archivo emp.txt.
     4. Haga clic en la pestaña **ESQUEMA** en la parte inferior para ver el esquema que dedujo el Asistente para copia examinando los datos del archivo de origen.
     5. Haga clic en **Siguiente** después de revisar los delimitadores y obtener una vista previa de los datos.
-    ![Herramienta de copia: Configuración de formato de archivo](./media/data-factory-azure-blob-connector/copy-tool-file-format-settings.png)
+    :::image type="content" source="./media/data-factory-azure-blob-connector/copy-tool-file-format-settings.png" alt-text="Herramienta de copia: Configuración de formato de archivo":::
 8. En la página **Destination data store** (Almacén de datos de destino), seleccione **Azure Blob Storage** y haga clic en **Siguiente**. En este tutorial usará Azure Blob Storage como almacén de datos de origen y de destino.  
-    ![Herramienta de copia: Selección del almacén de datos de destino](media/data-factory-azure-blob-connector/select-destination-data-store.png)
+    :::image type="content" source="media/data-factory-azure-blob-connector/select-destination-data-store.png" alt-text="Herramienta de copia: Selección del almacén de datos de destino":::
 9. En la página **Specify the Azure Blob storage account** (Especificar cuenta de Azure Blob Storage):  
     1. Escriba **AzureStorageLinkedService** en el campo **Nombre de la conexión**.
     2. Confirme que la opción **De suscripciones de Azure** está seleccionada para **Método de selección de cuenta**.
@@ -253,20 +254,20 @@ Vamos a ver cómo copiar rápidamente datos a y desde una instancia de Azure Blo
     1. Confirme que **Compression type** (Tipo de compresión) está establecido en **Ninguno**.
     1. Confirme que el **comportamiento de copia** está establecido en **Merge files** (Combinar archivos). Si ya existe un archivo de salida con el mismo nombre, el nuevo contenido se agrega al final al mismo archivo.
     1. Haga clic en **Next**.
-       ![Herramienta de copia: Selección del archivo o la carpeta de salida](media/data-factory-azure-blob-connector/choose-the-output-file-or-folder.png)
+       :::image type="content" source="media/data-factory-azure-blob-connector/choose-the-output-file-or-folder.png" alt-text="Herramienta de copia: Selección del archivo o la carpeta de salida":::
 11. En la página **File format settings** (Configuración de formato de archivo), revise la configuración y haga clic en **Siguiente**. Una de las opciones adicionales aquí es agregar un encabezado al archivo de salida. Si selecciona esta opción, se agrega una fila de encabezado con nombres de las columnas del esquema de origen. Puede cambiar los nombres de columna predeterminados al visualizar el esquema para el origen. Por ejemplo, podría cambiar la primera columna a Nombre y la segunda columna a Apellido. El archivo de salida se genera entonces con un encabezado con estos nombres como nombres de columna.
-    ![Herramienta de copia: Configuración del formato de archivo de destino](media/data-factory-azure-blob-connector/file-format-destination.png)
+    :::image type="content" source="media/data-factory-azure-blob-connector/file-format-destination.png" alt-text="Herramienta de copia: Configuración del formato de archivo de destino":::
 12. En la página **Performance settings** (Configuración de rendimiento), confirme que **cloud units** (Unidades de nube) y **parallel copies** (Copias paralelas) están establecidas en **Auto** y haga clic en Siguiente. Para más información sobre esta configuración, consulte [Guía de optimización y rendimiento de la actividad de copia](data-factory-copy-activity-performance.md#parallel-copy).
-    ![Herramienta de copia: Configuración de rendimiento](media/data-factory-azure-blob-connector/copy-performance-settings.png)
+    :::image type="content" source="media/data-factory-azure-blob-connector/copy-performance-settings.png" alt-text="Herramienta de copia: Configuración de rendimiento":::
 14. En la página **Resumen**, revise toda la configuración (propiedades de tareas, configuración de origen y destino y configuración de copia) y haga clic en **Siguiente**.
-    ![Herramienta de copia: Página de resumen](media/data-factory-azure-blob-connector/copy-tool-summary-page.png)
+    :::image type="content" source="media/data-factory-azure-blob-connector/copy-tool-summary-page.png" alt-text="Herramienta de copia: Página de resumen":::
 15. Revise la información de la página **Resumen** y haga clic en **Finalizar**. El asistente crea dos servicios vinculados, dos conjuntos de datos (entrada y salida) y una canalización en la factoría de datos (desde donde se inició al Asistente para copia).
-    ![Herramienta de copia: Página de implementación](media/data-factory-azure-blob-connector/copy-tool-deployment-page.png)
+    :::image type="content" source="media/data-factory-azure-blob-connector/copy-tool-deployment-page.png" alt-text="Herramienta de copia: Página de implementación":::
 
 ### <a name="monitor-the-pipeline-copy-task"></a>Supervisión de la canalización (tarea de copia)
 
 1. Haga clic en el vínculo `Click here to monitor copy pipeline` de la página **Implementación**.
-2. Verá la opción **Monitor and Manage application** (Supervisar y administrar la aplicación) en una pestaña aparte.  ![Supervisar y administrar la aplicación](media/data-factory-azure-blob-connector/monitor-manage-app.png)
+2. Verá la opción **Monitor and Manage application** (Supervisar y administrar la aplicación) en una pestaña aparte.  :::image type="content" source="media/data-factory-azure-blob-connector/monitor-manage-app.png" alt-text="Supervisar y administrar la aplicación":::
 3. Cambie la hora de **inicio** de la parte superior a `04/19/2017` y la hora de **finalización** a `04/27/2017`; a continuación, haga clic en **Aplicar**.
 4. Verá cinco ventanas de actividad en la lista **ACTIVITY WINDOWS** (VENTANAS DE ACTIVIDAD). Las horas de **WindowStart** deben abarcar todos los días desde las horas de inicio hasta las horas de finalización de la canalización.
 5. Haga clic en el botón **Actualizar** de la lista **ACTIVITY WINDOWS** (VENTANAS DE ACTIVIDAD) unas cuantas veces hasta que vea el estado de todas las ventanas de actividad establecido en Listo.
@@ -283,11 +284,11 @@ Vamos a ver cómo copiar rápidamente datos a y desde una instancia de Azure Blo
 ### <a name="data-factory-entities"></a>Entidades de Factoría de datos
 Ahora, vuelva a la pestaña con la página principal de Data Factory. Observe que ahora hay en su factoría de datos dos servicios vinculados, dos conjuntos de datos y una canalización.
 
-![Página principal de Data Factory con entidades](media/data-factory-azure-blob-connector/data-factory-home-page-with-numbers.png)
+:::image type="content" source="media/data-factory-azure-blob-connector/data-factory-home-page-with-numbers.png" alt-text="Página principal de Data Factory con entidades":::
 
 Haga clic en **Author and deploy** (Crear e implementar) para iniciar Data Factory Editor.
 
-![Editor de la Factoría de datos](media/data-factory-azure-blob-connector/data-factory-editor.png)
+:::image type="content" source="media/data-factory-azure-blob-connector/data-factory-editor.png" alt-text="Editor de la Factoría de datos":::
 
 Verá las siguientes entidades de Data Factory en su factoría de datos:
 

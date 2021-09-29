@@ -10,12 +10,12 @@ ms.topic: troubleshooting
 ms.date: 09/02/2020
 ms.author: radwiv
 ms.reviewer: chadmat;genli
-ms.openlocfilehash: 7a50328629f6236893fd7832ea1f96acc8e75112
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: b5c3853ca2849590b0338c3f82b3e8606cd35d2d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108289451"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128643676"
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>Validación del rendimiento de la VPN en una red virtual
 
@@ -47,7 +47,7 @@ El siguiente diagrama muestra la conectividad lógica de una red local en una re
 1. Establezca el ancho de banda del proveedor de servicios de Internet (ISP).
 1. Calcule el rendimiento esperado tomando el menor ancho de banda de la máquina virtual, VPN Gateway o ISP, que se mide en megabits por segundo (/) dividido por ocho (8).
 
-Si el rendimiento calculado no cumple con los requisitos de rendimiento de línea de base de la aplicación, debe aumentar el ancho de banda del recurso que identificó como el cuello de botella. Para cambiar el tamaño de una instancia de Azure VPN Gateway, vea [Cambio de una SKU de puerta de enlace](vpn-gateway-about-vpn-gateway-settings.md#gwsku). Para cambiar el tamaño de una máquina virtual, vea [Cambio del tamaño de una VM](../virtual-machines/windows/resize-vm.md). Si no obtiene el ancho de banda de Internet previsto, también puede ponerse en contacto con el ISP.
+Si el rendimiento calculado no cumple con los requisitos de rendimiento de línea de base de la aplicación, debe aumentar el ancho de banda del recurso que identificó como el cuello de botella. Para cambiar el tamaño de una instancia de Azure VPN Gateway, vea [Cambio de una SKU de puerta de enlace](vpn-gateway-about-vpn-gateway-settings.md#gwsku). Para cambiar el tamaño de una máquina virtual, vea [Cambio del tamaño de una VM](../virtual-machines/resize-vm.md). Si no obtiene el ancho de banda de Internet previsto, también puede ponerse en contacto con el ISP.
 
 > [!NOTE]
 > El rendimiento de VPN Gateway es un agregado de todas las conexiones de sitio a sitio, de red virtual a red virtual o de punto a sitio.

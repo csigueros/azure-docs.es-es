@@ -1,17 +1,17 @@
 ---
 title: 'Autenticación entre servicios con REST: Data Lake Storage Gen1: Azure'
 description: Aprenda a realizar la autenticación entre servicios con Azure Data Lake Storage Gen1 y Azure Active Directory con la API REST.
-author: twooley
+author: normesta
 ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
-ms.author: twooley
-ms.openlocfilehash: 4947bab58a6d23bcc3e3212a9e3e7dc0c4fa8578
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: normesta
+ms.openlocfilehash: d125e1c92ae64749c28703430fa62f63efd05a93
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92106712"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128649426"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-rest-api"></a>Autenticación de servicio a servicio con Azure Data Lake Storage Gen1 mediante la API REST
 > [!div class="op_single_selector"]

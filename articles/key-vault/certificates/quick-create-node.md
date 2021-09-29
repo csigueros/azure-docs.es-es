@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: 069238a6feb4425aba1da48b89d26128d6d54775
-ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
+ms.openlocfilehash: d6fa93319e9e2ecdd666a92f816df5a63a4f477f
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/13/2021
-ms.locfileid: "109846993"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124748661"
 ---
 # <a name="quickstart-azure-key-vault-certificate-client-library-for-javascript-version-4"></a>Inicio rápido: Biblioteca cliente de certificados de Azure Key Vault para JavaScript (versión 4)
 
@@ -152,9 +152,9 @@ const { CertificateClient } = require("@azure/keyvault-certificates");
 
 ### <a name="authenticate-and-create-a-client"></a>Autenticación y creación de un cliente
 
-En este inicio rápido se emplea el usuario que ha iniciado sesión para autenticarlo en el almacén de claves, que es el método preferido para el desarrollo local. Para las aplicaciones implementadas en Azure, la identidad administrada debe asignarse a App Service o la máquina virtual. Para más información, consulte [Introducción a la identidad administrada](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+En este inicio rápido se emplea el usuario que ha iniciado sesión para autenticarlo en el almacén de claves, que es el método preferido para el desarrollo local. Para las aplicaciones implementadas en Azure, la identidad administrada debe asignarse a App Service o la máquina virtual. Para más información, consulte [Introducción a la identidad administrada](../../active-directory/managed-identities-azure-resources/overview.md).
 
-En el ejemplo siguiente, el nombre del almacén de claves se expande al URI del almacén de claves, con el formato "https://\<your-key-vault-name\>.vault.azure.net". En este ejemplo se usa la clase ["DefaultAzureCredential()"](https://docs.microsoft.com/javascript/api/@azure/identity/defaultazurecredential) de la [biblioteca de identidades de Azure](https://docs.microsoft.com/javascript/api/overview/azure/identity-readme), que permite usar el mismo código en entornos diferentes con distintas opciones para proporcionar la identidad. Para más información sobre la autenticación en el almacén de claves, consulte la [Guía del desarrollador](https://docs.microsoft.com/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code).
+En el ejemplo siguiente, el nombre del almacén de claves se expande al URI del almacén de claves, con el formato "https://\<your-key-vault-name\>.vault.azure.net". En este ejemplo se usa la clase ["DefaultAzureCredential()"](/javascript/api/@azure/identity/defaultazurecredential) de la [biblioteca de identidades de Azure](/javascript/api/overview/azure/identity-readme), que permite usar el mismo código en entornos diferentes con distintas opciones para proporcionar la identidad. Para más información sobre la autenticación en el almacén de claves, consulte la [Guía del desarrollador](../general/developers-guide.md#authenticate-to-key-vault-in-code).
 
 Agregue el siguiente código a la función "main()".
 
@@ -168,7 +168,7 @@ const client = new Certificate(KVUri, credential);
 
 ### <a name="save-a-certificate"></a>Guardar certificado
 
-Una vez que la aplicación se ha autenticado, se puede colocar un certificado en el almacén mediante el método [beginCreateCertificate](/javascript/api/@azure/keyvault-certificates/certificateclient?#beginCreateCertificate_string__CertificatePolicy__BeginCreateCertificateOptions_), pero tenga en cuenta que se requiere un nombre para el certificado y la [directiva de certificado](https://docs.microsoft.com/javascript/api/@azure/keyvault-certificates/certificatepolicy) con [propiedades de directiva de certificado](https://docs.microsoft.com/javascript/api/@azure/keyvault-certificates/certificatepolicyproperties).
+Una vez que la aplicación se ha autenticado, se puede colocar un certificado en el almacén mediante el método [beginCreateCertificate](/javascript/api/@azure/keyvault-certificates/certificateclient?#beginCreateCertificate_string__CertificatePolicy__BeginCreateCertificateOptions_), pero tenga en cuenta que se requiere un nombre para el certificado y la [directiva de certificado](/javascript/api/@azure/keyvault-certificates/certificatepolicy) con [propiedades de directiva de certificado](/javascript/api/@azure/keyvault-certificates/certificatepolicyproperties).
 
 ```javascript
 const certificatePolicy = {
@@ -191,7 +191,7 @@ const retrievedCertificate = await client.getCertificate(certificateName);
 
 ### <a name="delete-a-certificate"></a>Eliminación de un certificado
 
-Por último, se va a eliminar y purgar el certificado desde el almacén de claves con los métodos [beginDeleteCertificate](https://docs.microsoft.com/javascript/api/@azure/keyvault-certificates/certificateclient?#beginDeleteCertificate_string__BeginDeleteCertificateOptions_) y [purgeDeletedCertificate](https://docs.microsoft.com/javascript/api/@azure/keyvault-certificates/certificateclient?#purgeDeletedCertificate_string__PurgeDeletedCertificateOptions_).
+Por último, se va a eliminar y purgar el certificado desde el almacén de claves con los métodos [beginDeleteCertificate](/javascript/api/@azure/keyvault-certificates/certificateclient?#beginDeleteCertificate_string__BeginDeleteCertificateOptions_) y [purgeDeletedCertificate](/javascript/api/@azure/keyvault-certificates/certificateclient?#purgeDeletedCertificate_string__PurgeDeletedCertificateOptions_).
 
 ```javascript
 const deletePoller = await client.beginDeleteCertificate(certificateName);

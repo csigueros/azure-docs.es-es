@@ -1,15 +1,15 @@
 ---
 title: Escalado vertical de la infraestructura de Azure DevTest Labs
 description: En este artículo se proporcionan instrucciones para escalar verticalmente la infraestructura de Azure DevTest Labs.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 50bf08678a12a1a0499abd08c52a264d03f4a401
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ceba7023df2a704d43a47f3804c18fd6c0bb113d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85478797"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128550754"
 ---
 # <a name="scale-up-your-azure-devtest-labs-infrastructure"></a>Escalado vertical de la infraestructura de Azure DevTest Labs
 Antes de implementar DevTest Labs a escala empresarial, hay varios puntos de decisión claves. Reconocer estos puntos de decisión a un nivel alto ayuda a las organizaciones con las decisiones de diseño en el futuro. Sin embargo, estos puntos no deben impedir que una organización empiece una prueba de concepto. Las tres áreas principales para el planeamiento del escalado vertical inicial son:

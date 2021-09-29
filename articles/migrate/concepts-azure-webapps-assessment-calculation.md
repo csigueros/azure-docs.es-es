@@ -5,12 +5,12 @@ author: rashi-ms
 ms.author: rajosh
 ms.topic: conceptual
 ms.date: 07/27/2021
-ms.openlocfilehash: ec83b7a8de449a73dc227941f864ac7cd8495e68
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 3328fb0fb20a9b0e492c3cd4281ee35dcf12dda0
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121780273"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124792037"
 ---
 # <a name="assessment-overview-migrate-to-azure-app-service"></a>Información general sobre la evaluación (migración a Azure App Service)
 
@@ -34,7 +34,7 @@ Una evaluación de Azure App Service proporciona un criterio de dimensionamiento
 
 **Criterio de tamaño** | **Detalles** | **Data**
 --- | --- | ---
-**Basado en configuración** | Evaluaciones que realizan recomendaciones basadas en datos de configuración recopilados | La evaluación de Azure App Service solo tiene en cuenta los datos de configuración para el cálculo de la evaluación. No se recopilan los datos de rendimiento de las aplicaciones web.
+**Basado en configuración** | Valoraciones que realizan recomendaciones basadas en datos de configuración recopilados | La valoración de Azure App Service solo tiene en cuenta los datos de configuración para el cálculo de la valoración. No se recopilan los datos de rendimiento de las aplicaciones web.
 
 ## <a name="how-do-i-assess-my-on-premises-aspnet-web-apps"></a>¿Cómo puedo evaluar mis aplicaciones web de ASP.NET locales?
 
@@ -58,8 +58,8 @@ En las propiedades de evaluación de Azure App Service se incluye lo siguiente:
 
 **Propiedad** | **Detalles**
 --- | ---
-**Ubicación de destino** | La región de Azure a la que quiere realizar la migración. La recomendaciones sobre configuración de Azure App Service y sobre costes dependen de la ubicación que especifique.
-**Aislamiento requerido** | Seleccione Sí si quiere que las aplicaciones web se ejecuten en un entorno privado y dedicado en un centro de datos de Azure mediante máquinas virtuales de la serie Dv2 con procesadores más rápidos, almacenamiento SSD y el doble de la proporción de memoria a núcleo en comparación con los planes Estándar.
+**Ubicación de destino** | La región de Azure a la que quiere realizar la migración. Las recomendaciones sobre configuración de Azure App Service y sobre costos dependen de la ubicación que especifique.
+**Aislamiento requerido** | Seleccione Sí si quiere que las aplicaciones web se ejecuten en un entorno privado y dedicado en un centro de datos de Azure mediante VM de la serie Dv2 con procesadores más rápidos, almacenamiento SSD y el doble de la proporción de memoria a núcleo en comparación con los planes Estándar.
 **Instancias reservadas** | Especifica las instancias reservadas para que se tengan en cuenta en los cálculos de los costos de la evaluación.<br/><br/> Si selecciona una opción de instancia reservada, no podrá especificar un valor para "Discount (%)" (Descuento [%]).
 **Oferta** | La [oferta de Azure](https://azure.microsoft.com/support/legal/offer-details/) en la que está inscrito. La evaluación calcula el costo de esa oferta.
 **Moneda** | Moneda de facturación de la cuenta.
@@ -92,7 +92,7 @@ Los planes Premium están pensados para cargas de trabajo de producción y se ej
 
 ### <a name="azure-app-service-plan"></a>Plan de Azure App Service
 
-En App Service, cada aplicación se ejecuta siempre en un [plan de App Service](/azure/app-service/overview-hosting-plans). Un plan de App Service define un conjunto de recursos de proceso para que una aplicación web se ejecute. En un nivel alto, el plan o SKU se determina según la tabla siguiente.
+En App Service, cada aplicación se ejecuta siempre en un [plan de App Service](../app-service/overview-hosting-plans.md). Un plan de App Service define un conjunto de recursos de proceso para que una aplicación web se ejecute. En un nivel alto, el plan o SKU se determina según la tabla siguiente.
 
 **Aislamiento requerido** | **Instancia reservada** | **SKU o plan de App Service**
 --- | --- | ---
@@ -103,8 +103,8 @@ No  | No | P1v2
 
 ### <a name="azure-app-service-cost-details"></a>Detalles de los costes de Azure App Service
 
-Un [plan de App Service](/azure/app-service/overview-hosting-plans) conlleva un [cargo](https://azure.microsoft.com/pricing/details/app-service/windows/) asociado a los recursos de proceso que se utilicen. En App Service, se pagan cargos por planes de App Service y no por aplicación web. Pueden configurarse una o varias aplicaciones para que se ejecuten en los mismos recursos informáticos (o en el mismo plan de App Service). Todas las aplicaciones que coloque en este plan de App Service se ejecutan en estos recursos de proceso según lo definido por el plan de App Service.
-Para optimizar el coste, la evaluación de Azure Migrate asigna varias aplicaciones web a cada plan de App Service recomendado. El número de aplicaciones web asignadas a cada instancia de plan es el que se indica en la tabla siguiente.
+Un [plan de App Service](../app-service/overview-hosting-plans.md) conlleva un [cargo](https://azure.microsoft.com/pricing/details/app-service/windows/) asociado a los recursos de proceso que se utilicen. En App Service, se pagan cargos por planes de App Service y no por aplicación web. Pueden configurarse una o varias aplicaciones para que se ejecuten en los mismos recursos informáticos (o en el mismo plan de App Service). Todas las aplicaciones que coloque en este plan de App Service se ejecutan en estos recursos de proceso según lo definido por el plan de App Service.
+Para optimizar el costo, la valoración de Azure Migrate asigna varias aplicaciones web a cada plan de App Service recomendado. El número de aplicaciones web asignadas a cada instancia de plan es el que se indica en la tabla siguiente.
 
 **plan de App Service** | **Aplicaciones web por plan de App Service**
 --- | ---
@@ -113,7 +113,7 @@ P1v2  | 8
 P1v3  | 16
 
 > [!NOTE]
-> El plan de App Service se puede escalar o reducir verticalmente en cualquier momento. [Más información](/azure/app-service/overview-hosting-plans#what-if-my-app-needs-more-capabilities-or-features/).
+> El plan de App Service se puede escalar o reducir verticalmente en cualquier momento. [Más información](../app-service/overview-hosting-plans.md#what-if-my-app-needs-more-capabilities-or-features).
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Revise](best-practices-assessment.md) los procedimientos recomendados para crear evaluaciones. 

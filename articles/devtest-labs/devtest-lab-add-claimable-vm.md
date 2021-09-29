@@ -1,14 +1,14 @@
 ---
-title: Creación y administración de VM reclamables en Azure DevTest Labs | Microsoft Docs
+title: Creación y administración de máquinas virtuales reclamables
 description: Obtenga información sobre cómo usar Azure Portal para agregar una máquina virtual reclamable en Azure DevTest Labs y ver los procesos que se van a seguir para reclamar una máquina virtual o anular su reclamación.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 1fe949d7104fe6437087e77c403cc0d921ebd025
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8fb89e77308751a1a40a849991740228a6c465f5
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88270986"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128660944"
 ---
 # <a name="create-and-manage-claimable-vms-in-azure-devtest-labs"></a>Creación y administración de VM reclamables en Azure DevTest Labs
 Una imagen virtual reclamable se agrega a un laboratorio de forma similar a como se [agrega una máquina virtual estándar](devtest-lab-add-vm.md): desde una *base* que es una [imagen personalizada](devtest-lab-create-template.md), [fórmula](devtest-lab-manage-formulas.md), o [imagen de Marketplace](devtest-lab-configure-marketplace-images.md). Este tutorial le guía por el proceso de utilización de Azure Portal para agregar una máquina virtual reclamable a un laboratorio de DevTest Labs, y muestra los procesos que sigue un usuario para reclamar la VM y anular la reclamación de esta.

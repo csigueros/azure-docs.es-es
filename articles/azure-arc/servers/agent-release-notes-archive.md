@@ -4,12 +4,12 @@ description: Las notas de la versión de novedades de la sección Información g
 ms.topic: overview
 ms.date: 08/27/2021
 ms.custom: references_regions
-ms.openlocfilehash: 45f7ed97cf9e0fbb389ccf893f2674e2601ee7f9
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 0e3dbda61503442f15bc74e0ec3b771e732b96db
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123441651"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128680706"
 ---
 # <a name="archive-for-whats-new-with-azure-arc-enabled-servers-agent"></a>Archivo de novedades del agente de servidores habilitados para Azure Arc
 
@@ -21,6 +21,17 @@ El agente de Connected Machine de los servidores habilitados para Azure Arc se m
 - Problemas conocidos
 - Corrección de errores
 
+## <a name="april-2021"></a>Abril de 2021
+
+Versión 1.5
+
+### <a name="new-features"></a>Nuevas características
+
+- Se ha agregado compatibilidad con Red Hat Enterprise Linux 8 y CentOS Linux 8.
+- Nuevo parámetro `-useStderr` para dirigir la salida de error y detallada a stderr.
+- El nuevo parámetro `-json` para dirigir la salida da lugar al formato JSON (cuando se usa con -useStderr).
+- Recopile otros metadatos de instancia: fabricante, modelo y el identificador de recurso del clúster (para nodos de Azure Stack HCI).
+ 
 ## <a name="march-2021"></a>Marzo de 2021
 
 Versión 1.4

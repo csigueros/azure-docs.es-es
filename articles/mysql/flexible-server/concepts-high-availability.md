@@ -6,12 +6,12 @@ ms.author: sunaray
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/26/2021
-ms.openlocfilehash: e95119f65e088fe9b9b6ace71b6fee98f679f5a4
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 95cc91298945c50174f1edec6ca766e3f7df59c8
+ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123426101"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129153736"
 ---
 # <a name="high-availability-in-azure-database-for-mysql---flexible-server-preview"></a>Alta disponibilidad en la opción Servidor flexible de Azure Database for MySQL (versión preliminar)
 
@@ -107,8 +107,8 @@ Estas son algunas consideraciones que se deben tener en cuenta al usar la alta d
 * La alta disponibilidad con redundancia de zona solo se puede establecer cuando se crea el servidor flexible.
 * La alta disponibilidad no se admite en el nivel de proceso ampliable.
 * Al reiniciar el servidor de bases de datos principal para elegir los cambios de los parámetros estáticos también se reinicia la réplica en espera.
-* No se admiten réplicas de lectura para servidores de alta disponibilidad con redundancia de zona.
-* No se admite la replicación de datos de entrada para servidores de alta disponibilidad. 
+* No se admiten réplicas de lectura para los servidores de alta disponibilidad.
+* No se admite la replicación de datos de entrada para servidores de alta disponibilidad.
 * Se activará el modo GTID, ya que la solución de alta disponibilidad usa GTID. Compruebe si la carga de trabajo tiene [restricciones o limitaciones en cuanto a la replicación con GTID](https://dev.mysql.com/doc/refman/5.7/en/replication-gtids-restrictions.html).  
  
 ## <a name="frequently-asked-questions-faq"></a>Preguntas más frecuentes

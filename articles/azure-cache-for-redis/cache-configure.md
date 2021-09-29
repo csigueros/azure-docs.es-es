@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1d49d222ff26198be0b9b07df900fa4dfac6c07d
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: a182d86485a8ca934b3ed94b5251e12b456edabd
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114294107"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128558693"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Configuración de Azure Cache for Redis
 
@@ -25,7 +25,7 @@ En este artículo se describe la configuración disponible para las instancias d
 
 ## <a name="configure-azure-cache-for-redis-settings"></a>Configuración de las opciones de Azure Cache for Redis
 
-[!INCLUDE [redis-cache-create](../../includes/redis-cache-browse.md)]
+[!INCLUDE [redis-cache-create](includes/redis-cache-browse.md)]
 
 La configuración de Azure Redis Cache se ve y ajusta en **Azure Cache for Redis**, que está en la parte izquierda, mediante el **menú Recursos**.
 
@@ -70,7 +70,7 @@ Puede ver y configurar las siguientes opciones con el **menú Recursos**.
 
 ### <a name="activity-log"></a>Registro de actividades
 
-Seleccione **Registro de actividad** para ver las acciones que se han realizado en la caché. También puede usar el filtrado para expandir esta vista e incluir otros recursos. Para obtener más información sobre cómo trabajar con los registros de auditoría, consulte [Operaciones de auditoría con Resource Manager](../azure-resource-manager/management/view-activity-logs.md). Para más información sobre la supervisión de eventos de Azure Cache for Redis, consulte [Operaciones y alertas](cache-how-to-monitor.md#operations-and-alerts).
+Seleccione **Registro de actividad** para ver las acciones que se han realizado en la caché. También puede usar el filtrado para expandir esta vista e incluir otros recursos. Para obtener más información sobre cómo trabajar con los registros de auditoría, consulte [Operaciones de auditoría con Resource Manager](../azure-monitor/essentials/activity-log.md). Para más información sobre la supervisión de eventos de Azure Cache for Redis, consulte [Operaciones y alertas](cache-how-to-monitor.md#operations-and-alerts).
 
 ### <a name="access-control-iam"></a>Control de acceso (IAM)
 
@@ -498,7 +498,7 @@ Si usa la consola de Redis con una caché en clúster premium, puede emitir coma
 
 Si intenta acceder a una clave almacenada en una partición diferente de la partición conectada, recibirá un mensaje de error similar al siguiente mensaje:
 
-```
+```console
 shard1>get myKey
 (error) MOVED 866 13.90.202.154:13000 (shard 0)
 ```

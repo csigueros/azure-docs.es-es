@@ -2,16 +2,14 @@
 title: Desarrollo de extensiones de trabajo de Python para Azure Functions
 description: Aprenda a crear y publicar extensiones de trabajo que le permitirán insertar comportamiento de middleware en funciones de Python que se ejecutan en Azure.
 ms.topic: how-to
-author: hazhzeng
-ms.author: hazeng
 ms.date: 6/1/2021
 ms.custom: devx-track-python
-ms.openlocfilehash: 592562caa57980500d9bbc19b015a98e5604bb7a
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: c5ee4ec3a8bd6fd6994962ab35453b34cb7fda8b
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111987947"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124764287"
 ---
 # <a name="develop-python-worker-extensions-for-azure-functions"></a>Desarrollo de extensiones de trabajo de Python para Azure Functions
 

@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
 ms.date: 9/27/2019
-ms.openlocfilehash: 03c51dc95998ef0d077dc34232d8aa86ab96fbb7
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: b1eaa9e7a7c35c659156cfd4bc2541cb3ca39173
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121739389"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124805796"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Actividades de bifurcación y encadenamiento en una canalización de Data Factory
 
@@ -23,7 +23,7 @@ En este tutorial creará una canalización de Data Factory que muestra algunas d
 
 En este gráfico se proporciona información general sobre el escenario:
 
-![En el diagrama se muestra Azure Blob Storage, que es el destino de una copia que, si se ejecuta correctamente, envía un correo electrónico con los detalles o, en caso de error, envía un correo electrónico con los detalles del error.](media/tutorial-control-flow/overview.png)
+:::image type="content" source="media/tutorial-control-flow/overview.png" alt-text="En el diagrama se muestra Azure Blob Storage, que es el destino de una copia que, si se ejecuta correctamente, envía un correo electrónico con los detalles o, en caso de error, envía un correo electrónico con los detalles del error.":::
 
 En el tutorial se muestra cómo realizar las siguientes tareas:
 
@@ -329,13 +329,13 @@ En [Azure Portal](https://portal.azure.com), cree un flujo de trabajo de Logic A
 
 El flujo de trabajo tiene un aspecto similar al del ejemplo siguiente:
 
-![Flujo de trabajo del correo electrónico de operación correcta](media/tutorial-control-flow/success-email-workflow-trigger.png)
+:::image type="content" source="media/tutorial-control-flow/success-email-workflow-trigger.png" alt-text="Flujo de trabajo del correo electrónico de operación correcta":::
 
 Este contenido JSON se corresponde con la clase `EmailRequest` creada en la sección anterior.
 
 Agregue una acción `Office 365 Outlook – Send an email`. Para la acción **Enviar un correo electrónico**, personalice el formato del correo electrónico. Para ello, use las propiedades que se pasan en el esquema JSON del **Cuerpo** de solicitud. Este es un ejemplo:
 
-![Diseñador de aplicación lógica: acción de envío de correo electrónico](media/tutorial-control-flow/customize-send-email-action.png)
+:::image type="content" source="media/tutorial-control-flow/customize-send-email-action.png" alt-text="Diseñador de aplicación lógica: acción de envío de correo electrónico":::
 
 Después de guardar el flujo de trabajo, copie y guarde el valor de **Dirección URL de HTTP POST** del desencadenador.
 
@@ -343,7 +343,7 @@ Después de guardar el flujo de trabajo, copie y guarde el valor de **Dirección
 
 Clone **CopySuccessEmail** como otro flujo de trabajo de Logic Apps denominado *CopyFailEmail*. En el desencadenador de solicitudes, `Request Body JSON schema` es el mismo. Cambie el formato del correo electrónico, por ejemplo, la parte `Subject`, para adaptarlo para que sea un correo electrónico de operación incorrecta. Este es un ejemplo:
 
-![Diseñador de aplicación lógica: flujo de trabajo del correo electrónico de operación incorrecta](media/tutorial-control-flow/fail-email-workflow.png)
+:::image type="content" source="media/tutorial-control-flow/fail-email-workflow.png" alt-text="Diseñador de aplicación lógica: flujo de trabajo del correo electrónico de operación incorrecta":::
 
 Después de guardar el flujo de trabajo, copie y guarde el valor de **Dirección URL de HTTP POST** del desencadenador.
 

@@ -4,15 +4,16 @@ description: Aprenda a mover datos hacia y desde una colección de Azure Cosmos 
 author: linda33wj
 ms.author: jingwang
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 01/22/2018
 robots: noindex
-ms.openlocfilehash: a90b26c677c3d53794bce3c2ff48c618415e4cf2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f7a304bdc1529a2e2878d00d6d25e2fead20e5ae
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100379376"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128561341"
 ---
 # <a name="move-data-to-and-from-azure-cosmos-db-using-azure-data-factory"></a>Movimiento de datos hacia y desde Azure Cosmos DB mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]

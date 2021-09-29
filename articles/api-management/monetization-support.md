@@ -1,17 +1,17 @@
 ---
 title: Compatibilidad de Azure API Management con la monetización
 description: Conozca las estrategias de monetización que admite Azure API Management para los productos de API.
-author: v-hhunter
-ms.author: v-hhunter
+author: dlepow
+ms.author: danlep
 ms.date: 08/23/2021
 ms.topic: article
 ms.service: api-management
-ms.openlocfilehash: 88323145b9b6bb66babe77b19d6b834afc2831ab
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.openlocfilehash: ad6e4358ebd312c498504da6650045d9019fadbe
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122868706"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128548720"
 ---
 # <a name="how-api-management-supports-monetization"></a>Compatibilidad de API Management con la monetización
 
@@ -132,7 +132,7 @@ Los proyectos de ejemplo usan la API para realizar las siguientes tareas mediant
 - Recuperar los productos y las directivas de API Management para habilitar la configuración sincronizada de conceptos similares en proveedores de pago, como Stripe.
 - Sondear API Management periódicamente para recuperar las métricas de uso de API de cada suscripción e impulsar el proceso de facturación.
 
-Para más información, consulte la [introducción a la API REST de Azure API Management](https://docs.microsoft.com/rest/api/apimanagement/#rest-operation-groups).
+Para más información, consulte la [introducción a la API REST de Azure API Management](/rest/api/apimanagement/#rest-operation-groups).
 
 ## <a name="devops"></a>DevOps
 

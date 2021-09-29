@@ -2,13 +2,13 @@
 title: Implementación del módulo de seguridad de IoT Edge
 description: Aprenda cómo implementar un agente de seguridad de Defender para IoT en IoT Edge.
 ms.topic: conceptual
-ms.date: 05/26/2021
-ms.openlocfilehash: 45f7351b47554ce3eb6906d5b6011de945182484
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.date: 09/23/2021
+ms.openlocfilehash: f5d6dbf45745629fb656812bf75a3b69381260eb
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113018130"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128678580"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>Implementación de un módulo de seguridad en el dispositivo IoT Edge
 
@@ -57,8 +57,11 @@ Complete cada uno de los pasos para completar la implementación de IoT Edge de 
 #### <a name="step-1-modules"></a>Paso 1: Módulos
 
 1. Seleccione el módulo **AzureSecurityCenterforIoT**.
+
 1. En la pestaña **Configuración del módulo**, cambie el **nombre** a **azureiotsecurity**.
+
 1. En la pestaña **Variables de entorno**, agregue una variable si es necesario (por ejemplo, puede agregar la variable *debug level* y establecerla en uno de los valores siguientes: "Fatal", "Error", "Warning" o "Information").
+
 1. En la pestaña **Opciones de creación del contenedor**, agregue la configuración siguiente:
 
     ``` json
@@ -82,19 +85,19 @@ Complete cada uno de los pasos para completar la implementación de IoT Edge de 
 1. En la pestaña **Configuración de módulos gemelos**, agregue la configuración siguiente:
 
    Propiedad del módulo gemelo:
-   
+
    ``` json
      "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration"
    ```
 
-   Contenido de propiedad del módulo gemelo: 
+   Contenido de propiedad del módulo gemelo:
 
    ```json
      {
 
      }
    ```
-    
+
    Para obtener más información sobre cómo configurar el agente, vea [Configuración de agentes de seguridad](./how-to-agent-configuration.md).
 
 1. Seleccione **Actualizar**.

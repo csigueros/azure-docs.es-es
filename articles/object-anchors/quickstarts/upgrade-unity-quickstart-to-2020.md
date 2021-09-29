@@ -7,12 +7,12 @@ ms.author: rgarcia
 ms.date: 06/23/2021
 ms.topic: quickstart
 ms.service: azure-object-anchors
-ms.openlocfilehash: 6ee047cd39eb092c55ed417995bf1e9df6134c5e
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: b628aab20e08460ea6d023651098227aa3390d5e
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113095242"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124791999"
 ---
 # <a name="quickstart-upgrade-quickstart-app-to-unity-2020"></a>Inicio rápido: Actualización de la aplicación de inicio rápido a Unity 2020
 
@@ -48,7 +48,7 @@ Verá un cuadro de diálogo que le solicita confirmación para actualizar el pro
 
 Una vez completado el proceso de actualización, se abrirá el **Editor Unity**.
 
-Consulte la documentación de la <a a href="/windows/mixed-reality/develop/unity/welcome-to-mr-feature-tool" target="_blank">herramienta de características de Mixed Reality</a> para configurar la herramienta y aprender a usarla.
+Consulte la documentación de la <a href="/windows/mixed-reality/develop/unity/welcome-to-mr-feature-tool" target="_blank">herramienta de características de Mixed Reality</a> para configurar la herramienta y aprender a usarla.
 
 En la sección **Platform Support** (Compatibilidad con la plataforma), instale el paquete de características del **complemento OpenXR de Mixed Reality**, versión 1.0.0 o posterior, en la carpeta del proyecto de Unity. Si está trabajando con el proyecto `quickstarts/apps/unity/mrtk`, abra también la sección **Mixed Reality Toolkit** (Kit de herramientas de Mixed Reality), busque los paquetes de características **Mixed Reality Toolkit Foundation** y **Mixed Reality Toolkit Tools** y actualícelos a la versión 2.7.0 o posterior.
 

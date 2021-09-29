@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/06/2019
+ms.date: 09/27/2021
 ms.author: ryanwi
 ms.custom: aaddev
-ms.openlocfilehash: 4dd4a40233fc1c030581fd1ae2827061435a0ab3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ac71d20088a3697315ee24bce7be544e3c0763de
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98753545"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129091889"
 ---
 # <a name="single-page-application-call-a-web-api"></a>Aplicación de página única: Llamada a una API de web
 

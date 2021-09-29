@@ -7,14 +7,14 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/30/2021
+ms.date: 09/09/2021
 ms.author: jianleishen
-ms.openlocfilehash: 1b21416e06948c9a32831dc23c66c31b62a3ddae
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: ad9adb2c9f6b8308aba79f9e9bd1eadbf755760a
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123307828"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124763944"
 ---
 # <a name="copy-data-from-sharepoint-online-list-by-using-azure-data-factory-or-azure-synapse-analytics"></a>Copia de datos de una lista de SharePoint Online mediante Azure Data Factory o Azure Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -63,7 +63,7 @@ El conector de lista de SharePoint Online usa la autenticación de entidad de se
         </AppPermissionRequests>
         ```
 
-        ![conceder permiso en SharePoint](media/connector-sharepoint-online-list/sharepoint-online-grant-permission.png)
+        :::image type="content" source="media/connector-sharepoint-online-list/sharepoint-online-grant-permission.png" alt-text="conceder permiso en SharePoint":::
 
     3. Haga clic en "Trust It" (Confiar) para esta aplicación.
 
@@ -234,7 +234,7 @@ Cuando se copian datos de una lista de SharePoint Online, se usan las siguientes
 
 Puede copiar un archivo de SharePoint Online si utiliza una **actividad web** para autenticar y obtener el token de acceso de SPO y, a continuación, pasa a una **actividad de copia** posterior para copiar los datos con el **conector HTTP como origen**.
 
-![flujo de copia de archivo de SharePoint](media/connector-sharepoint-online-list/sharepoint-online-copy-file-flow.png)
+:::image type="content" source="media/connector-sharepoint-online-list/sharepoint-online-copy-file-flow.png" alt-text="flujo de copia de archivo de SharePoint":::
 
 1. Siga las indicaciones de la sección [Prerrequisitos](#prerequisites) para crear una aplicación de AAD y conceder permiso a SharePoint Online. 
 

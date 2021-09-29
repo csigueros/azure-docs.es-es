@@ -8,12 +8,12 @@ ms.subservice: tutorials
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 02/18/2021
-ms.openlocfilehash: a7dae1f33583a7350dd273a44efa90e9cb7dd725
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 543acb129d23a0b74434535306aca801d2f5fdd2
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122638860"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124763640"
 ---
 # <a name="incrementally-load-data-from-a-source-data-store-to-a-destination-data-store"></a>Carga incremental de datos de un almacén de datos de origen a un almacén de datos de destino
 
@@ -24,7 +24,7 @@ En una solución de integración de datos, la carga incremental (o diferencial) 
 ## <a name="delta-data-loading-from-database-by-using-a-watermark"></a>Carga diferencial de datos de la base de datos mediante una marca de agua
 En este caso, definirá una marca de agua en la base de datos de origen. Una marca de agua es una columna que tiene la marca de tiempo de la última actualización o una clave de incremento. La solución de carga diferencial carga los datos modificados entre una marca de agua antigua y una nueva marca de agua. En el siguiente diagrama se representa el flujo de trabajo de este enfoque: 
 
-![Flujo de trabajo de uso de una marca de agua](media/tutorial-incremental-copy-overview/workflow-using-watermark.png)
+:::image type="content" source="media/tutorial-incremental-copy-overview/workflow-using-watermark.png" alt-text="Flujo de trabajo de uso de una marca de agua":::
 
 Consulte los siguientes temas para obtener instrucciones paso a paso: 
 - [Carga de datos de forma incremental de Azure SQL Database a Azure Blob Storage](tutorial-incremental-copy-powershell.md)
@@ -38,7 +38,7 @@ La tecnología de control de cambios es una solución ligera de SQL Server y Azu
 
 En el siguiente diagrama se representa el flujo de trabajo de este enfoque:
 
-![Flujo de trabajo del control de cambios](media/tutorial-incremental-copy-overview/workflow-using-change-tracking.png)
+:::image type="content" source="media/tutorial-incremental-copy-overview/workflow-using-change-tracking.png" alt-text="Flujo de trabajo del control de cambios":::
 
 Para ver instrucciones paso a paso, consulte el siguiente tutorial: <br/>
 - [Carga incremental de datos de Azure SQL Database a Azure Blob Storage mediante la información de control de cambios](tutorial-incremental-copy-change-tracking-feature-powershell.md)

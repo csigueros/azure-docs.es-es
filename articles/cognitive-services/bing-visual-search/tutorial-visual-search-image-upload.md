@@ -3,26 +3,24 @@ title: 'Tutorial: Carga de imágenes mediante la API Bing Visual Search'
 titleSuffix: Azure Cognitive Services
 description: Aprenda a cargar imágenes en Bing, obtener información sobre ellas y mostrar la respuesta.
 services: cognitive-services
-author: swhite-msft
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: tutorial
 ms.date: 03/31/2020
-ms.author: scottwhi
 ms.custom: devx-track-js
-ms.openlocfilehash: 96a4b13d11e40e24e78d3aed8dfebcc88b41c525
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 0f568f8b2aaf64d390a71dcb4b010dc399603706
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96486885"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128663238"
 ---
 # <a name="tutorial-upload-images-to-the-bing-visual-search-api"></a>Tutorial: Carga de imágenes en Bing Visual Search API
 
 > [!WARNING]
-> Las Bing Search API se mueven de Cognitive Services a Bing Search Services. A partir del **30 de octubre de 2020**, las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
-> El aprovisionamiento de las Bing Search API mediante Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que antes suceda.
+> Las Bing Search API se mueven de Cognitive Services a Bing Search Services. A partir del **30 de octubre de 2020**, las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> El aprovisionamiento de Bing Search APIs con Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que suceda primero.
 > Puede encontrar instrucciones sobre la migración en [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Bing Visual Search API le permite buscar en Web imágenes similares a las que carga. Use este tutorial para crear una aplicación web que pueda enviar una imagen a la API y mostrar las conclusiones que devuelve dentro de la página web. Tenga en cuenta que esta aplicación no cumple todos los [requisitos de visualización y uso de Bing](../bing-web-search/use-display-requirements.md) para la utilización de la API.

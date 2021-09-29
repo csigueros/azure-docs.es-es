@@ -7,14 +7,14 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/24/2021
+ms.date: 09/09/2021
 ms.author: jianleishen
-ms.openlocfilehash: 09bb503be37df8afe54f6dcc8c427bf12f9e7dc1
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: dbee4a0c4aa82d34df6b5ea6e3e7274868be5d62
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123252991"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124743851"
 ---
 # <a name="json-format-in-azure-data-factory-and-azure-synapse-analytics"></a>Formato JSON en Azure Data Factory y Azure Synapse Analytics
 
@@ -223,7 +223,7 @@ En la tabla siguiente se enumeran las propiedades que admite un origen JSON. Pue
 
 El uso de un conjunto de datos JSON como origen en el flujo de datos le permite establecer cinco opciones de configuración adicionales. Esta configuración se puede encontrar en el acordeón **Configuración de JSON** en la pestaña **Opciones de origen**. Para el valor **Document Form** (Formulario de documento), puede elegir entre los tipos **Documento único**, **Document per line** (Documento por línea) y **Array of documents** (Matriz de documentos).
 
-![Configuración de JSON](media/data-flow/json-settings.png "Configuración de JSON")
+:::image type="content" source="media/data-flow/json-settings.png" alt-text="Configuración de JSON":::
 
 #### <a name="default"></a>Valor predeterminado
 
@@ -359,11 +359,11 @@ Puede agregar una columna compleja al flujo de datos mediante el generador de ex
 
 En el panel lateral del esquema de salida, mantenga el puntero sobre una columna y haga clic en el icono de signo más. Seleccione **Agregar subcolumna** para convertir la columna en un tipo complejo.
 
-![Add subcolumn (Agregar subcolumna)](media/data-flow/derive-add-subcolumn.png "Agregar subcolumna")
+:::image type="content" source="media/data-flow/derive-add-subcolumn.png" alt-text="Add subcolumn (Agregar subcolumna)":::
 
 Puede agregar columnas y subcolumnas adicionales de la misma manera. Para cada campo no complejo, se puede agregar una expresión en el editor de expresiones a la derecha.
 
-![Agregar columna compleja](media/data-flow/derive-complex-column.png "Add columns (Agregar columnas)")
+:::image type="content" source="media/data-flow/derive-complex-column.png" alt-text="Agregar columna compleja":::
 
 #### <a name="entering-the-json-structure-manually"></a>Introducción manual de la estructura JSON
 

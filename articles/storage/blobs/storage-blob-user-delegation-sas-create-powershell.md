@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 69184abac12e9146d29ec5e7f14a536756ae0139
-ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
+ms.openlocfilehash: 22ababc0bca34423a6205d52f29f18ad691f919e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110613584"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128662629"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-powershell"></a>Creación de una SAS de delegación de usuarios para un contenedor o blob con PowerShell
 
@@ -95,7 +95,7 @@ Para obtener más información sobre los roles integrados que incluyen la acció
 
 ## <a name="use-azure-ad-credentials-to-secure-a-sas"></a>Uso de credenciales de Azure AD para proteger una SAS
 
-Cuando se crea una SAS de delegación de usuarios con Azure PowerShell, la clave de delegación de usuarios que se usa para firmar la SAS se crea de forma implícita. La hora de inicio y la hora de expiración que especifique para la SAS también se usan como hora de inicio y hora de expiración para la clave de delegación de usuarios. 
+Cuando se crea una SAS de delegación de usuarios con Azure PowerShell, la clave de delegación de usuarios que se usa para firmar la SAS se crea de forma implícita. La hora de inicio y la hora de expiración que especifique para la SAS también se usan como hora de inicio y hora de expiración para la clave de delegación de usuarios.
 
 Dado que el intervalo máximo de validez de la clave de delegación de usuarios es de siete días a partir de la fecha de inicio, debe especificar una hora de expiración para la SAS que está en el plazo de siete días a partir de la hora de inicio. La SAS no es válida después de que expire la clave de delegación de usuarios, por lo que una SAS con un tiempo de expiración de más de siete días seguirá siendo válida solo durante siete días.
 

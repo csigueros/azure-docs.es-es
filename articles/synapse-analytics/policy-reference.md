@@ -1,18 +1,18 @@
 ---
 title: Definiciones de directiva integradas
 description: Aquí se enumeran las definiciones de directivas integradas de Azure Policy para Azure Synapse Analytics. Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar los recursos de Azure.
-ms.date: 09/03/2021
+ms.date: 09/17/2021
 ms.topic: reference
 author: julieMSFT
 ms.author: jrasnick
 ms.service: synapse-analytics
 ms.custom: subject-policy-reference
-ms.openlocfilehash: cc7ae4296f53776cdf13de4beba671cfd15e0e54
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: 156b6008d43b856f8db37d69d14fdd37acf58216
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123473262"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128680193"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-synapse-analytics"></a>Definiciones de directivas integradas de Azure Policy para Azure Synapse Analytics 
 

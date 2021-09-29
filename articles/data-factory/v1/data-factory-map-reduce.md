@@ -5,14 +5,15 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: f1f54e972d59d3de3b0f93b3150ee1150eb6f612
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7d50260a6064a551842e8cab2c4a33189d87b19d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104786403"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128679794"
 ---
 # <a name="invoke-mapreduce-programs-from-data-factory"></a>Invocar programas MapReduce desde la factoría de datos de Azure
 > [!div class="op_single_selector" title1="Actividades de transformación"]
@@ -231,7 +232,7 @@ La canalización de este ejemplo tiene solo una actividad de tipo: HDInsightMapR
 Puede usar la actividad MapReduce para ejecutar programas Spark en su clúster de HDInsight Spark. Consulte [Invocar programas Spark desde Azure Data Factory](data-factory-spark.md) para obtener más información.  
 
 [developer-reference]: /previous-versions/azure/dn834987(v=azure.100)
-[cmdlet-reference]: https://go.microsoft.com/fwlink/?LinkId=517456
+[cmdlet-reference]: /powershell/resourcemanager/Azurerm.DataFactories/v2.2.0/Azurerm.DataFactories
 
 
 [adfgetstarted]: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md

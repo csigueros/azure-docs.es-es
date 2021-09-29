@@ -8,12 +8,12 @@ ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/06/2021
-ms.openlocfilehash: 0b927f945dc7e891e93df6cd455840e6ff19a2fd
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: 5f18e2a1fc64e33faecf17c95e9261e023cc6c9d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122772452"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124779718"
 ---
 # <a name="copy-data-from-azure-data-lake-storage-gen1-to-gen2-with-azure-data-factory"></a>Copia de datos de Azure Data Lake Storage Gen1 en Gen2 con Azure Data Factory
 
@@ -39,11 +39,11 @@ En este artículo se muestra cómo utilizar la herramienta Copiar datos de Data 
 
 1. En el menú de la izquierda, seleccione **Crear un recurso** > **Datos y análisis** > **Data Factory**.
    
-   ![Captura de pantalla que muestra la selección de Data Factory en el panel Nuevo.](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+   :::image type="content" source="./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png" alt-text="Captura de pantalla que muestra la selección de Data Factory en el panel Nuevo.":::
 
 2. En la página **Nueva factoría de datos**, proporcione los valores de los campos que se muestran en la imagen siguiente: 
       
-   ![Captura de pantalla que muestra la página Nueva factoría de datos.](./media/load-azure-data-lake-storage-gen2-from-gen1/new-azure-data-factory.png)
+   :::image type="content" source="./media/load-azure-data-lake-storage-gen2-from-gen1/new-azure-data-factory.png" alt-text="Captura de pantalla que muestra la página Nueva factoría de datos.":::
  
     * **Name**: escriba un nombre único global para la factoría de datos de Azure. Si recibe el error "El nombre de la factoría de datos \"LoadADLSDemo\" no está disponible", escriba uno diferente. Por ejemplo, utilice _**suNombre**_ **ADFTutorialDataFactory**. Cree la factoría de datos otra vez. Para conocer las reglas de nomenclatura de los artefactos de Data Factory, consulte [Data Factory: reglas de nomenclatura](naming-rules.md).
     * **Suscripción**: seleccione la suscripción de Azure donde desea crear la factoría de datos. 
@@ -62,7 +62,7 @@ En este artículo se muestra cómo utilizar la herramienta Copiar datos de Data 
 
 1. En la página principal, seleccione el icono **Ingest** (Ingerir) para iniciar la herramienta de copia de datos. 
 
-   ![Captura de pantalla que muestra la página principal de ADF.](./media/doc-common-process/get-started-page.png )
+   :::image type="content" source="./media/doc-common-process/get-started-page.png " alt-text="Captura de pantalla que muestra la página principal de ADF.":::
 
 2. En la página **Properties** (Propiedades), elija **Built-in copy task** (Tarea de copia integrada) en **Task type** (Tipo de tarea) y elija **Run once now** (Ejecutar una vez ahora) en **Task cadence or task schedule** (Cadencia de tareas o programación de tareas). A continuación, seleccione **Next** (Siguiente).
 
@@ -70,7 +70,7 @@ En este artículo se muestra cómo utilizar la herramienta Copiar datos de Data 
     
 4. Seleccione **Azure Data Lake Storage Gen1** en la galería de conectores y seleccione **Continuar**.
     
-    ![Captura de pantalla que muestra la página de selección de la conexión de Azure Data Lake Storage Gen1.](./media/load-azure-data-lake-storage-gen2-from-gen1/source-data-store-page-adls-gen1.png)
+    :::image type="content" source="./media/load-azure-data-lake-storage-gen2-from-gen1/source-data-store-page-adls-gen1.png" alt-text="Captura de pantalla que muestra la página de selección de la conexión de Azure Data Lake Storage Gen1.":::
     
 5. En la página **New Connection (Azure Data Lake Storage Gen1)** (Nueva conexión [Azure Data Lake Storage Gen1]), siga estos pasos:
    1. Seleccione su instancia de Data Lake Storage Gen1 para el nombre de cuenta y especifique o valide el **inquilino**.
@@ -79,7 +79,7 @@ En este artículo se muestra cómo utilizar la herramienta Copiar datos de Data 
    > [!IMPORTANT]
    > En este tutorial se utilizará una identidad administrada para recursos de Azure con el fin de autenticar la cuenta de Azure Data Lake Storage Gen1. Para conceder a la identidad administrada los permisos adecuados en Azure Data Lake Storage Gen1, siga [estas instrucciones](connector-azure-data-lake-store.md#managed-identity).
    
-   ![Captura de pantalla que muestra la configuración de la conexión de Azure Data Lake Storage Gen1.](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen1-account.png)
+   :::image type="content" source="./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen1-account.png" alt-text="Captura de pantalla que muestra la configuración de la conexión de Azure Data Lake Storage Gen1.":::
       
 6. En la página **Source data store** (Almacén de datos de origen), realice los pasos siguientes: 
     1. Seleccione la conexión recién creada en la sección **Connection** (Conexión).
@@ -90,13 +90,13 @@ En este artículo se muestra cómo utilizar la herramienta Copiar datos de Data 
     
 7. En la página **Destination data store** (Almacén de datos de destino), seleccione **+ New connection** > **Azure Data Lake Storage Gen2** > **Continue** (+ Nueva conexión > Azure Data Lake Storage Gen2 > Continuar).
 
-    ![Captura de pantalla que muestra la página de selección de la conexión de Azure Data Lake Storage Gen2.](./media/load-azure-data-lake-storage-gen2-from-gen1/destination-data-store-page-adls-gen2.png)
+    :::image type="content" source="./media/load-azure-data-lake-storage-gen2-from-gen1/destination-data-store-page-adls-gen2.png" alt-text="Captura de pantalla que muestra la página de selección de la conexión de Azure Data Lake Storage Gen2.":::
 
 8. En la página **New Connection (Azure Data Lake Storage Gen2)** (Nueva conexión [Azure Data Lake Storage Gen2]), siga estos pasos:
    1. Seleccione la cuenta habilitada para Data Lake Storage Gen2 en la lista desplegable **Nombre de la cuenta de almacenamiento**.
    1. Seleccione **Create** (Crear) para crear la conexión. 
 
-   ![Captura de pantalla que muestra la configuración de la conexión de Azure Data Lake Storage Gen2.](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen2-account.png)
+   :::image type="content" source="./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen2-account.png" alt-text="Captura de pantalla que muestra la configuración de la conexión de Azure Data Lake Storage Gen2.":::
 
 9. En la página **Destination data store** (Almacén de datos de destino), realice los pasos siguientes: 
     1. Seleccione la conexión recién creada en el bloque **Conexión**. 
@@ -109,19 +109,19 @@ En este artículo se muestra cómo utilizar la herramienta Copiar datos de Data 
 
 11. En la página **Resumen**, revise la configuración y seleccione **Siguiente**.
 
-    ![Captura de pantalla de la página de resumen.](./media/load-azure-data-lake-storage-gen2-from-gen1/copy-summary.png)
+    :::image type="content" source="./media/load-azure-data-lake-storage-gen2-from-gen1/copy-summary.png" alt-text="Captura de pantalla de la página Resumen.":::
 
 12. En la página **Implementación**, seleccione **Supervisión** para supervisar la canalización.
 
-    ![Captura de pantalla que muestra la página de implementación.](./media/load-azure-data-lake-storage-gen2-from-gen1/deployment-page.png)
+    :::image type="content" source="./media/load-azure-data-lake-storage-gen2-from-gen1/deployment-page.png" alt-text="Captura de pantalla que muestra la página de implementación.":::
 
 13. Observe que la pestaña **Monitor** (Supervisión) de la izquierda se selecciona automáticamente. La columna **Pipeline name** (Nombre de canalización) incluye los vínculos para ver los detalles de la ejecución de actividad y volver a ejecutar la canalización.
 
-    ![Captura de pantalla que muestra la página de supervisión de ejecuciones de canalización.](./media/load-azure-data-lake-storage-gen2-from-gen1/monitor-pipeline-runs.png)
+    :::image type="content" source="./media/load-azure-data-lake-storage-gen2-from-gen1/monitor-pipeline-runs.png" alt-text="Captura de pantalla que muestra la página de supervisión de ejecuciones de canalización.":::
 
 14. Para ver las ejecuciones de actividad asociadas a la ejecución de la canalización, seleccione el vínculo en la columna **Pipeline name** (Nombre de canalización). Como solo hay una actividad (actividad de copia) en la canalización, solo verá una entrada. Para volver a la vista de ejecuciones de canalización, seleccione el vínculo **All pipeline runs** (Todas las ejecuciones de la canalización) en el menú de la ruta de navegación en la parte superior. Seleccione **Refresh** (Actualizar) para actualizar la lista. 
 
-    ![Captura de pantalla que muestra la página de supervisión de ejecuciones de actividad.](./media/load-azure-data-lake-storage-gen2-from-gen1/monitor-activity-runs.png)
+    :::image type="content" source="./media/load-azure-data-lake-storage-gen2-from-gen1/monitor-activity-runs.png" alt-text="Captura de pantalla que muestra la página de supervisión de ejecuciones de actividad.":::
 
 15. Para supervisar los detalles de la ejecución de cada actividad de copia, seleccione el vínculo con un icono de gafas **Details** (Detalles) en la columna **Activity name** (Nombre de actividad) en la vista de supervisión de la actividad. Puede supervisar detalles como el volumen de datos copiados desde el origen al receptor, el rendimiento de los datos, los pasos de ejecución con su duración correspondiente y las configuraciones que se utilizan.
 

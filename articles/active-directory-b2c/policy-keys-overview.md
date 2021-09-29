@@ -7,16 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/19/2021
+ms.date: 09/20/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: a41717e9be0918dead9f77a5f5472494d734b38a
-ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
+ms.openlocfilehash: c4fdd2910e1f5d65776420e8337de1d8b4434f0d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107717538"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128596474"
 ---
 # <a name="overview-of-policy-keys-in-azure-active-directory-b2c"></a>Introducción a las claves de directiva en Azure Active Directory B2C
 
@@ -83,7 +83,8 @@ Para obtener la clave activa actual dentro de un contenedor de claves, use el pu
 Para agregar o eliminar claves de cifrado y firma, siga estos pasos:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-1. Seleccione el icono **Directorio y suscripción** en la barra de herramientas del portal y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
 1. En Azure Portal, busque y seleccione **Azure AD B2C**.
 1. En la página de información general, en **Directivas**, seleccione **Identity Experience Framework**.
 1. Seleccione **Claves de directiva**. 

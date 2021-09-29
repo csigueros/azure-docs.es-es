@@ -2,14 +2,14 @@
 title: Creación de temas y colas con particiones de Azure Service Bus | Microsoft Docs
 description: Describe cómo realizar la partición de los temas y las colas de Service Bus mediante el uso de varios agentes de mensajes.
 ms.topic: article
-ms.date: 04/26/2021
+ms.date: 09/21/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4eba3a911eb5522a1d6ae46f597e99c34d56ef0d
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: b6e0c0473ea5bf50ed64bf7abee2c66ab5789840
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108743226"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128616087"
 ---
 # <a name="partitioned-queues-and-topics"></a>Temas y colas con particiones
 
@@ -69,9 +69,9 @@ Los mensajes que se envían como parte de una transacción deben especificar una
 CommittableTransaction committableTransaction = new CommittableTransaction();
 using (TransactionScope ts = new TransactionScope(committableTransaction))
 {
-    Message msg = new Message("This is a message");
+    ServiceBusMessage msg = new ServiceBusMessage("This is a message");
     msg.PartitionKey = "myPartitionKey";
-    await messageSender.SendAsync(msg); 
+    await sender.SendMessageAsync(msg); 
     await ts.CompleteAsync();
 }
 committableTransaction.Commit();
@@ -89,9 +89,9 @@ A diferencia de las colas o temas regulares (sin particiones), no es posible usa
 CommittableTransaction committableTransaction = new CommittableTransaction();
 using (TransactionScope ts = new TransactionScope(committableTransaction))
 {
-    Message msg = new Message("This is a message");
+    ServiceBusMessage msg = new ServiceBusMessage("This is a message");
     msg.SessionId = "mySession";
-    await messageSender.SendAsync(msg); 
+    await sender.SendMessageAsync(msg); 
     await ts.CompleteAsync();
 }
 committableTransaction.Commit();

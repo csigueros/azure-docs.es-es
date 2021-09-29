@@ -7,12 +7,12 @@ ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 03/31/2020
 ms.custom: seodec18
-ms.openlocfilehash: 0dc36b817d5b5cdf731edecd64e1879c153d866a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 444803285eca144ff5abd7cdaa83c90670774955
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98015137"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124784496"
 ---
 # <a name="troubleshoot-azure-stream-analytics-queries"></a>Solución de problemas en las consultas de Azure Stream Analytics
 
@@ -43,7 +43,7 @@ En este artículo se describen los problemas comunes relacionados con el desarro
 5.  Asegúrese de que las directivas de ordenación de eventos están configuradas según lo previsto. Vaya a **Configuración** y seleccione [**Ordenación de eventos**](./stream-analytics-time-handling.md). La directiva *no* se aplica cuando usa el botón **Probar** para probar la consulta. El resultado es una diferencia entre probar en el explorador frente a ejecutar el trabajo de producción. 
 
 6. Use registros de recursos y actividad para la depuración:
-    - Use [Registros de actividad](../azure-resource-manager/management/view-activity-logs.md) y filtre para identificar y depurar errores.
+    - Use [Registros de actividad](../azure-monitor/essentials/activity-log.md) y filtre para identificar y depurar errores.
     - Use [registros de recursos de trabajo](stream-analytics-job-diagnostic-logs.md) para identificar y depurar errores.
 
 ## <a name="resource-utilization-is-high"></a>El uso de recursos es alto

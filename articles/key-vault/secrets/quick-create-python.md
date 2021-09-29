@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: devx-track-python, devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: d9d15735439890d16ba56ca12b5476253f6fcf5d
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: 8d5ef1f13b7413eeb21c7e026aa1cbf9d9bb4541
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110537373"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124757408"
 ---
 # <a name="quickstart-azure-key-vault-secret-client-library-for-python"></a>Inicio rápido: Biblioteca cliente de secretos de Azure Key Vault para Python
 
@@ -133,7 +133,7 @@ python kv_secrets.py
 ```
 
 - Si se producen errores de permisos, asegúrese de que ha ejecutado el comando [`az keyvault set-policy`](#grant-access-to-your-key-vault).
-- Al volver a ejecutar el código con el mismo nombre de secreto, puede aparecer el error "(Conflict) Secret <name> is currently in a deleted but recoverable state" [(Conflicto) El secreto se ha eliminado, pero se puede recuperar]. Use otro nombre de secreto.
+- Al volver a ejecutar el código con el mismo nombre de secreto, puede aparecer el error "(Conflict) Secret \<name\> is currently in a deleted but recoverable state" [(Conflicto) El secreto se ha eliminado, pero se puede recuperar]. Use otro nombre de secreto.
 
 ## <a name="code-details"></a>Detalles del código
 

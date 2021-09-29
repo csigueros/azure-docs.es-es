@@ -8,12 +8,12 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 07/28/2021
-ms.openlocfilehash: 085b9a187ce574c5138867f7a2ce929218717c37
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: 591d248bed623a31d9c120ae669615efa5c5544d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123253823"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124763260"
 ---
 # <a name="azure-sentinel-workspace-architecture-best-practices"></a>Procedimientos recomendados de arquitectura de áreas de trabajo de Azure Sentinel
 
@@ -42,7 +42,7 @@ Al determinar cuántos inquilinos y áreas de trabajo usar, tenga en cuenta que 
 
 Si tiene varios inquilinos, por ejemplo, si es un proveedor de servicios de seguridad administrado (MSSP), se recomienda crear al menos un área de trabajo para cada inquilino de Azure AD para admitir [conectores de datos de servicio a servicio](connect-data-sources.md#service-to-service-integration) integrados que solo funcionan dentro de su propio inquilino de Azure AD.
 
-Todos los conectores basados en la configuración de diagnóstico no se pueden conectar a un área de trabajo que no se encuentra en el mismo inquilino donde reside el recurso. Esto se aplica a conectores como [Azure Firewall](connect-azure-firewall.md), [Azure Storage](connect-azure-storage-account.md), [Azure Activity](connect-azure-activity.md) o [Azure Active Directory](connect-azure-active-directory.md).
+Todos los conectores basados en la configuración de diagnóstico no se pueden conectar a un área de trabajo que no se encuentra en el mismo inquilino donde reside el recurso. Esto se aplica a conectores como [Azure Firewall](./data-connectors-reference.md#azure-firewall), [Azure Storage](./data-connectors-reference.md#azure-storage-account), [Azure Activity](./data-connectors-reference.md#azure-activity) o [Azure Active Directory](connect-azure-active-directory.md).
 
 Utilice [Azure Lighthouse](../lighthouse/how-to/onboard-customer.md) para ayudar a administrar varias instancias de Azure Sentinel en diferentes inquilinos.
 

@@ -3,15 +3,16 @@ title: Creación de canalizaciones de copia de datos a gran escala con un enfoqu
 description: Proporciona información sobre el enfoque controlado por metadatos en la herramienta de copia de datos de ADF.
 author: dearandyxu
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
 ms.date: 06/19/2021
 ms.author: yexu
-ms.openlocfilehash: e2263db67214fb6fea91c8a8cefa65a981475ec3
-ms.sourcegitcommit: deb5717df5a3c952115e452f206052737366df46
+ms.openlocfilehash: 02d7b741ec0c3fb9547d10bde759900ce3a69dd6
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122681602"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128663352"
 ---
 # <a name="build-large-scale-data-copy-pipelines-with-metadata-driven-approach-in-copy-data-tool-preview"></a>Creación de canalizaciones de copia de datos a gran escala con un enfoque basado en metadatos en la herramienta de copia de datos (versión preliminar)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -26,15 +27,15 @@ La herramienta de copia de datos de ADF facilita el recorrido de la creación de
 
    Debe introducir la conexión y el nombre de la tabla de control para que la canalización generada lea los metadatos.
 
-   ![Seleccionar el tipo de tarea](./media/copy-data-tool-metadata-driven/select-task-type.png)
+   :::image type="content" source="./media/copy-data-tool-metadata-driven/select-task-type.png" alt-text="Seleccionar el tipo de tarea":::
 
 2. Introduzca la **conexión de su base de datos de origen**. También se puede utilizar el [servicio vinculado parametrizado](parameterize-linked-services.md).
 
-   ![Seleccionar el servicio vinculado parametrizado](./media/copy-data-tool-metadata-driven/select-parameterized-linked-service.png)
+   :::image type="content" source="./media/copy-data-tool-metadata-driven/select-parameterized-linked-service.png" alt-text="Seleccionar el servicio vinculado parametrizado":::
 
 3. Seleccione el **nombre de la tabla** para copiar.
 
-   ![Seleccionar tabla](./media/copy-data-tool-metadata-driven/select-table.png)
+   :::image type="content" source="./media/copy-data-tool-metadata-driven/select-table.png" alt-text="Seleccionar tabla":::
 
    > [!NOTE]
    > Si selecciona almacén de datos tabulares, tendrá la oportunidad de seleccionar también la carga completa o la carga incremental en la página siguiente. Si selecciona Almacén de almacenamiento, puede seleccionar la carga completa solo en la página siguiente. Actualmente no se admite la carga incremental de nuevos archivos solo desde el almacén de almacenamiento.  
@@ -47,11 +48,11 @@ La herramienta de copia de datos de ADF facilita el recorrido de la creación de
 
 6. En la página **Configuración**, puede decidir el número máximo de actividades de copia para copiar datos de su almacén de origen de forma simultánea mediante **Número de tareas de copia simultáneas**. El valor predeterminado es 20. 
 
-   ![Página Configuración](./media/copy-data-tool-metadata-driven/settings.png)
+   :::image type="content" source="./media/copy-data-tool-metadata-driven/settings.png" alt-text="Página de configuración":::
 
 7. Después de la implementación de la canalización, puede copiar o descargar los scripts de SQL de la interfaz de usuario para crear la tabla de control y el procedimiento de almacenamiento. 
 
-   ![Descarga de scripts](./media/copy-data-tool-metadata-driven/download-scripts.png)
+   :::image type="content" source="./media/copy-data-tool-metadata-driven/download-scripts.png" alt-text="Descarga de scripts":::
 
    Verá dos scripts de SQL.
    
@@ -60,15 +61,15 @@ La herramienta de copia de datos de ADF facilita el recorrido de la creación de
 
 8. Abra **SSMS** para conectarse al servidor de tablas de control y ejecute los dos scripts de SQL para crear tablas de control y almacenar el procedimiento.
 
-   ![Creación del script de control](./media/copy-data-tool-metadata-driven/create-control-table-script.png)
+   :::image type="content" source="./media/copy-data-tool-metadata-driven/create-control-table-script.png" alt-text="Creación del script de control":::
 
 9. Consulte la tabla de control principal y la tabla de control de conexión para revisar los metadatos que contiene.
 
    **Tabla de control principal**
-   ![Tabla de control de consultas de script1](./media/copy-data-tool-metadata-driven/query-control-table.png)
+   :::image type="content" source="./media/copy-data-tool-metadata-driven/query-control-table.png" alt-text="Tabla de control de consultas de script1":::
 
    **Tabla de control de conexión**
-   ![Tabla de control de consultas de script2](./media/copy-data-tool-metadata-driven/query-connection-control-table.png)
+   :::image type="content" source="./media/copy-data-tool-metadata-driven/query-connection-control-table.png" alt-text="Tabla de control de consultas de script2":::
 
 10. Vuelva al portal de ADF para ver y depurar canalizaciones. Verá una carpeta creada con el nombre "MetadataDrivenCopyTask_### _######". **Haga clic** en la canalización llamada "MetadataDrivenCopyTask_###_TopLevel" y haga clic en **ejecutar depuración**. 
 
@@ -85,7 +86,7 @@ La herramienta de copia de datos de ADF facilita el recorrido de la creación de
 
 11. Habilite el desencadenador para operacionalizar las canalizaciones.
 
-    ![Habilitar el desencadenador](./media/copy-data-tool-metadata-driven/enable-trigger.png)
+    :::image type="content" source="./media/copy-data-tool-metadata-driven/enable-trigger.png" alt-text="Habilitar el desencadenador":::
 
 
 ## <a name="update-control-table-by-copy-data-tool"></a>Actualización de la tabla de control mediante la herramienta de copia de datos
@@ -93,15 +94,15 @@ Siempre puede actualizar directamente la tabla de control agregando o quitando e
 
 1. Haga clic con el botón secundario en la canalización de nivel superior: **MetadataDrivenCopyTask_xxx_TopLevel** y luego seleccione **Editar tabla de control**.
 
-   ![Edición de la tabla de control1](./media/copy-data-tool-metadata-driven/edit-control-table.png)
+   :::image type="content" source="./media/copy-data-tool-metadata-driven/edit-control-table.png" alt-text="Edición de la tabla de control1":::
 
 2. Seleccione las filas de la tabla de control que quiera editar.
 
-   ![Edición de la tabla de control2](./media/copy-data-tool-metadata-driven/edit-control-table-select-tables.png)
+   :::image type="content" source="./media/copy-data-tool-metadata-driven/edit-control-table-select-tables.png" alt-text="Edición de la tabla de control2":::
 
 3. Vaya al rendimiento de la herramienta de copia de datos y aparecerá un nuevo script de SQL. Vuelva a ejecutar script de SQL para actualizar la tabla de control.
 
-   ![Edición de la tabla de control3](./media/copy-data-tool-metadata-driven/edit-control-table-create-script.png)
+   :::image type="content" source="./media/copy-data-tool-metadata-driven/edit-control-table-create-script.png" alt-text="Edición de la tabla de control3":::
 
    > [!NOTE]
    > La canalización NO se volverá a implementar. El nuevo script de SQL ayuda a actualizar solo la tabla de control. 
@@ -201,7 +202,7 @@ Esta canalización copiará objetos de un grupo. Los objetos que pertenecen a es
 | GetMaxWatermarkValue | Búsqueda | Consulte el objeto de origen para obtener el valor máximo de la columna de marca de agua. |
 | UpdateWatermarkColumnValue | StoreProcedure | Reescriba el nuevo valor de marca de agua en la tabla de control que se usará la próxima vez. |
 
-### <a name="known-limitations"></a>Restricciones conocidas
+### <a name="known-limitations"></a>Limitaciones conocidas
 - La herramienta copiar datos no admite la ingesta controlada por metadatos para copiar incrementalmente archivos nuevos solo actualmente. Pero puede traer sus propias canalizaciones parametrizadas para lograrlo.
 - El nombre de IR, el tipo de base de datos y el tipo de formato de archivo no se pueden parametrizar en ADF. Por ejemplo, si desea ingerir datos de Oracle Server y SQL Server, necesitará dos canalizaciones con parámetros diferentes. Sin embargo, dos conjuntos de canalizaciones pueden compartir la tabla de control única. 
 - OPENJSON se usa en scripts SQL generados por la herramienta Copiar datos. Si usa SQL Server para hospedar la tabla de control, debe ser SQL Server 2016 (13.x) y versiones posteriores para admitir la función OPENJSON.

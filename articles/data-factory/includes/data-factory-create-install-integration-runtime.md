@@ -4,12 +4,12 @@ ms.service: data-factory
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
-ms.openlocfilehash: c0a0b44b3de088539a070f1182248c4e6db7303f
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 6bf40202908aa68345fabd2b6fe55d501e8325ff
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108771192"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124733047"
 ---
 ## <a name="create-a-self-hosted-integration-runtime"></a>Creación de una instancia de Integration Runtime autohospedada
 
@@ -101,23 +101,23 @@ En esta sección se crea una instancia de Integration Runtime autohospedada y se
 
 8. En la página **Registro de Integration Runtime (autohospedado)** , pegue la clave guardada en la sección anterior y seleccione en **Registrar**. 
 
-    ![Registro de Integration Runtime](media/data-factory-create-install-integration-runtime/register-integration-runtime.png)
+    :::image type="content" source="media/data-factory-create-install-integration-runtime/register-integration-runtime.png" alt-text="Registro de Integration Runtime":::
 
 9. En la página **Nuevo nodo de Integration Runtime (autohospedado)** , seleccione **Finalizar**. 
 
 10. Verá el siguiente mensaje cuando la instancia de Integration Runtime autohospedado se haya registrado correctamente:
 
-    ![Se registró correctamente](media/data-factory-create-install-integration-runtime/registered-successfully.png)
+    :::image type="content" source="media/data-factory-create-install-integration-runtime/registered-successfully.png" alt-text="Se registró correctamente":::
 
 14. En la página **Registro de Integration Runtime (autohospedado)** , seleccione **Iniciar Configuration Manager**.
 
 15. Verá la siguiente página cuando el nodo esté conectado al servicio en la nube:
 
-    ![Página El nodo está conectado](media/data-factory-create-install-integration-runtime/node-is-connected.png)
+    :::image type="content" source="media/data-factory-create-install-integration-runtime/node-is-connected.png" alt-text="Página El nodo está conectado":::
 
 16. Ahora, pruebe la conectividad a la base de datos de SQL Server.
 
-    ![Ficha Diagnóstico](media/data-factory-create-install-integration-runtime/config-manager-diagnostics-tab.png)   
+    :::image type="content" source="media/data-factory-create-install-integration-runtime/config-manager-diagnostics-tab.png" alt-text="Ficha Diagnóstico":::   
 
     a. En la página **Configuration Manager**, vaya a la pestaña **Diagnósticos**.
 

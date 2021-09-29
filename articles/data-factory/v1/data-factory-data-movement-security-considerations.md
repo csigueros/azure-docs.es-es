@@ -3,16 +3,17 @@ title: Consideraciones de seguridad para el movimiento de datos en Azure Data Fa
 description: Información acerca de cómo proteger el movimiento de datos en Azure Data Factory.
 author: nabhishek
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 33b1ad381b3f7865768f9e39295a2985f8aa5234
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0823c085470e83c82164fa578f1465e95eda81f0
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100375109"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128596208"
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory: consideraciones de seguridad para el movimiento de datos
 
@@ -80,7 +81,7 @@ Salesforce admite Shield Platform Encryption, que permite el cifrado de todos lo
 ## <a name="hybrid-scenarios-using-data-management-gateway"></a>Escenarios híbridos (con Data Management Gateway)
 Los escenarios híbridos necesitan Data Management Gateway instalado en una red local o virtual (Azure), o en una nube privada virtual (Amazon). La puerta de enlace debe tener acceso a los almacenes de datos locales. Para más información sobre la puerta de enlace, consulte [Data Management Gateway](data-factory-data-management-gateway.md). 
 
-![Canales de Data Management Gateway](media/data-factory-data-movement-security-considerations/data-management-gateway-channels.png)
+:::image type="content" source="media/data-factory-data-movement-security-considerations/data-management-gateway-channels.png" alt-text="Canales de Data Management Gateway":::
 
 El **canal del comandos** permite la comunicación entre los servicios de movimiento de datos de Data Factory y Data Management Gateway. La comunicación contiene información relacionada con la actividad. El canal de datos se usa para transferir datos entre los almacenes de datos locales y los almacenes de datos en la nube.    
 
@@ -100,7 +101,7 @@ Puede cifrar las credenciales del almacén de datos con la [biblioteca de cripto
 #### <a name="click-once-credentials-manager-app"></a>Aplicación de administración de credenciales con un clic
 Puede iniciar la aplicación de administración de credenciales con un clic desde Azure Portal o el Asistente para copia al autorizar canalizaciones. Esta aplicación garantiza que las credenciales no se transfieren en texto sin formato con la conexión. De manera predeterminada, usa el puerto **8050** de la máquina con la puerta de enlace para una comunicación segura. Si es necesario, se puede cambiar este puerto.  
   
-![Puerto HTTPS para la puerta de enlace](media/data-factory-data-movement-security-considerations/https-port-for-gateway.png)
+:::image type="content" source="media/data-factory-data-movement-security-considerations/https-port-for-gateway.png" alt-text="Puerto HTTPS para la puerta de enlace":::
 
 Actualmente, Data Management Gateway utiliza un solo **certificado**. Este certificado se crea durante la instalación de la puerta de enlace (aplicable a las versiones de Data Management Gateway creadas desde noviembre de 2016 y la versión 2.4.xxxx.x o posteriores). Puede reemplazar este certificado por su propio certificado SSL/TLS. La aplicación de administración con un solo clic usa este certificado para la conexión segura a la máquina de puerta de enlace con el fin de establecer las credenciales del almacén de datos. Las credenciales del almacén de datos se almacenan localmente de manera segura gracias a la [DPAPI](/previous-versions/ms995355(v=msdn.10)) de Windows de la máquina con la puerta de enlace. 
 
@@ -132,11 +133,11 @@ Las siguientes imágenes muestran el uso de Data Management Gateway para mover d
 
 **ExpressRoute:**
  
-![Uso de ExpressRoute con la puerta de enlace](media/data-factory-data-movement-security-considerations/express-route-for-gateway.png) 
+:::image type="content" source="media/data-factory-data-movement-security-considerations/express-route-for-gateway.png" alt-text="Uso de ExpressRoute con la puerta de enlace"::: 
 
 **Conexión VPN de IPSec:**
 
-![Conexión VPN de IPSec con la puerta de enlace](media/data-factory-data-movement-security-considerations/ipsec-vpn-for-gateway.png)
+:::image type="content" source="media/data-factory-data-movement-security-considerations/ipsec-vpn-for-gateway.png" alt-text="Conexión VPN de IPSec con la puerta de enlace":::
 
 ### <a name="firewall-configurations-and-filtering-ip-address-of-gateway"></a>Configuraciones de firewall y filtrado de direcciones IP de puerta de enlace
 
@@ -162,7 +163,7 @@ En la tabla siguiente se proporcionan los requisitos del **puerto de entrada** p
 | ------------- | ----------- | 
 | 8050 (TCP) | Lo necesita la aplicación de administración de credenciales para establecer de forma segura las credenciales para los almacenes de datos locales en la puerta de enlace. | 
 
-![Requisitos de puerto de la puerta de enlace](media/data-factory-data-movement-security-considerations/gateway-port-requirements.png)
+:::image type="content" source="media/data-factory-data-movement-security-considerations/gateway-port-requirements.png" alt-text="Requisitos de puerto de la puerta de enlace":::
 
 #### <a name="ip-configurationsfiltering-in-data-store"></a>Configuraciones o filtrado de IP en el almacén de datos
 Algunos almacenes de datos en la nube también exigen la aprobación de las direcciones IP de la máquina que accede a ellos. Asegúrese de que la dirección IP de la máquina de puerta de enlace esté aprobada o configurada adecuadamente en el firewall.

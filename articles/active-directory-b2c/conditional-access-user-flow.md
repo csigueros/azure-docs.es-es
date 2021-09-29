@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: overview
-ms.date: 06/03/2021
+ms.date: 09/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 author: msmimart
 manager: celested
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 96e402a46d931223832295ccbd892eb38b909c59
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: 54229ff68cf9e4ac749fb1396282d9c881f52806
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123220767"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128572678"
 ---
 # <a name="add-conditional-access-to-user-flows-in-azure-active-directory-b2c"></a>Adición del acceso condicional a los flujos de usuario en Azure AD B2C
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
@@ -75,11 +75,12 @@ Se requiere Azure AD B2C **Premium P2** para crear directivas de inicio de ses
 ## <a name="prepare-your-azure-ad-b2c-tenant"></a>Preparación del inquilino de Azure AD B2C
 Para agregar una directiva de acceso condicional, deshabilite los valores predeterminados de seguridad:
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
-2. Seleccione el icono **Directorio y suscripción** en la barra de herramientas del portal y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
-3. En **Servicios de Azure**, seleccione **Azure AD B2C**. O bien, use el cuadro de búsqueda para buscar y seleccionar **Azure AD B2C**.
-4. Seleccione **Propiedades** y, a continuación, seleccione **Administrar valores predeterminados de seguridad**.
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
+1. En **Servicios de Azure**, seleccione **Azure AD B2C**. O bien, use el cuadro de búsqueda para buscar y seleccionar **Azure AD B2C**.
+1. Seleccione **Propiedades** y, a continuación, seleccione **Administrar valores predeterminados de seguridad**.
    ![Deshabilitar los valores predeterminados de seguridad](media/conditional-access-user-flow/disable-security-defaults.png)
-5. En **Habilitar los valores predeterminados de seguridad**, seleccione **No**.
+1. En **Habilitar los valores predeterminados de seguridad**, seleccione **No**.
    ![Establecer el conmutador Activación de los valores predeterminados de seguridad en No.](media/conditional-access-user-flow/enable-security-defaults-toggle.png)
 
 ## <a name="add-a-conditional-access-policy"></a>Adición de una directiva de acceso condicional
@@ -331,8 +332,10 @@ Al agregar acceso condicional a un flujo de usuario, considere la posibilidad de
    > Con la disponibilidad general del acceso condicional en Azure AD B2C, ahora se pide a los usuarios que se inscriban en un método MFA durante el registro. Los flujos de usuario de registro que creó antes de la disponibilidad general no reflejarán automáticamente este nuevo comportamiento, pero puede incluirlo mediante la creación de nuevos flujos de usuario.
 ::: zone pivot="b2c-user-flow"
 Para habilitar el acceso condicional para un flujo de usuario, asegúrese de que la versión admite el acceso condicional. Estas versiones de flujo de usuario se etiquetan como **Recomendado**.
+
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-1. Seleccione el icono **Directorio y suscripción** en la barra de herramientas del portal y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
 1. En **Servicios de Azure**, seleccione **Azure AD B2C**. O bien, use el cuadro de búsqueda para buscar y seleccionar **Azure AD B2C**.
 1. En **Directivas**, seleccione **Flujos de usuario**. A continuación, seleccione el flujo de usuario.
 1. Seleccione **Propiedades** y asegúrese de que el flujo de usuario admite el acceso condicional; para ello, busque la configuración con la etiqueta **Acceso condicional**.
@@ -374,14 +377,15 @@ En la directiva de acceso condicional anterior, el `DoesClaimExist`método de tr
 ## <a name="review-conditional-access-outcomes-in-the-audit-report"></a>Revisión de los resultados del acceso condicional en el informe de auditoría
 Para revisar el resultado de un evento de acceso condicional:
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
-2. Seleccione el icono **Directorio y suscripción** en la barra de herramientas del portal y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
-3. En **Servicios de Azure**, seleccione **Azure AD B2C**. O bien, use el cuadro de búsqueda para buscar y seleccionar **Azure AD B2C**.
-4. En **Actividades**, seleccione **Registros de auditoría**.
-5. Filtre el registro de auditoría; para ello, establezca **Categoría** en **B2C** y establezca **Tipo de recurso de actividad** en **IdentityProtection**. Luego, seleccione **Aplicar**.
-6. Revise la actividad de auditoría de los últimos siete días. Se incluyen los siguientes tipos de actividad:
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
+1. En **Servicios de Azure**, seleccione **Azure AD B2C**. O bien, use el cuadro de búsqueda para buscar y seleccionar **Azure AD B2C**.
+1. En **Actividades**, seleccione **Registros de auditoría**.
+1. Filtre el registro de auditoría; para ello, establezca **Categoría** en **B2C** y establezca **Tipo de recurso de actividad** en **IdentityProtection**. Luego, seleccione **Aplicar**.
+1. Revise la actividad de auditoría de los últimos siete días. Se incluyen los siguientes tipos de actividad:
    - **Evaluar directivas de acceso condicional**: esta entrada del registro de auditoría indica que se ha realizado una evaluación de acceso condicional durante una autenticación.
    - **Corregir usuario**: esta entrada indica que el usuario final cumplió la concesión o los requisitos de una directiva de acceso condicional y que esta actividad se comunicó al motor de riesgo para mitigar (reducir el riesgo) al usuario.
-7. Seleccione una entrada de registro de tipo **Evaluar directivas de acceso condicional** en la lista para abrir la página **Detalles de la actividad: registro de auditoría**, que muestra los identificadores del registro de auditoría, junto con esta información, en la sección **Detalles adicionales**:
+1. Seleccione una entrada de registro de tipo **Evaluar directivas de acceso condicional** en la lista para abrir la página **Detalles de la actividad: registro de auditoría**, que muestra los identificadores del registro de auditoría, junto con esta información, en la sección **Detalles adicionales**:
    - **ConditionalAccessResult**: concesión requerida por la evaluación de la directiva condicional.
    - **AppliedPolicies**: lista de todas las directivas de acceso condicional en las que se cumplieron las condiciones y las directivas están activadas.
    - **ReportingPolicies**: lista de las directivas de acceso condicional que se establecieron en modo de solo informe y en las que se cumplieron las condiciones.

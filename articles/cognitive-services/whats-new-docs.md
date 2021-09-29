@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: erhopf
 ms.service: cognitive-services
 ms.date: 06/14/2021
-ms.openlocfilehash: d8b5d8141410143385cd950ae4e0ecb59d61d422
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: 655f61388d2fd19cffbb4b7d3212bf401e20040d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123478345"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124824776"
 ---
 # <a name="cognitive-services-docs-whats-new-for-may-1-2021---may-31-2021"></a>Documentación de Cognitive Services: Novedades del 1 al 31 de mayo de 2021
 
@@ -36,14 +36,14 @@ Estas son las novedades de la documentación de Cognitive Services del 1 al 31 d
 
 ### <a name="new-articles"></a>Artículos nuevos
 
-- [Referencia: versión 3.0.0 de la biblioteca cliente de Azure Form Recognizer y versión 2.0 de API REST](./form-recognizer/api-v2-0/reference-sdk-api-v2-0.md)
+- [Referencia: versión 3.0.0 de la biblioteca cliente de Azure Form Recognizer y versión 2.0 de API REST](../applied-ai-services/form-recognizer/api-v2-0/reference-sdk-api-v2-0.md)
 
 ### <a name="updated-articles"></a>Artículos actualizados
 
-- [Modelo de tarjetas de presentación pregenerado de Form Recognizer](./form-recognizer/concept-business-cards.md)
-- [Inicio rápido: Introducción a los SDK o API REST de la biblioteca cliente](./form-recognizer/quickstarts/client-library.md)
-- [Novedades en Form Recognizer](./form-recognizer/whats-new.md)
-- [Página de aterrizaje de Form Recognizer](./form-recognizer/index.yml)
+- [Modelo de tarjetas de presentación pregenerado de Form Recognizer](../applied-ai-services/form-recognizer/concept-business-cards.md)
+- [Inicio rápido: Introducción a los SDK o API REST de la biblioteca cliente](../applied-ai-services/form-recognizer/quickstarts/client-library.md)
+- [Novedades en Form Recognizer](../applied-ai-services/form-recognizer/whats-new.md)
+- [Página de aterrizaje de Form Recognizer](../applied-ai-services/form-recognizer/index.yml)
 
 ## <a name="translator"></a>Traductor
 

@@ -8,12 +8,12 @@ ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: seo-lt-2021
 ms.date: 06/04/2021
-ms.openlocfilehash: 91eb5d1072f1385c025d9d93b89466aaa9320ecd
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 02e67e6521e1f5fa3c29375a15953557613f7d7d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122638535"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124763697"
 ---
 # <a name="best-practices-for-writing-to-files-to-data-lake-with-data-flows"></a>Procedimientos recomendados para escribir en archivos en un lago de datos con flujos de datos
 
@@ -55,24 +55,24 @@ En este paso, creará una canalización que contiene una actividad de flujo de d
 
 1. En la página principal de Azure Data Factory, seleccione **Orchestrate** (Organizar).
 
-   ![Captura de pantalla que muestra la página principal de ADF.](./media/doc-common-process/get-started-page.png)
+   :::image type="content" source="./media/doc-common-process/get-started-page.png" alt-text="Captura de pantalla que muestra la página principal de ADF.":::
 
 1. En la pestaña **General** de la canalización, escriba **DeltaLake** en el campo **Nombre** de la canalización.
 1. En la barra superior de Data Factory, deslice el control deslizante **Depuración de Data Flow** para activarlo. El modo de depuración permite realizar pruebas interactivas de la lógica de transformación en un clúster de Spark activo. Los clústeres de Data Flow tardan de 5 a 7 minutos en prepararse y se recomienda que los usuarios activen primero la depuración si planean realizar el desarrollo de Data Flow. Para más información, consulte [Modo de depuración](concepts-data-flow-debug-mode.md).
 
-    ![Actividad de Data Flow](media/tutorial-data-flow/dataflow1.png)
+    :::image type="content" source="media/tutorial-data-flow/dataflow1.png" alt-text="Actividad de Data Flow":::
 1. En el panel **Actividades** expanda el acordeón **Movimiento y transformación**. Arrastre y coloque la actividad **Data Flow** del panel al lienzo de la canalización.
 
-    ![Captura de pantalla que muestra el lienzo de canalización donde puede colocar la actividad de Data Flow.](media/tutorial-data-flow/activity1.png)
+    :::image type="content" source="media/tutorial-data-flow/activity1.png" alt-text="Captura de pantalla que muestra el lienzo de canalización donde puede colocar la actividad de Data Flow.":::
 1. En el menú emergente **Adding Data Flow** (Adición de Data Flow), seleccione **Create New Data Flow** (Crear nueva instancia de Data Flow) y, a continuación, asigne el nombre **DeltaLake** al flujo de datos. Haga clic en Finalizar cuando haya terminado.
 
-    ![Captura de pantalla que muestra la ubicación donde se asigna nombre al flujo de datos al crear uno nuevo.](media/tutorial-data-flow/activity2.png)
+    :::image type="content" source="media/tutorial-data-flow/activity2.png" alt-text="Captura de pantalla que muestra la ubicación donde se asigna nombre al flujo de datos al crear uno nuevo.":::
 
 ## <a name="build-transformation-logic-in-the-data-flow-canvas"></a>Generación de la lógica de transformación en el lienzo de flujo de datos
 
 Tomará cualquier dato de origen (en este tutorial, usaremos un origen de archivos Parquet) y usará una transformación de receptor para que los datos lleguen en formato Parquet mediante los mecanismos más eficaces para ETL de lago de datos.
 
-![Flujo final](media/data-flow/parts-final.png "Flujo final")
+:::image type="content" source="media/data-flow/parts-final.png" alt-text="Flujo final":::
 
 ### <a name="tutorial-objectives"></a>Objetivos del tutorial
 
@@ -101,7 +101,7 @@ Es muy común usar valores únicos en los datos para crear particiones de los da
 1. Al acceder a las particiones de datos en un origen de flujo de datos, apuntará solo a la carpeta de nivel superior anterior ```releaseyear``` y usará un patrón de caracteres comodín para cada carpeta posterior, por ejemplo: ```**/**/*.parquet```
 1. Para modificar los valores de los datos, o incluso si es necesario generar valores sintéticos para los nombres de carpeta, use la transformación de columna derivada para crear los valores que desea usar en los nombres de carpeta.
 
-![Creación de particiones de clave](media/data-flow/key-parts.png "Creación de particiones de clave")
+:::image type="content" source="media/data-flow/key-parts.png" alt-text="Creación de particiones de clave":::
    
 ### <a name="name-folder-as-data-values"></a>Nombre de carpeta como valores de datos
 
@@ -113,7 +113,7 @@ Hay una técnica de receptor que tiene un rendimiento ligeramente mejor para los
 1. Elija la columna que desea utilizar para generar nombres de carpeta.
 1. Para modificar los valores de los datos, o incluso si es necesario generar valores sintéticos para los nombres de carpeta, use la transformación de columna derivada para crear los valores que desea usar en los nombres de carpeta.
 
-![Opción carpeta](media/data-flow/folders.png "Carpetas")
+:::image type="content" source="media/data-flow/folders.png" alt-text="Opción carpeta":::
 
 ### <a name="name-file-as-data-values"></a>Nombre de archivo como valores de datos
 

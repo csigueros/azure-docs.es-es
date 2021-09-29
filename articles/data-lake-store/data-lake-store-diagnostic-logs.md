@@ -1,23 +1,17 @@
 ---
 title: Visualización de registros de diagnóstico de Azure Data Lake Storage Gen1 | Microsoft Docs
 description: 'Sepa cómo configurar registros de diagnóstico y tener acceso a ellos para Azure Data Lake Storage Gen1. '
-services: data-lake-store
-documentationcenter: ''
-author: twooley
-manager: mtillman
-editor: cgronlun
-ms.assetid: f6e75eb1-d0ae-47cf-bdb8-06684b7c0a94
+author: normesta
 ms.service: data-lake-store
-ms.devlang: na
 ms.topic: how-to
 ms.date: 03/26/2018
-ms.author: twooley
-ms.openlocfilehash: 0b84e26962b00ee5b9d4c34cab7efbcc9aa0bf01
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: normesta
+ms.openlocfilehash: 325bca316aaf4add854ea473f71c9f9883fa42eb
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100582807"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128602942"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-storage-gen1"></a>Acceso a los registros de diagnóstico de Azure Data Lake Storage Gen1
 Sepa cómo habilitar el registro de diagnósticos en su cuenta de Azure Data Lake Storage Gen1 y cómo ver los registros recopilados relativos a su cuenta.

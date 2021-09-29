@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 0d05f6086bcf4bc59e9bc7f680139ccaf7660578
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 61235eccc5584ed7676433e24f8018c8af6a5b97
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122178567"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128668516"
 ---
 # <a name="quickstart-route-storage-events-to-web-endpoint-with-azure-cli"></a>Inicio rápido: Enrutamiento de eventos de almacenamiento a un punto de conexión web con la CLI de Azure
 
@@ -36,7 +36,7 @@ Al completar los pasos descritos en este artículo, verá que los datos del even
 
 Los temas de Event Grid son recursos de Azure y se deben colocar en un grupo de recursos de Azure. El grupo de recursos de Azure es una colección lógica en la que se implementan y administran los recursos de Azure.
 
-Para crear un grupo de recursos, use el comando [az group create](/cli/azure/group). 
+Para crear un grupo de recursos, use el comando [az group create](/cli/azure/group).
 
 En el ejemplo siguiente, se crea un grupo de recursos denominado `<resource_group_name>` en la ubicación *westcentralus*.  Reemplace `<resource_group_name>` por un nombre único para grupo de recursos.
 
@@ -117,7 +117,6 @@ az storage blob upload --file testfile.txt --container-name testcontainer --name
 
 Ha desencadenado el evento y Event Grid ha enviado el mensaje al punto de conexión que configuró al realizar la suscripción. Vaya a la aplicación web para ver el evento que acaba de enviar.
 
-
 ```json
 [{
   "topic": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myrg/providers/Microsoft.Storage/storageAccounts/myblobstorageaccount",
@@ -146,6 +145,7 @@ Ha desencadenado el evento y Event Grid ha enviado el mensaje al punto de conexi
 ```
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
+
 Si planea seguir trabajando con esta cuenta de almacenamiento y suscripción de eventos, no elimine los recursos creados en este artículo. Si no va a continuar, use el siguiente comando para eliminar los recursos creados en este artículo.
 
 Sustituya `<resource_group_name>` por el nombre del grupo de recursos que ha creado.

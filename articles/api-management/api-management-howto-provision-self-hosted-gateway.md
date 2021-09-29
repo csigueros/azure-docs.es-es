@@ -3,7 +3,7 @@ title: Aprovisionamiento de una puerta de enlace autohospedada en Azure API Mana
 description: Aprenda a aprovisionar una puerta de enlace autohospedada en Azure API Management.
 services: api-management
 documentationcenter: ''
-author: miaojiang
+author: dlepow
 manager: gwallace
 editor: ''
 ms.service: api-management
@@ -11,13 +11,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/31/2020
-ms.author: apimpm
-ms.openlocfilehash: 6d75ec1bcb9abd41a1d02c80afec8837f25d3234
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.author: danlep
+ms.openlocfilehash: 93e7feb2d1b91cb8d5fa58d52244c901e1eeaea2
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110370418"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128598756"
 ---
 # <a name="provision-a-self-hosted-gateway-in-azure-api-management"></a>Aprovisionamiento de una puerta de enlace autohospedada en Azure API Management
 

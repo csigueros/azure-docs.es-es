@@ -2,19 +2,19 @@
 title: 'Inicio rápido: Azure Blob Storage para JavaScript v10 en el explorador'
 description: Aprenda a cargar, enumerar y eliminar blobs con el SDK de JavaScript v10 en una página HTML.
 services: storage
-author: twooley
+author: normesta
 ms.custom: mvc, devx-track-js
 ms.service: storage
-ms.author: twooley
+ms.author: normesta
 ms.date: 07/24/2020
 ms.topic: quickstart
 ms.subservice: blobs
-ms.openlocfilehash: b3cca61fe272b61f2227e7546b37e4ea37cfd693
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 925a29de633b5cc39b5bacc3c59cca48f4c9c612
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106280146"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128673357"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -183,7 +183,7 @@ A continuación, pegue el siguiente código HTML en *index.html* tras la etiquet
 </script>
 ```
 
-Este código agrega una referencia al archivo de script y proporciona un lugar para su propio código de JavaScript. Para los fines de este inicio rápido, vamos a usar el archivo de script *azure-storage-blob.js* para que pueda abrirlo en VS Code, leer su contenido y establecer puntos de interrupción. En producción, debe usar el archivo *azure storage.blob.min.js* más compacto que también se proporcionan en el archivo ZIP.
+Este código agrega una referencia al archivo de script y proporciona un lugar para su propio código de JavaScript. Para los fines de este inicio rápido, vamos a usar el archivo de script `azure-storage-blob.js` para que pueda abrirlo en VS Code, leer su contenido y establecer puntos de interrupción. En producción, debe usar el archivo *azure storage.blob.min.js* más compacto que también se proporcionan en el archivo ZIP.
 
 Puede encontrar más información sobre cada función de almacenamiento de blobs en la [documentación de referencia](/javascript/api/%40azure/storage-blob/index). Tenga en cuenta que algunas de las funciones del SDK solo están disponibles en Node.js o solo están disponible en el explorador.
 

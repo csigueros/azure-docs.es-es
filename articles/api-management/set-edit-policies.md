@@ -3,7 +3,7 @@ title: Establecimiento o modificación de directivas de Azure API Management | M
 description: Aprenda a establecer o modificar directivas de Azure API Management. Estas directivas son documentos XML que describen una secuencia de instrucciones de entrada y salida.
 services: api-management
 documentationcenter: ''
-author: mikebudzynski
+author: dlepow
 manager: cflower
 editor: ''
 ms.service: api-management
@@ -11,13 +11,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/01/2018
-ms.author: apimpm
-ms.openlocfilehash: a737fada3e019029967bc752aaa0dedc354fa880
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: danlep
+ms.openlocfilehash: 780f7cc547a7f5bc79b0e602a5e5cc8f0338f8ad
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92078330"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128590069"
 ---
 # <a name="how-to-set-or-edit-azure-api-management-policies"></a>Establecimiento o modificación de directivas de Azure API Management
 

@@ -1,7 +1,7 @@
 ---
 title: Preparación de un disco duro virtual de Windows para cargar en Azure
 description: Aprenda a preparar un VHD o un VHDX de Windows para cargarlo en Azure
-author: glimoli
+author: genlin
 manager: dcscontentpm
 ms.service: virtual-machines
 ms.subservice: disks
@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.topic: troubleshooting
 ms.date: 09/02/2020
 ms.author: genli
-ms.openlocfilehash: 92b4b495944fb6180e669c495d61b4594f3e4daf
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 33da4539bafeb33f8644f354abdf20ee4f80c552
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122697200"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128648380"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Preparación de un VHD o un VHDX de Windows antes de cargarlo en Azure
 

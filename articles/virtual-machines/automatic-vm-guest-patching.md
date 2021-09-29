@@ -3,18 +3,18 @@ title: Aplicación de revisiones automática a invitados de las máquinas virtua
 description: Aprenda a aplicar revisiones automáticamente a máquinas virtuales en Azure.
 author: mayanknayar
 ms.service: virtual-machines
-ms.subservice: automatic-guest-patching
+ms.subservice: maintenance
 ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 07/29/2021
 ms.author: manayar
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0043935f46698f694aa76aec816c8bf72a9ee098
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: a120914051f7da0ccbfffb2a7fda9ab8404e7a76
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122698173"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129216486"
 ---
 # <a name="preview-automatic-vm-guest-patching-for-azure-vms"></a>Versión preliminar: Aplicación de revisiones automática a invitados de las máquinas virtuales para máquinas virtuales de Azure
 
@@ -318,7 +318,7 @@ También puede desencadenar una instalación de revisiones a petición para su m
 
 Puede usar la instalación de revisiones a petición para instalar todas las revisiones de una o varias clasificaciones de revisión. También puede elegir incluir o excluir paquetes específicos para Linux o determinados identificadores de KB para Windows. Al desencadenar una instalación de revisiones a petición, asegúrese de especificar al menos una clasificación de revisiones o al menos una revisión (paquete para Linux o identificador de KB para Windows) en la lista de inclusión.
 
-### <a name="rest-api"></a>API de REST
+### <a name="rest-api"></a>API DE REST
 Use la API [Install Patches](/rest/api/compute/virtual-machines/install-patches) para instalar revisiones en la máquina virtual.
 
 ```

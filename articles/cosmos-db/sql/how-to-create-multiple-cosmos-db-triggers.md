@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/17/2019
 ms.author: maquaran
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f3570256d74fa2da96b4b8335659b5274e492515
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 4d4f602d430a7e71db56f8d5babf78741fc4b88d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123114318"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128666654"
 ---
 # <a name="create-multiple-azure-functions-triggers-for-cosmos-db"></a>Cómo crear varios desencadenadores de Azure Functions para Cosmos DB
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -24,7 +24,7 @@ En este artículo se describe cómo puede configurar varios desencadenadores de 
 
 ## <a name="event-based-architecture-requirements"></a>Requisitos de la arquitectura basada en eventos
 
-Al compilar arquitecturas sin servidor con [Azure Functions](../../azure-functions/functions-overview.md), se [recomienda](../../azure-functions/functions-best-practices.md#avoid-long-running-functions) crear pequeños conjuntos de funciones que trabajen conjuntamente, en lugar de grandes funciones de larga duración.
+Al compilar arquitecturas sin servidor con [Azure Functions](../../azure-functions/functions-overview.md), se [recomienda](../../azure-functions/performance-reliability.md#avoid-long-running-functions) crear pequeños conjuntos de funciones que trabajen conjuntamente, en lugar de grandes funciones de larga duración.
 
 Al compilar flujos sin servidor basados en eventos mediante el [desencadenador de Azure Functions para Cosmos DB](./change-feed-functions.md), se producirá un escenario en el que querrá realizar varias acciones siempre que haya un nuevo evento en un determinado [contenedor de Azure Cosmos](../account-databases-containers-items.md#azure-cosmos-containers). Si las acciones que quiere desencadenar son independientes entre sí, la solución ideal consiste en **crear un desencadenador de Azure Functions para Cosmos DB por cada acción** que quiera realizar y que todas escuchen los cambios en el mismo contenedor de Azure Cosmos.
 
