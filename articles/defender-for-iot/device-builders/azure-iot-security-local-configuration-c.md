@@ -3,12 +3,12 @@ title: Configuraciones local del agente de seguridad (C)
 description: Obtenga información sobre Defender para las configuraciones locales del agente de C.
 ms.topic: conceptual
 ms.date: 10/08/2020
-ms.openlocfilehash: 7cd230b188c7c1d644ec03cff2d084ff7ea57139
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: 24445ce60b3a6d070805cf04a23d7834c24f01e4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113018329"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128680514"
 ---
 # <a name="understanding-the-localconfigurationjson-file---c-agent"></a>Información acerca del archivo LocalConfiguration.json: agente de C
 
@@ -32,7 +32,7 @@ Los cambios en el archivo de configuración tienen lugar cuando se reinicia el a
 | Identidad | "DPS", "SecurityModule", "Device" | Identidad de autenticación: DPS si la autenticación se realiza con DPS, SecurityModule si la autenticación se realiza mediante Defender-IoT-micro-agentcredentials, o Device si la autenticación se realiza con las credenciales del dispositivo. |
 | AuthenticationMethod | "SasToken", "SelfSignedCertificate" | El secreto de usuario para la autenticación: elija SasToken si el secreto utilizado es una clave simétrica, seleccione SelfSignedCertificate si el secreto es un certificado autofirmado.  |
 | FilePath | Ruta de acceso al archivo (cadena) | Ruta de acceso al archivo que contiene el secreto de autenticación |
-| HostName | string | Nombre del host de la instancia de Azure IoT Hub. Normalmente, <my-hub>.azure-devices.net |
+| HostName | string | Nombre del host de la instancia de Azure IoT Hub. usually \<my-hub\>.azure-devices.net |
 | deviceId | string | El identificador del dispositivo (como está registrado en Azure IoT Hub) |
 | DPS | JsonObject | Configuraciones relacionadas con DPS |
 | IDScope | string | Ámbito del identificador de DPS |
