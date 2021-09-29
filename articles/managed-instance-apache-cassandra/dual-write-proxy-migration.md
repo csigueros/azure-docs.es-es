@@ -6,12 +6,12 @@ ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: tutorial
 ms.date: 08/17/2021
-ms.openlocfilehash: 03862b42fb181adcf1a6c4edbed66ce61ee49e73
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: d6fa48fb35d836fc7f08c98e7b1807068c000d84
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123426137"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124797034"
 ---
 # <a name="live-migration-to-azure-managed-instance-for-apache-cassandra-by-using-a-dual-write-proxy"></a>Migración en vivo a Azure Managed Instance for Apache Cassandra mediante un proxy de doble escritura
 
@@ -29,7 +29,6 @@ En este tutorial se describe cómo migrar datos en vivo a Azure Managed Instance
 
 En la siguiente imagen, se ilustra este enfoque.
 
-
 :::image type="content" source="./media/migration/live-migration.gif" alt-text="Animación que muestra la migración de datos en vivo a Azure Managed Instance for Apache Cassandra." border="false":::
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -39,7 +38,6 @@ En la siguiente imagen, se ilustra este enfoque.
 * [Aprovisione una cuenta de Azure Databricks en la red virtual de la instancia de Cassandra administrada](deploy-cluster-databricks.md). Asegúrese de que la cuenta tenga acceso de red al clúster de Cassandra de origen. Crearemos un clúster de Spark en esta cuenta para la carga de datos históricos.
 
 * Asegúrese de haber migrado ya el espacio de claves o el esquema de tabla de la base de datos Cassandra de origen a la base de datos de la instancia de Cassandra administrada de destino.
-
 
 ## <a name="provision-a-spark-cluster"></a>Aprovisionamiento de un clúster de Spark
 
@@ -92,7 +90,7 @@ Al iniciar el proxy de esta manera, se da por hecho que se cumple lo siguiente:
 - Los puntos de conexión de origen y destino tienen el mismo nombre de usuario y la misma contraseña.
 - Los puntos de conexión de origen y destino implementan el protocolo SSL (Capa de sockets seguros).
 
-Si los puntos de conexión de origen y destino no pueden cumplir estos criterios, siga leyendo para conocer más opciones de configuración. 
+Si los puntos de conexión de origen y destino no pueden cumplir estos criterios, siga leyendo para conocer más opciones de configuración.
 
 ### <a name="configure-ssl"></a>Configuración de SSL
 
@@ -109,7 +107,6 @@ java -jar target/cassandra-proxy-1.0-SNAPSHOT-fat.jar localhost <target-server> 
 
 > [!NOTE]
 > Asegúrese de que la aplicación cliente usa el mismo almacén de claves y la misma contraseña que el proxy de doble escritura cuando cree conexiones SSL a la base de datos a través del proxy.
-
 
 ### <a name="configure-the-credentials-and-port"></a>Configuración de las credenciales y el puerto
 
@@ -165,7 +162,6 @@ java -jar target/cassandra-proxy-1.0-SNAPSHOT-fat.jar source-server destination-
 ```
 
 Una vez que se ejecute el proxy de doble escritura, deberá cambiar el puerto en el cliente de la aplicación y reiniciarlo; o bien cambie el puerto de Cassandra y reinicie el clúster si ha elegido ese método. A continuación, el proxy iniciará el reenvío de operaciones de escritura al punto de conexión de destino. Puede obtener información sobre [la supervisión y las métricas](https://github.com/Azure-Samples/cassandra-proxy#monitoring) disponibles en la herramienta de proxy. 
-
 
 ## <a name="run-the-historical-data-load"></a>Ejecución de la carga de datos históricos
 
@@ -233,7 +229,6 @@ DFfromSourceCassandra
 ## <a name="validate-the-source-and-target"></a>Validación del origen y el destino
 
 Una vez completada la carga de datos históricos, las bases de datos deben estar sincronizadas y listas para la transición. Sin embargo, se recomienda validar el origen y el destino para asegurarse de que los resultados de las solicitudes coincidan antes de la transición definitiva.
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -1,7 +1,6 @@
 ---
 title: 'Inicio rápido: Biblioteca cliente de Form Recognizer para Python'
 description: Use la biblioteca cliente de Form Recognizer para Python con el fin de crear una aplicación de procesamiento de formularios que extraiga pares clave-valor y datos de tabla de los documentos personalizados.
-services: cognitive-services
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -9,12 +8,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 05/12/2021
 ms.author: lajanuar
-ms.openlocfilehash: 8ed2fd9ff95abcfa5912c5e30662d882330e0ea1
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 050a587ba5fb91ce6c9483d31cccd90f1943e567
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122327887"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128652578"
 ---
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD033 -->
@@ -217,7 +216,7 @@ El código siguiente usa el cliente de entrenamiento con la función `begin_trai
 
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart.py?name=snippet_train)]
 
-### <a name="output"></a>Output
+### <a name="output"></a>Resultados
 
 Esta es la salida para un modelo entrenado con los datos de entrenamiento disponibles en el [SDK de Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms/training).
 
@@ -342,7 +341,7 @@ El siguiente bloque de código comprueba cuántos modelos se han guardado en la 
 
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart.py?name=snippet_manage_count)]
 
-### <a name="output"></a>Output
+### <a name="output"></a>Resultados
 
 ```console
 Our account has 5 custom models, and we can have at most 5000 custom models
@@ -373,7 +372,7 @@ El siguiente bloque de código usa el identificador de modelo guardado en la sec
 
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart.py?name=snippet_manage_getmodel)]
 
-### <a name="output"></a>Output
+### <a name="output"></a>Resultados
 
 Esta es la salida de ejemplo para el modelo personalizado creado en el ejemplo anterior.
 

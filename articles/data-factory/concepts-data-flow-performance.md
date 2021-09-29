@@ -8,13 +8,13 @@ ms.author: makromer
 ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
-ms.date: 08/24/2021
-ms.openlocfilehash: 877b2adb2dd61bdbba30ce4d5c84e26380be5b2b
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.date: 09/09/2021
+ms.openlocfilehash: 4c1ec8e8ca10764c630320c1d448b812da7a3cc4
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123472297"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124750732"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guía de optimización y rendimiento de la asignación de instancias de Data Flow
 
@@ -30,7 +30,7 @@ En el siguiente vídeo se muestran algunos intervalos de ejemplo que transforman
 
 Después de comprobar la lógica de transformación mediante el modo de depuración, puede ejecutar el flujo de datos de un extremo a otro como una actividad en una canalización. Los flujos de datos se convierten en operaciones de una canalización mediante la [actividad de ejecución de flujo de datos](control-flow-execute-data-flow-activity.md). La actividad de flujo de datos tiene una experiencia de supervisión única en comparación con otras actividades que muestra un plan de ejecución detallado y un perfil de rendimiento de la lógica de transformación. Para ver información detallada de la supervisión de un flujo de datos, haga clic en el icono de las gafas en la salida de la ejecución de actividad de una canalización. Para más información, consulte [Supervisión de los flujos de datos de asignación](concepts-data-flow-monitoring.md).
 
-![Supervisión de Data Flow](media/data-flow/monitoring-details.png "Supervisión de Data Flow 2")
+:::image type="content" source="media/data-flow/monitoring-details.png" alt-text="Supervisión de Data Flow":::
 
 Cuando se supervisa el rendimiento del flujo de datos, hay cuatro posibles cuellos de botella que se deben considerar:
 
@@ -39,7 +39,7 @@ Cuando se supervisa el rendimiento del flujo de datos, hay cuatro posibles cuell
 * Tiempo de transformación
 * Escritura en un receptor 
 
-![Supervisión de Data Flow](media/data-flow/monitoring-performance.png "Supervisión de Data Flow 3")
+:::image type="content" source="media/data-flow/monitoring-performance.png" alt-text="Supervisión de Data Flow":::
 
 El tiempo para el inicio de actividad del clúster es el tiempo que se tarda en poner en marcha un clúster de Apache Spark. Este valor se encuentra en la esquina superior derecha de la pantalla de supervisión. Los flujos de datos se ejecutan en un modelo Just-in-Time en el que cada trabajo usa un clúster aislado. Por lo general, el inicio de actividad tarda de tres a cinco minutos. En el caso de los trabajos secuenciales, este tiempo se puede reducir si se habilita un valor de período de vida. Para obtener más información, vea la sección **Período de vida** de [Rendimiento de Azure Integration Runtime](concepts-integration-runtime-performance.md#time-to-live).
 
@@ -55,7 +55,7 @@ Cuando se diseñan y se prueban flujos de datos desde la interfaz de usuario, el
 
 La pestaña **Optimize** (Optimizar) contiene valores para configurar el esquema de partición del clúster de Spark. Esta pestaña existe en cada transformación de flujo de datos y especifica si se desea volver a crear particiones de los datos **después** de que se haya completado la transformación. Ajustar las particiones permite controlar la distribución de los datos entre los nodos de proceso y las optimizaciones de la localidad de los datos, lo que puede tener efectos tanto positivos como negativos en el rendimiento general de los flujos de datos.
 
-![Captura de pantalla que muestra la pestaña Optimizar, que incluye la opción de partición, el tipo de partición y el número de particiones.](media/data-flow/optimize.png)
+:::image type="content" source="media/data-flow/optimize.png" alt-text="Captura de pantalla que muestra la pestaña Optimizar, que incluye la opción de partición, el tipo de partición y el número de particiones.":::
 
 De manera predeterminada, se selecciona *Use current partitioning* (Usar particiones actuales), que indica al servicio que mantenga las particiones de salida actuales de la transformación. Dado que una nueva partición de datos lleva su tiempo, en la mayoría de los escenarios se recomienda la opción *Use current partitioning* (Usar particiones actuales). Entre los escenarios en los que es posible que desee volver a crear particiones de los datos se incluyen los que surgen tras agregados y combinaciones que sesgan significativamente los datos o cuando se usa la creación de particiones de origen en una base de datos SQL.
 
@@ -93,7 +93,7 @@ Si conoce bien la cardinalidad de los datos, la creación de particiones clave p
 
 Si no es necesario que cada ejecución de canalización de las actividades de flujo de datos anote completamente todos los registros de telemetría detallados, tiene la opción de establecer el nivel de registro en "básico" o "ninguno". Al ejecutar los flujos de datos en modo "detallado" (valor predeterminado), está solicitando al servicio que registre la actividad por completo en cada nivel de partición individual durante la transformación de los datos. Esta puede ser una operación costosa; por tanto, habilitar solo el modo detallado al solucionar problemas puede mejorar el flujo de datos y el rendimiento de la canalización en general. El modo "básico" solo registrará las duraciones de las transformaciones, mientras que "ninguno" solo proporcionará un resumen de las duraciones.
 
-![Nivel de registro](media/data-flow/logging.png "Establecimiento del nivel de registro")
+:::image type="content" source="media/data-flow/logging.png" alt-text="Nivel de registro":::
 
 ## <a name="optimizing-sources"></a>Optimización de orígenes
 
@@ -111,7 +111,7 @@ Azure SQL Database tiene una opción única de creación de particiones denomina
 > [!TIP]
 > En la creación de particiones de origen, la E/S de SQL Server es el cuello de botella. Si se agregan demasiadas particiones, se puede saturar la base de datos de origen. Normalmente, cuando se usa esta opción el número ideal de particiones es de cuatro o cinco.
 
-![Creación de particiones de origen](media/data-flow/sourcepart3.png "Creación de particiones de origen")
+:::image type="content" source="media/data-flow/sourcepart3.png" alt-text="Creación de particiones de origen":::
 
 #### <a name="isolation-level"></a>Nivel de aislamiento
 
@@ -125,7 +125,7 @@ Puede leer de Azure SQL Database mediante una tabla o una consulta SQL. Si está
 
 Cuando se usa Azure Synapse Analytics, las opciones de origen incluyen un valor denominado **Enable staging** (Habilitar almacenamiento provisional). Este permite que el servicio lea desde Synapse mediante ```Staging```, lo que mejora considerablemente el rendimiento de lectura con el comando[COPY de Synapse](/sql/t-sql/statements/copy-into-transact-sql) para obtener la capacidad de carga masiva con mayor rendimiento. La habilitación de ```Staging``` requiere que especifique una ubicación de almacenamiento provisional de Azure Blob Storage o Azure Data Lake Storage Gen2 en la configuración de la actividad del flujo de datos.
 
-![Enable staging](media/data-flow/enable-staging.png "Enable staging (Permitir almacenamiento provisional)") (Habilitar almacenamiento provisional)
+:::image type="content" source="media/data-flow/enable-staging.png" alt-text="Enable staging"::: (Habilitar almacenamiento provisional)
 
 ### <a name="file-based-sources"></a>Orígenes basados en archivos
 
@@ -159,7 +159,7 @@ Una vez finalizada la escritura, vuelva a generar los índices con el siguiente 
 
 En los flujos de datos de asignación, ambos se pueden ejecutar de forma nativa mediante scripts anteriores y posteriores a SQL en una base de datos SQL de Azure o un receptor de Synapse.
 
-![Deshabilitación de índices](media/data-flow/disable-indexes-sql.png "Deshabilitación de índices")
+:::image type="content" source="media/data-flow/disable-indexes-sql.png" alt-text="Deshabilitación de índices":::
 
 > [!WARNING]
 > Cuando se deshabilitan los índices, el flujo de datos toma de hecho el control sobre una base de datos y es poco probable que las consultas se realicen correctamente en este caso. Como resultado, se desencadenan muchos trabajos ETL en medio de la noche para evitar este conflicto. Para obtener más información, vea las [restricciones que conlleva deshabilitar índices SQL](/sql/relational-databases/indexes/disable-indexes-and-constraints).
@@ -184,7 +184,7 @@ Si los datos se distribuyen uniformemente, **Use current partitioning** (Usar pa
 
 Al escribir archivos, tiene una selección de opciones de nomenclatura que afectan de diferente forma al rendimiento.
 
-![Opciones del receptor](media/data-flow/file-sink-settings.png "opciones de receptor")
+:::image type="content" source="media/data-flow/file-sink-settings.png" alt-text="Opciones del receptor":::
 
 La opción **Default** (Predeterminada) ofrece la escritura más rápida. Cada partición equivaldrá a un archivo con el nombre predeterminado de Spark. Esto resulta útil si solo está leyendo de la carpeta de datos.
 
@@ -216,7 +216,7 @@ Si el tamaño de los datos difundidos es demasiado grande para el nodo de Spark,
 
 Al trabajar con orígenes de datos que pueden tardar más tiempo en consultarse, como las consultas de bases de datos grandes, se recomienda desactivar la transmisión para las combinaciones. Los orígenes con tiempos de consulta largos pueden hacer que se agoten los tiempos de espera de Spark cuando el clúster intenta transmitir a nodos de proceso. También es una buena opción desactivar la transmisión cuando tiene una transmisión en el flujo de datos que agrega valores para usarlos en una transformación de búsqueda más adelante. Este patrón puede confundir al optimizador de Spark y hacer que se agoten los tiempos de espera.
 
-![Optimización de la transformación de combinación](media/data-flow/joinoptimize.png "Optimización de la combinación")
+:::image type="content" source="media/data-flow/joinoptimize.png" alt-text="Optimización de la transformación de combinación":::
 
 #### <a name="cross-joins"></a>Combinaciones cruzadas
 
@@ -234,7 +234,7 @@ La [Transformación Ventana en el flujo de datos de asignación](data-flow-windo
 
 Ciertas transformaciones, como las combinaciones y los agregados, reordenan las particiones de datos y en ocasiones pueden provocar datos asimétricos. Los datos asimétricos son aquellos que no se distribuyen uniformemente entre las particiones. Los datos muy asimétricos pueden dar lugar a transformaciones y escrituras de receptor de nivel inferior más lentas. Puede comprobar la asimetría de los datos en cualquier momento de una ejecución de flujo de datos haciendo clic en la transformación en la pantalla de supervisión.
 
-![Asimetría y curtosis](media/data-flow/skewness-kurtosis.png "Asimetría y curtosis")
+:::image type="content" source="media/data-flow/skewness-kurtosis.png" alt-text="Asimetría y curtosis":::
 
 La pantalla de supervisión mostrará cómo se distribuyen los datos en cada partición, junto con dos métricas, asimetría y curtosis. El valor **Skewness** (Asimetría) es una medida del grado de asimetría que tienen los datos; puede tener un valor positivo, cero, negativo o indefinido. Una asimetría negativa significa que la cola izquierda es más larga que la derecha. El valor **Kurtosis** (Curtosis) es la medida que indica si los datos son de cola pesada o de cola ligera. No son deseables valores altos de curtosis. Los intervalos ideales de asimetría se encuentran entre -3 y 3 y los de curtosis son menores que 10. Una manera fácil de interpretar estos números es examinar el gráfico de particiones y ver si una barra es significativamente mayor que el resto.
 

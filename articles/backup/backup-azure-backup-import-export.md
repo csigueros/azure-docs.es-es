@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo puede usar Azure Backup para envia
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 05/17/2018
-ms.openlocfilehash: 3ea470c2e732b7e0ef46e9e5fa78c744aa30c955
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 36646c148fb42503b8bdc78cbcd11a1f497127b0
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98704370"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128644075"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Flujo de trabajo de copia de seguridad sin conexión en Azure Backup
 
@@ -116,7 +116,7 @@ En esta sección se describe el flujo de trabajo de la copia de seguridad sin co
 
 La utilidad *AzureOfflineBackupDiskPrep* prepara las unidades de disco SATA que se envían al centro de datos de Azure más próximo. Esta utilidad está disponible en el directorio de instalación del agente de Azure Backup (en la ruta de acceso siguiente):
 
-```*\Microsoft Azure Recovery Services Agent\Utils\\*```
+`*\Microsoft Azure Recovery Services Agent\Utils\\*`
 
 1. Vaya al directorio y copie el directorio *AzureOfflineBackupDiskPrep* en otro equipo donde estén conectadas las unidades de disco SATA. En el equipo con las unidades de disco SATA conectadas, asegúrese de lo siguiente:
 
@@ -131,7 +131,7 @@ La utilidad *AzureOfflineBackupDiskPrep* prepara las unidades de disco SATA que 
 
 1. Abra un símbolo del sistema con privilegios elevados en el equipo de copia con el directorio de la utilidad *AzureOfflineBackupDiskPrep* como directorio actual. Ejecute el siguiente comando:
 
-    ```.\AzureOfflineBackupDiskPrep.exe s:<Staging Location Path>```
+    `.\AzureOfflineBackupDiskPrep.exe s:<Staging Location Path>`
 
     | Parámetro | Descripción |
     | --- | --- |

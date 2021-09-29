@@ -8,12 +8,12 @@ ms.date: 04/02/2021
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 1f07907d3a4f421fa9f7a03c48d5f74496a1d45a
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: 8fc9934c5d524550929c3400af9f257c4cbcccc8
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123303083"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128665917"
 ---
 # <a name="find-errors-and-resume-jobs-by-using-log-and-plan-files-in-azcopy"></a>Búsqueda de errores y reanudación de trabajos mediante archivos de registro y de plan en AzCopy
 
@@ -24,13 +24,13 @@ AzCopy es una utilidad de línea de comandos que puede usar para copiar blobs o 
 
 ## <a name="log-and-plan-files"></a>Archivos de registro y de plan
 
-AzCopy crea archivos de *registro* y de *plan* para cada trabajo. Puede usar los registros para investigar y solucionar los posibles problemas. 
+AzCopy crea archivos de *registro* y de *plan* para cada trabajo. Puede usar los registros para investigar y solucionar los posibles problemas.
 
 Los registros contendrán el estado de error (`UPLOADFAILED`, `COPYFAILED` y `DOWNLOADFAILED`), la ruta de acceso completa y el motivo del error.
 
-De forma predeterminada, los archivos de registro y de plan se encuentran en el directorio `%USERPROFILE%\.azcopy` de Windows o en el directorio `$HOME$\.azcopy` en Mac y Linux, pero puede cambiar la ubicación. 
+De forma predeterminada, los archivos de registro y de plan se encuentran en el directorio `%USERPROFILE%\.azcopy` de Windows o en el directorio `$HOME$\.azcopy` en Mac y Linux, pero puede cambiar la ubicación.
 
-El error pertinente no es necesariamente el primer error que aparece en el archivo. En el caso de errores como errores de red, tiempos de espera y errores de servidor ocupado, AzCopy volverá a intentarlo hasta 20 veces y, normalmente, el proceso de reintento se realizará correctamente.  El primer error que se ve podría ser algo inofensivo que se reintentara correctamente.  Por lo tanto, en lugar de examinar el primer error del archivo, busque los errores cercanos `UPLOADFAILED`, `COPYFAILED` o `DOWNLOADFAILED`. 
+El error pertinente no es necesariamente el primer error que aparece en el archivo. En el caso de errores como errores de red, tiempos de espera y errores de servidor ocupado, AzCopy volverá a intentarlo hasta 20 veces y, normalmente, el proceso de reintento se realizará correctamente.  El primer error que se ve podría ser algo inofensivo que se reintentara correctamente.  Por lo tanto, en lugar de examinar el primer error del archivo, busque los errores cercanos `UPLOADFAILED`, `COPYFAILED` o `DOWNLOADFAILED`.
 
 > [!IMPORTANT]
 > Al enviar una solicitud a Soporte técnico de Microsoft (o al solucionar el problema con la participación de terceros), comparta la versión censurada del comando que quiere ejecutar. Esto garantiza que la SAS no se comparta de forma accidental con nadie. Puede encontrar la versión censurada al principio del archivo de registro.
@@ -108,7 +108,7 @@ Use `azcopy env` para comprobar el valor actual de esta variable. Si el valor es
 
 ## <a name="change-the-default-log-level"></a>Cambiar el nivel de registro predeterminado
 
-De forma predeterminada, el nivel de registro de AzCopy se establece en `INFO`. Si quiere reducir el nivel de detalle del registro para ahorrar espacio en disco, sobrescriba este valor mediante la opción ``--log-level``. 
+De forma predeterminada, el nivel de registro de AzCopy se establece en `INFO`. Si quiere reducir el nivel de detalle del registro para ahorrar espacio en disco, sobrescriba este valor mediante la opción ``--log-level``.
 
 Los niveles de registro disponibles son: `NONE`, `DEBUG`, `INFO`, `WARNING`, `ERROR`, `PANIC` y `FATAL`.
 

@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/10/2021
+ms.date: 09/16/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: a8fc74a298450ad2581a8a147eaff9f996dca8dc
-ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
+ms.openlocfilehash: bff08cb924e33090b80f44dd908e2b9964290d5c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "112198807"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128572410"
 ---
 # <a name="set-up-a-force-password-reset-flow-in-azure-active-directory-b2c"></a>Configuración de un flujo de restablecimiento de contraseña forzado en Azure Active Directory B2C
 
@@ -44,7 +44,8 @@ El flujo de restablecimiento de contraseña es aplicable a las cuentas locales d
 Para habilitar la configuración de **Restablecimiento de la contraseña forzado** en un flujo de usuario de registro o de inicio de sesión:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-1. Seleccione el icono **Directorio y suscripción** en la barra de herramientas del portal y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
 1. En Azure Portal, busque y seleccione **Azure AD B2C**.
 1. Seleccione **Flujos de usuario**.
 1. Seleccione el flujo de usuario de registro e inicio de sesión o solo de inicio de sesión (de tipo **Recomendado**) que desea personalizar.
@@ -55,7 +56,8 @@ Para habilitar la configuración de **Restablecimiento de la contraseña forzado
 ## <a name="test-the-user-flow"></a>Prueba del flujo de usuario
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador de usuarios o como administrador de contraseñas. Para más información acerca de los roles disponibles, consulte [Asignación de roles de administrador en Azure Active Directory](../active-directory/roles/permissions-reference.md#all-roles).
-1. Seleccione el icono **Directorio y suscripción** en la barra de herramientas del portal y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
 1. En Azure Portal, busque y seleccione **Azure AD B2C**.
 1. Seleccione **Usuarios**. Busque y seleccione el usuario que va a usar para probar el restablecimiento de la contraseña y, después, seleccione **Restablecer contraseña**.
 1. En Azure Portal, busque y seleccione **Azure AD B2C**.

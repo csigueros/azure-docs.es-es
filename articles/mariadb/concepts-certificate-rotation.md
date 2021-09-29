@@ -6,19 +6,19 @@ ms.author: sumuth
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 01/18/2021
-ms.openlocfilehash: 105bc7f14f9ddcc4a64564edc1eebcd17b898bc6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8a8a7fec5b5c5f62fb44f6c0ccf6859b1141295b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101699001"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128646518"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-mariadb"></a>Descripción de los cambios en la CA raíz para Azure Database for MariaDB
 
 Azure Database for MariaDB completó correctamente el cambio de certificado raíz el **15 de febrero de 2021 (15/02/2021)** como parte de los procedimientos recomendados de seguridad y mantenimiento estándar. En este artículo se proporcionan más detalles sobre los cambios, los recursos afectados y los pasos necesarios para asegurarse de que la aplicación mantenga la conectividad con el servidor de base de datos.
 
 > [!NOTE]
-> Este artículo contiene referencias al término _esclavo_, un término que Microsoft ya no usa. Cuando se elimine el término del software, se eliminará también de este artículo.
+> Este artículo contiene referencias al término *esclavo*, un término que Microsoft ya no usa. Cuando se elimine el término del software, se eliminará también de este artículo.
 >
 
 ## <a name="why-root-certificate-update-is-required"></a>¿Por qué se requiere la actualización del certificado raíz?
@@ -58,8 +58,8 @@ No se requiere ningún cambio en el lado cliente. Si ha seguido la recomendació
 
     A continuación, reemplace el archivo de almacén de claves original por el nuevo generado:
 
-    - System.setProperty("javax.net.ssl.trustStore","path_to_truststore_file");
-    - System.setProperty("javax.net.ssl.trustStorePassword","password");
+    - `System.setProperty("javax.net.ssl.trustStore","path_to_truststore_file");`
+    - `System.setProperty("javax.net.ssl.trustStorePassword","password");`
 
   - Para los usuarios de .NET (Conector de MariaDB/NET, MariaDBConnector), asegúrese de **BaltimoreCyberTrustRoot** y **DigiCertGlobalRootG2** existen en el almacén de certificados de Windows, en las entidades de certificación raíz de confianza. Si no existe alguno de los certificados, importe el certificado que falta.
 

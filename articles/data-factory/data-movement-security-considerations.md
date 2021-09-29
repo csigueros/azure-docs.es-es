@@ -8,12 +8,12 @@ ms.subservice: security
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/03/2021
-ms.openlocfilehash: ab31c1629140a1e0f3f5a6dcbe409b6803805e34
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 2b39017bb8d1a7e8527f8302190921463247f721
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122638893"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124779699"
 ---
 # <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Consideraciones de seguridad para el movimiento de datos en Azure Data Factory
 
@@ -113,7 +113,7 @@ Salesforce admite Shield Platform Encryption, que permite el cifrado de todos lo
 
 Los escenarios híbridos necesitan que el entorno de ejecución de integración autohospedado se instale en una red local o en una virtual (Azure), o bien dentro de una nube privada virtual (Amazon). El entorno de ejecución de integración autohospedado debe poder tener acceso a los almacenes de datos locales. Para más información acerca del entorno de ejecución de integración autohospedado, consulte [Creación y configuración de una instancia de Integration Runtime autohospedado](./create-self-hosted-integration-runtime.md). 
 
-![canales del entorno de ejecución de integración autohospedado](media/data-movement-security-considerations/data-management-gateway-channels.png)
+:::image type="content" source="media/data-movement-security-considerations/data-management-gateway-channels.png" alt-text="canales del entorno de ejecución de integración autohospedado":::
 
 El canal del comandos permite la comunicación entre los servicios de movimiento de datos de Data Factory y el entorno de ejecución de integración autohospedado. La comunicación contiene información relacionada con la actividad. El canal de datos se usa para transferir datos entre los almacenes de datos locales y los almacenes de datos en la nube.    
 
@@ -157,11 +157,11 @@ Las siguientes imágenes muestran el uso del entorno de ejecución de integraci�
 
 #### <a name="express-route"></a>ExpressRoute
 
-![Usar ExpressRoute con puerta de enlace](media/data-movement-security-considerations/express-route-for-gateway.png) 
+:::image type="content" source="media/data-movement-security-considerations/express-route-for-gateway.png" alt-text="Usar ExpressRoute con puerta de enlace"::: 
 
 #### <a name="ipsec-vpn"></a>VPN de IPSec
 
-![Conexión VPN de IPSec con la puerta de enlace](media/data-movement-security-considerations/ipsec-vpn-for-gateway.png)
+:::image type="content" source="media/data-movement-security-considerations/ipsec-vpn-for-gateway.png" alt-text="Conexión VPN de IPSec con la puerta de enlace":::
 
 ### <a name="firewall-configurations-and-allow-list-setting-up-for-ip-addresses"></a> Configuraciones de firewall y configuración de direcciones IP permitidas
 
@@ -188,7 +188,7 @@ En la tabla siguiente, se proporcionan los requisitos del puerto de entrada para
 | ------------- | ---------------------------------------- |
 | 8060 (TCP)    | Requerido por el cmdlet de cifrado de PowerShell como se describe en el [Cifrado de credenciales de almacenes de datos locales en Azure Data Factory](encrypt-credentials-self-hosted-integration-runtime.md) o en la aplicación de administrador de credenciales para establecer de forma segura credenciales para almacenes de datos locales en el entorno de ejecución de integración. |
 
-![Requisitos de puerto de la puerta de enlace](media/data-movement-security-considerations/gateway-port-requirements.png) 
+:::image type="content" source="media/data-movement-security-considerations/gateway-port-requirements.png" alt-text="Requisitos de puerto de la puerta de enlace"::: 
 
 #### <a name="ip-configurations-and-allow-list-setting-up-in-data-stores"></a>Configuraciones de IP y configuración de lista de permitidos en almacenes de datos
 

@@ -8,13 +8,13 @@ metadata:
   ms.service: static-web-apps
   author: craigshoemaker
   ms.author: cshoe
-  ms.date: 12/08/2020
-  ms.openlocfilehash: 49453cb08e29d8fedf9f982150ace8b9986dfaba
-  ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+  ms.date: 05/07/2021
+  ms.openlocfilehash: 6c2119b81b9eea8c4da0caa68f998e70fab4fae1
+  ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 04/28/2021
-  ms.locfileid: "108178941"
+  ms.lasthandoff: 09/28/2021
+  ms.locfileid: "129154952"
 landingContent:
 - title: Acerca de Azure Static Web Apps
   linkLists:
@@ -64,6 +64,8 @@ landingContent:
       url: deploy-nuxtjs.md
     - text: Implementación con Azure DevOps
       url: publish-devops.md
+    - text: Implementación con una plantilla de Resource Manager
+      url: publish-azure-resource-manager.md
   - linkListType: learn
     links:
     - text: Publicación de una aplicación web estática con Gatsby
@@ -74,8 +76,8 @@ landingContent:
   linkLists:
   - linkListType: concept
     links:
-    - text: Configuración de aplicación
-      url: configuration.md
+    - text: Configuración
+      url: configuration-overview.md
     - text: API públicas
       url: apis.md
     - text: Entornos de ensayo

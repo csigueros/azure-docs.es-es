@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 4fbc79723dd484148ddf2f8836848aa9bc333341
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d776c245600691db24d80ecb705d8bf14d8fd1ae
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92522598"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124795381"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mindflash"></a>Tutorial: Integración de Azure Active Directory con Mindflash
 
@@ -177,17 +177,17 @@ En esta sección, concederá acceso a Britta Simon a Mindflash para que use el i
 
 7. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
-### <a name="create-mindflash-test-user"></a>Creación de un usuario de prueba de Mindflash
+### <a name="create-mindflash-test-user&quot;></a>Creación de un usuario de prueba de Mindflash
 
 Para permitir que los usuarios de Azure AD inicien sesión en Mindflash, deben aprovisionarse en Mindflash. En el caso de Mindflash, el aprovisionamiento es una tarea manual.
 
-### <a name="to-provision-a-user-accounts-perform-the-following-steps"></a>Para aprovisionar cuentas de usuario, realice los siguientes pasos:
+### <a name=&quot;to-provision-a-user-accounts-perform-the-following-steps&quot;></a>Para aprovisionar cuentas de usuario, realice los siguientes pasos:
 
 1. Inicie sesión en el sitio de la compañía **Mindflash** como administrador.
 
 1. Vaya a **Administrar usuarios**.
    
-    ![Administración de usuarios](./media/mindflash-tutorial/ic787140.png "Administrar usuarios")
+    ![Administración de usuarios](./media/mindflash-tutorial/ic787140.png &quot;Administrar usuarios")
 
 1. Haga clic en **Agregar usuarios** y, a continuación, en **Nuevo**.
 
@@ -211,7 +211,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Mindflash, deben a
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de Mindflash en el panel de acceso, debería iniciar sesión automáticamente en la versión de Mindflash para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
+Al hacer clic en el icono de Mindflash en el panel de acceso, debería iniciar sesión automáticamente en la versión de Mindflash para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

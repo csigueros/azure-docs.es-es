@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: corywink
-ms.openlocfilehash: cffd8e0347f501e82ca6e62d5c120b232869cbc0
-ms.sourcegitcommit: 6f21017b63520da0c9d67ca90896b8a84217d3d3
+ms.openlocfilehash: 187db7eefb019584835bd7f67fdb8d6abd91f45c
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114653328"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129083911"
 ---
 # <a name="take-a-tour-of-the-azure-iot-central-ui"></a>Un paseo por la interfaz de usuario de Azure IoT Central
 
@@ -84,7 +84,7 @@ El menú superior aparece en todas las páginas:
 
 * Para buscar dispositivos, escriba un valor en **Buscar**.
 * Para cambiar el idioma o el tema de la interfaz de usuario, elija el icono **Configuración**. Más información sobre [administración de las preferencias de la aplicación](howto-manage-preferences.md)
-* Para obtener ayuda y soporte técnico, elija el menú desplegable **Ayuda** para obtener una lista de recursos. Puede [obtener información sobre la aplicación](howto-faq.yml#how-do-i-get-information-about-my-application-) en el vínculo **About your app** (Acerca de su aplicación). En una aplicación del plan de precios gratuito, los recursos de soporte técnico incluyen acceso al [chat en directo](howto-show-hide-chat.md).
+* Para obtener ayuda y soporte técnico, elija el menú desplegable **Ayuda** para obtener una lista de recursos. Puede [obtener información sobre la aplicación](howto-faq.yml#how-do-i-get-information-about-my-application-) en el vínculo **About your app** (Acerca de su aplicación).
 * Para cerrar la sesión de la aplicación, elija el icono **Cuenta**.
 
 Puede elegir entre un tema claro o un tema oscuro para la interfaz de usuario:

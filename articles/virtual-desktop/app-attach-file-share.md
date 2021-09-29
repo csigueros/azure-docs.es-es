@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 04/13/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: e0ba3363b6004afb8e42f420fae681b2827106fb
-ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
+ms.openlocfilehash: b568b11b7e0e630dcceef53e4c0f513dc0a7732c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114707092"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128547564"
 ---
 # <a name="set-up-a-file-share-for-msix-app-attach"></a>Configuración de un recurso compartido de archivos para asociar aplicaciones en formato MSIX (versión preliminar)
 
@@ -44,12 +44,12 @@ Estas son algunas de las otras cosas que se recomiendan para optimizar el rendim
 - La solución de almacenamiento que se use para asociar aplicaciones en formato MSIX debe estar en la misma ubicación del centro de datos que los hosts de sesión.
 - Para evitar cuellos de botella de rendimiento, excluya los siguientes archivos VHD, VHDX y CIM de los exámenes antivirus:
    
-    - <MSIXAppAttachFileShare\>\*.VHD
-    - <MSIXAppAttachFileShare\>\*.VHDX
-    - \\\\storageaccount.file.core.windows.net\\share\*\*.VHD
-    - \\\\storageaccount.file.core.windows.net\\share\*\*.VHDX
-    - <MSIXAppAttachFileShare>.CIM
-    - \\\\storageaccount.file.core.windows.net\\share\*\*.CIM
+    - `<MSIXAppAttachFileShare\>\*.VHD`
+    - `<MSIXAppAttachFileShare\>\*.VHDX`
+    - `\\storageaccount.file.core.windows.net\share*.VHD`
+    - `\\storageaccount.file.core.windows.net\share*.VHDX`
+    - `<MSIXAppAttachFileShare>.CIM`
+    - `\\storageaccount.file.core.windows.net\share**.CIM`
 
 - Separe el tejido de almacenamiento para asociar aplicaciones en formato MSIX desde contenedores de perfiles de FSLogix.
 - Todas las cuentas de usuario y cuentas de sistema de máquinas virtuales deben tener permisos de solo lectura para acceder al recurso compartido de archivos.

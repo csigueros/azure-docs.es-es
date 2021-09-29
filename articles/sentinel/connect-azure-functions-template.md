@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/07/2021
 ms.author: yelevin
-ms.openlocfilehash: f776c39a5a1dadde2e6ee01fe211e0769e5e06eb
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: b6e38d6ce5944d09a089404ae1fe2ca81a951c18
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123260968"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124781312"
 ---
 # <a name="use-azure-functions-to-connect-azure-sentinel-to-your-data-source"></a>Uso de Azure Functions para conectar Azure Sentinel a un origen de datos
 
-Utilice [Azure Functions](/azure/azure-functions/functions-overview), junto con varios lenguajes de programación, como [PowerShell](../azure-functions/functions-reference-powershell.md) o Python, para crear un conector sin servidor para los puntos de conexión de la API REST de los orígenes de datos compatibles. Las aplicaciones de funciones de Azure Functions le permiten conectar Azure Sentinel a la API REST de su origen de datos para recopilar los registros.
+Utilice [Azure Functions](../azure-functions/functions-overview.md), junto con varios lenguajes de programación, como [PowerShell](../azure-functions/functions-reference-powershell.md) o Python, para crear un conector sin servidor para los puntos de conexión de la API REST de los orígenes de datos compatibles. Las aplicaciones de funciones de Azure Functions le permiten conectar Azure Sentinel a la API REST de su origen de datos para recopilar los registros.
 
 En este artículo, se explica cómo configurar Azure Sentinel para usar aplicaciones de funciones de Azure Functions. Es posible que deba configurar también el sistema de origen. Encontrará vínculos a información específica del proveedor y del producto en la página de cada conector de datos del portal, o bien en la sección de su servicio de la página [Búsqueda del conector de datos de Azure Sentinel](data-connectors-reference.md).
 
@@ -213,6 +213,6 @@ Los registros pueden tardar hasta 20 minutos en empezar a aparecer en Log Analyt
 
 En este documento, ha aprendido a conectar Azure Sentinel a su origen de datos mediante conectores basados en Azure Functions. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
 
-- Aprenda a [obtener visibilidad de los datos y de posibles amenazas](quickstart-get-visibility.md).
-- Empiece a [detectar amenazas con Azure Sentinel](tutorial-detect-threats-built-in.md).
-- [Use libros](tutorial-monitor-your-data.md) para supervisar los datos.
+- Aprenda a [obtener visibilidad de los datos y de posibles amenazas](./get-visibility.md).
+- Empiece a [detectar amenazas con Azure Sentinel](./detect-threats-built-in.md).
+- [Use libros](./monitor-your-data.md) para supervisar los datos.

@@ -8,15 +8,15 @@ manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/04/2021
+ms.date: 09/20/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 586c8373e32f210d6f2f53c773fbe58ef5a2181b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 26842d40034527e5b7b785cfc94e4f7a37e36e04
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121780499"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128587221"
 ---
 # <a name="tutorial-configure-nok-nok-with-azure-active-directory-b2c-to-enable-passwordless-fido2-authentication"></a>Tutorial: Configuración de Nok Nok con Azure Active Directory B2C para habilitar la autenticación FIDO2 sin contraseña
 
@@ -70,25 +70,21 @@ Rellene el [formulario en la nube de Nok Nok](https://noknok.com/contact/) crear
 Para agregar un nuevo proveedor de identidades, siga estos pasos:
 
 1. Inicie sesión en **[Azure Portal](https://portal.azure.com/#home)** como administrador global del inquilino de Azure AD B2C.
-
-2. Asegúrese de usar el directorio que contiene el inquilino de Azure AD B2C. Para ello, seleccione el filtro **Directorio y suscripción** en el menú superior y luego el directorio que contiene el inquilino.
-
-3. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, busque y seleccione **Azure AD B2C**.
-
-4. Vaya a **Panel** > **Azure Active Directory B2C** >  **Proveedores de identidad**.
-
-5. Seleccione **Proveedores de identidades**.
-
-6. Seleccione **Agregar**.
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
+1. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, busque y seleccione **Azure AD B2C**.
+1. Vaya a **Panel** > **Azure Active Directory B2C** >  **Proveedores de identidad**.
+1. Seleccione **Proveedores de identidades**.
+1. Seleccione **Agregar**.
 
 ### <a name="configure-an-identity-provider"></a>Configuración de un proveedor de identidades 
 
 Para configurar un proveedor de identidades, siga estos pasos:
 
 1. Seleccione **Tipo de proveedor de identidades** > **OpenID Connect (versión preliminar)** .
-2. Rellene el formulario para configurar el proveedor de identidades:
+1. Rellene el formulario para configurar el proveedor de identidades:
 
-   |Propiedad | Valor |
+   |Propiedad | Value |
    |:-----| :-----------|
    | Nombre   | Proveedor de autenticación Nok Nok |
    | URL de metadatos | Inserte el URI de la aplicación de autenticación Nok Nok hospedada, seguido de la ruta de acceso específica, por ejemplo, "https://demo.noknok.com/mytenant/oidc/.well-known/openid-configuration". |
@@ -98,11 +94,11 @@ Para configurar un proveedor de identidades, siga estos pasos:
    | Tipo de respuesta | código |
    | Modo de respuesta | form_post|
 
-3. Seleccione **Aceptar**.
+1. Seleccione **Aceptar**.
 
-4. Seleccione **Asignar las notificaciones de este proveedor de identidades**.
+1. Seleccione **Asignar las notificaciones de este proveedor de identidades**.
 
-5. Rellene el formulario para asignar el proveedor de identidades:
+1. Rellene el formulario para asignar el proveedor de identidades:
 
    |Propiedad | Value |
    |:-----| :-----------|
@@ -110,7 +106,7 @@ Para configurar un proveedor de identidades, siga estos pasos:
    | Nombre para mostrar | Desde la suscripción. |
    | Modo de respuesta | Desde la suscripción. |
 
-6. Seleccione **Guardar** para completar la configuración del nuevo proveedor de identidades OIDC.
+1. Seleccione **Guardar** para completar la configuración del nuevo proveedor de identidades OIDC.
 
 ### <a name="create-a-user-flow-policy"></a>Creación de una directiva de flujo de usuario
 

@@ -8,22 +8,22 @@ ms.topic: conceptual
 ms.date: 02/14/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 4ed2458b09d200542ce8789d90250027a07a970d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 7670430d112482addea26c9fc1bc97c2434bc2e2
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101735478"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128555348"
 ---
 # <a name="using-azure-data-lake-storage-gen2-for-big-data-requirements"></a>Uso de Azure Data Lake Storage Gen2 para requisitos de macrodatos
 
 Hay cuatro fases principales en el procesamiento de macrodatos:
 
 > [!div class="checklist"]
-> * Introducción de grandes cantidades de datos en un almacén de datos, en tiempo real o por lotes
-> * Procesamiento de los datos
-> * Descarga de los datos
-> * Visualización de los datos
+> - Introducción de grandes cantidades de datos en un almacén de datos, en tiempo real o por lotes
+> - Procesamiento de los datos
+> - Descarga de los datos
+> - Visualización de los datos
 
 En este artículo se resaltan las opciones y las herramientas de cada fase de procesamiento.
 
@@ -37,7 +37,7 @@ En esta sección se resaltan los distintos orígenes de datos y las distintas fo
 
 ### <a name="ad-hoc-data"></a>Datos ad-hoc
 
-Representan conjuntos de datos más pequeños que se utilizan para la creación de un prototipo de una aplicación de macrodatos. Hay diferentes maneras de introducir datos ad hoc, según el origen de los datos. 
+Representan conjuntos de datos más pequeños que se utilizan para la creación de un prototipo de una aplicación de macrodatos. Hay diferentes maneras de introducir datos ad hoc, según el origen de los datos.
 
 Esta es una lista de herramientas que puede usar para ingerir datos ad hoc.
 
@@ -104,13 +104,13 @@ Es posible que haya grandes cantidades de datos almacenados en clústeres de Had
 
 ### <a name="really-large-datasets"></a>Conjuntos de datos realmente grandes
 
-Para cargar conjuntos de datos cuyo tamaño oscila en varios terabytes, el uso de los métodos descritos anteriormente puede a veces resultar lento y costoso. En esos casos, puede usar Azure ExpressRoute.  
+Para cargar conjuntos de datos cuyo tamaño oscila en varios terabytes, el uso de los métodos descritos anteriormente puede a veces resultar lento y costoso. En esos casos, puede usar Azure ExpressRoute.
 
 Azure ExpressRoute permite crear conexiones privadas entre los centros de datos de Azure y la infraestructura de un entorno local. Esto ofrece una opción confiable para transferir grandes cantidades de datos. Para más información, consulte [Información general sobre ExpressRoute](../../expressroute/expressroute-introduction.md).
 
 ## <a name="process-the-data"></a>Procesamiento de los datos
 
-Cuando los datos están disponibles en Data Lake Storage Gen2, puede ejecutar un análisis en esos datos mediante las aplicaciones de macrodatos admitidas. 
+Cuando los datos están disponibles en Data Lake Storage Gen2, puede ejecutar un análisis en esos datos mediante las aplicaciones de macrodatos admitidas.
 
 ![Análisis de datos en Data Lake Storage Gen2](./media/data-lake-storage-data-scenarios/analyze-data.png "Análisis de datos en Data Lake Storage Gen2")
 
@@ -129,9 +129,9 @@ Utilice el conector de Power BI para crear representaciones visuales de los dat
 
 También puede descargar o mover datos de Azure Data Lake Storage Gen2 en escenarios como los siguientes:
 
-* Mover datos a otros repositorios para interactuar con las canalizaciones de procesamiento de datos existentes. Por ejemplo, puede mover los datos de Data Lake Storage Gen2 a Azure SQL Database o a una instancia de SQL Server.
+- Mover datos a otros repositorios para interactuar con las canalizaciones de procesamiento de datos existentes. Por ejemplo, puede mover los datos de Data Lake Storage Gen2 a Azure SQL Database o a una instancia de SQL Server.
 
-* Descargar datos en el equipo local para procesarlos en entornos IDE durante la creación de prototipos de aplicaciones.
+- Descargar datos en el equipo local para procesarlos en entornos IDE durante la creación de prototipos de aplicaciones.
 
 ![Salida datos desde Data Lake Storage Gen2](./media/data-lake-storage-data-scenarios/egress-data.png "Salida datos desde Data Lake Storage Gen2")
 

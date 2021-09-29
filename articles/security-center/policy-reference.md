@@ -1,18 +1,18 @@
 ---
 title: Definiciones de directivas integradas en Azure Security Center
 description: Aquí se enumeran las definiciones de directivas integradas de Azure Policy en Azure Security Center. Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar los recursos de Azure.
-ms.date: 09/03/2021
+ms.date: 09/17/2021
 ms.topic: reference
 author: memildin
 ms.author: memildin
 ms.service: security-center
 ms.custom: subject-policy-reference
-ms.openlocfilehash: f8ac4d3f9f8078f9f4cd8b52df0959d44e65479e
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: ec726f43e28b92eef56d09412d9d869767fc2f8f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123475570"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128637053"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-security-center"></a>Definiciones integradas de Azure Policy en Azure Security Center
 

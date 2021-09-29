@@ -8,12 +8,12 @@ ms.service: virtual-machine-scale-sets
 ms.date: 08/05/2021
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli, vmss-flex, devx-track-azurepowershell
-ms.openlocfilehash: 7983ae912d29f2a27d35b261d1654205fe503651
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: be8c322bafb5dfaf3fadecfadfd5f9b1ec9a95f1
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123305077"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124804090"
 ---
 # <a name="preview-orchestration-modes-for-virtual-machine-scale-sets-in-azure"></a>Versión preliminar: modos de orquestación para los conjuntos de escalado de máquinas virtuales de Azure
 
@@ -164,7 +164,6 @@ Registre y comience a usar el [modo de orquestación flexible](..\virtual-machin
     | Característica  | Compatible con la orquestación flexible (versión preliminar)  | Compatible con la orquestación uniforme (disponibilidad general)  | Compatible con conjuntos de disponibilidad (disponibilidad general)  |
     |-|-|-|-|
     | Recuento máximo de instancias (con garantía de disponibilidad de FD)  | 1000  | 3000  | 200  |
-
 
 ## <a name="troubleshoot-scale-sets-with-flexible-orchestration"></a>Solución de problemas de conjuntos de escalado con orquestación flexible
 Busque la solución adecuada para su escenario de solución de problemas.

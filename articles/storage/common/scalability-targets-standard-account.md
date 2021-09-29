@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/22/2021
+ms.date: 09/07/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 1364a9373fbd776d380366fa62749c14b678c976
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: de362e478156403e39dd097f5496426e6ccea64a
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114446186"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124804459"
 ---
 # <a name="scalability-and-performance-targets-for-standard-storage-accounts"></a>Objetivos de escalabilidad y rendimiento para cuentas de almacenamiento estándar
 
@@ -24,7 +24,7 @@ ms.locfileid: "114446186"
 
 [!INCLUDE [azure-storage-account-limits-standard](../../../includes/azure-storage-account-limits-standard.md)]
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Consulte también
 
 - [Objetivos de escalabilidad para el proveedor de recursos de Azure Storage](../common/scalability-targets-resource-provider.md)
 - [Límites y cuotas de suscripción de Azure](../../azure-resource-manager/management/azure-subscription-service-limits.md)

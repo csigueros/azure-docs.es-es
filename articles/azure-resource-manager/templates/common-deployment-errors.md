@@ -5,12 +5,12 @@ tags: top-support-issue
 ms.topic: troubleshooting
 ms.date: 01/20/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1b26af22423f7af64d3dbcffd7d7ed20c1069a60
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: be79c143cf38602dbe8f406d8aa3e2988de2c9d9
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108314974"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124785237"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Solución de errores comunes de implementación de Azure con Azure Resource Manager
 
@@ -91,7 +91,7 @@ Hay dos tipos de errores que puede recibir:
 
 Los errores de validación que provienen de escenarios que se pueden determinar antes de la implementación incluyen los errores de sintaxis en la plantilla o tratar de implementar los recursos que superarían las cuotas de suscripción. Errores de implementación que provengan de condiciones que se producen durante el proceso de implementación. Incluyen intentar acceder a un recurso que se está implementando en paralelo.
 
-Los dos tipos de errores devuelven un código de error que utiliza para solucionar problemas de implementación. Ambos aparecen en el [registro de actividad](../management/view-activity-logs.md). Sin embargo, los errores de validación no aparecen en el historial de implementación porque la implementación nunca se inicia.
+Los dos tipos de errores devuelven un código de error que utiliza para solucionar problemas de implementación. Ambos aparecen en el [registro de actividad](../../azure-monitor/essentials/activity-log.md). Sin embargo, los errores de validación no aparecen en el historial de implementación porque la implementación nunca se inicia.
 
 ### <a name="validation-errors"></a>Errores de validación
 
@@ -251,5 +251,4 @@ Supongamos que se están produciendo errores de implementación que cree que est
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para realizar un tutorial de solución de problemas, consulte [Tutorial: Troubleshoot Resource Manager template deployments](template-tutorial-troubleshoot.md) (Tutorial: Solución de problemas con las implementaciones de plantillas de Resource Manager)
-* Para más información sobre las acciones de auditoría, consulte [Operaciones de auditoría con Resource Manager](../management/view-activity-logs.md).
 * Si desea conocer más detalles sobre las acciones que permiten determinar los errores durante la implementación, consulte [Visualización de operaciones de implementación con el Portal de Azure](deployment-history.md).

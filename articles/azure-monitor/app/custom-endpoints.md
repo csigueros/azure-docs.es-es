@@ -4,12 +4,12 @@ description: Modifique los puntos de conexión de SDK predeterminados de Azure M
 ms.topic: conceptual
 ms.date: 07/26/2019
 ms.custom: references_regions, devx-track-js
-ms.openlocfilehash: 13470017281ecfa616715777e78e446e71a08b0e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0d74c3721c8803fbd3dc94c05baefaf018f45219
+ms.sourcegitcommit: 3ef5a4eed1c98ce76739cfcd114d492ff284305b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102489810"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128708688"
 ---
 # <a name="application-insights-overriding-default-endpoints"></a>Reemplazo de puntos de conexión predeterminados de Application Insights
 
@@ -35,10 +35,14 @@ Para enviar datos de Application Insights en determinadas regiones, deberá reem
       <QuickPulseServiceEndpoint>Custom_QuickPulse_Endpoint_Address</QuickPulseServiceEndpoint>
     </Add>
   </TelemetryModules>
-    ...
-  <TelemetryChannel>
-     <EndpointAddress>TelemetryChannel_Endpoint_Address</EndpointAddress>
-  </TelemetryChannel>
+   ...
+  <TelemetrySinks>
+    <Add Name = "default">
+      <TelemetryChannel>
+         <EndpointAddress>TelemetryChannel_Endpoint_Address</EndpointAddress>
+      </TelemetryChannel>
+    </Add>
+  </TelemetrySinks>
   ...
   <ApplicationIdProvider Type="Microsoft.ApplicationInsights.Extensibility.Implementation.ApplicationId.ApplicationInsightsApplicationIdProvider, Microsoft.ApplicationInsights">
     <ProfileQueryEndpoint>Profile_Query_Endpoint_address</ProfileQueryEndpoint>

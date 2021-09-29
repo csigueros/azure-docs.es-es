@@ -6,12 +6,12 @@ ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: v-erkel
-ms.openlocfilehash: 1385e81b5e5a4047a23b47f39d206ea94ec4d79c
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 77663500c6a3e4c432506a5859892506f8995de1
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111414571"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128552611"
 ---
 # <a name="tutorial-mount-the-cluster"></a>Tutorial: Montaje del clúster
 
@@ -92,7 +92,7 @@ Además de las rutas de acceso, incluya las [opciones del comando de montaje](#u
 
 Para garantizar un montaje de cliente sin problemas, use estos valores y argumentos en el comando de montaje:
 
-``mount -o hard,nointr,proto=tcp,mountproto=tcp,retry=30 ${VSERVER_IP_ADDRESS}:/${NAMESPACE_PATH} ${LOCAL_FILESYSTEM_MOUNT_POINT}``
+`mount -o hard,nointr,proto=tcp,mountproto=tcp,retry=30 ${VSERVER_IP_ADDRESS}:/${NAMESPACE_PATH} ${LOCAL_FILESYSTEM_MOUNT_POINT}`
 
 | Configuración requerida | Descripción |
 --- | ---
@@ -101,9 +101,9 @@ Para garantizar un montaje de cliente sin problemas, use estos valores y argumen
 ``mountproto=netid`` | Esta opción es compatible con el control adecuado de errores de red para las operaciones de montaje.
 ``retry=n`` | Configure ``retry=30`` para evitar errores de montaje transitorios. (Se recomienda usar un valor diferente en los montajes de primer plano).
 
-| Configuración preferida  | Descripción |
---- | ---
-``nointr``            | Si los clientes usan kernel de sistemas operativos más antiguos (anteriores a abril de 2008) que admitan esta opción, úselos. La opción "intr" es el valor predeterminado.
+| Configuración preferida | Descripción |
+| --- | --- |
+| `nointr` | Si los clientes usan kernel de sistemas operativos más antiguos (anteriores a abril de 2008) que admitan esta opción, úselos. La opción "intr" es el valor predeterminado. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

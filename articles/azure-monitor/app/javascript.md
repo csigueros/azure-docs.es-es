@@ -4,12 +4,12 @@ description: Obtenga recuentos de sesiones y vistas de página, además de datos
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 2d2cf6f53b295d5ac138f86deb765892fd34d907
-ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
+ms.openlocfilehash: 4ce6481a35b8a214a2203a165161183d384b4ea0
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "112234580"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128662179"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights para páginas web
 
@@ -279,7 +279,7 @@ cfg: { // Application Insights Configuration
 
 ``` 
 
-Si alguno de los servidores de terceros con los que se comunica el cliente no puede aceptar los encabezados `Request-Id` y `Request-Context`, y no es posible actualizar su configuración, deberá colocarlos en una lista de exclusión a través de la propiedad de configuración `correlationHeaderExcludeDomains`. Esta propiedad admite caracteres comodín.
+Si alguno de los servidores de terceros con los que se comunica el cliente no puede aceptar los encabezados `Request-Id` y `Request-Context`, y no es posible actualizar su configuración, deberá colocarlos en una lista de exclusión a través de la propiedad de configuración `correlationHeaderExcludedDomains`. Esta propiedad admite caracteres comodín.
 
 El lado servidor debe ser capaz de aceptar conexiones que cuenten con los encabezados que se detallan. En función de la configuración de `Access-Control-Allow-Headers` en el lado servidor, a menudo es necesario extender la lista del lado servidor mediante la adición manual de `Request-Id` y `Request-Context`.
 

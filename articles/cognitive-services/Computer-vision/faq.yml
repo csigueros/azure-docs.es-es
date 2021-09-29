@@ -12,12 +12,12 @@ metadata:
   ms.date: 04/17/2019
   ms.author: kefre
   ms.custom: seodec18
-  ms.openlocfilehash: 2509338fac06a182864777e2ff5825f1092f758c
-  ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+  ms.openlocfilehash: b344ae378bc299a737e212205b2d85f6106424a6
+  ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 08/26/2021
-  ms.locfileid: "122968835"
+  ms.lasthandoff: 09/13/2021
+  ms.locfileid: "124824835"
 title: Preguntas frecuentes sobre Computer Vision API
 summary: >
   > [!TIP]
@@ -48,7 +48,7 @@ sections:
   - question: >
       ¿Puedo entrenar a Computer Vision API para usar etiquetas personalizadas?  Por ejemplo, me gustaría introducir imágenes de razas de gatos para "entrenar" a AI y luego recibir el valor de raza en una solicitud de AI.
     answer: >
-      Esta función no está disponible actualmente. Puede usar [Custom Vision](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/overview) para entrenar un modelo para detectar características visuales definidas por el usuario.
+      Esta función no está disponible actualmente. Puede usar [Custom Vision](../custom-vision-service/overview.md) para entrenar un modelo para detectar características visuales definidas por el usuario.
   - question: >
       ¿Puedo implementar la funcionalidad OCR (Read) en el entorno local?
     answer: >

@@ -8,12 +8,12 @@ ms.date: 04/01/2021
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: de7f62dd4d4205e819278e6dc90d905e825580f2
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 4eaee714d079836e0919621b2d2e5661d07dfe80
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106220511"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128664853"
 ---
 # <a name="azure-data-lake-storage-gen2-hierarchical-namespace"></a>Espacio de nombres jerárquico de Azure Data Lake Storage Gen2
 
@@ -35,9 +35,9 @@ Uno de los motivos por los que históricamente los almacenamientos de objetos no
 
 Una vez que haya habilitado un espacio de nombres jerárquico en su cuenta, no podrá revertirlo a un espacio de nombres plano. Por lo tanto, tenga en cuenta si tiene sentido habilitar un espacio de nombres jerárquico en función de la naturaleza de las cargas de trabajo del almacén de objetos.
 
-Puede que algunas cargas de trabajo no obtengan ninguna ventaja al habilitar un espacio de nombres jerárquico. Algunos ejemplos incluyen las copias de seguridad, el almacenamiento de imágenes y otras aplicaciones donde la organización de objetos y los propios objetos se almacenan por separado (por ejemplo, en una base de datos independiente). 
+Puede que algunas cargas de trabajo no obtengan ninguna ventaja al habilitar un espacio de nombres jerárquico. Algunos ejemplos incluyen las copias de seguridad, el almacenamiento de imágenes y otras aplicaciones donde la organización de objetos y los propios objetos se almacenan por separado (por ejemplo, en una base de datos independiente).
 
-Además, aunque la compatibilidad con las características de almacenamiento de blobs y el ecosistema de servicios de Azure sigue creciendo, todavía hay algunas características y servicios de Azure que aún no se admiten en cuentas que tienen un espacio de nombres jerárquico. Consulte [Problemas conocidos](data-lake-storage-known-issues.md). 
+Además, aunque la compatibilidad con las características de almacenamiento de blobs y el ecosistema de servicios de Azure sigue creciendo, todavía hay algunas características y servicios de Azure que aún no se admiten en cuentas que tienen un espacio de nombres jerárquico. Consulte [Problemas conocidos](data-lake-storage-known-issues.md).
 
 En general, se recomienda activar un espacio de nombres jerárquico para las cargas de trabajo de almacenamiento diseñadas para sistemas de archivos que manipulan directorios. Esto incluye todas las cargas de trabajo que son principalmente para el procesamiento de análisis. Los conjuntos de datos que requieren un alto grado de organización también se beneficiarán de la habilitación de un espacio de nombres jerárquico.
 

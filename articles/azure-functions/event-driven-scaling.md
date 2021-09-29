@@ -4,12 +4,12 @@ description: Explica los comportamientos de escalado de las aplicaciones de func
 ms.date: 10/29/2020
 ms.topic: conceptual
 ms.service: azure-functions
-ms.openlocfilehash: ff7194b5dfda09253526aa79b52be475c131a411
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: c67177570906e0122df6116f1a0a159d64f3486b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121752273"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128571318"
 ---
 # <a name="event-driven-scaling-in-azure-functions"></a>Escalado basado en eventos en Azure Functions
 
@@ -55,7 +55,7 @@ $resource | Set-AzResource -Force
 
 ## <a name="best-practices-and-patterns-for-scalable-apps"></a>Procedimientos recomendados y patrones para aplicaciones escalables
 
-Hay muchos aspectos de una aplicación de funciones que afectan a cómo se escala, como la configuración del host, la superficie del entorno de tiempo de ejecución y la eficacia de los recursos.  Para obtener más información, consulte la [sección de escalabilidad del artículo sobre consideraciones de rendimiento](functions-best-practices.md#scalability-best-practices). También debe tener en cuenta cómo se comportan las conexiones a medida que la aplicación de función se escala. Para más información, consulte [How to manage connections in Azure Functions](manage-connections.md) (Administración de conexiones en Azure Functions).
+Hay muchos aspectos de una aplicación de funciones que afectan a cómo se escala, como la configuración del host, la superficie del entorno de tiempo de ejecución y la eficacia de los recursos.  Para obtener más información, consulte la [sección de escalabilidad del artículo sobre consideraciones de rendimiento](performance-reliability.md#scalability-best-practices). También debe tener en cuenta cómo se comportan las conexiones a medida que la aplicación de función se escala. Para más información, consulte [How to manage connections in Azure Functions](manage-connections.md) (Administración de conexiones en Azure Functions).
 
 Para obtener más información sobre el escalado en Python y Node.js, consulte la [Guía de Azure Functions para desarrolladores de Python: escalado y simultaneidad](functions-reference-python.md#scaling-and-performance) y la [Guía para desarrolladores de Node.js para Azure Functions: escalado y simultaneidad](functions-reference-node.md#scaling-and-concurrency).
 

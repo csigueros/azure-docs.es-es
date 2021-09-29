@@ -4,16 +4,16 @@ description: En este artículo se describe cómo limpiar los registros de implem
 ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
-ms.date: 07/28/2021
+ms.date: 08/28/2021
 author: swinarko
 ms.author: sawinark
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6df8c978957bfcbeef87d36d14647ad1caeeb699
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 7e235bd04b0693a0fabc9f4432aff01c85b5c67e
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121726868"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124824705"
 ---
 # <a name="how-to-clean-up-ssisdb-logs-automatically"></a>Procedimiento de limpieza automática de registros de SSISDB
 
@@ -34,7 +34,7 @@ Para administrar los registros de ejecución de paquetes SSIS, puede configurar 
 - **Quitar periódicamente versiones anteriores**: habilita la limpieza de las versiones de proyecto almacenadas, de forma predeterminada establecida en *True*.
 - **Número máximo de versiones por Project**: especifica el número máximo de versiones de proyecto almacenadas; de forma predeterminada, se establece en *10* y las versiones anteriores se eliminan cuando se invoca el procedimiento almacenado de SSISDB pertinente.
 
-![Propiedades de limpieza de registros de SSISDB](media/how-to-clean-up-ssisdb-logs-with-elastic-jobs/clean-up-logs-ssms-ssisdb-properties.png)
+:::image type="content" source="media/how-to-clean-up-ssisdb-logs-with-elastic-jobs/clean-up-logs-ssms-ssisdb-properties.png" alt-text="Propiedades de limpieza de registros de SSISDB":::
 
 Una vez configuradas las propiedades de limpieza de registros de SSISDB, puede invocar el procedimiento almacenado de SSISDB pertinente, `[internal].[cleanup_server_retention_window_exclusive]`, para limpiar los registros de ejecución de paquetes SSIS.
 
@@ -46,16 +46,16 @@ Estos procedimientos almacenados de SSISDB limpian diferentes tablas de SSISDB:
 
 | Procedimientos almacenados de SSISDB | Tablas de SSISDB para limpiar |
 |--------------------------|---------------------------|
-| `[internal].[cleanup_server_retention_window_exclusive]` | `[internal].[operations]`<br/><br/>`[internal].[operation_messages_scaleout]`<br/><br/>`[internal].[event_messages_scaleout]`<br/><br/>`[internal].[event_message_context_scaleout]` |
-| `[internal].[cleanup_completed_jobs_exclusive]` | `[internal].[jobs]`<br/><br/>`[internal].[tasks]`<br/><br/>`[internal].[job_worker_agents]` |
+| `[internal].[cleanup_server_retention_window_exclusive]` | `[internal].[event_message_context_scaleout]`<br/>`[internal].[event_messages_scaleout]`<br/>`[internal].[executable_statistics]`<br/>`[internal].[execution_component_phases]`<br/>`[internal].[execution_data_statistics]`<br/>`[internal].[execution_data_taps]`<br/>`[internal].[execution_parameter_values]`<br/>`[internal].[execution_parameter_values_noncatalog]`<br/>`[internal].[execution_property_override_values]`<br/>`[internal].[execution_property_override_values_noncatalog]`<br/>`[internal].[executions]`<br/>`[internal].[executions_noncatalog]`<br/>`[internal].[extended_operation_info]`<br/>`[internal].[operation_messages]`<br/>`[internal].[operation_messages_scaleout]`<br/>`[internal].[operation_permissions]`<br/>`[internal].[operations]`<br/>`[internal].[validations]` |
+| `[internal].[cleanup_completed_jobs_exclusive]` | `[internal].[job_worker_agents]`<br/>`[internal].[jobs]`<br/>`[internal].[tasks]` |
 | `[internal].[cleanup_expired_worker]` | `[internal].[worker_agents]` |
- 
+
 Estos procedimientos almacenados de SSISDB también se pueden invocar automáticamente según la programación a través de ADF, el agente de Azure SQL Managed Instance o los trabajos de Base de datos elástica.
 
 ## <a name="clean-up-ssisdb-logs-automatically-via-adf"></a>Limpieza automática de registros de SSISDB a través de ADF
 Independientemente de si usa el servidor de Azure SQL Database o Instancia administrada para hospedar SSISDB, siempre puede usar ADF para limpiar los registros de SSISDB automáticamente según la programación. Para ello, puede preparar una actividad de ejecución de paquete SSIS en la canalización de ADF con un paquete insertado que contenga una única tarea de ejecución de SQL que invoque los procedimientos almacenados de SSISDB pertinentes. Vea el ejemplo 4) en nuestro blog: [Run Any SQL Anywhere in 3 Easy Steps with SSIS in Azure Data Factory](https://techcommunity.microsoft.com/t5/sql-server-integration-services/run-any-sql-anywhere-in-3-easy-steps-with-ssis-in-azure-data/ba-p/2457244) (Ejecutar cualquier instancia de SQL en cualquier lugar en 3 sencillos pasos con SSIS en Azure Data Factory).
 
-![Limpieza de registros de SSISDB a través de ADF](media/how-to-clean-up-ssisdb-logs-with-elastic-jobs/run-sql-ssis-activity-ssis-parameters-ssisdb-clean-up.png)
+:::image type="content" source="media/how-to-clean-up-ssisdb-logs-with-elastic-jobs/run-sql-ssis-activity-ssis-parameters-ssisdb-clean-up.png" alt-text="Limpieza de registros de SSISDB a través de ADF":::
 
 Para el parámetro **SQLStatementSource**, puede escribir `EXEC internal.cleanup_server_retention_window_exclusive` para limpiar los registros de ejecución de paquetes SSIS. 
 
@@ -68,7 +68,7 @@ Una vez preparada la canalización de ADF, puede adjuntar un desencadenador de p
 ## <a name="clean-up-ssisdb-logs-automatically-via-azure-sql-managed-instance-agent"></a>Limpieza automática de los registros de SSISDB a través del agente de Azure SQL Managed Instance
 Si usa Azure SQL Managed Instance para hospedar SSISDB, también puede usar su orquestador o programador de trabajos integrado, el agente de Azure SQL Managed Instance, para limpiar los registros de SSISDB automáticamente según la programación. Si SSISDB se creó recientemente en Azure SQL Managed Instance, también se creó un trabajo de T-SQL denominado **Trabajo de mantenimiento del servidor SSIS** en el Agente de Azure SQL Managed Instance para limpiar específicamente los registros de ejecución de paquetes SSIS. De forma predeterminada, está deshabilitado y configurado con una programación para ejecutarse diariamente.  Si desea habilitarlo o volver a configurar su programación, puede hacerlo conectándose a Azure SQL Managed Instance mediante SSMS. Una vez establecida la conexión, en la ventana **Explorador de objetos** de SSMS, puede expandir el nodo **Agente SQL Server**, expandir el subnodo **Trabajos** y hacer doble clic en el **Trabajo de mantenimiento del servidor SSIS** para habilitarlo o volver a configurarlo.
 
-![Limpieza de registros de SSISDB a través del Agente de Azure SQL Managed Instance](media/how-to-clean-up-ssisdb-logs-with-elastic-jobs/clean-up-logs-ssms-maintenance-job.png)
+:::image type="content" source="media/how-to-clean-up-ssisdb-logs-with-elastic-jobs/clean-up-logs-ssms-maintenance-job.png" alt-text="Limpieza de registros de SSISDB a través del Agente de Azure SQL Managed Instance":::
 
 Si aún no se ha creado el **Trabajo de mantenimiento del servidor SSIS** en el agente de Azure SQL Managed Instance, puede agregarlo manualmente ejecutando el siguiente script de T-SQL en Azure SQL Managed Instance.
 
@@ -375,7 +375,7 @@ Los siguientes scripts de T-SQL crean un nuevo trabajo elástico que invoca el p
 
 Puede supervisar el trabajo de limpieza de registros de SSISDB en Azure Portal. Puede ver el estado, la hora de inicio y la hora de finalización de cada ejecución.
 
-![Supervisión del trabajo de limpieza de registros de SSISDB en Azure Portal](media/how-to-clean-up-ssisdb-logs-with-elastic-jobs/monitor-cleanup-job-portal.png)
+:::image type="content" source="media/how-to-clean-up-ssisdb-logs-with-elastic-jobs/monitor-cleanup-job-portal.png" alt-text="Supervisión del trabajo de limpieza de registros de SSISDB en Azure Portal":::
 
 ### <a name="monitor-ssisdb-log-clean-up-job-using-t-sql"></a>Supervisión del trabajo de limpieza de registros de SSISDB mediante T-SQL
 

@@ -3,14 +3,14 @@ title: Azure App Service como origen de Event Grid
 description: En este artículo se describe cómo utilizar Azure App Service como origen de eventos de Event Grid. Proporciona el esquema y los vínculos a los artículos de procedimientos y tutorial.
 author: jasonfreeberg
 ms.topic: conceptual
-ms.date: 03/06/2021
+ms.date: 09/15/2021
 ms.author: jafreebe
-ms.openlocfilehash: 404fac634a628da49dee72b10b52785820fe1bf6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 92667242b52ee58383f68e5b032eb5580cad2826
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102443784"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128647449"
 ---
 # <a name="azure-app-service-as-an-event-grid-source"></a>Azure App Service como origen de Event Grid
 

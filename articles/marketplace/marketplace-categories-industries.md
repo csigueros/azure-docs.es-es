@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
 ms.date: 08/20/2021
-ms.openlocfilehash: a2c716479d3b8fd279da855a1df9f280e47c6c5a
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
+ms.openlocfilehash: 8c48f5ec6804996cb65428f2e66199cb30127849
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122635226"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124824121"
 ---
 # <a name="marketplace-categories-and-industries"></a>Categorías y sectores de Marketplace
 
@@ -103,6 +103,5 @@ Seleccione los productos aplicables con los que funciona la aplicación para que
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para crear una oferta, inicie sesión en el [Centro de partners](https://go.microsoft.com/fwlink/?linkid=2165290) para crear y configurar la oferta. Si todavía no se ha inscrito en el Centro de partners, [cree una cuenta](/azure/marketplace/create-account).
-- Para obtener instrucciones paso a paso sobre la publicación de una oferta, consulte la [guía de publicación por tipo de oferta](/azure/marketplace/publisher-guide-by-offer-type) de marketplace comercial.
-
+- Para crear una oferta, inicie sesión en el [Centro de partners](https://go.microsoft.com/fwlink/?linkid=2165290) para crear y configurar la oferta. Si todavía no se ha inscrito en el Centro de partners, [cree una cuenta](./create-account.md).
+- Para obtener instrucciones paso a paso sobre la publicación de una oferta, consulte la [guía de publicación por tipo de oferta](./publisher-guide-by-offer-type.md) de marketplace comercial.

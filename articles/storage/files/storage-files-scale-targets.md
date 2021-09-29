@@ -4,15 +4,15 @@ description: Obtenga información sobre los objetivos de escalabilidad y rendimi
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/28/2021
+ms.date: 09/16/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 871cb72c163472dbe3409738199e710300c5057d
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.openlocfilehash: 83e33933e8afb8b376750368a64c60cb56406a75
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122867332"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128651548"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Objetivos de escalabilidad y rendimiento de Azure Files
 [Azure Files](storage-files-introduction.md) ofrece recursos compartidos de archivos en la nube totalmente administrados a los que se puede acceder mediante los protocolos SMB y del sistema de archivos NFS. En este artículo se explican los objetivos de escalabilidad y rendimiento de Azure Files y Azure File Sync.
@@ -100,7 +100,7 @@ La tabla siguiente indica los límites de las pruebas de Microsoft y también in
 | Número máximo de objetos del sistema de archivos (directorios y archivos) en un directorio **(no recursivo)** | 5 millones de objetos | Sí |
 | Tamaño máximo del descriptor de seguridad de (archivos y directorios) del objeto | 64 KiB | Sí |
 | Tamaño de archivo | 100 GiB | No |
-| Tamaño mínimo de un archivo que se va a organizar en niveles | V9 y más recientes: basado en el tamaño del clúster del sistema de archivos (tamaño del clúster del sistema de archivos doble). Por ejemplo, si el tamaño del clúster del sistema de archivos es 4 KiB, el tamaño mínimo del archivo será de 8 KiB.<br> V8 y anteriores: 64 KiB  | Sí |
+| Tamaño mínimo de un archivo que se va a organizar en niveles | basado en el tamaño del clúster del sistema de archivos (tamaño del clúster del sistema de archivos doble). Por ejemplo, si el tamaño del clúster del sistema de archivos es 4 KiB, el tamaño mínimo del archivo será de 8 KiB. | Sí |
 
 > [!Note]  
 > Un punto de conexión de Azure File Sync puede escalar verticalmente hasta el tamaño de un recurso compartido de archivos de Azure. Si se alcanza el límite de tamaño de recurso compartido de archivos de Azure, la sincronización no podrá funcionar.

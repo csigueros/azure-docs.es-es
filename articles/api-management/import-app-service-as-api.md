@@ -3,17 +3,17 @@ title: Importación de una aplicación web de Azure a Azure API Management | Mic
 description: En este artículo se muestra cómo usar Azure API Management para importar una API web hospedada en Azure App Service.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 ms.service: api-management
 ms.topic: article
 ms.date: 04/27/2021
-ms.author: apimpm
-ms.openlocfilehash: de51a32f737e71501723847ec473387ac419f8a6
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.author: danlep
+ms.openlocfilehash: 8d98a6c115b7f3d06b80a938c090bfa1b9c9794e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108230791"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128585097"
 ---
 # <a name="import-an-azure-web-app-as-an-api"></a>Importación de una aplicación web de Azure como API
 

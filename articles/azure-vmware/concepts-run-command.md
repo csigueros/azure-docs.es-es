@@ -2,13 +2,13 @@
 title: 'Conceptos: Ejecución de comandos en Azure VMware Solution (versión preliminar)'
 description: Obtenga información sobre cómo usar comandos de ejecución en Azure VMware Solution.
 ms.topic: conceptual
-ms.date: 08/31/2021
-ms.openlocfilehash: 1e2889254c8711c92efdc53ab181e26d3ac06b43
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.date: 09/17/2021
+ms.openlocfilehash: a4121f8479b22eb1c0666a1e7d7a23ece4fb3d20
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123541646"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128668856"
 ---
 # <a name="run-command-in-azure-vmware-solution-preview"></a>Ejecución de comandos en Azure VMware Solution (versión preliminar)
 
@@ -16,11 +16,11 @@ En Azure VMware Solution, vCenter tiene un usuario local integrado llamado *clou
 
 Azure VMware Solution admite las siguientes operaciones:
 
-- [Instalación y desinstalación de la solución de recuperación ante desastres de JetStream](deploy-disaster-recovery-using-jetstream.md)
-
 - [Configuración de un origen de identidad externo](configure-identity-source-vcenter.md)
 
 - [Visualización y establecimiento de directivas de almacenamiento](configure-storage-policy.md) 
+
+- [Implementación de la recuperación ante desastres usando JetStream](deploy-disaster-recovery-using-jetstream.md)
 
 
 >[!NOTE]

@@ -8,12 +8,12 @@ ms.date: 02/20/2018
 ms.author: rogarana
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 4b8c52b03cb6dec6096565e9eac26b7b2c4a30e4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1674fe3aee6ea336986a9570232d070f47bbb478
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89073274"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128620257"
 ---
 # <a name="create-a-virtual-machine-and-storage-account-for-a-scalable-application"></a>Crear una máquina virtual y una cuenta de almacenamiento para una aplicación escalable
 
@@ -22,9 +22,9 @@ Este tutorial es la primera parte de una serie. En este tutorial se muestra cóm
 En la primera parte de la serie, se aprende a:
 
 > [!div class="checklist"]
-> * Crear una cuenta de almacenamiento
-> * Creación de una máquina virtual
-> * Configurar una extensión de script personalizada
+> - Crear una cuenta de almacenamiento
+> - Creación de una máquina virtual
+> - Configurar una extensión de script personalizada
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -43,7 +43,7 @@ New-AzResourceGroup -Name myResourceGroup -Location EastUS
 ```
 
 ## <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento
- 
+
 En el ejemplo se cargan 50 archivos de gran tamaño en un contenedor de blobs de una cuenta de Azure Storage. Una cuenta de almacenamiento proporciona un espacio de nombres único para almacenar y tener acceso a los objetos de datos de almacenamiento de Azure. Cree una cuenta de almacenamiento en el grupo de recursos que ha creado con el comando [New-AzStorageAccount](/powershell/module/az.Storage/New-azStorageAccount).
 
 En el siguiente comando, sustituya su propio nombre único de manera global por la cuenta de Blob Storage donde vea el marcador de posición `<blob_storage_account>`.
@@ -103,12 +103,12 @@ Write-host "Your public IP address is $($pip.IpAddress)"
 Para este tutorial, existen requisitos previos que deben instalarse en la máquina virtual. La extensión de script personalizada se utiliza para ejecutar un script de PowerShell que realiza las tareas siguientes:
 
 > [!div class="checklist"]
-> * Instalar .NET Core 2.0.
-> * Instalar chocolatey.
-> * Instalar GIT.
-> * Clonar el repositorio de ejemplo.
-> * Restaurar paquetes NuGet.
-> * Crear 50 archivos de 1 GB con datos aleatorios.
+> - Instalar .NET Core 2.0.
+> - Instalar chocolatey.
+> - Instalar GIT.
+> - Clonar el repositorio de ejemplo.
+> - Restaurar paquetes NuGet.
+> - Crear 50 archivos de 1 GB con datos aleatorios.
 
 Ejecute el cmdlet siguiente para finalizar la configuración de la máquina virtual. Este paso tarda de 5 a 15 minutos en completarse.
 
@@ -127,9 +127,9 @@ Set-AzVMCustomScriptExtension -ResourceGroupName myResourceGroup `
 En la primera parte de la serie, aprendió a crear una cuenta de almacenamiento, implementar una máquina virtual y configurar la máquina virtual con los requisitos previos necesarios, tales como:
 
 > [!div class="checklist"]
-> * Crear una cuenta de almacenamiento
-> * Creación de una máquina virtual
-> * Configurar una extensión de script personalizada
+> - Crear una cuenta de almacenamiento
+> - Creación de una máquina virtual
+> - Configurar una extensión de script personalizada
 
 Continúe en la segunda parte de la serie para cargar grandes cantidades de datos en una cuenta de almacenamiento mediante el paralelismo y el reintento exponencial.
 

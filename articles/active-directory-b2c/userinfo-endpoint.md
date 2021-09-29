@@ -7,17 +7,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 07/07/2021
+ms.date: 09/20/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 94b00fb293913e5501bd70ecb782304c56314ed9
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+ms.openlocfilehash: 209d2aafbecc81a3c06866569f66edec6e3f43a4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113430131"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128566584"
 ---
 # <a name="userinfo-endpoint"></a>Punto de conexión de UserInfo
 
@@ -218,7 +218,8 @@ El elemento de usuario de confianza completado será como el siguiente:
 ### <a name="4-upload-the-files"></a>4. Carga de los archivos
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
-1. Asegúrese de usar el directorio que contiene el inquilino de Azure AD B2C. Para ello, seleccione el filtro **Directorio y suscripción** en el menú superior y luego el directorio que contiene el inquilino.
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
 1. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C**.
 1. Seleccione **Marco de experiencia de identidad**.
 1. En la página **Directivas personalizadas**, seleccione **Cargar directiva personalizada**.

@@ -12,7 +12,7 @@ En la tabla siguiente se muestran los límites que pueden ser diferentes para lo
 | Número de conexiones asincrónicas por espacio de nombres | 100 | 5\.000 | 10 000 por unidad de procesamiento por PU | 100 000 por CU |
 | Período de retención máximo de datos de eventos | 1 día | 7 días | 90 días<br/>1 TB por PU | 90 días<br/>10 TB por CU |
 | TU, PU o CU máximas |20 TU | 40 TU | 16 PU | 20 CU |
-| Número de particiones por centro de eventos | 32 | 32 | 100 (fijo) | 1024 por centro de eventos<br/> 2000 por CU |
+| Número de particiones por centro de eventos | 32 | 32 | 100 | 1024 por centro de eventos<br/> 2000 por CU |
 | Número de espacios de nombres por suscripción | 1000 | 1000 | 1000 | 1000 (50 por CU) |
 | Número de centros de eventos por espacio de nombres | 10 | 10 | 100 por cada PU | 1000 |
 | Capturar | N/D | Pago por hora | Se incluye | Se incluye |

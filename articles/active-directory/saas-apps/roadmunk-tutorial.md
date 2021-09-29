@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/28/2020
 ms.author: jeedes
-ms.openlocfilehash: a7f4682be2f7fbf308aba32768efa932f27b7a87
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f0c139ac775cf0761e1866853c959d7e98b20cf3
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96181727"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124821755"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-roadmunk"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Roadmunk
 
@@ -171,7 +171,7 @@ En esta sección, va a permitir que B.Simon acceda a Roadmunk mediante el inicio
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el panel de acceso.
 
-En el portal Aplicaciones, al seleccionar el icono de **Roadmunk**, debería iniciar sesión automáticamente en la cuenta de Roadmunk para la que configuró el inicio de sesión único. Para más información, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+En el portal Aplicaciones, al seleccionar el icono de **Roadmunk**, debería iniciar sesión automáticamente en la cuenta de Roadmunk para la que configuró el inicio de sesión único. Para más información, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

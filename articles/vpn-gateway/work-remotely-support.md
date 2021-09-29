@@ -6,14 +6,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 04/29/2021
+ms.date: 09/28/2021
 ms.author: alzam
-ms.openlocfilehash: 57328748f21dda9efe3b2208aeb4854360a76e38
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: b0988547105f953c0665ea753007c0725055fe61
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108288689"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129208722"
 ---
 # <a name="remote-work-using-azure-vpn-gateway-point-to-site"></a>Trabajo remoto de punto a sitio de Azure VPN Gateway
 
@@ -31,7 +31,7 @@ Una conexión de puerta de enlace de VPN de punto a sitio (P2S) permite crear un
 
 En la tabla siguiente se muestran los sistemas operativos cliente y las opciones de autenticación que están a su disposición. Sería útil seleccionar el método de autenticación en función del sistema operativo cliente que ya está en uso. Por ejemplo, seleccione OpenVPN con una autenticación basada en certificados si tiene una combinación de sistemas operativos cliente que necesitan conectarse. Tenga en cuenta también que la VPN de punto a sitio solo se admite en puertas de enlace de VPN basadas en rutas.
 
-![Captura de pantalla que muestra los sistemas operativos cliente y las opciones de autenticación disponibles.](./media/working-remotely-support/ostable.png "SO")
+![Captura de pantalla que muestra los sistemas operativos cliente y las opciones de autenticación disponibles.](./media/working-remotely-support/os-table.png "SO")
 
 ## <a name="scenario-1---users-need-access-to-resources-in-azure-only"></a><a name="scenario1"></a>Escenario 1: los usuarios solo necesitan acceder a los recursos de Azure
 

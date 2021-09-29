@@ -11,12 +11,12 @@ ms.date: 06/24/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5dec171c299bdd8ea6c5989794539b6c79e7d3fe
-ms.sourcegitcommit: 92dd25772f209d7d3f34582ccb8985e1a099fe62
+ms.openlocfilehash: 34d0a6c4940032bc1957c787e05722586c792417
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114229695"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124814385"
 ---
 # <a name="azure-ad-connect-single-object-sync"></a>Azure AD Connect sincronización de un solo objeto 
 
@@ -43,7 +43,7 @@ La herramienta de sincronización de un solo objeto realiza los siguientes pasos
  9. Sincronizar objeto desde Active Directory Connector Space. 
  10. Exporte el objeto desde Azure Active Directory Connector Space a Azure Active Directory. 
 
-Además de la salida JSON, la herramienta genera un informe HTML con todos los detalles de la operación de sincronización. El informe HTML se encuentra en **C:\ProgramData\AADConnect\ADSyncObjectDiagnostics\ ADSyncSingleObjectSyncResult-<date>.htm**. Este informe se puede compartir con el equipo de soporte técnico para profundizar en la solución de problemas, en caso necesario. 
+Además de la salida JSON, la herramienta genera un informe HTML con todos los detalles de la operación de sincronización. El informe HTML se encuentra en **C:\ProgramData\AADConnect\ADSyncObjectDiagnostics\ ADSyncSingleObjectSyncResult-\<date\>.htm**. Este informe se puede compartir con el equipo de soporte técnico para profundizar en la solución de problemas, en caso necesario. 
 
 El informe HTML tiene lo siguiente: 
 
@@ -58,7 +58,7 @@ El informe HTML tiene lo siguiente:
 
 Para usar la herramienta de sincronización de un solo objeto, tendrá que usar lo siguiente:  
  - Versión de marzo de 2021 ([1.6.4.0](reference-connect-version-history.md#1640)) de Azure AD Connect o posterior.
- -  [PowerShell 5.0](/powershell/scripting/windows-powershell/whats-new/what-s-new-in-windows-powershell-50?view=powershell-7.1)
+ -  [PowerShell 5.0](/powershell/scripting/windows-powershell/whats-new/what-s-new-in-windows-powershell-50)
 
 ### <a name="run-the-single-object-sync-tool"></a>Ejecutar la herramienta de sincronización de un solo objeto 
 

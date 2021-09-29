@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
-ms.date: 02/01/2021
+ms.date: 09/20/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: cc9e0be90c138ba33e1b4dfe11ea6f9c8b7da297
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 112fe68a1d8682b03a9f08839d827b71ebadf1d1
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102033561"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128571776"
 ---
 # <a name="securing-phone-based-multi-factor-authentication-mfa"></a>Protección con la autenticación multifactor (MFA) basada en teléfono
 
@@ -95,23 +95,20 @@ Realice las siguientes acciones para ayudar a mitigar los registros fraudulentos
 - Quite los códigos de país que no sean relevantes para su organización en el menú desplegable en el que el usuario comprueba su número de teléfono (este cambio se aplicará a los futuros registros):
     
    1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador global del inquilino de Azure AD B2C.
-
-   2. Asegúrese de usar el directorio que contiene el inquilino de Azure AD B2C. Para ello, seleccione el filtro **Directorio y suscripción** en el menú superior y luego el directorio que contiene el inquilino.
-
-   3. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, busque y seleccione **Azure AD B2C**.
-
-   4. Seleccione el flujo de usuario y, a continuación, seleccione **Idiomas**. Seleccione el idioma de la ubicación geográfica de la organización para abrir el panel de detalles del idioma. (En este ejemplo, seleccionaremos **Inglés en** para Estados Unidos). Seleccione **Página de la autenticación multifactor** y, después, seleccione **Descargar valores predeterminados (en)** .
+   1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+   1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
+   1. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, busque y seleccione **Azure AD B2C**.
+   1. Seleccione el flujo de usuario y, a continuación, seleccione **Idiomas**. Seleccione el idioma de la ubicación geográfica de la organización para abrir el panel de detalles del idioma. (En este ejemplo, seleccionaremos **Inglés en** para Estados Unidos). Seleccione **Página de la autenticación multifactor** y, después, seleccione **Descargar valores predeterminados (en)** .
  
       ![Cargar nuevos reemplazos para descargar valores predeterminados](media/phone-based-mfa/download-defaults.png)
 
-   5. Abra el archivo JSON descargado en el paso anterior. En el archivo, busque `DEFAULT` y reemplace la línea por `"Value": "{\"DEFAULT\":\"Country/Region\",\"US\":\"United States\"}"`. Asegúrese de establecer `Overrides` en `true`.
+   1. Abra el archivo JSON descargado en el paso anterior. En el archivo, busque `DEFAULT` y reemplace la línea por `"Value": "{\"DEFAULT\":\"Country/Region\",\"US\":\"United States\"}"`. Asegúrese de establecer `Overrides` en `true`.
 
    > [!NOTE]
    > Puede personalizar la lista de códigos de país permitidos en el elemento `countryList` (vea [Ejemplo de página de autenticación de factor de teléfono](localization-string-ids.md#phone-factor-authentication-page-example)).
 
-   7. Guarde el archivo JSON. En el panel de detalles del idioma, en **Cargar nuevos reemplazos**, seleccione el archivo JSON modificado para cargarlo.
-
-   8. Cierre el panel y seleccione **Ejecutar flujo de usuario**. En este ejemplo, confirme que **Estados Unidos** es el único código de país disponible en la lista desplegable:
+   1. Guarde el archivo JSON. En el panel de detalles del idioma, en **Cargar nuevos reemplazos**, seleccione el archivo JSON modificado para cargarlo.
+   1. Cierre el panel y seleccione **Ejecutar flujo de usuario**. En este ejemplo, confirme que **Estados Unidos** es el único código de país disponible en la lista desplegable:
  
       ![Lista desplegable de códigos de país](media/phone-based-mfa/country-code-drop-down.png)
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/17/2021
 ms.author: yelevin
-ms.openlocfilehash: cda5595eb2c8b72f6b38ade1feefe84904312412
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: aa30b85047460bffe0177c9154152d18262b44be
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123261014"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124823851"
 ---
 # <a name="connect-your-data-source-to-azure-sentinels-data-collector-api-to-ingest-data"></a>Conexión del origen de datos a Data Collector API de Azure Sentinel para ingerir datos
 
@@ -38,7 +38,7 @@ Compruebe la sección del producto en la página [Referencia de conectores de da
 
 - Debe tener permisos de lectura y escritura en el área de trabajo de Azure Sentinel.
 
-- Debe tener permisos de lectura para las claves compartidas del área de trabajo. [Obtenga más información sobre las claves del área de trabajo](../azure-monitor/platform/agent-windows.md#obtain-workspace-id-and-key).
+- Debe tener permisos de lectura para las claves compartidas del área de trabajo. [Obtenga más información sobre las claves del área de trabajo](../azure-monitor/agents/agent-windows.md).
 
 ## <a name="configure-and-connect-your-data-source"></a>Configuración y conexión del origen de datos
 

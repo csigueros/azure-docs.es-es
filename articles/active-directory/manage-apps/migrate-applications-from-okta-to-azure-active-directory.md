@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/01/2021
 ms.author: gasinh
 ms.subservice: app-mgmt
-ms.openlocfilehash: 5b91946886866d86542725155114d86ab5316f03
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: c46410a6998998ace9bc1a9e9809262970a131f2
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123440005"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124791733"
 ---
 # <a name="tutorial-migrate-your-applications-from-okta-to-azure-active-directory"></a>Tutorial: Migración de sus aplicaciones de Okta a Azure Active Directory
 
@@ -79,13 +79,13 @@ A partir de este momento podrá imprimir todas las aplicaciones del inquilino de
 
 ![imagen que muestra la lista de aplicaciones](media/migrate-applications-from-okta-to-azure-active-directory/list-of-applications.png)
 
-Se recomienda copiar y convertir esta lista con formato JSON a CSV mediante una herramienta de conversión pública, como <https://konklone.io/json/> o PowerShell con [ConvertFrom-Json](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/convertfrom-json?view=powershell-7.1) y [ConvertTo-CSV](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/convertto-csv?view=powershell-7.1).
+Se recomienda copiar y convertir esta lista con formato JSON a CSV mediante una herramienta de conversión pública, como <https://konklone.io/json/> o PowerShell con [ConvertFrom-Json](/powershell/module/microsoft.powershell.utility/convertfrom-json) y [ConvertTo-CSV](/powershell/module/microsoft.powershell.utility/convertto-csv).
 
 Después de descargar el archivo CSV, las aplicaciones del inquilino de Okta se habrán registrado correctamente y se podrán consultar en el futuro.
 
 ## <a name="migrate-a-saml-application-to-azure-ad"></a>Migración de una aplicación SAML a Azure AD
 
-Para migrar una aplicación SAML 2.0 a Azure AD, debe configurar primero la aplicación en el inquilino de Azure AD con fines de acceso a la aplicación. En este ejemplo, vamos a convertir una instancia de Salesforce. Siga los pasos de [este tutorial](https://docs.microsoft.com/azure/active-directory/saas-apps/salesforce-tutorial) para incorporar las aplicaciones.
+Para migrar una aplicación SAML 2.0 a Azure AD, debe configurar primero la aplicación en el inquilino de Azure AD con fines de acceso a la aplicación. En este ejemplo, vamos a convertir una instancia de Salesforce. Siga los pasos de [este tutorial](../saas-apps/salesforce-tutorial.md) para incorporar las aplicaciones.
 
 Para finalizar el proceso de migración, repita los pasos de configuración con todas las aplicaciones detectadas en el inquilino de Okta.
 
@@ -145,7 +145,7 @@ Para finalizar el proceso de migración, repita los pasos de configuración con 
 
     ![imagen que muestra cómo seleccionar un nuevo proveedor de identidades](media/migrate-applications-from-okta-to-azure-active-directory/new-identity-provider.png)
 
-15. Si todo se ha configurado correctamente, el usuario llegará a la página principal de Salesforce. Si hay algún problema, siga las indicaciones de la [guía de depuración](https://docs.microsoft.com/azure/active-directory/manage-apps/debug-saml-sso-issues).
+15. Si todo se ha configurado correctamente, el usuario llegará a la página principal de Salesforce. Si hay algún problema, siga las indicaciones de la [guía de depuración](../manage-apps/debug-saml-sso-issues.md).
 
 16. Después de probar la conexión SSO desde Azure, vuelva a la aplicación empresarial para asignar los usuarios restantes a la aplicación Salesforce con los roles correctos.
 
@@ -172,7 +172,7 @@ Para finalizar el proceso de migración, repita los pasos de configuración con 
 
    ![imagen que muestra la nueva aplicación OIDC](media/migrate-applications-from-okta-to-azure-active-directory/new-oidc-application.png)
 
-3. En la página siguiente, tendrá que elegir un inquilino para el registro de la aplicación. Consulte [este artículo](https://docs.microsoft.com/azure/active-directory/develop/single-and-multi-tenant-apps) para más información.
+3. En la página siguiente, tendrá que elegir un inquilino para el registro de la aplicación. Consulte [este artículo](../develop/single-and-multi-tenant-apps.md) para más información.
 
 En este ejemplo, seleccionaremos **Cuentas en cualquier directorio organizativo**, es decir, cualquier directorio de Azure AD, **Multiinquilino** y, por último, **Registro**.
 
@@ -180,7 +180,7 @@ En este ejemplo, seleccionaremos **Cuentas en cualquier directorio organizativo*
 
 4. Después de registrar la aplicación, vaya a la página **Registros de aplicaciones** en **Azure Active Directory** y abra el registro recién creado.
 
-   En función del [escenario de la aplicación](https://docs.microsoft.com/azure/active-directory/develop/authentication-flows-app-scenarios), es posible que se necesiten varios pasos de configuración. Como la mayoría de los escenarios requieren el secreto de cliente de la aplicación, veremos esos ejemplos.
+   En función del [escenario de la aplicación](../develop/authentication-flows-app-scenarios.md), es posible que se necesiten varios pasos de configuración. Como la mayoría de los escenarios requieren el secreto de cliente de la aplicación, veremos esos ejemplos.
 
 5. En la página **Información general**, registre el identificador de aplicación (cliente) para usarlo en la aplicación más adelante.
 
@@ -219,7 +219,7 @@ En este ejemplo, seleccionaremos **Cuentas en cualquier directorio organizativo*
 
 ## <a name="migrate-a-custom-authorization-server-to-azure-ad"></a>Migración de un servidor de autorización personalizado a Azure AD
 
-Los servidores de autorización de Okta asignan uno por uno los registros de aplicaciones que [exponen una API](https://docs.microsoft.com/azure/active-directory/develop/quickstart-configure-app-expose-web-apis#add-a-scope).
+Los servidores de autorización de Okta asignan uno por uno los registros de aplicaciones que [exponen una API](../develop/quickstart-configure-app-expose-web-apis.md#add-a-scope).
 
 El servidor de autorización de Okta predeterminado debe asignarse a los ámbitos o permisos de Microsoft Graph.
 

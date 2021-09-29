@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.author: tomfitz
-ms.openlocfilehash: fa5e59b96aada06c2dd486094d9be6a52c79e43e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0f35e12b62b0efd9f79f83a1832c317d7eabe99b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "84260688"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128648342"
 ---
 # <a name="use-existing-virtual-network-with-azure-managed-applications"></a>Uso de una red virtual existente con Azure Managed Applications
 
@@ -18,7 +18,7 @@ En este artículo se muestra cómo definir una aplicación administrada de Azure
 
 ## <a name="main-template"></a>Plantilla principal
 
-En primer lugar, vamos a echar un vistazo al archivo **mainTemplate.json**. Toda la plantilla para implementar una máquina virtual y sus recursos asociados se muestra a continuación. Luego, vamos a examinar más detalladamente los elementos de la plantilla que están relacionadas con el uso de una red virtual existente.
+En primer lugar, vamos a echar un vistazo al archivo _mainTemplate.json_. Toda la plantilla para implementar una máquina virtual y sus recursos asociados se muestra a continuación. Luego, vamos a examinar más detalladamente los elementos de la plantilla que están relacionadas con el uso de una red virtual existente.
 
 :::code language="json" source="~/resourcemanager-templates/managed-app-existing-vnet/mainTemplate.json":::
 
@@ -38,7 +38,7 @@ La interfaz de red se establece en la variable del identificador de subred.
 
 ## <a name="ui-definition"></a>Definición de la interfaz de usuario
 
-Ahora vamos a echar un vistazo al archivo **createUiDefinition.json**. El archivo completo es:
+Ahora vamos a echar un vistazo al archivo _createUiDefinition.json_. El archivo completo es:
 
 :::code language="json" source="~/resourcemanager-templates/managed-app-existing-vnet/createUiDefinition.json":::
 

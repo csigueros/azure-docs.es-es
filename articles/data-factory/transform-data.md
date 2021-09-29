@@ -8,13 +8,13 @@ ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
 ms.custom: synapse
-ms.date: 08/24/2021
-ms.openlocfilehash: b212afb91b712d47380d93b7a960c9fdb0dfc457
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.date: 09/09/2021
+ms.openlocfilehash: 6a5500bdcf551fbbb8c3fc612606ec63bce00557
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122821271"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124805942"
 ---
 # <a name="transform-data-in-azure-data-factory-and-azure-synapse-analytics"></a>Transformación de datos en Azure Data Factory y Azure Synapse Analytics
 

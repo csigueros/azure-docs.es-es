@@ -6,19 +6,19 @@ ms.author: sunaray
 ms.service: mysql
 ms.topic: how-to
 ms.date: 06/18/2021
-ms.openlocfilehash: cbabc94f1aa8a2dcd8d8022ab81b7d772006b574
-ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
+ms.openlocfilehash: 0197d3c4a76158663d721604cdd8e033b3d78153
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114203481"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128589651"
 ---
 # <a name="tutorial-migrate-azure-database-for-mysql--single-server-to-azure-database-for-mysql--flexible-server-with-minimal-downtime"></a>Tutorial: Migración de Azure Database for MySQL con servidor único a Azure Database for MySQL con servidor flexible con un tiempo de inactividad mínimo
 
 Puede migrar una instancia de Azure Database for MySQL con servidor único a Azure Database for MySQL con servidor flexible con un tiempo de inactividad mínimo en las aplicaciones mediante una combinación de herramientas de código abierto como mydumper/myloader y la replicación de datos de entrada.
 
 > [!NOTE]
-> Este artículo contiene referencias al término _esclavo_, un término que Microsoft ya no usa. Cuando se elimine el término del software, se eliminará también de este artículo.
+> Este artículo contiene referencias al término *esclavo*, un término que Microsoft ya no usa. Cuando se elimine el término del software, se eliminará también de este artículo.
 
 La replicación de datos de entrada es una técnica que replica los cambios de datos del servidor de origen en el servidor de destino en función del método de posición del archivo de registro binario. En este escenario, la instancia de MySQL que funciona como origen (en la que se originan los cambios de la base de datos) escribe las actualizaciones y los cambios como "eventos" en el registro binario. La información del registro binario se almacena en diferentes formatos de registro según los cambios de la base de datos que se registran. Las réplicas están configuradas para leer el registro binario del origen y ejecutar los eventos del registro binario en la base de datos local de la réplica.
 

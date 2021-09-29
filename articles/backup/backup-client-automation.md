@@ -4,12 +4,12 @@ description: En este artículo aprenderá a usar PowerShell para configurar Azur
 ms.topic: conceptual
 ms.date: 08/24/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1d72dec0e9e2c1df0f93df5b557d72e8ad5c857e
-ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
+ms.openlocfilehash: b1ec8bf20871fe5cb6f3245f202f2db2ca2c57f2
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122779498"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124824885"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Implementación y administración de copias de seguridad en Azure para Windows Server o cliente de Windows mediante PowerShell
 
@@ -410,7 +410,7 @@ PolicyState     : Valid
 Ahora el objeto de la directiva está finalizado y tiene una programación de copia de seguridad asociada, una directiva de retención y una lista de inclusión o exclusión de archivos. Ahora se puede confirmar esta directiva para ser usada por Azure Backup. Antes de aplicar la directiva recién creada, asegúrese de que no haya ninguna directiva de copia de seguridad existente asociada con el servidor mediante el uso del cmdlet [Remove-OBPolicy](/powershell/module/msonlinebackup/remove-obpolicy). Para eliminar la directiva, se le pedirá confirmación. Para omitir el uso de la confirmación, use la marca `-Confirm:$false` con el cmdlet.
 
 >[!Note]
->Al ejecutar el cmdlet, si pide establecer un PIN de seguridad, vea la [sección Método 1](/azure/backup/backup-azure-delete-vault#method-1).
+>Al ejecutar el cmdlet, si pide establecer un PIN de seguridad, vea la [sección Método 1](./backup-azure-delete-vault.md#method-1).
 
 ```powershell
 Get-OBPolicy | Remove-OBPolicy

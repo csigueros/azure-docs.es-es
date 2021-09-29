@@ -1,21 +1,18 @@
 ---
-title: Implementación de una puerta de enlace autohospedada en Docker | Microsoft Docs
+title: Implementación de una puerta de enlace autohospedada en Docker
 description: Aprenda a implementar un componente de puerta de enlace autohospedada de Azure API Management en Docker
-services: api-management
-documentationcenter: ''
-author: vladvino
+author: dlepow
 manager: gwallace
-editor: ''
 ms.service: api-management
 ms.topic: article
 ms.date: 04/19/2021
-ms.author: apimpm
-ms.openlocfilehash: 531421726bc1e081d85eca9d535267520d3fea5f
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.author: danlep
+ms.openlocfilehash: 3ef8e0316b6df0b95f2163b6df8ae139ebb8fe6b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107725618"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128580953"
 ---
 # <a name="deploy-an-azure-api-management-self-hosted-gateway-to-docker"></a>Implementación de una puerta de enlace autohospedada de Azure API Management en Docker
 
@@ -43,9 +40,11 @@ En este artículo se detallan los pasos para implementar un componente de puerta
 6. Seleccione el vínculo del archivo **env.conf** junto al **Entorno** para descargar el archivo.
 7. Seleccione el icono **Copiar** situado en el extremo derecho del cuadro de texto **Ejecutar** para copiar el comando de Docker en el portapapeles.
 8. Pegue el comando en la ventana de terminal (o comando). Ajuste las asignaciones de puerto y el nombre del contenedor según sea necesario. Tenga en cuenta que el comando da por supuesto que el archivo de entorno descargado está presente en el directorio actual.
+
    ```
-       docker run -d -p 80:8080 -p 443:8081 --name <gateway-name> --env-file env.conf mcr.microsoft.com/azure-api-management/gateway:<tag>
+   docker run -d -p 80:8080 -p 443:8081 --name <gateway-name> --env-file env.conf mcr.microsoft.com/azure-api-management/gateway:<tag>
    ```
+
 9. Ejecute el comando. El comando indica al entorno de Docker que ejecute el contenedor mediante la [imagen de contenedor](https://aka.ms/apim/sputnik/dhub) descargada del Registro de contenedor de Microsoft y que asigne los puertos HTTP (8080) y HTTPS (8081) del contenedor a los puertos 80 y 443 del host.
 10. Ejecute el siguiente comando para comprobar si se está ejecutando el contenedor de puerta de enlace:
     ```console
@@ -58,9 +57,9 @@ En este artículo se detallan los pasos para implementar un componente de puerta
     ![estado de la puerta de enlace](media/how-to-deploy-self-hosted-gateway-docker/status.png)
 
 > [!TIP]
-> Use el comando <code>console docker container logs <gateway-name></code> para ver una instantánea del registro de la puerta de enlace autohospedada.
+> Use el comando `console docker container logs <gateway-name>` para ver una instantánea del registro de la puerta de enlace autohospedada.
 >
-> Use el comando <code>docker container logs --help</code> para ver todas las opciones de visualización del registro.
+> Use el comando `docker container logs --help` para ver todas las opciones de visualización del registro.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

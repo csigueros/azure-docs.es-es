@@ -3,17 +3,18 @@ title: Puerta de enlace de administración de datos para Data Factory
 description: Uso de Data Management Gateway en Azure Data Factory para mover los datos.
 author: nabhishek
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 ms.custom: devx-track-azurepowershell
 robots: noindex
-ms.openlocfilehash: 50e9dbddd0a84f104aed9275f985f444990dbc30
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 14f3a838fb5c2893e25828234121f053ee951afc
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110677170"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128662008"
 ---
 # <a name="data-management-gateway"></a>Data Management Gateway
 > [!NOTE]
@@ -47,7 +48,7 @@ Data Management Gateway proporciona las siguientes funcionalidades:
 ### <a name="command-flow-and-data-flow"></a>Flujo de comandos y flujo de datos
 Cuando se utiliza una actividad de copia con la que copiar datos entre un entorno local y la nube, se usa una puerta de enlace para transferir información desde el origen de datos local hasta la nube, y viceversa.
 
-A continuación se encuentran el flujo de datos de alto nivel y el resumen de los pasos para copiar con una puerta de enlace de datos: ![Flujo de datos mediante la puerta de enlace](./media/data-factory-data-management-gateway/data-flow-using-gateway.png)
+A continuación se encuentran el flujo de datos de alto nivel y el resumen de los pasos para copiar con una puerta de enlace de datos: :::image type="content" source="./media/data-factory-data-management-gateway/data-flow-using-gateway.png" alt-text="Flujo de datos mediante la puerta de enlace":::
 
 1. El desarrollador de datos crea una puerta de enlace para una instancia de Azure Data Factory mediante [Azure Portal](https://portal.azure.com) o un [cmdlet de PowerShell](/powershell/module/az.datafactory/).
 2. El desarrollador de datos crea un servicio vinculado para un almacén de datos local especificando la puerta de enlace. Como parte de la configuración del servicio vinculado, el desarrollador de datos usa la aplicación Setting Credentials (Establecer credenciales) para especificar las credenciales y los tipos de autenticación. El cuadro de diálogo de la aplicación Setting Credentials (Establecer credenciales) se comunicará con el almacén de datos para probar la conexión y la puerta de enlace para guardar las credenciales.
@@ -108,31 +109,31 @@ Para crear una puerta de enlace en el portal y obtener la clave en la página **
 #### <a name="if-you-have-already-created-the-logical-gateway-in-the-portal"></a>Si ya ha creado una puerta de enlace lógica en el Portal
 1. En Azure Portal, vaya a la página **Data Factory** y haga clic en el icono **Servicios vinculados**.
 
-    ![Página Data Factory](media/data-factory-data-management-gateway/data-factory-blade.png)
+    :::image type="content" source="media/data-factory-data-management-gateway/data-factory-blade.png" alt-text="Página Data Factory":::
 2. En la página **Servicios vinculados**, seleccione la **puerta de enlace** lógica que ha creado en el portal.
 
-    ![puerta de enlace lógica](media/data-factory-data-management-gateway/data-factory-select-gateway.png)
+    :::image type="content" source="media/data-factory-data-management-gateway/data-factory-select-gateway.png" alt-text="puerta de enlace lógica":::
 3. En la página **Puerta de enlace de datos**, haga clic en **Descargar e instalar la puerta de enlace de datos**.
 
-    ![Vínculo de descarga en el Portal](media/data-factory-data-management-gateway/download-and-install-link-on-portal.png)
+    :::image type="content" source="media/data-factory-data-management-gateway/download-and-install-link-on-portal.png" alt-text="Vínculo de descarga en el Portal":::
 4. En la página **Configurar**, haga clic en **Volver a crear clave**. Haga clic en Sí en el mensaje de advertencia después de leerlo detenidamente.
 
-    ![Botón Volver a crear clave](media/data-factory-data-management-gateway/recreate-key-button.png)
+    :::image type="content" source="media/data-factory-data-management-gateway/recreate-key-button.png" alt-text="Botón Volver a crear clave":::
 5. Haga clic en el botón Copiar, que se encuentra al lado de la clave. La clave se copia en el Portapapeles.
 
-    ![Copiar clave](media/data-factory-data-management-gateway/copy-gateway-key.png)
+    :::image type="content" source="media/data-factory-data-management-gateway/copy-gateway-key.png" alt-text="Copiar clave":::
 
 ### <a name="system-tray-icons-notifications"></a>Notificaciones/iconos de la bandeja del sistema
 En la siguiente imagen, se muestran algunos de los iconos de la bandeja que verá.
 
-![Iconos de la bandeja del sistema](./media/data-factory-data-management-gateway/gateway-tray-icons.png)
+:::image type="content" source="./media/data-factory-data-management-gateway/gateway-tray-icons.png" alt-text="Iconos de la bandeja del sistema":::
 
 Si mueve el cursor sobre el mensaje de notificación o el icono en la bandeja del sistema, verá detalles sobre el estado de la puerta de enlace o la operación de actualización en una ventana emergente.
 
 ### <a name="ports-and-firewall"></a>Puertos y firewall
 Existen dos firewalls que tiene que tener en cuenta: el **firewall corporativo**, que se ejecuta en el enrutador central de la organización, y **Firewall de Windows**, configurado como demonio en la máquina local en la que está instalada la puerta de enlace.
 
-![Firewalls](./media/data-factory-data-management-gateway/firewalls2.png)
+:::image type="content" source="./media/data-factory-data-management-gateway/firewalls2.png" alt-text="Firewalls":::
 
 En el firewall corporativo, debe configurar los siguientes dominios y puertos de salida:
 
@@ -167,11 +168,11 @@ Por ejemplo, para copiar información desde **un almacén de datos local en un r
 ### <a name="proxy-server-considerations"></a>Consideraciones acerca del servidor proxy
 Si en su entorno de red corporativo se usa un servidor proxy para acceder a Internet, configure Data Management Gateway para utilizar la configuración de proxy adecuada. Puede establecer el proxy durante la fase de registro inicial.
 
-![Configuración del proxy durante el registro](media/data-factory-data-management-gateway/SetProxyDuringRegistration.png)
+:::image type="content" source="media/data-factory-data-management-gateway/SetProxyDuringRegistration.png" alt-text="Configuración del proxy durante el registro":::
 
 La puerta de enlace utiliza el servidor proxy para conectarse al servicio en la nube. Haga clic en el vínculo **Cambiar** durante la configuración inicial. Verá el cuadro de diálogo de **configuración de proxy** .
 
-![Configuración del proxy mediante el Administrador de configuración 1](media/data-factory-data-management-gateway/SetProxySettings.png)
+:::image type="content" source="media/data-factory-data-management-gateway/SetProxySettings.png" alt-text="Configuración del proxy mediante el Administrador de configuración 1":::
 
 Hay tres opciones de configuración:
 
@@ -190,7 +191,7 @@ Cuando la puerta de enlace se haya registrado correctamente, si quiere ver o act
 
 Puede ver y actualizar el proxy HTTP mediante la herramienta Administrador de configuración.
 
-![Configuración del proxy mediante el Administrador de configuración 2](media/data-factory-data-management-gateway/SetProxyConfigManager.png)
+:::image type="content" source="media/data-factory-data-management-gateway/SetProxyConfigManager.png" alt-text="Configuración del proxy mediante el Administrador de configuración 2":::
 
 > [!NOTE]
 > Si configura un servidor proxy con la autenticación NTLM, el servicio host Data Management Gateway se ejecutará con la cuenta de dominio. Si más adelante cambia la contraseña de dicha cuenta de dominio, no olvide actualizar la configuración del servicio y reiniciarlo en consecuencia. Debido a este requisito, se recomienda usar una cuenta de dominio específica para acceder al servidor proxy, que no requiere actualizar la contraseña con frecuencia.
@@ -260,15 +261,15 @@ El tiempo de actualización programado se consulta en los lugares siguientes:
 
 La pestaña Inicio del Administrador de configuración de Data Management Gateway muestra la programación de actualización, así como la última vez que se instaló o actualizó la puerta de enlace.
 
-![Programar actualizaciones](media/data-factory-data-management-gateway/UpdateSection.png)
+:::image type="content" source="media/data-factory-data-management-gateway/UpdateSection.png" alt-text="Programación de actualizaciones":::
 
 Puede instalar la actualización inmediatamente o esperar a que la puerta de enlace se actualice automáticamente a la hora programada. Por ejemplo, en la siguiente imagen se muestra el mensaje de notificación que aparece en el Administrador de configuración de Data Management Gateway junto con el botón de actualización en el que se hace clic para instalarla inmediatamente.
 
-![Actualización en el Administrador de configuración de Data Management Gateway](./media/data-factory-data-management-gateway/gateway-auto-update-config-manager.png)
+:::image type="content" source="./media/data-factory-data-management-gateway/gateway-auto-update-config-manager.png" alt-text="Actualización en el Administrador de configuración de Data Management Gateway":::
 
 El mensaje de notificación en la bandeja del sistema tiene el aspecto que presenta la siguiente imagen:
 
-![Mensaje de la bandeja del sistema](./media/data-factory-data-management-gateway/gateway-auto-update-tray-message.png)
+:::image type="content" source="./media/data-factory-data-management-gateway/gateway-auto-update-tray-message.png" alt-text="Mensaje de la bandeja del sistema":::
 
 Verá el estado de la operación de actualización (manual o automática) en la bandeja del sistema. La próxima vez que inicie el Administrador de configuración de Data Management Gateway verá un mensaje en la barra de notificación que indica que se ha actualizado la puerta de enlace, junto con un vínculo al [tema con las novedades](data-factory-gateway-release-notes.md).
 
@@ -347,16 +348,16 @@ En Azure Portal, puede ver una instantánea casi en tiempo real de la utilizaci�
 
 1. En Azure Portal, vaya a la página principal de la factoría de datos y haga clic en el icono **Servicios vinculados**.
 
-    ![Página principal Factoría de datos](./media/data-factory-data-management-gateway/monitor-data-factory-home-page.png)
+    :::image type="content" source="./media/data-factory-data-management-gateway/monitor-data-factory-home-page.png" alt-text="Página principal Factoría de datos":::
 2. Seleccione la **puerta de enlace** en la página **Servicios vinculados**.
 
-    ![Página Servicios vinculados](./media/data-factory-data-management-gateway/monitor-linked-services-blade.png)
+    :::image type="content" source="./media/data-factory-data-management-gateway/monitor-linked-services-blade.png" alt-text="Página Servicios vinculados":::
 3. En la página **Puerta de enlace**, puede ver el uso de memoria y CPU de la puerta de enlace.
 
-    ![Uso de CPU y memoria de la puerta de enlace](./media/data-factory-data-management-gateway/gateway-simple-monitoring.png)
+    :::image type="content" source="./media/data-factory-data-management-gateway/gateway-simple-monitoring.png" alt-text="Uso de CPU y memoria de la puerta de enlace":::
 4. Habilite **Configuración avanzada** para ver más detalles, como el uso de la red.
     
-    ![Supervisión avanzada de la puerta de enlace](./media/data-factory-data-management-gateway/gateway-advanced-monitoring.png)
+    :::image type="content" source="./media/data-factory-data-management-gateway/gateway-advanced-monitoring.png" alt-text="Supervisión avanzada de la puerta de enlace":::
 
 En la tabla siguiente se proporcionan las descripciones de las columnas de la lista **Nodos de la puerta de enlace**:
 
@@ -406,29 +407,29 @@ En esta sección se proporcionan pasos para mover el cliente de puerta de enlace
 
 1. En el portal, vaya a la **página principal de Data Factory** y haga clic en el icono **Servicios vinculados**.
 
-    ![Vínculo de puertas de enlace de datos](./media/data-factory-data-management-gateway/DataGatewaysLink.png)
+    :::image type="content" source="./media/data-factory-data-management-gateway/DataGatewaysLink.png" alt-text="Vínculo de puertas de enlace de datos":::
 2. Seleccione la puerta de enlace en la sección **Puertas de enlace de datos** de la página **Servicios vinculados**.
 
-    ![Página Servicios vinculados con la puerta de enlace seleccionada](./media/data-factory-data-management-gateway/LinkedServiceBladeWithGateway.png)
+    :::image type="content" source="./media/data-factory-data-management-gateway/LinkedServiceBladeWithGateway.png" alt-text="Página Servicios vinculados con la puerta de enlace seleccionada":::
 3. En la página **Puerta de enlace de datos**, haga clic en **Descargar e instalar la puerta de enlace de datos**.
 
-    ![Vínculo de puerta de enlace de descarga](./media/data-factory-data-management-gateway/DownloadGatewayLink.png)
+    :::image type="content" source="./media/data-factory-data-management-gateway/DownloadGatewayLink.png" alt-text="Vínculo de puerta de enlace de descarga":::
 4. En la página **Configurar**, haga clic en **Descargar e instalar la puerta de enlace de datos** y siga las instrucciones para instalarla en la máquina.
 
-    ![Página Configurar](./media/data-factory-data-management-gateway/ConfigureBlade.png)
+    :::image type="content" source="./media/data-factory-data-management-gateway/ConfigureBlade.png" alt-text="Página Configurar":::
 5. Mantenga el **Administrador de configuración de Microsoft Data Management Gateway** abierto.
 
-    ![Administrador de configuración](./media/data-factory-data-management-gateway/ConfigurationManager.png)
+    :::image type="content" source="./media/data-factory-data-management-gateway/ConfigurationManager.png" alt-text="Configuration Manager":::
 6. En la página **Configurar** del portal, haga clic en **Volver a crear clave** en la barra de comandos y haga clic en **Sí** en el mensaje de advertencia. Haga clic en el **botón Copiar** que verá junto al texto de la clave para copiarla en el Portapapeles. La puerta de enlace en la máquina antigua deja de funcionar en cuanto se vuelve a crear la clave.
 
-    ![Volver a crear clave 2](./media/data-factory-data-management-gateway/RecreateKey.png)
+    :::image type="content" source="./media/data-factory-data-management-gateway/RecreateKey.png" alt-text="Volver a crear clave 2":::
 7. Pegue la **clave** en el cuadro de texto de la página **Registrar puerta de enlace** del **Administrador de configuración de Data Management Gateway** que se está ejecutando en la máquina. (Opcional) Haga clic en la casilla **Mostrar clave de puerta de enlace** para ver el texto de la clave.
 
-    ![Copiar clave y registrar](./media/data-factory-data-management-gateway/CopyKeyAndRegister.png)
+    :::image type="content" source="./media/data-factory-data-management-gateway/CopyKeyAndRegister.png" alt-text="Copiar clave y registrar":::
 8. Haga clic en **Registrar** para registrar la puerta de enlace con el servicio en la nube.
 9. En la pestaña **Configuración**, haga clic en **Cambiar** para seleccionar el mismo certificado que se ha usado con la puerta de enlace anterior, escriba la **contraseña** y haga clic en **Finalizar**.
 
-   ![Especificar certificado](./media/data-factory-data-management-gateway/SpecifyCertificate.png)
+   :::image type="content" source="./media/data-factory-data-management-gateway/SpecifyCertificate.png" alt-text="Especificar certificado":::
 
    Puede exportar un certificado desde la puerta de enlace anterior realizando los siguientes pasos: inicie el Administrador de configuración de puerta de enlace de administración de datos en la máquina antigua, pase a la pestaña **Certificado**, haga clic en el botón **Exportar** y siga las instrucciones.
 10. Después del registro correcto de la puerta de enlace, debe ver **Registro** establecido en **Registrado** y **Estado** establecido en **Iniciado** en la página principal del administrador de configuración de puertas de enlace.
@@ -443,7 +444,7 @@ Para cifrar las credenciales en el Editor de Data Factory, realice los siguiente
 5. Escriba el nombre de la base de datos para la propiedad **Initial Catalog** en **connectionString**.
 6. Haga clic en el botón **Cifrar** de la barra de comandos para iniciar la aplicación de un solo clic **Administrador de credenciales**. Se abrirá el cuadro de diálogo **Setting Credentials** (Establecer credenciales).
 
-    ![Cuadro de diálogo Establecer credenciales](./media/data-factory-data-management-gateway/setting-credentials-dialog.png)
+    :::image type="content" source="./media/data-factory-data-management-gateway/setting-credentials-dialog.png" alt-text="Cuadro de diálogo Establecer credenciales":::
 7. En el cuadro de diálogo **Establecer credenciales** , realice los siguientes pasos:
    1. Seleccione la **autenticación** que desea que use el servicio Factoría de datos para conectarse a la base de datos.
    2. Escriba el nombre del usuario que tiene acceso a la base de datos para el valor **NOMBRE DE USUARIO** .

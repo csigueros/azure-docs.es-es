@@ -2,13 +2,13 @@
 title: Uso de Blob Storage como almacén de puntos de comprobación en Azure Stack Hub
 description: En este artículo se describe cómo usar Blob Storage como almacén de puntos de comprobación de Event Hubs en Azure Stack Hub.
 ms.topic: how-to
-ms.date: 12/09/2020
-ms.openlocfilehash: b3abfca771835b05c654025e7c29c359346d2b5c
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.date: 09/28/2021
+ms.openlocfilehash: e3d75d4cd85bbf4e1bc8fc6fd581d510c35b0cb4
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113003165"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129213522"
 ---
 # <a name="use-blob-storage-as-checkpoint-store---event-hubs-on-azure-stack-hub"></a>Uso de Blob Storage como almacén de puntos de comprobación: Event Hubs en Azure Stack Hub
 Si usa Azure Blob Storage como almacén de puntos de comprobación en un entorno que admite una versión diferente del SDK de blobs de almacenamiento que las que normalmente están disponibles en Azure, tendrá que utilizar código para cambiar la versión de la API del servicio de almacenamiento a la versión admitida por ese entorno. Por ejemplo, si ejecuta [Event Hubs en una instancia de Azure Stack Hub versión 2002](/azure-stack/user/event-hubs-overview), la versión más alta disponible para el servicio de almacenamiento es la 2017-11-09. En este caso, tendrá que usar código para establecer como destino la versión de la API del servicio de almacenamiento en 2017-11-09. Para obtener un ejemplo de cómo establecer como destino una versión específica de la API de almacenamiento, vea estos ejemplos en GitHub: 

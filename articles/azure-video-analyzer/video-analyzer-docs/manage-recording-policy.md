@@ -4,18 +4,18 @@ description: En este tema se explica cómo administrar la directiva de grabació
 ms.service: azure-video-analyzer
 ms.topic: how-to
 ms.date: 06/01/2021
-ms.openlocfilehash: 31b9d4f14a9c60687b9a6e8f32fcc3a1fba82856
-ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
+ms.openlocfilehash: 95e5decc8092c6a40e368c395da61fd8b9904e30
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114601572"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124762006"
 ---
 # <a name="manage-recording-policy-with-video-analyzer"></a>Administración de la directiva de grabación con Video Analyzer
 
-Puede usar Azure Video Analyzer para [grabar](video-recording.md) vídeo en directo en la nube durante un período de semanas, meses o años. Esta grabación puede ser [continua](continuous-video-recording.md), dispersa o [basada en eventos](event-based-video-recording-concept.md). En cualquier caso, las grabaciones pueden durar años. Además, puede administrar la longitud (en días) de ese archivo de la nube con las [herramientas de administración del ciclo de vida](../../storage/blobs/storage-lifecycle-management-concepts.md?tabs=azure-portal) integradas en Azure Storage.  
+Puede usar Azure Video Analyzer para [grabar](video-recording.md) vídeo en directo en la nube durante un período de semanas, meses o años. Esta grabación puede ser [continua](continuous-video-recording.md), dispersa o [basada en eventos](event-based-video-recording-concept.md). En cualquier caso, las grabaciones pueden durar años. Además, puede administrar la longitud (en días) de ese archivo de la nube con las [herramientas de administración del ciclo de vida](../../storage/blobs/lifecycle-management-overview.md?tabs=azure-portal) integradas en Azure Storage.  
 
-La cuenta de Video Analyzer está vinculada a una cuenta de Azure Storage y, al grabar en un recurso de vídeo, los datos multimedia se escriben en un contenedor de la cuenta de almacenamiento. La administración del ciclo de vida le permite definir una [directiva](../../storage/blobs/storage-lifecycle-management-concepts.md?tabs=azure-portal#policy) para una cuenta de Azure Storage, en la que puede especificar una [regla](../../storage/blobs/storage-lifecycle-management-concepts.md?tabs=azure-portal#rules) como la siguiente.
+La cuenta de Video Analyzer está vinculada a una cuenta de Azure Storage y, al grabar en un recurso de vídeo, los datos multimedia se escriben en un contenedor de la cuenta de almacenamiento. La administración del ciclo de vida le permite definir una [directiva](../../storage/blobs/lifecycle-management-overview.md?tabs=azure-portal) para una cuenta de Azure Storage, en la que puede especificar una [regla](../../storage/blobs/lifecycle-management-overview.md?tabs=azure-portal#lifecycle-management-rule-definition) como la siguiente.
 
 ```
 {
@@ -53,7 +53,7 @@ Cuando se usa Video Analyzer para grabar en un recurso de vídeo, se especifica 
 A continuación se indican algunas de las limitaciones conocidas de la administración del ciclo de vida:
 
 * Puede tener como máximo 100 reglas en la directiva, y cada regla puede especificar hasta 10 contenedores. Por lo tanto, si necesita tener distintas directivas de grabación (por ejemplo, un archivo de 3 días para la cámara del aparcamiento, 30 días para la cámara del muelle de carga y 180 días para la cámara de detrás del mostrador), con una cuenta de almacenamiento puede personalizar reglas para un máximo de 1000 cámaras.
-* Las actualizaciones de la directiva de administración del ciclo de vida no son inmediatas. Consulte [esta sección de preguntas más frecuentes](../../storage/blobs/storage-lifecycle-management-concepts.md?tabs=azure-portal#faq) para obtener más detalles.
+* Las actualizaciones de la directiva de administración del ciclo de vida no son inmediatas. Consulte [esta sección de preguntas más frecuentes](../../storage/blobs/lifecycle-management-overview.md?tabs=azure-portal#faq) para obtener más detalles.
 * Si decide aplicar una directiva en la que los blobs se mueven al nivel de acceso esporádico, la reproducción de esa parte del archivo puede verse afectada. Podría ver latencias adicionales o errores esporádicos. Video Analyzer no admite la reproducción de contenido en el nivel de archivo.
 
 ## <a name="next-steps"></a>Pasos siguientes

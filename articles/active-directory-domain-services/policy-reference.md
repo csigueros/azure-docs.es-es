@@ -1,19 +1,19 @@
 ---
 title: Definiciones de directivas integradas para Azure Active Directory Domain Services
 description: Enumera las definiciones de directivas integradas de Azure Policy para Azure Active Directory Domain Services. Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar los recursos de Azure.
-ms.date: 09/03/2021
+ms.date: 09/17/2021
 ms.service: active-directory
 ms.subservice: domain-services
 author: justinha
 ms.author: justinha
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: c792bba78c79c4dc87fbdeb69f44e8f052f72c0b
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: 0ada8ea1df0af6d86d93ae9bf955e3608c4b7244
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123479550"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128578880"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-active-directory-domain-services"></a>Las definiciones de directivas integradas de Azure Policy para Azure Active Directory Domain Services
 

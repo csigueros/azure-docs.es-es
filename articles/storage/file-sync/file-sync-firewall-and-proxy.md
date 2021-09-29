@@ -8,14 +8,15 @@ ms.date: 04/13/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6af10befe614ecd353bd5bd2185fcd9c7097f058
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: 64c6f101d0b8acd9c3d0ca00593c4b63b2b21a83
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122445076"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129080506"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Configuración del proxy y el firewall de Azure File Sync
+
 Azure File Sync conecta los servidores locales a Azure Files, lo que permite sincronizar las características de niveles de nube y de sincronización multisitio. Por lo tanto, un servidor local debe estar conectado a Internet. Un administrador de TI tiene que decidir cuál es la mejor ruta de acceso para que el servidor acceda a los servicios en la nube de Azure.
 
 Este artículo ofrece un resumen de las opciones y los requisitos específicos disponibles para conectar el servidor a Azure File Sync de forma correcta y segura.
@@ -23,6 +24,7 @@ Este artículo ofrece un resumen de las opciones y los requisitos específicos d
 Se recomienda leer [Consideraciones de redes para Azure File Sync](file-sync-networking-overview.md) antes de pasar a esta guía de procedimientos.
 
 ## <a name="overview"></a>Información general
+
 Azure File Sync funciona como un servicio de orquestación entre el servidor Windows, el recurso compartido de archivos de Azure y otros servicios de Azure con el objetivo de sincronizar los datos tal y como se describe en el grupo de sincronización. Para que Azure File Sync funcione correctamente, debe configurar los servidores para que se comuniquen con los siguientes servicios de Azure:
 
 - Azure Storage
@@ -30,39 +32,44 @@ Azure File Sync funciona como un servicio de orquestación entre el servidor Win
 - Azure Resource Manager
 - Servicios de autenticación
 
-> [!Note]  
+> [!NOTE]
 > El agente de Azure File Sync en Windows Server inicia todas las solicitudes a servicios en la nube, por lo que solo hay que tener en cuenta el tráfico saliente en el firewall. <br /> Ningún servicio de Azure inicia una conexión con el agente de Azure File Sync.
 
 ## <a name="ports"></a>Puertos
+
 Azure File Sync mueve los metadatos y los datos de archivo exclusivamente a través de HTTPS y requiere que el puerto 443 esté abierto al tráfico saliente.
 Como resultado, se cifra todo el tráfico.
 
 ## <a name="networks-and-special-connections-to-azure"></a>Redes y conexiones especiales a Azure
+
 El agente de Azure File Sync no tiene ningún requisito en lo que respecta a canales especiales como [ExpressRoute](../../expressroute/expressroute-introduction.md), etc., en Azure.
 
-Azure File Sync funciona con cualquier medio disponible que permita conectarse con Azure, de modo que se adapta automáticamente a diversas características de red, como el ancho de banda, la latencia y la posibilidad de usar el control de administración para realizar ajustes. No todas las características están disponibles en este momento. Si desea configurar un comportamiento específico, comuníquelo en [UserVoice de Azure Files](https://feedback.azure.com/forums/217298-storage?category_id=180670).
+Azure File Sync funciona con cualquier medio disponible que permita conectarse con Azure, de modo que se adapta automáticamente a diversas características de red, como el ancho de banda, la latencia y la posibilidad de usar el control de administración para realizar ajustes.
 
 ## <a name="proxy"></a>Proxy
+
 Azure File Sync admite la configuración del proxy específico de aplicación en el nivel de máquina.
 
 De este modo, se permite la **configuración de un proxy específico de la aplicación**, específicamente para el tráfico de Azure File Sync. La configuración de un proxy específico de la aplicación es compatible con la versión 4.0.1.0 o versiones posteriores, y se puede configurar durante la instalación del agente o mediante el cmdlet Set-StorageSyncProxyConfiguration de PowerShell.
 
 Comandos de PowerShell para configurar el proxy específico de la aplicación:
+
 ```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 Set-StorageSyncProxyConfiguration -Address <url> -Port <port number> -ProxyCredential <credentials>
 ```
+
 Por ejemplo, si el servidor proxy requiere autenticación con un nombre de usuario y una contraseña, ejecute los siguientes comandos de PowerShell:
 
 ```powershell
 # IP address or name of the proxy server.
-$Address="127.0.0.1"  
+$Address="127.0.0.1"
 
 # The port to use for the connection to the proxy.
 $Port=8080
 
 # The user name for a proxy.
-$UserName="user_name" 
+$UserName="user_name"
 
 # Please type or paste a string with a password for the proxy.
 $SecurePassword = Read-Host -AsSecureString
@@ -76,17 +83,19 @@ Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.Se
 
 Set-StorageSyncProxyConfiguration -Address $Address -Port $Port -ProxyCredential $Creds
 ```
+
 **Esta configuración de proxy en el nivel de máquina** es transparente para el agente de Azure File Sync, ya que todo el tráfico del servidor se enruta a través de este proxy.
 
-Para configurar los valores de proxy en el nivel de máquina, siga estos pasos: 
+Para configurar los valores de proxy en el nivel de máquina, siga estos pasos:
 
-1. Configuración de valores de proxy para aplicaciones de .NET 
+1. Configuración de valores de proxy para aplicaciones de .NET
 
    - Edite estos dos archivos:  
      C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config  
      C:\Windows\Microsoft.NET\Framework\v4.0.30319\Config\machine.config
 
    - Agregue la sección <system.net> en los archivos machine.config (debajo de la sección <system.serviceModel>).  Cambie 127.0.01:8888 a la dirección IP y puerto del servidor proxy. 
+
      ```
       <system.net>
         <defaultProxy enabled="true" useDefaultCredentials="true">
@@ -95,27 +104,27 @@ Para configurar los valores de proxy en el nivel de máquina, siga estos pasos:
       </system.net>
      ```
 
-2. Establecimiento de la configuración del proxy WinHTTP 
+2. Establecimiento de la configuración del proxy WinHTTP
 
-   > [!Note]  
+   > [!NOTE]
    > Hay varios métodos (WPAD, archivo PAC, netsh, etc.) para configurar Windows Server con el fin de usar un servidor proxy. En los siguientes pasos se explica cómo configurar el proxy mediante netsh, pero se admite cualquier método que figure en la documentación [Configuración del servidor proxy en Windows](/troubleshoot/windows-server/networking/configure-proxy-server-settings).
 
-
-   - Ejecute el siguiente comando desde un símbolo del sistema con privilegios elevados o PowerShell para ver la configuración del proxy existente:   
+   - Ejecute el siguiente comando desde un símbolo del sistema con privilegios elevados o PowerShell para ver la configuración del proxy existente:
 
      netsh winhttp show proxy
 
-   - Ejecute el siguiente comando desde un símbolo del sistema con privilegios elevados o PowerShell para establecer la configuración de proxy (cambie 127.0.01:8888 a la dirección IP y puerto del servidor proxy):  
+   - Ejecute el siguiente comando desde un símbolo del sistema con privilegios elevados o PowerShell para establecer la configuración de proxy (cambie 127.0.01:8888 a la dirección IP y puerto del servidor proxy):
 
      netsh winhttp set proxy 127.0.0.1:8888
 
-3. Reinicie el servicio del agente de sincronización de Azure Storage ejecutando el comando siguiente desde un símbolo del sistema con privilegios elevados o PowerShell: 
+3. Reinicie el servicio del agente de sincronización de Azure Storage ejecutando el comando siguiente desde un símbolo del sistema con privilegios elevados o PowerShell:
 
       net stop filesyncsvc
 
       Nota: El servicio del agente de sincronización de Storage (filesyncsvc) se iniciará automáticamente una vez detenido.
 
 ## <a name="firewall"></a>Firewall
+
 Como se mencionó en una sección anterior, el puerto 443 tiene que abrirse al tráfico saliente. En función de las directivas del centro de datos, la rama o la región, puede ser recomendable u obligatorio restringir aún más el tráfico a través de este puerto a dominios concretos.
 
 En la tabla siguiente se describen los dominios necesarios para la comunicación:
@@ -131,7 +140,7 @@ En la tabla siguiente se describen los dominios necesarios para la comunicación
 | **Microsoft PKI** |  https://www.microsoft.com/pki/mscorp/cps<br>http://crl.microsoft.com/pki/mscorp/crl/<br>http://mscrl.microsoft.com/pki/mscorp/crl/<br>http://ocsp.msocsp.com<br>http://ocsp.digicert.com/<br>http://crl3.digicert.com/ | https://www.microsoft.com/pki/mscorp/cps<br>http://crl.microsoft.com/pki/mscorp/crl/<br>http://mscrl.microsoft.com/pki/mscorp/crl/<br>http://ocsp.msocsp.com<br>http://ocsp.digicert.com/<br>http://crl3.digicert.com/ | Una vez instalado el agente Azure File Sync, la dirección URL de PKI se utiliza para descargar los certificados intermedios necesarios para comunicarse con el servicio Azure File Sync y el recurso compartido de archivos de Azure. La dirección URL de OCSP se utiliza para comprobar el estado de un certificado. |
 | **Microsoft Update** | &ast;.update.microsoft.com<br>&ast;.download.windowsupdate.com<br>&ast;.ctldl.windowsupdate.com<br>&ast;.dl.delivery.mp.microsoft.com<br>&ast;.emdl.ws.microsoft.com | &ast;.update.microsoft.com<br>&ast;.download.windowsupdate.com<br>&ast;.ctldl.windowsupdate.com<br>&ast;.dl.delivery.mp.microsoft.com<br>&ast;.emdl.ws.microsoft.com | Una vez instalado el agente de Azure File Sync, las direcciones URL de Microsoft Update se usan para descargar las actualizaciones del agente de Azure File Sync. |
 
-> [!Important]
+> [!IMPORTANT]
 > Si permite el tráfico a &ast;.afs.azure.net, el tráfico solo podrá enviarse al servicio sincronización. Ningún otro servicio de Microsoft usa este dominio.
 > Al permitir el tráfico a &ast;.one.microsoft.com, es posible dirigir el tráfico del servidor a más recursos que simplemente el servicio de sincronización. Existen muchos otros servicios de Microsoft en subdominios.
 
@@ -184,6 +193,7 @@ Por motivos de continuidad empresarial y recuperación ante desastres, es posibl
 > - https:\//tm-westus01.afs.azure.net (dirección URL de detección de la región primaria)
 
 ### <a name="allow-list-for-azure-file-sync-ip-addresses"></a>Lista de direcciones IP de Azure File Sync permitidas
+
 Azure File Sync permite usar [etiquetas de servicio](../../virtual-network/service-tags-overview.md), que representan un grupo de prefijos de direcciones IP relativos a un servicio de Azure determinado. Se pueden usar etiquetas de servicio para crear reglas de firewall que permitan la comunicación con el servicio Azure File Sync. La etiqueta de servicio de Azure File Sync es `StorageSyncService`.
 
 Si usa Azure File Sync en Azure, puede usar el nombre de la etiqueta de servicio directamente en el grupo de seguridad de red para permitir el tráfico. Para saber cómo, vea [Grupos de seguridad de red](../../virtual-network/network-security-groups-overview.md).
@@ -191,18 +201,18 @@ Si usa Azure File Sync en Azure, puede usar el nombre de la etiqueta de servicio
 Si usa Azure File Sync de forma local, puede usar la API de etiquetas de servicio para obtener intervalos de direcciones IP específicos para la lista de elementos permitidos del firewall. Existen dos formas de obtener esta información:
 
 - La lista actual de intervalos de direcciones IP de todos los servicios de Azure que admiten etiquetas de servicio se publica semanalmente en el Centro de descarga de Microsoft en forma de documento JSON. Cada nube de Azure tiene su propio documento JSON con los intervalos de direcciones IP pertinentes para esa nube:
-    - [Azure público](https://www.microsoft.com/download/details.aspx?id=56519)
-    - [Azure US Government](https://www.microsoft.com/download/details.aspx?id=57063)
-    - [Azure en China](https://www.microsoft.com/download/details.aspx?id=57062)
-    - [Azure Alemania](https://www.microsoft.com/download/details.aspx?id=57064)
+  - [Azure público](https://www.microsoft.com/download/details.aspx?id=56519)
+  - [Azure US Government](https://www.microsoft.com/download/details.aspx?id=57063)
+  - [Azure en China](https://www.microsoft.com/download/details.aspx?id=57062)
+  - [Azure Alemania](https://www.microsoft.com/download/details.aspx?id=57064)
 - La API de detección de etiquetas de servicio (versión preliminar) permite recuperar mediante programación la lista actual de etiquetas de servicio. En la versión preliminar, es posible que la API de detección de etiquetas de servicio devuelva información menos actual que la información incluida en los documentos JSON publicados en el Centro de descarga de Microsoft. Puede usar la superficie de API en función de su preferencia de automatización:
-    - [REST API](/rest/api/virtualnetwork/servicetags/list)
-    - [Azure PowerShell](/powershell/module/az.network/Get-AzNetworkServiceTag)
-    - [CLI de Azure](/cli/azure/network#az_network_list_service_tags)
+  - [REST API](/rest/api/virtualnetwork/servicetags/list)
+  - [Azure PowerShell](/powershell/module/az.network/Get-AzNetworkServiceTag)
+  - [CLI de Azure](/cli/azure/network#az_network_list_service_tags)
 
 Dado que la API de detección de etiquetas de servicio no se actualiza con tanta frecuencia como los documentos JSON publicados en el Centro de descarga de Microsoft, se recomienda usar este último para actualizar la lista de elementos permitidos del firewall local. Se puede hacer de la forma siguiente:
 
-```PowerShell
+```powershell
 # The specific region to get the IP address ranges for. Replace westus2 with the desired region code 
 # from Get-AzLocation.
 $region = "westus2"
@@ -300,20 +310,24 @@ if ($found) {
 Después, puede usar los intervalos de direcciones IP en `$ipAddressRanges` para actualizar el firewall. Consulte el sitio web del dispositivo de firewall/red para obtener información sobre cómo actualizar el firewall.
 
 ## <a name="test-network-connectivity-to-service-endpoints"></a>Prueba de la conectividad de red con los puntos de conexión de servicio
+
 Una vez que se registra un servidor con el servicio de Azure File Sync, se puede usar el cmdlet Test-StorageSyncNetworkConnectivity cmdlet y ServerRegistration.exe para probar la comunicación con todos los puntos de conexión (URL) específicos de este servidor. Este cmdlet puede ayudar a solucionar problemas si una comunicación incompleta impide que el servidor funcione totalmente con Azure File Sync, y se puede usar para ajustar las configuraciones de proxy y firewall.
 
 Para ejecutar la prueba de conectividad de red, instale la versión 9.1 o posterior del agente de Azure File Sync y ejecute los siguientes comandos de PowerShell:
+
 ```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 Test-StorageSyncNetworkConnectivity
 ```
 
 ## <a name="summary-and-risk-limitation"></a>Resumen y limitación de riesgos
+
 Las listas que aparecen anteriormente en este documento contienen las URL con las que actualmente se comunica Azure File Sync. Los firewalls deben poder permitir el tráfico de salida a estos dominios. Microsoft se esfuerza por mantener esta lista actualizada.
 
 Configurar reglas de firewall que restrinjan dominios puede ser una medida para mejorar la seguridad. Si se usan estas configuraciones de firewall, hay que tener en cuenta que se agregarán direcciones URL que incluso podrían cambiar con el tiempo. Compruebe periódicamente este artículo.
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 - [Planeamiento de una implementación de Azure File Sync](file-sync-planning.md)
 - [Implementación de Azure File Sync](file-sync-deployment-guide.md)
 - [Supervisión de Azure File Sync](file-sync-monitoring.md)

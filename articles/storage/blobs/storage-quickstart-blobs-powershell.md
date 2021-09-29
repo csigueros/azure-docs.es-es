@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 03/31/2020
 ms.author: tamram
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 46b36452926b02ea524b35727d54535a4ffa3f27
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: 56919745c893a8ba05538c8b1e342b4bbdd0e6fc
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123467743"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128662574"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-powershell"></a>Inicio rápido: Carga, descarga y enumeración de blobs mediante PowerShell
 
@@ -46,7 +46,7 @@ New-AzStorageContainer -Name $containerName -Context $ctx -Permission blob
 
 ## <a name="upload-blobs-to-the-container"></a>Carga de blobs al contenedor
 
-Blob Storage admite blobs en bloques, blobs en anexos y blobs en páginas. Los archivos VHD utilizados para respaldar VM IaaS son blobs en páginas. Use los blobs en anexos para el registro, por ejemplo, cuando desea escribir en un archivo y luego sigue agregando más información. La mayoría de los archivos almacenados en Blob Storage son blobs en bloques. 
+Blob Storage admite blobs en bloques, blobs en anexos y blobs en páginas. Los archivos VHD utilizados para respaldar VM IaaS son blobs en páginas. Use los blobs en anexos para el registro, por ejemplo, cuando desea escribir en un archivo y luego sigue agregando más información. La mayoría de los archivos almacenados en Blob Storage son blobs en bloques.
 
 Para cargar un archivo en un blob en bloques, obtenga una referencia de contenedor y luego obtenga una referencia al blob en bloques en ese contenedor. Cuando tenga la referencia del blob, puede cargar datos en él mediante [Set-AzStorageBlobContent](/powershell/module/az.storage/set-azstorageblobcontent). De este modo, se creará el blob si no existe, o se sobrescribirá si ya existe.
 
@@ -57,7 +57,7 @@ Los ejemplos siguientes cargan *Image001.jpg* e *Image002.png* desde la carpeta 
 Set-AzStorageBlobContent -File "D:\_TestImages\Image000.jpg" `
   -Container $containerName `
   -Blob "Image001.jpg" `
-  -Context $ctx 
+  -Context $ctx
 
 # upload a file to the Hot access tier
 Set-AzStorageBlobContent -File "D:\_TestImages\Image001.jpg" `
@@ -95,14 +95,14 @@ Get-AzStorageBlob -Container $ContainerName -Context $ctx | select Name
 
 Descargue los blobs en el disco local. Para cada blob que quiera descargar, establezca el nombre y llame a [Get-AzStorageBlobContent](/powershell/module/az.storage/get-azstorageblobcontent) para descargar el blob.
 
-Este ejemplo descarga los blobs a *D:\\_TestImages\Downloads* en el disco local. 
+Este ejemplo descarga los blobs a *D:\\_TestImages\Downloads* en el disco local.
 
 ```powershell
 # download first blob
 Get-AzStorageBlobContent -Blob "Image001.jpg" `
   -Container $containerName `
   -Destination "D:\_TestImages\Downloads\" `
-  -Context $ctx 
+  -Context $ctx
 
 # download another blob
 Get-AzStorageBlobContent -Blob "Image002.png" `
@@ -139,8 +139,8 @@ En esta guía de inicio rápido, ha trasferido archivos entre un sistema de arch
 
 ### <a name="microsoft-azure-powershell-storage-cmdlets-reference"></a>Referencia de cmdlets de almacenamiento de Microsoft Azure PowerShell
 
-* [Cmdlets de PowerShell de almacenamiento](/powershell/module/az.storage)
+- [Cmdlets de PowerShell de almacenamiento](/powershell/module/az.storage)
 
 ### <a name="microsoft-azure-storage-explorer"></a>Explorador de Microsoft Azure Storage
 
-* El [Explorador de Microsoft Azure Storage](../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) es una aplicación independiente y gratuita de Microsoft que permite trabajar visualmente con los datos de Azure Storage en Windows, macOS y Linux.
+- El [Explorador de Microsoft Azure Storage](../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) es una aplicación independiente y gratuita de Microsoft que permite trabajar visualmente con los datos de Azure Storage en Windows, macOS y Linux.

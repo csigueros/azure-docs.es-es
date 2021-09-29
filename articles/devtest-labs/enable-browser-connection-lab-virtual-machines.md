@@ -1,14 +1,14 @@
 ---
 title: Habilitación de una conexión de explorador en máquinas virtuales de Azure DevTest Labs
 description: Ahora, DevTest Labs se integra con Azure Bastion, lo que le permite, como propietario del laboratorio, habilitar el acceso a todas las máquinas virtuales de laboratorio a través de un explorador.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 6d9d631c79c22f1f713cfc4ee7cdd766a4ad8f06
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7982c878f062e0b8623bde9da6ea585226a455c9
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96341179"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128624299"
 ---
 # <a name="enable-browser-connection-on-azure-devtest-labs-virtual-machines"></a>Habilitación de una conexión de explorador en máquinas virtuales de Azure DevTest Labs 
 DevTest Labs se integra con [Azure Bastion](../bastion/index.yml), lo que le permite conectarse a sus máquinas virtuales a través de un explorador. En primer lugar, hay que habilitar una conexión del explorador en las máquinas virtuales de laboratorio en cuestión.

@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: cache
 ms.custom:
 - mode-portal
-ms.openlocfilehash: b53eb606fc12cf77eeaafcccf7c7286c73d46c64
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 72596521850ba3b3b10ef572aa768672869ec7ec
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112283040"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128620927"
 ---
 # <a name="quickstart-route-azure-cache-for-redis-events-to-web-endpoint-with-the-azure-portal"></a>Inicio rápido: Enrutamiento de eventos de Azure Cache for Redis al punto de conexión web mediante Azure Portal
 
@@ -27,7 +27,7 @@ Cuando haya terminado, verá que los datos del evento se han enviado a la aplica
 
 ## <a name="create-an-azure-cache-for-redis-cache-instance"></a>Creación de una instancia de Azure Cache for Redis
 
-[!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
+[!INCLUDE [redis-cache-create](includes/redis-cache-create.md)]
 
 ## <a name="create-a-message-endpoint"></a>Creación de un punto de conexión de mensaje
 

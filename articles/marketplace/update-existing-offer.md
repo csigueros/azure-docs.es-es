@@ -8,12 +8,12 @@ author: trkeya
 ms.author: trkeya
 ms.date: 07/09/2021
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: ae8cdb3b6f470d8dd9f1500d5dd0af51d594b8e8
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: d13b76e406398dcad37abb170b1f43439ab8bad4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123432295"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128662908"
 ---
 # <a name="update-existing-offers-in-the-commercial-marketplace"></a>Actualización de ofertas existentes en el Marketplace comercial
 
@@ -32,12 +32,12 @@ Use estos pasos para actualizar una oferta que se ha publicado correctamente en 
     - **Incompletos**: Las actualizaciones realizadas en la sección han introducido errores que tienen que corregirse o es necesario proporcionar más información.
 2. Seleccione **Publicar** para publicar la oferta actualizada. Luego, la oferta pasará por los [pasos de validación y publicación](review-publish-offer.md#validation-and-publishing-steps) estándar.
 
+> [!IMPORTANT]
+> Debe revisar la versión preliminar de la oferta una vez que esté disponible y seleccionar **Transmitir** para publicar su oferta actualizada para los destinatarios previstos (públicos o privados).
+
 ## <a name="changing-offer-type"></a>Cambio del tipo de oferta
 
 [!INCLUDE [change-offer-type](includes/change-offer-type.md)]
-
-> [!IMPORTANT]
-> Debe revisar la versión preliminar de la oferta una vez que esté disponible y seleccionar **Transmitir** para publicar su oferta actualizada para los destinatarios previstos (públicos o privados).
 
 ## <a name="add-a-plan-to-an-existing-offer"></a>Agregar un plan a una oferta existente
 

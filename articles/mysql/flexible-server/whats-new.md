@@ -7,12 +7,12 @@ ms.author: jtoland
 ms.custom: mvc
 ms.topic: conceptual
 ms.date: 08/17/2021
-ms.openlocfilehash: 74b81b095ef969715313c79c90821a8c8e8aaf1d
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: cfbff4be8048090ec606fd8640281dccd17fe084
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123098256"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "128598011"
 ---
 # <a name="whats-new-in-azure-database-for-mysql---flexible-server-preview"></a>Novedades de Azure Database for MySQL: servidor flexible (versión preliminar)
 
@@ -28,11 +28,11 @@ Esta versión de Azure Database for MySQL: servidor flexible incluye las siguien
 
 - **Alta disponibilidad dentro de una sola zona mediante alta disponibilidad en la misma zona**
 
-  El servicio ahora brinda a los clientes la flexibilidad de elegir la zona de disponibilidad preferida para su servidor en espera cuando habilitan la alta disponibilidad. Con esta característica, los clientes pueden colocar un servidor en espera en la misma zona que el servidor principal, lo que reduce el retraso de replicación entre el servidor principal y el que está en espera. Esto también logra latencias inferiores entre el servidor de aplicaciones y el servidor de bases de datos si se colocan dentro de la misma zona de Azure. [Más información](https://aka.ms/SameZone-HA).
+  El servicio ahora brinda a los clientes la flexibilidad de elegir la zona de disponibilidad preferida para su servidor en espera cuando habilitan la alta disponibilidad. Con esta característica, los clientes pueden colocar un servidor en espera en la misma zona que el servidor principal, lo que reduce el retraso de replicación entre el servidor principal y el que está en espera. Esto también logra latencias inferiores entre el servidor de aplicaciones y el servidor de bases de datos si se colocan dentro de la misma zona de Azure. [Más información](/azure/mysql/flexible-server/concepts-high-availability#same-zone-high-availability).
 
 - **Selección de zona en espera con alta disponibilidad con redundancia de zona**
 
-  El servicio ahora brinda a los clientes la capacidad de elegir la ubicación de la zona del servidor en espera. Con esta característica, los clientes pueden colocar el servidor en espera en la zona que prefieran. La colocación de los servidores de bases de datos y las aplicaciones en espera en la misma zona reduce las latencias y permite a los clientes prepararse mejor para situaciones de recuperación ante desastres y escenarios de "zona fuera de servicio". [Más información](https://aka.ms/standby-selection).
+  El servicio ahora brinda a los clientes la capacidad de elegir la ubicación de la zona del servidor en espera. Con esta característica, los clientes pueden colocar el servidor en espera en la zona que prefieran. La colocación de los servidores de bases de datos y las aplicaciones en espera en la misma zona reduce las latencias y permite a los clientes prepararse mejor para situaciones de recuperación ante desastres y escenarios de "zona fuera de servicio". [Más información](/azure/mysql/flexible-server/concepts-high-availability#standby-zone-selection).
 
 - **Integración de zonas DNS privadas**
 
@@ -44,7 +44,7 @@ Esta versión de Azure Database for MySQL: servidor flexible incluye las siguien
 
 - **Restauración a un momento dado para un servidor en una zona de disponibilidad**
 
-  La experiencia de restauración a un momento dado para el servicio ahora permite a los clientes configurar la zona de disponibilidad. Colocalizar los servidores de bases de datos y las aplicaciones en espera en la misma zona reduce las latencias y permite a los clientes prepararse mejor para situaciones de recuperación ante desastres y escenarios de "zona fuera de servicio". [Más información](https://aka.ms/standby-selection).
+  La experiencia de restauración a un momento dado para el servicio ahora permite a los clientes configurar la zona de disponibilidad. Colocalizar los servidores de bases de datos y las aplicaciones en espera en la misma zona reduce las latencias y permite a los clientes prepararse mejor para situaciones de recuperación ante desastres y escenarios de "zona fuera de servicio". [Más información](/azure/mysql/flexible-server/concepts-high-availability#standby-zone-selection).
 
 - **Complemento validate_password y caching_sha2_password disponibles en versión preliminar privada**
 
@@ -65,13 +65,6 @@ Esta versión de Azure Database for MySQL: servidor flexible incluye las siguien
   - No se puede crear el servidor de alta disponibilidad en la misma zona en las siguientes regiones: Centro de la India, Este de Asia, Centro de Corea del Sur, Norte de Sudáfrica, Norte de Suiza.
   - En un escenario poco frecuente y después de la conmutación por error de alta disponibilidad, el servidor principal estará en modo read_only. Para resolver el problema, actualice el valor "read_only" de la hoja de parámetros del servidor a OFF.
   - Después de escalar correctamente Proceso en la hoja Proceso y almacenamiento, las IOPS se restablecen al valor predeterminado de SKU. Para evitar el problema, los clientes pueden volver a escalar las IOPS en la hoja Proceso y almacenamiento al valor deseado (establecido previamente) después de la implementación de proceso y el consiguiente restablecimiento de las IOPS.
-  - Al intentar habilitar o implementar Alta disponibilidad en la misma zona, se produce un error en la implementación en las siguientes regiones 
-      - Centro de la India
-      - Este de Asia
-      - Centro de Corea del Sur
-      - Norte de Sudáfrica
-      - Norte de Suiza
-
 
 ## <a name="july-2021"></a>Julio de 2021
 
@@ -100,7 +93,7 @@ Esta versión de Azure Database for MySQL: servidor flexible incluye las siguien
 
 - **Oferta de 12 meses gratis**
 
-  A partir del 15 de junio de 2021, la [cuenta gratis de Azure](https://azure.microsoft.com/free/) brinda a los clientes hasta 12 meses de acceso gratis a Azure Database for MySQL: servidor flexible, con 750 horas de uso y 32 GB de almacenamiento al mes. Los clientes pueden aprovechar esta oferta para desarrollar e implementar aplicaciones que usen Azure Database for MySQL: servidor flexible. [Más información](https://go.microsoft.com/fwlink/?linkid=2165892).
+  A partir del 15 de junio de 2021, la [cuenta gratis de Azure](https://azure.microsoft.com/free/) brinda a los clientes hasta 12 meses de acceso gratis a Azure Database for MySQL: servidor flexible, con 750 horas de uso y 32 GB de almacenamiento al mes. Los clientes pueden aprovechar esta oferta para desarrollar e implementar aplicaciones que usen Azure Database for MySQL: servidor flexible. [Más información](./how-to-deploy-on-azure-free-account.md).
 
 - **Crecimiento automático del almacenamiento**
 

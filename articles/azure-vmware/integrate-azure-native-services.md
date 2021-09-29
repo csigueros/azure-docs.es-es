@@ -3,12 +3,12 @@ title: Supervisión y protección de máquinas virtuales con servicios nativos d
 description: Obtenga información sobre cómo integrar e implementar herramienta nativas de Microsoft Azure para supervisar y administrar las cargas de trabajo de Azure VMware Solution.
 ms.topic: how-to
 ms.date: 08/15/2021
-ms.openlocfilehash: 36bdb029f61a707f83ae42e66f399f376db23025
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 19453eeb652a0303e0447a80e37b63613aa92255
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122323878"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124799327"
 ---
 # <a name="monitor-and-protect-vms-with-azure-native-services"></a>Supervisión y protección de máquinas virtuales con servicios nativos de Azure
 
@@ -86,7 +86,7 @@ Si no está familiarizado con Azure o con ninguno de los servicios mencionados a
    >[!TIP]
    >Puede [usar una plantilla de Azure Resource Manager (ARM) para crear una cuenta de Azure Automation](../automation/quickstart-create-automation-account-template.md). El uso de una plantilla de ARM requiere menos pasos que otros métodos de implementación.
 
-1. [Creación de un área de trabajo de Log Analytics en Azure Portal](../azure-monitor/logs/quick-create-workspace.md) Si lo prefiere, también puede crear un área de trabajo a través de la [CLI](../azure-monitor/logs/quick-create-workspace-cli.md), [PowerShell](../azure-monitor/logs/powershell-workspace-configuration.md) o una [plantilla de Azure Resource Manager](../azure-monitor/logs/resource-manager-workspace.md).
+1. [Creación de un área de trabajo de Log Analytics en Azure Portal](../azure-monitor/logs/quick-create-workspace.md) Si lo prefiere, también puede crear un área de trabajo a través de la [CLI](../azure-monitor/logs/resource-manager-workspace.md), [PowerShell](../azure-monitor/logs/powershell-workspace-configuration.md) o una [plantilla de Azure Resource Manager](../azure-monitor/logs/resource-manager-workspace.md).
 
 1. [Habilite Update Management desde una cuenta de Automation](../automation/update-management/enable-from-automation-account.md). En el proceso, vinculará el área de trabajo de Log Analytics con la cuenta de Automation. 
  

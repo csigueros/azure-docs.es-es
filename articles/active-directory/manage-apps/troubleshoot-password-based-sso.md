@@ -10,16 +10,16 @@ ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: davidmu
 ms.reviewer: ergreenl
-ms.openlocfilehash: 32b099b72a55e768087f6123e684f0107e1e1e57
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 0c3f95559b891cfff9e704883365ca6b7bc1630b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121739958"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128658210"
 ---
 # <a name="troubleshoot-password-based-single-sign-on-in-azure-ad"></a>Solución de problemas de inicio de sesión único basado en contraseña en Azure AD
 
-Para usar el inicio de sesión único (SSO) basado en contraseña en Aplicaciones, debe instalarse la extensión del explorador. Esta extensión se descarga automáticamente cuando se selecciona una aplicación que está configurada para el inicio de sesión único basado en contraseña. Para obtener información sobre el uso de Aplicaciones desde la perspectiva del usuario final, consulte la [ayuda del portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+Para usar el inicio de sesión único (SSO) basado en contraseña en Aplicaciones, debe instalarse la extensión del explorador. Esta extensión se descarga automáticamente cuando se selecciona una aplicación que está configurada para el inicio de sesión único basado en contraseña. Para obtener información sobre el uso de Aplicaciones desde la perspectiva del usuario final, consulte la [ayuda del portal Aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="my-apps-browser-extension-not-installed"></a>Extensión del explorador Aplicaciones no instalada
 
@@ -251,7 +251,9 @@ En la siguiente información se explica qué significa cada elemento de la notif
 
 - **Copiar error**: Le permite seleccionar el **icono de copia** a la derecha del cuadro **Copiar error** para copiar los detalles de la notificación para compartirlos con soporte técnico.
 
-    Ejemplo:   ```{"errorCode":"InternalUrl\_Duplicate","localizedErrorDetails":{"errorDetail":"Internal url 'https://google.com/' is invalid since it is already in use"},"operationResults":\[{"objectId":null,"displayName":null,"status":0,"details":"Internal url 'https://bing.com/' is invalid since it is already in use"}\],"timeStampUtc":"2017-03-23T19:50:26.465743Z","clientRequestId":"302fd775-3329-4670-a9f3-bea37004f0bb","internalTransactionId":"ea5b5475-03b9-4f08-8e95-bbb11289ab65","upn":"tperkins@f128.info","tenantId":"7918d4b5-0442-4a97-be2d-36f9f9962ece","userObjectId":"17f84be4-51f8-483a-b533-383791227a99"}```
+    Ejemplo:
+    
+    `{"errorCode":"InternalUrl\_Duplicate","localizedErrorDetails":{"errorDetail":"Internal url 'https://google.com/' is invalid since it is already in use"},"operationResults":\[{"objectId":null,"displayName":null,"status":0,"details":"Internal url 'https://bing.com/' is invalid since it is already in use"}\],"timeStampUtc":"2017-03-23T19:50:26.465743Z","clientRequestId":"302fd775-3329-4670-a9f3-bea37004f0bb","internalTransactionId":"ea5b5475-03b9-4f08-8e95-bbb11289ab65","upn":"tperkins@f128.info","tenantId":"7918d4b5-0442-4a97-be2d-36f9f9962ece","userObjectId":"17f84be4-51f8-483a-b533-383791227a99"}`
 
 ## <a name="next-steps"></a>Pasos siguientes
 

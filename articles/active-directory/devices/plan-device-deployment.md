@@ -8,15 +8,15 @@ ms.topic: how-to
 ms.date: 06/15/2020
 ms.author: baselden
 author: BarbaraSelden
-manager: daveba
+manager: karenhoran
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f2ae8a38305b74f2bccba55b02d98626b5afc1d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 7f8198b7f4bbb7c710e899349766d0345655d7f8
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121724841"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128633438"
 ---
 # <a name="plan-your-azure-active-directory-device-deployment"></a>Planeación de la implementación de dispositivos de Azure Active Directory
 
@@ -48,7 +48,7 @@ Principales ventajas de ofrecer a los dispositivos una identidad de Azure AD:
 
 * Mejor experiencia del usuario: tener las identidades de dispositivo en Azure AD permite ofrecer a los usuarios un acceso sencillo a los recursos basados en la nube de su organización desde sus dispositivos personales y corporativos. Los administradores pueden habilitar [Enterprise State Roaming](enterprise-state-roaming-overview.md) para obtener una experiencia unificada en todos los dispositivos Windows.
 
-* Implementación y administración simplificadas: la administración de identidades de dispositivos simplifica el proceso de incorporación de dispositivos a Azure AD mediante [Windows AutoPilot](/windows/deployment/windows-autopilot/windows-10-autopilot), [aprovisionamiento masivo](/mem/intune/enrollment/windows-bulk-enroll) y [autoservicio: configuración rápida (OOBE)](../user-help/user-help-join-device-on-network.md). Puede administrar los dispositivos con herramientas de administración de dispositivos móviles (MDM) como [Microsoft Intune](/mem/intune/fundamentals/what-is-intune), y sus identidades en [Azure Portal](https://portal.azure.com/).
+* Implementación y administración simplificadas: la administración de identidades de dispositivos simplifica el proceso de incorporación de dispositivos a Azure AD mediante [Windows AutoPilot](/windows/deployment/windows-autopilot/windows-10-autopilot), [aprovisionamiento masivo](/mem/intune/enrollment/windows-bulk-enroll) y [autoservicio: configuración rápida (OOBE)](https://support.microsoft.com/account-billing/join-your-work-device-to-your-work-or-school-network-ef4d6adb-5095-4e51-829e-5457430f3973). Puede administrar los dispositivos con herramientas de administración de dispositivos móviles (MDM) como [Microsoft Intune](/mem/intune/fundamentals/what-is-intune), y sus identidades en [Azure Portal](https://portal.azure.com/).
 
 ### <a name="training-resources"></a>Recursos de aprendizaje
 
@@ -149,7 +149,7 @@ Si el registro de sus dispositivos es la mejor opción para su organización, co
 
 * Esta introducción a los [dispositivos registrados de Azure AD](concept-azure-ad-register.md).
 
-* Esta documentación para el usuario final sobre cómo [registrar un dispositivo personal en la red de la organización](../user-help/user-help-register-device-on-network.md).
+* Esta documentación para el usuario final sobre cómo [registrar un dispositivo personal en la red de la organización](https://support.microsoft.com/account-billing/register-your-personal-device-on-your-work-or-school-network-8803dd61-a613-45e3-ae6c-bd1ab25bf8a8).
 
 ## <a name="azure-ad-join"></a>Unión a Azure AD
 
@@ -171,7 +171,7 @@ Para aprovisionar la unión a Azure AD, hay varios enfoques:
 
 Si tiene Windows 10 Professional o Windows 10 Enterprise instalado en un dispositivo, la experiencia predeterminada es el proceso de configuración de los dispositivos de la empresa.
 
-* [Configuración rápida (OOBE) de Windows o desde la Configuración de Windows](../user-help/user-help-join-device-on-network.md)
+* [Configuración rápida (OOBE) de Windows o desde la Configuración de Windows](https://support.microsoft.com/account-billing/join-your-work-device-to-your-work-or-school-network-ef4d6adb-5095-4e51-829e-5457430f3973)
 
 * [Windows Autopilot](/windows/deployment/windows-autopilot/windows-autopilot)
 

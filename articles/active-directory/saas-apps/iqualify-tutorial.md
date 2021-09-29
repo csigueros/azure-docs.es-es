@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: bdd68a4f0dafd3b336bf5a3fb34399d725c9ff5c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 399cd4ca84918b8d925de8349b36cac97bbab2c4
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105626119"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124809525"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iqualify-lms"></a>Tutorial: Integración de Azure Active Directory con iQualify LMS
 
@@ -269,7 +269,7 @@ Al hacer clic en el icono de iQualify LMS del panel de acceso, debería entrar e
 
 Haga clic en el botón **Sign in with Azure AD** (Iniciar sesión con Azure AD), con ello debería iniciar sesión automáticamente en su aplicación iQualify LMS.
 
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md). 
+Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

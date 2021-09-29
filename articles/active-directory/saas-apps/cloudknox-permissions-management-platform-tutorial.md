@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/27/2021
 ms.author: jeedes
-ms.openlocfilehash: 8c1b45d78d4fb61d239fef178cbcb9fa6efd9539
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4cd19d038ada2a4d2fcbab473f56ee04f3be0b3d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101645695"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124817345"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cloudknox-permissions-management-platform"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con la plataforma de administración de permisos de CloudKnox
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar la plataforma de administración de perm
 * Permitir que los usuarios inicien sesión automáticamente en la plataforma de administración de permiso de CloudKnox con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -143,7 +143,7 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 * En Azure Portal, haga clic en "Probar esta aplicación". Al hacerlo, debería iniciar sesión automáticamente en la plataforma de administración de permisos de CloudKnox en la que configuró el inicio de sesión único.
 
-* Puede usar Mis aplicaciones de Microsoft. Si en Aplicaciones hace clic en el icono de la plataforma de administración de permisos de CloudKnox, debería iniciar sesión automáticamente en la plataforma en la que configuró el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+* Puede usar Mis aplicaciones de Microsoft. Si en Aplicaciones hace clic en el icono de la plataforma de administración de permisos de CloudKnox, debería iniciar sesión automáticamente en la plataforma en la que configuró el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 
 ## <a name="next-steps"></a>Pasos siguientes

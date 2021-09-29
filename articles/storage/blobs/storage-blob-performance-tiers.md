@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: e701ac76672712f98930d0a2d87e3da5b2afdc51
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 222a0f3c327c476ef372117ff0734b6739faf9db
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122181430"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128588701"
 ---
 # <a name="performance-tiers-for-block-blob-storage"></a>Niveles de rendimiento para el almacenamiento de blobs en bloques
 
@@ -57,7 +57,7 @@ El rendimiento Estándar admite distintos [niveles de acceso](storage-blob-stora
 
 - **Conjuntos de datos de copia de seguridad y recuperación ante desastres**. El almacenamiento de rendimiento estándar ofrece niveles de servicio rentables, por lo que es un caso de uso perfecto para los conjuntos de datos de recuperación ante desastres a corto y largo plazo, las copias de seguridad secundarias y el archivado de datos de cumplimiento.
 
-- **Contenido multimedia**. A menudo se accede frecuentemente a imágenes y vídeos cuando se crean y almacenan por primera vez, pero este tipo de contenido se usa con menos frecuencia a medida que se vuelve más antiguo. El almacenamiento de rendimiento estándar ofrece los niveles de servicio adecuados para los requisitos del contenido multimedia. 
+- **Contenido multimedia**. A menudo se accede frecuentemente a imágenes y vídeos cuando se crean y almacenan por primera vez, pero este tipo de contenido se usa con menos frecuencia a medida que se vuelve más antiguo. El almacenamiento de rendimiento estándar ofrece los niveles de servicio adecuados para los requisitos del contenido multimedia.
 
 - **Procesamiento de datos por lotes**. Estos tipos de cargas de trabajo son adecuados para el almacenamiento estándar porque requieren un almacenamiento rentable de alto rendimiento en lugar de una latencia baja constante. Los conjuntos de datos sin procesar de gran tamaño se almacenan provisionalmente para su procesamiento y, finalmente, se migran a los niveles de servicio de acceso esporádico.
 
@@ -74,7 +74,7 @@ La administración del ciclo de vida de Blob Storage ofrece una directiva comple
 - **Premium**: los datos expiran al final de su ciclo de vida.
 - **Estándar**: los datos experimentan una transición al mejor nivel de acceso y expiran al final de su ciclo de vida.
 
-Para más información, consulte [Administración del ciclo de vida de Azure Blob Storage](storage-lifecycle-management-concepts.md).
+Para más información, consulte [Administración del ciclo de vida de Azure Blob Storage](./lifecycle-management-overview.md).
 
 Los datos que se almacenan en una cuenta de almacenamiento de blobs en bloques de rendimiento Premium no se pueden mover entre los niveles de acceso frecuente, esporádico y de archivo. Sin embargo, puede copiar blobs desde una cuenta de almacenamiento de blobs en bloques al nivel de acceso frecuente en una cuenta *diferente*. Use [Put Block From URL](/rest/api/storageservices/put-block-from-url) API o [AzCopy v10](../common/storage-use-azcopy-v10.md) para copiar los datos en una cuenta diferente. **Put Block From URL** API realiza una copia sincrónica de los datos en el servidor. La llamada se completa solo después de que todos los datos se han movido de la ubicación del servidor original a la ubicación de destino.
 

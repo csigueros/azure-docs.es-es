@@ -1,7 +1,6 @@
 ---
 title: 'Inicio rápido: Biblioteca cliente de Form Recognizer para .NET'
 description: Use la biblioteca cliente de Form Recognizer para .NET con el fin de crear una aplicación de procesamiento de formularios que extraiga pares clave-valor y datos de tabla de los documentos personalizados.
-services: cognitive-services
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -10,12 +9,12 @@ ms.topic: include
 ms.date: 07/30/2021
 ms.author: lajanuar
 ms.custom: " devx-track-csharp"
-ms.openlocfilehash: 7bb5997df74233d9f0e89a69d5be6d9b614f52c9
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 5b1b4658199d624f2ebb8e1ed3dc08d64489f11b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122327881"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128652570"
 ---
 <!-- markdownlint-disable MD024 -->
 
@@ -382,7 +381,7 @@ El valor de `CustomFormModel` devuelto indica los campos que el modelo puede ext
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_trainlabels_response)]
 
-### <a name="output"></a>Output
+### <a name="output"></a>Resultados
 
 Esta respuesta se ha truncado para facilitar la lectura.
 
@@ -515,7 +514,7 @@ El siguiente bloque de código comprueba cuántos modelos se han guardado en la 
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_manage_model_count)]
 
-### <a name="output"></a>Output
+### <a name="output"></a>Resultados
 
 ```console
 Account has 20 models.

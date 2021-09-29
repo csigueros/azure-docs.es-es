@@ -1,7 +1,6 @@
 ---
 title: 'Referencia: Biblioteca cliente 3.1.1 de Form Recognizer para JavaScript'
 description: Use la biblioteca cliente de Form Recognizer para JavaScript con el fin de crear una aplicación de procesamiento de formularios que extraiga pares clave-valor y datos de tabla de los documentos personalizados.
-services: cognitive-services
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -10,12 +9,12 @@ ms.topic: include
 ms.date: 05/25/2021
 ms.author: lajanuar
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 17daa1bd4edb8b97098ce55c18577003f7310a41
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: cec68dd2fe938cea22bbc9a34c9227f2988307b5
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122326540"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128641822"
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
@@ -134,7 +133,7 @@ Puede usar Form Recognizer para analizar tablas, líneas y palabras de los docum
 > [!TIP]
 > También puede obtener contenido de un archivo local. Consulte los métodos [FormRecognizerClient](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient), como **beginRecognizeContent**. O bien, consulte el código de ejemplo en [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples) para escenarios relacionados con imágenes locales.
 
-### <a name="output"></a>Output
+### <a name="output"></a>Resultados
 
 ```console
 Page 1: width 8.5 and height 11 with unit inch

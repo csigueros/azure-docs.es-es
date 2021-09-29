@@ -1,14 +1,14 @@
 ---
 title: Implementación del ejemplo de plano técnico de Media
 description: Pasos de implementación para el ejemplo de plano técnico de Media, incluidos los detalles de los parámetros del artefacto de plano técnico.
-ms.date: 04/02/2021
+ms.date: 09/08/2021
 ms.topic: sample
-ms.openlocfilehash: 760f75711f66e2b178ef12a9a4e24ff2e536179c
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 63dd8c1e10e27ee7c03f2dc8131297489c7d966f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106386422"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128631976"
 ---
 # <a name="deploy-the-media-blueprint-sample"></a>Implementación del ejemplo de plano técnico de Media
 

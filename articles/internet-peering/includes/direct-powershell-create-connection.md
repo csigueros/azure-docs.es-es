@@ -1,5 +1,5 @@
 ---
-title: archivo de inclusión
+title: Archivo de inclusión
 titleSuffix: Azure
 description: archivo de inclusión
 services: internet-peering
@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c4fee795996809b0ed3878e8904f10aca50c722e
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: f7e9b1ed926918496e1205f4a9e642f1cb59522d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110720936"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128909032"
 ---
 En el ejemplo siguiente se muestra cómo crear un emparejamiento directo de 10 Gbps en Seattle.
 
@@ -33,7 +33,7 @@ $connection1 = New-AzPeeringDirectConnectionObject `
 ```
 
 > [!NOTE]
-> El valor de <index> **$peeringLocation[]** <index> del ejemplo anterior debe corresponder a la ubicación de emparejamiento de su elección.
+> El valor de  **$peeringLocation[]** del ejemplo anterior debe corresponder a la ubicación de emparejamiento de su elección.
 
 Cree otra conexión si necesita redundancia en la ubicación de emparejamiento dada.
 

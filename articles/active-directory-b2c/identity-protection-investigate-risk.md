@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: overview
-ms.date: 05/13/2021
+ms.date: 09/16/2021
 ms.custom: project-no-code
 ms.author: mimart
 author: msmimart
 manager: celested
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 072278ab70484eb427bafafc3e644e39e47eb8a8
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 91b154604e8d2ec898b45aef43f453d769934464
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111960480"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128572374"
 ---
 # <a name="investigate-risk-with-identity-protection-in-azure-ad-b2c"></a>Investigación del riesgo con Identity Protection en Azure AD B2C
 
@@ -86,11 +86,9 @@ Un administrador puede optar por descartar el riesgo de un usuario en Azure Port
 ### <a name="navigating-the-risky-users-report"></a>Desplazarse por el informe de usuarios de riesgo
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
-
-1. Seleccione el icono **Directorio y suscripción** en la barra de herramientas del portal y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
-
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
 1. En **Servicios de Azure**, seleccione **Azure AD B2C**. O bien, use el cuadro de búsqueda para buscar y seleccionar **Azure AD B2C**.
-
 1. En **Seguridad**, seleccione **Usuarios de riesgo**.
 
    ![Usuarios de riesgo](media/identity-protection-investigate-risk/risky-users.png)

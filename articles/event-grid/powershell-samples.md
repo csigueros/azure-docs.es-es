@@ -2,13 +2,13 @@
 title: 'Ejemplos de Azure PowerShell: Event Grid | Microsoft Docs'
 description: En este artículo se incluye una tabla con vínculos a scripts de ejemplo de Azure PowerShell para Azure Event Grid.
 ms.topic: sample
-ms.date: 07/07/2020
-ms.openlocfilehash: 89945d9fc3558b8e14303aebe9ef593fbd792761
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 09/15/2021
+ms.openlocfilehash: 74134e98744cfc53c19c87da69c05e4883eeca97
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86108114"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128627546"
 ---
 # <a name="azure-powershell-samples-for-event-grid"></a>Ejemplos de Azure PowerShell para Event Grid
 

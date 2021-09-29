@@ -8,12 +8,12 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: b3b4f7737320cc0359192f947271a0f4beb3c478
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 7153eb1ee29ea63a17e614f49f287945869c7a7e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107503004"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128680155"
 ---
 # <a name="azcopy"></a>azcopy
 
@@ -37,7 +37,7 @@ Para notificar problemas o para más información acerca de la herramienta, cons
 **--cap-mbps**  (float)  Limita la velocidad de transferencia, en megabits por segundo. El rendimiento en un momento dado puede variar ligeramente del límite. Si esta opción se establece en cero o se omite, el rendimiento no se limita.
 
 **--help** Ayuda de azcopy
-      
+
 **--output-type**  (string) Formato de la salida del comando. Las opciones incluyen: text, json. El valor predeterminado es `text`. (`text` por defecto)
 
 **--trusted-microsoft-suffixes** (string) Especifica sufijos de dominio adicionales en los que se pueden enviar tokens de inicio de sesión de Azure Active Directory.  El valor predeterminado es " *.core.windows.net;* .core.chinacloudapi.cn; *.core.cloudapi.de;* .core.usgovcloudapi.net". Los valores que se muestran aquí se agregan al valor predeterminado. Por seguridad, solo debe poner aquí dominios de Microsoft Azure. Separe las entradas con punto y coma.

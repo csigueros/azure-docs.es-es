@@ -1,14 +1,14 @@
 ---
 title: Azure Lighthouse y Azure Managed Applications
 description: Comprenda cómo se pueden usar Azure Lighthouse y aplicaciones administradas de Azure de forma conjunta.
-ms.date: 05/11/2021
+ms.date: 09/08/2021
 ms.topic: conceptual
-ms.openlocfilehash: 09e07aca77fc53cb9eab2ba0c980b6c838ef6726
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 629f9f1f6b6db69816d26cc7eed1e305dd55923b
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111962643"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124768579"
 ---
 # <a name="azure-lighthouse-and-azure-managed-applications"></a>Azure Lighthouse y Azure Managed Applications
 

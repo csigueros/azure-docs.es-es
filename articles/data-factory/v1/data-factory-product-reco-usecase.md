@@ -5,14 +5,15 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 44c66f5fa89e7293667c930bfd1720d72dc26bf4
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a9a194fb1f1db5723643f9f73a6c2018f5daa59f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104785077"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128665347"
 ---
 # <a name="use-case---product-recommendations"></a>Caso de uso: recomendaciones de productos
 Azure Data Factory es uno de los muchos servicios que se usan para implementar el conjunto de aplicaciones Cortana Intelligence de aceleradores de soluciones.  Consulte la página [Cortana Intelligence Suite](https://www.microsoft.com/cortanaanalytics) para más información sobre este conjunto de aplicaciones. En este documento se describe un caso de uso común que los usuarios de Azure ya resolvieron e implementaron mediante Azure Data Factory y otros servicios del componente Cortana Intelligence.
@@ -40,7 +41,7 @@ El distribuidor en línea usa un almacén de blobs de Azure, un servidor local d
 
 Todos los datos se combinan e introducen en un sistema de recomendación de productos para ofrecer recomendaciones personalizadas según los intereses y las acciones del cliente, mientras el usuario examina los productos en el catálogo del sitio web del distribuidor. Los clientes también ven productos que puedan estar relacionados con el producto que miran de acuerdo con los patrones de uso general del sitio web que no están relacionados con ningún otro usuario.
 
-![diagrama del caso de uso](./media/data-factory-product-reco-usecase/diagram-1.png)
+:::image type="content" source="./media/data-factory-product-reco-usecase/diagram-1.png" alt-text="diagrama del caso de uso":::
 
 Diariamente se generan gigabytes de archivos de registro web sin formato desde el sitio web del distribuidor en línea como archivos semiestructurados. Los archivos de registro web sin procesar y la información del catálogo de clientes y productos se introducen periódicamente en una cuenta de Azure Blog Storage mediante el movimiento de datos como servicio implementado globalmente de Data Factory. Los archivos de registro sin procesar del día se dividen (por año y mes) en el almacenamiento de blobs para el almacenamiento a largo plazo.  [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) se usa para particionar los archivos de registro sin procesar en el almacén de blobs y procesar los registros ingeridos a escala mediante scripts de Hive y Pig. Los datos de registro web particionados se procesan luego para extraer las entradas que necesita un sistema de recomendaciones de aprendizaje automático para generar las recomendaciones de productos personalizadas.
 

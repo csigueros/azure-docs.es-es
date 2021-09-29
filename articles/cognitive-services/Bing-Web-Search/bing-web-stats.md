@@ -3,20 +3,18 @@ title: Incorporación de análisis a Bing Web Search API
 titleSuffix: Azure Cognitive Services
 description: Las estadísticas de Bing proporcionan análisis para Bing Image Search API. El análisis incluye el volumen de llamadas, las cadenas de consulta principales, la distribución geográfica y mucho más.
 services: cognitive-services
-author: swhite-msft
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 07/17/2019
-ms.author: scottwhi
 ms.custom: seodec2018
-ms.openlocfilehash: 02fea02cca5950ef8467377a866e9a765af9e2e1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 878a6fd49a46b47c3243b168469a15909102a019
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "96349561"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128587069"
 ---
 # <a name="add-analytics-to-the-bing-search-apis"></a>Incorporación de análisis a Bing Search APIs
 

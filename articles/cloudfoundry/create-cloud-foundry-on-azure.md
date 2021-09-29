@@ -14,16 +14,16 @@ ms.service: azure
 ms.tgt_pltfrm: multiple
 ms.topic: tutorial
 ms.workload: web
-ms.openlocfilehash: 3444d6c62b5e36b7e68cfaf6da1ec534e2ea4ec6
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 1ed9dbef648eace79807f06f034ba02e8bc67817
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102551460"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128655873"
 ---
 # <a name="create-a-pivotal-cloud-foundry-cluster-on-azure"></a>Creación de un clúster de Pivotal Cloud Foundry en Azure
 
-En este tutorial se proporcionan pasos rápidos para crear y generar los parámetros necesarios para aprovisionar un clúster de Pivotal Cloud Foundry (PCF) en Azure. Para encontrar la solución de Pivotal Cloud Foundry, realice una búsqueda en Azure [Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry).
+En este tutorial se proporcionan pasos rápidos para crear y generar los parámetros necesarios para aprovisionar un clúster de Pivotal Cloud Foundry (PCF) en Azure. Para encontrar la solución de Pivotal Cloud Foundry, realice una búsqueda en Azure Marketplace.
 
 ![Búsqueda de Pivotal Cloud Foundry en Azure](media/deploy/pcf-marketplace.png)
 
@@ -117,7 +117,7 @@ Para más información, consulte [Uso de claves SSH con Windows en Azure](../vir
 
 ## <a name="provision-your-cloud-foundry-cluster-on-azure"></a>Aprovisionamiento de un clúster Cloud Foundry en Azure
 
-Ahora tiene todos los parámetros que necesita para aprovisionar su [clúster de Pivotal Cloud Foundry en Azure](https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry).
+Ahora tiene todos los parámetros que necesita para aprovisionar su clúster de Pivotal Cloud Foundry en Azure.
 Especifique los parámetros y cree el clúster de Pivotal Cloud Foundry.
 
 ## <a name="verify-the-deployment-and-sign-in-to-the-pivotal-ops-manager"></a>Comprobación de la implementación, e inicio de sesión en Pivotal Ops Manager

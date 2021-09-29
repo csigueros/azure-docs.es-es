@@ -4,12 +4,12 @@ ms.author: vimeht
 ms.date: 7/8/2021
 ms.topic: include
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 58977fdfb05a2f2b152d66fb12065d88a98b2b2e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: d7970fff815449adf6412c2748e22b2d471e52b0
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121802730"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128645522"
 ---
  > [!NOTE]
  > Cuando un recurso o una operación determinados no tienen límites ajustables, los límites predeterminado y máximo son los mismos.
@@ -37,6 +37,6 @@ En esta tabla se proporcionan los distintos límites asociados a las operaciones
 | Número de nombres de actualización por proveedor por instancia | 25 | 25 | No |
 | Número de versiones de actualización por proveedor de actualizaciones y nombre por instancia | 100 | 100 | No |
 | Número total de actualizaciones por instancia | 100 | 100 | No |
-| Tamaño máximo de archivo de actualización única | 800 MB | 800 MB | No |
-| Tamaño combinado máximo de todos los archivos en una sola acción de importación | 800 MB | 800 MB | No |
+| Tamaño máximo de archivo de actualización única | 2 GB | 2 GB | No |
+| Tamaño combinado máximo de todos los archivos en una sola acción de importación | 2 GB | 2 GB | No |
 | Número de grupos de dispositivos por instancia | 75 | 75 | No |

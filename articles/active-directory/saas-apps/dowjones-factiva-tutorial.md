@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: jeedes
-ms.openlocfilehash: 3d36f74231b7253a46691b7418aa44ec37d816bd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9eaf4a28b9102447d0eb13c15f850ba5fe583ffb
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92454667"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124809665"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dow-jones-factiva"></a>Tutorial: Integración de Azure Active Directory con Dow Jones Factiva
 
@@ -178,7 +178,7 @@ En esta sección, creará un usuario llamado Britta Simon en Dow Jones Factiva. 
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de Dow Jones Factiva en el Panel de acceso, debería iniciar sesión automáticamente en la instancia de Dow Jones Factiva para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
+Al hacer clic en el icono de Dow Jones Factiva en el Panel de acceso, debería iniciar sesión automáticamente en la instancia de Dow Jones Factiva para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

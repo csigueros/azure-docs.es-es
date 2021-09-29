@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: klaasl
-ms.openlocfilehash: 7b32e75645c2c930e296bdb4c5448bcb16045d6d
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: 272575ab5fac1888e6f9c3d84317e0450447f3c4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123470569"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128662654"
 ---
 # <a name="access-tiers-for-azure-blob-storage---hot-cool-and-archive"></a>Niveles de acceso de Azure Blob Storage: frecuente, esporádico y archivo
 
@@ -88,9 +88,9 @@ Entre los ejemplos de escenarios de uso del nivel de acceso de archivo se incluy
 
 ## <a name="account-level-tiering"></a>Almacenamiento por niveles de cuenta
 
-Dentro de la misma cuenta pueden coexistir blobs de los tres niveles de acceso. Los blobs que no tienen un nivel asignado explícitamente infieren el nivel de la configuración del nivel de acceso de la cuenta. Si el nivel de acceso procede de la cuenta, verá que la propiedad de blob **Access Tier Inferred** se establece en "true", y que la propiedad de blob **Access Tier** coincide con el nivel de cuenta. En Azure Portal, la propiedad _access tier inferred_ se muestra con el nivel de acceso de blob como **Frecuente (inferido)** o **Esporádico (inferido)** .
+Dentro de la misma cuenta pueden coexistir blobs de los tres niveles de acceso. Los blobs que no tienen un nivel asignado explícitamente infieren el nivel de la configuración del nivel de acceso de la cuenta. Si el nivel de acceso procede de la cuenta, verá que la propiedad de blob **Access Tier Inferred** se establece en "true", y que la propiedad de blob **Access Tier** coincide con el nivel de cuenta. En Azure Portal, la propiedad *access tier inferred* se muestra con el nivel de acceso de blob como **Frecuente (inferido)** o **Esporádico (inferido)** .
 
-El cambio del nivel de acceso de cuenta se aplica a todos los objetos _access tier inferred_ almacenados en la cuenta que no tengan un nivel explícito establecido. Si cambia el nivel de acceso de la cuenta de frecuente a esporádico, solo se le cobrarán las operaciones de escritura (por 10 000) de todos los blobs sin un nivel establecido en las cuentas de GPv2. En las cuentas de Blob Storage no se realiza ningún cargo por este cambio. Si cambia el nivel de acceso de su cuenta de Blob Storage o de GPv2 de esporádico a frecuente, se le cobran tanto las operaciones de lectura (por 10 000) como las de recuperación de datos (por GB).
+El cambio del nivel de acceso de cuenta se aplica a todos los objetos *access tier inferred* almacenados en la cuenta que no tengan un nivel explícito establecido. Si cambia el nivel de acceso de la cuenta de frecuente a esporádico, solo se le cobrarán las operaciones de escritura (por 10 000) de todos los blobs sin un nivel establecido en las cuentas de GPv2. En las cuentas de Blob Storage no se realiza ningún cargo por este cambio. Si cambia el nivel de acceso de su cuenta de Blob Storage o de GPv2 de esporádico a frecuente, se le cobran tanto las operaciones de lectura (por 10 000) como las de recuperación de datos (por GB).
 
 Solo los niveles de almacenamiento de acceso frecuente y esporádico se pueden establecer como nivel de acceso de cuenta predeterminado. El nivel de acceso de archivo solo puede establecerse en el nivel de objeto. Al cargar blobs, puede especificar el nivel de acceso que prefiera para que sea frecuente, esporádico o de archivo, independientemente del nivel de cuenta predeterminado. Esta funcionalidad permite escribir datos directamente en el nivel de archivo para ahorrar en costos desde el momento en que se crean los datos en el almacenamiento de blobs.
 
@@ -107,7 +107,7 @@ Al sobrescribir un blob en el nivel de acceso frecuente o esporádico, el blob r
 
 ### <a name="blob-lifecycle-management"></a>Administración del ciclo de vida de blobs
 
-La administración del ciclo de vida de Blob Storage ofrece una directiva enriquecida basada en reglas que se puede usar para la transición de los datos al mejor nivel de acceso y para hacer que los datos expiren cuando finalice su ciclo de vida. Vea [Optimización de los costos mediante la automatización de los niveles de acceso de Azure Blob Storage](storage-lifecycle-management-concepts.md) para obtener más información.
+La administración del ciclo de vida de Blob Storage ofrece una directiva enriquecida basada en reglas que se puede usar para la transición de los datos al mejor nivel de acceso y para hacer que los datos expiren cuando finalice su ciclo de vida. Vea [Optimización de los costos mediante la automatización de los niveles de acceso de Azure Blob Storage](./lifecycle-management-overview.md) para obtener más información.
 
 > [!NOTE]
 > Los datos almacenados en una cuenta de almacenamiento de blobs en bloques (rendimiento Premium) no se pueden organizar en niveles de acceso frecuente, esporádico o de archivo con [Set Blob Tier](/rest/api/storageservices/set-blob-tier) ni mediante la administración del ciclo de vida de Azure Blob Storage.
@@ -180,16 +180,14 @@ Los diferentes niveles de acceso, junto con el almacenamiento por niveles de blo
 
 ## <a name="feature-support"></a>Compatibilidad de características
 
-En esta tabla se muestra cómo se admite esta característica en la cuenta y el impacto en la compatibilidad al habilitar determinadas funcionalidades. 
+En esta tabla se muestra cómo se admite esta característica en la cuenta y el impacto en la compatibilidad al habilitar determinadas funcionalidades.
 
-| Tipo de cuenta de almacenamiento                | Blob Storage (compatibilidad predeterminada)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>    
+| Tipo de cuenta de almacenamiento                | Blob Storage (compatibilidad predeterminada)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
 |-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
-| De uso general estándar, v2 | ![Sí](../media/icons/yes-icon.png) |![Sí](../media/icons/yes-icon.png)              | ![Sí](../media/icons/yes-icon.png) | 
+| De uso general estándar, v2 | ![Sí](../media/icons/yes-icon.png) |![Sí](../media/icons/yes-icon.png)              | ![Sí](../media/icons/yes-icon.png) |
 | Blobs en bloques Premium          | ![No](../media/icons/no-icon.png)|![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
 
-<sup>1</sup> Data Lake Storage Gen2 y el protocolo Network File System (NFS) 3.0 necesitan una cuenta de almacenamiento con un espacio de nombres jerárquico habilitado.
-
-
+<sup>1</sup> Tanto Data Lake Storage Gen2 como el protocolo Network File System (NFS) 3.0 necesitan una cuenta de almacenamiento con un espacio de nombres jerárquico habilitado.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -197,4 +195,4 @@ Aprenda a administrar blobs y cuentas en niveles de acceso.
 
 - [Administración del nivel de acceso de un blob en una cuenta de Azure Storage](manage-access-tier.md)
 - [Administración del nivel de acceso predeterminado de una cuenta de Azure Storage](../common/manage-account-default-access-tier.md)
-- [Optimización de los costos mediante la automatización de los niveles de acceso de Azure Blob Storage](storage-lifecycle-management-concepts.md)
+- [Optimización de los costos mediante la automatización de los niveles de acceso de Azure Blob Storage](./lifecycle-management-overview.md)

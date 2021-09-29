@@ -5,12 +5,12 @@ author: yossiy
 ms.topic: how-to
 ms.date: 08/17/2021
 ms.author: yossiy
-ms.openlocfilehash: 8d8a12fe1fcc53b5e268ca412f3e0320cf8d95d9
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: cecfa72493545f40c2e7326fece88cb85f99974b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123427253"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128565420"
 ---
 # <a name="move-a-log-analytics-workspace-to-another-region-by-using-the-azure-portal"></a>Traslado de un área de trabajo de Log Analytics a otra región mediante Azure Portal
 
@@ -25,7 +25,7 @@ El entorno del área de trabajo puede ser complejo e incluir orígenes conectado
 - Para exportar la configuración del área de trabajo a una plantilla que se pueda implementar en otra región, necesita los roles [Colaborador de Log Analytics](../../role-based-access-control/built-in-roles.md#log-analytics-contributor) o [Colaborador de supervisión](../../role-based-access-control/built-in-roles.md#monitoring-contributor), u otros roles superiores.
 
 - Identifique todos los recursos que estén asociados actualmente al área de trabajo, por ejemplo:
-  - *Agentes conectados*: escriba **Registros** en el área de trabajo y consulte la tabla de [latidos](../insights/solution-agenthealth.md#heartbeat-records) para enumerar los agentes conectados.
+  - *Agentes conectados*: escriba **Registros** en el área de trabajo y consulte la tabla de [latidos](../insights/solution-agenthealth.md#azure-monitor-log-records) para enumerar los agentes conectados.
     ```kusto
     Heartbeat
     | summarize by Computer, Category, OSType, _ResourceId

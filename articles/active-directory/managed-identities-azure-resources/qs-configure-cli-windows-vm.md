@@ -1,26 +1,22 @@
 ---
 title: 'Configuración de identidades administradas en VM de Azure mediante la CLI de Azure: Azure AD'
 description: Instrucciones paso a paso para configurar identidades administradas asignadas por el sistema y por el usuario en una VM de Azure mediante la CLI de Azure.
-services: active-directory
-documentationcenter: ''
 author: barclayn
 manager: daveba
-editor: ''
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/15/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8dbe9665612e888b7e7afe95a472ba6b0de8d48
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 205661a32d938352ae81073668843c569825cc8e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107762522"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128679617"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-azure-cli"></a>Configurar identidades administradas para recursos de Azure en una VM de Azure mediante la CLI de Azure
 
@@ -100,7 +96,7 @@ az vm update -n myVM -g myResourceGroup --set identity.type="none"
 ## <a name="user-assigned-managed-identity"></a>Identidad administrada asignada por el usuario
 
 En esta sección, aprenderá a agregar y quitar una identidad administrada asignada por el usuario de una VM de Azure con la CLI de Azure. Si crea la identidad administrada asignada por el usuario en un RG diferente al de la máquina virtual. Tendrá que usar la dirección URL de la identidad administrada para asignarla a la máquina virtual.
-por ejemplo: --identities "/subscriptions/<SUBID>/resourcegroups/<RESROURCEGROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER_ASSIGNED_ID_NAME>"
+Por ejemplo, `--identities "/subscriptions/<SUBID>/resourcegroups/<RESROURCEGROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER_ASSIGNED_ID_NAME>"`.
 
 ### <a name="assign-a-user-assigned-managed-identity-during-the-creation-of-an-azure-vm"></a>Asignación de una identidad administrada asignada por el usuario durante la creación de una VM de Azure
 

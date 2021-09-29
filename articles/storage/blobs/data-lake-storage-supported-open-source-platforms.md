@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 02/26/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: be7bd448fdf043c9a3916d87e9d54042ffe07380
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: 4a79f70036f63e5159ce1da003535f417358d4a0
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123476653"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128599228"
 ---
 # <a name="open-source-platforms-that-support-azure-data-lake-storage-gen2"></a>Plataformas de código abierto que admiten Azure Data Lake Storage Gen2
 
-En este artículo se enumeran las plataformas de código abierto que admiten Data Lake Storage Gen2.  
+En este artículo se enumeran las plataformas de código abierto que admiten Data Lake Storage Gen2.
 
 ## <a name="supported-open-source-platforms"></a>Plataformas de código abierto compatibles
 

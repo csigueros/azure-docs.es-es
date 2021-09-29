@@ -8,12 +8,12 @@ ms.topic: how-to
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 03/08/2021
-ms.openlocfilehash: 7059990f56cfa0f3eae9a10f3a7d3760095a1e83
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 0a00ad012f38a142332a62846e78c2ae87460464
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122868552"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "128659500"
 ---
 # <a name="rebuild-a-studio-classic-experiment-in-azure-machine-learning"></a>Recompilación de un experimento de Studio (clásico) en Azure Machine Learning
 
@@ -51,7 +51,7 @@ En Azure Machine Learning, el gráfico visual se denomina **borrador de la canal
 
 1. Ajuste los parámetros.
     
-    Seleccione cada módulo y ajuste los parámetros en el panel de configuración del módulo a la derecha. Use los parámetros para volver a crear la funcionalidad del experimento de Studio (clásico). Para más información sobre cada módulo, consulte la página de [referencia de módulos](/algorithm-module-reference/module-reference.md).
+    Seleccione cada módulo y ajuste los parámetros en el panel de configuración del módulo a la derecha. Use los parámetros para volver a crear la funcionalidad del experimento de Studio (clásico). Para más información sobre cada módulo, consulte la página de [referencia de módulos](./algorithm-module-reference/module-reference.md).
 
 ## <a name="submit-a-run-and-check-results"></a>Envío de una ejecución y comprobación de los resultados
 

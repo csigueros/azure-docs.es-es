@@ -12,12 +12,12 @@ ms.date: 08/09/2021
 ms.custom: template-concept
 ms.author: cchiedo
 ms.reviewer: tilarso
-ms.openlocfilehash: 7f9f5a49a46c4f73dce65f23e8ace278f02fe941
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 6d2a6afe4555bc9324241616ae6c22494216a146
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123113704"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124791448"
 ---
 # <a name="protecting-against-consent-phishing"></a>Protección contra la suplantación de identidad en el consentimiento
 
@@ -48,7 +48,7 @@ Si su organización se ha visto afectada por una aplicación deshabilitada por M
 1. Investigue la actividad de la aplicación deshabilitada, lo que incluye:
     - Permisos delegados o permisos de aplicación solicitados por la aplicación.
     - Registros de auditoría de Azure AD para la actividad de la aplicación y la actividad de inicio de sesión para los usuarios autorizados a usar la aplicación.
-1. Revise e implemente las [instrucciones para defenderse de las concesiones de consentimiento ilegales](/microsoft-365/security/office-365-security/detect-and-remediate-illicit-consent-grants?view=o365-worldwide&preserve-view=true) en productos en la nube de Microsoft, incluidos los permisos de auditoría y el consentimiento para la aplicación deshabilitada o cualquier otra aplicación sospechosa detectada durante la revisión.
+1. Revise e implemente las [instrucciones para defenderse de las concesiones de consentimiento ilegales](/microsoft-365/security/office-365-security/detect-and-remediate-illicit-consent-grants) en productos en la nube de Microsoft, incluidos los permisos de auditoría y el consentimiento para la aplicación deshabilitada o cualquier otra aplicación sospechosa detectada durante la revisión.
 1. Implemente los procedimientos recomendados para la protección frente a la suplantación de identidad en el consentimiento, que se describen a continuación.
 
 
@@ -59,20 +59,20 @@ El objetivo de Microsoft es que los administradores tengan el control, para lo c
 * Formar a la organización sobre el funcionamiento de nuestro marco de permisos y consentimiento
     - Comprenda los datos y permisos que una aplicación solicita y aprenda cómo funcionan  [los permisos y el consentimiento](../develop/v2-permissions-and-consent.md) en nuestra plataforma.
     - Asegúrese de que los administradores saben cómo  [administrar y evaluar las solicitudes de consentimiento](./manage-consent-requests.md).
-    - [Audite las aplicaciones y los permisos consentidos](/azure/security/fundamentals/steps-secure-identity#audit-apps-and-consented-permissions) de su organización rutinariamente para asegurarse de que las aplicaciones que se usan solo acceden a los datos que necesitan y respetan los principios de privilegios mínimos.
+    - [Audite las aplicaciones y los permisos consentidos](../../security/fundamentals/steps-secure-identity.md#audit-apps-and-consented-permissions) de su organización rutinariamente para asegurarse de que las aplicaciones que se usan solo acceden a los datos que necesitan y respetan los principios de privilegios mínimos.
 * Saber cómo detectar y bloquear tácticas comunes de suplantación de identidad en el consentimiento
     - Compruebe si hay errores de ortografía y gramática. Si un mensaje de correo electrónico o la pantalla de consentimiento de la aplicación tienen errores ortográficos y gramaticales, es probable que se trate de una aplicación sospechosa. En ese caso, puede notificarlo directamente en el [mensaje de consentimiento](../develop/application-consent-experience.md#building-blocks-of-the-consent-prompt) con el vínculo "*Notificarlo aquí*". Microsoft investigará si se trata de una aplicación malintencionada y, si se confirma, la deshabilitará.
     - No confíe en nombres de aplicación y direcciones URL de dominio como fuente de autenticidad. A los atacantes les gusta suplantar nombres y dominios de aplicaciones para dar la impresión de que proceden de compañías o servicios legítimos y lograr el consentimiento para una aplicación malintencionada. En su lugar, valide el origen de la dirección URL del dominio y use aplicaciones de [publicadores verificados](../develop/publisher-verification-overview.md) siempre que sea posible.
-    - Bloquee los [correos electrónicos de suplantación de identidad en el consentimiento con Microsoft Defender para Office 365](/microsoft-365/security/office-365-security/set-up-anti-phishing-policies?view=o365-worldwide&preserve-view=true#impersonation-settings-in-anti-phishing-policies-in-microsoft-defender-for-office-365) mediante la protección contra campañas de suplantación de identidad en las que un atacante suplanta a un usuario conocido de su organización.
+    - Bloquee los [correos electrónicos de suplantación de identidad en el consentimiento con Microsoft Defender para Office 365](/microsoft-365/security/office-365-security/set-up-anti-phishing-policies#impersonation-settings-in-anti-phishing-policies-in-microsoft-defender-for-office-365) mediante la protección contra campañas de suplantación de identidad en las que un atacante suplanta a un usuario conocido de su organización.
     - Configure directivas de seguridad de aplicaciones en la nube de Microsoft como  [directivas de actividad](/cloud-app-security/user-activity-policies),  [directivas de detección de anomalías](/cloud-app-security/anomaly-detection-policy) y  [directivas de aplicación de OAuth](/cloud-app-security/app-permission-policy) para ayudar a administrar y a tomar medidas en caso de actividades anómalas de la aplicación en su organización.
-    - Investigue y busque ataques de suplantación de identidad en el consentimiento siguiendo las instrucciones de [búsqueda avanzada con Microsoft 365 Defender](/microsoft-365/security/defender/advanced-hunting-overview?view=o365-worldwide&preserve-view=true).
+    - Investigue y busque ataques de suplantación de identidad en el consentimiento siguiendo las instrucciones de [búsqueda avanzada con Microsoft 365 Defender](/microsoft-365/security/defender/advanced-hunting-overview).
 * Permitir el acceso a las aplicaciones de confianza y protegerse de las que no lo son
     - Use aplicaciones cuyo publicador sea verificado. La [verificación del publicador](../develop/publisher-verification-overview.md) ayuda a los administradores y a los usuarios finales a reconocer la autenticidad de los desarrolladores de aplicaciones a través de un proceso de escrutinio respaldado por Microsoft.
     - [Configure el consentimiento del usuario](./configure-user-consent.md?tabs=azure-portal) para permitir a los usuarios que solo den su consentimiento a aplicaciones específicas de confianza, como aplicaciones desarrolladas por su organización o de publicadores verificados.
-    - Cree directivas de [gobernanza de aplicaciones](/microsoft-365/compliance/app-governance-manage-app-governance?view=o365-worldwide&preserve-view=true) proactivas para supervisar el comportamiento de las aplicaciones de terceros en la plataforma Microsoft 365 y corregir comportamientos habituales de las aplicaciones sospechosas.
+    - Cree directivas de [gobernanza de aplicaciones](/microsoft-365/compliance/app-governance-manage-app-governance) proactivas para supervisar el comportamiento de las aplicaciones de terceros en la plataforma Microsoft 365 y corregir comportamientos habituales de las aplicaciones sospechosas.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Investigación de la concesión de consentimiento de la aplicación](/security/compass/incident-response-playbook-app-consent)
 * [Administración del acceso a las aplicaciones](./what-is-access-management.md)
-* [Restricción de las operaciones de consentimiento del usuario en Azure AD](/azure/security/fundamentals/steps-secure-identity#restrict-user-consent-operations)
+* [Restricción de las operaciones de consentimiento del usuario en Azure AD](../../security/fundamentals/steps-secure-identity.md#restrict-user-consent-operations)

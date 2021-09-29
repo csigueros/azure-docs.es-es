@@ -1,14 +1,14 @@
 ---
-title: Uso de Azure DevTest Labs para desarrolladores | Microsoft Docs
+title: Uso de Azure DevTest Labs para desarrolladores
 description: Aprenderá acerca de las diversas características de Azure DevTest Labs que se pueden utilizar para cumplir los requisitos del desarrollador y los pasos detallados que puede seguir para configurar un laboratorio.
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/26/2020
-ms.openlocfilehash: 96b673cb750f503d531fd1a11d21b13a56397128
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: bc5376c780413f130d5dc812b3bc9e415acd354c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114293613"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128567653"
 ---
 # <a name="use-azure-devtest-labs-for-developers"></a>Uso de Azure DevTest Labs para desarrolladores
 Se puede utilizar Azure DevTest Labs para implementar numerosos escenarios clave pero uno de los principales escenarios implica el uso de DevTest Labs para máquinas de desarrollo host para desarrolladores. En este escenario, DevTest Labs ofrece estas ventajas:

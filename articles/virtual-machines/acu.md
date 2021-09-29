@@ -3,18 +3,18 @@ title: Introducción a la unidad de proceso de Azure
 description: Información general sobre el concepto de unidades de proceso de Azure. La ACU proporciona un modo de comparar el rendimiento de la CPU en todas las SKU de Azure.
 author: mimckitt
 ms.service: virtual-machines
-ms.subservice: azure-compute-unit
+ms.subservice: sizes
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: mimckitt
 ms.reviewer: davberg
-ms.openlocfilehash: 977c92e0537ff44c2cf28085ad7491a8cd18b71c
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: cfcad9ed109e6f12ca5e15b75e41b842c330dc8a
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122692289"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129216480"
 ---
 # <a name="azure-compute-unit-acu"></a>Unidad de proceso de Azure (ACU)
 

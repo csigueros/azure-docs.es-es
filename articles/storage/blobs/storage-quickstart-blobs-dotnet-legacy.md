@@ -1,19 +1,19 @@
 ---
 title: 'Inicio rápido: Biblioteca cliente de Azure Blob Storage para .NET'
 description: En este inicio rápido, obtendrá información sobre cómo usar la biblioteca cliente de Azure Storage para .NET a fin de crear un contenedor y un blob en Blob Storage (objeto). A continuación, aprenderá a descargar el blob en un equipo local y a enumerar todos los blobs en un contenedor.
-author: twooley
-ms.author: twooley
+author: normesta
+ms.author: normesta
 ms.date: 07/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f4c87e418ecaaed61a92ab70bcf5aef3a6e0b040
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: 658a3650e917f3786b84e65b5e976e1ef0263f23
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123470947"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128652877"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v11-for-net"></a>Inicio rápido: Biblioteca cliente de Azure Blob Storage v11 para .NET
 
@@ -24,25 +24,25 @@ Introducción a la biblioteca cliente de Azure Blob Storage v11 para .NET. Azure
 
 Use la biblioteca cliente de Azure Blob Storage para .NET para:
 
-* Crear un contenedor
-* Establecimiento de los permisos en un contenedor
-* Crear un blob en Azure Storage
-* Descargar el blob en el equipo local
-* Enumerar todos los blobs de un contenedor
-* Eliminación de un contenedor
+- Crear un contenedor
+- Establecimiento de los permisos en un contenedor
+- Crear un blob en Azure Storage
+- Descargar el blob en el equipo local
+- Enumerar todos los blobs de un contenedor
+- Eliminación de un contenedor
 
 Recursos adicionales:
 
-* [Documentación de referencia de API](/dotnet/api/overview/azure/storage)
-* [Código fuente de la biblioteca](https://github.com/Azure/azure-storage-net/tree/master/Blob)
-* [Paquete (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/)
-* [Muestras](/samples/browse/?products=azure-blob-storage)
+- [Documentación de referencia de API](/dotnet/api/overview/azure/storage)
+- [Código fuente de la biblioteca](https://github.com/Azure/azure-storage-net/tree/master/Blob)
+- [Paquete (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/)
+- [Muestras](/samples/browse/?products=azure-blob-storage)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
-* Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
-* Una cuenta de Azure Storage: [cree una cuenta de almacenamiento](../common/storage-account-create.md)
-* El [SDK de NET Core](https://dotnet.microsoft.com/download/dotnet-core) actual del sistema operativo. Asegúrese de obtener el SDK y no el entorno de ejecución.
+- Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
+- Una cuenta de Azure Storage: [cree una cuenta de almacenamiento](../common/storage-account-create.md)
+- El [SDK de NET Core](https://dotnet.microsoft.com/download/dotnet-core) actual del sistema operativo. Asegúrese de obtener el SDK y no el entorno de ejecución.
 
 ## <a name="setting-up"></a>Instalación
 
@@ -174,9 +174,9 @@ Después de agregar la variable de entorno, reinicie todos los programas en ejec
 
 Azure Blob Storage está optimizado para el almacenamiento de cantidades masivas de datos no estructurados. Los datos no estructurados son datos que no cumplen un modelo de datos o definición concreta, como texto o datos binarios. Blob Storage ofrece tres tipos de recursos:
 
-* La cuenta de almacenamiento
-* Un contenedor en la cuenta de almacenamiento
-* Un blob en un contenedor
+- La cuenta de almacenamiento
+- Un contenedor en la cuenta de almacenamiento
+- Un blob en un contenedor
 
 En el siguiente diagrama se muestra la relación entre estos recursos.
 
@@ -184,22 +184,22 @@ En el siguiente diagrama se muestra la relación entre estos recursos.
 
 Use las siguientes clases de .NET para interactuar con estos recursos:
 
-* [CloudStorageAccount](/dotnet/api/microsoft.azure.storage.cloudstorageaccount): La clase `CloudStorageAccount` representa la cuenta de almacenamiento de Azure. Utilice esta clase para autorizar el acceso a Blob Storage mediante las claves de acceso de cuenta.
-* [CloudBlobClient](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient): La clase `CloudBlobClient` proporciona un punto de acceso a Blob service en el código.
-* [CloudBlobContainer](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer): La clase `CloudBlobContainer` representa un contenedor de blobs en el código.
-* [CloudBlockBlob](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob): El objeto `CloudBlockBlob` representa un blob en bloques en el código. Los blobs en bloques se componen de bloques de datos que se pueden administrar de forma individual.
+- [CloudStorageAccount](/dotnet/api/microsoft.azure.storage.cloudstorageaccount): La clase `CloudStorageAccount` representa la cuenta de almacenamiento de Azure. Utilice esta clase para autorizar el acceso a Blob Storage mediante las claves de acceso de cuenta.
+- [CloudBlobClient](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient): La clase `CloudBlobClient` proporciona un punto de acceso a Blob service en el código.
+- [CloudBlobContainer](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer): La clase `CloudBlobContainer` representa un contenedor de blobs en el código.
+- [CloudBlockBlob](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob): El objeto `CloudBlockBlob` representa un blob en bloques en el código. Los blobs en bloques se componen de bloques de datos que se pueden administrar de forma individual.
 
 ## <a name="code-examples"></a>Ejemplos de código
 
 Estos fragmentos de código de ejemplo muestran cómo realizar las siguientes acciones con la biblioteca de cliente de Azure Blob Storage para. NET:
 
-   * [Autenticar el cliente](#authenticate-the-client)
-   * [Creación de un contenedor](#create-a-container)
-   * [Establecimiento de los permisos en un contenedor](#set-permissions-on-a-container)
-   * [Carga de los blobs en un contenedor](#upload-blobs-to-a-container)
-   * [Enumeración de los blobs de un contenedor](#list-the-blobs-in-a-container)
-   * [Descarga de los blobs](#download-blobs)
-   * [Eliminación de un contenedor](#delete-a-container)
+   - [Autenticar el cliente](#authenticate-the-client)
+   - [Creación de un contenedor](#create-a-container)
+   - [Establecimiento de los permisos en un contenedor](#set-permissions-on-a-container)
+   - [Carga de los blobs en un contenedor](#upload-blobs-to-a-container)
+   - [Enumeración de los blobs de un contenedor](#list-the-blobs-in-a-container)
+   - [Descarga de los blobs](#download-blobs)
+   - [Eliminación de un contenedor](#delete-a-container)
 
 ### <a name="authenticate-the-client"></a>Autenticar el cliente
 
@@ -399,5 +399,5 @@ Para aprender a crear una aplicación web que cargue una imagen en Blob Storage
 > [!div class="nextstepaction"]
 > [Carga y procesamiento de una imagen](storage-upload-process-images.md).
 
-* Para más información sobre .NET Core, consulte [Get started with .NET in 10 minutes](https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/intro) (Introducción a .NET en 10 minutos).
-* Para explorar una aplicación de ejemplo que puede implementar desde Visual Studio para Windows, consulte el artículo [.NET Photo Gallery Web Application Sample with Azure Blob Storage](https://azure.microsoft.com/resources/samples/storage-blobs-dotnet-webapp/) (Ejemplo de aplicación web de galería fotográfica .NET con Azure Blob Storage).
+- Para más información sobre .NET Core, consulte [Get started with .NET in 10 minutes](https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/intro) (Introducción a .NET en 10 minutos).
+- Para explorar una aplicación de ejemplo que puede implementar desde Visual Studio para Windows, consulte el artículo [.NET Photo Gallery Web Application Sample with Azure Blob Storage](https://azure.microsoft.com/resources/samples/storage-blobs-dotnet-webapp/) (Ejemplo de aplicación web de galería fotográfica .NET con Azure Blob Storage).

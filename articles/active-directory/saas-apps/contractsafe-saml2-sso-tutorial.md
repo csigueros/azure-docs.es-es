@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/20/2019
 ms.author: jeedes
-ms.openlocfilehash: 2d236b9910e2eda8e574d020544d625a68aefb81
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 67337a8326a6eca334489b644454debea782c3c7
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92455327"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124816897"
 ---
 # <a name="tutorial-integrate-azure-active-directory-single-sign-on-sso-with-contractsafe-saml2-sso"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con ContractSafe Saml2 SSO
 
@@ -142,7 +142,7 @@ Cree un usuario llamado B.Simon en ContractSafe Saml2 SSO. Trabaje con el [equip
 
 ## <a name="test-sso"></a>Prueba de SSO
 
-Pruebe la configuración de inicio de sesión único de Azure AD con el Panel de acceso. Al seleccionar el icono de ContractSafe Saml2 SSO en el Panel de acceso, debería iniciar sesión automáticamente en la versión de ContractSafe Saml2 SSO para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
+Pruebe la configuración de inicio de sesión único de Azure AD con el Panel de acceso. Al seleccionar el icono de ContractSafe Saml2 SSO en el Panel de acceso, debería iniciar sesión automáticamente en la versión de ContractSafe Saml2 SSO para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

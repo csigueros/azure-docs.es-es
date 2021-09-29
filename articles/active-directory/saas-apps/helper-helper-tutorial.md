@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/31/2019
 ms.author: jeedes
-ms.openlocfilehash: 0f85f3c747c634e0118ac516fc83284350fc2584
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: dfee9cae7d19eb1afae5b05141c08ecf26fe6dc8
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92445049"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124826339"
 ---
 # <a name="tutorial-integrate-helper-helper-with-azure-active-directory"></a>Tutorial: Integración de Helper Helper con Azure Active Directory
 
@@ -142,7 +142,7 @@ En esta sección, se crea un usuario llamado a Britta Simon en Helper Helper. He
 
 ### <a name="test-sso"></a>Prueba de SSO
 
-Al seleccionar el icono de Helper Helper en el Panel de acceso, debería iniciar sesión automáticamente en la solución Helper Helper para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
+Al seleccionar el icono de Helper Helper en el Panel de acceso, debería iniciar sesión automáticamente en la solución Helper Helper para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

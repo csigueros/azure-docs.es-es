@@ -6,12 +6,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
-ms.openlocfilehash: 3766d41959383d802e50aafbf59b9841d1c8d74e
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 946655910f17bb3a12237490f0570cbcff2e76b0
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104870694"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128620509"
 ---
 # <a name="how-to-configure-apache-kafka-on-hdinsight-to-automatically-create-topics"></a>Configuración de Apache Kafka en HDInsight para crear automáticamente los temas
 
@@ -62,13 +62,14 @@ Al crear un clúster de Kafka mediante una plantilla de Azure Resource Manager, 
 "clusterDefinition": {
     "kind": "kafka",
     "configurations": {
-    "gateway": {
-        "restAuthCredential.isEnabled": true,
-        "restAuthCredential.username": "[parameters('clusterLoginUserName')]",
-        "restAuthCredential.password": "[parameters('clusterLoginPassword')]"
-    },
-    "kafka-broker": {
-        "auto.create.topics.enable": "true"
+        "gateway": {
+            "restAuthCredential.isEnabled": true,
+            "restAuthCredential.username": "[parameters('clusterLoginUserName')]",
+            "restAuthCredential.password": "[parameters('clusterLoginPassword')]"
+        },
+        "kafka-broker": {
+            "auto.create.topics.enable": "true"
+        }
     }
 }
 ```

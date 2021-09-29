@@ -3,21 +3,21 @@ title: 'Ejemplo de script de Azure PowerShell: copia de seguridad y restauració
 description: Obtenga información sobre cómo hacer una copia de seguridad y restaurar la instancia del servicio API Management. Consulte un script de ejemplo y los recursos adicionales disponibles.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 manager: cfowler
 editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.topic: sample
 ms.date: 11/16/2017
-ms.author: apimpm
+ms.author: danlep
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: e879c4df24e7913aac2aac09078bbf7f817ffcea
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: 333ab63e3cdc85b36066546f141f7c39cfc681c7
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107812613"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128585490"
 ---
 # <a name="backup-and-restore-service"></a>Copia de seguridad y restauración del servicio
 

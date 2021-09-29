@@ -1,14 +1,14 @@
 ---
 title: Diagnóstico de errores de artefactos en una máquina virtual de Azure DevTest Labs
 description: Los laboratorios de DevTest Labs proporcionan información que puede utilizar para diagnosticar un error de artefacto. Este artículo le mostrará cómo solucionar problemas de artefactos.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 440ce6a537ac8d6a21ae8010bfbb3c38a82bf01e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: e7c343eee8c3484e12139c2bef963fc463ffc28d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "85480820"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128567456"
 ---
 # <a name="diagnose-artifact-failures-in-the-lab"></a>Diagnóstico de errores de artefactos en el laboratorio 
 Después de crear un artefacto, también puede comprobar si se realizó correctamente o no. Los registros de artefactos de Azure DevTest Labs proporcionan información que puede utilizar para diagnosticar un error de artefacto. Tiene dos opciones para ver la información de registro del artefacto de una máquina virtual de Windows:
@@ -49,4 +49,3 @@ Para obtener instrucciones sobre cómo buscar los archivos de registro en una m�
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Aprenda cómo [agregar un repositorio Git a un laboratorio](devtest-lab-add-artifact-repo.md).
-

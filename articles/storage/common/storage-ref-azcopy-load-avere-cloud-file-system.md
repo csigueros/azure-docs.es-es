@@ -9,12 +9,12 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 910d6196228315fa8bcb86ef2be113e542a2bf8e
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: b678b2830ede076169f82c4a3280845edd7db90b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110478729"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128624925"
 ---
 # <a name="azcopy-load-clfs"></a>azcopy load clfs
 
@@ -26,16 +26,16 @@ El comando load copia los datos en contenedores de almacenamiento de blobs de Az
 
 Para aprovechar este comando, instale la extensión necesaria a través de: pip3 install clfsload~=1.0.23. Asegúrese de que CLFSLoad.py se encuentre en la variable PATH. Para obtener más información sobre este paso, visite [https://aka.ms/azcopy/clfs](https://aka.ms/azcopy/clfs).
 
-Este comando es una opción sencilla para trasladar datos existentes al almacenamiento en la nube para su uso con productos específicos de caché de informática de alto rendimiento de Microsoft. 
+Este comando es una opción sencilla para trasladar datos existentes al almacenamiento en la nube para su uso con productos específicos de caché de informática de alto rendimiento de Microsoft.
 
-Dado que estos productos utilizan un formato de sistema de archivos en la nube propietario para administrar los datos, no se pueden cargar a través del comando copy nativo. 
+Dado que estos productos utilizan un formato de sistema de archivos en la nube propietario para administrar los datos, no se pueden cargar a través del comando copy nativo.
 
 En su lugar, los datos se deben cargar a través del propio producto de caché o mediante este comando load, que usa el formato propietario correcto.
 Este comando le permite transferir datos sin usar la memoria caché. Por ejemplo, para rellenar previamente el almacenamiento o agregar archivos a un espacio de trabajo sin aumentar la carga de la memoria caché.
 
 El destino es un contenedor de Azure Storage vacío. Una vez completada la transferencia, el contenedor de destino se puede usar con una instancia de Azure HPC Cache o un clúster de Avere vFXT for Azure.
 
-> [!NOTE] 
+> [!NOTE]
 > Se trata de una versión preliminar del comando load. Notifique cualquier problema en el repositorio de GitHub de AzCopy.
 
 ```

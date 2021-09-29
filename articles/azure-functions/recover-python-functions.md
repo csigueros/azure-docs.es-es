@@ -1,17 +1,15 @@
 ---
 title: Solución de problemas de aplicaciones de funciones de Python en Azure Functions
 description: Aprenda a solucionar problemas de funciones de Python.
-author: Hazhzeng
 ms.topic: article
 ms.date: 07/29/2020
-ms.author: hazeng
 ms.custom: devx-track-python
-ms.openlocfilehash: 56da006dc5a0eef46d5b13984983ca680359b968
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: 3d6be539763e655405a1e46b628e68cb5690e4f2
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106168100"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128654354"
 ---
 # <a name="troubleshoot-python-errors-in-azure-functions"></a>Solución de errores de Python en Azure Functions
 
@@ -171,14 +169,14 @@ En Windows en PowerShell: `py -c 'import platform; print(platform.architecture()
 
 En un shell similar a Unix: `python3 -c 'import platform; print(platform.architecture()[0])'`
 
-Si hay una discrepancia entre el valor de bits del intérprete de Python y la arquitectura del sistema operativo, descargue un intérprete de Python adecuado desde [Python Software Foundation](https://python.org/downloads/release).
+Si hay una discrepancia entre el valor de bits del intérprete de Python y la arquitectura del sistema operativo, descargue un intérprete de Python adecuado desde [Python Software Foundation](https://www.python.org/downloads).
 
 #### <a name="the-python-interpreter-is-not-supported-by-azure-functions-python-worker"></a>El intérprete de Python no es compatible con el trabajo de Python de Azure Functions
 
 El trabajo de Python de Azure Functions solo admite Python 3.6, 3.7 y 3.8.
 Compruebe si el intérprete de Python coincide con la versión esperada mediante `py --version` en Windows o `python3 --version` en sistemas similares a Unix. Asegúrese de que el resultado devuelto es Python 3.6.x, Python 3.7.x o Python 3.8.x.
 
-Si la versión del intérprete de Python no cumple con nuestra expectativa, descargue el intérprete Python 3.6, 3.7 o 3.8 desde [Python Software Foundation](https://python.org/downloads/release).
+Si la versión del intérprete de Python no cumple con nuestra expectativa, descargue el intérprete Python 3.6, 3.7 o 3.8 desde [Python Software Foundation](https://www.python.org/downloads).
 
 ---
 

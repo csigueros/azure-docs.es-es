@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
 ms.date: 11/06/2020
 ms.author: derekol
-ms.openlocfilehash: 79d9d15ff2707dfac7e206cf5a289d7eac00ffb4
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 954b4deb6a095ee862e46cb13d177d9b66cf0dca
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114447572"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129053868"
 ---
 # <a name="peering-service-partners"></a>Asociados de Peering Service
 
@@ -46,6 +46,7 @@ En la tabla de este artículo se proporciona información sobre los asociados de
 | [Swisscom](https://www.swisscom.ch/en/business/enterprise/offer/wireline/ip-plus.html) |Europa|
 | [CMC Networks](https://www.cmcnetworks.net/products/microsoft-azure-peering-services.html) |África|
 | [MainOne](https://www.mainone.net/connectivity-services/microsoft-azure-peering-service/) |África|
+| [BICS](https://www.bics.com/services/capacity-solutions/cloud-connect/microsoft-azure-cloud-connect/) |Europa|
 
 > [!NOTE]
 >Para obtener más información sobre cómo darse de alta en el programa de asociados de Peering Service, póngase en contacto con peeringservice@microsoft.com.

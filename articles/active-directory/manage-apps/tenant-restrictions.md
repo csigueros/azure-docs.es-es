@@ -1,7 +1,6 @@
 ---
 title: 'Uso de restricciones de inquilino para administrar el acceso a las aplicaciones SaaS: Azure AD'
 description: Cómo usar restricciones de inquilino para administrar los usuarios que pueden tener acceso a las aplicaciones según su inquilino de Azure AD.
-services: active-directory
 author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
@@ -12,12 +11,12 @@ ms.date: 7/30/2021
 ms.author: davidmu
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d013d383192b206fdc05f36f320b01fe57526bb8
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 19f3017aafdf15905d4418213fd1020545e57880
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121737297"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128644303"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Uso de restricciones de inquilino para administrar el acceso a aplicaciones en la nube SaaS
 
@@ -83,7 +82,7 @@ Los encabezados deben incluir los siguientes elementos:
 > [!TIP]
 > Puede encontrar el identificador de directorio en el [portal de Azure Active Directory](https://aad.portal.azure.com/). Inicie sesión como administrador, seleccione **Azure Active Directory** y luego seleccione **propiedades**.
 >
-> Para validar que un identificador de directorio o un nombre de dominio hagan referencia al mismo inquilino, use ese identificador o dominio en lugar de <tenant> en esta dirección URL: `https://login.microsoftonline.com/<tenant>/v2.0/.well-known/openid-configuration`.  Si los resultados con el dominio y el identificador son los mismos, hacen referencia al mismo inquilino.
+> Para validar que un identificador de directorio o un nombre de dominio hagan referencia al mismo inquilino, use ese identificador o dominio en lugar de \<tenant\> en esta dirección URL: `https://login.microsoftonline.com/<tenant>/v2.0/.well-known/openid-configuration`.  Si los resultados con el dominio y el identificador son los mismos, hacen referencia al mismo inquilino.
 
 Para evitar que los usuarios inserten su propio encabezado HTTP con inquilinos no aprobados, el proxy debe reemplazar el encabezado *Restrict-Access-To-Tenants* (Restringir acceso para inquilinos) si ya está presente en la solicitud entrante.
 

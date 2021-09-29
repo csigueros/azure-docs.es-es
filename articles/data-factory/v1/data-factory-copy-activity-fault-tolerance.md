@@ -3,16 +3,17 @@ title: Incorporación de tolerancia a errores en la actividad de copia de Azure 
 description: Obtenga información sobre cómo agregar tolerancia a errores en la actividad de copia de Azure Data Factory a través de la omisión de filas incompatibles durante la copia
 author: linda33wj
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 10e4bedae5b7c429152a3503fff2cb2769d66eb5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 81e92c73c27d70e2f21ede7d732e5cda4f03289b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100377183"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128629453"
 ---
 # <a name="add-fault-tolerance-in-copy-activity-by-skipping-incompatible-rows"></a>Incorporación de tolerancia a errores en la actividad de copia a través de la omisión de filas incompatibles
 
@@ -75,7 +76,7 @@ En el ejemplo siguiente se proporciona una definición JSON para configurar la o
 ## <a name="monitoring"></a>Supervisión
 Una vez que se completa la ejecución de la actividad de copia, puede ver el número de filas omitidas en la sección de supervisión:
 
-![Supervisión de filas incompatibles omitidas](./media/data-factory-copy-activity-fault-tolerance/skip-incompatible-rows-monitoring.png)
+:::image type="content" source="./media/data-factory-copy-activity-fault-tolerance/skip-incompatible-rows-monitoring.png" alt-text="Supervisión de filas incompatibles omitidas":::
 
 Si configura el registro de las filas incompatibles, puede encontrar el archivo de registro en esta ruta de acceso: `https://[your-blob-account].blob.core.windows.net/[path-if-configured]/[copy-activity-run-id]/[auto-generated-GUID].csv` En el archivo de registro, puede ver las filas que se omitieron y la causa principal de la incompatibilidad.
 

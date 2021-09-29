@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 07/21/2021
 ms.author: madhukan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5add931f71dfdb5034e614b3d6c3ddc8703293a2
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 6e37ab692b1e8f4a498d4b279ef3e45940e7d7f2
+ms.sourcegitcommit: 3ef5a4eed1c98ce76739cfcd114d492ff284305b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114461578"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128708327"
 ---
 # <a name="sap-hana-large-instances-network-architecture"></a>Arquitectura de red de SAP HANA (instancias grandes)
 
@@ -201,7 +201,7 @@ Para la recuperación ante desastres, debe tener unidades de HANA (instancias gr
  - La copia de seguridad entre las unidades de HANA (instancias grandes) de dos regiones diferentes para hacer copias o actualizaciones del sistema.
 
 
-![Redes virtuales conectadas a demarcaciones de instancias grandes de Azure en diferentes regiones de Azure](./media/hana-overview-architecture/image8-multiple-regions.png)
+[![Redes virtuales conectadas a demarcaciones de instancias grandes de Azure en diferentes regiones de Azure](./media/hana-overview-architecture/image8-multiple-regions.png)](./media/hana-overview-architecture/image8-multiple-regions.png#lightbox)
 
 En la ilustración anterior se muestra cómo las redes virtuales de ambas regiones se conectan a dos circuitos ExpressRoute. Los circuitos se usan para conectarse a SAP HANA en Azure (instancias grandes) en ambas regiones de Azure (líneas grises). El motivo de estas dos conexiones cruzadas es proteger frente a una interrupción de los MSEE en ambos lados. Se supone que el flujo de comunicación entre las dos redes virtuales de las dos regiones de Azure diferentes debe controlarse a través del [emparejamiento global](/archive/blogs/azureedu/how-to-setup-global-vnet-peering-in-azure) de estas dos redes virtuales (línea azul de puntos). La línea roja gruesa describe la conexión de ExpressRoute Global Reach. Esta conexión permite que las unidades de HANA (instancias grandes) de los inquilinos de distintas regiones se comuniquen entre sí. 
 

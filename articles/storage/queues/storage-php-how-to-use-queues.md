@@ -1,19 +1,19 @@
 ---
 title: 'Uso de Queue Storage desde PHP: Azure Storage'
 description: Aprenda a usar el servicio Azure Queue Storage para crear y eliminar colas, así como insertar, obtener y eliminar mensajes. Los ejemplos están escritos en C++.
-author: twooley
-ms.author: twooley
+author: normesta
+ms.author: normesta
 ms.reviewer: dineshm
 ms.date: 01/11/2018
 ms.topic: how-to
 ms.service: storage
 ms.subservice: queues
-ms.openlocfilehash: 0d559fd52cffe893b3f7d61842982fdc2ecd0a48
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 174de881eaf0b929f05b2d0aff4a3782d02ba678
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106275930"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128579541"
 ---
 # <a name="how-to-use-queue-storage-from-php"></a>Uso de Queue Storage desde PHP
 

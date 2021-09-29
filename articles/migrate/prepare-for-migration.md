@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 06/08/2020
-ms.openlocfilehash: 05f82c055a0c98423fb7096a019d7d9d80932142
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 288a78ee3b3e8c0a3d32d72d289c2b3e4c3d4aff
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123542042"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128619022"
 ---
 # <a name="prepare-on-premises-machines-for-migration-to-azure"></a>Preparación de las máquinas locales para la migración a Azure
 
@@ -90,7 +90,7 @@ Los cambios realizados se resumen en la tabla.
 **Instalación del agente invitado de Windows Azure** <br/><br/> El agente de máquina virtual (agente de VM) es un proceso ligero y seguro que administra la interacción de máquinas virtuales (VM) con el controlador de tejido de Azure. El agente de máquina virtual tiene un rol principal en la habilitación y ejecución de extensiones de máquina virtual de Azure que permiten una configuración posterior a la implementación de la máquina virtual como, por ejemplo, la instalación y configuración del software. |  Se establece automáticamente para máquinas que ejecutan Windows Server 2008 R2 o posterior. <br/> Configure la opción manualmente para sistemas operativos anteriores. | Se establece automáticamente para máquinas que ejecutan Windows Server 2008 R2 o posterior. | Se establece automáticamente para máquinas que ejecutan Windows Server 2008 R2 o posterior.
 **Conectarse después de la migración**<br/><br/> Para conectarse después de la migración, hay que realizar una serie de pasos antes de la migración. | [Configure](#prepare-to-connect-to-azure-windows-vms) manualmente. | [Configure](#prepare-to-connect-to-azure-windows-vms) manualmente. | [Configure](#prepare-to-connect-to-azure-windows-vms) manualmente.
 
-[Obtenga más información](/prepare-for-agentless-migration#changes-performed-on-windows-servers) sobre los cambios realizados en servidores Windows para migraciones de VMware sin agente.
+[Obtenga más información](/azure/migrate/prepare-for-agentless-migration#changes-performed-on-windows-servers) sobre los cambios realizados en servidores Windows para migraciones de VMware sin agente.
 
 #### <a name="configure-san-policy"></a>Configuración de la directiva de SAN
 
@@ -132,9 +132,9 @@ Para otras versiones, prepare las máquinas como se resume en la tabla.
 **Eliminar regla udev** | Elimine las reglas udev que reserven los nombres de interfaz en función de la dirección MAC, etc. | Elimínelas de forma manual para todas las versiones excepto las mencionadas anteriormente.
 **Actualizar las interfaces de red** | Actualice las interfaces de red para recibir direcciones IP basadas en DHCP. | Actualícelo manualmente para todas las versiones excepto las mencionadas anteriormente.
 **Habilitar SSH** | Asegúrese de que SSH está habilitado y de que el servicio sshd está configurado para iniciarse automáticamente al reiniciar.<br/><br/> Asegúrese de que las solicitudes de conexión SSH entrantes no estén bloqueadas por el firewall del sistema operativo o las reglas que admiten scripts.| Habilite la opción manualmente para todas las versiones excepto las mencionadas anteriormente.
-**Instalará el agente invitado de Linux de Azure** | El agente Linux de Microsoft Azure (waagent) es un proceso ligero y seguro que administra el aprovisionamiento de Linux y FreeBSD, y la interacción de las máquinas virtuales con el controlador de tejido de Azure.| Habilite la opción manualmente para todas las versiones excepto las mencionadas anteriormente.  <br> Siga las instrucciones para [instalar el agente de Linux manualmente](/azure/virtual-machines/extensions/agent-linux#installation) para otras versiones del sistema operativo. Revise la lista de [paquetes necesarios](/azure/virtual-machines/extensions/agent-linux#requirements) para instalar el agente de máquina virtual Linux. 
+**Instalará el agente invitado de Linux de Azure** | El agente Linux de Microsoft Azure (waagent) es un proceso ligero y seguro que administra el aprovisionamiento de Linux y FreeBSD, y la interacción de las máquinas virtuales con el controlador de tejido de Azure.| Habilite la opción manualmente para todas las versiones excepto las mencionadas anteriormente.  <br> Siga las instrucciones para [instalar el agente de Linux manualmente](../virtual-machines/extensions/agent-linux.md#installation) para otras versiones del sistema operativo. Revise la lista de [paquetes necesarios](../virtual-machines/extensions/agent-linux.md#requirements) para instalar el agente de máquina virtual Linux. 
 
-[Obtenga más información](/azure/migrate/prepare-for-agentless-migration#changes-performed-on-linux-servers) sobre los cambios realizados en servidores Linux para migraciones de VMware sin agente.
+[Obtenga más información](./prepare-for-agentless-migration.md#changes-performed-on-linux-servers) sobre los cambios realizados en servidores Linux para migraciones de VMware sin agente.
 
 En la tabla siguiente se resumen los pasos que se realizan automáticamente para los sistemas operativos enumerados anteriormente.
 
@@ -207,6 +207,6 @@ En máquinas virtuales de VMware, Server Migration admite la [migración con age
 - **VM de Hyper-V**: Compruebe los [requisitos y el soporte técnico necesarios para la migración](migrate-support-matrix-hyper-v-migration.md) de las máquinas virtuales de Hyper-V.
 - **Máquinas físicas**: compruebe los [requisitos y el soporte técnico necesarios para la migración](migrate-support-matrix-physical-migration.md) de máquinas físicas locales y otros servidores virtualizados.
 
-## <a name="learn-more"></a>Saber más
+## <a name="learn-more"></a>Más información
 
 - [Prepárese para la migración sin agente de VMware con Azure Migrate.](./prepare-for-agentless-migration.md)

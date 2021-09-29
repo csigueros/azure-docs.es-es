@@ -8,12 +8,12 @@ ms.date: 12/06/2018
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: jamesbak
-ms.openlocfilehash: 9c1d861da7a312ce94bbc7bc4074037bdb27d02b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: af31e49228f655d5b16cc20fdc07cd9a7da597d6
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121737457"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128620224"
 ---
 # <a name="use-the-azure-data-lake-storage-gen2-uri"></a>Uso del URI de Azure Data Lake Storage Gen2
 
@@ -27,7 +27,7 @@ Si la cuenta compatible con Data Lake Storage Gen2 que quiere dirigir **no está
 
 <pre>abfs[s]<sup>1</sup>://&lt;file_system&gt;<sup>2</sup>@&lt;account_name&gt;<sup>3</sup>.dfs.core.windows.net/&lt;path&gt;<sup>4</sup>/&lt;file_name&gt;<sup>5</sup></pre>
 
-1. **Identificador de esquema**: el protocolo `abfs` se usa como el identificador de esquema. Si agrega una "s" al final (abfs<b><i>s</i></b>), el controlador cliente de Hadoop ABFS <i>siempre</i> usará Seguridad de la capa de transporte (TLS) independientemente del método de autenticación elegido. Si elige OAuth como método de autenticación, el controlador cliente siempre usará TLS aunque especifique "abfs" en lugar de "abfss", porque OAuth solo se basa en la capa TLS. Por último, si decide usar el método anterior de clave de cuenta de almacenamiento, el controlador cliente interpretará "abfs" para indicar que no desea usar TLS. 
+1. **Identificador de esquema**: el protocolo `abfs` se usa como el identificador de esquema. Si agrega una "s" al final (abfs<b><i>s</i></b>), el controlador cliente de Hadoop ABFS <i>siempre</i> usará Seguridad de la capa de transporte (TLS) independientemente del método de autenticación elegido. Si elige OAuth como método de autenticación, el controlador cliente siempre usará TLS aunque especifique "abfs" en lugar de "abfss", porque OAuth solo se basa en la capa TLS. Por último, si decide usar el método anterior de clave de cuenta de almacenamiento, el controlador cliente interpretará "abfs" para indicar que no desea usar TLS.
 
 2. **Sistema de archivos**: ubicación principal que contiene los archivos y las carpetas. Es la misma que la de los contenedores del servicio de Azure Storage Blob.
 
@@ -44,7 +44,6 @@ Sin embargo, si la cuenta que quiere dirigir está configurada como el sistema d
 1. **Ruta de acceso**: representación de barra diagonal delimitada (`/`) de la estructura del directorio.
 
 2. **Nombre de archivo**: nombre del archivo individual.
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

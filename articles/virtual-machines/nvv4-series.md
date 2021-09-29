@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 01/12/2020
 ms.author: vikancha
-ms.openlocfilehash: e07ff969e8245d245cf724152b6257904f7cb860
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: f1312a27b77c7c9a4c4df75fef3ddd8010b5661c
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122698477"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124823380"
 ---
 # <a name="nvv4-series"></a>Serie NVv4 
 
@@ -42,7 +42,7 @@ Las máquinas virtuales de la serie NVv4 tienen tecnología de GPU [AMD Radeon I
 
 <sup>1</sup> las máquinas virtuales de la serie NVv4 incluyen tecnología multithreading simultánea de AMD
 
-[!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
+
 
 ## <a name="supported-operating-systems-and-drivers"></a>Sistemas operativos y controladores compatibles
 
@@ -50,7 +50,10 @@ Para aprovechar las funcionalidades de GPU de las VM de la serie NVv4 de Azure q
 
 Para instalar manualmente los controladores de GPU de AMD, vea [Instalación de controladores de GPU de AMD de la serie N para Windows](./windows/n-series-amd-driver-setup.md) para obtener información sobre los sistemas operativos y controladores compatibles, así como sobre los pasos de instalación y verificación.
 
-## <a name="other-sizes"></a>Otros tamaños
+
+[!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
+
+## <a name="other-sizes-and-information"></a>Otros tamaños e información
 
 - [Uso general](sizes-general.md)
 - [Memoria optimizada](sizes-memory.md)
@@ -58,6 +61,10 @@ Para instalar manualmente los controladores de GPU de AMD, vea [Instalación de 
 - [GPU optimizada](sizes-gpu.md)
 - [Proceso de alto rendimiento](sizes-hpc.md)
 - [Generaciones anteriores](sizes-previous-gen.md)
+
+Calculadora de precios: [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/)
+
+Para obtener más información sobre los tipos de discos, vea [¿Qué tipos de disco están disponibles en Azure?](disks-types.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

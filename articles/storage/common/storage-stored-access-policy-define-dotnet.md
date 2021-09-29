@@ -11,28 +11,28 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8c1b6aa0d6bdd98a66a638a216f93a6d81bd6b93
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: 1be2b8200cd9e7b83fb3d113966a13c32e126d34
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113726867"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128589271"
 ---
 # <a name="create-a-stored-access-policy-with-net"></a>Creación de una directiva de acceso almacenada con .NET
 
 Una directiva de acceso almacenada proporciona un nivel de control adicional sobre las firmas de acceso compartido (SAS) de nivel de servicio en el lado del servidor. La definición de una directiva de acceso almacenada sirve para agrupar firmas de acceso compartido y proporcionar restricciones adicionales para las firmas de acceso compartido que están enlazadas por la directiva. Puede usar una directiva de acceso almacenada para cambiar la hora de inicio, la hora de expiración, los permisos de una SAS ni para revocarla una vez se ha emitido.
-  
-Los siguientes recursos de Azure Storage admiten directivas de acceso almacenadas:  
-  
-- Contenedores de blobs  
-- Recursos compartidos de archivos  
-- Colas  
-- Tablas  
-  
+
+Los siguientes recursos de Azure Storage admiten directivas de acceso almacenadas:
+
+- Contenedores de blobs
+- Recursos compartidos de archivos
+- Colas
+- Tablas
+
 > [!NOTE]
 > Una directiva de acceso almacenada de un contenedor se puede asociar a una firma de acceso compartido que conceda permisos al propio contenedor o a los blobs que contiene. De la misma manera, una directiva de acceso almacenada de un recurso compartido de archivos se puede asociar a una firma de acceso compartido que conceda permisos al propio recurso compartido o a los archivos que contiene.  
 >
-> Las directivas de acceso almacenadas son compatibles para una SAS de servicio únicamente. Las directivas de acceso almacenadas no son compatibles para SAS de cuenta ni de delegación de usuarios.  
+> Las directivas de acceso almacenadas son compatibles para una SAS de servicio únicamente. Las directivas de acceso almacenadas no son compatibles para SAS de cuenta ni de delegación de usuarios.
 
 Para obtener más información sobre las directivas de acceso almacenadas, consulte [Definición de una directiva de acceso almacenada](/rest/api/storageservices/define-stored-access-policy).
 

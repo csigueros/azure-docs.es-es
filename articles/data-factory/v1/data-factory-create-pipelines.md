@@ -5,15 +5,16 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b2c166da02d145e9995526279121c1dd360557ad
-ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
+ms.openlocfilehash: e764623fa84be4ffe023545495528e18f3a9adb2
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122397690"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128624432"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Canalizaciones y actividades en Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -35,7 +36,7 @@ Una factoría de datos puede tener una o más canalizaciones. Una canalización 
 
 Una actividad puede tomar diversos [conjuntos de datos](data-factory-create-datasets.md), o ninguno, y generar uno o varios [conjuntos de datos](data-factory-create-datasets.md). En el siguiente diagrama se muestra la relación entre la canalización, la actividad y el conjunto de datos en Data Factory:
 
-![Relación entre la canalización, la actividad y el conjunto de datos](media/data-factory-create-pipelines/relationship-pipeline-activity-dataset.png)
+:::image type="content" source="media/data-factory-create-pipelines/relationship-pipeline-activity-dataset.png" alt-text="Relación entre la canalización, la actividad y el conjunto de datos":::
 
 Una canalización permite administrar actividades como un conjunto en lugar de hacerlo individualmente. Por ejemplo, puede implementar, programar, suspender y reanudar una canalización, en vez de trabajar con actividades de la canalización de forma independiente.
 
@@ -271,13 +272,13 @@ Si tiene varias actividades en una canalización y la salida de una actividad no
 
 Puede encadenar dos actividades haciendo que el conjunto de datos de salida de una actividad sea el conjunto de datos de entrada de la otra actividad. La segunda actividad se ejecuta solo cuando la primera de ellas se completa correctamente.
 
-![Encadenamiento de las actividades de la misma canalización](./media/data-factory-create-pipelines/chaining-one-pipeline.png)
+:::image type="content" source="./media/data-factory-create-pipelines/chaining-one-pipeline.png" alt-text="Encadenamiento de las actividades de la misma canalización":::
 
 En este ejemplo, la canalización tiene dos actividades: Activity1 y Activity2. Activity1 toma Dataset1 como entrada y genera una salida Dataset2. La actividad toma Dataset2 como entrada y genera una salida Dataset3. Como la salida de Activity1 (Dataset2) es la entrada de Activity2, Activity2 solo se ejecuta después de que la actividad se complete correctamente y genere el segmento de Dataset2. Si se produce un error en Activity1 por algún motivo y no genera el segmento de Dataset2, Activity2 no se ejecuta en dicho segmento (por ejemplo: de 09:00 a 10:00).
 
 También puede encadenar actividades que se encuentran en diferentes canalizaciones.
 
-![Encadenamiento de las actividades de dos canalizaciones](./media/data-factory-create-pipelines/chaining-two-pipelines.png)
+:::image type="content" source="./media/data-factory-create-pipelines/chaining-two-pipelines.png" alt-text="Encadenamiento de las actividades de dos canalizaciones":::
 
 En este ejemplo, Pipeline1 solo tiene una actividad que toma Dataset1 como entrada y genera Dataset2 como salida. Pipeline2 también tiene únicamente una actividad que toma Dataset2 como entrada y Dataset3 como salida.
 

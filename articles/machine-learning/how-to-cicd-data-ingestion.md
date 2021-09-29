@@ -12,12 +12,12 @@ author: eedorenko
 manager: davete
 ms.reviewer: larryfr
 ms.date: 06/23/2020
-ms.openlocfilehash: 34aa94ea7bef56ecc2e01b792a0f5e8b417804fa
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: fc843d45bbdbcc8ac7de7135eb3534cc606409bd
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107890193"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129212520"
 ---
 # <a name="devops-for-a-data-ingestion-pipeline"></a>DevOps para una canalización de ingesta de datos
 
@@ -122,7 +122,7 @@ El proceso de CI para una canalización Azure Data Factory es un cuello de botel
 1. Un usuario al que se le han concedido los permisos hace clic en el botón ***Publicar*** para generar plantillas de Azure Resource Manager a partir del código fuente de la rama de colaboración. 
 1. El área de trabajo valida las canalizaciones (es decir, se realiza el linting y las pruebas unitarias), genera plantillas de Azure Resource Manager (es decir, se realiza la compilación) y guarda las plantillas generadas en una rama técnica ***adf_publish*** en el mismo repositorio de código (es decir, se publican los artefactos). Esta rama se crea automáticamente en el área de trabajo de Azure Data Factory. 
 
-Para obtener más información sobre este proceso, consulte [Integración y entrega continuas en Azure Data Factory](../data-factory/continuous-integration-deployment.md).
+Para obtener más información sobre este proceso, consulte [Integración y entrega continuas en Azure Data Factory](../data-factory/continuous-integration-delivery.md).
 
 Es importante asegurarse de que las plantillas de Azure Resource Manager generadas sean independientes del entorno. Esto significa que todos los valores que puedan diferir entre entornos se parametrizan. Azure Data Factory es lo suficientemente inteligente como para exponer la mayoría de estos valores como parámetros. Por ejemplo, en la siguiente plantilla las propiedades de conexión a un área de trabajo de Azure Machine Learning se exponen como parámetros:
 
@@ -174,7 +174,7 @@ Las actividades de canalización pueden hacer referencia a las variables de cana
 
 ![Captura de pantalla que muestra un cuaderno llamado PrepareData y una canalización de ejecución de ML llamada Ejecución de canalización de ML en la parte superior con la pestaña Configuración seleccionada debajo.](media/how-to-cicd-data-ingestion/adf-notebook-parameters.png)
 
-El área de trabajo de Azure Data Factory ***no*** expone variables de canalización como parámetros de plantilla de Azure Resource Manager de forma predeterminada. El área de trabajo usa la [plantilla de parametrización predeterminada](../data-factory/continuous-integration-deployment.md#default-parameterization-template) que dictamina qué propiedades de canalización deben exponerse como parámetros de plantilla de Azure Resource Manager. Para agregar variables de canalización a la lista, actualice la sección `"Microsoft.DataFactory/factories/pipelines"` de la [plantilla de parametrización predeterminada](../data-factory/continuous-integration-deployment.md#default-parameterization-template) con el siguiente fragmento de código y coloque el archivo JSON resultante en la raíz de la carpeta de origen:
+El área de trabajo de Azure Data Factory ***no*** expone variables de canalización como parámetros de plantilla de Azure Resource Manager de forma predeterminada. El área de trabajo usa la [plantilla de parametrización predeterminada](../data-factory/continuous-integration-delivery-resource-manager-custom-parameters.md) que dictamina qué propiedades de canalización deben exponerse como parámetros de plantilla de Azure Resource Manager. Para agregar variables de canalización a la lista, actualice la sección `"Microsoft.DataFactory/factories/pipelines"` de la [plantilla de parametrización predeterminada](../data-factory/continuous-integration-delivery-resource-manager-custom-parameters.md) con el siguiente fragmento de código y coloque el archivo JSON resultante en la raíz de la carpeta de origen:
 
 ```json
 "Microsoft.DataFactory/factories/pipelines": {
@@ -481,5 +481,5 @@ stages:
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Control de código fuente en Azure Data Factory](../data-factory/source-control.md)
-* [Integración y entrega continuas en Azure Data Factory](../data-factory/continuous-integration-deployment.md)
+* [Integración y entrega continuas en Azure Data Factory](../data-factory/continuous-integration-delivery.md)
 * [DevOps para Azure Databricks](https://marketplace.visualstudio.com/items?itemName=riserrad.azdo-databricks)

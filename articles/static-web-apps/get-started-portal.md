@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: static-web-apps
 ms.custom:
 - mode-portal
-ms.openlocfilehash: d83a9f96745e798d307c6e5299da84f1ac717e76
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: 41be62a4e7baed39cc45011ed055a1abfe097002
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122609089"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124804582"
 ---
 # <a name="quickstart-building-your-first-static-site-in-the-azure-portal"></a>Inicio rápido: creación del primer sitio estático en Azure Portal
 
@@ -99,7 +99,7 @@ Tras iniciar sesión con GitHub, escriba la información del repositorio.
     :::image type="content" source="media/getting-started-portal/review-create.png" alt-text="Botón Revisar y crear":::
 
     > [!NOTE]
-    > Puede editar el [archivo de flujo de trabajo](github-actions-workflow.md) para cambiar estos valores después de crear la aplicación.
+    > Puede editar el [archivo de flujo de trabajo](build-configuration.md) para cambiar estos valores después de crear la aplicación.
 
 1. Seleccione **Crear**.
 

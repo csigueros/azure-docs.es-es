@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: devx-track-csharp, mvc
 ms.date: 06/18/2020
-ms.openlocfilehash: f01b75cac9fba9e0975882560920f6c6ceee7dc7
-ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
+ms.openlocfilehash: 774b9f91aa900633cb6f5c50196ef44a03017b90
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2021
-ms.locfileid: "113136650"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128670184"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-in-net-framework"></a>Inicio rápido: Uso de Azure Cache for Redis con .NET Framework
 
@@ -30,9 +30,9 @@ Si quiere pasar directamente al código, consulte [Inicio rápido: Uso de Azure 
 - [.NET Framework 4 o superior](https://dotnet.microsoft.com/download/dotnet-framework), requisito del cliente StackExchange.Redis.
 
 ## <a name="create-a-cache"></a>Creación de una caché
-[!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
+[!INCLUDE [redis-cache-create](includes/redis-cache-create.md)]
 
-[!INCLUDE [redis-cache-access-keys](../../includes/redis-cache-access-keys.md)]
+[!INCLUDE [redis-cache-access-keys](includes/redis-cache-access-keys.md)]
 
 Cree un archivo en el equipo llamado *CacheSecrets.config* y colóquelo en una ubicación donde no se vaya a insertar en el repositorio con el código fuente de la aplicación de ejemplo. En esta guía de inicio rápido, el archivo *CacheSecrets.config* se encuentra aquí, *C:\AppSecrets\CacheSecrets.config*.
 

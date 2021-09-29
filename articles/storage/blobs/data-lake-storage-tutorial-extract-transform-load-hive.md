@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: f8210c3bc0437180ace110f8decd9f83e18650ed
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6982cbc64e28b71566deb295dfe7d56aa8d24189
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98661939"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128588758"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-hdinsight"></a>Tutorial: Extracción, transformación y carga de datos mediante Azure HDInsight
 
@@ -22,27 +22,27 @@ En este tutorial, realizará una operación de ETL: extracción, transformación
 En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
-> * Extraer y cargar los datos en un clúster de HDInsight.
-> * Transformar los datos mediante Apache Hive.
-> * Cargar los datos en Azure SQL Database mediante Sqoop.
+> - Extraer y cargar los datos en un clúster de HDInsight.
+> - Transformar los datos mediante Apache Hive.
+> - Cargar los datos en Azure SQL Database mediante Sqoop.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* **Una cuenta de almacenamiento de Azure Data Lake Storage Gen2 configurada para HDInsight**
+- **Una cuenta de almacenamiento de Azure Data Lake Storage Gen2 configurada para HDInsight**
 
     Consulte [Uso de Data Lake Storage Gen2 con clústeres de Azure HDInsight](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md).
 
-* **Un clúster de Hadoop basado en Linux en HDInsight**
+- **Un clúster de Hadoop basado en Linux en HDInsight**
 
     Consulte [Quickstart: Introducción a Apache Hadoop y Apache Hive en Azure HDInsight con Azure Portal](../../hdinsight/hadoop/apache-hadoop-linux-create-cluster-get-started-portal.md).
 
-* **Azure SQL Database**: Use Azure SQL Database como almacén de datos de destino. Si no tiene ninguna base de datos en SQL Database, consulte el artículo sobre [creación de una base de datos en Azure SQL Database en Azure Portal](../../azure-sql/database/single-database-create-quickstart.md).
+- **Azure SQL Database**: Use Azure SQL Database como almacén de datos de destino. Si no tiene ninguna base de datos en SQL Database, consulte el artículo sobre [creación de una base de datos en Azure SQL Database en Azure Portal](../../azure-sql/database/single-database-create-quickstart.md).
 
-* **CLI de Azure**: Si no ha instalado la CLI de Azure , consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
+- **CLI de Azure**: Si no ha instalado la CLI de Azure , consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
 
-* **Un cliente de Secure Shell (SSH)** : Para más información, consulte [Conexión a HDInsight (Apache Hadoop) mediante SSH](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
+- **Un cliente de Secure Shell (SSH)** : Para más información, consulte [Conexión a HDInsight (Apache Hadoop) mediante SSH](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="download-the-flight-data"></a>Descarga de los datos de vuelo
 
@@ -55,7 +55,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
    | Filter Year |2013 |
    | Filter Period |January |
    | Fields |Year, FlightDate, Reporting_Airline, IATA_CODE_Reporting_Airline, Flight_Number_Reporting_Airline, OriginAirportID, Origin, OriginCityName, OriginState, DestAirportID, Dest, DestCityName, DestState, DepDelayMinutes, ArrDelay, ArrDelayMinutes, CarrierDelay, WeatherDelay, NASDelay, SecurityDelay, LateAircraftDelay. |
-   
+
    Borre el resto de los campos.
 
 3. Seleccione **Descargar**. Obtenga un archivo .zip con los campos de datos que ha seleccionado.
@@ -70,9 +70,9 @@ En esta sección, podrá cargar datos en el clúster de HDInsight y, a continuac
    scp <file-name>.zip <ssh-user-name>@<cluster-name>-ssh.azurehdinsight.net:<file-name.zip>
    ```
 
-   * Reemplace el marcador de posición `<file-name>` por el nombre del archivo .zip.
-   * Reemplace el marcador de posición `<ssh-user-name>` por el inicio de sesión SSH para el clúster de HDInsight.
-   * Reemplace el marcador de posición `<cluster-name>` por el nombre del clúster de HDInsight.
+   - Reemplace el marcador de posición `<file-name>` por el nombre del archivo .zip.
+   - Reemplace el marcador de posición `<ssh-user-name>` por el inicio de sesión SSH para el clúster de HDInsight.
+   - Reemplace el marcador de posición `<cluster-name>` por el nombre del clúster de HDInsight.
 
    Si usa una contraseña para autenticar el inicio de sesión SSH, se le pedirá la contraseña.
 
@@ -194,13 +194,13 @@ Como parte del trabajo de Apache Hive importe los datos del archivo .csv en una 
 
 3. Guarde el archivo mediante CTRL + X y, a continuación, escriba `Y` cuando se le solicite.
 
-4. Para iniciar Hive y ejecutar el archivo **flightdelays.hql**, use el siguiente comando:
+4. Para iniciar Hive y ejecutar el archivo `flightdelays.hql`, use el siguiente comando:
 
    ```bash
    beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -f flightdelays.hql
    ```
 
-5. Cuando finalice el script __flightdelays.hql__, use el siguiente comando para abrir una sesión interactiva de Beeline:
+5. Cuando finalice el script `flightdelays.hql`, use el siguiente comando para abrir una sesión interactiva de Beeline:
 
    ```bash
    beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http'
@@ -249,11 +249,12 @@ Necesita el nombre del servidor de SQL Database para esta operación. Complete e
    ```bash
    TDSVER=8.0 tsql -H '<server-name>.database.windows.net' -U '<admin-login>' -p 1433 -D '<database-name>'
     ```
-   * Reemplace el marcador de posición `<server-name>` por el nombre de servidor lógico de SQL.
 
-   * Reemplace el marcador de posición `<admin-login>` por el inicio de sesión de administrador para SQL Database.
+   - Reemplace el marcador de posición `<server-name>` por el nombre de servidor lógico de SQL.
 
-   * Reemplace el marcador de posición `<database-name>` por el nombre de la base de datos.
+   - Reemplace el marcador de posición `<admin-login>` por el inicio de sesión de administrador para SQL Database.
+
+   - Reemplace el marcador de posición `<database-name>` por el nombre de la base de datos.
 
    Cuando se le solicite, escriba la contraseña para el inicio de sesión del administrador de SQL Database.
 

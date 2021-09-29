@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 06/29/2021
 ms.author: tamram
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 600c651601e4281b717c1c8fa7808f3663be4af6
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: cfea2bd15bceb7d1478059d9ef80f4eb33337dc6
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113093950"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128664758"
 ---
 # <a name="manage-storage-account-access-keys"></a>Administración de las claves de acceso de la cuenta de almacenamiento
 
@@ -57,7 +57,7 @@ $storageAccountKey = `
 
 ### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-Para enumerar las claves de acceso a la cuenta con la CLI de Azure, llame al comando [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list), tal como se muestra en el ejemplo siguiente. No olvide reemplazar los valores del marcador de posición entre corchetes con sus propios valores. 
+Para enumerar las claves de acceso a la cuenta con la CLI de Azure, llame al comando [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list), tal como se muestra en el ejemplo siguiente. No olvide reemplazar los valores del marcador de posición entre corchetes con sus propios valores.
 
 ```azurecli-interactive
 az storage account keys list \
@@ -97,7 +97,7 @@ La capacidad de establecer una directiva de expiración de claves mediante Azure
 
 #### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Para crear una directiva de expiración de claves, use el comando [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) y establezca el parámetro `-KeyExpirationPeriodInDay` en el número de días que una clave de acceso puede estar activa antes de que se deba girar. 
+Para crear una directiva de expiración de claves, use el comando [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) y establezca el parámetro `-KeyExpirationPeriodInDay` en el número de días que una clave de acceso puede estar activa antes de que se deba girar.
 
 ```powershell
 $account = Set-AzStorageAccount -ResourceGroupName <resource-group> -Name `
@@ -107,32 +107,31 @@ $account = Set-AzStorageAccount -ResourceGroupName <resource-group> -Name `
 > [!TIP]
 > También puede establecer la directiva de expiración de claves al crear una cuenta de almacenamiento si establece el parámetro `-KeyExpirationPeriodInDay` del comando [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount).
 
-Para comprobar que se ha aplicado la directiva, use la propiedad `KeyPolicy` de [PSStorageAccount](/dotnet/api/microsoft.azure.commands.management.storage.models.psstorageaccount) devuelta a la variable `$account` en el comando anterior. 
-  
+Para comprobar que se ha aplicado la directiva, use la propiedad `KeyPolicy` de [PSStorageAccount](/dotnet/api/microsoft.azure.commands.management.storage.models.psstorageaccount) devuelta a la variable `$account` en el comando anterior.
+
 ```powershell
 $account.KeyPolicy
-``` 
+```
 
 El período de expiración de la clave aparece en la salida de la consola.
 
 > [!div class="mx-imgBorder"]
 > ![Período de expiración de la clave de acceso](./media/storage-account-keys-manage/key-policy-powershell.png)
 
-Es posible que quiera girar las claves existentes si han estado activas durante más tiempo que el período de expiración. Para averiguar cuándo se ha creado una clave, use la propiedad `KeyCreationTime`. 
-  
+Es posible que quiera girar las claves existentes si han estado activas durante más tiempo que el período de expiración. Para averiguar cuándo se ha creado una clave, use la propiedad `KeyCreationTime`.
+
 ```powershell
 $account.KeyCreationTime
-``` 
+```
 
 La hora de creación de la clave de acceso para las dos claves de acceso aparece en la salida de la consola.
 
 > [!div class="mx-imgBorder"]
 > ![Horas de creación de las claves de acceso](./media/storage-account-keys-manage/key-creation-time-powershell.png)
 
-
 #### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-Para crear una directiva de expiración de claves en cuentas de almacenamiento existentes, use el comando [az storage account update](/cli/azure/storage/account#az_storage_account_update) y establezca el parámetro `--key-exp-days` en el número de días que una clave de acceso puede estar activa antes de que se deba girar. 
+Para crear una directiva de expiración de claves en cuentas de almacenamiento existentes, use el comando [az storage account update](/cli/azure/storage/account#az_storage_account_update) y establezca el parámetro `--key-exp-days` en el número de días que una clave de acceso puede estar activa antes de que se deba girar.
 
 ```azurecli-interactive
 az storage account update \
@@ -144,7 +143,7 @@ az storage account update \
 > También puede establecer la directiva de expiración de claves al crear una cuenta de almacenamiento si establece el parámetro `-KeyExpirationPeriodInDay` del comando [az storage account create](/cli/azure/storage/account#az_storage_account_create).
 
 Para comprobar que se ha aplicado la directiva, llame al comando [az storage account show](/cli/azure/storage/account#az_storage_account_show) y use la cadena `{KeyPolicy:keyPolicy}` para el parámetro `-query`.
-  
+
 ```azurecli-interactive
 az storage account show \
   -n <storage-account-name> \
@@ -162,9 +161,8 @@ El período de expiración de la clave aparece en la salida de la consola.
 }
 ```
 
-
 Es posible que quiera girar las claves existentes si han estado activas durante más tiempo que el período de expiración. Para averiguar cuándo se ha creado una clave, use el comando [az storage account show](/cli/azure/storage/account#az_storage_account_show) y después la cadena `keyCreationTime` para el parámetro -query.
-  
+
 ```azurecli-interactive
 az storage account show \
   -n <storage-account-name> \
@@ -176,22 +174,22 @@ az storage account show \
 
 ### <a name="query-for-policy-violations"></a>Consulta de infracciones de la directiva
 
-Si crea una configuración de diagnóstico que [envía registros al área de trabajo de Azure Log Analytics](../blobs/monitor-blob-storage.md#send-logs-to-azure-log-analytics), puede usar una consulta de registro de Azure Monitor para determinar si una clave ha expirado. 
+Si crea una configuración de diagnóstico que [envía registros al área de trabajo de Azure Log Analytics](../blobs/monitor-blob-storage.md#send-logs-to-azure-log-analytics), puede usar una consulta de registro de Azure Monitor para determinar si una clave ha expirado.
 
 Para determinar si una clave ha expirado, escriba la siguiente consulta en la barra de **búsqueda de registros**.
 
-```Kusto
+```kusto
 StorageBlobLogs | where KeyExpiryStatus startsWith "Policy Violated". 
 ```
 
 También puede crear una consulta que le ayude a determinar si una consulta está a punto de expirar. En la consulta siguiente se proporciona esta información.
 
-```Kusto
-resources  
-| where type =~ 'microsoft.storage/storageAccounts' 
-| extend days = datetime_diff('day', now(), todatetime(parse_json(properties).keyCreationTime)) 
-| extend KeyExpiryStatus = iff(days > 180, "Policy Violated", "") 
-| project name, days, KeyExpiryStatus  
+```kusto
+resources 
+| where type =~ 'microsoft.storage/storageAccounts'
+| extend days = datetime_diff('day', now(), todatetime(parse_json(properties).keyCreationTime))
+| extend KeyExpiryStatus = iff(days > 180, "Policy Violated", "")
+| project name, days, KeyExpiryStatus  
 ```
 
 ### <a name="rotate-access-keys"></a>Giro de claves de acceso
@@ -241,13 +239,13 @@ Para rotar las claves de acceso a la cuenta de almacenamiento con la CLI de Azur
     ```azurecli-interactive
     az storage account keys renew \
       --resource-group <resource-group> \
-      --account-name <storage-account>
+      --account-name <storage-account> \
       --key primary
     ```
 
 1. Actualice las cadenas de conexión en su código para hacer referencia a la nueva clave de acceso primaria.
 
-2. Vuelva a generar la clave de acceso secundaria de la misma forma. Para regenerar la clave secundaria, use `key2` como el nombre de clave en lugar de `key1`.
+2. Vuelva a generar la clave de acceso secundaria de la misma forma. Para regenerar la clave secundaria, use `secondary` como el nombre de clave en lugar de `primary`.
 
 ---
 

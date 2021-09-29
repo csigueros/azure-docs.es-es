@@ -11,12 +11,12 @@ ms.subservice: verifiable-credentials
 ms.date: 06/24/2021
 ms.author: barclayn
 ms.reviewer: ''
-ms.openlocfilehash: 7b50e17a8c6730aedbc8fea68a2ab4d8685b2fa5
-ms.sourcegitcommit: 92dd25772f209d7d3f34582ccb8985e1a099fe62
+ms.openlocfilehash: 9867825794c363b9df53849ad3fd1cb644492677
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114228985"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124816277"
 ---
 # <a name="tutorial---configure-azure-active-directory-to-issue-verifiable-credentials-preview"></a>Tutorial: Configuración de Azure Active Directory para emitir credenciales verificables (versión preliminar)
 
@@ -249,7 +249,7 @@ Ahora, lleve a cabo el último paso para configurar el inquilino para las creden
 1. Configure la organización; para ello, proporcione la siguiente información:
 
       - **Nombre de la organización**: escriba un nombre para hacer referencia a su empresa en las credenciales verificables. Este valor no se muestra a los clientes.
-      - **Dominio**: el dominio especificado se agrega a un punto de conexión de servicio en el documento de DID. [Microsoft Authenticator](../user-help/user-help-auth-app-download-install.md) y otras carteras usan esta información para validar que el DID se ha [vinculado a su dominio](how-to-dnsbind.md). Si la cartera puede verificar el DID, se muestra un símbolo de verificación. Si la cartera no puede verificar la DID, esta informa al usuario de que la credencial fue emitida por una organización que no ha podido validar. El dominio es lo que enlaza la DID a algo tangible que el usuario puede saber sobre su empresa.
+      - **Dominio**: el dominio especificado se agrega a un punto de conexión de servicio en el documento de DID. [Microsoft Authenticator](https://support.microsoft.com/account-billing/download-and-install-the-microsoft-authenticator-app-351498fc-850a-45da-b7b6-27e523b8702a) y otras carteras usan esta información para validar que el DID se ha [vinculado a su dominio](how-to-dnsbind.md). Si la cartera puede verificar el DID, se muestra un símbolo de verificación. Si la cartera no puede verificar la DID, esta informa al usuario de que la credencial fue emitida por una organización que no ha podido validar. El dominio es lo que enlaza la DID a algo tangible que el usuario puede saber sobre su empresa.
       - **Almacén de claves**: escriba el nombre de la instancia de Key Vault que ha creado anteriormente.
 
    >[!IMPORTANT]

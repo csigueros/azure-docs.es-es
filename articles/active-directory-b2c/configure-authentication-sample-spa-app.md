@@ -7,16 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 07/05/2021
+ms.date: 09/15/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: b2c-support
-ms.openlocfilehash: ffda1151054b887114523704498a97d2ab7f7c44
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 1ea2ae3644ae22fd06a5bae650fa3f5beb955aba
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121780225"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128572518"
 ---
 # <a name="configure-authentication-in-a-sample-single-page-application-by-using-azure-ad-b2c"></a>Configuración de la autenticación en una aplicación de página única mediante Azure AD B2C
 
@@ -40,11 +40,11 @@ El flujo de inicio de sesión consta de los pasos siguientes:
 
 Para que la aplicación pueda iniciar sesión con Azure AD B2C y llamar a una API web, registre dos aplicaciones en el directorio de Azure AD B2C.  
 
-- El registro de la **aplicación web** permite que la aplicación inicie sesión con Azure AD B2C. Durante el registro, especificará el *URI de redirección*. El URI de redirección es el punto de conexión al que Azure AD B2C redirige a los usuarios después de que se autentican en este servicio. El proceso de registro de la aplicación genera un *identificador de aplicación*, también conocido como *id. de cliente*, que permite identificar de forma exclusiva la aplicación.
+- El registro de la **aplicación web** permite que la aplicación inicie sesión con Azure AD B2C. Durante el registro, hay que especificar el *URI de redirección*. El URI de redirección es el punto de conexión al que Azure AD B2C redirige a los usuarios después de que se autentican en este servicio. El proceso de registro de la aplicación genera un *identificador de aplicación*, también conocido como *id. de cliente*, que permite identificar de forma exclusiva la aplicación.
 
 - El  registro de **API web** permite que la aplicación llame a una API web segura. El registro incluye los *ámbitos* de la API web. Los ámbitos ofrecen una manera de administrar permisos para los recursos protegidos, como la API web. A la aplicación web se le conceden permisos para los ámbitos de la API web. Cuando se selecciona un token de acceso, la aplicación especifica los permisos que desea en el parámetro de ámbito de la solicitud.  
 
-En el diagrama siguiente se muestran los registros y la arquitectura de la aplicación:
+En el siguiente diagrama se muestran los registros y la arquitectura de la aplicación:
 
 ![Diagrama de una aplicación web con registros y tokens de llamadas de API web.](./media/configure-authentication-sample-spa-app/spa-app-with-api-architecture.png) 
 
@@ -84,8 +84,8 @@ En este paso, creará la aplicación SPA y los registros de aplicación de API w
 Para crear la configuración de la aplicación SPA, haga lo siguiente:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-
-1. Seleccione el icono **Directorio y suscripción** en la barra de herramientas del portal y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
 1. Busque y seleccione **Azure AD B2C**.
 1. Seleccione **Registros de aplicaciones** y luego **Nuevo registro**.
 1. Escriba un **Nombre** para la aplicación (por ejemplo, *MyApp*).

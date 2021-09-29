@@ -5,14 +5,15 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: overview
 ms.date: 01/22/2018
-ms.openlocfilehash: ea7c5a82a6219e673454d627a4350291c5b3f047
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 78ed8c774bc44c7a2756019287cd4364db1fe4d4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108761658"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128644512"
 ---
 # <a name="introduction-to-azure-data-factory"></a>Introducción a Azure Data Factory 
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -34,7 +35,7 @@ A continuación desean procesar los datos con Hadoop en la nube (Azure HDInsight
 
 La empresa necesita una plataforma en la que se cree un flujo de trabajo donde se puedan introducir datos de almacenes tanto locales como en la nube. La empresa también necesita transformar o procesar datos mediante servicios de proceso existentes, como Hadoop, y publicar los resultados en un almacén de datos local o en la nube para que los consuman aplicaciones de inteligencia empresarial. 
 
-![Introducción a Data Factory](media/data-factory-introduction/what-is-azure-data-factory.png) 
+:::image type="content" source="media/data-factory-introduction/what-is-azure-data-factory.png" alt-text="Introducción a Data Factory"::: 
 
 Azure Data Factory es la plataforma para estos tipos de escenario. Se trata de un *servicio de integración de datos basado en la nube que permite crear flujos de trabajo basados en datos en la nube a fin de orquestar y automatizar el movimiento y la transformación de datos*. Con Azure Data Factory, puede realizar las tareas siguientes: 
 
@@ -52,7 +53,7 @@ Actualmente, en Azure Data Factory, los datos que consumen y generan los flujos 
 ## <a name="how-does-it-work"></a>¿Cómo funciona? 
 Las canalizaciones (flujos de trabajo orientados a datos) en Azure Data Factory realizan normalmente los tres pasos siguientes:
 
-![Tres fases de Azure Data Factory](media/data-factory-introduction/three-information-production-stages.png)
+:::image type="content" source="media/data-factory-introduction/three-information-production-stages.png" alt-text="Tres fases de Azure Data Factory":::
 
 ### <a name="connect-and-collect"></a>Conectar y recopilar
 Las empresas tienen datos de varios tipos ubicados en orígenes dispares. El primer paso para la compilación de un sistema de producción de información es la conexión a todos los orígenes de datos y procesamientos necesarios. Estos orígenes incluyen servicios de SaaS, recursos compartidos de archivos, FTP y servicios web. A continuación, mueva los datos como sea necesario a una ubicación centralizada para el procesamiento posterior.
@@ -113,7 +114,7 @@ Los servicios vinculados se utilizan en Data Factory por dos motivos:
 
 ### <a name="relationship-between-data-factory-entities"></a>Relación entre las entidades de Data Factory
 
-![Diagrama: Data Factory, un servicio de integración de datos en la nube (conceptos clave)](./media/data-factory-introduction/data-integration-service-key-concepts.png)
+:::image type="content" source="./media/data-factory-introduction/data-integration-service-key-concepts.png" alt-text="Diagrama: Data Factory, un servicio de integración de datos en la nube (conceptos clave)":::
 
 ## <a name="supported-regions"></a>Regiones admitidas
 Actualmente, se pueden crear factorías de datos en las regiones Oeste de EE. UU., Este de EE.UU. y Norte de Europa. Sin embargo, una factoría de datos puede acceder a almacenes de datos y a servicios de proceso en otras regiones de Azure para mover datos entre almacenes de datos o para procesarlos mediante servicios de proceso.

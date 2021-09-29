@@ -6,15 +6,15 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 08/24/2021
+ms.date: 09/09/2021
 ms.author: jianleishen
 ms.custom: has-adal-ref, synapse
-ms.openlocfilehash: 27e9f92f7ea2be3ebdafbf973c4d1def179d5636
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.openlocfilehash: 0808b52c777389cfdf641094fd152ee9f11b482f
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122864151"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124782729"
 ---
 # <a name="troubleshoot-azure-data-factory-and-azure-synapse-analytics-connectors"></a>Solución de problemas relacionados con conectores en Azure Data Factory y Azure Synapse Analytics
 
@@ -67,7 +67,7 @@ En este artículo se exploran las formas más comunes de solucionar problemas co
 
 - **Causa**: se producen varias solicitudes de escritura simultáneas, lo que provoca conflictos en el contenido del archivo.
 
-## <a name="azure-cosmos-db"></a>Azure Cosmos DB
+## <a name="azure-cosmos-db"></a>Azure Cosmos DB
 
 ### <a name="error-message-request-size-is-too-large"></a>Mensaje de error: Request size is too large (El tamaño de la solicitud es demasiado grande)
 
@@ -154,7 +154,7 @@ En este artículo se exploran las formas más comunes de solucionar problemas co
 
 - **Solución:** Como solución alternativa, use la copia almacenada provisionalmente para omitir la validación de seguridad de la capa de transporte (TLS) en Azure Data Lake Storage Gen1. Debe reproducir este problema y recopilar el seguimiento de supervisión de la red (netmon) y, luego, que el equipo de red participe en la comprobación de la configuración de la red local.
 
-    ![Diagrama de conexiones de Azure Data Lake Storage Gen1 para solucionar problemas.](./media/connector-troubleshoot-guide/adls-troubleshoot.png)
+    :::image type="content" source="./media/connector-troubleshoot-guide/adls-troubleshoot.png" alt-text="Diagrama de conexiones de Azure Data Lake Storage Gen1 para solucionar problemas.":::
 
 
 ### <a name="error-message-the-remote-server-returned-an-error-403-forbidden"></a>Mensaje de error: Error en el servidor remoto: (403) Prohibido
@@ -1208,15 +1208,15 @@ En este artículo se exploran las formas más comunes de solucionar problemas co
 
     2. Abra el archivo *diawp.exe.config* y, luego, al final de la sección `<runtime>`, agregue `<enforceFIPSPolicy enabled="false"/>`, como se muestra aquí:
 
-        ![Captura de pantalla de una sección del archivo diawp.exe.config que muestra FIPS deshabilitado.](./media/connector-troubleshoot-guide/disable-fips-policy.png)
+        :::image type="content" source="./media/connector-troubleshoot-guide/disable-fips-policy.png" alt-text="Captura de pantalla de una sección del archivo diawp.exe.config que muestra FIPS deshabilitado.":::
 
     3. Guarde el archivo y, luego, reinicie la máquina del entorno de ejecución de integración autohospedado.
 
-### <a name="error-code-jniexception&quot;></a>Código de error: JniException
+### <a name="error-code-jniexception"></a>Código de error: JniException
 
 - **Mensaje**: `An error occurred when invoking Java Native Interface.`
 
-- **Causa**: si el mensaje de error contiene &quot;Cannot create JVM: JNI return code [-6][JNI call failed: Invalid arguments.]&quot; (&quot;No se puede crear JVM: código de retorno de JNI [-6][La llamada de JNI no se ha podido realizar: los argumentos no son válidos]."), la posible causa es que JVM no se puede crear porque se han establecido algunos argumentos no válidos (globales).
+- **Causa**: si el mensaje de error contiene "Cannot create JVM: JNI return code [-6][JNI call failed: Invalid arguments.]" ("No se puede crear JVM: código de retorno de JNI [-6][La llamada de JNI no se ha podido realizar: los argumentos no son válidos]."), la posible causa es que JVM no se puede crear porque se han establecido algunos argumentos no válidos (globales).
 
 - **Recomendación**: inicie sesión en la máquina que hospeda *cada nodo* del entorno de ejecución de integración autohospedado. Asegúrese de que la variable del sistema esté configurada correctamente, como se indica a continuación: `_JAVA_OPTIONS "-Xms256m -Xmx16g" with memory bigger than 8G`. Reinicie todos los nodos del entorno de ejecución de integración y vuelva a ejecutar la canalización.
 

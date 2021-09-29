@@ -12,12 +12,12 @@ ms.date: 06/11/2019
 ms.author: davidmu
 ms.collection: M365-identity-device-management
 ms.reviewer: ergreenl
-ms.openlocfilehash: bec4df252a98fc105f0eec1480452021fefb0031
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: dac32dd14e006b1187f62389d3bc38e3c30a890f
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121733671"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124791467"
 ---
 # <a name="one-click-app-configuration-of-single-sign-on"></a>Configuración del inicio de sesión único mediante un solo clic de una aplicación
 
@@ -36,7 +36,7 @@ La característica de SSO con un clic se ha diseñado para configurar el inicio 
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Una suscripción activa de la aplicación en la que se va a configurar el inicio de sesión único. También se necesitan credenciales de administrador.
-- La **extensión de inicio de sesión seguro de Mis aplicaciones** de Microsoft instalada en el explorador. Para más información, consulte [Acceso y uso del aplicaciones en el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+- La **extensión de inicio de sesión seguro de Mis aplicaciones** de Microsoft instalada en el explorador. Para más información, consulte [Acceso y uso del aplicaciones en el portal Aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="one-click-sso-configuration-steps"></a>Pasos para la configuración de SSO con un clic
 
@@ -81,4 +81,4 @@ La característica de SSO con un clic se ha diseñado para configurar el inicio 
 ## <a name="additional-resources"></a>Recursos adicionales
 
 - [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](../saas-apps/tutorial-list.md)
-- [¿Qué es la extensión de inicio de sesión seguro de Mis aplicaciones para el explorador?](../user-help/my-apps-portal-end-user-access.md)
+- [¿Qué es la extensión de inicio de sesión seguro de Mis aplicaciones para el explorador?](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)

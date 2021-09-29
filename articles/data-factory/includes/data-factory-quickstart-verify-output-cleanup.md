@@ -4,12 +4,12 @@ ms.topic: include
 ms.date: 11/09/2018
 author: linda33wj
 ms.author: jingwang
-ms.openlocfilehash: e96e3fe6a1c93c914e9dec7263852b047a05e38d
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 18ff33287be7f5763a23cdf33c6e023501645299
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108741778"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "126057203"
 ---
 ## <a name="review-deployed-resources"></a>Revisión de los recursos implementados
 
@@ -17,13 +17,13 @@ El conducto crea automáticamente la carpeta de salida en el contenedor de blob 
 
 1. En Azure Portal, en la página del contenedor **adftutorial**, seleccione **Actualizar** para ver la carpeta de salida. 
     
-    ![Captura de pantalla que muestra la página del contenedor donde puede actualizar la página.](media/data-factory-quickstart-verify-output-cleanup/output-refresh.png)
+    :::image type="content" source="media/data-factory-quickstart-verify-output-cleanup/output-refresh.png" alt-text="Captura de pantalla que muestra la página del contenedor donde puede actualizar la página.":::
 
 2. En la lista de carpetas, seleccione **output**. 
 
 3. Confirme que **emp.txt** se ha copiado en la carpeta de salida. 
 
-    ![Captura de pantalla que muestra el contenido de la carpeta de salida.](media/data-factory-quickstart-verify-output-cleanup/output-file.png)
+    :::image type="content" source="media/data-factory-quickstart-verify-output-cleanup/output-file.png" alt-text="Captura de pantalla que muestra el contenido de la carpeta de salida.":::
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

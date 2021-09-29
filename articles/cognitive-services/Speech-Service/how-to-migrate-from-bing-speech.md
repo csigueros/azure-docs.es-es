@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: pafarley
-ms.openlocfilehash: 0c914429cc98aa06421658b862367b03ce527802
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 9e3408ef27f4ee31f3308754cf5a0352b22c375b
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123540944"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124828781"
 ---
 # <a name="migrate-from-bing-speech-to-the-speech-service"></a>Migración de Bing Speech al servicio de voz
 
@@ -29,7 +29,7 @@ Una única clave de suscripción al servicio de voz concede acceso a las siguien
 * [Conversión de voz a texto personalizada](./custom-speech-overview.md)
 * [Texto a voz](text-to-speech.md)
 * [Conversión de texto a voz personalizada](./how-to-custom-voice-create-voice.md)
-* [Traducción de voz](speech-translation.md) (no incluye [traducción de texto](../translator/translator-info-overview.md))
+* [Traducción de voz](speech-translation.md) (no incluye [traducción de texto](../translator/translator-overview.md))
 
 El [Speech SDK](speech-sdk.md) es un reemplazo funcional para las bibliotecas de cliente de Bing Speech, pero usa una API diferente.
 

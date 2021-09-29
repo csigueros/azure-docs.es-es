@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: how-to
 ms.date: 08/10/2021
 ms.custom: template-how-to
-ms.openlocfilehash: e644732a90652b1672dc77bfc6db86d7a6b7295a
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: 8db131bd39ae8ebe27720a7d725f6ab8082dfd83
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123221078"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124780022"
 ---
 # <a name="troubleshoot-the-azure-percept-dk-device"></a>Solución de problemas del dispositivo de Azure Percept DK
 
@@ -41,7 +41,7 @@ En esta sección, se proporcionan instrucciones sobre qué registros se recopila
 
 ### <a name="log-types-and-commands"></a>Tipos de registros y comandos
 
-|Finalidad del registro      |Cuándo recopilarlo         |Comando                     |
+|Finalidad del registro      |Cuándo recopilarlo         |Get-Help                     |
 |-----------------|---------------------------|----------------------------|
 |*Conjunto de soporte técnico*: proporciona un conjunto de registros necesarios para la mayoría de las solicitudes de soporte técnico del cliente.|Recopílelo cada vez que solicite soporte técnico.|```sudo iotedge support-bundle --since 1h``` <br><br>*"--since 1h" se puede cambiar a cualquier intervalo de tiempo; por ejemplo, "6h" (6 horas), "6d" (6 días) o "6 m" (6 minutos).*|
 |*Registros de OOBE*: registra los detalles sobre la experiencia de configuración.|Recopílelos cuando tenga problemas durante la experiencia de configuración.|```sudo journalctl -u oobe -b```|
@@ -49,12 +49,15 @@ En esta sección, se proporcionan instrucciones sobre qué registros se recopila
 |*Registros de contenedor de módulos*: registra los detalles sobre contenedores de módulos IoT Edge específicos.|Recopílelos cuando tenga problemas con un módulo.|```sudo iotedge logs [container name]```|
 |*Registros de red*: un conjunto de registros que abarcan los servicios Wi-Fi y la pila de red.|Recopílelos cuando tenga problemas de Wi-Fi o de red.|```sudo journalctl -u hostapd.service -u wpa_supplicant.service -u ztpd.service -u systemd-networkd > network_log.txt```<br><br>```cat /etc/os-release && cat /etc/os-subrelease && cat /etc/adu-version && rpm -q ztpd > system_ver.txt```<br><br>Ejecute ambos comandos. Cada comando recopila varios registros y los coloca en una única salida.|
 
+> [!WARNING]
+> La salida del comando `support-bundle` puede contener nombres de hosts, de dispositivos y de módulos, información registrada por los módulos, etc. Tenga esto en cuenta si comparte la salida en un foro público.
+
 ## <a name="troubleshooting-commands"></a>Solución de problemas de comandos
 Este es un conjunto de comandos que se pueden usar para solucionar problemas que puede encontrar con el kit de desarrollo. Para ejecutar estos comandos, primero debe conectarse al kit de desarrollo [a través de SSH](./how-to-ssh-into-percept-dk.md). 
 
 Para más información sobre los comandos de Azure IoT Edge, consulte la [documentación de solución de problemas de dispositivos de Azure IoT Edge](../iot-edge/troubleshoot.md). 
 
-|Función         |Cuándo se usa                    |Comando                 |
+|Función         |Cuándo se usa                    |Get-Help                 |
 |------------------|----------------------------|---------------------------|
 |Comprueba la versión de software en el kit de desarrollo.|Úsela cada vez que necesite confirmar qué versión de software está en el kit de desarrollo.|```cat /etc/os-release && cat /etc/os-subrelease && cat /etc/adu-version```|
 |Comprueba la temperatura del kit de desarrollo.|Úsela en casos en los que piense que el kit de desarrollo podría estar sobrecalentándose.|```cat /sys/class/thermal/thermal_zone0/temp```|

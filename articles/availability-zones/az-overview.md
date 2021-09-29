@@ -8,12 +8,12 @@ ms.date: 04/09/2021
 ms.author: prsandhu
 ms.reviewer: cynthn
 ms.custom: fasttrack-edit, mvc
-ms.openlocfilehash: 8d2198c4c2c2dd100d7bbf88eebc4e521d6ace04
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 886248c4561b4f332bf3906db62938168d638c12
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121747779"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124820743"
 ---
 # <a name="regions-and-availability-zones-in-azure"></a>Regiones y Availability Zones en Azure
 
@@ -52,7 +52,7 @@ Coloque sus recursos de proceso, almacenamiento, red y datos dentro de una zona 
 - **Servicios con redundancia de zona**: cuando la plataforma de Azure se replica automáticamente entre zonas (por ejemplo, almacenamiento con redundancia de zona y SQL Database).
 
 > [!NOTE]
-> Los tipos de recurso de dirección IP pública de SKU estándar y prefijo de dirección IP pública también tienen una opción "sin zona".  De este modo, los clientes pueden usar IP públicas de SKU estándar (y asociarlas a recursos que solo permiten SKU estándar), pero sin una garantía de redundancia.  (Todas las direcciones IP públicas que [se actualicen](https://docs.microsoft.com/azure/virtual-network/public-ip-upgrade-portal) de una SKU básica a otra estándar serán de tipo "sin zona").
+> Los tipos de recurso de dirección IP pública de SKU estándar y prefijo de dirección IP pública también tienen una opción "sin zona".  De este modo, los clientes pueden usar IP públicas de SKU estándar (y asociarlas a recursos que solo permiten SKU estándar), pero sin una garantía de redundancia.  (Todas las direcciones IP públicas que [se actualicen](../virtual-network/public-ip-upgrade-portal.md) de una SKU básica a otra estándar serán de tipo "sin zona").
 
 Para lograr una continuidad del negocio integral en Azure, cree la arquitectura de aplicación mediante la combinación de zonas de disponibilidad y pares de regiones de Azure. Puede replicar de forma sincrónica las aplicaciones y los datos mediante zonas de disponibilidad dentro de una región de Azure para conseguir alta disponibilidad, y replicar de forma asincrónica entre regiones de Azure para la protección de recuperación ante desastres.
  

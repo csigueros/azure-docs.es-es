@@ -3,12 +3,12 @@ title: Configuración de Azure Arc para App Service, Functions y Logic Apps
 description: En el caso Azure Arc clústeres de Kubernetes habilitados, aprenda a habilitar aplicaciones App Service, aplicaciones de funciones y aplicaciones lógicas.
 ms.topic: article
 ms.date: 08/17/2021
-ms.openlocfilehash: f6d917a9bd18c16e283f8c61e6cb6d15fcd4882f
-ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
+ms.openlocfilehash: 7fbdae7b5e8b3bda94c1f1ddbb2a70720596d1fd
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122396981"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128639040"
 ---
 # <a name="set-up-an-azure-arc-enabled-kubernetes-cluster-to-run-app-service-functions-and-logic-apps-preview"></a>Configuración de un clúster de Kubernetes habilitado para Azure Arc para ejecutar App Service, Functions y Logic Apps (versión preliminar)
 
@@ -187,14 +187,13 @@ Aunque no se necesita un [área de trabajo de Log Analytics](../azure-monitor/lo
         --workspace-name $workspaceName \
         --query customerId \
         --output tsv)
-    logAnalyticsWorkspaceIdEnc=$(printf %s $logAnalyticsWorkspaceId | base64) # Needed for the next step
+    logAnalyticsWorkspaceIdEnc=$(printf %s $logAnalyticsWorkspaceId | base64 -w0) # Needed for the next step
     logAnalyticsKey=$(az monitor log-analytics workspace get-shared-keys \
         --resource-group $groupName \
         --workspace-name $workspaceName \
         --query primarySharedKey \
         --output tsv)
-    logAnalyticsKeyEncWithSpace=$(printf %s $logAnalyticsKey | base64)
-    logAnalyticsKeyEnc=$(echo -n "${logAnalyticsKeyEncWithSpace//[[:space:]]/}") # Needed for the next step
+    logAnalyticsKeyEnc=$(printf %s $logAnalyticsKey | base64 -w0) # Needed for the next step
     ```
 
     # <a name="powershell"></a>[PowerShell](#tab/powershell)

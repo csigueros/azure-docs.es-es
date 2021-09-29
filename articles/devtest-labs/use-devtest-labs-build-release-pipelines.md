@@ -1,14 +1,14 @@
 ---
 title: Uso de DevTest Labs en canalizaciones de compilaciones y versiones de Azure Pipelines
 description: Obtenga información sobre cómo usar Azure DevTest Labs en canalizaciones de versiones y compilaciones de Azure Pipelines.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: d04ed5dd7bebac0c8f24deb9145c3d2e4b77122e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: df9e496aa930c328832d59901aa8165e61cd076f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "88080341"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128552630"
 ---
 # <a name="use-devtest-labs-in-azure-pipelines-build-and-release-pipelines"></a>Uso de DevTest Labs en canalizaciones de compilaciones y versiones de Azure Pipelines
 En este artículo se proporciona información sobre cómo se puede usar DevTest Labs en canalizaciones de versiones y compilaciones de Azure Pipelines. 

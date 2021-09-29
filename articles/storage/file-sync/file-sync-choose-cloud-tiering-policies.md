@@ -7,21 +7,22 @@ ms.topic: conceptual
 ms.date: 04/13/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 40715f8076ac112ea6479fb4a134933d90b3dbf9
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: 8cd8b51531fa28e3d698de47358c3b69e4f88ec2
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123252264"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128665841"
 ---
 # <a name="choose-cloud-tiering-policies"></a>Selección de directivas de nube por niveles
 
 En este artículo se proporciona una guía para los usuarios que van a seleccionar y ajustar sus directivas de nube por niveles. Antes de leer este artículo, asegúrese de que comprende cómo funciona la nube por niveles. Para conocer los aspectos básicos, consulte [Comprender la nube por niveles de Azure File Sync](file-sync-cloud-tiering-overview.md). Puede encontrar una explicación detallada de las directivas de nube por niveles en [Directivas de nube por niveles de Azure File Sync](file-sync-cloud-tiering-policy.md).
 
 ## <a name="limitations"></a>Limitaciones
+
 - La nube por niveles no se admite en el volumen del sistema de Windows.
 
-- Sin embargo, puede habilitarla si tiene una cuota de FSRM en el nivel de volumen. Una vez que se establece una cuota de FSRM, las API de consulta de espacio libre que se llaman automáticamente notifican el espacio disponible en el volumen según la configuración de la cuota. 
+- Sin embargo, puede habilitarla si tiene una cuota de FSRM en el nivel de volumen. Una vez que se establece una cuota de FSRM, las API de consulta de espacio libre que se llaman automáticamente notifican el espacio disponible en el volumen según la configuración de la cuota.
 
 ### <a name="minimum-file-size-for-a-file-to-tier"></a>Tamaño mínimo de archivo mejorado para almacenar un archivo por niveles
 
@@ -54,7 +55,7 @@ Azure File Sync se admite en volúmenes NTFS con Windows Server 2012 R2 y versio
 
 Es posible que, después de crear el volumen, se le haya aplicado formato manualmente con otro tamaño de clúster. Si el volumen procede de una versión anterior de Windows, los tamaños de clúster predeterminados también pueden diferir. [En este artículo se ofrecen más detalles sobre los tamaños de clúster predeterminados.](https://support.microsoft.com/help/140365/default-cluster-size-for-ntfs-fat-and-exfat) Incluso si elige un tamaño de clúster inferior a 4 KiB, se seguirá aplicando un límite de 8 KiB como el tamaño de archivo más pequeño que se puede organizar en niveles. (Aunque el tamaño doble del clúster técnicamente sea menor que 8 KiB).
 
-El motivo del mínimo absoluto se encuentra en la forma en que NTFS almacena archivos extremadamente pequeños; por ejemplo, de 1 KiB a 4 KiB de tamaño. En función de otros parámetros del volumen, es posible que los archivos pequeños no se almacenen en un clúster del disco. Igualmente, es posible que sea más eficaz almacenar dichos archivos directamente en la tabla de archivos maestros del volumen o en "Registro de MFT". El punto de reanálisis de los niveles de la nube siempre se almacena en el disco y toma exactamente un clúster. La organización en niveles de estos pequeños archivos podría hacer que acabe sin espacio libre. Los casos extremos pueden incluso acabar usando más espacio con la opción de organizar la nube por niveles habilitada. Para evitar esto, el tamaño mínimo de un archivo que la nube por niveles distribuirá en niveles es de 8 KiB en un clúster de 4 KiB o inferior. 
+El motivo del mínimo absoluto se encuentra en la forma en que NTFS almacena archivos extremadamente pequeños; por ejemplo, de 1 KiB a 4 KiB de tamaño. En función de otros parámetros del volumen, es posible que los archivos pequeños no se almacenen en un clúster del disco. Igualmente, es posible que sea más eficaz almacenar dichos archivos directamente en la tabla de archivos maestros del volumen o en "Registro de MFT". El punto de reanálisis de los niveles de la nube siempre se almacena en el disco y toma exactamente un clúster. La organización en niveles de estos pequeños archivos podría hacer que acabe sin espacio libre. Los casos extremos pueden incluso acabar usando más espacio con la opción de organizar la nube por niveles habilitada. Para evitar esto, el tamaño mínimo de un archivo que la nube por niveles distribuirá en niveles es de 8 KiB en un clúster de 4 KiB o inferior.
 
 ## <a name="selecting-your-initial-policies"></a>Selección de las directivas iniciales
 
@@ -68,7 +69,7 @@ Después de establecer las directivas, supervise la salida y ajuste ambas direct
 
 Si la cantidad de archivos que se recuperan constantemente de Azure es mayor de la deseada, es posible que tenga más archivos activos que espacio para guardarlos en el volumen del servidor local. Si es posible, aumente el tamaño del volumen local o reduzca el porcentaje de la directiva de espacio disponible del volumen en incrementos pequeños. Reducir demasiado el porcentaje de espacio disponible en el volumen también puede tener consecuencias negativas. Para una mayor renovación del conjunto de archivos, se necesita más espacio disponible para los nuevos archivos y la recuperación de los archivos "pasivos". El almacenamiento por niveles se inicia con un retraso de hasta una hora y, luego, necesita tiempo de procesamiento, que es el motivo de que siempre tenga que haber bastante espacio disponible en el volumen.
 
-Mantener más datos locales conlleva menores costos de salida, ya que se recuperarán menos archivos de Azure, pero también requiere una mayor cantidad de almacenamiento local, que tiene su propio costo. 
+Mantener más datos locales conlleva menores costos de salida, ya que se recuperarán menos archivos de Azure, pero también requiere una mayor cantidad de almacenamiento local, que tiene su propio costo.
 
 Al ajustar la directiva de espacio disponible del volumen, la cantidad de datos que se deben mantener de forma local viene determinada por los siguientes factores: el ancho de banda, el patrón de acceso del conjunto de datos y el presupuesto. Si tiene una conexión con un ancho de banda bajo, sería conveniente mantener más datos en el entorno local para garantizar retrasos mínimos para los usuarios. En caso contrario, puede basarlo en la tasa de renovación durante un período determinado. Por ejemplo, si sabe que accede activamente al 10 % del conjunto de datos de 1 TiB cada mes, o que este porcentaje de datos cambia, le interesa mantener en el entorno local 100 GiB para no tener que recuperar archivos con frecuencia. Si el volumen es de 2 TiB, será mejor mantener el 5 % (o 100 GiB) en el entorno local, lo que significa que el 95 % restante es el porcentaje de espacio disponible en el volumen. No obstante, debería agregar un búfer de cara a los períodos de mayor renovación, es decir, comenzar con un porcentaje de espacio disponible en el volumen más grande y ajustarlo posteriormente si es necesario.
 
@@ -76,9 +77,9 @@ Al ajustar la directiva de espacio disponible del volumen, la cantidad de datos 
 
 - Al migrar por primera vez a Azure Files a través de Azure File Sync, la nube por niveles depende de la carga inicial.
 - La nube por niveles comprueba el cumplimiento de las directivas de espacio disponible del volumen y de fecha cada 60 minutos.
-- El uso del modificador/LFSM en Robocopy al migrar archivos permitirá que estos se sincronicen y se organicen en la nube por niveles para hacerles sitio durante la carga inicial. 
+- El uso del modificador/LFSM en Robocopy al migrar archivos permitirá que estos se sincronicen y se organicen en la nube por niveles para hacerles sitio durante la carga inicial.
 - Si el almacenamiento por niveles se produce antes de que se forme un mapa térmico, los archivos se almacenarán por niveles según la marca de tiempo de la última modificación
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Planeamiento de una implementación de Azure File Sync](file-sync-planning.md)
+- [Planeamiento de una implementación de Azure File Sync](file-sync-planning.md)

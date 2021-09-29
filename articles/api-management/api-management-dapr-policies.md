@@ -1,17 +1,17 @@
 ---
 title: Directivas de Azure API Management para la integración de Dapr | Microsoft Docs
 description: Conozca las directivas de Azure API Management para interactuar con las extensiones de microservicios de Dapr.
-author: vladvino
-ms.author: vlvinogr
+author: dlepow
+ms.author: danlep
 ms.date: 02/18/2021
 ms.topic: article
 ms.service: api-management
-ms.openlocfilehash: 8d12945642e4a948df7f81da3ac89d5f8814fa4b
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 4251d87727fafbb136b29eb2479ac0a70f2d027d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110472740"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128647563"
 ---
 # <a name="api-management-dapr-integration-policies"></a>Directivas de API Management para la integración de Dapr
 

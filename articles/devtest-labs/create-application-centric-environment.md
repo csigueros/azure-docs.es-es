@@ -1,14 +1,14 @@
 ---
-title: 'Creación de un entorno centrado en aplicaciones: Azure'
+title: Creación de un entorno centrado en aplicaciones
 description: En este artículo se muestra cómo crear un entorno centrado en aplicaciones con CloudShell Colony y Microsoft Azure.
 ms.topic: how-to
 ms.date: 11/26/2020
-ms.openlocfilehash: 88244f268d5ed038e9bb7082d3d5cc1179e5ec4e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8b56a39996aa93e10ede28de91ae20857a8eefc0
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94918041"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128627584"
 ---
 # <a name="create-an-application-centric-environment"></a>Creación de un entorno centrado en aplicaciones
 

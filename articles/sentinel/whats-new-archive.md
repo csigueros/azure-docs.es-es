@@ -8,12 +8,12 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 09/02/2021
-ms.openlocfilehash: fa985160297cb2bf4efb86068f7db82dc14b7aec
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 07a0848de708f3d01cc081130a02ffa6e11f07db
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123424733"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124818892"
 ---
 # <a name="archive-for-whats-new-in-azure-sentinel"></a>Archivo de novedades en Azure Sentinel
 
@@ -132,9 +132,9 @@ Para más información, consulte [Integración de Microsoft 365 Defender en Azu
 Entre las propiedades de los recursos que se pueden controlar con directivas están la creación y control de los registros de diagnóstico y auditoría. Ahora, Azure Sentinel usa Azure Policy para que pueda aplicar un conjunto común de valores de registros de diagnóstico a todos los recursos (actuales y futuros) de un tipo determinado cuyos registros quiera ingerir en Azure Sentinel. Gracias a Azure Policy, ya no tendrá que establecer la configuración de registros de diagnóstico para cada recurso.
 
 Los conectores basados en Azure Policy ahora están disponibles para los siguientes servicios de Azure:
-- [Azure Key Vault](connect-azure-key-vault.md) (versión preliminar pública)
-- [Azure Kubernetes Service](connect-azure-kubernetes-service.md) (versión preliminar pública)
-- [Servidores e instancias de Azure SQL Database](connect-azure-sql-logs.md) (disponibilidad general)
+- [Azure Key Vault](./data-connectors-reference.md#azure-key-vault) (versión preliminar pública)
+- [Azure Kubernetes Service](./data-connectors-reference.md#azure-kubernetes-service-aks) (versión preliminar pública)
+- [Servidores e instancias de Azure SQL Database](./data-connectors-reference.md#azure-sql-databases) (disponibilidad general)
 
 Los clientes podrán seguir enviando manualmente los registros de instancias específicas y no tendrán que usar el motor de directivas.
 
@@ -169,36 +169,36 @@ Para más información, consulte:
 
 Nuestra colección de integraciones con terceros sigue creciendo. En los dos últimos meses hemos agregado treinta conectores más. Esta es la lista:
 
-- [Agari Phishing Defense y Agari Brand Protection](connect-agari-phishing-defense.md)
-- [Akamai Security Events](connect-akamai-security-events.md)
-- [Alsid para Active Directory](connect-alsid-active-directory.md)
-- [Servidor HTTP de Apache](connect-apache-http-server.md)
-- [Aruba ClearPass](connect-aruba-clearpass.md)
+- [Agari Phishing Defense y Agari Brand Protection](./data-connectors-reference.md#agari-phishing-defense-and-brand-protection-preview)
+- [Akamai Security Events](./data-connectors-reference.md#akamai-security-events-preview)
+- [Alsid para Active Directory](./data-connectors-reference.md#alsid-for-active-directory)
+- [Servidor HTTP de Apache](./data-connectors-reference.md#apache-http-server)
+- [Aruba ClearPass](./data-connectors-reference.md#aruba-clearpass-preview)
 - [Blackberry CylancePROTECT](connect-data-sources.md)
-- [Broadcom Symantec DLP](connect-broadcom-symantec-dlp.md)
+- [Broadcom Symantec DLP](./data-connectors-reference.md#broadcom-symantec-data-loss-prevention-dlp-preview)
 - [Cisco Firepower eStreamer](connect-data-sources.md)
-- [Cisco Meraki](connect-cisco-meraki.md)
-- [Cisco Umbrella](connect-cisco-umbrella.md)
-- [Cisco Unified Computing System (UCS)](connect-cisco-ucs.md)
+- [Cisco Meraki](./data-connectors-reference.md#cisco-meraki-preview)
+- [Cisco Umbrella](./data-connectors-reference.md#cisco-umbrella-preview)
+- [Cisco Unified Computing System (UCS)](./data-connectors-reference.md#cisco-unified-computing-system-ucs-preview)
 - [ESET Enterprise Inspector](connect-data-sources.md)
 - [ESET Security Management Center](connect-data-sources.md)
-- [Google Workspace (anteriormente, G Suite)](connect-google-workspace.md)
-- [Imperva WAF Gateway](connect-imperva-waf-gateway.md)
-- [Juniper SRX](connect-juniper-srx.md)
+- [Google Workspace (anteriormente, G Suite)](./data-connectors-reference.md#google-workspace-g-suite-preview)
+- [Imperva WAF Gateway](./data-connectors-reference.md#imperva-waf-gateway-preview)
+- [Juniper SRX](./data-connectors-reference.md#juniper-srx-preview)
 - [Netskope](connect-data-sources.md)
-- [NXLog DNS Logs](connect-nxlog-dns.md)
-- [NXLog Linux Audit](connect-nxlog-linuxaudit.md)
+- [NXLog DNS Logs](./data-connectors-reference.md#nxlog-dns-logs-preview)
+- [NXLog Linux Audit](./data-connectors-reference.md#nxlog-linuxaudit-preview)
 - [Onapsis Platform](connect-data-sources.md)
-- [Proofpoint On Demand Email Security (POD)](connect-proofpoint-pod.md)
+- [Proofpoint On Demand Email Security (POD)](./data-connectors-reference.md#proofpoint-on-demand-pod-email-security-preview)
 - [Qualys Vulnerability Management Knowledge Base](connect-data-sources.md)
-- [Servicio de Salesforce en la nube](connect-salesforce-service-cloud.md)
+- [Servicio de Salesforce en la nube](./data-connectors-reference.md#salesforce-service-cloud-preview)
 - [SonicWall Firewall](connect-data-sources.md)
-- [Sophos Cloud Optix](connect-sophos-cloud-optix.md)
-- [Squid Proxy](connect-squid-proxy.md)
+- [Sophos Cloud Optix](./data-connectors-reference.md#sophos-cloud-optix-preview)
+- [Squid Proxy](./data-connectors-reference.md#squid-proxy-preview)
 - [Symantec Endpoint Protection](connect-data-sources.md)
-- [Thycotic Secret Server](connect-thycotic-secret-server.md)
+- [Thycotic Secret Server](./data-connectors-reference.md#thycotic-secret-server-preview)
 - [Trend Micro XDR](connect-data-sources.md)
-- [VMware ESXi](connect-vmware-esxi.md)
+- [VMware ESXi](./data-connectors-reference.md#vmware-esxi-preview)
 
 ### <a name="ueba-insights-in-the-entity-page-public-preview"></a>Información de UEBA en la página de entidades (versión preliminar pública)
 
@@ -264,13 +264,13 @@ Azure Sentinel ahora incluye el conector de Azure SQL Database, que permite tra
 
 Azure SQL es un motor de base de datos de plataforma como servicio (PaaS) totalmente administrado que se encarga de la mayoría de las funciones de administración de bases de datos, como actualizar, aplicar revisiones, crear copias de seguridad y supervisar sin la intervención del usuario.
 
-Para más información, consulte [Conexión de los registros de auditoría y diagnóstico de bases de datos de Azure SQL](connect-azure-sql-logs.md).
+Para más información, consulte [Conexión de los registros de auditoría y diagnóstico de bases de datos de Azure SQL](./data-connectors-reference.md#azure-sql-databases).
 
 ### <a name="dynamics-365-connector-public-preview"></a>Conector de Dynamics 365 (versión preliminar pública)
 
 Ahora Azure Sentinel proporciona un conector para Microsoft Dynamics 365, que le permite recopilar los registros de actividad de los usuarios, administradores y de soporte técnico de las aplicaciones Dynamics 365 en Azure Sentinel. Puede usar estos datos para ayudarle a auditar la totalidad de las acciones de procesamiento de datos que se realizan y analizarlas para localizar posibles infracciones de seguridad.
 
-Para obtener más información, consulte [Conexión de los registros de actividad de Dynamics 365 a Azure Sentinel](connect-dynamics-365.md).
+Para obtener más información, consulte [Conexión de los registros de actividad de Dynamics 365 a Azure Sentinel](./data-connectors-reference.md#dynamics-365).
 
 ### <a name="improved-incident-comments"></a>Mejora en los comentarios de incidentes
 

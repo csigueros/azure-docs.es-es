@@ -6,12 +6,12 @@ ms.date: 02/04/2021
 ms.service: media-services
 ms.author: faneerde
 author: fvneerden
-ms.openlocfilehash: c2a704d5e87e5b5813a59f9c5951688f5c3b893a
-ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
+ms.openlocfilehash: f3498175030be0c6bc7b57db25dece5f8c2d83ea
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2021
-ms.locfileid: "113300923"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128626843"
 ---
 # <a name="tutorial-analyze-live-video-by-using-live-video-analytics-with-intel-openvino-dl-streamer--edge-ai-extension"></a>Tutorial: Análisis de vídeo en directo mediante Live Video Analytics con la extensión de inteligencia artificial de Edge OpenVINO™ DL Streamer 
 
@@ -70,7 +70,7 @@ El módulo Extensión de inteligencia artificial perimetral Intel OpenVINO™ DL
 
 Con el fin de crear soluciones de análisis de vídeo en directo complejas y de alto rendimiento, el módulo Live Video Analytics en IoT Edge se debe emparejar con un potente motor de inferencia que pueda aprovechar la escala en el perímetro. En este tutorial, se envían solicitudes de inferencia a la [Extensión de inteligencia artificial perimetral Intel OpenVINO™ DL Streamer](), un módulo de Edge que se ha diseñado para funcionar con Live Video Analytics en IoT Edge.
 
-En la versión inicial de este servidor de inferencia, se tiene acceso a los siguientes [modelos](https://github.com/intel/video-analytics-serving/tree/master/samples/lva_ai_extension#edge-ai-extension-module-options):
+En la versión inicial de este servidor de inferencia, se tiene acceso a los siguientes [modelos](https://github.com/intel/video-analytics-serving/tree/master/samples/ava_ai_extension#edge-ai-extension-module-options):
 
 - object_detection for person_vehicle_bike_detection ![detección de objetos para vehículo](./media/use-intel-openvino-tutorial/object-detection.png)
 
@@ -321,7 +321,7 @@ En los mensajes, tenga en cuenta los siguientes detalles:
 * La sección `inferences` indica que el valor de `type` es `entity`. En esta sección se incluyen datos adicionales sobre la entidad.
 
 ## <a name="run-the-sample-program-to-detect-persons-or-vehicles-or-bikes"></a>Ejecución del programa de ejemplo para detectar personas, vehículos o bicicletas
-Para usar otro modelo, será preciso cambiar la plantilla de implementación. Para alternar entre los modelos admitidos, puede cambiar las variables de entorno que se encuentran en el módulo lvaExtenstion. Consulte este [documento en GitHub](https://github.com/intel/video-analytics-serving/tree/master/samples/lva_ai_extension#edge-ai-extension-module-options) para conocer los valores y las combinaciones admitidos para los modelos.
+Para usar otro modelo, será preciso cambiar la plantilla de implementación. Para alternar entre los modelos admitidos, puede cambiar las variables de entorno que se encuentran en el módulo lvaExtenstion. Consulte este [documento en GitHub](https://github.com/intel/video-analytics-serving/tree/master/samples/ava_ai_extension#edge-ai-extension-module-options) para conocer los valores y las combinaciones admitidos para los modelos.
 
 ```
 "Env":[

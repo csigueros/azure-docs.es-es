@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/14/2020
-ms.openlocfilehash: 9c6be388d02ebec99a3ec9ad105cff68c6e3f1bd
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: e490d3a1b38c70e7d5ed7fa11ac5b5055225fb8b
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121735828"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129059125"
 ---
 # <a name="send-log-data-to-azure-monitor-by-using-the-http-data-collector-api-preview"></a>Envío de datos de registro a Azure Monitor con HTTP Data Collector API (versión preliminar)
 
@@ -41,7 +41,7 @@ Para usar HTTP Data Collector API, cree una solicitud POST que incluya los datos
 | Parámetro | Descripción |
 |:--- |:--- |
 | CustomerID |El identificador único del área de trabajo de Log Analytics. |
-| Resource |Nombre de recurso de la API: /api/logs. |
+| Recurso |Nombre de recurso de la API: /api/logs. |
 | Versión de API |Versión de la API que se usará con esta solicitud. Actualmente, la versión es 2016-04-01. |
 | | |
 
@@ -182,7 +182,7 @@ El código de estado HTTP 200 significa que se ha recibido la solicitud para su 
 
 El conjunto completo de códigos de estado que el servicio puede devolver se muestra en la tabla siguiente:
 
-| Código | Status | Código de error | Descripción |
+| Código | Estado | Código de error | Descripción |
 |:--- |:--- |:--- |:--- |
 | 200 |Aceptar | |La solicitud se aceptó correctamente. |
 | 400 |Solicitud incorrecta |InactiveCustomer |El área de trabajo se cerró. |
@@ -573,6 +573,7 @@ import java.text.SimpleDateFormat;
 import java.util.Base64;
 import java.util.Calendar;
 import java.util.TimeZone;
+import java.util.Locale;
 
 import static org.springframework.http.HttpHeaders.CONTENT_TYPE;
 

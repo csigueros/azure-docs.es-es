@@ -4,12 +4,12 @@ ms.author: areddish
 ms.service: cognitive-services
 ms.date: 10/26/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: fd96054edf376ca19946fc13f9593be72ee0a0ec
-ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
+ms.openlocfilehash: e2b5a03fdcd82e8a8246a0b9cb29303c276ec81c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2021
-ms.locfileid: "107931574"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128910255"
 ---
 En esta guía se proporciona información y un ejemplo de código que pueden ayudarle a empezar a utilizar la biblioteca cliente de Custom Vision con Node.js para crear un modelo de clasificación de imágenes. Podrá crear un proyecto, agregar etiquetas, entrenar el proyecto y utilizar la dirección URL del punto de conexión de predicción del proyecto para probarlo mediante programación. Utilice este ejemplo como plantilla para crear su propia aplicación de reconocimiento de imágenes.
 
@@ -190,7 +190,7 @@ Results:
          Japanese Cherry: 0.01%
 ```
 
-A continuación, compruebe que la imagen de prueba (que se encuentra en **<sampleDataRoot>/Test/** ) se haya etiquetado correctamente. También puede volver al [sitio web de Custom Vision](https://customvision.ai) y ver el estado actual del proyecto recién creado.
+A continuación, compruebe que la imagen de prueba (que se encuentra en **\<sampleDataRoot\>/Test/** ) se haya etiquetado correctamente. También puede volver al [sitio web de Custom Vision](https://customvision.ai) y ver el estado actual del proyecto recién creado.
 
 [!INCLUDE [clean-ic-project](../../includes/clean-ic-project.md)]
 

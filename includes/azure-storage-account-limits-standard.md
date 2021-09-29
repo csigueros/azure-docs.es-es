@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 09/30/2020
+ms.date: 09/07/2021
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 82bf11c530dd9d040fc0f82be570774d543b1987
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: f3d3f66f01ce3245fa56712d06867bc35a4114ff
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114446192"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124778907"
 ---
 En la tabla siguiente se describen los límites predeterminados para las cuentas de blob en bloques, Blob Storage y de uso general v1 y v2 de Azure. El límite de *entrada* hace referencia a todos los datos que se envían a una cuenta de almacenamiento. El límite de *salida* hace referencia a todos los datos que se reciben de una cuenta de almacenamiento.
 
@@ -33,6 +33,8 @@ En la tabla siguiente se describen los límites predeterminados para las cuentas
 | Salida máxima para cuentas de almacenamiento de uso general v1 (regiones no de EE. UU.) | 10 Gbps si RA-GRS o GRS está habilitado, 15 Gbps en el caso de LRS o ZRS<sup>2</sup> |
 | Número máximo de reglas de red virtual por cuenta de almacenamiento | 200 |
 | Número máximo de reglas de dirección IP por cuenta de almacenamiento | 200 |
+| Número máximo de reglas de instancias de recurso por cuenta de almacenamiento | 200 |
+| Número máximo de puntos de conexión privados por cuenta de almacenamiento | 200 |
 
 <sup>1</sup>Las cuentas estándar de Azure Storage admiten límites de capacidad y límites de entrada por solicitud superiores. Para solicitar un aumento en los límites de cuenta, póngase en contacto con el [soporte técnico de Azure](https://azure.microsoft.com/support/faq/).
 

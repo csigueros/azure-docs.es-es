@@ -7,24 +7,24 @@ ms.topic: tutorial
 ms.date: 04/13/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 52a1931ec567d03d0beaaf9180532a91ff6bed07
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: 951bf6704d68ae292b835a5528d099d634eb4226
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123259468"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128589423"
 ---
 # <a name="tutorial-extend-windows-file-servers-with-azure-file-sync"></a>Tutorial: Extensión de servidores de archivos de Windows con Azure File Sync
 
 En este artículo se demuestran los pasos básicos para ampliar la capacidad de almacenamiento de un servidor con Windows Server mediante Azure File Sync. Aunque el tutorial presenta un servidor con Windows Server como una máquina virtual de Azure, lo habitual es realizar este proceso para servidores locales. En el artículo [Implementación de Azure File Sync](file-sync-deployment-guide.md) puede encontrar instrucciones para implementar Azure File Sync en su propio entorno.
 
 > [!div class="checklist"]
-> * Implementación del servicio de sincronización de almacenamiento
-> * Preparación de Windows Server para su uso con Azure File Sync
-> * Instalación del agente de Azure File Sync
-> * Registro de un servidor de Windows Server en el servicio de sincronización de almacenamiento
-> * Creación de un grupo de sincronización y un punto de conexión en la nube
-> * Creación de un punto de conexión de servidor
+> - Implementación del servicio de sincronización de almacenamiento
+> - Preparación de Windows Server para su uso con Azure File Sync
+> - Instalación del agente de Azure File Sync
+> - Registro de un servidor de Windows Server en el servicio de sincronización de almacenamiento
+> - Creación de un grupo de sincronización y un punto de conexión en la nube
+> - Creación de un punto de conexión de servidor
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -42,7 +42,7 @@ Para este tutorial, deberá realizar las siguientes operaciones antes de impleme
 
 ### <a name="create-a-folder-and-txt-file"></a>Creación de una carpeta y un archivo .txt
 
-En el equipo local, cree una carpeta nueva denominada _FilesToSync_ y agregue un archivo de texto denominado _mytestdoc.txt_. Dicho archivo se cargará en el recurso compartido de archivos más adelante.
+En el equipo local, cree una carpeta nueva denominada *FilesToSync* y agregue un archivo de texto denominado *mytestdoc.txt*. Dicho archivo se cargará en el recurso compartido de archivos más adelante.
 
 ### <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento
 
@@ -61,7 +61,7 @@ Tras implementar una cuenta de Azure Storage, cree un recurso compartido de arch
 
     ![Haga clic en el botón para agregar un recurso compartido de archivos](./media/storage-sync-files-extend-servers/create-file-share-portal2.png)
 
-1. Asigne el nombre _afsfileshare_ al nuevo recurso compartido de archivos. Escriba "5120" en **Cuota** y seleccione **Crear**. El valor máximo de la cuota es de 100 TiB, pero para este tutorial solo se necesitan 5 GB.
+1. Asigne el nombre *afsfileshare* al nuevo recurso compartido de archivos. Escriba "5120" en **Cuota** y seleccione **Crear**. El valor máximo de la cuota es de 100 TiB, pero para este tutorial solo se necesitan 5 GB.
 
     ![Especificar el nombre y la cuota del nuevo recurso compartido de archivos](./media/storage-sync-files-extend-servers/create-file-share-portal3.png)
 
@@ -69,7 +69,7 @@ Tras implementar una cuenta de Azure Storage, cree un recurso compartido de arch
 
     ![Cargar un archivo](./media/storage-sync-files-extend-servers/create-file-share-portal5.png)
 
-1. Vaya a la carpeta _FilesToSync_ en la que creó el archivo .txt, seleccione _mytestdoc.txt_ y, después, seleccione **Cargar**.
+1. Vaya a la carpeta *FilesToSync* en la que creó el archivo .txt, seleccione *mytestdoc.txt* y, después, seleccione **Cargar**.
 
     ![Examinar recurso compartido de archivos](./media/storage-sync-files-extend-servers/create-file-share-portal6.png)
 
@@ -83,7 +83,7 @@ Ya ha creado una cuenta de almacenamiento y un recurso compartido de archivos co
 
    ![Especificar información básica acerca de la máquina virtual en la hoja del portal](./media/storage-sync-files-extend-servers/vm-resource-group-and-subscription.png)
 
-1. En **Detalles de instancia**, especifique el nombre de la máquina virtual. Por ejemplo, use _MiVM_.
+1. En **Detalles de instancia**, especifique el nombre de la máquina virtual. Por ejemplo, use *MiVM*.
 1. No cambie la configuración predeterminada en **Región**, **Opciones de disponibilidad**, **Imagen** y **Tamaño**.
 1. En **Cuenta de administrador**, especifique el **nombre de usuario** y la **contraseña** de la máquina virtual.
 1. En **Reglas de puerto de entrada**, elija **Permitir los puertos seleccionados** y luego seleccione **RDP (3389)** y **HTTP** en el menú desplegable.
@@ -140,7 +140,7 @@ En la máquina virtual con Windows Server 2016 Datacenter, el Administrador del 
 
    !["Servidor local" a la izquierda de la interfaz de usuario Administrador del servidor](media/storage-sync-files-extend-servers/prepare-server-disable-ieesc-1.png)
 
-1. En el panel **Propiedades**, seleccione el vínculo de **Configuración de seguridad mejorada de IE**.  
+1. En el panel **Propiedades**, seleccione el vínculo de **Configuración de seguridad mejorada de IE**.
 
     ![El panel "Configuración de seguridad mejorada de IE" en la interfaz de usuario del Administrador del servidor](media/storage-sync-files-extend-servers/prepare-server-disable-ieesc-2.png)
 
@@ -164,9 +164,9 @@ Ya puede agregar el disco de datos a la máquina virtual.
    Ya está el disco en línea y ha creado un volumen. Abra el Explorador de archivos en la máquina virtual de Windows Server para confirmar la presencia del disco de datos recién agregado.
 
 1. En el Explorador de archivos de la máquina virtual, expanda **Este PC** y abra la nueva unidad. En este ejemplo es la unidad F:.
-1. Haga clic con el botón derecho y seleccione **Nueva** > **carpeta**. Asigne a la carpeta el nombre _FilesToSync_.
+1. Haga clic con el botón derecho y seleccione **Nueva** > **carpeta**. Asigne a la carpeta el nombre *FilesToSync*.
 1. Abra la carpeta **FilesToSync**.
-1. Haga clic con el botón derecho y seleccione **Nuevo** > **Documento de texto**. Asigne el archivo de texto el nombre _MyTestFile_.
+1. Haga clic con el botón derecho y seleccione **Nuevo** > **Documento de texto**. Asigne el archivo de texto el nombre *MyTestFile*.
 
     ![Agregar un archivo de texto nuevo](media/storage-sync-files-extend-servers/new-file.png)
 
@@ -217,9 +217,9 @@ Para implementar Azure File Sync, en primer lugar coloque un recurso del **servi
 
    | Value | Descripción |
    | ----- | ----- |
-   | **Nombre** | Un nombre único (por suscripción) para el servicio de sincronización de almacenamiento.<br><br>Use _afssyncservice02_ para este tutorial. |
+   | **Nombre** | Un nombre único (por suscripción) para el servicio de sincronización de almacenamiento.<br><br>Use *afssyncservice02* para este tutorial. |
    | **Suscripción** | La suscripción de Azure que utiliza para este tutorial. |
-   | **Grupos de recursos** | el grupo de recursos que contiene el servicio de sincronización de almacenamiento.<br><br>Use _afsresgroup101918_ para este tutorial. |
+   | **Grupos de recursos** | el grupo de recursos que contiene el servicio de sincronización de almacenamiento.<br><br>Use *afsresgroup101918* para este tutorial. |
    | **Ubicación** | Este de EE. UU. |
 
 1. Cuando haya terminado, seleccione **Crear** para implementar el **servicio de sincronización de almacenamiento**.
@@ -262,8 +262,8 @@ Tras la instalación del agente de Azure File Sync, la interfaz de usuario de Re
    | Value | Descripción |
    | ----- | ----- |
    | **Suscripción de Azure** | La suscripción que contiene el servicio de sincronización de almacenamiento de este tutorial. |
-   | **Grupo de recursos** | el grupo de recursos que contiene el servicio de sincronización de almacenamiento. Use _afsresgroup101918_ para este tutorial. |
-   | **Servicio de sincronización de almacenamiento** | El nombre del servicio de sincronización de almacenamiento. Use _afssyncservice02_ para este tutorial. |
+   | **Grupo de recursos** | el grupo de recursos que contiene el servicio de sincronización de almacenamiento. Use *afsresgroup101918* para este tutorial. |
+   | **Servicio de sincronización de almacenamiento** | El nombre del servicio de sincronización de almacenamiento. Use *afssyncservice02* para este tutorial. |
 
 1. Seleccione **Registrar** para completar el registro del servidor.
 1. Como parte del proceso de registro, se le solicita un que vuelva a iniciar sesión. Inicie sesión y seleccione **Siguiente**.

@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/10/2021
 ms.author: alkohli
-ms.openlocfilehash: 1ef18e29abfc479307aa840d5c0f34ed52227aaf
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: a2a6b7b514cb95eb327235c59bb569ac66f4a5d0
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121740926"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128670507"
 ---
 # <a name="manage-an-azure-stack-edge-pro-gpu-device-via-windows-powershell"></a>Administración de un dispositivo Azure Stack Edge Pro con GPU mediante Windows PowerShell
 
@@ -109,7 +109,7 @@ Se debe realizar este cambio antes de configurar el proceso en Azure Portal, ya 
 
     `Set-HcsKubeClusterNetworkInfo -PodSubnet <subnet details> -ServiceSubnet <subnet details>`
 
-    Reemplace <subnet details> por el intervalo de subred que quiera usar. 
+    Reemplace \<subnet details\> por el intervalo de subred que quiera usar. 
 
 1. Una vez que haya ejecutado este comando, puede usar el comando `Get-HcsKubeClusterNetworkInfo` para comprobar que las subredes de pods y de servicio han cambiado.
 
@@ -485,9 +485,11 @@ Para cambiar los límites de memoria o procesador para el nodo de trabajo de Kub
     
 1. Para cambiar los valores de memoria y procesadores del nodo de trabajo, ejecute el siguiente comando:
 
-    Set-AzureDataBoxEdgeRoleCompute -Name <Name value from the output of Get-AzureDataBoxEdgeRole> -Memory <Value in Bytes> -ProcessorCount <n.º de núcleos>
+   ```powershell
+   Set-AzureDataBoxEdgeRoleCompute -Name <Name value from the output of Get-AzureDataBoxEdgeRole> -Memory <Value in Bytes> -ProcessorCount <No. of cores>
+   ```
 
-    Esta es una salida de ejemplo. 
+   Esta es una salida de ejemplo. 
     
     ```powershell
     [10.100.10.10]: PS>Set-AzureDataBoxEdgeRoleCompute -Name IotRole -MemoryInBytes 32GB -ProcessorCount 16

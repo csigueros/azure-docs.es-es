@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 07/06/2020
-ms.openlocfilehash: 753d214b520affb59722bc29dbabc50c6e5968f6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 92991ef4b9889b0be2e887884ed46086b87ff9f3
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "91538728"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128588891"
 ---
 # <a name="iterative-app-design-for-luis"></a>Diseño iterativo de aplicaciones para LUIS
 
@@ -52,8 +52,6 @@ Este tipo de esquema de intención puede tener entidades si ayuda a LUIS a deter
 Un esquema de entidad se centra en las entidades, que son los datos que se extraen de las expresiones del usuario. Por ejemplo, si un usuario quiere decir "Me gustaría pedir tres pizzas". Hay dos entidades que se pueden extraer: _tres_ y _pizzas_. Se usan para ayudar a satisfacer la intención, que era realizar un pedido.
 
 Para un esquema de entidad, la intención de la expresión es menos importante para la aplicación cliente.
-
-Un método común para organizar un esquema de entidades es agregar todas las expresiones de ejemplo a la intención **None**.
 
 ### <a name="example-of-a-mixed-schema"></a>Ejemplo de un esquema mixto
 

@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 52e993a22a512a94c8b5b8b050205db0c4ce0b1b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2e13e8127377e99faea8da89912ee6f3d9fb1f20
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100650327"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128590335"
 ---
 # <a name="use-net-to-manage-directories-and-files-in-azure-data-lake-storage-gen2"></a>Uso de .NET para administrar directorios y archivos en Azure Data Lake Storage Gen2
 
@@ -49,11 +49,11 @@ using System.IO;
 
 ## <a name="connect-to-the-account"></a>Conexión con la cuenta
 
-Para usar los fragmentos de código de este artículo, tiene que crear una instancia de [DataLakeServiceClient](/dotnet/api/azure.storage.files.datalake.datalakeserviceclient) que represente la cuenta de almacenamiento. 
+Para usar los fragmentos de código de este artículo, tiene que crear una instancia de [DataLakeServiceClient](/dotnet/api/azure.storage.files.datalake.datalakeserviceclient) que represente la cuenta de almacenamiento.
 
 ### <a name="connect-by-using-an-account-key"></a>Conexión con una clave de cuenta
 
-Es la manera más sencilla de conectarse a una cuenta. 
+Es la manera más sencilla de conectarse a una cuenta.
 
 En este ejemplo se crea una instancia de [DataLakeServiceClient](/dotnet/api/azure.storage.files.datalake.datalakeserviceclient) con una clave de cuenta.
 
@@ -74,7 +74,7 @@ En este ejemplo se crea una instancia de [DataLakeServiceClient](/dotnet/api/azu
 
 Un contenedor actúa como sistema de archivos para sus archivos. Para crear uno puede llamar al método [DataLakeServiceClient.CreateFileSystem](/dotnet/api/azure.storage.files.datalake.datalakeserviceclient.createfilesystemasync).
 
-En este ejemplo se crea un contenedor denominado `my-file-system`. 
+En este ejemplo se crea un contenedor denominado `my-file-system`.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD_DataLake.cs" id="Snippet_CreateContainer":::
 
@@ -82,19 +82,19 @@ En este ejemplo se crea un contenedor denominado `my-file-system`.
 
 Para crear una referencia de directorio, llame al método [DataLakeFileSystemClient.CreateDirectoryAsync](/dotnet/api/azure.storage.files.datalake.datalakefilesystemclient.createdirectoryasync).
 
-En este ejemplo se agrega un directorio denominado `my-directory` a un contenedor y luego se agrega un subdirectorio denominado `my-subdirectory`. 
+En este ejemplo se agrega un directorio denominado `my-directory` a un contenedor y luego se agrega un subdirectorio denominado `my-subdirectory`.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD_DataLake.cs" id="Snippet_CreateDirectory":::
 
 ## <a name="rename-or-move-a-directory"></a>Cambio de nombre o traslado de un directorio
 
-Cambie el nombre de un directorio o muévalo con el método [DataLakeDirectoryClient.RenameAsync](/dotnet/api/azure.storage.files.datalake.datalakedirectoryclient.renameasync). Pase la ruta de acceso del directorio que busca a un parámetro. 
+Cambie el nombre de un directorio o muévalo con el método [DataLakeDirectoryClient.RenameAsync](/dotnet/api/azure.storage.files.datalake.datalakedirectoryclient.renameasync). Pase la ruta de acceso del directorio que busca a un parámetro.
 
 En este ejemplo se cambia el nombre de un subdirectorio a `my-subdirectory-renamed`.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD_DataLake.cs" id="Snippet_RenameDirectory":::
 
-En este ejemplo se mueve un directorio denominado `my-subdirectory-renamed` a un subdirectorio de un directorio denominado `my-directory-2`. 
+En este ejemplo se mueve un directorio denominado `my-subdirectory-renamed` a un subdirectorio de un directorio denominado `my-directory-2`.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD_DataLake.cs" id="Snippet_MoveDirectory":::
 
@@ -102,7 +102,7 @@ En este ejemplo se mueve un directorio denominado `my-subdirectory-renamed` a un
 
 Elimine un directorio o muévalo mediante una llamada al método [DataLakeDirectoryClient.Delete](/dotnet/api/azure.storage.files.datalake.datalakedirectoryclient.delete).
 
-En este ejemplo se elimina un directorio denominado `my-directory`.  
+En este ejemplo se elimina un directorio denominado `my-directory`.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD_DataLake.cs" id="Snippet_DeleteDirectory":::
 
@@ -110,7 +110,7 @@ En este ejemplo se elimina un directorio denominado `my-directory`.
 
 En primer lugar, cree una referencia de archivo en el directorio de destino creando una instancia de la clase [DataLakeFileClient](/dotnet/api/azure.storage.files.datalake.datalakefileclient). Cargue un archivo llamando al método [DataLakeFileClient.AppendAsync](/dotnet/api/azure.storage.files.datalake.datalakefileclient.appendasync). Asegúrese de completar la carga llamando al método [DataLakeFileClient.FlushAsync](/dotnet/api/azure.storage.files.datalake.datalakefileclient.flushasync).
 
-En este ejemplo se carga un archivo de texto en un directorio denominado `my-directory`. 
+En este ejemplo se carga un archivo de texto en un directorio denominado `my-directory`.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD_DataLake.cs" id="Snippet_UploadFile":::
 
@@ -125,11 +125,11 @@ Use el método [DataLakeFileClient.UploadAsync](/dotnet/api/azure.storage.files.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD_DataLake.cs" id="Snippet_UploadFileBulk":::
 
-## <a name="download-from-a-directory"></a>Descarga de un directorio 
+## <a name="download-from-a-directory"></a>Descarga de un directorio
 
-En primer lugar, cree una instancia de [DataLakeFileClient](/dotnet/api/azure.storage.files.datalake.datalakefileclient) que represente al archivo que quiere descargar. Use el método [DataLakeFileClient.ReadAsync](/dotnet/api/azure.storage.files.datalake.datalakefileclient.readasync) y analice el valor devuelto para obtener un objeto [Stream](/dotnet/api/system.io.stream). Use cualquier archivo .NET que procese API para guardar bytes de la transmisión en un archivo. 
+En primer lugar, cree una instancia de [DataLakeFileClient](/dotnet/api/azure.storage.files.datalake.datalakefileclient) que represente al archivo que quiere descargar. Use el método [DataLakeFileClient.ReadAsync](/dotnet/api/azure.storage.files.datalake.datalakefileclient.readasync) y analice el valor devuelto para obtener un objeto [Stream](/dotnet/api/system.io.stream). Use cualquier archivo .NET que procese API para guardar bytes de la transmisión en un archivo.
 
-En este ejemplo se usa [BinaryReader](/dotnet/api/system.io.binaryreader) y [FileStream](/dotnet/api/system.io.filestream) para guardar bytes en un archivo. 
+En este ejemplo se usa [BinaryReader](/dotnet/api/system.io.binaryreader) y [FileStream](/dotnet/api/system.io.filestream) para guardar bytes en un archivo.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD_DataLake.cs" id="Snippet_DownloadBinaryFromDirectory":::
 

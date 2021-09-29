@@ -3,12 +3,12 @@ title: Referencia de variables de entorno y configuración de la aplicación
 description: Describe las variables de entorno que se usan habitualmente y cuáles se pueden modificar con la configuración de la aplicación.
 ms.topic: article
 ms.date: 06/14/2021
-ms.openlocfilehash: 5cba4a7d66f5b2bb705df8c685b6c8be05e04a08
-ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
+ms.openlocfilehash: b4be8fde0e771414d8b637af0c2aed33eeb48123
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123272356"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124816014"
 ---
 # <a name="environment-variables-and-app-settings-in-azure-app-service"></a>Variables de entorno y configuración de la aplicación en Azure App Service
 
@@ -89,7 +89,7 @@ Las siguientes variables de entorno están relacionadas con la implementación d
 | `WEBSITE_RUN_FROM_ZIP` | En desuso. Use `WEBSITE_RUN_FROM_PACKAGE`. | 
 | `WEBSITE_WEBDEPLOY_USE_SCM` | Establezca el valor en `false` para que WebDeploy deje de usar el motor de implementación de Kudu. El valor predeterminado es `true`. Para implementar en aplicaciones Linux mediante Visual Studio (WebDeploy/MSDeploy), establézcalo en `false`. |
 | `MSDEPLOY_RENAME_LOCKED_FILES` | Establezca el valor en `1` para intentar cambiar el nombre de los archivos DLL si no se pueden copiar durante una implementación de WebDeploy. Esta configuración no es aplicable si `WEBSITE_WEBDEPLOY_USE_SCM` está establecido en `false`. |
-| `WEBSITE_DISABLE_SCM_SEPARATION` | De manera predeterminada, la aplicación principal y la aplicación de Kudu se ejecutan en distintos espacios aislados. Cuando se detiene la aplicación, la aplicación de Kudu todavía está en ejecución y puede seguir usando la implementación de Git y MSDeploy. Cada aplicación tiene sus propios archivos locales. Desactivar esta separación (establecer en `false`) es un modo heredado que ya no es totalmente compatible. |
+| `WEBSITE_DISABLE_SCM_SEPARATION` | De manera predeterminada, la aplicación principal y la aplicación de Kudu se ejecutan en distintos espacios aislados. Cuando se detiene la aplicación, la aplicación de Kudu todavía está en ejecución y puede seguir usando la implementación de Git y MSDeploy. Cada aplicación tiene sus propios archivos locales. Desactivar esta separación (establecer en `true`) es un modo heredado que ya no es totalmente compatible. |
 | `WEBSITE_ENABLE_SYNC_UPDATE_SITE` | Establezca el valor en `1` para garantizar que las llamadas a la API REST para actualizar `site` y `siteconfig` se aplican completamente a todas las instancias antes de devolver. El valor predeterminado es `1` si se implementa con una plantilla de ARM, para evitar condiciones de carrera con llamadas de ARM posteriores. |
 | `WEBSITE_START_SCM_ON_SITE_CREATION` | En una implementación de plantilla de ARM, establezca el valor en `1` en la plantilla de ARM para iniciar previamente la aplicación de Kudu como parte de la creación de la aplicación. |
 | `WEBSITE_START_SCM_WITH_PRELOAD` | En el caso de las aplicaciones Linux, establezca el valor en `true` para forzar la carga previa de la aplicación de Kudu cuando Always On esté habilitado; para ello, haga ping a su dirección URL. El valor predeterminado es `false`. Para aplicaciones Windows, la aplicación de Kudu siempre se carga previamente. |
@@ -486,8 +486,8 @@ Las siguientes variables de entorno están relacionadas con la [autenticación d
 | `WEBSITE_AUTH_VALIDATE_NONCE`| `true` o `false`. El valor predeterminado es `true`. Este valor nunca de debe establecer en `false` excepto para depurar temporalmente los errores de validación del [valor nonce criptográfico](https://en.wikipedia.org/wiki/Cryptographic_nonce) que se producen durante los inicios de sesión interactivos. Esta configuración de aplicación está pensada para su uso con la experiencia de configuración V1 (clásica). Si usa el esquema de configuración de autenticación V2, debe usar el valor de configuración `login.nonce.validateNonce` en su lugar. |
 | `WEBSITE_AUTH_V2_CONFIG_JSON` | Esta variable de entorno se rellena automáticamente mediante la plataforma de Azure App Service y se usa para configurar el módulo de autenticación integrada. El valor de esta variable de entorno corresponde a la configuración de autenticación V2 (no clásica) de la aplicación actual en Azure Resource Manager. No está pensado para ser configurado de forma explícita. |
 | `WEBSITE_AUTH_ENABLED` | Solo lectura. Se inserta en una aplicación Windows o Linux para indicar si está habilitada la autenticación de App Service. |
-| `WEBSITE_AUTH_ENCRYPTION_KEY` | De manera predeterminada, la clave generada automáticamente se usa como clave de cifrado. Para invalidarla, establezca el valor en la clave deseada. Esto se recomienda si desea compartir tokens o sesiones entre varias aplicaciones. Si se especifica, reemplaza al valor `MACHINEKEY_DecryptionKey`. ||
-| `WEBSITE_AUTH_SIGNING_KEY` | De manera predeterminada, la clave generada automáticamente se usa como clave de firma. Para invalidarla, establezca el valor en la clave deseada. Esto se recomienda si desea compartir tokens o sesiones entre varias aplicaciones. Si se especifica, reemplaza al valor `MACHINEKEY_ValidationKey`. ||
+| `WEBSITE_AUTH_ENCRYPTION_KEY` | De manera predeterminada, la clave generada automáticamente se usa como clave de cifrado. Para invalidarla, establezca el valor en la clave deseada. Esto se recomienda si desea compartir tokens o sesiones entre varias aplicaciones. Si se especifica, reemplaza al valor `MACHINEKEY_DecryptionKey`. |
+| `WEBSITE_AUTH_SIGNING_KEY` | De manera predeterminada, la clave generada automáticamente se usa como clave de firma. Para invalidarla, establezca el valor en la clave deseada. Esto se recomienda si desea compartir tokens o sesiones entre varias aplicaciones. Si se especifica, reemplaza al valor `MACHINEKEY_ValidationKey`. |
 
 <!-- System settings
 WEBSITE_AUTH_RUNTIME_VERSION

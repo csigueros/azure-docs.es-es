@@ -3,12 +3,12 @@ title: Montar el volumen de emptyDir en el grupo de contenedores
 description: Más información sobre cómo montar un volumen emptyDir para compartir datos entre los contenedores de un grupo de contenedores de Azure Container Instances
 ms.topic: article
 ms.date: 01/31/2020
-ms.openlocfilehash: 64a3c83008f163167528a5e5987fe2316942d5bc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 328dbec7b7689eaecc89f06957a2ad84dbcdc9dd
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "77117743"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128565254"
 ---
 # <a name="mount-an-emptydir-volume-in-azure-container-instances"></a>Montaje de un volumen de emptyDir en Azure Container Instances
 
@@ -40,7 +40,7 @@ En primer lugar, rellene la matriz `volumes` en la sección `properties` del gru
 Por ejemplo, la siguiente plantilla de Resource Manager crea un grupo de contenedores que consta de dos contenedores y en cada uno de ellos se monta el volumen *emptyDir*:
 
 <!-- https://github.com/Azure/azure-docs-json-samples/blob/master/container-instances/aci-deploy-volume-emptydir.json -->
-[!code-json[volume-emptydir](~/azure-docs-json-samples/container-instances/aci-deploy-volume-emptydir.json)]
+[!code-json[volume-emptydir](~/resourcemanager-templates/container-instances/aci-deploy-volume-emptydir.json)]
 
 Para ver ejemplos de la implementación del grupo de contenedores, consulte [Implementación de un grupo con varios contenedores con una plantilla Resource Manager](container-instances-multi-container-group.md) e [Implementación de un grupo de varios contenedores con un archivo YAML](container-instances-multi-container-yaml.md).
 

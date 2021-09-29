@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 07/24/2021
 ms.topic: conceptual
-ms.openlocfilehash: 2f77354e1a0f2c44ff81764fc15a071f72319da1
-ms.sourcegitcommit: 98e126b0948e6971bd1d0ace1b31c3a4d6e71703
+ms.openlocfilehash: 2f5aba42974c34f9d6799f3965848bdd0ca3787c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2021
-ms.locfileid: "114674150"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128635173"
 ---
 # <a name="remove-user-assigned-managed-identity-for-azure-automation-account-preview"></a>Eliminación de una identidad administrada asignada por el usuario para una cuenta de Azure Automation (versión preliminar)
 
@@ -43,7 +43,7 @@ Use el cmdlet de PowerShell [Set-AzAutomationAccount](/powershell/module/az.auto
     $sub = Get-AzSubscription -ErrorAction SilentlyContinue
     if(-not($sub))
     {
-        Connect-AzAccount -Subscription
+        Connect-AzAccount
     }
     ```
 

@@ -2,13 +2,13 @@
 title: 'Aplicaciones y tareas de replicación de eventos: Azure Event Hubs | Microsoft Docs'
 description: En este artículo se proporciona información general sobre la compilación de aplicaciones y tareas de replicación de eventos con Azure Functions.
 ms.topic: article
-ms.date: 12/01/2020
-ms.openlocfilehash: a65815c7da400af8b5b6d46358e6bca6edbd7543
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 09/28/2021
+ms.openlocfilehash: 92c6357e5c4302232bddabdd1e1818e2f325246b
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97663552"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129217341"
 ---
 # <a name="event-replication-tasks-and-applications-with-azure-functions"></a>Aplicaciones y tareas de replicación de eventos con Azure Functions
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/23/2021
 ms.author: bagol
-ms.openlocfilehash: 141d26871db37375968e86be9374d41383d0d236
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 545ab178c99b8d5ab6db1d6619a9859eb3133306
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123430025"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124781351"
 ---
 # <a name="troubleshoot-your-cef-or-syslog-data-connector"></a>Solución de problemas del conector de datos CEF o Syslog
 
@@ -43,7 +43,7 @@ Para obtener más información, consulte [Conexión de la solución externa con 
 
 ## <a name="validate-cef-connectivity"></a>Validación de la conectividad CEF
 
-Una vez que haya [implementado el reenviador de registros](connect-common-event-format.md) y [configurado la solución de seguridad para enviarle mensajes CEF](connect-cef-solution-config.md), siga los pasos de esta sección para verificar la conectividad entre la solución de seguridad y Azure Sentinel.
+Una vez que haya [implementado el reenviador de registros](connect-common-event-format.md) y [configurado la solución de seguridad para enviarle mensajes CEF](./connect-common-event-format.md), siga los pasos de esta sección para verificar la conectividad entre la solución de seguridad y Azure Sentinel.
 
 1. Asegúrese de que cumple los siguientes requisitos previos:
 
@@ -269,15 +269,15 @@ Use las secciones siguientes para comprobar los requisitos previos del conector 
 
 Si usa una máquina virtual de Azure como recopilador de Syslog, verifique lo siguiente:
 
-- Mientras configura el conector de datos de Syslog, asegúrese de desactivar la [configuración de aprovisionamiento automático de Azure Security Center](/azure/security-center/security-center-enable-data-collection) para el [agente MMA/OMS](connect-windows-security-events.md#connector-options).
+- Mientras configura el conector de datos de Syslog, asegúrese de desactivar la [configuración de aprovisionamiento automático de Azure Security Center](../security-center/security-center-enable-data-collection.md) para el [agente MMA/OMS](connect-windows-security-events.md#connector-options).
 
     Puede volver a activarla una vez que el conector de datos esté completamente configurado.
 
-- Antes de implementar el [script de Python del conector de datos de formato de evento común](connect-cef-agent.md), asegúrese de que la máquina virtual no esté conectada a un área de trabajo de Syslog existente. Puede encontrar esta información en la lista de máquinas virtuales del área de trabajo de Log Analytics, en la que una máquina virtual conectada a un área de trabajo de Syslog se muestra como **Conectada**.
+- Antes de implementar el [script de Python del conector de datos de formato de evento común](./connect-log-forwarder.md), asegúrese de que la máquina virtual no esté conectada a un área de trabajo de Syslog existente. Puede encontrar esta información en la lista de máquinas virtuales del área de trabajo de Log Analytics, en la que una máquina virtual conectada a un área de trabajo de Syslog se muestra como **Conectada**.
 
 - Asegúrese de que Azure Sentinel está conectado al área de trabajo de Syslog correcta, con la solución **SecurityInsights** instalada.
 
-    Para obtener más información, vea [Paso 1: Implementar el reenviador de registros](connect-cef-agent.md).
+    Para obtener más información, vea [Paso 1: Implementar el reenviador de registros](./connect-log-forwarder.md).
 
 - Asegúrese de que el tamaño de la máquina sea correcto con al menos los requisitos previos mínimos necesarios. Para obtener más información, consulte la sección [Requisitos previos de CEF](connect-common-event-format.md#prerequisites).
 
@@ -299,7 +299,7 @@ El servidor de Syslog, rsyslog o syslog-ng, reenvía los datos definidos en el a
 
 Asegúrese de agregar detalles sobre las instalaciones y los niveles de registro de gravedad que quiere ingerir en Azure Sentinel. El proceso de configuración puede tardar unos 20 minutos en procesarse.
 
-Para obtener más información, vea [Explicación del script de implementación](connect-cef-agent.md#deployment-script-explained) y [Configuración de Syslog en Azure Portal](/azure/azure-monitor/agents/data-sources-syslog).
+Para obtener más información, vea [Explicación del script de implementación](./connect-log-forwarder.md#deployment-script-explained) y [Configuración de Syslog en Azure Portal](../azure-monitor/agents/data-sources-syslog.md).
 
 
 **Por ejemplo, para un servidor rsyslog**, ejecute el siguiente comando para mostrar la configuración actual del reenvío de Syslog y revise los cambios en el archivo de configuración:
@@ -506,9 +506,9 @@ En tales casos, siga solucionando problemas y verifique lo siguiente:
 
 - Asegúrese de que puede ver los paquetes de datos que fluyen en los puertos 25524 o 25526 o ambos.
 
-- Asegúrese de que la máquina virtual tiene una conexión saliente al puerto 443 a través de TCP, o de que puede conectarse a los [puntos de conexión de Log Analytics](/azure/azure-monitor/agents/log-analytics-agent#network-requirements).
+- Asegúrese de que la máquina virtual tiene una conexión saliente al puerto 443 a través de TCP, o de que puede conectarse a los [puntos de conexión de Log Analytics](../azure-monitor/agents/log-analytics-agent.md#network-requirements).
 
-- Asegúrese de que tiene acceso a las direcciones URL necesarias del recopilador de Syslog a través de la directiva de firewall. Para obtener más información, consulte [Requisitos del firewall del agente de Log Analytics](/azure/azure-monitor/agents/log-analytics-agent##firewall-requirements).
+- Asegúrese de que tiene acceso a las direcciones URL necesarias del recopilador de Syslog a través de la directiva de firewall. Para obtener más información, consulte [Requisitos del firewall del agente de Log Analytics](../azure-monitor/agents/log-analytics-agent.md#firewall-requirements).
 
 - Asegúrese de que la máquina virtual de Azure se muestra como conectada en la lista de máquinas virtuales del área de trabajo.
 

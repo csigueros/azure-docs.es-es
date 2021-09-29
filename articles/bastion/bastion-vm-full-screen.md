@@ -5,18 +5,18 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 07/12/2021
+ms.date: 08/30/2021
 ms.author: cherylmc
-ms.openlocfilehash: 34bc70fa88aa3c108a946b4e040bf60f56ec95e1
-ms.sourcegitcommit: 75ad40bab1b3f90bb2ea2a489f8875d4b2da57e4
+ms.openlocfilehash: 82c763647911037985dc3395a2176e8c43f34114
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2021
-ms.locfileid: "113644336"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128629585"
 ---
 # <a name="change-to-full-screen-view-for-a-vm-session-azure-bastion"></a>Cambio a la vista de pantalla completa para una sesión de máquina virtual: Azure Bastion
 
-Este artículo le ayuda a cambiar la vista de la máquina virtual a pantalla completa y de nuevo en el explorador. Antes de trabajar con una máquina virtual, asegúrese de que ha seguido los pasos indicados en [Creación de un host de Bastion](./tutorial-create-host-portal.md). Después, conéctese a la máquina virtual con la que quiere trabajar mediante [RDP](bastion-connect-vm-rdp.md) o [SSH](bastion-connect-vm-ssh.md).
+Este artículo le ayuda a cambiar la vista de la máquina virtual a pantalla completa y de nuevo en el explorador. Antes de trabajar con una máquina virtual, asegúrese de que ha seguido los pasos indicados en [Creación de un host de Bastion](./tutorial-create-host-portal.md). Después, conéctese a la máquina virtual con la que quiere trabajar mediante [RDP](bastion-connect-vm-rdp-windows.md) o [SSH](bastion-connect-vm-ssh-linux.md).
 
 ## <a name="launch-the-clipboard-tool"></a>Inicie la herramienta del Portapapeles
 

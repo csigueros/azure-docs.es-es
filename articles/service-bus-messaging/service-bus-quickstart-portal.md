@@ -3,16 +3,16 @@ title: Uso de Azure Portal para crear una cola de Service Bus
 description: En este inicio rápido aprenderá a crear un espacio de nombres de Service Bus y una cola en ese mismo espacio mediante Azure Portal.
 author: spelluru
 ms.author: spelluru
-ms.date: 08/12/2020
+ms.date: 09/10/2021
 ms.topic: quickstart
 ms.custom:
 - mode-portal
-ms.openlocfilehash: a52142737146299f78f5e3581830121726cedc05
-ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
+ms.openlocfilehash: 6bfbe4f3a90c5cc62e56da9c1acb845365664b3b
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2021
-ms.locfileid: "112416104"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "128664943"
 ---
 # <a name="use-azure-portal-to-create-a-service-bus-namespace-and-a-queue"></a>Uso de Azure Portal para crear un espacio de nombres de Service Bus y una cola
 En este inicio rápido se muestra cómo crear un espacio de nombres de Service Bus y una cola mediante [Azure Portal][Azure portal]. También se muestra cómo obtener credenciales de autorización que una aplicación cliente puede usar para enviar mensajes a la cola, o recibirlos de ella. 

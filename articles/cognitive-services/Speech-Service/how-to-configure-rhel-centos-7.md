@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/02/2020
 ms.author: pankopon
-ms.openlocfilehash: ba531164e024f96d3bdd23912f3f6e90275edda4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 69c4c86816db612d04f474638369834bbe5163b5
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "83589744"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128619768"
 ---
 # <a name="configure-rhelcentos-7-for-speech-sdk"></a>Configuración de RHEL/CentOS 7 para el SDK de voz
 
@@ -79,10 +79,6 @@ Este es un comando de ejemplo que establece cómo configurar RHEL/CentOS 7 x64 p
 En primer lugar, instale todas las dependencias generales:
 
 ```bash
-# Only run ONE of the following two commands
-# - for CentOS 7:
-sudo rpm -Uvh https://packages.microsoft.com/config/centos/7/packages-microsoft-prod.rpm
-# - for RHEL 7:
 sudo rpm -Uvh https://packages.microsoft.com/config/rhel/7/packages-microsoft-prod.rpm
 
 # Install development tools and libraries

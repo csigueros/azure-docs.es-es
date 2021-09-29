@@ -10,14 +10,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.custom: seodec18
-ms.date: 09/23/2020
+ms.date: 09/23/2021
 ms.author: spelluru
-ms.openlocfilehash: af2d820fd255d041ade21a00d7d7a9ac6b12fcba
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e3f37267bcf5c4dd6248cc9498ac0cc84ea91a75
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98745909"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129210314"
 ---
 # <a name="eventhubsexception---net"></a>EventHubsException: .NET
 Se desencadena una excepción **EventHubsException** cuando una operación específica de Event Hubs provoca un problema, incluidos los errores en el servicio y específicos del cliente. 

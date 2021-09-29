@@ -3,12 +3,12 @@ title: Implementación de recursos con Azure Portal
 description: Utilice Azure Portal y Azure Resource Manager para implementar los recursos en un grupo de recursos de su suscripción.
 ms.topic: conceptual
 ms.date: 05/05/2021
-ms.openlocfilehash: 718d8be4e51bf41467bea398440b24f98ac1f6e9
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 03b1cda06bf6865dda1b8d40096f6b76588d8184
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111957900"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124762196"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-portal"></a>Implementación de recursos con plantillas de ARM y Azure Portal
 
@@ -126,6 +126,5 @@ Si desea ejecutar una implementación sin usar las plantillas de Marketplace, pu
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para ver los registros de auditoría, consulte [Operaciones de auditoría con Resource Manager](../management/view-activity-logs.md).
 - Para solucionar errores de implementación, vea [View deployment operations](deployment-history.md) (Ver operaciones de implementación).
 - Para exportar una plantilla de una implementación o un grupo de recursos, consulte [Exportación de plantillas de ARM](export-template-portal.md).

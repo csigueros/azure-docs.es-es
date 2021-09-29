@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 399d2f71fa20d63dce89cf3be5c12ffd63264895
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fd03ce16f0695c23f30146cb8099eb67614982dc
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98724717"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124754414"
 ---
 # <a name="build-resilience-with-credential-management"></a>Aumento de la resistencia con la administración de credenciales
 
@@ -57,7 +57,7 @@ Además de la resistencia de usuario individual descrita anteriormente, las empr
 
 * Implemente [credenciales sin contraseña](../authentication/howto-authentication-passwordless-deployment.md), como las claves de seguridad de Windows Hello para empresas, autenticación por teléfono y FIDO2, para reducir las dependencias.
 
-* Implemente la [aplicación Microsoft Authenticator](../user-help/user-help-auth-app-overview.md) como segundo factor.
+* Implemente la [aplicación Microsoft Authenticator](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc) como segundo factor.
 
 * Active la [sincronización de hash de contraseña](../hybrid/whatis-phs.md) para las cuentas híbridas que se sincronizan desde Windows Server Active Directory. Esta opción se puede habilitar junto con servicios de federación como AD FS y proporciona un plan alternativo en caso de que se produzca un error en el servicio de federación.
 

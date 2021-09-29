@@ -7,13 +7,13 @@ ms.subservice: reservations
 ms.author: banders
 ms.reviewer: yashar
 ms.topic: troubleshooting
-ms.date: 10/19/2020
-ms.openlocfilehash: 9d5706843e8131110566ad8f955415b6db29f7ba
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.date: 09/15/2021
+ms.openlocfilehash: 3bade2b547db3b76bde02731807d4e6ef3539711
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207443"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128649613"
 ---
 # <a name="troubleshoot-reservation-utilization"></a>Solución de problemas de utilización de reservas
 
@@ -21,7 +21,7 @@ Este artículo le ayuda a comprender las reservas de Azure que no muestran ning�
 
 ## <a name="symptoms"></a>Síntomas
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) y vaya a **Reservas** .
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) y vaya a **Reservas**.
 1. En la lista de reservas, busque la cantidad de uso de una reserva en la columna **Uso (%)** . Podría ser 0 %.
 1. Seleccione la reserva.
 1. En la página de información general de la reserva, el porcentaje usado en el gráfico podría no coincidir con el valor que se muestra en la lista de reservas.

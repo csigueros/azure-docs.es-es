@@ -1,14 +1,14 @@
 ---
-title: Uso de servicios de plataforma como servicio (PaaS) en Azure DevTest Labs
+title: Uso de los servicios de plataforma como servicio (PaaS)
 description: Obtenga información sobre cómo usar los servicios de plataforma como servicio (PaaS) en Azure DevTest Labs.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: eec37527386098174906dc2737d7b763241da3f2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8d4bcf98d425e322c18e13ec99b525cf1442bc49
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85478746"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128548134"
 ---
 # <a name="use-platform-as-a-service-paas-services-in-azure-devtest-labs"></a>Uso de servicios de plataforma como servicio (PaaS) en Azure DevTest Labs
 PaaS se admite en DevTest Labs a través de la característica de entornos. Los entornos en DevTest Labs se admiten mediante plantillas preconfiguradas de Azure Resource Manager en un repositorio de Git. Los entornos pueden contener recursos de IaaS y PaaS. Le permiten crear sistemas complejos que pueden incluir recursos de Azure, como máquinas virtuales, bases de datos, redes virtuales y aplicaciones web, que se personalizan para que trabajen en conjunto. Estas plantillas permiten una implementación coherente y una mejor administración de entornos con control de código fuente. 
@@ -37,7 +37,7 @@ El propietario del laboratorio puede personalizar los entornos de laboratorio pa
 Hay cierta información de laboratorio personalizada que está fuera del grupo de recursos y es específica para los entornos a los que puede tener acceso la plantilla. Estas son algunas de ellas: 
 
 - Identificación de la red del laboratorio
-- Ubicación
+- Location
 - Cuenta de Storage donde se almacenan los archivos de plantilla de Resource Manager. 
  
 #### <a name="lab-virtual-network"></a>Red virtual del laboratorio
@@ -78,8 +78,3 @@ Consulte estos artículos para obtener detalles sobre los entornos:
 - [Conexión de un entorno a la red virtual del laboratorio en Azure DevTest Labs](connect-environment-lab-virtual-network.md)
 - [Integración de entornos en las canalizaciones CI/CD de Azure DevOps](integrate-environments-devops-pipeline.md)
  
-
-
-
-
-

@@ -6,13 +6,13 @@ ms.author: csugunan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 08/25/2021
-ms.openlocfilehash: 40b1652bec99844675e030cfd12ef8ff28a0f01f
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.date: 09/27/2021
+ms.openlocfilehash: 6778394fa152f22002ef48681942edde4b4ed460
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123435463"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129219123"
 ---
 # <a name="how-to-connect-azure-data-factory-and-azure-purview"></a>Cómo conectar Azure Data Factory y Azure Purview
 
@@ -44,9 +44,9 @@ Es posible conectar varias instancias de Azure Data Factory a una sola de Azure 
 >[!Note]
 >Para agregar o quitar las conexiones de Data Factory, debe tener asignado el rol siguiente. No se admite la herencia de roles del grupo de administración.
 >- Para la cuenta de Purview creada el **18 de agosto de 2021 o después**: rol **Administradores de colecciones** en la colección raíz.
->- Para la cuenta de Purview creada **antes del 18 de agosto de 2021**: rol **Propietario** o **Administrador de acceso de usuario**. 
+>- Para la cuenta de Purview creada **antes del 18 de agosto de 2021**: rol **Propietario** o **Administrador de acceso de usuario**.
 >
-> Además, es necesario que los usuarios sean el "Propietario" o "Colaborador" de la factoría de datos. 
+> Además, es necesario que los usuarios sean el "Propietario" o "Colaborador" de la factoría de datos.
 
 Siga los pasos que se indican a continuación para conectar una factoría de datos existente a la cuenta de Purview. También puede [conectar Data Factory a la cuenta de Purview desde ADF](../data-factory/connect-data-factory-to-azure-purview.md).
 
@@ -62,14 +62,14 @@ Siga los pasos que se indican a continuación para conectar una factoría de dat
 
     Si alguna de las factorías de datos seleccionadas ya está conectada a otra cuenta de Purview, aparece un mensaje de advertencia. Al seleccionar Aceptar, la conexión de Data Factory con la otra cuenta de Purview se interrumpe. No se requieren confirmaciones adicionales.
 
-    :::image type="content" source="./media/how-to-link-azure-data-factory/warning-for-disconnect-factory.png" alt-text="Captura de pantalla que muestra la advertencia de desconexión de Azure Data Factory." lightbox="./media/how-to-link-azure-data-factory/warning-for-disconnect-factory.png":::
+    :::image type="content" source="./media/how-to-link-azure-data-factory/warning-for-disconnect-factory.png" alt-text="Captura de pantalla que muestra la advertencia de desconexión de Azure Data Factory.":::
 
 >[!Note]
 >Ahora se admite la adición de un máximo de 10 factorías de datos a la vez. Si quiere agregar más de 10 factorías de datos a la vez, rellene una incidencia de soporte técnico.
 
 ### <a name="how-authentication-works"></a>Funcionamiento de la autenticación
 
-La identidad administrada de la factoría de datos se usa para autenticar las operaciones de inserción de linaje desde la factoría de datos a Purview. Al conectar la factoría de datos a Purview en la interfaz de usuario, agrega automáticamente la asignación de roles. 
+La identidad administrada de la factoría de datos se usa para autenticar las operaciones de inserción de linaje desde la factoría de datos a Purview. Al conectar la factoría de datos a Purview en la interfaz de usuario, agrega automáticamente la asignación de roles.
 
 - En el caso de la cuenta de Purview creada el **18 de agosto de 2021 o después**, conceda el rol **Conservador de datos** de la identidad administrada de la factoría de datos en la **colección raíz** de Purview. Obtenga más información sobre el [control de acceso en Azure Purview y ](../purview/catalog-permissions.md)[Adición de roles y restricción del acceso mediante colecciones](../purview/how-to-create-and-manage-collections.md#add-roles-and-restrict-access-through-collections).
 
@@ -133,7 +133,7 @@ Un ejemplo de este patrón sería el siguiente:
 - 1 receptor por salida: *Customer1.csv* (Azure Blob)
 - 1 proceso: *CopyCustomerInfo1\#Customer1.csv* (actividad de copia de Data Factory)
 
-:::image type="content" source="./media/how-to-link-azure-data-factory/adf-copy-lineage.png" alt-text="Captura de pantalla que muestra el linaje de una operación de copia uno a uno de Data Factory." lightbox="./media/how-to-link-azure-data-factory/adf-copy-lineage.png":::
+:::image type="content" source="./media/how-to-link-azure-data-factory/adf-copy-lineage.png" alt-text="Captura de pantalla que muestra el linaje de una operación de copia uno a uno de Data Factory.":::
 
 ### <a name="data-movement-with-11-lineage-and-wildcard-support"></a>Movimiento de datos con linaje 1:1 y compatibilidad con caracteres comodín
 

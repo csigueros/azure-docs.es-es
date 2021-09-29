@@ -2,14 +2,14 @@
 title: Registro con redundancia de zona para lograr alta disponibilidad
 description: Aprenda a habilitar la redundancia de zona en Azure Container Registry. Cree un registro de contenedor o una replicación en una zona de disponibilidad de Azure. La redundancia de zona es una característica del nivel de servicio Premium.
 ms.topic: article
-ms.date: 02/23/2021
+ms.date: 09/13/2021
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 69714f25263b0b26fe4854b0303c3c9106b18f9a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: ca475f61c3164f54682a22f459e1f8f768073f1f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121741066"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128586824"
 ---
 # <a name="enable-zone-redundancy-in-azure-container-registry-for-resiliency-and-high-availability"></a>Habilitación de la redundancia de zona en Azure Container Registry para lograr resistencia y alta disponibilidad
 
@@ -21,7 +21,12 @@ La redundancia de zona es una característica en **versión preliminar** del niv
 
 ## <a name="preview-limitations"></a>Limitaciones de vista previa
 
-* Actualmente se admite en las siguientes regiones: Este de EE. UU., Este de EE. UU. 2, Oeste de EE. UU. 2, Norte de Europa, Oeste de Europa, Japón Oriental.
+* Actualmente se admite en las siguientes regiones: 
+  
+    |América  |Europa  |África  |Asia Pacífico  |
+    |---------|---------|---------|---------|
+    |Sur de Brasil<br/>Centro de Canadá<br/>Centro de EE. UU.<br/>Este de EE. UU.<br/>Este de EE. UU. 2<br/>Centro-sur de EE. UU.<br/>US Gov Virginia<br/>Oeste de EE. UU. 2<br/>Oeste de EE. UU. 3     |Centro de Francia<br/>Centro-oeste de Alemania<br/>Norte de Europa<br/>Este de Noruega<br/>Oeste de Europa<br/>Sur de Reino Unido      |Norte de Sudáfrica<br/>        |Este de Australia<br/>Centro de la India<br/>Japón Oriental<br/>Centro de Corea del Sur<br/>  |
+
 * Actualmente no se admite la conversión de regiones en zonas de disponibilidad. Para habilitar la compatibilidad con las zonas de disponibilidad en una región, el registro debe crearse en la región deseada, con la compatibilidad con zonas de disponibilidad habilitada, o bien debe agregarse una región replicada que tenga habilitada la compatibilidad con zonas de disponibilidad.
 * No se puede deshabilitar la redundancia de zona en una región.
 * [ACR Tasks](container-registry-tasks-overview.md) todavía no admite las zonas de disponibilidad.

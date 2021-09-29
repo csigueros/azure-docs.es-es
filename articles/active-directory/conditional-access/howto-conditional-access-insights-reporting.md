@@ -8,21 +8,21 @@ ms.topic: conceptual
 ms.date: 08/27/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ae802038626a1fbf8d533800a0b8eb43c4565e8c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 919003a8ad8b1ede8a7e5064e5e499be45d62019
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100574172"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128577305"
 ---
 # <a name="conditional-access-insights-and-reporting"></a>Información detallada e informes del acceso condicional
 
 El libro Conditional Access insights and reporting (Información detallada e informes del acceso condicional) le permite comprender el impacto de las directivas de acceso condicional en su organización a lo largo del tiempo. Durante el inicio de sesión, se pueden aplicar una o varias directivas de acceso condicional, de modo que se conceda acceso si se cumplen determinados controles de concesión o se deniegue de lo contrario. Dado que se pueden evaluar varias directivas de acceso condicional durante cada inicio de sesión, el libro de información detallada e informes le permite examinar el impacto de una directiva individual o un subconjunto de todas las directivas.  
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para habilitar el libro de información detallada e informes, el inquilino debe tener un área de trabajo de Log Analytics para conservar los datos de los registros de inicio de sesión. Los usuarios deben tener licencias de Azure AD Premium P1 o P2 para usar el acceso condicional.
 

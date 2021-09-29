@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/22/2021
+ms.date: 09/16/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 1de783a3e6696e9ca8a8f618ce3744a91e774692
-ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
+ms.openlocfilehash: f5f72fa4dc126074177b96a484c10ade06724f83
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "112198861"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128574450"
 ---
 # <a name="set-up-the-local-account-identity-provider"></a>Configuración del proveedor de identidades de la cuenta local
 
@@ -47,7 +47,8 @@ Puede elegir los métodos de inicio de sesión de la cuenta local (correo electr
 Para establecer las opciones de inicio de sesión de la cuenta local en el nivel de inquilino: 
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-1. Asegúrese de usar el directorio que contiene el inquilino de Azure AD B2C. Para ello, seleccione el filtro **Directorio y suscripción** en el menú superior y luego el directorio que contiene el inquilino de Azure AD.
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
 1. En **Servicios de Azure**, seleccione **Azure AD B2C**. O bien, use el cuadro de búsqueda para buscar y seleccionar **Azure AD B2C**.
 1. En **Administrar**, seleccione **Proveedores de identidades**.
 1. En la lista de proveedores de identidades, seleccione **Cuenta local**.
@@ -71,7 +72,8 @@ Para establecer las opciones de inicio de sesión de la cuenta local en el nivel
 Si elige la opción **Registro con el teléfono**, **Registro con el teléfono o mediante correo electrónico**, habilite la solicitud de correo electrónico de recuperación.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-1. Seleccione el icono **Directorio y suscripción** en la barra de herramientas del portal y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
 1. En Azure Portal, busque y seleccione **Azure AD B2C**.
 1. En Azure AD B2C, en **Directivas**, seleccione **Flujos de usuario**.
 1. Seleccione el flujo de usuario de la lista.

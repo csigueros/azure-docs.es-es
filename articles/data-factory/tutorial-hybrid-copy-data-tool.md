@@ -8,12 +8,12 @@ ms.subservice: tutorials
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 07/08/2021
-ms.openlocfilehash: 3adb1c084276bed35ec7a2f542ee7f9d319f7b2b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 2311c7e0ab22510211b8fe6c6668b3253d5df28e
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122638329"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124798320"
 ---
 # <a name="copy-data-from-a-sql-server-database-to-azure-blob-storage-by-using-the-copy-data-tool"></a>Copia de datos de una base de datos de SQL Server en Azure Blob Storage con la herramienta Copiar datos
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -80,7 +80,7 @@ En este tutorial, use el nombre y la clave de su cuenta de almacenamiento. Para 
 
 1. Seleccione **Todos los servicios** en el panel izquierdo. Use la palabra clave **Almacenamiento** para filtrar el resultado y, luego, seleccione **Cuentas de almacenamiento**.
 
-    ![Búsqueda de cuenta de almacenamiento](media/doc-common-process/search-storage-account.png)
+    :::image type="content" source="media/doc-common-process/search-storage-account.png" alt-text="Búsqueda de cuenta de almacenamiento":::
 
 1. En la lista de cuentas de almacenamiento, filtre por su cuenta de almacenamiento, si fuera necesario. Después, seleccione su cuenta de almacenamiento.
 
@@ -93,7 +93,7 @@ En este tutorial, use el nombre y la clave de su cuenta de almacenamiento. Para 
 
 1. En el menú de la izquierda, seleccione **Crear un recurso** > **Integración** > **Data Factory**.
 
-   ![Creación de nueva factoría de datos](./media/doc-common-process/new-azure-data-factory-menu.png)
+   :::image type="content" source="./media/doc-common-process/new-azure-data-factory-menu.png" alt-text="Creación de nueva factoría de datos":::
 
 1. En la página **Nueva factoría de datos**, en **Nombre**, escriba **ADFTutorialDataFactory**.
 
@@ -122,7 +122,7 @@ En este tutorial, use el nombre y la clave de su cuenta de almacenamiento. Para 
 
 1. En la página principal de Azure Data Factory, seleccione **Ingerir** para iniciar la herramienta Copiar datos.
 
-   ![Captura de pantalla que muestra la página principal de Azure Data Factory.](./media/doc-common-process/get-started-page.png)
+   :::image type="content" source="./media/doc-common-process/get-started-page.png" alt-text="Captura de pantalla que muestra la página principal de Azure Data Factory.":::
 
 1. En la página **Propiedades** de la herramienta Copiar datos, elija **Tarea de copia integrada** en **Tipo de tarea** y elija **Ejecutar una vez ahora** en **Cadencia de tareas o programación de tareas**. A continuación, seleccione **Siguiente**.
 
@@ -134,7 +134,7 @@ En este tutorial, use el nombre y la clave de su cuenta de almacenamiento. Para 
 
 1. En el cuadro de diálogo **Configuración de Integration Runtime**, seleccione **Autohospedado**. Después, seleccione **Continuar**.
 
-   ![Creación de tiempo de ejecución de integración](./media/tutorial-hybrid-copy-data-tool/create-self-hosted-integration-runtime.png)
+   :::image type="content" source="./media/tutorial-hybrid-copy-data-tool/create-self-hosted-integration-runtime.png" alt-text="Creación de tiempo de ejecución de integración":::
 
 1. En el cuadro de diálogo **Configuración de Integration Runtime**, en **Nombre** escriba **TutorialIntegrationRuntime**. Seleccione **Crear**.
 
@@ -142,7 +142,7 @@ En este tutorial, use el nombre y la clave de su cuenta de almacenamiento. Para 
 
 1. Ejecute la aplicación descargada. Verá el estado de la configuración rápida en la ventana.
 
-    ![Estado de la configuración rápida](./media/tutorial-hybrid-copy-data-tool/express-setup-status.png)
+    :::image type="content" source="./media/tutorial-hybrid-copy-data-tool/express-setup-status.png" alt-text="Estado de la configuración rápida":::
 
 1. En el cuadro de diálogo **Nueva conexión (SQL Server)** , confirme que **TutorialIntegrationRuntime** está seleccionado en **Conectar a través de IR**. A continuación, siga estos pasos:
 
@@ -160,7 +160,7 @@ En este tutorial, use el nombre y la clave de su cuenta de almacenamiento. Para 
 
     g. Pruebe la conexión y seleccione **Crear**.
 
-      ![Integration Runtime seleccionado](./media/tutorial-hybrid-copy-data-tool/integration-runtime-selected.png)
+      :::image type="content" source="./media/tutorial-hybrid-copy-data-tool/integration-runtime-selected.png" alt-text="Integration Runtime seleccionado":::
 
 1. En la página **Almacén de datos de origen**, asegúrese de que la conexión de **SQL Server** recién creada está seleccionada en el bloque **Conexión**. A continuación, en la sección **Tablas de origen**, elija **TABLAS EXISTENTES** y seleccione la tabla **dbo.emp** en la lista, y seleccione **Siguiente**. Puede seleccionar cualquier otra tabla en función de la base de datos.
 
@@ -170,7 +170,7 @@ En este tutorial, use el nombre y la clave de su cuenta de almacenamiento. Para 
 
 1. En **Nueva conexión**, busque y seleccione **Azure Blob Storage** y, después, seleccione **Continuar**.
 
-   ![Selección de Blob Storage](./media/tutorial-hybrid-copy-data-tool/select-destination-data-store.png)
+   :::image type="content" source="./media/tutorial-hybrid-copy-data-tool/select-destination-data-store.png" alt-text="Selección de Blob Storage":::
 
 1. En el cuadro de diálogo **Nueva conexión (Azure Blob Storage)** , realice los siguientes pasos:
 

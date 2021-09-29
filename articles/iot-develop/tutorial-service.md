@@ -1,20 +1,20 @@
 ---
 title: 'Tutorial: Interacción con un dispositivo IoT Plug and Play conectado a la solución de Azure IoT | Microsoft Docs'
 description: 'Tutorial: Uso de C#, JavaScript, Java o Python para conectarse e interactuar con un dispositivo IoT Plug and Play conectado a la solución de Azure IoT.'
-author: ericmitt
-ms.author: ericmitt
+author: lizross
+ms.author: lizross
 ms.date: 09/21/2020
 ms.topic: tutorial
 ms.service: iot-develop
 services: iot-develop
 ms.custom: mvc
 zone_pivot_groups: programming-languages-set-ten
-ms.openlocfilehash: b0226802a9a3c60a732a173ceaf8dbdb513af721
-ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
+ms.openlocfilehash: 97905ca31678a5e1918886bc0159a6f5aad463fb
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2021
-ms.locfileid: "114406068"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129092801"
 ---
 # <a name="tutorial-interact-with-an-iot-plug-and-play-device-thats-connected-to-your-solution"></a>Tutorial: Interacción con un dispositivo IoT Plug and Play conectado a la solución
 

@@ -3,16 +3,16 @@ title: Objetivos de escalabilidad y rendimiento para discos de máquinas virtual
 description: Obtenga información sobre los objetivos de escalabilidad y rendimiento para los discos de máquina virtual conectados a máquinas virtuales.
 author: roygara
 ms.author: rogarana
-ms.date: 06/29/2021
+ms.date: 09/27/2021
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: disks
-ms.openlocfilehash: 864716118cbb0d65c871a5a50071ff08cae0af62
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 773b4dbe5bcabc459b832f450610c395a981650a
+ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122692280"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129155177"
 ---
 # <a name="scalability-and-performance-targets-for-vm-disks"></a>Objetivos de escalabilidad y rendimiento para discos de máquinas virtuales
 

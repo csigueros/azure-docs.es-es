@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 10/06/2020
 ms.author: memildin
-ms.openlocfilehash: f2014d2ecea91ae650ec1fb1d730ee9b64c66c98
-ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
+ms.openlocfilehash: ad4d401072bc96784b45c0f5fd43d08f3de8ade0
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122195912"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124823824"
 ---
 # <a name="stream-alerts-to-a-siem-soar-or-it-service-management-solution"></a>Transmisión de alertas a una solución de administración de servicios de TI, SIEM o SOAR
 
@@ -42,7 +42,7 @@ Azure Sentinel incluye conectores integrados para Azure Security Center en los n
 - [Transmisión de alertas a Azure Sentinel en el nivel de suscripción](../sentinel/connect-azure-security-center.md)
 - [Conexión de todas las suscripciones del inquilino a Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/azure-security-center-auto-connect-to-sentinel/ba-p/1387539) 
 
-Cuando se conecta Azure Defender a Azure Sentinel, el estado de las alertas de Azure Defender que se ingieren en Azure Sentinel se sincroniza entre los dos servicios. Por ejemplo, cuando se cierra una alerta en Azure Defender, esa alerta también se mostrará como cerrada en Azure Sentinel. El cambio del estado de una alerta en Azure Defender "no"* afecta al estado de los **incidentes** de Azure Sentinel que contienen la alerta de Azure Sentinel sincronizada, solo al de la propia alerta sincronizada.
+Cuando se conecta Azure Defender a Azure Sentinel, el estado de las alertas de Azure Defender que se ingieren en Azure Sentinel se sincroniza entre los dos servicios. Por ejemplo, cuando se cierra una alerta en Azure Defender, también se mostrará como cerrada en Azure Sentinel. El cambio del estado de una alerta en Azure Defender "no"* afecta al estado de los **incidentes** de Azure Sentinel que contienen la alerta de Azure Sentinel sincronizada, solo al de la propia alerta sincronizada.
 
 Al habilitar la característica en vista previa, la **sincronización de alertas bidireccional**, se sincronizará automáticamente el estado de las alertas de Azure Defender originales con incidentes de Azure Sentinel que contienen las copias de esas alertas de Azure Defender. Por ejemplo, cuando se cierra un incidente de Azure Sentinel que contiene una alerta de Azure Defender, Azure Defender cerrará automáticamente la alerta original correspondiente.
 
@@ -56,7 +56,7 @@ Obtenga más información en [Conexión de alertas de Azure Defender desde Azure
 Otra alternativa para investigar las alertas de Security Center en Azure Sentinel es transmitir los registros de auditoría a Azure Sentinel:
     - [Conexión de eventos de seguridad de Windows](../sentinel/connect-windows-security-events.md)
     - [Recopilación de datos de orígenes basados en Linux mediante Syslog](../sentinel/connect-syslog.md)
-    - [Conectar datos del registro de actividad de Azure](../sentinel/connect-azure-activity.md)
+    - [Conectar datos del registro de actividad de Azure](../sentinel/data-connectors-reference.md#azure-activity)
 
 > [!TIP]
 > Azure Sentinel se factura en función del volumen de datos ingeridos para el análisis en Azure Sentinel y almacenados en el área de trabajo de Log Analytics de Azure Monitor. Azure Sentinel ofrece un modelo de precios flexible y predecible. [Obtenga más información en la página de precios de Azure Sentinel](https://azure.microsoft.com/pricing/details/azure-sentinel/).

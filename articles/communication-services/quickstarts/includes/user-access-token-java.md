@@ -10,12 +10,12 @@ ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
 ms.author: tchladek
-ms.openlocfilehash: 62efd6215dfb83eade0e4ee4e9cfa230d1dd7971
-ms.sourcegitcommit: d2738669a74cda866fd8647cb9c0735602642939
+ms.openlocfilehash: 414d4ffdf8678ada61048eeefccc34b8097a88a8
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2021
-ms.locfileid: "113659379"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128677315"
 ---
 > [!NOTE]
 > Busque el código finalizado de este inicio rápido en [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/access-token-quickstart)
@@ -167,7 +167,7 @@ Para actualizar un token de acceso, use el objeto `CommunicationUserIdentifier` 
 
 ```java
 // Value existingIdentity represents identity of Azure Communication Services stored during identity creation
-CommunicationUserIdentifier identity = new CommunicationUserIdentifier(existingIdentity);
+CommunicationUserIdentifier identity = new CommunicationUserIdentifier(existingIdentity.getId());
 AccessToken response = communicationIdentityClient.getToken(identity, scopes);
 ```
 

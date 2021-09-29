@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/04/2021
 ms.author: jeedes
-ms.openlocfilehash: 449bd347660da598047f2b6ac584b184d999b223
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 1cf20040203e0177cb95ab6d41f71d37fb0d60e4
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111758010"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124790080"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-petrovue"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con PetroVue
 
@@ -136,11 +136,9 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 * Vaya directamente a la URL de inicio de sesión de PetroVue e inicie el flujo de inicio de sesión desde allí.
 
-* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de PetroVue en Aplicaciones, se le redirige a la dirección URL de inicio de sesión de PetroVue. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de PetroVue en Aplicaciones, se le redirige a la dirección URL de inicio de sesión de PetroVue. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Una vez configurado PetroVue, puede aplicar el control de sesión, que protege frente a la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
-
-

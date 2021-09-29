@@ -7,16 +7,16 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/01/2021
 ms.author: marayerm
-ms.openlocfilehash: 92447c4d0c8d0a1fac6e59a11a81dc7beae52516
-ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.openlocfilehash: bf7fe9dc4d8c60b7e8779100bd959ee7e85415e0
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123451481"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128583863"
 ---
 # <a name="sign-in-to-storage-explorer"></a>Inicio de sesión en el Explorador de Storage
 
-El inicio de sesión es la manera recomendada de acceder a los recursos de almacenamiento de Azure con el Explorador de Storage. Al iniciar sesión, aprovecha las ventajas de los permisos respaldados por Azure AD, como las listas de control de acceso POSIX de Gen2 y RBAC. 
+El inicio de sesión es la manera recomendada de acceder a los recursos de almacenamiento de Azure con el Explorador de Storage. Al iniciar sesión, aprovecha las ventajas de los permisos respaldados por Azure AD, como las listas de control de acceso POSIX de Gen2 y RBAC.
 
 ## <a name="how-to-sign-in"></a>Inicio de sesión
 
@@ -59,5 +59,5 @@ Si tiene problemas para iniciar sesión o experimenta problemas con una cuenta d
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Administración de recursos de Azure Blob Storage con el Explorador de Storage](../../vs-azure-tools-storage-explorer-blobs.md)
-* [Solución de problemas con el inicio de sesión](./storage-explorer-troubleshooting.md#sign-in-issues)
+- [Administración de recursos de Azure Blob Storage con el Explorador de Storage](../../vs-azure-tools-storage-explorer-blobs.md)
+- [Solución de problemas con el inicio de sesión](./storage-explorer-troubleshooting.md#sign-in-issues)

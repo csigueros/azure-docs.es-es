@@ -4,15 +4,15 @@ description: En este inicio rápido, aprenderá a compilar una aplicación HoloL
 author: craigktreasure
 manager: virivera
 ms.author: crtreasu
-ms.date: 08/02/2021
+ms.date: 09/08/2021
 ms.topic: quickstart
 ms.service: azure-object-anchors
-ms.openlocfilehash: 605acf95b521e150456a69e84d2008be7080589a
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.openlocfilehash: 2cb1f51d47c95f47f6a1eb3a242b54cf60929b44
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122254225"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124792142"
 ---
 # <a name="quickstart-create-a-hololens-app-with-azure-object-anchors-in-cwinrt-and-directx"></a>Inicio rápido: Creación de una aplicación HoloLens con Azure Object Anchors en C++/WinRT y DirectX
 
@@ -107,3 +107,6 @@ La aplicación alinea estrechamente un modelo 3D con su homólogo físico. Para
 
 > [!div class="nextstepaction"]
 > [Biblioteca cliente de Azure Object Anchors para .NET: versión 0.3.0-beta.1](/dotnet/api/overview/azure/mixedreality.objectanchors.conversion-readme-pre)
+
+> [!div class="nextstepaction"]
+> [Solución de problemas de detección de objetos](../troubleshoot/object-detection.md)

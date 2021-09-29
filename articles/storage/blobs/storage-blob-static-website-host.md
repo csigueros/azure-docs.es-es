@@ -8,30 +8,30 @@ ms.topic: tutorial
 ms.date: 1/22/2020
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: 15c0cf0b24fef36902806656a2e47a7fda7bb52c
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: f222475560c282e7eb63c55a3f827f8f8e48c8ce
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123471073"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128549478"
 ---
 <!---Customer intent: I want to host files for a static website in Blob storage and access the website from an Azure endpoint.--->
 
 # <a name="tutorial-host-a-static-website-on-blob-storage"></a>Tutorial: Hospedaje de un sitio web estático en Blob Storage
 
-En este tutorial, aprenderá a crear e implementar un sitio web estático para Azure Storage. Cuando haya terminado, tendrá un sitio web estático al que los usuarios podrán acceder públicamente. 
+En este tutorial, aprenderá a crear e implementar un sitio web estático para Azure Storage. Cuando haya terminado, tendrá un sitio web estático al que los usuarios podrán acceder públicamente.
 
 En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
-> * Configurar el hospedaje del sitio web estático
-> * Implementar un sitio web de Hola mundo
+> - Configurar el hospedaje del sitio web estático
+> - Implementar un sitio web de Hola mundo
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
-> [!NOTE] 
+> [!NOTE]
 > Los sitios web estáticos ahora están disponibles para las cuentas de almacenamiento estándar de uso general v2, así como para las cuentas de almacenamiento con el espacio de nombres jerárquico habilitado.
 
 En este tutorial se utiliza [Visual Studio Code](https://code.visualstudio.com/download), una herramienta gratuita para programadores, para crear el sitio web estático e implementarlo en una cuenta de Azure Storage.
@@ -49,15 +49,15 @@ Inicie sesión en [Azure Portal](https://portal.azure.com/) para empezar a traba
 
 ## <a name="configure-static-website-hosting"></a>Configurar el hospedaje del sitio web estático
 
-El primer paso es configurar la cuenta de almacenamiento para hospedar un sitio web estático en Azure Portal. Cuando configura la cuenta para el hospedaje de sitios web estáticos, Azure Storage crea automáticamente un contenedor llamado *$web*. El contenedor *$web* contendrá los archivos del sitio web estático. 
+El primer paso es configurar la cuenta de almacenamiento para hospedar un sitio web estático en Azure Portal. Cuando configura la cuenta para el hospedaje de sitios web estáticos, Azure Storage crea automáticamente un contenedor llamado *$web*. El contenedor *$web* contendrá los archivos del sitio web estático.
 
-1. Abra [Azure Portal](https://portal.azure.com/) en el explorador web. 
+1. Abra [Azure Portal](https://portal.azure.com/) en el explorador web.
 1. Busque la cuenta de almacenamiento y muestre la información general de la cuenta.
 1. Seleccione **Sitio web estático** para mostrar la página de configuración de los sitios web estáticos.
 1. Seleccione **Habilitado** para habilitar el hospedaje del sitio web estático para la cuenta de almacenamiento.
-1. En el campo **Nombre del documento de índice**, especifique una página de índice predeterminada de *index.html*. La página de índice predeterminada se muestra cuando un usuario navega hasta la raíz del sitio web estático.  
+1. En el campo **Nombre del documento de índice**, especifique una página de índice predeterminada de *index.html*. La página de índice predeterminada se muestra cuando un usuario navega hasta la raíz del sitio web estático.
 1. En el campo **Ruta de acceso del documento de error**, especifique una página de error predeterminada de *404.html*. La página de error predeterminada se muestra cuando un usuario intenta navegar a una página que no existe en el sitio web estático.
-1. Haga clic en **Save**(Guardar). Azure Portal ahora muestra el punto de conexión estático del sitio web. 
+1. Haga clic en **Save**(Guardar). Azure Portal ahora muestra el punto de conexión estático del sitio web.
 
     ![Habilitación del hospedaje del sitio web estático para una cuenta de almacenamiento](media/storage-blob-static-website-host/enable-static-website-hosting.png)
 
@@ -65,7 +65,7 @@ El primer paso es configurar la cuenta de almacenamiento para hospedar un sitio 
 
 A continuación, cree una página web de Hola mundo con Visual Studio Code e impleméntela en el sitio web estático hospedado en la cuenta de Azure Storage.
 
-1. Cree una carpeta vacía denominada *mywebsite* en el sistema de archivos local. 
+1. Cree una carpeta vacía denominada *mywebsite* en el sistema de archivos local.
 1. Inicie Visual Studio Code y abra la carpeta que acaba de crear desde el panel **Explorador**.
 
     ![Apertura de la carpeta en Visual Studio Code](media/storage-blob-static-website-host/open-folder-vs-code.png)
@@ -107,11 +107,11 @@ Ha completado el tutorial correctamente y ha implementado un sitio web estático
 
 ## <a name="feature-support"></a>Compatibilidad de características
 
-En esta tabla se muestra cómo se admite esta característica en la cuenta y el impacto en la compatibilidad al habilitar determinadas funcionalidades. 
+En esta tabla se muestra cómo se admite esta característica en la cuenta y el impacto en la compatibilidad al habilitar determinadas funcionalidades.
 
-| Tipo de cuenta de almacenamiento                | Blob Storage (compatibilidad predeterminada)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>    
+| Tipo de cuenta de almacenamiento                | Blob Storage (compatibilidad predeterminada)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
 |-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
-| De uso general estándar, v2 | ![Sí](../media/icons/yes-icon.png) |![Sí](../media/icons/yes-icon.png)              | ![Sí](../media/icons/yes-icon.png) | 
+| De uso general estándar, v2 | ![Sí](../media/icons/yes-icon.png) |![Sí](../media/icons/yes-icon.png)              | ![Sí](../media/icons/yes-icon.png) |
 | Blobs en bloques Premium          | ![Sí](../media/icons/yes-icon.png) |![Sí](../media/icons/yes-icon.png)              | ![Sí](../media/icons/yes-icon.png) |
 
 <sup>1</sup> Tanto Data Lake Storage Gen2 como el protocolo Network File System (NFS) 3.0 necesitan una cuenta de almacenamiento con un espacio de nombres jerárquico habilitado.

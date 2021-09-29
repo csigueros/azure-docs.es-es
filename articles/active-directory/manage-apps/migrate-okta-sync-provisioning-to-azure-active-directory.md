@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/01/2021
 ms.author: gasinh
 ms.subservice: app-mgmt
-ms.openlocfilehash: 4d88932bc6cc945b38d90f1e7d79702f4b3013c9
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: d70d3f32093fc2e509d351e0ce194bac1d7490b8
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123440285"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129084158"
 ---
 # <a name="tutorial-migrate-okta-sync-provisioning-to-azure-active-directory-connect-based-synchronization"></a>Tutorial: Migración del aprovisionamiento de la sincronización de Okta a la sincronización basada en Azure Active Directory Connect
 
@@ -26,7 +26,7 @@ La migración de plataformas de sincronización no es un cambio menor. Cada paso
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Al cambiar del aprovisionamiento de Okta a Azure AD, los clientes tienen dos opciones: un servidor de Azure AD Connect o el aprovisionamiento en la nube de Azure AD. Se recomienda leer el [artículo completo de la comparativa de Microsoft](https://docs.microsoft.com/azure/active-directory/cloud-sync/what-is-cloud-sync#comparison-between-azure-ad-connect-and-cloud-provisioning) para comprender las diferencias entre los dos productos.
+Al cambiar del aprovisionamiento de Okta a Azure AD, los clientes tienen dos opciones: un servidor de Azure AD Connect o el aprovisionamiento en la nube de Azure AD. Se recomienda leer el [artículo completo de la comparativa de Microsoft](../cloud-sync/what-is-cloud-sync.md#comparison-between-azure-ad-connect-and-cloud-sync) para comprender las diferencias entre los dos productos.
 
 El aprovisionamiento en la nube de Azure AD será la ruta de migración más familiar para los clientes de Okta que usan la sincronización universal o de usuario. Los agentes de aprovisionamiento en la nube son ligeros y se pueden instalar en los controladores de dominio o cerca de ellos, como los agentes de sincronización de directorios de Okta. No se recomienda instalarlos en el mismo servidor.
 
@@ -41,7 +41,7 @@ Se debe elegir la opción de servidor de Azure AD Connect si la organización n
 - Compatibilidad con la escritura diferida
 
 >[!NOTE]
->Se deben tener en cuenta todos los requisitos previos al instalar Azure AD Connect o el aprovisionamiento en la nube de Azure AD. Para más información, consulte este [artículo](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-prerequisites) antes de la instalación.  
+>Se deben tener en cuenta todos los requisitos previos al instalar Azure AD Connect o el aprovisionamiento en la nube de Azure AD. Para más información, consulte este [artículo](../hybrid/how-to-connect-install-prerequisites.md) antes de la instalación.  
 
 ## <a name="step-1---confirm-immutableid-attribute-synchronized-by-okta"></a>Paso 1: Confirmación del atributo ImmutableID sincronizado por Okta
 
@@ -117,7 +117,7 @@ En el ejemplo, se capturarán **todos** los usuarios de AD locales y se exportar
 
 Una vez que haya preparado la lista de objetivos de origen y destino, es el momento de instalar el servidor de Azure AD Connect. Si ha optado por usar el aprovisionamiento en la nube de Azure AD Connect, omita esta sección.
 
-1. Continúe con la [descarga e instalación de Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-custom) en el servidor elegido. 
+1. Continúe con la [descarga e instalación de Azure AD Connect](../hybrid/how-to-connect-install-custom.md) en el servidor elegido. 
 
 2. En la página **Identificación de usuarios**, en la opción **Seleccione cómo deben identificarse los usuarios con Azure AD**, seleccione el botón radial **Elija un atributo específico**. A continuación, seleccione **mS-DS-ConsistencyGUID** si no ha modificado los valores predeterminados de Okta.
 
@@ -173,7 +173,7 @@ Antes de salir del modo de almacenamiento provisional, es importante comprobar q
 
 ## <a name="step-4---install-azure-ad-cloud-sync-agents"></a>Paso 4: Instalación de los agentes de sincronización en la nube de Azure AD
 
-Una vez que haya preparado la lista de objetivos de origen y destino, es el momento de [instalar y configurar los agentes de sincronización en la nube de Azure AD](https://docs.microsoft.com/azure/active-directory/cloud-sync/tutorial-single-forest). Si ha optado por usar un servidor de Azure AD Connect, omita esta sección.
+Una vez que haya preparado la lista de objetivos de origen y destino, es el momento de [instalar y configurar los agentes de sincronización en la nube de Azure AD](../cloud-sync/tutorial-single-forest.md). Si ha optado por usar un servidor de Azure AD Connect, omita esta sección.
 
 ## <a name="step-5---disable-okta-provisioning-to-azure-ad"></a>Paso 5: Deshabilitación del aprovisionamiento de Okta en Azure AD
 

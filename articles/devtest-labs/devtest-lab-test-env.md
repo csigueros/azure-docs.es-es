@@ -1,14 +1,14 @@
 ---
-title: Usar Azure DevTest Labs para entornos de prueba de máquina virtual y PaaS | Microsoft Docs
+title: Usar Azure DevTest Labs para entornos de prueba de máquina virtual y PaaS
 description: Aprenda a usar Azure DevTest Labs para escenarios de entornos de prueba de máquina virtual y PaaS.
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/26/2020
-ms.openlocfilehash: 24ff4e982fb0c436133e7a39e72e8210b06eeb03
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 6e08eaa43d556d47724dbf184bb1b06856e999e3
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114295653"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128629320"
 ---
 # <a name="use-azure-devtest-labs-for-vm-and-paas-test-environments"></a>Usar Azure DevTest Labs para entornos de prueba de máquina virtual y PaaS
 

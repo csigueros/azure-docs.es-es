@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/05/2021
+ms.date: 09/20/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 28e7a6be84a260c26b27b9e6042a6c323d4167ec
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 62b1f81f0e2a1582e78dff044a3109c3b1525939
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108128764"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128588967"
 ---
 # <a name="register-a-microsoft-graph-application"></a>Registro de una aplicación de Microsoft Graph
 
@@ -47,7 +47,8 @@ Aunque actualmente el flujo de concesión de credenciales de cliente de OAuth 2.
 Antes de que los scripts y las aplicaciones puedan interactuar con [Microsoft Graph API][ms-graph-api] para administrar recursos de Azure AD B2C, debe crear un registro de aplicación en el inquilino de Azure AD B2C que conceda los permisos de API necesarios.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-1. Seleccione el icono **Directorio y suscripción** en la barra de herramientas del portal y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
 1. En Azure Portal, busque y seleccione **Azure AD B2C**.
 1. Seleccione **Registros de aplicaciones** y luego **Nuevo registro**.
 1. Escriba un **Nombre** para la aplicación. Por ejemplo, *managementapp1*.
@@ -74,7 +75,9 @@ Si la aplicación o el script tienen que actualizar las contraseñas de los usua
 
 Para agregar el rol *Administrador de usuarios*, siga estos pasos:
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) y utilice el filtro **Directorio + suscripción** para cambiar al inquilino de Azure AD B2C.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
 1. Busque y seleccione **Azure AD B2C**.
 1. En **Administrar**, seleccione **Roles y administradores**.
 1. Seleccione el rol **Administrador de usuarios**. 

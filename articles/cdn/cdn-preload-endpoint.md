@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 02/12/2018
 ms.author: allensu
-ms.openlocfilehash: 186ded90b504420a2f315d054551d97821cf8465
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9e5ffa69105e05cbb465b13672ae08be7c9dff5d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100385054"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128557904"
 ---
 # <a name="pre-load-assets-on-an-azure-cdn-endpoint"></a>Carga previa de activos en un punto de conexión de Azure CDN
 [!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
@@ -68,5 +68,5 @@ Este tutorial le guiará a través de la precarga de contenido almacenado en la 
 
 ## <a name="see-also"></a>Consulte también
 * [Purgar un punto de conexión de Azure CDN](cdn-purge-endpoint.md)
-* [Referencia de API REST de Azure CDN: cargar previamente contenido en un punto de conexión](/rest/api/cdn/cdn/endpoints/loadcontent)
-* [Referencia de API REST de Azure CDN: purgar contenido desde un punto de conexión](/rest/api/cdn/cdn/endpoints/purgecontent)
+* [Referencia de API REST de Azure CDN: cargar previamente contenido en un punto de conexión](/rest/api/cdn/endpoints/load-content)
+* [Referencia de API REST de Azure CDN: purgar contenido desde un punto de conexión](/rest/api/cdn/endpoints/purge-content)

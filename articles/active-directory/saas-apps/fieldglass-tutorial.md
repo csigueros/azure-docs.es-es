@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/03/2021
 ms.author: jeedes
-ms.openlocfilehash: cb95fbf4c2ff7430249743702c930e065dcf5125
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: 9b319b3126048919b31a952edcddac1e3201bd39
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111896035"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128618889"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fieldglass"></a>Tutorial: Integración de Azure Active Directory con Fieldglass
 
@@ -81,8 +81,8 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     
    | URL de respuesta |
    |-----------|
-   | https://www.fieldglass.net/<company name> |
-   | https://<company name>.fgvms.com/<company name> |
+   | `https://www.fieldglass.net/<company name>` |
+   | `https://<company name>.fgvms.com/<company name>` |
    | 
 
     > [!NOTE]
@@ -134,7 +134,7 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 * Haga clic en "Probar esta aplicación" en Azure Portal; debería iniciar sesión automáticamente en la instancia de Fieldglass para la que configuró el inicio de sesión único.
 
-* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Fieldglass en Aplicaciones, debería iniciar sesión automáticamente en la instancia de Fieldglass para la que configuró el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Fieldglass en Aplicaciones, debería iniciar sesión automáticamente en la instancia de Fieldglass para la que configuró el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

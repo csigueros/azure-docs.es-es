@@ -1,20 +1,15 @@
 ---
 title: Detección de personajes animados con Azure Video Analyzer for Media (anteriormente, Video Indexer)
-titleSuffix: Azure Video Analyzer
 description: En este tema se muestra cómo usar la detección de personajes animados con Azure Video Analyzer for Media (anteriormente, Video Indexer).
-services: azure-video-analyzer
-author: Juliako
-manager: femila
-ms.topic: article
-ms.subservice: azure-video-analyzer-media
+ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: juliako
-ms.openlocfilehash: 4246bbd679efe9c56d47868beac9b46ab64fda53
-ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
+ms.openlocfilehash: d12b7a1911bb0c63d7f546a8b7a30e0287a05759
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/15/2021
-ms.locfileid: "112121538"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128610605"
 ---
 # <a name="animated-character-detection-preview"></a>Detección de personajes animados (versión preliminar)
 

@@ -8,16 +8,16 @@ ms.date: 04/02/2021
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: c57744817e26cc79c101246f146d32d3db061ed5
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+ms.openlocfilehash: 9ee927ff858c1242ddab687e28707049a27a23bb
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113361486"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128624849"
 ---
 # <a name="download-blobs-from-azure-blob-storage-by-using-azcopy"></a>Descarga de blobs de Azure Blob Storage mediante AzCopy
 
-Puede descargar blobs y directorios de Blob Storage mediante la utilidad de línea de comandos AzCopy v10. 
+Puede descargar blobs y directorios de Blob Storage mediante la utilidad de línea de comandos AzCopy v10.
 
 Para ver ejemplos de otros tipos de tareas, como la carga de archivos, la sincronización con Blob Storage o la copia de blobs entre cuentas, consulte los vínculos presentados en la sección [Pasos siguientes](#next-steps) de este artículo.
 
@@ -25,7 +25,7 @@ Para ver ejemplos de otros tipos de tareas, como la carga de archivos, la sincro
 
 Vea el artículo [Introducción a AzCopy](storage-use-azcopy-v10.md) para descargar AzCopy y obtener información sobre las formas de proporcionar credenciales de autorización para el servicio de almacenamiento.
 
-> [!NOTE] 
+> [!NOTE]
 > En los ejemplos de este artículo se da por hecho que ha proporcionado credenciales de autorización mediante Azure Active Directory (Azure AD).
 >
 > Si prefiere usar un token de SAS para autorizar el acceso a los datos de blob, puede anexar ese token a la dirección URL de recursos en cada comando AzCopy. Por ejemplo: `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`.
@@ -39,7 +39,7 @@ Descargue un blob mediante el comando [azcopy copy](storage-ref-azcopy-copy.md).
 
 **Sintaxis**
 
-``azcopy copy 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<blob-path>' '<local-file-path>'``
+`azcopy copy 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<blob-path>' '<local-file-path>'`
 
 **Ejemplo**
 
@@ -105,7 +105,7 @@ Anexe la marca `--recursive` para descargar archivos en todos los subdirectorios
 
 ## <a name="download-specific-blobs"></a>Descarga de blobs específicos
 
-Puede descargar blobs específicos mediante nombres de archivo completos, nombres parciales con caracteres comodín (*) o fechas y horas. 
+Puede descargar blobs específicos mediante nombres de archivo completos, nombres parciales con caracteres comodín (*) o fechas y horas.
 
 > [!TIP]
 > En estos ejemplos se delimitan los argumentos de ruta de acceso con comillas (''). Use comillas simples en todos los shells de comandos excepto en el shell de comandos de Windows (cmd.exe). Si usa un shell de comandos de Windows (cmd.exe), incluya los argumentos de la ruta de acceso entre comillas dobles ("") en lugar de comillas simples ('').
@@ -158,9 +158,9 @@ También puede excluir blobs mediante la opción `--exclude-pattern`. Para más 
 
 Las opciones `--include-pattern` y `--exclude-pattern` solo se aplican a los nombres de blob, no a la ruta de acceso.  Si quiere copiar todos los archivos de texto (blobs) que existen en un árbol de directorios, use la opción `–recursive` para obtener todo el árbol de directorios y, luego, use `–include-pattern` y especifique `*.txt` para obtener todos los archivos de texto.
 
-#### <a name="download-blobs-that-were-modified-before-or-after-a-date-and-time"></a>Descarga de blobs modificados antes o después de una fecha y hora 
+#### <a name="download-blobs-that-were-modified-before-or-after-a-date-and-time"></a>Descarga de blobs modificados antes o después de una fecha y hora
 
-Use el comando [azcopy copy](storage-ref-azcopy-copy.md) con la opción `--include-before` o `--include-after`. Especifique una fecha y hora en formato ISO-8601 (por ejemplo: `2020-08-19T15:04:00Z`). 
+Use el comando [azcopy copy](storage-ref-azcopy-copy.md) con la opción `--include-before` o `--include-after`. Especifique una fecha y hora en formato ISO-8601 (por ejemplo: `2020-08-19T15:04:00Z`).
 
 En los siguientes ejemplos se descargan archivos que se modificaron en la fecha especificada o después de esta.
 
@@ -184,9 +184,9 @@ Para ver una referencia detallada, consulte la documentación de referencia de [
 
 #### <a name="download-previous-versions-of-a-blob"></a>Descarga de versiones anteriores de un blob
 
-Si ha habilitado el [control de versiones de blobs](../blobs/versioning-enable.md), puede descargar una o más versiones anteriores de un blob. 
+Si ha habilitado el [control de versiones de blobs](../blobs/versioning-enable.md), puede descargar una o más versiones anteriores de un blob.
 
-En primer lugar, cree un archivo de texto que contenga una lista de [identificadores de versión](../blobs/versioning-overview.md). Cada identificador de versión debe aparecer en una línea independiente. Por ejemplo: 
+En primer lugar, cree un archivo de texto que contenga una lista de [identificadores de versión](../blobs/versioning-overview.md). Cada identificador de versión debe aparecer en una línea independiente. Por ejemplo:
 
 ```
 2020-08-17T05:50:34.2199403Z
@@ -194,11 +194,11 @@ En primer lugar, cree un archivo de texto que contenga una lista de [identificad
 2020-08-17T05:50:36.7607103Z
 ```
 
-Después, utilice el comando [azcopy copy](storage-ref-azcopy-copy.md) con la opción `--list-of-versions`. Especifique la ubicación del archivo de texto que contiene la lista de versiones (por ejemplo: `D:\\list-of-versions.txt`).  
+Después, utilice el comando [azcopy copy](storage-ref-azcopy-copy.md) con la opción `--list-of-versions`. Especifique la ubicación del archivo de texto que contiene la lista de versiones (por ejemplo: `D:\\list-of-versions.txt`).
 
 #### <a name="download-a-blob-snapshot"></a>Descarga de una instantánea de un blob
 
-Puede descargar una [instantánea de un blob](../blobs/snapshots-overview.md) haciendo referencia al valor **DateTime** de la misma. 
+Puede descargar una [instantánea de un blob](../blobs/snapshots-overview.md) haciendo referencia al valor **DateTime** de la misma.
 
 **Sintaxis**
 

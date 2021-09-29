@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/20/2018
 ms.author: normesta
 ms.reviewer: fryu
-ms.openlocfilehash: 6c1d9b813db15900521968865c1036d53ad53f41
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 45b5a29307ca8aa37f3b369b4e79054a22fa0634
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95544792"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128579647"
 ---
 # <a name="monitor-and-troubleshoot-a-cloud-storage-application"></a>Supervisión de una aplicación de almacenamiento en la nube y solución de sus problemas
 
@@ -22,10 +22,10 @@ Este tutorial es la parte número cuatro y última de una serie. Aprenderá a su
 En la parte número cuatro de la serie, se aprende a:
 
 > [!div class="checklist"]
-> * Activar el registro y las métricas
-> * Habilitar las alertas para errores de autorización
-> * Ejecutar el tráfico de prueba con tokens SAS incorrectos
-> * Descargar y analizar registros
+> - Activar el registro y las métricas
+> - Habilitar las alertas para errores de autorización
+> - Ejecutar el tráfico de prueba con tokens SAS incorrectos
+> - Descargar y analizar registros
 
 [Azure Storage Analytics](../common/storage-analytics.md) proporciona el registro y los datos de métricas para una cuenta de almacenamiento. Estos datos proporcionan información sobre el estado de la cuenta de almacenamiento. Para recopilar datos de análisis de Azure Storage, puede configurar el registro, las métricas y las alertas. Este proceso implica activar el registro, configurar las métricas y habilitar las alertas.
 
@@ -112,10 +112,10 @@ Cuando el registro se abra, podrá ver los eventos de almacenamiento. Como puede
 En la parte número cuatro y última de la serie, aprendió a supervisar la cuenta de almacenamiento y solucionar sus problemas. Mas concretamente, aprendió a:
 
 > [!div class="checklist"]
-> * Activar el registro y las métricas
-> * Habilitar las alertas para errores de autorización
-> * Ejecutar el tráfico de prueba con tokens SAS incorrectos
-> * Descargar y analizar registros
+> - Activar el registro y las métricas
+> - Habilitar las alertas para errores de autorización
+> - Ejecutar el tráfico de prueba con tokens SAS incorrectos
+> - Descargar y analizar registros
 
 Siga este vínculo para ver ejemplos de almacenamiento previamente creados.
 

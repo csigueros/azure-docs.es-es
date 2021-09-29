@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/16/2019
 ms.author: jeedes
-ms.openlocfilehash: d6b752b2c562944748d21aa1a28a177163a95aee
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 01ed38d4db0ff13b56fd3461cf062b65de4ca68f
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92455296"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124816723"
 ---
 # <a name="tutorial-integrate-continuity-control-with-azure-active-directory"></a>Tutorial: Integración de Continuity Control con Azure Active Directory
 
@@ -132,7 +132,7 @@ En esta sección, creará un usuario llamado Britta Simon en Control. Trabaje co
 
 ### <a name="test-sso"></a>Prueba de SSO
 
-Al seleccionar el icono de Control en el panel de acceso, debería iniciar sesión automáticamente en la versión de Control para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
+Al seleccionar el icono de Control en el panel de acceso, debería iniciar sesión automáticamente en la versión de Control para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

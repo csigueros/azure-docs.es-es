@@ -1,14 +1,14 @@
 ---
-title: Conexión a las máquinas virtuales a través de un explorador - Azure | Microsoft Docs
+title: Conexión a las máquinas virtuales a través de un explorador
 description: Sepa cómo conectar sus máquinas virtuales a través de un explorador.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 352fc5fd3ff53a00d9f62966ecf21417ad898706
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dbbaa4286aac91e362a2024f1705add8f48d566d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87288065"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128645006"
 ---
 # <a name="connect-to-your-virtual-machines-through-a-browser"></a>Conexión a las máquinas virtuales a través de un explorador 
 

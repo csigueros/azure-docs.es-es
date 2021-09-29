@@ -3,12 +3,12 @@ title: Preguntas comunes sobre la recuperación ante desastres de VMware con Azu
 description: Obtenga respuestas a las preguntas comunes sobre cómo configurar la recuperación ante desastres de máquinas virtuales de VMware locales en Azure mediante Azure Site Recovery.
 ms.date: 11/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: 0e39cd3b9f06620f2004a2afbc869fe22de04468
-ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
+ms.openlocfilehash: 8480598cc872a051b6b81f928e92740e39353598
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123272881"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128621249"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>Preguntas frecuentes sobre la replicación de VMware en Azure
 
@@ -25,7 +25,7 @@ Para cambiar la experiencia:
 1. Abra el almacén en Azure Portal. 
 2. Haga clic en **Site Recovery** en la sección **Introducción**. 
 3. Haga clic en el banner de la parte superior de esta página. 
-
+    
     [![Paso 1 de modificación de la pila de VMware](./media/vmware-azure-common-questions/change-stack-step-1.png)](./media/vmware-azure-common-questions/change-stack-step-1.png#lightbox)
 
 4. Se abrirá la hoja de selección de la experiencia. Seleccione la experiencia clásica si quiere usar el servidor de configuración y, a continuación, haga clic en **Aceptar**. En caso contrario, cierre el panel. 

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/30/2020
+ms.date: 09/20/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2560c294b63d0554708eda1f804bf279d16d7d74
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 03b2f3a4b0a9876b1880194233c81138589d1331
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107257966"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128583304"
 ---
 # <a name="configure-itsme-openid-connect-oidc-with-azure-active-directory-b2c"></a>Configuración de itsme OpenID Connect (OIDC) con Azure Active Directory B2C
 
@@ -59,11 +59,11 @@ Please clarify step 1 in the description below - we don't have steps in this tut
 
 1. Para crear una cuenta con itsme, visite itsme en [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace).
 
-2. Active su cuenta de itsme mediante el envío de un correo electrónico a onboarding@itsme.be. Recibirá un **código de asociado** y un **código de servicio** que se necesitarán para la configuración de B2C.
+1. Active su cuenta de itsme mediante el envío de un correo electrónico a onboarding@itsme.be. Recibirá un **código de asociado** y un **código de servicio** que se necesitarán para la configuración de B2C.
 
-3. Después de la activación de la cuenta de asociado de itsme, recibirá un correo electrónico con un vínculo de un solo uso al **secreto de cliente**.
+1. Después de la activación de la cuenta de asociado de itsme, recibirá un correo electrónico con un vínculo de un solo uso al **secreto de cliente**.
 
-4. Siga las instrucciones que encontrará en [itsme](https://business.itsme.be/en) para completar la configuración.
+1. Siga las instrucciones que encontrará en [itsme](https://business.itsme.be/en) para completar la configuración.
 
 ## <a name="integrate-with-azure-ad-b2c"></a>Integración con Azure AD B2C
 
@@ -72,13 +72,11 @@ Please clarify step 1 in the description below - we don't have steps in this tut
 > [!NOTE]
 > Si todavía no tiene uno, [cree un inquilino de Azure AD B2C](tutorial-create-tenant.md) vinculado a la suscripción de Azure.
 
-1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el filtro **Directorio y suscripción** del menú superior y el directorio que contiene el inquilino de Azure AD B2C.
-
-2. En **Servicios de Azure**, seleccione **Azure AD B2C** (o seleccione **Más servicios** y utilice el cuadro de búsqueda **Todos los servicios** para buscar *Azure AD B2C*).
-
-3. Seleccione **Proveedores de identidades** y luego **Nuevo proveedor de OpenID Connect**.
-
-4. Rellene el formulario con la siguiente información:
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
+1. En **Servicios de Azure**, seleccione **Azure AD B2C** (o seleccione **Más servicios** y utilice el cuadro de búsqueda **Todos los servicios** para buscar *Azure AD B2C*).
+1. Seleccione **Proveedores de identidades** y luego **Nuevo proveedor de OpenID Connect**.
+1. Rellene el formulario con la siguiente información:
 
    |Propiedad | Value |
    |------------ |------- |
@@ -96,25 +94,25 @@ Please clarify step 1 in the description below - we don't have steps in this tut
    |Surname | family_name |
    |Email | email|
 
-5. Seleccione **Guardar**.
+1. Seleccione **Guardar**.
 
 ### <a name="configure-a-user-flow"></a>Configuración de un flujo de usuario
 
 1. En el inquilino de Azure AD B2C, en **Directivas**, seleccione **Flujos de usuario**.
 
-2. Seleccione **Nuevo flujo de usuario**.
+1. Seleccione **Nuevo flujo de usuario**.
 
-3. Seleccione **Registrarse e iniciar sesión**, seleccione una versión y, a continuación, seleccione **Crear**.
+1. Seleccione **Registrarse e iniciar sesión**, seleccione una versión y, a continuación, seleccione **Crear**.
 
-4. Escriba un **nombre**.
+1. Escriba un **nombre**.
 
-5. En la sección **Proveedores de identidades**, seleccione **itsme**.
+1. En la sección **Proveedores de identidades**, seleccione **itsme**.
 
-6. Seleccione **Crear**.
+1. Seleccione **Crear**.
 
-7. Seleccione el nombre del flujo de usuario para abrir el flujo de usuario recién creado.
+1. Seleccione el nombre del flujo de usuario para abrir el flujo de usuario recién creado.
 
-8. Seleccione **Propiedades** y ajuste los valores siguientes:
+1. Seleccione **Propiedades** y ajuste los valores siguientes:
 
    * Cambie el valor de **Acceso y duración del token de id. (minutos)** a **5**.
    * Cambie el valor de **Vigencia de la ventana deslizante del token de actualización** a **Sin expiración**.
@@ -123,11 +121,11 @@ Please clarify step 1 in the description below - we don't have steps in this tut
 
 1. En el inquilino de B2C, en **Administrar**, seleccione **Registros de aplicaciones** > **Nuevo registro**.
 
-2. Proporcione un **Nombre** para la aplicación y escriba su **URI de redirección**. Con fines de prueba, escriba `https://jwt.ms`.
+1. Proporcione un **Nombre** para la aplicación y escriba su **URI de redirección**. Con fines de prueba, escriba `https://jwt.ms`.
 
-3. Asegúrese de que el estado de la autenticación multifactor es **Deshabilitado**.
+1. Asegúrese de que el estado de la autenticación multifactor es **Deshabilitado**.
 
-4. Seleccione **Registrar**.
+1. Seleccione **Registrar**.
 
    a. Con fines de prueba, seleccione **Autenticación** y, en **Concesión implícita**, active las casillas **Tokens de acceso** y **Tokens de id.**  
 
@@ -137,19 +135,19 @@ Please clarify step 1 in the description below - we don't have steps in this tut
 
 1. En su inquilino de B2C, en **Directivas**, seleccione **Flujos de usuario**.
 
-2. Seleccione el flujo de usuario que creó anteriormente.
+1. Seleccione el flujo de usuario que creó anteriormente.
 
-3. Seleccione **Ejecutar flujo de usuario**.
+1. Seleccione **Ejecutar flujo de usuario**.
 
    a. **Aplicación**: *seleccione la aplicación registrada*.
 
    b. **URL de respuesta**: *seleccione la dirección URL de redireccionamiento*.
 
-4. Aparece la página **Identifíquese** de itsme.  
+1. Aparece la página **Identifíquese** de itsme.  
 
-5. Indique su número de teléfono móvil y seleccione **Enviar**.
+1. Indique su número de teléfono móvil y seleccione **Enviar**.
 
-6. Confirme la acción en la aplicación itsme.
+1. Confirme la acción en la aplicación itsme.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

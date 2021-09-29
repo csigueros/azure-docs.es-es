@@ -6,12 +6,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/10/2019
-ms.openlocfilehash: 89a2a659e195afcae336c930a101ed0c0b470cb4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6efc962a915bc549fa14008b8a6487085e0a49e6
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101715418"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124797655"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight"></a>Migración de clústeres locales de Apache Hadoop a Azure HDInsight
 
@@ -100,7 +100,7 @@ Anteriormente, los análisis basados en la nube tenían que llegar a un acuerdo 
 
 - **Superconjunto de permisos POSIX**: el modelo de seguridad de Data Lake Gen2 es totalmente compatible con los permisos de ACL y POSIX junto con granularidad adicional específica de Data Lake Storage Gen2. Se puede realizar la configuración mediante herramientas de administración o marcos, como Hive y Spark.
 
-- **Rentabilidad**: Data Lake Storage Gen2 ofrece transacciones y capacidad de almacenamiento de bajo costo. Mientras las transiciones de datos recorren su ciclo de vida completo, las tasas de facturación cambian para minimizar los costos a través de características integradas, como el [ciclo de vida de Azure Blob Storage](../../storage/blobs/storage-lifecycle-management-concepts.md).
+- **Rentabilidad**: Data Lake Storage Gen2 ofrece transacciones y capacidad de almacenamiento de bajo costo. Mientras las transiciones de datos recorren su ciclo de vida completo, las tasas de facturación cambian para minimizar los costos a través de características integradas, como el [ciclo de vida de Azure Blob Storage](../../storage/blobs/lifecycle-management-overview.md).
 
 - **Funciona con aplicaciones, marcos y herramientas de Blob Storage**: Data Lake Storage Gen2 sigue funcionando con una amplia gama de herramientas, marcos y aplicaciones que existen actualmente para Blob Storage.
 

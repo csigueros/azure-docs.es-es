@@ -7,7 +7,7 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 09/16/2021
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,18 +19,18 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 54b6ae227fc4b3b951717799660543c02874dda0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b399621b2b19368ccc2057e4bf8dffae6b1e24a6
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88919665"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128576049"
 ---
 # <a name="odata-select-syntax-in-azure-cognitive-search"></a>Sintaxis de $select de OData en Azure Cognitive Search
 
  Puede usar el [parámetro **$select** de OData](query-odata-filter-orderby-syntax.md) para elegir qué campos quiere incluir en los resultados de la búsqueda de Azure Cognitive Search. En este artículo se describe con detalle la sintaxis de **$select**. Para obtener información general sobre cómo usar **$select** al presentar los resultados de la búsqueda, consulte [Uso de los resultados de la búsqueda en Azure Cognitive Search](search-pagination-page-layout.md).
 
-## <a name="syntax"></a>Syntax
+## <a name="syntax"></a>Sintaxis
 
 El parámetro **$select** determina qué campos de cada documento se devuelven en el conjunto de resultados de la consulta. La siguiente EBNF ([notación de Backus-Naur extendida](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) define la gramática del parámetro **$select**:
 

@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 06/15/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ec4457eeb60029783981824b93d2eadfaa1271b
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.openlocfilehash: d1e409fa879f4a541f1f3da7b1c68c06d01e1f8d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122866324"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128587126"
 ---
 # <a name="conditional-access-cloud-apps-actions-and-authentication-context"></a>Acceso condicional: aplicaciones, acciones y contexto de autenticación en la nube
 
@@ -175,7 +175,7 @@ Los administradores pueden seleccionar contextos de autenticación publicados en
 
 Para más información sobre el uso del contexto de autenticación en las aplicaciones, consulte los artículos siguientes.
 
-- [Etiquetas de confidencialidad de Microsoft Information Protection para proteger sitios de SharePoint](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?view=o365-worldwide#more-information-about-the-dependencies-for-the-authentication-context-option&preserve-view=true)
+- [Etiquetas de confidencialidad de Microsoft Information Protection para proteger sitios de SharePoint](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#more-information-about-the-dependencies-for-the-authentication-context-option)
 - [Microsoft Cloud App Security](/cloud-app-security/session-policy-aad?branch=pr-en-us-2082#require-step-up-authentication-authentication-context)
 - [Aplicaciones personalizadas](../develop/developer-guide-conditional-access-authentication-context.md)
 

@@ -3,12 +3,12 @@ title: Copias de seguridad de datos de archivo con MABS
 description: Puede realizar una copia de seguridad de los datos de archivo en equipos cliente y servidor con MABS.
 ms.topic: conceptual
 ms.date: 08/19/2021
-ms.openlocfilehash: 71b12c98713dff2340bdda1baf486dcd5cfdb70a
-ms.sourcegitcommit: deb5717df5a3c952115e452f206052737366df46
+ms.openlocfilehash: 5c5535969340b5612758ee0781e030fad0ec6dc6
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122868506"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124806705"
 ---
 # <a name="back-up-file-data-with-mabs"></a>Copias de seguridad de datos de archivo con MABS
 
@@ -73,7 +73,7 @@ Una vez configurada la infraestructura de MABS, puede habilitar máquinas de pro
 
 1. En **Especificar la directiva de retención en línea** puede especificar cómo se conservan en Azure los puntos de recuperación creados a partir de las copias de seguridad diaria, semanal, mensual o anual.
 
-1. En **Elegir replicación en línea**, especifique cómo se efectuará la replicación completa inicial de datos. Puede replicar a través de la red o realizar una copia de seguridad sin conexión (propagación sin conexión). Las copias de seguridad sin conexión usan la característica Azure Import. [Obtenga más información](/azure/backup/backup-azure-backup-import-export).
+1. En **Elegir replicación en línea**, especifique cómo se efectuará la replicación completa inicial de datos. Puede replicar a través de la red o realizar una copia de seguridad sin conexión (propagación sin conexión). Las copias de seguridad sin conexión usan la característica Azure Import. [Más información](./backup-azure-backup-import-export.md).
 
 1. En la página **Resumen**, revise la configuración. Al hacer clic en **Crear grupo**, se produce la replicación inicial de los datos. Cuando haya terminado, el grupo de protección tendrá el estado **Aceptar** en la página **Estado**. A continuación, se realiza la copia de seguridad en función de la configuración del grupo de protección.
 

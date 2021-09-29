@@ -2,13 +2,13 @@
 title: Excepciones de Resource Manager de Azure Service Bus | Microsoft Docs
 description: Lista de las excepciones de Service Bus que expone Azure Resource Manager y de las acciones sugeridas.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: a0b0338da0f002c7b667748ffd2bf5a40c91c580
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 09/15/2021
+ms.openlocfilehash: be88fc84fcc8d90994f134a6efd64ed2bbd964a4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "85336973"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128610833"
 ---
 # <a name="service-bus-resource-manager-exceptions"></a>Excepciones de Service Bus que expone Resource Manager
 

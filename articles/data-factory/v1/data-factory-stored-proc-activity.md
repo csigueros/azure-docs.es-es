@@ -2,17 +2,18 @@
 title: Actividad de procedimiento almacenado de SQL Server
 description: Obtenga información sobre cómo usar la actividad de procedimiento almacenado de SQL Server para invocar un procedimiento almacenado en una base de datos de Azure SQL o una instancia de Azure Synapse Analytics desde una canalización de Data Factory.
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 01/10/2018
 author: nabhishek
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 88a4281d564b7061e831a66b35e768e6377a0115
-ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
+ms.openlocfilehash: bc69be48f172267c2d8894eb2a82f32a4970386f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122397311"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128559347"
 ---
 # <a name="sql-server-stored-procedure-activity"></a>Actividad de procedimiento almacenado de SQL Server
 > [!div class="op_single_selector" title1="Actividades de transformación"]
@@ -64,7 +65,7 @@ El siguiente procedimiento usa la actividad del procedimiento almacenado en una 
     ```
     `Id` es el identificador único y, la columna `datetimestamp` indica la fecha y la hora en que se generó el identificador correspondiente.
     
-    ![Datos de muestra](./media/data-factory-stored-proc-activity/sample-data.png)
+    :::image type="content" source="./media/data-factory-stored-proc-activity/sample-data.png" alt-text="Datos de ejemplo":::
 
     En este ejemplo, el procedimiento almacenado está en una base de datos de Azure SQL Database. Si el procedimiento almacenado está en Azure Synapse Analytics y una base de datos de SQL Server, el enfoque es similar. Para una base de datos de SQL Server, debe instalar una [Puerta de enlace de administración de datos](data-factory-data-management-gateway.md).
     
@@ -87,10 +88,10 @@ El siguiente procedimiento usa la actividad del procedimiento almacenado en una 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 2. En el menú de la izquierda, haga clic en **NUEVO**, en **Inteligencia y análisis** y en **Data Factory**.
 
-    ![Nueva factoría de datos 1](media/data-factory-stored-proc-activity/new-data-factory.png)
+    :::image type="content" source="media/data-factory-stored-proc-activity/new-data-factory.png" alt-text="Nueva factoría de datos 1":::
 3. En la hoja **Nueva factoría de datos**, escriba **SProcDF** para el nombre. Los nombres de Azure Data Factory son **únicos globalmente**. Es necesario agregar su nombre como prefijo al nombre de la factoría de datos para permitir la creación correcta de la factoría.
 
-   ![Nueva factoría de datos 2](media/data-factory-stored-proc-activity/new-data-factory-blade.png)
+   :::image type="content" source="media/data-factory-stored-proc-activity/new-data-factory-blade.png" alt-text="Nueva factoría de datos 2":::
 4. Seleccione la **suscripción de Azure**.
 5. Para el **grupo de recursos**, realice uno de los siguientes pasos:
    1. Haga clic en **Crear nuevo** y escriba un nombre para el grupo de recursos.
@@ -100,7 +101,7 @@ El siguiente procedimiento usa la actividad del procedimiento almacenado en una 
 8. Haga clic en **Crear** en la hoja **Nueva fábrica de datos**.
 9. Verá la factoría de datos que se crea en el **panel** de Azure Portal. Tras crear correctamente la factoría de datos, se ve la página de la factoría de datos, que muestra el contenido de la misma.
 
-   ![Página principal de Data Factory](media/data-factory-stored-proc-activity/data-factory-home-page.png)
+   :::image type="content" source="media/data-factory-stored-proc-activity/data-factory-home-page.png" alt-text="Página principal de Data Factory":::
 
 ### <a name="create-an-azure-sql-linked-service"></a>Crear un servicio vinculado SQL de Azure.
 Después de crear la factoría de datos, cree un servicio vinculado de Azure SQL que conecte su base de datos de Azure SQL Database (que contiene la tabla sampletable y el procedimiento almacenado usp_sample) con la factoría de datos.
@@ -108,7 +109,7 @@ Después de crear la factoría de datos, cree un servicio vinculado de Azure SQL
 1. En la hoja **Crear e implementar**, haga clic en la hoja **Data Factory** para que **SProcDF** inicie Data Factory Editor.
 2. Haga clic en **Nuevo almacén de datos** en la barra de comandos y elija **Azure SQL Database**. Debería ver el script JSON para crear un servicio vinculado SQL de Azure en el editor.
 
-   ![Nuevo almacén de datos 1](media/data-factory-stored-proc-activity/new-data-store.png)
+   :::image type="content" source="media/data-factory-stored-proc-activity/new-data-store.png" alt-text="Nuevo almacén de datos 1":::
 3. Realice los siguientes cambios en el script JSON:
 
    1. Reemplace `<servername>` por el nombre del servidor.
@@ -116,17 +117,17 @@ Después de crear la factoría de datos, cree un servicio vinculado de Azure SQL
    3. Reemplace `<username@servername>` por la cuenta de usuario que tiene acceso a la base de datos.
    4. Reemplace `<password>` por la contraseña de la cuenta de usuario.
 
-      ![Nuevo almacén de datos 2](media/data-factory-stored-proc-activity/azure-sql-linked-service.png)
+      :::image type="content" source="media/data-factory-stored-proc-activity/azure-sql-linked-service.png" alt-text="Nuevo almacén de datos 2":::
 4. Para implementar el servicio vinculado, haga clic en **Implementar** en la barra de comandos. Confirme que AzureSqlLinkedService aparece en la vista de árbol a la izquierda.
 
-    ![vista de árbol con servicios vinculados 1](media/data-factory-stored-proc-activity/tree-view.png)
+    :::image type="content" source="media/data-factory-stored-proc-activity/tree-view.png" alt-text="vista de árbol con servicios vinculados 1":::
 
 ### <a name="create-an-output-dataset"></a>Crear un conjunto de datos de salida
 Debe especificar un conjunto de datos de salida para una actividad de procedimiento almacenado aunque el procedimiento almacenado no genere ningún dato. Esto se debe a que se trata del conjunto de datos de salida que determina la programación de la actividad (frecuencia con que se ejecuta la actividad: cada hora, diariamente, etc.). El conjunto de datos de salida debe usar un **servicio vinculado** que haga referencia a una base de datos de Azure SQL, una instancia de Azure Synapse Analytics o una base de datos de SQL Server en la que quiera que el procedimiento almacenado se ejecute. El conjunto de datos de salida puede usarse como una forma de pasar el resultado del procedimiento almacenado para su posterior procesamiento por otra actividad ([encadenamiento de actividades](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline)) en la canalización. Sin embargo, Data Factory no escribe automáticamente la salida de un procedimiento almacenado en este conjunto de datos. Es el procedimiento almacenado el que escribe en una tabla SQL a la que apunta el conjunto de datos de salida. En algunos casos, el conjunto de datos de salida puede ser un **conjunto de datos ficticio** (un conjunto de datos que apunta a una tabla que no contiene realmente la salida del procedimiento almacenado). Este conjunto de datos ficticio solo se usa para especificar la programación de la ejecución de la actividad de procedimiento almacenado.
 
 1. Haga clic en **... Más** en la barra de herramientas, haga clic en **Nuevo conjunto de datos** y en **Azure SQL**. Haga clic en **Nuevo conjunto de datos** en la barra de comandos y seleccione **Azure SQL**.
 
-    ![vista de árbol con servicios vinculados 2](media/data-factory-stored-proc-activity/new-dataset.png)
+    :::image type="content" source="media/data-factory-stored-proc-activity/new-dataset.png" alt-text="vista de árbol con servicios vinculados 2":::
 2. Copie y pegue el siguiente script JSON en el editor de JSON.
 
     ```JSON
@@ -147,7 +148,7 @@ Debe especificar un conjunto de datos de salida para una actividad de procedimie
     ```
 3. Para implementar el conjunto de datos, haga clic en **Implementar** en la barra de comandos. Confirme que el conjunto de datos aparece en la vista de árbol.
 
-    ![vista de árbol con servicios vinculados](media/data-factory-stored-proc-activity/tree-view-2.png)
+    :::image type="content" source="media/data-factory-stored-proc-activity/tree-view-2.png" alt-text="vista de árbol con servicios vinculados":::
 
 ### <a name="create-a-pipeline-with-sqlserverstoredprocedure-activity"></a>Crear una canalización con una actividad SqlServerStoredProcedure
 Ahora, vamos a crear una canalización con una actividad de procedimiento almacenado.
@@ -197,16 +198,16 @@ Tenga en cuenta las siguientes propiedades:
 ### <a name="monitor-the-pipeline"></a>Supervisar la canalización
 1. Haga clic en el botón **X** para cerrar las hojas del Editor de Data Factory y volver a la hoja de Data Factory. A continuación, haga clic en **Diagrama**.
 
-    ![Icono Diagrama 1](media/data-factory-stored-proc-activity/data-factory-diagram-tile.png)
+    :::image type="content" source="media/data-factory-stored-proc-activity/data-factory-diagram-tile.png" alt-text="Icono Diagrama 1":::
 2. En la **Vista de diagrama**, se ve información general de las canalizaciones y los conjuntos de datos empleados en este tutorial.
 
-    ![Icono Diagrama 2](media/data-factory-stored-proc-activity/data-factory-diagram-view.png)
+    :::image type="content" source="media/data-factory-stored-proc-activity/data-factory-diagram-view.png" alt-text="Icono Diagrama 2":::
 3. En la Vista de diagrama, haga doble clic en el conjunto de datos `sprocsampleout`. Verá los segmentos con estado Listo. Debería haber cinco segmentos, porque se genera un segmento para cada hora entre la hora de inicio y de finalización del código JSON.
 
-    ![Icono Diagrama 3](media/data-factory-stored-proc-activity/data-factory-slices.png)
+    :::image type="content" source="media/data-factory-stored-proc-activity/data-factory-slices.png" alt-text="Icono Diagrama 3":::
 4. Cuando un segmento tiene el estado **Listo**, ejecute una consulta `select * from sampletable` en la base de datos para comprobar que el procedimiento almacenado insertó los datos en la tabla.
 
-   ![Datos de salida](./media/data-factory-stored-proc-activity/output.png)
+   :::image type="content" source="./media/data-factory-stored-proc-activity/output.png" alt-text="Datos de salida":::
 
    Vea [Supervisar la canalización](data-factory-monitor-manage-pipelines.md) para obtener información detallada sobre cómo supervisar las canalizaciones de Azure Data Factory.
 
@@ -313,7 +314,7 @@ En la tabla siguiente se describen estas propiedades JSON:
 ## <a name="passing-a-static-value"></a>Pasar un valor estático
 Ahora, consideremos la opción de agregar otra columna denominada "Escenario" en la tabla que contiene un valor estático denominado "Ejemplo de documento".
 
-![Datos de ejemplo 2](./media/data-factory-stored-proc-activity/sample-data-2.png)
+:::image type="content" source="./media/data-factory-stored-proc-activity/sample-data-2.png" alt-text="Datos de ejemplo 2":::
 
 **Tabla:**
 

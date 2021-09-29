@@ -3,12 +3,12 @@ title: Creación de definiciones de directivas de configuración de invitado per
 description: Obtenga información sobre cómo crear una directiva de configuración de invitado.
 ms.date: 07/22/2021
 ms.topic: how-to
-ms.openlocfilehash: 28ad60284912261510a55438919924138d4e2b5e
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: 1dd1620d0ef41bf28a276cfe2412ca4bdc09d183
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122868650"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128644911"
 ---
 # <a name="how-to-create-custom-guest-configuration-policy-definitions"></a>Creación de definiciones de directivas de configuración de invitado personalizadas
 
@@ -18,7 +18,7 @@ Antes de comenzar, es una buena idea leer la página de información general de 
 > Se requiere la extensión de configuración de invitado para Azure Virtual Machines. Para implementar la extensión a gran escala en todas las máquinas, asigne la iniciativa de directiva siguiente: `Deploy prerequisites to enable guest configuration policies on
 > virtual machines`
 > 
-> Para usar paquetes de configuración de invitado que aplican configuraciones, se requiere la versión de la extensión de configuración de invitado de VM de Azure **1.29.24** o posterior, o el agente de Arc **1.10.0** o posterior.
+> Para usar paquetes de configuración de invitado que aplican configuraciones, se requiere la versión de la extensión de configuración de invitado de máquina virtual de Azure **1.29.24** o posterior, o el agente de Arc **1.10.0** o posterior.
 >
 > Las definiciones de directivas de configuración de invitado personalizadas que usan **AuditIfNotExists** están disponibles con carácter general, pero las definiciones que usan **DeployIfNotExists** con la configuración de invitado están en **versión preliminar**.
 
@@ -80,7 +80,7 @@ Cree una definición de directiva que realice una auditoría mediante un paquete
 
 ```powershell
 New-GuestConfigurationPolicy `
-  -PolicyId 'My GUID'
+  -PolicyId 'My GUID' `
   -ContentUri '<paste the ContentUri output from the Publish command>' `
   -DisplayName 'My audit policy.' `
   -Description 'Details about my policy.' `
@@ -94,7 +94,7 @@ Cree una definición de directiva que implemente una configuración mediante un 
 
 ```powershell
 New-GuestConfigurationPolicy `
-  -PolicyId 'My GUID'
+  -PolicyId 'My GUID' `
   -ContentUri '<paste the ContentUri output from the Publish command>' `
   -DisplayName 'My audit policy.' `
   -Description 'Details about my policy.' `
@@ -166,8 +166,8 @@ $PolicyParameterInfo = @(
   }
 )
 
-New-GuestConfigurationPolicy
-  -PolicyId 'My GUID'
+New-GuestConfigurationPolicy `
+  -PolicyId 'My GUID' `
   -ContentUri '<paste the ContentUri output from the Publish command>' `
   -DisplayName 'Audit Windows Service.' `
   -Description 'Audit if a Windows Service isn't enabled on Windows machine.' `
@@ -229,4 +229,4 @@ La manera más fácil de publicar un paquete actualizado es repetir el proceso q
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Asigne la definición de directiva personalizada](../assign-policy-portal.md) mediante Azure Portal.
-- Obtenga información sobre cómo ver los [detalles de cumplimiento de las asignaciones de directivas de configuración de invitado](./determine-non-compliance.md#compliance-details-for-guest-configuration).
+- Obtenga información sobre cómo ver los [detalles de cumplimiento para las asignaciones de directivas de configuración de invitado](./determine-non-compliance.md#compliance-details-for-guest-configuration).

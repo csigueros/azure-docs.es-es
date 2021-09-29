@@ -8,12 +8,12 @@ ms.service: virtual-machine-scale-sets
 ms.date: 08/05/2021
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli, vmss-flex
-ms.openlocfilehash: 20278ebae9e590a99293c37df506b7d07ff79ddc
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 9fd4d2171aa54da469aacfaa7090025c296dd0c1
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122868536"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124804064"
 ---
 # <a name="preview-orchestration-modes-api-comparison"></a>Comparación de API de modos de orquestación (versión preliminar) 
 
@@ -59,7 +59,7 @@ Obtener o actualizar instancia de máquina virtual de conjuntos de escalado de m
 
 ### <a name="flexible-alternative"></a>Alternativa flexible 
 Invocar API de máquina virtual única:
-- [Bloqueo de recursos de ARM](https://docs.microsoft.com/azure/azure-resource-manager/management/lock-resources?tabs=json) para comportamiento de tipo de protección de instancias 
+- [Bloqueo de recursos de ARM](../azure-resource-manager/management/lock-resources.md?tabs=json) para comportamiento de tipo de protección de instancias 
 
 
 ## <a name="list-instances"></a>Enumerar instancias. 

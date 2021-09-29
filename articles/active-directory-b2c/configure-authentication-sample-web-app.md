@@ -7,16 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 08/23/2021
+ms.date: 09/15/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: b2c-support
-ms.openlocfilehash: f8d27d30ace8ac29a59df9b77de4b56b5e138f63
-ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
+ms.openlocfilehash: 60f3383c58ab297fd5c2199d532591b1d3a38b8f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123185748"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128572499"
 ---
 # <a name="configure-authentication-in-a-sample-web-app-by-using-azure-ad-b2c"></a>Configuración de la autenticación en una aplicación web de ejemplo mediante Azure AD B2C
 
@@ -75,12 +75,13 @@ Durante el registro de la aplicación, especificará el *URI de redirección*. E
 Para crear el registro de la aplicación web, haga lo siguiente:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-1. Seleccione el icono **Directorio y suscripción** en la barra de herramientas del portal y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
-1. Busque y seleccione **Azure AD B2C**.
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
+1. En Azure Portal, busque y seleccione **Azure AD B2C**.
 1. Seleccione **Registros de aplicaciones** y luego **Nuevo registro**.
 1. En **Nombre**, escriba un nombre para la aplicación (por ejemplo, *webapp1*).
 1. En **Tipos de cuenta compatibles**, seleccione **Cuentas en cualquier proveedor de identidades o directorio de la organización (para autenticar usuarios con flujos de usuario)** . 
-1. En **Redirect URI** (URI de redirección), seleccione **Web** y luego, en el cuadro Dirección URL, escriba `https://localhost:5001/signin-oidc`.
+1. En **URI de redirección**, seleccione **Web** y luego, en el cuadro Dirección URL, escriba `https://localhost:5001/signin-oidc`.
 1. En **Permisos**, active la casilla **Conceder consentimiento de administrador para openid y permisos de acceso sin conexión**.
 1. Seleccione **Registrar**.
 1. Seleccione **Información general**.
@@ -105,7 +106,7 @@ Para las aplicaciones web que solicitan un token de identificador directamente a
 git clone https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2
 ```
 
-Extraiga el archivo de ejemplo en una carpeta en la que la longitud total de caracteres de la ruta de acceso sea inferior a 260.
+Extraiga el archivo de ejemplo en una carpeta en la que la longitud total de caracteres de la ruta de acceso sea igual o inferior a 260.
 
 ## <a name="step-4-configure-the-sample-web-app"></a>Paso 4: Configuración de la aplicación web de ejemplo
 
@@ -135,7 +136,7 @@ El archivo de configuración final debería tener un aspecto parecido al del sig
 ## <a name="step-5-run-the-sample-web-app"></a>Paso 5: Ejecución de la aplicación web de ejemplo
 
 1. Compile y ejecute el proyecto.
-1. Vaya a [https://localhost:5001](https://localhost:5001). 
+1. Ir a `https://localhost:5001`. 
 1. Seleccione **Registrarse/Iniciar sesión**.
 
     ![Captura de pantalla del botón "Registrarse/Iniciar sesión" en la página principal del proyecto.](./media/configure-authentication-sample-web-app/web-app-sign-in.png)

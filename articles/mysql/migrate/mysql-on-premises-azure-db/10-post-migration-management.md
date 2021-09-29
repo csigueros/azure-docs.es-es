@@ -9,12 +9,12 @@ ms.author: arthiaga
 ms.reviewer: maghan
 ms.custom: ''
 ms.date: 06/21/2021
-ms.openlocfilehash: bed5253a1d5948e7d016bca9e46236d6b57bac57
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 9894769ecd3d7144fa2cf4bb245575d397c60148
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114292959"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124824000"
 ---
 # <a name="migrate-mysql-on-premises-to-azure-database-for-mysql-post-migration-management"></a>Migración de MySQL local a Azure Database for MySQL: administración posterior a la migración
 
@@ -30,7 +30,7 @@ Una vez completada correctamente la migración, en la siguiente fase administrar
 
 Azure Database for MySQL proporciona la capacidad de supervisar ambos tipos de actividades operativas mediante herramientas basadas en Azure, como [Azure Monitor,](../../../azure-monitor/overview.md) [Log Analytics](../../../azure-monitor/logs/design-logs-deployment.md) y [Azure Sentinel.](../../../sentinel/overview.md) Además de las herramientas basadas en Azure, también se pueden configurar sistemas de administración de eventos e información de seguridad (SIEM) para consumir estos registros.
 
-Sea cual sea la herramienta que se utilice para supervisar las nuevas cargas de trabajo basadas en la nube, es necesario crear alertas para advertir a los administradores de Azure y de las bases de datos de cualquier actividad sospechosa. Si un evento de alerta determinado tiene una ruta de corrección bien definida, las alertas pueden activar [libros de ejecuciones de Azure](../../../automation/automation-quickstart-create-runbook.md) para solucionar el evento.
+Sea cual sea la herramienta que se utilice para supervisar las nuevas cargas de trabajo basadas en la nube, es necesario crear alertas para advertir a los administradores de Azure y de las bases de datos de cualquier actividad sospechosa. Si un evento de alerta determinado tiene una ruta de corrección bien definida, las alertas pueden activar [libros de ejecuciones de Azure](../../../automation/learn/powershell-runbook-managed-identity.md) para solucionar el evento.
 
 El primer paso para crear un entorno totalmente supervisado es permitir que los datos de registro de MySQL fluyan a Azure Monitor. Consulte [Configuración de los registros de auditoría de Azure Database for MySQL y acceso a ellos en Azure Portal](../../howto-configure-audit-logs-portal.md) para más información.
 

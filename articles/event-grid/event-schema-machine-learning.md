@@ -2,13 +2,13 @@
 title: Azure Machine Learning como origen de Event Grid
 description: Describe las propiedades que se proporcionan para los eventos del área de trabajo de Machine Learning con Azure Event Grid
 ms.topic: conceptual
-ms.date: 02/11/2021
-ms.openlocfilehash: e47c2137840e21eab73906d42b1e1536422f872d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 09/15/2021
+ms.openlocfilehash: 7b2a4bb1fafed62669ded2e6ff1dd0f8b7aaac74
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100363396"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128638651"
 ---
 # <a name="azure-machine-learning-as-an-event-grid-source"></a>Azure Machine Learning como origen de Event Grid
 

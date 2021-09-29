@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.date: 06/08/2021
-ms.openlocfilehash: bf29f435c2d9439659abdcc76a7f8d85cf51c2af
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 47f10b542bd2c4eb7965e6dfc25349661ca3c3d8
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121739156"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124805240"
 ---
 # <a name="manage-and-optimize-azure-machine-learning-costs"></a>Administración y optimización de costos de Azure Machine Learning
 
@@ -109,7 +109,7 @@ Uno de los métodos clave para optimizar el costo y el rendimiento es paraleliza
 
 ## <a name="set-data-retention--deletion-policies"></a>Establecimiento de directivas de retención y eliminación de datos
 
-Cada vez que se ejecuta una canalización, se generan conjuntos de datos intermedios en cada paso. Con el tiempo, estos conjuntos de datos intermedios ocupan espacio en la cuenta de almacenamiento. Considere la posibilidad de configurar directivas para administrar los datos a lo largo de su ciclo de vida para archivar y eliminar los conjuntos de datos. Para más información, consulte [Optimización de los costos mediante la automatización de los niveles de acceso de Azure Blob Storage](../storage/blobs/storage-lifecycle-management-concepts.md).
+Cada vez que se ejecuta una canalización, se generan conjuntos de datos intermedios en cada paso. Con el tiempo, estos conjuntos de datos intermedios ocupan espacio en la cuenta de almacenamiento. Considere la posibilidad de configurar directivas para administrar los datos a lo largo de su ciclo de vida para archivar y eliminar los conjuntos de datos. Para más información, consulte [Optimización de los costos mediante la automatización de los niveles de acceso de Azure Blob Storage](../storage/blobs/lifecycle-management-overview.md).
 
 ## <a name="deploy-resources-to-the-same-region"></a>Implementación de recursos en la misma región
 

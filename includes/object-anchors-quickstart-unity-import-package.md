@@ -4,12 +4,12 @@ ms.service: azure-object-anchors
 ms.topic: include
 ms.date: 11/19/2020
 ms.author: crtreasu
-ms.openlocfilehash: c740fa294fe2b3de9687a76b90d90a021d4efdbc
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: a7c50ad6b60e3f3c372d16ecde54573109c50df2
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105105470"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124797010"
 ---
 # <a name="web-download"></a>[Descarga con explorador web](#tab/unity-package-web-ui)
 
@@ -24,7 +24,7 @@ Siga las instrucciones que se indican <a href="https://docs.unity3d.com/Manual/u
 Este paso requiere que la <a href="/windows/mixed-reality/develop/unity/welcome-to-mr-feature-tool" target="_blank">herramienta de características de Mixed Reality</a> esté descargada y disponible.
 
 > [!NOTE]
-> Actualmente, la <a a href="/windows/mixed-reality/develop/unity/welcome-to-mr-feature-tool" target="_blank">herramienta de características de Mixed Reality</a> solo es compatible con Windows.
+> Actualmente, la <a href="/windows/mixed-reality/develop/unity/welcome-to-mr-feature-tool" target="_blank">herramienta de características de Mixed Reality</a> solo es compatible con Windows.
 
 1. Consulte la documentación de la <a href="/windows/mixed-reality/develop/unity/welcome-to-mr-feature-tool" target="_blank">herramienta de características de Mixed Reality</a> para configurar la herramienta y aprender a usarla.
 2. Instale el paquete de características "Microsoft Azure Object Anchors" en la carpeta de proyectos de Unity.

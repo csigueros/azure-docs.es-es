@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 08/30/2021
 ms.author: chuye
-ms.openlocfilehash: 8a54d02d434ba9a0552668e24022108d3ad561b9
-ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.openlocfilehash: 0d097e769bfea8ff9c65921e8f0d851372187a02
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123452408"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128564911"
 ---
 # <a name="azure-storage-explorer-soft-delete-guide"></a>Eliminación temporal del Explorador de Azure Storage
 
@@ -20,7 +20,7 @@ La eliminación temporal ayuda a mitigar el impacto de una eliminación accident
 
 ## <a name="configuring-delete-retention-policy"></a>Configuración de la eliminación de la directiva de retención
 
-Puede configurar la directiva de retención de eliminación para cada cuenta de almacenamiento en el Explorador de Storage. Abra el menú contextual de cualquier nodo "Contenedores de blobs" en la cuenta de almacenamiento y elija **Configurar la directiva de eliminación temporal...** . 
+Puede configurar la directiva de retención de eliminación para cada cuenta de almacenamiento en el Explorador de Storage. Abra el menú contextual de cualquier nodo "Contenedores de blobs" en la cuenta de almacenamiento y elija **Configurar la directiva de eliminación temporal...** .
 
 La configuración de una nueva directiva puede tardar hasta 30 segundos en surtir efecto. La eliminación de datos sin esperar a que la nueva directiva surta efecto puede dar lugar a un comportamiento inesperado. Explorador de Storage espera 30 segundos antes de notificar una directiva configurada correctamente en el registro de actividad.
 
@@ -61,7 +61,7 @@ También puede recuperar blobs de forma recursiva en un directorio. Si se incluy
 
 En los contenedores de blobs con HNS habilitado, la eliminación de un blob producirá un error si ya existe un blob activo con el mismo nombre.
 
-> [!Note]
+> [!NOTE]
 > Las instantáneas eliminadas temporalmente solo se pueden recuperar si se recupera el blob base. No hay ninguna manera de recuperar instantáneas individuales.
 
 ## <a name="undelete-blobs-by-date-range"></a>Recuperar blobs por intervalo de fechas
@@ -74,5 +74,5 @@ Para recuperar blobs, seleccione los blobs eliminados temporalmente que desea re
 
 ## <a name="see-also"></a>Consulte también
 
-* [Guía de control de versiones de blobs del Explorador de Azure Storage](./storage-explorer-blob-versioning.md)
-* [Eliminación temporal para blobs](../blobs/soft-delete-blob-overview.md)
+- [Guía de control de versiones de blobs del Explorador de Azure Storage](./storage-explorer-blob-versioning.md)
+- [Eliminación temporal para blobs](../blobs/soft-delete-blob-overview.md)

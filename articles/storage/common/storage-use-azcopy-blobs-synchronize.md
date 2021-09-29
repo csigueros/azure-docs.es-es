@@ -8,18 +8,18 @@ ms.date: 04/02/2021
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 4dc2dd06128c373439229b5e649c37caa25b727e
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: 84c8c1e0eeb402185b7451ce953581d23b39c860
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109715023"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128624830"
 ---
 # <a name="synchronize-with-azure-blob-storage-by-using-azcopy"></a>Sincronización con Azure Blob Storage mediante AzCopy
 
-Puede sincronizar el almacenamiento local con Azure Blob Storage mediante la utilidad de línea de comandos AzCopy v10. 
+Puede sincronizar el almacenamiento local con Azure Blob Storage mediante la utilidad de línea de comandos AzCopy v10.
 
-Puede sincronizar el contenido de un sistema de archivos local con un contenedor de blobs. También puede sincronizar los contenedores y directorios virtuales entre sí. La sincronización es unidireccional. En otras palabras, tendrá que elegir cuál de estos dos puntos de conexión es el origen y cuál es el destino. La sincronización también usa las API de servidor a servidor. Los ejemplos que se presentan en esta sección también funcionan con las cuentas que tienen un espacio de nombres jerárquico. 
+Puede sincronizar el contenido de un sistema de archivos local con un contenedor de blobs. También puede sincronizar los contenedores y directorios virtuales entre sí. La sincronización es unidireccional. En otras palabras, tendrá que elegir cuál de estos dos puntos de conexión es el origen y cuál es el destino. La sincronización también usa las API de servidor a servidor. Los ejemplos que se presentan en esta sección también funcionan con las cuentas que tienen un espacio de nombres jerárquico.
 
 > [!NOTE]
 > La versión actual de AzCopy no sincroniza entre otros orígenes y destinos (por ejemplo: Almacenamiento de archivos o cubos de Amazon Web Services (AWS) S3).
@@ -30,7 +30,7 @@ Para ver ejemplos de otros tipos de tareas, como cargar archivos, descargar blob
 
 Vea el artículo [Introducción a AzCopy](storage-use-azcopy-v10.md) para descargar AzCopy y obtener información sobre las formas de proporcionar credenciales de autorización para el servicio de almacenamiento.
 
-> [!NOTE] 
+> [!NOTE]
 > En los ejemplos de este artículo se da por hecho que ha proporcionado credenciales de autorización mediante Azure Active Directory (Azure AD).
 >
 > Si prefiere usar un token de SAS para autorizar el acceso a los datos de blob, puede anexar ese token a la dirección URL de recursos en cada comando AzCopy. Por ejemplo: `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`.
@@ -41,7 +41,7 @@ Vea el artículo [Introducción a AzCopy](storage-use-azcopy-v10.md) para descar
 
 - Si establece la marca `--delete-destination` en `true`, AzCopy elimina los archivos sin proporcionar un aviso. Si quiere que aparezca un mensaje antes de que AzCopy elimine un archivo, establezca la marca `--delete-destination` en `prompt`.
 
-- Si tiene previsto establecer la marca `--delete-destination` en `prompt` o `false`, considere la posibilidad de usar el comando [copy](storage-ref-azcopy-copy.md) en lugar del comando [sync](storage-ref-azcopy-sync.md) y establezca el parámetro `--overwrite` en `ifSourceNewer`. El comando [copy](storage-ref-azcopy-copy.md) consume menos memoria y genera menos costos de facturación porque una operación de copia no tiene que indexar el origen o el destino antes de mover archivos. 
+- Si tiene previsto establecer la marca `--delete-destination` en `prompt` o `false`, considere la posibilidad de usar el comando [copy](storage-ref-azcopy-copy.md) en lugar del comando [sync](storage-ref-azcopy-sync.md) y establezca el parámetro `--overwrite` en `ifSourceNewer`. El comando [copy](storage-ref-azcopy-copy.md) consume menos memoria y genera menos costos de facturación porque una operación de copia no tiene que indexar el origen o el destino antes de mover archivos.
 
 - Para evitar eliminaciones accidentales, asegúrese de habilitar la característica de [eliminación temporal](../blobs/soft-delete-blob-overview.md) antes de usar la marca `--delete-destination=prompt|true`.
 
@@ -49,7 +49,7 @@ Vea el artículo [Introducción a AzCopy](storage-use-azcopy-v10.md) para descar
 
 ## <a name="update-a-container-with-changes-to-a-local-file-system"></a>Actualización de un contenedor con los cambios realizados en un sistema de archivos local
 
-En este caso, el contenedor es el destino y el sistema de archivos local es el origen. 
+En este caso, el contenedor es el destino y el sistema de archivos local es el origen.
 
 > [!TIP]
 > En este ejemplo los argumentos de ruta de acceso se encierran entre comillas simples ('). Use comillas simples en todos los shells de comandos excepto en el shell de comandos de Windows (cmd.exe). Si usa un shell de comandos de Windows (cmd.exe), incluya los argumentos de la ruta de acceso entre comillas dobles ("") en lugar de comillas simples ('').
@@ -83,7 +83,7 @@ azcopy sync 'https://mystorageaccount.blob.core.windows.net/mycontainer' 'C:\myD
 
 ## <a name="update-a-container-with-changes-in-another-container"></a>Actualización de un contenedor con cambios en otro contenedor
 
-El primer contenedor que aparece en este comando es el contenedor origen. El segundo es el destino. Asegúrese de anexar un token de SAS a cada URL de origen.  
+El primer contenedor que aparece en este comando es el contenedor origen. El segundo es el destino. Asegúrese de anexar un token de SAS a cada URL de origen.
 
 Si proporciona credenciales de autorización mediante Azure Active Directory (AD), puede omitir el token de SAS solo de la dirección URL de destino. Asegúrese de que ha configurado los roles adecuados en su cuenta de destino. Consulte [Opción 1: Uso de Azure Active Directory](storage-use-azcopy-v10.md?toc=/azure/storage/blobs/toc.json#option-1-use-azure-active-directory).
 
@@ -102,7 +102,7 @@ azcopy sync 'https://mysourceaccount.blob.core.windows.net/mycontainer?sv=2018-0
 
 ## <a name="update-a-directory-with-changes-to-a-directory-in-another-container"></a>Actualización de un directorio con cambios en un directorio de otro contenedor
 
-El primer directorio que aparece en este comando es el origen. El segundo es el destino. Asegúrese de anexar un token de SAS a cada URL de origen.  
+El primer directorio que aparece en este comando es el origen. El segundo es el destino. Asegúrese de anexar un token de SAS a cada URL de origen.
 
 Si proporciona credenciales de autorización mediante Azure Active Directory (AD), puede omitir el token de SAS solo de la dirección URL de destino. Asegúrese de que ha configurado los roles adecuados en su cuenta de destino. Consulte [Opción 1: Uso de Azure Active Directory](storage-use-azcopy-v10.md?toc=/azure/storage/blobs/toc.json#option-1-use-azure-active-directory).
 
@@ -132,7 +132,7 @@ Puede modificar las operaciones de sincronización mediante marcas opcionales. E
 Para obtener una lista completa de marcas, vea las [opciones](storage-ref-azcopy-sync.md#options).
 
 > [!NOTE]
-> La marca `--recursive` se establece en `true` de manera predeterminada. Las marcas `--exclude-pattern` y `--include-pattern` solo afectan a los nombres de archivo y no a otros elementos de la ruta de acceso del archivo. 
+> La marca `--recursive` se establece en `true` de manera predeterminada. Las marcas `--exclude-pattern` y `--include-pattern` solo afectan a los nombres de archivo y no a otros elementos de la ruta de acceso del archivo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -151,4 +151,3 @@ Consulte estos artículos para configurar opciones, optimizar el rendimiento y s
 - [Parámetros de configuración de AzCopy](storage-ref-azcopy-configuration-settings.md)
 - [Optimización del rendimiento de AzCopy](storage-use-azcopy-optimize.md)
 - [Solución de problemas de AzCopy v10 en Azure Storage mediante el uso de archivos de registro](storage-use-azcopy-configure.md)
-

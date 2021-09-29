@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 04/13/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: f5f06f87ece24377aac380e80c308b4e40906255
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: be07d4b2213599f9d6a5a5d24f2fc17e266c2c87
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123259307"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128620148"
 ---
 # <a name="cloud-tiering-policies"></a>Directivas de nube por niveles
 
 La nube por niveles tiene dos directivas que determinan qué archivos se almacenan por niveles en la nube: **directiva de espacio disponible del volumen** y **directiva de fecha**.
 
-La **directiva de espacio disponible del volumen** garantiza que un porcentaje especificado del volumen local en el que se encuentra el punto de conexión de servidor siempre se mantiene disponible. 
+La **directiva de espacio disponible del volumen** garantiza que un porcentaje especificado del volumen local en el que se encuentra el punto de conexión de servidor siempre se mantiene disponible.
 
 La **directiva de fecha** almacena por niveles los archivos a los que se ha accedido hace x días o más. La directiva de espacio disponible del volumen siempre tiene prioridad; cuando no haya espacio suficiente en el volumen para conservar todos los archivos que especifica la directiva de fecha, Azure File Sync invalidará la directiva de fecha y seguirá almacenando por niveles los archivos con acceso más esporádico hasta alcanzar el porcentaje de espacio libre en el volumen.
 
@@ -36,7 +36,7 @@ Para ilustrar cómo funcionan estas directivas, se usará un ejemplo: supongamos
 
 **Cambio 1:** Ha habilitado la nube por niveles, ha establecido una directiva de espacio disponible del volumen del 20 % y ha mantenido deshabilitada la directiva de fecha. Con esa configuración, la nube por niveles garantiza que el 20 % (en este caso, 100 GiB) del espacio se mantenga libre y disponible en la máquina local. Como resultado, la capacidad total de la caché local es de 400 GiB. Esos 400 GiB almacenarán los archivos a los que se haya accedido más recientemente y con mayor frecuencia en el volumen local.
 
-Con esta configuración, solo los archivos del 1 al 4 se almacenarían en la caché local y el archivo 5 se almacenaría por niveles. Esto supone solo 370 GiB de los 400 que se pueden usar. El archivo 5 ocupa 140 GiB y superaría el límite de 400 si se almacenara en la caché local. 
+Con esta configuración, solo los archivos del 1 al 4 se almacenarían en la caché local y el archivo 5 se almacenaría por niveles. Esto supone solo 370 GiB de los 400 que se pueden usar. El archivo 5 ocupa 140 GiB y superaría el límite de 400 si se almacenara en la caché local.
 
 **Cambio 2:** Imagine que un usuario accede al archivo 5. Esto convierte al archivo 5 en el archivo al que se ha accedido más recientemente en el recurso compartido. Como resultado, el archivo 5 se almacenaría en la caché local y, para no superar el límite de 400 GiB, el archivo 4 se almacenaría por niveles. En la tabla siguiente se muestra dónde se almacenan los archivos, con estas actualizaciones:
 
@@ -62,7 +62,7 @@ Con esta configuración, solo los archivos del 1 al 4 se almacenarían en la cac
 
 En este caso, los archivos 1, 2 y 5 se almacenarían en la caché local y los archivos 3 y 4 por niveles. Dado que la directiva de fecha es de 60 días, los archivos 3 y 4 están almacenados por niveles, aunque la directiva de espacio disponible del volumen permite hasta 400 GiB localmente.
 
-> [!NOTE] 
+> [!NOTE]
 > Los archivos no se recuperan automáticamente cuando los clientes cambian la directiva de espacio disponible del volumen por un valor más pequeño (por ejemplo, del 20 al 10 %) o cambian la directiva de fecha por un valor mayor (por ejemplo, de 20 a 50 días).
 
 ## <a name="multiple-server-endpoints-on-a-local-volume"></a>Varios puntos de conexión de servidor en un volumen local
@@ -71,4 +71,4 @@ La nube por niveles se puede habilitar para varios puntos de conexión de servid
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Supervisión de la nube por niveles](file-sync-monitor-cloud-tiering.md)
+- [Supervisión de la nube por niveles](file-sync-monitor-cloud-tiering.md)

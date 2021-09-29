@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/11/2020
-ms.openlocfilehash: 1ec3d86ea66e436732cd8d1044c0658238ba781f
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 22f17c59b93a3defd6c372eb6a871496850ba122
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113086269"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128670773"
 ---
 # <a name="best-practices-for-building-an-application-with-azure-database-for-mysql"></a>Procedimientos recomendados para compilar una aplicación con Azure Database for MySQL
 
@@ -45,7 +45,7 @@ En el caso de cargas de trabajo con muchas operaciones de lectura, el ajuste de 
 
 Para calcular el mayor tamaño posible de `tmp_table_size` y `max_heap_table_size`, use la siguiente fórmula:
 
-```(total memory - (base memory + (sum of per-connection memory * # of connections)) / # of connections```
+`(total memory - (base memory + (sum of per-connection memory * # of connections)) / # of connections`
 
 > [!NOTE]
 > La memoria total indica la cantidad total de memoria que el servidor tiene en los núcleos virtuales aprovisionados.  Por ejemplo, en un servidor de Azure Database for MySQL con dos núcleos virtuales de uso general, la memoria total será 5 GB * 2. Puede encontrar más información sobre la memoria en cada nivel en la documentación del [plan de tarifa](./concepts-pricing-tiers.md).
@@ -125,7 +125,7 @@ La métrica `created_tmp_disk_tables` indica el número de tablas que se crearon
 
 Para calcular el porcentaje de la carga de trabajo con consultas que desbordan los discos, use los valores de las métricas en la fórmula siguiente:
 
-```(created_tmp_disk_tables / (created_tmp_disk_tables + created_tmp_tables)) * 100```
+`(created_tmp_disk_tables / (created_tmp_disk_tables + created_tmp_tables)) * 100`
 
 Idealmente, este porcentaje debe ser inferior al 25 %. Si ve que el porcentaje es del 25 % o superior, se recomienda modificar dos parámetros de servidor, tmp_table_size y max_heap_table_size.
 

@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/17/2021
+ms.date: 09/16/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 008d47fe7086322ea0bb7ef26a6c4b449f4269d2
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: c1c9ed19d55850258c043a2a1e223474e13d2d21
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107028832"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128574308"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-salesforce-account-using-azure-active-directory-b2c"></a>Configuración de la suscripción y del inicio de sesión con una cuenta de Salesforce mediante Azure Active Directory B2C
 
@@ -61,7 +61,8 @@ Para permitir el inicio de sesión de los usuarios con una cuenta de Salesforce 
 
 ## <a name="configure-salesforce-as-an-identity-provider"></a>Configuración de Salesforce como proveedor de identidades
 
-1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el filtro **Directorio y suscripción** del menú superior y el directorio que contiene el inquilino de Azure AD B2C.
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
 1. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C**.
 1. Seleccione **Proveedores de identidades** y luego **Nuevo proveedor de OpenID Connect**.
 1. Escriba un **nombre**. Por ejemplo, escriba *Salesforce*.
@@ -110,15 +111,16 @@ Si el proceso de inicio de sesión se completa correctamente, el explorador se r
 Debe almacenar el secreto de cliente que haya registrado previamente en el inquilino de Azure AD B2C.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
-2. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el filtro **Directorio y suscripciones** del menú superior y elija el directorio que contiene el inquilino.
-3. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C**.
-4. En la página de introducción, seleccione **Identity Experience Framework**.
-5. Seleccione **Claves de directiva** y luego **Agregar**.
-6. En **Opciones**, elija `Manual`.
-7. Escriba un **nombre** para la clave de directiva. Por ejemplo, `SalesforceSecret`. Se agregará el prefijo `B2C_1A_` automáticamente al nombre de la clave.
-8. En **Secreto**, escriba el secreto de cliente que haya registrado previamente.
-9. En **Uso de claves**, seleccione `Signature`.
-10. Haga clic en **Crear**.
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
+1. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C**.
+1. En la página de introducción, seleccione **Identity Experience Framework**.
+1. Seleccione **Claves de directiva** y luego **Agregar**.
+1. En **Opciones**, elija `Manual`.
+1. Escriba un **nombre** para la clave de directiva. Por ejemplo, `SalesforceSecret`. Se agregará el prefijo `B2C_1A_` automáticamente al nombre de la clave.
+1. En **Secreto**, escriba el secreto de cliente que haya registrado previamente.
+1. En **Uso de claves**, seleccione `Signature`.
+1. Haga clic en **Crear**.
 
 ## <a name="configure-salesforce-as-an-identity-provider"></a>Configuración de Salesforce como proveedor de identidades
 
