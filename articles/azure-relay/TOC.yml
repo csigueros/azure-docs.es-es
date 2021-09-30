@@ -44,8 +44,6 @@
                   href: authenticate-managed-identity.md
                 - name: Autenticación desde una aplicación (versión preliminar)
                   href: authenticate-application.md
-        - name: Controles de seguridad integrados
-          href: /security/benchmark/azure/baselines/service-bus-messaging-security-baseline?toc=/azure/azure-relay/TOC.json
         - name: Seguridad de las redes
           href: network-security.md
     - name: Protocolo de conexiones híbridas

@@ -302,7 +302,7 @@
               href: search-howto-managed-identities-data-sources.md
             - name: Azure Storage
               href: search-howto-managed-identities-storage.md
-            - name: "Azure Cosmos\_DB"
+            - name: Azure Cosmos DB
               href: search-howto-managed-identities-cosmos-db.md
             - name: SQL Database
               href: search-howto-managed-identities-sql.md
@@ -442,8 +442,6 @@
       items:
         - name: Introducción sobre los filtros
           href: search-filters.md
-        - name: Filtros de faceta
-          href: search-filters-facets.md
         - name: Adición de la navegación por facetas
           href: search-faceted-navigation.md
         - name: Solución de problemas de los filtros de recopilación

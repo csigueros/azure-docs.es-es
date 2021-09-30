@@ -834,12 +834,6 @@ productDirectory:
       azureCategories:
         - iot
       url: iot-hub/index.yml
-    - title: Aceleradores de soluciones de IoT de Azure
-      summary: Cree soluciones totalmente personalizables con plantillas para escenarios de IoT comunes
-      imageSrc: ./media/index/iot-solution-accelerators.svg
-      azureCategories:
-        - iot
-      url: iot-accelerators/index.yml
     - title: Azure Maps
       summary: API de ubicación sencillas y seguras para dotar de contexto geoespacial a los datos
       imageSrc: 'https://static.docs.com/ui/media/product/azure/maps.svg'
@@ -1189,7 +1183,7 @@ productDirectory:
       imageSrc: 'https://static.docs.com/ui/media/product/azure/storage-explorer.svg'
       azureCategories:
         - storage
-      url: storage/blobs/storage-blob-storage-tiers.md
+      url: storage/blobs/access-tiers-overview.md
     - title: Avere vFXT for Azure
       summary: Ejecución de cargas de trabajo basadas en archivos de alto rendimiento en la nube
       imageSrc: ./media/index/avere.svg

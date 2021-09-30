@@ -170,7 +170,7 @@
           href: how-to-github-actions.md
         - name: Autenticación con Key Vault en Acciones de GitHub
           href: github-actions-key-vault.md
-        - name: Aprovisione una instancia de Azure Spring Cloud con Terraform
+        - name: Aprovisionamiento de una instancia de Azure Spring Cloud con Terraform
           href: how-to-provision-azure-spring-cloud-instance-terraform.md
     - name: Solucionar problemas
       items:
