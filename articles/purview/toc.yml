@@ -10,28 +10,30 @@ items:
     items:
       - name: Creación de una cuenta de Purview
         items:
-          - name: 'Creación de una cuenta de Purview: Azure Portal'
+          - name: 'Creación de cuenta de Purview: Azure Portal'
             href: create-catalog-portal.md
-          - name: 'Creación de una cuenta de Purview: Azure PowerShell'
+          - name: 'Creación de cuenta de Purview: PowerShell'
             href: create-catalog-powershell.md
-          - name: 'Creación de una cuenta de Purview: SDK de .NET'
+          - name: 'Creación de cuenta de Purview: SDK de .NET'
             href: create-purview-dotnet.md
-          - name: 'Creación de una cuenta de Purview: Python'
+          - name: 'Creación de cuenta de Purview: Python'
             href: create-purview-python.md
-      - name: 'Creación de una colección: Azure Purview Studio'
+      - name: 'Creación de una colección: Azure Portal'
         href: quickstart-create-collection.md
   - name: Tutoriales
     items:
-      - name: Incorporación de orígenes de datos de Azure a escala
+      - name: Incorporación de orígenes de Azure a escala
         items:
-          - name: Comprobación de idoneidad de orígenes de datos de Azure a escala
+          - name: Preparación del origen de Azure a escala
             href: tutorial-data-sources-readiness.md
-          - name: Configuración de MSI de Azure Purview a escala
+          - name: Configuración de MSI de Purview a escala
             href: tutorial-msi-configuration.md
-      - name: Registro y examen de un servidor SQL Server local
+      - name: Incorporación de una instancia de SQL Server local
         href: tutorial-register-scan-on-premises-sql-server.md
-      - name: Procedimientos para usar API REST para planos de datos de Purview
+      - name: Uso de API REST para planos de datos de Purview
         href: tutorial-using-rest-apis.md
+      - name: Uso de API REST para la administración de colecciones
+        href: tutorial-metadata-policy-collections-apis.md
   - name: Conceptos
     items:
       - name: Uso de Purview Studio
@@ -42,142 +44,122 @@ items:
             href: deployment-best-practices.md
           - name: Arquitectura de colecciones
             href: concept-best-practices-collections.md
-      - name: Límites de Azure Purview
-        href: how-to-manage-quotas.md
-      - name: Exámenes e ingesta
-        href: concept-scans-and-ingestion.md
-      - name: Mapa de datos elástico
-        href: concept-elastic-data-map.md
-      - name: Descripción de los conjuntos de recursos
-        href: concept-resource-sets.md
-      - name: Linaje de datos
-        href: concept-data-lineage.md
-      - name: Tipos de archivo y orígenes de datos admitidos
-        href: sources-and-scans.md
-      - name: Permisos de Data Catalog
+      - name: Permisos de Purview
         href: catalog-permissions.md
-      - name: Búsqueda en Data Catalog
-        href: concept-search.md
-      - name: Glosario empresarial
-        href: concept-business-glossary.md
+      - name: Mapa de datos
+        items:
+          - name: Mapa de datos elástico
+            href: concept-elastic-data-map.md
+          - name: Conjuntos de recursos
+            href: concept-resource-sets.md
+          - name: Exámenes e ingesta
+            href: concept-scans-and-ingestion.md
+          - name: Linaje de datos
+            href: concept-data-lineage.md
+      - name: Catálogo de datos
+        items:
+          - name: Búsqueda en Data Catalog
+            href: concept-search.md
+          - name: Glosario empresarial
+            href: concept-business-glossary.md
+          - name: Normalización de recursos
+            href: concept-asset-normalization.md
       - name: Información de datos
         href: concept-insights.md
-      - name: Exploradores compatibles
-        href: supported-browsers.md
-      - name: Normalización de recursos
-        href: concept-asset-normalization.md
-      - name: Preguntas más frecuentes
-        href: ./frequently-asked-questions.yml
       - name: Cuentas de Purview actualizadas
         href: concept-account-upgrade.md
   - name: Guías paso a paso
     items:
       - name: Creación y administración de colecciones de trabajos
         href: how-to-create-and-manage-collections.md
-      - name: Registro y examen
+      - name: Administración de orígenes
         items:
+          - name: Orígenes compatibles
+            href: purview-connector-overview.md
+          - name: Administración de orígenes de datos
+            href: manage-data-sources.md
           - name: Administrar credenciales
             href: manage-credentials.md
             displayName: Create and manage Credentials
+      - name: Orígenes
+        items:
+          - name: Azure Multiple Source
+            href: register-scan-azure-multiple-sources.md
+          - name: Áreas de trabajo de Azure Synapse Analytics
+            href: register-scan-synapse-workspace.md
+          - name: Azure Blob Storage
+            href: register-scan-azure-blob-storage-source.md
+            displayName: Register and scan Azure Blob Storage
+          - name: Azure Files
+            href: register-scan-azure-files-storage-source.md
+            displayName: Register and scan Azure Files
+          - name: "Azure Cosmos\_DB"
+            href: register-scan-azure-cosmos-database.md
+            displayName: Register and scan Azure Cosmos DB
+          - name: Azure Database for MySQL
+            href: register-scan-azure-mysql-database.md
+            displayName: Register and scan an Azure database for MySQL
+          - name: Azure Database for PostgreSQL
+            href: register-scan-azure-postgresql.md
+            displayName: Register and scan an Azure database for PostgreSQL
+          - name: Explorador de datos de Azure
+            href: register-scan-azure-data-explorer.md
+            displayName: Register and scan Azure Data Explorer Kusto
+          - name: "Azure Data Lake Storage Gen\_1"
+            href: register-scan-adls-gen1.md
+            displayName: Register and scan Azure Data Lake Storage Gen 1 ADLS
+          - name: "Azure Data Lake Storage Gen\_2"
+            href: register-scan-adls-gen2.md
+            displayName: Register and scan Azure Data Lake Storage Gen 2 ADLS
+          - name: Azure SQL Database
+            href: register-scan-azure-sql-database.md
+            displayName: Register and scan Azure SQL DB
+          - name: Instancia administrada de Azure SQL Database
+            href: register-scan-azure-sql-database-managed-instance.md
+            displayName: Register and scan Azure SQL DB Managed Instance
+          - name: "Grupo de SQL dedicado de Azure (antes denominado SQL\_DW)"
+            href: register-scan-azure-synapse-analytics.md
+          - name: Cassandra
+            href: register-scan-cassandra-source.md
+          - name: Erwin
+            href: register-scan-erwin-source.md
+          - name: Google BigQuery
+            href: register-scan-google-bigquery-source.md
+          - name: Base de datos de tienda de metadatos de Hive
+            href: register-scan-hive-metastore-source.md
+          - name: Looker
+            href: register-scan-looker-source.md
+          - name: SQL Server local
+            href: register-scan-on-premises-sql-server.md
+          - name: Oracle
+            href: register-scan-oracle-source.md
+          - name: "Inquilino de Power\_BI: Azure Portal"
+            href: register-scan-power-bi-tenant.md
+          - name: SAP ECC
+            href: register-scan-sapecc-source.md
+          - name: SAP S/4HANA
+            href: register-scan-saps4hana-source.md
+          - name: Teradata
+            href: register-scan-teradata-source.md
+          - name: Amazon S3
+            href: register-scan-amazon-s3.md
+      - name: Examinar
+        items:
           - name: Creación de un conjunto de reglas de examen
             href: create-a-scan-rule-set.md
+          - name: Reglas de patrón de conjunto de recursos
+            href: how-to-resource-set-pattern-rules.md
           - name: Administración de entornos de ejecución de integración
             href: manage-integration-runtimes.md
           - name: Solución de problemas de conexión
             href: troubleshoot-connections.md
-          - name: Reglas de patrón de conjunto de recursos
-            href: how-to-resource-set-pattern-rules.md
-          - name: Orígenes
-            items:
-              - name: Administración de orígenes de datos
-                href: manage-data-sources.md
-              - name: Conectores de Azure Purview
-                href: purview-connector-overview.md
-              - name: Azure Multiple Source
-                href: register-scan-azure-multiple-sources.md
-              - name: Áreas de trabajo de Azure Synapse Analytics
-                href: register-scan-synapse-workspace.md
-              - name: Azure Blob Storage
-                href: register-scan-azure-blob-storage-source.md
-                displayName: Register and scan Azure Blob Storage
-              - name: Azure Files
-                href: register-scan-azure-files-storage-source.md
-                displayName: Register and scan Azure Files
-              - name: "Azure Cosmos\_DB"
-                href: register-scan-azure-cosmos-database.md
-                displayName: Register and scan Azure Cosmos DB
-              - name: Azure Database for MySQL
-                href: register-scan-azure-mysql-database.md
-                displayName: Register and scan an Azure database for MySQL
-              - name: Azure Database for PostgreSQL
-                href: register-scan-azure-postgresql.md
-                displayName: Register and scan an Azure database for PostgreSQL
-              - name: Explorador de datos de Azure
-                href: register-scan-azure-data-explorer.md
-                displayName: Register and scan Azure Data Explorer Kusto
-              - name: "Azure Data Lake Storage Gen\_1"
-                href: register-scan-adls-gen1.md
-                displayName: Register and scan Azure Data Lake Storage Gen 1 ADLS
-              - name: "Azure Data Lake Storage Gen\_2"
-                href: register-scan-adls-gen2.md
-                displayName: Register and scan Azure Data Lake Storage Gen 2 ADLS
-              - name: Azure SQL Database
-                href: register-scan-azure-sql-database.md
-                displayName: Register and scan Azure SQL DB
-              - name: Instancia administrada de Azure SQL Database
-                href: register-scan-azure-sql-database-managed-instance.md
-                displayName: Register and scan Azure SQL DB Managed Instance
-              - name: "Grupo de SQL dedicado de Azure (antes denominado SQL\_DW)"
-                href: register-scan-azure-synapse-analytics.md
-              - name: Cassandra
-                href: register-scan-cassandra-source.md
-              - name: Erwin
-                href: register-scan-erwin-source.md
-              - name: Google BigQuery
-                href: register-scan-google-bigquery-source.md
-              - name: Base de datos de tienda de metadatos de Hive
-                href: register-scan-hive-metastore-source.md
-              - name: Looker
-                href: register-scan-looker-source.md
-              - name: SQL Server local
-                href: register-scan-on-premises-sql-server.md
-              - name: Oracle
-                href: register-scan-oracle-source.md
-              - name: "Inquilino de Power\_BI: Azure Portal"
-                href: register-scan-power-bi-tenant.md
-              - name: SAP ECC
-                href: register-scan-sapecc-source.md
-              - name: SAP S/4HANA
-                href: register-scan-saps4hana-source.md
-              - name: Teradata
-                href: register-scan-teradata-source.md
-              - name: Amazon S3
-                href: register-scan-amazon-s3.md
-      - name: Glosario empresarial
-        items:
-          - name: 'Creación, importación y exportación de términos del glosario'
-            href: how-to-create-import-export-glossary.md
-          - name: Administración de plantillas de términos
-            href: how-to-manage-term-templates.md
-      - name: Editar elementos de forma masiva
-        items:
-          - name: Edición masiva de recursos para etiquetar anotaciones y contactos
-            href: how-to-bulk-edit-assets.md
-      - name: Clasificar
-        items:
-          - name: Creación de una regla de clasificación y de clasificación personalizada
-            href: create-a-custom-classification-and-classification-rule.md
-          - name: Aplicación de clasificaciones
-            href: apply-classifications.md
-          - name: Etiquetado automático del contenido
-            href: create-sensitivity-label.md
-      - name: Búsqueda y exploración
+      - name: Detección de datos
         items:
           - name: Navegación por Data Catalog
             href: how-to-browse-catalog.md
           - name: Búsqueda en Data Catalog
             href: how-to-search-catalog.md
-          - name: 'Visualización, edición y eliminación de recursos del catálogo'
+          - name: Administración de recursos de catálogo
             href: catalog-asset-details.md
       - name: Linaje
         items:
@@ -211,10 +193,28 @@ items:
             href: how-to-lineage-sql-server-integration-services.md
           - name: Linaje de Teradata
             href: how-to-lineage-teradata.md
-      - name: Supervisión
+      - name: Glosario empresarial
         items:
-          - name: Supervisión con Azure Monitor
-            href: how-to-monitor-with-azure-monitor.md
+          - name: 'Creación, importación y exportación de términos del glosario'
+            href: how-to-create-import-export-glossary.md
+          - name: Administración de plantillas de términos
+            href: how-to-manage-term-templates.md
+      - name: Recursos de edición masiva
+        href: how-to-bulk-edit-assets.md
+      - name: Clasificar
+        items:
+          - name: Creación de clasificaciones personalizadas
+            href: create-a-custom-classification-and-classification-rule.md
+          - name: Aplicación de clasificaciones
+            href: apply-classifications.md
+      - name: Etiqueta
+        items:
+          - name: Etiquetado en Azure Purview
+            href: create-sensitivity-label.md
+          - name: Procedimientos para etiquetar datos
+            href: how-to-automatically-label-your-content.md
+          - name: Preguntas frecuentes sobre etiquetas de confidencialidad
+            href: sensitivity-labels-frequently-asked-questions.yml
       - name: Información detallada
         items:
           - name: Visualización de información de recursos
@@ -251,22 +251,34 @@ items:
         href: manage-kafka-dotnet.md
       - name: Recuperación ante desastres
         href: disaster-recovery.md
+      - name: Supervisión con Azure Monitor
+        href: how-to-monitor-with-azure-monitor.md
   - name: Referencia
     items:
+      - name: Glosario de productos de Azure Purview
+        href: reference-purview-glossary.md
+      - name: Exploradores compatibles
+        href: supported-browsers.md
+      - name: Tipos de archivo y orígenes de datos admitidos
+        href: sources-and-scans.md
+      - name: Clasificaciones admitidas
+        href: supported-classifications.md
+      - name: Límites de Azure Purview
+        href: how-to-manage-quotas.md
       - name: Java
         href: /samples/browse/?products=azure&languages=java&terms=purview
       - name: .NET
         href: /dotnet/api/overview/azure/purviewresourceprovider
+      - name: PowerShell
+        href: /powershell/module/az.purview/
       - name: Python
         href: /python/api/azure-mgmt-purview/
       - name: REST
         href: /rest/api/purview/
-      - name: Clasificaciones admitidas
-        href: supported-classifications.md
-      - name: Glosario de productos de Azure Purview
-        href: reference-purview-glossary.md
       - name: Guía de implementación de funciones de ABAP
         href: abap-functions-deployment-guide.md
+      - name: Preguntas más frecuentes
+        href: ./frequently-asked-questions.yml
   - name: Recursos
     items:
       - name: Calculadora de precios

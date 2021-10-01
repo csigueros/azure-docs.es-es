@@ -210,8 +210,18 @@ items:
               - name: Supervisión de Data Flow
                 href: concepts-data-flow-monitoring.md
               - name: Rendimiento de flujo de datos
-                href: concepts-data-flow-performance.md
-                displayName: 'merge, timeout'
+                items:
+                  - name: Información general
+                    href: concepts-data-flow-performance.md
+                    displayName: 'merge, timeout'
+                  - name: Optimización de orígenes
+                    href: concepts-data-flow-performance-sources.md
+                  - name: Optimización de receptores
+                    href: concepts-data-flow-performance-sinks.md
+                  - name: Optimización de transformaciones
+                    href: concepts-data-flow-performance-transformations.md
+                  - name: Uso de flujos de datos en canalizaciones
+                    href: concepts-data-flow-performance-pipelines.md
               - name: Rendimiento de Microsoft Integration Runtime
                 href: concepts-integration-runtime-performance.md
               - name: Administración de lienzos en Data Flow
@@ -247,9 +257,23 @@ items:
           - name: Control de código fuente
             href: source-control.md
           - name: Integración y entrega continuas
-            href: continuous-integration-deployment.md
+            items:
+              - name: Información general
+                href: continuous-integration-delivery.md
+              - name: Automatización con las versiones de Azure Pipelines
+                href: continuous-integration-delivery-automate-azure-pipelines.md
+              - name: Promoción manual de una plantilla de Resource Manager para cada entorno
+                href: continuous-integration-delivery-manual-promotion.md
+              - name: Uso de parámetros personalizados con una plantilla de Resource Manager
+                href: continuous-integration-delivery-resource-manager-custom-parameters.md
+              - name: Plantillas vinculadas de Resource Manager
+                href: continuous-integration-delivery-linked-templates.md
+              - name: Uso de un entorno de producción de revisión
+                href: continuous-integration-delivery-hotfix-environment.md
+              - name: Script anterior y posterior a la implementación
+                href: continuous-integration-delivery-sample-script.md
           - name: Publicación automatizada para CI/CD
-            href: continuous-integration-deployment-improvements.md
+            href: continuous-integration-delivery-improvements.md
       - name: Conectores
         items:
           - name: Introducción a los conectores
@@ -747,7 +771,22 @@ items:
                 displayName: self hosted
             displayName: 'self hosted, runtime'
           - name: Integration Runtime de SSIS de Azure
-            href: create-azure-ssis-integration-runtime.md
+            items:
+              - name: Introducción y requisitos previos
+                href: create-azure-ssis-integration-runtime.md
+                displayName: Azure SSIS
+              - name: Crear con Azure Portal
+                href: create-azure-ssis-integration-runtime-portal.md
+                displayName: Azure SSIS
+              - name: Creación con PowerShell
+                href: create-azure-ssis-integration-runtime-powershell.md
+                displayName: Azure SSIS
+              - name: Habilitación con una plantilla de Resource Manager
+                href: create-azure-ssis-integration-runtime-resource-manager-template.md
+                displayName: Azure SSIS
+              - name: Implementación y ejecución de paquetes SSIS
+                href: create-azure-ssis-integration-runtime-deploy-packages.md
+                displayName: Azure SSIS
       - name: Ejecución de paquetes SSIS en Azure
         items:
           - name: Ejecución de paquetes SSIS en Azure

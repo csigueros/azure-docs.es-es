@@ -723,6 +723,8 @@
                   href: index-policy.md
                 - name: Administración de directivas de indexación
                   href: sql/how-to-manage-indexing-policy.md
+                - name: Indexación de métricas
+                  href: sql/index-metrics.md
             - name: .NET
               items:
                 - name: "Sugerencias para mejorar el rendimiento del SDK de .NET, versión\_3"

@@ -43,7 +43,7 @@ items:
                     href: hpc-cache-ingest-manual.md
           - name: Edición de los destinos de almacenamiento
             href: hpc-cache-edit-storage.md
-          - name: Administración de destinos de almacenamiento
+          - name: Visualización y administración de destinos de almacenamiento
             href: manage-storage-targets.md
       - name: Conexión a la memoria caché
         href: hpc-cache-mount.md

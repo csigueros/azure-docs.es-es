@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: dlepow
 ms.author: danlep
 ms.date: 07/12/2021
-ms.openlocfilehash: c14107561886a9e29c2d95c5d04847274afdf4e3
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: e2f56f8886a387158c148edaf9ae557deac3783f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113734110"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128659160"
 ---
 # <a name="azure-api-management-as-an-event-grid-source-preview"></a>Azure API Management como origen de Event Grid (versión preliminar)
 
@@ -22,21 +22,21 @@ API Management emite los siguientes tipos de eventos:
 
 | Tipo de evento | Descripción |
 | ---------- | ----------- |
-| Microsoft.APIManagement.UserCreated | Se genera cuando se crea un usuario. |
-| Microsoft.APIManagement.UserUpdated | Se genera cuando se actualiza un usuario. |
-| Microsoft.APIManagement.UserDeleted | Se genera cuando se elimina un usuario. |
-| Microsoft.APIManagement.APICreated | Se genera cuando se crea una API. |
-| Microsoft.APIManagement.APIUpdated | Se genera cuando se actualiza una API. |
-| Microsoft.APIManagement.APIDeleted | Se genera cuando se elimina una API. |
-| Microsoft.APIManagement.ProductCreated | Se genera cuando se crea un producto. |
-| Microsoft.APIManagement.ProductUpdated | Se genera cuando se actualiza un producto. |
-| Microsoft.APIManagement.ProductDeleted | Se genera cuando se elimina un producto. |
-| Microsoft.APIManagement.ReleaseCreated | Se genera cuando se crea una versión de API. |
-| Microsoft.APIManagement.ReleaseUpdated | Se genera cuando se actualiza una versión de API. |
-| Microsoft.APIManagement.ReleaseDeleted | Se genera cuando se elimina una versión de API. |
-| Microsoft.APIManagement.SubscriptionCreated | Se genera cuando se crea una suscripción. |
-| Microsoft.APIManagement.SubscriptionUpdated | Se genera cuando se actualiza una suscripción. |
-| Microsoft.APIManagement.SubscriptionDeleted | Se genera cuando se elimina una suscripción. |
+| Microsoft.ApiManagement.UserCreated | Se genera cuando se crea un usuario. |
+| Microsoft.ApiManagement.UserUpdated | Se genera cuando se actualiza un usuario. |
+| Microsoft.ApiManagement.UserDeleted | Se genera cuando se elimina un usuario. |
+| Microsoft.ApiManagement.APICreated | Se genera cuando se crea una API. |
+| Microsoft.ApiManagement.APIUpdated | Se genera cuando se actualiza una API. |
+| Microsoft.ApiManagement.APIDeleted | Se genera cuando se elimina una API. |
+| Microsoft.ApiManagement.ProductCreated | Se genera cuando se crea un producto. |
+| Microsoft.ApiManagement.ProductUpdated | Se genera cuando se actualiza un producto. |
+| Microsoft.ApiManagement.ProductDeleted | Se genera cuando se elimina un producto. |
+| Microsoft.ApiManagement.ReleaseCreated | Se genera cuando se crea una versión de API. |
+| Microsoft.ApiManagement.ReleaseUpdated | Se genera cuando se actualiza una versión de API. |
+| Microsoft.ApiManagement.ReleaseDeleted | Se genera cuando se elimina una versión de API. |
+| Microsoft.ApiManagement.SubscriptionCreated | Se genera cuando se crea una suscripción. |
+| Microsoft.ApiManagement.SubscriptionUpdated | Se genera cuando se actualiza una suscripción. |
+| Microsoft.ApiManagement.SubscriptionDeleted | Se genera cuando se elimina una suscripción. |
 
 ## <a name="example-event"></a>Evento de ejemplo
 
@@ -116,16 +116,13 @@ En el ejemplo siguiente se muestra el esquema de un evento de usuario eliminado.
 
 # <a name="event-grid-event-schema"></a>[Esquema de eventos de Event Grid](#tab/event-grid-event-schema)
 
-En el ejemplo siguiente se muestra el esquema de un evento de API actualizada. La propiedad `data` incluye la matriz `updatedProperies` y `resourceUri`.  El esquema de otros eventos de recurso actualizado de API Management es similar. 
+En el ejemplo siguiente se muestra el esquema de un evento de API actualizada. El esquema de otros eventos de recurso actualizado de API Management es similar. 
 ```json
 [{
   "id": "95015754-aa51-4eb6-98d9-9ee322b82ad7",
   "topic": "/subscriptions/{subscription-id}/resourceGroups/{your-rg}/providers/Microsoft.ApiManagement/service/{your-APIM-instance}",
   "subject": "/apis/myapi;Rev=1",
   "data": {
-    "updatedProperties": [
-      "path"
-    ],
     "resourceUri": "/subscriptions/subscription-id}/resourceGroups/{your-rg}/providers/Microsoft.ApiManagement/service/{your-APIM-instance}/apis/myapi;Rev=1"
   },
   "eventType": "Microsoft.ApiManagement.APIUpdated",
@@ -137,7 +134,7 @@ En el ejemplo siguiente se muestra el esquema de un evento de API actualizada. L
 
 # <a name="cloud-event-schema"></a>[Esquema de eventos en la nube](#tab/cloud-event-schema)
 
-En el ejemplo siguiente se muestra el esquema de un evento de API actualizada. La propiedad `data` incluye la matriz `updatedProperies` y `resourceUri`.  El esquema de otros eventos de recurso actualizado de API Management es similar. 
+En el ejemplo siguiente se muestra el esquema de un evento de API actualizada. El esquema de otros eventos de recurso actualizado de API Management es similar. 
 
 ```json
 [{
@@ -145,10 +142,7 @@ En el ejemplo siguiente se muestra el esquema de un evento de API actualizada. L
   "source": "/subscriptions/{subscription-id}/resourceGroups/{your-rg}/providers/Microsoft.ApiManagement/service/{your-APIM-instance}",
   "subject": "/apis/myapi;Rev=1",
   "data": {
-    "updatedProperties": [
-      "path"
-    ],
-    "resourceUri": "/subscriptions/subscription-id}/resourceGroups/{your-rg}/providers/Microsoft.ApiManagement/service/{your-APIM-instance}/apis/myapi;Rev=1"
+    "resourceUri": "/subscriptions/{subscription-id}/resourceGroups/{your-rg}/providers/Microsoft.ApiManagement/service/{your-APIM-instance}/apis/myapi;Rev=1"
   },
   "Type": "Microsoft.ApiManagement.APIUpdated",
   "Time": "2021-07-12T23:13:44.9048323Z",
@@ -166,7 +160,7 @@ Un evento tiene los siguientes datos de nivel superior:
 | Propiedad | Tipo | Descripción |
 | -------- | ---- | ----------- |
 | `topic` | string | Ruta de acceso completa a los recursos del origen del evento. En este campo no se puede escribir. Event Grid proporciona este valor. |
-| `subject` | string | Id. completo del recurso para el que se cambia el estado de cumplimiento, incluido el nombre del recurso y el tipo de recurso. Usa el formato `/subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroup>/providers/<ProviderNamespace>/<ResourceType>/<ResourceName>` |
+| `subject` | string | Ruta al asunto del evento definida por el anunciante. |
 | `eventType` | string | Uno de los tipos de eventos registrados para este origen de eventos. |
 | `eventTime` | string | La hora de generación del evento en función de la hora UTC del proveedor. |
 | `id` | string | Identificador único para el evento |
@@ -181,7 +175,7 @@ Un evento tiene los siguientes datos de nivel superior:
 | Propiedad | Tipo | Descripción |
 | -------- | ---- | ----------- |
 | `source` | string | Ruta de acceso completa a los recursos del origen del evento. En este campo no se puede escribir. Event Grid proporciona este valor. |
-| `subject` | string | Id. completo del recurso para el que se cambia el estado de cumplimiento, incluido el nombre del recurso y el tipo de recurso. Usa el formato `/subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroup>/providers/<ProviderNamespace>/<ResourceType>/<ResourceName>` |
+| `subject` | string | Ruta al asunto del evento definida por el anunciante. |
 | `type` | string | Uno de los tipos de eventos registrados para este origen de eventos. |
 | `time` | string | La hora de generación del evento en función de la hora UTC del proveedor. |
 | `id` | string | Identificador único para el evento |
@@ -194,8 +188,7 @@ El objeto data tiene las siguientes propiedades:
 
 | Propiedad | Tipo | Descripción |
 | -------- | ---- | ----------- |
-| `resourceUri` | string | URI del recurso de API Management que ha desencadenado el evento. |
-| `updatedProperties` | string[] | Lista de propiedades actualizadas en el recurso de API Management que ha desencadenado un evento de actualización. |
+| `resourceUri` | string | Id. completo del recurso para el que se cambia el estado de cumplimiento, incluido el nombre del recurso y el tipo de recurso. Usa el formato `/subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroup>/Microsoft.ApiManagement/service/<ServiceName>/<ResourceType>/<ResourceName>` |
 
 ## <a name="tutorials-and-how-tos"></a>Tutoriales y procedimientos
 

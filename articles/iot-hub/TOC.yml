@@ -66,71 +66,12 @@
           href: tutorial-x509-test-certificate.md
 - name: Conceptos
   items:
-    - name: Soporte técnico de TLS
-      href: iot-hub-tls-support.md
-    - name: Soporte para redes virtuales
-      href: virtual-network-support.md
-    - name: Introducción sobre los enriquecimientos de mensajes
-      href: iot-hub-message-enrichments-overview.md
-    - name: Introducción a la administración de dispositivos
-      href: iot-hub-device-management-overview.md
-    - name: Comparación entre IoT Hub y Event Hubs
-      href: iot-hub-compare-event-hubs.md
-    - name: Elección del nivel correcto
-      href: iot-hub-scaling.md
-    - name: Alta disponibilidad y recuperación ante desastres
-      href: iot-hub-ha-dr.md
-    - name: Clonación de una instancia de IoT Hub en otra región
-      href: iot-hub-how-to-clone.md
-    - name: Descripción de la dirección IP de IoT Hub
-      href: iot-hub-understand-ip-address.md
-    - name: Compatibilidad con otros protocolos
-      href: iot-hub-protocol-gateway.md
-    - name: Comparación entre el enrutamiento de mensajes y el de eventos
-      href: iot-hub-event-grid-routing-comparison.md
-    - name: Procedimientos recomendados de configuración de dispositivos
-      href: iot-hub-configuration-best-practices.md
-    - name: Introducción a los flujos de dispositivos de IoT Hub (versión preliminar)
-      href: iot-hub-device-streams-overview.md
-    - name: Guía del desarrollador
-      href: iot-hub-devguide.md
+    - name: Desarrollar
       items:
         - name: Guía de características del dispositivo a la nube
           href: iot-hub-devguide-d2c-guidance.md
         - name: Guía de características de la nube al dispositivo
           href: iot-hub-devguide-c2d-guidance.md
-        - name: Envío y recepción de mensajes
-          href: iot-hub-devguide-messaging.md
-          items:
-            - name: Creación y lectura de mensajes de IoT Hub
-              href: iot-hub-devguide-messages-construct.md
-            - name: Elección de un protocolo de comunicación de dispositivos
-              href: iot-hub-devguide-protocols.md
-            - name: Leer mensajes del dispositivo a la nube desde el punto de conexión integrado
-              href: iot-hub-devguide-messages-read-builtin.md
-            - name: Uso del enrutamiento de mensajes para enviar mensajes del dispositivo a la nube
-              href: iot-hub-devguide-messages-d2c.md
-              items:
-                - name: Uso de puntos de conexión personalizados y reglas de enrutamiento para mensajes del dispositivo a la nube
-                  href: iot-hub-devguide-messages-read-custom.md
-                - name: Incorporación de consultas a rutas de mensajes
-                  href: iot-hub-devguide-routing-query-syntax.md
-            - name: Envío de mensajes de nube a dispositivo desde IoT Hub
-              href: iot-hub-devguide-messages-c2d.md
-        - name: Reacción a eventos de IoT Hub con Event Grid
-          href: iot-hub-event-grid.md
-        - name: Carga de archivos desde un dispositivo
-          href: iot-hub-devguide-file-upload.md
-        - name: Administración de identidades de dispositivo
-          href: iot-hub-devguide-identity-registry.md
-        - name: Control del acceso a IoT Hub
-          items:
-            - name: Información general
-              href: iot-hub-devguide-security.md
-            - name: "Control del acceso con Azure\_AD"
-              href: iot-hub-dev-guide-azure-ad-rbac.md
-            - name: Control del acceso con SAS
-              href: iot-hub-dev-guide-sas.md
         - name: Descripción de dispositivo gemelos
           href: iot-hub-devguide-device-twins.md
         - name: Descripción de módulos gemelos
@@ -145,16 +86,80 @@
           href: iot-hub-devguide-query-language.md
         - name: Cuotas y limitación
           href: iot-hub-devguide-quotas-throttling.md
+        - name: Comparación entre IoT Hub y Event Hubs
+          href: iot-hub-compare-event-hubs.md
+        - name: Reacción a eventos de IoT Hub con Event Grid
+          href: iot-hub-event-grid.md
+        - name: Carga de archivos desde un dispositivo
+          href: iot-hub-devguide-file-upload.md
+        - name: Introducción a los flujos de dispositivos de IoT Hub (versión preliminar)
+          href: iot-hub-device-streams-overview.md
+    - name: Administrar
+      items:
+        - name: Elección del nivel de IoT Hub correcto
+          href: iot-hub-scaling.md
         - name: Ejemplos de precios
           href: iot-hub-devguide-pricing.md
-        - name: SDK de IoT Hub
-          items:
-            - name: Información general sobre el SDK
-              href: iot-hub-devguide-sdks.md
-            - name: Desarrollo sin el SDK
-              href: iot-hub-devguide-no-sdk.md
-            - name: Administración de conectividad y mensajería de confianza
-              href: iot-hub-reliability-features-in-sdks.md
+    - name: Mensajería
+      items:
+        - name: Envío y recepción de mensajes
+          href: iot-hub-devguide-messaging.md
+        - name: Creación y lectura de mensajes de IoT Hub
+          href: iot-hub-devguide-messages-construct.md
+        - name: Elección de un protocolo de comunicación de dispositivos
+          href: iot-hub-devguide-protocols.md
+        - name: Leer mensajes del dispositivo a la nube desde el punto de conexión integrado
+          href: iot-hub-devguide-messages-read-builtin.md
+        - name: Introducción sobre los enriquecimientos de mensajes
+          href: iot-hub-message-enrichments-overview.md
+    - name: Enrutamiento de mensajes
+      items:
+        - name: Uso del enrutamiento de mensajes para enviar mensajes del dispositivo a la nube
+          href: iot-hub-devguide-messages-d2c.md
+        - name: Uso de puntos de conexión personalizados y reglas de enrutamiento para mensajes del dispositivo a la nube
+          href: iot-hub-devguide-messages-read-custom.md
+        - name: Incorporación de consultas a rutas de mensajes
+          href: iot-hub-devguide-routing-query-syntax.md
+        - name: Envío de mensajes de nube a dispositivo desde IoT Hub
+          href: iot-hub-devguide-messages-c2d.md
+        - name: Comparación entre el enrutamiento de mensajes y el de eventos
+          href: iot-hub-event-grid-routing-comparison.md
+    - name: Administración de dispositivos
+      items:
+        - name: Introducción a la administración de dispositivos
+          href: iot-hub-device-management-overview.md
+        - name: Administración de identidades de dispositivo
+          href: iot-hub-devguide-identity-registry.md
+        - name: Procedimientos recomendados de configuración de dispositivos
+          href: iot-hub-configuration-best-practices.md
+    - name: Conectividad
+      items:
+        - name: Descripción de la dirección IP de IoT Hub
+          href: iot-hub-understand-ip-address.md
+    - name: Escalado y disponibilidad
+      items:
+        - name: Alta disponibilidad y recuperación ante desastres
+          href: iot-hub-ha-dr.md
+        - name: Clonación de una instancia de IoT Hub en otra región
+          href: iot-hub-how-to-clone.md
+    - name: Control del acceso a IoT Hub
+      items:
+        - name: Información general
+          href: iot-hub-devguide-security.md
+        - name: "Control del acceso con Azure\_AD"
+          href: iot-hub-dev-guide-azure-ad-rbac.md
+        - name: Control del acceso con SAS
+          href: iot-hub-dev-guide-sas.md
+    - name: SDK de IoT Hub
+      items:
+        - name: Información general sobre el SDK
+          href: iot-hub-devguide-sdks.md
+        - name: Desarrollo sin el SDK
+          href: iot-hub-devguide-no-sdk.md
+        - name: Administración de conectividad y mensajería de confianza
+          href: iot-hub-reliability-features-in-sdks.md
+    - name: Compatibilidad con protocolos
+      items:
         - name: Soporte para MQTT
           href: iot-hub-mqtt-support.md
         - name: "Compatibilidad con MQTT\_5 (versión preliminar)"
@@ -165,8 +170,14 @@
               href: iot-hub-mqtt-5-reference.md
         - name: Soporte técnico de AMQP
           href: iot-hub-amqp-support.md
+        - name: Compatibilidad con otros protocolos
+          href: iot-hub-protocol-gateway.md
     - name: Seguridad
       items:
+        - name: Soporte técnico de TLS
+          href: iot-hub-tls-support.md
+        - name: Soporte para redes virtuales
+          href: virtual-network-support.md
         - name: Línea de base de seguridad
           href: /security/benchmark/azure/baselines/iot-hub-security-baseline?toc=/azure/iot-hub/TOC.json
         - name: Recomendaciones
@@ -182,12 +193,12 @@
         - name: Controles de seguridad de Azure Policy
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md
-    - name: Protección mediante certificados de entidad de certificación X.509
-      items:
-        - name: Introducción a la seguridad mediante certificados de entidad de certificación X.509
-          href: iot-hub-x509ca-overview.md
-        - name: Conceptos sobre seguridad mediante certificados de entidad de certificación X.509
-          href: iot-hub-x509ca-concept.md
+        - name: Protección mediante certificados de entidad de certificación X.509
+          items:
+            - name: Introducción a la seguridad mediante certificados de entidad de certificación X.509
+              href: iot-hub-x509ca-overview.md
+            - name: Conceptos sobre seguridad mediante certificados de entidad de certificación X.509
+              href: iot-hub-x509ca-concept.md
 - name: Guías paso a paso
   items:
     - name: Desarrollar
@@ -480,8 +491,6 @@
           href: ../iot-edge/index.yml
         - name: IoT Plug and Play
           href: ../iot-develop/index.yml
-        - name: Aceleradores de soluciones de IoT
-          href: ../iot-accelerators/index.yml
         - name: Azure Maps
           href: ../azure-maps/index.yml
         - name: Time Series Insights

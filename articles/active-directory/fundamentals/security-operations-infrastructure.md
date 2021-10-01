@@ -12,12 +12,12 @@ ms.date: 07/15/2021
 ms.author: baselden
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce43a9b518224e7458551139dc1f708dabc5b3e3
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: e0a3c2b380160ef68655f0727f4d47280cd5cd02
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121746089"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124754278"
 ---
 # <a name="security-operations-for-infrastructure"></a>Operaciones de seguridad para infraestructura
 
@@ -45,7 +45,7 @@ Los archivos de registro que usa para la investigación y supervisión son:
 
 * [Registros de inicio de sesión](../reports-monitoring/concept-all-sign-ins.md)
 
-* [Registros de auditoría de Microsoft 365](/microsoft-365/compliance/auditing-solutions-overview?view=o365-worldwide) 
+* [Registros de auditoría de Microsoft 365](/microsoft-365/compliance/auditing-solutions-overview) 
 
 * [Registros de Azure Key Vault](../../key-vault/general/logging.md?tabs=Vault)
 
@@ -174,18 +174,18 @@ Azure AD usa el motor de datos de Microsoft SQL Server o SQL para almacenar in
 
 | Elementos para supervisar| Where| Notas |
 | - | - | - |
-| mms_management_agent| Registros de auditoría del servicio SQL| Consulte [Registros de SQL Server Audit](/sql/relational-databases/security/auditing/sql-server-audit-records?view=sql-server-ver15) |
-| mms_partition| Registros de auditoría del servicio SQL| Consulte [Registros de SQL Server Audit](/sql/relational-databases/security/auditing/sql-server-audit-records?view=sql-server-ver15) |
-| mms_run_profile| Registros de auditoría del servicio SQL| Consulte [Registros de SQL Server Audit](/sql/relational-databases/security/auditing/sql-server-audit-records?view=sql-server-ver15) |
-| mms_server_configuration| Registros de auditoría del servicio SQL| Consulte [Registros de SQL Server Audit](/sql/relational-databases/security/auditing/sql-server-audit-records?view=sql-server-ver15) |
-| mms_synchronization_rule| Registros de auditoría del servicio SQL| Consulte [Registros de SQL Server Audit](/sql/relational-databases/security/auditing/sql-server-audit-records?view=sql-server-ver15) |
+| mms_management_agent| Registros de auditoría del servicio SQL| Consulte [Registros de SQL Server Audit](/sql/relational-databases/security/auditing/sql-server-audit-records) |
+| mms_partition| Registros de auditoría del servicio SQL| Consulte [Registros de SQL Server Audit](/sql/relational-databases/security/auditing/sql-server-audit-records) |
+| mms_run_profile| Registros de auditoría del servicio SQL| Consulte [Registros de SQL Server Audit](/sql/relational-databases/security/auditing/sql-server-audit-records) |
+| mms_server_configuration| Registros de auditoría del servicio SQL| Consulte [Registros de SQL Server Audit](/sql/relational-databases/security/auditing/sql-server-audit-records) |
+| mms_synchronization_rule| Registros de auditoría del servicio SQL| Consulte [Registros de SQL Server Audit](/sql/relational-databases/security/auditing/sql-server-audit-records) |
 
 
 Para obtener información sobre qué y cómo supervisar la información de configuración, consulte:
 
-* Para SQL Server, consulte [Registros de SQL Server Audit](/sql/relational-databases/security/auditing/sql-server-audit-records?view=sql-server-ver15).
+* Para SQL Server, consulte [Registros de SQL Server Audit](/sql/relational-databases/security/auditing/sql-server-audit-records).
 
-* Para Azure Sentinel, consulte [Conexión a servidores Windows para recopilar eventos de seguridad](/sql/relational-databases/security/auditing/sql-server-audit-records?view=sql-server-ver15). 
+* Para Azure Sentinel, consulte [Conexión a servidores Windows para recopilar eventos de seguridad](/sql/relational-databases/security/auditing/sql-server-audit-records). 
 
 * Para obtener información sobre cómo configurar y usar Azure AD Connect, consulte [¿Qué es Azure AD Connect?](../hybrid/whatis-azure-ad-connect.md)
 
@@ -215,7 +215,7 @@ Para obtener información sobre qué y cómo supervisar la información de confi
 
 
 
-* Para más información sobre el registro de operaciones de script de PowerShell, consulte [Habilitación del registro de bloques de script](/powershell/module/microsoft.powershell.core/about/about_logging_windows?view=powershell-7.1), que forma parte de la documentación de referencia de PowerShell.
+* Para más información sobre el registro de operaciones de script de PowerShell, consulte [Habilitación del registro de bloques de script](/powershell/module/microsoft.powershell.core/about/about_logging_windows), que forma parte de la documentación de referencia de PowerShell.
 
 * Para más información sobre cómo configurar el registro de PowerShell para su análisis por parte de Splunk, consulte [Get Data into Splunk User Behavior Analytics](https://docs.splunk.com/Documentation/UBA/5.0.4.1/GetDataIn/AddPowerShell) (Obtención de datos en el análisis de comportamiento de usuarios de Splunk).
 

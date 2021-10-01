@@ -12,12 +12,12 @@ ms.date: 07/15/2021
 ms.author: baselden
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9298c3c6f7d6c634ed5647a6473e0780cd82bf1d
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: c5d7adc35829e60f40c74f310023b2ea5a259cec
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113799439"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124754296"
 ---
 # <a name="azure-active-directory-security-operations-for-devices"></a>Operaciones de seguridad de Azure Active Directory para dispositivos
 
@@ -56,15 +56,15 @@ Los archivos de registro que usa para la investigación y supervisión son:
 
 * [Registros de inicio de sesión](../reports-monitoring/concept-all-sign-ins.md)
 
-* [Registros de auditoría de Microsoft 365](/microsoft-365/compliance/auditing-solutions-overview?view=o365-worldwide.md) 
+* [Registros de auditoría de Microsoft 365](/microsoft-365/compliance/auditing-solutions-overview) 
 
 * [Registros de Azure Key Vault](../..//key-vault/general/logging.md?tabs=Vault)
 
 En Azure Portal, puede ver los registros de auditoría de Azure AD y descargarlos como archivos de valores separados por comas (CSV) o notación de objetos JavaScript (JSON). Azure Portal tiene varias maneras de integrar los registros de Azure AD con otras herramientas que permiten una mayor automatización de la supervisión y las alertas:
 
-* **[Azure Sentinel](../../sentinel/overview.md)** : permite el análisis de seguridad inteligente en el nivel empresarial proporcionando funcionalidades de Administración de eventos e información de seguridad (SIEM). 
+* **[Azure Sentinel](../../sentinel/overview.md)** : permite el análisis de seguridad inteligente en el nivel empresarial al ofrecer funcionalidades de administración de eventos e información de seguridad (SIEM). 
 
-* **[Azure Monitor](../..//azure-monitor/overview.md)** : permite la supervisión automatizada y las alertas de diversas condiciones. Puede crear o usar libros para combinar datos de orígenes diferentes.
+* **[Azure Monitor](../..//azure-monitor/overview.md)** : permite la supervisión y la generación de alertas automatizadas de diversas condiciones. Puede crear o usar libros para combinar datos de orígenes diferentes.
 
 * **[Azure Event Hubs](../../event-hubs/event-hubs-about.md) (integrado con un Azure AD)** - [: los registros de Azure AD se pueden integrar con otras instancias de SIEM](../reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md), como Splunk, ArcSight, QRadar y Sumo Logic a través de la integración de Azure Event Hubs.
 
