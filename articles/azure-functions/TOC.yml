@@ -194,6 +194,8 @@
           href: event-driven-scaling.md
         - name: Procesamiento de eventos confiable
           href: functions-reliable-event-processing.md
+        - name: Simultaneidad
+          href: functions-concurrency.md
         - name: Diseño de entradas idénticas
           href: functions-idempotent.md
     - name: Desencadenadores y enlaces
@@ -286,7 +288,7 @@
           items:
             - name: Desencadenador HTTP
               items:
-                - name: Azure portal
+                - name: Azure Portal
                   href: functions-create-function-app-portal.md
                 - name: Línea de comandos
                   href: ./create-first-function-cli-csharp.md
