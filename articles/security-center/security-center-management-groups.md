@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 06/11/2021
 ms.custom: subject-rbac-steps
 ms.author: memildin
-ms.openlocfilehash: 14cad6e5d95492b889a4e1a09abac9bd3ee8e603
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: a4b95636052db0d5d244c5b451ec33dfa4e812f0
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111887313"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112237389"
 ---
 # <a name="organize-subscriptions-into-management-groups-and-assign-roles-to-users"></a>Organización de suscripciones en grupos de administración y asignación de roles a usuarios
 
@@ -43,13 +43,13 @@ Para más información sobre los grupos de administración, consulte el artícul
 
 1. En [Azure Portal](https://portal.azure.com), use el cuadro de búsqueda de la barra superior para encontrar y abrir **Grupos de administración**.
 
-    :::image type="content" source="./media/security-center-management-groups/open-management-groups-service.png" alt-text="Acceso a los grupos de administración":::
+    :::image type="content" source="./media/security-center-management-groups/open-management-groups-service.png" alt-text="Acceso a los grupos de administración.":::
 
     Aparece la lista de grupos de administración.
 
 1. Para crear un grupo de administración, seleccione **Agregar grupo de administración**, escriba los detalles pertinentes y elija **Guardar**.
 
-    :::image type="content" source="media/security-center-management-groups/add-management-group.png" alt-text="Incorporación de un grupo de administración a Azure":::
+    :::image type="content" source="media/security-center-management-groups/add-management-group.png" alt-text="Incorporación de un grupo de administración a Azure.":::
 
     - El **identificador de grupo de administración** es el identificador único de directorio que se usa para enviar comandos en este grupo de administración. Este identificador no es editable una vez creado, dado que se usa en todo el sistema de Azure para identificar este grupo. 
     - El campo de nombre para mostrar es el nombre que se muestra en Azure Portal. Un nombre para mostrar independiente es un campo opcional al crear el grupo de administración y se puede cambiar en cualquier momento.  
@@ -60,13 +60,13 @@ Puede agregar suscripciones al grupo de administración que ha creado.
 
 1. En Azure Portal, abra **Grupos de administración** y seleccione el grupo de administración para la suscripción.
 
-    :::image type="content" source="./media/security-center-management-groups/management-group-subscriptions.png" alt-text="Selección de un grupo de administración de la suscripción":::
+    :::image type="content" source="./media/security-center-management-groups/management-group-subscriptions.png" alt-text="Selección de un grupo de administración para la suscripción.":::
 
 1. Cuando se abra la página del grupo, seleccione **Suscripciones**.
 
 1. En la página de las suscripciones, seleccione **Agregar**, seleccione las suscripciones y elija **Guardar**. Repita estos pasos hasta que haya agregado todas las suscripciones del ámbito.
 
-    :::image type="content" source="./media/security-center-management-groups/management-group-add-subscriptions.png" alt-text="Incorporación de una suscripción a un grupo de administración":::
+    :::image type="content" source="./media/security-center-management-groups/management-group-add-subscriptions.png" alt-text="Incorporación de una suscripción a un grupo de administración.":::
 
    > [!IMPORTANT]
    > Los grupos de administración pueden contener tanto suscripciones como grupos de administración secundarios. Cuando asigna un rol de Azure a un usuario en el grupo de administración primario, las suscripciones del grupo de administración secundario heredan el acceso. Las directivas establecidas en el grupo de administración primario también son heredadas por los secundarios. 
@@ -79,7 +79,7 @@ Puede agregar suscripciones al grupo de administración que ha creado.
 
 1. En [Azure Portal](https://portal.azure.com), use el cuadro de búsqueda de la barra superior para encontrar y abrir **Grupos de administración**.
 
-    :::image type="content" source="./media/security-center-management-groups/open-management-groups-service.png" alt-text="Acceso a los grupos de administración":::
+    :::image type="content" source="./media/security-center-management-groups/open-management-groups-service.png" alt-text="Acceso a los grupos de administración.":::
 
     Aparece la lista de grupos de administración.
 
@@ -87,11 +87,11 @@ Puede agregar suscripciones al grupo de administración que ha creado.
 
 1. Seleccione **Control de acceso (IAM)** , abra la pestaña **Asignaciones de roles** y seleccione **Agregar** > **Agregar asignación de roles**.
 
-    :::image type="content" source="./media/security-center-management-groups/add-user.png" alt-text="Agregar un usuario a un grupo de administración":::
+    :::image type="content" source="./media/security-center-management-groups/add-user.png" alt-text="Incorporación de un usuario a un grupo de administración.":::
 
 1. En la página **Agregar asignación de roles**, seleccione el rol correspondiente.
 
-    :::image type="content" source="./media/security-center-management-groups/add-role-assignment-page.png" alt-text="Página Agregar asignación de roles":::
+    :::image type="content" source="./media/security-center-management-groups/add-role-assignment-page.png" alt-text="Página Agregar asignación de roles.":::
 
 1. En la pestaña **Miembros**, seleccione **+ Seleccionar miembros** y asigne el rol a los miembros correspondientes.
 
@@ -110,7 +110,7 @@ Puede agregar suscripciones al grupo de administración que ha creado.
 
 3. Cuando se le solicite, inicie sesión con credenciales de administrador global. 
 
-    ![Captura de pantalla de la solicitud de inicio de sesión](./media/security-center-management-groups/azurerm-sign-in.PNG)
+    ![Captura de pantalla de la solicitud de inicio de sesión.](./media/security-center-management-groups/azurerm-sign-in.PNG)
 
 4. Conceda permisos de rol de lector mediante la ejecución del comando siguiente:
 
