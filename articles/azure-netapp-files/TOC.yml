@@ -99,7 +99,7 @@
   items:
     - name: Registro y configuración
       items:
-        - name: Registro en Azure NetApp Files
+        - name: Registro del proveedor de recursos de NetApp
           href: azure-netapp-files-register.md
         - name: Creación de una cuenta de NetApp
           href: azure-netapp-files-create-netapp-account.md

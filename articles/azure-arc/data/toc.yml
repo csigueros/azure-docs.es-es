@@ -189,8 +189,6 @@ items:
                 href: monitoring-log-analytics-azure-portal-managed-instance.md
               - name: Alta disponibilidad
                 href: managed-instance-high-availability.md
-              - name: Restauración a un momento dado
-                href: point-in-time-restore.md
               - name: Eliminar
                 href: delete-managed-instance.md
           - name: Migrate
@@ -199,6 +197,10 @@ items:
                 href: migrate-to-managed-instance.md
               - name: Restauración de AdventureWorks
                 href: restore-adventureworks-sample-db.md
+          - name: Configurar la continuidad empresarial
+            items:
+              - name: Restauración a un momento dado
+                href: point-in-time-restore.md
   - name: Referencia
     items:
       - name: Registro de versión de lanzamiento
