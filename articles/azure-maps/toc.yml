@@ -1,436 +1,435 @@
-- name: Documentación de Azure Maps
-  href: index.yml
-- name: Información general
-  items:
-    - name: ¿Qué es Azure Maps?
-      href: about-azure-maps.md
-- name: Guías de inicio rápido
-  expanded: true
-  items:
-    - name: Creación de una aplicación web
-      href: quick-demo-map-app.md
-    - name: Creación de una aplicación de Android
-      href: quick-android-map.md
-    - name: Creación de una aplicación iOS
-      href: quick-ios-app.md
-- name: Tutoriales
-  items:
-    - name: Tutoriales de SDK web
-      items:
-        - name: Búsqueda de puntos de interés
-          href: tutorial-search-location.md
-        - name: Ruta a un destino
-          href: tutorial-route-location.md
-        - name: Varias rutas por modo de viaje
-          href: tutorial-prioritized-routes.md
-        - name: Creación de un localizador de almacén
-          href: tutorial-create-store-locator.md
-    - name: Tutoriales de Android SDK
-      items:
-        - name: Carga de datos de GeoJSON en un mapa
-          href: tutorial-load-geojson-file-android.md
-    - name: Tutoriales sobre la API REST
-      items:
-        - name: Creación de planos interiores
-          href: tutorial-creator-indoor-maps.md
-        - name: Configuración de una geovalla
-          href: tutorial-geofence.md
-        - name: Análisis espacial
-          href: tutorial-iot-hub-maps.md
-        - name: Enrutamiento de EV mediante Azure Notebooks (Python)
-          href: tutorial-ev-routing.md
-        - name: Análisis de datos meteorológicos mediante Azure Notebooks (Python)
-          href: weather-service-tutorial.md
-    - name: Migración desde Bing Maps
-      items:
-        - name: Migración desde Bing Maps
-          href: migrate-from-bing-maps.md
-        - name: Migración de una aplicación web
-          href: migrate-from-bing-maps-web-app.md
-        - name: Migración de un servicio web
-          href: migrate-from-bing-maps-web-services.md
-    - name: Migración desde Google Maps
-      items:
-        - name: Migración desde Google Maps
-          href: migrate-from-google-maps.md
-        - name: Migración de una aplicación web
-          href: migrate-from-google-maps-web-app.md
-        - name: Migración de una aplicación de Android
-          href: migrate-from-google-maps-android-app.md
-        - name: Migración de un servicio web
-          href: migrate-from-google-maps-web-services.md
-- name: Conceptos
-  items:
-    - name: Autenticación con Azure Maps
-      href: azure-maps-authentication.md
-    - name: Integración con Event Grid en Azure Maps
-      href: azure-maps-event-grid-integration.md
-    - name: Elección del plan de tarifa adecuado
-      href: choose-pricing-tier.md
-    - name: Uso de Creator para planos interiores
-      items:
-        - name: Ámbito geográfico del servicio Creator
-          href: creator-geographic-scope.md
-        - name: Conceptos de plano interior
-          href: creator-indoor-maps.md
-        - name: Errores y advertencias de conversión de dibujos
-          href: drawing-conversion-error-codes.md
-    - name: Cifrado de datos en reposo
-      href: ../security/fundamentals/encryption-atrest.md
-    - name: Cobertura
-      items:
-        - name: Cobertura
-          href: geographic-coverage.md
-        - name: Cobertura de geocodificación
-          href: geocoding-coverage.md
-        - name: Cobertura de tráfico
-          href: traffic-coverage.md
-        - name: Cobertura de representación
-          href: render-coverage.md
-        - name: Cobertura de enrutamiento
-          href: routing-coverage.md
-        - name: Cobertura de movilidad
-          href: mobility-coverage.md
-        - name: Cobertura de meteorología
-          href: weather-coverage.md
-    - name: Compatibilidad de localización
-      href: supported-languages.md
-    - name: Estilos de mapa admitidos
-      href: supported-map-styles.md
-    - name: Niveles de zoom y cuadrícula de mosaico
-      href: zoom-levels-and-tile-grid.md
-    - name: Servicios de movilidad
-      href: mobility-service-data-structure.md
-    - name: Conceptos de servicios Weather
-      href: weather-services-concepts.md
-    - name: Preguntas frecuentes de servicios Weather
-      href: weather-services-faq.yml
-- name: Guías paso a paso
-  items:
-    - name: Administración de cuentas de Maps
-      items:
-        - name: Creación de una cuenta con una plantilla de Resource Manager
-          href: how-to-create-template.md
-        - name: Administrar cuentas
-          href: how-to-manage-account-keys.md
-        - name: Administración de la autenticación
-          href: how-to-manage-authentication.md
-          items:
-            - name: Protección de aplicaciones demonio
-              href: how-to-secure-daemon-app.md
-            - name: Protección de una aplicación de página única de inicio de sesión interactiva
-              href: how-to-secure-spa-users.md
-            - name: Protección de una aplicación web segura
-              href: how-to-secure-webapp-users.md
-            - name: Protección de una aplicación de página única de inicio de sesión no interactiva
-              href: how-to-secure-spa-app.md
-            - name: Protección de una aplicación restringida de entrada
-              href: how-to-secure-device-code.md
-        - name: Administración del plan de tarifa
-          href: how-to-manage-pricing-tier.md
-        - name: Administración de Creator
-          href: how-to-manage-creator.md
-        - name: Visualización de métricas de uso
-          href: how-to-view-api-usage.md
-    - name: Obtención de datos de mapa de las API REST
-      items:
-        - name: Búsqueda de una dirección
-          href: how-to-search-for-address.md
-        - name: Procedimientos recomendados para el uso de Search Service
-          href: how-to-use-best-practices-for-search.md
-        - name: Procedimientos recomendados para el uso de Route Service
-          href: how-to-use-best-practices-for-routing.md
-        - name: Representación de datos personalizados en un mapa estático
-          href: how-to-render-custom-data.md
-        - name: Solicitud de rutas públicas de tránsito
-          href: how-to-request-transit-data.md
-        - name: Solicitud de datos públicos de tránsito en tiempo real
-          href: how-to-request-real-time-data.md
-        - name: Solicitud de datos meteorológicos en tiempo real y de previsión meteorológica
-          href: how-to-request-weather-data.md
-        - name: Solicitud de datos de elevación
-          href: how-to-request-elevation-data.md
-    - name: Desarrollo con el SDK web
-      items:
-        - name: Control de mapa
-          items:
-            - name: Uso del control de mapa de Azure Maps
-              href: how-to-use-map-control.md
-            - name: Creación de un mapa
-              href: map-create.md
-            - name: Cambio del estilo del mapa
-              href: choose-map-style.md
-            - name: Incorporación de controles al mapa
-              href: map-add-controls.md
-            - name: Creación de un origen de datos
-              href: create-data-source-web-sdk.md
-            - name: Adición de una capa de símbolo
-              href: map-add-pin.md
-            - name: Adición de una capa de burbuja
-              href: map-add-bubble-layer.md
-            - name: Adición de un elemento emergente
-              href: map-add-popup.md
-            - name: Adición de marcadores HTML
-              href: map-add-custom-html.md
-            - name: Adición de una capa de línea
-              href: map-add-line-layer.md
-            - name: Adición de una capa de polígono
-              href: map-add-shape.md
-            - name: Adición de una capa de extrusión de polígono
-              href: map-extruded-polygon.md
-            - name: Adición de una capa de mapa térmico
-              href: map-add-heat-map-layer.md
-            - name: Adición de una capa de imagen
-              href: map-add-image-layer.md
-            - name: Adición de capas de iconos
-              href: map-add-tile-layer.md
-            - name: Visualización del tráfico
-              href: map-show-traffic.md
-            - name: Punto de datos del clúster
-              href: clustering-point-data-web-sdk.md
-            - name: Uso de expresiones de estilo controladas por datos
-              href: data-driven-style-expressions-web-sdk.md
-            - name: Uso de plantillas de imagen
-              href: how-to-use-image-templates-web-sdk.md
-            - name: Reacción a eventos
-              href: map-events.md
-            - name: Accesibilidad de la aplicación
-              href: map-accessibility.md
-        - name: Diseño de herramientas
-          items:
-            - name: Uso del módulo de herramientas de dibujo
-              href: set-drawing-options.md
-            - name: Incorporación de una barra de herramientas de dibujo
-              href: map-add-drawing-toolbar.md
-            - name: Obtención de datos de forma
-              href: map-get-shape-data.md
-            - name: Adición de una cuadrícula de ajuste
-              href: map-add-snap-grid.md
-            - name: Reaccionar a eventos de dibujo
-              href: drawing-tools-events.md
-            - name: Tipos de interacción y métodos abreviados de teclado
-              href: drawing-tools-interactions-keyboard-shortcuts.md
-        - name: Módulo de servicios
-          items:
-            - name: Uso del módulo de servicios
-              href: how-to-use-services-module.md
-            - name: Presentación de los resultados de la búsqueda
-              href: map-search-location.md
-            - name: Obtención de información de una coordenada
-              href: map-get-information-from-coordinate.md
-            - name: Presentación de indicaciones de ruta de A a B
-              href: map-route.md
-        - name: Módulo de Indoor Maps
-          items:
-            - name: Módulo de Indoor Maps
-              href: how-to-use-indoor-module.md
-            - name: Estilo dinámico para planos interiores
-              href: indoor-map-dynamic-styling.md
-            - name: Visualizador de errores de dibujos
-              href: drawing-error-visualizer.md
-        - name: Módulo de E/S espacial
-          items:
-            - name: Uso del módulo de E/S espacial
-              href: how-to-use-spatial-io-module.md
-            - name: Adición de una capa de datos simple
-              href: spatial-io-add-simple-data-layer.md
-            - name: Lectura y escritura de datos espaciales
-              href: spatial-io-read-write-spatial-data.md
-            - name: Adición de una capa de mapa de OGC
-              href: spatial-io-add-ogc-map-layer.md
-            - name: Conexión a un servicio WFS
-              href: spatial-io-connect-wfs-service.md
-            - name: Aprovechamiento de las operaciones básicas
-              href: spatial-io-core-operations.md
-            - name: Detalles de formatos de datos admitidos
-              href: spatial-io-supported-data-format-details.md
-        - name: Exploradores admitidos por el SDK web
-          href: supported-browsers.md
-        - name: Procedimientos recomendados
-          href: web-sdk-best-practices.md
-    - name: Desarrollo con Android SDK
-      items:
-        - name: Introducción al control de mapa de Android
-          href: how-to-use-android-map-control-library.md
-        - name: Cambio del estilo del mapa
-          href: set-android-map-styles.md
-        - name: Incorporación de controles al mapa
-          href: map-add-controls-android.md
-        - name: Creación de un origen de datos
-          href: create-data-source-android-sdk.md
-        - name: Adición de una capa de símbolo
-          href: how-to-add-symbol-to-android-map.md
-        - name: Adición de una capa de burbuja
-          href: map-add-bubble-layer-android.md
-        - name: Mostrar información de características
-          href: display-feature-information-android.md
-        - name: Adición de una capa de línea
-          href: android-map-add-line-layer.md
-        - name: Adición de una capa de polígono
-          href: how-to-add-shapes-to-android-map.md
-        - name: Adición de una capa de extrusión de polígono
-          href: map-extruded-polygon-android.md
-        - name: Adición de capa de mapa térmico
-          href: map-add-heat-map-layer-android.md
-        - name: Adición de una capa de imagen
-          href: map-add-image-layer-android.md
-        - name: Adición de una capa de icono
-          href: how-to-add-tile-layer-android-map.md
-        - name: Mostrar datos del tráfico
-          href: how-to-show-traffic-android.md
-        - name: Punto de datos del clúster
-          href: clustering-point-data-android-sdk.md
-        - name: Uso de expresiones controladas por datos
-          href: data-driven-style-expressions-android-sdk.md
-        - name: Reacción a eventos
-          href: android-map-events.md
-    - name: "Uso de Azure Maps en Power\_BI"
-      items:
-        - name: Introducción
-          href: power-bi-visual-getting-started.md
-        - name: Descripción de las capas
-          href: power-bi-visual-understanding-layers.md
-        - name: Adición de una capa de burbuja
-          href: power-bi-visual-add-bubble-layer.md
-        - name: Adición de una capa de gráfico de barras
-          href: power-bi-visual-add-bar-chart-layer.md
-        - name: Adición de una capa de referencia
-          href: power-bi-visual-add-reference-layer.md
-        - name: Adición de una capa de icono
-          href: power-bi-visual-add-tile-layer.md
-        - name: Mostrar el tráfico en tiempo real
-          href: power-bi-visual-show-real-time-traffic.md
-        - name: Administración del acceso
-          href: power-bi-visual-manage-access.md
-        - name: Uso de Azure Maps en Power Apps
-          href: /powerapps/maker/canvas-apps/geospatial-component-map
-    - name: Proporcionar comentarios sobre datos
-      href: how-to-use-feedback-tool.md
-- name: Referencia
-  items:
-    - name: Extensiones de API y de parámetros
-      items:
-        - name: Requisitos de paquetes de dibujos
-          href: drawing-requirements.md
-        - name: Guía de paquetes de dibujos
-          href: drawing-package-guide.md
-        - name: StylesObject de mapas dinámicos
-          href: schema-stateset-stylesobject.md
-        - name: Modelo de consumo del vehículo
-          href: consumption-model.md
-        - name: Formato GeoJSON extendido
-          href: extend-geojson.md
-        - name: Geovalla con formato GEOJSON
-          href: geofence-geojson.md
-        - name: Categorías de búsqueda admitidas
-          href: supported-search-categories.md
-        - name: Facility Ontology
-          href: creator-facility-ontology.md
-    - name: REST
-      items:
-        - name: Servicio de datos
-          href: /rest/api/maps/data-v2
-        - name: Servicio de elevación
-          href: /rest/api/maps/elevation
-        - name: Servicio de geolocalización
-          href: /rest/api/maps/geolocation
-        - name: Servicios de movilidad
-          href: /rest/api/maps/mobility
-        - name: Render Service
-          href: /rest/api/maps/render
-        - name: Render Service v2
-          href: /rest/api/maps/renderv2
-        - name: Route Service
-          href: /rest/api/maps/route
-        - name: Servicio de búsqueda
-          href: /rest/api/maps/search
-        - name: Servicio espacial
-          href: /rest/api/maps/spatial
-        - name: Timezone Service
-          href: /rest/api/maps/timezone
-        - name: Traffic Service
-          href: /rest/api/maps/traffic
-        - name: Servicios Weather
-          href: /rest/api/maps/weather
-        - name: Servicio Maps Creator
-          items:
-            - name: Servicio de alias
-              href: /rest/api/maps/v2/alias
-            - name: Servicio de conversión
-              href: /rest/api/maps/v2/conversion
-            - name: Servicio de conjunto de datos
-              href: /rest/api/maps/v2/dataset
-            - name: Servicio de estado de característica
-              href: /rest/api/maps/v2/feature-state
-            - name: Servicio de conjunto de mosaicos
-              href: /rest/api/maps/v2/tileset
-            - name: Servicio WFS
-              href: /rest/api/maps/v2/wfs
-        - name: Administración de cuentas de Maps
-          href: /rest/api/maps-management
-    - name: JavaScript
-      items:
-        - name: Control de mapa
-          href: /javascript/api/azure-maps-javascript/
-        - name: Diseño de herramientas
-          href: /javascript/api/azure-maps-drawing-tools/
-        - name: Módulo de servicio
-          href: /javascript/api/azure-maps-rest/
-        - name: Módulo de E/S espacial
-          href: /javascript/api/azure-maps-spatial-io/
-        - name: Módulo interior
-          href: /javascript/api/azure-maps-indoor/
-    - name: Plantilla de Resource Manager
-      href: /azure/templates/microsoft.maps/accounts
-    - name: Azure CLI
-      href: /cli/azure/maps
-- name: Recursos
-  items:
-    - name: Opciones de ayuda y soporte técnico
-      href: ../iot-fundamentals/iot-support-help.md?toc=/azure/azure-maps/toc.json&bc=/azure/azure-maps/breadcrumb/toc.json
-    - name: Servicios de IoT de Azure
-      items:
-        - name: IoT Hub
-          href: ../iot-hub/index.yml
-        - name: IoT Hub Device Provisioning Service
-          href: ../iot-dps/index.yml
-        - name: IoT Central
-          href: /microsoft-iot-central/
-        - name: IoT Edge
-          href: ../iot-edge/index.yml
-        - name: IoT Plug and Play
-          href: ../iot-develop/index.yml
-        - name: Azure Maps
-          href: ./index.yml
-        - name: Time Series Insights
-          href: ../time-series-insights/index.yml
-    - name: SDK de IoT de Azure
-      items:
-        - name: SDK de servicio de IoT
-          href: ../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks
-        - name: SDK de dispositivo IoT
-          href: ../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks
-    - name: Condiciones de uso de Azure Maps
-      href: 'https://azure.microsoft.com/support/legal/'
-    - name: Precios de Azure Maps
-      href: 'https://azure.microsoft.com/pricing/details/azure-maps'
-    - name: Calculadora de precios
-      href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: Vídeos de Azure Maps
-      href: 'https://aka.ms/AzureMapsVideos'
-    - name: Proyectos de código abierto
-      href: open-source-projects.md
-    - name: Casos prácticos de Azure Maps
-      href: 'https://aka.ms/AzureMapsCaseStudies'
-    - name: Glosario de Azure Maps
-      href: glossary.md
-    - name: Actualizaciones del servicio
-      href: 'https://azure.microsoft.com/updates'
-    - name: Centro para desarrolladores de Azure
-      href: 'https://azure.microsoft.com/develop/iot/'
-    - name: Azure Roadmap
-      href: 'https://azure.microsoft.com/roadmap/?category=iot'
-    - name: Casos prácticos técnicos
-      href: 'https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured'
-    - name: Azure Maps en IoT School
-      href: 'https://iotschool.microsoft.com/learning-paths/4ZktHn3KEUIiUw64C0Aieo'
+items:
+  - name: Documentación de Azure Maps
+    href: index.yml
+  - name: Información general
+    items:
+      - name: ¿Qué es Azure Maps?
+        href: about-azure-maps.md
+  - name: Guías de inicio rápido
+    expanded: true
+    items:
+      - name: Creación de una aplicación web
+        href: quick-demo-map-app.md
+      - name: Creación de una aplicación de Android
+        href: quick-android-map.md
+  - name: Tutoriales
+    items:
+      - name: Tutoriales de SDK web
+        items:
+          - name: Búsqueda de puntos de interés
+            href: tutorial-search-location.md
+          - name: Ruta a un destino
+            href: tutorial-route-location.md
+          - name: Varias rutas por modo de viaje
+            href: tutorial-prioritized-routes.md
+          - name: Creación de un localizador de almacén
+            href: tutorial-create-store-locator.md
+      - name: Tutoriales de Android SDK
+        items:
+          - name: Carga de datos de GeoJSON en un mapa
+            href: tutorial-load-geojson-file-android.md
+      - name: Tutoriales sobre la API REST
+        items:
+          - name: Creación de planos interiores
+            href: tutorial-creator-indoor-maps.md
+          - name: Configuración de una geovalla
+            href: tutorial-geofence.md
+          - name: Análisis espacial
+            href: tutorial-iot-hub-maps.md
+          - name: Enrutamiento de EV mediante Azure Notebooks (Python)
+            href: tutorial-ev-routing.md
+          - name: Análisis de datos meteorológicos mediante Azure Notebooks (Python)
+            href: weather-service-tutorial.md
+      - name: Migración desde Bing Maps
+        items:
+          - name: Migración desde Bing Maps
+            href: migrate-from-bing-maps.md
+          - name: Migración de una aplicación web
+            href: migrate-from-bing-maps-web-app.md
+          - name: Migración de un servicio web
+            href: migrate-from-bing-maps-web-services.md
+      - name: Migración desde Google Maps
+        items:
+          - name: Migración desde Google Maps
+            href: migrate-from-google-maps.md
+          - name: Migración de una aplicación web
+            href: migrate-from-google-maps-web-app.md
+          - name: Migración de una aplicación de Android
+            href: migrate-from-google-maps-android-app.md
+          - name: Migración de un servicio web
+            href: migrate-from-google-maps-web-services.md
+  - name: Conceptos
+    items:
+      - name: Autenticación con Azure Maps
+        href: azure-maps-authentication.md
+      - name: Integración con Event Grid en Azure Maps
+        href: azure-maps-event-grid-integration.md
+      - name: Elección del plan de tarifa adecuado
+        href: choose-pricing-tier.md
+      - name: Uso de Creator para planos interiores
+        items:
+          - name: Ámbito geográfico del servicio Creator
+            href: creator-geographic-scope.md
+          - name: Conceptos de plano interior
+            href: creator-indoor-maps.md
+          - name: Errores y advertencias de conversión de dibujos
+            href: drawing-conversion-error-codes.md
+      - name: Cifrado de datos en reposo
+        href: ../security/fundamentals/encryption-atrest.md
+      - name: Cobertura
+        items:
+          - name: Cobertura
+            href: geographic-coverage.md
+          - name: Cobertura de geocodificación
+            href: geocoding-coverage.md
+          - name: Cobertura de tráfico
+            href: traffic-coverage.md
+          - name: Cobertura de representación
+            href: render-coverage.md
+          - name: Cobertura de enrutamiento
+            href: routing-coverage.md
+          - name: Cobertura de movilidad
+            href: mobility-coverage.md
+          - name: Cobertura de meteorología
+            href: weather-coverage.md
+      - name: Compatibilidad de localización
+        href: supported-languages.md
+      - name: Estilos de mapa admitidos
+        href: supported-map-styles.md
+      - name: Niveles de zoom y cuadrícula de mosaico
+        href: zoom-levels-and-tile-grid.md
+      - name: Servicios de movilidad
+        href: mobility-service-data-structure.md
+      - name: Conceptos de servicios Weather
+        href: weather-services-concepts.md
+      - name: Preguntas frecuentes de servicios Weather
+        href: weather-services-faq.yml
+  - name: Guías paso a paso
+    items:
+      - name: Administración de cuentas de Maps
+        items:
+          - name: Creación de una cuenta con una plantilla de Resource Manager
+            href: how-to-create-template.md
+          - name: Administrar cuentas
+            href: how-to-manage-account-keys.md
+          - name: Administración de la autenticación
+            href: how-to-manage-authentication.md
+            items:
+              - name: Protección de aplicaciones demonio
+                href: how-to-secure-daemon-app.md
+              - name: Protección de una aplicación de página única de inicio de sesión interactiva
+                href: how-to-secure-spa-users.md
+              - name: Protección de una aplicación web segura
+                href: how-to-secure-webapp-users.md
+              - name: Protección de una aplicación de página única de inicio de sesión no interactiva
+                href: how-to-secure-spa-app.md
+              - name: Protección de una aplicación restringida de entrada
+                href: how-to-secure-device-code.md
+          - name: Administración del plan de tarifa
+            href: how-to-manage-pricing-tier.md
+          - name: Administración de Creator
+            href: how-to-manage-creator.md
+          - name: Visualización de métricas de uso
+            href: how-to-view-api-usage.md
+      - name: Obtención de datos de mapa de las API REST
+        items:
+          - name: Búsqueda de una dirección
+            href: how-to-search-for-address.md
+          - name: Procedimientos recomendados para el uso de Search Service
+            href: how-to-use-best-practices-for-search.md
+          - name: Procedimientos recomendados para el uso de Route Service
+            href: how-to-use-best-practices-for-routing.md
+          - name: Representación de datos personalizados en un mapa estático
+            href: how-to-render-custom-data.md
+          - name: Solicitud de rutas públicas de tránsito
+            href: how-to-request-transit-data.md
+          - name: Solicitud de datos públicos de tránsito en tiempo real
+            href: how-to-request-real-time-data.md
+          - name: Solicitud de datos meteorológicos en tiempo real y de previsión meteorológica
+            href: how-to-request-weather-data.md
+          - name: Solicitud de datos de elevación
+            href: how-to-request-elevation-data.md
+      - name: Desarrollo con el SDK web
+        items:
+          - name: Control de mapa
+            items:
+              - name: Uso del control de mapa de Azure Maps
+                href: how-to-use-map-control.md
+              - name: Creación de un mapa
+                href: map-create.md
+              - name: Cambio del estilo del mapa
+                href: choose-map-style.md
+              - name: Incorporación de controles al mapa
+                href: map-add-controls.md
+              - name: Creación de un origen de datos
+                href: create-data-source-web-sdk.md
+              - name: Adición de una capa de símbolo
+                href: map-add-pin.md
+              - name: Adición de una capa de burbuja
+                href: map-add-bubble-layer.md
+              - name: Adición de un elemento emergente
+                href: map-add-popup.md
+              - name: Adición de marcadores HTML
+                href: map-add-custom-html.md
+              - name: Adición de una capa de línea
+                href: map-add-line-layer.md
+              - name: Adición de una capa de polígono
+                href: map-add-shape.md
+              - name: Adición de una capa de extrusión de polígono
+                href: map-extruded-polygon.md
+              - name: Adición de una capa de mapa térmico
+                href: map-add-heat-map-layer.md
+              - name: Adición de una capa de imagen
+                href: map-add-image-layer.md
+              - name: Adición de capas de iconos
+                href: map-add-tile-layer.md
+              - name: Visualización del tráfico
+                href: map-show-traffic.md
+              - name: Punto de datos del clúster
+                href: clustering-point-data-web-sdk.md
+              - name: Uso de expresiones de estilo controladas por datos
+                href: data-driven-style-expressions-web-sdk.md
+              - name: Uso de plantillas de imagen
+                href: how-to-use-image-templates-web-sdk.md
+              - name: Reacción a eventos
+                href: map-events.md
+              - name: Accesibilidad de la aplicación
+                href: map-accessibility.md
+          - name: Diseño de herramientas
+            items:
+              - name: Uso del módulo de herramientas de dibujo
+                href: set-drawing-options.md
+              - name: Incorporación de una barra de herramientas de dibujo
+                href: map-add-drawing-toolbar.md
+              - name: Obtención de datos de forma
+                href: map-get-shape-data.md
+              - name: Adición de una cuadrícula de ajuste
+                href: map-add-snap-grid.md
+              - name: Reaccionar a eventos de dibujo
+                href: drawing-tools-events.md
+              - name: Tipos de interacción y métodos abreviados de teclado
+                href: drawing-tools-interactions-keyboard-shortcuts.md
+          - name: Módulo de servicios
+            items:
+              - name: Uso del módulo de servicios
+                href: how-to-use-services-module.md
+              - name: Presentación de los resultados de la búsqueda
+                href: map-search-location.md
+              - name: Obtención de información de una coordenada
+                href: map-get-information-from-coordinate.md
+              - name: Presentación de indicaciones de ruta de A a B
+                href: map-route.md
+          - name: Módulo de Indoor Maps
+            items:
+              - name: Módulo de Indoor Maps
+                href: how-to-use-indoor-module.md
+              - name: Estilo dinámico para planos interiores
+                href: indoor-map-dynamic-styling.md
+              - name: Visualizador de errores de dibujos
+                href: drawing-error-visualizer.md
+          - name: Módulo de E/S espacial
+            items:
+              - name: Uso del módulo de E/S espacial
+                href: how-to-use-spatial-io-module.md
+              - name: Adición de una capa de datos simple
+                href: spatial-io-add-simple-data-layer.md
+              - name: Lectura y escritura de datos espaciales
+                href: spatial-io-read-write-spatial-data.md
+              - name: Adición de una capa de mapa de OGC
+                href: spatial-io-add-ogc-map-layer.md
+              - name: Conexión a un servicio WFS
+                href: spatial-io-connect-wfs-service.md
+              - name: Aprovechamiento de las operaciones básicas
+                href: spatial-io-core-operations.md
+              - name: Detalles de formatos de datos admitidos
+                href: spatial-io-supported-data-format-details.md
+          - name: Exploradores admitidos por el SDK web
+            href: supported-browsers.md
+          - name: Procedimientos recomendados
+            href: web-sdk-best-practices.md
+      - name: Desarrollo con Android SDK
+        items:
+          - name: Introducción al control de mapa de Android
+            href: how-to-use-android-map-control-library.md
+          - name: Cambio del estilo del mapa
+            href: set-android-map-styles.md
+          - name: Incorporación de controles al mapa
+            href: map-add-controls-android.md
+          - name: Creación de un origen de datos
+            href: create-data-source-android-sdk.md
+          - name: Adición de una capa de símbolo
+            href: how-to-add-symbol-to-android-map.md
+          - name: Adición de una capa de burbuja
+            href: map-add-bubble-layer-android.md
+          - name: Mostrar información de características
+            href: display-feature-information-android.md
+          - name: Adición de una capa de línea
+            href: android-map-add-line-layer.md
+          - name: Adición de una capa de polígono
+            href: how-to-add-shapes-to-android-map.md
+          - name: Adición de una capa de extrusión de polígono
+            href: map-extruded-polygon-android.md
+          - name: Adición de capa de mapa térmico
+            href: map-add-heat-map-layer-android.md
+          - name: Adición de una capa de imagen
+            href: map-add-image-layer-android.md
+          - name: Adición de una capa de icono
+            href: how-to-add-tile-layer-android-map.md
+          - name: Mostrar datos del tráfico
+            href: how-to-show-traffic-android.md
+          - name: Punto de datos del clúster
+            href: clustering-point-data-android-sdk.md
+          - name: Uso de expresiones controladas por datos
+            href: data-driven-style-expressions-android-sdk.md
+          - name: Reacción a eventos
+            href: android-map-events.md
+      - name: "Uso de Azure Maps en Power\_BI"
+        items:
+          - name: Introducción
+            href: power-bi-visual-getting-started.md
+          - name: Descripción de las capas
+            href: power-bi-visual-understanding-layers.md
+          - name: Adición de una capa de burbuja
+            href: power-bi-visual-add-bubble-layer.md
+          - name: Adición de una capa de gráfico de barras
+            href: power-bi-visual-add-bar-chart-layer.md
+          - name: Adición de una capa de referencia
+            href: power-bi-visual-add-reference-layer.md
+          - name: Adición de una capa de icono
+            href: power-bi-visual-add-tile-layer.md
+          - name: Mostrar el tráfico en tiempo real
+            href: power-bi-visual-show-real-time-traffic.md
+          - name: Administración del acceso
+            href: power-bi-visual-manage-access.md
+          - name: Uso de Azure Maps en Power Apps
+            href: /powerapps/maker/canvas-apps/geospatial-component-map
+      - name: Proporcionar comentarios sobre datos
+        href: how-to-use-feedback-tool.md
+  - name: Referencia
+    items:
+      - name: Extensiones de API y de parámetros
+        items:
+          - name: Requisitos de paquetes de dibujos
+            href: drawing-requirements.md
+          - name: Guía de paquetes de dibujos
+            href: drawing-package-guide.md
+          - name: StylesObject de mapas dinámicos
+            href: schema-stateset-stylesobject.md
+          - name: Modelo de consumo del vehículo
+            href: consumption-model.md
+          - name: Formato GeoJSON extendido
+            href: extend-geojson.md
+          - name: Geovalla con formato GEOJSON
+            href: geofence-geojson.md
+          - name: Categorías de búsqueda admitidas
+            href: supported-search-categories.md
+          - name: Facility Ontology
+            href: creator-facility-ontology.md
+      - name: REST
+        items:
+          - name: Servicio de datos
+            href: /rest/api/maps/data-v2
+          - name: Servicio de elevación
+            href: /rest/api/maps/elevation
+          - name: Servicio de geolocalización
+            href: /rest/api/maps/geolocation
+          - name: Servicios de movilidad
+            href: /rest/api/maps/mobility
+          - name: Render Service
+            href: /rest/api/maps/render
+          - name: Render Service v2
+            href: /rest/api/maps/renderv2
+          - name: Route Service
+            href: /rest/api/maps/route
+          - name: Servicio de búsqueda
+            href: /rest/api/maps/search
+          - name: Servicio espacial
+            href: /rest/api/maps/spatial
+          - name: Timezone Service
+            href: /rest/api/maps/timezone
+          - name: Traffic Service
+            href: /rest/api/maps/traffic
+          - name: Servicios Weather
+            href: /rest/api/maps/weather
+          - name: Servicio Maps Creator
+            items:
+              - name: Servicio de alias
+                href: /rest/api/maps/v2/alias
+              - name: Servicio de conversión
+                href: /rest/api/maps/v2/conversion
+              - name: Servicio de conjunto de datos
+                href: /rest/api/maps/v2/dataset
+              - name: Servicio de estado de característica
+                href: /rest/api/maps/v2/feature-state
+              - name: Servicio de conjunto de mosaicos
+                href: /rest/api/maps/v2/tileset
+              - name: Servicio WFS
+                href: /rest/api/maps/v2/wfs
+          - name: Administración de cuentas de Maps
+            href: /rest/api/maps-management
+      - name: JavaScript
+        items:
+          - name: Control de mapa
+            href: /javascript/api/azure-maps-javascript/
+          - name: Diseño de herramientas
+            href: /javascript/api/azure-maps-drawing-tools/
+          - name: Módulo de servicio
+            href: /javascript/api/azure-maps-rest/
+          - name: Módulo de E/S espacial
+            href: /javascript/api/azure-maps-spatial-io/
+          - name: Módulo interior
+            href: /javascript/api/azure-maps-indoor/
+      - name: Plantilla de Resource Manager
+        href: /azure/templates/microsoft.maps/accounts
+      - name: Azure CLI
+        href: /cli/azure/maps
+  - name: Recursos
+    items:
+      - name: Opciones de ayuda y soporte técnico
+        href: ../iot-fundamentals/iot-support-help.md?toc=/azure/azure-maps/toc.json&bc=/azure/azure-maps/breadcrumb/toc.json
+      - name: Servicios de IoT de Azure
+        items:
+          - name: IoT Hub
+            href: ../iot-hub/index.yml
+          - name: IoT Hub Device Provisioning Service
+            href: ../iot-dps/index.yml
+          - name: IoT Central
+            href: /microsoft-iot-central/
+          - name: IoT Edge
+            href: ../iot-edge/index.yml
+          - name: IoT Plug and Play
+            href: ../iot-develop/index.yml
+          - name: Azure Maps
+            href: ./index.yml
+          - name: Time Series Insights
+            href: ../time-series-insights/index.yml
+      - name: SDK de IoT de Azure
+        items:
+          - name: SDK de servicio de IoT
+            href: ../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks
+          - name: SDK de dispositivo IoT
+            href: ../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks
+      - name: Condiciones de uso de Azure Maps
+        href: 'https://azure.microsoft.com/support/legal/'
+      - name: Precios de Azure Maps
+        href: 'https://azure.microsoft.com/pricing/details/azure-maps'
+      - name: Calculadora de precios
+        href: 'https://azure.microsoft.com/pricing/calculator/'
+      - name: Vídeos de Azure Maps
+        href: 'https://aka.ms/AzureMapsVideos'
+      - name: Proyectos de código abierto
+        href: open-source-projects.md
+      - name: Casos prácticos de Azure Maps
+        href: 'https://aka.ms/AzureMapsCaseStudies'
+      - name: Glosario de Azure Maps
+        href: glossary.md
+      - name: Actualizaciones del servicio
+        href: 'https://azure.microsoft.com/updates'
+      - name: Centro para desarrolladores de Azure
+        href: 'https://azure.microsoft.com/develop/iot/'
+      - name: Azure Roadmap
+        href: 'https://azure.microsoft.com/roadmap/?category=iot'
+      - name: Casos prácticos técnicos
+        href: 'https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured'
+      - name: Azure Maps en IoT School
+        href: 'https://iotschool.microsoft.com/learning-paths/4ZktHn3KEUIiUw64C0Aieo'
