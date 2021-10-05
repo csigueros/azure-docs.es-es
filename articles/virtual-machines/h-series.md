@@ -5,15 +5,15 @@ author: vermagit
 ms.service: virtual-machines
 ms.subservice: vm-sizes-hpc
 ms.topic: conceptual
-ms.date: 10/09/2020
+ms.date: 09/11/2021
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: 8f48e6bd94566922066b277553f64b25f5d55a45
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 75e3dc21c5cb5e8590b63c3382260331bb0bd844
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122696342"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124754646"
 ---
 # <a name="h-series"></a>Serie H
 
@@ -47,7 +47,7 @@ Las máquinas virtuales de la serie H están optimizadas para aplicaciones basad
 
 ## <a name="software-specifications"></a>Especificaciones de software
 
-| Especificaciones de software     |Máquina virtual de la serie HC           |
+| Especificaciones de software     |Máquina virtual de la serie H           |
 |-----------------------------|-----------------------|
 | Tamaño de trabajo de MPI máximo            | 4800 núcleos (300 máquinas virtuales en un solo conjunto de escalado de máquinas virtuales con singlePlacementGroup=true)  |
 | Compatibilidad con MPI                 | Intel MPI 5.x, MS-MPI  |
@@ -58,7 +58,7 @@ Las máquinas virtuales de la serie H están optimizadas para aplicaciones basad
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
-## <a name="other-sizes"></a>Otros tamaños
+## <a name="other-sizes-and-information"></a>Otros tamaños e información
 
 - [Uso general](sizes-general.md)
 - [Memoria optimizada](sizes-memory.md)
@@ -66,6 +66,11 @@ Las máquinas virtuales de la serie H están optimizadas para aplicaciones basad
 - [GPU optimizada](sizes-gpu.md)
 - [Proceso de alto rendimiento](sizes-hpc.md)
 - [Generaciones anteriores](sizes-previous-gen.md)
+
+Calculadora de precios: [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/)
+
+Para obtener más información sobre los tipos de discos, vea [¿Qué tipos de disco están disponibles en Azure?](disks-types.md).
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

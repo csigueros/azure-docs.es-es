@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 07/01/2021
 ms.author: bagol
-ms.openlocfilehash: 38ab651ec864060aeb3bfcfd7f89a387d604723c
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
+ms.openlocfilehash: 0e38c7171d523f8b73df1b53750710bc170e1e81
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122515136"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124781275"
 ---
 # <a name="azure-sentinel-registry-event-normalization-schema-reference-public-preview"></a>Referencia del esquema de normalización de eventos del Registro de Azure Sentinel (versión preliminar pública)
 
@@ -67,12 +67,13 @@ El modelo de información de eventos del Registro se alinea con el [esquema de e
 ### <a name="log-analytics-fields"></a>Campos de Log Analytics
 
 
-Log Analytics genera los siguientes campos para cada registro, que se pueden invalidar al crear un conector personalizado.
+Log Analytics genera los siguientes campos para cada registro y se pueden invalidar al crear un conector personalizado.
 
 | Campo         | Tipo     | Debate      |
 | ------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
 | <a name="timegenerated"></a>**TimeGenerated** | datetime | Hora a la que el dispositivo de informes generó el evento.|
 | **_ResourceId**   | guid     | Id. de recurso de Azure del dispositivo o servicio de informes, o bien Id. de recurso del reenviador de registros para los eventos reenviados mediante Syslog, CEF o WEF. |
+| **Tipo** | String | Tabla original de la que se ha obtenido el registro. Este campo es útil cuando el mismo evento se puede recibir a través de varios canales en tablas diferentes y tienen los mismos valores EventVendor y EventProduct.<br><br>Por ejemplo, un evento Sysmon se puede recopilar en la tabla Event o en la tabla WindowsEvent. |
 
 
 > [!NOTE]
@@ -82,7 +83,7 @@ Log Analytics genera los siguientes campos para cada registro, que se pueden inv
 ### <a name="event-fields"></a>Campos del evento
 
 
-Los campos de evento son comunes a todos los esquemas y describen la propia actividad y el dispositivo de informes.
+Los campos del evento son comunes a todos los esquemas y describen la propia actividad y el dispositivo de informes.
 
 | Campo               | Clase       | Tipo       |  Descripción        |
 |---------------------|-------------|------------|--------------------|
@@ -92,11 +93,11 @@ Los campos de evento son comunes a todos los esquemas y describen la propia acti
 | **EventEndTime**        | Mandatory   | Alias      |      Alias del campo [TimeGenerated](#timegenerated).    |
 | **EventType**           | Mandatory   | Enumerated |    Describe la operación notificada por el registro. <br><br>En el caso del historial del Registro, los valores admitidos incluyen: <br>- `RegistryKeyCreated` <br>- `RegistryKeyDeleted`<br>- `RegistryKeyRenamed` <br>- `RegistryValueDeleted` <br>- `RegistryValueSet`|
 | **EventOriginalUid**    | Opcional    | String     |   Id. único del registro original, si lo proporciona el origen.<br><br>Ejemplo: `69f37748-ddcd-4331-bf0f-b137f1ea83b`|
-| **EventOriginalType**   | Opcional    | String     |   El tipo o identificador del evento original, si lo proporciona el origen.<br><br>Ejemplo: `4657`|
+| **EventOriginalType**   | Opcional    | String     |   Tipo o Id. del evento original, si lo proporciona el origen.<br><br>Ejemplo: `4657`|
 | <a name ="eventproduct"></a>**EventProduct**        | Mandatory   | String     |             Producto que genera el evento. <br><br>Ejemplo: `Sysmon`<br><br>**Nota:** Es posible que este campo no esté disponible en el registro de origen. En tales casos, el analizador debe establecer este campo.           |
 | **EventProductVersion** | Opcional    | String     | Versión del producto que genera el evento. <br><br>Ejemplo: `12.1`      |
 | **EventVendor**         | Mandatory   | String     |           Proveedor del producto que genera el evento. <br><br>Ejemplo: `Microsoft`  <br><br>**Nota:** Es posible que este campo no esté disponible en el registro de origen. En tales casos, el analizador debe establecer este campo.  |
-| **EventSchemaVersion**  | Mandatory   | String     |    Versión del esquema. La versión del esquema que se documenta aquí es `0.1`.         |
+| **EventSchemaVersion**  | Mandatory   | String     |    Versión del esquema. La versión del esquema que se documenta aquí el la versión `0.1`.         |
 | **EventReportUrl**      | Opcional    | String     | Dirección URL proporcionada en el evento para un recurso que ofrece información adicional sobre el evento.|
 | **Dvc** | Mandatory       | String     |               Identificador único del dispositivo en el que se produjo el evento. <br><br>Este campo puede ser un alias de los campos [DvcId](#dvcid), [DvcHostname](#dvchostname) o [DvcIpAddr](#dvcipaddr). En el caso de los orígenes en la nube, para los que no hay ningún dispositivo aparente, use el mismo valor que el del campo [EventProduct](#eventproduct).         |
 | <a name ="dvcipaddr"></a>**DvcIpAddr**           | Recomendado | Dirección IP |         Dirección IP del dispositivo en el que se produjo el evento del Registro.  <br><br>Ejemplo: `45.21.42.12`    |
@@ -127,12 +128,12 @@ Para obtener más información, consulte [Estructura del Registro](/windows/win3
 |**User** | Alias | |Alias del campo [ActorUsername](#actorusername). <br><br>Ejemplo: `CONTOSO\ dadmin` |
 |**Process**     |  Alias       |         |  Alias del campo [ActingProcessName](#actingprocessname).<br><br>Ejemplo: `C:\Windows\System32\rundll32.exe`       |
 | <a name="actorusername"></a>**ActorUsername**  | Mandatory    | String     | Nombre de usuario del usuario que inició el evento. <br><br>Ejemplo: `CONTOSO\WIN-GG82ULGC9GO$`     |
-| **ActorUsernameType**              | Mandatory    | Enumerated |   Especifica el tipo de nombre de usuario almacenado en el campo [ActorUsername](#actorusername). Para más información, consulte [Entidad de usuario](normalization-about-schemas.md#the-user-entity). <br><br>Ejemplo: `Windows`       |
-| <a name="actoruserid"></a>**ActorUserId**    | Recomendado  | String     |   Identificador único de Actor. El identificador específico depende del sistema que genere el evento. Para más información, consulte [Entidad de usuario](normalization-about-schemas.md#the-user-entity).  <br><br>Ejemplo: `S-1-5-18`    |
-| **ActorUserIdType**| Recomendado  | String     |  Tipo del identificador almacenado en el campo [ActorUserId](#actoruserid). Para más información, consulte [Entidad de usuario](normalization-about-schemas.md#the-user-entity). <br><br>Ejemplo: `SID`         |
+| **ActorUsernameType**              | Mandatory    | Enumerated |   Especifica el tipo de nombre de usuario almacenado en el campo [ActorUsername](#actorusername). Para más información, consulte la [Entidad Usuario](normalization-about-schemas.md#the-user-entity). <br><br>Ejemplo: `Windows`       |
+| <a name="actoruserid"></a>**ActorUserId**    | Recomendado  | String     |   Identificador único de Actor. El identificador específico depende del sistema que genere el evento. Para más información, consulte la [Entidad Usuario](normalization-about-schemas.md#the-user-entity).  <br><br>Ejemplo: `S-1-5-18`    |
+| **ActorUserIdType**| Recomendado  | String     |  Tipo del identificador almacenado en el campo [ActorUserId](#actoruserid). Para más información, consulte la [Entidad Usuario](normalization-about-schemas.md#the-user-entity). <br><br>Ejemplo: `SID`         |
 | **ActorSessionId** | Opcional     | String     |   Identificador único de la sesión de inicio de sesión de Actor.  <br><br>Ejemplo: `999`<br><br>**Nota**: El tipo se define como *cadena* para admitir distintos sistemas, pero en Windows este valor debe ser numérico. Si usa una máquina Windows y el origen envía un tipo diferente, asegúrese de convertir el valor. Por ejemplo, si el origen envía un valor hexadecimal, conviértalo en un valor decimal.   |
 | <a name="actingprocessname"></a>**ActingProcessName**              | Opcional     | String     |   Nombre de archivo del archivo de imagen de proceso de acción. Por lo general, este nombre se considera el nombre del proceso.  <br><br>Ejemplo: `C:\Windows\explorer.exe`  |
-| **ActingProcessId**| Mandatory    | Entero        | Identificador de proceso (PID) del proceso de acción.<br><br>Ejemplo: `48610176`           <br><br>**Nota**: El tipo se define como *cadena* para admitir distintos sistemas, pero en Windows y Linux este valor debe ser numérico. <br><br>Si usa una máquina Windows o Linux y ha usado un tipo diferente, asegúrese de convertir los valores. Por ejemplo, si ha utilizado un valor hexadecimal, conviértalo en un valor decimal.    |
+| **ActingProcessId**| Mandatory    | Entero        | Identificador de proceso (PID) del proceso de acción.<br><br>Ejemplo: `48610176`           <br><br>**Nota**: El tipo se define como *cadena* para admitir distintos sistemas, pero en Windows y Linux este valor debe ser numérico. <br><br>Si usa una máquina Windows o Linux y usa un tipo diferente, asegúrese de convertir los valores. Por ejemplo, si ha utilizado un valor hexadecimal, conviértalo en un valor decimal.    |
 | **ActingProcessGuid**              | Opcional     | String     |  Identificador único (GUID) generado del proceso de acción.   <br><br> Ejemplo: `EF3BD0BD-2B74-60C5-AF5C-010000001E00`            |
 | **ParentProcessName**              | Opcional     | String     |  Nombre de archivo del archivo de imagen del proceso primario. Por lo general, este valor se considera el nombre del proceso.    <br><br>Ejemplo: `C:\Windows\explorer.exe` |
 | **ParentProcessId**| Mandatory    | Entero    | Identificador de proceso (PID) del proceso primario.   <br><br>     Ejemplo: `48610176`    |
@@ -172,7 +173,7 @@ Los distintos orígenes representan tipos de valor del Registro mediante represe
 Para más información, consulte:
 
 - [Normalización en Azure Sentinel](normalization.md)
-- [Referencia del esquema de normalización de la autenticación de Azure Sentinel (versión preliminar pública)](authentication-normalization-schema.md)
+- [Referencia del esquema de normalización de la autenticación de Azure Sentinel (Versión preliminar pública)](authentication-normalization-schema.md)
 - [Referencia del esquema de normalización de DNS de Azure Sentinel](dns-normalization-schema.md)
 - [Referencia del esquema de normalización de eventos de archivo de Azure Sentinel (versión preliminar pública)](file-event-normalization-schema.md)
 - [Referencia del esquema de normalización de red de Azure Sentinel](normalization-schema.md)

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/23/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 216ebdeb843f2faa76751f333e838c3cc32a6664
-ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
+ms.openlocfilehash: 7fc4bb71327b2621d60a525ab277305ef13f40c7
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2021
-ms.locfileid: "112539275"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128673243"
 ---
 # <a name="optimize-costs-for-azure-files-with-reserved-capacity"></a>Optimización de costos para Azure Files con capacidad reservada
 Puede ahorrar en los costos de almacenamiento de los recursos compartidos de archivos de Azure con las reservas de capacidad. La capacidad reservada de Azure Files ofrece un descuento en la capacidad para los costos de almacenamiento cuando se compromete a una reserva durante un año o tres años. Una reserva proporciona una cantidad fija de capacidad de almacenamiento para el plazo de la reserva.
@@ -37,7 +37,7 @@ En las secciones siguientes se describen los términos de una reserva de capacid
 Puede comprar capacidad reservada de Azure Files en unidades de 10 TiB y 100 TiB al mes durante un período de uno o tres años.
 
 ### <a name="reservation-scope"></a>Ámbito de la reserva
-La capacidad reservada de Azure Files está disponible en una suscripción única o para varias suscripciones (ámbito compartido). Cuando el ámbito es de una suscripción única, el descuento por reserva se aplica a la suscripción seleccionada únicamente. Cuando el ámbito es de varias suscripciones, el descuento de la reserva se comparte entre esas suscripciones según el contexto de facturación del cliente. Una reserva se aplica al uso dentro del ámbito adquirido y no se puede limitar a una cuenta de almacenamiento, un contenedor o un objeto específicos de la suscripción.
+La capacidad reservada de Azure Files está disponible en una sola suscripción, varias suscripciones (ámbito compartido) y grupos de administración. Cuando el ámbito es de una suscripción única, el descuento por reserva se aplica a la suscripción seleccionada únicamente. Cuando el ámbito es de varias suscripciones, el descuento de la reserva se comparte entre esas suscripciones según el contexto de facturación del cliente. Cuando el ámbito es un grupo de administración, el descuento por reserva se aplica a las suscripciones que forman parte del grupo de administración y del ámbito de facturación. Una reserva se aplica al uso dentro del ámbito adquirido y no se puede limitar a una cuenta de almacenamiento, un contenedor o un objeto específicos de la suscripción.
 
 Una reserva de capacidad de Azure Files solo cubre la cantidad de datos que se almacenan en una suscripción o un grupo de recursos compartidos. Los cargos por transferencia de datos, ancho de banda y transacciones no se incluyen en la reserva. En cuanto se compra una reserva, los cargos de capacidad que coincidan con los atributos de reserva se cobran según las tarifas de descuento, en lugar de las tarifas de pago por uso. Para más información sobre las reservas de Azure, consulte [¿Qué es Azure Reservations?](../../cost-management-billing/reservations/save-compute-costs-reservations.md).
 

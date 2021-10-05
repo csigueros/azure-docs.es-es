@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/28/2021
 ms.author: allensu
-ms.openlocfilehash: 366d7210c499c2f0ab523b687b07edcb8f1719bd
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 79abb40532ad4b7940ecf94552b5ee5c0727f2b6
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114297130"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128636636"
 ---
 # <a name="designing-virtual-networks-with-nat-gateway-resources"></a>Diseño de redes virtuales con recursos de puertas de enlace de NAT
 
@@ -45,7 +45,7 @@ Red virtual:
 
 No se necesitan rutas definidas por el usuario.
 
-## <a name="resource"></a>Resource
+## <a name="resource"></a>Recurso
 
 El recurso se ha diseñado para que sea muy sencillo, como se puede ver en el siguiente ejemplo de Azure Resource Manager en un formato de tipo plantilla.  Este formato se muestra aquí para ilustrar los conceptos y la estructura.  Modifique el ejemplo para adecuarlo a sus necesidades.  No se pretende que este documento sea un tutorial.
 
@@ -132,7 +132,7 @@ El escenario de solo salida a Internet que proporciona la puerta de enlace de NA
 
 *Ilustración: Virtual Network NAT y máquina virtual con IP pública de nivel de instancia*
 
-| Dirección | Resource |
+| Dirección | Recurso |
 |:---:|:---:|
 | Entrada | Máquina virtual con IP pública de nivel de instancia |
 | Salida | NAT Gateway |
@@ -147,7 +147,7 @@ La máquina virtual usará una puerta de enlace de NAT para la salida.  La entra
 
 *Ilustración: Virtual Network NAT y máquina virtual con equilibrador de carga público*
 
-| Dirección | Resource |
+| Dirección | Recurso |
 |:---:|:---:|
 | Entrada | Equilibrador de carga público |
 | Salida | NAT Gateway |
@@ -162,7 +162,7 @@ La puerta de enlace de NAT sustituye la configuración de salida de una regla de
 
 *Ilustración: Virtual Network NAT y máquina virtual con IP pública de nivel de instancia y equilibrador de carga pública*
 
-| Dirección | Resource |
+| Dirección | Recurso |
 |:---:|:---:|
 | Entrada | Máquina virtual con IP pública de nivel de instancia y equilibrador de carga pública |
 | Salida | NAT Gateway |
@@ -180,7 +180,7 @@ Las puertas de enlace de NAT tienen prioridad sobre los escenarios de salida de 
 #### <a name="zone-isolation-with-zonal-stacks"></a>Aislamiento de zona con pilas de zonas
 
 <p align="center">
-  <img src="media/nat-overview/az-directions.svg" alt="Figure depicts three zonal stacks, each of which contains a NAT gateway and a subnet." width="425" title="Virtual Network NAT con aislamiento de zona, creación de varias "zonal stacks"">
+  <img src="media/nat-overview/az-directions.svg" alt="Figure depicts three zonal stacks, each of which contains a NAT gateway and a subnet." width="425" title="Virtual Network NAT con aislamiento de zona, creación de varias pilas de zonas">
 </p>
 
 *Ilustración: Virtual Network NAT con aislamiento de zona, creación de "pilas de zonas"*
@@ -257,7 +257,7 @@ El destino verá el origen del flujo como 65.52.0.1 (tupla de origen con SNAT) c
 
 #### <a name="source-snat-port-reuse"></a>Reutilización del puerto de origen (SNAT)
 
-Las puertas de enlace NAT reutilizan los puertos de origen (SNAT) oportunamente.  Lo siguiente ilustra este concepto como un flujo adicional para el conjunto anterior de flujos.  La máquina virtual del ejemplo es un flujo a la dirección 65.52.0.2.
+Las puertas de enlace NAT reutilizan los puertos de origen (SNAT) oportunamente.  A continuación se ilustra este concepto como un flujo adicional del conjunto anterior de flujos.  La máquina virtual del ejemplo es un flujo a la dirección 65.52.0.2.
 
 | Flujo | Tupla de origen | Tupla de destino |
 |:---:|:---:|:---:|

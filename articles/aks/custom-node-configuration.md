@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 12/03/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 7d9b3a6d3a5178354cced3cd5e4a49f7113ecdce
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: c872848791e2de3591c8e3e94d4aa5744c7bbcdc
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123220011"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128656386"
 ---
 # <a name="customize-node-configuration-for-azure-kubernetes-service-aks-node-pools-preview"></a>Personalización de la configuración de nodos en los grupos de nodos de Azure Kubernetes Service (AKS) (versión preliminar)
 
@@ -66,10 +66,11 @@ A continuación, se enumeran los parámetros admitidos y los valores aceptados d
 | `cpuCfsQuotaPeriod` | Intervalo en milisegundos (ms) | `100ms` | Establece el valor del período de cuota de CFS de CPU. | 
 | `imageGcHighThreshold` | 0-100 | 85 | Porcentaje de uso del disco después del cual siempre se ejecuta la recolección de elementos no utilizados de la imagen. Uso mínimo de disco que **desencadenará** la recolección de elementos no utilizados. Para deshabilitar la recolección de elementos no utilizados de la imagen, establezca este valor en 100. | 
 | `imageGcLowThreshold` | 0-100, no mayor que `imageGcHighThreshold`. | 80 | Porcentaje de uso del disco antes del cual la recolección de elementos no utilizados de la imagen nunca se ejecuta. Uso mínimo de disco que **puede** desencadenar la recolección de elementos no utilizados. |
-| `topologyManagerPolicy` | ninguno, mejor esfuerzo, restringido, un solo nodo numa | ninguno | Optimiza la alineación de nodos NUMA. Consulte [aquí](https://kubernetes.io/docs/tasks/administer-cluster/topology-manager/) para más información. Solo kubernetes v1.18+. |
+| `topologyManagerPolicy` | ninguno, mejor esfuerzo, restringido, un solo nodo numa | ninguno | Optimiza la alineación de nodos NUMA. Consulte [aquí](https://kubernetes.io/docs/tasks/administer-cluster/topology-manager/) para más información. |
 | `allowedUnsafeSysctls` | `kernel.shm*`, `kernel.msg*`, `kernel.sem`, `fs.mqueue.*`, `net.*` | None | Lista permitida de patrones no seguros sysctls o sysctl. | 
 | `containerLogMaxSizeMB` | Tamaño en megabytes (MB) | 10 MB | Tamaño máximo (por ejemplo, 10 MB) de un archivo de registro de contenedor antes de su rotación. | 
 | `containerLogMaxFiles` | ≥ 2 | 5 | El número máximo de archivos de registro de contenedor que pueden estar presentes para un contenedor. | 
+| `podMaxPids` | -1 al límite de PID del kernel | -1 (∞)| Cantidad máxima de identificadores de proceso que se pueden ejecutar en un pod |
 
 ### <a name="linux-os-custom-configuration"></a>Configuración personalizada del sistema operativo Linux
 

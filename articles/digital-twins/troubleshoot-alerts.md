@@ -4,15 +4,15 @@ titleSuffix: Azure Digital Twins
 description: Consulte cómo habilitar las alertas en las métricas de Azure Digital Twins.
 author: baanders
 ms.author: baanders
-ms.date: 7/28/2020
+ms.date: 9/15/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 55dcda4c323700caa030fb87768d36a702d1c501
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 6a5397a2387b7fb55b0e03664ddb9f52ec8baf59
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110476760"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128642778"
 ---
 # <a name="troubleshooting-azure-digital-twins-alerts"></a>Solución de problemas de Azure Digital Twins: Alertas
 
@@ -28,15 +28,19 @@ Aquí se describe cómo habilitar las alertas para la instancia de Azure Digital
 
 2. En el menú, seleccione **Alertas** y, luego, **+ Nueva regla de alertas**.
 
+   :::image type="content" source="media/troubleshoot-alerts/alerts-pre.png" alt-text="Captura de pantalla de Azure Portal con el botón para crear una nueva regla de alertas en la sección Alertas de una instancia de Azure Digital Twin." lightbox="media/troubleshoot-alerts/alerts-pre.png":::
+
 3. En la página *Crear regla de alerta* que se muestra a continuación, puede seguir las indicaciones para definir las condiciones, las acciones que se deben desencadenar y los detalles de la alerta.     
     * Los detalles del **ámbito** se deberían rellenar automáticamente con los detalles correspondientes a su instancia.
     * Definirá los detalles de **Condición** y **Grupo de acciones** para personalizar los desencadenadores y las respuestas de alertas.
-    * En la sección **Detalles de la regla de alertas**, escriba un nombre y una descripción opcional para la regla. Puede seleccionar la casilla _Habilitar la regla tras la creación_ si quiere que la alerta se active en cuanto se cree.
-        - Aquí también puede seleccionar un _Grupo de recursos_ y un nivel de _Gravedad_.
+    * En la sección **Detalles de la regla de alertas**, escriba un nombre y una descripción opcional para la regla. 
+        - Puede seleccionar la casilla _Habilitar la regla tras la creación_ si quiere que la alerta se active en cuanto se cree.
+        - Puede activar la casilla _Resolver alertas automáticamente_ si quiere resolver la alerta cuando ya no se cumpla la condición.
+        - En esta sección también se selecciona una _suscripción_, un _grupo de recursos_ y un nivel de _gravedad_.
 
 4. Seleccione el botón _Crear regla de alertas_ para crear la regla de alertas.
 
-:::image type="content" source="media/troubleshoot-alerts/create-alert-rule.png" alt-text="Captura de pantalla de Azure Portal que muestra la página Crear regla de alertas con secciones para el ámbito, la condición, el grupo de acciones y los detalles de la regla de alertas." lightbox="media/troubleshoot-alerts/create-alert-rule.png":::
+   :::image type="content" source="media/troubleshoot-alerts/create-alert-rule.png" alt-text="Captura de pantalla de Azure Portal que muestra la página Crear regla de alertas con secciones para el ámbito, la condición, el grupo de acciones y los detalles de la regla de alertas." lightbox="media/troubleshoot-alerts/create-alert-rule.png":::
 
 Para un tutorial guiado sobre cómo rellenar estos campos, consulte [Información general sobre las alertas en Microsoft Azure](../azure-monitor/alerts/alerts-overview.md). A continuación se muestran algunos ejemplos de cómo se verán los pasos en Azure Digital Twins.
 

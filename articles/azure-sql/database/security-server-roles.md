@@ -9,12 +9,12 @@ ms.author: anwolter
 ms.topic: conceptual
 ms.date: 09/02/2021
 ms.reviewer: vanto
-ms.openlocfilehash: 64c012373187059792174618920b797b2d081aa2
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: cfb24ee98bf00fa46f75b0bef321a7b1694e2113
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123537209"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128630269"
 ---
 # <a name="azure-sql-database-server-roles-for-permission-management"></a>Roles del servidor de Azure SQL Database para la administración de permisos
 
@@ -56,7 +56,7 @@ En la tabla siguiente se muestran los roles fijos de nivel de servidor y sus cap
 
 Cada rol integrado de nivel de servidor tiene determinados permisos asignados. En la tabla siguiente se muestran los permisos asignados a los roles de nivel de servidor. También se muestran los permisos de nivel de base de datos heredados si existe una cuenta de usuario en la base de datos.
   
-|Rol fijo de nivel de servidor|Permisos a nivel de servidor|Permisos de nivel de base de datos (si existe un usuario de base de datos)  
+|Rol fijo de nivel de servidor|Permisos a nivel de servidor|Permisos de nivel de base de datos (si existe un usuario de base de datos que coincida con el inicio de sesión)  
 |-------------|----------|-----------------|  
 |**##MS_DefinitionReader##**|VIEW ANY DATABASE, VIEW ANY DEFINITION, VIEW ANY SECURITY DEFINITION|VIEW DEFINITION, VIEW SECURITY DEFINITION|  
 |**##MS_ServerStateReader##**|VIEW SERVER STATE, VIEW SERVER PERFORMANCE STATE, VIEW SERVER SECURITY STATE|VIEW DATABASE STATE, VIEW DATABASE PERFORMANCE STATE, VIEW DATABASE SECURITY STATE|  

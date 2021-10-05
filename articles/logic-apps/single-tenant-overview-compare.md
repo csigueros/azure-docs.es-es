@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 08/18/2021
-ms.openlocfilehash: 61dbf2f83ad135cfdef6fffcc3a8c162d0a4c0cd
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.date: 09/13/2021
+ms.openlocfilehash: fa1ea33e2e7987daa79267fb197981931ce1c2fd
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123111459"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128606273"
 ---
 # <a name="single-tenant-versus-multi-tenant-and-integration-service-environment-for-azure-logic-apps"></a>Comparación de las opciones de un solo inquilino, multiinquilino y entorno del servicio de integración para Azure Logic Apps
 
@@ -121,12 +121,16 @@ Con el tipo de recurso **Logic Apps (estándar)** , puede crear estos tipos de f
 
   Cree un flujo de trabajo con estado cuando necesite mantener o revisar datos de eventos anteriores, o hacer referencia a ellos. Estos flujos de trabajo guardan y transfieren todas las entradas y las salidas de cada acción y sus estados en el almacenamiento externo, lo que facilita la revisión y ejecución de los detalles y el historial al término de cada ejecución. Los flujos de trabajo con estado proporcionan una alta resistencia en caso de interrupciones. Una vez restaurados los servicios y sistemas, puede reconstruir las ejecuciones interrumpidas a partir del estado guardado y volver a ejecutar los flujos de trabajo hasta su finalización. Los flujos de trabajo con estado pueden seguir ejecutándose durante mucho más tiempo que los flujos de trabajo sin estado.
 
+  De manera predeterminada, los flujos de trabajo con estado de instancias multiinquilino y de un solo inquilino de Azure Logic Apps se ejecutan de forma asincrónica. Todas las acciones basadas en HTTP siguen el [patrón de operación asincrónica](/azure/architecture/patterns/async-request-reply) estándar. Este patrón especifica que, después de que una acción HTTP llame a o envíe una solicitud a un punto de conexión, servicio, sistema o API, el receptor devolverá inmediatamente una respuesta ["202 ACCEPTED"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3). Este código confirma que el receptor aceptó la solicitud, pero no ha finalizado el procesamiento. La respuesta puede incluir un encabezado `location` que especifica el URI y un identificador de actualización que el autor de la llamada puede usar para sondear o comprobar el estado de la solicitud asincrónica hasta que el receptor detiene el procesamiento y devuelve una respuesta de operación correcta ["200 OK"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1) u otra respuesta que no sea 202. Sin embargo, el autor de la llamada no tiene que esperar a que la solicitud finalice el procesamiento y puede continuar ejecutando la siguiente acción. Para más información, consulte [Diseño de la comunicación entre servicios para microservicios](/azure/architecture/microservices/design/interservice-communication#synchronous-versus-asynchronous-messaging).
+
 * *Sin estado*
 
-  Cree un flujo de trabajo sin estado cuando no necesite conservar ni revisar datos de eventos anteriores, ni hacer referencia a ellos, en un almacenamiento externo después de que finaliza cada ejecución para su posterior revisión. Estos flujos de trabajo guardan todas las entradas y las salidas de cada acción y sus estados *solo en la memoria*, no en un almacenamiento externo. Como consecuencia, los flujos de trabajo sin estado tienen ejecuciones más cortas que normalmente duran menos de 5 minutos, un rendimiento más rápido con menores tiempos de respuesta, mayor rendimiento y costos de ejecución menores, ya que los detalles y el historial de ejecución no se guardan en el almacenamiento externo. Pero si se producen interrupciones, las ejecuciones interrumpidas no se restauran automáticamente, por lo que el autor de la llamada tiene que volver a enviarlas manualmente. Estos flujos de trabajo solo se pueden ejecutar de manera sincrónica.
+  Cree un flujo de trabajo sin estado cuando no necesite conservar ni revisar datos de eventos anteriores, ni hacer referencia a ellos, en un almacenamiento externo después de que finaliza cada ejecución para su posterior revisión. Estos flujos de trabajo guardan todas las entradas y las salidas de cada acción y sus estados *solo en la memoria*, no en un almacenamiento externo. Como consecuencia, los flujos de trabajo sin estado tienen ejecuciones más cortas que normalmente duran menos de 5 minutos, un rendimiento más rápido con menores tiempos de respuesta, mayor rendimiento y costos de ejecución menores, ya que los detalles y el historial de ejecución no se guardan en el almacenamiento externo. Pero si se producen interrupciones, las ejecuciones interrumpidas no se restauran automáticamente, por lo que el autor de la llamada tiene que volver a enviarlas manualmente.
 
   > [!IMPORTANT]
   > Un flujo de trabajo sin estado proporciona el mejor rendimiento al administrar datos o contenido, como un archivo, que no supera los 64 KB de tamaño *total*. Los tamaños de contenido más grande, como varios datos adjuntos grandes, pueden ralentizar significativamente el rendimiento del flujo de trabajo o incluso provocar que el flujo de trabajo se bloquee debido a excepciones de memoria insuficiente. Si existe la posibilidad de que el flujo de trabajo tenga que controlar tamaños de contenido más grandes, use un flujo de trabajo con estado.
+
+  Los flujos de trabajo sin estado solo se ejecutan de manera sincrónica, por lo que no usan el [patrón de operación asincrónica](/azure/architecture/patterns/async-request-reply) estándar que emplean los flujos de trabajo con estado. En su lugar, todas las acciones basadas en HTTP que devuelven una respuesta \["202 ACCEPTED"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3) avanzan al paso siguiente de la ejecución del flujo de trabajo. Si la respuesta incluye un encabezado `location`, un flujo de trabajo sin estado no sondea al URI especificado para comprobar el estado. Para seguir el patrón de operación asincrónica estándar, use en su lugar un flujo de trabajo con estado.
 
   Para facilitar la depuración, puede habilitar el historial de ejecución de un flujo de trabajo sin estado, lo que tiene algún impacto en el rendimiento, y luego deshabilitar el historial de ejecución cuando haya terminado. Para obtener más información, vea [Creación de flujos de trabajo basados en un solo inquilino en Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#enable-run-history-stateless) o [Creación de flujos de trabajo basados en un solo inquilino en Azure Portal](create-single-tenant-workflows-visual-studio-code.md#enable-run-history-stateless).
 
@@ -137,19 +141,19 @@ Con el tipo de recurso **Logic Apps (estándar)** , puede crear estos tipos de f
 
 ### <a name="nested-behavior-differences-between-stateful-and-stateless-workflows"></a>Diferencias de comportamiento anidado entre flujos de trabajo con y sin estado
 
-Puede [hacer que se pueda llamar a un flujo de trabajo](../logic-apps/logic-apps-http-endpoint.md) desde otros flujos de trabajo que existan en el mismo recurso de **Logic Apps (estándar)** mediante el [desencadenador Solicitud](../connectors/connectors-native-reqres.md), el [desencadenador Webhook HTTP](../connectors/connectors-native-webhook.md) o los desencadenadores de conectores administrados que tienen el [tipo ApiConnectionWebhook](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger) y pueden recibir solicitudes HTTPS.
+Puede [hacer que se pueda llamar a un flujo de trabajo](logic-apps-http-endpoint.md) desde otros flujos de trabajo que existan en el mismo recurso de **Logic Apps (estándar)** mediante el [desencadenador Solicitud](../connectors/connectors-native-reqres.md), el [desencadenador Webhook HTTP](../connectors/connectors-native-webhook.md) o los desencadenadores de conectores administrados que tienen el [tipo ApiConnectionWebhook](logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger) y pueden recibir solicitudes HTTPS.
 
 Estos son los patrones de comportamiento que los flujos de trabajo anidados pueden seguir después de que un flujo de trabajo primario llame a uno secundario:
 
 * Patrón de sondeo asincrónico
 
-  El flujo de trabajo primario no espera una respuesta a su llamada inicial, pero comprueba continuamente el historial de ejecución del flujo de trabajo secundario hasta que este termina de ejecutarse. De manera predeterminada, los flujos de trabajo con estado siguen este patrón, que es ideal para flujos de trabajo secundarios de ejecución prolongada que podrían superar los [límites de tiempo de espera de las solicitudes](../logic-apps/logic-apps-limits-and-config.md).
+  El flujo de trabajo primario no espera una respuesta a su llamada inicial, pero comprueba continuamente el historial de ejecución del flujo de trabajo secundario hasta que este termina de ejecutarse. De manera predeterminada, los flujos de trabajo con estado siguen este patrón, que es ideal para flujos de trabajo secundarios de ejecución prolongada que podrían superar los [límites de tiempo de espera de las solicitudes](logic-apps-limits-and-config.md).
 
 * Patrón sincrónico ("desencadenar y olvidar")
 
   El flujo de trabajo secundario confirma la llamada devolviendo inmediatamente una respuesta `202 ACCEPTED`, y el flujo de trabajo primario continúa con la siguiente acción sin esperar los resultados del secundario. En su lugar, el primario recibe los resultados cuando el secundario termina de ejecutarse. Los flujos de trabajo con estado secundarios que no incluyen una acción Respuesta siempre siguen el patrón sincrónico. En el caso de los flujos de trabajo con estado secundarios, el historial de ejecución está disponible para su revisión.
 
-  Para habilitar este comportamiento, en la definición de JSON del flujo de trabajo, establezca la propiedad `operationOptions` en `DisableAsyncPattern`. Para obtener más información, consulte [Tipos de desencadenador y de acción: Opciones de operación](../logic-apps/logic-apps-workflow-actions-triggers.md#operation-options).
+  Para habilitar este comportamiento, en la definición de JSON del flujo de trabajo, establezca la propiedad `operationOptions` en `DisableAsyncPattern`. Para obtener más información, consulte [Tipos de desencadenador y de acción: Opciones de operación](logic-apps-workflow-actions-triggers.md#operation-options).
 
 * Desencadenar y esperar
 
@@ -173,7 +177,7 @@ El modelo de un solo inquilino y el tipo de recurso **Logic Apps (estándar)** i
 
 * Creación de aplicaciones lógicas y sus flujos de trabajo a partir de [más de 400 conectores administrados](/connectors/connector-reference/connector-reference-logicapps-connectors) para aplicaciones y servicios de Software como servicio (SaaS) y Plataforma como servicio (PaaS), además de conectores para sistemas locales.
 
-  * Ahora hay más conectores administrados disponibles como operaciones integradas y se ejecutan de forma similar a otras operaciones integradas, como Azure Functions. Las operaciones integradas se ejecutan de forma nativa en el runtime de Azure Logic Apps de un solo inquilino. Por ejemplo, las nuevas operaciones integradas incluyen Azure Service Bus, Azure Event Hubs, SQL Server y MQ.
+  * Ahora hay más conectores administrados disponibles como operaciones integradas y se ejecutan de forma similar a otras operaciones integradas, como Azure Functions. Las operaciones integradas se ejecutan de forma nativa en el runtime de Azure Logic Apps de un solo inquilino. Por ejemplo, las nuevas operaciones integradas incluyen Azure Service Bus, Azure Event Hubs, SQL Server, MQ, DB2 e IBM Host File.
 
     > [!NOTE]
     > En el caso de la versión integrada de SQL Server, solo la acción **Ejecutar consulta** puede conectarse directamente a redes virtuales de Azure sin necesitar la [puerta de enlace de datos local](logic-apps-gateway-connection.md).
@@ -191,10 +195,12 @@ El modelo de un solo inquilino y el tipo de recurso **Logic Apps (estándar)** i
     > [!NOTE]
     > Para usar estas acciones en Azure Logic Apps de inquilino único (Estándar), debe tener mapas de Liquid, mapas de XML o esquemas de XML. Puede cargar estos artefactos en Azure Portal desde el menú de recursos de la aplicación lógica, en **Artifacts**, que incluye las secciones **Schemas** y **Maps**. O bien, puede agregar estos artefactos a la carpeta **Artifacts** de su proyecto de Visual Studio Code mediante las carpetas **Maps** y **Schemas** respectivas. A continuación, puede usar estos artefactos en varios flujos de trabajo dentro del *mismo recurso de aplicación lógica*.
 
-  * Los recursos de **aplicación lógica (estándar)** pueden ejecutarse en cualquier lugar, ya que el servicio Azure Logic Apps genera cadenas de conexión de Firma de acceso compartido (SAS) que estas aplicaciones lógicas pueden usar para enviar solicitudes al punto de conexión de runtime de conexión a la nube. El servicio Azure Logic Apps guarda estas cadenas de conexión con otras opciones de configuración de la aplicación para que pueda almacenar fácilmente estos valores en Azure Key Vault al realizar la implementación en Azure.
+  * Los recursos **Logic App (Standard)** pueden ejecutarse en cualquier lugar, ya que Azure Logic Apps genera cadenas de conexión de Firma de acceso compartido (SAS) que estas aplicaciones lógicas pueden usar para enviar solicitudes al punto de conexión en tiempo de ejecución de conexión a la nube. El servicio Azure Logic Apps guarda estas cadenas de conexión con otras opciones de configuración de la aplicación para que pueda almacenar fácilmente estos valores en Azure Key Vault al realizar la implementación en Azure.
 
     > [!NOTE]
-    > De manera predeterminada, un recurso **Logic Apps (estándar)** tiene su [identidad administrada asignada por el sistema](../logic-apps/create-managed-service-identity.md) habilitada automáticamente para autenticar conexiones en tiempo de ejecución. Esta identidad se diferencia de las credenciales de autenticación o de la cadena de conexión que se usan al crear una conexión. Si deshabilita esta identidad, las conexiones no funcionarán en tiempo d ejecución. Para ver este valor, en el menú de la aplicación lógica, en **Configuración**, seleccione **Identidad**.
+    > De manera predeterminada, el tipo de recurso **Logic App (estándar)** tiene la [identidad administrada asignada por el sistema](create-managed-service-identity.md) habilitada automáticamente para autenticar conexiones en tiempo de ejecución. Esta identidad se diferencia de las credenciales de autenticación o de la cadena de conexión que se usan al crear una conexión. Si deshabilita esta identidad, las conexiones no funcionarán en tiempo d ejecución. Para ver este valor, en el menú de la aplicación lógica, en **Configuración**, seleccione **Identidad**.
+    >
+    > La identidad administrada asignada por el usuario no está disponible actualmente en el tipo de recurso **Logic App (Standard)** .
 
 * Ejecute, pruebe y depure las aplicaciones lógicas y sus flujos de trabajo localmente en el entorno de desarrollo de Visual Studio Code.
 
@@ -218,7 +224,7 @@ El modelo de un solo inquilino y el tipo de recurso **Logic Apps (estándar)** i
 
 Para el recurso **Logic Apps (estándar)** , estas funcionalidades han cambiado, o bien están limitadas, no están disponibles o no se admiten:
 
-* **Desencadenadores y acciones**: los desencadenadores y las acciones integrados se ejecutan de forma nativa en el runtime de Azure Logic Apps de un solo inquilino, mientras que los conectores administrados se hospedan y ejecutan en Azure. algunos desencadenadores integrados no están disponibles, como Ventana deslizante y Lote. Para iniciar un flujo de trabajo con o sin estado, use el [desencadenador integrado Periodicidad, Solicitud, HTTP, HTTP Webhook, Event Hubs o Service Bus](../connectors/apis-list.md). En el diseñador, las acciones y los desencadenadores integrados aparecen en la pestaña **Integrados**.
+* **Desencadenadores y acciones**: los desencadenadores y las acciones integrados se ejecutan de forma nativa en Azure Logic Apps, mientras que los conectores administrados se hospedan y se ejecutan en Azure. Algunos desencadenadores y acciones integrados no están disponibles, como Ventana deslizante, Batch, Azure App Service y Azure API Management. Para iniciar un flujo de trabajo con o sin estado, use el [desencadenador integrado Periodicidad, Solicitud, HTTP, HTTP Webhook, Event Hubs o Service Bus](../connectors/apis-list.md). En el diseñador, las acciones y los desencadenadores integrados aparecen en la pestaña **Integrados**.
 
   En los flujos de trabajo *con estado*, los [desencadenadores y las acciones del conector administrado](../connectors/managed.md) aparecen en la pestaña **Azure**, excepto las operaciones no disponibles que se enumeran a continuación. En el caso de los flujos de trabajo *sin estado*, la pestaña **Azure** no aparece cuando se selecciona un desencadenador. Solo puede seleccionar [*acciones* del conector administrado, no desencadenadores](../connectors/managed.md). Aunque puede habilitar conectores administrados hospedados por Azure para flujos de trabajo sin estado, el diseñador no muestra ningún desencadenador de conector administrado para que pueda agregarlo.
 
@@ -242,11 +248,17 @@ Para el recurso **Logic Apps (estándar)** , estas funcionalidades han cambiado,
 
     * La acción integrada [Azure Logic Apps: Elegir un flujo de trabajo de aplicación lógica](logic-apps-http-endpoint.md) es ahora **Operaciones de flujo de trabajo: Invocar un flujo de trabajo en esta aplicación de flujo de trabajo**.
 
-    * Algunos [desencadenadores y acciones integrados de las cuentas de integración](../connectors/managed.md#integration-account-connectors) no están disponibles, como las acciones de codificación y descodificación de **Archivo plano**.
+    * Algunos [desencadenadores y acciones de cuentas de integración](../connectors/managed.md#integration-account-connectors) no están disponibles, como las acciones de archivo plano, las acciones AS2 (V2) y las acciones RosettaNet.
 
     * Actualmente, no se admiten [conectores administrados personalizados](../connectors/apis-list.md#custom-apis-and-connectors). Sin embargo, puede crear *operaciones integradas personalizadas* si usa Visual Studio Code. Para obtener más información, revise [Creación de flujos de trabajo basados en un solo inquilino mediante Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#enable-built-in-connector-authoring).
 
-* Para la transformación XML, la compatibilidad para hacer referencia a ensamblados desde mapas no está disponible actualmente. Además, actualmente solo se admite XSLT 1.0.
+* **Autenticación**: los siguientes tipos de autenticación no están disponibles actualmente para el tipo de recurso **Logic App (Standard)** :
+
+  * Azure Active Directory Open Authentication (Azure AD OAuth) para llamadas entrantes a desencadenadores basados en solicitudes, como el desencadenador de solicitud y el desencadenador de webhook HTTP.
+
+  * Identidad administrada asignada por el usuario. Actualmente, solo la identidad administrada asignada por el sistema está disponible y habilitada automáticamente.
+
+* **Transformación XML**: la compatibilidad con las referencias a ensamblados desde mapas no está disponible actualmente. Además, actualmente solo se admite XSLT 1.0.
 
 * **Depuración de puntos de interrupción en Visual Studio Code**: aunque puede agregar y usar puntos de interrupción dentro del archivo **workflow.json** de un flujo de trabajo, los puntos de interrupción solo se admiten en las acciones en este momento, no en los desencadenadores. Para obtener más información, vea [Creación de flujos de trabajo basados en un solo inquilino en Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#manage-breakpoints).
 
@@ -254,7 +266,7 @@ Para el recurso **Logic Apps (estándar)** , estas funcionalidades han cambiado,
 
 * **Control de zoom**: el control de zoom no está disponible actualmente en el diseñador.
 
-* **Destinos de implementación**: no se puede implementar el tipo de recurso **Logic Apps (estándar)** en un [entorno del servicio de integración (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) ni en ranuras de implementación de Azure.
+* **Destinos de implementación**: no se puede implementar el tipo de recurso **Logic Apps (estándar)** en un [entorno del servicio de integración (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md) ni en ranuras de implementación de Azure.
 
 * **Azure API Management**: actualmente no se puede importar el tipo de recurso **Logic Apps (estándar)** en Azure API Management. Sin embargo, puede importar el tipo de recurso **Logic Apps (consumo)** .
 

@@ -1,29 +1,29 @@
 ---
 title: Copia de datos a o desde Azure Data Explorer
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Obtenga información sobre cómo copiar con Azure Data Explorer como origen o destino mediante una actividad de copia de una canalización de Azure Data Factory.
-ms.author: susabat
-author: ssabat
+description: Aprenda a copiar datos en Azure Data Explorer y desde ahí mediante una actividad de copia en una canalización de Azure Data Factory o Synapse Analytics.
+ms.author: orspodek
+author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/30/2021
-ms.openlocfilehash: 4f3718699e7438b3b45c84eebebbbbf75126d793
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.date: 09/09/2021
+ms.openlocfilehash: 511e1d58e3abf3c44025a02059c5d6aa947809c0
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123304629"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124771904"
 ---
-# <a name="copy-data-to-or-from-azure-data-explorer-by-using-azure-data-factory"></a>Copia de datos con Azure Data Explorer como origen o destino mediante Azure Data Factory
+# <a name="copy-data-to-or-from-azure-data-explorer-using-azure-data-factory-or-synapse-analytics"></a>Copia de datos en Azure Data Explorer o desde ahí mediante Azure Data Factory o Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-En este artículo se describe el uso de la actividad de copia de Azure Data Factory para copiar datos con [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) como origen o destino. Se basa en el artículo [Actividad de copia en Azure Data Factory](copy-activity-overview.md), en el que se ofrece información general acerca de la actividad de copia.
+En este artículo se describe el uso de la actividad de copia en canalizaciones de Azure Data Factory y Synapse Analytics para copiar datos en [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) o desde ahí. Se basa en el artículo [Actividad de copia en Azure Data Factory](copy-activity-overview.md), en el que se ofrece información general acerca de la actividad de copia.
 
 >[!TIP]
->Para la integración de Azure Data Explorer y Azure Data Factory en general, obtenga más información en [Integración de Azure Data Explorer con Azure Data Factory](/azure/data-explorer/data-factory-integration).
+>Para más información sobre la integración de Azure Data Explorer con el servicio en general, lea [Integración de Azure Data Explorer](/azure/data-explorer/data-factory-integration).
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
@@ -46,7 +46,7 @@ El conector de Azure Data Explorer permite hacer lo siguiente:
 ## <a name="getting-started"></a>Introducción
 
 >[!TIP]
->Para ver un tutorial sobre el uso del conector de Azure Data Explorer, consulte [Copia de datos con Azure Data Explorer como origen o destino mediante Azure Data Factory](/azure/data-explorer/data-factory-load-data) y [Copia en bloque desde una base de datos a Azure Data Explorer](/azure/data-explorer/data-factory-template).
+>Para ver un tutorial sobre el uso del conector de Azure Data Explorer, consulte [Copia de datos con Azure Data Explorer como origen o destino mediante Azure Data Factory](/azure/data-explorer/data-factory-load-data) y [Copia masiva desde una base de datos a Azure Data Explorer](/azure/data-explorer/data-factory-template).
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
@@ -100,7 +100,7 @@ Para usar la autenticación de la entidad de servicio, siga estos pasos para obt
     - **Como receptor**, conceder al menos el rol **Agente de ingesta de base de datos** a la base de datos.
 
 >[!NOTE]
->Cuando utiliza la interfaz de usuario de Data Factory para crear, de forma predeterminada, se usa la cuenta de usuario de inicio de sesión para enumerar los clústeres, bases de datos y tablas de Azure Data Explorer. Para mostrar los objetos mediante la entidad de servicio, haga clic en la lista desplegable situada junto al botón Actualizar o escriba manualmente el nombre si no tiene permiso para estas operaciones.
+>Cuando utiliza la interfaz de usuario para crear, de forma predeterminada se usa la cuenta de usuario de inicio de sesión para enumerar los clústeres, las bases de datos y las tablas de Azure Data Explorer. Para mostrar los objetos mediante la entidad de servicio, haga clic en la lista desplegable situada junto al botón Actualizar o escriba manualmente el nombre si no tiene permiso para estas operaciones.
 
 Las siguientes propiedades son compatibles con el servicio vinculado de Azure Data Explorer:
 
@@ -111,7 +111,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Azure Da
 | database | Nombre de la base de datos. | Sí |
 | tenant | Especifique la información del inquilino (nombre de dominio o identificador de inquilino) en el que reside la aplicación. Esto se conoce como "Id. de autoridad" en la [cadena de conexión de Kusto](/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Para recuperarlo, mantenga el puntero del mouse en la esquina superior derecha de Azure Portal. | Sí |
 | servicePrincipalId | Especifique el id. de cliente de la aplicación. Esto se conoce como "Id. del cliente de aplicación de AAD" en la [cadena de conexión de Kusto](/azure/kusto/api/connection-strings/kusto#application-authentication-properties). | Sí |
-| servicePrincipalKey | Especifique la clave de la aplicación. Esto se conoce como "Clave de aplicación de AAD" en la [cadena de conexión de Kusto](/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Marque este campo como **SecureString** para almacenarlo de forma segura en Data Factory, o bien [haga referencia a datos seguros almacenados en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
+| servicePrincipalKey | Especifique la clave de la aplicación. Esto se conoce como "Clave de aplicación de AAD" en la [cadena de conexión de Kusto](/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Marque este campo como **SecureString** para almacenarlo de forma segura, o bien [haga referencia a los datos seguros almacenados en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
 | connectVia | El [entorno de ejecución de integración](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Si el almacén de datos está en una red privada, se puede usar Azure Integration Runtime o un entorno de ejecución de integración autohospedado. Si no se especifica, se usa el valor predeterminado de Azure Integration Runtime. |No |
 
 **Ejemplo: uso de la autenticación de claves de entidad de servicio**
@@ -141,7 +141,7 @@ Para obtener más información sobre las identidades administradas para los recu
 
 Para usar la autenticación de identidad administrada asignada por el sistema, siga estos pasos a fin de conceder los permisos:
 
-1. [Recupere la información de la identidad administrada de Data Factory](data-factory-service-identity.md#retrieve-managed-identity) mediante la copia del valor de **Id. del objeto de identidad administrada** que se ha generado junto con la factoría.
+1. [Recupere la información de la identidad administrada](data-factory-service-identity.md#retrieve-managed-identity) mediante la copia del valor de **Id. del objeto de identidad administrada** que se ha generado junto con la factoría o el área de trabajo de Synapse.
 
 2. Conceda a la identidad administrada los permisos correctos en Azure Data Explorer. Consulte [Administración de permisos de base de datos de Azure Data Explorer](/azure/data-explorer/manage-database-permissions) para obtener información detallada sobre los roles y los permisos, así como información sobre la administración de permisos. En general, debe:
 
@@ -149,7 +149,7 @@ Para usar la autenticación de identidad administrada asignada por el sistema, s
     - **Como receptor**, conceder al menos el rol **Agente de ingesta de base de datos** a la base de datos.
 
 >[!NOTE]
->Cuando utiliza la interfaz de usuario de Data Factory para crear, se usa la cuenta de usuario de inicio de sesión para enumerar los clústeres, bases de datos y tablas de Azure Data Explorer. Escriba manualmente el nombre si no tiene permiso para realizar estas operaciones.
+>Cuando utiliza la interfaz de usuario para crear, se usa la cuenta de usuario de inicio de sesión para enumerar los clústeres, las bases de datos y las tablas de Azure Data Explorer. Escriba manualmente el nombre si no tiene permiso para realizar estas operaciones.
 
 Las siguientes propiedades son compatibles con el servicio vinculado de Azure Data Explorer:
 
@@ -185,7 +185,7 @@ Para usar la autenticación de identidad administrada asignada por el usuario, s
     - **Como origen**, conceder al menos el rol **Visor de base de datos** a la base de datos.
     - **Como receptor**, conceder al menos el rol **Agente de ingesta de base de datos** a la base de datos.
      
-2. Asigne una o varias identidades administradas asignadas por el usuario a la factoría de datos y [cree credenciales](data-factory-service-identity.md#credentials) para cada identidad administrada asignada por el usuario.
+2. Asigne una o varias identidades administradas asignadas por el usuario a la factoría de datos o al área de trabajo de Synapse y [cree credenciales](data-factory-service-identity.md#credentials) para cada una de estas entidades.
 
 Las siguientes propiedades son compatibles con el servicio vinculado de Azure Data Explorer:
 
@@ -194,7 +194,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Azure Da
 | type | La propiedad **type** se debe establecer en **AzureDataExplorer**. | Sí |
 | endpoint | Dirección URL del punto de conexión del clúster de Azure Data Explorer, con el formato como `https://<clusterName>.<regionName>.kusto.windows.net`. | Sí |
 | database | Nombre de la base de datos. | Sí |
-| credentials | Especifique la identidad administrada asignada por el usuario como el objeto de credencial. | Sí |
+| credentials | Especifique la identidad administrada asignada por el usuario como objeto de credencial. | Sí |
 | connectVia | El [entorno de ejecución de integración](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Si el almacén de datos está en una red privada, se puede usar Azure Integration Runtime o un entorno de ejecución de integración autohospedado. Si no se especifica, se usa el valor predeterminado de Azure Integration Runtime. |No |
 
 **Ejemplo: uso de la autenticación de identidad administrada asignada por el usuario**
@@ -217,7 +217,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Azure Da
 
 ## <a name="dataset-properties"></a>Propiedades del conjunto de datos
 
-Si quiere ver una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, consulte [Conjuntos de datos en Azure Data Factory](concepts-datasets-linked-services.md). En esta sección se enumeran las propiedades compatibles con el conjunto de datos de Azure Data Explorer.
+Si desea ver una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, consulte [Conjuntos de datos](concepts-datasets-linked-services.md). En esta sección se enumeran las propiedades compatibles con el conjunto de datos de Azure Data Explorer.
 
 Para copiar datos a Azure Data Explorer, establezca la propiedad type del conjunto de datos en **AzureDataExplorerTable**.
 
@@ -249,7 +249,7 @@ Se admiten las siguientes propiedades:
 
 ## <a name="copy-activity-properties"></a>Propiedades de la actividad de copia
 
-Para ver una lista completa de las secciones y propiedades disponibles para definir actividades, consulte [Canalizaciones y actividades en Azure Data Factory](concepts-pipelines-activities.md). En esta sección se proporciona una lista de las propiedades compatibles con los orígenes y los receptores de Azure Data Explorer.
+Para ver una lista completa de las secciones y propiedades disponibles para definir actividades, consulte [Canalizaciones y actividades](concepts-pipelines-activities.md). En esta sección se proporciona una lista de las propiedades compatibles con los orígenes y los receptores de Azure Data Explorer.
 
 ### <a name="azure-data-explorer-as-source"></a>Azure Data Explorer como origen
 
@@ -347,6 +347,6 @@ Para más información sobre las propiedades, consulte [Actividad de búsqueda](
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para ver una lista de los almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores, consulte los [almacenes de datos que se admiten](copy-activity-overview.md#supported-data-stores-and-formats).
+* Para ver una lista de los almacenes de datos que la actividad de copia admite como orígenes y receptores, consulte [Almacenes de datos admitidos](copy-activity-overview.md#supported-data-stores-and-formats).
 
-* Obtenga más información sobre la [copia de datos de Azure Data Factory a Azure Data Explorer](/azure/data-explorer/data-factory-load-data).
+* Más información sobre la [copia de datos de Azure Data Factory y Synapse Analytics a Azure Data Explorer](/azure/data-explorer/data-factory-load-data).

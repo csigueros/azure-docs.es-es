@@ -7,13 +7,13 @@ ms.reviewer: anbene
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 07/12/2021
-ms.openlocfilehash: 0d5c178010012546bfcf786be7106f980289d6eb
-ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
+ms.date: 09/27/2021
+ms.openlocfilehash: 545e868a902390929254ae6c03d668f8e0d1d10f
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114204488"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129079734"
 ---
 # <a name="create-a-managed-service-offer-for-the-commercial-marketplace"></a>Creación de una oferta de servicio administrado en el marketplace comercial
 
@@ -23,20 +23,47 @@ Para publicar una oferta de servicio administrado, debe haber obtenido una compe
 
 ## <a name="create-a-new-offer"></a>Crear una nueva oferta
 
-1. Inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard/home).
-2. En el menú de navegación izquierdo, seleccione **Marketplace comercial** > **Información general**.
-3. En la pestaña Información general, seleccione **+ Nueva oferta** > **Servicio administrado**.
+[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
 
-:::image type="content" source="./media/new-offer-managed-service.png" alt-text="Muestra el menú de navegación izquierdo.":::
+#### <a name="workspaces-view"></a>[Vista Áreas de trabajo](#tab/workspaces-view)
 
-4. En el cuadro de diálogo **Nueva oferta**, escriba un valor para **Id. de oferta**. Se trata de un identificador único para cada oferta de su cuenta. Este identificador es visible en la dirección URL de la oferta del marketplace comercial y de las plantillas de Azure Resource Manager, si procede. Por ejemplo, si escribe test-offer-1 en este cuadro, la dirección web de la oferta será `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+1. Inicie sesión en el [Centro de partners](https://go.microsoft.com/fwlink/?linkid=2166002).
+
+1. En la página principal, seleccione el elemento **Ofertas de Marketplace**.
+
+    [ ![Muestra el elemento Ofertas de Marketplace en la página principal del Centro de partners.](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
+
+1. En la página Ofertas de Marketplace, seleccione **+ Nueva oferta** > **Servicio administrado**.
+
+    [ ![Muestra la opción de tipo de oferta Servicio administrado.](./media/new-offer-managed-service-workspaces.png) ](./media/new-offer-managed-service-workspaces.png#lightbox)
+
+1. En el cuadro de diálogo **Nuevo servicio administrado**, especifique un **Id. de oferta**. Se trata de un identificador único para cada oferta de su cuenta. Este identificador es visible en la dirección URL de la oferta del marketplace comercial y de las plantillas de Azure Resource Manager, si procede. Por ejemplo, si escribe test-offer-1 en este cuadro, la dirección web de la oferta será `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
 
     - Cada oferta de su cuenta debe tener un identificador único.
     - Use solo letras minúsculas y números. Puede incluir guiones y caracteres de subrayado, pero no espacios, y está limitado a 50 caracteres.
     - El identificador de oferta no se puede cambiar después de seleccionar **Crear**.
 
-5. Escriba un **Alias de la oferta**. Este es el nombre que se usa para la oferta en el Centro de partners. No se puede ver en las tiendas en línea y es diferente del nombre de oferta que se muestra a los clientes.
-6. Para generar la oferta y continuar, seleccione **Crear**.
+1. Escriba un **Alias de la oferta**. Este es el nombre que se usa para la oferta en el Centro de partners. No se puede ver en las tiendas en línea y es diferente del nombre de oferta que se muestra a los clientes.
+1. Para generar la oferta y continuar, seleccione **Crear**.
+
+#### <a name="current-view"></a>[Vista actual](#tab/current-view)
+
+1. Inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard/home).
+1. En el menú de navegación izquierdo, seleccione **Marketplace comercial** > **Información general**.
+1. En la pestaña Información general, seleccione **+ Nueva oferta** > **Servicio administrado**.
+
+    :::image type="content" source="./media/new-offer-managed-service.png" alt-text="Muestra el menú de navegación izquierdo.":::
+
+1. En el cuadro de diálogo **Nueva oferta**, escriba un valor para **Id. de oferta**. Se trata de un identificador único para cada oferta de su cuenta. Este identificador es visible en la dirección URL de la oferta del marketplace comercial y de las plantillas de Azure Resource Manager, si procede. Por ejemplo, si escribe test-offer-1 en este cuadro, la dirección web de la oferta será `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+
+    - Cada oferta de su cuenta debe tener un identificador único.
+    - Use solo letras minúsculas y números. Puede incluir guiones y caracteres de subrayado, pero no espacios, y está limitado a 50 caracteres.
+    - El identificador de oferta no se puede cambiar después de seleccionar **Crear**.
+
+1. Escriba un **Alias de la oferta**. Este es el nombre que se usa para la oferta en el Centro de partners. No se puede ver en las tiendas en línea y es diferente del nombre de oferta que se muestra a los clientes.
+1. Para generar la oferta y continuar, seleccione **Crear**.
+
+---
 
 ## <a name="setup-details"></a>Detalles de la configuración
 

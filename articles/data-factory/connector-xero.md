@@ -1,26 +1,26 @@
 ---
-title: Copia de datos de Xero con Azure Data Factory
+title: Copia de datos de Xero
+description: Aprenda a copiar datos de Xero en almacenes de datos receptores compatibles mediante una actividad de copia de una canalización de Azure Data Factory o Synapse Analytics.
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Obtenga información sobre cómo copiar datos desde Xero a almacenes de datos receptores compatibles a través de una actividad de copia de una canalización de Azure Data Factory.
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/30/2021
+ms.date: 09/09/2021
 ms.author: jianleishen
-ms.openlocfilehash: c95efb768dc66dd35a88d0cd57d37e4d7e43ce3c
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: 17b92068145ac07833f7e73cc4d694a89f39ad7f
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123311117"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124779851"
 ---
-# <a name="copy-data-from-xero-using-azure-data-factory"></a>Copia de datos de Xero con Azure Data Factory
+# <a name="copy-data-from-xero-using-azure-data-factory-or-synapse-analytics"></a>Copia de datos de Xero con Azure Data Factory o Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-En este artículo se explica el uso de la actividad de copia de Azure Data Factory para copiar datos de Xero. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
+En este artículo se explica cómo usar la actividad de copia de una canalización de Azure Data Factory o Synapse Analytics para copiar datos de Xero. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
@@ -48,7 +48,7 @@ Siga estos pasos para crear un servicio vinculado en Xero en la interfaz de usua
 
     # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
 
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Creación de un nuevo servicio vinculado con la interfaz de usuario de Azure Data Factory.":::
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Creación de un servicio vinculado con la interfaz de usuario de Azure Data Factory":::
 
     # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
 
@@ -78,10 +78,10 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Xero:
 | ***En`connectionProperties`:*** | | |
 | host | El punto de conexión del servidor de Xero (`api.xero.com`).  | Sí |
 | authenticationType | Los valores permitidos son `OAuth_2.0` y `OAuth_1.0`. | Sí |
-| consumerKey | Para OAuth 2.0, especifique el **id. de cliente** para la aplicación Xero.<br>Para OAuth 1.0, especifique la clave de consumidor asociada a la aplicación Xero.<br>Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
-| privateKey | Para OAuth 2.0, especifique el **secreto de cliente*** para la aplicación Xero.<br>Para OAuth 1.0, especifique la clave privada del archivo .pem que se generó para la aplicación privada Xero; consulte [Creación de un par de claves pública y privada](https://developer.xero.com/documentation/auth-and-limits/create-publicprivate-key). Asegúrese de **generar el archivo privatekey.pem con numbits de 512** con `openssl genrsa -out privatekey.pem 512`; 1024 no se admite. Incluya todo el texto del archivo .pem, así como los finales de línea Unix (\n). Vea el ejemplo a continuación.<br/><br>Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
+| consumerKey | Para OAuth 2.0, especifique el **id. de cliente** para la aplicación Xero.<br>Para OAuth 1.0, especifique la clave de consumidor asociada a la aplicación Xero.<br>Marque este campo como SecureString para almacenarlo de forma segura, o bien [haga referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
+| privateKey | Para OAuth 2.0, especifique el **secreto de cliente*** para la aplicación Xero.<br>Para OAuth 1.0, especifique la clave privada del archivo .pem que se generó para la aplicación privada Xero; consulte [Creación de un par de claves pública y privada](https://developer.xero.com/documentation/auth-and-limits/create-publicprivate-key). Asegúrese de **generar el archivo privatekey.pem con numbits de 512** con `openssl genrsa -out privatekey.pem 512`; 1024 no se admite. Incluya todo el texto del archivo .pem, así como los finales de línea Unix (\n). Vea el ejemplo a continuación.<br/><br>Marque este campo como SecureString para almacenarlo de forma segura, o bien [haga referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
 | tenantId | Identificador de inquilino asociado a la aplicación Xero. Aplicable para la autenticación de OAuth 2.0.<br>Aprenda a obtener el identificador de inquilino en la sección [Comprobación de los inquilinos a los que tiene autorizado el acceso](https://developer.xero.com/documentation/oauth2/auth-flow). | Sí para la autenticación de OAuth 2.0 |
-| refreshToken | Aplicable para la autenticación de OAuth 2.0.<br/>El token de actualización de OAuth 2.0 está asociado a la aplicación Xero y se usa para actualizar el token de acceso, que expira después de 30 minutos. Obtenga información sobre cómo funciona el flujo de autorización de Xero y cómo obtener el token de actualización en [este artículo](https://developer.xero.com/documentation/oauth2/auth-flow). Para obtener un token de actualización, debe solicitar el [ámbito offline_access](https://developer.xero.com/documentation/oauth2/scopes). <br/>**Limitación conocida**: tenga en cuenta que Xero restablece el token de actualización después de que se use para la actualización del token de acceso. En el caso de cargas de trabajo operativas, antes de que se ejecute la actividad de copia, debe establecer un token de actualización válido para que lo use ADF.<br/>Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí para la autenticación de OAuth 2.0 |
+| refreshToken | Aplicable para la autenticación de OAuth 2.0.<br/>El token de actualización de OAuth 2.0 está asociado a la aplicación Xero y se usa para actualizar el token de acceso, que expira después de 30 minutos. Obtenga información sobre cómo funciona el flujo de autorización de Xero y cómo obtener el token de actualización en [este artículo](https://developer.xero.com/documentation/oauth2/auth-flow). Para obtener un token de actualización, debe solicitar el [ámbito offline_access](https://developer.xero.com/documentation/oauth2/scopes). <br/>**Limitación conocida**: tenga en cuenta que Xero restablece el token de actualización después de que se use para la actualización del token de acceso. En el caso de cargas de trabajo operativas, antes de que se ejecute la actividad de copia, debe establecer un token de actualización válido para que lo use el servicio.<br/>Marque este campo como SecureString para almacenarlo de forma segura, o bien [haga referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí para la autenticación de OAuth 2.0 |
 | useEncryptedEndpoints | Especifica si los puntos de conexión de origen de datos se cifran mediante HTTPS. El valor predeterminado es true.  | No |
 | useHostVerification | Especifica si se requiere que el nombre de host del certificado del servidor coincida con el nombre de host del servidor al conectarse a través de TLS. El valor predeterminado es true.  | No |
 | usePeerVerification | Especifica si se debe verificar la identidad del servidor al conectarse a través de TLS. El valor predeterminado es true.  | No |

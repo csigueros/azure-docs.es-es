@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 04/02/2021
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 3b2ad11abb7d1a3e64deef1ca49d9f84f03e5879
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 8e592f8783bb0659a453c8d7d54cddf921f5b1e1
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107498346"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128606938"
 ---
 # <a name="copy-data-from-google-cloud-storage-to-azure-storage-by-using-azcopy-preview"></a>Copia de datos de Google Cloud Storage a Azure Storage con AzCopy (versión preliminar)
 
@@ -21,19 +21,20 @@ AzCopy es una utilidad de línea de comandos que puede usar para copiar blobs o 
 
 > [!IMPORTANT]
 > La copia de datos de Google Cloud Storage a Azure Storage se encuentra actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
+> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="choose-how-youll-provide-authorization-credentials"></a>Elección del modo de proporcionar las credenciales de autorización
 
-* Para la autorización con Azure Storage, use Azure Active Directory (AD) o un token de firma de acceso compartido (SAS).
+- Para la autorización con Azure Storage, use Azure Active Directory (AD) o un token de firma de acceso compartido (SAS).
 
-* Para la autorización con Google Cloud Storage, use una clave de cuenta de servicio.
+- Para la autorización con Google Cloud Storage, use una clave de cuenta de servicio.
 
 ### <a name="authorize-with-azure-storage"></a>Autorización con Azure Storage
 
 Vea el artículo [Introducción a AzCopy](storage-use-azcopy-v10.md) para descargar AzCopy y obtener información sobre las formas de proporcionar credenciales de autorización para el servicio de almacenamiento.
 
-> [!NOTE] 
+> [!NOTE]
 > En los ejemplos de este artículo se da por hecho que ha proporcionado credenciales de autorización mediante Azure Active Directory (Azure AD).
 >
 > Si prefiere usar un token de SAS para autorizar el acceso a los datos de blob, puede anexar ese token a la dirección URL de recursos en cada comando AzCopy. Por ejemplo: `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`.
@@ -57,7 +58,7 @@ AzCopy usa la API [Put Block From URL](/rest/api/storageservices/put-block-from-
 > [!TIP]
 > En los ejemplos de esta sección se delimitan los argumentos de ruta de acceso con comillas simples (''). Use comillas simples en todos los shells de comandos excepto en el shell de comandos de Windows (cmd.exe). Si usa un shell de comandos de Windows (cmd.exe), incluya los argumentos de la ruta de acceso entre comillas dobles ("") en lugar de comillas simples ('').
 
- Estos ejemplos también funcionan con las cuentas que tienen un espacio de nombres jerárquico. El [acceso multiprotocolo en Data Lake Storage](../blobs/data-lake-storage-multi-protocol-access.md) le permite usar la misma sintaxis de URL (`blob.core.windows.net`) en esas cuentas. 
+ Estos ejemplos también funcionan con las cuentas que tienen un espacio de nombres jerárquico. El [acceso multiprotocolo en Data Lake Storage](../blobs/data-lake-storage-multi-protocol-access.md) le permite usar la misma sintaxis de URL (`blob.core.windows.net`) en esas cuentas.
 
 ### <a name="copy-an-object"></a>Copia de un objeto
 
@@ -72,7 +73,6 @@ Use la misma sintaxis de URL (`blob.core.windows.net`) para las cuentas que tien
 ```azcopy
 azcopy copy 'https://storage.cloud.google.com/mybucket/myobject' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myblob'
 ```
-
 
 ### <a name="copy-a-directory"></a>Copia de un directorio
 
@@ -119,7 +119,7 @@ Use la misma sintaxis de URL (`blob.core.windows.net`) para las cuentas que tien
 azcopy copy 'https://storage.cloud.google.com/mybucket' 'https://mystorageaccount.blob.core.windows.net' --recursive=true
 ```
 
-### <a name="copy-all-buckets-in-a-google-cloud-project"></a>Copia de todos los cubos en un proyecto de Google Cloud 
+### <a name="copy-all-buckets-in-a-google-cloud-project"></a>Copia de todos los cubos en un proyecto de Google Cloud
 
 En primer lugar, establezca el valor de `GOOGLE_CLOUD_PROJECT` en el identificador del proyecto de Google Cloud.
 
@@ -135,7 +135,7 @@ Use la misma sintaxis de URL (`blob.core.windows.net`) para las cuentas que tien
 azcopy copy 'https://storage.cloud.google.com/' 'https://mystorageaccount.blob.core.windows.net' --recursive=true
 ```
 
-### <a name="copy-a-subset-of-buckets-in-a-google-cloud-project"></a>Copia de un subconjunto de cubos en un proyecto de Google Cloud 
+### <a name="copy-a-subset-of-buckets-in-a-google-cloud-project"></a>Copia de un subconjunto de cubos en un proyecto de Google Cloud
 
 En primer lugar, establezca el valor de `GOOGLE_CLOUD_PROJECT` en el identificador del proyecto de Google Cloud.
 
@@ -155,13 +155,13 @@ azcopy copy 'https://storage.cloud.google.com/my*bucket' 'https://mystorageaccou
 
 Google Cloud Storage tiene otro conjunto de convenciones de nomenclatura para los nombres de cubo, en comparación con los contenedores de blobs de Azure. [Aquí](https://cloud.google.com/storage/docs/naming-buckets) puede leer más al respecto. Si elige copiar un grupo de cubos en una cuenta de Azure Storage, es posible que se produzca un error en la operación de copia debido a las diferencias de nomenclatura.
 
-AzCopy se encarga de tres de los problemas más comunes que pueden surgir; cubos que contienen puntos, cubos que contienen guiones consecutivos y cubos que contienen guiones bajos. Los nombres de cubo de Google Cloud Storage pueden contener puntos y guiones consecutivos, pero un contenedor de Azure no. AzCopy reemplaza los puntos con guiones y los guiones consecutivos con un número que representa el número de guiones consecutivos (por ejemplo: un cubo denominado `my----bucket` se convierte en `my-4-bucket`). Si el nombre del cubo tiene un guion bajo (`_`), AzCopy lo reemplaza por un guion (por ejemplo: un depósito denominado `my_bucket` se convierte en `my-bucket`). 
+AzCopy se encarga de tres de los problemas más comunes que pueden surgir; cubos que contienen puntos, cubos que contienen guiones consecutivos y cubos que contienen guiones bajos. Los nombres de cubo de Google Cloud Storage pueden contener puntos y guiones consecutivos, pero un contenedor de Azure no. AzCopy reemplaza los puntos con guiones y los guiones consecutivos con un número que representa el número de guiones consecutivos (por ejemplo: un cubo denominado `my----bucket` se convierte en `my-4-bucket`). Si el nombre del cubo tiene un guion bajo (`_`), AzCopy lo reemplaza por un guion. Por ejemplo, un cubo de nombre `my_bucket` se convierte en `my-bucket`.
 
 ## <a name="handle-differences-in-object-naming-rules"></a>Control de las diferencias en las reglas de nomenclatura de objetos
 
 Google Cloud Storage tiene otro conjunto de convenciones de nomenclatura para los nombres de objeto, en comparación con los blobs de Azure. [Aquí](https://cloud.google.com/storage/docs/naming-objects) puede leer más al respecto.
 
-Azure Storage no permite que los nombres de objeto (o cualquier segmento de la ruta de acceso del directorio virtual) terminen con puntos finales (por ejemplo, `my-bucket...`). Los puntos finales se eliminan cuando se realiza la operación de copia. 
+Azure Storage no permite que los nombres de objeto (o cualquier segmento de la ruta de acceso del directorio virtual) terminen con puntos finales (por ejemplo, `my-bucket...`). Los puntos finales se eliminan cuando se realiza la operación de copia.
 
 ## <a name="handle-differences-in-object-metadata"></a>Control de las diferencias en los metadatos de objetos
 

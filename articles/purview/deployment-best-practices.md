@@ -4,15 +4,14 @@ description: En este artículo se proporcionan los procedimientos recomendados p
 author: shsandeep123
 ms.author: sandeepshah
 ms.service: purview
-ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/23/2020
-ms.openlocfilehash: 4aa2a22f6e7bfef4a04eb65ac6063c81077b6153
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: d357a85449a6ae734b3311f2649180b36646d4f4
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121739102"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129214339"
 ---
 # <a name="azure-purview-deployment-best-practices"></a>Procedimientos recomendados de implementación de Azure Purview
 
@@ -168,7 +167,6 @@ En esta fase, Purview debe crearse y configurarse para un conjunto muy pequeño 
 |Tarea|Detail|Duration|
 |---------|---------|---------|
 |Recopilación y acuerdo de los requisitos|Debate con todas las partes interesadas para recopilar un conjunto completo de requisitos. Los distintos roles deben participar para aceptar un subconjunto de requisitos para cada fase del proyecto.|1 semana|
-|Configuración de Starter Kit|Vaya al [Inicio rápido de Purview](create-catalog-portal.md) y configure el [Starter Kit de Purview](tutorial-scan-data.md) para demostrar cómo funciona a todas las partes interesadas.|1 día|
 |Navegar por Purview|Aprenda a usar Purview desde la página principal.|1 día|
 |Configuración de ADF para el linaje|Identifique las canalizaciones clave y los recursos de datos. Recopile toda la información necesaria para conectarse a una cuenta de ADF interna.|1 día|
 |Examen de un origen de datos, como Azure Data Lake Storage|Agregue el origen de datos y configure un examen. Asegúrese de que el examen detecta todos los recursos correctamente.|2 días|
@@ -199,7 +197,7 @@ Una vez que tenga los requisitos acordados y las unidades de negocio que partici
 |[Examen de Power BI](register-scan-power-bi-tenant.md)|Si su organización usa Power BI, puede examinar su instancia de Power BI para recopilar todos los recursos de datos que usen los Científicos de datos o los Analistas de datos, ya que tienen requisitos para incluir el linaje de la capa de almacenamiento.|1 a 2 semanas|
 |[Importación de los términos del glosario](how-to-create-import-export-glossary.md)|En la mayoría de los casos, es posible que su organización ya haya desarrollado una colección de términos de glosario y un modo de asignar esos términos a los recursos. Esto requerirá un proceso de importación en Purview a través del archivo .csv.|1 semana|
 |Agregación de contactos a los recursos|En el caso de los recursos principales, es posible que quiera establecer un proceso que permita a otros roles asignar contactos o importarlos a través de las API de REST.|1 semana|
-|Agregación de etiquetas y exámenes|Esto puede ser opcional para algunas organizaciones, dependiendo del uso de la etiqueta de M365.|1 a 2 semanas|
+|Agregación de etiquetas y exámenes|Esto puede ser opcional en algunas organizaciones, en función del uso de etiquetado de Microsoft 365.|1 a 2 semanas|
 |Obtención de clasificaciones y de información confidencial|Para la elaboración de informes y detalles en Purview, puede acceder a esta funcionalidad para obtener varios informes y proporcionar una presentación a la administración.|1 día|
 |Incorporación de usuarios adicionales con usuarios administrados mediante Purview|Este paso requerirá que el administrador de Purview trabaje con el administrador de Azure Active Directory para establecer nuevos grupos de seguridad que concedan acceso a Purview.|1 semana|
 
@@ -267,5 +265,5 @@ Se pueden realizar pasos adicionales de protección:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Tutorial: ejecución de Starter Kit y examen de datos](tutorial-scan-data.md)
-- [Tutorial: navegación por la página principal y búsqueda de un recurso](tutorial-asset-search.md)
+- [Procedimientos recomendados para recopilaciones en Configuration Manager](concept-best-practices-collections.md)
+- [Desplazamiento por la página principal y búsqueda de un recurso](tutorial-asset-search.md)

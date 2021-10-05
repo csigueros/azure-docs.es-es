@@ -11,12 +11,12 @@ ms.reviewer: cephalin
 ms.custom: seodec18, devx-track-java, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
 adobe-target: true
-ms.openlocfilehash: 1e62937a4240448f85cc7ab147d642b29bb0a2a9
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: c7cf2aaeaaf9907ff87ab4805aebe04c3098b8f8
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123226069"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128657146"
 ---
 # <a name="configure-a-java-app-for-azure-app-service"></a>Configuración de una aplicación Java para Azure App Service
 
@@ -60,24 +60,109 @@ az webapp list-runtimes --linux | grep "JAVA\|TOMCAT\|JBOSSEAP"
 
 ## <a name="deploying-your-app"></a>Implementación de la aplicación
 
-Puede usar el [complemento de Azure Web App para Maven](https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md) para implementar los archivos .war o .jar. La implementación con entornos de desarrollo integrado conocidos también se admite con [Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/) o [Azure Toolkit for Eclipse](/azure/developer/java/toolkit-for-eclipse).
+### <a name="build-tools"></a>Build Tools
 
-De lo contrario, el método de implementación dependerá del tipo de archivo:
+#### <a name="maven"></a>Maven
+Con el [complemento Maven para Azure Web Apps](https://github.com/microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin), puede preparar fácilmente el proyecto de Java de Maven con un comando en la raíz del proyecto:
 
-### <a name="java-se"></a>Java SE
+```shell
+mvn com.microsoft.azure:azure-webapp-maven-plugin:2.1.0:config
+```
+
+Este comando agrega un complemento `azure-webapp-maven-plugin` y una configuración relacionada al pedirle que seleccione una aplicación web de Azure existente o que cree una nueva. Luego, puede implementar la aplicación Java en Azure mediante el siguiente comando:
+```shell
+mvn package azure-webapp:deploy
+```
+
+Esta es una configuración de ejemplo de `pom/xml`:
+```xml
+<plugin> 
+  <groupId>com.microsoft.azure</groupId>  
+  <artifactId>azure-webapp-maven-plugin</artifactId>  
+  <version>2.1.0</version>  
+  <configuration>
+    <subscriptionId>111111-11111-11111-1111111</subscriptionId>
+    <resourceGroup>spring-boot-xxxxxxxxxx-rg</resourceGroup>
+    <appName>spring-boot-xxxxxxxxxx</appName>
+    <pricingTier>B2</pricingTier>
+    <region>westus</region>
+    <runtime>
+      <os>Linux</os>      
+      <webContainer>Java SE</webContainer>
+      <javaVersion>Java 11</javaVersion>
+    </runtime>
+    <deployment>
+      <resources>
+        <resource>
+          <type>jar</type>
+          <directory>${project.basedir}/target</directory>
+          <includes>
+            <include>*.jar</include>
+          </includes>
+        </resource>
+      </resources>
+    </deployment>
+  </configuration>
+</plugin> 
+```
+
+#### <a name="gradle"></a>Gradle
+1. Configure el [complemento Gradle para Azure Web Apps](https://github.com/microsoft/azure-gradle-plugins/tree/master/azure-webapp-gradle-plugin) mediante su incorporación a `build.gradle`:
+    ```groovy
+    plugins {
+      id "com.microsoft.azure.azurewebapp" version "1.1.0"
+    }
+    ```
+
+1. Configure los detalles de la aplicación web; si no existe, se crean los recursos de Azure correspondientes.
+Esta es una configuración de ejemplo. Para obtener detalles, vea este [documento](https://github.com/microsoft/azure-gradle-plugins/wiki/Webapp-Configuration).
+    ```groovy
+    azurewebapp {
+        subscription = '<your subscription id>'
+        resourceGroup = '<your resource group>'
+        appName = '<your app name>'
+        pricingTier = '<price tier like 'P1v2'>'
+        region = '<region like 'westus'>'
+        runtime {
+          os = 'Linux'
+          webContainer = 'Tomcat 9.0' // or 'Java SE' if you want to run an executable jar
+          javaVersion = 'Java 8'
+        }
+        appSettings {
+            <key> = <value>
+        }
+        auth {
+            type = 'azure_cli' // support azure_cli, oauth2, device_code and service_principal
+        }
+    }
+    ```
+
+1. Implemente con un comando.
+    ```shell
+    gradle azureWebAppDeploy
+    ```
+    
+### <a name="ides"></a>IDE
+Azure proporciona una experiencia de desarrollo de Java App Service directa en los entornos de desarrollo de Java más populares, incluidos:
+- *VS Code*: [Java Web Apps con Visual Studio Code](https://code.visualstudio.com/docs/java/java-webapp#_deploy-web-apps-to-the-cloud)
+- *IntelliJ IDEA*: [Creación de una aplicación web Hola mundo para Azure App Service mediante IntelliJ](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app)
+- *Eclipse*: [Creación de una aplicación web Hola mundo para Azure App Service mediante Eclipse](/azure/developer/java/toolkit-for-eclipse/create-hello-world-web-app)
+
+### <a name="kudu-api"></a>API de Kudu
+#### <a name="java-se"></a>Java SE
 
 Para implementar archivos .jar en Java SE, use el punto de conexión `/api/publish/` del sitio de Kudu. Para obtener más información sobre esta API, consulte [este documento](./deploy-zip.md#deploy-warjarear-packages). 
 
 > [!NOTE]
 >  La aplicación .jar debe tener el nombre `app.jar` para App Service y así poder identificar y ejecutar la aplicación. El complemento Maven (mencionado anteriormente) cambiará automáticamente el nombre de la aplicación durante la implementación. Si no quiere cambiar el nombre de archivo JAR a *app.jar*, puede cargar un script de shell con el comando para ejecutar la aplicación .jar. Pegue la ruta de acceso absoluta a este script en el cuadro de texto[Archivo de inicio](/azure/app-service/faq-app-service-linux#built-in-images) de la sección Configuración del portal. El script de inicio no se ejecuta desde el directorio en el que se encuentra. Por lo tanto, use siempre rutas de acceso absolutas para hacer referencia a los archivos del script de inicio (por ejemplo: `java -jar /home/myapp/myapp.jar`).
 
-### <a name="tomcat"></a>Tomcat
+#### <a name="tomcat"></a>Tomcat
 
 Para implementar archivos .war en Tomcat, utilice el punto de conexión `/api/wardeploy/` para realizar el conjunto de rutinas POST en el archivo. Para obtener más información sobre esta API, consulte [este documento](./deploy-zip.md#deploy-warjarear-packages).
 
 ::: zone pivot="platform-linux"
 
-### <a name="jboss-eap"></a>JBoss EAP
+#### <a name="jboss-eap"></a>JBoss EAP
 
 Para implementar archivos .war en JBoss, use el punto de conexión `/api/wardeploy/` para realizar la instrucción POST en el archivo. Para obtener más información sobre esta API, consulte [este documento](./deploy-zip.md#deploy-warjarear-packages).
 
@@ -1052,4 +1137,4 @@ El soporte técnico para el JDK de [Azul Zulu compatible con Azure](https://www.
 Visite el centro de [Azure para desarrolladores de Java](/java/azure/) para encontrar guías de inicio rápido de Azure, tutoriales y documentación de referencia de Java.
 
 - [P+F sobre App Service en Linux](faq-app-service-linux.yml)
-- [Referencia sobre las variables de entorno y la configuración de la aplicación](reference-app-settings.md)
+- [Variables de entorno y configuración de la aplicación en Azure App Service](reference-app-settings.md)

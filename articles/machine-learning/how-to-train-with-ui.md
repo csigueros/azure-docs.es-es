@@ -11,12 +11,12 @@ author: wenxwei
 ms.author: wenxwei
 ms.date: 06/22/2021
 ms.reviewer: laobri
-ms.openlocfilehash: 4da4cb933f24a0ca172c6b0fd6b8b9827d615859
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.openlocfilehash: 94eb2beb95a43e422e8bff6c3ab53f7d2e6c208b
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122823467"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129094716"
 ---
 # <a name="create-a-training-job-with-the-job-creation-ui-preview"></a>Creación de un trabajo de entrenamiento con la interfaz de usuario de creación de trabajos (versión preliminar)
 
@@ -85,7 +85,7 @@ Después de seleccionar un destino de proceso, debe especificar el entorno de ti
 
 ### <a name="curated-environments"></a>Entornos mantenidos
 
-Los entornos mantenido son colecciones definidas por Azure de paquetes de Python que se usan en cargas de trabajo de ML comunes. Los entornos mantenidos están disponibles en el área de trabajo de forma predeterminada. Estos entornos están respaldados por imágenes de Docker en caché, lo que reduce la sobrecarga de preparación de la ejecución. Las tarjetas que aparecen en la página "Entornos mantenidos" muestran los detalles de cada entorno. 
+Los entornos mantenido son colecciones definidas por Azure de paquetes de Python que se usan en cargas de trabajo de ML comunes. Los entornos mantenidos están disponibles en el área de trabajo de forma predeterminada. Estos entornos están respaldados por imágenes de Docker en caché, lo que reduce la sobrecarga de preparación de la ejecución. Las tarjetas que aparecen en la página "Entornos mantenidos" muestran los detalles de cada entorno. Para obtener más información, vea [Entornos mantenidos de Azure Machine Learning](resource-curated-environments.md).
 
  [![Entornos mantenidos](media/how-to-train-with-ui/curated-env.png)](media/how-to-train-with-ui/curated-env.png)
 

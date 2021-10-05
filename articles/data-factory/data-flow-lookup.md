@@ -1,7 +1,7 @@
 ---
 title: Transformación de búsqueda en el flujo de datos de asignación
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Haga referencia a los datos de otro origen mediante la transformación búsqueda en el flujo de datos de asignación.
+description: Haga referencia a datos de otro origen mediante la transformación de búsqueda en el flujo de datos de asignación de canalizaciones de Azure Data Factory y Synapse Analytics.
 author: kromerm
 ms.reviewer: daperlov
 ms.author: makromer
@@ -9,17 +9,19 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 02/19/2021
-ms.openlocfilehash: f6250b15f854870d14d9977c8eebd7c71e565635
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/09/2021
+ms.openlocfilehash: 8c5371fee2b0e7c4440762f9d7e609bf2dd496be
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122638821"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129060126"
 ---
 # <a name="lookup-transformation-in-mapping-data-flow"></a>Transformación de búsqueda en el flujo de datos de asignación
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
 
 Utilice la transformación búsqueda para hacer referencia a los datos de otro origen en una secuencia de flujo de datos. La transformación búsqueda anexa columnas de los datos coincidentes a los datos de origen.
 
@@ -29,7 +31,7 @@ Una transformación búsqueda es similar a una combinación externa izquierda. T
 
 ## <a name="configuration"></a>Configuración
 
-![Captura de pantalla que muestra la pestaña Configuración de búsqueda con las etiquetas descritas en el siguiente texto](media/data-flow/lookup1.png "Búsqueda").
+:::image type="content" source="media/data-flow/lookup1.png" alt-text="Captura de pantalla que muestra la pestaña Configuración de búsqueda con las etiquetas descritas en el siguiente texto":::.
 
 **Flujo principal:** El flujo de datos entrante. Este flujo es equivalente a la parte izquierda de una combinación.
 
@@ -47,13 +49,13 @@ Todas las columnas de ambas secuencias se incluyen en los datos de salida. Para 
 
 Para usar un operador condicional como no es igual a (! =) o mayor que (>) en las condiciones de búsqueda, cambie la lista desplegable de operadores entre las dos columnas. Las combinaciones no equivalentes requieren que al menos uno de los dos flujos se difunda mediante la retransmisión **fija** en la pestaña **Optimizar**.
 
-![Búsqueda no equivalente](media/data-flow/non-equi-lookup.png "Búsqueda no equivalente")
+:::image type="content" source="media/data-flow/non-equi-lookup.png" alt-text="Búsqueda no equivalente":::
 
 ## <a name="analyzing-matched-rows"></a>Analizar filas coincidentes
 
 Después de la transformación de búsqueda, se puede usar la función `isMatch()` para ver si la búsqueda coincide con las filas individuales.
 
-![Patrón de búsqueda](media/data-flow/lookup111.png "Patrón de búsqueda")
+:::image type="content" source="media/data-flow/lookup111.png" alt-text="Patrón de búsqueda":::
 
 Un ejemplo de este patrón es usar la transformación división condicional para dividirla en la función `isMatch()`. En el ejemplo anterior, las filas coincidentes pasan por el flujo anterior y las filas no coincidentes fluyen a través del flujo de ```NoMatch```.
 
@@ -63,7 +65,7 @@ Cuando pruebe la transformación de búsqueda con la vista previa de datos en mo
 
 ## <a name="broadcast-optimization"></a>Optimización de difusión
 
-![Combinación de difusión](media/data-flow/broadcast.png "Combinación de difusión")
+:::image type="content" source="media/data-flow/broadcast.png" alt-text="Combinación de difusión":::
 
 En las combinaciones, búsquedas y transformaciones Existe, si uno o ambos flujos de datos caben en la memoria del nodo de trabajo, puede optimizar el rendimiento al habilitar la opción **Difusión**. De forma predeterminada, el motor de Spark decidirá automáticamente si difundir o no una parte. Para elegir manualmente la parte que se va a difundir, seleccione **Fijo**.
 
@@ -89,7 +91,7 @@ Si está realizando varias búsquedas más pequeñas en el mismo origen, un rece
 ```
 ### <a name="example"></a>Ejemplo
 
-![Captura de pantalla que muestra la pestaña Configuración de búsqueda para el código siguiente](media/data-flow/lookup-dsl-example.png "Búsqueda").
+:::image type="content" source="media/data-flow/lookup-dsl-example.png" alt-text="Captura de pantalla que muestra la pestaña Configuración de búsqueda para el código siguiente":::.
 
 El script de flujo de datos para la configuración de búsqueda anterior se encuentra en el siguiente fragmento de código.
 

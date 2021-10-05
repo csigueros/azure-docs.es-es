@@ -6,12 +6,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 04/23/2021
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 14ac7953654941de176bf74bd38787b33b9c864c
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: 8f65fff40419ef11dcb5d90c670d10573a114fd4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123225760"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128657070"
 ---
 # <a name="configure-a-nodejs-app-for-azure-app-service"></a>Configuración de una aplicación de Node.js para Azure App Service
 
@@ -351,7 +351,7 @@ if (req.secure) {
 
 ## <a name="monitor-with-application-insights"></a>Supervisión con Application Insights
 
-Application Insights permite supervisar el rendimiento, las excepciones y el uso de la aplicación sin realizar cambios en el código. Para asociar el agente de App Insights, vaya a la aplicación web en el portal y seleccione **Application Insights** en **Configuración** y elija **Activar Application Insights**. A continuación, seleccione un recurso de App Insights existente o cree uno. Por último, seleccione **Aplicar** en la parte inferior. Para instrumentar la aplicación web con PowerShell, consulte [estas instrucciones](../azure-monitor/app/azure-web-apps.md?tabs=netcore#enabling-through-powershell).
+Application Insights permite supervisar el rendimiento, las excepciones y el uso de la aplicación sin realizar cambios en el código. Para asociar el agente de App Insights, vaya a la aplicación web en el portal y seleccione **Application Insights** en **Configuración** y elija **Activar Application Insights**. A continuación, seleccione un recurso de App Insights existente o cree uno. Por último, seleccione **Aplicar** en la parte inferior. Para instrumentar la aplicación web con PowerShell, consulte [estas instrucciones](../azure-monitor/app/azure-web-apps-nodejs.md#enable-through-powershell).
 
 Este agente supervisará su aplicación de Node.js del lado servidor. Para supervisar el código JavaScript del lado cliente, [agregue el SDK de JavaScript al proyecto](../azure-monitor/app/javascript.md). 
 
@@ -369,6 +369,23 @@ Cuando una aplicación de Node.js en funcionamiento se comporta de manera difere
     - Algunas plataformas web pueden implementar archivos estáticos de forma diferente en modo de producción.
     - Algunas plataformas web pueden usar scripts de inicio personalizados cuando se ejecutan en modo de producción.
 - Ejecute la aplicación en App Service en el modo de desarrollo. Por ejemplo, en [MEAN.js](https://meanjs.org/), puede establecer la aplicación en modo de desarrollo en tiempo de ejecución [estableciendo la configuración de aplicación `NODE_ENV`](configure-common.md).
+
+::: zone pivot="platform-windows"
+
+#### <a name="you-do-not-have-permission-to-view-this-directory-or-page"></a>No tiene permiso para ver este directorio o esta página
+
+Después de implementar el código de Node.js en una aplicación nativa de Windows en App Service, es posible que vea el mensaje `You do not have permission to view this directory or page.` en el explorador al ir a la dirección URL de la aplicación. Lo más probable es que se deba a que no tiene un archivo *web.config* (vea la [plantilla](https://github.com/projectkudu/kudu/blob/master/Kudu.Core/Scripts/iisnode.config.template) y un [ejemplo](https://github.com/Azure-Samples/nodejs-docs-hello-world/blob/master/web.config)).
+
+Si implementa los archivos mediante Git, o mediante implementación ZIP [con la automatización de compilación habilitada](deploy-zip.md#enable-build-automation-for-zip-deploy), el motor de implementación genera automáticamente un archivo *web.config* en la raíz web de la aplicación (`%HOME%\site\wwwroot`) si se cumple alguna de las condiciones siguientes:
+
+- La raíz del proyecto tiene un archivo *package.json* que define un script `start` que contiene la ruta de acceso de un archivo de JavaScript.
+- La raíz del proyecto tiene un archivo *server.js* o *app.js*.
+
+El archivo *web.config* generado se ajusta al script de inicio detectado. En otros métodos de implementación, agregue este archivo *web.config* manualmente. Asegúrese de que el archivo tiene el formato correcto. 
+
+Si usa la [implementación ZIP](deploy-zip.md) (por medio de Visual Studio Code, por ejemplo), asegúrese de [habilitar la automatización de compilación](deploy-zip.md#enable-build-automation-for-zip-deploy), ya que no está habilitada de manera predeterminada. [`az webapp up`](/cli/azure/webapp#az_webapp_up) usa la implementación ZIP con la automatización de compilación habilitada.
+
+::: zone-end
 
 ::: zone pivot="platform-linux"
 

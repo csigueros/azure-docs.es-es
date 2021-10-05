@@ -6,12 +6,12 @@ ms.author: deseelam
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 05/10/2020
-ms.openlocfilehash: 10f46f5788cd2f17be4b46c2f655fb4e05fed1d9
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+ms.openlocfilehash: efe9f6ce21e59df3d7f8009b7ff540a77b4cc50a
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122965950"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129094507"
 ---
 # <a name="use-azure-migrate-with-private-endpoints"></a>Uso de Azure Migrate con puntos de conexión privados
 
@@ -27,7 +27,7 @@ Revise los siguientes permisos necesarios y los escenarios y herramientas admiti
 
 ### <a name="supported-geographies"></a>Ubicaciones geográficas admitidas
 
-La funcionalidad está ahora en versión preliminar en todas las [regiones de la nube pública.](./migrate-support-matrix.md#supported-geographies-public-cloud)
+La funcionalidad se encuentra en versión preliminar en las ubicaciones geográficas de [nube pública](/azure/migrate/migrate-support-matrix#supported-geographies-public-cloud) y [nube gubernamental](/azure/migrate-support-matrix#supported-geographies-azure-government) admitidas.
 
 ### <a name="required-permissions"></a>Permisos necesarios
 
@@ -121,7 +121,7 @@ Compruebe que el archivo comprimido es seguro, antes de implementarlo.
 
     **Descargar** | **Valor del código hash**
     --- | ---
-    [La versión más reciente](https://go.microsoft.com/fwlink/?linkid=2160648) | CA8CEEE4C7AC13328ECA56AE9EB35137336CD3D73B1F867C4D736286EF61A234
+    [La versión más reciente](https://go.microsoft.com/fwlink/?linkid=2160648) | BA84B58E88DDFE23E5D4CE73530227EBBC187B3634B66A3E0F0B3E5DF5F0A94F
 
 > [!NOTE]
 > El mismo script se puede usar para configurar un dispositivo con conectividad de punto de conexión privado para cualquiera de los escenarios elegidos, como VMware, Hyper-V, físico u otro para implementar un dispositivo con la configuración deseada.
@@ -131,16 +131,18 @@ Asegúrese de que el servidor cumple los [requisitos de hardware](./migrate-appl
 #### <a name="run-the-azure-migrate-installer-script"></a>Ejecución del script del instalador de Azure Migrate
 
 1. Extraiga el archivo comprimido en la carpeta del servidor que hospedará el dispositivo.  No ejecute el script en un servidor con un dispositivo de Azure Migrate existente.
-2. Inicie PowerShell en el servidor anterior con privilegios administrativos (elevados).
-3. Cambie el directorio de PowerShell a la carpeta en la que se ha extraído el contenido del archivo comprimido descargado.
-4. Ejecute el script denominado **AzureMigrateInstaller.ps1** ejecutando el comando siguiente:
 
-    
-    ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> .\AzureMigrateInstaller.ps1 ```
+2. Inicie PowerShell en el servidor anterior con privilegios administrativos (elevados).
+
+3. Cambie el directorio de PowerShell a la carpeta en la que se ha extraído el contenido del archivo comprimido descargado.
+
+4. Ejecute el script denominado `AzureMigrateInstaller.ps1` ejecutando el comando siguiente:
+
+   `PS C:\Users\administrator\Desktop\AzureMigrateInstaller> .\AzureMigrateInstaller.ps1`
 
 5. Seleccione entre las opciones de escenario, nube y conectividad para implementar un dispositivo con la configuración deseada. Por ejemplo, la selección que se muestra a continuación configura un dispositivo para detectar y evaluar **servidores que se ejecutan en el entorno de VMware** en un proyecto de Azure Migrate con **conectividad de punto de conexión privado** en la **nube pública de Azure**.
 
-    :::image type="content" source="./media/how-to-use-azure-migrate-with-private-endpoints/script-vmware-private-inline.png" alt-text="Captura de pantalla que muestra cómo configurar un dispositivo con la configuración deseada para un punto de conexión privado." lightbox="./media/how-to-use-azure-migrate-with-private-endpoints/script-vmware-private-expanded.png":::
+   :::image type="content" source="./media/how-to-use-azure-migrate-with-private-endpoints/script-vmware-private-inline.png" alt-text="Captura de pantalla que muestra cómo configurar un dispositivo con la configuración deseada para un punto de conexión privado." lightbox="./media/how-to-use-azure-migrate-with-private-endpoints/script-vmware-private-expanded.png":::
 
 Una vez que el script se haya ejecutado correctamente, el administrador de configuración del dispositivo se iniciará automáticamente.
 
@@ -302,7 +304,7 @@ Asegúrese de que el dispositivo de replicación local tiene conectividad de red
 
 A continuación, siga estas instrucciones para [revisar e iniciar la replicación](./tutorial-migrate-physical-virtual-machines.md#replicate-machines) y [realizar migraciones](./tutorial-migrate-physical-virtual-machines.md#run-a-test-migration).
 
-
 ## <a name="next-steps"></a>Pasos siguientes
+
 - Complete el [proceso de migración](./tutorial-migrate-physical-virtual-machines.md#complete-the-migration).
 - Consulte los [procedimientos recomendados después de la migración](./tutorial-migrate-physical-virtual-machines.md#post-migration-best-practices).

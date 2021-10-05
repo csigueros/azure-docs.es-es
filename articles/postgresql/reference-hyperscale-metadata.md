@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: reference
 ms.date: 08/10/2020
-ms.openlocfilehash: 74403365fe48584fa5d1db0e349c9dfc3772d874
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8213ca39f85a50d7e5354948467f3fbd66cb4797
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97652863"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129094735"
 ---
 # <a name="system-tables-and-views"></a>Selección de tablas y vistas
 
@@ -482,7 +482,38 @@ En el campo `query` se muestran los datos que se copian de la partición que se 
 > Si una consulta de enrutador (por ejemplo, un solo inquilino en una aplicación multiinquilino, se ejecuta
 > * "SELECT FROM table WHERE tenant_id = X") sin un bloque de transacciones, y luego las columnas master\_query\_host\_name y master\_query\_host\_port serán NULL en citus\_worker\_stat\_activity.
 
-Para ver cómo funciona `citus_lock_waits`, podemos generar manualmente una situación de bloqueo. Configuraremos en primer lugar una tabla de prueba desde el coordinador:
+Estos son ejemplos de consultas útiles que se pueden compilar mediante `citus_worker_stat_activity`:
+
+```postgresql
+-- active queries' wait events on a certain node
+
+SELECT query, wait_event_type, wait_event
+  FROM citus_worker_stat_activity
+ WHERE query_hostname = 'xxxx' and state='active';
+
+-- active queries' top wait events
+
+SELECT wait_event, wait_event_type, count(*)
+  FROM citus_worker_stat_activity
+ WHERE state='active'
+ GROUP BY wait_event, wait_event_type
+ ORDER BY count(*) desc;
+
+-- total internal connections generated per node by Citus
+
+SELECT query_hostname, count(*)
+  FROM citus_worker_stat_activity
+ GROUP BY query_hostname;
+
+-- total internal active connections generated per node by Citus
+
+SELECT query_hostname, count(*)
+  FROM citus_worker_stat_activity
+ WHERE state='active'
+ GROUP BY query_hostname;
+```
+
+La vista siguiente es `citus_lock_waits`. Para ver cómo funciona, se puede generar manualmente una situación de bloqueo. En primer lugar se configura una tabla de prueba desde el coordinador:
 
 ```postgresql
 CREATE TABLE numbers AS

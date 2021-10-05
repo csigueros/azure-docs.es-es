@@ -10,27 +10,27 @@ ms.subservice: sql
 ms.date: 05/01/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 655294aaf575dd828c3be6f135984eaf8c851fb6
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: ba56b46f28eda42e7de0fcaa090d0cc309410cdb
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123479767"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129091338"
 ---
 # <a name="best-practices-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Procedimientos recomendados para el grupo de SQL sin servidor en Azure Synapse Analytics
 
-En este artículo, encontrará una colección de procedimientos recomendados para usar un grupo de SQL sin servidor. Un grupo de SQL sin servidor es un recurso de Azure Synapse Analytics.
+En este artículo, encontrará una colección de procedimientos recomendados para usar un grupo de SQL sin servidor. Un grupo de SQL sin servidor es un recurso de Azure Synapse Analytics. Si está trabajando con un grupo de SQL dedicado, vea [Procedimientos recomendados para grupos de SQL dedicados](best-practices-dedicated-sql-pool.md) para obtener instrucciones específicas.
 
-El grupo de SQL sin servidor permite consultar archivos de las cuentas de almacenamiento de Azure. No tiene funcionalidades de ingesta o almacenamiento local. Por ello, todos los archivos de destino de la consulta son externos al grupo de SQL sin servidor. Todo lo relacionado con la lectura de archivos desde el almacenamiento puede afectar el rendimiento de las consultas.
+El grupo de SQL sin servidor permite consultar archivos de las cuentas de almacenamiento de Azure. No tiene funcionalidades de ingesta o almacenamiento local. Todos los archivos de destino de las consultas son externos al grupo de SQL sin servidor. Todo lo relacionado con la lectura de archivos desde el almacenamiento puede afectar el rendimiento de las consultas.
 
 Estas son algunas directrices generales:
 - Asegúrese de que las aplicaciones cliente se colocan con el grupo de SQL sin servidor.
-  - Si usa aplicaciones cliente fuera de Azure (por ejemplo Power BI Desktop, SSMS, ADS), asegúrese de que esté usando el grupo sin servidor en una región cercana a su equipo cliente.
+  - Si usa aplicaciones cliente fuera de Azure (por ejemplo, Power BI Desktop, SSMS, ADS), asegúrese de estar usando el grupo sin servidor en una región cercana al equipo cliente.
 - Asegúrese de que el almacenamiento (Azure Data Lake, Cosmos DB) y el grupo SQL sin servidor se encuentren en la misma región.
 - Intente [optimizar el diseño de almacenamiento](#prepare-files-for-querying) mediante la creación de particiones y manteniendo los archivos en el intervalo entre 100 MB y 10 GB.
 - Si devuelve un gran número de resultados, asegúrese de que esté usando SSMS o ADS, y no Synapse Studio. Synapse Studio es una herramienta web que no está diseñada para grandes conjuntos de resultados. 
-- Si está filtrando los resultados por la columna de cadena, intente usar alguna intercalación `BIN2_UTF8`.
-- Intente almacenar en caché los resultados en el lado cliente mediante el modo de importación de Power BI o Azure Analysis Services y, a continuación, actualícelos periódicamente. Los grupos de SQL sin servidor no pueden proporcionar experiencia interactiva en el modo de consulta directa de Power BI si usa consultas complejas o procesa una gran cantidad de datos.
+- Si está filtrando resultados por columna de cadena, intente usar una intercalación `BIN2_UTF8`.
+- Intente almacenar en caché los resultados en el lado cliente mediante el modo de importación de Power BI o Azure Analysis Services y luego actualícelos periódicamente. Los grupos de SQL sin servidor no pueden proporcionar experiencia interactiva en el modo de consulta directa de Power BI si usa consultas complejas o procesa una gran cantidad de datos.
 
 ## <a name="client-applications-and-network-connections"></a>Aplicaciones cliente y conexiones de red
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/17/2021
 ms.author: duau
-ms.openlocfilehash: 6fb47cf8c3bea7080151d635620bde549070060d
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 6ccd231c69d69900f81ab91d39eada1f67c7886f
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110084995"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124792474"
 ---
 # <a name="health-probes"></a>Sondeos de estado
 
@@ -64,6 +64,8 @@ Para determinar el mantenimiento, Azure Front Door usa el mismo proceso de tres 
 
 3. Para los conjuntos de servidores back-end con un estado correcto del grupo de servidores back-end, Front Door mide y mantiene también la latencia (tiempo de ida y vuelta) de cada back-end.
 
+> [!NOTE]
+> Si un único punto de conexión es miembro de varios grupos de back-end, Azure Front Door optimiza el número de sondeos de estado enviados al back-end para reducir la carga en él. Las solicitudes de sondeo de estado se enviarán en función del intervalo de ejemplo configurado más bajo. El estado del punto de conexión en todos los grupos se determinará mediante las respuestas de los mismos sondeos de estado.
 
 ## <a name="complete-health-probe-failure"></a>Error de sondeo de estado completo
 

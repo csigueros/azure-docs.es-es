@@ -2,13 +2,13 @@
 title: 'Funciones de plantillas: matrices'
 description: Se describen las funciones que se usan en una plantilla de Azure Resource Manager para trabajar con matrices.
 ms.topic: conceptual
-ms.date: 05/11/2021
-ms.openlocfilehash: 12349a52f192305a47913d57bcd760242ea32a70
-ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.date: 09/08/2021
+ms.openlocfilehash: 25fb249e1840a7538fa1dd14f3b1a930bbefdfee
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123451477"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124756002"
 ---
 # <a name="array-functions-for-arm-templates"></a>Funciones de matriz para plantillas de Resource Manager
 
@@ -50,47 +50,9 @@ Matriz .
 
 ### <a name="example"></a>Ejemplo
 
-En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/array.json) siguiente se muestra cómo utilizar la función de matriz con diferentes tipos.
+En el ejemplo siguiente se muestra cómo utilizar la función de matriz con diferentes tipos.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "intToConvert": {
-      "type": "int",
-      "defaultValue": 1
-    },
-    "stringToConvert": {
-      "type": "string",
-      "defaultValue": "efgh"
-    },
-    "objectToConvert": {
-      "type": "object",
-      "defaultValue": {
-        "a": "b",
-        "c": "d"
-      }
-    }
-  },
-  "resources": [
-  ],
-  "outputs": {
-    "intOutput": {
-      "type": "array",
-      "value": "[array(parameters('intToConvert'))]"
-    },
-    "stringOutput": {
-      "type": "array",
-      "value": "[array(parameters('stringToConvert'))]"
-    },
-    "objectOutput": {
-      "type": "array",
-      "value": "[array(parameters('objectToConvert'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/array/array.json":::
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
@@ -111,7 +73,7 @@ Combina varias matrices y devuelve la matriz concatenada, o combina varios valor
 | Parámetro | Obligatorio | Tipo | Descripción |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |matriz o cadena |La primera matriz o cadena para la concatenación. |
-| argumentos adicionales |No |matriz o cadena |Matrices o cadenas adicionales en orden secuencial para la concatenación. |
+| más argumentos |No |matriz o cadena |Más matrices o cadenas en orden secuencial para la concatenación. |
 
 Esta función puede tomar cualquier número de argumentos y puede aceptar cadenas o matrices para los parámetros. Sin embargo, no puede proporcionar ambas a la vez para los parámetros. Las matrices solo se concatenan con otras matrices.
 
@@ -123,38 +85,7 @@ Una cadena o matriz de valores concatenados.
 
 En el ejemplo siguiente se muestra cómo combinar dos matrices.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "firstArray": {
-      "type": "array",
-      "defaultValue": [
-        "1-1",
-        "1-2",
-        "1-3"
-      ]
-    },
-    "secondArray": {
-      "type": "array",
-      "defaultValue": [
-        "2-1",
-        "2-2",
-        "2-3"
-      ]
-    }
-  },
-  "resources": [
-  ],
-  "outputs": {
-    "return": {
-      "type": "array",
-      "value": "[concat(parameters('firstArray'), parameters('secondArray'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/array/concat-array.json":::
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
@@ -162,27 +93,9 @@ La salida del ejemplo anterior con el valor predeterminado es:
 | ---- | ---- | ----- |
 | return | Array | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
-En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-string.json) siguiente se muestra cómo combinar dos valores de cadena y devolver una cadena concatenada.
+En el ejemplo siguiente se muestra cómo combinar dos valores de cadena y devolver una cadena concatenada.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "prefix": {
-      "type": "string",
-      "defaultValue": "prefix"
-    }
-  },
-  "resources": [],
-  "outputs": {
-    "concatOutput": {
-      "type": "string",
-      "value": "[concat(parameters('prefix'), '-', uniqueString(resourceGroup().id))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/string/concat-string.json":::
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
@@ -211,58 +124,7 @@ Comprueba si una matriz contiene un valor, un objeto contiene una clave o una ca
 
 En el ejemplo siguiente se muestra cómo utilizar contains con diferentes tipos:
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "stringToTest": {
-      "type": "string",
-      "defaultValue": "OneTwoThree"
-    },
-    "objectToTest": {
-      "type": "object",
-      "defaultValue": {
-        "one": "a",
-        "two": "b",
-        "three": "c"
-      }
-    },
-    "arrayToTest": {
-      "type": "array",
-      "defaultValue": [ "one", "two", "three" ]
-    }
-  },
-  "resources": [
-  ],
-  "outputs": {
-    "stringTrue": {
-      "type": "bool",
-      "value": "[contains(parameters('stringToTest'), 'e')]"
-    },
-    "stringFalse": {
-      "type": "bool",
-      "value": "[contains(parameters('stringToTest'), 'z')]"
-    },
-    "objectTrue": {
-      "type": "bool",
-      "value": "[contains(parameters('objectToTest'), 'one')]"
-    },
-    "objectFalse": {
-      "type": "bool",
-      "value": "[contains(parameters('objectToTest'), 'a')]"
-    },
-    "arrayTrue": {
-      "type": "bool",
-      "value": "[contains(parameters('arrayToTest'), 'three')]"
-    },
-    "arrayFalse": {
-      "type": "bool",
-      "value": "[contains(parameters('arrayToTest'), 'four')]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/array/contains.json":::
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
@@ -293,52 +155,9 @@ Matriz . Cuando no se proporciona ningún parámetro, devuelve una matriz vacía
 
 ### <a name="example"></a>Ejemplo
 
-En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/createarray.json) siguiente se muestra cómo utilizar createArray con diferentes tipos:
+En el ejemplo siguiente se muestra cómo utilizar createArray con diferentes tipos:
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "objectToTest": {
-      "type": "object",
-      "defaultValue": {
-        "one": "a",
-        "two": "b",
-        "three": "c"
-      }
-    },
-    "arrayToTest": {
-      "type": "array",
-      "defaultValue": [ "one", "two", "three" ]
-    }
-  },
-  "resources": [
-  ],
-  "outputs": {
-    "stringArray": {
-      "type": "array",
-      "value": "[createArray('a', 'b', 'c')]"
-    },
-    "intArray": {
-      "type": "array",
-      "value": "[createArray(1, 2, 3)]"
-    },
-    "objectArray": {
-      "type": "array",
-      "value": "[createArray(parameters('objectToTest'))]"
-    },
-    "arrayArray": {
-      "type": "array",
-      "value": "[createArray(parameters('arrayToTest'))]"
-    },
-    "emptyArray": {
-      "type": "array",
-      "value": "[createArray()]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/array/createarray.json":::
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
@@ -370,42 +189,7 @@ Devuelve **True** si el valor está vacío; en caso contrario, **False**.
 
 En el ejemplo siguiente se comprueba si una matriz, un objeto y una cadena están vacíos.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "testArray": {
-      "type": "array",
-      "defaultValue": []
-    },
-    "testObject": {
-      "type": "object",
-      "defaultValue": {}
-    },
-    "testString": {
-      "type": "string",
-      "defaultValue": ""
-    }
-  },
-  "resources": [
-  ],
-  "outputs": {
-    "arrayEmpty": {
-      "type": "bool",
-      "value": "[empty(parameters('testArray'))]"
-    },
-    "objectEmpty": {
-      "type": "bool",
-      "value": "[empty(parameters('testObject'))]"
-    },
-    "stringEmpty": {
-      "type": "bool",
-      "value": "[empty(parameters('testString'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/array/empty.json":::
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
@@ -435,30 +219,7 @@ El tipo (cadena, entero, matriz u objeto) del primer elemento en una matriz o el
 
 En el ejemplo siguiente se muestra cómo utilizar la primera función con una matriz y una cadena.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "arrayToTest": {
-      "type": "array",
-      "defaultValue": [ "one", "two", "three" ]
-    }
-  },
-  "resources": [
-  ],
-  "outputs": {
-    "arrayOutput": {
-      "type": "string",
-      "value": "[first(parameters('arrayToTest'))]"
-    },
-    "stringOutput": {
-      "type": "string",
-      "value": "[first('One Two Three')]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/array/first.json":::
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
@@ -479,7 +240,7 @@ Devuelve una única matriz u objeto con los elementos comunes de los parámetros
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |matriz u objeto |El primer valor que se utilizará para buscar elementos comunes. |
 | arg2 |Sí |matriz u objeto |El segundo valor que se utilizará para buscar elementos comunes. |
-| argumentos adicionales |No |matriz u objeto |Valores adicionales que se utilizarán para buscar elementos comunes. |
+| más argumentos |No |matriz u objeto |Más valores que se utilizarán para buscar elementos comunes. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -487,52 +248,9 @@ Una matriz o un objeto con los elementos comunes.
 
 ### <a name="example"></a>Ejemplo
 
-En el ejemplo siguiente se muestra cómo utilizar la intersección con matrices y objetos:
+En el ejemplo siguiente se muestra cómo utilizar la intersección con matrices y objetos.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "firstObject": {
-      "type": "object",
-      "defaultValue": {
-        "one": "a",
-        "two": "b",
-        "three": "c"
-      }
-    },
-    "secondObject": {
-      "type": "object",
-      "defaultValue": {
-        "one": "a",
-        "two": "z",
-        "three": "c"
-      }
-    },
-    "firstArray": {
-      "type": "array",
-      "defaultValue": [ "one", "two", "three" ]
-    },
-    "secondArray": {
-      "type": "array",
-      "defaultValue": [ "two", "three" ]
-    }
-  },
-  "resources": [
-  ],
-  "outputs": {
-    "objectOutput": {
-      "type": "object",
-      "value": "[intersection(parameters('firstObject'), parameters('secondObject'))]"
-    },
-    "arrayOutput": {
-      "type": "array",
-      "value": "[intersection(parameters('firstArray'), parameters('secondArray'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/array/intersection.json":::
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
@@ -561,30 +279,7 @@ El tipo (cadena, entero, matriz u objeto) del último elemento de una matriz o e
 
 En el ejemplo siguiente se muestra cómo utilizar la última función con una matriz y una cadena.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "arrayToTest": {
-      "type": "array",
-      "defaultValue": [ "one", "two", "three" ]
-    }
-  },
-  "resources": [
-  ],
-  "outputs": {
-    "arrayOutput": {
-      "type": "string",
-      "value": "[last(parameters('arrayToTest'))]"
-    },
-    "stringOutput": {
-      "type": "string",
-      "value": "[last('One Two Three')]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/array/last.json":::
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
@@ -611,55 +306,9 @@ Un entero.
 
 ### <a name="example"></a>Ejemplo
 
-En el ejemplo siguiente se muestra cómo utilizar length con una matriz y una cadena:
+En el ejemplo siguiente se muestra cómo utilizar "length" con una matriz y una cadena.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "arrayToTest": {
-      "type": "array",
-      "defaultValue": [
-        "one",
-        "two",
-        "three"
-      ]
-    },
-    "stringToTest": {
-      "type": "string",
-      "defaultValue": "One Two Three"
-    },
-    "objectToTest": {
-      "type": "object",
-      "defaultValue": {
-        "propA": "one",
-        "propB": "two",
-        "propC": "three",
-        "propD": {
-          "propD-1": "sub",
-          "propD-2": "sub"
-        }
-      }
-    }
-  },
-  "resources": [],
-  "outputs": {
-    "arrayLength": {
-      "type": "int",
-      "value": "[length(parameters('arrayToTest'))]"
-    },
-    "stringLength": {
-      "type": "int",
-      "value": "[length(parameters('stringToTest'))]"
-    },
-    "objectLength": {
-      "type": "int",
-      "value": "[length(parameters('objectToTest'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/array/length.json":::
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
@@ -698,31 +347,9 @@ Un entero que representa el valor máximo.
 
 ### <a name="example"></a>Ejemplo
 
-En el ejemplo siguiente se muestra cómo utilizar max con una matriz y una lista de enteros:
+En el ejemplo siguiente se muestra cómo utilizar "max" con una matriz y una lista de enteros.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "arrayToTest": {
-      "type": "array",
-      "defaultValue": [ 0, 3, 2, 5, 4 ]
-    }
-  },
-  "resources": [],
-  "outputs": {
-    "arrayOutput": {
-      "type": "int",
-      "value": "[max(parameters('arrayToTest'))]"
-    },
-    "intOutput": {
-      "type": "int",
-      "value": "[max(0,3,2,5,4)]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/numeric/max.json":::
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
@@ -749,31 +376,9 @@ Un entero que representa el valor mínimo.
 
 ### <a name="example"></a>Ejemplo
 
-En el ejemplo siguiente se muestra cómo utilizar min con una matriz y una lista de enteros:
+En el ejemplo siguiente se muestra cómo utilizar "min" con una matriz y una lista de enteros.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "arrayToTest": {
-      "type": "array",
-      "defaultValue": [ 0, 3, 2, 5, 4 ]
-    }
-  },
-  "resources": [],
-  "outputs": {
-    "arrayOutput": {
-      "type": "int",
-      "value": "[min(parameters('arrayToTest'))]"
-    },
-    "intOutput": {
-      "type": "int",
-      "value": "[min(0,3,2,5,4)]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/numeric/min.json":::
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
@@ -801,31 +406,9 @@ Una matriz de enteros.
 
 ### <a name="example"></a>Ejemplo
 
-En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/range.json) siguiente se muestra cómo usar la función range:
+En el ejemplo siguiente se muestra cómo utilizar la función "range".
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "startingInt": {
-      "type": "int",
-      "defaultValue": 5
-    },
-    "numberOfElements": {
-      "type": "int",
-      "defaultValue": 3
-    }
-  },
-  "resources": [],
-  "outputs": {
-    "rangeOutput": {
-      "type": "array",
-      "value": "[range(parameters('startingInt'),parameters('numberOfElements'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/array/range.json":::
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
@@ -854,45 +437,7 @@ Una matriz o cadena.
 
 En el ejemplo siguiente se omite el número especificado de elementos de la matriz, y el número especificado de caracteres de la cadena.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "testArray": {
-      "type": "array",
-      "defaultValue": [
-        "one",
-        "two",
-        "three"
-      ]
-    },
-    "elementsToSkip": {
-      "type": "int",
-      "defaultValue": 2
-    },
-    "testString": {
-      "type": "string",
-      "defaultValue": "one two three"
-    },
-    "charactersToSkip": {
-      "type": "int",
-      "defaultValue": 4
-    }
-  },
-  "resources": [],
-  "outputs": {
-    "arrayOutput": {
-      "type": "array",
-      "value": "[skip(parameters('testArray'),parameters('elementsToSkip'))]"
-    },
-    "stringOutput": {
-      "type": "string",
-      "value": "[skip(parameters('testString'),parameters('charactersToSkip'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/array/skip.json":::
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
@@ -905,7 +450,7 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 `take(originalValue, numberToTake)`
 
-Devuelve una matriz con el número especificado de elementos desde el inicio de la matriz, o una cadena con el número especificado de caracteres desde el inicio de la cadena.
+Devuelve una matriz o una cadena. Una matriz tiene el número especificado de elementos desde el principio de la matriz. Una cadena tiene el número especificado de caracteres desde el principio de la cadena.
 
 ### <a name="parameters"></a>Parámetros
 
@@ -922,45 +467,7 @@ Una matriz o cadena.
 
 En el ejemplo siguiente se toma el número especificado de elementos de la matriz y de caracteres de la cadena.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "testArray": {
-      "type": "array",
-      "defaultValue": [
-        "one",
-        "two",
-        "three"
-      ]
-    },
-    "elementsToTake": {
-      "type": "int",
-      "defaultValue": 2
-    },
-    "testString": {
-      "type": "string",
-      "defaultValue": "one two three"
-    },
-    "charactersToTake": {
-      "type": "int",
-      "defaultValue": 2
-    }
-  },
-  "resources": [],
-  "outputs": {
-    "arrayOutput": {
-      "type": "array",
-      "value": "[take(parameters('testArray'),parameters('elementsToTake'))]"
-    },
-    "stringOutput": {
-      "type": "string",
-      "value": "[take(parameters('testString'),parameters('charactersToTake'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/array/take.json":::
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
@@ -981,7 +488,7 @@ Devuelve una única matriz u objeto con todos los elementos de los parámetros. 
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |matriz u objeto |El primer valor que se utiliza para unir elementos. |
 | arg2 |Sí |matriz u objeto |El segundo valor que se utiliza para unir elementos. |
-| argumentos adicionales |No |matriz u objeto |Valores adicionales que se utilizan para unir elementos. |
+| más argumentos |No |matriz u objeto |Más valores que se utilizan para unir elementos. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -989,52 +496,9 @@ Una matriz u objeto.
 
 ### <a name="example"></a>Ejemplo
 
-En el ejemplo siguiente se muestra cómo utilizar la unión con matrices y objetos:
+En el ejemplo siguiente se muestra cómo utilizar "union" con matrices y objetos.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "firstObject": {
-      "type": "object",
-      "defaultValue": {
-        "one": "a",
-        "two": "b",
-        "three": "c1"
-      }
-    },
-    "secondObject": {
-      "type": "object",
-      "defaultValue": {
-        "three": "c2",
-        "four": "d",
-        "five": "e"
-      }
-    },
-    "firstArray": {
-      "type": "array",
-      "defaultValue": [ "one", "two", "three" ]
-    },
-    "secondArray": {
-      "type": "array",
-      "defaultValue": [ "three", "four" ]
-    }
-  },
-  "resources": [
-  ],
-  "outputs": {
-    "objectOutput": {
-      "type": "object",
-      "value": "[union(parameters('firstObject'), parameters('secondObject'))]"
-    },
-    "arrayOutput": {
-      "type": "array",
-      "value": "[union(parameters('firstArray'), parameters('secondArray'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/array/union.json":::
 
 La salida del ejemplo anterior con el valor predeterminado es:
 

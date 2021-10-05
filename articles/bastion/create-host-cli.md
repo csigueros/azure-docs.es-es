@@ -5,14 +5,14 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 07/12/2021
+ms.date: 09/22/2021
 ms.author: cherylmc
-ms.openlocfilehash: 055d895419e8f1e54b30a440c906c3b3e3251078
-ms.sourcegitcommit: 75ad40bab1b3f90bb2ea2a489f8875d4b2da57e4
+ms.openlocfilehash: d2477c46b79692033baabb5327cda47f6652589d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2021
-ms.locfileid: "113643422"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128671134"
 ---
 # <a name="create-an-azure-bastion-host-using-azure-cli"></a>Creación de un host de Azure Bastion con CLI de Azure
 
@@ -60,6 +60,9 @@ Esta sección le ayuda a crear un recurso de Azure Bastion con CLI de Azure.
    ```azurecli-interactive
    az network bastion create --name MyBastion --public-ip-address MyIp --resource-group MyResourceGroup --vnet-name MyVnet --location northeurope
    ```
+## <a name="disassociate-the-vm-public-ip-address"></a>Desasociación de la dirección IP pública de una máquina virtual
+
+Azure Bastion no usa la dirección IP pública para conectarse a la máquina virtual cliente. Si no necesita la dirección IP pública de la máquina virtual, puede desasociar la dirección IP pública mediante los pasos de este artículo: [Desasociación de una dirección IP pública de una máquina virtual de Azure](../virtual-network/remove-public-ip-address-vm.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

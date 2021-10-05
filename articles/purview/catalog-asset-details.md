@@ -6,13 +6,13 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 08/10/2021
-ms.openlocfilehash: 8bd100826564ac865a17bf869ad54ce3f9ceef5d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/27/2021
+ms.openlocfilehash: 8004ef319efc08610f9c1a5de16b7c430d51d666
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121781079"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129209220"
 ---
 # <a name="view-edit-and-delete-assets-in-purview-catalog"></a>Visualización, edición y eliminación de recursos en el catálogo de Purview
 
@@ -71,7 +71,7 @@ Los términos del glosario de recursos son un vocabulario administrado de térmi
 
 ## <a name="editing-assets"></a>Edición de recursos
 
-Para editar un recurso, haga clic en el icono de edición de la esquina superior izquierda del recurso.
+Para editar un recurso, seleccione el icono de edición de la esquina superior izquierda del recurso.
 
 :::image type="content" source="media/catalog-asset-details/asset-edit-delete.png" alt-text="Botones de edición y eliminación de recursos":::
 
@@ -89,7 +89,7 @@ Si hace una actualización a nivel de columna, como agregar una descripción, un
 
 ## <a name="deleting-assets"></a>Eliminación de recursos
 
-Puede eliminar un recurso haciendo clic en el icono de eliminación bajo el nombre del recurso.
+Para eliminar un recurso, seleccione el icono de eliminación bajo el nombre del recurso.
 
 ### <a name="delete-behavior-explained"></a>Descripción del proceso de eliminación
 

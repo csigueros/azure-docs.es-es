@@ -7,12 +7,12 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/20/2020
 tags: connectors
-ms.openlocfilehash: 91873a2d6a498712773bfe721653e64c3364666f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 89730779485b4dd74297e2e1137b8e1217f4ef5a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92674815"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128671495"
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Introducción al conector de una base de datos de Oracle
 
@@ -34,14 +34,14 @@ Este artículo le muestra cómo usar el conector de una base de datos de Oracle 
 
 * Versiones de Oracle compatibles: 
     * Oracle 9 y versiones posteriores
-    * Software cliente de Oracle 8.1.7 y posteriores
+    * Oracle Data Access Client (ODAC) 11.2 y versiones posteriores
 
 * Instale la puerta de enlace de datos local. Puede ver los pasos en [Conexión a datos locales desde aplicaciones lógicas](../logic-apps/logic-apps-gateway-connection.md). Esta puerta de enlace puede conectarse a una base de datos de Oracle local o a una VM de Azure con una base de datos de Oracle instalada. 
 
     > [!NOTE]
     > La puerta de enlace de datos local actúa como un puente, proporcionando una transferencia de datos segura entre los datos locales (datos que no están en la nube) y las aplicaciones lógicas. La misma puerta de enlace se puede utilizar con varios servicios y varios orígenes de datos.  Por lo tanto, solo debe instalar la puerta de enlace una vez.
 
-* Instale el cliente Oracle en la misma máquina en la que instaló la puerta de enlace de datos local.  Asegúrese de instalar el proveedor de datos de Oracle de 64-bits para .NET de Oracle:  
+* Instale el cliente Oracle en la misma máquina en la que instaló la puerta de enlace de datos local. Asegúrese de instalar el proveedor de datos de Oracle de 64 bits para .NET desde Oracle y seleccione la versión del instalador de Windows, ya que la versión `xcopy` no funciona con la puerta de enlace de datos local:  
 
   [64-bits ODAC 12c versión 4 (12.1.0.2.4) para Windows x64](https://www.oracle.com/technetwork/database/windows/downloads/index-090165.html)
 

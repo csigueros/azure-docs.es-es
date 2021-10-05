@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 08/03/2021
-ms.openlocfilehash: 299005d8d7c961335decbce46bab8c558d2589a1
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 8dd0929d56bac0b2f825d976ba07bd0956c0d063
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121734976"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124755190"
 ---
 # <a name="supported-database-versions-in-azure-database-for-postgresql--hyperscale-citus"></a>Versiones de base de datos compatibles en Azure Database for PostgreSQL para Hiperescala (Citus)
 
@@ -22,15 +22,15 @@ La versión de PostgreSQL que se ejecuta en un grupo de servidores de Hiperescal
 
 ### <a name="postgresql-version-13"></a>PostgreSQL, versión 13
 
-La versión secundaria actual es la 13.3. Consulte la [documentación de PostgreSQL](https://www.postgresql.org/docs/13/static/release-13-2.html) para obtener más información sobre las mejoras y correcciones de esta versión secundaria.
+La versión secundaria actual es la 13.4. Consulte la [documentación de PostgreSQL](https://www.postgresql.org/docs/13/release-13-4.html) para obtener más información sobre las mejoras y correcciones de esta versión secundaria.
 
 ### <a name="postgresql-version-12"></a>PostgreSQL, versión 12
 
-La versión secundaria actual es la 12.7. Consulte la [documentación de PostgreSQL](https://www.postgresql.org/docs/12/static/release-12-6.html) para obtener más información sobre las mejoras y correcciones de esta versión secundaria.
+La versión secundaria actual es la 12.8. Consulte la [documentación de PostgreSQL](https://www.postgresql.org/docs/12/release-12-8.html) para obtener más información sobre las mejoras y correcciones de esta versión secundaria.
 
 ### <a name="postgresql-version-11"></a>PostgreSQL, versión 11
 
-La versión secundaria actual es la 11.12. Consulte la [documentación de PostgreSQL](https://www.postgresql.org/docs/11/static/release-11-11.html) para obtener más información sobre las mejoras y correcciones de esta versión secundaria.
+La versión secundaria actual es la 11.13. Consulte la [documentación de PostgreSQL](https://www.postgresql.org/docs/11/release-11-13.html) para obtener más información sobre las mejoras y correcciones de esta versión secundaria.
 
 ### <a name="postgresql-version-10-and-older"></a>PostgreSQL, versión 10 y anteriores
 

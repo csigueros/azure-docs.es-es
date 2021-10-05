@@ -3,12 +3,12 @@ title: Recursos sin límite de recuento de 800
 description: Aquí se enumeran los tipos de recursos de Azure que pueden tener más de 800 instancias en un grupo de recursos.
 ms.topic: conceptual
 ms.date: 07/13/2021
-ms.openlocfilehash: e9145500ade55aa8cb9061b6da125e2bd8a0f5c5
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 123148a863f74a6490a524ecc2d39bc44e65299d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113769239"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124807061"
 ---
 # <a name="resources-not-limited-to-800-instances-per-resource-group"></a>Recursos no limitados a 800 instancias por grupo de recursos
 
@@ -16,6 +16,7 @@ De forma predeterminada, puede implementar hasta 800 instancias de un tipo de re
 
 Para usar algunos tipos de recursos, debe ponerse en contacto con el servicio de soporte técnico para que se elimine el límite de 800 instancias. Esos tipos de recursos se indican en este artículo.
 
+Algunos recursos tienen un límite en el número de instancias por región. Este límite es diferente de las 800 instancias por grupo de recursos. Para comprobar las instancias por región, use Azure Portal. Seleccione la suscripción y, en el panel izquierdo, elija **Uso y cuotas**. Para más información, consulte [Comparación del uso de recursos con los límites](../../networking/check-usage-against-limits.md). 
 
 ## <a name="microsoftalertsmanagement"></a>Microsoft.AlertsManagement
 

@@ -7,12 +7,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/25/2021
 ms.author: shpathak
-ms.openlocfilehash: e071298ce1ed191f79e071f18916d8afba10d625
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: a0dd6e3e8f4c2a7645da1ceccf77f7607d2b84b3
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123478813"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128656956"
 ---
 # <a name="connection-resilience"></a>Resistencia de la conexión
 
@@ -26,17 +26,19 @@ Pruebe la resistencia del sistema a las interrupciones de conexión mediante un 
 
 ## <a name="configure-appropriate-timeouts"></a>Configuración de tiempos de espera adecuados
 
-Configure la biblioteca cliente para usar un *tiempo de espera de conexión* de entre 10 y 15 segundos, y un *tiempo de espera de comandos* de 5 segundos. El *tiempo de espera de conexión* es el tiempo que el cliente espera para establecer una conexión con el servidor de Redis. La mayoría de las bibliotecas cliente tienen otra configuración de tiempo de espera para los *tiempos de espera de comandos*, que es el tiempo que el cliente espera una respuesta del servidor Redis.
+Dos valores de tiempo de espera que es importante tener en cuenta para la resistencia de la conexión: [tiempo de espera de conexión](#connect-timeout) y [tiempo de espera del comando](#command-timeout).
 
-En algunas bibliotecas el *tiempo de espera de comandos* se establece en 5 segundos de forma predeterminada. Considere la posibilidad de aumentarlo o reducirlo en función del escenario y los tamaños de los valores almacenados en la caché.
+### <a name="connect-timeout"></a>Tiempo de espera de conexión
 
-Si el *tiempo de espera de comandos* es demasiado bajo, la conexión puede parecer inestable. Pero si el *tiempo de espera de comandos* es demasiado elevado, es posible que la aplicación tenga que esperar mucho tiempo para averiguar si el comando va a agotar el tiempo de espera o no.
+El `connect timeout` es el tiempo que el cliente espera para establecer una conexión con el servidor de Redis. Configure la biblioteca cliente para usar un valor `connect timeout` de cinco segundos, lo que da al sistema tiempo suficiente para conectarse incluso en condiciones mucho uso de la CPU.
 
-Configure la biblioteca cliente para usar un *tiempo de espera de conexión* de al menos 15 segundos, lo que le dará al sistema tiempo suficiente para conectarse incluso en condiciones de uso elevado de la CPU. Un valor de *tiempo de espera de conexión* bajo no garantiza que se establezca una conexión en ese plazo de tiempo.
+Un valor de `connection timeout` bajo no garantiza que se establezca una conexión en ese plazo de tiempo. Si algo va mal (CPU de cliente alta, CPU de servidor alta, etc.), un valor `connection timeout` corto provoca un error del intento de conexión. Este comportamiento suele empeorar una situación que ya es mala de por si. En lugar de mejorar el problema, los tiempos de espera más cortos lo agravan, ya que obligan al sistema a reiniciar el proceso de conexión, lo que puede llevar a un bucle *conectar -> error -> reintentar*.
 
-Si se produce algún error (CPU de cliente alta, CPU de servidor alta, etc.) un valor de tiempo de espera de conexión bajo hace que el intento de conexión falle. Este comportamiento suele empeorar una situación que ya es mala de por si. En lugar de mejorar el problema, los tiempos de espera más cortos lo agravan, ya que obligan al sistema a reiniciar el proceso de conexión, lo que puede llevar a un bucle *conectar -> error -> reintentar*.
+### <a name="command-timeout"></a>Tiempo de espera del comando
 
-En general, se recomienda dejar el *tiempo de espera de conexión* en 15 segundos o más. Es mejor dejar que el intento de conexión sea correcto después de 15 o 20 segundos que hacer que falle rápidamente para volver a intentarlo. Un bucle de reintentos de este tipo puede hacer que la interrupción dure más que si otorgara inicialmente más tiempo al sistema.
+La mayoría de las bibliotecas cliente tienen otra configuración de tiempo de espera para los `command timeouts`, que es el tiempo que el cliente espera una respuesta del servidor Redis. Aunque se recomienda una configuración inicial de menos de cinco segundos, considere la posibilidad de establecer el valor `command timeout` más alto o más bajo en función del escenario y los tamaños de los valores almacenados en la memoria caché.
+
+Si el `command timeout` es demasiado bajo, la conexión puede parecer inestable. Pero si el valor `command timeout` es demasiado elevado, es posible que la aplicación tenga que esperar mucho tiempo para averiguar si el comando va a agotar el tiempo de espera o no.
 
 ## <a name="avoid-client-connection-spikes"></a>Evitar picos de conexión cliente
 
@@ -66,3 +68,9 @@ Aplique patrones de diseño para la resistencia. Para obtener más información,
 ## <a name="idle-timeout"></a>Tiempo de espera inactividad
 
 Actualmente, Azure Cache for Redis tiene un tiempo de espera de inactividad de 10 minutos para las conexiones, por lo que la configuración de tiempo de espera de inactividad en la aplicación cliente debe ser inferior a 10 minutos. Las bibliotecas cliente más comunes tienen una configuración que permite que las bibliotecas cliente envíe comandos `PING` de Redis a un servidor de Redis de manera automática y periódica. Sin embargo, al usar bibliotecas cliente sin este tipo de configuración, las propias aplicaciones cliente son responsables de mantener activa la conexión.
+
+## <a name="next-steps"></a>Pasos siguientes
+
+- [Procedimientos recomendados para el desarrollo](cache-best-practices-development.md)
+- [Preguntas frecuentes sobre el desarrollo para Azure Cache for Redis](cache-development-faq.yml)
+- [Conmutación por error y aplicación de revisiones](cache-failover.md)

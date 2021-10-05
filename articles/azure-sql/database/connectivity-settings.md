@@ -11,20 +11,20 @@ ms.author: rohitna
 ms.reviewer: mathoma, vanto
 ms.date: 08/03/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 77b629f5fb354ee94d06055999ece59aea05e592
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: de6af2c8581c157634ee1f8676e3dbc84ccd1803
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121750143"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128590691"
 ---
 # <a name="azure-sql-connectivity-settings"></a>Configuración de la conectividad de Azure SQL
-[!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
+[!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa-formerly-sqldw.md)]
 
 Este artículo presenta los valores que controlan la conectividad con el servidor para Azure SQL Database y [grupo de SQL dedicado (anteriormente, SQL DW)](../../synapse-analytics\sql-data-warehouse\sql-data-warehouse-overview-what-is.md) en Azure Synapse Analytics. Estos valores se aplican a todas las bases de datos de SQL Database y de grupo de SQL dedicado (anteriormente, SQL DW) asociadas al servidor.
 
 > [!IMPORTANT]
-> Este artículo no se aplica a Azure SQL Managed Instance.
+> Este artículo no se aplica a Azure SQL Managed Instance. Este artículo tampoco se aplica a grupos de SQL dedicados en áreas de trabajo de Azure Synapse Analytics. Puede encontrar una guía sobre cómo configurar reglas de firewall de IP para Azure Synapse Analytics con áreas de trabajo en [Reglas de firewall de IP de Azure Synapse Analytics](../../synapse-analytics/security/synapse-workspace-ip-firewall.md).
 
 Se puede acceder a la configuración de conectividad desde la pantalla **Firewalls y redes virtuales**, como se indica en la siguiente captura de pantalla:
 
