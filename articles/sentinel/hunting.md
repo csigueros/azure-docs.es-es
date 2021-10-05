@@ -14,14 +14,14 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/14/2021
+ms.date: 08/08/2021
 ms.author: yelevin
-ms.openlocfilehash: 78662bf6dbc6d4be4f0ea0890993530f772d2114
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: ecb8559af1d2aaf70bee0031930a748ff534f1c0
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121746235"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128622538"
 ---
 # <a name="hunt-for-threats-with-azure-sentinel"></a>Búsqueda de amenazas con Azure Sentinel
 
@@ -111,9 +111,51 @@ Para obtener más información, vea [Uso de marcadores de búsqueda](bookmarks.m
 
 ## <a name="use-notebooks-to-power-investigations"></a>Uso de cuadernos como tecnología de las investigaciones
 
-Los cuadernos proporcionan una especie de entorno de espacio aislado virtual, con un kernel propio. Puede usar cuadernos para mejorar la búsqueda y las investigaciones con aprendizaje automático, visualización y análisis de datos. Puede realizar una investigación completa en un cuaderno, encapsulando los datos sin procesar, el código que se ejecuta en él, los resultados y sus visualizaciones, y guardar todo el contenido para que se pueda compartir con otros usuarios y estos puedan reutilizarlo.
+Cuando la búsqueda y las investigaciones se vuelvan más complejas, use cuadernos de Azure Sentinel para mejorar su actividad con aprendizaje automático, visualizaciones y análisis de datos.
 
-Para obtener más información, vea [Uso de Jupyter Notebook para buscar amenazas de seguridad](notebooks.md).
+Los cuadernos se asemejan a un espacio aislado virtual, con su propio kernel, donde puede llevar a cabo una investigación completa. El cuaderno puede incluir los datos sin procesar, el código que se ejecuta en dichos datos, los resultados y sus visualizaciones. Guarde los cuadernos para que pueda compartirlos con otros usuarios con el fin de reutilizarlos en su organización.
+
+Los cuadernos pueden ser útiles cuando la búsqueda o la investigación adquieran un volumen demasiado grande como para recordarlas fácilmente, para ver detalles, o bien si necesita guardar consultas y resultados. Para ayudarle a crear y compartir cuadernos, Azure Sentinel proporciona [Jupyter Notebook](https://jupyter.org), un entorno de desarrollo interactivo y manipulación de datos de código abierto, integrado directamente en la página **Notebooks** de Azure Sentinel.
+
+Para más información, consulte:
+
+- [Uso de Jupyter Notebook para buscar amenazas de seguridad](notebooks.md)
+- [Documentación de Jupyter Project](https://jupyter.org/documentation)
+- [Documentación introductoria de Jupyter](https://jupyter.readthedocs.io/en/latest/tryjupyter.html)
+- [Infosec Jupyter Book](https://infosecjupyterbook.com)
+- [Tutoriales de Real Python](https://realpython.com)
+
+En la siguiente tabla se describen varios métodos de uso de cuadernos de Jupyter Notebook para ayudarle con sus procesos en Azure Sentinel:
+
+|Método  |Descripción  |
+|---------|---------|
+|**Persistencia de datos, repetibilidad y vuelta atrás (backtracking)**     |  Si trabaja con muchas consultas y conjuntos de resultados, es probable que tenga puntos muertos. Tendrá que decidir qué consultas y resultados conservar y cómo acumular los resultados útiles en un único informe. <br><br> Use cuadernos de Jupyter Notebook para guardar consultas y datos sobre la marcha, use variables para volver a ejecutar consultas con diferentes valores o fechas, o guarde las consultas para volver a ejecutarlas en futuras investigaciones.       |
+|**Scripting y programación**     |    Use cuadernos de Jupyter Notebook para agregar programación a sus consultas, lo que incluye: <br><br>- Lenguajes *declarativos*, como el [lenguaje de consulta Kusto (KQL)](/azure/kusto/query/) o SQL, para codificar su lógica en una sola instrucción, posiblemente compleja.<br>- Lenguajes de programación de *procedimientos*, para ejecutar una lógica en una serie de pasos. <br><br>Dividir la lógica en pasos puede ayudarle a ver y depurar resultados intermedios, agregar una funcionalidad que podría no estar disponible en el lenguaje de consulta y reutilizar resultados parciales en pasos de procesamiento posteriores.     |
+|**Vínculos a datos externos**     | Aunque las tablas de Azure Sentinel son las que tienen más datos de eventos y telemetría, los cuadernos de Jupyter Notebook pueden vincularse a datos que estén accesibles a través de su red o desde un archivo. Usando cuadernos de Jupyter Notebook, puede incluir datos como los siguientes: <br><br>- Datos de servicios externos que no posee, como datos de geolocalización u orígenes de inteligencia sobre amenazas<br>- Datos confidenciales que solo se almacenen en el seno de su organización, como bases de datos de recursos humanos o listas de recursos de gran valor<br>- Datos que aún no haya migrado a la nube        |
+|**Herramientas especializadas de procesamiento de datos, aprendizaje automático y visualización**     | Los cuadernos de Jupyter Notebook proporcionan visualizaciones adicionales, bibliotecas de aprendizaje automático y características de procesamiento y transformación de datos. <br><br>Por ejemplo, use cuadernos de Jupyter Notebook con las siguientes funcionalidades de [Python](https://python.org):<br>- [Pandas](https://pandas.pydata.org/) para procesamiento de datos, limpieza e ingeniería<br>- [Matplotlib](https://matplotlib.org), [HoloViews](https://holoviews.org) y [Plotly](https://plot.ly) para visualización<br>- [NumPy](https://www.numpy.org) y [SciPy](https://www.scipy.org) para procesamiento numérico y científico avanzado<br>- [scikit-learn](https://scikit-learn.org/stable/index.html) para aprendizaje automático<br>- [TensorFlow](https://www.tensorflow.org/), [PyTorch](https://pytorch.org) y [Keras](https://keras.io/) para aprendizaje profundo<br><br>**Sugerencia:** Los cuadernos de Jupyter Notebook admiten varios kernels de lenguaje. Use *magics* para mezclar lenguajes dentro del mismo cuaderno, permitiendo la ejecución de celdas individuales mediante otro lenguaje. Por ejemplo, puede recuperar datos mediante una celda de script de PowerShell, procesar los datos en Python y usar JavaScript para representar una visualización.        |
+|     |         |
+
+### <a name="mstic-jupyter-and-python-security-tools"></a>Herramientas de seguridad de MSTIC, Jupyter y Python
+
+[Microsoft Threat Intelligence Center (MSTIC)](https://msrc-blog.microsoft.com/tag/mstic/) es un equipo de ingenieros y analistas de seguridad de Microsoft que realizan detecciones de seguridad para varias plataformas de Microsoft y trabajan en la identificación e investigación de amenazas.
+
+MSTIC ha creado [MSTICPy](https://github.com/Microsoft/msticpy), una biblioteca para investigaciones de seguridad de la información y búsqueda en cuadernos de Jupyter Notebook. MSTICPy proporciona una funcionalidad reutilizable que pretende agilizar la creación de cuadernos y que facilita la lectura de cuadernos en Azure Sentinel por parte de los usuarios.
+
+Por ejemplo, MSTICPy puede hacer lo siguiente:
+
+- Consultar datos de registro de varios orígenes.
+- Enriquecer los datos con inteligencia sobre amenazas, geolocalizaciones y datos de recursos de Azure.
+- Extraer indicadores de actividad (IoA) de registros y desempaquetar datos codificados.
+- Realizar análisis sofisticados, como la detección de sesiones anómalas y la descomposición de series temporales.
+- Visualizar datos usando escalas de tiempo interactivas, árboles de proceso y Morph Charts multidimensionales.
+
+MSTICPy también incluye varias herramientas de cuadernos que ahorran tiempo, como widgets que establecen límites de tiempo de consulta, seleccionan y muestran elementos de listas, y configuran el entorno del cuaderno.
+
+Para más información, consulte:
+
+- [Documentación de MSTICPy](https://msticpy.readthedocs.io/en/latest/)
+- [Tutorial: Introducción a los cuadernos de Jupyter Notebook y MSTICPy en Azure Sentinel](notebook-get-started.md)
+- [Configuraciones avanzadas para cuadernos de Jupyter Notebook y MSTICPy en Azure Sentinel](notebooks-msticpy-advanced.md)
 
 
 ## <a name="useful-operators-and-functions"></a>Operadores y funciones útiles
