@@ -1,19 +1,19 @@
 ---
 title: Ahorre en Azure Synapse Analytics con la capacidad reservada de Azure
 description: Aprenda a ahorrar costos en Azure Synapse Analytics gracias a la capacidad reservada para ahorrar dinero.
-author: yashesvi
-ms.reviewer: yashar
+author: bandersmsft
+ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 07/24/2020
+ms.date: 09/15/2021
 ms.author: banders
-ms.openlocfilehash: bd43b668c318b825c5c5b6f36fc1da1055863bed
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: f738b2e551ecb26426ef25603969fb471ecfa437
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98599103"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128666597"
 ---
 # <a name="save-costs-for-azure-synapse-analytics-charges-with-reserved-capacity"></a>Ahorro en Azure Synapse Analytics con la capacidad reservada
 
@@ -52,8 +52,9 @@ Por ejemplo, suponga que el consumo total de Azure Synapse Analytics es DW3000c.
    - **Single resource group scope** (Ámbito de grupo de recursos único): aplica el descuento por reserva a los recursos coincidentes solo en el grupo de recursos seleccionado.
    - **Single subscription scope** (Ámbito de suscripción única): aplica el descuento por reserva a los recursos coincidentes de la suscripción seleccionada.
    - **Ámbito compartido**: aplica el descuento por reserva a los recursos coincidentes en suscripciones aptas que están en el contexto de facturación. Para los clientes con Contrato Enterprise, el contexto de facturación es la inscripción. En el caso de suscripciones individuales con tarifas de pago por uso, el ámbito de facturación son todas las suscripciones aptas creadas por el administrador de la cuenta.
-   - Para los clientes empresariales, el contexto de facturación es la inscripción en el Contrato Enterprise.
-   - Para los clientes de Pago por uso, el ámbito compartido incluye todas las suscripciones de Pago por uso creadas por el administrador de la cuenta.
+       - Para los clientes empresariales, el contexto de facturación es la inscripción en el Contrato Enterprise.
+       - Para los clientes de Pago por uso, el ámbito compartido incluye todas las suscripciones de Pago por uso creadas por el administrador de la cuenta.
+   - **Grupo de administración**: aplica el descuento de reserva al recurso correspondiente en la lista de suscripciones que forman parte del grupo de administración y del ámbito de facturación.
 5. Seleccione una región para elegir una región de Azure que abarca la capacidad reservada.
 6. Elija una cantidad. Especifique la cantidad de 100 unidades de almacenamiento de datos (cDWU) que desea comprar.    
    Por ejemplo, una cantidad de 30 le aportará 3000 cDWU de capacidad reservada cada hora.

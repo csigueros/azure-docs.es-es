@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 12/09/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 9cd193eb6ff2858440f1cd9a62bdd53d58d6047d
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: fb4ff79e1115086ef84694485cd9e7978295a9c0
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107256300"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128598848"
 ---
 # <a name="tutorial-configure-zscaler-private-access-with-azure-active-directory-b2c"></a>Tutorial: Configuración de Zscaler Private Access con Azure Active Directory B2C
 
@@ -117,11 +117,13 @@ El resto de los pasos no son de interés para este tutorial.
 
 A continuación, debe obtener una dirección URL de metadatos de SAML con el siguiente formato:
 
-```https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/<policy-name>/Samlp/metadata```
+`https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/<policy-name>/Samlp/metadata`
 
 Tenga en cuenta que `<tenant-name>` es el nombre de su inquilino de Azure AD B2C y `<policy-name>` es el nombre de la directiva de SAML personalizada que creó en el paso anterior.
 
-Por ejemplo, la URL podrían ser `https://safemarch.b2clogin.com/safemarch.onmicrosoft.com/B2C_1A_signup_signin_saml//Samlp/metadata`.
+Por ejemplo, la dirección URL podría ser:
+
+`https://safemarch.b2clogin.com/safemarch.onmicrosoft.com/B2C_1A_signup_signin_saml/Samlp/metadata`.
 
 Abra un explorador web y vaya a la dirección URL de metadatos de SAML. Haga clic con el botón derecho en cualquier parte de la página, seleccione **Guardar como** y, a continuación, guarde el archivo en el equipo para usarlo en el paso siguiente.
 

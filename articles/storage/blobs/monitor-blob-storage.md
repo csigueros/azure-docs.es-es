@@ -1,5 +1,5 @@
 ---
-title: Supervisión de Azure Blob Storage | Microsoft Docs
+title: Supervisión de Azure Blob Storage
 description: Obtenga información sobre cómo supervisar el rendimiento y la disponibilidad de Azure Blob Storage. Supervise los datos de Azure Blob Storage, obtenga información sobre la configuración y analice los datos de métricas y registro.
 author: normesta
 services: storage
@@ -9,26 +9,27 @@ ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: subject-monitoring, devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 2fd0e2807697ee417a14d7afa7c07864456a6976
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: bcfd37ff8c030136e37b4289bc37006012891412
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123471235"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128617552"
 ---
 # <a name="monitoring-azure-blob-storage"></a>Supervisión de Azure Blob Storage
 
 Si tiene aplicaciones y procesos empresariales críticos que dependen de recursos de Azure, querrá supervisar esos recursos para su disponibilidad, rendimiento y funcionamiento. En este artículo, se describen los datos de supervisión que genera Azure Blob Storage y cómo puede usar las características de Azure Monitor para analizar las alertas sobre estos datos.
 
 > [!NOTE]
-> Los registros de Azure Storage en Azure Monitor están en versión preliminar pública, además de estar disponibles para pruebas de versión preliminar en todas las regiones de nube pública. Esta versión preliminar habilita los registros de blobs (que incluye Azure Data Lake Storage Gen2), archivos, colas y tablas. Esta característica está disponible para todas las cuentas de almacenamiento que se crean con el modelo de implementación de Azure Resource Manager. Consulte [Introducción a las cuentas de almacenamiento](../common/storage-account-overview.md).
+> Los registros de Azure Storage en Azure Monitor están en versión preliminar pública, además de estar disponibles para pruebas de versión preliminar en todas las regiones de nube pública y del Gobierno de EE. UU. Esta versión preliminar habilita los registros de blobs (que incluye Azure Data Lake Storage Gen2), archivos, colas y tablas. Esta característica está disponible para todas las cuentas de almacenamiento que se crean con el modelo de implementación de Azure Resource Manager. Para más información, consulte [Introducción a las cuentas de almacenamiento](../common/storage-account-overview.md).
 
 ## <a name="monitor-overview"></a>Información general de supervisión
 
 La página **Información general** de Azure Portal para cada recurso de Blob Storage incluye una breve vista del uso de los recursos, como las solicitudes y la facturación por hora. Esta información es útil, pero solo hay disponible una pequeña cantidad de datos de supervisión. Algunos de estos datos se recopilan automáticamente y están disponibles para su análisis en cuanto se crea el recurso. Puede habilitar tipos adicionales de recopilación de datos con cierta configuración adicional.
 
 ## <a name="what-is-azure-monitor"></a>¿Qué es Azure Monitor?
-Azure Blob Storage crea los datos de supervisión mediante [Azure Monitor](../../azure-monitor/overview.md), que es un servicio de supervisión de pila completo en Azure. Azure Monitor proporciona un conjunto completo de características para supervisar los recursos de Azure y los recursos en otras nubes y en el entorno local. 
+
+Azure Blob Storage crea los datos de supervisión mediante [Azure Monitor](../../azure-monitor/overview.md), que es un servicio de supervisión de pila completo en Azure. Azure Monitor proporciona un conjunto completo de características para supervisar los recursos de Azure y los recursos en otras nubes y en el entorno local.
 
 Comience con el artículo [Supervisión de recursos de Azure con Azure Monitor](../../azure-monitor/essentials/monitor-azure-resource.md), que describe lo siguiente:
 
@@ -42,19 +43,19 @@ Las secciones siguientes complementan este artículo mediante la descripción de
 
 ## <a name="monitoring-data"></a>Supervisión de datos
 
-Azure Blob Storage recopila los mismos tipos de datos de supervisión que otros recursos de Azure, que se describen en [Supervisión de datos de recursos de Azure](../../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data). 
+Azure Blob Storage recopila los mismos tipos de datos de supervisión que otros recursos de Azure, que se describen en [Supervisión de datos de recursos de Azure](../../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data).
 
 Consulte la [Referencia de datos de supervisión de Azure Blob Storage](monitor-blob-storage-reference.md) para obtener información detallada sobre las métricas y las métricas de registros que crea Azure Blob Storage.
 
-Las métricas y registros de Azure Monitor solo admiten cuentas de almacenamiento de Azure Resource Manager. Azure Monitor no admite cuentas de almacenamiento clásicas. Si desea usar las métricas o registros en una cuenta de almacenamiento clásica, es preciso migrar a una cuenta de almacenamiento de Azure Resource Manager. Consulte [Migración a Azure Resource Manager](../../virtual-machines/migration-classic-resource-manager-overview.md).
+Las métricas y registros de Azure Monitor solo admiten cuentas de almacenamiento de Azure Resource Manager. Azure Monitor no admite cuentas de almacenamiento clásicas. Si desea usar las métricas o registros en una cuenta de almacenamiento clásica, es preciso migrar a una cuenta de almacenamiento de Azure Resource Manager. Para más información, consulte [Migración a Azure Resource Manager](../../virtual-machines/migration-classic-resource-manager-overview.md).
 
 Si lo desea, puede seguir usando las métricas y registros clásicos. De hecho, las métricas y registros clásicos están disponibles en paralelo a las métricas y registros en Azure Monitor. La compatibilidad sigue siendo la misma hasta que Azure Storage finalice el servicio en las métricas y registros heredados.
 
 ## <a name="collection-and-routing"></a>Recopilación y enrutamiento
 
-Las métricas de la plataforma y el registro de actividad se recopilan automáticamente, pero se pueden enrutar a otras ubicaciones mediante una configuración de diagnóstico. 
+Las métricas de la plataforma y el registro de actividad se recopilan automáticamente, pero se pueden enrutar a otras ubicaciones mediante una configuración de diagnóstico.
 
-Para recopilar registros de recursos, debe crear una configuración de diagnóstico. Cuando cree la configuración, elija **blob** como tipo de almacenamiento para habilitar los registros. A continuación, especifique una de las siguientes categorías de operaciones de las que quiera recopilar registros. 
+Para recopilar registros de recursos, debe crear una configuración de diagnóstico. Cuando cree la configuración, elija **blob** como tipo de almacenamiento para habilitar los registros. A continuación, especifique una de las siguientes categorías de operaciones de las que quiera recopilar registros.
 
 | Category | Descripción |
 |:---|:---|
@@ -63,16 +64,16 @@ Para recopilar registros de recursos, debe crear una configuración de diagnóst
 | StorageDelete | Operaciones de eliminación en objetos. |
 
 > [!NOTE]
-> Data Lake Storage Gen2 no aparece como un tipo de almacenamiento. Esto se debe a que Data Lake Storage Gen2 es un conjunto de funcionalidades disponibles para el almacenamiento de blobs. 
+> Data Lake Storage Gen2 no aparece como un tipo de almacenamiento. Esto se debe a que Data Lake Storage Gen2 es un conjunto de funcionalidades disponibles para el almacenamiento de blobs.
 
 ## <a name="creating-a-diagnostic-setting"></a>Creación de una configuración de diagnóstico
 
-Puede crear una configuración de diagnóstico mediante Azure Portal, PowerShell, la CLI de Azure, una plantilla de Azure Resource Manager o Azure Policy. 
+Puede crear una configuración de diagnóstico mediante Azure Portal, PowerShell, la CLI de Azure, una plantilla de Azure Resource Manager o Azure Policy.
 
 Para obtener instrucciones generales, consulte [Creación de una configuración de diagnóstico para recopilar registros y métricas de la plataforma en Azure](../../azure-monitor/essentials/diagnostic-settings.md).
 
 > [!NOTE]
-> Los registros de Azure Storage en Azure Monitor están en versión preliminar pública, además de estar disponibles para pruebas de versión preliminar en todas las regiones de nube pública. Esta versión preliminar habilita los registros de blobs (que incluye Azure Data Lake Storage Gen2), archivos, colas y tablas. Esta característica está disponible para todas las cuentas de almacenamiento que se crean con el modelo de implementación de Azure Resource Manager. Consulte [Introducción a las cuentas de almacenamiento](../common/storage-account-overview.md).
+> Los registros de Azure Storage en Azure Monitor están en versión preliminar pública, además de estar disponibles para pruebas de versión preliminar en todas las regiones de nube pública y del Gobierno de EE. UU. Esta versión preliminar habilita los registros de blobs (que incluye Azure Data Lake Storage Gen2), archivos, colas y tablas. Esta característica está disponible para todas las cuentas de almacenamiento que se crean con el modelo de implementación de Azure Resource Manager. Para más información, consulte [Introducción a las cuentas de almacenamiento](../common/storage-account-overview.md).
 
 ### <a name="azure-portal"></a>[Azure Portal](#tab/azure-portal)
 
@@ -83,7 +84,7 @@ Para obtener instrucciones generales, consulte [Creación de una configuración 
 3. En la sección **Supervisión**, seleccione **Configuración de diagnóstico (versión preliminar)** .
 
    > [!div class="mx-imgBorder"]
-   > ![Portal: Registros de diagnóstico](media/monitor-blob-storage/diagnostic-logs-settings-pane.png)   
+   > ![Portal: Registros de diagnóstico](media/monitor-blob-storage/diagnostic-logs-settings-pane.png)
 
 4. Elija **blob** como tipo de almacenamiento para habilitar los registros.
 
@@ -103,37 +104,37 @@ Para obtener instrucciones generales, consulte [Creación de una configuración 
 
 Si opta por archivar los registros en una cuenta de almacenamiento, pagará por el volumen de registros que se envíen a la cuenta de almacenamiento. Para obtener información sobre precios concretos, vea la sección **Registros de la plataforma** de la página [Precios de Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/#platform-logs).
 
-1. Seleccione la casilla **Archivar en una cuenta de almacenamiento** y, a continuación, haga clic en el botón **Configurar**.
+1. Seleccione la casilla **Archivar en una cuenta de almacenamiento** y, a continuación, seleccione el botón **Configurar**.
 
-   > [!div class="mx-imgBorder"]   
+   > [!div class="mx-imgBorder"]
    > ![Almacenamiento de archivos en la página de configuración de diagnóstico ](media/monitor-blob-storage/diagnostic-logs-settings-pane-archive-storage.png)
 
-2. En la lista desplegable de la **Cuenta de almacenamiento**, seleccione la cuenta de almacenamiento en la que quiera archivar los registros, haga clic en el botón **Aceptar** y, a continuación, haga clic en el botón **Guardar**.
+2. En la lista desplegable de la **Cuenta de almacenamiento**, seleccione la cuenta de almacenamiento en la que quiera archivar los registros, haga clic en el botón **Aceptar** y, a continuación, seleccione en el botón **Guardar**.
 
    [!INCLUDE [no retention policy](../../../includes/azure-storage-logs-retention-policy.md)]
 
    > [!NOTE]
-   > Antes de elegir una cuenta de almacenamiento como destino de exportación, consulte [Archivar registros de recursos de Azure](../../azure-monitor/essentials/resource-logs.md#send-to-azure-storage) para comprender los requisitos previos de la cuenta de almacenamiento.
+   > Antes de elegir una cuenta de almacenamiento como destino de exportación, consulte [Archivo de registros de recursos de Azure](../../azure-monitor/essentials/resource-logs.md#send-to-azure-storage) para comprender los requisitos previos de la cuenta de almacenamiento.
 
 #### <a name="stream-logs-to-azure-event-hubs"></a>Transmisión de registros a Azure Event Hubs
 
 Si decide transmitir los registros a un centro de eventos, pagará por el volumen de registros que se envíen al centro de eventos. Para obtener información sobre precios concretos, vea la sección **Registros de la plataforma** de la página [Precios de Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/#platform-logs).
 
-1. Seleccione la casilla **Transmitir a un centro de eventos** y haga clic en **Configurar**.
+1. Seleccione la casilla **Transmitir a un centro de eventos** y, luego, seleccione el botón **Configurar**.
 
-2. En el panel para **Seleccionar un centro de eventos**, elija el espacio de nombres, el nombre y el nombre de la directiva del centro de eventos al que quiere transmitir los registros. 
+2. En el panel para **Seleccionar un centro de eventos**, elija el espacio de nombres, el nombre y el nombre de la directiva del centro de eventos al que quiere transmitir los registros.
 
    > [!div class="mx-imgBorder"]
    > ![Centro de eventos en la página de configuración de diagnóstico](media/monitor-blob-storage/diagnostic-logs-settings-pane-event-hub.png)
 
-3. Haga clic en el botón **Aceptar** y, a continuación, en el botón **Guardar**.
+3. Haga clic en el botón **Aceptar** y, a continuación, seleccione el botón **Guardar**.
 
 #### <a name="send-logs-to-azure-log-analytics"></a>Envío de registros a Azure Log Analytics
 
-1. Seleccione la casilla **Enviar a Log Analytics**, seleccione un área de trabajo de Log Analytics y, a continuación, haga clic en el botón **Guardar**.
+1. Seleccione la casilla **Enviar a Log Analytics**, seleccione un área de trabajo de Log Analytics y, a continuación, seleccione el botón **Guardar**.
 
-   > [!div class="mx-imgBorder"]   
-   > ![Instancia de Log Analytics de la página de configuración de diagnóstico](media/monitor-blob-storage/diagnostic-logs-settings-pane-log-analytics.png)
+   > [!div class="mx-imgBorder"]
+   > ![Instancia de Log Analytics en la página de configuración de diagnóstico](media/monitor-blob-storage/diagnostic-logs-settings-pane-log-analytics.png)
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -271,13 +272,13 @@ Para ver una plantilla de Azure Resource Manager que crea una configuración de 
 
 ### <a name="azure-policy"></a>[Azure Policy](#tab/policy)
 
-Puede crear una configuración de diagnóstico mediante una definición de directiva. De este modo, puede asegurarse de que se crea una configuración de diagnóstico para cada cuenta que se crea o actualiza. Consulte [Definiciones integradas de Azure Policy para Azure Storage](../common/policy-reference.md).
+Puede crear una configuración de diagnóstico mediante una definición de directiva. De este modo, puede asegurarse de que se crea una configuración de diagnóstico para cada cuenta que se crea o actualiza. Para obtener más información, vea [Definiciones integradas de Azure Policy para Azure Storage](../common/policy-reference.md).
 
 ---
 
 ## <a name="analyzing-metrics"></a>Análisis de métricas
 
-Puede analizar las métricas de Azure Storage con métricas de otros servicios de Azure con el Explorador de métricas. Para abrir el Explorador de métricas, elija **Métricas** en el menú **Azure Monitor**. Para más información sobre esta herramienta, consulte [Introducción al Explorador de métricas de Azure](../../azure-monitor/essentials/metrics-getting-started.md). 
+Puede analizar las métricas de Azure Storage con métricas de otros servicios de Azure con el Explorador de métricas. Para abrir el Explorador de métricas, elija **Métricas** en el menú **Azure Monitor**. Para más información sobre esta herramienta, consulte [Introducción al Explorador de métricas de Azure](../../azure-monitor/essentials/metrics-getting-started.md).
 
 En este ejemplo se muestra cómo ver **Transacciones** a nivel de cuenta.
 
@@ -289,13 +290,12 @@ Para ver las métricas que admiten dimensiones, puede filtrar las métricas con 
 
 Para obtener una lista completa de las dimensiones que admite Azure Storage, consulte [Dimensiones de métricas](monitor-blob-storage-reference.md#metrics-dimensions).
 
-Las métricas de Azure Blob Storage están en estos espacios de nombres: 
+Las métricas de Azure Blob Storage están en estos espacios de nombres:
 
 - Microsoft.Storage/storageAccounts
 - Microsoft.Storage/storageAccounts/blobServices
 
 Para obtener una lista de todas las métricas compatibles de Azure Monitor, lo que incluye Azure Blob Storage, consulte [Métricas compatibles con Azure Monitor](../../azure-monitor/essentials/metrics-supported.md).
-
 
 ### <a name="accessing-metrics"></a>Acceso a métricas
 
@@ -305,10 +305,10 @@ Para obtener una lista de todas las métricas compatibles de Azure Monitor, lo q
 ### <a name="net-sdk"></a>[SDK de .NET](#tab/azure-portal)
 
 Azure Monitor proporciona el [SDK de .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) para leer la definición y los valores de las métricas. El [código de ejemplo](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) muestra cómo utilizar el SDK con parámetros diferentes. Debe usar `0.18.0-preview` o una versión posterior para las métricas de almacenamiento.
- 
+
 En estos ejemplos, reemplace el marcador de posición `<resource-ID>` por el identificador de recurso de la cuenta de almacenamiento completa o el servicio Blob Storage. Puede encontrar estos identificadores de recursos en las páginas **Puntos de conexión** de la cuenta de almacenamiento en Azure Portal.
 
-Reemplace la variable `<subscription-ID>` por el identificador de la suscripción. Para obtener una guía sobre cómo obtener los valores para `<tenant-ID>`, `<application-ID>` y `<AccessKey>`, consulta [Uso del portal para crear una aplicación de Azure AD y una entidad de servicio con acceso a los recursos](../../active-directory/develop/howto-create-service-principal-portal.md). 
+Reemplace la variable `<subscription-ID>` por el identificador de la suscripción. Para obtener una guía sobre cómo obtener los valores para `<tenant-ID>`, `<application-ID>` y `<AccessKey>`, consulta [Uso del portal para crear una aplicación de Azure AD y una entidad de servicio con acceso a los recursos](../../active-directory/develop/howto-create-service-principal-portal.md).
 
 #### <a name="list-the-account-level-metric-definition"></a>Enumeración de la definición de métricas a nivel de cuenta
 
@@ -322,7 +322,6 @@ En el ejemplo siguiente se muestra cómo enumerar la definición de una métrica
         var tenantId = "<tenant-ID>";
         var applicationId = "<application-ID>";
         var accessKey = "<AccessKey>";
-
 
         MonitorManagementClient readOnlyClient = AuthenticateWithReadOnlyClient(tenantId, applicationId, accessKey, subscriptionId).Result;
         IEnumerable<MetricDefinition> metricDefinitions = await readOnlyClient.MetricDefinitions.ListAsync(resourceUri: resourceId, cancellationToken: new CancellationToken());
@@ -448,7 +447,7 @@ En el ejemplo siguiente se muestra cómo leer datos de métricas sobre una métr
 
 Puede mostrar la definición de la métrica de la cuenta de almacenamiento o el servicio Blob Storage. Use el cmdlet [Get-AzMetricDefinition](/powershell/module/az.monitor/get-azmetricdefinition).
 
-En este ejemplo, reemplace el marcador de posición `<resource-ID>` por el identificador de recurso de la cuenta de almacenamiento completa o el identificador de recurso del servicio Blob Storage.  Puede encontrar estos identificadores de recursos en las páginas **Puntos de conexión** de la cuenta de almacenamiento en Azure Portal.
+En este ejemplo, reemplace el marcador de posición `<resource-ID>` por el identificador de recurso de la cuenta de almacenamiento completa o el identificador de recurso del servicio Blob Storage. Puede encontrar estos identificadores de recursos en las páginas **Puntos de conexión** de la cuenta de almacenamiento en Azure Portal.
 
 ```powershell
    $resourceId = "<resource-ID>"
@@ -469,7 +468,7 @@ Puede leer valores de métricas de nivel de cuenta de la cuenta de almacenamient
 #### <a name="list-the-account-level-metric-definition"></a>Enumeración de la definición de métricas a nivel de cuenta
 
 Puede mostrar la definición de la métrica de la cuenta de almacenamiento o el servicio Blob Storage. Use el comando [az monitor metrics list-definitions](/cli/azure/monitor/metrics#az_monitor_metrics_list_definitions).
- 
+
 En este ejemplo, reemplace el marcador de posición `<resource-ID>` por el identificador de recurso de la cuenta de almacenamiento completa o el identificador de recurso del servicio Blob Storage. Puede encontrar estos identificadores de recursos en las páginas **Puntos de conexión** de la cuenta de almacenamiento en Azure Portal.
 
 ```azurecli-interactive
@@ -483,6 +482,7 @@ Puede leer los valores de métricas de la cuenta de almacenamiento o el servicio
 ```azurecli-interactive
    az monitor metrics list --resource <resource-ID> --metric "UsedCapacity" --interval PT1H
 ```
+
 ### <a name="template"></a>[Plantilla](#tab/template)
 
 N/D
@@ -500,7 +500,7 @@ Puede acceder a los registros de los recursos como blob en una cuenta de almacen
 Para una referencia detallada de los campos que aparecen en dichos registros, consulte [Referencia de datos de supervisión de Azure Blob Storage](monitor-blob-storage-reference.md).
 
 > [!NOTE]
-> Los registros de Azure Storage en Azure Monitor están en versión preliminar pública, además de estar disponibles para pruebas de versión preliminar en todas las regiones de nube pública. Esta versión preliminar habilita los registros de blobs (lo que incluye Azure Data Lake Storage Gen2), archivos, colas, tablas, cuentas de almacenamiento Premium en cuentas de almacenamiento de uso general v1 y v2. Las cuentas de almacenamiento clásico no se admiten.
+> Los registros de Azure Storage en Azure Monitor están en versión preliminar pública, además de estar disponibles para pruebas de versión preliminar en todas las regiones de nube pública y del Gobierno de EE. UU. Esta versión preliminar habilita los registros de blobs (lo que incluye Azure Data Lake Storage Gen2), archivos, colas, tablas, cuentas de almacenamiento Premium en cuentas de almacenamiento de uso general v1 y v2. Las cuentas de almacenamiento clásico no se admiten.
 
 Las entradas del registro se crean solo si se presentan solicitudes al punto de conexión de servicio. Por ejemplo, si una cuenta de almacenamiento tiene actividad en el punto de conexión del blob, pero no en los puntos de conexión de tabla o cola, solo se crean los registros correspondientes a Blob service. Los registros de Azure Storage contienen información detallada sobre las solicitudes correctas y erróneas realizadas a un servicio de almacenamiento. Esta información se puede utilizar para supervisar solicitudes concretas y para diagnosticar problemas con un servicio de almacenamiento. Las solicitudes se registran en función de la mejor opción.
 
@@ -538,7 +538,7 @@ Este es un ejemplo:
 
 ### <a name="accessing-logs-in-an-event-hub"></a>Acceso a los registros en un centro de eventos
 
-Los registros que se envían a un centro de eventos no se almacenan como archivo, pero puede verificar que el centro de eventos ha recibido la información del registro. En Azure Portal, vaya al centro de eventos y verifique que el recuento de **mensajes entrantes** sea mayor que cero. 
+Los registros que se envían a un centro de eventos no se almacenan como archivo, pero puede verificar que el centro de eventos ha recibido la información del registro. En Azure Portal, vaya al centro de eventos y verifique que el recuento de **mensajes entrantes** sea mayor que cero.
 
 ![Registros de auditoría](media/monitor-blob-storage/event-hub-log.png)
 
@@ -550,7 +550,7 @@ Puede acceder a los registros que se envían a un área de trabajo Log Analytics
 
 Para más información, consulte [Introducción a los análisis de registros de Azure Monitor](../../azure-monitor/logs/log-analytics-tutorial.md).
 
-Los datos se almacenan en la tabla **StorageBlobLog**. Los registros de Data Lake Storage Gen2 no aparecen en una tabla dedicada. Esto se debe a que Data Lake Storage Gen2 no es servicio. Es un conjunto de funcionalidades que puede habilitar en la cuenta de almacenamiento. Si ha habilitado esas funcionalidades, los registros seguirán apareciendo en la tabla StorageBlobLog. 
+Los datos se almacenan en la tabla **StorageBlobLog**. Los registros de Data Lake Storage Gen2 no aparecen en una tabla dedicada. Esto se debe a que Data Lake Storage Gen2 no es servicio. Es un conjunto de funcionalidades que puede habilitar en la cuenta de almacenamiento. Si ha habilitado esas funcionalidades, los registros seguirán apareciendo en la tabla StorageBlobLog.
 
 #### <a name="sample-kusto-queries"></a>Ejemplos de consultas de Kusto
 
@@ -561,69 +561,75 @@ Estas son algunas consultas que puede escribir en la barra **Búsqueda de regist
 
 Utilice estas consultas para ayudar a supervisar las cuentas de Azure Storage:
 
-* Para enumerar los 10 errores más comunes en los últimos tres días.
+- Para enumerar los 10 errores más comunes en los últimos tres días.
 
-    ```Kusto
+    ```kusto
     StorageBlobLogs
     | where TimeGenerated > ago(3d) and StatusText !contains "Success"
     | summarize count() by StatusText
     | top 10 by count_ desc
     ```
-* Para enumerar las 10 operaciones principales que causaron la mayoría de los errores en los últimos tres días.
 
-    ```Kusto
+- Para enumerar las 10 operaciones principales que causaron la mayoría de los errores en los últimos tres días.
+
+    ```kusto
     StorageBlobLogs
     | where TimeGenerated > ago(3d) and StatusText !contains "Success"
     | summarize count() by OperationName
     | top 10 by count_ desc
     ```
-* Para enumerar las 10 operaciones principales con la mayor latencia de un extremo a otro en los últimos tres días.
 
-    ```Kusto
+- Para enumerar las 10 operaciones principales con la mayor latencia de un extremo a otro en los últimos tres días.
+
+    ```kusto
     StorageBlobLogs
     | where TimeGenerated > ago(3d)
     | top 10 by DurationMs desc
     | project TimeGenerated, OperationName, DurationMs, ServerLatencyMs, ClientLatencyMs = DurationMs - ServerLatencyMs
     ```
-* Para enumerar todas las operaciones que provocan errores de limitación del lado servidor durante los últimos tres días.
 
-    ```Kusto
+- Para enumerar todas las operaciones que provocan errores de limitación del lado servidor durante los últimos tres días.
+
+    ```kusto
     StorageBlobLogs
     | where TimeGenerated > ago(3d) and StatusText contains "ServerBusy"
     | project TimeGenerated, OperationName, StatusCode, StatusText
     ```
-* Para enumerar todas las solicitudes con acceso anónimo durante los últimos tres días.
 
-    ```Kusto
+- Para enumerar todas las solicitudes con acceso anónimo durante los últimos tres días.
+
+    ```kusto
     StorageBlobLogs
     | where TimeGenerated > ago(3d) and AuthenticationType == "Anonymous"
     | project TimeGenerated, OperationName, AuthenticationType, Uri
     ```
-* Para crear un gráfico circular de las operaciones usadas en los últimos tres días.
-    ```Kusto
+
+- Para crear un gráfico circular de las operaciones usadas en los últimos tres días.
+
+    ```kusto
     StorageBlobLogs
     | where TimeGenerated > ago(3d)
     | summarize count() by OperationName
-    | sort by count_ desc 
+    | sort by count_ desc
     | render piechart
     ```
 
 ## <a name="feature-support"></a>Compatibilidad de características
 
-En esta tabla se muestra cómo se admite esta característica en la cuenta y el impacto en la compatibilidad al habilitar determinadas funcionalidades. 
+En esta tabla se muestra cómo se admite esta característica en la cuenta y el impacto en la compatibilidad al habilitar determinadas funcionalidades.
 
 ### <a name="logs-in-azure-monitor"></a>Registros en Azure Monitor
 
-| Tipo de cuenta de almacenamiento                | Blob Storage (compatibilidad predeterminada)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>    
+| Tipo de cuenta de almacenamiento                | Blob Storage (compatibilidad predeterminada)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
 |-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
-| De uso general estándar, v2 | ![Sí](../media/icons/yes-icon.png)  <sup>2</sup> |![Sí](../media/icons/yes-icon.png)  <sup>2</sup>              | ![Sí](../media/icons/yes-icon.png)  <sup>2</sup> | 
+| De uso general estándar, v2 | ![Sí](../media/icons/yes-icon.png)  <sup>2</sup> |![Sí](../media/icons/yes-icon.png)  <sup>2</sup>              | ![Sí](../media/icons/yes-icon.png)  <sup>2</sup> |
 | Blobs en bloques Premium          | ![Sí](../media/icons/yes-icon.png)  <sup>2</sup>|![Sí](../media/icons/yes-icon.png)  <sup>2</sup> | ![Sí](../media/icons/yes-icon.png)  <sup>2</sup> |
 
 ### <a name="metrics-in-azure-monitor"></a>Métricas en Azure Monitor
 
-| Tipo de cuenta de almacenamiento                | Blob Storage (compatibilidad predeterminada)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>    
+| Tipo de cuenta de almacenamiento                | Blob Storage (compatibilidad predeterminada)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
 |-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
-| De uso general estándar, v2 | ![Sí](../media/icons/yes-icon.png) |![Sí](../media/icons/yes-icon.png)              | ![Sí](../media/icons/yes-icon.png) | 
+| De uso general estándar, v2 | ![Sí](../media/icons/yes-icon.png) |![Sí](../media/icons/yes-icon.png)              | ![Sí](../media/icons/yes-icon.png) |
 | Blobs en bloques Premium          | ![Sí](../media/icons/yes-icon.png) |![Sí](../media/icons/yes-icon.png)  <sup>2</sup> | ![Sí](../media/icons/yes-icon.png)  <sup>2</sup> |
 
 <sup>1</sup> Data Lake Storage Gen2 y el protocolo Network File System (NFS) 3.0 necesitan una cuenta de almacenamiento con un espacio de nombres jerárquico habilitado.

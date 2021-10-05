@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/18/2019
+ms.date: 09/24/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 23a176bfa5e3861dbc4ad5c03ea54fc847d3f56b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d9d669d583563e81fa55d3626e6505ebe108340c
+ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96922530"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129153470"
 ---
 # <a name="scalability-and-performance-targets-for-premium-page-blob-storage-accounts"></a>Objetivos de escalabilidad y rendimiento de las cuentas de almacenamiento de blob en páginas Premium
 
@@ -31,11 +31,13 @@ Las cuentas de almacenamiento de blobs en páginas Premium tienen los siguientes
 
 | Capacidad total de la cuenta                            | Ancho de banda total de una cuenta de almacenamiento con redundancia local                     |
 | ------------------------------------------------- | --------------------------------------------------------------------------- |
-| Capacidad de disco: 4 TB (disco individual)/35 TB (total acumulado de todos los discos) <br>Capacidad de instantánea: 10 TB | Hasta 50 gigabits por segundo de entrada<sup>1</sup> y salida<sup>2</sup> |
+| Capacidad de disco: 4 TB (disco individual)/35 TB (total acumulado de todos los discos) <br>Capacidad de instantánea: 10 TB<sup>3</sup> | Hasta 50 gigabits por segundo de entrada<sup>1</sup> y salida<sup>2</sup> |
 
 <sup>1</sup> Todos los datos (solicitudes) que se envían a una cuenta de almacenamiento
 
 <sup>1</sup> Todos los datos (respuestas) que se reciben desde una cuenta de almacenamiento
+
+<sup>3</sup> El número total de instantáneas que puede tener un blob en páginas individual es 100.
 
 Una cuenta de blob en páginas Premium es una cuenta de uso general configurada para tener rendimiento Premium. Se recomiendan las cuentas de almacenamiento de uso general v2.
 

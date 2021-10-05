@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 1b4b3e85323e2023afb67b2175377cb9b2d13a4f
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: 7f327e0eecbfe51095f3f533dc787cc9aeedfb1e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108177519"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128638318"
 ---
 # <a name="migrate-workloads-using-layer-2-stretched-networks"></a>Migración de cargas de trabajo mediante redes extendidas de Capa 2
 
@@ -414,7 +414,7 @@ ENCAP       : GENEVE
 
 ## <a name="obtain-the-peer-code-for-l2vpn-on-the-nsx-t-side"></a>Obtención del código del mismo nivel para L2VPN en el lado de NSX-T
 
-Obtenga el código del mismo nivel del punto de conexión de NSX-T. El código del mismo nivel es necesario al configurar el punto de conexión remoto. El <session-id> de L2VPN se puede obtener de la sección anterior. Para más información, consulte la [Guía de API de NSX-T 2.3](https://www.vmware.com/support/nsxt/doc/nsxt_23_api.html).
+Obtenga el código del mismo nivel del punto de conexión de NSX-T. El código del mismo nivel es necesario al configurar el punto de conexión remoto. El \<session-id\> de L2VPN se puede obtener de la sección anterior. Para más información, consulte la [Guía de API de NSX-T 2.3](https://www.vmware.com/support/nsxt/doc/nsxt_23_api.html).
 
 ```
 GET https://192.168.110.201/api/v1/vpn/l2vpn/sessions/<session-id>/peer-codes

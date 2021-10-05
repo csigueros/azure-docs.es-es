@@ -1,18 +1,18 @@
 ---
 title: Examen de grupos de SQL dedicados
-description: En esta guía de procedimientos se describen los detalles acerca de cómo examinar los grupos de SQL dedicados.
+description: En esta guía paso a paso se describe de forma detallada cómo examinar los grupos de SQL dedicados en Azure Purview.
 author: viseshag
 ms.author: viseshag
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 05/08/2021
-ms.openlocfilehash: 09dc3c20ca95f32ee4c8f01d6b4986adfcd3703e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 26d4327c5763a1296cd492730004b80947269afa
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121751915"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129218344"
 ---
 # <a name="register-and-scan-dedicated-sql-pools-formerly-sql-dw"></a>Registro y examen de grupos de SQL dedicados (antes SQL DW)
 
@@ -86,7 +86,7 @@ Es necesario obtener el id. de aplicación y el secreto de la entidad de servici
 1. Seleccione **+ Generar/Importar** y escriba el **nombre** que quiera y el **valor** como **Secreto de cliente** de la entidad de servicio.
 1. Seleccione **Crear** para completar la acción.
 1. Si el almacén de claves no está conectado todavía a Purview, necesitará [crear una conexión del almacén de claves](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account).
-1. Por último, [cree una credencial](manage-credentials.md#create-a-new-credential) mediante la entidad de servicio para configurar el examen. 
+1. Por último, [cree una nueva credencial](manage-credentials.md#create-a-new-credential) mediante la entidad de servicio para configurar el examen. 
 
 #### <a name="granting-the-service-principal-access-to-your-azure-synapse-analytics-formerly-sql-dw"></a>Concesión de acceso a la entidad de servicio a Azure Synapse Analytics (anteriormente SQL DW)
 
@@ -103,7 +103,7 @@ GO
 > [!Note]
 > Purview necesitará el valor de **Id. de la aplicación (cliente)** y el **secreto de cliente** para el examen.
 
-### <a name="sql-authentication"></a>Autenticación de SQL
+### <a name="sql-authentication"></a>Autenticación SQL
 
 Puede seguir las instrucciones de [CREAR INICIO DE SESIÓN](/sql/t-sql/statements/create-login-transact-sql?view=azure-sqldw-latest&preserve-view=true#examples-1) para crear un inicio de sesión de Azure Synapse Analytics (anteriormente SQL DW) si aún no tiene uno.
 
@@ -141,7 +141,7 @@ En la pantalla **Registrar orígenes (Azure Synapse Analytics)** , haga lo sigui
 
 Para crear y ejecutar un nuevo examen, siga estos pasos:
 
-1. Seleccione la pestaña **Mapa de datos** en el panel izquierdo de Purview Studio.
+1. Seleccione la pestaña **Mapa de datos** en el panel izquierdo de [Purview Studio](https://web.purview.azure.com/resource/).
 
 1. Seleccione el origen del grupo dedicado de SQL que ha registrado.
 

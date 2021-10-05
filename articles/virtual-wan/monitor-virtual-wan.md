@@ -7,24 +7,31 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 06/30/2021
 ms.author: cherylmc
-ms.openlocfilehash: d3cffbe9ebaa71ca5c4dfd8681159f83ff06eb38
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.openlocfilehash: d1ac031b79372987561651044e81da2e3d2d2779
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122821469"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128636542"
 ---
 # <a name="monitoring-virtual-wan"></a>Supervisión de Virtual WAN
 
-Puede supervisar Azure Virtual WAN mediante Azure Monitor. Virtual WAN es un servicio de red que aporta muchas funciones de red, seguridad y enrutamiento para proporcionar una única interfaz operativa. Las puertas de enlace de VPN de Virtual WAN, las puertas de enlace de ExpressRoute y Azure Firewall tienen registros y métricas disponibles a través de Azure Monitor.
+Puede supervisar Azure Virtual WAN mediante Azure Monitor. Virtual WAN es un servicio de red que aporta muchas funciones de red, seguridad y enrutamiento para proporcionar una única interfaz operativa. Las puertas de enlace de VPN de Virtual WAN, las puertas de enlace de ExpressRoute y Azure Firewall tienen registros y métricas disponibles a través de Azure Monitor. 
 
 En este artículo se describen las métricas y los diagnósticos que están disponibles a través del portal. Las métricas son ligeras y pueden admitir escenarios casi en tiempo real, lo que las hace útiles para alertas y detección rápida de problemas.
 
 ### <a name="monitoring-secured-hub-azure-firewall"></a>Supervisión del centro protegido (Azure Firewall) 
 
-Puede supervisar el centro protegido mediante los registros de Azure Firewall. También puede usar los registros de actividad para auditar las operaciones de los recursos de Azure Firewall.
-
 Si ha elegido proteger el centro virtual mediante Azure Firewall, los registros y las métricas pertinentes están disponibles aquí: [Métricas y registros de Azure Firewall](../firewall/logs-and-metrics.md).
+Puede supervisar el centro protegido mediante los registros y las métricas de Azure Firewall. También puede usar los registros de actividad para auditar las operaciones de los recursos de Azure Firewall.
+Para cada instancia de Azure Virtual WAN que quiera proteger y convertir en un centro protegido, se crea un objeto de recurso de firewall explícito en el grupo de recursos donde se encuentra el centro. 
+
+:::image type="content" source="./media/monitor-virtual-wan/firewall-resources-portal.png" alt-text="Captura de pantalla que muestra un recurso de firewall en el grupo de recursos del centro de vWAN.":::
+
+La configuración de diagnóstico y registro debe realizarse desde allí, accediendo a la pestaña **Configuración de diagnóstico**:
+
+:::image type="content" source="./media/monitor-virtual-wan/firewall-diagnostic-settings.png" alt-text="Captura de pantalla que muestra la pestaña Configuración de diagnóstico del firewall.":::
+
 
 ## <a name="metrics"></a>Métricas
 
@@ -96,11 +103,11 @@ Los siguientes pasos le ayudarán a ubicar y ver las métricas:
 
 1. En el portal, navegue hasta el centro virtual que tiene la puerta de enlace.
 
-2. Seleccione **VPN (sitio a sitio)** para buscar una puerta de enlace de sitio a sitio, **ExpressRoute** para buscar una puerta de enlace de ExpressRoute o **VPN de usuario (punto a sitio)** para buscar una puerta de enlace de punto a sitio. En la página, puede ver la información de la puerta de enlace. Copie esta información. La usará más adelante para ver los diagnósticos mediante Azure Monitor.
+2. Seleccione **VPN (sitio a sitio)** para buscar una puerta de enlace de sitio a sitio, **ExpressRoute** para buscar una puerta de enlace de ExpressRoute o **VPN de usuario (punto a sitio)** para buscar una puerta de enlace de punto a sitio.
 
 3. Seleccione **Métricas**.
 
-   :::image type="content" source="./media/monitor-virtual-wan/metrics.png" alt-text="Captura de pantalla que muestra el panel VPN de sitio a sitio con la opción Ver en Azure Monitor seleccionada.":::
+   :::image type="content" source="./media/monitor-virtual-wan/view-metrics.png" alt-text="Captura de pantalla que muestra el panel VPN de sitio a sitio con la opción Ver en Azure Monitor seleccionada.":::
 
 4. En la página **Métricas**, puede ver las métricas que le interesen.
 
@@ -129,35 +136,51 @@ Los siguientes diagnósticos están disponibles para puertas de enlace de VPN de
 | **Registros de IKE Diagnostic** | Diagnósticos específicos de IKE para conexiones de IPsec.|
 | **Registros de P2S Diagnostic** | Configuración de punto a sitio y eventos de cliente de la VPN del usuario. Incluyen la conexión/desconexión del cliente y la asignación de direcciones de cliente de VPN, así como otros diagnósticos.|
 
-### <a name="view-diagnostic-logs"></a><a name="diagnostic-steps"></a>Visualización de los registros de diagnóstico
+### <a name="express-route-gateways"></a>Puertas de enlace de ExpressRoute
 
-Los siguientes pasos le ayudarán a localizar y ver los diagnósticos:
+Los registros de diagnóstico de las puertas de enlace de Express Route de Azure Virtual WAN no se admiten.
 
-1. En el portal, navegue hasta el recurso de Virtual WAN. En la sección **Información general** de la página Virtual WAN del portal, seleccione **Información esencial** para expandir la vista y obtener la información del grupo de recursos. Copie la información del grupo de recursos.
+### <a name="view-diagnostic-logs-configuration"></a><a name="diagnostic-steps"></a>Visualización de la configuración de registros de diagnóstico
 
-   :::image type="content" source="./media/monitor-virtual-wan/3.png" alt-text="Captura de pantalla que muestra la sección &quot;Información general&quot; con una flecha que apunta al botón &quot;Copiar&quot;.":::
+Los pasos siguientes lo ayudarán a crear, editar y ver la configuración de diagnóstico:
 
-2. Vaya a **Monitor** desde la barra de búsqueda y, en la sección Configuración, seleccione **Configuración de diagnóstico** y escriba el grupo de recursos, el tipo de recurso y la información de los recursos. Esta es la información del grupo de recursos que copió en el paso 2 de la sección [View gateway metrics](#metrics-steps) (Visualización de métricas de puerta de enlace) anteriormente en este artículo.
+1. En el portal, navegue hasta el recurso de Virtual WAN y, luego, seleccione **Centros** en el grupo **Conectividad**. 
 
-   :::image type="content" source="./media/monitor-virtual-wan/4.png" alt-text="Captura de pantalla que muestra la sección &quot;Supervisión&quot; con una flecha que apunta a la lista desplegable &quot;Recurso&quot;.":::
+   :::image type="content" source="./media/monitor-virtual-wan/select-hub.png" alt-text="Captura de pantalla que muestra la selección del centro en el portal de vWAN.":::
 
-3. En la página de resultados, seleccione **+ Agregar configuración de diagnóstico** y, después, seleccione una opción. Puede optar por enviar a Log Analytics, transmitir a un centro de eventos o simplemente archivar en una cuenta de almacenamiento.
+2. En el grupo **Conectividad** de la izquierda, seleccione la puerta de enlace en la que desea examinar los diagnósticos:
 
-   :::image type="content" source="./media/monitor-virtual-wan/5.png" alt-text="página Métricas":::
+   :::image type="content" source="./media/monitor-virtual-wan/select-hub-gateway.png" alt-text="Captura de pantalla que muestra la sección Conectividad del centro.":::
+
+3. En la parte derecha de la página, haga clic en el vínculo **Ver en Azure Monitor** situado a la derecha de **Registros** y seleccione una opción. Puede optar por enviar a Log Analytics, transmitir a un centro de eventos o simplemente archivar en una cuenta de almacenamiento.
+
+   :::image type="content" source="./media/monitor-virtual-wan/view-hub-gateway-logs.png" alt-text="Captura de pantalla de Azure Monitor de Seleccionar vista, en Registros.":::
+
+4. En esta página, puede crear una nueva configuración de diagnóstico ( **+Agregar configuración de diagnóstico**) o editar una (**Editar configuración**). Puede optar por enviar los registros de diagnóstico a Log Analytics (como se muestra en el ejemplo siguiente), transmitirlos a un centro de eventos, enviarlos a una solución de terceros o archivarlos en una cuenta de almacenamiento.
+
+    :::image type="content" source="./media/monitor-virtual-wan/select-gateway-settings.png" alt-text="Captura de pantalla para seleccionar una configuración de registro de diagnóstico.":::
 
 ### <a name="log-analytics-sample-query"></a><a name="sample-query"></a>Consulta de ejemplo de Log Analytics
 
-Los registros se encuentran en el **área de trabajo de Azure Log Analytics**. Puede configurar una consulta en Log Analytics. El ejemplo siguiente contiene una consulta para obtener los diagnósticos de ruta de sitio a sitio.
+Si ha seleccionado enviar datos de diagnóstico a un área de trabajo de Log Analytics, puede usar consultas de tipo SQL, como el ejemplo siguiente, para examinar los datos. Para obtener más información, consulte [Lenguaje de consulta de Log Analytics](/services-hub/health/log_analytics_query_language).
 
-```AzureDiagnostics | where Category == "RouteDiagnosticLog"```
+El ejemplo siguiente contiene una consulta para obtener los diagnósticos de ruta de sitio a sitio.
 
-Reemplace los valores siguientes, después de **= =** , según sea necesario.
+`AzureDiagnostics | where Category == "RouteDiagnosticLog"`
+
+Reemplace los valores siguientes, después de **= =** , según sea necesario en función de las tablas notificadas en la sección anterior de este artículo.
 
 * "GatewayDiagnosticLog"
 * "IKEDiagnosticLog"
 * "P2SDiagnosticLog”
 * "TunnelDiagnosticLog"
 * "RouteDiagnosticLog"
+
+Para ejecutar la consulta, debe abrir el recurso de Log Analytics que configuró para recibir los registros de diagnóstico y, a continuación, seleccionar **Registros** en la pestaña **General** del lado izquierdo del panel:
+
+:::image type="content" source="./media/monitor-virtual-wan/log-analytics-query-samples.png" alt-text="Ejemplos de consulta de Log Analytics.":::
+
+Para obtener más ejemplos de consultas de Log Analytics para Azure VPN Gateway, tanto de sitio a sitio como de punto a sitio, puede visitar la página [Solución de problemas de Azure VPN Gateway mediante registros de diagnóstico](../vpn-gateway/troubleshoot-vpn-with-azure-diagnostics.md). Para Azure Firewall, se proporciona un [libro](../firewall/firewall-workbook.md) para facilitar el análisis de registros. Con su interfaz gráfica, podrá investigar los datos de diagnóstico sin escribir manualmente ninguna consulta de Log Analytics. 
 
 ## <a name="activity-logs"></a><a name="activity-logs"></a>Registros de actividad
 

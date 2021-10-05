@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: c6dbfd0020598c280e006e863467a4dfa9b29a0c
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 57be98a76621d04ec14af04166117a5f62a40227
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114284512"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129061872"
 ---
 # <a name="load-balancer-health-probes"></a>Sondeos de estado de Load Balancer
 
@@ -251,14 +251,15 @@ No habilite [las marcas de tiempo TCP](https://tools.ietf.org/html/rfc1323).  Ha
 
 ## <a name="monitoring"></a>Supervisión
 
-[Standard Load Balancer](./load-balancer-overview.md), tanto público como interno, expone el estado del sondeo de estado por punto de conexión y punto de conexión de back-end como métricas multidimensionales mediante Azure Monitor. Otros servicios de Azure o aplicaciones de asociados pueden usar estas métricas. 
+[Standard Load Balancer](./load-balancer-overview.md), tanto público como interno, expone el estado del sondeo de estado por punto de conexión y punto de conexión de back-end como métricas multidimensionales mediante [Azure Monitor](./monitor-load-balancer.md). Otros servicios de Azure o aplicaciones de asociados pueden usar estas métricas. 
 
-La instancia pública básica de Load Balancer expone el estado del sondeo de estado resumido por grupo de back-end mediante registros de Azure Monitor.  Los registros de Azure Monitor no están disponible para las instancias internas básicas de Load Balancer.  Puede usar los [registros de Azure Monitor](./monitor-load-balancer.md) para comprobar el estado del sondeo de estado y el número de sondeos del equilibrador de carga público. El registro se puede utilizar con Power BI o con Azure Operational Insights para proporcionar estadísticas del estado de mantenimiento del equilibrador de carga.
+Los registros de Azure Monitor no están disponible para las instancias públicas e internas de Basic Load Balancer.
 
 ## <a name="limitations"></a>Limitaciones
 
 - Los sondeos HTTPS no admiten la autenticación mutua con un certificado de cliente.
 - Debe asumir que se producirá un error en los sondeos de estado cuando se habiliten las marcas de tiempo TCP.
+- Un sondeo de estado básico del equilibrador de carga de SKU no es compatible con un conjunto de escalado de máquinas virtuales.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

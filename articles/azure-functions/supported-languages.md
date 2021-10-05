@@ -3,27 +3,22 @@ title: Lenguajes admitidos en Azure Functions
 description: Obtenga información sobre los lenguajes admitidos (GA) y los que se encuentran en versión preliminar, y las maneras de ampliar el desarrollo de Functions a otros lenguajes.
 ms.topic: conceptual
 ms.date: 11/27/2019
-ms.openlocfilehash: 02a416fa669cd71702e991c79677575bd4563bfb
-ms.sourcegitcommit: bc29cf4472118c8e33e20b420d3adb17226bee3f
+ms.openlocfilehash: d0db327a1f5b4189f9715687e3efa8fbe5b668db
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2021
-ms.locfileid: "113493247"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128599955"
 ---
 # <a name="supported-languages-in-azure-functions"></a>Lenguajes admitidos en Azure Functions
 
 En este artículo se explican los niveles de soporte que se ofrecen para los lenguajes que puede usar con Azure Functions. También se describen las estrategias para crear funciones mediante lenguajes no admitidos de forma nativa.
 
-## <a name="levels-of-support"></a>Niveles de soporte
-
-Hay dos niveles de compatibilidad:
-
-* **Disponibilidad general (GA)** : totalmente compatible y aprobado para su uso en producción.
-* **Versión preliminar**: aún no cuenta con soporte pero se espera que llegue al estado de disponibilidad general en el futuro.
+[!INCLUDE [functions-support-levels](../../includes/functions-support-levels.md)]
 
 ## <a name="languages-by-runtime-version"></a>Lenguaje por versión de entorno de tiempo de ejecución 
 
-Hay disponibles [tres versiones del entorno en tiempo de ejecución de Azure Functions](functions-versions.md). En la tabla siguiente se indica qué lenguajes se admiten en cada versión del sistema de tiempo de ejecución.
+Hay disponibles [varias versiones del entorno en tiempo de ejecución de Azure Functions](functions-versions.md). En la tabla siguiente se indica qué lenguajes se admiten en cada versión del sistema de tiempo de ejecución.
 
 [!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)]
 

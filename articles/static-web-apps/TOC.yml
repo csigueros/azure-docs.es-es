@@ -106,6 +106,8 @@
       href: publish-devops.md
     - name: Publicación con una plantilla de Resource Manager
       href: publish-azure-resource-manager.md
+    - name: Adición de Azure Front Door
+      href: front-door-manual.md
 - name: Referencia
   items:
     - name: Azure CLI

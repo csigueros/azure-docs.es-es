@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 07/08/2021
 ms.author: lajanuar
-ms.openlocfilehash: 8ecd6ae9578f719707c3d52ba8348cda5af3e08d
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 43220ce85bf02919a0ccf069bc9646a16c3a0a26
+ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122326511"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129155360"
 ---
 # <a name="create-and-use-managed-identity-for-your-form-recognizer-resource"></a>Creación y uso de identidades administradas para el recurso de Form Recognizer
 
@@ -33,7 +33,7 @@ La identidad administrada admite cuentas de Azure Blob Storage de acceso privado
 
 > [!NOTE]
 >
-> * Si piensa analizar los datos de almacenamiento con la [**Herramienta de etiquetado de ejemplo de Form Recognizer (FOTT)** ](https://fott-2-1.azurewebsites.net/) debe implementar la herramienta detrás de la red virtual o el firewall.
+> * Si piensa analizar los datos de almacenamiento con la [**Herramienta de etiquetado de ejemplo de Form Recognizer (FOTT)**](https://fott-2-1.azurewebsites.net/) debe implementar la herramienta detrás de la red virtual o el firewall.
 >
 > * Las API Analyze [**Receipt**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeReceiptAsync), [**Business Card**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync), [**Invoice**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5ed8c9843c2794cbb1a96291), [**Identity Document**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5f74a7738978e467c5fb8707) y [**Custom Form**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm) pueden extraer datos de un solo documento mediante la publicación de solicitudes como contenido binario sin formato. En estos escenarios, no hay ningún requisito para una credencial de identidad administrada.
 
@@ -45,10 +45,19 @@ Para empezar, necesitará lo siguiente:
 
 * Un recurso de [**Form Recognizer**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) o [**Cognitive Services**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) en Azure Portal. Para conocer los pasos detallados, _consulte_ [Creación de un recurso de Cognitive Services con Azure Portal](../../cognitive-services/cognitive-services-apis-create-account.md?tabs=multiservice%2cwindows).
 
-* Una [**cuenta de Azure Blob Storage**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). Creará contenedores para almacenar y organizar los datos de los blobs en la cuenta de almacenamiento. Si la cuenta tiene un firewall, debe tener habilitada la casilla que permite la [excepción para los servicios de Azure de confianza](../../storage/common/storage-network-security.md?tabs=azure-portal#manage-exceptions).
+* Una [**cuenta de Azure Blob Storage**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) en la misma región que el recurso de Form Recognizer. Creará contenedores para almacenar y organizar los datos de los blobs en la cuenta de almacenamiento. 
+
+  * Si la cuenta de almacenamiento está detrás de un firewall, **debe habilitar la configuración siguiente**: </br></br>
+
+  * En la página de la cuenta de almacenamiento, seleccione **Seguridad y redes** → **Redes** en el menú izquierdo.
+    :::image type="content" source="media/managed-identities/security-and-networking-node.png" alt-text="Captura de pantalla: pestaña Seguridad y redes.":::
+
+  * En la ventana principal, seleccione **Permitir acceso desde Redes seleccionadas**.
+  :::image type="content" source="media/managed-identities/firewalls-and-virtual-networks.png" alt-text="Captura de pantalla: botón de radio Redes seleccionadas elegido.":::
+
+  * En la página de redes seleccionadas, vaya a la categoría **Excepciones** y asegúrese de que la casilla [**Allow Azure services on the trusted services list to access this storage account**](/azure/storage/common/storage-network-security?tabs=azure-portal#manage-exceptions) (Permitir que los servicios de Azure de la lista de servicios de confianza accedan a esta cuenta de almacenamiento) esté seleccionada.
 
     :::image type="content" source="media/managed-identities/allow-trusted-services-checkbox-portal-view.png" alt-text="Captura de pantalla: casilla para permitir los servicios de confianza, vista del portal":::
-
 * Estar algo familiarizado con el [**control de acceso basado en roles de Azure**](../../role-based-access-control/role-assignments-portal.md) mediante Azure Portal.
 
 ## <a name="managed-identity-assignments"></a>Asignaciones de identidad administrada

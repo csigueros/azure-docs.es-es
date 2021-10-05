@@ -9,22 +9,22 @@ ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
 ms.custom: devx-track-js
-ms.openlocfilehash: 98656f6751ec7ed8d18c4cd4c25715df5d59d011
-ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
+ms.openlocfilehash: cf09d9956a2cc7cea6831b52df45abc7f0fbb1b1
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109633634"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128555458"
 ---
 # <a name="use-javascript-sdk-in-nodejs-to-manage-acls-in-azure-data-lake-storage-gen2"></a>Uso de JavaScript SDK en Node.js para administrar ACL en Azure Data Lake Storage Gen2
 
-En este artículo se muestra cómo usar Node.js para obtener, establecer y actualizar las listas de control de acceso de directorios y archivos. 
+En este artículo se muestra cómo usar Node.js para obtener, establecer y actualizar las listas de control de acceso de directorios y archivos.
 
 [Paquete (Administrador de paquetes de Node)](https://www.npmjs.com/package/@azure/storage-file-datalake) | [Ejemplos](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-file-datalake/samples) | [Enviar comentarios](https://github.com/Azure/azure-sdk-for-java/issues)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Suscripción a Azure. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
+- Suscripción a Azure. Para obtener más información, vea [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/) (Obtención de una evaluación gratuita de Azure).
 
 - Una cuenta de almacenamiento que tenga habilitado el espacio de nombres jerárquico (HNS). Siga [estas](create-data-lake-storage-account.md) instrucciones para crear uno.
 
@@ -32,10 +32,10 @@ En este artículo se muestra cómo usar Node.js para obtener, establecer y actua
 
 - Uno de los siguientes permisos de seguridad:
 
-  - Una [entidad de seguridad](../../role-based-access-control/overview.md#security-principal) aprovisionada de Azure Active Directory a la que se ha asignado el rol [Propietario de datos de blobs de almacenamiento](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) en el ámbito del contenedor de destino, el grupo de recursos primario o la suscripción.  
+  - Una [entidad de seguridad](../../role-based-access-control/overview.md#security-principal) aprovisionada de Azure Active Directory a la que se ha asignado el rol [Propietario de datos de blobs de almacenamiento](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) en el ámbito del contenedor de destino, el grupo de recursos primario o la suscripción.
 
   - El usuario propietario del contenedor o directorio de destino al que va a aplicar la configuración de ACL. Para establecer listas de control de acceso de forma recursiva, se incluyen todos los elementos secundarios en el contenedor o el directorio de destino.
-  
+
   - Clave de la cuenta de almacenamiento.
 
 ## <a name="set-up-your-project"></a>Configurar su proyecto
@@ -46,7 +46,7 @@ Instale la biblioteca cliente de Data Lake para JavaScript; para ello, abra una 
 npm install @azure/storage-file-datalake
 ```
 
-Importe el paquete `storage-file-datalake` colocando esta instrucción en la parte superior del archivo de código. 
+Importe el paquete `storage-file-datalake` colocando esta instrucción en la parte superior del archivo de código.
 
 ```javascript
 const {
@@ -58,7 +58,7 @@ StorageSharedKeyCredential
 
 ## <a name="connect-to-the-account"></a>Conexión con la cuenta
 
-Para usar los fragmentos de código de este artículo, tiene que crear una instancia de **DataLakeServiceClient** que represente la cuenta de almacenamiento. 
+Para usar los fragmentos de código de este artículo, tiene que crear una instancia de **DataLakeServiceClient** que represente la cuenta de almacenamiento.
 
 ### <a name="connect-by-using-azure-active-directory-ad"></a>Conexión con Azure Active Directory (AD)
 
@@ -67,24 +67,24 @@ Para usar los fragmentos de código de este artículo, tiene que crear una insta
 
 Puede usar la [biblioteca cliente de Azure Identity para JS](https://www.npmjs.com/package/@azure/identity) para autenticar la aplicación con Azure AD.
 
-Obtenga un identificador de cliente, un secreto de cliente y un identificador de inquilino. Para ello, consulte [Adquisición de un token de Azure AD para la autorización de solicitudes desde una aplicación cliente](../common/storage-auth-aad-app.md). Como parte de ese proceso, tendrá que asignar uno de los siguientes roles de [control de acceso basado en roles de Azure (Azure RBAC)](../../role-based-access-control/overview.md) a la entidad de seguridad. 
+Obtenga un identificador de cliente, un secreto de cliente y un identificador de inquilino. Para ello, consulte [Adquisición de un token de Azure AD para la autorización de solicitudes desde una aplicación cliente](../common/storage-auth-aad-app.md). Como parte de ese proceso, tendrá que asignar uno de los siguientes roles de [control de acceso basado en roles de Azure (Azure RBAC)](../../role-based-access-control/overview.md) a la entidad de seguridad.
 
 |Role|Capacidad de configuración de ACL|
 |--|--|
 |[Propietario de datos de blobs de almacenamiento](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner)|Todos los directorios y archivos de la cuenta.|
 |[Colaborador de datos de blobs de almacenamiento](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)|Solo los directorios y archivos que pertenecen a la entidad de seguridad.|
 
-En este ejemplo se crea una instancia de **DataLakeServiceClient** con un identificador de cliente, un secreto de cliente y un identificador de inquilino.  
+En este ejemplo se crea una instancia de **DataLakeServiceClient** con un identificador de cliente, un secreto de cliente y un identificador de inquilino.
 
 ```javascript
 function GetDataLakeServiceClientAD(accountName, clientID, clientSecret, tenantID) {
 
   const credential = new ClientSecretCredential(tenantID, clientID, clientSecret);
-  
+
   const datalakeServiceClient = new DataLakeServiceClient(
       `https://${accountName}.dfs.core.windows.net`, credential);
 
-  return datalakeServiceClient;             
+  return datalakeServiceClient;
 }
 ```
 
@@ -93,7 +93,7 @@ function GetDataLakeServiceClientAD(accountName, clientID, clientSecret, tenantI
 
 ### <a name="connect-by-using-an-account-key"></a>Conexión con una clave de cuenta
 
-Es la manera más sencilla de conectarse a una cuenta. 
+Es la manera más sencilla de conectarse a una cuenta.
 
 En este ejemplo se crea una instancia de **DataLakeServiceClient** con una clave de cuenta.
 
@@ -101,14 +101,14 @@ En este ejemplo se crea una instancia de **DataLakeServiceClient** con una clave
 
 function GetDataLakeServiceClient(accountName, accountKey) {
 
-  const sharedKeyCredential = 
+  const sharedKeyCredential =
      new StorageSharedKeyCredential(accountName, accountKey);
-  
+
   const datalakeServiceClient = new DataLakeServiceClient(
       `https://${accountName}.dfs.core.windows.net`, sharedKeyCredential);
 
-  return datalakeServiceClient;             
-}      
+  return datalakeServiceClient;
+}
 
 ```
 
@@ -125,7 +125,7 @@ En este ejemplo se obtiene y después se establece la ACL de un directorio denom
 ```javascript
 async function ManageDirectoryACLs(fileSystemClient) {
 
-    const directoryClient = fileSystemClient.getDirectoryClient("my-directory"); 
+    const directoryClient = fileSystemClient.getDirectoryClient("my-directory");
     const permissions = await directoryClient.getAccessControl();
 
     console.log(permissions.acl);
@@ -181,7 +181,7 @@ En este ejemplo se obtiene y después se establece la ACL de un archivo denomina
 ```javascript
 async function ManageFileACLs(fileSystemClient) {
 
-  const fileClient = fileSystemClient.getFileClient("my-directory/uploaded-file.txt"); 
+  const fileClient = fileSystemClient.getFileClient("my-directory/uploaded-file.txt");
   const permissions = await fileClient.getAccessControl();
 
   console.log(permissions.acl);
@@ -221,7 +221,7 @@ async function ManageFileACLs(fileSystemClient) {
 
 ];
 
-await fileClient.setAccessControl(acl);        
+await fileClient.setAccessControl(acl);
 }
 ```
 

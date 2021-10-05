@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.subservice: pricing
 ms.topic: conceptual
 ms.date: 09/07/2021
-ms.openlocfilehash: 8044df075fc5c5666bd30af3b7a01ee7e28c958d
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 38d6f8d8b96526c8ba190559a639985bedf96cff
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123537554"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124798567"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>Descripción de los precios de Data Factory a través de ejemplos
 
@@ -36,7 +36,7 @@ Para lograr el escenario, es preciso crear una canalización con los siguientes 
 
 3. Un desencadenador de programación para ejecutar la canalización cada hora.
 
-   ![Diagrama que muestra una canalización con un desencadenador de programación. En la canalización, la actividad de copia fluye hacia un conjunto de datos de entrada, que fluye hacia un servicio vinculado de AWS S3 y la actividad de copia también fluye hacia un conjunto de datos de salida, que fluye hacia un servicio vinculado de Azure Storage.](media/pricing-concepts/scenario1.png)
+   :::image type="content" source="media/pricing-concepts/scenario1.png" alt-text="Diagrama que muestra una canalización con un desencadenador programado. En la canalización, la actividad de copia fluye hacia un conjunto de datos de entrada, que fluye hacia un servicio vinculado de A W S S3 y la actividad de copia también fluye hacia un conjunto de datos de salida, que fluye hacia un servicio vinculado de Azure Storage.":::
 
 | **Operaciones** | **Tipos y unidades** |
 | --- | --- |
@@ -67,7 +67,7 @@ Para lograr el escenario, es preciso crear una canalización con los siguientes 
 2. Una actividad de Azure Databricks para la transformación de datos.
 3. Un desencadenador de programación para ejecutar la canalización cada hora.
 
-![Diagrama que muestra una canalización con un desencadenador de programación. En la canalización, la actividad de copia fluye hacia un conjunto de datos de entrada, un conjunto de datos de salida y una actividad de DataBricks, que se ejecuta en Azure Databricks. El conjunto de datos de entrada fluye hacia un servicio vinculado de AWS S3. El conjunto de datos de salida fluye hacia un servicio vinculado de Azure Storage.](media/pricing-concepts/scenario2.png)
+:::image type="content" source="media/pricing-concepts/scenario2.png" alt-text="Diagrama que muestra una canalización con un desencadenador programado. En la canalización, la actividad de copia fluye a un conjunto de datos de entrada, un conjunto de datos de salida y una actividad de Databricks, que se ejecuta en Azure Databricks. El conjunto de datos de entrada fluye hacia un servicio vinculado de A W S S3. El conjunto de datos de salida fluye hacia un servicio vinculado de Azure Storage.":::
 
 | **Operaciones** | **Tipos y unidades** |
 | --- | --- |
@@ -101,7 +101,7 @@ Para lograr el escenario, es preciso crear una canalización con los siguientes 
 3. Una actividad de Azure Databricks para la transformación de datos.
 4. Un desencadenador de programación para ejecutar la canalización cada hora.
 
-![Diagrama que muestra una canalización con un desencadenador de programación. En la canalización, la actividad de copia fluye hacia un conjunto de datos de entrada, un conjunto de datos de salida y una actividad de búsqueda que fluye a una actividad de DataBricks, que se ejecuta en Azure Databricks. El conjunto de datos de entrada fluye hacia un servicio vinculado de AWS S3. El conjunto de datos de salida fluye hacia un servicio vinculado de Azure Storage.](media/pricing-concepts/scenario3.png)
+:::image type="content" source="media/pricing-concepts/scenario3.png" alt-text="Diagrama que muestra una canalización con un desencadenador programado. En la canalización, la actividad de copia fluye hacia un conjunto de datos de entrada, un conjunto de datos de salida y una actividad de búsqueda que fluye hacia una actividad de Databricks, que se ejecuta Azure Databricks. El conjunto de datos de entrada fluye hacia un servicio vinculado de A W S S3. El conjunto de datos de salida fluye hacia un servicio vinculado de Azure Storage.":::
 
 | **Operaciones** | **Tipos y unidades** |
 | --- | --- |
@@ -130,7 +130,7 @@ Para lograr el escenario, es preciso crear una canalización con los siguientes 
 
 Azure-SSIS Integration Runtime (IR) es un clúster especializado de máquinas virtuales (VM) de Azure para ejecuciones de paquetes SSIS en Azure Data Factory (ADF). Al aprovisionarlo, será dedicado para usted, por lo que se le cobrará igual que cualquier otra máquina virtual de Azure dedicada, siempre y cuando lo mantenga en ejecución, independientemente de si se usa para ejecutar paquetes SSIS o no. Con respecto a su costo de ejecución, verá la estimación por hora en su panel de configuración en el portal de ADF, por ejemplo:  
 
-![Ejemplo de precios de SSIS](media/pricing-concepts/ssis-pricing-example.png)
+:::image type="content" source="media/pricing-concepts/ssis-pricing-example.png" alt-text="Ejemplo de precios de SSIS":::
 
 En el ejemplo anterior, si mantiene Azure-SSIS IR en ejecución durante 2 horas, se le cobrará: **2 (horas) x 1,158 USD/hora = 2,316 USD**.
 
@@ -181,7 +181,8 @@ Para lograr el escenario, es preciso crear una canalización con los siguientes 
 
 ## <a name="data-integration-in-azure-data-factory-managed-vnet"></a>Integración de datos en VNET administrada de Azure Data Factory
 En este escenario, quiere eliminar archivos originales en Azure Blob Storage y copiar datos de Azure SQL Database en Azure Blob Storage. Va a realizar esta ejecución dos veces en diferentes canalizaciones. El tiempo de ejecución de estas dos canalizaciones se superpone.
-![Escenario 4](media/pricing-concepts/scenario-4.png) Para realizar el escenario, es preciso crear dos canalizaciones con los siguientes elementos:
+:::image type="content" source="media/pricing-concepts/scenario-4.png" alt-text="Escenario 4":::
+Para poner en práctica el escenario, es preciso crear dos canalizaciones con los siguientes elementos:
   - Una actividad de canalización: actividad de eliminación.
   - Una actividad de copia con un conjunto de datos de entrada para los datos que se van a copiar desde Azure Blob Storage.
   - Un conjunto de datos de salida para los datos en Azure SQL Database.

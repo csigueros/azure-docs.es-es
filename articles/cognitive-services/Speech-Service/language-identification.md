@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 08/27/2021
 ms.author: lajanuar
 zone_pivot_groups: programming-languages-cs-cpp-py
-ms.openlocfilehash: e7ad9593ddc77947c3d5c48afa04723e33a261a2
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 6830ded4b6a074a29de9741eee957b0a4a1ff4b3
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123537047"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128588131"
 ---
-# <a name="language-identification"></a>Identificación del idioma
+# <a name="language-identification-preview"></a>Identificación del idioma (versión preliminar)
 
 La identificación del idioma se usa para determinar el idioma que se habla en el audio que se pasa al SDK de Voz mediante la comparación con una lista de idiomas proporcionados. 
 
-La identificación del idioma también se puede usar con la [traducción de voz](./get-started-speech-translation.md#multi-lingual-translation-with-language-identification) o mediante la [identificación del idioma durante el reconocimiento de voz](/azure/cognitive-services/speech-service/how-to-automatic-language-detection). 
+La identificación del idioma también se puede usar con la [traducción de voz](./get-started-speech-translation.md#multi-lingual-translation-with-language-identification) o mediante la [identificación del idioma durante el reconocimiento de voz](./how-to-automatic-language-detection.md). 
 
 Para ver los idiomas que están disponibles, consulte la [compatibilidad de idioma](language-support.md).
 

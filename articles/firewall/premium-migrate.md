@@ -5,15 +5,15 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 08/16/2021
+ms.date: 09/13/2021
 ms.author: victorh
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 53587cbc54b9e59268e6ee348bb8956a0b9ca993
-ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
+ms.openlocfilehash: 580dcb11ae04aaae78d2c15f24c2c08d1df6158d
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122228922"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129061853"
 ---
 # <a name="migrate-to-azure-firewall-premium"></a>Migración a Azure Firewall Prémium
 
@@ -22,6 +22,8 @@ Puede migrar Azure Firewall Estándar a Azure Firewall Premium para aprovechar l
 En los dos ejemplos siguientes se muestra cómo:
 - Migrar una directiva estándar existente mediante Azure PowerShell
 - Migrar un firewall estándar existente (con reglas clásicas) a Azure Firewall Prémium con una directiva prémium
+
+Si usa Terraform para implementar Azure Firewall, puede usar Terraform para migrar a Azure Firewall Prémium. Para más información, consulte [Migración de Azure Firewall estándar a prémium con Terraform](/azure/developer/terraform/firewall-upgrade-premium?toc=/azure/firewall/toc.json&bc=/azure/firewall/breadcrumb/toc.json).
 
 ## <a name="performance-considerations"></a>Consideraciones de rendimiento
 
@@ -37,7 +39,7 @@ Migre el firewall durante un tiempo de mantenimiento planeado, ya que habrá cie
 
 `Transform-Policy.ps1` es un script de Azure PowerShell que crea una directiva prémium a partir de una directiva estándar existente.
 
-Dado un identificador de directiva de firewall estándar, el script lo transforma en una directiva de Azure Firewall Prémium. El script se conecta primero a su cuenta de Azure, extrae la directiva, transforma o agrega varios parámetros y, luego, carga una nueva directiva prémium. La nueva directiva prémium se denomina `<previous_policy_name>_premium`.
+Dado un identificador de directiva de firewall estándar, el script lo transforma en una directiva de Azure Firewall Prémium. El script se conecta primero a su cuenta de Azure, extrae la directiva, transforma o agrega varios parámetros y, luego, carga una nueva directiva prémium. La nueva directiva prémium se denomina `<previous_policy_name>_premium`. En caso de la transformación de una directiva secundaria, se mantendrá el vínculo a la directiva principal.
 
 Ejemplo de uso:
 
@@ -62,7 +64,7 @@ param (
     [string]
     $PolicyId,
 
-     #new firewallpolicy name, if not specified will be the previous name with the '_premium' suffix
+    #new filewallpolicy name, if not specified will be the previous name with the '_premium' suffix
     [Parameter(Mandatory=$false)]
     [string]
     $NewPolicyName = ""
@@ -123,7 +125,7 @@ function TransformPolicyToPremium {
                         ResourceGroupName = $Policy.ResourceGroupName 
                         Location = $Policy.Location 
                         ThreatIntelMode = $Policy.ThreatIntelMode 
-                        BasePolicy = $Policy.BasePolicy 
+                        BasePolicy = $Policy.BasePolicy.Id
                         DnsSetting = $Policy.DnsSettings 
                         Tag = $Policy.Tag 
                         SkuTier = "Premium" 
@@ -153,7 +155,7 @@ function TransformPolicyToPremium {
 function ValidateAzNetworkModuleExists {
     Write-Host "Validating needed module exists"
     $networkModule = Get-InstalledModule -Name "Az.Network" -ErrorAction SilentlyContinue
-    if (($null -eq $networkModule) -or ($networkModule.Version -lt 4.5)){
+    if (($null -eq $networkModule) -or ($networkModule.Version -lt 4.5.0)){
         Write-Host "Please install Az.Network module version 4.5.0 or higher, see instructions: https://github.com/Azure/azure-powershell#installation"
         exit(1)
     }
@@ -164,6 +166,7 @@ ValidateAzNetworkModuleExists
 $policy = Get-AzFirewallPolicy -ResourceId $script:PolicyId
 ValidatePolicy -Policy $policy
 TransformPolicyToPremium -Policy $policy
+
 ```
 
 ## <a name="migrate-an-existing-standard-firewall-using-the-azure-portal"></a>Migración de un firewall estándar existente mediante Azure Portal

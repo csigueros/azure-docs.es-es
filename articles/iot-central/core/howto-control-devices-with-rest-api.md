@@ -7,12 +7,12 @@ ms.date: 08/28/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 471a9e0fd68678b0fc09c05bb47ad40affb7d9f9
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: 052dc4d0d275c120d7bb9379937fadfe0e005bdd
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123470173"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128656728"
 ---
 # <a name="how-to-use-the-iot-central-rest-api-to-control-devices"></a>Empleo de la API de REST de IoT Central para controlar dispositivos
 
@@ -29,7 +29,10 @@ Un dispositivo puede agrupar las propiedades, la telemetría y los comandos que 
 
 Cada llamada API de REST de IoT Central requiere un encabezado de autorización. Para obtener más información, vea los [procedimientos de autenticación y autorización de llamadas a la API REST de IoT Central](howto-authorize-rest-api.md).
 
-Para obtener documentación de referencia sobre la API de REST de IoT Central, vea [Referencia de la API de REST de Azure IoT Central](/rest/api/iotcentral/).
+Para ver la documentación de referencia sobre la API REST de IoT Central, consulte [Referencia de la API REST de Azure IoT Central](/rest/api/iotcentral/).
+
+> [!TIP]
+> La [API de versión preliminar](/rest/api/iotcentral/1.1-previewdataplane/devices) incluye compatibilidad con la nueva [característica de organizaciones](howto-create-organizations.md).
 
 ## <a name="components-and-modules"></a>Componentes y módulos
 

@@ -2,14 +2,14 @@
 title: Implementación de recursos en el inquilino
 description: Se describe cómo implementar recursos en el ámbito de un inquilino en una plantilla de Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 04/27/2021
+ms.date: 09/14/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: dfcdd4c9fdf758b0e07c2566c50b45f534133c3c
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: 0e998c4c26afc456a83cdb0c06a5ccb3906364df
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109751498"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128606577"
 ---
 # <a name="tenant-deployments-with-arm-templates"></a>Implementaciones de inquilino con plantillas de Resource Manager
 
@@ -55,8 +55,8 @@ Para las plantillas, use:
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#",
-    ...
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#",
+  ...
 }
 ```
 
@@ -64,8 +64,8 @@ El esquema de un archivo de parámetros es el mismo para todos los ámbitos de i
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
-    ...
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  ...
 }
 ```
 
@@ -193,5 +193,5 @@ La siguiente plantilla asigna un rol en el ámbito del inquilino.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para más información sobre la asignación de roles, consulte [Incorporación de asignaciones de roles mediante plantillas de Azure Resource Manager](../../role-based-access-control/role-assignments-template.md).
+* Para obtener información sobre la asignación de roles, vea [Asignación de roles de Azure mediante plantillas de Azure Resource Manager](../../role-based-access-control/role-assignments-template.md).
 * También puede implementar plantillas en el [nivel de suscripción](deploy-to-subscription.md) o el [nivel de grupo de administración](deploy-to-management-group.md).

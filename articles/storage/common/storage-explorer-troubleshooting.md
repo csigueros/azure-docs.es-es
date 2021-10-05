@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 07/28/2020
 ms.author: delhan
-ms.openlocfilehash: 9015e3ce69042a2e7d96588956becff889827ab3
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: 3feae35a4b7c98ea317bb9cec5dd54ca3f5db63c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123225182"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128562521"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guía de solución de problemas del Explorador de Azure Storage
 
@@ -23,7 +23,7 @@ En esta guía se resumen las soluciones de los problemas comunes que se encuentr
 
 ## <a name="azure-rbac-permissions-issues"></a>Problemas de permisos de RBAC de Azure
 
-El control de acceso basado en rol ([RBAC](../../role-based-access-control/overview.md)) de Azure permite realizar una administración muy pormenorizada del acceso a los recursos de Azure mediante la combinación de conjuntos de permisos para formar _roles_. Aquí encontrará algunas estrategias para que RBAC de Azure funcione de forma óptima en el Explorador de Storage.
+El control de acceso basado en rol ([RBAC](../../role-based-access-control/overview.md)) de Azure permite realizar una administración muy pormenorizada del acceso a los recursos de Azure mediante la combinación de conjuntos de permisos para formar *roles*. Aquí encontrará algunas estrategias para que RBAC de Azure funcione de forma óptima en el Explorador de Storage.
 
 ### <a name="how-do-i-access-my-resources-in-storage-explorer"></a>¿Cómo se accede a los recursos en Explorador de Storage?
 
@@ -31,22 +31,22 @@ Si tiene problemas para acceder a los recursos de almacenamiento mediante RBAC d
 
 #### <a name="read-listget-storage-accounts-permissions-issue"></a>"Problema de permisos de lectura para enumerar u obtener cuentas de almacenamiento"
 
-Debe tener permiso para enumerar las cuentas de almacenamiento. Para obtener este permiso, se le debe haber asignado el rol _Lector_.
+Debe tener permiso para enumerar las cuentas de almacenamiento. Para obtener este permiso, se le debe haber asignado el rol *Lector*.
 
 #### <a name="list-storage-account-keys"></a>Enumerar claves de cuentas de almacenamiento
 
-El Explorador de Storage también puede usar las claves de cuenta para autenticar las solicitudes. Puede acceder a las claves de las cuentas con roles más eficaces, como el rol _Colaborador_.
+El Explorador de Storage también puede usar las claves de cuenta para autenticar las solicitudes. Puede acceder a las claves de las cuentas con roles más eficaces, como el rol *Colaborador*.
 
 > [!NOTE]
 > Las claves de acceso otorgan permisos ilimitados a cualquier persona que disponga de ellas. Por tanto, no se recomienda dar estas claves a los usuarios de la cuenta. Si necesita revocar las claves de acceso, puede regenerarlas desde [Azure Portal](https://portal.azure.com/).
 
 #### <a name="data-roles"></a>Roles de datos
 
-Se le debe haber asignado al menos un rol que conceda acceso para leer datos de los recursos. Por ejemplo, si desea enumerar o descargar blobs, necesitará tener, como mínimo, el rol _Lector de datos de Storage Blob_.
+Se le debe haber asignado al menos un rol que conceda acceso para leer datos de los recursos. Por ejemplo, si desea enumerar o descargar blobs, necesitará tener, como mínimo, el rol *Lector de datos de Storage Blob*.
 
 ### <a name="why-do-i-need-a-management-layer-role-to-see-my-resources-in-storage-explorer"></a>¿Por qué se necesita un rol de la capa de administración para ver los recursos en el Explorador de Storage?
 
-Azure Storage tiene dos capas de acceso: _administración_ y _datos_. Se accede a las suscripciones y cuentas de almacenamiento mediante la capa de administración. Se accede a los contenedores, blobs y otros recursos de datos mediante la capa de datos. Por ejemplo, si desea obtener una lista de las cuentas de almacenamiento de Azure, debe enviar una solicitud al punto de conexión de administración. Si desea obtener una lista de los contenedores de blobs de una cuenta, envíe una solicitud al punto de conexión de servicio adecuado.
+Azure Storage tiene dos capas de acceso: *administración* y *datos*. Se accede a las suscripciones y cuentas de almacenamiento mediante la capa de administración. Se accede a los contenedores, blobs y otros recursos de datos mediante la capa de datos. Por ejemplo, si desea obtener una lista de las cuentas de almacenamiento de Azure, debe enviar una solicitud al punto de conexión de administración. Si desea obtener una lista de los contenedores de blobs de una cuenta, envíe una solicitud al punto de conexión de servicio adecuado.
 
 Los roles de Azure pueden concederle los permisos necesario s para obtener acceso a la capa de datos o de administración. Por ejemplo, el rol Lector otorga acceso de solo lectura a los recursos de la capa de administración.
 
@@ -72,7 +72,7 @@ Actualmente no tenemos una solución relacionada con RBAC de Azure para otros ti
 1. Seleccione el tipo de recurso al que desea conectarse.
 1. Seleccione **Firma de acceso compartido (SAS) de cuenta**. Seleccione **Next** (Siguiente).
 1. Escriba la dirección URL de SAS que ha recibido y un nombre para mostrar único para la conexión. Seleccione **Siguiente** y luego **Conectar**.
- 
+
 Para más información sobre cómo asociar recursos, consulte cómo [conectarse a un recurso individual](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=linux#attach-to-an-individual-resource).
 
 ### <a name="recommended-azure-built-in-roles"></a>Roles integrados de Azure recomendados
@@ -115,11 +115,11 @@ Si no tiene una copia de los certificados autofirmados, intente ponerse en conta
 Puede intentar seguir estos pasos para encontrarlos:
 
 1. Instale OpenSSL.
-    * [Windows](https://slproweb.com/products/Win32OpenSSL.html): cualquiera de las versiones ligeras debería ser suficiente.
-    * Mac y Linux: debe estar incluido en el sistema operativo.
+    - [Windows](https://slproweb.com/products/Win32OpenSSL.html): cualquiera de las versiones ligeras debería ser suficiente.
+    - Mac y Linux: debe estar incluido en el sistema operativo.
 2. Ejecute OpenSSL.
-    * Windows: abra el directorio de instalación, seleccione **/bin/** y, luego, haga doble clic en **openssl.exe**.
-    * Mac y Linux: Ejecute `openssl` desde un terminal.
+    - Windows: abra el directorio de instalación, seleccione **/bin/** y, luego, haga doble clic en **openssl.exe**.
+    - Mac y Linux: Ejecute `openssl` desde un terminal.
 3. Ejecute este comando: `s_client -showcerts -connect <hostname>:443`, para cualquiera de los nombres de host de Microsoft o Azure detrás de los que estén los recursos de almacenamiento. Puede encontrar una lista de nombres de host a los que el Explorador de Storage accede con frecuencia aquí.
 4. Busque certificados autofirmados. Si el firmante `("s:")` y el emisor `("i:")` son iguales, lo más probable es que el certificado sea autofirmado.
 5. Cuando encuentre certificados autofirmados, en cada uno de ellos, copie y pegue todo el contenido desde `-----BEGIN CERTIFICATE-----` hasta `-----END CERTIFICATE-----` (inclusive) en un archivo .cer nuevo.
@@ -192,7 +192,7 @@ Si sigue teniendo problemas después de realizar un restablecimiento, pruebe est
 1. Abra el Explorador de Storage.
 2. Quite todas las cuentas y cierre el Explorador de Storage.
 3. Elimine la carpeta `.IdentityService` de la máquina. En Windows, la carpeta se encuentra en `C:\users\<username>\AppData\Local`. En Mac y Linux, puede encontrar la carpeta en la raíz de su directorio de usuario.
-4. En Mac o Linux, también deberá eliminar la entrada Microsoft.Developer.IdentityService del almacén de claves de su sistema operativo. En Mac, el almacén de claves es la aplicación *Gnome Keychain*. En Linux, la aplicación habitualmente se denomina _Keyring_ pero el nombre puede ser diferente en función de su distribución.
+4. En Mac o Linux, también deberá eliminar la entrada Microsoft.Developer.IdentityService del almacén de claves de su sistema operativo. En Mac, el almacén de claves es la aplicación *Gnome Keychain*. En Linux, la aplicación habitualmente se denomina *Keyring* pero el nombre puede ser diferente en función de su distribución.
 6. Reinicie el Explorador de Storage e intente iniciar sesión de nuevo.
 
 ### <a name="macos-keychain-errors-or-no-sign-in-window"></a>macOS: errores de cadena de claves o sin ventana de inicio de sesión.
@@ -225,19 +225,19 @@ Si ninguna de las opciones anteriores se aplica a su problema de inicio de sesi�
 
 Si no puede recuperar las suscripciones después de iniciar sesión correctamente, pruebe los siguientes métodos de solución de problemas:
 
-* Compruebe que la cuenta tiene acceso a las que espera. Para comprobar que puede acceder, inicie sesión en el portal para el entorno de Azure que intenta usar.
-* Asegúrese de que ha iniciado sesión en el entorno correcto de Azure (Azure, Azure China 21Vianet, Azure Alemania, Azure US Government o entorno personalizado).
-* Si está detrás de un servidor proxy, asegúrese de que ha configurado correctamente el proxy del Explorador de Storage.
-* Pruebe a eliminar la cuenta y volver a agregarla.
-* Si hay un vínculo "Más información" o "Detalles del error", compruebe qué mensajes de error se notifican a los inquilinos en los que se producen errores. Si no está seguro de cómo responder a los mensajes de error, no dude en [abrir una incidencia en GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
+- Compruebe que la cuenta tiene acceso a las que espera. Para comprobar que puede acceder, inicie sesión en el portal para el entorno de Azure que intenta usar.
+- Asegúrese de que ha iniciado sesión en el entorno correcto de Azure (Azure, Azure China 21Vianet, Azure Alemania, Azure US Government o entorno personalizado).
+- Si está detrás de un servidor proxy, asegúrese de que ha configurado correctamente el proxy del Explorador de Storage.
+- Pruebe a eliminar la cuenta y volver a agregarla.
+- Si hay un vínculo "Más información" o "Detalles del error", compruebe qué mensajes de error se notifican a los inquilinos en los que se producen errores. Si no está seguro de cómo responder a los mensajes de error, no dude en [abrir una incidencia en GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
 
 ## <a name="cant-remove-an-attached-storage-account-or-resource"></a>No se puede quitar una cuenta de almacenamiento adjunta ni un recurso
 
 Si no puede hacerlo mediante la interfaz de usuario, para eliminar manualmente todos los recursos adjuntos debe eliminar las siguientes carpetas:
 
-* Windows: `%AppData%/StorageExplorer`
-* macOS: `/Users/<your_name>/Library/Application Support/StorageExplorer`
-* Linux: `~/.config/StorageExplorer`
+- Windows: `%AppData%/StorageExplorer`
+- macOS: `/Users/<your_name>/Library/Application Support/StorageExplorer`
+- Linux: `~/.config/StorageExplorer`
 
 > [!NOTE]
 > Cierre el Explorador de Storage antes de eliminar estas carpetas.
@@ -280,9 +280,9 @@ Una herramienta de red, como Fiddler, puede ayudarle a diagnosticar problemas.
 1. Configure la herramienta de red como un servidor proxy que se ejecute en el host local. Si tiene que seguir trabajando detrás de un proxy real, es posible que tenga que configurar la herramienta de red para conectarse a través del proxy.
 2. Compruebe el número de puerto utilizado por la herramienta de red.
 3. Configure los valores del proxy del Explorador de Storage para usar el host local y el número de puerto de la herramienta de red (por ejemplo, "localhost: 8888").
- 
+
 Cuando lo haya hecho correctamente, la herramienta de red registrará las solicitudes de red realizadas por el Explorador de Storage para puntos de conexión de servicio y administración.
- 
+
 Si la herramienta de red no parece estar registrando el tráfico del Explorador de Storage, intente probar la herramienta con otra aplicación. Por ejemplo, escriba la dirección URL del punto de conexión de uno de los recursos de almacenamiento (como `https://contoso.blob.core.windows.net/`) en un explorador web y recibirá una respuesta similar a la siguiente:
 
   ![Código de ejemplo](./media/storage-explorer-troubleshooting/4022502_en_2.png)
@@ -295,8 +295,8 @@ Si la herramienta de red solo muestra el tráfico de otras aplicaciones, es posi
 
 Si la configuración del proxy es correcta, es posible que deba ponerse en contacto con el administrador del servidor proxy para:
 
-* Asegurarse de que el proxy no bloquee el tráfico a los puntos de conexión de administración de Azure o de los recursos.
-* Compruebe el protocolo de autenticación utilizado por el servidor proxy. El Explorador de Storage solo admite protocolos de autenticación básicos. El Explorador de Storage no es compatible con los servidores proxy NTLM.
+- Asegurarse de que el proxy no bloquee el tráfico a los puntos de conexión de administración de Azure o de los recursos.
+- Compruebe el protocolo de autenticación utilizado por el servidor proxy. El Explorador de Storage solo admite protocolos de autenticación básicos. El Explorador de Storage no es compatible con los servidores proxy NTLM.
 
 ## <a name="unable-to-retrieve-children-error-message"></a>Mensaje de error "No se pueden recuperar los elementos secundarios"
 
@@ -317,17 +317,17 @@ Si recibe este mensaje de error al intentar agregar una conexión personalizada,
 1. Inicie el Explorador de Storage. En el menú, vaya a **Help** (Ayuda) > **Toggle Developer Tools** (Activar y desactivar herramientas de desarrollo).
 2. En la ventana abierta, en la pestaña **Application** (Aplicación), vaya a **Local Storage** (Almacenamiento local) (lado izquierdo) > **file://** .
 3. En función del tipo de conexión con el que tenga un problema, busque su clave y copie su valor en un editor de texto. El valor es una matriz de los nombres de conexión personalizados parecida a la siguiente:
-    * Cuentas de almacenamiento
-        * `StorageExplorer_CustomConnections_Accounts_v1`
-    * Contenedores de blobs
-        * `StorageExplorer_CustomConnections_Blobs_v1`
-        * `StorageExplorer_CustomConnections_Blobs_v2`
-    * Recursos compartidos de archivos
-        * `StorageExplorer_CustomConnections_Files_v1`
-    * Colas
-        * `StorageExplorer_CustomConnections_Queues_v1`
-    * Tablas
-        * `StorageExplorer_CustomConnections_Tables_v1`
+    - Cuentas de almacenamiento
+        - `StorageExplorer_CustomConnections_Accounts_v1`
+    - Contenedores de blobs
+        - `StorageExplorer_CustomConnections_Blobs_v1`
+        - `StorageExplorer_CustomConnections_Blobs_v2`
+    - Recursos compartidos de archivos
+        - `StorageExplorer_CustomConnections_Files_v1`
+    - Colas
+        - `StorageExplorer_CustomConnections_Queues_v1`
+    - Tablas
+        - `StorageExplorer_CustomConnections_Tables_v1`
 4. Después de guardar los nombres de conexión actuales, en Herramientas de desarrollo seleccione `[]`.
 
 Si desea conservar las conexiones que no estén dañadas, puede usar los siguientes pasos para buscar las conexiones dañadas. Si no le importa perder todas las conexiones existentes, puede omitir estos pasos y seguir las instrucciones específicas de la plataforma para borrar los datos de la conexión.
@@ -366,9 +366,9 @@ Si el error no desaparece después de realizar estos pasos o si desea compartir 
 
 Si se va conectar a un servicio mediante una dirección URL de SAS y se produce este error:
 
-* Compruebe que la dirección URL proporciona los permisos necesarios para leer o enumerar los recursos.
-* Compruebe que la dirección URL no haya expirado.
-* Si la dirección URL de SAS se basa en una directiva de acceso, compruebe que la directiva de acceso no haya sido revocada.
+- Compruebe que la dirección URL proporciona los permisos necesarios para leer o enumerar los recursos.
+- Compruebe que la dirección URL no haya expirado.
+- Si la dirección URL de SAS se basa en una directiva de acceso, compruebe que la directiva de acceso no haya sido revocada.
 
 Si por error realizó la asociación mediante una dirección URL de SAS no válida y ahora no puede desasociarla, siga estos pasos:
 
@@ -400,49 +400,53 @@ El Explorador de Storage tal y como se proporciona en la descarga .tar.gz solo e
 - Ubuntu 18.04 x64
 - Ubuntu 16.04 x64
 
-El Explorador de Storage requiere que .NET Core esté instalado en el sistema. Se recomienda .NET Core 2,1, pero el Explorador de Storage funcionará también con 2.2.
+El Explorador de Storage requiere que .NET Core 3.1 esté instalado en el sistema.
 
 > [!NOTE]
-> La versión 1.7.0 del Explorador de Storage y anteriores requieren .NET Core 2.0. Si tiene una versión más reciente de .NET Core instalada, tendrá que [aplicar un parche al Explorador de Storage](#patching-storage-explorer-for-newer-versions-of-net-core). Si ejecuta el Explorador de Storage 1.8.0, o cualquier versión posterior, por lo menos necesita .NET Core 2.1.
+> Las versiones 1.8.0 a 1.20.1 del Explorador de Storage requieren .NET Core 2.1. La versión 1.7.0 del Explorador de Storage y anteriores requieren .NET Core 2.0.
 
 ### <a name="ubuntu-2004"></a>[Ubuntu 20.04](#tab/2004)
 
 1. Descargue el archivo .tar.gz del Explorador de Storage.
 2. Instale el [entorno de ejecución de .NET Core](/dotnet/core/install/linux):
+
    ```bash
    wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
      sudo dpkg -i packages-microsoft-prod.deb; \
      sudo apt-get update; \
      sudo apt-get install -y apt-transport-https && \
      sudo apt-get update && \
-     sudo apt-get install -y dotnet-runtime-2.1
+     sudo apt-get install -y dotnet-runtime-3.1
    ```
 
 ### <a name="ubuntu-1804"></a>[Ubuntu 18.04](#tab/1804)
 
 1. Descargue el archivo .tar.gz del Explorador de Storage.
 2. Instale el [entorno de ejecución de .NET Core](/dotnet/core/install/linux):
+
    ```bash
    wget https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
      sudo dpkg -i packages-microsoft-prod.deb; \
      sudo apt-get update; \
      sudo apt-get install -y apt-transport-https && \
      sudo apt-get update && \
-     sudo apt-get install -y dotnet-runtime-2.1
+     sudo apt-get install -y dotnet-runtime-3.1
    ```
 
 ### <a name="ubuntu-1604"></a>[Ubuntu 16.04](#tab/1604)
 
 1. Descargue el archivo .tar.gz del Explorador de Storage.
 2. Instale el [entorno de ejecución de .NET Core](/dotnet/core/install/linux):
+
    ```bash
    wget https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
      sudo dpkg -i packages-microsoft-prod.deb; \
      sudo apt-get update; \
      sudo apt-get install -y apt-transport-https && \
      sudo apt-get update && \
-     sudo apt-get install -y dotnet-runtime-2.1
+     sudo apt-get install -y dotnet-runtime-3.1
    ```
+
 ---
 
 Muchas de las bibliotecas que necesita el Explorador de Storage viene preinstaladas con las instalaciones estándar de Canonical de Ubuntu. Es posible que falten algunas de estas bibliotecas en los entornos personalizados. Si tiene problemas para iniciar el Explorador de Storage, se recomienda que se asegure de que los siguientes paquetes están instalados en el sistema:
@@ -470,16 +474,16 @@ En el caso del Explorador de Storage 1.7.0, u otras versiones anteriores, es po
 3. Descomprima el paquete.
 4. Abra la carpeta `streamjsonrpc.1.5.43/lib/netstandard1.1/`.
 5. Copie `StreamJsonRpc.dll` en las siguientes ubicaciones de la carpeta del Explorador de Storage:
-   * `StorageExplorer/resources/app/ServiceHub/Services/Microsoft.Developer.IdentityService/`
-   * `StorageExplorer/resources/app/ServiceHub/Hosts/ServiceHub.Host.Core.CLR.x64/`
+   - `StorageExplorer/resources/app/ServiceHub/Services/Microsoft.Developer.IdentityService/`
+   - `StorageExplorer/resources/app/ServiceHub/Hosts/ServiceHub.Host.Core.CLR.x64/`
 
 ## <a name="open-in-explorer-from-the-azure-portal-doesnt-work"></a>"Abrir en el Explorador", de Azure Portal, no funciona
 
 Si el botón **Abrir en el Explorador** de Azure Portal no funciona, asegúrese de que usa un explorador compatible. Se ha probado la compatibilidad de los siguientes exploradores:
-* Microsoft Edge
-* Mozilla Firefox
-* Google Chrome
-* Microsoft Internet Explorer
+- Microsoft Edge
+- Mozilla Firefox
+- Google Chrome
+- Microsoft Internet Explorer
 
 ## <a name="gathering-logs"></a>Recopilación de registros
 
@@ -558,7 +562,7 @@ Parte 1: Instalación y configuración de Fiddler
 Parte 2: Reproducción del problema
 1. Cierre todas las aplicaciones que no sean Fiddler.
 2. Borre el registro de Fiddler (icono de X en la parte superior izquierda, cerca del menú Ver)
-3. Opcional recomendado: deje que Fiddler se establezca durante unos minutos; si ve que aparecen llamadas de red, haga clic con el botón derecho en ellas y elija "Filter Now" > "Hide <process name>" (Filtrar ahora > Ocultar <nombre_de_proceso>).
+3. Opcional recomendado: deje que Fiddler se establezca durante unos minutos; si ve que aparecen llamadas de red que no son del Explorador de Storage, haga clic con el botón derecho en ellas y elija "Filtrar ahora" > "Ocultar (nombre del proceso)".
 4. Inicie el Explorador de Storage.
 5. Reproduzca el problema
 6. Haga clic en File > Save > All Sessions… (Archivo > Guardar > Todas las sesiones), para guardar la información en algún lugar que recuerde.

@@ -91,6 +91,8 @@
 - name: Referencia
   expanded: true
   items:
+    - name: Identificadores de información básica en el registro de inicio de sesión
+      href: reference-basic-info-identifiers.md
     - name: Cmdlets de Azure AD PowerShell para informes
       href: reference-powershell-reporting.md
     - name: Referencia de la API de registros de auditoría

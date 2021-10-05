@@ -1,35 +1,35 @@
 ---
 title: Transformación de datos mediante un script de U-SQL
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Aprenda a procesar o transformar datos mediante la ejecución de scripts de U-SQL en el servicio de proceso Azure Data Lake Analytics.
+description: Obtenga información sobre cómo procesar o transformar datos mediante la ejecución de scripts de U-SQL en el servicio de proceso Azure Data Lake Analytics con Azure Data Factory y Synapse Analytics.
 ms.author: abnarain
 author: nabhishek
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/01/2018
-ms.openlocfilehash: abb3d151e943dd539fe7c2e349b662412ab24f7c
-ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
+ms.date: 09/09/2021
+ms.openlocfilehash: fae713e7998a2a5e9686b38bba1ae40b40a2bf32
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122271974"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124806307"
 ---
-# <a name="process-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Procesamiento de datos mediante la ejecución de scripts de U-SQL en Azure Data Lake Analytics 
+# <a name="process-data-by-running-u-sql-scripts-on-azure-data-lake-analytics-with-azure-data-factory-and-synapse-analytics"></a>Procesamiento de datos mediante la ejecución de scripts U-SQL en Azure Data Lake Analytics con Azure Data Factory y Synapse Analytics
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
 > * [Versión 1](v1/data-factory-usql-activity.md)
 > * [Versión actual](transform-data-using-data-lake-analytics.md)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Una canalización en una factoría de datos de Azure procesa los datos de los servicios de almacenamiento vinculados mediante el uso de servicios de proceso vinculados. Contiene una secuencia de actividades donde cada actividad realiza una operación de procesamiento específica. En este artículo se describe la **actividad U-SQL de Data Lake Analytics** que ejecuta un script de **U-SQL** en un servicio vinculado de proceso de **Azure Data Lake Analytics**. 
+Una canalización en un área de trabajo de Azure Data Factory o Synapse Analytics procesa los datos de los servicios de almacenamiento vinculados mediante el uso de servicios de proceso vinculados. Contiene una secuencia de actividades donde cada actividad realiza una operación de procesamiento específica. En este artículo se describe la **actividad U-SQL de Data Lake Analytics** que ejecuta un script de **U-SQL** en un servicio vinculado de proceso de **Azure Data Lake Analytics**. 
 
 Debe crear una cuenta de Azure Data Lake Analytics antes de crear una canalización con una actividad de U-SQL de este servicio. Para obtener más información sobre Azure Data Lake Analytics, consulte el artículo de [introducción a Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md).
 
 
 ## <a name="azure-data-lake-analytics-linked-service"></a>Servicio vinculado de Azure Data Lake Analytics
-Cree un servicio vinculado de **Azure Data Lake Analytics** para vincular un servicio de proceso de Azure Data Lake Analytics a una instancia de Azure Data Factory. La actividad de U-SQL de Data Lake Analytics de la canalización hace referencia a este servicio vinculado. 
+Cree un servicio vinculado de **Azure Data Lake Analytics** para vincular un servicio de proceso de Azure Data Lake Analytics a un área de trabajo de Azure Data Factory o Synapse Analytics. La actividad de U-SQL de Data Lake Analytics de la canalización hace referencia a este servicio vinculado. 
 
 En la siguiente tabla se ofrecen descripciones de las propiedades genéricas que se usan en la definición de JSON. 
 
@@ -87,7 +87,7 @@ Para usar la autenticación de la entidad de servicio, especifique las siguiente
 Para más información sobre el servicio vinculado, consulte [Servicios vinculados de Compute](compute-linked-services.md).
 
 ## <a name="data-lake-analytics-u-sql-activity"></a>Actividad U-SQL de Análisis de Data Lake
-El siguiente fragmento JSON define una canalización con una actividad U-SQL de Análisis de Data Lake. La definición de actividad tiene una referencia al servicio vinculado de Análisis de Azure Data Lake que creó anteriormente. Para ejecutar un script U-SQL de Data Lake Analytics, Data Factory envía el script especificado a Data Lake Analytics y las entradas y salidas necesarias se definen en el script para que Data Lake Analytics realice la captura y resultado. 
+El siguiente fragmento JSON define una canalización con una actividad U-SQL de Análisis de Data Lake. La definición de actividad tiene una referencia al servicio vinculado de Análisis de Azure Data Lake que creó anteriormente. Para ejecutar un script U-SQL de Data Lake Analytics, el servicio envía el script especificado a Data Lake Analytics y las entradas y salidas necesarias se definen en el script para que Data Lake Analytics realice la captura y resultado. 
 
 ```json
 {
@@ -123,7 +123,7 @@ En la tabla siguiente se describen los nombres y descripciones de las propiedade
 | type                | Para la actividad U-SQL de Data Lake Analytics, el tipo de actividad es **DataLakeAnalyticsU-SQL**. | Sí      |
 | linkedServiceName   | Servicio vinculado a Azure Data Lake Analytics. Para obtener más información sobre este servicio vinculado, vea el artículo [Compute linked services](compute-linked-services.md) (Servicios vinculados de procesos).  |Sí       |
 | scriptPath          | Ruta de acceso a la carpeta que contiene el script U-SQL. El nombre del archivo distingue mayúsculas de minúsculas. | Sí      |
-| scriptLinkedService | Servicio vinculado que vincula la instancia de **Azure Data Lake Store** o **Azure Storage** que contiene el script a la factoría de datos. | Sí      |
+| scriptLinkedService | Servicio vinculado que vincula la instancia de **Azure Data Lake Store** o **Azure Storage** que contiene el script | Sí      |
 | degreeOfParallelism | Número máximo de nodos que se usará de forma simultánea para ejecutar el trabajo. | No       |
 | priority            | Determina qué trabajos de todos los están en cola deben seleccionarse para ejecutarse primero. Cuanto menor sea el número, mayor será la prioridad. | No       |
 | parámetros          | Parámetros para pasar el script de U-SQL.    | No       |
@@ -161,7 +161,7 @@ OUTPUT @rs1
       USING Outputters.Tsv(quoting:false, dateTimeFormat:null);
 ```
 
-En el anterior script de ejemplo, la entrada y salida del script se define en los parámetros **\@in** y **\@out**. Data Factory pasa dinámicamente los valores de los parámetros **\@in** y **\@out** del script U-SQL usando la sección "parameters". 
+En el anterior script de ejemplo, la entrada y salida del script se define en los parámetros **\@in** y **\@out**. El servicio pasa dinámicamente los valores de los parámetros de **\@entrada** y **\@salida** del script de U-SQL usando la sección "parámetros". 
 
 También puede especificar otras propiedades como degreeOfParallelism y priority en la definición de canalización de los trabajos que se ejecutan en el servicio Azure Data Lake Analytics.
 

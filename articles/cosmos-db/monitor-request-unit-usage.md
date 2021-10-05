@@ -5,13 +5,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.author: esarroyo
 author: StefArroyo
-ms.date: 04/09/2020
-ms.openlocfilehash: 35968a21f0d3143b089cb8418f614e2c776da8cb
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+ms.date: 09/16/2021
+ms.openlocfilehash: 8e592e40b8885158c0b6700b0014a5982fe2d352
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113359648"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128548300"
 ---
 # <a name="how-to-monitor-throughput-or-request-unit-usage-of-an-operation-in-azure-cosmos-db"></a>Cómo supervisar el rendimiento o el uso de unidades de solicitud de una operación en Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -43,11 +43,11 @@ Si observa que algunas consultas están tomando más unidades de solicitud, pued
 
 1. En el panel **Métricas** panel > **Seleccionar un recurso** > elija la **suscripción**, y el **grupo de recursos** requeridos. En **Tipo de recurso**, seleccione **Cuentas de Azure Cosmos DB**, elija una de las cuentas de Azure Cosmos existentes y seleccione **Aplicar**.
 
-   :::image type="content" source="./media/monitor-request-unit-usage/select-cosmos-db-account.png" alt-text="Elección de la cuenta de Azure Cosmos DB para ver métricas":::
+   :::image type="content" source="./media/monitor-account-key-updates/select-account-scope.png" alt-text="Selección del ámbito de la cuenta para ver las métricas" border="true":::
 
 1. A continuación, seleccione la métrica **Unidades de solicitud totales** en la lista de métricas disponibles. Para conocer los detalles de todas las métricas disponibles en esta lista, consulte el artículo [Métricas por categoría](monitor-cosmos-db-reference.md). En este ejemplo, vamos a seleccionar **Unidades de solicitud totales** y **Promedio** como valor de agregación. Además de estos detalles, también puede seleccionar los valores de **Intervalo de tiempo** y **Granularidad de tiempo** de las métricas. Como máximo, puede ver las métricas de los últimos 30 días.  Después de aplicar el filtro, se muestra un gráfico basado en dicho filtro. Puede ver el número medio de unidades de solicitud consumidas por minuto durante el período seleccionado.  
 
-   :::image type="content" source="./media/monitor-request-unit-usage/request-unit-usage-metric.png" alt-text="Elección de una métrica en Azure Portal":::
+   :::image type="content" source="./media/monitor-request-unit-usage/request-unit-usage-metric.png" alt-text="Elección de una métrica en Azure Portal" border="true":::
 
 ## <a name="filters-for-request-unit-usage"></a>Filtros para el uso de unidades de solicitud
 
@@ -59,7 +59,7 @@ Para obtener el uso de la unidad de solicitud de cada operación en total (suma)
 
 Si desea ver el uso de unidades de solicitud por colección, seleccione **Aplicar división** y elija el nombre de la colección como filtro. Verá un chat similar al siguiente con una selección de colecciones en el panel. Después, puede seleccionar un nombre de colección específico para ver más detalles:
 
-   :::image type="content" source="./media/monitor-request-unit-usage/request-unit-usage-collection.png" alt-text="Unidades de solicitud de Cosmos DB para todas las operaciones de la colección en Azure Monitor":::
+   :::image type="content" source="./media/monitor-request-unit-usage/request-unit-usage-collection.png" alt-text="Unidades de solicitud de Cosmos DB para todas las operaciones de la colección en Azure Monitor" border="true":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

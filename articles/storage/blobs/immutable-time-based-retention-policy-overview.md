@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/22/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 1022ebd9166e3e2e92a4c67cd434190c91dd09c3
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: ed76c271590b4f5fbc79c7713b70186a8d9eb426
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121780609"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128552073"
 ---
 # <a name="time-based-retention-policies-for-immutable-blob-data"></a>Directivas de retención con duración definida para datos de blobs inmutables
 
@@ -28,7 +28,7 @@ El intervalo de retención mínimo para una directiva de retención con duració
 
 Cuando configure una directiva de retención con duración definida, los objetos afectados permanecerán en el estado inmutable durante el período de retención *efectivo*. El período de retención efectivo para los objetos es igual a la diferencia entre la hora de creación del blob y el intervalo de retención especificado por el usuario. Debido a que se puede ampliar el intervalo de retención de una directiva, el almacenamiento inmutable usa el valor más reciente del intervalo de retención especificado por el usuario para calcular el período de retención efectivo.
 
-Por ejemplo, supongamos que un usuario crea una directiva de retención de duración definida con un intervalo de retención de cinco años. Un blob existente en ese contenedor, _testblob1_, se ha creado hace un año; por tanto, el período de retención efectivo para _testblob1_ es de cuatro años. Cuando se carga un nuevo blob, _testblob2_, en el contenedor, el período de retención efectivo de _testblob2_ es de cinco años a partir de su creación.
+Por ejemplo, supongamos que un usuario crea una directiva de retención de duración definida con un intervalo de retención de cinco años. Un blob existente en ese contenedor, *testblob1*, se ha creado hace un año; por tanto, el período de retención efectivo para *testblob1* es de cuatro años. Cuando se carga un nuevo blob, *testblob2*, en el contenedor, el período de retención efectivo de *testblob2* es de cinco años a partir de su creación.
 
 ## <a name="locked-versus-unlocked-policies"></a>Comparación de directivas bloqueadas y desbloqueadas
 
@@ -98,7 +98,7 @@ Si la directiva heredada por una versión anterior está desbloqueada, es posibl
 
 Si la directiva heredada por una versión anterior está bloqueada, el intervalo de retención se puede ampliar. La directiva no se puede eliminar ni se puede acortar el intervalo de retención.
 
-Si no hay ninguna directiva configurada en la versión actual, la versión anterior no hereda ninguna directiva. Puede configurar una directiva personalizada para la versión.  
+Si no hay ninguna directiva configurada en la versión actual, la versión anterior no hereda ninguna directiva. Puede configurar una directiva personalizada para la versión.
 
 Si se modifica la directiva de una versión actual, las directivas de las versiones anteriores existentes permanecen sin cambios, incluso si la directiva se heredó de una versión actual.
 
@@ -124,7 +124,7 @@ Solo las directivas de retención con duración definida tienen una configuraci�
 
 Como esta configuración forma parte de una directiva de retención de duración definida, los blobs en anexos todavía pueden permanecer en el estado inmutable durante el período de retención *efectivo*. Como se pueden anexar nuevos datos más allá de la creación inicial del blob en anexos, hay una ligera diferencia en el modo de determinar el período de retención. El período de retención efectivo es la diferencia entre la hora de última modificación del blob en anexos y el intervalo de retención especificado por el usuario. Como sucede al ampliar el intervalo de retención, el almacenamiento inmutable usa el valor más reciente del intervalo de retención especificado por el usuario para calcular el período de retención efectivo.
 
-Por ejemplo, imagine que un usuario crea una directiva de retención de duración definida con la propiedad **AllowProtectedAppendWrites** habilitada y un intervalo de retención de 90 días. En el día de hoy, se crea un blob en anexos, _logblob1_, en el contenedor y se siguen agregando registros nuevos al blob en anexos durante los próximos 10 días; por lo tanto, el período de retención efectivo de _logblob1_ es de 100 días a partir de hoy (la hora de la última anexión + 90 días).
+Por ejemplo, imagine que un usuario crea una directiva de retención de duración definida con la propiedad **AllowProtectedAppendWrites** habilitada y un intervalo de retención de 90 días. En el día de hoy, se crea un blob en anexos, *logblob1*, en el contenedor y se siguen agregando registros nuevos al blob en anexos durante los próximos 10 días; por lo tanto, el período de retención efectivo de *logblob1* es de 100 días a partir de hoy (la hora de la última anexión + 90 días).
 
 Las directivas de retención de duración definida desbloqueadas permiten habilitar y deshabilitar la configuración de propiedad **AllowProtectedAppendWrites** en cualquier momento. Una vez que se ha bloqueado la directiva de retención de duración definida, no se puede cambiar la configuración de propiedad **AllowProtectedAppendWrites**.
 

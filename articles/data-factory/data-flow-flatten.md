@@ -1,7 +1,7 @@
 ---
 title: Transformación Aplanar en el flujo de datos de asignación
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Desnormalice los datos jerárquicos mediante la transformación Aplanar.
+description: Desnormalice los datos jerárquicos mediante la transformación Aplanar de canalizaciones de Azure Data Factory y Synapse Analytics.
 author: kromerm
 ms.author: makromer
 ms.review: daperlov
@@ -9,17 +9,19 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 03/09/2020
-ms.openlocfilehash: e632260e8af6e4bac9fac9ec43f25bf636b98b4d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/09/2021
+ms.openlocfilehash: 17bac4e1efc514440943cb474f2f86a7148d2ef4
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122638355"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129060164"
 ---
 # <a name="flatten-transformation-in-mapping-data-flow"></a>Transformación Aplanar en el flujo de datos de asignación
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
 
 Use la transformación Aplanar para tomar valores de matriz incluidos en estructuras jerárquicas, como JSON, y expandirlos en filas individuales. Este proceso se conoce como desnormalización.
 
@@ -27,7 +29,7 @@ Use la transformación Aplanar para tomar valores de matriz incluidos en estruct
 
 La transformación Aplanar contiene los siguientes valores de configuración:
 
-![Configuración de Aplanar](media/data-flow/flatten1.png "Configuración de Aplanar")
+:::image type="content" source="media/data-flow/flatten1.png" alt-text="Configuración de Aplanar":::
 
 ### <a name="unroll-by"></a>Expandir por
 
@@ -47,7 +49,7 @@ Consulte la pestaña de inspección y la vista previa de los datos para comproba
 
 La transformación de aplanamiento admite la asignación basada en reglas, lo que permite crear transformaciones dinámicas y flexibles que aplanarán matrices según reglas y estructuras planas basadas en niveles de jerarquía.
 
-![Patrón de aplanamiento](media/data-flow/flatten-pattern.png "Patrones de aplanamiento")
+:::image type="content" source="media/data-flow/flatten-pattern.png" alt-text="Patrón de aplanamiento":::
 
 ### <a name="matching-condition"></a>Condición de coincidencia
 
@@ -55,7 +57,7 @@ Escriba una condición de coincidencia de patrones para la o las columnas que qu
 
 ### <a name="deep-column-traversal"></a>Recorrido de columna profundo
 
-Valor opcional que indica a ADF que controle todas las subcolumnas de un objeto complejo individualmente en lugar de controlar el objeto complejo como una columna completa.
+Valor opcional que indica al servicio que controle todas las subcolumnas de un objeto complejo individualmente en lugar de controlar el objeto complejo como una columna completa.
 
 ### <a name="hierarchy-level"></a>Nivel de jerarquía
 

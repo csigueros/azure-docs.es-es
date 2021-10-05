@@ -318,7 +318,7 @@ items:
             href: connector-azure-databricks-delta-lake.md
           - name: Azure File Storage
             href: connector-azure-file-storage.md
-          - name: "Azure\_SQL\_Database"
+          - name: Azure SQL Database
             href: connector-azure-sql-database.md
             displayName: upsert
           - name: Instancia administrada de Azure SQL
@@ -735,6 +735,8 @@ items:
                 href: monitor-install-analytics.md
           - name: Supervisar con SDK
             href: monitor-programmatically.md
+          - name: Supervisión de canalizaciones con notificaciones de Microsoft Teams
+            href: how-to-send-notifications-to-teams.md
           - name: Supervisión de Integration Runtime
             href: monitor-integration-runtime.md
           - name: Supervisión de una instancia de Integration Runtime para la integración de SSIS en Azure
@@ -796,14 +798,27 @@ items:
           - name: Ejecución de paquetes SSIS con dtexec habilitado para Azure
             href: how-to-invoke-ssis-package-azure-enabled-dtexec.md
           - name: Ejecución de paquetes de SSIS con la actividad Ejecutar paquete de SSIS
-            href: how-to-invoke-ssis-package-ssis-activity.md
-            displayName: 'retry, timeout'
+            items:
+              - name: Uso de la interfaz de usuario del portal de Azure Data Factory Studio
+                href: how-to-invoke-ssis-package-ssis-activity.md
+                displayName: 'retry, timeout'
+              - name: Usar PowerShell
+                href: how-to-invoke-ssis-package-ssis-activity-powershell.md
+                displayName: 'retry, timeout'
           - name: Ejecución de paquetes SSIS con una actividad de procedimiento almacenado
             href: how-to-invoke-ssis-package-stored-procedure-activity.md
           - name: Programación del entorno de ejecución de integración de Azure-SSIS
             href: how-to-schedule-azure-ssis-integration-runtime.md
           - name: Unión de la instancia de Integration Runtime para la integración de SSIS en Azure a una red virtual
-            href: join-azure-ssis-integration-runtime-virtual-network.md
+            items:
+              - name: Información general
+                href: join-azure-ssis-integration-runtime-virtual-network.md
+              - name: Configuración de redes virtuales
+                href: azure-ssis-integration-runtime-virtual-network-configuration.md
+              - name: Uso de la interfaz de usuario de Azure Data Factory Studio
+                href: join-azure-ssis-integration-runtime-virtual-network-ui.md
+              - name: Uso de Azure PowerShell
+                href: join-azure-ssis-integration-runtime-virtual-network-powershell.md
           - name: Configuración del entorno de ejecución de integración autohospedado como un proxy para Azure-SSIS IR
             href: self-hosted-integration-runtime-proxy-ssis.md
             displayName: self hosted
@@ -859,6 +874,8 @@ items:
             href: how-to-discover-explore-purview-data.md
       - name: Escenarios
         items:
+          - name: Supervisión de canalizaciones con notificaciones de Microsoft Teams
+            href: how-to-send-notifications-to-teams.md
           - name: Migración de datos para Data Lake y EDW
             items:
               - name: ¿Por qué elegir Azure Data Factory?
@@ -932,15 +949,53 @@ items:
             href: data-factory-troubleshoot-guide.md
             displayName: timeout
           - name: Conectores
-            href: connector-troubleshoot-guide.md
-            displayName: 'polybase, timeout'
+            items:
+              - name: Introducción y errores generales de la actividad de copia
+                href: connector-troubleshoot-guide.md
+                displayName: 'polybase, timeout'
+              - name: Azure Blob Storage
+                href: connector-troubleshoot-azure-blob-storage.md
+              - name: "Azure Cosmos\_DB (se incluye SQL API)"
+                href: connector-troubleshoot-azure-cosmos-db.md
+              - name: Azure Data Lake (Gen1 y Gen2)
+                href: connector-troubleshoot-azure-data-lake.md
+              - name: Azure Database for PostgreSQL
+                href: connector-troubleshoot-postgresql.md
+              - name: Azure Files
+                href: connector-troubleshoot-azure-files.md
+              - name: "Azure Synapse Analytics, Azure SQL Database, y SQL\_Server"
+                href: connector-troubleshoot-synapse-sql.md
+              - name: Azure Table Storage
+                href: connector-troubleshoot-azure-table-storage.md
+              - name: DB2
+                href: connector-troubleshoot-db2.md
+              - name: Formato de texto delimitado
+                href: connector-troubleshoot-delimited-text.md
+              - name: "Dynamics\_365, Dataverse (Common Data Service) y Dynamics CRM"
+                href: connector-troubleshoot-dynamics-dataverse.md
+              - name: 'FTP, SFTP y HTTP'
+                href: connector-troubleshoot-ftp-sftp-http.md
+              - name: Oracle
+                href: connector-troubleshoot-oracle.md
+              - name: Formato ORC
+                href: connector-troubleshoot-orc.md
+              - name: Formato Parquet
+                href: connector-troubleshoot-parquet.md
+              - name: REST
+                href: connector-troubleshoot-rest.md
+              - name: Lista de SharePoint Online
+                href: connector-troubleshoot-sharepoint-online-list.md
+              - name: Formato XML
+                href: connector-troubleshoot-xml.md
           - name: Desencadenadores de la canalización
             href: pipeline-trigger-troubleshoot-guide.md
           - name: Flujos de datos
             items:
-              - name: Introducción a los flujos de datos
+              - name: Introducción a la solución de problemas de flujos de datos
                 href: data-flow-troubleshoot-guide.md
                 displayName: timeout
+              - name: Mensajes y errores de los flujos de datos
+                href: data-flow-troubleshoot-errors.md
               - name: Conector y formato
                 href: data-flow-troubleshoot-connector-format.md
           - name: Integración e implementación continuas

@@ -2,14 +2,14 @@
 title: Matriz de compatibilidad para copias de seguridad de máquinas virtuales de Azure
 description: Proporciona un resumen de opciones de compatibilidad y limitaciones para realizar copias de seguridad de máquinas virtuales de Azure con el servicio Azure Backup.
 ms.topic: conceptual
-ms.date: 08/23/2021
+ms.date: 09/17/2021
 ms.custom: references_regions
-ms.openlocfilehash: 9244b7c5a62be57b1f8ec9ea0f27918c7aa62457
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: 17cd2ca7d4b42e79d1b5012fa36e09a509fa28fe
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122770982"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129090977"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de compatibilidad para copias de seguridad de máquinas virtuales de Azure
 
@@ -43,7 +43,7 @@ Copia de seguridad de discos administrados después de habilitar el bloqueo del 
 Modificar directiva de copia de seguridad de una máquina virtual | Compatible.<br/><br/> Se realizará la copia de seguridad de la máquina virtual con la programación y la configuración de retención de la nueva directiva. Si la configuración de retención está extendida, los puntos de recuperación existentes se marcan y se mantienen. Si se reducen, los puntos de recuperación existentes se eliminarán en el siguiente trabajo de limpieza y, después, se eliminarán por completo.
 Cancelación de un trabajo de copia de seguridad| Compatible durante el proceso de instantáneas.<br/><br/> No se admite cuando se transfiere la instantánea al almacén.
 Copia de seguridad de la máquina virtual en otra región o suscripción |No compatible.<br><br>Para realizar una copia de seguridad correcta, las máquinas virtuales deben estar en la misma suscripción que el almacén de copia de seguridad.
-Copias de seguridad por día (mediante la extensión de máquina virtual de Azure) | Una copia de seguridad programada por día.<br/><br/>El servicio Azure Backup admite hasta tres copias de seguridad a petición al día y una copia de seguridad programada adicional.
+Copias de seguridad por día (mediante la extensión de máquina virtual de Azure) | Cuatro copias de seguridad al día: una copia de seguridad programada según la directiva de copia de seguridad y tres copias de seguridad a petición.    <br><br>    Sin embargo, para permitir reintentos del usuario en caso de intentos fallidos, el límite máximo de copias de seguridad a petición se establece en nueve intentos.
 Copias de seguridad por día (mediante el agente de MARS) | Tres copias de seguridad programadas por día.
 Copias de seguridad por día (mediante DPM/MABS) | Dos copias de seguridad programadas por día.
 Copia de seguridad mensual o anual| No se admite cuando la copia de seguridad se realiza con la extensión de máquina virtual de Azure. Solo se admiten copias de seguridad diarias y semanales.<br/><br/> Puede configurar la directiva para conservar las copias de seguridad diarias y semanales durante el período de retención mensual o anual.
@@ -83,6 +83,15 @@ Para las copias de seguridad de máquinas virtuales de Azure con Linux, Azure Ba
 - Otras distribuciones del tipo "traiga su propio Linux" podrían funcionar, siempre que el [agente de máquina virtual de Azure para Linux](../virtual-machines/extensions/agent-linux.md) esté disponible en la máquina virtual y haya compatibilidad con Python.
 - Azure Backup no admite máquinas virtuales Linux con proxy configurado si no tienen la versión Python 2.7 instalada.
 - Azure Backup no admite la copia de seguridad de archivos NFS que se montan desde el almacenamiento o desde cualquier otro servidor NFS a máquinas Linux o Windows. Solo realiza copias de seguridad de los discos que están conectados localmente a la máquina virtual.
+
+## <a name="support-matrix-for-managed-pre-post-scripts-for-linux-databases"></a>Matriz de compatibilidad para scripts anteriores y posteriores administrados para bases de datos Linux
+
+Azure Backup proporciona compatibilidad para que los clientes puedan crear sus propios scripts previos y posteriores
+
+|Base de datos admitida  |Versión del SO  |Versión de la base de datos  |
+|---------|---------|---------|
+|Oracle en máquinas virtuales de Azure     |   [Oracle Linux](../virtual-machines/linux/endorsed-distros.md)      |    Oracle 12.x o superior     |
+
 
 ## <a name="backup-frequency-and-retention"></a>Frecuencia y retención de copias de seguridad
 

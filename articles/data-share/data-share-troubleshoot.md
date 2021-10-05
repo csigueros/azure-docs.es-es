@@ -6,13 +6,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: troubleshooting
-ms.date: 04/22/2021
-ms.openlocfilehash: 57b5e5f483ce8076622e4705a3a5b566e2e3aa1f
-ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
+ms.date: 09/10/2021
+ms.openlocfilehash: da746d14d891c875c9bed49c94e8b408d956e29e
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107987891"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124811259"
 ---
 # <a name="troubleshoot-common-problems-in-azure-data-share"></a>Solucionar problemas comunes de Azure Data Share 
 
@@ -35,6 +35,8 @@ En algunos casos, cuando un usuario nuevo selecciona **Accept Invitation** (Acep
 * **La invitación se envía a su alias de correo electrónico en lugar de a su dirección de correo de inicio de sesión de Azure.** Si ya ha registrado el servicio de Azure Data Share o ya ha creado un recurso compartido de datos en el inquilino de Azure, pero sigue sin poder ver la invitación, es posible que su alias de correo electrónico aparezca como destinatario. Póngase en contacto con el proveedor de datos y asegúrese de que la invitación ha sido enviada a su dirección de correo electrónico de inicio de sesión de Azure, y no a su alias de correo electrónico.
 
 * **La invitación ya se aceptó.** El vínculo del correo electrónico le lleva a la página **Invitaciones de Data Share** en Azure Portal. En esta página solo aparecen las invitaciones pendientes. Las invitaciones aceptadas no se ven en la página. Para ver los recursos compartidos recibidos y configurar la configuración del clúster de Azure Data Explorer de destino, diríjase al recurso Data Share que usó para aceptar la invitación.
+
+* **Es el usuario invitado del inquilino.** Si es un usuario invitado del inquilino, deberá comprobar la dirección de correo electrónico del inquilino antes de ver la invitación. Una vez comprobado, es válido durante 12 meses. 
 
 ## <a name="creating-and-receiving-shares"></a>Al crear y recibir recursos compartidos
 

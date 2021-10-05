@@ -7,16 +7,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: how-to
-ms.date: 07/08/2021
+ms.date: 09/09/2021
 ms.author: lajanuar
-ms.openlocfilehash: 340121b40845369fe05e36a302556543078629eb
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 688fd2391d12f74b46a16954706b3c9e0ee1fb8a
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114289138"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124771873"
 ---
-# <a name="create-and-use-managed-identity-for-document-translation"></a>Creación y uso de una identidad administrada para la traducción de documentos
+# <a name="create-and-use-managed-identity"></a>Creación y uso de identidad administrada
 
 > [!IMPORTANT]
 >
@@ -24,18 +24,9 @@ ms.locfileid: "114289138"
 
 ## <a name="what-is-managed-identity"></a>¿Qué es una identidad administrada?
 
- La identidad administrada de Azure es una entidad de servicio que crea una identidad de Azure Active Directory y permisos específicos para los recursos administrados de Azure. Puede usar una identidad administrada para conceder acceso a cualquier recurso que admita la autenticación de Azure AD. Para conceder acceso, asigne un rol a una identidad administrada mediante el [control de acceso basado en roles de Azure](../../../role-based-access-control/overview.md) (Azure RBAC).  El uso de una identidad administrada en Azure no tiene ningún costo adicional.
+ La identidad administrada de Azure es una entidad de servicio que crea una identidad de Azure Active Directory (Azure AD) y permisos específicos para los recursos administrados de Azure. Puede usar una identidad administrada para conceder acceso a cualquier recurso que admita la autenticación de Azure AD. Para conceder acceso, asigne un rol a una identidad administrada mediante el [control de acceso basado en roles de Azure](../../../role-based-access-control/overview.md) (Azure RBAC).  El uso de una identidad administrada en Azure no tiene ningún costo adicional.
 
-La identidad administrada admite cuentas de Azure Blob Storage de acceso privado y público.  Para las cuentas de almacenamiento con acceso público, puede optar por usar una firma de acceso compartido (SAS) para conceder acceso limitado.  En este artículo, examinaremos cómo administrar el acceso a los documentos de traducción de la cuenta de Azure Blob Storage mediante la identidad administrada asignada por el sistema.
-
-> [!NOTE]
->
-> Para todas las operaciones que usan una cuenta de Azure Blob Storage disponible en la red pública de Internet, puede proporcionar una dirección URL de la firma de acceso compartido ( **(SAS)** ) con derechos restringidos durante un período limitado y pasarla en las solicitudes POST:
->
-> * Para recuperar la dirección URL de SAS, vaya al recurso de almacenamiento en Azure Portal y seleccione la pestaña **Explorador de Storage**.
-> * Vaya al contenedor, haga clic con el botón derecho y seleccione **Obtener firma de acceso compartido**. Es importante obtener la firma de acceso compartido para el contenedor, no para la propia cuenta de almacenamiento.
-> * Asegúrese de que están seleccionados los permisos de **lectura**, **escritura**, **eliminación** y **enumeración** y haga clic en **Crear**.
-> * A continuación, copie el valor de la sección **URL** en una ubicación temporal. Debe tener el formato `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
+La identidad administrada admite cuentas de Azure Blob Storage de acceso privado y público.  Para las cuentas de almacenamiento **con acceso público**, puede optar por usar una firma de acceso compartido (SAS) para conceder acceso limitado.  En este artículo, examinaremos cómo administrar el acceso a los documentos de traducción de la cuenta de Azure Blob Storage mediante la identidad administrada asignada por el sistema.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -45,11 +36,21 @@ Para empezar, necesitará lo siguiente:
 
 * Un [**recurso Translator de servicio único**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (no un recurso multiservicio de Cognitive Services) asignado a una región **no global**. Para conocer los pasos detallados, _consulte_ [Creación de un recurso de Cognitive Services con Azure Portal](../../cognitive-services-apis-create-account.md?tabs=multiservice%2cwindows).
 
-* Una [**cuenta de Azure Blob Storage**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) en la misma región que el recurso de Translator. Creará contenedores para almacenar y organizar los datos de los blobs en la cuenta de almacenamiento. Si la cuenta tiene un firewall, debe tener habilitada la casilla que permite la [excepción para los servicios de Azure de confianza](../../../storage/common/storage-network-security.md?tabs=azure-portal#manage-exceptions).
+* Estar algo familiarizado con el [**control de acceso basado en roles de Azure**](../../../role-based-access-control/role-assignments-portal.md) mediante Azure Portal.
+
+* Una [**cuenta de Azure Blob Storage**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) en la misma región que el recurso de Translator. Creará contenedores para almacenar y organizar los datos de los blobs en la cuenta de almacenamiento. 
+
+* Si la cuenta de almacenamiento está detrás de un firewall, **debe habilitar la configuración siguiente**: </br>
+
+  * En la página de la cuenta de almacenamiento, seleccione **Seguridad y redes** → **Redes** en el menú izquierdo.
+    :::image type="content" source="../media/managed-identities/security-and-networking-node.png" alt-text="Captura de pantalla: pestaña Seguridad y redes.":::
+
+  * En la ventana principal, seleccione **Permitir acceso desde Redes seleccionadas**.
+  :::image type="content" source="../media/managed-identities/firewalls-and-virtual-networks.png" alt-text="Captura de pantalla: botón de radio Redes seleccionadas elegido.":::
+
+  * En la página de redes seleccionadas, vaya a la categoría **Excepciones** y asegúrese de que la casilla [**Allow Azure services on the trusted services list to access this storage account**](/azure/storage/common/storage-network-security?tabs=azure-portal#manage-exceptions) (Permitir que los servicios de Azure de la lista de servicios de confianza accedan a esta cuenta de almacenamiento) esté seleccionada.
 
     :::image type="content" source="../media/managed-identities/allow-trusted-services-checkbox-portal-view.png" alt-text="Captura de pantalla: casilla para permitir los servicios de confianza, vista del portal":::
-
-* Estar algo familiarizado con el [**control de acceso basado en roles de Azure**](../../../role-based-access-control/role-assignments-portal.md) mediante Azure Portal.
 
 ## <a name="managed-identity-assignments"></a>Asignaciones de identidad administrada
 
@@ -81,11 +82,11 @@ En los pasos siguientes, habilitaremos una identidad administrada asignada por e
 
     :::image type="content" source="../media/managed-identities/azure-role-assignments-page-portal.png" alt-text="Captura de pantalla: página Asignaciones de roles de Azure en Azure Portal.":::
 
->[!NOTE]
->
-> Si no puede asignar un rol en Azure Portal porque la opción Agregar > Agregar asignación de roles está deshabilitada o experimenta este error de permisos: "no tiene permisos para agregar la asignación de roles en este ámbito", compruebe que tiene una sesión iniciada actualmente como usuario con un rol asignado que disponga de permisos Microsoft.Authorization/roleAssignments/write como, por ejemplo, [**Propietario**](../../../role-based-access-control/built-in-roles.md#owner) o [**Administrador de acceso de usuario**](../../../role-based-access-control/built-in-roles.md#user-access-administrator) en el ámbito de almacenamiento del recurso de almacenamiento.
+    >[!NOTE]
+    >
+    > Si no puede asignar un rol en Azure Portal porque la opción Agregar > Agregar asignación de roles está deshabilitada o experimenta este error de permisos: "no tiene permisos para agregar la asignación de roles en este ámbito", compruebe que tiene una sesión iniciada actualmente como usuario con un rol asignado que disponga de permisos Microsoft.Authorization/roleAssignments/write como, por ejemplo, [**Propietario**](../../../role-based-access-control/built-in-roles.md#owner) o [**Administrador de acceso de usuario**](../../../role-based-access-control/built-in-roles.md#user-access-administrator) en el ámbito de almacenamiento del recurso de almacenamiento.
 
-7. A continuación, va a asignar un rol **Colaborador de datos de blobs de almacenamiento** al recurso del servicio Translator. En la ventana emergente **Agregar asignación de roles**, complete los campos como se muestra a continuación y seleccione **Guardar**:
+1. A continuación, va a asignar un rol **Colaborador de datos de blobs de almacenamiento** al recurso del servicio Translator. En la ventana emergente **Agregar asignación de roles**, complete los campos como se muestra a continuación y seleccione **Guardar**:
 
     | Campo | Valor|
     |------|--------|

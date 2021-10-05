@@ -2,13 +2,13 @@
 title: Azure Blob Storage como origen de Event Grid
 description: Describe las propiedades que se proporcionan para los eventos de Blob Storage con Azure Event Grid.
 ms.topic: conceptual
-ms.date: 05/12/2021
-ms.openlocfilehash: 37637a486bd80e9d0018495e6fd4713bab36e8ff
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.date: 09/08/2021
+ms.openlocfilehash: fcd8ff40e8a31c3329f6526a488a6a6a5261383e
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111541962"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124797636"
 ---
 # <a name="azure-blob-storage-as-an-event-grid-source"></a>Azure Blob Storage como origen de Event Grid
 
@@ -32,6 +32,7 @@ Estos eventos se desencadenan cuando un cliente crea, reemplaza o elimina un blo
  |**Microsoft.Storage.BlobCreated** |Se desencadena cuando se crea o se sustituye un blob. <br>En concreto, este evento se desencadena cuando los clientes usan las operaciones `PutBlob`, `PutBlockList` o `CopyBlob`, que están disponibles en la API REST del blob **y** cuando el blob en bloques se confirma por completo. <br>Si los clientes usan la operación `CopyBlob` en cuentas que tienen habilitada la característica de **espacio de nombres jerárquico**, la operación `CopyBlob` funciona de forma algo distinta. En ese caso, el evento **Microsoft.Storage.BlobCreated** se desencadena cuando se **inicia** la operación `CopyBlob` y no cuando el blob en bloques se confirma por completo.   |
  |**Microsoft.Storage.BlobDeleted** |Se desencadena cuando se elimina un blob. <br>En concreto, este evento se desencadena cuando los clientes usan la operación `DeleteBlob` que está disponibles en la API REST de Blob. |
  |**Microsoft.Storage.BlobTierChanged** |Se desencadena cuando se cambia el nivel de acceso de blob. En concreto, cuando los clientes llaman a la operación `Set Blob Tier` que está disponible en la API REST de blob, este evento se desencadena una vez que se completa el cambio de nivel. |
+|**Microsoft.Storage.AsyncOperationInitiated** |Se desencadena cuando se inicia una operación que supone mover o copiar datos desde el nivele de acceso de archivo al nivel de acceso frecuente o esporádico. En concreto, este evento se desencadena cuando los clientes llaman a la API `Set Blob Tier` para mover un blob del nivel de archivo al nivel de acceso frecuente o esporádico, o cuando los clientes llaman a la API `Copy Blob` para copiar datos de un blob en el nivel de acceso de archivo a un blob en el nivel de acceso frecuente o esporádico.|
 
 ### <a name="list-of-the-events-for-azure-data-lake-storage-gen-2-rest-apis"></a>Lista de los eventos para las API REST de Azure Data Lake Storage Gen 2
 
@@ -210,6 +211,34 @@ Si la cuenta de almacenamiento de blobs tiene un espacio de nombres jerárquico,
     "eventTime": "2021-05-04T15:00:00.8350154Z"
 }
 ```
+
+### <a name="microsoftstorageasyncoperationinitiated-event"></a>Evento Microsoft.Storage.AsyncOperationInitiated
+
+```json
+{
+    "topic": "/subscriptions/{subscription-id}/resourceGroups/Storage/providers/Microsoft.Storage/storageAccounts/my-storage-account",
+    "subject": "/blobServices/default/containers/testcontainer/blobs/00000.avro",
+    "eventType": "Microsoft.Storage.AsyncOperationInitiated",
+    "id": "8ea4e3f2-101e-003d-5ff4-4053b2061016",
+    "data": {
+        "api": "SetBlobTier",
+        "clientRequestId": "777fb4cd-f890-4c5b-b024-fb47300bae62",
+        "requestId": "8ea4e3f2-101e-003d-5ff4-4053b2000000",
+        "contentType": "application/octet-stream",
+        "contentLength": 3660,
+        "blobType": "BlockBlob",
+        "url": "https://my-storage-account.blob.core.windows.net/testcontainer/00000.avro",
+        "sequencer": "000000000000000000000000000089A4000000000018c6d7",
+        "storageDiagnostics": {
+            "batchId": "34128c8a-7006-0014-00f4-406dc6000000"
+        }
+    },
+    "dataVersion": "",
+    "metadataVersion": "1",
+    "eventTime": "2021-05-04T14:44:59.3204652Z"
+}
+```
+
 
 ### <a name="microsoftstorageblobrenamed-event"></a>Evento Microsoft.Storage.BlobRenamed
 

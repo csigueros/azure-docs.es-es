@@ -4,15 +4,15 @@ description: Habilite Private Link para los discos administrados con Azure Porta
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/19/2021
+ms.date: 09/03/2021
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: b023f7f068d1dc52c073519cc7e7f308e5d86ad0
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: c38c1ec60b3a7fbeb65f85e4560c4495ab93a031
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122696461"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124754809"
 ---
 # <a name="restrict-importexport-access-for-managed-disks-using-azure-private-link"></a>Restricción del acceso para importar o exportar discos administrados mediante Azure Private Link
 
@@ -88,6 +88,32 @@ A continuación, tendrá que crear un punto de conexión privado y configurarlo 
 1. Seleccione **Guardar**.
 
 Ahora ha configurado un vínculo privado que puede usar para importar y exportar el disco administrado.
+
+## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
+
+**P: ¿Cuál es la ventaja de usar vínculos privados para exportar e importar discos administrados?**
+
+**R:** Puede usar vínculos privados para restringir el proceso de exportación e importación a los discos administrados solo desde su red virtual de Azure.
+
+**P: ¿Cómo me aseguro de que un disco se pueda exportar o importar solo mediante vínculos privados?**
+
+**R:** Debe establecer la propiedad **DiskAccessId** en una instancia de un objeto de acceso a disco. Además, puede establecer la propiedad **NetworkAccessPolicy** en **AllowPrivate**.
+
+**P: ¿Puedo vincular varias redes virtuales al mismo objeto de acceso a disco?**
+
+**R:** No. Actualmente, puede vincular un objeto de acceso a disco a una sola red virtual.
+
+**P: ¿Puedo vincular una red virtual a un objeto de acceso a disco de otra suscripción?**
+
+**R:** No. Actualmente, puede vincular un objeto de acceso a disco a una red virtual de la misma suscripción.
+
+**P: ¿Cuántas exportaciones o importaciones que usan el mismo objeto de acceso a disco pueden producirse a la vez?**
+
+**R:** Puede tener cinco exportaciones o importaciones simultáneas.
+
+**P: ¿Puedo usar un URI de SAS de un disco o instantánea para descargar el disco duro virtual subyacente de una máquina virtual que no esté en la misma subred que la subred del punto de conexión privado no asociado al disco?**
+
+**R:** No. Solo puede hacerlo si la máquina virtual está en la misma subred que la subred del punto de conexión privado asociado al disco.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

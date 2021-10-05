@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/31/2021
 ms.service: storage
 ms.subservice: common
-ms.openlocfilehash: 1d0459e8ac0002f69ac0e4d33a921bd64fc385d5
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 2d02399daf6a7ea56c41f936544697f9df91a62c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122178110"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128601280"
 ---
 # <a name="azure-storage-migration-overview"></a>Introducción a la migración del almacenamiento
 
@@ -53,8 +53,7 @@ La fase de evaluación es fundamental para comprender las opciones disponibles p
 |--------------------------------------------|----------------------------------------------------------------------------------|
 | **Elección de un servicio de almacenamiento de destino**            | - Azure Blob Storage y Data Lake Storage<br>- Azure Files<br>- Azure NetApp Files<br>- Soluciones de proveedores de software independientes |
 | **Selección de un método de migración**                  | - En línea<br>- Sin conexión<br> - Combinación de ambos                                  |
-| **Elección de la mejor herramienta de migración para el trabajo** | - Herramientas comerciales (Azure y proveedores de software independientes)<br> - Código abierto                             
-
+| **Elección de la mejor herramienta de migración para el trabajo** | - Herramientas comerciales (Azure y proveedores de software independientes)<br> - Código abierto
 
 Hay varias herramientas comerciales (ISV) que pueden ayudar en la fase de evaluación. Consulte la [tabla comparativa](../solution-integration/validated-partners/data-management/migration-tools-comparison.md).
 
@@ -116,7 +115,9 @@ La duración de la migración de datos no estructurados depende de varios aspect
 
 La migración de dispositivos basados en bloques se realiza normalmente como parte de la migración de máquinas virtuales o hosts físicos. Es una idea equivocada habitual el hecho de retrasar las decisiones de almacenamiento en bloques hasta después de la migración. Tomar estas decisiones con anterioridad con las consideraciones adecuadas para los requisitos de las cargas de trabajo conduce a una migración más fluida a la nube.
 
-Para explorar las cargas de trabajo que se van a migrar y decidir el enfoque que se va a adoptar, consulte la [documentación de Azure Disk Storage](../../virtual-machines/disks-types.md), y para conocer los recursos, consulte la [página de producto de Disk Storage](https://azure.microsoft.com/services/storage/disks/#resources). Puede obtener información sobre qué discos se ajustan a sus requisitos y sobre las funcionalidades más recientes, como la [expansión de disco](../../virtual-machines/disk-bursting.md). Para más información sobre cómo migrar las máquinas virtuales junto con los dispositivos basados en bloques subyacentes, consulte la documentación de [Azure Migrate](../../migrate/index.yml).
+Para explorar las cargas de trabajo que se van a migrar y decidir el enfoque que se va a adoptar, consulte la [documentación de Azure Disk Storage](../../virtual-machines/disks-types.md), y para conocer los recursos, consulte la [página de producto de Disk Storage](https://azure.microsoft.com/services/storage/disks/#resources). Puede obtener información sobre qué discos se ajustan a sus requisitos y sobre las funcionalidades más recientes, como la [expansión de disco](../../virtual-machines/disk-bursting.md). La migración de dispositivos basados en bloques se puede realizar de dos maneras:
+- Si va a realizar la migración de máquinas virtuales completas junto con los dispositivos basados en bloques subyacentes, consulte la documentación de [Azure Migrate](../../migrate/index.yml).
+- Si va a realizar la migración solo de dispositivos basados en bloques y quiere conocer los casos de uso más complejos, use [Cirrus Migrate Cloud](../solution-integration/validated-partners/data-management/cirrus-data-migration-guide.md).
 
 ## <a name="see-also"></a>Consulte también
 

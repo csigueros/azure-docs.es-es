@@ -7,21 +7,23 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/15/2021
-ms.openlocfilehash: 0860d59d7d04354b6236d02126492468dec5921b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/22/2021
+ms.openlocfilehash: 73fe862475b866e625d4bf2bdce3c044b6dcc87b
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122638820"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129061587"
 ---
 # <a name="data-flow-script-dfs"></a>Script de flujo de datos (DFS)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
+
 El script de flujo de datos (DFS) son los metadatos subyacentes, similares a un lenguaje de codificación, que se usan para ejecutar las transformaciones que se incluyen en un flujo de datos de asignación. Cada transformación se representa mediante una serie de propiedades que proporcionan la información necesaria para ejecutar el trabajo correctamente. El script se puede ver y editar en ADF haciendo clic en el botón "Script" de la cinta de opciones superior de la interfaz de usuario del explorador.
 
-![Botón Script](media/data-flow/scriptbutton.png "Botón Script")
+:::image type="content" source="media/data-flow/scriptbutton.png" alt-text="Botón Script":::
 
 Por ejemplo, `allowSchemaDrift: true,` en una transformación de origen indica al servicio que incluya todas las columnas del conjunto de datos de origen en el flujo de datos, incluso si no están incluidas en la proyección del esquema.
 
@@ -35,7 +37,7 @@ Estos son algunos casos de uso de ejemplo:
 
 Al compilar un script de flujo de datos para usarlo con PowerShell o una API, debe contraer el texto con formato a una sola línea. Puede mantener las tabulaciones y las líneas nuevas como caracteres de escape. Pero se debe dar formato al texto para que quepa en una propiedad JSON. Hay un botón en la interfaz de usuario del editor de scripts en la parte inferior que dará formato al script como una sola línea.
 
-![Botón Copiar](media/data-flow/copybutton.png "botón Copiar")
+:::image type="content" source="media/data-flow/copybutton.png" alt-text="Botón Copiar":::
 
 ## <a name="how-to-add-transforms"></a>Incorporación de transformaciones
 La incorporación de transformaciones requiere tres pasos básicos: agregar los datos de la transformación principal, volver a enrutar el flujo de entrada y, después, volver a enrutar el flujo de salida. Esto puede verse más fácilmente en un ejemplo.
@@ -277,6 +279,19 @@ Este script puede servir para identificar las columnas de clave y ver la cardina
 
 ```
 aggregate(each(match(true()), $$ = countDistinct($$))) ~> KeyPattern
+```
+
+### <a name="compare-previous-or-next-row-values"></a>Comparación de valores de fila anteriores o siguientes
+Este fragmento de ejemplo muestra cómo se puede usar la transformación Ventana para comparar los valores de columna del contexto de fila actual con los valores de columna de las filas antes y después de la fila actual. En este ejemplo, se usa una columna derivada para generar un valor ficticio para habilitar una partición de ventana en todo el conjunto de datos. Se usa una transformación de clave suplente para asignar un valor de clave único para cada fila. Al aplicar este patrón a las transformaciones de datos, puede quitar la clave suplente si es una columna por la que desea ordenar y puede quitar la columna derivada si tiene columnas que utilizar para particionar los datos.
+
+```
+source1 keyGenerate(output(sk as long),
+    startAt: 1L) ~> SurrogateKey1
+SurrogateKey1 derive(dummy = 1) ~> DerivedColumn1
+DerivedColumn1 window(over(dummy),
+    asc(sk, true),
+    prevAndCurr = lag(title,1)+'-'+last(title),
+        nextAndCurr = lead(title,1)+'-'+last(title)) ~> leadAndLag
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

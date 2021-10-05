@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 06/15/2021
 ms.author: bagol
-ms.openlocfilehash: 0ce075bf6bccbbee2a1386da3cfa7c690c94793f
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 21775c8d6e9743b65a791abb946c571862b68156
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123423923"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128617571"
 ---
 # <a name="azure-sentinel-dns-normalization-schema-reference-public-preview"></a>Referencia del esquema de normalización de DNS de Azure Sentinel (versión preliminar pública)
 
@@ -56,9 +56,9 @@ imDNS | where SrcIpAddr != "127.0.0.1" and EventSubType == "response"
 
 ## <a name="parsers"></a>Analizadores
 
-### <a name="available-parsers"></a>Analizadores disponibles
+### <a name="source-agnostic-parsers"></a>Analizadores independientes de origen
 
-Las funciones KQL que implementan el modelo de información DNS tienen los nombres siguientes:
+Para usar el analizador independiente del origen que unifica todos los analizadores integrados y asegurarse de que el análisis se ejecuta en todos los orígenes configurados, use las siguientes funciones KQL como nombre de tabla en la consulta:
 
 | Nombre | Descripción | Instrucciones de uso |
 | --- | --- | --- |
@@ -69,6 +69,23 @@ Las funciones KQL que implementan el modelo de información DNS tienen los nombr
 | | | |
 
 Los analizadores se pueden implementar desde el [repositorio de GitHub de Azure Sentinel](https://aka.ms/azsentinelDNS).
+
+### <a name="built-in-source-specific-parsers"></a>Analizadores específicos del origen integrados
+
+Azure Sentinel proporciona los siguientes analizadores de eventos de archivos DNS específicos del producto:
+
+  - **Servidor DNS de Microsoft**, recopilado mediante el agente de Log Analytics: ASimDnsMicrosoftOMS (normal), vimDnsMicrosoftOMS (parametrizado)
+  - **Cisco Umbrella**: ASimDnsCiscoUmbneo (normal), vimDnsCiscoUmbbio (parametrizado)
+  - **Infoblox NIOS**: ASimDnsInfobloxNIOS (normal), vimDnsInfobloxNIOS (parametrizado)
+  - **DNS de GCP**: ASimDnsGcp (normal), vimDnsGcp (parametrizado)
+  - **Eventos DNS de Corelight Zeek:** ASimDnsCorelightZeek (normal), vimDnsCorelightZeek (parametrizado)
+  - **Sysmon para Windows** (evento 22), recopilado mediante el agente de Log Analytics o de Azure Monitor, compatible con la tabla Event y WindowsEvent: ASimDnsMicrosoftSysmon (normal), vimDnsMicrosoftSysmon (parametrizado)
+
+Los analizadores se pueden implementar desde el [repositorio de GitHub de Azure Sentinel](https://aka.ms/azsentinelDNS).
+
+### <a name="add-your-own-normalized-parsers"></a>Adición de sus propios analizadores normalizados
+
+Al implementar analizadores personalizados para el modelo de información de eventos DNS, asigne un nombre a las funciones KQL con la sintaxis siguiente: `vimDns<vendor><Product` para analizadores parametrizados y `ASimDns<vendor><Product` para analizadores normales.
 
 ### <a name="filtering-parser-parameters"></a>Filtrado de parámetros del analizador
 
@@ -83,18 +100,21 @@ Están disponibles los siguientes parámetros de filtrado:
 | **srcipaddr** | string | Filtre solo las consultas de DNS desde esta dirección IP de origen. |
 | **domain_has_any**| dinámico | Filtre solo las consultas de DNS en las que `domain` (o `query`) tenga cualquiera de los nombres de dominio enumerados, incluidos como parte del dominio de evento.
 | **responsecodename** | string | Filtre solo las consultas de DNS para las que el nombre del código de respuesta coincida con el valor proporcionado. Por ejemplo: NXDOMAIN |
-| **response_has** | string | Filtre solo las consultas de DNS en las que el campo de respuesta comience con la dirección IP o el prefijo de dirección IP proporcionados. Use este parámetro cuando quiera filtrar por una única dirección IP o prefijo. Los resultados no se devuelven para los orígenes que no proporcionan una respuesta.|
+| **response_has_ipv4** | string | Filtre solo las consultas de DNS en las que el campo de respuesta comience con la dirección IP o el prefijo de dirección IP proporcionados. Use este parámetro cuando quiera filtrar por una única dirección IP o prefijo. Los resultados no se devuelven para los orígenes que no proporcionan una respuesta.|
 | **response_has_any_prefix** | dinámico| Filtre solo las consultas de DNS en las que el campo de respuesta comience con cualquiera de las direcciones IP o prefijos de dirección IP proporcionados. Use este parámetro cuando quiera filtrar por una lista de direcciones IP o prefijos. Los resultados no se devuelven para los orígenes que no proporcionan una respuesta. |
-| **eventtype**| string | Filtre solo las consultas DNQ del tipo especificado. Si no se especifica ningún valor, solo se devuelven consultas de búsqueda. |
+| **eventtype**| string | Filtre solo las consultas de DNS del tipo especificado. Si no se especifica ningún valor, solo se devuelven consultas de búsqueda. |
 ||||
 
 Para filtrar los resultados mediante un parámetro, tendrá que especificar el parámetro en el analizador. 
 
 ## <a name="normalized-content"></a>Contenido normalizado
 
-La compatibilidad con el esquema ASIM de DNS también incluye compatibilidad con las siguientes reglas de análisis integradas con analizadores de autenticación normalizados. Aunque a continuación se proporcionan vínculos al repositorio de GitHub de Azure Sentinel como referencia, también puede encontrar estas reglas en la [galería de reglas de Azure Sentinel Analytics](detect-threats-built-in.md). Use las páginas de GitHub vinculadas para copiar las consultas de búsqueda pertinentes para las reglas indicadas.
+La compatibilidad con el esquema ASIM de DNS también incluye compatibilidad con las siguientes reglas de análisis integradas con analizadores DNS normalizados. Aunque a continuación se proporcionan vínculos al repositorio de GitHub de Azure Sentinel como referencia, también puede encontrar estas reglas en la [galería de reglas de Azure Sentinel Analytics](detect-threats-built-in.md). Use las páginas de GitHub vinculadas para copiar las consultas de búsqueda pertinentes para las reglas indicadas.
 
 Las siguientes reglas de análisis integradas funcionan ahora con analizadores DNS normalizados:
+ - (Versión preliminar) Entidad de dominio de asignación de TI a eventos DNS (DNS normalizado)
+ - (Versión preliminar) Entidad de IP de asignación de TI a eventos DNS (DNS normalizado)
+ - [DGA potencial detectado (ASimDNS)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimDNS/imDns_HighNXDomainCount_detection.yaml)
  - [Consultas de DNS NXDOMAIN excesivas (DNS normalizado)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimDNS/imDns_ExcessiveNXDOMAINDNSQueries.yaml)
  - [Eventos de DNS relacionados con grupos de minería de datos (DNS normalizado)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimDNS/imDNS_Miners.yaml)
  - [Eventos de DNS relacionados con servidores proxy Tor (DNS normalizado)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimDNS/imDNS_TorProxies.yaml)
@@ -111,7 +131,6 @@ Las siguientes reglas de análisis integradas funcionan ahora con analizadores D
  - [Hashes de malware conocidos de Comebacker y Hashckring de ZINC](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/ZincJan272021IOCs.yaml)
 
 
-
 ## <a name="schema-details"></a>Detalles del esquema
 
 El modelo de información DNS se alinea con el [esquema de entidad de DNS de OSSEM](https://github.com/OTRF/OSSEM/blob/master/docs/cdm/entities/dns.md).
@@ -126,6 +145,7 @@ Log Analytics genera los siguientes campos para cada registro; puede invalidarlo
 | --- | --- | --- |
 | <a name=timegenerated></a>**TimeGenerated** | Fecha y hora | Hora a la que el dispositivo de informes generó el evento. |
 | **\_ResourceId** | guid | Id. de recurso de Azure del dispositivo o servicio de informes, o bien Id. de recurso del reenviador de registros para los eventos reenviados mediante Syslog, CEF o WEF. |
+| **Tipo** | String | Tabla original de la que se ha obtenido el registro. Este campo es útil cuando el mismo evento se puede recibir a través de varios canales en tablas diferentes y tienen los mismos valores EventVendor y EventProduct.<br><br>Por ejemplo, un evento Sysmon se puede recopilar en la tabla Event o en la tabla WindowsEvent. |
 | | | |
 
 > [!NOTE]
@@ -136,63 +156,71 @@ Log Analytics genera los siguientes campos para cada registro; puede invalidarlo
 
 Los campos de evento son comunes a todos los esquemas y describen la propia actividad y el dispositivo de informes.
 
-| **Campo** | **Clase** | **Tipo** | **Ejemplo** | **Debate** |
-| --- | --- | --- | --- | --- |
-| **EventMessage** | Opcional | String | | Mensaje o descripción general, incluidos en el registro o generados a partir de este. |
-| **EventCount** | Mandatory | Entero | `1` | Número de eventos descritos por el registro. <br><br>Este valor se usa cuando el origen admite agregación y un único registro puede representar varios eventos. <br><br>Para otros orígenes, debe establecerse en **1**. |
-| **EventStartTime** | Mandatory | Fecha y hora | | Si el origen admite agregación y el registro representa varios eventos, use este campo para especificar la hora a la que se generó el primer evento. <br><br>En otros casos, es un alias del campo [TimeGenerated](#timegenerated). |
-| **EventEndTime** | | Alias || Alias del campo [TimeGenerated](#timegenerated). |
-| **EventType** | Mandatory | Enumerated | `lookup` | Indica la operación notificada por el registro. <br><Br> En los registros DNS, este valor es el [código de operación de DNS](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml). |
-| **EventSubType** | Opcional | Enumerated || **request** o **response**. En la mayoría de los orígenes [solo se registran las respuestas](#guidelines-for-collecting-dns-events), por lo que este valor suele ser **response**.  |
-| **EventResult** | Mandatory | Enumerated | `Success` | Uno de los siguientes valores: **Correcto**, **Parcial**, **Error** o **NA** (No aplicable).<br> <br>El valor se puede proporcionar en el registro de origen usando términos diferentes, que se deben normalizar con estos valores. El origen puede proporcionar también únicamente el campo [EventOriginalResultDetails](#eventresultdetails), que se debe analizar para obtener el valor de "EventResult".<br> <br>Si este registro representa una solicitud y no una respuesta, establézcalo en **NA**. |
-| <a name=eventresultdetails></a>**EventResultDetails** | Mandatory | Alias | `NXDOMAIN` | Motivo o detalles del resultado notificado en el campo **_EventResult_**. Alias del campo [ResponseCodeName](#responsecodename).|
-| **EventOriginalUid** | Opcional | String | | Id. único del registro original, si lo proporciona el origen. |
-| **EventOriginalType**   | Opcional    | String  | `lookup` |   El tipo o identificador del evento original, si lo proporciona el origen. |
-| <a name ="eventproduct"></a>**EventProduct** | Mandatory | String | `DNS Server` | Producto que genera el evento. Es posible que este campo no esté disponible en el registro de origen, en cuyo caso debe establecerlo el analizador. |
-| **EventProductVersion** | Opcional | String | `12.1` | Versión del producto que genera el evento. Es posible que este campo no esté disponible en el registro de origen, en cuyo caso debe establecerlo el analizador. |
-| **EventVendor** | Mandatory | String | `Microsoft` | Proveedor del producto que genera el evento. Es posible que este campo no esté disponible en el registro de origen, en cuyo caso debe establecerlo el analizador. |
-| **EventSchemaVersion** | Mandatory | String | `0.1.1` | La versión del esquema que se documenta aquí es **0.1.1**. |
-| **EventReportUrl** | Opcional | String | | Dirección URL proporcionada en el evento para un recurso que ofrece más información sobre el evento. |
-| <a name="dvc"></a>**Dvc** | Mandatory       | String     |    `ContosoDc.Contoso.Azure` |           Identificador único del dispositivo en el que se produjo el evento. <br><br>Este campo puede ser un alias de los campos [DvcId](#dvcid), [DvcHostname](#dvchostname) o [DvcIpAddr](#dvcipaddr). En el caso de orígenes en la nube, para los que no hay ningún dispositivo aparente, use el valor del campo [EventProduct](#eventproduct).         |
-| <a name ="dvcipaddr"></a>**DvcIpAddr**           | Recomendado | Dirección IP |  `45.21.42.12` |       La dirección IP del dispositivo en el que se produjo el evento de proceso.  |
-| <a name ="dvchostname"></a>**DvcHostname**         | Recomendado | Nombre de host   | `ContosoDc.Contoso.Azure` |              Nombre de host del dispositivo en el que se produjo el evento.                |
-| <a name ="dvcid"></a>**DvcId**               | Opcional    | String     || Identificador único del dispositivo en el que se produjo el evento de proceso. <br><br>Ejemplo: `41502da5-21b7-48ec-81c9-baeea8d7d669`   |
-| <a name=additionalfields></a>**AdditionalFields** | Opcional | Dinámica | | Si el origen proporciona otra información que merece la pena preservar, consérvela con los nombres de campo originales o cree el campo dinámico **AdditionalFields** y agréguele la información adicional como pares clave-valor. |
-| | | | | |
+| **Campo** | **Clase** | **Tipo**  | **Debate** |
+| --- | --- | --- | --- |
+| **EventMessage** | Opcional | String | Mensaje o descripción general, incluidos en el registro o generados a partir de este. |
+| **EventCount** | Mandatory | Entero | Número de eventos descritos por el registro. <br><br>Este valor se usa cuando el origen admite agregación y un único registro puede representar varios eventos. <br><br>Para otros orígenes, debe establecerse en **1**. <br><br>Ejemplo:`1`|
+| **EventStartTime** | Mandatory | Fecha y hora | Si el origen admite agregación y el registro representa varios eventos, use este campo para especificar la hora a la que se generó el primer evento. <br><br>En otros casos, es un alias del campo [TimeGenerated](#timegenerated). |
+| **EventEndTime** | Alias || Alias del campo [TimeGenerated](#timegenerated). |
+| **EventType** | Mandatory | Enumerated | Indica la operación notificada por el registro. <br><Br> En los registros DNS, este valor es el [código de operación de DNS](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml). <br><br>Ejemplo: `lookup`|
+| **EventSubType** | Opcionales | Enumerated | **request** o **response**. En la mayoría de los orígenes [solo se registran las respuestas](#guidelines-for-collecting-dns-events), por lo que este valor suele ser **response**.  |
+| **EventResult** | Mandatory | Enumerated | Uno de los siguientes valores: **Correcto**, **Parcial**, **Error** o **NA** (No aplicable).<br> <br>El valor se puede proporcionar en el registro de origen usando términos diferentes, que se deben normalizar con estos valores. El origen puede proporcionar también únicamente el campo [EventOriginalResultDetails](#eventresultdetails), que se debe analizar para obtener el valor de "EventResult".<br> <br>Si este registro representa una solicitud y no una respuesta, establézcalo en **NA**. <br><br>Ejemplo: `Success`|
+| <a name=eventresultdetails></a>**EventResultDetails** | Alias | | Motivo o detalles del resultado notificado en el campo **_EventResult_**. Alias del campo [ResponseCodeName](#responsecodename).|
+| **EventOriginalUid** | Opcional | String | Id. único del registro original, si lo proporciona el origen. |
+| **EventOriginalType**   | Opcional    | String  |  Tipo o Id. del evento original, si lo proporciona el origen.<br><br>Ejemplo: `lookup` |
+| <a name ="eventproduct"></a>**EventProduct** | Mandatory | String | Producto que genera el evento. Es posible que este campo no esté disponible en el registro de origen, en cuyo caso debe establecerlo el analizador. <br><br>Ejemplo: `DNS Server` |
+| **EventProductVersion** | Opcional | String | Versión del producto que genera el evento. Es posible que este campo no esté disponible en el registro de origen, en cuyo caso debe establecerlo el analizador. <br><br>Ejemplo: `12.1` |
+| **EventVendor** | Mandatory | String | Proveedor del producto que genera el evento. Es posible que este campo no esté disponible en el registro de origen, en cuyo caso debe establecerlo el analizador.<br><br>Ejemplo: `Microsoft`|
+| **EventSchemaVersion** | Mandatory | String | La versión del esquema que se documenta aquí es **0.1.2**. |
+| **EventSchema** | Mandatory | String | El nombre del esquema que se documenta aquí es **DNS**. |
+| **EventReportUrl** | Opcional | String | Dirección URL proporcionada en el evento para un recurso que ofrece más información sobre el evento. |
+| <a name="dvc"></a>**Dvc** | Mandatory       | String     |    Identificador único del dispositivo en el que se produjo el evento. <br><br>Este campo puede ser un alias de los campos [DvcId](#dvcid), [DvcHostname](#dvchostname) o [DvcIpAddr](#dvcipaddr). En el caso de orígenes en la nube, para los que no hay ningún dispositivo aparente, use el valor del campo [EventProduct](#eventproduct). <br><br>Ejemplo: `ContosoDc.Contoso.Azure`       |
+| <a name ="dvcipaddr"></a>**DvcIpAddr**           | Recomendado | Dirección IP |  La dirección IP del dispositivo en el que se produjo el evento de proceso. <br><br>Ejemplo: `45.21.42.12` |
+| <a name ="dvchostname"></a>**DvcHostname**         | Recomendado | Nombre de host   | Nombre de host del dispositivo en el que se produjo el evento. <br><br>Ejemplo: `ContosoDc.Contoso.Azure`                |
+| <a name ="dvcid"></a>**DvcId**               | Opcional    | String     | Identificador único del dispositivo en el que se produjo el evento de proceso. <br><br>Ejemplo: `41502da5-21b7-48ec-81c9-baeea8d7d669`   |
+| <a name=additionalfields></a>**AdditionalFields** | Opcional | Dinámica | Si el origen proporciona otra información que merece la pena preservar, consérvela con los nombres de campo originales o cree el campo dinámico **AdditionalFields** y agréguele la información adicional como pares clave-valor. |
+| | | | |
 
 ### <a name="dns-specific-fields"></a>Campos específicos de DNS
 
 Los campos siguientes son específicos de los eventos de DNS. Dicho esto, muchos de ellos tienen similitudes en otros esquemas y, por tanto, siguen la misma convención de nomenclatura.
 
-| **Campo** | **Clase** | **Tipo** | **Ejemplo** | **Notas** |
-| --- | --- | --- | --- | --- |
-| **SrcIpAddr** | Mandatory | Dirección IP |  `192.168.12.1 `| Dirección IP del cliente que envía la solicitud de DNS. En una solicitud de DNS recursiva, este valor suele ser el dispositivo de informes y, en la mayoría de los casos, está establecido en **127.0.0.1**. |
-| **SrcPortNumber** | Opcional | Entero |  `54312` | Puerto de origen de la consulta de DNS. |
-| **DstIpAddr** | Opcionales | Dirección IP |  `127.0.0.1` | Dirección IP del servidor que recibe la solicitud de DNS. En una solicitud de DNS normal, este valor suele ser el dispositivo de informes y, en la mayoría de los casos, está establecido en **127.0.0.1**. |
-| **DstPortNumber** | Opcional | Entero |  `53` | Número de puerto de destino. |
-| **IpAddr** | | Alias | | Alias de SrcIpAddr. |
-| <a name=query></a>**DnsQuery** | Mandatory | FQDN | `www.malicious.com` | Dominio que debe resolverse. <br><br>**Nota**: Algunos orígenes envían esta consulta en otros formatos. Por ejemplo, en el propio protocolo DNS, la consulta incluye un punto ( **.** ) al final, que se debe quitar.<br><br>Si bien el protocolo DNS permite varias consultas en una sola solicitud, este escenario es poco frecuente, si es que siquiera se produce. Si la solicitud tiene varias consultas, almacene la primera en este campo y, opcionalmente, mantenga el resto en el campo [AdditionalFields](#additionalfields). |
-| **Dominio** | | Alias || Alias de [Query](#query). |
-| **DnsQueryType** | Opcional | Entero | `28` | Este campo puede contener [códigos de tipo de registro de recursos DNS](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml). |
-| **DnsQueryTypeName** | Mandatory | Enumerated | `AAAA` | Este campo puede contener nombres de [tipo de registro de recursos DNS](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml). <br><br>**Nota:** IANA no define las mayúsculas y minúsculas de los valores, por lo que el análisis debe normalizarlas según sea necesario. Si el origen solo proporciona un código de tipo de consulta numérico y no un nombre de tipo de consulta, el analizador debe incluir una tabla de búsqueda para enriquecerla con este valor. |
-| <a name=responsename></a>**DnsResponseName** | Opcional | String | | Contenido de la respuesta, tal como se incluye en el registro.<br> <br> Los datos de la respuesta de DNS son incoherentes entre los dispositivos de informes, son complejos de analizar y tienen menos valor para el análisis independiente del origen. Por lo tanto, el modelo de información no requiere análisis y normalización, y Azure Sentinel utiliza una función auxiliar para proporcionar la información de respuesta. Para obtener más información, consulte [Control de la respuesta de DNS](#handling-dns-response).|
-| <a name=responsecodename></a>**DnsResponseCodeName** |  Mandatory | Enumerated | `NXDOMAIN` | El [código de respuesta de DNS](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml). <br><br>**Nota:** IANA no define las mayúsculas y minúsculas de los valores, por lo que el análisis debe normalizarlas. Si el origen solo proporciona un código de respuesta numérico y no un nombre de código de respuesta, el analizador debe incluir una tabla de búsqueda para enriquecerla con este valor. <br><br> Si este registro representa una solicitud y no una respuesta, establézcalo en **NA**. |
-| **DnsResponseCode** | Opcional | Entero | `3` | El [código de respuesta numérico de DNS](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml).|
-| **TransactionIdHex** | Recomendado | String | | El identificador de transacción hexadecimal único de DNS. |
-| **NetworkProtocol** | Opcional | Enumerated | `UDP` | El protocolo de transporte utilizado por el evento de resolución de red. El valor puede ser **UDP** o **TCP**, y suele establecerse en **UDP** para DNS. |
-| **DnsQueryClass** | Opcional | Entero | | El [identificador de clase DNS](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml).<br> <br>En la práctica, solo se usa la clase **IN** (identificador 1), lo que hace que este campo resulte menos valioso.|
-| **DnsQueryClassName** | Opcional | String | `"IN"` | El [nombre de clase DNS](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml).<br> <br>En la práctica, solo se usa la clase **IN** (identificador 1), lo que hace que este campo resulte menos valioso. |
-| <a name=flags></a>**DnsFlags** | Opcionales | Lista de cadenas | `["DR"]` | Campo de marcas, tal como lo proporciona el dispositivo de informes. Si se proporciona información de marca en varios campos, concaténelas con la coma como separador. <br><br>Dado que las marcas DNS son complejas de analizar y se usan con menos frecuencia en el análisis, el análisis y la normalización no son necesarios y Azure Sentinel usa una función auxiliar para proporcionar información sobre las marcas. Para obtener más información, consulte [Control de la respuesta de DNS](#handling-dns-response).|
-| <a name=UrlCategory></a>**UrlCategory** |   | String | `Educational \\ Phishing` | Un origen de eventos de DNS también puede buscar la categoría de los dominios solicitados. El campo se llama **_UrlCategory_** para alinearse con el esquema de red de Azure Sentinel. <br><br>Se agrega **_DomainCategory_** como alias que se adapta a DNS. |
-| **DomainCategory** | | Alias | | Alias de [UrlCategory](#UrlCategory). |
-| **ThreatCategory** |   | String |   | Si un origen de eventos de DNS también proporciona seguridad DNS, puede además evaluar el evento de DNS. Por ejemplo, puede buscar la dirección IP o el dominio en una base de datos de inteligencia sobre amenazas y asignar al dominio o la dirección IP una categoría de amenazas. |
-| **EventSeverity** | Opcional | String | `"Informational"` | Si un origen de eventos de DNS también proporciona seguridad DNS, puede evaluar el evento de DNS. Por ejemplo, puede buscar la dirección IP o el dominio en una base de datos de inteligencia sobre amenazas y asignar una gravedad en función de la evaluación. |
-| **DvcAction** | Opcional | String | `"Blocked"` | Si un origen de eventos de DNS también proporciona seguridad DNS, puede realizar una acción en la solicitud, como bloquearla. |
-| | | | | |
+| **Campo** | **Clase** | **Tipo** | **Notas** |
+| --- | --- | --- | --- |
+| **SrcIpAddr** | Mandatory | Dirección IP | Dirección IP del cliente que envía la solicitud de DNS. En una solicitud de DNS recursiva, este valor suele ser el dispositivo de informes y, en la mayoría de los casos, está establecido en `127.0.0.1`.<br><br>Ejemplo: `192.168.12.1` |
+| **SrcPortNumber** | Opcional | Entero | Puerto de origen de la consulta de DNS.<br><br>Ejemplo: `54312` |
+| **DstIpAddr** | Opcionales | Dirección IP | Dirección IP del servidor que recibe la solicitud de DNS. En una solicitud de DNS normal, este valor suele ser el dispositivo de informes y, en la mayoría de los casos, está establecido en `127.0.0.1`.<br><br>Ejemplo: `127.0.0.1` |
+| **DstPortNumber** | Opcional | Entero  | Número de puerto de destino.<br><br>Ejemplo: `53` |
+| **IpAddr** | Alias | | Alias de SrcIpAddr. |
+| <a name=query></a>**DnsQuery** | Mandatory | FQDN | Dominio que debe resolverse. <br><br>**Nota**: Algunos orígenes envían esta consulta en otros formatos. Por ejemplo, en el propio protocolo DNS, la consulta incluye un punto ( **.** ) al final, que se debe quitar.<br><br>Si bien el protocolo DNS permite varias consultas en una sola solicitud, este escenario es poco frecuente, si es que siquiera se produce. Si la solicitud tiene varias consultas, almacene la primera en este campo y, opcionalmente, mantenga el resto en el campo [AdditionalFields](#additionalfields).<br><br>Ejemplo: `www.malicious.com` |
+| **Dominio** | Alias | | Alias de [Query](#query). |
+| **DnsQueryType** | Opcional | Entero | Este campo puede contener [códigos de tipo de registro de recursos DNS](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml). <br><br>Ejemplo: `28`|
+| **DnsQueryTypeName** | Mandatory | Enumerated | Este campo puede contener nombres de [tipo de registro de recursos DNS](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml). <br><br>**Nota:** IANA no define las mayúsculas y minúsculas de los valores, por lo que el análisis debe normalizarlas según sea necesario. Si el origen solo proporciona un código de tipo de consulta numérico y no un nombre de tipo de consulta, el analizador debe incluir una tabla de búsqueda para enriquecerla con este valor.<br><br>Ejemplo: `AAAA`|
+| <a name=responsename></a>**DnsResponseName** | Opcional | String | Contenido de la respuesta, tal como se incluye en el registro.<br> <br> Los datos de la respuesta de DNS son incoherentes entre los dispositivos de informes, son complejos de analizar y tienen menos valor para el análisis independiente del origen. Por lo tanto, el modelo de información no requiere análisis y normalización, y Azure Sentinel utiliza una función auxiliar para proporcionar la información de respuesta. Para obtener más información, consulte [Control de la respuesta de DNS](#handling-dns-response).|
+| <a name=responsecodename></a>**DnsResponseCodeName** |  Mandatory | Enumerated | El [código de respuesta de DNS](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml). <br><br>**Nota:** IANA no define las mayúsculas y minúsculas de los valores, por lo que el análisis debe normalizarlas. Si el origen solo proporciona un código de respuesta numérico y no un nombre de código de respuesta, el analizador debe incluir una tabla de búsqueda para enriquecerla con este valor. <br><br> Si este registro representa una solicitud y no una respuesta, establézcalo en **NA**. <br><br>Ejemplo: `NXDOMAIN` |
+| **DnsResponseCode** | Opcional | Entero | El [código de respuesta numérico de DNS](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml). <br><br>Ejemplo: `3`|
+| **TransactionIdHex** | Recomendado | String | El identificador de transacción hexadecimal único de DNS. |
+| **NetworkProtocol** | Opcional | Enumerated | El protocolo de transporte utilizado por el evento de resolución de red. El valor puede ser **UDP** o **TCP**, y suele establecerse en **UDP** para DNS. <br><br>Ejemplo: `UDP`|
+| **DnsQueryClass** | Opcional | Entero | El [identificador de clase DNS](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml).<br> <br>En la práctica, solo se usa la clase **IN** (identificador 1), lo que hace que este campo resulte menos valioso.|
+| **DnsQueryClassName** | Opcional | String | El [nombre de clase DNS](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml).<br> <br>En la práctica, solo se usa la clase **IN** (identificador 1), lo que hace que este campo resulte menos valioso. <br><br>Ejemplo: `IN`|
+| <a name=flags></a>**DnsFlags** | Opcionales | Lista de cadenas | Campo de marcas, tal como lo proporciona el dispositivo de informes. Si se proporciona información de marca en varios campos, concaténelas con la coma como separador. <br><br>Dado que las marcas DNS son complejas de analizar y se usan con menos frecuencia en el análisis, el análisis y la normalización no son necesarios y Azure Sentinel usa una función auxiliar para proporcionar información sobre las marcas. Para obtener más información, consulte [Control de la respuesta de DNS](#handling-dns-response). <br><br>Ejemplo: `["DR"]`|
+| <a name=UrlCategory></a>**UrlCategory** |  Opcional | String | Un origen de eventos de DNS también puede buscar la categoría de los dominios solicitados. El campo se llama **_UrlCategory_** para alinearse con el esquema de red de Azure Sentinel. <br><br>Se agrega **_DomainCategory_** como alias que se adapta a DNS. <br><br>Ejemplo: `Educational \\ Phishing` |
+| **DomainCategory** | Opcionales | Alias | Alias de [UrlCategory](#UrlCategory). |
+| **ThreatCategory** | Opcional | String | Si un origen de eventos de DNS también proporciona seguridad DNS, puede además evaluar el evento de DNS. Por ejemplo, puede buscar la dirección IP o el dominio en una base de datos de inteligencia sobre amenazas y asignar al dominio o la dirección IP una categoría de amenazas. |
+| **EventSeverity** | Opcional | String | Si un origen de eventos de DNS también proporciona seguridad DNS, puede evaluar el evento de DNS. Por ejemplo, puede buscar la dirección IP o el dominio en una base de datos de inteligencia sobre amenazas y asignar una gravedad en función de la evaluación. <br><br>Ejemplo: `Informational`|
+| **DvcAction** | Opcional | String | Si un origen de eventos de DNS también proporciona seguridad DNS, puede realizar una acción en la solicitud, como bloquearla. <br><br>Ejemplo: `Blocked` |
+| **DnsFlagsAuthenticated** | Opcionales | Boolean | La marca DNS `AD`, que está relacionada con DNSSEC, indica en una respuesta que el servidor ha comprobado todos los datos incluidos en las secciones de respuesta y autoridad de la respuesta según las directivas de ese servidor. Consulte la [sección 6.1 de RFC 3655](https://tools.ietf.org/html/rfc3655#section-6.1) para obtener más información.    |
+| **DnsFlagsAuthoritative** | Opcionales | Boolean | La marca DNS `AA` indica si la respuesta del servidor fue autoritativa.    |
+| **DnsFlagsCheckingDisabled** | Opcionales | Boolean | La marca DNS `CD`, que está relacionada con DNSSEC, indica en una consulta que los datos no comprobados son aceptables para el sistema que envía la consulta. Consulte la [sección 6.1 de RFC 3655](https://tools.ietf.org/html/rfc3655#section-6.1) para obtener más información.   |
+| **DnsFlagsRecursionAvailable** | Opcionales | Boolean | La marca DNS `RA` indica en una respuesta que ese servidor admite consultas recursivas.   |
+| **DnsFlagsRecursionDesired** | Opcionales | Boolean | La marca DNS `RD` indica en una solicitud que a ese cliente le gustaría que el servidor usara consultas recursivas.   |
+| **DnsFlagsTruncates** | Opcionales | Boolean | La marca DNS `TC` indica que una respuesta se trunca al superar el tamaño máximo de respuesta.  |
+| **DnsFlagsZ** | Opcionales | Boolean | La marca DNS `Z` es una marca DNS en desuso que podría ser notificada por sistemas DNS antiguos.  |
+| | | | |
 
 ### <a name="deprecated-aliases"></a>Alias en desuso
 
-Los campos siguientes son alias que están actualmente en desuso, pero que se mantienen por compatibilidad con versiones anteriores:
+Los campos siguientes son alias que están actualmente en desuso, pero que se mantienen por compatibilidad con versiones anteriores. Se quitarán del esquema el 31 de diciembre de 2021.
 
 - Query (alias de DnsQuery)
 - QueryType (alias de DnsQueryType)
@@ -203,6 +231,12 @@ Los campos siguientes son alias que están actualmente en desuso, pero que se ma
 - QueryClass (alias de DnsQueryClass)
 - QueryClassName (alias de DnsQueryClassName)
 - Flags (alias de DnsFlags)
+
+### <a name="added-fields"></a>Campos agregados
+
+Los campos siguientes se han agregado a la versión 0.1.2 del esquema:
+- EventSchema: actualmente opcional, pero será obligatorio el 1 de enero de 2022.
+- Campo de marca dedicado que aumenta el campo combinado **[Marcas](#flags)** : `DnsFlagsAuthoritative`, `DnsFlagsCheckingDisabled`, `DnsFlagsRecursionAvailable`, `DnsFlagsRecursionDesired`, `DnsFlagsTruncates` y `DnsFlagsZ`.
 
 ### <a name="additional-entities"></a>Entidades adicionales
 
@@ -261,9 +295,9 @@ Los campos de cada diccionario del valor dinámico corresponden a los campos de 
 
 ## <a name="handling-dns-flags"></a>Control de marcas DNS
 
-El análisis y la normalización no son necesarios para los datos de marca. En lugar de ello, almacene los datos de marca proporcionados por el dispositivo de informes en el campo [Flags](#flags).
+El análisis y la normalización no son necesarios para los datos de marca. En lugar de ello, almacene los datos de marca proporcionados por el dispositivo de informes en el campo [Flags](#flags). Si la determinación del valor de las marcas individuales es directa, también puede usar los campos de marcas dedicadas. 
 
-También puede proporcionar una función KQL adicional denominada `_imDNS<vendor>Flags_`, que toma la respuesta sin analizar como entrada y devuelve una lista dinámica, con valores booleanos que representan cada marca con el siguiente orden:
+También puede proporcionar una función KQL adicional denominada `_imDNS<vendor>Flags_`, que toma la respuesta sin analizar, o campos de marcas dedicados, como entrada y devuelve una lista dinámica, con valores booleanos que representan cada marca con el siguiente orden:
 
 - Autenticado (AD)
 - Autoritativo (AA)
@@ -280,6 +314,6 @@ Para más información, consulte:
 - [Normalización en Azure Sentinel](normalization.md)
 - [Referencia del esquema de normalización de la autenticación de Azure Sentinel (Versión preliminar pública)](authentication-normalization-schema.md)
 - [Referencia del esquema de normalización de datos de Azure Sentinel](normalization-schema.md)
-- [Referencia del esquema de normalización de eventos de archivo de Azure Sentinel (versión preliminar pública)](file-event-normalization-schema.md)
+- [Referencia del esquema de normalización de eventos de archivo de Azure Sentinel (versión preliminar pública)](file-event-normalization-schema.md)
 - [Referencia del esquema de normalización de eventos de proceso de Azure Sentinel](process-events-normalization-schema.md)
 - [Referencia del esquema de normalización de eventos de registro de Azure Sentinel (versión preliminar pública)](registry-event-normalization-schema.md)

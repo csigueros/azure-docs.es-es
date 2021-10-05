@@ -5,12 +5,12 @@ author: mumian
 ms.author: jgao
 ms.topic: conceptual
 ms.date: 07/30/2021
-ms.openlocfilehash: a899622c22d68217fd4fbf73e495f89885f4d7ba
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: 2b1fb9960caf81a51c80dae312979d90f6eb5f4d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122445414"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124733423"
 ---
 # <a name="set-scope-for-extension-resources-in-bicep"></a>Establecimiento del ámbito de los recursos de extensión en Bicep
 
@@ -22,6 +22,10 @@ En este artículo se muestra cómo establecer el ámbito de un tipo de recurso d
 
 > [!NOTE]
 > La propiedad scope solo está disponible para los tipos de recursos de extensión. Para especificar un ámbito diferente para un tipo de recurso que no sea un tipo de extensión, use un [módulo](modules.md).
+
+### <a name="microsoft-learn"></a>Microsoft Learn
+
+Para más información sobre los recursos de extensión y para obtener instrucciones prácticas, consulte el módulo [Implementación de recursos secundarios y de extensión mediante Bicep](/learn/modules/child-extension-bicep-templates) en **Microsoft Learn**.
 
 ## <a name="apply-at-deployment-scope"></a>Aplicación en el ámbito de implementación
 

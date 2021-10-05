@@ -16,12 +16,12 @@ ms.date: 08/09/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2415ad3109863a9cd80df413723b317e880a7063
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 3ab5eba7cebe03ff59cfa442c454da855788ebad
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121751617"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124768617"
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Sincronización de Azure AD Connect: Sincronización de Azure AD Connect: Extensiones de directorio
 Puede usar extensiones de directorio para ampliar el esquema de Azure Active Directory (Azure AD) con sus propios atributos desde Active Directory local. Esta característica le permite compilar aplicaciones de LOB mediante el consumo de atributos que sigue administrando de forma local. Estos atributos se pueden consumir mediante [extensiones](/graph/extensibility-overview
@@ -47,9 +47,8 @@ La instalación muestra los atributos siguientes, que son candidatos válidos:
 * Atributos de valor único: cadena, booleano, entero, binario
 * Atributos con varios valores: cadena, binario
 
-
->[!NOTE]
-> Después de que Azure AD Connect haya sincronizado un atributo de Active Directory con varios valores para Azure AD como extensión de atributo con varios valores, es posible incluir el atributo en la declaración de SAML. Sin embargo, no es posible consumir estos datos a través de la llamada API.
+> [!NOTE]
+> No todas las características de Azure Active Directory admiten atributos de extensión con varios valores. Consulte la documentación de la característica en la que planea usar estos atributos para confirmar que se admiten.
 
 La lista de atributos se lee de la memoria caché de esquemas creada durante la instalación de Azure AD Connect. Si ha ampliado el esquema de Active Directory con atributos adicionales, se debe [actualizar el esquema](how-to-connect-installation-wizard.md#refresh-directory-schema) para que los nuevos atributos estén visibles.
 

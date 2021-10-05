@@ -3,13 +3,13 @@ title: restauración de máquinas virtuales mediante Azure Portal
 description: Restaure una máquina virtual de Azure desde un punto de recuperación mediante Azure Portal, incluida la característica Restauración entre regiones.
 ms.reviewer: geg
 ms.topic: conceptual
-ms.date: 08/06/2021
-ms.openlocfilehash: 75320c54c9496b1c978fdabb8a0a7560087f777c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/27/2021
+ms.openlocfilehash: cbe511388755e31a2d295a4cf8ed58e78c9afdc2
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121738453"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129079530"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Restauración de datos de máquinas virtuales de Azure en Azure Portal
 
@@ -85,7 +85,10 @@ Como una de las [opciones de restauración](#restore-options), puede crear una m
 1. En **Restaurar máquina virtual** > **Crear nuevo** > **Tipo de restauración**, seleccione **Crear una máquina virtual**.
 1. En **Nombre de máquina virtual**, especifique una máquina virtual que no exista en la suscripción.
 1. En **Grupo de recursos**, seleccione un grupo de recursos existente para la nueva máquina virtual, o cree uno con un nombre único global. Si asigna un nombre que ya existe, Azure asigna al grupo el mismo nombre que la máquina virtual.
-1. En **Red virtual**, seleccione la red virtual en el que se colocará la máquina virtual. Se muestran todas las redes virtuales asociadas con la suscripción. Seleccione la subred. De forma predeterminada se selecciona la primera subred.
+1. En **Red virtual**, seleccione la red virtual en el que se colocará la máquina virtual. Se muestran todas las redes virtuales asociadas a la suscripción en la misma ubicación que el almacén, que estén activas y no adjuntas a ningún grupo de afinidad. Seleccione la subred.
+
+   De forma predeterminada se selecciona la primera subred.
+
 1. En **Ubicación de almacenamiento provisional**, especifique la cuenta de almacenamiento de la máquina virtual. [Más información](#storage-accounts).
 
     ![Asistente para restaurar la configuración: elegir opciones de restauración](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard1.png)

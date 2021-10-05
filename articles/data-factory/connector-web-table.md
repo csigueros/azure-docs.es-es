@@ -1,28 +1,28 @@
 ---
-title: Copia de datos de tabla web mediante Azure Data Factory
+title: Copia de datos de una tabla web
+description: Obtenga información sobre el conector de tabla web que permite copiar datos desde una tabla web a almacenes de datos compatibles como receptores con Azure Data Factory y Synapse Analytics.
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Obtenga información sobre el conector de tabla web de Azure Data Factory que permite copiar datos desde una tabla web a almacenes de datos compatibles con Data Factory como receptores.
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/30/2021
+ms.date: 09/09/2021
 ms.author: jianleishen
-ms.openlocfilehash: 680ea9139a17f20038b78f0399fe849ca0990532
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: af6423b58cb2eba4fca0d902270afee03a733637
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123311166"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124782691"
 ---
-# <a name="copy-data-from-web-table-by-using-azure-data-factory"></a>Copia de datos de una tabla web mediante Azure Data Factory
+# <a name="copy-data-from-web-table-by-using-azure-data-factory-or-synapse-analytics"></a>Copia de datos de tabla web con Azure Data Factory o Synapse Analytics
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
 > * [Versión 1](v1/data-factory-web-table-connector.md)
 > * [Versión actual](connector-web-table.md)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-En este artículo se explica el uso de la actividad de copia de Azure Data Factory para copiar datos desde una base de datos de tabla web. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
+En este artículo se describe el uso de la actividad de copia en una canalización de Azure Data Factory o Synapse Analytics para copiar datos de tabla web. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
 
 Las diferencias entre este conector de tabla web, el [conector REST](connector-rest.md) y el [conector HTTP](connector-http.md) son:
 
@@ -57,7 +57,7 @@ Siga estos pasos para crear un servicio vinculado a Web Table en la interfaz de 
 
     # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
 
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Creación de un nuevo servicio vinculado con la interfaz de usuario de Azure Data Factory.":::
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Creación de un servicio vinculado con la interfaz de usuario de Azure Data Factory":::
 
     # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
 
@@ -184,24 +184,24 @@ Para obtener el índice de una tabla que necesita configurar en [propiedades del
 1. Inicie **Excel 2016** y cambie a la pestaña **Datos**.
 2. Haga clic en **Nueva consulta** en la barra de herramientas, elija **De otros orígenes** y haga clic en **Desde Web**.
 
-    ![Menú de Power Query](./media/copy-data-from-web-table/PowerQuery-Menu.png)
+    :::image type="content" source="./media/copy-data-from-web-table/PowerQuery-Menu.png" alt-text="Menú de Power Query":::
 3. En el cuadro de diálogo **Desde Web**, escriba la **dirección URL** que usaría en el objeto JSON del servicio vinculado (por ejemplo: https://en.wikipedia.org/wiki/) ) junto con la ruta de acceso que especificaría para el conjunto de datos (por ejemplo: AFI%27s_100_Years...100_Movies) y haga clic en **Aceptar**.
 
-    ![Cuadro de diálogo Desde Web](./media/copy-data-from-web-table/FromWeb-DialogBox.png)
+    :::image type="content" source="./media/copy-data-from-web-table/FromWeb-DialogBox.png" alt-text="Cuadro de diálogo Desde Web":::
 
     Dirección URL que se usa en este ejemplo: https://en.wikipedia.org/wiki/AFI%27s_100_Years...100_Movies
 4. Si ve el cuadro de diálogo **Acceso a contenido web**, seleccione la **dirección URL** correcta, la **autenticación** y haga clic en **Conectar**.
 
-   ![Cuadro de diálogo Acceso a contenido web](./media/copy-data-from-web-table/AccessWebContentDialog.png)
+   :::image type="content" source="./media/copy-data-from-web-table/AccessWebContentDialog.png" alt-text="Cuadro de diálogo Acceso a contenido web":::
 5. Haga clic en un elemento de **tabla** en la vista de árbol para ver el contenido de la tabla y después en el botón **Editar** ubicado en la parte inferior.  
 
-   ![Cuadro de diálogo Navegador](./media/copy-data-from-web-table/Navigator-DialogBox.png)
+   :::image type="content" source="./media/copy-data-from-web-table/Navigator-DialogBox.png" alt-text="Cuadro de diálogo Navegador":::
 6. En la ventana **Editor de consultas**, haga clic en el botón **Editor avanzado** de la barra de herramientas.
 
-    ![Botón Editor avanzado](./media/copy-data-from-web-table/QueryEditor-AdvancedEditorButton.png)
+    :::image type="content" source="./media/copy-data-from-web-table/QueryEditor-AdvancedEditorButton.png" alt-text="Botón Editor avanzado":::
 7. En el cuadro de diálogo Editor avanzado, el número que aparece junto a "Origen" es el índice.
 
-    ![Editor avanzado - Índice](./media/copy-data-from-web-table/AdvancedEditor-Index.png)
+    :::image type="content" source="./media/copy-data-from-web-table/AdvancedEditor-Index.png" alt-text="Editor avanzado - Índice":::
 
 Si usa Excel 2013, use [Microsoft Power Query para Excel](https://www.microsoft.com/download/details.aspx?id=39379) para obtener el índice. Consulte el artículo [Conectarse a una página web](https://support.office.com/article/Connect-to-a-web-page-Power-Query-b2725d67-c9e8-43e6-a590-c0a175bd64d8) para más información. Los pasos son similares si usa [Microsoft Power BI Desktop](https://powerbi.microsoft.com/desktop/).
 
@@ -211,4 +211,4 @@ Si usa Excel 2013, use [Microsoft Power Query para Excel](https://www.microsoft.
 Para obtener información detallada sobre las propiedades, consulte [Actividad de búsqueda](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte los [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver la lista de almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores.
+Para obtener una lista de almacenes de datos que la actividad de copia admite como orígenes y receptores, vea [Almacenes de datos que se admiten](copy-activity-overview.md#supported-data-stores-and-formats).

@@ -1,14 +1,14 @@
 ---
-title: Escalado de cuotas y límites en su laboratorio en Azure DevTest Labs | Microsoft Docs
+title: Escalado de cuotas y límites en su laboratorio
 description: En este artículo se describe cómo se puede escalar el laboratorio en Azure DevTest Labs. Vea las cuotas y los límites de uso y solicite un aumento.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 2166eaab073e2abc24ca24494ae13eb876db1fcf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 357e8b4746aa5be368ecf87d12c86014cc525704
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87533961"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128666559"
 ---
 # <a name="scale-quotas-and-limits-in-devtest-labs"></a>Escalado de cuotas y límites en DevTest Labs
 Mientras trabaja en DevTest Labs, puede que observe que hay ciertos límites predeterminados para algunos recursos de Azure, lo que puede afectar al servicio DevTest Labs. Estos límites se conocen como **cuotas**.

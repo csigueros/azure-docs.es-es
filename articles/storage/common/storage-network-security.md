@@ -10,12 +10,12 @@ ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d4f48f8a8c573ac03f5637b74b740c5710af92b3
-ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
+ms.openlocfilehash: 82f860b78a8c0c4114a2250912fb6ec22e040d71
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122597686"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128606084"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configuración de redes virtuales y firewalls de Azure Storage
 
@@ -116,6 +116,7 @@ Puede administrar las reglas predeterminadas de acceso a redes para las cuentas 
     ```azurecli
     az storage account update --resource-group "myresourcegroup" --name "mystorageaccount" --default-action Allow
     ```
+
 ---
 
 ## <a name="grant-access-from-a-virtual-network"></a>Concesión de acceso desde una red virtual
@@ -126,7 +127,7 @@ Habilite un [punto de conexión de servicio](../../virtual-network/virtual-netwo
 
 Cada cuenta de almacenamiento admite un máximo de 200 reglas de red virtual, que se pueden combinar con [reglas de red IP](#grant-access-from-an-internet-ip-range).
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > Si elimina una subred que se ha incluido en una regla de red, se quitará de las reglas de red de la cuenta de almacenamiento. Si crea una subred con el mismo nombre, no tendrá acceso a la cuenta de almacenamiento. Para permitir el acceso, deberá autorizar la nueva subred explícitamente en las reglas de red de la cuenta de almacenamiento.
 
 ### <a name="available-virtual-network-regions"></a>Regiones de red virtual disponibles
@@ -252,21 +253,21 @@ Puede usar las reglas de red IP para permitir el acceso desde intervalos especí
 
 Las restricciones siguientes se aplican a los intervalos de direcciones IP.
 
-- Las reglas de red IP solo se permiten para direcciones IP de la **red pública de Internet**. 
+- Las reglas de red IP solo se permiten para direcciones IP de la **red pública de Internet**.
 
-  No se permiten intervalos de direcciones IP reservados para redes privadas (tal y como se define en [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) en las reglas de IP. Las redes privadas incluyen direcciones que comienzan por _10.*_ , _172.16.*_  - _172.31.*_ y _192.168.*_ .
+  No se permiten intervalos de direcciones IP reservados para redes privadas (tal y como se define en [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) en las reglas de IP. Las redes privadas incluyen direcciones que comienzan por *10.**, *172.16.** - *172.31.** y *192.168.**.
 
-- Debe proporcionar los intervalos de dirección de Internet permitidos mediante la [notación CIDR](https://tools.ietf.org/html/rfc4632) en formato *16.17.18.0/24* o como direcciones IP individuales en formato *16.17.18.19*. 
+- Debe proporcionar los intervalos de dirección de Internet permitidos mediante la [notación CIDR](https://tools.ietf.org/html/rfc4632) en formato *16.17.18.0/24* o como direcciones IP individuales en formato *16.17.18.19*.
 
-- Los intervalos de dirección pequeños con tamaños de prefijos "/31" o "/32" no son compatibles. Estos intervalos se deberían configurar utilizando reglas de direcciones IP individuales. 
+- Los intervalos de dirección pequeños con tamaños de prefijos "/31" o "/32" no son compatibles. Estos intervalos se deberían configurar utilizando reglas de direcciones IP individuales.
 
 - Solo se admiten direcciones IPV4 para la configuración de reglas de firewall de almacenamiento.
 
 Las reglas de red IP no se pueden usar en los siguientes casos:
 
 - Para restringir el acceso a los clientes de la misma región de Azure que la cuenta de almacenamiento.
-  
-  Las reglas de red IP no tienen ningún efecto en las solicitudes que proceden de la misma región de Azure que la cuenta de almacenamiento. Use [reglas de red virtual](#grant-access-from-a-virtual-network) para permitir solicitudes de la misma región. 
+
+  Las reglas de red IP no tienen ningún efecto en las solicitudes que proceden de la misma región de Azure que la cuenta de almacenamiento. Use [reglas de red virtual](#grant-access-from-a-virtual-network) para permitir solicitudes de la misma región.
 
 - Para restringir el acceso a los clientes de una [región emparejada](../../best-practices-availability-paired-regions.md) que se encuentran en una red virtual que tiene un punto de conexión de servicio.
 
@@ -388,7 +389,6 @@ Los tipos de operaciones que puede realizar una instancia de recursos en los dat
 > [!NOTE]
 > Actualmente, las reglas de instancia de recurso solo se admiten en Azure Synapse. La compatibilidad con otros servicios de Azure que aparecen en la sección [Acceso de confianza basado en la identidad administrada asignada por el sistema](#trusted-access-system-assigned-managed-identity) de este artículo estará disponible en las próximas semanas.
 
-
 ### <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Puede agregar o quitar reglas de red de recursos en Azure Portal.
@@ -399,11 +399,11 @@ Puede agregar o quitar reglas de red de recursos en Azure Portal.
 
 3. Seleccione **Redes** para mostrar la página de configuración de redes.
 
-4. En la lista desplegable **Tipo de recurso**, elija el tipo de recurso de la instancia de recurso. 
+4. En la lista desplegable **Tipo de recurso**, elija el tipo de recurso de la instancia de recurso.
 
 5. En la lista desplegable **Nombre de instancia**, elija la instancia de recurso. También puede elegir incluir todas las instancias de recursos en el inquilino, la suscripción o el grupo de recursos activos.
 
-6. Seleccione **Guardar** para aplicar los cambios. La instancia de recurso aparece en la sección **Instancias de recursos** de la página de configuración de red. 
+6. Seleccione **Guardar** para aplicar los cambios. La instancia de recurso aparece en la sección **Instancias de recursos** de la página de configuración de red.
 
 Para quitar la instancia de recurso, seleccione el icono de eliminación (:::image type="icon" source="media/storage-network-security/delete-icon.png":::) junto a la instancia de recurso.
 
@@ -551,7 +551,7 @@ az storage account network-rule list \
 <a id="exceptions"></a>
 <a id="trusted-microsoft-services"></a>
 
-## <a name="grant-access-to-trusted-azure-services"></a>Concesión de acceso a servicios de Azure de confianza 
+## <a name="grant-access-to-trusted-azure-services"></a>Concesión de acceso a servicios de Azure de confianza
 
 Algunos servicios de Azure funcionan desde redes que no se pueden incluir en las reglas de red. Puede conceder a un subconjunto de estos servicios de Azure de confianza el acceso a la cuenta de almacenamiento, a la vez que mantiene las reglas de red para otras aplicaciones. Estos servicios de confianza usarán una autenticación sólida para conectarse a su cuenta de almacenamiento de forma segura.
 
@@ -566,7 +566,7 @@ Cuando se concede acceso a los servicios de Azure de confianza, se conceden los 
 
 ### <a name="trusted-access-for-resources-registered-in-your-subscription"></a>Acceso de confianza para los recursos registrados en su suscripción
 
-Los recursos de algunos servicios, **cuando están registrados en su suscripción**, pueden acceder a su cuenta de almacenamiento **de la misma suscripción** para ciertas operaciones, como la escritura de registros o la realización de copias de seguridad.  En la tabla siguiente se describe cada servicio y las operaciones permitidas. 
+Los recursos de algunos servicios, **cuando están registrados en su suscripción**, pueden acceder a su cuenta de almacenamiento **de la misma suscripción** para ciertas operaciones, como la escritura de registros o la realización de copias de seguridad.  En la tabla siguiente se describe cada servicio y las operaciones permitidas.
 
 | Servicio                  | Nombre del proveedor de recursos     | Operaciones permitidas                 |
 |:------------------------ |:-------------------------- |:---------------------------------- |
@@ -595,7 +595,6 @@ Puede usar la misma técnica para una cuenta que tenga la característica de esp
 > [!TIP]
 > La manera recomendada de conceder acceso a recursos específicos es usar reglas de instancia de recurso. Para conceder acceso a instancias de recursos específicas, consulte la sección [Concesión de acceso a instancias de recursos de Azure (versión preliminar)](#grant-access-specific-instances) de este artículo.
 
-
 | Servicio                        | Nombre del proveedor de recursos                 | Propósito            |
 | :----------------------------- | :------------------------------------- | :----------------- |
 | Azure API Management           | Microsoft.ApiManagement/service        | Habilita el acceso del servicio API Management a las cuentas de almacenamiento detrás del firewall mediante directivas. [Más información](../../api-management/api-management-authentication-policies.md#use-managed-identity-in-send-request-policy). |
@@ -620,7 +619,7 @@ Puede usar la misma técnica para una cuenta que tenga la característica de esp
 
 ## <a name="grant-access-to-storage-analytics"></a>Concesión de acceso a Storage Analytics
 
-En algunos casos, se requiere acceso para leer registros recursos y métricas desde fuera del límite de red. Al configurar el acceso de los servicios de confianza a la cuenta de almacenamiento, puede permitir el acceso de lectura a los archivos de registro, las tablas de métricas o ambos mediante la creación de una excepción de regla de red. Para obtener instrucciones paso a paso, consulte la sección **Administración de excepciones** más adelante. Para más información sobre cómo trabajar con Storage Analytics, consulte [Uso de Azure Storage Analytics para recopilar datos de métricas y registros](./storage-analytics.md). 
+En algunos casos, se requiere acceso para leer registros recursos y métricas desde fuera del límite de red. Al configurar el acceso de los servicios de confianza a la cuenta de almacenamiento, puede permitir el acceso de lectura a los archivos de registro, las tablas de métricas o ambos mediante la creación de una excepción de regla de red. Para obtener instrucciones paso a paso, consulte la sección **Administración de excepciones** más adelante. Para más información sobre cómo trabajar con Storage Analytics, consulte [Uso de Azure Storage Analytics para recopilar datos de métricas y registros](./storage-analytics.md).
 
 <a id="manage-exceptions"></a>
 

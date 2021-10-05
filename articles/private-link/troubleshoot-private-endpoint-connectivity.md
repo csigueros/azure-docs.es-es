@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: rdhillon
-ms.openlocfilehash: cb66b9ad3106b9cad5b9b22cbe32838e13f56c28
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 0df95d90d0119f8bc513fe2a26ed731d87401b3d
+ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121736402"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129154268"
 ---
 # <a name="troubleshoot-azure-private-endpoint-connectivity-problems"></a>Solución de problemas de conectividad de puntos de conexión privados de Azure
 
@@ -119,7 +119,19 @@ Revise estos pasos para asegurarse de que todas las configuraciones habituales s
       - Al punto de conexión privado desde un origen diferente. De este modo, puede aislar cualquier problema específico de la máquina virtual. 
       - A cualquier máquina virtual que forme parte de la misma red virtual del punto de conexión privado.  
 
-1. Póngase en contacto con el equipo de [soporte técnico de Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) si el problema sigue sin resolverse y el problema de conectividad persiste.
+1. Si el punto de conexión privado está vinculado a un [servicio Private Link](./troubleshoot-private-link-connectivity.md) que está vinculado a una instancia de Load Balancer, compruebe si el grupo de back-end está informando de que el estado es correcto. La corrección del estado de Load Balancer resolverá el problema con la conexión al punto de conexión privado.
+
+    - Para ver un diagrama visual o una [vista de dependencia](../azure-monitor/insights/network-insights-overview.md#dependency-view) de los recursos, las métricas y la información relacionados, vaya a:
+        - Azure Monitor
+        - Redes
+        - Puntos de conexión privados
+        - Vista de dependencias 
+
+![Supervisión de redes](https://user-images.githubusercontent.com/20302679/134994620-0660b9e2-e2a3-4233-8953-d3e49b93e2f2.png)
+
+![DependencyView](https://user-images.githubusercontent.com/20302679/134994637-fb8b4a1a-81d5-4723-b1c3-d7bdc72162f3.png)
+
+9. Póngase en contacto con el equipo de [soporte técnico de Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) si el problema sigue sin resolverse y el problema de conectividad persiste.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

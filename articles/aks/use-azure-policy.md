@@ -5,12 +5,12 @@ ms.service: container-service
 ms.topic: how-to
 ms.date: 09/01/2021
 ms.custom: template-how-to
-ms.openlocfilehash: a5eef5304c8bceac2bd26d6ccf0e90974641a9ff
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: eb2f85064413f3d4700fea01aa4ead81508dd8c9
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123433006"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128631502"
 ---
 # <a name="secure-your-cluster-with-azure-policy"></a>Protección del clúster con Azure Policy
 
@@ -52,7 +52,7 @@ Las definiciones de directivas personalizadas se escriben en JSON. Para más inf
 > [!NOTE]
 > Azure Policy usa ahora una nueva propiedad conocida como *templateInfo* que permite a los usuarios definir el tipo de origen para la plantilla de restricción. Mediante la definición de *templateInfo* en las definiciones de directivas, los usuarios no tienen que definir las propiedades *constraintTemplate* ni *constraint*. No obstante, los usuarios tienen que definir *apiGroups* y *kinds*. Para más información, consulte [Descripción de los efectos de Azure Policy][azure-policy-effects-audit].
 
-Una vez creada la definición de directiva personalizada, consulte [Asignación de una definición de directiva][azure-policy-tutorial-assign] para ver un tutorial detallado sobre la asignación de la directiva al clúster de Kubernetes.
+Una vez creada la definición de directiva personalizada, vea [Asignación de una definición de directiva][custom-policy-tutorial-assign] para ver un tutorial detallado sobre la asignación de la directiva al clúster de Kubernetes.
 
 ## <a name="validate-a-azure-policy-is-running"></a>Validación de que se ejecuta Azure Policy
 
@@ -197,6 +197,6 @@ Para más información sobre cómo funciona Azure Policy, consulte:
 [kubernetes-policy-reference]: ../governance/policy/concepts/policy-for-kubernetes.md
 [azure-policy-effects-audit]: ../governance/policy/concepts/effects.md#audit-properties
 [custom-policy-tutorial-create]: ../governance/policy/tutorials/create-custom-policy-definition.md
-[custom-policy-tutorial-assign]: https://docs.microsoft.com/en-us/azure/governance/policy/concepts/policy-for-kubernetes.md#assign-a-policy-definition
+[custom-policy-tutorial-assign]: ../governance/policy/concepts/policy-for-kubernetes.md#assign-a-policy-definition
 [azure-policy-samples]: ../governance/policy/samples/index.md
 [azure-policy-definition-structure]: ../governance/policy/concepts/definition-structure.md

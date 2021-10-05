@@ -1,14 +1,14 @@
 ---
-title: Conexión de entornos a la red virtual de un laboratorio en Azure DevTest Labs | Microsoft Docs
+title: Conexión a entornos desde la subred de un laboratorio
 description: Obtenga información sobre cómo conectar a un entorno (por ejemplo, un clúster de Service Fabric) a la red virtual de su laboratorio en Azure DevTest Labs.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 980c6317ded70db374c2b948075f060754168b0f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bbe2ecc78cfbca0bd055725a81cffff01935f377
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97511967"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128634812"
 ---
 # <a name="connect-an-environment-to-your-labs-virtual-network-in-azure-devtest-labs"></a>Conexión de un entorno a la red virtual del laboratorio en Azure DevTest Labs
 Azure DevTest Labs facilita la creación de máquinas virtuales en un laboratorio con [redes integradas](devtest-lab-configure-vnet.md). Tiene una gran flexibilidad con la capacidad de [crear entornos de varias máquinas virtuales](devtest-lab-test-env.md). En este artículo se muestra cómo conectar las máquinas virtuales de un entorno a la red virtual del laboratorio. Un escenario en el que usa esta característica es la configuración de una aplicación de N niveles con una capa de datos de SQL Server que está conectada a la red virtual de laboratorio, permitiendo que las máquinas virtuales de prueba del laboratorio accedan a ella.  

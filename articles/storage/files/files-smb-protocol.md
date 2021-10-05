@@ -4,15 +4,15 @@ description: Obtenga información sobre los recursos compartidos de archivos hos
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/25/2021
+ms.date: 09/10/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 34f8cd4642a09434eef63db94b2151f013d0383f
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+ms.openlocfilehash: 5a1cc9d12e6a24820b5b84f8a1a275d8451d6247
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122966916"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124776944"
 ---
 # <a name="smb-file-shares-in-azure-files"></a>Recursos compartidos de archivos SMB en Azure Files
 Azure Files ofrece dos protocolos estándar del sector para el montaje de recursos compartidos de archivos de Azure: el protocolo [Bloque de mensajes del servidor (SMB)](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) y el protocolo [Network File System (NFS)](https://en.wikipedia.org/wiki/Network_File_System) (versión preliminar). Azure Files le permite seleccionar el protocolo del sistema de archivos más adecuado para su carga de trabajo. Los recursos compartidos de archivos de Azure no admiten el acceso a un recurso compartido de archivos de Azure individual con los protocolos SMB y NFS, aunque se pueden crear recursos compartidos de archivos SMB y NFS dentro de la misma cuenta de almacenamiento. En general, Azure Files ofrece recursos compartidos de archivos de nivel empresarial que se pueden escalar verticalmente para satisfacer sus necesidades de almacenamiento y a los que pueden acceder simultáneamente miles de clientes.
@@ -45,7 +45,7 @@ Todos los datos almacenados en Azure Files se cifran en reposo mediante el cifra
 
 De forma predeterminada, todas las cuentas de Azure Storage tienen habilitado el cifrado en tránsito. Esto significa que, al montar un recurso compartido de archivos a través de SMB (o acceder a él a través del protocolo FileREST), Azure Files solo permitirá la conexión si se realiza con una versión SMB 3.x con cifrado o HTTPS. Los clientes que no admiten SMB 3.x con cifrado del canal SMB no podrán montar el recurso compartido de archivos de Azure si está habilitado el cifrado en tránsito. 
 
-Azure Files admite AES-256-GCM con SMB 3.1.1, líder del sector, cuando se usa con Windows 10, versión 21H1. SMB 3.1.1 también admite AES-128-GCM y SMB 3.0 admite AES-128-CCM. AES-128-GCM se negocia de forma predeterminada en Windows 10, versión 21H1, por motivos de rendimiento.
+Azure Files admite AES-256-GCM con SMB 3.1.1 cuando se usa con Windows Server 2022 o Windows 11. SMB 3.1.1 también admite AES-128-GCM y SMB 3.0 admite AES-128-CCM. AES-128-GCM se negocia de forma predeterminada en Windows 10, versión 21H1, por motivos de rendimiento.
 
 Puede deshabilitar el cifrado en tránsito para una cuenta de almacenamiento de Azure. Cuando el cifrado está deshabilitado, Azure Files también permite el uso de SMB 2.1 y SMB 3.x sin cifrado. La razón principal para deshabilitar el cifrado en tránsito es admitir una aplicación heredada que debe ejecutarse en un sistema operativo anterior, como Windows Server 2008 R2 o una distribución de Linux anterior. Azure Files solo permite conexiones SMB 2.1 dentro de la misma región de Azure del recurso compartido de archivos de Azure. Un cliente SMB 2.1 fuera de la región de Azure del recurso compartido de archivos de Azure (por ejemplo, en un entorno local o en una región de Azure diferente) no podrá acceder al recurso compartido de archivos.
 
@@ -237,7 +237,7 @@ Get-AzStorageFileServiceProperty -StorageAccount $storageAccount | `
 Puede que quiera modificar la configuración del protocolo SMB en función de los requisitos de seguridad, rendimiento y compatibilidad de su organización. El comando de PowerShell siguiente restringe los recursos compartidos de archivos SMB exclusivamente a las opciones más seguras.
 
 > [!Important]  
-> Si los recursos compartidos de archivos SMB de Azure se restringen exclusivamente a las opciones más seguras, es posible que algunos clientes no puedan conectarse si no cumplen los requisitos. Por ejemplo, AES-256-GCM se introdujo como opción para el cifrado del canal SMB a partir de Windows 10, versión 21H1. Esto significa que los clientes más antiguos que no admiten AES-256-GCM no podrán conectarse.
+> Si los recursos compartidos de archivos SMB de Azure se restringen exclusivamente a las opciones más seguras, es posible que algunos clientes no puedan conectarse si no cumplen los requisitos. Por ejemplo, AES-256-GCM se introdujo como opción para el cifrado del canal SMB a partir de Windows Server 2022 y Windows 11. Esto significa que los clientes más antiguos que no admiten AES-256-GCM no podrán conectarse.
 
 ```PowerShell
 Update-AzStorageFileServiceProperty `
@@ -302,7 +302,7 @@ echo $protocolSettings
 Puede que quiera modificar la configuración del protocolo SMB en función de los requisitos de seguridad, rendimiento y compatibilidad de su organización. El comando de la CLI de Azure siguiente restringe los recursos compartidos de archivos SMB exclusivamente a las opciones más seguras.
 
 > [!Important]  
-> Si los recursos compartidos de archivos SMB de Azure se restringen exclusivamente a las opciones más seguras, es posible que algunos clientes no puedan conectarse si no cumplen los requisitos. Por ejemplo, AES-256-GCM se introdujo como opción para el cifrado del canal SMB a partir de Windows 10, versión 21H1. Esto significa que los clientes más antiguos que no admiten AES-256-GCM no podrán conectarse.
+> Si los recursos compartidos de archivos SMB de Azure se restringen exclusivamente a las opciones más seguras, es posible que algunos clientes no puedan conectarse si no cumplen los requisitos. Por ejemplo, AES-256-GCM se introdujo como opción para el cifrado del canal SMB a partir de Windows Server 2022 y Windows 11. Esto significa que los clientes más antiguos que no admiten AES-256-GCM no podrán conectarse.
 
 ```bash
 az storage account file-service-properties update \

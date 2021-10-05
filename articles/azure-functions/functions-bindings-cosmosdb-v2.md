@@ -1,16 +1,16 @@
 ---
-title: Enlaces de Azure Cosmos DB para Functions 2.x y superior
+title: Enlaces de Azure Cosmos DB para Functions 2.x y posteriores
 description: Descubra cómo utilizar desencadenadores y enlaces de almacenamiento de Azure Cosmos DB en Azure Functions.
 author: craigshoemaker
 ms.topic: reference
-ms.date: 02/24/2017
+ms.date: 09/01/2021
 ms.author: cshoe
-ms.openlocfilehash: dde3b95c7997a7f742a9d48a964f4275169f6e9c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5d3513ea7c7e44afde70765bed668c93cf4096bb
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92106933"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128582608"
 ---
 # <a name="azure-cosmos-db-trigger-and-bindings-for-azure-functions-2x-and-higher-overview"></a>Información general sobre el desencadenador y los enlaces de Azure Cosmos DB para Azure Functions 2.x y versiones superiores
 
@@ -53,9 +53,49 @@ Para trabajar con el desencadenador y los enlaces, es necesario hacer referencia
 [Actualización de las extensiones]: ./functions-bindings-register.md
 [Extensión Azure Tools]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
 
+### <a name="cosmos-db-extension-4x-and-higher"></a>Extensión de Cosmos DB 4.x y posteriores
+
+Hay disponible una nueva versión de la extensión de enlaces de Cosmos DB en un [paquete NuGet en versión preliminar](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB/4.0.0-preview1). Esta versión preliminar presenta la posibilidad de [conectarse con una identidad en lugar de un secreto](./functions-reference.md#configure-an-identity-based-connection). En el caso de las aplicaciones .NET, también cambian los tipos con los que se puede enlazar; así, los tipos del SDK v2 `Microsoft.Azure.DocumentDB` se reemplazan por otros tipos más recientes del SDK v3 [Microsoft.Azure.Cosmos](../cosmos-db/sql/sql-api-sdk-dotnet-standard.md). Obtenga más información sobre en qué se diferencian estos nuevos tipos y cómo migrarlos en la [guía de migración de SDK](../cosmos-db/sql/migrate-dotnet-v3.md) y en los ejemplos de [desencadenador](./functions-bindings-cosmosdb-v2-trigger.md), [enlace de entrada](./functions-bindings-cosmosdb-v2-input.md) y [enlace de salida](./functions-bindings-cosmosdb-v2-output.md).
+
+> [!NOTE]
+> Actualmente, la autenticación con una identidad en lugar de un secreto mediante la extensión en versión preliminar 4.x solo está disponible para los planes elásticos Premium. 
+
 ### <a name="functions-1x"></a>Functions 1.x
 
 Las aplicaciones de Functions 1.x tienen automáticamente una referencia al paquete NuGet [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs), versión 2.x.
+
+## <a name="exceptions-and-return-codes"></a>Excepciones y códigos de retorno
+
+| Enlace | Referencia |
+|---|---|
+| CosmosDB | [Códigos de error de CosmosDB](/rest/api/cosmos-db/http-status-codes-for-cosmosdb) |
+
+<a name="host-json"></a>
+
+## <a name="hostjson-settings"></a>configuración de host.json
+
+En esta sección se describen las opciones de configuración globales disponibles para este enlace en la versión 2.x de Azure Functions. Para obtener más información acerca de las opciones de configuración globales de la versión 2.x de Azure Functions, consulte la [referencia de host.json para Azure Functions, versión 2.x](functions-host-json.md).
+
+```json
+{
+    "version": "2.0",
+    "extensions": {
+        "cosmosDB": {
+            "connectionMode": "Gateway",
+            "protocol": "Https",
+            "leaseOptions": {
+                "leasePrefix": "prefix1"
+            }
+        }
+    }
+}
+```
+
+|Propiedad  |Valor predeterminado |Descripción |
+|----------|--------|------------|
+|GatewayMode|Puerta de enlace|Modo de conexión que usa la función al conectarse al servicio de Azure Cosmos DB. Las opciones son `Direct` y `Gateway`|
+|Protocolo|Https|Protocolo de conexión que usa la función al conectarse al servicio de Azure Cosmos DB. Lea [aquí para obtener una explicación de los dos modos](../cosmos-db/performance-tips.md#networking). <br><br> Esta configuración no está disponible en la [versión 4.x de la extensión](#cosmos-db-extension-4x-and-higher). |
+|leasePrefix|N/D|Prefijo de concesión que se usará en todas las funciones de una aplicación. <br><br> Esta configuración no está disponible en la [versión 4.x de la extensión](#cosmos-db-extension-4x-and-higher).|
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -3,137 +3,148 @@ title: Uso del Explorador de Azure Storage para administrar discos administrados
 description: Aprenda a cargar, descargar y migrar un disco administrado de Azure entre regiones, y también a crear una instantánea de un disco administrado, mediante el Explorador de Azure Storage.
 author: roygara
 ms.author: rogarana
-ms.date: 09/25/2019
+ms.date: 09/07/2021
 ms.topic: how-to
 ms.service: storage
 ms.subservice: disks
-ms.openlocfilehash: 1ef24210e033c5e0af623dfa6f3cd79146732640
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 84b2ea53ebb0b6102edf5bc501e0e1b9b6f21726
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122692298"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124782054"
 ---
 # <a name="use-azure-storage-explorer-to-manage-azure-managed-disks"></a>Uso del Explorador de Azure Storage para administrar discos administrados de Azure
 
 **Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles :heavy_check_mark: Conjuntos de escalado uniformes
 
-Explorador de Storage 1.10.0 permite a los usuarios cargar, descargar y copiar discos administrados, así como crear instantáneas. Debido a estas capacidades adicionales, puede usar Explorador de Storage para migrar datos desde una ubicación local a Azure y migrar datos entre regiones de Azure.
+El Explorador de Azure Storage contiene un amplio conjunto de características que le permiten:
+
+- Cargar, descargar y copiar discos administrados.
+- Crear instantáneas desde el sistema operativo o el disco duro virtual del disco de datos.
+- Migrar datos desde un entorno local a Azure.
+- Migrar datos entre regiones de Azure.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este artículo, necesitará lo siguiente:
-- Una suscripción de Azure
-- Uno o varios discos administrados de Azure
-- La versión más reciente de [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/)
+
+- Suscripción a Azure.
+- Al menos un disco administrado de Azure.
+- La versión más reciente del [explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/).
+
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
 ## <a name="connect-to-an-azure-subscription"></a>Conexión a una suscripción de Azure
 
-Si el Explorador de Storage no está conectado a Azure, no podrá usarlo para administrar los recursos. En esta sección se explica cómo conectarse a su cuenta de Azure para que pueda administrar los recursos mediante Explorador de Storage.
+Si el Explorador de Storage no está conectado a Azure, no podrá usarlo para administrar los recursos. Siga los pasos de esta sección para conectar el Explorador de Storage a su cuenta de Azure. Después, puede usarlo para administrar los discos.
 
-1. Inicie Explorador de Azure Storage y haga clic en el icono de **complemento** de la izquierda.
+1. Abra el Explorador de Azure Storage y seleccione el icono **Conectar** en la barra de herramientas.
 
-    ![Haga clic en el icono del complemento.](media/disks-upload-vhd-to-managed-disk-storage-explorer/plug-in-icon.png)
+    [![Captura de pantalla del Explorador de Azure Storage que muestra la ubicación del icono Conectar.](media/disks-upload-vhd-to-managed-disk-storage-explorer/plug-in-icon-sml.png)](media/disks-upload-vhd-to-managed-disk-storage-explorer/plug-in-icon-lrg.png#lightbox)
 
-1. Seleccione **Agregar una cuenta de Azure** y haga clic en **Siguiente**.
+1. En el cuadro de diálogo **Conectar a Azure Storage**, seleccione **Suscripción**.
 
-    ![Agregar una cuenta de Azure](media/disks-upload-vhd-to-managed-disk-storage-explorer/connect-to-azure.png)
+    [![Captura de pantalla del Explorador de Azure Storage que resalta la ubicación de la opción Suscripción.](media/disks-upload-vhd-to-managed-disk-storage-explorer/connect-to-azure-sml.png)](media/disks-upload-vhd-to-managed-disk-storage-explorer/connect-to-azure-lrg.png#lightbox)
 
-1. En el cuadro de diálogo **Iniciar sesión en Azure**, escriba sus credenciales de Azure.
+1. Seleccione el entorno de adecuado y seleccione **Siguiente**. También puede seleccionar **Administrar los entornos personalizados** para configurar y agregar un entorno personalizado.
 
-    ![Cuadro de diálogo de inicio de sesión en Azure](media/disks-upload-vhd-to-managed-disk-storage-explorer/sign-in.png)
+    [![Captura pantalla del Explorador de Azure Storage que resalta la ubicación de la opción Entorno de Azure.](media/disks-upload-vhd-to-managed-disk-storage-explorer/choose-environment-sml.png)](media/disks-upload-vhd-to-managed-disk-storage-explorer/choose-environment-lrg.png#lightbox)
 
-1. Seleccione la suscripción en la lista y luego haga clic en **Aplicar**.
+1. En el cuadro de diálogo **Iniciar sesión**, escriba sus credenciales de Azure.
 
-    ![Seleccione su suscripción.](media/disks-upload-vhd-to-managed-disk-storage-explorer/select-subscription.png)
+    ![Captura de pantalla del cuadro de diálogo de inicio de sesión.](media/disks-upload-vhd-to-managed-disk-storage-explorer/sign-in.png)
 
-## <a name="upload-a-managed-disk-from-an-on-prem-vhd"></a>Cargar un disco administrado desde un VHD local
+1. Seleccione la suscripción en la lista y luego seleccione **Open Explorer** (Abrir explorador).
 
-1. En el panel izquierdo, expanda **Discos** y seleccione el grupo de recursos en el que desea cargar el disco.
+    [![Captura de pantalla del Explorador de Azure Storage que resalta la ubicación del botón Open Explorer (Abrir explorador).](media/disks-upload-vhd-to-managed-disk-storage-explorer/select-subscription-sml.png)](media/disks-upload-vhd-to-managed-disk-storage-explorer/select-subscription-lrg.png#lightbox)
 
-    ![Seleccionar el grupo de recursos 1](media/disks-upload-vhd-to-managed-disk-storage-explorer/select-rg1.png)
+## <a name="upload-an-on-premises-vhd"></a>Carga de un VHD local
 
-1. Haga clic en **Cargar**.
+Puede cargar un archivo de disco duro virtual (VHD) local en Azure y usarlo para crear una imagen. Siga los pasos de esta sección para cargar el archivo de origen.
 
-    ![Selección de carga](media/disks-upload-vhd-to-managed-disk-storage-explorer/upload-button.png)
+1. En el panel **Explorador**, expanda los **Discos** y seleccione el grupo de recursos en el que desea cargar el disco.
 
-1. En **Cargar VHD** especifique el VHD de origen, el nombre del disco, el tipo de sistema operativo, la región a la que desea cargar el disco y el tipo de cuenta. En algunas regiones, se admiten zonas de disponibilidad, para las cuales puede seleccionar la zona deseada.
-1. Seleccione **Crear** para empezar a cargar el disco.
+    [![Captura de pantalla del Explorador de Azure Storage que resalta la ubicación del nodo Discos para cargar un disco.](media/disks-upload-vhd-to-managed-disk-storage-explorer/select-rg1-sml.png)](media/disks-upload-vhd-to-managed-disk-storage-explorer/select-rg1-lrg.png#lightbox)
 
-    ![Cuadro de diálogo Cargar VHD](media/disks-upload-vhd-to-managed-disk-storage-explorer/upload-vhd-dialog.png)
+1. En el panel de detalles del grupo de recursos, seleccione **Cargar**.
+
+    [![Captura de pantalla del Explorador de Azure Storage que resalta la ubicación del botón Cargar.](media/disks-upload-vhd-to-managed-disk-storage-explorer/upload-button-sml.png)](media/disks-upload-vhd-to-managed-disk-storage-explorer/upload-button-lrg.png#lightbox)
+
+1. En el cuadro de diálogo **Upload VHD** (Cargar disco duro virtual), especifique el archivo de origen del disco duro virtual, el nombre del disco, el tipo de sistema operativo, la región en la que desea cargar el disco y el tipo de cuenta. Si la región admite zonas de disponibilidad, puede seleccionar una zona de su elección. Seleccione **Crear** para empezar a cargar el disco.
+
+    [![Captura de pantalla del cuadro de diálogo Upload VHD (Cargar disco duro virtual) del Explorador de Azure Storage.](media/disks-upload-vhd-to-managed-disk-storage-explorer/upload-vhd-dialog-sml.png)](media/disks-upload-vhd-to-managed-disk-storage-explorer/upload-vhd-dialog-lrg.png#lightbox)
 
 1. El estado de la carga ahora se mostrará en **Actividades**.
 
-    ![Estado de la carga](media/disks-upload-vhd-to-managed-disk-storage-explorer/activity-uploading.png)
+    [![Captura de pantalla del Explorador de Azure Storage que resalta la ubicación del panel Activities (Actividades) que contiene los mensajes de estado de carga.](media/disks-upload-vhd-to-managed-disk-storage-explorer/activity-uploading-sml.png)](media/disks-upload-vhd-to-managed-disk-storage-explorer/activity-uploading-lrg.png#lightbox)
 
-1. Si la carga ha finalizado y no ve el disco en el panel derecho, seleccione **Actualizar**.
+Si la carga ha finalizado y no ve el disco en el panel **Activities** (Actividades), seleccione **Actualizar**.
 
 ## <a name="download-a-managed-disk"></a>Descargar un disco administrado
 
-En los pasos siguientes se explica cómo descargar un disco administrado en un VHD local. Para que un disco se pueda descargar, su estado debe ser **Sin conectar**. No puede descargar un disco con el estado **Conectado**.
+Siga los pasos de esta sección para descargar un disco administrado a un disco duro virtual local. El estado del disco debe estar **Unattached** (Sin conectar) antes de que se pueda descargar.
 
-1. En el panel izquierdo, si aún no está expandido, expanda **Discos** y seleccione el grupo de recursos desde el que desea descargar el disco.
+1. En el panel **Explorador**, expanda los **Discos** y seleccione el grupo de recursos desde el que desea descargar el disco.
 
-    ![Seleccionar el grupo de recursos 1](media/disks-upload-vhd-to-managed-disk-storage-explorer/select-rg1.png)
+    [![Captura de pantalla del Explorador de Azure Storage que resalta la ubicación del nodo Discos para descargar discos.](media/disks-upload-vhd-to-managed-disk-storage-explorer/select-rg1-sml.png)](media/disks-upload-vhd-to-managed-disk-storage-explorer/select-rg1-dl-lrg.png#lightbox)
 
-1. En el panel derecho, seleccione el disco que desea descargar.
+1. En el panel de detalles del grupo de recursos, seleccione el disco que desea descargar.
 1. Seleccione **Descargar** y elija dónde desea guardar el disco.
 
-    ![Descargar un disco administrado](media/disks-upload-vhd-to-managed-disk-storage-explorer/download-button.png)
+    [![Captura de pantalla del Explorador de Azure Storage que resalta la ubicación del botón Descargar.](media/disks-upload-vhd-to-managed-disk-storage-explorer/download-button-sml.png)](media/disks-upload-vhd-to-managed-disk-storage-explorer/download-button-lrg.png#lightbox)
 
-1. Seleccione **Guardar** y el disco comenzará a descargarse. El estado de la descarga se mostrará en **Actividades**.
+1. Seleccione **Guardar** para comenzar la descarga. El estado de la descarga se mostrará en **Activities** (Actividades).
 
-    ![Estado de descarga](media/disks-upload-vhd-to-managed-disk-storage-explorer/activity-downloading.png)
+    [![Captura de pantalla del Explorador de Azure Storage que resalta la ubicación del panel Activities (Actividades) que contiene los mensajes de estado de descarga.](media/disks-upload-vhd-to-managed-disk-storage-explorer/activity-downloading-sml.png)](media/disks-upload-vhd-to-managed-disk-storage-explorer/activity-downloading-lrg.png#lightbox)
 
 ## <a name="copy-a-managed-disk"></a>Copia de un disco administrado
 
 Con Explorador de Storage, puede copiar un disco superpuesto dentro o entre regiones. Para copiar un disco:
 
-1. En la lista desplegable **Discos** de la izquierda, seleccione el grupo de recursos que contiene el disco que desea copiar.
+1. En el panel **Explorador**, expanda el desplegable **Discos** y seleccione el grupo de recursos que contiene el disco que desea copiar.
 
-    ![Seleccionar el grupo de recursos 1](media/disks-upload-vhd-to-managed-disk-storage-explorer/select-rg1.png)
+    [![Captura de pantalla del Explorador de Azure Storage que resalta la ubicación del nodo Discos para copiar un disco.](media/disks-upload-vhd-to-managed-disk-storage-explorer/select-rg1-sml.png)](media/disks-upload-vhd-to-managed-disk-storage-explorer/select-rg1-lrg.png#lightbox)
 
-1. En el panel derecho, elija el disco que desea copiar y seleccione **Copiar**.
+1. En el panel de detalles del grupo de recursos, elija el disco que desea copiar y seleccione **Copiar**.
 
-    ![Copia de un disco administrado](media/disks-upload-vhd-to-managed-disk-storage-explorer/copy-button.png)
+    [![Captura de pantalla del Explorador de Azure Storage que resalta la ubicación del botón Copiar.](media/disks-upload-vhd-to-managed-disk-storage-explorer/copy-button-sml.png)](media/disks-upload-vhd-to-managed-disk-storage-explorer/copy-button-lrg.png#lightbox)
 
-1. En el panel izquierdo, seleccione el grupo de recursos en el que desea pegar el disco.
+1. En el panel **Explorador**, expanda los **Discos** y seleccione el grupo de recursos en el que desea pegar contenido del disco.
 
-    ![Seleccionar el grupo de recursos 2](media/disks-upload-vhd-to-managed-disk-storage-explorer/select-rg2.png)
+    [![Captura de pantalla del Explorador de Azure Storage que resalta la ubicación del nodo Discos para pegar el contenido de un disco.](media/disks-upload-vhd-to-managed-disk-storage-explorer/select-rg2-sml.png)](media/disks-upload-vhd-to-managed-disk-storage-explorer/select-rg2-lrg.png#lightbox)
 
-1. Seleccione **Pegar** en el panel derecho.
+1. En el panel de detalles del grupo de recursos, seleccione **Pegar**.
 
-    ![Pegar un disco administrado](media/disks-upload-vhd-to-managed-disk-storage-explorer/paste-button.png)
+    [![Captura de pantalla del Explorador de Azure Storage que resalta la ubicación del botón Pegar.](media/disks-upload-vhd-to-managed-disk-storage-explorer/paste-button-sml.png)](media/disks-upload-vhd-to-managed-disk-storage-explorer/paste-button-lrg.png#lightbox)
 
-1. En el cuadro de diálogo **Pegar un disco**, rellene los valores. También puede especificar una zona de disponibilidad en las regiones admitidas.
+1. En el cuadro de diálogo **Paste Disk** (Pegar disco), rellene los valores. También puede especificar una zona de disponibilidad en las regiones admitidas.
 
-    ![Cuadro de diálogo Pegar un disco](media/disks-upload-vhd-to-managed-disk-storage-explorer/paste-disk-dialog.png)
+    [![Captura de pantalla del formulario Paste Disk (Pegar disco) del Explorador de Azure Storage.](media/disks-upload-vhd-to-managed-disk-storage-explorer/paste-disk-dialog-sml.png)](media/disks-upload-vhd-to-managed-disk-storage-explorer/paste-disk-dialog-lrg.png#lightbox)
 
-1. Seleccione **Pegar** y el disco comenzará a copiarse. El estado se muestra en **Actividades**.
+1. Seleccione **Pegar** para iniciar la copia del disco. El estado aparece en **Activities** (Actividades).
 
-    ![Estado de copia y pegado](media/disks-upload-vhd-to-managed-disk-storage-explorer/activity-copying.png)
+    [![Captura de pantalla del Explorador de Azure Storage que resalta la ubicación del panel Activities (Actividades) que contiene los mensajes de estado de copia y pegado.](media/disks-upload-vhd-to-managed-disk-storage-explorer/activity-copying-sml.png)](media/disks-upload-vhd-to-managed-disk-storage-explorer/activity-copying-lrg.png#lightbox)
 
 ## <a name="create-a-snapshot"></a>Crear una instantánea
 
-1. En la lista desplegable **Discos** de la izquierda, seleccione el grupo de recursos que contiene el disco del que desea crear una instantánea.
+1. En el panel **Explorador**, expanda **Discos** y seleccione el grupo de recursos que contiene el disco del que desea hacer una instantánea.
 
-    ![Seleccionar el grupo de recursos 1](media/disks-upload-vhd-to-managed-disk-storage-explorer/select-rg1.png)
+    [![Captura de pantalla del Explorador de Azure Storage que resalta la ubicación del nodo Discos para crear instantáneas de discos.](media/disks-upload-vhd-to-managed-disk-storage-explorer/select-rg1-sml.png)](media/disks-upload-vhd-to-managed-disk-storage-explorer/select-rg1-dl-lrg.png#lightbox)
 
-1. A la derecha, seleccione el disco del que desea crear una instantánea y seleccione **Crear instantánea**.
+1. En el panel de detalles del grupo de recursos, elija el disco del que desea hacer una instantánea y seleccione **Create Snapshot** (Crear instantánea).
 
-    ![Crear una instantánea](media/disks-upload-vhd-to-managed-disk-storage-explorer/create-snapshot-button.png)
+    [![Captura de pantalla del Explorador de Azure Storage que resalta la ubicación del botón Create Snapshot (Crear instantánea).](media/disks-upload-vhd-to-managed-disk-storage-explorer/create-snapshot-button-sml.png)](media/disks-upload-vhd-to-managed-disk-storage-explorer/create-snapshot-button-lrg.png#lightbox)
 
-1. En **Crear instantánea**, especifique el nombre de la instantánea, así como el grupo de recursos en el que desea crearla. Seleccione **Crear**.
+1. En **Create Snapshot** (Crear instantánea), especifique el nombre de la instantánea, así como el grupo de recursos en el que desea crearla. Seleccione **Crear**.
 
-    ![Cuadro de diálogo Crear instantánea](media/disks-upload-vhd-to-managed-disk-storage-explorer/create-snapshot-dialog.png)
+    [![Captura de pantalla del cuadro de diálogo Create Snapshot (Crear instantánea) del Explorador de Azure Storage.](media/disks-upload-vhd-to-managed-disk-storage-explorer/create-snapshot-dialog-sml.png)](media/disks-upload-vhd-to-managed-disk-storage-explorer/create-snapshot-dialog-lrg.png#lightbox)
 
 1. Una vez creada la instantánea, puede seleccionar **Abrir en el portal** en **Actividades** para ver la instantánea en el Azure Portal.
 
-    ![Abrir instantánea en el portal](media/disks-upload-vhd-to-managed-disk-storage-explorer/open-in-portal.png)
+    [![Captura de pantalla del Explorador de Azure Storage que resalta la ubicación del vínculo en el panel Activities (Actividades) con mensajes de estado de instantáneas.](media/disks-upload-vhd-to-managed-disk-storage-explorer/open-in-portal-sml.png)](media/disks-upload-vhd-to-managed-disk-storage-explorer/open-in-portal-lrg.png#lightbox)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-
-Aprenda a [crear una máquina virtual a partir de un disco duro virtual mediante Azure Portal](windows/create-vm-specialized-portal.md).
-
-Aprenda a [conectar un disco de datos administrado a una máquina virtual Windows con Azure Portal](windows/attach-managed-disk-portal.md).
+- [Creación de una máquina virtual a partir de un disco duro virtual mediante Azure Portal](/azure/virtual-machines/windows/create-vm-specialized-portal)
+- [Conexión de un disco de datos administrado a una máquina virtual de Windows mediante Azure Portal](/azure/virtual-machines/windows/attach-managed-disk-portal)

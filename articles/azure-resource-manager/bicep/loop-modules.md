@@ -5,18 +5,22 @@ author: mumian
 ms.author: jgao
 ms.topic: conceptual
 ms.date: 08/27/2021
-ms.openlocfilehash: 44e5a4356cac0f252b344a7acf8b68a2f51d1ef1
-ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
+ms.openlocfilehash: f8893fa6716d1b106e54f7eb76002622ce5a4bc3
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123215244"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124793443"
 ---
 # <a name="module-iteration-in-bicep"></a>Iteración de módulos en Bicep
 
 En este artículo se muestra cómo implementar más de una instancia de un [módulo](modules.md) en el archivo de Bicep. Puede agregar un bucle a una declaración `module` y establecer de manera dinámica el número de veces que se va a implementar ese módulo. Se evita repetir la sintaxis en el archivo de Bicep.
 
 También puede usar un bucle con [recursos](loop-resources.md), [propiedades](loop-properties.md), [variables](loop-variables.md) y [salidas](loop-outputs.md).
+
+### <a name="microsoft-learn"></a>Microsoft Learn
+
+Para más información sobre los bucles y para obtener una práctica guía, consulte [Creación de plantillas de Bicep flexibles mediante condiciones y bucles](/learn/modules/build-flexible-bicep-templates-conditions-loops/) en **Microsoft Learn**.
 
 ## <a name="syntax"></a>Sintaxis
 
@@ -30,7 +34,7 @@ Los bucles se pueden usar para declarar varios módulos por medio de:
   }]
   ```
 
-  Para obtener más información, vea [Índice de bucles](#loop-index).
+  Para obtener más información, consulte [Índice de bucles](#loop-index).
 
 - Iteración en una matriz.
 

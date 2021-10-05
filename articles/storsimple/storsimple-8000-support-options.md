@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: conceptual
 ms.date: 08/13/2019
 ms.author: alkohli
-ms.openlocfilehash: 55cc3049e437cc18eac6dc537de3ee1c0d894c23
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 69b24272d2a04d19eb8fc419a6a2cbda744f24ab
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "87070343"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128588587"
 ---
 # <a name="storsimple-solution-support"></a>Soporte técnico de la solución StorSimple
 
@@ -111,16 +111,9 @@ Las matrices de almacenamiento de la serie StorSimple 8000 se proporcionan en fu
 
 
 
-*<text> * La cobertura Premium no está disponible en todas las ubicaciones. Póngase en contacto con Microsoft en SSSupOps\@microsoft.com para obtener cobertura geográfica antes de adquirir el soporte técnico Premium de StorSimple.*
+\* La cobertura Premium no está disponible en todas las ubicaciones. Póngase en contacto con Microsoft en SSSupOps\@microsoft.com para obtener cobertura geográfica antes de adquirir el soporte técnico Premium de StorSimple.
 
-**\*El dispositivo de StorSimple debe implementarse en una región donde el cliente tenga un servicio de soporte técnico Premier para poder conseguir una actualización gratuita al servicio de soporte técnico Premium de StorSimple.*
+\** El dispositivo de StorSimple debe implementarse en una región donde el cliente tenga un servicio de soporte técnico Premier para poder conseguir una actualización gratuita al servicio de soporte técnico Premium de StorSimple.
 
 
 Los clientes que tengan una suscripción de tipo "Prioritario +" pueden cambiarse a un modelo que incluya un servicio de soporte técnico estándar. Use la calculadora de precios de StorSimple para obtener los precios de suscripción y póngase en contacto con SSSupOps@microsoft.com si tiene alguna pregunta. Solo se puede realizar un cambio desde el modelo "Prioritario +" a la suscripción.
-
-
-
-
-
-
- 

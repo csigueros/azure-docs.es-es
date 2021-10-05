@@ -7,13 +7,13 @@ ms.topic: article
 author: shganesh-dev
 ms.author: shganesh
 ms.reviewer: sroy
-ms.date: 08/21/2020
-ms.openlocfilehash: b0771ee85fc486d4fbcc4fb181b1ce0b7b7d47dd
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/27/2021
+ms.openlocfilehash: 34d8746939b1ec4a957d72b089541eb6b5c0b5dd
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121731194"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129080235"
 ---
 # <a name="downloads-dashboard-in-commercial-marketplace-analytics"></a>Panel Descargas del análisis de marketplace comercial
 
@@ -28,9 +28,27 @@ El [panel Descargas](https://go.microsoft.com/fwlink/?linkid=2165766) muestra la
 
 Recibirá una notificación emergente con un vínculo al panel **Descargas** cada vez que solicite una descarga con más de 1000 filas de datos. Estas descargas de datos estarán disponibles durante un período de 30 días y, a continuación, se quitarán.
 
-## <a name="lifetime-export-of-commercial-marketplace-analytics-reports"></a>Exportación de la duración de los informes de análisis de marketplace comercial
+## <a name="access-the-downloads-dashboard"></a>Acceso al panel de descargas
 
-Para acceder al panel Descargas, abra el panel **[Analizar](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** en el marketplace comercial.
+[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
+
+#### <a name="workspaces-view"></a>[Vista de áreas de trabajo](#tab/workspaces-view)
+
+1. Inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard/home).
+1. En la página principal, seleccione el icono **Información**.
+
+    [ ![Se muestra el icono "Información" en la página principal del Centro de partners.](./media/workspaces/partner-center-insights-tile.png) ](./media/workspaces/partner-center-insights-tile.png#lightbox)
+
+1. En el menú de la izquierda, seleccione **Descargas**.
+
+#### <a name="current-view"></a>[Vista actual](#tab/current-view)
+
+1. Inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard/home).
+1. En el menú de navegación de la izquierda, seleccione **Marketplace comercial** > **Analizar** > **Descargas**.
+
+---
+
+## <a name="lifetime-export-of-commercial-marketplace-analytics-reports"></a>Exportación de la duración de los informes de análisis de marketplace comercial
 
 En la página Descargas, el usuario final puede hacer lo siguiente:
 
@@ -48,14 +66,22 @@ Compatibilidad con la funcionalidad de exportación de la duración de los infor
 | Uso | ![Marca con X negra](media/downloads-dashboard/check-black-no.png) | Un año como máximo |
 |
 
-Un usuario puede programar descargas asincrónicas de informes en la sección Descargas:
+Un usuario puede programar descargas asincrónicas de informes en el panel Descargas.
+
+#### <a name="workspaces-view"></a>[Vista de áreas de trabajo](#tab/workspaces-view)
+
+[![Programación de descargas asincrónicas de informes desde la página Descargas](media/downloads-dashboard/download-reports-workspaces.png)](media/downloads-dashboard/download-reports.png#lightbox)
+
+#### <a name="current-view"></a>[Vista actual](#tab/current-view)
 
 [![Programación de descargas asincrónicas de informes desde la sección Descargas](media/downloads-dashboard/download-reports.png)](media/downloads-dashboard/download-reports.png#lightbox)
+
+---
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para más información sobre los informes de análisis disponibles en el marketplace comercial del Centro de partners, consulte [Análisis del marketplace comercial en el Centro de partners](analytics.md).
-- Para ver los gráficos, las tendencias y los valores de datos agregados que resumen la actividad de la oferta en el marketplace, consulte [Panel Resumen de los análisis de marketplace comercial](summary-dashboard.md).
+- Para ver los gráficos, las tendencias y los valores de datos agregados que resuman la actividad de la oferta en el marketplace, consulte [Panel Resumen de los análisis de marketplace comercial](summary-dashboard.md).
 - Para información sobre los pedidos en un formato gráfico que se pueda descargar, consulte [Panel Pedidos de los análisis de marketplace comercial](orders-dashboard.md).
 - Para información sobre las métricas de uso y facturación de las ofertas de máquina virtual, consulte [Panel Uso de los análisis de marketplace comercial](usage-dashboard.md).
 - Para obtener información detallada acerca de los clientes, incluidas las tendencias de crecimiento, consulte [Panel Cliente de los análisis de marketplace comercial](customer-dashboard.md).

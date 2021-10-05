@@ -8,12 +8,12 @@ ms.subservice: vm-sizes-general
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.reviewer: jushiman
-ms.openlocfilehash: 054a15fe800152981ce494aca4abe26a996a173c
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 43602810d9526257c5980d6a113e6bc45c3ead77
+ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122687546"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129153432"
 ---
 # <a name="dav4-and-dasv4-series"></a>Series Dav4 y Dasv4
 
@@ -63,16 +63,16 @@ Los tamaños de la serie Dav4 se basan en el procesador EPYC<sup>TM</sup> 7452 d
 
 Los tamaños de la serie Dasv4 se basan en el procesador EPYC<sup>TM</sup> 7452 de AMD de 2,35 Ghz que pueden alcanzar una frecuencia máxima incrementada de 3,35 Ghz y usar SSD Premium. Los tamaños de la serie Dasv4 ofrecen una combinación de vCPU, memoria y almacenamiento local adecuados para la mayoría de las cargas de trabajo de producción.
 
-| Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento máximo de almacenamiento temporal y en caché: IOPS / MBps (tamaño de caché en GiB) | Rendimiento máximo del disco sin almacenamiento en la caché: IOPS / MBps |  Rendimiento máximo del disco sin almacenamiento en la caché expandido: IOPS/MBps<sup>1</sup> | Nº máx. NIC | Ancho de banda de red esperado (Mbps) |
-|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
-| Standard_D2as_v4<sup>2</sup>|2|8|16|4|4000/32 (50)|3200/48| 4000/200 | 2 | 2000 |
-| Standard_D4as_v4|4|16|32|8|8000/64 (100)|6400/96| 8000/200 |2 | 4000 |
-| Standard_D8as_v4|8|32|64|16|16000/128 (200)|12800/192| 16 000/400 |4 | 8000 |
-| Standard_D16as_v4|16|64|128|32|32 000 / 255 (400)|25600/384| 32 000/800 |8 | 10000 |
-| Standard_D32as_v4|32|128|256|32|64 000 / 510 (800)|51200/768| 64 000/1600 |8 | 16000 |
-| Standard_D48as_v4|48|192|384|32|96000/1020 (1200)|76800/1148| 80000/2000 |8 | 24000 |
-| Standard_D64as_v4|64|256|512|32|128000/1020 (1600)|80000/1200| 80000/2000 |8 | 32000 | 
-| Standard_D96as_v4|96|384|768|32|192000/1020 (2400)|80000/1200| 80000/2000 |8 | 40000 |
+| Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento máximo de almacenamiento temporal y en caché: IOPS / MBps (tamaño de caché en GiB) | Rendimiento máximo de almacenamiento en caché y almacenamiento temporal expandidos: IOPS/MBps | Rendimiento máximo del disco sin almacenamiento en la caché: IOPS / MBps |  Rendimiento máximo del disco sin almacenamiento en la caché expandido: IOPS/MBps<sup>1</sup> | Nº máx. NIC | Ancho de banda de red esperado (Mbps) |
+|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
+| Standard_D2as_v4<sup>2</sup>|2|8|16|4|4000/32 (50)| 4000/100  |3200/48| 4000/200 | 2 | 2000 |
+| Standard_D4as_v4|4|16|32|8|8000/64 (100)| 8000/200 |6400/96| 8000/200 |2 | 4000 |
+| Standard_D8as_v4|8|32|64|16|16000/128 (200)| 16 000/400 |12800/192| 16 000/400 |4 | 8000 |
+| Standard_D16as_v4|16|64|128|32|32 000 / 255 (400)| 32 000/800 |25600/384| 32 000/800 |8 | 10000 |
+| Standard_D32as_v4|32|128|256|32|64 000 / 510 (800)| 64 000/1600 |51200/768| 64 000/1600 |8 | 16000 |
+| Standard_D48as_v4|48|192|384|32|96000/1020 (1200)| 96 000/2000 |76800/1148| 80000/2000 |8 | 24000 |
+| Standard_D64as_v4|64|256|512|32|128000/1020 (1600)| 128 000/2000 |80000/1200| 80000/2000 |8 | 32000 | 
+| Standard_D96as_v4|96|384|768|32|192000/1020 (2400)| 192000/2000 |80000/1200| 80000/2000 |8 | 40000 |
 
 <sup>1</sup> Las máquinas virtuales de la serie Dasv4 pueden [expandir](./disk-bursting.md) su rendimiento de disco y llegar a una expansión máxima de hasta 30 minutos cada vez.
 <sup>2</sup> Las redes aceleradas solo se pueden aplicar a una única NIC. 

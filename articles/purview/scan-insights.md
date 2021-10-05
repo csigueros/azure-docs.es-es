@@ -4,19 +4,22 @@ description: En esta guía paso a paso se describe cómo ver y usar los informes
 author: SunetraVirdi
 ms.author: suvirdi
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-insights
 ms.topic: how-to
-ms.date: 11/20/2020
-ms.openlocfilehash: 3c5a3b9b312e093d7bee5c0c555e8e2eab0c531b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/27/2021
+ms.openlocfilehash: 17935a3dc4aef3c5cd9d6b1e162a2002b3c06e2c
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121731142"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129211382"
 ---
 # <a name="scan-insights-on-your-data-in-azure-purview"></a>Información de exámenes sobre los datos de Azure Purview
 
 En esta guía paso a paso se describe cómo obtener acceso, ver y filtrar los informes de información detallada de exámenes de Azure Purview para los datos.
+
+> [!IMPORTANT]
+> Insights de Azure Purview se encuentra actualmente en versión preliminar. Los [Términos de uso complementarios para las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) incluyen términos legales adicionales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado para que estén disponibles con carácter general.
 
 En esta guía paso a paso, aprenderá a:
 
@@ -31,7 +34,7 @@ Antes de empezar a usar la información detallada de Purview, asegúrese de que 
 * Ha configurado los recursos de Azure y ha rellenado la cuenta con datos.
 * Ha configurado y realizado un examen en el origen de datos.
 
-Para más información, consulte [Administración de orígenes de datos en Azure Purview (versión preliminar)](manage-data-sources.md).
+Para obtener más información, consulte [Administración de orígenes de datos en Azure Purview](manage-data-sources.md).
 
 ## <a name="use-purview-scan-insights"></a>Usar la información de exámenes de Purview
 
@@ -45,11 +48,11 @@ En Azure Purview, puede registrar y examinar los tipos de origen. Puede ver el e
 
    :::image type="content" source="./media/scan-insights/portal-access.png" alt-text="Inicio de Purview desde Azure Portal":::
 
-1. En la página **Home** (Inicio) de Purview, seleccione el icono **View insights** (Ver información) para acceder al área **Insights** :::image type="icon" source="media/scan-insights/ico-insights.png" border="false"::: (Información detallada).
+1. En la página **principal** de Purview, seleccione **Insights** (Información) en el menú de la izquierda.
 
    :::image type="content" source="./media/scan-insights/view-insights.png" alt-text="Visualización de información detallada en Azure Portal":::
 
-1. En el área **Insights** (Información detallada) :::image type="icon" source="media/scan-insights/ico-insights.png" border="false":::, seleccione **Scans** (Exámenes) para mostrar el informe **Scan insights** (Información detallada de exámenes).
+1. En el área **Insights** (Información), seleccione **Scans** (Exámenes) para mostrar el informe **Scan insights** (Información detallada de exámenes).
 
 ### <a name="view-high-level-kpis-to-show-count-of-scans-by-status-and-deep-dive-into-each-scan"></a>Visualización de los indicadores clave de rendimiento de alto nivel para mostrar el recuento de exámenes por estado y profundizar en cada examen
  
@@ -62,7 +65,7 @@ En Azure Purview, puede registrar y examinar los tipos de origen. Puede ver el e
 
     :::image type="content" source="./media/scan-insights/main-graph.png" alt-text="Ver el estado del examen a lo largo del tiempo":::
 
-4. Para explorar más detalladamente un examen específico, haga clic en el **nombre del examen**, lo que le conectará con el historial de exámenes dentro de la experiencia de **Mapa de datos** de Azure Purview. En la página Historial de ejecución, puede obtener el identificador de la ejecución que le ayudará en la investigación de errores.
+4. Para explorar más detalladamente un examen específico, seleccione el **nombre del examen**, lo que le conectará con el historial de exámenes dentro de la experiencia de **Mapa de datos** de Azure Purview. En la página Historial de ejecución, puede obtener el identificador de la ejecución que le ayudará en la investigación de errores.
 
     :::image type="content" source="./media/scan-insights/scan-status.png" alt-text="Ver detalles del examen":::
 

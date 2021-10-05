@@ -8,12 +8,12 @@ ms.date: 03/15/2021
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: partner
-ms.openlocfilehash: bb86b02bfed6e0bd91f0b78643e00ae395b34b19
-ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
+ms.openlocfilehash: 5e23bdab70e38fd674e3136c8236b94c41200559
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2021
-ms.locfileid: "113134382"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128633591"
 ---
 # <a name="azure-storage-container-management-partners"></a>Asociados de administración de contenedores de Azure Storage
 
@@ -25,7 +25,7 @@ En este artículo se resaltan las soluciones de asociados de Microsoft que permi
 | ------- | ----------- | -------------------- |
 | ![Logotipo de la empresa Kasten](./media/kasten-logo.png) |**Kasten**<br>Kasten by Veeam proporciona una solución para la copia de seguridad y la recuperación ante desastres de Kubernetes. Kasten ayuda a las empresas a superar los desafíos de administración de datos del día 2 para ejecutar aplicaciones en Kubernetes con total confianza.<br><br>La plataforma de software de administración de datos Kasten K10 proporciona a los equipos de operaciones empresariales un sistema escalable y seguro de continuidad empresarial y recuperación ante desastres y la movilidad de aplicaciones de Kubernetes.|[Página de asociado](https://docs.kasten.io/latest/install/azure/azure.html)<br>[Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/veeam.kasten_k10_by_veeam_byol?tab=Overview)|
 | ![Logotipo de la empresa Portworx](./media/portworx-logo.png) |**Portworx**<br>Portworx by Pure Storage proporciona una solución para el almacenamiento persistente, continuidad empresarial y recuperación ante desastres, la seguridad de datos, las migraciones entre nubes y de datos para las aplicaciones que se ejecutan integradas en Kubernetes.|[Página de asociado](https://portworx.com/azure/)|
-| ![Logotipo de la empresa Robin.io](./media/robin-logo.png) |**<n/>Robin.io**<br>Robin.io proporciona una plataforma de administración de datos y aplicaciones que permite tanto a las empresas como a los proveedores de servicios 5G ofrecer canalizaciones de aplicaciones complejas como servicio. Robin se basa en Kubernetes estándar del sector y permite a los desarrolladores e ingenieros de plataforma implementar y administrar rápidamente aplicaciones de datos y centradas en la red, independientemente de los recursos de la infraestructura subyacentes.<br><br>El almacenamiento nativo en la nube (CNS) de Robin proporciona funcionalidades de administración de datos avanzadas a Azure Kubernetes Service. Robin CNS se integra perfectamente con Azure Disk Storage para simplificar la administración de aplicaciones con estado. Los desarrolladores y los equipos de DevOps pueden Robin CNS como operador Kubernetes estándar en AKS. Robin Cloud Native Storage ayuda a simplificar las operaciones de administración de datos, como BCDR y la clonación de aplicaciones completas. |[Página de asociado](https://robin.io/robin-cloud-native-storage-for-microsoft-aks/)|
+| ![Logotipo de la empresa Robin.io](./media/robin-logo.png) |**Robin.io**<br>Robin.io proporciona una plataforma de administración de datos y aplicaciones que permite tanto a las empresas como a los proveedores de servicios 5G ofrecer canalizaciones de aplicaciones complejas como servicio. Robin se basa en Kubernetes estándar del sector y permite a los desarrolladores e ingenieros de plataforma implementar y administrar rápidamente aplicaciones de datos y centradas en la red, independientemente de los recursos de la infraestructura subyacentes.<br><br>El almacenamiento nativo en la nube (CNS) de Robin proporciona funcionalidades de administración de datos avanzadas a Azure Kubernetes Service. Robin CNS se integra perfectamente con Azure Disk Storage para simplificar la administración de aplicaciones con estado. Los desarrolladores y los equipos de DevOps pueden Robin CNS como operador Kubernetes estándar en AKS. Robin Cloud Native Storage ayuda a simplificar las operaciones de administración de datos, como BCDR y la clonación de aplicaciones completas. |[Página de asociado](https://robin.io/robin-cloud-native-storage-for-microsoft-aks/)|
 
 ¿Es asociado de almacenamiento pero su solución aún no aparece en la lista? Envíenos su información [aquí](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR3i8TQB_XnRAsV3-7XmQFpFUQjY4QlJYUzFHQ0ZBVDNYWERaUlNRVU5IMyQlQCN0PWcu).
 ## <a name="next-steps"></a>Pasos siguientes

@@ -11,18 +11,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: duau
-ms.openlocfilehash: 20d45f5966aca3df89e17e03aa6120a4ddf5c5b9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dc5679036eb241abc82a57779e41e2d667238216
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91448705"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128601433"
 ---
 # <a name="http2-support-in-azure-front-door"></a>Compatibilidad con HTTP/2 en Azure Front Door
 
 Actualmente, la compatibilidad con HTTP/2 está activa para todas las configuraciones de Azure Front Door. No es necesaria ninguna otra acción por parte de los clientes.
 
-HTTP/2 es una revisión principal de HTTP/1.1 que proporciona un rendimiento web más rápido al reducir el tiempo de respuesta. HTTP/2 mantiene los métodos HTTP conocidos, los códigos de estado y la semántica para mejorar la experiencia del usuario. Aunque HTTP/2 está diseñado para trabajar con HTTP y HTTPS, muchos exploradores web de cliente solo admiten HTTP/2 sobre Seguridad de la capa de transporte (TLS).
+HTTP/2 es una revisión principal de HTTP/1.1 que proporciona un rendimiento web más rápido al reducir el tiempo de respuesta. HTTP/2 mantiene los métodos HTTP, los códigos de estado y la semántica conocidos de HTTP/1.1 para mejorar la experiencia del usuario. Aunque HTTP/2 está diseñado para trabajar con HTTP y HTTPS, muchos exploradores web de cliente solo admiten HTTP/2 sobre Seguridad de la capa de transporte (TLS).
 
 > [!NOTE]
 > La compatibilidad con el protocolo HTTP/2 solo está disponible para las solicitudes de los clientes a Front Door. La comunicación entre Front Door y los servidores back-end en el grupo de back-end se produce a través de HTTP/1.1. 
@@ -33,11 +33,11 @@ Las ventajas de HTTP/2 incluyen:
 
 *   **Multiplexación y simultaneidad**
 
-    Con HTTP 1.1, realizar varias solicitudes de recursos requiere varias conexiones TCP y cada conexión tiene asociada una sobrecarga de rendimiento. HTTP/2 permite que se soliciten varios recursos en una única conexión TCP.
+    Con HTTP/1.1, la realización de varias solicitudes de recursos requiere varias conexiones TCP, y cada conexión conlleva su propio costo de rendimiento. HTTP/2 permite que se soliciten varios recursos en una única conexión TCP.
 
 *   **Compresión de encabezados**
 
-    Al comprimir los encabezados HTTP de los recursos atendidos, el tiempo en la red se reduce considerablemente.
+    Al comprimir los encabezados HTTP de los recursos devueltos, se envían muchos menos datos a través de la conexión.
 
 *   **Dependencias de secuencias**
 

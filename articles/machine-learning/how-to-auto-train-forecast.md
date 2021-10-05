@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: how-to
 ms.custom: contperf-fy21q1, automl, FY21Q4-aml-seo-hack
 ms.date: 06/11/2021
-ms.openlocfilehash: 87ee8e4b5d28628ae09eec83d7f72f44e762e34f
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 26a83b28fd6e1fdaded9884deb0d7197e0a59a6f
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122182292"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124784924"
 ---
 # <a name="set-up-automl-to-train-a-time-series-forecasting-model-with-python"></a>Configuración de AutoML para entrenar un modelo de previsión de series temporales con Python
 
@@ -147,7 +147,7 @@ En la tabla siguiente se resumen estos parámetros adicionales. Consulte la [doc
 |`forecast_horizon`|Define el número de períodos futuros que le gustaría pronosticar. El horizonte está en las unidades de la frecuencia de la serie temporal. Las unidades se basan en el intervalo de tiempo de los datos de entrenamiento (por ejemplo, semanales, mensuales) que debe predecir el pronosticador.|✓|
 |`enable_dnn`|[Habilitar las DNN de previsión]().||
 |`time_series_id_column_names`|Nombres de columna que se usan para identificar de forma única la serie temporal en los datos que tienen varias filas con la misma marca de tiempo. Si no se definen los identificadores de serie temporal, el conjunto de datos se presupone una serie temporal. Para más información sobre las series temporales únicas, consulte [energy_demand_notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand).||
-|`freq`| Frecuencia del conjunto de datos de la serie temporal. Este parámetro representa el período según el cual se espera que se produzcan eventos, y cuenta con valores como "diario", "semanal", "anual", etc. La frecuencia debe ser un [alias de desplazamiento de Pandas](https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#dateoffset-objects). Obtenga más información sobre la [frecuencia].(#frequency--target-data-aggregation)||
+|`freq`| Frecuencia del conjunto de datos de la serie temporal. Este parámetro representa el período según el cual se espera que se produzcan eventos, y cuenta con valores como "diario", "semanal", "anual", etc. La frecuencia debe ser un [alias de desplazamiento de Pandas](https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#dateoffset-objects). Obtenga más información sobre la [frecuencia].(#frequency-target-data-aggregation)||
 |`target_lags`|Número de filas para retrasar los valores de destino en función de la frecuencia de los datos. El retraso se representa como una lista o un entero único. El retraso se debe usar cuando la relación entre las variables independientes y la variable dependiente no coincide o está en correlación de forma predeterminada. ||
 |`feature_lags`| El ML automatizado decidirá automáticamente las características que se van a retardar cuando se establezcan `target_lags` y `feature_lags` se establezca en `auto`. Habilitar los retardos de características puede ayudarle a mejorar la precisión. Los retardos de características están deshabilitados de forma predeterminada. ||
 |`target_rolling_window_size`|*n* períodos históricos que se utilizarán para generar valores previstos, < = tamaño del conjunto de entrenamiento. Si se omite, *n* es el tamaño total del conjunto de entrenamiento. Especifique este parámetro si solo desea tener en cuenta una determinada cantidad de historial al entrenar el modelo. Más información sobre [agregación de ventanas con desplazamiento de objetivo](#target-rolling-window-aggregation).||
@@ -360,7 +360,7 @@ ws = Workspace.from_config()
 experiment = Experiment(ws, "Tutorial-automl-forecasting")
 local_run = experiment.submit(automl_config, show_output=True)
 best_run, fitted_model = local_run.get_output()
-```
+``` 
  
 ## <a name="forecasting-with-best-model"></a>Previsión con el mejor modelo
 
@@ -413,6 +413,95 @@ Repita los pasos necesarios para cargar estos datos futuros a una trama de datos
 
 > [!NOTE]
 > Las predicciones en el ejemplo no se admiten para la previsión con aprendizaje automático automatizado cuando se habilitan `target_lags` o `target_rolling_window_size`.
+
+## <a name="forecasting-at-scale"></a>Previsión a escala 
+
+Hay escenarios en los que un único modelo de aprendizaje automático no es suficiente y se necesitan varios modelos de aprendizaje automático. Por ejemplo, predecir las ventas de cada tienda de una marca por separado o adaptar una experiencia a usuarios individuales. La creación de un modelo para cada instancia puede dar lugar a mejores resultados en muchos problemas de aprendizaje automático. 
+
+La agrupación es un concepto de previsión de series temporales que permite combinar estas para entrenar un modelo individual por grupo. Este enfoque puede ser especialmente útil si tiene series temporales que requieren suavizado o relleno o entidades en el grupo que pueden beneficiarse del historial o las tendencias de otras entidades. Muchos modelos y previsiones de series temporales jerárquicas son soluciones basadas en el aprendizaje automático automatizado para estos escenarios de previsión a gran escala. 
+
+### <a name="many-models"></a>Many Models
+
+La solución de muchos modelos de Azure Machine Learning con aprendizaje automático automatizado permite a los usuarios entrenar y administrar millones de modelos en paralelo. Muchos modelos El acelerador de soluciones aprovecha las [canalizaciones de Azure Machine Learning](concept-ml-pipelines.md) para entrenar el modelo. En concreto, se utiliza un objeto [Pipeline](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29) y [ParalleRunStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunstep) que requieren unos parámetros de configuración específicos establecidos a través de [ParallelRunConfig](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunconfig). 
+
+
+En el diagrama siguiente se muestra el flujo de trabajo de la solución de muchos modelos. 
+
+![Diagrama de concepto de muchos modelos](./media/how-to-auto-train-forecast/many-models.svg)
+
+En el código siguiente se muestran los parámetros clave que los usuarios necesitan para configurar la ejecución de muchos modelos.
+
+```python
+from azureml.train.automl.runtime._many_models.many_models_parameters import ManyModelsTrainParameters
+
+partition_column_names = ['Store', 'Brand']
+automl_settings = {"task" : 'forecasting',
+                   "primary_metric" : 'normalized_root_mean_squared_error',
+                   "iteration_timeout_minutes" : 10, #This needs to be changed based on the dataset. Explore how long training is taking before setting this value 
+                   "iterations" : 15,
+                   "experiment_timeout_hours" : 1,
+                   "label_column_name" : 'Quantity',
+                   "n_cross_validations" : 3,
+                   "time_column_name": 'WeekStarting',
+                   "max_horizon" : 6,
+                   "track_child_runs": False,
+                   "pipeline_fetch_max_batch_size": 15,}
+
+mm_paramters = ManyModelsTrainParameters(automl_settings=automl_settings, partition_column_names=partition_column_names)
+
+```
+
+### <a name="hierarchical-time-series-forecasting"></a>Previsión de series temporales jerárquicas
+
+En la mayoría de las aplicaciones, los clientes tienen la necesidad de comprender sus previsiones a nivel macro y micro de la empresa; ya sea prediciendo las ventas de productos en diferentes ubicaciones geográficas, o comprendiendo la demanda de personal prevista para las diferentes organizaciones de una empresa. La capacidad de entrenar un modelo de aprendizaje automático para prever de forma inteligente los datos de la jerarquía es esencial. 
+
+Una serie temporal jerárquica es una estructura en la que cada una de las series únicas se organiza en una jerarquía basada en dimensiones como, por ejemplo, ubicación geográfica o tipo de producto. En el ejemplo siguiente se muestran datos con atributos únicos que forman una jerarquía. Nuestra jerarquía se define por el tipo de producto, como auriculares o tabletas, la categoría de producto, que divide los tipos de producto en accesorios y dispositivos, y la región en la que se venden los productos. 
+
+![Tabla de datos sin procesar de ejemplo para datos jerárquicos](./media/how-to-auto-train-forecast/hierarchy-data-table.svg)
+ 
+Para visualizarlo aún más, los niveles hoja de la jerarquía contienen todas las series temporales con combinaciones únicas de valores de atributo. Cada nivel superior de la jerarquía tiene en cuenta una dimensión menos para definir la serie temporal y agrega cada conjunto de nodos secundarios del nivel inferior a un nodo primario.
+ 
+![Objeto visual de jerarquía para datos](./media/how-to-auto-train-forecast/data-tree.svg)
+
+La solución de serie temporal jerárquica se basa en la solución de muchos modelos y comparte una configuración similar.
+
+En el código siguiente se muestran los parámetros clave para configurar las ejecuciones de la previsión de series temporales jerárquicas. 
+
+```python
+
+from azureml.train.automl.runtime._hts.hts_parameters import HTSTrainParameters
+
+model_explainability = True
+
+engineered_explanations = False # Define your hierarchy. Adjust the settings below based on your dataset.
+hierarchy = ["state", "store_id", "product_category", "SKU"]
+training_level = "SKU"# Set your forecast parameters. Adjust the settings below based on your dataset.
+time_column_name = "date"
+label_column_name = "quantity"
+forecast_horizon = 7
+
+
+automl_settings = {"task" : "forecasting",
+                   "primary_metric" : "normalized_root_mean_squared_error",
+                   "label_column_name": label_column_name,
+                   "time_column_name": time_column_name,
+                   "forecast_horizon": forecast_horizon,
+                   "hierarchy_column_names": hierarchy,
+                   "hierarchy_training_level": training_level,
+                   "track_child_runs": False,
+                   "pipeline_fetch_max_batch_size": 15,
+                   "model_explainability": model_explainability,# The following settings are specific to this sample and should be adjusted according to your own needs.
+                   "iteration_timeout_minutes" : 10,
+                   "iterations" : 10,
+                   "n_cross_validations": 2}
+
+hts_parameters = HTSTrainParameters(
+    automl_settings=automl_settings,
+    hierarchy_column_names=hierarchy,
+    training_level=training_level,
+    enable_engineered_explanations=engineered_explanations
+)
+```
 
 ## <a name="example-notebooks"></a>Cuadernos de ejemplo
 

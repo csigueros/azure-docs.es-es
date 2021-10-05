@@ -1,14 +1,14 @@
 ---
-title: Reimplementación de una máquina virtual en un laboratorio de Azure DevTest Labs | Microsoft Docs
+title: Volver a implementar una máquina virtual en un laboratorio
 description: Obtenga información sobre cómo volver a implementar una máquina virtual (mover de un nodo de Azure a otro) en Azure DevTest Labs.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: a38b112165b893d877733b967c21bb62b20ca2f6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 375b70d3058a8fb0e23e65f4b96b4601aad12723
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90530325"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128591584"
 ---
 # <a name="redeploy-a-vm-in-a-lab-in-azure-devtest-labs"></a>Reimplementación de una máquina virtual en un laboratorio de Azure DevTest Labs
 Si no puede conectarse a la máquina virtual (VM) de un laboratorio mediante una conexión a escritorio remoto, vuelva a implementar la máquina virtual e intente de nuevo la conexión. Cuando se vuelve a implementar una máquina virtual, DevTest Labs mueve la VM desde el nodo en el que se ejecuta a un nuevo nodo dentro de la infraestructura de Azure. Después, inicia la VM conservando todas las opciones de configuración y los recursos asociados. Gracias a esta característica, se evita perder tiempo en solucionar los problemas relacionados con la conexión al escritorio remoto o con el acceso de la aplicación a las VM basadas en Windows del laboratorio. 
@@ -30,5 +30,3 @@ Para volver a implementar una máquina virtual en un laboratorio de Azure DevTes
 
 ## <a name="next-steps"></a>Pasos siguientes
 Obtenga información sobre cómo cambiar el tamaño de una máquina virtual en Azure DevTest Labs en [Cambio del tamaño de una VM](devtest-lab-resize-vm.md).
-
-

@@ -12,12 +12,12 @@ ms.date: 09/01/2021
 ms.author: aahi
 ms.custom: cog-serv-seo-aug-2020
 keywords: entorno local, Docker, contenedor
-ms.openlocfilehash: 75f0f8bb61c14f826addca3df41a0c568c92b510
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: a1f82384d7191c65293c85bdc3ef70347c6646f5
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123429377"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124799042"
 ---
 # <a name="install-and-run-docker-containers-for-the-speech-service-apis"></a>Instalación y ejecución de contenedores de Docker para las API del servicio de voz 
 
@@ -26,15 +26,15 @@ Los contenedores le permiten ejecutar _algunas_ de las API del servicio de voz e
 Los contenedores de Voz permiten a los clientes compilar una arquitectura de aplicación de voz optimizada para las sólidas funcionalidades de la nube y la localidad del perímetro. Hay varios contenedores disponibles, que usan los mismos [precios](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) que los servicios de Voz de Azure basados en la nube.
 
 > [!IMPORTANT]
-> El 31 de agosto de 2021 se retiraron las voces de síntesis y el contenedor de texto a voz del servicio Voz estándar. Considere la posibilidad de migrar las aplicaciones para que usen el contenedor de texto a voz neuronal en su lugar. [Siga estos pasos](https://aka.ms/sttsretirement) para más información sobre cómo actualizar la aplicación.
+> El 31 de agosto de 2021 se retiraron las voces de síntesis y el contenedor de texto a voz del servicio Voz estándar. Considere la posibilidad de migrar las aplicaciones para que usen el contenedor de texto a voz neuronal en su lugar. [Siga estos pasos](./text-to-speech.md#migrate-to-neural-voice) para más información sobre cómo actualizar la aplicación.
 
 | Contenedor | Características | Más reciente | Estado de la versión |
 |--|--|--|--|
-| Voz a texto | Analice opiniones y transcriba grabaciones continuas de audio por lotes o de voz en tiempo real con resultados intermedios.  | 2.13.0 | Disponibilidad general |
-| Conversión de voz a texto personalizada | Con un modelo personalizado del [portal de Habla personalizada](https://speech.microsoft.com/customspeech), transcribe las grabaciones continuas de voz en tiempo real o de audio por lotes a texto con resultados inmediatos. | 2.13.0 | Disponibilidad general |
-| Texto a voz | Convierte texto a voz de sonido natural con entrada de texto sin formato o Lenguaje de marcado de síntesis de voz (SSML). | 1.14.1 | Disponibilidad general |
+| Voz a texto | Analice opiniones y transcriba grabaciones continuas de audio por lotes o de voz en tiempo real con resultados intermedios.  | 2.14.0 | Disponibilidad general |
+| Conversión de voz a texto personalizada | Con un modelo personalizado del [portal de Habla personalizada](https://speech.microsoft.com/customspeech), transcribe las grabaciones continuas de voz en tiempo real o de audio por lotes a texto con resultados inmediatos. | 2.14.0 | Disponibilidad general |
+| Texto a voz | Convierte texto a voz de sonido natural con entrada de texto sin formato o Lenguaje de marcado de síntesis de voz (SSML). | 1.15.0 | Disponibilidad general |
 | Identificación de idioma de la voz | Detecte el idioma que se habla en los archivos de audio. | 1.3.0 | Vista previa |
-| Texto a voz neuronal | Convierte texto en voz con un sonido natural utilizando una tecnología de red neuronal profunda, lo que permite obtener una voz sintetizada más natural. | 1.8.0 | Disponibilidad general |
+| Texto a voz neuronal | Convierte texto en voz con un sonido natural utilizando una tecnología de red neuronal profunda, lo que permite obtener una voz sintetizada más natural. | 1.9.0 | Disponibilidad general |
 
 ## <a name="prerequisites"></a>Requisitos previos
 

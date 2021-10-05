@@ -12,15 +12,15 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/13/2020
+ms.date: 09/15/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 74d5bee95ae91eb11f249518f49b711d9649db01
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: aabb53a573ee8a3ccc5d98ab8316fee560dbf625
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114467662"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128603911"
 ---
 # <a name="sap-ase-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Implementación de DBMS de Azure Virtual Machines de SAP ASE para la carga de trabajo de SAP
 
@@ -71,7 +71,7 @@ SAP ASE escribe los datos secuencialmente en los dispositivos de almacenamiento 
 Se recomienda configurar la expansión automática de base de datos como se describe en el artículo [Configuring Automatic Database Space Expansion in SAP Adaptive Server Enterprise](https://blogs.sap.com/2014/07/09/configuring-automatic-database-space-expansion-in-sap-adaptive-server-enterprise/) y en la [nota de soporte técnico de SAP 1815695](https://launchpad.support.sap.com/#/notes/1815695). 
 
 ### <a name="sample-sap-ase-on-azure-virtual-machine-disk-and-file-system-configurations"></a>Ejemplo de SAP ASE en máquinas virtuales de Azure, configuraciones de disco y sistema de archivos 
-Las plantillas siguientes muestran configuraciones de ejemplo para Linux y Windows. Antes de confirmar la configuración de máquina virtual y disco, asegúrese de que las cuotas de ancho de banda de red y almacenamiento de la VM individual sean suficientes para satisfacer los requisitos empresariales. Tenga en cuenta también que diferentes tipos de VM de Azure tienen un número máximo de discos que se pueden conectar a la VM. Por ejemplo, una VM E4s_v3 tiene un rendimiento límite de E/S de almacenamiento de 48 MB/s. Si el rendimiento de almacenamiento requerido por la actividad de copia de seguridad de base de datos requiere más de 48 MB/s, es inevitable usar un tipo de VM mayor con más rendimiento de ancho de banda de almacenamiento. Al configurar Azure Storage, también debe tener en cuenta que, especialmente con [Azure Premium Storage](../../premium-storage-performance.md), cambian el rendimiento y las IOPS por GB de capacidad. Consulte más información sobre este tema en el artículo [¿Qué tipos de disco están disponibles en Azure?](../../disks-types.md) Las cuotas para tipos específicos de VM de Azure se documentan en el artículo [Tamaños de máquina virtual optimizada para memoria](../../sizes-memory.md) y en otros artículos vinculados a este. 
+Las plantillas siguientes muestran configuraciones de ejemplo para Linux y Windows. Antes de confirmar la configuración de máquina virtual y disco, asegúrese de que las cuotas de ancho de banda de red y almacenamiento de la máquina virtual individual basten para satisfacer los requisitos empresariales. Tenga en cuenta también que diferentes tipos de VM de Azure tienen un número máximo de discos que se pueden conectar a la VM. Por ejemplo, una VM E4s_v3 tiene un rendimiento límite de E/S de almacenamiento de 48 MB/s. Si el rendimiento de almacenamiento requerido por la actividad de copia de seguridad de base de datos requiere más de 48 MB/s, es inevitable usar un tipo de VM mayor con más rendimiento de ancho de banda de almacenamiento. Al configurar Azure Storage, también debe tener en cuenta que, especialmente con [Azure Premium Storage](../../premium-storage-performance.md), cambian el rendimiento y las IOPS por GB de capacidad. Consulte más información sobre este tema en el artículo [¿Qué tipos de disco están disponibles en Azure?](../../disks-types.md) Las cuotas para tipos específicos de VM de Azure se documentan en el artículo [Tamaños de máquina virtual optimizada para memoria](../../sizes-memory.md) y en otros artículos vinculados a este. 
 
 > [!NOTE]
 >  Si va a mover un sistema DBMS de un entorno local a Azure, se recomienda realizar la supervisión en la VM y evaluar la CPU, la memoria, las IOPS y el rendimiento de almacenamiento. Compare los valores máximos observados con los límites de cuota de VM documentados en los artículos mencionados anteriormente.
@@ -182,10 +182,14 @@ La recomendación de aplicar la compresión antes de cargar en Azure viene motiv
 La compresión de datos y de LOB funciona en una máquina virtual hospedada en Azure Virtual Machines del mismo modo a como lo hace en un entorno local. Para obtener más información sobre cómo comprobar si ya se está usando compresión en una base de datos de SAP ASE existente, consulte la [nota de soporte técnico de SAP 1750510](https://launchpad.support.sap.com/#/notes/1750510). Para obtener más información sobre la compresión de base de datos de SAP ASE, consulte la [nota de soporte técnico de SAP 2121797](https://launchpad.support.sap.com/#/notes/2121797).
 
 ## <a name="high-availability-of-sap-ase-on-azure"></a>Alta disponibilidad de SAP ASE en Azure 
-La guía del usuario de HADR detalla la instalación y configuración de una solución "Always-On" de dos nodos de SAP ASE.  Además, también se admite un tercer nodo de recuperación ante desastres. SAP ASE admite muchas configuraciones de alta disponibilidad, entre otras, discos compartidos y la agrupación en clústeres de sistema operativo nativo (IP flotante). La única configuración admitida en Azure es usar el administrador de errores sin la dirección IP flotante.  El método de dirección IP flotante no funcionará en Azure.  El kernel de SAP es una aplicación "compatible con alta disponibilidad" y conoce los servidores de SAP ASE principal y secundarios. No hay ninguna integración cercana entre SAP ASE y Azure, pero no se usa el equilibrador de carga interno de Azure. Por lo tanto, se debe seguir la documentación estándar de SAP ASE a partir de [guía del usuario de HADR de SAP ASE](https://help.sap.com/viewer/efe56ad3cad0467d837c8ff1ac6ba75c/16.0.3.7/en-US/a6645e28bc2b1014b54b8815a64b87ba.html). 
+La guía del usuario de HADR detalla la instalación y configuración de una solución "Always-On" de dos nodos de SAP ASE.  Además, también se admite un tercer nodo de recuperación ante desastres. SAP ASE admite muchas [configuraciones](https://help.sap.com/viewer/efe56ad3cad0467d837c8ff1ac6ba75c/16.0.4.1/en-US/9b40a3c038a34cbda1064312aa8d25a4.html) de alta disponibilidad, como el disco compartido y la agrupación en clústeres nativos del sistema operativo (como Pacemaker y Clúster de conmutación por error de Windows Server). Hay dos configuraciones de alta disponibilidad admitidas para SAP ASE en Azure:
+
+- Compatible con alta disponibilidad con administrador de errores: el kernel de SAP es una aplicación "compatible con alta disponibilidad" y conoce los servidores de SAP ASE principal y secundario. No hay ninguna integración cercana entre la solución "compatible con alta disponibilidad" de SAP ASE y Azure, no se usa el equilibrador de carga interno de Azure.  La solución se documenta en la [guía del usuario de HADR de SAP ASE](https://help.sap.com/viewer/efe56ad3cad0467d837c8ff1ac6ba75c/16.0.3.7/en-US/a6645e28bc2b1014b54b8815a64b87ba.html).
+- IP flotante con administrador de errores: esta solución se puede usar para aplicaciones de SAP Business Suite y que no son de SAP Business Suite.  Esta solución usa el ILB de Azure y el motor de base de datos de SAP ASE proporciona un puerto de sondeo.  El administrador de errores llama a SAPHostAgent para iniciar o detener una dirección IP flotante secundaria en los hosts de ASE.  Esta solución se documenta en la [nota de SAP 3086679 - SYB: administrador de errores: dirección IP flotante en Microsoft Azure](https://launchpad.support.sap.com/#/notes/3086679).
+
 
 > [!NOTE]
-> La única configuración admitida en Azure es usar el administrador de errores sin la dirección IP flotante.  El método de dirección IP flotante no funcionará en Azure. 
+> Los tiempos de conmutación por error y otras características de las soluciones de IP flotante o compatibles con alta disponibilidad son similares.  Al decidir entre estas dos soluciones, los clientes deben realizar sus propias pruebas y evaluaciones, incluidos factores como los tiempos de conmutación por error planeados y no planeados y otros procedimientos operativos.  
 
 ### <a name="third-node-for-disaster-recovery"></a>Tercer nodo para la recuperación ante desastres
 Más allá del uso de SAP ASE Always-on para la alta disponibilidad local, puede que desee extender la configuración a un nodo replicado de forma asincrónica en otra región de Azure. Para más información, consulte [Procedimiento de instalación para Sybase 16. 3, nivel de revisión 3 Always-On + recuperación ante desastres en Suse 12.3](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/installation-procedure-for-sybase-16-3-patch-level-3-always-on/ba-p/368199).

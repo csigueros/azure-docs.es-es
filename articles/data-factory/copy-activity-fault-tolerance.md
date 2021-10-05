@@ -1,39 +1,39 @@
 ---
-title: Tolerancia a errores de la actividad de copia en Azure Data Factory
+title: Tolerancia a errores de la actividad de copia
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Obtenga información sobre cómo agregar una tolerancia a errores para la actividad de copia en Azure Data Factory omitiendo los datos incompatibles.
+description: Obtenga información sobre cómo agregar una tolerancia a errores para la actividad de copia en canalizaciones de Azure Data Factory y Synapse Analytics omitiendo los datos incompatibles.
 author: dearandyxu
 ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 06/22/2020
+ms.date: 09/09/2021
 ms.author: yexu
-ms.openlocfilehash: 544d298616c8021991fedb1ee47d452cfbc427f3
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: c6b5a08cc4f0cc90f8ae827f4f8c2c7469e92b44
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123255038"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124767574"
 ---
-#  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Tolerancia a errores de la actividad de copia en Azure Data Factory
+#  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory-and-synapse-analytics-pipelines"></a>Tolerancia a errores de la actividad de copia en canalizaciones de Azure Data Factory y Synapse Analytics
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
 > * [Versión 1](v1/data-factory-copy-activity-fault-tolerance.md)
 > * [Versión actual](copy-activity-fault-tolerance.md)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Al copiar datos desde el almacén de origen al de destino, la actividad de copia de Azure Data Factory proporciona cierto nivel de tolerancia a errores para evitar la interrupción ocasionada por errores en medio del movimiento de datos. Por ejemplo, imagine que está copiando millones de filas del almacén de origen al de destino y que se ha creado una clave principal en la base de datos de destino, pero la base de datos de origen no tiene ninguna clave principal definida. Cuando copie filas duplicadas del origen al destino, aparecerá un error de infracción de clave primaria en la base de datos de destino. En este momento, la actividad de copia ofrece dos formas de controlar estos errores: 
+Al copiar datos desde el almacén de origen al de destino, la actividad de copia proporciona cierto nivel de tolerancia a errores para evitar la interrupción ocasionada por errores en medio del movimiento de datos. Por ejemplo, imagine que está copiando millones de filas del almacén de origen al de destino y que se ha creado una clave principal en la base de datos de destino, pero la base de datos de origen no tiene ninguna clave principal definida. Cuando copie filas duplicadas del origen al destino, aparecerá un error de infracción de clave primaria en la base de datos de destino. En este momento, la actividad de copia ofrece dos formas de controlar estos errores: 
 - Puede anular la actividad de copia cuando se produzca un error. 
 - Puede continuar copiando el resto habilitando la tolerancia a errores para omitir los datos incompatibles. Por ejemplo, omitir la fila duplicada en este caso. Además, puede registrar los datos omitidos habilitando el registro de sesión dentro de la actividad de copia. Puede consultar [Registro de sesión en la actividad de copia](copy-activity-log.md) para más detalles.
 
 ## <a name="copying-binary-files"></a>Copia de archivos binarios 
 
-ADF admite los siguientes escenarios de tolerancia a errores al copiar archivos binarios. Puede anular la actividad de copia o seguir copiando el resto en los escenarios siguientes:
+El servicio admite los siguientes escenarios de tolerancia a errores al copiar archivos binarios. Puede anular la actividad de copia o seguir copiando el resto en los escenarios siguientes:
 
-1. Los archivos que ADF copiará están siendo eliminados por otras aplicaciones al mismo tiempo.
-2. Algunas carpetas o archivos determinados no permiten que ADF tenga acceso porque los ACL de esos archivos o carpetas requieren un nivel de permiso superior al de la información de conexión configurada en ADF.
-3. No se comprueba que uno o varios archivos sean coherentes entre el almacén de origen y el de destino si habilita la configuración de comprobación de coherencia de datos en ADF.
+1. Los archivos que el servicio copiará están siendo eliminados por otras aplicaciones al mismo tiempo.
+2. Algunas carpetas o archivos determinados no permiten que el servicio tenga acceso porque las ACL de esos archivos o carpetas requieren un nivel de permiso superior al de la información de conexión configurada.
+3. No se comprueba que uno o varios archivos sean coherentes entre el almacén de origen y el de destino si habilita la configuración de comprobación de coherencia de datos.
 
 ### <a name="configuration"></a>Configuración 
 Al copiar archivos binarios entre los almacenes, puede habilitar la tolerancia a errores de la siguiente manera: 
@@ -79,8 +79,8 @@ Al copiar archivos binarios entre los almacenes, puede habilitar la tolerancia a
 Propiedad | Descripción | Valores permitidos | Obligatorio
 -------- | ----------- | -------------- | -------- 
 skipErrorFile | Un grupo de propiedades para especificar los tipos de errores que desea omitir durante el movimiento de datos. | | No
-fileMissing | Uno de los pares clave-valor dentro del contenedor de propiedades de skipErrorFile para determinar si desea omitir los archivos que se están eliminando en otras aplicaciones mientras ADF realiza la copia. <br/> -True: desea copiar el resto omitiendo los archivos que eliminan otras aplicaciones. <br/> -False: desea anular la actividad de copia una vez que se eliminan los archivos del almacén de origen en medio del movimiento de datos. <br/>Tenga en cuenta que esta propiedad está establecida en true como valor predeterminado. | True (valor predeterminado) <br/>False | No
-fileForbidden | Uno de los pares clave-valor dentro del contenedor de propiedades de skipErrorFile para determinar si desea omitir los archivos concretos, cuando los ACL de esos archivos o carpetas requieren un nivel de permiso superior al de la conexión configurada en ADF. <br/> -True: desea copiar el resto omitiendo los archivos. <br/> -False: desea anular la actividad de copia una vez que recibe el problema de los permisos en las carpetas o los archivos. | True <br/>False (valor predeterminado) | No
+fileMissing | Uno de los pares clave-valor dentro del contenedor de propiedades de skipErrorFile para determinar si desea omitir los archivos que se están eliminando por otras aplicaciones mientras el servicio realiza la operación de copia. <br/> -True: desea copiar el resto omitiendo los archivos que eliminan otras aplicaciones. <br/> -False: desea anular la actividad de copia una vez que se eliminan los archivos del almacén de origen en medio del movimiento de datos. <br/>Tenga en cuenta que esta propiedad está establecida en true como valor predeterminado. | True (valor predeterminado) <br/>False | No
+fileForbidden | Uno de los pares clave-valor dentro del contenedor de propiedades de skipErrorFile para determinar si desea omitir los archivos concretos, cuando los ACL de esos archivos o carpetas requieren un nivel de permiso superior al de la conexión configurada. <br/> -True: desea copiar el resto omitiendo los archivos. <br/> -False: desea anular la actividad de copia una vez que recibe el problema de los permisos en las carpetas o los archivos. | True <br/>False (valor predeterminado) | No
 dataInconsistency | Uno de los pares clave-valor dentro del contenedor de propiedades de skipErrorFile para determinar si desea omitir los datos incoherentes entre el almacén de origen y el de destino. <br/> -True: desea copiar el resto omitiendo los datos incoherentes. <br/> - False: desea anular la actividad de copia una vez que se encuentren datos incoherentes. <br/>Tenga en cuenta que esta propiedad solo es válida cuando se establece validateDataConsistency como True. | True <br/>False (valor predeterminado) | No
 invalidFileName | Uno de los pares clave-valor dentro del contenedor de propiedades de skipErrorFile para determinar si desea omitir los archivos particulares, cuando los nombres de archivo no son válidos para el almacén de destino. <br/> -True: desea copiar el resto omitiendo los archivos que tengan nombres no válidos. <br/> -False: desea anular la actividad de copia cuando cualquier archivo tenga un nombre no válido. <br/>Tenga en cuenta que esta propiedad solo funciona al copiar archivos binarios de cualquier almacén de almacenamiento a ADLS Gen2, o bien al copiar archivos binarios de AWS S3 a cualquier almacén de almacenamiento. | True <br/>False (valor predeterminado) | No
 logSettings  | Un grupo de propiedades que puede especificarse cuando quiere registrar los nombres de los objetos omitidos. | &nbsp; | No
@@ -133,9 +133,9 @@ Los archivos de registro deben ser archivos CSV. El esquema del archivo de regis
 
 Columna | Descripción 
 -------- | -----------  
-Timestamp | Marca de tiempo en la que ADF omite el archivo.
+Timestamp | Marca de tiempo en el que se omitió el archivo.
 Nivel | Nivel de registro de este elemento. Estará en el nivel "Warning" para el elemento que muestra la omisión del archivo.
-OperationName | Comportamiento operativo de la actividad de copia de ADF en cada archivo. Será "FileSkip" para especificar el archivo que se va a omitir.
+OperationName | Comportamiento operativo de la actividad de copia en cada archivo. Será "FileSkip" para especificar el archivo que se va a omitir.
 OperationItem | Nombres de archivo que se van a omitir.
 Message | Más información para ilustrar por qué se omite el archivo.
 
@@ -145,7 +145,7 @@ Timestamp,Level,OperationName,OperationItem,Message
 2020-03-24 05:35:41.0209942,Warning,FileSkip,"bigfile.csv","File is skipped after read 322961408 bytes: ErrorCode=UserErrorSourceBlobNotExist,'Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,Message=The required Blob is missing. ContainerName: https://transferserviceonebox.blob.core.windows.net/skipfaultyfile, path: bigfile.csv.,Source=Microsoft.DataTransfer.ClientLibrary,'." 
 2020-03-24 05:38:41.2595989,Warning,FileSkip,"3_nopermission.txt","File is skipped after read 0 bytes: ErrorCode=AdlsGen2OperationFailed,'Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,Message=ADLS Gen2 operation failed for: Operation returned an invalid status code 'Forbidden'. Account: 'adlsgen2perfsource'. FileSystem: 'skipfaultyfilesforbidden'. Path: '3_nopermission.txt'. ErrorCode: 'AuthorizationPermissionMismatch'. Message: 'This request is not authorized to perform this operation using this permission.'. RequestId: '35089f5d-101f-008c-489e-01cce4000000'..,Source=Microsoft.DataTransfer.ClientLibrary,''Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,Message=Operation returned an invalid status code 'Forbidden',Source=,''Type=Microsoft.Azure.Storage.Data.Models.ErrorSchemaException,Message='Type=Microsoft.Azure.Storage.Data.Models.ErrorSchemaException,Message=Operation returned an invalid status code 'Forbidden',Source=Microsoft.DataTransfer.ClientLibrary,',Source=Microsoft.DataTransfer.ClientLibrary,'." 
 ```
-En el registro anterior, puede ver que bigfile.csv se ha omitido debido a que otra aplicación ha eliminado este archivo cuando ADF lo estaba copiando. Y 3_nopermission.tx se ha omitido porque ADF no puede acceder a él debido a un problema de permisos.
+En el registro anterior, puede ver que bigfile.csv se ha omitido debido a que otra aplicación ha eliminado este archivo cuando el servicio lo estaba copiando. Y 3_nopermission.tx se ha omitido porque el servicio no puede acceder a él debido a un problema de permisos.
 
 
 ## <a name="copying-tabular-data"></a>Copia de datos tabulares 
@@ -229,9 +229,9 @@ Los archivos de registro serán los archivos CSV. El esquema del archivo de regi
 
 Columna | Descripción 
 -------- | -----------  
-Timestamp | Marca de tiempo en la que ADF omite las filas incompatibles
+Timestamp | Marca de tiempo en el que se omitieron las filas incompatibles
 Nivel | Nivel de registro de este elemento. Estará en el nivel de "Advertencia" si este elemento muestra las filas omitidas.
-OperationName | Comportamiento operativo de la actividad de copia de ADF en cada fila. Será "TabularRowSkip" para especificar que se ha omitido la fila incompatible determinada.
+OperationName | Comportamiento operativo de la actividad de copia en cada fila. Será "TabularRowSkip" para especificar que se ha omitido la fila incompatible determinada.
 OperationItem | Filas omitidas del almacén de datos de origen.
 Message | Más información para ilustrar el motivo de la incompatibilidad de esta fila concreta.
 

@@ -3,12 +3,12 @@ title: Directivas de acceso de Azure Video Analyzer
 description: En este artículo se explica cómo Azure Video Analyzer usa tokens JWT en directivas de acceso para proteger vídeos.
 ms.topic: reference
 ms.date: 06/01/2021
-ms.openlocfilehash: 3cf450249567d07bf6855d115a0e39640074eeb0
-ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
+ms.openlocfilehash: fe421e429357000bf6380cdf18f3a029fea4f7c9
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114604201"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128670488"
 ---
 # <a name="access-policies"></a>Directivas de acceso
 
@@ -130,31 +130,84 @@ Los clientes deben crear sus propios tokens JWT y se validarán mediante el mét
 > [!NOTE]  
 > Video Analyzer admite un máximo de 20 directivas.  ${System.Runtime.BaseResourceUrlPattern} permite una mayor flexibilidad para acceder a recursos específicos mediante una directiva de acceso y varios tokens.  A continuación, estos tokens permiten el acceso a distintos recursos de Video Analyzer en función de la audiencia. 
 
+## <a name="creating-a-token"></a>Creación de un token
+
+En esta sección, crearemos un token JWT que usaremos más adelante en el artículo.  Usaremos una aplicación de ejemplo que generará el token JWT y le proporcionará todos los campos necesarios para crear la directiva de acceso.
+
+> [!NOTE] 
+> Si está familiarizado con cómo generar un token JWT basado en un certificado RSA o ECC, puede omitir esta sección.
+
+1. Clone el [repositorio de ejemplos de C# de AVA](https://github.com/Azure-Samples/video-analyzer-iot-edge-csharp). Luego, vaya a la carpeta *src/jwt-token-issuer* de la aplicación JWTTokenIssuer y busque la aplicación.
+2. Abra Visual Studio Code y vaya a la carpeta donde haya descargado la aplicación JWTTokenIssuer. Esta carpeta debe contener el archivo *\*.csproj*.
+3. En el panel del explorador, vaya al archivo *program.cs*.
+4. En la línea 77, cambie el público por el punto de conexión de Video Analyzer, seguido de /videos/\*, para que tenga un aspecto similar al siguiente:
+
+   ```
+   https://{Azure Video Analyzer Account ID}.api.{Azure Long Region Code}.videoanalyzer.azure.net/videos/*
+   ```
+
+   > [!NOTE] 
+   > El punto de conexión de Video Analyzer se puede encontrar en la sección de información general del recurso de Video Analyzer en Azure Portal.
+
+   :::image type="content" source="media/player-widget/client-api-url.png" alt-text="Captura de pantalla en la que se muestra el punto de conexión del widget de reproductor":::
+    
+5. En la línea 78, cambie el emisor al valor del emisor del certificado. Ejemplo: `https://contoso.com`
+6. Guarde el archivo.    
+
+   > [!NOTE]
+   > Es posible que vea el mensaje `Required assets to build and debug are missing from 'jwt token issuer'. Add them?` Seleccione `Yes`.
+   
+   :::image type="content" source="media/player-widget/visual-studio-code-required-assets.png" alt-text="Captura de pantalla en la que se muestra la solicitud de los activos necesarios en Visual Studio Code":::
+   
+7. Abra una ventana del símbolo del sistema y vaya a la carpeta con los archivos JWTTokenIssuer. Ejecute los dos comandos siguientes en orden: `dotnet build` y `dotnet run`. Si tiene la extensión de C# en Visual Studio Code, también puede seleccionar F5 para ejecutar la aplicación JWTTokenIssuer.
+
+La aplicación se compila y, a continuación, se ejecuta. Una vez compilada, crea un certificado autofirmado y genera a partir de este la información del token JWT. También puede ejecutar el archivo JWTTokenIssuer.exe que se encuentra en la carpeta de depuración del directorio desde el que se compiló JWTTokenIssuer. La ventaja de ejecutar la aplicación es que puede especificar las opciones de entrada de la siguiente manera:
+
+- `JwtTokenIssuer [--audience=<audience>] [--issuer=<issuer>] [--expiration=<expiration>] [--certificatePath=<filepath> --certificatePassword=<password>]`
+
+JWTTokenIssuer crea el token JWT y los componentes necesarios siguientes:
+
+- `Issuer`, `Audience`, `Key Type`, `Algorithm`, `Key Id`, `RSA Key Modulus`, `RSA Key Exponent`, `Token`
+
+Asegúrese de copiar estos valores para usarlos posteriormente.
+
+
 ## <a name="creating-an-access-policy"></a>Creación de una directiva de acceso
 
 Hay dos maneras de crear una directiva de acceso.
 
 ### <a name="in-the-azure-portal"></a>En Azure Portal
 
-1. Inicie sesión en Azure Portal y vaya al grupo de recursos donde se encuentra la cuenta de Video Analyzer.
-2. Seleccione el recurso de Video Analyzer.
-3. En Video Analyzer, seleccione Directivas de acceso
+1. Inicie sesión en Azure Portal y vaya al grupo de recursos en el que se encuentra su cuenta de Video Analyzer.
+1. Seleccione el recurso de Video Analyzer.
+1. En **Video Analyzer**, seleccione **Directivas de acceso**.
 
-   :::image type="content" source="./media/access-policies/access-policies-menu.png" alt-text="Menú Directivas de acceso en Azure Portal":::
-4. Haga clic en Nuevo y escriba lo siguiente:
+   :::image type="content" source="./media/player-widget/portal-access-policies.png" alt-text="Widget del reproductor: directivas de acceso en el portal.":::
+   
+1. Seleccione **Nueva** e indique la información siguiente:
 
-   - Nombre de directiva de acceso: cualquier nombre
+   > [!NOTE] 
+   > Estos valores proceden de la aplicación JWTTokenIssuer creada en el paso anterior.
+
+   - Nombre de la directiva de acceso: cualquier nombre
+
    - Emisor: debe coincidir con el emisor del token JWT. 
-   - Audiencia: audiencia del token JWT: ${System.Runtime.BaseResourceUrlPattern} es el valor predeterminado. 
-   - Tipo de clave: kty 
-   - Algoritmo: alg
-   - Id. clave: kid 
-   - Valor N/X 
-   - Valor E/Y 
 
-   :::image type="content" source="./media/access-policies/access-policies-portal.png" alt-text="Directiva de acceso en Azure Portal":::
-5. Haga clic en `Save`.
+   - Público: el público para el token JWT. El valor predeterminado es `${System.Runtime.BaseResourceUrlPattern}`.
 
+   - Tipo de clave: RSA 
+
+   - Algoritmo: los valores admitidos son RS256, RS384 y RS512
+
+   - Identificador de clave: generado a partir del certificado. Para obtener más información, consulte [Creación de un token](#creating-a-token).
+
+   - Módulo de clave RSA: este valor se genera a partir del certificado. Para obtener más información, consulte [Creación de un token](#creating-a-token).
+
+   - Exponente de clave RSA: este valor se genera a partir del certificado. Para obtener más información, consulte [Creación de un token](#creating-a-token).
+
+   :::image type="content" source="./media/player-widget/access-policies-portal.png" alt-text="Widget del reproductor: directivas de acceso en el portal"::: 
+   
+1. Seleccione **Guardar**.
 ### <a name="create-access-policy-via-api"></a>Creación de una directiva de acceso a través de la API
 
 Consulte API de Azure Resource Manager (ARM) 

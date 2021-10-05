@@ -41,6 +41,14 @@
       items:
         - name: a Azure SQL Database
           href: tutorial-sql-server-to-azure-sql.md
+        - name: a Azure SQL Managed Instance (en línea) mediante Azure Data Studio
+          href: tutorial-sql-server-managed-instance-online-ads.md
+        - name: a Azure SQL Managed Instance (sin conexión) mediante Azure Data Studio
+          href: tutorial-sql-server-managed-instance-offline-ads.md
+        - name: a máquina virtual de Azure SQL (en línea) mediante Azure Data Studio
+          href: tutorial-sql-server-to-virtual-machine-online-ads.md
+        - name: a máquina virtual de Azure SQL (sin conexión) mediante Azure Data Studio
+          href: tutorial-sql-server-to-virtual-machine-offline-ads.md
         - name: a Instancia administrada de Azure SQL (sin conexión)
           href: tutorial-sql-server-to-managed-instance.md
         - name: a Instancia administrada de Azure SQL (en línea)

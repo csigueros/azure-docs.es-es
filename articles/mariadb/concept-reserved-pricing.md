@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: 462ba0ccbd5d7e7048c2c7fcb9c5bece04adaebe
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3a6a4eeac50a7818eea5637b81788b1b11397bce
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98661770"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128631957"
 ---
 # <a name="prepay-for-azure-database-for-mariadb-compute-resources-with-reserved-capacity"></a>Pago por adelantado de recursos de proceso de Azure Database for MariaDB con capacidad reservada
 
@@ -51,7 +51,7 @@ En la siguiente tabla se describen los campos obligatorios.
 | Campo | Descripción |
 | :------------ | :------- |
 | Subscription   | La suscripción usada para pagar la reserva de capacidad reservada de Azure Database for MariaDB. Los costos anticipados por la reserva de capacidad reservada de Azure Database for MariaDB se cobran mediante el método de pago de la suscripción. El tipo de suscripción debe ser Contrato Enterprise (números de oferta: MS-AZR-0017P o MS-AZR-0148P) o un contrato individual con precios de pago por uso (números de oferta: MS-AZR-0003P o MS-AZR-0023P). Para una suscripción Enterprise, los cargos se deducen del pago por adelantado de Azure (antes conocido como saldo de compromiso monetario) de la inscripción, o se cobran como uso por encima del límite. Para una suscripción individual con precios de pago por uso, los cargos se cobran en el método de pago de la factura o la tarjeta de crédito de la suscripción.
-| Ámbito | El ámbito de la reserva de núcleos virtuales puede cubrir una suscripción o varias (ámbito compartido). Si selecciona: </br></br> **Compartido**: el descuento por la reserva de núcleos virtuales se aplica a los servidores de Azure Database for MariaDB en ejecución en cualquiera de las suscripciones en el contexto de facturación. Para los clientes Enterprise, el ámbito compartido es la inscripción e incluye todas las suscripciones que esta contiene. Para los clientes de Pago por uso, el ámbito compartido incluye todas las suscripciones de Pago por uso creadas por el administrador de la cuenta.</br></br> **Suscripción única**: el descuento por la reserva de núcleos virtuales se aplica a los servidores de Azure Database for MariaDB de esta suscripción. </br></br> **Grupo de recursos único**: el descuento de reserva se aplica a los servidores de Azure Database for MariaDB de la suscripción seleccionada y al grupo de recursos seleccionado de esa suscripción.
+| Ámbito | El ámbito de la reserva de núcleos virtuales puede cubrir una suscripción o varias (ámbito compartido). Si selecciona: </br></br> **Compartido**: el descuento por la reserva de núcleos virtuales se aplica a los servidores de Azure Database for MariaDB en ejecución en cualquiera de las suscripciones en el contexto de facturación. Para los clientes Enterprise, el ámbito compartido es la inscripción e incluye todas las suscripciones que esta contiene. Para los clientes de Pago por uso, el ámbito compartido incluye todas las suscripciones de Pago por uso creadas por el administrador de la cuenta.</br></br>**Grupo de administración**: se aplica el descuento por reserva al recurso correspondiente de la lista de suscripciones que forman parte del grupo de administración y el ámbito de facturación.</br></br> **Suscripción única**: el descuento por la reserva de núcleos virtuales se aplica a los servidores de Azure Database for MariaDB de esta suscripción. </br></br> **Grupo de recursos único**: el descuento de reserva se aplica a los servidores de Azure Database for MariaDB de la suscripción seleccionada y al grupo de recursos seleccionado de esa suscripción.
 | Region | La región de Azure que abarca la reserva de capacidad reservada de Azure Database for MariaDB.
 | Tipo de implementación | El tipo de recurso de Azure Database for MariaDB para el que quiere comprar la reserva.
 | Nivel de rendimiento | El nivel de servicio de los servidores de Azure Database for MariaDB.

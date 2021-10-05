@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/25/2021
+ms.date: 09/10/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0da54bd28c1d9ea933e88b6c86cf6092c10d036a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5055b847eab1ee53688abfa308b5969f7526f668
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98785245"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124742669"
 ---
 # <a name="accidental-delete-prevention"></a>Protección contra eliminación accidental
 
@@ -27,6 +27,10 @@ En el documento siguiente se describe la característica de eliminación acciden
 - configurar una dirección de correo electrónico de notificación para que puedan recibir una notificación por correo electrónico cuando el trabajo de sincronización en cuestión se ponga en cuarentena para este escenario 
 
 Para usar esta característica, establezca el umbral en el número de objetos que, de eliminarse, harán que se detenga la sincronización.  Por lo tanto, si se alcanza este número, la sincronización se detendrá y se enviará una notificación al correo electrónico especificado.  Esta notificación le permitirá investigar qué está sucediendo.
+
+Para obtener información adicional y ver un ejemplo, vea el vídeo siguiente.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWK5mV]
 
 
 ## <a name="configure-accidental-delete-prevention"></a>Configuración de la protección contra eliminación accidental

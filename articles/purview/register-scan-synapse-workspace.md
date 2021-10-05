@@ -1,18 +1,18 @@
 ---
-title: Examen de áreas de trabajo de Azure Synapse Analytics
+title: Cómo registrar y examinar áreas de trabajo de Azure Synapse Analytics
 description: Obtenga información sobre cómo examinar un área de trabajo de Azure Synapse en su catálogo de datos de Azure Purview.
 author: viseshag
 ms.author: viseshag
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 06/18/2021
-ms.openlocfilehash: a74e88d72d1e7109b6e0acfa81485476eed9e00b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/27/2021
+ms.openlocfilehash: 8a7b23089e9b17e35b56b04991c76b37baedf231
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121731143"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129207799"
 ---
 # <a name="register-and-scan-azure-synapse-analytics-workspaces"></a>Registro y examen de áreas de trabajo de Azure Synapse Analytics
 
@@ -138,6 +138,7 @@ Puede configurar la autenticación para un origen de Azure Synapse de dos manera
     EXEC sp_addrolemember 'db_datareader', [PurviewAccountName]
     GO
     ```
+
 #### <a name="use-a-managed-identity-for-serverless-sql-databases"></a>Uso de una identidad administrada para bases de datos SQL sin servidor
 
 1. Vaya al área de trabajo de Azure Synapse.
@@ -148,6 +149,14 @@ Puede configurar la autenticación para un origen de Azure Synapse de dos manera
     CREATE USER [PurviewAccountName] FOR LOGIN [PurviewAccountName];
     ALTER ROLE db_datareader ADD MEMBER [PurviewAccountName]; 
     ```
+
+#### <a name="grant-permission-to-use-credentials-for-external-tables"></a>Concesión de permiso para usar credenciales para tablas externas
+
+Si el área de trabajo de Azure Synapse tiene tablas externas, a la identidad administrada de Azure Purview se le debe conceder el permiso Referencias en las credenciales con ámbito de tabla externa. Con el permiso Referencias, Azure Purview puede leer datos de tablas externas.
+
+```sql
+GRANT REFERENCES ON DATABASE SCOPED CREDENTIAL::[scoped_credential] TO [PurviewAccountName];
+```
 
 #### <a name="use-a-service-principal-for-dedicated-sql-databases"></a>Uso de una entidad de servicio para bases de datos SQL dedicadas
 
@@ -199,7 +208,7 @@ Puede configurar la autenticación para un origen de Azure Synapse de dos manera
 
 Para crear y ejecutar un nuevo examen, siga estos pasos:
 
-1. Seleccione la pestaña **Mapa de datos** en el panel izquierdo de Purview Studio.
+1. Seleccione la pestaña **Mapa de datos** en el panel izquierdo de [Purview Studio](https://web.purview.azure.com/resource/).
 
 1. Seleccione el origen de datos que ha registrado.
 
@@ -232,11 +241,11 @@ Para crear y ejecutar un nuevo examen, siga estos pasos:
 
     * La **barra de estado** muestra un breve resumen sobre el estado de ejecución de los recursos secundarios. El estado se muestra en el examen de nivel de área de trabajo.  
     * El color verde indica una ejecución de examen correcta, el rojo, una ejecución de examen con errores, y el gris, que la ejecución del examen todavía está en curso.  
-    * Puede ver información más pormenorizada sobre las ejecuciones de examen haciendo clic en ellas.
+    * Puede ver información más pormenorizada sobre las ejecuciones de examen seleccionándolas.
 
       :::image type="content" source="media/register-scan-synapse-workspace/synapse-scan-details.png" alt-text="Captura de pantalla de la página de detalles del examen de Azure Synapse Analytics." lightbox="media/register-scan-synapse-workspace/synapse-scan-details.png"::: 
 
-    * Puede ver un resumen de las ejecuciones de exámenes recientes con errores en la parte inferior de la **página de detalles del origen**. De nuevo, puede ver información más pormenorizada sobre las ejecuciones de examen haciendo clic en ellas.
+    * Puede ver un resumen de las ejecuciones de exámenes recientes con errores en la parte inferior de la **página de detalles del origen**. De nuevo, puede ver información más pormenorizada sobre las ejecuciones de examen seleccionándolas.
 
 #### <a name="manage-your-scans"></a>Administración de exámenes
 

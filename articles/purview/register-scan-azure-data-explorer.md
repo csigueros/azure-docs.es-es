@@ -1,18 +1,18 @@
 ---
-title: Cómo examinar Azure Data Explorer
-description: En esta guía se describen los detalles de cómo analizar Azure Data Explorer.
+title: Registro y examen de Azure Data Explorer
+description: En esta guía se describen los detalles de cómo analizar Azure Data Explorer en Azure Purview.
 author: nayenama
 ms.author: nayenama
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 05/08/2021
-ms.openlocfilehash: adf9f3da66908dc473388f9b3da14439de86ddcb
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/27/2021
+ms.openlocfilehash: 28ed2e82108cce48ac7ce6988bd9e9833253855a
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121740278"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129209950"
 ---
 # <a name="register-and-scan-azure-data-explorer"></a>Registro y examen de Azure Data Explorer
 
@@ -63,16 +63,14 @@ Es necesario obtener el id. de aplicación y el secreto de la entidad de servici
 
 1. Acceda a Azure Portal. A continuación, vaya a la instancia de Azure Data Explorer.
 
-1. Agregue la entidad de servicio al rol **AllDatabasesViewer** en la pestaña **Permisos**, tal como se muestra en la captura de pantalla siguiente.
-
-    :::image type="content" source="./media/register-scan-azure-data-explorer/permissions-auth.png" alt-text="Captura de pantalla para agregar la entidad de servicio en los permisos" border="true":::
+1. Agregue la entidad de servicio al rol **AllDatabasesViewer** en la pestaña **Permisos**.
 
 ## <a name="register-an-azure-data-explorer-account"></a>Registro de una cuenta de Azure Data Explorer
 
 Para registrar una nueva cuenta de Azure Data Explorer (Kusto) en el catálogo de datos, haga lo siguiente:
 
 1. Vaya a la cuenta de Purview.
-1. Seleccione **Mapa de datos** en el panel de navegación izquierdo.
+1. Seleccione **Data Map** (Mapa de datos) en el panel de navegación izquierdo.
 1. Seleccione **Registrar**.
 1. En **Registrar orígenes**, seleccione **Azure Data Explorer**.
 1. Seleccione **Continuar**
@@ -93,7 +91,7 @@ En la pantalla **Registrar orígenes (Azure Data Explorer [Kusto])** , haga lo s
 
 Para crear y ejecutar un nuevo examen, siga estos pasos:
 
-1. Seleccione la pestaña **Mapa de datos** en el panel izquierdo de Purview Studio.
+1. Seleccione la pestaña **Mapa de datos** en el panel izquierdo de [Purview Studio](https://web.purview.azure.com/resource/).
 
 1. Seleccione el origen de Azure Data Explorer que ha registrado.
 

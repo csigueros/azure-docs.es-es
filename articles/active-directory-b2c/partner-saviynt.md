@@ -8,15 +8,15 @@ manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/16/2020
+ms.date: 09/20/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: fe5a2114a99b7867ac5e51b6bf9ec542ad47ca13
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 2685570bb14cf177f0a658196aa1750f9d8e02a1
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107257898"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128558355"
 ---
 # <a name="tutorial-for-configuring-saviynt-with-azure-active-directory-b2c"></a>Tutorial para configurar Saviynt con Azure Active Directory B2C
 
@@ -76,37 +76,22 @@ En el siguiente diagrama de arquitectura se muestra la implementación.
 ### <a name="create-an-azure-ad-application-for-saviynt"></a>Creación de una aplicación de Azure AD para Saviynt
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/#home).
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
+1. En Azure Portal, busque y seleccione **Azure AD B2C**.
+1. Seleccione **Registros de aplicaciones** > **Nuevo registro**.
+1. Escriba un Nombre para la aplicación. Por ejemplo, Saviynt y seleccione **Crear**.
+1. Vaya a **Permisos de API** y seleccione **+ Agregar un permiso**.
+1. Aparece la página Solicitud de permisos de API. Seleccione la pestaña **API de Microsoft** y seleccione **Microsoft Graph** como las API de Microsoft que se usan habitualmente.
+1. Vaya a la página siguiente y seleccione **Permisos de la aplicación**.
+1. Seleccione **Directorio** y seleccione las casillas **Directory.Read.All** y **Directory.ReadWrite.All**.
+1. Seleccione **Agregar permisos**. Revise los permisos agregados.
+1. Seleccione **Grant admin consent for Default Directory** (Conceder consentimiento de administrador para el directorio predeterminado) > **Guardar**.
+1. Vaya a **Certificados y secretos** y seleccione **+ Add Client Secret** (+ Agregar secreto de cliente). Escriba la descripción del secreto de cliente, seleccione la opción de expiración y luego seleccione **Agregar**.
+1. La clave de secreto se genera y se muestra en la sección de secreto de cliente. Tendrá que usarla más adelante.
 
-2. Seleccione el icono **Directorio y suscripción** en la barra de herramientas del portal y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
-
-3. En Azure Portal, busque y seleccione **Azure AD B2C**.
-
-4. Seleccione **Registros de aplicaciones** > **Nuevo registro**.
-
-5. Escriba un Nombre para la aplicación. Por ejemplo, Saviynt y seleccione **Crear**.
-
-6. Vaya a **Permisos de API** y seleccione **+ Agregar un permiso**.
-
-7. Aparece la página Solicitud de permisos de API. Seleccione la pestaña **API de Microsoft** y seleccione **Microsoft Graph** como las API de Microsoft que se usan habitualmente.
-
-8. Vaya a la página siguiente y seleccione **Permisos de la aplicación**.
-
-9. Seleccione **Directorio** y seleccione las casillas **Directory.Read.All** y **Directory.ReadWrite.All**.
-
-10. Seleccione **Agregar permisos**. Revise los permisos agregados.
-
-11. Seleccione **Grant admin consent for Default Directory** (Conceder consentimiento de administrador para el directorio predeterminado) > **Guardar**.
-
-12. Vaya a **Certificados y secretos** y seleccione **+ Add Client Secret** (+ Agregar secreto de cliente). Escriba la descripción del secreto de cliente, seleccione la opción de expiración y luego seleccione **Agregar**.
-
-13. La clave de secreto se genera y se muestra en la sección de secreto de cliente.
-
-    >[!NOTE]
-    > Necesitará el secreto de cliente más adelante.
-
-14. Vaya a **Información general** y obtenga el **Id. de cliente** y el **Id. de inquilino**.
-
-15. Se necesitará el id. de inquilino, el id. de cliente y el secreto de cliente para completar la configuración en Saviynt.
+1. Vaya a **Información general** y obtenga el **Id. de cliente** y el **Id. de inquilino**.
+1. Se necesitará el id. de inquilino, el id. de cliente y el secreto de cliente para completar la configuración en Saviynt.
 
 ### <a name="enable-saviynt-to-delete-users"></a>Habilitación de Saviynt para eliminar usuarios
 

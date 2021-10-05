@@ -11,12 +11,12 @@ ms.author: ruxu
 ms.reviewer: ''
 zone_pivot_groups: programming-languages-spark-all-minus-sql
 ms.custom: subject-rbac-steps
-ms.openlocfilehash: 5e0590dd524c516b2c6b909184de1f2d65f0074c
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: f5dba6b81befd569523111b997c29e54b3e82881
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123257033"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124774621"
 ---
 # <a name="introduction-to-microsoft-spark-utilities"></a>Introducción a las utilidades de Spark para Microsoft
 
@@ -453,9 +453,17 @@ FS.Rm("file path", true) // Set the last parameter as True to remove all files a
 
 ::: zone-end
 
-:::zone pivot = "programming-language-python"
+
 
 ## <a name="notebook-utilities"></a>Utilidades de cuaderno 
+
+:::zone pivot = "programming-language-csharp"
+
+No compatible.
+
+::: zone-end
+
+:::zone pivot = "programming-language-python"
 
 Puede usar las utilidades de cuaderno MSSparkUtils para ejecutar un cuaderno o salir de uno con un valor. Ejecute el siguiente comando para obtener información general sobre los métodos disponibles:
 
@@ -472,8 +480,8 @@ run(path: String, timeoutSeconds: int, arguments: Map): String -> This method ru
 
 ```
 
-### <a name="run-a-notebook"></a>Ejecutar un cuaderno
-Ejecuta un cuaderno y devuelve su valor de salida. Puede ejecutar llamadas de función anidadas en un cuaderno de manera interactiva o en una canalización. El cuaderno al que se hace referencia se ejecutará en el grupo de Spark del cuaderno que llamó a esta función.  
+### <a name="reference-a-notebook"></a>Referencia a un cuaderno
+Hace referencia un cuaderno y devuelve su valor de salida. Puede ejecutar llamadas de función anidadas en un cuaderno de manera interactiva o en una canalización. El cuaderno al que se hace referencia se ejecutará en el grupo de Spark del cuaderno que llamó a esta función.  
 
 ```python
 
@@ -537,10 +545,7 @@ Sample1 run success with input is 20
 ```
 ::: zone-end
 
-
 :::zone pivot = "programming-language-scala"
-
-## <a name="notebook-utilities"></a>Utilidades de cuaderno 
 
 Puede usar las utilidades de cuaderno MSSparkUtils para ejecutar un cuaderno o salir de uno con un valor. Ejecute el siguiente comando para obtener información general sobre los métodos disponibles:
 
@@ -557,8 +562,8 @@ run(path: String, timeoutSeconds: int, arguments: Map): String -> This method ru
 
 ```
 
-### <a name="run-a-notebook"></a>Ejecutar un cuaderno
-Ejecuta un cuaderno y devuelve su valor de salida. Puede ejecutar llamadas de función anidadas en un cuaderno de manera interactiva o en una canalización. El cuaderno al que se hace referencia se ejecutará en el grupo de Spark del cuaderno que llamó a esta función.  
+### <a name="reference-a-notebook"></a>Referencia a un cuaderno
+Hace referencia un cuaderno y devuelve su valor de salida. Puede ejecutar llamadas de función anidadas en un cuaderno de manera interactiva o en una canalización. El cuaderno al que se hace referencia se ejecutará en el grupo de Spark del cuaderno que llamó a esta función.  
 
 ```scala
 
@@ -675,7 +680,7 @@ Devuelve un token de Azure AD para un público determinado por nombre (opcional
 |--|--|
 |Tipo de resolución de público|"Audience"|
 |Recurso de público de Storage|"Storage"|
-|Recurso de público de Data Warehouse|"DW"|
+|Grupos de SQL dedicados (almacenamiento de datos)|"DW"|
 |Recurso de público de lago de datos|"AzureManagement"|
 |Recurso de público de almacén|"DataLakeStore"|
 |Recurso de público de base de datos de OSS de Azure|"AzureOSSDB"|
@@ -1086,6 +1091,31 @@ mssparkutils.env.getClusterId()
 Env.GetClusterId()
 ```
 
+::: zone-end
+
+
+## <a name="runtime-context"></a>Contexto en entorno de ejecución
+
+Las utilidades del entorno de ejecución de Mssparkutils exponen tres propiedades para el entorno de ejecución; puede usar el contexto del entorno de ejecución de mssparkutils para obtener las propiedades enumeradas a continuación:
+- **Notebookname**: el nombre del cuaderno actual, siempre devolverá el valor para el modo interactivo y el modo de canalización.
+- **Pipelinejobid**: el identificador de ejecución de canalización, devolverá el valor en el modo de canalización y devolverá una cadena vacía en el modo interactivo.
+- **Activityrunid**: el identificador de ejecución de la actividad del cuaderno, devolverá el valor en el modo de canalización y devolverá una cadena vacía en el modo interactivo.
+
+Actualmente, el contexto del entorno de ejecución admite Python y Scala.
+
+:::zone pivot = "programming-language-python"
+
+```python
+mssparkutils.runtime.context
+```
+::: zone-end
+
+:::zone pivot = "programming-language-scala"
+
+```scala
+%%spark
+mssparkutils.runtime.context
+```
 ::: zone-end
 
 ## <a name="next-steps"></a>Pasos siguientes

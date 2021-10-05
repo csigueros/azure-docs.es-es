@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: mathoma, bonova
 ms.date: 04/29/2021
-ms.openlocfilehash: d9958d30fff09ba0d6c66b71143ea68468dd0363
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 0a9775691780a855824569f77a0bf4a1d3bf295b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121751257"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128657773"
 ---
 # <a name="connectivity-architecture-for-azure-sql-managed-instance"></a>Arquitectura de conectividad de Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -105,6 +105,11 @@ Implemente SQL Managed Instance en una subred dedicada dentro de la red virtual.
 - **Grupo de seguridad de red (NSG):** se debe asociar un grupo de seguridad de red a la subred de SQL Managed Instance. Puede usar un NSG para controlar el acceso al punto de conexión de datos de SQL Managed Instance mediante el filtrado del tráfico en el puerto 1433 y en los puertos 11000 a 11999 cuando SQL Managed Instance se configura para conexiones de redirección. El servicio aprovisionará y mantendrá automáticamente las [reglas](#mandatory-inbound-security-rules-with-service-aided-subnet-configuration) actuales necesarias para permitir el flujo ininterrumpido de tráfico de administración.
 - **Tabla de rutas definida por el usuario (UDR):** se debe asociar una tabla UDR a la subred de SQL Managed Instance. Puede agregar entradas a la tabla de rutas para enrutar el tráfico que tiene intervalos IP privados locales como destino a través de una puerta de enlace de red virtual o de un dispositivo de red virtual (NVA). El servicio aprovisionará y mantendrá automáticamente las [entradas](#mandatory-user-defined-routes-with-service-aided-subnet-configuration) actuales necesarias para permitir el flujo ininterrumpido de tráfico de administración.
 - **Suficientes direcciones IP:** la subred de SQL Managed Instance debe tener al menos 32 direcciones IP. Para obtener más información, consulte [Determinación del tamaño de la subred de SQL Managed Instance](vnet-subnet-determine-size.md). Puede implementar instancias administradas en [la red existente](vnet-existing-add-subnet.md) después de configurarla para satisfacer [los requisitos de red de SQL Managed Instance](#network-requirements). De lo contrario, cree [una red y una subred](virtual-network-subnet-create-arm-template.md).
+- **Recursos desbloqueados:** la red virtual que contiene la subred delegada a SQL Managed Instance no debe tener ningún [bloqueo de escritura o eliminación](../../azure-resource-manager/management/lock-resources.md) colocado en el recurso de red virtual, su grupo de recursos primario o su suscripción. La colocación de bloqueos en la red virtual o en sus recursos primarios puede impedir que SQL Managed Instance complete su mantenimiento normal y causar un rendimiento degradado, correcciones de errores diferidas, pérdida de cumplimiento normativo, operación fuera de SLO y hacer que la instancia sea inutilizable.
+- **Permitido por las directivas de Azure:** si aprovecha [Azure Policy](../../governance/policy/overview.md) para controlar la creación, modificación y eliminación de recursos a través de efectos de denegación en el ámbito que incluye la red virtual cuya subred se delega en SQL Managed Instance, debe tomar medidas para asegurarse de que dichas directivas no impidan que SQL Managed Instance implemente o realice un mantenimiento normal. Si los recursos de esos tipos de recursos no se pueden crear ni administrar mediante SQL Managed Instance,puede fallar la implementación o quedar inutilizado después de una operación de mantenimiento. Los tipos de recursos que deben excluirse de los efectos de denegación son:  
+  - Microsoft.Network/serviceEndpointPolicies
+  - Microsoft.Network/networkIntentPolicies
+  - Microsoft.Network/virtualNetworks/subnets/contextualServiceEndpointPolicies
 
 > [!IMPORTANT]
 > Cuando se crea una instancia administrada, se aplica una directiva de intención de red en la subred para evitar cambios no compatibles con la configuración de red. Después de quitar la última instancia de la subred, también se quitará la directiva de intención de red. Las reglas siguientes son solo para fines informativos y no se deben implementar mediante la plantilla de ARM/PowerShell/CLI. Si quiere usar la plantilla oficial más reciente, siempre puede [recuperarla del portal](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).

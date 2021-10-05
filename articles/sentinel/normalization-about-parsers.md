@@ -15,16 +15,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/11/2021
 ms.author: ofshezaf
-ms.openlocfilehash: a08fff90197315edbfb78cb76a1c41bc84f90d69
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: b3dc1575258c495a2be63eced6aa141c60bb6631
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123538352"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128659445"
 ---
 # <a name="azure-sentinel-information-model-asim-parsers-public-preview"></a>Analizadores del modelo de información de Azure Sentinel (ASIM) (versión preliminar pública)
 
 En Azure Sentinel, el análisis y la [normalización](normalization.md) tienen lugar en el tiempo de consulta. Los analizadores se crean como [funciones definidas por el usuario de KQL](/azure/data-explorer/kusto/query/functions/user-defined-functions) que transforman los datos de tablas existentes, como **CommonSecurityLog**, tablas de registros personalizados o Syslog, al esquema normalizado. Una vez que el analizador se guarda como una función de área de trabajo, se puede usar como cualquier tabla de Azure Sentinel.
+
+> [!TIP]
+> Vea también el [seminario web de profundización sobre los analizadores de normalización de Azure Sentinel y el contenido normalizado](https://www.youtube.com/watch?v=zaqblyjQW6k) o revise las [diapositivas](https://1drv.ms/b/s!AnEPjr8tHcNmjGtoRPQ2XYe3wQDz?e=R3dWeM). Para más información, consulte la sección [Pasos siguientes](#next-steps).
+>
 
 > [!IMPORTANT]
 > ASIM está actualmente en versión preliminar. En la página [Términos de uso complementarios para las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) se incluyen términos legales adicionales que se aplican a las características de Azure que se encuentran en versión beta, versión preliminar o que todavía no se han publicado para su disponibilidad general.
@@ -277,12 +281,13 @@ Para obtener más información, consulte la [plantilla de ARM de analizador gen�
 >
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a><a name="next-steps"></a>Pasos siguientes
 
 En este artículo se describen los analizadores del modelo de información de Azure Sentinel (ASIM).
 
 Para más información, consulte:
 
+- Vea el [seminario web de profundización sobre los analizadores de normalización de Azure Sentinel y el contenido normalizado](https://www.youtube.com/watch?v=zaqblyjQW6k) o revise las [diapositivas](https://1drv.ms/b/s!AnEPjr8tHcNmjGtoRPQ2XYe3wQDz?e=R3dWeM).
 - [Información general del modelo de información de Azure Sentinel](normalization.md)
 - [Esquemas del modelo de información de Azure Sentinel](normalization-about-schemas.md)
 - [Contenido del modelo de información de Azure Sentinel](normalization-content.md)

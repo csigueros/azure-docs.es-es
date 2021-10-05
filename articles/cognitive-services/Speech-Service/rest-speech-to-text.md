@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/01/2021
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f9e16037c1fc0b2addc825718e4fecb13a270129
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 31759756a886093c53d1537db609bfc58fb4af8b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123541574"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128610472"
 ---
 # <a name="speech-to-text-rest-api"></a>Speech-to-text REST API
 
@@ -153,7 +153,7 @@ var pronAssessmentHeader = Convert.ToBase64String(pronAssessmentParamsBytes);
 Se recomienda encarecidamente la carga en streaming (fragmentada) al publicar los datos de audio, ya que puede reducir considerablemente la latencia. Consulte el [código de ejemplo en diferentes lenguajes de programación](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/PronunciationAssessment) para saber cómo habilitar el streaming.
 
 >[!NOTE]
-> Actualmente, la característica de evaluación de pronunciación admite el idioma `en-US`, que está disponible en todas las [regiones de conversión de voz en texto](regions.md#speech-to-text). La compatibilidad con los idiomas `en-GB` y `zh-CN` se encuentra en versión preliminar, que está disponible en las regiones `westus`, `eastasia` y `centralindia`.
+> Actualmente, la característica de evaluación de pronunciación admite el idioma `en-US`, que está disponible en todas las [regiones de conversión de voz en texto](regions.md#speech-to-text). La compatibilidad con los idiomas `en-GB` y `zh-CN` se encuentra en versión preliminar.
 
 ### <a name="sample-request"></a>Solicitud de ejemplo
 

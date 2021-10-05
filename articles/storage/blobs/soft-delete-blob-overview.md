@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/23/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: cbc2f30384dc410df56995afd83f7d8c0f964176
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: 1c645e50a49a268d762b1195e91484783a73367c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123469615"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128562557"
 ---
 # <a name="soft-delete-for-blobs"></a>Eliminación temporal para blobs
 
@@ -26,7 +26,6 @@ La eliminación temporal de blobs protege a cada uno de los blobs, instantáneas
 >
 >
 > Para inscribirse en la versión preliminar, visite [este formulario](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR4mEEwKhLjlBjU3ziDwLH-pUOVRVOUpDRUtHVUtDUUtMVTZUR0tUMjZWNy4u).
-
 
 ## <a name="recommended-data-protection-configuration"></a>Configuración de protección de datos recomendada
 
@@ -69,13 +68,13 @@ No se puede eliminar un blob con instantáneas a menos que las instantáneas tam
 
 También puede eliminar una o varias instantáneas activas sin eliminar el blob base. En este caso, la instantánea se elimina temporalmente.
 
-Si se elimina un directorio en una cuenta que tiene habilitada la característica de espacio de nombres jerárquico, el directorio y todo su contenido se marcan como eliminados temporalmente. 
+Si se elimina un directorio en una cuenta que tiene habilitada la característica de espacio de nombres jerárquico, el directorio y todo su contenido se marcan como eliminados temporalmente.
 
 Los objetos eliminados temporalmente son invisibles a menos que se muestren o enumeren explícitamente. Para obtener más información sobre cómo enumerar objetos eliminados temporalmente, consulte [Administración y restauración de blobs eliminados temporalmente](soft-delete-blob-manage.md).
 
 ### <a name="how-overwrites-are-handled-when-soft-delete-is-enabled"></a>Administración de las sobrescrituras cuando la eliminación temporal está habilitada
 
->[!IMPORTANT]
+> [!IMPORTANT]
 > Esta sección no se aplica a las cuentas que tienen un espacio de nombres jerárquico.
 
 La llamada a una operación como [Put Blob](/rest/api/storageservices/put-blob), [Put Block List](/rest/api/storageservices/put-block-list)o [Copy Blob](/rest/api/storageservices/copy-blob) sobrescribe los datos en un blob. Cuando la eliminación temporal de blobs está habilitada, al sobrescribir un blob se crea automáticamente una instantánea de eliminación temporal del estado del blob antes de la operación de escritura. Cuando expire el período de retención, la instantánea eliminada temporalmente se eliminará de forma permanente.
@@ -106,7 +105,7 @@ Para obtener más información sobre cómo restaurar objetos eliminados temporal
 
 ## <a name="blob-soft-delete-and-versioning"></a>Eliminación temporal y control de versiones de blobs
 
->[!IMPORTANT]
+> [!IMPORTANT]
 > No se admite el control de versiones para cuentas que tienen un espacio de nombres jerárquico.
 
 Si están habilitados el control de versiones y la eliminación temporal de blobs para una cuenta de almacenamiento, al sobrescribir un blob se crea una versión automáticamente. La nueva versión no se elimina de forma temporal y no se quita cuando expira el período de retención de eliminación temporal. No se crea ninguna instantánea eliminada temporalmente. Cuando elimina un blob, la versión actual se convierte en otra anterior y deja de haber una versión actual. No se crea ninguna versión nueva ni ninguna instantánea eliminada temporalmente.
@@ -122,7 +121,7 @@ Microsoft recomienda habilitar el control de versiones y la eliminación tempora
 
 ## <a name="blob-soft-delete-protection-by-operation"></a>Protección de eliminación temporal de blobs por operación
 
-En la tabla siguiente, se describe el comportamiento esperado de las operaciones de eliminación y escritura cuando la eliminación temporal de blobs está habilitada, ya sea con o sin control de versiones de blobs. 
+En la tabla siguiente, se describe el comportamiento esperado de las operaciones de eliminación y escritura cuando la eliminación temporal de blobs está habilitada, ya sea con o sin control de versiones de blobs.
 
 ### <a name="storage-account-no-hierarchical-namespace"></a>Cuenta de almacenamiento (sin espacio de nombres jerárquico)
 
@@ -150,16 +149,18 @@ En la tabla siguiente, se describe el comportamiento esperado de las operaciones
 
 ## <a name="feature-support"></a>Compatibilidad de características
 
-En esta tabla se muestra cómo se admite esta característica en la cuenta y el impacto en la compatibilidad al habilitar determinadas funcionalidades. 
+En esta tabla se muestra cómo se admite esta característica en la cuenta y el impacto en la compatibilidad al habilitar determinadas funcionalidades.
 
-| Tipo de cuenta de almacenamiento                | Blob Storage (compatibilidad predeterminada)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>    
+| Tipo de cuenta de almacenamiento                | Blob Storage (compatibilidad predeterminada)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
 |-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
-| De uso general estándar, v2 | ![Sí](../media/icons/yes-icon.png) |![Sí](../media/icons/yes-icon.png)  <sup>2</sup>              | ![No](../media/icons/no-icon.png) | 
-| Blobs en bloques Premium          | ![Sí](../media/icons/yes-icon.png) |![Sí](../media/icons/yes-icon.png)  <sup>2</sup>              | ![No](../media/icons/no-icon.png) |
+| De uso general estándar, v2 | ![Sí](../media/icons/yes-icon.png) |![Sí](../media/icons/yes-icon.png)  <sup>2</sup>  <sup>3</sup>            | ![No](../media/icons/no-icon.png) |
+| Blobs en bloques Premium          | ![Sí](../media/icons/yes-icon.png) |![Sí](../media/icons/yes-icon.png)  <sup>2</sup>  <sup>3</sup>            | ![No](../media/icons/no-icon.png) |
 
 <sup>1</sup> Data Lake Storage Gen2 y el protocolo Network File System (NFS) 3.0 necesitan una cuenta de almacenamiento con un espacio de nombres jerárquico habilitado.
 
 <sup>2</sup> La característica se admite en el nivel de versión preliminar.
+
+<sup>3</sup>Para más información, consulte [Problemas conocidos con Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md). Estos problemas se aplican a todas las cuentas que tienen habilitada la característica de espacio de nombres jerárquico.
 
 ## <a name="pricing-and-billing"></a>Precios y facturación
 
@@ -173,7 +174,7 @@ No se facturan las transacciones relacionadas con la generación automática de 
 
 Para obtener más información sobre los precios de Blob Storage, consulte la página de [Precios de Blob Storage](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
-## <a name="blob-soft-delete-and-virtual-machine-disks"></a>Eliminación temporal de blobs y discos de máquinas virtuales  
+## <a name="blob-soft-delete-and-virtual-machine-disks"></a>Eliminación temporal de blobs y discos de máquinas virtuales
 
 La eliminación temporal de blobs está disponible para discos no administrados prémium y estándar, que son blobs en páginas en segundo plano. La eliminación temporal solo le ayuda a recuperar los datos eliminados o sobrescritos por las operaciones [Delete Blob](/rest/api/storageservices/delete-blob), [Put Blob](/rest/api/storageservices/put-blob), [Put Block List](/rest/api/storageservices/put-block-list) y [Copy Blob](/rest/api/storageservices/copy-blob).
 

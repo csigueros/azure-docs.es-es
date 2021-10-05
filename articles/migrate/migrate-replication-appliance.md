@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 01/30/2020
-ms.openlocfilehash: 5f63b033c3995932662fc9b68c1397bf57b0326e
-ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
+ms.openlocfilehash: 4a06267aae473ecc1b42812f7ed07405faafd7aa
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107714981"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128607477"
 ---
 # <a name="replication-appliance"></a>Dispositivo de replicación
 
@@ -58,7 +58,7 @@ Licencia | El dispositivo viene con una licencia de evaluación de Windows Serve
 Configuración regional del sistema operativo | Español (es-es)
 TLS | TLS 1.2 debe estar habilitado.
 .NET Framework | .NET Framework 4.6 o posterior debe estar instalado en la máquina (con criptografía segura habilitada).
-MySQL | MySQL debe estar instalado en el dispositivo.<br/> Se debe instalar MySQL. Se puede instalar manualmente o lo puede instalar Site Recovery durante la implementación.
+MySQL | MySQL debe estar instalado en el dispositivo.<br/> Se debe instalar MySQL. Se puede instalar manualmente o lo puede instalar Azure Migrate durante la implementación.
 Otras aplicaciones | No ejecute otras aplicaciones en el dispositivo de replicación.
 Roles de Windows Server | No habilite estos roles: <br> - Active Directory Domain Services <br>- Internet Information Services <br> - Hyper-V
 Directivas de grupo | No habilite estas directivas de grupo: <br> - Impedir el acceso al símbolo del sistema. <br> - Impedir el acceso a herramientas de edición del Registro. <br> - Confiar en la lógica de datos adjuntos de archivos. <br> - Activar la ejecución de scripts. <br> [Más información](/previous-versions/windows/it-pro/windows-7/gg176671(v=ws.10))

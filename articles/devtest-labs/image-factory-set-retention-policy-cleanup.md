@@ -1,14 +1,14 @@
 ---
-title: Configuración de directivas de laboratorio en Azure DevTest Labs | Microsoft Docs
+title: Configuración de directivas de retención
 description: Obtenga información sobre cómo configurar una directiva de retención, limpiar la fábrica y retirar imágenes antiguas de DevTest Labs.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 4e642d7dc0733e55caa4ed62e3382ef4422030f9
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 91baf275a1ff85cadd0e1226ceb2f1ff529189c0
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105727542"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128642878"
 ---
 # <a name="set-up-retention-policy-in-azure-devtest-labs"></a>Configuración de la directiva de retención en Azure DevTest Labs
 Este artículo abarca el establecimiento de una directiva de retención, la limpieza de la fábrica y la retirada de las imágenes anteriores de todos los otros laboratorios de DevTes Labs de la organización. 
@@ -67,4 +67,3 @@ También es sencillo agregar una nueva imagen al generador. Cuando quiera inclui
 1. [Programe la compilación o versión](/azure/devops/pipelines/build/triggers?tabs=designer) para ejecutar periódicamente el generador de imágenes. Actualiza las imágenes creadas por el generador de forma periódica.
 2. Cree más imágenes maestras para el generador. También puede considerar la [creación de artefactos](devtest-lab-artifact-author.md) para aplicar scripts a otras piezas de las tareas de configuración de la máquina virtual e incluir los artefactos en las imágenes del generador.
 4. Cree [otra compilación/versión](/azure/devops/pipelines/overview) para ejecutar el script **DistributeImages** por separado. Puede ejecutar este script al realizar cambios en Labs.json y obtener las imágenes copiadas en los laboratorios de destino sin tener que volver a crear todas las imágenes de nuevo.
-

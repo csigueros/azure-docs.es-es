@@ -7,12 +7,12 @@ ms.date: 08/09/2021
 author: palma21
 ms.author: jpalma
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 525ae8e08965a63b79ed23a706795472743a00c2
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: 2e3a51430ef2f57f3d9ea095dee8b297d01187a2
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123222547"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124758396"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versiones de Kubernetes compatibles en Azure Kubernetes Service (AKS)
 
@@ -170,18 +170,11 @@ Para ver el historial de versiones anteriores, vea [Kubernetes](https://en.wikip
 
 |  Versión de K8s | Versión anterior  | Versión preliminar de AKS  | Disponibilidad general de AKS  | Final de la vida útil |
 |--------------|-------------------|--------------|---------|-------------|
-| 1.18  | 23 de marzo de 2020  | Mayo de 2020   | Agosto de 2020  | *1.21 disponibilidad general |
 | 1.19  | 4 de agosto de 2020  | Septiembre de 2020   | Noviembre de 2020  | 1.22 disponibilidad general |
 | 1.20  | 8 de diciembre de 2020  | Enero de 2021   | Marzo de 2021  | 1.23 Disponibilidad general |
 | 1.21  | 8 de abril de 2021 | Mayo de 2021   | Julio de 2021  | 1.24 disponibilidad general |
 | 1,22  | 4 de agosto de 2021 | Septiembre de 2021   | Octubre de 2021  | 1.25 disponibilidad general |
 | 1.23  | Diciembre de 2021 | Enero de 2022   | Febrero de 2022  | 1.26 disponibilidad general |
-
->[!NOTE]
->La versión 1.18 de AKS seguirá estando disponible hasta el 31 de julio de 2021. Después de esta fecha, AKS volverá a su soporte técnico normal con tres versiones repartidas en el tiempo. Es importante tener en cuenta lo siguiente, ya que el soporte técnico del 30 de junio al 31 de julio de 2021 estará limitada en el ámbito. A continuación se muestra a qué se limitarán los usuarios:
-> - Creación de nuevos clústeres y grupos de nodos en la versión 1.18.
-> - Operaciones CRUD en clústeres 1.18.
-> - Soporte técnico de Azure para incidencias de la plataforma no relacionadas con Kubernetes. Las incidencias de la plataforma incluyen problemas con las redes, el almacenamiento o la ejecución de procesos en Azure. Se solicitará que las solicitudes de soporte técnico para la aplicación de revisiones y la solución de problemas de K8s se actualicen a una versión compatible.
 
 ## <a name="faq"></a>Preguntas más frecuentes
 
@@ -192,8 +185,6 @@ El equipo de AKS publica anuncios previos con las fechas planeadas de las nuevas
 **¿Con qué frecuencia debo planear actualizar las versiones de Kubernetes para mantenerme con soporte técnico?**
 
 A partir de Kubernetes 1.19, la [comunidad de código abierto ha ampliado el soporte técnico a 1 año](https://kubernetes.io/blog/2020/08/31/kubernetes-1-19-feature-one-year-support/). AKS se compromete a habilitar unas revisiones y un soporte técnico que cumplan los compromisos ascendentes. En el caso de los clústeres de AKS de la versión 1.19, y las versiones superiores, podrá actualizar al menos una vez al año para permanecer en una versión con soporte técnico.
-
-En el caso de las versiones 1.18, o anteriores, el período de soporte técnico permanece en 9 meses y será preciso realizar una actualización cada 9 meses para permanecer en una versión con soporte técnico. Pruebe con regularidad las nuevas versiones y esté preparado para actualizarse a versiones más recientes para aprovechar las mejoras estables más recientes dentro de Kubernetes.
 
 **¿Qué ocurre cuando un cliente actualiza un clúster de Kubernetes con una versión secundaria que no es compatible?**
 

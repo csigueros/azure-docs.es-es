@@ -7,15 +7,15 @@ manager: daveba
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 06/25/2021
+ms.date: 09/24/2021
 ms.author: rolyon
 ms.custom: contperf-fy21q3-portal,subject-rbac-steps
-ms.openlocfilehash: e6a06c2a2a525e89fd6d7ab61f983f2b91c1cc8a
-ms.sourcegitcommit: 1c12bbaba1842214c6578d914fa758f521d7d485
+ms.openlocfilehash: 368a3480af60b4c1a9b819d3b4667f2212e62290
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2021
-ms.locfileid: "112989010"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129094805"
 ---
 # <a name="assign-azure-roles-using-the-azure-portal"></a>Asignación de roles de Azure mediante Azure Portal
 
@@ -176,23 +176,21 @@ El control de acceso basado en roles de Azure tiene una nueva experiencia para a
 
    ![Captura de pantalla del panel Seleccionar miembros de la experiencia de versión preliminar.](./media/shared/select-members.png)
 
-1. Haga clic en **Guardar** para agregar los usuarios, grupos o entidades de servicio a la lista Miembros.
+1. Haga clic en **Seleccionar** para agregar los usuarios, grupos o entidades de servicio a la lista Miembros.
 
 1. Para asignar el rol seleccionado a una o varias identidades administradas, seleccione **Identidad administrada**.
 
 1. Haga clic en **Seleccionar miembros**.
 
-1. En el panel **Selección de identidades administradas**, seleccione si el tipo es una [identidad administrada asignada por el sistema](../active-directory/managed-identities-azure-resources/overview.md) o una [identidad administrada asignada por el usuario](../active-directory/managed-identities-azure-resources/overview.md).
+1. En el panel **Select managed identities** (Selección de identidades administradas), seleccione si el tipo es una [identidad administrada asignada por el usuario](../active-directory/managed-identities-azure-resources/overview.md) o una [identidad administrada asignada por el sistema](../active-directory/managed-identities-azure-resources/overview.md).
 
 1. Busque y seleccione las identidades administradas.
 
-    Si ha seleccionado una identidad administrada asignada por el sistema, tiene que seleccionar la instancia de servicio de Azure en la que se encuentra la identidad administrada.
+    Para las identidades administradas asignadas por el sistema, puede seleccionar identidades administradas por instancia de servicio de Azure.
 
-   ![Captura de pantalla de la opción para agregar identidades administradas asignadas por el sistema mediante el panel Seleccionar la entidad de seguridad de la experiencia con la versión preliminar.](./media/role-assignments-portal/select-managed-identity-system.png)
+   ![Captura de pantalla del panel para seleccionar identidades administradas de la experiencia de versión preliminar.](./media/role-assignments-portal/select-managed-identity.png)
 
-   ![Captura de pantalla de la opción para agregar identidades administradas asignadas por el usuario mediante el panel Seleccionar la entidad de seguridad de la experiencia con la versión preliminar.](./media/role-assignments-portal/select-managed-identity-user.png)
-
-1. Haga clic en **Guardar** para agregar las identidades administradas a la lista Miembros.
+1. Haga clic en **Seleccionar** para agregar las identidades administradas a la lista Miembros.
 
 1. En el cuadro de texto **Descripción**, escriba una descripción opcional para esta asignación de roles.
 
@@ -202,7 +200,7 @@ El control de acceso basado en roles de Azure tiene una nueva experiencia para a
 
 ## <a name="step-5-optional-add-condition-preview"></a>Paso 5: (Opcional) Agregar condición (versión preliminar)
 
-Si seleccionó un rol que admite condiciones, aparecerá una pestaña **Condición** y tendrá la opción de agregar una condición a la asignación de roles. Una [condición](conditions-overview.md) es una comprobación adicional que puede agregar opcionalmente a la asignación de roles para proporcionar un control de acceso más preciso.
+Si seleccionó un rol que admite condiciones, aparecerá una pestaña **Condiciones (opcional)** y tendrá la opción de agregar una condición a la asignación de roles. Una [condición](conditions-overview.md) es una comprobación adicional que puede agregar opcionalmente a la asignación de roles para proporcionar un control de acceso más preciso.
 
 Actualmente, se pueden agregar condiciones a asignaciones de roles integradas o personalizadas que tienen [acciones de datos de Storage Blob](conditions-format.md#actions). Entre estas se incluyen los siguientes roles integrados:
 

@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 06/07/2021
+ms.date: 09/28/2021
 ms.author: victorh
-ms.openlocfilehash: 30ae9e7bf915e558a806d9297fbcc35700b64ce1
-ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
+ms.openlocfilehash: 2dbcb4d42372c97b12d4a71ef43ee1e10f1232bf
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111571088"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129209554"
 ---
 # <a name="configure-azure-firewall-rules"></a>Configuración de las reglas de Azure Firewall
 Puede configurar reglas NAT, reglas de red y reglas de aplicaciones en Azure Firewall mediante las reglas clásicas o la directiva de firewall. Azure Firewall deniega todo el tráfico de forma predeterminada, hasta que se configuren reglas manualmente para permitirlo.
@@ -159,6 +159,14 @@ Se deniegan las conexiones SSH porque una colección de reglas de red de priorid
 ## <a name="rule-changes"></a>Cambios de reglas
 
 Si cambia una regla para denegar el tráfico permitido anteriormente, se quitará cualquier sesión existente pertinente.
+
+## <a name="3-way-handshake-behavior"></a>Comportamiento del protocolo de enlace triple
+
+Como servicio con estado, Azure Firewall realiza un protocolo de enlace triple TCP para el tráfico permitido, desde un origen al destino.Por ejemplo, VNet-A a VNet-B.
+
+La creación de una regla de permiso de VNet-A a VNet-B no significa que se permita el inicio de nuevas conexiones de VNet-B a VNet-A.
+
+Como resultado, no es necesario crear una regla de denegación explícita de VNet-B a VNet-A. Si crea esta regla de denegación, interrumpe el protocolo de enlace triple de la regla de permiso inicial de VNet-A a VNet-B. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

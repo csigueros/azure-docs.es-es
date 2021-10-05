@@ -9,24 +9,26 @@ ms.devlang: ''
 ms.topic: how-to
 author: scott-kim-sql
 ms.author: scottkim
-ms.reviewer: mathoma
-ms.date: 03/02/2021
-ms.openlocfilehash: 1b79d9f88c61ca4bc11895e26f8ffc4fd69b8a35
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.reviewer: mathoma, wiassaf
+ms.date: 09/14/2021
+ms.openlocfilehash: 89a3f86995d054573897202d2269e4f1f38821e2
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110706565"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128631198"
 ---
 # <a name="advance-notifications-for-planned-maintenance-events-preview"></a>Notificaciones anticipadas para eventos de mantenimiento planeados (versión preliminar)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Notificaciones avanzadas (versión preliminar) está disponible para las bases de datos que se hayan configurado en [Ventana de mantenimiento (versión preliminar)](maintenance-window.md). Notificaciones anticipadas permite a los clientes configurar notificaciones para que se envíen hasta 24 horas antes de cualquier evento planeado.
+Notificaciones avanzadas (versión preliminar) está disponible para las bases de datos configuradas para usar un valor no predeterminado de [Ventana de mantenimiento (versión preliminar)](maintenance-window.md). Notificaciones anticipadas permite a los clientes configurar notificaciones para que se envíen hasta 24 horas antes de cualquier evento planeado.
 
 Las notificaciones se pueden configurar para recibir mensajes de texto, correos electrónicos, notificaciones push de Azure y correos de voz cuando el mantenimiento planeado debe iniciarse en las 24 horas siguientes. Se enviarán notificaciones adicionales al iniciarse y finalizar el mantenimiento.
 
-> [!Note]
-> Aunque existe la posibilidad de elegir una ventana de mantenimiento para las instancias administradas de Azure SQL, actualmente no se dispone de notificaciones anticipadas para estas.
+Notificaciones avanzadas no se puede configurar para la opción de ventana de mantenimiento **Opción predeterminada del sistema**. Elija una ventana de mantenimiento que no sea **Opción predeterminada del sistema** para configurar y habilitar Notificaciones avanzadas.
+
+> [!NOTE]
+> Aunque existe la posibilidad de elegir una ventana de mantenimiento para las instancias administradas de Azure SQL, actualmente no se dispone de notificaciones anticipadas para estas. 
 
 ## <a name="create-an-advance-notification"></a>Creación de una notificación anticipada
 

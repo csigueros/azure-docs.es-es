@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.custom: devx-track-python
-ms.openlocfilehash: 62fd9820d1ec743d7424679753828b0cb7837fbc
-ms.sourcegitcommit: b044915306a6275c2211f143aa2daf9299d0c574
+ms.openlocfilehash: 9f5fae1fb1a4afaca021eddd8b04625d87b9b2d9
+ms.sourcegitcommit: 3ef5a4eed1c98ce76739cfcd114d492ff284305b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113031056"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128708004"
 ---
 # <a name="track-azure-databricks-ml-experiments-with-mlflow-and-azure-machine-learning"></a>Seguimiento de experimentos de aprendizaje automático de Azure Databricks con MLflow y Azure Machine Learning
 
@@ -214,7 +214,9 @@ display(preds)
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Si no tiene pensado usar los artefactos o las métricas registradas en el área de trabajo, la funcionalidad para eliminarlos de forma individual no está disponible actualmente. Por ello, deberá eliminar el grupo de recursos que contiene la cuenta de almacenamiento y el área de trabajo para no incurrir en cargos:
+Si desea conservar el área de trabajo de Azure Databricks pero ya no necesita el área de trabajo de Azure ML, puede eliminarla. Esta acción desvinculará el área de trabajo de Azure Databricks y el área de trabajo de Azure ML. 
+
+Si no tiene pensado usar los artefactos o las métricas registradas en el área de trabajo, la funcionalidad para eliminarlos de forma individual no está disponible en este momento. Por ello, deberá eliminar el grupo de recursos que contiene la cuenta de almacenamiento y el área de trabajo para no incurrir en cargos:
 
 1. En Azure Portal, seleccione **Grupos de recursos** a la izquierda del todo.
 

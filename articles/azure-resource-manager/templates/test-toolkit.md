@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 07/16/2021
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 5c53ede7df0fd8ba24ef82e7de5a793a4e55f204
-ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
+ms.openlocfilehash: c02d7183304ec3474427bf1687d67d7dd7058d44
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114393283"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128576663"
 ---
 # <a name="use-arm-template-test-toolkit"></a>Uso del kit de herramientas para pruebas de plantillas de ARM
 
@@ -24,6 +24,10 @@ El kit de herramientas contiene cuatro conjuntos de pruebas:
 - [Casos de prueba para archivos de parámetros](parameter-file-test-cases.md)
 - [Casos de prueba para createUiDefinition.json](createUiDefinition-test-cases.md)
 - [Casos de prueba de todos los archivos](all-files-test-cases.md)
+
+### <a name="microsoft-learn"></a>Microsoft Learn
+
+Para obtener más información sobre el kit de herramientas de pruebas de plantillas de ARM y para obtener instrucciones prácticas, consulte [Validación de recursos de Azure mediante el kit de herramientas para pruebas de plantillas de ARM](/learn/modules/arm-template-test) en **Microsoft Learn**.
 
 ## <a name="install-on-windows"></a>Instalar en Windows
 

@@ -17,12 +17,12 @@ ms.date: 01/24/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 56f9976faf2a803e747bce8b851a3555e6d746b0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5c4c0c26d413f856e522af00d29798630263ed20
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89231153"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128633400"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Referencia sobre actividades de auditoría de Azure AD
 
@@ -495,7 +495,54 @@ En este artículo se enumeran las actividades de auditoría que se pueden regist
 |User Management|Actualización de configuración de dispositivo|
 |User Management|Actualización de rol|
 
+## <a name="entitlement-management"></a>Administración de derechos
 
+|Categoría de auditoría|Actividad|
+|---|---|
+|Administración de derechos|Adición de asignación de roles de administración de derechos|
+|Administración de derechos|El administrador asigna directamente el usuario al paquete de acceso|       
+|Administración de derechos|El administrador quita directamente la asignación de paquetes de acceso de usuario|
+|Administración de derechos|Aprobación de solicitud de asignación de paquetes de acceso|
+|Administración de derechos|Asignación de un usuario como patrocinador externo|
+|Administración de derechos|Asignación de un usuario como patrocinador interno|
+|Administración de derechos|Autoaprobación de solicitud de asignación de paquetes de acceso|
+|Administración de derechos|Cancelación de solicitud de asignación de paquetes de acceso|
+|Administración de derechos|Creación de un paquete de acceso|
+|Administración de derechos|Creación de una directiva de asignación de paquetes de acceso|
+|Administración de derechos|Creación de una solicitud de actualización de usuario de asignación de paquetes de acceso|   
+|Administración de derechos|Creación de un catálogo de paquetes de acceso|
+|Administración de derechos|Creación de una organización conectada|  
+|Administración de derechos|Creación de una acción personalizada|
+|Administración de derechos|Creación de una solicitud de eliminación de recursos|
+|Administración de derechos|Creación de una solicitud de recursos|
+|Administración de derechos|Eliminación de un paquete de acceso|
+|Administración de derechos|Eliminación de una directiva de asignación de paquetes de acceso|
+|Administración de derechos|Eliminación de un catálogo de paquetes de acceso|
+|Administración de derechos|Eliminación de una organización conectada|
+|Administración de derechos|Denegación de solicitud de asignación de paquetes de acceso|
+|Administración de derechos|La administración de derechos elimina la solicitud de asignación de paquetes de acceso para el usuario|
+|Administración de derechos|Ejecución de una acción personalizada|
+|Administración de derechos|Extensión de la asignación de paquetes de acceso|
+|Administración de derechos|Error de solicitud de asignación de paquetes de acceso|
+|Administración de derechos|Cumplimiento de solicitud de asignación de paquetes de acceso|
+|Administración de derechos|Cumplimiento de asignación de recursos de paquetes de acceso| 
+|Administración de derechos|Cumplimiento parcial de la solicitud de asignación de paquetes de acceso|
+|Administración de derechos|Listo para el cumplimiento de la solicitud de asignación de paquetes de acceso|
+|Administración de derechos|Eliminación de asignación de roles de administración de derechos|
+|Administración de derechos|Eliminación de asignación de recursos de paquetes de acceso|
+|Administración de derechos|Eliminación de un usuario como patrocinador externo|
+|Administración de derechos|Eliminación de un usuario como patrocinador interno|
+|Administración de derechos|Programación de una asignación de paquete de acceso futura|
+|Administración de derechos|Actualización del paquete de acceso|
+|Administración de derechos|Actualización de una directiva de asignación de paquetes de acceso|
+|Administración de derechos|Actualización de un catálogo de paquetes de acceso|
+|Administración de derechos|Actualización de un recurso de catálogo de paquetes de acceso|
+|Administración de derechos|Actualización de una organización conectada|
+|Administración de derechos|Actualización de una acción personalizada|
+|Administración de derechos|Solicitud de asignación de un paquete de acceso por parte de un usuario|
+|Administración de derechos|El usuario solicita una asignación de paquete de acceso en nombre de la entidad de servicio|
+|Administración de derechos|Solicitudes de usuario para ampliar la asignación de paquetes de acceso|
+|Administración de derechos|Solicitudes de usuario para eliminar la asignación de paquetes de acceso|
 
 
 
@@ -523,14 +570,17 @@ En este artículo se enumeran las actividades de auditoría que se pueden regist
 
 |Categoría de auditoría|Actividad|
 |---|---|
-|Otros|Creación de aprobación de solicitud|
-|Otros|Eliminación de revisión de acceso|
-|User Management|Eliminación del revisor en la revisión de acceso|
-|User Management|Solicitud de la aplicación de los resultados de la revisión|
-|User Management|Solicitud de detención de la revisión|
-|User Management|Revisión de la asignación de aplicaciones|
-|User Management|Revisión de la pertenencia al grupo|
-|User Management|Revisión de la pertenencia al rol Rbac|
+|Invited users (Usuarios invitados)|Eliminación de usuario externo|
+|Invited users (Usuarios invitados)|El correo electrónico no se ha enviado, el usuario canceló la suscripción|
+|Invited users (Usuarios invitados)|Correo electrónico suscrito|
+|Invited users (Usuarios invitados)|Correo electrónico no suscrito|
+|Invited users (Usuarios invitados)|Correo electrónico de invitación|
+|Invited users (Usuarios invitados)|Invitación a usuario externo|
+|Invited users (Usuarios invitados)|Invitación a un usuario externo con el estado de restablecimiento de invitación|
+|Invited users (Usuarios invitados)|Invitación a un usuario interno a colaborar en B2B|
+|Invited users (Usuarios invitados)|Canje de invitación a usuario externo|
+|Invited users (Usuarios invitados)|Creación de inquilino viral|
+|Invited users (Usuarios invitados)|Creación de usuario viral|
 
 
 ## <a name="microsoft-identity-manager-mim"></a>Microsoft Identity Manager (MIM)

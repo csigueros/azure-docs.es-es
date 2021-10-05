@@ -10,16 +10,16 @@ ms.subservice: sql
 ms.date: 03/17/2021
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 4d37cabb8b74fea3a72ddafdf3322d20379f8d29
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: c0c436a2e36edbd6feb433074efc2d746ee38f18
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121860983"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129091832"
 ---
 # <a name="best-practices-for-dedicated-sql-pools-in-azure-synapse-analytics"></a>Procedimientos recomendados para grupos de SQL dedicados en Azure Synapse Analytics
 
-En este artículo se proporciona una colección de procedimientos recomendados que le ayudarán a conseguir un rendimiento óptimo con los grupos de SQL dedicados en Azure Synapse Analytics. A continuación, encontrará instrucciones básicas y áreas importantes en las que centrar su atención durante la creación de la solución. En cada sección se presenta un concepto y se le indican artículos que lo desarrollan más en detalle.
+En este artículo se proporciona una colección de procedimientos recomendados que le ayudarán a conseguir un rendimiento óptimo con los grupos de SQL dedicados en Azure Synapse Analytics.  Si trabaja con un grupo de SQL sin servidor, consulte los [procedimientos recomendados para los grupos de SQL sin servidor](best-practices-serverless-sql-pool.md) para ver instrucciones específicas. A continuación, encontrará instrucciones básicas y las áreas importantes en las que debe centrarse a medida que compila la solución. En cada sección se presenta un concepto y se le indican artículos que lo desarrollan más en detalle.
 
 ## <a name="dedicated-sql-pools-loading"></a>Carga de grupos de SQL dedicados
 
@@ -39,12 +39,11 @@ Para acortar el tiempo de mantenimiento de las estadísticas, sea selectivo sobr
 
 Puede encontrar información adicional sobre las estadísticas en los artículos [Administración de estadísticas de tabla](develop-tables-statistics.md), [CREATE STATISTICS](/sql/t-sql/statements/create-statistics-transact-sql?view=azure-sqldw-latest&preserve-view=true) y [UPDATE STATISTICS](/sql/t-sql/statements/update-statistics-transact-sql?view=azure-sqldw-latest&preserve-view=true).
 
-## <a name="tune-query-performance-with-new-product-enhancements"></a>Optimización del rendimiento de las consultas con nuevas mejoras en el producto
+## <a name="tune-query-performance"></a>Ajustar rendimiento de consulta
 
 - [Optimización del rendimiento con vistas materializadas](../sql-data-warehouse/performance-tuning-materialized-views.md)
 - [Optimización del rendimiento con el índice de almacén de columnas agrupado ordenado](../sql-data-warehouse/performance-tuning-ordered-cci.md)
 - [Ajuste del rendimiento con la copia en caché del conjunto de resultados](../sql-data-warehouse/performance-tuning-result-set-caching.md)
-
 
 ## <a name="group-insert-statements-into-batches"></a>Agrupación de instrucciones INSERT en lotes
 
@@ -79,9 +78,9 @@ Si tiene varias consultas que usan estos datos, es mejor cargarlos una vez que l
 
 ## <a name="hash-distribute-large-tables"></a>Distribución Hash para tablas grandes
 
-De forma predeterminada, las tablas se distribuyen según el patrón Round Robin.   Esta opción predeterminada facilita a los usuarios la tarea de comenzar a crear tablas sin tener que decidir sobre la distribución. El rendimiento de las tablas round robin puede ser suficiente para algunas cargas de trabajo. Sin embargo, en la mayoría de los casos, una columna de distribución ofrece un mejor rendimiento.  
+De forma predeterminada, las tablas se distribuyen según el patrón Round Robin. Esta opción predeterminada facilita a los usuarios la tarea de comenzar a crear tablas sin tener que decidir sobre la distribución. El rendimiento de las tablas round robin puede ser suficiente para algunas cargas de trabajo. Sin embargo, en la mayoría de los casos, una columna de distribución ofrece un mejor rendimiento.  
 
-El ejemplo más común de una tabla distribuida por una columna que supera a una round robin es al combinar dos tablas grandes de hechos.  
+El ejemplo más común de una tabla distribuida por una columna que supera a una tabla round robin es al combinar dos tablas de hechos grandes.  
 
 Por ejemplo, si tiene una tabla de pedidos que se distribuye por order_id, y una tabla de transacciones que también se distribuye por order_id, cuando se una la tabla de pedidos a la de transacciones en order_id, esta consulta se convertirá en una consulta de paso a través. A continuación, se eliminan las operaciones de movimiento de datos. Menos pasos suponen consultas más rápidas. Menos movimiento de datos también se traduce en consultas más rápidas.
 
@@ -115,7 +114,7 @@ Las instrucciones SELECT, UPDATE y DELETE se ejecutan en una transacción. Si de
 
 Otra manera de eliminar reversiones es usar funciones de solo metadatos, como la modificación de particiones para la administración de datos.  Por ejemplo, en lugar de ejecutar una instrucción DELETE para eliminar todas las filas de una tabla en la que order_date fue en octubre de 2001, podría particionar los datos mensualmente. A continuación, puede cambiar la partición con datos por una partición vacía de otra tabla (consulte ejemplos de ALTER TABLE).  
 
-Para tablas sin particiones, puede usar CTAS en lugar de DELETE para escribir los datos que quiera mantener en una tabla.  Si CTAS tarda lo mismo, es mucho más seguro, ya que su registro de transacciones es mínimo y se puede cancelar rápidamente si es necesario.
+En el caso de tablas que no están particionadas, puede usar CTAS en lugar de DELETE para escribir los datos que quiera mantener en una tabla.  Si CTAS tarda lo mismo, es mucho más seguro, ya que su registro de transacciones es mínimo y se puede cancelar rápidamente si es necesario.
 
 En los artículos siguientes se incluye más información sobre el contenido relacionado con esta sección:
 
@@ -205,4 +204,3 @@ Si necesita información que no se proporciona en este artículo, busque en la [
 
 Supervisamos continuamente este foro para garantizar que sus preguntas las responde otro usuario o alguno de nosotros.  Si prefiere formular sus preguntas en Stack Overflow, también tenemos un [foro de Stack Overflow acerca de Azure Synapse Analytics](https://stackoverflow.com/questions/tagged/azure-synapse).
 
-Para las solicitudes de características, use la página de [comentarios de Azure Synapse Analytics](https://feedback.azure.com/forums/307516-sql-data-warehouse).  Al agregar solicitudes o votar por otras nos ayuda a centrarnos en las características más demandadas.

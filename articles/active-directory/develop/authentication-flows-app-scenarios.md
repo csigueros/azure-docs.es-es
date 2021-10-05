@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 03/03/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, has-adal-ref
-ms.openlocfilehash: d016d7b5a88aa5413652fa3ed032c04680030142
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
+ms.openlocfilehash: a5e4f3cb33451b8668b4212fca248d0b7d9c1438
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122419164"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124734841"
 ---
 # <a name="authentication-flows-and-application-scenarios"></a>Flujos de autenticación y escenarios de aplicaciones
 
@@ -133,11 +133,11 @@ Las aplicaciones que se ejecutan en un dispositivo sin explorador podrán seguir
 
 ![Flujo de código de dispositivo](media/scenarios/device-code-flow-app.svg)
 
-Aunque no se recomienda usarlo, el [flujo de nombre de usuario y contraseña](scenario-desktop-acquire-token.md#username-and-password) está disponible en las aplicaciones cliente públicas. Este flujo sigue siendo necesario en algunos escenarios, como DevOps.
+Aunque no se recomienda usarlo, el [flujo de nombre de usuario y contraseña](scenario-desktop-acquire-token-username-password.md) está disponible en las aplicaciones cliente públicas. Este flujo sigue siendo necesario en algunos escenarios, como DevOps.
 
 El uso del flujo de nombre de usuario y contraseña restringe las aplicaciones. Por ejemplo, las aplicaciones no pueden iniciar la sesión de un usuario que tenga que usar autenticación multifactor o la herramienta Acceso condicional de Azure AD. Las aplicaciones tampoco se benefician del inicio de sesión único. La autenticación mediante el flujo de nombre de usuario y contraseña va en contra de los principios de la autenticación moderna y solo se proporciona por motivos de herencia.
 
-En aplicaciones de escritorio, si quiere que la caché de tokens persista, puede personalizar la [serialización de la caché de tokens](scenario-desktop-acquire-token.md#file-based-token-cache). Con la implementación de la [serialización de la caché de tokens dual](scenario-desktop-acquire-token.md#dual-token-cache-serialization-msal-unified-cache--adal-v3), puede usar cachés de tokens compatibles con versiones anteriores y posteriores. Estos tokens admiten generaciones anteriores de bibliotecas de autenticación. Las bibliotecas específicas incluyen las versiones 3 y 4 de la biblioteca de autenticación de Azure AD para .NET (ADAL.NET).
+En aplicaciones de escritorio, si quiere que la caché de tokens persista, puede personalizar la [serialización de la caché de tokens](msal-net-token-cache-serialization.md). Con la implementación de la [serialización de la caché de tokens dual](msal-net-token-cache-serialization.md#dual-token-cache-serialization-msal-unified-cache-and-adal-v3), puede usar cachés de tokens compatibles con versiones anteriores y posteriores. Estos tokens admiten generaciones anteriores de bibliotecas de autenticación. Las bibliotecas específicas incluyen las versiones 3 y 4 de la biblioteca de autenticación de Azure AD para .NET (ADAL.NET).
 
 Para más información, consulte [Aplicación de escritorio que llama a las API web](scenario-desktop-overview.md).
 
@@ -224,7 +224,7 @@ Los escenarios que implican la adquisición de tokens también se asignan a fluj
  </tr>
 
   <tr>
-   <td rowspan="3"><a href="scenario-desktop-overview.md"><img alt=Desktop app that calls web APIs" src="media/scenarios/desktop-app.svg"></a></td>
+   <td rowspan="3"><a href="scenario-desktop-overview.md"><img alt="Desktop app that calls web APIs" src="media/scenarios/desktop-app.svg"></a></td>
    <td rowspan="4"><a href="scenario-desktop-overview.md">Aplicación de escritorio que llama a las API web</a></td>
    <td>De forma interactiva mediante un <a href="v2-oauth2-auth-code-flow.md">código de autorización</a> con PKCE</td>
    <td>Cuentas profesionales o educativas, cuentas personales y Azure AD B2C</td>
@@ -241,7 +241,7 @@ Los escenarios que implican la adquisición de tokens también se asignan a fluj
  </tr>
 
   <tr>
-   <td><a href="scenario-desktop-acquire-token.md#command-line-tool-without-a-web-browser"><img alt="Browserless application" src="media/scenarios/device-code-flow-app.svg"></a></td>
+   <td><a href="scenario-desktop-acquire-token-device-code-flow.md"><img alt="Browserless application" src="media/scenarios/device-code-flow-app.svg"></a></td>
    <td><a href="v2-oauth2-device-code.md">Código del dispositivo</a></td>
    <td>Cuentas profesionales o educativas, cuentas personales, pero no Azure AD B2C</td>
  </tr>

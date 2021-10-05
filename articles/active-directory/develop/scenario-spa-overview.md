@@ -12,16 +12,16 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, devx-track-js
-ms.openlocfilehash: be14a8cb9d72c439f5ba127858ccd3a3249b8a14
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: 9df07381d620c2176115636852c6ed912dd1fc38
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122770775"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124786510"
 ---
 # <a name="scenario-single-page-application"></a>Escenario: Aplicación de una sola página
 
-Aprenda lo necesario para crear una aplicación de página única (SPA)
+Aprenda lo necesario para crear una aplicación de página única (SPA) Para obtener instrucciones sobre Azure Static Web Apps, consulte [Autenticación y autorización para Static Web Apps](../../static-web-apps/authentication-authorization.md) en su lugar.
 
 ## <a name="getting-started"></a>Introducción
 

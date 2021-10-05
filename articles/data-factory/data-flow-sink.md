@@ -9,17 +9,19 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/24/2021
-ms.openlocfilehash: 39c8ed3f8d8b11839964ac376ac35badd6546411
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.date: 09/10/2021
+ms.openlocfilehash: afdc363c53790f1710ee274d5430416e415059fd
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122824629"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129059955"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>Transformación de receptor en el flujo de datos de asignación
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
 
 Cuando termine de transformar los datos, escríbalos en un almacén de destino mediante la transformación del receptor. Cada flujo de datos requiere al menos una transformación de receptor, pero puede agregar tantos receptores como sea necesario para completar el flujo de transformación. Para escribir en receptores adicionales, cree nuevas secuencias a través de nuevas ramas y divisiones condicionales.
 
@@ -35,7 +37,7 @@ Se recomiendan los conjuntos de datos insertados cuando se usan esquemas flexibl
 
 Para usar un conjunto de datos insertado, seleccione el formato que desee en el selector **Tipo de receptor**. En lugar de seleccionar un conjunto de datos de receptor, seleccione el servicio vinculado al que desee conectarse.
 
-![Captura de pantalla que muestra la opción Insertado seleccionada.](media/data-flow/inline-selector.png "Captura de pantalla que muestra la opción Insertado seleccionada.")
+:::image type="content" source="media/data-flow/inline-selector.png" alt-text="Captura de pantalla que muestra la opción Insertado seleccionada.":::
 
 ## <a name="workspace-db-synapse-workspaces-only"></a>Base de datos del área de trabajo (solo áreas de trabajo de Synapse)
 
@@ -44,7 +46,7 @@ Al usar flujos de datos en áreas de trabajo de Azure Synapse, tendrá una opci�
 > [!NOTE]
 > El conector Workspace DB de Azure Synapse está actualmente en versión preliminar pública y, en este momento, solo puede funcionar con bases de datos de Spark Lake.
 
-![Captura de pantalla que muestra la base de datos del área de trabajo seleccionada.](media/data-flow/syms-sink.png "Captura de pantalla que muestra la opción Insertado seleccionada.")
+:::image type="content" source="media/data-flow/syms-sink.png" alt-text="Captura de pantalla que muestra la base de datos del área de trabajo seleccionada.":::
 
 ##  <a name="supported-sink-types"></a><a name="supported-sinks"></a> Tipos de receptores admitidos
 
@@ -76,11 +78,12 @@ En el siguiente vídeo se explican varias opciones de receptor diferentes para l
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4tf7T]
 
-![Captura de pantalla que muestra la configuración del receptor.](media/data-flow/sink-settings.png "Captura de pantalla que muestra la configuración del receptor.")
+:::image type="content" source="media/data-flow/sink-settings.png" alt-text="Captura de pantalla que muestra la configuración del receptor.":::
 
 **Desfase de esquema**: el [desfase de esquema](concepts-data-flow-schema-drift.md) es la capacidad del servicio de administrar de forma nativa los esquemas flexibles de los flujos de datos sin necesidad de definir explícitamente los cambios en las columnas. Habilite **Permitir el desfase de esquema** para escribir columnas adicionales sobre lo que se define en el esquema de datos del receptor.
 
-**Validar esquema**: Si se selecciona que se valide el esquema, se producirá un error en el flujo de datos si no se encuentra ninguna columna del esquema de origen entrante en la proyección de origen o si los tipos de datos no coinciden. Use esta opción para exigir que los datos de origen cumplan el contrato de la proyección definida. Es útil en escenarios de origen de base de datos para indicar que los nombres o los tipos de columna han cambiado.
+**Validar esquema**: si se selecciona que se valide el esquema, se producirá un error en el flujo de datos si no se encuentra ninguna columna de la proyección de receptor en el almacén de receptor o si los tipos de datos no coinciden. Use esta opción para exigir que el esquema de receptor cumpla con el contrato de la proyección definida. Esto resulta útil en escenarios de receptor de base de datos para indicar que los nombres o los tipos de columna se modificaron.
+
 
 ## <a name="cache-sink"></a>Receptor de caché
 
@@ -90,11 +93,11 @@ Un *receptor de caché* se utiliza cuando un flujo de datos escribe datos en la 
 
 Para escribir en un receptor de caché, agregue una transformación de receptor y seleccione **Caché** como el tipo de receptor. A diferencia de otros tipos de receptor, no es necesario seleccionar un conjunto de datos ni un servicio vinculado porque no está escribiendo en un almacén externo. 
 
-![Selección del receptor de caché](media/data-flow/select-cache-sink.png "Selección del receptor de caché")
+:::image type="content" source="media/data-flow/select-cache-sink.png" alt-text="Selección del receptor de caché":::
 
 En la configuración del receptor, tiene la opción de especificar las columnas de clave del receptor de caché. Se usan como condiciones de coincidencia cuando se utiliza la función `lookup()` en una búsqueda en caché. Si especifica columnas de clave, no puede usar la función `outputs()` en una búsqueda en caché. Para obtener más información sobre la sintaxis de búsqueda de caché, consulte [búsquedas en caché](concepts-data-flow-expression-builder.md#cached-lookup).
 
-![Columnas de clave del receptor de caché](media/data-flow/cache-sink-key-columns.png "Columnas de clave del receptor de caché")
+:::image type="content" source="media/data-flow/cache-sink-key-columns.png" alt-text="Columnas de clave del receptor de caché":::
 
 Por ejemplo, si se especifica una columna de clave única de `column1` en un receptor de caché denominado `cacheExample`, la llamada a `cacheExample#lookup()` tendría un parámetro para especificar con qué fila del receptor de caché debe coincidir. La función genera una única columna compleja con subcolumnas para cada columna asignada.
 
@@ -113,12 +116,12 @@ Cuando desactive la asignación automática, puede agregar asignaciones basadas 
 
 De forma predeterminada, los datos se escriben en varios receptores en un orden no determinista. El motor de ejecución escribe datos en paralelo a medida que se complete la lógica de transformación y el orden de los receptores puede variar en cada ejecución. Para especificar una ordenación de receptores exacta, habilite la opción **Ordenación de receptores personalizada** en la pestaña **General** del flujo de datos. Una vez habilitada, los receptores se escriben secuencialmente en orden ascendente.
 
-![Captura de pantalla que muestra la ordenación del receptor personalizado.](media/data-flow/custom-sink-ordering.png "Captura de pantalla que muestra la ordenación del receptor personalizado.")
+:::image type="content" source="media/data-flow/custom-sink-ordering.png" alt-text="Captura de pantalla que muestra la ordenación del receptor personalizado.":::
 
 > [!NOTE]
 > Al usar las [búsquedas almacenadas en caché](./concepts-data-flow-expression-builder.md#cached-lookup), asegúrese de que la ordenación del receptor tenga los receptores almacenado en caché establecidos en 1, el calor más bajo (o el primer valor) del orden.
 
-![Ordenación de receptores personalizada](media/data-flow/cache-2.png "Ordenación de receptores personalizados")
+:::image type="content" source="media/data-flow/cache-2.png" alt-text="Ordenación de receptores personalizada":::
 
 ### <a name="sink-groups"></a>Grupos de receptores
 

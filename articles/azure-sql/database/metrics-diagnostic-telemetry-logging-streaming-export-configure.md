@@ -9,13 +9,13 @@ ms.topic: how-to
 author: AlainDormehlMSFT
 ms.author: aldorme
 ms.reviewer: mathoma, wiassaf
-ms.date: 04/06/2020
-ms.openlocfilehash: 058e602568083471cc5e0053dea0ed77b0b9474f
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/21/2021
+ms.openlocfilehash: 9452b12a8ad26ec2da5c488dc83f624863a4c647
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121741252"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128582570"
 ---
 # <a name="configure-streaming-export-of-azure-sql-database-and-sql-managed-instance-diagnostic-telemetry"></a>Configuración de la exportación de streaming de los datos de telemetría de diagnóstico de Azure SQL Database e Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -101,7 +101,7 @@ Seleccione una de las siguientes pestañas para obtener una guía paso a paso pa
 
 Puede configurar un recurso de grupos elásticos para recopilar los siguientes datos de telemetría de diagnóstico:
 
-| Resource | Telemetría de supervisión |
+| Recurso | Telemetría de supervisión |
 | :------------------- | ------------------- |
 | **Grupo elástico** | [Métricas básicas](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#basic-metrics) contiene el porcentaje de eDTU/CPU, el límite de eDTU/CPU, el porcentaje de lectura de datos físicos, el porcentaje de escritura en registro, el porcentaje de sesiones, el porcentaje de trabajos, el almacenamiento, el porcentaje de almacenamiento, el límite de almacenamiento y el porcentaje de almacenamiento de XTP. |
 
@@ -165,7 +165,7 @@ Para habilitar el streaming de datos de telemetría de diagnóstico de una base 
 
 Puede configurar un recurso de instancia administrada para recopilar los siguientes datos de telemetría de diagnóstico:
 
-| Resource | Telemetría de supervisión |
+| Recurso | Telemetría de supervisión |
 | :------------------- | ------------------- |
 | **Instancia administrada** | [ResourceUsageStats](#resource-usage-stats-for-managed-instances): contiene el número de núcleos virtuales, el porcentaje medio de CPU, las solicitudes de E/S, los bytes leídos y escritos, el espacio de almacenamiento reservado y el espacio de almacenamiento utilizado. |
 
@@ -201,7 +201,7 @@ Para habilitar el streaming de datos de telemetría de diagnóstico de un recurs
 
 Puede configurar un recurso de base de datos de instancia administrada para recopilar los siguientes datos de telemetría de diagnóstico:
 
-| Resource | Telemetría de supervisión |
+| Recurso | Telemetría de supervisión |
 | :------------------- | ------------------- |
 | **Base de datos de instancia** | [ResourceUsageStats](#resource-usage-stats-for-managed-instances): contiene el número de núcleos virtuales, el porcentaje medio de CPU, las solicitudes de E/S, los bytes leídos y escritos, el espacio de almacenamiento reservado y el espacio de almacenamiento utilizado. |
 
@@ -462,7 +462,10 @@ Consulte la siguiente tabla para ver los detalles de las métricas avanzadas.
 
 <sup>1</sup> Esta métrica está disponible para las bases de datos que usan el modelo de compra de núcleos virtuales con 2 núcleos virtuales, o más, o 200 DTU, o más, para los modelos de compra basados en DTU.
 
-<sup>2</sup> Esta métrica está disponible para las bases de datos que usan el modelo de compra de núcleos virtuales con 2 núcleos virtuales, o más, o 200 DTU, o más, para los modelos de compra basados en DTU. Esta métrica no está disponible actualmente para bases de datos de hiperescala o almacenamientos de datos.
+<sup>2</sup> Esta métrica está disponible para las bases de datos que usan el modelo de compra de núcleos virtuales con 2 núcleos virtuales, o más, o 200 DTU, o más, para los modelos de compra basados en DTU. Esta métrica no está disponible actualmente para grupos de Synapse Analytics SQL.
+
+> [!NOTE]
+> Es posible que las métricas Básico y Avanzado no estén disponibles para las bases de datos que han estado inactivas durante 7 días o más.
 
 ### <a name="basic-logs"></a>Registros básicos
 
@@ -478,7 +481,7 @@ Los detalles de los datos de telemetría disponibles para todos los registros se
 |Tipo|Siempre: AzureDiagnostics |
 |ResourceProvider|Nombre del proveedor de recursos Siempre: MICROSOFT.SQL |
 |Category|Nombre de la categoría Siempre: ResourceUsageStats |
-|Resource|Nombre del recurso |
+|Recurso|Nombre del recurso |
 |ResourceType|Nombre del tipo de recurso Siempre: MANAGEDINSTANCES |
 |SubscriptionId|GUID de la suscripción para la base de datos |
 |ResourceGroup|Nombre del grupo de recursos de la base de datos |
@@ -504,7 +507,7 @@ Los detalles de los datos de telemetría disponibles para todos los registros se
 |ResourceProvider|Nombre del proveedor de recursos Siempre: MICROSOFT.SQL |
 |Category|Nombre de la categoría Siempre: QueryStoreRuntimeStatistics |
 |OperationName|Nombre de la operación. Siempre: QueryStoreRuntimeStatisticsEvent |
-|Resource|Nombre del recurso |
+|Recurso|Nombre del recurso |
 |ResourceType|Nombre del tipo de recurso Siempre: SERVERS/DATABASES |
 |SubscriptionId|GUID de la suscripción para la base de datos |
 |ResourceGroup|Nombre del grupo de recursos de la base de datos |
@@ -555,7 +558,7 @@ Obtenga más información sobre los [datos de estadísticas de tiempo de ejecuci
 |ResourceProvider|Nombre del proveedor de recursos Siempre: MICROSOFT.SQL |
 |Category|Nombre de la categoría Siempre: QueryStoreWaitStatistics |
 |OperationName|Nombre de la operación. Siempre: QueryStoreWaitStatisticsEvent |
-|Resource|Nombre del recurso |
+|Recurso|Nombre del recurso |
 |ResourceType|Nombre del tipo de recurso Siempre: SERVERS/DATABASES |
 |SubscriptionId|GUID de la suscripción para la base de datos |
 |ResourceGroup|Nombre del grupo de recursos de la base de datos |
@@ -593,7 +596,7 @@ Obtenga más información sobre los [datos de estadísticas de espera del Almac�
 |ResourceProvider|Nombre del proveedor de recursos Siempre: MICROSOFT.SQL |
 |Category|Nombre de la categoría Siempre: Errors |
 |OperationName|Nombre de la operación. Siempre: ErrorEvent |
-|Resource|Nombre del recurso |
+|Recurso|Nombre del recurso |
 |ResourceType|Nombre del tipo de recurso Siempre: SERVERS/DATABASES |
 |SubscriptionId|GUID de la suscripción para la base de datos |
 |ResourceGroup|Nombre del grupo de recursos de la base de datos |
@@ -622,7 +625,7 @@ Obtenga más información sobre los [mensajes de error de SQL](/sql/relational-d
 |ResourceProvider|Nombre del proveedor de recursos Siempre: MICROSOFT.SQL |
 |Category|Nombre de la categoría Siempre: DatabaseWaitStatistics |
 |OperationName|Nombre de la operación. Siempre: DatabaseWaitStatisticsEvent |
-|Resource|Nombre del recurso |
+|Recurso|Nombre del recurso |
 |ResourceType|Nombre del tipo de recurso Siempre: SERVERS/DATABASES |
 |SubscriptionId|GUID de la suscripción para la base de datos |
 |ResourceGroup|Nombre del grupo de recursos de la base de datos |
@@ -651,7 +654,7 @@ Obtenga más información sobre las [estadísticas de espera de la base de datos
 |ResourceProvider|Nombre del proveedor de recursos Siempre: MICROSOFT.SQL |
 |Category|Nombre de la categoría Siempre: Tiempos de expiración |
 |OperationName|Nombre de la operación. Siempre: TimeoutEvent |
-|Resource|Nombre del recurso |
+|Recurso|Nombre del recurso |
 |ResourceType|Nombre del tipo de recurso Siempre: SERVERS/DATABASES |
 |SubscriptionId|GUID de la suscripción para la base de datos |
 |ResourceGroup|Nombre del grupo de recursos de la base de datos |
@@ -674,7 +677,7 @@ Obtenga más información sobre las [estadísticas de espera de la base de datos
 |ResourceProvider|Nombre del proveedor de recursos Siempre: MICROSOFT.SQL |
 |Category|Nombre de la categoría Siempre: Blocks |
 |OperationName|Nombre de la operación. Siempre: BlockEvent |
-|Resource|Nombre del recurso |
+|Recurso|Nombre del recurso |
 |ResourceType|Nombre del tipo de recurso Siempre: SERVERS/DATABASES |
 |SubscriptionId|GUID de la suscripción para la base de datos |
 |ResourceGroup|Nombre del grupo de recursos de la base de datos |
@@ -698,7 +701,7 @@ Obtenga más información sobre las [estadísticas de espera de la base de datos
 |ResourceProvider|Nombre del proveedor de recursos Siempre: MICROSOFT.SQL |
 |Category|Nombre de la categoría Siempre: Interbloqueos |
 |OperationName|Nombre de la operación. Siempre: DeadlockEvent |
-|Resource|Nombre del recurso |
+|Recurso|Nombre del recurso |
 |ResourceType|Nombre del tipo de recurso Siempre: SERVERS/DATABASES |
 |SubscriptionId|GUID de la suscripción para la base de datos |
 |ResourceGroup|Nombre del grupo de recursos de la base de datos |
@@ -718,7 +721,7 @@ Obtenga más información sobre las [estadísticas de espera de la base de datos
 |Tipo|Siempre: AzureDiagnostics |
 |ResourceProvider|Nombre del proveedor de recursos Siempre: MICROSOFT.SQL |
 |Category|Nombre de la categoría Siempre: AutomaticTuning |
-|Resource|Nombre del recurso |
+|Recurso|Nombre del recurso |
 |ResourceType|Nombre del tipo de recurso Siempre: SERVERS/DATABASES |
 |SubscriptionId|GUID de la suscripción para la base de datos |
 |ResourceGroup|Nombre del grupo de recursos de la base de datos |

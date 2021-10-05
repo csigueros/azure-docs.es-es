@@ -7,13 +7,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 05/20/2021
-ms.openlocfilehash: dd2c33fc1c52c8365b712d986afc86ce35266610
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.date: 09/27/2021
+ms.openlocfilehash: b5dc12c821471f822d88de89db974c081a4a1e33
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110703262"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129079582"
 ---
 # <a name="review-and-publish-a-dynamics-365-offer"></a>Revisión y publicación de una oferta de Dynamics 365
 
@@ -40,19 +40,34 @@ El estado de publicación de la oferta cambiará a medida que avance por el proc
 
 Cuando esté listo para enviar una oferta para su publicación, seleccione **Revisar y publicar** en la esquina superior derecha del portal. Verá que el estado de cada página de la oferta es uno de los siguientes:
 
-   - **No iniciado**: la página está incompleta.
-   - **Incompleta**: falta información necesaria en la página o hay errores que deben corregirse. Tendrá que volver a la página anterior y actualizarla.
-   - **Completa**: la página está completa. Se han proporcionado todos los datos necesarios y no hay ningún error.
+- **No iniciado**: la página está incompleta.
+- **Incompleta**: falta información necesaria en la página o hay errores que deben corregirse. Tendrá que volver a la página anterior y actualizarla.
+- **Completa**: la página está completa. Se han proporcionado todos los datos necesarios y no hay ningún error.
 
 Si alguna de las páginas tiene un estado distinto de **Completo**, debe corregir el problema de la página y, a continuación, volver a la página **Revisar y publicar** para confirmar que el estado es ahora **Completo**. Algunos tipos de oferta requieren pruebas. En este caso, verá un campo **Notas para la certificación** donde deberá proporcionar instrucciones para la realización de pruebas al equipo de certificación, además de todas las notas adicionales que pueden resultar útiles para comprender la aplicación.
 
-Cuando todas las páginas estén completas y haya escrito las notas de prueba aplicables, seleccione **Publicar** para enviar la oferta. Le enviaremos un correo electrónico cuando haya alguna versión preliminar de la oferta disponible para su aprobación. En ese momento:
+Cuando todas las páginas estén completas y haya escrito las notas de prueba aplicables, seleccione **Publicar** para enviar la oferta. Le enviaremos un correo electrónico cuando haya alguna versión preliminar de la oferta disponible para su aprobación. En ese momento, complete los pasos siguientes:
 
-1. Vuelva al Centro de partners.
+#### <a name="workspaces-view"></a>[Vista de áreas de trabajo](#tab/workspaces-view)
+
+1. Vuelva al [Centro de partners](https://go.microsoft.com/fwlink/?linkid=2166002).
+1. En la página principal, seleccione el icono **Ofertas de Marketplace**.
+
+    [ ![Muestra el icono Ofertas de Marketplace en la página principal del Centro de partners.](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
+
+1. En la página Ofertas de Marketplace, seleccione la oferta.
+1. Seleccione **Revisar y publicar**.
+1. Seleccione **Publicar** para que la oferta esté disponible públicamente.
+
+#### <a name="current-view"></a>[Vista actual](#tab/current-view)
+
+1. Vuelva al [Centro de partners](https://go.microsoft.com/fwlink/?linkid=2166002).
 1. Seleccione la pestaña **Información general** en la barra de menús de navegación izquierda.
 1. Seleccione la oferta.
 1. Seleccione **Revisar y publicar**.
 1. Seleccione **Publicar** para que la oferta esté disponible públicamente.
+
+---
 
 Después de que seleccione **Revisar y publicar**, se realiza la certificación y otros procesos de comprobación antes de que la oferta se publique en AppSource. Se le avisa cuando la oferta está disponible en versión preliminar para que pueda publicarla. Si hay algún problema, se le indican los detalles y se le proporcionan instrucciones sobre cómo corregirlo.
 

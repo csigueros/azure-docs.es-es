@@ -16,12 +16,12 @@ ms.date: 06/21/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a2ff57c06fba085fd28e7e0b13ec6e503517cab7
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: 665ca1dca46dbfcf1cdc5e07b0c4672f79dc586a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122768684"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128546821"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Requisitos previos de Azure AD Connect
 En este artículo se describen los requisitos previos y los requisitos de hardware de Azure Active Directory (Azure AD) Connect.
@@ -75,7 +75,7 @@ Para más información sobre cómo proteger el entorno de Active Directory, vea 
 - Si los administradores globales tienen MFA habilitado, la dirección URL https://secure.aadcdn.microsoftonline-p.com *debe* estar en la lista de sitios de confianza. Se le solicita que agregue este sitio a la lista de sitios de confianza cuando se le pide un desafío MFA y no se ha agregado antes. Puede utilizar Internet Explorer para agregarla a los sitios de confianza.
 - Si tiene previsto usar Azure AD Connect Health para la sincronización, asegúrese de que también se cumplen los requisitos previos de Azure AD Connect Health. Para más información, consulte [Instalación del agente de Azure AD Connect Health](how-to-connect-health-agent-install.md).
 
-#### <a name="harden-your-azure-ad-connect-server"></a>Configuración del servidor de Azure AD Connect 
+### <a name="harden-your-azure-ad-connect-server"></a>Configuración del servidor de Azure AD Connect 
 Se recomienda reforzar el servidor de Azure AD Connect para reducir la superficie de ataque de seguridad para este componente crítico de su entorno de TI. La aplicación de estas recomendaciones lo ayudará a reducir algunos riesgos de seguridad de su organización.
 
 - Trate Azure AD Connect igual que un controlador de dominio y otros recursos de nivel 0. Para más información, vea [Modelo de nivel administrativo de Active Directory](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material).
@@ -87,6 +87,7 @@ Se recomienda reforzar el servidor de Azure AD Connect para reducir la superfic
 - Implemente [estaciones de trabajo de acceso privilegiado](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/) dedicadas para todo el personal con acceso con privilegios a los sistemas de información de su organización. 
 - Siga estas [instrucciones adicionales](/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface) para reducir la superficie expuesta a ataques de su entorno de Active Directory.
 - Consulte [Supervisión de cambios en la configuración de federación](how-to-connect-monitor-federation-changes.md) para configurar alertas para supervisar los cambios en la confianza establecida entre el Idp y Azure AD. 
+- Habilite Multi Factor Authentication (MFA) para todos los usuarios que tengan acceso con privilegios en Azure AD o AD. Uno de los problemas de seguridad con el uso de AADConnect es que si un atacante puede obtener el control sobre el servidor de Azure AD Connect, puede manipular a los usuarios de Azure AD. Para evitar que un atacante use estas funcionalidades para tomar el control de las cuentas de Azure AD, MFA ofrece protecciones para que, aunque un atacante logre, por ejemplo, restablecer la contraseña de un usuario mediante Azure AD Connect, no pueda omitir el segundo factor.
 
 ### <a name="sql-server-used-by-azure-ad-connect"></a>SQL Server usado por Azure AD Connect
 * Azure AD Connect requiere una base de datos de SQL Server para almacenar datos de identidad. De manera predeterminada, se instala SQL Server 2019 Express LocalDB (versión ligera de SQL Server Express). SQL Server Express tiene un límite de tamaño de 10 GB que le permite administrar aproximadamente 100 000 objetos. Si tiene que administrar un volumen superior de objetos de directorio, es necesario que el asistente para la instalación apunte a otra instalación de SQL Server. El tipo de instalación de SQL Server puede afectar al [rendimiento de Azure AD Connect](./plan-connect-performance-factors.md#sql-database-factors).

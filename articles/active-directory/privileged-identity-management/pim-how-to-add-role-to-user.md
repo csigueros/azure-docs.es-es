@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 06/03/2021
+ms.date: 09/01/2021
 ms.author: curtand
 ms.collection: M365-identity-device-management
 ms.custom: subject-rbac-steps
-ms.openlocfilehash: a741ce7fff528fbe1f4120f4138a88d7b6e2e915
-ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
+ms.openlocfilehash: 1b8338986c6120747018ec43e26baf68cf587aa8
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "112233014"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128615308"
 ---
 # <a name="assign-azure-ad-roles-in-privileged-identity-management"></a>Asignación de roles de Azure AD en Privileged Identity Management
 
@@ -59,6 +59,10 @@ Siga estos pasos para hacer que un usuario sea elegible para un rol de administr
 
 1. Para especificar una duración de asignación específica, agregue un cuadro de fecha y hora de inicio y de finalización. Cuando termine, seleccione **Asignar** para crear la nueva asignación de roles.
 
+    - Las asignaciones **permanentes** no tienen fecha de expiración. Use esta opción para los trabajadores permanentes que necesitan con frecuencia los permisos de rol.
+
+    - Las asignaciones con **límite de tiempo** expirarán al final de un período especificado. Use esta opción con trabajadores temporales o fijos, por ejemplo, si se conocen la fecha y hora de finalización del proyecto.
+
     ![Configuración de pertenencias: fecha y hora](./media/pim-how-to-add-role-to-user/start-and-end-dates.png)
 
 1. Una vez asignado el rol, se muestra una notificación de estado de la asignación.
@@ -89,6 +93,148 @@ Para determinados roles, el ámbito de los permisos concedidos se puede restring
 
 Para más información sobre la creación de unidades administrativas, consulte [Adición y eliminación de unidades administrativas](../roles/admin-units-manage.md).
 
+## <a name="assign-a-role-using-graph-api"></a>Asignación de un rol mediante Graph API
+
+Para obtener los permisos necesarios para usar la API de PIM, consulte [Descripción de las API de Privileged Identity Management](pim-apis.md). 
+
+### <a name="eligible-with-no-end-date"></a>Aptas sin fecha de finalización
+
+A continuación se muestra una solicitud HTTP de ejemplo para crear una asignación apta sin fecha de finalización. Para obtener más información sobre los comandos de API, incluidos ejemplos como C# y JavaScript, consulte [Creación de unifiedRoleEligibilityScheduleRequest](/graph/api/unifiedroleeligibilityschedulerequest-post-unifiedroleeligibilityschedulerequests?view=graph-rest-beta&tabs=http&preserve-view=true).
+
+#### <a name="http-request"></a>Solicitud HTTP
+
+````HTTP
+POST https://graph.microsoft.com/beta/rolemanagement/directory/roleEligibilityScheduleRequests 
+
+    "action": "AdminAssign", 
+    "justification": "abcde", 
+    "directoryScopeId": "/", 
+    "principalId": "<principal-ID-GUID>", 
+    "roleDefinitionId": "<definition-ID-GUID>", 
+    "scheduleInfo": { 
+        "startDateTime": "2021-07-15T19:15:08.941Z", 
+        "expiration": { 
+            "type": "NoExpiration"        } 
+    } 
+{ 
+} 
+````
+
+#### <a name="http-response"></a>Respuesta HTTP
+
+A continuación se muestra un ejemplo de la respuesta. El objeto de respuesta que se muestra aquí se puede acortar para mejorar la legibilidad.
+
+````HTTP
+{ 
+    "@odata.context": "https://graph.microsoft.com/beta/$metadata#roleManagement/directory/roleEligibilityScheduleRequests/$entity", 
+    "id": "<schedule-ID-GUID>", 
+    "status": "Provisioned", 
+    "createdDateTime": "2021-07-15T19:47:41.0939004Z", 
+    "completedDateTime": "2021-07-15T19:47:42.4376681Z", 
+    "approvalId": null, 
+    "customData": null, 
+    "action": "AdminAssign", 
+    "principalId": "<principal-ID-GUID>", 
+    "roleDefinitionId": "<definition-ID-GUID>", 
+    "directoryScopeId": "/", 
+    "appScopeId": null, 
+    "isValidationOnly": false, 
+    "targetScheduleId": "<schedule-ID-GUID>", 
+    "justification": "test", 
+    "createdBy": { 
+        "application": null, 
+        "device": null, 
+        "user": { 
+            "displayName": null, 
+            "id": "<user-ID-GUID>" 
+        } 
+    }, 
+    "scheduleInfo": { 
+        "startDateTime": "2021-07-15T19:47:42.4376681Z", 
+        "recurrence": null, 
+        "expiration": { 
+            "type": "noExpiration", 
+            "endDateTime": null, 
+            "duration": null 
+        } 
+    }, 
+    "ticketInfo": { 
+        "ticketNumber": null, 
+        "ticketSystem": null 
+    } 
+}   
+````
+
+### <a name="active-and-time-bound"></a>Activas y con límite de tiempo
+
+A continuación se muestra una solicitud HTTP de ejemplo para crear una asignación activa con límite de tiempo. Para obtener más información sobre los comandos de API, incluidos ejemplos como C# y JavaScript, consulte [Creación de unifiedRoleEligibilityScheduleRequest](/graph/api/unifiedroleeligibilityschedulerequest-post-unifiedroleeligibilityschedulerequests?view=graph-rest-beta&tabs=http&preserve-view=true).
+
+#### <a name="http-request"></a>Solicitud HTTP
+
+````HTTP
+POST https://graph.microsoft.com/beta/roleManagement/directory/roleAssignmentScheduleRequests 
+
+{ 
+    "action": "AdminAssign", 
+    "justification": "abcde", 
+    "directoryScopeId": "/", 
+    "principalId": "<principal-ID-GUID>", 
+    "roleDefinitionId": "<definition-ID-GUID>", 
+    "scheduleInfo": { 
+        "startDateTime": "2021-07-15T19:15:08.941Z", 
+        "expiration": { 
+            "type": "AfterDuration", 
+            "duration": "PT3H" 
+        } 
+    } 
+} 
+````
+
+#### <a name="http-response"></a>Respuesta HTTP
+
+A continuación se muestra un ejemplo de la respuesta. El objeto de respuesta que se muestra aquí se puede acortar para mejorar la legibilidad.
+
+````HTTP
+{ 
+    "@odata.context": "https://graph.microsoft.com/beta/$metadata#roleManagement/directory/roleAssignmentScheduleRequests/$entity", 
+    "id": "<schedule-ID-GUID>", 
+    "status": "Provisioned", 
+    "createdDateTime": "2021-07-15T19:15:09.7093491Z", 
+    "completedDateTime": "2021-07-15T19:15:11.4437343Z", 
+    "approvalId": null, 
+    "customData": null, 
+    "action": "AdminAssign", 
+    "principalId": "<principal-ID-GUID>", 
+    "roleDefinitionId": "<definition-ID-GUID>", 
+    "directoryScopeId": "/", 
+    "appScopeId": null, 
+    "isValidationOnly": false, 
+    "targetScheduleId": "<schedule-ID-GUID>", 
+    "justification": "test", 
+    "createdBy": { 
+        "application": null, 
+        "device": null, 
+        "user": { 
+            "displayName": null, 
+            "id": "<user-ID-GUID>" 
+        } 
+    }, 
+    "scheduleInfo": { 
+        "startDateTime": "2021-07-15T19:15:11.4437343Z", 
+        "recurrence": null, 
+        "expiration": { 
+            "type": "afterDuration", 
+            "endDateTime": null, 
+            "duration": "PT3H" 
+        } 
+    }, 
+    "ticketInfo": { 
+        "ticketNumber": null, 
+        "ticketSystem": null 
+    } 
+} 
+````
+
 ## <a name="update-or-remove-an-existing-role-assignment"></a>Actualizar o quitar una asignación de roles existente
 
 Siga estos pasos para actualizar o quiotar una asignación de roles existente. **Solo clientes con licencia de Azure AD P2**: No asigne un grupo como activo a un rol a través de Azure AD y Privileged Identity Management (PIM). Para obtener una explicación detallada, consulte [Problemas conocidos](../roles/groups-concept.md#known-issues).
@@ -106,6 +252,59 @@ Siga estos pasos para actualizar o quiotar una asignación de roles existente. *
     ![Actualizar o quitar la asignación de roles](./media/pim-how-to-add-role-to-user/remove-update-assignments.png)
 
 1. Seleccione **Actualizar** o **Quitar** para actualizar o quitar la asignación de roles.
+
+## <a name="remove-eligible-assignment-via-api"></a>Eliminación de una asignación apta mediante la API
+
+### <a name="request"></a>Solicitud
+
+````HTTP
+POST https://graph.microsoft.com/beta/roleManagement/directory/roleEligibilityScheduleRequests 
+
+ 
+
+{ 
+    "action": "AdminRemove", 
+    "justification": "abcde", 
+    "directoryScopeId": "/", 
+    "principalId": "d96ea738-3b95-4ae7-9e19-78a083066d5b", 
+    "roleDefinitionId": "88d8e3e3-8f55-4a1e-953a-9b9898b8876b" 
+} 
+````
+
+### <a name="response"></a>Response
+
+````HTTP
+{ 
+    "@odata.context": "https://graph.microsoft.com/beta/$metadata#roleManagement/directory/roleEligibilityScheduleRequests/$entity", 
+    "id": "fc7bb2ca-b505-4ca7-ad2a-576d152633de", 
+    "status": "Revoked", 
+    "createdDateTime": "2021-07-15T20:23:23.85453Z", 
+    "completedDateTime": null, 
+    "approvalId": null, 
+    "customData": null, 
+    "action": "AdminRemove", 
+    "principalId": "d96ea738-3b95-4ae7-9e19-78a083066d5b", 
+    "roleDefinitionId": "88d8e3e3-8f55-4a1e-953a-9b9898b8876b", 
+    "directoryScopeId": "/", 
+    "appScopeId": null, 
+    "isValidationOnly": false, 
+    "targetScheduleId": null, 
+    "justification": "test", 
+    "scheduleInfo": null, 
+    "createdBy": { 
+        "application": null, 
+        "device": null, 
+        "user": { 
+            "displayName": null, 
+            "id": "5d851eeb-b593-4d43-a78d-c8bd2f5144d2" 
+        } 
+    }, 
+    "ticketInfo": { 
+        "ticketNumber": null, 
+        "ticketSystem": null 
+    } 
+} 
+````
 
 ## <a name="next-steps"></a>Pasos siguientes
 

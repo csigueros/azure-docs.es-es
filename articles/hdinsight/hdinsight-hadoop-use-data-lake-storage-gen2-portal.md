@@ -6,13 +6,13 @@ ms.author: guyhay
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
-ms.date: 09/17/2020
-ms.openlocfilehash: 372eb428c1ddde52cb557265052bc9fee27d7c83
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.date: 09/07/2021
+ms.openlocfilehash: 2014f0cde340b0070b8c8e5e7fbbd7c2ab6667fa
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112280412"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124797579"
 ---
 # <a name="create-a-cluster-with-data-lake-storage-gen2-using-the-azure-portal"></a>Creación de un clúster con Data Lake Storage Gen2 mediante Azure Portal
 
@@ -86,6 +86,7 @@ Asigne la identidad administrada al rol **Propietario de datos de Storage Blob**
     > [!NOTE]
     > * Para agregar una cuenta secundaria con Data Lake Storage Gen2 en el nivel de cuenta de almacenamiento, basta con asignar la identidad administrada que ha creado anteriormente a la nueva de Data Lake Storage Gen2 que quiere agregar. Tenga en cuenta que no se admite la adición de una cuenta de almacenamiento secundaria de Data Lake Storage Gen2 mediante la hoja "Cuentas de almacenamiento adicionales" en HDInsight.
     > * Puede habilitar RA-GRS o RA-ZRS en la cuenta de Azure Blob Storage que usa HDInsight. Sin embargo, no se admite la creación de un clúster en el punto de conexión secundario RA-GRS o RA-ZRS.
+    > * HDInsight no admite la configuración de Data Lake Storage Gen2 como almacenamiento con redundancia de zona geográfica con acceso de lectura (RA-GZRS) o almacenamiento con redundancia de zona geográfica (GZRS).
 
 ## <a name="delete-the-cluster"></a>Eliminación del clúster
 

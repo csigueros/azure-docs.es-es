@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/27/2020
-ms.openlocfilehash: 10c06f5b36de880302f17dc17c1d47d5209dd902
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3ffca17efa59a0544e06bb3bd4fbae1d812f2823
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97588478"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124819220"
 ---
 # <a name="how-to-plan-a-consulting-service-offer-in-the-commercial-marketplace"></a>Planificación de una oferta de servicios de consultoría en el marketplace comercial
 
@@ -90,7 +90,7 @@ El marketplace comercial admite cinco tipos de servicios de consultoría:
 * **Prueba de concepto**: una implementación de ámbito limitado para determinar si una solución cumple los requisitos del cliente.
 * **Taller**: una interacción interactiva que se lleva a cabo en las instalaciones del cliente. Puede implicar entrenamiento, sesiones informativas, evaluaciones o demostraciones basados en los datos o el entorno del cliente.
 
-El servicio debe tener una duración fija y predeterminada de hasta 10 semanas. La duración del servicio debe quedar explícita en la descripción de la oferta.
+El servicio debe tener una duración predeterminada de hasta 12 meses. La duración del servicio debe definirse explícitamente en la descripción de la oferta.
 
 ## <a name="customer-leads"></a>Clientes potenciales
 
@@ -160,7 +160,7 @@ Puede usar etiquetas HTML para dar formato a la descripción. En este cuadro pue
 
 **Palabras clave de búsqueda** (opcional): escriba al menos tres palabras clave de búsqueda que los clientes puedan usar para buscar su oferta en las tiendas en línea. No es necesario incluir el **nombre** y **descripción** de la oferta.
 
-**Duración**: su oferta de servicio de consultoría debe tener una duración predeterminada de hasta 10 semanas.
+**Duración**: su oferta de servicio de consultoría debe tener una duración predeterminada de hasta 12 meses.
 
 **Información de contacto**: en el Centro de partners, se le pedirá que proporcione el nombre, la dirección de correo electrónico y el número de teléfono de dos personas de la empresa (usted puede ser uno de los dos contactos). Usaremos esta información para comunicarnos con usted sobre la oferta. Esta información no se muestra a los clientes, pero se proporcionará a los asociados de Proveedor de soluciones en la nube (CSP).
 

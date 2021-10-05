@@ -6,13 +6,13 @@ ms.author: avnera
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 02/12/2020
-ms.openlocfilehash: b222e4ff519fbe2fbb4fa58b39555ac9fead0917
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.date: 09/15/2021
+ms.openlocfilehash: 99f3687fc3b43461abb48b85c48cfb15286b262f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96352922"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128557764"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-data-explorer"></a>Aplicación del descuento por reserva a Azure Data Explorer
 
@@ -35,7 +35,7 @@ El descuento por reserva se aplica al consumo de incremento de Azure Data Explor
 ## <a name="examples"></a>Ejemplos
 
 En los ejemplos siguientes se muestra cómo se aplica el descuento por la capacidad reservada de Azure Data Explorer en función del número de unidades de incremento adquiridos y el momento de su ejecución.
-Por ejemplo, para el tamaño del clúster del motor: **2 máquinas virtuales D11_v2**, el costo total a petición es de cuatro unidades del medidor de incremento de Azure Data Explorer por hora.
+Por ejemplo, en el caso del tamaño de clúster de motor: **2 máquinas virtuales D11_v2**, los cargos totales a petición son por cuatro unidades de medidor de incremento de Azure Data Explorer por hora.
 
 **Escenario 1**
 
@@ -63,7 +63,7 @@ Si tiene alguna pregunta o necesita ayuda, [cree una solicitud de soporte técni
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información acerca de las reservas de Azure, consulte los siguientes artículos:
+Para obtener más información sobre las reservas de Azure, vea los artículos siguientes:
 
 * [Pago por adelantado de los recursos de proceso de Azure Data Explorer con la capacidad reservada de Azure Data Explorer](/azure/data-explorer/pricing-reserved-capacity)  
 * [Qué son las reservas de Azure](save-compute-costs-reservations.md)  

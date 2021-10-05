@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 05/05/2021
+ms.date: 09/10/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 239778455f049822bd92a92c811fcacad270ae3e
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 547c27b8faf9f282c836bdda2d57bf9d13603423
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112076517"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124780706"
 ---
 # <a name="leave-an-organization-as-a-guest-user"></a>Salir de una organización como usuario invitado
 
@@ -31,9 +31,9 @@ Para salir de una organización, siga estos pasos.
 
 1. Siga estos pasos para ir a la página **Mi cuenta**:
 - Si usa una cuenta profesional o educativa, vaya a https://myaccount.microsoft.com e inicie sesión.
-- Si usa una cuenta personal, vaya a https://myapps.microsoft.com e inicie sesión y, luego, haga clic en el icono de la cuenta en la esquina superior derecha y seleccione **Ver cuenta**.
+- Si usa una cuenta personal, vaya a https://myapps.microsoft.com e inicie sesión y, luego, haga clic en el icono de la cuenta en la esquina superior derecha y seleccione **Ver cuenta**. O bien, use una dirección URL de Mi cuenta que incluya la información del inquilino para ir directamente a la página Mi cuenta (se muestran ejemplos en la nota siguiente).  
    > [!NOTE]
-   > Cuando se usa una cuenta personal, otra opción es ir directamente a la página Mi cuenta agregando el nombre de inquilino o el identificador de inquilino a la dirección URL, por ejemplo: `https://myaccount.microsoft.com?tenantId=wingtiptoys.onmicrosoft.com` o `https://myaccount.microsoft.com?tenantId=ab123456-cd12-ef12-gh12-ijk123456789`.
+   > Si usa la característica de código de acceso de un solo uso de correo electrónico al iniciar sesión, deberá usar una dirección URL de Mi cuenta que incluya el nombre o el identificador de inquilino, por ejemplo: `https://myaccount.microsoft.com?tenantId=wingtiptoys.onmicrosoft.com` o `https://myaccount.microsoft.com?tenantId=ab123456-cd12-ef12-gh12-ijk123456789`.
 
 2. En **Organizaciones**, busque la organización que quiere abandonar y seleccione **Salir de la organización**.
 

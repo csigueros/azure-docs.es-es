@@ -148,6 +148,8 @@
           href: access-app-virtual-network.md
         - name: Exposición de aplicaciones a Internet
           href: expose-apps-gateway-azure-firewall.md
+        - name: Configuración de Palo Alto
+          href: how-to-configure-palo-alto.md
         - name: Responsabilidades del cliente al ejecutar Azure Spring Cloud en una red virtual
           href: vnet-customer-responsibilities.md
         - name: Solución de problemas de Azure Spring Cloud en redes virtuales

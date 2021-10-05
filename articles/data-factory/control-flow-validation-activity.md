@@ -1,7 +1,7 @@
 ---
-title: Actividad de validación en Azure Data Factory
+title: Actividad de validación
 titleSuffix: Azure Data Factory & Azure Synapse
-description: La actividad de validación no continúa la ejecución de la canalización hasta que valida el conjunto de datos adjunto con determinados criterios que el usuario especifica.
+description: La actividad de validación en Azure Data Factory y Synapse Analytics retrasa la ejecución de la canalización hasta que se valida un conjunto de datos con criterios definidos por el usuario.
 author: chez-charlie
 ms.author: chez
 ms.reviewer: jburchel
@@ -9,15 +9,15 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 03/25/2019
-ms.openlocfilehash: 9b4c2802808defd5a252a21f17fde9a769a08fad
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/09/2021
+ms.openlocfilehash: fa98ef27b5dbcc7949f37bf548c414d015224e4c
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122637757"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124750612"
 ---
-# <a name="validation-activity-in-azure-data-factory"></a>Actividad de validación en Azure Data Factory
+# <a name="validation-activity-in-azure-data-factory-and-synapse-analytics-pipelines"></a>Actividad de validación en canalizaciones de Azure Data Factory y Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Puede usar una validación en una canalización para asegurarse de que la canalización solo continúe la ejecución una vez que haya validado la existencia de la referencia del conjunto de datos adjunto, que cumple con los criterios especificados o que se haya alcanzado el tiempo de expiración.
@@ -71,7 +71,7 @@ minimumSize | Tamaño mínimo de un archivo en bytes. Si no se especifica ningú
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte otras actividades de flujo de control compatibles con Data Factory:
+Vea otras actividades de flujo de control admitidas:
 
 - [Actividad If Condition](control-flow-if-condition-activity.md)
 - [Actividad de ejecución de canalización](control-flow-execute-pipeline-activity.md)

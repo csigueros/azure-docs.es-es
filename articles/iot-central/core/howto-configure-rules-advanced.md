@@ -7,12 +7,12 @@ ms.date: 08/26/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: b90e96975dadc1f7fb168345aa89b98bb6a22b9c
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: 1068bd5f5a97c4eeab702add9c305b38a8084464
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123473593"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129079668"
 ---
 # <a name="use-workflows-to-integrate-your-azure-iot-central-application-with-other-cloud-services"></a>Uso de flujos de trabajo para integrar la aplicación de Azure IoT Central con otros servicios en la nube
 
@@ -22,6 +22,7 @@ El conector Azure IoT Central V3 para Power Automate y Azure Logic Apps permite 
 
 - Cuando se activa una regla en la aplicación de Azure IoT Central, puede desencadenar un flujo de trabajo en Power Automate o en Azure Logic Apps. Estos flujos de trabajo pueden ejecutar acciones en otros servicios en la nube, como Microsoft 365, o en un servicio de terceros.
 - Un evento en otro servicio en la nube, como Microsoft 365, puede desencadenar un flujo de trabajo en Power Automate o en Azure Logic Apps. Estos flujos de trabajo pueden ejecutar acciones o recuperar datos de la aplicación de IoT Central.
+- El conector Azure IoT Central V3 se alinea con la superficie [API REST 1.0](/rest/api/iotcentral/) disponible con carácter general. Todas las acciones del conector admiten el [formato DTDLv2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) y la compatibilidad con los modelos basados en DTDLv1 están quedando en desuso. Si desea obtener la información más actualizada y detalles sobre las actualizaciones recientes, consulte las [Notas de la versión](/connectors/azureiotcentral/#release-notes) de la versión actual del conector.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -36,18 +37,17 @@ Necesitará lo siguiente para completar los pasos de esta guía:
 
 Para poder desencadenar un flujo de trabajo en Power Automate o en Azure Logic Apps, necesita una regla en la aplicación de IoT Central. Para más información, consulte [Configuración de reglas y acciones en Azure IoT Central](./howto-configure-rules.md).
 
-Para agregar el conector **Azure IoT Central V3 (Versión preliminar)** como desencadenador en Power Automate:
+Para agregar el conector **Azure IoT Central V3** como desencadenador en Power Automate:
 
 1. En Power Automate, seleccione **+ Crear** y la pestaña **Personalizado**.
-1. Busque *IoT Central* y seleccione el conector **Azure IoT Central V3 (Versión preliminar)** .
+1. Busque *IoT Central* y seleccione el conector **Azure IoT Central V3**.
 1. En la lista de desencadenadores, seleccione **When a rule is fired (preview)** (Cuando se desencadene una regla [versión preliminar]).
 1. En el paso **When a rule is fired (preview)** (Cuando se desencadene una regla [versión preliminar]), seleccione la aplicación de IoT Central y la regla que esté usando.
 
-Para agregar el conector **Azure IoT Central V3 (Versión preliminar)** como desencadenador en Azure Logic Apps:
+Para agregar el conector **Azure IoT Central V3** como desencadenador en Azure Logic Apps:
 
 1. En el **diseñador de Logic Apps**, seleccione la plantilla **Aplicación lógica en blanco**.
-1. En el diseñador, seleccione la pestaña **Personalizado**.
-1. Busque *IoT Central* y seleccione el conector **Azure IoT Central V3 (Versión preliminar)** .
+1. En el diseñador, busque *IoT Central* y seleccione el conector **Azure IoT Central V3**.
 1. En la lista de desencadenadores, seleccione **When a rule is fired (preview)** (Cuando se desencadene una regla [versión preliminar]).
 1. En el paso **When a rule is fired (preview)** (Cuando se desencadene una regla [versión preliminar]), seleccione la aplicación de IoT Central y la regla que esté usando.
 
@@ -57,12 +57,12 @@ Ahora puede agregar más pasos al flujo de trabajo para crear el escenario de in
 
 ## <a name="run-an-action"></a>Ejecución de una acción
 
-Puede ejecutar acciones en una aplicación de IoT Central desde flujos de trabajo de Power Automate y Azure Logic Apps. En primer lugar, cree el flujo de trabajo y use un conector para definir el desencadenador que iniciará el flujo de trabajo. Después, use el conector **Azure IoT Central V3 (Versión preliminar)** como una acción.
+Puede ejecutar acciones en una aplicación de IoT Central desde flujos de trabajo de Power Automate y Azure Logic Apps. En primer lugar, cree el flujo de trabajo y use un conector para definir el desencadenador que iniciará el flujo de trabajo. Después, use el conector **Azure IoT Central V3** como una acción.
 
-Para agregar el conector **Azure IoT Central V3 (Versión preliminar)** como una acción en Power Automate:
+Para agregar el conector **Azure IoT Central V3** como una acción en Power Automate:
 
 1. En Power Automate, en el panel **Elegir una acción**, seleccione la pestaña **Personalizado**.
-1. Busque *IoT Central* y seleccione el conector **Azure IoT Central V3 (Versión preliminar)** .
+1. Busque *IoT Central* y seleccione el conector **Azure IoT Central V3**.
 1. En la lista de acciones, seleccione la acción de IoT Central que desee usar.
 1. En el paso de la acción, complete la configuración de la acción que haya elegido. Después, seleccione **Guardar**.
 
@@ -77,7 +77,8 @@ Para agregar el conector **Azure IoT Central V3 (Versión preliminar)** como una
 
 ## <a name="list-of-actions"></a>Lista de acciones
 
-En la lista siguiente se muestran todas las acciones de IoT Central disponibles en el conector **Azure IoT Central V3 (Versión preliminar)** y sus opciones de configuración. Muchos de los campos pueden tener contenido generado dinámicamente. Por ejemplo, un paso anterior podría haber determinado el identificador del dispositivo en el que actúa el paso actual.
+Para una lista completa de las acciones que admite el conector, consulte [Acciones](/connectors/azureiotcentral/#actions).
+
 
 ### <a name="create-or-update-a-device"></a>Create or update a device (Crear o actualizar un dispositivo)
 

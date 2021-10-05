@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 08/25/2021
+ms.date: 09/27/2021
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 6a8a503f5357ec69a1bab007f4ae2849582fed3b
-ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
+ms.openlocfilehash: de89ce807b69cf9d9ef7db180b32dd1b7fe1d50c
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122835604"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129091192"
 ---
 La configuración de claves administradas por el cliente para los discos requerirá la creación de recursos en un orden determinado, si lo hace por primera vez. En primer lugar, tendrá que crear y configurar una instancia de Azure Key Vault.
 
@@ -73,3 +73,11 @@ Ahora que ha creado el almacén de Azure Key Vault y una clave, debe agregar un 
 1. Seleccione **Revisar y crear** y, a continuación, **Crear**.
 
     :::image type="content" source="media/virtual-machines-disk-encryption-portal/server-side-encryption-disk-set-blade.png" alt-text="Captura de pantalla del panel de creación de cifrado de disco. Muestra la suscripción, el grupo de recursos, el nombre del conjunto de cifrado de disco, la región y el selector de claves y de almacenes de claves." lightbox="media/virtual-machines-disk-encryption-portal/server-side-encryption-disk-set-blade.png":::
+
+1. Vaya al conjunto de cifrado de disco una vez implementado y seleccione la alerta mostrada.
+
+    :::image type="content" source="media/virtual-machines-disk-encryption-portal/disk-encryption-set-perm-alert.png" alt-text="Captura de pantalla del usuario seleccionando la alerta &quot;Para asociar un disco, una imagen o una instantánea a este conjunto de cifrado de disco, debe conceder permisos al almacén de claves&quot;." lightbox="media/virtual-machines-disk-encryption-portal/disk-encryption-set-perm-alert.png":::
+
+1. Esto concederá al almacén de claves permisos para el conjunto de cifrado de disco.
+
+    :::image type="content" source="media/virtual-machines-disk-encryption-portal/disk-encryption-set-perm-confirmation.png" alt-text="Captura de pantalla de confirmación de que se han concedido permisos." lightbox="media/virtual-machines-disk-encryption-portal/disk-encryption-set-perm-confirmation.png":::

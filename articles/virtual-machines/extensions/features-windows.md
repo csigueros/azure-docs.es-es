@@ -9,12 +9,12 @@ ms.author: amjads
 ms.collection: windows
 ms.date: 03/30/2018
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c4f2da1bd955f9a0b47519c913f656aa6e8bdce4
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: c11604ae3fe486be6d471b0218b44eeab26da5c6
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122179653"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128588549"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Características y extensiones de las máquinas virtuales para Windows
 
@@ -349,7 +349,7 @@ Los pasos de solución de problemas siguientes se aplican a todas las extensione
 
 1. Para comprobar el registro de Windows Guest Agent, examine la actividad cuando la extensión se aprovisionó en *C:\WindowsAzure\Logs\WaAppAgent.log*.
 
-2. Revise los registros reales de la extensión para obtener más detalles en *C:\WindowsAzure\Logs\Plugins\\<extensionName>*
+2. Revise los registros reales de la extensión para ver más detalles en `C:\WindowsAzure\Logs\Plugins\<extensionName>`.
 
 3. Revise las secciones de solución de problemas de la documentación específica de la extensión para ver los códigos de errores, los problemas conocidos, etc.
 

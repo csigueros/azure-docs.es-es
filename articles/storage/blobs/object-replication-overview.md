@@ -10,12 +10,12 @@ ms.date: 09/02/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 5a0ca85ff28e56e7e9a47df1e56861d5c6552b97
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: 8ba9a24e050307b029e4026a7e8e519a1b4043dc
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123468103"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128607052"
 ---
 # <a name="object-replication-for-block-blobs"></a>Replicación de objetos para blobs en bloques
 
@@ -166,7 +166,7 @@ En la tabla siguiente se resumen los valores que se deben usar para las entradas
 
 Un inquilino de Azure Active Directory es una instancia dedicada de Azure AD que representa a una organización para la administración de identidades y acceso. Cada suscripción de Azure tiene una relación de confianza con un inquilino de Azure AD. Todos los recursos de una suscripción, incluidas las cuentas de almacenamiento, están asociados al mismo inquilino de Azure AD. Para más información, consulte [¿Qué es Azure Active Directory?](../../active-directory/fundamentals/active-directory-whatis.md)
 
-De forma predeterminada, un usuario con los permisos adecuados puede configurar la replicación de objetos con una cuenta de almacenamiento de origen que se encuentre en un inquilino de Azure AD y una cuenta de destino que se encuentre en otro inquilino. Si las directivas de seguridad requieren que limite la replicación de objetos a cuentas de almacenamiento que residan solo en el mismo inquilino, puede no permitir la replicación entre inquilinos estableciendo una propiedad de seguridad denominada **AllowCrossTenantReplication** (versión preliminar). Cuando no se permite la replicación de objetos entre inquilinos para una cuenta de almacenamiento, para cualquier directiva de replicación de objetos configurada con esa cuenta de almacenamiento como cuenta de origen o destino, Azure Storage requiere que las cuentas de origen y de destino residan en el mismo inquilino de Azure AD.  Para más información sobre cómo no permitir la replicación de objetos entre inquilinos, consulte [Impedir la replicación de objetos entre inquilinos de Azure Active Directory](object-replication-prevent-cross-tenant-policies.md).
+De forma predeterminada, un usuario con los permisos adecuados puede configurar la replicación de objetos con una cuenta de almacenamiento de origen que se encuentre en un inquilino de Azure AD y una cuenta de destino que se encuentre en otro inquilino. Si las directivas de seguridad requieren que limite la replicación de objetos a cuentas de almacenamiento que residan solo en el mismo inquilino, puede no permitir la replicación entre inquilinos estableciendo una propiedad de seguridad denominada **AllowCrossTenantReplication** (versión preliminar). Cuando no se permite la replicación de objetos entre inquilinos para una cuenta de almacenamiento, para cualquier directiva de replicación de objetos configurada con esa cuenta de almacenamiento como cuenta de origen o destino, Azure Storage requiere que las cuentas de origen y de destino residan en el mismo inquilino de Azure AD. Para más información sobre cómo no permitir la replicación de objetos entre inquilinos, consulte [Impedir la replicación de objetos entre inquilinos de Azure Active Directory](object-replication-prevent-cross-tenant-policies.md).
 
 Para no permitir la replicación de objetos entre inquilinos para una cuenta de almacenamiento, establezca la propiedad **AllowCrossTenantReplication** en *false*. Si la cuenta de almacenamiento no participa actualmente en ninguna directiva de replicación de objetos entre inquilinos, establecer la propiedad **AllowCrossTenantReplication** en *false* impide la configuración futura de directivas de replicación de objetos entre inquilinos con esta cuenta de almacenamiento como origen o destino.
 
@@ -188,12 +188,12 @@ Si el estado de replicación de un blob en la cuenta de origen indica un error, 
 
 ## <a name="feature-support"></a>Compatibilidad de características
 
-En esta tabla se muestra cómo se admite esta característica en la cuenta y el impacto en la compatibilidad al habilitar determinadas funcionalidades. 
+En esta tabla se muestra cómo se admite esta característica en la cuenta y el impacto en la compatibilidad al habilitar determinadas funcionalidades.
 
-| Tipo de cuenta de almacenamiento                | Blob Storage (compatibilidad predeterminada)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>    
+| Tipo de cuenta de almacenamiento                | Blob Storage (compatibilidad predeterminada)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
 |-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
-| De uso general estándar, v2 | ![Sí](../media/icons/yes-icon.png) |![No](../media/icons/no-icon.png)              | ![No](../media/icons/no-icon.png) | 
-| Blobs en bloques Premium          | ![Sí](../media/icons/yes-icon.png) |![No](../media/icons/no-icon.png)              | ![No](../media/icons/no-icon.png) | 
+| De uso general estándar, v2 | ![Sí](../media/icons/yes-icon.png) |![No](../media/icons/no-icon.png)              | ![No](../media/icons/no-icon.png) |
+| Blobs en bloques Premium          | ![Sí](../media/icons/yes-icon.png) |![No](../media/icons/no-icon.png)              | ![No](../media/icons/no-icon.png) |
 
 <sup>1</sup> Tanto Data Lake Storage Gen2 como el protocolo Network File System (NFS) 3.0 necesitan una cuenta de almacenamiento con un espacio de nombres jerárquico habilitado.
 

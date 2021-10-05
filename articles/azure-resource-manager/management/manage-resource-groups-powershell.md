@@ -3,15 +3,15 @@ title: 'Administración de grupos de recursos: Azure PowerShell'
 description: Use Azure PowerShell para administrar grupos de recursos con Azure Resource Manager. Muestra cómo crear, enumerar y eliminar grupos de recursos.
 author: mumian
 ms.topic: conceptual
-ms.date: 09/01/2020
+ms.date: 09/10/2021
 ms.author: jgao
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: f8d73eda0bb6b6d09a8979cf00bfc2cc8a3105b5
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: c3bb028186155cc3af47f8efb293b7dbe61e13c9
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111951289"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124731044"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-azure-powershell"></a>Administración de grupos de recursos de Azure Resource Manager mediante Azure PowerShell
 
@@ -24,84 +24,76 @@ Otros artículos sobre cómo administrar grupos de recursos:
 
 ## <a name="what-is-a-resource-group"></a>¿Qué es un grupo de recursos?
 
-Un grupo de recursos es un contenedor que almacena los recursos relacionados con una solución de Azure. El grupo de recursos puede incluir todos los recursos de la solución o solo aquellos que se desean administrar como grupo. Para decidir cómo asignar los recursos a los grupos de recursos, tenga en cuenta lo que más conviene a su organización. Por lo general, se recomienda agregar recursos que compartan el mismo ciclo de vida al mismo grupo de recursos para que los pueda implementar, actualizar y eliminar con facilidad como un grupo.
+Un grupo de recursos es un contenedor que almacena los recursos relacionados con una solución de Azure. El grupo de recursos puede incluir todos los recursos de la solución o solo aquellos que se desean administrar como grupo. Para decidir cómo agregar los recursos a los grupos de recursos, tenga en cuenta lo que más conviene a su organización. Por lo general, se recomienda agregar recursos que compartan el mismo ciclo de vida al mismo grupo de recursos para que los pueda implementar, actualizar y eliminar con facilidad como un grupo.
 
-Los grupos de recursos almacenan metadatos acerca de los recursos. Por consiguiente, al especificar la ubicación del grupo de recursos, se especifica el lugar en que se almacenan dichos metadatos. Por motivos de compatibilidad, es posible que sea preciso asegurarse de que los datos se almacenan en una región concreta.
-
-Los grupos de recursos almacenan metadatos acerca de los recursos. Al especificar la ubicación del grupo de recursos, se especifica el lugar en que dichos metadatos se almacenan.
+Los grupos de recursos almacenan metadatos acerca de los recursos. Al especificar la ubicación del grupo de recursos, se especifica el lugar en que dichos metadatos se almacenan. Por motivos de compatibilidad, es posible que sea preciso asegurarse de que los datos se almacenan en una región concreta.
 
 ## <a name="create-resource-groups"></a>Crear grupos de recursos
 
-En el siguiente script de PowerShell se crea un grupo de recursos.
+Para crear un grupo de recursos, use [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup).
 
 ```azurepowershell-interactive
-New-AzResourceGroup -Name demoResourceGroup -Location westus
+New-AzResourceGroup -Name exampleGroup -Location westus
 ```
 
 ## <a name="list-resource-groups"></a>Enumeración de grupos de recursos
 
-El siguiente script de PowerShell enumera los grupos de recursos de su suscripción.
+Para obtener una lista de grupos de recursos de la suscripción, use [Get-AzResourceGroup](/powershell/module/az.resources/get-azresourcegroup).
 
 ```azurepowershell-interactive
 Get-AzResourceGroup
 ```
 
-Para obtener un grupo de recursos:
+Para obtener un grupo de recursos, proporcione el nombre del grupo de recursos.
 
 ```azurepowershell-interactive
-$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-
-Get-AzResourceGroup -Name $resourceGroupName
+Get-AzResourceGroup -Name exampleGroup
 ```
 
 ## <a name="delete-resource-groups"></a>Eliminación de grupos de recursos
 
-El siguiente script de PowerShell elimina un grupo de recursos:
+Para quitar un grupo de recursos, use [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup).
 
 ```azurepowershell-interactive
-$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-
-Remove-AzResourceGroup -Name $resourceGroupName
+Remove-AzResourceGroup -Name exampleGroup
 ```
 
 Para obtener más información sobre cómo ordena Azure Resource Manager la eliminación de recursos, consulte [Eliminación del grupo de recursos en Azure Resource Manager](delete-resource-group.md).
 
-## <a name="deploy-resources-to-an-existing-resource-group"></a>Implementación de recursos en un grupo de recursos existente
+## <a name="deploy-resources"></a>Implementación de recursos
 
-Consulte [Implementar recursos en un grupo de recursos](manage-resources-powershell.md#deploy-resources-to-an-existing-resource-group).
+Puede implementar recursos de Azure usando Azure PowerShell o implementando una plantilla de Azure Resource Manager (ARM) o un archivo Bicep.
 
-Para validar la implementación de un grupo de recursos, consulte [Test-AzResourceGroupDeployment](/powershell/module/Az.Resources/Test-AzResourceGroupDeployment).
+En el ejemplo siguiente se crea una cuenta de almacenamiento. El nombre que proporcione para la cuenta de almacenamiento debe ser único en Azure.
 
-## <a name="deploy-a-resource-group-and-resources"></a>Implementación de un grupo de recursos y de recursos
+```azurepowershell-interactive
+New-AzStorageAccount -ResourceGroupName exampleGroup -Name examplestore -Location westus -SkuName "Standard_LRS"
+```
 
-Puede crear un grupo de recursos e implementar recursos en el grupo por medio de una plantilla de Resource Manager. Para más información, consulte [Creación de un grupo de recursos e implementación de recursos](../templates/deploy-to-subscription.md#resource-groups).
+Para implementar una plantilla de ARM o un archivo Bicep, use [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment).
 
-## <a name="redeploy-when-deployment-fails"></a>Nueva implementación cuando se produce un error en la implementación
+```azurepowershell-interactive
+New-AzResourceGroupDeployment -ResourceGroupName exampleGroup -TemplateFile storage.bicep
+```
 
-Esta característica también es conocida como *Reversión en caso de error*. Para obtener más información, consulte [Nueva implementación cuando se produce un error en la implementación](../templates/rollback-on-error.md).
+Para obtener más información sobre la implementación de una plantilla de ARM, consulte [Implementación de recursos con las plantillas de ARM y Azure PowerShell](../templates/deploy-powershell.md).
 
-## <a name="move-to-another-resource-group-or-subscription"></a>Traslado a otro grupo de recursos o suscripción
-
-Puede mover los recursos de un grupo a otro grupo de recursos. Para obtener más información, consulte [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](move-resource-group-and-subscription.md).
+Para obtener más información sobre la implementación de un archivo Bicep, vea [Implementación de recursos con Bicep y Azure PowerShell](../bicep/deploy-powershell.md).
 
 ## <a name="lock-resource-groups"></a>Bloqueo de grupos de recursos
 
-Los bloqueos impiden que otros usuarios de la organización eliminen o modifiquen por error recursos esenciales, como una suscripción de Azure, un grupo de recursos o un recurso. 
+Los bloqueos impiden que otros usuarios de la organización eliminen o modifiquen de forma accidental recursos críticos. 
 
-El script siguiente bloquea un grupo de recursos de manera que no se pueda eliminar.
+Para evitar que se eliminen un grupo de recursos y sus recursos, use [New-AzResourceLock](/powershell/module/az.resources/new-azresourcelock).
 
 ```azurepowershell-interactive
-$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-
-New-AzResourceLock -LockName LockGroup -LockLevel CanNotDelete -ResourceGroupName $resourceGroupName 
+New-AzResourceLock -LockName LockGroup -LockLevel CanNotDelete -ResourceGroupName exampleGroup
 ```
 
-El script siguiente obtiene todos los bloqueos de un grupo de recursos:
+Para obtener los bloqueos para un grupo de recursos, use [Get-AzResourceLock](/powershell/module/az.resources/get-azresourcelock).
 
 ```azurepowershell-interactive
-$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-
-Get-AzResourceLock -ResourceGroupName $resourceGroupName 
+Get-AzResourceLock -ResourceGroupName exampleGroup
 ```
 
 Para obtener más información, consulte [Bloqueo de recursos con el Administrador de recursos de Azure](lock-resources.md).
@@ -112,104 +104,7 @@ Puede aplicar etiquetas a los recursos y grupos de recursos para organizar de ma
 
 ## <a name="export-resource-groups-to-templates"></a>Exportación de grupos de recursos a plantillas
 
-Después de configurar el grupo de recursos, puede ver una plantilla de Resource Manager para el grupo de recursos. Exportar la plantilla ofrece dos ventajas:
-
-- Puede automatizar las futuras implementaciones de la solución, ya que la plantilla contiene la infraestructura completa.
-- Obtenga más información sobre la sintaxis de la plantilla consultando la notación de objetos JavaScript (JSON) que representa la solución.
-
-Para exportar todos los recursos de un grupo de recursos, use el cmdlet [Export-AzResourceGroup](/powershell/module/az.resources/Export-AzResourceGroup) y proporcione el nombre del grupo de recursos.
-
-```azurepowershell-interactive
-$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-
-Export-AzResourceGroup -ResourceGroupName $resourceGroupName
-```
-
-La plantilla se guarda como un archivo local.
-
-En lugar de exportar todos los recursos del grupo de recursos, puede seleccionar los recursos que quiere exportar.
-
-Para exportar un recurso, pase el identificador de ese recurso.
-
-```azurepowershell-interactive
-$resource = Get-AzResource `
-  -ResourceGroupName <resource-group-name> `
-  -ResourceName <resource-name> `
-  -ResourceType <resource-type>
-Export-AzResourceGroup `
-  -ResourceGroupName <resource-group-name> `
-  -Resource $resource.ResourceId
-```
-
-Para exportar más de un recurso, pase los identificadores de los recursos en una matriz.
-
-```azurepowershell-interactive
-Export-AzResourceGroup `
-  -ResourceGroupName <resource-group-name> `
-  -Resource @($resource1.ResourceId, $resource2.ResourceId)
-```
-
-Al exportar la plantilla, puede especificar si se usan parámetros en ella. De forma predeterminada, se incluyen parámetros para los nombres de recursos, pero no tienen un valor predeterminado. Debe pasar ese valor de parámetro durante la implementación.
-
-```json
-"parameters": {
-  "serverfarms_demoHostPlan_name": {
-    "defaultValue": null,
-    "type": "String"
-  },
-  "sites_webSite3bwt23ktvdo36_name": {
-    "defaultValue": null,
-    "type": "String"
-  }
-}
-```
-
-En el recurso, el parámetro se usa para el nombre.
-
-```json
-"resources": [
-  {
-    "type": "Microsoft.Web/serverfarms",
-    "apiVersion": "2016-09-01",
-    "name": "[parameters('serverfarms_demoHostPlan_name')]",
-    ...
-  }
-]
-```
-
-Si usa el parámetro `-IncludeParameterDefaultValue` al exportar la plantilla, el parámetro de la plantilla incluye un valor predeterminado que se establece en el valor actual. Puede usar ese valor predeterminado o pasar un valor diferente para sobrescribir el predeterminado.
-
-```json
-"parameters": {
-  "serverfarms_demoHostPlan_name": {
-    "defaultValue": "demoHostPlan",
-    "type": "String"
-  },
-  "sites_webSite3bwt23ktvdo36_name": {
-    "defaultValue": "webSite3bwt23ktvdo36",
-    "type": "String"
-  }
-}
-```
-
-Si usa el parámetro `-SkipResourceNameParameterization` al exportar la plantilla, los parámetros de los nombres de recursos no se incluyen en la plantilla. En cambio, el nombre del recurso se establece directamente en el recurso en su valor actual. No se puede personalizar el nombre durante la implementación.
-
-```json
-"resources": [
-  {
-    "type": "Microsoft.Web/serverfarms",
-    "apiVersion": "2016-09-01",
-    "name": "demoHostPlan",
-    ...
-  }
-]
-```
-
-La característica de exportación de plantillas no admite la exportación de recursos de Azure Data Factory. Para más información sobre cómo exportar recursos de Data Factory, consulte [Copia o clonación de una factoría de datos en Azure Data Factory](../../data-factory/copy-clone-data-factory.md).
-
-Para exportar los recursos creados mediante el modelo de implementación clásica, debe [migrarlos al modelo de implementación de Resource Manager](../../virtual-machines/migration-classic-resource-manager-overview.md).
-
-Para más información, consulte [Exportación de uno y varios recursos a la plantilla en Azure Portal](../templates/export-template-portal.md).
+Para ayudar con la creación de plantillas de ARM, puede exportar una plantilla desde los recursos existentes. Para más información, consulte [Uso de Azure PowerShell para exportar una plantilla](../templates/export-template-powershell.md). 
 
 ## <a name="manage-access-to-resource-groups"></a>Administración del acceso a los grupos de recursos
 
@@ -219,5 +114,3 @@ El [control de acceso basado en rol (RBAC) de Azure](../../role-based-access-con
 
 - Para obtener información sobre Azure Resource Manager, consulte [Información general de Azure Resource Manager](overview.md).
 - Para obtener información sobre la sintaxis de las plantillas de Resource Manager, consulte [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](../templates/syntax.md).
-- Para obtener información sobre cómo desarrollar plantillas, consulte los [tutoriales paso a paso](../index.yml).
-- Para ver los esquemas de plantilla de Azure Resource Manager, vea la [referencia de plantilla](/azure/templates/).

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2020
-ms.openlocfilehash: 45489d25256d049467dd946922d30606c53f9bed
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: a754656db58b1cc3c1414eb36601c873d8ecc785
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109750958"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128671111"
 ---
 # <a name="install-log-analytics-agent-on-linux-computers"></a>Instalación del agente de Log Analytics en equipos Linux
 En este artículo, se proporcionan detalles sobre la instalación del agente de Log Analytics en equipos Linux con los métodos siguientes:
@@ -75,10 +75,11 @@ El agente de OMS presenta capacidades limitadas de personalización y protecció
 
 Actualmente se admiten los siguientes: 
 - FIPs
+- SELINUX (imágenes de Marketplace para CENTOS y RHEL con su configuración predeterminada)
 
 No se admite lo siguiente:
 - CIS
-- SELINUX
+- SELINUX (sistema de protección personalizado como MLS)
 
 Está prevista la compatibilidad con capacidades de protección en CIS y SELINUX para el [agente de supervisión de Azure](./azure-monitor-agent-overview.md). Otros métodos de protección y personalización no se admiten ni están previstos para el agente de OMS.  
 

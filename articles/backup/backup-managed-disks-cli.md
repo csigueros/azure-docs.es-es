@@ -2,13 +2,13 @@
 title: Copia de seguridad de Azure Managed Disks mediante la CLI de Azure
 description: Obtenga información sobre cómo hacer una copia de seguridad de Azure Managed Disks mediante la CLI de Azure.
 ms.topic: conceptual
-ms.date: 06/18/2021
-ms.openlocfilehash: 42bbc54a545cdddf049163b3040d9701f4304a52
-ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
+ms.date: 09/17/2021
+ms.openlocfilehash: ce1e4b3f88e844165581c95f74955de04686855b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2021
-ms.locfileid: "112381212"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128659708"
 ---
 # <a name="back-up-azure-managed-disks-using-azure-cli"></a>Copia de seguridad de Azure Managed Disks mediante la CLI de Azure
 
@@ -283,7 +283,7 @@ az dataprotection backup-vault update -g testBkpVaultRG --vault-name TestBkpVaul
 
 ### <a name="assign-permissions"></a>Asignación de permisos
 
-Debe asignar algunos permisos mediante RBAC al almacén (representado por el valor de MSI del almacén) y al disco o el grupo de recursos del disco pertinentes. Para ello, se pueden usar Azure Portal o la CLI. Todos los permisos relacionados se detallan en los puntos 1, 2 y 3 de [Configuración de la copia de seguridad](backup-managed-disks.md#configure-backup).
+Debe asignar algunos permisos mediante RBAC al almacén (representado por el valor de MSI del almacén) y al disco o el grupo de recursos del disco pertinentes. Para ello, se pueden usar Azure Portal o la CLI. Para asignar permisos relacionados, consulte los [requisitos previos para configurar la copia de seguridad de discos administrados](backup-managed-disks-ps.md#assign-permissions).
 
 ### <a name="prepare-the-request"></a>Preparación de la solicitud
 

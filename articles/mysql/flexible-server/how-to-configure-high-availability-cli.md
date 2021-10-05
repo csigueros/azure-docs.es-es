@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 04/1/2021
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 0327e725534f7b56171814e99098cee365785d8c
-ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
+ms.openlocfilehash: b6a430c70d59ff980063139e71daf76d1ede220a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114205019"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128610149"
 ---
 # <a name="manage-zone-redundant-high-availability-in-azure-database-for-mysql-flexible-server-with-azure-cli"></a>Administración de la alta disponibilidad con redundancia de zona en un servidor flexible de Azure Database for MySQL con la CLI de Azure
 
@@ -30,7 +30,9 @@ La característica de alta disponibilidad proporciona una réplica principal y u
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
+- Una cuenta de Azure con una suscripción activa. 
+
+    [!INCLUDE [flexible-server-free-trial-note](../includes/flexible-server-free-trial-note.md)]
 - Instale la CLI de Azure más reciente o actualice la que ya tiene a la versión más reciente. Consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
 - Inicie sesión en la cuenta de Azure mediante el comando [az login](/cli/azure/reference-index#az_login). Tenga en cuenta la propiedad **id**, que hace referencia al **identificador de suscripción** para su cuenta de Azure.
 
@@ -46,20 +48,23 @@ La característica de alta disponibilidad proporciona una réplica principal y u
 
 ## <a name="enable-high-availability-during-server-creation"></a>Habilitación de la alta disponibilidad durante la creación del servidor
 
-Solo puede crear un servidor mediante planes de tarifa de uso general u optimizados para memoria con alta disponibilidad. Puede habilitar la alta disponibilidad para un servidor solo en el momento de la creación.
+Solo puede crear un servidor mediante planes de tarifa de uso general u optimizados para memoria con alta disponibilidad. Puede habilitar la alta disponibilidad con redundancia de zona para un servidor solo en el momento de la creación.
 
 **Uso:**
 
    ```azurecli
-    az mysql flexible-server create [--high-availability {Disabled, Enabled}]
+    az mysql flexible-server create [--high-availability {Disabled, SameZone, ZoneRedundant}]
+                                    [--sku-name]
+                                    [--tier]
                                     [--resource-group]
+                                    [--location]
                                     [--name]
    ```
 
 **Ejemplo**:
 
    ```azurecli
-    az mysql flexible-server create --name myservername --sku-name Standard-D2ds_v4 --resource-group myresourcegroup --high-availability Enabled
+    az mysql flexible-server create --name myservername --sku-name Standard_D2ds_v4 --tier Genaralpurpose --resource-group myresourcegroup --high-availability ZoneRedundant --location eastus
    ```
 
 ## <a name="disable-high-availability"></a>Deshabilitación de la alta disponibilidad
@@ -67,10 +72,12 @@ Solo puede crear un servidor mediante planes de tarifa de uso general u optimiza
 Puede deshabilitar la alta disponibilidad mediante el comando [az mysql flexible-server update](/cli/azure/mysql/flexible-server#az_mysql_flexible_server_update). Tenga en cuenta que la deshabilitación de la alta disponibilidad solo se admite si el servidor se creó con alta disponibilidad. 
 
 ```azurecli
-az mysql flexible-server update [--high-availability {Disabled, Enabled}]
+az mysql flexible-server update [--high-availability {Disabled, SameZone, ZoneRedundant}]
                                 [--resource-group]
                                 [--name]
 ```
+>[!Note]
+>Si desea pasar de ZoneRedundant a SameZone, primero tendría que deshabilitar la alta disponibilidad y, a continuación, habilitar la misma zona.
 
 **Ejemplo**:
 

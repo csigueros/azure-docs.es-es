@@ -7,12 +7,12 @@ ms.topic: article
 author: trkeya
 ms.author: trkeya
 ms.date: 03/16/2020
-ms.openlocfilehash: 3fe1862f951b83c6514bda061650b912e9230e46
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
+ms.openlocfilehash: ae8bbad9d99837bd1cd0d21b66a37c895b816f2a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122071573"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128642671"
 ---
 # <a name="set-up-an-azure-marketplace-subscription-for-hosted-test-drives"></a>Configuración de una suscripción a Azure Marketplace para las versiones de prueba hospedadas
 
@@ -57,10 +57,13 @@ Explica cómo configurar una suscripción a Azure Marketplace para versiones de 
     13. Para generar un secreto para la aplicación de Azure AD:
         1. En **Administrar aplicación**, seleccione **Certificados y secretos**.
         2. En Secretos de cliente, seleccione **Nuevo secreto de cliente**.
-        3. Escriba una descripción, como *Versión de prueba*, y seleccione una duración adecuada. La versión de prueba se interrumpirá una vez que expire esta clave, momento en el que tendrá que generar y proporcionar una nueva clave a AppSource.
+
+             :::image type="content" source="./media/test-drive/new-client-secret.png" alt-text="Adición de un nuevo secreto de cliente.":::
+
+        3. Escriba una descripción, como *Versión de prueba*, y seleccione una duración adecuada. Dado que la versión de prueba se interrumpirá una vez que expire esta clave, en cuyo momento deberá generar y proporcionar a AppSource una nueva, se recomienda usar la duración máxima de 24 meses.
         4. Seleccione **Agregar** para generar el secreto de la aplicación de Azure. Copie este valor, ya que se ocultará en cuanto abandone esta hoja. Necesitará este valor más adelante al configurar la versión de prueba.
 
-            :::image type="content" source="./media/test-drive/add-client-secret.png" alt-text="Adición de un secreto de cliente.":::
+            :::image type="content" source="./media/test-drive/add-client-secret-customer.png" alt-text="Adición de un secreto de cliente.":::
 
 5. Agregue el rol Entidad de servicio a la aplicación para permitir que la aplicación de Azure AD quite usuarios de su inquilino de Azure.
     1. Abra un símbolo del sistema de PowerShell de nivel administrativo.
@@ -99,22 +102,20 @@ Explica cómo configurar una suscripción a Azure Marketplace para versiones de 
             > - Abra SharePoint y comparta la tabla de datos con el grupo de seguridad.
 
 7. Agregue la aplicación de Azure creada anteriormente como usuario de la aplicación a la instancia de la versión de prueba de CRM. Este paso solo es aplicable a las ofertas de Dynamics 365 Customer Engagement.
-    1. Agregue un nuevo usuario a **Azure Active Directory**. Solo se requieren los valores de **Nombre** y **Nombre de usuario** (pertenecientes al mismo inquilino) para crear este usuario, deje los demás campos con los valores predeterminados. Copie el valor de nombre de usuario.
-    2. Inicie sesión en **Instancia de CRM** y seleccione **Configuración** > **Seguridad** > **Usuarios**.
-    3. Cambie la vista a **Usuarios de la aplicación**.
+    1. Inicie sesión en **Instancia de CRM** y seleccione **Configuración** > **Seguridad** > **Usuarios**.
+    2. Cambie la vista a **Usuarios de la aplicación**.
 
         :::image type="content" source="./media/test-drive/application-users.png" alt-text="Definición de la información de la cuenta de un usuario.":::
 
-    4. Agregue un nuevo usuario (asegúrese de que el formulario sea para USUARIO DE LA APLICACIÓN).
-    5. Escriba el mismo nombre de usuario en los campos **Correo electrónico principal** y **Nombre de usuario**. Agregue el **Id. de Aplicación de Azure** en **Id. de la aplicación**.
-    6. Escriba cualquier **Nombre completo**.
-    7. Seleccione **Guardar**.
-    8. Seleccione **Administrar roles**.
-    9. Asigne un rol de seguridad personalizado u OOB que contenga privilegios de lectura, escritura y asignación de roles, como *Administrador del sistema*.
+    3. Agregue un nuevo usuario (asegúrese de que el formulario sea para USUARIO DE LA APLICACIÓN).
+    4. Agregue el **identificador de Aplicación de Azure** creado anteriormente en **Id. de la aplicación**.
+    5. Seleccione **Guardar**.
+    6. Seleccione **Administrar roles**.
+    7. Asigne un rol de seguridad personalizado u OOB que contenga privilegios de lectura, escritura y asignación de roles, como *Administrador del sistema*.
 
         :::image type="content" source="./media/test-drive/security-roles-selection.png" alt-text="Selección de los privilegios del rol.":::
 
-    10. Además, habilite el privilegio **Actuar en nombre de otro usuario**.
+    10. Habilite el privilegio **Actuar en nombre de otro usuario**.
     11. Asigne al usuario de la aplicación el rol de seguridad personalizado que ha creado para la versión de prueba.
 
 ## <a name="set-up-for-dynamics-365-for-operations"></a>Configuración de Dynamics 365 for Operations
@@ -156,7 +157,7 @@ Explica cómo configurar una suscripción a Azure Marketplace para versiones de 
         3. Escriba una descripción, como *Versión de prueba*, y seleccione una duración adecuada. La versión de prueba se interrumpirá una vez que expire esta clave, momento en el que tendrá que generar y proporcionar una nueva clave a AppSource.
         4. Seleccione **Agregar** para generar el secreto de la aplicación de Azure. Copie este valor, ya que se ocultará en cuanto abandone esta hoja. Necesitará este valor más adelante al configurar la versión de prueba.
 
-            :::image type="content" source="./media/test-drive/add-client-secret.png" alt-text="Adición de un secreto de cliente.":::
+            :::image type="content" source="./media/test-drive/add-client-secret-operations.png" alt-text="Muestra la adición de un secreto de cliente.":::
 
 4. Agregue el rol Entidad de servicio a la aplicación para permitir que la aplicación de Azure AD quite usuarios de su inquilino de Azure.
     1. Abra un símbolo del sistema de PowerShell de nivel administrativo.

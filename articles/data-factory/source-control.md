@@ -7,13 +7,13 @@ author: nabhishek
 ms.author: abnarain
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 06/04/2021
-ms.openlocfilehash: 0eb7356542eb7016cd27cc76e048857e8d7f9955
-ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
+ms.date: 09/22/2021
+ms.openlocfilehash: 06bdd49df0f8a4d79ffece298fee2ea2691b0796
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122598097"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129219218"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Control de código fuente en Azure Data Factory
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
@@ -27,7 +27,7 @@ De forma predeterminada, la creación en la experiencia de la interfaz de usuari
 Para proporcionar una mejor experiencia de creación, Azure Data Factory le permite configurar un repositorio de Git con Azure Repos o GitHub. Git es un sistema de control de versiones que facilita la colaboración y el seguimiento de cambios. En este artículo se describe cómo configurar y trabajar en un repositorio de Git junto con los procedimientos recomendados de resaltado y una guía de solución de problemas.
 
 > [!NOTE]
-> En la nube de Azure Government, solo está disponible *GitHub Enterprise Server*.
+> Hemos agregado compatibilidad pública con GitHub en Azure Gov, Azure China. Consulte el [blog del anuncio](https://techcommunity.microsoft.com/t5/azure-data-factory/cicd-improvements-with-github-support-in-azure-government-and/ba-p/2686918).
 
 Para obtener más información sobre cómo se integra Azure Data Factory con Git, vea el siguiente vídeo del tutorial de 15 minutos:
 
@@ -42,7 +42,7 @@ La siguiente es una lista de algunas de las ventajas que ofrece la integración 
     -   Capacidad para revertir los cambios que presentaron errores.
 -   **Operaciones de guardado parcial:** al crear en el servicio Data Factory, no se pueden guardar los cambios como borrador y todas las publicaciones deben superar la validación de Data Factory. Tanto si las canalizaciones no están terminadas como si simplemente no desea perder los cambios en caso de que se bloquee el equipo, la integración de Git permite cambios incrementales de los recursos de Data Factory, con independencia del estado en el que se encuentren. La configuración de un repositorio de Git le permite guardar los cambios, de forma que solo realiza una publicación cuando ha probado los cambios y está satisfecho con ellos.
 -   **Colaboración y control:** si varios miembros del equipo colaboran en la misma factoría, puede que le convenga permitir que sus compañeros de equipo colaboren entre sí mediante un proceso de revisión de código. También puede configurar la factoría de modo que no todos los colaboradores tengan los mismos permisos. Es posible que algunos miembros del equipo solo puedan hacer cambios a través de Git, pero que solo algunas personas del equipo puedan publicar los cambios en la factoría.
--   **Mejor proceso de CI/CD:**  si va a realizar implementaciones en varios entornos con un [proceso de entrega continua](continuous-integration-deployment.md), la integración de Git facilita ciertas acciones. Algunas de estas acciones incluyen:
+-   **Mejor proceso de CI/CD:**  si va a realizar implementaciones en varios entornos con un [proceso de entrega continua](continuous-integration-delivery.md), la integración de Git facilita ciertas acciones. Algunas de estas acciones incluyen:
     -   Configurar la canalización de versión para que se desencadene automáticamente en cuanto se realicen cambios en la factoría de desarrollo.
     -   Personalizar las propiedades de la factoría que están disponibles como parámetros en la plantilla de Resource Manager. Puede ser útil mantener solo el conjunto requerido de propiedades como parámetros, y tener todo lo demás codificado.
 -   **Mejor rendimiento:** por término medio, una factoría con la integración de Git realiza cargas 10 veces más rápido que una creación en el servicio Data Factory. Esta mejora del rendimiento se debe a que los recursos se descargan mediante Git.
@@ -58,19 +58,19 @@ Hay cuatro maneras diferentes de conectar un repositorio de Git a la factoría d
 
 En la página principal de Azure Data Factory, seleccione **Set up code repository** (Configurar el repositorio de código) en la parte superior.
 
-![Configuración de un repositorio de código desde la página principal](media/doc-common-process/set-up-code-repository.png)
+:::image type="content" source="media/doc-common-process/set-up-code-repository.png" alt-text="Configuración de un repositorio de código desde la página principal":::
 
 ### <a name="configuration-method-2-authoring-canvas"></a>Método de configuración 2: Lienzo de creación
 
 En el lienzo de creación de la experiencia de usuario de Azure Data Factory, seleccione el menú desplegable **Data Factory** y, luego, **Set up code repository** (Configurar el repositorio de código).
 
-![Configuración de los parámetros del repositorio de código desde la creación](media/author-visually/configure-repo-2.png)
+:::image type="content" source="media/author-visually/configure-repo-2.png" alt-text="Configuración de los parámetros del repositorio de código desde la creación":::
 
 ### <a name="configuration-method-3-management-hub"></a>Método de configuración 3: Centro de administración
 
 Vaya al centro de administración en la experiencia de usuario de ADF. Seleccione **Configuración de Git** en la sección **Control de código fuente**. Si no tiene ningún repositorio conectado, haga clic en **Configurar**.
 
-![Configuración del repositorio de código en el centro de administración](media/author-visually/configure-repo-3.png)
+:::image type="content" source="media/author-visually/configure-repo-3.png" alt-text="Configuración del repositorio de código en el centro de administración":::
 
 ### <a name="configuration-method-4-during-factory-creation"></a>Método de configuración 4: Durante la creación de la factoría
 
@@ -79,7 +79,7 @@ Al crear una nueva factoría de datos en Azure Portal, puede configurar la infor
 > [!NOTE]
 > Al configurar Git en Azure portal, parámetros como el nombre del proyecto y el nombre del repositorio deben escribirse manualmente (no forman parte de una lista desplegable).
 
-![Configuración de los parámetros del repositorio de código desde Azure Portal](media/author-visually/configure-repo-4.png)
+:::image type="content" source="media/author-visually/configure-repo-4.png" alt-text="Configuración de los parámetros del repositorio de código desde Azure Portal":::
 
 ## <a name="author-with-azure-repos-git-integration"></a>Creación con la integración de Git de Azure Repos
 
@@ -90,7 +90,7 @@ La creación visual con la integración de Git de Azure Repos admite el control 
 
 ### <a name="azure-repos-settings"></a>Configuración de Azure Repos
 
-![Configuración del repositorio de código](media/author-visually/repo-settings.png)
+:::image type="content" source="media/author-visually/repo-settings.png" alt-text="Configuración del repositorio de código":::
 
 El panel de configuración muestra la siguiente configuración del repositorio de código de Azure Repos:
 
@@ -140,7 +140,7 @@ Para configurar un repositorio de GitHub, deberá tener permisos de administrado
 
 ### <a name="github-settings"></a>Configuración de GitHub
 
-![Configuración del repositorio de GitHub](media/author-visually/github-integration-image2.png)
+:::image type="content" source="media/author-visually/github-integration-image2.png" alt-text="Configuración del repositorio de GitHub":::
 
 En el panel configuración se muestra la siguiente configuración del repositorio de GitHub:
 
@@ -176,15 +176,15 @@ Si ya se ha conectado a GitHub y solo se le ha concedido permiso para obtener ac
 
 1. Vaya a GitHub y abra **Configuración**.
 
-    ![Apertura de la configuración de GitHub](media/author-visually/github-settings.png)
+    :::image type="content" source="media/author-visually/github-settings.png" alt-text="Apertura de la configuración de GitHub":::
 
 1. Seleccione **Aplicaciones**. En la pestaña **Aplicaciones de OAuth autorizadas**, verá *AzureDataFactory*.
 
-    ![Selección de aplicaciones de OAuth](media/author-visually/github-organization-select-application.png)
+    :::image type="content" source="media/author-visually/github-organization-select-application.png" alt-text="Selección de aplicaciones de OAuth":::
 
 1. Seleccione la aplicación y conceda a la aplicación acceso a la organización.
 
-    ![Conceder acceso](media/author-visually/github-organization-grant.png)
+    :::image type="content" source="media/author-visually/github-organization-grant.png" alt-text="Conceder acceso":::
 
 Una vez que siga estos pasos, su factoría podrá conectarse a repositorios públicos y privados dentro de la organización. 
 
@@ -205,13 +205,17 @@ Los sistemas de control de versiones, conocidos también como _de control de có
 
 ### <a name="creating-feature-branches"></a>Creación de ramas de características
 
-Tan pronto como cada repositorio Git de Azure Repos se asocia a una factoría de datos, tiene una rama de colaboración. (`main` es la rama de colaboración predeterminada). Los usuarios también pueden crear ramas de características; para ello, pueden hacer clic en **+ New Branch** (+ Nueva rama) en la lista desplegable de ramas. Cuando aparezca el panel de nueva rama, escriba el nombre de la rama de características.
+Tan pronto como cada repositorio Git de Azure Repos se asocia a una factoría de datos, tiene una rama de colaboración. (`main` es la rama de colaboración predeterminada). Los usuarios también pueden crear ramas de características; para ello, pueden hacer clic en **+ New Branch** (+ Nueva rama) en la lista desplegable de ramas. 
 
-![Creación de una rama](media/author-visually/new-branch.png)
+:::image type="content" source="media/author-visually/new-branch.png" alt-text="Creación de una rama":::
+
+Una vez que aparezca el panel de la nueva rama, escriba el nombre de la rama de características y seleccione una rama en la que se basará el trabajo.
+
+:::image type="content" source="media/author-visually/create-branch-from-private-branch.png" alt-text="Captura de pantalla que muestra cómo crear una rama basada en la rama privada.":::
 
 Cuando esté listo para combinar los cambios de su rama de características con la rama de colaboración, haga clic en la lista desplegable de ramas y seleccione **Create pull request** (Crear solicitud de incorporación de cambios). Esto le llevará al Git de Azure Repos, donde podrá generar la solicitud de incorporación de cambios, revisar el código y combinar los cambios en su rama de colaboración. (`main` es el valor predeterminado). Solo tiene permitido publicar en el servicio Data Factory de la rama de colaboración. 
 
-![Creación de una nueva solicitud de incorporación de cambios](media/author-visually/create-pull-request.png)
+:::image type="content" source="media/author-visually/create-pull-request.png" alt-text="Creación de una nueva solicitud de incorporación de cambios":::
 
 ### <a name="configure-publishing-settings"></a>Configurar los valores de publicación
 
@@ -232,11 +236,11 @@ Azure Data Factory solo puede tener una rama de publicación cada vez. Al especi
 
 Después de haber combinado los cambios en la rama de colaboración (`main` es el valor predeterminado), seleccione **Publish** (Publicar) para publicar manualmente los cambios de código realizados en la rama principal en el servicio Data Factory.
 
-![Publicación de cambios en el servicio Data Factory](media/author-visually/publish-changes.png)
+:::image type="content" source="media/author-visually/publish-changes.png" alt-text="Publicación de cambios en el servicio Data Factory":::
 
 Se abrirá un panel lateral en el que se confirma que la rama de publicación y los cambios pendientes son correctos. Cuando haya comprobado los cambios, haga clic en **OK** (Aceptar) para confirmar la publicación.
 
-![Confirmar la rama de publicación correcta](media/author-visually/configure-publish-branch.png)
+:::image type="content" source="media/author-visually/configure-publish-branch.png" alt-text="Confirmar la rama de publicación correcta":::
 
 > [!IMPORTANT]
 > La rama principal no es representativa de lo que se implementa en el servicio Data Factory. La rama principal se *debe* publicar manualmente en el servicio Data Factory.
@@ -279,7 +283,7 @@ Publica o sobrescribe el código de la rama de colaboración en el modo real. Co
 
 <u>*Flujo de código:*</u> ***Rama de colaboración -> Modo real***
 
-![forzar la publicación de código desde la rama de colaboración](media/author-visually/force-publish-changes-from-collaboration-branch.png)
+:::image type="content" source="media/author-visually/force-publish-changes-from-collaboration-branch.png" alt-text="forzar la publicación de código desde la rama de colaboración":::
 
 #### <a name="option-2-disconnect-and-reconnect-git-repository"></a>Opción 2: desconexión y reconexión del repositorio de Git
 
@@ -297,11 +301,11 @@ Elija cualquiera de los métodos según sea necesario.
 
 Para cambiar a un repositorio de Git diferente, vaya a la página de configuración de Git en el centro de administración en **Control de código fuente**. Seleccione **Desconectar**. 
 
-![Icono de Git](media/author-visually/remove-repository.png)
+:::image type="content" source="media/author-visually/remove-repository.png" alt-text="Icono de Git":::
 
 Escriba el nombre de la factoría de datos y haga clic en **Confirm** (Confirmar) para quitar el repositorio de Git asociado a la factoría de datos.
 
-![Elimine la asociación con el repositorio de Git actual.](media/author-visually/remove-repository-2.png)
+:::image type="content" source="media/author-visually/remove-repository-2.png" alt-text="Elimine la asociación con el repositorio de Git actual.":::
 
 Después de quitar la asociación con el repositorio actual, puede configurar las opciones de Git para usar un repositorio diferente y, luego, importar los recursos existentes de Data Factory en el nuevo repositorio.
 
@@ -311,4 +315,4 @@ Después de quitar la asociación con el repositorio actual, puede configurar la
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para más información sobre la supervisión y la administración de canalizaciones, consulte el artículo [Supervisión y administración de canalizaciones mediante programación](monitor-programmatically.md).
-* Para implementar la integración e implementación continuas, consulte [Integración y entrega continuas (CI/CD) en Azure Data Factory](continuous-integration-deployment.md).
+* Para implementar la integración e implementación continuas, consulte [Integración y entrega continuas (CI/CD) en Azure Data Factory](continuous-integration-delivery.md).

@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: a095d2f6e05957e4a3daac76f3ac745e5a20de4a
-ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
+ms.openlocfilehash: 8a6fe163ade61df65f6ff0d9ba4f2862866094b7
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122228983"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128631692"
 ---
 # <a name="understanding-just-in-time-jit-vm-access"></a>Descripción del acceso a la máquina virtual Just-in-Time (JIT)
 
@@ -47,7 +47,7 @@ En caso de que ya existan otras reglas relativas a los puertos seleccionados, la
 Cuando un usuario solicita acceso a una máquina virtual, Security Center comprueba que este tenga permisos de [control de acceso basado en rol (RBAC de Azure)](../role-based-access-control/role-assignments-portal.md) para ella. Si la solicitud se aprueba, Security Center configura los grupos de seguridad de red y Azure Firewall para permitir el tráfico entrante a los puertos seleccionados desde las direcciones (o rangos) IP relevantes durante el periodo especificado. Una vez transcurrido ese tiempo, Security Center restaura los NSG a su estado anterior. Las conexiones que ya están establecidas no se interrumpen.
 
 > [!NOTE]
-> JIT no admite las máquinas virtuales que protegen los firewalls de Azure controlados mediante [Azure Firewall Manager](../firewall-manager/overview.md).
+> JIT no admite las máquinas virtuales que protegen los firewalls de Azure controlados mediante [Azure Firewall Manager](../firewall-manager/overview.md).  Azure Firewall debe configurarse con Reglas (clásico) y no puede usar directivas de firewall.
 
 
 

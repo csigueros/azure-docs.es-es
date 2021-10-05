@@ -1,22 +1,22 @@
 ---
-title: Copia de datos de Teradata Vantage mediante Azure Data Factory
+title: Copia de datos de Teradata Vantage
+description: El conector de Teradata de Azure Data Factory y Synapse Analytics permite copiar datos de una versión de Teradata Vantage a almacenes de datos receptores compatibles.
 titleSuffix: Azure Data Factory & Azure Synapse
-description: El conector Teradata del servicio Data Factory le permite copiar datos desde Teradata Vantage a almacenes de datos compatibles con Data Factory como receptores.
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/30/2021
+ms.date: 09/09/2021
 ms.author: jianleishen
-ms.openlocfilehash: 26ac697767be4023b166b8d751bdbac331dde6a6
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: ab5fc46d558a68503c018fb35e53801f9e6ee282
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123304238"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124771695"
 ---
-# <a name="copy-data-from-teradata-vantage-by-using-azure-data-factory"></a>Copia de datos de Teradata Vantage mediante Azure Data Factory
+# <a name="copy-data-from-teradata-vantage-using-azure-data-factory-and-synapse-analytics"></a>Copia de datos de Teradata Vantage mediante Azure Data Factory y Synapse Analytics
 
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
 >
@@ -25,7 +25,7 @@ ms.locfileid: "123304238"
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-En este artículo se explica el uso de la actividad de copia de Azure Data Factory para copiar datos desde Teradata Vantage. Se basa en la [introducción a la actividad de copia](copy-activity-overview.md).
+En este artículo se resume el uso de la actividad de copia en canalizaciones de Azure Data Factory y Synapse Analytics para copiar datos de Teradata Vantage. Se basa en la [introducción a la actividad de copia](copy-activity-overview.md).
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
@@ -60,7 +60,7 @@ Siga estos pasos para crear un servicio vinculado en Teradata en la interfaz de 
 
     # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
 
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Creación de un servicio vinculado con la interfaz de usuario de Azure Data Factory.":::
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Creación de un servicio vinculado con la interfaz de usuario de Azure Data Factory":::
 
     # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
 
@@ -292,19 +292,19 @@ Para copiar datos desde Teradata, en la sección **source** de la actividad de c
 
 ## <a name="parallel-copy-from-teradata"></a>Copia en paralelo desde Teradata
 
-El conector de Teradata de Data Factory proporciona la creación de particiones de datos integrados para copiar datos de Teradata en paralelo. Puede encontrar las opciones de creación de particiones de datos en la pestaña **Origen** de la actividad de copia.
+El conector de Teradata proporciona la creación de particiones de datos integrados para copiar datos de Teradata en paralelo. Puede encontrar las opciones de creación de particiones de datos en la pestaña **Origen** de la actividad de copia.
 
-![Captura de pantalla de las opciones de partición](./media/connector-teradata/connector-teradata-partition-options.png)
+:::image type="content" source="./media/connector-teradata/connector-teradata-partition-options.png" alt-text="Captura de pantalla de las opciones de partición":::
 
-Al habilitar la copia con particiones, Data Factory ejecuta consultas en paralelo en el origen de Teradata para cargar los datos mediante particiones. El grado en paralelo se controla mediante el valor [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) de la actividad de copia. Por ejemplo, si establece `parallelCopies` como cuatro, Data Factory genera y ejecuta al mismo tiempo cuatro consultas de acuerdo con la configuración y la opción de partición que ha especificado, y cada consulta recupera una porción de datos de Teradata.
+Al habilitar la copia con particiones, el servicio ejecuta consultas en paralelo en el origen de Teradata para cargar los datos mediante particiones. El grado en paralelo se controla mediante el valor [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) de la actividad de copia. Por ejemplo, si establece `parallelCopies` en cuatro, el servicio genera y ejecuta al mismo tiempo cuatro consultas de acuerdo con la configuración y la opción de partición que ha especificado, y cada consulta recupera una porción de datos de la Teradata.
 
-Es recomendable que habilite la copia en paralelo con la creación de particiones de datos, especialmente si carga grandes cantidades de datos de Teradata. Estas son algunas configuraciones sugeridas para diferentes escenarios. Cuando se copian datos en un almacén de datos basado en archivos, se recomienda escribir en una carpeta como varios archivos (solo especifique el nombre de la carpeta), en cuyo caso el rendimiento es mejor que escribir en un único archivo.
+Es recomendable que habilite la copia en paralelo con la creación de particiones de datos, especialmente si carga grandes cantidades de datos de Teradata. Estas son algunas configuraciones sugeridas para diferentes escenarios. Cuando se copian datos en un almacén de datos basado en archivos, se recomienda escribirlos en una carpeta como varios archivos (solo especifique el nombre de la carpeta), en cuyo caso el rendimiento es mejor que escribirlos en un único archivo.
 
 | Escenario                                                     | Configuración sugerida                                           |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Carga completa de una tabla grande.                                   | **Opción de partición**: hash. <br><br/>Durante la ejecución, Data Factory detecta automáticamente la columna de índice principal, le aplica un hash y copia los datos mediante particiones. |
-| Cargue grandes cantidades de datos mediante una consulta personalizada.                 | **Opción de partición**: hash.<br>**Consulta**: `SELECT * FROM <TABLENAME> WHERE ?AdfHashPartitionCondition AND <your_additional_where_clause>`.<br>**Columna de partición**: especifique la columna usada para aplicar la partición hash. Si no se especifica, Data Factory detectará automáticamente la columna PK de la tabla que ha especificado en el conjunto de datos de Teradata.<br><br>Durante la ejecución, Data Factory reemplaza `?AdfHashPartitionCondition` por la lógica de partición hash y la envía a Teradata. |
-| Carga de grandes cantidades de datos mediante una consulta personalizada, con una columna de enteros con valor distribuido uniformemente para la creación de particiones por rangos. | **Opciones de partición**: partición por rangos dinámica.<br>**Consulta**: `SELECT * FROM <TABLENAME> WHERE ?AdfRangePartitionColumnName <= ?AdfRangePartitionUpbound AND ?AdfRangePartitionColumnName >= ?AdfRangePartitionLowbound AND <your_additional_where_clause>`.<br>**Columna de partición**: especifique la columna usada para crear la partición de datos. Puede crear particiones en la columna con un tipo de datos entero.<br>**Límite de partición superior** y **límite de partición inferior**: especifique si quiere filtrar en la columna de partición para recuperar solo los datos entre el intervalo inferior y el superior.<br><br>Durante la ejecución, Data Factory reemplaza `?AdfRangePartitionColumnName`, `?AdfRangePartitionUpbound` y `?AdfRangePartitionLowbound` por el nombre real de la columna y los intervalos de valor de cada partición y se los envía a Teradata. <br>Por ejemplo, si establece la columna de partición "ID" con un límite inferior de 1 y un límite superior de 80, con la copia en paralelo establecida en 4, Data Factory recupera los datos mediante 4 particiones. Los identificadores están comprendidos entre [1, 20], [21, 40], [41, 60] y [61, 80] respectivamente. |
+| Carga completa de una tabla grande.                                   | **Opción de partición**: hash. <br><br/>Durante la ejecución, el servicio detecta automáticamente la columna de índice principal, le aplica un hash y copia los datos mediante particiones. |
+| Cargue grandes cantidades de datos mediante una consulta personalizada.                 | **Opción de partición**: hash.<br>**Consulta**: `SELECT * FROM <TABLENAME> WHERE ?AdfHashPartitionCondition AND <your_additional_where_clause>`.<br>**Columna de partición**: especifique la columna usada para aplicar la partición hash. Si no se especifica, el servicio detectará automáticamente la columna PK de la tabla que ha especificado en el conjunto de datos de Teradata.<br><br>Durante la ejecución, el servicio reemplaza `?AdfHashPartitionCondition` por la lógica de partición hash y la envía a Teradata. |
+| Carga de grandes cantidades de datos mediante una consulta personalizada, con una columna de enteros con valor distribuido uniformemente para la creación de particiones por rangos. | **Opciones de partición**: partición por rangos dinámica.<br>**Consulta**: `SELECT * FROM <TABLENAME> WHERE ?AdfRangePartitionColumnName <= ?AdfRangePartitionUpbound AND ?AdfRangePartitionColumnName >= ?AdfRangePartitionLowbound AND <your_additional_where_clause>`.<br>**Columna de partición**: especifique la columna usada para crear la partición de datos. Puede crear particiones en la columna con un tipo de datos entero.<br>**Límite de partición superior** y **límite de partición inferior**: especifique si quiere filtrar en la columna de partición para recuperar solo los datos entre el intervalo inferior y el superior.<br><br>Durante la ejecución, el servicio reemplaza `?AdfRangePartitionColumnName`, `?AdfRangePartitionUpbound` y `?AdfRangePartitionLowbound` por el nombre real de la columna y los rangos de valores de cada partición y se los envía a Teradata. <br>Por ejemplo, si establece la columna de partición "ID" con un límite inferior de 1 y un límite superior de 80, con la copia en paralelo establecida en 4, el servicio recupera los datos de 4 particiones. Los identificadores están comprendidos entre [1, 20], [21, 40], [41, 60] y [61, 80] respectivamente. |
 
 **Ejemplo: consulta con partición hash**
 
@@ -336,9 +336,9 @@ Es recomendable que habilite la copia en paralelo con la creación de particione
 
 ## <a name="data-type-mapping-for-teradata"></a>Asignación de tipos de datos para Teradata
 
-Al copiar datos desde Teradata, se aplican las siguientes asignaciones. Para más información acerca de la forma en que la actividad de copia asigna el tipo de datos y el esquema de origen al receptor, consulte el artículo sobre [asignaciones de tipos de datos y esquema](copy-activity-schema-and-type-mapping.md).
+Al copiar datos de Teradata, se aplican las siguientes asignaciones de los tipos de datos de Teradata a los tipos de datos internos utilizados por el servicio. Para más información acerca de la forma en que la actividad de copia asigna el tipo de datos y el esquema de origen al receptor, consulte el artículo sobre [asignaciones de tipos de datos y esquema](copy-activity-schema-and-type-mapping.md).
 
-| Tipo de datos de Teradata | Tipo de datos provisionales de Data Factory |
+| Tipo de datos de Teradata | Tipo de datos de servicio provisional |
 |:--- |:--- |
 | BigInt |Int64 |
 | Blob |Byte[] |
@@ -387,4 +387,4 @@ Para obtener información detallada sobre las propiedades, consulte [Actividad d
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para ver la lista de almacenes de datos que la actividad de copia de Data Factory admite como orígenes y receptores consulte [Almacenes de datos y formatos que se admiten](copy-activity-overview.md#supported-data-stores-and-formats).
+Para obtener una lista de almacenes de datos que la actividad de copia admite como orígenes y receptores, vea [Almacenes de datos que se admiten](copy-activity-overview.md#supported-data-stores-and-formats).

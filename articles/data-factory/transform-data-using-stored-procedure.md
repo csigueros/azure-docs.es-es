@@ -1,32 +1,32 @@
 ---
 title: Transformación de datos mediante la actividad de procedimiento almacenado
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Explica cómo usar la actividad de procedimiento almacenado de SQL Server para invocar un procedimiento almacenado en una base de datos o una base de datos de almacenamiento de datos de Azure SQL desde una canalización de Data Factory.
+description: Se explica cómo usar la actividad de procedimiento almacenado de SQL Server para invocar un procedimiento almacenado en una instancia de Azure SQL Database o Data Warehouse desde una canalización de Azure Data Factory o Synapse Analytics.
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
 ms.custom: synapse
-ms.date: 11/27/2018
-ms.openlocfilehash: c3815bfca83d6dcf789a780a2d82ff1d4bb62285
-ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
+ms.date: 09/09/2021
+ms.openlocfilehash: d2dacc3379d1587352c7593c3766294613229fad
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122271977"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124798358"
 ---
-# <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>Transformación de datos mediante la actividad de procedimiento almacenado de SQL Server en Azure Data Factory
+# <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory-or-synapse-analytics"></a>Transformación de datos mediante la actividad de procedimiento almacenado de SQL Server en Azure Data Factory o Synapse Analytics
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
 > * [Versión 1](v1/data-factory-stored-proc-activity.md)
 > * [Versión actual](transform-data-using-stored-procedure.md)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Las actividades de transformación en una [canalización](concepts-pipelines-activities.md) de Data Factory transforman y procesan sus datos sin procesar para convertirlos en predicciones y perspectivas. La actividad de procedimiento almacenado es una de las actividades de transformación que admite Data Factory. Este artículo se basa en el artículo sobre [transformación de datos](transform-data.md), que presenta información general de la transformación de datos y las actividades de transformación admitidas en Data Factory.
+Las actividades de transformación de una [canalización](concepts-pipelines-activities.md) de Data Factory o Synapse se usan para transformar y procesar los datos sin procesar a fin de convertirlos en predicciones y conclusiones. La actividad de procedimiento almacenado es una de las actividades de transformación que admiten las canalizaciones. Este artículo se basa en el artículo sobre [transformación de datos](transform-data.md), que presenta información general de la transformación de datos y las actividades de transformación admitidas.
 
 > [!NOTE]
-> Si no está familiarizado con Azure Data Factory, vea [Introducción a Azure Data Factory](introduction.md) y siga el tutorial sobre la [Transformación de datos](tutorial-transform-data-spark-powershell.md) antes de leer este artículo. 
+> Si no está familiarizado con Azure Data Factory, vea [Introducción a Azure Data Factory](introduction.md) y siga el tutorial sobre la [Transformación de datos](tutorial-transform-data-spark-powershell.md) antes de leer este artículo.  Para más información sobre Synapse Analytics, lea [¿Qué es Azure Synapse Analytics?](../synapse-analytics/overview-what-is.md).
 
 Puede usar la actividad de procedimiento almacenado para invocar un procedimiento almacenado en uno de los siguientes almacenes de datos de la empresa o en una máquina virtual (VM) de Azure: 
 
@@ -76,7 +76,7 @@ En la tabla siguiente se describen estas propiedades JSON:
 | storedProcedureParameters | Especifique los valores para los parámetros del procedimiento almacenado. Use `"param1": { "value": "param1Value","type":"param1Type" }` para pasar valores de parámetros y su tipo compatible con el origen de datos. Si necesita pasar NULL para un parámetro, use `"param1": { "value": null }` (todo en minúsculas). | No       |
 
 ## <a name="parameter-data-type-mapping"></a>Asignación de tipos de datos de parámetros
-El tipo de datos que especifique para el parámetro es el tipo de Azure Data Factory que se asigna al tipo de datos del origen de datos que está usando. Puede encontrar las descripciones de las asignaciones de tipos de datos para el origen de datos en la documentación sobre los conectores. Por ejemplo:
+El tipo de datos que especifique para el parámetro es el tipo de servicio interno que se asigna al tipo de datos del origen de datos que usa. Puede encontrar las descripciones de las asignaciones de tipos de datos para el origen de datos en la documentación sobre los conectores. Por ejemplo:
 
 - [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#data-type-mapping-for-azure-synapse-analytics)
 - [Asignación de tipo de datos para Azure SQL Database](connector-azure-sql-database.md#data-type-mapping-for-azure-sql-database)

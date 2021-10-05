@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: e69a97a86a357fb36dde572f292b5cac7963d14a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2a1e14e0c0ea8f2a58234d7f36b5dad14bd9968c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95912491"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128605475"
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen2"></a>Uso de DistCp para copiar datos entre Azure Storage Blob y Azure Data Lake Storage Gen2
 
@@ -21,24 +21,24 @@ Puede usar [DistCp](https://hadoop.apache.org/docs/stable/hadoop-distcp/DistCp.h
 
 DistCp proporciona una variedad de parámetros de línea de comandos y se recomienda encarecidamente leer este artículo para optimizar el uso de la herramienta. En este artículo se explica la funcionalidad básica, al mismo tiempo que se centra en su uso para copiar datos a una cuenta con el espacio de nombres jerárquico habilitado.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
-* Suscripción a Azure. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
-* Una cuenta existente de Azure Storage sin las funcionalidades de Data Lake Storage Gen2 habilitadas, como el espacio de nombres jerárquico.
-* Una cuenta de Azure Storage con las funcionalidades de Data Lake Storage Gen2 habilitadas, como el espacio de nombres jerárquico. Para obtener instrucciones sobre cómo crearla, vea [Creación de una cuenta de Azure Storage](../common/storage-account-create.md).
-* Un contenedor creado en la cuenta de almacenamiento con el espacio de nombres jerárquico habilitado.
-* Un clúster de Azure HDInsight con acceso a una cuenta de almacenamiento con la característica de espacio de nombres jerárquico habilitada. Consulte [Uso de Data Lake Storage Gen2 con clústeres de Azure HDInsight](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). Asegúrese de habilitar el Escritorio remoto para el clúster.
+- Suscripción a Azure. Para obtener más información, vea [Obtención de una evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
+- Una cuenta existente de Azure Storage sin las funcionalidades de Data Lake Storage Gen2 habilitadas, como el espacio de nombres jerárquico.
+- Una cuenta de Azure Storage con las funcionalidades de Data Lake Storage Gen2 habilitadas, como el espacio de nombres jerárquico. Para obtener instrucciones sobre cómo crearla, vea [Creación de una cuenta de Azure Storage](../common/storage-account-create.md).
+- Un contenedor creado en la cuenta de almacenamiento con el espacio de nombres jerárquico habilitado.
+- Un clúster de Azure HDInsight con acceso a una cuenta de almacenamiento con la característica de espacio de nombres jerárquico habilitada. Para obtener más información, consulte [Uso de Data Lake Storage Gen2 con clústeres de Azure HDInsight](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). Asegúrese de habilitar el Escritorio remoto para el clúster.
 
 ## <a name="use-distcp-from-an-hdinsight-linux-cluster"></a>Usar DistCp desde un clúster de HDInsight de Linux
 
 Un clúster de HDInsight incluye la utilidad DistCp, que puede utilizarse para copiar datos de orígenes diferentes en un clúster de HDInsight. Si ha configurado el clúster de HDInsight para usar conjuntamente Azure Blob Storage y Azure Data Lake Storage, la utilidad DistCp puede utilizarse también directamente para copiar datos entre ellos también. En esta sección veremos cómo usar la utilidad DistCp.
 
-1. Cree una sesión SSH en el clúster de HDI. Consulte [Conexión a un clúster de HDInsight basado en Linux](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
+1. Cree una sesión SSH en el clúster de HDI. Para más información, vea [Conexión a un clúster de HDInsight basado en Linux](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. Compruebe si puede acceder a la cuenta existente de uso general V2 (sin el espacio de nombres jerárquico habilitado).
 
     ```bash
-    hdfs dfs –ls wasbs://<container-name>@<storage-account-name>.blob.core.windows.net/
+    hdfs dfs -ls wasbs://<container-name>@<storage-account-name>.blob.core.windows.net/
     ```
 
    La salida debería proporcionar una lista de contenido en el contenedor.
@@ -81,9 +81,9 @@ hadoop distcp -m 100 wasbs://<container-name>@<storage-account-name>.blob.core.w
 
 A continuación hay algunas instrucciones que puede usar.
 
-* **Paso 1: Determinar la memoria total disponible para la cola de aplicación YARN "predeterminada"** : el primer paso consiste en determinar la memoria disponible para la cola de aplicación YARN "predeterminada". Esta información está disponible en el portal de Ambari asociado con el clúster. Vaya a YARN y haga clic en la pestaña de configuración para ver la memoria YARN disponible para la cola de aplicación "predeterminada". Se trata de la memoria total disponible para el trabajo DistCp (que es realmente un trabajo de MapReduce).
+- **Paso 1: Determinar la memoria total disponible para la cola de aplicación YARN "predeterminada"** : el primer paso consiste en determinar la memoria disponible para la cola de aplicación YARN "predeterminada". Esta información está disponible en el portal de Ambari asociado con el clúster. Vaya a YARN y haga clic en la pestaña de configuración para ver la memoria YARN disponible para la cola de aplicación "predeterminada". Se trata de la memoria total disponible para el trabajo DistCp (que es realmente un trabajo de MapReduce).
 
-* **Paso 2: Cálculo del número de mapeadores**: el valor de **m** es igual al cociente de la memoria de YARN total dividido por el tamaño del contenedor de YARN. La información del tamaño de contenedor de YARN está también disponible en el portal del Ambari. Vaya a YARN y vea la pestaña Configs (Configuraciones). En esta ventana se muestra el tamaño del contenedor de YARN. La ecuación para llegar al número de asignadores (**m**) es
+- **Paso 2: Cálculo del número de mapeadores**: el valor de **m** es igual al cociente de la memoria de YARN total dividido por el tamaño del contenedor de YARN. La información del tamaño de contenedor de YARN está también disponible en el portal del Ambari. Vaya a YARN y vea la pestaña Configs (Configuraciones). En esta ventana se muestra el tamaño del contenedor de YARN. La ecuación para llegar al número de asignadores (**m**) es
 
     m = (número de nodos * memoria YARN para cada nodo) / tamaño del contenedor de YARN
 
@@ -91,11 +91,11 @@ A continuación hay algunas instrucciones que puede usar.
 
 Supongamos que tiene un clúster 4x D14v2s y que intenta transferir 10 TB de datos desde 10 carpetas diferentes. Cada una de las carpetas contiene diferentes cantidades de datos y los tamaños de archivo dentro de cada carpeta son diferentes.
 
-* **Memoria de YARN total**: en el portal de Ambari determinará que la memoria de YARN es de 96 GB para un nodo D14. Por lo tanto, la memoria de YARN total para el clúster de cuatro nodos es: 
+- **Memoria de YARN total**: en el portal de Ambari determinará que la memoria de YARN es de 96 GB para un nodo D14. Por lo tanto, la memoria de YARN total para el clúster de cuatro nodos es:
 
     Memoria YARN = 4 * 96 GB = 384 GB
 
-* **Número de mapeadores**: en el portal de Ambari determinará que el tamaño del contenedor de YARN es 3072 MB para un nodo de clúster D14. Por lo tanto, el número de asignadores es:
+- **Número de asignadores**: en el portal de Ambari determinará que el tamaño del contenedor de YARN es 3072 MB para un nodo del clúster D14. Por lo tanto, el número de asignadores es:
 
     m = (4 nodos * 96 GB) / 3072 MB = 128 mapeadores
 
@@ -107,8 +107,8 @@ Cuando el tamaño del conjunto de datos que se va a mover es grande (por ejemplo
 
 ### <a name="limitations"></a>Limitaciones
 
-* DistCp intenta crear a asignadores que tengan un tamaño similar para optimizar el rendimiento. El aumento del número de asignadores no siempre aumenta el rendimiento.
+- DistCp intenta crear a asignadores que tengan un tamaño similar para optimizar el rendimiento. El aumento del número de asignadores no siempre aumenta el rendimiento.
 
-* DistCp está limitado a solo un asignador por archivo. Por lo tanto, no debería tener más asignadores que archivos. Como DistCp solo puede asignar a un asignador a un archivo, esto limita la cantidad de simultaneidad que puede usarse para copiar archivos de gran tamaño.
+- DistCp está limitado a solo un asignador por archivo. Por lo tanto, no debería tener más asignadores que archivos. Como DistCp solo puede asignar a un asignador a un archivo, esto limita la cantidad de simultaneidad que puede usarse para copiar archivos de gran tamaño.
 
-* Si tiene un número pequeño de archivos grandes, debe dividirlos en fragmentos de archivo de 256 MB para ofrecerle una mayor simultaneidad en potencia.
+- Si tiene un número pequeño de archivos grandes, debe dividirlos en fragmentos de archivo de 256 MB para ofrecerle una mayor simultaneidad en potencia.

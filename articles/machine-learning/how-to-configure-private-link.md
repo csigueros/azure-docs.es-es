@@ -10,13 +10,13 @@ ms.custom: devx-track-azurecli
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 07/01/2021
-ms.openlocfilehash: ef8d50b0cc4463f59d8fcb96afda3ef4a5c96781
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.date: 09/07/2021
+ms.openlocfilehash: df1f492824503c6ab8c63091c93e3d048107cb48
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123028395"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129052146"
 ---
 # <a name="configure-a-private-endpoint-for-an-azure-machine-learning-workspace"></a>Configuración de un punto de conexión privado para un área de trabajo de Azure Machine Learning
 
@@ -39,13 +39,23 @@ Azure Private Link le permite conectarse a su área de trabajo mediante un punto
 
 [!INCLUDE [cli-version-info](../../includes/machine-learning-cli-version-1-only.md)]
 
-* Debe tener una red virtual existente en la cual crear el punto de conexión privado. También tiene que [deshabilitar las directivas de red para los puntos de conexión privados](../private-link/disable-private-endpoint-network-policy.md) antes de agregar el punto de conexión privado.
+* Debe tener una red virtual existente en la cual crear el punto de conexión privado. 
+* [Deshabilitar las directivas de red para los puntos de conexión privados](../private-link/disable-private-endpoint-network-policy.md) antes de agregar el punto de conexión privado.
 
 ## <a name="limitations"></a>Limitaciones
 
 * Si habilita el acceso público para un área de trabajo protegida mediante un punto de conexión privado y usa Estudio de Azure Machine Learning a través de la red pública de Internet, es posible que algunas características como el diseñador no tengan acceso a sus datos. Este problema se produce cuando los datos se almacenan en un servicio protegido detrás de la red virtual. Por ejemplo, una cuenta de Azure Storage.
 * Si usa Mozilla Firefox, puede encontrar problemas al intentar acceder al punto de conexión privado del área de trabajo. Este problema puede estar relacionado con DNS a través de HTTPS en Mozilla. Como solución alternativa, se recomienda usar Microsoft Edge o Google Chrome.
 * El uso de un punto de conexión privado no afecta al plano de control de Azure (operaciones de administración), como la eliminación del área de trabajo o la administración de los recursos de proceso. Por ejemplo, crear, actualizar o eliminar un destino de proceso. Estas operaciones se realizan sobre la red pública de Internet como de costumbre. Las operaciones del plano de datos, como el uso de Azure Machine Learning Studio, las API (incluidas las canalizaciones publicadas) o el SDK usan el punto de conexión privado.
+* Al crear una instancia de proceso o un clúster de proceso en un área de trabajo con un punto de conexión privado, la instancia de proceso y el clúster de proceso deben estar en la misma región de Azure que el área de trabajo.
+* Al crear o adjuntar un clúster de Azure Kubernetes Service a un área de trabajo con un punto de conexión privado, el clúster debe estar en la misma región que el área de trabajo.
+* Al usar un área de trabajo con varios puntos de conexión privados (versión preliminar), uno de los puntos de conexión privados debe estar en la misma red virtual que los siguientes servicios de dependencia:
+
+    * Cuenta de Azure Storage que proporciona el almacenamiento predeterminado para el área de trabajo
+    * Azure Key Vault para el área de trabajo
+    * Azure Container Registry para el área de trabajo.
+
+    Por ejemplo, una red virtual (red virtual "services") contendrá un punto de conexión privado para los servicios de dependencia y el área de trabajo. Esta configuración permite que el área de trabajo se comunique con los servicios. Otra red virtual ("clientes") solo puede contener un punto de conexión privado para el área de trabajo y usarse solo para la comunicación entre las máquinas de desarrollo de cliente y el área de trabajo.
 
 ## <a name="create-a-workspace-that-uses-a-private-endpoint"></a>Creación de un área de trabajo que usa un punto de conexión privado
 
@@ -169,14 +179,60 @@ Desde el área de trabajo de Azure Machine Learning en el portal, seleccione __C
 
 ---
 
-## <a name="using-a-workspace-over-a-private-endpoint"></a>Uso de un área de trabajo mediante un punto de conexión privado
+## <a name="securely-connect-to-your-workspace"></a>Conexión segura al área de trabajo
 
-Dado que la comunicación con el área de trabajo solo se permite desde la red virtual, cualquier entorno de desarrollo que use el área de trabajo debe ser miembro de la red virtual. Por ejemplo, una máquina virtual en la red virtual.
+[!INCLUDE [machine-learning-connect-secure-workspace](../../includes/machine-learning-connect-secure-workspace.md)]
+
+## <a name="multiple-private-endpoints-preview"></a>Múltiples puntos de conexión privados (versión preliminar)
+
+Como característica en versión preliminar, Azure Machine Learning admite varios puntos de conexión privados para un área de trabajo. A menudo se usan varios puntos de conexión privados cuando se desea mantener distintos entornos separados. Estos son algunos escenarios que se habilitan mediante el uso de varios puntos de conexión privados:
+
+* Entornos de desarrollo de cliente en una red virtual independiente.
+* Un clúster Azure Kubernetes Service (AKS) en una red virtual independiente.
+* Otros servicios de Azure en una red virtual independiente. Por ejemplo, Azure Synapse y Azure Data Factory pueden usar una red virtual administrada por Microsoft. En cualquier caso, se puede agregar un punto de conexión privado para el área de trabajo a la red virtual administrada utilizada por esos servicios. Para más información sobre el uso de una red virtual administrada con estos servicios, consulte los artículos siguientes:
+
+    * [Synapse managed private endpoints](/azure/synapse-analytics/security/synapse-workspace-managed-private-endpoints) (Puntos de conexión privados administrados de Synapse)
+    * [Azure Data Factory managed virtual network](/azure/data-factory/managed-virtual-network-private-endpoint) (Red virtual administrada de Azure Data Factory)
+
+    > [!IMPORTANT]
+    > La [protección contra la filtración de datos de Synapse](/azure/synapse-analytics/security/workspace-data-exfiltration-protection) no se admite con Azure Machine Learning.
 
 > [!IMPORTANT]
-> Para evitar la interrupción temporal de la conectividad, Microsoft recomienda vaciar la memoria caché de DNS en las máquinas que se conectan al área de trabajo después de habilitar un punto de conexión privado. 
+> Cada red virtual que contiene un punto de conexión privado para el área de trabajo también debe poder acceder a la cuenta de Azure Storage, Azure Key Vault y Azure Container Registry utilizada por el área de trabajo. Por ejemplo, puede crear un punto de conexión privado para los servicios de cada red virtual.
 
-Para más información sobre Azure Virtual Machines, consulte [Documentación sobre Virtual Machines](../virtual-machines/index.yml).
+La adición de varios puntos de conexión usa los mismos pasos que se describen en la sección [Adición de un punto de conexión privado a un área de trabajo](#add-a-private-endpoint-to-a-workspace).
+
+### <a name="scenario-isolated-clients"></a>Escenario: clientes aislados
+
+Si desea aislar los clientes de desarrollo para que no tengan acceso directo a los recursos de proceso utilizados por Azure Machine Learning, siga estos pasos:
+
+> [!NOTE]
+> Estos pasos suponen que tiene un área de trabajo existente, una cuenta de Azure Storage, Azure Key Vault y Azure Container Registry. Cada uno de estos servicios tiene un punto de conexión privado en una red virtual existente.
+
+1. Cree otra red virtual para los clientes. Esta red virtual puede contener máquinas virtuales de Azure que actúan como clientes o puede contener una VPN Gateway utilizada por los clientes locales para conectarse a la red virtual.
+1. Agregue un nuevo punto de conexión privado para la cuenta de Azure Storage, Azure Key Vault y Azure Container Registry utilizada por el área de trabajo. Estos puntos de conexión privados deben existir en la red virtual del cliente.
+1. Si tiene almacenamiento adicional utilizado por el área de trabajo, agregue un nuevo punto de conexión privado para ese almacenamiento. El punto de conexión privado debe existir en la red virtual del cliente y tener habilitada la integración de zona DNS privada.
+1. Adición de un punto de conexión privado al área de trabajo. Este punto de conexión privado debe existir en la red virtual del cliente y tener habilitada la integración de zona DNS privada.
+1. Siga los pasos descritos en el artículo [Uso de Studio en una red virtual](how-to-enable-studio-virtual-network.md#datastore-azure-storage-account) para permitir que el estudio acceda a las cuentas de almacenamiento.
+
+En el siguiente diagrama, se ilustra esta configuración. La red virtual de __carga de trabajo__ contiene los procesos creados por el área de trabajo para el entrenamiento y la implementación. La red virtual de __cliente__ contiene clientes o conexiones ExpressRoute/VPN de cliente. Ambas redes virtuales contienen puntos de conexión privados para el área de trabajo, la cuenta de Azure Storage, Azure Key Vault y Azure Container Registry.
+
+:::image type="content" source="./media/how-to-configure-private-link/multiple-private-endpoint-workspace-client.png" alt-text="Diagrama de red virtual de cliente aislado":::
+
+### <a name="scenario-isolated-azure-kubernetes-service"></a>Escenario: Azure Kubernetes Service aislado
+
+Si desea crear una cuenta aislada de Azure Kubernetes Service utilizada por el área de trabajo, siga estos pasos:
+
+> [!NOTE]
+> Estos pasos suponen que tiene un área de trabajo existente, una cuenta de Azure Storage, Azure Key Vault y Azure Container Registry. Cada uno de estos servicios tiene un punto de conexión privado en una red virtual existente.
+
+1. Cree una instancia de Azure Kubernetes Service. Durante la creación, AKS crea una red virtual que contiene el clúster de AKS.
+1. Agregue un nuevo punto de conexión privado para la cuenta de Azure Storage, Azure Key Vault y Azure Container Registry utilizada por el área de trabajo. Estos puntos de conexión privados deben existir en la red virtual del cliente.
+1. Si tiene otro almacenamiento utilizado por el área de trabajo, agregue un nuevo punto de conexión privado para ese almacenamiento. El punto de conexión privado debe existir en la red virtual del cliente y tener habilitada la integración de zona DNS privada.
+1. Adición de un punto de conexión privado al área de trabajo. Este punto de conexión privado debe existir en la red virtual del cliente y tener habilitada la integración de zona DNS privada.
+1. Conecte el clúster de AKS a un área de trabajo de Azure Machine Learning. Para obtener más información, consulte [Creación y conexión de un clúster de Azure Kubernetes Service](how-to-create-attach-kubernetes.md#attach-an-existing-aks-cluster).
+
+:::image type="content" source="./media/how-to-configure-private-link/multiple-private-endpoint-workspace-aks.png" alt-text="Diagrama de la red virtual de AKS aislada":::
 
 ## <a name="enable-public-access"></a>Habilitación del acceso público
 
@@ -209,7 +265,6 @@ La [extensión 1.0 de la CLI de Azure para Machine Learning](reference-azure-mac
 Actualmente no hay ninguna manera de habilitar esta funcionalidad mediante el portal.
 
 ---
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

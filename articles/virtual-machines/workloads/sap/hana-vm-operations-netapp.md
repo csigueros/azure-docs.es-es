@@ -12,15 +12,15 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 01/23/2021
+ms.date: 09/08/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b6b0fa5e1af60b65c513fd3fa6250dba2a978879
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+ms.openlocfilehash: 4683b38ba6a59b0a50f7e0ea4165657407b59b69
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122965902"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124823174"
 ---
 # <a name="nfs-v41-volumes-on-azure-netapp-files-for-sap-hana"></a>Volúmenes NFS v4.1 en Azure NetApp Files para SAP HANA
 
@@ -40,7 +40,7 @@ A la hora de considerar Azure NetApp Files para SAP Netweaver y SAP HANA, tenga 
 - Es importante que las máquinas virtuales se implementen muy cerca del almacenamiento de Azure NetApp para conseguir una latencia baja.  
 - La red virtual seleccionada debe tener una subred delegada en Azure NetApp Files.
 - Asegúrese de que la latencia del servidor de base de datos en el volumen de ANF se mide y está por debajo de 1 milisegundo.
-- El rendimiento de un volumen de Azure NetApp es una función de la cuota del volumen y del nivel de servicio, como se documenta en [Nivel de servicio para Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-service-levels.md). Al ajustar el tamaño de los volúmenes de Azure NetApp de HANA, asegúrese de que el rendimiento resultante cumple los requisitos del sistema HANA.
+- El rendimiento de un volumen de Azure NetApp es una función de la cuota del volumen y del nivel de servicio, como se documenta en [Nivel de servicio para Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-service-levels.md). Al ajustar el tamaño de los volúmenes de Azure NetApp de HANA, asegúrese de que el rendimiento resultante cumple los requisitos del sistema HANA. De forma alternativa, considere el uso de un [grupo de capacidad manual de QoS](../../../azure-netapp-files/manual-qos-capacity-pool-introduction.md) donde la capacidad de volumen y el rendimiento se pueden configurar y escalar de forma independiente (en [este documento](../../../azure-netapp-files/manual-qos-capacity-pool-introduction.md) se pueden encontrar ejemplos específicos de SAP HANA).
 - Intente "consolidar" volúmenes para obtener más rendimiento en un volumen de mayor tamaño; por ejemplo, use un volumen para /sapmnt, /usr/sap/trans, etc., si es posible.  
 - Azure NetApp Files ofrece la [directiva de exportación](../../../azure-netapp-files/azure-netapp-files-configure-export-policy.md): puede controlar los clientes permitidos, el tipo de acceso (lectura y escritura, solo lectura, etc.). 
 - La característica Azure NetApp Files no depende aún de la zona. En la actualidad, la característica Azure NetApp Files no se implementa en todas las zonas de disponibilidad de una región de Azure. Tenga en cuenta las posibles implicaciones de latencia en algunas regiones de Azure.   
@@ -61,7 +61,7 @@ Es importante comprender la relación entre rendimiento y tamaño, y que hay lí
 
 En la tabla siguiente se demuestra que podría tener sentido crear un volumen "Estándar" de gran tamaño para almacenar las copias de seguridad, y que no tiene sentido crear un volumen "Ultra" mayor de 12 TB, porque se superaría la capacidad de ancho de banda física máxima de un solo volumen. 
 
-El rendimiento de escritura máximo de un volumen y una única sesión de Linux está entre 1,2 y 1,4 GB/s. Si necesita más rendimiento para /hana/data, puede usar la creación de particiones del volumen de datos de SAP HANA para fragmentar la actividad de E/S durante la recarga de datos o los puntos de retorno de HANA en varios archivos de datos de HANA ubicados en varios recursos compartidos de NFS. Para obtener más detalles sobre la fragmentación del volumen de datos de HANA, lea estos artículos:
+El rendimiento de escritura máximo de un volumen y una única sesión de Linux está entre 1,2 y 1,4 GB/s. Si necesita más rendimiento para /hana/data, puede usar la creación de particiones del volumen de datos de SAP HANA para fragmentar la actividad de E/S durante la recarga de datos o los puntos de retorno de HANA en varios archivos de datos de HANA ubicados en varios recursos compartidos de NFS. Para mejorar el rendimiento de lectura, se puede usar la opción de montaje nconnect de NFS. Para más información sobre el rendimiento de Linux y nconnect en Azure NetApp Files, consulte [Procedimientos recomendados de opciones de montaje NFS de Linux para Azure NetApp Files](../../../azure-netapp-files/performance-linux-mount-options.md). Para obtener más detalles sobre la fragmentación del volumen de datos de HANA, lea estos artículos:
 
 - [Guía para administradores de HANA](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.05/en-US/40b2b2a880ec4df7bac16eae3daef756.html?q=hana%20data%20volume%20partitioning)
 - [Blog sobre SAP HANA: creación de particiones de volúmenes de datos](https://blogs.sap.com/2020/10/07/sap-hana-partitioning-data-volumes/)
@@ -75,9 +75,11 @@ El rendimiento de escritura máximo de un volumen y una única sesión de Linux 
 | 2 TB | 32 MB/s | 128 MB/s | 256 MB/s |
 | 4 TB | 64 MB/s | 256 MB/s | 512 MB/s |
 | 10 TB | 160 MB/s | 640 MB/s | 1280 MB/s |
-| 15 TB | 240 MB/s | 960 MB/s | 1400 MB/s |
-| 20 TB | 320 MB/s | 1280 MB/s | 1400 MB/s |
-| 40 TB | 640 MB/s | 1400 MB/s | 1400 MB/s |
+| 15 TB | 240 MB/s | 960 MB/s | 1400 MB/s<sup>1</sup> |
+| 20 TB | 320 MB/s | 1280 MB/s | 1400 MB/s<sup>1</sup> |
+| 40 TB | 640 MB/s | 1400 MB/s<sup>1</sup> | 1400 MB/s<sup>1</sup> |
+
+<sup>1</sup>: límites de rendimiento de lectura de sesión única o de escritura (en caso de que no se use la opción de montaje de NFS nconnect) 
 
 Es importante comprender que los datos se escriben en los mismos discos SSD en el back-end de almacenamiento. Se ha creado la cuota de rendimiento del grupo de capacidad para poder administrar el entorno.
 Los KPI de almacenamiento son iguales para todos los tamaños de base de datos de HANA. En casi todos los casos, esta hipótesis no refleja la realidad y la expectativa del cliente. El tamaño de los sistemas de HANA no implica necesariamente que un sistema pequeño requiera un rendimiento de almacenamiento reducido, ni que un sistema de gran tamaño requiera un rendimiento alto de almacenamiento. No obstante, por lo general se pueden esperar mayores requisitos de rendimiento para las instancias de base de datos de HANA de mayor tamaño. Como resultado de las reglas de dimensionamiento de SAP para el hardware subyacente, estas instancias de HANA de mayor tamaño también proporcionan más recursos de CPU y un paralelismo superior en tareas como la carga de datos después del reinicio de una instancia. En consecuencia, se deben adoptar los tamaños de volumen para las expectativas y los requisitos del cliente, y no solo controlados por requisitos de capacidad puros.
@@ -90,9 +92,9 @@ Al diseñar la infraestructura de SAP en Azure, debe tener en cuenta los requisi
 | Escritura de volumen de datos | 250 MB/s | 4 TB | 2 TB |
 | Lectura de volumen de datos | 400 MB/s | 6,3 TB | 3,2 TB |
 
-Dado que se exigen los tres KPI, el volumen de **/hana/data** debe dimensionarse a la capacidad de mayor tamaño para cumplir los requisitos mínimos de lectura.
+Dado que se exigen los tres KPI, el volumen de **/hana/data** debe dimensionarse a la capacidad de mayor tamaño para cumplir los requisitos mínimos de lectura. Cuando se usan grupos de capacidad de QoS manual, el tamaño y el rendimiento de los volúmenes se pueden definir de forma independiente. Dado que tanto la capacidad como el rendimiento se toman del mismo grupo de capacidad, el nivel de servicio y el tamaño del grupo deben ser lo suficientemente grandes como para ofrecer el rendimiento total (vea el ejemplo [aquí](../../../azure-netapp-files/manual-qos-capacity-pool-introduction.md)).
 
-En el caso de los sistemas HANA, que no requieren ancho de banda grande, los tamaños de los volúmenes de ANF pueden ser más pequeños. Y, en caso de que un sistema HANA requiera más rendimiento, el volumen podría adaptarse mediante el cambio de tamaño de la capacidad en línea. No se ha definido ningún KPI para los volúmenes de copia de seguridad. Sin embargo, el rendimiento del volumen de copia de seguridad es fundamental para un entorno que funcione correctamente. El rendimiento del volumen de registros y datos debe estar diseñado para cumplir con las expectativas de los clientes.
+En el caso de los sistemas HANA, que no requieren un ancho de banda alto, el rendimiento del volumen de ANF se puede reducir con un tamaño de volumen menor o, en caso de QoS manual, ajustar el rendimiento directamente. Y, en caso de que un sistema HANA requiera más rendimiento, el volumen podría adaptarse mediante el cambio de tamaño de la capacidad en línea. No se ha definido ningún KPI para los volúmenes de copia de seguridad. Sin embargo, el rendimiento del volumen de copia de seguridad es fundamental para un entorno que funcione correctamente. El rendimiento del volumen de registros y datos debe estar diseñado para cumplir con las expectativas de los clientes.
 
 > [!IMPORTANT]
 > Independientemente de la capacidad que implemente en un volumen NFS individual, se espera que el rendimiento se nivele en el rango de 1,2-1,4 GB/s de ancho de banda usado por un consumidor en una sola sesión. Esto tiene que ver con la arquitectura subyacente de la oferta de ANF y los límites de sesiones de Linux relacionadas alrededor de NFS. Las cifras relativas al rendimiento y a la capacidad de proceso que se indican en el artículo [Banco de pruebas de rendimiento de resultados de pruebas para Azure NetApp Files](../../../azure-netapp-files/performance-benchmarks-linux.md) se obtuvieron en un volumen NFS compartido con varias máquinas virtuales cliente y como resultado con varias sesiones. Dicho escenario es diferente del escenario que medimos en SAP. Ahí medimos la capacidad de procesamiento de una sola máquina virtual en un volumen NFS Hospedado en ANF.
@@ -141,8 +143,9 @@ Además de las copias de seguridad de streaming y el servicio Azure Backup, que 
 
 SAP HANA admite lo siguiente:
 
-- Copias de seguridad de instantáneas basadas en almacenamiento a partir de SAP HANA 1.0 SPS7
-- Compatibilidad con copias de seguridad de instantáneas basadas en almacenamiento para entornos de HANA de Contenedor de varias bases de datos (MDC) a partir de SAP HANA 2.0 SPS4
+- Compatibilidad de la copia de seguridad de instantáneas basadas en almacenamiento con sistemas de contenedor único con SAP HANA 1.0 SPS7 y versiones superiores 
+- Compatibilidad de la copia de seguridad de instantáneas basada en almacenamiento con entornos HANA de varios contenedores de bases de datos (MDC) con un único inquilino con SAP HANA 2.0 SPS1 y versiones posteriores.
+- Compatibilidad de la copia de seguridad de instantáneas basada en almacenamiento con entornos HANA de varios contenedores de bases de datos (MDC) con varios inquilinos con SAP HANA 2.0 SPS4 y versiones posteriores.
 
 
 La creación de copias de seguridad de instantáneas basadas en almacenamiento es un procedimiento sencillo que consta de cuatro pasos: 
@@ -177,8 +180,11 @@ Este procedimiento de copia de seguridad de instantáneas se puede administrar d
 > [!CAUTION]
 > Una instantánea en sí misma no es una copia de seguridad protegida, ya que se encuentra en el mismo almacenamiento físico que el volumen del que se ha tomado una instantánea. Es obligatorio "proteger" al menos una instantánea por día en otra ubicación. Esto puede hacerse en el mismo entorno, en una región de Azure remota o en almacenamiento de blobs de Azure.
 
+Soluciones disponibles para la copia de seguridad coherente con la aplicación basada en instantáneas de almacenamiento:
 
-En el caso de los usuarios de productos de copia de seguridad de CommVault, una segunda opción es CommVault IntelliSnap V.11.21 y versiones posteriores. Esta versión de CommVault y las posteriores ofrecen compatibilidad con Azure NetApp Files. En el artículo [CommVault IntelliSnap 11.21](https://documentation.commvault.com/11.21/essential/116350_getting_started_with_backup_and_restore_operations_for_azure_netapp_file_services_smb_shares_and_nfs_shares.html) se proporciona más información.
+- [Azure Application Consistent Snapshot (AzAcSnap)](../../../azure-netapp-files/azacsnap-introduction.md) de Microsoft es una herramienta de línea de comandos que permite proteger los datos de bases de datos de terceros mediante el control de la orquestación necesaria para ponerlos en un estado coherente con la aplicación antes de tomar una instantánea del almacenamiento. Luego, se devuelven a un estado operativo. AzAcSnap admite copias de seguridad basadas en instantáneas para HANA (instancias grandes), así como Azure NetApp Files. Para más información, consulte ¿Qué es la herramienta Azure Application Consistent Snapshot? 
+- En el caso de los usuarios de productos de copia de seguridad de Commvault, otra opción es Commvault IntelliSnap V.11.21 y versiones posteriores. Esta versión de Commvault y las posteriores ofrecen compatibilidad con instantáneas de Azure NetApp Files. En el artículo [CommVault IntelliSnap 11.21](https://documentation.commvault.com/11.21/essential/116350_getting_started_with_backup_and_restore_operations_for_azure_netapp_file_services_smb_shares_and_nfs_shares.html) se proporciona más información.
+
 
 
 ### <a name="back-up-the-snapshot-using-azure-blob-storage"></a>Copia de seguridad de la instantánea mediante almacenamiento de blobs de Azure

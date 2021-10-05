@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.author: sharrai
 ms.date: 05/27/2021
-ms.openlocfilehash: b8264221db1fcfee8d47ac0d8f159d6b7a6140fe
-ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
+ms.openlocfilehash: d766903d6de975a10dfd29bdf367ac2831321e50
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110577093"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124777438"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Instalación de un servidor de destino maestro de Linux para la conmutación por recuperación
 Después de conmutar por error las máquinas virtuales a Azure, puede conmutarlas por recuperación en el sitio local. Para ello, debe volver a proteger la máquina virtual de Azure en el sitio local. Para realizar este proceso, necesitará un servidor de destino maestro local que reciba el tráfico. 
@@ -195,7 +195,12 @@ Si el destino maestro tiene conectividad a Internet, puede usar los pasos siguie
 
 #### <a name="download-the-master-target-installation-packages"></a>Descarga de los paquetes de instalación del destino maestro
 
-[Descargue los bits más recientes de instalación del destino maestro de Linux](https://aka.ms/latestlinuxmobsvc).
+[Descargue](https://aka.ms/latestlinuxmobsvc) los bits más recientes de instalación del destino maestro de Linux para Ubuntu 20.04.
+
+[Descargue](https://aka.ms/oldlinuxmobsvc) los bits más antiguos de instalación del destino maestro de Linux para Ubuntu 16.04.
+
+> [!NOTE]
+> Se recomienda usar la versión más reciente del sistema operativo Ubuntu para configurar el servidor de destino maestro.
 
 Para descargarlos mediante Linux, escriba lo siguiente:
 

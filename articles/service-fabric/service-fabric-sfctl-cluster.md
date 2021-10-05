@@ -5,12 +5,12 @@ author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 05132e4c7e644e681e2e4cfdedaa2b04a066ebeb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ed4dfc315ae953c99db2ebe2eaa009f9ef072a7c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86259972"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128620281"
 ---
 # <a name="sfctl-cluster"></a>sfctl cluster
 Seleccione, administre y opere clústeres de Service Fabric.
@@ -259,7 +259,7 @@ Si se conecta al clúster seguro, especifique una ruta de acceso absoluta a un a
 | --aad | Utilice Azure Active Directory para la autenticación. |
 | --ca | Ruta de acceso absoluta al directorio de certificados de la entidad emisora de certificados que se tratará como válido o al archivo de paquete de entidades emisoras de certificados. Si usa un directorio de certificados de CA, `c_rehash <directory>` proporcionado por OpenSSL, se debe ejecutar en primer lugar para calcular los valores hash del certificado y crear los vínculos simbólicos adecuados. Se usa para comprobar que el certificado que devuelve el clúster es válido. |
 | --cert | Ruta de acceso absoluta a un archivo de certificados de cliente. |
-| --endpoint | Dirección URL del punto de conexión del clúster, incluido el puerto y el prefijo HTTP o HTTPS. Normalmente, el punto de conexión será similar a https\://<su-URL>\:19080. Si no se proporciona ningún punto de conexión, se establecerá de forma predeterminada en http\://localhost\:19080.  Valor predeterminado\: http\://localhost\:19080. |
+| --endpoint | Dirección URL del punto de conexión del clúster, incluido el puerto y el prefijo HTTP o HTTPS. Normalmente, el punto de conexión se parece a `https\://<your-url>\:19080`. Si no se proporciona ningún punto de conexión, se establece de manera predeterminada en `http\://localhost\:19080`. |
 | --key | Ruta de acceso absoluta a un archivo de claves de certificados de cliente. |
 | --no-verify | Deshabilita la comprobación de certificados cuando se utiliza HTTPS. Tenga en cuenta\: Esta es una opción insegura y no debe usarse para entornos de producción. |
 | --pem | Ruta de acceso absoluta a un certificado de cliente, como un archivo .pem. |

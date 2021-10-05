@@ -7,12 +7,12 @@ ms.service: frontdoor
 ms.topic: article
 ms.date: 02/18/2021
 ms.author: yuajia
-ms.openlocfilehash: 4b526d82465862b1c0d27aed6443c6d7199bfb5b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ca9c2e3b4e9873d4880385479b701d36c92238b0
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101098164"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124750191"
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-front-door-standardpremium-preview"></a>Mejora del rendimiento mediante la compresión de archivos en Azure Front Door Estándar/Premium (versión preliminar)
 
@@ -29,6 +29,9 @@ Se puede habilitar de dos maneras:
 
 - Puede habilitar la compresión en el servidor de origen. En este caso, Azure Front Door pasa los archivos comprimidos y los entrega a los clientes que los solicitan.
 - Habilite la compresión directamente en los servidores POP de Azure Front Door (*compresión sobre la marcha*). En este caso, Azure Front Door comprime los archivos y los envía a los usuarios finales.
+
+> [!NOTE]
+> Las solicitudes de rango se pueden comprimir en tamaños diferentes. En Azure Front Door es necesario que los valores de longitud del contenido sean los mismos para cualquier solicitud HTTP GET. Si los clientes envían solicitudes de rango de bytes con el encabezado `accept-encoding` que provoca que el origen responda con diferentes longitudes de contenido, Azure Front Door devolverá un error 503. Puede deshabilitar la compresión en Origen/Azure Front Door, o bien crear una regla de conjunto de reglas para quitar `accept-encoding` de la solicitud para las solicitudes de rango de bytes.
 
 > [!IMPORTANT]
 > Los cambios de configuración de Azure Front Door tardan hasta 10 minutos en propagarse a lo largo de la red. Si está configurando la compresión por primera vez para su punto de conexión de la red CDN, considere esperar entre 1 y 2 horas antes de realizar la solución de problemas para garantizar que la configuración de la compresión se haya propagado a todos los POP.

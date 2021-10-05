@@ -5,12 +5,12 @@ description: Vea las preguntas frecuentes cuando ejecute cargas de trabajo de ap
 services: container-service
 ms.topic: article
 ms.date: 10/12/2020
-ms.openlocfilehash: b278be45af62d50c8df85ed833ebbeb99dd5c35d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: c11ca69e11ee3f9b429414c2caf5b71a947d6a31
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121747801"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128595301"
 ---
 # <a name="frequently-asked-questions-for-windows-server-node-pools-in-aks"></a>Preguntas frecuentes sobre los grupos de nodos de Windows Server en AKS
 
@@ -191,6 +191,13 @@ Set-TimeZone -Id "Russian Standard Time"
 ```
 
 Para ver la zona horaria actual del contenedor en ejecución o una lista disponible de zonas horarias, use [Get-TimeZone](/powershell/module/microsoft.powershell.management/get-timezone).
+
+## <a name="can-i-maintain-session-affinity-from-client-connections-to-pods-with-windows-containers"></a>¿Puedo mantener la afinidad de sesión desde las conexiones cliente a pods con contenedores de Windows?
+Aunque esto se admite en la versión del sistema operativo WS2022, la manera actual de lograr la afinidad de sesión por IP de cliente se realiza limitando el pod deseado para ejecutar una única instancia por nodo y configurando el servicio Kubernetes para dirigir el tráfico al pod en el nodo local. Para ello, se puede usar la siguiente configuración:
+1. Clúster de AKS que ejecuta una versión mínima de 1.20.
+1. Restrinja el pod para permitir solo una instancia por cada nodo de Windows. Esto se puede lograr mediante el uso de la antiafinidad en la configuración de implementación.
+1. En la configuración del servicio Kubernetes, establezca "externalTrafficPolicy=Local". Esto garantizará que el servicio de Kubernetes solo dirija el tráfico a los pods dentro del nodo local.
+1. En la configuración del servicio Kubernetes, establezca "sessionAffinity: ClientIP". Esto garantizará que Azure Load Balancer se configure con afinidad de sesión.
 
 ## <a name="what-if-i-need-a-feature-thats-not-supported"></a>¿Qué ocurre si necesito una característica que no se admite?
 

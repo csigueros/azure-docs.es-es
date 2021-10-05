@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: d9025038727c6f71022f30f80ee67db6ccc5289b
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 6ed309637c03fc4701f2b973f64b2473f43b0d2a
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108740328"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124734886"
 ---
 # <a name="query-parquet-files-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Consulta de archivos de Parquet mediante un grupo de SQL sin servidor en Azure Synapse Analytics
 
@@ -42,7 +42,7 @@ Asegúrese de que puede tener acceso a este archivo. Si el archivo está protegi
 > Una falta de coincidencia entre la codificación de texto del archivo de Parquet y la intercalación puede producir errores de conversión inesperados.
 > Puede cambiar fácilmente la intercalación predeterminada de la base de datos actual mediante la siguiente instrucción T-SQL: `alter database current collate Latin1_General_100_BIN2_UTF8`.
 
-Si usa una intercalación _BIN2, se obtiene un aumento del rendimiento adicional. La intercalación BIN2 es compatible con las reglas de ordenación de cadenas de Parquet, por lo que se pueden eliminar algunas partes de los archivos Parquet que no contengan los datos necesarios en las consultas (eliminación de segmentos de archivos o columnas). Si usa una intercalación que no es BIN2, todos los datos del relleno de Parquet se cargarán en Synapse SQL con el filtrado que se está produciendo dentro del proceso de SQL, lo que podría ser mucho más lento que con la eliminación de archivos de los datos innecesarios. La intercalación BIN2 tiene optimización de rendimiento adicional que solo funciona para Parquet y CosmosDB. La desventaja es que se pierden reglas de comparación específicas, como la no distinción entre mayúsculas y minúsculas.
+Si usa la intercalación `Latin1_General_100_BIN2_UTF8`, se obtiene un aumento del rendimiento adicional en comparación con las otras intercalaciones. La intercalación `Latin1_General_100_BIN2_UTF8` es compatible con las reglas de ordenación de cadenas parquet. El grupo de SQL es capaz de eliminar algunas partes de los archivos parquet que no contendrán los datos necesarios en las consultas (eliminación de segmentos de archivos o columnas). Si usa otras intercalaciones, todos los datos de los archivos parquet se cargarán en Synapse SQL y el filtrado se está produciendo dentro del proceso SQL. La intercalación `Latin1_General_100_BIN2_UTF8` tiene optimización de rendimiento adicional que solo funciona para Parquet y CosmosDB. La desventaja es que se pierden reglas de comparación específicas, como la no distinción entre mayúsculas y minúsculas.
 
 ### <a name="data-source-usage"></a>Uso del origen de datos
 

@@ -1,14 +1,14 @@
 ---
-title: Implementación de entornos de plantilla anidados en Azure DevTest Labs
+title: Implementación de entornos de plantilla anidados
 description: Aprenda a implementar plantillas anidadas de Azure Resource Manager para proporcionar entornos con Azure DevTest Labs.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 39002e286fafd4f813333a14ed86256a517897e9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 170c9adac15de9e8429ce994021e94fd80b347aa
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85481347"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128662991"
 ---
 # <a name="deploy-nested-azure-resource-manager-templates-for-testing-environments"></a>Implementar plantillas anidadas de Azure Resource Manager para probar entornos
 Una implementación anidada le permite ejecutar otras plantillas de Azure Resource Manager desde una plantilla principal de Resource Manager. Igualmente, le permite descomponer su implementación en un conjunto de plantillas de destino y de propósito específico. Proporciona ventajas en cuanto a las pruebas, la reutilización y la legibilidad. El artículo [Uso de plantillas vinculadas al implementar recursos de Azure](../azure-resource-manager/templates/linked-templates.md) le proporciona una buena descripción general de esta solución con varios ejemplos de código. En este artículo se proporciona un ejemplo que es específico de Azure DevTest Labs. 

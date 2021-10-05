@@ -1,23 +1,23 @@
 ---
-title: Actividad de la condición IF en Azure Data Factory
+title: Actividad If Condition
 titleSuffix: Azure Data Factory & Azure Synapse
-description: La actividad de la condición IF le permite controlar el flujo de procesamiento basado en una condición.
+description: La actividad de la condición IF permite controlar el flujo de procesamiento en función de una condición en una canalización de Azure Data Factory o Synapse Analytics.
 author: chez-charlie
 ms.author: chez
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: orchestration
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 09/09/2021
 ms.custom: devx-track-azurepowershell, synapse
-ms.openlocfilehash: cc897e9657120b3a290c151a4c6582f29e905b4e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 04c0a91a7f4848f2422c0f6ed1e117686345bf78
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122638832"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124811680"
 ---
-# <a name="if-condition-activity-in-azure-data-factory"></a>Actividad de la condición IF en Azure Data Factory
+# <a name="if-condition-activity-in-azure-data-factory-and-synapse-analytics-pipelines"></a>Actividad de la condición IF en canalizaciones de Azure Data Factory y Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 La actividad de la condición IF proporciona la misma funcionalidad que proporciona una instrucción If en lenguajes de programación. Ejecuta un conjunto de actividades cuando la condición se evalúa como `true` y otro conjunto de actividades cuando la condición se evalúa como `false`. 
@@ -76,7 +76,7 @@ ifFalseActivities | Conjunto de actividades que se ejecutan cuando la expresión
 La canalización de este ejemplo copia los datos de una carpeta de entrada a una carpeta de salida. La carpeta de salida viene determinada por el valor del parámetro de canalización routeSelection. Si el valor de routeSelection es true, los datos se copian en outputPath1. Y si el valor de routeSelection es false, los datos se copian en outputPath2. 
 
 > [!NOTE]
-> En esta sección se proporcionan definiciones JSON y comandos de PowerShell de ejemplo para ejecutarlos en la canalización. Para ver una guía con instrucciones paso a paso para crear una canalización de Data Factory con definiciones de JSON y Azure PowerShell, consulte [Tutorial: Creación de una factoría de datos y una canalización con PowerShell](quickstart-create-data-factory-powershell.md).
+> En esta sección se proporcionan definiciones JSON y comandos de PowerShell de ejemplo para ejecutarlos en la canalización. Para ver una guía con instrucciones paso a paso para crear una canalización con definiciones de JSON y Azure PowerShell, consulte [Tutorial: Creación de una factoría de datos mediante Azure PowerShell](quickstart-create-data-factory-powershell.md).
 
 ### <a name="pipeline-with-if-condition-activity-adfv2quickstartpipelinejson"></a>Canalización con actividad de condición If (Adfv2QuickStartPipeline.json)
 
@@ -287,7 +287,7 @@ $result.Error -join "`r`n"
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte otras actividades de flujo de control compatibles con Data Factory: 
+Vea otras actividades de flujo de control admitidas: 
 
 - [Actividad de ejecución de canalización](control-flow-execute-pipeline-activity.md)
 - [Para cada actividad](control-flow-for-each-activity.md)

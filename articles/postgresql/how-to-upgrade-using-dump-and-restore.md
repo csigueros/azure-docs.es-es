@@ -5,13 +5,13 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 08/26/2021
-ms.openlocfilehash: 7e8e1db98ac79c2be6dbb399a14368ce3e2f898c
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.date: 09/21/2021
+ms.openlocfilehash: b2216754cbdb6081a82f71392aee6e5f8ce2d3ba
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123033502"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128648418"
 ---
 # <a name="upgrade-your-postgresql-database-using-dump-and-restore"></a>Actualización de una base de datos de PostgreSQL mediante volcado y restauración
 
@@ -96,10 +96,10 @@ Los roles (usuarios) son objetos globales y deben migrarse por separado al nuevo
 Para volcar todos los roles del servidor de origen:
 
 ```azurecli-interactive
-pg_dumpall -r --host=mySourceServer --port=5432 --username=myUser -- dbname=mySourceDB > roles.sql
+pg_dumpall -r --host=mySourceServer --port=5432 --username=myUser --database=mySourceDB > roles.sql
 ```
 
-y restaurarlos mediante psql en el servidor de destino:
+Edite `roles.sql` y quite las referencias de `NOSUPERUSER` y `NOBYPASSRLS` antes de restaurar el contenido mediante psql en el servidor de destino:
 
 ```azurecli-interactive
 psql -f roles.sql --host=myTargetServer --port=5432 --username=myUser
@@ -198,6 +198,14 @@ Puede considerar este método si tiene pocas tablas de mayor tamaño en la base 
 
 > [!TIP]
 > El proceso mencionado en este documento también se puede usar para actualizar el servidor flexible de Azure Database for PostgreSQL, que se encuentra en versión preliminar. La diferencia principal es que la cadena de conexión para el destino del servidor flexible no tiene el parámetro `@dbName`.  Por ejemplo, si el nombre de usuario es `pg`, el nombre de usuario del servidor único en la cadena de conexión será `pg@pg-95`, mientras que con un servidor flexible, puede simplemente usar `pg`.
+
+## <a name="post-upgrademigrate"></a>Posterior a la actualización o migración
+Una vez completada la actualización de la versión principal, se recomienda ejecutar el comando `ANALYZE` en cada base de datos para actualizar la tabla `pg_statistic`. De lo contrario, puede encontrarse con problemas de rendimiento.
+
+```SQL
+postgres=> analyze;
+ANALYZE
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

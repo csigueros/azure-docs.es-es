@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: how-to
-ms.date: 11/09/2020
+ms.date: 09/23/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd692f76148783a97dedf0d1391e16cdf1577744
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 8fea2ff8f44cd017d901e94e7458d968d5c82e9f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121740000"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128619825"
 ---
 # <a name="azure-active-directory-identity-protection-notifications"></a>Notificaciones de Azure Active Directory Identity Protection
 
@@ -27,13 +27,15 @@ Azure AD Identity Protection envía dos tipos de correos electrónicos de notifi
 
 En este artículo se proporciona una introducción de ambos correos electrónicos de notificación.
 
+No se admite el envío de correos electrónicos a los usuarios con roles asignados por grupos.
+
 ## <a name="users-at-risk-detected-email"></a>Correo electrónico de los usuarios en riesgo detectados
 
 En respuesta a una cuenta detectada en riesgo, Azure AD Identity Protection genera una alerta de correo electrónico con el asunto **Usuarios en riesgo detectados**. El correo electrónico incluye un vínculo al informe **[Usuarios marcados en riesgo](./overview-identity-protection.md)** . Como práctica recomendada, debería investigar inmediatamente los usuarios en peligro.
 
 La configuración de esta alerta permite especificar a qué nivel de riesgo del usuario desea que se genere la alerta. El correo electrónico se generará cuando el nivel de riesgo del usuario alcance lo que haya especificado. Por ejemplo, si establece la directiva para alertar sobre el riesgo de usuario medio y la puntuación del riesgo del usuario John pasa a riesgo medio debido a un riesgo de inicio de sesión en tiempo real, recibirá el correo electrónico de usuarios en riesgo detectados. Si el usuario tiene detecciones de riesgo posteriores que hacen que el cálculo de su nivel de riesgo sea el especificado (o superior), recibirá correos electrónicos de usuarios en riesgo detectados cuando se vuelva a calcular la puntuación del riesgo del usuario. Por ejemplo, si un usuario pasa a un riesgo medio el 1 de enero, recibirá una notificación por correo electrónico si la configuración está establecida para alertar sobre el riesgo medio. Si ese mismo usuario tiene otra detección de riesgos el 5 de enero que también es de riesgo medio y su puntuación de riesgo se vuelve a calcular y sigue siendo de nivel medio, recibirá otra notificación por correo electrónico. 
 
-Pero solo se enviará una notificación por correo electrónico adicional si la detección de riesgos (que ha provocado el cambio en el nivel de riesgo del usuario) es más reciente que el envío del último correo electrónico. Por ejemplo, un usuario inicia sesión el 1 de enero a las 5:00 y no hay ningún riesgo en tiempo real (lo que significa que no se generará ningún correo electrónico debido a ese inicio de sesión). Diez minutos después, a las 5:10, el mismo usuario vuelve a iniciar sesión y tiene un riesgo alto en tiempo real, lo que hace que su nivel de riesgo cambie a alto y se envíe un correo electrónico. Después, a las 5:15, la puntuación de riesgo sin conexión para el inicio de sesión original de las 5:00 cambia a riesgo alto debido al procesamiento de riesgos sin conexión. No se enviará un correo electrónico adicional de usuario marcado como de riesgo, ya que el primer inicio de sesión ha sido anterior al segundo que ya ha desencadenado una notificación por correo electrónico.
+Pero solo se enviará una notificación por correo electrónico adicional si la detección de riesgos (que ha provocado el cambio en el nivel de riesgo del usuario) es más reciente que el envío del último correo electrónico. Por ejemplo, un usuario inicia sesión el 1 de enero a las 5:00 y no hay ningún riesgo en tiempo real (lo que significa que no se generará ningún correo electrónico debido a ese inicio de sesión). Diez minutos después, a las 5:10, el mismo usuario vuelve a iniciar sesión y tiene un riesgo alto en tiempo real, lo que hace que su nivel de riesgo cambie a alto y se envíe un correo electrónico. Después, a las 5:15, la puntuación de riesgo sin conexión para el inicio de sesión original de las 5:00 cambia a riesgo alto debido al procesamiento de riesgos sin conexión. No se enviará un correo electrónico adicional de usuario marcado como de riesgo, ya que el primer inicio de sesión ha sido anterior al segundo que ya ha desencadenado una notificación por correo electrónico.
 
 Para evitar una sobrecarga de correos electrónicos, solo recibirá un correo electrónico en un período de cinco segundos. Esta demora significa que si varios usuarios pasan al nivel de riesgo especificado durante el mismo período de cinco segundos, se agregarán y se enviará un solo mensaje de correo electrónico para representar el cambio de nivel de riesgo de todos ellos.
 

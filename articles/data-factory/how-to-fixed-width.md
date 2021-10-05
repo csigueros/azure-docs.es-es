@@ -7,12 +7,12 @@ ms.subservice: data-flows
 ms.topic: conceptual
 ms.date: 8/18/2019
 ms.author: makromer
-ms.openlocfilehash: 689a9d34dc796516aa281964552e11d70c74c1de
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 58bd77eb815a510328c49ca7c614b0bc680a4b94
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122637884"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128571435"
 ---
 # <a name="process-fixed-length-text-files-by-using-data-factory-mapping-data-flows"></a>Procesamiento de archivos de texto de longitud fija mediante flujos de datos de asignación de Data Factory
 
@@ -26,13 +26,13 @@ Mediante el uso de flujos de datos de asignación en Microsoft Azure Data Factor
 
 2. Agregue una actividad de flujo de datos que se usará para el procesamiento de archivos de ancho fijo:
 
-    ![Canalización de ancho fijo](media/data-flow/fwpipe.png)
+    :::image type="content" source="media/data-flow/fwpipe.png" alt-text="Canalización de ancho fijo":::
 
 3. En la actividad de flujo de datos, seleccione **New Mapping Data Flow** (Nuevo flujo de datos de asignación).
 
 4. Agregue una transformación de origen, una columna derivada, una de selección y una de receptor:
 
-    ![Flujo de datos de ancho fijo](media/data-flow/fw2.png)
+    :::image type="content" source="media/data-flow/fw2.png" alt-text="Flujo de datos de ancho fijo":::
 
 5. Configure la transformación de origen para que use un nuevo conjunto de datos, que será del tipo texto delimitado.
 
@@ -64,27 +64,27 @@ Mediante el uso de flujos de datos de asignación en Microsoft Azure Data Factor
 
 10. A continuación, en el generador de expresiones, escriba lo siguiente:
 
-    ```substring(Column_1,1,4)```
+    `substring(Column_1,1,4)`
 
-    ![columna derivada](media/data-flow/fwderivedcol1.png)
+    :::image type="content" source="media/data-flow/fwderivedcol1.png" alt-text="columna derivada":::
 
 11. Repita el paso 10 para todas las columnas que necesite analizar.
 
 12. Seleccione la pestaña **Inspeccionar** para ver las nuevas columnas que se van a generar:
 
-    ![inspeccionar](media/data-flow/fwinspect.png)
+    :::image type="content" source="media/data-flow/fwinspect.png" alt-text="inspeccionar":::
 
 13. Use la transformación de selección para quitar todas las columnas que no necesite para la transformación:
 
-    ![seleccionar transformación](media/data-flow/fwselect.png)
+    :::image type="content" source="media/data-flow/fwselect.png" alt-text="seleccionar transformación":::
 
 14. Use la transformación de receptor para generar los datos en una carpeta:
 
-    ![receptor de ancho fijo](media/data-flow/fwsink.png)
+    :::image type="content" source="media/data-flow/fwsink.png" alt-text="receptor de ancho fijo":::
 
     Este es el aspecto de la salida:
 
-    ![salida de ancho fijo](media/data-flow/fxdoutput.png)
+    :::image type="content" source="media/data-flow/fxdoutput.png" alt-text="salida de ancho fijo":::
 
   Los datos de ancho fijo se dividen ahora con cuatro caracteres cada uno y se asignan a Col1, Col2, Col3, Col4, etc. Según el ejemplo anterior, los datos se dividen en cuatro columnas.
 

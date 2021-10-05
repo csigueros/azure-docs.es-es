@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: duau
-ms.openlocfilehash: 67940db973f494cd4a12c2f16db528e0b113d656
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1aaabce5dc13098d183ee595d27b5b45a3fd0caa
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91449216"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128586295"
 ---
 # <a name="how-requests-are-matched-to-a-routing-rule"></a>Cómo se hacen coincidir las solicitudes con una regla de enrutamiento
 
@@ -123,7 +123,8 @@ Dada esa configuración, daría lugar a la tabla de búsqueda de coincidencias d
 > | profile.domain.com/other | Ninguno. Error 400: Bad Request |
 
 ### <a name="routing-decision"></a>Decisión de enrutamiento
-Una vez que nos hemos buscado la coincidencia con una única regla de enrutamiento de Front Door, se debe elegir cómo procesar la solicitud. Si, para la regla de enrutamiento coincidente, Front Door tiene disponible una respuesta almacenada en caché; la misma se envía de vuelta al cliente. En caso contrario, lo que se evalúa es si ha configurado la [reescritura de direcciones URL (ruta de reenvío personalizado)](front-door-url-rewrite.md) para la regla de enrutamiento coincidente, o no. Si no hay definida una ruta de acceso de reenvío personalizado, se reenvía la solicitud al back-end adecuado en el grupo de back-end configurado tal cual. En caso contrario, se actualiza la ruta de acceso de solicitud como para la [ruta de acceso de reenvío personalizada](front-door-url-rewrite.md) definida y, a continuación, se reenvía al back-end.
+
+Una vez que haya emparejado con una única regla de enrutamiento de Front Door, elija cómo procesar la solicitud. Si Front Door tiene disponible una respuesta almacenada en caché para la regla de enrutamiento emparejada, la respuesta almacenada en caché se envía de vuelta al cliente. Si Front Door no tiene ninguna respuesta almacenada en caché para la regla de enrutamiento emparejada, lo que se evalúa a continuación es si ha configurado [URL wewrite (una ruta de acceso de reenvío personalizada)](front-door-url-rewrite.md) para la regla de enrutamiento emparejada. Si no hay definida ninguna ruta de acceso de reenvío personalizada, la solicitud se reenvía al back-end adecuado del grupo de back-end configurado tal cual. Si se ha definido una ruta de acceso de reenvío personalizada, la ruta de acceso de la solicitud se actualiza según la [ruta de acceso de reenvío personalizada](front-door-url-rewrite.md) definida y luego se reenvía al back-end.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

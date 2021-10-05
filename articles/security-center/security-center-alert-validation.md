@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 03/17/2021
 ms.author: memildin
-ms.openlocfilehash: dc42882a15b70d7d656decebf8c7b2346c516c6d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 48a695f4217c7300c4d7db6edc23452ad4eaa55f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121734883"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128631711"
 ---
 # <a name="alert-validation-in-azure-security-center"></a>Validación de alertas en Azure Security Center
 Este documento le ayuda a comprobar si el sistema está configurado correctamente para las alertas de Azure Security Center.
@@ -67,22 +67,22 @@ Una vez que el agente de Security Center esté instalado en el equipo, siga esto
 ## <a name="simulate-alerts-on-your-azure-vms-linux"></a>Simulación de alertas en las VM de Azure (Linux) <a name="validate-linux"></a>
 
 Una vez que el agente de Security Center esté instalado en el equipo, siga estos pasos desde el equipo donde desee que esté el recurso atacado de la alerta:
-1. Copie un archivo ejecutable en una ubicación adecuada y cambie el nombre a **./asc_alerttest_662jfi039n**, por ejemplo:
 
-    ```cp /bin/echo ./asc_alerttest_662jfi039n```
+1. Copie un archivo ejecutable en una ubicación conveniente y cámbiele el nombre a `./asc_alerttest_662jfi039n`. Por ejemplo:
+
+    `cp /bin/echo ./asc_alerttest_662jfi039n`
 
 1. Abra el símbolo del sistema y ejecute este archivo:
 
-    ```./asc_alerttest_662jfi039n testing eicar pipe```
+    `./asc_alerttest_662jfi039n testing eicar pipe`
 
-1. Espere de cinco a diez minutos y abra Alertas de Security Center. Debería aparecer una alerta.
-
+1. Espere entre cinco y diez minutos y luego abra Alertas de Security Center. Debería aparecer una alerta.
 
 ## <a name="simulate-alerts-on-kubernetes"></a>Simulación de alertas en Kubernetes <a name="validate-kubernetes"></a>
 
 Si ha integrado Azure Kubernetes Service con Security Center, puede probar que sus alertas funcionan con el siguiente comando kubectl:
 
-```kubectl get pods --namespace=asc-alerttest-662jfi039n```
+`kubectl get pods --namespace=asc-alerttest-662jfi039n`
 
 Para obtener más información sobre cómo defender los nodos y clústeres de Kubernetes, consulte [Introducción a Azure Defender para Kubernetes](defender-for-kubernetes-introduction.md).
 

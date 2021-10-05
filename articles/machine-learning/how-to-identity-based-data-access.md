@@ -9,19 +9,16 @@ ms.topic: how-to
 ms.author: yogipandey
 author: ynpandey
 ms.reviewer: nibaccam
-ms.date: 02/22/2021
+ms.date: 09/28/2021
 ms.custom: contperf-fy21q1, devx-track-python, data4ml
-ms.openlocfilehash: 3552a8191fc5482f8a58cc3365302f44f2f364a3
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 081f08ea13fddde88133a14789b4e800969413df
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114284319"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129214282"
 ---
-# <a name="connect-to-storage-by-using-identity-based-data-access-preview"></a>Conexión al almacenamiento mediante el acceso a datos basado en identidades (versión preliminar)
-
->[!IMPORTANT]
-> Las características que se presentan en este artículo están en versión preliminar. Por tanto, deben considerarse características [experimentales](/python/api/overview/azure/ml/#stable-vs-experimental) que pueden cambiar en cualquier momento.
+# <a name="connect-to-storage-by-using-identity-based-data-access"></a>Conexión al almacenamiento mediante el acceso a datos basado en identidades
 
 En este artículo, aprenderá a conectarse a los servicios de almacenamiento de Azure utilizando el acceso a datos basado en identidades y los almacenes de datos de Azure Machine Learning con el [SDK de Azure Machine Learning para Python](/python/api/overview/azure/ml/intro).  
 

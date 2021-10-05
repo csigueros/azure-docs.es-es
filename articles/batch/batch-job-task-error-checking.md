@@ -3,14 +3,14 @@ title: Comprobación de errores de trabajos y tareas
 description: Obtenga información sobre los errores para buscarlo y cómo solucionar los problemas de trabajos y tareas.
 author: mscurrell
 ms.topic: how-to
-ms.date: 11/23/2020
+ms.date: 09/08/2021
 ms.author: markscu
-ms.openlocfilehash: d8cf3b5e28d4455e00e0bdcbae2063771d3e8acd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 31ca874ebb4e3d11d46ff47e775605ffdd015f63
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95736806"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124815372"
 ---
 # <a name="job-and-task-error-checking"></a>Comprobación de errores de trabajos y tareas
 
@@ -25,7 +25,7 @@ Un trabajo es una agrupación de una o más tareas en el que las tareas especifi
 Al agregar un trabajo, se pueden especificar los parámetros siguientes, lo que puede influir en el modo en que se puede producir un error en el trabajo:
 
 - [Restricciones del trabajo](/rest/api/batchservice/job/add#jobconstraints)
-  - Opcionalmente, se puede especificar la propiedad `maxWallClockTime` para establecer la cantidad máxima de tiempo que un trabajo puede estar activo o en ejecución. Si se supera, el trabajo finalizará con la propiedad `terminateReason` establecida en el elemento [executionInfo](/rest/api/batchservice/job/get#cloudjob) del trabajo.
+  - Opcionalmente, se puede especificar la propiedad `maxWallClockTime` para establecer la cantidad máxima de tiempo que un trabajo puede estar activo o en ejecución. Si se supera, el trabajo finalizará con la propiedad `terminateReason` establecida en el elemento [executionInfo](/rest/api/batchservice/job/get#jobexecutioninformation) del trabajo.
 - [Tarea de preparación del trabajo](/rest/api/batchservice/job/add#jobpreparationtask)
   - Si se especifica, se ejecuta una tarea de preparación del trabajo la primera vez que se ejecuta una tarea de un trabajo en un nodo. Se puede producir un error en la tarea de preparación del trabajo, lo que hará que la tarea no se ejecute y el trabajo no se complete.
 - [Tarea de liberación del trabajo](/rest/api/batchservice/job/add#jobreleasetask)
@@ -41,7 +41,7 @@ Se deben comprobar los errores de las siguientes propiedades del trabajo:
 
 ### <a name="job-preparation-tasks"></a>Tareas de preparación del trabajo
 
-Si se especifica una tarea de preparación del trabajo para un trabajo, se ejecutará una instancia de esa tarea la primera vez que se ejecute una tarea del trabajo en un nodo. La tarea de preparación del trabajo configurada en el trabajo se puede considerar como una plantilla de tareas, con varias instancias de la tarea de preparación del trabajo en ejecución, hasta el número de nodos de un grupo.
+Si se especifica una [tarea de preparación del trabajo](batch-job-prep-release.md#job-preparation-task) para un trabajo, se ejecutará una instancia de esa tarea la primera vez que se ejecute una tarea del trabajo en un nodo. La tarea de preparación del trabajo configurada en el trabajo se puede considerar como una plantilla de tareas, con varias instancias de la tarea de preparación del trabajo en ejecución, hasta el número de nodos de un grupo.
 
 Las instancias de la tarea de preparación del trabajo se deben comprobar para determinar si se produjeron errores:
 
@@ -51,7 +51,7 @@ Las instancias de la tarea de preparación del trabajo se deben comprobar para d
 
 ### <a name="job-release-tasks"></a>Tareas de liberación del trabajo
 
-Si se especifica una tarea de liberación del trabajo para un trabajo, cuando se termina un trabajo se ejecuta una instancia de la tarea de liberación del trabajo en cada nodo del grupo en el que se ejecutó una tarea de preparación del trabajo. Las instancias de la tarea de liberación del trabajo se deben comprobar para determinar si se produjeron errores:
+Si se especifica una [tarea de liberación del trabajo](batch-job-prep-release.md#job-release-task) para un trabajo, cuando se termina un trabajo se ejecuta una instancia de la tarea de liberación del trabajo en cada nodo del grupo en el que se ejecutó una tarea de preparación del trabajo. Las instancias de la tarea de liberación del trabajo se deben comprobar para determinar si se produjeron errores:
 
 - Todas las instancias de la tarea de liberación del trabajo que se han ejecutado se pueden obtener del trabajo mediante la API [List Preparation and Release Task Status](/rest/api/batchservice/job/listpreparationandreleasetaskstatus) (Enumerar estado de las tareas de preparación y liberación). Como con cualquier tarea, hay [información de ejecución](/rest/api/batchservice/job/listpreparationandreleasetaskstatus#jobpreparationandreleasetaskexecutioninformation) disponible con propiedades como `failureInfo`, `exitCode` y `result`.
 - Si se produce un error en una o varias tareas de liberación del trabajo, el trabajo se finaliza y pasará a un estado de `completed`.
@@ -92,4 +92,4 @@ En cada carga de archivos, Batch escribe dos archivos de registro en el nodo de 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Compruebe que la aplicación implementa una comprobación de errores completa; puede ser fundamental detectar y diagnosticar los problemas rápidamente.
-- Obtenga más información sobre [trabajos y tareas](jobs-and-tasks.md).
+- Más información acerca de [trabajos y tareas](jobs-and-tasks.md) y [tareas de preparación y liberación de trabajos](batch-job-prep-release.md).

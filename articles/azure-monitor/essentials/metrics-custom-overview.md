@@ -6,12 +6,12 @@ ms.author: ancav
 services: azure-monitor
 ms.topic: conceptual
 ms.date: 06/01/2021
-ms.openlocfilehash: a456db938d1607565525aea7ab2e9b43bc368aeb
-ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
+ms.openlocfilehash: d7c73473952bfec537cc26c9f50092a198afc1d5
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122195200"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128614474"
 ---
 # <a name="custom-metrics-in-azure-monitor-preview"></a>Métricas personalizadas en Azure Monitor (versión preliminar)
 
@@ -187,7 +187,7 @@ Una vez que las métricas personalizadas se envían a Azure Monitor, puede exami
 > Consulte [Introducción al Explorador de métricas de Azure](./metrics-getting-started.md) para más información sobre la visualización de las métricas en Azure Portal.
 
 ## <a name="supported-regions"></a>Regiones admitidas
-Durante la versión preliminar pública, la capacidad de publicar métricas personalizadas solo está disponible en un subconjunto de las regiones de Azure. Esta restricción implica que las métricas solo pueden publicarse para recursos de una de las regiones admitidas. Para más información sobre las regiones de Azure, consulte [Zonas geográficas de Azure](https://azure.microsoft.com/global-infrastructure/geographies/). El código de región de Azure que se usa en los puntos de conexión siguientes es simplemente el nombre de la región con el espacio en blanco quitado. En la tabla siguiente se muestra el conjunto de regiones admitidas de Azure para las métricas personalizadas. También se muestran los puntos de conexión correspondientes para cuyos recursos en esas regiones se deben publicar métricas:
+Durante la versión preliminar pública, la capacidad de publicar métricas personalizadas solo está disponible en un subconjunto de las regiones de Azure. Esta restricción implica que las métricas solo pueden publicarse para recursos de una de las regiones admitidas. Para más información sobre las regiones de Azure, consulte [Zonas geográficas de Azure](https://azure.microsoft.com/global-infrastructure/geographies/). El código de región de Azure que se usa en los puntos de conexión siguientes es simplemente el nombre de la región con el espacio en blanco quitado. En la tabla siguiente se enumera el conjunto de regiones de Azure admitidas para las métricas personalizadas. También se muestran los puntos de conexión correspondientes para cuyos recursos en esas regiones se deben publicar métricas:
 
 |Región de Azure |Prefijo del punto de conexión regional|
 |---|---|

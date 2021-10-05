@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 08/25/2021
+ms.date: 09/14/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 558f8b720992f44a747689cb0e69436507b685c4
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.openlocfilehash: 31d58536b1af26d037b3c53f04bcae5c9359ff47
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122866999"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128606710"
 ---
 # <a name="configure-azure-ad-role-settings-in-privileged-identity-management"></a>Configuración de roles de Azure AD en Privileged Identity Management
 
@@ -78,9 +78,9 @@ Para exigir la autenticación multifactor para activar la asignación de roles, 
 
 ### <a name="on-active-assignment"></a>En la asignación activa
 
-En algunos casos, es posible que quiera asignar un usuario a un rol durante un tiempo breve (por ejemplo, un día). En este caso, no es necesario que los usuarios asignados soliciten la activación. En este escenario, Privileged Identity Management no puede exigir la autenticación multifactor cuando el usuario usa su asignación de roles, porque ya está activa en el rol desde el momento en que se asigna.
+Esta opción requiere que los administradores completen una autenticación multifactor antes de crear una asignación de roles activa (en lugar de elegible). Privileged Identity Management no puede exigir la autenticación multifactor cuando el usuario utiliza su asignación de roles, porque ya está activa en el rol desde el momento en que se asigna.
 
-Para exigir la autenticación multifactor cuando la asignación está activa, seleccione la opción **Requerir Azure Multi-Factor Authentication en la asignación activa** en la pestaña Asignación de la opción **Edit role setting** (Editar configuración de roles).
+Para requerir la autenticación multifactor al crear una asignación de roles activa, seleccione la opción **Requerir Azure Multi-Factor Authentication en la asignación activa** en la pestaña Asignación de la opción **Edit role setting** (Editar configuración de roles).
 
 Para más información, consulte [Autenticación multifactor y Privileged Identity Management](pim-how-to-require-mfa.md).
 

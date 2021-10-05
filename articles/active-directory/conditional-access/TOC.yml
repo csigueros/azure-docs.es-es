@@ -78,6 +78,8 @@
           href: howto-conditional-access-policy-compliant-device.md
         - name: Bloquear acceso
           href: howto-conditional-access-policy-block-access.md
+    - name: Configuración de valores predeterminados de resistencia
+      href: resilience-defaults.md
     - name: Bloquear la autenticación heredada
       href: block-legacy-authentication.md
     - name: Configuración del modo de solo informe

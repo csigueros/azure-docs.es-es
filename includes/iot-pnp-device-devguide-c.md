@@ -3,13 +3,13 @@ author: dominicbetts
 ms.author: dobett
 ms.service: iot-develop
 ms.topic: include
-ms.date: 11/19/2020
-ms.openlocfilehash: 451a6f1e4b90b2e307125c6aae6d2ac03ae90c83
-ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
+ms.date: 09/07/2021
+ms.openlocfilehash: 0ef257d82d892f2b8eb620c96744fb5bf26d9b5e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122397829"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128580515"
 ---
 ## <a name="model-id-announcement"></a>Anuncio del id. de modelo
 
@@ -31,7 +31,7 @@ iothubResult = IoTHubDeviceClient_LL_SetOption(
 
 ## <a name="dps-payload"></a>Carga de DPS
 
-Los dispositivos que usan [Device Provisioning Service (DPS)](../articles/iot-dps/about-iot-dps.md) pueden incluir el elemento `modelId` que se usará durante el proceso de aprovisionamiento con la siguiente carga JSON.
+Los dispositivos que usan [Device Provisioning Service (DPS)](../articles/iot-dps/about-iot-dps.md) pueden incluir el elemento `modelId` que se usará durante el proceso de aprovisionamiento con la siguiente carga JSON:
 
 ```json
 {
@@ -41,11 +41,11 @@ Los dispositivos que usan [Device Provisioning Service (DPS)](../articles/iot-dp
 
 ## <a name="use-components"></a>Uso de componentes
 
-Como se describe en [Descripción de componentes de los modelos de IoT Plug and Play](../articles/iot-develop/concepts-modeling-guide.md), los creadores de dispositivos deben decidir si quieren usar componentes para describir sus dispositivos. Cuando se usan componentes, los dispositivos deben seguir las reglas descritas en las secciones siguientes.
+Como se describe en [Descripción de componentes de los modelos de IoT Plug and Play](../articles/iot-develop/concepts-modeling-guide.md), los creadores de dispositivos deben decidir si quieren usar componentes para describir sus dispositivos. Cuando se usan componentes, los dispositivos deben seguir las reglas descritas en las secciones siguientes:
 
 ## <a name="telemetry"></a>Telemetría
 
-Un componente predeterminado no necesita ninguna propiedad especial.
+Un componente predeterminado no necesita ninguna propiedad especial agregada al mensaje de telemetría.
 
 Cuando se usan componentes anidados, los dispositivos deben establecer una propiedad de mensaje con el nombre del componente:
 
@@ -118,7 +118,7 @@ El dispositivo gemelo se actualiza con la siguiente propiedad notificada:
 }
 ```
 
-Al usar componentes anidados, se deben crear propiedades dentro del nombre del componente:
+Al usar componentes anidados, se deben crear propiedades dentro del nombre del componente e incluir un marcador:
 
 ```c
 STRING_HANDLE PnP_CreateReportedProperty(
@@ -215,6 +215,8 @@ El dispositivo gemelo se actualiza con la siguiente propiedad notificada:
 ## <a name="writable-properties"></a>Propiedades editables
 
 Estas propiedades pueden establecerse por el dispositivo o actualizarse por la solución. Si la solución actualiza una propiedad, el cliente recibe una notificación como una devolución de llamada en `DeviceClient` o `ModuleClient`. Para seguir las convenciones de IoT Plug and Play, el dispositivo debe informar al servicio de que la propiedad se ha recibido correctamente.
+
+Si el tipo de propiedad es `Object`, el servicio debe enviar un objeto completo al dispositivo incluso si solo actualiza un subconjunto de los campos del objeto. La confirmación que envía el dispositivo también puede ser un objeto completo.
 
 ### <a name="report-a-writable-property"></a>Notificación de una propiedad editable
 
@@ -335,7 +337,7 @@ El dispositivo gemelo se actualiza con la siguiente propiedad notificada:
 
 ### <a name="subscribe-to-desired-property-updates"></a>Suscripción a las actualizaciones de propiedades deseadas
 
-Los servicios pueden actualizar las propiedades deseadas que desencadenan una notificación en los dispositivos conectados. Esta notificación incluye las propiedades deseadas actualizadas, incluido el número de versión que identifica la actualización. Los dispositivos deben responder con el mismo mensaje `ack` que las propiedades notificadas.
+Los servicios pueden actualizar las propiedades deseadas que desencadenan una notificación en los dispositivos conectados. Esta notificación incluye las propiedades deseadas actualizadas, incluido el número de versión que identifica la actualización. Los dispositivos deben incluir este número de versión en el mensaje `ack` que se devuelve al servicio.
 
 Los componentes predeterminados ven la propiedad única y crean el mensaje `ack` notificado con la versión recibida:
 
@@ -384,7 +386,7 @@ iothubResult = IoTHubDeviceClient_LL_SetDeviceTwinCallback(
     deviceHandle, Thermostat_DeviceTwinCallback, (void*)deviceHandle))
 ```
 
-El dispositivo gemelo muestra la propiedad en las secciones desired y reported:
+El dispositivo gemelo de un componente anidado muestra las secciones de propiedades deseadas y notificadas de la siguiente manera:
 
 ```json
 {
@@ -590,7 +592,9 @@ deviceClient = PnP_CreateDeviceClientLLHandle(&g_pnpDeviceConfiguration);
 
 ### <a name="request-and-response-payloads"></a>Cargas de solicitud y respuesta
 
-Los comandos usan tipos para definir sus cargas de solicitud y respuesta. Un dispositivo debe deserializar el parámetro de entrada y serializar la respuesta. En el ejemplo siguiente se muestra cómo implementar un comando con tipos complejos definidos en las cargas:
+Los comandos usan tipos para definir sus cargas de solicitud y respuesta. Un dispositivo debe deserializar el parámetro de entrada y serializar la respuesta.
+
+En el ejemplo siguiente se muestra cómo implementar un comando con tipos complejos definidos en las cargas:
 
 ```json
 {

@@ -4,12 +4,12 @@ description: Aprenda a configurar la recuperación ante desastres para servidore
 ms.service: site-recovery
 ms.topic: article
 ms.date: 07/14/2021
-ms.openlocfilehash: 6811511cf45d342691a76ddb14b631601db56c36
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 93a7d3274dbe682a6a08763302804c250545ec47
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114290261"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128591261"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Configurar la recuperación ante desastres para servidores físicos locales en Azure
 
@@ -82,7 +82,7 @@ Tiene que instalar el Servicio de movilidad en cada servidor que quiera replicar
 
 - Puede usar una cuenta local o de dominio.
 - En el caso de máquinas virtuales de Windows, si no usa una cuenta de dominio, deshabilite el control de acceso de usuarios remotos en el equipo local. Para hacerlo, en el Registro, en **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**, agregue la entrada DWORD **LocalAccountTokenFilterPolicy** con un valor de 1.
-- Para agregar la entrada del Registro para deshabilitar el valor desde una CLI, escriba: ``REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1.``
+- Para agregar la entrada del Registro para deshabilitar el valor desde una CLI, escriba: `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1.`.
 - Para Linux, la cuenta debe ser una raíz en el servidor Linux de origen.
 
 

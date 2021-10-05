@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/09/2021
-ms.openlocfilehash: de17fface1a99e7e3832cf815eadda6915a707fd
-ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
+ms.openlocfilehash: 9ba66a8eb76c2c0bdcc2dd086d3abcfc47bcba65
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112583156"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128678144"
 ---
 # <a name="how-to-run-or-reset-indexers-skills-or-documents"></a>Cómo ejecutar o restablecer indizadores, aptitudes o documentos
 
@@ -45,7 +45,7 @@ La ejecución del indizador está sujeta a los límites siguientes:
 
 + El número máximo de trabajos de indizador es 1 por réplica sin trabajos simultáneos.
 
-  Si la ejecución del indizador ya ha alcanzado su capacidad máxima, recibirá esta notificación: "Failed to run indexer '<indexer-name>' (No se pudo ejecutar el indizador '<indexer-name>'), error: "Another indexer invocation is currently in progress; concurrent invocations are not allowed" (Otra invocación del indizador está actualmente en curso; no están permitidas las invocaciones simultáneas).
+  Si la ejecución del indizador ya ha alcanzado su capacidad máxima, recibirá esta notificación: "Failed to run indexer '\<indexer-name\>' (No se pudo ejecutar el indizador '\<indexer-name\>'), error: "Another indexer invocation is currently in progress; concurrent invocations are not allowed" (Otra invocación del indizador está actualmente en curso; no están permitidas las invocaciones simultáneas).
 
 + El tiempo máximo de ejecución es de 2 horas si se usa un conjunto de aptitudes y 24 horas si no. 
 

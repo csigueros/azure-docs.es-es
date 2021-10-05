@@ -6,14 +6,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 09/15/2021
 ms.author: banders
-ms.openlocfilehash: 6205867cbcb65a3b5720fefd1356b36bcd8c6838
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 997bf9e2b88269985c85220c4960179d148a4190
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88682729"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128637479"
 ---
 # <a name="terms-in-your-microsoft-customer-agreement-price-sheet"></a>Términos de la hoja de precios del contrato de cliente de Microsoft
 
@@ -45,13 +45,13 @@ En la siguiente sección se describen los términos importantes que aparecen en 
 | meterSubCategory  | Nombre de la categoría de subclasificación del medidor.  |
 | meterType  |  Nombre del tipo de medidor. |
 | meterRegion  | Nombre de la región donde está disponible el medidor para el servicio. Identifica la ubicación del centro de datos para ciertos servicios cuyos precios se establecen según la ubicación del centro de datos.    |
-| Producto  | Nombre del producto que acumula los cargos, por ejemplo: base de datos SQL básica frente a base de datos SQL estándar  |
+| Producto  | Nombre del producto que acumula los cargos. Por ejemplo: base de datos SQL básica frente a base de datos SQL estándar  |
 | productId  | Identificador único del producto cuyo medidor se consume. |
 | productOrderName  | Nombre del plan del producto comprado. |
-| serviceFamily  | Tipo de servicio de Azure. Por ejemplo: proceso, análisis o seguridad |
+| serviceFamily  | Tipo de servicio de Azure. Por ejemplo: proceso, análisis, seguridad |
 | tierMinimumUnits  | Define el límite inferior del intervalo de nivel para el que se definen los precios. Por ejemplo, si el intervalo es de 0 a 100, tierMinimumUnits sería 0.  |
 | unitOfMeasure  | Identifica las unidades de medida para la facturación del servicio. Por ejemplo, los servicios de proceso se facturan por hora. |
-| unitPrice  | Precio por unidad en el momento de la facturación (no el precio combinado efectivo) como específico para un medidor y el nombre del pedido del producto.  Nota: El precio unitario no es el mismo que el precio efectivo en las descargas de detalles de uso, en el caso de servicios que tienen precios diferentes entre niveles.  En el caso de los servicios con precios de varios niveles, el precio efectivo es una tarifa mixta en todos los niveles y no muestra un precio unitario específico por nivel. El precio combinado o precio efectivo es el precio neto de la cantidad consumida que se extiende a lo largo de los distintos niveles (donde cada nivel tiene un precio unitario específico). |
+| unitPrice  | Precio por unidad en el momento de la facturación (no el precio combinado efectivo) como específico para un medidor y el nombre del pedido del producto.  Nota: El precio unitario no es lo mismo que el precio efectivo en las descargas de detalles de uso, en el caso de servicios que tienen precios diferentes entre niveles.  En el caso de los servicios con precios de varios niveles, el precio efectivo es una tarifa mixta en todos los niveles y no muestra un precio unitario específico por nivel. El precio combinado o precio efectivo es el precio neto de la cantidad consumida que se extiende a lo largo de los distintos niveles (donde cada nivel tiene un precio unitario específico). |
 
 
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Comprobación del acceso a un contrato de cliente de Microsoft

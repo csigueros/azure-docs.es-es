@@ -6,12 +6,12 @@ author: vineetvikram
 ms.author: vivikram
 ms.manager: abhemraj
 ms.date: 03/18/2021
-ms.openlocfilehash: 240f87a6b3154995340830e1861c8a76e6e3557f
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: 55e8efc7b49f14f6eb4cfe399866e53df29e3e36
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123259663"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124767069"
 ---
 # <a name="dependency-analysis"></a>Análisis de dependencias
 
@@ -31,7 +31,7 @@ Hay dos opciones para implementar el análisis de dependencias:
 
 **Opción** | **Detalles** | **Nube pública** | **Azure Government**
 ----  |---- | ----
-**Sin agente** | Sondea los datos de los servidores de VMware mediante las API de vSphere.<br/><br/> No es necesario instalar agentes en los servidores.<br/><br/> Esta opción se encuentra actualmente en versión preliminar y solo para servidores en VMware. | Compatible. | Compatible.
+**Sin agente** | Sondea los datos de los servidores de VMware mediante las API de vSphere.<br/><br/> No es necesario instalar agentes en los servidores.<br/><br/> Esta opción se encuentra actualmente solo para servidores en VMware. | Compatible. | Compatible.
 **Análisis basado en agente** | Usa la [solución Service Map](../azure-monitor/vm/service-map.md) de Azure Monitor para habilitar la visualización y el análisis de dependencias.<br/><br/> Tiene que instalar agentes en cada servidor local que desee analizar. | Compatible | No compatible.
 
 ## <a name="agentless-analysis"></a>Análisis sin agente

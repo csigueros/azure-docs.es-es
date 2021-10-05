@@ -4,20 +4,20 @@ titleSuffix: Azure Digital Twins
 description: Vea cómo migrar una instancia de Azure Digital Twins de una región de Azure a otra.
 author: baanders
 ms.author: baanders
-ms.date: 08/26/2020
+ms.date: 9/8/2021
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.service: digital-twins
-ms.openlocfilehash: 9617fc3cc7668d8449a9ec3b46e6c82228783e9d
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 9fc28555be055fe74f183c965190b2c784c4533b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114447155"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128676796"
 ---
 # <a name="move-an-azure-digital-twins-instance-to-a-different-azure-region"></a>Migración de una instancia de Azure Digital Twins a otra región de Azure
 
-Si necesita mover una instancia de Azure Digital Twins de una región a otra, el proceso actual consiste en volver a crear los recursos en la región nueva y, después, eliminar los recursos originales. Al final de este proceso, trabajará con una instancia de Azure Digital Twins nueva que es idéntica a la primera, salvo que la ubicación está actualizada.
+Si necesita trasladar la instancia de Azure Digital Twins de una región a otra, el proceso actual consiste en volver a crear los recursos en la región nueva. Una vez que se vuelven a crear los recursos en la región nueva, se eliminan los recursos originales. Al final de este proceso, trabajará con una instancia de Azure Digital Twins nueva que es idéntica a la primera, salvo que la ubicación está actualizada.
 
 En este artículo se proporciona una guía para realizar una migración completa y copiar todo lo necesario para que la nueva instancia coincida con la original.
 
@@ -33,7 +33,7 @@ Este proceso incluye los siguientes pasos:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Antes de intentar volver a crear una instancia de Azure Digital Twins, revise los componentes de la instancia original para hacerse una idea clara de todas las partes que deben volver a crearse.
+Antes de intentar volver a crear una instancia de Azure Digital Twins, revise los componentes de la instancia original para hacerse una idea clara de todas las partes que deberá volver a crear.
 
 Estas son algunas preguntas que debe tener en cuenta:
 
@@ -67,11 +67,11 @@ En primer lugar, abra **Azure Digital Twins Explorer** para su instancia de Azu
 
 :::image type="content" source="media/includes/azure-digital-twins-explorer-portal-access.png" alt-text="Captura de pantalla de Azure Portal que muestra la página Información general de una instancia de Azure Digital Twins. Se ha resaltado el botón Ir al explorador (versión preliminar)." lightbox="media/includes/azure-digital-twins-explorer-portal-access.png":::
 
-Se abrirá una ventana de Azure Digital Twins Explorer conectada a esta instancia.
+Al seleccionar este botón, se abrirá una ventana de Azure Digital Twins Explorer conectada a esta instancia.
 
 :::image type="content" source="media/quickstart-azure-digital-twins-explorer/explorer-blank.png" alt-text="Captura de pantalla de Azure Portal en un explorador de Internet. El portal muestra Azure Digital Twins Explorer sin datos." lightbox="media/quickstart-azure-digital-twins-explorer/explorer-blank.png":::
 
-Siga las instrucciones de Azure Digital Twins Explorer que se indican en [Exportación de grafos y modelos](how-to-use-azure-digital-twins-explorer.md#export-graph-and-models). Esto descargará un archivo JSON en la máquina que contiene el código de los modelos, gemelos y relaciones (incluidos los modelos que no se usan actualmente en el grafo).
+Siga las instrucciones de Azure Digital Twins Explorer que se indican en [Exportación de grafos y modelos](how-to-use-azure-digital-twins-explorer.md#export-graph-and-models). Siga estas instrucciones para descargar un archivo JSON en la máquina que contiene el código de los modelos, gemelos y relaciones (incluidos los modelos que no se usan actualmente en el grafo).
 
 ## <a name="move"></a>Mover
 
@@ -90,11 +90,11 @@ A continuación, configurará los datos de la nueva instancia para que sea una c
 
 #### <a name="upload-models-twins-and-graph-with-azure-digital-twins-explorer"></a>Carga de modelos, gemelos y grafos con Azure Digital Twins Explorer
 
-En esta sección, puede volver a cargar los modelos, los gemelos y el grafo en la nueva instancia. Si no tiene ninguno de ellos en la instancia original o no desea migrarlos a la nueva instancia, puede ir directamente a la [siguiente sección](#re-create-endpoints-and-routes).
+En esta sección, puede volver a cargar los modelos, los gemelos y el grafo en la nueva instancia. Si no tiene ninguno de ellos en la instancia original o no desea migrarlos a la nueva instancia, puede ir directamente a la [siguiente sección](#recreate-endpoints-and-routes).
 
 En primer lugar, vaya a **Azure Digital Twins Explorer** para ver la nueva instancia en [Azure Portal](https://portal.azure.com). 
 
-Importe el [archivo JSON que descargó](#download-models-twins-and-graph-with-azure-digital-twins-explorer) anteriormente en este artículo a la nueva instancia de siguiendo los pasos descritos en las instrucciones de [Importación de un archivo a Azure Digital Twins Explorer](how-to-use-azure-digital-twins-explorer.md#import-file-to-azure-digital-twins-explorer). Esto cargará todos los modelos, gemelos y relaciones de la instancia original en la nueva instancia.
+Importe a la instancia nueva el [archivo JSON que descargó](#download-models-twins-and-graph-with-azure-digital-twins-explorer) anteriormente en este artículo. Para ello, siga los pasos que aparecen en las instrucciones de Azure Digital Twins Explorer para [importar archivos a Azure Digital Twins Explorer](how-to-use-azure-digital-twins-explorer.md#import-file-to-azure-digital-twins-explorer). Estos pasos le permitirán cargar todos los modelos, gemelos y relaciones de la instancia original en la instancia nueva.
 
 Para comprobar que todo se ha cargado correctamente, vuelva a la pestaña **Twin Graph** (Grafo gemelo) y seleccione el botón **Run Query** (Ejecutar consulta) en el panel **Query Explorer** (Explorador de consultas) para ejecutar la consulta predeterminada que muestra todos los gemelos y las relaciones en el grafo. Esta acción también actualiza la lista de modelos del panel **Models** (Modelos).
 
@@ -106,9 +106,9 @@ Debería ver el grafo con todos sus gemelos y relaciones en el cuadro **Twin Gra
 
 Estas vistas confirman que los modelos, los gemelos y el grafo se han vuelto a cargar en la nueva instancia de la región de destino.
 
-#### <a name="re-create-endpoints-and-routes"></a>Volver a crear puntos de conexión y rutas
+#### <a name="recreate-endpoints-and-routes"></a>Nueva creación de puntos de conexión y rutas
 
-Si tiene puntos de conexión o rutas en la instancia original, deberá volver a crearlos en la nueva instancia. Si no tiene ningún punto de conexión o ruta en la instancia original o no quiere moverlos a la nueva instancia, puede ir directamente a la [siguiente sección](#relink-connected-resources).
+Si tiene puntos de conexión o rutas en la instancia original, deberá volver a crearlos en la instancia nueva. De lo contrario, si no tiene ningún punto de conexión o ruta en la instancia original o no quiere moverlos a la instancia nueva, puede ir directamente a la [sección siguiente](#relink-connected-resources).
 
 De lo contrario, siga los pasos que se indican en [Administración de puntos de conexión y rutas](how-to-manage-routes.md) mediante la nueva instancia. Tenga en cuenta los siguientes puntos:
 
@@ -133,7 +133,7 @@ Los recursos exactos que necesite editar dependen del escenario, pero estos son 
 * Azure Maps.
 * IoT Hub Device Provisioning Service.
 * Aplicaciones personales o empresariales fuera de Azure, como la aplicación cliente que se creó en [Programación de una aplicación cliente](tutorial-code.md), que se conecta a la instancia y llama a las API de Azure Digital Twins
-* *No* es preciso volver a crear los registros de aplicaciones de Azure AD. Si usa un [registro de aplicaciones](./how-to-create-app-registration-portal.md) para conectarse a las API de Azure Digital Twins, puede volver a usar el mismo registro de aplicaciones con la nueva instancia.
+* *No* es necesario volver a crear los registros de aplicaciones de Azure AD. Si usa un [registro de aplicaciones](./how-to-create-app-registration-portal.md) para conectarse a las API de Azure Digital Twins, puede volver a usar el mismo registro de aplicaciones con la nueva instancia.
 
 Una vez que finalice este paso, la nueva instancia de la región de destino debe ser una copia de la instancia original.
 

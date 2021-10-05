@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 09/21/2021
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 5b973d17e10f3dbb75f5208d9003b4f8118b37c7
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 7fc9731769f568107a1ce6dacb5658fe164bd616
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106111323"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128657526"
 ---
 #  <a name="encode-with-an-auto-generated-bitrate-ladder"></a>Codificación con una escala de velocidad de bits generada automáticamente
 
@@ -31,13 +31,13 @@ En este artículo se explica cómo usar Standard Encoder en Media Services para 
 
 ### <a name="encoding-for-streaming"></a>Codificación para streaming
 
-Si se usa el valor predefinido **AdaptiveStreaming** en **Transform**, recibirá una salida adecuada para su entrega con los protocolos de streaming como HLS y DASH. Cuando se usa este valor predefinido, el servicio determina de manera inteligente cuántas capas de vídeo debe generar y la velocidad de bits y resolución. El contenido de salida incluye archivos MP4 en los que el audio codificado en AAC y el vídeo codificado en H.264 no están intercalados.
+Si se usa **AdaptiveStreaming** o **H265AdaptiveStreaming** preestablecido en **Transform**, se recibe una salida adecuada para su entrega con protocolos de streaming como HLS y DASH. Cuando se usa uno de estos dos valores preestablecidos, el servicio determina de manera inteligente cuántas capas de vídeo debe generar y la velocidad de bits y la resolución. El contenido de la salida tiene archivos MP4 con el audio codificado con AAC y el vídeo codificado en H.264 (en el caso del valor preestablecido AdaptiveStreaming) o H.265/HEVC (en el caso del valor preestablecido H265AdaptiveStreaming). Los archivos MP4 de salida no son intercalados.
 
 Para ver un ejemplo de cómo se usa este valor preestablecido, consulte [Streaming de un archivo](stream-files-dotnet-quickstart.md).
 
 ## <a name="output"></a>Output
 
-En esta sección se muestran tres ejemplos de las capas de vídeo de salida generadas por el codificador de Media Services como resultado de la codificación con el valor preestablecido **AdaptiveStreaming**. En todos los casos, la salida contiene un archivo MP4 de solo audio con el audio estéreo codificado a 128 kbps.
+En esta sección se muestran tres ejemplos de las capas de vídeo de salida generadas por el codificador de Media Services como resultado de la codificación con el valor preestablecido **AdaptiveStreaming** (H.264) o **H265AdaptiveStreaming** (HEVC). En todos los casos, la salida contiene un archivo MP4 de solo audio con el audio estéreo codificado a 128 kbps.
 
 ### <a name="example-1"></a>Ejemplo 1
 Un origen con un alto de "1080" y una tasa de fotogramas de "29.970" genera 6 niveles de vídeo:
@@ -71,7 +71,15 @@ Un origen con un alto de "360" y una tasa de fotogramas de "29.970" genera 3 niv
 |2|270|480|440|
 |3|180|320|230|
 
+
+## <a name="content-aware-encoding-comparison"></a>Comparación de codificación en función del contenido
+
+Los [valores predeterminados de codificación en función del contenido](./encode-content-aware-concept.md) constituyen una mejor solución que los valores preestablecidos de streaming adaptable gracias al análisis del contenido de origen antes de decidir el conjunto correcto de velocidades de bits de salida y resoluciones que se van a usar en la escala.
+Se recomienda probar los [valores predeterminados de codificación en función del contenido](./encode-content-aware-concept.md) antes de usar la escala más estática y fija proporcionada por los valores preestablecidos de streaming con velocidad de bits adaptable.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Streaming de un archivo](stream-files-dotnet-quickstart.md)
+> [Transmisión de un archivo](stream-files-dotnet-quickstart.md)
+> [Uso del valor predeterminado de codificación en función del contenido](./encode-content-aware-concept.md)
+> [Uso de la codificación en función del contenido](./encode-content-aware-how-to.md)

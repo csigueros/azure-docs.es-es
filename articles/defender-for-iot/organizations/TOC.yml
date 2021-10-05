@@ -25,6 +25,8 @@
   items:
     - name: Configuración de la evaluación gratuita de Azure Defender para IoT
       href: tutorial-onboarding.md
+    - name: Integración de CyberArk
+      href: tutorial-cyberark.md
     - name: Integración de Forescout
       href: tutorial-forescout.md
     - name: Integración de Fortinet

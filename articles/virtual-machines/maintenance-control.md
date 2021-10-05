@@ -3,17 +3,17 @@ title: Información general sobre el control del mantenimiento de máquinas virt
 description: Obtenga información sobre cómo controlar cuándo se aplica mantenimiento a las máquinas virtuales de Azure mediante el control de mantenimiento.
 author: cynthn
 ms.service: virtual-machines
-ms.subservice: maintenance-control
+ms.subservice: maintenance
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 11/19/2020
 ms.author: cynthn
-ms.openlocfilehash: 01152d1e422088503621e684f8908182c5caa3a4
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 741a7a73fc7ac4ac468febfd9beec77c3a8c9946
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122691681"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129216540"
 ---
 # <a name="managing-platform-updates-with-maintenance-control"></a>Administración de las actualizaciones de la plataforma con el control de mantenimiento 
 
@@ -32,7 +32,7 @@ Con el control de mantenimiento, puede:
 ## <a name="limitations"></a>Limitaciones
 
 - Las máquinas virtuales deben estar en un [host dedicado](./dedicated-hosts.md) o bien crearse con un [tamaño de máquina virtual aislada](isolation.md).
-- La duración de la ventana de mantenimiento debe ser de 2 horas o más. La duración de la ventana de mantenimiento es el tiempo desde que el cliente inicia la actualización hasta el momento en que se completa. 
+- La duración de la ventana de mantenimiento puede variar mes a mes y, a veces, puede tardar hasta dos horas en aplicar las actualizaciones pendientes una vez que la inicia el usuario.  
 - Después de 35 días, se aplicará automáticamente una actualización.
 - El usuario debe tener acceso de **colaborador del recurso**.
 

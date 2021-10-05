@@ -11,16 +11,16 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 07/27/2020
+ms.date: 09/14/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2cfb09f383d8425a644d3e2e87d190b350f5f41a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c47530e3fd7626674297a2d910ff9c39722c228b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105564643"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128650845"
 ---
 # <a name="configure-privileged-access-group-settings-preview-in-privileged-identity-management"></a>Configuración del grupo de acceso con privilegios (versión preliminar) en Privileged Identity Management
 
@@ -30,7 +30,7 @@ La configuración de roles es la configuración predeterminada que se aplica a l
 
 Siga estos pasos para abrir la configuración de un rol de grupo de acceso con privilegios de Azure.
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com/) con un usuario en el rol [Administrador de roles con privilegios](../roles/permissions-reference.md#privileged-role-administrator).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/) con un usuario que tenga el rol [Administrador global](../roles/permissions-reference.md#global-administrator) o que esté asignado como propietario del grupo.
 
 1. Abra **Azure AD Privileged Identity Management**.
 
@@ -90,23 +90,23 @@ Además, puede elegir una de estas opciones de duración de asignación tipo **A
 > [!NOTE]
 > Los administradores de recursos pueden renovar todas las asignaciones que tienen una fecha de finalización específica. Además, los usuarios pueden iniciar solicitudes de autoservicio para [ampliar o renovar las asignaciones de roles](pim-resource-roles-renew-extend.md).
 
-## <a name="require-multi-factor-authentication"></a>Requerir autenticación multifactor
+## <a name="require-multifactor-authentication"></a>Requiere autenticación multifactor
 
 Privileged Identity Management proporciona el cumplimiento opcional de Azure AD Multi-Factor Authentication en dos escenarios distintos.
 
-### <a name="require-multi-factor-authentication-on-active-assignment"></a>Requerir autenticación multifactor para las asignaciones activas
+### <a name="require-multifactor-authentication-on-active-assignment"></a>Requerir autenticación multifactor para las asignaciones activas
 
-En algunos casos, es posible que quiera asignar un usuario o un grupo a un rol durante un breve período de tiempo (por ejemplo, un día). En este caso, no es necesario que los usuarios asignados soliciten la activación. En este escenario, Privileged Identity Management no puede exigir la autenticación multifactor cuando el usuario usa su asignación de roles, porque ya está activa en el rol desde el momento en que se asignan.
+Esta opción requiere que los administradores completen una autenticación multifactor antes de crear una asignación de roles activa (en lugar de elegible). Privileged Identity Management no puede exigir la autenticación multifactor cuando el usuario utiliza su asignación de roles, porque ya está activa en el rol desde el momento en que se asigna.
 
-Para asegurarse de que el administrador de recursos que realiza la asignación es quien dicen ser, puede exigir la autenticación multifactor en la asignación activa; para ello, active la casilla **Requerir autenticación multifactor en la asignación activa**.
+Para requerir la autenticación multifactor al crear una asignación de roles activa, seleccione la casilla **Requerir autenticación multifactor para las asignaciones activas**.
 
-### <a name="require-multi-factor-authentication-on-activation"></a>Requerir Multi-Factor Authentication durante la activación
+### <a name="require-multifactor-authentication-on-activation"></a>Requerir autenticación multifactor durante la activación
 
 Puede exigir que los usuarios que sean elegibles para un rol demuestren quiénes están usando Azure AD Multi-Factor Authentication antes de que se puedan activar. La autenticación multifactor garantiza que el usuario sea quien dice ser con certeza razonable. Aplicar esta opción protege los recursos críticos en situaciones en las que es posible que la cuenta de usuario se haya puesto en peligro.
 
-Para requerir la autenticación multifactor antes de la activación, active la casilla **Requerir autenticación multifactor en activación**.
+Para requerir la autenticación multifactor antes de la activación, active la casilla **Requerir autenticación multifactor durante la activación**.
 
-Para obtener más información, consulte [Autenticación multifactor y Privileged Identity Management](pim-how-to-require-mfa.md).
+Para más información, consulte [Autenticación multifactor y Privileged Identity Management](pim-how-to-require-mfa.md).
 
 ## <a name="activation-maximum-duration"></a>Duración máxima de la activación
 

@@ -5,12 +5,12 @@ ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.custom: fasttrack-edit, devx-track-azurepowershell
-ms.openlocfilehash: 583af5ac74ca08815c58380ff95fc4e42b1a399a
-ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
+ms.openlocfilehash: 62330b341d2aa59f33b5f780005042d114400748
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2021
-ms.locfileid: "112377141"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128625684"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatización de la implementación de recursos para una aplicación de función en Azure Functions
 
@@ -258,7 +258,7 @@ En Windows, un plan de consumo requiere un valor adicional en la configuración 
 ```
 
 > [!IMPORTANT]
-> No establezca la configuración [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare), ya que se genera automáticamente cuando se crea el sitio por primera vez.
+> No establezca la configuración [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) en una ranura de implementación. Esta configuración se genera automáticamente cuando se crea la aplicación en la ranura de implementación.
 
 #### <a name="linux"></a>Linux
 
@@ -799,5 +799,5 @@ Aprenda a desarrollar y configurar Azure Functions.
 
 <!-- LINKS -->
 
-[Aplicación de función en el plan de consumo]: https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.web/function-app-create-dynamic/azuredeploy.json
-[Aplicación de función en el plan Azure App Service]: https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/vm-simple-linux/azuredeploy.json
+[Aplicación de función en el plan de consumo]: https://azure.microsoft.com/resources/templates/function-app-create-dynamic/
+[Aplicación de función en el plan Azure App Service]: https://azure.microsoft.com/resources/templates/function-app-create-dedicated/

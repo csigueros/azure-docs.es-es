@@ -1,18 +1,19 @@
 ---
-title: Implementación de recursos con la CLI de Azure y archivos Bicep
+title: Implementación de recursos con la CLI de Azure y archivos Bicep | Microsoft Docs
 description: Use Azure Resource Manager y la CLI de Azure para implementar recursos en Azure. Los recursos se definen en un archivo Bicep.
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 07/15/2021
-ms.openlocfilehash: 38d1762faf0d9cbab70b57a79cf9d7811c9fab6b
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.date: 09/17/2021
+ms.custom: devx-track-azurecli, seo-azure-cli
+ms.openlocfilehash: 0c474a7bf1d74b44b85f108b6a7fa28bcdc48902
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123427073"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128625627"
 ---
-# <a name="deploy-resources-with-bicep-and-azure-cli"></a>Implementación de recursos con Bicep y la CLI de Azure
+# <a name="how-to-deploy-resources-with-bicep-and-azure-cli"></a>Implementación de recursos con Bicep y la CLI de Azure
 
 En este artículo, se explica el uso de la CLI de Azure con archivos Bicep para implementar recursos en Azure. Si no conoce los conceptos de implementación y administración de las soluciones de Azure, consulte [Introducción a Bicep](./overview.md).
 
@@ -86,7 +87,7 @@ La implementación puede demorar unos minutos en completarse. Cuando termine, ve
 
 ## <a name="deploy-remote-bicep-file"></a>Implementación de un archivo Bicep remoto
 
-Actualmente, la CLI de Azure no admite la implementación de archivos Bicep remotos. Use la [CLI de Bicep](./install.md#development-environment) para compilar el archivo de Bicep en una plantilla JSON y, luego, cargue el archivo JSON en la ubicación remota.
+Actualmente, la CLI de Azure no admite la implementación de archivos Bicep remotos. Use la [CLI de Bicep](./install.md#vs-code-and-bicep-extension) para compilar el archivo de Bicep en una plantilla JSON y, luego, cargue el archivo JSON en la ubicación remota.
 
 ## <a name="parameters"></a>Parámetros
 

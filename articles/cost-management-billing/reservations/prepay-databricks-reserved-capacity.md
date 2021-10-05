@@ -1,19 +1,19 @@
 ---
 title: Optimización de los costes de Azure Databricks con una compra anticipada
 description: Obtenga información sobre cómo puede pagar por adelantado los cargos de Azure Databricks con la capacidad reservada para ahorrar dinero.
-author: yashesvi
-ms.reviewer: yashar
+author: bandersmsft
+ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 07/24/2020
+ms.date: 09/20/2021
 ms.author: banders
-ms.openlocfilehash: 390a8b421a7b34391bde689e4b968fa98cdbaf76
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 8047c57c929deeffcb69943ce17fa5fe81d31af1
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98599168"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128645063"
 ---
 # <a name="optimize-azure-databricks-costs-with-a-pre-purchase"></a>Optimización de los costes de Azure Databricks con una compra anticipada
 
@@ -53,6 +53,7 @@ Puede comprar planes de Databricks en [Azure Portal](https://portal.azure.com/#b
     - **Single resource group scope** (Ámbito de grupo de recursos único): aplica el descuento por reserva a los recursos coincidentes solo en el grupo de recursos seleccionado.
     - **Single subscription scope** (Ámbito de suscripción única): aplica el descuento por reserva a los recursos coincidentes de la suscripción seleccionada.
     - **Ámbito compartido**: aplica el descuento por reserva a los recursos coincidentes en suscripciones aptas que están en el contexto de facturación. Para los clientes con Contrato Enterprise, el contexto de facturación es la inscripción.
+    - **Grupo de administración**: aplica el descuento de reserva al recurso correspondiente en la lista de suscripciones que forman parte del grupo de administración y del ámbito de facturación.
 1. Seleccione el número de unidades de confirmación de Azure Databricks que quiere comprar y complete la compra.
 
 

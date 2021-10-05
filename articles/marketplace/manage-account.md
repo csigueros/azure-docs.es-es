@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: varsha-sarah
 ms.author: vavargh
-ms.date: 04/07/2021
-ms.openlocfilehash: 2bd5ae6696c5ce1c2d4ea3be974245fde1053b71
-ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
+ms.date: 09/27/2021
+ms.openlocfilehash: 9e30cc845fbc4ec2aefc062780f53e3bb0f02161
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2021
-ms.locfileid: "112416297"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129082613"
 ---
 # <a name="manage-your-commercial-marketplace-account-in-partner-center"></a>Administración de la cuenta de marketplace comercial en el Centro de partners
 
@@ -21,20 +21,40 @@ ms.locfileid: "112416297"
 - Propietario
 - Manager
 
-Después de [crear una cuenta del Centro de partners](./create-account.md), puede usar el [panel de marketplace comercial](https://go.microsoft.com/fwlink/?linkid=2166002) para administrar su cuenta y las ofertas.
+Después de [crear una cuenta del Centro de partners](./create-account.md), puede usar el [panel de marketplace comercial](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) para administrar su cuenta y las ofertas.
 
 ## <a name="access-your-account-settings"></a>Acceso a la configuración de cuenta
+
+[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
+
+#### <a name="workspaces-view"></a>[Vista de áreas de trabajo](#tab/workspaces-view)
+
+Si aún no lo ha hecho, usted (o el administrador de la organización) debe acceder a la [configuración de la cuenta](https://partner.microsoft.com/dashboard/account/v3/organization/legalinfo#mpn) correspondiente a la cuenta del Centro de partners.
+
+1. Inicie sesión en el [panel del marketplace comercial](https://partner.microsoft.com/dashboard/home) en el Centro de partners con la cuenta a la que quiere acceder. Si tiene varias cuentas y ha iniciado sesión con otra, puede [cambiar de cuenta](switch-accounts.md).
+
+1. En la parte superior derecha, seleccione **Configuración** (icono del engranaje) y, después, **Configuración del modelo de inquilino**.
+
+    [ ![Captura de pantalla del menú de configuración de cuenta en el Centro de partners.](./media/manage-accounts/settings-account-workspaces.png) ](./media/manage-accounts/settings-account-workspaces.png#lightbox)
+
+1. En **Configuración de la cuenta** seleccione **Legal**. A continuación, seleccione la pestaña **Desarrollador** para ver los detalles relacionados con su cuenta de marketplace comercial.
+
+    [ ![Captura de pantalla de la pestaña Desarrollador de la página legal en Configuración de la cuenta.](./media/manage-accounts/developer-tab-workspaces.png) ](./media/manage-accounts/developer-tab-workspaces.png#lightbox)
+
+#### <a name="current-view"></a>[Vista actual](#tab/current-view)
 
 Si aún no lo ha hecho, usted (o el administrador de la organización) debe acceder a la [configuración de la cuenta](https://go.microsoft.com/fwlink/?linkid=2165291) correspondiente a la cuenta del Centro de partners.
 
 1. Inicie sesión en el [panel del marketplace comercial](https://go.microsoft.com/fwlink/?linkid=2165290) en el Centro de partners con la cuenta a la que quiere acceder. Si tiene varias cuentas y ha iniciado sesión con otra, puede [cambiar de cuenta](switch-accounts.md).
 1. En la parte superior derecha, seleccione **Configuración** (icono del engranaje) y, después, **Configuración del modelo de inquilino**.
 
-    [ ![Captura de pantalla del menú de configuración de cuenta en el Centro de partners.](./media/manage-accounts/settings-account.png) ](./media/manage-accounts/settings-account.png#lightbox)
+   :::image type="content" source="media/manage-accounts/settings-account.png" alt-text="Captura de pantalla que muestra la opción Configuración de cuenta en el Centro de partners.":::
 
 1. En **Configuración de la cuenta** seleccione **Legal**. A continuación, seleccione la pestaña **Desarrollador** para ver los detalles relacionados con su cuenta de marketplace comercial.
 
-    [ ![Captura de pantalla de la pestaña Desarrollador de la página legal en Configuración de la cuenta.](./media/manage-accounts/developer-tab.png) ](./media/manage-accounts/developer-tab.png#lightbox)
+   :::image type="content" source="media/manage-accounts/developer-tab.png" alt-text="Captura de pantalla que muestra la pestaña Desarrollador." lightbox="media/manage-accounts/developer-tab.png":::
+
+---
 
 ### <a name="account-settings-page"></a>Página de configuración de cuenta
 
@@ -110,7 +130,7 @@ La página **Contratos** le permite ver una lista de los contratos de publicaci�
 
 Para acceder a la página Contratos:
 
-1. Inicie sesión en el [Centro de partners](https://go.microsoft.com/fwlink/?linkid=2165507).
+1. Inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard/home).
 1. En la parte superior derecha, seleccione **Configuración** > **Configuración de la cuenta**.
 1. En **Configuración de la cuenta**, seleccione **Contratos**.
 
@@ -118,14 +138,38 @@ La sección **Se requieren acciones** puede aparecer en la parte superior de est
 
 ## <a name="set-up-a-payout-profile"></a>Configuración de un perfil de pago
 
-Un perfil de pago es la cuenta bancaria a la que se envían los ingresos de sus ventas. Esta cuenta bancaria debe estar en el mismo país o región en el que se ha registrado su cuenta del Centro de partners. Para más información sobre un perfil de pago, consulte [Creación y administración de perfiles fiscales y pagos de incentivos en Centro de partners](/partner-center/incentives-create-and-manage-your-payout-and-tax-profiles) y [Configuración de la cuenta de pago y los formularios de impuestos](/partner-center/set-up-your-payout-account).
+Un perfil de pago es la cuenta bancaria a la que se envían los ingresos de sus ventas. Esta cuenta bancaria debe estar en el mismo país o región en el que se ha registrado su cuenta del Centro de partners. Para más información sobre un perfil de pago, consulte [Configuración de la cuenta de pago y los formularios de impuestos](/partner-center/set-up-your-payout-account).
 
-Para configurar el perfil de pago:
+### <a name="to-set-up-your-payout-profile"></a>Para configurar el perfil de pago:
+
+#### <a name="workspaces-view"></a>[Vista de áreas de trabajo](#tab/workspaces-view)
+
+1. Inicie sesión en el [panel del marketplace comercial](https://partner.microsoft.com/dashboard/home) en el Centro de partners con la cuenta a la que quiere acceder.
+
+1. En la parte superior derecha, seleccione **Configuración** (icono del engranaje) y, después, **Configuración del modelo de inquilino**.
+
+    [ ![Captura de pantalla del menú de configuración de cuenta en el Centro de partners.](./media/manage-accounts/settings-account-workspaces.png) ](./media/manage-accounts/settings-account-workspaces.png#lightbox)
+
+1. En el menú izquierdo, en **Pago e impuestos**, seleccione **Asignación de perfiles fiscales y de pago**.
+
+    [ ![Se muestra la página Asignación de perfiles fiscales y de pago.](./media/manage-accounts/payout-and-tax-profile-assignment.png) ](./media/manage-accounts/payout-and-tax-profile-assignment.png#lightbox)
+
+    > [!NOTE]
+    > Si no ve la sección **Pago e impuestos** en el menú izquierdo, póngase en contacto con el administrador global o el administrador de la cuenta para obtener permisos.
+
+1. Para más información sobre la configuración de un perfil de pago, consulte [Configuración de la cuenta de pago y los formularios de impuestos](/partner-center/set-up-your-payout-account).
+
+#### <a name="current-view"></a>[Vista actual](#tab/current-view)
 
 1. Vaya a la página de [información general del marketplace comercial](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) en el Centro de partners.
-2. En la sección **Perfil**, junto a **Payout Profile** (perfil de pago), seleccione **Actualizar**.
-3. **Elegir una forma de pago**: Cuenta bancaria o PayPal.
-4. **Agregar la información de pago**: Puede que esto incluya la elección de un tipo de cuenta (cheques o ahorro), y especificar el nombre, número de cuenta y de identificación bancaria, dirección de facturación, número de teléfono o dirección de correo electrónico de PayPal, del titular de la cuenta. Para más información acerca del uso de PayPal como forma de pago de la cuenta y para averiguar si esto es compatible con su región o mercado, consulte [Información de PayPal](/windows/uwp/publish/setting-up-your-payout-account-and-tax-forms#paypal-info).
+1. En la sección **Perfil**, junto a **Payout Profile** (perfil de pago), seleccione **Actualizar**.
+
+    > [!NOTE]
+    > Si no ve la sección **Pago e impuestos** en el menú izquierdo, póngase en contacto con el administrador global o el administrador de la cuenta para obtener permisos.
+
+1. Para más información sobre la configuración del perfil de pago, consulte [Configuración de la cuenta de pago y los formularios de impuestos](/partner-center/set-up-your-payout-account).
+
+---
 
 > [!IMPORTANT]
 > El hecho de cambiar la cuenta de pago puede dar lugar a retrasos en los pagos de hasta un ciclo completo. Este retraso se produce porque es necesario comprobar el cambio de la cuenta, al igual que hicimos cuando configuró por primera vez la cuenta de pago. Aunque se le seguirá pagando el importe completo después de que se haya comprobado la cuenta, los pagos pendientes del ciclo actual se agregarán al siguiente.  
@@ -179,17 +223,16 @@ La configuración de administración de dispositivos solo se aplica a la publica
 
 ## <a name="create-a-billing-profile"></a>Creación de un perfil de facturación
 
-Si va a publicar una oferta de [Dynamics 365 for Customer Engagement y Power Apps](dynamics-365-customer-engage-offer-setup.md) o [Dynamics 365 for Operations](./dynamics-365-operations-offer-setup.md) tendrá que rellenar el *perfil de facturación*.
+Si va a publicar una oferta de [Dynamics 365 for Customer Engagement y Power Apps](./partner-center-portal/create-new-customer-engagement-offer.md) o [Dynamics 365 for Operations](./partner-center-portal/create-new-operations-offer.md) tendrá que rellenar el *perfil de facturación*.
 
 La dirección de facturación se rellena previamente a partir de la entidad legal y puede actualizarla más adelante. Los campos IMPUESTO y CIF son obligatorios para algunos países y opcionales para otros. No se puede editar el nombre del país o región y el nombre de la empresa.
 
-1. Vaya a **Configuración de la cuenta**.
+1. En la parte superior derecha, seleccione **Configuración** (icono del engranaje) y, después, **Configuración del modelo de inquilino**.
 1. A continuación, en el panel de navegación izquierdo, expanda **Perfil de organización** y seleccione **Perfil de facturación.**
-
 
 ## <a name="multi-user-account-management"></a>Administración de cuentas multiusuario
 
-El Centro de partners usa [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD) para la administración y el acceso a la cuenta multiusuario. La instancia de Azure AD de la organización se asocia automáticamente con la cuenta del Centro de partners como parte del proceso de inscripción.
+El Centro de partners usa [Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis) (Azure AD) para la administración y el acceso a la cuenta multiusuario. La instancia de Azure AD de la organización se asocia automáticamente con la cuenta del Centro de partners como parte del proceso de inscripción.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

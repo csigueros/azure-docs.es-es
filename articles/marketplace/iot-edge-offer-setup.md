@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: aarathin
 ms.author: aarathin
-ms.date: 05/21/2021
-ms.openlocfilehash: 13557124999faeb68cbe009e4bbc3531023c12f9
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.date: 09/27/2021
+ms.openlocfilehash: 4817502ac03074bd1521724fe1d5e76259f3add4
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111971324"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129084020"
 ---
 # <a name="create-an-iot-edge-module-offer"></a>Creación de una oferta de módulo IoT Edge
 
@@ -26,6 +26,23 @@ Revise [Planificación de una oferta de módulo IoT Edge](marketplace-iot-edge.m
 
 ## <a name="create-a-new-offer"></a>Crear una nueva oferta
 
+#### <a name="workspaces-view"></a>[Vista "Áreas de trabajo"](#tab/workspaces-view)
+
+1. Inicie sesión en el [Centro de partners](https://go.microsoft.com/fwlink/?linkid=2166002).
+
+1. En la página principal, seleccione el icono **Ofertas de Marketplace**.
+
+    [ ![Muestra el icono "Ofertas de Marketplace" en la página principal del Centro de partners.](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
+
+1. En la página "Ofertas de Marketplace", seleccione **+ Nueva oferta** > **Módulo IoT Edge**.
+
+    [ ![Opciones del menú del panel izquierdo y botón "Nueva oferta"](./media/iot-edge/new-offer-iot-edge-workspaces.png) ](./media/iot-edge/new-offer-iot-edge-workspaces.png#lightbox)
+
+> [!IMPORTANT]
+> Una vez publicada la oferta, las modificaciones que realice en el Centro de partners aparecerán en Azure Marketplace solo después de volver a publicarla. Asegúrese de volver a publicar siempre una oferta después de cambiarla.
+
+#### <a name="current-view"></a>[Vista actual](#tab/current-view)
+
 1. Inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard/home).
 2. En el menú de navegación izquierdo, seleccione **Marketplace comercial** > **Información general**.
 3. En la página Información general, seleccione **+ Nueva oferta** > **Módulo IoT Edge**.
@@ -34,6 +51,8 @@ Revise [Planificación de una oferta de módulo IoT Edge](marketplace-iot-edge.m
 
 > [!IMPORTANT]
 > Una vez publicada la oferta, las modificaciones que realice en el Centro de partners aparecerán en Azure Marketplace solo después de volver a publicarla. Asegúrese de volver a publicar siempre una oferta después de cambiarla.
+
+---
 
 ## <a name="new-offer"></a>Nueva oferta
 

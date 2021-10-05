@@ -4,15 +4,15 @@ description: Conozca los pasos necesarios para crear y administrar credenciales 
 author: viseshag
 ms.author: viseshag
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 05/08/2021
-ms.openlocfilehash: 14b11cca3eca6f3d0b89889a4eb1abf3f04f5715
-ms.sourcegitcommit: 0fd913b67ba3535b5085ba38831badc5a9e3b48f
+ms.openlocfilehash: f3367883b35e35a4dd726b92af48a92f863cfa5d
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113487658"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129207856"
 ---
 # <a name="credentials-for-source-authentication-in-azure-purview"></a>Credenciales para la autenticación de origen en Azure Purview
 
@@ -52,7 +52,7 @@ Si usa la identidad administrada de Purview para configurar exámenes, no tendr�
 
 Para crear una credencial, primero debe asociar una o varias de las instancias de Azure Key Vault existentes a su cuenta de Azure Purview.
 
-1. En [Azure Portal](https://portal.azure.com), seleccione su cuenta de Azure Purview y abra Azure Purview Studio. Vaya al **Management Center** (Centro de administración) de Azure Purview Studio y, luego, a **Credentials** (Credenciales).
+1. En [Azure Portal](https://portal.azure.com), seleccione su cuenta de Azure Purview y abra [Purview Studio](https://web.purview.azure.com/resource/). Vaya a **Management Center** (Centro de administración) en el estudio y, luego, a **Credentiales** (Credenciales).
 
 2. En la página **Credentials** (Credenciales), seleccione **Manage Key Vault connections** (Administrar conexiones de Key Vault).
 

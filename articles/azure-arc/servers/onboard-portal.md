@@ -1,16 +1,16 @@
 ---
-title: Conexión de máquinas híbridas a Azure desde Azure Portal
-description: En este artículo, obtendrá información sobre cómo instalar el agente y conectar máquinas a Azure mediante servidores habilitados para Azure Arc desde Azure Portal.
+title: Conexión de máquinas híbridas con Azure Arc mediante un script de implementación
+description: En este artículo, obtendrá información sobre cómo instalar el agente y conectar máquinas a Azure mediante servidores habilitados para Azure Arc usando el script de implementación que se crea desde Azure Portal.
 ms.date: 08/17/2021
 ms.topic: conceptual
-ms.openlocfilehash: bcccb9bbc4db14c2bc5553b1c88099f7b0d7f5d1
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 832e54538c6eb44e90dbd7ccb8ef804e0b0c45b9
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122322306"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128651985"
 ---
-# <a name="connect-hybrid-machines-to-azure-from-the-azure-portal"></a>Conexión de máquinas híbridas a Azure desde Azure Portal
+# <a name="connect-hybrid-machines-to-azure-using-a-deployment-script"></a>Conexión de máquinas híbridas con Azure Arc mediante un script de implementación
 
 Con el fin de implementar en su entorno servidores habilitados para Azure Arc para una máquina Windows o Linux, o un número reducido de ellas, debe realizar una serie de pasos manualmente. O bien, puede usar un método automatizado mediante la ejecución de un script de plantilla que le proporcionaremos. Este script automatiza la descarga e instalación de ambos agentes.
 

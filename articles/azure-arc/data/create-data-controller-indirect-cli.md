@@ -9,12 +9,12 @@ ms.author: dinethi
 ms.reviewer: mikeray
 ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: c2d67cd8e62a0b74ed5959cebfe691ffb044d975
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 195325ff9bad726ed62c5955b393d31e4c457f2e
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121737169"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124836784"
 ---
 # <a name="create-azure-arc-data-controller-using-the-cli"></a>Creación de un controlador de datos de Azure Arc mediante la CLI
 
@@ -117,10 +117,7 @@ Una vez ejecutado el comando, continúe en [Supervisión del estado de creación
 
 #### <a name="configure-storage-azure-stack-hci-with-aks-hci"></a>Configuración del almacenamiento (Azure Stack HCI con AKS-HCI)
 
-Si usa Azure Stack HCI con AKS-HCI, realice una de las siguientes acciones, en función de la versión de Azure Stack HCI con AKS-HCI:
-
-- Para la versión 1.20 y posteriores, cree una clase de almacenamiento personalizada con `fsGroupPolicy:File` (para más información: https://kubernetes-csi.github.io/docs/support-fsgroup.html) ). 
-- Para la versión 1.19, use: 
+Si usa Azure Stack HCI con AKS-HCI, cree una clase de almacenamiento personalizada con `fsType`.
 
    ```json
    fsType: ext4
@@ -232,7 +229,7 @@ De forma predeterminada, el perfil de implementación de kubeadm usa una clase d
 Si desea personalizar el perfil de implementación para especificar una clase de almacenamiento o un tipo de servicio específicos, empiece por crear un nuevo archivo de perfil de implementación personalizado basado en el perfil de implementación de kubeadm. Para ello, ejecute el siguiente comando. Este comando creará un directorio `custom` en el directorio de trabajo actual y un archivo de perfil de implementación personalizado `control.json` en ese directorio.
 
 ```azurecli
-az arcdata dc config init --source azure-arc-kubeadm --path ./custom --k8s-namespace <namespace> --use-k8s
+az arcdata dc config init --source azure-arc-kubeadm --path ./custom 
 ```
 
 Puede buscar las clases de almacenamiento disponibles mediante la ejecución del siguiente comando.

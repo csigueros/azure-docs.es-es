@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 03/01/2021
 ms.author: davidmu
 ms.reviewer: alamaral
-ms.openlocfilehash: 6633d7a6ed7def1a2c3ee7f0262c16b106275bfa
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 420b1a0042dff8b643dc98f3b3f92e33be8c2d75
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121742905"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124791771"
 ---
 # <a name="moving-application-authentication-from-active-directory-federation-services-to-azure-active-directory"></a>Traslado de la autenticación de las aplicaciones de los Servicios de federación de Active Directory (AD FS) a Azure Active Directory
 
@@ -413,7 +413,7 @@ En función de cómo configure la aplicación, compruebe que el inicio de sesió
 | :- | :- |
 | OAuth / OpenID Connect| Seleccione **Aplicaciones empresariales > Permisos** y asegúrese de haber dado su consentimiento a la aplicación desde la configuración del usuario correspondiente a la aplicación.|
 | SSO basado en SAML | Use el botón [Probar la configuración de SAML](debug-saml-sso-issues.md) que está en **Inicio de sesión único**. |
-| SSO basado en contraseñas |  Descargue e instale la [Extensión de inicio de](../user-help/my-apps-portal-end-user-access.md)[-](../user-help/my-apps-portal-end-user-access.md)[sesión seguro de Aplicaciones](../user-help/my-apps-portal-end-user-access.md). Esta extensión lo ayudará a iniciar cualquiera de las aplicaciones en la nube de su organización que requiera que se use un proceso de inicio de sesión único. |
+| SSO basado en contraseñas |  Descargue e instale la [Extensión de inicio de](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)[-](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)[sesión seguro de Aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510). Esta extensión lo ayudará a iniciar cualquiera de las aplicaciones en la nube de su organización que requiera que se use un proceso de inicio de sesión único. |
 | Proxy de aplicación | Asegúrese de que el conector esté en ejecución y que esté asignado a la aplicación. Visite la [Solución de problemas y mensajes de error de Proxy de aplicación](../app-proxy/application-proxy-troubleshoot.md) para obtener más ayuda. |
 
 > [!NOTE]

@@ -9,13 +9,13 @@ ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: mathoma
-ms.date: 09/07/2021
-ms.openlocfilehash: 85bf8c07da9d283011d17f1f96ad76e0fa411213
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.date: 09/21/2021
+ms.openlocfilehash: 2928ce1f58ddefce368a361b32fe65f9c79994cc
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123535319"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128630250"
 ---
 # <a name="migrate-databases-from-sql-server-to-sql-managed-instance-by-using-log-replay-service-preview"></a>Migración de bases de datos de SQL Server a SQL Managed Instance mediante el servicio de reproducción de registros (versión preliminar)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -89,11 +89,6 @@ Una vez detenido LRS, ya sea automáticamente con autocompletar o manualmente co
 - Contenedor de Azure Blob Storage aprovisionado
 - Token de seguridad de firma de acceso compartido (SAS) con permisos de lectura y enumeración generados para el contenedor de Blob Storage
 
-### <a name="migration-of-multiple-databases"></a>Migración de varias bases de datos
-Debe colocar los archivos de copia de seguridad de diferentes bases de datos en carpetas independientes de Blob Storage.
-
-Inicie LRS por separado para cada base de datos, apuntando a la carpeta correspondiente en Blob Storage. LRS puede admitir hasta 100 procesos de restauración simultáneos por cada instancia administrada.
-
 ### <a name="azure-rbac-permissions"></a>Permisos de Azure RBAC
 Para ejecutar LRS mediante los clientes proporcionados, se necesita uno de los siguientes roles de Azure:
 - Rol de propietario de la suscripción
@@ -108,6 +103,7 @@ Se recomiendan las siguientes prácticas recomendadas:
 - Habilite la compresión de copias de seguridad.
 - Use Cloud Shell para ejecutar los scripts, ya que siempre se actualizarán con los últimos cmdlets publicados.
 - Planee de forma que la migración se complete en un plazo de 36 horas después de iniciar LRS. Este período de gracia impide la instalación de revisiones de software administradas por el sistema.
+- Coloque todos los archivos de copia de seguridad de una base de datos individual en una sola carpeta. No use subcarpetas para la misma base de datos.
 
 > [!IMPORTANT]
 > - La base de datos que se está restaurando mediante LRS no se puede usar mientras no haya finalizado el proceso de migración. 
@@ -385,6 +381,22 @@ Para finalizar el proceso de migración en modo continuo de LRS mediante la CLI 
 az sql midb log-replay complete -g mygroup --mi myinstance -n mymanageddb --last-backup-name "backup.bak"
 ```
 
+### <a name="migration-of-multiple-databases"></a>Migración de varias bases de datos
+Debe colocar los archivos de copia de seguridad de diferentes bases de datos en carpetas independientes del contenedor de Azure Blob Storage. Todos los archivos de copia de seguridad de una base de datos única deben colocarse en la misma carpeta, ya que no debe haber subcarpetas para una base de datos individual. LRS debe iniciarse por separado para cada base de datos y apuntar a la ruta de URI completa del contenedor de Azure Blob Storage y la carpeta de base de datos individual.
+
+Debajo hay un ejemplo de la estructura de carpetas y la especificación de URI necesaria a la hora invocar a LRS para varias bases de datos. Inicie LRS por separado para cada base de datos y especifique la ruta de URI completa del contenedor de Azure Blob Storage y la carpeta de base de datos individual.
+
+```URI
+-- Place all backup files for database 1 in its own separate folder within a storage container. No further subfolders are allowed under database1 folder for this database.
+https://<mystorageaccountname>.blob.core.windows.net/<mycontainername>/database1/<all database 1 backup files>
+
+-- Place all backup files for database 2 in its own separate folder within a storage container. No further subfolders are allowed under database2 folder for this database.
+https://<mystorageaccountname>.blob.core.windows.net/<mycontainername>/database2/<all database 2 backup files>
+
+-- Place all backup files for database 2 in its own separate folder within a storage container. No further subfolders are allowed under database3 folder for this database.
+https://<mystorageaccountname>.blob.core.windows.net/<mycontainername>/database3/<all database 3 backup files>
+```
+
 ## <a name="functional-limitations"></a>Limitaciones funcionales
 
 A continuación se indican las limitaciones funcionales de LRS:
@@ -394,7 +406,8 @@ A continuación se indican las limitaciones funcionales de LRS:
 - El token de SAS que utilizará LRS debe generarse para todo el contenedor de Azure Blob Storage y solo debe tener permisos de lectura y enumeración.
 - Los archivos de copia de seguridad de diferentes bases de datos se deben colocar en distintas carpetas de Blob Storage.
 - LRS no puede consumir archivos de copia de seguridad que contengan los caracteres % y $ en el nombre de archivo. Considere la posibilidad de cambiar el nombre de estos nombres de archivo.
-- LRS debe iniciarse por separado para cada base de datos que apunte a distintas carpetas con archivos de copia de seguridad en Blob Storage.
+- No se permite colocar copias de seguridad en subcarpetas para una base de datos individual. Todas las copias de seguridad de una base de datos única deben colocarse en la raíz de una sola carpeta.
+- En el caso de varias bases de datos, los archivos de copia de seguridad deben colocarse en una carpeta independiente para cada base de datos. LRS debe iniciarse por separado para cada base de datos y apuntar a la ruta de URI completa que contiene una carpeta de base de datos individual. 
 - LRS puede admitir hasta 100 procesos de restauración simultáneos por cada instancia administrada.
 
 ## <a name="troubleshooting"></a>Solución de problemas

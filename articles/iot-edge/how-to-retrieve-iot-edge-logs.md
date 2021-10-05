@@ -9,12 +9,12 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: 53ea8657535cb353b2da0f2a5b35398aa972128a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 75b89acff320b3083c098a0546882d80bdcfc5ad
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121745335"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129060922"
 ---
 # <a name="retrieve-logs-from-iot-edge-deployments"></a>Recuperación de registros de implementaciones de IoT Edge
 
@@ -36,7 +36,7 @@ Aunque no es necesario, para mejorar la compatibilidad con esta característica,
 
 `{Timestamp}` debe tener el formato `yyyy-MM-dd HH:mm:ss.fff zzz` y `{Log Level}` debe seguir la tabla siguiente, que deriva sus niveles de gravedad del [código de gravedad del estándar Syslog](https://wikipedia.org/wiki/Syslog#Severity_level).
 
-| Valor | Severity |
+| Value | Severity |
 |-|-|
 | 0 | Emergencia |
 | 1 | Alerta |
@@ -45,7 +45,7 @@ Aunque no es necesario, para mejorar la compatibilidad con esta característica,
 | 4 | Advertencia |
 | 5 | Aviso |
 | 6 | Informativo |
-| 7 | Depurar |
+| 7 | Depuración |
 
 La [Clase de registrador de IoT Edge](https://github.com/Azure/iotedge/blob/master/edge-util/src/Microsoft.Azure.Devices.Edge.Util/Logger.cs) actúa como implementación canónica.
 
@@ -385,7 +385,7 @@ Una solicitud correcta para cargar registros devuelve un **"estado": 200** segui
 
 | Nombre | Tipo | Descripción |
 |-|-|-|
-| status | string | Uno de estos valores: `NotStarted`, `Running`, `Completed`, `Failed` o `Unknown`. |
+| status | string | Uno de `NotStarted`, `Running`, `Completed`, `Failed`, "Cancelado" o `Unknown`. |
 | message | string | Mensaje si hay un error; cadena vacía en caso contrario. |
 | correlationId | string   | Identificador para consultar el estado de la solicitud de carga. |
 

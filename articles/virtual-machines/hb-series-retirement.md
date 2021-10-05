@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-hpc
 ms.topic: conceptual
 ms.date: 08/02/2021
 ms.author: amverma
-ms.openlocfilehash: 8a718f315324638f834316eb6dae46a9497ec48e
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
+ms.openlocfilehash: 2d14b9b3adb9905cc87408db33018746e1479a1b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122515848"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128680098"
 ---
 # <a name="migrate-your-hb-series-virtual-machines-by-august-31-2024"></a>Migrar las máquinas virtuales de la serie HB antes del 31 de agosto de 2024
 Tras la aparición de las máquinas virtuales de las series HBv2 y HBv3 de Microsoft Azure para una informática de alto rendimiento, se recomienda migrar cualquier carga de trabajo de máquina virtual original de la serie HB a nuestras ofertas más recientes.  
@@ -57,4 +57,4 @@ Siga la guía para [solicitar un aumento de la cuota de vCPU por familia de máq
 
 
 ### <a name="resize-the-current-virtual-machine"></a>Cambiar el tamaño de la máquina virtual actual
-Puede [cambiar el tamaño de la máquina virtual con PowerShell](./windows/resize-vm.md), con la [CLI de Azure](./linux/change-vm-size.md) o a través de Azure Portal.
+Puede [cambiar el tamaño de la máquina virtual](resize-vm.md).

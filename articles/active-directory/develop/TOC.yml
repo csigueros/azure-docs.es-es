@@ -320,6 +320,12 @@
               href: scenario-mobile-call-api.md
             - name: Paso a producción
               href: scenario-mobile-production.md
+    - name: Prueba e implementación de una aplicación
+      items:
+        - name: Configuración de un entorno de prueba
+          href: test-setup-environment.md
+        - name: Limitación y límites de servicio
+          href: test-throttle-service-limits.md
     - name: Uso de la Biblioteca de autenticación de Microsoft
       displayName: MSAL
       items:

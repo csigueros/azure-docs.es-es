@@ -7,13 +7,13 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 07/27/2021
-ms.openlocfilehash: a3fe8707df1270f8571ad86fe07406376f71ab93
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/27/2021
+ms.openlocfilehash: 7f784773ff2f29b7f5b9c244811f818861f5ae42
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121743232"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129080634"
 ---
 # <a name="azure-consumption-commitment-enrollment"></a>Inscripción en Compromiso de consumo de Azure
 
@@ -35,6 +35,27 @@ Para su inscripción en el programa MACC, una oferta debe cumplir con los requis
 
 ## <a name="how-to-see-if-your-offer-is-enrolled-in-the-macc-program"></a>Cómo ver si una oferta está inscrita en el programa MACC
 
+[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
+
+#### <a name="workspaces-view"></a>[Vista de áreas de trabajo](#tab/workspaces-view)
+
+1. Inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard/home).
+1. En la página principal, seleccione el icono **Ofertas de Marketplace**.
+
+    [ ![Muestra el icono Ofertas de Marketplace en la página principal del Centro de partners.](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
+
+1. En la página Ofertas de Marketplace, seleccione la oferta que quiere ver.
+1. En la página **Información general de la oferta**, en la sección **Programas de Marketplace**, el estado **Compromiso de consumo de Microsoft Azure** mostrará _Inscrita_ o _No inscrita_.
+
+    [ ![Captura de pantalla de la página Información general de la oferta del Centro de partners que muestra el estado de compromiso de consumo de Microsoft Azure.](media/azure-benefit/enrolled-workspaces.png) ](media/azure-benefit/enrolled-workspaces.png#lightbox)
+
+    ***Figura 1: Oferta inscrita en el programa MACC***
+
+> [!NOTE]
+> El estado del programa MACC de las ofertas publicadas en Azure Marketplace se actualiza los lunes de cada semana. Esto significa que si publica una oferta que cumple con los requisitos para su inscripción en el programa MACC, el estado en el Centro de partners no mostrará el estado Inscrita hasta el lunes siguiente.
+
+#### <a name="current-view"></a>[Vista actual](#tab/current-view)
+
 1. Inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard/home).
 1. En el menú de navegación izquierdo, seleccione **Marketplace comercial** > **Información general**.
 1. En la sección **Ofertas**, seleccione la oferta que desea ver.
@@ -46,6 +67,8 @@ Para su inscripción en el programa MACC, una oferta debe cumplir con los requis
 
 > [!NOTE]
 > El estado del programa MACC de las ofertas publicadas en Azure Marketplace se actualiza los lunes de cada semana. Esto significa que si publica una oferta que cumple con los requisitos para su inscripción en el programa MACC, el estado en el Centro de partners no mostrará el estado Inscrita hasta el lunes siguiente.
+
+---
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/23/2021
 ms.author: deanwe
 ms.custom: references_regions
-ms.openlocfilehash: 9b74ccacdb239b7e413d6b21b29da1218d1d5747
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: c45be7452d71002c2120e37999c2ecfacb8608b0
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122769413"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124800011"
 ---
 # <a name="preview-azure-automanage-for-virtual-machines"></a>Versión preliminar: Azure Automanage para máquinas virtuales
 

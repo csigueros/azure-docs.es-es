@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 04/08/2021
-ms.openlocfilehash: 95db93d0233b22117984bd705dd6ec8d54c4581a
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: fb12a8617396eb0c582ed2b00f856af7f91765fb
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "122652074"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128611422"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Configuración de la replicación de datos internos de Azure Database for MySQL
 
@@ -20,7 +20,7 @@ ms.locfileid: "122652074"
 En este artículo se describe cómo configurar la [Replicación de datos de entrada](concepts-data-in-replication.md) en Azure Database for MySQL mediante la configuración de los servidores de origen y de réplica. En este artículo se asume que tiene alguna experiencia previa con servidores y bases de datos MySQL.
 
 > [!NOTE]
-> Este artículo contiene referencias al término _esclavo_, un término que Microsoft ya no usa. Cuando se elimine el término del software, se eliminará también de este artículo.
+> Este artículo contiene referencias al término *esclavo*, un término que Microsoft ya no usa. Cuando se elimine el término del software, se eliminará también de este artículo.
 >
 
 Para crear una réplica en el servicio Azure Database for MySQL, la [replicación de datos de entrada](concepts-data-in-replication.md) sincroniza los datos que proceden de un servidor MySQL de origen local con máquinas virtuales (VM) o servicios de base de datos en la nube. La replicación de datos de entrada se basa en la replicación según la posición del archivo de registro binario (binlog), que es nativa de MySQL. Para obtener más información acerca de la replicación de binlog, consulte la [Introducción a la replicación de binlog de MySQL](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
@@ -29,7 +29,7 @@ Revise las [limitaciones y los requisitos](concepts-data-in-replication.md#limit
 
 ## <a name="create-an-azure-database-for-mysql-single-server-instance-to-use-as-a-replica"></a>Creación de una instancia de servidor único de Azure Database for MySQL para usarla como réplica
 
-1. Cree una nueva instancia de servidor único de Azure Database for MySQL (p. ej., "replica.mysql.database.azure.com"). Consulte [Creación de un servidor de Azure Database for MySQL mediante Azure Portal](quickstart-create-mysql-server-database-using-azure-portal.md) para la creación del servidor. Este servidor es el servidor de "réplica" para la replicación de datos de entrada.
+1. Cree una instancia de servidor único de Azure Database for MySQL (por ejemplo, `replica.mysql.database.azure.com`). Consulte [Creación de un servidor de Azure Database for MySQL mediante Azure Portal](quickstart-create-mysql-server-database-using-azure-portal.md) para la creación del servidor. Este servidor es el servidor de "réplica" para la replicación de datos de entrada.
 
    > [!IMPORTANT]
    > El servidor de Azure Database for MySQL debe crearse en los planes de tarifa De uso general u Optimizada para memoria, ya que la replicación de datos de entrada solo se admite en estos niveles.

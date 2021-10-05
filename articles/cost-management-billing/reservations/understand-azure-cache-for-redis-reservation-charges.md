@@ -5,14 +5,14 @@ author: yegu-ms
 manager: maiye
 ms.service: cache
 ms.topic: conceptual
-ms.date: 01/22/2020
+ms.date: 09/15/2021
 ms.author: yegu
-ms.openlocfilehash: 5f9e0a18db0920acd35ebd7b133ed3fe5d0eaee9
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 46363d3bed85c275a39fea174191fad18d95d753
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96352956"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128609429"
 ---
 # <a name="how-the-reservation-discount-is-applied-to-azure-cache-for-redis"></a>Aplicación del descuento por reserva a Azure Cache for Redis
 
@@ -20,7 +20,7 @@ Después de comprar capacidad reservada de Azure Cache for Redis, el descuento p
 
 ## <a name="how-reservation-discount-is-applied"></a>Aplicación del descuento por reserva
 
-Un descuento por reserva es para ***usarlo o perderlo**. Por lo tanto, si no tiene recursos coincidentes para ninguna hora, perderá una cantidad de reserva para esa hora. No se pueden arrastrar las horas reservadas no utilizadas.
+Un descuento por reserva es para ***usarlo o perderlo***. Por lo tanto, si no tiene recursos coincidentes para ninguna hora, perderá una cantidad de reserva para esa hora. No se pueden arrastrar las horas reservadas no utilizadas.
 
 Al cerrar un recurso, el descuento por reserva se aplica automáticamente a otro recurso que coincida con el ámbito especificado. Si no se encuentran recursos coincidentes en el ámbito especificado, las horas reservadas se pierden.
 
@@ -30,7 +30,7 @@ El descuento por capacidad reservada de Azure Cache for Redis se aplica a las ca
 
 En los ejemplos siguientes se muestra cómo se aplica el descuento por capacidad reservada de Azure Cache for Redis en función del número de cachés adquiridas y el momento de su ejecución.
 
-**Ejemplo 1**: Compra una capacidad reservada de Azure Cache for Redis para una caché de 6 GB. Si va a ejecutar una caché de 13 GB que coincida con el resto de los atributos de la reserva, se le cobrará el precio de pago por uso por 7 GB de su uso de proceso de Azure Cache for Redis y obtendrá el descuento por reserva durante una hora de uso de proceso de la caché de 6 GB.
+* **Ejemplo 1**: Compra una capacidad reservada de Azure Cache for Redis para una caché de 6 GB. Si va a ejecutar una caché de 13 GB que coincida con el resto de los atributos de la reserva, se le cobrará el precio de pago por uso por 7 GB de su uso de proceso de Azure Cache for Redis y obtendrá el descuento por reserva durante una hora de uso de proceso de la caché de 6 GB.
 
 En el resto de estos ejemplos, supongamos que la capacidad reservada de Azure Cache for Redis que compra es por una caché de 26 GB y el resto de atributos de la reserva coinciden con la caché en ejecución.
 

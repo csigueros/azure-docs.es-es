@@ -3,16 +3,16 @@ title: Preguntas más frecuentes (P+F) sobre Azure Files | Microsoft Docs
 description: Obtenga respuestas a las preguntas frecuentes de Azure Files. Los recursos compartidos de archivos de Azure se pueden montar de manera simultánea en implementaciones de Windows, Linux y macOS locales o en la nube.
 author: roygara
 ms.service: storage
-ms.date: 02/23/2020
+ms.date: 09/15/2021
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 3a19493657e368bf65921f4be7bdd5c9154b77a4
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: f3ce223174bc92fefd9f31c53709665749eca112
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123536786"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128627907"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Preguntas más frecuentes (P+F) sobre Azure Files
 [Azure Files](storage-files-introduction.md) le ofrece recursos compartidos de archivos en la nube totalmente administrados, a los que se puede obtener acceso mediante el protocolo [Bloque de mensajes del servidor (SMB)](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) estándar y el [protocolo Network File System (NFS)](https://en.wikipedia.org/wiki/Network_File_System) (versión preliminar). Los recursos compartidos de archivos de Azure se pueden montar simultáneamente en implementaciones de Windows, Linux y macOS en la nube o locales. También puede almacenar en caché recursos compartidos de archivos de Azure en máquinas con Windows Server mediante Azure File Sync para tener un acceso rápido cerca de donde se usan los datos.
@@ -165,7 +165,7 @@ La sincronización inicial suele estar limitada por la velocidad de carga inicia
    **¿Por qué no se muestran miniaturas ni vistas previas de los archivos almacenados por niveles en el Explorador de Windows?**  
     En el caso de los archivos con niveles, las vistas previas y las miniaturas no estarán visibles en el punto de conexión del servidor. Este comportamiento es el esperado, ya que la característica de caché de vistas en miniatura de Windows omite intencionadamente la lectura de archivos con el atributo sin conexión. Con Niveles de la nube habilitado, la lectura de archivos con niveles provocaría su descarga (recuperación).
 
-    Este comportamiento no es específico de Azure File Sync, el Explorador de Windows muestra una "X gris" para los archivos que tienen establecido el atributo sin conexión. Verá el icono X al acceder a los archivos a través de SMB. Para obtener una explicación detallada de este comportamiento, consulte [https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105](https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105).
+    Este comportamiento no es específico de Azure File Sync, el Explorador de Windows muestra una "X gris" para los archivos que tienen establecido el atributo sin conexión. Verá el icono X al acceder a los archivos a través de SMB. Para obtener una explicación detallada de este comportamiento, consulte [¿Por qué no se obtienen miniaturas de archivos marcados como sin conexión?](https://devblogs.microsoft.com/oldnewthing/20170503-00/?p=96105)
 
     Si tiene preguntas sobre cómo administrar archivos almacenados por niveles, consulte [Administración de archivos almacenados por niveles](../file-sync/file-sync-how-to-manage-tiered-files.md).
 

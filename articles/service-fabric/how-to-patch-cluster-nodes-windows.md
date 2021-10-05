@@ -3,12 +3,12 @@ title: Revisión del sistema operativo Windows en el clúster de Service Fabric
 description: Aquí se muestra cómo habilitar las actualizaciones automáticas de imágenes del sistema operativo para aplicar revisiones en los nodos de clúster de Service Fabric que se ejecutan en Windows.
 ms.topic: how-to
 ms.date: 03/09/2021
-ms.openlocfilehash: 187217a0d8195917d1dfe7d726b987efbb07f8f8
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: 5a3b2c78f0a7a3103c2fc56fe518739ac648ad31
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109739092"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124796502"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Revisión del sistema operativo Windows en el clúster de Service Fabric
 
@@ -24,6 +24,8 @@ Las obtención de [actualizaciones de imágenes de sistema operativo automática
 Asegúrese de que la configuración de durabilidad coincida con la del clúster y la extensión de Service Fabric, ya que la falta de coincidencia produce errores de actualización. Los niveles de durabilidad se pueden modificar según las directrices que se describen en [esta página](../service-fabric/service-fabric-cluster-capacity.md#changing-durability-levels).
 
 La actualización automática de la imagen del sistema operativo no está disponible con durabilidad Bronce. Si bien la [Aplicación de orquestación de parches](service-fabric-patch-orchestration-application.md) (pensada solo para clústeres alojados que no sean de Azure) *no se recomienda* para niveles de durabilidad Plata o mayores, es su única opción para automatizar las actualizaciones de Windows con respecto a la actualización de dominios de Service Fabric.
+
+Si quiere cambiar de la aplicación de orquestación de revisiones a la actualización automática de imágenes del sistema operativo, primero debe dejar de usar la aplicación de orquestación de revisiones.
 
 ## <a name="enable-auto-os-upgrades-and-disable-windows-update"></a>Habilitación de las actualizaciones automáticas del sistema operativo y deshabilitación de Windows Update
 

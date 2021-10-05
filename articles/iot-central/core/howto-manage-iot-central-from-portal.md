@@ -7,12 +7,12 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 07/06/2021
 ms.topic: how-to
-ms.openlocfilehash: 53d93bf202e896a8c2678e78917c15cdd39d80fb
-ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
+ms.openlocfilehash: 57486312b380fc18cfdb399343535e5e12245bff
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122015620"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129091598"
 ---
 # <a name="manage-and-monitor-iot-central-from-the-azure-portal"></a>Administración y supervisión de IoT Central desde Azure Portal
 
@@ -33,13 +33,17 @@ Para crear una aplicación, vaya a la página [Aplicación IoT Central](https://
 * La **plantilla** es el tipo de aplicación de IoT Central que quiere crear. Puede crear una nueva aplicación desde la lista de plantillas relevantes del sector para empezar a trabajar rápidamente o desde cero con la plantilla **Aplicación personalizada**.
 
 * **Ubicación** es la [zona geográfica](https://azure.microsoft.com/global-infrastructure/geographies/) en la que desea crear la aplicación. Normalmente, se debe elegir la ubicación más cercana físicamente a los dispositivos para un rendimiento óptimo. Azure IoT Central está disponible actualmente en las siguientes ubicaciones:
-
-  * Asia Pacífico
-  * Australia
-  * Europa
-  * Japón
-  * Reino Unido
-  * Estados Unidos
+    
+    * Australia
+    * Centro-este de EE. UU.
+    * Este de EE. UU.
+    * Este de EE. UU. 2
+    * Japón Oriental
+    * Norte de Europa
+    * Sudeste de Asia
+    * Sur de Reino Unido
+    * Oeste de Europa
+    * Oeste de EE. UU.
 
   Una vez que elija una ubicación, no puede mover la aplicación a otra más adelante.
 

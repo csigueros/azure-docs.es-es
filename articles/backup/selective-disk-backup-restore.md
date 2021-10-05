@@ -4,12 +4,12 @@ description: En este artículo, se describen la copia de seguridad y la restaura
 ms.topic: conceptual
 ms.date: 05/13/2021
 ms.custom: references_regions , devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: cee95941aa091f77fe128457434a66398188a0a4
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: e23c0729f44128172e4afd4902ce60e9c2ecb29c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110678208"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128613087"
 ---
 # <a name="selective-disk-backup-and-restore-for-azure-virtual-machines"></a>Copia de seguridad y restauración selectivas de discos para máquinas virtuales de Azure
 
@@ -209,6 +209,7 @@ Por ejemplo:
 ```azurepowershell
 $disks = ("0","1")
 $targetVault = Get-AzRecoveryServicesVault -ResourceGroupName "rg-p-recovery_vaults" -Name "rsv-p-servers"
+Set-AzRecoveryServicesVaultContext -Vault $targetVault
 Get-AzRecoveryServicesBackupProtectionPolicy
 $pol = Get-AzRecoveryServicesBackupProtectionPolicy -Name "P-Servers"
 ```
@@ -256,6 +257,9 @@ Enable-AzRecoveryServicesBackupProtection -Item $item  -ExcludeAllDataDisks -Vau
 ```azurepowershell
 Enable-AzRecoveryServicesBackupProtection -Item $item -ResetExclusionSettings -VaultId $targetVault.ID
 ```
+
+> [!NOTE]
+> Si se produce un error en el comando con el error de que se requiere un parámetro de directiva, compruebe el estado de protección del elemento de copia de seguridad. Es probable que la protección se detenga y, por tanto, se requiera una directiva para reanudar la protección y también para restablecer todas las configuraciones de exclusión de disco anterior.
 
 ### <a name="restore-selective-disks-with-powershell"></a>Restauración selectiva de discos con PowerShell
 

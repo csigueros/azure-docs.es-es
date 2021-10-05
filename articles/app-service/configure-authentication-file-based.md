@@ -3,12 +3,12 @@ title: Configuración basada en archivos de AuthN/AuthZ
 description: Configure la autenticación y autorización en App Service mediante un archivo de configuración para habilitar funcionalidades de versión preliminar concretas.
 ms.topic: article
 ms.date: 07/15/2021
-ms.openlocfilehash: 54fa47055a1f0bba3075d6e77c4fa27d63caf2b6
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 2875c529e644b46d08251ae57ee9f424492a2433
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121730690"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128657222"
 ---
 # <a name="file-based-configuration-in-azure-app-service-authentication"></a>Configuración basada en archivos en la autenticación de Azure App Service
 
@@ -21,7 +21,7 @@ Con la [autenticación de App Service](overview-authentication-authorization.md)
 
 1. Cree un nuevo archivo JSON para la configuración en la raíz del proyecto (implementado en D:\home\site\wwwroot en la aplicación web o de funciones). Rellene la configuración deseada según la [referencia de configuración basada en archivos](#configuration-file-reference). Si modifica una configuración de Azure Resource Manager existente, asegúrese de traducir las propiedades capturadas en la colección de `authsettings` en el archivo de configuración.
 
-2. Modifique la configuración existente, que se captura en las API de [Azure Resource Manager](../azure-resource-manager/management/overview.md) de `Microsoft.Web/sites/<siteName>/config/authsettingsV2`. Para modificarla, puede usar una [plantilla de Azure Resource Manager](../azure-resource-manager/templates/overview.md) o una herramienta como [Azure Resource Explorer](https://resources.azure.com/). En la colección authsettingsV2, tendrá que establecer tres propiedades (y posiblemente quitar otras):
+2. Modifique la configuración existente, que se captura en las API de [Azure Resource Manager](../azure-resource-manager/management/overview.md) de `Microsoft.Web/sites/<siteName>/config/authsettingsV2`. Para modificarla, puede usar una [plantilla de Azure Resource Manager](../azure-resource-manager/templates/overview.md) o una herramienta como [Azure Resource Explorer](https://resources.azure.com/). En la colección authsettingsV2, tendrá que establecer dos propiedades (y posiblemente quitar otras):
 
     1. Establecer en `platform.enabled` en "true"
     2. Establecer `platform.configFilePath` en el nombre del archivo (por ejemplo, "auth.json")

@@ -1,18 +1,18 @@
 ---
-title: Creación de una clasificación personalizada y una regla de clasificación (versión preliminar)
+title: Creación de una clasificación personalizada y una regla de clasificación
 description: Descubra cómo crear clasificaciones personalizadas para definir en Azure Purview los tipos de datos únicos del patrimonio de datos de su organización.
 author: viseshag
 ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 3/24/2021
-ms.openlocfilehash: fff9f128e6a533d8a8926093ca58a79ef2e974d3
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/27/2021
+ms.openlocfilehash: 12af9165b8393291b67fd0cbe4cb2ced6ae77a17
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121748114"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129212195"
 ---
 # <a name="custom-classifications-in-azure-purview"></a>Clasificaciones personalizadas en Azure Purview
 
@@ -33,9 +33,9 @@ También tiene la posibilidad de crear clasificaciones personalizadas, si alguna
 
 Para crear una clasificación personalizada, siga estos pasos:
 
-1. En el catálogo, seleccione **Centro de administración** en el menú de la izquierda.
+1. En el catálogo, seleccione **Mapa de datos** en el menú de la izquierda.
 
-2. Seleccione **Clasificaciones** en **Metadata management** (Administración de metadatos).
+2. Seleccione **Clasificaciones** en **Administración de anotaciones**.
 
 3. Seleccione **+ Nuevo**
 
@@ -85,15 +85,15 @@ Para crear una regla de clasificación personalizada:
 
 1. Cree una clasificación personalizada siguiendo las instrucciones de la sección anterior. Una vez hecho esto, debe agregar esta clasificación personalizada a la configuración de la regla de clasificación para que el sistema la aplique cuando encuentre una coincidencia en la columna.
 
-2. Seleccione el icono del **Centro de administración**.
+2. Seleccione el icono de **Mapa de datos**.
 
 3. Seleccione la sección **Classifications rules** (Reglas de clasificaciones).
 
-   :::image type="content" source="media/create-a-custom-classification-and-classification-rule/classificationrules.png" alt-text="Icono de reglas de clasificación" border="true":::
+   :::image type="content" source="media/create-a-custom-classification-and-classification-rule/classification-rules.png" alt-text="Icono de reglas de clasificación" border="true":::
 
 4. Seleccione **Nueva**.
 
-   :::image type="content" source="media/create-a-custom-classification-and-classification-rule/newclassificationrule.png" alt-text="Agregar una nueva regla de clasificación" border="true":::
+   :::image type="content" source="media/create-a-custom-classification-and-classification-rule/new-classification-rule.png" alt-text="Agregar una nueva regla de clasificación" border="true":::
 
 5. Se abre el cuadro de diálogo **New classification rule** (Nueva regla de clasificación). Rellene los campos y decida si va a crear una **regla de expresión regular** o una **regla de diccionario**.
 

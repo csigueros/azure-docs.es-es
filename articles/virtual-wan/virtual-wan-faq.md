@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: troubleshooting
 ms.date: 08/18/2021
 ms.author: cherylmc
-ms.openlocfilehash: 7b0045ccfd54d956ef8ae7fd2eb1b38705aafd31
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
+ms.openlocfilehash: c4c31314ca8e559748425518258e0eec965d9c09
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122514970"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124754444"
 ---
 # <a name="virtual-wan-faq"></a>Preguntas más frecuentes sobre Virtual WAN
 
@@ -34,7 +34,9 @@ Virtual WAN se ofrece en dos variedades: Básico y Estándar. En la instancia de
 
 ### <a name="how-are-availability-zones-and-resiliency-handled-in-virtual-wan"></a>¿Cómo se administran Availability Zones y la resistencia en Virtual WAN?
 
-Virtual WAN es una colección de centros de conectividad y servicios que están disponibles en el centro de conectividad. El usuario puede tener tantas instancias de Virtual WAN como necesite. En un centro de conectividad de Virtual WAN existen varios servicios, como VPN, ExpressRoute, etc. Cada uno de estos servicios (excepto Azure Firewall) se implementa en una región de Availability Zones, siempre y cuando esta admita Availability Zones. Si una región se convierte en una zona de disponibilidad después de la implementación inicial en el centro de conectividad, el usuario puede volver a crear las puertas de enlace, lo que desencadenará una implementación de Availability Zones. Todas las puertas de enlace se aprovisionan en un centro de conectividad como activo-activo, lo que implica que hay resistencia integrada dentro de un centro de conectividad. Los usuarios pueden conectarse a varios centros de conectividad si desean resistencia entre regiones.
+Virtual WAN es una colección de centros de conectividad y servicios que están disponibles en el centro de conectividad. El usuario puede tener tantas instancias de Virtual WAN como necesite. En un centro de Virtual WAN hay varios servicios, como VPN, ExpressRoute, etc. Cada uno de estos servicios se implementa automáticamente en Availability Zones (excepto Azure Firewall), siempre y cuando la región admita Availability Zones. Si una región se convierte en una zona de disponibilidad después de la implementación inicial en el centro de conectividad, el usuario puede volver a crear las puertas de enlace, lo que desencadenará una implementación de Availability Zones. Todas las puertas de enlace se aprovisionan en un centro de conectividad como activo-activo, lo que implica que hay resistencia integrada dentro de un centro de conectividad. Los usuarios pueden conectarse a varios centros de conectividad si desean resistencia entre regiones. 
+
+Actualmente, Azure Firewall se puede implementar de modo que admita Availability Zones mediante el portal de Azure Firewall Manager, [PowerShell](/powershell/module/az.network/new-azfirewall?view=azps-6.3.0#example-6--create-a-firewall-with-no-rules-and-with-availability-zones) o la CLI. De momento no hay forma de configurar un firewall existente para implementarlo en zonas de disponibilidad. Tiene que eliminar y volver a implementar la instancia de Azure Firewall. 
 
 Aunque el concepto de Virtual WAN es global, el recurso de Virtual WAN real se basa en Resource Manager y se implementa de forma regional. En caso de que la propia región de Virtual WAN tenga un problema, todos los centros de conectividad de esa instancia de Virtual WAN seguirán funcionando tal cual, pero el usuario no podrá crear nuevos centros de conectividad hasta que la región de Virtual WAN esté disponible.
 

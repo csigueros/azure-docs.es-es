@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/06/2021
 ms.custom: references_regions
-ms.openlocfilehash: 169f0b76e1009931d51339fe6b058ca24608af30
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: ad59bae5d0d5309dea15effefd29a23e8029cd5b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110061055"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128587715"
 ---
 # <a name="availability-and-business-continuity-in-azure-cognitive-search"></a>Disponibilidad y continuidad empresarial en Azure Cognitive Search
 
@@ -106,9 +106,7 @@ Si usa la API REST de Azure Cognitive Search para [insertar contenido en el índ
 
 ## <a name="disaster-recovery-and-service-outages"></a>Interrupciones de servicio y recuperación ante desastres
 
-Aunque podemos recuperar los datos, Azure Cognitive Search no proporciona conmutación por error instantánea del servicio si se produce una interrupción en centro de datos o el clúster. Si se produce un error en un clúster del centro de datos, el equipo de operaciones lo detectará y trabajará para restaurar el servicio. Experimentará tiempo de inactividad durante la restauración del servicio, pero puede solicitar créditos del servicio para compensar la falta de disponibilidad de servicio según el [Acuerdo de Nivel de Servicio (SLA)](https://azure.microsoft.com/support/legal/sla/search/v1_0/). 
-
-Si se requiera continuidad del servicio, en caso de errores catastróficos fuera de control de Microsoft, debe [aprovisionar un servicio adicional](search-create-service-portal.md) en una región diferente e implementar una estrategia de replicación geográfica para asegurarse de que los índices sean totalmente redundantes en todos los servicios.
+Como se indica en el [Acuerdo de Nivel de Servicio (SLA)](https://azure.microsoft.com/support/legal/sla/search/v1_0/), se garantiza un alto nivel de disponibilidad de las solicitudes de consulta de índices cuando una instancia de servicio de Azure Cognitive Search se configura con dos o más réplicas, y de las solicitudes de actualización de índices cuando una instancia de servicio de Azure Cognitive Search se configura con tres o más réplicas. Pero no hay ningún mecanismo integrado para la recuperación ante desastres. Si se requiere continuidad del servicio en caso de un error catastrófico que quede fuera del control de Microsoft, se recomienda aprovisionar un segundo servicio adicional en otra región e implementar una estrategia de replicación geográfica para asegurarse de que los índices sean totalmente redundantes en todos los servicios.
 
 Los clientes que usen [indizadores](search-indexer-overview.md) para rellenar y actualizar índices pueden controlar la recuperación ante desastres mediante indizadores geográficos que aprovechan el mismo origen de datos. Dos servicios en regiones diferentes, donde cada uno ejecuta un indizador, pueden indexar desde el mismo origen de datos para lograr redundancia geográfica. Si indexa desde orígenes de datos que también tienen redundancia geográfica, tenga en cuenta que los indexadores de Azure Cognitive Search solo pueden realizar una indexación incremental (fusión de actualizaciones a partir de documentos nuevos, modificados o eliminados) desde las réplicas principales. En un evento de conmutación por error, asegúrese de que el indizador apunte de nuevo a la nueva réplica principal. 
 

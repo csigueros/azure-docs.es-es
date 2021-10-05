@@ -9,12 +9,12 @@ ms.subservice: keys
 ms.topic: conceptual
 ms.date: 10/22/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 7dc8d113b8d47ea75938cc7fcd7c24c8a132a3b4
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 3f3db4b694dd825b15cf80be247bf43780e1d381
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114471759"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128563008"
 ---
 # <a name="key-types-algorithms-and-operations"></a>Tipos de claves, algoritmos y operaciones
 
@@ -75,7 +75,7 @@ En la siguiente tabla se muestra un resumen de los tipos de clave y los algoritm
 
 ##  <a name="key-operations"></a>Operaciones con claves
 
-El HSM administrado admite las siguientes operaciones en objetos de clave:  
+Key Vault, incluido el HSM administrado, admite las siguientes operaciones en objetos de clave:  
 
 -   **Crear**: permite a un cliente crear una clave en Key Vault. El valor de la clave lo genera y almacena Key Vault y no se entrega al cliente. Las claves asimétricas pueden crearse en Key Vault.  
 -   **Import**: permite a un cliente importar una clave existente en Key Vault. Se pueden importar claves asimétricas en Key Vault mediante una serie de métodos de empaquetado diferentes dentro de una construcción JWK. 

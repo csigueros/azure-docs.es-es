@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/09/2021
 ms.reviewer: cynthn, jushiman
 ms.custom: template-how-to
-ms.openlocfilehash: 2f5537ec3ad34e3f0ad7eff32d32762ed6fedef3
-ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
+ms.openlocfilehash: 546215d70341402fcc66d2865d291211960cb4a1
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123273313"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128557069"
 ---
 # <a name="remove-a-vm-association-from-a-capacity-reservation-group-preview"></a>Eliminación de una asociación de máquina virtual de un grupo de reserva de capacidad (versión preliminar)
 
@@ -51,7 +51,7 @@ La primera opción es desasignar la máquina virtual, cambiar la propiedad Grupo
     ```rest
     PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{virtualMachineName}/update?api-version=2021-04-01
     ```
-    En el cuerpo de la solicitud, establezca la propiedad `capacityReservationGroup` en vacía para quitar la asociación de la máquina virtual al grupo:
+    En el cuerpo de la solicitud, establezca la propiedad `capacityReservationGroup` en NULL para quitar la asociación de la máquina virtual al grupo:
 
     ```json
      {
@@ -59,7 +59,7 @@ La primera opción es desasignar la máquina virtual, cambiar la propiedad Grupo
     "properties": {
         "capacityReservation": {
             "capacityReservationGroup": {
-                "id":""
+                "id":null
             }
         }
     }
@@ -91,7 +91,7 @@ La primera opción es desasignar la máquina virtual, cambiar la propiedad Grupo
 
     Cuando el estado cambie a **Detenido (desasignado)** , la máquina virtual se ha desasignado.
 
-1. Actualice la máquina virtual para quitar la asociación con el grupo de reserva de capacidad; para ello, establezca la propiedad `CapacityReservationGroupId` en vacía:
+1. Actualice la máquina virtual para quitar la asociación con el grupo de reserva de capacidad; para ello, establezca la propiedad `CapacityReservationGroupId` en NULL:
 
     ```powershell-interactive
     $VirtualMachine =
@@ -102,7 +102,7 @@ La primera opción es desasignar la máquina virtual, cambiar la propiedad Grupo
     Update-AzVM
     -ResourceGroupName "myResourceGroup"
     -VM $VirtualMachine
-    -CapacityReservationGroupId " "
+    -CapacityReservationGroupId $null
     ```
 
 Para obtener más información, vaya a los comandos de Azure PowerShell [Stop-AzVM](/powershell/module/az.compute/stop-azvm), [Get-AzVM](/powershell/module/az.compute/get-azvm) y [Update-AzVM](/powershell/module/az.compute/update-azvm).
@@ -144,7 +144,7 @@ Esta opción funciona bien cuando no se puede desasignar la máquina virtual y c
     PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{VirtualMachineName}/update?api-version=2021-04-01
     ```
 
-    En el cuerpo de la solicitud, establezca la propiedad `capacityReservationGroup` en vacía para quitar la asociación:
+    En el cuerpo de la solicitud, establezca la propiedad `capacityReservationGroup` en NULL para quitar la asociación:
     
     ```json
     {
@@ -152,7 +152,7 @@ Esta opción funciona bien cuando no se puede desasignar la máquina virtual y c
     "properties": {
         "capacityReservation": {
             "capacityReservationGroup": {
-                "id":""
+                "id":null
             }
         }
     }
@@ -176,23 +176,17 @@ Esta opción funciona bien cuando no se puede desasignar la máquina virtual y c
 
 ### <a name="powershell"></a>[PowerShell](#tab/powershell2)
 
->[!NOTE]
-> El comando `Update-AzCapacityReservation` no está disponible durante la versión preliminar. Use `New-AzCapacityReservation` para modificar una reserva de capacidad existente.
-
 1. Actualice la cantidad reservada a cero
 
     ```powershell-interactive
-    New-AzCapacityReservation
+    Update-AzCapacityReservation
     -ResourceGroupName "myResourceGroup"
-    -Location "eastus"
-    -Zone "1"
     -ReservationGroupName "myCapacityReservationGroup"
     -Name "myCapacityReservation"
-    -Sku "Standard_D2s_v3"
     -CapacityToReserve 0
     ```
 
-1. Actualice la máquina virtual para quitar la asociación con el grupo de reserva de capacidad; para ello, establezca la propiedad `CapacityReservationGroupId` en vacía:
+1. Actualice la máquina virtual para quitar la asociación con el grupo de reserva de capacidad; para ello, establezca la propiedad `CapacityReservationGroupId` en NULL:
 
     ```powershell-interactive
     $VirtualMachine =
@@ -203,7 +197,7 @@ Esta opción funciona bien cuando no se puede desasignar la máquina virtual y c
     Update-AzVM
     -ResourceGroupName "myResourceGroup"
     -VM $VirtualMachine
-    -CapacityReservationGroupId " "
+    -CapacityReservationGroupId $null
     ```
 
 Para obtener más información, vaya a los comandos de Azure PowerShell [New-AzCapacityReservation](/powershell/module/az.compute/new-azcapacityreservation), [Get-AzVM](/powershell/module/az.compute/get-azvm) y [Update-AzVM](/powershell/module/az.compute/update-azvm).

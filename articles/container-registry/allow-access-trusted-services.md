@@ -3,12 +3,12 @@ title: Acceso al registro con restricción de red con el servicio de confianza d
 description: Habilitación de una instancia de servicio de Azure de confianza para acceder de forma segura a un registro de contenedor con restricción de red para extraer o insertar imágenes
 ms.topic: article
 ms.date: 05/19/2021
-ms.openlocfilehash: f99215059308c6a2db1e7bce6b9f03580d2b53a4
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: da22d525bbe86403f26daf7c3505c5dadffe4b81
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114286268"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128654163"
 ---
 # <a name="allow-trusted-services-to-securely-access-a-network-restricted-container-registry-preview"></a>Permitir que los servicios de confianza accedan de forma segura a un registro de contenedor con restricción de red (versión preliminar)
 
@@ -45,7 +45,7 @@ Cuando se indica, el acceso por parte del servicio de confianza requiere una con
 | Azure Security Center | Examen de vulnerabilidades por parte de [Azure Defender para registros de contenedor](scan-images-defender.md) | No |
 |ACR Tasks     | [Acceso al registro primario o a otro registro desde una tarea de ACR](container-registry-tasks-cross-registry-authentication.md)       | Sí |
 |Machine Learning | [Implementar](../machine-learning/how-to-deploy-custom-container.md) o [entrenar](../machine-learning/how-to-train-with-custom-image.md) un modelo en un área de trabajo de Machine Learning mediante una imagen de contenedor personalizada de Docker | Sí |
-|Azure Container Registry | [Importar imágenes desde otro registro de contenedor de Azure](container-registry-import-images.md#import-from-an-azure-container-registry-in-the-same-ad-tenant) | No |
+|Azure Container Registry | [Importación de imágenes](container-registry-import-images.md) hacia o desde un registro de contenedor de Azure restringido por la red | No |
 
 > [!NOTE]
 > Actualmente, la habilitación del valor permitir servicios de confianza no se aplica a otros servicios administrados de Azure, incluidos App Service y Azure Container Instances.

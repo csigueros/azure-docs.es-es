@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/26/2021
 ms.author: hobruche
-ms.openlocfilehash: 6e486623db264ec02c0a15abf11366acfcba8d5c
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
+ms.openlocfilehash: 71dde25230c2a474a42872f7b2830c60439738c7
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122072462"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128630781"
 ---
 # <a name="sap-cloud-appliance-library"></a>SAP Cloud Appliance Library
 
@@ -31,14 +31,18 @@ Tendrá que autenticarse con S-User o P-User. Puede crear P-User de forma gratui
 
 | Solución | Vínculo |
 | -------------- | :--------- | 
-| **SAP S/4HANA 2020 FPS02, dispositivo totalmente activado**  20 de abril de 2021 | [Create Instance](https://cal.sap.com/registration?sguid=d48af08b-e2c6-4409-82f8-e42d5610e918&provider=208b780d-282b-40ca-9590-5dd5ad1e52e8) |
-|Este dispositivo contiene SAP S/4HANA 2020 (FPS02) con procedimientos recomendados de SAP activados previamente para las funciones principales de SAP S/4HANA y otros escenarios para Service, Master Data Governance (MDG), Transportation Mgmt. (TM), Portfolio Mgmt. (PPM), Human Capital Management (HCM), Analytics, Migration Cockpit, etc. El acceso de usuario se realiza mediante SAP Fiori, SAP GUI, SAP HANA Studio, escritorio remoto de Windows o el sistema operativo de back-end para un acceso administrativo completo. |  [Detalles](https://cal.sap.com/catalog?provider=208b780d-282b-40ca-9590-5dd5ad1e52e8#/solutions/d48af08b-e2c6-4409-82f8-e42d5610e918) | 
+| **SAP S/4HANA 2020 FPS02, dispositivo totalmente activado**  27 de julio de 2021 | [Create Instance](https://cal.sap.com/registration?sguid=d48af08b-e2c6-4409-82f8-e42d5610e918&provider=208b780d-282b-40ca-9590-5dd5ad1e52e8) |
+|Este dispositivo contiene SAP S/4HANA 2020 (FPS02) con procedimientos recomendados de SAP activados previamente para las funciones principales de SAP S/4HANA y otros escenarios para Service, Master Data Governance (MDG), Transportation Mgmt. (TM), Portfolio Mgmt. (PPM), Human Capital Management (HCM), Analytics, Migration Cockpit, etc. El acceso de usuario se realiza mediante SAP Fiori, SAP GUI, SAP HANA Studio, escritorio remoto de Windows o el sistema operativo de back-end para un acceso administrativo completo. |  [Detalles]( https://cal.sap.com/catalog?provider=208b780d-282b-40ca-9590-5dd5ad1e52e8#/solutions/d48af08b-e2c6-4409-82f8-e42d5610e918) |
 | **SAP S/4HANA 2020 FPS01, dispositivo completamente activado**  20 de abril de 2021 | [Create Instance](https://cal.sap.com/registration?sguid=a0b63a18-0fd3-4d88-bbb9-4f02c13dc343&provider=208b780d-282b-40ca-9590-5dd5ad1e52e8) |
 |Este dispositivo contiene SAP S/4HANA 2020 (FPS01) con procedimientos recomendados de SAP activados previamente para las funciones principales de SAP S/4HANA y otros escenarios para Service, Master Data Governance (MDG), Transportation Mgmt. (TM), Portfolio Mgmt. (PPM), Human Capital Management (HCM), Analytics, Migration Cockpit, etc. El acceso de usuario se realiza mediante SAP Fiori, SAP GUI, SAP HANA Studio, escritorio remoto de Windows o el sistema operativo de back-end para un acceso administrativo completo. |  [Detalles](https://cal.sap.com/catalog?provider=208b780d-282b-40ca-9590-5dd5ad1e52e8#/solutions/a0b63a18-0fd3-4d88-bbb9-4f02c13dc343) | 
 | **SAP S/4HANA 2020 FPS02**  10 de junio de 2021 | [Create Instance](https://cal.sap.com/registration?sguid=c7cff775-cbf7-4cd1-a907-6eeca95a0946&provider=208b780d-282b-40ca-9590-5dd5ad1e52e8) |
 | Esta solución se incluye como una instalación estándar del sistema S/4HANA e incluye un escritorio remoto para facilitar el acceso de front-end. Contiene una interfaz de usuario de SAP S/4HANA Fiori preconfigurada y activada en el cliente 100, con los componentes de requisitos previos activados según la nota de SAP 3045635 Activación rápida para SAP Fiori en SAP S/4HANA 2020 FPS02. Vea el vínculo Más información. | [Detalles](https://cal.sap.com/catalog?provider=208b780d-282b-40ca-9590-5dd5ad1e52e8#/solutions/c7cff775-cbf7-4cd1-a907-6eeca95a0946) | 
 | **SAP BW/4HANA 2.0 SP07 incluido BW/4HANA Content 2.0 SP06**   24 de febrero de 2020 | [Create Instance](https://cal.sap.com/registration?sguid=0f2f20f4-d012-4f76-81af-6ff15063db66&provider=208b780d-282b-40ca-9590-5dd5ad1e52e8) |
 |Esta solución ofrece una visión general de SAP BW/4HANA. SAP BW/4HANA es la nueva generación de Data Warehouse optimizada para HANA. Además de las opciones básicas de BW/4HANA, la solución ofrece abundante contenido de BW/4HANA optimizado para HANA y el siguiente paso de Escenarios híbridos con SAP Data Warehouse Cloud. Como el sistema está preconfigurado, puede empezar a implementar directamente los escenarios.| [Detalles](https://cal.sap.com/catalog?provider=208b780d-282b-40ca-9590-5dd5ad1e52e8#/solutions/0f2f20f4-d012-4f76-81af-6ff15063db66) | 
+| **SAP Business One 10.0 PL02, versión para SAP HANA** 4 de agosto de 2020  | [Create Instance](https://cal.sap.com/registration?sguid=371edc8c-56c6-4d21-acb4-2d734722c712&provider=208b780d-282b-40ca-9590-5dd5ad1e52e8) |
+|Con la confianza de más de 70 000 pequeñas y medianas empresas en más de 170 países, SAP Business One es una solución ERP flexible, asequible y escalable con la potencia de SAP HANA. La solución está preconfigurada mediante una licencia de prueba de 31 días y tiene una base de datos de demostración preinstalada que podrá elegir. Consulte la guía de introducción para obtener información sobre el ámbito de la solución y cómo agregar fácilmente nuevas bases de datos de demostración. |  [Detalles](https://cal.sap.com/catalog?provider=208b780d-282b-40ca-9590-5dd5ad1e52e8#/solutions/371edc8c-56c6-4d21-acb4-2d734722c712) |
+| **Detector de información para SAP Data Custodian v2106** 30 de agosto de 2021  | [Create Instance](https://cal.sap.com/registration?sguid=db44680c-8a2a-405d-8963-838db38fa7dd&provider=208b780d-282b-40ca-9590-5dd5ad1e52e8) |
+|El detector de información para SAP Data Custodian se puede usar para automatizar el etiquetado de datos de los recursos en la nube. Los detectores de información buscan en los recursos de infraestructura y determinan si contienen determinados tipos de información. |  [Detalles](https://cal.sap.com/catalog?provider=208b780d-282b-40ca-9590-5dd5ad1e52e8#/solutions/db44680c-8a2a-405d-8963-838db38fa7dd) |
 | **SAP Yard Logistics 2009 for SAP S/4HANA**  28 de julio de 2021 | [Create Instance](https://cal.sap.com/registration?sguid=9cdf4f13-73a5-4743-a213-82e0d1a68742&provider=208b780d-282b-40ca-9590-5dd5ad1e52e8) |
 |Ejecute una logística de cadena de suministro más eficaz y rentable con la aplicación SAP Yard Logistics. Maximice la visibilidad de todos los procesos y vistas previas de las cargas de trabajo planeadas con una variedad de herramientas de visualización y creación de informes, para que pueda optimizar el uso de los recursos y admitir las tareas de planificación, ejecución y facturación con un único sistema.|  [Detalles](https://cal.sap.com/catalog?provider=208b780d-282b-40ca-9590-5dd5ad1e52e8#/solutions/9cdf4f13-73a5-4743-a213-82e0d1a68742) | 
 | **SAP S/4HANA 2020 FPS02, dispositivo totalmente activado**  27 de julio de 2021 | [Create Instance](https://cal.sap.com/registration?sguid=d48af08b-e2c6-4409-82f8-e42d5610e918&provider=208b780d-282b-40ca-9590-5dd5ad1e52e8) | 

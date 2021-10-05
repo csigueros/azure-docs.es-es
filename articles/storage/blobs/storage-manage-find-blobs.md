@@ -9,12 +9,12 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: klaasl
 ms.custom: references_regions, devx-track-azurepowershell
-ms.openlocfilehash: a03cf3039d996c79b3a6ada3394acae5e6459fa1
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: fa2284e03c8d69bacb40a2fe99d3c3cb10a73828
+ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123470533"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129154648"
 ---
 # <a name="manage-and-find-azure-blob-data-with-blob-index-tags"></a>Administración y búsqueda de datos de Azure Blob con etiquetas de índice de blobs
 
@@ -28,7 +28,7 @@ Las etiquetas de índice de blobs le permiten:
 
 - Especificar comportamientos condicionales para las API de blobs en función de la evaluación de etiquetas de índice
 
-- Usar etiquetas de índice para controles avanzados de las características, como la [administración del ciclo de vida de los blobs](storage-lifecycle-management-concepts.md)
+- Usar etiquetas de índice para controles avanzados de las características, como la [administración del ciclo de vida de los blobs](./lifecycle-management-overview.md)
 
 Considere un escenario en el que tiene millones de blobs en su cuenta de almacenamiento, donde son muchas aplicaciones diferentes las que acceden a ellos. Quiere buscar todos los datos relacionados de un único proyecto. No está seguro del ámbito exacto, ya que los datos pueden estar distribuidos entre varios contenedores con distintas convenciones de nomenclatura. Sin embargo, las aplicaciones cargan todos los datos con etiquetas basadas en el proyecto. En lugar de buscar a través de millones de blobs y comparar nombres y propiedades, puede usar `Project = Contoso` como criterio de detección. El índice de blobs filtrará todos los contenedores en toda la cuenta de almacenamiento para buscar y devolver rápidamente solo el conjunto de 50 blobs de `Project = Contoso`.
 
@@ -67,10 +67,7 @@ Puede aplicar una única etiqueta al blob para describir cuándo se han terminad
 
 Puede aplicar varias etiquetas en el blob para una mayor descripción de los datos.
 
-> "Project" = 'Contoso'  
-> "Classified" = 'True'  
-> "Status" = 'Unprocessed'  
-> "Priority" = '01'
+> "Project" = 'Contoso' "Classified" = 'True' "Status" = 'Unprocessed' "Priority" = '01'
 
 Para modificar los atributos existentes de las etiquetas de índice, recupere los atributos existentes las etiquetas, modifique los atributos de las etiquetas y reemplace por la operación [Set Blob Tags](/rest/api/storageservices/set-blob-tags). Para quitar todas las etiquetas de índice del blob, llame a la operación `Set Blob Tags` sin especificar atributos de etiqueta. Como las etiquetas de índice de blobs son un subrecurso del contenido de los datos del blob, `Set Blob Tags` no modifica ningún contenido subyacente y no cambia la hora de la última modificación ni ETag del blob. Puede crear o modificar las etiquetas de índice para todos los blobs base actuales. Las etiquetas de índice también se conservan para las versiones anteriores, pero no se pasan al motor de índice de blobs, por lo que no se pueden consultar etiquetas de índice para recuperar versiones anteriores. Las etiquetas de las instantáneas o los blobs eliminados temporalmente no se pueden modificar.
 
@@ -179,7 +176,7 @@ En la tabla siguiente se muestran los operadores válidos para las operaciones c
 
 ## <a name="platform-integrations-with-blob-index-tags"></a>Integraciones de la plataforma con etiquetas de índice de blobs
 
-Las etiquetas del Índice de blobs no solo le ayudan a categorizar, administrar y buscar en los datos de blobs, sino que también proporcionan integraciones con otras características de Blob Storage, como la [administración del ciclo de vida](storage-lifecycle-management-concepts.md).
+Las etiquetas del Índice de blobs no solo le ayudan a categorizar, administrar y buscar en los datos de blobs, sino que también proporcionan integraciones con otras características de Blob Storage, como la [administración del ciclo de vida](./lifecycle-management-overview.md).
 
 ### <a name="lifecycle-management"></a>Administración del ciclo de vida
 
@@ -260,7 +257,7 @@ A los autores de llamadas que usan una [identidad de Azure AD](../common/authori
 | [Obtener etiquetas de blobs](/rest/api/storageservices/get-blob-tags)           | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read     |
 | [Buscar blobs por etiquetas](/rest/api/storageservices/find-blobs-by-tags) | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action |
 
-Se requieren permisos adicionales independientes de los datos de blobs subyacentes para las operaciones con etiquetas de índice. El rol [propietario de datos de blobs de almacenamiento](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) tiene permisos para las tres operaciones de etiquetas de índice de blobs. El [lector de datos de blobs de almacenamiento](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader) solo tiene permisos para las operaciones `Find Blobs by Tags` y `Get Blob Tags`.
+Se requieren permisos adicionales independientes de los datos de blobs subyacentes para las operaciones con etiquetas de índice. El rol [propietario de datos de blobs de almacenamiento](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) tiene permisos para las tres operaciones de etiquetas de índice de blobs. 
 
 ### <a name="sas-permissions"></a>Permisos de SAS
 
@@ -293,7 +290,7 @@ En la tabla siguiente se resumen las diferencias entre los metadatos y las etiqu
 |              |   Metadatos   |   Etiquetas de índice de blobs  |
 |--------------|--------------|--------------------|
 | **Límites**      | Sin límite numérico, 8 KB en total, no distingue mayúsculas de minúsculas | 10 etiquetas por blob máx., 768 bytes por etiqueta, distingue mayúsculas de minúsculas |
-| **Actualizaciones**    | No se permiten en el nivel de archivo, `Set Blob Metadata` reemplaza todos los metadatos existentes, `Set Blob Metadata` cambia la hora de la última modificación del blob | Se permiten para los niveles de acceso, `Set Blob Tags` reemplaza todas las etiquetas existentes, `Set Blob Tags` no cambia la hora de la última modificación del blob |
+| **Actualizaciones**    | No se permiten en el nivel de archivo, `Set Blob Metadata` reemplaza todos los metadatos existentes, `Set Blob Metadata` cambia la hora de la última modificación del blob. | Se permiten para los niveles de acceso, `Set Blob Tags` reemplaza todas las etiquetas existentes, `Set Blob Tags` no cambia la hora de la última modificación del blob. |
 | **Storage**     | Se almacenan con los datos del blob | Subrecurso de los datos de blobs |
 | **Indexación y consulta** | Debe usar un servicio independiente, como Azure Search | Funcionalidades nativas de indexación y consulta integradas en Blob Storage |
 | **Cifrado** | Cifrado en reposo con la misma clave de cifrado que se usa para los datos del blob | Cifrado en reposo con una clave de cifrado administrada por Microsoft |
@@ -310,11 +307,11 @@ Se le cobrará por el número promedio mensual de etiquetas de índice en una cu
 
 ## <a name="feature-support"></a>Compatibilidad de características
 
-En esta tabla se muestra cómo se admite esta característica en la cuenta y el impacto en la compatibilidad al habilitar determinadas funcionalidades. 
+En esta tabla se muestra cómo se admite esta característica en la cuenta y el impacto en la compatibilidad al habilitar determinadas funcionalidades.
 
-| Tipo de cuenta de almacenamiento                | Blob Storage (compatibilidad predeterminada)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>    
+| Tipo de cuenta de almacenamiento                | Blob Storage (compatibilidad predeterminada)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
 |-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
-| De uso general estándar, v2 | ![Sí](../media/icons/yes-icon.png) |![No](../media/icons/no-icon.png)              | ![No](../media/icons/no-icon.png) | 
+| De uso general estándar, v2 | ![Sí](../media/icons/yes-icon.png) |![No](../media/icons/no-icon.png)              | ![No](../media/icons/no-icon.png) |
 | Blobs en bloques Premium          | ![No](../media/icons/no-icon.png)|![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
 
 <sup>1</sup> Data Lake Storage Gen2 y el protocolo Network File System (NFS) 3.0 necesitan una cuenta de almacenamiento con un espacio de nombres jerárquico habilitado.
@@ -327,7 +324,7 @@ En esta sección se describen problemas y condiciones conocidos.
 
 - La carga de blobs en páginas con etiquetas de índice no conserva las etiquetas. Establezca las etiquetas después de cargar un blob en páginas.
 
-- Si está habilitado el control de versiones de blob, puede seguir utilizando etiquetas de índice en la versión actual. Las etiquetas de índice se conservan para las versiones anteriores, pero esas etiquetas no se pasan al motor de índice de blobs, por lo que no se pueden recuperar versiones anteriores. Si promueve una versión anterior a la actual, las etiquetas de esa versión anterior se convierten en las de la versión actual. Como esas etiquetas están asociadas a la versión actual, se pasan al motor de índice de blobs y se pueden consultar. 
+- Si está habilitado el control de versiones de blob, puede seguir utilizando etiquetas de índice en la versión actual. Las etiquetas de índice se conservan para las versiones anteriores, pero esas etiquetas no se pasan al motor de índice de blobs, por lo que no se pueden recuperar versiones anteriores. Si promueve una versión anterior a la actual, las etiquetas de esa versión anterior se convierten en las de la versión actual. Como esas etiquetas están asociadas a la versión actual, se pasan al motor de índice de blobs y se pueden consultar.
 
 - No hay ninguna API para determinar si las etiquetas de índice están indizadas.
 
@@ -353,4 +350,4 @@ No, las etiquetas de Resource Manager ayudan a organizar los recursos del plano 
 
 Para ver un ejemplo de cómo se usa el índice de blobs, consulte [Uso del índice de blobs para administrar y buscar datos](storage-blob-index-how-to.md).
 
-Obtenga información sobre la [administración del ciclo de vida](storage-lifecycle-management-concepts.md) y establezca una regla con coincidencia de índice de blobs.
+Obtenga información sobre la [administración del ciclo de vida](./lifecycle-management-overview.md) y establezca una regla con coincidencia de índice de blobs.

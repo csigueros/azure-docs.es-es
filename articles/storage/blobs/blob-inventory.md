@@ -10,12 +10,12 @@ ms.author: normesta
 ms.reviewer: klaasl
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: bc827d0a4221e582054b297f7287fcb55f4142a8
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: 9cf53cdf35435030b9aa16b8336d80d887e6efbd
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123470695"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128584220"
 ---
 # <a name="azure-storage-blob-inventory"></a>Inventario de blobs de Azure Storage
 
@@ -31,7 +31,7 @@ En la siguiente lista se describen las características y funcionalidades dispon
 
 - **Esquema personalizado**
 
-  Puede elegir qué campos aparecen en los informes. Elija entre una lista de campos admitidos. La lista aparece más adelante en este artículo. 
+  Puede elegir qué campos aparecen en los informes. Elija entre una lista de campos admitidos. La lista aparece más adelante en este artículo.
 
 - **Formato de salida CSV y Apache Parquet**
 
@@ -45,7 +45,7 @@ En la siguiente lista se describen las características y funcionalidades dispon
 
 Para habilitar los informes de inventario de blobs, agregue una directiva con una o más reglas a su cuenta de almacenamiento. Para obtener instrucciones, consulte [Habilitación de los informes de inventario de blobs de Azure Storage](blob-inventory-how-to.md).
 
-## <a name="upgrading-an-inventory-policy"></a>Actualización de una directiva de inventario 
+## <a name="upgrading-an-inventory-policy"></a>Actualización de una directiva de inventario
 
 Si ya es usuario de inventarios de blobs de Azure Storage y ha configurado el inventario antes de junio de 2021, puede empezar a usar las nuevas características cargando la directiva y, luego, guardándola de nuevo después de realizar cambios. Al volver a cargar la directiva, los nuevos campos de esta se rellenarán con los valores predeterminados. Si lo desea, puede cambiar estos valores. Además, estarán disponibles las dos características siguientes:
 
@@ -59,20 +59,20 @@ Una directiva de inventario es una colección de reglas en un documento JSON.
 
 ```json
 {
+  "enabled": true,
+  "rules": [
+  {
     "enabled": true,
-    "rules": [
-    {
-        "enabled": true,
-        "name": "inventoryrule1",
-        "destination": "inventory-destination-container",
-        "definition": {. . .}
-    },
-    {
-        "enabled": true,
-        "name": "inventoryrule2",
-        "destination": "inventory-destination-container",
-        "definition": {. . .}
-    }]
+    "name": "inventoryrule1",
+    "destination": "inventory-destination-container",
+    "definition": {. . .}
+  },
+  {
+    "enabled": true,
+    "name": "inventoryrule2",
+    "destination": "inventory-destination-container",
+    "definition": {. . .}
+  }]
 }
 ```
 
@@ -123,43 +123,42 @@ Para ver el documento JSON para reglas de inventario, seleccione la pestaña **V
 
 ```json
 {
-    "destination": "inventory-destination-container",
+  "destination": "inventory-destination-container",
+  "enabled": true,
+  "rules": [
+  {
+    "definition": {
+      "filters": {
+        "blobTypes": ["blockBlob", "appendBlob", "pageBlob"],
+        "prefixMatch": ["inventorytestcontainer1", "inventorytestcontainer2/abcd", "etc"],
+        "includeSnapshots": false,
+        "includeBlobVersions": true,
+      },
+      "format": "csv",
+      "objectType": "blob",
+      "schedule": "daily",
+      "schemaFields": ["Name", "Creation-Time"]
+    },
     "enabled": true,
-    "rules": [
-                             {
-            "definition": {
-                "filters": {
-                    "blobTypes": ["blockBlob", "appendBlob", "pageBlob"],
-                    "prefixMatch": ["inventorytestcontainer1", "inventorytestcontainer2/abcd", "etc"],
-                    "includeSnapshots": false,
-                    "includeBlobVersions": true,
-                },
-                "format": "csv",
-                "objectType": "blob",
-                "schedule": "daily",
-                "schemaFields": ["Name", "Creation-Time"]
-            }
-            "enabled": true,
-            "name": "blobinventorytest",
-            "destination": "inventorydestinationContainer"
-        },
-                             {
-            "definition": {
-                "filters": {
-                    "prefixMatch": ["inventorytestcontainer1", "inventorytestcontainer2/abcd", "etc"]
-                },
-                "format": "csv",
-                "objectType": "container",
-                "schedule": "weekly",
-                "schemaFields": ["Name", "HasImmutabilityPolicy", "HasLegalHold"]
-            }
-            "enabled": true,
-            "name": "containerinventorytest",
-            "destination": "inventorydestinationContainer"
-        }
-    ]
+    "name": "blobinventorytest",
+    "destination": "inventorydestinationContainer"
+  },
+  {
+    "definition": {
+      "filters": {
+        "prefixMatch": ["inventorytestcontainer1", "inventorytestcontainer2/abcd", "etc"]
+      },
+      "format": "csv",
+      "objectType": "container",
+      "schedule": "weekly",
+      "schemaFields": ["Name", "HasImmutabilityPolicy", "HasLegalHold"]
+    },
+    "enabled": true,
+    "name": "containerinventorytest",
+    "destination": "inventorydestinationContainer"
+    }
+  ]
 }
-
 ```
 
 ### <a name="custom-schema-fields-supported-for-blob-inventory"></a>Campos de esquema personalizados admitidos para un inventario de blobs
@@ -183,8 +182,6 @@ Para ver el documento JSON para reglas de inventario, seleccione la pestaña **V
 - IsCurrentVersion (disponible y obligatorio si opta por incluir versiones de blob en el informe)
 - Metadatos
 - LastAccessTime
-
-
 
 ### <a name="custom-schema-fields-supported-for-container-inventory"></a>Campos de esquema personalizados admitidos para un inventario de contenedores
 
@@ -212,24 +209,24 @@ Las directivas de inventario se leen o escriben en su totalidad. No se admiten l
 El evento `BlobInventoryPolicyCompleted` se genera cuando se completa la ejecución del inventario con relación a una regla. Este evento también tiene lugar si se produce un error de usuario en la ejecución del inventario antes de que se inicie el proceso. Por ejemplo, el evento se desencadenará en caso de que la directiva no sea válida o si se produce un error debido a la ausencia de un contenedor de destino. En el siguiente fragmento de código JSON se muestra un evento `BlobInventoryPolicyCompleted` de ejemplo:
 
 ```json
-{ 
-  "topic": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/BlobInventory/providers/Microsoft.EventGrid/topics/BlobInventoryTopic", 
-  "subject": "BlobDataManagement/BlobInventory", 
-  "eventType": "Microsoft.Storage.BlobInventoryPolicyCompleted", 
-  "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx", 
-  "data": { 
-    "scheduleDateTime": "2021-05-28T03:50:27Z", 
-    "accountName": "testaccount", 
-    "ruleName": "Rule_1", 
-    "policyRunStatus": "Succeeded", 
-    "policyRunStatusMessage": "Inventory run succeeded, refer manifest file for inventory details.", 
+{
+  "topic": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/BlobInventory/providers/Microsoft.EventGrid/topics/BlobInventoryTopic",
+  "subject": "BlobDataManagement/BlobInventory",
+  "eventType": "Microsoft.Storage.BlobInventoryPolicyCompleted",
+  "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "data": {
+    "scheduleDateTime": "2021-05-28T03:50:27Z",
+    "accountName": "testaccount",
+    "ruleName": "Rule_1",
+    "policyRunStatus": "Succeeded",
+    "policyRunStatusMessage": "Inventory run succeeded, refer manifest file for inventory details.",
     "policyRunId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-    "manifestBlobUrl": "https://testaccount.blob.core.windows.net/inventory-destination-container/2021/05/26/13-25-36/Rule_1/Rule_1.csv" 
-  }, 
-  "dataVersion": "1.0", 
-  "metadataVersion": "1", 
-  "eventTime": "2021-05-28T15:03:18Z" 
-} 
+    "manifestBlobUrl": "https://testaccount.blob.core.windows.net/inventory-destination-container/2021/05/26/13-25-36/Rule_1/Rule_1.csv"
+  },
+  "dataVersion": "1.0",
+  "metadataVersion": "1",
+  "eventTime": "2021-05-28T15:03:18Z"
+}
 ```
 
 En la siguiente tabla se describe el esquema del evento `BlobInventoryPolicyCompleted`:
@@ -257,60 +254,59 @@ Cada regla de ejecución genera un conjunto de archivos en el contenedor de dest
 
 Cada ejecución de inventario con relación a una regla genera los siguientes archivos:
 
-- **Archivo de inventario:** la ejecución de un inventario con relación a una regla genera uno o más archivos con formato CSV o Apache Parquet. Si hay un gran número de objetos coincidentes, se generan varios archivos en lugar de uno solo. Cada archivo contiene los objetos coincidentes y sus metadatos. En el caso de los archivos con formato CSV, la primera fila siempre es la fila de esquema. En la siguiente imagen se muestra un archivo CSV de inventario abierto en Microsoft Excel.
+- **Archivo de inventario:** la ejecución de un inventario de una regla genera uno o más archivos con formato CSV o Apache Parquet. Si hay un gran número de objetos coincidentes, se generan varios archivos en lugar de uno solo. Cada archivo contiene los objetos coincidentes y sus metadatos. En el caso de los archivos con formato CSV, la primera fila siempre es la fila de esquema. En la siguiente imagen se muestra un archivo CSV de inventario abierto en Microsoft Excel.
 
   :::image type="content" source="./media/blob-inventory/csv-file-excel.png" alt-text="Captura de pantalla de un archivo CSV de inventario abierto en Microsoft Excel":::
 
-  > [!NOTE] 
+  > [!NOTE]
   > Los informes con formato Apache Parquet presentan fechas con el siguiente formato: `timestamp_millis [number of milliseconds since 1970-01-01 00:00:00 UTC`.
-
 
 - **Archivo de suma de comprobación:** contiene la suma de comprobación MD5 del contenido del archivo manifest.json. El nombre del archivo de suma de comprobación es `<ruleName>-manifest.checksum`. La generación del archivo de suma de comprobación marca la finalización de la ejecución de una regla de inventario.
 
-- **Archivo de manifiesto:** un archivo manifest.json contiene los detalles de los archivos de inventario generados para cada regla. El nombre del archivo es `<ruleName>-manifest.json`. Este archivo también captura la definición de la regla proporcionada por el usuario y la ruta de acceso al inventario para dicha regla. En el siguiente fragmento de código JSON se muestra el contenido de un archivo manifest.json de ejemplo:
+- **Archivo de manifiesto:** un archivo manifest.json contiene los detalles de los archivos de inventario generados para esa regla. El nombre del archivo es `<ruleName>-manifest.json`. Este archivo también captura la definición de la regla proporcionada por el usuario y la ruta de acceso al inventario para dicha regla. En el siguiente fragmento de código JSON se muestra el contenido de un archivo manifest.json de ejemplo:
 
-  ```json 
-  { 
-  "destinationContainer" : "inventory-destination-container", 
-  "endpoint" : "https://testaccount.blob.core.windows.net", 
-  "files" : [ 
-        { 
-            "blob" : "2021/05/26/13-25-36/Rule_1/Rule_1.csv", 
-            "size" : 12710092 
-        } 
-    ], 
-    "inventoryCompletionTime" : "2021-05-26T13:35:56Z", 
-    "inventoryStartTime" : "2021-05-26T13:25:36Z", 
-    "ruleDefinition" : { 
-        "filters" : { 
-            "blobTypes" : [ "blockBlob" ], 
-            "includeBlobVersions" : false, 
-            "includeSnapshots" : false, 
-            "prefixMatch" : [ "penner-test-container-100003" ] 
-        }, 
-        "format" : "csv", 
-        "objectType" : "blob", 
-        "schedule" : "daily", 
-        "schemaFields" : [ 
-            "Name", 
-            "Creation-Time", 
-            "BlobType", 
-            "Content-Length", 
-            "LastAccessTime", 
-            "Last-Modified", 
-            "Metadata", 
-            "AccessTier" 
-        ] 
-    }, 
-    "ruleName" : "Rule_1", 
-    "status" : "Succeeded", 
-    "summary" : { 
-        "objectCount" : 110000, 
-        "totalObjectSize" : 23789775 
-    }, 
-    "version" : "1.0" 
-    } 
-   ```
+  ```json
+  {
+  "destinationContainer" : "inventory-destination-container",
+  "endpoint" : "https://testaccount.blob.core.windows.net",
+  "files" : [
+    {
+      "blob" : "2021/05/26/13-25-36/Rule_1/Rule_1.csv",
+      "size" : 12710092
+    }
+  ],
+  "inventoryCompletionTime" : "2021-05-26T13:35:56Z",
+  "inventoryStartTime" : "2021-05-26T13:25:36Z",
+  "ruleDefinition" : {
+    "filters" : {
+      "blobTypes" : [ "blockBlob" ],
+      "includeBlobVersions" : false,
+      "includeSnapshots" : false,
+      "prefixMatch" : [ "penner-test-container-100003" ]
+    },
+    "format" : "csv",
+    "objectType" : "blob",
+    "schedule" : "daily",
+    "schemaFields" : [
+      "Name",
+      "Creation-Time",
+      "BlobType",
+      "Content-Length",
+      "LastAccessTime",
+      "Last-Modified",
+      "Metadata",
+      "AccessTier"
+    ]
+  },
+  "ruleName" : "Rule_1",
+  "status" : "Succeeded",
+  "summary" : {
+    "objectCount" : 110000,
+    "totalObjectSize" : 23789775
+  },
+  "version" : "1.0"
+  }
+  ```
 
 ## <a name="pricing-and-billing"></a>Precios y facturación
 
@@ -328,14 +324,14 @@ Para obtener más información sobre los precios de los inventarios de blobs de 
 
 ## <a name="feature-support"></a>Compatibilidad de características
 
-En esta tabla se muestra cómo se admite esta característica en la cuenta y el impacto en la compatibilidad al habilitar determinadas funcionalidades. 
+En esta tabla se muestra cómo se admite esta característica en la cuenta y el impacto en la compatibilidad al habilitar determinadas funcionalidades.
 
-| Tipo de cuenta de almacenamiento                | Blob Storage (compatibilidad predeterminada)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>    
+| Tipo de cuenta de almacenamiento | Blob Storage (compatibilidad predeterminada) | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
 |-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
-| De uso general estándar, v2 | ![Sí](../media/icons/yes-icon.png) |![Sí](../media/icons/yes-icon.png)  <sup>2</sup>              | ![Sí](../media/icons/yes-icon.png)  <sup>2</sup> | 
-| Blobs en bloques Premium          | ![Sí](../media/icons/yes-icon.png)|![Sí](../media/icons/yes-icon.png)  <sup>2</sup> | ![Sí](../media/icons/yes-icon.png)  <sup>2</sup> |
+| De uso general estándar, v2 | ![Sí](../media/icons/yes-icon.png) | ![Sí](../media/icons/yes-icon.png)  <sup>2</sup>              | ![Sí](../media/icons/yes-icon.png) <sup>2</sup> |
+| Blobs en bloques Premium | ![Sí](../media/icons/yes-icon.png)| ![Sí](../media/icons/yes-icon.png)  <sup>2</sup> | ![Sí](../media/icons/yes-icon.png)  <sup>2</sup> |
 
-<sup>1</sup> Data Lake Storage Gen2 y el protocolo Network File System (NFS) 3.0 necesitan una cuenta de almacenamiento con un espacio de nombres jerárquico habilitado.
+<sup>1</sup> Tanto Data Lake Storage Gen2 como el protocolo Network File System (NFS) 3.0 necesitan una cuenta de almacenamiento con un espacio de nombres jerárquico habilitado.
 
 <sup>2</sup> La característica se admite en el nivel de versión preliminar.
 
@@ -355,4 +351,4 @@ Una directiva de replicación de objetos puede impedir que un trabajo de inventa
 
 - [Habilitación de los informes de inventario de blobs de Azure Storage](blob-inventory-how-to.md)
 - [Cálculo del recuento y el tamaño total de los blobs por contenedor](calculate-blob-count-size.md)
-- [Administración del ciclo de vida de Azure Blob Storage](storage-lifecycle-management-concepts.md)
+- [Administración del ciclo de vida de Azure Blob Storage](./lifecycle-management-overview.md)

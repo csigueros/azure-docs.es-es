@@ -6,14 +6,14 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 03/22/2020
+ms.date: 09/15/2021
 ms.author: banders
-ms.openlocfilehash: 1dec8253d785973aa900434c10f85ec0a63e0599
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: c2f8ab7f2f5dc392696cc9e887f401502e906c3b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99574879"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128559794"
 ---
 # <a name="how-a-reservation-discount-is-applied"></a>Aplicación de un descuento por reserva
 
@@ -25,7 +25,7 @@ Al cerrar un recurso, el descuento por reserva se aplica automáticamente a otro
 
 Por ejemplo, más adelante podría crear un recurso y tener una reserva que coincida con la que está infrautilizada. El descuento por reserva se aplica automáticamente al nuevo recurso coincidente.
 
-Si, por el contrario, sus máquinas virtuales se ejecutan en diferentes suscripciones dentro de su cuenta o inscripción, seleccione el ámbito compartido. El ámbito compartido le permite aplicar el descuento de la reserva en varias suscripciones. También puede cambiar el ámbito después de la compra de la reserva. Para más información, consulte [Administración de Azure Reservations](manage-reserved-vm-instance.md).
+Si, por el contrario, sus máquinas virtuales se ejecutan en diferentes suscripciones dentro de su cuenta o inscripción, seleccione el ámbito compartido. El ámbito compartido le permite aplicar el descuento de la reserva en varias suscripciones. También puede cambiar el ámbito después de la compra de la reserva. Para más información, consulte [Administración de Azure Reservations](manage-reserved-vm-instance.md). También puede usar el ámbito del grupo de administración. Se aplica el descuento de reserva al recurso correspondiente en la lista de suscripciones que forman parte del grupo de administración y del ámbito de facturación.
 
 Los descuentos por reserva solo se aplican a los recursos asociados con Enterprise, Microsoft Customer Agreement, CSP o a las suscripciones con tarifas de pago por uso. Los recursos que se ejecutan en una suscripción con otros tipos de oferta no recibirán el descuento por la reserva.
 

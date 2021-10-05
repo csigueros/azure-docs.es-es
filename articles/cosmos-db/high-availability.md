@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/07/2021
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: ec09ac444999be23fa0caed741e1e1534117fa0c
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 5fdde23875d49d6bf4329a57081f12f517692062
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123105624"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128618668"
 ---
 # <a name="how-does-azure-cosmos-db-provide-high-availability"></a>¿Cómo proporciona Azure Cosmos DB la alta disponibilidad?
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -41,7 +41,7 @@ Dentro de una región, Azure Cosmos DB mantiene cuatro copias de los datos como
 
 * Se replica cada partición de todas las regiones. Cada región contiene todas las particiones de datos de un contenedor de Azure Cosmos y puede atender operaciones tanto de lectura como de escritura cuando están habilitadas las operaciones de escritura en varias regiones.  
 
-Si la cuenta de Azure Cosmos se distribuye entre *N* regiones de Azure, habrá al menos *N* x 4 copias de todos los datos. Tener una cuenta de Azure Cosmos en más de dos regiones mejora la disponibilidad de la aplicación y proporciona una latencia baja en las regiones asociadas.
+Si la cuenta de Azure Cosmos se distribuye entre *N* regiones de Azure, habrá *N* x 4 copias de todos los datos. Para obtener información general más detallada sobre la distribución de datos, vea [Distribución de datos global en segundo plano](global-dist-under-the-hood.md). Tener una cuenta de Azure Cosmos en más de dos regiones mejora la disponibilidad de la aplicación y proporciona una latencia baja en las regiones asociadas.
 
 ## <a name="slas-for-availability"></a>SLA para disponibilidad
 

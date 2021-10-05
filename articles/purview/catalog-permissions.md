@@ -1,18 +1,17 @@
 ---
-title: Permisos del catálogo (versión preliminar)
-description: En este artículo se proporciona información general sobre cómo configurar el control de acceso basado en rol (RBAC) en Azure Purview.
+title: Descripción del acceso y los permisos
+description: En este artículo se proporciona información general sobre los permisos, el control de acceso y las colecciones en Azure Purview. El control de acceso basado en roles (RBAC) se administra en el propio Azure Purview, por lo que en esta guía se tratarán los conceptos básicos para proteger la información.
 author: viseshag
 ms.author: viseshag
 ms.service: purview
-ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 08/18/2020
-ms.openlocfilehash: 2d9b9aaa6cfd0236a6bc990da5b3ec0870adcd87
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.date: 09/27/2021
+ms.openlocfilehash: fc2ea92f8e5a3d727db130cc4dce7c13c449a9fa
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123478201"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129209060"
 ---
 # <a name="access-control-in-azure-purview"></a>Control de acceso en Azure Purview
 
@@ -31,10 +30,10 @@ Una colección es una herramienta que Azure Purview usa para agrupar recursos, o
 
 Azure Purview usa un conjunto de roles predefinidos para controlar quién puede acceder a lo que hay dentro de la cuenta. Estos roles son actualmente:
 
-- **Administradores de colecciones**: pueden editar las colecciones de Purview, sus detalles, y agregar subcolecciones. También pueden agregar a los usuarios otros roles de Purview en colecciones en las que sean administradores.
-- **Administradores de orígenes de datos**: pueden administrar orígenes de datos y exámenes de datos.
-- **Administradores provisionales de datos**: pueden crear, leer, modificar y eliminar recursos de datos del catálogo y establecer relaciones entre recursos.
-- **Lectores de datos**: pueden acceder a los recursos de datos del catálogo, pero no modificarlos.
+- **Administradores de colecciones**: un rol para los usuarios que tienen que asignar roles a otros en Azure Purview o bien administrar colecciones. Los administradores de colecciones pueden agregar usuarios a roles en las colecciones en las que son administradores. También pueden editar las colecciones y sus detalles y agregar subcolecciones.
+- **Administradores de datos**: un rol que proporciona acceso al catálogo de datos para administrar recursos, configurar clasificaciones personalizadas, configurar términos de glosario y revisar la información. Los administradores de datos pueden crear, leer, modificar, mover y eliminar recursos, además de aplicarles anotaciones.
+- **Administradores de orígenes de datos**: un rol que puede administrar exámenes y orígenes de datos. Un usuario que tenga solo el rol de administrador de orígenes de datos no tiene acceso a Azure Purview Studio. La combinación de este rol con los roles de lector de datos o de administrador de datos proporciona un acceso más amplio.
+- **Lectores de datos**: un rol que proporciona acceso de solo lectura a los recursos de datos, clasificaciones, reglas de clasificación, colecciones, glosario e información.
 
 ## <a name="who-should-be-assigned-to-what-role"></a>¿A quién se le debe asignar cada rol?
 
@@ -52,7 +51,7 @@ Azure Purview usa un conjunto de roles predefinidos para controlar quién puede 
 
 ## <a name="understand-how-to-use-azure-purviews-roles-and-collections"></a>Uso de los roles y las colecciones de Azure Purview
 
-Todo el control de acceso se administra en las colecciones de Purview. Las colecciones de Purview se pueden encontrar en [Purview Studio](use-purview-studio.md). Abra la cuenta de Purview en [Azure Portal](https://portal.azure.com) y seleccione el icono de Purview Studio en la página de información general. Desde allí, vaya al mapa de datos en el menú izquierdo y seleccione la pestaña "Colecciones".
+Todo el control de acceso se administra en las colecciones de Purview. Las colecciones de Purview se pueden encontrar en [Purview Studio](https://web.purview.azure.com/resource/). Abra la cuenta de Purview en [Azure Portal](https://portal.azure.com) y seleccione el icono de Purview Studio en la página de información general. Desde allí, vaya al mapa de datos en el menú izquierdo y seleccione la pestaña "Colecciones".
 
 Cuando se crea una cuenta de Azure Purview, comienza con una colección raíz que tiene el mismo nombre que la propia cuenta de Purview. El creador de la cuenta de Purview se agrega automáticamente como administrador de colecciones, administrador de orígenes de datos, administrador provisional de datos y lector de datos en esta colección raíz, y puede editarla y administrarla.
 
@@ -91,7 +90,7 @@ Del mismo modo que con los roles Administrador provisional de datos y Administra
 
 ### <a name="add-users-to-roles"></a>Asignación de roles a los usuarios
 
-La asignación de roles se administra mediante las colecciones. Solo un usuario con el [rol de administrador de colecciones](#roles) puede conceder permisos a otros usuarios para esa colección. Cuando sea necesario agregar nuevos permisos, un administrador de colecciones accederá a Purview Studio, irá al mapa de datos, luego a la pestaña Colecciones y seleccionará la colección en la que es necesario agregar un usuario. En la pestaña Asignaciones de roles, podrán agregar y administrar los usuarios que necesitan permisos.
+La asignación de roles se administra mediante las colecciones. Solo un usuario con el [rol de administrador de colecciones](#roles) puede conceder permisos a otros usuarios para esa colección. Cuando sea necesario agregar nuevos permisos, un administrador de colecciones accederá a [Purview Studio](https://web.purview.azure.com/resource/), irá al mapa de datos, luego a la pestaña Colecciones y seleccionará la colección en la que es necesario agregar un usuario. En la pestaña Asignaciones de roles, podrán agregar y administrar los usuarios que necesitan permisos.
 
 Puede encontrar instrucciones completas en nuestra [guía paso a paso para agregar asignaciones de roles](how-to-create-and-manage-collections.md#add-role-assignments).
 
@@ -136,7 +135,7 @@ Solo dos roles integrados del plano de control en Azure pueden asignar roles de 
 #### <a name="an-example-of-assigning-someone-to-a-legacy-role"></a>Ejemplo de asignación de un rol heredado a un usuario
 
 1. Vaya a https://portal.azure.com y vaya a la cuenta de Azure Purview.
-1. Haga clic en "Control de acceso (IAM)" en el lado izquierdo.
+1. Seleccione **Control de acceso (IAM)** .
 1. A continuación, siga las instrucciones generales que se indican [aquí](../role-based-access-control/quickstart-assign-role-user-portal.md#create-a-resource-group).
 
 ### <a name="legacy-role-definitions-and-actions"></a>Definiciones y acciones de roles heredados
@@ -147,7 +146,7 @@ Un rol se define como una colección de acciones. Consulte [aquí](../role-based
 
 Si desea tener acceso a una cuenta de Azure Purview para poder usar Studio o llamar a sus API, necesita que le agreguen a un rol del plano de datos de Azure Purview. Las únicas personas que pueden hacer esto son aquellas que son Propietarios o Administradores de acceso de usuarios en la cuenta de Azure Purview. Para la mayoría de los usuarios, el siguiente paso es encontrar un administrador local que pueda ayudar a encontrar a las personas adecuadas que les puedan dar acceso.
 
-En el caso de los usuarios que tienen acceso a [Azure Portal](https://portal.azure.com) de la empresa, pueden buscar la cuenta de Azure Purview en particular a la que desean unirse, hacer clic en la pestaña "Control de acceso (IAM)" y ver quiénes son los propietarios o los administradores de acceso de usuarios (UAA). Pero tenga en cuenta que, en algunos casos, los grupos de Azure Active Directory o las entidades de servicio se pueden usar como propietarios o UAA, en cuyo caso puede que no sea posible ponerse en contacto con ellos directamente. En su lugar, debe buscar un administrador para obtener ayuda.
+En el caso de los usuarios que tienen acceso a [Azure Portal](https://portal.azure.com) de la empresa, pueden buscar la cuenta de Azure Purview en particular a la que quieren unirse, seleccionar la pestaña **Control de acceso (IAM)** y ver quiénes son los propietarios o los administradores de acceso de usuarios (UAA). Pero tenga en cuenta que, en algunos casos, los grupos de Azure Active Directory o las entidades de servicio se pueden usar como propietarios o UAA, en cuyo caso puede que no sea posible ponerse en contacto con ellos directamente. En su lugar, debe buscar un administrador para obtener ayuda.
 
 ### <a name="legacy---who-should-be-assigned-to-what-role"></a>Heredado: ¿quién debe asignarse a qué rol?
 

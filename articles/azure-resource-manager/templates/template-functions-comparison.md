@@ -2,13 +2,13 @@
 title: 'Funciones de plantillas: comparación'
 description: Describe las funciones para usar en una plantilla de Azure Resource Manager para comparar valores.
 ms.topic: conceptual
-ms.date: 05/11/2021
-ms.openlocfilehash: 0572ff1815cd8ede87d490457a5cb689bed80467
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.date: 09/08/2021
+ms.openlocfilehash: 0f9243cdc61ad5e7710663328eb4f85c9471fda5
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111959728"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124812359"
 ---
 # <a name="comparison-functions-for-arm-templates"></a>Funciones de comparación para plantillas de ARM
 
@@ -34,7 +34,7 @@ En Bicep, use el operador `??` en su lugar. Vea [Coalesce ??](../bicep/operators
 | Parámetro | Obligatorio | Tipo | Descripción |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |int, string, array u object |El primer valor para comprobar si hay valores nulos. |
-| argumentos adicionales |No |int, string, array u object |Valores adicionales para probar si hay valores nulos. |
+| más argumentos |No |int, string, array u object | Más valores para probar si hay valores nulos. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -42,51 +42,9 @@ El valor de los primeros parámetros que no son nulos, que puede ser una cadena,
 
 ### <a name="example"></a>Ejemplo
 
-En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/coalesce.json) siguiente se muestra el resultado de los diferentes usos de coalesce.
+En la plantilla de ejemplo siguiente se muestra el resultado de los diferentes usos de coalesce.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "objectToTest": {
-      "type": "object",
-      "defaultValue": {
-        "null1": null,
-        "null2": null,
-        "string": "default",
-        "int": 1,
-        "object": { "first": "default" },
-        "array": [ 1 ]
-      }
-    }
-  },
-  "resources": [
-  ],
-  "outputs": {
-    "stringOutput": {
-      "type": "string",
-      "value": "[coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2, parameters('objectToTest').string)]"
-    },
-    "intOutput": {
-      "type": "int",
-      "value": "[coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2, parameters('objectToTest').int)]"
-    },
-    "objectOutput": {
-      "type": "object",
-      "value": "[coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2, parameters('objectToTest').object)]"
-    },
-    "arrayOutput": {
-      "type": "array",
-      "value": "[coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2, parameters('objectToTest').array)]"
-    },
-    "emptyOutput": {
-      "type": "bool",
-      "value": "[empty(coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/comparison/coalesce.json":::
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
@@ -138,68 +96,9 @@ La función equals se suele usar con el elemento `condition` para comprobar si e
 
 ### <a name="example"></a>Ejemplo
 
-La [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/equals.json) siguiente comprueba diferentes tipos de valores para la igualdad. Todos los valores predeterminados devuelven True.
+En el ejemplo siguiente se comprueba la igualdad de diferentes tipos de valores. Todos los valores predeterminados devuelven True.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "firstInt": {
-      "type": "int",
-      "defaultValue": 1
-    },
-    "secondInt": {
-      "type": "int",
-      "defaultValue": 1
-    },
-    "firstString": {
-      "type": "string",
-      "defaultValue": "a"
-    },
-    "secondString": {
-      "type": "string",
-      "defaultValue": "a"
-    },
-    "firstArray": {
-      "type": "array",
-      "defaultValue": [ "a", "b" ]
-    },
-    "secondArray": {
-      "type": "array",
-      "defaultValue": [ "a", "b" ]
-    },
-    "firstObject": {
-      "type": "object",
-      "defaultValue": { "a": "b" }
-    },
-    "secondObject": {
-      "type": "object",
-      "defaultValue": { "a": "b" }
-    }
-  },
-  "resources": [
-  ],
-  "outputs": {
-    "checkInts": {
-      "type": "bool",
-      "value": "[equals(parameters('firstInt'), parameters('secondInt') )]"
-    },
-    "checkStrings": {
-      "type": "bool",
-      "value": "[equals(parameters('firstString'), parameters('secondString'))]"
-    },
-    "checkArrays": {
-      "type": "bool",
-      "value": "[equals(parameters('firstArray'), parameters('secondArray'))]"
-    },
-    "checkObjects": {
-      "type": "bool",
-      "value": "[equals(parameters('firstObject'), parameters('secondObject'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/comparison/equals.json":::
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
@@ -210,22 +109,9 @@ La salida del ejemplo anterior con el valor predeterminado es:
 | checkArrays | Bool | True |
 | checkObjects | Bool | True |
 
-En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json) siguiente se usa [not](template-functions-logical.md#not) con **equals**.
+En la plantilla de ejemplo siguiente se usa [not](template-functions-logical.md#not) con **equals**.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "resources": [
-  ],
-  "outputs": {
-    "checkNotEquals": {
-      "type": "bool",
-      "value": "[not(equals(1, 2))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/logical/not-equals.json":::
 
 El resultado del ejemplo anterior es:
 
@@ -254,44 +140,9 @@ Devuelve **True** si el primer valor es mayor que el segundo; en caso contrario,
 
 ### <a name="example"></a>Ejemplo
 
-La [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/greater.json) siguiente comprueba si un valor es mayor que el otro.
+En el ejemplo siguiente se comprueba si un valor es mayor que el otro.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "firstInt": {
-      "type": "int",
-      "defaultValue": 1
-    },
-    "secondInt": {
-      "type": "int",
-      "defaultValue": 2
-    },
-    "firstString": {
-      "type": "string",
-      "defaultValue": "A"
-    },
-    "secondString": {
-      "type": "string",
-      "defaultValue": "a"
-    }
-  },
-  "resources": [
-  ],
-  "outputs": {
-    "checkInts": {
-      "type": "bool",
-      "value": "[greater(parameters('firstInt'), parameters('secondInt') )]"
-    },
-    "checkStrings": {
-      "type": "bool",
-      "value": "[greater(parameters('firstString'), parameters('secondString'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/comparison/greater.json":::
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
@@ -321,44 +172,9 @@ Devuelve **True** si el primer valor es mayor o igual que el segundo; en caso co
 
 ### <a name="example"></a>Ejemplo
 
-La [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/greaterorequals.json) siguiente comprueba si un valor es mayor o igual que el otro.
+En el ejemplo siguiente se comprueba si un valor es mayor o igual que el otro.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "firstInt": {
-      "type": "int",
-      "defaultValue": 1
-    },
-    "secondInt": {
-      "type": "int",
-      "defaultValue": 2
-    },
-    "firstString": {
-      "type": "string",
-      "defaultValue": "A"
-    },
-    "secondString": {
-      "type": "string",
-      "defaultValue": "a"
-    }
-  },
-  "resources": [
-  ],
-  "outputs": {
-    "checkInts": {
-      "type": "bool",
-      "value": "[greaterOrEquals(parameters('firstInt'), parameters('secondInt') )]"
-    },
-    "checkStrings": {
-      "type": "bool",
-      "value": "[greaterOrEquals(parameters('firstString'), parameters('secondString'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/comparison/greaterorequals.json":::
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
@@ -388,44 +204,9 @@ Devuelve **True** si el primer valor es menor que el segundo; en caso contrario,
 
 ### <a name="example"></a>Ejemplo
 
-La [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/less.json) siguiente comprueba si un valor es menor que el otro.
+En el ejemplo siguiente se comprueba si un valor es menor que el otro.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "firstInt": {
-      "type": "int",
-      "defaultValue": 1
-    },
-    "secondInt": {
-      "type": "int",
-      "defaultValue": 2
-    },
-    "firstString": {
-      "type": "string",
-      "defaultValue": "A"
-    },
-    "secondString": {
-      "type": "string",
-      "defaultValue": "a"
-    }
-  },
-  "resources": [
-  ],
-  "outputs": {
-    "checkInts": {
-      "type": "bool",
-      "value": "[less(parameters('firstInt'), parameters('secondInt') )]"
-    },
-    "checkStrings": {
-      "type": "bool",
-      "value": "[less(parameters('firstString'), parameters('secondString'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/comparison/less.json":::
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
@@ -455,44 +236,9 @@ Devuelve **True** si el primer valor es menor o igual que el segundo; en caso co
 
 ### <a name="example"></a>Ejemplo
 
-La [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/lessorequals.json) siguiente comprueba si un valor es menor o igual que el otro.
+En el ejemplo siguiente se comprueba si un valor es menor o igual que el otro.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "firstInt": {
-      "type": "int",
-      "defaultValue": 1
-    },
-    "secondInt": {
-      "type": "int",
-      "defaultValue": 2
-    },
-    "firstString": {
-      "type": "string",
-      "defaultValue": "A"
-    },
-    "secondString": {
-      "type": "string",
-      "defaultValue": "a"
-    }
-  },
-  "resources": [
-  ],
-  "outputs": {
-    "checkInts": {
-      "type": "bool",
-      "value": "[lessOrEquals(parameters('firstInt'), parameters('secondInt') )]"
-    },
-    "checkStrings": {
-      "type": "bool",
-      "value": "[lessOrEquals(parameters('firstString'), parameters('secondString'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/comparison/lessorequals.json":::
 
 La salida del ejemplo anterior con el valor predeterminado es:
 

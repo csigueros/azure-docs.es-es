@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.custom: contperf-fy21q1
 ms.date: 07/01/2021
 ms.author: allensu
-ms.openlocfilehash: 78412ba9e71465761d68899e0d48e95864f444f9
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: e17bc129268f8bc93d107492912c868e8efebae1
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121732757"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128671153"
 ---
 # <a name="using-source-network-address-translation-snat-for-outbound-connections"></a>Uso de la Traducción de direcciones de red de origen (SNAT) para conexiones salientes
 
-Algunos escenarios requieren que las máquinas virtuales o las instancias de proceso tengan conectividad de salida a Internet. Las direcciones IP de front-end de un equilibrador de carga público de Azure se pueden usar para proporcionar conectividad saliente a Internet para las instancias de back-end. Esta configuración usa la **traducción de direcciones de red de origen (SNAT)** , ya que la IP de **origen** o de la máquina virtual se traduce en una dirección IP pública. SNAT asigna la dirección IP del back-end a la dirección IP pública del equilibrador de carga. SNAT impide que los orígenes externos tengan una dirección directa a las instancias de back-end.  
+Algunos escenarios requieren que las máquinas virtuales o las instancias de proceso tengan conectividad de salida a Internet. Las direcciones IP de front-end de un equilibrador de carga público de Azure se pueden usar para proporcionar conectividad saliente a Internet para las instancias de back-end. Esta configuración usa la **traducción de direcciones de red de origen (SNAT)** para traducir la dirección IP privada de la máquina virtual a una dirección IP pública del equilibrador de carga. SNAT asigna la dirección IP del back-end a la dirección IP pública del equilibrador de carga. SNAT impide que los orígenes externos tengan una dirección directa a las instancias de back-end.  
 
 ## <a name="azures-outbound-connectivity-methods"></a><a name="scenarios"></a>Métodos de conectividad de salida de Azure
 
@@ -41,7 +41,7 @@ Esta configuración permite usar las direcciones IP públicas del equilibrador 
 Esta configuración habilita:
 
 - El enmascaramiento de IP
-- Simplificar las listas de permitidos.
+- La simplificación de las listas de permitidos
 - La reducción del número de recursos de IP pública para la implementación
 
 Con las reglas de salida, tiene un control declarativo completo sobre la conectividad saliente de Internet. Las reglas de salida le permiten escalar y ajustar esta capacidad a sus necesidades específicas.
@@ -92,13 +92,13 @@ Un recurso sin:
 * Puerta de enlace NAT configurada
 * un equilibrador de carga
 
-crea conexiones salientes a través de la SNAT predeterminada. Se conoce como acceso de salida predeterminado. Otro ejemplo de un escenario que usa SNAT predeterminada es una máquina virtual en Azure (sin las asociadas mencionadas anteriormente). En este caso, la IP de acceso de salida predeterminada proporciona la conectividad saliente. Esta IP es dinámica, la asigna Azure y no se puede controlar. La SNAT predeterminada no se recomienda para cargas de trabajo de producción.
+crea conexiones salientes a través de la SNAT predeterminada. Se conoce como acceso de salida predeterminado. Otro ejemplo de un escenario que usa SNAT predeterminada es una máquina virtual de Azure (sin las asociaciones mencionadas anteriormente). En este caso, la IP de acceso de salida predeterminada proporciona la conectividad saliente. Esta IP es dinámica, la asigna Azure y no se puede controlar. La SNAT predeterminada no se recomienda para cargas de trabajo de producción.
 
 ### <a name="what-are-snat-ports"></a>¿Qué son los puertos SNAT?
 
 Se usan puertos para generar identificadores únicos que se emplean para mantener flujos distintos. Internet usa una tupla de cinco elementos para proporcionar esta distinción.
 
-Si se usa un puerto para las conexiones entrantes, tendrá un **agente de escucha** para las solicitudes de conexión entrantes en ese puerto. Recuerde que ese puerto no se puede usar para las conexiones salientes. Para establecer una conexión saliente, se usa un **puerto efímero** para proporcionar al destino un puerto con el que comunicarse y mantener un flujo de tráfico distinto. Cuando estos puertos efímeros se usan para realizar la traducción SNAT, se denominan **puertos SNAT**. 
+Si se usa un puerto para las conexiones entrantes, tendrá un **agente de escucha** para las solicitudes de conexión entrantes en ese puerto. Recuerde que ese puerto no se puede usar para las conexiones salientes. Para establecer una conexión saliente, se usa un **puerto efímero** para proporcionar al destino un puerto con el que comunicarse y mantener un flujo de tráfico distinto. Cuando estos puertos efímeros se usan para la SNAT, se denominan **puertos SNAT**.
 
 Por definición, todas las direcciones IP tienen 65 535 puertos. Cada puerto se puede usar para las conexiones de entrada o salida para TCP (Protocolo de control de transmisión) y UDP (Protocolo de datagramas de usuario). Cuando se agrega una dirección IP pública como una IP de front-end a un equilibrador de carga, hay 64 000 puertos aptos para SNAT.
 
@@ -175,6 +175,14 @@ En la <a name="snatporttable"></a>tabla siguiente se muestran las asignaciones p
 | 201-400 | 128 |
 | 401-800 | 64 |
 | 801-1000 | 32 | 
+
+## <a name="manual-port-allocation"></a><a name="preallocatedports"></a> Asignación manual de puertos
+
+La asignación manual del puerto SNAT en función del tamaño del grupo de back-end y el número de frontendIPConfigurations puede ayudar a evitar el agotamiento de SNAT. 
+
+Puede asignar manualmente los puertos SNAT por "puertos por instancia" o por "número máximo de instancias de back-end". Si hay máquinas virtuales en el back-end, se recomienda asignar los puertos por "puertos por instancia" para obtener el uso máximo de puertos SNAT. Los puertos por instancia se deben calcular como se indica a continuación: número de IP de front-end * 64K / número de instancias de back-end. De lo contrario, si hay conjuntos de escalado de máquinas virtuales en el back-end, se recomienda asignar los puertos por "número máximo de instancias de back-end". 
+
+Pero si se agregan más máquinas virtuales al back-end que puertos SNAT restantes permitidos, es posible que el escalado vertical de VMSS se bloquee o que las nuevas máquinas virtuales no obtengan suficientes puertos SNAT. 
 
 ## <a name="constraints"></a>Restricciones
 

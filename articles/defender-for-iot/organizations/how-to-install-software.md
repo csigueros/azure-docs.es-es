@@ -1,14 +1,14 @@
 ---
 title: Instalación de Defender para IoT
 description: Obtenga información sobre cómo instalar un sensor y la consola de administración local para Azure Defender para IoT.
-ms.date: 06/21/2021
+ms.date: 09/23/2021
 ms.topic: how-to
-ms.openlocfilehash: 5cd5bf569f1e27d66a5fb14d4f580d6842313419
-ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
+ms.openlocfilehash: 88c8b75d7ba466a96559d265a16ddd8959b00a42
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122015396"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128628767"
 ---
 # <a name="defender-for-iot-installation"></a>Instalación de Defender para IoT
 
@@ -20,15 +20,15 @@ En este artículo se describe cómo instalar los siguientes elementos de Azure D
 
 En este artículo se trata la siguiente información sobre la instalación:
 
-  - **Hardware:** detalles de los dispositivos físicos Dell y HPE.
+- **Hardware:** detalles de los dispositivos físicos Dell y HPE.
 
-  - **Software:** instalación del software de la consola de administración local y del sensor.
+- **Software:** instalación del software de la consola de administración local y del sensor.
 
-  - **Aplicaciones virtuales:** detalles sobre la máquina virtual e instalación del software.
+- **Aplicaciones virtuales:** detalles sobre la máquina virtual e instalación del software.
 
 Después de la instalación, conecte el sensor a la red.
 
-## <a name="about-defender-for-iot-appliances"></a>Acerca de los dispositivos de Defender para IoT 
+## <a name="about-defender-for-iot-appliances"></a>Acerca de los dispositivos de Defender para IoT
 
 En las secciones siguientes se proporciona información sobre los dispositivos de sensor de Defender para IoT y sobre el dispositivo para la consola de administración local de Defender para IoT.
 
@@ -99,11 +99,11 @@ Para instalarlo:
 
 Antes de la instalación, asegúrese de tener lo siguiente:
 
-  - Rufus instalado.
+- Rufus instalado.
   
-  - Un disco en una memoria USB versión 3.0 de USB y posteriores. El tamaño mínimo es 4 GB.
+- Un disco en una memoria USB versión 3.0 de USB y posteriores. El tamaño mínimo es 4 GB.
 
-  - Un archivo de imagen de instalador ISO.
+- Un archivo de imagen de instalador ISO.
 
 El disco en memoria USB se borrará en este proceso.
 
@@ -119,13 +119,13 @@ Para preparar un disco en memoria USB:
 
 Antes de instalar el software en el dispositivo Dell, debe cambiar la configuración del BIOS del dispositivo:
 
-  - El [panel frontal de Dell PowerEdge R340](#dell-poweredge-r340-front-panel) y el [panel posterior de Dell PowerEdge R340](#dell-poweredge-r340-back-panel) contiene la descripción de los paneles frontal y posterior, junto con la información necesaria para la instalación, como los controladores y los puertos.
+- El [panel frontal de Dell PowerEdge R340](#dell-poweredge-r340-front-panel) y el [panel posterior de Dell PowerEdge R340](#dell-poweredge-r340-back-panel) contiene la descripción de los paneles frontal y posterior, junto con la información necesaria para la instalación, como los controladores y los puertos.
 
-  - La [configuración de BIOS de Dell](#dell-bios-configuration) proporciona información acerca de cómo conectarse a la interfaz de administración de dispositivos de Dell y configurar el BIOS.
+- La [configuración de BIOS de Dell](#dell-bios-configuration) proporciona información acerca de cómo conectarse a la interfaz de administración de dispositivos de Dell y configurar el BIOS.
 
-  - [Instalación de software (Dell R340)](#software-installation-dell-r340) describe el procedimiento necesario para instalar el software del sensor de Defender para IoT.
+- [Instalación de software (Dell R340)](#software-installation-dell-r340) describe el procedimiento necesario para instalar el software del sensor de Defender para IoT.
 
-### <a name="dell-poweredge-r340xl-requirements"></a>Requisitos de Dell PowerEdge R340XL 
+### <a name="dell-poweredge-r340xl-requirements"></a>Requisitos de Dell PowerEdge R340XL
 
 Para instalar el dispositivo Dell PowerEdge R340XL, necesitará lo siguiente:
 
@@ -143,36 +143,32 @@ Para instalar el dispositivo Dell PowerEdge R340XL, necesitará lo siguiente:
 
 :::image type="content" source="media/tutorial-install-components/view-of-dell-poweredge-r340-front-panel.jpg" alt-text="Panel frontal de Dell PowerEdge R340.":::
 
- 1. Panel de control izquierdo 
- 1. Unidad óptica (opcional) 
- 1. Panel de control derecho 
- 1. Etiqueta de información 
+ 1. Panel de control izquierdo
+ 1. Unidad óptica (opcional)
+ 1. Panel de control derecho
+ 1. Etiqueta de información
  1. Unidades  
 
 ### <a name="dell-poweredge-r340-back-panel"></a>Panel posterior de Dell PowerEdge R340
 
 :::image type="content" source="media/tutorial-install-components/view-of-dell-poweredge-r340-back-panel.jpg" alt-text="Panel posterior de Dell PowerEdge R340.":::
 
-1. Puerto serie 
-1. Puerto de adaptador de red (Gb 1) 
-1. Puerto de adaptador de red (Gb 1) 
-1. PCIe de media altura 
-1. Ranura de tarjeta de expansión PCIe de altura completa 
-1. Unidad de fuente de alimentación 1 
-1. Unidad de fuente de alimentación 2 
-1. Identificación del sistema 
-1. Botón de puerto del cable indicador de estado del sistema (CMA) 
-1. Puerto USB 3.0 (2) 
-1. Puerto de red dedicado iDRAC9 
-1. Puerto VGA 
+1. Puerto serie
+1. Puerto de adaptador de red (Gb 1)
+1. Puerto de adaptador de red (Gb 1)
+1. PCIe de media altura
+1. Ranura de tarjeta de expansión PCIe de altura completa
+1. Unidad de fuente de alimentación 1
+1. Unidad de fuente de alimentación 2
+1. Identificación del sistema
+1. Botón de puerto del cable indicador de estado del sistema (CMA)
+1. Puerto USB 3.0 (2)
+1. Puerto de red dedicado iDRAC9
+1. Puerto VGA
 
 ### <a name="dell-bios-configuration"></a>Configuración del BIOS de Dell
 
 La configuración del BIOS de Dell es necesaria para modificar el dispositivo Dell para que funcione con el software.
-
-La configuración del BIOS se lleva a cabo a través de una configuración predefinida. Se puede acceder al archivo desde el [Centro de ayuda](https://cyberx-labs.zendesk.com/hc/).
-
-Importe el archivo de configuración al dispositivo Dell. Antes de usar el archivo de configuración, debe establecer la comunicación entre el dispositivo de Dell y el equipo de administración.
 
 Un iDRAC integrado con el controlador del ciclo de vida (LC) administra el dispositivo Dell. El LC está integrado en todos los servidores Dell PowerEdge y proporciona una funcionalidad que le ayuda a implementar, actualizar, supervisar y dar mantenimiento a sus dispositivos Dell PowerEdge.
 
@@ -180,11 +176,11 @@ Para establecer la comunicación entre el dispositivo Dell y el equipo de admini
 
 Cuando se establece la conexión, el BIOS se puede configurar.
 
-Para configurar el BIOS de Dell, realice lo siguiente:
+**Para configurar el BIOS de Dell, haga lo siguiente:**
 
 1. [Configuración de las direcciones IP de iDRAC](#configure-idrac-ip-address)
 
-1. [Importación del archivo de configuración del BIOS](#import-the-bios-configuration-file)
+1. [Configuración del BIOS](#configuring-the-bios)
 
 #### <a name="configure-idrac-ip-address"></a>Configuración de las direcciones IP de iDRAC
 
@@ -207,55 +203,9 @@ Para configurar el BIOS de Dell, realice lo siguiente:
 
 1. Seleccione **Volver** > **Finalizar**.
 
-#### <a name="import-the-bios-configuration-file"></a>Importación del archivo de configuración del BIOS
+#### <a name="configuring-the-bios"></a>Configuración del BIOS
 
-En esta sección se explica cómo configurar el BIOS mediante el archivo de configuración.
-
-1. Conecte un equipo con una dirección IP preconfigurada estática **10.100.100.200** al puerto de **iDRAC**.
-
-   :::image type="content" source="media/tutorial-install-components/idrac-port.png" alt-text="Captura de pantalla del puerto de dirección IP preconfigurada.":::
-
-1. Abra un explorador web y escriba **10.100.100.250** para conectarse a la interfaz web de iDRAC.
-
-1. Inicie sesión con los privilegios de administrador predeterminados de Dell:
-
-   - Nombre de usuario: **root**
-
-   - Contraseña: **calvin**
-
-1. Las credenciales del dispositivo son:
-
-   - Nombre de usuario: **XXX**
-
-   - Contraseña: **XXX**
-
-     Se inicia la operación de importación del perfil de servidor.
-
-     > [!NOTE]
-     > Antes de importar el archivo, asegúrese de cumplir con lo siguiente:
-     > - Es el único usuario que está conectado actualmente a iDRAC.
-     > - El sistema no está en el menú del BIOS.
-
-1. Diríjase a **Configuration** > **Server Configuration Profile** (Configuración > Perfil de configuración del servidor). Establezca los siguientes parámetros:
-
-   :::image type="content" source="media/tutorial-install-components/configuration-screen.png" alt-text="Captura de pantalla que muestra la configuración del perfil de servidor.":::
-
-   | Parámetro | Configuración |
-   |--|--|
-   | Tipo de ubicación | Seleccione **Local**. |
-   | Ruta del archivo | Seleccione **Choose File** (Elegir archivo) y agregue el archivo XML de configuración. |
-   | Componentes de importación | Seleccione **BIOS, NIC, RAID**. |
-   | Tiempo máximo de espera | Seleccione **20 minutes** (20 minutos). |
-
-1. Seleccione **Import** (Importar).
-
-1. Para supervisar el proceso, diríjase a **Maintenance** > **Job Queue** (Mantenimiento > Cola de trabajos).
-
-   :::image type="content" source="media/tutorial-install-components/view-the-job-queue.png" alt-text="Captura de pantalla que muestra la cola de trabajos":::.
-
-#### <a name="manually-configuring-bios"></a>Configuración manual del BIOS 
-
-Debe configurar manualmente el BIOS del dispositivo si se cumple lo siguiente:
+Debe configurar el BIOS del dispositivo si se cumple lo siguiente:
 
 - No compró el dispositivo en Arrow.
 
@@ -263,7 +213,7 @@ Debe configurar manualmente el BIOS del dispositivo si se cumple lo siguiente:
 
 Después de acceder al BIOS, diríjase a **Device Settings** (Configuración del dispositivo).
 
-Para realizar la configuración manualmente:
+**Para configurar el BIOS, haga lo siguiente:**
 
 1. Acceda al BIOS del dispositivo directamente con un teclado y una pantalla, o bien use iDRAC.
 
@@ -327,11 +277,11 @@ Para instalarlo:
 
 1. Seleccione **SENSOR-RELEASE-\<version\> Enterprise**.
 
-   :::image type="content" source="media/tutorial-install-components/sensor-version-select-screen-v2.png" alt-text="Seleccione la versión del sensor y el tipo de empresa.":::   
+   :::image type="content" source="media/tutorial-install-components/sensor-version-select-screen-v2.png" alt-text="Seleccione la versión del sensor y el tipo de empresa.":::
 
 1. Defina el perfil de la aplicación y las propiedades de la red:
 
-   :::image type="content" source="media/tutorial-install-components/appliance-profile-screen-v2.png" alt-text="Captura de pantalla que muestra el perfil del dispositivo y las propiedades de la red.":::   
+   :::image type="content" source="media/tutorial-install-components/appliance-profile-screen-v2.png" alt-text="Captura de pantalla que muestra el perfil del dispositivo y las propiedades de la red.":::
 
    | Parámetro | Configuración |
    |--|--|
@@ -355,16 +305,16 @@ Para instalarlo:
 
 En esta sección se describe el proceso de instalación de HPE ProLiant DL20, que incluye los pasos siguientes:
 
-  - Habilite el acceso remoto y actualice la contraseña de administrador predeterminada.
-  - Configure el BIOS y las opciones de RAID.
-  - Instale el software.
+- Habilite el acceso remoto y actualice la contraseña de administrador predeterminada.
+- Configure el BIOS y las opciones de RAID.
+- Instale el software.
 
 ### <a name="about-the-installation"></a>Acerca de la instalación
 
-  - Se pueden instalar aplicaciones de Enterprise y SMB. El proceso de instalación es idéntico para ambos tipos de dispositivo, excepto para la configuración de matriz.
-  - Se especifica un usuario administrativo predeterminado. Se recomienda cambiar la contraseña durante el proceso de configuración de la red.
-  - Durante el proceso de configuración de la red, configurará el puerto iLO en el puerto de red 1.
-  - El proceso de instalación tarda aproximadamente 20 minutos. Después de la instalación, el sistema se reinicia varias veces.
+- Se pueden instalar aplicaciones de Enterprise y SMB. El proceso de instalación es idéntico para ambos tipos de dispositivo, excepto para la configuración de matriz.
+- Se especifica un usuario administrativo predeterminado. Se recomienda cambiar la contraseña durante el proceso de configuración de la red.
+- Durante el proceso de configuración de la red, configurará el puerto iLO en el puerto de red 1.
+- El proceso de instalación tarda aproximadamente 20 minutos. Después de la instalación, el sistema se reinicia varias veces.
 
 ### <a name="hpe-proliant-dl20-front-panel"></a>Panel frontal del HPE ProLiant DL20
 
@@ -388,17 +338,17 @@ Para habilitar y actualizar la contraseña, haga lo siguiente:
 
     :::image type="content" source="media/tutorial-install-components/system-configuration-window-v2.png" alt-text="Captura de pantalla que muestra la ventana Configuración del sistema.":::
 
-    1.  Seleccione **Shared Network Port-LOM** (puerto de red compartido-LOM) en el campo **Network Interface Adapter** (adaptador de interfaz de red).
-    
-    1.  Deshabilite el DHCP.
-    
-    1.  Escriba la dirección IP, la máscara de subred y la dirección IP de puerta de enlace.
+    1. Seleccione **Shared Network Port-LOM** (puerto de red compartido-LOM) en el campo **Network Interface Adapter** (adaptador de interfaz de red).
+
+    1. Deshabilite el DHCP.
+
+    1. Escriba la dirección IP, la máscara de subred y la dirección IP de puerta de enlace.
 
 1. Seleccione **F10: Save** (F10: guardar).
 
 1. Seleccione **Esc** para volver a la **utilidad de configuración iLO 5** y después seleccione **User Management** (administración de usuarios).
 
-1. Seleccione **Edit/Remove User** (editar/quitar usuario). El administrador es el único usuario predeterminado definido. 
+1. Seleccione **Edit/Remove User** (editar/quitar usuario). El administrador es el único usuario predeterminado definido.
 
 1. Cambie la contraseña predeterminada y seleccione **F10: Save** (F10: guardar).
 
@@ -406,7 +356,7 @@ Para habilitar y actualizar la contraseña, haga lo siguiente:
 
 En el procedimiento siguiente se describe cómo configurar el BIOS de HPE para las aplicaciones de Enterprise y SMB.
 
-Para configurar el BIOS de HPE, haga lo siguiente:
+**Para configurar el BIOS de HPE, haga lo siguiente:**
 
 1. Seleccione **System Utilities** > **System Configuration** > **BIOS/Platform Configuration (RBSU)** (utilidades del sistema > configuración del sistema > configuración de la plataforma/BIOS [RBSU]).
 
@@ -449,6 +399,7 @@ Para configurar el BIOS de HPE, haga lo siguiente:
     :::image type="content" source="media/tutorial-install-components/boot-override-window-one-v2.png" alt-text="Captura de pantalla que muestra la primera ventana de invalidación de arranque.":::
 
     :::image type="content" source="media/tutorial-install-components/boot-override-window-two-v2.png" alt-text="Captura de pantalla que muestra la segunda ventana de invalidación de arranque.":::
+
 ### <a name="software-installation-hpe-proliant-dl20-appliance"></a>Instalación de software (dispositivo HPE ProLiant DL20)
 
 El proceso de instalación tarda aproximadamente 20 minutos. Después de la instalación, el sistema se reinicia varias veces.
@@ -465,7 +416,7 @@ Para instalar el software, haga lo siguiente:
 
     :::image type="content" source="media/tutorial-install-components/select-english-screen.png" alt-text="Selección de inglés en la ventana de la CLI.":::
 
-1. Seleccione **SENSOR-RELEASE-<version> Enterprise**.
+1. Seleccione **SENSOR-RELEASE-\<version> Enterprise**.
 
     :::image type="content" source="media/tutorial-install-components/sensor-version-select-screen-v2.png" alt-text="Captura de pantalla de la pantalla para seleccionar una versión.":::
 
@@ -488,11 +439,11 @@ Para instalar el software, haga lo siguiente:
 
 ## <a name="hpe-proliant-dl360-installation"></a>Instalación de HPE ProLiant DL360
 
-  - Se especifica un usuario administrativo predeterminado. Se recomienda cambiar la contraseña durante la configuración de la red.
+- Se especifica un usuario administrativo predeterminado. Se recomienda cambiar la contraseña durante la configuración de la red.
 
-  - Durante la configuración de la red, configurará el puerto iLO.
+- Durante la configuración de la red, configurará el puerto iLO.
 
-  - El proceso de instalación tarda aproximadamente 20 minutos. Después de la instalación, el sistema se reinicia varias veces.
+- El proceso de instalación tarda aproximadamente 20 minutos. Después de la instalación, el sistema se reinicia varias veces.
 
 ### <a name="hpe-proliant-dl360-front-panel"></a>Panel frontal del HPE ProLiant DL360
 
@@ -506,9 +457,9 @@ Para instalar el software, haga lo siguiente:
 
 Consulte las secciones anteriores para saber sobre la instalación de HPE ProLiant DL20:
 
-  - "Habilitación del acceso remoto y actualización de la contraseña"
+- "Habilitación del acceso remoto y actualización de la contraseña"
 
-  - "Configuración del BIOS de HPE"
+- "Configuración del BIOS de HPE"
 
 La configuración de Enterprise es idéntica.
 
@@ -549,7 +500,7 @@ Para instalarlo:
 
 1. Seleccione **English** (inglés).
 
-1. Seleccione **SENSOR-RELEASE-<version> Enterprise**.
+1. Seleccione **SENSOR-RELEASE-\<version> Enterprise**.
 
     :::image type="content" source="media/tutorial-install-components/sensor-version-select-screen-v2.png" alt-text="Captura de pantalla que muestra la selección de la versión.":::
 
@@ -561,7 +512,7 @@ Para instalarlo:
     | ----------| ------------- |
     | **Perfil de hardware** | Seleccione **corporate**. |
     | **Interfaz de administración** | **eno2** |
-    | **Parámetros de red predeterminados (proporcionados por el cliente)** | **dirección IP de la red de administración:** <br/>**máscara de subred:** <br/>**nombre de host del dispositivo:** <br/>**DNS:** <br/>**la dirección IP de puerta de enlace predeterminada:**|
+    | **Parámetros de red predeterminados (proporcionados por el cliente)** | **dirección IP de la red de administración:** <br> **máscara de subred:** <br/>**nombre de host del dispositivo:** <br/>**DNS:** <br/>**la dirección IP de puerta de enlace predeterminada:**|
     | **interfaces de entrada:**  | El sistema genera una lista de interfaces de entrada automáticamente.<br/><br/>Para reflejar las interfaces de entrada, copie todos los elementos que se muestran en la lista separados con comas.<br/><br/> No tiene que configurar la interfaz de puente. Esta opción solo se usa para casos de uso especiales. |
 
 1. Después de unos diez minutos, se muestran los dos conjuntos de credenciales. Uno es para un usuario **CyberX** y otro es para un usuario **support**.
@@ -572,9 +523,9 @@ Para instalarlo:
 
 ## <a name="hp-edgeline-300-installation"></a>Instalación de HP EdgeLine 300
 
-•   Se especifica un usuario administrativo predeterminado. Se recomienda cambiar la contraseña durante la configuración de la red.
+- Se especifica un usuario administrativo predeterminado. Se recomienda cambiar la contraseña durante la configuración de la red.
 
-•   El proceso de instalación tarda aproximadamente 20 minutos. Después de la instalación, el sistema se reinicia varias veces.
+- El proceso de instalación tarda aproximadamente 20 minutos. Después de la instalación, el sistema se reinicia varias veces.
 
 ### <a name="hp-edgeline-300-back-panel"></a>Panel posterior de HP EdgeLine 300
 
@@ -605,7 +556,7 @@ Para instalarlo:
 
 En el procedimiento siguiente se describe cómo configurar el BIOS del dispositivo HP EL300.
 
-Para configurar el BIOS:
+**Para configurar el BIOS, haga lo siguiente:**
 
 1. Encienda el dispositivo y presione **F9** para entrar en el BIOS.
 
@@ -652,12 +603,12 @@ Para configurar el BIOS:
     | Parámetro | Configuración |
     |--|--|
     | **configure hardware profile** | **office** |
-    | **configure management network interface** | **enp3s0** <br />o bien <br />**valor posible** |
+    | **configure management network interface** | **enp3s0** <br /> o bien <br />**valor posible** |
     | **configure management network IP address:** | **dirección IP proporcionada por el cliente** |
     | **configure subnet mask:** | **dirección IP proporcionada por el cliente** |
     | **configure DNS:** | **dirección IP proporcionada por el cliente** |
     | **configure default gateway IP address:** | **dirección IP proporcionada por el cliente** |
-    | **configure input interface(s)** | **enp4s0** <br />o bien <br />**valor posible** |
+    | **configure input interface(s)** | **enp4s0** <br /> o bien <br />**valor posible** |
     | **configure bridge interface(s)** | N/D |
 
 1. Acepte la configuración y, para continuar, escriba `Y`.
@@ -676,11 +627,11 @@ Puede implementar la máquina virtual para el sensor de Defender para IoT en las
 
 La consola de administración local admite las opciones de implementación de Hyper-V y VMware. Antes de iniciar la instalación, asegúrese de disponer de los siguientes elementos:
 
-  - VMware (ESXi 5.5 o posterior) o el hipervisor de Hyper-V (Windows 10 Pro o Enterprise) instalados y en funcionamiento
+- VMware (ESXi 5.5 o posterior) o el hipervisor de Hyper-V (Windows 10 Pro o Enterprise) instalados y en funcionamiento
 
-  - Recursos de hardware disponibles para la máquina virtual
+- Recursos de hardware disponibles para la máquina virtual
 
-  - Archivo de instalación ISO para el sensor de Azure Defender para IoT
+- Archivo de instalación ISO para el sensor de Azure Defender para IoT
 
 Asegúrese de que el hipervisor esté en ejecución.
 
@@ -726,7 +677,7 @@ Para crear una máquina virtual, haga lo siguiente:
 
 1. Escriba el nombre y la ubicación del VHD.
 
-1. Escriba el tamaño requerido (según la arquitectura).   
+1. Escriba el tamaño requerido (según la arquitectura).
 
 1. Revise el resumen y seleccione **Finalizar**.
 
@@ -756,7 +707,7 @@ Para crear una máquina virtual, haga lo siguiente:
 
 1. Inicie la máquina virtual.
 
-2. En el menú **Actions** (acciones), seleccione **Connect** (conectar) para continuar con la instalación del software.
+1. En el menú **Actions** (acciones), seleccione **Connect** (conectar) para continuar con la instalación del software.
 
 ### <a name="software-installation-esxi-and-hyper-v"></a>Instalación del software (ESXi e Hyper-V)
 
@@ -799,7 +750,7 @@ Antes de instalar el software en el dispositivo, debe cambiar la configuración 
 
 ### <a name="bios-configuration"></a>Configuración de BIOS
 
-Para configurar el BIOS del dispositivo:
+**Para configurar el BIOS del dispositivo, realice lo siguiente**:
 
 1. [Habilite el acceso remoto y actualice la contraseña](#enable-remote-access-and-update-the-password).
 
@@ -807,32 +758,32 @@ Para configurar el BIOS del dispositivo:
 
 ### <a name="software-installation"></a>Instalación de software
 
-El proceso de instalación tarda aproximadamente 20 minutos. Después de la instalación, el sistema se reinicia varias veces. 
+El proceso de instalación tarda aproximadamente 20 minutos. Después de la instalación, el sistema se reinicia varias veces.
 
-Durante el proceso de instalación, puede agregar una NIC secundaria. Si decide no instalar la NIC secundaria durante la instalación, puede [agregar una NIC secundaria](#add-a-secondary-nic) más adelante. 
+Durante el proceso de instalación, puede agregar una NIC secundaria. Si decide no instalar la NIC secundaria durante la instalación, puede [agregar una NIC secundaria](#add-a-secondary-nic) más adelante.
 
 Para instalar el software, haga lo siguiente:
 
 1. Seleccione el idioma que prefiera para el proceso de instalación.
 
-   :::image type="content" source="media/tutorial-install-components/on-prem-language-select.png" alt-text="Seleccione el idioma que prefiera para el proceso de instalación.":::     
+   :::image type="content" source="media/tutorial-install-components/on-prem-language-select.png" alt-text="Seleccione el idioma que prefiera para el proceso de instalación.":::
 
 1. Seleccione **MANAGEMENT-RELEASE-\<version\>\<deployment type\>** .
 
-   :::image type="content" source="media/tutorial-install-components/on-prem-install-screen.png" alt-text="Seleccione la versión.":::   
+   :::image type="content" source="media/tutorial-install-components/on-prem-install-screen.png" alt-text="Seleccione la versión.":::
 
 1. En el Asistente de instalación, defina las propiedades de la red:
 
-   :::image type="content" source="media/tutorial-install-components/on-prem-first-steps-install.png" alt-text="Captura de pantalla que muestra el perfil del dispositivo.":::   
+   :::image type="content" source="media/tutorial-install-components/on-prem-first-steps-install.png" alt-text="Captura de pantalla que muestra el perfil del dispositivo.":::
 
    | Parámetro | Configuración |
    |--|--|
-   | **configure management network interface** | Para Dell: **eth0, eth1** <br /> Para HP: **enu1, enu2** <br /> o bien <br />**valor posible** |
+   | **configure management network interface** | Para Dell: **eth0, eth1** <br /> Para HP: **enu1, enu2** <br>  o bien <br />**valor posible** |
    | **configure management network IP address:** | **dirección IP proporcionada por el cliente** |
    | **configure subnet mask:** | **dirección IP proporcionada por el cliente** |
    | **configure DNS:** | **dirección IP proporcionada por el cliente** |
    | **configure default gateway IP address:** | **dirección IP proporcionada por el cliente** |
-   
+
 1. **(Opcional)** Si quiere instalar una tarjeta de interfaz de red (NIC) secundaria, defina el siguiente perfil de dispositivo y las propiedades de la red:
 
     :::image type="content" source="media/tutorial-install-components/on-prem-secondary-nic-install.png" alt-text="Captura de pantalla que muestra las preguntas de instalación de la NIC secundaria.":::
@@ -843,7 +794,7 @@ Para instalar el software, haga lo siguiente:
    | **configure an IP address for the sensor monitoring interface:** | **dirección IP proporcionada por el cliente** |
    | **configure a subnet mask for the sensor monitoring interface:** | **dirección IP proporcionada por el cliente** |
 
-1. Acepte la configuración y, para continuar, escriba `Y`. 
+1. Acepte la configuración y, para continuar, escriba `Y`.
 
 1. Después de unos diez minutos, se muestran los dos conjuntos de credenciales. Uno es para un usuario **CyberX** y otro es para un usuario **Support**.
 
@@ -861,9 +812,8 @@ Puede mejorar la seguridad de la consola de administración local agregando una 
 
 :::image type="content" source="media/tutorial-install-components/secondary-nic.png" alt-text="Arquitectura global de la NIC secundaria.":::
 
-Ambas NIC serán compatibles con la interfaz de usuario (UI). 
-
-Si decide no implementar una NIC secundaria, todas las características estarán disponibles a través de la NIC principal. 
+Ambas NIC serán compatibles con la interfaz de usuario (UI).
+Si decide no implementar una NIC secundaria, todas las características estarán disponibles a través de la NIC principal.
 
 Si ya ha configurado la consola de administración local y quiere agregarle una NIC secundaria, siga estos pasos:
 
@@ -898,18 +848,18 @@ Si tiene problemas para localizar el puerto físico en el dispositivo, puede usa
 sudo ethtool -p <port value> <time-in-seconds>
 ```
 
-Este comando hará que la luz del puerto parpadee durante el período de tiempo especificado. Por ejemplo, si escribe `sudo ethtool -p eno1 120`, el puerto eno1 parpadeará durante 2 minutos, lo que le permitirá encontrar el puerto en la parte posterior del dispositivo. 
+Este comando hará que la luz del puerto parpadee durante el período de tiempo especificado. Por ejemplo, si escribe `sudo ethtool -p eno1 120`, el puerto eno1 parpadeará durante 2 minutos, lo que le permitirá encontrar el puerto en la parte posterior del dispositivo.
 
 ## <a name="virtual-appliance-on-premises-management-console-installation"></a>Aplicación virtual: instalación de la consola de administración local
 
 La máquina virtual de la consola de administración local es compatible con las siguientes arquitecturas:
 
-| Architecture | Especificaciones | Uso | 
+| Architecture | Especificaciones | Uso |
 |--|--|--|
-| Enterprise <br/>(valor predeterminado y más común) | CPU: 8 <br/>Memoria: 32 GB DE RAM<br/> HDD: 1,8 TB | Entornos de producción de gran tamaño | 
+| Enterprise <br/>(valor predeterminado y más común) | CPU: 8 <br/>Memoria: 32 GB DE RAM<br/> HDD: 1,8 TB | Entornos de producción de gran tamaño |
 | Pequeña | CPU: 4 <br/> Memoria: 8 GB RAM<br/> HDD: 500 GB | Entornos de producción de gran tamaño |
-| Office | CPU: 4 <br/>Memoria: 8 GB RAM <br/> HDD: 100 GB | Entornos de prueba pequeños | 
-   
+| Office | CPU: 4 <br/>Memoria: 8 GB RAM <br/> HDD: 100 GB | Entornos de prueba pequeños |
+
 ### <a name="prerequisites"></a>Requisitos previos
 
 La consola de administración local admite las opciones de implementación de Hyper-V y VMware. Antes de empezar la instalación, compruebe lo siguiente:
@@ -919,7 +869,7 @@ La consola de administración local admite las opciones de implementación de Hy
 - Los recursos de hardware están disponibles para la máquina virtual.
 
 - Tiene el archivo de instalación ISO para la consola de administración local.
-    
+
 - El hipervisor está en ejecución.
 
 ### <a name="create-the-virtual-machine-esxi"></a>Creación de la máquina virtual (ESXi)
@@ -1044,7 +994,7 @@ En esta sección se describen procedimientos de instalación solo para dispositi
 
 ### <a name="nuvo-5006lp-installation"></a>Instalación de Nuvo 5006LP
 
-En esta sección se proporciona el procedimiento de instalación de Nuvo 5006LP. Antes de instalar el software en el dispositivo Nuvo 5006LP, debe cambiar la configuración del BIOS del dispositivo. 
+En esta sección se proporciona el procedimiento de instalación de Nuvo 5006LP. Antes de instalar el software en el dispositivo Nuvo 5006LP, debe cambiar la configuración del BIOS del dispositivo.
 
 #### <a name="nuvo-5006lp-front-panel"></a>Panel frontal del Nuvo 5006LP
 
@@ -1073,7 +1023,7 @@ En esta sección se proporciona el procedimiento de instalación de Nuvo 5006LP
 
 El procedimiento siguiente describe cómo configurar el BIOS de Nuvo 5006LP. Asegúrese de que el sistema operativo se haya instalado previamente en el dispositivo.
 
-Para configurar el BIOS:
+**Para configurar el BIOS, haga lo siguiente:**
 
 1. Encienda el dispositivo.
 
@@ -1085,11 +1035,13 @@ Para configurar el BIOS:
 
 1. Vaya a **Boot** (Arranque) y asegúrese de que **PXE Boot to LAN** (Arranque PXE a LAN) esté establecido en **Disabled** (Deshabilitado).
 
-1. Presione **F10** para guardar y, a continuación, seleccione **Exit** (Salir). 
+1. Presione **F10** para guardar y, a continuación, seleccione **Exit** (Salir).
 
 #### <a name="software-installation-nuvo-5006lp"></a>Instalación de software (Nuvo 5006LP)
 
 Este proceso de instalación tarda aproximadamente 20 minutos. Después de la instalación, el sistema se reinicia varias veces.
+
+**Para instalar el software, haga lo siguiente:**
 
 1. Conecte el CD externo o el disco en memoria USB con la imagen ISO.
 
@@ -1097,7 +1049,7 @@ Este proceso de instalación tarda aproximadamente 20 minutos. Después de la i
 
 1. Seleccione **English** (inglés).
 
-1. Seleccione **XSENSE-RELEASE-<version> Office...** .
+1. Seleccione **XSENSE-RELEASE-\<version> Office...** .
 
     :::image type="content" source="media/tutorial-install-components/sensor-version-select-screen-v2.png" alt-text="Seleccione la versión del sensor que se va a instalar.":::
 
@@ -1109,10 +1061,10 @@ Este proceso de instalación tarda aproximadamente 20 minutos. Después de la i
     | ----------| ------------- |
     | **Perfil de hardware** | Seleccione **Office**. |
     | **Interfaz de administración** | **eth0** |
-    | **Management Network IP address** | **dirección IP proporcionada por el cliente** | 
-    | **Management subnet mask** | **dirección IP proporcionada por el cliente** | 
+    | **Management Network IP address** | **dirección IP proporcionada por el cliente** |
+    | **Management subnet mask** | **dirección IP proporcionada por el cliente** |
     | **DNS** | **dirección IP proporcionada por el cliente** |
-    | **Default gateway IP Address** | **0.0.0.0** | 
+    | **Default gateway IP Address** | **0.0.0.0** |
     | **Input interface** | El sistema genera automáticamente la lista de interfaces de entrada. <br />Para reflejar las interfaces de entrada, copie todos los elementos que se muestran en la lista separados con comas. |
     | **Bridge interface** | - |
 
@@ -1124,7 +1076,7 @@ Después de aproximadamente 10 minutos, las credenciales de inicio de sesión se
 
 En esta sección se proporciona el procedimiento de instalación de Fitlet2. Antes de instalar el software en el dispositivo Fitlet, debe cambiar la configuración del BIOS del dispositivo.
 
-#### <a name="fitlet2-front-panel"></a>Panel frontal de Fitlet2 
+#### <a name="fitlet2-front-panel"></a>Panel frontal de Fitlet2
 
 :::image type="content" source="media/tutorial-install-components/fitlet-front-panel.png" alt-text="Vista del panel frontal de Fitlet2.":::
 
@@ -1133,6 +1085,8 @@ En esta sección se proporciona el procedimiento de instalación de Fitlet2. Ant
 :::image type="content" source="media/tutorial-install-components/fitlet2-back-panel.png" alt-text="Vista del panel posterior de Fitlet2.":::
 
 #### <a name="configure-the-fitlet2-bios"></a>Configuración del BIOS de Fitlet2
+
+**Configuración del BIOS de Fitlet2, haga lo siguiente:**
 
 1. Encienda el dispositivo.
 
@@ -1165,7 +1119,9 @@ En esta sección se proporciona el procedimiento de instalación de Fitlet2. Ant
 1. Vaya a **CSM Configuration** > **CSM Support** (Configuración de CSM > Compatibilidad con CSM).
 
 1. Presione **+/-** para seleccionar **Enabled** (Habilitado).
+
 1. Vaya a **Advanced** > **Boot option filter [Legacy only]** (Avanzado > Filtro de opciones de arranque [Solo heredadas] y cambie el valor de los siguientes campos a **Legacy** (Heredado):
+
     - Red
     - Storage
     - Vídeo
@@ -1184,7 +1140,7 @@ En esta sección se proporciona el procedimiento de instalación de Fitlet2. Ant
 1. Vaya a **Boot** > **Boot mode** (Arranque > Modo de arranque) y seleccione **Legacy** (Heredado).
 
 1. Seleccione **Boot Option #1 – [USB CD/DVD]** (Opción de arranque nº 1: [USB CD/DVD]).
- 
+
 1. Seleccione **Save & Exit** (Guardar y salir).
 
 #### <a name="software-installation-fitlet2"></a>Instalación del software (Fitlet2)
@@ -1197,7 +1153,7 @@ Este proceso de instalación tarda aproximadamente 20 minutos. Después de la i
 
 1. Seleccione **English** (inglés).
 
-1. Seleccione **XSENSE-RELEASE-<version> Office...** .
+1. Seleccione **XSENSE-RELEASE-\<version> Office...** .
 
     :::image type="content" source="media/tutorial-install-components/sensor-version-select-screen-v2.png" alt-text="Seleccione la versión del sensor que se va a instalar.":::
 
@@ -1212,10 +1168,10 @@ Este proceso de instalación tarda aproximadamente 20 minutos. Después de la i
     | ----------| ------------- |
     | **Perfil de hardware** | Seleccione **Office**. |
     | **Interfaz de administración** | **em1** |
-    | **Management Network IP address** | **dirección IP proporcionada por el cliente** | 
-    | **Management subnet mask** | **dirección IP proporcionada por el cliente** | 
+    | **Management Network IP address** | **dirección IP proporcionada por el cliente** |
+    | **Management subnet mask** | **dirección IP proporcionada por el cliente** |
     | **DNS** | **dirección IP proporcionada por el cliente** |
-    | **Default gateway IP Address** | **0.0.0.0** | 
+    | **Default gateway IP Address** | **0.0.0.0** |
     | **Input interface** | El sistema genera automáticamente la lista de interfaces de entrada. <br />Para reflejar las interfaces de entrada, copie todos los elementos que se muestran en la lista separados con comas. |
     | **Bridge interface** | - |
 
@@ -1231,11 +1187,11 @@ Realice dicha validación mediante la GUI o la CLI. La validación está disponi
 
 La validación después de la instalación debe incluir las siguientes pruebas:
 
-  - **Prueba de comprobación**: compruebe que el sistema se está ejecutando.
+- **Prueba de comprobación**: compruebe que el sistema se está ejecutando.
 
-  - **Versión**: compruebe que la versión sea correcta.
+- **Versión**: compruebe que la versión sea correcta.
 
-  - **ifconfig**: compruebe que todas las interfaces de entrada configuradas durante el proceso de instalación se estén ejecutando.
+- **ifconfig**: compruebe que todas las interfaces de entrada configuradas durante el proceso de instalación se estén ejecutando.
 
 ### <a name="check-system-health-by-using-the-gui"></a>Comprobación del mantenimiento del sistema mediante la GUI
 
@@ -1259,9 +1215,10 @@ La validación después de la instalación debe incluir las siguientes pruebas:
 
 - **Registro principal**: proporciona las últimas 500 filas del registro principal, lo que le permite ver las filas de registro recientes sin exportar todo el registro del sistema.
 
-- **Administrador de tareas**: traduce las tareas que aparecen en la tabla de procesos a los siguientes niveles: 
+- **Administrador de tareas**: traduce las tareas que aparecen en la tabla de procesos a los siguientes niveles:
   
-  - Nivel persistente (Redis) 
+  - Nivel persistente (Redis)
+
   - Nivel de efectivo (SQL)
 
 - **Estadísticas de red**: muestra las estadísticas de la red.
@@ -1269,10 +1226,15 @@ La validación después de la instalación debe incluir las siguientes pruebas:
 - **TOP**: muestra la tabla de procesos. Se trata de un comando de Linux que proporciona una vista dinámica en tiempo real del sistema en ejecución.
 
 - **Comprobación de memoria de copia de seguridad**: proporciona el estado de la memoria de copia de seguridad y comprueba lo siguiente:
-  - La ubicación de la carpeta de copia de seguridad. 
+
+  - La ubicación de la carpeta de copia de seguridad.
+
   - El tamaño de la carpeta de copia de seguridad.
+
   - Las limitaciones de la carpeta de copia de seguridad.
+
   - Cuándo se produjo la última copia de seguridad.
+
   - La cantidad de espacio disponible para los archivos de copia de seguridad adicionales.
 
 - **ifconfig**: muestra los parámetros de las interfaces físicas del dispositivo.
@@ -1281,7 +1243,7 @@ La validación después de la instalación debe incluir las siguientes pruebas:
 
 - **Errores del registro principal**: muestra los errores del archivo de registro principal.
 
-Para acceder a la herramienta, haga lo siguiente:
+**Para acceder a la herramienta, haga lo siguiente:**
 
 1. Inicie sesión en el sensor con las credenciales del usuario **Support**.
 
@@ -1291,9 +1253,9 @@ Para acceder a la herramienta, haga lo siguiente:
 
 ### <a name="check-system-health-by-using-the-cli"></a>Comprobación del mantenimiento del sistema mediante la CLI
 
-**Prueba 1: Comprobación**
+Compruebe que el sistema está en funcionamiento antes de probar la seguridad del sistema.
 
-Compruebe que el sistema está en funcionamiento:
+**Para probar el estado del sistema, haga lo siguiente:**
 
 1. Conéctese a la CLI con el terminal de Linux (por ejemplo, PuTTy) y el usuario **Support**.
 
@@ -1305,9 +1267,9 @@ Compruebe que el sistema está en funcionamiento:
 
 1. Compruebe que se muestre el mensaje **System is UP! (prod)** (el sistema funciona [producción]) en la parte inferior.
 
-**Prueba 2: Comprobación de versión**
-
 Compruebe que se está usando la versión correcta:
+
+**Para comprobar la versión del sistema, haga lo siguiente:**
 
 1. Conéctese a la CLI con el terminal de Linux (por ejemplo, PuTTy) y el usuario **Support**.
 
@@ -1315,9 +1277,9 @@ Compruebe que se está usando la versión correcta:
 
 1. Compruebe que se muestre la versión correcta.
 
-**Prueba 3: Validación de la red**
-
 Compruebe que todas las interfaces de entrada configuradas durante el proceso de instalación se estén ejecutando:
+
+**Para validar el estado de red del sistema, haga lo siguiente:**
 
 1. Conéctese a la CLI con el terminal de Linux (por ejemplo, PuTTy) y el usuario **Support**.
 
@@ -1327,9 +1289,9 @@ Compruebe que todas las interfaces de entrada configuradas durante el proceso de
 
     :::image type="content" source="media/tutorial-install-components/interface-list-screen.png" alt-text="Captura de pantalla que muestra la lista de interfaces.":::
 
-**Prueba 4: Acceso de administración a la interfaz de usuario**
-
 Compruebe que puede acceder a la GUI web de la consola:
+
+**Para comprobar que la administración tiene acceso a la interfaz de usuario, haga lo siguiente:**
 
 1. Conecte un portátil con un cable Ethernet al puerto de administración (**Gb1**).
 
@@ -1397,13 +1359,15 @@ Compruebe que puede acceder a la GUI web de la consola:
 
 Para cualquier otra incidencia, póngase en contacto con [Soporte técnico de Microsoft](https://support.microsoft.com/en-us/supportforbusiness/productselection?sapId=82c88f35-1b8e-f274-ec11-c6efdd6dd099).
 
-## <a name="appendix-a-mirroring-port-on-vswitch-esxi"></a>Apéndice A: Puerto de creación de reflejo en vSwitch (ESXi)
+## <a name="configure-a-span-port"></a>Configurar un puerto SPAN
 
-### <a name="configure-a-span-port-on-an-existing-vswitch"></a>Configuración de un puerto SPAN en una instancia de vSwitch existente
+Una instancia de vSwitch no tiene funcionalidades de creación de reflejo, pero se puede usar una solución alternativa para implementar un puerto SPAN. Puede implementar la solución alternativa con ESXi o Hyper-V.
 
-Una instancia de vSwitch no tiene funcionalidades de creación de reflejo, pero se puede usar una solución alternativa para implementar un puerto SPAN.
+:::image type="content" source="media/tutorial-install-components/purdue-model.png" alt-text="Captura de pantalla de dónde se debe colocar el sensor en la arquitectura.":::
 
-Para configurar un puerto SPAN, haga lo siguiente:
+### <a name="configure-a-span-port-with-esxi"></a>Configuración de un puerto SPAN con ESXi
+
+**Para configurar un puerto SPAN con ESXi**:
 
 1. Abra las propiedades de vSwitch.
 
@@ -1427,15 +1391,134 @@ Para configurar un puerto SPAN, haga lo siguiente:
 
 1. Seleccione **Aceptar**.
 
-1. Conéctese al sensor y compruebe que la creación de reflejos funcione.
+1. Conéctese al sensor y compruebe que la solución de creación de reflejo funcione.
 
-## <a name="appendix-b-access-sensors-from-the-on-premises-management-console"></a>Apéndice B: Acceso a los sensores desde la consola de administración local
+### <a name="configure-a-span-port-with-hyper-v"></a>Configuración de un puerto SPAN con Hyper-V
+
+Antes de comenzar, deberá:
+
+- Asegurarse de que no hay ninguna instancia de ClearPass VA en ejecución.
+
+- Habilitar Ensure SPAN (Asegurar SPAN) en el puerto de datos y no en el puerto de administración.
+
+- Asegurarse de que la configuración de SPAN del puerto de datos no está definida con una dirección IP.
+
+**Para configurar un puerto SPAN con Hyper-V**:
+
+1. Abra el Administrador de conmutadores virtuales.
+
+1. En la lista Conmutadores virtuales, seleccione **Nuevo conmutador de red virtual** > **Externo** como el tipo de adaptador de red distribuido dedicado.
+
+    :::image type="content" source="media/tutorial-install-components/new-virtual-network.png" alt-text="Captura de pantalla de la selección de una nueva red virtual y externa antes de crear el conmutador virtual.":::
+
+1. Seleccione **Crear conmutador virtual**.
+
+1. En Tipo de conexión, seleccione **Red externa**.
+
+1. Asegúrese de que la casilla **Permitir que el sistema operativo de administración comparta este adaptador de red** esté activada.
+
+   :::image type="content" source="media/tutorial-install-components/external-network.png" alt-text="Seleccione la red externa y permita que el sistema operativo de administración comparta el adaptador de red.":::
+
+1. Seleccione **Aceptar**.
+
+#### <a name="attach-a-clearpass-span-virtual-interface-to-the-virtual-switch"></a>Asociación de una interfaz virtual Clearpass SPAN al conmutador virtual
+
+Puede asociar una interfaz virtual ClearPass SPAN al conmutador virtual mediante Windows PowerShell o el administrador de Hyper-V.
+
+**Para asociar una interfaz virtual Clearpass SPAN al conmutador virtual con PowerShell**:
+
+1. Seleccione el conmutador virtual SPAN recién agregado y agregue un nuevo adaptador de red con el siguiente comando:
+
+    ```bash
+    ADD-VMNetworkAdapter -VMName VK-C1000V-LongRunning-650 -Name Monitor -SwitchName vSwitch_Span
+    ```
+
+1. Habilite la creación de reflejo del puerto para la interfaz seleccionada como destino de la distribución con el siguiente comando:
+
+    ```bash
+    Get-VMNetworkAdapter -VMName VK-C1000V-LongRunning-650 | ? Name -eq Monitor | Set-VMNetworkAdapter -PortMirroring Destination
+    ```
+
+    | Parámetro | Descripción |
+    |--|--|
+    | VK-C1000V-LongRunning-650 | Nombre de CPPM VA |
+    |vSwitch_Span |Nombre del conmutador virtual SPAN recién agregado |
+    |Monitor |Nombre del adaptador recién agregado |
+
+1. Seleccione **Aceptar**.
+
+Estos comandos establecen el nombre del hardware del adaptador recién agregado como `Monitor`. Si usa el administrador de Hyper-V, el nombre del hardware del adaptador recién agregado se establece en `Network Adapter`.
+
+**Para asociar una interfaz virtual Clearpass SPAN al conmutador virtual con el administrador de Hyper-V**:
+
+1. En la lista Hardware, seleccione **Adaptador de red**.
+
+1. En el campo Conmutador virtual, seleccione **vSwitch_Span**.
+
+    :::image type="content" source="media/tutorial-install-components/vswitch-span.png" alt-text="Captura de pantalla de la selección de las siguientes opciones en la pantalla del conmutador virtual.":::
+
+1. En la lista Hardware, en la lista desplegable Adaptador de red, seleccione **Características avanzadas**.
+
+1. En la sección Creación de reflejo del puerto, seleccione **Destino** como modo de creación de reflejo para la nueva interfaz virtual.
+
+    :::image type="content" source="media/tutorial-install-components/destination.png" alt-text="Captura de pantalla de las selecciones necesarias para configurar el modo de creación de reflejo.":::
+
+1. Seleccione **Aceptar**.
+
+#### <a name="enable-microsoft-ndis-capture-extensions-for-the-virtual-switch"></a>Habilitación de las extensiones de captura de NDIS de Microsoft para el conmutador virtual
+
+Las extensiones de captura de NDIS de Microsoft deben estar habilitadas para el nuevo conmutador virtual.
+
+**Para habilitar las extensiones de captura de NDIS de Microsoft para el conmutador virtual recién agregado, haga lo siguiente:**
+
+1. Abra el Administrador de conmutador virtual en el host de Hyper-V.
+
+1. En la lista Conmutadores virtuales, expanda el nombre del conmutador virtual `vSwitch_Span` y seleccione **Extensiones**.
+
+1. En el campo Extensiones de conmutador, seleccione **Captura de NDIS de Microsoft**.
+
+    :::image type="content" source="media/tutorial-install-components/microsoft-ndis.png" alt-text="Captura de pantalla de la habilitación de NDIS de Microsoft al seleccionar esta opción en el menú de extensiones de conmutador.":::
+
+1. Seleccione **Aceptar**.
+
+#### <a name="set-the-mirroring-mode-on-the-external-port"></a>Establecimiento del modo de creación de reflejo en el puerto externo
+
+El modo de creación de reflejo debe establecerse en el puerto externo del nuevo conmutador virtual como origen.
+
+Deberá configurar el conmutador virtual de Hyper-V (vSwitch_Span) para reenviar cualquier tráfico que llegue al puerto de origen externo al adaptador de red virtual que ha configurado como destino.
+
+Use los siguientes comandos de PowerShell para establecer el puerto del conmutador virtual externo en el modo de reflejo de origen:
+
+```bash
+$ExtPortFeature=Get-VMSystemSwitchExtensionPortFeature -FeatureName "Ethernet Switch Port Security Settings"
+$ExtPortFeature.SettingData.MonitorMode=2
+Add-VMSwitchExtensionPortFeature -ExternalPort -SwitchName vSwitch_Span -VMSwitchExtensionFeature $ExtPortFeature
+```
+
+| Parámetro | Descripción |
+|--|--|
+| vSwitch_Span | Nombre del conmutador virtual SPAN recién agregado. |
+| MonitorMode=2 | Origen |
+| MonitorMode=1 | Destination |
+| MonitorMode=0 | Ninguno |
+
+Use el siguiente comando de PowerShell para comprobar el estado del modo de supervisión:
+
+```bash
+Get-VMSwitchExtensionPortFeature -FeatureName "Ethernet Switch Port Security Settings" -SwitchName vSwitch_Span -ExternalPort | select -ExpandProperty SettingData
+```
+
+| Parámetro | Descripción |
+|--|--|
+| vSwitch_Span | Nombre del conmutador virtual SPAN recién agregado |
+
+## <a name="access-sensors-from-the-on-premises-management-console"></a>Acceso a los sensores desde la consola de administración local
 
 Puede mejorar la seguridad del sistema al impedir el acceso de usuario directo al sensor. En su lugar, use la tunelización de proxy para permitir que los usuarios accedan al sensor desde la consola de administración local con una sola regla de firewall. Esta técnica reduce la posibilidad del acceso no autorizado al entorno de red más allá del sensor. La experiencia del usuario al iniciar sesión en el sensor seguirá siendo la misma.
 
 :::image type="content" source="media/tutorial-install-components/sensor-system-graph.png" alt-text="Captura de pantalla que muestra el acceso al sensor.":::
 
-Para habilitar la tunelización, haga lo siguiente:
+**Para habilitar la tunelización, haga lo siguiente**:
 
 1. Inicie sesión en la CLI de la consola de administración local con las credenciales de usuario **CyberX** o **Support**.
 

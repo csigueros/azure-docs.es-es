@@ -8,12 +8,12 @@ ms.date: 04/13/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 798d0aaa6f4423679576c37a0af7bf64de37a313
-ms.sourcegitcommit: d137460f55a38a0e8f8b9e6594e480d5e5f662ed
+ms.openlocfilehash: f128aac2135b85c3e612ce1249766b7e5db29f05
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112428805"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128549626"
 ---
 # <a name="configuring-azure-file-sync-network-endpoints"></a>Configuración de puntos de conexión de red de Azure File Sync
 Azure Files y Azure File Sync proporcionan dos tipos principales de puntos de conexión para el acceso a los recursos compartidos de archivos de Azure: 
@@ -30,7 +30,7 @@ Se recomienda leer [Consideraciones de redes para Azure File Sync](file-sync-net
 En este artículo se da por hecho que:
 - Tiene una suscripción de Azure. Si todavía no tiene una suscripción, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 - Ya ha creado un recurso compartido de archivos de Azure en una cuenta de almacenamiento a la que le gustaría conectarse desde el entorno local. Para aprender a crear un recurso compartido de archivos de Azure, consulte [Creación de un recurso compartido de archivos de Azure](../files/storage-how-to-create-file-share.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json).
-- Ya ha creado un servicio de sincronización de almacenamiento con el que ha registrado el servidor de archivos de Windows. Para obtener información sobre cómo implementar Azure File Sync, consulte [Implementación de Azure File Sync](file-sync-deployment-guide.md).
+- Para permitir el tráfico de dominio a los siguientes puntos de conexión; consulte [Puntos de conexión de servicio de Azure](../file-sync/file-sync-firewall-and-proxy.md#firewall):
 
 Además:
 - Si planea usar Azure PowerShell, [instale la versión más reciente](/powershell/azure/install-az-ps).

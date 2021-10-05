@@ -6,12 +6,12 @@ ms.author: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/12/2021
-ms.openlocfilehash: 8e512c06901a533ef381bc389def45f07e8a028d
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 6d13f5f79da2906d1b994d4ab83e06d0593eaefe
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123102003"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128586653"
 ---
 # <a name="choose-an-api-in-azure-cosmos-db"></a>Elección de una API en Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -51,8 +51,8 @@ Si va a migrar desde otras bases de datos, como Oracle, DynamoDB, HBase, etc., y
 ### <a name="capacity-planning-for-migration-to-api-for-mongodb"></a>Planeamiento de la capacidad para la migración a la API para MongoDB
 
 ¿Desea planear la capacidad para una migración a la API de SQL de Azure Cosmos DB desde un clúster de base de datos existente? Puede usar información sobre el clúster de bases de datos existente para planear la capacidad.
-    * Si lo único que sabe es el número de núcleos virtuales y servidores de su clúster de bases de datos replicadas y con particiones, obtenga información sobre cómo [calcular las unidades de solicitud mediante núcleos virtuales o vCPU](convert-vcore-to-request-unit.md). 
-    * Si conoce las velocidades de solicitud típicas de la carga de trabajo de la base de datos actual, lea sobre el [cálculo de unidades de solicitud mediante la herramienta de planeamiento de capacidad de Azure Cosmos DB](estimate-ru-with-capacity-planner.md).
+* Si lo único que sabe es el número de núcleos virtuales y servidores del clúster de bases de datos replicado y con particiones existente, lea sobre cómo [calcular las unidades de solicitud mediante núcleos virtuales o vCPU](convert-vcore-to-request-unit.md).
+* Si conoce las tasas de solicitudes típicas de la carga de trabajo de base de datos actual, lea sobre la [estimación de unidades de solicitud mediante la herramienta de planeamiento de capacidad de Azure Cosmos DB](estimate-ru-with-capacity-planner.md).
 
 ## <a name="api-for-mongodb"></a>API para MongoDB
 
@@ -65,8 +65,8 @@ La API para MongoDB es compatible con las versiones 4.0, 3.6 y 3.2 del servidor
 ### <a name="capacity-planning-for-migration-to-api-for-mongodb"></a>Planeamiento de la capacidad para la migración a la API para MongoDB
 
 ¿Desea planear la capacidad para una migración a la API de SQL de Azure Cosmos DB para MongoDB desde un clúster de base de datos existente? Puede usar información sobre el clúster de bases de datos existente para planear la capacidad.
-    * Si lo único que sabe es el número de núcleos virtuales y servidores del clúster de bases de datos existente, lea sobre el [cálculo de unidades de solicitud mediante núcleos o CPU virtuales](convert-vcore-to-request-unit.md). 
-    * Si conoce las velocidades de solicitud típicas de la carga de trabajo de la base de datos actual, lea sobre el [cálculo de unidades de solicitud mediante la herramienta de planeamiento de capacidad de Azure Cosmos DB](./mongodb/estimate-ru-capacity-planner.md).
+* Si lo único que sabe es el número de núcleos virtuales y servidores del clúster de bases de datos existente, lea sobre el [cálculo de unidades de solicitud mediante núcleos virtuales o vCPUs](convert-vcore-to-request-unit.md).
+* Si conoce las tasas de solicitudes típicas de la carga de trabajo de base de datos actual, lea sobre la [estimación de unidades de solicitud mediante la herramienta de planeamiento de capacidad de Azure Cosmos DB](./mongodb/estimate-ru-capacity-planner.md).
 
 ## <a name="cassandra-api"></a>Cassandra API
 
@@ -84,7 +84,7 @@ La API de Gremlin de Azure Cosmos DB se basa en el marco de trabajo de computac
 
 Esta API almacena los datos en formato clave-valor. Si actualmente usa Azure Table Storage, es posible que observe algunas limitaciones en la latencia, el escalado, el rendimiento, la distribución global, la administración de índices y el bajo rendimiento de las consultas. Table API supera estas limitaciones y se recomienda migrar la aplicación si quiere aprovechar las ventajas de Azure Cosmos DB. Table API solo admite escenarios OLTP.
 
-Las aplicaciones escritas para Azure Table Storage pueden migrarse a Table API con pocos cambios en el código, y pueden sacar provecho de las funcionalidades prémium. Para más información, consulte el artículo [Table API](introduction.md).
+Las aplicaciones escritas para Azure Table Storage pueden migrarse a Table API con pocos cambios en el código, y pueden sacar provecho de las funcionalidades prémium. Para más información, consulte el artículo [Table API](table/introduction.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -93,6 +93,6 @@ Las aplicaciones escritas para Azure Table Storage pueden migrarse a Table API c
 * [Introducción a la API Cassandra de Azure Cosmos DB](cassandra/manage-data-dotnet.md)
 * [Introducción a Gremlin API de Azure Cosmos DB](create-graph-dotnet.md)
 * [Introducción a Table API de Azure Cosmos DB](create-table-dotnet.md)
-* ¿Intenta planear la capacidad de una migración a Azure Cosmos DB? Puede usar información sobre el clúster de bases de datos existente para planear la capacidad.
+* ¿Intenta planear la capacidad de una migración a Azure Cosmos DB? Para ello, puede usar información sobre el clúster de bases de datos existente.
     * Si lo único que sabe es el número de núcleos virtuales y servidores del clúster de bases de datos existente, lea sobre el [cálculo de unidades de solicitud mediante núcleos o CPU virtuales](convert-vcore-to-request-unit.md). 
-    * Si conoce las velocidades de solicitud típicas de la carga de trabajo de la base de datos actual, lea sobre el [cálculo de unidades de solicitud mediante la herramienta de planeamiento de capacidad de Azure Cosmos DB](estimate-ru-with-capacity-planner.md).
+    * Si conoce las velocidades de solicitud típicas de la carga de trabajo de base de datos actual, lea sobre el [cálculo de las unidades de solicitud mediante la herramienta de planeamiento de capacidad de Azure Cosmos DB](estimate-ru-with-capacity-planner.md).

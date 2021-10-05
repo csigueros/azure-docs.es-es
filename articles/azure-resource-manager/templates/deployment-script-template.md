@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/25/2021
 ms.author: jgao
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ece3693fa183ba31de569e7db632c3d294c10437
-ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
+ms.openlocfilehash: de462f24f05b93f40453cd74c85a41b5c11ac0d3
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123187188"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128656310"
 ---
 # <a name="use-deployment-scripts-in-arm-templates"></a>Uso de scripts de implementación en plantillas de Resource Manager
 
@@ -40,6 +40,10 @@ El recurso de script de implementación solo está disponible en las regiones do
 
 > [!NOTE]
 > La lógica de reintento de inicio de sesión de Azure está ahora integrada en el script contenedor. Si concede permisos en la misma plantilla que los scripts de implementación, el servicio de scripts de implementación vuelve a intentar iniciar sesión durante 10 minutos con intervalos de 10 segundos hasta que se replica la asignación de roles de identidad administrada.
+
+### <a name="microsoft-learn"></a>Microsoft Learn
+
+Para obtener más información sobre el kit de herramientas de pruebas de plantillas de ARM y obtener instrucciones prácticas, consulte [Extensión de las plantillas de Resource Manager mediante scripts de implementación](/learn/modules/extend-resource-manager-template-deployment-scripts) en **Microsoft Learn**.
 
 ## <a name="configure-the-minimum-permissions"></a>Configuración de los permisos mínimos
 

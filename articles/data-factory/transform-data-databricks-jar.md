@@ -1,26 +1,26 @@
 ---
 title: Transformación de datos con Jar en Databricks
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Obtenga información sobre cómo procesar o transformar datos mediante la ejecución de una instancia de Jar en Databricks dentro de una canalización de Azure Data Factory.
+description: Aprenda a procesar o transformar datos mediante la ejecución de una actividad de Jar en Databricks en una canalización de Azure Data Factory o Synapse Analytics.
 ms.service: data-factory
 ms.subservice: tutorials
 ms.custom: synapse
 ms.topic: conceptual
 ms.author: abnarain
 author: nabhishek
-ms.date: 02/10/2021
-ms.openlocfilehash: d713decf0a82b5e501b7c2065a358e8ccc754d8e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/09/2021
+ms.openlocfilehash: d4e1daad02e46f5921754665a44e57b42dabed8c
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122638015"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124798510"
 ---
 # <a name="transform-data-by-running-a-jar-activity-in-azure-databricks"></a>Transformación de datos mediante la ejecución de una actividad de Jar en Azure Databricks
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-La actividad de Jar en Azure Databricks en una [canalización de Data Factory](concepts-pipelines-activities.md) ejecuta un archivo Jar de Spark en el clúster de Azure Databricks. Este artículo se basa en el artículo sobre [actividades de transformación de datos](transform-data.md) , que presenta información general de la transformación de datos y las actividades de transformación admitidas.  Azure Databricks es una plataforma administrada para ejecutar Apache Spark.
+La actividad de Jar de Azure Databricks en una [canalización](concepts-pipelines-activities.md) ejecuta un archivo Jar de Spark en el clúster de Azure Databricks. Este artículo se basa en el artículo sobre [actividades de transformación de datos](transform-data.md) , que presenta información general de la transformación de datos y las actividades de transformación admitidas.  Azure Databricks es una plataforma administrada para ejecutar Apache Spark.
 
 Si desea una introducción y demostración de once minutos de esta característica, vea el siguiente vídeo:
 

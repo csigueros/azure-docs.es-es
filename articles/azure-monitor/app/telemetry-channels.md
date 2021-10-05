@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 05/14/2019
 ms.custom: devx-track-csharp
 ms.reviewer: mbullwin
-ms.openlocfilehash: a22a0d112671019d73eb4c9a3853462e4e9c8c75
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2bba7516637bedf6e81747cbb27f926964c63f53
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98937349"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128556516"
 ---
 # <a name="telemetry-channels-in-application-insights"></a>Canales de telemetría en Application Insights
 
@@ -111,7 +111,7 @@ TelemetryConfiguration.Active.TelemetryChannel = serverTelemetryChannel;
 
 `ServerTelemetryChannel` almacena los elementos que llegan de un búfer en memoria. Los elementos se serializan, comprimen y almacenan en una instancia de `Transmission` una vez cada 30 segundos, o cuando se han almacenado en búfer 500 elementos. Una sola instancia de `Transmission`contiene hasta 500 elementos y representa un lote de datos de telemetría que se envía a través de una sola llamada HTTPS al servicio de Application Insights.
 
-De forma predeterminada, se puede enviar un máximo de 10 instancias de `Transmission` en paralelo. Si llegan datos de telemetría a velocidades más rápidas, o si el back-end de application Insights o la red funcionan con lentitud, las instancias de `Transmission` se almacenan en memoria. La capacidad predeterminada de este búfer `Transmission` en memoria es de 5 MB. Cuando se ha superado la capacidad en memoria, las instancias de `Transmission` se almacenan en el disco local hasta un límite de 50 MB. Las instancias de `Transmission` también se almacenan en el disco local cuando hay problemas de red. Solo los elementos que se almacenan en un disco local sobreviven a un bloqueo de la aplicación. Se envían siempre que la aplicación se inicia de nuevo.
+De forma predeterminada, se puede enviar un máximo de 10 instancias de `Transmission` en paralelo. Si llegan datos de telemetría a velocidades más rápidas, o si el back-end de application Insights o la red funcionan con lentitud, las instancias de `Transmission` se almacenan en memoria. La capacidad predeterminada de este búfer `Transmission` en memoria es de 5 MB. Cuando se ha superado la capacidad en memoria, las instancias de `Transmission` se almacenan en el disco local hasta un límite de 50 MB. Las instancias de `Transmission` también se almacenan en el disco local cuando hay problemas de red. Solo los elementos que se almacenan en un disco local sobreviven a un bloqueo de la aplicación. Se envían siempre que la aplicación se inicia de nuevo. Si los problemas de red persisten, `ServerTelemetryChannel` usará una lógica de retroceso exponencial que va de 10 segundos a 1 hora antes de reintentar el envío de telemetría. 
 
 ## <a name="configurable-settings-in-channels"></a>Valores configurables en los canales
 

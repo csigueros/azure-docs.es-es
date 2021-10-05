@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 04/21/2021
+ms.date: 09/09/2021
 ms.author: memildin
-ms.openlocfilehash: 9f1fdfeadd56b070c942c023a7373b43363a1916
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: ef37d84d2fcef851e13837ae40da14db9fb2412f
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121734968"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124777457"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>Uso de controles de aplicaciones adaptables para reducir las superficies de ataque de las máquinas
 
@@ -30,12 +30,12 @@ Cuando haya habilitado y configurado controles de aplicaciones adaptables, recib
 
 ## <a name="what-are-the-benefits-of-adaptive-application-controls"></a>¿Cuáles son las ventajas de los controles de aplicaciones adaptables?
 
-Al definir listas de aplicaciones seguras conocidas y generar alertas cuando se ejecuta algo diferente, puede conseguir varios objetivos de protección:
+Al definir listas de aplicaciones seguras conocidas y generar alertas cuando se ejecuta algo diferente, puede conseguir varios objetivos de supervisión y cumplimiento:
 
 - Identificar posible malware, incluso el que podría faltar en las soluciones antimalware
 - Mejorar el cumplimiento de las directivas de seguridad locales que dictan el uso exclusivo de software con licencia
-- Evitar la ejecución de aplicaciones antiguas o no admitidas
-- Impedir software específico prohibido por la organización
+- Identificación de versiones de aplicaciones no actualizadas o no admitidas. 
+- Identificación del software prohibido por su organización, pero que, no obstante, se ejecuta en las máquinas.
 - Aumentar la supervisión de las aplicaciones que acceden a datos confidenciales
 
 Actualmente no hay opciones de cumplimiento disponibles. El fin de los controles de aplicaciones adaptables es generar alertas de seguridad si alguna aplicación ejecuta elementos que no son los que se han definido como seguros.

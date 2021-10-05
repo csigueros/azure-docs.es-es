@@ -2,13 +2,13 @@
 title: Uso de Azure Private Link para conectar redes a Azure Arc de manera segura
 description: Aprenda a usar Azure Private Link para conectar redes a Azure Arc de manera segura.
 ms.topic: conceptual
-ms.date: 07/20/2021
-ms.openlocfilehash: 1bd683631e9a7edb321abb56ed423cac11b42557
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.date: 09/14/2021
+ms.openlocfilehash: 53bd9310c193d4fad1d550fbf33446754c30ecd6
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114468007"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128631521"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-arc"></a>Uso de Azure Private Link para conectar redes a Azure Arc de manera segura
 
@@ -26,7 +26,7 @@ En este artículo se explica cuándo utilizar una instancia del Ámbito de Priva
 Con Private Link puede:
 
 - Conectarse de manera privada con Azure Arc sin necesidad de abrir ningún acceso a la red pública.
-- Asegurarse de que solo se acceda a los datos de la máquina o el servidor habilitado para Arc a través de redes privadas autorizadas. Esto también incluye los datos de las [extensiones de máquina virtual](manage-vm-extensions.md) instaladas en la máquina o el servidor que proporcionan compatibilidad con la supervisión y administración posteriores a la implementación.
+- Asegurarse de que solo se acceda a los datos de la máquina o el servidor habilitado para Azure Arc a través de redes privadas autorizadas. Esto también incluye los datos de las [extensiones de máquina virtual](manage-vm-extensions.md) instaladas en la máquina o el servidor que proporcionan compatibilidad con la supervisión y administración posteriores a la implementación.
 - Evitar la filtración de datos desde las redes privadas mediante la definición de servidores específicos habilitados para Azure Arc y otros recursos de servicios de Azure, como Azure Monitor, que se conectan a través del punto de conexión privado.
 - Conectar de forma segura la red local privada a Azure Arc mediante ExpressRoute y Private Link.
 - Mantener todo el tráfico dentro de la red troncal de Microsoft Azure.
@@ -35,7 +35,7 @@ Para más información, consulte [Ventajas principales de Private Link](../../pr
 
 ## <a name="how-it-works"></a>Funcionamiento
 
-El Ámbito de Private Link de Azure Arc (versión preliminar) conecta los puntos de conexión privados (y la red virtual que los contiene) a un recurso de Azure; en este caso, servidores habilitados para Azure Arc. Al habilitar cualquiera de las extensiones de máquina virtual compatibles con servidores habilitados para Arc, como Update Management en Azure Automation o Azure Monitor, esos recursos conectan otros recursos de Azure. Como:
+El Ámbito de Private Link de Azure Arc (versión preliminar) conecta los puntos de conexión privados (y la red virtual que los contiene) a un recurso de Azure; en este caso, servidores habilitados para Azure Arc. Al habilitar cualquiera de las extensiones de máquina virtual compatibles con servidores habilitados para Azure Arc, como Update Management en Azure Automation o Azure Monitor, esos recursos conectan otros recursos de Azure. Como:
 
 - Área de trabajo de Log Analytics, necesaria para Update Management en Azure Automation, Seguimiento de cambios e inventario de Azure Automation, VM Insights de Azure Monitor y la recopilación de registros de Azure Monitor con el agente de Log Analytics.
 - Cuenta de Azure Automation, necesaria para Update Management y Seguimiento de cambios e inventario.
@@ -44,7 +44,7 @@ El Ámbito de Private Link de Azure Arc (versión preliminar) conecta los punto
 
 :::image type="content" source="./media/private-link-security/private-link-topology.png" alt-text="Diagrama de la topología básica de los recursos" border="true":::
 
-La conectividad con los demás recursos de Azure desde un servidor habilitado para Arc anteriormente mencionado requiere la configuración de Private Link para cada servicio. Si necesita más información, consulte lo siguiente para configurar Private Link para [Azure Automation](../../automation/how-to/private-link-security.md), [Azure Monitor](../../azure-monitor/logs/private-link-security.md), [Azure Key Vault](../../key-vault/general/private-link-service.md) o [Azure Blob Storage](../../private-link/tutorial-private-endpoint-storage-portal.md).
+La conectividad con los demás recursos de Azure desde un servidor habilitado para Azure Arc anteriormente mencionado requiere la configuración de Private Link para cada servicio. Si necesita más información, consulte lo siguiente para configurar Private Link para [Azure Automation](../../automation/how-to/private-link-security.md), [Azure Monitor](../../azure-monitor/logs/private-link-security.md), [Azure Key Vault](../../key-vault/general/private-link-service.md) o [Azure Blob Storage](../../private-link/tutorial-private-endpoint-storage-portal.md).
 
 > [!IMPORTANT]
 > Azure Private Link ya está disponible con carácter general. Tanto el punto de conexión privado como el servicio Private Link (servicio detrás del equilibrador de carga estándar) están disponibles con carácter general. La incorporación de los diferentes Azure PaaS a Azure Private Link se realizará en diferentes programaciones. Consulte [Disponibilidad de Private Link](../../private-link/availability.md) para ver un estado preciso de PaaS de Azure en Private Link. Para obtener información sobre las limitaciones conocidas, consulte [Punto de conexión privado](../../private-link/private-endpoint-overview.md#limitations) y [Servicio Private Link](../../private-link/private-link-service-overview.md#limitations).
@@ -57,7 +57,7 @@ La conectividad con los demás recursos de Azure desde un servidor habilitado pa
 
 ## <a name="restrictions-and-limitations"></a>Restricciones y limitaciones
 
-El objeto de Ámbito de Private Link de servidores habilitados para Arc tiene una serie de límites que se deben tener en cuenta al planear la configuración de Private Link.
+El objeto de ámbito de Private Link de servidores habilitados para Azure Arc tiene una serie de límites que se deben tener en cuenta al planear la configuración de Private Link.
 
 - Como máximo, puede asociar un Ámbito de Private Link de Azure Arc con una red virtual.
 
@@ -65,9 +65,9 @@ El objeto de Ámbito de Private Link de servidores habilitados para Arc tiene un
 
 - Todas las máquinas locales deben usar el mismo punto de conexión privado. Para ello, resuelva la información correcta del punto de conexión privado (nombre del registro FQDN y dirección IP privada) con el mismo reenviador DNS. Para más información, consulte [Configuración de DNS para puntos de conexión privados de Azure](../../private-link/private-endpoint-dns.md).
 
-- La máquina o el servidor habilitado para Azure Arc, el Ámbito de Private Link de Azure Arc y la red virtual deben estar en la misma región de Azure.
+- El servidor habilitado para Azure Arc y el ámbito de Private Link de Azure Arc deben estar en la misma región de Azure. El punto de conexión privado y la red virtual también deben estar en la misma región de Azure, pero esta región puede ser diferente de la del ámbito de Private Link de Azure Arc y el servidor habilitado para Arc.
 
-- Durante la versión preliminar, se debe permitir el tráfico a las etiquetas de servicio de Azure Resource Manager y de Azure Active Directory a través del firewall de red local. 
+- Durante la versión preliminar, se debe permitir el tráfico a las etiquetas de servicio de Azure Resource Manager y de Azure Active Directory a través del firewall de red local.
 
 - Otros servicios de Azure que utilizará (por ejemplo, Azure Monitor) requieren sus propios puntos de conexión privados en la red virtual.
 
@@ -134,7 +134,7 @@ Consulte el diagrama visual que aparece en la sección [Funcionamiento](#how-it-
 
 1. Asígnele un nombre al Ámbito de Private Link de Azure Arc. Se recomienda usar un nombre significativo y claro.
 
-   También puede requerir que cada máquina o servidor habilitado para Arc asociado a este Ámbito de Private Link de Azure Arc (versión preliminar) envíe datos al servicio a través del punto de conexión privado. Si selecciona **Habilitar acceso a la red pública**, las máquinas o los servidores asociados a este Ámbito de Private Link de Azure Arc (versión preliminar) pueden comunicarse con el servicio a través de redes privadas o públicas. Si cambia de opinión, puede modificar esta configuración después de crear el ámbito.
+   También puede requerir que cada máquina o servidor habilitado para Azure Arc asociado a este ámbito de Private Link de Azure Arc (versión preliminar) envíe datos al servicio a través del punto de conexión privado. Si selecciona **Habilitar acceso a la red pública**, las máquinas o los servidores asociados a este Ámbito de Private Link de Azure Arc (versión preliminar) pueden comunicarse con el servicio a través de redes privadas o públicas. Si cambia de opinión, puede modificar esta configuración después de crear el ámbito.
 
 1. Seleccione **Revisar + crear**.
 
@@ -173,7 +173,7 @@ Una vez creado el Ámbito de Private Link de Azure Arc (versión preliminar), d
    b. Elija **Sí** para **Integrar con la zona DNS privada** y permita que cree automáticamente una nueva zona DNS privada. Las zonas DNS reales pueden ser distintas de las que se muestran en la siguiente captura de pantalla.
 
      > [!NOTE]
-     > Si elige **No** y prefiere administrar los registros de DNS manualmente, complete primero la configuración de Private Link, incluido este punto de conexión privado y la configuración del ámbito privado. A continuación, configure DNS según las instrucciones que se indican en [Configuración de DNS para puntos de conexión privados de Azure](../../private-link/private-endpoint-dns.md). Asegúrese de no crear registros vacíos como preparación para la configuración de Private Link. Los registros DNS que se crean pueden invalidar la configuración existente e influir en la conectividad con servidores habilitados para Arc.
+     > Si elige **No** y prefiere administrar los registros de DNS manualmente, complete primero la configuración de Private Link, incluido este punto de conexión privado y la configuración del ámbito privado. A continuación, configure DNS según las instrucciones que se indican en [Configuración de DNS para puntos de conexión privados de Azure](../../private-link/private-endpoint-dns.md). Asegúrese de no crear registros vacíos como preparación para la configuración de Private Link. Los registros DNS que se crean pueden invalidar la configuración existente e influir en la conectividad con servidores habilitados para Azure Arc.
 
    c.    Seleccione **Revisar + crear**.
 
@@ -228,9 +228,9 @@ Si solo tiene previsto utilizar vínculos privados para admitir algunas máquina
 ## <a name="connect-to-an-azure-arc-enabled-servers"></a>Conexión a un servidor habilitado para Azure Arc
 
 > [!NOTE]
-> La versión mínima admitida del agente de Azure Arc Connected Machine con punto de conexión privado es la versión 1.4. El script de implementación de servidores habilitados para Arc que se genera en el portal descarga la versión más reciente.
+> La versión mínima admitida del agente de Azure Arc Connected Machine con punto de conexión privado es la versión 1.4. El script de implementación de servidores habilitados para Azure Arc que se genera en el portal descarga la versión más reciente.
 
-### <a name="configure-a-new-arc-enabled-server-to-use-private-link"></a>Configuración de un servidor habilitado para Arc nuevo para utilizar Private Link
+### <a name="configure-a-new-azure-arc-enabled-server-to-use-private-link"></a>Configuración de un servidor habilitado para Azure Arc nuevo para utilizar Private Link
 
 Al conectar una máquina o un servidor con servidores habilitados para Azure Arc por primera vez, también puede conectarlo a un Ámbito de Private Link. Los pasos siguientes son: 
 
@@ -257,7 +257,7 @@ Al conectar una máquina o un servidor con servidores habilitados para Azure Ar
 
     1. Seleccione **Siguiente: Etiquetas**.
 
-1. Si seleccionó **Agregar varios servidores**, en la página **Autenticación**, seleccione la entidad de servicio creada para los servidores habilitados para Arc en la lista desplegable. Si no ha creado una entidad de servicio para servidores habilitados para Arc, revise primero [cómo crear una entidad de servicio](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) para familiarizarse con los permisos necesarios y los pasos para crear uno. Seleccione **Siguiente: Etiquetas** para continuar.
+1. Si seleccionó **Agregar varios servidores**, en la página **Autenticación**, seleccione la entidad de servicio creada para los servidores habilitados para Azure Arc en la lista desplegable. Si no ha creado una entidad de servicio para servidores habilitados para Azure Arc, revise primero [cómo crear una entidad de servicio](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) para familiarizarse con los permisos necesarios y los pasos para crear uno. Seleccione **Siguiente: Etiquetas** para continuar.
 
 1. En la página **Etiquetas**, revise las **etiquetas de ubicación física** predeterminadas sugeridas y escriba un valor, o bien especifique una o varias **etiquetas personalizadas** para que cumplan sus estándares.
 
@@ -274,9 +274,9 @@ El script devolverá mensajes de estado que le permitirán saber si la incorpora
 > [!NOTE]
 > Si va a implementar el agente de Connected Machine en un servidor Linux, puede haber un retraso de cinco minutos durante la comprobación de la conectividad de red seguido de un error que dice que `you do not have access to login.windows.net`, incluso si el firewall está configurado correctamente. Este comportamiento es un problema conocido y se corregirá en una versión futura del agente. Si el firewall está configurado correctamente, la incorporación debería completarse sin problemas.
 
-### <a name="configure-an-existing-arc-enabled-server"></a>Configuración de un servidor habilitado para Arc existente
+### <a name="configure-an-existing-azure-arc-enabled-server"></a>Configuración de un servidor habilitado para Azure Arc existente
 
-En el caso de los servidores habilitados para Arc que se configuraron antes del ámbito de Private Link, puede permitir que empiecen a usar el Ámbito de Private Link de los servidores habilitados para Arc con estos pasos.
+En el caso de los servidores habilitados para Azure Arc que se configuraron antes del ámbito de Private Link, puede permitir que empiecen a usar el ámbito de Private Link de los servidores habilitados para Azure Arc con estos pasos.
 
 1. En Azure Portal, vaya al recurso Ámbito de Private Link de Azure Arc.
 

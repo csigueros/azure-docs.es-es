@@ -4,7 +4,6 @@ description: Conectar el simulador web de Raspberry Pi a Azure IoT Hub para que 
 author: wesmc7777
 keywords: simulador de raspberry pi, azure iot raspberry pi, raspberry pi iot hub, raspberry pi envía datos a la nube, raspberry pi a la nube
 ms.service: iot-hub
-services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 05/27/2021
@@ -12,12 +11,12 @@ ms.author: wesmc
 ms.custom:
 - 'Role: Cloud Development'
 - devx-track-js
-ms.openlocfilehash: b971236c68392cfb724e95802acc34f97a73a293
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 72708e33aa4d3677bb6c2e424f56eb4d81a29f04
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121733797"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128587975"
 ---
 # <a name="connect-raspberry-pi-online-simulator-to-azure-iot-hub-nodejs"></a>Conectar el simulador en línea de Raspberry Pi a Azure IoT Hub (Node.js)
 
@@ -25,18 +24,10 @@ ms.locfileid: "121733797"
 
 En este tutorial, empezará por aprender los principios básicos del uso del simulador en línea de Raspberry Pi. A continuación, aprenderá a conectar sin problemas el simulador Pi a la nube con [Azure IoT Hub](about-iot-hub.md).
 
-<p>
-<div id="diag" style="width:100%; text-align:center">
-<img src="media/iot-hub-raspberry-pi-web-simulator/3-banner.png" alt="Connect Raspberry Pi web simulator to Azure IoT Hub" width="400">
-</div>
-</p>
-<p>
-<div id="button" style="width:100%; text-align:center">
-<a href="https://azure-samples.github.io/raspberry-pi-web-simulator/#getstarted" target="_blank">
-<img src="media/iot-hub-raspberry-pi-web-simulator/6-button-default.png" alt="Start Raspberry Pi simulator" width="400" onmouseover="this.src='media/iot-hub-raspberry-pi-web-simulator/5-button-click.png';" onmouseout="this.src='media/iot-hub-raspberry-pi-web-simulator/6-button-default.png';">
-</a>
-</div>
-</p>
+:::image type="content" source="media/iot-hub-raspberry-pi-web-simulator/3-banner.png" alt-text="Conexión del simulador web de Raspberry Pi a Azure IoT Hub" border="false":::
+
+[:::image type="content" source="media/iot-hub-raspberry-pi-web-simulator/6-button-default.png" alt-text="Inicio del simulador de Raspberry Pi":::](https://azure-samples.github.io/raspberry-pi-web-simulator/#getstarted)
+
 
 Si tiene dispositivos físicos, visite [Conectar Raspberry Pi a Azure IoT Hub](iot-hub-raspberry-pi-kit-node-get-started.md) para comenzar.
 

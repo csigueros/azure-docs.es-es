@@ -7,13 +7,13 @@ ms.topic: article
 author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
-ms.date: 07/15/2021
-ms.openlocfilehash: c68216675a41a71b21216ce558b03171781dbc43
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/27/2021
+ms.openlocfilehash: c50a36c521848956577fd0e8f53bdb2dceaaee8f
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121749467"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129084063"
 ---
 # <a name="usage-dashboard-in-commercial-marketplace-analytics"></a>Panel de uso de los análisis de marketplace comercial
 
@@ -36,17 +36,45 @@ En el [panel Uso](https://go.microsoft.com/fwlink/?linkid=2166106) se muestran l
 > [!NOTE]
 > La latencia máxima entre la generación del evento de uso y el informe en el Centro de partners es de 48 horas.
 
+## <a name="access-the-usage-dashboard"></a>Acceso al panel "Uso"
+
+[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
+
+#### <a name="workspaces-view"></a>[Vista "Áreas de trabajo"](#tab/workspaces-view)
+
+1. Inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard/home).
+1. En la página principal, seleccione el icono **Información**.
+
+    [ ![Muestra el icono "Información" en la página principal del Centro de partners.](./media/workspaces/partner-center-insights-tile.png) ](./media/workspaces/partner-center-insights-tile.png#lightbox)
+
+1. En el menú de la izquierda, seleccione **Uso**.
+
+#### <a name="current-view"></a>[Vista actual](#tab/current-view)
+
+1. Inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard/home).
+1. En el menú de navegación de la izquierda, seleccione **Marketplace comercial** > **Analizar** > **Uso**.
+
+---
+
 ## <a name="elements-of-the-usage-dashboard"></a>Elementos del panel de uso
 
 En las secciones siguientes se describe cómo usar el panel de Uso y cómo leer los datos.
 
-Para obtener acceso al panel de uso en el centro de partners, vaya a **Marketplace comercial** y seleccione **[Analizar](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)**  > **Uso**.
-
 ### <a name="month-range"></a>Intervalo mensual
+
+#### <a name="workspaces-view"></a>[Vista "Áreas de trabajo"](#tab/workspaces-view)
+
+Puede encontrar una selección del intervalo mensual en la esquina superior derecha de cada página. Puede personalizar salida de los gráficos de la página **Uso** seleccionando un intervalo mensual basado en los últimos 6 o 12 meses, o seleccionando un intervalo mensual personalizado con una duración máxima de 12 meses. El intervalo mensual predeterminado (período de cálculo) es de seis meses.
+
+[ ![Muestra los filtros del mes en el panel "Uso".](./media/usage-dashboard/usage-dashboard-filters.png) ](./media/usage-dashboard/usage-dashboard-filters.png#lightbox)
+
+#### <a name="current-view"></a>[Vista actual](#tab/current-view)
 
 Puede encontrar una selección del intervalo mensual en la esquina superior derecha de cada página. Puede personalizar salida de los gráficos de la página **Uso** seleccionando un intervalo mensual basado en los últimos 6 o 12 meses, o seleccionando un intervalo mensual personalizado con una duración máxima de 12 meses. El intervalo mensual predeterminado (período de cálculo) es de seis meses.
 
 :::image type="content" source="./media/usage-dashboard/month-filter.png" alt-text="Muestra los filtros del mes en el panel de Uso.":::
+
+---
 
 ### <a name="usage-trend"></a>Tendencia de uso
 

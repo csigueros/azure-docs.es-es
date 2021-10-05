@@ -1,7 +1,7 @@
 ---
 title: Transformación Combinación en el flujo de datos de asignación
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Combine datos de dos orígenes de datos mediante la transformación Combinación en el flujo de datos de asignación de Azure Data Factory
+description: Combine datos de dos orígenes de datos mediante la transformación Combinación en un flujo de datos de asignación de Azure Data Factory o Synapse Analytics
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
@@ -9,17 +9,19 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 05/15/2020
-ms.openlocfilehash: 77df05774f695235b1ccc1a11713ea68cacafefb
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/09/2021
+ms.openlocfilehash: 2a1efc21511fe665d4e54cf955244daf598d4f8b
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122638826"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129060183"
 ---
 # <a name="join-transformation-in-mapping-data-flow"></a>Transformación Combinación en el flujo de datos de asignación
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
 
 Use la transformación Combinación para combinar datos de dos orígenes o flujos en un mismo flujo de datos de asignación. El flujo de salida incluirá todas las columnas de ambos orígenes que coincidan con una condición de combinación. 
 
@@ -63,19 +65,19 @@ Si quiere generar explícitamente un producto cartesiano completo, utilice la tr
 1. Seleccione el **tipo de combinación**
 1. Elija las columnas de clave con las que quiere hacer coincidir la condición de combinación. De forma predeterminada, el flujo de datos busca la igualdad entre una columna de cada flujo. Para comparar a través de un valor de proceso, mantenga el mouse sobre la lista desplegable y seleccione **Columna calculada**.
 
-![Transformación de combinación](media/data-flow/join.png "Join")
+:::image type="content" source="media/data-flow/join.png" alt-text="Transformación de combinación":::
 
 ### <a name="non-equi-joins"></a>Combinaciones no equivalentes
 
 Para usar un operador condicional como no es igual a (! =) o mayor que (>) en las condiciones de combinación, cambie la lista desplegable de operadores entre las dos columnas. Las combinaciones no equivalentes requieren que al menos uno de los dos flujos se difundan mediante la retransmisión **fija** en la pestaña **Optimizar**.
 
-![Combinación no equivalente](media/data-flow/non-equi-join.png "Combinación no equivalente")
+:::image type="content" source="media/data-flow/non-equi-join.png" alt-text="Combinación no equivalente":::
 
 ## <a name="optimizing-join-performance"></a>Optimización del rendimiento de combinación
 
 A diferencia de la unión de combinación en herramientas como SSIS, la transformación Combinación no es una operación de unión de combinación obligatoria. No es necesario ordenar las claves de combinación. La operación de combinación se realiza en función de la operación de combinación óptima en Spark, ya sea una combinación de difusión o del lado de la asignación.
 
-![Optimización de la transformación de combinación](media/data-flow/joinoptimize.png "Optimización de la combinación")
+:::image type="content" source="media/data-flow/joinoptimize.png" alt-text="Optimización de la transformación de combinación":::
 
 En las combinaciones, búsquedas y transformaciones Exists, si uno o ambos flujos de datos caben en la memoria del nodo de trabajo, puede optimizar el rendimiento al habilitar la opción **Difusión**. De forma predeterminada, el motor de Spark decidirá automáticamente si difundir o no una parte. Para elegir manualmente la parte que se va a difundir, seleccione **Fijo**.
 
@@ -85,7 +87,7 @@ No se recomienda deshabilitar la difusión a través de la opción **Desactivado
 
 Para autocombinar un flujo de datos consigo mismo, asigne un alias a un flujo existente mediante una transformación Selección. Para crear una nueva rama, haga clic en el icono de signo más junto a una transformación y seleccione **Nueva rama**. Agregue una transformación Selección para asignar un alias al flujo original. Agregue una transformación Combinación y elija el flujo original como **Left stream** (flujo izquierdo) y la transformación Selección como el **Right stream** (flujo derecho).
 
-![Autocombinación](media/data-flow/selfjoin.png "Autocombinación")
+:::image type="content" source="media/data-flow/selfjoin.png" alt-text="Autocombinación":::
 
 ## <a name="testing-join-conditions"></a>Condiciones de combinación de pruebas
 
@@ -108,9 +110,9 @@ Cuando pruebe las transformaciones Combinación con la vista previa de datos en 
 
 El ejemplo siguiente es una transformación Combinación denominada `JoinMatchedData` que toma el flujo izquierdo `TripData` y el flujo derecho `TripFare`.  La condición de combinación es la expresión `hack_license == { hack_license} && TripData@medallion == TripFare@medallion && vendor_id == { vendor_id} && pickup_datetime == { pickup_datetime}` que devuelve true si coinciden las columnas `hack_license`, `medallion`, `vendor_id` y `pickup_datetime` de cada flujo. El valor de `joinType` es `'inner'`. Vamos a habilitar la difusión solo en el flujo izquierdo, por lo que `broadcast` tiene el valor `'left'`.
 
-En la experiencia de usuario de Data Factory, esta transformación es similar a la siguiente imagen:
+En la interfaz de usuario, esta transformación es similar a la siguiente imagen:
 
-![Captura de pantalla que muestra la transformación con la pestaña Configuración de combinación seleccionada y el tipo de combinación Interna.](media/data-flow/join-script1.png "Ejemplo de combinación")
+:::image type="content" source="media/data-flow/join-script1.png" alt-text="Captura de pantalla que muestra la transformación con la pestaña Configuración de combinación seleccionada y el tipo de combinación Interna.":::
 
 En el siguiente fragmento de código se muestra el script del flujo de datos para esta transformación:
 
@@ -130,9 +132,9 @@ TripData, TripFare
 
 El ejemplo siguiente es una transformación Combinación denominada `JoiningColumns` que toma el flujo izquierdo `LeftStream` y el flujo derecho `RightStream`. Esta transformación toma dos flujos y combina todas las filas en las que la columna `leftstreamcolumn` es mayor que la columna `rightstreamcolumn`. El valor de `joinType` es `cross`. La difusión no está habilitada, `broadcast` tiene el valor `'none'`.
 
-En la experiencia de usuario de Data Factory, esta transformación es similar a la siguiente imagen:
+En la interfaz de usuario, esta transformación es similar a la siguiente imagen:
 
-![Captura de pantalla que muestra la transformación con la pestaña Configuración de combinación seleccionada y el tipo de combinación Personalizada (cruzada).](media/data-flow/join-script2.png "Ejemplo de combinación")
+:::image type="content" source="media/data-flow/join-script2.png" alt-text="Captura de pantalla que muestra la transformación con la pestaña Configuración de combinación seleccionada y el tipo de combinación Personalizada (cruzada).":::
 
 En el siguiente fragmento de código se muestra el script del flujo de datos para esta transformación:
 

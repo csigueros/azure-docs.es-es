@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/27/2021
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 154680d5f62140b95e7ada3a37678ee3be1c5b24
-ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
+ms.openlocfilehash: de9488a475998b50d06d26f1d8b02bcdb1b21290
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122015493"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124780839"
 ---
 # <a name="about-virtual-hub-routing"></a>Acerca del enrutamiento de centros virtuales
 
@@ -112,7 +112,7 @@ Tenga en cuenta lo siguiente al configurar el enrutamiento de Virtual WAN:
 * Todas las conexiones de rama deben propagar sus rutas al mismo conjunto de tablas de rutas. Por ejemplo, si decide que las rama deben propagarse a la tabla de rutas predeterminada, esta configuración debe ser coherente en todas las ramas. Como resultado, todas las conexiones asociadas a la tabla de rutas predeterminada podrán llegar a todas las ramas.
 * De momento no se admite el flujo de rama a rama a través de Azure Firewall.
 * Al usar Azure Firewall en varias regiones, todas las redes virtuales de radios deben estar asociadas a la misma tabla de rutas. Por ejemplo, no es posible tener un subconjunto de redes virtuales que pasen por Azure Firewall mientras otras redes virtuales se saltan Azure Firewall en el mismo centro virtual.
-* Se puede configurar una única dirección IP de próximo salto por cada conexión de red virtual.
+* Puede especificar varias direcciones IP de próximo salto en una única conexión de Virtual Network. Sin embargo, la conexión de Virtual Network no es compatible con la dirección IP de próximo salto "múltiple o única" para la aplicación virtual de red "igual" en una Virtual Network de radio "si" una de las rutas con IP de próximo salto se indica como dirección IP pública o 0.0.0.0/0 (Internet)
 * Toda la información relativa a la ruta 0.0.0.0/0 se confina en la tabla de rutas de un centro local. Esta ruta no se propaga entre centros.
 ## <a name="next-steps"></a>Pasos siguientes
 

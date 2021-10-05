@@ -3,20 +3,20 @@ title: Conexión con Azure Blob Storage
 description: Cree y administre blobs en cuentas de Azure Storage con Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: logicappspm
-ms.topic: conceptual
+ms.reviewer: estfan, azla
+ms.topic: how-to
 ms.date: 06/23/2021
 tags: connectors
-ms.openlocfilehash: e3d8730976d623b5304a50341bcf257f35047e25
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+ms.openlocfilehash: 7fc6b33248af8b638218858c95d1c0de8b056e76
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113359558"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124824868"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-by-using-azure-logic-apps"></a>Creación y administración de blobs en Azure Blob Storage con Azure Logic Apps
 
-Puede acceder y administrar los archivos almacenados como blobs en una cuenta de Azure Storage desde dentro de Azure Logic Apps con el [conector de Azure Blob Storage](/connectors/azureblobconnector/). Este conector proporciona desencadenadores y acciones para las operaciones de blob dentro de los flujos de trabajo de la aplicación lógica. Puede usar estas operaciones a fin de automatizar tareas y flujos de trabajo para administrar los archivos de la cuenta de almacenamiento. Las [acciones del conector disponibles](/connectors/azureblobconnector/#actions) incluyen la comprobación, eliminación, lectura y carga de blobs. El [desencadenador disponible](/connectors/azureblobconnector/#triggers) se activa cuando se agrega o modifica un blob. 
+Puede acceder y administrar los archivos almacenados como blobs en una cuenta de Azure Storage desde dentro de Azure Logic Apps con el [conector de Azure Blob Storage](/connectors/azureblobconnector/). Este conector proporciona desencadenadores y acciones para las operaciones de blob dentro de los flujos de trabajo de la aplicación lógica. Puede usar estas operaciones a fin de automatizar tareas y flujos de trabajo para administrar los archivos de la cuenta de almacenamiento. Las [acciones del conector disponibles](/connectors/azureblobconnector/#actions) incluyen la comprobación, eliminación, lectura y carga de blobs. El [desencadenador disponible](/connectors/azureblobconnector/#triggers) se activa cuando se agrega o modifica un blob.
 
 Puede conectarse a Blob Storage desde los tipos de recurso de aplicación lógica Estándar y Consumo. Puede usar el conector con aplicaciones lógicas en un entorno de un solo inquilino, de varios inquilinos o de servicio de integración (ISE). Para las aplicaciones lógicas en un entorno de un solo inquilino, Blob Storage proporciona operaciones integradas y también operaciones de conector administradas.
 
@@ -40,14 +40,14 @@ También puede [usar una identidad administrada con un desencadenador o una acci
 
 - De forma predeterminada, las acciones de Blob Storage pueden leer o escribir archivos de *50 MB o más pequeños*. Para controlar los archivos mayores de 50 MB, pero hasta 1024 MB, las acciones de Blob Storage admiten la [fragmentación de mensajes](../logic-apps/logic-apps-handle-large-messages.md). En la [acción **Obtener contenido de blog**](/connectors/azureblobconnector/#get-blob-content) se usa la fragmentación de forma implícita.
 - Los desencadenadores de Blob Storage no admiten la fragmentación. Cuando se solicita el contenido del archivo, los desencadenadores seleccionan solo los archivos que tienen un tamaño de 50 MB o menos. Para obtener archivos de más de 50 MB, siga este patrón:
-  - Use un desencadenador de Blob Storage que devuelva propiedades de archivo, como [**Cuando se agrega o modifica un blob (solo propiedades)** ](/connectors/azureblobconnector/#when-a-blob-is-added-or-modified-(properties-only)).
+  - Use un desencadenador de Blob Storage que devuelva propiedades de archivo, como [**Cuando se agrega o modifica un blob (solo propiedades)**](/connectors/azureblobconnector/#when-a-blob-is-added-or-modified-(properties-only)).
   - Siga el desencadenador con la [acción **Obtener contenido de blob**](/connectors/azureblobconnector/#get-blob-content) de Blob Storage, que lee el archivo completo y usa la fragmentación de forma implícita.
 
 ## <a name="add-blob-storage-trigger"></a>Adición de un desencadenador de Blob Storage
 
 En Logic Apps, cada aplicación lógica debe comenzar con un [desencadenador](../logic-apps/logic-apps-overview.md#logic-app-concepts), que se activa cuando tiene lugar un evento específico o cuando se cumple una condición determinada. 
 
-Este conector tiene un desencadenador disponible, denominado [**Cuando se agrega o modifica un blob en Azure Storage** o **Cuando se agrega o modifica un blob (solo propiedades)** ](/connectors/azureblobconnector/#when-a-blob-is-added-or-modified-(properties-only)). El desencadenador se activa cuando las propiedades de un blob se agregan o actualizan en el contenedor de almacenamiento. Cada vez, el motor de Logic Apps crea una instancia de aplicación lógica y empieza a ejecutar el flujo de trabajo.
+Este conector tiene un desencadenador disponible, denominado [**Cuando se agrega o modifica un blob en Azure Storage** o **Cuando se agrega o modifica un blob (solo propiedades)**](/connectors/azureblobconnector/#when-a-blob-is-added-or-modified-(properties-only)). El desencadenador se activa cuando las propiedades de un blob se agregan o actualizan en el contenedor de almacenamiento. Cada vez, el motor de Logic Apps crea una instancia de aplicación lógica y empieza a ejecutar el flujo de trabajo.
 
 ### <a name="single-tenant"></a>[Inquilino único](#tab/single-tenant)
 
@@ -169,7 +169,7 @@ Para aplicaciones lógicas en un entorno multiinquilino:
 
 ## <a name="access-storage-accounts-behind-firewalls"></a>Acceso a cuentas de almacenamiento detrás de firewalls
 
-Puede agregar la seguridad de red a una cuenta de Azure Storage si [ restringe el acceso con un firewall y reglas de firewall](../storage/common/storage-network-security.md). Sin embargo, este programa de instalación crea un desafío para Azure y otros servicios de Microsoft que necesitan acceder a la cuenta de almacenamiento. La comunicación local en el centro de datos abstrae las direcciones IP internas, por lo que no se pueden configurar reglas de firewall con restricciones de IP. 
+Puede agregar la seguridad de red a una cuenta de Azure Storage si [ restringe el acceso con un firewall y reglas de firewall](../storage/common/storage-network-security.md). Sin embargo, este programa de instalación crea un desafío para Azure y otros servicios de Microsoft que necesitan acceder a la cuenta de almacenamiento. La comunicación local en el centro de datos abstrae las direcciones IP internas, por lo que no se pueden configurar reglas de firewall con restricciones de IP.
 
 Para acceder a las cuentas de almacenamiento detrás de firewalls mediante el conector de Blob Storage:
 
@@ -183,19 +183,24 @@ Otras soluciones para acceder a cuentas de almacenamiento detrás de firewalls:
 
 ### <a name="access-storage-accounts-in-other-regions"></a>Acceso a las cuentas de almacenamiento de otras regiones
 
-Las aplicaciones lógicas no pueden acceder directamente a cuentas de almacenamiento que se encuentren detrás de un firewall cuando se encuentran en la misma región. Como solución alternativa, coloque las aplicaciones lógicas en una región diferente a la de la cuenta de almacenamiento. Después, conceda acceso a las [direcciones IP de salida para los conectores administrados en la región](../logic-apps/logic-apps-limits-and-config.md#outbound).
+Las aplicaciones lógicas no pueden acceder directamente a cuentas de almacenamiento que se encuentren detrás de un firewall cuando se encuentran en la misma región. Como solución alternativa, coloque las aplicaciones lógicas en una región diferente a la de la cuenta de almacenamiento. Después, conceda acceso a las [direcciones IP de salida para los conectores administrados en la región](/connectors/common/outbound-ip-addresses#azure-logic-apps).
 
 > [!NOTE]
-> Esta solución no se aplica al conector de Azure Table Storage y al conector de Azure Queue Storage. En su lugar, para acceder a Table Storage o Queue Storage, [use las acciones y el desencadenador HTTP integrados](../logic-apps/logic-apps-http-endpoint.md).
+> Esta solución no se aplica al conector de Azure Table Storage y al conector de Azure Queue Storage. En su lugar, para acceder a Table Storage o Queue Storage, [use la acción y el desencadenador HTTP integrados](../logic-apps/logic-apps-http-endpoint.md).
 
 Para agregar las direcciones IP salientes al firewall de la cuenta de almacenamiento:
 
-1. Anote las [direcciones IP salientes](../logic-apps/logic-apps-limits-and-config.md#outbound) de la región de la aplicación lógica.
-1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-1. Abra la página de la cuenta de almacenamiento. En el menú de navegación, en **Seguridad y redes**, seleccione **Redes**. 
-1. En **Permitir acceso desde**, seleccione la opción **Redes seleccionadas**. Ahora la configuración relacionada aparece en la página.
-1. En **Firewall**, agregue las direcciones IP o los intervalos que necesitan acceso. 
-    :::image type="content" source="./media/connectors-create-api-azureblobstorage/storage-ip-configure.png" alt-text="Captura de pantalla de la página de redes de la cuenta de almacenamiento de blobs en Azure Portal, en la que se muestra la configuración del firewall para agregar direcciones IP e intervalos a la lista de permitidos.":::
+1. Anote las [direcciones IP de salida del conector administrado](/connectors/common/outbound-ip-addresses#azure-logic-apps) de la región de la aplicación lógica.
+
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) y busque el recurso de cuenta de almacenamiento.
+
+1. En el menú del recurso de cuenta de almacenamiento, en **Seguridad y redes**, seleccione **Redes**.
+
+1. Haga clic en **Redes seleccionadas** en **Permitir el acceso desde**. Ahora la configuración relacionada aparece en la página.
+
+1. En **Firewall**, agregue las direcciones IP o los intervalos que necesitan acceso.
+
+   :::image type="content" source="./media/connectors-create-api-azureblobstorage/storage-ip-configure.png" alt-text="Captura de pantalla de la página de redes de la cuenta de almacenamiento de blobs en Azure Portal, en la que se muestra la configuración del firewall para agregar direcciones IP e intervalos a la lista de permitidos.":::
 
 ### <a name="access-storage-accounts-through-trusted-virtual-network"></a>Acceso a las cuentas de almacenamiento desde una red virtual de confianza
 

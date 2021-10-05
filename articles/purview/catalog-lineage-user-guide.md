@@ -1,18 +1,17 @@
 ---
-title: Guía del usuario del linaje de Data Catalog (versión preliminar)
+title: Guía de usuario del linaje de Data Catalog
 description: En este artículo se proporciona información general sobre la característica de linaje del catálogo de Azure Purview.
 author: chanuengg
 ms.author: csugunan
 ms.service: purview
-ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 08/25/2021
-ms.openlocfilehash: 38f150a99b2145968569e986ea158b1aa552593a
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+ms.date: 09/27/2021
+ms.openlocfilehash: e2923e29652a92de188366168140bf9def43c082
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122968608"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129209521"
 ---
 # <a name="azure-purview-data-catalog-lineage-user-guide"></a>Guía del usuario del linaje de Azure Purview Data Catalog
 
@@ -112,7 +111,7 @@ El proceso de datos puede tomar uno o más conjuntos de datos de entrada para ge
 
    :::image type="content" source="./media/catalog-lineage-user-guide/select-switch-to-asset.png" alt-text="Captura de pantalla sobre cómo seleccionar la opción Cambiar de recurso en un recurso de datos de linaje." lightbox="./media/catalog-lineage-user-guide/select-switch-to-asset.png":::
 
-2. El panel de lienzo del linaje podría ser complejo para conjuntos de datos populares. Para evitar confusiones, en la vista predeterminada solo se muestran los cinco niveles de linaje del recurso seleccionado. Para expandir el resto del linaje, haga clic en las burbujas del panel de lienzo del linaje. Los consumidores de datos también pueden ocultar los recursos del panel de lienzo que no sean de su interés. Para reducir aún más la complejidad de los datos, desactive el control de alternancia **More Lineage** (Más linaje) en la parte superior del panel de lienzo del linaje. Esta acción ocultará todas las burbujas en el panel de lienzo del linaje.
+2. El panel de lienzo del linaje podría ser complejo para conjuntos de datos populares. Para evitar confusiones, en la vista predeterminada solo se muestran los cinco niveles de linaje del recurso seleccionado. Para expandir el resto del linaje, seleccione las burbujas del panel de lienzo del linaje. Los consumidores de datos también pueden ocultar los recursos del panel de lienzo que no sean de su interés. Para reducir aún más la complejidad de los datos, desactive el control de alternancia **More Lineage** (Más linaje) en la parte superior del panel de lienzo del linaje. Esta acción ocultará todas las burbujas en el panel de lienzo del linaje.
 
    :::image type="content" source="./media/catalog-lineage-user-guide/use-toggle-to-hide-bubbles.png" alt-text="Captura de pantalla que muestra cómo alternar más linaje." lightbox="./media/catalog-lineage-user-guide/use-toggle-to-hide-bubbles.png":::
 

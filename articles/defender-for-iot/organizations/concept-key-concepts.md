@@ -1,16 +1,16 @@
 ---
 title: Ventajas clave
 description: Obtenga información sobre los conceptos básicos de Defender para IoT.
-ms.date: 12/13/2020
+ms.date: 09/09/2021
 ms.topic: article
-ms.openlocfilehash: ca1e5a4d8554b208f5275fd0e7519f2db3fafc08
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: be5c7f31cb652bb40f4bae35fa42b76d7a576276
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113021273"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124836480"
 ---
-# <a name="basic-concepts"></a>Conceptos básicos 
+# <a name="basic-concepts"></a>Conceptos básicos
 
 En este artículo se describen las principales ventajas de Azure Defender para IoT.
 
@@ -63,9 +63,9 @@ En el caso de **sensores conectados localmente**, la información que el sensor 
 
 ## <a name="air-gapped-networks"></a>Redes aisladas
 
-Si trabaja en una red aislada, la consola de administración local de Defender para IoT proporciona una vista en tiempo real de las alertas e indicadores de riesgo principales de IoT y OT en todas sus instalaciones. Al estar integrada estrechamente con los runbooks y flujos de trabajo de SOC, facilita la priorización de las actividades de mitigación y la correlación entre sitios de las amenazas.  
+Si trabaja en una red aislada, la consola de administración local de Defender para IoT proporciona una vista en tiempo real de las alertas e indicadores de riesgo principales de IoT y OT en todas sus instalaciones. Al estar integrada estrechamente con los runbooks y flujos de trabajo de SOC, facilita la priorización de las actividades de mitigación y la correlación entre sitios de las amenazas.
 
-Defender para IoT proporciona una vista consolidada de todos los dispositivos. También proporciona información crítica sobre los dispositivos, como el tipo (PLC, RTU, DCS, etc.), el fabricante, el modelo y el nivel de revisión de firmware, así como la información de las alertas.  
+Defender para IoT proporciona una vista consolidada de todos los dispositivos. También proporciona información crítica sobre los dispositivos, como el tipo (PLC, RTU, DCS, etc.), el fabricante, el modelo y el nivel de revisión de firmware, así como la información de las alertas.
 
 Defender para IoT permite la administración efectiva de varias implementaciones y una vista unificada completa de la red. Defender para IoT optimiza la administración y el control de alertas de la seguridad de la red operativa.
 
@@ -113,6 +113,7 @@ Además, el uso de alertas personalizadas de Horizon le permite escribir sus pro
 
 El uso de la mensajería y activación de alertas personalizadas y basadas en condiciones ayuda a identificar la actividad de red específica y a actualizar de forma eficaz a los equipos operativos, de TI y de seguridad.
 
+Para ver una lista completa de los protocolos admitidos, consulte [Protocolos admitidos](concept-supported-protocols.md#supported-protocols).
 
 ## <a name="high-availability"></a>Alta disponibilidad
 

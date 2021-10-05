@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/06/2020
 ms.author: victorh
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: a487cba5026da827276f2e7681c0d362127a4e27
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 63cf40d5d7fcea55cd5de27d2b4d65691d9d0311
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108204844"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128652004"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Escalabilidad automática y Application Gateway con redundancia de zona v2 
 
@@ -36,7 +36,7 @@ La nueva SKU v2 incluye las siguientes mejoras:
 
 ## <a name="supported-regions"></a>Regiones admitidas
 
-La SKU Standard_v2 y WAF_v2 está disponible en las siguientes regiones: Centro-norte de EE. UU., Centro-sur de EE. UU., Oeste de EE. UU., Oeste de EE. UU. 2, Este de EE. UU., Este de EE. UU. 2, Centro de EE. UU., Norte de Europa, Oeste de Europa, Sudeste de Asia, Centro de Francia, Oeste de Reino Unido, Este de Japón, Oeste de Japón, Este de Australia, Sudeste de Australia, Sur de Brasil, Centro de Canadá, Este de Canadá, Este de Asia, Centro de Corea del Sur, Sur de Corea del Sur, Sur de Reino Unido, Centro de la India, Oeste de la India, Sur de la India.
+La SKU Standard_v2 y WAF_v2 está disponible en las siguientes regiones: Centro-norte de EE. UU., Centro-sur de EE. UU., Oeste de EE. UU., Oeste de EE. UU. 2, Este de EE. UU., Este de EE. UU. 2, Centro de EE. UU., Norte de Europa, Oeste de Europa, Sudeste de Asia, Centro de Francia, Oeste de Reino Unido, Este de Japón, Oeste de Japón, Este de Australia, Sudeste de Australia, Sur de Brasil, Centro de Canadá, Este de Canadá, Este de Asia, Centro de Corea del Sur, Sur de Corea del Sur, Sur de Reino Unido, Centro de la India, Oeste de la India, Sur de la India, Oeste de la India, Este de Noruega, Norte de Suiza, Norte de Emiratos Árabes Unidos, Norte de Sudáfrica, Centro-oeste de Alemania.
 
 ## <a name="pricing"></a>Precios
 

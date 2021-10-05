@@ -17,12 +17,12 @@ ms.date: 11/05/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e240e8ec53ce007be1a858af7b6e41273ca8831
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b53333ff9d61e6ee5bbc98bb4756199ca07486d0
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97093645"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128630079"
 ---
 # <a name="how-long-does-azure-ad-store-reporting-data"></a>¿Durante cuánto tiempo Azure AD almacena los datos de informes?
 
@@ -73,8 +73,11 @@ Puede conservar los datos de actividad de auditoría e inicio de sesión durante
 
 | Informe         | Azure AD Free | Azure AD Premium P1 | Azure AD Premium P2 |
 | :--            | :--           | :--                 | :--                 |
-| Usuarios en riesgo  | 7 días        | 30 días             | 90 días             |
+| Usuarios de riesgo    | ilimitado      | ilimitado            | ilimitado            |
 | Inicios de sesión no seguros | 7 días        | 30 días             | 90 días             |
+
+> [!NOTE]
+> Los usuarios de riesgo no se eliminan hasta que se corrige el riesgo.
 
 ---
 

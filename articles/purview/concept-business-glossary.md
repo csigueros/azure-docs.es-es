@@ -1,18 +1,18 @@
 ---
-title: Descripción de las características de glosario empresarial de Azure Purview (versión preliminar)
+title: Descripción de las características de glosario empresarial de Azure Purview
 description: En este artículo se explica qué es el glosario empresarial de Azure Purview.
 author: nayenama
 ms.author: nayenama
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 11/13/2020
-ms.openlocfilehash: 8b391438d8d6605e7ef493a6552af634db840ad5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 09/27/2021
+ms.openlocfilehash: b332a00f511ea747c2978dafbf60ce20abca36a8
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96551306"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129214415"
 ---
 # <a name="understand-business-glossary-features-in-azure-purview"></a>Descripción de las características de glosario empresarial de Azure Purview
 
@@ -21,7 +21,6 @@ En este artículo se proporciona información general sobre la característica d
 ## <a name="business-glossary"></a>Glosario empresarial
 
 Un glosario proporciona vocabulario para los usuarios empresariales.  Consta de términos empresariales que se pueden relacionar entre sí y permite clasificarlos para que se puedan comprender en contextos diferentes. Estos términos se pueden asignar a recursos como una base de datos, tablas, columnas, etc. Esto ayuda a abstraer la jerga técnica asociada a los repositorios de datos y permite al usuario empresarial descubrir y trabajar con datos del vocabulario que más les resulte más familiar.
-
 
 Un glosario empresarial es una recopilación de términos. Cada término representa un objeto de una organización y es muy probable que haya varios términos que representan el mismo objeto. Por ejemplo, un cliente podría denominarse también como comprador. Estos términos múltiples tienen una relación entre sí. La relación entre estos términos puede ser una de las siguientes:
 
@@ -65,7 +64,7 @@ Las clasificaciones son anotaciones que se pueden asignar a entidades. La flexib
 - Descripción de la naturaleza de los datos almacenados en los recursos de datos
 - Definición de directivas de control de acceso
 
-Actualmente, Purview tiene más de 100 clasificadores del sistema y el usuario puede definir sus propios clasificadores en el catálogo. Como parte del proceso de examen, estas clasificaciones se detectan automáticamente y se aplican a los recursos de datos y a los esquemas. Sin embargo, puede invalidarlas en cualquier momento. Las invalidaciones humanas nunca se sustituyen por exámenes automatizados.
+Actualmente, Purview tiene más de 200 clasificadores del sistema y el usuario puede definir sus propios clasificadores en el catálogo. Como parte del proceso de examen, estas clasificaciones se detectan automáticamente y se aplican a los recursos de datos y a los esquemas. Sin embargo, puede invalidarlas en cualquier momento. Las invalidaciones humanas nunca se sustituyen por exámenes automatizados.
 
 ### <a name="sensitivity-labels"></a>Etiquetas de confidencialidad
 

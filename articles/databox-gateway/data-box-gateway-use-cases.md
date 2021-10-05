@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 10/14/2020
+ms.date: 09/28/2021
 ms.author: alkohli
-ms.openlocfilehash: 3bf137f968082e677f45c20947793232b9181220
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: eec1c595119e225468bdbbe76f506b5b330a1beb
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98786619"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129212406"
 ---
 # <a name="use-cases-for-azure-data-box-gateway"></a>Casos de uso de Azure Data Box Gateway
 
@@ -50,12 +50,12 @@ Antes de comenzar, asegúrese de que tiene un dispositivo de Data Box Gateway en
 - Después de cargar los datos, tendrá que moverlos al nivel de archivo. Puede establecer el nivel de blob de dos maneras: mediante un script de Azure PowerShell o una directiva de administración del ciclo de vida de Azure Storage.  
     - Si va a utilizar Azure PowerShell, siga estos [pasos](../databox/data-box-how-to-set-data-tier.md#use-azure-powershell-to-set-the-blob-tier) para mover los datos al nivel de archivo.
     - Si va a utilizar la administración del ciclo de vida de Azure, siga estos pasos para mover los datos al nivel de archivo.
-        - [Regístrese](../storage/blobs/storage-lifecycle-management-concepts.md) en la versión preliminar del servicio de administración del ciclo de vida de los blobs para usar el nivel de archivo.
-        - Use la siguiente directiva para el [archivado de datos en la ingesta](../storage/blobs/storage-lifecycle-management-concepts.md#archive-data-after-ingest).
+        - Use el nivel de archivo a través del [servicio de administración del ciclo de vida de los blobs](../storage/blobs/lifecycle-management-overview.md).
+        - Use la siguiente directiva para el [archivado de datos en la ingesta](../storage/blobs/lifecycle-management-overview.md#archive-data-after-ingest).
 - Una vez que los blobs se marcan como pertenecientes al nivel de archivo, la puerta de enlace ya no puede modificarlos a menos que se trasladen a un nivel de acceso frecuente o a uno de acceso poco frecuente. Si el archivo está en el almacenamiento local, ningún cambio que se realice en la copia local (incluidas las eliminaciones) se cargará en el nivel de archivo.
 - Para leer los datos del almacenamiento de archivos, debe rehidratar los datos cambiando el nivel de blob a un nivel de acceso frecuente o a otro de acceso poco frecuente. La [actualización del recurso compartido](data-box-gateway-manage-shares.md#refresh-shares) en la puerta de enlace no rehidratará el blob.
 
-Para más información, consulte [Administración del ciclo de vida de Azure Blob Storage](../storage/blobs/storage-lifecycle-management-concepts.md).
+Para más información, consulte [Administración del ciclo de vida de Azure Blob Storage](../storage/blobs/lifecycle-management-overview.md).
 
 ## <a name="initial-bulk-transfer-followed-by-incremental-transfer"></a>Transferencia masiva inicial seguida de transferencia incremental
 

@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: rohogue
-ms.openlocfilehash: 110fc658ffc3b72de91bbf1c9562f3efeecaf55b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 330fa1368c078f1e44dd436cd3bea6407c6f4cc6
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92342423"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124794659"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>Implementación del clúster de vFXT
 
@@ -85,7 +85,7 @@ La segunda página de la plantilla de implementación permite establecer el tama
 
 ![Segunda página de la plantilla de implementación](media/avere-vfxt-deploy-2.png)
 
-* **Avere vFXT cluster node count** (Número de nodos del clúster de Avere vFXT): elija el número de nodos del clúster. El valor mínimo es tres nodos y el máximo es doce.
+* **Avere vFXT cluster node count** (Número de nodos del clúster de Avere vFXT): elija el número de nodos del clúster. El valor mínimo es tres nodos y el máximo 20.
 
 * **Contraseña de administración del clúster**: crea la contraseña para la administración del clúster. Esta contraseña se usará con el nombre de usuario ```admin``` para iniciar sesión en el panel de control del clúster, donde puede supervisar el clúster y configurarlo.
 

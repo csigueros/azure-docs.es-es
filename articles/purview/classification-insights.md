@@ -4,19 +4,21 @@ description: En esta guía paso a paso se describe cómo ver y usar los informes
 author: batamig
 ms.author: bagol
 ms.service: purview
-ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 01/17/2021
-ms.openlocfilehash: 057d097eb66eddffc15bb65bfb9e6fb64209e5f8
-ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
+ms.date: 09/27/2021
+ms.openlocfilehash: 642611a680e0848208aa7e42493fee6fc16fb4d7
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122397445"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129208861"
 ---
 # <a name="classification-insights-about-your-data-from-azure-purview"></a>Conclusiones de la clasificación sobre los datos de Azure Purview
 
 En esta guía paso a paso se describe cómo obtener acceso a los informes de información de clasificación de Purview de sus datos, y cómo verlos y filtrarlos.
+
+> [!IMPORTANT]
+> Azure Purview Insights se encuentra actualmente en versión preliminar. Los [Términos de uso complementarios para las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) incluyen términos legales adicionales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado para que estén disponibles con carácter general.
 
 Los orígenes de datos compatibles incluyen: Azure Blob Storage, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2, Azure Cosmos DB (SQL API), Azure Synapse Analytics (anteriormente, SQL DW), Azure SQL Database, Azure SQL Managed Instance, SQL Server, cubos de Amazon S3
 
@@ -33,11 +35,11 @@ Antes de empezar con las conclusiones de Purview, asegúrese de que ha completad
 
 - Configurar los recursos de Azure y rellenar las cuentas pertinentes con los datos de prueba.
 
-- Configurar y completar un examen de los datos de prueba en cada origen de datos. Para más información, consulte [Administración de orígenes de datos en Azure Purview (versión preliminar)](manage-data-sources.md) y [Creación de un conjunto de reglas de examen](create-a-scan-rule-set.md).
+- Configurar y completar un examen de los datos de prueba en cada origen de datos. Para más información, consulte [Administración de orígenes de datos en Azure Purview](manage-data-sources.md) y [Creación de un conjunto de reglas de examen](create-a-scan-rule-set.md).
 
 - Ha iniciado sesión en Purview con una cuenta con el [rol de lector o conservador de datos](catalog-permissions.md#roles).
 
-Para más información, consulte [Administración de orígenes de datos en Azure Purview (versión preliminar)](manage-data-sources.md).
+Para más información, consulte [Administración de orígenes de datos en Azure Purview](manage-data-sources.md).
 
 ## <a name="use-purview-classification-insights"></a>Uso de las conclusiones de la clasificación de Purview
 
@@ -52,13 +54,13 @@ Purview usa los mismos tipos de información confidencial que Microsoft 365, lo
 
 1. Vaya a la [pantalla de la instancia de **Azure Purview** en Azure Portal](https://aka.ms/purviewportal) y seleccione su cuenta de Purview.
 
-1. En la página **Información general**, en la sección **Inicio**, seleccione el icono **Launch Purview account** (Iniciar cuenta de Purview).
+1. En la página **Información general**, en la sección **Inicio**, seleccione el icono **Purview Studio**.
 
 1. En Purview, seleccione el elemento de menú **Conclusiones** :::image type="icon" source="media/insights/ico-insights.png" border="false"::: de la izquierda para acceder al área **Conclusiones**.
 
 1. En el área **Conclusiones** :::image type="icon" source="media/insights/ico-insights.png" border="false":::, seleccione **Clasificación** para mostrar el informe **Classification insights** (Conclusiones de la clasificación) de Purview.
 
-   :::image type="content" source="./media/insights/select-classification-labeling-small.png" alt-text="Informe de conclusiones de la clasificación" lightbox="media/insights/select-classification-labeling.png":::
+   :::image type="content" source="./media/insights/select-classification-labeling.png" alt-text="Informe de conclusiones de la clasificación" lightbox="media/insights/select-classification-labeling.png":::
 
    La página **Classification insights** (Conclusiones de la clasificación) principal muestra las áreas siguientes:
 
@@ -83,7 +85,7 @@ En cualquiera de los siguientes grafos de **Classification insights** (Conclusio
 
 Por ejemplo:
 
-:::image type="content" source="media/insights/view-classifications-small.png" alt-text="Ver todas las clasificaciones" lightbox="media/insights/view-classifications.png":::
+:::image type="content" source="media/insights/view-classifications-small.png" alt-text="Ver todas las clasificaciones":::
 
 Para obtener más información, realiza cualquiera de las acciones siguientes:
 

@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/1/2020
-ms.openlocfilehash: 659f62cb8e42a4e2aba2e51dfcfee9826a614923
-ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
+ms.openlocfilehash: c8460d6df9710e5a8752a0edd50c6b83276725ad
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113588336"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "128668590"
 ---
 # <a name="limitations-in-azure-database-for-mysql---flexible-server-preview"></a>Limitaciones de Azure Database for MySQL con servidor flexible (versión preliminar)
 
@@ -20,7 +20,7 @@ ms.locfileid: "113588336"
 > [!IMPORTANT]
 > Actualmente, Azure Database for MySQL con servidor flexible se encuentra en versión preliminar pública.
 
-En este artículo se describen las limitaciones del servicio Azure Database for MySQL con servidor flexible. También se aplican las [limitaciones generales](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.7/en/limits.html) en el motor de base de datos de MySQL. Para obtener más información sobre los niveles de recursos (proceso, memoria y almacenamiento), consulte el artículo acerca del [proceso y el almacenamiento](concepts-compute-storage.md).
+En este artículo se describen las limitaciones del servicio Azure Database for MySQL con servidor flexible. También se aplican las [limitaciones generales](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.7/en/limits.html) en el motor de base de datos de MySQL. Para obtener más información sobre las limitaciones de los recursos (proceso, memoria y almacenamiento), consulte el artículo acerca del [proceso y el almacenamiento](concepts-compute-storage.md).
 
 ## <a name="server-parameters"></a>Parámetros del servidor
 
@@ -28,8 +28,6 @@ En este artículo se describen las limitaciones del servicio Azure Database for 
 > Si busca valores mínimos y máximos para los parámetros del servidor, como `max_connections` y `innodb_buffer_pool_size`, esta información se ha pasado al artículo sobre los conceptos de los [parámetros del servidor](./concepts-server-parameters.md).
 
 Azure Database for MySQL admite el ajuste de los valores de parámetros del servidor. Los valores mínimo y máximo de algunos parámetros (por ejemplo, `max_connections`, `join_buffer_size`, `query_cache_size`) vienen determinados por el nivel de proceso y el tamaño de proceso del servidor. Consulte los [parámetros del servidor](./concepts-server-parameters.md) para más información sobre estos límites.
-
-Los complementos de contraseñas como "validate_password" y "caching_sha2_password" no son compatibles con el servicio.
 
 ## <a name="storage-engines"></a>Motores de almacenamiento
 
@@ -46,8 +44,6 @@ MySQL es compatible con muchos motores de almacenamiento. En Azure Database for 
 - [FEDERATED](https://dev.mysql.com/doc/refman/5.7/en/federated-storage-engine.html)
 
 ## <a name="privileges--data-manipulation-support"></a>Compatibilidad con privilegios y con la manipulación de datos
-
-Muchos parámetros y ajustes del servidor pueden reducir por error el rendimiento del servidor o invalidar las propiedades ACID del servidor de MySQL. Para mantener la integridad del servicio y el SLA en un nivel de producto, no se exponen varios roles en este servicio. 
 
 El servicio MySQL no permite el acceso directo al sistema de archivos subyacente. No se admiten algunos comandos de manipulación de datos. 
 
@@ -71,8 +67,6 @@ No se admite lo siguiente:
 
 ### <a name="networking"></a>Redes
 - El método de conectividad no se puede cambiar después de crear el servidor. Si el servidor se crea con la opción *Acceso privado (integración con red virtual)* , no se puede cambiar a *Acceso público (direcciones IP permitidas)* después de la creación, y viceversa
-- TLS/SSL está habilitado de forma predeterminada y no se puede deshabilitar.
-- La versión de TLS mínima que admite el servidor es TLS 1.2. Consulte el artículo sobre cómo [conectarse mediante TLS/SSL](./how-to-connect-tls-ssl.md) para obtener más información.
 
 ### <a name="stopstart-operation"></a>Operación de inicio/detención
 - No es compatible con las configuraciones de alta disponibilidad con redundancia de zona (principal y en espera).

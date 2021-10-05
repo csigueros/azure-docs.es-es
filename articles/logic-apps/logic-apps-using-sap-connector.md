@@ -7,14 +7,14 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, daviburg, azla
 ms.topic: how-to
-ms.date: 08/31/2021
+ms.date: 09/13/2021
 tags: connectors
-ms.openlocfilehash: 32f51d110f1ebb8d7b0a39a3183665c65d2b1367
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: d973276781a1664680a3dec08eb894fc362911a5
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123469561"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129211183"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Conexión a sistemas SAP desde Azure Logic Apps
 
@@ -30,7 +30,7 @@ En este artículo, se explica cómo acceder a los recursos de SAP desde Azure Lo
 
   * Si está ejecutando el flujo de trabajo de la aplicación lógica en instancias multiinquilino de Azure, consulte los [requisitos previos de instancias multiinquilino](#multi-tenant-azure-prerequisites).
 
-  * Si está ejecutando el flujo de trabajo de la aplicación lógica en un [entorno del servicio de integración (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) de nivel prémium, consulte los [requisitos previos de ISE](#ise-prerequisites).
+  * Si está ejecutando el flujo de trabajo de la aplicación lógica en un [entorno del servicio de integración (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md) de nivel prémium, consulte los [requisitos previos de ISE](#ise-prerequisites).
 
 * Un [servidor de aplicaciones de SAP](https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server) o [servidor de mensajes de SAP](https://help.sap.com/saphelp_nw70/helpdata/en/40/c235c15ab7468bb31599cc759179ef/frameset.htm) para el que quiere obtener acceso desde Azure Logic Apps. Para obtener información sobre los servidores SAP que admiten este conector, consulte [Compatibilidad de SAP](#sap-compatibility).
 
@@ -146,7 +146,7 @@ El conector de SAP administrado se integra con los sistemas SAP locales a travé
 
 Un ISE proporciona acceso a los recursos que están protegidos por una red virtual de Azure y ofrece otros conectores nativos del ISE que permiten a los flujos de trabajo de aplicaciones lógicas acceder directamente a los recursos locales sin usar la puerta de enlace de datos local.
 
-1. Si aún no tiene una cuenta de Azure Storage y un contenedor de blobs, cree ese contenedor mediante [Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md) o el [Explorador de Azure Storage](../storage/blobs/storage-quickstart-blobs-storage-explorer.md).
+1. Si aún no tiene una cuenta de Azure Storage y un contenedor de blobs, cree ese contenedor mediante [Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md) o el [Explorador de Azure Storage](../storage/blobs/quickstart-storage-explorer.md).
 
 1. [Descargue e instale la biblioteca más actualizada de clientes de SAP](#sap-client-library-prerequisites) en el equipo local. Debe tener los siguientes archivos de ensamblado:
 
@@ -479,14 +479,14 @@ A continuación, cree una acción para enviar el mensaje de IDoc a SAP cuando se
 
 Puede usar documentos IDoc con un esquema de archivo plano ajustándolos en un sobre XML. Para enviar un IDoc de archivo plano, use las instrucciones genéricas para [crear una acción de SAP para enviar el mensaje de IDoc](#create-sap-action-to-send-message) con los siguientes cambios.
 
-1. Para la acción **Enviar mensaje a SAP**, use el URI de acción de SAP `http://microsoft.lobservices.sap/2007/03/Idoc/SendIdoc`.
+1. Para la acción **Enviar mensaje a SAP**, use el URI de acción de SAP `http://Microsoft.LobServices.Sap/2007/03/Idoc/SendIdoc`.
 
 1. Dé formato a un mensaje de entrada con un sobre XML.
 
 Por ejemplo, consulte la siguiente carga XML de ejemplo:
 
 ```xml
-<ReceiveIdoc xmlns="http://Microsoft.LobServices.Sap/2007/03/Idoc/">
+<SendIdoc xmlns="http://Microsoft.LobServices.Sap/2007/03/Idoc/">
 <idocData>EDI_DC 3000000001017945375750 30INVOIC011BTSVLINV30KUABCABCFPPC LDCA X004010810 4 SAPMSX LSEDI ABCABCFPPC 000d3ae4-723e-1edb-9ca4-cc017365c9fd 20210217054521INVOICINVOIC01ZINVOIC2RE 20210217054520
 E2EDK010013000000001017945375000001E2EDK01001000000010 ABCABC1.00000 0060 INVO9988298128 298.000 298.000 LB Z4LR EN 0005065828 L
 E2EDKA1 3000000001017945375000002E2EDKA1 000000020 RS ABCABCFPPC 0005065828 ABCABCABC ABCABC Inc. Limited Risk Distributor ABCABC 1950 ABCABCABCA Blvd ABCABAABCAB L5N8L9 CA ABCABC E ON V-ABCABC LDCA
@@ -599,7 +599,7 @@ E2EDS01 3000000001017945375000108E2EDS01 000000020 EXT
 Z2XSK010003000000001017945375000109Z2XSK01000000108030 Z400 52269.20
 Z2XSK010003000000001017945375000110Z2XSK01000000108030 XR1 13.000 6795.00 CX
 </idocData>
-</ReceiveIdoc>
+</SendIdoc>
 ```
 
 ### <a name="create-http-response-action"></a>Creación de una acción de respuesta HTTP
@@ -856,13 +856,13 @@ Para ver los mensajes de error completos, compruebe los registros ampliados del 
 
     ```xml
     <setting name="SapTraceLevel" serializeAs="String">
-       <value>"Verbose"</value>
+       <value>Verbose</value>
     </setting>
     ```
 
 ### <a name="extended-sap-logging-in-on-premises-data-gateway"></a>Registro de SAP ampliado en la puerta de enlace de datos local
 
-Si usa una [puerta de enlace de datos local para Azure Logic Apps](../logic-apps/logic-apps-gateway-install.md), puede configurar un archivo de registro ampliado para el conector de SAP. Puede usar la puerta de enlace de datos local para redirigir los eventos de Seguimiento de eventos para Windows (ETW) en los archivos de registro giratorios que se incluyen en los archivos .zip de registro de la puerta de enlace.
+Si usa una [puerta de enlace de datos local para Azure Logic Apps](logic-apps-gateway-install.md), puede configurar un archivo de registro ampliado para el conector de SAP. Puede usar la puerta de enlace de datos local para redirigir los eventos de Seguimiento de eventos para Windows (ETW) en los archivos de registro giratorios que se incluyen en los archivos .zip de registro de la puerta de enlace.
 
 Puede [exportar todos los registros de configuración y servicio de la puerta de enlace](/data-integration/gateway/service-gateway-tshoot#collect-logs-from-the-on-premises-data-gateway-app) a un archivo .zip en desde la configuración de la aplicación de puerta de enlace.
 
@@ -1818,7 +1818,9 @@ Estos son los problemas y limitaciones actualmente conocidos para el conector de
 
 * El conector SAP no admite actualmente las cadenas de enrutador SAP. La puerta de enlace de datos local debe existir en la misma LAN que el sistema SAP al que quiere conectarse.
 
-* En el caso de las [aplicaciones lógicas de un entorno de servicio de integración (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), la versión con la etiqueta ISE de este conector usa en su lugar los [límites de mensajes de ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits).
+* En la acción **\[BAPI] Call method in SAP** ([BAPI] Llamar al método en SAP), la característica de confirmación automática no confirmará los cambios de BAPI si existe al menos una advertencia en el objeto **CallBapiResponse** que devuelve la acción. Para confirmar los cambios de BAPI a pesar de las advertencias, cree una sesión de forma explícita con la acción **\[BAPI - RFC] Crear sesión con estado**, deshabilite la característica de confirmación automática en la acción **\[BAPI] Call method in SAP** ([BAPI] Llamar al método en SAP) y llame a la acción **\[BAPI] Confirmar transacción** en su lugar.
+
+* En el caso de las [aplicaciones lógicas de un entorno de servicio de integración (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md), la versión con la etiqueta ISE de este conector usa en su lugar los [límites de mensajes de ISE](logic-apps-limits-and-config.md#message-size-limits).
 
 ## <a name="connector-reference"></a>Referencia de conectores
 
@@ -2015,5 +2017,5 @@ Para obtener más información sobre el conector de SAP, consulte la [referencia
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Conéctese a sistemas locales](logic-apps-gateway-connection.md) desde Azure Logic Apps.
-* Aprenda a validar, transformar y usar otras operaciones de mensaje con [Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md).
+* Aprenda a validar, transformar y usar otras operaciones de mensaje con [Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md).
 * Obtenga más información sobre otros [conectores de Logic Apps](../connectors/apis-list.md)

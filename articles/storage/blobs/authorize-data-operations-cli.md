@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 513cea632fa9d31231093a775a0269b983e3e42d
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: b8dd3f6a81317abff79dce906c4a9c8ef6ea6484
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113727174"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128680250"
 ---
 # <a name="choose-how-to-authorize-access-to-blob-data-with-azure-cli"></a>Distintas formas de autorizar el acceso a datos en blobs con la CLI de Azure
 
@@ -35,7 +35,7 @@ Los comandos de la CLI de Azure para leer y escribir datos de blobs incluyen el 
 Para usar el parámetro `--auth-mode`, asegúrese de que ha instalado la CLI de Azure, versión 2.0.46 o posterior. Ejecute `az --version` para comprobar la versión instalada.
 
 > [!NOTE]
-> Cuando una cuenta de almacenamiento está bloqueada con un bloqueo **ReadOnly** de Azure Resource Manager, no se permite la operación [Crear lista de claves](/rest/api/storagerp/storageaccounts/listkeys) para esa cuenta de almacenamiento. **Crear lista de claves** es una operación POST y todas las operaciones POST se impiden cuando se configura un bloqueo **ReadOnly** para la cuenta. Por esta razón, cuando la cuenta se bloquea con un bloqueo **ReadOnly**, los usuarios que aún no disponen de las claves de cuenta deben usar credenciales de Azure AD para tener acceso a los datos de blob.
+> Cuando una cuenta de almacenamiento está bloqueada con un bloqueo **ReadOnly** de Azure Resource Manager, no se permite la operación [Crear lista de claves](/rest/api/storagerp/storageaccounts/listkeys) para esa cuenta de almacenamiento. **Crear lista de claves** es una operación POST y todas las operaciones POST se impiden cuando se configura un bloqueo **ReadOnly** para la cuenta. Por esta razón, si la cuenta está bloqueada con un bloqueo **ReadOnly**, los usuarios que no disponen ya de las claves de cuenta deben usar las credenciales de Azure AD para acceder a los datos del blob.
 
 > [!IMPORTANT]
 > Si omite el parámetro `--auth-mode` o lo establece en `key`, la CLI de Azure intentará usar la clave de acceso de la cuenta para la autorización. En este caso, Microsoft recomienda que proporcione la clave de acceso en el comando o en la variable de entorno **AZURE_STORAGE_KEY**. Para obtener más información sobre las variables de entorno, vea la sección titulada [Establecimiento de variables de entorno para parámetros de autorización](#set-environment-variables-for-authorization-parameters).
@@ -52,11 +52,11 @@ Puede asignar permisos en los datos de blob a una entidad de seguridad de Azure�
 
 Las extensiones de Azure Storage se admiten para las operaciones en datos de blob. Las operaciones a las que podrá llamar dependerán de los permisos que se concedan a la entidad de seguridad de Azure AD con la que inicie sesión en la CLI de Azure. Los permisos para contenedores de Azure Storage se asignan mediante Azure RBAC. Por ejemplo, si se le asigna el rol **Lector de datos de Storage Blob**, puede ejecutar comandos de scripting que lean datos de un contenedor. Si se le asigna el rol **Colaborador de datos de Storage Blob**, podrá ejecutar comandos de scripting que lean, escriban o eliminen un contenedor, o los datos que contiene.
 
-Para más información sobre los permisos requeridos para cada operación de Azure Storage en un contenedor, consulte la sección [Llamadas a operaciones de almacenamiento con tokens de OAuth](/rest/api/storageservices/authorize-with-azure-active-directory#call-storage-operations-with-oauth-tokens).  
+Para más información sobre los permisos requeridos para cada operación de Azure Storage en un contenedor, consulte la sección [Llamadas a operaciones de almacenamiento con tokens de OAuth](/rest/api/storageservices/authorize-with-azure-active-directory#call-storage-operations-with-oauth-tokens).
 
 ### <a name="example-authorize-an-operation-to-create-a-container-with-azure-ad-credentials"></a>Ejemplo: Autorización de una operación para crear un contenedor con credenciales de Azure AD
 
-En el ejemplo siguiente se muestra cómo crear un contenedor a partir de la CLI de Azure con las credenciales de Azure AD. Para crear el contenedor, debe iniciar sesión en la CLI de Azure. Necesitará un grupo de recursos y una cuenta de almacenamiento. Para obtener información sobre cómo crear esos recursos, consulte [Inicio rápido: Creación, descarga y enumeración de blobs mediante la CLI de Azure](../blobs/storage-quickstart-blobs-cli.md).
+En el ejemplo siguiente se muestra cómo crear un contenedor a partir de la CLI de Azure con las credenciales de Azure AD. Para crear el contenedor, debe iniciar sesión en la CLI de Azure. Necesita un grupo de recursos y una cuenta de almacenamiento. Para obtener información sobre cómo crear esos recursos, consulte [Inicio rápido: Creación, descarga y enumeración de blobs mediante la CLI de Azure](../blobs/storage-quickstart-blobs-cli.md).
 
 1. Antes de crear el contenedor, asígnese a sí mismo el rol [Colaborador de datos de Storage Blob](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor). Aunque sea el propietario de la cuenta, necesita permisos explícitos para realizar operaciones de datos en la cuenta de almacenamiento. Para más información sobre la asignación de roles de Azure, consulte [Asignación de roles de Azure para el acceso a datos de blobs](assign-azure-role-data-access.md).
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 6/1/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: a2d81d9ffbb79d0f05c8e0bf44fbe9d8967cf02f
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.openlocfilehash: 253d763cffc8b70d134182c13678320f4ac50f4c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122253772"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128586331"
 ---
 # <a name="secure-azure-digital-twins"></a>Protección de Azure Digital Twins
 
@@ -84,7 +84,7 @@ En la lista siguiente se describen los niveles en los que puede definir el ámbi
 
 Si un usuario intenta realizar una acción no permitida por su rol, es posible que reciba el siguiente error de la solicitud de servicio: `403 (Forbidden)`. Para obtener más información y pasos para solucionar problemas, vea [Solución de problemas: Error en la solicitud de Azure Digital Twins con el estado: 403 (Prohibido)](troubleshoot-error-403.md) .
 
-## <a name="managed-identity-for-accessing-other-resources-preview"></a>Identidad administrada para acceder a otros recursos (versión preliminar)
+## <a name="managed-identity-for-accessing-other-resources"></a>Identidad administrada para acceder a otros recursos
 
 La configuración de una **identidad administrada** de [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) para una instancia de Azure Digital Twins puede permitir que la instancia acceda fácilmente a otros recursos protegidos de Azure AD, como [Azure Key Vault](../key-vault/general/overview.md). La identidad está administrada por la plataforma Azure y no es necesario que aprovisione o rote ningún secreto. Para obtener más información sobre las identidades administradas en Azure AD, vea [Identidades administradas para recursos de Azure](../active-directory/managed-identities-azure-resources/overview.md). 
 

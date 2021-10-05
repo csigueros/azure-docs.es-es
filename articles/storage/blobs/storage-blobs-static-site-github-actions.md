@@ -6,15 +6,15 @@ ms.service: storage
 ms.topic: how-to
 ms.author: jukullam
 ms.reviewer: dineshm
-ms.date: 05/05/2021
+ms.date: 09/17/2021
 ms.subservice: blobs
 ms.custom: devx-track-javascript, github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: 88ad67b03b3362b3430daefd81a4d1b0475b0980
-ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
+ms.openlocfilehash: 3ec1eb55ae54a29d8bb5334993edeee7308dd2de
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111854655"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128662540"
 ---
 # <a name="set-up-a-github-actions-workflow-to-deploy-your-static-website-in-azure-storage"></a>Configuración de un flujo de trabajo de acciones de GitHub para implementar el sitio web estático en Azure Storage
 
@@ -22,14 +22,14 @@ Aprenda a usar las [Acciones de GitHub](https://docs.github.com/en/actions) medi
 
 > [!NOTE]
 > Si usa [Azure Static Web Apps](../../static-web-apps/index.yml), no es necesario configurar manualmente un flujo de trabajo de acciones de GitHub.
-> Azure Static Web Apps crea automáticamente un flujo de trabajo de Acciones de GitHub. 
+> Azure Static Web Apps crea automáticamente un flujo de trabajo de Acciones de GitHub.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Una cuenta de GitHub y una suscripción de Azure. 
+Una cuenta de GitHub y una suscripción de Azure.
 
 - Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Un repositorio de GitHub con el código del sitio web estático. Si no tiene una cuenta de GitHub, [regístrese para obtener una gratis](https://github.com/join).  
+- Un repositorio de GitHub con el código del sitio web estático. Si no tiene una cuenta de GitHub, [regístrese para obtener una gratis](https://github.com/join).
 - Un sitio web estático en funcionamiento hospedado en Azure Storage. Aprenda a administrar el [hospedaje de sitios web estáticos en Azure Storage](storage-blob-static-website-how-to.md). Para seguir este ejemplo, también debe implementar [Azure CDN](static-website-content-delivery-network.md).
 
 > [!NOTE]
@@ -39,7 +39,7 @@ Una cuenta de GitHub y una suscripción de Azure.
 
 Puede crear una [entidad de servicio](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) mediante el comando [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) de la [CLI de Azure](/cli/azure/). Puede ejecutar este comando mediante [Azure Cloud Shell](https://shell.azure.com/) en Azure Portal o haciendo clic en el botón **Probar**.
 
-Reemplace el marcador de posición `myStaticSite` por el nombre del sitio hospedado en Azure Storage. 
+Reemplace el marcador de posición `myStaticSite` por el nombre del sitio hospedado en Azure Storage.
 
 ```azurecli-interactive
    az ad sp create-for-rbac --name {myStaticSite} --role contributor --scopes /subscriptions/{subscription-id}/resourceGroups/{resource-group} --sdk-auth
@@ -78,13 +78,13 @@ En el ejemplo anterior, reemplace los marcadores de posición por el identificad
 
 ## <a name="add-your-workflow"></a>Agregar el flujo de trabajo
 
-1. Vaya a **Acciones** del repositorio de GitHub. 
+1. Vaya a **Acciones** del repositorio de GitHub.
 
     :::image type="content" source="media/storage-blob-static-website/storage-blob-github-actions-header.png" alt-text="Elemento de menú de las acciones de GitHub":::
 
-1. Seleccione **Set up your workflow yourself** (Configure el flujo de trabajo usted mismo). 
+1. Seleccione **Set up your workflow yourself** (Configure el flujo de trabajo usted mismo).
 
-1. Elimine todo lo que aparezca después de la sección `on:` del archivo de flujo de trabajo. Por ejemplo, el flujo de trabajo restante puede tener el siguiente aspecto. 
+1. Elimine todo lo que aparezca después de la sección `on:` del archivo de flujo de trabajo. Por ejemplo, el flujo de trabajo restante puede tener el siguiente aspecto.
 
     ```yaml
     name: CI
@@ -92,11 +92,9 @@ En el ejemplo anterior, reemplace los marcadores de posición por el identificad
     on:
         push:
             branches: [ master ]
-        pull_request:
-            branches: [ master ]
     ```
 
-1. Cambie el nombre del flujo de trabajo `Blob storage website CI` y agregue las acciones de restauración e inicio de sesión. Estas acciones comprobarán el código del sitio y se autenticarán con Azure mediante el secreto de GitHub `AZURE_CREDENTIALS` que creó anteriormente. 
+1. Cambie el nombre del flujo de trabajo `Blob storage website CI` y agregue las acciones de restauración e inicio de sesión. Estas acciones comprobarán el código del sitio y se autenticarán con Azure mediante el secreto de GitHub `AZURE_CREDENTIALS` que creó anteriormente.
 
     ```yaml
     name: Blob storage website CI
@@ -104,20 +102,18 @@ En el ejemplo anterior, reemplace los marcadores de posición por el identificad
     on:
         push:
             branches: [ master ]
-        pull_request:
-            branches: [ master ]
 
     jobs:
       build:
         runs-on: ubuntu-latest
-        steps:            
+        steps:
         - uses: actions/checkout@v2
         - uses: azure/login@v1
           with:
               creds: ${{ secrets.AZURE_CREDENTIALS }}
     ```
 
-1. Use la acción de la CLI de Azure para cargar el código en la instancia de Blob Storage y purgar el punto de conexión de la red CDN. En cuanto a `az storage blob upload-batch`, reemplace el marcador de posición por el nombre de la cuenta de almacenamiento. El script se cargará en el contenedor `$web`. Para `az cdn endpoint purge`, reemplace los marcadores de posición por el nombre del perfil de CDN, el nombre del punto de conexión de CDN y el grupo de recursos. Para acelerar la purga de la red CDN, puede agregar la opción `--no-wait` a `az cdn endpoint purge`.
+1. Use la acción de la CLI de Azure para cargar el código en la instancia de Blob Storage y purgar el punto de conexión de la red CDN. En cuanto a `az storage blob upload-batch`, reemplace el marcador de posición por el nombre de la cuenta de almacenamiento. El script se cargará en el contenedor `$web`. Para `az cdn endpoint purge`, reemplace los marcadores de posición por el nombre del perfil de CDN, el nombre del punto de conexión de CDN y el grupo de recursos. Para acelerar la purga de la red CDN, puede agregar la opción `--no-wait` a `az cdn endpoint purge`. Para mejorar la seguridad, también puede agregar la opción `--account-key` con la [clave de la cuenta de almacenamiento](../common/storage-account-keys-manage.md).
 
     ```yaml
         - name: Upload to blob storage
@@ -125,14 +121,14 @@ En el ejemplo anterior, reemplace los marcadores de posición por el identificad
           with:
             azcliversion: 2.0.72
             inlineScript: |
-                az storage blob upload-batch --account-name <STORAGE_ACCOUNT_NAME> -d '$web' -s .
+                az storage blob upload-batch --account-name <STORAGE_ACCOUNT_NAME>  --auth-mode key -d '$web' -s .
         - name: Purge CDN endpoint
           uses: azure/CLI@v1
           with:
             azcliversion: 2.0.72
             inlineScript: |
                az cdn endpoint purge --content-paths  "/*" --profile-name "CDN_PROFILE_NAME" --name "CDN_ENDPOINT" --resource-group "RESOURCE_GROUP"
-    ``` 
+    ```
 
 1. Complete el flujo de trabajo agregando una acción al cierre de sesión de Azure. Este es el flujo de trabajo completado. El archivo aparecerá en la carpeta `.github/workflows` del repositorio.
 
@@ -142,13 +138,11 @@ En el ejemplo anterior, reemplace los marcadores de posición por el identificad
     on:
         push:
             branches: [ master ]
-        pull_request:
-            branches: [ master ]
 
     jobs:
       build:
         runs-on: ubuntu-latest
-        steps:            
+        steps:
         - uses: actions/checkout@v2
         - uses: azure/login@v1
           with:
@@ -159,15 +153,15 @@ En el ejemplo anterior, reemplace los marcadores de posición por el identificad
           with:
             azcliversion: 2.0.72
             inlineScript: |
-                az storage blob upload-batch --account-name <STORAGE_ACCOUNT_NAME> -d '$web' -s .
+                az storage blob upload-batch --account-name <STORAGE_ACCOUNT_NAME> --auth-mode key -d '$web' -s .
         - name: Purge CDN endpoint
           uses: azure/CLI@v1
           with:
             azcliversion: 2.0.72
             inlineScript: |
                az cdn endpoint purge --content-paths  "/*" --profile-name "CDN_PROFILE_NAME" --name "CDN_ENDPOINT" --resource-group "RESOURCE_GROUP"
-      
-      # Azure logout 
+
+      # Azure logout
         - name: logout
           run: |
                 az logout
@@ -176,15 +170,15 @@ En el ejemplo anterior, reemplace los marcadores de posición por el identificad
 
 ## <a name="review-your-deployment"></a>Revisar la implementación
 
-1. Vaya a la opción de **Acciones** del repositorio de GitHub. 
+1. Vaya a la opción de **Acciones** del repositorio de GitHub.
 
-1. Abra el primer resultado para ver los registros detallados de la ejecución del flujo de trabajo. 
- 
+1. Abra el primer resultado para ver los registros detallados de la ejecución del flujo de trabajo.
+
     :::image type="content" source="../media/index/github-actions-run.png" alt-text="Registro de ejecución de las acciones de GitHub":::
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Cuando el repositorio de GitHub y el sitio estático ya no sean necesarios, limpie los recursos que implementó eliminando el grupo de recursos y el repositorio de GitHub. 
+Cuando el repositorio de GitHub y el sitio estático ya no sean necesarios, limpie los recursos que implementó eliminando el grupo de recursos y el repositorio de GitHub.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -1,14 +1,14 @@
 ---
 title: Azure Lighthouse en escenarios empresariales
 description: Las funcionalidades de Azure Lighthouse se pueden usar para simplificar la administración entre inquilinos en empresas que utilizan varios inquilinos de Azure AD.
-ms.date: 05/11/2021
+ms.date: 09/08/2021
 ms.topic: conceptual
-ms.openlocfilehash: 12a6c2f03c06fbd69e77e32b236258bc6a6c8fbe
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: f83e5d84eee0c3ed7f159778630e3598274e4916
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113768292"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124768788"
 ---
 # <a name="azure-lighthouse-in-enterprise-scenarios"></a>Azure Lighthouse en escenarios empresariales
 
@@ -20,7 +20,7 @@ En la mayoría de las organizaciones, la administración es más fácil cuando h
 
 Es posible que algunas organizaciones necesiten usar varios inquilinos de Azure AD. Puede tratarse de una situación temporal, como por ejemplo si se han realizado adquisiciones y nos se ha definido todavía una estrategia de consolidación de inquilinos a largo plazo. También se puede dar el caso de que una organización necesite mantener varios inquilinos de forma continuada, debido a subsidiarias totalmente independientes, requisitos geográficos o legales, u otras consideraciones.
 
-En los casos en los que se requiere una arquitectura de multiinquilino, Azure Lighthouse se puede ayudar a centralizar y simplificar las operaciones de administración. Al usar [administración de recursos delegados de Azure](architecture.md), los usuarios de un inquilino de administración pueden realizar [funciones de administración entre inquilinos](cross-tenant-management-experience.md) de una manera centralizada y escalable.
+En los casos en los que se requiere una arquitectura de multiinquilino, Azure Lighthouse se puede ayudar a centralizar y simplificar las operaciones de administración. Al usar Azure Lighthouse, los usuarios de un inquilino de administración pueden realizar [funciones de administración entre inquilinos](cross-tenant-management-experience.md) de una manera centralizada y escalable.
 
 ## <a name="tenant-management-architecture"></a>Arquitectura de administración de inquilinos
 

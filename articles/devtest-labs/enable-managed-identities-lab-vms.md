@@ -1,14 +1,14 @@
 ---
-title: Habilite las identidades administradas en las máquinas virtuales de laboratorio en Azure DevTest Labs
+title: Habilitación de identidades administradas en máquinas virtuales de laboratorio
 description: En este artículo se muestra cómo un propietario del laboratorio puede habilitar identidades administradas asignadas por el usuario en las máquinas virtuales de laboratorio.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 0d2c7b944d37160df241e6ca4407c730593f1b62
-ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
+ms.openlocfilehash: 824fc69fd7ff1b8d48de98b16daccc055aa34283
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111854043"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128624280"
 ---
 # <a name="enable-user-assigned-managed-identities-on-lab-virtual-machines-in-azure-devtest-labs"></a>Habilitar identidades administradas asignadas por el usuario en máquinas virtuales de laboratorio en Azure DevTest Labs
 Como propietario de un laboratorio, puede habilitar las identidades administradas asignadas por el usuario en las máquinas virtuales (VM) del laboratorio en Azure DevTest Labs.
@@ -61,10 +61,3 @@ Para agregar una identidad administrada asignada por el usuario para las máquin
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre las identidades administradas, consulte [¿Qué son las identidades administradas para los recursos de Azure?](../active-directory/managed-identities-azure-resources/overview.md).
-
-
-
-
-
-
-

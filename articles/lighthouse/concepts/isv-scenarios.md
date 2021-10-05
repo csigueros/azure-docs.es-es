@@ -1,18 +1,18 @@
 ---
 title: Azure Lighthouse en escenarios de ISV
 description: Los ISV pueden usar las capacidades de Azure Lighthouse a fin obtener más flexibilidad con las ofertas de los clientes.
-ms.date: 05/11/2021
+ms.date: 09/08/2021
 ms.topic: conceptual
-ms.openlocfilehash: 9fc8c261f49e8a12189708ada1d0da31965e5159
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 9266b8d026446600cf25d2f141785c3a461ad0e8
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109788686"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124768693"
 ---
 # <a name="azure-lighthouse-in-isv-scenarios"></a>Azure Lighthouse en escenarios de ISV
 
-Un escenario muy común de [Azure Lighthouse](../overview.md) es un proveedor de servicios que administra recursos en los inquilinos de Azure Active Directory (Azure AD) de sus clientes. Los fabricantes independientes de software (ISV) también pueden usar las capacidades de Azure Lighthouse mediante ofertas basadas en SaaS con sus clientes. Azure Lighthouse puede ser especialmente útil para los ISV que ofrecen servicios administrados o soporte técnico que requieren acceso al ámbito de la suscripción.
+Un escenario muy común de [Azure Lighthouse](../overview.md) es cuando un proveedor de servicios que administra recursos en los inquilinos de Azure Active Directory (Azure AD) de sus clientes. Los fabricantes independientes de software (ISV) también pueden usar las capacidades de Azure Lighthouse mediante ofertas basadas en SaaS con sus clientes. Azure Lighthouse puede ser especialmente útil para los ISV que ofrecen servicios administrados o soporte técnico que requieren acceso al ámbito de la suscripción.
 
 ## <a name="managed-service-offers-in-azure-marketplace"></a>Ofertas de servicios administrados en Azure Marketplace
 

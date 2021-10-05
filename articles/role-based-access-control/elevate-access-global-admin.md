@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 06/09/2020
+ms.date: 09/10/2021
 ms.author: rolyon
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 9a7897590f8803be105eabb5cdee194e6574e8b9
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 96e2f7176f85d5571ce73c4efdd592dd3964400d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110696662"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124781534"
 ---
 # <a name="elevate-access-to-manage-all-azure-subscriptions-and-management-groups"></a>Elevación de los privilegios de acceso para administrar todas las suscripciones y los grupos de administración de Azure
 
@@ -327,6 +327,93 @@ Cuando llama a `elevateAccess`, se crea una asignación de roles para usted, por
     ```http
     DELETE https://management.azure.com/providers/Microsoft.Authorization/roleAssignments/11111111-1111-1111-1111-111111111111?api-version=2015-07-01
     ```
+
+## <a name="view-elevate-access-logs"></a>Visualización de los registros de elevación del acceso
+
+Cuando se eleva el acceso, se agrega una entrada a los registros. Como administrador global de Azure AD, es posible que quiera comprobar cuándo se ha elevado el acceso y quién lo ha hecho. Las entradas de registro de elevación del acceso no aparecen en los registros de actividad estándar, sino que lo hacen en los registros de actividad de directorio. En esta sección se describen distintas formas de ver los registros de elevación del acceso.
+
+### <a name="view-elevate-access-logs-using-the-azure-portal"></a>Visualización de los registros de elevación del acceso mediante Azure Portal
+
+1. Para elevar el acceso, siga los pasos descritos anteriormente en este artículo.
+
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador global.
+
+1. Abra **Supervisión** > **Registro de actividad**.
+
+1. Cambie la lista **Actividad** por **Actividad de directorio**.
+
+1. Busque la siguiente operación, que significa la acción de elevación del acceso.
+
+    `Assigns the caller to User Access Administrator role`
+
+    ![Captura de pantalla que muestra los registros de actividad de directorio en Supervisión.](./media/elevate-access-global-admin/monitor-directory-activity.png)
+
+1. Para quitar la elevación del acceso, siga los pasos descritos anteriormente en este artículo.
+
+### <a name="view-elevate-access-logs-using-azure-cli"></a>Visualización de los registros de elevación del acceso mediante la CLI de Azure
+
+1. Para elevar el acceso, siga los pasos descritos anteriormente en este artículo.
+
+1. Use el comando [az login](/cli/azure/reference-index#az_login) para iniciar sesión como administrador global.
+
+1. Use el comando [az rest](/cli/azure/reference-index#az_rest) para realizar la siguiente llamada en la que tendrá que filtrar por una fecha, como se muestra con la marca de tiempo de ejemplo, y especificar el nombre de archivo donde quiere que se almacenen los registros.
+
+    `url` llama a una API para recuperar los registros en Microsoft.Insights. La salida se guardará en el archivo.
+
+    ```azurecli
+    az rest --url "https://management.azure.com/providers/Microsoft.Insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '2021-09-10T20:00:00Z'" > output.txt
+    ```
+
+1.  En el archivo de salida, busque `elevateAccess`.
+
+    El registro será similar al siguiente, donde puede ver la marca de tiempo de cuándo se produjo la acción y quién lo llamó.
+
+    ```json
+      "submissionTimestamp": "2021-08-27T15:42:00.1527942Z",
+      "subscriptionId": "",
+      "tenantId": "33333333-3333-3333-3333-333333333333"
+    },
+    {
+      "authorization": {
+        "action": "Microsoft.Authorization/elevateAccess/action",
+        "scope": "/providers/Microsoft.Authorization"
+      },
+      "caller": "user@example.com",
+      "category": {
+        "localizedValue": "Administrative",
+        "value": "Administrative"
+      },
+    ```
+
+1. Para quitar la elevación del acceso, siga los pasos descritos anteriormente en este artículo.
+
+### <a name="delegate-access-to-a-group-to-view-elevate-access-logs-using-azure-cli"></a>Delegue el acceso a un grupo para ver los registros de elevación del acceso mediante la CLI de Azure
+
+Si quiere obtener periódicamente los registros de elevación del acceso, puede delegar el acceso a un grupo y, luego, usar la CLI de Azure.
+
+1. Abra **Azure Active Directory** > **Grupos**.
+
+1. Cree un grupo de seguridad y anote el identificador del objeto de grupo.
+
+1. Para elevar el acceso, siga los pasos descritos anteriormente en este artículo.
+
+1. Use el comando [az login](/cli/azure/reference-index#az_login) para iniciar sesión como administrador global.
+
+1. Use el comando [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) para asignar el rol [Lector](built-in-roles.md#reader) al grupo, que solo puede leer los registros en el nivel de directorio que se encuentran en `Microsoft/Insights`.
+
+    ```azurecli
+    az role assignment create --assignee "{groupId}" --role "Reader" --scope "/providers/Microsoft.Insights"
+    ```
+
+1. Agregue un usuario que lea los registros en el grupo creado anteriormente.
+
+1. Para quitar la elevación del acceso, siga los pasos descritos anteriormente en este artículo.
+
+Un usuario del grupo ahora puede ejecutar periódicamente el comando [az rest](/cli/azure/reference-index#az_rest) para ver los registros de elevación del acceso.
+
+```azurecli
+az rest --url "https://management.azure.com/providers/Microsoft.Insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '2021-09-10T20:00:00Z'" > output.txt
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

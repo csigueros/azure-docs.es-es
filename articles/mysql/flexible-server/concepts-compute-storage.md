@@ -6,12 +6,12 @@ ms.author: bahusse
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 1/28/2021
-ms.openlocfilehash: 9b8699598a9bac4781346ff939736b2bd6ee72f2
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+ms.openlocfilehash: d38c2518b3504b79f70c58aff1e6cf832d05c8a5
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113429951"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128633932"
 ---
 # <a name="compute-and-storage-options-in-azure-database-for-mysql---flexible-server-preview"></a>Opciones de proceso y almacenamiento de Azure Database for MySQL: servidor flexible (versión preliminar)
 
@@ -40,7 +40,7 @@ Para elegir un nivel de proceso, use la siguiente tabla como punto de partida.
 | Uso general | La mayoría de las cargas de trabajo de empresa que requieren un equilibrio entre proceso y memoria con rendimiento de E/S escalable. Por ejemplo, servidores para hospedar aplicaciones web y móviles, y otras aplicaciones empresariales.|
 | Memoria optimizada | Cargas de trabajo de base de datos de alto rendimiento que requieren rendimiento en memoria para un procesamiento de transacciones más rápido y una mayor simultaneidad. Por ejemplo, servidores para procesar datos en tiempo real y aplicaciones de análisis y transacciones de alto rendimiento.|
 
-Después de crear un servidor, cambia el nivel y el tamaño de proceso, así como el tamaño de almacenamiento. El escalado de proceso requiere un reinicio y tarda entre 60 y 120 segundos, mientras que el escalado de almacenamiento no requiere un reinicio. También se puede aumentar o reducir de forma independiente el período de retención de la copia de seguridad. Para más información, consulte la sección [Escalado de recursos](#scale-resources).
+Después de crear un servidor, se puede cambiar el nivel y el tamaño de proceso, así como el tamaño de almacenamiento. El escalado de proceso requiere un reinicio y tarda entre 60 y 120 segundos, mientras que el escalado de almacenamiento no requiere un reinicio. También se puede aumentar o reducir de forma independiente el período de retención de la copia de seguridad. Para más información, consulte la sección [Escalado de recursos](#scale-resources).
 
 ## <a name="compute-tiers-size-and-server-types"></a>Niveles de proceso, tamaño y tipos de servidor
 

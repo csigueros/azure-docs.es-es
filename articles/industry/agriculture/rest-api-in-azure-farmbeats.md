@@ -5,12 +5,12 @@ author: sunasing
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: sunasing
-ms.openlocfilehash: 292374bcce90da042dc6bd672feaad3750759aa9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4ddbe9ff6a3dfa195d0739205c3e32070b170f30
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92674516"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128560759"
 ---
 # <a name="azure-farmbeats-apis"></a>API de Azure FarmBeats
 
@@ -70,15 +70,15 @@ Estos son los encabezados de solicitud más comunes que deben especificarse al r
 
 **Encabezado** | **Descripción y ejemplo**
 --- | ---
-Content-Type  | El formato de la solicitud (Content-Type: application/<format>). En el caso de las API de centro de datos de Azure FarmBeats, el formato es JSON. Content-Type: application/json
-Authorization  | Especifica el token de acceso necesario para realizar una llamada API. Autorización: Bearer <Access-Token>
+Content-Type  | El formato de la solicitud (Content-Type: application/\<format\>). En el caso de las API de centro de datos de Azure FarmBeats, el formato es JSON. Content-Type: application/json
+Authorization  | Especifica el token de acceso necesario para realizar una llamada API. Autorización: \<Access-Token\> de portador
 Accept | El formato de respuesta. En el caso de las API de centro de datos de Azure FarmBeats, el formato es JSON. Accept: application/json
 
 ### <a name="api-requests"></a>Solicitudes de API
 
 Para realizar una solicitud de API REST, se combina el método HTTP (GET, POST, PUT o DELETE), la dirección URL del servicio de API, el URI a un recurso para consultar, enviar datos, actualizar o eliminar, y, a continuación, se agregan uno o más encabezados de solicitud HTTP.
 
-La dirección URL al servicio de API es la dirección URL del centro de datos, por ejemplo, https://\<yourdatahub-website-name>.azurewebsites.net.
+La dirección URL al servicio de API es la dirección URL del centro de datos, por ejemplo, `https://<yourdatahub-website-name>.azurewebsites.net`.
 
 También se pueden incluir parámetros de consulta en las llamadas GET para filtrar y ordenar los datos en las respuestas y limitar su tamaño.
 
@@ -158,7 +158,7 @@ Se puede acceder a las API de Azure FarmBeats mediante un usuario o un registro 
     - Vuelva a **Información general** y seleccione el vínculo situado junto a **Administrar la aplicación en el directorio local**.
     - Vaya a **Propiedades** para capturar el **Id. de objeto**.
 
-4. Vaya a la instancia de Datahub Swagger (https://<yourdatahub>.azurewebsites.net/swagger/index.html) y haga lo siguiente:
+4. Vaya al Swagger del centro de datos (`https://<yourdatahub>.azurewebsites.net/swagger/index.html`) y haga lo siguiente:
     - Vaya a **RoleAssignment API**.
     - Realice una operación POST con el fin de crear un objeto **RoleAssignment** para el **Id. de objeto** que se acaba de crear.
  

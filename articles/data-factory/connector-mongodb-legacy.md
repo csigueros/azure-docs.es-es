@@ -1,32 +1,32 @@
 ---
 title: Copia de datos de MongoDB (heredado)
+description: Aprenda a copiar datos de Mongo DB en almacenes de datos receptores compatibles con una actividad de copia en una canalización heredada de Azure Data Factory o Synapse Analytics.
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Aprenda a copiar datos desde Mongo DB en almacenes de datos receptores compatibles mediante una actividad de copia de una canalización heredada de Azure Data Factory.
 author: jianleishen
 ms.author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/30/2021
-ms.openlocfilehash: f4ad8489e696a903621636a361dfc8ff1f4751c1
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.date: 09/09/2021
+ms.openlocfilehash: b014cf900cccc056e09f84966a059160de930239
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123305238"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124750644"
 ---
-# <a name="copy-data-from-mongodb-using-azure-data-factory-legacy"></a>Copia de datos desde MongoDB mediante Azure Data Factory (heredado)
+# <a name="copy-data-from-mongodb-using-azure-data-factory-or-synapse-analytics-legacy"></a>Copia de datos de MongoDB con Azure Data Factory o Synapse Analytics (versión heredada)
 
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
 > * [Versión 1](v1/data-factory-on-premises-mongodb-connector.md)
 > * [Versión actual](connector-mongodb.md)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-En este artículo se explica el uso de la actividad de copia de Azure Data Factory para copiar datos desde una base de datos MongoDB. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
+En este artículo se describe el uso de la actividad de copia en una canalización de Azure Data Factory o Synapse Analytics para copiar datos de MongoDB. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
 
 >[!IMPORTANT]
->ADF publica un nuevo conector de MongoDB, que proporciona una mejor compatibilidad nativa con MongoDB en comparación con esta implementación basada en ODBC; para obtener más información, vea el artículo [Conector de MongoDB](connector-mongodb.md). Este conector de MongoDB heredado sigue recibiendo soporte tal cual para garantizar la compatibilidad con versiones anteriores; pero, para cualquier carga de trabajo nueva, use el nuevo conector.
+>El servicio ha publicado un nuevo conector de MongoDB, que proporciona una mejor compatibilidad nativa con MongoDB en comparación con esta implementación basada en ODBC; para obtener más información, vea el artículo [Conector de MongoDB](connector-mongodb.md). Este conector de MongoDB heredado sigue recibiendo soporte tal cual para garantizar la compatibilidad con versiones anteriores; pero, para cualquier carga de trabajo nueva, use el nuevo conector.
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
@@ -86,7 +86,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de MongoDB:
 | databaseName |Nombre de la base de datos de MongoDB a la que desea acceder. |Sí |
 | authenticationType | Tipo de autenticación usado para conectarse a la base de datos MongoDB.<br/>Los valores permitidos son: **Basic** (básica) y **Anonymous** (anónima). |Sí |
 | username |Cuenta de usuario para tener acceso a MongoDB. |Sí (si se usa la autenticación básica). |
-| password |Contraseña del usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |Sí (si se usa la autenticación básica). |
+| password |Contraseña del usuario. Marque este campo como SecureString para almacenarlo de forma segura, o bien [haga referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |Sí (si se usa la autenticación básica). |
 | authSource |Nombre de la base de datos de MongoDB que desea usar para comprobar las credenciales de autenticación. |No. Para la autenticación básica, el valor predeterminado se utiliza la cuenta de administrador y la base de datos especificada mediante la propiedad databaseName. |
 | enableSsl | Especifica si las conexiones al servidor se cifran mediante TLS. El valor predeterminado es false.  | No |
 | allowSelfSignedServerCert | Especifica si se permiten los certificados autofirmados del servidor. El valor predeterminado es false.  | No |
@@ -198,9 +198,9 @@ El servicio de Azure Data Factory deduce el esquema de una colección de MongoDB
 
 ## <a name="data-type-mapping-for-mongodb"></a>Asignación de tipos para MongoDB
 
-Al copiar datos desde MongoDB, se utilizan las siguientes asignaciones de tipos de datos de MongoDB en los tipos de datos provisionales de Azure Data Factory. Consulte el artículo sobre [asignaciones de tipos de datos y esquema](copy-activity-schema-and-type-mapping.md) para información sobre cómo la actividad de copia asigna el tipo de datos y el esquema de origen al receptor.
+Al copiar datos desde MongoDB, se utilizan las siguientes asignaciones de tipos de datos de MongoDB a los tipos de datos provisionales usados internamente dentro del servicio. Consulte el artículo sobre [asignaciones de tipos de datos y esquema](copy-activity-schema-and-type-mapping.md) para información sobre cómo la actividad de copia asigna el tipo de datos y el esquema de origen al receptor.
 
-| Tipo de datos de MongoDB | Tipo de datos provisionales de Data Factory |
+| Tipo de datos de MongoDB | Tipo de datos de servicio provisional |
 |:--- |:--- |
 | Binary |Byte[] |
 | Boolean |Boolean |
@@ -220,12 +220,12 @@ Al copiar datos desde MongoDB, se utilizan las siguientes asignaciones de tipos 
 
 ## <a name="support-for-complex-types-using-virtual-tables"></a>Compatibilidad para tipos complejos que usan tablas virtuales
 
-Azure Data Factory utiliza un controlador ODBC integrado para conectarse a una base de datos de MongoDB y copiar datos de dicha base de datos. Para los tipos complejos como matrices u objetos con diferentes tipos en los documentos, el controlador volverá a normalizar los datos en las tablas virtuales correspondientes. En concreto, si una tabla contiene estas columnas, el controlador generará las siguientes tablas virtuales:
+El servicio utiliza un controlador ODBC integrado para conectarse a una base de datos de MongoDB y copiar datos de ella. Para los tipos complejos como matrices u objetos con diferentes tipos en los documentos, el controlador volverá a normalizar los datos en las tablas virtuales correspondientes. En concreto, si una tabla contiene estas columnas, el controlador generará las siguientes tablas virtuales:
 
 * Una **tabla base**, que contiene los mismos datos que la tabla real, salvo las columnas de tipo complejo. La tabla base utiliza el mismo nombre que la tabla real a la que representa.
 * Una **tabla virtual** para cada columna de tipo complejo, que ampliará los datos anidados. Para asignar un nombre a las tablas virtuales, se utiliza el nombre de la tabla real, un separador "_" y el nombre de la matriz u objeto.
 
-Las tablas virtuales hacen referencia a los datos de la tabla real, lo que permite al controlador obtener acceso a los datos no normalizados. Para acceder al contenido de las matrices de MongoDB, puede crear consultas y combinar las tablas virtuales.
+Las tablas virtuales hacen referencia a los datos de la tabla real, lo que permite al controlador acceder a los datos no normalizados. Para acceder al contenido de las matrices de MongoDB, puede crear consultas y combinar las tablas virtuales.
 
 ### <a name="example"></a>Ejemplo
 
@@ -267,4 +267,4 @@ Las siguientes tablas muestran las tablas virtuales que representan las matrices
 | 2222 |1 |2 |
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte los [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver la lista de almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores.
+Para obtener una lista de almacenes de datos que la actividad de copia admite como orígenes y receptores, vea [Almacenes de datos que se admiten](copy-activity-overview.md#supported-data-stores-and-formats).

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 07/21/2021
 ms.author: thweiss
-ms.openlocfilehash: d83d6ad6834ea38b293054e59eb39a35be5c507e
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 29aeee156ee87c055a3581e9dc2fd0bd86a2064d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123111517"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128551052"
 ---
 # <a name="configure-role-based-access-control-with-azure-active-directory-for-your-azure-cosmos-db-account"></a>Configuración del control de acceso basado en roles con Azure Active Directory para la cuenta de Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -40,14 +40,24 @@ El control de acceso basado en roles del plano de datos de Azure Cosmos DB se b
 ## <a name="permission-model"></a><a id="permission-model"></a> Modelo de permiso
 
 > [!IMPORTANT]
-> Este modelo de permisos solo incluye las operaciones de base de datos que permiten leer y escribir datos. **No** incluye ningún tipo de operaciones de administración, como la creación de contenedores o la modificación de su rendimiento. Esto significa que **no puede usar ningún SDK del plano de datos de Azure Cosmos DB** para autenticar las operaciones de administración con una identidad de AAD. En su lugar, tiene que usar [Azure RBAC](role-based-access-control.md) a través de:
-> - [Plantillas de Azure Resource Manager (ARM)](manage-with-templates.md)
-> - [Scripts de Azure PowerShell](manage-with-powershell.md)
-> - [Scripts de la CLI de Azure](sql/manage-with-cli.md)
-> - Bibliotecas de administración de Azure disponibles en
+> Este modelo de permisos cubre solo las operaciones de base de datos que implican la lectura y escritura de datos. *No* cubre ningún tipo de operación de administración en recursos de administración, por ejemplo:
+> - Crear, reemplazar o eliminar base de datos
+> - Crear, reemplazar o eliminar contenedor
+> - Reemplazar el rendimiento del contenedor
+> - Crear, reemplazar, eliminar o leer procedimientos almacenados
+> - Crear, reemplazar, eliminar o leer desencadenadores
+> - Crear, reemplazar, eliminar o leer funciones definidas por el usuario
+>
+> *No puede usar ningún SDK del plano de datos de Azure Cosmos DB* para autenticar las operaciones de administración con una identidad de Azure AD. En su lugar, debe usar [Azure RBAC](role-based-access-control.md) mediante una de las siguientes opciones:
+> - [Plantillas de Azure Resource Manager (plantillas de ARM)](./sql/manage-with-templates.md)
+> - [Scripts de Azure PowerShell](./sql/manage-with-powershell.md)
+> - [Scripts de la CLI de Azure](./sql/manage-with-cli.md)
+> - Bibliotecas de administración de Azure disponibles en:
 >   - [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.CosmosDB/)
 >   - [Java](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-cosmos)
 >   - [Python](https://pypi.org/project/azure-mgmt-cosmosdb/)
+>   
+> Leer base de datos y Leer contenedor se consideran [solicitudes de metadatos](#metadata-requests). Se puede conceder acceso a estas operaciones como se indica en la sección siguiente.
 
 En la tabla siguiente se enumeran todas las acciones expuestas por el modelo de permiso.
 

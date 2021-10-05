@@ -9,21 +9,21 @@ ms.topic: how-to
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 08/12/2021
+ms.date: 09/14/2021
 ms.custom: devx-track-python
-ms.openlocfilehash: 2bcc1a9fdd930a8c9dd85604528a276f9de8d6e8
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 2207ac32595d3780bf662d9a4124b7cbf74ce6a7
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123113112"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128633989"
 ---
 # <a name="configure-inbound-and-outbound-network-traffic"></a>Configuración del tráfico de red entrante y saliente
 
 En este artículo, obtendrá información sobre los requisitos de comunicación de red al proteger el área de trabajo de Azure Machine Learning en una red virtual (VNet). Incluye el procedimiento de configuración de Azure Firewall para controlar el acceso al área de trabajo de Azure Machine Learning y a la red pública de Internet. Para obtener más información sobre la protección de Azure Machine Learning, consulte [Seguridad de empresa para Azure Machine Learning](concept-enterprise-security.md).
 
 > [!NOTE]
-> La información de este artículo se aplica al área de trabajo de Azure Machine Learning, con independencia de si usa un punto de conexión privado o un punto de conexión de servicio.
+> La información de este artículo se aplica al área de trabajo de Azure Machine Learning configurada con un punto de conexión privado.
 
 > [!TIP]
 > Este artículo forma parte de una serie sobre la protección de un flujo de trabajo de Azure Machine Learning. Consulte los demás artículos de esta serie:
@@ -31,8 +31,8 @@ En este artículo, obtendrá información sobre los requisitos de comunicación 
 > * [Información general sobre redes virtuales](how-to-network-security-overview.md)
 > * [Protección de los recursos de un área de trabajo](how-to-secure-workspace-vnet.md)
 > * [Protección del entorno de entrenamiento](how-to-secure-training-vnet.md)
-> * [Protección de un entorno de inferencia](how-to-secure-inferencing-vnet.md)
-> * [Habilitación de Azure Machine Learning Studio en una red virtual](how-to-enable-studio-virtual-network.md)
+> * [Protección del entorno de inferencia](how-to-secure-inferencing-vnet.md)
+> * [Habilitación de la función de Studio](how-to-enable-studio-virtual-network.md)
 > * [Uso de un DNS personalizado](how-to-custom-dns.md)
 
 ## <a name="required-public-internet-access"></a>Acceso obligatorio a una red de Internet pública
@@ -69,10 +69,12 @@ Estas colecciones de reglas se describen con más detalle en [¿Cuáles son algu
     | AzureFrontDoor.FrontEnd</br>* No es necesario en Azure China. | TCP | 443 | 
     | ContainerRegistry.region  | TCP | 443 |
     | MicrosoftContainerRegistry.region | TCP | 443 |
+    | Keyvault.region | TCP | 443 |
 
     > [!TIP]
     > * ContainerRegistry.region solo es necesario para imágenes personalizadas de Docker. Esto incluye pequeñas modificaciones (como paquetes adicionales) en las imágenes base proporcionadas por Microsoft.
     > * MicrosoftContainerRegistry.region solo es necesario si planea usar las _imágenes de Docker predeterminadas proporcionadas por Microsoft_ y _habilitar las dependencias administradas por el usuario_.
+    > * Keyvault.region solo es necesario si el área de trabajo se creó con la marca [hbi_workspace](/python/api/azureml-core/azureml.core.workspace%28class%29#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) habilitada.
     > * En el caso de las entradas que contienen `region`, reemplace este valor por la región de Azure que esté usando. Por ejemplo, `ContainerRegistry.westus`.
 
 1. Agregue __reglas de aplicación__ para los siguientes hosts:
@@ -91,6 +93,9 @@ Estas colecciones de reglas se describen con más detalle en [¿Cuáles son algu
     | **\*.tensorflow.org** | Se usa en algunos ejemplos basados en TensorFlow. |
     | **update.code.visualstudio.com**</br></br>**\*.vo.msecnd.net** | Se usa para recuperar bits de servidor de VS Code que se instalan en la instancia de proceso por medio de un script de instalación.|
     | **raw.githubusercontent.com/microsoft/vscode-tools-for-ai/master/azureml_remote_websocket_server/\*** | Se usa para recuperar bits de servidor de WebSocket que se instalan en la instancia de proceso. El servidor de WebSocket se usa para transmitir solicitudes desde el cliente de Visual Studio Code (aplicación de escritorio) al servidor de Visual Studio Code que se ejecuta en la instancia de proceso.|
+    | **dc.applicationinsights.azure.com** | Se usa para recopilar métricas e información de diagnóstico cuando se trabaja con el equipo de Soporte técnico de Microsoft. |
+    | **dc.applicationinsights.microsoft.com** | Se usa para recopilar métricas e información de diagnóstico cuando se trabaja con el equipo de Soporte técnico de Microsoft. |
+    | **dc.services.visualstudio.com** | Se usa para recopilar métricas e información de diagnóstico cuando se trabaja con el equipo de Soporte técnico de Microsoft. | 
     
 
     En __Protocolo:Puerto__, seleccione usar __http, https__.
@@ -106,19 +111,6 @@ Al usar Azure Kubernetes Service con Azure Machine Learning, se debe permitir 
 * Requisitos generales de entrada y salida para AKS, tal como se describe en el artículo [Restricción del tráfico de salida en Azure Kubernetes Service](../aks/limit-egress-traffic.md).
 * __Tráfico de salida__ a mcr.microsoft.com.
 * Al implementar un modelo en un clúster de AKS, use las instrucciones del artículo [Implementación de modelos de ML en Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md#connectivity).
-
-### <a name="diagnostics-for-support"></a>Diagnósticos de soporte técnico
-
-Si necesita recopilar información de diagnóstico al trabajar con el soporte técnico de Microsoft, siga estos pasos:
-
-1. Agregue una __regla de red__ para permitir el tráfico hacia la etiqueta `AzureMonitor` y desde esta.
-1. Agregue __reglas de aplicación__ para los hosts siguientes. Seleccione __http, https__ como __Protocolo:Puerto__ para estos hosts:
-
-    + **dc.applicationinsights.azure.com**
-    + **dc.applicationinsights.microsoft.com**
-    + **dc.services.visualstudio.com**
-
-    Para obtener una lista de las direcciones IP para los hosts de Azure Monitor, vea [Direcciones IP usadas por Azure Monitor](../azure-monitor/app/ip-addresses.md).
 
 ## <a name="other-firewalls"></a>Otros firewalls
 
@@ -167,11 +159,13 @@ Los hosts de las siguientes tablas son propiedad de Microsoft y proporcionan ser
 > [!IMPORTANT]
 > El firewall debe permitir la comunicación con \*.instances.azureml.ms a través de los puertos __TCP__ __18881, 443 y 8787__.
 
+> [!TIP]
+> El nombre de dominio completo de Azure Key Vault solo es necesario si el área de trabajo se creó con la marca [hbi_workspace](/python/api/azureml-core/azureml.core.workspace%28class%29#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) habilitada.
+
 **Imágenes de Docker que mantiene Azure Machine Learning**
 
 | **Requerido para** | **Azure público** | **Azure Government** | **Azure China 21Vianet** |
 | ----- | ----- | ----- | ----- |
-| Azure Container Registry | azurecr.io | azurecr.us | azurecr.cn |
 | Registro de contenedor de Microsoft | mcr.microsoft.com | mcr.microsoft.com | mcr.microsoft.com |
 | Imágenes precompiladas de Azure Machine Learning | viennaglobal.azurecr.io | viennaglobal.azurecr.io | viennaglobal.azurecr.io |
 
@@ -184,8 +178,15 @@ Además, use la información de la sección [Configuración de entrada ](#inboun
 
 Para obtener información sobre la restricción del acceso a los modelos implementados en AKS, consulte [Control del tráfico de salida de los nodos de clúster en Azure Kubernetes Service (AKS)](../aks/limit-egress-traffic.md).
 
-> [!TIP]
-> Si trabaja con el servicio de soporte técnico de Microsoft para recopilar información de diagnóstico, debe permitir el tráfico saliente a las direcciones IP que usan los hosts de Azure Monitor. Para obtener una lista de las direcciones IP para los hosts de Azure Monitor, vea [Direcciones IP usadas por Azure Monitor](../azure-monitor/app/ip-addresses.md).
+**Soporte técnico y diagnóstico**
+
+Para que el equipo de Soporte técnico de Microsoft pueda diagnosticar los problemas que se puedan encontrar con el área de trabajo, debe permitir el tráfico saliente a los hosts siguientes:
+
+* **dc.applicationinsights.azure.com**
+* **dc.applicationinsights.microsoft.com**
+* **dc.services.visualstudio.com**
+
+Para obtener una lista de las direcciones IP de esos hosts, consulte [Direcciones IP usadas por Azure Monitor](../azure-monitor/app/ip-addresses.md).
 
 ### <a name="python-hosts"></a>Hosts de Python
 
@@ -240,8 +241,8 @@ Este artículo forma parte de una serie sobre la protección de un flujo de trab
 * [Información general sobre redes virtuales](how-to-network-security-overview.md)
 * [Protección de los recursos de un área de trabajo](how-to-secure-workspace-vnet.md)
 * [Protección del entorno de entrenamiento](how-to-secure-training-vnet.md)
-* [Protección de un entorno de inferencia](how-to-secure-inferencing-vnet.md)
-* [Habilitación de Azure Machine Learning Studio en una red virtual](how-to-enable-studio-virtual-network.md)
+* [Protección del entorno de inferencia](how-to-secure-inferencing-vnet.md)
+* [Habilitación de la función de Studio](how-to-enable-studio-virtual-network.md)
 * [Uso de un DNS personalizado](how-to-custom-dns.md)
 
 Para más información sobre la configuración de Azure Firewall, consulte [Implementación y configuración de Azure Firewall mediante Azure Portal](../firewall/tutorial-firewall-deploy-portal.md).

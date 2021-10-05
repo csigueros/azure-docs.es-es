@@ -3,17 +3,17 @@ title: Soporte técnico de Azure con máquinas virtuales de generación 2
 description: Información general de compatibilidad de Azure para máquinas virtuales de generación 2
 author: ju-shim
 ms.service: virtual-machines
-ms.subservice: generation-2-vm
+ms.subservice: sizes
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 02/26/2021
 ms.author: jushiman
-ms.openlocfilehash: 6135d675f2f719f7fa471a886715bce5d6036eb7
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 48dd300148cdcccc9caf754a5e5bcc69e7c5c0e7
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123425611"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129216562"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Compatibilidad para máquinas virtuales de generación 2 en Azure
 
@@ -27,7 +27,7 @@ Las VM de generación 2 usan la nueva arquitectura de arranque basado en UEFI en
 
 ## <a name="generation-2-vm-sizes"></a>Tamaños de VM de generación 2
 
-Las máquinas virtuales de generación 1 son compatibles con todos los tamaños de máquina virtual de Azure (excepto las máquinas virtuales de las series Mv2 y Msv2 y de la serie Mdsv2 de memoria media). Azure ahora ofrece compatibilidad de generación 2 para las siguientes series de VM seleccionadas:
+Azure ahora ofrece compatibilidad de generación 2 para las siguientes series de VM seleccionadas:
 
 
 * [Serie B](sizes-b-series-burstable.md)
@@ -53,11 +53,13 @@ Las máquinas virtuales de generación 1 son compatibles con todos los tamaños 
 * [Serie NCv2](ncv2-series.md) 
 * [Serie NCv3](ncv3-series.md)
 * [Serie ND](nd-series.md)
+* [Serie ND A100 v4](nda100-v4-series.md)
+* [Serie NDv2](ndv2-series.md)
 * [Serie NVv3](nvv3-series.md)
 * [Serie NVv4](nvv4-series.md)
 * [Serie NCasT4_v3](nct4-v3-series.md)
 
-<sup>1</sup> Las series Mv2, Msv2 y Mdsv2 de memoria media no admiten imágenes de máquina virtual de generación 1 y solo admiten un subconjunto de imágenes de generación 2. Consulte la [documentación de la serie Mv2](mv2-series.md) y las [series de memoria media Msv2 y Mdsv2](msv2-mdsv2-series.md) para más información.
+<sup>1</sup> Las series Mv2, DC, NDv2, Msv2 y Mdsv2 de memoria media no admiten imágenes de máquina virtual de generación 1 y solo admiten un subconjunto de imágenes de generación 2. Consulte la [documentación de la serie Mv2](mv2-series.md), [serie DSv2](dv2-dsv2-series.md), [serie ND A100 v4](nda100-v4-series.md), [serie NDv2](ndv2-series.md) y la [serie de memoria media Msv2 y Mdsv2](msv2-mdsv2-series.md) para obtener más detalles.
 
 
 ## <a name="generation-2-vm-images-in-azure-marketplace"></a>Imágenes de VM de generación 2 en Azure Marketplace
@@ -74,7 +76,7 @@ Las VM de generación 2 admiten las siguientes imágenes de Marketplace:
 * Oracle Linux 7.7, 7.7-CI, 7.8
 
 > [!NOTE]
-> Los tamaños de máquina virtual específicos, como la serie MV2, solo pueden admitir un subconjunto de estas imágenes. Consulte la documentación sobre el tamaño de máquina virtual correspondiente para obtener información completa.
+> Los tamaños de máquina virtual específicos (como las series Mv2, DC, ND A100 v4, NDv2, Msv2 y Mdsv2) solo pueden admitir un subconjunto de estas imágenes. Consulte la documentación sobre el tamaño de máquina virtual correspondiente para obtener información completa.
 
 ## <a name="on-premises-vs-azure-generation-2-vms"></a>Máquinas virtuales locales frente a VM de generación 2 de Azure
 
@@ -119,7 +121,7 @@ Para más información, consulte [Inicio seguro (versión preliminar)](trusted-l
 
 En Azure Portal o la CLI de Azure, puede crear VM de generación 2 a partir de una imagen de Marketplace que admita el arranque UEFI.
 
-#### <a name="azure-portal"></a>Azure Portal
+#### <a name="azure-portal"></a>Azure portal
 
 A continuación se indican los pasos para crear una máquina virtual de segunda generación (Gen2) en Azure Portal.
 

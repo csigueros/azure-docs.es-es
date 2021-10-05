@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: how-to
 ms.date: 05/17/2021
 ms.author: cshoe
-ms.openlocfilehash: 3f373122d6d68e6435cfe7083115c91718e05a09
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 1d6aa4d6e8a04a65366d6f109fd755be4f075d6b
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121737473"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124777153"
 ---
 # <a name="securing-authentication-secrets-in-azure-key-vault"></a>Protección de secretos de autenticación en Azure Key Vault
 
@@ -29,7 +29,10 @@ En este artículo se muestra cómo configurar cada uno de estos elementos en pro
 La integración de Key Vault no está disponible para:
 
 - [Versiones de almacenamiento provisional de la aplicación web estática](./review-publish-pull-requests.md). La integración de Key Vault solo se admite en el entorno de producción.
-- [Aplicaciones web estáticas que usan funciones administradas](./apis.md). 
+- [Aplicaciones web estáticas que usan funciones administradas](./apis.md).
+
+> [!NOTE]
+> El uso de la identidad administrada solo está disponible en el plan Estándar de Azure Static Web Apps.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

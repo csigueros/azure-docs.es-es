@@ -7,14 +7,14 @@ ms.service: data-factory
 ms.subservice: integration-runtime
 ms.custom: synapse
 ms.topic: troubleshooting
-ms.date: 08/24/2021
+ms.date: 09/09/2021
 ms.author: lle
-ms.openlocfilehash: b833b8b63415a36fb0ee2862c9dfa261cfeb44ef
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.openlocfilehash: d1b3770d236c7f88090840720e8f88fd453e70cf
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122864214"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124755945"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Solución de problemas del entorno de ejecución de integración autohospedado
 
@@ -32,11 +32,11 @@ En el caso de las actividades con error que se ejecutan en un IR autohospedado o
 
     # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
     
-    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/activity-runs-page.png" alt-text="Captura de pantalla de la sección &quot;Ejecuciones de actividad&quot; del panel &quot;Todas las ejecuciones de la canalización&quot;":::
+    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/activity-runs-page.png" alt-text="Captura de pantalla de la sección &quot;Ejecuciones de actividad&quot; del panel &quot;Todas las ejecuciones de la canalización&quot;.":::
     
     # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
     
-    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/activity-runs-page-synapse.png" alt-text="Captura de pantalla de la sección &quot;Ejecuciones de actividad&quot; del panel &quot;Todas las ejecuciones de la canalización&quot;":::
+    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/activity-runs-page-synapse.png" alt-text="Captura de pantalla de la sección &quot;Ejecuciones de actividad&quot; del panel &quot;Todas las ejecuciones de la canalización&quot;.":::
     
     ---
     
@@ -48,7 +48,7 @@ En el caso de las actividades con error que se ejecutan en un IR autohospedado o
  
    Se abre la ventana **Share the self-hosted integration runtime (IR) logs with Microsoft** (Compartir los registros de entorno de ejecución de integración [IR] autohospedado con Microsoft).
 
-    ![Captura de pantalla de la ventana Compartir los registros de entorno de ejecución de integración (IR) autohospedado con Microsoft.](media/self-hosted-integration-runtime-troubleshoot-guide/choose-logs.png)
+    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/choose-logs.png" alt-text="Captura de pantalla de la ventana &quot;Compartir los registros de entorno de ejecución de integración (IR) autohospedado con Microsoft&quot;.":::
 
 1. Seleccione los registros que quiere enviar. 
     * Para *IR autohospedado*, puede cargar los registros relacionados con la actividad con errores o todos los registros del nodo de IR autohospedado. 
@@ -56,7 +56,7 @@ En el caso de las actividades con error que se ejecutan en un IR autohospedado o
 
 1. Cuando se carguen los registros, conserve un registro del identificador del informe para más adelante si necesita ayuda adicional para resolver el problema.
 
-    ![Captura de pantalla del identificador de informe mostrado en la ventana progreso de la carga para los registros de IR.](media/self-hosted-integration-runtime-troubleshoot-guide/upload-logs.png)
+    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/upload-logs.png" alt-text="Captura de pantalla del identificador de informe mostrado en la ventana progreso de la carga para los registros de IR.":::
 
 > [!NOTE]
 > Las solicitudes de visualización y carga de registros se ejecutan en todas las instancias de IR autohospedado en línea. Si falta algún registro, asegúrese de que todas las instancias de IR autohospedado estén en línea. 
@@ -86,7 +86,7 @@ Al intentar aumentar el límite de trabajos simultáneos desde la interfaz de us
 
 Escenario de ejemplo: El valor máximo de trabajos simultáneos está establecido actualmente en 24, y se quiere aumentar el número total para que los trabajos se puedan ejecutar con mayor rapidez. El valor mínimo que se puede especificar es 3, y el valor máximo es 32. Aumenta el valor de 24 a 32 y, luego, selecciona el botón **Actualizar**. El proceso se bloquea con el estado *Actualizando*, como se muestra en la captura de pantalla siguiente. Actualiza la página y el valor aún se muestra como 24. No se ha actualizado a 32 como era de esperar.
 
-![Captura de pantalla del panel Nodos del entorno de ejecución de integración, que muestra el proceso atascado con el estado "Actualizando".](media/self-hosted-integration-runtime-troubleshoot-guide/updating-status.png)
+:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/updating-status.png" alt-text="Captura de pantalla del panel Nodos del entorno de ejecución de integración, que muestra el proceso atascado con el estado &quot;Actualizando&quot;.":::
 
 #### <a name="cause"></a>Causa
 
@@ -119,7 +119,7 @@ Al tratar casos relacionados con un protocolo de enlace SSL/TLS, es posible que 
        
        b. En el Explorador de archivos, en el panel izquierdo, busque el certificado que desea comprobar, haga clic con el botón derecho en él y, a continuación, seleccione **Todas las tareas** > **Exportar**.
     
-        ![Captura de pantalla del control "Todas las tareas" > "Exportar" para un certificado en el panel "Administrar certificados de equipo".](media/self-hosted-integration-runtime-troubleshoot-guide/export-tasks.png)
+        :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/export-tasks.png" alt-text="Captura de pantalla del control &quot;Todas las tareas&quot; > &quot;Exportar&quot; para un certificado en el panel &quot;Administrar certificados de equipo&quot;.":::
 
     2. Copie el certificado exportado en el equipo cliente. 
     3. En el lado cliente, en una ventana del símbolo del sistema, ejecute el comando siguiente. No olvide reemplazar *\<certificate path>* y *\<output txt file path>* por las rutas de acceso reales.
@@ -137,17 +137,17 @@ Al tratar casos relacionados con un protocolo de enlace SSL/TLS, es posible que 
 
         Por ejemplo: 
 
-        ![Captura de pantalla de un resumen de errores al final del archivo TXT.](media/self-hosted-integration-runtime-troubleshoot-guide/error-summary.png)
+        :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/error-summary.png" alt-text="Captura de pantalla de un resumen de errores al final del archivo TXT.":::
 
         Si no ve ningún error al final del archivo de registro, como se muestra en la siguiente captura de pantalla, puede considerar que la cadena de certificados se ha compilado correctamente en la máquina cliente.
         
-        ![Captura de pantalla de un archivo de registro que no muestra ningún error.](media/self-hosted-integration-runtime-troubleshoot-guide/log-file.png)      
+        :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/log-file.png" alt-text="Captura de pantalla de un archivo de registro que no muestra ningún error.":::      
 
 - Si se configura una extensión de nombre de archivo de AIA (acceso a la información de entidad emisora), CDP (punto de distribución cRL) una OCSP (protocolo de estado de certificados en línea) en el archivo de certificado, puede comprobarlo de una manera más intuitiva:
  
     1. Para obtener esta información, compruebe los detalles del certificado, tal como se muestra en la captura de pantalla siguiente:
     
-        ![Captura de pantalla de los detalles del certificado.](media/self-hosted-integration-runtime-troubleshoot-guide/certificate-detail.png)
+        :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/certificate-detail.png" alt-text="Captura de pantalla de los detalles del certificado.":::
     
     1. Ejecute el comando siguiente. Asegúrese de reemplazar *\<certificate path>* por la ruta de acceso real del certificado.
     
@@ -159,7 +159,7 @@ Al tratar casos relacionados con un protocolo de enlace SSL/TLS, es posible que 
         
     1. Para comprobar los certificados con las extensiones de nombre de archivo AIA, CDP y OCSP, seleccione **Recuperar**.
 
-        ![Captura de pantalla de la herramienta de recuperación de URL y el botón Recuperar.](media/self-hosted-integration-runtime-troubleshoot-guide/retrieval-button.png)
+        :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/retrieval-button.png" alt-text="Captura de pantalla de la herramienta de recuperación de URL y el botón Recuperar.":::
  
         Habrá creado la cadena de certificados correctamente si el estado del certificado de AIA es *Comprobado* y el estado del certificado de CDP u OCSP es *Comprobado*.
 
@@ -181,7 +181,7 @@ He aquí un mensaje de error más específico:
 
 En Process Monitor, puede ver el siguiente resultado:
 
-[![Captura de pantalla de la lista de rutas de acceso en Process Monitor.](media/self-hosted-integration-runtime-troubleshoot-guide/process-monitor.png)](media/self-hosted-integration-runtime-troubleshoot-guide/process-monitor.png#lightbox)
+:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/process-monitor.png#lightbox" lightbox="media/self-hosted-integration-runtime-troubleshoot-guide/process-monitor.png" alt-text="Captura de pantalla de la lista de rutas de acceso en Process Monitor.":::
 
 > [!TIP] 
 > En Process Monitor, puede establecer filtros como se muestra en la captura de pantalla siguiente.
@@ -192,7 +192,7 @@ En Process Monitor, puede ver el siguiente resultado:
 
 <br>
 
-![Captura de pantalla de la página "Filtro de monitor de procesos", donde se muestran los filtros del archivo DLL.](media/self-hosted-integration-runtime-troubleshoot-guide/set-filters.png)
+:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/set-filters.png" alt-text="Captura de pantalla de la página &quot;Filtro de monitor de procesos&quot;, donde se muestran los filtros del archivo DLL.":::
 
 #### <a name="resolution"></a>Solución
 
@@ -219,7 +219,7 @@ El entorno de ejecución de integración autohospedado se queda sin conexión re
 
 "Authentication Key is not assigned yet" (La clave de autenticación no se ha asignado todavía)
 
-![Captura de pantalla del panel de eventos del entorno de ejecución de integración que muestra que la clave de autenticación aún no se ha asignado.](media/self-hosted-integration-runtime-troubleshoot-guide/key-missing.png)
+:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/key-missing.png" alt-text="Captura de pantalla del panel de eventos del entorno de ejecución de integración que muestra que la clave de autenticación aún no se ha asignado.":::
 
 #### <a name="cause"></a>Causa
 
@@ -230,7 +230,7 @@ El entorno de ejecución de integración autohospedado se queda sin conexión re
 
 Si no corresponde ninguna de las causas anteriores, puede ir a la carpeta *%programdata%\Microsoft\Data Transfer\DataManagementGateway* para comprobar si se ha eliminado el archivo *Configurations*. Si se eliminó, siga las instrucciones del artículo de Netwrix sobre la [detección de quién eliminó un archivo de los servidores de archivos de Windows](https://www.netwrix.com/how_to_detect_who_deleted_file.html).
 
-![Captura de pantalla del panel de detalles del registro de eventos para comprobar el archivo Configurations.](media/self-hosted-integration-runtime-troubleshoot-guide/configurations-file.png)
+:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/configurations-file.png" alt-text="Captura de pantalla del panel de detalles del registro de eventos para comprobar el archivo Configurations.":::
 
 
 ### <a name="cant-use-self-hosted-ir-to-bridge-two-on-premises-datastores"></a>No se puede usar IR autohospedado para enlazar dos almacenes de datos locales
@@ -285,7 +285,7 @@ La única manera de evitar este problema es asegurarse de que los dos nodos est�
 
    "No se pudo cambiar el modo de cifrado de la comunicación de intranet. Es probable que el certificado '\<*certificate name*>' no tenga una clave pública que se pueda intercambiar o puede que el proceso no tenga derechos de acceso para la clave privada. Consulte la excepción interna para obtener más información".
 
-    ![Captura de pantalla del panel configuración de Integration Runtime Configuration Manager, que muestra un mensaje de error "Falta una clave privada".](media/self-hosted-integration-runtime-troubleshoot-guide/private-key-missing.png)
+    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/private-key-missing.png" alt-text="Captura de pantalla del panel configuración de Integration Runtime Configuration Manager, que muestra un mensaje de error &quot;Falta una clave privada&quot;.":::
 
 #### <a name="cause"></a>Causa
 
@@ -370,7 +370,7 @@ Después de cambiar la cuenta de servicio en el panel de servicio, es posible qu
 
 "El nodo de Integration Runtime (autohospedado) ha encontrado un error durante el registro. No se puede conectar al servicio host de Integration Runtime (autohospedado)".
 
-![Captura de pantalla de la ventana Integration Runtime Configuration Manager, que muestra un error de registro de IR.](media/self-hosted-integration-runtime-troubleshoot-guide/ir-registration-error.png)
+:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/ir-registration-error.png" alt-text="Captura de pantalla de la ventana Integration Runtime Configuration Manager, que muestra un error de registro de IR.":::
 
 #### <a name="cause"></a>Causa
 
@@ -380,19 +380,19 @@ Muchos recursos solo se conceden a la cuenta de servicio. Al cambiar la cuenta d
 
 Vaya al registro de eventos de Integration Runtime para comprobar el error.
 
-![Captura de pantalla del registro de eventos de IR, que indica que hubo un error de tiempo de ejecución.](media/self-hosted-integration-runtime-troubleshoot-guide/ir-event-log.png)
+:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/ir-event-log.png" alt-text="Captura de pantalla del registro de eventos de IR, que indica que hubo un error de tiempo de ejecución.":::
 
 * Si el error en el registro de eventos es "UnauthorizedAccessException", haga lo siguiente:
 
     1. Compruebe la cuenta del servicio de inicio de sesión *DIAHostService* en el panel del servicio de Windows.
 
-        ![Captura de pantalla del panel de propiedades de la cuenta de servicio de inicio de sesión.](media/self-hosted-integration-runtime-troubleshoot-guide/logon-service-account.png)
+        :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/logon-service-account.png" alt-text="Captura de pantalla del panel de propiedades de la cuenta de servicio de inicio de sesión.":::
 
     1. Compruebe si la cuenta de servicio de inicio de sesión tiene permisos de lectura y escritura en la carpeta *%programdata%\Microsoft\DataTransfer\DataManagementGateway*.
 
         - De manera predeterminada, si no se ha cambiado la cuenta de inicio de sesión del servicio, debe tener los permisos de lectura y escritura.
 
-            ![Captura de pantalla del panel de permisos del servicio.](media/self-hosted-integration-runtime-troubleshoot-guide/service-permission.png)
+            :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/service-permission.png" alt-text="Captura de pantalla del panel de permisos del servicio.":::
 
         - Si ha cambiado la cuenta de inicio de sesión del servicio, siga los pasos a continuación para mitigar el problema:
  
@@ -414,11 +414,11 @@ Vaya al registro de eventos de Integration Runtime para comprobar el error.
 
     1. Compruebe la cuenta del servicio de inicio de sesión *DIAHostService* en el panel del servicio de Windows.
     
-        ![Captura de pantalla del panel "Iniciar sesión" de la cuenta de servicio.](media/self-hosted-integration-runtime-troubleshoot-guide/logon-service-account.png)
+        :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/logon-service-account.png" alt-text="Captura de pantalla del panel &quot;Iniciar sesión&quot; de la cuenta de servicio.":::
 
     1. Compruebe si la cuenta de servicio de inicio de sesión tiene permiso **Iniciar sesión como servicio** para iniciar el servicio de Windows:
 
-        ![Captura de pantalla del panel de propiedades de " Iniciar sesión como servicio".](media/self-hosted-integration-runtime-troubleshoot-guide/logon-as-service.png)
+        :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/logon-as-service.png" alt-text="Captura de pantalla del panel de propiedades de &quot;Iniciar sesión como servicio&quot;.":::
 
 #### <a name="more-information"></a>Más información
 
@@ -432,7 +432,7 @@ Si ninguno de los dos patrones anteriores de resolución se aplica en su caso, i
 
 Al registrar un IR autohospedado, el botón **Registrar** no se muestra en el panel de Configuration Manager.
 
-![Captura de pantalla del panel de Configuration Manager, que muestra un mensaje que indica que el nodo de Integration Runtime no está registrado.](media/self-hosted-integration-runtime-troubleshoot-guide/no-register-button.png)
+:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/no-register-button.png" alt-text="Captura de pantalla del panel de Configuration Manager, que muestra un mensaje que indica que el nodo de Integration Runtime no está registrado.":::
 
 #### <a name="cause"></a>Causa
 
@@ -445,7 +445,7 @@ A partir del lanzamiento de Integration Runtime 3.0, se ha quitado el botón **
     > [!IMPORTANT] 
     > En el proceso siguiente, seleccione **Sí**. No mantenga los datos durante el proceso de desinstalación.
 
-    ![Captura de pantalla del botón "Sí" para eliminar todos los datos de usuario del entorno de ejecución de integración.](media/self-hosted-integration-runtime-troubleshoot-guide/delete-data.png)
+    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/delete-data.png" alt-text="Captura de pantalla del botón &quot;Sí&quot; para eliminar todos los datos de usuario del entorno de ejecución de integración.":::
 
 1. Si no tiene el archivo MSI del instalador del entorno de ejecución de integración, vaya al [centro de descarga](https://www.microsoft.com/en-sg/download/details.aspx?id=39717) para descargar el entorno de ejecución de integración más reciente.
 1. Instale el archivo MSI y registre el entorno de ejecución de integración.
@@ -495,7 +495,7 @@ Al instalar el IR autohospedado a través de Microsoft Integration Runtime Confi
 
 "No se pudo cambiar el modo de cifrado de la comunicación de intranet: No se pudo conceder acceso a la cuenta de servicio de Integration Runtime al certificado '\<*certificate name*>'. Código de error: 103".
 
-![Captura de pantalla que muestra el mensaje de error "… No se pudo conceder acceso a la cuenta de servicio de Integration Runtime al certificado".](media/self-hosted-integration-runtime-troubleshoot-guide/integration-runtime-service-account-certificate-error.png)
+:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/integration-runtime-service-account-certificate-error.png" alt-text="Captura de pantalla que muestra el mensaje de error &quot;… No se pudo conceder acceso a la cuenta de servicio de Integration Runtime al certificado&quot;.":::
 
 #### <a name="cause"></a>Causa
 
@@ -511,7 +511,7 @@ Para importar el certificado, ejecute el siguiente comando:
 
 `Certutil.exe -CSP "CSP or KSP" -ImportPFX FILENAME.pfx`
 
-![Captura de pantalla del comando certutil para importar el certificado.](media/self-hosted-integration-runtime-troubleshoot-guide/use-certutil.png)
+:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/use-certutil.png" alt-text="Captura de pantalla del comando certutil para importar el certificado.":::
 
 **Solución 2** 
 
@@ -522,9 +522,9 @@ Para convertir el certificado, ejecute los siguientes comandos:
 
 Antes y después de la conversión:
 
-![Captura de pantalla del resultado antes de la conversión del certificado.](media/self-hosted-integration-runtime-troubleshoot-guide/before-certificate-change.png)
+:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/before-certificate-change.png" alt-text="Captura de pantalla del resultado antes de la conversión del certificado.":::
 
-![Captura de pantalla del resultado después de la conversión del certificado.](media/self-hosted-integration-runtime-troubleshoot-guide/after-certificate-change.png)
+:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/after-certificate-change.png" alt-text="Captura de pantalla del resultado después de la conversión del certificado.":::
 
 ### <a name="self-hosted-integration-runtime-version-5x"></a>Entorno de ejecución de integración autohospedado, versión 5.x
 La actualización a la versión 5.x del entorno de ejecución de integración autohospedado requiere el **tiempo de ejecución de .NET Framework Runtime 4.7.2** o una versión posterior. En la página de descarga, habrá vínculos de descarga para la versión 4.x más reciente y las dos versiones 5.x más recientes. 
@@ -552,7 +552,7 @@ Al intentar registrar el entorno de ejecución de integración autohospedado, Co
 
 "El nodo de Integration Runtime (autohospedado) ha encontrado un error durante el registro".
 
-![Captura de pantalla del mensaje "El nodo de Integration Runtime (autohospedado) ha encontrado un error durante el registro".](media/self-hosted-integration-runtime-troubleshoot-guide/unable-to-connect-to-cloud-service.png)
+:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/unable-to-connect-to-cloud-service.png" alt-text="Captura de pantalla del mensaje &quot;El nodo de Integration Runtime (autohospedado) ha encontrado un error durante el registro&quot;.":::
 
 #### <a name="cause"></a>Causa 
 
@@ -562,7 +562,7 @@ El IR autohospedado no puede conectarse al back-end del servicio. Este problema 
 
 1. Compruebe si el servicio de entorno de ejecución de integración está en ejecución. En caso afirmativo, vaya al paso 2.
     
-   ![Captura de pantalla que muestra que el servicio de IR autohospedado está en ejecución.](media/self-hosted-integration-runtime-troubleshoot-guide/integration-runtime-service-running-status.png)
+   :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/integration-runtime-service-running-status.png" alt-text="Captura de pantalla que muestra que el servicio de IR autohospedado está en ejecución.":::
     
 1. Si no hay ningún proxy configurado en el IR autohospedado, que es la configuración predeterminada, ejecute el siguiente comando de PowerShell en la máquina donde está instalado el entorno de ejecución de integración autohospedado:
 
@@ -575,7 +575,7 @@ El IR autohospedado no puede conectarse al back-end del servicio. Este problema 
             
     La respuesta esperada es la siguiente:
             
-    ![Captura de pantalla de la respuesta del comando de PowerShell.](media/self-hosted-integration-runtime-troubleshoot-guide/powershell-command-response.png)
+    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/powershell-command-response.png" alt-text="Captura de pantalla de la respuesta del comando de PowerShell.":::
             
 1. Si no recibe la respuesta que esperaba, use uno de los métodos siguientes, según corresponda:
             
@@ -604,7 +604,7 @@ El IR autohospedado no puede conectarse al back-end del servicio. Este problema 
 
 La respuesta esperada es la siguiente:
             
-![Captura de pantalla de la respuesta esperada del comando de PowerShell.](media/self-hosted-integration-runtime-troubleshoot-guide/powershell-command-response.png)
+:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/powershell-command-response.png" alt-text="Captura de pantalla de la respuesta esperada del comando de PowerShell.":::
 
 > [!NOTE] 
 > Consideraciones del proxy:
@@ -618,7 +618,7 @@ La respuesta esperada es la siguiente:
 
 El nodo de tiempo de ejecución integrado autohospedado podría tener un estado **Inactivo**, como se muestra en la siguiente captura de pantalla:
 
-![Captura de pantalla del nodo del entorno de ejecución integrado autohospedado con estado inactivo.](media/self-hosted-integration-runtime-troubleshoot-guide/inactive-self-hosted-ir-node.png)
+:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/inactive-self-hosted-ir-node.png" alt-text="Captura de pantalla del nodo del entorno de ejecución integrado autohospedado con estado inactivo.":::
 
 Este comportamiento se produce cuando los nodos no pueden comunicarse entre sí.
 
@@ -645,7 +645,7 @@ Este comportamiento se produce cuando los nodos no pueden comunicarse entre sí.
    
 1. Si recibe el error de la línea de comandos "Could not open connection to the host" (No se pudo abrir la conexión con el host) que se muestra en la siguiente captura de pantalla, póngase en contacto con el Departamento de TI para que le ayude a solucionar este problema. Una vez que pueda comunicarse con Telnet, póngase en contacto con Soporte técnico de Microsoft si todavía tiene problemas con el estado del nodo del entorno de ejecución de integración.
         
-   ![Captura de pantalla del error de la línea de comandos "No se pudo abrir la conexión con el host".](media/self-hosted-integration-runtime-troubleshoot-guide/command-line-error.png)
+   :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/command-line-error.png" alt-text="Captura de pantalla del error de la línea de comandos &quot;No se pudo abrir la conexión con el host&quot;.":::
         
 1. Compruebe si el registro de errores contiene la entrada siguiente:
 
@@ -665,7 +665,7 @@ Para solucionar el problema de conectividad de red, debe saber cómo recopilar e
 
 En ocasiones, es posible que necesite solucionar determinados problemas de conectividad entre el IR autohospedado y la instancia de Data Factory o Azure Synapse, como se muestra en la captura de pantalla siguiente, o entre el IR autohospedado y el origen o el receptor de datos. 
 
-![Captura de pantalla de un mensaje "Error de solicitud HTTP procesada".](media/self-hosted-integration-runtime-troubleshoot-guide/http-request-error.png)
+:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/http-request-error.png" alt-text="Captura de pantalla de un mensaje &quot;Error de solicitud HTTP procesada&quot;.":::
 
 En cualquier caso, puede que encuentre los siguientes errores:
 
@@ -681,15 +681,15 @@ Cuando encuentre los errores anteriores, soluciónelos siguiendo las instruccion
 
     1. Puede establecer el filtro para ver un restablecimiento del servidor en el lado cliente. En la captura de pantalla de ejemplo siguiente, puede ver que el lado servidor es el servidor de Data Factory.
 
-        ![Captura de pantalla del servidor de Data Factory.](media/self-hosted-integration-runtime-troubleshoot-guide/data-factory-server.png)
+        :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/data-factory-server.png" alt-text="Captura de pantalla del servidor de Data Factory.":::
 
     1. Al obtener el paquete de restablecimiento, puede encontrar la conversación si sigue el Protocolo de control de transmisión (TCP).
 
-        ![Captura de pantalla de la conversación de TCP.](media/self-hosted-integration-runtime-troubleshoot-guide/find-conversation.png)
+        :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/find-conversation.png" alt-text="Captura de pantalla de la conversación de TCP.":::
 
     1. Para obtener la conversación entre el cliente y el servidor de Data Factory, quite el filtro.
 
-        ![Captura de pantalla de los detalles de la conversación.](media/self-hosted-integration-runtime-troubleshoot-guide/get-conversation.png)
+        :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/get-conversation.png" alt-text="Captura de pantalla de los detalles de la conversación.":::
 
 - Un análisis del seguimiento de Netmon que ha recopilado muestra que el total del período de vida (TTL) es 64. Según los valores mencionados en el artículo de [conceptos básicos del período de vida (TTL) de IP y límite de salto](https://packetpushers.net/ip-time-to-live-and-hop-limit-basics/), como se extraen en la lista siguiente, se aprecia que es el sistema Linux el que restablece el paquete y provoca la desconexión.
 
@@ -702,7 +702,7 @@ Cuando encuentre los errores anteriores, soluciónelos siguiendo las instruccion
     - Windows Server 2019 (2018): 128 para TCP, UDP e ICMP
     - macOS (2001): 64 para TCP, UDP e ICMP
 
-    ![Captura de pantalla que muestra un valor de TTL de 61.](media/self-hosted-integration-runtime-troubleshoot-guide/ttl-61.png)
+    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/ttl-61.png" alt-text="Captura de pantalla que muestra un valor de TTL de 61.":::
     
     En el ejemplo anterior, el TTL se muestra como 61 en lugar de 64, porque cuando el paquete de red alcanza su destino, debe atravesar varios saltos, como enrutadores o dispositivos de red. El número de enrutadores o dispositivos de red se deduce para generar el TTL final.
     
@@ -714,7 +714,7 @@ Cuando encuentre los errores anteriores, soluciónelos siguiendo las instruccion
 
 - En una situación ideal, el número de saltos de TTL sería 128, lo que significa que el sistema operativo Windows está ejecutando la instancia de Data Factory. Como se muestra en el ejemplo siguiente, *128 menos 107 = 21 saltos*, es decir, se enviaron 21 saltos para el paquete desde la instancia de Data Factory al IR autohospedada durante el protocolo de enlace de TCP 3.
  
-    ![Captura de pantalla que muestra un valor de TTL de 107.](media/self-hosted-integration-runtime-troubleshoot-guide/ttl-107.png)
+    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/ttl-107.png" alt-text="Captura de pantalla que muestra un valor de TTL de 107.":::
 
     Por tanto, debe comunicarle al equipo de red que compruebe cuál es el cuarto salto desde el IR autohospedado. Si es el firewall, como con el sistema Linux, compruebe en los registros por qué el dispositivo restablece el paquete después del protocolo de enlace TCP 3. 
     
@@ -727,9 +727,9 @@ Cuando encuentre los errores anteriores, soluciónelos siguiendo las instruccion
 
 Al intentar conectarse mediante Telnet a **8.8.8.8 888** con el seguimiento de Netmon recopilado, debería ver el seguimiento en las siguientes capturas de pantallas:
 
-![Captura de pantalla que muestra el mensaje de error "No se pudo abrir la conexión con el host en el puerto 888".](media/self-hosted-integration-runtime-troubleshoot-guide/netmon-trace-1.png)
+:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/netmon-trace-1.png" alt-text="Captura de pantalla que muestra el mensaje de error &quot;No se pudo abrir la conexión con el host en el puerto 888&quot;.":::
 
-![Captura de pantalla que muestra una descripción del seguimiento de Netmon.](media/self-hosted-integration-runtime-troubleshoot-guide/netmon-trace-2.png)
+:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/netmon-trace-2.png" alt-text="Captura de pantalla que muestra una descripción del seguimiento de Netmon.":::
  
 
 Las imágenes anteriores muestran que no pudo establecer una conexión TCP con el lado servidor **8.8.8.8** en el puerto **888**, por lo que ve dos paquetes **SynReTransmit** adicionales. Dado que el origen **SELF-HOST2** no se pudo conectar a **8.8.8.8** con el primer paquete, seguirá intentando establecer la conexión.
@@ -739,33 +739,33 @@ Las imágenes anteriores muestran que no pudo establecer una conexión TCP con e
 > 1. Seleccione **Cargar filtro** > **Filtro estándar** > **Direcciones** > **Direcciones IPv4**.
 > 1. Para aplicar el filtro, escriba **IPv4.Address == 8.8.8.8** y, después, seleccione **Aplicar**. A continuación, debería ver la comunicación desde la máquina local al destino **8.8.8.8**.
 
-![Captura de pantalla que muestra las direcciones de filtrado](media/self-hosted-integration-runtime-troubleshoot-guide/filter-addresses-1.png)
+:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/filter-addresses-1.png" alt-text="Captura de pantalla que muestra las direcciones de filtrado":::
         
-![Captura de pantalla que muestra más direcciones de filtrado](media/self-hosted-integration-runtime-troubleshoot-guide/filter-addresses-2.png)
+:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/filter-addresses-2.png" alt-text="Captura de pantalla que muestra más direcciones de filtrado":::
 
 En los ejemplos siguientes se muestran los escenarios correctos: 
 
 - Si puede conectarse mediante Telnet a **8.8.8.8 53** sin problemas, hay un protocolo de enlace de TCP 3 correcto, y la sesión finaliza con un protocolo de enlace TCP 4.
 
-    ![Captura de pantalla que muestra un escenario de conexión correcta.](media/self-hosted-integration-runtime-troubleshoot-guide/good-scenario-1.png)
+    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/good-scenario-1.png" alt-text="Captura de pantalla que muestra un escenario de conexión correcta.":::
      
-    ![Captura de pantalla que muestra los detalles de un escenario de conexión correcta.](media/self-hosted-integration-runtime-troubleshoot-guide/good-scenario-2.png)
+    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/good-scenario-2.png" alt-text="Captura de pantalla que muestra los detalles de un escenario de conexión correcta.":::
 
 - El protocolo de enlace TCP 3 anterior produce el siguiente flujo de trabajo:
 
-    ![Diagrama del flujo de trabajo de un protocolo de enlace TCP 3.](media/self-hosted-integration-runtime-troubleshoot-guide/tcp-3-handshake-workflow.png)
+    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/tcp-3-handshake-workflow.png" alt-text="Diagrama del flujo de trabajo de un protocolo de enlace TCP 3.":::
  
 - El protocolo de enlace TCP 4 para finalizar la sesión se muestra en los siguientes flujos de trabajo:
 
-    ![Captura de pantalla de los detalles del protocolo de enlace TCP 4.](media/self-hosted-integration-runtime-troubleshoot-guide/tcp-4-handshake.png)
+    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/tcp-4-handshake.png" alt-text="Captura de pantalla de los detalles del protocolo de enlace TCP 4.":::
 
-    ![Diagrama del flujo de trabajo de un protocolo de enlace TCP 4.](media/self-hosted-integration-runtime-troubleshoot-guide/tcp-4-handshake-workflow.png) 
+    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/tcp-4-handshake-workflow.png" alt-text="Diagrama del flujo de trabajo de un protocolo de enlace TCP 4."::: 
 
 ### <a name="microsoft-email-notification-about-updating-your-network-configuration"></a>Notificación por correo electrónico de Microsoft sobre la actualización de la configuración de red
 
 Es posible que reciba la siguiente notificación por correo electrónico, que le recomienda actualizar la configuración de red para permitir la comunicación con nuevas direcciones IP para Azure Data Factory antes del 8 de noviembre de 2020:
 
-   ![Captura de pantalla de la notificación por correo electrónico de Microsoft que solicita la actualización de la configuración de red.](media/self-hosted-integration-runtime-troubleshoot-guide/email-notification.png)
+   :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/email-notification.png" alt-text="Captura de pantalla de la notificación por correo electrónico de Microsoft que solicita la actualización de la configuración de red.":::
 
 #### <a name="determine-whether-this-notification-affects-you"></a>Determinación de si esta notificación le afecta
 
@@ -789,7 +789,7 @@ Cómo determinar si se ve afectado:
 
 - Si tiene restricciones de reglas de salida, compruebe si usa etiquetas de servicio. Si usa etiquetas de servicio, no se verá afectado. No es necesario cambiar ni agregar nada, ya que el nuevo intervalo IP está bajo las etiquetas de servicio existentes. 
 
-  ![Captura de pantalla de una comprobación de destino que muestra DataFactory como destino.](media/self-hosted-integration-runtime-troubleshoot-guide/destination-check.png)
+  :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/destination-check.png" alt-text="Captura de pantalla de una comprobación de destino que muestra DataFactory como destino.":::
 
 - *Se verá afectado* si habilita de forma explícita la lista de direcciones IP salientes permitidas en la configuración de las reglas de NSG en la red virtual de Azure.
 
@@ -819,9 +819,9 @@ Al comprobar el registro de eventos de IR autohospedado o los registros de notif
 
 La manera más sencilla de comprobar el certificado de servidor del servicio es abrir la dirección URL del servicio en el explorador. Por ejemplo, abra el [vínculo para comprobar el certificado de servidor](https://eu.frontend.clouddatahub.net/) en la máquina donde está instalado el IR autohospedado y, a continuación, vea la información del certificado de servidor.
 
-  ![Captura de pantalla del panel de comprobación del certificado de servidor del servicio Azure Data Factory.](media/self-hosted-integration-runtime-troubleshoot-guide/server-certificate.png)
+  :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/server-certificate.png" alt-text="Captura de pantalla del panel de comprobación del certificado de servidor del servicio Azure Data Factory.":::
 
-  ![Captura de pantalla de la ventana para comprobar la ruta del certificación de servidor.](media/self-hosted-integration-runtime-troubleshoot-guide/certificate-path.png)
+  :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/certificate-path.png" alt-text="Captura de pantalla de la ventana para comprobar la ruta del certificación de servidor.":::
 
 #### <a name="cause"></a>Causa
 
@@ -840,7 +840,7 @@ Para obtener más información sobre la confianza de certificados en Windows, co
 #### <a name="additional-information"></a>Información adicional
 Hemos implementado un nuevo certificado SSL, que se firma desde DigiCert. Compruebe si DigiCert Global Root G2 está en la CA raíz de confianza.
 
-  ![Captura de pantalla que muestra la carpeta DigiCert Global Root G2 en el directorio Entidades de certificación raíz de confianza.](media/self-hosted-integration-runtime-troubleshoot-guide/trusted-root-ca-check.png)
+  :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/trusted-root-ca-check.png" alt-text="Captura de pantalla que muestra la carpeta DigiCert Global Root G2 en el directorio Entidades de certificación raíz de confianza.":::
 
 Si no está en la CA raíz de confianza, [descárguelo aquí](http://cacerts.digicert.com/DigiCertGlobalRootG2.crt ). 
 

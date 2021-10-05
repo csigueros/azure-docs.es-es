@@ -6,13 +6,13 @@ ms.author: csugunan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 08/25/2021
-ms.openlocfilehash: b47efc959518b7a4d35fb5ef79cd04f18cdfaa22
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.date: 09/27/2021
+ms.openlocfilehash: 02ea61356157c7e2a421c736a1af5bd87a1bcb5c
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123433519"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129212368"
 ---
 # <a name="how-to-get-lineage-from-azure-synapse-analytics-into-azure-purview"></a>Procedimiento para obtener el linaje de Azure Synapse Analytics en Azure Purview
 
@@ -46,7 +46,7 @@ Puede crear canalizaciones con la actividad de copia en el área de trabajo de A
 
 ### <a name="step-3-monitor-lineage-reporting-status"></a>Paso 3: Supervisión del estado de los informes de linaje
 
-Después de ejecutar la canalización de Azure Synapse, en la vista de supervisión de la canalización de Synapse, puede comprobar el estado de los informes de linaje haciendo clic en el botón **Lineage status** (Estado del linaje). La misma información también está disponible en el resultado de la actividad JSON -> sección `reportLineageToPurvew`.
+Después de ejecutar la canalización de Azure Synapse, en la vista de supervisión de la canalización de Synapse, puede comprobar el estado de los informes de linaje mediante la selección del botón **Lineage status** (Estado del linaje) a continuación. La misma información también está disponible en el resultado de la actividad JSON -> sección `reportLineageToPurvew`.
 
 :::image type="content" source="../data-factory/media/data-factory-purview/monitor-lineage-reporting-status.png" alt-text="Supervise el estado de los informes de linaje en la vista de supervisión de la canalización.":::
 
@@ -54,7 +54,7 @@ Después de ejecutar la canalización de Azure Synapse, en la vista de supervisi
 
 En la cuenta de Purview, puede examinar los recursos y elegir el tipo "Azure Synapse Analytics". También puede buscar Data Catalog mediante palabras clave.
 
-:::image type="content" source="./media/how-to-lineage-azure-synapse-analytics/browse-azure-synapse-assets.png" alt-text="Examinar los recursos de Azure Synapse en Purview":::
+:::image type="content" source="./media/how-to-lineage-azure-synapse-analytics/browse-azure-synapse-assets.png" alt-text="Examinar los recursos de Azure Synapse en Purview".
 
 Seleccione la cuenta de Synapse -> canalización -> actividad y podrá ver la información de linaje.
 

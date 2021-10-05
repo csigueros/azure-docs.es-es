@@ -13,20 +13,20 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 03/04/2020
+ms.date: 08/21/2021
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00c519ef06637c5193b347f0bbc906c6232a7ca8
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 08ad43beae80d48224d7b0eb960c1e5a0d09f112
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107532537"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128607950"
 ---
 # <a name="prerequisites-to-access-the-azure-active-directory-reporting-api"></a>Requisitos previos para acceder a la API de generación de informes de Azure Active Directory
 
-Las [API de generación de informes de Azure Active Directory (Azure AD)](./concept-reporting-api.md) proporcionan acceso mediante programación a los datos a través de un conjunto de API de REST. A estas API se les puede llamar desde los lenguajes y herramientas de programación.
+Las [API de generación de informes de Azure Active Directory (Azure AD)](./concept-reporting-api.md) proporcionan acceso mediante programación a los datos a través de un conjunto de API de REST. Estas API pueden llamarse desde diversos lenguajes de programación y herramientas.
 
 La API de generación de informes utiliza [OAuth](../../api-management/api-management-howto-protect-backend-with-aad.md) para autorizar el acceso a las API web.
 
@@ -92,39 +92,36 @@ Si quiere configurar el directorio para que acceda a la API de generación de in
 
 ## <a name="grant-permissions"></a>Concesión de permisos 
 
-En función de la API a la que desea acceder, debe conceder los siguientes permisos a la aplicación:  
+Para acceder a la API de generación de informes de Azure AD, debe conceder a la aplicación los dos permisos siguientes:  
 
 | API | Permiso |
 | --- | --- |
-| Microsoft Azure Active Directory | Leer datos de directorio |
+| Microsoft Graph | Leer datos de directorio |
 | Microsoft Graph | Leer todos los datos del registro de auditoría |
 
-![Captura de pantalla en la que puede seleccionar Agregar un permiso en el panel de permisos de API.](./media/howto-configure-prerequisites-for-reporting-api/36.png)
+![Captura de pantalla en la que puede seleccionar Agregar un permiso en el panel de permisos de API.](./media/howto-configure-prerequisites-for-reporting-api/api-permissions.png)
 
-En la siguiente sección se enumeran los pasos para ambas API. Si no desea acceder a una de las API, puede omitir los pasos relacionados.
+En la sección siguiente se enumeran los pasos para la configuración de la API.
 
 **Para conceder a la aplicación permisos para usar las API:**
 
 
-1. Seleccione **Permisos de API** y, después, **Agregar un permiso**. 
+1. Seleccione **Permisos de API** y, luego, **Agregar un permiso**.
 
-    ![Captura de pantalla que muestra la página Permisos de API en la que puede seleccionar Agregar un permiso.](./media/howto-configure-prerequisites-for-reporting-api/05.png)
+    ![Captura de pantalla que muestra la página Permisos de API en la que puede seleccionar Agregar un permiso.](./media/howto-configure-prerequisites-for-reporting-api/add-api-permission.png)
 
-2. En la **página Solicitud de permisos de API**, busque **APIs heredadas admitidas** **Azure Active Directory Graph**. 
+2. En la página **Solicitud de permisos de API**, busque **Microsoft Graph**.
 
-    ![Captura de pantalla que muestra la página Solicitar permisos de API en la que puede seleccionar Azure Active Directory Graph.](./media/howto-configure-prerequisites-for-reporting-api/06.png)
+    ![Captura de pantalla que muestra la página Solicitar permisos de API en la que puede seleccionar Azure Active Directory Graph.](./media/howto-configure-prerequisites-for-reporting-api/select-microsoft-graph-api.png)
 
-3. En la página  **Permisos necesarios**, seleccione **Permisos de la aplicación** y expanda la casilla **Directory.ReadAll** de **Directorio**.  Seleccione **Agregar permisos**.
+3. En la página **Permisos necesarios**, seleccione **Permisos de la aplicación**. Seleccione la casilla **Directorio** y, a continuación, seleccione **Directory.ReadAll**. Seleccione la casilla **AuditLog** y, a continuación, seleccione **AuditLog.Read.All**. Seleccione **Agregar permisos**.
 
-    ![Captura de pantalla que muestra la página Solicitar permisos de API en la que puede seleccionar permisos de aplicación.](./media/howto-configure-prerequisites-for-reporting-api/07.png)
+    ![Captura de pantalla que muestra la página Solicitar permisos de API en la que puede seleccionar permisos de aplicación.](./media/howto-configure-prerequisites-for-reporting-api/select-permissions.png)
 
-4. En la página **Reporting API Application - API Permissions** (Informes de aplicación de API: Permisos de API ), seleccione **Conceder consentimiento del administrador** . 
+4. En la página **Reporting API Application - API Permissions** (Informes de aplicación de API: Permisos de API ), seleccione **Conceder consentimiento del administrador** .
 
-    ![Captura de pantalla que muestra la página Informes de aplicación de API: Permisos de API en la que puede seleccionar Conceder consentimiento del administrador.](./media/howto-configure-prerequisites-for-reporting-api/08.png)
+    ![Captura de pantalla que muestra la página Informes de aplicación de API: Permisos de API en la que puede seleccionar Conceder consentimiento del administrador.](./media/howto-configure-prerequisites-for-reporting-api/grant-admin-consent.png)
 
-5. Nota: **Microsoft Graph** se agrega de forma predeterminada durante el registro de la API.
-
-    ![Captura de pantalla que muestra la página Permisos de API en la que puede seleccionar Agregar un permiso.](./media/howto-configure-prerequisites-for-reporting-api/15.png)
 
 ## <a name="gather-configuration-settings"></a>Recopilación de configuraciones 
 
@@ -132,9 +129,9 @@ En esta sección se muestra cómo obtener la siguiente configuración del direct
 
 - Nombre de dominio
 - Id. de cliente
-- Secreto del cliente
+- El secreto de cliente o el certificado
 
-Necesitará estos valores al configurar llamadas a la API de generación de informes. 
+Necesitará estos valores al configurar llamadas a la API de generación de informes. Se recomienda usar un certificado porque es más seguro.
 
 ### <a name="get-your-domain-name"></a>Obtención del nombre de dominio
 
@@ -142,7 +139,7 @@ Necesitará estos valores al configurar llamadas a la API de generación de info
 
 1. En el panel de navegación izquierdo de [Azure Portal](https://portal.azure.com), seleccione **Azure Active Directory**.
    
-    ![Captura de pantalla que muestra que se seleccionó Azure Active Directory en el menú de Azure Portal.](./media/howto-configure-prerequisites-for-reporting-api/01.png) 
+    ![Captura de pantalla que muestra que se seleccionó Azure Active Directory en el menú de Azure Portal para obtener el nombre del dominio.](./media/howto-configure-prerequisites-for-reporting-api/01.png) 
 
 2. En la página **Azure Active Directory**, seleccione **Nombres de dominio personalizados**.
 
@@ -157,7 +154,7 @@ Necesitará estos valores al configurar llamadas a la API de generación de info
 
 1. En el panel de navegación izquierdo de [Azure Portal](https://portal.azure.com), haga clic en **Azure Active Directory**.
    
-    ![Captura de pantalla que muestra que se seleccionó Azure Active Directory en el menú de Azure Portal.](./media/howto-configure-prerequisites-for-reporting-api/01.png) 
+    ![Captura de pantalla que muestra que se seleccionó Azure Active Directory en el menú de Azure Portal para obtener el identificador de cliente de la aplicación.](./media/howto-configure-prerequisites-for-reporting-api/01.png) 
 
 2. Seleccione la aplicación en la página **Registros de aplicaciones**.
 
@@ -167,13 +164,12 @@ Necesitará estos valores al configurar llamadas a la API de generación de info
 
 
 ### <a name="get-your-applications-client-secret"></a>Obtención del secreto de cliente de la aplicación
- Evite errores al intentar obtener acceso a los registros de auditoría o al inicio de sesión mediante la API.
 
 **Para obtener el secreto de cliente de la aplicación:**
 
 1. En el panel de navegación izquierdo de [Azure Portal](https://portal.azure.com), haga clic en **Azure Active Directory**.
    
-    ![Captura de pantalla que muestra que se seleccionó Azure Active Directory en el menú de Azure Portal.](./media/howto-configure-prerequisites-for-reporting-api/01.png) 
+    ![Captura de pantalla que muestra que se seleccionó Azure Active Directory en el menú de Azure Portal para obtener el secreto de cliente de la aplicación.](./media/howto-configure-prerequisites-for-reporting-api/01.png) 
 
 2.  Seleccione la aplicación en la página **Registros de aplicaciones**.
 
@@ -181,7 +177,7 @@ Necesitará estos valores al configurar llamadas a la API de generación de info
 
     ![Captura de pantalla que muestra la página Certificados y secretos en la que puede agregar un secreto de cliente.](./media/howto-configure-prerequisites-for-reporting-api/12.png)
 
-5. En la página **Add a client secret** (Agregar un secreto de cliente), agregue:
+4. En la página **Add a client secret** (Agregar un secreto de cliente), agregue:
 
     a. En el cuadro de texto **Descripción**, escriba `Reporting API`.
 
@@ -190,6 +186,22 @@ Necesitará estos valores al configurar llamadas a la API de generación de info
     c. Haga clic en **Save**(Guardar).
 
     d. Copie el valor de la clave.
+
+### <a name="upload-the-certificate-of-your-application"></a>Carga del certificado de la aplicación
+
+**Para cargar el certificado:**
+
+1. En el panel de navegación izquierdo de [Azure Portal](https://portal.azure.com), seleccione **Azure Active Directory**.
+   
+    ![Captura de pantalla que muestra que se seleccionó Azure Active Directory en el menú de Azure Portal para cargar el certificado.](./media/howto-configure-prerequisites-for-reporting-api/01.png) 
+
+2. En la página **Azure Active Directory**, seleccione **Registro de aplicación**.
+3. En la página de la aplicación, seleccione su aplicación.
+4. Seleccione **Certificados y secretos**.
+5. Seleccione **Cargar certificado**.
+6. Seleccione el icono de archivo, vaya a un certificado y, a continuación, seleccione **Agregar**.
+
+    ![Captura de pantalla que muestra la carga del certificado.](./media/howto-configure-prerequisites-for-reporting-api/upload-certificate.png)
 
 ## <a name="troubleshoot-errors-in-the-reporting-api"></a>Solución de errores de la API de generación de informes
 

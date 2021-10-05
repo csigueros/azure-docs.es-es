@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/28/2021
+ms.date: 09/20/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: ef1c747666b2c75567d88f440cef37a631f64064
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: f77c099425aac4f6484db8745e036a6dd1833ed4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121730857"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128578952"
 ---
 # <a name="secure-your-api-used-an-api-connector-in-azure-ad-b2c"></a>Proteja la API que se usa como un conector de API en Azure AD B2C 
 
@@ -59,7 +59,8 @@ Para configurar un conector de API con autenticación básica HTTP, siga estos p
 Para configurar un perfil técnico de la API REST con autenticación HTTP básica, cree las siguientes claves criptográficas para almacenar el nombre de usuario y la contraseña:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
-1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el filtro **Directorio + suscripción** en el menú superior y elija el directorio de Azure AD B2C.
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
 1. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C**.
 1. En la página de introducción, seleccione **Identity Experience Framework**.
 1. Seleccione **Claves de directiva** y, luego, **Agregar**.
@@ -126,11 +127,11 @@ El siguiente fragmento XML es un ejemplo de perfil técnico de RESTful configura
 La autenticación con certificados de cliente es una autenticación mutua basada en certificados donde el cliente, Azure AD B2C, proporciona su certificado de cliente al servidor para demostrar su identidad. Esto sucede como parte del protocolo de enlace SSL. La API es responsable de validar los certificados que pertenecen a un cliente válido, como Azure AD B2C, y de tomar decisiones de autorización. El certificado de cliente es un certificado digital X.509. 
 
 > [!IMPORTANT]
-> En entornos de producción, debe estar firmado por una entidad de certificación.
+> En entornos de producción, el certificado debe estar firmado por una entidad de certificación.
 
 ### <a name="create-a-certificate"></a>Crear un certificado
 
-#### <a name="option-1-use-azure-key-vault-recommended"></a>Opción 1: Usar Azure Key Vault (recomendado)
+#### <a name="option-1-use-azure-key-vault-recommended"></a>Opción 1: Usar Azure Key Vault (recomendado)
 
 Para crear un certificado, puede usar [Azure Key Vault](../key-vault/certificates/create-certificate.md), que tiene opciones para certificados autofirmados e integraciones con proveedores de emisores de certificados para certificados firmados. La configuración recomendada incluye:
 - **Asunto**: `CN=<yourapiname>.<tenantname>.onmicrosoft.com`
@@ -166,7 +167,7 @@ La API debe implementar la autorización basada en certificados de cliente envia
 ../api-management/api-management-howto-mutual-certificates-for-clients.md) con los valores deseados.
 
 ### <a name="renewing-certificates"></a>Renovación de certificados
-Le recomendamos que establezca alertas de aviso para cuando expire el certificado. Deberá generar un certificado nuevo y repetir los pasos anteriores cuando los certificados usados estén a punto de expirar. Para "implementar" el uso de un nuevo certificado, el servicio de API puede seguir aceptando certificados antiguos y nuevos temporalmente mientras se implementa el nuevo certificado. 
+Le recomendamos que establezca alertas de aviso para cuando expire el certificado. Deberá generar un certificado nuevo y repetir los pasos anteriores cuando los certificados utilizados estén a punto de expirar. Para "implementar" el uso de un nuevo certificado, el servicio de API puede seguir aceptando certificados antiguos y nuevos temporalmente mientras se implementa el nuevo certificado. 
 
 Para cargar un nuevo certificado en un conector de API existente, seleccione el conector de API en **Conectores de API** y haga clic en **Cargar certificado nuevo**. Azure AD B2C usará automáticamente el certificado cargado más recientemente que no haya expirado y cuya fecha de inicio haya pasado.
 
@@ -179,7 +180,8 @@ Para cargar un nuevo certificado en un conector de API existente, seleccione el 
 ### <a name="add-a-client-certificate-policy-key"></a>Adición de una clave de directiva de certificado de cliente
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
-1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el filtro **Directorio + suscripción** en el menú superior y elija el directorio de Azure AD B2C.
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
 1. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C**.
 1. En la página de introducción, seleccione **Identity Experience Framework**.
 1. Seleccione **Claves de directiva** y, luego, **Agregar**.
@@ -254,7 +256,7 @@ En los pasos siguientes se muestra cómo usar las credenciales del cliente para 
 
 Una notificación proporciona un almacenamiento temporal de datos durante la ejecución de una directiva de Azure AD B2C. El [esquema de notificaciones](claimsschema.md) es el lugar en el que se declaran las notificaciones. El token de acceso debe almacenarse en una notificación para usarse más tarde. 
 
-1. Abra el archivo de extensiones de la directiva. Por ejemplo, <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>.
+1. Abra el archivo de extensiones de la directiva. Por ejemplo, <em>`SocialAndLocalAccounts/` **`TrustFrameworkExtensions.xml`**</em>.
 1. Busque el elemento [BuildingBlocks](buildingblocks.md). Si el elemento no existe, agréguelo.
 1. Busque el elemento [ClaimsSchema](claimsschema.md). Si el elemento no existe, agréguelo.
 1. Agregue las notificaciones siguientes al elemento **ClaimsSchema**.  
@@ -285,14 +287,14 @@ En el ejemplo siguiente se usa un perfil técnico de API REST para realizar una 
 Para que el perfil técnico pueda interactuar con Azure AD para obtener un token de acceso, debe registrar una aplicación. Azure AD B2C se basa en la plataforma de Azure AD. Puede crear la aplicación en el inquilino de Azure AD B2C o en cualquier inquilino de Azure AD que administre. Para registrar una aplicación:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-1. Seleccione el filtro **Directorio y suscripción** en el menú superior y, luego, elija el directorio que contiene el inquilino de Azure AD o Azure AD B2C.
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD o Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
 1. Seleccione **Azure Active Directory** en el menú izquierdo. O bien seleccione **Todos los servicios** y busque y seleccione **Azure Active Directory**.
 1. Seleccione **Registros de aplicaciones** y luego **Nuevo registro**.
 1. Escriba un **Nombre** para la aplicación. Por ejemplo, *App_Aut_Credenciales_Clientes*.
 1. En **Tipos de cuenta admitidos**, seleccione **Solo las cuentas de este directorio organizativo**.
 1. Seleccione **Registrar**.
-2. Registre el **Id. de aplicación (cliente)** . 
-
+1. Registre el **Id. de aplicación (cliente)** .
 
 Para un flujo de credenciales de cliente, tiene que crear un secreto de aplicación. El secreto de cliente también se conoce como contraseña de la aplicación. La aplicación usará el secreto para adquirir un token de acceso.
 
@@ -308,18 +310,19 @@ Para un flujo de credenciales de cliente, tiene que crear un secreto de aplicaci
 Tiene que almacenar el identificador de cliente y el secreto de cliente que haya registrado previamente en el inquilino de Azure AD B2C.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
-2. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el filtro **Directorio y suscripciones** del menú superior y elija el directorio que contiene el inquilino.
-3. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C**.
-4. En la página de introducción, seleccione **Identity Experience Framework**.
-5. Seleccione **Claves de directiva** y luego **Agregar**.
-6. En **Opciones**, elija `Manual`.
-7. Escriba un **Nombre** para la clave de directiva, `SecureRESTClientId`. Se agregará el prefijo `B2C_1A_` automáticamente al nombre de la clave.
-8. En **Secreto**, escriba el identificador de cliente que haya registrado previamente.
-9. En **Uso de claves**, seleccione `Signature`.
-10. Seleccione **Crear**.
-11. Cree otra clave de directiva con la siguiente configuración:
-    -   **Nombre**: `SecureRESTClientSecret`.
-    -   **Secreto**: escriba el secreto de cliente que haya registrado previamente.
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
+1. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C**.
+1. En la página de introducción, seleccione **Identity Experience Framework**.
+1. Seleccione **Claves de directiva** y luego **Agregar**.
+1. En **Opciones**, elija `Manual`.
+1. Escriba un **Nombre** para la clave de directiva, `SecureRESTClientId`. Se agregará el prefijo `B2C_1A_` automáticamente al nombre de la clave.
+1. En **Secreto**, escriba el identificador de cliente que haya registrado previamente.
+1. En **Uso de claves**, seleccione `Signature`.
+1. Seleccione **Crear**.
+1. Cree otra clave de directiva con la siguiente configuración:
+    - **Nombre**: `SecureRESTClientSecret`.
+    - **Secreto**: escriba el secreto de cliente que haya registrado previamente.
 
 Para ServiceUrl, reemplace el nombre del inquilino con el nombre del inquilino de Azure AD. Consulte las opciones disponibles en la referencia del [perfil técnico de RESTful](restful-technical-profile.md).
 
@@ -402,7 +405,8 @@ Tras agregar los fragmentos de código anteriores, el perfil técnico debe ser s
 Para configurar un perfil técnico de la API REST con un token de portador de OAuth2, obtenga un token de acceso del propietario de la API REST. A continuación, cree la siguiente clave criptográfica para almacenar el token de portador.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
-1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el filtro **Directorio + suscripción** en el menú superior y elija el directorio de Azure AD B2C.
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
 1. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C**.
 1. En la página de introducción, seleccione **Identity Experience Framework**.
 1. Seleccione **Claves de directiva** y, luego, **Agregar**.
@@ -459,7 +463,7 @@ El siguiente fragmento XML es un ejemplo de perfil técnico RESTful configurado 
 
 ::: zone pivot="b2c-user-flow"
 
-Algunos servicios usan un mecanismo de "clave de API" para ofuscar el acceso a los puntos de conexión HTTP durante el desarrollo. Para ello, exigen que el autor de llamada incluya una clave única, como un encabezado HTTP o un parámetro de consulta HTTP. Para lograrlo en [Azure Functions](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys), incluya `code` como parámetro de consulta en la **dirección URL del punto de conexión** del conector de la API. Por ejemplo, `https://contoso.azurewebsites.net/api/endpoint`<b>`?code=0123456789`</b>. 
+Algunos servicios usan un mecanismo de "clave de API" para ofuscar el acceso a los puntos de conexión HTTP durante el desarrollo. Para ello, exigen que el autor de llamada incluya una clave única como un encabezado HTTP o un parámetro de consulta HTTP. Para lograrlo en [Azure Functions](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys), incluya `code` como parámetro de consulta en la **dirección URL del punto de conexión** del conector de la API. Por ejemplo, `https://contoso.azurewebsites.net/api/endpoint`<b>`?code=0123456789`</b>. 
 
 No se trata de un mecanismo que se debe usar por sí solo en el entorno producción. Por lo tanto, siempre se requiere la configuración de autenticación básica o de certificado. Si no quiere implementar ningún método de autenticación (opción no recomendada) con fines de desarrollo, puede elegir la autenticación básica en la configuración del conector de la API y usar valores temporales para `username` y `password` que la API pueda omitir mientras implementa la autorización adecuada.
 
@@ -474,7 +478,8 @@ La clave de API es un identificador único que se usa para autenticar a un usuar
 Para configurar un perfil técnico de la API REST con autenticación mediante clave de API, cree la siguiente clave criptográfica para almacenar la clave de API:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
-1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el filtro **Directorio + suscripción** en el menú superior y elija el directorio de Azure AD B2C.
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
 1. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C**.
 1. En la página de introducción, seleccione **Identity Experience Framework**.
 1. Seleccione **Claves de directiva** y, luego, **Agregar**.

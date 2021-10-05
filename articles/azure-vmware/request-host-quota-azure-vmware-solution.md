@@ -3,13 +3,13 @@ title: Solicitud de la cuota del host para Azure VMware Solution
 description: Aprenda a solicitar la capacidad o la cuota del host para Azure VMware Solution. También puede solicitar más hosts en una nube privada de Azure VMware Solution existente.
 ms.topic: how-to
 ms.custom: contperf-fy21q3
-ms.date: 08/06/2021
-ms.openlocfilehash: 92ebc79193525802c1e7c7ede9287e3300799a10
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.date: 09/27/2021
+ms.openlocfilehash: 2b3e2291726f37f3c802d1db24429381e7a2b7d1
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122322456"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129083246"
 ---
 # <a name="request-host-quota-for-azure-vmware-solution"></a>Solicitud de la cuota del host para Azure VMware Solution
 
@@ -26,7 +26,7 @@ Necesitará una cuenta de Azure en una suscripción de Azure que cumpla uno de l
 
 - Una suscripción bajo un [Contrato Enterprise (EA) de Azure](../cost-management-billing/manage/ea-portal-agreements.md) con Microsoft.
 - Una suscripción administrada de Proveedor de soluciones en la nube (CSP) bajo un contrato de ofertas existente de Azure de CSP o un plan de Azure.
-- Un [contrato Enterprise moderno](../cost-management-billing/understand/mca-overview.md) con Microsoft.
+- Un [Contrato de cliente de Microsoft](../cost-management-billing/understand/mca-overview.md) con Microsoft.
 
 ## <a name="request-host-quota-for-ea-customers"></a>Solicitud de cuota de host para los clientes de EA
 

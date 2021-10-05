@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/21/2021
+ms.date: 09/09/2021
 ms.custom: references_regions
-ms.openlocfilehash: 1b50fbbdd38d1bb24c1732c465784c3ddb757e3f
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 057afd588193a8fdfba020e25d086dc915bb9eaa
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114454788"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128612840"
 ---
 # <a name="semantic-search-in-azure-cognitive-search"></a>Búsqueda semántica en Azure Cognitive Search
 
@@ -36,6 +36,13 @@ La búsqueda semántica es una característica Prémium. Si necesita informació
 
 La búsqueda semántica es una colección de características que mejoran la calidad de los resultados de la búsqueda. Cuando se habilita en el servicio de búsqueda, extiende la canalización de ejecución de consultas de dos maneras. En primer lugar, agrega una clasificación secundaria a un conjunto de resultados inicial, lo que promociona los resultados más pertinentes semánticamente a la parte superior de la lista. En segundo lugar, extrae y devuelve subtítulos y respuestas en la respuesta, que puede representar en una página de búsqueda para mejorar la experiencia de búsqueda del usuario.
 
+| Característica | Descripción |
+|---------|-------------|
+| [Cambio de clasificación semántico](semantic-ranking.md) | Usa el contexto o el significado semántico para calcular una nueva puntuación de relevancia en los resultados existentes. |
+| [Títulos y resaltados semánticos](semantic-how-to-query-request.md) | Extrae las oraciones y frases de un documento que mejor resumen el contenido; se resaltan los pasajes clave para facilitar el análisis. Los títulos que resumen un resultado son útiles cuando los campos de contenido individuales son demasiado densos para la página de resultados. El texto resaltado eleva los términos y frases más relevantes para que los usuarios puedan determinar rápidamente por qué se consideró relevante una coincidencia. |
+| [Respuestas semánticas](semantic-answers.md) | Es una subestructura opcional y adicional que se devuelve desde una consulta semántica. Proporciona una respuesta directa a una consulta que se parece a una pregunta. Requiere que un documento tenga texto con las características de una respuesta. |
+| [Corrector ortográfico](speller-how-to-add.md) | Corrige los errores tipográficos antes de que los términos de consulta lleguen al motor de búsqueda. |
+
 ## <a name="how-semantic-ranking-works"></a>Funcionamiento de la clasificación semántica
 
 La *clasificación semántica* busca el contexto y la relación entre los términos, elevando las coincidencias que tienen más sentido en función de la consulta. Language Understanding busca resúmenes o *títulos* y *respuestas* en el contenido, y los incluye en la respuesta, que luego se puede representar en una página de resultados de búsqueda para una experiencia de búsqueda más productiva.
@@ -47,17 +54,6 @@ La tecnología subyacente es de Bing y Microsoft Research, y se integra con la 
 En el vídeo siguiente se proporciona información general de las funcionalidades.
 
 > [!VIDEO https://www.youtube.com/embed/yOf0WfVd_V0]
-
-## <a name="features-in-semantic-search"></a>Características de la búsqueda semántica
-
-La búsqueda semántica mejora la precisión y la coincidencia a través de estas nuevas funcionalidades:
-
-| Característica | Descripción |
-|---------|-------------|
-| [Corrector ortográfico](speller-how-to-add.md) | Corrige los errores tipográficos antes de que los términos de consulta lleguen al motor de búsqueda. |
-| [Clasificación semántica](semantic-ranking.md) | Usa el contexto o el significado semántico para calcular una nueva puntuación de relevancia. |
-| [Títulos y resaltados semánticos](semantic-how-to-query-request.md) | Son las oraciones y frases de un documento que mejor resumen el contenido; se resaltan los pasajes clave para facilitar el análisis. Los títulos que resumen un resultado son útiles cuando los campos de contenido individuales son demasiado densos para la página de resultados. El texto resaltado eleva los términos y frases más relevantes para que los usuarios puedan determinar rápidamente por qué se consideró relevante una coincidencia. |
-| [Respuestas semánticas](semantic-answers.md) | Es una subestructura opcional y adicional que se devuelve desde una consulta semántica. Proporciona una respuesta directa a una consulta que se parece a una pregunta. |
 
 ### <a name="order-of-operations"></a>Orden de las operaciones
 
@@ -77,15 +73,15 @@ Para usar las funcionalidades semánticas en las consultas, deberá realizar peq
 
 ## <a name="semantic-capabilities-and-limitations"></a>Funcionalidades y limitaciones semánticas
 
-La búsqueda semántica es una tecnología novedosa, por lo que es importante establecer expectativas sobre lo que puede y no puede hacer. Mejora la calidad de los resultados de la búsqueda de dos maneras:
+La búsqueda semántica es una tecnología novedosa, por lo que es importante establecer expectativas sobre lo que puede y no puede hacer. Lo que puede hacer es mejorar la calidad de la búsqueda:
 
-* En primer lugar, promueve las coincidencias que están semánticamente más cerca de la intención de la consulta original.
+* Promoviendo las coincidencias que están semánticamente más cerca de la intención de la consulta original.
 
-* En segundo lugar, facilita el uso de los resultados cuando hay subtítulos, y potencialmente respuestas, en la página.
+* Buscando cadenas en cada resultado que se puedan usar como subtítulos y, posiblemente, respuestas, que se puedan representar en una página de resultados de la búsqueda.
 
-La búsqueda semántica no es beneficiosa en todos los escenarios y, antes de avanzar, asegúrese de que tiene contenido que pueda utilizar sus funcionalidades. Los modelos de lenguaje de la búsqueda semántica funcionan mejor en contenido que permite búsquedas, que tiene gran cantidad de información y está estructurado como prosa. Por ejemplo, al evaluar el contenido de las respuestas, los modelos examinan y extraen una cadena textual que parece una respuesta, pero no crearán cadenas como respuestas a una consulta ni como subtítulos de un documento coincidente. Para responder a la pregunta "¿Qué automóvil es el que menos combustible consume?", un índice debe tener frases como "Los coches híbridos son los que menos consumen del mercado".
+Lo que no puede hacer es volver a ejecutar la consulta en todo el corpus para buscar resultados semánticamente relevantes. La búsqueda semántica vuelve a clasificar el conjunto de resultados *existente*, que consta de los 50 primeros resultados puntuados por el algoritmo de clasificación predeterminado. Además, la búsqueda semántica no puede crear nuevas cadenas o información. Los subtítulos y las respuestas se extraen textualmente del contenido, por lo que si los resultados no incluyen texto parecido a una respuesta, los modelos de lenguaje no producirán uno.
 
-La búsqueda semántica no puede poner en correlación ni inferir información de diferentes fragmentos de contenido del documento o corpus de documentos. Por ejemplo, dada una consulta sobre "complejos hoteleros en el desierto", que no tiene ninguna entrada geográfica, el motor no producirá coincidencias para hoteles ubicados en Arizona o Nevada, aunque ambos estados tengan desiertos. De igual manera, si la consulta incluye la cláusula "en los últimos 5 años", el motor no calculará un intervalo de tiempo basado en la fecha actual que se va a devolver. En Cognitive Search, los mecanismos que podrían ser útiles para los escenarios anteriores incluyen [mapas de sinónimos](search-synonyms.md) que le permiten crear asociaciones entre términos que son distintos externamente, o [filtros de fecha](search-query-odata-filter.md) especificados como una expresión de OData.
+Aunque la búsqueda semántica no es ventajosa en todos los escenarios, cierto contenido puede beneficiarse significativamente de sus funcionalidades. Los modelos de lenguaje de la búsqueda semántica funcionan mejor en contenido que permite búsquedas, que tiene gran cantidad de información y está estructurado como prosa. Una knowledge base, documentación en línea o los documentos con contenido descriptivo son los que más se benefician de las funcionalidades de la búsqueda semántica.
 
 ## <a name="availability-and-pricing"></a>Disponibilidad y precios
 
@@ -98,7 +94,31 @@ La búsqueda semántica está disponible a través del [registro de suscripción
 
 Puede usar la revisión ortográfica sin búsqueda semántica, de forma gratuita. Los cargos por la búsqueda semántica se aplican cuando las solicitudes de consulta incluyen `queryType=semantic` y la cadena de búsqueda no está vacía (por ejemplo, `search=pet friendly hotels in new york`. Las búsquedas vacías (consultas donde `search=*`) no se cobran, ni siquiera si queryType está establecido en `semantic`.
 
-Si no desea la funcionalidad de búsqueda semántica en el servicio de búsqueda, puede [deshabilitar la búsqueda semántica](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#searchsemanticsearch) para evitar el uso accidental y los cargos.
+## <a name="disable-semantic-search"></a>Deshabilitación de la búsqueda semántica
+
+Solo un servicio de búsqueda que tenga habilitada la característica puede incurrir en cargos. Sin embargo, si desea una protección completa contra el uso accidental, [deshabilite la opción](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#searchsemanticsearch).
+
+* En la API REST de administración, versión 2021-04-01-Preview, se proporciona esta opción.
+
+* Se requieren permisos de propietario o colaborador para deshabilitar las características.
+
+```http
+PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2021-04-01-Preview
+    {
+      "location": "{{region}}",
+      "sku": {
+        "name": "standard"
+      },
+      "properties": {
+        "semanticSearch": "disabled"
+      }
+    }
+```
+
+Para volver a habilitar la búsqueda semántica, vuelva a ejecutar la solicitud anterior, estableciendo "semanticSearch" en "gratis" (valor predeterminado) o "estándar".
+
+> [!TIP]
+> Las llamadas a la API REST de administración se autentican mediante Azure Active Directory. Para obtener instrucciones sobre cómo configurar una solicitud y un principio de seguridad, consulte esta entrada de blog sobre [API REST de Azure con Postman (2021)](https://blog.jongallant.com/2021/02/azure-rest-apis-postman-2021/). El ejemplo anterior se probó con las instrucciones y la colección de Postman proporcionadas en esa entrada de blog.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

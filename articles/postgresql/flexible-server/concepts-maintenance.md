@@ -5,13 +5,13 @@ author: niklarin
 ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/22/2020
-ms.openlocfilehash: 50ef040f1cb7d8c533ec5ee31e9bffa2e6dca2f5
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.date: 09/10/2020
+ms.openlocfilehash: 6cb9ad127e7a13780cbd36198a1dcbcce858ac65
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107478019"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124804810"
 ---
 # <a name="scheduled-maintenance-in-azure-database-for-postgresql--flexible-server"></a>Mantenimiento programado en Azure Database for PostgreSQL: Servidor flexible
  
@@ -37,7 +37,7 @@ A la hora de especificar las preferencias de la programación de mantenimiento, 
 > [!IMPORTANT]
 > Normalmente, hay al menos 30 días entre los eventos de mantenimiento programado correctos de un servidor.
 >
-> Sin embargo, en el caso de una actualización de emergencia crítica, como una vulnerabilidad grave, la ventana de notificación podría ser inferior a cinco días. La actualización crítica se puede aplicar al servidor aunque se haya realizado un mantenimiento programado correcto durante los últimos 30 días.
+> Sin embargo, en el caso de una actualización de emergencia crítica, como una vulnerabilidad grave, la ventana de notificación podría ser inferior a cinco días u omitirse. La actualización crítica se puede aplicar al servidor aunque se haya realizado un mantenimiento programado correcto durante los últimos 30 días.
 
 Se puede actualizar la configuración de programación en cualquier momento. Si hay un mantenimiento programado para el servidor flexible y se actualizan las preferencias de programación, el lanzamiento actual continuará según lo programado, y el cambio de configuración de programación se aplicará cuando finalice correctamente para el siguiente mantenimiento programado.
 

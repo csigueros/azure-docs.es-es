@@ -8,19 +8,24 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 08/27/2021
+ms.date: 09/21/2021
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: 8752a80eb4b5faae3566ce1e7bbd70dd61b26ba1
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: 35b4d70ae5e1b7e93b08c7ebe16e5707172ed792
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123219606"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128672350"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Novedades de Text Analytics API
 
 Text Analytics API se actualiza constantemente. Para mantenerse al día con los avances recientes, en este artículo se proporciona información sobre las nuevas versiones y características.
+
+## <a name="september-2021"></a>Septiembre de 2021
+
+* A partir de la versión `3.0.017010001-onprem-amd64`, ahora se puede llamar a Text Analytics para el contenedor de estado mediante el uso de la biblioteca cliente. Consulte el artículo sobre [cómo instalar y ejecutar contenedores de Text Analytics](how-tos/text-analytics-how-to-install-containers.md?tabs=healthcare#run-the-container-with-client-library-support) para más información.
+
 
 ## <a name="august-2021"></a>Agosto de 2021
 

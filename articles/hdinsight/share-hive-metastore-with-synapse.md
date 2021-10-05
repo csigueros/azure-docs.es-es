@@ -4,13 +4,13 @@ description: Obtenga información sobre cómo compartir el metastore de Hive ext
 keywords: external Hive metastore,share,Synapse
 ms.service: hdinsight
 ms.topic: how-to
-ms.date: 08/22/2020
-ms.openlocfilehash: 69168ff4bd02800115560e2a91988289d0ca2d67
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.date: 09/09/2021
+ms.openlocfilehash: ae48734d19b200386a0750d0756cc774bc003c68
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123440253"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124736847"
 ---
 # <a name="share-hive-metastore-with-synapse-spark-pool-preview"></a>Uso compartido de metastore de Hive con el grupo de Spark de Synapse (versión preliminar)
 
@@ -20,10 +20,11 @@ Azure Synapse Analytics permite que grupos de Apache Spark en la misma área de 
 
 La característica funciona con Spark 2.4 y Spark 3.0. En la tabla siguiente se muestran las versiones compatibles del servicio de metastore de Hive (HMS) para cada versión de Spark.
 
-|Versión de Spark|HMS 1.2.X|HMS 2.1.X|HMS 3.1.X|
-|--|--|--|--|
-|2.4|Sí|Sí|No|
-|3|Sí|Sí|Sí|
+
+|Versión de Spark|HMS 1.2.X|HMS 2.1.X|HMS 2.3.x|HMS 3.1.X|
+|--|--|--|--|--|
+|2.4|Sí|Sí|Sí|No|
+|3|Sí|Sí|Sí|Sí|
 
 > [!NOTE]
 > Puede usar el metastore de Hive externo existente desde clústeres de HDInsight, tanto en clústeres 3.6 como 4.0. Consulte [Uso de repositorios de metadatos externos en Azure HDInsight](./hdinsight-use-external-metadata-stores.md).
@@ -74,6 +75,9 @@ try {
 Después de crear correctamente el servicio vinculado al metastore de Hive externo, debe configurar algunas opciones en Spark para usar el metastore de Hive externo. Puede definir la configuración en el nivel de grupo de Spark o en el nivel de sesión de Spark. 
 
 Estas son las configuraciones y descripciones:
+
+> [!NOTE]
+> La versión predeterminada del metastore de Hive es la 2.3. No es necesario establecer `spark.sql.hive.metastore.version` y `spark.sql.hive.metastore.jars` si la versión del metastore de Hive es la 2.3. Solo se necesita `spark.hadoop.hive.synapse.externalmetastore.linkedservice.name`.
 
 |Configuración de Spark|Descripción|
 |--|--|
@@ -163,7 +167,7 @@ Después de configurar las conexiones de almacenamiento, puede consultar las tab
 - El explorador de objetos de Synapse Studio seguirá mostrando objetos en el metastore de Synapse administrado, en lugar del HMS externo. Estamos mejorando esta experiencia.
 - [SQL <-> sincronización de Spark](../synapse-analytics/sql/develop-storage-files-spark-tables.md) no funciona al utilizar HMS externo.  
 - Solo Azure SQL Database se admite como base de datos de metastore de Hive externo. Solo se admite autorización SQL.
-- Actualmente, Spark solo funciona con tablas externas de Hive y tablas de Hive administradas no transitorias o no ACID. Actualmente, no es compatible con las tablas de Hive ACID o transaccionales.
+- Actualmente, Spark solo funciona con tablas externas de Hive y tablas de Hive administradas no transaccionales o que no son de ACID. Actualmente, no es compatible con las tablas de Hive ACID o transaccionales.
 - La integración de Apache Ranger no se admite de momento.
 
 ## <a name="troubleshooting"></a>Solución de problemas
@@ -214,4 +218,4 @@ Si necesita migrar la versión de HMS, se recomienda usar la [herramienta de esq
 Si desea compartir el catálogo de Hive con un clúster de Spark en HDInsight 4.0, asegúrese de que la propiedad `spark.hadoop.metastore.catalog.default` de Spark de Synapse esté alineada con el valor de Spark de HDInsight. El valor predeterminado es `Spark`.
 
 ### <a name="when-sharing-the-hive-metastore-with-hdinsight-40-hive-clusters-i-can-list-the-tables-successfully-but-only-get-empty-result-when-i-query-the-table"></a>Al compartir el metastore de Hive con clústeres de Hive de HDInsight 4.0, puedo enumerar las tablas correctamente, pero solo obtengo un resultado vacío al consultar la tabla.
-Como se mencionó en las limitaciones, el grupo de Spark de Synapse solo admite tablas externas de Hive y tablas administradas no transitorias o ACID. Actualmente no admite tablas ACID o transaccionales de Hive. De forma predeterminada, en los clústeres de Hive de HDInsight 4.0, todas las tablas administradas se crean como tablas ACID o transaccionales de forma predeterminada, por eso obtiene resultados vacíos al consultarlas. 
+Como se ha mencionado en las limitaciones, el grupo de Spark de Synapse solo admite tablas externas de Hive y tablas administradas no transaccionales o ACID. Actualmente no admite tablas ACID o transaccionales de Hive. De forma predeterminada, en los clústeres de Hive de HDInsight 4.0, todas las tablas administradas se crean como tablas ACID o transaccionales de forma predeterminada, por eso obtiene resultados vacíos al consultarlas. 

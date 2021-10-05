@@ -3,12 +3,12 @@ title: Procedimientos para probar paquetes de configuración de invitado persona
 description: La experiencia de creación y realización de pruebas de paquetes que auditan o aplican configuraciones a las máquinas.
 ms.date: 07/20/2021
 ms.topic: how-to
-ms.openlocfilehash: 927e048f59d74b4137710c2f0a1f284adec0cdcb
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: 216cd207033b3bddd4960b85d8943e3842f8041f
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122868654"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129080658"
 ---
 # <a name="how-to-test-guest-configuration-package-artifacts"></a>Procedimientos para probar paquetes de configuración de invitado personalizados
 
@@ -21,7 +21,7 @@ Antes de comenzar las pruebas, siga todos los pasos de la página [Configuració
 > 
 > Para usar paquetes de configuración de invitado que aplican configuraciones, se requiere la versión de la extensión de configuración de invitado de máquina virtual de Azure **1.29.24** o posterior, o el agente de Arc **1.10.0** o posterior.
 > 
-> Para probar la creación y aplicación de configuraciones en Linux, el módulo `GuestConfiguration` solo está disponible en Ubuntu 18, pero el paquete y las directivas generados por el módulo se pueden usar en cualquier distribución o versión de Linux compatible con Azure o Arc.
+> Para probar la creación y aplicación de configuraciones en Linux, el módulo `GuestConfiguration` solo está disponible en Ubuntu 18, pero el paquete y las directivas que genera el módulo se pueden usar en cualquier distribución o versión de Linux compatible con Azure o Arc.
 >
 > Los paquetes de prueba en MacOS no están disponibles.
 
@@ -44,7 +44,7 @@ En primer lugar, compruebe que el paquete de configuración cumple los requisito
 
 Parámetros del cmdlet `Get-GuestConfigurationPackageComplianceStatus `:
 
-- **Paquete**: ruta de acceso o URI del archivo del paquete de configuración de invitado.
+- **Ruta de acceso**: ruta de acceso o URI del archivo del paquete de configuración de invitado.
 - **Parámetro**: Parámetros de directiva proporcionados en formato de tabla hash.
 
 Cuando este comando se ejecuta por primera vez, el agente de configuración de invitado se instala en el equipo de prueba en la ruta de acceso `c:\programdata\GuestConfig\bin` en Windows y `/var/lib/GuestConfig/bin` en Linux. Esta ruta de acceso no es accesible para una cuenta de usuario, por lo que el comando requiere elevación.
@@ -55,14 +55,14 @@ En Windows, desde una sesión de PowerShell 7 con privilegios elevados.
 
 ```powershell
 # Get the current compliance results for the local machine
-Get-GuestConfigurationPackageComplianceStatus -Package ./MyConfig.zip
+Get-GuestConfigurationPackageComplianceStatus -Path ./MyConfig.zip
 ```
 
 En Linux, mediante la ejecución de PowerShell con sudo.
 
 ```bash
 # Get the current compliance results for the local machine
-sudo pwsh -command 'Get-GuestConfigurationPackageComplianceStatus -Package ./MyConfig.zip'
+sudo pwsh -command 'Get-GuestConfigurationPackageComplianceStatus -Path ./MyConfig.zip'
 ```
 
 El comando genera un objeto que contiene el estado de cumplimiento y los detalles por recurso.
@@ -82,20 +82,20 @@ Por último, si el modo de paquete de configuración es `AuditandSet`, puede pro
 
 Parámetros del cmdlet `Start-GuestConfigurationPackageRemediation`:
 
-- **Paquete**: ruta de acceso completa del paquete de configuración de invitado.
+- **Path**: ruta de acceso completa del paquete de configuración de invitados.
 
 En Windows, desde una sesión de PowerShell 7 con privilegios elevados.
 
 ```powershell
 # Test applying the configuration to local machine
-Start-GuestConfigurationPackageRemediation -Package ./MyConfig.zip
+Start-GuestConfigurationPackageRemediation -Path ./MyConfig.zip
 ```
 
 En Linux, mediante la ejecución de PowerShell con sudo.
 
 ```bash
 # Test applying the configuration to local machine
-sudo pwsh -command 'Start-GuestConfigurationPackageRemediation -Package ./MyConfig.zip'
+sudo pwsh -command 'Start-GuestConfigurationPackageRemediation -Path ./MyConfig.zip'
 ```
 
 El comando no devolverá la salida a menos que se produzcan errores. Para solucionar problemas relacionados con los eventos que se producen durante `Set`, use el parámetro `-verbose`.
@@ -105,6 +105,6 @@ Después de ejecutar el comando `Start-GuestConfigurationPackageRemediation`, pu
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Publique el artefacto del paquete](./guest-configuration-create-publish.md) para que sea accesible para las máquinas.
-- Use el módulo `GuestConfiguration` para [crear una definición Azure Policy](./guest-configuration-create-definition.md) para la administración a escala de su entorno.
-- [Asignación de una definición de directiva personalizada](../assign-policy-portal.md) mediante Azure Portal.
+- Use el módulo `GuestConfiguration` a fin de [crear una definición de Azure Policy](./guest-configuration-create-definition.md) para la administración a gran escala del entorno.
+- [Asigne la definición de directiva personalizada](../assign-policy-portal.md) mediante Azure Portal.
 - Obtenga información sobre cómo ver los [detalles de cumplimiento para las asignaciones de directivas de configuración de invitado](./determine-non-compliance.md#compliance-details-for-guest-configuration).

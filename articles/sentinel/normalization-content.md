@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/11/2021
 ms.author: ofshezaf
-ms.openlocfilehash: 6ff0d40fbfa75eb6ae40766a4be42891c11156dd
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: deb5377aef61736a14ce8110e96c16e5352096cd
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123432205"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128552262"
 ---
 # <a name="azure-sentinel-information-model-asim-security-content--public-preview"></a>Contenido de seguridad del modelo de información de Azure Sentinel (ASIM) (versión preliminar pública)
 
@@ -29,6 +29,10 @@ El contenido de seguridad normalizado de Azure Sentinel incluye reglas de anál
 <a name="builtin"></a>Puede encontrar contenido integrado normalizado en galerías y [soluciones](sentinel-solutions-catalog.md) de Azure Sentinel, crear su propio contenido normalizado o modificar el contenido existente para usar datos normalizados.
 
 En este artículo se enumera el contenido de Azure Sentinel integrado que se ha configurado para admitir ASIM.  Aunque a continuación se proporcionan vínculos al repositorio de GitHub de Azure Sentinel como referencia, también puede encontrar estas reglas en la [galería de reglas de Azure Sentinel Analytics](detect-threats-built-in.md). Use las páginas de GitHub vinculadas para copiar las consultas de búsqueda pertinentes.
+
+> [!TIP]
+> Vea también el [seminario web de profundización sobre los analizadores de normalización de Azure Sentinel y el contenido normalizado](https://www.youtube.com/watch?v=zaqblyjQW6k) o revise las [diapositivas](https://1drv.ms/b/s!AnEPjr8tHcNmjGtoRPQ2XYe3wQDz?e=R3dWeM). Para más información, consulte la sección [Pasos siguientes](#next-steps).
+>
 
 > [!IMPORTANT]
 > ASIM está actualmente en versión preliminar. En la página [Términos de uso complementarios para las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) se incluyen términos legales adicionales que se aplican a las características de Azure que se encuentran en versión beta, versión preliminar o que todavía no se han publicado para su disponibilidad general.
@@ -52,7 +56,10 @@ El siguiente contenido de consultas de DNS integrado es compatible con la normal
 
 ### <a name="analytics-rules"></a>Reglas de análisis
 
- - [Consultas de DNS NXDOMAIN excesivas (DNS normalizado)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimDNS/imDns_ExcessiveNXDOMAINDNSQueries.yaml)
+ - (Versión preliminar) Entidad de dominio de asignación de TI a eventos DNS (DNS normalizado)
+ - (Versión preliminar) Entidad de IP de asignación de TI a eventos DNS (DNS normalizado)
+ - [DGA potencial detectado (ASimDNS)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimDNS/imDns_HighNXDomainCount_detection.yaml)
+  - [Consultas de DNS NXDOMAIN excesivas (DNS normalizado)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimDNS/imDns_ExcessiveNXDOMAINDNSQueries.yaml)
  - [Eventos de DNS relacionados con grupos de minería de datos (DNS normalizado)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimDNS/imDNS_Miners.yaml)
  - [Eventos de DNS relacionados con servidores proxy Tor (DNS normalizado)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimDNS/imDNS_TorProxies.yaml)
  - [Dominios conocidos de Barium](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/BariumDomainIOC112020.yaml)
@@ -185,12 +192,13 @@ imDns
 | extend timestamp = TimeGenerated, IPCustomEntity = SrcIpAddr
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a><a name="next-steps"></a>Pasos siguientes
 
 En este artículo se describe el contenido del modelo de información de Azure Sentinel (ASIM).
 
 Para más información, consulte:
 
+- Vea el [seminario web de profundización sobre los analizadores de normalización de Azure Sentinel y el contenido normalizado](https://www.youtube.com/watch?v=zaqblyjQW6k) o revise las [diapositivas](https://1drv.ms/b/s!AnEPjr8tHcNmjGtoRPQ2XYe3wQDz?e=R3dWeM).
 - [Información general del modelo de información de Azure Sentinel](normalization.md)
 - [Esquemas del modelo de información de Azure Sentinel](normalization-about-schemas.md)
 - [Analizadores del modelo de información de Azure Sentinel](normalization-about-parsers.md)

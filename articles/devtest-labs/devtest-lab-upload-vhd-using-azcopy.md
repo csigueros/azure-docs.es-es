@@ -1,14 +1,14 @@
 ---
-title: Carga de archivos VHD en Azure DevTest Labs mediante AzCopy | Microsoft Docs
+title: Carga de archivos de VHD en Azure DevTest Labs mediante AzCopy
 description: En este artículo se proporciona un tutorial para usar la utilidad de línea de comandos AzCopy para cargar un archivo VHD en la cuenta de almacenamiento de un laboratorio en Azure DevTest Labs.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 1d8ede0f78726b04ac862a00b559b8d42c3ed1cd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 39dcac5dffdd4aa041437ccb541b528ee8612881
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88650781"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128658324"
 ---
 # <a name="upload-vhd-file-to-labs-storage-account-using-azcopy"></a>Carga de archivos VHD en la cuenta de almacenamiento del laboratorio mediante AzCopy
 

@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: article
-ms.date: 07/30/2021
+ms.date: 09/16/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bebba34e8d323bc60d83151e7b211388776b7b76
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 4eb59e0579dc6173a3a6cb45ec2713b8f1938aeb
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121741695"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128642555"
 ---
 # <a name="use-azure-ad-groups-to-manage-role-assignments"></a>Uso de grupos de Azure AD para administrar asignaciones de roles
 
@@ -41,7 +41,7 @@ Los grupos a los que se pueden asignar roles tienen las restricciones siguientes
 - Solo puede establecer la propiedad `isAssignableToRole` o la opción **Los roles de Azure AD se pueden asignar a un grupo** para los nuevos grupos.
 - La propiedad `isAssignableToRole` es **inmutable**. Una vez que se crea un grupo con esta propiedad establecida, ya no se puede modificar.
 - No se puede convertir un grupo existente en un grupo al que se pueden asignar roles.
-- Se puede crear un máximo de 300 grupos a los que se puedan asignar roles en una sola organización de Azure AD (inquilino).
+- Se puede crear un máximo de 400 grupos a los que se puedan asignar roles en una sola organización de Azure AD (inquilino).
 
 ## <a name="how-are-role-assignable-groups-protected"></a>Maneras de proteger grupos a los que se pueden asignar roles
 

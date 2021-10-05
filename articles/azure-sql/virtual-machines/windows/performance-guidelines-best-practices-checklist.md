@@ -16,12 +16,12 @@ ms.date: 06/01/2021
 ms.author: dpless
 ms.custom: contperf-fy21q3
 ms.reviewer: jroth
-ms.openlocfilehash: 474954faebe62138e234f5bb7a7c1bee7bdcf95b
-ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
+ms.openlocfilehash: f5c6a0864790003e115d201c1a50b181df63c5ac
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122397176"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128666711"
 ---
 # <a name="checklist-best-practices-for-sql-server-on-azure-vms"></a>Lista de comprobación: Procedimientos recomendados de SQL Server en máquinas virtuales de Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -62,7 +62,7 @@ La siguiente es una lista de comprobación rápida de los procedimientos recomen
     - En cuanto a la unidad de registro, planee la capacidad y el rendimiento de prueba frente al costo al evaluar los [discos prémium P30-P80](../../../virtual-machines/disks-types.md#premium-ssd).
       - Si se requiere latencia de almacenamiento de submilisegundos, use los [discos Ultra de Azure](../../../virtual-machines/disks-types.md#ultra-disk) para el registro de transacciones. 
       - En el caso de las implementaciones de máquinas virtuales de la serie M, considere la posibilidad de usar el [Acelerador de escritura](../../../virtual-machines/how-to-enable-write-accelerator.md) en lugar de discos Ultra de Azure.
-    - Coloque el archivo [tempdb](/sql/relational-databases/databases/tempdb-database) en la unidad SSD local efímera `D:\` para la mayoría de las cargas de trabajo de SQL Server después de elegir el tamaño de VM óptimo. 
+    - Coloque el archivo [tempdb](/sql/relational-databases/databases/tempdb-database) en la unidad SSD local efímera (`D:\`, de forma predeterminada) para la mayoría de las cargas de trabajo de SQL Server después de elegir el tamaño óptimo de máquina virtual. 
       - Si la capacidad de la unidad local no es suficiente para tempdb, considere la posibilidad de cambiar el tamaño de la VM. Consulte las [directivas de almacenamiento en caché de los archivos de datos](performance-guidelines-best-practices-storage.md#data-file-caching-policies) para obtener más información.
 - Divida varios discos de datos de Azure mediante los [espacios de almacenamiento](/windows-server/storage/storage-spaces/overview) para aumentar el ancho de banda de E/S hasta los límites de rendimiento e IOPS de la máquina virtual de destino.
 - Establezca el [almacenamiento en caché del host](../../../virtual-machines/disks-performance.md#virtual-machine-uncached-vs-cached-limits) en Solo lectura para los discos de archivos de datos.
@@ -146,8 +146,9 @@ Para el grupo de disponibilidad SQL Server o la instancia de clúster de conmuta
 * Si la optimización del rendimiento de las máquinas virtuales SQL Server no resuelve las conmutaciones por error inesperadas, considere la posibilidad de [relajar la supervisión](hadr-cluster-best-practices.md#relaxed-monitoring) para el grupo de disponibilidad o la instancia de clúster de conmutación por error. Sin embargo, es posible que no se pueda solucionar el origen subyacente de la incidencia y podría enmascarar los síntomas al reducir la probabilidad de error. Es posible que tenga que investigar y abordar la causa principal subyacente. Para Windows Server 2012 y versiones posteriores, utilice los siguientes valores recomendados: 
    - **Tiempo de espera de concesión**: use esta ecuación para calcular el valor máximo de tiempo de espera de concesión:   
     `Lease timeout < (2 * SameSubnetThreshold * SameSubnetDelay)`.    
-    Comience con 40 segundos. Si usa los valores `SameSubnetThreshold` y `SameSubnetDelay` flexibles recomendados anteriormente, no supere los 80 segundos para el valor de tiempo de espera de concesión.    
-   - **Número máximo de errores en un período especificado**: establezca este valor en 6. 
+    Comience con 40 segundos. Si usa los valores `SameSubnetThreshold` y `SameSubnetDelay` flexibles recomendados anteriormente, no supere los 80 segundos para el valor de tiempo de espera de concesión. 
+   - **Número máximo de errores en un período especificado**: puede establecer este valor en 6.
+   - **Tiempo de espera de comprobación de estado**: puede establecer este valor en 60000 inicialmente y luego ajustarlo según sea necesario. 
 * Cuando use el nombre de red virtual (VNN) para conectarse a la solución HADR, especifique `MultiSubnetFailover = true` en la cadena de conexión, incluso si el clúster solo abarca una subred. 
    - Si el cliente no admite `MultiSubnetFailover = True`, es posible que deba establecer `RegisterAllProvidersIP = 0` y `HostRecordTTL = 300` para copiar en caché las credenciales de cliente durante períodos más cortos. Sin embargo, esto puede provocar consultas adicionales en el servidor DNS. 
 - Para conectarse a la solución HADR mediante el nombre de red distribuida (DNN), tenga en cuenta lo siguiente:

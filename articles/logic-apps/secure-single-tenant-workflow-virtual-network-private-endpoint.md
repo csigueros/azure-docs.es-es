@@ -4,14 +4,14 @@ description: Proteja el tráfico entre redes virtuales, cuentas de almacenamient
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
-ms.topic: conceptual
-ms.date: 07/25/2021
-ms.openlocfilehash: 4726df91efb18b2d9beec77606db449bd4aee3fa
-ms.sourcegitcommit: 6f21017b63520da0c9d67ca90896b8a84217d3d3
+ms.topic: how-to
+ms.date: 08/31/2021
+ms.openlocfilehash: 658d8c8c43bd2795a6a25730ff85ffb6bbd3a63c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114652654"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128598182"
 ---
 # <a name="secure-traffic-between-virtual-networks-and-single-tenant-workflows-in-azure-logic-apps-using-private-endpoints"></a>Protección del tráfico entre redes virtuales y flujos de trabajo de inquilino único en Azure Logic Apps mediante puntos de conexión privados
 
@@ -112,7 +112,7 @@ Para más información, consulte [Creación de flujos de trabajo de aplicación 
 
 - Si se accede desde fuera de la red virtual, la vista de supervisión no puede acceder a las entradas y salidas de desencadenadores y acciones.
 
-- La implementación desde Visual Studio Code o la CLI de Azure solo funciona desde dentro de la red virtual. Puede usar el Centro de implementación para vincular la aplicación lógica a un repositorio de GitHub. A continuación, puede usar la infraestructura de Azure para compilar e implementar el código. 
+- La implementación desde Visual Studio Code o la CLI de Azure solo funciona desde dentro de la red virtual. Puede usar el Centro de implementación para vincular la aplicación lógica a un repositorio de GitHub. A continuación, puede usar la infraestructura de Azure para compilar e implementar el código.
 
   Para que la integración de GitHub funcione, quite la configuración `WEBSITE_RUN_FROM_PACKAGE` de la aplicación lógica o establezca el valor en `0`.
 
@@ -122,50 +122,57 @@ Para más información, consulte [Creación de flujos de trabajo de aplicación 
 
 ## <a name="set-up-outbound-traffic-through-private-endpoints"></a>Configuración del tráfico saliente mediante puntos de conexión privados
 
-Para proteger el tráfico saliente de la aplicación lógica, puede integrar la aplicación lógica con una red virtual. De manera predeterminada, el tráfico saliente de la aplicación lógica solo se ve afectado por los grupos de seguridad de red (NSG) y las rutas definidas por el usuario (UDR) cuando se dirige a una dirección privada, como `10.0.0.0/8`, `172.16.0.0/12` y `192.168.0.0/16`. Sin embargo, al enrutar todo el tráfico saliente mediante su propia red virtual, puede controlar todo el tráfico saliente con los grupos de seguridad de red, las rutas y los firewalls. Para asegurarse de que todo el tráfico saliente se vea afectado por los NSG y las UDR de la subred de integración, establezca la configuración `WEBSITE_VNET_ROUTE_ALL` de la aplicación lógica en `1`.
+Para proteger el tráfico saliente de la aplicación lógica, puede integrar la aplicación lógica con una red virtual. De manera predeterminada, el tráfico saliente de la aplicación lógica solo se ve afectado por los grupos de seguridad de red (NSG) y las rutas definidas por el usuario (UDR) cuando se dirige a una dirección privada, como `10.0.0.0/8`, `172.16.0.0/12` y `192.168.0.0/16`.
+
+Si usa su propio servidor de nombres de dominio (DNS) con la red virtual, establezca la configuración de la aplicación `WEBSITE_DNS_SERVER` del recurso de aplicación lógica en la dirección IP del DNS. Si tiene un DNS secundario, agregue otra configuración de aplicación denominada `WEBSITE_DNS_ALT_SERVER` y establezca el valor también en la dirección IP del DNS. Además, actualice los registros DNS para que remitan los puntos de conexión privados a la dirección IP interna. Los puntos de conexión privados funcionan mediante el envío de la búsqueda de DNS a la dirección privada, no a la dirección pública del recurso específico. Para más información, vea [Puntos de conexión privados: Integración de su aplicación con una instancia de Azure Virtual Network](../app-service/web-sites-integrate-with-vnet.md#private-endpoints).
 
 > [!IMPORTANT]
-> Para que el entorno de ejecución de Logic Apps funcione, debe tener una conexión ininterrumpida con el almacenamiento de back-end. Para que los conectores administrados hospedados en Azure funcionen, debe tener una conexión ininterrumpida con el servicio de API administrada.
-
-Para asegurarse de que la aplicación lógica usa zonas del servidor de nombres de dominio (DNS) privado en la red virtual, establezca WEBSITE_DNS_SERVER en 168.63.129.16 para asegurarse de que la aplicación usa zonas DNS privadas de la red virtual.
+> Para que el entorno de ejecución de Azure Logic Apps funcione, debe tener una conexión ininterrumpida con el almacenamiento de back-end. Para que los conectores administrados hospedados en Azure funcionen, debe tener una conexión ininterrumpida con el servicio de API administrada.
 
 ### <a name="considerations-for-outbound-traffic-through-private-endpoints"></a>Consideraciones sobre el tráfico saliente mediante puntos de conexión privados
 
-La configuración de la integración de red virtual no afecta al tráfico entrante, que sigue utilizando el punto de conexión compartido de App Service. Para proteger el tráfico entrante, consulte [Configuración del tráfico entrante mediante puntos de conexión privados](#set-up-inbound).
+La configuración de la integración de red virtual solo afecta al tráfico saliente. Para proteger el tráfico entrante, que sigue utilizando el punto de conexión compartido de App Service, vea [Configuración del tráfico entrante mediante puntos de conexión privados](#set-up-inbound).
 
 Para más información, revise la siguiente documentación:
 
 - [Integración de su aplicación con una instancia de Azure Virtual Network](../app-service/web-sites-integrate-with-vnet.md)
+
 - [Grupos de seguridad de red](../virtual-network/network-security-groups-overview.md)
+
 - [Enrutamiento del tráfico de redes virtuales](../virtual-network/virtual-networks-udr-overview.md)
 
 ## <a name="connect-to-storage-account-with-private-endpoints"></a>Conexión a la cuenta de almacenamiento con puntos de conexión privados
 
-Puede restringir el acceso a la cuenta de almacenamiento para que solo se puedan conectar los recursos de una red virtual. Azure Storage admite la adición de puntos de conexión privados a la cuenta de almacenamiento. Los flujos de trabajo de la aplicación lógica pueden usar estos puntos de conexión para comunicarse con la cuenta de almacenamiento.
+Puede restringir el acceso a la cuenta de almacenamiento para que solo se puedan conectar los recursos de una red virtual. Azure Storage admite la adición de puntos de conexión privados a la cuenta de almacenamiento. Los flujos de trabajo de la aplicación lógica pueden usar estos puntos de conexión para comunicarse con la cuenta de almacenamiento. Para más información, vea [Uso de puntos de conexión privados para Azure Storage](../storage/common/storage-private-endpoints.md).
 
-En la configuración de la aplicación lógica, establezca `AzureWebJobsStorage` en la cadena de conexión de la cuenta de almacenamiento que tiene los puntos de conexión privados; para ello, elija una de estas opciones:
+> [!NOTE]
+> Los pasos siguientes requieren habilitar temporalmente el acceso público en la cuenta de almacenamiento. Si no puede habilitar el acceso público debido a las directivas de su organización, puede implementar la aplicación lógica con una cuenta de almacenamiento privada. Sin embargo, debe usar una plantilla de Azure Resource Manager (plantilla de ARM) para la implementación. Para obtener una plantilla de ARM de ejemplo, vea [Implementación de una aplicación lógica mediante una cuenta de almacenamiento protegida con puntos de conexión privados](https://github.com/VeeraMS/LogicApp-deployment-with-Secure-Storage).
 
-- **Azure Portal**: en el menú de la aplicación lógica, seleccione **Configuración**. Actualice la configuración `AzureWebJobsStorage` con la cadena de conexión de la cuenta de almacenamiento.
+1. Cree distintos puntos de conexión privados para cada uno de los servicios Table, Queue, Blob y File Storage.
 
-- **Visual Studio Code**: en el archivo **local.settings.json** del nivel raíz del proyecto, actualice la configuración `AzureWebJobsStorage` con la cadena de conexión de la cuenta de almacenamiento.
+1. Habilite el acceso público temporal en la cuenta de almacenamiento al implementar la aplicación lógica.
 
- Para más información, consulte la documentación sobre el [Uso de puntos de conexión privados para Azure Storage](../storage/common/storage-private-endpoints.md).
+   1. En [Azure Portal](https://portal.azure.com), abra su recurso de cuenta de almacenamiento.
 
-### <a name="considerations-for-private-endpoints-on-storage-accounts"></a>Consideraciones sobre los puntos de conexión privados en cuentas de almacenamiento
+   1. En el menú del recurso de cuenta de almacenamiento, en **Seguridad y redes**, seleccione **Redes**.
 
-- Cree distintos puntos de conexión privados para cada uno de los servicios Table, Queue, Blob y File Storage.
+   1. En el panel **Redes** de la pestaña **Firewalls y redes virtuales**, en **Permitir acceso desde**, seleccione **Todas las redes**.
 
-- Enrute todo el tráfico saliente mediante la red virtual con esta configuración:
+1. Implemente el recurso de la aplicación lógica mediante Azure Portal o Visual Studio Code.
 
-  `"WEBSITE_VNET_ROUTE_ALL": "1"`
+1. Una vez finalizada la implementación, habilite la integración entre la aplicación lógica y los puntos de conexión privados en la red virtual o subred que se conecta a la cuenta de almacenamiento.
 
-- Para que la aplicación lógica use zonas de servidor de nombres de dominio (DNS) privado de la red virtual, establezca la configuración `WEBSITE_DNS_SERVER` de la aplicación lógica en `168.63.129.16`.
+   1. En [Azure Portal](https://portal.azure.com), abra el recurso de aplicación lógica.
 
-- Debe tener una cuenta de almacenamiento de acceso público independiente al implementar la aplicación lógica. Asegúrese de establecer la configuración `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` en la cadena de conexión de esa cuenta de almacenamiento.
+   1. En el menú del recurso de aplicación lógica, en **Configuración**, seleccione **Redes**.
 
-- Si la aplicación lógica usa puntos de conexión privados, realice la implementación mediante [integraciones de GitHub](https://docs.github.com/en/github/customizing-your-github-workflow/about-integrations).
+   1. Configure las conexiones necesarias entre la aplicación lógica y las direcciones IP de los puntos de conexión privados.
 
-  Si la aplicación lógica no usa puntos de conexión privados, puede realizar la implementación desde Visual Studio Code y establecer la configuración `WEBSITE_RUN_FROM_PACKAGE` en `1`. 
+   1. Para acceder a los datos de flujo de trabajo de la aplicación lógica a través de la red virtual, en la configuración del recurso de la aplicación lógica, establezca la configuración `WEBSITE_CONTENTOVERVNET` en `1`.
+
+   Si usa su propio servidor de nombres de dominio (DNS) con la red virtual, establezca la configuración de la aplicación `WEBSITE_DNS_SERVER` del recurso de aplicación lógica en la dirección IP del DNS. Si tiene un DNS secundario, agregue otra configuración de aplicación denominada `WEBSITE_DNS_ALT_SERVER` y establezca el valor también en la dirección IP del DNS. Además, actualice los registros DNS para que remitan los puntos de conexión privados a la dirección IP interna. Los puntos de conexión privados funcionan mediante el envío de la búsqueda de DNS a la dirección privada, no a la dirección pública del recurso específico. Para más información, vea [Puntos de conexión privados: Integración de su aplicación con una instancia de Azure Virtual Network](../app-service/web-sites-integrate-with-vnet.md#private-endpoints).
+
+1. Después de aplicar esta configuración de aplicación, puede eliminar el acceso público de la cuenta de almacenamiento.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -7,22 +7,26 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/26/2020
+ms.date: 09/10/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2fd14ed8d149cdc5296229c52ceb74afb2ce7b23
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 70a480fba6b7923ffb327b22822e4baa3a54acdc
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98612723"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124749955"
 ---
 # <a name="azure-ad-connect-cloud-sync-supported-topologies-and-scenarios"></a>Topologías y escenarios admitidos para la sincronización en la nube de Azure AD Connect
 En este artículo se describen diversas topologías locales y de Azure Active Directory (Azure AD) que usan la sincronización en la nube de Azure AD Connect. En este artículo solo se incluyen las configuraciones y los escenarios admitidos.
 
 > [!IMPORTANT]
 > Microsoft no admite la modificación ni el funcionamiento de la sincronización en la nube de Azure AD Connect con configuraciones ni acciones distintas a estas que se documentan formalmente. Cualquiera de estas configuraciones o acciones pueden provocar un estado incoherente o incompatible de sincronización en la nube de Azure AD Connect. Como resultado, Microsoft no ofrece soporte técnico para estas implementaciones.
+
+Para más información, vea el siguiente vídeo.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWJ8l5]
 
 ## <a name="things-to-remember-about-all-scenarios-and-topologies"></a>Aspectos que recordar sobre todos los escenarios y topologías
 A continuación se muestra una lista con información que se debe tener en cuenta al seleccionar una solución.

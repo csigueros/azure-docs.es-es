@@ -10,12 +10,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 964c3f0bb346b3c2606af1227b558d06071bfe20
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 69d6cae5ccb26ef35fd121c32a9f111ff64b7a11
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121728822"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129215289"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Preparación para implementar la solución IoT Edge en producción
 
@@ -165,12 +165,12 @@ Las imágenes del Agente de IoT Edge y del centro de IoT Edge se etiquetan con l
 
 Sabe cómo almacenar las imágenes de contenedor para los módulos de código personalizados en el registro privado de Azure, aunque también puede usarlo para almacenar imágenes de contenedor públicas, por ejemplo, para los módulos de entorno de ejecución de edgeAgent y edgeHub. Esto puede ser necesario si tiene restricciones de firewall muy estrictas, ya que estos contenedores del entorno de ejecución se almacenan en Microsoft Container Registry (MCR).
 
-Obtenga las imágenes con el comando docker pull para colocarlas en el registro privado. Tenga en cuenta que tendrá que actualizar las imágenes con cada nueva versión del entorno de ejecución de Azure IoT Edge.
+Obtenga las imágenes con el comando docker pull para colocarlas en el registro privado. Deberá especificar la versión del contenedor durante la operación de incorporación de cambios, buscar la última versión del contenedor en la página de descripción de este, tal y como se indica a continuación, y reemplazar la versión en el comando pull si es necesario. Tenga en cuenta que tendrá que actualizar las imágenes con cada nueva versión del entorno de ejecución de Azure IoT Edge.
 
 | Contenedor del entorno de ejecución de Azure IoT Edge | Comando docker pull |
 | --- | --- |
-| [Agente de Azure IoT Edge](https://hub.docker.com/_/microsoft-azureiotedge-agent) | `docker pull mcr.microsoft.com/azureiotedge-agent` |
-| [Centro de Azure IoT Edge](https://hub.docker.com/_/microsoft-azureiotedge-hub) | `docker pull mcr.microsoft.com/azureiotedge-hub` |
+| [Agente de Azure IoT Edge](https://hub.docker.com/_/microsoft-azureiotedge-agent) | `docker pull mcr.microsoft.com/azureiotedge-agent:<VERSION_TAG>` |
+| [Centro de Azure IoT Edge](https://hub.docker.com/_/microsoft-azureiotedge-hub) | `docker pull mcr.microsoft.com/azureiotedge-hub:<VERSION_TAG>` |
 
 Después, asegúrese de actualizar las referencias de imagen en el archivo deployment.template.json para los módulos del sistema edgeAgent y edgeHub. Reemplace `mcr.microsoft.com` por el nombre del registro y el servidor de ambos módulos.
 

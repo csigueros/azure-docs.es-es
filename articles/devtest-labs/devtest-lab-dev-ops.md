@@ -1,14 +1,14 @@
 ---
-title: Integración de Azure DevTest Labs y DevOps | Microsoft Docs
+title: Integración de Azure DevTest Labs y DevOps
 description: Obtenga información sobre cómo usar los laboratorios de Azure DevTest Labs dentro de canalizaciones de integración continua (CI) o entrega continua (CD) en un entorno empresarial.
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/26/2020
-ms.openlocfilehash: 8a5d35a541e079b7d39cae2ec43da608274533f5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9c18df3c651dc3f11bbaaec4e71aea38644dffe1
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85481075"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128595092"
 ---
 # <a name="integration-of-azure-devtest-labs-and-azure-devops"></a>Integración de Azure DevTest Labs y DevOps
 DevOps es una metodología de desarrollo de software que integra el desarrollo de software (Dev) con las operaciones (Ops) en un sistema. Este sistema puede ofrecer nuevas características, actualizaciones y correcciones acordes a los objetivos empresariales. Esta metodología abarca todo, desde el diseño de nuevas características en función de objetivos, patrones de uso y comentarios de los clientes, hasta la corrección, recuperación y protección del sistema cuando se producen problemas. Un componente de esta metodología fácil de identificar es la canalización de integración continua (CI) y entrega continua (CD). Una canalización de CI/CD toma la información, el código y los recursos de una confirmación a través de una serie de pasos que incluyen compilación, pruebas e implementación, para generar el sistema. Este artículo se centra en distintas maneras de usar eficazmente los laboratorios en una canalización en un entorno empresarial. 
@@ -32,7 +32,7 @@ Un laboratorio se debe centrar en un equipo que trabaje en un área de caracter�
 ## <a name="cicd-pipeline"></a>Canalización de integración y entrega continuas 
 La canalización de CI/CD es uno de los componentes fundamentales de DevOps que mueve código de una solicitud de incorporación de cambios del desarrollador, lo integra con el código existente y lo implementa en el ecosistema de producción. No es necesario que todos los recursos estén dentro de un laboratorio. Por ejemplo, se podría configurar un host Jenkins fuera de laboratorio como un recurso más persistente. Estos son algunos ejemplos específicos de la integración de laboratorios en la canalización. 
 
-### <a name="build"></a>Build 
+### <a name="build"></a>Compilar 
 La canalización de compilación se centra en crear un paquete de componentes que se probarán de forma conjunta para su entrega a la canalización de versión. Los laboratorios pueden formar parte de la canalización de compilación como ubicación para los agentes de compilación y otros recursos de soporte técnico. La capacidad de crear la infraestructura de forma dinámica permite tener un mayor control. Con la capacidad de tener varios entornos en un laboratorio, cada compilación se puede ejecutar de forma asincrónica mientras se usa el identificador de compilación como parte de la información del entorno para identificar de forma exclusiva los recursos necesarios para la compilación específica.   
 
 Para los agentes de compilación, la capacidad del laboratorio de restringir el acceso aumenta la seguridad y reduce la posibilidad de daños accidentales.  

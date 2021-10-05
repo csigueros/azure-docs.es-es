@@ -1,14 +1,14 @@
 ---
-title: Configuración del inicio automático de una máquina virtual en Azure DevTest Labs | Microsoft Docs
+title: Configuración del inicio automático para una máquina virtual
 description: Aprenda a configurar el inicio automático para las máquinas virtuales de un laboratorio. Esta configuración permite que las máquinas virtuales del laboratorio se inicien automáticamente según una programación.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 83e7b0836273a59eaaf66471bd0cb42d63ccf1c3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 828350cb130e990d6a6ce3f16f084d5629518293
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91328489"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128642954"
 ---
 # <a name="auto-startup-lab-virtual-machines"></a>Inicio automático de máquinas virtuales del laboratorio  
 Azure DevTest Labs permite configurar las máquinas virtuales del laboratorio para que se inicien y se apaguen automáticamente según una programación. Para información sobre cómo configurar el apagado automático, consulte [Administración de directivas de apagado automático para un laboratorio en Azure DevTest Labs](devtest-lab-auto-shutdown.md). 

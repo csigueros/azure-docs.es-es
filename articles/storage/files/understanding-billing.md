@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/17/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 07d89aab2f957b6161f81525cfd9ae703be65d48
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: 0561e96d40ff5c37587101a2003f5a17addb5a30
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123476275"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128609201"
 ---
 # <a name="understand-azure-files-billing"></a>Descripción de la facturación de Azure Files
 Azure Files proporciona dos modelos de facturación distintos: aprovisionado y pago por uso. El modelo aprovisionado solo está disponible para los recursos compartidos de archivos prémium, que son recursos compartidos de archivos implementados en el tipo de cuenta de almacenamiento **FileStorage**. El modelo de pago por uso solo está disponible para los recursos compartidos de archivos estándar, que son recursos compartidos de archivos implementados en el tipo de cuenta de almacenamiento de **uso general, versión 2 (GPv2)** . En este artículo se explica cómo funcionan ambos modelos con el fin de ayudarle a entender la factura mensual de Azure Files.
@@ -93,9 +93,9 @@ En la tabla siguiente se ilustran algunos ejemplos de estas fórmulas para los t
 |-|-|-|-|-|-|
 | 100 | 500 | Hasta 4000 | 14 400 000 | 44 | 66 |
 | 500 | 900 | Hasta 4000 | 14 400 000 | 60 | 90 |
-| 1024 | 1424 | Hasta 4000 | 14 400 000 | 81 | 122 |
-| 5120 | 5520 | Hasta 15 360 | 55 296 000 | 245 | 368 |
-| 10 240 | 10 640 | Hasta 30 720 | 110 592 000 | 450 | 675 |
+| 1024 | 1424 | Hasta 4 272 | 15 379 200 | 81 | 122 |
+| 5120 | 5520 | Hasta 16 560 | 59 616 000 | 245 | 368 |
+| 10 240 | 10 640 | Hasta 31 920 | 114 912 000 | 450 | 675 |
 | 33 792 | 34 192 | Hasta 100 000 | 360 000 000 | 1392 | 2088 |
 | 51 200 | 51 600 | Hasta 100 000 | 360 000 000 | 2088 | 3132 |
 | 102 400 | 100 000 | Hasta 100 000 | 360 000 000 | 4136 | 6204 |

@@ -5,14 +5,14 @@ services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: how-to
-ms.date: 02/18/2021
-ms.author: qixwang
-ms.openlocfilehash: 4690a513494d794377ee0c2e8cfb101e8fd66a0f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 09/08/2021
+ms.author: duau
+ms.openlocfilehash: b49d7d051b099c47fa6bfe65ed8c0ee8f4b03872
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101098259"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124792405"
 ---
 # <a name="troubleshooting-common-routing-problems-with-azure-front-door-standardpremium"></a>Solución de problemas comunes de enrutamiento con Azure Front Door Estándar/Prémium
 
@@ -24,19 +24,31 @@ En este artículo se describe cómo solucionar problemas comunes de enrutamiento
 
 * Las solicitudes normales enviadas al back-end sin pasar a través de Azure Front Door son correctas. Al pasar a través de Azure Front Door, se producen respuestas de error 503.
 * El error de Azure Front Door suele aparecer después de unos 30 segundos.
+* Errores intermitentes de 503 con el registro `ErrorInfo: OriginInvalidResponse`.
 
 ### <a name="cause"></a>Causa
 
-La causa de este problema puede ser una de estas dos:
+La causa de este problema puede ser una de estas tres:
  
 * El origen tarda más que el tiempo de expiración configurado (el valor predeterminado es 30 segundos) en recibir la solicitud de Azure Front Door.
-* El tiempo que se tarda en enviar una respuesta a la solicitud desde Azure Front Door es mayor que el valor de tiempo de expiración. 
+* El tiempo que se tarda en enviar una respuesta a la solicitud desde Azure Front Door es mayor que el valor de tiempo de expiración.
+* El cliente envió una solicitud de intervalo de bytes con `Accept-Encoding header` (compresión habilitada).
 
 ### <a name="troubleshooting-steps"></a>Pasos para solucionar problemas
 
 * Envíe la solicitud al back-end directamente (sin pasar a través de Azure Front Door). Vea cuánto tiempo tarda el back-end en responder.
 * Envíe la solicitud a través de Azure Front Door y vea si se obtienen respuestas 503. Si no es así, es posible que no se trate de un problema de tiempo de expiración. Póngase en contacto con el servicio de soporte técnico.
-* Si se analizan los resultados de Azure Front Door en el código de respuesta de error 503, configure el campo `sendReceiveTimeout` para su instancia de Azure Front Door. Puede ampliar el tiempo de expiración predeterminado hasta 4 minutos (240 segundos). La opción de configuración está en `Endpoint Setting` y se denomina `Origin response timeout`. 
+* Si las solicitudes que pasan por Azure Front Door dan lugar a un código de respuesta de error 503, configure el **tiempo de espera de respuesta de origen (en segundos)** para el punto de conexión. Puede ampliar el tiempo de espera predeterminado hasta 4 minutos (240 segundos). Para realizar la configuración, vaya al *Administrador de puntos de conexión* y seleccione **Editar punto de conexión**.
+
+    :::image type="content" source="..\media\troubleshoot-route-issues\origin-response-timeout-1.png" alt-text="Captura de pantalla de seleccionar Editar punto de conexión desde el Administrador de puntos de conexión.":::
+
+    A continuación, seleccione **Propiedades del punto de conexión** para configurar el **tiempo de espera de respuesta de origen**:
+
+    :::image type="content" source="..\media\troubleshoot-route-issues\origin-response-timeout-2.png" alt-text="Captura de pantalla de la selección de las propiedades del punto de conexión y el campo Origin response timeout (Tiempo de espera de respuesta de origen)." lightbox="..\media\troubleshoot-route-issues\origin-response-timeout-2-expanded.png":::
+
+* Si con la configuración del tiempo de espera no se resuelve el problema, use una herramienta como Fiddler o la herramienta para desarrolladores del explorador para comprobar si el cliente envía solicitudes de intervalo de bytes con encabezados Accept-Encoding, lo que provoca que el origen responda con distintas longitudes de contenido. En caso afirmativo, puede deshabilitar la compresión en Origen/Azure Front Door, o bien crear una regla de conjunto de reglas para quitar `accept-encoding` de las solicitudes de intervalo de bytes.
+
+    :::image type="content" source="..\media\troubleshoot-route-issues\remove-encoding-rule.png" alt-text="Captura de pantalla de la regla Accept-Encoding en un conjunto de reglas.":::
 
 ## <a name="requests-sent-to-the-custom-domain-return-a-400-status-code"></a>Las solicitudes enviadas al dominio personalizado devuelven el código de estado 400
 

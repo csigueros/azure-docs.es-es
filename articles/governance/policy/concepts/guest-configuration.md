@@ -3,12 +3,12 @@ title: Descripción de la característica de configuración de invitado de Azure
 description: Obtenga información sobre la forma en que Azure Policy usa la característica de configuración de invitado para auditar o configurar valores dentro de las máquinas virtuales.
 ms.date: 07/15/2021
 ms.topic: conceptual
-ms.openlocfilehash: 12e23b8db546d2bc34bbe17871ac5fbebd7a2de8
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: d9da1454fa531bcc6526cc11dda3b341be0688df
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122769647"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129092630"
 ---
 # <a name="understand-the-guest-configuration-feature-of-azure-policy"></a>Descripción de la característica de configuración de invitado de Azure Policy
 
@@ -78,8 +78,8 @@ El texto ".x" es simbólico y se usa para representar nuevas versiones secundari
 |Publicador|Nombre|Versiones|
 |-|-|-|
 |Amazon|Linux|2|
-|Canonical|Ubuntu Server|14.04 - 20.x|
-|Credativ|Debian|8 - 10.x|
+|Canonical|Ubuntu Server|16.04 - 20.x|
+|Credativ|Debian|9 - 10.x|
 |Microsoft|Windows Server|2012 - 2019|
 |Microsoft|Cliente Windows|Windows 10|
 |Oracle|Oracle-Linux|7.x-8.x|
@@ -213,5 +213,5 @@ Hay ejemplos de directivas integradas de configuración de invitado disponibles 
 - [Cree un artefacto de paquete](../how-to/guest-configuration-create.md) para la configuración de invitado.
 - [Pruebe el artefacto de paquete](../how-to/guest-configuration-create-test.md) desde el entorno de desarrollo.
 - Use el módulo `GuestConfiguration` a fin de [crear una definición de Azure Policy](../how-to/guest-configuration-create-definition.md) para la administración a gran escala del entorno.
-- [Asigne una definición de directiva personalizada](../assign-policy-portal.md) mediante Azure Portal.
-- Obtenga información sobre cómo ver los [detalles de cumplimiento para las asignaciones de directivas de configuración de invitados](../how-to/determine-non-compliance.md#compliance-details-for-guest-configuration).
+- [Asigne la definición de directiva personalizada](../assign-policy-portal.md) mediante Azure Portal.
+- Obtenga información sobre cómo ver los [detalles de cumplimiento para las asignaciones de directivas de configuración de invitado](../how-to/determine-non-compliance.md#compliance-details-for-guest-configuration).

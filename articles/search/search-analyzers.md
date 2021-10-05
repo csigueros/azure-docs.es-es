@@ -7,18 +7,18 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/17/2021
+ms.date: 09/08/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d40dd0b91f9dcfb7bf5b6e8f084f25ee4f90d780
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 68b6f6794a690313648dfaaaaf49fdd3150b6171
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104596559"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124735340"
 ---
 # <a name="analyzers-for-text-processing-in-azure-cognitive-search"></a>Analizadores para procesamientos textuales en Búsqueda cognitiva de Azure
 
-Un *analizador* es un componente de la [búsqueda de texto completo](search-lucene-query-architecture.md) responsable del procesamiento de texto en las cadenas de consulta y de los documentos indexados. El procesamiento de texto (también conocido como análisis léxico) es transformativo, ya que modifica una consulta mediante acciones como las siguientes:
+Un *analizador* es un componente del [motor de búsqueda de texto completo](search-lucene-query-architecture.md) responsable del procesamiento de cadenas durante el indexado y la ejecución de consultas. El procesamiento de texto (también conocido como análisis léxico) es transformativo, modificando una cadena mediante acciones como las siguientes:
 
 + Eliminación de las palabras no esenciales (palabras irrelevantes) y los signos de puntuación
 + División de frases y palabras con guiones en las partes que los componen
@@ -27,7 +27,7 @@ Un *analizador* es un componente de la [búsqueda de texto completo](search-luce
 
 El análisis se aplica a campos `Edm.String` que están marcados como "buscables", lo que indica que se puede realizar una búsqueda de texto completo. 
 
-En el caso de los campos con esta configuración, el análisis se produce durante la indexación cuando se crean los tokens y, después, de nuevo durante la ejecución de consultas cuando se analizan las consultas y el motor busca tokens coincidentes. Es más probable que se produzca una coincidencia si se usa el mismo analizador para la indexación y las consultas, pero puede establecer el analizador de cada carga de trabajo de forma independiente, según sus requisitos.
+En el caso de los campos de esta configuración, el análisis se produce durante la indexación cuando se crean los tokens y, después, de nuevo durante la ejecución de consultas cuando se analizan las consultas y el motor busca tokens coincidentes. Es más probable que se produzca una coincidencia si se usa el mismo analizador para la indexación y las consultas, pero puede establecer el analizador de cada carga de trabajo de forma independiente, según sus requisitos.
 
 Los tipos de consulta que *no* son búsquedas de texto completo como, por ejemplo, los filtros o una búsqueda aproximada, no pasan por la fase de análisis en el lado de la consulta. En su lugar, el analizador envía esas cadenas directamente al motor de búsqueda mediante el patrón que se proporciona como base para la coincidencia. Normalmente, estos formularios de consulta requieren tokens de cadena completa para que la coincidencia de patrones funcione. Para asegurarse de que se usan tokens de términos completos durante la indexación, es posible que necesite [analizadores personalizados](index-add-custom-analyzers.md). Para más información sobre cuándo y por qué se analizan los términos de consulta, consulte [Búsqueda de texto completo en Azure Cognitive Search](search-lucene-query-architecture.md).
 
@@ -37,7 +37,7 @@ Para más información sobre el análisis léxico, escuche el siguiente clip de 
 
 ## <a name="default-analyzer"></a>Analizador predeterminado  
 
-En las consultas de Azure Cognitive Search, se invoca automáticamente un analizador en todos los campos de cadena marcados como "buscables". 
+En Azure Cognitive Search, se invoca automáticamente un analizador en todos los campos de cadena marcados como "searchable". 
 
 De forma predeterminada, Azure Cognitive Search usa el [analizador estándar de Apache Lucene (Lucene estándar)](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) que divide el texto en elementos siguiendo las reglas de ["Segmentación de texto Unicode"](https://unicode.org/reports/tr29/). Además, el analizador estándar convierte todos los caracteres en minúsculas. Los documentos indexados y lo términos de búsqueda son sometidos a análisis durante la indexación y el procesamiento de consultas.  
 
@@ -99,7 +99,7 @@ El mejor momento para agregar y asignar analizadores es durante el desarrollo ac
 
 Dado que los analizadores se usan para tokenizar los términos, debe asignar un analizador al crear el campo. De hecho, no se permite asignar una propiedad analyzer ni indexAnalyzer a un campo que ya se ha creado físicamente (aunque se puede cambiar la propiedad searchAnalyzer en cualquier momento sin que afecte al índice).
 
-Para cambiar el analizador de un campo existente, tendrá que [volver a generar el índice por completo](search-howto-reindex.md) (no puede volver a generar campos individuales). En el caso de los índices de producción, puede aplazar una nueva generación mediante la creación de un nuevo campo con la nueva asignación del analizador y empezar a usarla en lugar de la antigua. Use [Update Index](/rest/api/searchservice/update-index) para incorporar el nuevo campo y [mergeOrUpload](/rest/api/searchservice/addupdate-or-delete-documents) para rellenarlo. Más adelante, como parte de un mantenimiento planeado del índice, puede limpiarlo para quitar campos obsoletos.
+Para cambiar el analizador de un campo existente, tendrá que quitar y volver a crear el índice entero (no puede volver a generar campos individuales). En el caso de los índices de producción, puede aplazar una nueva generación mediante la creación de un nuevo campo con la nueva asignación del analizador y empezar a usarla en lugar de la antigua. Use [Update Index](/rest/api/searchservice/update-index) para incorporar el nuevo campo y [mergeOrUpload](/rest/api/searchservice/addupdate-or-delete-documents) para rellenarlo. Más adelante, como parte de un mantenimiento planeado del índice, puede limpiarlo para quitar campos obsoletos.
 
 Llame a [Update Index](/rest/api/searchservice/update-index) para agregar un nuevo campo a un índice existente y a [mergeOrUpload](/rest/api/searchservice/addupdate-or-delete-documents) para rellenarlo.
 
@@ -382,7 +382,7 @@ Puede consultar una descripción detallada de la ejecución de consultas en [Bú
 
 Para más información sobre los analizadores, consulte los siguientes artículos:
 
-+ [Analizadores de idiomas](index-add-language-analyzers.md)
-+ [Analizadores personalizados](index-add-custom-analyzers.md)
++ [Adición de un analizador de idioma](index-add-language-analyzers.md)
++ [Adición de un analizador personalizado](index-add-custom-analyzers.md)
 + [Creación de un índice de búsqueda](search-what-is-an-index.md)
 + [Creación de un índice para varios idiomas](search-language-support.md)

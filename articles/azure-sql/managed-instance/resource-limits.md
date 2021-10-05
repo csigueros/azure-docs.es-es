@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: reference
 author: vladai78
 ms.author: vladiv
-ms.reviewer: mathoma, jovanpop, sachinp
-ms.date: 09/14/2020
-ms.openlocfilehash: c134631d33313eaefef63fde48dd1693354bf18d
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.reviewer: mathoma, vladiv, sachinp
+ms.date: 09/28/2021
+ms.openlocfilehash: 7fba2ede931375d310b64bf7800b2adf43b2a24e
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110692861"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129212786"
 ---
 # <a name="overview-of-azure-sql-managed-instance-resource-limits"></a>Introducción a los límites de recursos de Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -142,13 +142,21 @@ En la tabla siguiente se muestran los **límites regionales predeterminados** de
 
 |Tipo de suscripción| Número máximo de subredes de Instancia administrada de SQL | Número máximo de unidades de núcleo virtual* |
 | :---| :--- | :--- |
-|Pago por uso|3|320|
-|CSP |8 (15 en algunas regiones**)|960 (1440 en algunas regiones**)|
-|Desarrollo/pruebas - Pago por uso|3|320|
-|Desarrollo/pruebas - Enterprise|3|320|
-|EA|8 (15 en algunas regiones**)|960 (1440 en algunas regiones**)|
-|Visual Studio Enterprise|2 |64|
-|Visual Studio Professional y plataformas de MSDN|2|32|
+|CSP |16 (30 en algunas regiones**)|960 (1440 en algunas regiones**)|
+|EA|16 (30 en algunas regiones**)|960 (1440 en algunas regiones**)|
+|Desarrollo/pruebas - Enterprise|6|320|
+|Pago por uso|6|320|
+|Desarrollo/pruebas - Pago por uso|6|320|
+|Pase para Azure|3|64|
+|BizSpark|3|64|
+|BizSpark Plus|3|64|
+|Patrocinio de Microsoft Azure|3|64|
+|Microsoft Partner Network|3|64|
+|Visual Studio Enterprise – MPN|3|64|
+|Visual Studio Enterprise|3|32|
+|Visual Studio Enterprise (BizSpark)|3|32|
+|Visual Studio Professional|3|32|
+|Plataformas de MSDN|3|32|
 
 \* En el planeamiento de las implementaciones, tenga en cuenta que el nivel de servicio Crítico para la empresa (BC) requiere cuatro (4) veces más capacidad de núcleo virtual que el nivel de servicio De uso general (GP). Por ejemplo: 1 núcleo virtual de GP = 1 unidad de núcleo virtual y 1 núcleo virtual de BC = 4 núcleos virtuales. Para simplificar el análisis de consumo en los límites predeterminados, resuma las unidades de núcleo virtual de todas las subredes de la región en la que se implementa Instancia administrada de SQL y compare los resultados con los límites de la unidad de instancia del tipo de suscripción. El límite **Número máximo de unidades de núcleo virtual** se aplica a cada suscripción en una región. No hay ningún límite por subredes individuales, salvo que la suma de todos los núcleos virtuales implementados en varias subredes debe ser inferior o igual al **número máximo de unidades de núcleo virtual**.
 

@@ -5,12 +5,12 @@ description: Obtenga información sobre cómo instalar y configurar un controlad
 services: container-service
 ms.topic: article
 ms.date: 04/23/2021
-ms.openlocfilehash: e93cfd95464d43b70ef8ade7b6380ba2c67cd9d4
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 8c83e3bd2cb9243744c13cb70ed0488a108bc979
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122323326"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128588188"
 ---
 # <a name="create-an-https-ingress-controller-on-azure-kubernetes-service-aks"></a>Creación de un controlador de entrada HTTPS en Azure Kubernetes Service (AKS)
 

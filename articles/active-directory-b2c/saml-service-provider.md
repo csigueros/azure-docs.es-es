@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/30/2021
+ms.date: 09/20/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 52966adfeffc137bf9edd95c61887dbc98f02aa6
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: 673835a3e3112bf433faeba815e65c6203dd9ce8
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123221528"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128603816"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Registrar una aplicación SAML en Azure AD B2C
 
@@ -44,6 +44,10 @@ Las organizaciones que usan Azure AD B2C como solución de administración de a
 2. El usuario puede usar una cuenta local de Azure AD B2C o cualquier otro proveedor de identidades federado (si está configurado) para autenticarse.
 3. Si el usuario inicia sesión con un proveedor de identidades federado, se envía una respuesta de token a Azure AD B2C.
 4. Azure AD B2C genera una aserción de SAML y la envía a la aplicación.
+
+Vea este vídeo para aprender a integrar aplicaciones SAML con Azure AD B2C. 
+
+>[!Video https://www.youtube.com/embed/r2TIVBCm7v4]
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -95,7 +99,8 @@ Para tener una relación de confianza entre la aplicación y Azure AD B2C, cre
 Debe almacenar el certificado en el inquilino de Azure AD B2C.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
-1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el filtro **Directorio y suscripción** del menú superior y elija el directorio que contiene el inquilino.
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
 1. Seleccione **Todos los servicios** en la esquina superior izquierda de Azure Portal y, a continuación, busque y seleccione **Azure AD B2C**.
 1. En la página de **introducción**, seleccione **Identity Experience Framework**.
 1. Seleccione **Claves de directiva** y, luego, **Agregar**.
@@ -292,7 +297,8 @@ Reemplace `<tenant-name>` por el nombre del inquilino de Azure AD B2C. Reemplace
 Para que Azure AD B2C confíe en la aplicación, cree un registro de aplicación de Azure AD B2C. El registro contiene información de configuración, como el punto de conexión de metadatos de la aplicación.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-1. Seleccione el filtro **Directorio y suscripción** en el menú superior y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
 1. En el menú de la izquierda, seleccione **Azure AD B2C**. O bien, seleccione **Todos los servicios** y, luego, busque y seleccione **Azure AD B2C**.
 1. Seleccione **Registros de aplicaciones** y luego **Nuevo registro**.
 1. Escriba un **Nombre** para la aplicación. Por ejemplo, escriba **SAMLApp1**.

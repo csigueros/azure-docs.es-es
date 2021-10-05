@@ -4,21 +4,24 @@ description: En este artículo se explica qué es la característica Insights en
 author: SunetraVirdi
 ms.author: suvirdi
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-insights
 ms.topic: conceptual
 ms.date: 12/02/2020
-ms.openlocfilehash: bd2a8aa4a0296cf67cf754f0d921e2791abdbb4f
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: ff50729dee893caa7a1c38f57cbd23f0470fc84b
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110788799"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129218857"
 ---
 # <a name="understand-insights-in-azure-purview"></a>Descripción de Insights en Azure Purview
 
 En este artículo se proporciona información general sobre la característica Insights en Azure Purview.
 
-Insights es uno de los pilares principales de Purview. Esta característica proporciona a los clientes una visualización sencilla del catálogo en un único panel y, además, proporciona información específica a los administradores de los orígenes de datos, los usuarios empresariales, los administradores de datos, los responsables de datos y los administradores de seguridad. Actualmente, Purview cuenta con los siguientes informes de Insights que estarán disponibles para los clientes en la versión preliminar pública.
+Insights es uno de los pilares principales de Purview. Esta característica proporciona a los clientes una visualización sencilla del catálogo en un único panel y, además, proporciona información específica a los administradores de los orígenes de datos, los usuarios empresariales, los administradores de datos, los responsables de datos y los administradores de seguridad. Actualmente, Purview cuenta con los siguientes informes de Insights que estarán disponibles para los clientes en la versión preliminar pública de Insights.
+
+> [!IMPORTANT]
+> Insights de Azure Purview se encuentra actualmente en versión preliminar. Los [Términos de uso complementarios para las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) incluyen términos legales adicionales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado para que estén disponibles con carácter general.
 
 ## <a name="asset-insights"></a>Información de recursos
 

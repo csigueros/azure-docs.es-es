@@ -4,21 +4,17 @@ description: Se describen las funciones que se usan en un archivo de Bicep para 
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 06/01/2021
-ms.openlocfilehash: 2eec27d0317b6cfae4969244d069be6881566942
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.date: 09/10/2021
+ms.openlocfilehash: 8df0aec96001aa5b1a7cdd7342fe663f0bfa2da0
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "111027109"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124758491"
 ---
 # <a name="numeric-functions-for-bicep"></a>Funciones numéricas de Bicep
 
-Resource Manager ofrece las siguientes funciones para trabajar con números enteros en el archivo de Bicep:
-
-* [int](#int)
-* [max](#max)
-* [min](#min)
+En este artículo se describen las funciones de Bicep para trabajar con enteros.
 
 Algunas de las funciones numéricas JSON de Azure Resource Manager se reemplazan por [operadores numéricos de Bicep](./operators-numeric.md).
 
@@ -136,4 +132,4 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Puede encontrar una descripción de las secciones de un archivo de Bicep en [Nociones sobre la estructura y la sintaxis de los archivos de Bicep](./file.md).
+* Para otras acciones relacionadas con números, vea \[Operadores numéricos de Bicep](./operators-numeric.md).

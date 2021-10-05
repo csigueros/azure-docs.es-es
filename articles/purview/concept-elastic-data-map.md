@@ -8,12 +8,12 @@ ms.subservice: purview-data-map
 ms.topic: conceptual
 ms.date: 08/18/2021
 ms.custom: template-concept
-ms.openlocfilehash: 80706316490cde805ef19b0f1c90f2870dc195ab
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: 00b6429e14dcb04a76abbc1a8d49a29b220c7c06
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122445793"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128607085"
 ---
 # <a name="elastic-data-map-in-azure-purview"></a>Mapa de datos elástico en Azure Purview
 
@@ -21,7 +21,7 @@ Mapa de datos de Azure Purview proporciona la base para la detección de datos y
 
 ## <a name="elastic-data-map"></a>Mapa de datos elástico
 
-Todas las cuentas de Azure Purview tienen un servicio Mapa de datos que puede crecer elásticamente a partir de una unidad de capacidad. Se escalan y reducen verticalmente en función de la carga de solicitudes dentro de la ventana de elasticidad ([compruebe los límites actuales](how-to-manage-quotas.md)). Si trabaja con conjuntos de datos muy grandes o un entorno masivo y necesita una mayor capacidad, puede solicitar una mayor capacidad de ventana de elasticidad completando la [encuesta aquí](https://aka.ms/PurviewProdSurvey).
+Todas las cuentas de Azure Purview tienen un servicio Mapa de datos que puede crecer elásticamente a partir de una unidad de capacidad. Se escalan y reducen verticalmente en función de la carga de solicitudes dentro de la ventana de elasticidad ([compruebe los límites actuales](how-to-manage-quotas.md)). Estos límites deben cubrir la mayoría de los escenarios de datos. Pero si necesita mayor capacidad, [puede crear una incidencia de soporte técnico](#request-capacity).
 
 ## <a name="data-map-capacity-unit"></a>Unidad de capacidad de Mapa de datos
 
@@ -47,8 +47,6 @@ Los metadatos técnicos incluyen el esquema, el tipo de datos, las columnas, etc
 - **Mapa de datos elástico con escalado automático**: comenzará con un servicio Mapa de datos tan bajo como una unidad de capacidad que se pueda escalar automáticamente en función de la carga. Para la mayoría de las organizaciones, esta característica dará lugar a un mayor ahorro y un menor precio para iniciar proyectos de gobernanza de datos. Esta característica afectará a los precios.
 
 - **Análisis mejorado e ingesta**: puede realizar un seguimiento y controlar la población de los recursos de datos, así como la clasificación y el linaje en los procesos de examen e ingesta. Esta característica afectará a los precios.
-
-- **Conjunto de recursos avanzado**: puede reducir el tamaño del Mapa de datos mediante el procesamiento de archivos con particiones en un lago de datos, de modo que se trate como un único recurso de datos denominado [conjunto de recursos](concept-resource-sets.md). Se trata de una característica opcional que afectará a los precios.
 
 ## <a name="scenario"></a>Escenario
 
@@ -109,6 +107,16 @@ En función del consumo de almacenamiento de metadatos y de las operaciones por 
 
 >[!Important]
 >Mapa de datos de Purview puede escalarse y reducirse verticalmente de forma automática dentro de la ventana de elasticidad ([compruebe los límites actuales](how-to-manage-quotas.md)). Para obtener el siguiente nivel de ventana de elasticidad, es necesario crear una incidencia de soporte técnico.
+
+## <a name="request-capacity"></a>Solicitud de capacidad
+
+Si trabaja con conjuntos de datos muy grandes o un entorno masivo y necesita mayor capacidad para el mapa de datos elástico, puede solicitar más capacidad de la ventana de elasticidad mediante la [creación de una incidencia de soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+
+Seleccione **Límites de servicio y suscripción (cuotas)** y siga las instrucciones en pantalla; para ello, elija la cuenta de Purview para la que quiere solicitar más capacidad.
+
+:::image type="content" source="./media/concept-elastic-data-map/increase-limit.png" alt-text="Pantalla que muestra la creación de una incidencia de soporte técnico, con las opciones de aumento de límites seleccionadas.":::
+
+En la descripción proporcione tanta información relevante como pueda sobre el entorno y la capacidad adicional que le gustaría solicitar.
 
 ## <a name="summary"></a>Resumen
 

@@ -8,15 +8,15 @@ ms.topic: how-to
 ms.date: 03/23/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: hafowler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4042ce416b2af83447af283d21c059050b9a144c
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.openlocfilehash: 8ef9dca3604be281ccedf4d6f1af3e7861273e6b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122866594"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128590729"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Administración de identidades de dispositivos con Azure Portal
 
@@ -174,10 +174,10 @@ Debe tener asignado uno de los roles siguientes para ver o administrar la config
 
 - **Administradores locales adicionales en dispositivos unidos a Azure AD**: puede seleccionar a qué usuarios se conceden derechos de administrador local en un dispositivo. Estos usuarios se agregan al rol *Administradores de dispositivos* en Azure AD. De forma predeterminada, a los administradores globales de Azure AD y a los propietarios de dispositivos se les conceden derechos de administrador local. Esta opción es una capacidad de la edición Premium disponible en productos como Azure AD Premium o Enterprise Mobility Suite (EMS).
 - **Los usuarios pueden registrar sus dispositivos con Azure AD**: esta opción se debe configurar para que los dispositivos con Windows 10 personal, iOS, Android y macOS se puedan registrar en Azure AD. Si selecciona **Ninguno**, los dispositivos no podrán registrarse con Azure AD. La inscripción en Microsoft Intune o Administración de dispositivos móviles (MDM) para Microsoft 365 exige registrarse. Si ha configurado alguno de estos servicios, se selecciona **TODOS** y **NINGUNO** no está disponible.
-- **Devices to be Azure AD joined or Azure AD registered require Multi-Factor Authentication**(Exigir Multi-Factor Authentication para los dispositivos que se van a unir a Azure AD o a registrar en Azure AD): puede elegir si se va a exigir a los usuarios que proporcionen un factor de autenticación adicional para unir su dispositivo a Azure AD o registrarlo ahí. El valor predeterminado es **No**. Se recomienda exigir Multi-Factor Authentication al registrar o unir un dispositivo. Antes de habilitar Multi-Factor Authentication para este servicio, debe asegurarse de que está configurado para los usuarios que registran sus dispositivos. Para obtener más información sobre los distintos servicios de Azure AD Multi-Factor Authentication, consulte [Introducción a Azure AD Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md). 
+- **Requerir Multi-Factor Authentication para registrar o unir dispositivos con Azure AD**: puede elegir si se va a exigir a los usuarios que proporcionen un factor de autenticación adicional para unir su dispositivo a Azure AD o registrarlo ahí. El valor predeterminado es **No**. Se recomienda exigir Multi-Factor Authentication al registrar o unir un dispositivo. Antes de habilitar Multi-Factor Authentication para este servicio, debe asegurarse de que está configurado para los usuarios que registran sus dispositivos. Para obtener más información sobre los distintos servicios de Azure AD Multi-Factor Authentication, consulte [Introducción a Azure AD Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md). 
 
 > [!NOTE]
-> La opción **Devices to be Azure AD joined or Azure AD registered require Multi-Factor Authentication** (Exigir Multi-Factor Authentication para los dispositivos que se van a unir a Azure AD o a registrar en Azure AD) se aplica a los dispositivos que están unidos a Azure AD (con algunas excepciones) o registrados en Azure AD. Esta configuración no se aplica a los dispositivos unidos a Azure AD híbrido, a las [máquinas virtuales unidas a Azure AD en Azure](./howto-vm-sign-in-azure-ad-windows.md#enabling-azure-ad-login-in-for-windows-vm-in-azure) ni a dispositivos unidos a Azure AD mediante el [modo de autoimplementación de Windows Autopilot](/mem/autopilot/self-deploying).
+> La opción **Requerir Multi-Factor Authentication para registrar o unir dispositivos con Azure AD** se aplica a los dispositivos que están unidos a Azure AD (con algunas excepciones) o registrados en Azure AD. Esta configuración no se aplica a los dispositivos unidos a Azure AD híbrido, a las [máquinas virtuales unidas a Azure AD en Azure](./howto-vm-sign-in-azure-ad-windows.md#enabling-azure-ad-login-in-for-windows-vm-in-azure) ni a dispositivos unidos a Azure AD mediante el [modo de autoimplementación de Windows Autopilot](/mem/autopilot/self-deploying).
 
 > [!IMPORTANT]
 > - Se recomienda usar la [acción del usuario "Registrar o unir dispositivos"](../conditional-access/concept-conditional-access-cloud-apps.md#user-actions) en el acceso condicional para exigir la autenticación multifactor para la unión o registro de un dispositivo. 

@@ -1,8 +1,6 @@
 ---
 title: Rotación de emergencia de los certificados de AD FS | Microsoft Docs
 description: En este artículo se explica cómo revocar y actualizar los certificados de AD FS inmediatamente.
-services: active-directory
-documentationcenter: ''
 author: billmath
 manager: daveba
 ms.service: active-directory
@@ -11,12 +9,12 @@ ms.topic: how-to
 ms.date: 03/22/2021
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9741c2e85a7cd3523ffe7fe8262e5f5d821b62c3
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 7153b33b0019600f58ea678079b553a9ad6c6672
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108126604"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124823023"
 ---
 # <a name="emergency-rotation-of-the-ad-fs-certificates"></a>Rotación de emergencia de los certificados de AD FS
 En caso de que necesite rotar los certificados de AD FS inmediatamente, puede seguir los pasos que se describen a continuación en esta sección.
@@ -26,13 +24,13 @@ En caso de que necesite rotar los certificados de AD FS inmediatamente, puede s
 
 > [!NOTE]
 > Microsoft recomienda encarecidamente usar un módulo de seguridad de hardware (HSM) para proteger los certificados.
-> Para obtener más información, vea [Módulo de seguridad de hardware](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#hardware-security-module-hsm) en los procedimientos recomendados para proteger AD FS.
+> Para más información, consulte [Módulo de seguridad de hardware](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#hardware-security-module-hsm) en los procedimientos recomendados para proteger AD FS.
 
 ## <a name="determine-your-token-signing-certificate-thumbprint"></a>Determinación de la huella digital del certificado de firma de tokens
 Para revocar el antiguo certificado de firma de tokens que AD FS está usando actualmente, debe determinar la huella digital del certificado de firma de tokens.  Para ello, siga estos pasos:
 
- 1. Conéctese al servicio `PS C:\>Connect-MsolService` de Microsoft Online Services.
- 2. Documente la huella digital y las fechas de expiración de su certificado de firma de tokens tanto local como en la nube.
+ 1.    Conéctese al servicio `PS C:\>Connect-MsolService` de Microsoft Online Services.
+ 2.    Documente la huella digital y las fechas de expiración de su certificado de firma de tokens tanto local como en la nube.
 `PS C:\>Get-MsolFederationProperty -DomainName <domain>` 
  3.  Copie el valor de la huella digital.  Se usará más adelante para quitar los certificados existentes.
 
@@ -103,10 +101,10 @@ Ahora que ha agregado el primer certificado, lo ha convertido en principal y ha 
 ## <a name="update-azure-ad-with-the-new-token-signing-certificate"></a>Actualización de Azure AD con el nuevo certificado de firma de tokens
 Abra el módulo Microsoft Azure Active Directory para Windows PowerShell. También puede abrir Windows PowerShell y ejecutar el comando `Import-Module msonline`.
 
-Conéctese a Azure AD ejecutando el comando `Connect-MsolService` y, luego, escriba sus credenciales de administrador global.
+Conéctese a Azure AD con el siguiente comando `Connect-MsolService` y, luego, escriba sus credenciales de administrador global.
 
 >[!Note]
-> Si ejecuta estos comandos en un equipo que no es el servidor de federación principal, ejecute primero el comando siguiente: `Set-MsolADFSContext –Computer <servername>`. Sustituya <servername> por el nombre del servidor de AD FS. A continuación, escriba las credenciales de administrador del servidor de AD FS cuando se le pida.
+> Si ejecuta estos comandos en un equipo que no es el servidor de federación principal, ejecute primero el comando siguiente: `Set-MsolADFSContext –Computer <servername>`. Sustituya \<servername\> por el nombre del servidor de AD FS. A continuación, escriba las credenciales de administrador del servidor de AD FS cuando se le pida.
 
 Opcionalmente, verifique si es necesaria una actualización comprobando la información actual del certificado en Azure AD. Para ello, ejecute el siguiente comando: `Get-MsolFederationProperty`. Escriba el nombre del dominio federado cuando se le pida.
 
@@ -118,13 +116,12 @@ Para actualizar la información del certificado en Azure AD, ejecute el comando
 ## <a name="replace-ssl-certificates"></a>Reemplazo de certificados SSL
 En caso de que necesite reemplazar el certificado de firma de tokens debido a un riesgo, también debe revocar y reemplazar los certificados SSL para AD FS y los servidores WAP.  
 
-La revocación de los certificados SSL debe realizarse en la entidad de certificación (CA) que emitió el certificado.  Estos certificados suelen emitirlos proveedores de terceros como GoDaddy.  Para obtener un ejemplo, consulte (Revocación de un certificado | Certificados SSL - GoDaddy Help US).  Para obtener más información, vea [Funcionamiento de la revocación de certificados](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee619754(v=ws.10)).
+La revocación de los certificados SSL debe realizarse en la entidad de certificación (CA) que emitió el certificado.  Estos certificados suelen emitirlos proveedores de terceros como GoDaddy.  Para obtener un ejemplo, consulte (Revocación de un certificado | Certificados SSL - GoDaddy Help US).  Para más información, consulte [Funcionamiento de la revocación de certificados](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee619754(v=ws.10)).
 
-Una vez que se ha revocado el certificado SSL anterior y se ha emitido uno nuevo, puede reemplazar los certificados SSL. Para obtener más información, vea [Reemplazar el certificado SSL para AD FS](/windows-server/identity/ad-fs/operations/manage-ssl-certificates-ad-fs-wap#replacing-the-ssl-certificate-for-ad-fs).
-
+Una vez que se ha revocado el certificado SSL anterior y se ha emitido uno nuevo, puede reemplazar los certificados SSL. Para más información, consulte [Reemplazar el certificado SSL para AD FS](/windows-server/identity/ad-fs/operations/manage-ssl-certificates-ad-fs-wap#replacing-the-ssl-certificate-for-ad-fs).
 
 ## <a name="remove-your-old-certificates"></a>Retirada de los certificados antiguos
-Una vez que haya reemplazado los certificados antiguos, debe quitarlos porque todavía se pueden usar. . Para ello, siga estos pasos:  Para ello, siga estos pasos:
+Una vez que haya reemplazado los certificados antiguos, debe quitarlos porque todavía se pueden usar. Para ello, siga estos pasos:
 
 1. Compruebe que la sesión en el servidor de AD FS principal está iniciada.
 2. Abra Windows PowerShell como administrador. 

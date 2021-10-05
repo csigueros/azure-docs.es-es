@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 08/25/2021
+ms.date: 09/22/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: aa60cf86a8bc59b9eed2adc8ac0ba2cfb89be584
-ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
+ms.openlocfilehash: b095b0e53b7d9cd76a7bb0cb92258dc9bda34b3d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122835615"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128588929"
 ---
 # <a name="page-layout-versions"></a>Versiones de diseño de página
 
@@ -56,6 +56,23 @@ El diseño de página de Azure AD B2C usa las siguientes versiones de la [bibl
 
 ## <a name="self-asserted-page-selfasserted"></a>Página autoafirmada (selfasserted)
 
+**2.1.8**
+
+- El nombre de la notificación se agrega al atributo `class` del elemento HTML `<li>` que rodea a los elementos de entrada del atributo del usuario. El nombre de la clase permite crear un selector CSS para seleccionar el elemento primario `<li>` de un determinado elemento de entrada del atributo de usuario. El siguiente marcado HTML muestra el atributo de clase para la página de registro:
+  
+  ```html
+  <div id="attributeList" class="attr">
+    <ul>
+      <li class="EmailBox email_li">...</li>
+      <li class="Password newPassword_li">...</li>
+      <li class="Password reenterPassword_li">...</li>
+      <li class="TextBox displayName_li">...</li>
+      <li class="TextBox givenName_li">...</li>
+      <li class="TextBox surname_li">...</li>
+      <li class="TextBox extension_age_li">...</li>
+    </ul>
+  </div>
+  ```
 **2.1.7**
 - Se ha corregido un problema de codificación del idioma que provocaba un error en la solicitud.
 - Se ha corregido un error de accesibilidad para mostrar mensajes de error insertados solo al enviar el formulario.

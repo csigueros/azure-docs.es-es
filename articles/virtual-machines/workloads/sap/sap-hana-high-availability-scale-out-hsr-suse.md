@@ -1,13 +1,9 @@
 ---
 title: Escalabilidad horizontal de SAP HANA con HSR y Pacemaker en SLES | Microsoft Docs
 description: Escalabilidad horizontal de SAP HANA con HSR y Pacemaker en SLES.
-services: virtual-machines-windows,virtual-network,storage
-documentationcenter: saponazure
 author: rdeltcheva
 manager: juergent
-editor: ''
 tags: azure-resource-manager
-keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: virtual-machines-sap
 ms.topic: article
@@ -15,12 +11,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/26/2021
 ms.author: radeltch
-ms.openlocfilehash: 211fa45626a8ca4db8e555795adccc55bc6c0a3e
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: ab66bcdc834fd894d7d258ab9c7c08a0049b07ed
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110534468"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128673148"
 ---
 # <a name="high-availability-for-sap-hana-scale-out-system-with-hsr-on-suse-linux-enterprise-server"></a>Alta disponibilidad para el sistema de escalabilidad horizontal de SAP HANA con HSR en SUSE Linux Enterprise Server 
 
@@ -30,7 +26,6 @@ ms.locfileid: "110534468"
 
 [anf-azure-doc]:../../../azure-netapp-files/index.yml
 [anf-avail-matrix]:https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all 
-[anf-register]:https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-register
 [anf-sap-applications-azure]:https://www.netapp.com/us/media/tr-4746.pdf
 
 [2205917]:https://launchpad.support.sap.com/#/notes/2205917
@@ -622,11 +617,11 @@ En este ejemplo para implementar SAP HANA en la configuración de escalabilidad 
      * En **Enter Root User Name [root]** (Escriba el nombre de usuario raíz [raíz]): presione Entrar para aceptar el valor predeterminado.
      * En **Select roles for host 'hana-s1-db2' [1]** (Seleccione los roles para el host "hana-s1-db2" [1]): 1 (para trabajo)
      * En **Enter Host Failover Group for host 'hana-s1-db2' [default]** (Escriba el grupo de conmutación por error de host para el host "hana-s1-db2" [predeterminado]): presione Entrar para aceptar el valor predeterminado.
-     * En **Enter Storage Partition Number for host 'hana-s1-db2' [<<assign automatically>>]** (Escriba el número de partición de almacenamiento para el host "hana-s1-db2" [<>]): presione Entrar para aceptar el valor predeterminado.
+     * En **Enter Storage Partition Number for host 'hana-s1-db2' [\<\<assign automatically\>\>]** (Escriba el número de partición de almacenamiento para el host "hana-s1-db2" [\<\<assign automatically\>\>]): presione ENTRAR para aceptar el valor predeterminado.
      * En **Enter Worker Group for host 'hana-s1-db2' [default]** (Escriba el grupo de trabajo para el host "hana-s1-db2" [predeterminado]): presione Entrar para aceptar el valor predeterminado.
      * En **Select roles for host 'hana-s1-db3' [1]** (Seleccione los roles para el host "hana-s1-db3" [1]): 1 (para trabajo)
      * En **Enter Host Failover Group for host 'hana-s1-db3' [default]** (Escriba el grupo de conmutación por error de host para el host "hana-s1-db3" [predeterminado]): presione Entrar para aceptar el valor predeterminado.
-     * En **Enter Storage Partition Number for host 'hana-s1-db3' [<<assign automatically>>]** (Escriba el número de partición de almacenamiento para el host "hana-s1-db3" [<>]): presione Entrar para aceptar el valor predeterminado.
+     * En **Enter Storage Partition Number for host 'hana-s1-db3' [\<\<assign automatically\>\>]** (Escriba el número de partición de almacenamiento para el host "hana-s1-db3" [\<\<assign automatically\>\>]): presione ENTRAR para aceptar el valor predeterminado.
      * En **Enter Worker Group for host 'hana-s1-db3' [default]** (Escriba el grupo de trabajo para el host "hana-s1-db3" [predeterminado]): presione Entrar para aceptar el valor predeterminado.
      * En **System Administrator (hn1adm) Password** (Contraseña del administrador del sistema (hn1adm)): escriba la contraseña.
      * En **Enter SAP Host Agent User (sapadm) Password** [Escriba la contraseña del usuario del agente de host de SAP (sapadm)]: escriba la contraseña.

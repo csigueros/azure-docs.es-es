@@ -6,13 +6,13 @@ ms.author: nayenama
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 04/02/2021
-ms.openlocfilehash: 6796a53ac05e8db606b29447a8792fa509c03d7e
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.date: 09/27/2021
+ms.openlocfilehash: dfb522e5231072e427c14dfe1c8c16889dd3ff9e
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106284108"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129214178"
 ---
 # <a name="how-to-create-import-and-export-glossary-terms"></a>Creación, importación y exportación de términos del glosario
 
@@ -22,7 +22,9 @@ En este artículo se describe cómo crear un término del glosario empresarial e
 
 Para crear un nuevo término de glosario, realice los pasos siguientes:
 
-1. Seleccione el icono de glosario en el panel de navegación izquierdo de la página principal para ir a la página de lista de términos.
+1. Seleccione **Catálogo de datos** en el panel de navegación izquierdo de la página principal y, a continuación, seleccione el botón **Manage glossary** (Administrar glosario) en el centro de la página.
+
+    :::image type="content" source="media/how-to-create-import-export-glossary/find-glossary.png" alt-text="Captura de pantalla del catálogo de datos con el glosario resaltado." border="true":::
 
 2. En la página **Términos del glosario**, seleccione **+ Nuevo término**. Se abrirá una página con la plantilla **Valores predeterminados del sistema** seleccionada. Elija la plantilla con la que desee crear el término de glosario y seleccione **Continuar**.
 

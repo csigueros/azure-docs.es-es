@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: mathoma
-ms.date: 7/8/2021
-ms.openlocfilehash: bd5a9d64b237fe8c6591cac841b13f96a9c16f1d
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.date: 9/9/2021
+ms.openlocfilehash: f5cc4321f49a2cee75f8111bd975f750f075680f
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122864457"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129094184"
 ---
 # <a name="hyperscale-service-tier"></a>Nivel de servicio Hiperescala
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -41,7 +41,7 @@ El nivel de servicio Hiperescala en Azure SQL Database proporciona las siguiente
 - Compatibilidad con bases de datos con un tamaño de hasta 100 TB
 - Copias de seguridad de base de datos casi instantáneas (basadas en las instantáneas almacenadas en Azure Blob Storage) independientemente del tamaño sin efecto de la E/S en recursos de proceso  
 - Restauraciones rápidas de base de datos (basadas en instantáneas de archivos) en minutos en lugar de horas o días (no el tamaño de la operación de datos)
-- Mayor rendimiento general debido a un mayor rendimiento de los registros y tiempos más rápidos de confirmación de las transacciones, independientemente de los volúmenes de datos
+- Mayor rendimiento general debido a un mayor rendimiento de los registros de transacciones y tiempos más rápidos de confirmación de estas, independientemente de los volúmenes de datos
 - Rápido escalado horizontal: puede aprovisionar una o varias [réplicas de solo lectura](service-tier-hyperscale-replicas.md) para la descarga de la carga de trabajo de lectura y para su uso como esperas activas
 - Rápido escalado vertical: en tiempo constante, puede escalar verticalmente los recursos de proceso para dar cabida a cargas de trabajo pesadas cuando sea necesario y, después, reducir verticalmente los recursos de proceso cuando no sean necesarios.
 
@@ -96,11 +96,11 @@ El motor de base de datos que se ejecuta en nodos de ejecución de Hyperscale es
 
 ### <a name="page-server"></a>Servidor de páginas
 
-Los servidores de páginas son sistemas que representan un motor de almacenamiento escalado horizontalmente.  Cada servidor de páginas es responsable de un subconjunto de las páginas en la base de datos.  Nominalmente, cada servidor de páginas controla hasta 128 GB o hasta 1 TB de datos. No se comparten datos en más de un servidor de páginas (fuera de las réplicas del servidor de páginas que se mantienen por motivos de redundancia y disponibilidad). El trabajo de un servidor de páginas es servir las páginas de la base de datos a los nodos de ejecución a petición, y conservar las páginas actualizadas a medida que las transacciones actualizan los datos. Los servidores de páginas se mantienen actualizados mediante la reproducción de entradas del registro del servicio de registro. Los servidores de páginas también mantienen memorias caché de cobertura basadas en SSD para mejorar el rendimiento. El almacenamiento a largo plazo de las páginas de datos se mantiene en Azure Storage para aumentar la confiabilidad.
+Los servidores de páginas son sistemas que representan un motor de almacenamiento escalado horizontalmente.  Cada servidor de páginas es responsable de un subconjunto de las páginas en la base de datos.  Nominalmente, cada servidor de páginas controla hasta 128 GB o hasta 1 TB de datos. No se comparten datos en más de un servidor de páginas (fuera de las réplicas del servidor de páginas que se mantienen por motivos de redundancia y disponibilidad). El trabajo de un servidor de páginas es servir las páginas de la base de datos a los nodos de ejecución a petición, y conservar las páginas actualizadas a medida que las transacciones actualizan los datos. Los servidores de páginas se mantienen actualizados reproduciendo entradas del registro de transacciones del servicio de registro. Los servidores de páginas también mantienen memorias caché de cobertura basadas en SSD para mejorar el rendimiento. El almacenamiento a largo plazo de las páginas de datos se mantiene en Azure Storage para aumentar la confiabilidad.
 
 ### <a name="log-service"></a>Servicio de registros
 
-El servicio de registros acepta entradas de registro desde la réplica de proceso principal, las conserva en una memoria caché duradera y reenvía las entradas del registro al resto de las réplicas de proceso (para que puedan actualizar sus memorias caché), así como los servidores de páginas pertinentes, para que los datos puedan actualizarse allí. De este modo, todos los cambios en los datos desde la réplica de proceso principal se propagan mediante el servicio de registros a todas las réplicas de proceso secundarias y los servidores de página. Por último, las entradas de registro se insertan en el almacenamiento a largo plazo en Azure Storage, que es un repositorio de almacenamiento casi infinito. Este mecanismo elimina la necesidad de truncamiento frecuente del registro. El servicio de registro también tiene memoria local y cachés SSD para acelerar el acceso a las entradas de registro.
+El servicio de registros acepta entradas de registro de transacciones desde la réplica de proceso principal, las conserva en una memoria caché duradera y las reenvía al resto de las réplicas de proceso (para que puedan actualizar sus memorias caché), así como los servidores de páginas pertinentes, para que los datos puedan actualizarse allí. De este modo, todos los cambios en los datos desde la réplica de proceso principal se propagan mediante el servicio de registros a todas las réplicas de proceso secundarias y los servidores de página. Por último, las entradas de registro de transacciones se insertan en el almacenamiento a largo plazo en Azure Storage, que es un repositorio de almacenamiento casi infinito. Este mecanismo elimina la necesidad de truncamiento frecuente del registro. El servicio de registro también tiene memoria local y cachés SSD para acelerar el acceso a las entradas de registro.
 
 ### <a name="azure-storage"></a>Almacenamiento de Azure
 
@@ -167,49 +167,12 @@ Si necesita restaurar una base de datos Hiperescala de Azure SQL Database en una
 
 ## <a name="available-regions"></a><a name=regions></a>Regiones disponibles
 
-El nivel Hiperescala de Azure SQL Database está disponible en todas las regiones, pero está habilitado de forma predeterminada en las regiones que se enumeran a continuación. Si desea crear una base de datos Hiperescala en una región donde este nivel no está habilitado de forma predeterminada, puede enviar una solicitud de incorporación a través de Azure Portal. Para obtener instrucciones, consulte [Solicitud de aumentos de cuota para Azure SQL Database](quota-increase-request.md). Cuando envíe la solicitud, utilice las siguientes directrices:
+El nivel Hiperescala de Azure SQL Database está habilitado en la gran mayoría de las regiones de Azure. Si desea crear una base de datos Hiperescala en una región donde este nivel no está habilitado de forma predeterminada, puede enviar una solicitud de incorporación a través de Azure Portal. Para obtener instrucciones, consulte [Solicitud de aumentos de cuota para Azure SQL Database](quota-increase-request.md). Cuando envíe la solicitud, utilice las siguientes directrices:
 
 - Use el tipo de cuota [Acceso a la región](quota-increase-request.md#region) de SQL Database.
 - En la descripción, agregue la SKU o el total de núcleos de proceso, incluidas las réplicas de alta disponibilidad y con nombre, e indique que está solicitando capacidad de Hiperescala.
 - Especifique también una proyección del tamaño total, en TB, de todas las bases de datos a lo largo del tiempo.
 
-Regiones habilitadas:
-- Este de Australia
-- Sudeste de Australia
-- Centro de Australia
-- Sur de Brasil
-- Centro de Canadá
-- Este de Canadá
-- Centro de EE. UU.
-- Este de China 2
-- Norte de China 2
-- Este de Asia
-- Este de EE. UU.
-- Este de EE. UU. 2
-- Centro de Francia
-- Centro-oeste de Alemania
-- Japón Oriental
-- Japón Occidental
-- Centro de Corea del Sur
-- Corea del Sur
-- Centro-Norte de EE. UU
-- Norte de Europa
-- Este de Noruega
-- Oeste de Noruega
-- Norte de Sudáfrica
-- Centro-sur de EE. UU.
-- Sudeste de Asia
-- Oeste de Suiza
-- Sur de Reino Unido
-- Oeste de Reino Unido
-- US DoD (centro)
-- US DoD (este)
-- Us Govt Arizona
-- US Gov Texas
-- Centro-Oeste de EE. UU.
-- Oeste de Europa
-- Oeste de EE. UU.
-- Oeste de EE. UU. 2
 
 ## <a name="known-limitations"></a>Restricciones conocidas
 

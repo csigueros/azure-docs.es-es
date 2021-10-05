@@ -11,12 +11,12 @@ ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: a7022c9de1449d0c4001b1d814eeb9464b98c24a
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: c9167111a1799575b5dc0d06cb26bf7cc20002e9
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122769986"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124826793"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Servicios que admiten identidades administradas para recursos de Azure
 
@@ -73,7 +73,7 @@ Consulte la lista siguiente para configurar la identidad administrada para Azure
 | Asignado por el sistema | Versión preliminar | No disponible | No disponible | No disponible |
 | Asignado por el usuario | No disponible | No disponible | No disponible | No disponible |
 
-Kubernetes habilitado para Azure Arc [admite actualmente la identidad asignada por el sistema](../../azure-arc/kubernetes/quickstart-connect-cluster.md). El certificado de identidad de servicio administrado se usa en todos los agentes Kubernetes habilitados para Azure Arc para la comunicación con Azure.
+Kubernetes habilitado para Azure Arc actualmente [admite la identidad asignada por el sistema](../../azure-arc/kubernetes/quickstart-connect-cluster.md). El certificado de identidad de servicio administrado se usa en todos los agentes de Kubernetes habilitados para Azure Arc para la comunicación con Azure.
 
 ### <a name="azure-arc-enabled-servers"></a>Servidores habilitados para Azure Arc
 
@@ -84,8 +84,8 @@ Kubernetes habilitado para Azure Arc [admite actualmente la identidad asignada p
 
 Todos los servidores habilitados para Azure Arc tienen una identidad asignada por el sistema. No se puede deshabilitar ni cambiar la identidad asignada por el sistema en un servidor habilitado para Azure Arc. Consulte los siguientes recursos para obtener más información sobre cómo consumir identidades administradas en servidores habilitados para Azure Arc:
 
-- [Autenticación en recursos de Azure con servidores habilitados para Arc](../../azure-arc/servers/managed-identity-authentication.md)
-- [Uso de una identidad administrada con servidores habilitados para Arc](../../azure-arc/servers/security-overview.md#using-a-managed-identity-with-arc-enabled-servers)
+- [Autenticación en recursos de Azure con servidores habilitados para Azure Arc](../../azure-arc/servers/managed-identity-authentication.md)
+- [Uso de una identidad administrada con servidores habilitados para Azure Arc](../../azure-arc/servers/security-overview.md#using-a-managed-identity-with-azure-arc-enabled-servers)
 
 ### <a name="azure-automanage"></a>Azure Automanage
 
@@ -102,8 +102,8 @@ Consulte el documento siguiente para volver a configurar una identidad administr
 
 | Tipo de identidad administrada | Regiones globales de Azure<br>con disponibilidad general | Azure Government | Azure Alemania | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| Asignado por el sistema | Versión preliminar | Versión preliminar | No disponible | Versión preliminar |
-| Asignado por el usuario | Versión preliminar | Versión preliminar | No disponible | Versión preliminar |
+| Asignado por el sistema | Versión preliminar | Vista previa | No disponible | Vista previa |
+| Asignado por el usuario | Vista previa | Vista previa | No disponible | Vista previa |
 
 Consulte los siguientes documentos para usar una identidad administrada con [Azure Automation](../../automation/automation-intro.md):
 
@@ -155,8 +155,8 @@ Consulte la lista siguiente para configurar la identidad administrada para Azure
 
 Tipo de identidad administrada | Regiones globales de Azure<br>con disponibilidad general | Azure Government | Azure Alemania | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| Asignado por el sistema | ![Disponible][check] | Versión preliminar | No disponible | Versión preliminar |
-| Asignado por el usuario | Versión preliminar | Versión preliminar | No disponible | Versión preliminar |
+| Asignado por el sistema | ![Disponible][check] | Vista previa | No disponible | Vista previa |
+| Asignado por el usuario | Vista previa | Vista previa | No disponible | Vista previa |
 
 Consulte la lista siguiente para configurar la identidad administrada para Azure Container Registry Tasks (en las regiones donde esté disponible):
 
@@ -195,15 +195,15 @@ Consulte la lista siguiente para configurar la identidad administrada para Azure
 
 Tipo de identidad administrada |Regiones globales de Azure<br>con disponibilidad general | Azure Government | Azure Alemania | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| Asignado por el sistema | Versión preliminar | Versión preliminar | No disponible | Versión preliminar |
-| Asignado por el usuario | Versión preliminar | Versión preliminar | No disponible | Versión preliminar |
+| Asignado por el sistema | Versión preliminar | Vista previa | No disponible | Vista previa |
+| Asignado por el usuario | Vista previa | Vista previa | No disponible | Versión preliminar |
 
 ### <a name="azure-firewall-policy"></a>Directiva de Azure Firewall
 
 Tipo de identidad administrada |Regiones globales de Azure<br>con disponibilidad general | Azure Government | Azure Alemania | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
 | Asignado por el sistema | No disponible | No disponible | No disponible | No disponible |
-| Asignado por el usuario | Versión preliminar | No disponible  | No disponible  | No disponible |
+| Asignado por el usuario | Vista previa | No disponible  | No disponible  | No disponible |
 
 ### <a name="azure-functions"></a>Azure Functions
 
@@ -274,7 +274,7 @@ Consulte la lista siguiente para configurar la identidad administrada para Azure
 Tipo de identidad administrada | Regiones globales de Azure<br>con disponibilidad general | Azure Government | Azure Alemania | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
 | Asignado por el sistema | Versión preliminar | No disponible | No disponible | No disponible |
-| Asignado por el usuario | Versión preliminar | No disponible | No disponible | No disponible |
+| Asignado por el usuario | Vista previa | No disponible | No disponible | No disponible |
 
 Para más información, consulte [Uso de identidades administradas con Azure Machine Learning](../../machine-learning/how-to-use-managed-identities.md).
 
@@ -381,8 +381,8 @@ Para más información sobre cómo configurar la identidad administrada para Azu
 
 Tipo de identidad administrada | Regiones globales de Azure<br>con disponibilidad general | Azure Government | Azure Alemania | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| Asignado por el sistema | Versión preliminar | Versión preliminar | No disponible | Versión preliminar |
-| Asignado por el usuario | Versión preliminar | Versión preliminar | No disponible | Versión preliminar |
+| Asignado por el sistema | Versión preliminar | Vista previa | No disponible | Vista previa |
+| Asignado por el usuario | Vista previa | Vista previa | No disponible | Versión preliminar |
 
 Consulte la lista siguiente para configurar la identidad administrada para Azure SignalR Service (en las regiones donde esté disponible):
 
@@ -437,7 +437,7 @@ Consulte la siguiente lista para configurar el acceso a Azure Resource Manager:
 | Azure Alemania |   | No disponible |
 | Azure China 21Vianet |  | No disponible |
 
-### <a name="azure-cosmos-db"></a>Azure Cosmos DB
+### <a name="azure-cosmos-db"></a>Azure Cosmos DB
 
 | Nube | Id. de recurso | Estado |
 |--------|------------|:-:|
@@ -507,7 +507,6 @@ Tipo de identidad administrada | Regiones globales de Azure<br>con disponibilida
 | --- | :-: | :-: | :-: | :-: |
 | Asignado por el sistema | ![Disponible][check] | No disponible | No disponible | No disponible |
 | Asignado por el usuario | ![Disponible][check] | No disponible | No disponible | No disponible |
-
 
 > [!NOTE]
 > Puede usar las identidades administradas para autenticar un [trabajo de Azure Stream Analytics en Power BI](../../stream-analytics/powerbi-output-managed-identity.md).

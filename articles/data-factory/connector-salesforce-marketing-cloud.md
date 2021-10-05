@@ -1,26 +1,26 @@
 ---
 title: Copia de datos de Salesforce Marketing Cloud
+description: Aprenda a copiar datos de Salesforce Marketing Cloud a almacenes de datos receptores compatibles mediante una actividad de copia en una canalización de Azure Data Factory o Synapse Analytics.
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Obtenga información sobre cómo copiar datos desde Salesforce Marketing Cloud en almacenes de datos receptores compatibles a través de una actividad de copia de una canalización de Azure Data Factory.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/30/2021
-ms.openlocfilehash: 448ef9ebc2147fa23716bda6441a0196c0c003b3
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.date: 09/09/2021
+ms.openlocfilehash: 7a9a8daa8e5464af3d58ba46544b28f5fec39520
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123307935"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124782805"
 ---
-# <a name="copy-data-from-salesforce-marketing-cloud-using-azure-data-factory"></a>Copia de datos de Salesforce Marketing Cloud con Azure Data Factory
+# <a name="copy-data-from-salesforce-marketing-cloud-using-azure-data-factory-or-synapse-analytics"></a>Copia de datos de Salesforce Marketing Cloud con Azure Data Factory o Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-En este artículo se explica el uso de la actividad de copia de Azure Data Factory para copiar datos desde una base de datos Salesforce Marketing Cloud. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
+En este artículo se describe el uso de la actividad de copia en canalizaciones de Azure Data Factory o Synapse Analytics para copiar datos de Salesforce Marketing Cloud. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
@@ -48,7 +48,7 @@ Siga estos pasos para crear un servicio vinculado a Salesforce Marketing Cloud e
 
     # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
 
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Creación de un nuevo servicio vinculado con la interfaz de usuario de Azure Data Factory.":::
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Creación de un servicio vinculado con la interfaz de usuario de Azure Data Factory":::
 
     # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
 
@@ -79,7 +79,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado Salesforce 
 | authenticationType | especifica el método de autenticación que se va a utilizar. Los valores permitidos son: `Enhanced sts OAuth 2.0` o `OAuth_2.0`.<br><br>El paquete heredado de Salesforce Marketing Cloud solo admite `OAuth_2.0`, mientras que el paquete mejorado necesita `Enhanced sts OAuth 2.0`. <br>Desde el 1 de agosto de 2019, Salesforce Marketing Cloud ha eliminado la capacidad de crear paquetes heredados. Todos los paquetes nuevos son paquetes mejorados. | Sí |
 | host | Para un paquete mejorado, el host debe ser el [subdominio](https://developer.salesforce.com/docs/atlas.en-us.mc-apis.meta/mc-apis/your-subdomain-tenant-specific-endpoints.htm) que se representa mediante una cadena de 28 caracteres que empieza por las letras "mc", por ejemplo `mc563885gzs27c5t9-63k636ttgm`. <br>Para un paquete heredado, especifique `www.exacttargetapis.com`. | Sí |
 | clientId | El identificador de cliente asociado a la aplicación Salesforce Marketing Cloud.  | Sí |
-| clientSecret | El secreto de cliente asociado a la aplicación Salesforce Marketing Cloud. Puede elegir marcar este campo como SecureString para almacenarlo de forma segura en ADF o almacenar el secreto en Azure Key Vault y permitir que la actividad de copia de ADF incorpore los cambios desde allí al realizar la copia de datos. Obtenga más información sobre el [Almacenamiento de credenciales en Key Vault](store-credentials-in-key-vault.md). | Sí |
+| clientSecret | El secreto de cliente asociado a la aplicación Salesforce Marketing Cloud. Puede elegir marcar este campo como SecureString para almacenarlo de forma segura en el servicio o almacenar el secreto en Azure Key Vault y permitir que la actividad de copia del servicio incorpore los cambios desde allí al realizar la copia de datos. Más información en [Almacenamiento de credenciales en Key Vault](store-credentials-in-key-vault.md). | Sí |
 | useEncryptedEndpoints | Especifica si los puntos de conexión de origen de datos se cifran mediante HTTPS. El valor predeterminado es true.  | No |
 | useHostVerification | Especifica si se requiere que el nombre de host del certificado del servidor coincida con el nombre de host del servidor al conectarse a través de TLS. El valor predeterminado es true.  | No |
 | usePeerVerification | Especifica si se debe verificar la identidad del servidor al conectarse a través de TLS. El valor predeterminado es true.  | No |
@@ -236,4 +236,4 @@ Para copiar datos desde y hacia Salesforce Marketing Cloud, establezca el tipo d
 Para obtener información detallada sobre las propiedades, consulte [Actividad de búsqueda](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte los [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver la lista de almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores.
+Para obtener una lista de almacenes de datos que la actividad de copia admite como orígenes y receptores, vea [Almacenes de datos que se admiten](copy-activity-overview.md#supported-data-stores-and-formats).

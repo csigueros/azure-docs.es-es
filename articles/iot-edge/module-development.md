@@ -3,16 +3,16 @@ title: Desarrollo de módulos para Azure IoT Edge | Microsoft Docs
 description: Desarrollo de módulos personalizados para Azure IoT Edge que pueden comunicarse con el tiempo de ejecución y IoT Hub
 author: kgremban
 ms.author: kgremban
-ms.date: 11/10/2020
+ms.date: 09/03/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: fafb9475d308863113fa943d4e52cf3c1b5652cd
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 5a04acfdec42319b998b2854be9690bab360558c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121728825"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128550540"
 ---
 # <a name="develop-your-own-iot-edge-modules"></a>Desarrollar sus propios módulos de IoT Edge
 
@@ -81,7 +81,7 @@ Para enviar mensajes de telemetría del dispositivo a la nube mediante el enruta
 <!-- <1.2> -->
 ::: moniker range=">=iotedge-2020-11"
 
-El envío de mensajes de telemetría del dispositivo a la nube con el agente MQTT es similar a la publicación de mensajes en temas definidos por el usuario, pero con el siguiente tema especial de IoT Hub para el módulo: `devices/<device_name>/<module_name>/messages/events`. Las autorizaciones deben configurarse correctamente. El puente MQTT también debe estar configurado para reenviar los mensajes de este tema a la nube.
+El envío de mensajes de telemetría del dispositivo a la nube con el agente MQTT es similar a la publicación de mensajes en temas definidos por el usuario, pero con el siguiente tema especial de IoT Hub para el módulo: `devices/<device_name>/modules/<module_name>/messages/events`. Las autorizaciones deben estar configuradas correctamente. El puente MQTT también debe estar configurado para reenviar los mensajes de este tema a la nube.
 
 ::: moniker-end
 
@@ -90,20 +90,20 @@ Para procesar mensajes mediante el enrutamiento, configure primero una ruta para
 <!-- <1.2> -->
 ::: moniker range=">=iotedge-2020-11"
 
-El procesamiento de mensajes con el agente MQTT es similar a suscribirse a mensajes en temas definidos por el usuario, pero mediante los temas especiales de IoT Edge de la cola de salida del módulo: `devices/<device_name>/<module_name>/messages/events`. Las autorizaciones deben configurarse correctamente. De manera opcional, puede enviar mensajes nuevos en los temas de su elección.
+El procesamiento de mensajes con el agente MQTT es similar a suscribirse a mensajes en temas definidos por el usuario, pero mediante los temas especiales de IoT Edge de la cola de salida del módulo: `devices/<device_name>/modules/<module_name>/messages/events`. Las autorizaciones deben estar configuradas correctamente. De manera opcional, puede enviar mensajes nuevos en los temas de su elección.
 
 ::: moniker-end
 
 #### <a name="twins"></a>Gemelos
 
-Los gemelos son uno de los primitivos proporcionados por IoT Hub. Son documentos JSON que almacenan información acerca del estado, incluidos metadatos, configuraciones y condiciones. Cada módulo o dispositivo tiene su propio gemelo.
+Los gemelos son uno de los primitivos proporcionados por IoT Hub. Hay documentos JSON que almacenan información acerca del estado, incluidos metadatos, configuraciones y condiciones. Cada módulo o dispositivo tiene su propio gemelo.
 
 Para obtener un módulo gemelo con el SDK de Azure IoT, llame al método `ModuleClient.getTwin`.
 
 <!-- <1.2> -->
 ::: moniker range=">=iotedge-2020-11"
 
-Para obtener un módulo gemelo con cualquier cliente MQTT, se supone un poco más de trabajo, ya que obtener un gemelo no es un patrón MQTT típico. El módulo primero debe suscribirse al tema especial de IoT Hub `$iothub/twin/res/#`. El nombre de este tema se hereda de IoT Hub, y todos los dispositivos o módulos deben suscribirse al mismo tema. No significa que los dispositivos reciban los gemelos unos de otros. IoT Hub y edgeHub saben qué gemelo se debe entregar a dónde, incluso si todos los dispositivos escuchan el mismo nombre de tema. Una vez que se realice la suscripción, el módulo debe solicitar el gemelo mediante la publicación de un mensaje en el siguiente tema especial de IoT Hub con un identificador de solicitud `$iothub/twin/GET/?$rid=1234`. Este identificador de solicitud es un identificador arbitrario (es decir, un GUID), que IoT Hub devolverá junto con los datos solicitados. Así es como un cliente puede emparejar sus solicitudes con las respuestas. El código de resultado es un código de estado de tipo HTTP, donde se codifica correctamente como 200.
+Para obtener un módulo gemelo con cualquier cliente MQTT, se necesita algo más de trabajo, ya que obtener un gemelo no es un patrón MQTT típico. El módulo primero debe suscribirse al tema especial de IoT Hub `$iothub/twin/res/#`. El nombre de este tema se hereda de IoT Hub, y todos los dispositivos o módulos deben suscribirse al mismo tema. No significa que los dispositivos reciban los gemelos unos de otros. IoT Hub y edgeHub saben qué gemelo se debe entregar y dónde, incluso si todos los dispositivos escuchan el mismo nombre de tema. Una vez que se realice la suscripción, el módulo debe solicitar el gemelo mediante la publicación de un mensaje en el siguiente tema especial de IoT Hub con un identificador de solicitud `$iothub/twin/GET/?$rid=1234`. Este identificador de solicitud es un identificador arbitrario (es decir, un GUID), que IoT Hub devolverá junto con los datos solicitados. Así es como un cliente puede emparejar sus solicitudes con las respuestas. El código de resultado es un código de estado de tipo HTTP, donde se codifica correctamente como 200.
 
 ::: moniker-end
 
@@ -165,6 +165,31 @@ En todos los idiomas de la tabla siguiente, IoT Edge admite el desarrollo para c
 IoT Edge 1.1 LTS es el último canal de versión compatible con los contenedores de Windows. A partir de la versión 1.2, no se admiten los contenedores de Windows.
 
 Para obtener información sobre el desarrollo con contenedores de Windows, consulte la [versión 1.1 de IoT Edge](?view=iotedge-2018-06&preserve-view=true) de este artículo.
+
+:::moniker-end
+<!-- end 1.2 -->
+
+<!--1.2-->
+:::moniker range="iotedge-2020-11"
+
+## <a name="module-security"></a>Seguridad del módulo
+
+Debe desarrollar los módulos pensando en la seguridad. Para más información sobre cómo proteger los módulos, consulte [Seguridad de Docker](https://docs.docker.com/engine/security/).
+
+Para ayudar a mejorar la seguridad de los módulos, IoT Edge deshabilita algunas características de contenedor de forma predeterminada. Puede invalidar los valores predeterminados para proporcionar funcionalidades con privilegios a los módulos si es necesario.
+
+### <a name="allow-elevated-docker-permissions"></a>Permitir permisos elevados de Docker
+
+En el archivo config.toml de un dispositivo IoT Edge, hay un parámetro denominado `allow_elevated_docker_permissions`. Cuando se establece en **true**, esta marca permite la marca `--privileged`, así como funcionalidades adicionales que se definen en el campo `CapAdd` de Docker HostConfig en las [opciones de creación de contenedores](how-to-use-create-options.md).
+
+>[!NOTE]
+>Actualmente, esta marca es **true** forma predeterminada, lo que permite a las implementaciones conceder permisos con privilegios a los módulos. Se recomienda establecer esta marca en false para mejorar la seguridad del dispositivo. En el futuro, esta marca se establecerá en **false** de forma predeterminada.
+
+### <a name="enable-cap_chown-and-cap_setuid"></a>Habilitación de CAP_CHOWN y CAP_SETUID
+
+Las funcionalidades **CAP_CHOWN** y **CAP_SETUID** de Docker están deshabilitadas de forma predeterminada. Estas funcionalidades se pueden usar para escribir en archivos seguros en el dispositivo host y obtener acceso raíz.
+
+Si necesita estas funcionalidades, puede volver a habilitarlas manualmente mediante CapADD en las opciones de creación del contenedor.
 
 :::moniker-end
 <!-- end 1.2 -->

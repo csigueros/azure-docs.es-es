@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5bb00c2554b17ec68cfd1cffa0902bed421b9e4e
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 05ea462d08c50e6483aeb0968b00b6b18d0e7397
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123433078"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129092683"
 ---
 # <a name="assign-sensitivity-labels-to-microsoft-365-groups-in-azure-active-directory"></a>Asignación de etiquetas de confidencialidad a grupos de Microsoft 365 en Azure Active Directory
 
@@ -45,11 +45,13 @@ Para aplicar etiquetas publicadas a grupos, primero debe habilitar la caracterí
 1. Capture la configuración de grupo actual para la organización de Azure AD.
 
     ```PowerShell
-    $Setting = Get-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id
+    $setting = (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ)
+    $template = Get-AzureADDirectorySettingTemplate -Id 62375ab9-6b52-47ed-826b-58e47e0e304b
+    $setting = $template.CreateDirectorySetting()
     ```
 
     > [!NOTE]
-    > Si no se ha creado ninguna configuración de grupo para esta organización de Azure AD, recibirá un error en el cmdlet anterior que dice "No se puede enlazar el argumento al parámetro 'Id' porque es nulo". En este caso, primero debe crear la configuración. Siga los pasos de [Cmdlets de Azure Active Directory para configurar las opciones de grupo](../enterprise-users/groups-settings-cmdlets.md) y cree una configuración de grupo para esta organización de Azure AD.
+    > Si no se ha creado ninguna configuración de grupo para esta organización de Azure AD, recibirá un error que dice "No se puede enlazar el argumento al parámetro 'Id' porque es nulo". En este caso, primero debe crear la configuración. Siga los pasos de [Cmdlets de Azure Active Directory para configurar las opciones de grupo](../enterprise-users/groups-settings-cmdlets.md) y cree una configuración de grupo para esta organización de Azure AD.
 
 1. A continuación, muestre la configuración actual del grupo.
 
@@ -66,7 +68,7 @@ Para aplicar etiquetas publicadas a grupos, primero debe habilitar la caracterí
 1. Finalmente, guarde los cambios y aplique la configuración:
 
     ```PowerShell
-    Set-AzureADDirectorySetting -Id $Setting.Id -DirectorySetting $Setting
+    New-AzureADDirectorySetting -DirectorySetting $setting
     ```
 
 También deberá sincronizar las etiquetas de confidencialidad con Azure AD. Puede encontrar instrucciones en [Cómo habilitar etiquetas de confidencialidad para contenedores y sincronizarlas](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#how-to-enable-sensitivity-labels-for-containers-and-synchronize-labels).

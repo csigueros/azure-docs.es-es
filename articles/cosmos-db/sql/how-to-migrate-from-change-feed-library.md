@@ -5,15 +5,15 @@ author: ealsur
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 08/26/2021
+ms.date: 09/13/2021
 ms.author: maquaran
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 498b304e5b0e1deeca2b923e9f1312ea0cebf6bf
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: ad060c3fce28ef70137e0f25e09a1e4ea5fb9a09
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123114398"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128561485"
 ---
 # <a name="migrate-from-the-change-feed-processor-library-to-the-azure-cosmos-db-net-v3-sdk"></a>Migración desde la biblioteca de procesadores de fuente de cambios al SDK de Azure Cosmos DB para .NET V3
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -28,7 +28,7 @@ El SDK de .NET V3 tiene varios cambios importantes; estos son los pasos princip
 1. Las personalizaciones que usan `WithProcessorOptions` se deben actualizar para usar `WithLeaseConfiguration` y `WithPollInterval` para los intervalos, `WithStartTime`[para la hora de inicio](./change-feed-processor.md#starting-time) y `WithMaxItems` para definir el número máximo de elementos.
 1. Establezca el `processorName` en `GetChangeFeedProcessorBuilder` para que coincida con el valor configurado en `ChangeFeedProcessorOptions.LeasePrefix`, o bien, puede usar `string.Empty`.
 1. Los cambios ya no se entregan como `IReadOnlyList<Document>` sino que, en su lugar, se trata de un `IReadOnlyCollection<T>` donde `T` es un tipo que debe definir. Ya no hay ninguna clase de elemento base.
-1. Para controlar los cambios, ya no necesita una implementación, en su lugar debe [definir un delegado](change-feed-processor.md#implementing-the-change-feed-processor). El delegado puede ser una función estática o, si necesita mantener el estado entre las ejecuciones, puede crear su propia clase y pasar un método de instancia como delegado.
+1. Para controlar los cambios, ya no necesita una implementación de `IChangeFeedObserver`, sino que debe [definir un delegado](change-feed-processor.md#implementing-the-change-feed-processor). El delegado puede ser una función estática o, si necesita mantener el estado entre las ejecuciones, puede crear su propia clase y pasar un método de instancia como delegado.
 
 Por ejemplo, si el código original para compilar el procesador de fuente de cambios tiene el siguiente aspecto:
 
@@ -38,7 +38,11 @@ El código migrado tendrá el siguiente aspecto:
 
 [!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=ChangeFeedProcessorMigrated)]
 
-Y el delegado puede ser un método estático:
+Para el delegado, puede tener un método estático para recibir los eventos. Si fuera a consumir información de `IChangeFeedObserverContext`, puede migrarla para usar `ChangeFeedProcessorContext`:
+
+* `ChangeFeedProcessorContext.LeaseToken` se puede usar en lugar de `IChangeFeedObserverContext.PartitionKeyRangeId`
+* `ChangeFeedProcessorContext.Headers` se puede usar en lugar de `IChangeFeedObserverContext.FeedResponse`
+* `ChangeFeedProcessorContext.Diagnostics` contiene información detallada sobre la latencia de solicitud para la solución de problemas
 
 [!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=Delegate)]
 
@@ -65,4 +69,4 @@ Puede obtener más información sobre el procesador de la fuente de cambios en l
 * [Hora de inicio del procesador de la fuente de cambios](./change-feed-processor.md#starting-time)
 * ¿Intenta planear la capacidad de una migración a Azure Cosmos DB?
     * Si lo único que sabe es el número de núcleos virtuales y servidores del clúster de bases de datos existente, lea sobre el [cálculo de unidades de solicitud mediante núcleos o CPU virtuales](../convert-vcore-to-request-unit.md). 
-    * Si conoce las velocidades de solicitud típicas de la carga de trabajo de la base de datos actual, lea sobre el [cálculo de unidades de solicitud mediante la herramienta de planeamiento de capacidad de Azure Cosmos DB](estimate-ru-with-capacity-planner.md).
+    * Si conoce las velocidades de solicitud típicas de la carga de trabajo de base de datos actual, lea sobre el [cálculo de las unidades de solicitud mediante la herramienta de planeamiento de capacidad de Azure Cosmos DB](estimate-ru-with-capacity-planner.md).

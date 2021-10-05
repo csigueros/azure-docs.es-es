@@ -1,15 +1,15 @@
 ---
 title: Información sobre Azure Policy para Kubernetes
 description: Obtenga información sobre cómo Azure Policy usa Rego y Open Policy Agent para administrar clústeres que ejecutan Kubernetes en Azure o en el entorno local.
-ms.date: 09/01/2021
+ms.date: 09/13/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 43b5e010ec6f024838a0407f2cafae1d28bdcf1e
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 55a8f2f1cbb67c80c82e367a870cd61d76178518
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123436075"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128556334"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters"></a>Descripción de Azure Policy para clústeres de Kubernetes (versión preliminar)
 
@@ -463,6 +463,99 @@ kubectl logs <gatekeeper pod name> -n gatekeeper-system
 ```
 
 Para obtener más información, vea [Depuración de Gatekeeper](https://open-policy-agent.github.io/gatekeeper/website/docs/debug/) en la documentación de Gatekeeper.
+
+## <a name="view-gatekeeper-artifacts"></a>Visualización de artefactos de Gatekeeper
+
+Después de que el complemento descarga las asignaciones de directiva e instala las plantillas de restricción y las restricciones en el clúster, anota ambos con información de Azure Policy, como el identificador de asignación de directiva y el identificador de definición de directiva. Para configurar el cliente para ver los artefactos relacionados con el complemento, siga estos pasos:
+
+1. Configure `kubeconfig` para el clúster.
+
+   En el caso de un nuevo clúster de Azure Kubernetes Service, use la siguiente CLI de Azure:
+
+   ```azurecli-interactive
+   # Set context to the subscription
+   az account set --subscription <YOUR-SUBSCRIPTION>
+
+   # Save credentials for kubeconfig into .kube in your home folder
+   az aks get-credentials --resource-group <RESOURCE-GROUP> --name <CLUSTER-NAME>
+   ```
+
+1. Pruebe la conexión del clúster.
+
+   Ejecute el comando `kubectl cluster-info`. Una ejecución correcta hace que cada servicio responda con una dirección URL de dónde se ejecuta.
+
+### <a name="view-the-add-on-constraint-templates"></a>Visualización de las plantillas de restricción del complemento
+
+Para ver las plantillas de restricción descargadas por el complemento, ejecute `kubectl get constrainttemplates`.
+Las plantillas de restricción que comienzan por `k8sazure` son las instaladas por el complemento.
+
+### <a name="get-azure-policy-mappings"></a>Obtención de las asignaciones de Azure Policy
+
+Para identificar la asignación entre una plantilla de restricción descargada en el clúster y la definición de directiva, use `kubectl get constrainttemplates <TEMPLATE> -o yaml`. Los resultados se parecen a la siguiente salida:
+
+```yaml
+apiVersion: templates.gatekeeper.sh/v1beta1
+kind: ConstraintTemplate
+metadata:
+    annotations:
+    azure-policy-definition-id: /subscriptions/<SUBID>/providers/Microsoft.Authorization/policyDefinitions/<GUID>
+    constraint-template-installed-by: azure-policy-addon
+    constraint-template: <URL-OF-YAML>
+    creationTimestamp: "2021-09-01T13:20:55Z"
+    generation: 1
+    managedFields:
+    - apiVersion: templates.gatekeeper.sh/v1beta1
+    fieldsType: FieldsV1
+...
+```
+
+`<SUBID>` es el identificador de suscripción y `<GUID>` es el identificador de la definición de directiva asignada.
+`<URL-OF-YAML>` es la ubicación de origen de la plantilla de restricción que descargó el complemento para instalar en el clúster.
+
+### <a name="view-constraints-related-to-a-constraint-template"></a>Visualización de las restricciones relacionadas con una plantilla de restricción
+
+Una vez que tenga los nombres de las [plantillas de restricción descargadas del complemento](#view-the-add-on-constraint-templates), puede usar el nombre para ver las restricciones relacionadas. Use `kubectl get <constraintTemplateName>` para obtener la lista.
+Las restricciones instaladas por el complemento comienzan por `azurepolicy-`.
+
+### <a name="view-constraint-details"></a>Visualización de los detalles de la restricción
+
+La restricción tiene detalles sobre las infracciones y asignaciones a la definición y asignación de directiva. Para ver los detalles, use `kubectl get <CONSTRAINT-TEMPLATE> <CONSTRAINT> -o yaml`. Los resultados se parecen a la siguiente salida:
+
+```yaml
+apiVersion: constraints.gatekeeper.sh/v1beta1
+kind: K8sAzureContainerAllowedImages
+metadata:
+  annotations:
+    azure-policy-assignment-id: /subscriptions/<SUB-ID>/resourceGroups/<RG-NAME>/providers/Microsoft.Authorization/policyAssignments/<ASSIGNMENT-GUID>
+    azure-policy-definition-id: /providers/Microsoft.Authorization/policyDefinitions/<DEFINITION-GUID>
+    azure-policy-definition-reference-id: ""
+    azure-policy-setdefinition-id: ""
+    constraint-installed-by: azure-policy-addon
+    constraint-url: <URL-OF-YAML>
+  creationTimestamp: "2021-09-01T13:20:55Z"
+spec:
+  enforcementAction: deny
+  match:
+    excludedNamespaces:
+    - kube-system
+    - gatekeeper-system
+    - azure-arc
+  parameters:
+    imageRegex: ^.+azurecr.io/.+$
+status:
+  auditTimestamp: "2021-09-01T13:48:16Z"
+  totalViolations: 32
+  violations:
+  - enforcementAction: deny
+    kind: Pod
+    message: Container image nginx for container hello-world has not been allowed.
+    name: hello-world-78f7bfd5b8-lmc5b
+    namespace: default
+  - enforcementAction: deny
+    kind: Pod
+    message: Container image nginx for container hello-world has not been allowed.
+    name: hellow-world-89f8bfd6b9-zkggg
+```
 
 ## <a name="troubleshooting-the-add-on"></a>Solución de problemas del complemento
 

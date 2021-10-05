@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 9c73d8865b2cd019e940a753425d13b67567b39b
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: 7cb5d96c7651713f02d606be1038f55cd430162f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123471215"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128599247"
 ---
 # <a name="encryption-scopes-for-blob-storage"></a>Ámbitos de cifrado para Blob Storage
 
@@ -36,7 +36,7 @@ Si define un ámbito de cifrado con una clave administrada por el cliente, puede
 
 Azure Policy proporciona una directiva integrada para exigir que los ámbitos de cifrado usen claves administradas por el cliente. Para más información, consulte la sección **Almacenamiento** en [Definiciones de directivas integradas de Azure Policy](../../governance/policy/samples/built-in-policies.md#storage).
 
-Una cuenta de almacenamiento puede tener hasta 10 000 ámbitos de cifrado que están protegidos con claves administradas por el cliente para las que la versión de la clave se actualiza automáticamente. Si la cuenta de almacenamiento ya tiene 10 000 ámbitos de cifrado que están protegidos con claves administradas por el cliente que actualizan automáticamente, la versión de la clave debe actualizarse manualmente para cualquier ámbito de cifrado adicional que esté protegido con claves administradas por el cliente.  
+Una cuenta de almacenamiento puede tener hasta 10 000 ámbitos de cifrado que están protegidos con claves administradas por el cliente para las que la versión de la clave se actualiza automáticamente. Si la cuenta de almacenamiento ya tiene 10 000 ámbitos de cifrado que están protegidos con claves administradas por el cliente que actualizan automáticamente, la versión de la clave debe actualizarse manualmente para cualquier ámbito de cifrado adicional que esté protegido con claves administradas por el cliente.
 
 ### <a name="infrastructure-encryption"></a>Cifrado de infraestructura
 
@@ -82,14 +82,14 @@ Tenga en cuenta que las claves administradas por el cliente están protegidas po
 
 ## <a name="feature-support"></a>Compatibilidad de características
 
-En esta tabla, se muestra cómo se admite esta característica en la cuenta y el impacto en la compatibilidad al habilitar determinadas funcionalidades. 
+En esta tabla se muestra cómo se admite esta característica en la cuenta y el impacto en la compatibilidad al habilitar determinadas funcionalidades.
 
-| Tipo de cuenta de almacenamiento                | Blob Storage (compatibilidad predeterminada)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>    
+| Tipo de cuenta de almacenamiento                | Blob Storage (compatibilidad predeterminada)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
 |-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
-| De uso general estándar, v2 | ![Sí](../media/icons/yes-icon.png) |![No](../media/icons/no-icon.png)              | ![No](../media/icons/no-icon.png) | 
+| De uso general estándar, v2 | ![Sí](../media/icons/yes-icon.png) |![No](../media/icons/no-icon.png)              | ![No](../media/icons/no-icon.png) |
 | Blobs en bloques Premium          | ![Sí](../media/icons/yes-icon.png) |![No](../media/icons/no-icon.png)              | ![No](../media/icons/no-icon.png) |
 
-<sup>1</sup> Data Lake Storage Gen2 y el protocolo Network File System (NFS) 3.0 necesitan una cuenta de almacenamiento con un espacio de nombres jerárquico habilitado.
+<sup>1</sup> Tanto Data Lake Storage Gen2 como el protocolo Network File System (NFS) 3.0 necesitan una cuenta de almacenamiento con un espacio de nombres jerárquico habilitado.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

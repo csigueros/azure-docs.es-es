@@ -1,7 +1,7 @@
 ---
 title: Transformación de clasificación en el flujo de datos de asignación
+description: Aprenda a usar una transformación de clasificación de flujo de datos de asignación para generar una columna de clasificación en canalizaciones de Azure Data Factory o Synapse Analytics.
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Cómo usar la transformación de clasificación del flujo de datos de asignación de Azure Data Factory para generar una columna de clasificación
 author: kromerm
 ms.author: makromer
 ms.reviewer: makromer
@@ -9,17 +9,19 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 10/05/2020
-ms.openlocfilehash: 6577425827668f0eaddb19b276e940fff7dafa1a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/09/2021
+ms.openlocfilehash: c3af0355a02badb5aaa5d5b13a51b74392c931d8
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122638888"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129059892"
 ---
 # <a name="rank-transformation-in-mapping-data-flow"></a>Transformación de clasificación en el flujo de datos de asignación 
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
 
 Use la transformación de clasificación para generar una clasificación ordenada en función de las condiciones de ordenación especificadas por el usuario. 
 
@@ -27,7 +29,7 @@ Use la transformación de clasificación para generar una clasificación ordenad
 
 ## <a name="configuration"></a>Configuración
 
-![Configuración de clasificación](media/data-flow/rank-configuration.png "Configuración de clasificación")
+:::image type="content" source="media/data-flow/rank-configuration.png" alt-text="Configuración de clasificación":::
 
 **No distinguir entre mayúsculas y minúsculas:** si una columna de ordenación es de tipo cadena, las mayúsculas o minúsculas se factorizarán en la clasificación. 
 
@@ -57,7 +59,7 @@ La configuración anterior toma los datos de baloncesto entrantes y crea una col
 
 ### <a name="example"></a>Ejemplo
 
-![Configuración de clasificación](media/data-flow/rank-configuration.png "Configuración de clasificación")
+:::image type="content" source="media/data-flow/rank-configuration.png" alt-text="Configuración de clasificación":::
 
 El script del flujo de datos para la configuración de clasificación anterior se encuentra en el siguiente fragmento de código.
 

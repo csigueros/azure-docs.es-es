@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 07/01/2021
+ms.date: 09/13/2021
 ms.custom: contperf-fy21q4
-ms.openlocfilehash: f8db25d79784b1a2ca2b63ace57f729271271a43
-ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
+ms.openlocfilehash: cccd744e8c123cd9441ff9aca47d2341ea9d80fb
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113218878"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128679870"
 ---
 # <a name="about-connectors-in-azure-logic-apps"></a>Acerca de los conectores en Azure Logic Apps
 
@@ -46,7 +46,7 @@ Una *acción* es una operación que sigue al desencadenador y realiza algún tip
 
 ## <a name="connector-categories"></a>Categorías del conector
 
-En Logic Apps, la mayoría de los desencadenadores y acciones están disponibles en una versión *integrada* o de *conector administrado*. Existen unos pocos desencadenadores y acciones disponibles en ambas versiones. Las versiones disponibles dependen de si va a crear una aplicación lógica multiinquilino o de inquilino único, que actualmente solo está disponible en [Azure Logic Apps de inquilino único](../logic-apps/single-tenant-overview-compare.md).
+En Azure Logic Apps, la mayoría de los desencadenadores y acciones están disponibles en una versión *integrada* o de *conector administrado*. Existen unos pocos desencadenadores y acciones disponibles en ambas versiones. Las versiones disponibles dependen de si va a crear una aplicación lógica multiinquilino o de inquilino único, que actualmente solo está disponible en [Azure Logic Apps de inquilino único](../logic-apps/single-tenant-overview-compare.md).
 
 Los [desencadenadores y las acciones integrados](built-in.md) se ejecutan de forma nativa en el entorno de ejecución de Logic Apps, y no requieren la creación de conexiones; asimismo, realizan estos tipos de tareas:
 
@@ -61,13 +61,27 @@ Microsoft se encarga de implementar, hospedar y administrar los [conectores admi
 - [Conectores de cuentas de integración](managed.md#integration-account-connectors), que admiten escenarios de comunicación de negocio a negocio (B2B).
 - [Conectores del Entorno del servicio de integración (ISE)](managed.md#ise-connectors), que son un pequeño grupo de [conectores administrados disponibles solo para ISE](#ise-and-connectors).
 
+<a name="connection-configuration"></a>
+
 ## <a name="connection-configuration"></a>Configuración de la conexión
 
-La mayoría de los conectores requieren que primero cree una *conexión* al servicio o sistema de destino antes de poder usar sus activadores o acciones en el flujo de trabajo. Para crear una conexión, debe autenticar su identidad con las credenciales de cuenta y, a veces, usar otra información de conexión. Por ejemplo, para que el flujo de trabajo obtenga acceso a la cuenta de correo electrónico de Office 365 Outlook y trabaje con ella, debe autorizar una conexión a esa cuenta.
+Si desea crear o administrar conexiones y recursos de aplicaciones lógicas, necesita ciertos permisos que se proporcionan a través de roles mediante el [control de acceso basado en rol de Azure (RBAC de Azure)](../role-based-access-control/role-assignments-portal.md). Puede asignar roles integrados o personalizados a los miembros que tienen acceso a la suscripción de Azure. Azure Logic Apps tiene estos roles específicos:
+
+* [Colaborador de aplicación lógica](../role-based-access-control/built-in-roles.md#logic-app-contributor): Le permite administrar aplicaciones lógicas, pero no puede cambiar el acceso a ellas.
+
+* [Operador de aplicación lógica](../role-based-access-control/built-in-roles.md#logic-app-operator): Le permite leer, habilitar y deshabilitar aplicaciones lógicas, pero no puede editarlas ni actualizarlas.
+
+* [Colaborador](../role-based-access-control/built-in-roles.md#contributor): concede acceso completo para administrar todos los recursos, pero no le permite asignar roles en RBAC de Azure, administrar asignaciones en Azure Blueprints ni compartir galerías de imágenes.
+
+  Por ejemplo, imagine que tiene que trabajar con una aplicación lógica que no ha creado y autenticar las conexiones usadas que usa el flujo de trabajo de esa aplicación lógica. La suscripción de Azure necesita permisos de colaborador para el grupo de recursos que contiene el recurso de esa aplicación lógica. Si crea un recurso de aplicación lógica, tendrá acceso de colaborador automáticamente.
+
+Antes de que pueda usar los desencadenadores o las acciones de un conector en el flujo de trabajo, la mayoría de los conectores requieren que primero cree una *conexión* al servicio o sistema de destino. Para crear una conexión desde un flujo de trabajo de aplicación lógica, debe autenticar su identidad con las credenciales de cuenta y, a veces, usar otra información de conexión. Por ejemplo, para que el flujo de trabajo obtenga acceso a la cuenta de correo electrónico de Office 365 Outlook y trabaje con ella, debe autorizar una conexión a esa cuenta. Si se trata de una pequeña cantidad de operaciones integradas y conectores administrados, puede [configurar una identidad administrada para la autenticación y usarla](../logic-apps/create-managed-service-identity.md#triggers-actions-managed-identity) en lugar de proporcionar sus credenciales.
+
+<a name="connection-security-encyrption"></a>
 
 ### <a name="connection-security-and-encryption"></a>Cifrado y seguridad de conexión
 
-En el caso de los conectores que usan la autenticación OAuth de Azure Active Directory (Azure AD), como Office 365, Salesforce o GitHub debe iniciar sesión en el servicio donde el token de acceso se [cifra](../security/fundamentals/encryption-overview.md) y se almacena de forma segura en un almacén de secretos de Azure. Otros conectores (como FTP y SQL) requieren una conexión con detalles de configuración como la dirección del servidor, el nombre de usuario y la contraseña. Estos detalles sobre la configuración de la conexión también se [cifran y se almacenan de forma segura en Azure](../security/fundamentals/encryption-overview.md).
+Los detalles de la configuración de la conexión, como la dirección del servidor, el nombre de usuario y la contraseña, las credenciales y los secretos [se cifran y almacenan en el entorno protegido de Azure](../security/fundamentals/encryption-overview.md). Esta información solo se puede usar en los recursos de la aplicación lógica y solo pueden usarla los clientes que tienen permisos para el recurso de conexión, que se aplica mediante comprobaciones de acceso vinculado. Las conexiones que utilizan Azure Active Directory Open Authentication (Azure AD OAuth), como Office 365, Salesforce y GitHub, requieren que inicie sesión, pero Azure Logic Apps solo almacena tokens de acceso y actualización como secretos, no credenciales de inicio de sesión.
 
 Las conexiones establecidas pueden obtener acceso al servicio o sistema de destino, siempre que ese servicio o sistema lo permita. En el caso de los servicios que usan conexiones de Azure AD OAuth, como Office 365 y Dynamics, el servicio Logic Apps actualiza los tokens de acceso de forma indefinida. Es posible que otros servicios tengan límites con respecto a cuánto tiempo puede usar Logic Apps un token sin actualizar. Algunas acciones invalidarán todos los tokens de acceso como, por ejemplo, el cambio de la contraseña.
 
@@ -76,11 +90,13 @@ Aunque cree conexiones desde un flujo de trabajo, las conexiones son recursos de
 > [!TIP]
 > Si su organización no le permite acceder a recursos específicos a través de los conectores de Logic Apps, puede [bloquear la capacidad de crear dichas conexiones](../logic-apps/block-connections-connectors.md) mediante [Azure Policy](../governance/policy/overview.md).
 
+Para más información sobre cómo proteger conexiones y aplicaciones lógicas, consulte [Protección del acceso y los datos en Azure Logic Apps](../logic-apps/logic-apps-securing-a-logic-app.md).
+
 <a name="firewall-access"></a>
 
 ### <a name="firewall-access-for-connections"></a>Acceso de firewall para conexiones
 
-Si usa un firewall que limita el tráfico y los flujos de trabajo de la aplicación lógica necesitan comunicarse a través de dicho firewall, debe configurarlo para permitir el acceso a las direcciones IP de [entrada](../logic-apps/logic-apps-limits-and-config.md#inbound) y [salida](../logic-apps/logic-apps-limits-and-config.md#outbound) que usa el servicio Logic Apps o el entorno de ejecución en la región de Azure donde se encuentran los flujos de trabajo de la aplicación lógica. Si los flujos de trabajo también usan conectores administrados, como el conector de Office 365 Outlook o el conector de SQL, o emplean conectores personalizados, el firewall también debe permitir el acceso a *todas* las [direcciones IP de salida del conector administrado](../logic-apps/logic-apps-limits-and-config.md#outbound) en la región de Azure de la aplicación lógica. Para obtener más información, revise [Configuración de firewall](../logic-apps/logic-apps-limits-and-config.md#firewall-configuration-ip-addresses-and-service-tags).
+Si usa un firewall que limita el tráfico y los flujos de trabajo de la aplicación lógica necesitan comunicarse a través de dicho firewall, debe configurarlo para permitir el acceso a las direcciones IP de [entrada](../logic-apps/logic-apps-limits-and-config.md#inbound) y [salida](../logic-apps/logic-apps-limits-and-config.md#outbound) que usa el servicio Logic Apps o el entorno de ejecución en la región de Azure donde se encuentran los flujos de trabajo de la aplicación lógica. Si los flujos de trabajo también usan conectores administrados, como el conector de Office 365 Outlook o el conector de SQL, o emplean conectores personalizados, el firewall también debe permitir el acceso a *todas* las [direcciones IP de salida del conector administrado](/connectors/common/outbound-ip-addresses#azure-logic-apps) en la región de Azure de la aplicación lógica. Para obtener más información, revise [Configuración de firewall](../logic-apps/logic-apps-limits-and-config.md#firewall-configuration-ip-addresses-and-service-tags).
 
 ## <a name="recurrence-behavior"></a>Comportamiento de periodicidad
 

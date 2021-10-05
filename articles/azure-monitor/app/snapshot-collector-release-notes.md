@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: pharring
 ms.author: pharring
 ms.date: 11/10/2020
-ms.openlocfilehash: 4a787c6e2a9b59874f965a2bbcebea9ce02d8082
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a2b3dff6331e235d0c4b608a38038a89996c35b4
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97093267"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129217776"
 ---
 # <a name="release-notes-for-microsoftapplicationinsightssnapshotcollector"></a>Notas de la versión para Microsoft.ApplicationInsights.SnapshotCollector
 
@@ -21,6 +21,30 @@ Este artículo contiene las notas de la versión para el paquete NuGet Microsoft
 Para notificar informes de errores y comentarios, abra un problema en GitHub en https://github.com/microsoft/ApplicationInsights-SnapshotCollector.
 
 ## <a name="release-notes"></a>Notas de la versión
+
+## <a name="142"></a>[1.4.2](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.4.2)
+Una versión puntual para solucionar un error notificado por el usuario.
+### <a name="bug-fixes"></a>Corrección de errores
+- Corrija [ArgumentException: los delegados deben ser del mismo tipo.](https://github.com/microsoft/ApplicationInsights-SnapshotCollector/issues/16)
+
+## <a name="141"></a>[1.4.1](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.4.1)
+Una versión puntual para revertir un cambio importante introducido en la versión 1.4.0.
+### <a name="bug-fixes"></a>Corrección de errores
+- Corrija [Método no encontrado en WebJobs](https://github.com/microsoft/ApplicationInsights-SnapshotCollector/issues/15)
+
+## <a name="140"></a>[1.4.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.4.0)
+Se abordan varias mejoras y se ha agregado compatibilidad con la autenticación de Azure Active Directory (AAD) para la ingesta de Application Insights.
+### <a name="changes"></a>Cambios
+- El tamaño de paquete de Snapshot Collector se ha reducido en un 60 %. De 10,34 MB a 4,11 MB.
+- Netstandard2.0 se establece como destino solo en Snapshot Collector.
+- Se ha actualizado la dependencia del SDK de Application Insights a la versión 2.15.0.
+- Se vuelve a agregar MinidumpWithThreadInfo al escribir volcados.
+- Se agrega CompatibilityVersion para mejorar la sincronización entre el agente de Snapshot Collector y el usuario de carga en los cambios importantes.
+- Se ha cambiado el algoritmo de nomenclatura SnapshotUploader LogFile para evitar demasiadas operaciones de E/S de archivos en App Service.
+- Se agrega el PID, nombre de rol y hora de inicio del proceso a los metadatos de blob que se cargan.
+- Use System.Diagnostics.Process siempre que sea posible en Snapshot Collector y Snapshot Uploader.
+### <a name="new-features"></a>Nuevas características
+- Se agrega la autenticación de Azure Active Directory a SnapshotCollector. Obtenga más información sobre la autenticación de Azure AD en Application Insights [aquí](./azure-ad-authentication.md).
 
 ## <a name="1375"></a>[1.3.7.5](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.7.5)
 Una versión puntual para retroimportar una corrección de 1.4.0-pre.

@@ -1,26 +1,26 @@
 ---
 title: Copia de datos desde y hacia Salesforce Service Cloud
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Obtenga información sobre cómo copiar datos desde Salesforce Service Cloud a almacenes de datos receptores compatibles, o bien desde almacenes de datos de origen compatibles a Salesforce Service Cloud a través de una actividad de copia de una canalización de Data Factory.
+description: Obtenga información sobre cómo copiar datos desde Salesforce Service Cloud a almacenes de datos receptores compatibles, o bien desde almacenes de datos de origen compatibles a Salesforce Service Cloud a través de una actividad de copia de una canalización de Azure Data Factory o Synapse Analytics.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/30/2021
-ms.openlocfilehash: ef7a8ffa73fe03776be38debc523f9d616bda7b1
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.date: 09/09/2021
+ms.openlocfilehash: 9f59c7f810646734552d7eaefe59d1c99be1518c
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123316835"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124782767"
 ---
-# <a name="copy-data-from-and-to-salesforce-service-cloud-by-using-azure-data-factory"></a>Copia de datos con Salesforce Service Cloud como origen y destino mediante Azure Data Factory
+# <a name="copy-data-from-and-to-salesforce-service-cloud-using-azure-data-factory-or-synapse-analytics"></a>Copia de datos en Salesforce Service Cloud con origen y destino mediante Azure Data Factory o Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-En este artículo se explica el uso de la actividad de copia de Azure Data Factory para copiar datos con Salesforce Service Cloud como origen o destino. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que presenta información general de la actividad de copia.
+En este artículo se resume el uso de la actividad de copia en canalizaciones de Azure Data Factory y Synapse Analytics para copiar datos con Salesforce Service Cloud como origen y destino. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que presenta información general de la actividad de copia.
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
@@ -90,12 +90,12 @@ Las siguientes propiedades son compatibles con el servicio vinculado Salesforce.
 | type |La propiedad type debe establecerse en **SalesforceServiceCloud**. |Sí |
 | environmentUrl | Especifique la dirección URL de la instancia de Salesforce Service Cloud. <br> - El valor predeterminado es `"https://login.salesforce.com"`. <br> - Para copiar datos desde el espacio aislado, especifique `"https://test.salesforce.com"`. <br> - Para copiar datos del dominio personalizado, especifique, por ejemplo, `"https://[domain].my.salesforce.com"`. |No |
 | username |Especifique el nombre de usuario de la cuenta de usuario. |Sí |
-| password |Especifique la contraseña para la cuenta de usuario.<br/><br/>Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |Sí |
+| password |Especifique la contraseña para la cuenta de usuario.<br/><br/>Marque este campo como SecureString para almacenarlo de forma segura, o bien [haga referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |Sí |
 | securityToken |Especifique el token de seguridad para la cuenta de usuario. <br/><br/>Para más información acerca de los tokens de seguridad en general, consulte [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)(Seguridad y la API). El token de seguridad solo se puede omitir si agrega la dirección IP de Integration Runtime a la [lista de direcciones IP de confianza](https://developer.salesforce.com/docs/atlas.en-us.securityImplGuide.meta/securityImplGuide/security_networkaccess.htm) en Salesforce. Cuando use Azure IR, consulte [Direcciones IP de Azure Integration Runtime](azure-integration-runtime-ip-addresses.md).<br/><br/>Para obtener instrucciones sobre cómo restablecer u obtener un token de seguridad consulte el artículo sobre [obtención de un token de seguridad](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm). Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |No |
 | apiVersion | Especifique la versión de la API REST/Bulk de Salesforce que se va a usar, por ejemplo, `48.0`. De forma predeterminada, el conector usa [V45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) para copiar datos de Salesforce y [v40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) para copiar datos en Salesforce. | No |
 | connectVia | El [entorno de ejecución de integración](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Si no se especifica, se usará Azure Integration Runtime. | No |
 
-**Ejemplo: Almacenamiento de credenciales en Data Factory**
+**Ejemplo: Almacenamiento de credenciales**
 
 ```json
 {
@@ -169,7 +169,7 @@ Para copiar datos con Salesforce Service Cloud como origen y destino, se admiten
 > [!IMPORTANT]
 > La parte "__c" del **nombre de la API** es necesaria para cualquier objeto personalizado.
 
-![Data Factory - Conexión a Salesforce - Nombre de la API](media/copy-data-from-salesforce/data-factory-salesforce-api-name.png)
+:::image type="content" source="media/copy-data-from-salesforce/data-factory-salesforce-api-name.png" alt-text="Nombre de API de la conexión a Salesforce":::
 
 **Ejemplo**:
 
@@ -212,7 +212,7 @@ Para copiar datos de Salesforce Service Cloud, en la sección **source** (origen
 > [!IMPORTANT]
 > La parte "__c" del **nombre de la API** es necesaria para cualquier objeto personalizado.
 
-![Data Factory - Conexión a Salesforce - Lista de nombres de API](media/copy-data-from-salesforce/data-factory-salesforce-api-name-2.png)
+:::image type="content" source="media/copy-data-from-salesforce/data-factory-salesforce-api-name-2.png" alt-text="Conexión a Salesforce - Lista de nombres de API":::
 
 **Ejemplo**:
 
@@ -330,9 +330,9 @@ Si aparece un error "MALFORMED_QUERY: Truncated", normalmente se debe a que tien
 
 ## <a name="data-type-mapping-for-salesforce-service-cloud"></a>Asignación de tipos de datos para Salesforce Service Cloud
 
-Al copiar datos de Salesforce Service Cloud, se usan las siguientes asignaciones de tipos de datos de Salesforce Service Cloud en los tipos de datos provisionales de Data Factory. Para más información acerca de la forma en que la actividad de copia asigna el tipo de datos y el esquema de origen al receptor, consulte el artículo sobre [asignaciones de tipos de datos y esquema](copy-activity-schema-and-type-mapping.md).
+Al copiar datos de Salesforce Service Cloud, se usan las siguientes asignaciones de tipos de datos de Salesforce Service Cloud en los tipos de datos provisionales que se utilizan internamente dentro del servicio. Para más información acerca de la forma en que la actividad de copia asigna el tipo de datos y el esquema de origen al receptor, consulte el artículo sobre [asignaciones de tipos de datos y esquema](copy-activity-schema-and-type-mapping.md).
 
-| Tipo de datos de Salesforce Service Cloud | Tipo de datos provisionales de Data Factory |
+| Tipo de datos de Salesforce Service Cloud | Tipo de datos de servicio provisional |
 |:--- |:--- |
 | Numeración automática |String |
 | Casilla de verificación |Boolean |
@@ -360,4 +360,4 @@ Para obtener información detallada sobre las propiedades, consulte [Actividad d
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para ver la lista de almacenes de datos que la actividad de copia de Data Factory admite como orígenes y receptores consulte [Almacenes de datos y formatos que se admiten](copy-activity-overview.md#supported-data-stores-and-formats).
+Para obtener una lista de almacenes de datos que la actividad de copia admite como orígenes y receptores, vea [Almacenes de datos que se admiten](copy-activity-overview.md#supported-data-stores-and-formats).

@@ -2,26 +2,24 @@
 title: Notas de la versión para la extensión de Azure Web Apps - Application Insights
 description: Notas de la versión para la extensión de Azure Web Apps para la instrumentación de entorno de ejecución con Application Insights.
 ms.topic: conceptual
-author: MS-jgol
-ms.author: jgol
 ms.date: 06/26/2020
-ms.openlocfilehash: 07ba61f630b849a377f1c7ba881f95518eb73606
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 8b0ddf90f5e6ffbe685c4aea1239323beea6c106
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102042613"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124828809"
 ---
 # <a name="release-notes-for-azure-web-app-extension-for-application-insights"></a>Notas de la versión para la extensión de Azure Web Apps para Application Insights
 
 Este artículo contiene las notas de la versión para la extensión de Azure Web Apps para la instrumentación de entorno de ejecución con Application Insights. Esto solo se aplica a las extensiones preinstaladas.
 
-[Obtenga más información](azure-web-apps.md) sobre la extensión de Azure Web Apps para Application Insights.
+Obtenga más información sobre la [extensión de Azure Web Apps para Application Insights](azure-web-apps.md).
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 
 - ¿Cómo puedo encontrar la versión de la extensión en la que estoy actualmente?
-    - Ir a `https://<yoursitename>.scm.azurewebsites.net/ApplicationInsights`. Visite la [guía paso a paso de solución de problemas para la supervisión basada en agente o extensión](./azure-web-apps.md?tabs=net#troubleshooting) para obtener más información.
+    - Ir a `https://<yoursitename>.scm.azurewebsites.net/ApplicationInsights`. Visite la guía paso a paso de solución de problemas para la supervisión de [ASP.NET Core](./azure-web-apps-net-core.md#troubleshooting), [ASP.NET](./azure-web-apps-net.md#troubleshooting), [Java](./azure-web-apps-java.md#troubleshooting) o [Node.js](./azure-web-apps-nodejs.md#troubleshooting) basada en agente o extensión para obtener más información.
 
 - ¿Qué ocurre si uso extensiones privadas?
     - Desinstale las extensiones de sitio privado, puesto que ya no se admiten.
@@ -36,7 +34,7 @@ Este artículo contiene las notas de la versión para la extensión de Azure Web
 
 ### <a name="2837"></a>2.8.37
 
-- Extensión AppSvc de Windows: ha hecho que .Net Core funcione con cualquier versión de System.Diagnostics.DiagnosticSource.dll.
+- Extensión AppSvc de Windows: ha hecho que .NET Core funcione con cualquier versión de System.Diagnostics.DiagnosticSource.dll.
 
 ### <a name="2836"></a>2.8.36
 
@@ -93,4 +91,4 @@ Este artículo contiene las notas de la versión para la extensión de Azure Web
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Visite la [documentación de Azure App Service](azure-web-apps.md) para obtener más información sobre cómo configurar la supervisión de Azure App Service. 
+- Visite la [documentación de Supervisión de aplicaciones para Azure App Service](azure-web-apps.md) para obtener más información sobre cómo configurar la supervisión de Azure App Service. 

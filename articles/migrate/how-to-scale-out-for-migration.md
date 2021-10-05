@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 03/02/2021
-ms.openlocfilehash: 56f79028b2424d8383a0a4a3cb27639f3924ff90
-ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
+ms.openlocfilehash: 187ed49a116b99524f6cfca408bdb0d7e15a47ca
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122779624"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129092592"
 ---
 # <a name="scale-agentless-migration-of-vmware-virtual-machines-to-azure"></a>Escalado de la migración sin agentes de máquinas virtuales de VMware a Azure
 
@@ -70,16 +70,19 @@ En **Descargar el dispositivo de Azure Migrate**, haga clic en **Descargar**. De
 > 2. Ejecute el siguiente comando para generar el código hash para el archivo ZIP:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Ejemplo de uso: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
-> 3. Descargue la versión más reciente del instalador del dispositivo de escalabilidad horizontal desde el portal si el código hash calculado no coincide con esta cadena: CA8CEEE4C7AC13328ECA56AE9EB35137336CD3D73B1F867C4D736286EF61A234
+> 3. Descargue la versión más reciente del instalador del dispositivo de escalabilidad horizontal desde el portal si el valor hash calculado no coincide con esta cadena: BA84B58E88DDFE23E5D4CE73530227EBBC187B3634B66A3E0F0B3E5DF5F0A94F
 
 ### <a name="3-run-the-azure-migrate-installer-script"></a>3. Ejecución del script del instalador de Azure Migrate
 
 1. Extraiga el archivo comprimido en la carpeta del servidor que hospedará el dispositivo.  No ejecute el script en un servidor con un dispositivo de Azure Migrate existente.
-2. Inicie PowerShell en el servidor anterior con privilegios administrativos (elevados).
-3. Cambie el directorio de PowerShell a la carpeta en la que se ha extraído el contenido del archivo comprimido descargado.
-4. Ejecute el script denominado **AzureMigrateInstaller.ps1** ejecutando el comando siguiente:
 
-    ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> .\AzureMigrateInstaller.ps1 ```
+2. Inicie PowerShell en el servidor anterior con privilegios administrativos (elevados).
+
+3. Cambie el directorio de PowerShell a la carpeta en la que se ha extraído el contenido del archivo comprimido descargado.
+
+4. Para ejecutar el script denominado `AzureMigrateInstaller.ps1`, ejecute el comando siguiente:
+
+  `PS C:\Users\administrator\Desktop\AzureMigrateInstaller> .\AzureMigrateInstaller.ps1 `
 
 5. Seleccione las opciones de escenario, nube, configuración y conectividad para implementar el dispositivo deseado. Por ejemplo, la selección que se muestra a continuación configura un dispositivo de **escalabilidad horizontal** para iniciar replicaciones simultáneas en los servidores que se ejecutan en el entorno de VMware a un proyecto de Azure Migrate con **conectividad predeterminada _(punto de conexión público)_** en la **nube pública de Azure**.
 
@@ -141,14 +144,17 @@ Antes de empezar, asegúrese de que se pueda acceder a [estos puntos de conexió
 Para completar el registro del dispositivo de escalabilidad horizontal, haga clic en **importar** para obtener los archivos de configuración necesarios del dispositivo principal.
 
 1. Al hacer clic en **Importar**, se abre una ventana emergente con instrucciones sobre cómo importar los archivos de configuración necesarios desde el dispositivo principal.
+
 :::image type="content" source="./media/how-to-scale-out-for-migration/import-modal-scale-out.png" alt-text="Cuadro modal Importar configuración":::
+
 1. Inicie sesión (escritorio remoto) en el dispositivo principal y ejecute los siguientes comandos de PowerShell:
 
-    ``` PS cd 'C:\Program Files\Microsoft Azure Appliance Configuration Manager\Scripts\PowerShell' ```
+   `PS cd 'C:\Program Files\Microsoft Azure Appliance Configuration Manager\Scripts\PowerShell' `
     
-    ``` PS .\ExportConfigFiles.ps1 ```
+    `PS .\ExportConfigFiles.ps1 `
 
 1. Copie el archivo ZIP creado mediante la ejecución de los comandos anteriores en el dispositivo de escalabilidad horizontal. El archivo ZIP contiene los archivos de configuración necesarios para registrar el dispositivo de escalabilidad horizontal.
+
 1. En la ventana emergente que se abre en el paso anterior, seleccione la ubicación del archivo ZIP de configuración copiado y haga clic en **Guardar**.
 
 Una vez que los archivos se hayan importado correctamente, se completará el registro del dispositivo de escalabilidad horizontal y se mostrará la marca de tiempo de la última importación correcta. También puede ver la información de registro si hace clic en **Ver detalles**.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 04/08/2021
 ms.author: barclayn
-ms.openlocfilehash: 07b106630cffae75c5e4588d14de7ae938945614
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 7d2f09d3990f9e71e55b29b1eac771266627237a
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107534124"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124791296"
 ---
 # <a name="managed-identities-for-azure-resources-frequently-asked-questions---azure-ad"></a>Preguntas más frecuentes sobre identidades administradas para recursos de Azure: Azure AD
 
@@ -38,11 +38,12 @@ Puede encontrar la lista de recursos con una identidad administrada asignada por
 az resource list --query "[?identity.type=='SystemAssigned'].{Name:name,  principalId:identity.principalId}" --output table
 ```
 
+### <a name="what-azure-rbac-permissions-are-required-to-work-with-managed-identities"></a>¿Qué permisos RBAC de Azure son necesarios para trabajar con identidades administradas? 
 
-### <a name="what-azure-rbac-permissions-are-required-to-managed-identity-on-a-resource"></a>¿Qué permisos RBAC de Azure son necesarios para una identidad administrada en un recurso? 
-
-- Identidad administrada asignada por el sistema: Se necesitan permisos de escritura sobre el recurso. Por ejemplo, para las máquinas virtuales es necesario Microsoft.Compute/virtualMachines/write. Esta acción se incluye en los roles integrados específicos del recurso como, por ejemplo, [Colaborador de máquina virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
-- Identidad administrada asignada por el usuario: Se necesitan permisos de escritura sobre el recurso. Por ejemplo, para las máquinas virtuales es necesario Microsoft.Compute/virtualMachines/write. Además de la asignación de roles [Operador de identidad administrada](../../role-based-access-control/built-in-roles.md#managed-identity-operator) sobre la identidad administrada.
+- Identidad administrada asignada por el sistema: Se necesitan permisos de escritura sobre el recurso. Por ejemplo, para las máquinas virtuales, necesita `Microsoft.Compute/virtualMachines/write`. Esta acción se incluye en los roles integrados específicos del recurso como, por ejemplo, [Colaborador de máquina virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
+- Asignación de identidades administradas asignadas por el usuario a recursos: necesita permisos de escritura sobre el recurso. Por ejemplo, para las máquinas virtuales, necesita `Microsoft.Compute/virtualMachines/write`. También necesitará la acción `Microsoft.ManagedIdentity/userAssignedIdentities/*/assign/action` sobre la identidad asignada por el usuario. Esta acción se incluye en el rol integrado [Operador de identidad administrada](../../role-based-access-control/built-in-roles.md#managed-identity-operator).
+- Administración de identidades asignadas por el usuario: para crear o eliminar entidades administradas asignadas por el usuario, necesita la asignación de roles [Colaborador de identidad administrada](../../role-based-access-control/built-in-roles.md#managed-identity-contributor).
+- Administración de asignaciones de roles para identidades administradas: necesita la asignación de roles [Propietario](../../role-based-access-control/built-in-roles.md#all) o [Administrador de acceso de usuario](../../role-based-access-control/built-in-roles.md#all) en el recurso al que va a conceder acceso. Necesitará la asignación de roles [Lector](../../role-based-access-control/built-in-roles.md#all) para el recurso con una identidad asignada por el sistema, o a la identidad asignada por el usuario a la que se asigna el rol. Si no tiene acceso de lectura, puede buscar por "Usuario, grupo o entidad de servicio" para encontrar la entidad de servicio de respaldo de la identidad, en lugar de buscar por identidad administrada al agregar la asignación de roles. [Más información sobre la asignación de roles de Azure](../../role-based-access-control/role-assignments-portal.md).
 
 ### <a name="how-do-i-prevent-the-creation-of-user-assigned-managed-identities"></a>¿Cómo evito la creación de identidades administradas asignadas por el usuario?
 

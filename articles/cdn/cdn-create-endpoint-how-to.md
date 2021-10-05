@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 06/12/2018
+ms.date: 09/09/2021
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 7bbd54ed68863a4704319a25af96b6463ad2377b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 18f4276c3013f50ceacf74f4c8cec068f0de88cb
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98539708"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124775538"
 ---
 # <a name="create-an-azure-cdn-endpoint"></a>Creación de un punto de conexión de Azure CDN
 Este artículo describe toda la configuración para crear un punto de conexión de [Azure Content Delivery Network (CDN)](cdn-overview.md) en un perfil de CDN existente. Una vez haya creado un perfil y un punto de conexión, podrá iniciar la entrega de contenido a sus clientes. Para una guía de inicio rápido sobre cómo crear un perfil y un punto de conexión, consulte [Inicio rápido: Creación de un perfil y un punto de conexión de Azure CDN](cdn-create-new-endpoint.md).
@@ -100,6 +100,9 @@ Inicie sesión en [Azure Portal](https://portal.azure.com) con su cuenta de Azur
     - En los perfiles **Azure CDN estándar de Verizon** y **Azure CDN prémium de Verizon**, la propagación se completa normalmente en 30 minutos. 
    
     Si intenta usar el nombre de dominio de la red CDN antes de que la configuración del punto de conexión se haya propagado a los servidores de punto de presencia (POP), puede recibir un estado de respuesta HTTP 404. Si han pasado varias horas desde que creó el punto de conexión y aún recibe un estado de respuesta 404, consulte [Solución de problemas de puntos de conexión de Azure CDN que devuelven un código de estado 404](cdn-troubleshoot-endpoint.md).
+
+> [!NOTE]
+> En el caso de los *puntos de conexión de CDN de Verizon*, cuando un punto de conexión **está deshabilitado** o **detenido** por cualquier motivo, se limpiarán todos los recursos configurados a través del portal complementario de Verizon. Estas configuraciones no se pueden restaurar automáticamente reiniciando el punto de conexión. Tendrá que volver a realizar esos cambios de configuración.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 Para eliminar un punto de conexión cuando ya no sea necesario, selecciónelo y, a continuación, seleccione **Eliminar**. 

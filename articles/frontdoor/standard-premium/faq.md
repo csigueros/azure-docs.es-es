@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 05/18/2021
 ms.author: duau
-ms.openlocfilehash: be1ffdecb727426f914a74970a720f4f19e51824
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 378ba28eaa4b68cb1d05fa0af5c11ca95bd52a8b
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122322382"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129210333"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door-standardpremium-preview"></a>Preguntas frecuentes sobre Azure Front Door Estándar/Prémium (versión preliminar)
 
@@ -126,6 +126,8 @@ Una manera alternativa de bloquear la aplicación para que solo acepte el tráfi
         </system.webServer>
     </configuration>
     ```
+
+* Azure Front Door también admite la etiqueta de servicio *AzureFrontDoor.Frontend*, que proporciona la lista de direcciones IP que los clientes usan al conectarse a Front Door. Puede usar la etiqueta de servicio *AzureFrontDoor.Frontend* al controlar el tráfico saliente que se debe permitir para conectarse a los servicios implementados detrás de Azure Front Door. Azure Front Door también admite una etiqueta de servicio adicional, *AzureFrontDoor.FirstParty*, para integrarse internamente con otros servicios de Azure. Consulte las [etiquetas de servicio disponibles](../../virtual-network/service-tags-overview.md#available-service-tags) para obtener más información sobre casos de uso de etiquetas de servicio de Azure Front Door.
 
 ### <a name="can-the-anycast-ip-change-over-the-lifetime-of-my-front-door"></a>¿Puede cambiar la dirección IP de difusión por proximidad durante la vigencia de mi instancia de Front Door?
 

@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 07/20/2021
 ms.author: mesrivas
 ms.reviewer: jrasnick, wiassaf
-ms.openlocfilehash: 7e54c654428d86e77f3bad3a92ade0c33a278856
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: 55585013df7c0fde6cb2eea1a9598d494cb4b2cb
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123225066"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128583644"
 ---
 # <a name="encryption-for-azure-synapse-analytics-workspaces"></a>Cifrado en las áreas de trabajo de Azure Synapse Analytics
 
@@ -33,7 +33,7 @@ La primera capa de cifrado de los servicios de Azure está habilitada con claves
 Esta sección le ayudará a comprender mejor cómo se habilita el cifrado de claves administradas por el cliente y cómo se aplica en áreas de trabajo de Synapse. Este cifrado usa claves existentes o claves nuevas generadas en Azure Key Vault. Para cifrar todos los datos de un área de trabajo, se usa una sola clave. Las áreas de trabajo de Synapse admiten claves de tamaño de bytes RSA 2048 y 3072, así como claves RSA-HSM.
 
 > [!NOTE]
-> Las áreas de trabajo de Synapse no admiten el uso de claves EC, EC-HSM, RSA-HSM y oct-HSM para el cifrado. 
+> Las áreas de trabajo de Synapse no admiten el uso de claves EC, EC-HSM y oct-HSM para el cifrado. 
 
 Los datos de los siguientes componentes de Synapse se cifran con la clave administrada por el cliente configurada en el nivel de área de trabajo:
 * Grupos de SQL
@@ -101,3 +101,4 @@ El Cifrado de datos transparente (TDE) de SQL está disponible para los grupos d
 
 [Uso de directivas de Azure integradas para implementar la protección de cifrado en áreas de trabajo de Synapse](../policy-reference.md)
 
+[Creación de un almacén de claves de Azure y una clave mediante una plantilla de ARM](../../key-vault/keys/quick-create-template.md)

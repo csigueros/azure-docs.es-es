@@ -8,23 +8,23 @@ author: mlearned
 ms.author: mlearned
 description: Uso de Azure Policy para aplicar configuraciones de clúster a escala
 keywords: Kubernetes, Arc, Azure, K8s, contenedores
-ms.openlocfilehash: 7a6892c4b89128abe698573960b61d08c2ac2f35
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: 986af919b4cd61f6f180232598a74561c00a6954
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122609633"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124799802"
 ---
 # <a name="use-azure-policy-to-apply-gitops-configurations-at-scale"></a>Uso de Azure Policy para aplicar configuraciones de clúster a escala
 
-Azure Policy se puede usar para aplicar configuraciones ( tipo de recurso de `Microsoft.KubernetesConfiguration/sourceControlConfigurations`) a escala en clústeres Kubernetes habilitados para Azure Arc (`Microsoft.Kubernetes/connectedclusters`).
+Azure Policy se puede usar para aplicar configuraciones (tipo de recurso de `Microsoft.KubernetesConfiguration/sourceControlConfigurations`) a gran escala en clústeres de Kubernetes habilitados para Azure Arc (`Microsoft.Kubernetes/connectedclusters`).
 
 Para usar Azure Policy, seleccione una definición de directiva de GitOps existente y cree una asignación de directiva. Al crear la asignación de directiva:
 1. Establezca el ámbito de la asignación.
     * El ámbito serán todos los grupos de recursos de una suscripción, un grupo de administración o grupos de recursos específicos.
 2. Establezca los parámetros de la configuración de GitOps que se va a crear. 
 
-Una vez que se crea la asignación, el motor de Azure Policy identifica todos los clústeres de Kubernetes habilitados para Azure Arc que se encuentran dentro del ámbito y aplica la configuración de GitOps a todos ellos.
+Una vez que se crea la asignación, el motor de Azure Policy identifica todos los clústeres de Kubernetes habilitados para Azure Arc que se encuentran dentro del ámbito y aplica la configuración de GitOps a cada uno.
 
 Para habilitar la separación de preocupaciones, puede crear varias asignaciones de directivas, cada una con una configuración de GitOps diferente que apunte a un repositorio de Git diferente. Por ejemplo, los administradores de clústeres pueden usar un repositorio y los equipos de aplicaciones pueden usar otros repositorios.
 
@@ -57,13 +57,13 @@ Compruebe que tiene permisos de `Microsoft.Authorization/policyAssignments/write
     * Para obtener más información, consulte la guía de [Inicio rápido: Creación de una asignación de directiva](../../governance/policy/assign-policy-portal.md) y el [artículo Corrección de recursos no compatibles con Azure Policy](../../governance/policy/how-to/remediate-resources.md).
 1. Seleccione **Revisar + crear**.
 
-Después de crear la asignación de directiva, la configuración se aplica a los nuevos clústeres de Kubernetes habilitado para Azure Arc creados en el ámbito de la asignación de directiva.
+Después de crear la asignación de directiva, la configuración se aplica a los nuevos clústeres de Kubernetes habilitados para Azure Arc creados en el ámbito de la asignación de directiva.
 
 En los clústeres existentes, es posible que deba ejecutar manualmente una tarea de corrección. Normalmente, esta tarea de asignación de directiva tarda entre 10 y 20 minutos en surtir efecto.
 
 ## <a name="verify-a-policy-assignment"></a>Comprobación de una asignación de directiva
 
-1. En el Azure Portal, vaya a uno de los clústeres de Kubernetes habilitado para Azure Arc.
+1. En Azure Portal, vaya a uno de los clústeres de Kubernetes habilitados para Azure Arc.
 1. En la sección **Configuración** de la barra lateral, seleccione **Directivas**. 
     * En la lista, debería ver la asignación de directiva que ha creado antes con **Estado de cumplimiento** establecido en *Conforme*.
 1. En la sección **Configuración** de la barra lateral, seleccione **GitOps**.

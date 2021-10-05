@@ -1,24 +1,24 @@
 ---
 title: Introducción al objeto visual de Azure Maps en Power BI | Microsoft Azure Maps
 description: En este artículo, aprenderá a usar el objeto visual de Microsoft Azure Maps para Power BI.
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: e57f687622b0878d66bfde5770ed9a97b613a683
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 6a26361cc09a4dd420930725b29a1d346769270a
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113091364"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124744626"
 ---
 # <a name="getting-started-with-the-azure-maps-power-bi-visual"></a>Introducción al objeto visual de Azure Maps en Power BI
 
-<Token>**SE APLICA A:** ![Marca de verificación verde.](media/power-bi-visual/yes.png) Servicio Power BI para **_consumidores_** ![Marca de verificación verde.](media/power-bi-visual/yes.png) Servicio Power BI para diseñadores y desarrolladores ![Marca de verificación verde.](media/power-bi-visual/yes.png) Power BI Desktop ![X que indica no.](media/power-bi-visual/no.png) Requiere licencia Por o Premium</Token>
+**SE APLICA A:** ![Marca de verificación verde.](media/power-bi-visual/yes.png) Servicio Power BI para **_consumidores_** ![Marca de verificación verde.](media/power-bi-visual/yes.png) Servicio Power BI para diseñadores y desarrolladores ![Marca de verificación verde.](media/power-bi-visual/yes.png) Power BI Desktop ![X que indica no.](media/power-bi-visual/no.png) Requiere licencia Pro o Premium
 
 En este artículo se muestra cómo usar el objeto visual de Microsoft Azure Maps para Power BI.
 
@@ -130,7 +130,7 @@ El objeto visual de Azure Maps está disponible en los siguientes servicios y ap
 
 | Servicio/aplicación                              | Disponibilidad |
 |------------------------------------------|--------------|
-| Power BI Desktop                         | Sí          |
+| Power BI Desktop                         | Sí          |
 | Servicio Power BI (app.powerbi.com)       | Sí          |
 | Aplicaciones móviles de Power BI             | Sí          |
 | Publicar en la web desde Power BI                  | No           |

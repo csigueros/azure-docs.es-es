@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/25/2021
+ms.date: 09/13/2021
 ms.author: b-juche
-ms.openlocfilehash: fc5d979c0c89c6f331e6b48fa1ffba30b5a91eb2
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+ms.openlocfilehash: 4311070b594b7cfadde4845bf7e9f8380b8657bf
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122970327"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128577021"
 ---
 # <a name="solution-architectures-using-azure-netapp-files"></a>Arquitecturas de las soluciones con Azure NetApp Files
 En este artículo se proporcionan referencias a los procedimientos recomendados que pueden ayudarle a comprender las arquitecturas de soluciones para usar Azure NetApp Files.  
@@ -34,6 +34,7 @@ En esta sección se proporcionan referencias para las soluciones de las bases de
 
 ### <a name="oracle"></a>Oracle
 
+* [Oracle Database con Azure NetApp Files: escenarios de ejemplo de Azure](/azure/architecture/example-scenario/file-storage/oracle-azure-netapp-files)
 * [Bases de datos Oracle en Microsoft Azure con Azure NetApp Files](https://www.netapp.com/media/17105-tr4780.pdf)
 * [Imágenes de VM de Oracle y su implementación en Microsoft Azure: Opciones de configuración de almacenamiento compartido](../virtual-machines/workloads/oracle/oracle-vm-solutions.md#shared-storage-configuration-options)
 * [Rendimiento de Oracle Database en volúmenes individuales de Azure NetApp Files](performance-oracle-single-volumes.md)
@@ -58,6 +59,7 @@ En esta sección se proporcionan referencias para las aplicaciones de Windows y 
 
 ### <a name="sql-server"></a>SQL Server
 
+* [SQL Server en Azure Virtual Machines con Azure NetApp Files - Escenarios de ejemplo de Azure](/azure/architecture/example-scenario/file-storage/sql-server-azure-netapp-files)
 * [SQL Server en la guía de implementación de Azure con Azure NetApp Files](https://www.netapp.com/pdf.html?item=/media/27154-tr-4888.pdf)
 * [Ventajas del uso de Azure NetApp Files para la implementación de SQL Server](solutions-benefits-azure-netapp-files-sql-server.md)
 * [Implementar SQL Server a través de SMB con Azure NetApp Files](https://www.youtube.com/watch?v=x7udfcYbibs)
@@ -85,6 +87,7 @@ En esta sección se proporcionan referencias de soluciones de SAP en Azure.
 * [Escalabilidad horizontal de SAP HANA con nodo en espera en máquinas virtuales de Azure con Azure NetApp Files en Red Hat Enterprise Linux](../virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel.md)
 * [Escalabilidad horizontal de SAP HANA con HSR y Pacemaker en RHEL: Azure Virtual Machines](../virtual-machines/workloads/sap/sap-hana-high-availability-scale-out-hsr-rhel.md)
 * [Herramienta Azure Application Consistent Snapshot (AzAcSnap)](azacsnap-introduction.md)
+* [Recuperación ante desastres SAP HANA con Azure NetApp Files](https://docs.netapp.com/us-en/netapp-solutions-sap/pdfs/sidebar/SAP_HANA_Disaster_Recovery_with_Azure_NetApp_Files.pdf)
 
 ### <a name="sap-anydb"></a>SAP AnyDB
 
@@ -171,6 +174,11 @@ En esta sección se proporcionan soluciones para los servicios de la plataforma 
 * [Azure NetApp Files + Trident = almacenamiento dinámico y persistente para Kubernetes](https://anfcommunity.com/2021/02/16/azure-netapp-files-trident-dynamic-and-persistent-storage-for-kubernetes/)
 * [Trident: orquestador de almacenamiento para contenedores](https://netapp-trident.readthedocs.io/en/stable-v20.04/kubernetes/operations/tasks/backends/anf.html)
 * [Plataforma de comercio electrónico Magento en Azure Kubernetes Service (AKS)](/azure/architecture/example-scenario/magento/magento-azure)
+
+### <a name="azure-red-hat-openshift"></a>Red Hat OpenShift en Azure   
+
+*   [Uso de Trident para automatizar Azure NetApp Files desde OpenShift](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/using-trident-to-automate-azure-netapp-files-from-openshift/ba-p/2367351)
+
 
 ### <a name="azure-batch"></a>Azure Batch
 

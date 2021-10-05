@@ -2,14 +2,14 @@
 title: Introducción al procesamiento de transacciones en Azure Service Bus
 description: En este artículo se ofrece información general sobre el procesamiento de transacciones y la característica de envío a través de Azure Service Bus.
 ms.topic: article
-ms.date: 03/03/2021
+ms.date: 09/21/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e2848f41d5557584b0f1a197b548a00a4aef1564
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 5eb3bf6eef551fd13788f7659eb8becede8e250d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102183750"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128666219"
 ---
 # <a name="overview-of-service-bus-transaction-processing"></a>Información general sobre el procesamiento de transacciones de Service Bus
 
@@ -22,7 +22,7 @@ En este artículo se describen las funcionalidades de transacciones de Microsoft
 
 Una *transacción* agrupa dos o más operaciones en un *ámbito de ejecución*. Por naturaleza, una transacción de este tipo debe garantizar que todas las operaciones que pertenecen a un grupo determinado de operaciones tendrán éxito o darán error de forma conjunta. En este sentido, las transacciones actúan como una unidad, lo que a menudo se conoce como *atomicidad*.
 
-Service Bus es un agente de mensajes transaccional, y garantiza la integridad transaccional de todas las operaciones internas en sus almacenes de mensajes. Todas las transferencias de mensajes dentro de Service Bus, como mover mensajes a una [cola de mensajes fallidos](service-bus-dead-letter-queues.md) o [reenviar automáticamente](service-bus-auto-forwarding.md) mensajes entre entidades, son transaccionales. Por lo tanto, si Service Bus acepta un mensaje, es que ya se ha almacenado y etiquetado con un número de secuencia. Desde ese momento, todas las transferencias de mensajes dentro de Service Bus son operaciones coordinadas entre entidades, y ninguna de ellas dará lugar a la pérdida (el origen tiene éxito y el destino da error) o a la desduplicación (el origen da error y el destino tiene éxito) del mensaje.
+Service Bus es un agente de mensajes transaccional, y garantiza la integridad transaccional de todas las operaciones internas en sus almacenes de mensajes. Todas las transferencias de mensajes de Service Bus, como mover mensajes a una [cola de mensajes fallidos](service-bus-dead-letter-queues.md) o [reenviar automáticamente](service-bus-auto-forwarding.md) mensajes entre entidades, son transaccionales. Por lo tanto, si Service Bus acepta un mensaje, es que ya se ha almacenado y etiquetado con un número de secuencia. Desde ese momento, todas las transferencias de mensajes dentro de Service Bus son operaciones coordinadas entre entidades, y ninguna de ellas dará lugar a la pérdida (el origen tiene éxito y el destino da error) o a la desduplicación (el origen da error y el destino tiene éxito) del mensaje.
 
 Service Bus admite operaciones de agrupación en una sola entidad de mensajería (cola, tema, suscripción) dentro del ámbito de una transacción. Por ejemplo, puede enviar varios mensajes a una cola desde dentro de un ámbito de transacción y los mensajes solo se confirmarán en el registro de la cola cuando la transacción se complete correctamente.
 
@@ -30,10 +30,14 @@ Service Bus admite operaciones de agrupación en una sola entidad de mensajería
 
 Las operaciones que pueden realizarse dentro de un ámbito de transacción son las siguientes:
 
-* **[QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient), [MessageSender](/dotnet/api/microsoft.azure.servicebus.core.messagesender), [TopicClient](/dotnet/api/microsoft.azure.servicebus.topicclient)** : `Send`, `SendAsync`, `SendBatch`, `SendBatchAsync`
-* **[BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)** : `Complete`, `CompleteAsync`, `Abandon`, `AbandonAsync`, `Deadletter`, `DeadletterAsync`, `Defer`, `DeferAsync`, `RenewLock`, `RenewLockAsync` 
+- Envío
+- Completo
+- Abandon
+- Deadletter
+- Defer
+- Renew lock
 
-Las operaciones de recepción no se incluyen, porque se supone que la aplicación captura mensajes mediante el modo [ReceiveMode.PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode), dentro de algún bucle de recepción o con una devolución de llamada [OnMessage](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage), y solo entonces se abre un ámbito de transacción para procesar el mensaje.
+Las operaciones de recepción no se incluyen, porque se supone que la aplicación captura mensajes mediante el modo de inspección y bloqueo, dentro de algún bucle de recepción o con una devolución de llamada, y solo entonces se abre un ámbito de transacción para procesar el mensaje.
 
 La disposición del mensaje (completar, abandonar, correo devuelto, aplazar), se produce entonces dentro del ámbito del resultado general de la transacción y depende de este.
 
@@ -49,56 +53,32 @@ Si necesita recibir de una suscripción a un tema y, a continuación, enviar a u
 
 Para configurar tales transferencias, se crea el remitente de un mensaje que se dirige a la cola de destino mediante la cola de transferencia. También hay un receptor que extrae los mensajes de esa misma cola. Por ejemplo:
 
-```csharp
-var connection = new ServiceBusConnection(connectionString);
-
-var sender = new MessageSender(connection, QueueName);
-var receiver = new MessageReceiver(connection, QueueName);
-```
-
-En una transacción sencilla, se usan estos elementos, como en el ejemplo siguiente. Para ver el ejemplo completo, consulte el [código fuente en GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/TransactionsAndSendVia/TransactionsAndSendVia/AMQPTransactionsSendVia):
+En una transacción sencilla, se usan estos elementos, como en el ejemplo siguiente. Para ver el ejemplo completo, consulte el [código fuente en GitHub](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/samples/Sample06_Transactions.md#transactions-across-entities):
 
 ```csharp
-var receivedMessage = await receiver.ReceiveAsync();
+var options = new ServiceBusClientOptions { EnableCrossEntityTransactions = true };
+await using var client = new ServiceBusClient(connectionString, options);
+
+ServiceBusReceiver receiverA = client.CreateReceiver("queueA");
+ServiceBusSender senderB = client.CreateSender("queueB");
+
+ServiceBusReceivedMessage receivedMessage = await receiverA.ReceiveMessageAsync();
 
 using (var ts = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled))
 {
-    try
-    {
-        // do some processing
-        if (receivedMessage != null)
-            await receiver.CompleteAsync(receivedMessage.SystemProperties.LockToken);
-
-        var myMsgBody = new MyMessage
-        {
-            Name = "Some name",
-            Address = "Some street address",
-            ZipCode = "Some zip code"
-        };
-
-        // send message
-        var message = myMsgBody.AsMessage();
-        await sender.SendAsync(message).ConfigureAwait(false);
-        Console.WriteLine("Message has been sent");
-
-        // complete the transaction
-        ts.Complete();
-    }
-    catch (Exception ex)
-    {
-        // This rolls back send and complete in case an exception happens
-        ts.Dispose();
-        Console.WriteLine(ex.ToString());
-    }
+    await receiverA.CompleteMessageAsync(receivedMessage);
+    await senderB.SendMessageAsync(new ServiceBusMessage());
+    ts.Complete();
 }
 ```
+
 
 ## <a name="timeout"></a>Tiempo de espera
 Una transacción agota el tiempo de espera después de 2 minutos. El temporizador de la transacción se inicia cuando comienza la primera operación de la transacción. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte los siguientes artículos para más información sobre las colas de Service Bus:
+Para más información sobre colas de Service Bus, consulte los siguientes artículos:
 
 * [Utilización de las colas de Service Bus](service-bus-dotnet-get-started-with-queues.md)
 * [Encadenamiento de entidades de Service Bus con reenvío automático](service-bus-auto-forwarding.md)

@@ -4,15 +4,15 @@ description: Tipos de versiones de prueba en el marketplace comercial
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 06/19/2020
 ms.author: trkeya
 author: trkeya
-ms.openlocfilehash: b1ca1b1caa1da1c38e0a7af8ec714c3734ca1191
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.date: 09/09/2021
+ms.openlocfilehash: 6c563b7661b62c81b6094f1a662faa1cdc28c57a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113110302"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128632013"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Versión de prueba de Azure Resource Manager
 
@@ -26,7 +26,7 @@ Para obtener información sobre una versión de prueba **hospedada** o de **apli
 
 Una plantilla de implementación contiene todos los recursos de Azure que componen la solución. Los productos que se ajustan a este escenario usan solo recursos de Azure. Establezca las siguientes propiedades en el Centro de partners:
 
-- **Regiones** (obligatorias): Actualmente hay 26 regiones admitidas de Azure en las que se puede usar la versión de prueba. Para obtener un rendimiento óptimo, se recomienda elegir una región en la que se espera que se pueda encontrar el mayor número de clientes. Tendrá que asegurarse de que su suscripción puede implementar todos los recursos necesarios en cada una de las regiones que seleccione.
+- **Regiones** (obligatorias): Actualmente hay 26 regiones admitidas de Azure en las que se puede usar la versión de prueba. Para obtener un rendimiento óptimo, se recomienda elegir una región en la que espere encontrar el mayor número de clientes. Tendrá que asegurarse de que su suscripción puede implementar todos los recursos necesarios en cada una de las regiones que seleccione.
 
 - **Instancias**: Seleccione el tipo (activo o inactivo) y el número de instancias disponibles, que se multiplicarán por el número de regiones en las que está disponible la oferta.
 
@@ -306,39 +306,46 @@ La última sección que hay que completar permite implementar las versiones de p
 
    Si no tiene un identificador de inquilino, cree uno en Azure Active Directory. Para obtener ayuda con la configuración de un inquilino, vea [Inicio rápido: Configuración de un inquilino](../active-directory/develop/quickstart-create-new-tenant.md).
 
-3. **Identificador de aplicación de Azure AD**: cree una aplicación y regístrela. Esta aplicación se usará para realizar operaciones en la instancia de la versión de prueba.
+3. Aprovisione la aplicación Microsoft Test-Drive en el inquilino. Esta aplicación se va a usar para realizar operaciones en los recursos de la versión de prueba.
+    1. Si aún no lo tiene, instale el [módulo de PowerShell Azure Az](/powershell/azure/install-az-ps?view=azps-6.3.0).
+    1. Agregue la entidad de servicio de la aplicación Microsoft Test-Drive.
+        1. Ejecute `Connect-AzAccount` y proporcione credenciales para iniciar sesión en la cuenta de Azure, que requiere el [rol integrado](/azure/active-directory/roles/permissions-reference#global-administrator) **Administrador global** de Azure Active Directory. 
+        1. Cree una nueva entidad de servicio: `New-AzADServicePrincipal -ApplicationId d7e39695-0b24-441c-a140-047800a05ede -DisplayName 'Microsoft TestDrive' -SkipAssignment`.
+        1. Asegúrese de que se ha creado la entidad de servicio: `Get-AzADServicePrincipal -DisplayName 'Microsoft TestDrive'`.
+      ![Muestra el código para comprobar la entidad de servicio](media/test-drive/commands-to-verify-service-principal.png)
 
-   1. Navegue al directorio recién creado o a uno que ya existe y seleccione Azure Active Directory en el panel de filtro.
-   2. Busque **Registros de aplicaciones** y seleccione **Agregar**.
-   3. Proporcione un nombre para la aplicación.
-   4. Seleccione el **Tipo** de **Aplicación web o API**.
-   5. Proporcione cualquier valor en la dirección URL de inicio de sesión; este campo no se usa.
-   6. Seleccione **Crear**.
-   7. Una vez creada la aplicación, seleccione **Propiedades** > **Set the application as multi-tenant** (Establecer la aplicación como multiinquilino) y, después, **Guardar**.
+4. En **Id. de aplicación de Azure AD**, pegue este identificador de aplicación: `d7e39695-0b24-441c-a140-047800a05ede`.
+5. En **Clave de aplicación de Azure AD**, puesto que no se requiere ningún secreto, inserte un secreto ficticio, como "no-secret".
+6. Dado que se va a usar la aplicación para implementar en la suscripción, es necesario agregar la aplicación como colaborador en la suscripción, desde Azure Portal o PowerShell:
 
-4. Seleccione **Guardar**.
+   1. En el Portal de Azure:
 
-5. Copie el identificador de aplicación de esta aplicación registrada y péguelo en el campo de la versión de prueba.
+       1. Seleccione la **Suscripción** que se va a usar para la versión de prueba.
+       1. Seleccione **Access Control (IAM)** .<br>
 
-   ![Detalle del identificador de aplicación de Azure AD](media/test-drive/azure-ad-application-id-detail.png)
+          ![Incorporación de un nuevo colaborador de Access Control (IAM)](media/test-drive/access-control-principal.png)
 
-6. Dado que vamos a usar la aplicación para implementar en la suscripción, es necesario agregar la aplicación como colaborador en la suscripción:
+       1. Seleccione la pestaña **Asignaciones de roles** y luego **+ Agregar asignación de roles**.
 
-   1. Seleccione el tipo de **Suscripción** que va a usar para la versión de prueba.
-   1. Seleccione **Access Control (IAM)** .
-   1. Seleccione la pestaña **Asignaciones de roles** y, después, **Agregar asignación de roles**.
+          ![En la ventana Seleccionar Access Control (IAM), muestra cómo seleccionar la pestaña Asignaciones de roles y luego + Agregar asignación de roles.](media/test-drive/access-control-principal-add-assignments.jpg)
 
-      ![Adición de una nueva entidad de seguridad de Access Control](media/test-drive/access-control-principal.jpg)
+       1. Escriba este nombre de aplicación de Azure AD: `Microsoft TestDrive`. Seleccione la aplicación a la que desea asignar el rol **Colaborador**.
 
-   1. Establezca **Rol** y **Asignar acceso a** como se muestra. Escriba el nombre de la aplicación de Azure AD en el campo **Seleccionar**. Seleccione la aplicación a la que desea asignar el rol **Colaborador**.
+          ![Cómo asignar el rol de colaborador](media/test-drive/access-control-permissions.jpg)
 
-      ![Adición de permisos](media/test-drive/access-control-permissions.jpg)
+       1. Seleccione **Guardar**.
+   1. Si usa PowerShell:
+      1. Ejecute esto para obtener el identificador de objeto de entidad de servicio: `(Get-AzADServicePrincipal -DisplayName 'Microsoft TestDrive').id`.
+      1. Ejecute esto con el identificador de objeto y el identificador de suscripción: `New-AzRoleAssignment -ObjectId <objectId> -RoleDefinitionName Contributor -Scope /subscriptions/<subscriptionId>`.
 
-   1. Seleccione **Guardar**.
-
-7. Genere una clave de autenticación para la **Aplicación de Azure AD**. En **Claves**, agregue una **Descripción de la clave**, establezca la duración en **No expira nunca** (una clave expirada interrumpirá la versión de prueba en producción) y, después, seleccione **Guardar**. Copie este valor y péguelo en el campo obligatorio de la versión de prueba.
-
-![Se muestran las claves de la aplicación de Azure AD](media/test-drive/azure-ad-app-keys.png)
+> [!NOTE]
+> Antes de eliminar el identificador de aplicación anterior, vaya a Azure Portal, a **Grupos de recursos** y busque `CloudTry_`. Compruebe la columna **Evento iniciado por**.
+>
+> :::image type="content" source="media/test-drive/event-initiated-by-field.png" lightbox="media/test-drive/event-initiated-by-field.png" alt-text="Muestra el campo Evento iniciado por":::
+>
+> No elimine el identificador de aplicación anterior a menos que como mínimo un recurso (**Nombre de la operación**) esté establecido en **Microsoft TestDrive**.
+>
+> Para eliminar el identificador de aplicación, en el menú de navegación izquierdo, seleccione **Azure Active Directory** > **Registros de aplicaciones** y luego la pestaña **Todas las aplicaciones**. Elija la aplicación y seleccione **Eliminar**.
 
 ## <a name="republish"></a>Volver a publicar
 

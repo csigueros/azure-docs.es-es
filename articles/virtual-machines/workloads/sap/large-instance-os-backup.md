@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 06/22/2021
 ms.author: madhukan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5685f7932b49f8af57faf159a51a8cb634128337
-ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
+ms.openlocfilehash: e7d2621aab6d49c8bd6f4b6083c35d5e7299bf50
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113217492"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128630516"
 ---
 # <a name="os-backup-and-restore"></a>Copia de seguridad y restauración del sistema operativo
 
@@ -117,12 +117,12 @@ La siguiente información describe los pasos necesarios para realizar la copia d
 
 ### <a name="take-a-manual-backup"></a>Creación de una copia de seguridad manual
 
-Obtenga las herramientas de instantáneas de Microsoft más recientes para SAP HANA como se explica en una serie de artículos que comienzan con [¿Qué es la herramienta Azure Application Consistent Snapshot?](../../../azure-netapp-files/azacsnap-introduction.md) y configúrelas y pruébelas como se describe en estos artículos:
+Obtenga las herramientas de instantáneas de Microsoft más recientes para SAP HANA como se explica en una serie de artículos que comienzan con [¿Qué es la herramienta Azure Application Consistent Snapshot?](../../../azure-netapp-files/azacsnap-introduction.md). Configúrelos y pruebelos como se describe en estos artículos:
 
 - [Configuración de la herramienta Azure Application Consistent Snapshot](../../../azure-netapp-files/azacsnap-cmd-ref-configure.md)
 - [Prueba de la herramienta Azure Application Consistent Snapshot](../../../azure-netapp-files/azacsnap-cmd-ref-test.md) 
 
-para ejecutarlas periódicamente mediante `crontab`, como se describe en [Copias de seguridad con la herramienta Azure Application Consistent Snapshot](../../../azure-netapp-files/azacsnap-cmd-ref-backup.md). 
+Esta revisión le preparará para ejecutar la copia de seguridad periódicamente mediante `crontab`, como se describe en [Copias de seguridad con la herramienta Azure Application Consistent Snapshot](../../../azure-netapp-files/azacsnap-cmd-ref-backup.md). 
 
 Para más información, consulte estas referencias:
 

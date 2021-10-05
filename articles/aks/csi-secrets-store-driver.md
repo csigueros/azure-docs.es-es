@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: how-to
 ms.date: 03/30/2021
 ms.custom: template-how-to, devx-track-azurecli
-ms.openlocfilehash: 6b971849501eb4229dd4db8a58f7fc59843aef4b
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 83895ebe6f8cf330650eef8167ee3bdd06660869
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123429053"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128656443"
 ---
 # <a name="use-the-secrets-store-csi-driver-for-kubernetes-in-an-azure-kubernetes-service-aks-cluster-preview"></a>Uso del controlador Secrets Store CSI para Kubernetes en un clúster de Azure Kubernetes Service (AKS) (versión preliminar)
 
@@ -34,7 +34,7 @@ La versión mínima recomendada de Kubernetes para esta característica es la 1
 - Admite volúmenes CSI en línea (versión 1.15 o superior) de Kubernetes
 - Admite el montaje de varios objetos de almacenamiento de secretos como un solo volumen
 - Admite la portabilidad de pods con CRD de SecretProviderClass
-- Admite contenedores de Windows (versión de Kubernetes 1.18 o posterior)
+- Admite contenedores de Windows
 - Sincronización con secretos de Kubernetes (versión del controlador Secrets Store CSI 0.0.10 o posterior)
 - Admite la rotación automática de contenido montado y secretos de Kubernetes sincronizados (versión del controlador Secrets Store CSI 0.0.15 o posterior)
 
@@ -199,7 +199,8 @@ spec:
     objects:  |
       array:
         - |
-          objectName: <secret-name>       # In this example, 'ExampleSecret'   
+          objectName: <secret-name>       # In this example, 'ExampleSecret' 
+          objectAlias: <secret-alias>     # [OPTIONAL] specify the filename of the object when written to disk - defaults to objectName if not provided
           objectType: secret              # Object types: secret, key or cert
           objectVersion: ""               # [OPTIONAL] object versions, default to latest if empty
     tenantId: "<tenant-id>"               # the tenant ID containing the Azure Key Vault instance

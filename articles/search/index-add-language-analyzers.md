@@ -7,23 +7,23 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/17/2021
-ms.openlocfilehash: 3a8a235e204826c26f20cc146003e9290331fe07
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.date: 09/08/2021
+ms.openlocfilehash: 082ece269fa0e07419ff44c736fdeb19aaf30bdc
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113091544"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124735323"
 ---
 # <a name="add-language-analyzers-to-string-fields-in-an-azure-cognitive-search-index"></a>Incorporación de analizadores de idioma a campos de cadena en un índice de Azure Cognitive Search
 
-Un *analizador de idiomas* es un componente específico de un [analizador de texto](search-analyzers.md) que realiza un análisis léxico mediante las reglas lingüísticas del idioma de destino. Cada campo de búsqueda tiene una propiedad **analyzer**. Si el contenido consiste en cadenas traducidas, como campos independientes para texto en inglés y en chino, puede especificar los analizadores de idiomas en cada campo para acceder a las funcionalidades lingüísticas enriquecidas de esos analizadores.
+Un *analizador de idiomas* es un componente específico de un [analizador de texto](search-analyzers.md) que realiza un análisis léxico mediante las reglas lingüísticas del idioma de destino. Cada campo de cadena de búsqueda tiene una propiedad **analyzer**. Si el contenido consiste en cadenas traducidas, como campos independientes para texto en inglés y en chino, puede especificar los analizadores de idiomas en cada campo para acceder a las funcionalidades lingüísticas enriquecidas de esos analizadores.
 
 ## <a name="when-to-use-a-language-analyzer"></a>Cuándo usar un analizador de idioma
 
 Debe considerar un analizador de idioma cuando el reconocimiento de la estructura de palabras o oraciones agrega valor al análisis de texto. Un ejemplo común es la asociación de formas de verbo irregulares ("traer" y "trajo") o nombres en masculino y femenino ("emperador" y "emperatriz"). Sin reconocimiento lingüístico, estas cadenas se analizan solo en características físicas, lo que no puede detectar la conexión. Dado que es más probable que los fragmentos de texto grandes tengan este contenido, los campos que se componen de descripciones, revisiones o resúmenes son buenos candidatos para un analizador de idioma.
 
-También hay que tener en cuenta los analizadores de idioma cuando el contenido se compone de cadenas de idioma no occidentales. Aunque el [analizador predeterminado](search-analyzers.md#default-analyzer) es independiente del idioma, el concepto de usar espacios y caracteres especiales (guiones y barras diagonales) para separar cadenas suele ser más aplicable a los idiomas occidentales que a los no occidentales. 
+También hay que tener en cuenta los analizadores de idioma cuando el contenido se compone de cadenas de idioma no occidentales. Aunque el [analizador predeterminado (Lucene estándar)](search-analyzers.md#default-analyzer) es independiente del idioma, el concepto de usar espacios y caracteres especiales (guiones y barras diagonales) para separar cadenas suele ser más aplicable a los idiomas occidentales que a los no occidentales. 
 
 Por ejemplo, en chino, japonés, coreano (CJK) y otros idiomas asiáticos, un espacio no es necesariamente un delimitador de palabras. Pensemos en la siguiente cadena japonesa. Dado que no tiene espacios, es probable que un analizador independiente del idioma analice toda la cadena como un token, cuando de hecho la cadena es en realidad una frase.
 
@@ -54,9 +54,17 @@ El analizador predeterminado es Standard Lucene, que funciona bien con el inglé
 
 ## <a name="how-to-specify-a-language-analyzer"></a>Cómo especificar un analizador de idioma
 
-Puede definir un analizador de idioma en los campos "que se pueden buscar" de tipo Edm.String durante la definición del campo.
+Establezca el analizador durante la creación del índice, antes de cargarlo con datos.
 
-Aunque las definiciones de los campos tienen varias propiedades relacionadas con el analizador, solo se puede usar la propiedad "analyzer" para los analizadores de idioma. El valor de "analyzer" debe ser uno de los analizadores de idioma de la lista de analizadores de soporte.
+1. En la definición de campo, asegúrese de que el campo tiene el atributo "searchable" y es de tipo Edm.String.
+
+1. Establezca la propiedad "analyzer" en uno de los analizadores de idioma de la [lista de analizadores admitidos](#language-analyzer-list).
+
+   La propiedad "analyzer" es la única propiedad que aceptará un analizador de idioma y se usa para la indexación y las consultas. Otras propiedades relacionadas con el analizador ("searchAnalyzer" e "indexAnalyzer") no aceptarán un analizador de idioma.
+
+Los analizadores de idioma no se pueden personalizar. Si un analizador no cumple con sus requisitos, puede intentar crear un [analizador personalizado](cognitive-search-working-with-skillsets.md) con microsoft_language_tokenizer o microsoft_language_stemming_tokenizer, y agregar filtros para el procesamiento previo y posterior a la tokenización.
+
+En el ejemplo siguiente se muestra una especificación del analizador de idioma en un índice:
 
 ```json
 {

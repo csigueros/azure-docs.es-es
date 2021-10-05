@@ -363,12 +363,17 @@
       items:
         - name: Etiquetado de datos
           items:
-            - name: Obtención de datos etiquetados
-              displayName: 'data, dataset, labeling'
-              href: how-to-create-labeling-projects.md
+            - name: Configuración del etiquetado de imágenes
+              displayName: 'data, dataset'
+              href: how-to-create-image-labeling-projects.md
+            - name: Configuración del etiquetado de texto
+              displayName: 'data, dataset'
+              href: how-to-create-text-labeling-projects.md
             - name: Etiquetado de imágenes y texto
               displayName: 'data, dataset, labeling'
               href: how-to-label-data.md
+            - name: Externalización de tareas de etiquetado
+              href: how-to-outsource-data-labeling.md
             - name: Creación de conjuntos de datos con etiquetas
               displayName: 'data, labels, torchvision'
               href: how-to-use-labeled-dataset.md

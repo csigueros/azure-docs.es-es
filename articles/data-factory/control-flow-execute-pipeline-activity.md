@@ -1,7 +1,7 @@
 ---
-title: Actividad de ejecución de canalización en Azure Data Factory
+title: Actividad de ejecución de canalización
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Aprenda a usar la actividad de ejecución de canalización para invocar una canalización de Data Factory desde otra canalización de Data Factory.
+description: Obtenga información sobre cómo puede usar la actividad de ejecución de canalización para invocar una canalización desde otra en Azure Data Factory o Synapse Analytics.
 author: chez-charlie
 ms.author: chez
 ms.reviewer: jburchel
@@ -9,21 +9,19 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 01/10/2018
-ms.openlocfilehash: b46fbddb2a6446eaa711a8ba2c548fff634eee48
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/09/2021
+ms.openlocfilehash: 047548a39c16c5f6b6ee3f7d359a8664c87e7062
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122638923"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128566603"
 ---
-# <a name="execute-pipeline-activity-in-azure-data-factory"></a>Actividad de ejecución de canalización en Azure Data Factory
+# <a name="execute-pipeline-activity-in-azure-data-factory-and-synapse-analytics"></a>Actividad de ejecución de canalización en Azure Data Factory y Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-La actividad de ejecución de canalización permite que una canalización de Data Factory invoque otra canalización.
-
-
+La actividad de ejecución de canalización permite que una canalización de Data Factory o Synapse invoque a otra.
 
 ## <a name="syntax"></a>Sintaxis
 
@@ -69,7 +67,7 @@ name | Nombre de la actividad de ejecución de canalización. | String | Sí
 type | Se debe establecer en **ExecutePipeline**. | String | Sí
 pipeline | Referencia a la canalización dependiente que invoca esta canalización. Un objeto de referencia de canalización tiene dos propiedades: **referenceName** y **type**. La propiedad referenceName especifica el nombre de la canalización de referencia. La propiedad type se debe establecer en PipelineReference. | PipelineReference | Sí
 parámetros | Parámetros que se deben pasar a la canalización invocada | Objeto JSON que asigna nombres de parámetro a los valores de argumento | No
-waitOnCompletion | Define si la ejecución de la actividad espera que finalice la ejecución de la canalización dependiente. El valor predeterminado es False. | Boolean | No
+waitOnCompletion | Define si la ejecución de la actividad espera que finalice la ejecución de la canalización dependiente. El valor predeterminado es true. | Boolean | No
 
 ## <a name="sample"></a>Muestra
 Este escenario consta de dos canalizaciones:
@@ -256,7 +254,7 @@ La canalización principal reenvía estos valores a la canalización invocada, c
 
 ```
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte otras actividades de flujo de control compatibles con Data Factory: 
+Vea otras actividades de flujo de control admitidas: 
 
 - [Para cada actividad](control-flow-for-each-activity.md)
 - [Actividad GetMetadata](control-flow-get-metadata-activity.md)
