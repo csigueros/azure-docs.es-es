@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning
 description: Aprenda a configurar Estudio de Azure Machine Learning para tener acceso a los datos almacenados en una red virtual.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
 ms.date: 07/13/2021
 ms.custom: contperf-fy20q4, tracking-python, security
-ms.openlocfilehash: 7fe7070611fc9fc94f983a69a6fb9009af0f9c3e
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.openlocfilehash: 6a10384757552108aefc3dd828bf0fd7ddce2f82
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129091528"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129427502"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Habilitación de Azure Machine Learning Studio en una Azure Virtual Network
 

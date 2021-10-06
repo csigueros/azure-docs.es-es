@@ -4,25 +4,26 @@ titleSuffix: Azure Machine Learning
 description: Obtenga información sobre las matrices de puertas programables. Puede implementar un servicio web en una matriz FPGA con Azure Machine Learning para obtener una inferencia de latencia ultrabaja.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.reviewer: larryfr
 ms.author: jordane
 author: jpe316
 ms.date: 09/24/2020
 ms.topic: how-to
 ms.custom: contperf-fy21q2, devx-track-python, deploy
-ms.openlocfilehash: bfb29a00dbef95007eba6ca69f9a38d0f23d2da2
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: bfebb2dd7a73684887a2fa78d8d82ac26f2b7e50
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121736513"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129425532"
 ---
 # <a name="deploy-ml-models-to-field-programmable-gate-arrays-fpgas-with-azure-machine-learning"></a>Implementación de modelos de ML en matrices de puertas programables (FPGA) con Azure Machine Learning 
 
 En este artículo, obtendrá información sobre las matrices FPGA y sobre cómo implementar los modelos de ML en una matriz FPGA de Azure mediante el [paquete de Python de modelos acelerados por hardware](/python/api/azureml-accel-models/azureml.accel) desde [Azure Machine Learning](overview-what-is-azure-machine-learning.md).
 
 ## <a name="what-are-fpgas"></a>¿Qué son las FPGA?
+
 Las FPGA contienen una matriz de bloques de lógica programables y una jerarquía de interconexiones reconfigurables. Las interconexiones permiten que estos bloques se configuren de distintas maneras después de su fabricación. Las FPGA ofrecen una combinación de capacidad de programación y rendimiento en comparación con otros chips. 
 
 Las FPGA permiten alcanzar una latencia baja para las solicitudes de inferencia en tiempo real (o puntuación del modelo). Las solicitudes asincrónicas (procesamiento por lotes) no son necesarias. El procesamiento por lotes puede causar latencia porque se deben procesar más datos. Las implementaciones de unidades de procesamiento neuronal no requieren procesamiento por lotes; por lo tanto, la latencia puede ser muchas veces menor en comparación con los procesadores de CPU y GPU.

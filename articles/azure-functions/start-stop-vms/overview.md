@@ -5,21 +5,18 @@ ms.topic: conceptual
 ms.service: azure-functions
 ms.subservice: start-stop-vms
 ms.date: 06/25/2021
-ms.openlocfilehash: 3e2946bf493da2570106fdb554704ef7f286b7cb
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 24872e96333aeb67661c462e54acebc62b32c8aa
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121738541"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129455425"
 ---
 # <a name="startstop-vms-v2-preview-overview"></a>Información general sobre Start/Stop VMs v2 (versión preliminar)
 
 La característica Start/Stop VMs v2 (versión preliminar) inicia o detiene las máquinas virtuales (VM) de Azure en varias suscripciones. Inicia o detiene las máquinas virtuales de Azure según las programaciones definidas por el usuario, proporciona información a través de [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) y envía notificaciones opcionales mediante [grupos de acciones](../../azure-monitor/alerts/action-groups.md). La característica puede administrar tanto las máquinas virtuales de Azure Resource Manager como las máquinas virtuales clásicas de la mayoría de los escenarios.
 
 Esta nueva versión de Start/Stop VMs v2 (versión preliminar) proporciona una opción de automatización económica centralizada para los clientes que quieren optimizar los costos de las máquinas virtuales. Ofrece la misma funcionalidad que la [versión original](../../automation/automation-solution-vm-management.md) disponible con Azure Automation, pero está diseñada para aprovechar las ventajas de la tecnología más reciente de Azure.
-
-> [!NOTE]
-> Si tiene problemas durante la implementación, se produce un problema al usar Start/Stop VMs v2 (versión preliminar), o bien si tiene una pregunta relacionada, puede enviar una incidencia en [GitHub](https://github.com/microsoft/startstopv2-deployments/issues). La apertura de una incidencia de soporte técnico de Azure desde el [sitio de soporte técnico de Azure](https://azure.microsoft.com/support/options/) no está disponible para esta versión preliminar. 
 
 ## <a name="overview"></a>Información general
 

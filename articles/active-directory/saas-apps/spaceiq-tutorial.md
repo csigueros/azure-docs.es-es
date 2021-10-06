@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/11/2021
+ms.date: 09/02/2021
 ms.author: jeedes
-ms.openlocfilehash: c88ff4b65e9655ec931ee663641a446a1838772b
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.openlocfilehash: 22206e91842a71e4dd41102a4ba9a86e11649201
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112062569"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124785655"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-spaceiq"></a>Tutorial: Integración de Azure Active Directory con SpaceIQ
 
@@ -38,6 +38,7 @@ Para configurar la integración de Azure AD con SpaceIQ, necesita los siguientes
 En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
 * SpaceIQ admite el inicio de sesión único iniciado por **IDP**.
+* SpaceIQ admite el [aprovisionamiento automatizado de usuarios](spaceiq-provisioning-tutorial.md).
 
 > [!NOTE]
 > El identificador de esta aplicación es un valor de cadena fijo, por lo que solo se puede configurar una instancia en un inquilino.
@@ -147,13 +148,15 @@ En esta sección, va a permitir que B.Simon acceda a SpaceIQ mediante el inicio 
 
 En esta sección, creará un usuario llamado Britta Simon en SpaceIQ. Trabaje con el [equipo de soporte técnico de SpaceIQ](mailto:eng@spaceiq.com) para agregar los usuarios en la plataforma de SpaceIQ. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
+SpaceIQ también admite el aprovisionamiento automático de usuarios. [Aquí](./spaceiq-provisioning-tutorial.md) puede encontrar más detalles sobre cómo configurar el aprovisionamiento automático de usuarios.
+
 ## <a name="test-sso"></a>Prueba de SSO
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones.
 
 * Haga clic en Probar esta aplicación en Azure Portal; debería iniciar sesión automáticamente en la instancia de SpaceIQ para la que ha configurado el inicio de sesión único.
 
-* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de SpaceIQ en Mis aplicaciones, debería iniciar sesión automáticamente en la versión de SpaceIQ para la que ha configurado el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de SpaceIQ en Mis aplicaciones, debería iniciar sesión automáticamente en la versión de SpaceIQ para la que ha configurado el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

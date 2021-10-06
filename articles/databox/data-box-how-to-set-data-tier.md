@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: how-to
 ms.date: 05/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 82ac4e9c4a2f573295790d5d7fa3b02c2e690bbc
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 8cf212bb6983e561f224aa238ad6afd5e5cf9ac2
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124819851"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129274660"
 ---
 # <a name="use-azure-data-box-or-azure-data-box-heavy-to-send-data-to-appropriate-azure-storage-blob-tier"></a>Uso de Azure Data Box o Azure Data Box Heavy para enviar datos al nivel del blob de Azure Storage adecuado
 
@@ -29,11 +29,11 @@ Azure Storage ofrece tres niveles diferentes para almacenar datos de la manera m
 
 El nivel de almacenamiento de acceso esporádico es para datos que se consultan con poca frecuencia y que deben almacenarse durante un mínimo de 30 días. El costo de almacenamiento del nivel poco frecuente es inferior al del nivel de acceso frecuente, pero los gastos de acceso a los datos son superiores en comparación con el nivel frecuente.
 
-El nivel de almacenamiento de archivo de Azure se realiza sin conexión y ofrece los menores costos de almacenamiento, pero los mayores costos de acceso. Este nivel está pensado para datos que permanecen en el almacenamiento de archivo durante un período mínimo de 180 días. Para obtener detalles de cada uno de estos niveles y el modelo de precios, consulte [Comparación de los niveles de almacenamiento](../storage/blobs/storage-blob-storage-tiers.md).
+El nivel de almacenamiento de archivo de Azure se realiza sin conexión y ofrece los menores costos de almacenamiento, pero los mayores costos de acceso. Este nivel está pensado para datos que permanecen en el almacenamiento de archivo durante un período mínimo de 180 días. Para obtener detalles de cada uno de estos niveles y el modelo de precios, consulte [Comparación de los niveles de almacenamiento](../storage/blobs/access-tiers-overview.md).
 
 Los datos de Data Box o de Data Box Heavy se cargan en un nivel de almacenamiento asociado a la cuenta de almacenamiento. Al crear una cuenta de almacenamiento, puede establecer el nivel de acceso como frecuente o poco frecuente. Según el patrón de acceso de la carga de trabajo y el costo, puede cambiar estos datos del nivel predeterminado a otro nivel de almacenamiento.
 
-Solo puede disponer los datos de almacenamiento de objetos en niveles de acceso en cuentas de Blob Storage o de uso general v2 (GPv2). Las cuentas de General Purpose v1 (GPv1) no admiten niveles. Para elegir el nivel de almacenamiento correcto para sus datos, revise las consideraciones que se detallan en [Azure Blob Storage: Niveles de almacenamiento de acceso frecuente, acceso esporádico y acceso de archivo](../storage/blobs/storage-blob-storage-tiers.md).
+Solo puede disponer los datos de almacenamiento de objetos en niveles de acceso en cuentas de Blob Storage o de uso general v2 (GPv2). Las cuentas de General Purpose v1 (GPv1) no admiten niveles. Para elegir el nivel de almacenamiento correcto para sus datos, revise las consideraciones que se detallan en [Azure Blob Storage: Niveles de almacenamiento de acceso frecuente, acceso esporádico y acceso de archivo](../storage/blobs/access-tiers-overview.md).
 
 ## <a name="set-a-default-blob-tier"></a>Establecimiento de un nivel de blob predeterminado
 

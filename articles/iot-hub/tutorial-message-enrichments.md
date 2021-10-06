@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/20/2019
 ms.author: robinsh
 ms.custom: mqtt, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 0d6c90120d050b6896161f50332faf447c3ed67b
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: aca884ebbfc10cc847bade34ea1a9bd73ada18c9
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107788878"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129458404"
 ---
 # <a name="tutorial-use-azure-iot-hub-message-enrichments"></a>Tutorial: Uso del enriquecimiento de mensajes de Azure IoT Hub
 
@@ -48,7 +48,7 @@ Estas son las tareas que tendrá que llevar a cabo para completar este tutorial:
 
 ## <a name="retrieve-the-iot-c-samples-repository"></a>Recuperación del repositorio de muestras en C# de IoT
 
-Descargue las [muestras en C# de IoT](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) de GitHub y descomprímalas. Este repositorio tiene varias aplicaciones, scripts y plantillas de Resource Manager. Los que se van a usar para este tutorial son los siguientes:
+Descargue las [muestras en C# de IoT](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/main.zip) de GitHub y descomprímalas. Este repositorio tiene varias aplicaciones, scripts y plantillas de Resource Manager. Los que se van a usar para este tutorial son los siguientes:
 
 * Para el método manual, hay un script de la CLI que se usa para crear los recursos. El script se encuentra en /azure-iot-samples-csharp/iot-hub/Tutorials/Routing/SimulatedDevice/resources/iothub_msgenrichment_cli.azcli. Este script crea los recursos y configura el enrutamiento de mensajes. Después de ejecutar este script, cree el enriquecimiento de mensajes de forma manual mediante [Azure Portal](https://portal.azure.com).
 * Para el método automatizado, hay una plantilla de Azure Resource Manager. La plantilla se encuentra en /azure-iot-samples-csharp/iot-hub/Tutorials/Routing/SimulatedDevice/resources/template_msgenrichments.json. Esta plantilla crea los recursos, configura el enrutamiento de mensajes y, a continuación, configura el enriquecimiento de mensajes.

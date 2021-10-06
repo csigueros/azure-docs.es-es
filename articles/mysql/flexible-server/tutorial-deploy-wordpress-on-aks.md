@@ -7,12 +7,12 @@ ms.author: sumuth
 ms.topic: tutorial
 ms.date: 11/25/2020
 ms.custom: vc, devx-track-azurecli
-ms.openlocfilehash: 5f5b3da3c42ff4a6e7e5f66c0c93cf04d9446bb9
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 749137187b7fffe111f854860517dc608ae44c8a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "122643602"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128582424"
 ---
 # <a name="tutorial-deploy-wordpress-app-on-aks-with-azure-database-for-mysql---flexible-server"></a>Tutorial: Implementación de una aplicación WordPress en AKS con Servidor flexible de Azure Database for MySQL
 
@@ -26,7 +26,7 @@ En este inicio rápido se implementa una aplicación WordPress en el clúster de
 > - Actualmente, Azure Database for MySQL con la opción Servidor flexible está en versión preliminar pública.
 > - En este inicio rápido se presupone un conocimiento básico de los conceptos de Kubernetes, WordPress y MySQL.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [flexible-server-free-trial-note](../includes/flexible-server-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 

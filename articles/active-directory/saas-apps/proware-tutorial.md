@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/16/2020
+ms.date: 08/31/2021
 ms.author: jeedes
-ms.openlocfilehash: 4ab3cf1a9f57dc549868cb3d6aa04e48a6e31318
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ae5d39edd30363ad970aeac27c5d6ad7ba7a81ce
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98731209"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124749781"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-proware"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Proware
 
@@ -39,6 +39,8 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 
 * Proware admite el inicio de sesión único iniciado por **SP e IDP**.
 
+* Proware admite el [aprovisionamiento automatizado de usuarios](proware-provisioning-tutorial.md).
+
 ## <a name="adding-proware-from-the-gallery"></a>Incorporación de Proware desde la galería
 
 Para configurar la integración de Proware en Azure AD, agregue la aplicación desde la galería a la lista de aplicaciones SaaS administradas.
@@ -49,7 +51,6 @@ Para configurar la integración de Proware en Azure AD, agregue la aplicación 
 1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
 1. En la sección **Agregar desde la galería**, escriba **Proware** en el cuadro de búsqueda.
 1. Seleccione **Proware** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
-
 
 ## <a name="configure-and-test-azure-ad-sso-for-proware"></a>Configuración y prueba del inicio de sesión único de Azure AD para Proware
 
@@ -70,7 +71,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. En Azure Portal, en la página de integración de aplicaciones de **Proware**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
 1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
-1. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
+1. En la página **Configuración del inicio de sesión único con SAML**, haga clic en el icono de lápiz de **Configuración básica de SAML** para editar la configuración.
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
@@ -94,6 +95,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 1. En la sección **Configurar Proware**, copie las direcciones URL adecuadas según sus necesidades.
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
+
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
 En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Portal.
@@ -126,6 +128,8 @@ Para configurar el inicio de sesión único en **Proware**, envíe el **XML de m
 
 En esta sección, creará un usuario llamado Britta Simon en Proware. Trabaje con el [equipo de soporte técnico de Proware](mailto:helpdesk@metaware.nl) para agregar los usuarios a la plataforma de Proware. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
+Proware también admite el aprovisionamiento automático de usuarios. [Aquí](./proware-provisioning-tutorial.md) puede encontrar más detalles sobre cómo configurar el aprovisionamiento automático de usuarios.
+
 ## <a name="test-sso"></a>Prueba de SSO 
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones. 
@@ -140,7 +144,7 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 * Haga clic en **Probar esta aplicación** en Azure Portal. Se debería iniciar sesión automáticamente en la instancia de Proware para la que configuró el inicio de sesión único. 
 
-También puede usar Aplicaciones de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de Proware en Mis aplicaciones, si se ha configurado en modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para comenzar el flujo de inicio de sesión; y si se ha configurado en modo IDP, se debería iniciar sesión automáticamente en la instancia de Proware para la que ha configurado el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+También puede usar Aplicaciones de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de Proware en Mis aplicaciones, si se ha configurado en modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para comenzar el flujo de inicio de sesión; y si se ha configurado en modo IDP, se debería iniciar sesión automáticamente en la instancia de Proware para la que ha configurado el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 
 ## <a name="next-steps"></a>Pasos siguientes

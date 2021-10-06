@@ -4,12 +4,12 @@ description: En este artículo se describe cómo usar identidades administradas 
 ms.topic: article
 ms.date: 06/14/2021
 ms.custom: subject-rbac-steps
-ms.openlocfilehash: ed6f7d495466139a7d1a98aed7d5323f7ad4c074
-ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
+ms.openlocfilehash: dad610902514849db33ca00b2da3f328d233260e
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/15/2021
-ms.locfileid: "112123206"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129358063"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-azure-service-bus-resources"></a>Autenticación de una identidad administrada con Azure Active Directory para acceder a recursos de Azure Service Bus
 [Identidades administradas para recursos de Azure](../active-directory/managed-identities-azure-resources/overview.md) es una característica de Azure que permite crear una identidad segura asociada a la implementación en la que se ejecuta el código de la aplicación. A continuación, puede asociar esa identidad con los roles de control de acceso que conceden permisos personalizados para acceder a recursos específicos de Azure que la aplicación necesita.
@@ -61,7 +61,7 @@ En la lista siguiente se describen los niveles en los que puede definir el ámbi
 > [!NOTE]
 > Tenga en cuenta que las asignaciones de roles de Azure pueden tardar hasta cinco minutos en propagarse. 
 
-Para más información sobre cómo se definen los roles integrados, consulte [Descripción de definiciones de roles](../role-based-access-control/role-definitions.md#management-and-data-operations). Para más información acerca de la creación de roles personalizados de Azure, consulte [Roles personalizados de Azure](../role-based-access-control/custom-roles.md).
+Para más información sobre cómo se definen los roles integrados, consulte [Descripción de definiciones de roles](../role-based-access-control/role-definitions.md#control-and-data-actions). Para más información acerca de la creación de roles personalizados de Azure, consulte [Roles personalizados de Azure](../role-based-access-control/custom-roles.md).
 
 ## <a name="enable-managed-identities-on-a-vm"></a>Habilitación de identidades administradas en una máquina virtual
 Para poder usar identidades administradas para recursos de Azure a fin de autorizar los recursos de Service Bus desde la máquina virtual, primero debe habilitar las identidades administradas para los recursos de Azure en la máquina virtual. Para aprender a habilitar las identidades administradas para los recursos de Azure, consulte uno de estos artículos:

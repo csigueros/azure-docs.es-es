@@ -1,22 +1,20 @@
 ---
 title: Replicación geográfica activa
 description: Use la replicación geográfica activa para crear bases de datos secundarias legibles de bases de datos individuales en Azure SQL Database en las mismas regiones del centro de datos o en otras diferentes.
-services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
 ms.custom: sqldbrb=1
-ms.devlang: ''
 ms.topic: conceptual
 author: BustosMSFT
 ms.author: robustos
 ms.reviewer: mathoma
 ms.date: 04/28/2021
-ms.openlocfilehash: 1ab4655df0233fdea13f507f8b80b5caa92dc9d6
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 071947c4e0e3989abd4aaa4c68b860d99a8a0c43
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112284354"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129357832"
 ---
 # <a name="creating-and-using-active-geo-replication---azure-sql-database"></a>Creación y uso de la replicación geográfica activa: Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -27,7 +25,7 @@ La replicación geográfica activa es una característica de Azure SQL Database 
 > La replicación geográfica activa para Hiperescala de Azure SQL [ahora se encuentra en versión preliminar pública](https://aka.ms/hsgeodr). Entre las limitaciones actuales se incluyen: solo se admite una base de datos de replicación geográfica secundaria en la misma región o en otra diferente, actualmente no se admite la conmutación por error forzada ni planeada, no se admite la restauración de la base de datos a partir de una base de datos de replicación geográfica secundaria y tampoco se admite el uso de una base de datos de replicación geográfica secundaria como base de datos de origen para la copia de base de datos ni como base de datos de replicación geográfica principal para otra secundaria.
 > 
 > En caso de que necesite convertir la base de datos secundaria geográfica en principal (base de datos grabable), siga estos pasos:
-> 1. Divida el vínculo de replicación geográfica mediante el cmdlet [Remove-AzSqlDatabaseSecondary](/powershell/module/az.sql/remove-azsqldatabasesecondary) de PowerShell o [az sql db replica delete-link](/cli/azure/sql/db/replica?view=azure-cli-latest#az_sql_db_replica_delete_link) para la CLI de Azure; esto convertirá la base de datos secundaria en una base independiente de lectura y escritura. Se perderán todos los cambios de datos confirmados en la base de datos principal que no se hayan replicado todavía en la secundaria. Estos cambios se pueden recuperar cuando la base de datos principal anterior está disponible o, en algunos casos, mediante la restauración de la base de datos principal anterior al punto más reciente disponible en el tiempo.
+> 1. Divida el vínculo de replicación geográfica mediante el cmdlet [Remove-AzSqlDatabaseSecondary](/powershell/module/az.sql/remove-azsqldatabasesecondary) de PowerShell o [az sql db replica delete-link](/cli/azure/sql/db/replica#az_sql_db_replica_delete_link) para la CLI de Azure; esto convertirá la base de datos secundaria en una base independiente de lectura y escritura. Se perderán todos los cambios de datos confirmados en la base de datos principal que no se hayan replicado todavía en la secundaria. Estos cambios se pueden recuperar cuando la base de datos principal anterior está disponible o, en algunos casos, mediante la restauración de la base de datos principal anterior al punto más reciente disponible en el tiempo.
 > 2. Si la base de datos principal anterior está disponible, elimínela y, a continuación, configure la replicación geográfica para la nueva base de datos principal (se establecerá una nueva base de datos secundaria). 
 > 3. Actualice las cadenas de conexión de la aplicación en consecuencia.
 

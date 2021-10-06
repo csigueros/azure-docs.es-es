@@ -2,14 +2,14 @@
 title: 'Funciones de plantillas: recursos'
 description: Describe las funciones para usar en una plantilla de Azure Resource Manager (plantilla de ARM) para recuperar valores sobre recursos.
 ms.topic: conceptual
-ms.date: 08/31/2021
+ms.date: 09/09/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 889ff813a72c3ebdc1cca9fa83e7c1dfde367eb6
-ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.openlocfilehash: 9961ea8cef41ffedaee76faf4f8415f33f347354
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123450276"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129357027"
 ---
 # <a name="resource-functions-for-arm-templates"></a>Funciones de recursos para plantillas de ARM
 
@@ -87,25 +87,7 @@ En la sección siguiente se muestra un ejemplo del uso de esta función con un g
 
 En el ejemplo siguiente se devuelve el identificador de recurso para el bloqueo de un grupo de recursos.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "lockName": {
-      "type": "string"
-    }
-  },
-  "variables": {},
-  "resources": [],
-  "outputs": {
-    "lockResourceId": {
-      "type": "string",
-      "value": "[extensionResourceId(resourceGroup().Id , 'Microsoft.Authorization/locks', parameters('lockName'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/resource/extensionresourceid.json":::
 
 Una definición de directiva personalizada implementada en un grupo de administración se implementa como recurso de extensión. Para crear y asignar una directiva, implemente la siguiente plantilla en un grupo de administración.
 
@@ -144,12 +126,12 @@ Los usos posibles de la lista* se muestran en la tabla siguiente.
 | ------------- | ------------- |
 | Microsoft.Addons/supportProviders | listsupportplaninfo |
 | Microsoft.AnalysisServices/servers | [listGatewayStatus](/rest/api/analysisservices/servers/listgatewaystatus) |
-| Microsoft.ApiManagement/service/authorizationServers | [listSecrets](/rest/api/apimanagement/2020-06-01-preview/authorization-server/list-secrets) |
-| Microsoft.ApiManagement/service/gateways | [listKeys](/rest/api/apimanagement/2020-06-01-preview/gateway/list-keys) |
-| Microsoft.ApiManagement/service/identityProviders | [listSecrets](/rest/api/apimanagement/2020-06-01-preview/identity-provider/list-secrets) |
-| Microsoft.ApiManagement/service/namedValues | [listValue](/rest/api/apimanagement/2020-06-01-preview/named-value/list-value) |
-| Microsoft.ApiManagement/service/openidConnectProviders | [listSecrets](/rest/api/apimanagement/2020-06-01-preview/openid-connect-provider/list-secrets) |
-| Microsoft.ApiManagement/service/subscriptions | [listSecrets](/rest/api/apimanagement/2020-06-01-preview/subscription/list-secrets) |
+| Microsoft.ApiManagement/service/authorizationServers | [listSecrets](/rest/api/apimanagement/2021-04-01-preview/authorization-server/list-secrets) |
+| Microsoft.ApiManagement/service/gateways | [listKeys](/rest/api/apimanagement/2021-04-01-preview/gateway/list-keys) |
+| Microsoft.ApiManagement/service/identityProviders | [listSecrets](/rest/api/apimanagement/2021-04-01-preview/identity-provider/list-secrets) |
+| Microsoft.ApiManagement/service/namedValues | [listValue](/rest/api/apimanagement/2021-04-01-preview/named-value/list-value) |
+| Microsoft.ApiManagement/service/openidConnectProviders | [listSecrets](/rest/api/apimanagement/2021-04-01-preview/openid-connect-provider/list-secrets) |
+| Microsoft.ApiManagement/service/subscriptions | [listSecrets](/rest/api/apimanagement/2021-04-01-preview/subscription/list-secrets) |
 | Microsoft.AppConfiguration/configurationStores | [ListKeys](/rest/api/appconfiguration/configurationstores/listkeys) |
 | Microsoft.AppPlatform/Spring | [listTestKeys](/rest/api/azurespringcloud/services/listtestkeys) |
 | Microsoft.Automation/automationAccounts | [listKeys](/rest/api/automation/keys/listbyautomationaccount) |
@@ -396,30 +378,7 @@ Para determinar si una determinada región o ubicación de Azure admite zonas de
 
 En la plantilla siguiente se muestran tres resultados para usar la función pickZones.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {},
-  "functions": [],
-  "variables": {},
-  "resources": [],
-  "outputs": {
-    "supported": {
-      "type": "array",
-      "value": "[pickZones('Microsoft.Compute', 'virtualMachines', 'westus2')]"
-    },
-    "notSupportedRegion": {
-      "type": "array",
-      "value": "[pickZones('Microsoft.Compute', 'virtualMachines', 'northcentralus')]"
-    },
-    "notSupportedType": {
-      "type": "array",
-      "value": "[pickZones('Microsoft.Cdn', 'profiles', 'westus2')]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/resource/pickzones.json":::
 
 La salida de los ejemplos anteriores devuelve tres matrices.
 
@@ -439,34 +398,7 @@ Puede usar la respuesta de pickZones para determinar si se debe proporcionar un 
 
 En el siguiente ejemplo se muestra cómo usar la función pickZones con el fin de habilitar la redundancia de zona para Cosmos DB.
 
-```json
-"resources": [
-  {
-    "type": "Microsoft.DocumentDB/databaseAccounts",
-    "apiVersion": "2021-04-15",
-    "name": "[variables('accountName_var')]",
-    "location": "[parameters('location')]",
-    "kind": "GlobalDocumentDB",
-    "properties": {
-      "consistencyPolicy": "[variables('consistencyPolicy')[parameters('defaultConsistencyLevel')]]",
-      "locations": [
-      {
-        "locationName": "[parameters('primaryRegion')]",
-        "failoverPriority": 0,
-        "isZoneRedundant": "[if(empty(pickZones('Microsoft.Storage', 'storageAccounts', parameters('primaryRegion'))), bool('false'), bool('true'))]",
-      },
-      {
-        "locationName": "[parameters('secondaryRegion')]",
-        "failoverPriority": 1,
-        "isZoneRedundant": "[if(empty(pickZones('Microsoft.Storage', 'storageAccounts', parameters('secondaryRegion'))), bool('false'), bool('true'))]",
-      }
-    ],
-      "databaseAccountOfferType": "Standard",
-      "enableAutomaticFailover": "[parameters('automaticFailover')]"
-    }
-  }
-]
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/resource/pickzones-cosmosdb.json":::
 
 ## <a name="providers"></a>providers
 
@@ -601,44 +533,9 @@ O bien, para obtener el identificador de inquilino de una identidad administrada
 
 ### <a name="reference-example"></a>Ejemplo de referencia
 
-En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/referencewithstorage.json) siguiente se implementa un recurso y se hace referencia a ese recurso.
+En el ejemplo siguiente se implementa un recurso y se hace referencia a ese recurso.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "storageAccountName": {
-      "type": "string"
-    }
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2016-12-01",
-      "name": "[parameters('storageAccountName')]",
-      "location": "[resourceGroup().location]",
-      "sku": {
-        "name": "Standard_LRS"
-      },
-      "kind": "Storage",
-      "tags": {},
-      "properties": {
-      }
-    }
-  ],
-  "outputs": {
-      "referenceOutput": {
-        "type": "object",
-        "value": "[reference(parameters('storageAccountName'))]"
-      },
-      "fullReferenceOutput": {
-        "type": "object",
-        "value": "[reference(parameters('storageAccountName'), '2016-12-01', 'Full')]"
-      }
-    }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/resource/referencewithstorage.json":::
 
 El ejemplo anterior devuelve los dos objetos. El objeto de propiedades está en el formato siguiente:
 
@@ -662,7 +559,7 @@ El objeto completo está en el formato siguiente:
 
 ```json
 {
-  "apiVersion":"2016-12-01",
+  "apiVersion":"2021-04-01",
   "location":"southcentralus",
   "sku": {
     "name":"Standard_LRS",
@@ -686,7 +583,7 @@ El objeto completo está en el formato siguiente:
   "subscriptionId":"<subscription-id>",
   "resourceGroupName":"functionexamplegroup",
   "resourceId":"Microsoft.Storage/storageAccounts/examplestorage",
-  "referenceApiVersion":"2016-12-01",
+  "referenceApiVersion":"2021-04-01",
   "condition":true,
   "isConditionTrue":true,
   "isTemplateResource":false,
@@ -695,29 +592,9 @@ El objeto completo está en el formato siguiente:
 }
 ```
 
-En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/reference.json) siguiente se hace referencia a una cuenta de almacenamiento que no se implementa en esta plantilla. La cuenta de almacenamiento ya existe dentro de la misma suscripción.
+En la plantilla de ejemplo siguiente se hace referencia a una cuenta de almacenamiento que no se implementa en esta plantilla. La cuenta de almacenamiento ya existe dentro de la misma suscripción.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "storageResourceGroup": {
-      "type": "string"
-    },
-    "storageAccountName": {
-      "type": "string"
-    }
-  },
-  "resources": [],
-  "outputs": {
-    "ExistingStorage": {
-      "type": "object",
-      "value": "[reference(resourceId(parameters('storageResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2018-07-01')]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/resource/reference.json":::
 
 ## <a name="resourcegroup"></a>resourceGroup
 
@@ -767,21 +644,9 @@ Al usar plantillas anidadas para implementar en varios grupos de recursos, puede
 
 ### <a name="resource-group-example"></a>Ejemplo de grupo de recursos
 
-La [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/resourcegroup.json) siguiente devuelve las propiedades del grupo de recursos.
+En el ejemplo siguiente se devuelven las propiedades del grupo de recursos.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "resources": [],
-  "outputs": {
-    "resourceGroupOutput": {
-      "type" : "object",
-      "value": "[resourceGroup()]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/resource/resourcegroup.json":::
 
 El ejemplo anterior devuelve un objeto en el formato siguiente:
 
@@ -796,8 +661,6 @@ El ejemplo anterior devuelve un objeto en el formato siguiente:
   }
 }
 ```
-
-Esta [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/resourceGroupName.json) genera una propiedad de grupo de recursos específica.
 
 ## <a name="resourceid"></a>resourceId
 
@@ -877,83 +740,13 @@ Para obtener el Id. de un recurso con una suscripción y grupo de recursos disti
 
 A menudo, necesitará utilizar esta función cuando se usa una cuenta de almacenamiento o red virtual en un grupo de recursos alternativo. En el ejemplo siguiente se muestra cómo un recurso de un grupo de recursos externos se puede utilizar fácilmente:
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "location": {
-      "type": "string"
-    },
-    "virtualNetworkName": {
-      "type": "string"
-    },
-    "virtualNetworkResourceGroup": {
-      "type": "string"
-    },
-    "subnet1Name": {
-      "type": "string"
-    },
-    "nicName": {
-      "type": "string"
-    }
-  },
-  "variables": {
-    "subnet1Ref": "[resourceId(parameters('virtualNetworkResourceGroup'), 'Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworkName'), parameters('subnet1Name'))]"
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Network/networkInterfaces",
-      "apiVersion": "2015-05-01-preview",
-      "name": "[parameters('nicName')]",
-      "location": "[parameters('location')]",
-      "properties": {
-        "ipConfigurations": [
-          {
-            "name": "ipconfig1",
-            "properties": {
-              "privateIPAllocationMethod": "Dynamic",
-              "subnet": {
-                "id": "[variables('subnet1Ref')]"
-              }
-            }
-          }
-        ]
-      }
-    }
-  ]
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/resource/resourceid-external.json":::
 
 ### <a name="resource-id-example"></a>Ejemplo de identificador de recursos
 
-En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/resourceid.json) siguiente se devuelve el identificador de recursos de la cuenta de almacenamiento en el grupo de recursos:
+En el ejemplo siguiente se devuelve el identificador de recurso de la cuenta de almacenamiento en el grupo de recursos:
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "resources": [],
-  "outputs": {
-    "sameRGOutput": {
-      "type": "string",
-      "value": "[resourceId('Microsoft.Storage/storageAccounts','examplestorage')]"
-    },
-    "differentRGOutput": {
-      "type": "string",
-      "value": "[resourceId('otherResourceGroup', 'Microsoft.Storage/storageAccounts','examplestorage')]"
-    },
-    "differentSubOutput": {
-      "type": "string",
-      "value": "[resourceId('11111111-1111-1111-1111-111111111111', 'otherResourceGroup', 'Microsoft.Storage/storageAccounts','examplestorage')]"
-    },
-    "nestedResourceOutput": {
-      "type": "string",
-      "value": "[resourceId('Microsoft.SQL/servers/databases', 'serverName', 'databaseName')]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/resource/resourceid.json":::
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
@@ -989,21 +782,9 @@ Al usar plantillas anidadas para implementar en varias suscripciones, puede espe
 
 ### <a name="subscription-example"></a>Ejemplo de suscripción
 
-En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/subscription.json) siguiente se muestra la función de suscripción a la que se llama en la sección de salidas.
+En el ejemplo siguiente se muestra la función de suscripción a la que se llama en la sección de salidas.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "resources": [],
-  "outputs": {
-    "subscriptionOutput": {
-      "value": "[subscription()]",
-      "type" : "object"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/resource/subscription.json":::
 
 ## <a name="subscriptionresourceid"></a>subscriptionResourceId
 
@@ -1036,56 +817,9 @@ Utilice esta función para obtener el identificador de recurso de los recursos q
 
 ### <a name="subscriptionresourceid-example"></a>Ejemplo de subscriptionResourceId
 
-La siguiente plantilla asigna un rol integrado. Puede implementarlo en un grupo de recursos o en una suscripción. Usa la función subscriptionResourceId para obtener el id. de recurso para recursos integrados.
+La siguiente plantilla asigna un rol integrado. Puede implementarlo en un grupo de recursos o en una suscripción. Usa la función `subscriptionResourceId` para obtener el id. de recurso de los recursos integrados.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "principalId": {
-      "type": "string",
-      "metadata": {
-        "description": "The principal to assign the role to"
-      }
-    },
-    "builtInRoleType": {
-      "type": "string",
-      "allowedValues": [
-        "Owner",
-        "Contributor",
-        "Reader"
-      ],
-      "metadata": {
-        "description": "Built-in role to assign"
-      }
-    },
-    "roleNameGuid": {
-      "type": "string",
-      "defaultValue": "[newGuid()]",
-      "metadata": {
-        "description": "A new GUID used to identify the role assignment"
-      }
-    }
-  },
-  "variables": {
-    "Owner": "[subscriptionResourceId('Microsoft.Authorization/roleDefinitions', '8e3af657-a8ff-443c-a75c-2fe8c4bcb635')]",
-    "Contributor": "[subscriptionResourceId('Microsoft.Authorization/roleDefinitions', 'b24988ac-6180-42a0-ab88-20f7382dd24c')]",
-    "Reader": "[subscriptionResourceId('Microsoft.Authorization/roleDefinitions', 'acdd72a7-3385-48ef-bd42-f606fba81ae7')]"
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Authorization/roleAssignments",
-      "apiVersion": "2018-09-01-preview",
-      "name": "[parameters('roleNameGuid')]",
-      "properties": {
-        "roleDefinitionId": "[variables(parameters('builtInRoleType'))]",
-        "principalId": "[parameters('principalId')]"
-      }
-    }
-  ]
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/resource/subscriptionresourceid.json":::
 
 ## <a name="tenantresourceid"></a>tenantResourceId
 
@@ -1117,41 +851,9 @@ Esta función se usa para obtener el identificador de recurso de un recurso que 
 
 ### <a name="tenantresourceid-example"></a>Ejemplo de tenantResourceId
 
-Las definiciones de directivas integradas son recursos del nivel de inquilino. Para implementar una asignación de directiva que hace referencia a una definición de directiva integrada, use la función tenantResourceId.
+Las definiciones de directivas integradas son recursos del nivel de inquilino. Para implementar una asignación de directiva que hace referencia a una definición de directiva integrada, use la función `tenantResourceId`.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "policyDefinitionID": {
-      "type": "string",
-      "defaultValue": "0a914e76-4921-4c19-b460-a2d36003525a",
-      "metadata": {
-        "description": "Specifies the ID of the policy definition or policy set definition being assigned."
-      }
-    },
-    "policyAssignmentName": {
-      "type": "string",
-      "defaultValue": "[guid(parameters('policyDefinitionID'), resourceGroup().name)]",
-      "metadata": {
-        "description": "Specifies the name of the policy assignment, can be used defined or an idempotent name as the defaultValue provides."
-      }
-    }
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Authorization/policyAssignments",
-      "name": "[parameters('policyAssignmentName')]",
-      "apiVersion": "2019-09-01",
-      "properties": {
-        "scope": "[subscriptionResourceId('Microsoft.Resources/resourceGroups', resourceGroup().name)]",
-        "policyDefinitionId": "[tenantResourceId('Microsoft.Authorization/policyDefinitions', parameters('policyDefinitionID'))]"
-      }
-    }
-  ]
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/resource/tenantresourceid.json":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

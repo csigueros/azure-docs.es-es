@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: troubleshooting
 ms.date: 05/7/2020
 ms.author: anavin
-ms.openlocfilehash: e51a74ef4f01bda57e7cdef026aed9aa85111ca3
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: ba421e8996e37e79bf7044709d53be8d6f2a01f4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123437407"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128549965"
 ---
 # <a name="troubleshooting-outbound-connections-failures"></a><a name="obconnecttsg"></a> Solución de errores de conexiones salientes
 

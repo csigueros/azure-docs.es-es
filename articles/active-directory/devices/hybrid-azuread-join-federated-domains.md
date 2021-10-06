@@ -8,15 +8,15 @@ ms.topic: tutorial
 ms.date: 05/20/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ea75273694eb5c13b5cd8c4812aa58508fa9f62
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: c6a9b193983d58bb8e9cc2964e3ae45160056c4c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108130687"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128592857"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Tutorial: Configuración de dispositivos híbridos unidos a Azure Active Directory para dominios federados
 
@@ -192,6 +192,8 @@ A continuación se muestran tres maneras de buscar y comprobar el estado del dis
 2. Escriba `dsregcmd /status`.
 3. Compruebe que tanto **AzureAdJoined** como **DomainJoined** estén establecidos en **SÍ**.
 4. Puede utilizar **DeviceId** y comparar el estado del servicio mediante Azure Portal o PowerShell.
+
+Para dispositivos de nivel inferior, consulte el artículo [Solución de problemas de dispositivos híbridos de nivel inferior unidos a Azure Active Directory](troubleshoot-hybrid-join-windows-legacy.md#step-1-retrieve-the-registration-status)
 
 ### <a name="using-the-azure-portal"></a>Uso de Azure Portal
 

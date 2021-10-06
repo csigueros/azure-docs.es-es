@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/09/2021
 ms.reviewer: cynthn, jushiman
 ms.custom: template-how-to
-ms.openlocfilehash: f615cf25f30cc0bad6a8317b08126c05fe22f047
-ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
+ms.openlocfilehash: 2d8f9c7c73b4cb5d0f617893a7d981b94d30b344
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123273314"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128553104"
 ---
 # <a name="remove-a-virtual-machine-scale-set-association-from-a-capacity-reservation-group"></a>Eliminación de una asociación de conjunto de escalado de máquinas virtuales de un grupo de reserva de capacidad 
 
@@ -56,7 +56,7 @@ Vaya a [Directivas de actualización](#upgrade-policies) para obtener más infor
     ```rest
     PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{VMScaleSetName}/update?api-version=2021-04-01
     ```
-    En el cuerpo de la solicitud, establezca la propiedad `capacityReservationGroup` en vacía para quitar la asociación del conjunto de escalado de máquinas virtuales con el grupo:
+    En el cuerpo de la solicitud, establezca la propiedad `capacityReservationGroup` en NULL para quitar la asociación del conjunto de escalado de máquinas virtuales con el grupo:
 
     ```json
     {
@@ -65,7 +65,7 @@ Vaya a [Directivas de actualización](#upgrade-policies) para obtener más infor
         "virtualMachineProfile": {
             "capacityReservation": {
                 "capacityReservationGroup":{
-                    "id":""    
+                    "id":null    
                 }
             }
         }
@@ -83,7 +83,7 @@ Vaya a [Directivas de actualización](#upgrade-policies) para obtener más infor
     -VMScaleSetName "myVmss"
     ```
 
-1. Actualice el conjunto de escalado para quitar la asociación con el grupo de reserva de capacidad. Al establecer la propiedad `CapacityReservationGroupId` en vacía, se quita la asociación del conjunto de escalado al grupo de reserva de capacidad: 
+1. Actualice el conjunto de escalado para quitar la asociación con el grupo de reserva de capacidad. Al establecer la propiedad `CapacityReservationGroupId` en NULL, se quita la asociación del conjunto de escalado al grupo de reserva de capacidad: 
 
     ```powershell-interactive
     $vmss =
@@ -95,7 +95,7 @@ Vaya a [Directivas de actualización](#upgrade-policies) para obtener más infor
     -ResourceGroupName "myResourceGroup"
     -VMScaleSetName "myvmss"
     -VirtualMachineScaleSet $vmss
-    -CapacityReservationGroupId ""
+    -CapacityReservationGroupId $null
     ```
 
 Para obtener más información, vaya a los comandos de Azure PowerShell [Stop-AzVmss](/powershell/module/az.compute/stop-azvmss), [Get-AzVmss](/powershell/module/az.compute/get-azvmss) y [Update-AzVmss](/powershell/module/az.compute/update-azvmss).
@@ -139,7 +139,7 @@ Vaya a [Directivas de actualización](#upgrade-policies) para obtener más infor
     PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{VMScaleSetName}/update?api-version=2021-04-01
     ```
 
-    En el cuerpo de la solicitud, establezca la propiedad `capacityReservationGroup` en vacía para quitar la asociación:
+    En el cuerpo de la solicitud, establezca la propiedad `capacityReservationGroup` en NULL para quitar la asociación:
     
     ```json
     {
@@ -148,7 +148,7 @@ Vaya a [Directivas de actualización](#upgrade-policies) para obtener más infor
         "virtualMachineProfile": {
             "capacityReservation": {
                 "capacityReservationGroup":{
-                    "id":""
+                    "id":null
                 }
             }
         }
@@ -158,23 +158,17 @@ Vaya a [Directivas de actualización](#upgrade-policies) para obtener más infor
 
 ### <a name="powershell"></a>[PowerShell](#tab/powershell2)
 
->[!NOTE]
-> El comando `Update-AzCapacityReservation` no está disponible durante la versión preliminar. Use `New-AzCapacityReservation` para modificar una reserva de capacidad existente.
-
 1. Actualice la cantidad reservada a cero:
 
     ```powershell-interactive
-    New-AzCapacityReservation
+    Update-AzCapacityReservation
     -ResourceGroupName "myResourceGroup"
-    -Location "eastus"
-    -Zone "1"
     -ReservationGroupName "myCapacityReservationGroup"
     -Name "myCapacityReservation"
-    -Sku "Standard_D2s_v3"
     -CapacityToReserve 0
     ```
 
-2. Actualice el conjunto de escalado para quitar la asociación con el grupo de reserva de capacidad; para ello, establezca la propiedad `CapacityReservationGroupId` en vacía: 
+2. Actualice el conjunto de escalado para quitar la asociación con el grupo de reserva de capacidad; para ello, establezca la propiedad `CapacityReservationGroupId` en NULL: 
 
     ```powershell-interactive
     $vmss =
@@ -186,7 +180,7 @@ Vaya a [Directivas de actualización](#upgrade-policies) para obtener más infor
     -ResourceGroupName "myResourceGroup"
     -VMScaleSetName "myvmss"
     -VirtualMachineScaleSet $vmss
-    -CapacityReservationGroupId ""
+    -CapacityReservationGroupId $null
     ```
 
 Para obtener más información, vaya a los comandos de Azure PowerShell [New-AzCapacityReservation](/powershell/module/az.compute/new-azcapacityreservation), [Get-AzVmss](/powershell/module/az.compute/get-azvmss) y [Update-AzVmss](/powershell/module/az.compute/update-azvmss).

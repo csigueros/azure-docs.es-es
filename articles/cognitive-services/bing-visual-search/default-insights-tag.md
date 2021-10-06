@@ -3,19 +3,17 @@ title: 'Etiqueta de conclusiones predeterminada: Bing Visual Search'
 titleSuffix: Azure Cognitive Services
 description: Proporciona detalles sobre de las conclusiones predeterminadas que devuelve Bing Visual Search sobre una imagen.
 services: cognitive-services
-author: swhite-msft
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 04/04/2019
-ms.author: scottwhi
-ms.openlocfilehash: b44b77445192aec68e2be803978ab3aad64906d6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b9090925785fb32da4934f98b6efd7b249053112
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "96487004"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128669576"
 ---
 # <a name="default-insights-tag"></a>Etiqueta de conclusiones predeterminada
 

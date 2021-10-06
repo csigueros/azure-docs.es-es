@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 09/28/2021
 ms.author: alkohli
-ms.openlocfilehash: eec1c595119e225468bdbbe76f506b5b330a1beb
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 7dfc80ba0117e5481370bacd18941bf622a99edb
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 09/29/2021
-ms.locfileid: "129212406"
+ms.locfileid: "129274356"
 ---
 # <a name="use-cases-for-azure-data-box-gateway"></a>Casos de uso de Azure Data Box Gateway
 
@@ -40,7 +40,7 @@ Cuando el dispositivo se llena de datos, empieza a limitar la velocidad de entra
 
 Use Data Box Gateway cuando desee retener los datos a largo plazo en la nube. Puede usar el nivel de archivo del almacenamiento para la retención a largo plazo.
 
-El nivel de archivo está optimizado para almacenar datos a los que raramente se accede durante al menos 180 días. El nivel de archivo ofrece los costos de almacenamiento más bajos pero los costos más altos de acceso. Para más información, vaya a [Nivel de acceso de archivo](../storage/blobs/storage-blob-storage-tiers.md#archive-access-tier).
+El nivel de archivo está optimizado para almacenar datos a los que raramente se accede durante al menos 180 días. El nivel de archivo ofrece los costos de almacenamiento más bajos pero los costos más altos de acceso. Para más información, vaya a [Nivel de acceso de archivo](../storage/blobs/access-tiers-overview.md#archive-access-tier).
 
 ### <a name="move-data-to-the-archive-tier"></a>Traslado de datos al nivel de archivo
 

@@ -4,18 +4,18 @@ titleSuffix: Azure Machine Learning
 description: Aprenda a usar el módulo de ejecución de script de Python en el diseñador de Azure Machine Learning para ejecutar operaciones personalizadas escritas en Python.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mldata
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2020
 ms.topic: how-to
 ms.custom: designer, devx-track-python
-ms.openlocfilehash: ffb46fcc4576e4b4daaf3be02625e9f9cf00a461
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: f1bb8918e270d8e3d2dc1321169743febc3ce6ed
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107885243"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129424317"
 ---
 # <a name="run-python-code-in-azure-machine-learning-designer"></a>Ejecutar código de Python en el diseñador de Azure Machine Learning
 

@@ -9,16 +9,16 @@ ms.date: 01/29/2021
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: c536e8749ce41f51f161d9659beca3ab0ccd30ae
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: d15a3c20be365f994f219e5ea74c7aee5b0c5b28
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123032259"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128560418"
 ---
 # <a name="azure-storage-analytics-logging"></a>Registro de Azure Storage Analytics
 
-Storage Analytics registra información detallada sobre las solicitudes correctas y erróneas realizadas a un servicio de almacenamiento. Esta información se puede utilizar para supervisar solicitudes concretas y para diagnosticar problemas con un servicio de almacenamiento. Las solicitudes se registran en función de la mejor opción. Esto significa que la mayoría de las solicitudes darán lugar a una entrada de registro, pero no se garantiza la integridad y la escala de tiempo de los registros de Storage Analytics. 
+Storage Analytics registra información detallada sobre las solicitudes correctas y erróneas realizadas a un servicio de almacenamiento. Esta información se puede utilizar para supervisar solicitudes concretas y para diagnosticar problemas con un servicio de almacenamiento. Las solicitudes se registran en función de la mejor opción. Esto significa que la mayoría de las solicitudes darán lugar a una entrada de registro, pero no se garantiza la integridad y la escala de tiempo de los registros de Storage Analytics.
 
 > [!NOTE]
 > Se recomienda usar los registros de Azure Storage en Azure Monitor en lugar de los registros de Storage Analytics. Los registros de Azure Storage en Azure Monitor están en versión preliminar pública, además de estar disponibles para pruebas de versión preliminar en todas las regiones de nube pública. Esta versión preliminar habilita los registros de blobs (que incluye Azure Data Lake Storage Gen2), archivos, colas y tablas. Para más información, consulte cualquiera de los siguientes artículos:
@@ -28,7 +28,7 @@ Storage Analytics registra información detallada sobre las solicitudes correcta
 > - [Supervisión de Azure Queue Storage](../queues/monitor-queue-storage.md)
 > - [Supervisión de Azure Table Storage](../tables/monitor-table-storage.md)
 
- El registro de Storage Analytics no está habilitado de forma predeterminada en la cuenta de almacenamiento. Puede habilitarlo en [Azure Portal](https://portal.azure.com/) o mediante PowerShell o la CLI de Azure. Para una guía paso a paso, consulte [Habilitación y administración de los registros de Azure Storage Analytics (clásico)](manage-storage-analytics-logs.md). 
+ El registro de Storage Analytics no está habilitado de forma predeterminada en la cuenta de almacenamiento. Puede habilitarlo en [Azure Portal](https://portal.azure.com/) o mediante PowerShell o la CLI de Azure. Para una guía paso a paso, consulte [Habilitación y administración de los registros de Azure Storage Analytics (clásico)](manage-storage-analytics-logs.md).
 
 También puede habilitar los registros de Storage Analytics mediante programación a través de la API de REST o la biblioteca cliente. Use las operaciones [Obtener las propiedades de Blob service](/rest/api/storageservices/Blob-Service-REST-API), [Obtener las propiedades de Queue service](/rest/api/storageservices/Get-Queue-Service-Properties) y [Obtener las propiedades de Table service](/rest/api/storageservices/Get-Table-Service-Properties) para habilitar Storage Analytics en cada servicio. Para ver un ejemplo que habilita los registros de Storage Analytics mediante .NET, consulte [Habilitación de registros](manage-storage-analytics-logs.md).
 
@@ -38,6 +38,8 @@ También puede habilitar los registros de Storage Analytics mediante programaci�
 >  Actualmente, el registro de Storage Analytics está disponible solo para los servicios Blob, Queue y Table service. El registro de Storage Analytics también está disponible para las cuentas [BlockBlobStorage](./storage-account-create.md) de rendimiento Premium. Sin embargo, no está disponible para las cuentas de uso general v2 con rendimiento Premium.
 
 ## <a name="requests-logged-in-logging"></a>Solicitudes registradas en el registro
+
+
 ### <a name="logging-authenticated-requests"></a>Registrar solicitudes de autenticación
 
  Se registran los siguientes tipos de solicitudes autenticadas:
@@ -59,7 +61,7 @@ También puede habilitar los registros de Storage Analytics mediante programaci�
 - Solicitudes GET erróneas con el código de error 304 (No modificado)
 
   El resto de solicitudes anónimas erróneas no se registran. Puede encontrar una lista completa de los datos registrados en los temas [Operaciones y mensajes de estado registrados por Storage Analytics](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) y [Formato del registro de Storage Analytics](/rest/api/storageservices/storage-analytics-log-format).
-  
+
 > [!NOTE]
 > Storage Analytics registra todas las llamadas internas al plano de datos. También se registran las llamadas del proveedor de recursos de Azure Storage. Para identificar estas solicitudes, busque la cadena de consulta `<sk=system-1>` en la dirección URL de la solicitud.
 
@@ -74,7 +76,7 @@ A medida que se registran las solicitudes, Storage Analytics cargará los result
 
 Si tiene un gran volumen de datos de registro con varios archivos correspondientes a cada hora, puede usar los metadatos del blob para averiguar qué datos contiene el registro (examinando para ello los campos de metadatos del blob). Esto resulta útil también porque, a veces, puede haber un retraso mientras los datos se escriben en los archivos de registro, y es que los metadatos del blob indican el contenido del blob de forma más precisa que el nombre del blob.
 
-La mayoría de las herramientas de exploración del almacenamiento permiten ver los metadatos de los blobs, si bien esta información se puede consultar también con PowerShell o mediante programación. El siguiente fragmento de código de PowerShell es un ejemplo de filtrado de la lista de blobs de registro por nombre para especificar una hora, y por metadatos para identificar únicamente aquellos registros que contengan operaciones de escritura (**write**).  
+La mayoría de las herramientas de exploración del almacenamiento permiten ver los metadatos de los blobs, si bien esta información se puede consultar también con PowerShell o mediante programación. El siguiente fragmento de código de PowerShell es un ejemplo de filtrado de la lista de blobs de registro por nombre para especificar una hora, y por metadatos para identificar únicamente aquellos registros que contengan operaciones de escritura (**write**).
 
  ```powershell
  Get-AzStorageBlob -Container '$logs' |  
@@ -88,9 +90,9 @@ La mayoría de las herramientas de exploración del almacenamiento permiten ver 
      $_.ICloudBlob.Metadata.EndTime,   
      $_.ICloudBlob.Metadata.LogType  
  }  
- ```  
+ ```
 
-Para obtener información sobre cómo mostrar los blobs mediante programación, vea [Enumerar recursos de blob](/rest/api/storageservices/Enumerating-Blob-Resources) y [Configurar y recuperar propiedades y metadatos de recursos de blob](/rest/api/storageservices/Setting-and-Retrieving-Properties-and-Metadata-for-Blob-Resources).  
+Para obtener información sobre cómo mostrar los blobs mediante programación, vea [Enumerar recursos de blob](/rest/api/storageservices/Enumerating-Blob-Resources) y [Configurar y recuperar propiedades y metadatos de recursos de blob](/rest/api/storageservices/Setting-and-Retrieving-Properties-and-Metadata-for-Blob-Resources).
 
 ### <a name="log-naming-conventions"></a>Convenciones de nomenclatura de los registros
 
@@ -138,10 +140,9 @@ Para obtener información sobre cómo mostrar los blobs mediante programación, 
 -   `EndTime=2011-07-31T18:22:09Z`
 -   `LogVersion=1.0`
 
-
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Habilitación y administración de los registros de Azure Storage Analytics (clásico)](manage-storage-analytics-logs.md)
-* [Formato del registro de Storage Analytics](/rest/api/storageservices/storage-analytics-log-format)
-* [Operaciones y mensajes de estado registrados por Storage Analytics](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)
-* [Métricas de Storage Analytics (clásica)](storage-analytics-metrics.md)
+- [Habilitación y administración de los registros de Azure Storage Analytics (clásico)](manage-storage-analytics-logs.md)
+- [Formato del registro de Storage Analytics](/rest/api/storageservices/storage-analytics-log-format)
+- [Operaciones y mensajes de estado registrados por Storage Analytics](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)
+- [Métricas de Storage Analytics (clásica)](storage-analytics-metrics.md)

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: thwimmer
-ms.openlocfilehash: 1dd3f9d7462dc8594cf8b6e37db6df725196b899
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 9e8385faadc4c3c9d34471741cc238e964ed67a2
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113760084"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128589176"
 ---
 # <a name="tutorial-configure-ringcentral-for-automatic-user-provisioning"></a>Tutorial: Configuración de RingCentral para el aprovisionamiento automático de usuarios
 
@@ -47,6 +47,10 @@ En el escenario descrito en este tutorial se supone que ya cuenta con los requis
 ## <a name="step-2-configure-ringcentral-to-support-provisioning-with-azure-ad"></a>Paso 2. Configuración de RingCentral para admitir el aprovisionamiento con Azure AD
 
 Se requiere una cuenta de administrador de [RingCentral](https://www.ringcentral.com/office/plansandpricing.html) para autorizar en la sección Credenciales del administrador del paso 5.
+
+En el portal de administración de RingCentral, en Account Settings -> Directory Integrations (Configuración de la cuenta -> Integración de directorios), establezca el valor *Directory Provider* (Proveedor de directorios) en la imagen de *SCIM*
+![](https://user-images.githubusercontent.com/49566142/134523440-20320d8e-3c25-4358-9ace-d4888ce8e4ea.png).
+
 
 > [!NOTE]
 > Para asignar licencias a los usuarios, consulte el vínculo del vídeo [aquí](https://support.ringcentral.com/s/article/5-10-Adding-Extensions-via-Web?language).

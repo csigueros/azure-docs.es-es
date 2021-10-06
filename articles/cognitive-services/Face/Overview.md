@@ -11,17 +11,17 @@ ms.date: 04/19/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: reconocimiento facial, software de reconocimiento facial, análisis facial, coincidencia facial, aplicación de reconocimiento facial, búsqueda de caras por imagen, búsqueda de reconocimiento facial
-ms.openlocfilehash: 15d8043beb32d8f3c7fa1b237e1ba25310983b86
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.openlocfilehash: 9375b8b482076da9e308c9309c4f264118cccfa0
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122822295"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128663333"
 ---
 # <a name="what-is-the-azure-face-service"></a>¿Qué es el servicio Azure Face?
 
 > [!WARNING]
-> El 11 de junio de 2020 Microsoft anunció que no venderá tecnología de reconocimiento facial a los departamentos de policía de Estados Unidos hasta que se promulgue un reglamento estricto cimentado en los derechos humanos. Por lo tanto, es posible que los clientes no usen las características o la funcionalidad del reconocimiento facial incluidas en los servicios de Azure, como Face o Video Indexer, si un es un departamento de policía de Estados Unidos o permite el uso de dichos servicios por parte de cualquiera de ellos. Al crear un nuevo recurso de Face, debe reconocer y aceptar en Azure Portal que no va a utilizar el servicio en o para un departamento de seguridad en Estados Unidos y que ha revisado la [documentación de IA responsable (RAI)](https://go.microsoft.com/fwlink/?linkid=2164191) y usará este servicio de acuerdo con él.
+> El 11 de junio de 2020 Microsoft anunció que no venderá tecnología de reconocimiento facial a los departamentos de policía de Estados Unidos hasta que se promulgue un reglamento estricto cimentado en los derechos humanos. Por lo tanto, es posible que los clientes no usen las características o la funcionalidad del reconocimiento facial incluidas en los servicios de Azure, como Face o Video Indexer, si un es un departamento de policía de Estados Unidos o permite el uso de dichos servicios por parte de cualquiera de ellos. Al crear un nuevo recurso de Face, debe reconocer y aceptar en Azure Portal que no va a utilizar el servicio en o para un departamento de seguridad en Estados Unidos y que ha revisado la [documentación de IA responsable (RAI)](../cognitive-services-apis-create-account-cli.md#prerequisites) y usará este servicio de acuerdo con él.
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
@@ -57,7 +57,7 @@ Las empresas y aplicaciones modernas pueden utilizar las operaciones de identifi
 
 ### <a name="identification"></a>Identificación
 
-La identificación de caras se puede pensar en una coincidencia de "uno a varios". Los candidatos de coincidencia se devuelven en función de la coincidencia de sus datos faciales con la cara de la consulta. Este escenario se utiliza para conceder acceso de creación a un determinado grupo de personas o para comprobar el usuario de un dispositivo.
+La identificación facial puede abordar la coincidencia "de uno a varios" de una cara de una imagen con un conjunto de caras en un repositorio seguro. Los candidatos de coincidencia se devuelven en función de la coincidencia de sus datos faciales con la cara de la consulta. Este escenario se utiliza para conceder acceso de creación a un determinado grupo de personas o para comprobar el usuario de un dispositivo.
 
 La siguiente imagen muestra un ejemplo de una base de datos llamada `"myfriends"`. Cada grupo puede contener hasta un millón de objetos de persona diferentes. Cada objeto de persona puede tener hasta 248 caras registradas.
 
@@ -67,7 +67,11 @@ Una vez creado y entrenado un grupo, puede realizar la identificación en el gru
 
 ### <a name="verification"></a>Comprobación
 
-La operación de comprobación responde a la pregunta "¿Estas dos caras pertenecen a la misma persona?". La comprobación también se denomina coincidencia de "uno a uno", porque los datos faciales de sondeo se comparan con solo una única cara inscrita. La comprobación se usa en el escenario de identificación para volver a comprobar que una coincidencia determinada es precisa. 
+La operación de comprobación responde a la pregunta "¿Estas dos caras pertenecen a la misma persona?". 
+
+La verificación también es una coincidencia "uno a uno" de una cara de una imagen con otra cara de un repositorio seguro o una foto.
+
+La comprobación se puede usar en escenarios de comprobación de identidad o control de acceso para comprobar que una imagen coincide con una imagen capturada previamente (por ejemplo, una foto de una tarjeta de identificación emitida por el gobierno).
 
 Para más información sobre la verificación de identidad, consulte la guía de conceptos de [Reconocimiento facial](concepts/face-recognition.md) o la documentación de referencia de [Identify API ](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) y [Verify API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a).
 

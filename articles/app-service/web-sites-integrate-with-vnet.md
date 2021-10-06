@@ -1,18 +1,18 @@
 ---
 title: Integración de aplicaciones con Azure Virtual Network
 description: Integre aplicaciones en Azure App Service con Azure Virtual Network.
-author: ccompy
+author: madsd
 ms.assetid: 90bc6ec6-133d-4d87-a867-fcf77da75f5a
 ms.topic: article
-ms.date: 08/04/2021
-ms.author: ccompy
+ms.date: 09/20/2021
+ms.author: madsd
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: ac90dadc93ce09bc2ce0af6314e4bd2c48ab79f8
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: b861ac7f2b9d0a3d8935ff0e16579fd4f5e224d1
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122768675"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128641947"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integración de su aplicación con una instancia de Azure Virtual Network
 
@@ -46,15 +46,13 @@ Durante la integración, la aplicación se reinicia. Una vez finalizada la integ
 
 La integración con red virtual regional admite la conexión a una red virtual de la misma región y no requiere una puerta de enlace. Cuando se utiliza la versión regional de Integración con red virtual, la aplicación puede acceder a:
 
-* Recursos en una VNet de la misma región que la aplicación.
-* Recursos de las VNet emparejadas con la VNet con la que se integra la aplicación.
-* Servicios protegidos mediante puntos de conexión de servicio.
-* Recursos de diferentes conexiones de Azure ExpressRoute.
 * Recursos de la VNet con la que está integrado.
-* Recursos en conexiones emparejadas, lo que incluye conexiones de Azure ExpressRoute.
+* Recursos de las VNet emparejadas con la VNet con la que se integra la aplicación, incluidas conexiones de emparejamiento global.
+* Recursos de diferentes conexiones de Azure ExpressRoute.
+* Servicios protegidos mediante puntos de conexión de servicio.
 * Servicios habilitados para puntos de conexión privados.
 
-Si Integración con red virtual se utiliza con redes virtuales de la misma región, se pueden usar las siguientes características de redes de Azure:
+Si usa la integración con redes virtuales regionales, puede usar las siguientes características de redes de Azure:
 
 * **Grupos de seguridad de red (NSG)** : el tráfico saliente se puede bloquear con un grupo de seguridad de red que se encuentre en la subred de integración. Las reglas de entrada no se aplican, ya que Integración con red virtual no se puede usar para proporcionar acceso de entrada a la aplicación.
 * **Tablas de enrutamiento (UDR)** : puede colocar una tabla de enrutamiento en la subred de integración para enviar el tráfico de salida donde quiera.
@@ -63,11 +61,13 @@ La característica es totalmente compatible con aplicaciones para Windows y Linu
 
 ### <a name="how-regional-vnet-integration-works"></a>Funcionamiento de la versión regional de Integración con red virtual
 
-Las aplicaciones en App Service se hospedan en roles de trabajo. Los planes de precios básico y más elevados son planes de hospedaje dedicados donde no hay ninguna otra carga de trabajo de cliente ejecutándose en los mismos trabajos. La versión regional de Integración con red virtual funciona montando interfaces virtuales con las direcciones de la subred delegada. Como la dirección de origen está en la VNet, tiene acceso a la mayoría de las cosas que están en esa VNet o a las que se puede acceder a través de ella, como cualquier máquina virtual que estuviera en la VNet. La implementación de redes es diferente de la ejecución de una máquina virtual en la VNet. Este es el motivo por el que algunas características de red todavía no están disponibles para esta característica.
+Las aplicaciones en App Service se hospedan en roles de trabajo. La integración con redes virtuales regionales funciona montando interfaces virtuales en los roles de trabajo con las direcciones de la subred delegada. Como la dirección de origen está en la VNet, tiene acceso a la mayoría de las cosas que están en esa VNet o a las que se puede acceder a través de ella, como cualquier máquina virtual que estuviera en la VNet. La implementación de redes es diferente de la ejecución de una máquina virtual en la VNet. Este es el motivo por el que algunas características de red todavía no están disponibles para esta característica.
 
 :::image type="content" source="./media/web-sites-integrate-with-vnet/vnetint-how-regional-works.png" alt-text="Funcionamiento de la versión regional de Integración con red virtual":::
 
-Cuando la integración de VNet regional está habilitada, su aplicación realiza salidas a través de su VNet. Las direcciones salientes que se muestran en el portal de propiedades de la aplicación siguen siendo las direcciones usadas por la aplicación. Si todo el enrutamiento de tráfico está habilitado, todo el tráfico saliente se envía a la red virtual. Si no está habilitado todo el enrutamiento de tráfico, solo se enviarán a la red virtual el tráfico privado (RFC1918) y los puntos de conexión de servicio configurados en la subred de integración y el tráfico saliente a Internet pasará por los mismos canales normales.
+Cuando la integración con redes virtuales regionales está habilitada, su aplicación realiza llamadas salientes a través de su VNet. Las direcciones salientes que se muestran en el portal de propiedades de la aplicación siguen siendo las direcciones usadas por la aplicación. Pero si la llamada saliente es a una máquina virtual o un punto de conexión privado en la red virtual de integración o en la red virtual emparejada, la dirección saliente será una dirección de la subred de integración. La dirección IP privada asignada a una instancia se expone por medio de la variable de entorno ```WEBSITE_PRIVATE_IP```.
+
+Si todo el enrutamiento de tráfico está habilitado, todo el tráfico saliente se envía a la red virtual. Si no está habilitado todo el enrutamiento de tráfico, solo se enviarán a la red virtual el tráfico privado (RFC1918) y los puntos de conexión de servicio configurados en la subred de integración y el tráfico saliente a Internet pasará por los mismos canales normales.
 
 La característica solo admite una interfaz virtual por trabajo. Una interfaz virtual por trabajo significa una característica Integración con red virtual regional por plan de App Service. Todas las aplicaciones en el mismo plan de App Service pueden usar la misma Integración con red virtual. Si necesita que una aplicación se conecte a una VNet adicional, debe crear otro plan de App Service. La interfaz virtual utilizada no es un recurso al que los clientes tengan acceso directo.
 
@@ -97,7 +97,7 @@ Hay dos tipos de enrutamiento que se deben tener en cuenta al configurar la inte
 
 #### <a name="application-routing"></a>Enrutamiento de aplicaciones
 
-Al configurar el enrutamiento de aplicaciones, puede enrutar todo el tráfico o solo el tráfico privado (también conocido como tráfico [RFC1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3)) a la red virtual. Se configura mediante la opción Enrutar todo. Si la opción Enrutar todo está deshabilitada, la aplicación solo enruta el tráfico privado a la red virtual. Si desea enrutar todo el tráfico saliente a la red virtual, asegúrese de que Enrutar todo está habilitado.
+Al configurar el enrutamiento de aplicaciones, puede enrutar todo el tráfico o solo el tráfico privado (también conocido como tráfico [RFC1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3)) a la red virtual. Este comportamiento se configura mediante la opción Enrutar todo. Si la opción Enrutar todo está deshabilitada, la aplicación solo enruta el tráfico privado a la red virtual. Si desea enrutar todo el tráfico saliente a la red virtual, asegúrese de que Enrutar todo está habilitado.
 
 > [!NOTE]
 > * Cuando Enrutar todo está habilitado, todo el tráfico está sujeto a los NSG y UDR que se aplican a la subred de integración. Cuando se habilita el enrutamiento de todo el tráfico, el tráfico de salida sigue enviándose desde las direcciones que se muestran en las propiedades de la aplicación, a menos que proporcione rutas que dirijan el tráfico a otro lugar.
@@ -143,7 +143,7 @@ Las reglas de entrada de un grupo de seguridad de red no se aplican a la aplicac
 
 ### <a name="service-endpoints"></a>Puntos de conexión del servicio
 
-La integración con red virtual regional le permite acceder a los servicios de Azure que están protegidos con puntos de conexión de servicio. Para acceder a un servicio protegido mediante puntos de conexión de servicio, debe hacer lo siguiente:
+La integración con red virtual regional le permite acceder a los servicios de Azure que están protegidos con puntos de conexión de servicio. Para acceder a un servicio protegido mediante puntos de conexión de servicio, siga estos pasos:
 
 * Configure la versión regional de integración con red virtual con su aplicación web para conectarse a una subred específica para la integración.
 * Vaya al servicio de destino y configure los puntos de conexión de servicio en la subred de integración.
@@ -152,8 +152,8 @@ La integración con red virtual regional le permite acceder a los servicios de A
 
 Si quiere realizar llamadas a [Puntos de conexión privados][privateendpoints], debe asegurarse de que las búsquedas de DNS se resuelvan en el punto de conexión privado. Puede aplicar este comportamiento de una de las siguientes formas: 
 
-* Realizar la integración con zonas privadas de Azure DNS. Cuando la red virtual no tiene un servidor DNS personalizado, automáticamente se le asigna uno cuando las zonas están vinculadas a la red virtual.
-* Administrar el punto de conexión privado en el servidor DNS que usa la aplicación. Para ello, debe conocer la dirección del punto de conexión privado y, a continuación, apuntar el punto de conexión al que está intentando acceder a esa dirección con un registro A.
+* Realizar la integración con zonas privadas de Azure DNS. Si la red virtual no tiene un servidor DNS personalizado, esta integración se lleva a cabo automáticamente cuando las zonas están vinculadas a la red virtual.
+* Administrar el punto de conexión privado en el servidor DNS que usa la aplicación. Para ello, debe conocer la dirección IP del punto de conexión privado y, después, apuntar el punto de conexión al que está intentando acceder a esa dirección con un registro A.
 * Configurar su propio servidor DNS para reenviarlo a zonas privadas de Azure DNS.
 
 ### <a name="azure-dns-private-zones"></a>Zonas privadas de Azure DNS 
@@ -165,19 +165,19 @@ Una vez que la aplicación se integra con la red virtual, usa el mismo servidor 
 
 ### <a name="limitations"></a>Limitaciones
 
-Existen algunas limitaciones cuando se la característica Integración con red virtual se utiliza con redes virtuales que están en la misma región:
+Existen algunas limitaciones cuando se usa la integración con redes virtuales regionales:
 
-* No se puede acceder a los recursos en las conexiones de emparejamiento global.
-* No se puede acceder a los recursos a través de conexiones de emparejamiento con redes virtuales clásicas.
-* La característica está disponible en todas las unidades de escalado de App Service de nivel Premium V2 y Premium V3. También está disponible en Estándar, pero solo desde las unidades de escalado de App Service más recientes. Si está en una unidad de escalado anterior, solo puede usar la característica desde un plan de App Service Premium V2. Si quiere estar seguro de que puede usar la característica en un plan de App Service Estándar, cree la aplicación en un plan de App Service Premium V3. Estos planes solo se admiten en las unidades de escalado más recientes. Si quiere, después puede reducir verticalmente.  
-* La subred de integración solo puede usarla un plan de App Service.
+* La característica está disponible en todas las unidades de escalado de App Service de nivel Premium V2 y Premium V3. También está disponible en Estándar, pero solo desde las unidades de escalado de App Service más recientes. Si está en una unidad de escalado anterior, solo puede usar la característica desde un plan de App Service Premium V2. Si quiere estar seguro de que puede usar la característica en un plan de App Service Estándar, cree la aplicación en un plan de App Service Premium V3. Estos planes solo se admiten en las unidades de escalado más recientes. Si quiere, puede reducir verticalmente después de crear el plan.
 * Las aplicaciones del plan Aislado que estén en una instancia de App Service Environment no pueden usar la característica.
+* No se puede acceder a los recursos a través de conexiones de emparejamiento con redes virtuales clásicas.
 * La característica requiere una subred sin usar que sea /28 o mayor en una red virtual de Azure Resource Manager.
 * La aplicación y la VNet deben estar en la misma región.
+* La red virtual de integración no puede tener definidos espacios de direcciones IPv6.
+* La subred de integración solo puede usarla un plan de App Service.
 * No puede eliminar una VNet con una aplicación integrada. Quite la integración antes de eliminar la VNet.
 * Solo se puede tener una característica Integración con red virtual regional por plan de App Service. Varias aplicaciones en el mismo plan de App Service pueden usar la misma red virtual.
 * No se puede cambiar la suscripción de una aplicación o un plan mientras haya una aplicación que use Integración con red virtual regional.
-* La aplicación no puede resolver direcciones en Azure DNS Private Zones en planes Linux sin que se realicen cambios en la configuración.
+* La aplicación no puede resolver direcciones en Azure DNS Private Zones en planes Linux sin la opción Enrutar todo habilitada.
 
 ## <a name="gateway-required-vnet-integration"></a>Integración con red virtual con requisito de puerta de enlace
 
@@ -220,7 +220,7 @@ La versión de Integración con red virtual que necesita una puerta de enlace se
 
 Las aplicaciones pueden acceder a los recursos locales mediante la integración con redes virtuales que tengan conexiones de sitio a sitio. Si usa la Integración con red virtual con requisito de puerta de enlace, actualice las rutas de puerta de enlace de red virtual locales con los bloques de direcciones de punto a sitio. En la configuración inicial de la VPN de sitio a sitio, los scripts que se usan para configurarla deben configurar las rutas correctamente. Si agrega las direcciones de punto a sitio después de crear la VPN de sitio a sitio, deberá actualizar las rutas manualmente. El procedimiento varía según la puerta de enlace y no se describe aquí. No se puede tener BGP configurado con una conexión VPN de sitio a sitio.
 
-No se requiere ninguna configuración adicional para que la característica Integración con red virtual regional acceda a través de la red virtual a los recursos locales. Basta con conectar la red virtual a los recursos de entorno local mediante ExpressRoute o una VPN de sitio a sitio.
+No se requiere ninguna configuración adicional para que la característica de integración con redes virtuales regionales acceda mediante la red virtual a los recursos locales. Basta con conectar la red virtual a los recursos de entorno local mediante ExpressRoute o una VPN de sitio a sitio.
 
 > [!NOTE]
 > La característica Integración con red virtual con requisito de puerta de enlace no integra una aplicación con una red virtual que tiene una puerta de enlace de ExpressRoute. Aunque la puerta de enlace de ExpressRoute esté configurada en [modo de coexistencia][VPNERCoex], la Integración con red virtual no funciona. Si necesita acceder a los recursos mediante una conexión de ExpressRoute, utilice la característica Integración con red virtual regional o un entorno [App Service Environment][ASE] que se ejecute en la red virtual.
@@ -263,7 +263,7 @@ Cuando la Integración con red virtual con requisito de puerta de enlace está h
 Si los certificados o la información de red cambian, es necesario hacer clic en **Sincronizar red**. Al seleccionar **Sincronizar red**, se producirá una breve interrupción en la conectividad entre la aplicación y la red virtual. Aunque no se reinicia la aplicación, la pérdida de conectividad podría hacer que su sitio no funcione correctamente.
 
 ## <a name="pricing-details"></a>Detalles de precios
-La característica Integración con red virtual regional no tiene ningún cargo extra por uso más allá de los cargos del plan de tarifa del plan de App Service.
+La característica de integración con redes virtuales regionales no tiene ningún cargo extra por uso más allá de los cargos del plan de tarifa del plan de App Service.
 
 Hay tres cargos relacionados con el uso de la característica Integración con red virtual con requisito de puerta de enlace:
 

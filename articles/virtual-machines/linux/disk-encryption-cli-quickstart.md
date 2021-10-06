@@ -9,12 +9,12 @@ ms.subservice: disks
 ms.topic: quickstart
 ms.date: 05/17/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: aaa4618705c40d4ef294df707f9567db1eb2f78b
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 9b2e96f288bc2c83f1957aa66a770c09be21282b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122687896"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128588511"
 ---
 # <a name="quickstart-create-and-encrypt-a-linux-vm-with-the-azure-cli"></a>Inicio rápido: Creación y cifrado de una máquina virtual Linux con la CLI de Azure
 
@@ -67,7 +67,7 @@ La creación de la máquina virtual y los recursos auxiliares tarda unos minutos
 Azure Disk Encryption almacena su clave de cifrado en una instancia de Azure Key Vault. Cree una instancia de Key Vault con [az keyvault create](/cli/azure/keyvault#az_keyvault_create). Para habilitar la instancia de Key Vault para almacenar claves de cifrado, use el parámetro --enabled-for-disk-encryption.
 
 > [!Important]
-> Cada almacén de claves debe tener un nombre que sea único en Azure. En los ejemplos siguientes, reemplace <su-nombre-único-del-almacén-de-claves> por el nombre que elija.
+> Cada almacén de claves debe tener un nombre que sea único en Azure. En los ejemplos siguientes, reemplace \<your-unique-keyvault-name\> por el nombre que elija.
 
 ```azurecli-interactive
 az keyvault create --name "<your-unique-keyvault-name>" --resource-group "myResourceGroup" --location "eastus" --enabled-for-disk-encryption

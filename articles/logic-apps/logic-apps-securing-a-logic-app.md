@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rarayudu, azla
 ms.topic: how-to
-ms.date: 07/29/2021
-ms.openlocfilehash: 296a743924de2093ff9418333bdf8ef7e2f6f0f1
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/13/2021
+ms.openlocfilehash: ed101e95a8580274661fd19d752a478677359641
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121731290"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128647202"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteger el acceso y los datos en Azure Logic Apps
 
@@ -143,7 +143,10 @@ En el cuerpo, incluya la propiedad `KeyType` como `Primary` o `Secondary`. Esta 
 
 Para las llamadas entrantes a un punto de conexión que se haya creado con un desencadenador basado en una solicitud, puede habilitar [Azure AD OAuth](../active-directory/develop/index.yml) mediante la definición o la incorporación de una directiva de autorización para la aplicación lógica. De este modo, las llamadas entrantes usan [tokens de acceso](../active-directory/develop/access-tokens.md) de OAuth para la autorización.
 
-Cuando la aplicación lógica recibe una solicitud entrante que incluye un token de acceso de OAuth, el servicio Azure Logic Apps compara las notificaciones del token con las especificadas en cada directiva de autorización. Si existe una coincidencia entre las notificaciones del token y todas las notificaciones en al menos una directiva, la autorización de la solicitud entrante se realiza correctamente. El token puede tener más notificaciones que el número especificado por la directiva de autorización.
+Cuando la aplicación lógica recibe una solicitud entrante que incluye un token de acceso de OAuth, Azure Logic Apps compara las notificaciones del token con las especificadas en cada directiva de autorización. Si existe una coincidencia entre las notificaciones del token y todas las notificaciones en al menos una directiva, la autorización de la solicitud entrante se realiza correctamente. El token puede tener más notificaciones que el número especificado por la directiva de autorización.
+
+> [!NOTE]
+> Para el tipo de recurso **Aplicación lógica (estándar)** en una instancia de Azure Logic Apps de inquilino único, Azure AD OAuth no está disponible actualmente para las llamadas entrantes a desencadenadores basados en solicitudes, como el desencadenador de solicitud y el desencadenador de webhook HTTP.
 
 #### <a name="considerations-before-you-enable-azure-ad-oauth"></a>Consideraciones antes de habilitar Azure AD OAuth
 
@@ -476,13 +479,17 @@ En este ejemplo se muestra una definición de recursos para una aplicación lóg
 
 ## <a name="access-to-logic-app-operations"></a>Acceso a las operaciones de las aplicaciones lógicas
 
-Puede permitir que solo determinados usuarios o grupos ejecuten tareas específicas, como administrar, editar y ver aplicaciones lógicas. Para controlar sus permisos, use el [Control de acceso basado en rol (RBAC) de Azure](../role-based-access-control/role-assignments-portal.md) para que pueda asignar roles personalizados o integrados a los miembros de la suscripción a Azure:
+Puede permitir que solo determinados usuarios o grupos ejecuten tareas específicas, como administrar, editar y ver aplicaciones lógicas. Para controlar los permisos, use el [control de acceso basado en roles de Azure (RBAC de Azure)](../role-based-access-control/role-assignments-portal.md). Puede asignar roles integrados o personalizados a los miembros que tienen acceso a la suscripción de Azure. Azure Logic Apps tiene estos roles específicos:
 
 * [Colaborador de aplicación lógica](../role-based-access-control/built-in-roles.md#logic-app-contributor): Le permite administrar aplicaciones lógicas, pero no puede cambiar el acceso a ellas.
 
 * [Operador de aplicación lógica](../role-based-access-control/built-in-roles.md#logic-app-operator): Le permite leer, habilitar y deshabilitar aplicaciones lógicas, pero no puede editarlas ni actualizarlas.
 
-Para evitar que otros usuarios cambien o elimine la aplicación lógica, puede usar el [bloqueo de recursos de Azure](../azure-resource-manager/management/lock-resources.md). Esta funcionalidad evita que otros usuarios cambien o eliminen los recursos de producción.
+* [Colaborador](../role-based-access-control/built-in-roles.md#contributor): concede acceso completo para administrar todos los recursos, pero no le permite asignar roles en RBAC de Azure, administrar asignaciones en Azure Blueprints ni compartir galerías de imágenes.
+
+  Por ejemplo, imagine que tiene que trabajar con una aplicación lógica que no ha creado y autenticar las conexiones usadas por el flujo de trabajo de esa aplicación lógica. La suscripción de Azure necesita permisos de colaborador para el grupo de recursos que contiene ese recurso de aplicación lógica. Si crea un recurso de aplicación lógica, tendrá acceso de colaborador automáticamente.
+
+Para evitar que otros usuarios cambien o elimine la aplicación lógica, puede usar el [bloqueo de recursos de Azure](../azure-resource-manager/management/lock-resources.md). Esta funcionalidad evita que otros usuarios cambien o eliminen los recursos de producción. Para obtener más información sobre la seguridad de la conexión, revise [Configuración de conexión en Azure Logic Apps](../connectors/apis-list.md#connection-configuration) y [Seguridad y cifrado de la conexión](../connectors/apis-list.md#connection-security-encyrption).
 
 <a name="secure-run-history"></a>
 
@@ -980,7 +987,7 @@ Si la opción [Básica](../active-directory-b2c/secure-rest-api.md) está dispon
 
 | Propiedad (diseñador) | Propiedad (JSON) | Obligatorio | Value | Descripción |
 |---------------------|-----------------|----------|-------|-------------|
-| **Autenticación** | `type` | Sí | Básica | Tipo de autenticación que se debe usar. |
+| **Autenticación** | `type` | Sí | Básico | Tipo de autenticación que se debe usar. |
 | **Nombre de usuario** | `username` | Sí | <*nombre-de-usuario*>| Nombre de usuario para autenticar el acceso al extremo del servicio de destino. |
 | **Contraseña** | `password` | Sí | <*contraseña*> | Contraseña para autenticar el acceso al extremo del servicio de destino. |
 ||||||
@@ -1135,7 +1142,11 @@ Al usar [parámetros protegidos](#secure-action-parameters) para administrar y p
 
 #### <a name="managed-identity-authentication"></a>Autenticación de identidad administrada
 
-Cuando la opción [Identidad administrada](../active-directory/managed-identities-azure-resources/overview.md) está disponible en el [desencadenador o acción que admite la autenticación de identidad administrada](#add-authentication-outbound), la aplicación lógica puede usar la identidad asignada por el sistema o una identidad *única* asignada por el usuario creada de forma manual para autenticar el acceso a recursos de Azure que están protegidos por Azure Active Directory (Azure AD), en lugar de credenciales, secretos o tokens de Azure AD. Azure administra esta identidad y le ayuda a proteger las credenciales porque, de esta forma, no tiene que administrar secretos ni usar directamente tokens de Azure AD. Obtenga más información sobre [Servicios de Azure que admiten las identidades administradas para la autenticación de Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
+Cuando la opción [Identidad administrada](../active-directory/managed-identities-azure-resources/overview.md) está disponible en el [desencadenador o la acción que admite la autenticación de identidad administrada](#add-authentication-outbound), la aplicación lógica puede usar esta identidad para autenticar el acceso a recursos de Azure que están protegidos por Azure Active Directory (Azure AD), en lugar de credenciales, secretos o tokens de Azure AD. Azure administra esta identidad y le ayuda a proteger las credenciales porque, de esta forma, no tiene que administrar secretos ni usar directamente tokens de Azure AD. Obtenga más información sobre [Servicios de Azure que admiten las identidades administradas para la autenticación de Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
+
+* El tipo de recurso **Aplicación lógica (consumo)** puede usar la identidad asignada por el sistema o una *única* identidad asignada por el usuario creada manualmente.
+
+* El tipo de recurso **Aplicación lógica (estándar)** solo puede usar la identidad asignada por el sistema, que se habilita de forma automática. La identidad asignada por el usuario no está disponible actualmente.
 
 1. Para que la aplicación lógica pueda usar una identidad administrada, siga los pasos descritos en [Autenticación de acceso a los recursos de Azure con identidades administradas en Azure Logic Apps](../logic-apps/create-managed-service-identity.md). En estos pasos se habilita la identidad administrada en la aplicación lógica y se configura el acceso de dicha identidad al recurso de Azure de destino.
 
@@ -1177,7 +1188,6 @@ Cuando la opción [Identidad administrada](../active-directory/managed-identitie
    | **Nombre de la conexión** | Sí | <*connection-name*> ||
    | **Identidad administrada** | Sí | **Identidad administrada asignada por el sistema** <br>or <br> <*user-assigned-managed-identity-name*> | Tipo de autenticación que se debe usar. |
    |||||
-
 
 <a name="block-connections"></a>
 

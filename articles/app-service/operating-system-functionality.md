@@ -3,14 +3,14 @@ title: Funcionalidad del sistema operativo
 description: Obtenga información sobre la funcionalidad del sistema operativo en Azure App Service en Windows. Averigüe qué tipos de acceso de archivo, red y registro obtiene su aplicación.
 ms.assetid: 39d5514f-0139-453a-b52e-4a1c06d8d914
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 09/09/2021
 ms.custom: seodec18
-ms.openlocfilehash: 949e408544e25cb55622cf2a1b1d2dddb92350a6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d4242ae2afb79f44452c51a971a64632e0d7f098
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96001514"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124769928"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Funcionalidad del sistema operativo en Azure App Service
 En este artículo se describe la funcionalidad del sistema operativo de línea base común que está disponible para todas las aplicaciones Windows que se ejecutan en el [Azure App Service](./overview.md). Esta funcionalidad incluye archivo, red, acceso de registro, registros de diagnóstico y eventos. 
@@ -33,7 +33,7 @@ Como App Service permite una experiencia de escalado sin fisuras entre distintos
 ## <a name="development-frameworks"></a>Marcos de desarrollo
 Los planes de tarifa de App Service controlan la cantidad de recursos de proceso (CPU, almacenamiento en disco, memoria y entrada de red) disponibles para aplicaciones. Sin embargo, la amplitud de la funcionalidad del marco disponible para las aplicaciones sigue siendo la misma independientemente de los planes de escalado.
 
-App Service es compatible con una gran variedad de marcos de desarrollo, incluidos ASP.NET, ASP clásico, node.js, PHP y Python (todos se ejecutan como extensiones en IIS). Para simplificar y normalizar la configuración de seguridad, las aplicaciones de App Service ejecutan normalmente los distintos marcos de desarrollo con su configuración predeterminada. Un enfoque para configurar aplicaciones podría ser personalizar la funcionalidad y el área expuesta de la API para cada marco de desarrollo individual. Por el contrario, App Service adopta un enfoque más genérico mediante la habilitación de una línea base común de la funcionalidad del sistema operativo independientemente de un marco de desarrollo de la aplicación.
+App Service es compatible con una gran variedad de marcos de desarrollo, incluidos ASP.NET, ASP clásico, Node.js, PHP y Python (todos se ejecutan como extensiones en IIS). Para simplificar y normalizar la configuración de seguridad, las aplicaciones de App Service ejecutan normalmente los distintos marcos de desarrollo con su configuración predeterminada. Un enfoque para configurar aplicaciones podría ser personalizar la funcionalidad y el área expuesta de la API para cada marco de desarrollo individual. Por el contrario, App Service adopta un enfoque más genérico mediante la habilitación de una línea base común de la funcionalidad del sistema operativo independientemente de un marco de desarrollo de la aplicación.
 
 Las siguientes secciones resumen los tipos generales de funcionalidad del sistema operativo disponibles para aplicaciones de App Service.
 
@@ -47,9 +47,8 @@ Existen varias unidades en App Service, incluidas las unidades locales y las uni
 ### <a name="local-drives"></a>Unidades locales
 Principalmente, App Service es un servicio que se ejecuta en la parte superior de la infraestructura PaaS (plataforma como servicio) de Azure. Como resultado, las unidades locales "conectadas" a una máquina virtual son los mismos tipos de unidades disponibles para cualquier rol de trabajo que se ejecute en Azure. Esto incluye:
 
-- Una unidad del sistema operativo (la unidad D:\)
-- Una unidad de aplicación que contiene archivos cspkg del paquete de Azure que App Service usa de forma exclusiva (y que no son accesibles para los clientes)
-- Una unidad de "usuario" (la unidad C:\), cuyo tamaño varía según el tamaño de la máquina virtual. 
+- Una unidad de sistema operativo (`%SystemDrive%`), cuyo tamaño varía según el tamaño de la máquina virtual.
+- Una unidad de recurso (`%ResourceDrive%`) utilizada por App Service internamente.
 
 Es importante supervisar el uso del disco a medida que la aplicación crece. Si se alcanza la cuota de disco, puede tener efectos negativos para la aplicación. Por ejemplo: 
 
@@ -61,27 +60,34 @@ Es importante supervisar el uso del disco a medida que la aplicación crece. Si 
 <a id="NetworkDrives"></a>
 
 ### <a name="network-drives-unc-shares"></a>Unidades de red (recursos compartidos UNC)
-Uno de los aspectos exclusivos de App Service que hace que el mantenimiento y la implementación de aplicaciones sean sencillos es que todo el contenido del usuario se almacena en un conjunto de recursos compartidos UNC. Este modelo se asigna perfectamente al patrón común de almacenamiento de contenido usado en entornos locales de hospedaje web que disponen de varios servidores con equilibrio de carga. 
+Uno de los aspectos exclusivos de App Service que hace que el mantenimiento y la implementación de aplicaciones sean sencillos es que todos los recursos compartidos de contenido se almacenan en un conjunto de recursos compartidos UNC. Este modelo se asigna perfectamente al patrón común de almacenamiento de contenido usado en entornos locales de hospedaje web que disponen de varios servidores con equilibrio de carga. 
 
-En App Service existen varios recursos compartidos UNC creados en cada centro de datos. Un porcentaje del contenido de usuario para todos los clientes en cada centro de datos se asigna a cada recurso compartido UNC. Además, todo el contenido del archivo para una suscripción de cliente única se coloca siempre en el mismo recurso compartido UNC. 
+En App Service existen varios recursos compartidos UNC creados en cada centro de datos. Un porcentaje del contenido de usuario para todos los clientes en cada centro de datos se asigna a cada recurso compartido UNC. Cada suscripción de cliente tiene una estructura de directorio reservada en un recurso compartido UNC específico dentro de un centro de datos. Un cliente puede disponer de varias aplicaciones creadas en un centro de datos determinado, por lo que todos los directorios que pertenecen a una única suscripción de cliente se crean en el mismo recurso compartido UNC. 
 
-Debido al funcionamiento de los servicios de Azure, la máquina virtual específica responsable del hospedaje de un recurso compartido UNC cambiará con el tiempo. Se garantiza que distintas máquinas virtuales realizarán el montaje de los recursos compartidos UNC, ya que estos aumentan y disminuyen durante el curso normal de operaciones de Azure. Por este motivo, las aplicaciones nunca realizan suposiciones de forma rígida sobre que la información de la máquina en una ruta de acceso del UNC permanezca estable con el tiempo. En su lugar, deben usar la ruta de acceso absoluta *faux* adecuada **D:\home\site** que proporciona App Service. Esta ruta de acceso absoluta faux proporciona un método portátil independiente del usuario y la aplicación para hacer referencia a la propia aplicación de alguien. Si usa **D:\home\site**, puede transferir archivos compartidos de una aplicación a otra sin tener que configurar una nueva ruta de acceso absoluta para cada transferencia.
+Debido al funcionamiento de los servicios de Azure, la máquina virtual específica responsable del hospedaje de un recurso compartido UNC cambiará con el tiempo. Se garantiza que distintas máquinas virtuales realizarán el montaje de los recursos compartidos UNC, ya que estos aumentan y disminuyen durante el curso normal de operaciones de Azure. Por este motivo, las aplicaciones nunca realizan suposiciones de forma rígida sobre que la información de la máquina en una ruta de acceso del UNC permanezca estable con el tiempo. En su lugar, deben usar la ruta de acceso absoluta *faux* adecuada `%HOME%\site` que proporciona App Service. Esta ruta de acceso absoluta faux proporciona un método portátil independiente del usuario y la aplicación para hacer referencia a la propia aplicación de alguien. Si usa `%HOME%\site`, puede transferir archivos compartidos de una aplicación a otra sin tener que configurar una nueva ruta de acceso absoluta para cada transferencia.
 
 <a id="TypesOfFileAccess"></a>
 
 ### <a name="types-of-file-access-granted-to-an-app"></a>Tipos de acceso a archivo concedidos a una aplicación
-Cada suscripción de cliente tiene una estructura de directorio reservada en un recurso compartido UNC específico dentro de un centro de datos. Un cliente puede disponer de varias aplicaciones creadas en un centro de datos determinado, por lo que todos los directorios que pertenecen a una única suscripción de cliente se crean en el mismo recurso compartido UNC. El recurso compartido puede incluir directorios como los de contenido, registros de diagnóstico y error, y versiones anteriores de la aplicación creadas por el control de origen. Lo esperado es que los directorios de la aplicación del cliente dispongan de acceso de lectura y escritura en el tiempo de ejecución del código de aplicación de la aplicación.
+El directorio `%HOME%` de una aplicación se asigna a un recurso compartido de contenido de Azure Storage dedicado a esa aplicación y su tamaño se define en función del [plan de tarifa](https://azure.microsoft.com/pricing/details/app-service/). Puede incluir directorios como los de contenido, registros de diagnóstico y error, y versiones anteriores de la aplicación creadas por el control de origen. Estos directorios están disponibles para el código de aplicación de la aplicación en tiempo de ejecución para el acceso de lectura y escritura. Dado que los archivos no se almacenan localmente, se mantienen al reiniciar la aplicación.
 
-En las unidades locales conectadas a una máquina virtual que ejecute una aplicación, App Service reserva un fragmento de espacio en la unidad C:\ para el almacenamiento local temporal específico de la aplicación. Aunque la aplicación dispone de un acceso de lectura/escritura completo a su propio almacenamiento local temporal, el almacenamiento no se ha creado realmente para que lo use directamente el código de aplicación. El objetivo real es proporcionar un almacenamiento temporal de archivos para marcos de aplicaciones web e IIS. App Service también limita la cantidad de almacenamiento local temporal disponible para cada aplicación a fin de evitar que las aplicaciones consuman cantidades excesivas de almacenamiento de archivos locales.
+En la unidad del sistema, App Service reserva `%SystemDrive%\local` para el almacenamiento local temporal específico de la aplicación. Los cambios en los archivos de este directorio *no* se mantienen al reiniciar la aplicación. Aunque la aplicación dispone de un acceso de lectura/escritura completo a su propio almacenamiento local temporal, el almacenamiento no se ha creado realmente para que lo use directamente el código de aplicación. El objetivo real es proporcionar un almacenamiento temporal de archivos para marcos de aplicaciones web e IIS. App Service también limita la cantidad de almacenamiento en `%SystemDrive%\local` para cada aplicación a fin de evitar que las aplicaciones consuman cantidades excesivas de almacenamiento de archivos locales. Para los niveles **Gratis**, **Compartido** y **Consumo** (Azure Functions), el límite es de 500 MB. Consulte la tabla siguiente para ver otros niveles:
 
-Los dos ejemplos de cómo usa App Service el almacenamiento local temporal son el directorio para archivos temporales ASP.NET y el directorio para archivos comprimidos IIS. El sistema de compilación ASP.NET usa el directorio de archivos temporales ASP.NET como ubicación temporal de la memoria caché de compilación. IIS usa el directorio de archivos temporales comprimidos IIS para almacenar los resultados comprimidos de la respuesta. Ambos tipos de uso de archivo (al igual que otros) se reasignan en App Service según el almacenamiento local temporal de la aplicación. Esta reasignación garantiza que la funcionalidad continúa según lo esperado.
+| Familia de SKU | B1/S1/etc. | B2/S2/etc. | B3/S3/etc. |
+| - | - | - | - |
+|Básico, Estándar, Premium | 11 GB | 15 GB | 58 GB |
+| PremiumV2, PremiumV3, Aislado | 21 GB | 61 GB | 140 GB |
 
-Cada aplicación de App Service se ejecuta como una identidad de proceso de trabajo con privilegios reducidos, exclusiva y aleatoria denominada "identidad de grupo de aplicaciones", que se describe a continuación: [https://www.iis.net/learn/manage/configuring-security/application-pool-identities](https://www.iis.net/learn/manage/configuring-security/application-pool-identities). El código de la aplicación usa esta identidad para el acceso básico de solo lectura para la unidad del sistema operativo (la unidad D:\). Esto significa que el código de aplicación puede enumerar estructuras de directorio comunes y leer archivos comunes en la unidad del sistema operativo. Aunque esto puede parecer ser un tipo de nivel amplio de acceso, puede obtenerse acceso a los mismos directorios y archivos cuando realiza el aprovisionamiento de un rol de trabajo en un servicio hospedado de Azure y lee el contenido de la unidad. 
+Los dos ejemplos de cómo usa App Service el almacenamiento local temporal son el directorio para archivos temporales ASP.NET y el directorio para archivos comprimidos IIS. El sistema de compilación ASP.NET usa el directorio `%SystemDrive%\local\Temporary ASP.NET Files` como ubicación temporal de la memoria caché de compilación. IIS usa el directorio `%SystemDrive%\local\IIS Temporary Compressed Files` para almacenar los resultados comprimidos de la respuesta. Ambos tipos de uso de archivo (al igual que otros) se reasignan en App Service según el almacenamiento local temporal de la aplicación. Esta reasignación garantiza que la funcionalidad continúa según lo esperado.
+
+Cada aplicación de App Service se ejecuta como una identidad de proceso de trabajo con privilegios reducidos, exclusiva y aleatoria denominada "identidad de grupo de aplicaciones", que se describe a continuación: [https://www.iis.net/learn/manage/configuring-security/application-pool-identities](https://www.iis.net/learn/manage/configuring-security/application-pool-identities). El código de la aplicación usa esta identidad para el acceso básico de solo lectura para la unidad del sistema operativo. Esto significa que el código de aplicación puede enumerar estructuras de directorio comunes y leer archivos comunes en la unidad del sistema operativo. Aunque esto puede parecer ser un tipo de nivel amplio de acceso, puede obtenerse acceso a los mismos directorios y archivos cuando realiza el aprovisionamiento de un rol de trabajo en un servicio hospedado de Azure y lee el contenido de la unidad. 
 
 <a name="multipleinstances"></a>
 
 ### <a name="file-access-across-multiple-instances"></a>Acceso al archivo en varias instancias
-El directorio particular incluye el contenido de una aplicación y el código de una aplicación puede escribir en él. Si una aplicación se ejecuta en varias instancias, el directorio particular se comparte entre todas las instancias de modo que todas ellas ven el mismo directorio. Así, por ejemplo, si una aplicación guarda los archivos cargados en el directorio particular, esos archivos se encuentran inmediatamente disponibles para todas las instancias. 
+El directorio del recurso compartido de contenido (`%HOME%`) incluye el contenido de una aplicación y el código de una aplicación puede escribir en él. Si una aplicación se ejecuta en varias instancias, el directorio `%HOME%` se comparte entre todas las instancias de modo que todas ellas ven el mismo directorio. Así, por ejemplo, si una aplicación guarda los archivos cargados en el directorio `%HOME%`, esos archivos se encuentran inmediatamente disponibles para todas las instancias. 
+
+El directorio de almacenamiento local temporal (`%SystemDrive%\local`) no se comparte entre instancias, ni se comparte entre la aplicación y su [aplicación de Kudu](resources-kudu.md).
 
 <a id="NetworkAccess"></a>
 

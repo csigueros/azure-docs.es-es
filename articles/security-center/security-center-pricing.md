@@ -6,13 +6,13 @@ ms.author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: overview
-ms.date: 06/10/2021
-ms.openlocfilehash: 52ecc8a66dfa13747daf2b4b7fd227ef7ab5a3b2
-ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
+ms.date: 09/19/2021
+ms.openlocfilehash: 3e76d298d30d2e191edf218e85a8fc64758f8359
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "112237172"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128560795"
 ---
 # <a name="azure-security-center-free-vs-azure-defender-enabled"></a>Azure Security Center gratuito frente a Azure Defender habilitado
 Azure Defender es gratis durante los primeros 30 días. Después de 30 días, si decide continuar usando el servicio, empezaremos a cobrar automáticamente el uso.
@@ -31,6 +31,7 @@ Security Center se ofrece en dos modos:
     - **Detección de vulnerabilidades de máquinas virtuales y registros de contenedor**: implemente fácilmente un escáner en todas las máquinas virtuales que proporciona la solución más avanzada del sector para la administración de vulnerabilidades. Vea, investigue y corrija los hallazgos directamente dentro de Security Center. 
     - **Seguridad híbrida**: Obtenga una vista unificada de la seguridad de todas sus cargas de trabajo locales y en la nube. Aplique directivas de seguridad y evalúe constantemente la seguridad de las cargas de trabajo de nube híbrida para garantizar el cumplimiento normativo con los estándares de seguridad. Recopile, busque y analice datos de seguridad de varios orígenes, incluidos firewalls y otras soluciones de partners.
     - **Alertas de protección contra amenazas**: el análisis de comportamiento avanzado y Microsoft Intelligent Security Graph proporcionan una ventaja frente a los ataques cibernéticos en evolución. La funcionalidad integrada de análisis del comportamiento y aprendizaje automático puede identificar ataques y vulnerabilidades de seguridad de día cero. Supervise las redes, las máquinas y los servicios en la nube para detectar ataques entrantes y actividad posterior a una infracción de seguridad. Optimice la investigación con herramientas interactivas e inteligencia de amenazas contextual.
+    - **Seguimiento del cumplimiento con una gama de estándares**: Security Center evalúa continuamente el entorno de nube híbrida para analizar los factores de riesgo con arreglo a los controles y los procedimientos recomendados que se describen en [Punto de referencia de seguridad de Azure](/security/benchmark/azure/introduction). Al habilitar Azure Defender, puede aplicar una variedad de otros estándares del sector, estándares normativos y puntos de referencia según las necesidades de la organización. Agregue estándares y realice un seguimiento del cumplimiento con ellos desde el [panel de cumplimiento normativo](update-regulatory-compliance-packages.md).
     - **Controles de acceso y de aplicación**: bloquee el malware y otras aplicaciones no deseadas aplicando recomendaciones de basadas en el aprendizaje automático, adaptadas a sus cargas de trabajo específicas, para crear listas de permitidos y denegados. Reduzca la superficie de la red que está expuesta a ataques mediante un acceso Just-In-Time controlado a los puertos de administración de las VM de Azure. Los controles de acceso y de aplicación reducen drásticamente la exposición a ataques por fuerza bruta y otros tipos de ataque de red.
     - **Características de seguridad de contenedor**: Aproveche la administración de vulnerabilidades y la protección contra amenazas en tiempo real en los entornos en contenedores. Al habilitar **Azure Defender para registros de contenedor**, pueden pasar hasta 12 horas para que se habiliten todas las características. Los cargos se basan en el número de imágenes de contenedor únicas insertadas en el registro conectado. Una vez que se haya analizado una imagen, no se le cobrará de nuevo a menos que se modifique e inserte una vez más.
     - **Protección contra amenazas con amplitud para recursos conectados al entorno de Azure**: Azure Defender incluye protección contra amenazas con amplitud nativa de Azure para los servicios de Azure comunes a todos los recursos: Azure Resource Manager, Azure DNS, capa de red de Azure y Azure Key Vault. Azure Defender tiene una visibilidad exclusiva de la capa de administración de Azure y la capa de Azure DNS, y, por tanto, puede proteger los recursos en la nube que están conectados a esas capas.
@@ -106,7 +107,7 @@ No. Si habilita [Azure Defender para servidores](defender-for-servers-introducti
 :::image type="content" source="media/security-center-pricing/deallocated-virtual-machines.png" alt-text="Azure Virtual Machines muestra una máquina desasignada.":::
 
 ### <a name="will-i-be-charged-for-machines-without-the-log-analytics-agent-installed"></a>¿Se me cobrará por máquinas sin el agente de Log Analytics instalado?
-Sí. Al habilitar [Azure Defender para servidores](defender-for-servers-introduction.md) en una suscripción, las máquinas de esa suscripción obtienen una serie de protecciones incluso si no ha instalado el agente de Log Analytics.
+Sí. Al habilitar [Azure Defender para servidores](defender-for-servers-introduction.md) en una suscripción, las máquinas de esa suscripción obtienen una serie de protecciones incluso si no ha instalado el agente de Log Analytics. Esto es aplicable a máquinas virtuales de Azure, instancias de conjuntos de escalado de máquinas virtuales de Azure y servidores habilitados para Azure Arc.
 
 ### <a name="if-a-log-analytics-agent-reports-to-multiple-workspaces-will-i-be-charged-twice"></a>Si un agente de Log Analytics envía notificaciones a diversas áreas de trabajo, ¿se me cobrará varias veces? 
 Sí. Si ha configurado el agente de Log Analytics para enviar datos a dos o más áreas de trabajo de Log Analytics diferentes (hospedaje múltiple), se le cobrará por cada área de trabajo que tenga instaladas soluciones de seguridad o antimalware. 

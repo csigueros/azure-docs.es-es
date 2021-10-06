@@ -6,12 +6,12 @@ ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/28/2020
-ms.openlocfilehash: d20f504e4c35bcb314e599b3111a3c66805568e7
-ms.sourcegitcommit: 16580bb4fbd8f68d14db0387a3eee1de85144367
+ms.openlocfilehash: f15ffe95f002ac74553363485fe90d16f8864347
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112676324"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128552534"
 ---
 # <a name="audit-logging-in-azure-database-for-postgresql---single-server"></a>Registro de auditoría en Azure Database for PostgreSQL con un único servidor
 
@@ -45,9 +45,15 @@ Mediante [Azure Portal](https://portal.azure.com):
    2. En la barra lateral, seleccione **Parámetros del servidor**.
    3. Busque el parámetro `shared_preload_libraries`.
    4. Seleccione **pgaudit**.
+     :::image type="content" source="./media/concepts-audit/share-preload-parameter.png" alt-text="Captura de pantalla en la que se muestra cómo Azure Database for PostgreSQL habilita shared_preload_libraries para pgaudit":::
    5. Reinicie el servidor para aplicar el cambio.
+   6. Puede comprobar que **pgaudit** se carga en shared_preload_libraries si ejecuta la siguiente consulta en psql:
+        ```SQL
+      show shared_preload_libraries;
+      ```
+      Debería ver **pgaudit** en el resultado de la consulta que devolverá shared_preload_libraries.
 
-   6. Conéctese al servidor mediante un cliente (como psql) y habilite la extensión pgAudit.
+   7. Conéctese al servidor mediante un cliente (como psql) y habilite la extensión pgAudit.
       ```SQL
       CREATE EXTENSION pgaudit;
       ```
@@ -62,7 +68,18 @@ pgAudit le permite configurar el registro de auditoría de objeto o sesión. [El
 > [!NOTE]
 > La configuración de pgAudit se especifica globalmente y no en el nivel de base de datos o rol.
 
-Una vez que haya [instalado pgAudit](#installing-pgaudit), puede configurar sus parámetros para iniciar el registro. La [documentación de pgAudit](https://github.com/pgaudit/pgaudit/blob/master/README.md#settings) proporciona la definición de cada parámetro. Pruebe primero los parámetros y confirme que obtiene el comportamiento esperado.
+Una vez que haya [instalado pgAudit](#installing-pgaudit), puede configurar sus parámetros para iniciar el registro. Para configurar pgAudit, puede seguir las instrucciones siguientes. Mediante [Azure Portal](https://portal.azure.com):
+
+   1. Seleccione su servidor de Azure Database for PostgreSQL.
+   2. En la barra lateral, seleccione **Parámetros del servidor**.
+   3. Busque los parámetros `pg_audit`.
+   4. Elija el parámetro de configuración adecuado para editarlo. Por ejemplo, para iniciar el registro, establezca `pgaudit.log` en `WRITE` :::image type="content" source="./media/concepts-audit/pgaudit-config.png" alt-text="Captura de pantalla de Azure Database for PostgreSQL en la que se muestra la configuración del registro con pgaudit":::
+   5. Haga clic en el botón **Guardar** para guardar los cambios.
+
+
+
+La [documentación de pgAudit](https://github.com/pgaudit/pgaudit/blob/master/README.md#settings) proporciona la definición de cada parámetro. Pruebe primero los parámetros y confirme que obtiene el comportamiento esperado.
+
 
 > [!NOTE]
 > Al establecer `pgaudit.log_client` en ON, se redirigirán los registros a un proceso de cliente (como psql), en lugar de escribirse en el archivo. Por lo general, esta configuración se debe dejar deshabilitada. <br> <br>

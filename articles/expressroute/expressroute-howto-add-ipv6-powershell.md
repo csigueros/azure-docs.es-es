@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 03/02/2021
 ms.author: duau
-ms.openlocfilehash: 67010d698c51e0eb66abcfa35fc629ec58d28789
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 62616465b98feca1052ac3e45932120fdf0ffd42
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123424229"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128584515"
 ---
 # <a name="add-ipv6-support-for-private-peering-using-azure-powershell-preview"></a>Adición de compatibilidad con IPv6 para el emparejamiento privado mediante Azure PowerShell (versión preliminar)
 
@@ -154,7 +154,7 @@ Siga los pasos que se indican a continuación si tiene previsto conectarse a un 
 ## <a name="limitations"></a>Limitaciones
 Aunque la compatibilidad con IPv6 está disponible para las conexiones a las implementaciones en regiones públicas de Azure, no se admiten los siguientes casos de uso:
 
-* Conexiones a puertas de enlace de ExpressRoute existentes que *no tienen* redundancia de zona
+* Conexiones a puertas de enlace de ExpressRoute *existentes* que no tienen redundancia de zona. Tenga en cuenta que las puertas de enlace de ExpressRoute *recién* creadas de cualquier SKU (con y sin redundancia de zona) mediante una dirección IP estándar y estática se pueden usar para las conexiones de ExpressRoute de doble pila
 * Conexiones Global Reach entre circuitos ExpressRoute
 * Uso de ExpressRoute con WAN virtual
 * FastPath con circuitos que no son de ExpressRoute Direct

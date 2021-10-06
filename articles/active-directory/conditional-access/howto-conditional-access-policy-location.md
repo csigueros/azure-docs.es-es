@@ -8,15 +8,15 @@ ms.topic: how-to
 ms.date: 05/26/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bddcb622a1baccb2d0e975e0d9a96f043f00aa82
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: f20eb91d18c85b21bd9623fec2129fbbde787764
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108176025"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128568295"
 ---
 # <a name="conditional-access-block-access-by-location"></a>Acceso condicional: Bloqueo del acceso por ubicación
 

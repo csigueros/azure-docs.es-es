@@ -8,12 +8,12 @@ ms.date: 09/01/2021
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 0d549190558f54137a410808967abc206ed43ad1
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 9ba814b4188984f3a0f6dbe16e866d6184d8cf2b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123433375"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128547668"
 ---
 # <a name="azcopy-sync"></a>azcopy sync
 
@@ -66,7 +66,7 @@ Sincronización de un solo archivo:
 azcopy sync "/path/to/file.txt" "https://[account].blob.core.windows.net/[container]/[path/to/blob]"
 ```
 
-Igual que antes, pero también procesa un hash MD5 del contenido del archivo y lo guarda como la propiedad Content-MD5 del blob. 
+Igual que antes, pero también procesa un hash MD5 del contenido del archivo y lo guarda como la propiedad Content-MD5 del blob.
 
 ```azcopy
 azcopy sync "/path/to/file.txt" "https://[account].blob.core.windows.net/[container]/[path/to/blob]" --put-md5
@@ -120,10 +120,10 @@ Sincronización de un directorio virtual que tenga el mismo nombre que un blob (
 azcopy sync "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]/?[SAS]" "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]/" --recursive=true
 ```
 
-Sincronización de un directorio de Azure File (la misma sintaxis que en Blob):
+Sincronización de un directorio de Azure File:
 
 ```azcopy
-azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]" "https://[account].file.core.windows.net/[share]/[path/to/dir]" --recursive=true
+azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]" "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]" --recursive=true
 ```
 
 > [!NOTE]
@@ -157,7 +157,7 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 
 **--include-pattern** string   Incluye solo los archivos en los que el nombre coincide con la lista de patrones. Por ejemplo: `*.jpg;*.pdf;exactName`
 
-**--log-level** string: define el nivel de detalle del registro para el archivo de registro, niveles disponibles: `INFO`(todas las solicitudes y respuestas), `WARNING`(respuestas lentas), `ERROR`(solo solicitudes con errores) y `NONE`(sin registros de salida). (El valor predeterminado es `INFO`). 
+**--log-level** string: define el nivel de detalle del registro para el archivo de registro, niveles disponibles: `INFO`(todas las solicitudes y respuestas), `WARNING`(respuestas lentas), `ERROR`(solo solicitudes con errores) y `NONE`(sin registros de salida). (El valor predeterminado es `INFO`).
 
 **--mirror mode** Deshabilita la comparación basada en la hora de última modificación y sobrescribe los archivos y blobs en conflicto en el destino si esta marca está establecida en `true`. El valor predeterminado es `false`.
 
@@ -167,9 +167,9 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 
 **--put-md5**: crea un hash MD5 de cada archivo y lo guarda como la propiedad Content-MD5 del blob o archivo de destino. (De forma predeterminada, NO se crea el hash). Solo está disponible al cargar.
 
-**--recursive**    `True` de forma predeterminada, busca en los subdirectorios de forma recursiva al sincronizar entre directorios. (El valor predeterminado es `True`). 
+**--recursive**    `True` de forma predeterminada, busca en los subdirectorios de forma recursiva al sincronizar entre directorios. (El valor predeterminado es `True`).
 
-**--s2s-preserve-access-tier**: conserva el nivel de acceso durante la copia de servicio a servicio. Consulte [Azure Blob Storage: niveles de acceso frecuente, esporádico y de archivo](../blobs/storage-blob-storage-tiers.md) para asegurarse de que la cuenta de almacenamiento de destino admite la configuración del nivel de acceso. En los casos en los que no se admite el establecimiento del nivel de acceso, use s2sPreserveAccessTier=false para omitir la copia del nivel de acceso. (El valor predeterminado es `true`). 
+**--s2s-preserve-access-tier**: conserva el nivel de acceso durante la copia de servicio a servicio. Consulte [Azure Blob Storage: niveles de acceso frecuente, esporádico y de archivo](../blobs/storage-blob-storage-tiers.md) para asegurarse de que la cuenta de almacenamiento de destino admite la configuración del nivel de acceso. En los casos en los que no se admite el establecimiento del nivel de acceso, use s2sPreserveAccessTier=false para omitir la copia del nivel de acceso. (El valor predeterminado es `true`).
 
 **--s2s-preserve-blob-tags** Se conservan las etiquetas de índice durante la sincronización entre servicios de un almacenamiento de blobs a otro.
 

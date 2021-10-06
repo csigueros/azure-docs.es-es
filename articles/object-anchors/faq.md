@@ -4,15 +4,15 @@ description: Preguntas frecuentes sobre el servicio Azure Object Anchors.
 author: craigktreasure
 manager: vriveras
 ms.author: crtreasu
-ms.date: 04/01/2020
+ms.date: 09/10/2021
 ms.topic: overview
 ms.service: azure-object-anchors
-ms.openlocfilehash: cb64f2be26abc1d3ccaf80b90a85f279c7930c94
-ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
+ms.openlocfilehash: 18069157b4c7f38216c01649a33ed5f999dc7577
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114710722"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128638394"
 ---
 # <a name="frequently-asked-questions-about-azure-object-anchors"></a>Preguntas más frecuentes sobre Azure Object Anchors
 
@@ -45,13 +45,9 @@ Para obtener más información, consulte [Introducción a Azure Object Anchors](
 
 **R:** Actualmente se admiten los tipos de archivo `fbx`, `ply`, `obj`, `glb` y `gltf`. Para más información, consulte los [requisitos de recursos](overview.md).
 
-**P: ¿Cuál es la dirección de la gravedad y la unidad que requiere el servicio de conversión del modelo? ¿Cómo se pueden averiguar?**
+**P: ¿Cuál es la dirección de la gravedad y la unidad que requiere el servicio de conversión de modelos?**
 
-**R:** La dirección de la gravedad es el vector descendente que apunta hacia la tierra. En el caso de los modelos CAD, la dirección de la gravedad suele ser la opuesta a una dirección ascendente. Por ejemplo, en muchos casos +Z representa arriba, en cuyo caso, -Z o `Vector3(0.0, 0.0, -1.0)` representarían la dirección de la gravedad. Al determinar la gravedad, no solo debe considerar el modelo, sino también la orientación en la que se verá el modelo durante el tiempo de ejecución. Si está intentando detectar una silla en el mundo real, en una superficie plana, la gravedad podría ser `Vector3(0.0, 0.0, -1.0)`. Sin embargo, si la silla está en una pendiente de 45 grados, la gravedad podría ser `Vector3(0.0, -Sqrt(2)/2, -Sqrt(2)/2)`.
-
-La dirección de la gravedad se puede calcular con una herramienta de representación 3D, como [MeshLab](http://www.meshlab.net/).
-
-La unidad representa la unidad de medida del modelo. Las unidades admitidas se pueden encontrar mediante la enumeración **Microsoft.Azure.ObjectAnchors.Conversion.AssetLengthUnit**.
+**R:** La dirección de la gravedad es el vector hacia abajo que apunta a la tierra y la unidad de medida representa la escala del modelo. Al convertir un modelo, es importante [asegurarse de que la dirección de la gravedad y la unidad de dimensión del recurso sean correctas](./troubleshoot/object-detection.md#ensure-the-gravity-direction-and-asset-dimension-unit-are-correct).
 
 **P: ¿Cuánto tiempo se tarda en convertir un modelo CAD?**
 
@@ -73,7 +69,8 @@ La unidad representa la unidad de medida del modelo. Las unidades admitidas se p
 
 **P: ¿Cuánto tiempo se tarda en detectar un objeto en HoloLens?**
 
-**R:** Depende del tamaño del objeto y del proceso de examen. Para obtener una detección más rápida, pruebe a seguir los procedimientos recomendados para un examen exhaustivo. Para los objetos con una distancia de menos de 2 metros en cada dimensión, la detección puede producirse en pocos segundos. En el caso de objetos grandes, como un automóvil, el usuario debe recorrer un bucle completo alrededor del objeto para obtener una detección confiable, lo que significa que la detección podría tardar decenas de segundos.
+**R:** Depende del tamaño del objeto y del proceso de examen. Para obtener una detección más rápida, pruebe a seguir los procedimientos recomendados para un examen exhaustivo.
+Para los objetos con una distancia de menos de 2 metros en cada dimensión, la detección puede producirse en pocos segundos. En el caso de objetos grandes, como un automóvil, el usuario debe recorrer un bucle completo alrededor del objeto para obtener una detección confiable, lo que significa que la detección podría tardar decenas de segundos.
 
 **P: ¿Cuáles son los procedimientos recomendados al usar Object Anchors en una aplicación de HoloLens?**
 
@@ -95,7 +92,7 @@ La unidad representa la unidad de medida del modelo. Las unidades admitidas se p
 
 **P: ¿Cuál es la precisión de una posición calculada?**
 
-**R:** Depende del tamaño del objeto, del material, del entorno, etc. Para objetos pequeños, la posición estimada puede tener un error de 2 cm. En el caso de objetos grandes, como un automóvil, el error puede ser de hasta 2 a 8 cm.
+**R:** Depende del tamaño del objeto, el material, el entorno, etc. En el caso de los objetos pequeños, la posición estimada puede tener un error de 2 cm. En el caso de objetos grandes, como un automóvil, el error puede ser de hasta 2 a 8 cm.
 
 **P: ¿Sirve Object Anchors para objetos en movimiento?**
 
@@ -105,35 +102,21 @@ La unidad representa la unidad de medida del modelo. Las unidades admitidas se p
 
 **R:** Parcialmente, según cuánto cambie la forma o la geometría del objeto debido a una deformación o articulación. Si la geometría del objeto cambia mucho, el usuario puede crear otro modelo para esa configuración y usarlo para la detección.
 
-**P: ¿Cuántos objetos diferentes puede detectar Object Anchors al mismo tiempo?**
+**P: ¿Cuántos modelos diferentes puede detectar Object Anchors al mismo tiempo?**
 
-**R:** Actualmente se admite la detección de un único modelo de objetos a la vez.
+**R:** Actualmente se admite la detección de tres modelos a la vez para garantizar la mejor experiencia del usuario, pero no se aplica ningún límite.
 
 **P: ¿Puede Object Anchors detectar varias instancias del mismo modelo de objetos?**
 
-**R:** Sí, se pueden detectar hasta 3 objetos del mismo tipo de modelo. La aplicación puede llamar a `ObjectObserver.DetectAsync` varias veces con diferentes consultas para detectar varias instancias del mismo modelo.
+**R:** Sí, se admite la detección de hasta tres instancias del mismo tipo de modelo para garantizar la mejor experiencia del usuario, pero no se aplica ningún límite. Puede detectar una instancia de objeto por área de búsqueda. Al llamar a `ObjectQuery.SearchAreas.Add`, puede agregar más áreas de búsqueda a una consulta para detectar más instancias. Puede llamar a `ObjectObserver.DetectAsync` con varias consultas para detectar varios modelos.
 
 **P: ¿Qué debo hacer si el entorno de tiempo de ejecución de Object Anchors no puede detectar el objeto?**
 
-**R:**
-
-* Asegúrese de que la sala tenga suficientes texturas; para ello, puede agregar algunos pósteres.
-* Examine el objeto de manera más exhaustiva.
-* Ajuste los parámetros del modelo como se describe a continuación.
-* Proporcione un rectángulo delimitador estrecho como área de búsqueda, que incluya la totalidad o la mayor parte del objeto.
-* Borre la memoria caché de asignación espacial y vuelva a examinar el objeto.
-* Capture el diagnóstico y envíenos los datos.
-* Ajuste la propiedad `MinSurfaceCoverage` de la clase `ObjectQuery`. Para más información, consulte [Detección de un objeto difícil](detect-difficult-object.md).
+**R:** Hay muchos factores que pueden impedir que un objeto se detecte correctamente: el entorno, la configuración de conversión de modelos, la configuración de consulta, etc. Obtenga más información sobre cómo [solucionar problemas de detección de objetos](./troubleshoot/object-detection.md).
 
 **P: ¿Cómo elegir los parámetros de la consulta de objeto?**
 
-**R:**
-
-* Ofrezca áreas de búsqueda estrechas para cubrir el objeto en la mayor medida posible a los efectos de mejorar la velocidad y la precisión de la detección.
-* El valor predeterminado `ObjectQuery.MinSurfaceCoverage` del modelo de objetos suele ser una buena opción; de lo contrario, use un valor menor para obtener una detección más rápida.
-* Use un valor pequeño para `ObjectQuery.ExpectedMaxVerticalOrientationInDegrees` si se espera que el objeto esté de pie.
-* Una aplicación siempre debe usar un modelo de objetos `1:1` para la detección. De manera ideal, la escala estimada debe estar cerca de 1, con un error del 1 %. Una aplicación podría establecer `ObjectQuery.MaxScaleChange` en `0` o `0.1` para deshabilitar o habilitar la estimación de escala, y evaluar cualitativamente la posición de la instancia.
-* Para más información, consulte [Detección de un objeto difícil](detect-difficult-object.md).
+**R:** Aquí se incluyen algunas [directrices generales](./troubleshoot/object-detection.md#adjust-object-query-values) y una guía más detallada para [objetos difíciles de detectar](./detect-difficult-object.md).
 
 **P: ¿Cómo se obtienen los datos de diagnóstico de Object Anchors desde HoloLens?**
 
@@ -153,7 +136,7 @@ La unidad representa la unidad de medida del modelo. Las unidades admitidas se p
 
 **P: ¿Puedo usar Object Anchors sin conectividad a Internet?**
 
-**R:** 
+**R:**
 * Para la conversión y el entrenamiento de modelos, se requiere conectividad, ya que esto sucede en la nube.
 * Las sesiones en tiempo de ejecución se producen totalmente en el dispositivo y no requieren conectividad, ya que todos los cálculos tienen lugar en HoloLens 2.
 
@@ -161,3 +144,14 @@ La unidad representa la unidad de medida del modelo. Las unidades admitidas se p
 **P: ¿Cómo almacena los datos Azure Object Anchors?**
 
 **R:** Solo almacenamos metadatos del sistema, que se cifran en reposo con una clave de cifrado de datos administrados por Microsoft.
+
+## <a name="next-steps"></a>Pasos siguientes
+
+En este artículo, ha obtenido algunas respuestas a preguntas comunes para conseguir los mejores resultados al usar Azure Object Anchors.
+Aquí tiene algunos artículos relacionados:
+
+> [!div class="nextstepaction"]
+> [procedimientos recomendados](./best-practices.md)
+
+> [!div class="nextstepaction"]
+> [Solución de problemas de detección de objetos](./troubleshoot/object-detection.md)

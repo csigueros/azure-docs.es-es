@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/09/2021
 ms.reviewer: cynthn, jushiman
 ms.custom: template-how-to
-ms.openlocfilehash: 546215d70341402fcc66d2865d291211960cb4a1
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 0ac1f38d65542ac6c8a892a6469cd8c9301dd463
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128557069"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129532607"
 ---
 # <a name="remove-a-vm-association-from-a-capacity-reservation-group-preview"></a>Eliminación de una asociación de máquina virtual de un grupo de reserva de capacidad (versión preliminar)
 
@@ -28,11 +28,6 @@ Hay dos maneras de cambiar una asociación:
 > [!IMPORTANT]
 > La reserva de capacidad está actualmente en versión preliminar pública.
 > Esta versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-## <a name="register-for-capacity-reservation"></a>Registro en la reserva de capacidad 
-
-Para usar la característica de reserva de capacidad, debe [registrar la suscripción en la versión preliminar](capacity-reservation-overview.md#register-for-capacity-reservation). El registro puede tardar varios minutos en terminar. Puede usar la CLI de Azure o PowerShell para realizar el registro de la característica.
-
 
 ## <a name="deallocate-the-vm"></a>Desasignación de la máquina virtual
 

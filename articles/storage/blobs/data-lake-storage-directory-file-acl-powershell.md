@@ -10,12 +10,12 @@ ms.date: 02/17/2021
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 552d53ff0257105ff61397e281504c5270512319
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f03426ab734101657ad5609fcd7782f7c75a6f9b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103573870"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128553210"
 ---
 # <a name="use-powershell-to-manage-directories-and-files-in-azure-data-lake-storage-gen2"></a>Uso de PowerShell para administrar directorios y archivos en Azure Data Lake Storage Gen2
 
@@ -27,20 +27,20 @@ Para obtener información sobre cómo obtener, establecer y actualizar las lista
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Suscripción a Azure. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
+- Suscripción a Azure. Para obtener más información, vea [Obtención de una evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 - Una cuenta de almacenamiento que tenga habilitado un espacio de nombres jerárquico. Siga [estas](create-data-lake-storage-account.md) instrucciones para crear uno.
 
-- Debe tener instalada la versión de .NET Framework 4.7.2 o superior. Vea [Descargar .NET Framework](https://dotnet.microsoft.com/download/dotnet-framework).
+- Debe tener instalada la versión de .NET Framework 4.7.2 o superior. Para obtener más información, vea [Descarga de .NET Framework](https://dotnet.microsoft.com/download/dotnet-framework).
 
 - La versión de PowerShell `5.1` o posterior.
 
 ## <a name="install-the-powershell-module"></a>Instalación del módulo de PowerShell
 
-1. Use el siguiente comando para comprobar que la versión de PowerShell que ha instalado es `5.1` o posterior.    
+1. Use el siguiente comando para comprobar que la versión de PowerShell que ha instalado es `5.1` o posterior.
 
    ```powershell
-   echo $PSVersionTable.PSVersion.ToString() 
+   echo $PSVersionTable.PSVersion.ToString()
    ```
 
    Para actualizar la versión de PowerShell, vea [Actualización de Windows PowerShell existente](/powershell/scripting/install/installing-windows-powershell#upgrading-existing-windows-powershell).
@@ -55,7 +55,7 @@ Para obtener información sobre cómo obtener, establecer y actualizar las lista
 
 ## <a name="connect-to-the-account"></a>Conexión con la cuenta
 
-Elija cómo quiere que sus comandos obtengan autorización para la cuenta de almacenamiento. 
+Elija cómo quiere que sus comandos obtengan autorización para la cuenta de almacenamiento.
 
 ### <a name="option-1-obtain-authorization-by-using-azure-active-directory-azure-ad"></a>Opción 1: Obtención de autorización mediante Azure Active Directory (Azure AD)
 
@@ -71,7 +71,7 @@ Con este enfoque, el sistema garantiza que su cuenta de usuario tiene los permis
 
    ```powershell
    Select-AzSubscription -SubscriptionId <subscription-id>
-   ``` 
+   ```
 
 3. Obtenga el contexto de la cuenta de almacenamiento.
 
@@ -89,7 +89,7 @@ $ctx = New-AzStorageContext -StorageAccountName '<storage-account-name>' -Storag
 
 ## <a name="create-a-container"></a>Crear un contenedor
 
-Un contenedor actúa como sistema de archivos para sus archivos. Puede crear uno con el cmdlet `New-AzStorageContainer`. 
+Un contenedor actúa como sistema de archivos para sus archivos. Puede crear uno con el cmdlet `New-AzStorageContainer`.
 
 En este ejemplo se crea un contenedor denominado `my-file-system`.
 
@@ -100,7 +100,7 @@ New-AzStorageContainer -Context $ctx -Name $filesystemName
 
 ## <a name="create-a-directory"></a>Creación de un directorio
 
-Cree una referencia de directorio con el cmdlet `New-AzDataLakeGen2Item`. 
+Cree una referencia de directorio con el cmdlet `New-AzDataLakeGen2Item`.
 
 En este ejemplo se agrega un directorio denominado `my-directory` a un contenedor.
 
@@ -110,7 +110,7 @@ $dirname = "my-directory/"
 New-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname -Directory
 ```
 
-En este ejemplo se agrega el mismo directorio, pero también se establecen los permisos, la máscara de permisos, los valores de propiedad y los valores de metadatos. 
+En este ejemplo se agrega el mismo directorio, pero también se establecen los permisos, la máscara de permisos, los valores de propiedad y los valores de metadatos.
 
 ```powershell
 $dir = New-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname -Directory -Permission rwxrwxrwx -Umask ---rwx---  -Property @{"ContentEncoding" = "UDF8"; "CacheControl" = "READ"} -Metadata  @{"tag1" = "value1"; "tag2" = "value2" }
@@ -151,7 +151,7 @@ Move-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname
 > [!NOTE]
 > Use el parámetro `-Force` si desea sobrescribir sin preguntar.
 
-En este ejemplo se mueve un directorio denominado `my-directory` a un subdirectorio de `my-directory-2` denominado `my-subdirectory`. 
+En este ejemplo se mueve un directorio denominado `my-directory` a un subdirectorio de `my-directory-2` denominado `my-subdirectory`.
 
 ```powershell
 $filesystemName = "my-file-system"
@@ -169,7 +169,7 @@ En este ejemplo se elimina un directorio denominado `my-directory`.
 ```powershell
 $filesystemName = "my-file-system"
 $dirname = "my-directory/"
-Remove-AzDataLakeGen2Item  -Context $ctx -FileSystem $filesystemName -Path $dirname 
+Remove-AzDataLakeGen2Item  -Context $ctx -FileSystem $filesystemName -Path $dirname
 ```
 
 Puede usar el parámetro `-Force` para quitar el archivo sin preguntar.
@@ -199,7 +199,7 @@ $dirname = "my-directory/"
 Get-AzDataLakeGen2ChildItem -Context $ctx -FileSystem $filesystemName -Path $dirname -OutputUserPrincipalName
 ```
 
-En el ejemplo siguiente se enumeran las propiedades `ACL`, `Permissions`, `Group` y `Owner` de cada elemento del directorio. Se necesita el parámetro `-FetchProperty` para obtener los valores de la propiedad `ACL`. 
+En el ejemplo siguiente se enumeran las propiedades `ACL`, `Permissions`, `Group` y `Owner` de cada elemento del directorio. Se necesita el parámetro `-FetchProperty` para obtener los valores de la propiedad `ACL`.
 
 ```powershell
 $filesystemName = "my-file-system"
@@ -218,14 +218,14 @@ $properties.Owner
 
 Cargue un archivo en un directorio con el cmdlet `New-AzDataLakeGen2Item`.
 
-En este ejemplo se carga un archivo denominado `upload.txt` en un directorio denominado `my-directory`. 
+En este ejemplo se carga un archivo denominado `upload.txt` en un directorio denominado `my-directory`.
 
 ```powershell
 $localSrcFile =  "upload.txt"
 $filesystemName = "my-file-system"
 $dirname = "my-directory/"
 $destPath = $dirname + (Get-Item $localSrcFile).Name
-New-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $destPath -Source $localSrcFile -Force 
+New-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $destPath -Source $localSrcFile -Force
 ```
 
 En este ejemplo se carga el mismo archivo, pero después se establecen los permisos, la máscara de permisos, los valores de propiedad y los valores de metadatos del archivo de destino. En este ejemplo también se imprimen estos valores en la consola.
@@ -262,12 +262,12 @@ $file.Properties.Metadata
 
 Elimine un archivo con el cmdlet `Remove-AzDataLakeGen2Item`.
 
-En este ejemplo se elimina un archivo denominado `upload.txt`. 
+En este ejemplo se elimina un archivo denominado `upload.txt`.
 
 ```powershell
 $filesystemName = "my-file-system"
 $filepath = "upload.txt"
-Remove-AzDataLakeGen2Item  -Context $ctx -FileSystem $filesystemName -Path $filepath 
+Remove-AzDataLakeGen2Item  -Context $ctx -FileSystem $filesystemName -Path $filepath
 ```
 
 Puede usar el parámetro `-Force` para quitar el archivo sin preguntar.

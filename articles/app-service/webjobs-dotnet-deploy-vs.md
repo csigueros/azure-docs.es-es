@@ -8,12 +8,12 @@ ms.custom: devx-track-csharp, vs-azure
 ms.date: 06/24/2021
 ms.author: glenga
 ms.reviewer: david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: b65475b6f1558930ca8c91c7d1283745bc1b80b8
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 2c0fb760a5a20167da4a13fb483274908b98548b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121780835"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128558521"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio"></a>Desarrollo e implementación de WebJobs mediante Visual Studio
 
@@ -107,7 +107,7 @@ Para crear un proyecto habilitado para WebJobs, use la plantilla de proyecto de 
 > 
 
 #### <a name="use-the-webjobs-new-project-template-for-an-independent-webjob"></a><a id="createnolink"></a> Uso de la plantilla para nuevos proyectos de WebJobs para WebJob independiente
-1. Seleccione **File (Archivo)**  > **New (Nuevo)**  > **Project (Proyecto)** . En el cuadro de diálogo **Crear un proyecto nuevo**, busque y seleccione **Azure WebJob (.NET Framework)** para C#.
+1. Seleccione **File (Archivo)**  > **New (Nuevo)**  > **Project (Proyecto)** . En el cuadro de diálogo **Crear un proyecto nuevo**, busque y seleccione **Azure WebJob (.NET Framework)** para C#.
    
 2. Siga las instrucciones anteriores para [convertir el proyecto de aplicación de consola en un proyecto de WebJobs independiente](#convertnolink).
 

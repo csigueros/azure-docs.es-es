@@ -2,25 +2,24 @@
 title: Arquitectura de cliente y servidor
 titleSuffix: An Azure Communication Services concept document
 description: Obtenga información sobre la arquitectura de Communication Services.
-author: mikben
+author: probableprime
 manager: mikben
-services: azure-communication-services
-ms.author: mikben
+ms.author: rifox
 ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: a278a83f0a498baef991f75d4dd77a572c4c2470
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 6d1228ab412ff87f3004e6e1dd5ab1486cee67a0
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114288403"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129360108"
 ---
 # <a name="client-and-server-architecture"></a>Arquitectura de cliente y servidor
 
 En esta página se muestran los componentes arquitectónicos y flujos de datos típicos en varios escenarios de Azure Communication Services. Los componentes pertinentes incluyen:
 
-1. **Aplicación cliente.** Los usuarios finales utilizan este sitio web o aplicación nativa para comunicarse. Azure Communication Services proporciona [bibliotecas cliente del SDK](sdk-options.md) para varios exploradores y plataformas de aplicaciones. Además de nuestros SDK principales, hay disponible [un kit de herramientas de interfaz de usuario](https://aka.ms/acsstorybook) para acelerar el desarrollo de aplicaciones para explorador.
+1. **Aplicación cliente.** Los usuarios finales utilizan este sitio web o aplicación nativa para comunicarse. Azure Communication Services proporciona [bibliotecas cliente del SDK](sdk-options.md) para varios exploradores y plataformas de aplicaciones. Además de los SDK principales, hay [una biblioteca de interfaces de usuario](https://aka.ms/acsstorybook) disponible para acelerar el desarrollo de aplicaciones de explorador.
 1. **Servicio de administración de identidades.**  Esta funcionalidad de servicio no solo se crea para asignar usuarios y otros conceptos de la lógica de negocios a Azure Communication Services, sino también para crear tokens para esos usuarios cuando sea necesario.
 1. **Servicio de administración de llamadas.**  Esta funcionalidad de servicio se crea para administrar y supervisar llamadas de voz y vídeo.  Este servicio puede crear llamadas, invitar a usuarios, llamar a números de teléfono, reproducir audio, escuchar tonos DMTF y aprovechar muchas otras características de las llamadas mediante el SDK de Automatización de llamadas y las API REST.
 
@@ -85,7 +84,7 @@ Las aplicaciones de Azure Communication Service pueden unirse a las llamadas con
 
 
 ### <a name="dataflows"></a>Flujos de datos
-1. El servicio de administración de llamadas crea una llamada grupal con [Graph API](/graph/api/resources/onlinemeeting?view=graph-rest-1.0). Otro patrón implica que los usuarios finales creen la llamada grupal mediante [Bookings](https://www.microsoft.com/microsoft-365/business/scheduling-and-booking-app), Outlook, Teams, o cualquier otra aplicación de programación del ecosistema Microsoft 365.
+1. El servicio de administración de llamadas crea una llamada grupal con [Graph API](/graph/api/resources/onlinemeeting?view=graph-rest-1.0&preserve-view=true). Otro patrón implica que los usuarios finales creen la llamada grupal mediante [Bookings](https://www.microsoft.com/microsoft-365/business/scheduling-and-booking-app), Outlook, Teams, o cualquier otra aplicación de programación del ecosistema Microsoft 365.
 2. El servicio de administración de llamadas comparte los detalles de las llamadas de Teams con los clientes de Azure Communication Services.
 3. Normalmente, los usuarios de Teams deben unirse a la llamada y permitir que los usuarios externos se unan a través de la sala. Sin embargo, esta experiencia es sensible a la configuración del inquilino de Teams y a la configuración específica de la reunión.
 4. Los usuarios de Azure Communication Services inicializan su cliente de llamada y se unen a la reunión de Teams mediante los detalles recibidos en el paso 2.

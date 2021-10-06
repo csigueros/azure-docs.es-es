@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning
 description: Aprenda a usar los almacenes de datos para conectarse de forma segura a los servicios de Azure Storage durante el entrenamiento con Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mldata
 ms.topic: how-to
 ms.author: yogipandey
 author: ynpandey
 ms.reviewer: nibaccam
 ms.date: 07/06/2021
 ms.custom: contperf-fy21q1, devx-track-python, data4ml
-ms.openlocfilehash: a164fb60dde8ba8e652bab3c99b87ffa84ec8596
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: 7a009cdebf686a79679b7987b3a9071ae3c9421c
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121862109"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129427825"
 ---
 # <a name="connect-to-storage-services-on-azure"></a>Conexión a los servicios de almacenamiento en Azure
 

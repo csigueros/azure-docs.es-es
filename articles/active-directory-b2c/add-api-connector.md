@@ -5,18 +5,18 @@ services: active-directory-b2c
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: how-to
-ms.date: 05/03/2021
+ms.date: 08/24/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.custom: it-pro
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 1e0af1080a2d56fc01bdeb4bfb5f6475c477b685
-ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
+ms.openlocfilehash: 288cffbaa90db2725d2aa2985c003474b2c7eb7b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122777743"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128570736"
 ---
 # <a name="add-an-api-connector-to-a-sign-up-user-flow"></a>Adición de un conector de API a un flujo de usuario de registro
 
@@ -45,18 +45,18 @@ La interacción también se puede diseñar como un paso de orquestación. Esto e
 Para usar un [conector de API](api-connectors-overview.md), primero debe crear el conector de API y, después, habilitarlo en un flujo de usuario.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
-2. En **Servicios de Azure**, seleccione **Azure AD B2C**.
-4. Seleccione **Conectores de API** y **New API connector** (Nuevo conector de API).
+1. En **Servicios de Azure**, seleccione **Azure AD B2C**.
+1. Seleccione **Conectores de API** y **New API connector** (Nuevo conector de API).
 
    ![Captura de pantalla de la configuración básica de un conector de API](media/add-api-connector/api-connector-new.png)
 
-5. Escriba el nombre para mostrar de la llamada. Por ejemplo, **Validar la información de usuario**.
-6. Proporcione el valor de **Dirección URL del punto de conexión** de la llamada API.
-7. Elija el **tipo de autenticación** y configure la información de autenticación para llamar a la API. Obtenga más información sobre la [Protección de un conector de API](secure-rest-api.md).
+1. Escriba el nombre para mostrar de la llamada. Por ejemplo, **Validar la información de usuario**.
+1. Proporcione el valor de **Dirección URL del punto de conexión** de la llamada API.
+1. Elija el **tipo de autenticación** y configure la información de autenticación para llamar a la API. Obtenga más información sobre la [Protección de un conector de API](secure-rest-api.md).
 
    ![Captura de pantalla de la configuración de autenticación de un conector de API](media/add-api-connector/api-connector-config.png)
 
-8. Seleccione **Guardar**.
+1. Seleccione **Guardar**.
 
 ## <a name="the-request-sent-to-your-api&quot;></a>Solicitud enviada a la API
 Un conector de API se materializa como una solicitud **HTTP POST** y envía los atributos de usuario (&quot;claims") como pares de clave y valor en un cuerpo JSON. Los atributos se serializan de forma similar a las propiedades de usuario de [Microsoft Graph](/graph/api/resources/user#properties). 
@@ -103,7 +103,7 @@ Además, estas notificaciones normalmente se envían en todas las solicitudes:
   - `PostAttributeCollection`: corresponde a "Antes de crear el usuario".
   - `PreTokenIssuance`: corresponde a "Antes de enviar el token (versión preliminar)". [Más información sobre este paso](add-api-connector-token-enrichment.md)
 - **Id. de cliente ("client_id"):** valor `appId` de la aplicación en la que se está autenticando un usuario final en un flujo de usuario. *No* es el valor `appId` de la aplicación de recursos de los tokens de acceso.
-- **Dirección de correo electrónico ("email")** o [**identidades ("identidades")** ](/graph/api/resources/objectidentity): la API puede usar estas notificaciones para identificar al usuario final que se autentica en la aplicación.
+- **Dirección de correo electrónico ("email")** o [**identidades ("identidades")**](/graph/api/resources/objectidentity): la API puede usar estas notificaciones para identificar al usuario final que se autentica en la aplicación.
   
 > [!IMPORTANT]
 > Si una notificación no tiene un valor en el momento en que se llama al punto de conexión de la API, la notificación no se enviará a la API. La API debe estar diseñada para comprobar y controlar explícitamente el caso en el que una notificación no está en la solicitud.
@@ -113,9 +113,9 @@ Además, estas notificaciones normalmente se envían en todas las solicitudes:
 Siga estos pasos para agregar el conector de API a un flujo de usuario de registro.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
-2. En **Servicios de Azure**, seleccione **Azure AD B2C**.
-4. Seleccione **Flujos de usuario** y, después, seleccione el flujo de usuario para el que desea habilitar el conector de API.
-5. Seleccione **Conectores de API** y, después, seleccione los puntos de conexión de API que desea invocar en los pasos siguientes del flujo de usuario:
+1. En **Servicios de Azure**, seleccione **Azure AD B2C**.
+1. Seleccione **Flujos de usuario** y, después, seleccione el flujo de usuario para el que desea habilitar el conector de API.
+1. Seleccione **Conectores de API** y, después, seleccione los puntos de conexión de API que desea invocar en los pasos siguientes del flujo de usuario:
 
    - **Después de la federación con un proveedor de identidades durante el registro**
    - **Antes de crear el usuario**
@@ -123,7 +123,7 @@ Siga estos pasos para agregar el conector de API a un flujo de usuario de regist
 
    ![Selección de un conector de API para un paso en el flujo de usuario](media/add-api-connector/api-connectors-user-flow-select.png)
 
-6. Seleccione **Guardar**.
+1. Seleccione **Guardar**.
 
 Estos pasos solo existen para **Registrarse e iniciar sesión (recomendado)** y **Registrarse (recomendado)** , pero solo se aplican a la parte de registro de la experiencia.
 
@@ -315,7 +315,7 @@ Content-type: application/json
 }
 ```
 
-| Parámetro                                          | Tipo              | Obligatorio | Descripción                                                                                                                                                                                                                                                                            |
+| Parámetro                                          | Tipo              | Requerido | Descripción                                                                                                                                                                                                                                                                            |
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | version     | String | Sí      | Versión de la API.                                                    |
 | action                                             | String            | Sí      | El valor debe ser `Continue`.                                                                                                                                                                                                                                                              |
@@ -336,7 +336,7 @@ Content-type: application/json
 
 ```
 
-| Parámetro   | Tipo   | Obligatorio | Descripción                                                                |
+| Parámetro   | Tipo   | Requerido | Descripción                                                                |
 | ----------- | ------ | -------- | -------------------------------------------------------------------------- |
 | version     | String | Sí      | Versión de la API.                                                    |
 | action      | String | Sí      | El valor debe ser `ShowBlockPage`.                                              |
@@ -360,7 +360,7 @@ Content-type: application/json
 }
 ```
 
-| Parámetro   | Tipo    | Obligatorio | Descripción                                                                |
+| Parámetro   | Tipo    | Requerido | Descripción                                                                |
 | ----------- | ------- | -------- | -------------------------------------------------------------------------- |
 | version     | String  | Sí      | Versión de la API.                                                    |
 | action      | String  | Sí      | El valor debe ser `ValidationError`.                                           |
@@ -417,7 +417,7 @@ La configuración del punto de conexión de API REST está fuera del ámbito de 
 
 Una notificación proporciona un almacenamiento temporal de datos durante la ejecución de una directiva de Azure AD B2C. Puede declarar notificaciones dentro de la sección del [esquema de notificaciones](claimsschema.md). 
 
-1. Abra el archivo de extensiones de la directiva. Por ejemplo, <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>.
+1. Abra el archivo de extensiones de la directiva. Por ejemplo, <em>`SocialAndLocalAccounts/` **`TrustFrameworkExtensions.xml`**</em>.
 1. Busque el elemento [BuildingBlocks](buildingblocks.md). Si el elemento no existe, agréguelo.
 1. Busque el elemento [ClaimsSchema](claimsschema.md). Si el elemento no existe, agréguelo.
 1. Agregue las notificaciones siguientes al elemento **ClaimsSchema**.  

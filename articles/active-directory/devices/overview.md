@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: sandeo, ravenn, spunukol, jogro, jploegert
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 76c997cc1f4ed2be18e06838f6c30864456f7539
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 4b689e27e6b65f5ace628d1f7cf12b246e6e516d
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128588245"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129354817"
 ---
 # <a name="what-is-a-device-identity"></a>¿Qué es una identidad de dispositivo?
 
@@ -39,7 +39,7 @@ El escenario de dispositivo moderno se centra en dos de estos métodos:
 - [Registro de Azure AD](concept-azure-ad-register.md) 
    - Bring your own device (BYOD)
    - Dispositivo móvil (teléfono móvil y tableta)
-- [Unión a Azure AD](concept-azure-ad-register.md)
+- [Unión a Azure AD](concept-azure-ad-join.md)
    - Dispositivos Windows 10 propiedad de la organización
    - [Windows Server 2019 y servidores más recientes de la organización que se ejecutan como máquinas virtuales en Azure](howto-vm-sign-in-azure-ad-windows.md)
 

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: tutorial
 ms.date: 08/10/2021
 ms.author: duau
-ms.openlocfilehash: abca04eb60538921191b9c632ef6ef2849f959c5
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: b7a6cf1bdb490683faa5285811c83d220ac80cca
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123424913"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128662889"
 ---
 # <a name="tutorial-connect-a-virtual-network-to-an-expressroute-circuit-using-cli"></a>Tutorial: Conexión de una red virtual a un circuito ExpressRoute mediante la CLI
 
@@ -59,6 +59,9 @@ az network vpn-connection create --name ERConnection --resource-group ExpressRou
 ## <a name="connect-a-virtual-network-in-a-different-subscription-to-a-circuit"></a>Conexión de una red virtual en una suscripción diferente a un circuito
 
 Puede compartir un circuito ExpressRoute entre varias suscripciones. En la ilustración siguiente se muestra un sencillo esquema de cómo funciona el uso compartido de circuitos ExpressRoute entre varias suscripciones.
+
+> [!NOTE]
+> No se admite la conexión de redes virtuales entre nubes soberanas de Azure y la nube pública de Azure. Solo puede vincular redes virtuales de distintas suscripciones de la misma nube.
 
 Cada una de las nubes más pequeñas dentro de la nube de gran tamaño se usa para representar las suscripciones que pertenecen a diferentes departamentos dentro de una organización. Cada departamento de la organización usa su propia suscripción para implementar sus servicios, pero puede compartir un único circuito ExpressRoute para volver a conectarse a la red local. Un solo departamento (en este ejemplo: TI) puede ser el propietario de ExpressRoute. Otras suscripciones dentro de la organización pueden usar el circuito ExpressRoute.
 

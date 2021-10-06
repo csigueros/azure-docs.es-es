@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 09/03/2019
+ms.date: 09/14/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 9186c742f34f1c060b57ffdfbf1bf688607b4c03
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 1dc4c63d5d19b688a695702a5eb94365ff762a97
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92125344"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128591812"
 ---
 ::: zone target="docs"
 
@@ -283,7 +283,7 @@ Si no usó la herramienta de copia y división para copiar los datos, tendrá qu
 
     > [!TIP]
     > - Restablezca la herramienta entre dos ejecuciones.
-    > - Utilice la opción 1 si trata con conjuntos de datos grandes que contienen archivos pequeños (~ KB). Esta opción solo valida los archivos, la generación de la suma de comprobación puede llevar mucho tiempo y el rendimiento puede ser muy lento.
+    > - El proceso de suma de comprobación puede tardar más tiempo si tiene un conjunto de datos grande que contenga archivos pequeños (~KB).  Si usa la opción 1 y omite la creación de suma de comprobación, debe comprobar de forma independiente la integridad de los datos cargados en Azure, preferiblemente a través de sumas de comprobación, antes de eliminar las copias de los datos en su posesión.
 
 3. Si usa varios discos, ejecute el comando para cada disco.
 

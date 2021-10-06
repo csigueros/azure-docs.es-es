@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/22/2021
+ms.date: 08/27/2021
 ms.author: jeedes
-ms.openlocfilehash: b0c73206d69f8902fdd9ef9306a35b3fccacc8ec
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: c9addd08254ceedd0938448084120456f20a9d4e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111888337"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128598125"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-clebex"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Clebex
 
@@ -41,8 +41,10 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 
 * Clebex admite el aprovisionamiento de usuarios **Just-In-Time**.
 
+* Clebex admite el [aprovisionamiento automatizado de usuarios](clebex-provisioning-tutorial.md).
 
-## <a name="adding-clebex-from-the-gallery"></a>Incorporación de Clebex desde la galería
+
+## <a name="add-clebex-from-the-gallery"></a>Incorporación de Clebex desde la galería
 
 Para configurar la integración de Clebex en Azure AD, tendrá que agregar Clebex desde la galería a la lista de aplicaciones SaaS administradas.
 
@@ -148,6 +150,8 @@ En esta sección, va a permitir que B.Simon acceda a Clebex mediante el inicio d
 
 En esta sección, se creará el usuario B.Simon en Clebex. Clebex admite el aprovisionamiento de usuarios Just-In-Time, que está habilitado de manera predeterminada. No hay ningún elemento de acción para usted en esta sección. Si un usuario no existe aún en Clebex, se crea uno nuevo después de la autenticación.
 
+Clebex también admite el aprovisionamiento automático de usuarios. [Aquí](./clebex-provisioning-tutorial.md) puede encontrar más detalles sobre cómo configurar el aprovisionamiento automático de usuarios.
+
 ## <a name="test-sso"></a>Prueba de SSO 
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones. 
@@ -156,7 +160,7 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 * Acceda directamente a la dirección URL de inicio de sesión de Clebex y ponga en marcha el flujo de inicio de sesión desde allí.
 
-* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Clebex en Aplicaciones, se le redirigirá a la dirección URL de inicio de sesión de Clebex. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Clebex en Aplicaciones, se le redirigirá a la dirección URL de inicio de sesión de Clebex. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 
 ## <a name="next-steps"></a>Pasos siguientes

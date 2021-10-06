@@ -11,12 +11,12 @@ ms.custom:
 - amqp
 - mqtt
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: 2fbb03ae08d1146b51a4a73f1b2260443c1609d7
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 08e68fc4a5aa2de2c2b0e0bbd326620fadc11022
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121722122"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129455845"
 ---
 # <a name="connect-a-downstream-iot-edge-device-to-an-azure-iot-edge-gateway"></a>Conexión de un dispositivo IoT Edge de nivel inferior a una puerta de enlace Azure IoT Edge
 
@@ -90,7 +90,7 @@ Los comandos adicionales de identidades de dispositivos, incluidos `add-children
 >[!NOTE]
 >Si desea establecer relaciones entre elementos primarios y secundarios mediante programación, puede usar el [SDK de servicios de IoT Hub](../iot-hub/iot-hub-devguide-sdks.md) de C#, Java o Node.js.
 >
->Este es un [ejemplo de asignación de dispositivos secundarios](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/e2e/test/iothub/service/RegistryManagerE2ETests.cs) mediante el SDK de C#. La tarea `RegistryManager_AddAndRemoveDeviceWithScope()` muestra cómo crear mediante programación una jerarquía de tres capas. Un dispositivo IoT Edge está en la capa uno, como elemento primario. Otro dispositivo IoT Edge está en la capa dos, que sirve como elemento secundario y primario. Por último, un dispositivo IoT está en la capa tres, como el dispositivo secundario de la capa más baja.
+>Este es un [ejemplo de asignación de dispositivos secundarios](https://github.com/Azure/azure-iot-sdk-csharp/blob/main/e2e/test/iothub/service/RegistryManagerE2ETests.cs) mediante el SDK de C#. La tarea `RegistryManager_AddAndRemoveDeviceWithScope()` muestra cómo crear mediante programación una jerarquía de tres capas. Un dispositivo IoT Edge está en la capa uno, como elemento primario. Otro dispositivo IoT Edge está en la capa dos, que sirve como elemento secundario y primario. Por último, un dispositivo IoT está en la capa tres, como el dispositivo secundario de la capa más baja.
 
 ## <a name="prepare-certificates"></a>Preparar certificados
 

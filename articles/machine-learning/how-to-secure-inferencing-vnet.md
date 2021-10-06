@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning
 description: Use una instancia aislada de Azure Virtual Network para proteger el entorno de inferencia de Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
 ms.date: 07/13/2021
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, devx-track-azurecli
-ms.openlocfilehash: 27c2b5d5af181aea982a6aed735997f5ac866b6d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: d16c42f7f50d8b9270cabf136a0c3080e678f862
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121739140"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129425323"
 ---
 # <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>Protección de un entorno de inferencia de Azure Machine Learning con redes virtuales
 
@@ -59,6 +59,10 @@ En este artículo aprenderá a proteger los siguientes recursos de inferencia en
 * Al usar Azure Container Instances en una red virtual, la red virtual debe estar en el mismo grupo de recursos que el área de trabajo de Azure Machine Learning. De lo contrario, la red virtual puede estar en un grupo de recursos diferente.
 * Si el área de trabajo tiene un __punto de conexión privado__, la red virtual que se utilice con Azure Container Instances debe ser la misma que la que se use en el punto de conexión privado del área de trabajo.
 * Al usar Azure Container Instances en la red virtual, la instancia de Azure Container Registry (ACR) para el área de trabajo no puede estar en la red virtual.
+
+### <a name="azure-kubernetes-service"></a>Azure Kubernetes Service
+
+* Si el área de trabajo tiene un __punto de conexión privado__, el clúster de Azure Kubernetes Service debe estar en la misma región de Azure que el área de trabajo.
 
 <a id="aksvnet"></a>
 

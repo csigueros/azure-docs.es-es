@@ -9,12 +9,12 @@ ms.date: 10/02/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: subject-monitoring
-ms.openlocfilehash: 8f3cf8303a0667d3479500d6c3956be3b21959c0
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
+ms.openlocfilehash: 866b56446ce962a47ac7235ac260e54e5fcacf76
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111592257"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129275703"
 ---
 # <a name="azure-blob-storage-monitoring-data-reference"></a>Referencia de datos de supervisión de Azure Blob Storage
 
@@ -22,7 +22,7 @@ Consulte [Supervisión de Azure Storage](monitor-blob-storage.md) para más info
 
 ## <a name="metrics"></a>Métricas
 
-En las tablas siguientes se indican las métricas de plataforma recopiladas de Azure Storage. 
+En las tablas siguientes se indican las métricas de plataforma recopiladas de Azure Storage.
 
 ### <a name="capacity-metrics"></a>Métricas de capacidad
 
@@ -67,14 +67,14 @@ Azure Storage admite las siguientes dimensiones para las métricas en Azure Moni
 | Nombre de dimensión | Descripción |
 | ------------------- | ----------------- |
 | **BlobType** | Solo el tipo de blob de las métricas de Blob. Los valores admitidos son **BlockBlob**, **PageBlob** y **Azure Data Lake Storage**. Los blobs en anexos se incluyen en **BlockBlob**. |
-| **BlobTier** | Azure Storage ofrece distintos niveles de acceso que le permiten almacenar datos de objeto de blob de la manera más rentable. Obtenga más información en [Nivel de blob de Azure Storage](../blobs/storage-blob-storage-tiers.md). Entre los valores admitidos se incluyen: <br/> <li>**Acceso frecuente**: nivel de acceso frecuente</li> <li>**Acceso esporádico**: nivel de acceso esporádico</li> <li>**Archivo**: nivel de archivo</li> <li>**Premium**: nivel Premium para blob en bloques</li> <li>**P4/P6/P10/P15/P20/P30/P40/P50/P60**: tipos de nivel para blob en páginas premium</li> <li>**Estándar**: tipo de nivel para blob en páginas estándar</li> <li>**Sin nivel**: Tipo de nivel para cuentas de almacenamiento de uso general v1</li> |
+| **BlobTier** | Azure Storage ofrece distintos niveles de acceso que le permiten almacenar datos de objeto de blob de la manera más rentable. Obtenga más información en [Nivel de blob de Azure Storage](../blobs/access-tiers-overview.md). Entre los valores admitidos se incluyen: <br/> <li>**Acceso frecuente**: nivel de acceso frecuente</li> <li>**Acceso esporádico**: nivel de acceso esporádico</li> <li>**Archivo**: nivel de archivo</li> <li>**Premium**: nivel Premium para blob en bloques</li> <li>**P4/P6/P10/P15/P20/P30/P40/P50/P60**: tipos de nivel para blob en páginas premium</li> <li>**Estándar**: tipo de nivel para blob en páginas estándar</li> <li>**Sin nivel**: Tipo de nivel para cuentas de almacenamiento de uso general v1</li> |
 
 En el caso de las dimensiones compatibles con métricas, es preciso especificar el valor de la dimensión para ver los valores correspondientes de las métricas. Por ejemplo, si observa el valor **Transactions** en las respuestas correctas, es preciso filtrar la dimensión **ResponseType** por **Success**. Si examina el valor **BlobCount** de Blob en bloques, es preciso filtrar la dimensión **BlobType** por **BlockBlob**.
 
 ## <a name="resource-logs-preview"></a>Registros de recursos (versión preliminar)
 
 > [!NOTE]
-> Los registros de Azure Storage en Azure Monitor están en versión preliminar pública, además de estar disponibles para pruebas de versión preliminar en todas las regiones de la nube pública. Esta versión preliminar habilita los registros de blobs (incluido Azure Data Lake Storage Gen2), archivos, colas, tablas, cuentas de almacenamiento Premium en cuentas de almacenamiento de uso general v1 y v2. Las cuentas de almacenamiento clásico no son compatibles.
+> Los registros de Azure Storage en Azure Monitor están en versión preliminar pública, además de estar disponibles para pruebas de versión preliminar en todas las regiones de nube pública y de US Government. Esta versión preliminar habilita los registros de blobs (incluido Azure Data Lake Storage Gen2), archivos, colas, tablas, cuentas de almacenamiento Premium en cuentas de almacenamiento de uso general v1 y v2. Las cuentas de almacenamiento clásico no son compatibles.
 
 En la tabla siguiente se indican las propiedades de los registros de recursos de Azure Storage cuando se recopilan en registros de Azure Monitor o Azure Storage. Las propiedades describen la operación, el servicio y el tipo de autorización que se ha usado para realizar la operación.
 

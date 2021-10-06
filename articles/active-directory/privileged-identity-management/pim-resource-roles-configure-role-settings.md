@@ -11,16 +11,16 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 01/01/2020
+ms.date: 09/14/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10242d867c5d9676b4f6833151863b820b2f11d1
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: b64fe0e7fa06c66cdf43d423444e4e9e5bf1b908
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109481812"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128633039"
 ---
 # <a name="configure-azure-resource-role-settings-in-privileged-identity-management"></a>Configurar las opciones del rol de recursos de Azure en Privileged Identity Management
 
@@ -93,23 +93,23 @@ Además, puede elegir una de estas opciones de duración de asignación tipo **A
 > [!NOTE]
 > Los administradores de recursos pueden renovar todas las asignaciones que tienen una fecha de finalización específica. Además, los usuarios pueden iniciar solicitudes de autoservicio para [ampliar o renovar las asignaciones de roles](pim-resource-roles-renew-extend.md).
 
-## <a name="require-multi-factor-authentication"></a>Requerir autenticación multifactor
+## <a name="require-multifactor-authentication"></a>Requiere autenticación multifactor
 
 Privileged Identity Management proporciona el cumplimiento opcional de Azure AD Multi-Factor Authentication en dos escenarios distintos.
 
-### <a name="require-multi-factor-authentication-on-active-assignment"></a>Requerir autenticación multifactor para las asignaciones activas
+### <a name="on-active-assignment"></a>En la asignación activa
 
-En algunos casos, es posible que quiera asignar un usuario o un grupo a un rol durante un breve período de tiempo (por ejemplo, un día). En este caso, no es necesario que los usuarios asignados soliciten la activación. En este escenario, Privileged Identity Management no puede exigir la autenticación multifactor cuando el usuario usa su asignación de roles, porque ya está activa en el rol desde el momento en que se asignan.
+Esta opción requiere que los administradores completen una autenticación multifactor antes de crear una asignación de roles activa (en lugar de elegible). Privileged Identity Management no puede exigir la autenticación multifactor cuando el usuario usa su asignación de roles, porque ya está activa en el rol desde el momento en que se asigna.
 
-Para asegurarse de que el administrador de recursos que realiza la asignación es quien dicen ser, puede exigir la autenticación multifactor en la asignación activa; para ello, active la casilla **Requerir autenticación multifactor en la asignación activa**.
+Para requerir la autenticación multifactor al crear una asignación de roles activa, puede exigir la autenticación multifactor en la asignación activa; para ello, active la casilla **Requerir autenticación multifactor para las asignaciones activas**.
 
-### <a name="require-multi-factor-authentication-on-activation"></a>Requerir Multi-Factor Authentication durante la activación
+### <a name="on-activation"></a>En la activación
 
 Puede exigir que los usuarios que sean elegibles para un rol demuestren quiénes están usando Azure AD Multi-Factor Authentication antes de que se puedan activar. La autenticación multifactor garantiza que el usuario sea quien dice ser con certeza razonable. Aplicar esta opción protege los recursos críticos en situaciones en las que es posible que la cuenta de usuario se haya puesto en peligro.
 
-Para requerir la autenticación multifactor antes de la activación, active la casilla **Requerir autenticación multifactor en activación**.
+Para requerir la autenticación multifactor antes de la activación, active la casilla **Requerir autenticación multifactor durante la activación**.
 
-Para obtener más información, consulte [Autenticación multifactor y Privileged Identity Management](pim-how-to-require-mfa.md).
+Para más información, consulte [Autenticación multifactor y Privileged Identity Management](pim-how-to-require-mfa.md).
 
 ## <a name="activation-maximum-duration"></a>Duración máxima de la activación
 

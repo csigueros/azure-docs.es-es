@@ -1,18 +1,16 @@
 ---
 title: Guía de migración para cargas de trabajo de proceso de GPU en Azure
 description: Guía de migración de la serie NC, ND, NCv2.
-author: iafinder
 ms.service: virtual-machines
 ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 08/15/2020
-ms.author: iafinder
-ms.openlocfilehash: 7ba99bca79fe25a740d11cfe5d87937d13ccdfd0
-ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
+ms.openlocfilehash: 1f148ad07137f6384a9752d2321836601a6bd996
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122272339"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129458782"
 ---
 # <a name="migration-guide-for-gpu-compute-workloads-in-azure"></a>Guía de migración para cargas de trabajo de proceso de GPU en Azure
 
@@ -30,7 +28,7 @@ Azure reconoce que los clientes tienen una gran variedad de requisitos que puede
 
 Al mismo tiempo, la aceleración de GPU es un área nueva y en constante evolución.
 
-Por lo tanto, no hay ninguna guía única verdadera para esta área de producto y una migración es un momento perfecto para volver a evaluar los cambios potencialmente drásticos en una carga de trabajo, como pasar de un modelo de implementación en clúster a una sola máquina virtual de 8 GPU grande o viceversa, aprovechar tipos de datos de precisión reducida, adoptar características como GPU de varias instancias y mucho más.
+Por tanto, no hay instrucciones universales para esta área de producto y una migración es un momento perfecto para volver a evaluar los cambios potencialmente drásticos en una carga de trabajo, como pasar de un modelo de implementación en clúster a una sola máquina virtual de 8 GPU grande o viceversa, aprovechar tipos de datos de precisión reducida, adoptar características como GPU de varias instancias y mucho más.
 
 Este tipo de consideraciones, cuando se hace que el contexto de aumentos de rendimiento de GPU por generación ya drásticos, donde una característica como la adición de TensorCores, puede aumentar el rendimiento en un orden de magnitud, es muy específico de la carga de trabajo.
 
@@ -110,9 +108,9 @@ Después de evaluar el uso actual, decida qué tipo de máquina virtual de GPU n
 
 Siga la guía para [solicitar un aumento de la cuota de vCPU por familia de máquinas virtuales.](../azure-portal/supportability/per-vm-quota-requests.md) Seleccione el tamaño de máquina virtual de destino que ha elegido para la migración.
 
-#### <a name="resize-the-current-virtual-machine"></a>Cambio del tamaño de la máquina virtual actual
+#### <a name="resize-the-current-virtual-machine"></a>Cambiar el tamaño de la máquina virtual actual
 
-Puede [cambiar el tamaño de la máquina virtual mediante Azure Portal o PowerShell](./windows/resize-vm.md). También puede [cambiar el tamaño de la máquina virtual con la CLI de Azure](./linux/change-vm-size.md).
+Puede [cambiar el tamaño de la máquina virtual](resize-vm.md). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

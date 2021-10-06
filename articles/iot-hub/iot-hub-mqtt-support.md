@@ -15,12 +15,12 @@ ms.custom:
 - contperf-fy21q1
 - fasttrack-edit
 - iot
-ms.openlocfilehash: ab706018e7c38e43ae75d5af49c3bd6c0a78d783
-ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
+ms.openlocfilehash: 8628683dafbc16a657bf7c8c04beecdc60e2506d
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2021
-ms.locfileid: "114403491"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129455387"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Comunicación con la instancia de IoT Hub mediante el protocolo MQTT
 
@@ -55,9 +55,9 @@ La tabla siguiente contiene vínculos a ejemplos de código para cada idioma adm
 | Idioma | Parámetro de protocolo MQTT | Parámetro de protocolo MQTT sobre Web Sockets
 | --- | --- | --- |
 | [Node.js](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device.js) | azure-iot-device-mqtt.Mqtt | azure-iot-device-mqtt.MqttWs |
-| [Java](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java) |[IotHubClientProtocol](/java/api/com.microsoft.azure.sdk.iot.device.iothubclientprotocol).MQTT | IotHubClientProtocol.MQTT_WS |
+| [Java](https://github.com/Azure/azure-iot-sdk-java/blob/main/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java) |[IotHubClientProtocol](/java/api/com.microsoft.azure.sdk.iot.device.iothubclientprotocol).MQTT | IotHubClientProtocol.MQTT_WS |
 | [C](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_client_sample_mqtt_dm) | [MQTT_Protocol](/azure/iot-hub/iot-c-sdk-ref/iothubtransportmqtt-h/mqtt-protocol) | [MQTT_WebSocket_Protocol](/azure/iot-hub/iot-c-sdk-ref/iothubtransportmqtt-websockets-h/mqtt-websocket-protocol) |
-| [C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/device/samples) | [TransportType](/dotnet/api/microsoft.azure.devices.client.transporttype).Mqtt | TransportType.Mqtt recurre a MQTT sobre Web Sockets si se produce un error en MQTT. Para especificar solo MQTT sobre Web Sockets, use TransportType.Mqtt_WebSocket_Only. |
+| [C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/device/samples) | [TransportType](/dotnet/api/microsoft.azure.devices.client.transporttype).Mqtt | TransportType.Mqtt recurre a MQTT sobre Web Sockets si se produce un error en MQTT. Para especificar solo MQTT sobre Web Sockets, use TransportType.Mqtt_WebSocket_Only. |
 | [Python](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples) | Compatible con MQTT de forma predeterminada | Agregue `websockets=True` en la llamada para crear el cliente. |
 
 En el siguiente fragmento se muestra cómo especificar el protocolo MQTT sobre Web Sockets al usar el SDK de Node.js para IoT de Azure:
@@ -84,7 +84,7 @@ Para asegurarse de que una conexión cliente/IoT Hub permanece activa, tanto el 
 |Node.js     |   180 Segundos      |     No    |
 |Java     |    230 Segundos     |     No    |
 |C     | 240 segundos |  [Sí](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/Iothub_sdk_options.md#mqtt-transport)   |
-|C#     | 300 segundos |  [Sí](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/iothub/device/src/Transport/Mqtt/MqttTransportSettings.cs#L89)   |
+|C#     | 300 segundos |  [Sí](https://github.com/Azure/azure-iot-sdk-csharp/blob/main/iothub/device/src/Transport/Mqtt/MqttTransportSettings.cs#L89)   |
 |Python   | 60 segundos |  No   |
 
 Siguiendo la [especificación de MQTT](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html#_Toc398718081), el intervalo de ping de Keep-Alive de IoT Hub es 1,5 veces el valor de Keep-Alive del cliente. Sin embargo, IoT Hub limita el tiempo de espera máximo del servidor a 29,45 minutos (1 767 segundos) porque todos los servicios de Azure están enlazados al tiempo de espera de inactividad TCP del equilibrador de carga de Azure, que es de 29,45 minutos. 

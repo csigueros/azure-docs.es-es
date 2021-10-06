@@ -3,12 +3,12 @@ title: Referencia de configuración de aplicación para Azure Functions
 description: Documentación de referencia para la configuración de la aplicación de Azure Functions o de variables de entorno.
 ms.topic: conceptual
 ms.date: 07/27/2021
-ms.openlocfilehash: 78e142fd97158fb64387950f9515ac168c216e5d
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 6b860e40acd118bc708ab00001707755272525b6
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123108675"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128663618"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referencia de configuración de aplicación para Azure Functions
 
@@ -335,7 +335,7 @@ La ruta de acceso del archivo al código y la configuración de la aplicación d
 
 Solo se usa cuando se implementa en un plan prémium o en un plan de consumo que se ejecuta en Windows. No se admite para los planes de consumo que se ejecutan en Linux. El cambio o la eliminación de esta configuración puede hacer que la aplicación de funciones no se inicie. Para más información, consulte [este artículo de solución de problemas](functions-recover-storage-account.md#storage-account-application-settings-were-deleted).
 
-Al usar una plantilla de Azure Resource Manager para crear una aplicación de funciones durante la implementación, no incluya WEBSITE_CONTENTSHARE en la plantilla. Esta configuración de aplicación se genera durante la implementación. Para más información, consulte [Automatización de la implementación de recursos para una aplicación de funciones](functions-infrastructure-as-code.md#windows).
+Al usar una plantilla de Azure Resource Manager para crear una aplicación de funciones durante la implementación, no incluya WEBSITE_CONTENTSHARE en la plantilla. Esta configuración de ranura se genera durante la implementación. Para más información, consulte [Automatización de la implementación de recursos para una aplicación de funciones](functions-infrastructure-as-code.md#windows).
 
 ## <a name="website_dns_server"></a>SERVIDOR \_DNS\_ DEL SITIO WEB
 

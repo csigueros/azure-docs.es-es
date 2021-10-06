@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/11/2021
+ms.date: 09/01/2021
 ms.author: jeedes
-ms.openlocfilehash: 65f4963f23d97ca2e3af34febb0d5dbea652fc12
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c579f87cd9fc8bc071b0abf8acc8ffe5f7d538b0
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101646992"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124801075"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-shopify-plus"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Shopify Plus
 
@@ -38,6 +38,7 @@ Para empezar, necesita los siguientes elementos:
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
 * Shopify Plus admite el inicio de sesión único iniciado por **SP e IDP**.
+* Shopify Plus admite el [aprovisionamiento automático de usuarios](shopify-plus-provisioning-tutorial.md).
 
 ## <a name="add-shopify-plus-from-the-gallery"></a>Adición de Shopify Plus desde la galería
 
@@ -133,6 +134,9 @@ Para configurar el inicio de sesión único en **Shopify Plus**, copie el valor 
 
 En esta sección, creará un usuario llamado B.Simon en Shopify Plus. Vuelva a la sección **Users** (Usuarios) y agregue un usuario indicando su correo electrónico y sus permisos. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
+> [!NOTE]
+> Shopify Plus también admite el aprovisionamiento automático de usuarios. [Aquí](./shopify-plus-provisioning-tutorial.md) puede encontrar más detalles sobre cómo configurar el aprovisionamiento automático de usuarios.
+
 ### <a name="enforce-saml-authentication"></a>Aplicación de la autenticación SAML
 
 > [!NOTE]
@@ -165,7 +169,7 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 * Haga clic en **Probar esta aplicación** en Azure Portal; debería iniciar sesión automáticamente en la instancia de Shopify Plus para la que configuró el inicio de sesión único. 
 
-También puede usar Aplicaciones de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de Shopify Plus en Aplicaciones, si se ha configurado en modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para comenzar el flujo de inicio de sesión; y si se ha configurado en modo IDP, se debería iniciar sesión automáticamente en la instancia de Shopify Plus para la que ha configurado el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+También puede usar Aplicaciones de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de Shopify Plus en Aplicaciones, si se ha configurado en modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para comenzar el flujo de inicio de sesión; y si se ha configurado en modo IDP, se debería iniciar sesión automáticamente en la instancia de Shopify Plus para la que ha configurado el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

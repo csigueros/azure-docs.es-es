@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/31/2021
+ms.date: 09/10/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 04e05f67787b285dd1286e0c6b7a6b251262ed0f
-ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
+ms.openlocfilehash: 7a7ded3df993034963f06b81a0908e68821688cb
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123272248"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128584301"
 ---
 # <a name="configure-immutability-policies-for-blob-versions-preview"></a>Configuración de directivas de inmutabilidad para versiones de blobs (versión preliminar)
 
@@ -159,7 +159,7 @@ Si el contenedor no tiene una directiva de retención basada en el tiempo existe
 if ($migrationOperation.JobStateInfo.State -eq "Failed") {
 Write-Host $migrationOperation.Error
 }
-The container <container-name> must have an immutability policy set as a default policy 
+The container <container-name> must have an immutability policy set as a default policy
 before initiating container migration to support object level immutability with versioning.
 ```
 
@@ -284,7 +284,7 @@ Para más información sobre el control de versiones de blobs, consulte [Control
 
 ### <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Al desplazarse hacia un contenedor, en Azure Portal se muestra una lista de blobs. Cada blob mostrado representa la versión actual del blob. Puede acceder a una lista de versiones anteriores si selecciona el botón **Más** de un blob y elige **Ver versiones anteriores**.  
+Al desplazarse hacia un contenedor, en Azure Portal se muestra una lista de blobs. Cada blob mostrado representa la versión actual del blob. Puede acceder a una lista de versiones anteriores si selecciona el botón **Más** de un blob y elige **Ver versiones anteriores**.
 
 ### <a name="configure-a-retention-policy-on-the-current-version-of-a-blob"></a>Configuración de una directiva de retención para la versión actual de un blob
 
@@ -321,6 +321,8 @@ Para configurar una directiva de retención con duración definida para una vers
 
 Para configurar una directiva de retención basada en el tiempo en una versión de blob con PowerShell, llame al comando **Set-AzStorageBlobImmutabilityPolicy**.
 
+En el ejemplo siguiente se muestra cómo configurar una directiva desbloqueada en la versión actual de un blob. No olvide reemplazar los valores de los marcadores de posición entre corchetes angulares por los suyos propios:
+
 ```azurepowershell
 # Get the storage account context
 $ctx = (Get-AzStorageAccount `
@@ -336,7 +338,25 @@ Set-AzStorageBlobImmutabilityPolicy -Container <container> `
 
 ### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-N/D
+Para configurar una directiva de retención basada en el tiempo en una versión de blob con la CLI de Azure, primero debe instalar la extensión *storage-blob-preview*, versión 0.6.1 o posterior.
+
+```azurecli
+az extension add --name storage-blob-preview
+```
+
+Para obtener más información sobre cómo instalar extensiones de la CLI de Azure, vea [Procedimiento para instalar y administrar extensiones de la CLI de Azure](/cli/azure/azure-cli-extensions-overview).
+
+Después, llame al comando **az storage blob immutability-policy set** para configurar la directiva de retención basada en tiempo. En el ejemplo siguiente se muestra cómo configurar una directiva desbloqueada en la versión actual de un blob. No olvide reemplazar los valores de los marcadores de posición entre corchetes angulares por los suyos propios:
+
+```azurecli
+az storage blob immutability-policy set \
+    --expiry-time 2021-09-20T08:00:00Z \
+    --policy-mode Unlocked \
+    --container <container> \
+    --name <blob-version> \
+    --account-name <storage-account> \
+    --auth-mode login
+```
 
 ---
 
@@ -375,7 +395,7 @@ Para eliminar la directiva desbloqueada, seleccione **Eliminar** en el menú **M
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Para modificar una directiva de retención de basada en el tiempo desbloqueada con PowerShell, llame al comando **Set-AzStorageBlobImmutabilityPolicy** en la versión del blob con la nueva fecha y hora para la expiración de la directiva.
+Para modificar una directiva de retención de basada en el tiempo desbloqueada con PowerShell, llame al comando **Set-AzStorageBlobImmutabilityPolicy** en la versión del blob con la nueva fecha y hora para la expiración de la directiva. No olvide reemplazar los valores de los marcadores de posición entre corchetes angulares por los suyos propios:
 
 ```azurepowershell
 $containerName = "<container>"
@@ -388,7 +408,7 @@ $blobVersion = Get-AzStorageBlob -Container $containerName `
     -Context $ctx
 
 # Extend the retention interval by five days.
-$blobVersion = $blobVersion | 
+$blobVersion = $blobVersion |
     Set-AzStorageBlobImmutabilityPolicy -ExpiresOn (Get-Date).AddDays(5) `
 
 # View the new policy parameters.
@@ -403,7 +423,27 @@ $blobVersion = $blobVersion | Remove-AzStorageBlobImmutabilityPolicy
 
 #### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-N/D
+Para modificar una directiva de retención de basada en el tiempo desbloqueada con PowerShell, llame al comando **az storage blob immutability-policy set** en la versión del blob con la nueva fecha y hora para la expiración de la directiva. No olvide reemplazar los valores de los marcadores de posición entre corchetes angulares por los suyos propios:
+
+```azurecli
+az storage blob immutability-policy set \
+    --expiry-time 2021-10-0T18:00:00Z \
+    --policy-mode Unlocked \
+    --container <container> \
+    --name <blob-version> \
+    --account-name <storage-account> \
+    --auth-mode login
+```
+
+Para eliminar una directiva desbloqueada, llame al comando **az storage blob immutability-policy delete**.
+
+```azurecli
+az storage blob immutability-policy delete \
+    --container <container> \
+    --name <blob-version> \
+    --account-name <storage-account> \
+    --auth-mode login
+```
 
 ---
 
@@ -436,7 +476,7 @@ $blobVersion = Get-AzStorageBlob -Container $containerName `
     -VersionId "2021-08-31T00:26:41.2273852Z" `
     -Context $ctx
 
-$blobVersion = $blobVersion | 
+$blobVersion = $blobVersion |
     Set-AzStorageBlobImmutabilityPolicy `
         -ExpiresOn $blobVersion.BlobProperties.ImmutabilityPolicy.ExpiresOn `
         -PolicyMode Locked
@@ -444,7 +484,17 @@ $blobVersion = $blobVersion |
 
 ### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-N/D
+Para bloquear una directiva con PowerShell, llame al comando **az storage blob immutability-policy set** y establezca el parámetro `--policy-mode` en *Locked* (Bloqueado). También puede cambiar la expiración en el momento de bloquear la directiva.
+
+```azurecli
+az storage blob immutability-policy set \
+    --expiry-time 2021-10-0T18:00:00Z \
+    --policy-mode Locked \
+    --container <container> \
+    --name <blob-version> \
+    --account-name <storage-account> \
+    --auth-mode login
+```
 
 ---
 
@@ -486,12 +536,30 @@ Set-AzStorageBlobLegalHold -Container <container> `
 
 #### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-N/D
+Para configurar o borrar una suspensión legal en una versión de blob con la CLI de Azure, llame al comando **az storage blob set-legal-hold**.
+
+```azurecli
+# Set a legal hold
+az storage blob set-legal-hold \
+    --legal-hold \
+    --container <container> \
+    --name <blob-version> \
+    --account-name <account-name> \
+    --auth-mode login
+
+# Clear a legal hold
+az storage blob set-legal-hold \
+    --legal-hold false \
+    --container <container> \
+    --name <blob-version> \
+    --account-name <account-name> \
+    --auth-mode login
+```
 
 ---
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Almacenamiento inmutable de los datos críticos para la empresa en Azure Blob Storage](immutable-storage-overview.md)
-- [Directivas de retención de duración definida para datos de blobs inmutables](immutable-time-based-retention-policy-overview.md)
+- [Directivas de retención con duración definida para datos de blobs inmutables](immutable-time-based-retention-policy-overview.md)
 - [Retenciones legales para datos de blob inmutables](immutable-legal-hold-overview.md)

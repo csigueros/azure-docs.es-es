@@ -8,15 +8,15 @@ ms.topic: how-to
 ms.date: 01/26/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: calebb, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84c8b82219f2b2aea39bbcd23f030243d9ea8635
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 3952dca4cbe7dfd3ea255b4ad1d6483057ff5cb6
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107861812"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128568403"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Procedimientos: Bloqueo de la autenticación heredada en Azure AD con acceso condicional   
 
@@ -38,6 +38,9 @@ Si el entorno está listo para bloquear la autenticación heredada con el fin de
 ## <a name="prerequisites"></a>Requisitos previos
 
 En este artículo se supone que está familiarizado con los [conceptos básicos](overview.md) del acceso condicional de Azure AD.
+
+> [!NOTE]
+> Las directivas de acceso condicional se aplican una vez que se completa la autenticación en una fase. El acceso condicional no pretende ser una primera línea de defensa de una organización en escenarios como los ataques por denegación de servicio (DoS), pero puede usar señales de estos eventos para determinar el acceso.
 
 ## <a name="scenario-description"></a>Descripción del escenario
 

@@ -7,21 +7,21 @@ ms.topic: include
 ms.date: 04/28/2021
 ms.author: timlt
 ms.custom: include file
-ms.openlocfilehash: f01d02fb2d11f6d2ec7e068d8f8aea5191734371
-ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
+ms.openlocfilehash: 3fb812a15aa1670404fe8a5d403f99acf522f3a5
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114713007"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129516645"
 ---
-[![Examinar el código](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-java/tree/master/device/iot-device-samples/pnp-device-sample)
+[![Examinar el código](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-java/tree/main/device/iot-device-samples/pnp-device-sample)
 
-En este inicio rápido, se explica un flujo de trabajo básico de desarrollo de aplicaciones de Azure IoT. En primer lugar, cree una aplicación de Azure IoT Central para hospedar dispositivos. A continuación, utilizaremos un ejemplo de un SDK de dispositivo IoT de Azure para ejecutar un controlador de temperatura simulado, conectarlo de forma segura a IoT Central y enviar datos de telemetría.
+En este artículo de inicio rápido, se explica un flujo de trabajo básico de desarrollo de aplicaciones de Azure IoT. En primer lugar, cree una aplicación de Azure IoT Central para hospedar dispositivos. A continuación, utilizaremos un ejemplo de un SDK de dispositivo IoT de Azure para ejecutar un controlador de temperatura simulado, conectarlo de forma segura a IoT Central y enviar datos de telemetría.
 
 ## <a name="prerequisites"></a>Requisitos previos
 - Una máquina de desarrollo con Java SE Development Kit 8 o posterior. Puede descargar el JDK de Java 8 (LTS) para varias plataformas desde [Descargar compilaciones de Zulu de OpenJDK](https://www.azul.com/downloads/zulu-community/). En el instalador, seleccione la opción **Agregar a PATH**.
 - [Apache Maven 3](https://maven.apache.org/download.cgi). Después de extraer la descarga en una carpeta local, agregue la ruta de acceso completa de la carpeta */bin* de Maven a la variable PATH de Windows.
-- Una copia local del repositorio de GitHub [SDK de Microsoft Azure IoT para Java](https://github.com/Azure/azure-iot-sdk-java). Descargue una copia del repositorio y extráigala: [Descargar archivo ZIP](https://github.com/Azure/azure-iot-sdk-java/archive/refs/heads/master.zip).
+- Una copia local del repositorio de GitHub [SDK de Microsoft Azure IoT para Java](https://github.com/Azure/azure-iot-sdk-java). Descargue una copia del repositorio y extráigala: [Descargar archivo ZIP](https://github.com/Azure/azure-iot-sdk-java/archive/refs/heads/main.zip).
 
 [!INCLUDE [iot-develop-create-central-app-with-device](iot-develop-create-central-app-with-device.md)]
 
@@ -30,7 +30,7 @@ En esta sección, configurará el entorno local, instalará el SDK de dispositiv
 
 ### <a name="configure-your-environment"></a>Configurar su entorno
 
-1. Abra una consola con el símbolo del sistema de Windows, PowerShell o Bash.
+1. Abra una consola como CMD de Windows, PowerShell o Bash.
 
 1. Establezca las siguientes variables de entorno con los comandos adecuados para la consola. El dispositivo simulado usa estos valores para conectarse a IoT Central. Para `IOTHUB_DEVICE_DPS_ID_SCOPE`, `IOTHUB_DEVICE_DPS_DEVICE_KEY` y `IOTHUB_DEVICE_DPS_DEVICE_ID`, use los valores de conexión del dispositivo que guardó anteriormente.
 

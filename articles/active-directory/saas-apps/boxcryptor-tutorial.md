@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/09/2021
+ms.date: 08/27/2021
 ms.author: jeedes
-ms.openlocfilehash: d1c479bf51536d89d0705cd585870638b23f1ceb
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: cce864b104b421a205c8a1231f49a2abf707f55e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111892497"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128650503"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-boxcryptor"></a>Tutorial: Integración de Azure Active Directory con Boxcryptor
 
@@ -39,6 +39,7 @@ En este tutorial, puede configurar y probar el inicio de sesión único de Azure
 
 * Boxcryptor admite el inicio de sesión único iniciado por **SP**.
 * Boxcryptor admite el aprovisionamiento de usuarios **Just-In-Time**.
+* Boxcryptor admite el [aprovisionamiento automatizado de usuarios](boxcryptor-provisioning-tutorial.md).
 
 > [!NOTE]
 > El identificador de esta aplicación es un valor de cadena fijo, por lo que solo se puede configurar una instancia en un inquilino.
@@ -123,6 +124,8 @@ Para configurar el inicio de sesión único en **Boxcryptor**, es preciso enviar
 
 En esta sección, se crea un usuario llamado B.Simon en Boxcryptor. Boxcryptor admite el aprovisionamiento de usuarios Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Si un usuario deja de existir en Boxcryptor, se crea uno nuevo después de la autenticación.
 
+Boxcryptor también admite el aprovisionamiento automático de usuarios. [Aquí](./boxcryptor-provisioning-tutorial.md) puede encontrar más detalles sobre cómo configurar el aprovisionamiento automático de usuarios.
+
 ## <a name="test-sso"></a>Prueba de SSO
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones. 
@@ -131,7 +134,7 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 * Vaya directamente a la dirección URL de inicio de sesión de Boxcryptor e inicie el flujo de inicio de sesión desde allí.
 
-* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Boxcryptor en Aplicaciones, se le redirigirá a la dirección URL de inicio de sesión de dicha aplicación. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Boxcryptor en Aplicaciones, se le redirigirá a la dirección URL de inicio de sesión de dicha aplicación. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

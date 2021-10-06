@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 3/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e41e33b5f30cd861ae8715e0ad7f6694f8854198
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 80bc81a12c1b8e17d12d589e058b3f8e34f359fa
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105046953"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129352152"
 ---
 # <a name="how-to-use-the-microsoft-smooth-streaming-plugin-for-the-adobe-open-source-media-framework"></a>Uso del complemento Smooth Streaming de Microsoft para Open Source Media Framework de Adobe
 
@@ -393,8 +393,6 @@ El complemento dinámico Smooth Streaming para OSMF es compatible con [Strobe Me
 
 2. Guarde la página HTML y publíquela en un servidor web. Vaya a la página web publicada utilizando el explorador de Internet que prefiera (Internet Explorer, Chrome y Firefox, entre otros) con Flash&reg; Player habilitado.
 3. Disfrute del contenido de Smooth Streaming en Adobe&reg; Flash&reg; Player.
-
-Para obtener más información acerca del desarrollo de OSMF general, consulte la [página oficial de desarrollo de OSMF (en inglés)](https://www.adobe.com/devnet/video/articles1/osmf_overview.html).
 
 ## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

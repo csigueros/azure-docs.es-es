@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, divswa, azla
 ms.topic: how-to
 ms.date: 07/16/2021
-ms.openlocfilehash: 5328fad1530ee8dd7b4a2c79581d443488c44b28
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 4b1c6d33146233882dd4ee0656c2d1ee7ee6ec79
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114453847"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128589727"
 ---
 # <a name="exchange-x12-messages-for-b2b-enterprise-integration-using-azure-logic-apps-and-enterprise-integration-pack"></a>Intercambio de mensajes X12 para la integración empresarial B2B mediante Azure Logic Apps y Enterprise Integration Pack
 
@@ -348,7 +348,7 @@ Para especificar estos números de versión del documento y tipos de mensaje, si
 
    Para actualizar el esquema, siga estos pasos:
 
-   1. En Azure Portal, vaya a la cuenta de integración. Busque y descargue su esquema. Reemplace el tipo de mensaje y cambie el nombre del archivo de esquema, y cargue el esquema revisado en la cuenta de integración. Para más información, vea [Editar esquemas](../logic-apps/logic-apps-enterprise-integration-schemas.md#edit-schemas).
+   1. En Azure Portal, vaya a la cuenta de integración. Busque y descargue su esquema. Reemplace el tipo de mensaje y cambie el nombre del archivo de esquema, y cargue el esquema revisado en la cuenta de integración. Para obtener más información, vea [Edición de un esquema](logic-apps-enterprise-integration-schemas.md#edit-schema).
 
    1. En la configuración de mensajes del acuerdo, seleccione el esquema revisado.
 

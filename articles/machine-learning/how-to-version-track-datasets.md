@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning
 description: Obtenga información sobre cómo controlar las versiones de los conjuntos de datos de aprendizaje automático y sobre cómo funciona el control de versiones con las canalizaciones de aprendizaje automático.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mldata
 ms.author: cgronlun
 author: cjgronlund
 ms.reviewer: nibaccam
 ms.date: 03/09/2020
 ms.topic: how-to
 ms.custom: devx-track-python, data4ml
-ms.openlocfilehash: ce1a938b3fac9e22afdf858b37a57ef77a914b35
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: 5711d58d8772faf724c8ea82e72356e37af7f12c
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109734853"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129428034"
 ---
 # <a name="version-and-track-azure-machine-learning-datasets"></a>Control de versiones y seguimiento de conjuntos de datos de Azure Machine Learning
 

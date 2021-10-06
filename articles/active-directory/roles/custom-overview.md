@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: overview
-ms.date: 11/20/2020
+ms.date: 09/13/2021
 ms.author: rolyon
-ms.reviewer: vincesm
+ms.reviewer: abhijeetsinha
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f376a8e5d61b9bb3fda39184f4ff0873c48c8b43
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 21e1b91c10d687b0b82626372510dcaf2a0611ef
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121732339"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128601812"
 ---
 # <a name="overview-of-role-based-access-control-in-azure-active-directory"></a>Introducción al control de acceso basado en rol en Azure Active Directory
 
@@ -52,23 +52,23 @@ Los siguientes son los pasos de alto nivel que Azure AD usa para determinar si 
 
 ## <a name="role-assignment"></a>Asignación de roles
 
-Una asignación de roles es un recurso de Azure AD que asocia una *definición de rol* a un *usuario* en un *ámbito* determinado para conceder acceso a los recursos de Azure AD. El acceso se concede mediante la creación de una asignación de roles y se revoca al quitar una asignación de roles. Básicamente, una asignación de roles consta de tres elementos:
+Una asignación de roles es un recurso de Azure AD que asocia una *definición de rol* a una *entidad de seguridad* en un *ámbito* determinado para conceder acceso a los recursos de Azure AD. El acceso se concede mediante la creación de una asignación de roles y se revoca al quitar una asignación de roles. Básicamente, una asignación de roles consta de tres elementos:
 
-- Usuario de Azure AD
-- Definición de roles
-- Ámbito de recursos
+- Entidad de seguridad: una identidad que obtiene los permisos. Podría ser un usuario, grupo o entidad de servicio. 
+- Definición de roles: una colección de permisos. 
+- Ámbito: una manera de restringir dónde se aplican esos permisos.
 
-Puede [crear asignaciones de roles](custom-create.md) mediante Azure Portal, Azure AD PowerShell y Graph API. También puede [enumerar las asignaciones de roles](view-assignments.md).
+Puede [crear asignaciones de roles](manage-roles-portal.md) mediante Azure Portal, Azure AD PowerShell y Graph API. También puede [enumerar las asignaciones de roles](view-assignments.md).
 
-El diagrama siguiente muestra un ejemplo de una asignación de roles. En este ejemplo, se ha asignado a Chris Green el rol personalizado de administrador del registro de aplicaciones en el ámbito del registro de la aplicación del generador de widgets de Contoso. Esta asignación concede a Chris los permisos del rol de administrador del registro de aplicaciones solo en este registro de aplicación específico.
+El diagrama siguiente muestra un ejemplo de una asignación de roles. En este ejemplo, se ha asignado a Chris el rol personalizado de administrador del registro de aplicaciones en el ámbito del registro de la aplicación del generador de widgets de Contoso. Esta asignación concede a Chris los permisos del rol de administrador del registro de aplicaciones solo en este registro de aplicación específico.
 
 ![La asignación de roles es la manera en que se aplican los permisos y consta de tres partes.](./media/custom-overview/rbac-overview.png)
 
 ### <a name="security-principal"></a>Entidad de seguridad
 
-Una entidad de seguridad representa al usuario a quien se le va a asignar el acceso a los recursos de Azure AD. Un usuario es un individuo que tiene un perfil de usuario en Azure Active Directory.
+Una entidad de seguridad representa al usuario o a la entidad de servicio a quien se le va a asignar el acceso a los recursos de Azure AD. Un usuario es un individuo que tiene un perfil de usuario en Azure Active Directory. Un grupo es un grupo de seguridad o de Microsoft 365 con la propiedad "isAssignableToRole" establecida en "true" (actualmente en versión preliminar). Una entidad de servicio es una identidad creada para su uso con aplicaciones, servicios hospedados y herramientas automatizadas para acceder a los recursos de Azure AD.
 
-### <a name="role"></a>Role
+### <a name="role-definition"></a>Definición de roles
 
 Una definición de roles, o rol, es una colección de permisos. En una definición de roles se muestran las operaciones que se pueden realizar en los recursos de Azure AD, como crear, leer, actualizar y eliminar. Hay dos tipos de roles en Azure AD:
 
@@ -77,7 +77,21 @@ Una definición de roles, o rol, es una colección de permisos. En una definici�
 
 ### <a name="scope"></a>Ámbito
 
-Un ámbito es la restricción de las acciones permitidas a un recurso de Azure AD determinado como parte de una asignación de roles. Cuando asigna un rol, puede especificar un ámbito que limita el acceso del administrador a un recurso específico. Por ejemplo, si quiere conceder un rol personalizado a un desarrollador, pero solo para administrar un registro de aplicación específico, puede incluir el registro de aplicación específico como ámbito en la asignación de roles.
+Un ámbito es una manera de limitar las acciones permitidas a un conjunto determinado de recursos como parte de una asignación de roles. Por ejemplo, si quiere asignar un rol personalizado a un desarrollador, pero solo para administrar un registro de aplicación específico, puede incluir el registro de aplicación específico como ámbito en la asignación de roles.
+
+Cuando asigna un rol, puede especificar uno de los siguientes tipos de ámbito:
+
+- Inquilino
+- [Unidad administrativa](administrative-units.md)
+- Recurso de Azure AD
+
+Si especifica un recurso de Azure AD como ámbito, puede ser uno de los siguientes:
+
+- Grupos de Azure AD
+- Aplicaciones empresariales
+- Registros de aplicación
+
+Para más información, consulte [Asignación de roles de Azure AD en distintos ámbitos](assign-roles-different-scopes.md).
 
 ## <a name="license-requirements"></a>Requisitos de licencia
 
@@ -86,5 +100,5 @@ El uso de roles integrados en Azure AD es gratis, mientras que los roles person
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Descripción de los roles de Azure AD](concept-understand-roles.md)
-- Creación de asignaciones de roles personalizados mediante [Azure Portal, Azure AD PowerShell y Graph API](custom-create.md).
-- [Lista de asignaciones de roles](view-assignments.md)
+- [Asignación de roles de Azure AD a usuarios](manage-roles-portal.md)
+- [Crear y asignar un rol personalizado](custom-create.md)

@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: sideeksh
 ms.custom: MVC
-ms.openlocfilehash: a76ebf95b92b6e1251a04daa9ffb48a9abe15b50
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 24f3d5bfa5883477b436956d90b7af70142311aa
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89425354"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128587753"
 ---
 # <a name="move-azure-vms-between-azure-government-and-public-regions"></a>Mover las VM de Azure entre Azure Government y las regiones públicas 
 
@@ -79,7 +79,7 @@ Tiene que instalar el Servicio de movilidad en cada servidor que quiera replicar
 
 - Puede usar una cuenta local o de dominio.
 - En el caso de máquinas virtuales de Windows, si no usa una cuenta de dominio, deshabilite el control de acceso de usuarios remotos en el equipo local. Para hacerlo, en el Registro, en **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**, agregue la entrada DWORD **LocalAccountTokenFilterPolicy** con un valor de 1.
-- Para agregar la entrada del Registro para deshabilitar el valor desde una CLI, escriba: ``REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1.``
+- Para agregar la entrada del Registro para deshabilitar el valor desde una CLI, escriba: `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1.`
 - Para Linux, la cuenta debe ser una raíz en el servidor Linux de origen.
 
 

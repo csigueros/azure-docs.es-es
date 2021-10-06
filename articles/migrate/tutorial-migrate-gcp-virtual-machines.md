@@ -7,12 +7,12 @@ ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 08/19/2020
 ms.custom: MVC
-ms.openlocfilehash: aa51a489fd1dc7a3e7188239ea200b6fb95b3ed1
-ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
+ms.openlocfilehash: 534ea1a7a4e1356f44c97dc69e1a6dabbf9cae12
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123271978"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128637150"
 ---
 # <a name="discover-assess-and-migrate-google-cloud-platform-gcp-vms-to-azure"></a>Detección, evaluación y migración de máquinas virtuales de Google Cloud Platform (GCP) a Azure
 
@@ -138,7 +138,7 @@ El primer paso de la migración consiste en configurar el dispositivo de replica
 
 2. En **Detectar máquinas** >  **¿Las máquinas están virtualizadas?** , haga clic en **No virtualizado/Otro**.
 3. En **Región de destino**, seleccione la región de Azure a la que desea migrar las máquinas.
-4. Seleccione **Confirme que la región de destino de la migración es <nombre-región>** .
+4. Seleccione **Confirm that the target region for migration is \<region-name\>** (Confirmar que la región de destino de la migración es).
 5. Haga clic en **Crear recursos**. Esto crea un almacén de Azure Site Recovery en segundo plano.
     - Si ya ha configurado la migración con Azure Migrate Server Migration, no se puede configurar la opción de destino, ya que los recursos se configuraron anteriormente.
     - Después de hacer clic en este botón ya no se puede cambiar la región de destino de este proyecto.

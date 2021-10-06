@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 03/18/2021
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 1131b42b58e1ed751a7563b4c59e71981b722305
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 0d95def7048b3077232bb728a97c28107ec80313
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "122643596"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "128654487"
 ---
 # <a name="tutorial-create-an-azure-database-for-mysql---flexible-server-preview-with-app-services-web-app-in-virtual-network"></a>Tutorial: Creación de un servidor flexible (versión preliminar) de Azure Database for MySQL con una aplicación web de App Services en una red virtual
 
@@ -21,7 +21,7 @@ ms.locfileid: "122643596"
 
 
 > [!IMPORTANT]
-> El servidor flexible de Azure Database for MySQL está actualmente en versión preliminar pública.
+> Actualmente, la opción de implementación Servidor flexible de Azure Database for MySQL se encuentra en versión preliminar pública.
 
 
 En este tutorial se muestra cómo crear una aplicación web de Azure App Service con el servidor flexible de MySQL (versión preliminar) dentro de una [red virtual](../../virtual-network/virtual-networks-overview.md).
@@ -36,7 +36,7 @@ En este tutorial, aprenderá a:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
+[!INCLUDE [flexible-server-free-trial-note](../includes/flexible-server-free-trial-note.md)]
 
 En este artículo es necesario que ejecute la versión 2.0 de la CLI de Azure, o cualquier versión posterior, de forma local. Para ver la versión instalada, ejecute el comando `az --version`. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
 
@@ -89,7 +89,7 @@ az webapp up --resource-group myresourcegroup --location westus2 --plan testapps
 
 > [!NOTE]
 > - Para el argumento --location, use la misma ubicación que usó para la base de datos en la sección anterior.
-> - Reemplace _&lt;app-name>_ con un nombre único en todo Azure (el punto de conexión del servidor es https://\<app-name>.azurewebsites.net). Los caracteres permitidos para <app-name> son A-Z, 0-9 y -. Un buen patrón es usar una combinación del nombre de la empresa y un identificador de la aplicación.
+> - Reemplace _\<app-name\>_ por un nombre exclusivo en todo Azure (el punto de conexión del servidor es `https://\<app-name>.azurewebsites.net`). Los caracteres permitidos para \<app-name\> son A-Z, 0-9 y -. Un buen patrón es usar una combinación del nombre de la empresa y un identificador de la aplicación.
 > - App Service de nivel Básico no admite la integración con redes virtuales. Utilice el nivel Estándar o Premium. 
 
 Este comando realiza las siguientes acciones, que pueden tardar algunos minutos:

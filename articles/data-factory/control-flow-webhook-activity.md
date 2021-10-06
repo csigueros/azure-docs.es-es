@@ -1,7 +1,7 @@
 ---
-title: Actividad de webhook en Azure Data Factory
+title: Actividad de webhook
 titleSuffix: Azure Data Factory & Azure Synapse
-description: La actividad de webhook no continúa la ejecución de la canalización hasta que valida el conjunto de datos adjunto con determinados criterios que el usuario especifica.
+description: La actividad de webhook de Azure Data Factory y Synapse Analytics controla la ejecución de canalizaciones mediante código personalizado.
 author: nabhishek
 ms.author: abnarain
 ms.reviewer: jburchel
@@ -9,19 +9,19 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 03/25/2019
-ms.openlocfilehash: 3c2194aff9296230333c433b65f3be303768f9fb
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/09/2021
+ms.openlocfilehash: 8b0443cd44dffeec1ea9a70e460ca0f72e05b24d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122637911"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124798833"
 ---
 # <a name="webhook-activity-in-azure-data-factory"></a>Actividad de webhook en Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Una actividad de webhook puede controlar la ejecución de canalizaciones mediante su código personalizado. Con la actividad de webhook, el código de los clientes puede llamar a un punto de conexión y pasarle una dirección URL de devolución de llamada. La ejecución de la canalización espera por la invocación de devolución de llamada antes de pasar a la siguiente actividad.
+Una actividad de webhook puede controlar la ejecución de canalizaciones mediante código personalizado. Con la actividad de webhook, el código puede llamar a un punto de conexión y pasarle una dirección URL de devolución de llamada. La ejecución de la canalización espera por la invocación de devolución de llamada antes de pasar a la siguiente actividad.
 
 > [!IMPORTANT]
 > La actividad de webhook ahora permite exponer el estado de error y los mensajes personalizados de nuevo a la actividad y la canalización. Establezca _reportStatusOnCallBack_ en true e incluya _StatusCode_ y _Error_ en la carga de devolución de llamada. Para más información, consulte [Notas adicionales](#additional-notes).
@@ -102,7 +102,7 @@ Especifique un contenido codificado en Base64 de un archivo PFX y una contraseñ
 
 ### <a name="managed-identity"></a>Identidad administrada
 
-Use la identidad administrada de la factoría de datos para especificar el URI de recurso para el que se solicita el token de acceso. Para llamar a la API de Azure Resource Management, use `https://management.azure.com/`. Para más información sobre cómo funcionan las identidades administradas, consulte [Información general sobre las identidades administradas de recursos de Azure](../active-directory/managed-identities-azure-resources/overview.md).
+Utilice la identidad administrada para la factoría de datos o el área de trabajo de Synapse para especificar el URI de recurso para el que el token de acceso se solicitará. Para llamar a la API de Azure Resource Management, use `https://management.azure.com/`. Para más información sobre cómo funcionan las identidades administradas, consulte [Información general sobre las identidades administradas de recursos de Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
 ```json
 "authentication": {
@@ -112,11 +112,11 @@ Use la identidad administrada de la factoría de datos para especificar el URI d
 ```
 
 > [!NOTE]
-> Si la factoría de datos está configurada con un repositorio de Git, tiene que almacenar sus credenciales en Azure Key Vault para usar la autenticación básica o de certificado de cliente. Azure Data Factory no almacena contraseñas en Git.
+> Si el servicio está configurado con un repositorio de Git, tiene que almacenar sus credenciales en Azure Key Vault para usar la autenticación básica o de certificado de cliente. El servicio no almacena contraseñas en Git.
 
 ## <a name="additional-notes"></a>Notas adicionales
 
-Data Factory pasa la propiedad adicional **callBackUri** en el cuerpo enviado al punto de conexión de la dirección URL. Data Factory espera que se invoque este URI antes del valor de tiempo de espera especificado. Si no se invoca el URI, se produce un error en la actividad con el estado "TimedOut".
+El servicio pasa la propiedad adicional **callBackUri** en el cuerpo enviado al punto de conexión de la dirección URL. El servicio espera que se invoque este URI antes del valor de tiempo de espera especificado. Si no se invoca el URI, se produce un error en la actividad con el estado "TimedOut".
 
 La propia actividad de webhook produce un error cuando la llamada al punto de conexión personalizado genera un error. Cualquier mensaje de error se puede agregar al cuerpo de devolución de llamada y usarse en una actividad posterior.
 
@@ -145,7 +145,7 @@ Al usar la propiedad **Notificar el estado de la devolución de llamada**, tiene
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte las siguientes actividades de flujo de control compatibles con Data Factory:
+Observe las siguientes actividades de flujo de control admitidas:
 
 - [Actividad If Condition](control-flow-if-condition-activity.md)
 - [Actividad de ejecución de canalización](control-flow-execute-pipeline-activity.md)

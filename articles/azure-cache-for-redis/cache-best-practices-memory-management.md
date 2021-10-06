@@ -7,12 +7,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/25/2021
 ms.author: shpathak
-ms.openlocfilehash: 613d5dd906795b59465458565a00cd37b7374e65
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 36fe87e03a78a4dee34c2016b8f4723cb8aa95be
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123114403"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128598734"
 ---
 # <a name="memory-management"></a>Administración de memoria
 
@@ -43,3 +43,10 @@ Configure la [opción maxmemory-reserved](cache-configure.md#maxmemory-policy-an
 * La opción  `maxfragmentationmemory-reserved`  configura la cantidad de memoria (en MB por instancia en un clúster) que se reserva para adaptarse a la fragmentación de memoria. Si se establece este valor, la experiencia del servidor Redis es más coherente cuando la caché está llena o prácticamente llena, y la proporción de fragmentación es elevada. Cuando se reserva memoria para dichas operaciones, no está disponible para el almacenamiento de los datos en la caché.
 
 * Al elegir un nuevo valor de reserva de memoria (`maxmemory-reserved` o `maxfragmentationmemory-reserved`) hay que tener en cuenta cómo podría afectar este cambio a una memoria caché que ya se está ejecutando con grandes cantidades de datos en ella. Por ejemplo, si tiene una memoria caché de 53 GB con 49 GB de datos, al cambiar el valor de reserva a 8 GB, la memoria máxima disponible para el sistema caerá a 45 GB. Si los valores actuales de  `used_memory` o `used_memory_rss` son mayores que el nuevo límite de 45 GB, entonces el sistema tendrá que expulsar datos hasta que `used_memory` y `used_memory_rss`  estén por debajo de 45 GB. La expulsión puede aumentar la carga del servidor y la fragmentación de memoria. Para más información sobre las métricas de caché como `used_memory` y `used_memory_rss` [, consulte](cache-how-to-monitor.md#available-metrics-and-reporting-intervals)Métricas disponibles e intervalos de informes.
+
+## <a name="next-steps"></a>Pasos siguientes
+
+* [Procedimientos recomendados para el desarrollo](cache-best-practices-development.md)
+* [Preguntas frecuentes sobre el desarrollo para Azure Cache for Redis](cache-development-faq.yml)
+* [Opción maxmemory-reserved](cache-configure.md#maxmemory-policy-and-maxmemory-reserved)
+* [Procedimientos recomendados de escalado](cache-best-practices-scale.md)

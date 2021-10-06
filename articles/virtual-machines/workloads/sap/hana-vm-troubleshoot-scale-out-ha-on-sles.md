@@ -2,22 +2,20 @@
 title: Solución de problemas de escalabilidad horizontal de SAP HANA con escenarios de HSR y Pacemaker con SLES en VM de Azure | Microsoft Docs
 description: Guía para comprobar y solucionar problemas de una configuración compleja de alta disponibilidad de escalabilidad horizontal de SAP HANA basada en SAP HANA System Replication (HSR) y Pacemaker en SLES 12 SP3 que se ejecutan en máquinas virtuales de Azure
 services: virtual-machines-linux
-documentationcenter: ''
 author: hermanndms
 manager: juergent
-editor: ''
 ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/24/2018
 ms.author: hermannd
-ms.openlocfilehash: e64abc008433c895e21690ccab8cc532ec1b34b1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 3bdc19d9bd9208744173735399551bfc6f0fe93f
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105543863"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129359268"
 ---
 # <a name="verify-and-troubleshoot-sap-hana-scale-out-high-availability-setup-on-sles-12-sp3"></a>Verificación y solución de problemas de configuración de alta disponibilidad con escalabilidad horizontal de SAP HANA en SLES 12 SP3 
 
@@ -25,7 +23,7 @@ ms.locfileid: "105543863"
 [sles-hana-scale-out-ha-paper]:https://www.suse.com/documentation/suse-best-practices/singlehtml/SLES4SAP-hana-scaleOut-PerfOpt-12/SLES4SAP-hana-scaleOut-PerfOpt-12.html
 [sap-hana-iaas-list]:https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html
 [suse-pacemaker-support-log-files]:https://www.suse.com/support/kb/doc/?id=7022702
-[azure-linux-multiple-nics]:https://docs.microsoft.com/azure/virtual-machines/linux/multiple-nics
+[azure-linux-multiple-nics]:../../linux/multiple-nics.md
 [suse-cloud-netconfig]:https://www.suse.com/c/multi-nic-cloud-netconfig-ec2-azure/
 [sap-list-port-numbers]:https://help.sap.com/viewer/ports
 [sles-12-ha-paper]:https://www.suse.com/documentation/sle-ha-12/pdfdoc/book_sleha/book_sleha.pdf
@@ -46,7 +44,7 @@ SUSE ha publicado una [descripción detallada de esta configuración optimizada 
 Para conocer los tipos de máquina virtual que admiten el escalado horizontal de SAP HANA, consulte el [directorio de IaaS certificado para SAP HANA][sap-hana-iaas-list].
 
 > [!NOTE]
-> Este artículo contiene referencias a los términos *maestro* y *esclavo*, unos términos que Microsoft ya no usa. Cuando se eliminen estos términos del software, se eliminarán también de este artículo.
+> Este artículo contiene referencias a los términos *maestro* y *esclavo*, unos términos que Microsoft ya no usa. Cuando se eliminen estos términos del software, se eliminarán de este artículo.
 
 Se produjo un problema técnico con el escalado horizontal de SAP HANA en combinación con varias subredes y NIC virtuales, así como al configurar HSR. Es obligatorio usar las últimas revisiones de SAP HANA 2.0 donde este problema está solucionado. Se admiten las siguientes versiones de SAP HANA: 
 

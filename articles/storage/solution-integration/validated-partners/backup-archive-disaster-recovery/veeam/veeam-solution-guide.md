@@ -8,12 +8,12 @@ ms.date: 05/12/2021
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: partner
-ms.openlocfilehash: 334ae28c160a01032d5403e06f40846e8b9d9ed5
-ms.sourcegitcommit: 1ee13b62c094a550961498b7a52d0d9f0ae6d9c0
+ms.openlocfilehash: e55a9d0bb21a3eded7454f74787f8be9f2f02ece
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109839192"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129273635"
 ---
 # <a name="backup-to-azure-with-veeam"></a>Copia de seguridad en Azure con Veeam
 
@@ -90,7 +90,7 @@ Use los siguientes métodos para identificar la capacidad de aumento de ancho de
 
 ### <a name="choose-the-right-storage-options"></a>Elección de las opciones de almacenamiento adecuadas
 
-Al usar Azure como destino de copia de seguridad, hará uso de [Azure Blob Storage](../../../../blobs/storage-blobs-introduction.md). Blob Storage es la solución de almacenamiento de objetos de Microsoft. Blob Storage está optimizado para almacenar grandes cantidades de datos no estructurados, que no cumplen con ninguna definición o modelo de datos. Además, Azure Storage es duradero, seguro y escalable y ofrece una alta disponibilidad. Puede seleccionar el almacenamiento adecuado para la carga de trabajo con el fin de proporcionar el [nivel de resistencia](../../../../common/storage-redundancy.md) para cumplir los contratos de nivel de servicio internos. Blob Storage es un servicio de pago por uso. [Cada mes se le cobra](../../../../blobs/storage-blob-storage-tiers.md#pricing-and-billing) la cantidad de datos almacenados, el acceso a esos datos y, en el caso de los niveles de acceso esporádico y de archivo, un período de retención mínimo necesario. En las tablas siguientes se resumen las opciones de resistencia y de niveles aplicables a los datos de copia de seguridad.
+Al usar Azure como destino de copia de seguridad, hará uso de [Azure Blob Storage](../../../../blobs/storage-blobs-introduction.md). Blob Storage es la solución de almacenamiento de objetos de Microsoft. Blob Storage está optimizado para almacenar grandes cantidades de datos no estructurados, que no cumplen con ninguna definición o modelo de datos. Además, Azure Storage es duradero, seguro y escalable y ofrece una alta disponibilidad. Puede seleccionar el almacenamiento adecuado para la carga de trabajo con el fin de proporcionar el [nivel de resistencia](../../../../common/storage-redundancy.md) para cumplir los contratos de nivel de servicio internos. Blob Storage es un servicio de pago por uso. [Cada mes se le cobra](../../../../blobs/access-tiers-overview.md#pricing-and-billing) la cantidad de datos almacenados, el acceso a esos datos y, en el caso de los niveles de acceso esporádico y de archivo, un período de retención mínimo necesario. En las tablas siguientes se resumen las opciones de resistencia y de niveles aplicables a los datos de copia de seguridad.
 
 **Opciones de resistencia de Blob Storage:**
 

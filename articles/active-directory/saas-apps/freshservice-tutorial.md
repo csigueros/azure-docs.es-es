@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/15/2021
+ms.date: 08/31/2021
 ms.author: jeedes
-ms.openlocfilehash: fb8b12cdb8fd9ed37ac4086d213183e800d6febc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6c45c00354d0bc60b5a9656c24dd998e324294b2
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101651770"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128581634"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-freshservice"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Freshservice
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar Freshservice con Azure Active Directory 
 * Permitir que los usuarios puedan iniciar sesión automáticamente en Freshservice con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -40,7 +40,8 @@ Para empezar, necesita los siguientes elementos:
 
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-* Freshservice admite el inicio de sesión único iniciado por **SP**
+* Freshservice admite el inicio de sesión único iniciado por **SP**.
+* Freshservice admite el [aprovisionamiento de usuarios automatizado](freshservice-provisioning-tutorial.md).
 
 ## <a name="add-freshservice-from-the-gallery"></a>Incorporación de Freshservice desde la galería
 
@@ -187,6 +188,9 @@ Para permitir que los usuarios de Azure AD inicien sesión en FreshService, debe
 
     > [!NOTE]
     > Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de FreshService que proporcione FreshService para aprovisionar cuentas de usuario de Azure AD.
+   
+> [!NOTE]
+>Freshservice también admite el aprovisionamiento automático de usuarios. [Aquí](./freshservice-provisioning-tutorial.md) puede encontrar más detalles sobre cómo configurar el aprovisionamiento automático de usuarios.
 
 ## <a name="test-sso"></a>Prueba de SSO
 
@@ -196,7 +200,7 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 * Vaya directamente a la URL de inicio de sesión de Freshservice y ponga en marcha el flujo de inicio de sesión desde allí.
 
-* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Freshservice en Mis aplicaciones, debería iniciar sesión automáticamente en la instancia de Freshservice para la que configuró el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Freshservice en Mis aplicaciones, debería iniciar sesión automáticamente en la instancia de Freshservice para la que configuró el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

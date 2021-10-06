@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/09/2021
 ms.reviewer: cynthn, jushiman
 ms.custom: template-how-to
-ms.openlocfilehash: 30a010f695282f6cad8757ea15fa295d645abd7f
-ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
+ms.openlocfilehash: 8b6e2ba3c65b5fd521bdb6326069ce5d8be05599
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123273316"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128564892"
 ---
 # <a name="modify-a-capacity-reservation-preview"></a>Modificación de una reserva de capacidad (versión preliminar)
 
@@ -71,17 +71,14 @@ Tenga en cuenta que la propiedad `capacity` se ha establecido en 5 en este ejemp
 Para actualizar la cantidad reservada, use `New-AzCapacityReservation` con la propiedad `capacityToReserve` actualizada.
 
 ```powershell-interactive
-New-AzCapacityReservation
+Update-AzCapacityReservation
 -ResourceGroupName "myResourceGroup"
--Location "eastus"
--Zone "1"
 -ReservationGroupName "myCapacityReservationGroup"
 -Name "myCapacityReservation"
--Sku "Standard_D2s_v3"
 -CapacityToReserve 5
 ```
 
-Para más información, vaya al comando de PowerShell [New-AzCapacityReservation](/powershell/module/az.compute/new-azcapacityreservation).
+Para obtener más información, vaya al comando [Update-AzCapacityReservation](/powershell/module/az.compute/update-azcapacityreservation) de Azure PowerShell.
 
 --- 
 <!-- The three dashes above show that your section of tabbed content is complete. Don't remove them :) -->
@@ -152,7 +149,7 @@ Compruebe si el tamaño de destino forma parte del grupo de reservas:
 
 1. Tenga en cuenta lo siguiente. 
     1. Si el tamaño de VM de destino no forma parte del grupo, [cree una nueva reserva de capacidad](capacity-reservation-create.md) para la VM de destino. 
-    1. Si el tamaño de VM de destino ya existe en el grupo, [cambie el tamaño de la máquina virtual](.\windows\resize-vm.md). 
+    1. Si el tamaño de VM de destino ya existe en el grupo, [cambie el tamaño de la máquina virtual](resize-vm.md). 
 
 ### <a name="portal"></a>[Portal](#tab/portal2)
 
@@ -162,7 +159,7 @@ Compruebe si el tamaño de destino forma parte del grupo de reservas:
 1. Seleccione **Reservas**. 
 1. Observe el *tamaño de VM* reservado para cada reserva. 
     1. Si el tamaño de VM de destino no forma parte del grupo, [cree una nueva reserva de capacidad](capacity-reservation-create.md) para la VM de destino. 
-    1. Si el tamaño de VM de destino ya existe en el grupo, [cambie el tamaño de la máquina virtual](.\windows\resize-vm.md). 
+    1. Si el tamaño de VM de destino ya existe en el grupo, [cambie el tamaño de la máquina virtual](resize-vm.md). 
 
 ### <a name="powershell"></a>[PowerShell](#tab/powershell2)
 
@@ -190,7 +187,7 @@ Compruebe si el tamaño de destino forma parte del grupo de reservas:
 
 1. Tenga en cuenta lo siguiente. 
     1. Si el tamaño de VM de destino no forma parte del grupo, [cree una nueva reserva de capacidad](capacity-reservation-create.md) para la VM de destino. 
-    1. Si el tamaño de VM de destino ya existe en el grupo, [cambie el tamaño de la máquina virtual](.\windows\resize-vm.md). 
+    1. Si el tamaño de VM de destino ya existe en el grupo, [cambie el tamaño de la máquina virtual](resize-vm.md). 
 
 
 Para más información, consulte los comandos de Azure PowerShell [Get-AzCapacityReservationGroup](/powershell/module/az.compute/get-azcapacityreservationgroup) y [Get-AzCapacityReservation](/powershell/module/az.compute/get-azcapacityreservation).

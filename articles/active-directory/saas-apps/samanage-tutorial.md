@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/09/2021
+ms.date: 08/31/2021
 ms.author: jeedes
-ms.openlocfilehash: d10ff0f9ca4fde80557341c0b5d29b3f7c26c970
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: d1e3f0b9b7d61a2984914cbbbe0b9d3b2832f7b1
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111982843"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124780402"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-solarwinds-service-desk-previously-samanage"></a>Tutorial: Integración de Azure Active Directory con SolarWinds Service Desk (anteriormente Samanage)
 
@@ -41,6 +41,7 @@ Para empezar, necesita los siguientes elementos:
 En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
 * SolarWinds admite SSO iniciado por **SP**.
+* SolarWinds admite el [aprovisionamiento automatizado de usuarios](samanage-provisioning-tutorial.md).
 
 ## <a name="add-solarwinds-from-the-gallery"></a>Incorporación de SolarWinds desde la galería
 
@@ -179,6 +180,9 @@ En el caso de SolarWinds, el aprovisionamiento es una tarea manual.
    >[!NOTE]
    >El titular de la cuenta de Azure Active Directory recibirá un mensaje de correo y seguirá un vínculo para confirmar su cuenta antes de que se active. Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de SolarWinds para aprovisionar las cuentas de usuario de Azure Active Directory.
 
+> [!NOTE]
+> SolarWinds también admite el aprovisionamiento automático de usuarios. [Aquí](./samanage-provisioning-tutorial.md) puede encontrar más detalles sobre cómo configurar el aprovisionamiento automático de usuarios.
+
 ## <a name="test-sso"></a>Prueba de SSO
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones. 
@@ -187,7 +191,7 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 * Vaya directamente a la URL de inicio de sesión de SolarWinds y comience el flujo de inicio de sesión desde allí.
 
-* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de SolarWinds en Aplicaciones, se le redirigirá a la URL de inicio de sesión de la aplicación. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de SolarWinds en Aplicaciones, se le redirigirá a la URL de inicio de sesión de la aplicación. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

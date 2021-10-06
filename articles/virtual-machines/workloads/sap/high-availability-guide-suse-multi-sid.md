@@ -1,13 +1,9 @@
 ---
 title: 'Alta disponibilidad de las máquinas virtuales de Azure para SAP NetWeaver en SLES: guía de varios SID | Microsoft Docs'
 description: Guía de varios SID de alta disponibilidad para SAP NetWeaver en SUSE Linux Enterprise Server para SAP Applications
-services: virtual-machines-windows,virtual-network,storage
-documentationcenter: saponazure
 author: rdeltcheva
 manager: juergent
-editor: ''
 tags: azure-resource-manager
-keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: virtual-machines-sap
 ms.topic: article
@@ -15,12 +11,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/16/2020
 ms.author: radeltch
-ms.openlocfilehash: 6d60ea09896d42fa43a650e210ed3c19d3a99ef4
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 8442418896f0ce07e601d89a9a1b42ca5b62404a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114450642"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128569302"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications-multi-sid-guide"></a>Alta disponibilidad para SAP NetWeaver en máquinas virtuales de Azure en SUSE Linux Enterprise Server para SAP Applications: guía de varios SID
 
@@ -582,7 +578,7 @@ Las pruebas que se presentan se encuentran en un clúster de dos nodos y varios 
 
 1. Prueba de HAGetFailoverConfig y HACheckFailoverConfig
 
-   Ejecute los siguientes comandos como <sapsid>adm en el nodo donde se ejecuta actualmente la instancia de ASCS. Si los comandos producen un error de memoria insuficiente, los guiones en el nombre de host pueden ser la causa. Se trata de un problema conocido que SUSE corregirá en el paquete sap-suse-cluster-connector.
+   Ejecute los siguientes comandos como \<sapsid\>adm en el nodo donde se ejecuta actualmente la instancia de ASCS. Si los comandos producen un error de memoria insuficiente, los guiones en el nombre de host pueden ser la causa. Se trata de un problema conocido que SUSE corregirá en el paquete sap-suse-cluster-connector.
 
    ```
     slesmsscl1:nw1adm 57> sapcontrol -nr 00 -function HAGetFailoverConfig

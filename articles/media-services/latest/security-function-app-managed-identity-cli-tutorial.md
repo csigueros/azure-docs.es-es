@@ -6,14 +6,14 @@ author: IngridAtMicrosoft
 manager: femila
 ms.service: media-services
 ms.topic: tutorial
-ms.date: 05/18/2021
+ms.date: 09/13/2021
 ms.author: inhenkel
-ms.openlocfilehash: 6352c86581da356f4b2bab1a80dd463d502a9ae3
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: dc05d6488978004eebee68b901214ab71f0fffd4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110481788"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128656652"
 ---
 # <a name="tutorial-give-an-azure-function-app-access-to-a-media-services-account"></a>Tutorial: Concesión de acceso a una aplicación de funciones de Azure a una cuenta de Media Services
 
@@ -27,7 +27,7 @@ En este tutorial se utiliza la API de Media Services 2020-05-01.
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
-Para usar cualquiera de los comandos de este artículo, primero debe haber iniciado sesión en la suscripción que desea usar.
+Para usar cualquiera de los comandos de este artículo, primero debe haber iniciado sesión en la suscripción que quiere usar.
 
  [!INCLUDE [Sign in to Azure with the CLI](./includes/task-sign-in-azure-cli.md)]
 
@@ -44,9 +44,9 @@ Utilice este comando para establecer la suscripción con la que quiere trabajar.
 
 ## <a name="resource-names"></a>Nombres de recurso
 
-Antes de empezar, decida los nombres de los recursos que va a crear.  Deben identificarse fácilmente como un conjunto, especialmente si no planea usarlos una vez que haya terminado las pruebas. Las reglas de nomenclatura son diferentes para muchos tipos de recursos, por lo que es mejor mantener las minúsculas. Por ejemplo, "mediatest1rg" para el nombre del grupo de recursos y "mediatest1stor" para el nombre de la cuenta de almacenamiento. Use los mismos nombres para cada paso de este artículo.
+Antes de empezar, decida los nombres de los recursos que va a crear.  Deben identificarse fácilmente como un conjunto, especialmente si no planea usarlos una vez que haya terminado las pruebas. Las reglas de nomenclatura son diferentes para muchos tipos de recursos, por lo que es mejor mantener las minúsculas. Por ejemplo, "mediatest1rg" como nombre del grupo de recursos y "mediatest1stor" como nombre de la cuenta de almacenamiento. Use los mismos nombres en cada paso de este artículo.
 
-Verá estos nombres mencionados en los comandos siguientes.  Los nombres de los recursos que necesitará son:
+Verá que se hace referencia a ellos en los comandos siguientes.  Los nombres de los recursos que necesitará son:
 
 - your-resource-group-name
 - your-storage-account-name
@@ -59,7 +59,7 @@ Verá estos nombres mencionados en los comandos siguientes.  Los nombres de los 
 > [!NOTE]
 > Los guiones anteriores solo se usan para separar las palabras de guía. Debido a la incoherencia de asignar nombres a los recursos en los servicios de Azure, no use guiones al asignar un nombre a los recursos.<br/><br/>
 > Todo lo representado por 00000000-0000-0000-0000000000 es el identificador único del recurso.  Normalmente, una respuesta JSON devuelve este valor. También se recomienda copiar y pegar las respuestas JSON en el Bloc de notas u otro editor de texto, ya que esas respuestas contendrán valores que necesitará para los comandos de la CLI posteriores.<br/><br/>
-> Además, no se crea el nombre de la región.  Azure determina el nombre de la región.
+> Además, no se crea el nombre de la región.  Azure es quien lo determina.
 
 ### <a name="list-azure-regions"></a>Enumeración de regiones de Azure
 
@@ -73,13 +73,13 @@ Cada uno de los pasos siguientes se realiza en un orden determinado porque uno o
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Los recursos que va a crear deben pertenecer a un grupo de recursos. Cree primero el grupo de recursos. Utilizará `your-resource-group-name` en el paso de creación de la cuenta de Media Services y los pasos posteriores.
+Los recursos que va a crear deben pertenecer a un grupo de recursos. Cree primero el grupo de recursos. Usará `your-resource-group-name` para la creación de la cuenta de Media Services y en los pasos posteriores.
 
 [!INCLUDE [Create a resource group with the CLI](./includes/task-create-resource-group-cli.md)]
 
 ## <a name="create-a-storage-account"></a>Creación de una cuenta de Storage
 
-La cuenta de Media Services que va a crear debe tener una cuenta de almacenamiento asociada. Cree primero la cuenta de almacenamiento de la cuenta de Media Services. Usará `your-storage-account-name` en los pasos posteriores.
+La cuenta de Media Services que va a crear debe tener una cuenta de almacenamiento asociada. Cree primero la cuenta de almacenamiento para la cuenta de Media Services. Usará `your-storage-account-name` en los pasos posteriores.
 
 [!INCLUDE [Create a Storage account with the CLI](./includes/task-create-storage-account-cli.md)]
 
@@ -117,34 +117,35 @@ func new --name OnAir --template "HTTP trigger" --authlevel "anonymous"
 
 ## <a name="configure-the-functions-project"></a>Configuración del proyecto de funciones
 
-### <a name="add-items-to-the-csproj-file"></a>Adición de elementos en el archivo .csproj
+### <a name="install-media-services-and-other-extensions"></a>Instalación de Media Services y otras extensiones
 
-En el archivo ".csproj" generado automáticamente, agregue las líneas siguientes a la primera `<ItemGroup>`:
+Ejecute el comando dotnet add package en la ventana del terminal para instalar los paquetes de extensión que necesita en el proyecto. El comando siguiente instala los paquetes de Media Services y Azure Identity.
 
-```xml
-<PackageReference Include="Microsoft.Azure.Management.Fluent" Version="1.37.0" />
-<PackageReference Include="Microsoft.Azure.Management.Media" Version="3.0.4" />
+```bash
+dotnet add package Microsoft.Azure.Management.Media
+dotnet add package Azure.Identity
 ```
 
 ### <a name="edit-the-onaircs-code"></a>Edición del código de OnAir.cs
 
 Cambie el archivo `OnAir.cs`. Cambie las variables `subscriptionId`, `resourceGroup` y `mediaServicesAccountName` por las que ha decidido anteriormente.
 
-```aspx-csharp
-using System.Threading.Tasks;
+```csharp
+using Azure.Core;
+using Azure.Identity;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Azure.Management.Media;
+using Microsoft.Azure.Management.Media.Models;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
-using Microsoft.Azure.Management.Media;
-using Microsoft.Azure.Management.ResourceManager.Fluent.Authentication;
-using Microsoft.Azure.Management.ResourceManager.Fluent;
-using Microsoft.Azure.Management.Media.Models;
+using Microsoft.Rest;
+using System.Threading.Tasks;
 
 namespace MediaServicesLiveMonitor
 {
-    public static class LatestAsset
+    public static class OnAir
     {
         [FunctionName("OnAir")]
         public static async Task<IActionResult> Run(
@@ -159,14 +160,18 @@ namespace MediaServicesLiveMonitor
             {
                 return new BadRequestObjectResult("Missing 'name' URL parameter");
             }
-            
-            var credentials = SdkContext.AzureCredentialsFactory.FromSystemAssignedManagedServiceIdentity(
-                MSIResourceType.AppService,
-                AzureEnvironment.AzureGlobalCloud);
 
-            var subscriptionId = "00000000-0000-0000-000000000000";    // Update
-            var resourceGroup = "<your-resource-group-name>";                                    // Update
-            var mediaServicesAccountName = "<your-media-services-account-name>";                    // Update
+            var credential = new ManagedIdentityCredential();
+            var accessTokenRequest = await credential.GetTokenAsync(
+                new TokenRequestContext(
+                    scopes: new string[] { "https://management.core.windows.net" + "/.default" }
+                    )
+                );
+            ServiceClientCredentials credentials = new TokenCredentials(accessTokenRequest.Token, "Bearer");
+
+            var subscriptionId = "00000000-0000-0000-000000000000";                 // Update
+            var resourceGroup = "<your-resource-group-name>";                       // Update
+            var mediaServicesAccountName = "<your-media-services-account-name>";    // Update
 
             var mediaServices = new AzureMediaServicesClient(credentials)
             {
@@ -179,7 +184,7 @@ namespace MediaServicesLiveMonitor
             {
                 return new NotFoundResult();
             }
-            
+
             return new OkObjectResult(liveEvent.ResourceState == LiveEventResourceState.Running ? "On air" : "Off air");
         }
     }

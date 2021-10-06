@@ -12,12 +12,12 @@ ms.date: 09/01/2021
 ms.author: aahi
 ms.custom: cog-serv-seo-aug-2020
 keywords: entorno local, Docker, contenedor
-ms.openlocfilehash: a1f82384d7191c65293c85bdc3ef70347c6646f5
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: da62c081a79211eb6eb56229eab856c89841746c
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124799042"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129533691"
 ---
 # <a name="install-and-run-docker-containers-for-the-speech-service-apis"></a>Instalación y ejecución de contenedores de Docker para las API del servicio de voz 
 
@@ -30,8 +30,8 @@ Los contenedores de Voz permiten a los clientes compilar una arquitectura de apl
 
 | Contenedor | Características | Más reciente | Estado de la versión |
 |--|--|--|--|
-| Voz a texto | Analice opiniones y transcriba grabaciones continuas de audio por lotes o de voz en tiempo real con resultados intermedios.  | 2.14.0 | Disponibilidad general |
-| Conversión de voz a texto personalizada | Con un modelo personalizado del [portal de Habla personalizada](https://speech.microsoft.com/customspeech), transcribe las grabaciones continuas de voz en tiempo real o de audio por lotes a texto con resultados inmediatos. | 2.14.0 | Disponibilidad general |
+| Voz a texto | Analice opiniones y transcriba grabaciones continuas de audio por lotes o de voz en tiempo real con resultados intermedios.  | 2.15.0 | Disponibilidad general |
+| Conversión de voz a texto personalizada | Con un modelo personalizado del [portal de Habla personalizada](https://speech.microsoft.com/customspeech), transcribe las grabaciones continuas de voz en tiempo real o de audio por lotes a texto con resultados inmediatos. | 2.15.0 | Disponibilidad general |
 | Texto a voz | Convierte texto a voz de sonido natural con entrada de texto sin formato o Lenguaje de marcado de síntesis de voz (SSML). | 1.15.0 | Disponibilidad general |
 | Identificación de idioma de la voz | Detecte el idioma que se habla en los archivos de audio. | 1.3.0 | Vista previa |
 | Texto a voz neuronal | Convierte texto en voz con un sonido natural utilizando una tecnología de red neuronal profunda, lo que permite obtener una voz sintetizada más natural. | 1.9.0 | Disponibilidad general |

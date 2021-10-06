@@ -10,12 +10,12 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
 ms.custom: devx-track-azurepowershell, references_regions
-ms.openlocfilehash: 1f7b4152bee090e39c598b559ffa9d2e8aea8e88
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: 99fe642b2b18beef27238c7092c8fcbfab4164a2
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123477751"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128570880"
 ---
 # <a name="optimize-costs-by-automatically-managing-the-data-lifecycle"></a>Optimizar los costes mediante la administración automática del ciclo de vida de los datos
 
@@ -153,8 +153,8 @@ La administración del ciclo de vida admite tanto la organización en niveles co
 | tierToArchive               | Se admite para `blockBlob`                  | Compatible     | Compatible     |
 | delete                      | Compatible en `blockBlob` y `appendBlob`. | Compatible     | Compatible     |
 
->[!NOTE]
->Si define más de una acción en el mismo blob, la administración del ciclo de vida aplica la acción menos cara al blob. Por ejemplo, la acción `delete` es más económica que la acción `tierToArchive`. La acción `tierToArchive` es más económica que la acción `tierToCool`.
+> [!NOTE]
+> Si define más de una acción en el mismo blob, la administración del ciclo de vida aplica la acción menos cara al blob. Por ejemplo, la acción `delete` es más económica que la acción `tierToArchive`. La acción `tierToArchive` es más económica que la acción `tierToCool`.
 
 Las condiciones de ejecución se basan en la antigüedad. Para realizar el seguimiento de la antigüedad, los blobs de base usan la hora de la última modificación, las versiones de los blobs usan la hora de creación de la versión y las instantáneas de los blobs usan la hora de creación de la instantánea.
 
@@ -364,11 +364,11 @@ En el caso de datos que se modifican y a los que se accede de forma regular a lo
 
 ## <a name="feature-support"></a>Compatibilidad de características
 
-En esta tabla se muestra cómo se admite esta característica en la cuenta y el impacto en la compatibilidad al habilitar determinadas funcionalidades. 
+En esta tabla se muestra cómo se admite esta característica en la cuenta y el impacto en la compatibilidad al habilitar determinadas funcionalidades.
 
-| Tipo de cuenta de almacenamiento                | Blob Storage (compatibilidad predeterminada)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>    
+| Tipo de cuenta de almacenamiento                | Blob Storage (compatibilidad predeterminada)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
 |-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
-| De uso general estándar, v2 | ![Sí](../media/icons/yes-icon.png) |![Sí](../media/icons/yes-icon.png)              | ![Sí](../media/icons/yes-icon.png) | 
+| De uso general estándar, v2 | ![Sí](../media/icons/yes-icon.png) |![Sí](../media/icons/yes-icon.png)              | ![Sí](../media/icons/yes-icon.png) |
 | Blobs en bloques Premium          | ![Sí](../media/icons/yes-icon.png)|![Sí](../media/icons/yes-icon.png) | ![Sí](../media/icons/yes-icon.png) |
 
 <sup>1</sup> Tanto Data Lake Storage Gen2 como el protocolo Network File System (NFS) 3.0 necesitan una cuenta de almacenamiento con un espacio de nombres jerárquico habilitado.
@@ -391,7 +391,7 @@ La plataforma ejecuta la directiva del ciclo de vida una vez al día. Una vez qu
 
 **Si actualizo una directiva existente, ¿cuánto tiempo tardan en ejecutarse las acciones?**
 
-La directiva actualizada tarda hasta 24 horas en entrar en vigor. Una vez que la directiva está en vigor, las acciones pueden tardar hasta 24 horas en ejecutarse. Por lo tanto, las acciones de la directiva pueden tardar hasta 48 horas en completarse. Si la actualización va a deshabilitar o eliminar una regla y se ha usado enableAutoTierToHotFromCool, se seguirán haciendo niveles automáticos en el nivel de acceso de acceso frecuente. Por ejemplo, establezca una regla que incluya enableAutoTierToHotFromCool en función del último acceso. Si la regla está deshabilitada o eliminada, y un blob se encuentra actualmente en estado de nivel de acceso esporádico y, después, se accede a él, volverá al nivel de acceso frecuente, que es el que se aplica en el acceso fuera de la administración del ciclo de vida. Luego, el blob no pasará de nivel de acceso frecuente a nivel de acceso esporádico, ya que la regla de administración del ciclo de vida está deshabilitada o eliminada.  La única manera de evitar autoTierToHotFromCool es desactivar el seguimiento de la hora del último acceso.
+La directiva actualizada tarda hasta 24 horas en entrar en vigor. Una vez que la directiva está en vigor, las acciones pueden tardar hasta 24 horas en ejecutarse. Por lo tanto, las acciones de la directiva pueden tardar hasta 48 horas en completarse. Si la actualización va a deshabilitar o eliminar una regla y se ha usado enableAutoTierToHotFromCool, se seguirán haciendo niveles automáticos en el nivel de acceso de acceso frecuente. Por ejemplo, establezca una regla que incluya enableAutoTierToHotFromCool en función del último acceso. Si la regla está deshabilitada o eliminada, y un blob se encuentra actualmente en estado de nivel de acceso esporádico y, después, se accede a él, volverá al nivel de acceso frecuente, que es el que se aplica en el acceso fuera de la administración del ciclo de vida. Luego, el blob no pasará de nivel de acceso frecuente a nivel de acceso esporádico, ya que la regla de administración del ciclo de vida está deshabilitada o eliminada. La única manera de evitar autoTierToHotFromCool es desactivar el seguimiento de la hora del último acceso.
 
 **He rehidratado manualmente un blob archivado, ¿cómo evito que vuelva temporalmente al nivel de archivo?**
 

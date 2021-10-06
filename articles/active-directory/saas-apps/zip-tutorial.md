@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/28/2021
+ms.date: 09/02/2021
 ms.author: jeedes
-ms.openlocfilehash: 952ab97602ade4a31637b2aa56262ec91551578e
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: aef3c8331b183600bc08508112de9f716af6b099
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111895647"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124800410"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zip"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Zip
 
@@ -38,6 +38,7 @@ Para empezar, necesita los siguientes elementos:
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
 * Zip admite el inicio de sesión único iniciado por **SP e IDP**.
+* Zip admite el [aprovisionamiento automatizado de usuarios](zip-provisioning-tutorial.md).
 
 > [!NOTE]
 > El identificador de esta aplicación es un valor de cadena fijo, por lo que solo se puede configurar una instancia en un inquilino.
@@ -134,6 +135,8 @@ Para configurar el inicio de sesión único en **Zip**, es preciso enviar el **c
 
 En esta sección, creará un usuario llamado Britta Simon en Zip. Trabaje con el [equipo de soporte técnico de Zip](mailto:support@tryevergreen.com) para agregar los usuarios a la plataforma de Zip. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
+Zip también admite el aprovisionamiento automático de usuarios. [Aquí](./zip-provisioning-tutorial.md) puede encontrar más detalles sobre cómo configurar el aprovisionamiento automático de usuarios.
+
 ## <a name="test-sso"></a>Prueba de SSO 
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones. 
@@ -148,8 +151,7 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 * Haga clic en **Probar esta aplicación** en Azure Portal; debería iniciar sesión automáticamente en la instancia de Zip para la que configuró el inicio de sesión único. 
 
-También puede usar Aplicaciones de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de Zip en Mis aplicaciones, si se ha configurado en modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para comenzar el flujo de inicio de sesión; y si se ha configurado en modo IDP, se debería iniciar sesión automáticamente en la instancia de Zip para la que ha configurado el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
-
+También puede usar Aplicaciones de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de Zip en Mis aplicaciones, si se ha configurado en modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para comenzar el flujo de inicio de sesión; y si se ha configurado en modo IDP, se debería iniciar sesión automáticamente en la instancia de Zip para la que ha configurado el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

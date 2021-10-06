@@ -9,37 +9,39 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/06/2021
+ms.date: 09/02/2021
 ms.author: jeedes
-ms.openlocfilehash: d440a765ba9504ecae351477c1583a45f293b967
-ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
+ms.openlocfilehash: 8e8395fc16d4228969d8fd90eccbc50ceeddfc36
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108804420"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124794830"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-two"></a>Tutorial: Integración de Azure Active Directory con Zscaler Two
 
 En este tutorial, aprenderá a integrar Zscaler Two con Azure Active Directory (Azure AD). Al integrar Zscaler Two con Azure AD, puede hacer lo siguiente:
 
-- Controlar en Azure AD quién tiene acceso a Zscaler Two.
-- Permitir que los usuarios inicien sesión automáticamente en Zscaler Two con sus cuentas de Azure AD.
-- Administrar las cuentas desde una ubicación central (Azure Portal).
+* Controlar en Azure AD quién tiene acceso a Zscaler Two.
+* Permitir que los usuarios inicien sesión automáticamente en Zscaler Two con sus cuentas de Azure AD.
+* Administrar las cuentas desde una ubicación central (Azure Portal).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Para configurar la integración de Azure AD con Zscaler Two, necesita los siguientes elementos:
 
-- Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener [una cuenta gratuita](https://azure.microsoft.com/free/).
-- Una suscripción habilitada para el inicio de sesión único en Zscaler Two.
+* Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener [una cuenta gratuita](https://azure.microsoft.com/free/).
+* Una suscripción habilitada para el inicio de sesión único en Zscaler Two.
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
 En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-- Zscaler Two admite inicio de sesión único iniciado por **SP**.
+* Zscaler Two admite inicio de sesión único iniciado por **SP**.
 
-- Zscaler Two admite aprovisionamiento de usuarios **Just-In-Time**.
+* Zscaler Two admite aprovisionamiento de usuarios **Just-In-Time**.
+
+* Zscaler Two admite el [aprovisionamiento automatizado de usuarios](zscaler-two-provisioning-tutorial.md).
 
 > [!NOTE]
 > El identificador de esta aplicación es un valor de cadena fijo, por lo que solo se puede configurar una instancia en un inquilino.
@@ -233,15 +235,18 @@ En esta sección, se crea un usuario llamado Britta Simon en Zscaler Two. Zscale
 > [!Note]
 > Si tiene que crear un usuario manualmente, póngase en contacto con el [equipo de soporte técnico de Zscaler Two](https://www.zscaler.com/company/contact).
 
+> [!NOTE]
+> Zscaler Two también admite el aprovisionamiento automático de usuarios. [Aquí](./zscaler-two-provisioning-tutorial.md) puede encontrar más detalles sobre cómo configurarlo.
+
 ## <a name="test-sso"></a>Prueba de SSO
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones.
 
-- Haga clic en **Probar esta aplicación** en Azure Portal. Esta acción le redirigirá a la dirección URL de inicio de sesión de Zscaler Two, donde puede iniciar el flujo de inicio de sesión.
+* Haga clic en **Probar esta aplicación** en Azure Portal. Esta acción le redirigirá a la dirección URL de inicio de sesión de Zscaler Two, donde puede iniciar el flujo de inicio de sesión.
 
-- Vaya directamente a la dirección URL de inicio de sesión de Zscaler Two e inicie el flujo de inicio de sesión desde allí.
+* Vaya directamente a la dirección URL de inicio de sesión de Zscaler Two e inicie el flujo de inicio de sesión desde allí.
 
-- Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Zscaler Two en Mis aplicaciones, se le redirigirá a la dirección URL de inicio de sesión de dicha aplicación. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Zscaler Two en Mis aplicaciones, se le redirigirá a la dirección URL de inicio de sesión de dicha aplicación. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

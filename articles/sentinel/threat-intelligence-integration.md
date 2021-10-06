@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/13/2021
 ms.author: yelevin
-ms.openlocfilehash: 82a2dca4c38a8d8602bf41ee36760e846edb5d78
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: ba9d853b6c4bcbe43b81463870a06821dc34d665
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124774754"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129277620"
 ---
 # <a name="threat-intelligence-integration-in-azure-sentinel"></a>Integración de inteligencia sobre amenazas en Azure Sentinel
 
@@ -67,7 +67,7 @@ Para conectarse a las fuentes de inteligencia sobre amenazas de TAXII, siga las 
 ### <a name="threatconnect"></a>ThreatConnect
 
 - [Más información sobre STIX y TAXII @ThreatConnect](https://threatconnect.com/stix-taxii/)
-- [Documentación de servicios de TAXII @ThreatConnect](https://docs.threatconnect.com/en/latest/rest_api/taxii/taxii.html)
+- [Documentación de servicios de TAXII @ThreatConnect](https://docs.threatconnect.com/en/latest/rest_api/v2/taxii/taxii.html)
 
 ## <a name="integrated-threat-intelligence-platform-products"></a>Productos de la plataforma de inteligencia sobre amenazas integrada
 

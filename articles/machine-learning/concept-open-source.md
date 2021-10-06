@@ -4,17 +4,17 @@ titleSuffix: Azure Machine Learning
 description: Aprenda a usar plataformas de aprendizaje automático de Python de código abierto para entrenar, implementar y administrar soluciones completas de aprendizaje automático en Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.topic: conceptual
 author: luisquintanilla
 ms.author: luquinta
 ms.date: 01/14/2020
-ms.openlocfilehash: 8ec9aaf2222924718ad21cf0654d138be22c2d19
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: d8c765bbf006d02ec2c5bdf87a621119c922b02b
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114293386"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129430124"
 ---
 # <a name="open-source-integration-with-azure-machine-learning-projects"></a>Integración de código abierto con proyectos de Azure Machine Learning
 

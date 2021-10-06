@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/15/2020
+ms.date: 08/31/2021
 ms.author: jeedes
-ms.openlocfilehash: e18cd80c0232c4552c0e3dc57a23477d410c5395
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a78ae10f7f5f5428f55003af81366c70c4433d81
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92442582"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128591945"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-hoxhunt"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Hoxhunt
 
@@ -38,6 +38,7 @@ Para empezar, necesita los siguientes elementos:
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
 * Hoxhunt admite el inicio de sesión único iniciado por **SP**.
+* Hoxhunt admite el [aprovisionamiento automatizado de usuarios](hoxhunt-provisioning-tutorial.md).
 
 ## <a name="adding-hoxhunt-from-the-gallery"></a>Adición de Hoxhunt desde la galería
 
@@ -70,7 +71,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. En Azure Portal, en la página de integración de la aplicación **Hoxhunt**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
 1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
-1. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
+1. En la página **Configuración del inicio de sesión único con SAML**, haga clic en el icono de lápiz de **Configuración básica de SAML** para editar la configuración.
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
@@ -92,6 +93,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 1. En la sección **Configurar Hoxhunt**, copie las direcciones URL que necesite.
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
+
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
 En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Portal.
@@ -124,15 +126,17 @@ Para configurar el inicio de sesión único en **Hoxhunt**, debe enviar el **cer
 
 En esta sección, creará una usuaria llamada Britta Simon en Hoxhunt. Trabaje con el [equipo de soporte técnico de Hoxhunt](mailto:support@hoxhunt.com) para agregar los usuarios a la plataforma de Hoxhunt. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
+Hoxhunt también admite el aprovisionamiento automático de usuarios. [Aquí](./hoxhunt-provisioning-tutorial.md) puede encontrar más detalles sobre cómo configurar el aprovisionamiento automático de usuarios.
+
 ## <a name="test-sso"></a>Prueba de SSO 
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones. 
 
-1. Haga clic en **Probar esta aplicación** en Azure Portal. Esto le redirigirá a la dirección URL de inicio de sesión de Hoxhunt, donde puede iniciar el flujo de inicio de sesión. 
+* Haga clic en **Probar esta aplicación** en Azure Portal. Esto le redirigirá a la dirección URL de inicio de sesión de Hoxhunt, donde puede iniciar el flujo de inicio de sesión. 
 
-2. Vaya directamente a la dirección URL de inicio de sesión de Hoxhunt e inicie el flujo de inicio de sesión desde allí.
+* Vaya directamente a la dirección URL de inicio de sesión de Hoxhunt e inicie el flujo de inicio de sesión desde allí.
 
-3. Puede usar el Panel de acceso de Microsoft. Al hacer clic en el icono de Hoxhunt en el Panel de acceso, se le redirigirá a la dirección URL de inicio de sesión de Hoxhunt. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
+* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Hoxhunt en Aplicaciones, se le redirigirá a la dirección URL de inicio de sesión de Hoxhunt. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

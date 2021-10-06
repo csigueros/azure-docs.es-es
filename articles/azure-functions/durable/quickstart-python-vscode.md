@@ -5,12 +5,12 @@ author: anthonychu
 ms.topic: quickstart
 ms.date: 12/23/2020
 ms.reviewer: azfuncdf, antchu
-ms.openlocfilehash: d84bc4977593a379fda817db67aaccd71793a787
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 235fa649245e973e934e0930b4490f4e4701c94b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121752315"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128571509"
 ---
 # <a name="create-your-first-durable-function-in-python"></a>Creación de la primera función durable en Python
 
@@ -144,7 +144,7 @@ Por último, agregará una función desencadenada por HTTP que inicie la orquest
     | Prompt | Value | Descripción |
     | ------ | ----- | ----------- |
     | Seleccionar una plantilla para la función | Inicio de HTTP de Durable Functions | Crear una función de inicio de HTTP |
-    | Proporcionar un nombre de función | DurableFunctionsHttpStart | Nombre de la función de actividad |
+    | Proporcionar un nombre de función | DurableFunctionsHttpStart | Nombre de la función del cliente |
     | Nivel de autorización | Anónimas | Para la demostración, permita que se llame a la función sin autenticación. |
 
 Ha agregado una función desencadenada por HTTP que inicia una orquestación. Open *DurableFunctionsHttpStart/\_\_init__.py* para ver que usa `client.start_new` para iniciar una nueva orquestación. A continuación, usa `client.create_check_status_response` para devolver una respuesta HTTP que contiene las direcciones URL que se pueden usar para supervisar y administrar la nueva orquestación.

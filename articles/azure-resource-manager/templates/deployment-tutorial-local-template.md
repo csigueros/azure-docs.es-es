@@ -5,12 +5,12 @@ ms.date: 02/10/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6737e2500b96d1c1872432c39761f8578de0ba02
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 9450a140d6c2fec93ccd836309690e15337b588b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108319744"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128638812"
 ---
 # <a name="tutorial-deploy-a-local-arm-template"></a>Tutorial: Implementación de una plantilla de Resource Manager local
 
@@ -44,7 +44,7 @@ La plantilla implementa una cuenta de almacenamiento, un plan de App Service y u
 :::code language="json" source="~/resourcemanager-templates/get-started-deployment/local-template/azuredeploy.json":::
 
 > [!IMPORTANT]
-> Los nombres de cuentas de almacenamiento deben tener entre 3 y 24 caracteres, y usar solo números y letras minúsculas. El nombre debe ser único. En la plantilla, el nombre de la cuenta de almacenamiento es el nombre del proyecto con **store** anexado, y el nombre del proyecto debe tener entre 3 y 11 caracteres. Por lo tanto, el nombre del proyecto debe cumplir los requisitos de nombre para la cuenta de almacenamiento y tener menos de 11 caracteres.
+> Los nombres de cuentas de almacenamiento deben ser únicos, tener entre 3 y 24 caracteres, y usar solo **números** y **letras minúsculas**. La variable de la plantilla de muestra `storageAccountName` combina el máximo de 11 caracteres del parámetro `projectName` con un valor [uniqueString](./template-functions-string.md#uniquestring) de 13 caracteres.
 
 Guarde una copia de la plantilla en la máquina local con la extensión _.json_, por ejemplo, _azuredeploy.json_. Esta plantilla se implementa más adelante en el tutorial.
 

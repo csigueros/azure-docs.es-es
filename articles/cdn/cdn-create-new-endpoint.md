@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 04/30/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: d98b7050b2472c1dd0405c213b450c719bcd8572
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: e045a7df3389dc58fe8ac2298f2f51b0337a5f94
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122322450"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124775519"
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint"></a>Inicio rápido: Creación de un perfil y un punto de conexión de Azure CDN
 
@@ -62,6 +62,9 @@ Después de crear un perfil de CDN, se usa para crear un punto de conexión.
    ![Punto de conexión de CDN](./media/cdn-create-new-endpoint/cdn-endpoint-success.png)
     
    El tiempo que tarda el punto de conexión en propagarse depende del plan de tarifa que se seleccionó al crear el perfil. **Akamai estándar** normalmente finaliza en un minuto, **Microsoft estándar** en 10 minutos y **Verizon estándar** y **Verizon premium** en 30 minutos como máximo.
+
+> [!NOTE]
+> En el caso de los *puntos de conexión de CDN de Verizon*, cuando un punto de conexión **está deshabilitado** o **detenido** por cualquier motivo, se limpiarán todos los recursos configurados a través del portal complementario de Verizon. Estas configuraciones no se pueden restaurar automáticamente al reiniciar el punto de conexión. Tendrá que volver a realizar esos cambios de configuración.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

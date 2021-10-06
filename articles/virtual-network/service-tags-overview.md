@@ -10,15 +10,15 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 4/23/2021
+ms.date: 9/20/2021
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: 11f8c7ddd7e06e9cc4c27173d5bb8f9dd14cbd42
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: 79785c82e06c9dc1621b3278ef886866ae9695ab
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122768477"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128590297"
 ---
 # <a name="virtual-network-service-tags"></a>Etiquetas de servicio de red virtual
 <a name="network-service-tags"></a>
@@ -101,6 +101,7 @@ De forma predeterminada, las etiquetas de servicio reflejan los intervalos de to
 | **Internet** | Espacio de direcciones IP que se encuentra fuera de la red virtual y es accesible a través de la red pública de Internet.<br/><br/>El intervalo de direcciones incluye el [espacio de direcciones IP públicas propiedad de Azure](https://www.microsoft.com/download/details.aspx?id=41653). | Ambos | No | No |
 | **LogicApps** | Logic Apps. | Ambos | No | No |
 | **LogicAppsManagement** | Tráfico de administración para Logic Apps. | Entrada | No | No |
+| **MicrosoftAzureFluidRelay** | Esta etiqueta representa las direcciones IP usadas para Azure Microsoft Fluid Relay Server. | Salida | No | No |
 | **MicrosoftCloudAppSecurity** | Microsoft Cloud App Security. | Salida | No | No |
 | **MicrosoftContainerRegistry** | Registro de contenedor para imágenes de contenedor de Microsoft. <br/><br/>*Nota:* Esta etiqueta presenta dependencia con la etiqueta **AzureFrontDoor.FirstParty**. | Salida | Sí | Sí |
 | **PowerBI** | PowerBi. *Nota: Esta etiqueta no se puede configurar actualmente desde Azure Portal.* | Ambos | No | No|
@@ -155,6 +156,19 @@ Puede descargar archivos JSON que contengan la lista actual de etiquetas de serv
 - [Azure Alemania](https://www.microsoft.com/download/details.aspx?id=57064)   
 
 Los intervalos de direcciones IP de estos archivos están en notación CIDR. 
+
+Tenga en cuenta que las siguientes etiquetas de AzureCloud no tienen nombres regionales con formato según el esquema normal: 
+- AzureCloud.centralfrance (FranceCentral)
+- AzureCloud.southfrance (FranceSouth)
+- AzureCloud.germanywc (GermanyWestCentral)
+- AzureCloud.germanyn (GermanyNorth)
+- AzureCloud.norwaye (NorwayEast)
+- AzureCloud.norwayw (NorwayWest)
+- AzureCloud.switzerlandn (SwitzerlandNorth)
+- AzureCloud.switzerlandw (SwitzerlandWest)
+- AzureCloud.usstagee (EastUSSTG)
+- AzureCloud.usstagec (SouthCentralUSSTG)
+
 
 > [!NOTE]
 >Un subconjunto de esta información se ha publicado en archivos XML para [Azure público](https://www.microsoft.com/download/details.aspx?id=41653), [Azure China](https://www.microsoft.com/download/details.aspx?id=42064) y [Azure Alemania](https://www.microsoft.com/download/details.aspx?id=54770). Estas descargas XML dejarán de usarse en el 30 de junio de 2020 y ya no estarán disponibles después de esa fecha. Debería migrar mediante Discovery API o las descargas de archivos JSON como se describió en las secciones anteriores.

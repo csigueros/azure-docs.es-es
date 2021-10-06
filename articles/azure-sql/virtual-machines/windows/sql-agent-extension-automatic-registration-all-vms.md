@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 9/01/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 894d16e1a72243bee9aff1fff2778ec75c2af6ec
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: 0e1193dea6826e4188a7d8f933d2c0a2637a72c1
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123227144"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128650161"
 ---
 # <a name="automatic-registration-with-sql-iaas-agent-extension"></a>Registro automático con la extensión Agente de IaaS de SQL
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -94,13 +94,17 @@ Para ello, siga estos pasos:
 1. Guarde [este script](https://github.com/microsoft/tigertoolbox/blob/master/AzureSQLVM/EnableBySubscription.ps1).
 1. Navegue hasta la ubicación donde guardó el script mediante un símbolo del sistema administrativo o una ventana de PowerShell. 
 1. Conéctese a Azure (`az login`).
-1. Ejecute el script, pasando SubscriptionIds como parámetros, como:   
-   `.\EnableBySubscription.ps1 -SubscriptionList SubscriptionId1,SubscriptionId2`
+1. Ejecute el script, y pase SubscriptionIds como parámetros. Si no se especifica ninguna suscripción, el script habilitará el registro automático para todas las suscripciones de la cuenta de usuario.    
 
-   Por ejemplo: 
+   El comando siguiente habilitará el registro automático para dos suscripciones: 
 
    ```console
    .\EnableBySubscription.ps1 -SubscriptionList a1a1a-aa11-11aa-a1a1-a11a111a1,b2b2b2-bb22-22bb-b2b2-b2b2b2bb
+   ```
+   El comando siguiente habilitará el registro automático para todas las suscripciones: 
+
+   ```console
+   .\EnableBySubscription.ps1
    ```
 
 Los errores de registro incorrecto se almacenan en `RegistrationErrors.csv`, que se encuentra en el mismo directorio donde guardó y dese el que ejecutó el script `.ps1`. 

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/08/2021
+ms.date: 09/01/2021
 ms.author: jeedes
-ms.openlocfilehash: 71a2ad9d9a9b3c4f8c2be23859782cdb7a38e13f
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: 946aa1a6a177dd89c851e977ac783806e8a9dcc5
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112464888"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128652232"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zenya"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Zenya
 
@@ -38,6 +38,7 @@ Para empezar, necesita los siguientes elementos:
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
 * Zenya admite el inicio de sesión único iniciado por **SP**.
+* Zenya admite el [aprovisionamiento automático de usuarios](iprova-provisioning-tutorial.md).
 
 ## <a name="add-zenya-from-the-gallery"></a>Agregar Zenya desde la galería
 
@@ -198,6 +199,9 @@ En esta sección, va a permitir que B.Simon acceda a Zenya mediante el inicio de
 
 10. Desplácese al final de la página y seleccione **Finalizar**.
 
+> [!NOTE]
+> Zenya también admite el aprovisionamiento automático de usuarios. [Aquí](./iprova-provisioning-tutorial.md) puede encontrar más detalles sobre cómo configurar el aprovisionamiento automático de usuarios.
+
 ## <a name="test-sso"></a>Prueba de SSO
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones. 
@@ -206,7 +210,7 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 * Acceda directamente a la URL de inicio de sesión de Zenya y ponga en marcha el flujo de inicio de sesión desde allí.
 
-* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Zenya en Aplicaciones, se le redirigirá a la URL de inicio de sesión de la aplicación. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Zenya en Aplicaciones, se le redirigirá a la URL de inicio de sesión de la aplicación. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

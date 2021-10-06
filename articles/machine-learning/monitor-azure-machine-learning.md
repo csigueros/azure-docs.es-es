@@ -3,19 +3,19 @@ title: Supervisión de Azure Machine Learning | Microsoft Docs
 description: Aprenda a usar Azure Monitor para ver, analizar y crear alertas de métricas de Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.topic: conceptual
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.custom: subject-monitoring
 ms.date: 10/01/2020
-ms.openlocfilehash: c0f35290aa653d5b9e9be9f1a9a0184854509889
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: 9c6cb28bd55038f06992d6423785d03ecf30205f
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121862215"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129424962"
 ---
 # <a name="monitor-azure-machine-learning"></a>Supervisión de Azure Machine Learning
 

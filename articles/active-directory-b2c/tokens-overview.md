@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b4e268d35a2e31db0ce92ff61e66fd23bce68e38
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 98ab4a660923f1a399317b9682a231774f310f3c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97516360"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128546961"
 ---
 # <a name="overview-of-tokens-in-azure-active-directory-b2c"></a>Configuración de tokens en Azure Active Directory B2C
 
@@ -76,11 +76,11 @@ Las siguientes propiedades se utilizan para [administrar la vigencia de los toke
 
 - **Duración del token de actualización (días)** : período de tiempo máximo antes del que puede usarse un token de actualización para adquirir un nuevo token de identificador o de acceso. El período de tiempo también cubre la adquisición de un nuevo token de actualización si se ha concedido el ámbito `offline_access` a la aplicación. El valor predeterminado es 14 días. El mínimo (incluido) es de 1 día. El máximo (incluido) es de 90 días.
 
-- **Duración de la ventana deslizante del token de actualización (días)** : después de transcurrido este período de tiempo, el usuario está obligado a volver a autenticarse, independientemente de cuál sea el período de validez del último token de actualización obtenido por la aplicación. Solo se pueden proporcionar si el conmutador se establece en **Bounded**(Enlazado). Es preciso que sea mayor o igual que el valor de **Vigencia del token de actualización (en días)** . Si el conmutador se establece en **Unbounded**(Sin enlazar), no se puede proporcionar un valor específico. El valor predeterminado es de 90 días. El mínimo (incluido) es de 1 día. El máximo (incluido) es de 365 días.
+- **Duración de la ventana deslizante del token de actualización (días)** : después de transcurrido este período de tiempo, el usuario está obligado a volver a autenticarse, independientemente de cuál sea el período de validez del último token de actualización obtenido por la aplicación. Solo se pueden proporcionar si el conmutador se establece en **Bounded**(Enlazado). Es preciso que sea mayor o igual que el valor de **Vigencia del token de actualización (en días)** . Si el conmutador se establece en **Sin expiración**, no puede proporcionar un valor específico. El valor predeterminado es de 90 días. El mínimo (incluido) es de 1 día. El máximo (incluido) es de 365 días.
 
 Los siguientes casos de uso se habilitan mediante estas propiedades:
 
-- Permiso para que un usuario pueda permanecer conectado en una aplicación móvil indefinidamente, siempre que esté continuamente activo en la misma. Establezca **Duración de la ventana deslizante del token de actualización (días)** en **Unbounded** (Sin enlazar) en el flujo de usuario de inicio de sesión.
+- Permiso para que un usuario pueda permanecer conectado en una aplicación móvil indefinidamente, siempre que esté continuamente activo en la misma. Establezca **Duración de la ventana deslizante del token de actualización (días)** en **Sin expiración** en el flujo de usuario de inicio de sesión.
 - Cumpla los requisitos de cumplimiento normativo y seguridad de la industria mediante el establecimiento de la vigencia adecuada del token de acceso.
 
 Estas opciones no están disponibles para flujos de usuario de restablecimiento de contraseña.

@@ -8,12 +8,12 @@ ms.date: 08/20/2021
 ms.author: dech
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: e23ff2623f124c78fb665641ba1f113b044d075a
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: c9ec0f3eb2846a6d5eb281202ebd9f9c278bdd70
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123440113"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124798985"
 ---
 # <a name="best-practices-for-scaling-provisioned-throughput-rus"></a>Procedimientos recomendados para escalar el rendimiento aprovisionado (RU/s) 
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -45,7 +45,7 @@ Vaya a **Información** > **Rendimiento** > **Normalized RU Consumption (%) By P
 :::image type="content" source="media/scaling-provisioned-throughput-best-practices/number-of-physical-partitions.png" alt-text="Recuento del número distinto de PartitionKeyRangeIds en el gráfico Normalized RU Consumption (%) by PartitionKeyRangeID chart"::: [Consumo de RU normalizado (%) por PartitionKeyRangeID]
 
 > [!NOTE]
-> El gráfico solo mostrará un máximo de 50 PartitionKeyRangeIds. Si el recurso tiene más de 50, puede usar la [API de REST de Azure Cosmos DB](https://docs.microsoft.com/rest/api/cosmos-db/get-partition-key-ranges#example) para contar el número total de particiones. 
+> El gráfico solo mostrará un máximo de 50 PartitionKeyRangeIds. Si el recurso tiene más de 50, puede usar la [API de REST de Azure Cosmos DB](/rest/api/cosmos-db/get-partition-key-ranges#example) para contar el número total de particiones. 
 
 Cada PartitionKeyRangeId se asigna a una partición física y se asigna para contener datos para un intervalo de valores hash posibles. 
 
@@ -147,7 +147,7 @@ Esto significa que para 1 TB de datos se necesitarán 1000 GB/40 GB = 25 part
 
 Si se usa el rendimiento de escalado automático o una base de datos de rendimiento compartido, para obtener 25 particiones físicas, primero se aprovisionan 25 * 10 000 RU/s = 250 000 RU/s. Dado que ya estamos en las RU/s más altas que se pueden admitir con 25 particiones físicas, no aumentaríamos aún más las RU/s aprovisionadas antes de la ingesta.
  
-En teoría, con 250 000 RU/s y 1 TB de datos, si se supone que se requieren documentos de 1 kb y 10 RU para escritura, la ingesta puede completarse teóricamente en: 1000 GB * (1 000 000 kb/1 GB) * (1 documento/1 kb) * (10 RU/documento) * (1 s/150 000 RU) * (1 hora/3600 segundos) = 11,1 horas. 
+En teoría, con 250 000 RU/s y 1 TB de datos, si se supone que se requieren documentos de 1 kb y 10 RU para escritura, la ingesta puede completarse teóricamente en: 1000 GB * (1 000 000 kb/1 GB) * (1 documento/1 kb) * (10 RU/documento) * (1 s/250 000 RU) * (1 hora/3600 segundos) = 11,1 horas. 
 
 Este cálculo es una estimación suponiendo que el cliente que realiza la ingesta puede saturar completamente el rendimiento y distribuir las escrituras entre todas las particiones físicas. Como procedimiento recomendado, se recomienda "seleccionar aleatoriamente" los datos del lado del cliente. Esto garantiza que cada segundo, el cliente escribe en muchas particiones lógicas distintas (y, por tanto, físicas). 
  

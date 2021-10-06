@@ -7,12 +7,12 @@ author: nabhishek
 ms.author: abnarain
 ms.topic: tutorial
 ms.date: 06/07/2021
-ms.openlocfilehash: 565a81f06d3fe70b4fc4a27eef0afba95748e5ed
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: f937d03691c21430f0055916b81e3a8963cbceba
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121722419"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124769852"
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory-using-the-azure-portal"></a>Transformación de datos en Azure Virtual Network mediante la actividad de Hive en Azure Data Factory con Azure Portal
 
@@ -38,10 +38,10 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 - **Cuenta de Azure Storage**. Cree un script de Hive y cárguelo en Azure Storage. La salida desde el script de Hive se almacena en esta cuenta de almacenamiento. En este ejemplo, el clúster de HDInsight usa esta cuenta de Azure Storage como el almacenamiento principal. 
 - **Azure Virtual Network.** Si no tiene ninguna instancia de Azure Virtual Network, cree una siguiendo [estas instrucciones](../virtual-network/quick-create-portal.md). En este ejemplo, HDInsight se encuentra en una instancia de Azure Virtual Network. A continuación, puede ver una configuración de ejemplo de Azure Virtual Network. 
 
-    ![Creación de una red virtual](media/tutorial-transform-data-using-hive-in-vnet-portal/create-virtual-network.png)
+    :::image type="content" source="media/tutorial-transform-data-using-hive-in-vnet-portal/create-virtual-network.png" alt-text="Creación de una red virtual":::
 - **Clúster de HDInsight.** Consulte el artículo siguiente para crear un clúster de HDInsight y unirlo a la red virtual que creó en el paso anterior: [Extender Azure HDInsight mediante una instancia de Azure Virtual Network](../hdinsight/hdinsight-plan-virtual-network-deployment.md). A continuación, puede ver una configuración de ejemplo de HDInsight en una red virtual. 
 
-    ![HDInsight en una red virtual](media/tutorial-transform-data-using-hive-in-vnet-portal/hdinsight-virtual-network-settings.png)
+    :::image type="content" source="media/tutorial-transform-data-using-hive-in-vnet-portal/hdinsight-virtual-network-settings.png" alt-text="HDInsight en una red virtual":::
 - **Azure PowerShell**. Siga las instrucciones de [Instalación y configuración de Azure PowerShell](/powershell/azure/install-Az-ps).
 - **Una máquina virtual**. Cree una máquina virtual de Azure y únala a la misma red virtual que contiene el clúster de HDInsight. Para obtener más información, consulte [Creación de máquinas virtuales](../virtual-network/quick-create-portal.md#create-virtual-machines). 
 
@@ -73,10 +73,10 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).    
 2. En el menú de la izquierda, haga clic en **Nuevo**, **Datos y análisis** y **Factoría de datos**. 
    
-   ![New->DataFactory](./media/tutorial-transform-data-using-hive-in-vnet-portal/new-data-factory-menu.png)
+   :::image type="content" source="./media/tutorial-transform-data-using-hive-in-vnet-portal/new-data-factory-menu.png" alt-text="Nuevo->DataFactory":::
 3. En la página **Nueva factoría de datos**, escriba **ADFTutorialHiveFactory** como **nombre**. 
       
-     ![Página New data factory (Nueva factoría de datos)](./media/tutorial-transform-data-using-hive-in-vnet-portal/new-azure-data-factory.png)
+     :::image type="content" source="./media/tutorial-transform-data-using-hive-in-vnet-portal/new-azure-data-factory.png" alt-text="Página New data factory (Nueva factoría de datos)":::
  
    El nombre de la instancia de Azure Data Factory debe ser **único de forma global**. Si recibe el siguiente error, cambie el nombre de la factoría de datos (por ejemplo, yournameMyAzureSsisDataFactory) e intente crearla de nuevo. Consulte el artículo [Azure Data Factory: reglas de nomenclatura](naming-rules.md) para conocer las reglas de nomenclatura de los artefactos de Data Factory.
   
@@ -94,55 +94,55 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 7. Haga clic en **Crear**.
 8. En el panel, verá el icono siguiente con el estado: **Deploying data factory** (Implementación de la factoría de datos). 
 
-     ![icono implementando factoría de datos](media/tutorial-transform-data-using-hive-in-vnet-portal/deploying-data-factory.png)
+     :::image type="content" source="media/tutorial-transform-data-using-hive-in-vnet-portal/deploying-data-factory.png" alt-text="icono implementando factoría de datos":::
 9. Una vez completada la creación, verá la página **Data Factory** tal como se muestra en la imagen.
    
-    ![Página principal Factoría de datos](./media/tutorial-transform-data-using-hive-in-vnet-portal/data-factory-home-page.png)
+    :::image type="content" source="./media/tutorial-transform-data-using-hive-in-vnet-portal/data-factory-home-page.png" alt-text="Página principal Factoría de datos":::
 10. Haga clic en **Author & Monitor** (Creación y supervisión) para iniciar la interfaz de usuario de Data Factory en una pestaña independiente.
 11. En la página principal, cambie a la pestaña **Administrar** del panel de la izquierda como se muestra en la siguiente imagen: 
 
-    ![Captura de pantalla en la que se muestra la pestaña Administrar.](media/doc-common-process/get-started-page-manage-button.png)
+    :::image type="content" source="media/doc-common-process/get-started-page-manage-button.png" alt-text="Captura de pantalla en la que se muestra la pestaña Administrar.":::
 
 ## <a name="create-a-self-hosted-integration-runtime"></a>Creación de una instancia de Integration Runtime autohospedada
 Como el clúster de Hadoop está dentro de una red virtual, debe instalar un entorno de ejecución de integración (IR) autohospedado en la misma red virtual. En esta sección, va a crear una nueva máquina virtual, se unirá a la misma red virtual e instalará un entorno de ejecución de integración autohospedado en ella. El entorno de ejecución de integración autohospedado permite al servicio Data Factory enviar solicitudes de proceso a un servicio de proceso como HDInsight en una red virtual. También permite mover datos hacia los almacenes de datos de una red virtual y, desde estos, a Azure. Puede usar un entorno de ejecución de integración autohospedado cuando el almacén de datos o de procesos está también en un entorno local. 
 
 1. En la interfaz de usuario de Azure Data Factory, haga clic en **Connections** (Conexiones) en la parte inferior de la ventana, vaya a la pestaña **Integration Runtimes** y haga clic en el botón **+ New** (+Nuevo) en la barra de herramientas. 
 
-   ![Menú Nuevo entorno de ejecución de integración](./media/tutorial-transform-data-using-hive-in-vnet-portal/new-integration-runtime-menu.png)
+   :::image type="content" source="./media/tutorial-transform-data-using-hive-in-vnet-portal/new-integration-runtime-menu.png" alt-text="Menú Nuevo entorno de ejecución de integración":::
 2. En la ventana **Integration Runtime Setup** (Configuración de Integration Runtime), seleccione la opción **Perform data movement and dispatch activities to external computes** (Realizar movimientos de datos y enviar actividades a procesos externos), y haga clic en **Next** (Siguiente). 
 
-   ![Seleccionar la opción Realizar movimientos de datos y enviar actividades](./media/tutorial-transform-data-using-hive-in-vnet-portal/select-perform-data-movement-compute-option.png)
+   :::image type="content" source="./media/tutorial-transform-data-using-hive-in-vnet-portal/select-perform-data-movement-compute-option.png" alt-text="Seleccionar la opción Realizar movimientos de datos y enviar actividades":::
 3. Seleccione **Private Network** (Red privada) y haga clic en **Next** (Siguiente).
     
-   ![Seleccionar red privada](./media/tutorial-transform-data-using-hive-in-vnet-portal/select-private-network.png)
+   :::image type="content" source="./media/tutorial-transform-data-using-hive-in-vnet-portal/select-private-network.png" alt-text="Seleccionar red privada":::
 4. Escriba **MySelfHostedIR** como **nombre** y haga clic en **Next** (Siguiente). 
 
-   ![Especificar nombre de entorno de ejecución de integración](./media/tutorial-transform-data-using-hive-in-vnet-portal/integration-runtime-name.png) 
+   :::image type="content" source="./media/tutorial-transform-data-using-hive-in-vnet-portal/integration-runtime-name.png" alt-text="Especificar nombre de entorno de ejecución de integración"::: 
 5. Copie la **clave de autenticación** del entorno de ejecución de integración haciendo clic en el botón de copia y guárdela. Mantenga la ventana abierta. Use esta clave para registrar el entorno de ejecución de integración instalado en una máquina virtual. 
 
-   ![Copiar clave de autenticación](./media/tutorial-transform-data-using-hive-in-vnet-portal/copy-key.png)
+   :::image type="content" source="./media/tutorial-transform-data-using-hive-in-vnet-portal/copy-key.png" alt-text="Copiar clave de autenticación":::
 
 ### <a name="install-ir-on-a-virtual-machine"></a>Instalación de un entorno de ejecución de integración en una máquina virtual
 
 1. En la máquina virtual de Azure, descargue la [instancia de Integration Runtime autohospedada](https://www.microsoft.com/download/details.aspx?id=39717). Use la **clave de autenticación** que obtuvo en el paso anterior para registrar manualmente el entorno de ejecución de integración autohospedado. 
 
-    ![Registro de Integration Runtime](media/tutorial-transform-data-using-hive-in-vnet-portal/register-integration-runtime.png)
+    :::image type="content" source="media/tutorial-transform-data-using-hive-in-vnet-portal/register-integration-runtime.png" alt-text="Registro de Integration Runtime":::
 
 2. Verá el siguiente mensaje cuando se haya registrado correctamente el entorno de ejecución de integración autohospedado. 
    
-    ![Se registró correctamente](media/tutorial-transform-data-using-hive-in-vnet-portal/registered-successfully.png)
+    :::image type="content" source="media/tutorial-transform-data-using-hive-in-vnet-portal/registered-successfully.png" alt-text="Se registró correctamente":::
 3. Haga clic en **Iniciar Configuration Manager**. Verá la siguiente página cuando el nodo esté conectado al servicio en la nube: 
    
-    ![El nodo está conectado](media/tutorial-transform-data-using-hive-in-vnet-portal/node-is-connected.png)
+    :::image type="content" source="media/tutorial-transform-data-using-hive-in-vnet-portal/node-is-connected.png" alt-text="El nodo está conectado":::
 
 ### <a name="self-hosted-ir-in-the-azure-data-factory-ui"></a>Entorno de ejecución de integración autohospedado en la interfaz de usuario de Azure Data Factory
 
 1. En la **interfaz de usuario de Azure Data Factory**, debería ver el nombre de la máquina virtual autohospedada y su estado.
 
-   ![Nodos autohospedados existentes](./media/tutorial-transform-data-using-hive-in-vnet-portal/existing-self-hosted-nodes.png)
+   :::image type="content" source="./media/tutorial-transform-data-using-hive-in-vnet-portal/existing-self-hosted-nodes.png" alt-text="Nodos autohospedados existentes":::
 2. Haga clic en **Finish** (Finalizar) para cerrar la ventana **Integration Runtime Setup** (Configuración de Integration Runtime). Puede ver que el entorno de ejecución de integración autohospedado aparece en la lista de entornos.
 
-   ![Entorno de ejecución de integración autohospedado en la lista](./media/tutorial-transform-data-using-hive-in-vnet-portal/self-hosted-ir-in-list.png)
+   :::image type="content" source="./media/tutorial-transform-data-using-hive-in-vnet-portal/self-hosted-ir-in-list.png" alt-text="Entorno de ejecución de integración autohospedado en la lista":::
 
 
 ## <a name="create-linked-services"></a>Crear servicios vinculados
@@ -155,10 +155,10 @@ En esta sección, deberá crear e implementar dos servicios vinculados:
 
 1. Vaya a la pestaña **Servicios vinculados** y haga clic en **Nuevo**.
 
-   ![Botón New linked service (Nuevo servicio vinculado)](./media/tutorial-transform-data-using-hive-in-vnet-portal/new-linked-service.png)    
+   :::image type="content" source="./media/tutorial-transform-data-using-hive-in-vnet-portal/new-linked-service.png" alt-text="Botón New linked service (Nuevo servicio vinculado)":::    
 2. En la ventana **New Linked Service** (Nuevo servicio vinculado), seleccione **Azure Blob Storage** y haga clic en **Continue** (Continuar). 
 
-   ![Seleccionar Azure Blob Storage](./media/tutorial-transform-data-using-hive-in-vnet-portal/select-azure-storage.png)
+   :::image type="content" source="./media/tutorial-transform-data-using-hive-in-vnet-portal/select-azure-storage.png" alt-text="Seleccionar Azure Blob Storage":::
 3. En la ventana **New Linked Service** (Nuevo servicio vinculado), realice los pasos siguientes:
 
     1. Escriba **AzureStorageLinkedService** en **Name** (Nombre).
@@ -167,16 +167,16 @@ En esta sección, deberá crear e implementar dos servicios vinculados:
     4. Haga clic en **Prueba de conexión** para probar la conexión con la cuenta de almacenamiento.
     5. Haga clic en **Save**(Guardar).
    
-        ![Especificar una cuenta de Azure Blob Storage](./media/tutorial-transform-data-using-hive-in-vnet-portal/specify-azure-storage-account.png)
+        :::image type="content" source="./media/tutorial-transform-data-using-hive-in-vnet-portal/specify-azure-storage-account.png" alt-text="Especificar una cuenta de Azure Blob Storage":::
 
 ### <a name="create-hdinsight-linked-service"></a>Creación del servicio vinculado de HDInsight
 
 1. Haga clic en **New** (Nuevo) una vez más para crear otro servicio vinculado. 
     
-   ![Botón New linked service (Nuevo servicio vinculado)](./media/tutorial-transform-data-using-hive-in-vnet-portal/new-linked-service.png)    
+   :::image type="content" source="./media/tutorial-transform-data-using-hive-in-vnet-portal/new-linked-service.png" alt-text="Botón New linked service (Nuevo servicio vinculado)":::    
 2. Vaya a la pestaña **Compute**, seleccione **Azure HDInsight** y haga clic en **Continuar**.
 
-    ![Seleccionar Azure HDInsight](./media/tutorial-transform-data-using-hive-in-vnet-portal/select-hdinsight.png)
+    :::image type="content" source="./media/tutorial-transform-data-using-hive-in-vnet-portal/select-hdinsight.png" alt-text="Seleccionar Azure HDInsight":::
 3. En la ventana **New Linked Service** (Nuevo servicio vinculado), realice los pasos siguientes:
 
     1. Escriba **AzureHDInsightLinkedService** como **nombre**.
@@ -185,7 +185,7 @@ En esta sección, deberá crear e implementar dos servicios vinculados:
     4. Escriba el **nombre de usuario** del clúster de HDInsight.
     5. Escriba la **contraseña** del usuario. 
     
-        ![Configuración de Azure HDInsight](./media/tutorial-transform-data-using-hive-in-vnet-portal/specify-azure-hdinsight.png)
+        :::image type="content" source="./media/tutorial-transform-data-using-hive-in-vnet-portal/specify-azure-hdinsight.png" alt-text="Configuración de Azure HDInsight":::
 
 En este artículo, se supone que tiene acceso al clúster a través de Internet. Por ejemplo, que se puede conectar al clúster en `https://clustername.azurehdinsight.net`. Esta dirección usa la puerta de enlace pública, que no está disponible si ha usado grupos de seguridad de red (NSG) o rutas definidas por el usuario (UDR) para restringir el acceso desde Internet. Para que Data Factory pueda enviar trabajos al clúster de HDInsight en Azure Virtual Network, debe configurar su instancia de Azure Virtual Network de modo que la URL pueda resolverse en la dirección IP privada de la puerta de enlace que usa HDInsight.
 
@@ -204,58 +204,58 @@ Tenga en cuenta los siguientes puntos:
 
 1. En la interfaz de usuario de Data Factory, haga clic en **+ (signo más)** en el panel izquierdo y haga clic en **Pipeline** (Canalización). 
 
-    ![Menú New pipeline (Nueva canalización)](./media/tutorial-transform-data-using-hive-in-vnet-portal/new-pipeline-menu.png)
+    :::image type="content" source="./media/tutorial-transform-data-using-hive-in-vnet-portal/new-pipeline-menu.png" alt-text="Menú New pipeline (Nueva canalización)":::
 2. En el cuadro de herramientas **Activities** (Actividades), expanda **HDInsight**, arrastre la actividad **Hive** y colóquela en la superficie del diseñador de canalizaciones. 
 
-    ![Arrastrar y colocar la actividad Hive](./media/tutorial-transform-data-using-hive-in-vnet-portal/drag-drop-hive-activity.png)
+    :::image type="content" source="./media/tutorial-transform-data-using-hive-in-vnet-portal/drag-drop-hive-activity.png" alt-text="Arrastrar y colocar la actividad Hive":::
 3. En la ventana de propiedades, vaya a la pestaña **HDI Cluster** (Clúster de HDI) y seleccione **AzureHDInsightLinkedService** como **servicio vinculado a HDInsight**.
 
-    ![Seleccionar servicio vinculado a HDInsight](./media/tutorial-transform-data-using-hive-in-vnet-portal/select-hdinsight-linked-service.png)
+    :::image type="content" source="./media/tutorial-transform-data-using-hive-in-vnet-portal/select-hdinsight-linked-service.png" alt-text="Seleccionar servicio vinculado a HDInsight":::
 4. Cambie a la pestaña **Scripts** y realice los pasos siguientes: 
 
     1. Seleccione **AzureStorageLinkedService** como **servicio vinculado de script**. 
     2. En **File Path** (Ruta de archivo), haga clic en **Browse Storage** (Examinar almacenamiento). 
  
-        ![Examinar almacenamiento](./media/tutorial-transform-data-using-hive-in-vnet-portal/browse-storage-hive-script.png)
+        :::image type="content" source="./media/tutorial-transform-data-using-hive-in-vnet-portal/browse-storage-hive-script.png" alt-text="Examinar almacenamiento":::
     3. En la ventana **Choose a file or folder** (Elegir un archivo o carpeta), vaya a la carpeta **hivescripts** del contenedor **adftutorial**, seleccione **hivescript.hql** y haga clic en **Finish** (Finalizar).  
         
-        ![Elegir un archivo o carpeta](./media/tutorial-transform-data-using-hive-in-vnet-portal/choose-file-folder.png) 
+        :::image type="content" source="./media/tutorial-transform-data-using-hive-in-vnet-portal/choose-file-folder.png" alt-text="Elegir un archivo o carpeta"::: 
     4. Confirme que ve **adftutorial/hivescripts/hivescript.hql** en **File Path** (Ruta de archivo).
 
-        ![Configuración del script](./media/tutorial-transform-data-using-hive-in-vnet-portal/confirm-hive-script-settings.png)
+        :::image type="content" source="./media/tutorial-transform-data-using-hive-in-vnet-portal/confirm-hive-script-settings.png" alt-text="Configuración del script":::
     5. En la **pestaña Script**, expanda la sección **Advanced** (Avanzadas). 
     6. Haga clic en **Auto-fill from script** (Rellenado automático a partir de script) en **Parameters** (Parámetros). 
     7. Escriba el valor del parámetro **Output** en el siguiente formato: `wasbs://<Blob Container>@<StorageAccount>.blob.core.windows.net/outputfolder/`. Por ejemplo: `wasbs://adftutorial@mystorageaccount.blob.core.windows.net/outputfolder/`.
  
-        ![Argumentos de script](./media/tutorial-transform-data-using-hive-in-vnet-portal/script-arguments.png)
+        :::image type="content" source="./media/tutorial-transform-data-using-hive-in-vnet-portal/script-arguments.png" alt-text="Argumentos de script":::
 1. Para publicar artefactos en Data Factory, haga clic en **Publish** (Publicar).
 
-    ![La captura de pantalla muestra la opción para publicar en una factoría de datos.](./media/tutorial-transform-data-using-hive-in-vnet-portal/publish.png)
+    :::image type="content" source="./media/tutorial-transform-data-using-hive-in-vnet-portal/publish.png" alt-text="La captura de pantalla muestra la opción para publicar en una factoría de datos.":::
 
 ## <a name="trigger-a-pipeline-run"></a>Desencadenamiento de una ejecución de la canalización
 
 1. En primer lugar, valide la canalización haciendo clic en el botón **Validate** (Comprobar) en la barra de herramientas. Cierre la ventana **Pipeline Validation Output** (Salida de comprobación de canalización) haciendo clic en **flecha derecha (>>)** . 
 
-    ![Comprobar la canalización](./media/tutorial-transform-data-using-hive-in-vnet-portal/validate-pipeline.png) 
+    :::image type="content" source="./media/tutorial-transform-data-using-hive-in-vnet-portal/validate-pipeline.png" alt-text="Comprobar la canalización"::: 
 2. Para desencadenar una ejecución de la canalización, haga clic en Trigger (Desencadenar) en la barra de herramientas y en Trigger Now (Desencadenar ahora). 
 
-    ![Trigger now (Desencadenar ahora)](./media/tutorial-transform-data-using-hive-in-vnet-portal/trigger-now-menu.png)
+    :::image type="content" source="./media/tutorial-transform-data-using-hive-in-vnet-portal/trigger-now-menu.png" alt-text="Trigger now (Desencadenar ahora)":::
 
 ## <a name="monitor-the-pipeline-run"></a>Supervisión de la ejecución de la canalización
 
 1. Cambie a la pestaña **Monitor** (Supervisar) de la izquierda. Puede ver una ejecución de canalización en la lista **Pipeline Runs** (Ejecuciones de canalización). 
 
-    ![La supervisión de la canalización se ejecuta](./media/tutorial-transform-data-using-hive-in-vnet-portal/monitor-pipeline-runs.png)
+    :::image type="content" source="./media/tutorial-transform-data-using-hive-in-vnet-portal/monitor-pipeline-runs.png" alt-text="Supervisión de las ejecuciones de canalización":::
 2. Haga clic en **Refresh** (Actualizar) para actualizar la lista.
 4. Para ver las ejecuciones de actividad asociadas a la de la canalización, primero haga clic en el vínculo **View Activity Runs** (Ver ejecuciones de actividad) de la columna **Action** (Acción). Otros vínculos de acción se usan para detener y volver a ejecutar la canalización. 
 
-    ![Ver ejecuciones de actividad](./media/tutorial-transform-data-using-hive-in-vnet-portal/view-activity-runs-link.png)
+    :::image type="content" source="./media/tutorial-transform-data-using-hive-in-vnet-portal/view-activity-runs-link.png" alt-text="Ver ejecuciones de actividad":::
 5. Verá solo una actividad de ejecución ya que solo hay una actividad en la canalización que sea del tipo **HDInsightHive**. Para volver a la vista anterior, haga clic en el vínculo **Pipelines** (Canalizaciones) de la parte superior.
 
-    ![Ejecuciones de actividad](./media/tutorial-transform-data-using-hive-in-vnet-portal/view-activity-runs.png)
+    :::image type="content" source="./media/tutorial-transform-data-using-hive-in-vnet-portal/view-activity-runs.png" alt-text="Ejecuciones de actividad":::
 6. Confirme que ve un archivo de salida en la carpeta **outputfolder** del contenedor **adftutorial**. 
 
-    ![Archivo de salida](./media/tutorial-transform-data-using-hive-in-vnet-portal/output-file.png)
+    :::image type="content" source="./media/tutorial-transform-data-using-hive-in-vnet-portal/output-file.png" alt-text="Archivo de salida":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este tutorial, realizó los pasos siguientes: 

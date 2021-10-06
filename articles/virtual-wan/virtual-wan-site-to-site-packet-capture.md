@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 04/13/2021
 ms.author: wellee
 Customer intent: As someone with a networking background using Virtual WAN, I want to perform a packet capture on my Site-to-site VPN Gateway.
-ms.openlocfilehash: 765285a8b7c2434c64d1513e510f1cf06b513291
-ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
+ms.openlocfilehash: 8970a275e295a54581876f13a2d4b0112c0116d9
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122598066"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128581992"
 ---
 # <a name="perform-packet-capture-on-the-azure-virtual-wan-site-to-site-vpn-gateway"></a>Captura de paquetes en puertas de enlace de VPN de sitio a sitio de Azure Virtual WAN 
 
@@ -78,7 +78,16 @@ Start-AzVpnGatewayPacketCapture -ResourceGroupName $rg -Name "<name of the Gatew
 > Tenga en cuenta que solo puede ejecutar una captura de paquetes en cinco conexiones VPN de manera simultánea.
 
 
-Ejecute los comandos siguientes. Para encontrar el nombre de las conexiones VPN de sitio a sitio, vaya al centro virtual y haga clic en VPN (de sitio a sitio) en Conectividad. A continuación, vaya al sitio VPN en el que desea realizar la captura de paquetes y haga clic en los tres puntos de la derecha. Haga clic en **Editar conexión VPN** en el menú que aparece.
+Para buscar el nombre de la conexión del sitio VPN, use el siguiente comando de PowerShell.
+
+   ```azurepowershell-interactive
+$connections = Get-AzVpnConnection -ResourceGroupName $rg -ParentResourceName "<name of the Gateway"
+$connections
+$connections.name
+   ```
+En el bloque de PowerShell anterior, las *conexiones* de variables locales contienen una matriz de todos los sitios VPN conectados a VPN Gateway de sitio a sitio. Busque la entrada correspondiente al sitio VPN en el que desea realizar una captura de paquetes. Copie el campo de *nombre* y utilícelo como el parámetro *-Name* en el comando Start-AzVpnConnectionPacketCapture siguiente. Como alternativa, puede ver los nombres de todas las conexiones accediendo a *connections.name*. 
+
+Para encontrar el nombre de los vínculos, siga estos pasos. Vaya al centro virtual y haga clic en VPN (de sitio a sitio) en Conectividad. A continuación, vaya al sitio VPN en el que desea realizar la captura de paquetes y haga clic en los tres puntos de la derecha. Haga clic en **Editar conexión VPN** en el menú que aparece.
 
 :::image type="content" source="./media/virtual-wan-pcap-screenshots/sample-connection.png" alt-text="Imagen de cómo buscar nombres de conexión VPN." lightbox="./media/virtual-wan-pcap-screenshots/sample-connection.png":::
 

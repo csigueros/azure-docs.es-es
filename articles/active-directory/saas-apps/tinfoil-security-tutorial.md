@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con TINFOIL SECURITY | Microsoft Docs'
+title: 'Tutorial: Integración del inicio de sesión único de Azure AD con TINFOIL SECURITY'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y TINFOIL SECURITY.
 services: active-directory
 author: jeevansd
@@ -9,24 +9,22 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/16/2019
+ms.date: 09/20/2021
 ms.author: jeedes
-ms.openlocfilehash: 5c2ac2c7bb1b60c87075a1bc62241edab2fc310e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fafc2d390959fd87eaba1b4fc3dd657d331ea34e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92516306"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128554772"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-tinfoil-security"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con TINFOIL SECURITY
+# <a name="tutorial-azure-ad-sso-integration-with-tinfoil-security"></a>Tutorial: Integración del inicio de sesión único de Azure AD con TINFOIL SECURITY
 
 En este tutorial, aprenderá a integrar TINFOIL SECURITY con Azure Active Directory (Azure AD). Al integrar TINFOIL SECURITY con Azure AD, puede hacer lo siguiente:
 
 * Controlar en Azure AD quién tiene acceso a TINFOIL SECURITY.
 * Permitir que los usuarios inicien sesión automáticamente en TINFOIL SECURITY con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
-
-Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -44,37 +42,37 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 > [!NOTE]
 > El identificador de esta aplicación es un valor de cadena fijo, por lo que solo se puede configurar una instancia en un inquilino.
 
-## <a name="adding-tinfoil-security-from-the-gallery"></a>Adición de TINFOIL SECURITY desde la galería
+## <a name="add-tinfoil-security-from-the-gallery"></a>Agregar TINFOIL SECURITY desde la galería
 
 Para configurar la integración de TINFOIL SECURITY en Azure AD, debe agregar TINFOIL SECURITY desde la galería a la lista de aplicaciones SaaS administradas.
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta personal, profesional o educativa de Microsoft.
+1. Inicie sesión en Azure Portal con una cuenta personal, profesional o educativa de Microsoft.
 1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory**.
 1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
 1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
 1. En la sección **Agregar desde la galería**, escriba **TINFOIL SECURITY** en el cuadro de búsqueda.
 1. Seleccione **TINFOIL SECURITY** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-tinfoil-security"></a>Configuración y prueba del inicio de sesión único de Azure AD para TINFOIL SECURITY
+## <a name="configure-and-test-azure-ad-sso-for-tinfoil-security"></a>Configuración y prueba del inicio de sesión único de Azure AD para TINFOIL SECURITY
 
 Configure y pruebe el inicio de sesión único de Azure AD con TINFOIL SECURITY con un usuario de prueba llamado **B.Simon**. Para que el inicio de sesión único funcione, es preciso establecer una relación de vinculación entre un usuario de Azure AD y el usuario relacionado de TINFOIL SECURITY.
 
-Para configurar y probar el inicio de sesión único de Azure AD con TINFOIL SECURITY, es preciso completar los siguientes bloques de creación:
+Para configurar y probar el inicio de sesión único de Azure AD con TINFOIL SECURITY, complete los siguientes pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    * **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
-    * **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único de TINFOIL SECURITY](#configure-tinfoil-security-sso)** : para configurar los valores de inicio de sesión único en la aplicación.
-    * **[Creación de un usuario de prueba de TINFOIL SECURITY](#create-tinfoil-security-test-user)** : para tener un homólogo de B.Simon en TINFOIL SECURITY que esté vinculado a la representación del usuario en Azure AD.
+    1. **[Creación de un usuario de prueba de TINFOIL SECURITY](#create-tinfoil-security-test-user)** : para tener un homólogo de B.Simon en TINFOIL SECURITY que esté vinculado a la representación del usuario en Azure AD.
 1. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
 
 Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal.
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **TINFOIL SECURITY**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
+1. En Azure Portal, en la página de integración de la aplicación **TINFOIL SECURITY**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
 1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
-1. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
+1. En la página **Configuración del inicio de sesión único con SAML**, haga clic en el icono de lápiz de **Configuración básica de SAML** para editar la configuración.
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
@@ -124,13 +122,7 @@ En esta sección, habilitará a B.Simon para que use el inicio de sesión único
 1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones**.
 1. En la lista de aplicaciones, seleccione **TINFOIL SECURITY**.
 1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos**.
-
-   ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
-
 1. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
-
-    ![Vínculo de Agregar usuario](common/add-assign-user.png)
-
 1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
 1. Si espera que haya un valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione en la lista el rol adecuado para el usuario y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
 1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
@@ -141,15 +133,15 @@ En esta sección, habilitará a B.Simon para que use el inicio de sesión único
 
 1. En la barra de herramientas de la parte superior, haga clic en el icono de **Mi cuenta**.
 
-    ![Panel](./media/tinfoil-security-tutorial/ic798971.png "Panel")
+    ![Panel](./media/tinfoil-security-tutorial/account.png "Panel")
 
 1. Haga clic en **Seguridad**.
 
-    ![Seguridad](./media/tinfoil-security-tutorial/ic798972.png "Seguridad")
+    ![Seguridad](./media/tinfoil-security-tutorial/details.png "Seguridad")
 
 1. Siga estos pasos en la página de configuración **Inicio de sesión único** :
 
-    ![Inicio de sesión único](./media/tinfoil-security-tutorial/ic798973.png "Inicio de sesión único")
+    ![Inicio de sesión único](./media/tinfoil-security-tutorial/certificate.png "Inicio de sesión único")
 
     a. Seleccione **Habilitar SAML**.
 
@@ -178,16 +170,12 @@ Para permitir que los usuarios de Azure AD inicien sesión en TINFOIL SECURITY, 
 
 ## <a name="test-sso"></a>Prueba de SSO
 
-En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
+En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones.
 
-Al hacer clic en el icono de TINFOIL SECURITY en el panel de acceso, debería iniciar sesión automáticamente en la instancia de TINFOIL SECURITY para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
+* Haga clic en Probar esta aplicación en Azure Portal. Se debería iniciar sesión automáticamente en la instancia de TINFOIL SECURITY para la que configuró el inicio de sesión único.
 
-## <a name="additional-resources"></a>Recursos adicionales
+* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de TINFOIL SECURITY en Aplicaciones, debería iniciar sesión automáticamente en la instancia de TINFOIL SECURITY para la que configuró el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
 
-- [Lista de tutoriales acerca de cómo integrar aplicaciones SaaS con Azure Active Directory](./tutorial-list.md)
+## <a name="next-steps"></a>Pasos siguientes
 
-- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
-
-- [¿Qué es el acceso condicional en Azure Active Directory?](../conditional-access/overview.md)
-
-- [Pruebe TINFOIL SECURITY con Azure AD](https://aad.portal.azure.com/)
+Una vez que haya configurado TINFOIL SECURITY, puede aplicar el control de sesión, que protege a la organización en tiempo real frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

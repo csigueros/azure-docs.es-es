@@ -3,12 +3,12 @@ title: Autenticación con una entidad de servicio
 description: Proporcione acceso a las imágenes de su registro de contenedor privado mediante una entidad de servicio de Azure Active Directory.
 ms.topic: article
 ms.date: 03/15/2021
-ms.openlocfilehash: 7d64f63de3227394d1f69b2049f0a58dda35e6e6
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.openlocfilehash: 117929df4c8b0fa7a54a23bcc039294122cd5afa
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111440725"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128651890"
 ---
 # <a name="azure-container-registry-authentication-with-service-principals"></a>Autenticación de Azure Container Registry con entidades de servicio
 
@@ -16,7 +16,7 @@ Puede usar una entidad de servicio de Azure Active Directory (Azure AD) para pr
 
 ## <a name="what-is-a-service-principal"></a>¿Qué es una entidad de servicio?
 
-Las *entidades de servicio* de Azure AD proporcionan acceso a los recursos de Azure de su suscripción. Las entidades de servicio son como identidades de usuario para un servicio, donde "servicio" equivale a cualquier aplicación, servicio o plataforma que necesita acceder a los recursos. Puede configurar una entidad de servicio con derechos de acceso limitados solo a aquellos recursos que especifique. A continuación, configure su aplicación o servicio para usar las credenciales de la entidad de servicio y acceder a dichos recursos.
+Las [*entidades de servicio*](../active-directory/develop/app-objects-and-service-principals.md) de Azure AD proporcionan acceso a los recursos de Azure de la suscripción. Las entidades de servicio son como identidades de usuario para un servicio, donde "servicio" equivale a cualquier aplicación, servicio o plataforma que necesita acceder a los recursos. Puede configurar una entidad de servicio con derechos de acceso limitados solo a aquellos recursos que especifique. A continuación, configure su aplicación o servicio para usar las credenciales de la entidad de servicio y acceder a dichos recursos.
 
 En el contexto de Azure Container Registry, puede crear una entidad de servicio de Azure AD con permisos de extracción, inserción y extracción u otros permisos para su registro de privado de Azure. Para obtener una lista completa, consulte [Roles y permisos de Azure Container Registry](container-registry-roles.md).
 
@@ -51,13 +51,13 @@ Puede encontrar los scripts del ejemplo anterior para la CLI de Azure en GitHub,
 
 Cuando disponga de una entidad de servicio con acceso a su registro de contenedor, podrá configurar sus credenciales para acceder a aplicaciones y servicios sin periféricos, o especificarlos mediante el comando `docker login`. Use los valores siguientes:
 
-* **Nombre de usuario**: identificador de aplicación de la entidad de servicio (también denominado *identificador de cliente*)
-* **Contraseña**: contraseña de la entidad de servicio (también denominada *secreto de cliente*)
+* **Nombre de usuario**: **identificador de aplicación (cliente)** de la entidad de servicio
+* **Contraseña**: **contraseña (secreto de cliente)** de la entidad de servicio
 
 Cada valor tiene el formato `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`. 
 
 > [!TIP]
-> Puede volver a generar la contraseña de una entidad de servicio mediante el comando [az ad sp reset-credentials](/cli/azure/ad/sp/credential#az_ad_sp_credential_reset).
+> Puede volver a generar la contraseña (secreto de cliente) de una entidad de servicio mediante el comando [az ad sp credential reset](/cli/azure/ad/sp/credential#az_ad_sp_credential_reset).
 >
 
 ### <a name="use-credentials-with-azure-services"></a>Uso de credenciales con los servicios de Azure

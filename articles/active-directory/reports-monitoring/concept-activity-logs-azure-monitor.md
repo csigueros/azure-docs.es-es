@@ -17,12 +17,12 @@ ms.date: 04/09/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e21e22e231ea5998cf15c7b2982180da91fe49aa
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: e7d66bd74263bd23c02cf465b1483ffe610179ee
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113733437"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128657925"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor"></a>Registros de actividad de Azure AD en Azure Monitor
 
@@ -41,7 +41,7 @@ Puede enrutar los registros de actividad de Azure Active Directory (Azure AD) a 
 
 Con esta característica, puede enrutar registros de auditoría y de inicios de sesión de Azure AD a la cuenta de almacenamiento de Azure, un centro de eventos, registros de Azure Monitor o una solución personalizada. 
 
-* **Registros de auditoría**: el [informe de actividad de registros de auditoría](concept-audit-logs.md) le proporciona acceso al historial de todas las tareas llevadas a cabo en el inquilino.
+* **Registros de auditoría**: el [informe de actividad de registros de auditoría](concept-audit-logs.md) proporciona acceso a información sobre los cambios aplicados al inquilino, como la administración de usuarios y grupos, o las actualizaciones aplicadas a los recursos del inquilino.
 * **Registros de inicio de sesión**: Con el [informe de actividad de inicios de sesión](concept-sign-ins.md), puede determinar quién ha realizado las tareas notificadas en el informe de registros de auditoría.
 
 > [!NOTE]

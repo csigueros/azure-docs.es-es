@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 12/31/2020
-ms.openlocfilehash: 0864eca7a6a93ddaa2023cae7b0a7f5dc8e2ebd0
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 20cfd57ea759138ff3e266632eb87b9f90669934
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114451513"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129426480"
 ---
 # <a name="connect-servicenow-to-azure-monitor"></a>Conexión de ServiceNow a Azure Monitor
 
@@ -32,4 +32,3 @@ Asegúrese de que se cumplen los requisitos previos siguientes:
    * [Quebec](https://docs.servicenow.com/bundle/quebec-it-operations-management/page/product/event-management/concept/azure-integration.html)
    * [París](https://docs.servicenow.com/bundle/paris-it-operations-management/page/product/event-management/concept/azure-integration.html)
    * [Orlando](https://docs.servicenow.com/bundle/orlando-it-operations-management/page/product/event-management/concept/azure-integration.html)
-   * [Nueva York](https://docs.servicenow.com/bundle/newyork-it-operations-management/page/product/event-management/concept/azure-integration.html)

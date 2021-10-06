@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: ce24fa1e3956d1ebfe7365a89e312bf8586ce770
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 4ca662f2d6b0a03f6487e4c4e4452aaaade08151
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122695440"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129357169"
 ---
 # <a name="deploy-openshift-container-platform-or-okd-in-azure-stack"></a>Implementación de OpenShift Container Platform u OKD en Azure Stack
 
@@ -49,9 +49,9 @@ Asegúrese de que tiene un nombre de usuario, una contraseña y un identificador
 
 Para implementar un clúster de OpenShift, es necesario agregar una imagen de RHEL (OpenShift Container Platform) o una imagen de CentOS (OKD) al entorno de Azure Stack. Póngase en contacto con el administrador de Azure Stack para agregar estas imágenes. Si necesita instrucciones, las encontrará aquí:
 
-- https://docs.microsoft.com/azure/azure-stack/azure-stack-add-vm-image
-- https://docs.microsoft.com/azure/azure-stack/azure-stack-marketplace-azure-items
-- https://docs.microsoft.com/azure/azure-stack/azure-stack-redhat-create-upload-vhd
+- [Adición y eliminación de una imagen de máquina virtual personalizada a Azure Stack Hub](/azure-stack/operator/azure-stack-add-vm-image)
+- [Elementos de Azure Marketplace disponibles para Azure Stack Hub](/azure-stack/operator/azure-stack-marketplace-azure-items)
+- [Oferta de una máquina virtual basada en Red Hat para Azure Stack Hub](/azure-stack/operator/azure-stack-redhat-create-upload-vhd)
 
 ## <a name="deploy-by-using-the-openshift-container-platform-or-okd-resource-manager-template"></a>Implementación con la plantilla de OpenShift Container Platform o de OKD Resource Manager
 

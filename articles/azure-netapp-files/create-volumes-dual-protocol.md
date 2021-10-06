@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 08/06/2021
+ms.date: 09/16/2021
 ms.author: b-juche
-ms.openlocfilehash: 33e01466a3e0629af9a691e33eb9161bf8098611
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: a37ce583e5392099c923e9bc0a7a3363fa7b97c0
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121751427"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128576860"
 ---
 # <a name="create-a-dual-protocol-volume-for-azure-netapp-files"></a>Creación de un volumen de dos protocolos para Azure NetApp Files
 
@@ -112,7 +112,7 @@ Para crear volúmenes NFS, consulte [Creación de un volumen NFS](azure-netapp-f
 
     * Si desea aplicar una directiva de instantáneas existente al volumen, haga clic en **Mostrar la sección avanzada** para expandirla, especifique si quiere ocultar la ruta de acceso de la instantánea y seleccione una directiva de instantáneas en el menú desplegable. 
 
-        Para obtener información sobre cómo crear una directiva de instantáneas, consulte [Administración de directivas de instantánea](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies).
+        Para obtener información sobre cómo crear una directiva de instantáneas, consulte [Administración de directivas de instantánea](snapshots-manage-policy.md).
 
         ![Mostrar la sección avanzada](../media/azure-netapp-files/volume-create-advanced-selection.png)
 
@@ -203,16 +203,24 @@ La opción **Allow local NFS users with LDAP** (Permitir usuarios NFS locales co
 
 ## <a name="manage-ldap-posix-attributes"></a>Administración de los atributos POSIX de LDAP
 
-Puede administrar los atributos POSIX como UID, el directorio particular y otros valores mediante el complemento de MMC Usuarios y equipos de Active Directory.  En el ejemplo siguiente se muestra el editor de atributos de Active Directory:  
+Puede administrar los atributos POSIX como UID, el directorio particular y otros valores mediante el complemento de MMC Usuarios y equipos de Active Directory.  En el ejemplo siguiente se muestra el editor de atributos de Active Directory: 
 
 ![Editor de atributos de Active Directory](../media/azure-netapp-files/active-directory-attribute-editor.png) 
 
 Debe establecer los siguientes atributos para los usuarios LDAP y los grupos LDAP: 
 * Atributos necesarios para los usuarios LDAP:   
-    `uid: Alice`, `uidNumber: 139`, `gidNumber: 555`, `objectClass: posixAccount`
+    `uid: Alice`,  
+    `uidNumber: 139`,  
+    `gidNumber: 555`,  
+    `objectClass: user, posixAccount`
 * Atributos necesarios para los grupos LDAP:   
-    `objectClass: posixGroup`, `gidNumber: 555`
+    `objectClass: group, posixGroup`,  
+    `gidNumber: 555`
 * Todos los usuarios y grupos deben tener unos valores `uidNumber` y `gidNumber`, respectivamente, únicos. 
+
+Los valores especificados para `objectClass` son entradas independientes. Por ejemplo, en el Editor de cadenas con varios valores, `objectClass` tendría valores independientes (`user` y `posixAccount`) especificados como se indica a continuación para los usuarios LDAP:   
+
+![Captura de pantalla del Editor de cadenas con varios valores en la que se muestran varios valores especificados para Clase de objeto.](../media/azure-netapp-files/multi-valued-string-editor.png) 
 
 Azure Active Directory Domain Services (AAD DS) no permite modificar atributos POSIX en usuarios y grupos creados en la unidad organizativa AADDC Users de la organización. Como solución alternativa, puede crear una unidad organizativa personalizada y crear usuarios y grupos en ella.
 

@@ -7,17 +7,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/10/2021
+ms.date: 09/20/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 836802e65c8eb76f17bbf053e54ed9dbedf54049
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 3e3cb266e9da128e9379d6868d189ac72408c4f7
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121740030"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128605836"
 ---
 # <a name="define-custom-attributes-in-azure-active-directory-b2c"></a>Definición de atributos personalizados en Azure Active Directory B2C
 
@@ -75,7 +75,8 @@ Los atributos de extensión solo se pueden registrar en un objeto de aplicación
 Para obtener el identificador de la aplicación:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-1. Seleccione el filtro **Directorio y suscripción** en el menú superior y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
 1. En el menú de la izquierda, seleccione **Azure AD B2C**. O bien, seleccione **Todos los servicios** y busque y seleccione **Azure AD B2C**.
 1. Seleccione **Registros de aplicaciones** y, después, **Todas las aplicaciones**.
 1. Seleccione la aplicación `b2c-extensions-app. Do not modify. Used by AADB2C for storing user data.`.
@@ -88,7 +89,8 @@ Para obtener el identificador de la aplicación:
 Obtención de las propiedades de la aplicación:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-1. Seleccione el filtro **Directorio y suscripción** en el menú superior y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
 1. En el menú de la izquierda, seleccione **Azure AD B2C**. O bien, seleccione **Todos los servicios** y busque y seleccione **Azure AD B2C**.
 1. Seleccione **Registros de aplicaciones** y, después, **Todas las aplicaciones**.
 1. Seleccione la aplicación `b2c-extensions-app. Do not modify. Used by AADB2C for storing user data.`.
@@ -128,10 +130,11 @@ Para habilitar los atributos personalizados en la directiva, especifique el **Id
 ## <a name="upload-your-custom-policy"></a>Carga de la directiva personalizada
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-2. Asegúrese de usar el directorio que contiene el inquilino de Azure AD. Para ello, seleccione el filtro **Directorio y suscripción** en el menú superior y luego el directorio que contiene el inquilino de Azure AD B2C.
-3. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Registros de aplicaciones**.
-4. Seleccione **Marco de experiencia de identidad**.
-5. Seleccione **Cargar directiva personalizada** y cargue los dos archivos de la directiva TrustFrameworkExtensions.xml modificados.
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
+1. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Registros de aplicaciones**.
+1. Seleccione **Marco de experiencia de identidad**.
+1. Seleccione **Cargar directiva personalizada** y cargue los dos archivos de la directiva TrustFrameworkExtensions.xml modificados.
 
 > [!NOTE]
 > La primera vez que el perfil técnico de Azure AD conserva la notificación en el directorio, comprueba si existe el atributo personalizado. Si no existe, lo crea.  

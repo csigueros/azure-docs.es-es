@@ -7,18 +7,17 @@ author: rastala
 ms.author: roastala
 ms.reviewer: larryfr
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.date: 08/24/2021
 ms.topic: how-to
-ms.openlocfilehash: 397f22711eadc38c82625a8b6a899f6485d798cf
-ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
+ms.openlocfilehash: 0966d85fcab33752359c5174f6205c5556f2a137
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122778238"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129427939"
 ---
 # <a name="use-authentication-credential-secrets-in-azure-machine-learning-training-runs"></a>Uso de secretos de credenciales de autenticación en ejecuciones de entrenamiento de Azure Machine Learning
-
 
 En este artículo, aprenderá a usar secretos en las ejecuciones de entrenamiento de forma segura. Los datos de autenticación (por ejemplo, el nombre de usuario y la contraseña) son secretos. Por ejemplo, si se conecta a una base de datos externa para consultar datos de entrenamiento, deberá pasar el nombre de usuario y la contraseña al contexto de ejecución remoto. La codificación de estos valores en los scripts de entrenamiento en texto no cifrado no es segura, ya que expondría el secreto. 
 

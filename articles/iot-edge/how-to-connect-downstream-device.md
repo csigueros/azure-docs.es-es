@@ -11,12 +11,12 @@ ms.custom:
 - amqp
 - mqtt
 - devx-track-js
-ms.openlocfilehash: 92e1a38e962c80de53971523320cd168cfc66d06
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 8385d046a57fe5bb4faab1f31daaa05c9f207e9f
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121740660"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129456544"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>Conexión de un dispositivo de bajada a una puerta de enlace Azure IoT Edge
 
@@ -197,7 +197,7 @@ En hosts con Windows, si no utiliza OpenSSL ni otra biblioteca de TLS, el SDK ut
 
 Esta sección presenta una aplicación de ejemplo para conectar un cliente de dispositivo de Java de Azure IoT a una puerta de enlace IoT Edge.
 
-1. Puede obtener el ejemplo **Send-event** en los [Ejemplos del SDK de dispositivo IoT de Azure para Java](https://github.com/Azure/azure-iot-sdk-java/tree/master/device/iot-device-samples).
+1. Puede obtener el ejemplo **Send-event** en los [Ejemplos del SDK de dispositivo IoT de Azure para Java](https://github.com/Azure/azure-iot-sdk-java/tree/main/device/iot-device-samples).
 2. Asegúrese de que tiene todos los requisitos previos para ejecutar el ejemplo; para ello, revise el archivo **readme.md**.
 3. Consulte la documentación del SDK para obtener instrucciones sobre cómo ejecutar el ejemplo en el dispositivo.
 

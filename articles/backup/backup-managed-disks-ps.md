@@ -2,14 +2,14 @@
 title: Restauración de Azure Managed Disks mediante Azure PowerShell
 description: Aprenda a hacer una copia de seguridad de Azure Managed Disks con Azure PowerShell.
 ms.topic: conceptual
-ms.date: 03/26/2021
+ms.date: 09/17/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 31259bdbdc99fd307337cd6059f9160a0aeaf05e
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: beb6a266a9436b7c26f5786c5f5a57f10fb9319a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110672138"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128672716"
 ---
 # <a name="back-up-azure-managed-disks-using-azure-powershell"></a>Restauración de Azure Managed Disks mediante Azure PowerShell
 
@@ -113,7 +113,7 @@ Azure Disk Backup le ofrece varias copias de seguridad al día. Si necesita real
    >[!NOTE]
    > Aunque el almacén seleccionado puede tener la configuración de redundancia global, Azure Disk Backup solo admite el almacén de datos de la instantánea. Todas las copias de seguridad se almacenan en un grupo de recursos de la suscripción y no se copian en el almacén de copias de seguridad.
 
-Para más información sobre la creación de directivas, consulte el documento [Directiva de copia de seguridad de discos de Azure](backup-managed-disks.md#create-backup-policy).
+Para más información sobre la creación de directivas, consulte el documento [Creación de una directiva de copia de seguridad](backup-managed-disks.md#create-backup-policy).
 
 Si quiere editar la frecuencia por hora o el período de retención, use los comandos [Edit-AzDataProtectionPolicyTriggerClientObject](/powershell/module/az.dataprotection/edit-azdataprotectionpolicytriggerclientobject?view=azps-5.7.0&preserve-view=true) o [Edit-AzDataProtectionPolicyRetentionRuleClientObject](/powershell/module/az.dataprotection/edit-azdataprotectionpolicyretentionruleclientobject?view=azps-5.7.0&preserve-view=true). Una vez que el objeto de directiva tenga todos los valores deseados, continúe con la creación de una directiva a partir de dicho objeto con el comando [New-AzDataProtectionBackupPolicy](/powershell/module/az.dataprotection/new-azdataprotectionbackuppolicy?view=azps-5.7.0&preserve-view=true).
 
@@ -155,7 +155,50 @@ Los almacenes de copia de seguridad requieren permisos en el disco y en el grupo
 
 ### <a name="assign-permissions"></a>Asignación de permisos
 
-El usuario debe asignar algunos permisos mediante RBAC al almacén (representado por el valor de MSI del almacén) y al disco o el grupo de recursos del disco pertinentes. Para ello se puede usar el portal o PowerShell. Todos los permisos relacionados se detallan en los puntos 1, 2 y 3 de [esta sección](backup-managed-disks.md#configure-backup).
+El usuario debe asignar algunos permisos mediante RBAC al almacén (representado por el valor de MSI del almacén) y al disco o el grupo de recursos del disco pertinentes. Para ello se puede usar el portal o PowerShell.
+
+El almacén de Backup usa la identidad administrada para obtener acceso a otros recursos de Azure. Para configurar la copia de seguridad de los discos administrados, la identidad administrada del almacén de Backup necesita un conjunto de permisos en los discos de origen y los grupos de recursos donde se crean y administran las instantáneas.
+
+Solo hay un identidad administrada asignada por cada recurso y está asociada al ciclo de vida del recurso. Puede conceder permisos a la identidad administrada mediante el control de acceso basado en roles de Azure (Azure RBAC). Tenga en cuenta que una identidad administrada es una entidad de servicio de un tipo especial que solo se puede usar con recursos de Azure. Obtenga más información sobre las [identidades administradas](/azure/active-directory/managed-identities-azure-resources/overview).
+
+Para configurar la copia de seguridad de los discos administrados, se necesitan los siguientes requisitos previos:
+
+- Asigne el rol **Lector de copias de seguridad de disco** a la identidad administrada del almacén de Backup en el disco de origen del que se tiene que realizar la copia de seguridad.
+
+  1. Vaya al disco del que se debe hacer una copia de seguridad.
+  1. Vaya al **Control de acceso (IAM)** y seleccione **Add role assignments** (Agregar asignaciones de roles).
+  1. En el panel contextual de la derecha, seleccione **Lector de copias de seguridad de disco** en la lista desplegable **Rol**.
+  1. Seleccione la identidad administrada del almacén de Backup y haga clic en **Guardar**.
+  
+     >[!Tip]
+     >Escriba el nombre del almacén de Backup para seleccionar su identidad administrada.
+
+  :::image type="content" source="./media/backup-managed-disks-ps/assign-disk-backup-reader-role-inline.png" alt-text="Captura de pantalla en la que se muestra el proceso de asignación del rol Lector de copias de seguridad de disco a la identidad administrada del almacén de Backup en el disco de origen del que se tiene que realizar la copia de seguridad." lightbox="./media/backup-managed-disks-ps/assign-disk-backup-reader-role-expanded.png":::
+
+- Asigne el rol de **Colaborador de instantáneas de discos** a la identidad administrada del almacén de Backup que se encuentra en el grupo de recursos donde el servicio Azure Backup crea y administra las copias de seguridad. Las instantáneas de disco se almacenan en un grupo de recursos de la suscripción. Para permitir que el servicio Azure Backup cree, almacene y administre instantáneas, debe proporcionar permisos al almacén de Backup.
+
+  1. Vaya al grupo de recursos. Por ejemplo, el grupo de recursos _SnapshotRG_ se encuentra en la misma suscripción que el disco del que se va a realizar la copia de seguridad.
+  1. Vaya al **Control de acceso (IAM)** y seleccione **Add role assignments** (Agregar asignaciones de roles).
+  1. En el panel contextual de la derecha, seleccione **Colaborador de instantáneas de discos** en la lista desplegable **Rol**. 
+  1. Seleccione la identidad administrada del almacén de Backup y haga clic en **Guardar**.
+  
+     >[!Tip]
+     >Escriba el nombre del almacén de Backup para seleccionar la identidad administrada del mismo.
+
+  :::image type="content" source="./media/backup-managed-disks-ps/assign-disk-snapshot-contributor-role-inline.png" alt-text="Captura de pantalla en la que se muestra el proceso de asignación del rol Colaborador de instantáneas de discos a la identidad administrada del almacén de Backup en el grupo de recursos." lightbox="./media/backup-managed-disks-ps/assign-disk-snapshot-contributor-role-expanded.png":::
+
+- Compruebe que la identidad administrada del almacén de Backup tiene el conjunto adecuado de asignaciones de roles en el disco de origen y el grupo de recursos que servirán de almacén de datos de instantáneas.
+
+  1. Vaya a **Almacén de Backup** -> **Identidad** y seleccione **Asignaciones de roles de Azure**.
+ 
+     :::image type="content" source="./media/backup-managed-disks-ps/select-azure-role-assignments-inline.png" alt-text="Captura de pantalla en la que se muestra la selección de asignaciones de roles de Azure." lightbox="./media/backup-managed-disks-ps/select-azure-role-assignments-expanded.png":::
+
+  1. Compruebe que el rol, el nombre del recurso y el tipo de recurso son correctos.
+ 
+     :::image type="content" source="./media/backup-managed-disks-ps/verify-role-assignment-details-inline.png" alt-text="Captura de pantalla en la que se muestra la comprobación del rol, el nombre del recurso y el tipo de recurso." lightbox="./media/backup-managed-disks-ps/verify-role-assignment-details-expanded.png":::
+
+>[!Note]
+>Aunque las asignaciones de roles se reflejan correctamente en el portal, el permiso puede tardar aproximadamente entre 15 y 30 minutos en aplicarse en la identidad administrada del almacén de Backup.
 
 ### <a name="prepare-the-request"></a>Preparación de la solicitud
 

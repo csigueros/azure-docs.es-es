@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/03/2021
+ms.date: 09/13/2021
 ms.author: duau
-ms.openlocfilehash: d21066563f3b3e2e27b5e1a2b2b96b520bd62311
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 1fb1aafed996fa79177157f6c20e6727ee532e7d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123542078"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128563122"
 ---
 # <a name="caching-with-azure-front-door"></a>Almacenamiento en caché con Azure Front Door
 En el documento siguiente se especifican los comportamientos de Front Door con reglas de enrutamiento que han habilitado el almacenamiento en caché. Front Door es una red Content Delivery Network (CDN) moderna con aceleración de sitios dinámicos y equilibrio de carga; también admite comportamientos de almacenamiento en caché como cualquier otra red CDN.
@@ -81,6 +81,9 @@ Estos perfiles admiten las codificaciones de compresión siguientes:
 Si una solicitud admite la compresión gzip y Brotli, la compresión Brotli tiene prioridad.</br>
 Cuando una solicitud de un recurso especifica la compresión y la solicitud genera un error de caché, Front Door realiza la compresión del recurso directamente en el servidor POP. Después, el archivo comprimido se envía desde la caché. El elemento resultante se devuelve con transfer-encoding: chunked.
 
+> [!NOTE]
+> Las solicitudes de rango se pueden comprimir en tamaños diferentes. En Azure Front Door es necesario que los valores de longitud del contenido sean los mismos para cualquier solicitud HTTP GET. Si los clientes envían solicitudes de rango de bytes con el encabezado `accept-encoding` que provoca que el origen responda con diferentes longitudes de contenido, Azure Front Door devolverá un error 503. Puede deshabilitar la compresión en Origen/Azure Front Door, o bien crear una regla de conjunto de reglas para quitar `accept-encoding` de la solicitud para las solicitudes de rango de bytes.
+
 ## <a name="query-string-behavior"></a>Comportamiento de las cadenas de consulta
 Front Door permite controlar cómo se almacenan los archivos en caché para una solicitud web que contiene una cadena de consulta. En una solicitud web con una cadena de consulta, esta última es la parte de la solicitud que hay después del signo de interrogación (?). Una cadena de consulta puede contener uno o más pares clave-valor, en los cuales el nombre de campo y su valor están separados por un signo igual (=). Los pares clave-valor están separados entre ellos por una Y comercial (&). Por ejemplo, `http://www.contoso.com/content.mov?field1=value1&field2=value2`. Si hay más de un par clave-valor en una cadena de consulta de una solicitud, no importa el orden en el que se especifiquen.
 - **Pasar por alto las cadenas de consulta**: En este modo, Front Door pasa las cadenas de consulta del solicitante al back-end en la primera solicitud y almacena en la memoria caché el recurso. Todas las solicitudes del recurso subsecuentes que se ofrecen desde el entorno de Front Door omiten las cadenas de consulta hasta que expira el recurso en caché.
@@ -132,7 +135,9 @@ La duración y el comportamiento de la caché se pueden configurar tanto en la r
     * Cuando *Usar duración de caché predeterminada* está establecido en **No**, Front Door siempre invalida con la *duración de la caché* (campos obligatorios), lo que significa que almacena en caché el contenido durante la duración de la caché y omite los valores de las directivas de respuesta de origen. 
 
 > [!NOTE]
-> La *duración de la caché* establecida en la regla de enrutamiento del diseñador de Front Door es la **duración de la caché mínima**. Esta invalidación no funciona si el encabezado de control de la caché del origen tiene un TTL mayor que el valor de invalidación.
+> * La *duración de la caché* establecida en la regla de enrutamiento del diseñador de Front Door es la **duración de la caché mínima**. Esta invalidación no funciona si el encabezado de control de la caché del origen tiene un TTL mayor que el valor de invalidación.
+> * El contenido almacenado en caché se puede expulsar de Azure Front Door antes de que haya expirado si no se solicita con la frecuencia suficiente para acomodar el contenido solicitado con más frecuencia.
+>
 
 ## <a name="next-steps"></a>Pasos siguientes
 

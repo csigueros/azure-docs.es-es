@@ -12,12 +12,12 @@ ms.date: 09/01/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: texto a voz
-ms.openlocfilehash: a12ceb0226c71e7be8676729d9e2f599768875e7
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 7be06937cf9f3117d426fd9c19cbb6059826e6ec
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123538262"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124736904"
 ---
 # <a name="what-is-neural-text-to-speech"></a>¿Qué es el texto a voz neuronal?
 
@@ -85,7 +85,7 @@ Para obtener más información, consulte [Precios](https://azure.microsoft.com/p
 
 ## <a name="migrate-to-neural-voice"></a>Migración a Voz neuronal
 
-Vamos a retirar las voces estándar el **31 de agosto de 2024** y ya no se admitirán después de esa fecha.El anuncio se envió a todas las suscripciones de Voz existentes antes del **31 de agosto de 2021**. Durante el período de retirada (**del 31 de agosto de 2021 al 31 de agosto de 2024**), los usuarios existentes pueden seguir usando sus voces estándar, todos los nuevos usuarios o nuevos recursos de voz deben moverse a las voces neuronales.
+Vamos a retirar las voces estándar el **31 de agosto de 2024** y ya no se admitirán después de esa fecha.El anuncio se envió a todas las suscripciones de Voz existentes antes del **31 de agosto de 2021**. Durante el período de retirada (**del 31 de agosto de 2021 al 31 de agosto de 2024**), los usuarios de la voz estándar existentes pueden seguir usando sus voces estándar, todos los nuevos usuarios o nuevos recursos de voz deben moverse a las voces neuronales.
 
 **Acción requerida**
 

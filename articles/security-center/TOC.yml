@@ -127,6 +127,9 @@
         - name: Introducción a Azure Defender para servidores
           displayName: VM
           href: defender-for-servers-introduction.md
+        - name: Aplicación de líneas base de seguridad de Azure
+          displayName: 'VM, guest configuration, vulnerabilities, ASB, benchmark'
+          href: apply-security-baseline.md
         - name: Examen de vulnerabilidades
           items:
             - name: Análisis de máquinas con el examinador de VA integrado

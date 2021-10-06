@@ -6,13 +6,13 @@ ms.author: srranga
 ms.custom: references_regions
 ms.service: postgresql
 ms.topic: overview
-ms.date: 07/30/2021
-ms.openlocfilehash: 5423af2f148a56e978bfbe6a1584b3e281f9a1a4
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/21/2021
+ms.openlocfilehash: f5b1caaef90a25e6635c30d1e3272438a408393b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121740288"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128589632"
 ---
 # <a name="release-notes---azure-database-for-postgresql---flexible-server"></a>Notas de la versión del servidor flexible de Azure Database for PostgreSQL
 
@@ -20,6 +20,15 @@ En esta página se proporcionan las últimas noticias y actualizaciones relacion
 
 > [!IMPORTANT]
 > Azure Database for PostgreSQL: Servidor flexible en versión preliminar
+
+## <a name="release-september-2021"></a>Versión: septiembre de 2021
+
+* Compatibilidad con [Terraform](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/postgresql_flexible_server).
+* Compatibilidad con las [nuevas regiones](overview.md#azure-regions) Centro de la India y Japón Occidental.
+* Compatibilidad con el modo de conectividad no SSL mediante el nuevo parámetro de servidor `require_secure_transport`.
+* Compatibilidad con el parámetro de servidor `log_line_prefix`, que agrega la cadena al principio de cada línea de registro.
+* Compatibilidad con el diagnóstico de estado de [Azure Resource Health](../../service-health/resource-health-overview.md) para Servidor flexible y para obtener soporte técnico.
+* Varias correcciones de errores y mejoras en la estabilidad y el rendimiento.
 
 ## <a name="release-july-2021"></a>Versión: julio de 2021
 
@@ -29,7 +38,7 @@ En esta página se proporcionan las últimas noticias y actualizaciones relacion
 * Compatibilidad con `pg_stat_reset_shared('bgwriter');` y `pg_stat_reset_shared('archiver');` para restablecer los contadores que se muestran en las vistas `pg_stat_bgwriter` y `pg_stat_archiver` <sup>$</sup>.
 * Varias correcciones de errores y mejoras de estabilidad y rendimiento<sup>$</sup>.
 
-<sup> **$** </sup> Los nuevos servidores obtienen estas características automáticamente. En los servidores existentes, estas características se habilitan durante la ventana de mantenimiento futuro del servidor.
+<sup> **$**</sup> Los nuevos servidores obtienen estas características automáticamente. En los servidores existentes, estas características se habilitan durante la ventana de mantenimiento futuro del servidor.
 
 ## <a name="release-june-2021"></a>Versión: junio de 2021
 
@@ -41,7 +50,7 @@ En esta página se proporcionan las últimas noticias y actualizaciones relacion
 * Compatibilidad con la extensión lo. Vea la [página de extensiones](./concepts-extensions.md) para obtener las versiones compatibles con cada versión principal <sup>$</sup>.
 * Varias correcciones de errores y mejoras de estabilidad y rendimiento<sup>$</sup>.
   
-<sup> **$** </sup> Los nuevos servidores obtienen estas características automáticamente.  Los servidores existentes se actualizarán automáticamente a la versión secundaria admitida más reciente y también se habilitarán nuevas características durante la ventana de mantenimiento futura del servidor.
+<sup> **$**</sup> Los nuevos servidores obtienen estas características automáticamente.  Los servidores existentes se actualizarán automáticamente a la versión secundaria admitida más reciente y también se habilitarán nuevas características durante la ventana de mantenimiento futura del servidor.
 
 ## <a name="release-may-2021"></a>Versión: mayo de 2021
 

@@ -6,12 +6,12 @@ ms.subservice: shared-capabilities
 ms.date: 03/29/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: f119c15cbbfd9586bdb06fdffad0b12c9a441eea
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 012380b98987bc09440d025b6533b62cc1a4c043
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107832651"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129271657"
 ---
 # <a name="manage-schedules-in-azure-automation"></a>Administración de programaciones en Azure Automation
 
@@ -25,7 +25,7 @@ Para programar un runbook en Azure Automation para que se inicie en un momento d
 
 ## <a name="powershell-cmdlets-used-to-access-schedules"></a>Cmdlets de PowerShell usados para acceder a programaciones
 
-Los cmdlets de la tabla siguiente permiten crear y administrar programaciones de Automation con PowerShell. Se suministran como un componente de los [módulos Az](modules.md#az-modules).
+Los cmdlets de la tabla siguiente permiten crear y administrar programaciones de Automation con PowerShell. Se suministran como un componente de los módulos Az.
 
 | Cmdlets | Descripción |
 |:--- |:--- |

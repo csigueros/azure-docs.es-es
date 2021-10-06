@@ -1,14 +1,14 @@
 ---
 title: Ejemplos de consultas avanzadas
 description: Use Azure Resource Graph para ejecutar consultas avanzadas, incluido el trabajo con columnas, la enumeración de todas las etiquetas usadas y la coincidencia de los recursos con expresiones regulares.
-ms.date: 07/07/2021
+ms.date: 10/01/2021
 ms.topic: sample
-ms.openlocfilehash: 6e63715f51e256759da30fac1e40c29edfe2e218
-ms.sourcegitcommit: 0fd913b67ba3535b5085ba38831badc5a9e3b48f
+ms.openlocfilehash: 7c24a3c660587e1ff70c9d208e6bf87c84c5bf1e
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113485930"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129355229"
 ---
 # <a name="advanced-resource-graph-query-samples"></a>Ejemplos de consultas avanzadas de Resource Graph
 
@@ -195,7 +195,7 @@ Resources
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
 ```azurecli-interactive
-az graph query -q "Resources | where type =~ 'microsoft.compute/virtualmachines' and name matches regex @'^Contoso(.*)[0-9]+$' | project name | order by name asc"
+az graph query -q "Resources | where type =~ 'microsoft.compute/virtualmachines' and name matches regex @'^Contoso(.*)[0-9]+\$' | project name | order by name asc"
 ```
 
 # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
@@ -399,7 +399,7 @@ Resources
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
 ```azurecli-interactive
-az graph query -q "Resources | where type == 'microsoft.compute/virtualmachines' | extend JoinID = toupper(id), OSName = tostring(properties.osProfile.computerName), OSType = tostring(properties.storageProfile.osDisk.osType), VMSize = tostring(properties.hardwareProfile.vmSize) | join kind=leftouter( Resources | where type == 'microsoft.compute/virtualmachines/extensions' | extend VMId = toupper(substring(id, 0, indexof(id, '/extensions'))), ExtensionName = name ) on $left.JoinID == $right.VMId | summarize Extensions = make_list(ExtensionName) by id, OSName, OSType, VMSize | order by tolower(OSName) asc"
+az graph query -q "Resources | where type == 'microsoft.compute/virtualmachines' | extend JoinID = toupper(id), OSName = tostring(properties.osProfile.computerName), OSType = tostring(properties.storageProfile.osDisk.osType), VMSize = tostring(properties.hardwareProfile.vmSize) | join kind=leftouter( Resources | where type == 'microsoft.compute/virtualmachines/extensions' | extend VMId = toupper(substring(id, 0, indexof(id, '/extensions'))), ExtensionName = name ) on \$left.JoinID == \$right.VMId | summarize Extensions = make_list(ExtensionName) by id, OSName, OSType, VMSize | order by tolower(OSName) asc"
 ```
 
 # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)

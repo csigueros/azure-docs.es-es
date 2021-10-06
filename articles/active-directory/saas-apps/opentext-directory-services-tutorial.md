@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/22/2021
+ms.date: 08/31/2021
 ms.author: jeedes
-ms.openlocfilehash: ad2345ce6fe014be3e449cb8bea667b66a99379d
-ms.sourcegitcommit: f0168d80eb396ce27032aa02fe9da5a0c10b5af3
+ms.openlocfilehash: e5278f9ed923b917cbf0cd307caaf9343002d3ae
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2021
-ms.locfileid: "112553772"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124738101"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-opentext-directory-services"></a>Tutorial: Azure Active Directory integración de inicio de sesión único (SSO) con OpenText Directory Services
 
@@ -39,6 +39,7 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 
 * OpenText Directory Services admite el inicio de sesión único iniciado por **SP e IDP**.
 * OpenText Directory Services admite el aprovisionamiento de usuarios **Just-in-Time**.
+* OpenText Directory Services admite el [aprovisionamiento automatizado de usuarios](open-text-directory-services-provisioning-tutorial.md).
 
 ## <a name="add-opentext-directory-services-from-the-gallery"></a>Adición de OpenText Directory Services desde la galería
 
@@ -147,6 +148,9 @@ Para configurar el inicio de sesión único en **OpenText Directory Services**, 
 
 En esta sección, se crea un usuario llamado B.Simon en OpenText Directory Services. OpenText Directory Services admite el aprovisionamiento de usuarios Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Si un usuario ya no existe en OpenText Directory Services, se crea uno nuevo después de la autenticación.
 
+> [!NOTE]
+> OpenText Directory Services también admite el aprovisionamiento automático de usuarios. [Aquí](./open-text-directory-services-provisioning-tutorial.md) puede encontrar más detalles sobre cómo configurarlo.
+
 ## <a name="test-sso"></a>Prueba de SSO 
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones. 
@@ -161,7 +165,7 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 * Haga clic en **Probar esta aplicación** en Azure Portal; debería iniciar sesión automáticamente en la instancia de OpenText Directory Services para la que ha configurado el inicio de sesión único. 
 
-También puede usar Aplicaciones de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de OpenText Directory Services en Aplicaciones, si se ha configurado en modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para comenzar el flujo de inicio de sesión; y si se ha configurado en modo IDP, se debería iniciar sesión automáticamente en la instancia de OpenText Directory Services para la que configuró el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+También puede usar Aplicaciones de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de OpenText Directory Services en Aplicaciones, si se ha configurado en modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para comenzar el flujo de inicio de sesión; y si se ha configurado en modo IDP, se debería iniciar sesión automáticamente en la instancia de OpenText Directory Services para la que configuró el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

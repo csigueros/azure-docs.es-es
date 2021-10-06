@@ -5,14 +5,14 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: conceptual
-ms.date: 06/17/2021
+ms.date: 08/27/2021
 ms.author: cshoe
-ms.openlocfilehash: 210618ba5c49fbe0e53bd5b3fb2fe808b6b6aa03
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: f2dacc8a0ed551fd92b916e25dfd87695e2576d3
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121728504"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128570844"
 ---
 # <a name="configure-azure-static-web-apps"></a>Configuración de Azure Static Web Apps
 
@@ -34,7 +34,7 @@ La configuración de Azure Static Web Apps se define en el archivo _staticwebapp
 
 ## <a name="file-location"></a>Ubicación del archivo
 
-La ubicación recomendada del archivo _staticwebapp.config.jsen_ es la carpeta establecida como `app_location` en el [archivo de flujo de trabajo](./github-actions-workflow.md). Sin embargo, el archivo puede colocarse en cualquier subcarpeta dentro del conjunto de carpetas como `app_location`.
+La ubicación recomendada del archivo _staticwebapp.config.jsen_ es la carpeta establecida como `app_location` en el [archivo de flujo de trabajo](./build-configuration.md). Sin embargo, el archivo puede colocarse en cualquier subcarpeta dentro del conjunto de carpetas como `app_location`.
 
 Consulte el [archivo de configuración de ejemplo](#example-configuration-file) para ver los detalles.
 
@@ -271,6 +271,11 @@ Defina cada bloque de direcciones IPv4 en la notación Enrutamiento de interdomi
 ```
 
 Cuando se especifican uno o más bloques de direcciones IP, a las solicitudes que se originan desde direcciones IP que no coinciden con un valor en `allowedIpRanges` se les deniega el acceso.
+
+## <a name="authentication"></a>Authentication 
+
+* Los [proveedores de autenticación predeterminados](authentication-authorization.md#login) no necesitan valores en el archivo de configuración. 
+* Los [proveedores de autenticación personalizados](authentication-custom.md) usan la propiedad `authentication` del archivo de configuración. 
 
 ## <a name="example-configuration-file"></a>Archivos de configuración de ejemplo
 

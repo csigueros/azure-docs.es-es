@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 07/06/2021
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: d342565972b051dcd5362f192d15678e1817ce78
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: c18e242694d5f4d02ce9111d852a66bf49e48bcd
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124818843"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129275494"
 ---
 # <a name="troubleshoot-azure-file-shares-performance-issues"></a>Solución de problemas de rendimiento de recursos compartidos de archivos de Azure
 
@@ -82,7 +82,7 @@ Para determinar si la mayoría de las solicitudes están centradas en los metada
 
 - Compruebe si la aplicación se puede modificar para reducir el número de operaciones de metadatos.
 - Agregue un disco duro virtual (VHD) al recurso compartido de archivos y móntelo a través de SMB desde el cliente para realizar operaciones de archivos en los datos. Este enfoque funciona para escenarios de escritor o lector único o escenarios con varios lectores y sin escritores. Dado que el sistema de archivos es propiedad del cliente y no de Azure Files, esto permite que las operaciones de metadatos sean locales. La configuración ofrece un rendimiento similar al de un almacenamiento con conexión directa local.
-    -   Para montar un disco duro virtual en un cliente de Windows, use el cmdlet [Mount-DiskImage](https://docs.microsoft.com/powershell/module/storage/mount-diskimage) de Powershell.
+    -   Para montar un disco duro virtual en un cliente de Windows, use el cmdlet [Mount-DiskImage](/powershell/module/storage/mount-diskimage) de Powershell.
     -   Para montar un disco duro virtual en Linux, consulte la documentación de la distribución de Linux.     
 
 ### <a name="cause-3-single-threaded-application"></a>Causa 3: Aplicación de un único subproceso

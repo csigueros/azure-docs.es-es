@@ -1,23 +1,24 @@
 ---
-title: Ejemplos de script de la CLI de Azure
+title: Ejemplos de la CLI de Azure para Azure SQL Database e Instancias administradas | Microsoft Docs
 titleSuffix: Azure SQL Database & SQL Managed Instance
-description: Ejemplos de scripts de la CLI de Azure para crear y administrar Azure SQL Database e Instancia administrada de Azure SQL
+description: Encuentre ejemplos de scripts de la CLI de Azure para crear y administrar Azure SQL Database Azure SQL Managed Instance.
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: deployment-configuration
-ms.custom: overview-samples, mvc, sqldbrb=2, devx-track-azurecli
+ms.custom: overview-samples, mvc, sqldbrb=2, devx-track-azurecli, seo-azure-cli
 ms.devlang: azurecli
 ms.topic: sample
 author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: ''
-ms.date: 02/03/2019
-ms.openlocfilehash: f0300464054a3417951c0283536e5506a12612bf
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.date: 09/17/2021
+keywords: sql database, managed instance, azure cli samples, azure cli examples, azure cli code samples, azure cli script examples
+ms.openlocfilehash: adc7f1db28fa1b0e8cafb2b3363876b1e316f8bd
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110690455"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128662160"
 ---
 # <a name="azure-cli-samples-for-azure-sql-database-and-sql-managed-instance"></a>Ejemplos de la CLI de Azure para Azure SQL Database e Instancia administrada de SQL 
  

@@ -3,12 +3,12 @@ title: Administración y supervisión de bases de datos de SQL Server en una m�
 description: En este artículo se describe cómo administrar y supervisar las bases de datos de SQL Server que se ejecutan en una máquina virtual de Azure.
 ms.topic: conceptual
 ms.date: 07/27/2021
-ms.openlocfilehash: e768eae283aaf113d68f425cb306860411a9bcd9
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: c536b29f731ee646f987dc9ce2d178cb93426c91
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121738427"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129272017"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Administración y supervisión de bases de datos SQL Server con copia de seguridad
 
@@ -125,7 +125,7 @@ En el panel del almacén, vaya a **Administrar** > **Directivas de copia de segu
 La modificación de directivas afectará a todos los elementos de Backup asociados y al desencadenador de los trabajos de **configuración de la protección** correspondientes.
 
 >[!Note]
->La modificación de la directiva también afectará a los puntos de recuperación existentes. <br><br> En el caso de los puntos de recuperación archivados que no hayan permanecido durante 180 días en el nivel de almacenamiento de archivo, la eliminación de los puntos de recuperación implica un costo de eliminación anticipada. [Más información](../storage/blobs/storage-blob-storage-tiers.md#cool-and-archive-early-deletion).
+>La modificación de la directiva también afectará a los puntos de recuperación existentes. <br><br> En el caso de los puntos de recuperación archivados que no hayan permanecido durante 180 días en el nivel de almacenamiento de archivo, la eliminación de los puntos de recuperación implica un costo de eliminación anticipada. [Más información](../storage/blobs/access-tiers-overview.md).
 
 ### <a name="inconsistent-policy"></a>Directiva incoherente
 

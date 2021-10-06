@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con SynchroNet CLICK | Microsoft Docs'
+title: 'Tutorial: Integración de inicio de sesión único de Azure AD con SynchroNet CLICK'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y SynchroNet CLICK.
 services: active-directory
 author: jeevansd
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/06/2020
+ms.date: 09/20/2021
 ms.author: jeedes
-ms.openlocfilehash: 7aec0a7ff2e8dfdfca93971e01f8ed13af34acc6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0abc38ac989c404e77049fdee150b64d0384ce8f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92517861"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128603208"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-synchronet-click"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con SynchroNet CLICK
+# <a name="tutorial-azure-ad-sso-integration-with-synchronet-click"></a>Tutorial: Integración de inicio de sesión único de Azure AD con SynchroNet CLICK
 
 En este tutorial aprenderá a integrar SynchroNet CLICK con Azure Active Directory (Azure AD). Al integrar SynchroNet CLICK con Azure AD, puede hacer lo siguiente:
 
@@ -26,9 +26,7 @@ En este tutorial aprenderá a integrar SynchroNet CLICK con Azure Active Direc
 * Permitir que los usuarios inicien sesión automáticamente en SynchroNet CLICK con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -43,25 +41,26 @@ Para empezar, necesita los siguientes elementos:
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
 * SynchroNet CLICK admite el inicio de sesión único iniciado por **SP**.
-* Una vez configurado SynchroNet CLICK, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
-## <a name="adding-synchronet-click-from-the-gallery"></a>Incorporación de SynchroNet CLICK desde la galería
+> [!NOTE]
+> El identificador de esta aplicación es un valor de cadena fijo, por lo que solo se puede configurar una instancia en un inquilino.
+
+## <a name="add-synchronet-click-from-the-gallery"></a>Incorporación de SynchroNet CLICK desde la galería
 
 Para configurar la integración de SynchroNet CLICK en Azure AD, es preciso agregar SynchroNet CLICK desde la galería a la lista de aplicaciones SaaS administradas.
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta personal, profesional o educativa de Microsoft.
+1. Inicie sesión en Azure Portal con una cuenta personal, profesional o educativa de Microsoft.
 1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory**.
 1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
 1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
 1. En la sección **Agregar desde la galería**, escriba **SynchroNet CLICK** en el cuadro de búsqueda.
 1. Seleccione **SynchroNet CLICK** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
-
-## <a name="configure-and-test-azure-ad-single-sign-on-for-synchronet-click"></a>Configuración y prueba del inicio de sesión único de Azure AD para SynchroNet CLICK
+## <a name="configure-and-test-azure-ad-sso-for-synchronet-click"></a>Configuración y prueba del inicio de sesión único de Azure AD para SynchroNet CLICK
 
 Configure y pruebe el inicio de sesión único de Azure AD con SynchroNet CLICK mediante un usuario de prueba llamado **B.Simon**. Para que el inicio de sesión único funcione, es preciso establecer una relación de vinculación entre un usuario de Azure AD y el usuario relacionado de SynchroNet CLICK.
 
-Para configurar y probar el inicio de sesión único de Azure AD con SynchroNet CLICK, es preciso completar los siguientes bloques de creación:
+Para configurar y probar el inicio de sesión único de Azure AD con SynchroNet CLICK, lleve a cabo los siguientes pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
     1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
@@ -74,13 +73,13 @@ Para configurar y probar el inicio de sesión único de Azure AD con SynchroNet
 
 Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal.
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de aplicaciones de **SynchroNet CLICK**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
+1. En Azure Portal, en la página de integración de aplicaciones de **SynchroNet CLICK**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
 1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
-1. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
+1. En la página **Configuración del inicio de sesión único con SAML**, haga clic en el icono de lápiz de **Configuración básica de SAML** para editar la configuración.
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-1. En la sección **Configuración básica de SAML**, especifique los valores de los siguientes campos:
+1. En la sección **Configuración básica de SAML**, siga estos pasos:
 
     En el cuadro de texto **Dirección URL de inicio de sesión**, escriba la dirección URL: `https://click.synchronet.com`.
 
@@ -111,13 +110,7 @@ En esta sección, va a permitir que B.Simon acceda a SynchroNet CLICK mediante e
 1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones**.
 1. En la lista de aplicaciones, seleccione **SynchroNet CLICK**.
 1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos**.
-
-   ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
-
 1. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
-
-    ![Vínculo de Agregar usuario](common/add-assign-user.png)
-
 1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
 1. Si espera que haya un valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione en la lista el rol adecuado para el usuario y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
 1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
@@ -132,20 +125,14 @@ En esta sección, va a crear un usuario llamado Britta Simon en SynchroNet CLICK
 
 ## <a name="test-sso"></a>Prueba de SSO 
 
-En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
+En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones. 
 
-Al hacer clic en el icono de SynchroNet CLICK en el Panel de acceso, debería iniciar sesión automáticamente en la versión de SynchroNet CLICK para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
+* Haga clic en **Probar esta aplicación** en Azure Portal. Esta acción le redirigirá a la URL de inicio de sesión de SynchroNet CLICK, desde donde puede poner en marcha el flujo de inicio de sesión. 
 
-## <a name="additional-resources"></a>Recursos adicionales
+* Vaya directamente a la dirección URL de inicio de sesión de SynchroNet CLICK e inicie el flujo de inicio de sesión desde allí.
 
-- [Lista de tutoriales acerca de cómo integrar aplicaciones SaaS con Azure Active Directory](./tutorial-list.md)
+* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de SynchroNet CLICK en Aplicaciones, se le redirigirá a la dirección URL de inicio de sesión de esa plataforma. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
 
-- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
+## <a name="next-steps"></a>Pasos siguientes
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](../conditional-access/overview.md)
-
-- [Pruebe SynchroNet CLICK con Azure AD](https://aad.portal.azure.com/)
-
-- [¿Qué es el control de sesiones en Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
-
-- [Protección de SynchroNet CLICK con controles y visibilidad avanzados](/cloud-app-security/proxy-intro-aad)
+Una vez configurado SynchroNet CLICK, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

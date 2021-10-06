@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: how-to
-ms.date: 05/25/2021
+ms.date: 09/13/2021
 tags: connectors
-ms.openlocfilehash: 10c946010fa3caba14130c3c7055c711323ad93c
-ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
+ms.openlocfilehash: 1c894c6162a8c9e24794f5c52ce1f6cefb6fa85a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110498298"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128563701"
 ---
 # <a name="call-service-endpoints-over-http-or-https-from-azure-logic-apps"></a>Llamada a puntos de conexión de servicio mediante HTTP o HTTPS desde Azure Logic Apps
 
@@ -256,7 +256,9 @@ Por ejemplo, imagine que tiene una aplicación lógica que envía una solicitud 
 
 ## <a name="asynchronous-request-response-behavior"></a>Comportamiento asincrónico de la solicitud-respuesta
 
-De forma predeterminada, todas las acciones basadas en HTTP de Azure Logic Apps siguen el [modelo asincrónico de operación](/azure/architecture/patterns/async-request-reply) estándar. Este patrón especifica que, después de que una acción HTTP llame a o envíe una solicitud a un punto de conexión, servicio, sistema o API, el receptor devolverá inmediatamente una respuesta ["202 ACCEPTED"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3). Este código confirma que el receptor aceptó la solicitud, pero no ha finalizado el procesamiento. La respuesta puede incluir un encabezado `location` que especifica la dirección URL y un identificador de actualización que el autor de la llamada puede usar para sondear o comprobar el estado de la solicitud asincrónica hasta que el receptor detenga el procesamiento y devuelva una respuesta de operación correcta ["200 OK"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1) u otra respuesta que no sea 202. Sin embargo, el autor de la llamada no tiene que esperar a que la solicitud finalice el procesamiento y puede continuar ejecutando la siguiente acción. Para más información, consulte [Diseño de la comunicación entre servicios para microservicios](/azure/architecture/microservices/design/interservice-communication#synchronous-versus-asynchronous-messaging).
+Para los flujos de trabajo *con estado* en instancias de Azure Logic Apps de uno o varios inquilinos, todas las acciones basadas en HTTP siguen el [patrón de operación asincrónica](/azure/architecture/patterns/async-request-reply) estándar como comportamiento predeterminado. Este patrón especifica que, después de que una acción HTTP llame a o envíe una solicitud a un punto de conexión, servicio, sistema o API, el receptor devolverá inmediatamente una respuesta ["202 ACCEPTED"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3). Este código confirma que el receptor aceptó la solicitud, pero no ha finalizado el procesamiento. La respuesta puede incluir un encabezado `location` que especifica el URI y un identificador de actualización que el autor de la llamada puede usar para sondear o comprobar el estado de la solicitud asincrónica hasta que el receptor detenga el procesamiento y devuelva una respuesta de operación correcta ["200 OK"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1) u otra respuesta que no sea 202. Sin embargo, el autor de la llamada no tiene que esperar a que la solicitud finalice el procesamiento y puede continuar ejecutando la siguiente acción. Para más información, consulte [Diseño de la comunicación entre servicios para microservicios](/azure/architecture/microservices/design/interservice-communication#synchronous-versus-asynchronous-messaging).
+
+Para los flujos de trabajo *sin estado* en instancias de Azure Logic Apps de inquilino único, las acciones basadas en HTTP no usan el patrón de operación asincrónica. En su lugar, solo se ejecutan sincrónicamente, devuelven la respuesta ["202 ACCEPTED"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3) tal y como está, y van al paso siguiente en la ejecución del flujo de trabajo. Si la respuesta incluye un encabezado `location`, un flujo de trabajo sin estado no sondeará el URI especificado para comprobar el estado. Para seguir el [patrón de operación asincrónica estándar](/azure/architecture/patterns/async-request-reply), use en su lugar un flujo de trabajo con estado.
 
 * En el Diseñador de aplicación lógica, la acción HTTP (no el desencadenador) tiene una opción de configuración **Modelo asincrónico**, que está habilitada de forma predeterminada. Esta configuración especifica que el autor de la llamada no espera a que finalice el procesamiento y puede pasar a la siguiente acción, pero continúa comprobando el estado hasta que el procesamiento se detiene. Si está deshabilitada, esta configuración especifica que el autor de la llamada espera a que finalice el procesamiento antes de pasar a la siguiente acción.
 
@@ -306,6 +308,22 @@ Las solicitudes HTTP tienen un [límite de tiempo de espera](../logic-apps/logic
 * Reemplace la acción HTTP por la [acción de webhook HTTP](../connectors/connectors-native-webhook.md), que espera a que el receptor responda con el estado y los resultados después de que la solicitud finalice el procesamiento.
 
 <a name="disable-location-header-check"></a>
+
+### <a name="set-up-interval-between-retry-attempts-with-the-retry-after-header"></a>Configuración del intervalo entre reintentos con el encabezado Retry-After
+
+Para especificar el número de segundos entre reintentos, puede agregar el encabezado `Retry-After` a la respuesta de acción HTTP. Por ejemplo, si el punto de conexión de destino devuelve el código de estado `429 - Too many requests`, puede especificar un intervalo más largo entre reintentos. El encabezado `Retry-After` también funciona con el código de estado `202 - Accepted`.
+
+Este es el mismo ejemplo que muestra la respuesta de acción HTTP que contiene `Retry-After`:
+
+```json
+{
+    "statusCode": 429,
+    "headers": {
+        "Retry-After": "300"
+    }
+}
+```
+
 
 ## <a name="disable-checking-location-headers"></a>Deshabilitación de la comprobación de encabezados de ubicación
 

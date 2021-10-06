@@ -8,12 +8,12 @@ ms.service: bastion
 ms.topic: how-to
 ms.date: 09/20/2021
 ms.author: cherylmc
-ms.openlocfilehash: ca2425aad93d5878060c723d4c43f41765483a65
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 4e08aed1b1b91f55a12f5920dfff898cd0109bae
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128699482"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129278602"
 ---
 # <a name="create-an-ssh-connection-to-a-windows-vm-using-azure-bastion-preview"></a>Creación de una conexión SSH a una máquina virtual Windows mediante Azure Bastion (versión preliminar)
 
@@ -38,7 +38,7 @@ Asegúrese de haber configurado un host de Azure Bastion para la red virtual don
 
 Para conectarse mediante SSH a una máquina virtual Windows, también debe asegurarse de que:
 * La máquina virtual Windows ejecuta Windows Server 2019 o posterior.
-* Tiene instalado el servidor OpenSSH y ejecutándose en la máquina virtual Windows. Para información sobre cómo hacerlo, consulte el artículo sobre la [instalación de OpenSSH](https://docs.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse).
+* Tiene instalado el servidor OpenSSH y ejecutándose en la máquina virtual Windows. Para información sobre cómo hacerlo, consulte el artículo sobre la [instalación de OpenSSH](/windows-server/administration/openssh/openssh_install_firstuse).
 * Azure Bastion está configurado para utilizar la SKU estándar.
 
 ### <a name="required-roles"></a>Roles necesarios

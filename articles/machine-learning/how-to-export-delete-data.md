@@ -4,17 +4,17 @@ titleSuffix: Azure Machine Learning
 description: Obtenga información sobre cómo exportar o eliminar el área de trabajo con Azure Machine Learning Studio, la CLI, el SDK y las API REST autenticadas.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mldata
 author: lobrien
 ms.author: laobri
 ms.date: 08/05/2021
 ms.topic: how-to
-ms.openlocfilehash: 1889798d120946e0afc319ceeeaa43db12f59566
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 519494db9a1bb06e43dc60ffed998b800555a887
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121736516"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129426214"
 ---
 # <a name="export-or-delete-your-machine-learning-service-workspace-data"></a>Exportación o eliminación de los datos del área de trabajo de Machine Learning Service
 

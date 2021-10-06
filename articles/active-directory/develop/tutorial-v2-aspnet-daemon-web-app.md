@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, has-adal-ref
-ms.openlocfilehash: b752339d854123f39d50e0cd475c5a63eb1ea584
-ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
+ms.openlocfilehash: bb5b6068b935be2f437b10e4fcbccf7c6a86219d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122428943"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128637995"
 ---
 # <a name="tutorial-build-a-multi-tenant-daemon-that-uses-the-microsoft-identity-platform"></a>Tutorial: Creación de un demonio multiinquilino que usa la plataforma de identidad de Microsoft
 
@@ -94,7 +94,7 @@ Si no desea usar la automatización, siga los pasos que se describen en las secc
 ### <a name="choose-the-azure-ad-tenant"></a>Selección del inquilino de Azure AD
 
 1. Inicie sesión en <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>.
-1. Si tiene acceso a varios inquilinos, use el filtro **Directorio + suscripción** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: del menú superior para seleccionar el inquilino en el que desea registrar una aplicación.
+1. Si tiene acceso a varios inquilinos, use el filtro **Directorios y suscripciones**:::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: del menú superior para cambiar al inquilino en el que quiere registrar la aplicación.
 
 
 ### <a name="register-the-client-app-dotnet-web-daemon-v2"></a>Registro de la aplicación cliente (dotnet-web-daemon-v2)

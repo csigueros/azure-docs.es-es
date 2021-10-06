@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning
 description: Aprenda a configurar la detección del desfase de datos en Azure Learning. Cree monitores de conjuntos de datos (versión preliminar), supervise el desfase de datos y configure alertas.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mldata
 ms.reviewer: sgilley
 ms.author: wibuchan
 author: buchananwp
 ms.date: 06/25/2020
 ms.topic: how-to
 ms.custom: data4ml, contperf-fy21q2
-ms.openlocfilehash: 5d4c3974bdd1ef90556d19e3ca49cc613d36923d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 66a1b4bf2db3a5840734faed5593114b3ba063b7
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121729791"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129425494"
 ---
 # <a name="detect-data-drift-preview-on-datasets"></a>Detección del desfase de datos (versión preliminar) en los conjuntos de datos
 

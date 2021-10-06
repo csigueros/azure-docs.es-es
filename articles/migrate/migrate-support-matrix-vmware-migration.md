@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 6365499aff4508e40d8e2aa2ed61471f4fbff2fe
-ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
+ms.openlocfilehash: 1217acb5911366b8e3943d414aeeeaf8a9e5e1e1
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114721258"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129357241"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Matriz de compatibilidad para la migración de VMware
 
@@ -73,15 +73,12 @@ En la tabla se resumen los requisitos de migración sin agente para las VM de VM
 > [!Note]
 > Además de la conectividad a Internet, en el caso de las máquinas virtuales de Linux, asegúrese de que los siguientes paquetes están instalados para una instalación correcta del agente de Linux de Microsoft Azure (waagent):
 >- Python 2.6
->- Python-setuptool
->- systemmd
 >- OpenSSL 1.0+
 >- OpenSSH 5.3+
 >- Utilidades del sistema de archivos: sfdisk, fdisk, mkfs, parted
 >- Herramientas de contraseña: chpasswd, sudo
 >- Herramientas de procesamiento de texto: sed, grep
 >- Herramientas de red: ip-route
->- Habilitación del servicio rc.local en la máquina virtual de origen
 
 > [!TIP]
 >  Con Azure Portal, podrá seleccionar hasta 10 máquinas virtuales a la vez para configurar la replicación. Para replicar más máquinas virtuales, puede usar el portal y agregar las máquinas virtuales que se van a replicar en varios lotes de 10 máquinas virtuales, o bien usar la interfaz de PowerShell de Azure Migrate para configurar la replicación. Asegúrese de no configurar la replicación simultánea en más del número máximo de máquinas virtuales admitidas para replicaciones simultáneas.

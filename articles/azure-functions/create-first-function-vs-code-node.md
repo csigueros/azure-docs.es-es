@@ -7,12 +7,12 @@ adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./create-first-function-vs-code-node_uiex
-ms.openlocfilehash: 09c028d71d7cef4b83220a7c93a24c6bc3c256d4
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: 2ceaa4173de4c4e997f2942308a2af733ea7fcfb
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113732572"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128667794"
 ---
 # <a name="quickstart-create-a-javascript-function-in-azure-using-visual-studio-code"></a>Inicio rápido: Creación de una función de JavaScript con Visual Studio Code
 
@@ -120,8 +120,8 @@ En esta sección, va a crear una aplicación de funciones y los recursos relacio
             context.log('JavaScript HTTP trigger function processed a request.');
     
             // Read incoming data
-            const name = req.query.name;
-            const sport = req.query.sport;
+            const name = (req.query.name || (req.body && req.body.name));
+            const sport = (req.query.sport || (req.body && req.body.sport));
         
             // fail if incoming data is required
             if (!name || !sport) {
@@ -185,13 +185,11 @@ Use la tabla siguiente para resolver los problemas más comunes que se encuentra
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ha usado [Visual Studio Code](functions-develop-vs-code.md?tabs=javascript) para crear una aplicación de función con una función simple desencadenada por HTTP. En el siguiente artículo, va a expandir esa función mediante la conexión a Azure Cosmos DB o Azure Storage. Para más información sobre cómo conectarse a otros servicios de Azure, consulte [Incorporación de enlaces a una función existente de Azure Functions](add-bindings-existing-function.md?tabs=javascript).  
+Ha usado [Visual Studio Code](functions-develop-vs-code.md?tabs=javascript) para crear una aplicación de función con una función simple desencadenada por HTTP. En el siguiente artículo, va a expandir esa función mediante la conexión a Azure Cosmos DB o Azure Storage. Para más información sobre cómo conectarse a otros servicios de Azure, consulte [Incorporación de enlaces a una función existente de Azure Functions](add-bindings-existing-function.md?tabs=javascript). Si desea más información sobre la seguridad, consulte [Protección de Azure Functions](security-concepts.md).
 
 > [!div class="nextstepaction"]
-> [Conexión a una base de datos](functions-add-output-binding-cosmos-db-vs-code.md?pivots=programming-language-javascript)
-> [!div class="nextstepaction"]
-> [Conexión de Azure Functions a Azure Storage mediante Visual Studio Code](functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-javascript)
-> [Protección de Azure Functions](security-concepts.md)
+> [Conexión a Azure Cosmos DB](functions-add-output-binding-cosmos-db-vs-code.md?pivots=programming-language-javascript)
+> [Conexión a Azure Queue Storage](functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-javascript)
 
 [Azure Functions Core Tools]: functions-run-local.md
 [Azure Functions extension for Visual Studio Code]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions

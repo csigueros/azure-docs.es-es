@@ -9,12 +9,12 @@ ms.workload: ''
 ms.topic: quickstart
 ms.date: 5/21/2021
 ms.author: inhenkel
-ms.openlocfilehash: c9cb10722e618c4476ed11d66b95e509030c38de
-ms.sourcegitcommit: a2540262e05ffd4a4b059df0976940d60fabd125
+ms.openlocfilehash: 198009abab7e1c5f663a454eb23debc55c81d7f3
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2021
-ms.locfileid: "113138970"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124730799"
 ---
 # <a name="event-based-face-redaction"></a>Difuminado de caras basado en eventos
 
@@ -28,12 +28,12 @@ La transformación específica que se usará se denomina [Face Redactor](./analy
 
 Al final de la guía de inicio rápido, podrá difuminar caras en un vídeo:
 
-<img src="./media/face-redaction-event-based-python-quickstart/output-redacted.gif" alt="Example output" style="border: 1px solid #C3C3C3;" /> 
+:::image type="content" source="./media/face-redaction-event-based-python-quickstart/output-redacted.gif" alt-text="Salida del ejemplo":::
 
 ## <a name="solution-overview"></a>Información general de la solución
 
-<img src="./media/face-redaction-event-based-python-quickstart/architecture.png" alt="Architecture overview of solution" style="border: 1px solid #C3C3C3;" /> 
-          
+:::image type="content" source="./media/face-redaction-event-based-python-quickstart/architecture.png" alt-text="Introducción a la arquitectura de la solución":::
+
 En esta guía de inicio rápido se muestra cómo implementar la solución que encuentra en la información general de la solución anterior. Comienza con una cuenta de almacenamiento (Azure Data Lake Storage Gen2), con un agente de escucha de eventos conectado a esta (Event Grid), que desencadena una función de Azure cuando se cargan nuevos archivos .mp4 en la cuenta de almacenamiento. La función de Azure envía un trabajo a una transformación configurada previamente en Azure Media Services. El vídeo difuminado resultante se almacenará en una cuenta de Blob Storage.
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -131,9 +131,8 @@ El siguiente script de Bash se usa para configurar los recursos una vez aprovisi
  
 ## <a name="enable-github-actions-pipeline"></a>Habilitación de canalización de Acciones de GitHub
  El archivo de flujo de trabajo de este repositorio contiene los pasos para ejecutar la implementación de esta solución. Para iniciar el flujo de trabajo, debe habilitarse para su propio repositorio. Para habilitarlo, vaya a la pestaña Acciones del repositorio y seleccione "I understand my workflows, go ahead and enable them" (Comprendo mis flujos de trabajo, proceda a habilitarlos).
- 
- <img src="./media/face-redaction-event-based-python-quickstart/activate-workflow.png" alt="Enable workflow" style="border: 1px solid #C3C3C3;" /> 
- 
+:::image type="content" source="./media/face-redaction-event-based-python-quickstart/activate-workflow.png" alt-text="Habilitación de un flujo de trabajo":::
+
 Después de habilitar las Acciones de GitHub, puede encontrar el archivo de carga de trabajo aquí: [.github/workflows/main.yml](https://github.com/Azure-Samples/media-services-v3-python/blob/main/.github/workflows/main.yml).  Aparte de los desencadenadores, hay un trabajo de compilación con un par de pasos. Se incluyen los pasos siguientes:
 - **Env**: aquí, se definen diversas variables de entorno, que hacen referencia a los Secretos GitHub que agregamos anteriormente.
 - **Archivo de entorno de lectura**: el archivo de entorno se lee para el trabajo de compilación.
@@ -141,30 +140,31 @@ Después de habilitar las Acciones de GitHub, puede encontrar el archivo de carg
 - **Inicio de sesión de Azure**: en este paso se usa el Secreto GitHub para iniciar sesión en la CLI de Azure con la información de la entidad de servicio.
 - **Implementación de recursos de Azure mediante el archivo de script de la CLI de Azure**: ejecuta el script de implementación para aprovisionar los recursos de Azure
 - **Implementar código de función de Azure**: este paso empaqueta e implementa la función de Azure en el directorio "./azure-function". Cuando la función de Azure se implementa correctamente, debe estar visible en el Azure Portal con el nombre "EventGrid_AMSJob":
-<img src="./media/face-redaction-event-based-python-quickstart/azurefunction.png" alt="Azure Function visible in Azure Portal" style="border: 1px solid #C3C3C3;" /> 
+
+:::image type="content" source="./media/face-redaction-event-based-python-quickstart/azurefunction.png" alt-text="Función de Azure visible en Azure Portal":::
 
 - **Configuración de recursos de Azure mediante el archivo de script de la CLI de Azure**: si todos son correctos, el último paso es configurar los servicios de Azure implementados para activar el agente de escucha de eventos.
 
 Después de habilitar los flujos de trabajo, seleccione el flujo de trabajo "Implementar la solución FaceRedaction de Azure Media Service" y seleccione "Ejecutar flujo de trabajo". Ahora, la solución se implementará mediante las variables agregadas en los pasos anteriores. Espere un par de minutos y compruebe que se ha ejecutado correctamente.
 
-<img src="./media/face-redaction-event-based-python-quickstart/run-workflow.png" alt="Run workflow" style="border: 1px solid #C3C3C3;" /> 
+:::image type="content" source="./media/face-redaction-event-based-python-quickstart/run-workflow.png" alt-text="Ejecutar el flujo de trabajo":::
 
 ## <a name="test-your-solution"></a>Prueba de la solución
 Vaya al explorador de almacenamiento de su ADLS Gen2 en Azure Portal. Cargue un vídeo al contenedor sin procesar. Si busca un vídeo de prueba, descargue uno de [este sitio web](https://www.pexels.com/search/videos/group/). Consulte la imagen siguiente para obtener instrucciones sobre cómo cargar un vídeo en la cuenta de almacenamiento de ADLS Gen2:
 
-<img src="./media/face-redaction-event-based-python-quickstart/upload-test-data.png" alt="Uploading Video" style="border: 1px solid #C3C3C3;" /> 
+:::image type="content" source="./media/face-redaction-event-based-python-quickstart/upload-test-data.png" alt-text="Carga del vídeo":::
 
 Compruebe en la instancia de Azure Media Services que se crea un trabajo; para ello, vaya a su cuenta de Azure Media Services y seleccione Transformaciones y trabajos en el menú. A continuación, seleccione la transformación de difuminado de caras.
 
-<img src="./media/face-redaction-event-based-python-quickstart/ams-transform.png" alt="AMS Transform" style="border: 1px solid #C3C3C3;" /> 
+:::image type="content" source="./media/face-redaction-event-based-python-quickstart/ams-transform.png" alt-text="Transformación de AMS":::
 
 Esta página debe mostrar el trabajo desencadenado por la función de Azure. El trabajo puede estar terminado o aún en proceso.
 
-<img src="./media/face-redaction-event-based-python-quickstart/ams-job.png" alt="AMS Job" style="border: 1px solid #C3C3C3;" />  
+:::image type="content" source="./media/face-redaction-event-based-python-quickstart/ams-job.png" alt-text="Trabajo de AMS":::
 
 Al seleccionar el trabajo, verá algunos detalles sobre el trabajo específico. Si selecciona el nombre del recurso de salida y, a continuación, usa el vínculo al contenedor de almacenamiento que está vinculado a este, puede ver el vídeo procesado cuando finalice el trabajo.
 
-<img src="./media/face-redaction-event-based-python-quickstart/ams-output.png" alt="AMS Output" style="border: 1px solid #C3C3C3;" />  
+:::image type="content" source="./media/face-redaction-event-based-python-quickstart/ams-output.png" alt-text="Salida de AMS":::
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

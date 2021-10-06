@@ -3,12 +3,12 @@ title: Mejora de la excelencia operativa con Advisor
 description: Use Azure Advisor para optimizar y madurar la excelencia operativa de sus suscripciones de Azure.
 ms.topic: article
 ms.date: 10/24/2019
-ms.openlocfilehash: 0b938a0c7a42182bb8d2a50b48d65a0844d952a6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 151edab6c389e32abaaa73fec3012fa3bdcdf75a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100579959"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128650427"
 ---
 # <a name="achieve-operational-excellence-by-using-azure-advisor"></a>Obtención de la excelencia operativa con Azure Advisor
 
@@ -69,6 +69,8 @@ Azure Advisor ha determinado que muchos de los grupos de hosts tienen habilitado
 ## <a name="enable-traffic-analytics-to-view-insights-into-traffic-patterns-across-azure-resources"></a>Habilitación de Análisis de tráfico para ver información detallada sobre los patrones de tráfico en los recursos de Azure
 Análisis de tráfico es una solución basada en la nube, que proporciona visibilidad de la actividad de usuarios y aplicaciones en Azure. Análisis de tráfico analiza los registros de flujo del grupo de seguridad de red (NSG) de Network Watcher para proporcionar conclusiones sobre el flujo de tráfico. Con el análisis de tráfico, puede ver los principales llamadores en Azure e implementaciones que no son de Azure, investigar puertos abiertos, protocolos y flujos malintencionados en su entorno y optimizar la implementación de red para mejorar el rendimiento. Puede procesar registros de flujo a intervalos de procesamiento de 10 minutos y 60 minutos, lo que le permite realizar un análisis más rápido del tráfico. Se recomienda habilitar Análisis de tráfico para los recursos de Azure. 
 
+## <a name="increase-vcpu-limits-for-your-deployments-for-pay-as-you-go-subscription-preview"></a>Aumento de los límites de vCPU para las implementaciones de suscripción de pago por uso (versión preliminar)
+Esta experiencia se ha creado para proporcionar una manera sencilla de aumentar la cuota para ayudarle con las necesidades crecientes y evitar cualquier problema de implementación debido a limitaciones de cuota. Hemos habilitado una opción "Corrección rápida" para suscripciones limitadas a fin de proporcionar una opción sencilla de un solo clic para aumentar la cuota de las vCPU de 10 a 20. Este enfoque simplificado llama a la [API REST Quota](https://techcommunity.microsoft.com/t5/azure-governance-and-management/using-the-new-quota-rest-api/ba-p/2183670) en nombre del usuario para aumentar la cuota.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

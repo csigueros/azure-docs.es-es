@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Obtenga información sobre cómo poner los datos a disposición del proceso local o remoto para el entrenamiento de modelos con conjuntos de datos de Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mldata
 ms.author: yogipandey
 author: ynpandey
 manager: cgronlun
@@ -12,12 +12,12 @@ ms.reviewer: nibaccam
 ms.date: 07/31/2020
 ms.topic: how-to
 ms.custom: devx-track-python, data4ml
-ms.openlocfilehash: 191c76c6ec67112df71d8d5525b2c5938627b3d6
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 1aa47d7dfbc4a4d43702522a133ae86c8bdbdd1a
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114458544"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129427274"
 ---
 # <a name="train-models-with-azure-machine-learning-datasets"></a>Entrenamiento de modelos con conjuntos de datos de Azure Machine Learning 
 

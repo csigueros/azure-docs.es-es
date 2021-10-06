@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 05/25/2021
-ms.openlocfilehash: bae25b29fb0244641f3f1db80d8f2679d2070777
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 09/13/2021
+ms.openlocfilehash: a94abb3b2c640dbd0bcd372e83844d660af514cd
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110369118"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128548210"
 ---
 # <a name="devops-deployment-for-single-tenant-azure-logic-apps"></a>Implementación de DevOps para Azure Logic Apps de inquilino único
 
@@ -29,7 +29,7 @@ Cuando se crean aplicaciones lógicas con el tipo de recurso **Logic App (están
 
 Por ejemplo, puede empaquetar el entorno de ejecución y los flujos de trabajo en contenedores rediseñados juntos como parte de la aplicación lógica. Puede usar pasos genéricos o tareas que compilan, ensamblan y comprimen los recursos de la aplicación lógica en artefactos listos para implementarse. Para implementar las aplicaciones, copie los artefactos en el entorno host y, a continuación, inicie las aplicaciones para ejecutar los flujos de trabajo. O bien, integre los artefactos en canalizaciones de implementación mediante las herramientas y los procesos que ya conoce y usa. Por ejemplo, si el escenario requiere contenedores, puede crear incluir en contenedores las aplicaciones lógicas e integrarlas en las canalizaciones existentes.
 
-Para configurar e implementar los recursos de infraestructura, como redes virtuales y conectividad, puede seguir usando plantillas de ARM y aprovisionar por separado esos recursos junto con otros procesos y canalizaciones que use para esos fines. 
+Para configurar e implementar los recursos de infraestructura, como redes virtuales y conectividad, puede seguir usando plantillas de ARM y aprovisionar por separado esos recursos junto con otros procesos y canalizaciones que use para esos fines.
 
 Mediante el uso de las opciones de compilación e implementación estándar, puede centrarse en el desarrollo de aplicaciones por separado de la implementación de infraestructura. Como resultado, obtiene un modelo de proyecto más genérico en el que se pueden aplicar muchas opciones de implementación similares o las mismas que se usan para una aplicación genérica. También se beneficia de una experiencia más coherente para crear canalizaciones de implementación en torno a los proyectos de aplicación y para ejecutar las pruebas y validaciones necesarias antes de publicar en producción. Independientemente de la pila de tecnología que use, puede implementar aplicaciones lógicas con sus propias herramientas elegidas.
 
@@ -43,7 +43,7 @@ La plataforma Azure Logic Apps de inquilino único hereda muchas funcionalidades
 
 ### <a name="local-development-and-testing"></a>Desarrollo y pruebas locales
 
-Al usar Visual Studio Code con la extensión Azure Logic Apps (Estándar), puede desarrollar, compilar y ejecutar localmente flujos de trabajo de aplicación lógica basados en un solo inquilino en el entorno de desarrollo sin tener que implementar en Azure. También puede ejecutar los flujos de trabajo en cualquier lugar que pueda ejecutar Azure Functions. Por ejemplo, si el escenario requiere contenedores, puede incluir en contenedores las aplicaciones lógicas e implementarlas como contenedores.
+Al usar Visual Studio Code con la extensión Azure Logic Apps (Estándar), puede desarrollar, compilar y ejecutar localmente flujos de trabajo de aplicación lógica basados en un solo inquilino en el entorno de desarrollo sin tener que implementar en Azure. También puede ejecutar los flujos de trabajo donde pueda ejecutar Azure Functions. Por ejemplo, si el escenario requiere contenedores, puede incluir en contenedores las aplicaciones lógicas e implementarlas como contenedores.
 
 Esta funcionalidad es una mejora importante y proporciona una ventaja considerable en comparación con el modelo multiinquilino, que requiere que se desarrolle con un recurso existente y en ejecución en Azure.
 
@@ -69,7 +69,7 @@ El modelo de inquilino único ofrece la capacidad de separar las preocupaciones 
 
 ### <a name="container-deployment"></a>Implementación de contenedor
 
-Las aplicaciones de Azure Logic Apps de inquilino único admiten la implementación en contenedores, lo que significa que puede incluir en contenedores los flujos de trabajo de la aplicación lógica y ejecutarlos en cualquier lugar en el que puedan ejecutarse los contenedores. Después de incluir la aplicación lógica en un contenedor, la implementación funciona principalmente igual que cualquier otro contenedor que implemente y administre.
+Las instancias de Azure Logic Apps de inquilino único admiten la implementación en contenedores, lo que significa que puede incluir en contenedores los flujos de trabajo de aplicación lógica y ejecutarlos donde se puedan ejecutar los contenedores. Después de incluir la aplicación lógica en un contenedor, la implementación funciona principalmente igual que cualquier otro contenedor que implemente y administre.
 
 Para obtener ejemplos que incluyen Azure DevOps, revise [CI/CD para contenedores](https://azure.microsoft.com/solutions/architecture/cicd-for-containers/).
 
@@ -97,7 +97,7 @@ En Visual Studio Code, cuando se usa el diseñador para desarrollar o realizar
 
 ### <a name="service-provider-connections"></a>Conexiones del proveedor de servicios
 
-Cuando se usa una operación integrada para un servicio como Azure Service Bus o Azure Event Hubs en aplicaciones Azure Logic Apps de inquilino único, se crea una conexión de proveedor de servicios que se ejecuta en el mismo proceso que el flujo de trabajo. Esta infraestructura de conexión se hospeda y administra como parte de la aplicación lógica, y la configuración de la aplicación almacena las cadenas de conexión para cualquier operación integrada basada en el proveedor de servicios que usan los flujos de trabajo.
+Cuando se usa una operación integrada para un servicio como Azure Service Bus o Azure Event Hubs en aplicaciones Azure Logic Apps de inquilino único, se crea una conexión de proveedor de servicios que se ejecuta en el mismo proceso que el flujo de trabajo. Esta infraestructura de conexión se hospeda y administra como parte del recurso de aplicación lógica, y la configuración de la aplicación almacena las cadenas de conexión de cualquier operación integrada basada en el proveedor de servicios que usen los flujos de trabajo.
 
 En el proyecto de aplicación lógica, cada flujo de trabajo tiene un archivo workflow.json que contiene la definición JSON subyacente del flujo de trabajo. A continuación, esta definición de flujo de trabajo hace referencia a las cadenas de conexión necesarias en el archivo connections.json del proyecto.
 
@@ -114,7 +114,7 @@ En el ejemplo siguiente se muestra cómo aparece la conexión del proveedor de s
       },
       "displayName": "{service-bus-connection-name}"
    },
-   ...
+   <...>
 }
 ```
 
@@ -174,7 +174,7 @@ Para llamar a funciones creadas y hospedadas en Azure Functions, use la operaci�
 
 ## <a name="authentication"></a>Authentication
 
-En Azure Logic Apps de inquilino único, el modelo de hospedaje para los flujos de trabajo de las aplicaciones lógicas es un único inquilino en el que sus cargas de trabajo se benefician de un mayor aislamiento que en el modelo multiinquilino. Además, el entorno de ejecución de Azure Logic Apps de inquilino único es portátil, lo que significa que puede ejecutar los flujos de trabajo en cualquier lugar que Azure Functions pueda ejecutar. Aun así, este diseño requiere una manera de que las aplicaciones lógicas autentiquen su identidad para que puedan acceder al ecosistema de conectores administrados en Azure. Las aplicaciones también necesitan los permisos correctos para ejecutar operaciones cuando se usan conexiones administradas.
+En Azure Logic Apps de inquilino único, el modelo de hospedaje para los flujos de trabajo de las aplicaciones lógicas es un único inquilino en el que sus cargas de trabajo se benefician de un mayor aislamiento que en el modelo multiinquilino. Además, el entorno de ejecución de Azure Logic Apps de inquilino único es portátil, lo que significa que puede ejecutar los flujos de trabajo donde pueda ejecutar Azure Functions. Aun así, este diseño requiere una manera de que las aplicaciones lógicas autentiquen su identidad para que puedan acceder al ecosistema de conectores administrados en Azure. Las aplicaciones también necesitan los permisos correctos para ejecutar operaciones cuando se usan conexiones administradas.
 
 De forma predeterminada, cada aplicación lógica basada en un inquilino único tiene una identidad administrada asignada por el sistema habilitada automáticamente. Esta identidad se diferencia de las credenciales de autenticación o de la cadena de conexión que se usan al crear una conexión. En el entorno de ejecución, la aplicación lógica usa esta identidad para autenticar sus conexiones a través de directivas de acceso de Azure. Si deshabilita esta identidad, las conexiones no funcionarán en runtime.
 

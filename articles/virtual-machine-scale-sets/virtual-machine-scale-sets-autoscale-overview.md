@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 06/30/2020
 ms.reviewer: jushiman
 ms.custom: avverma
-ms.openlocfilehash: 4fde975c0649a0ba9da32ed53983e3632d5535ca
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 9b41b546b80106956221b39274501d33cc5fdaf9
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122690531"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128603892"
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>Introducción a los registros de escalado automático con conjuntos de escalado de máquinas virtuales de Azure
 
@@ -106,7 +106,7 @@ Al desencadenarse una regla de escalado automático, su conjunto de escalado pue
 | Aumentar porcentaje en | Un aumento basado en porcentajes de instancias de máquinas virtuales. Bueno para conjuntos de escalado mayores donde es posible que un aumento fijo no mejore el rendimiento considerablemente. |
 | Aumentar recuento en   | Cree tantas instancias de máquinas virtuales como sean necesarias para alcanzar una cantidad máxima deseada.                                                            |
 | Reducir el recuento en   | Un número fijo de instancias de máquinas virtuales que se van a quitar. Útil en conjuntos de escalado con un número menor de máquinas virtuales.                                           |
-| Reducir porcentaje en | Un descenso basado en porcentajes de instancias de máquinas virtuales. Bueno para conjuntos de escalado mayores donde es posible que un aumento fijo no reduzca los costos y el consumo de recursos considerablemente. |
+| Reducir porcentaje en | Un descenso basado en porcentajes de instancias de máquinas virtuales. Bueno para conjuntos de escalado mayores donde es posible que una reducción fija no reduzca los costos y el consumo de recursos considerablemente. |
 | Reducir recuento en   | Quite tantas instancias de máquinas virtuales como sean necesarias para alcanzar una cantidad mínima deseada.                                                            |
 
 

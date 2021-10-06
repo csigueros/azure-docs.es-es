@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning
 description: Aprenda a crear y usar puntos de conexión en línea administrados (versión preliminar) mediante Estudio de Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.topic: how-to
 ms.custom: how-to, managed online endpoints, devplatv2
 ms.author: ssambare
 author: shivanissambare
 ms.reviewer: peterlu
 ms.date: 05/25/2021
-ms.openlocfilehash: 4f2b69a4a4009784e7943d57b0ec5653528a418e
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 764532fd06a26810dcee7c9d348aaf04abc037a4
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114448184"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129428870"
 ---
 # <a name="create-and-use-managed-online-endpoints-preview-in-the-studio"></a>Creación y uso de puntos de conexión en línea administrados (versión preliminar) en Estudio
 

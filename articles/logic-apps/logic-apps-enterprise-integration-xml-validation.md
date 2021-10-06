@@ -1,5 +1,5 @@
 ---
-title: Validación de documentos XML para la integración empresarial B2B
+title: Validación de XML en flujos de trabajo de integración empresarial
 description: Validación de XML usando esquemas en Azure Logic Apps con Enterprise Integration Pack
 services: logic-apps
 ms.suite: integration
@@ -7,17 +7,19 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/25/2021
-ms.openlocfilehash: 87650a1ab950f8e88fe08a1c4555c98652776730
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.date: 09/15/2021
+ms.openlocfilehash: 842b26502dcfa073bca21891eed44fe990037f06
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123099309"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128660811"
 ---
 # <a name="validate-xml-for-workflows-in-azure-logic-apps"></a>Validación de XML para flujos de trabajo en Azure Logic Apps
 
-A menudo, en los escenarios de negocio a negocio (B2B) de integración empresarial, las entidades de un acuerdo deben asegurarse de que los mensajes que intercambian sean válidos antes de que pueda empezar el procesamiento de datos. Puede validar documentos con respecto a un esquema predefinido mediante la acción **Validación de XML** de Azure Logic Apps.
+En los escenarios de negocio a negocio (B2B) de integración empresarial, a menudo las entidades de un contrato deben asegurarse de que los mensajes que intercambian sean válidos antes de que pueda empezar el procesamiento de datos. El flujo de trabajo de la aplicación lógica puede validar documentos y mensajes XML mediante la acción **Validación XML** y un [esquema](logic-apps-enterprise-integration-schemas.md) predefinido.
+
+Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azure Logic Apps?](logic-apps-overview.md) Para obtener más información sobre la integración empresarial B2B, revise [Flujos de trabajo de integración empresarial B2B con Azure Logic Apps y Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -27,27 +29,24 @@ A menudo, en los escenarios de negocio a negocio (B2B) de integración empresari
 
   Si tiene un flujo de trabajo en blanco, use el desencadenador que desee. En este ejemplo se usa el desencadenador de solicitud.
 
-  Si no conoce las aplicaciones lógicas, consulte la siguiente documentación:
+* Un [recurso de cuenta de integración](logic-apps-enterprise-integration-create-integration-account.md) donde se definen y almacenan artefactos, como socios comerciales, contratos, certificados, entre otros, para su uso en los flujos de trabajo de integración empresarial y B2B. Este recurso tiene que satisfacer los siguientes requisitos:
 
-  * [¿Qué es Azure Logic Apps?](logic-apps-overview.md)
+  * Estar asociado a la misma suscripción de Azure que el recurso de aplicación lógica.
 
-  * [Inicio rápido: Creación del primer flujo de trabajo de Logic Apps en Azure Portal](quickstart-create-first-logic-app-workflow.md)
+  * Existe en la misma ubicación o región de Azure que el recurso de aplicación lógica donde piensa usar la acción **Validación XML***.
 
-  * [Creación de flujos de trabajo de aplicación lógica de un solo inquilino](create-single-tenant-workflows-azure-portal.md)
+  * Si usa el [tipo de recurso **Aplicación lógica (consumo)** ](logic-apps-overview.md#resource-type-and-host-environment-differences), la cuenta de integración necesita los elementos siguientes:
 
-  * [Modelos de medición, facturación y precios de uso de Azure Logic Apps](logic-apps-pricing.md)
+    * El [esquema](logic-apps-enterprise-integration-schemas.md) que se va a usar para validar el contenido XML.
 
-* Si usa el tipo de recurso de **aplicación lógica (consumo)** , debe tener una [cuenta de integración](logic-apps-enterprise-integration-create-integration-account.md) que cumpla los siguientes requisitos:
+    * Un [vínculo al recurso de aplicación lógica](logic-apps-enterprise-integration-create-integration-account.md#link-account).
 
-  * Está asociada a la misma suscripción de Azure que el recurso de aplicación lógica.
+  * Si usa el [tipo de recurso **Aplicación lógica (estándar)** ](logic-apps-overview.md#resource-type-and-host-environment-differences), no almacene los esquemas en la cuenta de integración. En su lugar, puede [agregar esquemas directamente al recurso de aplicación lógica](logic-apps-enterprise-integration-schemas.md) mediante Azure Portal o Visual Studio Code. Posteriormente puede usar dichas asignaciones en varios flujos de trabajo dentro del *mismo recurso de aplicación lógica*.
 
-  * Existe en la misma ubicación o región de Azure que el recurso de aplicación lógica donde piensa usar la acción **Validación de XML**.
+    Todavía necesita una cuenta de integración para almacenar otros artefactos, como asociados, contratos y certificados, junto con el uso de las operaciones [AS2](logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md) y [EDIFACT](logic-apps-enterprise-integration-edifact.md). Pero no es necesario vincular el recurso de aplicación lógica a la cuenta de integración, por lo que la funcionalidad de vinculación no existe. La cuenta de integración todavía tiene que cumplir otros requisitos, como usar la misma suscripción de Azure y existir en la misma ubicación que el recurso de aplicación lógica.
 
-  * Está [vinculada](logic-apps-enterprise-integration-create-integration-account.md#link-account) al recurso de aplicación lógica.
-
-  * Contiene el [esquema](logic-apps-enterprise-integration-schemas.md) que se va a usar para validar el contenido XML.
-
-  Si usa el tipo de recurso de **aplicación lógica (estándar)** , no necesita una cuenta de integración. Sin embargo, tiene que agregar de todos modos al recurso de la aplicación lógica el [esquema](logic-apps-enterprise-integration-schemas.md) que se va a usar para validar el contenido XML. Puede completar esta tarea en el menú del recurso de aplicación lógica, en **Configuración**, en la sección **Esquemas**.
+    > [!NOTE]
+    > Actualmente, solo el tipo de recurso **Aplicación lógica (consumo)** admite operaciones de [RosettaNet](logic-apps-enterprise-integration-rosettanet.md). El tipo de recurso **Aplicación lógica (estándar)** no incluye operaciones de [RosettaNet](logic-apps-enterprise-integration-rosettanet.md).
 
 ## <a name="add-xml-validation-action"></a>Incorporación de la acción de validación XML
 
@@ -96,6 +95,8 @@ A menudo, en los escenarios de negocio a negocio (B2B) de integración empresari
    Ha terminado de configurar la acción **Validación de XML**. En una aplicación real, podría almacenar los datos validados en una aplicación de línea de negocio (LOB) como SalesForce. Para enviar la salida validada a Salesforce, agregue una acción Salesforce.
 
 1. Para probar la acción de validación, desencadene y ejecute el flujo de trabajo. Por ejemplo, en el caso del desencadenador de solicitud, envíe una solicitud a la dirección URL del punto de conexión del desencadenador.
+
+   La acción **Validación XML** se ejecuta después de que se desencadene el flujo de trabajo y cuando el contenido XML está disponible para la validación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

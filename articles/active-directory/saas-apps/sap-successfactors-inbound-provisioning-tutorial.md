@@ -1,7 +1,6 @@
 ---
-title: 'Tutorial: Configuración del aprovisionamiento de entrada de SuccessFactors en AD y Azure AD | Microsoft Docs'
+title: 'Tutorial: Configuración del aprovisionamiento de entrada de SuccessFactors en AD y Azure AD'
 description: Aprenda a configurar el aprovisionamiento de entrada de SuccessFactors
-services: active-directory
 author: cmmdesai
 manager: CelesteDG
 ms.service: active-directory
@@ -10,12 +9,12 @@ ms.topic: tutorial
 ms.workload: identity
 ms.date: 01/19/2021
 ms.author: chmutali
-ms.openlocfilehash: 7b59e0ae2fbb73f341d5254fd2804d50ad141a19
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d4a1350999258b47db4a5188fa9eab92aa56e567
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98953808"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128604953"
 ---
 # <a name="tutorial-configure-sap-successfactors-to-active-directory-user-provisioning"></a>Tutorial: Configuración del aprovisionamiento de usuarios de SAP SuccessFactors a Active Directory 
 El objetivo de este tutorial es mostrar los pasos que debe realizar para aprovisionar usuarios de SuccessFactors Employee Central a Active Directory (AD) y Azure AD, con escritura diferida opcional de la dirección de correo electrónico en SuccessFactors. 
@@ -199,7 +198,7 @@ En este paso, se establece la conectividad con SuccessFactors y Active Director
 
    * **Contraseña de administrador:** escriba la contraseña de la cuenta de usuario de SuccessFactors API. 
 
-   * **URL de inquilino:** escriba el nombre del punto de conexión de servicios de la API OData de SuccessFactors. Especifique solo el nombre de host del servidor sin http o https. Este valor se parecerá a este: **<api-server-name>.successfactors.com**.
+   * **URL de inquilino:** escriba el nombre del punto de conexión de servicios de la API OData de SuccessFactors. Especifique solo el nombre de host del servidor sin http o https. Este valor debería ser similar al siguiente: **\<api-server-name\>.successfactors.com**.
 
    * **Bosque de Active Directory**: el nombre de su dominio de Active Directory, según se ha registrado con el agente. Use la lista desplegable para seleccionar el dominio de destino para el aprovisionamiento. Este valor suele ser una cadena como: *contoso.com*.
 

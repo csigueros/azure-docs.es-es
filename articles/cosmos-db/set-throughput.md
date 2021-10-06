@@ -5,13 +5,13 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 01/25/2021
-ms.openlocfilehash: 3c2e900090b3f3908318bfbc3f1ea1e6f2588dee
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.date: 09/16/2021
+ms.openlocfilehash: aa10c93b63fd621397318c701deef8c3912b05da
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123431285"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128601734"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Introducción al rendimiento aprovisionado en Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -110,7 +110,7 @@ El valor mínimo real de RU/s puede variar en función de la configuración de l
 
 * 400 RU/s 
 * Almacenamiento actual en GB * 10 RU/s (esta restricción se puede relajar en algunos casos, consulte nuestro [programa de almacenamiento alto y bajo rendimiento](#high-storage-low-throughput-program))
-* El mayor valor de RU/s aprovisionado en la base de datos o el contenedor / 100
+* El mayor valor de RU/s aprovisionado en la base de datos o el contenedor / 100
 
 ### <a name="changing-the-provisioned-throughput"></a>Cambio del rendimiento aprovisionado
 

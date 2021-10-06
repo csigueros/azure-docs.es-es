@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/28/2021
+ms.date: 09/02/2021
 ms.author: jeedes
-ms.openlocfilehash: d0c8364cc85cfce900021272d17456527919122b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b65a5cb4e202f2610613003b6d4339e0bb5354ce
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99050810"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124733774"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-timeclock-365-saml"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Timeclock 365 SAML
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar Timeclock 365 SAML con Azure Active Dire
 * Permitir que los usuarios puedan iniciar sesión automáticamente en Timeclock 365 SAML con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -37,7 +37,8 @@ Para empezar, necesita los siguientes elementos:
 
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-* Timeclock 365 SAML admite el inicio de sesión único iniciado por **SP**
+* Timeclock 365 SAML admite el inicio de sesión único iniciado por **SP**.
+* Timeclock 365 SAML admite el [aprovisionamiento de usuarios automatizado](timeclock-365-provisioning-tutorial.md).
 
 ## <a name="adding-timeclock-365-saml-from-the-gallery"></a>Adición de TimeClock 365 SAML desde la galería
 
@@ -49,7 +50,6 @@ Para configurar la integración de Timeclock 365 SAML en Azure AD, tiene que ag
 1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
 1. En la sección **Agregar desde la galería**, escriba **Timeclock 365 SAML** en el cuadro de búsqueda.
 1. Seleccione **Timeclock 365 SAML** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
-
 
 ## <a name="configure-and-test-azure-ad-sso-for-timeclock-365-saml"></a>Configuración y prueba del inicio de sesión único de Azure AD para Timeclock 365 SAML
 
@@ -143,6 +143,9 @@ En esta sección, va a conceder a B.Simon acceso a Timeclock 365 SAML utilizando
 
 1. Haga clic en el botón **Crear** para crear el usuario de prueba.
 
+> [!NOTE]
+> Timeclock 365 SAML también admite el aprovisionamiento automático de usuarios. [Aquí](./timeclock-365-provisioning-tutorial.md) puede encontrar más detalles sobre cómo configurarlo.
+
 ## <a name="test-sso"></a>Prueba de SSO 
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones. 
@@ -151,8 +154,7 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 * Vaya directamente a la dirección URL de inicio de sesión de Timeclock 365 SAML e inicie el flujo de inicio de sesión desde allí.
 
-* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Timeclock 365 SAML en Mis aplicaciones, se le redirigirá a la dirección URL de inicio de sesión de Timeclock 365 SAML. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
-
+* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Timeclock 365 SAML en Mis aplicaciones, se le redirigirá a la dirección URL de inicio de sesión de Timeclock 365 SAML. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

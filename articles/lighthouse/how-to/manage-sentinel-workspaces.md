@@ -3,12 +3,12 @@ title: Administración de áreas de trabajo de Azure Sentinel a gran escala
 description: Azure Lighthouse le ayuda a administrar Azure Sentinel de manera eficaz en los recursos delegados del cliente.
 ms.date: 08/16/2021
 ms.topic: how-to
-ms.openlocfilehash: 44efc4afeb3ea238b5a8a29d8f12a7bfb4f6d621
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: d6eba4cab51fa18164cc5f44e579be23ef8e74a5
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122324026"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124777818"
 ---
 # <a name="manage-azure-sentinel-workspaces-at-scale"></a>Administración de áreas de trabajo de Azure Sentinel a gran escala
 
@@ -85,9 +85,9 @@ Puede usar automatización para administrar varias áreas de trabajo de Azure Se
 
 ## <a name="monitor-security-of-office-365-environments"></a>Supervisión de la seguridad de los entornos de Office 365
 
-Use Azure Lighthouse junto con Azure Sentinel para supervisar la seguridad de los entornos de Office 365 entre inquilinos. En primer lugar, los [conectores de datos de Office 365 integrados deben estar habilitados en el inquilino administrado](../../sentinel/connect-office-365.md) para que la información sobre las actividades de usuarios y administradores en Exchange y SharePoint (incluido OneDrive) se pueda ingerir en un área de trabajo de Azure Sentinel en el inquilino administrado. Esto incluye detalles sobre acciones como descargas de archivos, solicitudes de acceso enviadas, cambios en eventos de grupo y operaciones de buzón de correo, junto con información sobre los usuarios que realizaron dichas acciones. Las [alertas de DLP de Office 365](https://techcommunity.microsoft.com/t5/azure-sentinel/ingest-office-365-dlp-events-into-azure-sentinel/ba-p/1031820) también se admiten como parte del conector integrado de Office 365.
+Use Azure Lighthouse junto con Azure Sentinel para supervisar la seguridad de los entornos de Office 365 entre inquilinos. En primer lugar, los [conectores de datos de Office 365 integrados deben estar habilitados en el inquilino administrado](../../sentinel/data-connectors-reference.md#microsoft-office-365) para que la información sobre las actividades de usuarios y administradores en Exchange y SharePoint (incluido OneDrive) se pueda ingerir en un área de trabajo de Azure Sentinel en el inquilino administrado. Esto incluye detalles sobre acciones como descargas de archivos, solicitudes de acceso enviadas, cambios en eventos de grupo y operaciones de buzón de correo, junto con información sobre los usuarios que realizaron dichas acciones. Las [alertas de DLP de Office 365](https://techcommunity.microsoft.com/t5/azure-sentinel/ingest-office-365-dlp-events-into-azure-sentinel/ba-p/1031820) también se admiten como parte del conector integrado de Office 365.
 
-Puede habilitar el [conector de Microsoft Cloud App Security (MCAS)](../../sentinel/connect-cloud-app-security.md) para transmitir alertas y registros de Cloud Discovery a Azure Sentinel. Esto le permite adquirir visibilidad sobre las aplicaciones en la nube, obtener análisis sofisticados para identificar y combatir las ciberamenazas y controlar cómo viajan los datos. Los registros de actividad de MCAS se pueden [consumir mediante el formato de evento común (CEF)](https://techcommunity.microsoft.com/t5/azure-sentinel/ingest-box-com-activity-events-via-microsoft-cloud-app-security/ba-p/1072849).
+Puede habilitar el [conector de Microsoft Cloud App Security (MCAS)](../../sentinel/data-connectors-reference.md#microsoft-cloud-app-security-mcas) para transmitir alertas y registros de Cloud Discovery a Azure Sentinel. Esto le permite adquirir visibilidad sobre las aplicaciones en la nube, obtener análisis sofisticados para identificar y combatir las ciberamenazas y controlar cómo viajan los datos. Los registros de actividad de MCAS se pueden [consumir mediante el formato de evento común (CEF)](https://techcommunity.microsoft.com/t5/azure-sentinel/ingest-box-com-activity-events-via-microsoft-cloud-app-security/ba-p/1072849).
 
 Después de configurar los conectores de datos de Office 365, puede usar las funcionalidades de Azure Sentinel entre inquilinos, como la visualización y análisis los datos de los libros, el uso de consultas para crear alertas personalizadas y la configuración de los cuadernos de estrategias para responder a las amenazas.
 

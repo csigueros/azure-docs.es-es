@@ -4,18 +4,18 @@ titleSuffix: Azure Machine Learning
 description: Obtenga información sobre cómo los procesos y almacenes de datos de Azure Machine Learning proporcionan cifrado de datos en reposo y en tránsito.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.topic: conceptual
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
 ms.date: 08/02/2021
-ms.openlocfilehash: 2a838d2c1206cbc1a73e00d3ff41337400a08676
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: e367f6685e73cb6cdfd9e777e6cb554c186c616c
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121742073"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129429231"
 ---
 # <a name="data-encryption-with-azure-machine-learning"></a>Cifrado de datos con Azure Machine Learning
 
@@ -36,6 +36,8 @@ La marca `hbi_workspace` controla la cantidad de [datos que Microsoft recopila p
 * Inicia el cifrado del disco temporal local en el clúster de proceso de Azure Machine Learning, siempre que no haya creado ningún clúster anterior en esa suscripción. En caso contrario, debe generar una incidencia de soporte técnico para habilitar el cifrado del disco temporal de los clústeres de proceso. 
 * Limpia el disco temporal local entre ejecuciones.
 * Pasa de forma segura las credenciales de la cuenta de almacenamiento, el registro de contenedor y la cuenta SSH desde la capa de ejecución a los clústeres de proceso mediante el almacén de claves.
+
+Cuando esta marca se establece en True, un posible impacto es una mayor dificultad para solucionar problemas. Esto podría deberse a que algunos datos de telemetría no se envían a Microsoft y hay menos visibilidad de las tasas de éxito o de los tipos de problemas y, por tanto, es posible que no pueda reaccionar de forma proactiva cuando esta marca está establecida en True.
 
 > [!TIP]
 > La marca `hbi_workspace` no afecta al cifrado en tránsito, solo al cifrado en reposo.

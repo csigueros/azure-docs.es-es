@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 08/10/2021
 ms.author: duau
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: 0c93edf2d7d017ea857e4e8ac915818a3b7f1d02
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: 366426ee04bd13239a734bbc721cbd6822a34ddd
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123311371"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128650028"
 ---
 # <a name="tutorial-connect-a-virtual-network-to-an-expressroute-circuit"></a>Tutorial: Conexión de una red virtual a un circuito ExpressRoute
 > [!div class="op_single_selector"]
@@ -68,6 +68,9 @@ $connection = New-AzVirtualNetworkGatewayConnection -Name "ERConnection" -Resour
 
 ## <a name="connect-a-virtual-network-in-a-different-subscription-to-a-circuit"></a>Conexión de una red virtual en una suscripción diferente a un circuito
 Puede compartir un circuito ExpressRoute entre varias suscripciones. En la ilustración siguiente se muestra un sencillo esquema de cómo funciona el uso compartido de circuitos ExpressRoute entre varias suscripciones.
+
+> [!NOTE]
+> No se admite la conexión de redes virtuales entre nubes soberanas de Azure y la nube pública de Azure. Solo puede vincular redes virtuales de distintas suscripciones de la misma nube.
 
 Cada una de las nubes más pequeñas dentro de la nube de gran tamaño se usa para representar las suscripciones que pertenecen a diferentes departamentos dentro de una organización. Cada departamento de la organización usa su propia suscripción para implementar sus servicios, pero puede compartir un único circuito ExpressRoute para volver a conectarse a la red local. Un solo departamento (en este ejemplo: TI) puede ser el propietario de ExpressRoute. Otras suscripciones dentro de la organización pueden usar el circuito ExpressRoute.
 
@@ -221,7 +224,7 @@ Register-AzProviderFeature -FeatureName ExpressRouteVnetPeeringGatewayBypass -Pr
 > [!NOTE] 
 > Todas las conexiones configuradas para FastPath en la suscripción de destino se inscribirán en esta versión preliminar. No se recomienda habilitar esta versión preliminar en las suscripciones de producción.
 > Si ya tiene FastPath configurado y desea inscribirse en la característica en versión preliminar, debe hacer lo siguiente:
-> 1. Inscríbase en la característica en versión preliminar de FastPath con el comando de Azure PowerShell anterior.
+> 1. Inscríbase en la característica en versión preliminar de FastPath con el comando de Azure PowerShell anterior.
 > 1. Deshabilite y vuelva a habilitar FastPath en la conexión de destino.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos

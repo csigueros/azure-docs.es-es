@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/10/2021
+ms.date: 09/02/2021
 ms.author: jeedes
-ms.openlocfilehash: 31a653df08108bc4f5d75e6dbbc6f31144be8b7e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aa73892fb74e329b8d02abf90f149595686bcf37
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104956033"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124738033"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-thrive-lxp"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Thrive LXP
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar Thrive LXP con Azure Active Directory (A
 * Permitir que los usuarios inicien sesión automáticamente en Thrive LXP con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -38,6 +38,7 @@ Para empezar, necesita los siguientes elementos:
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
 * Thrive LXP admite el inicio de sesión único iniciado por **SP**.
+* Thrive LXP admite el [aprovisionamiento automatizado de usuarios](thrive-lxp-provisioning-tutorial.md).
 
 ## <a name="adding-thrive-lxp-from-the-gallery"></a>Incorporación de Thrive LXP desde la galería
 
@@ -49,7 +50,6 @@ Para configurar la integración de Thrive LXP en Azure AD, es preciso agregar T
 1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
 1. En la sección **Agregar desde la galería**, escriba **Thrive LXP** en el cuadro de búsqueda.
 1. Seleccione **Thrive LXP** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
-
 
 ## <a name="configure-and-test-azure-ad-sso-for-thrive-lxp"></a>Configuración y prueba del inicio de sesión único de Azure AD para Thrive LXP
 
@@ -92,6 +92,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 1. En la sección **Configurar Thrive LXP**, copie las direcciones URL adecuadas según sus necesidades.
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
+
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
 En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Portal.
@@ -124,6 +125,8 @@ Para configurar el inicio de sesión único en **Thrive LXP**, es preciso enviar
 
 En esta sección, creará un usuario llamado Britta Simon en Thrive LXP. Colabore con el [equipo de soporte técnico de Thrive LXP](mailto:support@thrivelearning.com) para agregar los usuarios a la plataforma de Thrive LXP. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
+Thrive LXP también admite el aprovisionamiento automático de usuarios. [Aquí](./thrive-lxp-provisioning-tutorial.md) puede encontrar más detalles sobre cómo configurar el aprovisionamiento automático de usuarios.
+
 ## <a name="test-sso"></a>Prueba de SSO 
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones. 
@@ -132,7 +135,7 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 * Acceda directamente a la dirección URL de inicio de sesión de Thrive LXP y comience el flujo de inicio de sesión desde ahí.
 
-* Puede usar Mis aplicaciones de Microsoft. Si en Mis aplicaciones hace clic en el icono de Thrive LXP, debería acceder automáticamente a la dirección URL de inicio de sesión de esta aplicación. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+* Puede usar Mis aplicaciones de Microsoft. Si en Mis aplicaciones hace clic en el icono de Thrive LXP, debería acceder automáticamente a la dirección URL de inicio de sesión de esta aplicación. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

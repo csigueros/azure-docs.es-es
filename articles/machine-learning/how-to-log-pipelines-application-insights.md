@@ -6,16 +6,16 @@ services: machine-learning
 author: NilsPohlmann
 ms.author: nilsp
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.date: 08/11/2020
 ms.topic: how-to
 ms.custom: devx-track-python
-ms.openlocfilehash: cb455eb5eaf91377ca8dedc827ff89113f51b71a
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 25ad1229c33b00475be8593a96ff5c135cbfb2a1
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107884901"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129427426"
 ---
 # <a name="collect-machine-learning-pipeline-log-files-in-application-insights-for-alerts-and-debugging"></a>Recopilación de archivos de registro de canalización de aprendizaje automático en Application Insights para alertas y depuración
 

@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning
 description: En este artículo se enseña a usar Azure Machine Learning para implementar un modelo de aprendizaje profundo de TensorFlow habilitado para GPU como un servicio web y las solicitudes de inferencia de puntuación.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
 ms.date: 06/17/2020
 ms.topic: how-to
 ms.custom: devx-track-python, deploy
-ms.openlocfilehash: 58518d921ac728901258e5335d045dfd4262dd0e
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: eec009303938195fffe6c2ddb0ad6d44a2e1a8b0
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114446603"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129425399"
 ---
 # <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>Implementación de un modelo de aprendizaje profundo para la inferencia con GPU
 

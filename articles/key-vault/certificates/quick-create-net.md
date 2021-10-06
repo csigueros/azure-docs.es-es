@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9188079a93c9c2688a310413401e90014b278bf8
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: 47f3bc4082edf64a66fbc90e4f9838040220f3f0
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107813423"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124782392"
 ---
 # <a name="quickstart-azure-key-vault-certificate-client-library-for-net-sdk-v4"></a>Inicio rápido: Biblioteca cliente de certificados de Azure Key Vault para .NET (SDK v4)
 
@@ -134,9 +134,9 @@ using Azure.Security.KeyVault.Certificates;
 
 ### <a name="authenticate-and-create-a-client"></a>Autenticación y creación de un cliente
 
-En este inicio rápido se emplea el usuario que ha iniciado sesión para autenticarlo en el almacén de claves, que es el método preferido para el desarrollo local. Para las aplicaciones implementadas en Azure, la identidad administrada debe asignarse a App Service o la máquina virtual. Para más información, consulte [Introducción a la identidad administrada](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+En este inicio rápido se emplea el usuario que ha iniciado sesión para autenticarlo en el almacén de claves, que es el método preferido para el desarrollo local. En el caso de las aplicaciones implementadas en Azure, la identidad administrada debe asignarse a App Service o la máquina virtual. Para más información, consulte [Introducción a la entidad administrada](../../active-directory/managed-identities-azure-resources/overview.md.
 
-En el ejemplo siguiente, el nombre del almacén de claves se expande al URI del almacén de claves, con el formato "https://\<your-key-vault-name\>.vault.azure.net". En este ejemplo se usa la clase ["DefaultAzureCredential()"](/dotnet/api/azure.identity.defaultazurecredential) de la [biblioteca de identidades de Azure](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme), que permite usar el mismo código en entornos diferentes con distintas opciones para proporcionar la identidad. Para más información sobre la autenticación en el almacén de claves, consulte la [Guía del desarrollador](https://docs.microsoft.com/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code).
+En el ejemplo siguiente, el nombre del almacén de claves se expande al URI del almacén de claves, con el formato "https://\<your-key-vault-name\>.vault.azure.net". En este ejemplo se usa la clase ["DefaultAzureCredential()"](/dotnet/api/azure.identity.defaultazurecredential) de la [biblioteca de identidades de Azure](/dotnet/api/overview/azure/identity-readme), que permite usar el mismo código en entornos diferentes con distintas opciones para proporcionar la identidad. Para más información sobre la autenticación en el almacén de claves, consulte la [Guía del desarrollador](../general/developers-guide.md#authenticate-to-key-vault-in-code).
 
 ```csharp
 string keyVaultName = Environment.GetEnvironmentVariable("KEY_VAULT_NAME");
@@ -147,7 +147,7 @@ var client = new CertificateClient(new Uri(kvUri), new DefaultAzureCredential())
 
 ### <a name="save-a-certificate"></a>Guardar certificado
 
-En este ejemplo, para simplificar, puede usar un certificado autofirmado con la directiva de emisión predeterminada. Para esta tarea, use el método [StartCreateCertificateAsync](/dotnet/api/azure.security.keyvault.certificates.certificateclient.startcreatecertificateasync). Los parámetros del método aceptan un nombre de certificado y la [directiva de certificados](https://docs.microsoft.com/dotnet/api/azure.security.keyvault.certificates.certificatepolicy).
+En este ejemplo, para simplificar, puede usar un certificado autofirmado con la directiva de emisión predeterminada. Para esta tarea, use el método [StartCreateCertificateAsync](/dotnet/api/azure.security.keyvault.certificates.certificateclient.startcreatecertificateasync). Los parámetros del método aceptan un nombre de certificado y la [directiva de certificados](/dotnet/api/azure.security.keyvault.certificates.certificatepolicy).
 
 ```csharp
 var operation = await client.StartCreateCertificateAsync("myCertificate", CertificatePolicy.Default);

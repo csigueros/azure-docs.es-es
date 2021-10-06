@@ -4,23 +4,25 @@ description: Describe cómo definir y utilizar un módulo, y cómo usar ámbitos
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 07/15/2021
-ms.openlocfilehash: 5e092a0b7f27379cf9fdc488c7a56a295ce17d25
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/14/2021
+ms.openlocfilehash: 53bc8d80f1954694b8bdb262cdec25bb4506b221
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121752252"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128672844"
 ---
 # <a name="use-bicep-modules"></a>Uso de módulos de Bicep
 
-Bicep permite dividir una solución compleja en módulos. Un módulo de Bicep es un conjunto de uno o más recursos que se van a implementar juntos. Los módulos abstraen los detalles complejos de la declaración de recursos sin procesar, lo que puede aumentar la legibilidad. Puede volver a usar estos módulos y compartirlos con otras personas. Los módulos de Bicep se transpilan en una sola plantilla de ARM con [plantillas anidadas](../templates/linked-templates.md#nested-template) para su implementación.
+Bicep permite dividir una solución compleja en módulos. Un módulo de Bicep es simplemente un archivo de Bicep que se implementa desde otro archivo de Bicep. Puede encapsular detalles complejos de la declaración de recursos en un módulo, lo que mejora la legibilidad de los archivos que usan el módulo. Puede volver a usar estos módulos y compartirlos con otras personas. Los módulos de Bicep se convierten en una sola plantilla de Azure Resource Manager con [plantillas anidadas](../templates/linked-templates.md#nested-template) para la implementación.
+
+En este artículo se describe cómo definir y consumir módulos.
 
 Para ver un tutorial, consulte [Implementación de recursos de Azure mediante plantillas de Bicep](/learn/modules/deploy-azure-resources-by-using-bicep-templates/).
 
 ## <a name="define-modules"></a>Definición de los módulos
 
-Cada archivo de Bicep puede usarse como un módulo. Un módulo solo expone parámetros y salidas como un contrato a otros archivos de Bicep. Tanto los parámetros como las salidas son opcionales.
+Cada archivo de Bicep se puede usar como un módulo. Un módulo solo expone parámetros y salidas como un contrato a otros archivos de Bicep. Los parámetros y las salidas son opcionales.
 
 El siguiente archivo de Bicep se puede implementar directamente para crear una cuenta de almacenamiento o usarse como un módulo.  En la sección siguiente se muestra cómo usar módulos:
 
@@ -71,7 +73,7 @@ Utilice la palabra clave _module_ para usar un módulo. El siguiente archivo de 
 param namePrefix string
 param location string = resourceGroup().location
 
-module stgModule './storageAccount.bicep' = {
+module stgModule 'storageAccount.bicep' = {
   name: 'storageDeploy'
   params: {
     storagePrefix: namePrefix
@@ -118,22 +120,11 @@ module dnsZone 'dnszones.bicep' = if (deployZone) {
 }
 ```
 
+Puede implementar un módulo varias veces mediante bucles. Para obtener más información, vea [Iteración de módulos en Bicep](loop-modules.md).
+
 ## <a name="configure-module-scopes"></a>Configuración de ámbitos de módulo
 
-Al declarar un módulo, puede proporcionar una propiedad _scope_ para establecer el ámbito en el que se implementará el módulo:
-
-```bicep
-module stgModule './storageAccount.bicep' = {
-  name: 'storageDeploy'
-  scope: resourceGroup('someOtherRg') // pass in a scope to a different resourceGroup
-  params: {
-    storagePrefix: namePrefix
-    location: location
-  }
-}
-```
-
-Se puede omitir la propiedad _scope_ cuando el ámbito de destino del módulo y el ámbito de destino del elemento primario sean el mismo. Cuando no se proporciona la propiedad scope, el módulo se implementa en el ámbito de destino del elemento primario.
+Al declarar un módulo, puede establecer un ámbito para el módulo que sea diferente del ámbito del archivo de Bicep que lo contiene. Use la propiedad `scope` para establecer el ámbito del módulo. Cuando no se proporciona la propiedad scope, el módulo se implementa en el ámbito de destino del elemento primario.
 
 En el siguiente archivo de Bicep se muestra cómo crear un grupo de recursos e implementar un módulo en el grupo de recursos:
 
@@ -166,15 +157,59 @@ module stgModule './storageAccount.bicep' = {
 output storageEndpoint object = stgModule.outputs.storageEndpoint
 ```
 
-La propiedad scope se debe establecer en un objeto de ámbito válido. Si el archivo Bicep implementa un grupo de recursos, una suscripción o un grupo de administración, puede establecer el ámbito de un módulo en el nombre simbólico de ese recurso. Este enfoque se muestra en el ejemplo anterior, donde se crea un grupo de recursos y se usa para el ámbito de un módulo.
+En el ejemplo siguiente la implementación se realiza en grupos de recursos existentes.
 
-O bien, puede usar las funciones de ámbito para obtener un ámbito válido. Estas funciones son las siguientes:
+```bicep
+targetScope = 'subscription'
+
+resource firstRG 'Microsoft.Resources/resourceGroups@2021-04-01' existing = {
+  name: 'demogroup1'
+}
+
+resource secondRG 'Microsoft.Resources/resourceGroups@2021-04-01' existing = {
+  name: 'demogroup2'
+}
+
+module storage1 'storageAccount.bicep' = {
+  name: 'westusdeploy'
+  scope: firstRG
+  params: {
+    storagePrefix: 'stg1'
+    location: 'westus'
+  }
+}
+
+module storage2 'storageAccount.bicep' = {
+  name: 'eastusdeploy'
+  scope: secondRG
+  params: {
+    storagePrefix: 'stg2'
+    location: 'eastus'
+  }
+}
+```
+
+La propiedad scope se debe establecer en un objeto de ámbito válido. Si el archivo Bicep implementa un grupo de recursos, una suscripción o un grupo de administración, puede establecer el ámbito de un módulo en el nombre simbólico de ese recurso. O bien, puede usar las funciones de ámbito para obtener un ámbito válido. 
+
+Estas funciones son las siguientes:
 
 - [resourceGroup](bicep-functions-scope.md#resourcegroup)
 - [suscripción](bicep-functions-scope.md#subscription)
 - [managementGroup](bicep-functions-scope.md#managementgroup)
 - [tenant](bicep-functions-scope.md#tenant)
 
+En el ejemplo siguiente se usa la función `managementGroup` para establecer el ámbito.
+
+```bicep
+param managementGroupName string
+
+module  'module.bicep' = {
+  name: 'deployToMG'
+  scope: managementGroup(managementGroupName)
+}
+```
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para ver un tutorial, consulte [Implementación de recursos de Azure mediante plantillas de Bicep](/learn/modules/deploy-azure-resources-by-using-bicep-templates/).
+- Para pasar un valor confidencial a un módulo, use la función [getSecret](bicep-functions-resource.md#getsecret).
+- Puede implementar un módulo varias veces mediante bucles. Para obtener más información, vea [Iteración de módulos en Bicep](loop-modules.md).

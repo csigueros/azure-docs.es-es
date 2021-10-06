@@ -3,19 +3,19 @@ title: 'Tutorial: Puntos de conexión en línea administrados para el acceso a r
 description: Acceda de forma segura a los recursos de Azure para la implementación del modelo de Machine Learning con un punto de conexión en línea administrado y una identidad administrada asignada por el sistema.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.author: seramasu
 ms.reviewer: laobri
 author: rsethur
 ms.date: 08/05/2021
 ms.topic: tutorial
 ms.custom: tutorial, devplatv2
-ms.openlocfilehash: 681d78d07ac27cb8796f4dad5920d91d9efcb94a
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
+ms.openlocfilehash: 7c55e5a5a73a3b9076c1077f36c1f951eeee11cc
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122418885"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129429991"
 ---
 # <a name="tutorial-access-resources-with-managed-online-endpoints-and-identity-preview"></a>Tutorial: Acceso a recursos con puntos de conexión en línea administrados e identidades (versión preliminar)
 

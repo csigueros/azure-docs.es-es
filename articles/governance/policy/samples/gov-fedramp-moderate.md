@@ -1,15 +1,15 @@
 ---
 title: Detalles de cumplimiento normativo de FedRAMP Moderate (Azure Government)
 description: Detalles de la iniciativa integrada de cumplimiento normativo de FedRAMP Moderate (Azure Government). Cada control se corresponde a una o varias definiciones de Azure Policy que ayudan en la evaluación.
-ms.date: 09/03/2021
+ms.date: 09/17/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: bbd094bfc66a0dc7b486269c7795fe1681043e9b
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: 59cab5f31b36aa2ca92be1687d99d0d5ad7994d9
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123468031"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128666369"
 ---
 # <a name="details-of-the-fedramp-moderate-azure-government-regulatory-compliance-built-in-initiative"></a>Detalles de la iniciativa integrada de cumplimiento normativo de FedRAMP Moderate (Azure Government).
 
@@ -27,7 +27,7 @@ Después, busque y seleccione la definición de la iniciativa integrada de cumpl
 
 ### <a name="account-management"></a>Administración de cuentas
 
-**Id.** : NIST SP 800-53 Rev. 4 AC-2
+**ID**: FedRAMP Moderate AC-2
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -47,7 +47,7 @@ Después, busque y seleccione la definición de la iniciativa integrada de cumpl
 
 ### <a name="automated-system-account-management"></a>Administración de cuentas de sistema automatizadas
 
-**Id.** : NIST SP 800-53 Rev. 4 AC-2 (1)
+**ID**: FedRAMP Moderate AC-2 (1)
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -57,7 +57,7 @@ Después, busque y seleccione la definición de la iniciativa integrada de cumpl
 
 ### <a name="role-based-schemes"></a>Esquemas basados en roles
 
-**Id.** : NIST SP 800-53 Rev. 4 AC-2 (7)
+**ID**: FedRAMP Moderate AC-2 (7)
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -69,7 +69,7 @@ Después, busque y seleccione la definición de la iniciativa integrada de cumpl
 
 ### <a name="account-monitoring--atypical-usage"></a>Supervisión de cuentas o uso atípico
 
-**Id.** : NIST SP 800-53 Rev. 4 AC-2 (12)
+**ID**: FedRAMP Moderate AC-2 (12)
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -86,7 +86,7 @@ Después, busque y seleccione la definición de la iniciativa integrada de cumpl
 
 ### <a name="access-enforcement"></a>Aplicación de acceso
 
-**Id.** : NIST SP 800-53 Rev. 4 AC-3
+**ID**: FedRAMP Moderate AC-3
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -108,7 +108,7 @@ Después, busque y seleccione la definición de la iniciativa integrada de cumpl
 
 ### <a name="information-flow-enforcement"></a>Aplicación del flujo de información
 
-**Id.** : NIST SP 800-53 Rev. 4 AC-4
+**ID**: FedRAMP Moderate AC-4
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -126,10 +126,10 @@ Después, busque y seleccione la definición de la iniciativa integrada de cumpl
 |[Los temas de Azure Event Grid deben usar Private Link](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4b90e17e-8448-49db-875e-bd83fb6f804f) |Azure Private Link permite conectar la red virtual a servicios de Azure sin una dirección IP pública en el origen o el destino. La plataforma Private Link administra la conectividad entre el consumidor y los servicios a través de la red troncal de Azure. Mediante la asignación de puntos de conexión privados al tema de Event Grid en lugar de a todo el servicio, estará además protegido frente a riesgos de pérdida de datos. Más información en: [https://aka.ms/privateendpoints](../../../event-grid/configure-private-endpoints.md). |Audit, Disabled |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Event%20Grid/Topics_PrivateEndpoint_Audit.json) |
 |[Azure File Sync debe usar Private Link](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1d320205-c6a1-4ac6-873d-46224024e8e2) |Si crea un punto de conexión privado para el recurso del servicio de sincronización de almacenamiento indicado, podrá dirigirse al recurso del servicio de sincronización de almacenamiento desde el espacio de direcciones IP privadas de la red de la organización, en lugar de hacerlo a través del punto de conexión público accesible desde Internet. La creación de un punto de conexión privado por sí mismo no deshabilita el punto de conexión público. |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Storage/StorageSync_PrivateEndpoint_AuditIfNotExists.json) |
 |[Azure Key Vault debe deshabilitar el acceso de red público.](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F55615ac9-af46-4a59-874e-391cc3dfb490) |Deshabilite el acceso de red público para el almacén de claves de modo que no sea accesible mediante la red pública de Internet. Esto puede reducir los riesgos de pérdida de datos. Más información en: [https://aka.ms/akvprivatelink](../../../key-vault/general/private-link-service.md). |Audit, Deny, Disabled |[1.1.0-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Key%20Vault/AzureKeyVaultFirewallEnabled_Audit.json) |
-|[Las áreas de trabajo de Azure Machine Learning deben usar un vínculo privado](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F40cec1dd-a100-4920-b15b-3024fe8901ab). |Azure Private Link permite conectar la red virtual a servicios de Azure sin una dirección IP pública en el origen o el destino. La plataforma Private Link administra la conectividad entre el consumidor y los servicios a través de la red troncal de Azure. Mediante la asignación de puntos de conexión privados a áreas de trabajo de Azure Machine Learning, se reducen los riesgos de pérdida de datos. Obtenga más información sobre los vínculos privados en [https://docs.microsoft.com/azure/machine-learning/how-to-configure-private-link](../../../machine-learning/how-to-configure-private-link.md). |Audit, Deny, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Machine%20Learning/Workspace_PrivateEndpoint_Audit.json) |
+|[Las áreas de trabajo de Azure Machine Learning deben usar un vínculo privado](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F40cec1dd-a100-4920-b15b-3024fe8901ab). |Azure Private Link permite conectar la red virtual a servicios de Azure sin una dirección IP pública en el origen o el destino. La plataforma Private Link administra la conectividad entre el consumidor y los servicios a través de la red troncal de Azure. Mediante la asignación de puntos de conexión privados a áreas de trabajo de Azure Machine Learning, se reducen los riesgos de pérdida de datos. Más información sobre los vínculos privados en [https://docs.microsoft.com/azure/machine-learning/how-to-configure-private-link](../../../machine-learning/how-to-configure-private-link.md). |Audit, Deny, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Machine%20Learning/Workspace_PrivateEndpoint_Audit.json) |
 |[Los espacios de nombres de Azure Service Bus deben usar Private Link](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1c06e275-d63d-4540-b761-71f364c2111d) |Azure Private Link permite conectar la red virtual a servicios de Azure sin una dirección IP pública en el origen o el destino. La plataforma Private Link administra la conectividad entre el consumidor y los servicios a través de la red troncal de Azure. Mediante la asignación de puntos de conexión privados a los espacios de nombres de Service Bus, se reducen los riesgos de pérdida de datos. Más información en: [https://docs.microsoft.com/azure/service-bus-messaging/private-link-service](../../../service-bus-messaging/private-link-service.md). |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Service%20Bus/ServiceBus_PrivateEndpoint_Audit.json) |
 |[Azure SignalR Service debe usar Private Link](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F53503636-bcc9-4748-9663-5348217f160f) |Azure Private Link permite conectar la red virtual a servicios de Azure sin una dirección IP pública en el origen o el destino. La plataforma Private Link administra la conectividad entre el consumidor y los servicios a través de la red troncal de Azure. Mediante la asignación de puntos de conexión privados a su recurso de Azure SignalR Service en lugar todo el servicio, reducirá los riesgos de pérdida de datos. Más información sobre los vínculos privados en [https://aka.ms/asrs/privatelink](../../../azure-signalr/howto-private-endpoints.md). |Audit, Deny, Disabled |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SignalR/SignalR_PrivateEndpointEnabled_Audit.json) |
-|[Las áreas de trabajo de Azure Synapse deben usar Private Link](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F72d11df1-dd8a-41f7-8925-b05b960ebafc) |Azure Private Link permite conectar la red virtual a servicios de Azure sin una dirección IP pública en el origen o el destino. La plataforma Private Link administra la conectividad entre el consumidor y los servicios a través de la red troncal de Azure. Mediante la asignación de puntos de conexión privados al área de trabajo de Azure Synapse, se reducen los riesgos de pérdida de datos. Obtenga más información sobre los vínculos privados en [https://docs.microsoft.com/azure/synapse-analytics/security/how-to-connect-to-workspace-with-private-links](../../../synapse-analytics/security/how-to-connect-to-workspace-with-private-links.md). |Audit, Disabled |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/SynapseWorkspaceUsePrivateLinks_Audit.json) |
+|[Las áreas de trabajo de Azure Synapse deben usar Private Link](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F72d11df1-dd8a-41f7-8925-b05b960ebafc) |Azure Private Link permite conectar la red virtual a servicios de Azure sin una dirección IP pública en el origen o el destino. La plataforma Private Link administra la conectividad entre el consumidor y los servicios a través de la red troncal de Azure. Mediante la asignación de puntos de conexión privados al área de trabajo de Azure Synapse, se reducen los riesgos de pérdida de datos. Más información sobre los vínculos privados en [https://docs.microsoft.com/azure/synapse-analytics/security/how-to-connect-to-workspace-with-private-links](../../../synapse-analytics/security/how-to-connect-to-workspace-with-private-links.md). |Audit, Disabled |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/SynapseWorkspaceUsePrivateLinks_Audit.json) |
 |[Las cuentas de Cognitive Services deben deshabilitar el acceso a la red pública.](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0725b4dd-7e76-479c-a735-68e7ee23d5ca) |Al deshabilitar el acceso a la red pública, se mejora la seguridad, ya que la cuenta de Cognitive Services no se expone en la red pública de Internet. La creación de puntos de conexión privados puede limitar la exposición de la cuenta de Cognitive Services. Más información en: [https://go.microsoft.com/fwlink/?linkid=2129800](../../../private-link/index.yml).  |Audit, Deny, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cognitive%20Services/CognitiveServices_DisablePublicNetworkAccess_Audit.json) |
 |[Las cuentas de Cognitive Services deben restringir el acceso a la red](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F037eea7a-bd0a-46c5-9a66-03aea78705d3) |Se debe restringir el acceso de red a las cuentas de Cognitive Services. Configure reglas de red, de forma que solo las aplicaciones de redes permitidas pueden acceder a la cuenta de Cognitive Services. Para permitir conexiones desde clientes específicos locales o de Internet, se puede conceder acceso al tráfico procedente de redes virtuales de Azure específicas o a intervalos de direcciones IP de Internet públicas. |Audit, Deny, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cognitive%20Services/CognitiveServices_NetworkAcls_Audit.json) |
 |[Cognitive Services debe usar un vínculo privado](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcddd188c-4b82-4c48-a19d-ddf74ee66a01) |Azure Private Link permite conectar las redes virtuales a los servicios de Azure sin una dirección IP pública en el origen o el destino. La plataforma Private Link administra la conectividad entre el consumidor y los servicios a través de la red troncal de Azure. Al asignar puntos de conexión privados a Cognitive Services, reducirá la posibilidad de pérdida de datos. Obtenga más información sobre los vínculos privados en [https://go.microsoft.com/fwlink/?linkid=2129800](../../../private-link/index.yml). |Audit, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cognitive%20Services/CognitiveServices_EnablePrivateEndpoints_Audit.json) |
@@ -154,7 +154,7 @@ Después, busque y seleccione la definición de la iniciativa integrada de cumpl
 
 ### <a name="separation-of-duties"></a>Separación de obligaciones
 
-**Id.** : NIST SP 800-53 Rev. 4 AC-5
+**ID**: FedRAMP Moderate AC-5
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -162,7 +162,7 @@ Después, busque y seleccione la definición de la iniciativa integrada de cumpl
 
 ### <a name="least-privilege"></a>Privilegios mínimos
 
-**Id.** : NIST SP 800-53 Rev. 4 AC-6
+**ID**: FedRAMP Moderate AC-6
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -171,7 +171,7 @@ Después, busque y seleccione la definición de la iniciativa integrada de cumpl
 
 ### <a name="remote-access"></a>Acceso remoto
 
-**Id.** : NIST SP 800-53 Rev. 4 AC-17
+**ID**: FedRAMP Moderate AC-17
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -190,7 +190,7 @@ Después, busque y seleccione la definición de la iniciativa integrada de cumpl
 |[Las áreas de trabajo de Azure Machine Learning deben usar un vínculo privado](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F40cec1dd-a100-4920-b15b-3024fe8901ab). |Azure Private Link permite conectar la red virtual a servicios de Azure sin una dirección IP pública en el origen o el destino. La plataforma Private Link administra la conectividad entre el consumidor y los servicios a través de la red troncal de Azure. Mediante la asignación de puntos de conexión privados a áreas de trabajo de Azure Machine Learning, se reducen los riesgos de pérdida de datos. Más información sobre los vínculos privados en [https://docs.microsoft.com/azure/machine-learning/how-to-configure-private-link](../../../machine-learning/how-to-configure-private-link.md). |Audit, Deny, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Machine%20Learning/Workspace_PrivateEndpoint_Audit.json) |
 |[Los espacios de nombres de Azure Service Bus deben usar Private Link](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1c06e275-d63d-4540-b761-71f364c2111d) |Azure Private Link permite conectar la red virtual a servicios de Azure sin una dirección IP pública en el origen o el destino. La plataforma Private Link administra la conectividad entre el consumidor y los servicios a través de la red troncal de Azure. Mediante la asignación de puntos de conexión privados a los espacios de nombres de Service Bus, se reducen los riesgos de pérdida de datos. Más información en: [https://docs.microsoft.com/azure/service-bus-messaging/private-link-service](../../../service-bus-messaging/private-link-service.md). |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Service%20Bus/ServiceBus_PrivateEndpoint_Audit.json) |
 |[Azure SignalR Service debe usar Private Link](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F53503636-bcc9-4748-9663-5348217f160f) |Azure Private Link permite conectar la red virtual a servicios de Azure sin una dirección IP pública en el origen o el destino. La plataforma Private Link administra la conectividad entre el consumidor y los servicios a través de la red troncal de Azure. Mediante la asignación de puntos de conexión privados a su recurso de Azure SignalR Service en lugar todo el servicio, reducirá los riesgos de pérdida de datos. Más información sobre los vínculos privados en [https://aka.ms/asrs/privatelink](../../../azure-signalr/howto-private-endpoints.md). |Audit, Deny, Disabled |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SignalR/SignalR_PrivateEndpointEnabled_Audit.json) |
-|[Las áreas de trabajo de Azure Synapse deben usar Private Link](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F72d11df1-dd8a-41f7-8925-b05b960ebafc) |Azure Private Link permite conectar la red virtual a servicios de Azure sin una dirección IP pública en el origen o el destino. La plataforma Private Link administra la conectividad entre el consumidor y los servicios a través de la red troncal de Azure. Mediante la asignación de puntos de conexión privados al área de trabajo de Azure Synapse, se reducen los riesgos de pérdida de datos. Obtenga más información sobre los vínculos privados en [https://docs.microsoft.com/azure/synapse-analytics/security/how-to-connect-to-workspace-with-private-links](../../../synapse-analytics/security/how-to-connect-to-workspace-with-private-links.md). |Audit, Disabled |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/SynapseWorkspaceUsePrivateLinks_Audit.json) |
+|[Las áreas de trabajo de Azure Synapse deben usar Private Link](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F72d11df1-dd8a-41f7-8925-b05b960ebafc) |Azure Private Link permite conectar la red virtual a servicios de Azure sin una dirección IP pública en el origen o el destino. La plataforma Private Link administra la conectividad entre el consumidor y los servicios a través de la red troncal de Azure. Mediante la asignación de puntos de conexión privados al área de trabajo de Azure Synapse, se reducen los riesgos de pérdida de datos. Más información sobre los vínculos privados en [https://docs.microsoft.com/azure/synapse-analytics/security/how-to-connect-to-workspace-with-private-links](../../../synapse-analytics/security/how-to-connect-to-workspace-with-private-links.md). |Audit, Disabled |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/SynapseWorkspaceUsePrivateLinks_Audit.json) |
 |[Cognitive Services debe usar un vínculo privado](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcddd188c-4b82-4c48-a19d-ddf74ee66a01) |Azure Private Link permite conectar las redes virtuales a los servicios de Azure sin una dirección IP pública en el origen o el destino. La plataforma Private Link administra la conectividad entre el consumidor y los servicios a través de la red troncal de Azure. Al asignar puntos de conexión privados a Cognitive Services, reducirá la posibilidad de pérdida de datos. Obtenga más información sobre los vínculos privados en [https://go.microsoft.com/fwlink/?linkid=2129800](../../../private-link/index.yml). |Audit, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cognitive%20Services/CognitiveServices_EnablePrivateEndpoints_Audit.json) |
 |[Las instancias de Container Registry deben usar Private Link](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe8eef0a8-67cf-4eb4-9386-14b0e78733d4) |Azure Private Link permite conectar la red virtual a servicios de Azure sin una dirección IP pública en el origen o el destino. La plataforma Private Link controla la conectividad entre el consumidor y los servicios a través de la red troncal de Azure. Al asignar puntos de conexión privados a las instancias de Container Registry en lugar de a todo el servicio, además se protege frente a riesgos de pérdida de datos. Más información en: [https://aka.ms/acr/private-link](../../../container-registry/container-registry-private-link.md). |Audit, Disabled |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Container%20Registry/ACR_PrivateEndpointEnabled_Audit.json) |
 |[Las cuentas de CosmosDB deben usar Private Link](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F58440f8a-10c5-4151-bdce-dfbaad4a20b7) |Azure Private Link permite conectar la red virtual a servicios de Azure sin una dirección IP pública en el origen o el destino. La plataforma Private Link administra la conectividad entre el consumidor y los servicios a través de la red troncal de Azure. Al asignar puntos de conexión privados a su cuenta de CosmosDB, se reduce el riesgo de pérdida de datos. Obtenga más información sobre los vínculos privados en [https://docs.microsoft.com/azure/cosmos-db/how-to-configure-private-endpoints](../../../cosmos-db/how-to-configure-private-endpoints.md). |Audit, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cosmos%20DB/Cosmos_PrivateEndpoint_Audit.json) |
@@ -208,7 +208,7 @@ Después, busque y seleccione la definición de la iniciativa integrada de cumpl
 
 ### <a name="automated-monitoring--control"></a>Supervisión y control automatizados
 
-**Id.** : NIST SP 800-53 Rev. 4 AC-17 (1)
+**ID**: FedRAMP Moderate AC-17 (1)
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -227,7 +227,7 @@ Después, busque y seleccione la definición de la iniciativa integrada de cumpl
 |[Las áreas de trabajo de Azure Machine Learning deben usar un vínculo privado](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F40cec1dd-a100-4920-b15b-3024fe8901ab). |Azure Private Link permite conectar la red virtual a servicios de Azure sin una dirección IP pública en el origen o el destino. La plataforma Private Link administra la conectividad entre el consumidor y los servicios a través de la red troncal de Azure. Mediante la asignación de puntos de conexión privados a áreas de trabajo de Azure Machine Learning, se reducen los riesgos de pérdida de datos. Más información sobre los vínculos privados en [https://docs.microsoft.com/azure/machine-learning/how-to-configure-private-link](../../../machine-learning/how-to-configure-private-link.md). |Audit, Deny, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Machine%20Learning/Workspace_PrivateEndpoint_Audit.json) |
 |[Los espacios de nombres de Azure Service Bus deben usar Private Link](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1c06e275-d63d-4540-b761-71f364c2111d) |Azure Private Link permite conectar la red virtual a servicios de Azure sin una dirección IP pública en el origen o el destino. La plataforma Private Link administra la conectividad entre el consumidor y los servicios a través de la red troncal de Azure. Mediante la asignación de puntos de conexión privados a los espacios de nombres de Service Bus, se reducen los riesgos de pérdida de datos. Más información en: [https://docs.microsoft.com/azure/service-bus-messaging/private-link-service](../../../service-bus-messaging/private-link-service.md). |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Service%20Bus/ServiceBus_PrivateEndpoint_Audit.json) |
 |[Azure SignalR Service debe usar Private Link](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F53503636-bcc9-4748-9663-5348217f160f) |Azure Private Link permite conectar la red virtual a servicios de Azure sin una dirección IP pública en el origen o el destino. La plataforma Private Link administra la conectividad entre el consumidor y los servicios a través de la red troncal de Azure. Mediante la asignación de puntos de conexión privados a su recurso de Azure SignalR Service en lugar todo el servicio, reducirá los riesgos de pérdida de datos. Más información sobre los vínculos privados en [https://aka.ms/asrs/privatelink](../../../azure-signalr/howto-private-endpoints.md). |Audit, Deny, Disabled |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SignalR/SignalR_PrivateEndpointEnabled_Audit.json) |
-|[Las áreas de trabajo de Azure Synapse deben usar Private Link](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F72d11df1-dd8a-41f7-8925-b05b960ebafc) |Azure Private Link permite conectar la red virtual a servicios de Azure sin una dirección IP pública en el origen o el destino. La plataforma Private Link administra la conectividad entre el consumidor y los servicios a través de la red troncal de Azure. Mediante la asignación de puntos de conexión privados al área de trabajo de Azure Synapse, se reducen los riesgos de pérdida de datos. Obtenga más información sobre los vínculos privados en [https://docs.microsoft.com/azure/synapse-analytics/security/how-to-connect-to-workspace-with-private-links](../../../synapse-analytics/security/how-to-connect-to-workspace-with-private-links.md). |Audit, Disabled |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/SynapseWorkspaceUsePrivateLinks_Audit.json) |
+|[Las áreas de trabajo de Azure Synapse deben usar Private Link](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F72d11df1-dd8a-41f7-8925-b05b960ebafc) |Azure Private Link permite conectar la red virtual a servicios de Azure sin una dirección IP pública en el origen o el destino. La plataforma Private Link administra la conectividad entre el consumidor y los servicios a través de la red troncal de Azure. Mediante la asignación de puntos de conexión privados al área de trabajo de Azure Synapse, se reducen los riesgos de pérdida de datos. Más información sobre los vínculos privados en [https://docs.microsoft.com/azure/synapse-analytics/security/how-to-connect-to-workspace-with-private-links](../../../synapse-analytics/security/how-to-connect-to-workspace-with-private-links.md). |Audit, Disabled |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/SynapseWorkspaceUsePrivateLinks_Audit.json) |
 |[Cognitive Services debe usar un vínculo privado](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcddd188c-4b82-4c48-a19d-ddf74ee66a01) |Azure Private Link permite conectar las redes virtuales a los servicios de Azure sin una dirección IP pública en el origen o el destino. La plataforma Private Link administra la conectividad entre el consumidor y los servicios a través de la red troncal de Azure. Al asignar puntos de conexión privados a Cognitive Services, reducirá la posibilidad de pérdida de datos. Obtenga más información sobre los vínculos privados en [https://go.microsoft.com/fwlink/?linkid=2129800](../../../private-link/index.yml). |Audit, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cognitive%20Services/CognitiveServices_EnablePrivateEndpoints_Audit.json) |
 |[Las instancias de Container Registry deben usar Private Link](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe8eef0a8-67cf-4eb4-9386-14b0e78733d4) |Azure Private Link permite conectar la red virtual a servicios de Azure sin una dirección IP pública en el origen o el destino. La plataforma Private Link controla la conectividad entre el consumidor y los servicios a través de la red troncal de Azure. Al asignar puntos de conexión privados a las instancias de Container Registry en lugar de a todo el servicio, además se protege frente a riesgos de pérdida de datos. Más información en: [https://aka.ms/acr/private-link](../../../container-registry/container-registry-private-link.md). |Audit, Disabled |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Container%20Registry/ACR_PrivateEndpointEnabled_Audit.json) |
 |[Las cuentas de CosmosDB deben usar Private Link](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F58440f8a-10c5-4151-bdce-dfbaad4a20b7) |Azure Private Link permite conectar la red virtual a servicios de Azure sin una dirección IP pública en el origen o el destino. La plataforma Private Link administra la conectividad entre el consumidor y los servicios a través de la red troncal de Azure. Al asignar puntos de conexión privados a su cuenta de CosmosDB, se reduce el riesgo de pérdida de datos. Obtenga más información sobre los vínculos privados en [https://docs.microsoft.com/azure/cosmos-db/how-to-configure-private-endpoints](../../../cosmos-db/how-to-configure-private-endpoints.md). |Audit, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cosmos%20DB/Cosmos_PrivateEndpoint_Audit.json) |
@@ -247,7 +247,7 @@ Después, busque y seleccione la definición de la iniciativa integrada de cumpl
 
 ### <a name="audit-review-analysis-and-reporting"></a>Revisión, análisis e informes de auditoría
 
-**Id.** : NIST SP 800-53 Rev. 4 AU-6
+**ID**: FedRAMP Moderate AU-6
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -267,7 +267,7 @@ Después, busque y seleccione la definición de la iniciativa integrada de cumpl
 
 ### <a name="audit-record-retention"></a>Retención de los registros de auditoría
 
-**Id.** : NIST SP 800-53 Rev. 4 AU-11
+**ID**: FedRAMP Moderate AU-11
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -275,7 +275,7 @@ Después, busque y seleccione la definición de la iniciativa integrada de cumpl
 
 ### <a name="audit-generation"></a>Generación de auditoría
 
-**Id.** : NIST SP 800-53 Rev. 4 AU-12
+**ID**: FedRAMP Moderate AU-12
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -315,7 +315,7 @@ Después, busque y seleccione la definición de la iniciativa integrada de cumpl
 
 ### <a name="configuration-settings"></a>Valores de configuración
 
-**Id.** : NIST SP 800-53 Rev. 4 CM-6
+**ID**: FedRAMP Moderate CM-6
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -327,18 +327,18 @@ Después, busque y seleccione la definición de la iniciativa integrada de cumpl
 |[Asegúrese de que la aplicación web tenga la opción "Client Certificates (Incoming client certificates)" activada](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5bb220d9-2698-4ee4-8404-b9c30c9df609) |Los certificados de cliente permiten que la aplicación solicite un certificado para las solicitudes entrantes. Solo los clientes que tienen un certificado válido podrán acceder a la aplicación. |Audit, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_Webapp_Audit_ClientCert.json) |
 |[Las aplicaciones de funciones deben tener la opción "Certificados de cliente (certificados de cliente entrantes)" habilitada](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Feaebaea7-8013-4ceb-9d14-7eb32271373c) |Los certificados de cliente permiten que la aplicación solicite un certificado para las solicitudes entrantes. Solo los clientes con certificados válidos pueden acceder a la aplicación. |Audit, Disabled |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_FunctionApp_Audit_ClientCert.json) |
 |[Asegurarse de que los límites de los recursos de memoria y CPU del contenedor no superan los límites especificados en el clúster de Kubernetes](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe345eecc-fa47-480f-9e88-67dcc122b164) |Aplique límites de recursos de CPU y memoria de contenedor en un clúster de Kubernetes para evitar los ataques de agotamiento de recursos. Esta directiva está disponible con carácter general para Kubernetes Service (AKS) y en versión preliminar para el motor de AKS y Kubernetes con Azure Arc habilitado. Para más información, consulte [https://aka.ms/kubepolicydoc](../concepts/policy-for-kubernetes.md). |audit, deny, disabled |[7.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Kubernetes/ContainerResourceLimits.json) |
-|[Los contenedores del clúster de Kubernetes no deben compartir el identificador de proceso del host ni el espacio de nombres IPC del host](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F47a1ee2f-2a2a-4576-bf2a-e0e36709c2b8) |No permita que los contenedores de pods compartan el espacio de nombres de id. de proceso de host ni el espacio de nombres de IPC de host en un clúster de Kubernetes. Esta recomendación forma parte de las versiones 5.2.2 y 5.2.3 de CIS, diseñadas para mejorar la seguridad de los entornos de Kubernetes. Esta directiva está disponible con carácter general para Kubernetes Service (AKS) y en versión preliminar para el motor de AKS y Kubernetes con Azure Arc habilitado. Para más información, consulte [https://aka.ms/kubepolicydoc](../concepts/policy-for-kubernetes.md). |audit, deny, disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Kubernetes/BlockHostNamespace.json) |
+|[Los contenedores del clúster de Kubernetes no deben compartir el identificador de proceso del host ni el espacio de nombres IPC del host](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F47a1ee2f-2a2a-4576-bf2a-e0e36709c2b8) |No permita que los contenedores de pods compartan el espacio de nombres de id. de proceso de host ni el espacio de nombres de IPC de host en un clúster de Kubernetes. Esta recomendación forma parte de las versiones 5.2.2 y 5.2.3 de CIS, diseñadas para mejorar la seguridad de los entornos de Kubernetes. Esta directiva está disponible con carácter general para Kubernetes Service (AKS) y en versión preliminar para el motor de AKS y Kubernetes con Azure Arc habilitado. Para más información, consulte [https://aka.ms/kubepolicydoc](../concepts/policy-for-kubernetes.md). |audit, deny, disabled |[3.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Kubernetes/BlockHostNamespace.json) |
 |[Asegurarse de que los contenedores solo escuchan en los puertos permitidos en el clúster de Kubernetes](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F440b515e-a580-421e-abeb-b159a61ddcbc) |Restrinja los contenedores para que escuchen solo en puertos permitidos para proteger el acceso al clúster de Kubernetes. Esta directiva está disponible con carácter general para Kubernetes Service (AKS) y en versión preliminar para el motor de AKS y Kubernetes con Azure Arc habilitado. Para más información, consulte [https://aka.ms/kubepolicydoc](../concepts/policy-for-kubernetes.md). |audit, deny, disabled |[6.1.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Kubernetes/ContainerAllowedPorts.json) |
-|[Los contenedores de clúster de Kubernetes solo deben usar perfiles de AppArmor permitidos](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F511f5417-5d12-434d-ab2e-816901e72a5e) |Los contenedores solo deben usar perfiles de AppArmor permitidos en un clúster de Kubernetes. Esta recomendación forma parte de las directivas de seguridad de los pods, diseñadas para mejorar la seguridad de los entornos de Kubernetes. Esta directiva está disponible con carácter general para Kubernetes Service (AKS) y en versión preliminar para el motor de AKS y Kubernetes con Azure Arc habilitado. Para más información, consulte [https://aka.ms/kubepolicydoc](../concepts/policy-for-kubernetes.md). |audit, deny, disabled |[4.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Kubernetes/EnforceAppArmorProfile.json) |
-|[Los contenedores de clúster de Kubernetes solo deben usar funcionalidades permitidas](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc26596ff-4d70-4e6a-9a30-c2506bd2f80c) |Restrinja las funcionalidades para reducir la superficie de contenedores expuesta a ataques en un clúster de Kubernetes. Esta recomendación forma parte de las versiones 5.2.8 y 5.2.9 de CIS, diseñadas para mejorar la seguridad de los entornos de Kubernetes. Esta directiva está disponible con carácter general para Kubernetes Service (AKS) y en versión preliminar para el motor de AKS y Kubernetes con Azure Arc habilitado. Para más información, consulte [https://aka.ms/kubepolicydoc](../concepts/policy-for-kubernetes.md). |audit, deny, disabled |[4.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Kubernetes/ContainerAllowedCapabilities.json) |
+|[Los contenedores de clúster de Kubernetes solo deben usar perfiles de AppArmor permitidos](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F511f5417-5d12-434d-ab2e-816901e72a5e) |Los contenedores solo deben usar perfiles de AppArmor permitidos en un clúster de Kubernetes. Esta recomendación forma parte de las directivas de seguridad de los pods, diseñadas para mejorar la seguridad de los entornos de Kubernetes. Esta directiva está disponible con carácter general para Kubernetes Service (AKS) y en versión preliminar para el motor de AKS y Kubernetes con Azure Arc habilitado. Para más información, consulte [https://aka.ms/kubepolicydoc](../concepts/policy-for-kubernetes.md). |audit, deny, disabled |[4.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Kubernetes/EnforceAppArmorProfile.json) |
+|[Los contenedores de clúster de Kubernetes solo deben usar funcionalidades permitidas](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc26596ff-4d70-4e6a-9a30-c2506bd2f80c) |Restrinja las funcionalidades para reducir la superficie de contenedores expuesta a ataques en un clúster de Kubernetes. Esta recomendación forma parte de las versiones 5.2.8 y 5.2.9 de CIS, diseñadas para mejorar la seguridad de los entornos de Kubernetes. Esta directiva está disponible con carácter general para Kubernetes Service (AKS) y en versión preliminar para el motor de AKS y Kubernetes con Azure Arc habilitado. Para más información, consulte [https://aka.ms/kubepolicydoc](../concepts/policy-for-kubernetes.md). |audit, deny, disabled |[4.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Kubernetes/ContainerAllowedCapabilities.json) |
 |[Asegurarse de que solo se admiten las imágenes de contenedor permitidas en el clúster de Kubernetes](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffebd0533-8e55-448f-b837-bd0e06f16469) |Use imágenes de registros de confianza para reducir el riesgo de exposición del clúster de Kubernetes a vulnerabilidades desconocidas, problemas de seguridad e imágenes malintencionadas. Esta directiva está disponible con carácter general para Kubernetes Service (AKS) y en versión preliminar para el motor de AKS y Kubernetes con Azure Arc habilitado. Para más información, consulte [https://aka.ms/kubepolicydoc](../concepts/policy-for-kubernetes.md). |audit, deny, disabled |[7.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Kubernetes/ContainerAllowedImages.json) |
-|[Los contenedores del clúster de Kubernetes deben ejecutarse con un sistema de archivos raíz de solo lectura](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fdf49d893-a74c-421d-bc95-c663042e5b80) |Ejecute contenedores con un sistema de archivos raíz de solo lectura para protegerlos de los cambios en tiempo de ejecución con la incorporación de archivos binarios malintencionados a la ruta de acceso en un clúster de Kubernetes. Esta directiva está disponible con carácter general para Kubernetes Service (AKS) y en versión preliminar para el motor de AKS y Kubernetes con Azure Arc habilitado. Para más información, consulte [https://aka.ms/kubepolicydoc](../concepts/policy-for-kubernetes.md). |audit, deny, disabled |[4.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Kubernetes/ReadOnlyRootFileSystem.json) |
-|[Los volúmenes hostPath del pod del clúster de Kubernetes solo deben usar rutas de host permitidas](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F098fc59e-46c7-4d99-9b16-64990e543d75) |Limite los montajes de volumen hostPath del pod a las rutas de acceso de host permitidas en un clúster de Kubernetes. Esta recomendación forma parte de las directivas de seguridad de los pods, diseñadas para mejorar la seguridad de los entornos de Kubernetes. Esta directiva está disponible con carácter general para Kubernetes Service (AKS) y en versión preliminar para el motor de AKS y Kubernetes con Azure Arc habilitado. Para más información, consulte [https://aka.ms/kubepolicydoc](../concepts/policy-for-kubernetes.md). |audit, deny, disabled |[4.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Kubernetes/AllowedHostPaths.json) |
-|[Los contenedores y pods de clúster de Kubernetes solo deben ejecutarse con identificadores de usuario y grupo aprobados](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff06ddb64-5fa3-4b77-b166-acb36f7f6042) |Controle los id. de usuario, grupo principal, grupo adicional y grupo de sistema de archivos que los pods y los contenedores pueden usar para ejecutarse en un clúster de Kubernetes. Esta recomendación forma parte de las directivas de seguridad de los pods, diseñadas para mejorar la seguridad de los entornos de Kubernetes. Esta directiva está disponible con carácter general para Kubernetes Service (AKS) y en versión preliminar para el motor de AKS y Kubernetes con Azure Arc habilitado. Para más información, consulte [https://aka.ms/kubepolicydoc](../concepts/policy-for-kubernetes.md). |audit, deny, disabled |[4.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Kubernetes/AllowedUsersGroups.json) |
-|[Los pods del clúster de Kubernetes solo pueden usar redes de host e intervalos de puerto permitidos](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F82985f06-dc18-4a48-bc1c-b9f4f0098cfe) |Restringe el acceso de los pods a la red del host y el intervalo de puertos de host permitidos en un clúster de Kubernetes. Esta recomendación forma parte de la versión 5.2.4 de CIS, diseñada para mejorar la seguridad de los entornos de Kubernetes. Esta directiva está disponible con carácter general para Kubernetes Service (AKS) y en versión preliminar para el motor de AKS y Kubernetes con Azure Arc habilitado. Para más información, consulte [https://aka.ms/kubepolicydoc](../concepts/policy-for-kubernetes.md). |audit, deny, disabled |[4.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Kubernetes/HostNetworkPorts.json) |
+|[Los contenedores del clúster de Kubernetes deben ejecutarse con un sistema de archivos raíz de solo lectura](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fdf49d893-a74c-421d-bc95-c663042e5b80) |Ejecute contenedores con un sistema de archivos raíz de solo lectura para protegerlos de los cambios en tiempo de ejecución con la incorporación de archivos binarios malintencionados a la ruta de acceso en un clúster de Kubernetes. Esta directiva está disponible con carácter general para Kubernetes Service (AKS) y en versión preliminar para el motor de AKS y Kubernetes con Azure Arc habilitado. Para más información, consulte [https://aka.ms/kubepolicydoc](../concepts/policy-for-kubernetes.md). |audit, deny, disabled |[4.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Kubernetes/ReadOnlyRootFileSystem.json) |
+|[Los volúmenes hostPath del pod del clúster de Kubernetes solo deben usar rutas de host permitidas](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F098fc59e-46c7-4d99-9b16-64990e543d75) |Limite los montajes de volumen hostPath del pod a las rutas de acceso de host permitidas en un clúster de Kubernetes. Esta recomendación forma parte de las directivas de seguridad de los pods, diseñadas para mejorar la seguridad de los entornos de Kubernetes. Esta directiva está disponible con carácter general para Kubernetes Service (AKS) y en versión preliminar para el motor de AKS y Kubernetes con Azure Arc habilitado. Para más información, consulte [https://aka.ms/kubepolicydoc](../concepts/policy-for-kubernetes.md). |audit, deny, disabled |[4.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Kubernetes/AllowedHostPaths.json) |
+|[Los contenedores y pods de clúster de Kubernetes solo deben ejecutarse con identificadores de usuario y grupo aprobados](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff06ddb64-5fa3-4b77-b166-acb36f7f6042) |Controle los id. de usuario, grupo principal, grupo adicional y grupo de sistema de archivos que los pods y los contenedores pueden usar para ejecutarse en un clúster de Kubernetes. Esta recomendación forma parte de las directivas de seguridad de los pods, diseñadas para mejorar la seguridad de los entornos de Kubernetes. Esta directiva está disponible con carácter general para Kubernetes Service (AKS) y en versión preliminar para el motor de AKS y Kubernetes con Azure Arc habilitado. Para más información, consulte [https://aka.ms/kubepolicydoc](../concepts/policy-for-kubernetes.md). |audit, deny, disabled |[4.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Kubernetes/AllowedUsersGroups.json) |
+|[Los pods del clúster de Kubernetes solo pueden usar redes de host e intervalos de puerto permitidos](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F82985f06-dc18-4a48-bc1c-b9f4f0098cfe) |Restringe el acceso de los pods a la red del host y el intervalo de puertos de host permitidos en un clúster de Kubernetes. Esta recomendación forma parte de la versión 5.2.4 de CIS, diseñada para mejorar la seguridad de los entornos de Kubernetes. Esta directiva está disponible con carácter general para Kubernetes Service (AKS) y en versión preliminar para el motor de AKS y Kubernetes con Azure Arc habilitado. Para más información, consulte [https://aka.ms/kubepolicydoc](../concepts/policy-for-kubernetes.md). |audit, deny, disabled |[4.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Kubernetes/HostNetworkPorts.json) |
 |[Los servicios de clúster de Kubernetes solo deben escuchar en los puertos permitidos](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F233a2a17-77ca-4fb1-9b6b-69223d272a44) |Restrinja los servicios para que escuchen solo en puertos permitidos para proteger el acceso al clúster de Kubernetes. Esta directiva está disponible con carácter general para Kubernetes Service (AKS) y en versión preliminar para el motor de AKS y Kubernetes con Azure Arc habilitado. Para más información, consulte [https://aka.ms/kubepolicydoc](../concepts/policy-for-kubernetes.md). |audit, deny, disabled |[6.1.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Kubernetes/ServiceAllowedPorts.json) |
 |[No permitir contenedores con privilegios en el clúster de Kubernetes](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F95edb821-ddaf-4404-9732-666045e056b4) |No permita la creación de contenedores con privilegios en un clúster de Kubernetes. Esta recomendación forma parte de la versión 5.2.1 de CIS, diseñada para mejorar la seguridad de los entornos de Kubernetes. Esta directiva está disponible con carácter general para Kubernetes Service (AKS) y en versión preliminar para el motor de AKS y Kubernetes con Azure Arc habilitado. Para más información, consulte [https://aka.ms/kubepolicydoc](../concepts/policy-for-kubernetes.md). |audit, deny, disabled |[7.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Kubernetes/ContainerNoPrivilege.json) |
-|[Los clústeres de Kubernetes no deben permitir la elevación de privilegios del contenedor](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1c6e92c9-99f0-4e55-9cf2-0c234dc48f99) |No permita que los contenedores se ejecuten con elevación de privilegios en la raíz en un clúster de Kubernetes. Esta recomendación forma parte de la versión 5.2.5 de CIS, diseñada para mejorar la seguridad de los entornos de Kubernetes. Esta directiva está disponible con carácter general para Kubernetes Service (AKS) y en versión preliminar para el motor de AKS y Kubernetes con Azure Arc habilitado. Para más información, consulte [https://aka.ms/kubepolicydoc](../concepts/policy-for-kubernetes.md). |audit, deny, disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Kubernetes/ContainerNoPrivilegeEscalation.json) |
+|[Los clústeres de Kubernetes no deben permitir la elevación de privilegios del contenedor](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1c6e92c9-99f0-4e55-9cf2-0c234dc48f99) |No permita que los contenedores se ejecuten con elevación de privilegios en la raíz en un clúster de Kubernetes. Esta recomendación forma parte de la versión 5.2.5 de CIS, diseñada para mejorar la seguridad de los entornos de Kubernetes. Esta directiva está disponible con carácter general para Kubernetes Service (AKS) y en versión preliminar para el motor de AKS y Kubernetes con Azure Arc habilitado. Para más información, consulte [https://aka.ms/kubepolicydoc](../concepts/policy-for-kubernetes.md). |audit, deny, disabled |[3.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Kubernetes/ContainerNoPrivilegeEscalation.json) |
 |[Las máquinas Linux deben cumplir los requisitos de la base de referencia de seguridad de procesos de Azure](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffc9b3da7-8347-4380-8e70-0a0361d8dedd) |Requiere que los requisitos previos se implementen en el ámbito de asignación de directivas. Para más información, consulte [https://aka.ms/gcpol](../concepts/guest-configuration.md). Las máquinas no son compatibles si la máquina no está configurada correctamente para una de las recomendaciones de la base de referencia de seguridad de procesos de Azure. |AuditIfNotExists, Disabled |[1.1.1-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Guest%20Configuration/GuestConfiguration_AzureLinuxBaseline_AINE.json) |
 |[La depuración remota debe estar desactivada para las aplicaciones de API](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe9c8d085-d9cc-4b17-9cdc-059f1f01f19e) |La depuración remota requiere puertos de entrada que se abran en una aplicación de API. Se debe desactivar la depuración remota. |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_DisableRemoteDebugging_ApiApp_Audit.json) |
 |[La depuración remota debe estar desactivada para las aplicaciones de funciones](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0e60b895-3786-45da-8377-9c6b4b6ac5f9) |La depuración remota requiere puertos de entrada que se abran en una instancia de aplicaciones de funciones. Se debe desactivar la depuración remota. |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_DisableRemoteDebugging_FunctionApp_Audit.json) |
@@ -347,7 +347,7 @@ Después, busque y seleccione la definición de la iniciativa integrada de cumpl
 
 ### <a name="least-functionality"></a>Funcionalidad mínima
 
-**Id.** : NIST SP 800-53 Rev. 4 CM-7
+**ID**: FedRAMP Moderate CM-7
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -357,7 +357,7 @@ Después, busque y seleccione la definición de la iniciativa integrada de cumpl
 
 ### <a name="prevent-program-execution"></a>Impedimento de la ejecución del programa
 
-**Id.** : NIST SP 800-53 Rev. 4 CM-7 (2)
+**ID**: FedRAMP Moderate CM-7 (2)
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -366,7 +366,7 @@ Después, busque y seleccione la definición de la iniciativa integrada de cumpl
 
 ### <a name="authorized-software--whitelisting"></a>Listas de permitidos y software autorizado
 
-**Id.** : NIST SP 800-53 Rev. 4 CM-7 (5)
+**ID**: FedRAMP Moderate CM-7 (5)
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -375,7 +375,7 @@ Después, busque y seleccione la definición de la iniciativa integrada de cumpl
 
 ### <a name="software-usage-restrictions"></a>Restricciones de uso de software
 
-**Id.** : NIST SP 800-53 Rev. 4 CM-10
+**ID**: FedRAMP Moderate CM-10
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -384,7 +384,7 @@ Después, busque y seleccione la definición de la iniciativa integrada de cumpl
 
 ### <a name="user-installed-software"></a>Software instalado por el usuario
 
-**Id.** : NIST SP 800-53 Rev. 4 CM-11
+**ID**: FedRAMP Moderate CM-11
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -395,7 +395,7 @@ Después, busque y seleccione la definición de la iniciativa integrada de cumpl
 
 ### <a name="alternate-storage-site"></a>Sitio de almacenamiento alternativo
 
-**Id.** : NIST SP 800-53 Rev. 4 CP-6
+**ID**: FedRAMP Moderate CP-6
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -407,7 +407,7 @@ Después, busque y seleccione la definición de la iniciativa integrada de cumpl
 
 ### <a name="separation-from-primary-site"></a>Separación del sitio primario
 
-**Id.** : NIST SP 800-53 Rev. 4 CP-6 (1)
+**ID**: FedRAMP Moderate CP-6 (1)
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -419,7 +419,7 @@ Después, busque y seleccione la definición de la iniciativa integrada de cumpl
 
 ### <a name="alternate-processing-site"></a>Sitio de procesamiento alternativo
 
-**Id.** : NIST SP 800-53 Rev. 4 CP-7
+**ID**: FedRAMP Moderate CP-7
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -427,7 +427,7 @@ Después, busque y seleccione la definición de la iniciativa integrada de cumpl
 
 ### <a name="information-system-backup"></a>Copia de seguridad del sistema de información
 
-**Id.** : NIST SP 800-53 Rev. 4 CP-9
+**ID**: FedRAMP Moderate CP-9
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -442,7 +442,7 @@ Después, busque y seleccione la definición de la iniciativa integrada de cumpl
 
 ### <a name="identification-and-authentication-organizational-users"></a>Identificación y autenticación (usuarios de la organización)
 
-**Id.** : NIST SP 800-53 Rev. 4 IA-2
+**ID**: FedRAMP Moderate IA-2
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -459,7 +459,7 @@ Después, busque y seleccione la definición de la iniciativa integrada de cumpl
 
 ### <a name="network-access-to-privileged-accounts"></a>Acceso de red a cuentas con privilegios
 
-**Id.** : NIST SP 800-53 Rev. 4 IA-2 (1)
+**ID**: FedRAMP Moderate IA-2 (1)
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -468,7 +468,7 @@ Después, busque y seleccione la definición de la iniciativa integrada de cumpl
 
 ### <a name="network-access-to-non-privileged-accounts"></a>Acceso de red a cuentas sin privilegios
 
-**Id.** : NIST SP 800-53 Rev. 4 IA-2 (2)
+**ID**: FedRAMP Moderate IA-2 (2)
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -476,7 +476,7 @@ Después, busque y seleccione la definición de la iniciativa integrada de cumpl
 
 ### <a name="identifier-management"></a>Administración de identificadores
 
-**Id.** : NIST SP 800-53 Rev. 4 IA-4
+**ID**: FedRAMP Moderate IA-4
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -490,7 +490,7 @@ Después, busque y seleccione la definición de la iniciativa integrada de cumpl
 
 ### <a name="authenticator-management"></a>Administración de autenticadores
 
-**Id.** : NIST SP 800-53 Rev. 4 IA-5
+**ID**: FedRAMP Moderate IA-5
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -503,7 +503,7 @@ Después, busque y seleccione la definición de la iniciativa integrada de cumpl
 
 ### <a name="password-based-authentication"></a>Autenticación basada en contraseñas
 
-**Id.** : NIST SP 800-53 Rev. 4 IA-5 (1)
+**ID**: FedRAMP Moderate IA-5 (1)
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -523,7 +523,7 @@ Después, busque y seleccione la definición de la iniciativa integrada de cumpl
 
 ### <a name="incident-handling"></a>Tratamiento de incidentes
 
-**Id.** : NIST SP 800-53 Rev. 4 IR-4
+**ID**: FedRAMP Moderate IR-4
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -542,7 +542,7 @@ Después, busque y seleccione la definición de la iniciativa integrada de cumpl
 
 ### <a name="incident-monitoring"></a>Supervisión de incidentes
 
-**Id.** : NIST SP 800-53 Rev. 4 IR-5
+**ID**: FedRAMP Moderate IR-5
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -563,7 +563,7 @@ Después, busque y seleccione la definición de la iniciativa integrada de cumpl
 
 ### <a name="vulnerability-scanning"></a>Examen de vulnerabilidades
 
-**Id.** : NIST SP 800-53 Rev. 4 RA-5
+**ID**: FedRAMP Moderate RA-5
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -589,7 +589,7 @@ Después, busque y seleccione la definición de la iniciativa integrada de cumpl
 
 ### <a name="denial-of-service-protection"></a>Protección ante la denegación de servicio
 
-**Id.** : NIST SP 800-53 Rev. 4 SC-5
+**ID**: FedRAMP Moderate SC-5
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -600,7 +600,7 @@ Después, busque y seleccione la definición de la iniciativa integrada de cumpl
 
 ### <a name="boundary-protection"></a>Protección de límites
 
-**Id.** : NIST SP 800-53 Rev. 4 SC-7
+**ID**: FedRAMP Moderate SC-7
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -618,10 +618,10 @@ Después, busque y seleccione la definición de la iniciativa integrada de cumpl
 |[Los temas de Azure Event Grid deben usar Private Link](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4b90e17e-8448-49db-875e-bd83fb6f804f) |Azure Private Link permite conectar la red virtual a servicios de Azure sin una dirección IP pública en el origen o el destino. La plataforma Private Link administra la conectividad entre el consumidor y los servicios a través de la red troncal de Azure. Mediante la asignación de puntos de conexión privados al tema de Event Grid en lugar de a todo el servicio, estará además protegido frente a riesgos de pérdida de datos. Más información en: [https://aka.ms/privateendpoints](../../../event-grid/configure-private-endpoints.md). |Audit, Disabled |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Event%20Grid/Topics_PrivateEndpoint_Audit.json) |
 |[Azure File Sync debe usar Private Link](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1d320205-c6a1-4ac6-873d-46224024e8e2) |Si crea un punto de conexión privado para el recurso del servicio de sincronización de almacenamiento indicado, podrá dirigirse al recurso del servicio de sincronización de almacenamiento desde el espacio de direcciones IP privadas de la red de la organización, en lugar de hacerlo a través del punto de conexión público accesible desde Internet. La creación de un punto de conexión privado por sí mismo no deshabilita el punto de conexión público. |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Storage/StorageSync_PrivateEndpoint_AuditIfNotExists.json) |
 |[Azure Key Vault debe deshabilitar el acceso de red público.](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F55615ac9-af46-4a59-874e-391cc3dfb490) |Deshabilite el acceso de red público para el almacén de claves de modo que no sea accesible mediante la red pública de Internet. Esto puede reducir los riesgos de pérdida de datos. Más información en: [https://aka.ms/akvprivatelink](../../../key-vault/general/private-link-service.md). |Audit, Deny, Disabled |[1.1.0-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Key%20Vault/AzureKeyVaultFirewallEnabled_Audit.json) |
-|[Las áreas de trabajo de Azure Machine Learning deben usar un vínculo privado](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F40cec1dd-a100-4920-b15b-3024fe8901ab). |Azure Private Link permite conectar la red virtual a servicios de Azure sin una dirección IP pública en el origen o el destino. La plataforma Private Link administra la conectividad entre el consumidor y los servicios a través de la red troncal de Azure. Mediante la asignación de puntos de conexión privados a áreas de trabajo de Azure Machine Learning, se reducen los riesgos de pérdida de datos. Obtenga más información sobre los vínculos privados en [https://docs.microsoft.com/azure/machine-learning/how-to-configure-private-link](../../../machine-learning/how-to-configure-private-link.md). |Audit, Deny, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Machine%20Learning/Workspace_PrivateEndpoint_Audit.json) |
+|[Las áreas de trabajo de Azure Machine Learning deben usar un vínculo privado](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F40cec1dd-a100-4920-b15b-3024fe8901ab). |Azure Private Link permite conectar la red virtual a servicios de Azure sin una dirección IP pública en el origen o el destino. La plataforma Private Link administra la conectividad entre el consumidor y los servicios a través de la red troncal de Azure. Mediante la asignación de puntos de conexión privados a áreas de trabajo de Azure Machine Learning, se reducen los riesgos de pérdida de datos. Más información sobre los vínculos privados en [https://docs.microsoft.com/azure/machine-learning/how-to-configure-private-link](../../../machine-learning/how-to-configure-private-link.md). |Audit, Deny, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Machine%20Learning/Workspace_PrivateEndpoint_Audit.json) |
 |[Los espacios de nombres de Azure Service Bus deben usar Private Link](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1c06e275-d63d-4540-b761-71f364c2111d) |Azure Private Link permite conectar la red virtual a servicios de Azure sin una dirección IP pública en el origen o el destino. La plataforma Private Link administra la conectividad entre el consumidor y los servicios a través de la red troncal de Azure. Mediante la asignación de puntos de conexión privados a los espacios de nombres de Service Bus, se reducen los riesgos de pérdida de datos. Más información en: [https://docs.microsoft.com/azure/service-bus-messaging/private-link-service](../../../service-bus-messaging/private-link-service.md). |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Service%20Bus/ServiceBus_PrivateEndpoint_Audit.json) |
 |[Azure SignalR Service debe usar Private Link](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F53503636-bcc9-4748-9663-5348217f160f) |Azure Private Link permite conectar la red virtual a servicios de Azure sin una dirección IP pública en el origen o el destino. La plataforma Private Link administra la conectividad entre el consumidor y los servicios a través de la red troncal de Azure. Mediante la asignación de puntos de conexión privados a su recurso de Azure SignalR Service en lugar todo el servicio, reducirá los riesgos de pérdida de datos. Más información sobre los vínculos privados en [https://aka.ms/asrs/privatelink](../../../azure-signalr/howto-private-endpoints.md). |Audit, Deny, Disabled |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SignalR/SignalR_PrivateEndpointEnabled_Audit.json) |
-|[Las áreas de trabajo de Azure Synapse deben usar Private Link](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F72d11df1-dd8a-41f7-8925-b05b960ebafc) |Azure Private Link permite conectar la red virtual a servicios de Azure sin una dirección IP pública en el origen o el destino. La plataforma Private Link administra la conectividad entre el consumidor y los servicios a través de la red troncal de Azure. Mediante la asignación de puntos de conexión privados al área de trabajo de Azure Synapse, se reducen los riesgos de pérdida de datos. Obtenga más información sobre los vínculos privados en [https://docs.microsoft.com/azure/synapse-analytics/security/how-to-connect-to-workspace-with-private-links](../../../synapse-analytics/security/how-to-connect-to-workspace-with-private-links.md). |Audit, Disabled |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/SynapseWorkspaceUsePrivateLinks_Audit.json) |
+|[Las áreas de trabajo de Azure Synapse deben usar Private Link](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F72d11df1-dd8a-41f7-8925-b05b960ebafc) |Azure Private Link permite conectar la red virtual a servicios de Azure sin una dirección IP pública en el origen o el destino. La plataforma Private Link administra la conectividad entre el consumidor y los servicios a través de la red troncal de Azure. Mediante la asignación de puntos de conexión privados al área de trabajo de Azure Synapse, se reducen los riesgos de pérdida de datos. Más información sobre los vínculos privados en [https://docs.microsoft.com/azure/synapse-analytics/security/how-to-connect-to-workspace-with-private-links](../../../synapse-analytics/security/how-to-connect-to-workspace-with-private-links.md). |Audit, Disabled |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/SynapseWorkspaceUsePrivateLinks_Audit.json) |
 |[Las cuentas de Cognitive Services deben deshabilitar el acceso a la red pública.](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0725b4dd-7e76-479c-a735-68e7ee23d5ca) |Al deshabilitar el acceso a la red pública, se mejora la seguridad, ya que la cuenta de Cognitive Services no se expone en la red pública de Internet. La creación de puntos de conexión privados puede limitar la exposición de la cuenta de Cognitive Services. Más información en: [https://go.microsoft.com/fwlink/?linkid=2129800](../../../private-link/index.yml).  |Audit, Deny, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cognitive%20Services/CognitiveServices_DisablePublicNetworkAccess_Audit.json) |
 |[Las cuentas de Cognitive Services deben restringir el acceso a la red](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F037eea7a-bd0a-46c5-9a66-03aea78705d3) |Se debe restringir el acceso de red a las cuentas de Cognitive Services. Configure reglas de red, de forma que solo las aplicaciones de redes permitidas pueden acceder a la cuenta de Cognitive Services. Para permitir conexiones desde clientes específicos locales o de Internet, se puede conceder acceso al tráfico procedente de redes virtuales de Azure específicas o a intervalos de direcciones IP de Internet públicas. |Audit, Deny, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cognitive%20Services/CognitiveServices_NetworkAcls_Audit.json) |
 |[Cognitive Services debe usar un vínculo privado](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcddd188c-4b82-4c48-a19d-ddf74ee66a01) |Azure Private Link permite conectar las redes virtuales a los servicios de Azure sin una dirección IP pública en el origen o el destino. La plataforma Private Link administra la conectividad entre el consumidor y los servicios a través de la red troncal de Azure. Al asignar puntos de conexión privados a Cognitive Services, reducirá la posibilidad de pérdida de datos. Obtenga más información sobre los vínculos privados en [https://go.microsoft.com/fwlink/?linkid=2129800](../../../private-link/index.yml). |Audit, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cognitive%20Services/CognitiveServices_EnablePrivateEndpoints_Audit.json) |
@@ -647,7 +647,7 @@ Después, busque y seleccione la definición de la iniciativa integrada de cumpl
 
 ### <a name="access-points"></a>Puntos de acceso
 
-**Id.** : NIST SP 800-53 Rev. 4 SC-7 (3)
+**ID**: FedRAMP Moderate SC-7 (3)
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -694,7 +694,7 @@ Después, busque y seleccione la definición de la iniciativa integrada de cumpl
 
 ### <a name="transmission-confidentiality-and-integrity"></a>Integridad y confidencialidad de transmisión
 
-**Id.** : NIST SP 800-53 Rev. 4 SC-8
+**ID**: FedRAMP Moderate SC-8
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -717,7 +717,7 @@ Después, busque y seleccione la definición de la iniciativa integrada de cumpl
 
 ### <a name="cryptographic-or-alternate-physical-protection"></a>Protección física criptográfica o alternativa
 
-**Id.** : NIST SP 800-53 Rev. 4 SC-8 (1)
+**ID**: FedRAMP Moderate SC-8 (1)
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -740,7 +740,7 @@ Después, busque y seleccione la definición de la iniciativa integrada de cumpl
 
 ### <a name="cryptographic-key-establishment-and-management"></a>Establecimiento y administración de una clave criptográfica
 
-**Id.** : NIST SP 800-53 Rev. 4 SC-12
+**ID**: FedRAMP Moderate SC-12
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -776,7 +776,7 @@ Después, busque y seleccione la definición de la iniciativa integrada de cumpl
 
 ### <a name="protection-of-information-at-rest"></a>Protección de la información en reposo
 
-**Id.** : NIST SP 800-53 Rev. 4 SC-28
+**ID**: FedRAMP Moderate SC-28
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -793,11 +793,11 @@ Después, busque y seleccione la definición de la iniciativa integrada de cumpl
 |[Los discos temporales y la memoria caché de los grupos de nodos agente en los clústeres de Azure Kubernetes Service deben cifrarse en el host](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F41425d9f-d1a5-499a-9932-f8ed8453932c) |Para mejorar la seguridad de los datos, los datos almacenados en el host de las máquinas virtuales de los nodos de Azure Kubernetes Service deben cifrarse en reposo. Este es un requisito común de muchos estándares de cumplimiento normativo y del sector. |Audit, Deny, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/AKS_EncryptionAtHost_Deny.json) |
 |[El cifrado de datos transparente en bases de datos SQL debe estar habilitado](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F17k78e20-9358-41c9-923c-fb736d382a12) |El cifrado de datos transparente debe estar habilitado para proteger los datos en reposo y satisfacer los requisitos de cumplimiento. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlDBEncryption_Audit.json) |
 |[Las máquinas virtuales y los conjuntos de escalado de máquinas virtuales deben tener habilitado el cifrado en el host](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffc4d8e41-e223-45ea-9bf5-eada37891d87) |Use el cifrado en el host para obtener el cifrado de un extremo a otro para la máquina virtual y los datos del conjunto de escalado de máquinas virtuales. El cifrado en el host permite el cifrado en reposo para las memorias caché de disco temporal y de sistema operativo y de datos. Los discos temporales y los discos de SO efímeros se cifran con claves administradas por la plataforma cuando se habilita el cifrado en el host. Las memorias caché del disco de datos y de sistema operativo se cifran en reposo con claves administradas por el cliente o por la plataforma, según el tipo de cifrado seleccionado en el disco. Obtenga más información en [https://aka.ms/vm-hbe](../../../virtual-machines/disks-enable-host-based-encryption-portal.md). |Audit, Deny, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/HostBasedEncryptionRequired_Deny.json) |
-|[Las máquinas virtuales deben cifrar los discos temporales, las cachés y los flujos de datos entre los recursos de Proceso y Almacenamiento](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0961003e-5a0a-4549-abde-af6a37f2724d) |Azure Security Center supervisará las máquinas virtuales sin el cifrado de disco habilitado como recomendaciones. |AuditIfNotExists, Disabled |[2.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_UnencryptedVMDisks_Audit.json) |
+|[Las máquinas virtuales deben cifrar los discos temporales, las cachés y los flujos de datos entre los recursos de Proceso y Almacenamiento](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0961003e-5a0a-4549-abde-af6a37f2724d) |De manera predeterminada, los discos del sistema operativo y de datos de una máquina virtual se cifran en reposo mediante claves administradas por la plataforma. Los discos temporales, las cachés de datos y los datos que fluyen entre el proceso y el almacenamiento no se cifran. Ignore esta recomendación si usa el cifrado en el host o El cifrado del lado servidor en Managed Disks cumple sus requisitos de seguridad. Obtenga más información en [Cifrado del lado servidor de Azure Disk Storage](../../../virtual-machines/disk-encryption.md) y [Diferentes ofertas de cifrado de disco](../../../virtual-machines/disk-encryption-overview.md#comparison). |AuditIfNotExists, Disabled |[2.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_UnencryptedVMDisks_Audit.json) |
 
 ### <a name="cryptographic-protection"></a>Protección criptográfica
 
-**Id.** : NIST SP 800-53 Rev. 4 SC-28 (1)
+**ID**: FedRAMP Moderate SC-28 (1)
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -814,13 +814,13 @@ Después, busque y seleccione la definición de la iniciativa integrada de cumpl
 |[Los discos temporales y la memoria caché de los grupos de nodos agente en los clústeres de Azure Kubernetes Service deben cifrarse en el host](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F41425d9f-d1a5-499a-9932-f8ed8453932c) |Para mejorar la seguridad de los datos, los datos almacenados en el host de las máquinas virtuales de los nodos de Azure Kubernetes Service deben cifrarse en reposo. Este es un requisito común de muchos estándares de cumplimiento normativo y del sector. |Audit, Deny, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/AKS_EncryptionAtHost_Deny.json) |
 |[El cifrado de datos transparente en bases de datos SQL debe estar habilitado](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F17k78e20-9358-41c9-923c-fb736d382a12) |El cifrado de datos transparente debe estar habilitado para proteger los datos en reposo y satisfacer los requisitos de cumplimiento. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlDBEncryption_Audit.json) |
 |[Las máquinas virtuales y los conjuntos de escalado de máquinas virtuales deben tener habilitado el cifrado en el host](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffc4d8e41-e223-45ea-9bf5-eada37891d87) |Use el cifrado en el host para obtener el cifrado de un extremo a otro para la máquina virtual y los datos del conjunto de escalado de máquinas virtuales. El cifrado en el host permite el cifrado en reposo para las memorias caché de disco temporal y de sistema operativo y de datos. Los discos temporales y los discos de SO efímeros se cifran con claves administradas por la plataforma cuando se habilita el cifrado en el host. Las memorias caché del disco de datos y de sistema operativo se cifran en reposo con claves administradas por el cliente o por la plataforma, según el tipo de cifrado seleccionado en el disco. Obtenga más información en [https://aka.ms/vm-hbe](../../../virtual-machines/disks-enable-host-based-encryption-portal.md). |Audit, Deny, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/HostBasedEncryptionRequired_Deny.json) |
-|[Las máquinas virtuales deben cifrar los discos temporales, las cachés y los flujos de datos entre los recursos de Proceso y Almacenamiento](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0961003e-5a0a-4549-abde-af6a37f2724d) |Azure Security Center supervisará las máquinas virtuales sin el cifrado de disco habilitado como recomendaciones. |AuditIfNotExists, Disabled |[2.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_UnencryptedVMDisks_Audit.json) |
+|[Las máquinas virtuales deben cifrar los discos temporales, las cachés y los flujos de datos entre los recursos de Proceso y Almacenamiento](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0961003e-5a0a-4549-abde-af6a37f2724d) |De manera predeterminada, los discos del sistema operativo y de datos de una máquina virtual se cifran en reposo mediante claves administradas por la plataforma. Los discos temporales, las cachés de datos y los datos que fluyen entre el proceso y el almacenamiento no se cifran. Ignore esta recomendación si usa el cifrado en el host o El cifrado del lado servidor en Managed Disks cumple sus requisitos de seguridad. Obtenga más información en [Cifrado del lado servidor de Azure Disk Storage](../../../virtual-machines/disk-encryption.md) y [Diferentes ofertas de cifrado de disco](../../../virtual-machines/disk-encryption-overview.md#comparison). |AuditIfNotExists, Disabled |[2.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_UnencryptedVMDisks_Audit.json) |
 
 ## <a name="system-and-information-integrity"></a>Integridad del sistema y de la información
 
 ### <a name="flaw-remediation"></a>Corrección de errores
 
-**Id.** : NIST SP 800-53 Rev. 4 SI-2
+**ID**: FedRAMP Moderate SI-2
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -851,7 +851,7 @@ Después, busque y seleccione la definición de la iniciativa integrada de cumpl
 
 ### <a name="malicious-code-protection"></a>Protección frente a código malintencionado
 
-**Id.** : NIST SP 800-53 Rev. 4 SI-3
+**ID**: FedRAMP Moderate SI-3
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -862,7 +862,7 @@ Después, busque y seleccione la definición de la iniciativa integrada de cumpl
 
 ### <a name="central-management"></a>Administración central
 
-**Id.** : NIST SP 800-53 Rev. 4 SI-3 (1)
+**ID**: FedRAMP Moderate SI-3 (1)
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -873,7 +873,7 @@ Después, busque y seleccione la definición de la iniciativa integrada de cumpl
 
 ### <a name="information-system-monitoring"></a>Supervisión del sistema de información
 
-**Id.** : NIST SP 800-53 Rev. 4 SI-4
+**ID**: FedRAMP Moderate SI-4
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -899,7 +899,7 @@ Después, busque y seleccione la definición de la iniciativa integrada de cumpl
 
 ### <a name="memory-protection"></a>Protección de la memoria
 
-**Id.** : NIST SP 800-53 Rev. 4 SI-16
+**ID**: FedRAMP Moderate SI-16
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|

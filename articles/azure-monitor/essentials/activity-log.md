@@ -4,22 +4,31 @@ description: Vea el registro de actividad de Azure y envíelo a los registros de
 author: bwren
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 06/12/2020
+ms.date: 09/09/2021
 ms.author: bwren
-ms.openlocfilehash: d9628c9d10818b2b7a8a731b14537e4b533af74e
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: 61640d3abc371a92d5588c8b14308ba74152a442
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121862100"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124799764"
 ---
 # <a name="azure-activity-log"></a>Registro de actividad de Azure
-El Registro de actividad es un [registro de plataforma](./platform-logs-overview.md) de Azure que proporciona información de los eventos de nivel de suscripción. Esto incluye información como cuándo se modificó un recurso o cuándo se inició una máquina virtual. Puede ver el registro de actividad en Azure Portal o recuperar entradas con PowerShell y la CLI. Para obtener más funciones, debe crear una configuración de diagnóstico para enviar el registro de actividad a los [registros de Azure Monitor](../logs/data-platform-logs.md), a Azure Event Hubs para reenviarlo fuera de Azure o a Azure Storage para archivarlo. En este artículo se proporcionan detalles sobre cómo visualizar el registro de actividad y enviarlo a diversos destinos.
+El Registro de actividad es un [registro de plataforma](./platform-logs-overview.md) de Azure que proporciona información de los eventos de nivel de suscripción. Esto incluye información como cuándo se modificó un recurso o cuándo se inició una máquina virtual. Puede ver el registro de actividad en Azure Portal o recuperar entradas con PowerShell y la CLI.   En este artículo se proporcionan detalles sobre cómo visualizar el registro de actividad y enviarlo a diversos destinos.
+
+Para obtener funcionalidades adicionales, debe crear una configuración de diagnóstico para enviar el registro de actividad a una o varias de estas ubicaciones por los siguientes motivos: 
+-   a los [registros de Azure Monitor](../logs/data-platform-logs.md) para aumentar la complejidad de las consultas y las alertas, así como la duración de la retención (hasta 2 años) 
+-   a Azure Event Hubs para reenviarlo fuera de Azure
+-   a Azure Storage para obtener un archivado a largo plazo y más barato
 
 Vea [Creación de una configuración de diagnóstico para enviar registros de plataforma y métricas a diferentes destinos](./diagnostic-settings.md) para obtener más detalles sobre la creación y la configuración de las opciones de diagnóstico.
 
 > [!NOTE]
 > Las entradas del registro de actividad son generadas por el sistema y no se pueden cambiar ni eliminar.
+
+## <a name="retention-period"></a>Período de retención 
+
+Los eventos del registro de actividad se conservan en Azure durante **90 días** y después se eliminan. No se aplican cargos por las entradas durante este tiempo, independientemente del volumen. Para obtener funcionalidades adicionales, como un mayor tiempo de retención, debe crear una configuración de diagnóstico y enrutar las entradas a otra ubicación en función de sus necesidades. Consulte los criterios en la sección anterior de este artículo. 
 
 ## <a name="view-the-activity-log"></a>Visualización del registro de actividad
 Puede acceder al registro de actividad desde la mayoría de los menús de Azure Portal. El menú en el que lo abra determinará el filtro inicial. Si lo abre desde el menú **Supervisión**, el único filtro estará en la suscripción. Si lo abre desde el menú de un recurso, el filtro se establecerá en ese recurso. Aun así, siempre puede cambiar el filtro para ver todas las demás entradas. Haga clic en **Agregar filtro** para agregar propiedades adicionales al filtro.
@@ -59,9 +68,9 @@ También puede acceder a los eventos del registro de actividad mediante los mét
 - Consolidar las entradas de registro de varias suscripciones e inquilinos de Azure en una ubicación para su análisis conjunto.
 - Usar las consultas de registro para realizar un análisis complejo y obtener información detallada sobre las entradas del registro de actividad.
 - Usar las alertas de registro con entradas de actividad, lo que permite una lógica de alertas más compleja.
-- Almacenar las entradas del registro de actividad durante más de 90 días.
+- Almacenar las entradas del registro de actividad más allá del período de retención del registro de actividad.
 - No se generan cargos por ingesta para los datos del registro de actividad almacenados en un área de trabajo de Log Analytics.
-- No se generan cargos por retención de datos hasta un período de 90 días para los datos del registro de actividad almacenados en un área de trabajo de Log Analytics.
+- No se generan cargos por retención de datos hasta que expira el período de retención del registro de actividad para determinadas entradas.
 
 [Cree una configuración de diagnóstico](./diagnostic-settings.md) para enviar el registro de actividad a un área de trabajo de Log Analytics. Puede enviar el registro de actividad desde cualquier suscripción única hasta un máximo de cinco áreas de trabajo. 
 
@@ -144,8 +153,8 @@ A continuación se muestran datos de salida de ejemplo de Event Hubs para un reg
 ```
 
 
-## <a name="send-to--azure-storage"></a>Envío a Azure Storage
-Envíe el registro de actividad a una cuenta de Azure Storage si quiere conservar los datos de registro durante más de 90 días para la auditoría, el análisis estático o la copia de seguridad. Si solo necesita conservar los eventos durante 90 días o menos, no es necesario configurar el archivado en una cuenta de almacenamiento, ya que los eventos del registro de actividades se conservan en la plataforma de Azure durante 90 días.
+## <a name="send-to-azure-storage"></a>Envío a Azure Storage
+Envíe el registro de actividad a una cuenta de Azure Storage para la auditoría, el análisis estático o la copia de seguridad si quiere conservar los datos de registro más allá del período de retención del registro de actividad. No es necesario configurar Azure Storage a menos que tenga que conservar las entradas por uno de estos motivos.  
 
 Cuando envíe el registro de actividad a Azure, se creará un contenedor de almacenamiento en la cuenta de almacenamiento en cuanto se produzca un evento. Los blobs del contenedor usan la siguiente convención de nomenclatura:
 

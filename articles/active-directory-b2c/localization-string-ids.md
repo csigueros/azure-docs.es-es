@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 03/10/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 7e0f3e2ab306c46851e4c2ffcb6acf5824326282
-ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
+ms.openlocfilehash: 88c320d8296972ee84776aa232d688cc9e981f83
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113564381"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129349655"
 ---
 # <a name="localization-string-ids"></a>Identificadores de cadenas de localización
 
@@ -28,7 +28,7 @@ El elemento **Localization** permite la compatibilidad con varios idiomas o conf
 Los siguientes identificadores se usan en una definición de contenido con un identificador `api.signuporsignin` y un [perfil técnico autoafirmado](self-asserted-technical-profile.md).
 
 | ID | Valor predeterminado | Versión de diseño de página |
-| -- | ------------- | ------ |
+| --- | ------------- | ------ |
 | **forgotpassword_link** | ¿Ha olvidado la contraseña? | `All` |
 | **createaccount_intro** | ¿No tiene una cuenta? | `All` |
 | **button_signin** | Iniciar sesión | `All` |
@@ -96,7 +96,7 @@ En el ejemplo siguiente se localiza el proveedor de identidades de Facebook en �
 ### <a name="sign-up-or-sign-in-error-messages"></a>Mensajes de error al iniciar sesión o registrarse
 
 | ID | Valor predeterminado |
-| -- | ------------- |
+| --- | ------------- |
 | **UserMessageIfInvalidPassword** | La contraseña es incorrecta. |
 | **UserMessageIfPasswordExpired**| La contraseña expiró.|
 | **UserMessageIfClaimsPrincipalDoesNotExist** | Parece que no encontramos su cuenta. |
@@ -146,7 +146,7 @@ En el ejemplo siguiente se localiza el proveedor de identidades de Facebook en �
 Los siguientes identificadores corresponden a una definición de contenido con un identificador `api.localaccountsignup` o a cualquier definición de contenido que empiece con `api.selfasserted`, como `api.selfasserted.profileupdate` y `api.localaccountpasswordreset`, y un [perfil técnico autoafirmado](self-asserted-technical-profile.md).
 
 | ID | Valor predeterminado |
-| -- | ------------- |
+| --- | ------------- |
 | **ver_sent** | Se ha enviado el código de verificación a: |
 | **ver_but_default** | Valor predeterminado |
 | **cancel_message** | El usuario ha cancelado la introducción de información afirmada por él mismo. |
@@ -185,7 +185,7 @@ Los siguientes identificadores corresponden a una definición de contenido con u
 ### <a name="sign-up-and-self-asserted-pages-error-messages"></a>Mensajes de error en las páginas autoafirmadas y de registro
 
 | ID | Valor predeterminado |
-| -- | ------------- |
+| --- | ------------- |
 | **UserMessageIfClaimsPrincipalAlreadyExists** | Ya existe un usuario con el identificador especificado. Elija otro. |
 | **UserMessageIfClaimNotVerified** | Reclamación no comprobada: {0} |
 | **UserMessageIfIncorrectPattern** | Patrón incorrecto para: {0} |
@@ -259,7 +259,7 @@ En el ejemplo siguiente se muestra el uso de algunos de los elementos de la inte
 Los siguientes identificadores corresponden a una definición de contenido con un identificador `api.phonefactor` y un [perfil técnico de factor de teléfono](phone-factor-technical-profile.md).
 
 | ID | Valor predeterminado | Versión de diseño de página |
-| -- | ------------- | ------ |
+| --- | ------------- | ------ |
 | **button_verify** | Llamarme | `All` |
 | **country_code_label** | Código de país | `All` |
 | **cancel_message** | El usuario ha cancelado la autenticación multifactor. | `All` |
@@ -283,7 +283,7 @@ Los siguientes identificadores corresponden a una definición de contenido con u
 | **invalid_number** | Escriba un número de teléfono válido. | `All` |
 | **intro_sms** | Entre sus datos nos consta el número siguiente. Le enviaremos un código por SMS para autenticar su identidad. | `All` |
 | **intro_entry_mixed** | Escriba un número a continuación al que podamos llamar o enviar un código por SMS para autenticar su identidad. | `All` |
-| **number_pattern** | ^\\+(?:[0-9][\\x20-]?){6,14}[0-9]$ | `All` |
+| **number_pattern** | `^\\+(?:[0-9][\\x20-]?){6,14}[0-9]$` | `All` |
 | **intro_sms_p** |Entre sus datos nos constan los números siguientes. Elija un número al que podamos enviarle un código por SMS para autenticar su identidad. | `All` |
 | **requiredField_countryCode** | Seleccione su código de país. | `All` |
 | **requiredField_number** | Escriba su número de teléfono. | `All` |
@@ -361,7 +361,7 @@ En el ejemplo siguiente se muestra el uso de algunos de los elementos de la inte
 Los siguientes son los identificadores de un [control de pantalla de verificación](display-control-verification.md) con la [versión 2.1.0 o superior del diseño de página](page-layout.md).
 
 | ID | Valor predeterminado |
-| -- | ------------- |
+| --- | ------------- |
 |intro_msg <sup>*</sup>| La comprobación es necesaria. Haga clic en el botón Enviar.|
 |success_send_code_msg | Se ha enviado el código de verificación. Cópielo en el siguiente cuadro de entrada de texto.|
 |failure_send_code_msg | Estamos teniendo problemas para comprobar su dirección de correo electrónico. Escriba una dirección de correo electrónico válida e inténtelo de nuevo.|
@@ -402,7 +402,7 @@ Nota: El elemento `intro_msg` está oculto y no aparece en la página autofirmad
 Los siguientes son los identificadores de un [control de pantalla de verificación](display-control-verification.md) con la [versión 2.0.0 del diseño de página](page-layout.md).
 
 | ID | Valor predeterminado |
-| -- | ------------- |
+| --- | ------------- |
 |verification_control_but_change_claims |Change |
 |verification_control_fail_send_code |No se pudo enviar el código; vuelva a intentarlo más tarde. |
 |verification_control_fail_verify_code |No se pudo comprobar el código; vuelva a intentarlo más tarde. |
@@ -432,7 +432,7 @@ Los siguientes son los identificadores de un [control de pantalla de verificaci�
 Estos son los identificadores de los mensajes de error de [perfil técnico del servicio RESTful](restful-technical-profile.md):
 
 | ID | Valor predeterminado |
-| -- | ------------- |
+| --- | ------------- |
 |DefaultUserMessageIfRequestFailed | No se pudo establecer la conexión con el punto de conexión del servicio RESTful. Dirección URL del servicio RESTful: {0} |
 |UserMessageIfCircuitOpen | {0} Dirección URL del servicio RESTful: {1} |
 |UserMessageIfDnsResolutionFailed | No se pudo resolver el nombre de host del punto de conexión de servicio RESTful. Dirección URL del servicio RESTful: {0} |
@@ -457,7 +457,7 @@ Estos son los identificadores de los mensajes de error de [perfil técnico del s
 Los siguientes son los identificadores de los mensajes de error de un [perfil técnico de MFA de Azure AD](multi-factor-auth-technical-profile.md):
 
 | ID | Valor predeterminado |
-| -- | ------------- |
+| --- | ------------- |
 |UserMessageIfCouldntSendSms | No se puede enviar un SMS al teléfono. Pruebe con otro número de teléfono. |
 |UserMessageIfInvalidFormat | El número de teléfono no tiene un formato válido. Corríjalo y vuelva a intentarlo.|
 |UserMessageIfMaxAllowedCodeRetryReached | Se escribió un código incorrecto demasiadas veces. Vuelva a intentarlo más tarde.|
@@ -485,7 +485,7 @@ Los siguientes son los identificadores de los mensajes de error de un [perfil t�
 Estos son los identificadores de los mensajes de error de un [perfil técnico de SSPR de Azure AD](aad-sspr-technical-profile.md).
 
 | ID | Valor predeterminado |
-| -- | ------------- |
+| --- | ------------- |
 |UserMessageIfChallengeExpired | El código ha expirado.|
 |UserMessageIfInternalError | El servicio de correo electrónico ha encontrado un error interno. Vuelva a intentarlo más tarde.|
 |UserMessageIfThrottled | Se han enviado demasiadas solicitudes. Vuelva a intentarlo más tarde.|
@@ -511,8 +511,8 @@ Estos son los identificadores de los mensajes de error de un [perfil técnico de
 
 Los siguientes son los identificadores de los mensajes de error de un [perfil técnico de contraseña única](one-time-password-technical-profile.md).
 
-| ID | Valor predeterminado |
-| -- | ------------- |
+| ID | Valor predeterminado | Descripción | 
+| --- | ------------- | ----------- |
 | UserMessageIfSessionDoesNotExist | No | Mensaje que se mostrará al usuario si la sesión de verificación de código ha expirado. Es posible que el código haya expirado o que nunca se haya generado para un identificador determinado. |
 | UserMessageIfMaxRetryAttempted | No | Mensaje que se mostrará al usuario si ha superado el número máximo de intentos de verificación permitidos. |
 | UserMessageIfMaxNumberOfCodeGenerated | No | Mensaje que se mostrará al usuario si la generación de código ha superado el número máximo de intentos permitidos. |
@@ -540,7 +540,7 @@ Los siguientes son los identificadores de los mensajes de error de un [perfil t�
 Los siguientes son los identificadores de los mensajes de error de transformaciones de notificaciones:
 
 | ID | Transformación de notificaciones | Valor predeterminado |
-| -- | ------------- |------------- |
+| --- | ------------- |------------- |
 |UserMessageIfClaimsTransformationBooleanValueIsNotEqual |[AssertBooleanClaimIsEqualToValue](boolean-transformations.md#assertbooleanclaimisequaltovalue) | Error de comparación de valores de notificación booleano para el tipo de notificación "inputClaim".| 
 |DateTimeGreaterThan |[AssertDateTimeIsGreaterThan](date-transformations.md#assertdatetimeisgreaterthan) | Error al comparar el valor de la notificación: El operando izquierdo proporcionado es mayor que el derecho.|
 |UserMessageIfClaimsTransformationStringsAreNotEqual |[AssertStringClaimsAreEqual](string-transformations.md#assertstringclaimsareequal) | Error en la comparación de valores de notificaciones mediante StringComparison "OrdinalIgnoreCase".|

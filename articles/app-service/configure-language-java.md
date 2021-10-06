@@ -11,12 +11,12 @@ ms.reviewer: cephalin
 ms.custom: seodec18, devx-track-java, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
 adobe-target: true
-ms.openlocfilehash: c7cf2aaeaaf9907ff87ab4805aebe04c3098b8f8
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 47e9e221bd57453a0c799318f939de59b84feb86
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128657146"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129356071"
 ---
 # <a name="configure-a-java-app-for-azure-app-service"></a>Configuración de una aplicación Java para Azure App Service
 
@@ -66,7 +66,7 @@ az webapp list-runtimes --linux | grep "JAVA\|TOMCAT\|JBOSSEAP"
 Con el [complemento Maven para Azure Web Apps](https://github.com/microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin), puede preparar fácilmente el proyecto de Java de Maven con un comando en la raíz del proyecto:
 
 ```shell
-mvn com.microsoft.azure:azure-webapp-maven-plugin:2.1.0:config
+mvn com.microsoft.azure:azure-webapp-maven-plugin:2.2.0:config
 ```
 
 Este comando agrega un complemento `azure-webapp-maven-plugin` y una configuración relacionada al pedirle que seleccione una aplicación web de Azure existente o que cree una nueva. Luego, puede implementar la aplicación Java en Azure mediante el siguiente comando:
@@ -74,12 +74,12 @@ Este comando agrega un complemento `azure-webapp-maven-plugin` y una configuraci
 mvn package azure-webapp:deploy
 ```
 
-Esta es una configuración de ejemplo de `pom/xml`:
+Esta es una configuración de ejemplo de `pom.xml`:
 ```xml
 <plugin> 
   <groupId>com.microsoft.azure</groupId>  
   <artifactId>azure-webapp-maven-plugin</artifactId>  
-  <version>2.1.0</version>  
+  <version>2.2.0</version>  
   <configuration>
     <subscriptionId>111111-11111-11111-1111111</subscriptionId>
     <resourceGroup>spring-boot-xxxxxxxxxx-rg</resourceGroup>
@@ -110,7 +110,7 @@ Esta es una configuración de ejemplo de `pom/xml`:
 1. Configure el [complemento Gradle para Azure Web Apps](https://github.com/microsoft/azure-gradle-plugins/tree/master/azure-webapp-gradle-plugin) mediante su incorporación a `build.gradle`:
     ```groovy
     plugins {
-      id "com.microsoft.azure.azurewebapp" version "1.1.0"
+      id "com.microsoft.azure.azurewebapp" version "1.2.0"
     }
     ```
 

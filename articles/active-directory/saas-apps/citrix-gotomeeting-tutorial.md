@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/16/2021
+ms.date: 08/20/2021
 ms.author: jeedes
-ms.openlocfilehash: ce4e1942bc2b61a874a57d5ffefb388922f6e806
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 27e8c3bf2f54541d8c96528472fbcb8d092aeca3
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112293984"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128670621"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-gotomeeting"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con GoToMeeting
 
@@ -38,6 +38,7 @@ Para empezar, necesita los siguientes elementos:
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
 * GoToMeeting admite el inicio de sesión único iniciado por **IDP**.
+* GoToMeeting admite el [aprovisionamiento automatizado de usuarios](citrixgotomeeting-provisioning-tutorial.md).
 
 > [!NOTE]
 > El identificador de esta aplicación es un valor de cadena fijo, por lo que solo se puede configurar una instancia en un inquilino.
@@ -143,15 +144,17 @@ No hay ningún elemento de acción para usted en esta sección. Si el usuario no
 > [!NOTE]
 > Si necesita crear manualmente un usuario, póngase en contacto con el [equipo de soporte técnico de GoToMeeting](https://support.logmeininc.com/gotomeeting).
 
+> [!NOTE]
+>GoToMeeting también admite el aprovisionamiento automático de usuarios. [Aquí](./citrixgotomeeting-provisioning-tutorial.md) puede encontrar más detalles sobre cómo configurar el aprovisionamiento automático de usuarios.
+
 ## <a name="test-sso"></a>Prueba de SSO 
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones.
 
 * Haga clic en Probar esta aplicación en Azure Portal y debería iniciar sesión automáticamente en la instancia de GoToMeeting para la que ha configurado el inicio de sesión único.
 
-* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de GoToMeeting en Mis aplicaciones, debería iniciar sesión automáticamente en la instancia de GoToMeeting para la que ha configurado el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de GoToMeeting en Mis aplicaciones, debería iniciar sesión automáticamente en la instancia de GoToMeeting para la que ha configurado el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Una vez que haya configurado GoToMeeting, podrá aplicar el control de sesión, que protege a la organización en tiempo real frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
-

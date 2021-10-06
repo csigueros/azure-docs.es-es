@@ -1,19 +1,20 @@
 ---
-title: Creación de un servidor con autenticación solo de Azure Active Directory habilitada en Azure SQL
+title: Creación de un servidor con autenticación solo de Azure Active Directory habilitada
 description: Este artículo le guía por la creación de un servidor lógico o una instancia administrada de Azure SQL con autenticación solo de Azure Active Directory (Azure AD) habilitada, lo que deshabilita la conectividad mediante la autenticación de SQL.
+titleSuffix: Azure SQL Database & Azure SQL Managed Instance
 ms.service: sql-db-mi
 ms.subservice: security
 ms.topic: how-to
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 07/19/2021
-ms.openlocfilehash: 7b12e8cfac76f1b397e3dd1209afe584616ef340
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.date: 08/31/2021
+ms.openlocfilehash: 1519573670b3c97e1c47404ed457bf68c488108e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114458408"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128643201"
 ---
 # <a name="create-server-with-azure-ad-only-authentication-enabled-in-azure-sql"></a>Creación de un servidor con autenticación solo de Azure AD habilitada en Azure SQL
 
@@ -22,7 +23,7 @@ ms.locfileid: "114458408"
 > [!NOTE]
 > La característica **Autenticación solo de Azure AD** que se describe en este artículo se encuentra en **versión preliminar pública**. Para obtener información detallada sobre esta característica, consulte [Autenticación solo de Azure AD con Azure SQL ](authentication-azure-ad-only-authentication.md). La autenticación solo de Azure AD no está disponible actualmente para Azure Synapse Analytics.
 
-En esta guía paso a paso se describen los pasos para crear un [servidor lógico de Azure SQL](logical-servers.md) o [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md) con la [autenticación solo de Azure AD](authentication-azure-ad-only-authentication.md) habilitada durante el aprovisionamiento. La autenticación solo de Azure AD impide que los usuarios se conecten al servidor o a la instancia administrada mediante la autenticación SQL y solo permite la conexión mediante autenticación de Azure AD.
+En esta guía paso a paso se describen los pasos para crear un [servidor lógico](logical-servers.md) para Azure SQL Database o [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md) con la [autenticación solo de Azure AD](authentication-azure-ad-only-authentication.md) habilitada durante el aprovisionamiento. La autenticación solo de Azure AD impide que los usuarios se conecten al servidor o a la instancia administrada mediante la autenticación SQL y solo permite la conexión mediante autenticación de Azure AD.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -32,13 +33,13 @@ En esta guía paso a paso se describen los pasos para crear un [servidor lógico
 
 ## <a name="permissions"></a>Permisos
 
-Para aprovisionar una instancia administrada o servidor lógico de Azure SQL, deberá tener los permisos adecuados para crear estos recursos. Los usuarios de Azure con permisos superiores, como [Propietarios](../../role-based-access-control/built-in-roles.md#owner), [Colaboradores](../../role-based-access-control/built-in-roles.md#contributor), [Administradores de servicios](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles) y [Coadministradores](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles) de la suscripción tienen el privilegio de crear un servidor SQL o una instancia administrada. Para crear estos recursos con el rol RBAC de Azure con menos privilegios, use el rol [Colaborador de SQL Server](../../role-based-access-control/built-in-roles.md#sql-server-contributor) para SQL Database y el rol [Colaborador de Instancia administrada de SQL Database](../../role-based-access-control/built-in-roles.md#sql-managed-instance-contributor).
+Para aprovisionar una instancia administrada o un servidor lógico, deberá tener los permisos adecuados para crear estos recursos. Los usuarios de Azure con permisos superiores, como [Propietarios](../../role-based-access-control/built-in-roles.md#owner), [Colaboradores](../../role-based-access-control/built-in-roles.md#contributor), [Administradores de servicios](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles) y [Coadministradores](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles) de la suscripción tienen el privilegio de crear un servidor SQL o una instancia administrada. Para crear estos recursos con el rol RBAC de Azure con menos privilegios, use el rol [Colaborador de SQL Server](../../role-based-access-control/built-in-roles.md#sql-server-contributor) para SQL Database y el rol [Colaborador de Instancia administrada de SQL Database](../../role-based-access-control/built-in-roles.md#sql-managed-instance-contributor).
 
 El rol RBAC [Administrador de seguridad de SQL](../../role-based-access-control/built-in-roles.md#sql-security-manager) no tiene permisos suficientes para crear un servidor o una instancia con la autenticación solo de Azure AD habilitada. El [administrador de seguridad de SQL](../../role-based-access-control/built-in-roles.md#sql-security-manager) será necesario para administrar la característica de autenticación de solo Azure AD después de la creación del servidor o la instancia.
 
 ## <a name="provision-with-azure-ad-only-authentication-enabled"></a>Aprovisionamiento con autenticación solo con Azure AD habilitada
 
-En la sección siguiente se proporcionan ejemplos y scripts sobre cómo crear un servidor lógico o una instancia administrada de SQL con un conjunto de administradores de Azure AD para el servidor o la instancia, y tener habilitada la autenticación solo de Azure AD durante la creación del servidor. Para más información sobre la característica, consulte [Autenticación solo de Azure AD](authentication-azure-ad-only-authentication.md).
+En la sección siguiente se proporcionan ejemplos y scripts sobre cómo crear un servidor lógico o una instancia administrada con un conjunto de administradores de Azure AD para el servidor o la instancia, y tener habilitada la autenticación solo de Azure AD durante la creación del servidor. Para más información sobre la característica, consulte [Autenticación solo de Azure AD](authentication-azure-ad-only-authentication.md).
 
 En nuestros ejemplos, vamos a habilitar la autenticación de solo Azure AD durante la creación del servidor o de la instancia administrada, con un administrador y una contraseña de servidor asignados por el sistema. Esto impedirá el acceso de administrador del servidor cuando esté habilitada la autenticación de solo Azure AD y solo permite que el administrador de Azure AD acceda al recurso. Es opcional agregar parámetros a las API para incluir su propio administrador de servidor y contraseña durante la creación del servidor. Sin embargo, la contraseña no se puede restablecer hasta que se deshabilite la autenticación de solo Azure AD.
 
@@ -51,7 +52,7 @@ Para cambiar las propiedades existentes después de crear el servidor o la insta
 
 # <a name="the-azure-cli"></a>[La CLI de Azure](#tab/azure-cli)
 
-El comando de la CLI de Azure `az sql server create` se usa para aprovisionar un nuevo servidor lógico de Azure SQL. El comando siguiente aprovisionará un nuevo servidor con la autenticación de solo Azure AD habilitada.
+El comando de la CLI de Azure `az sql server create` se usa para aprovisionar un nuevo servidor lógico. El comando siguiente aprovisionará un nuevo servidor con la autenticación de solo Azure AD habilitada.
 
 El inicio de sesión de administrador de SQL del servidor se creará automáticamente y la contraseña se establecerá en una contraseña aleatoria. Puesto que la conectividad de autenticación de SQL está deshabilitada con la creación de este servidor, no se usará el inicio de sesión de administrador de SQL.
 
@@ -61,8 +62,8 @@ Reemplace los valores siguientes del ejemplo:
 
 - `<AzureADAccount>`: puede ser un usuario o grupo de Azure AD. Por ejemplo, `DummyLogin`.
 - `<AzureADAccountSID>`: identificador de objeto de Azure AD del usuario
-- `<ResourceGroupName>`: nombre del grupo de recursos para el servidor lógico de Azure SQL
-- `<ServerName>`: use un nombre del servidor lógico de Azure SQL
+- `<ResourceGroupName>`: nombre del grupo de recursos para el servidor lógico.
+- `<ServerName>`: use un nombre de servidor lógico único.
 
 ```azurecli
 az sql server create --enable-ad-only-auth --external-admin-principal-type User --external-admin-name <AzureADAccount> --external-admin-sid <AzureADAccountSID> -g <ResourceGroupName> -n <ServerName>
@@ -86,9 +87,9 @@ El administrador de Azure AD de servidor será la cuenta que establezca para `<
 
 Reemplace los valores siguientes del ejemplo:
 
-- `<ResourceGroupName>`: nombre del grupo de recursos para el servidor lógico de Azure SQL
+- `<ResourceGroupName>`: nombre del grupo de recursos para el servidor lógico.
 - `<Location>`: ubicación del servidor, como `West US` o `Central US`
-- `<ServerName>`: use un nombre del servidor lógico de Azure SQL
+- `<ServerName>`: use un nombre de servidor lógico único.
 - `<AzureADAccount>`: puede ser un usuario o grupo de Azure AD. Por ejemplo, `DummyLogin`.
 
 ```powershell
@@ -99,9 +100,9 @@ Para más información, consulte [New-AzSqlServer](/powershell/module/az.sql/new
 
 # <a name="rest-api"></a>[API DE REST](#tab/rest-api)
 
-La API REST [Servidores: creación o actualización](/rest/api/sql/2020-11-01-preview/servers/create-or-update) se puede usar para crear un servidor lógico de Azure SQL con la autenticación de solo Azure AD habilitada durante el aprovisionamiento. 
+La API REST [Servidores: creación o actualización](/rest/api/sql/2020-11-01-preview/servers/create-or-update) se puede usar para crear un servidor lógico con la autenticación solo de Azure AD habilitada durante el aprovisionamiento. 
 
-El script siguiente aprovisionará un servidor lógico de Azure SQL, establecerá el administrador de Azure AD como `<AzureADAccount>` y habilitará la autenticación de Azure AD de solo ejecución. El inicio de sesión de administrador de SQL del servidor también se creará automáticamente y la contraseña se establecerá en una contraseña aleatoria. Puesto que la conectividad de autenticación de SQL está deshabilitada con este aprovisionamiento, no se usará el inicio de sesión de administrador de SQL.
+El script siguiente aprovisionará un servidor lógico, establecerá el administrador de Azure AD como `<AzureADAccount>` y habilitará la autenticación de Azure AD de solo ejecución. El inicio de sesión de administrador de SQL del servidor también se creará automáticamente y la contraseña se establecerá en una contraseña aleatoria. Puesto que la conectividad de autenticación de SQL está deshabilitada con este aprovisionamiento, no se usará el inicio de sesión de administrador de SQL.
 
 El administrador de Azure AD, `<AzureADAccount>`, se puede usar para administrar el servidor una vez completado el aprovisionamiento.
 
@@ -109,8 +110,8 @@ Reemplace los valores siguientes del ejemplo:
 
 - `<tenantId>`: se puede encontrar en [Azure Portal](https://portal.azure.com), en el recurso de **Azure Active Directory**. En el panel **Información general**, debe ver el **Identificador de inquilino**.
 - `<subscriptionId>`: su identificador de suscripción se puede encontrar en Azure Portal.
-- `<ServerName>`: use un nombre del servidor lógico de Azure SQL.
-- `<ResourceGroupName>`: nombre del grupo de recursos para el servidor lógico de Azure SQL.
+- `<ServerName>`: use un nombre de servidor lógico único.
+- `<ResourceGroupName>`: nombre del grupo de recursos para el servidor lógico.
 - `<AzureADAccount>`: puede ser un usuario o grupo de Azure AD. Por ejemplo, `DummyLogin`.
 - `<Location>`: ubicación del servidor, como `westus2` o `centralus`.
 - `<objectId>`: se puede encontrar en [Azure Portal](https://portal.azure.com), en el recurso de **Azure Active Directory**. En el panel **Usuario**, busque el usuario Azure AD y su **identificador de objeto**.
@@ -175,7 +176,7 @@ $responce.content
 
 Para más información y las plantillas de ARM, consulte [Plantillas de Azure Resource Manager para Azure SQL Database e Instancia administrada de Azure SQL](arm-templates-content-guide.md).
 
-Para aprovisionar un servidor lógico de SQL con un conjunto de administradores de Azure AD para el servidor y la autenticación de solo Azure AD habilitada mediante una plantilla de ARM, consulte nuestra plantilla de inicio rápido [Servidor lógico de Azure SQL con autenticación solo de Azure AD](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.sql/sql-logical-server-aad-only-auth).
+Para aprovisionar un servidor lógico con un conjunto de administradores de Azure AD para el servidor y la autenticación solo de Azure AD habilitada mediante una plantilla de ARM, consulte nuestra plantilla de inicio rápido [Servidor lógico de Azure SQL con autenticación solo de Azure AD](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.sql/sql-logical-server-aad-only-auth).
 
 También se puede utilizar la siguiente plantilla. Use una [implementación personalizada en Azure Portal](https://portal.azure.com/#create/Microsoft.Template) y **cree su propia plantilla en el editor**. A continuación, **guarde** la configuración una vez pegada en el ejemplo.
 
@@ -188,7 +189,7 @@ También se puede utilizar la siguiente plantilla. Use una [implementación pers
             "type": "string",
             "defaultValue": "[uniqueString('sql', resourceGroup().id)]",
             "metadata": {
-                "description": "The name of the SQL logical server."
+                "description": "The name of the logical server."
             }
         },
         "location": {
@@ -322,7 +323,7 @@ Reemplace los valores siguientes del ejemplo:
 - `<tenantId>`: se puede encontrar en [Azure Portal](https://portal.azure.com), en el recurso de **Azure Active Directory**. En el panel **Información general**, debe ver el **Identificador de inquilino**.
 - `<subscriptionId>`: su identificador de suscripción se puede encontrar en Azure Portal.
 - `<instanceName>`: use un nombre de instancia administrada único.
-- `<ResourceGroupName>`: nombre del grupo de recursos para el servidor lógico de Azure SQL.
+- `<ResourceGroupName>`: nombre del grupo de recursos para el servidor lógico.
 - `<AzureADAccount>`: puede ser un usuario o grupo de Azure AD. Por ejemplo, `DummyLogin`.
 - `<Location>`: ubicación del servidor, como `westus2` o `centralus`.
 - `<objectId>`: se puede encontrar en [Azure Portal](https://portal.azure.com), en el recurso de **Azure Active Directory**. En el panel **Usuario**, busque el usuario Azure AD y su **identificador de objeto**.
@@ -673,3 +674,4 @@ Una vez completada la implementación de la instancia administrada, es posible q
 
 - Si ya tiene un servidor de SQL o una instancia administrada y solo desea habilitar la autenticación de solo Azure AD, consulte [Tutorial: Habilitar la autenticación solo de Azure Active Directory con Azure SQL](authentication-azure-ad-only-authentication-tutorial.md).
 - Para más información sobre la característica de autenticación solo de Azure AD, consulte [Autenticación solo de Azure AD con Azure SQL](authentication-azure-ad-only-authentication.md).
+- Para aplicar la creación de servidores con la autenticación solo de Azure AD habilitada, consulte [Azure Policy para autenticación exclusiva de Azure Active Directory con Azure SQL](authentication-azure-ad-only-authentication-policy.md).

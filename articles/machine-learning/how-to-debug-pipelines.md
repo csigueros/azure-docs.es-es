@@ -4,18 +4,18 @@ titleSuffix: Azure Machine Learning
 description: Cómo solucionar problemas cuando se reciben errores al ejecutar una canalización de aprendizaje automático. Conozca los errores comunes y sugerencias que le ayuden a depurar los scripts antes y durante la ejecución remota.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 author: lobrien
 ms.author: laobri
 ms.date: 10/22/2020
 ms.topic: troubleshooting
 ms.custom: troubleshooting, devx-track-python, contperf-fy21q2
-ms.openlocfilehash: 3a85566f395e97bbe88d52a8b306c7e0aa15669d
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: f6fc3ad230c4da9f44c536ec61d8c840374c3ed6
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107817348"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129429041"
 ---
 # <a name="troubleshooting-machine-learning-pipelines"></a>Solución de problemas de canalizaciones de aprendizaje automático
 

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 08/03/2021
+ms.date: 09/08/2021
 ms.author: phjensen
-ms.openlocfilehash: 5eae527b288570053e1e899bc776d541ffa9e60b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 6a5fb518622a36ffe5562e76ffb09a472c12fe01
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121729231"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124737311"
 ---
 # <a name="install-azure-application-consistent-snapshot-tool"></a>Instalación de la herramienta Azure Application Consistent Snapshot
 
@@ -40,7 +40,10 @@ Siga las instrucciones para configurar y ejecutar los comandos de instantáneas 
 1. **Sistema operativo revisado**. Consulte la configuración de SMT y las revisiones en [Instalación y configuración de SAP HANA (instancias grandes) en Azure](../virtual-machines/workloads/sap/hana-installation.md#operating-system).
 1. **Sincronización temporal configurada**. El cliente deberá proporcionar un servidor horario compatible con NTP y configurar el sistema operativo conforme a este.
 1. **HANA instalado**. Consulte las instrucciones de instalación de HANA en [Instalación de SAP NetWeaver en la base de datos de HANA](/archive/blogs/saponsqlserver/sap-netweaver-installation-on-hana-database).
-1. **[Comunicación habilitada con el almacenamiento](#enable-communication-with-storage)** (consulte la sección independiente para más detalles). El cliente debe configurar SSH con un par de claves pública y privada, y proporcionar la clave pública para cada nodo donde está previsto que se ejecuten las herramientas de instantáneas durante la configuración del back-end de almacenamiento de Microsoft Operations.
+1. **[Comunicación con el almacenamiento habilitada](#enable-communication-with-storage)** (consulte la sección independiente para obtener más detalles): seleccione el back-end de almacenamiento que está usando para la implementación.
+
+   # <a name="azure-netapp-files"></a>[Azure NetApp Files](#tab/azure-netapp-files)
+    
    1. **Para Azure NetApp Files (consulte la sección independiente para más detalles)** . El cliente debe generar el archivo de autenticación de la entidad de servicio.
       
       > [!IMPORTANT]
@@ -48,14 +51,25 @@ Siga las instrucciones para configurar y ejecutar los comandos de instantáneas 
       > - (https://)management.azure.com:443
       > - (https://)login.microsoftonline.com:443
       
+   # <a name="azure-large-instance-bare-metal"></a>[Instancia grande de Azure (equipo sin sistema operativo)](#tab/azure-large-instance)
+      
    1. **Para Azure Large Instance (consulte la sección independiente para más detalles)** . El cliente debe configurar SSH con un par de claves pública y privada, y proporcionar la clave pública para cada nodo donde está previsto que se ejecuten las herramientas de instantáneas durante la configuración del back-end de almacenamiento de Microsoft Operations.
 
       Para probarlo, use SSH para conectarse a uno de los nodos (por ejemplo, `ssh -l <Storage UserName> <Storage IP Address>`).
       Escriba `exit` para cerrar la sesión del símbolo del sistema de almacenamiento.
 
       Microsoft Operations proporcionará el usuario de almacenamiento y la dirección IP de almacenamiento en el momento del aprovisionamiento.
-  
-1. **[Comunicación habilitada con SAP HANA](#enable-communication-with-sap-hana)** (consulte la sección independiente para más detalles). El cliente debe configurar un usuario de SAP HANA adecuado con los privilegios necesarios para realizar la instantánea.
+      
+      ---
+
+1. **[Comunicación con el almacenamiento habilitada](#enable-communication-with-storage)** (consulte la sección independiente para obtener más detalles): seleccione el back-end de almacenamiento que está usando para la implementación.
+
+1. **[Comunicación con la base de datos habilitada](#enable-communication-with-database)** (consulte la sección independiente para obtener más detalles): 
+   
+   # <a name="sap-hana"></a>[SAP HANA](#tab/sap-hana)
+   
+   El cliente debe configurar un usuario de SAP HANA adecuado con los privilegios necesarios para realizar la instantánea.
+
    1. Esta configuración se puede probar desde la línea de comandos como se indica a continuación con el texto en `grey`.
       1. HANAv1
 
@@ -66,16 +80,15 @@ Siga las instrucciones para configurar y ejecutar los comandos de instantáneas 
             `hdbsql -n <HANA IP address> -i <HANA instance> -d SYSTEMDB -U <HANA user> "\s"`
 
       - Los ejemplos anteriores son para la comunicación con SAP HANA por medios distintos de SSL.
+      
+   ---
+
 
 ## <a name="enable-communication-with-storage"></a>Habilitación de la comunicación con el almacenamiento
 
-En esta sección se explica cómo habilitar la comunicación con el almacenamiento.  
+En esta sección se explica cómo habilitar la comunicación con el almacenamiento. Asegúrese de que el back-end de almacenamiento que está usando se ha seleccionado correctamente.
 
-Siga las instrucciones para configurar el almacenamiento para la configuración:
-1. [Azure NetApp Files (con máquina virtual)](#azure-netapp-files-with-virtual-machine) 
-1. [Instancia grande de Azure (equipo sin sistema operativo)](#azure-large-instance-bare-metal)
-
-### <a name="azure-netapp-files-with-virtual-machine"></a>Azure NetApp Files (con máquina virtual)
+# <a name="azure-netapp-files-with-virtual-machine"></a>[Azure NetApp Files (con máquina virtual)](#tab/azure-netapp-files)
 
 Creación de una entidad de servicio de RBAC
 
@@ -118,7 +131,7 @@ Creación de una entidad de servicio de RBAC
 
 1. Corte y pegue el contenido de la salida en un archivo denominado `azureauth.json` almacenado en el mismo sistema que el comando `azacsnap`, y proteja el archivo con los permisos de sistema adecuados.
 
-### <a name="azure-large-instance-bare-metal"></a>Instancia grande de Azure (equipo sin sistema operativo)
+# <a name="azure-large-instance-bare-metal"></a>[Instancia grande de Azure (equipo sin sistema operativo)](#tab/azure-large-instance)
 
 La comunicación con el back-end de almacenamiento se ejecuta a través de un canal SSH cifrado. Los siguientes pasos de ejemplo sirven de guía de configuración de SSH para esta comunicación.
 
@@ -183,7 +196,13 @@ La comunicación con el back-end de almacenamiento se ejecuta a través de un ca
     wKGAIilSg7s6Bq/2lAPDN1TqwIF8wQhAg2C7yeZHyE/ckaw/eQYuJtN+RNBD
     ```
 
-## <a name="enable-communication-with-sap-hana"></a>Habilitación de la comunicación con SAP HANA
+---
+
+## <a name="enable-communication-with-database"></a>Habilitación de la comunicación con la base de datos
+
+En esta sección se explica cómo habilitar la comunicación con el almacenamiento. Asegúrese de que el back-end de almacenamiento que está usando se ha seleccionado correctamente.
+
+# <a name="sap-hana"></a>[SAP HANA](#tab/sap-hana)
 
 Las herramientas de instantáneas se comunican con SAP HANA y necesitan que un usuario con los permisos adecuados inicie y lance el punto de almacenamiento de la base de datos. En el ejemplo siguiente se muestra la configuración del usuario de SAP HANA v2 y `hdbuserstore` para la comunicación con la base de datos de SAP HANA.
 
@@ -313,6 +332,8 @@ hdbsql \
 
 > [!NOTE]
 > El carácter `\` es un ajuste de línea de la línea de comandos que mejora la claridad de los distintos parámetros que se pasan en la línea de comandos.
+
+---
 
 ## <a name="installing-the-snapshot-tools"></a>Instalación de las herramientas de instantáneas
 
@@ -476,39 +497,47 @@ Como superusuario raíz puede realizar una instalación manual con los siguiente
     ```bash
     echo "export LD_LIBRARY_PATH=\"\$LD_LIBRARY_PATH:$NEW_LIB_PATH\"" >> /home/azacsnap/.profile
     ```
+    
+1. Acciones que se deben realizar en función del back-end de almacenamiento:
 
-1. En las instancias grandes de Azure:
-    1. Copia de las claves SSH para el almacenamiento de back-end de azacsnap desde el usuario "raíz" (el usuario que ejecuta la instalación). Se supone que el usuario "raíz" ya ha configurado la conectividad con el almacenamiento.
-       > Consulte la sección "[Habilitación de la comunicación con el almacenamiento](#enable-communication-with-storage)".
+    # <a name="azure-netapp-files-with-vm"></a>[Azure NetApp Files (con máquina virtual)](#tab/azure-netapp-files)
 
-        ```bash
-        cp -pr ~/.ssh /home/azacsnap/.
-        ```
+    1. En Azure NetApp Files:
+        1. Configuración de la ruta de acceso de `DOTNET_BUNDLE_EXTRACT_BASE_DIR` del usuario según la guía de extracción de un solo archivo de .NET Core.
+            1. SUSE Linux
 
-    1. Establecimiento de los permisos de usuario correctamente para los archivos SSH.
+                ```bash
+                echo "export DOTNET_BUNDLE_EXTRACT_BASE_DIR=\$HOME/.net" >> /home/azacsnap/.profile
+                echo "[ -d $DOTNET_BUNDLE_EXTRACT_BASE_DIR] && chmod 700 $DOTNET_BUNDLE_EXTRACT_BASE_DIR" >> /home/azacsnap/.profile
+                ```
 
-        ```bash
-        chown -R azacsnap.sapsys /home/azacsnap/.ssh
-        ```
+            1. RHEL
 
-1. En Azure NetApp Files:
-    1. Configuración de la ruta de acceso de `DOTNET_BUNDLE_EXTRACT_BASE_DIR` del usuario según la guía de extracción de un solo archivo de .NET Core.
-        1. SUSE Linux
+                ```bash
+                echo "export DOTNET_BUNDLE_EXTRACT_BASE_DIR=\$HOME/.net" >> /home/azacsnap/.bash_profile
+                echo "[ -d $DOTNET_BUNDLE_EXTRACT_BASE_DIR] && chmod 700 $DOTNET_BUNDLE_EXTRACT_BASE_DIR" >> /home/azacsnap/.bash_profile
+                ```
+
+    # <a name="azure-large-instance-bare-metal"></a>[Instancia grande de Azure (equipo sin sistema operativo)](#tab/azure-large-instance)
+
+    1. En las instancias grandes de Azure:
+        1. Copia de las claves SSH para el almacenamiento de back-end de azacsnap desde el usuario "raíz" (el usuario que ejecuta la instalación). Se supone que el usuario "raíz" ya ha configurado la conectividad con el almacenamiento.
+           > Consulte la sección "[Habilitación de la comunicación con el almacenamiento](#enable-communication-with-storage)".
 
             ```bash
-            echo "export DOTNET_BUNDLE_EXTRACT_BASE_DIR=\$HOME/.net" >> /home/azacsnap/.profile
-            echo "[ -d $DOTNET_BUNDLE_EXTRACT_BASE_DIR] && chmod 700 $DOTNET_BUNDLE_EXTRACT_BASE_DIR" >> /home/azacsnap/.profile
+            cp -pr ~/.ssh /home/azacsnap/.
             ```
 
-        1. RHEL
+        1. Establecimiento de los permisos de usuario correctamente para los archivos SSH.
 
             ```bash
-            echo "export DOTNET_BUNDLE_EXTRACT_BASE_DIR=\$HOME/.net" >> /home/azacsnap/.bash_profile
-            echo "[ -d $DOTNET_BUNDLE_EXTRACT_BASE_DIR] && chmod 700 $DOTNET_BUNDLE_EXTRACT_BASE_DIR" >> /home/azacsnap/.bash_profile
+            chown -R azacsnap.sapsys /home/azacsnap/.ssh
             ```
+
+    ---
 
 1. Copie el almacén de conexión seguro para los usuarios de SAP HANA para el usuario de destino, azacsnap. Se supone que el usuario "raíz" ya ha configurado el almacén seguro para los usuarios.
-    > Consulte la sección "[Habilitación de la comunicación con SAP HANA](#enable-communication-with-sap-hana)".
+    > Consulte la sección "[Habilitación de la comunicación con la base de datos](#enable-communication-with-database)".
 
     ```bash
     cp -pr ~/.hdb /home/azacsnap/.
@@ -563,7 +592,7 @@ En la siguiente salida se muestran los pasos que se deben realizar después de e
 1. Ejecución de la primera copia de seguridad de instantánea.
     1. `azacsnap -c backup –-volume data--prefix=hana_test --retention=1`
 
-El paso 2 será necesario si no se realizó el paso "[Habilitación de la comunicación con SAP HANA](#enable-communication-with-sap-hana)" antes de la instalación.
+El paso 2 será necesario si no se realizó el paso "[Habilitación de la comunicación con la base de datos](#enable-communication-with-database)" antes de la instalación.
 
 > [!NOTE]
 > Los comandos de prueba deben ejecutarse correctamente. De lo contrario, producirán un error.
@@ -571,6 +600,8 @@ El paso 2 será necesario si no se realizó el paso "[Habilitación de la comuni
 ## <a name="configuring-the-database"></a>Configuración de la base de datos
 
 En esta sección se explica cómo configurar la base de datos.
+
+# <a name="sap-hana"></a>[SAP HANA](#tab/sap-hana)
 
 ### <a name="sap-hana-configuration"></a>Configuración de SAP HANA
 
@@ -661,6 +692,8 @@ hdbsql -jaxC -n <HANA_ip_address> - i 00 -U AZACSNAP "select * from sys.m_inifil
 global.ini,DEFAULT,,,persistence,log_backup_timeout_s,900
 global.ini,SYSTEM,,,persistence,log_backup_timeout_s,300
 ```
+
+---
 
 ## <a name="next-steps"></a>Pasos siguientes
 

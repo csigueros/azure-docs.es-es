@@ -2,13 +2,13 @@
 title: Compatibilidad con la operación de traslado por tipo de recurso
 description: Enumera los tipos de recursos de Azure que se pueden trasladar a un nuevo grupo de recursos, suscripción o región.
 ms.topic: conceptual
-ms.date: 09/08/2021
-ms.openlocfilehash: 14ef825ec2e11d76b90161dc7cf3d8814c8daa04
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 10/04/2021
+ms.openlocfilehash: b5086256142c4ce72111dddcacaf19c4a40cdc35
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124764343"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129429345"
 ---
 # <a name="move-operation-support-for-resources"></a>Compatibilidad con la operación de traslado para recursos
 
@@ -1183,7 +1183,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Subscription | Movimiento de región |
 > | ------------- | ----------- | ---------- | ----------- |
-> | connectedclusters | Sí | Sí | No |
+> | connectedclusters | No | No | No |
 > | registeredsubscriptions | No | No | No |
 
 ## <a name="microsoftkubernetesconfiguration"></a>Microsoft.KubernetesConfiguration

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/27/2021
+ms.date: 08/31/2021
 ms.author: jeedes
-ms.openlocfilehash: 31f4390541020a7315d9168369898dff1cd854f7
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 52197330ae274cf8cb338328d3202d7367fe431d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121727520"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124749676"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-proxyclick"></a>Tutorial: Integración de Azure Active Directory con Proxyclick
 
@@ -38,6 +38,8 @@ Para empezar, necesita los siguientes elementos:
 En este tutorial configurará y probará el inicio de sesión único de Azure AD en un entorno de prueba.
 
 * Proxyclick admite el inicio de sesión único iniciado por SP e IDP.
+
+* Proxyclick admite el [aprovisionamiento automático de usuarios](proxyclick-provisioning-tutorial.md).
 
 ## <a name="add-proxyclick-from-the-gallery"></a>Incorporación de Proxyclick desde la galería
 
@@ -176,6 +178,9 @@ Para crear una cuenta de usuario, siga estos pasos:
 
     1. Seleccione **Agregar usuario**.
 
+> [!NOTE]
+> Proxyclick también admite el aprovisionamiento automático de usuarios. [Aquí](./proxyclick-provisioning-tutorial.md) puede encontrar más detalles sobre cómo configurar el aprovisionamiento automático de usuarios.
+
 ## <a name="test-sso"></a>Prueba de SSO
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones. 
@@ -190,7 +195,7 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 * Haga clic en **Probar esta aplicación** en Azure Portal; debería iniciar sesión automáticamente en la instancia de Proxyclick para la que ha configurado el inicio de sesión único. 
 
-También puede usar Aplicaciones de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de Proxyclick en Aplicaciones, si se ha configurado en modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para comenzar el flujo de inicio de sesión; y si se ha configurado en modo IDP, se debería iniciar sesión automáticamente en la instancia de Proxyclick para la que ha configurado el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+También puede usar Aplicaciones de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de Proxyclick en Aplicaciones, si se ha configurado en modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para comenzar el flujo de inicio de sesión; y si se ha configurado en modo IDP, se debería iniciar sesión automáticamente en la instancia de Proxyclick para la que ha configurado el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

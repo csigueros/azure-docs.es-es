@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: article
-ms.date: 09/16/2021
+ms.date: 09/28/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4eb59e0579dc6173a3a6cb45ec2713b8f1938aeb
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 5f85ab5960aea247a8b47b20d2552cec6e2e534f
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128642555"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129235333"
 ---
 # <a name="use-azure-ad-groups-to-manage-role-assignments"></a>Uso de grupos de Azure AD para administrar asignaciones de roles
 
@@ -61,9 +61,6 @@ Los grupos a los que se pueden asignar roles están diseñados para ayudar a evi
 ## <a name="use-pim-to-make-a-group-eligible-for-a-role-assignment"></a>Uso de PIM para que un grupo sea apto para una asignación de roles
 
 Si no desea que los miembros del grupo tengan acceso permanente al rol, puede usar [Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) para que un grupo sea apto para una asignación de roles. Cada miembro del grupo es apto para activar la asignación de roles durante un tiempo fijo.
-
-> [!Note]
-> Debe usar una versión actualizada de PIM para poder asignar un rol de Azure AD a un grupo. Podría tener una versión anterior de PIM porque su organización de Azure AD utiliza la API de PIM. Envíe un correo electrónico a pim_preview@microsoft.com para trasladar la organización y actualizar la API. Para más información, vea [Roles y características de Azure AD en PIM](../privileged-identity-management/pim-configure.md).
 
 ## <a name="scenarios-not-supported"></a>Escenarios no admitidos
 

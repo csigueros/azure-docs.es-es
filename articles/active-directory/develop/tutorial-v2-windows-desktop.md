@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 60a29efc4d2daa9d1bc90f00e71094da382a83b9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 182fa929b5edf1486d0e8d2372db71ea1ee9747f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101686893"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128637881"
 ---
 # <a name="tutorial-call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>Tutorial: Llamada a Microsoft Graph API desde una aplicación de escritorio de Windows
 
@@ -105,7 +105,7 @@ Puede registrar rápidamente la aplicación mediante estos pasos:
 
 Para registrar la aplicación y agregar la información de registro de aplicación a la solución, siga estos pasos:
 1. Inicie sesión en <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>.
-1. Si tiene acceso a varios inquilinos, use el filtro **Directorio + suscripción** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: del menú superior para seleccionar el inquilino en el que desea registrar una aplicación.
+1. Si tiene acceso a varios inquilinos, use el filtro **Directorios + suscripción** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: del menú superior para seleccionar el inquilino en el que desea registrar la aplicación.
 1. Busque y seleccione **Azure Active Directory**.
 1. En **Administrar**, seleccione **Registros de aplicaciones** >  y, luego, **Nuevo registro**.
 1. Escriba el **Nombre** de la aplicación, por ejemplo `Win-App-calling-MsGraph`. Los usuarios de la aplicación pueden ver este nombre, el cual se puede cambiar más tarde.

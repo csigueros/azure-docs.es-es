@@ -10,26 +10,24 @@ ms.topic: quickstart
 ms.custom: mvc,subject-armqs, devx-track-azurepowershell
 ms.date: 10/14/2020
 ms.author: sebansal
-ms.openlocfilehash: 4994e345b55e5b7fe77e116475fa2e5a29a9751f
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 8e8a0e931a2c33883bf18ad92a367110d9be093e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110670003"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128572970"
 ---
 # <a name="quickstart-create-an-azure-key-vault-and-a-key-by-using-arm-template"></a>Inicio rápido: Creación de un almacén de claves de Azure y una clave mediante una plantilla de Resource Manager 
 
 [Azure Key Vault](../general/overview.md) es un servicio en la nube que proporciona un almacén seguro para secretos, como claves, contraseñas y certificados, entre otros. Este inicio rápido se centra en el proceso de implementar una plantilla de Azure Resource Manager para crear un almacén de claves y una clave.
 
-> [!NOTE]
-> Esta característica no está disponible para Azure Government.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este artículo:
 
 - Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
-- El usuario debería tener asignado un rol incorporado de Azure, por ejemplo, colaborador. [Obtén más información aquí](../../role-based-access-control/role-assignments-portal.md)
+- El usuario debería tener asignado un rol integrado de Azure, rol de **colaborador** recomendado. [Obtén más información aquí](../../role-based-access-control/role-assignments-portal.md)
 - La plantilla necesita el identificador de objeto de usuario de Azure AD para configurar los permisos. El procedimiento siguiente permite obtener el identificador de objeto (GUID).
 
     1. Ejecute el siguiente comando de Azure PowerShell o la CLI de Azure, para lo que debe seleccionar **Pruébelo** y, a continuación, pegar el script en el panel de shell. Para pegar el script, haga clic con el botón derecho en el shell y, a continuación, seleccione **Pegar**.
@@ -171,7 +169,7 @@ Puede encontrar más ejemplos de plantillas de Azure Key Vault en [Plantillas de
 
 |Parámetro  |Definición  |
 |---------|---------|
-|**Keysize**  | Especifica las operaciones que se pueden realizar utilizando esta clave. Si no se especifica este parámetro, se pueden realizar todas las operaciones. Los valores aceptables para este parámetro son una lista separada por comas de las operaciones con clave, tal y como se define en la [especificación JSON Web Key (JWK):](https://tools.ietf.org/html/draft-ietf-jose-json-web-key-41) <br> `["sign", "verify", "encrypt", "decrypt", " wrapKey", "unwrapKey"]` |
+|**keyOps**  | Especifica las operaciones que se pueden realizar utilizando esta clave. Si no se especifica este parámetro, se pueden realizar todas las operaciones. Los valores aceptables para este parámetro son una lista separada por comas de las operaciones con clave, tal y como se define en la [especificación JSON Web Key (JWK):](https://tools.ietf.org/html/draft-ietf-jose-json-web-key-41) <br> `["sign", "verify", "encrypt", "decrypt", " wrapKey", "unwrapKey"]` |
 |**CurveName**  |  Nombre de la curva elíptica para el tipo de clave EC. Consulte [JsonWebKeyCurveName](/rest/api/keyvault/createkey/createkey#jsonwebkeycurvename) |
 |**Kty**  |  Tipo de clave que se va a crear. Para saber qué valores pueden usarse, consulte [JsonWebKeyType](/rest/api/keyvault/createkey/createkey#jsonwebkeytype) |
 |**Etiquetas** | Metadatos específicos de la aplicación en forma de pares clave-valor.  |

@@ -5,13 +5,13 @@ ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 09/03/2021
-ms.openlocfilehash: c7b9eef946aed1a34bf35342c50315efe1b92688
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.date: 09/21/2021
+ms.openlocfilehash: f2e4cef0d7ebb728c6e3fc3e07c6b3a344cf03e4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123537794"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128585852"
 ---
 # <a name="whats-new-in-the-microsoft-commercial-marketplace"></a>Novedades de marketplace comercial de Microsoft
 
@@ -21,7 +21,8 @@ Obtenga información sobre actualizaciones importantes en el programa de marketp
 
 | Category | Descripción | Date |
 | --- | --- | --- |
-| Ofertas | La instalación y el mantenimiento de objetos visuales de Power BI se migrará desde la Tienda Office al marketplace comercial este mes. En [estas preguntas más frecuentes](/azure/marketplace/power-bi-visual-faq) se proporciona un resumen de las mejoras en el proceso de envío de la oferta. | 07-09-2021 |
+| Análisis | Los publicadores de ofertas de aplicaciones de Azure pueden ver el estado de implementación de la oferta en los informes de calidad de servicio (QoS). QoS ayuda a los publicadores a comprender los motivos de los errores de implementación de la oferta y proporciona conclusiones útiles para su corrección. Para obtener más información, vea [Panel de calidad de servicio (QoS)](quality-of-service-dashboard.md). | 07-09-2021 |
+| Ofertas | La instalación y el mantenimiento de objetos visuales de Power BI se migrará desde Microsoft Store al marketplace comercial en las próximas semanas. En [estas preguntas más frecuentes](/azure/marketplace/power-bi-visual-faq) se proporciona un resumen de las mejoras en el proceso de envío de la oferta. Para empezar, vea [Planificación de una oferta de objeto visual de Power BI](marketplace-power-bi-visual.md).| 2021-09-21 |
 | Ofertas | Ahora hay propiedades adicionales en el nivel de plan disponibles para las ofertas de máquina virtual de Azure. Vea el artículo sobre las [propiedades de configuración técnica de máquinas virtuales](azure-vm-create-plans.md#properties) para obtener más información. | 26-07-2021 |
 | Tarifas | Microsoft ha cambiado sus tarifas para determinados servicios. Vea [Capacidades de transacción de marketplace comercial](marketplace-commercial-transaction-capabilities-and-considerations.md#examples-of-pricing-and-store-fees) y preguntas comunes sobre pagos e impuestos, "[¿Cómo encuentro la tarifa actual del servicio Store y la tarifa de pago?](/partner-center/payout-faq)". | 14-07-2021 |
 | Ofertas | Los editores pueden publicar una máquina virtual (VM) que han creado en el entorno local. Para obtener más información, vea [Creación de una máquina virtual mediante una imagen propia](./azure-vm-create-using-own-image.md). | 23-06-2021 |
@@ -43,7 +44,8 @@ Obtenga información sobre actualizaciones importantes en el programa de marketp
 ## <a name="documentation-updates"></a>Actualizaciones de la documentación
 
 | Category | Descripción | Date |
-| --- | --- | --- |
+| ------------ | ------------- | ------------- |
+| Ofertas | En el nuevo artículo se describe la calidad de los informes de implementaciones de ofertas disponibles en el [panel de calidad de servicio](quality-of-service-dashboard.md). | 27-08-2021 |
 | Ofertas | El tema [Capacidades de transacción de marketplace comercial](/azure/marketplace/marketplace-commercial-transaction-capabilities-and-considerations) ahora incluye un diagrama de flujo que le ayudará a determinar el tipo de oferta comercializable y el plan de precios adecuados para vender el software en el marketplace comercial. | 18-08-2021 |
 | Directiva | Se ha actualizado la directiva de [certificación](/legal/marketplace/certification-policies?context=/azure/marketplace/context/context); vea [Historial de cambios](/legal/marketplace/offer-policies-change-history). | 06-08-2021 |
 | Venta conjunta | Información agregada para el programa MACC, incluidos los requisitos, la frecuencia de actualización del estado de MACC y las definiciones de Inscritos y No inscritos. Para obtener más información, vea [Inscripción en Compromiso de consumo de Azure](./azure-consumption-commitment-enrollment.md) o [Información general sobre la venta conjunta de los equipos de ventas de Microsoft y los asociados](./co-sell-overview.md). | 03-06-2021 |

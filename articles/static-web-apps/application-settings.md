@@ -5,15 +5,15 @@ services: static-web-apps
 author: burkeholland
 ms.service: static-web-apps
 ms.topic: how-to
-ms.date: 05/08/2020
+ms.date: 09/23/2021
 ms.author: buhollan
 ms.custom: devx-track-js
-ms.openlocfilehash: 8132ed61a1588c8ccdeb2ac9dc0eb6b5354fd0e0
-ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
+ms.openlocfilehash: a104860eb72a6376c2ab337f31bb06fd041f42a0
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122778850"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128597101"
 ---
 # <a name="configure-application-settings-for-azure-static-web-apps"></a>Configuración de las opciones de la aplicación para Azure Static Web Apps
 
@@ -21,47 +21,28 @@ La configuración de la aplicación almacena las opciones de configuración para
 
 Las opciones de la aplicación:
 
+- Están disponibles como variables de entorno para la API de back-end de una aplicación web estática
+- Se pueden utilizar para almacenar secretos usados en la [configuración de autenticación](key-vault-secrets.md)
 - se cifran en reposo;
 - se copian en los entornos de [ensayo](review-publish-pull-requests.md) y producción;
 - solo pueden usar caracteres alfanuméricos, `.` y `_`.
-- En ocasiones también reciben el nombre de "variables de entorno".
 
 > [!IMPORTANT]
 > La configuración de la aplicación descrita en este artículo solo se aplica a la API de back-end de una aplicación de Azure Static Web App.
 >
-> Para obtener información sobre el uso de variables de entorno con la aplicación web de front-end, consulte la documentación de su [marco de JavaScript](#javascript-frameworks-and-libraries) o [generador de sitios estáticos](#static-site-generators).
+> Para configurar las variables de entorno necesarias para compilar la aplicación web de front-end, vea [Configuración de compilación](build-configuration.md#environment-variables).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Una aplicación de Azure Static Web Apps
-- [CLI de Azure](/cli/azure/install-azure-cli)
+- [CLI de Azure](/cli/azure/install-azure-cli): necesaria si usa la línea de comandos
 
-## <a name="types-of-application-settings"></a>Tipos de configuraciones de la aplicación
+## <a name="configure-api-application-settings-for-local-development"></a>Configuración de la aplicación de API para el desarrollo local
 
-Normalmente hay dos aspectos en una aplicación de Azure Static Web Apps. El primero es la aplicación web (o contenido estático), que se representa mediante HTML, CSS, JavaScript e imágenes. El segundo es la API de back-end, que está basada en una aplicación de Azure Functions.
+Las API de Azure Static Web Apps están basadas en Azure Functions, lo que permite definir la configuración de la aplicación en el archivo _local.settings.json_ cuando la aplicación se ejecuta de forma local. Este archivo define la configuración de la aplicación en la propiedad `Values` de la configuración.
 
-En este artículo se muestra cómo administrar la configuración de la aplicación para la API de back-end en Azure Functions.
-
-No puede usar ni hacer referencia a la configuración de la aplicación que se describe en este artículo en ninguna aplicación web estática. Sin embargo, muchos marcos front-end y generadores de sitios estáticos permiten usar variables de entorno durante el desarrollo. En el momento de la compilación, estas variables se reemplazan por los valores correspondientes en el código HTML o JavaScript generado. Dado que los visitantes del sitio pueden reconocer con facilidad los datos de HTML y JavaScript, evite incluir información confidencial en la aplicación front-end. Es preferible colocar las opciones de configuración que contienen datos confidenciales en la parte de la API de la aplicación.
-
-Para obtener información sobre cómo usar las variables de entorno con la biblioteca o el marco de trabajo de JavaScript, consulte los siguientes artículos.
-
-### <a name="javascript-frameworks-and-libraries"></a>Bibliotecas y marcos de JavaScript
-
-- [Angular](https://angular.io/guide/build#configuring-application-environments)
-- [React](https://create-react-app.dev/docs/adding-custom-environment-variables/)
-- [Svelte](https://linguinecode.com/post/how-to-add-environment-variables-to-your-svelte-js-app)
-- [Vue](https://cli.vuejs.org/guide/mode-and-env.html)
-
-### <a name="static-site-generators"></a>Generadores de sitios estáticos
-
-- [Gatsby](https://www.gatsbyjs.org/docs/environment-variables/)
-- [Hugo](https://gohugo.io/getting-started/configuration/)
-- [Jekyll](https://jekyllrb.com/docs/configuration/environments/)
-
-## <a name="about-api-app-settings"></a>Acerca de la configuración de la aplicación de API
-
-Las API de Azure Static Web Apps están basadas en Azure Functions, lo que permite definir la configuración de la aplicación en el archivo _local.settings.json_. Este archivo define la configuración de la aplicación en la propiedad `Values` de la configuración.
+> [!NOTE]
+> El archivo _local.settings.json_ solo se usa para el desarrollo local. Use [Azure Portal](https://portal.azure.com) para configurar las opciones de la aplicación para producción.
 
 En el ejemplo siguiente, _local.settings.json_ muestra cómo agregar un valor para `DATABASE_CONNECTION_STRING`.
 
@@ -76,21 +57,21 @@ En el ejemplo siguiente, _local.settings.json_ muestra cómo agregar un valor pa
 }
 ```
 
-Se puede hacer referencia a las opciones de configuración que se hayan definido en la propiedad `Values` desde el código mediante variables de entorno, que están disponibles en el objeto `process.env`.
+Se puede hacer referencia a las opciones de configuración definidas en la propiedad `Values` desde el código como variables de entorno. En las funciones de Node.js, por ejemplo, están disponibles en el objeto `process.env`.
 
 ```js
 const connectionString = process.env.DATABASE_CONNECTION_STRING;
 ```
 
-El repositorio de GitHub no realiza el seguimiento del archivo `local.settings.json` porque la información confidencial, como las cadenas de conexión de base de datos, a menudo se incluye en dicho archivo. Dado que la configuración local se conserva en el equipo, debe cargar la configuración en Azure de forma manual.
+El repositorio de GitHub no realiza el seguimiento del archivo `local.settings.json` porque la información confidencial, como las cadenas de conexión de base de datos, a menudo se incluye en dicho archivo. Como la configuración local se conserva en la máquina, debe establecer la configuración en Azure de forma manual.
 
-Por lo general, la carga de la configuración se realiza con poca frecuencia y no es necesaria en cada compilación.
+Por lo general, el establecimiento de la configuración se realiza con poca frecuencia y no es necesario en cada compilación.
 
-## <a name="uploading-application-settings"></a>Carga de la configuración de la aplicación
+## <a name="configure-application-settings"></a>Configuración de la aplicación
 
 Puede configurar las opciones de la aplicación mediante Azure Portal o con la CLI de Azure.
 
-### <a name="using-the-azure-portal"></a>Uso de Azure Portal
+### <a name="use-the-azure-portal"></a>Uso de Azure Portal
 
 Azure Portal proporciona una interfaz para crear, actualizar y eliminar la configuración de la aplicación.
 
@@ -112,7 +93,7 @@ Azure Portal proporciona una interfaz para crear, actualizar y eliminar la confi
 
 1. Haga clic en **Save**(Guardar).
 
-### <a name="using-the-azure-cli"></a>Uso de la CLI de Azure
+### <a name="use-the-azure-cli"></a>Uso de la CLI de Azure
 
 Puede usar el comando `az rest` para realizar cargas masivas de opciones de configuración en Azure. El comando acepta las opciones de configuración de la aplicación como objetos JSON en una propiedad primaria denominada `properties`.
 
@@ -124,9 +105,9 @@ La forma más fácil de crear un archivo JSON con los valores adecuados consiste
    local.settings*.json
    ```
 
-2. Después, realice una copia del archivo _local.settings.json_ y asígnele el nombre _local.settings.properties.json_.
+1. Después, realice una copia del archivo _local.settings.json_ y asígnele el nombre _local.settings.properties.json_.
 
-3. Dentro del nuevo archivo, quite todos los demás datos, excepto la configuración de la aplicación, y cambie el nombre de `Values` por `properties`.
+1. Dentro del nuevo archivo, quite todos los demás datos, excepto la configuración de la aplicación, y cambie el nombre de `Values` por `properties`.
 
    Ahora el archivo debería ser similar al del siguiente ejemplo:
 
@@ -138,31 +119,31 @@ La forma más fácil de crear un archivo JSON con los valores adecuados consiste
    }
    ```
 
-El comando de la CLI de Azure requiere una serie de valores específicos de la cuenta para ejecutar la carga. En la ventana _Información general_ del recurso de Static Web Apps, puede acceder a la siguiente información:
+1. Ejecute el comando siguiente para enumerar las aplicaciones web estáticas de la suscripción y mostrar sus detalles.
 
-1. Nombre del sitio estático
-2. Definición de un nombre de grupo de recursos
-3. Id. de suscripción
+    ```bash
+    az staticwebapp list -o json
+    ```
 
-:::image type="content" source="media/application-settings/overview.png" alt-text="Información general de Azure Static Web Apps":::
+    Busque la aplicación web estática que quiera configurar y anote su identificador.
 
-4. Desde un terminal o línea de comandos, ejecute el siguiente comando. Asegúrese de reemplazar los marcadores de posición `<YOUR_STATIC_SITE_NAME>`, `<YOUR_RESOURCE_GROUP_NAME>` y `<YOUR_SUBSCRIPTION_ID>` por los valores de la ventana _Información general_.
+1. Desde un terminal o línea de comandos, ejecute el comando siguiente para cargar la configuración. Reemplace `<YOUR_APP_ID>` por el identificador de la aplicación que ha recuperado en el paso anterior.
 
    ```bash
-   az rest --method put --headers "Content-Type=application/json" --uri "/subscriptions/<YOUR_SUBSCRIPTION_ID>/resourceGroups/<YOUR_RESOURCE_GROUP_NAME>/providers/Microsoft.Web/staticSites/<YOUR_STATIC_SITE_NAME>/config/functionappsettings?api-version=2019-12-01-preview" --body @local.settings.properties.json
+   az rest --method put --headers "Content-Type=application/json" --uri "<YOUR_APP_ID>/config/functionappsettings?api-version=2019-12-01-preview" --body @local.settings.properties.json
    ```
 
-> [!IMPORTANT]
-> El archivo "local.settings.properties.json" debe estar en el mismo directorio en el que se ejecuta este comando. Este archivo puede tener cualquier nombre que quiera, ya que no es importante.
+  > [!IMPORTANT]
+  > El archivo "local.settings.properties.json" debe estar en el mismo directorio en el que se ejecuta este comando. Este archivo puede tener cualquier nombre que quiera, ya que no es importante.
 
 ### <a name="view-application-settings-with-the-azure-cli"></a>Visualización de la configuración de la aplicación con la CLI de Azure
 
 La configuración de la aplicación está disponible para visualizarse a través de la CLI de Azure.
 
-- Desde un terminal o línea de comandos, ejecute el siguiente comando. Asegúrese de reemplazar los marcadores de posición `<YOUR_SUBSCRIPTION_ID>`, `<YOUR_RESOURCE_GROUP_NAME>` y `<YOUR_STATIC_SITE_NAME>` por sus valores.
+- Desde un terminal o línea de comandos, ejecute el siguiente comando. Asegúrese de reemplazar el marcador de posición `<YOUR_APP_ID>` por su valor.
 
    ```bash
-   az rest --method post --uri "/subscriptions/<YOUR_SUBSCRIPTION_ID>/resourceGroups/<YOUR_RESOURCE_GROUP_NAME>/providers/Microsoft.Web/staticSites/<YOUR_STATIC_SITE_NAME>/listFunctionAppSettings?api-version=2019-12-01-preview"
+   az rest --method post --uri "<YOUR_APP_ID>/listFunctionAppSettings?api-version=2019-12-01-preview"
    ```
 
 ## <a name="next-steps"></a>Pasos siguientes

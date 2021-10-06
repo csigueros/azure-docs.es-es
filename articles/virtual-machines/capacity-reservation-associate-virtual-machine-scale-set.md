@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/09/2021
 ms.reviewer: cynthn, jushiman
 ms.custom: template-how-to
-ms.openlocfilehash: fe9b445a1eccb6c897a1fd7f383e487714c23966
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: e2563f7addb773b256a56dc67b2ec892b7231372
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128575941"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129532665"
 ---
 # <a name="associate-a-virtual-machine-scale-set-to-a-capacity-reservation-group-preview"></a>Asociación de un conjunto de escalado de máquinas virtuales a un grupo de reserva de capacidad (versión preliminar)
 
@@ -28,9 +28,6 @@ Para obtener más información sobre estos modos, vaya a [Modos de orquestación
 > Reserva de capacidad está actualmente en versión preliminar pública.
 > Esta versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="register-for-capacity-reservation"></a>Registro en la reserva de capacidad 
-
-Para usar la característica de reserva de capacidad, debe [registrar la suscripción en la versión preliminar](capacity-reservation-overview.md#register-for-capacity-reservation). El registro puede tardar varios minutos en terminar. Puede usar la CLI de Azure o PowerShell para completar el registro de la característica.
 
 ## <a name="limitations-of-scale-sets-in-uniform-orchestration"></a>Limitaciones de los conjuntos de escalado en la orquestación uniforme 
 

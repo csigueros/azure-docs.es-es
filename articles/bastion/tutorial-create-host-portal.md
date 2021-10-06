@@ -5,14 +5,14 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: tutorial
-ms.date: 08/30/2021
+ms.date: 09/07/2021
 ms.author: cherylmc
-ms.openlocfilehash: cd6f2de9d440309662ef47a950f6c1331e30d5fb
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: 0aa2efb84c207592131d3b7c3060aebc22cc49f6
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123221104"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128668913"
 ---
 # <a name="tutorial-configure-bastion-and-connect-to-a-windows-vm"></a>Tutorial: Configuración de Bastion y conexión a una máquina virtual Windows
 
@@ -29,7 +29,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Una red virtual.
+* Una [red virtual](../virtual-network/quick-create-portal.md).
 * Una máquina virtual Windows en la red virtual. Si no tiene una máquina virtual, cree una mediante [Inicio rápido: creación de una máquina virtual](../virtual-machines/windows/quick-create-portal.md).
 * Los siguientes roles necesarios para los recursos:
    * Roles de máquina virtual obligatorios:
@@ -94,7 +94,7 @@ Esta sección le ayuda a crear el objeto de bastión en la red virtual. Esto es 
 
 * **Nombre**: nombre del nuevo recurso de Bastion.
 
-* **Región**: la región pública de Azure en la que se creará el recurso.
+* **Región**: la región pública de Azure en la que se creará el recurso. Elija la región en la que reside la red virtual.
 
 * **Nivel**: el nivel también se conoce como **SKU**. Para este tutorial, seleccione la SKU **Estándar** en la lista desplegable. La selección de la SKU Estándar permite configurar el recuento de instancias para el escalado de host. La SKU Básica no admite el escalado de host. Para obtener más información, vea [Opciones de configuración: SKU](configuration-settings.md#skus). La SKU Estándar se encuentra en versión preliminar.
 
@@ -104,9 +104,9 @@ Esta sección le ayuda a crear el objeto de bastión en la red virtual. Esto es 
 
 * **Red virtual**: red virtual en la que se creará el recurso de Bastion. Puede crear una red virtual en el portal durante este proceso, o bien usar una ya existente. Si usa una red virtual existente, asegúrese de que tenga suficiente espacio de direcciones libre para adaptarse a los requisitos de subred de Bastion. Si no ve la red virtual en la lista desplegable, asegúrese de que ha seleccionado el grupo de recursos correcto.
 
-* **Subred**: una vez que cree o seleccione una red virtual, el campo de subred aparece en la página. Esta es la subred en la que se implementarán las instancias de Bastion. 
+* **Subred**: una vez que cree o seleccione una red virtual, el campo de subred aparece en la página. Esta es la subred en la que se implementarán las instancias de Bastion. El nombre debe ser **AzureBastionSubnet**. Consulte los pasos siguientes para agregar la subred.
 
-#### <a name="add-the-azurebastionsubnet"></a>Adición de AzureBastionSubnet
+#### <a name="manage-subnet-configuration"></a>Administrar configuración de subred
 
 En la mayoría de los casos, todavía no tendrá una instancia de AzureBastionSubnet configurada. Para configurar la subred de Bastion: 
 

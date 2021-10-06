@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/26/2021
+ms.date: 08/31/2021
 ms.author: jeedes
-ms.openlocfilehash: fdc6e6839af33a154f331940bba354c05e6b3f64
-ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
+ms.openlocfilehash: e2d6619f1dce9ad7ef68f07ec614f36d409c6831
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110580290"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124746518"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-genesys-cloud-for-azure"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Genesys Cloud for Azure
 
@@ -38,6 +38,8 @@ Para empezar, necesita los siguientes elementos:
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
 * Genesys Cloud for Azure admite el inicio de sesión único iniciado por **SP e IDP**.
+
+* Genesys Cloud for Azure admite el [aprovisionamiento automatizado de usuarios](purecloud-by-genesys-provisioning-tutorial.md).
 
 > [!NOTE]
 > El identificador de esta aplicación es un valor de cadena fijo, por lo que solo se puede configurar una instancia en un inquilino.
@@ -206,6 +208,9 @@ Para permitir que los usuarios de Azure AD inicien sesión en Genesys Cloud for
 
     c. Seleccione **Crear**.
 
+> [!NOTE]
+> Genesys Cloud for Azure también admite el aprovisionamiento automático de usuarios. [Aquí](./purecloud-by-genesys-provisioning-tutorial.md) puede encontrar más detalles sobre cómo configurarlo.
+
 ## <a name="test-sso"></a>Prueba de SSO
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones. 
@@ -220,7 +225,7 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 * Haga clic en **Probar esta aplicación** en Azure Portal; debería iniciar sesión automáticamente en la instancia de Genesys Cloud for Azure para la que ha configurado el inicio de sesión único. 
 
-También puede usar Aplicaciones de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de Genesys Cloud for Azure en Mis aplicaciones, si ha realizado la configuración en modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para comenzar el flujo de inicio de sesión. Si ha realizado la configuración en modo IDP, debería iniciar sesión automáticamente en la instancia de Genesys Cloud for Azure para la que ha configurado el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+También puede usar Aplicaciones de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de Genesys Cloud for Azure en Mis aplicaciones, si ha realizado la configuración en modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para comenzar el flujo de inicio de sesión. Si ha realizado la configuración en modo IDP, debería iniciar sesión automáticamente en la instancia de Genesys Cloud for Azure para la que ha configurado el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

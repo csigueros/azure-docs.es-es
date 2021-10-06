@@ -9,12 +9,12 @@ ms.subservice: custom-vision
 ms.topic: how-to
 ms.date: 06/25/2021
 ms.author: pafarley
-ms.openlocfilehash: f21313a357c5c86087d3505cfdf654d9958d3893
-ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
+ms.openlocfilehash: d247626607f5fd4b517d7436c21ae33ed5727220
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2021
-ms.locfileid: "112982373"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129353309"
 ---
 # <a name="integrate-azure-storage-for-notifications-and-backup"></a>Integración de Azure Storage con las notificaciones y la copia de seguridad
 
@@ -39,7 +39,7 @@ A continuación, vaya al recurso de almacenamiento en Azure Portal. Vaya a la p�
 * Si tiene previsto usar la característica de copia de seguridad del modelo, seleccione el rol **Colaborador de datos de Storage Blob** y agregue el recurso de entrenamiento de Custom Vision como miembro. Seleccione **Revisar y asignar** para completar la operación.
 * Si tiene previsto usar la característica de cola de notificaciones, seleccione el rol **Colaborador de datos de la cola de Storage Blob** y agregue el recurso de entrenamiento de Custom Vision como miembro. Seleccione **Revisar y asignar** para completar la operación.
 
-Para obtener ayuda con la asignación de roles, vea [Asignación de roles de Azure mediante Azure Portal](https://review.docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+Para obtener ayuda con la asignación de roles, vea [Asignación de roles de Azure mediante Azure Portal](../../role-based-access-control/role-assignments-portal.md).
 
 ### <a name="get-integration-urls"></a>Obtener direcciones URL de integración
 

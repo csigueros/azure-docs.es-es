@@ -6,12 +6,12 @@ ms.author: rifox
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 2c1340e41471ab25f00d7ad0a9e678dfeb65470f
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+ms.openlocfilehash: be6dbd899f91df5a19878d0491f14b3eb636f8eb
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122970260"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128671680"
 ---
 En este inicio rápido aprenderá a iniciar una llamadas con Calling SDK de Azure Communication Services para iOS.
 
@@ -38,8 +38,11 @@ En Xcode, cree un nuevo proyecto de iOS y seleccione la plantilla **Aplicación 
 
 ### <a name="install-the-package-and-dependencies-with-cocoapods"></a>Instalación del paquete y las dependencias con CocoaPods
 
-1. Para crear un podfile para la aplicación, abra el terminal y vaya hasta la carpeta del proyecto y ejecute ```pod init```
-3. Agregue el código siguiente al podfile y guárdelo (Asegúrese de que "target" coincide con el nombre del proyecto):
+1. Para crear un archivo Podfile para la aplicación, abra el terminal, vaya a la carpeta del proyecto y ejecute:
+
+   `pod init`
+
+1. Agregue el código siguiente al podfile y guárdelo (Asegúrese de que "target" coincide con el nombre del proyecto):
 
    ```
    platform :ios, '13.0'
@@ -50,8 +53,9 @@ En Xcode, cree un nuevo proyecto de iOS y seleccione la plantilla **Aplicación 
    end
    ```
 
-3. Ejecute `pod install`.
-3. Abra `.xcworkspace` con Xcode.
+1. Ejecute `pod install`.
+
+1. Abra `.xcworkspace` con Xcode.
 
 ### <a name="request-access-to-the-microphone"></a>Solicitud de acceso al micrófono
 

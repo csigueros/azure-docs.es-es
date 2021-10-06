@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 07/06/2021
+ms.date: 09/09/2021
 ms.author: lajanuar
-ms.openlocfilehash: 18a9d2efa3093dd342e05f1c9038fa7f460d97bd
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+ms.openlocfilehash: d430d7f2db90c4051201b7e9805cde1f4138e7f0
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113358928"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124793308"
 ---
 # <a name="translator-v30"></a>Translator v3.0
 
@@ -23,17 +23,17 @@ ms.locfileid: "113358928"
 
 La versión 3 de Translator proporciona una API web moderna basada en JSON. Mejora la facilidad de uso y rendimiento mediante la consolidación de las características existentes en menos operaciones y proporciona nuevas características.
 
- * Transliteración para convertir texto en un idioma de un script a otro.
- * Traducción a varios idiomas en una sola solicitud.
- * Detección de idioma, traducción y transliteración en una sola solicitud.
- * Diccionario para buscar traducciones alternativas de un término, traducciones inversas y ejemplos que muestren los términos usados en contexto.
- * Resultados de detección de idioma más informativos.
+* Transliteración para convertir texto en un idioma de un script a otro.
+* Traducción a varios idiomas en una sola solicitud.
+* Detección de idioma, traducción y transliteración en una sola solicitud.
+* Diccionario para buscar traducciones alternativas de un término, traducciones inversas y ejemplos que muestren los términos usados en contexto.
+* Resultados de detección de idioma más informativos.
 
 ## <a name="base-urls"></a>Direcciones URL base
 
 Microsoft Translator está disponible en varias ubicaciones de centros de datos. En la actualidad, se encuentran en diez [regiones de Azure](https://azure.microsoft.com/global-infrastructure/regions):
 
-* **América**: Este de EE. UU., Centro-sur de EE. UU. , Centro-oeste de EE. UU. y Oeste de EE. UU. 2 
+* **América**: Este de EE. UU., Centro-sur de EE. UU. , Centro-oeste de EE. UU. y Oeste de EE. UU. 2
 * **Asia Pacífico:** Sur de Corea del Sur, Este de Japón, Sudeste de Asia y Este de Australia
 * **Europa:** Norte de Europa y Oeste de Europa
 
@@ -61,7 +61,7 @@ curl -X POST " my-ch-n.cognitiveservices.azure.com/translator/text/v3.0/translat
 
 ## <a name="authentication"></a>Authentication
 
-Suscríbase a Translator o a los [varios servicios de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/) en Azure Cognitive Services y use la clave de suscripción (disponible en Azure Portal) para autenticarse. 
+Suscríbase a Translator o a los [varios servicios de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/) en Azure Cognitive Services y use la clave de suscripción (disponible en Azure Portal) para autenticarse.
 
 Hay tres encabezados que puede usar para autenticar su suscripción. En esta tabla, se explica cómo se utiliza cada uno de ellos:
 
@@ -115,7 +115,7 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 
 #### <a name="authenticating-with-a-multi-service-resource"></a>Autenticación con un recurso de varios servicios
 
-Cuando use un recurso de varios servicios de Cognitive Services. Esta opción le permite utilizar una única clave secreta para autenticar las solicitudes de varios servicios. 
+Cuando use un recurso de varios servicios de Cognitive Services. Esta opción le permite utilizar una única clave secreta para autenticar las solicitudes de varios servicios.
 
 Si usa una clave secreta para varios servicios, debe incluir dos encabezados de autenticación con la solicitud. Hay dos encabezados que necesita para llamar a Translator.
 
@@ -131,6 +131,7 @@ Las regiones disponibles son `australiaeast`, `brazilsouth`, `canadacentral`, `c
 Si decide pasar la clave secreta en la cadena de consulta con el parámetro `Subscription-Key`, tendrá que especificar la región con el parámetro de consulta `Subscription-Region`.
 
 ### <a name="authenticating-with-an-access-token"></a>Autenticación con token de acceso
+
 Si lo desea, también puede cambiar la clave secreta por un token de acceso. Este token se incluirá en cada solicitud como un encabezado `Authorization`. Para obtener un token de autorización, realice una solicitud `POST` a la dirección URL siguiente:
 
 | Tipo de recurso     | URL del servicio de autenticación                                |
@@ -156,9 +157,85 @@ Authorization: Bearer <Base64-access_token>
 
 Un token de autenticación tiene una validez de 10 minutos. El token debe volver a usarse al realizar varias llamadas a Translator. Sin embargo, si el programa realiza las solicitudes a Translator durante un período de tiempo prolongado, el programa debe solicitar un nuevo token de acceso a intervalos regulares (por ejemplo, cada 8 minutos).
 
+## <a name="authentication-with-azure-active-directory-azure-ad"></a>Autenticación con Azure Active Directory (Azure AD)
+
+ Translator v3.0 es compatible con la autenticación de Azure AD, la solución de administración de identidades y acceso basada en la nube de Microsoft.  Los encabezados de autorización permiten que el servicio Translator valide que el cliente solicitante está autorizado para usar el recurso y complete la solicitud.
+
+### <a name="prerequisites"></a>**Requisitos previos**
+
+* Conocimientos básicos de cómo [**autenticarse con Azure Active Directory**](/azure/cognitive-services/authentication?tabs=powershell#authenticate-with-azure-active-directory).
+
+* Conocimientos básicos de cómo [**autorizar el acceso a identidades administradas**](/azure/cognitive-services/authentication?tabs=powershell#authorize-access-to-managed-identities).
+
+### <a name="headers"></a>**Encabezados**
+
+|Encabezado|Value|
+|:-----|:----|
+|Authorization| El valor es un **token de portador** de acceso generado por Azure AD.</br><ul><li> El token de portador proporciona una prueba de autenticación y valida la autorización del cliente para usar el recurso.</li><li> Un token de autenticación es válido durante 10 minutos y debe reutilizarse al realizar varias llamadas a Translator.</br></li>*Consulte* la sección anterior [Autenticación con token de acceso](#authenticating-with-an-access-token). </ul>|
+|Ocp-Apim-Subscription-Region| El valor es la región del **recurso de traductor**.</br><ul><li> Este valor es opcional si el recurso es global.</li></ul>|
+|Ocp-Apim-ResourceId| El valor es el identificador de recurso de la instancia del recurso de Translator.</br><ul><li>Encontrará el identificador de recurso en Azure Portal, en **Translator Resource (Recurso de Translator) → Propiedades**. </li><li>Formato del identificador de recurso: </br>/subscriptions/<**IdDeSuscripción**>/resourceGroups/<**NombredelGrupodeRecursos**>/providers/Microsoft.CognitiveServices/accounts/<**NombreDeRecurso**>/</li></ul>|
+
+##### <a name="translator-property-pageazure-portal"></a>**Página de propiedades de Translator: Azure Portal**
+
+:::image type="content" source="../media/managed-identities/resource-id-property.png" alt-text="Captura de pantalla: página de propiedades de Translator en Azure Portal. ":::
+
+### <a name="examples"></a>**Ejemplos**
+
+#### <a name="using-the-global-endpoint"></a>**Con el punto de conexión global**
+
+```curl
+ // Using headers, pass a bearer token generated by Azure AD, resource ID, and the region.
+
+curl -X POST "https://api.cognitive.microsofttranslator.com/translator/text/v3.0/translate?api-version=3.0&to=es" \
+     -H "Authorization: Bearer <Base64-access_token>"\
+     -H "Ocp-Apim-ResourceId: <Resource ID>" \
+     -H "Ocp-Apim-Subscription-Region: <your-region>" \
+     -H "Content-Type: application/json" \
+     -data-raw "[{'Text':'Hello, friend.'}]"
+```
+
+#### <a name="using-your-custom-endpoint"></a>**Con el punto de conexión personalizado**
+
+```curl
+// Using headers, pass a bearer token generated by Azure AD.
+
+curl -X POST https://<your-custom-domain>.cognitiveservices.azure.com/translator/text/v3.0/translate?api-version=3.0&to=es \
+     -H "Authorization: Bearer <Base64-access_token>"\
+     -H "Content-Type: application/json" \
+     -data-raw "[{'Text':'Hello, friend.'}]"
+```
+
+### <a name="examples-using-managed-identities"></a>**Ejemplos con las identidades administradas**
+
+Translator v3.0 también es compatible con la autorización del acceso a identidades administradas. Si una identidad administrada está habilitada para un recurso de traductor, puede pasar el token de portador generado por la identidad administrada en el encabezado de solicitud.
+
+#### <a name="with-the-global-endpoint"></a>**Con el punto de conexión global**
+
+```curl
+// Using headers, pass a bearer token generated either by Azure AD or Managed Identities, resource ID, and the region.
+
+curl -X POST https://api.cognitive.microsofttranslator.com/translator/text/v3.0/translate?api-version=3.0&to=es \
+     -H "Authorization: Bearer <Base64-access_token>"\
+     -H "Ocp-Apim-ResourceId: <Resource ID>" \
+     -H "Ocp-Apim-Subscription-Region: <your-region>" \
+     -H "Content-Type: application/json" \
+     -data-raw "[{'Text':'Hello, friend.'}]"
+```
+
+#### <a name="with-your-custom-endpoint"></a>**Con el punto de conexión personalizado**
+
+```curl
+//Using headers, pass a bearer token generated by Managed Identities.
+
+curl -X POST https://<your-custom-domain>.cognitiveservices.azure.com/translator/text/v3.0/translate?api-version=3.0&to=es \
+     -H "Authorization: Bearer <Base64-access_token>"\
+     -H "Content-Type: application/json" \
+     -data-raw "[{'Text':'Hello, friend.'}]"
+```
+
 ## <a name="virtual-network-support"></a>Compatibilidad con redes virtuales
 
-El servicio Traductor ahora está disponible con las funcionalidades de Virtual Network (VNET) en todas las regiones de la nube pública de Azure. Para habilitar la red virtual, *consulte* [Configuración de redes virtuales de Azure Cognitive Services](../../cognitive-services-virtual-networks.md?tabs=portal). 
+El servicio Traductor ahora está disponible con las funcionalidades de Virtual Network (VNET) en todas las regiones de la nube pública de Azure. Para habilitar la red virtual, *consulte* [Configuración de redes virtuales de Azure Cognitive Services](../../cognitive-services-virtual-networks.md?tabs=portal).
 
 Una vez que se activa esta funcionalidad, se debe usar el punto de conexión personalizado para llamar a Translator. No se puede usar el punto de conexión de traductor global ("api.cognitive.microsofttranslator.com") y no se puede autenticar con un token de acceso.
 
@@ -241,7 +318,7 @@ El código de error es un número de 6 dígitos que combina el código de estado
 | 500000| Se ha producido un error inesperado. Si el error continúa, notifíquelo con la fecha y hora del error, con el identificador de la solicitud del encabezado de respuesta X-RequestId y con el identificador de cliente del encabezado de solicitud X-ClientTraceId.|
 | 503000| El servicio no está disponible temporalmente. Reintentar. Si el error continúa, notifíquelo con la fecha y hora del error, con el identificador de la solicitud del encabezado de respuesta X-RequestId y con el identificador de cliente del encabezado de solicitud X-ClientTraceId.|
 
-## <a name="metrics"></a>Métricas 
+## <a name="metrics"></a>Métricas
 Las métricas le permiten ver la información de uso y disponibilidad del traductor en Azure Portal, en la sección de métricas, tal como se muestra en la captura de pantalla siguiente. Para obtener más información, vea [Métricas de datos y plataforma](../../../azure-monitor/essentials/data-platform-metrics.md).
 
 ![Métricas del traductor](../media/translatormetrics.png)

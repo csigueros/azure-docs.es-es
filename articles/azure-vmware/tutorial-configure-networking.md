@@ -4,12 +4,12 @@ description: Aprenda a crear y configurar las redes necesarias para implementar 
 ms.topic: tutorial
 ms.custom: contperf-fy22q1
 ms.date: 07/30/2021
-ms.openlocfilehash: 61a1c1c45455c9edc402aca1e5471f3ed95a8d66
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
+ms.openlocfilehash: 99389c55ab13b6c6c181a4d7d1bcf14c3b8ba08d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122069565"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128597804"
 ---
 # <a name="tutorial-configure-networking-for-your-vmware-private-cloud-in-azure"></a>Tutorial: Configuración de redes para la nube privada de VMware en Azure
 
@@ -27,8 +27,9 @@ En este tutorial, aprenderá a:
 
 >[!NOTE]
 >Antes de crear una nueva red virtual, evalúe si ya tiene una existente en Azure y puede usarla para conectarse a Azure VMware Solution o si quiere crear una totalmente nueva.  
->* Para usar una red virtual existente, use la pestaña **[Azure vNet connect](#select-an-existing-vnet)** (Conexión de red virtual) en **Conectividad**. 
->* Para crear una red virtual, use la pestaña **[Azure vNet connect](#create-a-new-vnet)** (Conexión de red virtual de Azure) o cree una [manualmente](#create-a-vnet-manually).
+>* Para usar una red virtual existente en la misma suscripción de Azure que Azure VMware Solution, use la pestaña **[Azure vNet connect](#select-an-existing-vnet)** en **Conectividad**. 
+>* Para usar una red virtual existente en una suscripción de Azure distinta a Azure VMware Solution, use la guía **[Conectarse a la nube privada manualmente](#connect-to-the-private-cloud-manually)** . 
+>* Para crear una red virtual nueva en la misma suscripción de Azure que Azure VMware Solution, use la pestaña **[Azure vNet connect](#create-a-new-vnet)** o cree una [manualmente](#create-a-vnet-manually).
 
 ## <a name="connect-with-the-azure-vnet-connect-feature"></a>Característica de conexión con la red virtual de Azure
 

@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 01/12/2020
 ms.author: vikancha
-ms.openlocfilehash: 3fc9607a6882ddae42c2606abb60903dbcb05108
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 3f37a9c14a66156b908eb1d046f98301add07c20
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123436471"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128562390"
 ---
 # <a name="nv-series-migration-guide"></a>Guía de migración de la serie NV
 
@@ -90,7 +90,7 @@ Siga la guía para [solicitar un aumento de la cuota de vCPU por familia de máq
 
 ### <a name="resize-the-current-vm"></a>Cambio de tamaño de la máquina virtual actual
 
-Puede [cambiar el tamaño de la máquina virtual mediante Azure Portal o PowerShell](./windows/resize-vm.md). También puede [cambiar el tamaño de una máquina virtual mediante la CLI de Azure](./linux/change-vm-size.md). 
+Puede [cambiar el tamaño de la máquina virtual](resize-vm.md).
 
 ## <a name="faq"></a>Preguntas más frecuentes
 **P:** ¿Qué controlador de GPU debo usar para el tamaño de máquina virtual de destino? 

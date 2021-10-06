@@ -8,12 +8,12 @@ ms.subservice: tutorials
 ms.workload: data-services
 ms.topic: tutorial
 ms.date: 07/06/2021
-ms.openlocfilehash: 89414731ca230a2753a2c3e426e453a647d2de8d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 30b7bdc80de2b6623d7eb2c285c477cc35bc7b5a
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122638345"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124737059"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory-in-the-azure-portal"></a>Copia masiva de varias tablas mediante Azure Data Factory en Azure Portal
 
@@ -39,7 +39,7 @@ En este tutorial se usa Azure Portal. Para obtener información sobre el uso de 
 ## <a name="end-to-end-workflow"></a>Flujo de trabajo de un extremo a otro
 En este escenario, hay una serie de tablas de Azure SQL Database que desea copiar a Azure Synapse Analytics. Esta es la secuencia lógica de pasos del flujo de trabajo que se realiza en las canalizaciones:
 
-![Flujo de trabajo](media/tutorial-bulk-copy-portal/tutorial-copy-multiple-tables.png)
+:::image type="content" source="media/tutorial-bulk-copy-portal/tutorial-copy-multiple-tables.png" alt-text="Workflow":::
 
 * La primera canalización busca la lista de tablas que debe copiarse en los almacenes de datos del receptor.  También puede mantener una tabla de metadatos que muestre todas las tablas que se deben copiar en el almacén de datos receptor. A continuación, la canalización desencadena otra canalización, que itera en todas las tablas de la base de datos y realiza la operación de copia de datos.
 * La segunda canalización realiza la copia real. Toma la lista de tablas como un parámetro. Para cada tabla de la lista, copie la tabla específica de Azure SQL Database a la tabla correspondiente de Azure Synapse Analytics con la [copia almacenada provisionalmente mediante Blob Storage y PolyBase](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-synapse-analytics) a fin de obtener el mejor rendimiento. En este ejemplo, la primera canalización pasa la lista de tablas como un valor para el parámetro. 
@@ -63,7 +63,7 @@ Para comprobar y activar esta configuración, vaya al servidor > Seguridad > Fir
 1. Vaya a [Azure Portal](https://portal.azure.com). 
 1. A la izquierda del menú de Azure Portal, seleccione **Crear un recurso** > **Integración** > **Data Factory**. 
 
-   ![Selección de la factoría de datos en el panel Nuevo](./media/doc-common-process/new-azure-data-factory-menu.png)
+   :::image type="content" source="./media/doc-common-process/new-azure-data-factory-menu.png" alt-text="Selección de Data Factory en el "::: panel &quot;Nuevo&quot;.
 1. En la página **Nueva factoría de datos**, escriba **ADFTutorialBulkCopyDF** como **nombre**. 
  
    El nombre de la instancia de Azure Data Factory debe ser **único de forma global**. Si ve el siguiente error en el campo del nombre, cambie el nombre de la factoría de datos (por ejemplo, yournameADFTutorialBulkCopyDF). Consulte el artículo [Azure Data Factory: reglas de nomenclatura](naming-rules.md) para conocer las reglas de nomenclatura de los artefactos de Data Factory.
@@ -164,7 +164,7 @@ En este tutorial, las tablas de origen y destino SQL no están codificadas en la
 
 1. Seleccione el signo más **+** en el panel izquierdo y, luego, elija **Conjunto de datos**. 
 
-    ![Menú Conjunto de datos nuevo](./media/tutorial-bulk-copy-portal/new-dataset-menu.png)
+    :::image type="content" source="./media/tutorial-bulk-copy-portal/new-dataset-menu.png" alt-text="Menú Conjunto de datos nuevo":::
 1. En la ventana **New Dataset** (Nuevo conjunto de datos), seleccione **Azure SQL Database** y luego seleccione **Continue** (Continuar). 
     
 1. En la ventana **Set properties** (Establecer propiedades), en **Name** (Nombre), escriba **AzureSqlDatabaseDataset**. En **Linked service** (Servicio vinculado), seleccione **AzureSqlDatabaseLinkedService**. A continuación, haga clic en **Aceptar**.
@@ -182,7 +182,7 @@ En este tutorial, las tablas de origen y destino SQL no están codificadas en la
 
     1. En **Table** (Tabla), active la opción **Edit** (Editar). Seleccione el primer cuadro de entrada y haga clic en el vínculo **Add dynamic content** (Agregar contenido dinámico) debajo. En la página **Add Dynamic Content** (Agregar contenido dinámico), haga clic en **DWSchema** en **Parameters** (Parámetros), que rellena automáticamente el cuadro de texto de expresión superior `@dataset().DWSchema` y, luego, haga clic en **Finish** (Finalizar).  
     
-        ![Nombre de tabla de la conexión de conjunto de datos](./media/tutorial-bulk-copy-portal/dataset-connection-tablename.png)
+        :::image type="content" source="./media/tutorial-bulk-copy-portal/dataset-connection-tablename.png" alt-text="Nombre de tabla de la conexión de conjunto de datos":::
 
     1. Seleccione el segundo cuadro de entrada y haga clic en el vínculo **Add dynamic content** (Agregar contenido dinámico). En la página **Add Dynamic Content** (Agregar contenido dinámico), haga clic en **DWTAbleName** en **Parameters** (Parámetros), que rellena automáticamente el cuadro de texto de expresión superior `@dataset().DWTableName` y, luego, haga clic en **Finish** (Finalizar). 
     
@@ -203,7 +203,7 @@ La canalización **IterateAndCopySQLTables** toma una lista de tablas como pará
 
 1. En el panel izquierdo, haga clic en el **signo + (más)** y en **Pipeline** (Canalización).
 
-    ![Menú New pipeline (Nueva canalización)](./media/tutorial-bulk-copy-portal/new-pipeline-menu.png)
+    :::image type="content" source="./media/tutorial-bulk-copy-portal/new-pipeline-menu.png" alt-text="Menú New pipeline (Nueva canalización)":::
  
 1. En el panel General, en **Propiedades**, especifique **IterateAndCopySQLTables** en **Nombre**. A continuación, contraiga el panel; para ello, haga clic en el icono Propiedades en la esquina superior derecha.
 
@@ -223,15 +223,15 @@ La canalización **IterateAndCopySQLTables** toma una lista de tablas como pará
 
     c. En la página **Add dynamic content** (Agregar contenido dinámico), contraiga las secciones **System Variables** (Variables del sistema) y **Functions** (Funciones), y haga clic en la **tableList** (Lista de tabla) bajo **Parameters** (Parámetros), que rellenará automáticamente el cuadro de texto de expresiones de la parte superior como `@pipeline().parameter.tableList`. Haga clic en **Finalizar**. 
 
-    ![Generador de parámetros de ForEach](./media/tutorial-bulk-copy-portal/for-each-parameter-builder.png)
+    :::image type="content" source="./media/tutorial-bulk-copy-portal/for-each-parameter-builder.png" alt-text="Generador de parámetros de ForEach":::
     
     d. Cambie a la pestaña **Activities** (Actividades), haga clic en el **icono de lápiz** para agregar una actividad secundaria a la actividad **ForEach**.
     
-    ![Generador de la actividad ForEach](./media/tutorial-bulk-copy-portal/for-each-activity-builder.png)
+    :::image type="content" source="./media/tutorial-bulk-copy-portal/for-each-activity-builder.png" alt-text="Generador de la actividad ForEach":::
 
 1. En el cuadro de herramientas **Activities** (Actividades), expanda **Move & Transfer** (Mover y transferir), arrastre la actividad **Copy data** (Copiar datos) y colóquela en la superficie del diseñador de canalizaciones. Tenga en cuenta el menú de la ruta de navegación de la parte superior. **IterateAndCopySQLTable** es el nombre de la canalización y **IterateSQLTables** es el nombre de la actividad ForEach. El diseñador está en el ámbito de la actividad. Para volver al editor de canalización desde el editor de la actividad ForEach (Para cada uno), puede hacer clic en el vínculo del menú de la ruta de navegación. 
 
-    ![Copiar en la actividad ForEach (Para cada uno)](./media/tutorial-bulk-copy-portal/copy-in-for-each.png)
+    :::image type="content" source="./media/tutorial-bulk-copy-portal/copy-in-for-each.png" alt-text="Copiar en la actividad ForEach (Para cada uno)":::
 
 1. Cambie a la pestaña **Source** (Origen) y realice los pasos siguientes:
 
@@ -257,7 +257,7 @@ La canalización **IterateAndCopySQLTables** toma una lista de tablas como pará
         IF EXISTS (SELECT * FROM [@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]) TRUNCATE TABLE [@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]
         ```
 
-        ![Copia de la configuración del receptor](./media/tutorial-bulk-copy-portal/copy-sink-settings.png)
+        :::image type="content" source="./media/tutorial-bulk-copy-portal/copy-sink-settings.png" alt-text="Copia de la configuración del receptor":::
 
 1. Cambie a la pestaña **Settings** (Configuración) y realice los pasos siguientes: 
 
@@ -294,12 +294,12 @@ Estos son los pasos para crear la canalización:
         ```
     1. Desactive la casilla del campo **First row only** (Solo la primera fila).
 
-        ![Actividad de búsqueda: página de configuración](./media/tutorial-bulk-copy-portal/lookup-settings-page.png)
+        :::image type="content" source="./media/tutorial-bulk-copy-portal/lookup-settings-page.png" alt-text="Actividad de búsqueda: página de configuración":::
 1. Arrastre la actividad **Execute Pipeline** (Ejecutar canalización) del cuadro de herramientas de actividades y colóquela en la superficie del diseñador de canalizaciones; después, establezca el nombre en **TriggerCopy**.
 
 1. Para **conectar**  la actividad **Lookup** (Búsqueda) a la actividad **Execute Pipeline** (Ejecutar canalización), arrastre el **cuadro verde** vinculado a la actividad de búsqueda a la izquierda de la actividad Execute Pipeline (Ejecución de canalización).
 
-    ![Conexión de las actividades de búsqueda y de ejecución de canalización](./media/tutorial-bulk-copy-portal/connect-lookup-execute-pipeline.png)
+    :::image type="content" source="./media/tutorial-bulk-copy-portal/connect-lookup-execute-pipeline.png" alt-text="Conexión de las actividades de búsqueda y de ejecución de canalización":::
 
 1. Cambie a la pestaña **Settings** (Configuración) de la actividad **Execute Pipeline** (Ejecutar canalización) y realice los pasos siguientes: 
 
@@ -307,7 +307,7 @@ Estos son los pasos para crear la canalización:
     1. Desactive la casilla **Wait on completion** (Esperar a que se complete).
     1. En la sección **Parameters** (Parámetros), haga clic en el cuadro de entrada en VALUE, seleccione **Add dynamic content** (Agregar contenido dinámico) a continuación, escriba `@activity('LookupTableList').output.value` como valor del nombre de tabla y seleccione **Finish** (Finalizar). Estamos configurando la lista de resultados de la actividad de búsqueda como entrada de la segunda canalización. La lista de resultados contiene la lista de tablas cuyos datos deben copiarse en el destino. 
 
-        ![Actividad de ejecución de canalización: página de configuración](./media/tutorial-bulk-copy-portal/execute-pipeline-settings-page.png)
+        :::image type="content" source="./media/tutorial-bulk-copy-portal/execute-pipeline-settings-page.png" alt-text="Actividad de ejecución de canalización: página de configuración":::
 
 1. Para comprobar la canalización, haga clic en **Validate** (Comprobar) en la barra de herramientas. Confirme que no haya errores de comprobación. Para cerrar **Pipeline Validation Report** (Informe de comprobación de la canalización), haga clic en **>>** .
 
@@ -324,7 +324,7 @@ Estos son los pasos para crear la canalización:
 1. Vaya a la pestaña **Monitor** (Supervisar). Haga clic en **Refresh** (Actualizar) hasta que vea las ejecuciones de las canalizaciones de la solución. Continúe la actualización de la lista hasta que vea el estado **Succeeded** (Correcto). 
 
 1. Para ver las ejecuciones de actividad asociadas a la canalización **GetTableListAndTriggerCopyData**, haga clic en el vínculo de nombre de canalización de esa canalización. Debería ver dos ejecuciones de actividad para esta ejecución de canalización. 
-    ![Supervisión de la ejecución de canalización](./media/tutorial-bulk-copy-portal/monitor-pipeline.png)
+    :::image type="content" source="./media/tutorial-bulk-copy-portal/monitor-pipeline.png" alt-text="Supervisión de la ejecución de canalización":::
 1. Para ver la salida de la actividad **Lookup** (Búsqueda), haga clic en el vínculo **Output** (Salida) junto a la actividad en la columna **ACTIVITY NAME** (NOMBRE DE ACTIVIDAD). La ventana **Output** (Salida) se puede maximizar y restaurar. Después de la revisión, haga clic en la **X** para cerrar la ventana **Output** (Salida).
 
     ```json

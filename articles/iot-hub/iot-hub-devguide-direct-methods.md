@@ -12,12 +12,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 1b9b0a86b86ae1e2253da2349bb9e1c3523f5798
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: d497a94173d056633803362239ef3dff07797144
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121862218"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129278243"
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Conocimiento e invocación de los métodos directos de IoT Hub
 
@@ -89,7 +89,7 @@ Este ejemplo le permitirá iniciar de forma segura una solicitud para invocar un
 Para empezar, use la [extensión de Microsoft Azure IoT para la CLI de Azure](https://github.com/Azure/azure-iot-cli-extension) para crear un módulo SharedAccessSignature.
 
 ```bash
-az iot hub generate-sas-token -n <iothubName> -du <duration>
+az iot hub generate-sas-token -n <iothubName> --du <duration>
 ```
 
 A continuación, reemplace el encabezado Authorization por el módulo SharedAccessSignature recién generado y, a continuación, modifique los parámetros `iothubName`, `deviceId`, `methodName` y `payload` para que coincidan con su implementación en el siguiente comando de `curl` ejemplo.  

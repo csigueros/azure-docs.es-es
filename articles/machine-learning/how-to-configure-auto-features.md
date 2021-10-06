@@ -7,16 +7,16 @@ ms.author: nibaccam
 ms.reviewer: nibaccam
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: automl
 ms.topic: how-to
 ms.custom: automl,contperf-fy21q2
 ms.date: 12/18/2020
-ms.openlocfilehash: d9a213ee9889d5e778c2037a67974d3b3da5f4c4
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 4931b6a1b13390813cee09e906ceaea64205bd70
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122183600"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129426404"
 ---
 # <a name="data-featurization-in-automated-machine-learning"></a>Caracterización de datos en aprendizaje automático automatizado
 
@@ -105,7 +105,7 @@ Los límites de protección de datos muestran uno de los tres estados siguientes
 
 En la tabla siguiente se describen los límites de protección de datos admitidos actualmente, así como los estados asociados que podría ver al enviar el experimento:
 
-Límite de protección|Status|Condición&nbsp;para&nbsp;el desencadenador
+Límite de protección|Estado|Condición&nbsp;para&nbsp;el desencadenador
 ---|---|---
 **Atribución de los valores de características que faltan** |Superado <br><br><br> ¡Listo!| No se ha detectado que falten valores de característica en los datos de entrenamiento. Obtenga más información sobre la [imputación de valores que faltan](./how-to-use-automated-ml-for-ml-models.md#customize-featurization). <br><br> Se han detectado valores de característica que faltan en los datos de entrenamiento y se han imputado.
 **Control de características de cardinalidad alta** |Superado <br><br><br> ¡Listo!| Se han analizado las entradas y no se han detectado características de cardinalidad alta. <br><br> Se han detectado características de cardinalidad alta en las entradas y se han controlado.

@@ -4,14 +4,14 @@ description: En este tutorial, aprenderá a incorporarse a Azure Defender para I
 author: ElazarK
 ms.author: v-ekrieg
 ms.topic: tutorial
-ms.date: 09/06/2021
+ms.date: 09/23/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: 66d95f5700cb3445aa5e2facabe12ea7c70ef92e
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: cd62dfaa3a90c6efde1f758bec3e7062ce3e858c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123544796"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128642156"
 ---
 # <a name="tutorial-azure-defender-for-iot-trial-setup"></a>Tutorial: Configuración de la evaluación gratuita de Azure Defender para IoT
 
@@ -248,6 +248,8 @@ Para la validación posterior a la instalación, debe comprobar que el sistema s
 
 Una instancia de vSwitch no tiene funcionalidades de creación de reflejo, pero se puede usar una solución alternativa para implementar un puerto SPAN. Puede implementar la solución alternativa con ESXi o Hyper-V.
 
+:::image type="content" source="media/tutorial-onboarding/purdue-model.png" alt-text="Captura de pantalla de dónde se debe colocar el sensor en la arquitectura.":::
+
 ### <a name="configure-a-span-port-with-esxi"></a>Configuración de un puerto SPAN con ESXi
 
 **Para configurar un puerto SPAN con ESXi**:
@@ -274,7 +276,7 @@ Una instancia de vSwitch no tiene funcionalidades de creación de reflejo, pero 
 
 1. Seleccione **Aceptar**.
 
-1. Conéctese al sensor y compruebe que la creación de reflejos funcione.
+1. Conéctese al sensor y compruebe que la solución de creación de reflejo funcione.
 
 ### <a name="configure-a-span-port-with-hyper-v"></a>Configuración de un puerto SPAN con Hyper-V
 

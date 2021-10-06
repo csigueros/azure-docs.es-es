@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/05/2017
+ms.date: 09/15/2021
 ms.author: alkohli
-ms.openlocfilehash: 9ec2bbef88ed185c3927676ad2596269783d1850
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2fde4e0784e81c2127dd8097495b48ce506059bf
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85515621"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128589385"
 ---
 # <a name="use-the-storsimple-device-manager-service-in-azure-portal-to-manage-backup-policies"></a>Uso del servicio StorSimple Device Manager de Azure Portal para administrar directivas de copia de seguridad
 
@@ -76,6 +76,23 @@ Es posible agregar o modificar una programación adjunta a una directiva de copi
 
 [!INCLUDE [storsimple-8000-add-modify-backup-schedule](../../includes/storsimple-8000-add-modify-backup-schedule-u2.md)]
 
+## <a name="disable-a-schedule"></a>Deshabilitación de una programación
+
+Use el procedimiento siguiente si necesita deshabilitar una directiva de reserva. Por ejemplo, puede que le interese deshabilitar una programación que ha alcanzado el máximo de 64 copias de seguridad y, después, agregar una nueva programación para realizar más copias de seguridad.
+
+Para deshabilitar una directiva de copia de seguridad, siga estos pasos:
+
+1.  Vaya al dispositivo StorSimple y haga clic en **Directivas de copia de seguridad**.
+
+1.  Explore en profundidad desde la directiva de copia de seguridad hasta la programación que quiera deshabilitar:
+
+    1. Haga clic en la directiva de copia de seguridad para abrir las **Programaciones** de la directiva. 
+
+    1. Vuelva a hacer clic en la directiva para abrir el cuadro de diálogo **Programaciones**.
+
+    1. Haga clic en la programación que quiera deshabilitar para abrir **Configurar programación**. En el campo **Estado**, seleccione **Deshabilitado**.
+
+  [ ![Ilustración en la que se muestran los pasos para deshabilitar una programación para una directiva de copia de seguridad en un dispositivo StorSimple. Cada paso está numerado, con la etiqueta de pantalla y el elemento sobre el que se actúa resaltado.](./media/storsimple-8000-manage-backup-policies-u2/modify-schedule-illustration.png) ](./media/storsimple-8000-manage-backup-policies-u2/modify-schedule-illustration.png#lightbox)
 
 ## <a name="add-or-remove-a-volume"></a>Incorporación o eliminación de un volumen
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con RSA Archer Suite | Microsoft Docs'
+title: 'Tutorial: Integración del inicio de sesión único de Azure AD con RSA Archer Suite'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y RSA Archer Suite.
 services: active-directory
 author: jeevansd
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/02/2021
+ms.date: 09/14/2021
 ms.author: jeedes
-ms.openlocfilehash: d96f1e0413dac8477e2fc40bf84e88318abf3f9d
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: 38694ff8bdbe041d582af3b8bfb9d0c9fffe9e62
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106284995"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128656595"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-rsa-archer-suite"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con RSA Archer Suite
+# <a name="tutorial-azure-ad-sso-integration-with-rsa-archer-suite"></a>Tutorial: Integración del inicio de sesión único de Azure AD con RSA Archer Suite
 
 En este tutorial, aprenderá a integrar RSA Archer Suite con Azure Active Directory (Azure AD). Al integrar RSA Archer Suite con Azure AD, puede hacer lo siguiente:
 
@@ -77,11 +77,11 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-1. En la sección **Configuración básica de SAML**, especifique los valores de los siguientes campos:
+1. En la sección **Configuración básica de SAML**, siga estos pasos:
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<BASE_URL>/default.aspx?IDP=<REALM_NAME>`
+    a. En el cuadro de texto **Identificador (id. de entidad)** , escriba el valor: `RSAArcherSuite_TENANT_STRING`
 
-    b. En el cuadro de texto **Identificador (id. de entidad)** , escriba el valor: `RSAArcherSuite_TENANT_STRING`
+    b. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<BASE_URL>/default.aspx?IDP=<REALM_NAME>`
 
     > [!NOTE]
     > El valor de la dirección URL de inicio de sesión no es real. Actualice el valor con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de soporte técnico al cliente de RSA Archer Suite](mailto:archersupport@rsa.com) para obtener el valor. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
@@ -162,12 +162,12 @@ En esta sección se crea una usuario llamado B.Simon en RSA Archer Suite. RSA Ar
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones. 
 
-1. Haga clic en **Probar esta aplicación** en Azure Portal. Esto le redirigirá a la dirección URL de inicio de sesión de RSA Archer Suite, donde puede iniciar el flujo de inicio de sesión. 
+* Haga clic en **Probar esta aplicación** en Azure Portal. Esto le redirigirá a la dirección URL de inicio de sesión de RSA Archer Suite, donde puede iniciar el flujo de inicio de sesión. 
 
-2. Vaya directamente a la dirección URL de inicio de sesión de RSA Archer Suite e inicie el flujo de inicio de sesión desde allí.
+* Vaya directamente a la dirección URL de inicio de sesión de RSA Archer Suite e inicie el flujo de inicio de sesión desde allí.
 
-3. Puede usar el Panel de acceso de Microsoft. Al hacer clic en el icono de RSA Archer Suite en el Panel de acceso, debería iniciar sesión automáticamente en la instancia de RSA Archer Suite para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
+* Puede usar Mis aplicaciones de Microsoft. Si hace clic en el icono de RSA Archer Suite en Aplicaciones, se le redireccionará a la dirección URL de inicio de sesión de dicha aplicación. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
- Una vez configurado RSA Archer Suite, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Una vez configurado RSA Archer Suite, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

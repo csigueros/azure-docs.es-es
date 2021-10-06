@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.date: 07/22/2021
-ms.openlocfilehash: 890330700e21c34b1a3d9ae78068f577f5f64c6b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 28b616d0e0e4730fe96e5366a590ea84e5fa39cf
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121739167"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124777761"
 ---
 # <a name="run-jupyter-notebooks-in-your-workspace"></a>Ejecución de cuadernos de Jupyter Notebook en el área de trabajo
 
@@ -313,7 +313,7 @@ Con los siguientes métodos abreviados de teclado, puede navegar y ejecutar cód
 
 * Si no puede conectarse a un cuaderno, asegúrese de que la comunicación de socket web **no** está deshabilitada. Para que la funcionalidad de Jupyter de instancia de proceso haga su trabajo, debe habilitarse la comunicación de socket web. Asegúrese de que la red permite conexiones de websocket a *.instances.azureml.net y *.instances.azureml.ms. 
 
-* Cuando la instancia de proceso se implementa en un área de trabajo con un punto de conexión privado, solo [se puede acceder a ella desde la red virtual](./how-to-secure-training-vnet.md#compute-instance). Si usa un archivo de hosts o DNS personalizado, agregue una entrada para <nombre-de-instancia>.<región>.instances.azureml.ms con la dirección IP privada del punto de conexión privado del área de trabajo. Para obtener más información, consulte el artículo [DNS personalizado](./how-to-custom-dns.md?tabs=azure-cli).
+* Cuando una instancia de proceso se implementa en un área de trabajo con un punto de conexión privado, solo se puede [acceder a ella desde la red virtual](./how-to-secure-training-vnet.md). Si usa un archivo de hosts o DNS personalizado, agregue una entrada para <nombre-de-instancia>.<región>.instances.azureml.ms con la dirección IP privada del punto de conexión privado de su área de trabajo. Para obtener más información, consulte el artículo [DNS personalizado](./how-to-custom-dns.md?tabs=azure-cli).
 
 * Si el kernel se bloquea y se reinicia, puede ejecutar el siguiente comando para ver el registro de Jupyter y obtener más detalles: `sudo journalctl -u jupyter`. Si los problemas del kernel persisten, considere la posibilidad de usar una instancia de proceso con más memoria.
 
@@ -323,4 +323,4 @@ Con los siguientes métodos abreviados de teclado, puede navegar y ejecutar cód
 
 * [Ejecución de su primer experimento](tutorial-1st-experiment-sdk-train.md)
 * [Copia de seguridad del almacenamiento de archivos con instantáneas](../storage/files/storage-snapshots-files.md)
-* [Trabajo en entornos seguros](./how-to-secure-training-vnet.md#compute-instance)
+* [Trabajo en entornos seguros](./how-to-secure-training-vnet.md#compute-cluster)

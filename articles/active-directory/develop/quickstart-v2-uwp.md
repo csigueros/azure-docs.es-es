@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/07/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:UWP
-ms.openlocfilehash: 5f142cf84e0e7e75d2ed61fbad9896d89e2364a0
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: e9353c12c20ea8b08164ac057f886ca47cc8c383
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123436543"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128552755"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Inicio rápido: Llamar a Microsoft Graph API desde una aplicación de la Plataforma universal de Windows (UWP)
 
@@ -26,7 +26,7 @@ En este inicio rápido descargará y ejecutará un código de ejemplo que muestr
 Para ilustrar este tema, consulte el apartado en el que se explica el [funcionamiento del ejemplo](#how-the-sample-works).
 
 > [!div renderon="docs"]
-> ## <a name="prerequisites"></a>Prerrequisitos
+> ## <a name="prerequisites"></a>Requisitos previos
 >
 > * Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 > * [Visual Studio 2019](https://visualstudio.microsoft.com/vs/)
@@ -48,7 +48,7 @@ Para ilustrar este tema, consulte el apartado en el que se explica el [funcionam
 > #### <a name="step-1-register-your-application"></a>Paso 1: Registrar su aplicación
 > Para registrar la aplicación y agregar la información de registro de la aplicación a la solución, siga estos pasos:
 > 1. Inicie sesión en <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>.
-> 1. Si tiene acceso a varios inquilinos, use el filtro **Directorio + suscripción** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: del menú superior para seleccionar el inquilino en el que desea registrar una aplicación.
+> 1. Si tiene acceso a varios inquilinos, use el filtro **Directorios y suscripciones** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: del menú superior para ir al inquilino en el que quiere registrar la aplicación.
 > 1. Busque y seleccione **Azure Active Directory**.
 > 1. En **Administrar**, seleccione **Registros de aplicaciones** >  y, luego, **Nuevo registro**.
 > 1. Escriba el **Nombre** de la aplicación, por ejemplo `UWP-App-calling-MsGraph`. Los usuarios de la aplicación pueden ver este nombre, el cual se puede cambiar más tarde.

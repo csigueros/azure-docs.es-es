@@ -4,18 +4,18 @@ titleSuffix: Azure Machine Learning
 description: Aprenda a importar datos en el diseñador de Azure Machine Learning a través de conjuntos de datos de Azure Machine Learning y el módulo Importar datos.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mldata
 author: likebupt
 ms.author: keli19
 ms.date: 06/13/2021
 ms.topic: how-to
 ms.custom: designer
-ms.openlocfilehash: 6e0cdbb7511132d4ecd3399e0ef5be7c2541d34b
-ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
+ms.openlocfilehash: 5a08ff4a0fc98ae6c12ef4b4ecab9785b6298af0
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "112235912"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129424376"
 ---
 # <a name="import-data-into-azure-machine-learning-designer"></a>Importación de datos en el diseñador de Azure Machine Learning
 

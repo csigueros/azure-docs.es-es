@@ -9,12 +9,12 @@ ms.author: amjads
 ms.collection: windows
 ms.date: 03/30/2018
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c11604ae3fe486be6d471b0218b44eeab26da5c6
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 8ab6b3d00f748fb5b3935988522191c749fa4fd9
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128588549"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129275285"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Características y extensiones de las máquinas virtuales para Windows
 
@@ -73,8 +73,8 @@ Windows Guest Agent no admite el servidor proxy para redirigir las solicitudes d
 Hay muchas extensiones de máquina virtual diferentes disponibles para su uso con máquinas virtuales de Azure. Para ver una lista completa, use [Get-AzVMExtensionImage](/powershell/module/az.compute/get-azvmextensionimage). En el ejemplo siguiente se muestran todas las extensiones disponibles en la ubicación *WestUS*:
 
 ```powershell
-Get-AzVmImagePublisher -Location "WestUS" | `
-Get-AzVMExtensionImageType | `
+Get-AzVmImagePublisher -Location "WestUS" |
+Get-AzVMExtensionImageType |
 Get-AzVMExtensionImage | Select Type, Version
 ```
 

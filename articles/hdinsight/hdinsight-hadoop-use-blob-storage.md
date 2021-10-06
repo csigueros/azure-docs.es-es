@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: c4cbce0bce0b495bee9a2f9c717f21de665f29f7
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 5c0a735d01d91de3a114e373791037285c29c09b
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112280351"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129272668"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Uso de Azure Storage con clústeres de Azure HDInsight
 
@@ -37,7 +37,7 @@ No se recomienda usar el contenedor de blobs predeterminado para almacenar datos
 No se permite compartir un contenedor de blobs como sistema de archivos predeterminado entre varios clústeres.
 
 > [!NOTE]  
-> El nivel de acceso de archivo es un nivel sin conexión que tiene una latencia de recuperación de varias horas y no se recomienda para su uso con HDInsight. Para más información, consulte [Nivel de acceso de archivo](../storage/blobs/storage-blob-storage-tiers.md#archive-access-tier).
+> El nivel de acceso de archivo es un nivel sin conexión que tiene una latencia de recuperación de varias horas y no se recomienda para su uso con HDInsight. Para más información, consulte [Nivel de acceso de archivo](../storage/blobs/access-tiers-overview.md#archive-access-tier).
 
 ## <a name="access-files-from-within-cluster"></a>Acceso a los archivos desde dentro del clúster
 
