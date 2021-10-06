@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/27/2021
+ms.date: 08/27/2021
 ms.author: jeedes
-ms.openlocfilehash: a49dec3b7a87eebebbb6d4737618a387c80e4f1a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: d476a5df53425d202b8c06e08765e0e35a39f41e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121742858"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128674402"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-elium"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Elium
 
@@ -42,6 +42,7 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 
 * Elium admite el inicio de sesión único iniciado por **SP e IDP**.
 * Elium admite el aprovisionamiento de usuarios **Just-In-Time**.
+* Elium admite el [aprovisionamiento automatizado de usuarios](elium-provisioning-tutorial.md).
 
 ## <a name="add-elium-from-the-gallery"></a>Adición de Elium desde la galería
 
@@ -190,8 +191,7 @@ En esta sección va a permitir que B.Simon acceda a Elium mediante el inicio de 
 
 En esta sección se crea un usuario llamado B.Simon en Elium. Box admite el **aprovisionamiento Just-In-Time**, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Si el usuario no existe en Elium, se crea uno nuevo cuando se intenta acceder a Elium.
 
-> [!Note]
-> Si necesita crear manualmente un usuario, póngase en contacto con el [equipo de soporte técnico de Elium](mailto:support@elium.com).
+Elium también admite el aprovisionamiento automático de usuarios. [Aquí](./elium-provisioning-tutorial.md) puede encontrar más detalles sobre cómo configurar el aprovisionamiento automático de usuarios.
 
 ## <a name="test-sso"></a>Prueba de SSO 
 
@@ -207,7 +207,7 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
  
 * Haga clic en **Probar esta aplicación** en Azure Portal y debería iniciar sesión automáticamente en la instancia de Elium para la que configuró el inicio de sesión único. 
  
-También puede usar Aplicaciones de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de Elium en Aplicaciones, si está configurado en modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para iniciar el flujo de inicio de sesión y, si está configurado en modo IDP, debería iniciar sesión automáticamente en la instancia de Elium para la que configuró el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+También puede usar Aplicaciones de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de Elium en Aplicaciones, si está configurado en modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para iniciar el flujo de inicio de sesión y, si está configurado en modo IDP, debería iniciar sesión automáticamente en la instancia de Elium para la que configuró el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

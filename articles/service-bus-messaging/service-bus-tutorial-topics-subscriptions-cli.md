@@ -1,16 +1,16 @@
 ---
 title: Uso de la CLI de Azure para crear temas y suscripciones de Service Bus
 description: En este inicio rápido, aprenderá a crear un tema de Service Bus y suscripciones a dicho tema mediante la CLI de Azure.
-ms.date: 06/23/2020
+ms.date: 09/28/2021
 ms.topic: quickstart
 author: spelluru
 ms.author: spelluru
-ms.openlocfilehash: 080b089efa276779420f6d9bc8e76272f1e65788
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 012fa6c3b6190959b7eb38c140b57a551f317498
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90069703"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129236868"
 ---
 # <a name="use-azure-cli-to-create-a-service-bus-topic-and-subscriptions-to-the-topic"></a>Uso de la CLI de Azure para crear un tema de Service Bus y suscripciones a dicho tema
 En este inicio rápido, usará la CLI de Azure para crear un tema de Service Bus y, después, crear suscripciones a dicho tema. 

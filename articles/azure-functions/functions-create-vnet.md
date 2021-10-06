@@ -3,12 +3,12 @@ title: Uso de puntos de conexión privados para integrar Azure Functions con una
 description: En este tutorial se explica cómo conectar una función a una red virtual de Azure y cómo bloquearla con puntos de conexión privados.
 ms.topic: article
 ms.date: 2/22/2021
-ms.openlocfilehash: a410d6717a73df2c7e947fd15c6c89040f08846c
-ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
+ms.openlocfilehash: 8007fde1d4aaf52a98bf924f607450462a993c1d
+ms.sourcegitcommit: 3ef5a4eed1c98ce76739cfcd114d492ff284305b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114204747"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128708441"
 ---
 # <a name="tutorial-integrate-azure-functions-with-an-azure-virtual-network-by-using-private-endpoints"></a>Tutorial: Integración de Azure Functions con una red virtual de Azure mediante puntos de conexión privados
 
@@ -303,6 +303,8 @@ Para usar la aplicación de funciones con redes virtuales, debe unirla a una sub
 1. En **Red virtual**, seleccione la red virtual que creó anteriormente.
 
 1. Seleccione la subred de **funciones** que creó anteriormente. Seleccione **Aceptar**.  Ahora la aplicación de funciones está integrada con la red virtual.
+
+    Si la red virtual y la aplicación de funciones están en suscripciones diferentes, primero debe proporcionar acceso de **Colaborador** a la entidad de servicio **Microsoft Azure App Service** en la red virtual.
 
     :::image type="content" source="./media/functions-create-vnet/9-connect-app-subnet.png" alt-text="Captura de pantalla sobre cómo conectar una aplicación de funciones a una subred.":::
 

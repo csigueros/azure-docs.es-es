@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/28/2020
 ms.author: jeedes
-ms.openlocfilehash: dde247ff3ced36b34f9746cd710af3ad2d228ec5
-ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
+ms.openlocfilehash: ceb7c2fcec92e89c65e03fa11db142af514090af
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108801935"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128619863"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-appneta-performance-manager"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con AppNeta Performance Manager
 
@@ -38,7 +38,6 @@ Para empezar, necesita los siguientes elementos:
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
 - AppNeta Performance Manager admite el inicio de sesión único iniciado por **SP**.
-
 - AppNeta Performance Manager admite el aprovisionamiento de usuarios **Just In Time**.
 
 > [!NOTE]
@@ -76,18 +75,20 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
 1. En la página **Configuración del inicio de sesión único con SAML**, haga clic en el icono de lápiz de **Configuración básica de SAML** para editar la configuración.
 
-   ![Edición de la configuración básica de SAML](common/edit-urls.png)
+   ![Edición de la configuración básica de SAML](./media/appneta-tutorial/edit-urls.png)
 
 1. En la sección **Configuración básica de SAML**, especifique los valores de los siguientes campos:
 
    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.pm.appneta.com`
 
+   b. En el campo URL de respuesta (URL del Servicio de consumidor de aserciones), escriba: `https://sso.connect.pingidentity.com/sso/sp/ACS.saml2`.
+
    > [!NOTE]
-   > El valor de la dirección URL de inicio de sesión no es real. Actualícelo con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de soporte técnico de cliente de AppNeta Performance Manager](mailto:support@appneta.com) para obtener este valor. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+   > El valor de la URL de inicio de sesión anterior es un ejemplo. Actualícelo con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de soporte técnico de cliente de AppNeta Performance Manager](mailto:support@appneta.com) para obtener este valor. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
-1. La aplicación AppNeta Performance Manager espera las aserciones de SAML en un formato específico, lo que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de muestra la lista de atributos predeterminados.
+1. La aplicación AppNeta Performance Manager espera las aserciones de SAML en un formato específico, lo que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. En la siguiente captura se muestra la lista de los atributos predeterminados:
 
-   ![imagen](common/edit-attribute.png)
+   ![Captura de pantalla que muestra los atributos predeterminados de un token SAML.](./media/appneta-tutorial/edit-attribute.png)
 
 1. Además de lo anterior, la aplicación AppNeta Performance Manager espera que se devuelvan algunos atributos más, que se muestran a continuación, en la respuesta de SAML. Estos atributos también se rellenan previamente, pero puede revisarlos según sus requisitos.
 
@@ -102,30 +103,22 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
    | title     | user.jobtitle          |
    |           |                        |
 
-   > [!NOTE]
-   > **groups** hace referencia al grupo de seguridad en AppNeta que se asigna a un **rol** de Azure AD. Consulte [este](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui) documento que explica cómo crear roles personalizados en Azure AD.
+1. Para pasar correctamente las aserciones de SAML de "grupos", debe configurar roles de aplicación y establecer el valor para que coincida con las asignaciones de roles establecidas en AppNeta Performance Manager. En **Azure Active Directory** > **Registros de aplicaciones** >  **Todas las aplicaciones**, seleccione **Appneta Performance Manager**.
+1. Haga clic en **Roles de aplicación** en el panel izquierdo.
+1. Haga clic en **Crear rol de aplicación**.
+1. En el panel **Crear rol de aplicación**, realice estos pasos:
+   1. En **Nombre para mostrar**, escriba un nombre para el rol.
+   1. En **Tipos de miembro permitidos**, seleccione **Usuarios o grupos**.
+   1. En **Valor**, escriba el valor del grupo de seguridad establecido en las asignaciones de roles de AppNeta Performance Manager.
+   1. En **Descripción**, escriba una descripción del rol.
+   1. Haga clic en **Aplicar**.
 
-   1. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
-
-   1. En el cuadro de texto **Nombre**, escriba el nombre que se muestra para la fila.
-
-   1. Deje **Espacio de nombres** en blanco.
-
-   1. Seleccione **Atributo** como origen.
-
-   1. En la lista **Atributo de origen**, escriba el valor de atributo que se muestra para esa fila.
-
-   1. Haga clic en **Aceptar**.
-
-   1. Haga clic en **Save**(Guardar).
-
-1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **XML de metadatos de federación** y seleccione **Descargar** para descargar el certificado y guardarlo en su equipo.
+1. Después de crear los roles, debe asignarlos a los usuarios y grupos. Vaya a **Azure Active Directory** > **Aplicaciones empresariales** > **Appneta Performance Manager** > **Usuarios y grupos**.
+1. Seleccione un usuario o grupo y, a continuación, asigne el rol de aplicación correspondiente al usuario o grupo.
+1. Después de asignar los roles de aplicación, vaya a **Azure Active Directory** > **Aplicaciones empresariales** > **Appneta Performance Manager** > **Inicio de sesión único**.
+1. En el panel **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **XML de metadatos de federación** y seleccione **Descargar** para descargar el certificado y guardarlo en su equipo.
 
    ![Vínculo de descarga del certificado](common/metadataxml.png)
-
-1. En la sección **Configurar AppNeta Performance Manager**, copie las direcciones URL adecuadas según sus necesidades.
-
-   ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
@@ -151,13 +144,16 @@ En esta sección, va a permitir que B.Simon acceda a AppNeta Performance Manager
 1. Si ha configurado los roles tal y como se explica en el apartado anterior, puede seleccionarlo en la lista desplegable **Seleccionar un rol**.
 1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
+   > [!NOTE]
+   > En la práctica, agregará grupos a la aplicación en lugar de usuarios individuales.
+
 ## <a name="configure-appneta-performance-manager-sso"></a>Configuración del inicio de sesión único de AppNeta Performance Manager
 
-Para configurar el inicio de sesión único en **AppNeta Performance Manager**, es preciso enviar el **XML de metadatos de federación** descargado y las direcciones URL apropiadas copiadas de Azure Portal al [equipo de soporte técnico de AppNeta Performance Manager](mailto:support@appneta.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+Para configurar el inicio de sesión único en **AppNeta Performance Manager**, tiene que enviar el **XML de metadatos de federación** descargado al [equipo de soporte técnico de AppNeta Performance Manager](mailto:support@appneta.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 ### <a name="create-appneta-performance-manager-test-user"></a>Creación de un usuario de prueba de AppNeta Performance Manager
 
-En esta sección, se crea un usuario llamado Britta Simon en AppNeta Performance Manager. AppNeta Performance Manager admite el aprovisionamiento de usuarios Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Si el usuario no existe ya en AppNeta Performance Manager, se crea uno después de la autenticación.
+En esta sección, se crea un usuario llamado B.Simon en AppNeta Performance Manager. AppNeta Performance Manager admite el aprovisionamiento de usuarios Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Si el usuario no existe ya en AppNeta Performance Manager, se crea uno después de la autenticación.
 
 > [!Note]
 > Si necesita crear manualmente un usuario, póngase en contacto con el [equipo de soporte técnico de AppNeta Performance Manager](mailto:support@appneta.com).
@@ -166,11 +162,11 @@ En esta sección, se crea un usuario llamado Britta Simon en AppNeta Performance
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones.
 
-- Haga clic en **Probar esta aplicación** en Azure Portal. Esta acción le redirigirá a la dirección URL de inicio de sesión de AppNeta Performance Manager, donde puede poner en marcha el flujo de inicio de sesión.
+- En Azure Portal, seleccione **Probar esta aplicación**. Esta acción le redirigirá a la dirección URL de inicio de sesión de AppNeta Performance Manager, donde puede poner en marcha el flujo de inicio de sesión.
 
 - Acceda directamente a la dirección URL de inicio de sesión de AppNeta Performance Manager y comience el flujo de inicio de sesión desde ahí.
 
-- Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de AppNeta Performance Manager en Mis aplicaciones, se le redirigirá a la dirección URL de inicio de sesión de dicha aplicación. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+- Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de AppNeta Performance Manager en el portal Aplicaciones, se le redirigirá a la dirección URL de inicio de sesión de esa aplicación. Para más información acerca del portal Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

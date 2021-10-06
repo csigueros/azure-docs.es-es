@@ -5,22 +5,24 @@ author: timlt
 ms.author: timlt
 ms.service: iot-develop
 ms.topic: include
-ms.date: 07/31/2021
-ms.openlocfilehash: bc0ff303fff0906c8d54c2c4992a0bdf18535e6d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/17/2021
+ms.openlocfilehash: 92a81cc28b605c715e2522c6ad78e5732a379c8f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121744304"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128610297"
 ---
 ## <a name="create-an-iot-hub"></a>Crear un centro de IoT
 En esta sección, usará la CLI de Azure para crear un centro de IoT y un grupo de recursos.  Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. Un centro de IoT funciona como centro de mensajes unificado para la comunicación bidireccional entre la aplicación de IoT y los dispositivos.
 
 Para crear un centro de IoT y un grupo de recursos:
 
-1. Inicie la aplicación de la CLI.  Para ejecutar los comandos de la CLI en el resto de este inicio rápido, copie la sintaxis del comando, péguela en la aplicación de la CLI, edite los valores de las variables y presione Entrar.
+1. Inicie la CLI de Azure: 
     - Si usa Cloud Shell, seleccione el botón **Probar** en los comandos de la CLI para iniciar Cloud Shell en una ventana dividida del explorador. O bien, puede abrir [Cloud Shell](https://shell.azure.com/bash) en una pestaña del explorador independiente.
-    - Si usa la CLI de Azure localmente, inicie la aplicación de consola de la CLI e inicie sesión en la CLI de Azure.
+    - Si va a usar la CLI de Azure localmente, abra una consola como Windows CMD, PowerShell o Bash, e [inicie sesión en la CLI de Azure](/cli/azure/authenticate-azure-cli).
+    
+    Para ejecutar los comandos de la CLI en el resto de este inicio rápido, copie la sintaxis del comando, péguela en la ventana de Cloud Shell o en la consola de la CLI, edite los valores de las variables y presione Entrar.
 
 1. Ejecute [az extension add](/cli/azure/extension#az_extension_add) para instalar o actualizar la extensión *azure-iot* a la versión actual.
 
@@ -28,7 +30,7 @@ Para crear un centro de IoT y un grupo de recursos:
     az extension add --upgrade --name azure-iot
     ```
 
-1. En la aplicación de la CLI, ejecute el comando [az group create](/cli/azure/group#az_group_create) para crear un grupo de recursos. El siguiente comando crea un grupo de recursos denominado *MyResourceGroup* en la ubicación *eastus*. 
+1. Ejecute el comando [az group create](/cli/azure/group#az_group_create) para crear un grupo de recursos. El siguiente comando crea un grupo de recursos denominado *MyResourceGroup* en la ubicación *eastus*. 
     >[!NOTE]
     > Como alternativa, puede establecer otra ubicación. Para ver las ubicaciones disponibles, ejecute `az account list-locations`. En este tutorial se usa *eastus* tal y como se muestra en el comando de ejemplo. 
 
@@ -50,9 +52,12 @@ Para crear un centro de IoT y un grupo de recursos:
 
 En el resto de este inicio rápido, usará IoT Explorer para registrar un dispositivo en su centro de IoT y ver la telemetría del dispositivo. En esta sección, configurará IoT Explorer para conectarse al centro de IoT que acaba de crear y para leer los modelos Plug and Play desde el repositorio de modelos público. 
 
+> [!NOTE]
+> También puede usar la CLI de Azure para registrar un dispositivo. Use el comando *[az iot hub device-identity create](/cli/azure/iot/hub/device-identity#az_iot_hub_device_identity_create) --device-id mydevice --hub-name {YourIoTHubName}* para registrar un nuevo dispositivo y el comando *[az iot hub device-identity connection-string show](/cli/azure/iot/hub/device-identity/connection-string#az_iot_hub_device_identity_connection_string_show) --device-id mydevice --hub-name {YourIoTHubName}* para obtener la cadena de conexión principal del dispositivo. Una vez que anote la cadena de conexión del dispositivo, puede ir directamente a [Ejecución de un dispositivo simulado](#run-a-simulated-device).
+
 Para agregar una conexión al centro de IoT:
 
-1. En la aplicación de la CLI, ejecute el comando [az iot hub connection-string show](/cli/azure/iot/hub/connection-string#az_iot_hub_connection_string_show) para obtener la cadena de conexión para el centro de IoT.
+1. Ejecute el comando [az iot hub connection-string show](/cli/azure/iot/hub/connection-string#az_iot_hub_connection_string_show) para obtener la cadena de conexión para el centro de IoT.
 
     ```azurecli
     az iot hub connection-string  show --hub-name {YourIoTHubName}
@@ -91,6 +96,3 @@ Para registrar un dispositivo:
     :::image type="content" source="media/iot-hub-include-create-hub-iot-explorer/iot-explorer-device-created.png" alt-text="Captura de pantalla de una identidad de dispositivo de Azure IoT Explorer":::
 
 1. Use los botones de copia para copiar y anotar el campo **Cadena de conexión principal**. Necesitará esta cadena de conexión más adelante.
-
-> [!NOTE]
-> Si prefiere usar la CLI de Azure, puede usar el comando *[az iot hub device-identity create](/cli/azure/iot/hub/device-identity#az_iot_hub_device_identity_create) --device-id mydevice --hub-name {YourIoTHubName}* para registrar un nuevo dispositivo y el comando *[az iot hub device-identity connection-string show](/cli/azure/iot/hub/device-identity/connection-string#az_iot_hub_device_identity_connection_string_show) --device-id mydevice --hub-name {YourIoTHubName}* para obtener la cadena de conexión principal del dispositivo.

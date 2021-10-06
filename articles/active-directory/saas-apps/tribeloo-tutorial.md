@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/19/2020
+ms.date: 09/02/2021
 ms.author: jeedes
-ms.openlocfilehash: c14af3698826405244b65bc8fef6f241f7f0032f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5d1f276723b6ea48aeed474c1893fb5cfe3ad881
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96181365"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124808209"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-tribeloo"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Tribeloo
 
@@ -26,7 +26,7 @@ En este tutorial aprenderá a integrar Tribeloo con Azure Active Directory (Azur
 * Permitir que los usuarios inicien sesión automáticamente en Tribeloo con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -38,6 +38,7 @@ Para empezar, necesita los siguientes elementos:
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
 * Tribeloo admite el inicio de sesión único iniciado por **SP**.
+* Tribeloo admite el [aprovisionamiento automatizado de usuarios](tribeloo-provisioning-tutorial.md).
 
 ## <a name="adding-tribeloo-from-the-gallery"></a>Incorporación de Tribeloo desde la galería
 
@@ -49,7 +50,6 @@ Para configurar la integración de Tribeloo en Azure AD, es preciso agregar la 
 1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
 1. En la sección **Agregar desde la galería**, escriba **Tribeloo** en el cuadro de búsqueda.
 1. Seleccione **Tribeloo** en el panel de resultados y, a continuación, agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
-
 
 ## <a name="configure-and-test-azure-ad-sso-for-tribeloo"></a>Configuración y prueba del inicio de sesión único de Azure AD para Tribeloo
 
@@ -70,7 +70,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. En Azure Portal, en la página de integración de aplicaciones de **Tribeloo**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
 1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
-1. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
+1. En la página **Configuración del inicio de sesión único con SAML**, haga clic en el icono de lápiz de **Configuración básica de SAML** para editar la configuración.
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
@@ -85,6 +85,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 1. En la sección **Configurar Tribeloo**, copie las direcciones URL adecuadas en función de sus necesidades.
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
+
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
 En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Portal.
@@ -117,6 +118,8 @@ Para configurar el inicio de sesión único en **Tribeloo**, es preciso enviar e
 
 En esta sección, creará una usuaria llamada Britta Simon en Tribeloo. Trabaje con el [equipo de soporte técnico de Tribeloo](mailto:support@tribeloo.com) para agregar los usuarios a la plataforma de Tribeloo. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
+Tribeloo también admite el aprovisionamiento automático de usuarios. [Aquí](./tribeloo-provisioning-tutorial.md) puede encontrar más detalles sobre cómo configurar el aprovisionamiento automático de usuarios.
+
 ## <a name="test-sso"></a>Prueba de SSO 
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones. 
@@ -125,8 +128,7 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 * Acceda directamente a la dirección URL de inicio de sesión de Tribeloo y comience el flujo de inicio de sesión desde ahí.
 
-* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Tribeloo en Mis aplicaciones, se le redirigirá a la dirección URL de inicio de sesión de Tribeloo. Para más información acerca del portal Mis aplicaciones, consulte [Introducción a Mis aplicaciones](../user-help/my-apps-portal-end-user-access.md).
-
+* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Tribeloo en Mis aplicaciones, se le redirigirá a la dirección URL de inicio de sesión de Tribeloo. Para más información acerca del portal Mis aplicaciones, consulte [Introducción a Mis aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

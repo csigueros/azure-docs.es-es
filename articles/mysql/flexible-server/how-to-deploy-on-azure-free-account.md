@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 08/16/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 8d0de4a365d7eab09330371baa40b3f427348d29
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 2472a3495b872a17b073a86a6d99c6ddbf218343
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123540431"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124755353"
 ---
 # <a name="use-an-azure-free-account-to-try-azure-database-for-mysql---flexible-server-for-free"></a>Uso de una cuenta gratuita de Azure para probar gratis Azure Database for MySQL: servidor flexible
 
@@ -34,7 +34,10 @@ Para completar este tutorial, necesita:
 - Una cuenta gratuita de Azure. Si no tiene ninguna, [cree una cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar. 
 
 
-## <a name="create-an-instance-of-azure-database-for-mysql---flexible-server"></a>Creación de una instancia de Azure Database for MySQL: servidor flexible
+## <a name="create-an-azure-database-for-mysql---flexible-server"></a>Creación de un Servidor flexible de Azure Database for MySQL
+
+En este artículo, usará Azure Portal para crear un servidor flexible con el método de conectividad de acceso público. Como alternativa, consulte los inicios rápidos correspondientes para crear un servidor flexible mediante la [CLI de Azure](./quickstart-create-server-cli.md) o la [plantilla de ARM](./quickstart-create-arm-template.md), o en una [VNET](./quickstart-create-connect-server-vnet.md).
+
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) con su cuenta gratuita de Azure. 
     
@@ -63,12 +66,12 @@ Para completar este tutorial, necesita:
 
     |Configuración    |Valor sugerido    |Descripción  |
     |---------|---------|---------|
-    |Suscripción    |Su suscripción    |Seleccione la suscripción de evaluación gratuita de Azure.|
+    |Subscription    |Su suscripción    |Seleccione la suscripción de evaluación gratuita de Azure.|
     |Resource group    |Su grupo de recursos    |Escriba un nuevo grupo de recursos o uno existente de la suscripción.|
     |Nombre de servidor    |mydemoserver-mysql    |Especifique un nombre único para identificar el servidor flexible. El nombre de dominio mysql.database.azure.com se anexa al nombre del servidor proporcionado. El nombre del servidor solo puede contener letras minúsculas, números y el carácter de guion (-). Debe contener entre 3 y 63 caracteres.|
     |Region    |Región más cercana a los usuarios    |Seleccione una ubicación de la lista, preferiblemente la ubicación más cercana a los usuarios.|
     |Tipo de carga de trabajo    |Desarrollo    |Para obtener una evaluación gratuita, seleccione la carga de trabajo de desarrollo. En el caso de la carga de trabajo de producción, elija el tamaño pequeño/mediano o grande en función de los requisitos de [max_connections](concepts-server-parameters.md).|
-    |Zona de disponibilidad    |Ninguna preferencia    |Si su aplicación (hospedada en las VM de Azure, los conjuntos de escalado de máquinas virtuales o la instancia de AKS) se aprovisiona en una zona de disponibilidad específica, cree el servidor flexible en la misma zona de disponibilidad. La colocación de la aplicación y la base de datos en la misma ubicación mejora el rendimiento al reducir la latencia de red entre zonas.|
+    |Zona de disponibilidad    |Ninguna preferencia    |Si su aplicación (hospedada en las máquinas virtuales de Azure, los conjuntos de escalado de máquinas virtuales o la instancia de AKS) se aprovisiona en una zona de disponibilidad específica, cree el servidor flexible en la misma zona de disponibilidad. La colocación de la aplicación y la base de datos en la misma ubicación mejora el rendimiento al reducir la latencia de red entre zonas.|
     |Alta disponibilidad    |Valor predeterminado    |Deje desactivada la opción Alta disponibilidad.|
     |Versión de MySQL    |La versión principal más reciente    |Use la versión principal más reciente. Para obtener más información, consulte [todas las versiones admitidas](../concepts-supported-versions.md).|
     |Nombre de usuario administrador     |myadmin        |Cree una cuenta de inicio de sesión para usarla al conectarse al servidor. El nombre del usuario administrador no puede ser azure_superuser, admin, administrator, root, guest ni public.         |

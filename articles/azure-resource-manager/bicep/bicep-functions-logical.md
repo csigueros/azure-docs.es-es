@@ -4,17 +4,17 @@ description: Describe las funciones que se usarán en un archivo de Bicep para d
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 07/29/2021
-ms.openlocfilehash: 8fe09057ea293300754fc35614c00a9b808da247
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/10/2021
+ms.openlocfilehash: e3a811102c31301386135042c79c205eeb9f7f9a
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121744909"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124758434"
 ---
 # <a name="logical-functions-for-bicep"></a>Funciones lógicas para Bicep
 
-Resource Manager proporciona una función `bool` para Bicep. 
+Bicep proporciona la función `bool` para convertir valores en un valor booleano.
 
 La mayoría de las funciones lógicas de las plantillas de Azure Resource Manager se reemplazan por [operadores lógicos](./operators-logical.md) de Bicep.
 
@@ -36,7 +36,7 @@ Valor booleano del valor convertido.
 
 ### <a name="examples"></a>Ejemplos
 
-En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/bool.json) siguiente se muestra cómo usar bool con una cadena o un entero.
+En el ejemplo siguiente se muestra cómo usar bool con una cadena o un entero.
 
 ```bicep
 output trueString bool = bool('true')
@@ -56,5 +56,4 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para la mayoría de las operaciones lógicas, vea [Operadores lógicos de Bicep](./operators-logical.md).
-* Puede encontrar una descripción de las secciones de un archivo de Bicep en [Nociones sobre la estructura y la sintaxis de los archivos de Bicep](./file.md).
+* Para otras acciones que abarcan valores lógicos, consulte los [operadores lógicos](./operators-logical.md).

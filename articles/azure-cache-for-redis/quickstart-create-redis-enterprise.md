@@ -7,12 +7,12 @@ ms.service: cache
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 02/08/2021
-ms.openlocfilehash: f1cf254aa6b8f03b5ea50a0adaa83ea56ba8f44a
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 97d87ab28b4b2b000fe0e9b1517e43c79984e74e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111746760"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128563662"
 ---
 # <a name="quickstart-create-a-redis-enterprise-cache"></a>Inicio rápido: Creación de una caché de Redis Enterprise
 
@@ -35,11 +35,11 @@ Necesitará una suscripción a Azure antes de empezar. Si aún no la tiene, cree
 
 1. En la página **Nueva instancia de Redis Cache**, configure las opciones de la nueva caché.
 
-   | Configuración      | Valor sugerido  | Descripción |
+   | Configuración      |  Elegir un valor  | Descripción |
    | ------------ |  ------- | -------------------------------------------------- |
    | **Suscripción** | Desplácese hacia abajo y seleccione su suscripción. | La suscripción en la que se creará esta nueva instancia de Azure Cache for Redis. |
    | **Grupos de recursos** | Desplácese hacia abajo y seleccione un grupo de recursos o **Crear nuevo** y escriba un nombre nuevo para el grupo de recursos. | Nombre del grupo de recursos en el que se van a crear la caché y otros recursos. Al colocar todos los recursos de la aplicación en un grupo de recursos, puede administrarlos o eliminarlos fácilmente. |
-   | **Nombre DNS** | Escriba un nombre único global. | El nombre de la memoria caché debe ser una cadena de entre 1 y 63 caracteres, y solo puede contener números, letras o guiones. El nombre debe comenzar y terminar por un número o una letra y no puede contener guiones consecutivos. El *nombre de host* de la instancia de caché será *\<DNS name>.<Azure region>.redisenterprise.cache.azure.net*. |
+   | **Nombre DNS** | Escriba un nombre que sea único en la región. | El nombre de la memoria caché debe ser una cadena de entre 1 y 63 caracteres, y solo puede contener números, letras o guiones. El nombre debe comenzar y terminar por un número o una letra y no puede contener guiones consecutivos. El *nombre de host* de la instancia de caché será *\<DNS name\>.\<Azure region\>.redisenterprise.cache.azure.net*. |
    | **Ubicación** | Desplácese hacia abajo y seleccione una ubicación. | Los niveles Enterprise solo están disponibles en algunas regiones de Azure. |
    | **Tipo de caché** | Despliegue el menú y seleccione el nivel *Enterprise* o *Enterprise Flash* y un tamaño. |  El nivel determina el tamaño, rendimiento y características disponibles para la memoria caché. |
 

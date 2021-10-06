@@ -6,18 +6,22 @@ ms.topic: conceptual
 ms.date: 03/09/2021
 ms.author: tomfitz
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 73ff2c609438ead1e1fa42468e97be801a76e7e2
-ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.openlocfilehash: 95d07e313b5b8d970b2d8471295ed00c29961b96
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123450294"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128626102"
 ---
 # <a name="arm-template-deployment-what-if-operation"></a>Operación what-if de la implementación de plantilla de Resource Manager
 
 Antes de implementar una plantilla de Azure Resource Manager (plantilla de ARM), puede obtener una vista previa de los cambios que se producirán. Azure Resource Manager proporciona la operación hipotética que le permite ver cómo cambiarán los recursos si implementa la plantilla. La operación hipotética no realiza ningún cambio en los recursos existentes. En su lugar, predice los cambios si se implementa la plantilla especificada.
 
 Puede usar la operación what-if con Azure PowerShell, la CLI de Azure o las operaciones de la API REST. La operación what-if se admite en las implementaciones de grupos de recursos, nivel de suscripción, grupos de administración e inquilinos.
+
+### <a name="microsoft-learn"></a>Microsoft Learn
+
+Para más información sobre las operaciones hipotéticas y para obtener una guía práctica, consulte el módulo [Vista previa de los cambios de implementación de Azure mediante el uso de hipótesis](/learn/modules/arm-template-whatif) en **Microsoft Learn**.
 
 ## <a name="install-azure-powershell-module"></a>Instalación del módulo de Azure PowerShell
 

@@ -4,15 +4,15 @@ titleSuffix: Azure Digital Twins
 description: Vea cómo recuperar, actualizar y eliminar relaciones y gemelos individuales.
 author: baanders
 ms.author: baanders
-ms.date: 10/21/2020
+ms.date: 9/13/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 0873d6f0bfff73fc0bdc44ce90b322af23d4df28
-ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
+ms.openlocfilehash: 4be8ef1085d6a940e7f2d95f43a75d1b4e7c11f8
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122835738"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128611701"
 ---
 # <a name="manage-digital-twins"></a>Administración de Digital Twins
 
@@ -40,14 +40,13 @@ Para crear un gemelo, use el método `CreateOrReplaceDigitalTwinAsync()` en el c
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="CreateTwinCall":::
 
 Para crear un gemelo digital, debe proporcionar lo siguiente:
-* El identificador deseado para el gemelo digital, que se va a definir en esta fase.
+* Un valor de identificador que quiere asignar al gemelo digital (definirá ese identificador al crear el gemelo).
 * El [modelo](concepts-models.md) que quiere usar.
-
-Opcionalmente, puede proporcionar los valores iniciales de todas las propiedades del gemelo digital. Las propiedades se tratan como opcionales y se pueden establecer más adelante, pero **no aparecerán como parte de un gemelo hasta que se hayan establecido.**
-
->[!NOTE]
->Aunque no es necesario inicializar las propiedades del gemelo, los [componentes](concepts-models.md#elements-of-a-model) del gemelo **deben** establecerse cuando se crea este. Aunque pueden ser objetos vacíos, los componentes en sí deben existir.
-
+* Cualquier inicialización deseada de datos de gemelos, incluido...
+    - Propiedades (opcionales para inicializar): si quiere, puede establecer valores iniciales para las propiedades del gemelo digital. Las propiedades se tratan como opcionales y se pueden establecer más adelante, pero tenga en cuenta que **no aparecerán como parte de un gemelo hasta que se hayan establecido**.
+    - Telemetría (se recomienda inicializar): también puede establecer valores iniciales para los campos de telemetría en el gemelo. Aunque no es necesario inicializar la telemetría, los campos de telemetría tampoco se mostrarán como parte de un gemelo hasta que se hayan establecido. Esto significa que **no podrá editar los valores de telemetría de un gemelo a menos que primero se hayan inicializado**.
+    - Componentes (necesarios para inicializar si están presentes en el gemelo): si el gemelo contiene algún [componente](concepts-models.md#elements-of-a-model), se tendrán que inicializar al crearlo. Pueden ser objetos vacíos, pero los componentes en sí deben existir.
+    
 El modelo y los valores iniciales de las propiedades se proporcionan mediante el parámetro `initData`, que es una cadena JSON que contiene los datos pertinentes. Para más información sobre cómo estructurar este objeto, vaya a la sección siguiente.
 
 > [!TIP]
@@ -146,7 +145,7 @@ Puede obtener más información sobre las clases auxiliares de serialización co
 
 ## <a name="view-all-digital-twins"></a>Visualización de todos los gemelos digitales
 
-Para ver todos los gemelos digitales de la instancia, use una [consulta](how-to-query-graph.md). Puede ejecutar una consulta con las [API de consulta](/rest/api/digital-twins/dataplane/query) o los [comandos de la CLI](/cli/azure/dt?view=azure-cli-latest&preserve-view=true).
+Para ver todos los gemelos digitales de la instancia, use una [consulta](how-to-query-graph.md). Puede ejecutar una consulta con las [API de consulta](/rest/api/digital-twins/dataplane/query) o los [comandos de la CLI](/cli/azure/dt/twin?view=azure-cli-latest&preserve-view=true#az_dt_twin_query).
 
 Este es el cuerpo de la consulta básica que devolverá una lista de todos los gemelos digitales en la instancia:
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/21/2021
 ms.author: jeedes
-ms.openlocfilehash: 8dd140b65e1ad4940d207011014f4e6d4e28bc7d
-ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
+ms.openlocfilehash: fd1447abfeab0cd7ab77df42fff19e092713e156
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114603066"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128604753"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zeroheight"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con zeroheight
 
@@ -84,15 +84,16 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     > [!NOTE]
     > Estos valores no son reales. Actualice estos valores con el identificador y la URL de respuesta reales. Póngase en contacto con el [equipo de soporte técnico al cliente de zeroheight](mailto:support@zeroheight.com) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
-1. La aplicación zeroheight espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token SAML. La siguiente captura de muestra la lista de atributos predeterminados.
+1. La aplicación zeroheight espera las aserciones de SAML en un formato específico y requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token SAML. Busque la siguiente sección con los atributos predeterminados.
 
-    ![imagen](common/default-attributes.png)
+    ![image](common/default-attributes.png)
 
-1. Además de lo anterior, la aplicación zeroheight espera que se devuelvan algunos atributos más, que se muestran a continuación, en la respuesta SAML. Estos atributos también se rellenan previamente, pero puede revisarlos según sus requisitos.
+1. zeroheight no usa ninguno de los atributos predeterminados. En su lugar, agregue los siguientes atributos para que se vuelvan a pasar en la respuesta de SAML. Estos atributos también se deberían haber rellenado previamente, pero los puede revisar según sus requisitos.
     
     | Nombre |  Atributo de origen|
     | ---------- | --------- |
     | email | user.mail |
+    | Nombre | user.givenname |
 
 1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en el botón de copia para copiar la **Dirección URL de metadatos de federación de aplicación** y guárdela en su equipo.
 
@@ -138,7 +139,7 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 * Vaya directamente a la dirección URL de inicio de sesión de zeroheight e inicie el flujo de inicio de sesión desde allí.
 
-* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de zeroheight en Mis aplicaciones, se le redirigirá a la dirección URL de inicio de sesión de zeroheight. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de zeroheight en Mis aplicaciones, se le redirigirá a la dirección URL de inicio de sesión de zeroheight. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

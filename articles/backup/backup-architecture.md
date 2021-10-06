@@ -3,12 +3,12 @@ title: Introducción a la arquitectura
 description: Proporciona información general sobre la arquitectura, los componentes y los procesos usados por el servicio Azure Backup.
 ms.topic: conceptual
 ms.date: 09/01/2021
-ms.openlocfilehash: 2523d0fc9a8e4843fc0d3d41b5ed35c89bace325
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 8b4ea499766349b3a5ebee340f17f5584303ae16
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123430385"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129361842"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Arquitectura y componentes de Azure Backup
 
@@ -89,7 +89,7 @@ En la tabla siguiente se explican los distintos tipos de copias de seguridad que
 | --- | --- | --- |
 | **Copia de seguridad completa** | una copia de seguridad completa de la base de datos realiza una copia de seguridad de toda la base de datos. Este tipo de copia de seguridad se puede usar de forma independiente para realizar la restauración a un punto específico. | A lo sumo, puede programar una copia de seguridad completa al día. <br><br> Puede elegir programar una copia de seguridad completa en un intervalo diario o semanal. |
 | **Copia de seguridad diferencial**: | la copia de seguridad diferencial se basa en la copia de seguridad de datos completa anterior más reciente. <br><br> Captura solo los datos que han cambiado desde la copia de seguridad completa anterior. | A lo sumo, puede programar una copia de seguridad diferencial al día.  <br><br> No se puede configurar una copia de seguridad completa y una copia de seguridad diferencial en el mismo día. |
-| **Copia de seguridad incremental** | Una copia de seguridad incremental se basa en la copia de seguridad completa, diferencial o incremental más reciente. <br><br> Captura solo los datos que han cambiado desde esta copia de seguridad de datos anterior. | A lo sumo, puede programar una única copia de seguridad incremental al día. <br><br> No se pueden programar copias de seguridad diferenciales e incrementales en una base de datos, solo se puede programar un tipo de copia de seguridad diferencial. <br><br> No se puede configurar una copia de seguridad completa y una copia de seguridad diferencial en el mismo día. |k
+| **Copia de seguridad incremental** | Una copia de seguridad incremental se basa en la copia de seguridad completa, diferencial o incremental más reciente. <br><br> Captura solo los datos que han cambiado desde esta copia de seguridad de datos anterior. | A lo sumo, puede programar una única copia de seguridad incremental al día. <br><br> No se pueden programar copias de seguridad diferenciales e incrementales en una base de datos, solo se puede programar un tipo de copia de seguridad diferencial. <br><br> No se puede configurar una copia de seguridad completa y una copia de seguridad diferencial en el mismo día. |
 | **Copia de seguridad del registro de transacciones**: | una copia de seguridad de registros permite realizar la restauración a un momento dado con una precisión de un segundo. | A lo sumo, puede configurar las copias de seguridad del registro de transacciones cada 15 minutos. |
 
 ## <a name="comparison-of-backup-types"></a>Comparación de tipos de copia de seguridad

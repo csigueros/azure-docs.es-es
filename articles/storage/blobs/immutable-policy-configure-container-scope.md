@@ -10,16 +10,16 @@ ms.date: 08/16/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 2aeedab7e8ec7204137ec12fdcc049c0ad01881f
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 3a28699af7167bfbc6ffd9a00d64b4fbfd593693
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128606292"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129389387"
 ---
 # <a name="configure-immutability-policies-for-containers"></a>Configuración de directivas de inmutabilidad para contenedores
 
-El almacenamiento inmutable para Azure Blob Storage permite a los usuarios almacenar datos críticos para la empresa en un estado WORM (escribir una vez, leer muchas). Mientras los datos se encuentran en estado WORM, no se pueden modificar ni eliminar durante un intervalo especificado por el usuario. Con la configuración de directivas de inmutabilidad para los datos de blobs, puede impedir que sus datos se sobrescriban y eliminen. Las directivas de inmutabilidad incluyen directivas de retención de duración definida y suspensiones legales. Para más información sobre las directivas de inmutabilidad de Blob Storage, consulte [Almacenamiento de datos críticos para la empresa con almacenamiento inmutable](immutable-storage-overview.md).
+El almacenamiento inmutable para Azure Blob Storage permite a los usuarios almacenar datos críticos para la empresa en un estado WORM (escribir una vez, leer muchas). Mientras los datos se encuentran en estado WORM, no se pueden modificar ni eliminar durante un intervalo especificado por el usuario. Con la configuración de directivas de inmutabilidad para los datos de blobs, puede impedir que sus datos se sobrescriban y eliminen. Las directivas de inmutabilidad incluyen directivas de retención de duración definida y suspensiones legales. Para obtener más información sobre las directivas de inmutabilidad de Blob Storage, consulte [Almacenamiento de datos críticos para la empresa con almacenamiento inmutable](immutable-storage-overview.md).
 
 Una directiva de inmutabilidad puede tener como ámbito una determinada versión de blob (versión preliminar) o un contenedor. En este artículo se describe cómo configurar una directiva de inmutabilidad para contenedores. Para obtener información sobre cómo configurar directivas de inmutabilidad para versiones, consulte [Configuración de directivas de inmutabilidad para versiones de blob (versión preliminar)](immutable-policy-configure-version-scope.md).
 
@@ -60,8 +60,8 @@ Set-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName <resource-group> `
 Para configurar una directiva de retención de duración definida en un contenedor con la CLI de Azure, llame al comando [az storage container immutability-policy create](/cli/azure/storage/container/immutability-policy#az_storage_container_immutability_policy_create) y proporcione el intervalo de retención en días. No olvide reemplazar los valores del marcador de posición entre corchetes angulares por sus propios valores:
 
 ```azurecli
-az storage container immutability-policy \
-    --resource-group <resource-group>
+az storage container immutability-policy create \
+    --resource-group <resource-group> \
     --account-name <storage-account> \
     --container-name <container> \
     --period 10
@@ -121,14 +121,14 @@ Remove-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName <resource-group
 Para modificar una directiva de retención de duración definida desbloqueada con la CLI de Azure, llame al comando [az storage container immutability-policy extend](/cli/azure/storage/container/immutability-policy#az_storage_container_immutability_policy_extend) y proporcione el nuevo intervalo de retención en días. No olvide reemplazar los valores del marcador de posición entre corchetes angulares por sus propios valores:
 
 ```azurecli
-$etag=$(az storage container immutability-policy show /
-        --account-name <storage-account> /
-        --container-name <container> /
-        --query etag /
+$etag=$(az storage container immutability-policy show \
+        --account-name <storage-account> \
+        --container-name <container> \
+        --query etag \
         --output tsv)
 
-az storage container immutability-policy \
-    --resource-group <resource-group>
+az storage container immutability-policy extend \
+    --resource-group <resource-group> \
     --account-name <storage-account> \
     --container-name <container> \
     --period 21 \
@@ -176,16 +176,16 @@ Lock-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName <resource-group> 
 Para bloquear una directiva con la CLI de Azure, primero llame al comando [az storage container immutability-policy show](/cli/azure/storage/container/immutability-policy#az_storage_container_immutability_policy_show) para recuperar la etiqueta de entidad de la directiva. A continuación, llame al comando [az storage container immutability-policy lock](/cli/azure/storage/container/immutability-policy#az_storage_container_immutability_policy_lock) y pase el valor de la etiqueta de entidad para bloquear la directiva. No olvide reemplazar los valores del marcador de posición entre corchetes angulares por sus propios valores:
 
 ```azurecli
-$etag=$(az storage container immutability-policy show /
-        --account-name <storage-account> /
-        --container-name <container> /
-        --query etag /
+$etag=$(az storage container immutability-policy show \
+        --account-name <storage-account> \
+        --container-name <container> \
+        --query etag \
         --output tsv)
 
-az storage container immutability-policy lock /
-    --resource-group <resource-group> /
-    --account-name <storage-account> /
-    --container-name <container> /
+az storage container immutability-policy lock \
+    --resource-group <resource-group> \
+    --account-name <storage-account> \
+    --container-name <container> \
     --if-match $etag
 ```
 
@@ -235,20 +235,20 @@ Remove-AzRmStorageContainerLegalHold -ResourceGroupName <resource-group> `
 Para configurar una suspensión legal en un contenedor con la CLI de Azure, llame al comando [az storage container legal-hold set](/cli/azure/storage/container/legal-hold#az_storage_container_legal_hold_set). No olvide reemplazar los valores del marcador de posición entre corchetes angulares por sus propios valores:
 
 ```azurecli
-az storage container legal-hold set /
-    --tags tag1 tag2 /
-    --container-name <container> /
-    --account-name <storage-account> /
+az storage container legal-hold set \
+    --tags tag1 tag2 \
+    --container-name <container> \
+    --account-name <storage-account> \
     --resource-group <resource-group>
 ```
 
 Para borrar una suspensión legal, llame al comando [az storage container legal-hold clear](/cli/azure/storage/container/legal-hold#az_storage_container_legal_hold_clear):
 
 ```azurecli
-az storage container legal-hold clear /
-    --tags tag1 tag2 /
-    --container-name <container> /
-    --account-name <storage-account> /
+az storage container legal-hold clear \
+    --tags tag1 tag2 \
+    --container-name <container> \
+    --account-name <storage-account> \
     --resource-group <resource-group>
 ```
 

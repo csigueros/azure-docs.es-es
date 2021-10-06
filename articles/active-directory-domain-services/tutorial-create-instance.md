@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/01/2021
+ms.date: 09/15/2021
 ms.author: justinha
-ms.openlocfilehash: 3ff8ffe39a84f9a1eeddd7de01ad8db44f73d52c
-ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
+ms.openlocfilehash: 2080cf50a5837b2b4347f03a77496f5d6215e958
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "112199185"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128605399"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-managed-domain"></a>Tutorial: Creación y configuración de un dominio administrado de Azure Active Directory Domain Services
 
@@ -41,11 +41,12 @@ Para completar este tutorial, necesitará los siguientes recursos y privilegios:
     * Si es necesario, [cree un inquilino de Azure Active Directory][create-azure-ad-tenant] o [asocie una suscripción a Azure con su cuenta][associate-azure-ad-tenant].
 * Necesita privilegios de *administrador global* en el inquilino de Azure AD para habilitar Azure AD DS.
 * Necesita privilegios de *colaborador* en la suscripción de Azure para crear los recursos de Azure AD DS necesarios.
+* Una red virtual con servidores DNS que pueden consultar la infraestructura necesaria, como el almacenamiento. Los servidores DNS que no pueden realizar consultas generales de Internet pueden impedir la capacidad de crear un dominio administrado. 
 
 Aunque no es necesario para Azure AD DS, se recomienda [configurar el autoservicio de restablecimiento de contraseña (SSPR) ][configure-sspr] para el inquilino de Azure AD. Los usuarios pueden cambiar su contraseña sin SSPR, pero este les ayuda si olvidan la contraseña y necesitan restablecerla.
 
 > [!IMPORTANT]
-> Después de crear un dominio administrado, no puede trasladarlo a otro grupo de recursos, red virtual, suscripción, etc. Tenga cuidado a la hora de seleccionar la suscripción, el grupo de recursos, la región y la red virtual más adecuados al implementar el dominio administrado.
+> No puede trasladar el dominio administrado a otra suscripción, grupo de recursos, región, red virtual o subred después de crearlo. Tenga cuidado a la hora de seleccionar la suscripción, el grupo de recursos, la región, la red virtual y la subred más adecuados al implementar el dominio administrado.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 

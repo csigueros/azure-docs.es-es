@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 06/14/2021
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, contperf-fy21q1, contperf-fy21q2, contperf-fy21q4
-ms.openlocfilehash: 340e7f1b026605a06799dcc79f9fe99e2ad080cf
-ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
+ms.openlocfilehash: c608856e6238844638e63c3a719b3d534b98d33b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112578962"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128615327"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Inicio rápido: Registro de una aplicación en la plataforma de identidad de Microsoft
 
@@ -43,7 +43,7 @@ El registro de la aplicación establece una relación de confianza entre la apli
 Siga estos pasos para crear el registro de la aplicación:
 
 1. Inicie sesión en <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>.
-1. Si tiene acceso a varios inquilinos, use el filtro **Directorio + suscripción** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: del menú superior para seleccionar el inquilino donde desea registrar una aplicación.
+1. Si tiene acceso a varios inquilinos, use el filtro **Directorios y suscripciones** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: del menú superior para ir al inquilino en el que quiere registrar la aplicación.
 1. Busque y seleccione **Azure Active Directory**.
 1. En **Administrar**, seleccione **Registros de aplicaciones** >  y, luego, **Nuevo registro**.
 1. Escriba un **Nombre** para mostrar para la aplicación. Los usuarios de la aplicación pueden ver el nombre para mostrar cuando usan la aplicación, por ejemplo, durante el inicio de sesión.
@@ -65,7 +65,7 @@ Siga estos pasos para crear el registro de la aplicación:
 Cuando finaliza el registro, en Azure Portal se muestra el panel **Información general** del registro de la aplicación. Verá el **id. de aplicación (cliente)** . Este valor, también conocido como _Id. de cliente_, identifica de forma única la aplicación en la plataforma de identidad de Microsoft.
 
 > [!IMPORTANT]
-> De forma predeterminada, los nuevos registros de aplicaciones están ocultos a los usuarios. Cuando esté listo para que los usuarios puedan ver la aplicación en su [página Mis aplicaciones](../user-help/my-apps-portal-end-user-access.md), puede habilitarla. Para habilitar la aplicación, en Azure Portal vaya a **Azure Active Directory** > **Aplicaciones empresariales** y seleccione la aplicación. Después, en la página **Propiedades**, cambie **¿Es visible para los usuarios?** a Sí.
+> De forma predeterminada, los nuevos registros de aplicaciones están ocultos a los usuarios. Cuando esté listo para que los usuarios puedan ver la aplicación en su [página Mis aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510), puede habilitarla. Para habilitar la aplicación, en Azure Portal vaya a **Azure Active Directory** > **Aplicaciones empresariales** y seleccione la aplicación. Después, en la página **Propiedades**, cambie **¿Es visible para los usuarios?** a Sí.
 
 El código de la aplicación, o lo que es más común, una biblioteca de autenticación que se usa en la aplicación, también se sirve del identificador de cliente. El identificador forma parte de la validación de los tokens de seguridad que recibe de la plataforma de identidad.
 

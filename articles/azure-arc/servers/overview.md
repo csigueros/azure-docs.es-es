@@ -3,12 +3,12 @@ title: Introducción a los servidores habilitados para Azure Arc
 description: Aprenda a usar los servidores habilitados para Azure Arc para administrar servidores hospedados fuera de Azure como un recurso de Azure.
 ms.date: 08/27/2021
 ms.topic: overview
-ms.openlocfilehash: 2a6ed9eb865ed588653cd9ce5a41863af2db6de4
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 5bca2ec2bdf46f27ca83c4747c5ecb5688fa1708
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123108723"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124807150"
 ---
 # <a name="what-is-azure-arc-enabled-servers"></a>¿Qué son los servidores habilitados para Azure Arc?
 
@@ -39,13 +39,13 @@ Si conecta la máquina a servidores habilitados para Azure Arc, podrá realizar 
 | Azure Monitor | Supervise el rendimiento del sistema operativo invitado de la máquina conectada y detecte los componentes de la aplicación para supervisar sus procesos y dependencias con otros recursos mediante [Insights para VM](../../azure-monitor/vm/vminsights-overview.md). Recopile otros datos de registro del sistema operativo o las cargas de trabajo que se ejecutan en la máquina, como los datos de rendimiento y los eventos, con el [agente de Log Analytics](../../azure-monitor/agents/agents-overview.md#log-analytics-agent). Estos datos se guardan en un [área de trabajo de Log Analytics](../../azure-monitor/logs/design-logs-deployment.md). |
 
 > [!NOTE]
-> Actualmente, no se puede habilitar Update Management en Azure Automation directamente desde un servidor habilitado para Arc. Consulte [Habilitación de Update Management desde una cuenta de Automation](../../automation/update-management/enable-from-automation-account.md) para saber más sobre los requisitos y cómo habilitarlo para el servidor.
+> Actualmente, no se puede habilitar Update Management de Azure Automation directamente desde un servidor habilitado para Azure Arc. Consulte [Habilitación de Update Management desde una cuenta de Automation](../../automation/update-management/enable-from-automation-account.md) para saber más sobre los requisitos y cómo habilitarlo para el servidor.
 
 Los datos de registro que se recopilan y se almacenan en un área de trabajo de Log Analytics desde la máquina híbrida ahora contienen propiedades específicas de la máquina, como un identificador de recurso, para permitir el acceso a los registros en el [contexto del recurso](../../azure-monitor/logs/design-logs-deployment.md#access-mode).
 
 [!INCLUDE [azure-lighthouse-supported-service](../../../includes/azure-lighthouse-supported-service.md)]
 
-Para más información sobre el uso de los servidores compatibles con Arc en la implementación de servicios de supervisión, seguridad y actualización de Azure en entornos híbridos y multinube, vea el vídeo siguiente.
+Para más información sobre el uso de los servidores habilitados para Azure Arc en la implementación de servicios de supervisión, seguridad y actualización de Azure en entornos híbridos y multinube, vea el vídeo siguiente.
 
 > [!VIDEO https://www.youtube.com/embed/mJnmXBrU1ao]
 
@@ -66,10 +66,10 @@ Por ejemplo, si la máquina se registra en Azure Arc en la región Este de EE. 
 
 ### <a name="supported-environments"></a>Entornos admitidos
 
-Los servidores habilitados para Arc permiten la administración de servidores físicos y máquinas virtuales hospedados *fuera* de Azure. Para obtener detalles concretos sobre qué entornos de nube híbrida que hospedan máquinas virtuales se admiten, vea [Requisitos previos del agente de Azure Connected Machine](agent-overview.md#supported-environments).
+Los servidores habilitados para Azure Arc admiten la administración de servidores físicos y máquinas virtuales hospedados *fuera* de Azure. Para obtener detalles concretos sobre qué entornos de nube híbrida que hospedan máquinas virtuales se admiten, vea [Requisitos previos del agente de Azure Connected Machine](agent-overview.md#supported-environments).
 
 > [!NOTE]
-> Los servidores habilitados para Arc no están diseñados para la administración de máquinas virtuales que se ejecutan en Azure, ni la permiten.
+> Los servidores habilitados para Azure Arc no están diseñados para la administración de máquinas virtuales que se ejecutan en Azure, ni la permiten.
 
 ### <a name="agent-status"></a>Estado del agente
 
@@ -77,6 +77,6 @@ El agente Connected Machine envía un mensaje de latido al servicio cada 5 minut
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Antes de evaluar o habilitar los servidores habilitados para Arc en varias máquinas híbridas, consulte la [introducción al agente de Connected Machine](agent-overview.md) para conocer los requisitos y detalles técnicos del agente y los métodos de implementación.
+* Antes de evaluar o habilitar los servidores habilitados para Azure Arc en varias máquinas híbridas, consulte la [introducción al agente de Connected Machine](agent-overview.md) para conocer los requisitos y detalles técnicos del agente y los métodos de implementación.
 
 * Examine la [guía de planeamiento e implementación](plan-at-scale-deployment.md) para planear la implementación de servidores habilitados para Azure Arc a cualquier escala e implementar la administración y supervisión centralizadas.

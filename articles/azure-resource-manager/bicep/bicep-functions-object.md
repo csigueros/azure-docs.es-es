@@ -4,24 +4,17 @@ description: Se describen las funciones que se usarán en un archivo Bicep para 
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 06/01/2021
-ms.openlocfilehash: cc83fcce125a045bbff05147ad22be46a085fe22
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.date: 09/10/2021
+ms.openlocfilehash: fd65cc60412d46a734764d3566fa3606a48c7bf6
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "111027101"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124758453"
 ---
 # <a name="object-functions-for-bicep"></a>Funciones de objeto para Bicep
 
-Resource Manager ofrece varias funciones para trabajar con objetos en el archivo Bicep:
-
-* [contains](#contains)
-* [empty](#empty)
-* [intersection](#intersection)
-* [json](#json)
-* [length](#length)
-* [union](#union)
+En este artículo se describen las funciones de Bicep para trabajar con objetos.
 
 ## <a name="contains"></a>contains
 
@@ -333,4 +326,4 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Puede encontrar una descripción de las secciones de un archivo Bicep en [Nociones sobre la estructura y la sintaxis de los archivos Bicep](./file.md).
+* Puede encontrar una descripción de las secciones de un archivo de Bicep en [Nociones sobre la estructura y la sintaxis de los archivos de Bicep](./file.md).

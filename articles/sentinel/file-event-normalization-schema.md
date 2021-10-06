@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 06/22/2021
 ms.author: bagol
-ms.openlocfilehash: 37671dcb12f2ed1f230e236d68dcf2e6a49bae30
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
+ms.openlocfilehash: da4412d81dfaf6bb88b62aee26dfcd4cfd2402db
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122515495"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124810125"
 ---
 # <a name="azure-sentinel-file-event-normalization-schema-reference-public-preview"></a>Referencia del esquema de normalización de eventos de archivos de Azure Sentinel (Versión preliminar pública)
 
@@ -54,15 +54,15 @@ Al implementar analizadores personalizados para el modelo de información de eve
 
 Agregue la función KQL al analizador independiente del origen `imFileEvent` para asegurarse de que cualquier contenido que use el modelo de eventos de archivos también use el nuevo analizador.
 
-## <a name="normalized-content-for-process-activity-data"></a>Contenido normalizado para datos de actividad de proceso
+## <a name="normalized-content-for-file-activity-data"></a>Contenido normalizado para datos de actividad de archivo
 
-La compatibilidad con el esquema ASIM de actividad de archivos también incluye compatibilidad con las siguientes reglas de análisis integradas con analizadores de autenticación normalizados. Aunque a continuación se proporcionan vínculos al repositorio de GitHub de Azure Sentinel como referencia, también puede encontrar estas reglas en la [galería de reglas de Azure Sentinel Analytics](detect-threats-built-in.md). Use las páginas de GitHub vinculadas para copiar las consultas de búsqueda pertinentes para las reglas indicadas.
+La compatibilidad con el esquema ASIM de actividad de archivos también incluye compatibilidad con las siguientes reglas de análisis integradas con analizadores de actividad de archivos normalizados. Aunque a continuación se proporcionan vínculos al repositorio de GitHub de Azure Sentinel como referencia, también puede encontrar estas reglas en la [galería de reglas de Azure Sentinel Analytics](detect-threats-built-in.md). Use las páginas de GitHub vinculadas para copiar las consultas de búsqueda pertinentes para las reglas indicadas.
 
 
 - [Hashes de puerta trasera SUNBURST y SUPERNOVA (eventos de archivos normalizados)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimFileEvent/imFileESolarWindsSunburstSupernova.yaml)
-- [Vulnerabilidades de Exchange Server reveladas en marzo de 2021, coincidencia de IoC](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/ExchangeServerVulnerabilitiesMarch2021IoCs.yaml)
-- [Servicio HAFNIUM UM que escribe un archivo sospechoso](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/HAFNIUMUmServiceSuspiciousFile.yaml)
-- [NOBELIUM: IoC de dominio, hash e IP (mayo de 2021)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/NOBELIUM_IOCsMay2021.yaml)
+- [Vulnerabilidades del servidor Exchange divulgadas en marzo de 2021 sobre coincidencias de IoC](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/ExchangeServerVulnerabilitiesMarch2021IoCs.yaml)
+- [El servicio HAFNIUM UM escribe un archivo sospechoso.](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/HAFNIUMUmServiceSuspiciousFile.yaml)
+- [NOBELIUM: IOC de dominio, hash e IP (mayo de 2021)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/NOBELIUM_IOCsMay2021.yaml)
 - [Creación de archivos de registro de SUNSPOT](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/SUNSPOTLogFile.yaml)
 - [Hashes de malware conocidos de Comebacker y Klackring de ZINC](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/ZincJan272021IOCs.yaml)
 
@@ -81,6 +81,7 @@ Log Analytics genera los siguientes campos para cada registro y se pueden invali
 | ------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
 | <a name="timegenerated"></a>**TimeGenerated** | datetime | Hora a la que el dispositivo de informes generó el evento.|
 | **_ResourceId**   | guid     | Id. de recurso de Azure del dispositivo o servicio de informes, o bien Id. de recurso del reenviador de registros para los eventos reenviados mediante Syslog, CEF o WEF. |
+| **Tipo** | String | Tabla original de la que se ha obtenido el registro. Este campo es útil cuando el mismo evento se puede recibir a través de varios canales en tablas diferentes y tienen los mismos valores EventVendor y EventProduct.<br><br>Por ejemplo, un evento Sysmon se puede recopilar en la tabla Event o en la tabla WindowsEvent. |
 | | | |
 
 > [!NOTE]
@@ -101,7 +102,7 @@ Los campos del evento son comunes a todos los esquemas y describen la propia act
 | **EventResult**         | Mandatory   | Enumerated |  Describe el resultado del evento, normalizado en uno de los siguientes valores admitidos: <br><br>- `Success`<br>- `Partial`<br>- `Failure`<br>- `NA` (no aplicable) <br><br>El origen solo puede proporcionar un valor para el campo [EventOriginalResultDetails](#eventoriginalresultdetails), que se debe analizar para obtener el valor **EventResult**. |
 | <a name="eventoriginalresultdetails"></a>**EventOriginalResultDetails**  | Opcional    | String     | Describe el resultado del evento. <br><br>**Nota:** Este valor no está normalizado y tiene la finalidad de contener el valor original proporcionado por el origen de datos. Actualmente no hay ningún campo normalizado relacionado, como *EventResultDetails*, para el esquema de normalización de eventos de archivos. |
 | **EventOriginalUid**    | Opcional    | String     | Id. único del registro original, si lo proporciona el origen.<br><br>Ejemplo: `69f37748-ddcd-4331-bf0f-b137f1ea83b`|
-| **EventOriginalType**   | Opcional    | String     | El tipo o identificador del evento original, si lo proporciona el origen.<br><br>Ejemplo: `4663`|
+| **EventOriginalType**   | Opcional    | String     | Tipo o Id. del evento original, si lo proporciona el origen.<br><br>Ejemplo: `4663`|
 | <a name ="eventproduct"></a>**EventProduct**       | Mandatory   | String     | Producto que genera el evento. <br><br>Ejemplo: `Sysmon`<br><br>**Nota:** Es posible que este campo no esté disponible en el registro de origen. En tales casos, el analizador debe establecer este campo.           |
 | **EventProductVersion** | Opcional    | String     | Versión del producto que genera el evento. <br><br>Ejemplo: `12.1`<br><br>**Nota:** Es posible que este campo no esté disponible en el registro de origen. En tales casos, el analizador debe establecer este campo.           |
 | **EventVendor**         | Mandatory   | String     | Proveedor del producto que genera el evento. <br><br>Ejemplo: `Microsoft`  <br><br>**Nota:** Es posible que este campo no esté disponible en el registro de origen. En tales casos, el analizador debe establecer este campo.  |

@@ -3,12 +3,12 @@ title: Referencia de variables de entorno y configuración de la aplicación
 description: Describe las variables de entorno que se usan habitualmente y cuáles se pueden modificar con la configuración de la aplicación.
 ms.topic: article
 ms.date: 06/14/2021
-ms.openlocfilehash: b4be8fde0e771414d8b637af0c2aed33eeb48123
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: d3c34f64aa4e13fe0dce371d9848f6422e7b1f63
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124816014"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129399819"
 ---
 # <a name="environment-variables-and-app-settings-in-azure-app-service"></a>Variables de entorno y configuración de la aplicación en Azure App Service
 
@@ -571,6 +571,9 @@ Las siguientes variables de entorno están relacionadas con la característica d
 | `WEBSITE_PUSH_TAG_WHITELIST` | Solo lectura. Contiene las etiquetas del registro de la notificación. |
 | `WEBSITE_PUSH_TAGS_REQUIRING_AUTH` | Solo lectura. Contiene una lista de las etiquetas del registro de la notificación que requieren la autenticación del usuario. |
 | `WEBSITE_PUSH_TAGS_DYNAMIC` | Solo lectura. Contiene una lista de las etiquetas del registro de la notificación que se han agregado automáticamente. | 
+
+>[!NOTE]
+> Este artículo contiene referencias al término *lista blanca*, un término que Microsoft ya no usa. Cuando se quite el término del software, se quitará también del artículo.
 
 <!-- 
 ## WellKnownAppSettings

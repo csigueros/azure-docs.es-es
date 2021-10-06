@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
 ms.date: 06/07/2021
-ms.openlocfilehash: 5b86ab130f10836371d0a9cd0defdc2abafd3e40
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: e3ed05264ab942383d2828384d36f2a5817ddbe6
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121737005"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124806043"
 ---
 # <a name="branching-and-chaining-activities-in-an-azure-data-factory-pipeline-using-the-azure-portal"></a>Bifurcación y encadenamiento de actividades en una canalización de Azure Data Factory mediante Azure Portal
 
@@ -21,7 +21,7 @@ ms.locfileid: "121737005"
 
 En este tutorial, creará una canalización de Data Factory que muestra algunas de las características del flujo de control. Esta canalización realiza una copia simple de un contenedor en Azure Blob Storage a otro contenedor de la misma cuenta de almacenamiento. Si la actividad de copia se realiza correctamente, la canalización envía los detalles de la operación de copia correcta (por ejemplo, la cantidad de datos escritos) en un correo electrónico de operación correcta. Si se produce un error en la actividad de copia, la canalización envía los detalles del error de copia (por ejemplo, el mensaje de error) en un correo electrónico de operación incorrecta. A lo largo del tutorial, verá cómo pasar parámetros.
 
-Información general del escenario: ![En el diagrama se muestra Azure Blob Storage, que es el destino de una copia que, si se ejecuta correctamente, envía un correo electrónico con los detalles o, en caso de error, envía un correo electrónico con los detalles del error.](media/tutorial-control-flow-portal/overview.png)
+Información general del escenario: :::image type="content" source="media/tutorial-control-flow-portal/overview.png" alt-text="En el diagrama se muestra Azure Blob Storage, que es el destino de una copia que, si se ejecuta correctamente, envía un correo electrónico con los detalles o, en caso de error, envía un correo electrónico con los detalles del error.":::
 
 En este tutorial, realizará los siguientes pasos:
 
@@ -62,7 +62,7 @@ Para desencadenar el envío de un correo electrónico de la canalización, defin
 ### <a name="success-email-workflow"></a>Flujo de trabajo del correo electrónico de operación correcta
 Cree un flujo de trabajo de aplicación lógica denominado `CopySuccessEmail`. Defina el desencadenador del flujo de trabajo como `When an HTTP request is received` y agregue una acción de `Office 365 Outlook – Send an email`.
 
-![Flujo de trabajo del correo electrónico de operación correcta](media/tutorial-control-flow-portal/success-email-workflow.png)
+:::image type="content" source="media/tutorial-control-flow-portal/success-email-workflow.png" alt-text="Flujo de trabajo del correo electrónico de operación correcta":::
 
 Para el desencadenador de la solicitud, rellene `Request Body JSON Schema` con el JSON siguiente:
 
@@ -88,11 +88,11 @@ Para el desencadenador de la solicitud, rellene `Request Body JSON Schema` con e
 
 La solicitud del Diseñador de aplicación lógica debe parecerse a la imagen siguiente:
 
-![Diseñador de aplicación lógica: solicitud](media/tutorial-control-flow-portal/logic-app-designer-request.png)
+:::image type="content" source="media/tutorial-control-flow-portal/logic-app-designer-request.png" alt-text="Diseñador de aplicación lógica: solicitud":::
 
 Para la acción **Enviar correo electrónico**, personalice el formato del correo electrónico. Para ello, use las propiedades que se pasan en el esquema JSON del cuerpo de solicitud. Este es un ejemplo:
 
-![Diseñador de aplicación lógica: acción de envío de correo electrónico](media/tutorial-control-flow-portal/send-email-action-2.png)
+:::image type="content" source="media/tutorial-control-flow-portal/send-email-action-2.png" alt-text="Diseñador de aplicación lógica: acción de envío de correo electrónico":::
 
 Guarde el flujo de trabajo. Tome nota de la URL de solicitud POST HTTP para el flujo de trabajo del correo electrónico de operación correcta:
 
@@ -104,7 +104,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 ### <a name="fail-email-workflow"></a>Flujo de trabajo del correo electrónico de operación incorrecta
 Siga los mismos pasos para crear otro flujo de trabajo de Logic Apps de **CopyFailEmail**. En el desencadenador de solicitudes, `Request Body JSON schema` es el mismo. Cambie el formato del correo electrónico, por ejemplo, la parte `Subject`, para adaptarlo para que sea un correo electrónico de operación incorrecta. Este es un ejemplo:
 
-![Diseñador de aplicación lógica: flujo de trabajo del correo electrónico de operación incorrecta](media/tutorial-control-flow-portal/fail-email-workflow-2.png)
+:::image type="content" source="media/tutorial-control-flow-portal/fail-email-workflow-2.png" alt-text="Diseñador de aplicación lógica: flujo de trabajo del correo electrónico de operación incorrecta":::
 
 Guarde el flujo de trabajo. Tome nota de la URL de solicitud POST HTTP para el flujo de trabajo del correo electrónico de operación incorrecta:
 
@@ -128,11 +128,11 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 1. Inicie el explorador web **Microsoft Edge** o **Google Chrome**. Actualmente, la interfaz de usuario de Data Factory solo se admite en los exploradores web Microsoft Edge y Google Chrome.
 1. En el menú de la izquierda, seleccione **Crear un recurso** > **Datos y análisis** > **Data Factory**:
 
-   ![Selección de la factoría de datos en el panel Nuevo](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+   :::image type="content" source="./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png" alt-text="Selección de Data Factory en el &quot;Panel&quot; nuevo":::
 
 2. En la página **New data factory** (Nueva factoría de datos), escriba **ADFTutorialDataFactory** en **Name** (Nombre).
 
-     ![Página New data factory (Nueva factoría de datos)](./media/tutorial-control-flow-portal/new-azure-data-factory.png)
+     :::image type="content" source="./media/tutorial-control-flow-portal/new-azure-data-factory.png" alt-text="Página New data factory (Nueva factoría de datos)":::
 
    El nombre de la instancia de Azure Data Factory debe ser **único de forma global**. Si recibe el siguiente error, cambie el nombre de la factoría de datos (por ejemplo, yournameADFTutorialDataFactory) e intente crearlo de nuevo. Consulte el artículo [Azure Data Factory: reglas de nomenclatura](naming-rules.md) para conocer las reglas de nomenclatura de los artefactos de Data Factory.
 
@@ -151,10 +151,10 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 7. Haga clic en **Crear**.      
 8. En el panel, verá el icono siguiente con el estado: **Deploying data factory** (Implementación de la factoría de datos).
 
-    ![icono implementando factoría de datos](media/tutorial-control-flow-portal/deploying-data-factory.png)
+    :::image type="content" source="media/tutorial-control-flow-portal/deploying-data-factory.png" alt-text="icono implementando factoría de datos":::
 9. Una vez completada la creación, verá la página **Data Factory** tal como se muestra en la imagen.
 
-   ![Página principal Factoría de datos](./media/tutorial-control-flow-portal/data-factory-home-page.png)
+   :::image type="content" source="./media/tutorial-control-flow-portal/data-factory-home-page.png" alt-text="Página principal Factoría de datos":::
 10. Haga clic en el icono **Author & Monitor** (Creación y supervisión) para iniciar la interfaz de usuario de Azure Data Factory en una pestaña independiente.
 
 
@@ -168,47 +168,47 @@ En este paso se crea una canalización con una actividad de copia y dos activida
 
 1. En la página principal de la interfaz de usuario de Data Factory, haga clic en el icono **Orchestrate** (Organizar).  
 
-   ![Captura de pantalla que muestra la página principal de ADF.](./media/doc-common-process/get-started-page.png)
+   :::image type="content" source="./media/doc-common-process/get-started-page.png" alt-text="Captura de pantalla que muestra la página principal de ADF.":::
 3. En la ventana de propiedades de la canalización, cambie a la pestaña **Parameters** (Parámetros) y a use el botón **New** (Nuevo) para agregar los siguientes tres parámetros de tipo String: sourceBlobContainer, sinkBlobContainer y receiver.
 
     - **sourceBlobContainer**: parámetro de la canalización que consume el conjunto de datos del blob de origen.
     - **sinkBlobContainer**: parámetro de la canalización que consume el conjunto de datos del blob receptor.
     - **receiver**: parámetro que usan las dos actividades web de la canalización que envían correos electrónicos de operación correcta o incorrecta al receptor cuya dirección de correo electrónico especifica este parámetro.
 
-   ![Menú New pipeline (Nueva canalización)](./media/tutorial-control-flow-portal/pipeline-parameters.png)
+   :::image type="content" source="./media/tutorial-control-flow-portal/pipeline-parameters.png" alt-text="Menú New pipeline (Nueva canalización)":::
 4. En el cuadro de herramientas **Activities** (Actividades), expanda **Data Flow** (Flujo de datos), arrastre la actividad **Copy** (Copiar) y colóquela en la superficie del diseñador de canalizaciones.
 
-   ![Arrastrar y colocar la actividad de copia](./media/tutorial-control-flow-portal/drag-drop-copy-activity.png)
+   :::image type="content" source="./media/tutorial-control-flow-portal/drag-drop-copy-activity.png" alt-text="Arrastrar y colocar la actividad de copia":::
 5. En la ventana **Properties** (Propiedades) de la actividad **Copy** (Copia) de la parte inferior, cambie a la pestaña **Source** (origen) y haga clic en **+ New** (+ Nuevo). En este paso se crea un conjunto de datos de origen para la actividad de copia.
 
-   ![Captura de pantalla que muestra cómo crear un conjunto de datos de origen para la actividad de copia.](./media/tutorial-control-flow-portal/new-source-dataset-button.png)
+   :::image type="content" source="./media/tutorial-control-flow-portal/new-source-dataset-button.png" alt-text="Captura de pantalla que muestra cómo crear un conjunto de datos de origen para la actividad de copia.":::
 6. En la ventana **New Dataset** (Nuevo conjunto de datos), seleccione **Azure Blob Storage** y haga clic en **Finish** (Finalizar).
 
-   ![Seleccionar Azure Blob Storage](./media/tutorial-control-flow-portal/select-azure-blob-storage.png)
+   :::image type="content" source="./media/tutorial-control-flow-portal/select-azure-blob-storage.png" alt-text="Seleccionar Azure Blob Storage":::
 7. Verá una nueva **pestaña** titulada **AzureBlob1**. Cámbiele el nombre al conjunto de datos a **SourceBlobDataset**.
 
-   ![Configuración general del conjunto de datos](./media/tutorial-control-flow-portal/dataset-general-page.png)
+   :::image type="content" source="./media/tutorial-control-flow-portal/dataset-general-page.png" alt-text="Configuración general del conjunto de datos":::
 8. Cambie a la pestaña **Connection** (Conexión) de la ventana **Properties** (Propiedades) y haga clic en New (Nuevo) en **Linked service** (Servicio vinculado). En este paso se crea un servicio vinculado para vincular la cuenta de Azure Storage con la factoría de datos.
 
-   ![Conexión del conjunto de datos: nuevo servicio vinculado](./media/tutorial-control-flow-portal/dataset-connection-new-button.png)
+   :::image type="content" source="./media/tutorial-control-flow-portal/dataset-connection-new-button.png" alt-text="Conexión del conjunto de datos: nuevo servicio vinculado":::
 9. En la ventana **New Linked Service** (Nuevo servicio vinculado), realice los pasos siguientes:
 
     1. Escriba **AzureStorageLinkedService** en **Name** (Nombre).
     2. Seleccione la cuenta de Azure Storage en **Storage account name** (Nombre de la cuenta de Storage).
     3. Haga clic en **Save**(Guardar).
 
-   ![Nuevo servicio vinculado de Azure Storage](./media/tutorial-control-flow-portal/new-azure-storage-linked-service.png)
+   :::image type="content" source="./media/tutorial-control-flow-portal/new-azure-storage-linked-service.png" alt-text="Nuevo servicio vinculado de Azure Storage":::
 12. Escriba `@pipeline().parameters.sourceBlobContainer` para la carpeta y `emp.txt`, para el nombre de archivo. El parámetro de canalización sourceBlobContainer se usa para establecer la ruta de acceso de carpeta para el conjunto de datos.
 
-    ![Configuración del conjunto de datos de origen](./media/tutorial-control-flow-portal/source-dataset-settings.png)
+    :::image type="content" source="./media/tutorial-control-flow-portal/source-dataset-settings.png" alt-text="Configuración del conjunto de datos de origen":::
 
 13. Cambie a la pestaña **Pipeline** (Canalización) (o) haga clic en la canalización en la vista de árbol. Confirme que **SourceBlobDataset** está seleccionado en **Source Dataset** (Conjunto de datos de origen).
       
-   ![Conjunto de datos de origen](./media/tutorial-control-flow-portal/pipeline-source-dataset-selected.png)
+   :::image type="content" source="./media/tutorial-control-flow-portal/pipeline-source-dataset-selected.png" alt-text="Conjunto de datos de origen":::
 
 13. En la ventana de propiedades, cambie a la pestaña **Sink** (Receptor) y haga clic en **+ New** (+ Nuevo) en **Sink Dataset** (Conjunto de datos receptor). En este paso se crea un conjunto de datos receptor para la actividad de copia, de manera similar a la creación del conjunto de datos de origen.
 
-    ![Botón New sink dataset (Nuevo conjunto de datos receptor)](./media/tutorial-control-flow-portal/new-sink-dataset-button.png)
+    :::image type="content" source="./media/tutorial-control-flow-portal/new-sink-dataset-button.png" alt-text="Botón New sink dataset (Nuevo conjunto de datos receptor)":::
 14. En la ventana **New Dataset** (Nuevo conjunto de datos), seleccione **Azure Blob Storage** y haga clic en **Finish** (Finalizar).
 15. En la página de configuración **General** (General) del conjunto de datos, escriba **SinkBlobDataset** en **Name** (Nombre).
 16. Cambie a la pestaña **Connection** (Conexión) y realice los pasos siguientes:
@@ -217,10 +217,10 @@ En este paso se crea una canalización con una actividad de copia y dos activida
     2. Escriba `@pipeline().parameters.sinkBlobContainer` como carpeta.
     1. Escriba `@CONCAT(pipeline().RunId, '.txt')` como nombre de archivo. La expresión usa el identificador de la ejecución de canalización actual del nombre de archivo. Para la lista de las expresiones y variables del sistema admitidas, consulte las [variables del sistema](control-flow-system-variables.md) y el [lenguaje de expresiones](control-flow-expression-language-functions.md).
 
-        ![Configuración del conjunto de datos receptor](./media/tutorial-control-flow-portal/sink-dataset-settings.png)
+        :::image type="content" source="./media/tutorial-control-flow-portal/sink-dataset-settings.png" alt-text="Configuración del conjunto de datos receptor":::
 17. Cambie a la pestaña de la **canalización** en la parte superior. En el cuadro de herramientas **Activities** (Actividades), expanda **General** (General), arrastre la actividad **web** y colóquela en la superficie del diseñador de canalizaciones. Establezca el nombre de la actividad en **SendSuccessEmailActivity**. La actividad web permite una llamada a cualquier punto de conexión de REST. Para más información sobre la actividad, consulte el artículo [Web Activity](control-flow-web-activity.md) (Actividad web). Esta canalización usa una actividad web para llamar al flujo de trabajo de correo electrónico de Logic Apps.
 
-    ![Arrastrado y colocación de la primera actividad web](./media/tutorial-control-flow-portal/success-web-activity-general.png)
+    :::image type="content" source="./media/tutorial-control-flow-portal/success-web-activity-general.png" alt-text="Arrastrado y colocación de la primera actividad web":::
 18. Cambie a la pestaña **Settings** (Configuración) en la pestaña **General** (General) y realice los pasos siguientes:
     1. Como **dirección URL**, especifique la dirección URL del flujo de trabajo de aplicaciones lógicas que envía el correo electrónico de operación correcta.  
     2. Seleccione **POST** como **Method** (Método).
@@ -243,13 +243,13 @@ En este paso se crea una canalización con una actividad de copia y dos activida
        - Pipeline Name, que pasa el valor `@{pipeline().Pipeline}`. También es una variable del sistema, lo que le permite obtener acceso al nombre de canalización correspondiente.
        - Receiver, que pasa el valor "\@pipeline().parameters.receiver"). y accede a los parámetros de la canalización.
 
-         ![Configuración de la primera actividad web](./media/tutorial-control-flow-portal/web-activity1-settings.png)         
+         :::image type="content" source="./media/tutorial-control-flow-portal/web-activity1-settings.png" alt-text="Configuración de la primera actividad web":::         
 19. Conecte la actividad **Copy** (Copiar) a la actividad **Web**; para ello, arrastre el botón verde situado junto a la actividad de copia y colóquelo en la actividad web.
 
-    ![Conexión de la actividad de copia con la primera actividad web](./media/tutorial-control-flow-portal/connect-copy-web-activity1.png)
+    :::image type="content" source="./media/tutorial-control-flow-portal/connect-copy-web-activity1.png" alt-text="Conexión de la actividad de copia con la primera actividad web":::
 20. Arrastre la actividad **Web** del cuadro de herramientas de actividades y colóquela en la superficie del diseñador de canalizaciones; después, establezca el **nombre** en **SendFailureEmailActivity**.
 
-    ![Nombre de la segunda actividad web](./media/tutorial-control-flow-portal/web-activity2-name.png)
+    :::image type="content" source="./media/tutorial-control-flow-portal/web-activity2-name.png" alt-text="Nombre de la segunda actividad web":::
 21. Cambie a la pestaña **Settings** (Configuración) y realice los pasos siguientes:
 
     1. Como **dirección URL**, especifique la dirección URL del flujo de trabajo de aplicaciones lógicas que envía el correo electrónico de operación incorrecta.  
@@ -267,24 +267,24 @@ En este paso se crea una canalización con una actividad de copia y dos activida
         }
         ```
 
-        ![Configuración de la segunda actividad web](./media/tutorial-control-flow-portal/web-activity2-settings.png)         
+        :::image type="content" source="./media/tutorial-control-flow-portal/web-activity2-settings.png" alt-text="Configuración de la segunda actividad web":::         
 22. Seleccione la actividad **Copy** (Copiar) en el diseñador de canalizaciones, haga clic en el botón **+->** y seleccione **Error**.  
 
-    ![Captura de pantalla que muestra cómo seleccionar un error en la actividad de copia en el diseñador de canalizaciones.](./media/tutorial-control-flow-portal/select-copy-failure-link.png)
+    :::image type="content" source="./media/tutorial-control-flow-portal/select-copy-failure-link.png" alt-text="Captura de pantalla que muestra cómo seleccionar un error en la actividad de copia en el diseñador de canalizaciones.":::
 23. Arrastre el botón **rojo** situado junto a la actividad de copia a la segunda actividad web **SendFailureEmailActivity**. Puede mover las actividades de forma que la canalización tenga un aspecto similar al de la siguiente imagen:
 
-    ![Canalización completa con todas las actividades](./media/tutorial-control-flow-portal/full-pipeline.png)
+    :::image type="content" source="./media/tutorial-control-flow-portal/full-pipeline.png" alt-text="Canalización completa con todas las actividades":::
 24. Para comprobar la canalización, haga clic en el botón **Validate** (Comprobar) en la barra de herramientas. Haga clic en el botón **>>** para cerrar la ventana **Pipeline Validation Output** (Salida de comprobación de canalización).
 
-    ![Comprobar la canalización](./media/tutorial-control-flow-portal/validate-pipeline.png)
+    :::image type="content" source="./media/tutorial-control-flow-portal/validate-pipeline.png" alt-text="Comprobar la canalización":::
 24. Para publicar las entidades (conjuntos de datos, canalizaciones, etc.) en el servicio Data Factory, seleccione **Publish All** (Publicar todo). Espere a que aparezca el mensaje **Successfully published** (Publicado correctamente).
 
-    ![Publicar](./media/tutorial-control-flow-portal/publish-button.png)
+    :::image type="content" source="./media/tutorial-control-flow-portal/publish-button.png" alt-text="Publicar":::
 
 ## <a name="trigger-a-pipeline-run-that-succeeds"></a>Desencadenamiento de una ejecución de la canalización que se realiza correctamente
 1. Para **desencadenar** una ejecución de canalización, haga clic en **Trigger** (Desencadenar) en la barra de herramientas y en **Trigger Now** (Desencadenar ahora).
 
-    ![Desencadenamiento de una ejecución de la canalización](./media/tutorial-control-flow-portal/trigger-now-menu.png)
+    :::image type="content" source="./media/tutorial-control-flow-portal/trigger-now-menu.png" alt-text="Desencadenamiento de una ejecución de la canalización":::
 2. En la ventana **Pipeline Run** (Ejecución de canalización), lleve a cabo los pasos siguientes:
 
     1. Escriba **adftutorial/adfv2branch/input** como parámetro **sourceBlobContainer**.
@@ -292,16 +292,16 @@ En este paso se crea una canalización con una actividad de copia y dos activida
     3. Escriba una **dirección de correo electrónico** en **receiver**.
     4. Haga clic en **Finish** (Finalizar).
 
-        ![Parámetros de ejecución de canalización](./media/tutorial-control-flow-portal/pipeline-run-parameters.png)
+        :::image type="content" source="./media/tutorial-control-flow-portal/pipeline-run-parameters.png" alt-text="Parámetros de ejecución de canalización":::
 
 ## <a name="monitor-the-successful-pipeline-run"></a>Supervisión de la correcta ejecución de la canalización
 
 1. Para supervisar la ejecución de la canalización, cambie a la pestaña **Monitor** (Supervisar) de la izquierda. Verá que la ejecución de la canalización que desencadenó manualmente. Use el botón **Refresh** (Actualizar) para actualizar la lista.
 
-    ![Ejecución de canalización correcta](./media/tutorial-control-flow-portal/monitor-success-pipeline-run.png)
+    :::image type="content" source="./media/tutorial-control-flow-portal/monitor-success-pipeline-run.png" alt-text="Ejecución de canalización correcta":::
 2. Para ver las **ejecuciones de actividad** asociadas con la de esta canalización, haga clic en el primer vínculo de la columna **Actions** (Acciones). Para volver a la vista anterior, haga clic en **Pipelines** (Canalizaciones) de la parte superior. Use el botón **Refresh** (Actualizar) para actualizar la lista.
 
-    ![Captura de pantalla que muestra cómo ver la lista de ejecuciones de actividad.](./media/tutorial-control-flow-portal/activity-runs-success.png)
+    :::image type="content" source="./media/tutorial-control-flow-portal/activity-runs-success.png" alt-text="Captura de pantalla que muestra cómo ver la lista de ejecuciones de actividad.":::
 
 ## <a name="trigger-a-pipeline-run-that-fails"></a>Desencadenamiento de una ejecución de la canalización que se realiza incorrectamente
 1. Cambie a la pestaña **Edit** (Editar) de la izquierda.
@@ -317,16 +317,16 @@ En este paso se crea una canalización con una actividad de copia y dos activida
 
 1. Para supervisar la ejecución de la canalización, cambie a la pestaña **Monitor** (Supervisar) de la izquierda. Verá que la ejecución de la canalización que desencadenó manualmente. Use el botón **Refresh** (Actualizar) para actualizar la lista.
 
-    ![Ejecución de canalización incorrecta](./media/tutorial-control-flow-portal/monitor-failure-pipeline-run.png)
+    :::image type="content" source="./media/tutorial-control-flow-portal/monitor-failure-pipeline-run.png" alt-text="Ejecución de canalización incorrecta":::
 2. Haga clic en el vínculo **Error** para ver los detalles del error en la ejecución de la canalización.
 
-    ![Error en la canalización](./media/tutorial-control-flow-portal/pipeline-error-message.png)
+    :::image type="content" source="./media/tutorial-control-flow-portal/pipeline-error-message.png" alt-text="Error en la canalización":::
 2. Para ver las **ejecuciones de actividad** asociadas con la de esta canalización, haga clic en el primer vínculo de la columna **Actions** (Acciones). Use el botón **Refresh** (Actualizar) para actualizar la lista. Tenga en cuenta que en la actividad de copia de la canalización se produjo un error. La actividad web envió correctamente el correo electrónico de operación incorrecta al receptor especificado.
 
-    ![Ejecuciones de actividad](./media/tutorial-control-flow-portal/activity-runs-failure.png)
+    :::image type="content" source="./media/tutorial-control-flow-portal/activity-runs-failure.png" alt-text="Ejecuciones de actividad":::
 4. Haga clic en el vínculo **Error** de la columna **Actions** (Acciones) para ver los detalles sobre el error.
 
-    ![Error de ejecución de la actividad](./media/tutorial-control-flow-portal/activity-run-error.png)
+    :::image type="content" source="./media/tutorial-control-flow-portal/activity-run-error.png" alt-text="Error de ejecución de la actividad":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este tutorial, realizó los pasos siguientes:

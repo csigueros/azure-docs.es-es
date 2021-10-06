@@ -10,12 +10,12 @@ ms.date: 02/17/2021
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 08e1976a1bc97ae83d1b9d45700fd614420be0c2
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 8dec2e939c6f39169d4c8fbbdfbcdf08d4d42599
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111413076"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128651586"
 ---
 # <a name="use-azure-cli-to-manage-directories-and-files-in-azure-data-lake-storage-gen2"></a>Uso de la CLI de Azure para administrar directorios y archivos en Azure Data Lake Storage Gen2
 
@@ -27,7 +27,7 @@ Para obtener información sobre cómo obtener, establecer y actualizar las lista
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Suscripción a Azure. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
+- Suscripción a Azure. Para obtener más información, vea [Obtención de una evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 - Una cuenta de almacenamiento que tenga habilitado un espacio de nombres jerárquico. Siga [estas](create-data-lake-storage-account.md) instrucciones para crear uno.
 
@@ -43,7 +43,7 @@ Para obtener información sobre cómo obtener, establecer y actualizar las lista
     az --version
    ```
 
-   Si la versión de la CLI de Azure es anterior a `2.6.0`, instale una versión posterior. Consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
+   Si la versión de la CLI de Azure es anterior a `2.6.0`, instale una versión posterior. Para más información, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
 
 ## <a name="connect-to-the-account"></a>Conexión con la cuenta
 
@@ -72,7 +72,7 @@ Para obtener información sobre cómo obtener, establecer y actualizar las lista
 
 ## <a name="create-a-container"></a>Crear un contenedor
 
-Un contenedor actúa como sistema de archivos para sus archivos. Puede crear uno mediante el comando `az storage fs create`. 
+Un contenedor actúa como sistema de archivos para sus archivos. Puede crear uno mediante el comando `az storage fs create`.
 
 En este ejemplo se crea un contenedor denominado `my-file-system`.
 
@@ -102,7 +102,7 @@ az storage fs file list -f my-file-system --account-name mystorageaccount --auth
 
 Elimine el contenedor con el comando `az storage fs delete`.
 
-En este ejemplo se elimina un contenedor denominado `my-file-system`. 
+En este ejemplo se elimina un contenedor denominado `my-file-system`.
 
 ```azurecli
 az storage fs delete -n my-file-system --account-name mystorageaccount --auth-mode login
@@ -110,7 +110,7 @@ az storage fs delete -n my-file-system --account-name mystorageaccount --auth-mo
 
 ## <a name="create-a-directory"></a>Creación de un directorio
 
-Cree una referencia de directorio mediante el comando `az storage fs directory create`. 
+Cree una referencia de directorio mediante el comando `az storage fs directory create`.
 
 En este ejemplo se agrega un directorio denominado `my-directory` a un contenedor denominado `my-file-system` que se encuentra en una cuenta denominada `mystorageaccount`.
 
@@ -146,27 +146,27 @@ az storage fs directory move -n my-directory -f my-file-system --new-directory "
 
 Elimine un directorio mediante el comando `az storage fs directory delete`.
 
-En este ejemplo se elimina un directorio denominado `my-directory`. 
+En este ejemplo se elimina un directorio denominado `my-directory`.
 
 ```azurecli
-az storage fs directory delete -n my-directory -f my-file-system  --account-name mystorageaccount --auth-mode login 
+az storage fs directory delete -n my-directory -f my-file-system  --account-name mystorageaccount --auth-mode login
 ```
 
 ## <a name="check-if-a-directory-exists"></a>Comprobación de si existe un directorio
 
 Determine si existe un directorio concreto en el contenedor mediante el comando `az storage fs directory exists`.
 
-En este ejemplo se ve si existe un directorio denominado `my-directory` en el contenedor `my-file-system`. 
+En este ejemplo se ve si existe un directorio denominado `my-directory` en el contenedor `my-file-system`.
 
 ```azurecli
-az storage fs directory exists -n my-directory -f my-file-system --account-name mystorageaccount --auth-mode login 
+az storage fs directory exists -n my-directory -f my-file-system --account-name mystorageaccount --auth-mode login
 ```
 
 ## <a name="download-from-a-directory"></a>Descarga de un directorio
 
 Descargue un archivo de un directorio mediante el comando `az storage fs file download`.
 
-En este ejemplo se descarga un archivo denominado `upload.txt` de un directorio denominado `my-directory`. 
+En este ejemplo se descarga un archivo denominado `upload.txt` de un directorio denominado `my-directory`.
 
 ```azurecli
 az storage fs file download -p my-directory/upload.txt -f my-file-system -d "C:\myFolder\download.txt" --account-name mystorageaccount --auth-mode login
@@ -176,7 +176,7 @@ az storage fs file download -p my-directory/upload.txt -f my-file-system -d "C:\
 
 Muestre el contenido de un directorio mediante el comando `az storage fs file list`.
 
-En este ejemplo se muestra el contenido de un directorio denominado `my-directory` que se encuentra en el contenedor `my-file-system` de una cuenta de almacenamiento denominada `mystorageaccount`. 
+En este ejemplo se muestra el contenido de un directorio denominado `my-directory` que se encuentra en el contenedor `my-file-system` de una cuenta de almacenamiento denominada `mystorageaccount`.
 
 ```azurecli
 az storage fs file list -f my-file-system --path my-directory --account-name mystorageaccount --auth-mode login
@@ -186,7 +186,7 @@ az storage fs file list -f my-file-system --path my-directory --account-name mys
 
 Cargue un archivo en un directorio mediante el comando `az storage fs file upload`.
 
-En este ejemplo se carga un archivo denominado `upload.txt` en un directorio denominado `my-directory`. 
+En este ejemplo se carga un archivo denominado `upload.txt` en un directorio denominado `my-directory`.
 
 ```azurecli
 az storage fs file upload -s "C:\myFolder\upload.txt" -p my-directory/upload.txt  -f my-file-system --account-name mystorageaccount --auth-mode login
@@ -217,7 +217,7 @@ Elimine un archivo mediante el comando `az storage fs file delete`.
 En este ejemplo se elimina un archivo denominado `my-file.txt`.
 
 ```azurecli
-az storage fs file delete -p my-directory/my-file.txt -f my-file-system  --account-name mystorageaccount --auth-mode login 
+az storage fs file delete -p my-directory/my-file.txt -f my-file-system  --account-name mystorageaccount --auth-mode login
 ```
 
 ## <a name="see-also"></a>Consulte también

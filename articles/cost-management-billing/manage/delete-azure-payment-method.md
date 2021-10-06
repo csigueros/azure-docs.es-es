@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 09/15/2021
 ms.author: banders
-ms.openlocfilehash: 194c37d38242e3376516b660dd37071d128b77fa
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 1ba1a97acfe2345ed5632ae6f84caacc525f13e4
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128650066"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129544818"
 ---
 # <a name="delete-an-azure-billing-payment-method"></a>Eliminación de un método de pago de la facturación de Azure
 
@@ -71,7 +71,7 @@ Cuando se cumplan todas las condiciones, podrá desasociar el método de pago de
 1. Vuelva a **Administración de costos + facturación** > **Perfiles de facturación** > **Métodos de pago**. Seleccione **Desasociar**. En la parte inferior de la página Detach the default payment method (Desasociar el método de pago predeterminado), seleccione **Detach** (Desasociar).
 
 > [!NOTE]
-> - Después de cancelar una suscripción, esta puede tardar hasta 90 días en eliminarse. Si desea reducir la espera, abra una solicitud de soporte técnico de Azure para pedir la eliminación inmediata de la suscripción.
+> - Después de cancelar una suscripción, esta puede tardar hasta 90 días en eliminarse.
 > - No se puede eliminar un método de pago hasta que se hayan satisfecho todos los cargos anteriores de un perfil de facturación. Si está en un período de facturación activo, debe esperar hasta que finalice dicho período para eliminar el método de pago. **Mientras espera a que finalice el período de facturación, asegúrese de que se cumplen las restantes condiciones para la desasociación**.
 
 ## <a name="delete-a-mosp-payment-method"></a>Eliminación de un método de pago de MOSP
@@ -95,7 +95,7 @@ Si la suscripción a MOSP está utilizando el método de pago, siga estos pasos.
 1. Vuelva a **Administración de costos + facturación** > **Perfiles de facturación** > **Métodos de pago** y elimine el método de pago.
 
 > [!NOTE]
-> Después de cancelar una suscripción, esta puede tardar hasta 90 días en eliminarse. Si desea reducir la espera, abra una solicitud de soporte técnico de Azure para pedir la eliminación inmediata de la suscripción.
+> Después de cancelar una suscripción, esta puede tardar hasta 90 días en eliminarse.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

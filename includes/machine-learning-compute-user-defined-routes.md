@@ -2,23 +2,27 @@
 author: Blackmist
 ms.service: machine-learning
 ms.topic: include
-ms.date: 08/12/2021
+ms.date: 08/26/2021
 ms.author: larryfr
-ms.openlocfilehash: c2ad7408f00d8abf4cb5afdbdba44af5e0779380
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: e8f3a2b9fbca1a0b0756a4e1ec2e98212d4f0399
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122603977"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128633984"
 ---
-Cuando utilice una __instancia de proceso__ o un __clúster de proceso__ de Azure Machine Learning, permita el tráfico entrante de los servicios de administración de Azure Batch y Azure Machine Learning. Al crear las rutas definidas por el usuario para este tráfico, puede usar **direcciones IP** o **etiquetas de servicio** para enrutar el tráfico.
+Cuando use una __instancia de proceso__ (con una IP pública) o un __clúster de proceso__ de Azure Machine Learning, permita el tráfico entrante de los servicios de administración de Azure Batch y Azure Machine Learning. La instancia de proceso sin dirección IP pública (versión preliminar) no requiere esta comunicación entrante. Se crea dinámicamente un grupo de seguridad de red que permite este tráfico, pero es posible que tenga que crear rutas definidas por el usuario (UDR) si tiene un firewall. Al crear una ruta definida por el usuario para este tráfico, puede usar **direcciones IP** o **etiquetas de servicio** para enrutar el tráfico.
 
 > [!IMPORTANT]
-> El uso de etiquetas de servicio con rutas definidas por el usuario está actualmente en versión preliminar y es posible que no sea totalmente compatible. Para obtener más información, consulte [Enrutamiento de redes virtuales](/azure/virtual-network/virtual-networks-udr-overview#service-tags-for-user-defined-routes-preview).
+> El uso de etiquetas de servicio con rutas definidas por el usuario está actualmente en versión preliminar y es posible que no sea totalmente compatible. Para obtener más información, consulte [Enrutamiento de redes virtuales](../articles/virtual-network/virtual-networks-udr-overview.md#service-tags-for-user-defined-routes-preview).
+
+> [!TIP]
+> Aunque una instancia de proceso sin una dirección IP pública (una característica en versión preliminar) no necesita una UDR para este tráfico entrante, seguirá necesitando estas UDR si también usa un clúster de proceso o una instancia de proceso con una dirección IP pública.
+
 
 # <a name="ip-address-routes"></a>[Rutas de dirección IP](#tab/ipaddress)
 
-Para el servicio Azure Machine Learning, debe agregar la dirección IP de las regiones __primaria__ y __secundaria__. Para ubicar la región secundaria, consulte [Garantía de continuidad empresarial y recuperación ante desastres con regiones emparejadas de Azure](/azure/best-practices-availability-paired-regions#azure-regional-pairs). Por ejemplo, si Azure Machine Learning Service está en la región Este de EE. UU. 2, la región secundaria es Centro de EE. UU. 
+Para el servicio Azure Machine Learning, debe agregar la dirección IP de las regiones __primaria__ y __secundaria__. Para ubicar la región secundaria, consulte [Garantía de continuidad empresarial y recuperación ante desastres con regiones emparejadas de Azure](../articles/best-practices-availability-paired-regions.md#azure-regional-pairs). Por ejemplo, si Azure Machine Learning Service está en la región Este de EE. UU. 2, la región secundaria es Centro de EE. UU. 
 
 Para obtener una lista de direcciones IP del servicio Batch y de Azure Machine Learning Service, utilice uno de los métodos siguientes:
 

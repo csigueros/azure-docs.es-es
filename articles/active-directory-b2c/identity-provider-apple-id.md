@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/17/2021
+ms.date: 09/16/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: c150fdae1820dee3ae440f4d4acdacff04e14e66
-ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
+ms.openlocfilehash: 13120c083eda20b76581448c842db94d657cf42b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122271087"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128571905"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-an-apple-id--using-azure-active-directory-b2c-preview"></a>Configuración de la suscripción y del inicio de sesión con un id. de Apple mediante Azure Active Directory B2C (versión preliminar)
 
@@ -78,7 +78,8 @@ Para habilitar el inicio de sesión para los usuarios con un id. de Apple en Azu
 ## <a name="configure-apple-as-an-identity-provider"></a>Configuración de Apple como proveedor de identidades
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) como un administrador global del inquilino de Azure AD B2C.
-1. Seleccione el filtro **Directorio y suscripción** del menú superior y el directorio que contiene el inquilino de Azure AD B2C.
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
 1. En **Servicios de Azure**, seleccione **Azure AD B2C**. O bien, use el cuadro de búsqueda para buscar y seleccionar **Azure AD B2C**.
 1. Seleccione **Proveedores de identidades** y luego **Apple (versión preliminar)** .
 1. En **Name** (Nombre), escriba **Sign in with Apple** (Iniciar sesión con Apple). 
@@ -126,6 +127,7 @@ Use el archivo .p8 que descargó anteriormente para firmar el secreto de cliente
 
     - **appleTeamId**: identificador del equipo de Apple Developer.
     - **appleServiceId**: el identificador de servicio de Apple (identificador de cliente).
+    - **appleKeyId**: identificador de clave de 10 dígitos almacenado en el encabezado JWT (necesario para Apple)
     - **p8key**: la clave de formato PEM. Para obtenerla, abra el archivo .p8 en un editor de texto y copie todo lo comprendido entre `-----BEGIN PRIVATE KEY-----` y `-----END PRIVATE KEY-----` sin saltos de línea.
  
 El siguiente código JSON es un ejemplo de una llamada a la función de Azure:
@@ -134,6 +136,7 @@ El siguiente código JSON es un ejemplo de una llamada a la función de Azure:
 {
     "appleTeamId": "ABC123DEFG",
     "appleServiceId": "com.yourcompany.app1",
+    "appleKeyId": "URKEYID001",
     "p8key": "MIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQg+s07NiAcuGEu8rxsJBG7ttupF6FRe3bXdHxEipuyK82gCgYIKoZIzj0DAQehRANCAAQnR1W/KbbaihTQayXH3tuAXA8Aei7u7Ij5OdRy6clOgBeRBPy1miObKYVx3ki1msjjG2uGqRbrc1LvjLHINWRD"
 }
 ```
@@ -151,8 +154,9 @@ La función de Azure responde con un JWT de secreto de cliente con el formato co
 Debe almacenar el secreto de cliente que haya registrado previamente en el inquilino de Azure AD B2C.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
-1. Seleccione el filtro **Directorio y suscripción** del menú superior y el directorio que contiene el inquilino de Azure AD B2C.
-2. En **Servicios de Azure**, seleccione **Azure AD B2C**. O bien, use el cuadro de búsqueda para buscar y seleccionar **Azure AD B2C**.
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
+1. En **Servicios de Azure**, seleccione **Azure AD B2C**. O bien, use el cuadro de búsqueda para buscar y seleccionar **Azure AD B2C**.
 1. En la página de **introducción**, seleccione **Identity Experience Framework**.
 1. Seleccione **Claves de directiva** y, luego, **Agregar**.
 1. En **Opciones**, elija **Manual**.

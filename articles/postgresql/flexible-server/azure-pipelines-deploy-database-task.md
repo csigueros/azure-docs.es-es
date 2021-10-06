@@ -7,12 +7,12 @@ ms.author: sumuth
 author: mksuni
 ms.service: postgresql
 ms.date: 08/09/2021
-ms.openlocfilehash: 747a1c59d00ac4127fab4b6c28d02c837e540133
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
+ms.openlocfilehash: 2f26ac8b2bea54bc49398b46eae02131991aac1b
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122516013"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129363720"
 ---
 # <a name="azure-pipelines-task-for-azure-database-for-postgresql-flexible-server"></a>Tarea de Azure Pipelines para la opción de servidor flexible de Azure Database for PostgreSQL
 
@@ -21,7 +21,7 @@ Después de cada compilación correcta con **Azure Pipelines**, puede implementa
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Una cuenta de Azure. Si no tiene una, [obtenga la versión de evaluación gratuita](https://azure.microsoft.com/free/).
-- Una [conexión de servicio de Azure Resource Manager](/azure/devops/pipelines/library/connect-to-azure?view=azure-devops) a la cuenta de Azure
+- Una [conexión de servicio de Azure Resource Manager](/azure/devops/pipelines/library/connect-to-azure) a la cuenta de Azure
 - Los agentes hospedados por Microsoft tienen la CLI de Azure preinstalada. Si usa agentes privados en su lugar, [instale la CLI de Azure](/cli/azure/install-azure-cli) en los equipos donde se ejecute el agente de compilación y versión. Si ya hay un agente en ejecución en el equipo en el que está instalada la CLI de Azure, reinicie el agente para asegurarse de que se actualicen todas las variables de fase pertinentes.
 - Creación de una instancia de la opción de servidor flexible de Azure Database for PostgreSQL mediante [Azure Portal](./quickstart-create-server-portal.md) o la [CLI de Azure](./quickstart-create-server-cli.md)
 
@@ -90,11 +90,10 @@ Puede ver la lista completa de todas las entradas de la tarea al usar una tarea 
 |failOnStandardError|(Opcional) Si es true, la tarea no se llevará a cabo cuando se escriban errores en la secuencia StandardError. Anule la selección de la casilla para omitir los errores estándar y basarse en los códigos de salida para determinar el estado. El valor predeterminado es false.|
 |powerShellIgnoreLASTEXITCODE| (Opcional) Si es false, la línea <code>if ((Test-Path -LiteralPath variable:\\LASTEXITCODE)) { exit $LASTEXITCODE }</code> se anexa al final del script. Esto hará que el último código de salida de un comando externo se propague como el código de salida de PowerShell. De lo contrario, la línea no se anexa al final del script. El valor predeterminado es false. |
 
-Si tiene problemas con la tarea de la CLI, consulte [Solución de problemas de ejecuciones de canalizaciones](/azure/devops/pipelines/troubleshooting/troubleshooting?view=azure-devops).
+Si tiene problemas con la tarea de la CLI, consulte [Solución de problemas de ejecuciones de canalizaciones](/azure/devops/pipelines/troubleshooting/troubleshooting).
 
 ## <a name="next-steps"></a>Pasos siguientes 
 Estas son algunas tareas relacionadas que se pueden usar para implementar con Piplelines de Azure.
 
-- [Implementación de un grupo de recursos de Azure](/azure/devops/pipelines/tasks/deploy/azure-resource-group-deployment?view=azure-devops)
-- [Tarea de implementación de Azure App Service](/azure/devops/pipelines/tasks/deploy/azure-rm-web-app-deployment?view=azure-devops)
-
+- [Implementación de un grupo de recursos de Azure](/azure/devops/pipelines/tasks/deploy/azure-resource-group-deployment)
+- [Tarea de implementación de Azure App Service](/azure/devops/pipelines/tasks/deploy/azure-rm-web-app-deployment)

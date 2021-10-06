@@ -4,24 +4,31 @@ description: Archivo de inclusión
 author: timlt
 ms.service: iot-develop
 ms.topic: include
-ms.date: 04/28/2021
+ms.date: 09/17/2021
 ms.author: timlt
 ms.custom: include file
-ms.openlocfilehash: 4bb64b6ee52bbf70a13bc1e654322f2f49bd0dee
-ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
+ms.openlocfilehash: 85e75839d204360847162b470d149e580fac80bc
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114712928"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128910737"
 ---
 [![Examinar el código](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples/pnp)
 
-En este inicio rápido, se explica un flujo de trabajo básico de desarrollo de aplicaciones de Azure IoT. En primer lugar, cree una aplicación de Azure IoT Central para hospedar dispositivos. A continuación, utilizaremos un ejemplo de un SDK de dispositivo IoT de Azure para ejecutar un controlador de temperatura simulado, conectarlo de forma segura a IoT Central y enviar datos de telemetría.
+En este artículo de inicio rápido, se explica un flujo de trabajo básico de desarrollo de aplicaciones de Azure IoT. En primer lugar, cree una aplicación de Azure IoT Central para hospedar dispositivos. A continuación, utilizaremos un ejemplo de un SDK de dispositivo IoT de Azure para ejecutar un controlador de temperatura simulado, conectarlo de forma segura a IoT Central y enviar datos de telemetría.
 
 ## <a name="prerequisites"></a>Requisitos previos
+Este inicio rápido se ejecuta en Windows, Linux y Raspberry Pi. Se ha probado en las siguientes versiones de sistema operativo y dispositivo:
+
+- Windows 10
+- Ubuntu 20.04 LTS que se ejecuta en Subsistema de Windows para Linux (WSL)
+- Raspberry Pi OS, versión 10 (buster), que se ejecuta en un dispositivo Raspberry Pi 3 Model B+
+
+Instale los siguientes requisitos previos en la máquina de desarrollo:
+
 - [Node.js](https://nodejs.org/), versión 6 o posterior. Para comprobar la versión, ejecute `node --version` en la aplicación de consola.
 - [Git](https://git-scm.com/downloads).
-- Puede ejecutar este inicio rápido en Linux o Windows. Los comandos del shell usan el separador de ruta de acceso estándar de Linux: `/`. Si usa Windows, reemplace estos separadores por el separador de ruta de acceso de Windows: `\`.
 
 [!INCLUDE [iot-develop-create-central-app-with-device](iot-develop-create-central-app-with-device.md)]
 
@@ -30,11 +37,11 @@ En esta sección, configurará el entorno local, instalará el SDK de dispositiv
 
 ### <a name="configure-your-environment"></a>Configurar su entorno
 
-1. Abra una consola con el símbolo del sistema de Windows, PowerShell o Bash.
+1. Abra una consola como CMD de Windows, PowerShell o Bash.
 
 1. Establezca las siguientes variables de entorno con los comandos adecuados para la consola. El dispositivo simulado usa estos valores para conectarse a IoT Central. Para `IOTHUB_DEVICE_DPS_ID_SCOPE`, `IOTHUB_DEVICE_DPS_DEVICE_KEY` y `IOTHUB_DEVICE_DPS_DEVICE_ID`, use los valores de conexión del dispositivo que guardó anteriormente.
 
-    **Línea de comandos de Windows**
+    **CMD (Windows)**
 
     ```console
     set IOTHUB_DEVICE_SECURITY_TYPE=DPS
@@ -57,7 +64,7 @@ En esta sección, configurará el entorno local, instalará el SDK de dispositiv
     $env:IOTHUB_DEVICE_DPS_ENDPOINT='global.azure-devices-provisioning.net'
     ```
 
-    **Bash (Linux o Windows)**
+    **Bash**
 
     ```bash
     export IOTHUB_DEVICE_SECURITY_TYPE='DPS'
@@ -75,10 +82,18 @@ En esta sección, configurará el entorno local, instalará el SDK de dispositiv
     git clone https://github.com/Azure/azure-iot-sdk-node
     ```
 
-1. Vaya al directorio de ejemplos.
+1. Vaya al directorio de ejemplo.
+
+    **Windows**
+    ```console
+    cd azure-iot-sdk-node\device\samples\pnp
+    ```
+
+    **Sistema operativo Linux o Raspberry Pi**
     ```console
     cd azure-iot-sdk-node/device/samples/pnp
     ```
+
 1. Instale el SDK de Azure IoT para Node.js y las dependencias necesarias:
     ```console
     npm install

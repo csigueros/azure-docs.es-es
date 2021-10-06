@@ -12,12 +12,12 @@ ms.date: 12/04/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4434b59044aed8c9814431864e5c3c9b7d98254c
-ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
+ms.openlocfilehash: 1f546ff8ccabb4ef865fe9e75678d7b1ab2c22df
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107575724"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128614531"
 ---
 # <a name="azure-ad-connect-sync-v2-endpoint-api"></a>API de punto de conexión de Azure AD Connect Sync V2 
 Microsoft ha implementado un nuevo punto de conexión (API) para Azure AD Connect que mejora el rendimiento de las operaciones del servicio de sincronización para Azure Active Directory. Al usar el nuevo punto de conexión V2, experimentará mejoras de rendimiento notables en la exportación y la importación respecto a Azure AD. Este nuevo punto de conexión admite lo siguiente:
@@ -29,7 +29,7 @@ Microsoft ha implementado un nuevo punto de conexión (API) para Azure AD Conne
 > Actualmente, el nuevo punto de conexión no tiene ningún límite de tamaño de grupo configurado para los grupos de Microsoft 365 que se escriben de manera diferida. Esto puede afectar a las latencias del ciclo de sincronización de Active Directory. Se recomienda aumentar los tamaños de grupo por incrementos.  
 
 >[!NOTE]
-> La API de punto de conexión de Sincronización de Azure AD Connect V2 de momento solo está disponible en estos entornos de Azure:
+> La API de punto de conexión de sincronización de Azure AD Connect V2 está disponible con carácter general pero actualmente solo se puede usar en estos entornos de Azure:
 > - Azure Commercial
 > - Nube de Azure China
 > - La nube de Azure Gobierno de EE. UU. no estará disponible en la nube de Azure Alemania.

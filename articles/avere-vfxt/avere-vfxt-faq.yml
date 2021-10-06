@@ -8,12 +8,12 @@ metadata:
   ms.date: 12/19/2019
   ms.author: rohogue
   ms.custom: references_regions
-  ms.openlocfilehash: 1d5230119afa33c05878d11e407e80acdc10f15a
-  ms.sourcegitcommit: d2738669a74cda866fd8647cb9c0735602642939
+  ms.openlocfilehash: 241bcb1e164bf8f0233e7110ffcdd9630e870e8d
+  ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 07/13/2021
-  ms.locfileid: "113657021"
+  ms.lasthandoff: 09/13/2021
+  ms.locfileid: "124751086"
 title: Preguntas frecuentes acerca de Avere vFXT for Azure
 summary: En este artículo encontrará respuestas que pueden ayudarle a decidir si la solución de Avere vFXT for Azure es adecuada para sus necesidades. Proporciona información básica sobre Avere vFXT y explica cómo funciona con otros componentes de Azure y con productos de proveedores externos.
 sections:
@@ -101,7 +101,7 @@ sections:
   - question: >
       ¿Puede escalarse el entorno de Avere vFXT?
     answer: >
-      El clúster de Avere vFXT puede ser tan pequeña como tres nodos de máquina virtual o tan grandes como 24 nodos. Póngase en contacto con soporte técnico de Azure para obtener ayuda de planeación si cree que necesita un clúster de más de nueve nodos. Cuantos más nodos tenga, mayor será la arquitectura de implementación.
+      El clúster de Avere vFXT puede ser tan pequeño como tres nodos de máquina virtual o tan grande como 20 nodos. Póngase en contacto con el equipo de soporte técnico de Azure si necesita ayuda para planear el tamaño de clúster adecuado para el flujo de trabajo.
   - question: >
       ¿Puede "escalarse automáticamente" el entorno de Avere vFXT?
     answer: >

@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 07/02/2021
 ms.author: nitinme
-ms.openlocfilehash: 90071be491fa16d483d1348feabb7a1180c333e8
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 4dce35c1713a4dcb4880080d1f28ed124a2209be
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114297417"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129546084"
 ---
 # <a name="recover-deleted-cognitive-services-resources"></a>Recuperación de recursos de Cognitive Services eliminados
 
@@ -66,7 +66,7 @@ En el cuerpo de la solicitud, use el siguiente formato JSON:
 Use el siguiente comando para restaura el recurso: 
 
 ```powershell
-New-AzResource -Location {location}-Properties @{restore=$true} -ResourceId /subscriptions/{subscriptionID}/resourceGroups/{resourceGroup}/providers/Microsoft.CognitiveServices/accounts/{resourceName}   -ApiVersion 2021-04-30 
+New-AzResource -Location {location} -Properties @{restore=$true} -ResourceId /subscriptions/{subscriptionID}/resourceGroups/{resourceGroup}/providers/Microsoft.CognitiveServices/accounts/{resourceName}   -ApiVersion 2021-04-30 
 ```
 
 Si necesita encontrar el nombre de los recursos eliminados, puede obtener una lista de nombres de recursos eliminados con el siguiente comando: 

@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 03/10/2021
 ms.author: rifox
-ms.openlocfilehash: 927fcadc97ec689e477198e87b690a50e3c9e28f
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+ms.openlocfilehash: d53c9a7d265366531cc22d6de726f84ddb9f7a50
+ms.sourcegitcommit: 3ef5a4eed1c98ce76739cfcd114d492ff284305b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122966034"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128910079"
 ---
 Introducción al uso de Azure Communication Services con la biblioteca cliente de llamada de Communication Services para agregar llamadas de vídeo cara a cara a la aplicación Aprenderá a iniciar videollamadas y a responder a ellas con Calling SDK de Azure Communication Services para Android.
 
@@ -239,7 +239,9 @@ import android.content.Context;
 import com.azure.android.communication.calling.CallState;
 import com.azure.android.communication.calling.CallingCommunicationException;
 import com.azure.android.communication.calling.CameraFacing;
+import com.azure.android.communication.calling.ParticipantsUpdatedListener;
 import com.azure.android.communication.calling.PropertyChangedEvent;
+import com.azure.android.communication.calling.PropertyChangedListener;
 import com.azure.android.communication.calling.VideoDeviceInfo;
 import com.azure.android.communication.common.CommunicationUserIdentifier;
 import com.azure.android.communication.common.CommunicationIdentifier;
@@ -263,6 +265,7 @@ import com.azure.android.communication.calling.RemoteVideoStream;
 import com.azure.android.communication.calling.RemoteVideoStreamsEvent;
 import com.azure.android.communication.calling.RendererListener;
 
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.HashMap;
@@ -281,6 +284,8 @@ public class MainActivity extends AppCompatActivity {
     VideoStreamRendererView preview;
     final Map<Integer, StreamData> streamData = new HashMap<>();
     private boolean renderRemoteVideo = true;
+    private ParticipantsUpdatedListener remoteParticipantUpdatedListener;
+    private PropertyChangedListener onStateChangedListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -441,8 +446,10 @@ private void startCall() {
             options);
     
     //Subcribe to events on updates of call state and remote participants
-    call.addOnRemoteParticipantsUpdatedListener(this::handleRemoteParticipantsUpdate);
-    call.addOnStateChangedListener(this::handleCallOnStateChanged);
+    remoteParticipantUpdatedListener = this::handleRemoteParticipantsUpdate;
+    onStateChangedListener = this::handleCallOnStateChanged;
+    call.addOnRemoteParticipantsUpdatedListener(remoteParticipantUpdatedListener);
+    call.addOnStateChangedListener(onStateChangedListener);
 }
 ```
 
@@ -512,8 +519,10 @@ private void answerIncomingCall() {
     }
 
     //Subcribe to events on updates of call state and remote participants
-    call.addOnRemoteParticipantsUpdatedListener(this::handleRemoteParticipantsUpdate);
-    call.addOnStateChangedListener(this::handleCallOnStateChanged);
+    remoteParticipantUpdatedListener = this::handleRemoteParticipantsUpdate;
+    onStateChangedListener = this::handleCallOnStateChanged;
+    call.addOnRemoteParticipantsUpdatedListener(remoteParticipantUpdatedListener);
+    call.addOnStateChangedListener(onStateChangedListener);
 }
 ```
 
@@ -522,8 +531,12 @@ private void answerIncomingCall() {
 Cuando se inicia una llamada o se responde a una llamada entrante, es necesario suscribirse al evento `addOnRemoteParticipantsUpdatedListener` para controlar a los participantes remotos. 
 
 ```java
-call.addOnRemoteParticipantsUpdatedListener(this::handleRemoteParticipantsUpdate);
+remoteParticipantUpdatedListener = this::handleRemoteParticipantsUpdate;
+call.addOnRemoteParticipantsUpdatedListener(remoteParticipantUpdatedListener);
 ```
+Cuando use clientes de escucha de eventos definidos dentro de la misma clase, enlace el cliente de escucha a una variable. Pase la variable como argumento para agregar y quitar métodos del cliente de escucha.
+
+Si intenta pasar el cliente de escucha directamente como argumento, perderá la referencia a ese cliente de escucha. Java crea nuevas instancias de estos clientes de escucha y no hace referencia a las creadas anteriormente. Se seguirán apagando correctamente, pero no se pueden quitar porque ya no tendrá una referencia a ellos.
 
 ### <a name="remote-participant-and-remote-video-stream-update"></a>Actualización de secuencias de vídeo remotas y participantes remotos
 

@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: pafarley
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: d310b56bf0851c5ef33a05421c731279fedbabbe
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: a43758b1c20b3983b4b2c0920481549ddccb0328
+ms.sourcegitcommit: 3ef5a4eed1c98ce76739cfcd114d492ff284305b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123544013"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128708859"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Mejora de la síntesis con el Lenguaje de marcado de síntesis de voz (SSML)
 
 El lenguaje de marcado de síntesis de voz (SSML) es un lenguaje de marcado basado en XML que permite a los desarrolladores especificar cómo se convierte el texto de entrada en una voz sintetizada mediante el servicio de texto a voz. En comparación con el texto sin formato, SSML permite a los desarrolladores ajustar el tono, la pronunciación, la velocidad del habla, el volumen y muchas cosas más en la salida de texto a voz. La puntuación normal, como hacer una pausa después de un punto o usar la entonación correcta cuando una oración termina con un signo de interrogación, se administra automáticamente.
 
-La implementación del servicios de voz de SSML se basa en la [versión 1.0 del lenguaje de marcado de síntesis de voz](https://www.w3.org/TR/speech-synthesis) del World Wide Web Consortium.
+La implementación del servicios de voz de SSML se basa en la [versión 1.0 del lenguaje de marcado de síntesis de voz](https://www.w3.org/TR/2004/REC-speech-synthesis-20040907/) del World Wide Web Consortium.
 
 > [!IMPORTANT]
 > Los caracteres en chino, japonés y coreano se cuentan como dos caracteres para la facturación. Para obtener más información, consulte el apartado [Precios](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
@@ -127,6 +127,8 @@ Actualmente, los ajustes del estilo de habla son compatibles con las siguientes 
 * `en-US-AriaNeural`
 * `en-US-JennyNeural`
 * `en-US-GuyNeural`
+* `en-US-SaraNeural`
+* `ja-JP-NanamiNeural`
 * `pt-BR-FranciscaNeural`
 * `zh-CN-XiaoxiaoNeural`
 * `zh-CN-YunyangNeural`
@@ -136,6 +138,7 @@ Actualmente, los ajustes del estilo de habla son compatibles con las siguientes 
 * `zh-CN-XiaomoNeural`
 * `zh-CN-XiaoxuanNeural`
 * `zh-CN-XiaoruiNeural`
+* `zh-CN-XiaoshuangNeural`
 
 La intensidad del estilo de habla se puede cambiar aún más para ajustarse mejor a su caso de uso. Puede especificar un estilo más seguro o más suave con `styledegree` para que la voz sea más expresiva o moderada. Actualmente, se admiten ajustes del estilo de habla de las voces neuronales en chino (mandarín y simplificado).
 
@@ -183,6 +186,12 @@ Utilice esta tabla para determinar qué estilos de habla son compatibles para ca
 |                         | `style="assistant"`       | Expresa un tono cálido y relajado para asistentes digitales    |
 |                         | `style="newscast"`        | Expresa un tono versátil e informal para la difusión de noticias generales.   |
 | `en-US-GuyNeural`       | `style="newscast"`        | Expresa un tono formal y profesional para narrar noticias |
+| `en-US-SaraNeural`      | `style="cheerful"`        | Expresa un tono positivo y feliz    |
+|                         | `style="sad"`             | Expresa un tono afligido   |
+|                         | `style="angry"`           | Expresa un tono enfadado y molesto   |
+| `ja-JP-NanamiNeural`    | `style="cheerful"`        | Expresa un tono positivo y feliz   |
+|                         | `style="chat"`            | Expresa un tono casual y relajado   |
+|                         | `style="customerservice"` | Expresa un tono amistoso y servicial para atender a clientes    |
 | `pt-BR-FranciscaNeural` | `style="calm"`            | Expresa una actitud interesante, recolectada y compuesta al hablar. El tono, la intensidad y la prosodia son mucho más uniformes en comparación con otros tipos de voz.                                |
 | `zh-CN-XiaoxiaoNeural`  | `style="newscast"`        | Expresa un tono formal y profesional para narrar noticias |
 |                         | `style="customerservice"` | Expresa un tono amistoso y servicial para atender a clientes  |
@@ -243,6 +252,7 @@ Utilice esta tabla para determinar qué estilos de habla son compatibles para ca
 | `zh-CN-XiaoruiNeural`   | `style="sad"`             | Expresa un tono afligido, agudo, con menos intensidad y poco enérgico. Los indicadores comunes de esta emoción serían lloriqueos o gimoteos al hablar.         |
 |                         | `style="angry"`           | Expresa un tono enfadado y molesto, grave, con mayor intensidad y energía vocal más alta. El hablante está en un estado de ira, disgustado y ofendido.       |
 |                         | `style="fearful"`         | Expresa un tono asustado y nervioso, agudo, con energía vocal alta y más velocidad. El hablante está en un estado de tensión y ansiedad.                       |
+| `zh-CN-XiaoshuangNeural`   | `style="chat"` | Expresa un tono casual y relajado. |
 
 Use esta tabla para comprobar los roles admitidos y sus definiciones.
 
@@ -564,6 +574,9 @@ Para definir el modo en que se leen varias entidades, puede crear un lexicón pe
 
 El elemento `lexicon` contiene al menos un elemento `lexeme`. Cada elemento `lexeme` contiene al menos un elemento `grapheme` y uno o varios elementos `grapheme`, `alias` y `phoneme`. El elemento `grapheme` contiene texto que describe la <a href="https://www.w3.org/TR/pronunciation-lexicon/#term-Orthography" target="_blank">ortografía de </a>. Los elementos `alias` se usan para indicar la pronunciación de un acrónimo o un término abreviado. El elemento `phoneme` proporciona texto que describe cómo se pronuncia `lexeme`. Cuando el elemento `alias` y el elemento `phoneme` se proporcionan junto con el elemento `grapheme`, `alias` tiene prioridad.
 
+> [!IMPORTANT]
+> El elemento `lexeme` distingue mayúsculas de minúsculas en el lexicón personalizado. Por ejemplo, si solo proporciona un fonema para `lexeme` "Hello", no funcionará para `lexeme` "hello".
+
 El lexicón contiene el atributo `xml:lang` necesario para indicar a qué configuración regional se debe aplicar. Un lexicón personalizado está limitado a una configuración regional por diseño, por lo que aplicarlo para una configuración regional diferente no funcionará.
 
 Es importante destacar que no se puede establecer directamente la pronunciación de una frase mediante el lexicón personalizado. Si tiene que configurar la pronunciación de un acrónimo o un término abreviado, primero indique un `alias` y, a continuación, asocie el `phoneme` con dicho `alias`. Por ejemplo:
@@ -578,6 +591,8 @@ Es importante destacar que no se puede establecer directamente la pronunciación
     <phoneme>ˈskɒtlənd.ˈmiːdiəm.weɪv</phoneme>
   </lexeme>
 ```
+> [!Note]
+> El límite de sílaba es "." en el alfabeto fonético internacional.
 
 También puede proporcionar directamente el `alias` esperado para el acrónimo o el término abreviado. Por ejemplo:
 ```xml
@@ -612,6 +627,8 @@ Una vez que haya publicado el lexicón personalizado, puede hacer referencia a �
 ```
 
 Al usar este lexicón personalizado, "BTW" se leerá como "By the way". "Benigni" se leerá con el IPA indicado "bɛˈniːnji".
+
+Dado que es fácil cometer errores en el lexicón personalizado, Microsoft ha proporcionado una [herramienta de validación para el lexicón personalizado](https://github.com/jiajzhan/Custom-Lexicon-Validation). Proporciona mensajes de error detallados que le ayudarán a encontrar errores. Antes de enviar SSML con un lexicón personalizado al servicio de voz, debe comprobar el lexicón personalizado con esta herramienta. 
 
 **Limitaciones**
 - Tamaño de archivo: el límite máximo del tamaño de archivo de léxico personalizado es de 100 KB. Si supera este tamaño, se producirá un error en la solicitud de síntesis.

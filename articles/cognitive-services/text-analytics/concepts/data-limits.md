@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 04/07/2021
+ms.date: 09/16/2021
 ms.author: aahi
 ms.reviewer: chtufts
-ms.openlocfilehash: b583caa4fdb2a1e72833d4e24c317282be041513
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.openlocfilehash: fd8347acf6f5fb67de5c011692d893416d5ac068
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122822142"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128677518"
 ---
 # <a name="data-and-rate-limits-for-the-text-analytics-api"></a>Límites de datos y velocidad de la API Text Analytics
 <a name="data-limits"></a>
@@ -31,10 +31,12 @@ Use este artículo para encontrar los límites de tamaño y las velocidades a la
 > * Los límites de datos y velocidad se basan en el número de documentos que se envían a la API. Si necesita analizar documentos con un tamaño superior al límite, puede dividir el texto en fragmentos más pequeños antes de enviarlos a la API. 
 >   * Un documento es una sola cadena de caracteres de texto.  
 
+
+
 | Límite | Value |
 |------------------------|---------------|
 | Tamaño máximo de un documento individual | 5120 caracteres medidos por [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements). También se aplica a Text Analytics for Health. |
-| Tamaño máximo de un documento individual (punto de conexión de `/analyze`)  | 125 000 caracteres medidos por [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements). No se aplica a Text Analytics for Health. |
+| Número máximo de caracteres por solicitud (punto de conexión `/analyze`)  | 125 000 caracteres en todos los documentos enviados, medidos por [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements) (máximo de 25 documentos). No se aplica a Text Analytics for Health. |
 | Tamaño máximo de la solicitud completa | 1 MB. También se aplica a Text Analytics for Health. |
 
 

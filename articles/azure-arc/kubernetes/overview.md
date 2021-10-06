@@ -1,19 +1,19 @@
 ---
-title: Información general de Kubernetes habilitado para Azure Arc
+title: Introducción a Kubernetes habilitado para Azure Arc
 services: azure-arc
 ms.service: azure-arc
 ms.date: 05/25/2021
 ms.topic: overview
 author: mlearned
 ms.author: mlearned
-description: En este artículo se proporciona información general de Kubernetes habilitado para Azure Arc.
+description: En este artículo se proporciona una introducción a Kubernetes habilitado para Azure Arc.
 keywords: Kubernetes, Arc, Azure, containers
-ms.openlocfilehash: 80d1b741c4a3a1d60cc44e3afdeac22a61a7db4b
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: 7a3d2c4465961984371abf17bff98d33f7b185a8
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122768295"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124812554"
 ---
 # <a name="what-is-azure-arc-enabled-kubernetes"></a>¿Qué es Kubernetes habilitado para Azure Arc?
 
@@ -28,7 +28,7 @@ Para conectar un clúster de Kubernetes a Azure, es preciso que el administrador
 * Recopilan registros y métricas de Azure Arc.
 * Inspeccionan las solicitudes de configuración. 
 
-Kubernetes habilitado para Azure Arc admite SSL estándar del sector para proteger los datos en tránsito. Además, los datos en reposo se almacenan cifrados en una base de datos de Azure Cosmos DB para garantizar la confidencialidad de los datos.
+Kubernetes con Azure Arc habilitado admite SSL estándar del sector para proteger los datos en tránsito. Además, los datos en reposo se almacenan cifrados en una base de datos de Azure Cosmos DB para garantizar la confidencialidad de los datos.
 
 ## <a name="supported-kubernetes-distributions"></a>Distribuciones de Kubernetes admitidas
 

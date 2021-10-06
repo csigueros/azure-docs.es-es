@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 06/03/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e760cbca23aba21ad2d8c85e21a8014590419e9
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.openlocfilehash: 835c102cffa7fb956d284792fd144cccadfa94b4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111438331"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128582997"
 ---
 # <a name="conditional-access-filters-for-devices-preview"></a>Acceso condicional: filtros para dispositivos (versión preliminar)
 
@@ -141,6 +141,9 @@ La condición de filtros para dispositivos (versión preliminar) del acceso cond
 | Modo de inclusión/exclusión con operadores negativos (NotEquals, NotStartsWith, NotEndsWith, NotContains, NotIn) y el uso de atributos, excluidos extensionAttributes1-15 | Dispositivo registrado | Sí, si se cumplen los criterios. |
 | Modo de inclusión/exclusión con operadores negativos (NotEquals, NotStartsWith, NotEndsWith, NotContains, NotIn) y el uso de cualquier atributo, incluidos extensionAttributes1-15 | Dispositivo registrado administrado por Intune | Sí, si se cumplen los criterios. |
 | Modo de inclusión/exclusión con operadores negativos (NotEquals, NotStartsWith, NotEndsWith, NotContains, NotIn) y el uso de cualquier atributo, incluidos extensionAttributes1-15 | Dispositivo registrado no administrado por Intune | Sí, si se cumplen los criterios y si el dispositivo es compatible o está unido a Azure AD híbrido. |
+
+> [!IMPORTANT]
+> En el caso de los dispositivos no registrados, la única información de dispositivo pasada es el sistema operativo, la versión del sistema operativo y el explorador.  Esto significa que para los dispositivos no registrados y las directivas de acceso condicional que usan operadores negativos para los filtros del dispositivo, cualquier valor fuera de estos se evaluará con un valor en blanco.  Por ejemplo, si se ha evaluado un dispositivo no registrado con lo siguiente: **device.displayName -notContains *Example***. Como el dispositivo no registrado pasará un nombre para mostrar en blanco, que no es el valor de *Example*, la condición resultante será true.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

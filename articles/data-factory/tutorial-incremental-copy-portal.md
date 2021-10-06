@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
 ms.date: 07/05/2021
-ms.openlocfilehash: e884869b77398ab32987363bb85367d46a958380
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 738c60663f80fd036f50c7bd354ca0e3b1d9284e
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122638385"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124757827"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-the-azure-portal"></a>Carga de datos incremental de Azure SQL Database a Azure Blob Storage mediante Azure Portal
 
@@ -40,7 +40,7 @@ En este tutorial, realizará los siguientes pasos:
 ## <a name="overview"></a>Información general
 Este es el diagrama de solución de alto nivel:
 
-![Cargar datos de forma incremental](media/tutorial-Incremental-copy-portal/incrementally-load.png)
+:::image type="content" source="media/tutorial-Incremental-copy-portal/incrementally-load.png" alt-text="Cargar datos de forma incremental":::
 
 Estos son los pasos importantes para crear esta solución:
 
@@ -151,7 +151,7 @@ END
 1. Inicie el explorador web **Microsoft Edge** o **Google Chrome**. Actualmente, la interfaz de usuario de Data Factory solo se admite en los exploradores web Microsoft Edge y Google Chrome.
 2. En el menú de la izquierda, seleccione **Crear un recurso** > **Integración** > **Data Factory**:
 
-   ![Selección de la factoría de datos en el panel Nuevo](./media/doc-common-process/new-azure-data-factory-menu.png)
+   :::image type="content" source="./media/doc-common-process/new-azure-data-factory-menu.png" alt-text="Selección de Data Factory en el "::: panel &quot;Nuevo&quot;
 
 3. En la página **Nueva factoría de datos**, escriba **ADFIncCopyTutorialDF** para el **nombre**.
 
@@ -179,12 +179,12 @@ En este tutorial, creará una canalización con dos actividades de búsqueda, un
 
 1. En la página principal de la interfaz de usuario de Data Factory, haga clic en el icono **Orquestar.**
 
-   ![Captura de pantalla en la que se muestra la página principal de la interfaz de usuario de Data Factory.](./media/doc-common-process/get-started-page.png)    
+   :::image type="content" source="./media/doc-common-process/get-started-page.png" alt-text="Captura de pantalla en la que se muestra la página principal de la interfaz de usuario de Data Factory.":::    
 3. En el panel General, en **Propiedades**, especifique **IncrementalCopyPipeline** en **Nombre**. A continuación, contraiga el panel; para ello, haga clic en el icono Propiedades en la esquina superior derecha.
 
 4. Agreguemos la primera actividad de búsqueda para recuperar el valor de marca de agua anterior. En el cuadro de herramientas **Activities** (Actividades), expanda **General** (General), arrastre la actividad **Lookup** (Búsqueda) y colóquela en la superficie del diseñador de canalizaciones. Cambie el nombre de la actividad a **LookupOldWaterMarkActivity**.
 
-   ![Nombre de la primera actividad de búsqueda](./media/tutorial-incremental-copy-portal/first-lookup-name.png)
+   :::image type="content" source="./media/tutorial-incremental-copy-portal/first-lookup-name.png" alt-text="Nombre de la primera actividad de búsqueda":::
 5. Cambie a la pestaña **Settings** (Configuración) y haga clic en **+ New** (+ Nuevo) para **Source Dataset** (Conjunto de datos de origen). En este paso, creará conjuntos de datos que representarán los datos de **watermarktable**. Esta tabla contiene la marca de agua que se utilizó anteriormente en la operación de copia anterior.
 
 6. En la ventana **New Dataset** (Nuevo conjunto de datos), seleccione **Azure SQL Database** y haga clic en **Continue** (Continuar). Verá que se abre una nueva ventana para el conjunto de datos.
@@ -201,11 +201,11 @@ En este tutorial, creará una canalización con dos actividades de búsqueda, un
     6. Haga clic en **Finalizar**
     7. Confirme que **AzureSqlDatabaseLinkedService** está seleccionado en **Linked service** (Servicio vinculado).
 
-        ![Ventana New Linked Service (Nuevo servicio vinculado)](./media/tutorial-incremental-copy-portal/azure-sql-linked-service-settings.png)
+        :::image type="content" source="./media/tutorial-incremental-copy-portal/azure-sql-linked-service-settings.png" alt-text="Ventana New Linked Service (Nuevo servicio vinculado)":::
     8. Seleccione **Finalizar**.
 9. En la pestaña **Connection** (Conexión), seleccione **[dbo].[watermarktable]** en **Table** (Tabla). Si desea una vista previa de los datos de la tabla, haga clic en **Preview data** (Vista previa de los datos).
 
-    ![Conjunto de datos de marca de agua: configuración de la conexión](./media/tutorial-incremental-copy-portal/watermark-dataset-connection-settings.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-portal/watermark-dataset-connection-settings.png" alt-text="Conjunto de datos de marca de agua: configuración de la conexión":::
 10. Cambie al editor de canalización; para ello, haga clic en la pestaña de la canalización de la parte superior o en el nombre de esta de la vista de árbol de la izquierda. En la ventana de propiedades de la actividad de **búsqueda**, confirme que **WatermarkDataset** está seleccionado en el campo **Source Dataset** (Conjunto de datos de origen).
 
 11. En el cuadro de herramientas **Activities** (Actividades), expanda **General** (General), y arrastre otra actividad **Lookup** (Búsqueda) y colóquela en la superficie del diseñador de canalizaciones; después, establezca el nombre en **LookupNewWaterMarkActivity** en la pestaña **General** (General) de la ventana de propiedades. Esta actividad de búsqueda obtiene el nuevo valor de marca de agua de la tabla y copia los datos de origen en el destino.
@@ -223,12 +223,12 @@ En este tutorial, creará una canalización con dos actividades de búsqueda, un
     select MAX(LastModifytime) as NewWatermarkvalue from data_source_table
     ```
 
-    ![Segunda actividad de búsqueda: consulta](./media/tutorial-incremental-copy-portal/query-for-new-watermark.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-portal/query-for-new-watermark.png" alt-text="Segunda actividad de búsqueda: consulta":::
 19. En el cuadro de herramientas **Activities** (Actividades), expanda **Move & Transform** (Mover y transformar) y arrastre la actividad **Copy** (Copiar) del cuadro de herramientas Activities (Actividades); después, establezca el nombre en  **IncrementalCopyActivity**.
 
 20. **Conecte las dos actividades Lookup (Búsqueda) a la actividad Copy (Copiar)** ; para ello, arrastre el **botón verde** de las actividades de búsqueda a la actividad de copia. Suelte el botón del mouse cuando vea el color del borde de la actividad de copia cambiar a azul.
 
-    ![Conexión de las actividades de búsqueda a la actividad de copia](./media/tutorial-incremental-copy-portal/connection-lookups-to-copy.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-portal/connection-lookups-to-copy.png" alt-text="Conexión de las actividades de búsqueda a la actividad de copia":::
 21. Seleccione la **actividad de copia** y confirme que ve sus propiedades en la ventana **Properties** (Propiedades).
 
 22. Cambie a la pestaña **Source** (Origen) de la ventana **Properties** (Propiedades) y realice los pasos siguientes:
@@ -241,7 +241,7 @@ En este tutorial, creará una canalización con dos actividades de búsqueda, un
         select * from data_source_table where LastModifytime > '@{activity('LookupOldWaterMarkActivity').output.firstRow.WatermarkValue}' and LastModifytime <= '@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}'
         ```
 
-        ![Actividad de copia: origen](./media/tutorial-incremental-copy-portal/copy-activity-source.png)
+        :::image type="content" source="./media/tutorial-incremental-copy-portal/copy-activity-source.png" alt-text="Actividad de copia: origen":::
 23. Cambie a la pestaña **Sink** (Receptor) y haga clic en **+ New** (+ Nuevo) en el campo **Sink Dataset** (Conjunto de datos receptor).
 
 24. En este tutorial, el almacén de datos receptor es de tipo Azure Blob Storage. Por lo tanto, seleccione **Azure Blob Storage** y haga clic en **Continue** (Continuar) en la ventana **New Dataset** (Nuevo conjunto de datos).
@@ -275,7 +275,7 @@ En este tutorial, creará una canalización con dos actividades de búsqueda, un
         | LastModifiedtime | DateTime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
         | TableName | String | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |
 
-        ![Actividad de procedimiento almacenado: configuración del procedimiento almacenado](./media/tutorial-incremental-copy-portal/sproc-activity-stored-procedure-settings.png)
+        :::image type="content" source="./media/tutorial-incremental-copy-portal/sproc-activity-stored-procedure-settings.png" alt-text="Actividad de procedimiento almacenado: configuración del procedimiento almacenado":::
 27. Para comprobar la configuración de canalización, haga clic en **Validate** (Comprobar) en la barra de herramientas. Confirme que no haya errores de comprobación. Para cerrar la ventana **Pipeline Validation Report** (Informe de comprobación de la canalización), haga clic en >>.   
 
 28. Para publicar entidades (servicios vinculados, conjuntos de datos y canalizaciones) en el servicio Azure Data Factory, seleccione el botón **Publish All** (Publicar todo). Espere hasta que vea un mensaje de que la publicación se completó correctamente.
@@ -296,7 +296,7 @@ En este tutorial, creará una canalización con dos actividades de búsqueda, un
 ## <a name="review-the-results"></a>Revisión del resultado
 1. Puede conectarse a su cuenta de Azure Storage mediante herramientas como el [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/). Compruebe que se crea un archivo de salida en la carpeta **incrementalcopy** del contenedor **adftutorial**.
 
-    ![Primer archivo de salida](./media/tutorial-incremental-copy-portal/first-output-file.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-portal/first-output-file.png" alt-text="Primer archivo de salida":::
 2. Abra el archivo de salida y observe que todos los datos se hayan copiado de **data_source_table** en el archivo de blobs.
 
     ```

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 05/05/2021
 ms.author: duau
-ms.openlocfilehash: b659fee979fd936a85c0cd5a711390594bbe79b1
-ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
+ms.openlocfilehash: d5b7bba4774eb81c684875a4db9ffb1afb2a60aa
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108795781"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124811227"
 ---
 # <a name="create-expressroute-direct-using-the-azure-portal"></a>Creación de un recurso de ExpressRoute Direct mediante Azure Portal
 
@@ -135,4 +135,4 @@ Los siguientes pasos le ayudarán a crear un circuito ExpressRoute desde el fluj
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información sobre ExpressRoute Direct, consulte la [información general](expressroute-erdirect-about.md).
+Una vez creado el circuito ExpressRoute, puede [vincular redes virtuales al circuito ExpressRoute](expressroute-howto-add-gateway-portal-resource-manager.md).

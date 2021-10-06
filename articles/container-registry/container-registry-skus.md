@@ -2,13 +2,13 @@
 title: Niveles y características del servicio de registro
 description: Obtenga información sobre las características y los límites (cuotas) de los niveles de servicio (SKU) Básico, Estándar y Premium de Azure Container Registry.
 ms.topic: article
-ms.date: 06/24/2021
-ms.openlocfilehash: 8c27426cae6d80e31aef3d7ef9b75d28a14bd923
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+ms.date: 08/12/2021
+ms.openlocfilehash: 7f9fe5d461dede4510d3fc8069f42e7950803984
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113437547"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128582352"
 ---
 # <a name="azure-container-registry-service-tiers"></a>Niveles del servicio Azure Container Registry
 
@@ -63,6 +63,26 @@ Puede experimentar una limitación de las operaciones de extracción o inserció
 
 Es posible que se produzca una limitación de forma temporal cuando se genere una ráfaga de operaciones de extracción o inserción de imágenes durante un período muy corto, incluso si la tasa media de operaciones de lectura y escritura está dentro de los límites del registro. Podría tener que implementar lógica de reintento con algún tipo de retroceso en el código o reducir la tasa máxima de solicitudes al registro.
 
+## <a name="show-registry-usage"></a>Visualización de la utilización del registro
+
+Use el comando [az acr show-usage](/cli/az/acr#az_acr_show_usage), o bien la API REST [List Usages](/rest/api/containerregstry/registries/list-usages), para obtener una instantánea del consumo actual del registro de almacenamiento y otros recursos, en comparación con los límites del nivel de servicio de ese registro. La utilización del almacenamiento también aparece en la página **Información general** del registro en el portal.
+
+La información de utilización le ayuda a tomar decisiones sobre [cómo cambiar el nivel de servicio](#changing-tiers) cuando el registro se acerca a un límite. Esta información también le ayuda a [administrar el consumo](container-registry-best-practices.md#manage-registry-size). 
+
+> [!NOTE]
+> La utilización del almacenamiento por parte del registro solo se debe usar como guía y es posible que no refleje las operaciones recientes del registro. Supervise la [métrica StorageUsed](monitor-service-reference.md#container-registry-metrics) del registro para obtener datos actualizados. 
+
+En función del nivel de servicio del registro, la información de utilización incluye algunos o todos los elementos siguientes, junto con el límite de ese nivel:
+
+* Almacenamiento consumido en bytes<sup>1</sup>
+* Número de [webhooks](container-registry-webhook.md)
+* Número de [replicaciones geográficas](container-registry-geo-replication.md) (incluye la réplica principal)
+* Número de [puntos de conexión privados](container-registry-private-link.md)
+* Número de [reglas de acceso IP](container-registry-access-selected-networks.md)
+* Número de [reglas de red virtual](container-registry-vnet.md)
+
+<sup>1</sup>En un registro con replicación geográfica, se muestra la utilización del almacenamiento para la región principal. Multiplique por el número de replicaciones para el almacenamiento total consumido.
+
 ## <a name="changing-tiers"></a>Cambio de niveles de servicio
 
 Puede cambiar el nivel de servicio de un registro con la CLI de Azure o en Azure Portal. Puede moverse libremente de un nivel de servicio a otro siempre que el nivel al que se vaya a cambiar tenga la capacidad de almacenamiento máximo necesaria. 
@@ -77,7 +97,7 @@ Para moverse entre las los niveles de servicio en la CLI de Azure, use el comand
 az acr update --name myregistry --sku Premium
 ```
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Portal de Azure
 
 En la **información general** del registro de contenedor en Azure Portal, seleccione **Actualizar** y después seleccione una **SKU** nueva en la lista desplegable de SKU.
 

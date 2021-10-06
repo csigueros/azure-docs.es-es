@@ -6,12 +6,12 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: f83ff3d1d03354daef3466c1f48eaa505e378634
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: da37816b68e9984fdf801e3e84d50a57bf290e96
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94693756"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129273559"
 ---
 # <a name="move-an-external-load-balancer-to-another-region-by-using-the-azure-portal"></a>Traslado de un equilibrador de carga externo a otra región mediante Azure Portal
 
@@ -289,7 +289,7 @@ En los procedimientos siguientes se muestra cómo preparar el equilibrador de ca
                     }
                 ]
         ```
-       Para obtener información sobre las reglas de equilibrio de carga, consulte [¿Qué es Azure Load Balancer?](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)
+       Para obtener información sobre las reglas de equilibrio de carga, consulte [¿Qué es Azure Load Balancer?](load-balancer-overview.md)
 
     * **Sondeos**. Puede agregar o quitar sondeos del equilibrador de carga en la configuración agregando o quitando entradas en la sección **probes** del archivo template.json:
 
@@ -309,7 +309,7 @@ En los procedimientos siguientes se muestra cómo preparar el equilibrador de ca
                     }
                 ],
         ```
-       Para más información, consulte [Sondeos de estado de Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
+       Para más información, consulte [Sondeos de estado de Load Balancer](load-balancer-custom-probe-overview.md).
 
     * **Reglas NAT de entrada**. Puede agregar o quitar reglas NAT de entrada del equilibrador de carga agregando o quitando entradas en la sección **inboundNatRules** del archivo template.json:
 
@@ -357,7 +357,7 @@ En los procedimientos siguientes se muestra cómo preparar el equilibrador de ca
             }
         }
         ```
-        Para obtener información sobre las reglas NAT de entrada, consulte [¿Qué es Azure Load Balancer?](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)
+        Para obtener información sobre las reglas NAT de entrada, consulte [¿Qué es Azure Load Balancer?](load-balancer-overview.md)
 
     * **Reglas de salida**. Puede agregar o quitar reglas de salida de la configuración editando la propiedad **outboundRules** en el archivo template.json:
 

@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 07/14/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 773e0053512026f6a92a2981d43340b68e708186
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: f988fafbdd381c88a3f8da60fb48fa3320a82876
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113757720"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128674459"
 ---
 # <a name="what-is-azure-virtual-desktop"></a>¿Qué es Azure Virtual Desktop?
 
@@ -123,6 +123,8 @@ Para más información sobre las direcciones URL que debe desbloquear para usar 
 
 Azure Virtual Desktop sigue la [directiva de ciclo de vida de Microsoft](/lifecycle/) y admite las siguientes imágenes de sistema operativo x64:
 
+* Windows 11 Enterprise de sesión múltiple (versión preliminar)
+* Windows 11 Enterprise (versión preliminar)
 * Sesión múltiple de Windows 10 Enterprise
 * Windows 10 Enterprise
 * Windows 7 Enterprise
@@ -136,6 +138,8 @@ Las opciones de automatización y de implementación disponibles dependen del si
 
 |Sistema operativo|Galería de imágenes de Azure|Implementación manual de la máquina virtual|Integración de la plantilla de Azure Resource Manager|Aprovisionamiento de grupos host en Azure Marketplace|
 |--------------------------------------|:------:|:------:|:------:|:------:|
+|Windows 11 Enterprise de sesión múltiple (versión preliminar)|Sí|Sí|Sí|Sí|
+|Windows 11 Enterprise (versión preliminar)|Sí|Sí|Sí|Sí|
 |Sesión múltiple de Windows 10 Enterprise, versión 1909 o superior|Sí|Sí|Sí|Sí|
 |Windows 10 Enterprise, versión 1909 o superior|Sí|Sí|Sí|Sí|
 |Windows 7 Enterprise|Sí|Sí|No|No|

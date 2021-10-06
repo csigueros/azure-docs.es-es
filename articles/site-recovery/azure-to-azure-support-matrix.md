@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 11/29/2020
 author: Sharmistha-Rai
 ms.author: sharrai
-ms.openlocfilehash: 49abd2f167eb51cfaf4a431488b1e85c68bc7b5d
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: a960064aa9ee23c5d82c605aa551cdc0a4e07c49
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128591318"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129363448"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matriz de soporte para la recuperación ante desastres de máquinas virtuales de Azure entre regiones de Azure
 
@@ -239,6 +239,7 @@ Etiquetas  | Compatible | Las etiquetas generadas por el usuario aplicadas en m�
 Cambiar el tamaño de disco en una máquina virtual replicada | Se admite el aumento de tamaño de la máquina virtual de origen. No se admite la reducción de tamaño de la máquina virtual de origen. El redimensionamiento debe realizarse antes de la conmutación por error. No es necesario deshabilitar o volver a habilitar la replicación.<br/><br/> Si cambia la máquina virtual de origen después de la conmutación por error, los cambios no se capturan.<br/><br/> Si cambia el tamaño del disco en la máquina virtual de Azure después de la conmutación por error, Site Recovery no capturará los cambios y la conmutación por recuperación se realizará al tamaño original de la máquina virtual.<br/><br/> Si el redimensionamiento es mayor o igual que 4 TB, tenga en cuenta las instrucciones de Azure sobre el almacenamiento en caché de disco [aquí](../virtual-machines/premium-storage-performance.md). 
 Agregar un disco a una máquina virtual replicada | Compatible
 Cambios sin conexión en discos protegidos | Para desconectar discos y realizar modificaciones sin conexión en ellos debe desencadenar una resincronización completa.
+Almacenamiento en caché en disco | No se admite el almacenamiento en caché de disco para discos de 4 TiB o más. Si varios discos están conectados a la máquina virtual, cada disco de menos de 4 TiB será compatible con el almacenamiento en caché. Al cambiar la configuración de caché de un disco de Azure, se desconecta y se vuelve a conectar el disco de destino. Si se trata del disco del sistema operativo, se reinicia la máquina virtual. Detenga todas las aplicaciones y todos los servicios que podrían verse afectados por esta interrupción antes de cambiar la configuración de caché de disco. El incumplimiento de estas recomendaciones podría provocar datos dañados.
 
 ## <a name="replicated-machines---storage"></a>Máquinas replicadas: almacenamiento
 

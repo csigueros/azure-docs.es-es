@@ -1,19 +1,17 @@
 ---
 title: Solución de errores de incorporación de Azure Automanage habituales
 description: Errores de incorporación de Automanage habituales y cómo solucionarlos
-author: asinn826
 ms.service: virtual-machines
 ms.subservice: automanage
 ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 01/14/2021
-ms.author: alsin
-ms.openlocfilehash: 7acca746acf17a6ef6dd837907a159cddb20be10
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: 95d2f429c1ecb308d65aa01be0a6f3fa226b6168
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113004203"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129458176"
 ---
 # <a name="troubleshoot-common-automanage-onboarding-errors"></a>Solución de errores de incorporación de Automanage habituales
 Es posible que Automanage no pueda incorporar una máquina en el servicio. En este documento se explica cómo solucionar errores de implementación, se comparten algunos motivos comunes por los que se puede producir un error en las implementaciones y se describen los siguientes pasos posibles en la mitigación.

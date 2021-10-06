@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 08/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: 4c0cb8241f6eb284acecfcb5921db616af336da8
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.openlocfilehash: a269f2d93730b6219a2d29d797d94c101b5fdc57
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122866936"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129052830"
 ---
 <!-- If you update limits in this topic, make sure to also update https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#media-services-limits -->
 # <a name="azure-media-services-quotas-and-limits"></a>Cuotas y límites de Azure Media Services
@@ -74,7 +74,7 @@ Se eliminarán automáticamente los registros de trabajo de más de 90 días de 
 | Salidas en directo por evento en directo |3 <sup>(5)</sup> |
 | Duración máxima de la salida en directo | [Tamaño de la ventana de DVR](live-event-cloud-dvr-time-how-to.md) |
 
-<sup>4</sup> Para obtener información detallada sobre los límites de los eventos en directo, consulte [Comparación de tipos y límites de los eventos en directo](live-event-types-comparison-reference.md).
+<sup>4</sup> Para obtener información detallada sobre los límites de los eventos en directo, consulte [Comparación de tipos y límites de los eventos en directo](live-event-types-comparison-reference.md). Según el caso de uso de streaming y el centro de datos regional que prefiera, AMS puede alojar más de 5 eventos en directo por cuenta de Media Services. Envíe una solicitud de soporte técnico para aumentar la cuota de la cuenta.
 
 <sup>5</sup> Los objetos LiveOutput comienzan cuando se crean y se detienen cuando se eliminan.
 

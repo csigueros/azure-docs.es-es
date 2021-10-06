@@ -1,18 +1,18 @@
 ---
 title: Implementación de Azure Resource Manager mediante una plantilla de Azure Cache for Redis
 description: Aprenda a usar una plantilla de Azure Resource Manager (plantilla de Resource Manager) para implementar un recurso de Azure Cache for Redis. Se suministran plantillas para escenarios frecuentes.
-author: yegu-ms
-ms.author: yegu
+author: curib
+ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.custom: subject-armqs, devx-track-azurepowershell
 ms.date: 04/28/2021
-ms.openlocfilehash: e9c804868c64d84b8cbe98093f75c4a45d568ec3
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: 1f284169387209f3783a9621419bf17ea8240619
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112458781"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129537707"
 ---
 # <a name="quickstart-create-an-azure-cache-for-redis-using-an-arm-template"></a>Inicio rápido: Creación de una instancia de Azure Cache for Redis mediante una plantilla de Resource Manager
 
@@ -43,7 +43,7 @@ Los recursos siguientes se definen en la plantilla:
 También hay plantillas de Resource Manager disponibles para el nuevo [nivel Premium](cache-overview.md#service-tiers).
 
 * [Creación de una instancia de Azure Cache for Redis de nivel Prémium con agrupación en clústeres](https://azure.microsoft.com/resources/templates/redis-premium-cluster-diagnostics/)
-* [Creación de una instancia de Azure Cache for Redis de nivel Prémium con persistencia de datos](https://azure.microsoft.com/resources/templates/201-redis-premium-persistence/)
+* [Creación de una instancia de Azure Cache for Redis de nivel Prémium con persistencia de datos](https://azure.microsoft.com/resources/templates/redis-premium-persistence/)
 * [Creación de una instancia de Redis Cache premium implementada en una red virtual](https://azure.microsoft.com/resources/templates/redis-premium-vnet/)
 
 Para buscar las últimas plantillas, consulte [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/) y busque _Azure Cache for Redis_.

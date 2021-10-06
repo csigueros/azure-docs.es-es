@@ -6,12 +6,12 @@ author: TimothyMothra
 ms.author: tilee
 ms.date: 01/22/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 2918a9dc1bbf514b6ab915d9e1d691b9ae4f95d3
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 7f044133c3692ef440e69ad4f0a82e5240334129
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121729332"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129360908"
 ---
 # <a name="get-started-with-azure-monitor-application-insights-agent-for-on-premises-servers"></a>Introducción a Azure Application Insights Agent para servidores locales
 
@@ -41,20 +41,20 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
 Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
 Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 Install-Module -Name PowerShellGet -Force
-``` 
+```    
 Cierre PowerShell.
 
 ### <a name="install-application-insights-agent"></a>Instalación de Application Insights Agent
 Ejecute PowerShell como administrador.
-```powershell   
+```powershell    
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
 Install-Module -Name Az.ApplicationMonitor -AllowPrerelease -AcceptLicense
-``` 
+```    
 
 > [!NOTE]
 > El conmutador `AllowPrerelease` del cmdlet `Install-Module` permite la instalación de la versión beta. 
 >
-> Para más información, consulte [Install-Module](/powershell/module/powershellget/install-module?view=powershell-7.1#parameters).
+> Para más información, consulte [Install-Module](/powershell/module/powershellget/install-module#parameters).
 >
 
 ### <a name="enable-monitoring"></a>Habilitar supervisión

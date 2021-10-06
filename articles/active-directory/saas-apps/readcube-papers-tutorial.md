@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/07/2021
 ms.author: jeedes
-ms.openlocfilehash: 42d25619ef8f704e49e9001969b2b76dd921e9fb
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: a823506f47e5faa49ae736883df8aeabb122e248
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112463808"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124758702"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-readcube-papers"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con ReadCube Papers
 
@@ -78,9 +78,12 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
 1. En la sección **Configuración básica de SAML**, siga estos pasos:
+    1. En el cuadro de texto **URL de respuesta (URL de ACS)** , escriba la dirección URL `https://connect.liblynx.com/saml/module.php/saml/sp/saml2-acs.php/dsrsi`.
+    2. En el cuadro de texto **Dirección URL de inicio de sesión**, escriba la dirección URL: `https://app.readcube.com`
 
-    a. En el cuadro de texto **Dirección URL de inicio de sesión**, escriba la dirección URL: `https://app.readcube.com`
+        ![Captura de pantalla que muestra la configuración de ejemplo en el panel Configuración de SAML.](./media/readcube-papers-tutorial/configure-saml.png)
 
+         
 1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en el botón de copia para copiar la **Dirección URL de metadatos de federación de aplicación** y guárdela en su equipo.
 
     ![Vínculo de descarga del certificado](common/copy-metadataurl.png)
@@ -115,7 +118,7 @@ Para configurar el inicio de sesión único en **ReadCube Papers**, debe enviar 
 
 ### <a name="create-readcube-papers-test-user"></a>Creación de un usuario de prueba de ReadCube Papers
 
-En esta sección, se crea un usuario llamado Britta Simon en ReadCube Papers. ReadCube Papers admite el aprovisionamiento de usuarios Just-In-Time, habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Si un usuario deja de existir en ReadCube Papers, se crea uno nuevo después de la autenticación.
+En esta sección, se crea un usuario llamado B.Simon en ReadCube Papers. ReadCube Papers admite el aprovisionamiento de usuarios Just-In-Time, habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Si un usuario deja de existir en ReadCube Papers, se crea uno nuevo después de la autenticación.
 
 ## <a name="test-sso"></a>Prueba de SSO 
 
@@ -128,7 +131,7 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 * Vaya directamente a la dirección URL de inicio de sesión de ReadCube Papers y comience el flujo de inicio de sesión desde allí.
 
-* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de ReadCube Papers en Aplicaciones, se le redirigirá a la dirección URL de inicio de sesión de ReadCube Papers. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de ReadCube Papers en el portal Aplicaciones, se le redirigirá a la dirección URL de inicio de sesión de ReadCube Papers. Para más información acerca del portal Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

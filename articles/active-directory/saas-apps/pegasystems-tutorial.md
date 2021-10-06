@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con Pega Systems | Microsoft Docs'
+title: 'Tutorial: Integración del inicio de sesión único de Azure AD con Pega Systems'
 description: En este tutorial, aprenderá a configurar el inicio de sesión único entre Azure Active Directory y Pega Systems.
 services: active-directory
 author: jeevansd
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/25/2021
+ms.date: 09/09/2021
 ms.author: jeedes
-ms.openlocfilehash: 802bd61d499f64a128a4d1c0585363cb1962f8a1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a0c88213583105a1076f6606f7265025ec445560
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101650046"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128610017"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-pega-systems"></a>Tutorial: integración de Azure Active Directory con Pega Systems
+# <a name="tutorial-azure-ad-sso-integration-with-pega-systems"></a>Tutorial: Integración del inicio de sesión único de Azure AD con Pega Systems
 
 En este tutorial, aprenderá a integrar Pega Systems con Azure Active Directory (Azure AD). Al integrar Pega Systems con Azure AD, puede hacer lo siguiente:
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar Pega Systems con Azure Active Directory 
 * Permitir que los usuarios inicien sesión automáticamente en Pega Systems con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -63,7 +63,7 @@ Para configurar y probar el inicio de sesión único de Azure AD con Pega Syste
     1. **[Creación de un usuario de prueba en Pega Systems](#create-pega-systems-test-user)** , para tener un homólogo de B.Simon en Pega Systems que esté vinculado a la representación del usuario en Azure AD.
 1. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
 
-### <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
+## <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
 
 Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal.
 
@@ -73,35 +73,30 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-4. En el cuadro de diálogo **Configuración básica de SAML**, si quiere configurar la aplicación en modo iniciado por IdP, haga lo siguiente:
+4. En el cuadro de diálogo **Configuración básica de SAML**, si desea configurar la aplicación en modo iniciado por IdP, realice estos pasos.
 
-    ![Cuadro de diálogo Configuración básica de SAML](common/idp-intiated.png)
-
-    1. En el cuadro **Identificador**, escriba una dirección URL con este patrón:
+    1. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón:
 
        `https://<customername>.pegacloud.io:443/prweb/sp/<instanceID>`
 
-    1. En el cuadro **Dirección URL de respuesta**, escriba una dirección URL con este patrón:
+    1. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: 
 
        `https://<customername>.pegacloud.io:443/prweb/PRRestService/WebSSO/SAML/AssertionConsumerService`
 
 5. Si quiere configurar la aplicación en modo iniciado por SP, seleccione **Establecer direcciones URL adicionales** y haga lo siguiente.
-
-    ![Información de dominio y direcciones URL de inicio de sesión único de Pega Systems](common/both-advanced-urls.png)
 
     1. En **Dirección URL de inicio de sesión**, escriba el valor de URL de inicio de sesión.
 
     1. En el cuadro **Estado de la retransmisión**, escriba una dirección URL con este patrón: `https://<customername>.pegacloud.io/prweb/sso`
 
     > [!NOTE]
-    > Los valores proporcionados aquí son marcadores de posición. Deberá actualizarlos con los valores reales. Puede obtener los valores de identificador y dirección URL de respuesta de una aplicación de Pega, tal como se explica más adelante en este tutorial. Para obtener el valor de estado de la retransmisión, póngase en contacto con el [equipo de soporte técnico de Pega Systems](https://www.pega.com/contact-us). También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+    > Los valores proporcionados aquí son marcadores de posición. Necesita usar los valores de Identificador, URL de respuesta, URL de inicio de sesión y URL de estado de retransmisión. Puede obtener los valores de identificador y dirección URL de respuesta de una aplicación de Pega, tal como se explica más adelante en este tutorial. Para obtener el valor de estado de la retransmisión, póngase en contacto con el [equipo de soporte técnico de Pega Systems](https://www.pega.com/contact-us). También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
 6. La aplicación de Pega Systems necesita las aserciones de SAML en un formato específico. Para obtenerlas en el formato correcto, deberá agregar asignaciones de atributo personalizadas a la configuración de atributos del token SAML. En la siguiente captura se muestra la lista de atributos predeterminados. Seleccione el icono **Editar** para abrir el cuadro de diálogo **Atributos de usuario**.
 
     ![Atributos de usuario](common/edit-attribute.png)
 
 7. Además de los atributos que se muestran en la captura de pantalla anterior, la aplicación Pega Systems requiere que se pasen algunos atributos más en la respuesta de SAML. En la sección **Notificaciones del usuario** del cuadro de diálogo **Atributos de usuario**, haga lo siguiente para agregar estos atributos del token SAML:
-
     
    - `uid`
    - `cn`
@@ -166,17 +161,17 @@ En esta sección, va a permitir que B.Simon acceda a Pega Systems mediante el in
 1. Si espera que se asigne un rol a los usuarios, puede seleccionarlo en la lista desplegable **Seleccionar un rol**. Si no se ha configurado ningún rol para esta aplicación, verá seleccionado el rol "Acceso predeterminado".
 1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
-### <a name="configure-pega-systems-sso"></a>Configuración del inicio de sesión único de Pega Systems
+## <a name="configure-pega-systems-sso"></a>Configuración del inicio de sesión único de Pega Systems
 
 1. Para configurar el inicio de sesión único en **Pega Systems**, inicie sesión en el portal de Pega con cuenta de administrador en otra ventana del explorador.
 
-2. Seleccione **Create** > **SysAdmin** > **Authentication Service** (Crear > SysAdmin > Servicio de autenticación):
+1. Seleccione **Create** > **SysAdmin** > **Authentication Service** (Crear > SysAdmin > Servicio de autenticación):
 
     ![Selección del servicio de autenticación](./media/pegasystems-tutorial/admin.png)
     
-3. Realice lo siguiente en la pantalla **Create Authentication Service** (Crear servicio de autenticación).
+1. Realice los siguientes pasos en la pantalla **Create Authentication Service** (Crear servicio de autenticación).
 
-    ![Pantalla de creación del servicio de autenticación](./media/pegasystems-tutorial/admin1.png)
+    ![Pantalla de creación del servicio de autenticación](./media/pegasystems-tutorial/service.png)
 
     1. En la lista **Type** (Tipo), seleccione **SAML 2.0**.
 
@@ -186,17 +181,17 @@ En esta sección, va a permitir que B.Simon acceda a Pega Systems mediante el in
 
     1. Seleccione **Create and open** (Crear y abrir).
     
-4. En la sección **Identity Provider (IdP) information** (Información de proveedor de identidades [IdP]), haga clic en **Import IdP metadata** (Importar metadatos de IdP) y busque el archivo de metadatos que descargó de Azure Portal. Haga clic en **Submit** (Enviar) para cargar los metadatos:
+1. En la sección **Identity Provider (IdP) information** (Información de proveedor de identidades [IdP]), haga clic en **Import IdP metadata** (Importar metadatos de IdP) y busque el archivo de metadatos que descargó de Azure Portal. Haga clic en **Submit** (Enviar) para cargar los metadatos:
 
-    ![Sección de información del proveedor de identidades (IdP)](./media/pegasystems-tutorial/admin2.png)
+    ![Sección de información del proveedor de identidades (IdP)](./media/pegasystems-tutorial/metadata.png)
     
     La importación rellenará los datos del IdP, como se muestra a continuación:
 
-    ![Datos del IdP importados](./media/pegasystems-tutorial/idp.png)
+    ![Datos del IdP importados](./media/pegasystems-tutorial/data.png)
     
-6. En la sección **Service Provider (SP) settings** (Configuración del proveedor de servicios [SP]), haga lo siguiente:
+1. Siga estos pasos en la sección **Service Provider (SP) settings** (Configuración del proveedor de servicios [SP]).
 
-    ![Configuración del proveedor de servicio](./media/pegasystems-tutorial/sp.png)
+    ![Configuración del proveedor de servicio](./media/pegasystems-tutorial/settings.png)
 
     1. Copie el valor de **Entity Identification** (Identificación de la entidad) y péguelo en el cuadro **Identificador** de **Configuración básica de SAML** en Azure Portal.
 
@@ -204,13 +199,13 @@ En esta sección, va a permitir que B.Simon acceda a Pega Systems mediante el in
 
     1. Seleccione **Disable request signing** (Deshabilitar firma de solicitudes).
 
-7. Seleccione **Guardar**.
+1. Seleccione **Guardar**.
 
 ### <a name="create-pega-systems-test-user"></a>Creación de un usuario de prueba de Pega Systems
 
 A continuación, deberá crear un usuario llamado a Britta Simon en Pega Systems. Trabaje con el [equipo de soporte técnico de Pega Systems](https://www.pega.com/contact-us) para crear usuarios.
 
-### <a name="test-sso"></a>Prueba de SSO
+## <a name="test-sso"></a>Prueba de SSO
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones. 
 
@@ -224,8 +219,8 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 * Haga clic en **Probar esta aplicación** en Azure Portal. Se debería iniciar sesión automáticamente en la instancia de Pega Systems para la que ha configurado el inicio de sesión único. 
 
-También puede usar Aplicaciones de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de Pega Systems en Aplicaciones, si se ha configurado en modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para comenzar el flujo de inicio de sesión; y si se ha configurado en modo IDP, se debería iniciar sesión automáticamente en la instancia de Pega Systems para la que ha configurado el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+También puede usar Aplicaciones de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de Pega Systems en Aplicaciones, si se ha configurado en modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para comenzar el flujo de inicio de sesión; y si se ha configurado en modo IDP, se debería iniciar sesión automáticamente en la instancia de Pega Systems para la que ha configurado el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurado Pega Systems, puede aplicar el control de sesión, que protege su organización en tiempo real frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Una vez configurado Pega Systems, puede aplicar el control de sesión, que protege su organización en tiempo real frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

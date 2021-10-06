@@ -8,12 +8,12 @@ ms.subservice: tutorials
 ms.topic: tutorial
 ms.custom: devx-track-azurepowershell
 ms.date: 02/18/2021
-ms.openlocfilehash: bc6c64c7ce8f3a836e1a2fc002e423536f55e48c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: be4aa228ff5882f0068bb0a7ffb436359e62f80a
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122638876"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124771619"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information-using-powershell"></a>Carga incremental de datos de Azure SQL Database a Azure Blob Storage mediante la información de control de cambios con PowerShell
 
@@ -57,13 +57,13 @@ En este tutorial, creará dos canalizaciones que llevan a cabo las dos operacion
 
 1. **Carga inicial:** creará una canalización con la actividad de copia que copia todos los datos desde el almacén de datos de origen (Azure SQL Database) al almacén de datos de destino (Azure Blob Storage).
 
-    ![Carga completa de datos](media/tutorial-incremental-copy-change-tracking-feature-powershell/full-load-flow-diagram.png)
+    :::image type="content" source="media/tutorial-incremental-copy-change-tracking-feature-powershell/full-load-flow-diagram.png" alt-text="Carga completa de datos":::
 1.  **Carga incremental:** creará una canalización con las siguientes actividades y la ejecutará con regularidad.
     1. Cree **dos actividades de búsqueda** para obtener los valores SYS_CHANGE_VERSION antiguo y nuevo desde Azure SQL Database y pasarlos a la actividad de copia.
     2. Cree **una actividad de copia** para copiar los datos insertados, actualizados o eliminados entre los dos valores SYS_CHANGE_VERSION de Azure SQL Database a Azure Blob Storage.
     3. Cree **una actividad de procedimiento almacenado** para actualizar el valor SYS_CHANGE_VERSION para la ejecución de la siguiente canalización.
 
-    ![Diagrama de flujo de incremento de carga](media/tutorial-incremental-copy-change-tracking-feature-powershell/incremental-load-flow-diagram.png)
+    :::image type="content" source="media/tutorial-incremental-copy-change-tracking-feature-powershell/incremental-load-flow-diagram.png" alt-text="Diagrama de flujo de incremento de carga":::
 
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
@@ -441,26 +441,26 @@ Invoke-AzDataFactoryV2Pipeline -PipelineName "FullCopyPipeline" -ResourceGroup $
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Haga clic en **Todos los servicios**, busque con la palabra clave `data factories` y seleccione **Factorías de datos**.
 
-    ![Menú Factorías de datos](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-data-factories-menu-1.png)
+    :::image type="content" source="media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-data-factories-menu-1.png" alt-text="Menú Factorías de datos":::
 3. Busque **su factoría de datos** en la lista y selecciónela para iniciar la página Factoría de datos.
 
-    ![Búsqueda de la factoría de datos](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-search-data-factory-2.png)
+    :::image type="content" source="media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-search-data-factory-2.png" alt-text="Búsqueda de la factoría de datos":::
 4. En la página Factoría de datos, haga clic en el icono **Supervisión y administración**.
 
-    ![Icono Supervisión y administración](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-monitor-manage-tile-3.png)    
+    :::image type="content" source="media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-monitor-manage-tile-3.png" alt-text="Icono Supervisión y administración":::    
 5. La **aplicación de integración de datos** se inicia en otra pestaña. Puede ver todas las **ejecuciones de canalización** y sus estados. Tenga en cuenta que, en el ejemplo siguiente, el estado de ejecución de la canalización es **Correcto**. Puede comprobar los parámetros pasados a la canalización si hace clic en la columna **Parámetros**. Si se ha producido un error, verá un vínculo en la columna **Error**. Haga clic en el vínculo de la columna **Acciones**.
 
-    ![Captura de pantalla que muestra las ejecuciones de canalización para una factoría de datos.](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-pipeline-runs-4.png)    
+    :::image type="content" source="media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-pipeline-runs-4.png" alt-text="Captura de pantalla que muestra las ejecuciones de canalización para una factoría de datos.":::    
 6. Al hacer clic en el vínculo de la columna **Acciones**, verá la página siguiente que muestra todas las **ejecuciones de actividad** de la canalización.
 
-    ![Captura de pantalla que muestra las ejecuciones de actividad de una factoría de datos, con el vínculo de canalizaciones seleccionado.](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-activity-runs-5.png)
+    :::image type="content" source="media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-activity-runs-5.png" alt-text="Captura de pantalla que muestra las ejecuciones de actividad de una factoría de datos, con el vínculo de canalizaciones seleccionado.":::
 7. Para volver a la vista de **ejecuciones de canalización**, haga clic en **Canalizaciones** como se muestra en la imagen.
 
 
 ### <a name="review-the-results"></a>Revisión del resultado
 Verá un archivo denominado `incremental-<GUID>.txt` en la carpeta `incchgtracking` del contenedor `adftutorial`.
 
-![Archivo de salida de una copia completa](media/tutorial-incremental-copy-change-tracking-feature-powershell/full-copy-output-file.png)
+:::image type="content" source="media/tutorial-incremental-copy-change-tracking-feature-powershell/full-copy-output-file.png" alt-text="Archivo de salida de una copia completa":::
 
 El archivo debe tener los datos de la base de datos:
 
@@ -626,16 +626,16 @@ Invoke-AzDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -Resource
 ### <a name="monitor-the-incremental-copy-pipeline"></a>Supervisión de la canalización de la copia incremental
 1. En la **aplicación de integración de datos**, actualice la vista de **ejecuciones de canalización**. Confirme que ve IncrementalCopyPipeline en la lista. Haga clic en el vínculo de la columna **Acciones**.  
 
-    ![Captura de pantalla que muestra ejecuciones de canalización para una factoría de datos, incluida su canalización.](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-pipeline-runs-6.png)    
+    :::image type="content" source="media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-pipeline-runs-6.png" alt-text="Captura de pantalla que muestra ejecuciones de canalización para una factoría de datos, incluida su canalización.":::    
 2. Al hacer clic en el vínculo de la columna **Acciones**, verá la página siguiente que muestra todas las **ejecuciones de actividad** de la canalización.
 
-    ![Captura de pantalla que muestra ejecuciones de canalización para una factoría de datos, con varias de ellas marcadas como correctas.](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-activity-runs-7.png)
+    :::image type="content" source="media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-activity-runs-7.png" alt-text="Captura de pantalla que muestra ejecuciones de canalización para una factoría de datos, con varias de ellas marcadas como correctas.":::
 3. Para volver a la vista de **ejecuciones de canalización**, haga clic en **Canalizaciones** como se muestra en la imagen.
 
 ### <a name="review-the-results"></a>Revisión del resultado
 Verá el segundo archivo `incchgtracking` en la carpeta `adftutorial` del contenedor.
 
-![Archivo de salida de la copia incremental](media/tutorial-incremental-copy-change-tracking-feature-powershell/incremental-copy-output-file.png)
+:::image type="content" source="media/tutorial-incremental-copy-change-tracking-feature-powershell/incremental-copy-output-file.png" alt-text="Archivo de salida de la copia incremental":::
 
 El archivo debe tener solo los datos diferenciales de la base de datos. El registro con `U` es la fila actualizada en la base de datos y `I` es la fila que se agrega.
 

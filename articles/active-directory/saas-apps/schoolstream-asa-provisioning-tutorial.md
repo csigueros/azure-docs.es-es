@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/27/2021
 ms.author: thwimmer
-ms.openlocfilehash: 3f3b6fa4a1dcd87371fe2c75de2dc89b60d92eb1
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 5648c84fceb0c6d17375b712a4f3a86561296d4d
+ms.sourcegitcommit: 3ef5a4eed1c98ce76739cfcd114d492ff284305b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123544783"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128709049"
 ---
 # <a name="tutorial-configure-schoolstream-asa-for-automatic-user-provisioning-in-schoolstream-asa"></a>Tutorial: Configuración de SchoolStream ASA para el aprovisionamiento automático de usuarios en la aplicación
 
@@ -28,7 +28,8 @@ En este tutorial se describen los pasos para seguir en SchoolStream ASA y Azure 
 > [!div class="checklist"]
 > * Creación de usuarios en SchoolStream ASA 
 > * Eliminación de usuarios de SchoolStream ASA cuando ya no necesiten acceso
-> * Sincronización de los atributos de usuario entre Azure AD y SchoolStream ASA
+> * Sincronización de los atributos de usuario entre Azure AD y SchoolStream ASA.
+> * Aprovisionamiento de grupos y pertenencias a grupos en SchoolStream ASA.
 > * [Inicio de sesión único](../manage-apps/add-application-portal-setup-oidc-sso.md) en SchoolStream ASA (recomendado)
 
 
@@ -56,11 +57,11 @@ En el escenario descrito en este tutorial se supone que ya cuenta con los requis
 Para iniciar el aprovisionamiento en SchoolStream ASA desde Azure AD, agregue la aplicación SchoolStream ASA desde la galería de aplicaciones de Azure AD. 
 
 1. Inicie sesión en Azure Portal con una cuenta personal, profesional o educativa de Microsoft.
-2. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory**.
-3. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
-4. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
-5. En la sección **Examinar la galería de Azure AD**, escriba **SchoolStream ASA** en el cuadro de búsqueda.
-6. Seleccione **SchoolStream ASA** en el panel de resultados y **regístrese en la aplicación**. Espere unos segundos mientras la aplicación se agrega al inquilino.
+1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory**.
+1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
+1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
+1. En la sección **Examinar la galería de Azure AD**, escriba **SchoolStream ASA** en el cuadro de búsqueda.
+1. Seleccione **SchoolStream ASA** en el panel de resultados y **regístrese en la aplicación**. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
 
 Si ya ha configurado SchoolStream ASA para el inicio de sesión único, puede usar la misma aplicación. Sin embargo, se recomienda que cree una aplicación independiente al probar la integración inicialmente. Puede encontrar más información sobre cómo agregar una aplicación desde la galería [aquí](../manage-apps/add-application-portal.md). 
@@ -144,7 +145,19 @@ Esta sección le dirige por los pasos necesarios para configurar el servicio de 
    |externalId|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:organization|String| 
 
-13. Seleccione el botón **Guardar** para confirmar los cambios. Puede volver a la pestaña **Aplicación** y seleccionar la opción para **editar el aprovisionamiento** y continuar.
+
+1. En la sección de **asignaciones**, seleccione **Synchronize Azure Active Directory Groups to UNIFI** (Sincronizar grupos de Azure Active Directory con UNIFI).
+
+1. Revise los atributos de grupo que se sincronizan entre Azure AD y UNIFI en la sección **Attribute-Mapping** (Asignación de atributos). Los atributos seleccionados como propiedades de **coincidencia** se usan para establecer correspondencia con los grupos de UNIFI para operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
+
+      |Atributo|Tipo|Compatible con el filtrado|
+      |---|---|---|
+      |DisplayName|String|&check;
+      |members|Referencia|
+      |externalId|String|      
+
+
+1. Seleccione el botón **Guardar** para confirmar los cambios. Puede volver a la pestaña **Aplicación** y seleccionar la opción para **editar el aprovisionamiento** y continuar.
 
 1. Para configurar filtros de ámbito, consulte las siguientes instrucciones, que se proporcionan en el artículo [Aprovisionamiento de aplicaciones basado en atributos con filtros de ámbito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -168,6 +181,10 @@ Una vez configurado el aprovisionamiento, use los recursos siguientes para super
 * Use los [registros de aprovisionamiento](../reports-monitoring/concept-provisioning-logs.md) para determinar qué usuarios se han aprovisionado correctamente o sin éxito.
 * Consulte la [barra de progreso](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) para ver el estado del ciclo de aprovisionamiento y cuánto falta para que finalice.
 * Si la configuración de aprovisionamiento parece estar en mal estado, la aplicación pasará a estar en cuarentena. Más información sobre los estados de cuarentena [aquí](../app-provisioning/application-provisioning-quarantine-status.md).  
+
+## <a name="change-log"></a>Registro de cambios
+
+* 24/09/2020: se ha habilitado el aprovisionamiento de grupos.
 
 ## <a name="more-resources"></a>Más recursos
 

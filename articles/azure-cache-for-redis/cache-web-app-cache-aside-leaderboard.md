@@ -1,18 +1,18 @@
 ---
 title: 'Tutorial: Creación de una aplicación web (cache-aside): Azure Cache for Redis'
 description: Aprenda a crear una aplicación web con Azure Cache for Redis que use el patrón cache-aside.
-author: yegu-ms
-ms.author: yegu
+author: curib
+ms.author: cauribeg
 ms.service: cache
 ms.topic: tutorial
 ms.custom: devx-track-csharp, mvc
 ms.date: 03/30/2018
-ms.openlocfilehash: 2c274ffa263ac2313171ac7adc08f2ea2120c57c
-ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
+ms.openlocfilehash: 7dc957607e9fbc36d25c028f45fffb5f93811db2
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "112234670"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129534734"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>Tutorial: Creación de una tabla de clasificación cache-aside en ASP.NET
 

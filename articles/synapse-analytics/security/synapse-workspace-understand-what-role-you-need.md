@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/1/2020
 ms.author: mesrivas
 ms.reviewer: jrasnick
-ms.openlocfilehash: 56337e349cf2cfad792cecbec11503a4fd866095
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.openlocfilehash: 88597690ca4b3bf9cfd51b6e56eb9395df8ee1ba
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122253625"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128583679"
 ---
 # <a name="understand-the-roles-required-to-perform-common-tasks-in-synapse"></a>Descripción de los roles necesarios para realizar tareas comunes en Synapse
 
@@ -27,7 +27,7 @@ Este artículo le ayudará a comprender qué rol RBAC de Synapse (control de acc
 
 ### <a name="resource-management"></a>Administración de recursos
 
-- Puede crear grupos de SQL, grupos de Apache Spark y entornos de ejecución de integración si es propietario o colaborador de Azure en el área de trabajo.
+- Puede crear grupos de SQL, grupos de Apache Spark y entornos de ejecución de integración si es propietario o colaborador de Azure en el área de trabajo. Al usar plantillas de ARM para la implementación automatizada, debe ser colaborador de Azure en el grupo de recursos.
 - Puede pausar o escalar un grupo de SQL dedicado y configurar un grupo de Spark o un entorno de ejecución de integración si es propietario o colaborador de Azure en el área de trabajo o en ese recurso.
 
 ### <a name="viewing-and-editing-code-artifacts"></a>Vista y edición de artefactos de código
@@ -76,7 +76,7 @@ Administrar (pausar, escalar o eliminar) un grupo de SQL dedicado|Propietario o 
 Crear un script de SQL</br>|Usuario de Synapse o </br>propietario o colaborador de Azure en el área de trabajo </br>*Se requieren permisos SQL adicionales para ejecutar, publicar o confirmar un script de SQL*.|
 Mostrar y abrir cualquier script de SQL publicado| Usuario de artefactos de Synapse, editor de artefactos, colaborador de Synapse|artefactos/lectura
 Ejecutar un script de SQL en un grupo de SQL sin servidor|Permisos SQL en el grupo (concedidos automáticamente a un administrador de Synapse)|ninguno
-Ejecutar un script de SQL en un grupo de SQL dedicado|Permisos de SQL en el grupo|ninguno
+Ejecutar un script de SQL en un grupo de SQL dedicado|Permisos SQL en el grupo (concedidos automáticamente a un administrador de Synapse)|ninguno
 Publicar un script de SQL nuevo, actualizado o eliminado|Editor de artefactos de Synapse, colaborador de Synapse|sqlScripts/escritura, eliminación
 Confirmar cambios en un script de SQL el un repositorio de Git|Requiere permisos de GIT en el repositorio.|
 Asignar un administrador de Active Directory en el área de trabajo (mediante las propiedades del área de trabajo de Azure Portal)|Propietario o colaborador de Azure en el área de trabajo |

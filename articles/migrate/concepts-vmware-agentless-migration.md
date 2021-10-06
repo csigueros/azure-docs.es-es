@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 05/31/2021
-ms.openlocfilehash: ed0560d85d267de90ff23d8aa66c1f628c90e3c6
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: c19bff913f38503dbd99f86757ad6cda0ee5cb5a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111967443"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128658229"
 ---
 # <a name="azure-migrate-agentless-migration-of-vmware-virtual-machines"></a>La migración sin agentes de Azure Migrate de máquinas virtuales de VMware
 
@@ -60,7 +60,7 @@ Se dice que un ciclo se completa una vez que se consolidan los discos.
 | Service Bus | Región de destino | Suscripción de los proyectos de Azure Migrate | Se usa para la comunicación entre el servicio en la nube y el dispositivo de Azure Migrate |
 | Cuenta de almacenamiento de registros | Región de destino | Suscripción de los proyectos de Azure Migrate | Se usa para almacenar datos de replicación, que lee el servicio y se aplica en el disco administrado del cliente |
 | Cuenta de almacenamiento de puerta de enlace | Región de destino | Suscripción de los proyectos de Azure Migrate | Se usa para almacenar los estados de la máquina durante la replicación |
-| Almacén de claves | Región de destino | Suscripción de los proyectos de Azure Migrate | Administra las claves de la cuenta de almacenamiento de registros y almacena las cadenas de conexión de Service Bus |
+| Almacén de claves | Región de destino | Suscripción de los proyectos de Azure Migrate | Administra las cadenas de conexión de Service Bus y las claves de acceso de la cuenta de almacenamiento de registro |
 | Máquina virtual de Azure | Región de destino | Suscripción de destino | Máquina virtual que se crea en Azure al migrar |
 | Azure Managed Disks | Región de destino | Suscripción de destino | Discos administrados conectados a máquinas virtuales de Azure |
 | Tarjetas adaptadoras de red | Región de destino | Suscripción de destino | Las NIC asociadas a las máquinas virtuales que se crean en Azure |
@@ -121,13 +121,12 @@ Es decir, la siguiente replicación diferencial se programará, como mínimo, de
 > [!Note]
 > La lógica de programación es diferente una vez completada la replicación inicial. El primer ciclo diferencial se programa inmediatamente después de que se complete la replicación inicial y los ciclos posteriores siguen la lógica de programación descrita anteriormente.
 
-
 - Al desencadenar la migración, se realiza un ciclo de replicación diferencial a petición (ciclo de replicación diferencial previa a la conmutación por error) para la máquina virtual antes de la migración.
 
 **Priorización de máquinas virtuales para varias fases de replicación**
 
 - Las replicaciones de máquinas virtuales en curso tienen prioridad sobre las replicaciones programadas (nuevas replicaciones)
-- El ciclo previo a la migración (replicación diferencial a petición) tiene la mayor prioridad seguida del ciclo de replicación inicial. El ciclo de replicación diferencial tiene la menor prioridad.
+- El ciclo previo a la conmutación por error (replicación diferencial a petición) tiene la mayor prioridad seguida del ciclo de replicación inicial. El ciclo de replicación diferencial tiene la menor prioridad.
 
 Es decir, cada vez que se desencadena una operación de migración, se programa el ciclo de replicación a petición de la máquina virtual y otras replicaciones en curso se mantienen en segundo plano si compiten por los recursos.
 
@@ -136,7 +135,7 @@ Es decir, cada vez que se desencadena una operación de migración, se programa 
 Usamos las siguientes restricciones para garantizar que no superemos los límites de IOPS en las SAN.
 
 - Cada dispositivo de Azure Migrate admite la replicación de 52 discos en paralelo
-- Cada host ESXi admite ocho discos. Cada host ESXi tiene un búfer NFC de 32 MB. Por lo tanto, podemos programar ocho discos en el host (cada disco ocupa 4 MB de búfer para IR, DR).
+- Cada host ESXi admite 8 discos. Cada host ESXi tiene un búfer NFC de 32 MB. Por tanto, se pueden programar 8 discos en el host (cada disco ocupa 4 MB de búfer para IR, DR).
 - Cada almacén de datos puede tener un máximo de 15 instantáneas de disco. La única excepción es cuando una máquina virtual tiene más de 15 discos conectados.
 
 ## <a name="scale-out-replication"></a>Replicación de escalabilidad horizontal
@@ -146,7 +145,7 @@ Azure Migrate admite la replicación simultánea de 500 máquinas virtuales. Cua
 ![Configuración de escalado horizontal.](./media/concepts-vmware-agentless-migration/scale-out-configuration.png)
 
 
-Puede implementar el dispositivo de escalabilidad horizontal en cualquier momento después de configurar el dispositivo principal hasta que haya 300 máquinas virtuales replicando simultáneamente. Cuando hay 300 máquinas virtuales replicando simultáneamente, debe implementar el dispositivo de escalabilidad horizontal para continuar.
+Puede implementar el dispositivo de escalabilidad horizontal en cualquier momento después de configurar el dispositivo principal, pero no es necesario hasta que haya 300 máquinas virtuales que realicen la replicación simultáneamente. Cuando hay 300 máquinas virtuales replicando simultáneamente, debe implementar el dispositivo de escalabilidad horizontal para continuar.
 
 ## <a name="stop-replication"></a>Detención replicación
 
@@ -173,7 +172,7 @@ Puede aumentar o disminuir el ancho de banda de replicación mediante _NetQosPol
 
 Se puede crear una directiva en el dispositivo de Azure Migrate para limitar el tráfico de replicación desde el dispositivo mediante la creación de una directiva como la siguiente:
 
-```New-NetQosPolicy -Name "ThrottleReplication" -AppPathNameMatchCondition "GatewayWindowsService.exe" -ThrottleRateActionBitsPerSecond 1MB```
+`New-NetQosPolicy -Name "ThrottleReplication" -AppPathNameMatchCondition "GatewayWindowsService.exe" -ThrottleRateActionBitsPerSecond 1MB`
 
 > [!NOTE]
 > Esto es aplicable a todas las máquinas virtuales de replicación del dispositivo de Azure Migrate simultáneamente.
@@ -182,7 +181,7 @@ También puede aumentar y reducir el ancho de banda de replicación en función 
 
 ### <a name="blackout-window"></a>Ventana sin disponibilidad
 
-Azure Migrate proporciona un mecanismo basado en la configuración a través del cual los clientes pueden especificar el intervalo de tiempo durante el cual no desean que se realicen replicaciones. Este intervalo de tiempo se denomina ventana sin disponibilidad. La necesidad de una ventana sin disponibilidad puede surgir en varios escenarios, como cuando el entorno de origen tiene recursos limitados, cuando los clientes desean que la replicación tenga lugar solo en horas no comerciales, etc.
+Azure Migrate proporciona un mecanismo basado en la configuración a través del cual los clientes pueden especificar el intervalo de tiempo durante el cual no desean que se realicen replicaciones. Este intervalo de tiempo se denomina ventana sin disponibilidad. La necesidad de una ventana sin disponibilidad puede surgir en varios escenarios, como cuando el entorno de origen tiene recursos limitados o cuando los clientes quiere que la replicación solo tenga lugar en horario no comercial, etc.
 
 > [!NOTE]
 > Los ciclos de replicación existentes al principio de la ventana sin disponibilidad se completarán antes de que se detenga la replicación.

@@ -4,14 +4,14 @@ description: Información general sobre el agente de Azure Monitor, que recopila
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 07/22/2021
+ms.date: 09/21/2021
 ms.custom: references_regions
-ms.openlocfilehash: ccd194df39f0fff4bdabe4ae91e911dd030673e6
-ms.sourcegitcommit: c2f0d789f971e11205df9b4b4647816da6856f5b
+ms.openlocfilehash: 46c3aca1c2f983d857be59d2d69b0cadfb433303
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122662176"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128655987"
 ---
 # <a name="azure-monitor-agent-overview"></a>Información general del agente de Azure Monitor
 El agente de Azure Monitor (AMA) recopila datos de supervisión del sistema operativo invitado de máquinas virtuales de Azure y los entrega a Azure Monitor. En este artículo se proporciona información general sobre el agente de Azure Monitor, incluido cómo instalarlo y cómo configurar la recopilación de datos.
@@ -78,13 +78,14 @@ En la siguiente tabla se muestra la compatibilidad actual del agente de Azure Mo
 | Servicio de Azure | Compatibilidad actual | Más información |
 |:---|:---|:---|
 | [Azure Security Center](../../security-center/security-center-introduction.md) | Versión preliminar privada | [Vínculo de registro](https://aka.ms/AMAgent) |
-| [Azure Sentinel](../../sentinel/overview.md) | Versión preliminar privada | [Vínculo de registro](https://aka.ms/AMAgent) |
+| [Azure Sentinel](../../sentinel/overview.md) | <ul><li>Reenvío de eventos de Windows (WEF): versión preliminar privada</li><li>Eventos de seguridad de Windows: [versión preliminar pública](../../sentinel/connect-windows-security-events.md?tabs=AMA)</li></ul>  | <ul><li>[Vínculo de registro](https://aka.ms/AMAgent) </li><li>No es preciso registrarse</li></ul> |
 
 En la siguiente tabla se muestra la compatibilidad actual del agente de Azure Monitor con características de Azure Monitor.
 
 | Característica de Azure Monitor | Compatibilidad actual | Más información |
 |:---|:---|:---|
-| [VM Insights](../vm/vminsights-overview.md) | Versión preliminar privada  | [Vínculo de registro](https://forms.office.com/r/jmyE821tTy) |
+| [VM Insights](../vm/vminsights-overview.md) | Versión preliminar privada  | [Vínculo de registro](https://aka.ms/amadcr-privatepreviews) |
+| [Conexión mediante vínculos privados o AMPLS](../logs/private-link-security.md) | Versión preliminar privada para AMA | [Vínculo de registro](https://aka.ms/amadcr-privatepreviews) |
 | [Estado de invitado de VM Insights](../vm/vminsights-health-overview.md) | Versión preliminar pública | Disponible solo en el nuevo agente |
 | [SQL Insights](../insights/sql-insights-overview.md) | Versión preliminar pública | Disponible solo en el nuevo agente |
 
@@ -108,15 +109,15 @@ El agente de Azure Monitor no cuesta nada, pero puede incurrir en cargos por los
 ## <a name="data-sources-and-destinations"></a>Orígenes y destinos de los datos
 En la siguiente tabla se enumeran los tipos de datos que se pueden recopilar actualmente con el agente de Azure Monitor usando reglas de recopilación y dónde se pueden enviar dichos datos. En [¿Qué supervisa Azure Monitor?](../monitor-reference.md) puede consultar una lista con información detallada, soluciones y otros servicios que usan el agente de Azure Monitor para recopilar otros tipos de datos.
 
-El agente de Azure Monitor envía datos a métricas de Azure Monitor o a un área de trabajo de Log Analytics que admite registros de Azure Monitor.
+El agente de Azure Monitor envía datos a Métricas de Azure Monitor (versión preliminar) o a un área de trabajo de Log Analytics que admita registros de Azure Monitor.
 
 | Origen de datos | Destinations | Descripción |
 |:---|:---|:---|
-| Rendimiento        | Métricas de Azure Monitor<sup>1</sup><br>Área de trabajo de Log Analytics | Valores numéricos que miden el rendimiento de diferentes aspectos del sistema operativo y las cargas de trabajo. |
+| Rendimiento        | Métricas de Azure Monitor (versión preliminar)<sup>1</sup><br>Área de trabajo de Log Analytics | Valores numéricos que miden el rendimiento de diferentes aspectos del sistema operativo y las cargas de trabajo. |
 | Registros de eventos de Windows | Área de trabajo de Log Analytics | Información enviada al sistema de registro de eventos de Windows |
 | syslog             | Área de trabajo de Log Analytics | Información enviada al sistema de registro de eventos de Windows. |
 
-<sup>1</sup> Actualmente hay una limitación en el agente Azure Monitor para Linux. No está permitido usar métricas de Azure Monitor como *único* destino. Sí que es posible usarlas junto con registros de Azure Monitor. Esta limitación se solucionará en la siguiente actualización de la extensión.
+<sup>1</sup> [Haga clic aquí](../essentials/metrics-custom-overview.md#quotas-and-limits) para revisar otras limitaciones del uso de Métricas de Azure Monitor. En Linux, el uso de Métricas de Azure Monitor como único destino se admite en v.1.10.9.0 o superior. 
 
 ## <a name="security"></a>Seguridad
 El agente de Azure Monitor no requiere ninguna clave, pero en su lugar requiere una [identidad administrada asignada por el sistema](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity). Para poder implementar el agente, en cada máquina virtual debe tener habilitada una identidad administrada asignada por el sistema.
@@ -127,6 +128,9 @@ El agente de Azure Monitor admite etiquetas de servicio de Azure. Se requieren l
 ### <a name="proxy-configuration"></a>Configuración de proxy
 
 Las extensiones del agente de Azure Monitor para Windows y Linux pueden comunicarse a través de un servidor proxy o una puerta de enlace de Log Analytics a Azure Monitor mediante el protocolo HTTPS. Úselo para máquinas virtuales de Azure, conjuntos de escalado de máquinas virtuales de Azure y Azure Arc para servidores. Use los ajustes de extensiones a efectos de configuración como se describe en los siguientes pasos. Se admite autenticación tanto anónima como básica usando un nombre de usuario y una contraseña.
+
+> [!IMPORTANT]
+> La configuración del proxy no se admite para [Métricas de Azure Monitor (versión preliminar)](../essentials/metrics-custom-overview.md) como destino. Por tanto, si va a enviar métricas a este destino, usará la red pública de Internet sin ningún proxy.
 
 1. Use este diagrama de flujo para determinar primero los valores de los parámetros *setting* y *protectedSetting*.
 

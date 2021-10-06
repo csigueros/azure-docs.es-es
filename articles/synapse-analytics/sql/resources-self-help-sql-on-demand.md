@@ -6,21 +6,21 @@ author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql
-ms.date: 8/31/2021
+ms.date: 9/23/2021
 ms.author: stefanazaric
-ms.reviewer: jrasnick
-ms.openlocfilehash: 906f6a7a8e64c255c8b87219ef0549a553821783
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.reviewer: jrasnick, wiassaf
+ms.openlocfilehash: 35803ad7d63e107f71e71c6ce8292c5608740eec
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123536488"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128555261"
 ---
 # <a name="self-help-for-serverless-sql-pool"></a>Autoayuda para grupos de SQL sin servidor
 
 Este artículo contiene información sobre cómo solucionar los problemas más frecuentes con grupos de SQL sin servidor en Azure Synapse Analytics.
 
-## <a name="synapse-studio"></a>Synapse studio
+## <a name="synapse-studio"></a>Synapse Studio
 
 ### <a name="serverless-sql-pool-is-grayed-out-in-synapse-studio"></a>El grupo de SQL sin servidor está atenuado en Synapse Studio
 
@@ -53,7 +53,7 @@ En lugar de conceder el rol Colaborador de datos de Storage Blob, también puede
 
 > [!NOTE]
 > El permiso de ejecución sobre el nivel de contenedor debe establecerse en Azure Data Lake Gen2.
-> Los permisos sobre la carpeta se pueden establecer en Synapse. 
+> Los permisos sobre la carpeta se pueden establecer en Azure Synapse. 
 
 
 Si quiere consultar data2.csv en este ejemplo, se necesitan los siguientes permisos: 
@@ -63,7 +63,7 @@ Si quiere consultar data2.csv en este ejemplo, se necesitan los siguientes permi
 
 ![Dibujo que muestra la estructura de permisos en Data Lake.](./media/resources-self-help-sql-on-demand/folder-structure-data-lake.png)
 
-* Inicie sesión en Synapse con un usuario administrador que tenga permisos completos sobre los datos a los que quiere acceder.
+* Inicie sesión en Azure Synapse con un usuario administrador que tenga permisos completos sobre los datos a los que quiere acceder.
 
 * En el panel de datos, haga clic con el botón derecho en el archivo y seleccione ADMINISTRAR ACCESO.
 
@@ -75,7 +75,7 @@ Si quiere consultar data2.csv en este ejemplo, se necesitan los siguientes permi
 ![Captura de pantalla que muestra la interfaz de usuario de concesión de permisos de lectura](./media/resources-self-help-sql-on-demand/grant-permission.png)
 
 > [!NOTE]
-> En el caso de los usuarios invitados, este paso debe hacerse directamente con el servicio Azure Data Lake, ya que no se puede hacer directamente mediante de Synapse. 
+> En el caso de los usuarios invitados, este paso debe hacerse directamente con el servicio Azure Data Lake, ya que no se puede hacer directamente mediante de Azure Synapse. 
 
 ### <a name="query-fails-because-it-cannot-be-executed-due-to-current-resource-constraints"></a>Se produce un error en la consulta porque no se puede ejecutar debido a las restricciones de recursos actuales 
 
@@ -100,7 +100,7 @@ Aplique la misma mitigación y los procedimientos recomendados antes de presenta
 Si se produce un error en la consulta con un mensaje que dice que no se puede controlar el archivo externo y que se ha alcanzado el número máximo de errores, significa que hay un error de coincidencia de un tipo de columna especificado y es necesario cargar los datos. Para obtener más información sobre el error y las filas y columnas que se deben examinar, cambie la versión del analizador de "2.0" a "1.0". 
 
 #### <a name="example"></a>Ejemplo
-Si quisiera consultar el archivo "names.csv" con esta consulta 1, Synapse SQL sin servidor devolvería este error. 
+Si quisiera consultar el archivo "names.csv" con esta consulta 1, Azure Synapse SQL sin servidor devolvería este error. 
 
 names.csv
 ```csv
@@ -133,11 +133,11 @@ FROM
 ```
 Causas:
 
-```Error handling external file: ‘Max error count reached’. File/External table name: [filepath].```
+`Error handling external file: ‘Max error count reached’. File/External table name: [filepath].`
 
 En cuanto se cambia la versión del analizador de 2.0 a 1.0, los mensajes de error ayudan a identificar el problema. El nuevo mensaje de error es ahora: 
 
-```Bulk load data conversion error (truncation) for row 1, column 2 (Text) in data file [filepath]```
+`Bulk load data conversion error (truncation) for row 1, column 2 (Text) in data file [filepath]`
 
 El truncamiento nos indica que el tipo de columna es demasiado pequeño para nuestros datos. El nombre más largo de este archivo "names.csv" tiene siete caracteres. Por lo tanto, el tipo de datos correspondiente que se va a usar debe ser al menos VARCHAR(7). El error se debe a esta línea de código: 
 
@@ -171,7 +171,7 @@ Si se produce un error en la consulta que dice que hay un error de conversión e
 Por ejemplo, si solo espera enteros en los datos, pero en la fila n podría haber una cadena, este es el mensaje de error que recibirá. Para resolver este problema, inspeccione el archivo y los tipos de datos correspondientes que eligió. Compruebe también si la configuración del delimitador de filas y el terminador de campo es correcta. En el ejemplo siguiente se muestra cómo se puede realizar la inspección mediante VARCHAR como tipo de columna. Encuentre más información sobre terminadores de campo, delimitadores de filas y caracteres de comillas de escape [aquí](query-single-csv-file.md). 
 
 #### <a name="example"></a>Ejemplo 
-Si quisiera consultar el archivo "names.csv" con esta consulta 1, Synapse SQL sin servidor devolvería este error. 
+Si quisiera consultar el archivo "names.csv" con esta consulta 1, Azure Synapse SQL sin servidor devolvería este error. 
 
 names.csv
 ```csv
@@ -203,7 +203,7 @@ FROM
     AS [result]
 ```
 
-provoca este error: ```Bulk load data conversion error (type mismatch or invalid character for the specified codepage) for row 6, column 1 (ID) in data file [filepath]```
+provoca este error: `Bulk load data conversion error (type mismatch or invalid character for the specified codepage) for row 6, column 1 (ID) in data file [filepath]`
 
 Es necesario examinar los datos y tomar una decisión informada para controlar este problema. Para ver los datos que ocasionan este problema, primero es necesario cambiar el tipo de datos. En lugar de consultar la columna "ID" con el tipo de datos "SMALLINT", ahora se usa VARCHAR(100) para analizar este problema. Con esta consulta 2 ligeramente modificada, ahora se pueden procesar los datos y se muestra la lista de nombres. 
 
@@ -247,7 +247,7 @@ Parece que los datos tienen valores de ID inesperados en la quinta fila. En tale
 Si la consulta no da error pero encuentra que la tabla de resultados no se carga según lo previsto, es probable que el delimitador de filas o el terminador de campo se hayan elegido incorrectamente. Para resolver este problema, es necesario examinar de nuevo los datos y cambiar esa configuración. Como se muestra una tabla de resultados, la depuración de esta consulta es fácil, como en el ejemplo siguiente. 
 
 #### <a name="example"></a>Ejemplo
-Si quisiera consultar el archivo "names.csv" con esta consulta 1, Synapse SQL sin servidor devolvería esta tabla de resultados que parece extraña. 
+Si quisiera consultar el archivo "names.csv" con esta consulta 1, Azure Synapse SQL sin servidor devolvería esta tabla de resultados que parece extraña. 
 
 names.csv
 ```csv
@@ -340,7 +340,7 @@ Si se produce un error en la consulta con el mensaje de error que dice que la co
 Para resolver este problema, inspeccione el archivo y los tipos de datos correspondientes que eligió. Esta [tabla de asignación](develop-openrowset.md#type-mapping-for-parquet) ayuda a elegir un tipo de datos SQL. Sugerencia de procedimiento recomendado: Especifique la asignación solo para las columnas que, si no, se resolverían en el tipo de datos VARCHAR. Evitar VARCHAR cuando sea posible conduce a un mejor rendimiento en las consultas. 
 
 #### <a name="example"></a>Ejemplo
-Si quisiera consultar el archivo "taxi-data.parquet" con esta consulta 1, Synapse SQL sin servidor devolvería ese error.
+Si quisiera consultar el archivo "taxi-data.parquet" con esta consulta 1, Azure Synapse SQL sin servidor devolvería ese error.
 
 taxi-data.parquet:
 
@@ -369,9 +369,10 @@ FROM
 
     AS [result]
 ```
+
 provoca este error: 
 
-```Column 'SumTripDistance' of type 'INT' is not compatible with external data type 'Parquet physical type: DOUBLE', please try with 'FLOAT'. File/External table name: '<filepath>taxi-data.parquet'.```
+`Column 'SumTripDistance' of type 'INT' is not compatible with external data type 'Parquet physical type: DOUBLE', please try with 'FLOAT'. File/External table name: '<filepath>taxi-data.parquet'.`
 
 Este mensaje de error nos indica que los tipos de datos no son compatibles y ya incluye la sugerencia de usar FLOAT en lugar de INT. Por lo tanto, el error se debe a esta línea de código: 
 
@@ -480,7 +481,7 @@ La [intercalación Latin1_General_100_BIN2_UTF8](best-practices-serverless-sql-p
 
 ### <a name="query-returns-null-values"></a>La consulta devuelve valores `NULL`
 
-Synapse SQL devolverá `NULL` en lugar de los valores que ve en el almacén de transacciones en los casos siguientes:
+Azure Synapse SQL devolverá `NULL` en lugar de los valores que ve en el almacén de transacciones en los casos siguientes:
 - Hay un retraso en la sincronización entre el almacén transaccional y analítico. El valor que escribió en el almacén transaccional de Cosmos DB podría aparecer en el almacén analítico al cabo de 2 o 3 minutos.
 - Es posible que el nombre de columna o la expresión de la ruta de acceso sean incorrectos en la cláusula `WITH`. El nombre de columna (o la expresión de la ruta de acceso después del tipo de columna) de la cláusula `WITH` debe coincidir con los nombres de propiedad de un colección de Cosmos DB. La comparación distingue entre mayúsculas y minúsculas (por ejemplo, `productCode` y `ProductCode` son propiedades diferentes). Asegúrese de que los nombres de columna coinciden exactamente con los nombres de propiedad de Cosmos DB.
 - La propiedad podría no moverse al almacenamiento analítico porque infringe algunas [restricciones de esquema](../../cosmos-db/analytical-store-introduction.md#schema-constraints), por ejemplo, más de 1000 propiedades o más de 127 niveles de anidamiento.
@@ -505,14 +506,12 @@ La compatibilidad con Delta Lake se encuentra actualmente en versión preliminar
 - Asegúrese de que hace referencia a la carpeta raíz de Delta Lake en la función [OPENROWSET](./develop-openrowset.md) o en la ubicación de la tabla externa.
   - La carpeta raíz debe tener una subcarpeta denominada `_delta_log`. Se producirá un error en la consulta si no hay ninguna carpeta `_delta_log`. Si no ve esa carpeta, significa que hace referencia a archivos Parquet sin formato que se deben [convertir a Delta Lake](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#convert-parquet-to-delta) mediante grupos de Apache Spark.
   - No especifique caracteres comodín para describir el esquema de partición. La consulta de Delta Lake identificará automáticamente las particiones de Delta Lake. 
-- Las tablas de Delta Lake creadas en los grupos de Apache Spark no están disponibles automáticamente en el grupo de SQL sin servidor. Para consultar estas tablas de Delta Lake mediante el lenguaje T-SQL, ejecute la instrucción [CREATE EXTERNAL TABLE](https://docs.microsoft.com/azure/synapse-analytics/sql/create-use-external-tables#delta-lake-external-table) y especifique Delta como formato.
+- Las tablas de Delta Lake creadas en los grupos de Apache Spark no están disponibles automáticamente en el grupo de SQL sin servidor. Para consultar estas tablas de Delta Lake mediante el lenguaje T-SQL, ejecute la instrucción [CREATE EXTERNAL TABLE](./create-use-external-tables.md#delta-lake-external-table) y especifique Delta como formato.
 - Las tablas externas no admiten la creación de particiones. Use [vistas con particiones](create-use-views.md#delta-lake-partitioned-views) en la carpeta de Delta Lake para aprovechar la eliminación de particiones. Consulte a continuación los problemas conocidos y las soluciones alternativas.
 - Los grupos de SQL sin servidor no admiten consultas de viaje en el tiempo. Puede votar por esta característica en el [sitio de comentarios de Azure](https://feedback.azure.com/forums/307516-azure-synapse-analytics/suggestions/43656111-add-time-travel-feature-in-delta-lake). Use grupos de Apache Spark en Azure Synapse Analytics para [leer datos históricos](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#read-older-versions-of-data-using-time-travel).
 - Los grupos de SQL sin servidor no admiten la actualización de archivos de Delta Lake. Puede usar el grupo de SQL sin servidor para consultar la versión más reciente de Delta Lake. Use grupos de Apache Spark en Azure Synapse Analytics para [actualizar Delta Lake](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#update-table-data).
-- Los grupos de SQL sin servidor en Synapse Analytics no admiten conjuntos de datos con el [filtro BLOOM](https://docs.microsoft.com/azure/databricks/delta/optimizations/bloom-filters).
+- Los grupos de SQL sin servidor en Azure Synapse Analytics no admiten conjuntos de datos con el [filtro BLOOM](/azure/databricks/delta/optimizations/bloom-filters).
 - La compatibilidad con Delta Lake no está disponible en grupos de SQL dedicados. Asegúrese de que usa grupos sin servidor para consultar archivos de Delta Lake.
-
-Puede proponer ideas y mejoras en el [sitio de comentarios de Azure Synapse](https://feedback.azure.com/forums/307516-azure-synapse-analytics?category_id=171048).
 
 ### <a name="content-of-directory-on-path-cannot-be-listed"></a>No se puede enumerar el contenido del directorio en la ruta de acceso
 
@@ -605,7 +604,7 @@ Msg 16513, Level 16, State 0, Line 1
 Error reading external metadata.
 ```
 En primer lugar, asegúrese de que el conjunto de datos de Delta Lake no esté dañado.
-- Compruebe que puede leer el contenido de la carpeta de Delta Lake mediante el grupo de Apache Spark en el clúster de Synapse o Databricks. De este modo, se asegurará de que el archivo `_delta_log` no esté dañado.
+- Compruebe que puede leer el contenido de la carpeta de Delta Lake mediante el grupo de Apache Spark en el clúster de Azure Synapse o Databricks. De este modo, se asegurará de que el archivo `_delta_log` no esté dañado.
 - Compruebe que puede leer el contenido de los archivos de datos especificando `FORMAT='PARQUET'` y usando el carácter comodín recursivo `/**` al final de la ruta de acceso del URI. Si puede leer todos los archivos Parquet, el problema se encuentra en la carpeta del registro de transacciones `_delta_log`.
 
 Errores comunes y soluciones alternativas:
@@ -632,11 +631,42 @@ El equipo de Azure investigará el contenido del archivo `delta_log` y proporcio
 ### <a name="resolving-delta-log-on-path--failed-with-error-cannot-parse-json-object-from-log-file"></a>Error al resolver el registro Delta en la ruta de acceso ... (No se puede analizar el objeto JSON del archivo de registro)
 
 Este error puede producirse debido a las siguientes razones o características no admitidas:
-- [Filtro BLOOM](https://docs.microsoft.com/azure/databricks/delta/optimizations/bloom-filters) en el conjunto de datos de Delta Lake. Los grupos de SQL sin servidor en Synapse Analytics no admiten conjuntos de datos con el [filtro BLOOM](https://docs.microsoft.com/azure/databricks/delta/optimizations/bloom-filters).
+- [Filtro BLOOM](/azure/databricks/delta/optimizations/bloom-filters) en el conjunto de datos de Delta Lake. Los grupos de SQL sin servidor en Azure Synapse Analytics no admiten conjuntos de datos con el [filtro BLOOM](/azure/databricks/delta/optimizations/bloom-filters).
 - Columna float en el conjunto de datos de Delta Lake con estadísticas.
 - Conjunto de datos particionado en una columna float.
 
-**Solución alternativa**: [quite el filtro BLOOM](https://docs.microsoft.com/azure/databricks/delta/optimizations/bloom-filters#drop-a-bloom-filter-index) s quiere leer la carpeta Delta Lake con el grupo de SQL sin servidor. Si tiene columnas `float` que están causando el problema, deberá volver a particionar el conjunto de datos o quitar las estadísticas.
+**Solución alternativa**: [quite el filtro BLOOM](/azure/databricks/delta/optimizations/bloom-filters#drop-a-bloom-filter-index) s quiere leer la carpeta Delta Lake con el grupo de SQL sin servidor. Si tiene columnas `float` que están causando el problema, deberá volver a particionar el conjunto de datos o quitar las estadísticas.
+
+## <a name="performance"></a>Rendimiento
+
+El grupo de SQL sin servidor asigna los recursos a las consultas en función del tamaño del conjunto de datos y la complejidad de las consultas. No puede afectar ni limitar los recursos que se proporcionan a las consultas. Hay algunos casos en los que puede experimentar degradaciones inesperadas del rendimiento de las consultas e identificar las causas principales.
+
+### <a name="query-duration-is-very-long"></a>La duración de la consulta es muy larga 
+
+Si usa Synapse Studio, pruebe a usar algún cliente de escritorio, como SQL Server Management Studio o Azure Data Studio. Synapse Studio es un cliente web que se conecta al grupo sin servidor mediante el protocolo HTTP, que suele ser más lento que las conexiones SQL nativas usadas en SQL Server Management Studio o Azure Data Studio.
+Si tiene consultas con una duración de consulta superior a 30 minutos, esto indica que la devolución de resultados al cliente es lenta. El grupo de SQL sin servidor tiene un límite de ejecución de 30 minutos y el tiempo adicional se dedica a la transmisión de los resultados.
+-   Asegúrese de que las aplicaciones cliente se coloquen con el punto de conexión del grupo de SQL sin servidor. La ejecución de una consulta en toda la región puede provocar una latencia adicional y una transmisión lenta del conjunto de resultados.
+-   Asegúrese de que no tiene problemas de redes que puedan provocar una transmisión lenta del conjunto de resultados. 
+-   Asegúrese de que la aplicación cliente tenga suficientes recursos (por ejemplo, no usa el 100 % de CPU). Consulte los procedimientos recomendados para [colocar los recursos](best-practices-serverless-sql-pool.md#client-applications-and-network-connections).
+
+### <a name="high-variations-in-query-durations"></a>Altas variaciones en las duraciones de las consulta
+
+Si ejecuta la misma consulta y observa variaciones en las duraciones de la consulta, puede haber varias razones que pueden provocar este comportamiento:  
+- Compruebe si se trata de la primera ejecución de una consulta. La primera ejecución de una consulta recopila las estadísticas necesarias para crear un plan. Las estadísticas se recopilan mediante el examen de los archivos subyacentes y pueden aumentar la duración de la consulta. En Synapse Studio, verá consultas adicionales de "creación de estadísticas globales" en la lista de solicitudes SQL, que se ejecutan antes de la consulta.
+- Las estadísticas pueden expirar después de un tiempo, por lo que periódicamente podría observar un impacto en el rendimiento porque el grupo sin servidor debe examinar y volver a crear las estadísticas. Es posible que observe consultas adicionales de "creación de estadísticas globales" en la lista de solicitudes SQL, que se ejecutan antes de la consulta.
+- Compruebe si hay alguna carga de trabajo adicional que se ejecute en el mismo punto de conexión cuando se ejecutó la consulta con una duración mayor. El punto de conexión de SQL sin servidor asignará equitativamente los recursos a todas las consultas que se ejecutan en paralelo y es posible que la consulta se retrase.
+
+## <a name="connections"></a>Conexiones
+
+### <a name="sql-on-demand-is-currently-unavailable"></a>SQL a petición no está disponible actualmente
+
+El punto de conexión del grupo de SQL sin servidor se desactiva automáticamente cuando no se usa. El punto de conexión se activa automáticamente cuando se recibe la siguiente solicitud SQL de cualquier cliente. En algunos casos, es posible que el punto de conexión no se inicie correctamente cuando se ejecute una primera consulta. En la mayoría de los casos como este, se trata de un error transitorio. Al reintentar la consulta, se activará la instancia.
+
+Si ve este mensaje durante más tiempo, abra una incidencia de soporte técnico mediante Azure Portal.
+
+### <a name="cannot-connect-from-synapse-studio"></a>No es posible conectarse desde Synapse Studio
+
+Consulte la [sección sobre Synapse Studio](#synapse-studio).
 
 ## <a name="security"></a>Seguridad
 
@@ -645,7 +675,7 @@ Si desea crear la asignación de roles para la aplicación de Identificador de e
 ```
 Login error: Login failed for user '<token-identified principal>'.
 ```
-Para las entidades de servicio, el inicio de sesión debe crearse con el identificador de aplicación como SID (no con el identificador de objeto). Hay una limitación conocida para las entidades de servicio que impide que el servicio Synapse obtenga el identificador de aplicación de Azure AD Graph al crear la asignación de roles para otra aplicación o SPI.  
+Para las entidades de servicio, el inicio de sesión debe crearse con el identificador de aplicación como SID (no con el identificador de objeto). Hay una limitación conocida para las entidades de servicio que impide que el servicio Azure Synapse recupere el identificador de aplicación de Azure AD Graph al crear la asignación de roles para otra aplicación o SPI.  
 
 #### <a name="solution-1"></a>Solución 1
 Vaya a Azure Portal > Synapse Studio > Administrar > Control de acceso y agregue manualmente Administrador de Synapse o Administrador de Synapse SQL para la entidad de servicio deseada.

@@ -3,21 +3,18 @@ title: Implementación y administración del Análisis de tráfico mediante Azur
 titleSuffix: Azure Network Watcher
 description: En este artículo se explica cómo usar las directivas integradas para administrar la implementación del Análisis de tráfico.
 services: network-watcher
-documentationcenter: na
 author: moagra
 ms.service: network-watcher
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2021
 ms.author: moagra
-ms.openlocfilehash: 3be6d5b30d270c9687b7100c07ee675268cee5c0
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: 9d916122714b1dddab7d1d9b6d13e6fd58d14d46
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122609153"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128619370"
 ---
 # <a name="deploy-and-manage-traffic-analytics-using-azure-policy"></a>Implementación y administración del Análisis de tráfico mediante Azure Policy 
 
@@ -112,7 +109,7 @@ Esta directiva es igual que la anterior, con la diferencia de que, durante la co
 - Id. de almacenamiento: es el id. de recurso de la cuenta de almacenamiento. esta cuenta de almacenamiento debe estar en la misma región que el NSG.
 - Grupo de recursos de Network Watcher: es el nombre del grupo de recursos que contiene el recurso de Network Watcher. Si no se le ha cambiado el nombre, puede escribir "NetworkWatcherRG", que es el valor predeterminado.
 - Nombre de la instancia de Network Watcher: es el nombre del servicio de Network Watcher regional. Formato: NetworkWatcher_NombreDeRegión. Ejemplo: NetworkWatcher_centralus.
-- Identificador de recurso del área de trabajo: identificador de recurso del área de trabajo donde se debe habilitar el Análisis de tráfico. El formato es /subscriptions/<SubscriptionID>/resourceGroups/<ResouceGroupName>/providers/Microsoft.Storage/storageAccounts/<StorageAccountName>".
+- Identificador de recurso del área de trabajo: identificador de recurso del área de trabajo donde se debe habilitar el Análisis de tráfico. El formato es `/subscriptions/<SubscriptionID>/resourceGroups/<ResouceGroupName>/providers/Microsoft.Storage/storageAccounts/<StorageAccountName>`
 - WorkspaceID: GUID del área de trabajo.
 - WorkspaceRegion: región del área de trabajo (tenga en cuenta que no es necesario que sea igual que la región del NSG).
 - TimeInterval: frecuencia con la que se insertarán los registros procesados en el área de trabajo. Los valores permitidos actualmente son 60 minutos y 10 minutos. El valor predeterminado es 60 minutos.

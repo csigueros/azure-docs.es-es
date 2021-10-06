@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: rarayudu, azla
 ms.topic: how-to
 ms.date: 09/13/2021
-ms.openlocfilehash: ed101e95a8580274661fd19d752a478677359641
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 0fedae22564d9bb393952e65a737d73e1fd254f9
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128647202"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129350487"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteger el acceso y los datos en Azure Logic Apps
 
@@ -479,7 +479,7 @@ En este ejemplo se muestra una definición de recursos para una aplicación lóg
 
 ## <a name="access-to-logic-app-operations"></a>Acceso a las operaciones de las aplicaciones lógicas
 
-Puede permitir que solo determinados usuarios o grupos ejecuten tareas específicas, como administrar, editar y ver aplicaciones lógicas. Para controlar los permisos, use el [control de acceso basado en roles de Azure (RBAC de Azure)](../role-based-access-control/role-assignments-portal.md). Puede asignar roles integrados o personalizados a los miembros que tienen acceso a la suscripción de Azure. Azure Logic Apps tiene estos roles específicos:
+Puede permitir que solo determinados usuarios o grupos ejecuten tareas específicas, como administrar, editar y ver aplicaciones lógicas. Para controlar los permisos, use el [control de acceso basado en roles de Azure (RBAC de Azure)](../role-based-access-control/role-assignments-portal.md). Puede asignar roles integrados o personalizados a los miembros que tienen acceso a la suscripción de Azure. Azure Logic Apps tiene estos roles específicos:
 
 * [Colaborador de aplicación lógica](../role-based-access-control/built-in-roles.md#logic-app-contributor): Le permite administrar aplicaciones lógicas, pero no puede cambiar el acceso a ellas.
 
@@ -487,7 +487,7 @@ Puede permitir que solo determinados usuarios o grupos ejecuten tareas específi
 
 * [Colaborador](../role-based-access-control/built-in-roles.md#contributor): concede acceso completo para administrar todos los recursos, pero no le permite asignar roles en RBAC de Azure, administrar asignaciones en Azure Blueprints ni compartir galerías de imágenes.
 
-  Por ejemplo, imagine que tiene que trabajar con una aplicación lógica que no ha creado y autenticar las conexiones usadas por el flujo de trabajo de esa aplicación lógica. La suscripción de Azure necesita permisos de colaborador para el grupo de recursos que contiene ese recurso de aplicación lógica. Si crea un recurso de aplicación lógica, tendrá acceso de colaborador automáticamente.
+  Por ejemplo, imagine que tiene que trabajar con una aplicación lógica que no ha creado y autenticar las conexiones usadas que usa el flujo de trabajo de esa aplicación lógica. La suscripción de Azure necesita permisos de colaborador para el grupo de recursos que contiene el recurso de esa aplicación lógica. Si crea un recurso de aplicación lógica, tendrá acceso de colaborador automáticamente.
 
 Para evitar que otros usuarios cambien o elimine la aplicación lógica, puede usar el [bloqueo de recursos de Azure](../azure-resource-manager/management/lock-resources.md). Esta funcionalidad evita que otros usuarios cambien o eliminen los recursos de producción. Para obtener más información sobre la seguridad de la conexión, revise [Configuración de conexión en Azure Logic Apps](../connectors/apis-list.md#connection-configuration) y [Seguridad y cifrado de la conexión](../connectors/apis-list.md#connection-security-encyrption).
 
@@ -897,7 +897,7 @@ A continuación se muestra información acerca de los certificados autofirmados 
 
 * En el caso de aplicaciones lógicas en el entorno global multiinquilino de Azure Logic Apps, las operaciones HTTP no permiten certificados de TLS/SSL autofirmados. Si la aplicación lógica realiza una llamada HTTP a un servidor y presenta un certificado autofirmado de TLS/SSL, la llamada HTTP produce un error `TrustFailure`.
 
-* En el caso de aplicaciones lógicas en el entorno de Azure Logic Apps de inquilino único, las operaciones HTTP admiten certificados TLS/SSL autofirmados. Sin embargo, debe completar algunos pasos adicionales para este tipo de autenticación. De lo contrario, se produce un error en la llamada. Para obtener más información, revise [Autenticación con certificados TLS/SSL para Azure Logic Apps de inquilino único](../connectors/connectors-native-http.md#tsl-ssl-certificate-authentication).
+* En el caso de aplicaciones lógicas en el entorno de Azure Logic Apps de inquilino único, las operaciones HTTP admiten certificados TLS/SSL autofirmados. Sin embargo, debe completar algunos pasos adicionales para este tipo de autenticación. De lo contrario, se produce un error en la llamada. Para obtener más información, revise [Autenticación con certificados TLS/SSL para Azure Logic Apps de inquilino único](../connectors/connectors-native-http.md#tlsssl-certificate-authentication).
 
   Si quiere usar el certificado de cliente o Azure Active Directory y Open Authentication (Azure AD OAuth) con el tipo de credencial "Certificado" en su lugar, todavía tiene que completar algunos pasos adicionales para este tipo de autenticación. De lo contrario, se produce un error en la llamada. Para obtener más información, revise [Certificado de cliente o Azure Active Directory y Open Authentication (Azure AD OAuth) con el tipo de credencial "Certificado" para Azure Logic Apps de inquilino único](../connectors/connectors-native-http.md#client-certificate-authentication).
 

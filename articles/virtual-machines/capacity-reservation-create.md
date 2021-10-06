@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/09/2021
 ms.reviewer: cynthn, jushiman
 ms.custom: template-how-to
-ms.openlocfilehash: db9b8b71ddbdccb2cdc4893ce7ea041304bafba9
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 360a634104b7735a90cbae4b41eae9723b723e2e
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124776621"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129532631"
 ---
 # <a name="create-a-capacity-reservation-preview"></a>Creación de una reserva de capacidad (versión preliminar)
 
@@ -26,11 +26,6 @@ La creación de una reserva de capacidad se completa correctamente o se produce 
 > [!IMPORTANT]
 > La reserva de capacidad está actualmente en versión preliminar pública.
 > Esta versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-
-## <a name="register-for-capacity-reservation"></a>Registro en la reserva de capacidad 
-
-Para usar la característica de reserva de capacidad, debe [registrar la suscripción en la versión preliminar](capacity-reservation-overview.md#register-for-capacity-reservation). El registro puede tardar varios minutos en terminar. Puede usar la CLI de Azure o PowerShell para completar el registro de la característica.
 
 
 ## <a name="considerations"></a>Consideraciones

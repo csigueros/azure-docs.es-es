@@ -3,12 +3,12 @@ title: Autorización del acceso con Azure Active Directory
 description: En este artículo se proporciona información sobre cómo autorizar el acceso a recursos de Event Hubs mediante Azure Active Directory.
 ms.topic: conceptual
 ms.date: 09/20/2021
-ms.openlocfilehash: f00f0ff73762cede60a0f2298875fac057ff0563
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: f2076d5fe8c1e77523a57337e339a50f3af3b420
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128627375"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129361638"
 ---
 # <a name="authorize-access-to-event-hubs-resources-using-azure-active-directory"></a>Autorización del acceso a recursos de Event Hubs mediante Azure Active Directory
 Azure Event Hubs admite la autorización de solicitudes a recursos de Event Hubs mediante Azure Active Directory (Azure AD). Con Azure AD, puede usar el control de acceso basado en roles (RBAC) de Azure para conceder permisos a una entidad de seguridad, que puede ser un usuario o una entidad de servicio de aplicación. Para más información sobre los roles y las asignaciones de roles, consulte [Descripción de los distintos roles](../role-based-access-control/overview.md).
@@ -57,7 +57,7 @@ En la lista siguiente se describen los niveles en los que puede definir el ámbi
 > - Este contenido se aplica a Event Hubs y a Event Hubs para Apache Kafka. Para más información sobre la compatibilidad con Event Hubs para Kafka, consulte [Event Hubs para Kafka: seguridad y autenticación](event-hubs-for-kafka-ecosystem-overview.md#security-and-authentication).
 
 
-Para más información sobre cómo se definen los roles integrados, consulte [Descripción de definiciones de roles](../role-based-access-control/role-definitions.md#management-and-data-operations). Para más información acerca de la creación de roles personalizados de Azure, consulte [Roles personalizados de Azure](../role-based-access-control/custom-roles.md).
+Para más información sobre cómo se definen los roles integrados, consulte [Descripción de definiciones de roles](../role-based-access-control/role-definitions.md#control-and-data-actions). Para más información acerca de la creación de roles personalizados de Azure, consulte [Roles personalizados de Azure](../role-based-access-control/custom-roles.md).
 
 
 

@@ -7,20 +7,20 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/30/2021
+ms.date: 09/09/2021
 ms.author: jingwang
-ms.openlocfilehash: 8d765a5150180303f55cc669da3ddb84deea68da
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: e68cb1e537fcf89a947a06ac11ff08f3ca6bec9d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123312907"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124815219"
 ---
 # <a name="use-github-to-read-common-data-model-entity-references"></a>Uso de GitHub para leer referencias de entidad de Common Data Model
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-El conector de GitHub en Azure Data Factory sirve únicamente para recibir el esquema de referencia de entidades para el formato de [Common Data Model](format-common-data-model.md) en el flujo de datos de asignación.
+El conector de GitHub en las canalizaciones de Azure Data Factory y Synapse Analytics sirve únicamente para recibir el esquema de referencia de entidades para el formato de [Common Data Model](format-common-data-model.md) en el flujo de datos de asignación.
 
 ## <a name="create-a-linked-service-to-github-using-ui"></a>Creación de un servicio vinculado para GitHub mediante la interfaz de usuario
 

@@ -2,13 +2,13 @@
 title: Configuración de VMware HCX en Azure VMware Solution
 description: Configure el conector de VMware HCX local para la nube privada de Azure VMware Solution.
 ms.topic: tutorial
-ms.date: 07/30/2021
-ms.openlocfilehash: 1249a694e01e01d4e7aa31c639c4422be2372ee4
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.date: 09/07/2021
+ms.openlocfilehash: 1fbcd8cc2cc596395f3736949f54f30ac224d060
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123255473"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124755831"
 ---
 # <a name="configure-on-premises-vmware-hcx-connector"></a>Configuración del conector de VMware HCX local
 
@@ -26,9 +26,15 @@ Después de completar estos pasos, tendrá un entorno listo para producción par
 
 - Tener instalado el [conector de VMware HCX](install-vmware-hcx.md).
 
-- Si tiene pensado usar VMware HCX Enterprise, asegúrese de habilitar el complemento [VMware HCX Enterprise](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/) mediante el envío de una [solicitud de soporte técnico](https://portal.azure.com/#create/Microsoft.Support).
+- Si tiene pensado usar VMware HCX Enterprise, asegúrese de habilitar el complemento [VMware HCX Enterprise](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/) mediante el envío de una [solicitud de soporte técnico](https://portal.azure.com/#create/Microsoft.Support). Es una evaluación gratuita de 12 meses en Azure VMware Solution.
 
-- [Requisitos de versión de software](https://docs.vmware.com/en/VMware-HCX/4.1/hcx-user-guide/GUID-54E5293B-8707-4D29-BFE8-EE63539CC49B.html)
+- Si tiene previsto [habilitar VMware HCX MON](https://docs.vmware.com/en/VMware-HCX/4.1/hcx-user-guide/GUID-0E254D74-60A9-479C-825D-F373C41F40BC.html), asegúrese de que tiene lo siguiente:  
+
+   - NSX-T o VDS local para la extensión de red de HCX (sin conmutador estándar)
+
+   - Uno o varios segmentos de red extendidos activos
+
+- Se han cumplido los [requisitos de versión de software de VMware](https://docs.vmware.com/en/VMware-HCX/4.1/hcx-user-guide/GUID-54E5293B-8707-4D29-BFE8-EE63539CC49B.html).
 
 - El entorno de vSphere local (entorno de origen) cumple los [requisitos mínimos](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-54E5293B-8707-4D29-BFE8-EE63539CC49B.html).
 
@@ -38,7 +44,7 @@ Después de completar estos pasos, tendrá un entorno listo para producción par
 
 - [Definición de segmentos de red de VMware HCX](plan-private-cloud-deployment.md#define-vmware-hcx-network-segments).  Los casos de uso principales de VMware HCX son las migraciones de cargas de trabajo y la recuperación ante desastres.
 
-- Revise la [documentación de VMware HCX](https://docs.vmware.com/en/VMware-HCX/4.1/hcx-user-guide/GUID-BFD7E194-CFE5-4259-B74B-991B26A51758.html) para obtener información sobre el uso de HCX.
+- [Revise la documentación de VMware HCX](https://docs.vmware.com/en/VMware-HCX/4.1/hcx-user-guide/GUID-BFD7E194-CFE5-4259-B74B-991B26A51758.html) para obtener información sobre el uso de HCX.
 
 ## <a name="add-a-site-pairing"></a>Agregar un emparejamiento de sitios
 
@@ -204,31 +210,18 @@ Puede encontrar información de un extremo a otro de este procedimiento en el v�
    >
    >:::image type="content" source="media/tutorial-vmware-hcx/hcx-service-mesh-datastore-host.png" alt-text="Captura de pantalla que muestra el almacén de datos y el host de malla de servicio de HCX." lightbox="media/tutorial-vmware-hcx/hcx-service-mesh-datastore-host.png":::
 
+El estado del túnel de interconexión de HCX debe indicar **UP** (Activo) y estar en color verde. Está listo para migrar y proteger las máquinas virtuales de Azure VMware Solution mediante VMware HCX. Azure VMware Solution admite migraciones de cargas de trabajo (con o sin una extensión de red). Por lo tanto, aún puede migrar cargas de trabajo en el entorno de vSphere, junto con la creación local de redes y la implementación de máquinas virtuales en esas redes. Para más información, consulte la [documentación de VMware HCX](https://docs.vmware.com/en/VMware-HCX/index.html). 
+
+
+
 Puede encontrar información de un extremo a otro de este procedimiento en el vídeo [Azure VMware Solution: Malla de servicios](https://www.youtube.com/embed/COY3oIws108).
 
-## <a name="create-a-network-extension"></a>Creación de una extensión de red
-
-Este es un paso opcional para extender cualquier red de su entorno local a Azure VMware Solution.
-
-1. En **Servicios**, seleccione **Extensión de red** > **Create a Network Extension** (Crear una extensión de red).
-
-   :::image type="content" source="media/tutorial-vmware-hcx/create-network-extension.png" alt-text="Captura de pantalla que muestra las selecciones para empezar a crear una extensión de red." lightbox="media/tutorial-vmware-hcx/create-network-extension.png":::
-
-1. Seleccione cada una de las redes que quiere extender a Azure VMware Solution y, a continuación, seleccione **Next** (Siguiente).
-
-   :::image type="content" source="media/tutorial-vmware-hcx/select-extend-networks.png" alt-text="Captura de pantalla que muestra la selección de una red.":::
-
-1. Escriba la dirección IP de puerta de enlace local para cada una de las redes que va a extender y, a continuación, seleccione **Enviar**.
-
-   :::image type="content" source="media/tutorial-vmware-hcx/extend-networks-gateway.png" alt-text="Captura de pantalla que muestra la entrada de una dirección IP de puerta de enlace.":::
-
-   La extensión de red tardará unos minutos en finalizar. Cuando lo haga, verá que el estado cambia a **Extension complete** (Extensión completada).
-
-   :::image type="content" source="media/tutorial-vmware-hcx/extension-complete.png" alt-text="Captura de pantalla que muestra el estado de extensión completada.":::
-
-Puede encontrar información de un extremo a otro de este procedimiento en el vídeo [Azure VMware Solution: Extensión de red](https://www.youtube.com/embed/gYR0nftKui0).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si el estado del túnel de interconexión de HCX es **ACTIVO** y está en color verde, está listo para migrar y proteger las máquinas virtuales de Azure VMware Solution mediante VMware HCX. Azure VMware Solution admite migraciones de cargas de trabajo (con o sin una extensión de red). Todavía puede migrar cargas de trabajo en el entorno de vSphere, junto con la creación local de redes y la implementación de máquinas virtuales en esas redes. Para más información, consulte la [documentación de VMware HCX](https://docs.vmware.com/en/VMware-HCX/index.html).
+Ahora que ha configurado el conector de HCX, también puede obtener información sobre:
+
+- [Creación de una extensión de red HCX](configure-hcx-network-extension.md)
+
+- [Guía de VMware HCX Mobility Optimized Networking (MON)](vmware-hcx-mon-guidance.md)
 

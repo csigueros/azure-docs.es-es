@@ -1,5 +1,5 @@
 ---
-title: archivo de inclusión
+title: Archivo de inclusión
 description: archivo de inclusión
 services: virtual-machines
 author: msmbaldwin
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/06/2019
 ms.author: mbaldwin
 ms.custom: include file, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: fa16db2472daaa98f972460d691c07f700ec3447
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 1e0ec6d37990fbddcdebf7a1d2efd063cd9e4ea6
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110721855"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128908939"
 ---
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
@@ -42,7 +42,7 @@ Cree un almacén de claves mediante el comando [az keyvault create](/cli/azure/k
 >[!WARNING]
 > El almacén de claves y las máquinas virtuales deben estar en la misma suscripción. Además, para asegurarse de que los secretos de cifrado no traspasan los límites regionales, Azure Disk Encryption requiere que Key Vault y las máquinas virtuales se encuentren en la misma región. Cree y use un almacén de claves que se encuentre en la misma suscripción y región que las máquinas virtuales que se van a cifrar. 
 
-Cada instancia de Key Vault debe tener un nombre único. Reemplace <nombre-almacén de claves-único> por el nombre del almacén de claves en los ejemplos siguientes.
+Cada instancia de Key Vault debe tener un nombre único. Reemplace \<your-unique-keyvault-name\> por el nombre del almacén de claves en los ejemplos siguientes.
 
 ### <a name="azure-cli"></a>Azure CLI
 

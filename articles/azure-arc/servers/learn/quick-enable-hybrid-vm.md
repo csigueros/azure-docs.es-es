@@ -3,22 +3,22 @@ title: Conexión de una máquina híbrida con servidores habilitados para Azure 
 description: Aprenda a conectar una máquina híbrida con servidores habilitados para Azure Arc y a registrarla en ellos.
 ms.topic: quickstart
 ms.date: 12/15/2020
-ms.openlocfilehash: d5f1699447093f148b0dadbdd23857c9e16e13a3
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: fc645f930fe37f8a3eca10d1647d40eb9c7a2280
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122772666"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124807634"
 ---
 # <a name="quickstart-connect-hybrid-machines-with-azure-arc-enabled-servers"></a>Inicio rápido: conexión de máquinas híbridas con servidores habilitados para Azure Arc
 
-Los [servidores habilitados para Azure Arc](../overview.md) permiten administrar y controlar las máquinas Windows y Linux hospedadas en entornos locales, perimetrales y multinube. En este inicio rápido, implementará y configurará el agente de máquina conectada de una máquina Windows o Linux hospedada fuera de Azure para que lo administren servidores habilitados para Arc.
+Los [servidores habilitados para Azure Arc](../overview.md) permiten administrar y controlar las máquinas Windows y Linux hospedadas en entornos locales, perimetrales y multinube. En este inicio rápido, implementará y configurará el agente de Connected Machine de una máquina Windows o Linux hospedada fuera de Azure para que lo administren servidores habilitados para Azure Arc.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-* La implementación del agente de máquina híbrida conectada para servidores habilitados para Arc requiere tener permisos de administrador en la máquina para instalar y configurar el agente. En Linux, esto se realiza mediante la cuenta raíz, mientras que en Windows con una cuenta que pertenezca al grupo de administradores locales.
+* Para implementar el agente híbrido de Connected Machine de servidores habilitados para Azure Arc es necesario tener permisos de administrador en la máquina para instalar y configurar el agente. En Linux, esto se realiza mediante la cuenta raíz, mientras que en Windows con una cuenta que pertenezca al grupo de administradores locales.
 
 * Antes de empezar, asegúrese de revisar los [requisitos previos](../agent-overview.md#prerequisites) del agente y compruebe que:
 
@@ -56,7 +56,7 @@ El script para tanto automatizar la descarga e instalación, como para establece
 
 1. Inicie el servicio Azure Arc en Azure Portal. Para ello, haga clic en **Todos los servicios** y, a continuación, busque y seleccione **Servidores: Azure Arc**.
 
-    :::image type="content" source="./media/quick-enable-hybrid-vm/search-machines.png" alt-text="Búsqueda de servidores habilitados para Arc en todos los servicios" border="false":::
+    :::image type="content" source="./media/quick-enable-hybrid-vm/search-machines.png" alt-text="Búsqueda de servidores habilitados para Azure Arc en todos los servicios" border="false":::
 
 1. En la página **Servidores: Azure Arc**, seleccione **Agregar** en la parte superior izquierda.
 

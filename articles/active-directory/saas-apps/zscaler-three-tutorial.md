@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/11/2021
+ms.date: 09/02/2021
 ms.author: jeedes
-ms.openlocfilehash: d30b4e60ef93b8dccc7e9ed4966eeb7d9570df43
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 2b75a4d4973a1aed74c1280dfab50753086eee37
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110096998"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124807853"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zscaler-three"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Zscaler Three
 
@@ -40,6 +40,8 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 * Zscaler Three admite inicio de sesión único iniciado por **SP**.
 
 * Zscaler Three admite el aprovisionamiento de usuarios **Just-In-Time**.
+
+* Zscaler Three admite el [aprovisionamiento automatizado de usuarios](zscaler-three-provisioning-tutorial.md).
 
 > [!NOTE]
 > El identificador de esta aplicación es un valor de cadena fijo, por lo que solo se puede configurar una instancia en un inquilino.
@@ -214,6 +216,9 @@ En esta sección se crea un usuario llamado B. Simon en Zscaler Three. Zscaler 
 > [!Note]
 > Si necesita crear manualmente un usuario, póngase en contacto con el [equipo de soporte técnico de Zscaler Three](https://www.zscaler.com/company/contact).
 
+> [!NOTE]
+> Zscaler Three también admite el aprovisionamiento automático de usuarios. [Aquí](./zscaler-three-provisioning-tutorial.md) puede encontrar más detalles sobre cómo configurar el aprovisionamiento automático de usuarios.
+
 ## <a name="test-sso"></a>Prueba de SSO
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones. 
@@ -222,7 +227,7 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 * Vaya directamente a la dirección URL de inicio de sesión de Zscaler Three e inicie el flujo de inicio de sesión desde allí.
 
-* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Zscaler Three en Mis aplicaciones, se le redirigirá a la dirección URL de inicio de sesión de dicha aplicación. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Zscaler Three en Mis aplicaciones, se le redirigirá a la dirección URL de inicio de sesión de dicha aplicación. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

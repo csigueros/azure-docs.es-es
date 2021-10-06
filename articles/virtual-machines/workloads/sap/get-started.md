@@ -13,15 +13,15 @@ ms.assetid: ad8e5c75-0cf6-4564-ae62-ea1246b4e5f2
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/26/2021
+ms.date: 09/24/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 305f7b964bfd084bf1fa245d436c431cde1b9104
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 2ac0c2795f5af31cec40d03ec1889f333441ae25
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123110334"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129054820"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Uso de Azure para hospedar y ejecutar escenarios de carga de trabajo de SAP
 
@@ -80,6 +80,9 @@ En esta sección encontrará información sobre cómo configurar el inicio de se
 En esta sección encontrará documentos sobre la integración de Microsoft Power BI en orígenes de datos de SAP, así como la integración de Azure Data Factory en SAP BW.
 
 ## <a name="change-log"></a>Registro de cambios
+- 24 de septiembre de 2021: cambio en [Escalabilidad horizontal de SAP HANA de HSR con Pacemaker en máquinas virtuales de Azure en SLES](./sap-hana-high-availability-scale-out-hsr-suse.md), [Alta disponibilidad del escalado vertical de SAP HANA con Azure NetApp Files en Red Hat Enterprise Linux](./sap-hana-high-availability-netapp-files-red-hat.md) y [Escalabilidad horizontal de SAP HANA de HSR con Pacemaker en máquinas virtuales de Azure en RHEL](./sap-hana-high-availability-scale-out-hsr-rhel.md) para ajustar las instrucciones de creación del archivo sudoers (para HANA srHook).
+- 15 de septiembre de 2021: introducción a la nueva configuración de HADR para SAP ASE en [Implementación de DBMS de Azure Virtual Machines de SAP ASE para la carga de trabajo de SAP](./dbms_guide_sapase.md).
+- 8 de septiembre de 2021: adición de un grupo de capacidad de QoS manual a [Volúmenes NFS v4.1 en Azure NetApp Files para SAP HANA](./hana-vm-operations-netapp.md).
 - 26 de agosto de 2021: cambio en la [configuración de Pacemaker en RHEL en Azure](./high-availability-guide-rhel-pacemaker.md) y en la [configuración de Pacemaker en SLES en Azure](./high-availability-guide-suse-pacemaker.md) para corregir el JSON de definición de roles para el agente de barrera de Azure.
 - 17 de agosto de 2021: cambios en la [implementación de DBMS de Azure Virtual Machines de IBM Db2 para cargas de trabajo de SAP](./dbms_guide_ibm.md), en los [tipos de Azure Storage para una carga de trabajo de SAP](./planning-guide-storage.md) y en la [carga de trabajo de SAP en escenarios admitidos en máquinas virtuales de Azure](./sap-planning-supported-configurations.md) para introducir compatibilidad con IBM Db2 mediante el uso de volúmenes de NFS hospedados en ANF.
 - 2 de agosto de 2021: cambios en la [alta disponibilidad de SAP NW en las VM de Azure en SLES para aplicaciones de SAP](./high-availability-guide-suse.md), en la [alta disponibilidad de SAP NW en las VM de Azure en SLES con ANF](./high-availability-guide-suse-netapp-files.md), en la [alta disponibilidad de SAP NW en las VM de Azure en RHEL para aplicaciones de SAP](./high-availability-guide-rhel.md) y en la [alta disponibilidad de SAP NW en las VM de Azure en RHEL con ANF](./high-availability-guide-rhel-netapp-files.md) para aclarar el comportamiento (ENSA1/ENSA2) en un escenario de prueba que simula un error en el servidor de puesta en cola.     

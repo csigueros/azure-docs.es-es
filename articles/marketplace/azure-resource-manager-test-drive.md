@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: trkeya
 author: trkeya
 ms.date: 09/09/2021
-ms.openlocfilehash: 6c563b7661b62c81b6094f1a662faa1cdc28c57a
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 7825dff873afaf223cab7b86c73083027caccc72
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128632013"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129363619"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Versión de prueba de Azure Resource Manager
 
@@ -307,7 +307,7 @@ La última sección que hay que completar permite implementar las versiones de p
    Si no tiene un identificador de inquilino, cree uno en Azure Active Directory. Para obtener ayuda con la configuración de un inquilino, vea [Inicio rápido: Configuración de un inquilino](../active-directory/develop/quickstart-create-new-tenant.md).
 
 3. Aprovisione la aplicación Microsoft Test-Drive en el inquilino. Esta aplicación se va a usar para realizar operaciones en los recursos de la versión de prueba.
-    1. Si aún no lo tiene, instale el [módulo de PowerShell Azure Az](/powershell/azure/install-az-ps?view=azps-6.3.0).
+    1. Si aún no lo tiene, instale el [módulo de PowerShell Azure Az](/powershell/azure/install-az-ps).
     1. Agregue la entidad de servicio de la aplicación Microsoft Test-Drive.
         1. Ejecute `Connect-AzAccount` y proporcione credenciales para iniciar sesión en la cuenta de Azure, que requiere el [rol integrado](/azure/active-directory/roles/permissions-reference#global-administrator) **Administrador global** de Azure Active Directory. 
         1. Cree una nueva entidad de servicio: `New-AzADServicePrincipal -ApplicationId d7e39695-0b24-441c-a140-047800a05ede -DisplayName 'Microsoft TestDrive' -SkipAssignment`.

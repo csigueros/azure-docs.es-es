@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/07/2021
+ms.date: 08/27/2021
 ms.author: jeedes
-ms.openlocfilehash: 4f86124a687d668359b5f51433ddb91d93cd4370
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 4c6f2e6abec3baa674123adacc0b522c1e0a01f7
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111965658"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128619219"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-browserstack-single-sign-on"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con BrowserStack Single Sign-on
 
@@ -38,6 +38,7 @@ Para empezar, necesita los siguientes elementos:
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
 * BrowserStack Single Sign-on admite el inicio de sesión único iniciado por **SP e IDP**.
+* Fortes Change Cloud admite el [aprovisionamiento automático de usuarios](browserstack-single-sign-on-provisioning-tutorial.md).
 
 ## <a name="add-browserstack-single-sign-on-from-the-gallery"></a>Adición de BrowserStack Single Sign-on desde la galería
 
@@ -128,6 +129,8 @@ Para configurar el inicio de sesión único en **BrowserStack Single Sign-on**, 
 
 En esta sección, va a crear un usuario llamado B.Simon en BrowserStack Single Sign-on. Trabaje con el [equipo de soporte técnico de BrowserStack Single Sign-on](mailto:support@browserstack.com) para agregar los usuarios a la plataforma de BrowserStack Single Sign-on. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
+El inicio de sesión único de Fortes Change Cloud también admite el aprovisionamiento automático de usuarios. [Aquí](./browserstack-single-sign-on-provisioning-tutorial.md) puede encontrar más detalles sobre cómo configurar el aprovisionamiento automático de usuarios.
+
 ## <a name="test-sso"></a>Prueba de SSO 
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones. 
@@ -142,7 +145,7 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 * Haga clic en **Probar esta aplicación** en Azure Portal; debería iniciar sesión automáticamente en la instancia de BrowserStack Single Sign-on para la que ha configurado el inicio de sesión único. 
 
-También puede usar Aplicaciones de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de BrowserStack Single Sign-on en Aplicaciones, si se ha configurado en modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para comenzar el flujo de inicio de sesión; y si se ha configurado en modo IDP, se debería iniciar sesión automáticamente en la instancia de BrowserStack Single Sign-on para la que ha configurado el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+También puede usar Aplicaciones de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de BrowserStack Single Sign-on en Aplicaciones, si se ha configurado en modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para comenzar el flujo de inicio de sesión; y si se ha configurado en modo IDP, se debería iniciar sesión automáticamente en la instancia de BrowserStack Single Sign-on para la que ha configurado el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

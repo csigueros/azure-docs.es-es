@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 08/17/2021
 ms.author: apedward
-ms.openlocfilehash: 9df037177aac3dd909795f18c6e903eedd1c98a6
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: bc1e6c5ad5423f48eed50c65237b0d42a4e61d7a
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122608876"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129236225"
 ---
 # <a name="tutorial-publish-azure-static-web-apps-with-azure-devops"></a>Tutorial: Publicación de aplicaciones web estáticas de Azure con Azure DevOps
 
@@ -34,9 +34,6 @@ En este tutorial, aprenderá a:
 
   > [!NOTE]
   > Si tiene una aplicación existente en el repositorio, puede ir directamente a la sección siguiente.
-  
-  > [!NOTE]
-  > La aplicación debe tener como destino .NET Core 3.1 para que la canalización se lleve a cabo correctamente.
 
 1. Vaya al repositorio en Azure Repos.
 
@@ -64,7 +61,7 @@ En este tutorial, aprenderá a:
 
     :::image type="content" source="media/publish-devops/azure-portal-static-web-apps-devops.png" alt-text="Detalles de la implementación - Otro":::
 
-    | Parámetro | Value |
+    | Parámetro | Valor |
     |---|---|
     | Suscripción | El nombre de la suscripción de Azure. |
     | Grupo de recursos | Seleccione un nombre de grupo existente o cree uno nuevo. |

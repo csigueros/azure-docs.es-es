@@ -7,21 +7,21 @@ ms.topic: include
 ms.date: 04/28/2021
 ms.author: timlt
 ms.custom: include file
-ms.openlocfilehash: 3fb812a15aa1670404fe8a5d403f99acf522f3a5
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.openlocfilehash: bade266f219acfbd1636ba6650b2554383b5a4c0
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129516645"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128910752"
 ---
-[![Examinar el código](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-java/tree/main/device/iot-device-samples/pnp-device-sample)
+[![Examinar el código](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-java/tree/master/device/iot-device-samples/pnp-device-sample)
 
 En este artículo de inicio rápido, se explica un flujo de trabajo básico de desarrollo de aplicaciones de Azure IoT. En primer lugar, cree una aplicación de Azure IoT Central para hospedar dispositivos. A continuación, utilizaremos un ejemplo de un SDK de dispositivo IoT de Azure para ejecutar un controlador de temperatura simulado, conectarlo de forma segura a IoT Central y enviar datos de telemetría.
 
 ## <a name="prerequisites"></a>Requisitos previos
 - Una máquina de desarrollo con Java SE Development Kit 8 o posterior. Puede descargar el JDK de Java 8 (LTS) para varias plataformas desde [Descargar compilaciones de Zulu de OpenJDK](https://www.azul.com/downloads/zulu-community/). En el instalador, seleccione la opción **Agregar a PATH**.
 - [Apache Maven 3](https://maven.apache.org/download.cgi). Después de extraer la descarga en una carpeta local, agregue la ruta de acceso completa de la carpeta */bin* de Maven a la variable PATH de Windows.
-- Una copia local del repositorio de GitHub [SDK de Microsoft Azure IoT para Java](https://github.com/Azure/azure-iot-sdk-java). Descargue una copia del repositorio y extráigala: [Descargar archivo ZIP](https://github.com/Azure/azure-iot-sdk-java/archive/refs/heads/main.zip).
+- Una copia local del repositorio de GitHub [SDK de Microsoft Azure IoT para Java](https://github.com/Azure/azure-iot-sdk-java). Descargue una copia del repositorio y extráigala: [Descargar archivo ZIP](https://github.com/Azure/azure-iot-sdk-java/archive/refs/heads/master.zip).
 
 [!INCLUDE [iot-develop-create-central-app-with-device](iot-develop-create-central-app-with-device.md)]
 

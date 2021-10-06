@@ -1,8 +1,8 @@
 ---
 title: 'Inicio rápido: Uso de Azure Cache for Redis con Java'
 description: En este inicio rápido, creará una nueva aplicación Java que utiliza Azure Redis Cache.
-author: yegu-ms
-ms.author: yegu
+author: curib
+ms.author: cauribeg
 ms.date: 05/22/2020
 ms.topic: quickstart
 ms.service: cache
@@ -13,12 +13,12 @@ ms.custom:
 - seo-java-september2019
 - devx-track-java
 - mode-api
-ms.openlocfilehash: 107e56ccb105981d112ad765f95c85a884994355
-ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
+ms.openlocfilehash: 65848832acba8107e3a24167c1328c65222b9d3a
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "112234742"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129538044"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-in-java"></a>Inicio rápido: Uso de Azure Cache for Redis con Java
 
@@ -35,9 +35,9 @@ Si quiere pasar directamente al código, consulte [Inicio rápido: Uso de Azure 
 
 ## <a name="create-an-azure-cache-for-redis"></a>Creación de una instancia de Azure Redis Cache
 
-[!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
+[!INCLUDE [redis-cache-create](includes/redis-cache-create.md)]
 
-[!INCLUDE [redis-cache-access-keys](../../includes/redis-cache-access-keys.md)]
+[!INCLUDE [redis-cache-access-keys](includes/redis-cache-access-keys.md)]
 
 ## <a name="setting-up-the-working-environment"></a>Configuración del entorno de trabajo 
 

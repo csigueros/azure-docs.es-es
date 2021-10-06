@@ -2,18 +2,18 @@
 title: Cifrado del lado servidor de Azure Managed Disks
 description: Azure Storage protege los datos mediante su cifrado en reposo antes de guardarlos en los clústeres de Storage. Puede usar las claves administradas por el cliente para administrar el cifrado con sus propias claves, o bien puede utilizar las claves administradas por Microsoft para el cifrado de los discos administrados.
 author: roygara
-ms.date: 06/29/2021
+ms.date: 09/03/2021
 ms.topic: conceptual
 ms.author: rogarana
 ms.service: storage
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 7f4ae0dfb8e03add64f450d98c15f85da33eaef3
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 98bbc2f84b0f56c4e50e98e99e7bcaf86588fb48
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122696470"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124803982"
 ---
 # <a name="server-side-encryption-of-azure-disk-storage"></a>Cifrado del lado servidor de Azure Disk Storage
 
@@ -92,6 +92,48 @@ Para habilitar el cifrado doble en reposo para los discos administrados, consult
 [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md) aprovecha la característica [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) de Linux y la característica [BitLocker](/windows/security/information-protection/bitlocker/bitlocker-overview) de Windows para cifrar los discos administrados con claves administradas por el cliente dentro de la VM invitada.  El cifrado del lado servidor con claves administradas por el cliente mejora en ADE al permitir el uso de cualquier tipo de sistema operativo y de imágenes para las máquinas virtuales mediante el cifrado de datos en el servicio Storage.
 > [!IMPORTANT]
 > Las claves administradas por el cliente dependen de identidades administradas para los recursos de Azure, una característica de Azure Active Directory (Azure AD). Al configurar claves administradas por el cliente, se asigna automáticamente una identidad administrada a los recursos en segundo plano. Si posteriormente mueve la suscripción, el grupo de recursos o el disco administrado de un directorio de Azure AD a otro, la identidad administrada asociada a los discos administrados no se transfiere al nuevo inquilino, por lo que es posible que las claves administradas por el cliente dejen de funcionar. Para obtener más información, consulte [Transferencia de una suscripción entre directorios de Azure AD](../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).
+
+## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
+
+**P: ¿Está habilitado el cifrado del lado servidor de forma predeterminada cuando se crea un disco administrado?**
+
+**R:** Sí. Los discos administrados se cifran mediante el cifrado del lado servidor y las claves administradas por la plataforma.
+
+**P: ¿El volumen de arranque está cifrado de forma predeterminada en un disco administrado?**
+
+**R:** Sí. De forma predeterminada, se cifran todos los discos administrados, incluido el disco del sistema operativo.
+
+**P: ¿Quién administra las claves de cifrado?**
+
+**R:** Microsoft administra las claves administradas por la plataforma. También puede usar y administrar sus propias claves almacenadas en Azure Key Vault.
+
+**P: ¿Puedo deshabilitar el cifrado del lado servidor de mis discos administrados?**
+
+**R:** No.
+
+**P: ¿El cifrado del lado servidor solo está disponible en regiones específicas?**
+
+**R:** No. El cifrado del lado servidor que usa claves administradas por la plataforma y administradas por el cliente está disponible en todas las regiones en las que Azure Managed Disks está disponible.
+
+**P: ¿Azure Site Recovery admite el cifrado del lado servidor que usa la clave administrada por el cliente para escenarios de recuperación ante desastres locales a Azure y Azure en Azure?**
+
+**R:** Sí.
+
+**P: ¿Puedo usar el servicio Azure Backup para realizar copias de seguridad de discos administrados cifrados mediante el cifrado del lado servidor que usa claves administradas por el cliente?**
+
+**R:** Sí.
+
+**P: ¿Están cifradas las imágenes e instantáneas administradas?**
+
+**R:** Sí. Todas las instantáneas e imágenes administradas se cifran automáticamente.
+
+**P: ¿Puedo convertir los discos no administrados de las máquinas virtuales en discos administrados si estos discos se encuentran en cuentas de almacenamiento cifradas o que se hayan cifrado previamente?**
+
+**R:** Sí.
+
+**P: ¿Se cifrará también un VHD exportado de un disco administrado o de una instantánea?**
+
+**R:** No. Pero si exporta un disco duro virtual a una cuenta de almacenamiento cifrada desde un disco administrado cifrado o una instantánea, en este caso se cifra.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

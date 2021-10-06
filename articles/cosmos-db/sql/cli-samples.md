@@ -1,19 +1,20 @@
 ---
-title: Ejemplos de la CLI de Azure para Core (SQL) API de Azure Cosmos DB
-description: Ejemplos de la CLI de Azure para Core (SQL) API de Azure Cosmos DB
+title: Ejemplos de CLI de Azure para Azure Cosmos DB | Microsoft Docs
+description: En este artículo se enumeran varios ejemplos de código de la CLI de Azure disponibles para interactuar con Azure Cosmos DB. Vea ejemplos de la CLI específicos de la API.
 author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
-ms.date: 10/13/2020
+ms.date: 09/17/2021
 ms.author: mjbrown
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 5f68f09b8d97e9d653f1551c2ca1fe5ed5a47b0e
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.custom: devx-track-azurecli, seo-azure-cli
+keywords: cosmos db, muestras de la cli de Azure, muestras de código de la cli de Azure, muestras de script de la cli de Azure
+ms.openlocfilehash: 4529b51ff5109bfa6b8814b23e7e82844e7fb95c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123117859"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128567725"
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db-core-sql-api"></a>Ejemplos de la CLI de Azure para la API de Azure Cosmos DB Core (SQL)
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -41,8 +42,8 @@ Estos ejemplos se aplican a todas las API de Azure Cosmos DB
 
 |Tarea | Descripción |
 |---|---|
-| [Crear una cuenta, una base de datos y un contenedor de Azure Cosmos](../scripts/cli/sql/create.md?toc=%2fcli%2fazure%2ftoc.json)| Crea una cuenta, una base de datos y un contenedor de API Core (SQL) de Azure Cosmos DB. |
-| [Creación de una cuenta de Azure Cosmos, una base de datos y un contenedor con escalabilidad automática](../scripts/cli/sql/autoscale.md?toc=%2fcli%2fazure%2ftoc.json)| Crea una cuenta, una base de datos y un contenedor con escalabilidad automática para API Core (SQL) de Azure Cosmos DB. |
+| [Creación de una cuenta, una base de datos y un contenedor de Azure Cosmos](../scripts/cli/sql/create.md?toc=%2fcli%2fazure%2ftoc.json)| Crea una cuenta, una base de datos y un contenedor de API Core (SQL) de Azure Cosmos DB. |
+| [Creación de una cuenta, una base de datos y un contenedor de Azure Cosmos con escalabilidad automática](../scripts/cli/sql/autoscale.md?toc=%2fcli%2fazure%2ftoc.json)| Crea una cuenta, una base de datos y un contenedor con escalabilidad automática para API Core (SQL) de Azure Cosmos DB. |
 | [Operaciones de capacidad de proceso](../scripts/cli/sql/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | Lee, actualiza y migra entre la escalabilidad automática y la capacidad de proceso estándar en una base de datos y un contenedor.|
 | [Bloquear recursos contra la eliminación](../scripts/cli/sql/lock.md?toc=%2fcli%2fazure%2ftoc.json)| Bloquee los recursos para impedir que se eliminen.|
 |||

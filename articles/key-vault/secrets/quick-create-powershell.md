@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, devx-track-azurepowershell
 ms.date: 01/27/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 2e51e781ca988a496e3f1ba61d8b6a4fcc3d7095
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: f8ca630054e2583380aa02984d094c24bd025f00
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114443511"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124755717"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-powershell"></a>Inicio rápido: Establecimiento y recuperación de un secreto de Azure Key Vault mediante PowerShell
 
@@ -41,7 +41,7 @@ Connect-AzAccount
 
 ## <a name="give-your-user-account-permissions-to-manage-secrets-in-key-vault"></a>Conceda a su cuenta de usuario los permisos necesarios para administrar secretos en Key Vault
 
-Use el cmdlet Set-AzKeyVaultAccessPolicy de Azure PowerShell para actualizar la directiva de acceso de Key Vault y conceder permisos de secreto a su cuenta de usuario.
+Use el cmdlet [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) de Azure PowerShell para actualizar la directiva de acceso de Key Vault y conceder permisos de secreto a su cuenta de usuario.
 
 ```azurepowershell-interactive
 Set-AzKeyVaultAccessPolicy -VaultName "<your-unique-keyvault-name>" -UserPrincipalName "user@domain.com" -PermissionsToSecrets get,set,delete
@@ -66,7 +66,7 @@ $secret = Set-AzKeyVaultSecret -VaultName "<your-unique-keyvault-name>" -Name "E
 
 ## <a name="retrieve-a-secret-from-key-vault"></a>Recuperar un secreto del almacén de claves
 
-Para ver el valor contenido en el secreto como texto sin formato:
+Para ver el valor contenido en el secreto como texto sin formato, use el cmdlet de Azure PowerShell [Get-AzKeyVaultSecret](/powershell/module/az.keyvault/get-azkeyvaultsecret):
 
 ```azurepowershell-interactive
 $secret = Get-AzKeyVaultSecret -VaultName "<your-unique-keyvault-name>" -Name "ExamplePassword" -AsPlainText

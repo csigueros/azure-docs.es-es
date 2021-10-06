@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 02/02/2021
 ms.author: cherylmc
 ms.custom: subject-armqs
-ms.openlocfilehash: 8981d305fff1970b58b569d95c6f16e933b2ca10
-ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
+ms.openlocfilehash: ee1814d70395be3c084513d7bf59537ba426471a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111812899"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128559120"
 ---
 # <a name="quickstart-create-an-any-to-any-configuration-using-an-arm-template"></a>Inicio rápido: Creación de una configuración universal mediante una plantilla de ARM
 
@@ -26,7 +26,7 @@ Si su entorno cumple los requisitos previos y está familiarizado con el uso de 
 
 [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.network%2fvirtual-wan-with-all-gateways%2fazuredeploy.json)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 * Esta configuración requiere los datos del certificado de clave pública. En el artículo se proporcionan datos de ejemplo. Sin embargo, solo se proporcionan para cumplir los requisitos para crear una puerta de enlace de P2S de la plantilla. Una vez finalizada la plantilla e implementados los recursos, debe actualizar este campo con sus propios datos de certificado para que la configuración funcione. Consulte [Certificados de VPN del usuario](certificates-point-to-site.md#cer).

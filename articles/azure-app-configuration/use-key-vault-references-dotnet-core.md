@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 04/08/2020
 ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: e02ac9d6abd3358218f268fb3da1e99b90fac7c5
-ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
+ms.openlocfilehash: 9f095bbadf8f395b809d46c8beea5f6665932d12
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113568089"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129357900"
 ---
 # <a name="tutorial-use-key-vault-references-in-an-aspnet-core-app"></a>Tutorial: Uso de referencias de Key Vault en una aplicación de ASP.NET Core
 
@@ -203,7 +203,7 @@ Para agregar un secreto al almacén, debe llevar a cabo algunos pasos adicionale
 
 Azure App Configuration no accederá al almacén de claves. La aplicación leerá directamente del almacén de claves, por lo que tendrá que conceder a la aplicación acceso de lectura a los secretos del almacén de claves. De este modo, el secreto siempre permanece con la aplicación. El acceso se puede conceder mediante una [directiva de acceso de Key Vault](../key-vault/general/assign-access-policy-portal.md) o el [control de acceso basado en rol de Azure](../key-vault/general/rbac-guide.md).
 
-En el código anterior se usa `DefaultAzureCredential`. Se trata de una credencial de token agregada que prueba de forma automática varios tipos de credenciales, como `EnvironmentCredential`, `ManagedIdentityCredential`, `SharedTokenCacheCredential` y `VisualStudioCredential`. Para obtener más información, vea [DefaultAzureCredential (Clase)](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet). Puede reemplazar `DefaultAzureCredential` por cualquier tipo de credencial explícitamente. Pero el uso de `DefaultAzureCredential` permite tener el mismo código que se ejecuta en entornos locales y de Azure. Por ejemplo, concede a la credencial propia acceso al almacén de claves. `DefaultAzureCredential` vuelve automáticamente a `SharedTokenCacheCredential` o `VisualStudioCredential` cuando se usa Visual Studio para el desarrollo local.
+En el código anterior se usa `DefaultAzureCredential`. Se trata de una credencial de token agregada que prueba de forma automática varios tipos de credenciales, como `EnvironmentCredential`, `ManagedIdentityCredential`, `SharedTokenCacheCredential` y `VisualStudioCredential`. Para obtener más información, vea [DefaultAzureCredential (Clase)](/dotnet/api/azure.identity.defaultazurecredential). Puede reemplazar `DefaultAzureCredential` por cualquier tipo de credencial explícitamente. Pero el uso de `DefaultAzureCredential` permite tener el mismo código que se ejecuta en entornos locales y de Azure. Por ejemplo, concede a la credencial propia acceso al almacén de claves. `DefaultAzureCredential` vuelve automáticamente a `SharedTokenCacheCredential` o `VisualStudioCredential` cuando se usa Visual Studio para el desarrollo local.
 
 Como alternativa, puede establecer las variables de entorno AZURE_TENANT_ID, AZURE_CLIENT_ID y AZURE_CLIENT_SECRET, y `DefaultAzureCredential` usará el secreto de cliente que tiene por medio de `EnvironmentCredential` para autenticarse con el almacén de claves. Después de implementar la aplicación en un servicio de Azure con la identidad administrada habilitada, como Azure App Service, Azure Kubernetes Service o Azure Container Instance, conceda a la identidad administrada del servicio de Azure permiso para acceder al almacén de claves. `DefaultAzureCredential` usa automáticamente `ManagedIdentityCredential` cuando la aplicación se ejecuta en Azure. Puede usar la misma identidad administrada para autenticarse con App Configuration y Key Vault. Para obtener más información, vea [Uso de identidades administradas para acceder a App Configuration](howto-integrate-azure-managed-service-identity.md).
 

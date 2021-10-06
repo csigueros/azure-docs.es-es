@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 05/25/2021
+ms.date: 09/20/2021
 ms.author: tisande
-ms.openlocfilehash: b8c2e27b7023a106815b34538f1cd3dba85354b3
-ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
+ms.openlocfilehash: dea28832bb607da722653c398cc234d54d2ffcc9
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2021
-ms.locfileid: "114667661"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128618635"
 ---
 # <a name="how-to-configure-the-azure-cosmos-db-integrated-cache-preview"></a>Cómo configurar la caché integrada de Azure Cosmos DB (versión preliminar)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -100,7 +100,7 @@ Para que una solicitud de lectura (esto es, una lectura o consulta de punto) use
 
 -   El cliente debe conectarse al punto de conexión de la puerta de enlace dedicada.
 -  El cliente usa el modo de puerta de enlace (los SDK de Python y Node.js siempre usan el modo de puerta de enlace).
--   La coherencia de la solicitud debe establecerse en un estado de evento.
+-   La coherencia de la solicitud debe establecerse en un estado de sesión o evento.
 
 > [!NOTE]
 > ¿Tiene comentarios sobre la caché integrada? Queremos conocerlos. No dude en compartir sus comentarios directamente con el equipo de ingeniería de Azure Cosmos DB: cosmoscachefeedback@microsoft.com.

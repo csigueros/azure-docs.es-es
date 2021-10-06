@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 09/02/2021
 ms.reviewer: nicking
 ms.custom: seodec18
-ms.openlocfilehash: 5d63f7068d7b058280ea2dfd241e547347b71e7e
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 48b3d859a73a2d63644e1d5881c3505cee93f9d7
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123435615"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128679510"
 ---
 # <a name="restore-an-app-in-azure-from-a-snapshot"></a>Restauración de una aplicación en Azure desde una instantánea
 Este artículo muestra cómo restaurar una aplicación en [Azure App Service](../app-service/overview.md) desde una instantánea. Puede restaurar la aplicación a un estado anterior basado en una de las instantáneas de la aplicación. No es necesario habilitar las instantáneas, la plataforma guarda automáticamente una instantánea de todas las aplicaciones para fines de recuperación de datos.
@@ -27,8 +27,7 @@ La restauración desde instantáneas está disponible para las aplicaciones que 
 
 ## <a name="limitations"></a>Limitaciones
 
-- Actualmente está disponible como versión preliminar pública solo para aplicaciones Windows. No se admiten las aplicaciones Linux ni las aplicaciones de contenedor personalizadas.
-- El tamaño máximo admitido para la restauración de instantáneas es de 30 GB. Se produce un error en la restauración de instantáneas si el tamaño de almacenamiento es superior a 30 GB. Para reducir el tamaño de almacenamiento, considere la posibilidad de mover archivos como registros, imágenes, audios y vídeos a [Azure Storage](/azure/storage/), por ejemplo.
+- El tamaño máximo admitido para la restauración de instantáneas es de 30 GB. Se produce un error en la restauración de instantáneas si el tamaño de almacenamiento es superior a 30 GB. Para reducir el tamaño de almacenamiento, considere la posibilidad de mover archivos como registros, imágenes, audios y vídeos a [Azure Storage](../storage/index.yml), por ejemplo.
 - Las bases de datos conectadas que admitan o monten una [copia de seguridad estándar](manage-backup.md#what-gets-backed-up) de [Azure Storage](configure-connect-to-azure-storage.md?pivots=container-windows) *no* se incluyen en la instantánea. Considere la posibilidad de usar las funcionalidades de copia de seguridad nativas del servicio de Azure conectado (por ejemplo, [SQL Database](../azure-sql/database/automated-backups-overview.md) y [Azure Files](../storage/files/storage-snapshots-files.md)).
 - App Service detiene la aplicación de destino o la ranura de destino mientras se realiza la restauración de una instantánea. Para minimizar el tiempo de inactividad de la aplicación de producción, restaure primero la instantánea en un [espacio de ensayo](deploy-staging-slots.md) y, a continuación, cambie a producción.
 - Están disponibles las instantáneas de los últimos 30 días. El período de retención y la frecuencia de las instantáneas no son configurables.
@@ -49,7 +48,7 @@ La restauración desde instantáneas está disponible para las aplicaciones que 
     ![Captura de pantalla que muestra cómo especificar el destino de la restauración.](./media/app-service-web-restore-snapshots/3.png)
    
    > [!WARNING]
-   > Si elige **Sobrescribir**, se borrarán y sobrescribirán todos los datos existentes en el sistema de archivos actual de la aplicación. Antes de hacer clic en **Aceptar**, asegúrese de que es lo que desea hacer.
+   > Como procedimiento recomendado, se recomienda realizar la restauración en una ranura nueva y, después, realizar un intercambio. Si elige **Sobrescribir**, se borrarán y sobrescribirán todos los datos existentes en el sistema de archivos actual de la aplicación. Antes de hacer clic en **Aceptar**, asegúrese de que es lo que desea hacer.
    > 
    > 
       

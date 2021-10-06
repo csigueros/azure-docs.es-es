@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
 ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: f74fa900a03daeae3cf825bfa6e06434833e2195
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 443adca76ae565ee98eccfec439beb38a7952d3c
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108292439"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124740796"
 ---
 # <a name="quickstart-azure-key-vault-certificate-client-library-for-python"></a>Inicio rápido: Biblioteca cliente de certificados de Azure Key Vault para Python
 
@@ -143,15 +143,15 @@ python kv_certificates.py
 ```
 
 - Si se producen errores de permisos, asegúrese de que ha ejecutado el comando [`az keyvault set-policy`](#grant-access-to-your-key-vault).
-- Al volver a ejecutar el código con el mismo nombre de clave, se puede producir el error "(Conflict) Certificate <name> is currently in a deleted but recoverable state" [(Conflicto) El certificado <name> se ha eliminado, pero se puede recuperar]. Use otro nombre de clave.
+- Al volver a ejecutar el código con el mismo nombre de clave, se puede producir el error "(Conflict) Certificate \<name\> is currently in a deleted but recoverable state" [(Conflicto) El certificado \<name\> se ha eliminado, pero se puede recuperar]. Use otro nombre de clave.
 
 ## <a name="code-details"></a>Detalles del código
 
 ### <a name="authenticate-and-create-a-client"></a>Autenticación y creación de un cliente
 
-En este inicio rápido se emplea el usuario que ha iniciado sesión para autenticarlo en el almacén de claves, que es el método preferido para el desarrollo local. Para las aplicaciones implementadas en Azure, la identidad administrada debe asignarse a App Service o la máquina virtual. Para más información, consulte [Introducción a la identidad administrada](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+En este inicio rápido se emplea el usuario que ha iniciado sesión para autenticarlo en el almacén de claves, que es el método preferido para el desarrollo local. Para las aplicaciones implementadas en Azure, la identidad administrada debe asignarse a App Service o la máquina virtual. Para más información, consulte [Introducción a la identidad administrada](../../active-directory/managed-identities-azure-resources/overview.md).
 
-En el ejemplo siguiente, el nombre del almacén de claves se expande al URI del almacén de claves, con el formato "https://\<your-key-vault-name\>.vault.azure.net". En este ejemplo se usa la clase ["DefaultAzureCredential()"](/python/api/azure-identity/azure.identity.defaultazurecredential), que permite usar el mismo código en entornos diferentes con distintas opciones para proporcionar la identidad. Para más información, consulte [Autenticación mediante las credenciales predeterminadas de Azure](https://docs.microsoft.com/python/api/overview/azure/identity-readme). 
+En el ejemplo siguiente, el nombre del almacén de claves se expande al identificador URI del almacén de claves, con el formato `https://\<your-key-vault-name\>.vault.azure.net`. En este ejemplo se usa la clase ["DefaultAzureCredential()"](/python/api/azure-identity/azure.identity.defaultazurecredential), que permite usar el mismo código en entornos diferentes con distintas opciones para proporcionar la identidad. Para más información, consulte [Autenticación mediante las credenciales predeterminadas de Azure](/python/api/overview/azure/identity-readme). 
 
 ```python
 credential = DefaultAzureCredential()

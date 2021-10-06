@@ -1,7 +1,7 @@
 ---
-title: 'Inicio rápido: Agregar una aplicación a su inquilino'
+title: 'Inicio rápido: Adición de una aplicación empresarial'
+description: Agregue una aplicación empresarial en Azure Active Directory.
 titleSuffix: Azure AD
-description: Esta guía de inicio rápido usa Azure Portal para agregar una aplicación de la galería a su inquilino de Azure Active Directory (Azure AD).
 services: active-directory
 author: davidmu1
 manager: CelesteDG
@@ -9,70 +9,51 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 08/21/2021
+ms.date: 09/22/2021
 ms.author: davidmu
-ms.reviewer: ergreenl
-ms.openlocfilehash: 40d82ea916a647dc927e4420058d208c3fd18973
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.reviewer: ergleenl
+ms.openlocfilehash: 66de4e18f8a6c88ae3c1504197eb6f39632c6425
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123111018"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129058173"
 ---
-# <a name="quickstart-add-an-application-to-your-tenant"></a>Inicio rápido: Agregar una aplicación a su inquilino
+# <a name="quickstart-add-an-enterprise-application-in-azure-active-directory"></a>Inicio rápido: Adición de una aplicación empresarial en Azure Active Directory
 
-Azure Active Directory (Azure AD) incluye una galería que contiene miles de aplicaciones previamente integradas. Muchas de las aplicaciones que su organización usa probablemente estén ya en la galería.
+En esta guía de inicio rápido, usará el centro de administración de Azure Active Directory para agregar una aplicación empresarial al inquilino de Azure Active Directory (Azure AD). Azure AD incluye una galería que contiene miles de aplicaciones empresariales que se han integrado previamente. Muchas de las aplicaciones que su organización usa probablemente estén ya en la galería. En este inicio rápido, se usa la aplicación llamada **Azure AD SAML Toolkit** como ejemplo, pero los conceptos se aplican a la mayoría de las [aplicaciones empresariales de la galería](../saas-apps/tutorial-list.md).
 
-Después de agregar una aplicación a su inquilino de Azure AD, puede:
-
-- Configurar las propiedades de la aplicación.
-- Administrar el acceso de usuario a la aplicación con una directiva de acceso condicional.
-- Configurar el inicio de sesión único para que los usuarios puedan iniciar sesión en la aplicación con sus credenciales de Azure AD.
+Para probar los pasos de este inicio rápido, se recomienda usar un entorno que no sea de producción.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para agregar una aplicación al inquilino de Azure AD, necesita:
+Para agregar una aplicación empresarial al inquilino de Azure AD, necesita:
 
 - Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Uno de los siguientes roles: Administrador global, Administrador de aplicaciones en la nube, Administrador de aplicaciones o Propietario de la entidad de servicio.
-- (Opcional: finalización de [Visualización de sus aplicaciones](view-applications-portal.md)).
 
->[!IMPORTANT]
->Para probar los pasos de este inicio rápido, se recomienda usar un entorno que no sea de producción.
+## <a name="add-an-enterprise-application"></a>Adición de una aplicación empresarial
 
-## <a name="add-an-app-to-your-azure-ad-tenant"></a>Incorporación de una aplicación al inquilino de Azure AD
+Para agregar una aplicación empresarial al inquilino:
 
-Para agregar una aplicación a un inquilino de Azure AD:
+1. Vaya al [centro de administración de Azure Active Directory](https://aad.portal.azure.com) e inicie sesión con uno de los roles enumerados en los requisitos previos.
+1. En el menú de la izquierda, seleccione **Aplicaciones empresariales**. Se abre el panel **Todas las aplicaciones**, en el que se ve una lista de las aplicaciones que hay en su inquilino de Azure AD.
+1. En el panel **Aplicaciones empresariales**, seleccione **Nueva aplicación**.
+1. Se abre el panel **Examinar la Galería de Azure AD**, que muestra iconos para plataformas en la nube, aplicaciones locales y aplicaciones destacadas. Las aplicaciones que aparecen en la sección **Aplicaciones destacadas** incluyen iconos que indican si admiten el inicio de sesión único federado (SSO) y el aprovisionamiento. Busque y seleccione la aplicación. En este inicio rápido, se utiliza **Azure AD SAML Toolkit**.
 
-1. En [Azure Portal](https://portal.azure.com), en el panel **Servicios de Azure**, seleccione **Aplicaciones empresariales**. Se abre el panel **Todas las aplicaciones**, en el que se ve una muestra aleatoria de las aplicaciones que hay en su inquilino de Azure AD.
-2. En el panel **Aplicaciones empresariales**, seleccione **Nueva aplicación**.
-3. Se abre el panel **Examinar la Galería de Azure AD**, que muestra iconos para plataformas en la nube, aplicaciones locales y aplicaciones destacadas. Las aplicaciones que aparecen en la sección **Aplicaciones destacadas** incluyen iconos que indican si admiten el inicio de sesión único federado (SSO) y el aprovisionamiento.
-    ![Búsqueda de una aplicación por nombre o categoría](media/add-application-portal/browse-gallery.png)
-4. Puede buscar en la galería la aplicación que quiere agregar o escribir su nombre en el cuadro de búsqueda para localizarla. Después, seleccione la aplicación en los resultados.
-5. El paso siguiente depende de la forma en que el desarrollador de la aplicación haya implementado el inicio de sesión único (SSO). Los desarrolladores de aplicaciones pueden implementar el inicio de sesión único de cuatro maneras: SAML, OpenID Connect, Contraseña y Vinculado. Al agregar una aplicación, puede elegir filtrar y ver solo las aplicaciones que usan una implementación de inicio de sesión único determinada, como se muestra en la captura de pantalla. Por ejemplo, un estándar conocido para implementar el inicio de sesión único es Lenguaje de marcado de aserción de seguridad (SAML). Otro estándar conocido es OpenId Connect (OIDC). La forma de configurar el inicio de sesión único con estos estándares es diferente, por lo que debe tener en cuenta el tipo de inicio de sesión único implementado por la aplicación que va a agregar.
+    :::image type="content" source="media/add-application-portal/browse-gallery.png" alt-text="Búsqueda la aplicación que desea agregar en la galería de aplicaciones empresariales.":::
 
-    - Si el desarrollador de la aplicación usó el **estándar OIDC** para el inicio de sesión único, seleccione **Registrarse**. Aparece una página de instalación. A continuación, vaya al inicio rápido sobre cómo configurar el inicio de sesión único basado en OIDC.
-    :::image type="content" source="media/add-application-portal/sign-up-oidc-sso.png" alt-text="Captura de pantalla que muestra cómo agregar una aplicación de inicio de sesión único basado en OIDC.":::
+1. Escriba el nombre que desea usar para reconocer la instancia de la aplicación. Por ejemplo, `Azure AD SAML Toolkit 1`.
+1. Seleccione **Crear**.
 
-    - Si el desarrollador de la aplicación usó el **estándar SAML** para el inicio de sesión único, seleccione **Crear**. Aparece una página de introducción con las opciones para configurar la aplicación para su organización. En el formulario, puede editar el nombre de la aplicación para que se ajuste a las necesidades de su organización. A continuación, vaya al inicio rápido sobre cómo configurar el inicio de sesión único basado en SAML.
-    :::image type="content" source="media/add-application-portal/create-application.png" alt-text="Captura de pantalla que muestra cómo agregar una aplicación de inicio de sesión único basado en SAML.":::
-
-> [!IMPORTANT]
-> Existen algunas diferencias importantes entre las implementaciones del inicio de sesión único basado en SAML y basado en OIDC. Con las aplicaciones basadas en SAML, puede agregar varias instancias de la misma aplicación. Por ejemplo, GitHub1, GitHub2, etc. En el caso de las aplicaciones basadas en OIDC, solo puede agregar una instancia de una aplicación. Si ya ha agregado una aplicación basada en OIDC e intenta agregar la misma aplicación de nuevo y proporciona el consentimiento dos veces, no se agregará de nuevo en el inquilino.
-
-Si la aplicación que busca no está en la galería, puede hacer clic en el vínculo **Cree su propia aplicación** y, luego, en **¿Cuál es el objetivo de utilizar la aplicación?** , elija **Integrar cualquier otra aplicación que no se encuentre en la galería**. Microsoft ha trabajado con muchos desarrolladores de aplicaciones para configurar estas previamente con el fin de que funcionen con Azure AD. Las aplicaciones preconfiguradas se muestran en la galería. Pero si la aplicación que quiere agregar no aparece en la lista, puede crear una nueva, genérica y configurarla usted mismo o siguiendo las instrucciones del desarrollador que la haya creado.
-
-Ha terminado de agregar una aplicación. El siguiente inicio rápido muestra cómo cambiar el logotipo y modificar otras propiedades de la aplicación.
-
-> [!TIP]
-> La administración de aplicaciones se puede automatizar mediante Graph API, consulte el artículo sobre la [automatización de la administración de aplicaciones con Microsoft Graph API](/graph/application-saml-sso-configure-api).
+Si decide instalar una aplicación que usa el inicio de sesión único basado en OpenID Connect, en lugar de ver el botón **Crear**, verá un botón que le redirigirá a la página de inicio de sesión o de registro de la aplicación en función de si ya tiene una cuenta allí. Para más información, consulte [Adición de una aplicación de inicio de sesión único basado en OpenID Connect](add-application-portal-setup-oidc-sso.md). Después de iniciar sesión, la aplicación se agrega al inquilino.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Si no va a continuar con la serie de inicios rápidos, considere la posibilidad de eliminar la aplicación para limpiar el inquilino de prueba. La eliminación de la aplicación se trata en el último inicio rápido de esta serie, consulte [Eliminación de una aplicación](delete-application-portal.md).
+Si tiene previsto completar el siguiente inicio rápido, mantenga la aplicación empresarial que ha creado. De lo contrario, puede considerar la posibilidad de eliminarla para limpiar el inquilino. Para más información, consulte [Inicio rápido: Eliminación de una aplicación del inquilino](delete-application-portal.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Pase al siguiente artículo, donde aprenderá a configurar una aplicación.
+Obtenga información sobre cómo crear una cuenta de usuario y asignarla a la aplicación empresarial que ha agregado.
 > [!div class="nextstepaction"]
-> [Configuración de una aplicación](add-application-portal-configure.md)
+> [Inicio rápido: Creación y asignación de una cuenta de usuario en Azure Active Directory](add-application-portal-assign-users.md)

@@ -6,12 +6,12 @@ ms.date: 04/16/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: c5092cd0faee39259dff1ea9ae4a29d6b357ca2e
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: f3655c0087930735bd6c176c275908960df6aa72
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112027882"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129535740"
 ---
 # <a name="adding-the-jvm-arg---azure-monitor-application-insights-for-java"></a>Incorporación del argumento de JVM: Azure Monitor Application Insights para Java
 
@@ -94,7 +94,7 @@ Busque el archivo `<tomcat>/bin/tomcat8w.exe`.  Ejecute el archivo ejecutable y 
 Agregue `-javaagent:path/to/applicationinsights-agent-3.1.1.jar` a la variable de entorno `JAVA_OPTS` existente en el archivo `JBOSS_HOME/bin/standalone.conf` (Linux) o `JBOSS_HOME/bin/standalone.conf.bat` (Windows):
 
 ```java    ...
-    JAVA_OPTS="<b>-javaagent:path/to/applicationinsights-agent-3.1.1.jar</b> -Xms1303m -Xmx1303m ..."
+    JAVA_OPTS="-javaagent:path/to/applicationinsights-agent-3.1.1.jar -Xms1303m -Xmx1303m ..."
     ...
 ```
 

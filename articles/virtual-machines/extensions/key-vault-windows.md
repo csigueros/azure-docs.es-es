@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d7424b6ad88bc7e77a4b7d191feb54658f67ff21
-ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
+ms.openlocfilehash: d2fe9cecae13cdd6ff82256466ff1fa045b73189
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114220683"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128569321"
 ---
 # <a name="key-vault-virtual-machine-extension-for-windows"></a>Extensión de máquina virtual de Key Vault para Windows
 
@@ -293,9 +293,9 @@ Los registros de extensión de máquina virtual de Key Vault solo existen localm
 |Ubicación|Descripción|
 |--|--|
 | C:\WindowsAzure\Logs\WaAppAgent.log | Muestra cuándo se produjo una actualización de la extensión. |
-| C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.KeyVault.KeyVaultForWindows<most recent version>\ | Muestra el estado de la descarga del certificado. La ubicación de descarga siempre será la ubicación de almacenamiento MY del equipo Windows (certlm.msc). |
-| C:\Packages\Plugins\Microsoft.Azure.KeyVault.KeyVaultForWindows<most recent version>\RuntimeSettings\ |   Los registros del servicio de extensión de máquina virtual de Key Vault muestran el estado del servicio akvvm_service. |
-| C:\Packages\Plugins\Microsoft.Azure.KeyVault.KeyVaultForWindows<most recent version>\Status\  | La configuración y los archivos binarios del servicio de extensión de máquina virtual de Key Vault. |
+| C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.KeyVault.KeyVaultForWindows\<most recent version\>\ | Muestra el estado de la descarga del certificado. La ubicación de descarga siempre será la ubicación de almacenamiento MY del equipo Windows (certlm.msc). |
+| C:\Packages\Plugins\Microsoft.Azure.KeyVault.KeyVaultForWindows\<most recent version\>\RuntimeSettings\ | Los registros del servicio de extensión de máquina virtual de Key Vault muestran el estado del servicio akvvm_service. |
+| C:\Packages\Plugins\Microsoft.Azure.KeyVault.KeyVaultForWindows\<most recent version\>\Status\    | La configuración y los archivos binarios del servicio de extensión de máquina virtual de Key Vault. |
 |||  
 
 

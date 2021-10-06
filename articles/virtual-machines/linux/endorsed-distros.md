@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 04/06/2021
 ms.author: guybo
-ms.openlocfilehash: b9262d512ed27419bab38b3ad26e1bae8cddee0d
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: e8694e218bdab1085a35ed65f7a8b1d09d7b0fc4
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122696194"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129455633"
 ---
 # <a name="endorsed-linux-distributions-on-azure"></a>Distribuciones de Linux aprobadas en Azure
 
@@ -75,7 +75,7 @@ Microsoft tiene dos (2) canales de migración para los usuarios de CoreOS.
 credativ es una empresa de servicios y consultoría independiente que se especializa en el desarrollo y la implementación de soluciones profesionales mediante el uso de software gratuito. Como especialistas en código abierto líderes en el sector, credativ goza de reconocimiento en el ámbito internacional y numerosos departamentos de TI recurren a su soporte técnico. credativ está preparando imágenes de Debian junto a Microsoft. Las imágenes están diseñadas especialmente para ejecutarse en Azure y pueden administrarse fácilmente a través de la plataforma. credativ también será compatible con el mantenimiento y la actualización a largo plazo de las imágenes de Debian para Azure a través de sus centros de soporte técnico de código abierto.
 
 ### <a name="kinvolk"></a>Kinvolk
-[https://www.kinvolk.io/flatcar-container-linux/](https://www.kinvolk.io/flatcar-container-linux/)
+[https://www.flatcar-linux.org/](https://www.flatcar-linux.org/)
 
 Kinvolk es la empresa subyacente de Flatcar Container Linux, y continúa con la visión original de CoreOS de una base mínima, inmutable y de actualización automática para aplicaciones contenedorizadas. Como distribución mínima, Flatcar contiene solo los paquetes necesarios para la implementación de contenedores. Su sistema de archivos inmutable garantiza la coherencia y la seguridad, mientras que sus capacidades de actualización automática, le permiten estar siempre al día con las últimas correcciones de seguridad. 
 

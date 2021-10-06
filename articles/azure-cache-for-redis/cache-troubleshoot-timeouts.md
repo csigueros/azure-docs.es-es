@@ -1,18 +1,18 @@
 ---
 title: Solución de problemas de tiempos de expiración de Redis Cache
 description: Aprenda a resolver problemas comunes de tiempo de espera con Azure Cache for Redis, como la aplicación de revisiones al servidor Redis y las excepciones de tiempo de espera de StackExchange.Redis.
-author: yegu-ms
-ms.author: yegu
+author: curib
+ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 10/18/2019
-ms.openlocfilehash: d00ec82b5b66b2c413337f0c4efe803fc1013ab9
-ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
+ms.openlocfilehash: fab4587cc6320cc020a1d92eb1c6fc2f8fa3e3af
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/13/2021
-ms.locfileid: "109847878"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129537386"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-timeouts"></a>Solución de problemas de tiempos de expiración de Redis Cache
 
@@ -50,7 +50,7 @@ Este mensaje de error contiene métricas que pueden indicarle la causa y la posi
 | wr |Hay un escritor activo (lo que significa que 6 solicitudes sin enviar no se omiten) bytes/activewriters. |
 | bucear |No hay ningún lector activo y hay cero bytes disponibles para su lectura en los bytes/activereaders de NIC. |
 
-En el ejemplo de excepción anterior, las secciones `IOCP` y `WORKER` incluyen cada una un valor `Busy` mayor que el valor `Min`. La diferencia significa que debe ajustar la configuración de `ThreadPool`. Puede [configurar las opciones de ThreadPool](cache-management-faq.md#important-details-about-threadpool-growth) para asegurarse de que su grupo de subprocesos se escale verticalmente a gran velocidad en escenarios de ráfaga.
+En el ejemplo de excepción anterior, las secciones `IOCP` y `WORKER` incluyen cada una un valor `Busy` mayor que el valor `Min`. La diferencia significa que debe ajustar la configuración de `ThreadPool`. Puede [configurar las opciones de ThreadPool](cache-management-faq.yml#important-details-about-threadpool-growth) para asegurarse de que su grupo de subprocesos se escale verticalmente a gran velocidad en escenarios de ráfaga.
 
 Puede usar los pasos siguientes para investigar posibles causas principales.
 
@@ -123,5 +123,5 @@ Puede usar los pasos siguientes para investigar posibles causas principales.
 
 - [Solución de problemas del lado cliente de Redis Cache](cache-troubleshoot-client.md)
 - [Solución de problemas del lado servidor de Redis Cache](cache-troubleshoot-server.md)
-- [¿Cómo se pueden realizar bancos de pruebas y probar el rendimiento del caché?](cache-management-faq.md#how-can-i-benchmark-and-test-the-performance-of-my-cache)
+- [¿Cómo se pueden realizar bancos de pruebas y probar el rendimiento del caché?](cache-management-faq.yml#how-can-i-benchmark-and-test-the-performance-of-my-cache-)
 - [Supervisión de Azure Cache for Redis](cache-how-to-monitor.md)

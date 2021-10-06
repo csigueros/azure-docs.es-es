@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/15/2021
+ms.date: 08/27/2021
 ms.author: jeedes
-ms.openlocfilehash: 390f5c60ec016ab87ae62cfbc8373fc1b485adc8
-ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
+ms.openlocfilehash: 61990018951fa9dfb65ba374bac2f05363f8ce14
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "112199527"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128629878"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-bizagi-for-digital-process-automation"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Bizagi for Digital Process Automation
 
@@ -40,6 +40,7 @@ Para empezar, necesita los siguientes elementos:
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un proyecto de Bizagi con Automation Services/Server.
 
 * Bizagi for Digital Process Automation admite el SSO iniciado por **SP**.
+* Bizagi for Digital Process Automation admite el [aprovisionamiento automatizado de usuarios](bizagi-studio-for-digital-process-automation-provisioning-tutorial.md).
 
 ## <a name="add-bizagi-for-digital-process-automation-from-the-gallery"></a>Incorporación de Bizagi for Digital Process Automation desde la galería
 
@@ -126,6 +127,8 @@ Para configurar el inicio de sesión único en **Bizagi for Digital Process Auto
 
 En esta sección, creará un usuario llamado Britta Simon en Bizagi for Digital Process Automation. Colabore con el [equipo de soporte técnico de Bizagi for Digital Process Automation](mailto:jarvein.rivera@bizagi.com) para agregar los usuarios a la plataforma de Bizagi for Digital Process Automation. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
+Bizagi for Digital Process Automation también admite el aprovisionamiento automático de usuarios. [Aquí](./bizagi-studio-for-digital-process-automation-provisioning-tutorial.md) puede encontrar más detalles sobre cómo configurar el aprovisionamiento automático de usuarios.
+
 ## <a name="test-sso"></a>Prueba de SSO
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones. 
@@ -134,7 +137,7 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 * Vaya directamente a la dirección URL de inicio de sesión de Bizagi for Digital Process Automation e inicie el flujo de inicio de sesión desde allí.
 
-* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Bizagi for Digital Process Automation en Aplicaciones, se le redirige a la dirección URL de inicio de sesión de Bizagi for Digital Process Automation. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Bizagi for Digital Process Automation en Aplicaciones, se le redirige a la dirección URL de inicio de sesión de Bizagi for Digital Process Automation. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

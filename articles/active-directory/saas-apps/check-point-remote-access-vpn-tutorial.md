@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/16/2021
 ms.author: jeedes
-ms.openlocfilehash: 39072747cd2e6b9daa62f02b198a201c5b1782ea
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: ef52547bb8ec27bd759a238d742173f6b8fc3994
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110451524"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128592002"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-check-point-remote-secure-access-vpn"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Check Point Remote Secure Access VPN
 
@@ -233,7 +233,7 @@ Hay dos opciones:
     1. Si no desea usar un perfil de Active Directory local (LDAP), seleccione solo los perfiles de usuarios externos y haga clic en OK (Aceptar).
     2. Si desea usar una instancia de Active Directory local (LDAP), seleccione solo usuarios LDAP y, en tipo de búsqueda LDAP, seleccione correo electrónico. A continuación, haga clic en Aceptar.
 
-    ![Captura de pantalla de la configuración manual](./media/check-point-remote-access-vpn-tutorial/manual-configuration.png)
+    ![Captura de pantalla de la configuración manual.](./media/check-point-remote-access-vpn-tutorial/manual-configuration.png)
 
 1. Configure los valores necesarios en la base de datos de administración:
 
@@ -270,44 +270,64 @@ Hay dos opciones:
 1. Establezca el modo de explorador del proveedor de identidades (opcional). De forma predeterminada, el cliente de Windows usa su explorador insertado y el cliente macOS usa Safari para autenticarse en el portal del proveedor de identidades.
 Para que el cliente de Windows cambie este comportamiento y use Internet Explorer en su lugar:
 
-    1.  En la máquina cliente, abra un editor de texto sin formato como administrador.
-    2.  Abra el archivo trac.defaults en el editor de texto.
-        * En Windows de 32 bits: ``%ProgramFiles%\CheckPoint\Endpoint Connect\trac.defaults``
-        * En Windows de 64 bits: ``%ProgramFiles(x86)%\CheckPoint\Endpoint Connect\trac.defaults``
-    3.  Cambie el atributo idp_browser_mode de "embedded" a "IE":
-    4.  Guarde el archivo.
-    5.  Reinicie el servicio cliente de Check Point Endpoint Security VPN.
-Abra el símbolo del sistema de Windows como administrador y ejecute estos comandos:
+   1. En la máquina cliente, abra un editor de texto sin formato como administrador.
 
-        `# net stop TracSrvWrapper `
+   2. Abra el archivo `trac.defaults` en el editor de texto.
 
-        `# net start TracSrvWrapper`
- 
+      - En Windows de 32 bits: 
+
+        `%ProgramFiles%\CheckPoint\Endpoint Connect\trac.defaults`
+
+      - En Windows de 64 bits: 
+
+        `%ProgramFiles(x86)%\CheckPoint\Endpoint Connect\trac.defaults`
+
+    3. Cambie el valor del atributo `idp_browser_mode` de `embedded` a `IE`.
+
+    4. Guarde el archivo.
+
+    5. Reinicie el servicio cliente de Check Point Endpoint Security VPN.
+
+   Abra el símbolo del sistema de Windows como administrador y ejecute estos comandos:
+
+   `# net stop TracSrvWrapper`
+
+   `# net start TracSrvWrapper`
 
 1. Inicie la autenticación con el explorador ejecutándose en segundo plano:
 
-    1.  En la máquina cliente, abra un editor de texto sin formato como administrador.
-    2.  Abra el archivo trac.defaults en el editor de texto.
-        * En Windows de 32 bits: `%ProgramFiles%\CheckPoint\Endpoint Connect\trac.defaults`
-        * En Windows de 64 bits: `%ProgramFiles(x86)%\CheckPoint\Endpoint Connect\trac.defaults`
+   1. En la máquina cliente, abra un editor de texto sin formato como administrador.
 
-        * En macOS: `/Library/Application Support/Checkpoint/Endpoint Security/Endpoint Connect/Trac.defaults`
+   2. Abra el archivo `trac.defaults` en el editor de texto.
 
-    3.  Cambie el valor de **idp_show_browser_primary_auth_flow** a **false**.
-    4.  Guarde el archivo.
-    5.  Reinicie el servicio cliente de Check Point Endpoint Security VPN.
-        * En los clientes de Windows, abra el símbolo del sistema como administrador y ejecute estos comandos:
+      - En Windows de 32 bits: 
 
-            `# net stop TracSrvWrapper`
+        `%ProgramFiles%\CheckPoint\Endpoint Connect\trac.defaults`
+
+      - En Windows de 64 bits: 
+
+        `%ProgramFiles(x86)%\CheckPoint\Endpoint Connect\trac.defaults`
+
+      - En macOS:
+      
+        `/Library/Application Support/Checkpoint/Endpoint Security/Endpoint Connect/trac.defaults`
+
+    3. Cambie el valor de `idp_show_browser_primary_auth_flow` a `false`.
+
+    4. Guarde el archivo.
+
+    5. Reinicie el servicio cliente de Check Point Endpoint Security VPN.
+       - En los clientes de Windows, abra el símbolo del sistema como administrador y ejecute estos comandos:
+
+         `# net stop TracSrvWrapper`
         
-            `# net start TracSrvWrapper`
+         `# net start TracSrvWrapper`
 
-        * En los clientes macOS
+       - En los clientes macOS, ejecute:
 
-            `sudo launchctl stop com.checkpoint.epc.service`
+         `sudo launchctl stop com.checkpoint.epc.service`
 
-            `sudo launchctl start com.checkpoint.epc.service`
-
+         `sudo launchctl start com.checkpoint.epc.service`
 
 ### <a name="create-check-point-remote-secure-access-vpn-test-user"></a>Creación de un usuario de prueba de Check Point Remote Secure Access VPN
 
@@ -315,7 +335,7 @@ En esta sección, creará un usuario llamado Britta Simon en Check Point Remote 
 
 ## <a name="test-sso"></a>Prueba de SSO 
 
-1. Abra el cliente VPN y haga clic en **Connect to…** (Conectar a...)
+1. Abra el cliente VPN y haga clic en **Connect to…** (Conectar a...).
 
     ![Captura de pantalla de la conexión](./media/check-point-remote-access-vpn-tutorial/connect.png)
 
@@ -328,5 +348,3 @@ En esta sección, creará un usuario llamado Britta Simon en Check Point Remote 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Una vez configurado Check Point Remote Secure Access VPN, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
-
-

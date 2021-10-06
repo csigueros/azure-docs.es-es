@@ -1,17 +1,17 @@
 ---
 title: Solución de problemas del lado servidor de Redis Cache
 description: Obtenga información sobre cómo resolver problemas comunes del lado servidor con Azure Cache for Redis, como la presión de memoria, un uso elevado de la CPU, los comandos de larga duración o las limitaciones de ancho de banda.
-author: yegu-ms
-ms.author: yegu
+author: curib
+ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/18/2019
-ms.openlocfilehash: a3eb35ada01612d3a3298b1899d3e9fb7101684b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 9c50ac01eb95672b946daf9916f83743d2156b01
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121735881"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129537395"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-server-side-issues"></a>Solución de problemas del lado servidor de Redis Cache
 

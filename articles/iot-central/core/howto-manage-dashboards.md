@@ -7,30 +7,35 @@ ms.date: 08/19/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: d262f102b12105ece2b5d0d076a7c8c108e7b4e7
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: bcd9b0f4aa1b4a7f89479270ebce65fba9968e56
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123424247"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124810781"
 ---
 # <a name="create-and-manage-dashboards"></a>Creación y administración de paneles
 
-El *panel de la aplicación* predeterminado es la página que se carga cuando va por primera vez a la aplicación. Como administrador, puede crear hasta 10 paneles que son visibles para todos los usuarios de la aplicación. Solo los administradores pueden crear, editar y eliminar paneles en el nivel de la aplicación.
+El *panel de la organización* predeterminado es la página que se carga cuando va por primera vez a la aplicación. Como administrador, puede crear paneles de la organización adicionales asociados a una organización específica. Un panel de la organización solo es visible para los usuarios que tienen acceso a la organización a la que está asociado el panel. Solo los usuarios con un rol que tenga [permisos de panel de la organización](howto-manage-users-roles.md#customizing-the-app) pueden crear, editar y eliminar paneles de la organización.
 
-Todos los usuarios pueden crear sus propios *paneles personales*. Los usuarios pueden cambiar entre paneles de aplicaciones y paneles personales.
+> [!TIP]
+> Puede ver a qué organización está asociado un panel en la configuración del panel.
+
+Todos los usuarios pueden crear sus propios *paneles personales*. Los usuarios pueden cambiar entre paneles de organizaciones y paneles personales.
 
 ## <a name="create-a-dashboard"></a>Creación de un panel
 
-En la captura de pantalla siguiente se muestra el panel en una aplicación creada a partir de la plantilla Aplicación personalizada. Puede reemplazar el panel de aplicación predeterminado por un panel personal. Si es administrador, también puede reemplazarlo por otro panel de nivel de aplicación. Para ello, seleccione **Nuevo panel** en la esquina superior izquierda de la página:
+En la captura de pantalla siguiente se muestra el panel en una aplicación creada a partir de la plantilla **Aplicación personalizada**. Si tiene un rol con los permisos adecuados, puede personalizar el panel predeterminado. Para crear un nuevo panel, seleccione **+ Nuevo panel** en la esquina superior izquierda de la página:
 
 :::image type="content" source="media/howto-manage-dashboards/dashboard-custom-app.png" alt-text="Captura de pantalla en la que se muestra el botón Nuevo panel.":::
 
-Seleccione **Nuevo panel** para abrir el editor de paneles. En el editor, asigne un nombre al panel y elija los elementos de la biblioteca. La biblioteca contiene iconos y paneles primitivos que puede usar para personalizar el panel:
+En el panel **Crear panel**, asigne un nombre al panel y seleccione **Organización** o **Personal** como tipo de panel. Si va a crear un panel de la organización, elija la [organización](howto-create-organizations.md) a la que está asociado el panel. Un panel de la organización y sus iconos solo muestran los dispositivos que son visibles para la organización y cualquiera de sus suborganizaciones.
+
+Después de crear el panel, elija los elementos de la biblioteca que desea agregar al panel. La biblioteca contiene los iconos y paneles primitivos que puede usar para personalizar el panel:
 
 :::image type="content" source="media/howto-manage-dashboards/dashboard-library.png" alt-text="Captura de pantalla que muestra la biblioteca del panel.":::
 
-Si es administrador, puede crear un panel personal o un panel de aplicación. Todos los usuarios de la aplicación pueden ver los paneles que crea el administrador. Todos los usuarios pueden crear paneles personales que solo ellos pueden ver.
+Si es administrador, puede crear un panel personal o un panel de la organización. Los usuarios pueden ver los paneles de la organización asociados a la organización a la que están asignados. Todos los usuarios pueden crear paneles personales que solo ellos pueden ver.
 
 Especifique un título y seleccione el tipo de panel que desea crear. [Agregue iconos](#add-tiles) para personalizar el panel.
 
@@ -39,17 +44,21 @@ Especifique un título y seleccione el tipo de panel que desea crear. [Agregue i
 
 ## <a name="manage-dashboards"></a>Administración de paneles
 
-Puede tener varios paneles personales y cambiar entre ellos, o bien elegir uno de los paneles de la aplicación:
+Puede tener varios paneles personales y cambiar entre ellos o elegir uno de los paneles de la organización:
 
 :::image type="content" source="media/howto-manage-dashboards/switch-dashboards.png" alt-text="Captura de pantalla que muestra cómo cambiar entre paneles.":::
 
-Puede editar los paneles personales y eliminar los que no necesite. Si es administrador, también puede editar o eliminar los paneles de nivel de aplicación.
+Puede editar los paneles personales y eliminar los que no necesite. Si tiene los [permisos](howto-manage-users-roles.md#customizing-the-app) correctos, también puede editar o eliminar paneles de la organización.
 
 :::image type="content" source="media/howto-manage-dashboards/delete-dashboards.png" alt-text="Captura de pantalla en la que se muestra cómo eliminar un panel.":::
 
+Para cambiar el nombre de un panel o ver la organización a la que está asignado, seleccione **Configuración del panel**:
+
+:::image type="content" source="media/howto-manage-dashboards/rename-dashboards.png" alt-text="Captura de pantalla en la que se muestra cómo cambiar el nombre de un panel.":::
+
 ## <a name="add-tiles"></a>Agregar iconos
 
-En la captura de pantalla siguiente se muestra el panel en una aplicación creada a partir de la plantilla Aplicación personalizada. Para personalizar el panel actual, seleccione **Editar**. Para agregar un panel personal o de aplicación, seleccione **Nuevo panel**:
+En la captura de pantalla siguiente se muestra el panel en una aplicación creada a partir de la plantilla **Aplicación personalizada**. Para personalizar el panel actual, seleccione **Editar**. Para agregar un panel personal o de la organización, seleccione **Nuevo panel**:
 
 :::image type="content" source="media/howto-manage-dashboards/dashboard-sample-contoso.png" alt-text="Captura de pantalla en la que se muestra un panel para aplicaciones basadas en la plantilla de aplicación personalizada.":::
 

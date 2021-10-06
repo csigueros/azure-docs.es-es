@@ -5,15 +5,15 @@ services: app-service
 author: msangapu
 ms.service: app-service
 ms.topic: include
-ms.date: 02/27/2019
+ms.date: 09/14/2021
 ms.author: msangapu
 ms.custom: include file
-ms.openlocfilehash: d26b8d131d5a8ff54b12fc5817718ddd381b720b
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: afaacb79906c07893d835d654b00815ea97199d0
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "122643515"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128577338"
 ---
 > [!NOTE]
 > El comando `az webapp up` realiza las acciones siguientes:
@@ -24,5 +24,7 @@ ms.locfileid: "122643515"
 >
 >- [Cree una aplicación](/cli/azure/webapp#az_webapp_create) con el nombre especificado.
 >
->- [Implementar con ZIP](../articles/app-service/deploy-zip.md) archivos desde el directorio de trabajo actual a la aplicación.
+>- [Implemente desde un archivo ZIP](../articles/app-service/deploy-zip.md#deploy-a-zip-package) todos los archivos del directorio de trabajo actual, [con la automatización de compilación habilitada](../articles/app-service/deploy-zip.md#enable-build-automation-for-zip-deploy).
+>
+>- Almacene en caché los parámetros localmente en el archivo *.azure/config* para que no sea necesario especificarlos de nuevo al implementarlos más adelante con `az webapp up` u otros comandos de la CLI de Azure. Los valores almacenados en caché se usan automáticamente de forma predeterminada.
 >

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 08/30/2021
+ms.date: 09/23/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df7ec7aa9fe6fb73cd7d6871fe9b6a698e324899
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: 8f59d127342eabf3b951972a8d9d2bd82e0a6fa0
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123219690"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128622082"
 ---
 # <a name="what-is-risk"></a>¿Qué es el riesgo?
 
@@ -33,17 +33,17 @@ Identity Protection proporciona a las organizaciones el acceso a recursos eficac
 
 El riesgo se puede detectar a nivel de **Usuario** y de **Inicio de sesión**; además, existen dos tipos de detección o cálculo: **Tiempo real** y **Sin conexión**.
 
-Es posible que las detecciones en tiempo real no se muestren en los informes durante un tiempo comprendido entre cinco y diez minutos. Es posible que las detecciones sin conexión no se muestren en los informes durante un tiempo comprendido entre dos y veinticuatro horas.
+Es posible que las detecciones en tiempo real no se muestren en los informes durante un tiempo comprendido entre cinco y diez minutos. Es posible que las detecciones sin conexión no se muestren en los informes durante 48 horas.
 
 ### <a name="user-linked-detections"></a>Detecciones vinculadas al usuario
 
-Se puede detectar una actividad de riesgo para un usuario que no está vinculada a un inicio de sesión malintencionado específico, sino al propio usuario. La detección de estos riesgos se calcula sin conexión, con orígenes de inteligencia sobre amenazas internas y externas de Microsoft, incluidos los investigadores de seguridad, los profesionales de los cuerpos de seguridad, los equipos de seguridad de Microsoft y otros orígenes de confianza.
+Se puede detectar una actividad de riesgo para un usuario que no está vinculada a un inicio de sesión malintencionado específico, sino al propio usuario. La detección de estos riesgos se calcula sin conexión, con orígenes de inteligencia sobre amenazas internas y externas de Microsoft, como los investigadores de seguridad, los profesionales de los cuerpos de seguridad, los equipos de seguridad de Microsoft y otros orígenes de confianza.
 
 Estos riesgos se calculan sin conexión, usando orígenes de inteligencia sobre amenazas internas y externas de Microsoft, incluidos los investigadores de seguridad, los profesionales de la aplicación de la ley, los equipos de seguridad de Microsoft y otros orígenes de confianza.
 
 | Detección de riesgos | Descripción |
 | --- | --- |
-| Credenciales con fugas | Este tipo de detección de riesgo indica que se han filtrado las credenciales válidas del usuario. Cuando los cibercriminales llegan a poner en peligro las contraseñas válidas de usuarios legítimos, es frecuente que las compartan. Normalmente lo hacen publicándolas en la Web oscura, los sitios de pegado, o bien mediante el intercambio o la venta de esas credenciales en el mercado negro. Cuando el servicio de credenciales filtradas de Microsoft adquiere las credenciales de usuario de la Web oscura, los sitios de pegado u otros orígenes, se comparan con las credenciales válidas actuales de los usuarios de Azure AD para encontrar coincidencias válidas. Para obtener más información sobre las credenciales filtradas, consulte [Preguntas frecuentes](#common-questions). |
+| Credenciales con fugas | Este tipo de detección de riesgo indica que se han filtrado las credenciales válidas del usuario. Cuando los cibercriminales llegan a poner en peligro las contraseñas válidas de usuarios legítimos, es frecuente que las compartan. Normalmente lo hacen publicándolas en la Web oscura, los sitios de pegado, o bien mediante el intercambio o la venta de esas credenciales en el mercado negro. Cuando el servicio de credenciales filtradas de Microsoft adquiere las credenciales de usuario de la Web oscura, los sitios de pegado u otros orígenes, se comparan con las credenciales válidas actuales de los usuarios de Azure AD para encontrar coincidencias válidas. Para obtener más información sobre las credenciales filtradas, consulte [Preguntas frecuentes](#common-questions). |
 | Inteligencia de Azure AD sobre amenazas | Este tipo de detección de riesgo indica una actividad de usuario poco común para el usuario en cuestión o coherente con patrones de ataque conocidos basados en orígenes de inteligencia sobre amenazas internas y externas de Microsoft. |
 
 ### <a name="sign-in-risk"></a>Riesgo de inicio de sesión
@@ -60,7 +60,7 @@ Estos riesgos se pueden calcular en tiempo real o sin conexión, usando orígene
 | Anomalía del emisor de tokens | Sin conexión |Esta detección de riesgo indica que el emisor del token SAML asociado puede estar en peligro. Las notificaciones incluidas en el token son inusuales o coinciden con patrones de atacante conocidos. |
 | Dirección IP vinculada al malware | Sin conexión | Este tipo de detección de riesgos indica inicios de sesión desde direcciones IP infectadas con malware, que se sabe que se comunican activamente con un servidor bot. Esta detección se determina mediante la correlación de direcciones IP del dispositivo del usuario con direcciones IP que han estado en contacto con un servidor bot mientras este último estaba activo. |
 | Explorador sospechoso | Sin conexión | La detección sospechosa del explorador indica un comportamiento anómalo basado en la actividad de inicio de sesión sospechosa en varios inquilinos de distintos países en el mismo explorador. |
-| Propiedades de inicio de sesión desconocidas | Tiempo real | Este tipo de detección de riesgos tiene en cuenta el historial de inicio de sesión anterior (dirección IP, latitud/longitud y ASN) para determinar inicios de sesión anómalos. El sistema almacena información acerca de las ubicaciones anteriores que ha utilizado un usuario y considera estas ubicaciones "conocidas". La detección de riesgos se desencadena cuando el inicio de sesión se produce desde una ubicación que no está en la lista de ubicaciones conocidas. Los usuarios recién creados estarán en "modo de aprendizaje" durante un período de tiempo, en el que las detecciones de riesgo de las propiedades de inicio de sesión desconocidas estarán desactivadas mientras nuestros algoritmos aprenden el comportamiento del usuario. La duración del modo de aprendizaje es dinámica y depende de cuánto tiempo tarde el algoritmo en recopilar información suficiente sobre los patrones de inicio de sesión del usuario. La duración mínima es de cinco días. Un usuario puede volver al modo de aprendizaje tras un largo período de inactividad. El sistema también ignora los inicios de sesión desde dispositivos conocidos y ubicaciones geográficamente cercanas a una ubicación conocida. <br><br> También se ejecuta esta detección para una autenticación básica o para protocolos heredados. Dado que estos protocolos no tienen propiedades modernas como el identificador de cliente, hay una telemetría limitada para reducir los falsos positivos. Se recomienda que los clientes realicen la migración a la autenticación moderna. |
+| Propiedades de inicio de sesión desconocidas | Tiempo real | Este tipo de detección de riesgos tiene en cuenta el historial de inicio de sesión anterior (dirección IP, latitud/longitud y ASN) para determinar inicios de sesión anómalos. El sistema almacena información acerca de las ubicaciones anteriores que ha utilizado un usuario y considera estas ubicaciones "conocidas". La detección de riesgos se desencadena cuando el inicio de sesión se produce desde una ubicación que no está en la lista de ubicaciones conocidas. Los usuarios recién creados estarán en "modo de aprendizaje" durante un tiempo, en el que las detecciones de riesgo de las propiedades de inicio de sesión desconocidas estarán desactivadas mientras nuestros algoritmos aprenden el comportamiento del usuario. La duración del modo de aprendizaje es dinámica y depende de cuánto tiempo tarde el algoritmo en recopilar información suficiente sobre los patrones de inicio de sesión del usuario. La duración mínima es de cinco días. Un usuario puede volver al modo de aprendizaje tras un largo período de inactividad. El sistema también ignora los inicios de sesión desde dispositivos conocidos y ubicaciones geográficamente cercanas a una ubicación conocida. <br><br> También se ejecuta esta detección para una autenticación básica o para protocolos heredados. Dado que estos protocolos no tienen propiedades modernas como el identificador de cliente, hay una telemetría limitada para reducir los falsos positivos. Se recomienda que los clientes realicen la migración a la autenticación moderna. <br><br> Se pueden detectar propiedades de inicio de sesión desconocidas en inicios de sesión interactivos y no interactivos. Cuando esta detección se realiza en inicios de sesión no interactivos, merece mayor supervisión debido al riesgo de ataques de reproducción de tokens.  |
 | Vulneración de identidad de usuario confirmada por el administrador | Sin conexión | Esta detección indica que un administrador ha seleccionado "Confirmar vulneración de la identidad del usuario" en la interfaz de usuario de Usuarios de riesgo o mediante riskyUsers API. Para ver qué administrador ha confirmado este usuario comprometido, compruebe el historial de riesgos del usuario (a través de la interfaz de usuario o la API). |
 | Dirección IP malintencionada | Sin conexión | Esta detección indica el inicio de sesión desde una dirección IP malintencionada. Una dirección IP se considera malintencionada si se recibe una alta tasa de errores debidos a credenciales no válidas desde la dirección IP u otros orígenes de reputación de IP. |
 | Reglas de manipulación sospechosa de la bandeja de entrada | Sin conexión | Esta detección se debe a [Microsoft Cloud App Security (MCAS)](/cloud-app-security/anomaly-detection-policy#suspicious-inbox-manipulation-rules). Esta detección genera un perfil del entorno y activa alertas cuando se establecen reglas sospechosas que eliminan o mueven mensajes o carpetas en la bandeja de entrada de un usuario. Esta detección puede indicar que la cuenta del usuario está en peligro, que los mensajes se están ocultando intencionadamente y que el buzón se está usando para distribuir correo no deseado o malware en su organización. |
@@ -75,7 +75,7 @@ Estos riesgos se pueden calcular en tiempo real o sin conexión, usando orígene
 
 | Detección de riesgos | Tipo de detección | Descripción |
 | --- | --- | --- |
-| Riesgo adicional detectado | En tiempo real o sin conexión | Esta detección indica que se descubrió una de las detecciones prémium anteriores. Dado que las detecciones premium solo son visibles para los clientes de Azure AD Premium P2, se denominan "Riesgo adicional detectado" para los clientes sin licencias de Azure AD Premium P2. |
+| Riesgo adicional detectado | En tiempo real o sin conexión | Esta detección indica que se descubrió una de las detecciones prémium anteriores. Dado que las detecciones premium solo son visibles para los clientes de Azure AD Premium P2, se denominan "Riesgo adicional detectado" para los clientes sin licencias de Azure AD Premium P2. |
 
 ## <a name="common-questions"></a>Preguntas frecuentes
 
@@ -83,7 +83,7 @@ Estos riesgos se pueden calcular en tiempo real o sin conexión, usando orígene
 
 Identity Protection clasifica el riesgo en tres niveles: bajo, medio y alto. Al configurar [directivas de Identity Protection personalizadas](./concept-identity-protection-policies.md#custom-conditional-access-policy), también puede configurarla para que se desencadene en el nivel **Sin riesgo**. Sin riesgo significa que no hay ninguna indicación activa de que la identidad del usuario se ha visto en peligro.
 
-Aunque Microsoft no proporciona detalles específicos sobre cómo se calcula el riesgo, diremos que cada nivel aporta una mayor seguridad de que el usuario o el inicio de sesión están en peligro. Por ejemplo, cosas como un caso de propiedades de inicio de sesión desconocidas para un usuario podría no ser tan amenazante como la filtración de credenciales para otro usuario.
+Aunque Microsoft no proporciona detalles específicos sobre cómo se calcula el riesgo, podemos decir que cada nivel ofrece una mayor certeza de que el usuario o el inicio de sesión están en peligro. Por ejemplo, cosas como un caso de propiedades de inicio de sesión desconocidas para un usuario podría no ser tan amenazante como la filtración de credenciales para otro usuario.
 
 ### <a name="password-hash-synchronization"></a>Sincronización de hash de contraseña
 

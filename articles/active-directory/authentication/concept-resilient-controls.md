@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/13/2021
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fe5f9987cb99aa90d1452b4f442e326d4e95bcee
-ms.sourcegitcommit: 6f4378f2afa31eddab91d84f7b33a58e3e7e78c1
+ms.openlocfilehash: 3c4ea1a6b66980081597f301f22243bfd7397630
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2021
-ms.locfileid: "113687810"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129388344"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Crear una estrategia de administración de control de acceso resistente con Azure Active Directory
 
@@ -273,8 +273,8 @@ Deshaga los cambios realizados como parte del plan de contingencia activado una 
  En caso de que se produzca una emergencia y su organización no implementase anteriormente un plan de contingencia o mitigación, siga las recomendaciones de la sección [Contingencias para el bloqueo de usuario](#contingencies-for-user-lockout) si ya usan directivas acceso condicional para exigir MFA.
 Si su organización usa directivas heredadas de MFA por usuario, puede considerar la siguiente alternativa:
 
-1. Si tiene la dirección IP saliente de red corporativa, puede agregarlos como direcciones IP de confianza para habilitar la autenticación solo a la red corporativa.
-   1. Si no tiene el inventario de direcciones IP de salida o tiene que habilitar el acceso dentro y fuera de la red corporativa, puede agregar todo el espacio de direcciones IPv4 como direcciones IP de confianza especificando 0.0.0.0/1 y 128.0.0.0/1.
+- Si tiene la dirección IP saliente de red corporativa, puede agregarlos como direcciones IP de confianza para habilitar la autenticación solo a la red corporativa.
+- Si no tiene el inventario de direcciones IP de salida o tiene que habilitar el acceso dentro y fuera de la red corporativa, puede agregar todo el espacio de direcciones IPv4 como direcciones IP de confianza especificando 0.0.0.0/1 y 128.0.0.0/1.
 
 >[!IMPORTANT]
  > Si amplía las direcciones IP de confianza para desbloquear el acceso, no se generarán las detecciones de riesgos asociados con las direcciones IP (por ejemplo, viajes imposibles o ubicaciones desconocidas).

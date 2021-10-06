@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 04/01/2021
 ms.author: barclayn
 ms.reviewer: ''
-ms.openlocfilehash: 6f124c6bb0dccb2fb1f8d808932ac9f8775f7f7e
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 1203562d088efeafd20a0b6c58698fcfe10b79e6
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110466293"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124816192"
 ---
 # <a name="introduction-to-azure-active-directory-verifiable-credentials-preview"></a>Introducción a Azure Active Directory Verifiable Credentials (versión preliminar)
 
@@ -26,7 +26,7 @@ ms.locfileid: "110466293"
 
 Tanto nuestra vida física como la digital cada vez están más vinculadas a las aplicaciones, los servicios y los dispositivos que usamos para acceder a un elevado número de experiencias. Esta transformación digital nos permite interactuar con cientos de empresas y miles de usuarios de maneras que antes eran inimaginables.
 
-Sin embargo, los datos de identidad resultan expuestos con demasiada frecuencia en las vulneraciones de seguridad. Estas vulneraciones influyen considerablemente en las vidas sociales, profesionales y financieras de las personas. Microsoft considera que hay una manera mejor. Todas las personas tienen derecho a poseer y controlar una identidad que almacene de forma segura elementos de su identidad digital y que preserve la privacidad. En este manual se explica cómo aunamos esfuerzos con una variopinta comunidad para crear una solución de identidad descentralizada (DID) abierta, confiable, interoperable y basada en estándares apropiada tanto para personas como para organizaciones.
+Sin embargo, los datos de identidad resultan expuestos con demasiada frecuencia en las vulneraciones de seguridad. Estas vulneraciones afectan nuestra vida social, profesional y financiera. Microsoft considera que hay una manera mejor. Todas las personas tienen derecho a poseer y controlar una identidad que almacene de forma segura elementos de su identidad digital y que preserve la privacidad. En este manual se explica cómo aunamos esfuerzos con una variopinta comunidad para crear una solución de identidad descentralizada (DID) abierta, confiable, interoperable y basada en estándares apropiada tanto para personas como para organizaciones.
 
 ## <a name="why-we-need-decentralized-identity"></a>Motivos para usar una identidad descentralizada
 
@@ -34,7 +34,7 @@ Hoy en día utilizamos nuestra identidad digital en el trabajo, en casa y en tod
 
 Por lo general, los usuarios dan su consentimiento a varias aplicaciones y dispositivos. Este enfoque requiere un alto grado de vigilancia por parte del usuario para realizar un seguimiento de quién tiene acceso a la información. En lo que se refiere a la empresa, la colaboración con consumidores y asociados requiere una orquestación de alto nivel para intercambiar datos de forma segura de manera que se mantenga la privacidad y la seguridad de todos los implicados.
 
-Creemos que un sistema de identidad descentralizada basado en estándares puede desbloquear un nuevo conjunto de experiencias que proporcionen a los usuarios y organizaciones un mayor control sobre sus datos (y ofrezcan un mayor grado de confianza y seguridad tanto a las aplicaciones, como a los dispositivos y proveedores de servicios)
+Creemos que un sistema de identidad descentralizada basado en estándares puede desbloquear un nuevo conjunto de experiencias que proporcionen a los usuarios y organizaciones un mayor control sobre sus datos (y ofrezcan un mayor grado de confianza y seguridad tanto a las aplicaciones, como a los dispositivos y proveedores de servicios).
 
 ## <a name="lead-with-open-standards"></a>Uso fructífero de estándares abiertos
 
@@ -56,10 +56,11 @@ Para llegar a comprender lo que son los identificadores descentralizados, result
 
 Los identificadores descentralizados (DID) son diferentes, son identificadores globalmente únicos, privados y generados por el usuario cuya raíz se encuentra en sistemas descentralizados como ION. Poseen características únicas, como una mayor garantía de inmutabilidad, resistencia a la censura y evasión de la alteración. Estos atributos son fundamentales para cualquier sistema de identificadores que esté destinado a proporcionar control de usuario y autopropiedad. 
 
-La solución de credenciales verificables de Microsoft usa credenciales descentralizadas (DID) para firmar de forma criptográfica como prueba de que un usuario de confianza (verificador) está atestiguando la información que demuestra que son los propietarios de una credencial verificable. Por lo tanto, se recomienda que todos aquellos que deseen crear una solución de credenciales verificables mediante la oferta de Microsoft tengan un conocimiento básico de los identificadores descentralizados.
+La solución de credenciales verificables de Microsoft usa credenciales descentralizadas (DID) para firmar de forma criptográfica como prueba de que un usuario de confianza (verificador) está atestiguando la información que demuestra que son los propietarios de una credencial verificable. Se recomienda que todos aquellos que deseen crear una solución de credenciales verificables mediante la oferta de Microsoft tengan un conocimiento básico de los identificadores descentralizados.
+
 ## <a name="what-are-verifiable-credentials"></a>¿Qué son las credenciales verificables?
 
- A diario usamos distintas formas de identificarnos. Tenemos carnet de conducir, que usamos como evidencia de somos capaces de manejar un automóvil. Las universidades expiden diplomas que demuestran que hemos logrado cierto nivel de educación. Usamos pasaportes para demostrar a las autoridades quiénes somos cuando viajamos a otros países. El modelo de datos describe cómo podemos controlar estos tipos de escenarios cuando se trabaja en Internet, pero de una forma segura que respete la privacidad del usuario. Para obtener información adicional, consulte el estándar [Verifiable Credentials Data Model 1.0](https://www.w3.org/TR/vc-data-model/)
+A diario usamos distintas formas de identificarnos. Tenemos carnet de conducir, que usamos como evidencia de somos capaces de manejar un automóvil. Las universidades expiden diplomas que demuestran que hemos logrado cierto nivel de educación. Usamos pasaportes para demostrar a las autoridades quiénes somos cuando viajamos a otros países. El modelo de datos describe cómo podemos controlar estos tipos de escenarios cuando se trabaja en Internet, pero de una forma segura que respete la privacidad del usuario. Para obtener información adicional, consulte el estándar [Verifiable Credentials Data Model 1.0](https://www.w3.org/TR/vc-data-model/).
 
 En resumen, las credenciales verificables son objetos de datos que se componen de las notificaciones realizadas por el emisor que da fe de la información sobre un sujeto. Estas notificaciones las identifica un esquema e incluyen la identidad descentralizada del emisor y el asunto. La identidad descentralizada del emisor crea una firma digital como prueba de que da fe de esta información.
 

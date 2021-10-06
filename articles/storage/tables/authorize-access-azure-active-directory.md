@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/13/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 71ce588ea617a0322da4ffc7cf9f2626e4abb609
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: 3f0c18d7f9130c4ef50b085a4f8c1ec5c22ed6d3
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113734221"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129360389"
 ---
 # <a name="authorize-access-to-tables-using-azure-active-directory-preview"></a>Autorización del acceso a tablas mediante Azure Active Directory (versión preliminar)
 
@@ -66,7 +66,7 @@ Azure RBAC proporciona roles integrados para autorizar el acceso a datos de tabl
 
 Para obtener información sobre cómo asignar un rol integrado de Azure a una entidad de seguridad, vea [Asignación de un rol de Azure para acceder a datos de tablas](assign-azure-role-data-access.md). Para obtener información sobre cómo enumerar los roles RBAC de Azure y sus permisos, consulte [Enumeración de las definiciones de roles de Azure](../../role-based-access-control/role-definitions-list.md).
 
-Para más información acerca de cómo se definen los roles integrados para Azure Storage, consulte [Descripción de definiciones de roles](../../role-based-access-control/role-definitions.md#management-and-data-operations). Para más información acerca de la creación de roles personalizados de Azure, consulte [Roles personalizados de Azure](../../role-based-access-control/custom-roles.md).
+Para más información acerca de cómo se definen los roles integrados para Azure Storage, consulte [Descripción de definiciones de roles](../../role-based-access-control/role-definitions.md#control-and-data-actions). Para más información acerca de la creación de roles personalizados de Azure, consulte [Roles personalizados de Azure](../../role-based-access-control/custom-roles.md).
 
 Solo los roles definidos explícitamente para el acceso a datos permiten a una entidad de seguridad acceder a los datos de tablas. Los roles integrados, como **Propietario**, **Colaborador** y **Colaborador de la cuenta de almacenamiento**, permiten que una entidad de seguridad administre una cuenta de almacenamiento, pero no proporcionan acceso a los datos de tablas dentro de esa cuenta a través de Azure AD. Sin embargo, si un rol incluye **Microsoft.Storage/storageAccounts/listKeys/action**, el usuario al que se haya asignado ese rol podrá acceder a los datos de la cuenta de almacenamiento mediante la autorización de clave compartida con las claves de acceso de la cuenta.
 

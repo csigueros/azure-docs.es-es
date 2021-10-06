@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: integración de Azure Active Directory con Snowflake | Microsoft Docs'
+title: 'Tutorial: Integración del inicio de sesión único de Azure AD con Snowflake'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Snowflake.
 services: active-directory
 author: jeevansd
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/27/2020
+ms.date: 09/13/2021
 ms.author: jeedes
-ms.openlocfilehash: 3e16dde56b2fd136eb6c76528e1c0ba406219628
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 32e150a9a3db521fb097426f1c5ec5fb38fa6064
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122182951"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128677994"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-snowflake"></a>Tutorial: Integración de Azure Active Directory con Snowflake
+# <a name="tutorial-azure-ad-sso-integration-with-snowflake"></a>Tutorial: Integración del inicio de sesión único de Azure AD con Snowflake
 
 En este tutorial, aprenderá a integrar Snowflake con Azure Active Directory (Azure AD). Al integrar Snowflake con Azure AD, se puede hacer lo siguiente:
 
@@ -30,17 +30,20 @@ En este tutorial, aprenderá a integrar Snowflake con Azure Active Directory (Az
 
 Para configurar la integración de Azure AD con Snowflake, necesita los siguientes elementos:
 
-* Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/)
-* Una suscripción habilitada para el inicio de sesión único de Snowflake
+* Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener [una cuenta gratuita](https://azure.microsoft.com/free/).
+* Una suscripción habilitada para el inicio de sesión único de Snowflake.
+
+> [!NOTE]
+> Esta integración también está disponible para usarse desde el entorno de la nube del gobierno de EE. UU de Azure AD. Puede encontrar esta aplicación en la galería de aplicaciones de la nube del gobierno de EE. UU. de Azure AD y configurarla de la misma manera que en la nube pública.
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
 En este tutorial configurará y probará el inicio de sesión único de Azure AD en un entorno de prueba.
 
-- Snowflake admite el inicio de sesión único iniciado por **SP e IDP**
-- Snowflake admite el [aprovisionamiento y desaprovisionamiento de usuarios de forma automática](snowflake-provisioning-tutorial.md) (recomendado).
+* Snowflake admite el inicio de sesión único iniciado por **SP e IDP**.
+* Snowflake admite el [aprovisionamiento y desaprovisionamiento de usuarios de forma automática](snowflake-provisioning-tutorial.md) (recomendado).
 
-## <a name="adding-snowflake-from-the-gallery"></a>Adición de Snowflake desde la galería
+## <a name="add-snowflake-from-the-gallery"></a>Adición de Snowflake desde la galería
 
 Para configurar la integración de Snowflake en Azure AD, será preciso que agregue Snowflake desde la galería a la lista de aplicaciones SaaS administradas.
 
@@ -55,7 +58,7 @@ Para configurar la integración de Snowflake en Azure AD, será preciso que agre
 
 Configure y pruebe el inicio de sesión único de Azure AD con Snowflake mediante un usuario de prueba llamado **B. Simon**. Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario correspondiente de Snowflake.
 
-Para configurar y probar el inicio de sesión único de Azure AD con Snowflake, es preciso completar los siguientes bloques de creación:
+Para configurar y probar el inicio de sesión único de Azure AD con Snowflake, haga lo siguiente:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
     1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
@@ -64,7 +67,7 @@ Para configurar y probar el inicio de sesión único de Azure AD con Snowflake,
     1. **[Creación del usuario de prueba de Snowflake](#create-snowflake-test-user)** : para tener un homólogo de B. Simon en Snowflake vinculado a la representación del usuario en Azure AD.
 1. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
 
-### <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
+## <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
 
 Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal.
 
@@ -96,7 +99,6 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 6. En la sección **Set up Snowflake** (Configurar Snowflake), copie las direcciones URL que necesite.
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
-
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
@@ -131,11 +133,11 @@ En esta sección, va a permitir que B. Simon acceda a Snowflake mediante el ini
     > [!NOTE]
     > Esto es independiente del contexto que haya seleccionado en la esquina superior derecha bajo el nombre de usuario.
     
-    ![El administrador de Snowflake](./media/snowflake-tutorial/tutorial_snowflake_accountadmin.png)
+    ![El administrador de Snowflake](./media/snowflake-tutorial/account.png)
 
 1. Abra el **certificado Base 64 descargado** en el Bloc de notas. Copie el valor entre "---BEGIN CERTIFICATE---" y "---END CERTIFICATE---" y pegue esto en las comillas junto a **certificado** a continuación. En el cuadro de texto **ssoUrl** (Dirección URL de cierre de sesión), pegue el valor de la **URL de inicio de sesión** que ha copiado de Azure Portal. Seleccione **Todas las consultas** y haga clic en **Ejecutar**.
 
-   ![sql de Snowflake](./media/snowflake-tutorial/tutorial_snowflake_sql.png)
+   ![sql de Snowflake](./media/snowflake-tutorial/certificate.png)
 
    ```
    use role accountadmin;
@@ -148,7 +150,6 @@ En esta sección, va a permitir que B. Simon acceda a Snowflake mediante el ini
    alter account set sso_login_page = TRUE;
    ```
 
-
 ### <a name="create-snowflake-test-user"></a>Creación del usuario de prueba de Snowflake
 
 Para permitir que los usuarios de Azure AD inicien sesión en Snowflake, tienen que aprovisionarse en Snowflake. En Snowflake, el aprovisionamiento es una tarea manual.
@@ -159,18 +160,18 @@ Para permitir que los usuarios de Azure AD inicien sesión en Snowflake, tienen 
 
 2. Cambie de rol (**Switch Role**) en **ACCOUNTADMIN**, haciendo clic en el **perfil** en la parte superior derecha de la página.  
 
-    ![El administrador de Snowflake](./media/snowflake-tutorial/tutorial_snowflake_accountadmin.png)
+    ![El administrador de Snowflake](./media/snowflake-tutorial/account.png)
 
 3. Para crear el usuario, ejecute la siguiente consulta SQL y asegúrese de que "Login name" (Nombre de inicio de sesión) esté establecido en el nombre de usuario de Azure AD en la hoja de cálculo, como se muestra a continuación.
 
-    ![adminsql de Snowflake](./media/snowflake-tutorial/tutorial_snowflake_usersql.png)
+    ![adminsql de Snowflake](./media/snowflake-tutorial/user.png)
 
     ```
     use role accountadmin;
     CREATE USER britta_simon PASSWORD = '' LOGIN_NAME = 'BrittaSimon@contoso.com' DISPLAY_NAME = 'Britta Simon';
     ```
 
-### <a name="test-sso"></a>Prueba de SSO 
+## <a name="test-sso"></a>Prueba de SSO 
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones. 
 
@@ -185,7 +186,6 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 * Haga clic en **Probar esta aplicación** en Azure Portal. Se debería iniciar sesión automáticamente en la instancia de Snowflake para la que ha configurado el inicio de sesión único. 
 
 También puede usar Aplicaciones de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de Proware en Aplicaciones, si se ha configurado en modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para comenzar el flujo de inicio de sesión; y si se ha configurado en modo IDP, se debería iniciar sesión automáticamente en la instancia de Snowflake para la que ha configurado el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

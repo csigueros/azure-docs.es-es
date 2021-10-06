@@ -10,14 +10,14 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 06/24/2021
+ms.date: 09/12/2021
 tags: azure-synpase
-ms.openlocfilehash: 869498111df151f78cb0a1d9ad7ede1dd84aaf42
-ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
+ms.openlocfilehash: 8a3740a228aa03a23f3584c3412b8451ebacc35e
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112582629"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124812419"
 ---
 # <a name="dynamic-data-masking"></a>Enmascaramiento de datos dinámicos 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -52,6 +52,13 @@ Para configurar una directiva de enmascaramiento de datos dinámicos en Azure Po
 
 El motor de recomendaciones de DDM marca determinados campos de la base de datos como campos potencialmente confidenciales, que pueden ser buenos candidatos para el enmascaramiento. En la hoja Enmascaramiento de datos dinámicos del portal, verá las columnas recomendadas para la base de datos. Todo lo que debe hacer es hacer clic en **Agregar máscara** para una o más columnas y, después, en **Guardar** a fin de aplicar una máscara para estos campos.
 
+## <a name="manage-dynamic-data-masking-using-t-sql"></a>Administración del enmascaramiento dinámico de datos mediante T-SQL
+
+- Para crear una máscara dinámica de datos, consulte [Creación de una máscara dinámica de datos](/sql/relational-databases/security/dynamic-data-masking#creating-a-dynamic-data-mask).
+- Para agregar o editar una máscara en una columna existente, consulte [Adición o edición de una máscara en una columna existente](/sql/relational-databases/security/dynamic-data-masking#adding-or-editing-a-mask-on-an-existing-column).
+- Para conceder permisos para ver datos sin enmascarar, consulte [Concesión de permisos para ver datos sin enmascarar](/sql/relational-databases/security/dynamic-data-masking#granting-permissions-to-view-unmasked-data).
+- Para anular una máscara dinámica de datos, consulte [Anulación de una máscara dinámica de datos](/sql/relational-databases/security/dynamic-data-masking#dropping-a-dynamic-data-mask).
+
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-powershell-cmdlets"></a>Configuración del enmascaramiento de datos dinámicos para la base de datos mediante cmdlets de PowerShell
 
 ### <a name="data-masking-policies"></a>Directivas de enmascaramiento de datos
@@ -82,7 +89,19 @@ Puede usar las API de REST para administrar las reglas y directivas de enmascara
 
 ## <a name="permissions"></a>Permisos
 
-El enmascaramiento dinámico de datos se puede configurar mediante el administrador de Azure SQL Database, el administrador del servidor o el rol [Administrador de seguridad de SQL](../../role-based-access-control/built-in-roles.md#sql-security-manager) del control de acceso basado en rol (RBAC).
+Estos son los roles integrados para configurar el enmascaramiento dinámico de datos:
+- [Administrador de seguridad SQL](../../role-based-access-control/built-in-roles.md#sql-security-manager)
+- [Colaborador de Base de datos de SQL](../../role-based-access-control/built-in-roles.md#sql-db-contributor)
+- [Colaborador de SQL Server](../../role-based-access-control/built-in-roles.md#sql-server-contributor)
+
+Estas son las acciones necesarias para usar el enmascaramiento dinámico de datos:
+
+Lectura/escritura:
+- Microsoft.Sql/servers/databases/dataMaskingPolicies/* Lectura:
+- Microsoft.Sql/servers/databases/dataMaskingPolicies/read Escritura:
+-   Microsoft.Sql/servers/databases/dataMaskingPolicies/write
+
+Para obtener más información sobre los permisos al usar el enmascaramiento dinámico de datos con el comando T-SQL, consulte [Permisos](/sql/relational-databases/security/dynamic-data-masking#permissions).
 
 ## <a name="see-also"></a>Vea también
 

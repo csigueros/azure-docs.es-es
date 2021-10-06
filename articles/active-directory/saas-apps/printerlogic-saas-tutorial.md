@@ -9,36 +9,38 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/18/2021
+ms.date: 08/31/2021
 ms.author: jeedes
-ms.openlocfilehash: 1d43a3fddec2c72302ecd607dedec9e4cb340ad3
-ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
+ms.openlocfilehash: 4e4529fccf6051a3376b3b3ecda715e672c61a90
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108802925"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124756382"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-printerlogic"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con PrinterLogic
 
 En este tutorial, aprenderá a integrar PrinterLogic con Azure Active Directory (Azure AD). Si integra PrinterLogic con Azure AD, podrá:
 
-- Controlar en Azure AD quién tiene acceso a PrinterLogic.
-- Permitir que los usuarios puedan iniciar sesión automáticamente en PrinterLogic con sus cuentas de Azure AD.
-- Administrar las cuentas desde una ubicación central (Azure Portal).
+* Controlar en Azure AD quién tiene acceso a PrinterLogic.
+* Permitir que los usuarios puedan iniciar sesión automáticamente en PrinterLogic con sus cuentas de Azure AD.
+* Administrar las cuentas desde una ubicación central (Azure Portal).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
-- Una suscripción de Azure AD. Si no tiene una suscripción, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/).
-- Una suscripción habilitada para el inicio de sesión único (SSO) en PrinterLogic.
+* Una suscripción de Azure AD. Si no tiene una suscripción, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/).
+* Una suscripción habilitada para el inicio de sesión único (SSO) en PrinterLogic.
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-- PrinterLogic permite utilizar el inicio de sesión único con **SP e IDP**.
-- PrinterLogic admite el aprovisionamiento de usuarios **Just-In-Time**.
+* PrinterLogic permite utilizar el inicio de sesión único con **SP e IDP**.
+* PrinterLogic admite el aprovisionamiento de usuarios **Just-In-Time**.
+
+* PrinterLogic admite el [aprovisionamiento automatizado de usuarios](printer-logic-saas-provisioning-tutorial.md).
 
 ## <a name="add-printerlogic-from-the-gallery"></a>Incorporación de PrinterLogic desde la galería
 
@@ -140,21 +142,23 @@ Para configurar el inicio de sesión único en **PrinterLogic**, es preciso envi
 
 En esta sección, va a crear un usuario llamado Britta Simon en PrinterLogic. PrinterLogic admite el aprovisionamiento de usuarios Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Si aún no existe ningún usuario en PrinterLogic, se creará uno después de la autenticación.
 
+PrinterLogic también admite el aprovisionamiento automático de usuarios. [Aquí](./printer-logic-saas-provisioning-tutorial.md) puede encontrar más detalles sobre cómo configurar el aprovisionamiento automático de usuarios.
+
 ## <a name="test-sso"></a>Prueba de SSO
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones.
 
 #### <a name="sp-initiated"></a>Iniciado por SP:
 
-- Haga clic en **Probar esta aplicación** en Azure Portal. Esta operación le redireccionará a la dirección URL de inicio de sesión de PrinterLogic, donde puede comenzar el flujo de inicio de sesión.
+* Haga clic en **Probar esta aplicación** en Azure Portal. Esta operación le redireccionará a la dirección URL de inicio de sesión de PrinterLogic, donde puede comenzar el flujo de inicio de sesión.
 
-- Vaya directamente a la dirección URL de inicio de sesión de PrinterLogic y comience el flujo de inicio de sesión desde allí.
+* Vaya directamente a la dirección URL de inicio de sesión de PrinterLogic y comience el flujo de inicio de sesión desde allí.
 
 #### <a name="idp-initiated"></a>Iniciado por IDP:
 
-- En Azure Portal, haga clic en **Probar esta aplicación**. Al hacerlo, debería iniciar sesión automáticamente en la instancia de PrinterLogic en la que haya configurado el inicio de sesión único.
+* En Azure Portal, haga clic en **Probar esta aplicación**. Al hacerlo, debería iniciar sesión automáticamente en la instancia de PrinterLogic en la que haya configurado el inicio de sesión único.
 
-También puede usar Aplicaciones de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de PrinterLogic de Aplicaciones, si seleccionó el modo SP en la configuración, accederá automáticamente a la página de inicio de sesión de la aplicación para comenzar el flujo de inicio de sesión. Por el contrario, si selección el modo IDP, debería iniciar sesión automáticamente en la instancia de PrinterLogic en la que configuró el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+* También puede usar Aplicaciones de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de PrinterLogic de Aplicaciones, si seleccionó el modo SP en la configuración, accederá automáticamente a la página de inicio de sesión de la aplicación para comenzar el flujo de inicio de sesión. Por el contrario, si selección el modo IDP, debería iniciar sesión automáticamente en la instancia de PrinterLogic en la que configuró el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

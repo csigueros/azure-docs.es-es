@@ -4,16 +4,17 @@ titleSuffix: An Azure Communication Services concept document
 description: Obtenga información sobre la arquitectura de Communication Services.
 author: probableprime
 manager: mikben
+services: azure-communication-services
 ms.author: rifox
 ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 6d1228ab412ff87f3004e6e1dd5ab1486cee67a0
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 1346c9f6505c03ccebb2d2e2dc33e899050bfe20
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129360108"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128672027"
 ---
 # <a name="client-and-server-architecture"></a>Arquitectura de cliente y servidor
 
@@ -84,7 +85,7 @@ Las aplicaciones de Azure Communication Service pueden unirse a las llamadas con
 
 
 ### <a name="dataflows"></a>Flujos de datos
-1. El servicio de administración de llamadas crea una llamada grupal con [Graph API](/graph/api/resources/onlinemeeting?view=graph-rest-1.0&preserve-view=true). Otro patrón implica que los usuarios finales creen la llamada grupal mediante [Bookings](https://www.microsoft.com/microsoft-365/business/scheduling-and-booking-app), Outlook, Teams, o cualquier otra aplicación de programación del ecosistema Microsoft 365.
+1. El servicio de administración de llamadas crea una llamada grupal con [Graph API](/graph/api/resources/onlinemeeting?view=graph-rest-1.0). Otro patrón implica que los usuarios finales creen la llamada grupal mediante [Bookings](https://www.microsoft.com/microsoft-365/business/scheduling-and-booking-app), Outlook, Teams, o cualquier otra aplicación de programación del ecosistema Microsoft 365.
 2. El servicio de administración de llamadas comparte los detalles de las llamadas de Teams con los clientes de Azure Communication Services.
 3. Normalmente, los usuarios de Teams deben unirse a la llamada y permitir que los usuarios externos se unan a través de la sala. Sin embargo, esta experiencia es sensible a la configuración del inquilino de Teams y a la configuración específica de la reunión.
 4. Los usuarios de Azure Communication Services inicializan su cliente de llamada y se unen a la reunión de Teams mediante los detalles recibidos en el paso 2.
