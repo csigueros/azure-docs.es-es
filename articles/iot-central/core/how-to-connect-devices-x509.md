@@ -102,7 +102,7 @@ Después de guardar el grupo de inscripciones, tome nota del ámbito de identifi
 
 ### <a name="run-sample-device-code&quot;></a>Ejecución del código del dispositivo de ejemplo
 
-:::zone pivot=&quot;programming-language-csharp&quot;
+:::zone pivot="programming-language-csharp"
 
 Si usa Windows, los certificados X.509 deben estar en el almacén de certificados de Windows para que el ejemplo funcione. Para agregar los certificados al almacén:
 
